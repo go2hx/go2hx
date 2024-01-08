@@ -2021,7 +2021,7 @@ function compare(_x_:Value, _op:stdgo.go.token.Token.Token, _y_:Value):Bool {
         };
         throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid comparison %v %s %v" : stdgo.GoString), stdgo.Go.toInterface(_x_), stdgo.Go.toInterface(stdgo.Go.asInterface(_op)), stdgo.Go.toInterface(_y_)));
     }
-function _testNumbers(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _kind:stdgo.go.token.Token.Token, _tests:stdgo.Slice<stdgo.GoString>):Void {
+function _testNumbers(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _kind:stdgo.go.token.Token.Token, _tests:stdgo.Slice<stdgo.GoString>):Void {
         for (__1 => _test in _tests) {
             var _a = stdgo.strings.Strings.split(_test?.__copy__(), (" = " : stdgo.GoString));
             if ((_a.length) != ((2 : stdgo.StdGoTypes.GoInt))) {
@@ -2065,12 +2065,12 @@ function _testNumbers(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _kind:st
     // TestNumbers verifies that differently written literals
     // representing the same number do have the same value.
 **/
-function testNumbers(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNumbers(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         _testNumbers(_t, (5 : stdgo.go.token.Token.Token), _intTests);
         _testNumbers(_t, (6 : stdgo.go.token.Token.Token), _floatTests);
         _testNumbers(_t, (7 : stdgo.go.token.Token.Token), _imagTests);
     }
-function testOps(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testOps(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__1 => _test in _opTests) {
             var _a = stdgo.strings.Strings.split(_test?.__copy__(), (" " : stdgo.GoString));
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -2090,7 +2090,7 @@ function testOps(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                     continue;
                 };
             };
-            var __tmp__ = (_optab != null && _optab.exists(_a[(_i : stdgo.StdGoTypes.GoInt)]?.__copy__()) ? { value : _optab[_a[(_i : stdgo.StdGoTypes.GoInt)]?.__copy__()], ok : true } : { value : ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.token.Token.Token), ok : false }), _op:stdgo.go.token.Token.Token = __tmp__.value, _ok:Bool = __tmp__.ok;
+            var __tmp__ = (_optab != null && _optab.exists(_a[(_i : stdgo.StdGoTypes.GoInt)]?.__copy__()) ? { _0 : _optab[_a[(_i : stdgo.StdGoTypes.GoInt)]?.__copy__()], _1 : true } : { _0 : ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.token.Token.Token), _1 : false }), _op:stdgo.go.token.Token.Token = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 throw stdgo.Go.toInterface(("missing optab entry for " : stdgo.GoString) + _a[(_i : stdgo.StdGoTypes.GoInt)]?.__copy__());
             };
@@ -2113,21 +2113,21 @@ function testOps(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
     }
 function _eql(_x:Value, _y:Value):Bool {
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x) : T_unknownVal)) : T_unknownVal), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x) : T_unknownVal)) : T_unknownVal), _1 : true };
         } catch(_) {
-            { value : ({} : stdgo.go.constant.Constant.T_unknownVal), ok : false };
-        }, __1 = __tmp__.value, _ux = __tmp__.ok;
+            { _0 : ({} : stdgo.go.constant.Constant.T_unknownVal), _1 : false };
+        }, __1 = __tmp__._0, _ux = __tmp__._1;
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : T_unknownVal)) : T_unknownVal), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : T_unknownVal)) : T_unknownVal), _1 : true };
         } catch(_) {
-            { value : ({} : stdgo.go.constant.Constant.T_unknownVal), ok : false };
-        }, __2 = __tmp__.value, _uy = __tmp__.ok;
+            { _0 : ({} : stdgo.go.constant.Constant.T_unknownVal), _1 : false };
+        }, __2 = __tmp__._0, _uy = __tmp__._1;
         if (_ux || _uy) {
             return _ux == (_uy);
         };
         return compare(_x, (39 : stdgo.go.token.Token.Token), _y);
     }
-function testString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__1 => _test in _stringTests) {
             var _x:stdgo.go.constant.Constant.Value = _val(_test._input?.__copy__());
             {
@@ -2280,7 +2280,7 @@ function _doOp(_x:Value, _op:stdgo.go.token.Token.Token, _y:Value):Value {
             return _z;
         };
     }
-function testFractions(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testFractions(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__1 => _test in _fracTests) {
             var _x:stdgo.go.constant.Constant.Value = _val(_test?.__copy__());
             var _q:stdgo.go.constant.Constant.Value = binaryOp(num(_x), (15 : stdgo.go.token.Token.Token), denom(_x));
@@ -2291,7 +2291,7 @@ function testFractions(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testBytes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testBytes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__1 => _test in _bytesTests) {
             var _x:stdgo.go.constant.Constant.Value = _val(_test?.__copy__());
             var _bytes = bytes(_x);
@@ -2312,7 +2312,7 @@ function testBytes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testUnknown(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnknown(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _u:stdgo.go.constant.Constant.Value = makeUnknown();
         var _values:stdgo.Slice<stdgo.go.constant.Constant.Value> = (new stdgo.Slice<stdgo.go.constant.Constant.Value>(8, 8, _u, makeBool(false), makeString(stdgo.Go.str()?.__copy__()), makeInt64((1i64 : stdgo.StdGoTypes.GoInt64)), makeFromLiteral(("\'\'" : stdgo.GoString), (8 : stdgo.go.token.Token.Token), (0u32 : stdgo.StdGoTypes.GoUInt)), makeFromLiteral(("-1234567890123456789012345678901234567890" : stdgo.GoString), (5 : stdgo.go.token.Token.Token), (0u32 : stdgo.StdGoTypes.GoUInt)), makeFloat64((1.2 : stdgo.StdGoTypes.GoFloat64)), makeImag(makeFloat64((1.2 : stdgo.StdGoTypes.GoFloat64)))) : stdgo.Slice<stdgo.go.constant.Constant.Value>);
         for (__1 => _val in _values) {
@@ -2341,7 +2341,7 @@ function testUnknown(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testMakeFloat64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMakeFloat64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _zero:stdgo.StdGoTypes.GoFloat64 = (0 : stdgo.StdGoTypes.GoFloat64);
         for (__1 => _arg in (new stdgo.Slice<stdgo.StdGoTypes.GoFloat64>(
 10,
@@ -2376,7 +2376,7 @@ _zero,
 function _dup(_k:Kind, _x:stdgo.StdGoTypes.AnyInterface):T_makeTestCase {
         return (new stdgo.go.constant.Constant.T_makeTestCase(_k, _x, _x) : stdgo.go.constant.Constant.T_makeTestCase);
     }
-function testMake(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMake(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__1 => _test in (new stdgo.Slice<stdgo.go.constant.Constant.T_makeTestCase>(
 9,
 9,
@@ -2424,7 +2424,7 @@ function benchmarkStringAdd(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Vo
             });
         };
     }
-function testBitLen(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testBitLen(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__1 => _test in _bitLenTests) {
             {
                 var _got:stdgo.StdGoTypes.GoInt = bitLen(makeInt64(_test._val));

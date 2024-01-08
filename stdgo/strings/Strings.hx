@@ -457,10 +457,10 @@ function _makeGenericReplacer(_oldnew:stdgo.Slice<stdgo.GoString>):stdgo.StdGoTy
     }
 function _getStringWriter(_w:stdgo.io.Io.Writer):stdgo.io.Io.StringWriter {
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_w) : stdgo.io.Io.StringWriter)) : stdgo.io.Io.StringWriter), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_w) : stdgo.io.Io.StringWriter)) : stdgo.io.Io.StringWriter), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.io.Io.StringWriter), ok : false };
-        }, _sw = __tmp__.value, _ok = __tmp__.ok;
+            { _0 : (null : stdgo.io.Io.StringWriter), _1 : false };
+        }, _sw = __tmp__._0, _ok = __tmp__._1;
         if (!_ok) {
             _sw = stdgo.Go.asInterface((new stdgo.strings.Strings.T_stringWriter(_w) : stdgo.strings.Strings.T_stringWriter));
         };

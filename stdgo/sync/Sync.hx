@@ -899,7 +899,7 @@ function onceFunc(_f:() -> Void):() -> Void {
     //
     // If f panics, the returned function will panic with the same value on every call.
 **/
-macro function onceValue<T>(__generic__0:haxe.macro.Expr.ExprOf<T>, _f:haxe.macro.Expr.ExprOf<() -> T>):haxe.macro.Expr.ExprOf<() -> T>;
+macro function onceValue<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _f:haxe.macro.Expr.ExprOf<() -> T_>):haxe.macro.Expr.ExprOf<() -> T_>;
 /**
     // OnceValues returns a function that invokes f only once and returns the values
     // returned by f. The returned function may be called concurrently.
@@ -1343,20 +1343,20 @@ class Map__asInterface {
         @:recv var _m:stdgo.StdGoTypes.Ref<Map_> = _m;
         var _deleted:Bool = false;
         var _read:stdgo.sync.Sync.T_readOnly = _m._loadReadOnly()?.__copy__();
-        var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+        var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), _1 : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok && _read._amended) {
             _m._mu.lock();
             _read = _m._loadReadOnly()?.__copy__();
             {
-                var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false });
-                _e = __tmp__.value;
-                _ok = __tmp__.ok;
+                var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), _1 : false });
+                _e = __tmp__._0;
+                _ok = __tmp__._1;
             };
             if (!_ok && _read._amended) {
                 {
-                    var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false });
-                    _e = __tmp__.value;
-                    _ok = __tmp__.ok;
+                    var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { _0 : _m._dirty[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), _1 : false });
+                    _e = __tmp__._0;
+                    _ok = __tmp__._1;
                 };
                 _m._missLocked();
             };
@@ -1385,7 +1385,7 @@ class Map__asInterface {
         try {
             var _read:stdgo.sync.Sync.T_readOnly = _m._loadReadOnly()?.__copy__();
             {
-                var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+                var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), _1 : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     return _e._tryCompareAndSwap(_old, _new);
                 } else if (!_read._amended) {
@@ -1397,11 +1397,11 @@ class Map__asInterface {
             _read = _m._loadReadOnly()?.__copy__();
             var _swapped:Bool = false;
             {
-                var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+                var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), _1 : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     _swapped = _e._tryCompareAndSwap(_old, _new);
                 } else {
-                    var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+                    var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { _0 : _m._dirty[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), _1 : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (_ok) {
                         _swapped = _e._tryCompareAndSwap(_old, _new);
                         _m._missLocked();
@@ -1445,7 +1445,7 @@ class Map__asInterface {
         var _previous:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _loaded:Bool = false;
         var _read:stdgo.sync.Sync.T_readOnly = _m._loadReadOnly()?.__copy__();
         {
-            var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+            var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), _1 : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 {
                     var __tmp__ = _e._trySwap((stdgo.Go.setRef(_value) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>)), _v:stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface> = __tmp__._0, _ok:Bool = __tmp__._1;
@@ -1461,7 +1461,7 @@ class Map__asInterface {
         _m._mu.lock();
         _read = _m._loadReadOnly()?.__copy__();
         {
-            var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+            var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), _1 : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 if (_e._unexpungeLocked()) {
                     _m._dirty[_key] = _e;
@@ -1474,7 +1474,7 @@ class Map__asInterface {
                     };
                 };
             } else {
-                var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+                var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { _0 : _m._dirty[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), _1 : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     {
                         var _v = _e._swapLocked((stdgo.Go.setRef(_value) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>));
@@ -1512,20 +1512,20 @@ class Map__asInterface {
         @:recv var _m:stdgo.StdGoTypes.Ref<Map_> = _m;
         var _value:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _loaded:Bool = false;
         var _read:stdgo.sync.Sync.T_readOnly = _m._loadReadOnly()?.__copy__();
-        var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+        var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), _1 : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok && _read._amended) {
             _m._mu.lock();
             _read = _m._loadReadOnly()?.__copy__();
             {
-                var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false });
-                _e = __tmp__.value;
-                _ok = __tmp__.ok;
+                var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), _1 : false });
+                _e = __tmp__._0;
+                _ok = __tmp__._1;
             };
             if (!_ok && _read._amended) {
                 {
-                    var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false });
-                    _e = __tmp__.value;
-                    _ok = __tmp__.ok;
+                    var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { _0 : _m._dirty[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), _1 : false });
+                    _e = __tmp__._0;
+                    _ok = __tmp__._1;
                 };
                 if (_m._dirty != null) _m._dirty.remove(_key);
                 _m._missLocked();
@@ -1548,7 +1548,7 @@ class Map__asInterface {
         var _actual:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _loaded:Bool = false;
         var _read:stdgo.sync.Sync.T_readOnly = _m._loadReadOnly()?.__copy__();
         {
-            var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+            var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), _1 : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 var __tmp__ = _e._tryLoadOrStore(_value), _actual:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _loaded:Bool = __tmp__._1, _ok:Bool = __tmp__._2;
                 if (_ok) {
@@ -1559,7 +1559,7 @@ class Map__asInterface {
         _m._mu.lock();
         _read = _m._loadReadOnly()?.__copy__();
         {
-            var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+            var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), _1 : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 if (_e._unexpungeLocked()) {
                     _m._dirty[_key] = _e;
@@ -1570,7 +1570,7 @@ class Map__asInterface {
                     _loaded = __tmp__._1;
                 };
             } else {
-                var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+                var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { _0 : _m._dirty[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), _1 : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     {
                         var __tmp__ = _e._tryLoadOrStore(_value);
@@ -1614,20 +1614,20 @@ class Map__asInterface {
         @:recv var _m:stdgo.StdGoTypes.Ref<Map_> = _m;
         var _value:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _ok:Bool = false;
         var _read:stdgo.sync.Sync.T_readOnly = _m._loadReadOnly()?.__copy__();
-        var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+        var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), _1 : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok && _read._amended) {
             _m._mu.lock();
             _read = _m._loadReadOnly()?.__copy__();
             {
-                var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false });
-                _e = __tmp__.value;
-                _ok = __tmp__.ok;
+                var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), _1 : false });
+                _e = __tmp__._0;
+                _ok = __tmp__._1;
             };
             if (!_ok && _read._amended) {
                 {
-                    var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false });
-                    _e = __tmp__.value;
-                    _ok = __tmp__.ok;
+                    var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { _0 : _m._dirty[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), _1 : false });
+                    _e = __tmp__._0;
+                    _ok = __tmp__._1;
                 };
                 _m._missLocked();
             };

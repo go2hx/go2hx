@@ -762,7 +762,7 @@ final invalidDir : stdgo.internal.abi.Abi.ChanDir = (0 : stdgo.internal.abi.Abi.
     
     
 **/
-@:structInit @:using(stdgo.internal.abi.Abi.Type_static_extension) class Type {
+@:structInit @:using(stdgo.internal.abi.Abi.Type__static_extension) class Type_ {
     public var size_ : stdgo.StdGoTypes.GoUIntptr = 0;
     public var ptrBytes : stdgo.StdGoTypes.GoUIntptr = 0;
     public var hash : stdgo.StdGoTypes.GoUInt32 = 0;
@@ -798,7 +798,7 @@ final invalidDir : stdgo.internal.abi.Abi.ChanDir = (0 : stdgo.internal.abi.Abi.
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new Type(
+        return new Type_(
 size_,
 ptrBytes,
 hash,
@@ -884,11 +884,11 @@ ptrToThis);
 **/
 @:structInit @:using(stdgo.internal.abi.Abi.ArrayType_static_extension) class ArrayType {
     @:embedded
-    public var type : stdgo.internal.abi.Abi.Type = ({} : stdgo.internal.abi.Abi.Type);
-    public var elem : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>);
-    public var slice : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>);
+    public var type : stdgo.internal.abi.Abi.Type_ = ({} : stdgo.internal.abi.Abi.Type_);
+    public var elem : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>);
+    public var slice : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>);
     public var len : stdgo.StdGoTypes.GoUIntptr = 0;
-    public function new(?type:stdgo.internal.abi.Abi.Type, ?elem:stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>, ?slice:stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>, ?len:stdgo.StdGoTypes.GoUIntptr) {
+    public function new(?type:stdgo.internal.abi.Abi.Type_, ?elem:stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>, ?slice:stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>, ?len:stdgo.StdGoTypes.GoUIntptr) {
         if (type != null) this.type = type;
         if (elem != null) this.elem = elem;
         if (slice != null) this.slice = slice;
@@ -902,7 +902,7 @@ ptrToThis);
     @:embedded
     public function chanDir():stdgo.internal.abi.Abi.ChanDir return type.chanDir();
     @:embedded
-    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return type.common();
+    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return type.common();
     @:embedded
     public function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return type.exportedMethods();
     @:embedded
@@ -920,7 +920,7 @@ ptrToThis);
     @:embedded
     public function isDirectIface():Bool return type.isDirectIface();
     @:embedded
-    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return type.key();
+    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return type.key();
     @:embedded
     public function kind():stdgo.internal.abi.Abi.Kind return type.kind();
     @:embedded
@@ -946,10 +946,10 @@ ptrToThis);
 **/
 @:structInit @:using(stdgo.internal.abi.Abi.ChanType_static_extension) class ChanType {
     @:embedded
-    public var type : stdgo.internal.abi.Abi.Type = ({} : stdgo.internal.abi.Abi.Type);
-    public var elem : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>);
+    public var type : stdgo.internal.abi.Abi.Type_ = ({} : stdgo.internal.abi.Abi.Type_);
+    public var elem : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>);
     public var dir : stdgo.internal.abi.Abi.ChanDir = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.internal.abi.Abi.ChanDir);
-    public function new(?type:stdgo.internal.abi.Abi.Type, ?elem:stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>, ?dir:stdgo.internal.abi.Abi.ChanDir) {
+    public function new(?type:stdgo.internal.abi.Abi.Type_, ?elem:stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>, ?dir:stdgo.internal.abi.Abi.ChanDir) {
         if (type != null) this.type = type;
         if (elem != null) this.elem = elem;
         if (dir != null) this.dir = dir;
@@ -962,7 +962,7 @@ ptrToThis);
     @:embedded
     public function chanDir():stdgo.internal.abi.Abi.ChanDir return type.chanDir();
     @:embedded
-    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return type.common();
+    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return type.common();
     @:embedded
     public function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return type.exportedMethods();
     @:embedded
@@ -980,7 +980,7 @@ ptrToThis);
     @:embedded
     public function isDirectIface():Bool return type.isDirectIface();
     @:embedded
-    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return type.key();
+    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return type.key();
     @:embedded
     public function kind():stdgo.internal.abi.Abi.Kind return type.kind();
     @:embedded
@@ -1022,9 +1022,9 @@ ptrToThis);
     @:embedded
     public function chanDir():stdgo.internal.abi.Abi.ChanDir return structType.chanDir();
     @:embedded
-    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return structType.common();
+    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return structType.common();
     @:embedded
-    public function elem():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return structType.elem();
+    public function elem():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return structType.elem();
     @:embedded
     public function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return structType.exportedMethods();
     @:embedded
@@ -1042,7 +1042,7 @@ ptrToThis);
     @:embedded
     public function isDirectIface():Bool return structType.isDirectIface();
     @:embedded
-    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return structType.key();
+    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return structType.key();
     @:embedded
     public function kind():stdgo.internal.abi.Abi.Kind return structType.kind();
     @:embedded
@@ -1068,10 +1068,10 @@ ptrToThis);
 **/
 @:structInit @:using(stdgo.internal.abi.Abi.InterfaceType_static_extension) class InterfaceType {
     @:embedded
-    public var type : stdgo.internal.abi.Abi.Type = ({} : stdgo.internal.abi.Abi.Type);
+    public var type : stdgo.internal.abi.Abi.Type_ = ({} : stdgo.internal.abi.Abi.Type_);
     public var pkgPath : stdgo.internal.abi.Abi.Name = ({} : stdgo.internal.abi.Abi.Name);
     public var methods : stdgo.Slice<stdgo.internal.abi.Abi.Imethod> = (null : stdgo.Slice<stdgo.internal.abi.Abi.Imethod>);
-    public function new(?type:stdgo.internal.abi.Abi.Type, ?pkgPath:stdgo.internal.abi.Abi.Name, ?methods:stdgo.Slice<stdgo.internal.abi.Abi.Imethod>) {
+    public function new(?type:stdgo.internal.abi.Abi.Type_, ?pkgPath:stdgo.internal.abi.Abi.Name, ?methods:stdgo.Slice<stdgo.internal.abi.Abi.Imethod>) {
         if (type != null) this.type = type;
         if (pkgPath != null) this.pkgPath = pkgPath;
         if (methods != null) this.methods = methods;
@@ -1084,9 +1084,9 @@ ptrToThis);
     @:embedded
     public function chanDir():stdgo.internal.abi.Abi.ChanDir return type.chanDir();
     @:embedded
-    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return type.common();
+    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return type.common();
     @:embedded
-    public function elem():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return type.elem();
+    public function elem():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return type.elem();
     @:embedded
     public function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return type.exportedMethods();
     @:embedded
@@ -1104,7 +1104,7 @@ ptrToThis);
     @:embedded
     public function isDirectIface():Bool return type.isDirectIface();
     @:embedded
-    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return type.key();
+    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return type.key();
     @:embedded
     public function kind():stdgo.internal.abi.Abi.Kind return type.kind();
     @:embedded
@@ -1130,10 +1130,10 @@ ptrToThis);
 **/
 @:structInit @:using(stdgo.internal.abi.Abi.MapType_static_extension) class MapType {
     @:embedded
-    public var type : stdgo.internal.abi.Abi.Type = ({} : stdgo.internal.abi.Abi.Type);
-    public var key : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>);
-    public var elem : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>);
-    public var bucket : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>);
+    public var type : stdgo.internal.abi.Abi.Type_ = ({} : stdgo.internal.abi.Abi.Type_);
+    public var key : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>);
+    public var elem : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>);
+    public var bucket : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>);
     /**
         // function for hashing keys (ptr to key, seed) -> hash
     **/
@@ -1142,7 +1142,7 @@ ptrToThis);
     public var valueSize : stdgo.StdGoTypes.GoUInt8 = 0;
     public var bucketSize : stdgo.StdGoTypes.GoUInt16 = 0;
     public var flags : stdgo.StdGoTypes.GoUInt32 = 0;
-    public function new(?type:stdgo.internal.abi.Abi.Type, ?key:stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>, ?elem:stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>, ?bucket:stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>, ?hasher:(stdgo.unsafe.Unsafe.UnsafePointer, stdgo.StdGoTypes.GoUIntptr) -> stdgo.StdGoTypes.GoUIntptr, ?keySize:stdgo.StdGoTypes.GoUInt8, ?valueSize:stdgo.StdGoTypes.GoUInt8, ?bucketSize:stdgo.StdGoTypes.GoUInt16, ?flags:stdgo.StdGoTypes.GoUInt32) {
+    public function new(?type:stdgo.internal.abi.Abi.Type_, ?key:stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>, ?elem:stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>, ?bucket:stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>, ?hasher:(stdgo.unsafe.Unsafe.UnsafePointer, stdgo.StdGoTypes.GoUIntptr) -> stdgo.StdGoTypes.GoUIntptr, ?keySize:stdgo.StdGoTypes.GoUInt8, ?valueSize:stdgo.StdGoTypes.GoUInt8, ?bucketSize:stdgo.StdGoTypes.GoUInt16, ?flags:stdgo.StdGoTypes.GoUInt32) {
         if (type != null) this.type = type;
         if (key != null) this.key = key;
         if (elem != null) this.elem = elem;
@@ -1161,7 +1161,7 @@ ptrToThis);
     @:embedded
     public function chanDir():stdgo.internal.abi.Abi.ChanDir return type.chanDir();
     @:embedded
-    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return type.common();
+    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return type.common();
     @:embedded
     public function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return type.exportedMethods();
     @:embedded
@@ -1205,9 +1205,9 @@ ptrToThis);
 **/
 @:structInit @:using(stdgo.internal.abi.Abi.SliceType_static_extension) class SliceType {
     @:embedded
-    public var type : stdgo.internal.abi.Abi.Type = ({} : stdgo.internal.abi.Abi.Type);
-    public var elem : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>);
-    public function new(?type:stdgo.internal.abi.Abi.Type, ?elem:stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>) {
+    public var type : stdgo.internal.abi.Abi.Type_ = ({} : stdgo.internal.abi.Abi.Type_);
+    public var elem : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>);
+    public function new(?type:stdgo.internal.abi.Abi.Type_, ?elem:stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>) {
         if (type != null) this.type = type;
         if (elem != null) this.elem = elem;
     }
@@ -1219,7 +1219,7 @@ ptrToThis);
     @:embedded
     public function chanDir():stdgo.internal.abi.Abi.ChanDir return type.chanDir();
     @:embedded
-    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return type.common();
+    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return type.common();
     @:embedded
     public function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return type.exportedMethods();
     @:embedded
@@ -1237,7 +1237,7 @@ ptrToThis);
     @:embedded
     public function isDirectIface():Bool return type.isDirectIface();
     @:embedded
-    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return type.key();
+    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return type.key();
     @:embedded
     public function kind():stdgo.internal.abi.Abi.Kind return type.kind();
     @:embedded
@@ -1275,10 +1275,10 @@ ptrToThis);
 **/
 @:structInit @:using(stdgo.internal.abi.Abi.FuncType_static_extension) class FuncType {
     @:embedded
-    public var type : stdgo.internal.abi.Abi.Type = ({} : stdgo.internal.abi.Abi.Type);
+    public var type : stdgo.internal.abi.Abi.Type_ = ({} : stdgo.internal.abi.Abi.Type_);
     public var inCount : stdgo.StdGoTypes.GoUInt16 = 0;
     public var outCount : stdgo.StdGoTypes.GoUInt16 = 0;
-    public function new(?type:stdgo.internal.abi.Abi.Type, ?inCount:stdgo.StdGoTypes.GoUInt16, ?outCount:stdgo.StdGoTypes.GoUInt16) {
+    public function new(?type:stdgo.internal.abi.Abi.Type_, ?inCount:stdgo.StdGoTypes.GoUInt16, ?outCount:stdgo.StdGoTypes.GoUInt16) {
         if (type != null) this.type = type;
         if (inCount != null) this.inCount = inCount;
         if (outCount != null) this.outCount = outCount;
@@ -1291,9 +1291,9 @@ ptrToThis);
     @:embedded
     public function chanDir():stdgo.internal.abi.Abi.ChanDir return type.chanDir();
     @:embedded
-    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return type.common();
+    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return type.common();
     @:embedded
-    public function elem():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return type.elem();
+    public function elem():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return type.elem();
     @:embedded
     public function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return type.exportedMethods();
     @:embedded
@@ -1311,7 +1311,7 @@ ptrToThis);
     @:embedded
     public function isDirectIface():Bool return type.isDirectIface();
     @:embedded
-    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return type.key();
+    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return type.key();
     @:embedded
     public function kind():stdgo.internal.abi.Abi.Kind return type.kind();
     @:embedded
@@ -1339,9 +1339,9 @@ ptrToThis);
 **/
 @:structInit @:using(stdgo.internal.abi.Abi.PtrType_static_extension) class PtrType {
     @:embedded
-    public var type : stdgo.internal.abi.Abi.Type = ({} : stdgo.internal.abi.Abi.Type);
-    public var elem : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>);
-    public function new(?type:stdgo.internal.abi.Abi.Type, ?elem:stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>) {
+    public var type : stdgo.internal.abi.Abi.Type_ = ({} : stdgo.internal.abi.Abi.Type_);
+    public var elem : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>);
+    public function new(?type:stdgo.internal.abi.Abi.Type_, ?elem:stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>) {
         if (type != null) this.type = type;
         if (elem != null) this.elem = elem;
     }
@@ -1353,7 +1353,7 @@ ptrToThis);
     @:embedded
     public function chanDir():stdgo.internal.abi.Abi.ChanDir return type.chanDir();
     @:embedded
-    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return type.common();
+    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return type.common();
     @:embedded
     public function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return type.exportedMethods();
     @:embedded
@@ -1371,7 +1371,7 @@ ptrToThis);
     @:embedded
     public function isDirectIface():Bool return type.isDirectIface();
     @:embedded
-    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return type.key();
+    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return type.key();
     @:embedded
     public function kind():stdgo.internal.abi.Abi.Kind return type.kind();
     @:embedded
@@ -1399,9 +1399,9 @@ ptrToThis);
 **/
 @:structInit @:using(stdgo.internal.abi.Abi.StructField_static_extension) class StructField {
     public var name : stdgo.internal.abi.Abi.Name = ({} : stdgo.internal.abi.Abi.Name);
-    public var typ : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>);
+    public var typ : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>);
     public var offset : stdgo.StdGoTypes.GoUIntptr = 0;
-    public function new(?name:stdgo.internal.abi.Abi.Name, ?typ:stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>, ?offset:stdgo.StdGoTypes.GoUIntptr) {
+    public function new(?name:stdgo.internal.abi.Abi.Name, ?typ:stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>, ?offset:stdgo.StdGoTypes.GoUIntptr) {
         if (name != null) this.name = name;
         if (typ != null) this.typ = typ;
         if (offset != null) this.offset = offset;
@@ -1418,10 +1418,10 @@ ptrToThis);
 **/
 @:structInit @:using(stdgo.internal.abi.Abi.StructType_static_extension) class StructType {
     @:embedded
-    public var type : stdgo.internal.abi.Abi.Type = ({} : stdgo.internal.abi.Abi.Type);
+    public var type : stdgo.internal.abi.Abi.Type_ = ({} : stdgo.internal.abi.Abi.Type_);
     public var pkgPath : stdgo.internal.abi.Abi.Name = ({} : stdgo.internal.abi.Abi.Name);
     public var fields : stdgo.Slice<stdgo.internal.abi.Abi.StructField> = (null : stdgo.Slice<stdgo.internal.abi.Abi.StructField>);
-    public function new(?type:stdgo.internal.abi.Abi.Type, ?pkgPath:stdgo.internal.abi.Abi.Name, ?fields:stdgo.Slice<stdgo.internal.abi.Abi.StructField>) {
+    public function new(?type:stdgo.internal.abi.Abi.Type_, ?pkgPath:stdgo.internal.abi.Abi.Name, ?fields:stdgo.Slice<stdgo.internal.abi.Abi.StructField>) {
         if (type != null) this.type = type;
         if (pkgPath != null) this.pkgPath = pkgPath;
         if (fields != null) this.fields = fields;
@@ -1434,9 +1434,9 @@ ptrToThis);
     @:embedded
     public function chanDir():stdgo.internal.abi.Abi.ChanDir return type.chanDir();
     @:embedded
-    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return type.common();
+    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return type.common();
     @:embedded
-    public function elem():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return type.elem();
+    public function elem():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return type.elem();
     @:embedded
     public function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return type.exportedMethods();
     @:embedded
@@ -1454,7 +1454,7 @@ ptrToThis);
     @:embedded
     public function isDirectIface():Bool return type.isDirectIface();
     @:embedded
-    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return type.key();
+    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return type.key();
     @:embedded
     public function kind():stdgo.internal.abi.Abi.Kind return type.kind();
     @:embedded
@@ -1964,9 +1964,9 @@ class Offset_asInterface {
         return _o?.__copy__();
     }
 }
-class Type_asInterface {
+class Type__asInterface {
     @:keep
-    public dynamic function key():stdgo.StdGoTypes.Ref<Type> return __self__.value.key();
+    public dynamic function key():stdgo.StdGoTypes.Ref<Type_> return __self__.value.key();
     @:keep
     public dynamic function numMethod():stdgo.StdGoTypes.GoInt return __self__.value.numMethod();
     @:keep
@@ -2012,7 +2012,7 @@ class Type_asInterface {
         // Elem returns the element type for t if t is an array, channel, map, pointer, or slice, otherwise nil.
     **/
     @:keep
-    public dynamic function elem():stdgo.StdGoTypes.Ref<Type> return __self__.value.elem();
+    public dynamic function elem():stdgo.StdGoTypes.Ref<Type_> return __self__.value.elem();
     /**
         // Uncommon returns a pointer to T's "uncommon" data if there is any, otherwise nil
     **/
@@ -2024,7 +2024,7 @@ class Type_asInterface {
     @:keep
     public dynamic function chanDir():ChanDir return __self__.value.chanDir();
     @:keep
-    public dynamic function common():stdgo.StdGoTypes.Ref<Type> return __self__.value.common();
+    public dynamic function common():stdgo.StdGoTypes.Ref<Type_> return __self__.value.common();
     /**
         // Len returns the length of t if t is an array type, otherwise 0
     **/
@@ -2053,15 +2053,15 @@ class Type_asInterface {
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<Type>;
+    var __self__ : stdgo.Pointer<Type_>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
-@:keep @:allow(stdgo.internal.abi.Abi.Type_asInterface) class Type_static_extension {
+@:keep @:allow(stdgo.internal.abi.Abi.Type__asInterface) class Type__static_extension {
     @:keep
-    static public function key( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.Ref<Type> {
-        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
+    static public function key( _t:stdgo.StdGoTypes.Ref<Type_>):stdgo.StdGoTypes.Ref<Type_> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type_> = _t;
         if (_t.kind() == ((21u32 : stdgo.internal.abi.Abi.Kind))) {
-            return ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.MapType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+            return ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.MapType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2072,7 +2072,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "key", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "key", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2083,7 +2083,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2094,7 +2094,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "bucket", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "bucket", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2110,10 +2110,10 @@ class Type_asInterface {
         return null;
     }
     @:keep
-    static public function numMethod( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.GoInt {
-        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
+    static public function numMethod( _t:stdgo.StdGoTypes.Ref<Type_>):stdgo.StdGoTypes.GoInt {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type_> = _t;
         if (_t.kind() == ((20u32 : stdgo.internal.abi.Abi.Kind))) {
-            var _tt = ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.InterfaceType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+            var _tt = ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.InterfaceType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2130,8 +2130,8 @@ class Type_asInterface {
         return (_t.exportedMethods().length);
     }
     @:keep
-    static public function exportedMethods( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.Slice<Method> {
-        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
+    static public function exportedMethods( _t:stdgo.StdGoTypes.Ref<Type_>):stdgo.Slice<Method> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type_> = _t;
         var _ut = _t.uncommon();
         if (_ut == null || (_ut : Dynamic).__nil__) {
             return (null : stdgo.Slice<stdgo.internal.abi.Abi.Method>);
@@ -2139,36 +2139,36 @@ class Type_asInterface {
         return _ut.exportedMethods();
     }
     @:keep
-    static public function fieldAlign( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.GoInt {
-        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
+    static public function fieldAlign( _t:stdgo.StdGoTypes.Ref<Type_>):stdgo.StdGoTypes.GoInt {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type_> = _t;
         return (_t.fieldAlign_ : stdgo.StdGoTypes.GoInt);
     }
     /**
         // Align returns the alignment of data with type t.
     **/
     @:keep
-    static public function align( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.GoInt {
-        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
+    static public function align( _t:stdgo.StdGoTypes.Ref<Type_>):stdgo.StdGoTypes.GoInt {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type_> = _t;
         return (_t.align_ : stdgo.StdGoTypes.GoInt);
     }
     /**
         // Size returns the size of data with type t.
     **/
     @:keep
-    static public function size( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.GoUIntptr {
-        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
+    static public function size( _t:stdgo.StdGoTypes.Ref<Type_>):stdgo.StdGoTypes.GoUIntptr {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type_> = _t;
         return _t.size_;
     }
     /**
         // InterfaceType returns t cast to a *InterfaceType, or nil if its tag does not match.
     **/
     @:keep
-    static public function interfaceType( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.Ref<InterfaceType> {
-        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
+    static public function interfaceType( _t:stdgo.StdGoTypes.Ref<Type_>):stdgo.StdGoTypes.Ref<InterfaceType> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type_> = _t;
         if (_t.kind() != ((20u32 : stdgo.internal.abi.Abi.Kind))) {
             return null;
         };
-        return ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.InterfaceType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+        return ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.InterfaceType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2185,12 +2185,12 @@ class Type_asInterface {
         // FuncType returns t cast to a *FuncType, or nil if its tag does not match.
     **/
     @:keep
-    static public function funcType( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.Ref<FuncType> {
-        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
+    static public function funcType( _t:stdgo.StdGoTypes.Ref<Type_>):stdgo.StdGoTypes.Ref<FuncType> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type_> = _t;
         if (_t.kind() != ((19u32 : stdgo.internal.abi.Abi.Kind))) {
             return null;
         };
-        return ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.FuncType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+        return ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.FuncType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2207,12 +2207,12 @@ class Type_asInterface {
         // ArrayType returns t cast to a *ArrayType, or nil if its tag does not match.
     **/
     @:keep
-    static public function arrayType( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.Ref<ArrayType> {
-        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
+    static public function arrayType( _t:stdgo.StdGoTypes.Ref<Type_>):stdgo.StdGoTypes.Ref<ArrayType> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type_> = _t;
         if (_t.kind() != ((17u32 : stdgo.internal.abi.Abi.Kind))) {
             return null;
         };
-        return ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.ArrayType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+        return ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.ArrayType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2223,7 +2223,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2234,7 +2234,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "slice", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "slice", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2251,12 +2251,12 @@ class Type_asInterface {
         // MapType returns t cast to a *MapType, or nil if its tag does not match.
     **/
     @:keep
-    static public function mapType( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.Ref<MapType> {
-        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
+    static public function mapType( _t:stdgo.StdGoTypes.Ref<Type_>):stdgo.StdGoTypes.Ref<MapType> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type_> = _t;
         if (_t.kind() != ((21u32 : stdgo.internal.abi.Abi.Kind))) {
             return null;
         };
-        return ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.MapType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+        return ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.MapType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2267,7 +2267,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "key", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "key", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2278,7 +2278,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2289,7 +2289,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "bucket", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "bucket", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2306,12 +2306,12 @@ class Type_asInterface {
         // StructType returns t cast to a *StructType, or nil if its tag does not match.
     **/
     @:keep
-    static public function structType( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.Ref<StructType> {
-        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
+    static public function structType( _t:stdgo.StdGoTypes.Ref<Type_>):stdgo.StdGoTypes.Ref<StructType> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type_> = _t;
         if (_t.kind() != ((25u32 : stdgo.internal.abi.Abi.Kind))) {
             return null;
         };
-        return ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.StructType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+        return ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.StructType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2322,7 +2322,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "pkgPath", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Name", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "bytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "fields", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.StructField", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Name", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "bytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "typ", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "pkgPath", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Name", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "bytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "fields", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.StructField", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Name", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "bytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "typ", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2339,12 +2339,12 @@ class Type_asInterface {
         // Elem returns the element type for t if t is an array, channel, map, pointer, or slice, otherwise nil.
     **/
     @:keep
-    static public function elem( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.Ref<Type> {
-        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
+    static public function elem( _t:stdgo.StdGoTypes.Ref<Type_>):stdgo.StdGoTypes.Ref<Type_> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type_> = _t;
         {
             final __value__ = _t.kind();
             if (__value__ == ((17u32 : stdgo.internal.abi.Abi.Kind))) {
-                var _tt = ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.ArrayType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+                var _tt = ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.ArrayType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2355,7 +2355,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2366,7 +2366,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "slice", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "slice", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2380,7 +2380,7 @@ class Type_asInterface {
 { name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "len", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<ArrayType>);
                 return _tt.elem;
             } else if (__value__ == ((18u32 : stdgo.internal.abi.Abi.Kind))) {
-                var _tt = ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.ChanType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+                var _tt = ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.ChanType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2391,7 +2391,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2405,7 +2405,7 @@ class Type_asInterface {
 { name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "dir", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.ChanDir", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<ChanType>);
                 return _tt.elem;
             } else if (__value__ == ((21u32 : stdgo.internal.abi.Abi.Kind))) {
-                var _tt = ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.MapType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+                var _tt = ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.MapType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2416,7 +2416,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "key", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "key", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2427,7 +2427,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2438,7 +2438,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "bucket", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "bucket", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2452,7 +2452,7 @@ class Type_asInterface {
 { name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "hasher", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false }, { name : "keySize", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }, optional : false }, { name : "valueSize", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }, optional : false }, { name : "bucketSize", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "flags", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<MapType>);
                 return _tt.elem;
             } else if (__value__ == ((22u32 : stdgo.internal.abi.Abi.Kind))) {
-                var _tt = ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.PtrType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+                var _tt = ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.PtrType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2463,7 +2463,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2477,7 +2477,7 @@ class Type_asInterface {
 { name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<PtrType>);
                 return _tt.elem;
             } else if (__value__ == ((23u32 : stdgo.internal.abi.Abi.Kind))) {
-                var _tt = ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.SliceType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+                var _tt = ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.SliceType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2488,7 +2488,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2509,15 +2509,15 @@ class Type_asInterface {
         // Uncommon returns a pointer to T's "uncommon" data if there is any, otherwise nil
     **/
     @:keep
-    static public function uncommon( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.Ref<UncommonType> {
-        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
+    static public function uncommon( _t:stdgo.StdGoTypes.Ref<Type_>):stdgo.StdGoTypes.Ref<UncommonType> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type_> = _t;
         if (_t.tflag & (1 : stdgo.internal.abi.Abi.TFlag) == ((0 : stdgo.internal.abi.Abi.TFlag))) {
             return null;
         };
         {
             final __value__ = _t.kind();
             if (__value__ == ((25u32 : stdgo.internal.abi.Abi.Kind))) {
-                return (stdgo.Go.setRef(((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.T_structTypeUncommon", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "structType", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.StructType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+                return (stdgo.Go.setRef(((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.T_structTypeUncommon", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "structType", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.StructType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2528,7 +2528,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "pkgPath", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Name", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "bytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "fields", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.StructField", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Name", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "bytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "typ", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "pkgPath", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Name", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "bytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "fields", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.StructField", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Name", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "bytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "typ", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2542,7 +2542,7 @@ class Type_asInterface {
 { name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "offset", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "_u", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.UncommonType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "pkgPath", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }, { name : "mcount", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "xcount", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "moff", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }, { name : "__205", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<T_structTypeUncommon>)._u) : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.UncommonType>);
             } else if (__value__ == ((22u32 : stdgo.internal.abi.Abi.Kind))) {
                 {};
-                return (stdgo.Go.setRef(((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.T_uncommon_42___localname___u", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "ptrType", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.PtrType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+                return (stdgo.Go.setRef(((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.T_uncommon_42___localname___u", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "ptrType", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.PtrType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2553,7 +2553,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2567,7 +2567,7 @@ class Type_asInterface {
 { name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "_u", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.UncommonType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "pkgPath", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }, { name : "mcount", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "xcount", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "moff", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }, { name : "__214", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<T_uncommon_42___localname___u>)._u) : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.UncommonType>);
             } else if (__value__ == ((19u32 : stdgo.internal.abi.Abi.Kind))) {
                 {};
-                return (stdgo.Go.setRef(((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.T_uncommon_43___localname___u", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "funcType", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.FuncType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+                return (stdgo.Go.setRef(((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.T_uncommon_43___localname___u", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "funcType", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.FuncType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2581,7 +2581,7 @@ class Type_asInterface {
 { name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "inCount", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "outCount", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "_u", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.UncommonType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "pkgPath", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }, { name : "mcount", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "xcount", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "moff", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }, { name : "__223", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<T_uncommon_43___localname___u>)._u) : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.UncommonType>);
             } else if (__value__ == ((23u32 : stdgo.internal.abi.Abi.Kind))) {
                 {};
-                return (stdgo.Go.setRef(((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.T_uncommon_44___localname___u", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "sliceType", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.SliceType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+                return (stdgo.Go.setRef(((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.T_uncommon_44___localname___u", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "sliceType", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.SliceType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2592,7 +2592,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2606,7 +2606,7 @@ class Type_asInterface {
 { name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "_u", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.UncommonType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "pkgPath", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }, { name : "mcount", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "xcount", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "moff", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }, { name : "__232", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<T_uncommon_44___localname___u>)._u) : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.UncommonType>);
             } else if (__value__ == ((17u32 : stdgo.internal.abi.Abi.Kind))) {
                 {};
-                return (stdgo.Go.setRef(((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.T_uncommon_45___localname___u", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "arrayType", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.ArrayType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+                return (stdgo.Go.setRef(((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.T_uncommon_45___localname___u", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "arrayType", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.ArrayType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2617,7 +2617,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2628,7 +2628,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "slice", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "slice", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2642,7 +2642,7 @@ class Type_asInterface {
 { name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "len", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "_u", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.UncommonType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "pkgPath", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }, { name : "mcount", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "xcount", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "moff", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }, { name : "__241", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<T_uncommon_45___localname___u>)._u) : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.UncommonType>);
             } else if (__value__ == ((18u32 : stdgo.internal.abi.Abi.Kind))) {
                 {};
-                return (stdgo.Go.setRef(((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.T_uncommon_46___localname___u", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "chanType", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.ChanType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+                return (stdgo.Go.setRef(((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.T_uncommon_46___localname___u", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "chanType", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.ChanType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2653,7 +2653,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2667,7 +2667,7 @@ class Type_asInterface {
 { name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "dir", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.ChanDir", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "_u", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.UncommonType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "pkgPath", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }, { name : "mcount", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "xcount", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "moff", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }, { name : "__250", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<T_uncommon_46___localname___u>)._u) : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.UncommonType>);
             } else if (__value__ == ((21u32 : stdgo.internal.abi.Abi.Kind))) {
                 {};
-                return (stdgo.Go.setRef(((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.T_uncommon_47___localname___u", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "mapType", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.MapType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+                return (stdgo.Go.setRef(((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.T_uncommon_47___localname___u", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "mapType", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.MapType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2678,7 +2678,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "key", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "key", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2689,7 +2689,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2700,7 +2700,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "bucket", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "bucket", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2714,7 +2714,7 @@ class Type_asInterface {
 { name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "hasher", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false }, { name : "keySize", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }, optional : false }, { name : "valueSize", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }, optional : false }, { name : "bucketSize", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "flags", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "_u", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.UncommonType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "pkgPath", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }, { name : "mcount", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "xcount", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "moff", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }, { name : "__259", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<T_uncommon_47___localname___u>)._u) : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.UncommonType>);
             } else if (__value__ == ((20u32 : stdgo.internal.abi.Abi.Kind))) {
                 {};
-                return (stdgo.Go.setRef(((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.T_uncommon_48___localname___u", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "interfaceType", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.InterfaceType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+                return (stdgo.Go.setRef(((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.T_uncommon_48___localname___u", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "interfaceType", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.InterfaceType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2728,7 +2728,7 @@ class Type_asInterface {
 { name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "pkgPath", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Name", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "bytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "methods", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Imethod", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }, { name : "typ", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "_u", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.UncommonType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "pkgPath", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }, { name : "mcount", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "xcount", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "moff", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }, { name : "__268", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<T_uncommon_48___localname___u>)._u) : stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.UncommonType>);
             } else {
                 {};
-                return (stdgo.Go.setRef(((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.T_uncommon_49___localname___u", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+                return (stdgo.Go.setRef(((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.T_uncommon_49___localname___u", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2747,10 +2747,10 @@ class Type_asInterface {
         // ChanDir returns the direction of t if t is a channel type, otherwise InvalidDir (0).
     **/
     @:keep
-    static public function chanDir( _t:stdgo.StdGoTypes.Ref<Type>):ChanDir {
-        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
+    static public function chanDir( _t:stdgo.StdGoTypes.Ref<Type_>):ChanDir {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type_> = _t;
         if (_t.kind() == ((18u32 : stdgo.internal.abi.Abi.Kind))) {
-            var _ch = ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.ChanType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+            var _ch = ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.ChanType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2761,7 +2761,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2778,18 +2778,18 @@ class Type_asInterface {
         return (0 : stdgo.internal.abi.Abi.ChanDir);
     }
     @:keep
-    static public function common( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.Ref<Type> {
-        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
+    static public function common( _t:stdgo.StdGoTypes.Ref<Type_>):stdgo.StdGoTypes.Ref<Type_> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type_> = _t;
         return _t;
     }
     /**
         // Len returns the length of t if t is an array type, otherwise 0
     **/
     @:keep
-    static public function len( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.GoInt {
-        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
+    static public function len( _t:stdgo.StdGoTypes.Ref<Type_>):stdgo.StdGoTypes.GoInt {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type_> = _t;
         if (_t.kind() == ((17u32 : stdgo.internal.abi.Abi.Kind))) {
-            return (((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.ArrayType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+            return (((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.ArrayType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2800,7 +2800,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "elem", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2811,7 +2811,7 @@ class Type_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "slice", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "slice", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -2827,39 +2827,39 @@ class Type_asInterface {
         return (0 : stdgo.StdGoTypes.GoInt);
     }
     @:keep
-    static public function gcSlice( _t:stdgo.StdGoTypes.Ref<Type>, _begin:stdgo.StdGoTypes.GoUIntptr, _end:stdgo.StdGoTypes.GoUIntptr):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
-        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
+    static public function gcSlice( _t:stdgo.StdGoTypes.Ref<Type_>, _begin:stdgo.StdGoTypes.GoUIntptr, _end:stdgo.StdGoTypes.GoUIntptr):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type_> = _t;
         return (_unsafeSliceFor(_t.gcdata, (_end : stdgo.StdGoTypes.GoInt)).__slice__(_begin) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
     }
     /**
         // isDirectIface reports whether t is stored directly in an interface value.
     **/
     @:keep
-    static public function isDirectIface( _t:stdgo.StdGoTypes.Ref<Type>):Bool {
-        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
+    static public function isDirectIface( _t:stdgo.StdGoTypes.Ref<Type_>):Bool {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type_> = _t;
         return _t.kind_ & (32 : stdgo.StdGoTypes.GoUInt8) != ((0 : stdgo.StdGoTypes.GoUInt8));
     }
     /**
         // IfaceIndir reports whether t is stored indirectly in an interface value.
     **/
     @:keep
-    static public function ifaceIndir( _t:stdgo.StdGoTypes.Ref<Type>):Bool {
-        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
+    static public function ifaceIndir( _t:stdgo.StdGoTypes.Ref<Type_>):Bool {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type_> = _t;
         return _t.kind_ & (32 : stdgo.StdGoTypes.GoUInt8) == ((0 : stdgo.StdGoTypes.GoUInt8));
     }
     @:keep
-    static public function pointers( _t:stdgo.StdGoTypes.Ref<Type>):Bool {
-        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
+    static public function pointers( _t:stdgo.StdGoTypes.Ref<Type_>):Bool {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type_> = _t;
         return _t.ptrBytes != ((0 : stdgo.StdGoTypes.GoUIntptr));
     }
     @:keep
-    static public function hasName( _t:stdgo.StdGoTypes.Ref<Type>):Bool {
-        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
+    static public function hasName( _t:stdgo.StdGoTypes.Ref<Type_>):Bool {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type_> = _t;
         return _t.tflag & (4 : stdgo.internal.abi.Abi.TFlag) != ((0 : stdgo.internal.abi.Abi.TFlag));
     }
     @:keep
-    static public function kind( _t:stdgo.StdGoTypes.Ref<Type>):Kind {
-        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
+    static public function kind( _t:stdgo.StdGoTypes.Ref<Type_>):Kind {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type_> = _t;
         return (_t.kind_ & (31 : stdgo.StdGoTypes.GoUInt8) : Kind);
     }
 }
@@ -2884,7 +2884,7 @@ class Type_asInterface {
     @:embedded
     public function chanDir():stdgo.internal.abi.Abi.ChanDir return ptrType.chanDir();
     @:embedded
-    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return ptrType.common();
+    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return ptrType.common();
     @:embedded
     public function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return ptrType.exportedMethods();
     @:embedded
@@ -2902,7 +2902,7 @@ class Type_asInterface {
     @:embedded
     public function isDirectIface():Bool return ptrType.isDirectIface();
     @:embedded
-    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return ptrType.key();
+    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return ptrType.key();
     @:embedded
     public function kind():stdgo.internal.abi.Abi.Kind return ptrType.kind();
     @:embedded
@@ -2944,9 +2944,9 @@ class Type_asInterface {
     @:embedded
     public function chanDir():stdgo.internal.abi.Abi.ChanDir return funcType.chanDir();
     @:embedded
-    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return funcType.common();
+    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return funcType.common();
     @:embedded
-    public function elem():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return funcType.elem();
+    public function elem():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return funcType.elem();
     @:embedded
     public function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return funcType.exportedMethods();
     @:embedded
@@ -2958,9 +2958,9 @@ class Type_asInterface {
     @:embedded
     public function ifaceIndir():Bool return funcType.ifaceIndir();
     @:embedded
-    public function in_(_i:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return funcType.in_(_i);
+    public function in_(_i:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return funcType.in_(_i);
     @:embedded
-    public function inSlice():stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>> return funcType.inSlice();
+    public function inSlice():stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>> return funcType.inSlice();
     @:embedded
     public function interfaceType():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.InterfaceType> return funcType.interfaceType();
     @:embedded
@@ -2968,7 +2968,7 @@ class Type_asInterface {
     @:embedded
     public function isVariadic():Bool return funcType.isVariadic();
     @:embedded
-    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return funcType.key();
+    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return funcType.key();
     @:embedded
     public function kind():stdgo.internal.abi.Abi.Kind return funcType.kind();
     @:embedded
@@ -2982,9 +2982,9 @@ class Type_asInterface {
     @:embedded
     public function numOut():stdgo.StdGoTypes.GoInt return funcType.numOut();
     @:embedded
-    public function out(_i:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return funcType.out(_i);
+    public function out(_i:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return funcType.out(_i);
     @:embedded
-    public function outSlice():stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>> return funcType.outSlice();
+    public function outSlice():stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>> return funcType.outSlice();
     @:embedded
     public function pointers():Bool return funcType.pointers();
     @:embedded
@@ -3018,7 +3018,7 @@ class Type_asInterface {
     @:embedded
     public function chanDir():stdgo.internal.abi.Abi.ChanDir return sliceType.chanDir();
     @:embedded
-    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return sliceType.common();
+    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return sliceType.common();
     @:embedded
     public function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return sliceType.exportedMethods();
     @:embedded
@@ -3036,7 +3036,7 @@ class Type_asInterface {
     @:embedded
     public function isDirectIface():Bool return sliceType.isDirectIface();
     @:embedded
-    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return sliceType.key();
+    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return sliceType.key();
     @:embedded
     public function kind():stdgo.internal.abi.Abi.Kind return sliceType.kind();
     @:embedded
@@ -3076,7 +3076,7 @@ class Type_asInterface {
     @:embedded
     public function chanDir():stdgo.internal.abi.Abi.ChanDir return arrayType.chanDir();
     @:embedded
-    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return arrayType.common();
+    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return arrayType.common();
     @:embedded
     public function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return arrayType.exportedMethods();
     @:embedded
@@ -3094,7 +3094,7 @@ class Type_asInterface {
     @:embedded
     public function isDirectIface():Bool return arrayType.isDirectIface();
     @:embedded
-    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return arrayType.key();
+    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return arrayType.key();
     @:embedded
     public function kind():stdgo.internal.abi.Abi.Kind return arrayType.kind();
     @:embedded
@@ -3134,7 +3134,7 @@ class Type_asInterface {
     @:embedded
     public function chanDir():stdgo.internal.abi.Abi.ChanDir return chanType.chanDir();
     @:embedded
-    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return chanType.common();
+    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return chanType.common();
     @:embedded
     public function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return chanType.exportedMethods();
     @:embedded
@@ -3152,7 +3152,7 @@ class Type_asInterface {
     @:embedded
     public function isDirectIface():Bool return chanType.isDirectIface();
     @:embedded
-    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return chanType.key();
+    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return chanType.key();
     @:embedded
     public function kind():stdgo.internal.abi.Abi.Kind return chanType.kind();
     @:embedded
@@ -3194,7 +3194,7 @@ class Type_asInterface {
     @:embedded
     public function chanDir():stdgo.internal.abi.Abi.ChanDir return mapType.chanDir();
     @:embedded
-    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return mapType.common();
+    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return mapType.common();
     @:embedded
     public function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return mapType.exportedMethods();
     @:embedded
@@ -3260,9 +3260,9 @@ class Type_asInterface {
     @:embedded
     public function chanDir():stdgo.internal.abi.Abi.ChanDir return interfaceType.chanDir();
     @:embedded
-    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return interfaceType.common();
+    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return interfaceType.common();
     @:embedded
-    public function elem():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return interfaceType.elem();
+    public function elem():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return interfaceType.elem();
     @:embedded
     public function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return interfaceType.exportedMethods();
     @:embedded
@@ -3278,7 +3278,7 @@ class Type_asInterface {
     @:embedded
     public function isDirectIface():Bool return interfaceType.isDirectIface();
     @:embedded
-    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return interfaceType.key();
+    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return interfaceType.key();
     @:embedded
     public function kind():stdgo.internal.abi.Abi.Kind return interfaceType.kind();
     @:embedded
@@ -3306,9 +3306,9 @@ class Type_asInterface {
 **/
 @:structInit class T_uncommon_49___localname___u {
     @:embedded
-    public var type : stdgo.internal.abi.Abi.Type = ({} : stdgo.internal.abi.Abi.Type);
+    public var type : stdgo.internal.abi.Abi.Type_ = ({} : stdgo.internal.abi.Abi.Type_);
     public var _u : stdgo.internal.abi.Abi.UncommonType = ({} : stdgo.internal.abi.Abi.UncommonType);
-    public function new(?type:stdgo.internal.abi.Abi.Type, ?_u:stdgo.internal.abi.Abi.UncommonType) {
+    public function new(?type:stdgo.internal.abi.Abi.Type_, ?_u:stdgo.internal.abi.Abi.UncommonType) {
         if (type != null) this.type = type;
         if (_u != null) this._u = _u;
     }
@@ -3320,9 +3320,9 @@ class Type_asInterface {
     @:embedded
     public function chanDir():stdgo.internal.abi.Abi.ChanDir return type.chanDir();
     @:embedded
-    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return type.common();
+    public function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return type.common();
     @:embedded
-    public function elem():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return type.elem();
+    public function elem():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return type.elem();
     @:embedded
     public function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return type.exportedMethods();
     @:embedded
@@ -3340,7 +3340,7 @@ class Type_asInterface {
     @:embedded
     public function isDirectIface():Bool return type.isDirectIface();
     @:embedded
-    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return type.key();
+    public function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return type.key();
     @:embedded
     public function kind():stdgo.internal.abi.Abi.Kind return type.kind();
     @:embedded
@@ -3408,7 +3408,7 @@ class ArrayType_asInterface {
     @:embedded
     public dynamic function kind():stdgo.internal.abi.Abi.Kind return __self__.value.kind();
     @:embedded
-    public dynamic function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.value.key();
+    public dynamic function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.value.key();
     @:embedded
     public dynamic function isDirectIface():Bool return __self__.value.isDirectIface();
     @:embedded
@@ -3426,7 +3426,7 @@ class ArrayType_asInterface {
     @:embedded
     public dynamic function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return __self__.value.exportedMethods();
     @:embedded
-    public dynamic function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.value.common();
+    public dynamic function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.value.common();
     @:embedded
     public dynamic function chanDir():stdgo.internal.abi.Abi.ChanDir return __self__.value.chanDir();
     @:embedded
@@ -3457,7 +3457,7 @@ class ArrayType_asInterface {
     @:embedded
     public static function kind( __self__:ArrayType):stdgo.internal.abi.Abi.Kind return __self__.kind();
     @:embedded
-    public static function key( __self__:ArrayType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.key();
+    public static function key( __self__:ArrayType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.key();
     @:embedded
     public static function isDirectIface( __self__:ArrayType):Bool return __self__.isDirectIface();
     @:embedded
@@ -3475,7 +3475,7 @@ class ArrayType_asInterface {
     @:embedded
     public static function exportedMethods( __self__:ArrayType):stdgo.Slice<stdgo.internal.abi.Abi.Method> return __self__.exportedMethods();
     @:embedded
-    public static function common( __self__:ArrayType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.common();
+    public static function common( __self__:ArrayType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.common();
     @:embedded
     public static function chanDir( __self__:ArrayType):stdgo.internal.abi.Abi.ChanDir return __self__.chanDir();
     @:embedded
@@ -3501,7 +3501,7 @@ class ChanType_asInterface {
     @:embedded
     public dynamic function kind():stdgo.internal.abi.Abi.Kind return __self__.value.kind();
     @:embedded
-    public dynamic function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.value.key();
+    public dynamic function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.value.key();
     @:embedded
     public dynamic function isDirectIface():Bool return __self__.value.isDirectIface();
     @:embedded
@@ -3519,7 +3519,7 @@ class ChanType_asInterface {
     @:embedded
     public dynamic function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return __self__.value.exportedMethods();
     @:embedded
-    public dynamic function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.value.common();
+    public dynamic function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.value.common();
     @:embedded
     public dynamic function chanDir():stdgo.internal.abi.Abi.ChanDir return __self__.value.chanDir();
     @:embedded
@@ -3552,7 +3552,7 @@ class ChanType_asInterface {
     @:embedded
     public static function kind( __self__:ChanType):stdgo.internal.abi.Abi.Kind return __self__.kind();
     @:embedded
-    public static function key( __self__:ChanType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.key();
+    public static function key( __self__:ChanType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.key();
     @:embedded
     public static function isDirectIface( __self__:ChanType):Bool return __self__.isDirectIface();
     @:embedded
@@ -3570,7 +3570,7 @@ class ChanType_asInterface {
     @:embedded
     public static function exportedMethods( __self__:ChanType):stdgo.Slice<stdgo.internal.abi.Abi.Method> return __self__.exportedMethods();
     @:embedded
-    public static function common( __self__:ChanType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.common();
+    public static function common( __self__:ChanType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.common();
     @:embedded
     public static function chanDir( __self__:ChanType):stdgo.internal.abi.Abi.ChanDir return __self__.chanDir();
     @:embedded
@@ -3594,7 +3594,7 @@ class T_structTypeUncommon_asInterface {
     @:embedded
     public dynamic function kind():stdgo.internal.abi.Abi.Kind return __self__.value.kind();
     @:embedded
-    public dynamic function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.value.key();
+    public dynamic function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.value.key();
     @:embedded
     public dynamic function isDirectIface():Bool return __self__.value.isDirectIface();
     @:embedded
@@ -3612,9 +3612,9 @@ class T_structTypeUncommon_asInterface {
     @:embedded
     public dynamic function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return __self__.value.exportedMethods();
     @:embedded
-    public dynamic function elem():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.value.elem();
+    public dynamic function elem():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.value.elem();
     @:embedded
-    public dynamic function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.value.common();
+    public dynamic function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.value.common();
     @:embedded
     public dynamic function chanDir():stdgo.internal.abi.Abi.ChanDir return __self__.value.chanDir();
     @:embedded
@@ -3645,7 +3645,7 @@ class T_structTypeUncommon_asInterface {
     @:embedded
     public static function kind( __self__:T_structTypeUncommon):stdgo.internal.abi.Abi.Kind return __self__.kind();
     @:embedded
-    public static function key( __self__:T_structTypeUncommon):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.key();
+    public static function key( __self__:T_structTypeUncommon):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.key();
     @:embedded
     public static function isDirectIface( __self__:T_structTypeUncommon):Bool return __self__.isDirectIface();
     @:embedded
@@ -3663,9 +3663,9 @@ class T_structTypeUncommon_asInterface {
     @:embedded
     public static function exportedMethods( __self__:T_structTypeUncommon):stdgo.Slice<stdgo.internal.abi.Abi.Method> return __self__.exportedMethods();
     @:embedded
-    public static function elem( __self__:T_structTypeUncommon):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.elem();
+    public static function elem( __self__:T_structTypeUncommon):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.elem();
     @:embedded
-    public static function common( __self__:T_structTypeUncommon):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.common();
+    public static function common( __self__:T_structTypeUncommon):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.common();
     @:embedded
     public static function chanDir( __self__:T_structTypeUncommon):stdgo.internal.abi.Abi.ChanDir return __self__.chanDir();
     @:embedded
@@ -3694,7 +3694,7 @@ class InterfaceType_asInterface {
     @:embedded
     public dynamic function kind():stdgo.internal.abi.Abi.Kind return __self__.value.kind();
     @:embedded
-    public dynamic function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.value.key();
+    public dynamic function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.value.key();
     @:embedded
     public dynamic function isDirectIface():Bool return __self__.value.isDirectIface();
     @:embedded
@@ -3712,9 +3712,9 @@ class InterfaceType_asInterface {
     @:embedded
     public dynamic function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return __self__.value.exportedMethods();
     @:embedded
-    public dynamic function elem():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.value.elem();
+    public dynamic function elem():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.value.elem();
     @:embedded
-    public dynamic function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.value.common();
+    public dynamic function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.value.common();
     @:embedded
     public dynamic function chanDir():stdgo.internal.abi.Abi.ChanDir return __self__.value.chanDir();
     @:embedded
@@ -3753,7 +3753,7 @@ class InterfaceType_asInterface {
     @:embedded
     public static function kind( __self__:InterfaceType):stdgo.internal.abi.Abi.Kind return __self__.kind();
     @:embedded
-    public static function key( __self__:InterfaceType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.key();
+    public static function key( __self__:InterfaceType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.key();
     @:embedded
     public static function isDirectIface( __self__:InterfaceType):Bool return __self__.isDirectIface();
     @:embedded
@@ -3771,9 +3771,9 @@ class InterfaceType_asInterface {
     @:embedded
     public static function exportedMethods( __self__:InterfaceType):stdgo.Slice<stdgo.internal.abi.Abi.Method> return __self__.exportedMethods();
     @:embedded
-    public static function elem( __self__:InterfaceType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.elem();
+    public static function elem( __self__:InterfaceType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.elem();
     @:embedded
-    public static function common( __self__:InterfaceType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.common();
+    public static function common( __self__:InterfaceType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.common();
     @:embedded
     public static function chanDir( __self__:InterfaceType):stdgo.internal.abi.Abi.ChanDir return __self__.chanDir();
     @:embedded
@@ -3829,7 +3829,7 @@ class MapType_asInterface {
     @:embedded
     public dynamic function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return __self__.value.exportedMethods();
     @:embedded
-    public dynamic function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.value.common();
+    public dynamic function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.value.common();
     @:embedded
     public dynamic function chanDir():stdgo.internal.abi.Abi.ChanDir return __self__.value.chanDir();
     @:embedded
@@ -3907,7 +3907,7 @@ class MapType_asInterface {
     @:embedded
     public static function exportedMethods( __self__:MapType):stdgo.Slice<stdgo.internal.abi.Abi.Method> return __self__.exportedMethods();
     @:embedded
-    public static function common( __self__:MapType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.common();
+    public static function common( __self__:MapType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.common();
     @:embedded
     public static function chanDir( __self__:MapType):stdgo.internal.abi.Abi.ChanDir return __self__.chanDir();
     @:embedded
@@ -3933,7 +3933,7 @@ class SliceType_asInterface {
     @:embedded
     public dynamic function kind():stdgo.internal.abi.Abi.Kind return __self__.value.kind();
     @:embedded
-    public dynamic function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.value.key();
+    public dynamic function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.value.key();
     @:embedded
     public dynamic function isDirectIface():Bool return __self__.value.isDirectIface();
     @:embedded
@@ -3951,7 +3951,7 @@ class SliceType_asInterface {
     @:embedded
     public dynamic function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return __self__.value.exportedMethods();
     @:embedded
-    public dynamic function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.value.common();
+    public dynamic function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.value.common();
     @:embedded
     public dynamic function chanDir():stdgo.internal.abi.Abi.ChanDir return __self__.value.chanDir();
     @:embedded
@@ -3984,7 +3984,7 @@ class SliceType_asInterface {
     @:embedded
     public static function kind( __self__:SliceType):stdgo.internal.abi.Abi.Kind return __self__.kind();
     @:embedded
-    public static function key( __self__:SliceType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.key();
+    public static function key( __self__:SliceType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.key();
     @:embedded
     public static function isDirectIface( __self__:SliceType):Bool return __self__.isDirectIface();
     @:embedded
@@ -4002,7 +4002,7 @@ class SliceType_asInterface {
     @:embedded
     public static function exportedMethods( __self__:SliceType):stdgo.Slice<stdgo.internal.abi.Abi.Method> return __self__.exportedMethods();
     @:embedded
-    public static function common( __self__:SliceType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.common();
+    public static function common( __self__:SliceType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.common();
     @:embedded
     public static function chanDir( __self__:SliceType):stdgo.internal.abi.Abi.ChanDir return __self__.chanDir();
     @:embedded
@@ -4014,17 +4014,17 @@ class FuncType_asInterface {
     @:keep
     public dynamic function isVariadic():Bool return __self__.value.isVariadic();
     @:keep
-    public dynamic function outSlice():stdgo.Slice<stdgo.StdGoTypes.Ref<Type>> return __self__.value.outSlice();
+    public dynamic function outSlice():stdgo.Slice<stdgo.StdGoTypes.Ref<Type_>> return __self__.value.outSlice();
     @:keep
-    public dynamic function inSlice():stdgo.Slice<stdgo.StdGoTypes.Ref<Type>> return __self__.value.inSlice();
+    public dynamic function inSlice():stdgo.Slice<stdgo.StdGoTypes.Ref<Type_>> return __self__.value.inSlice();
     @:keep
-    public dynamic function out(_i:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<Type> return __self__.value.out(_i);
+    public dynamic function out(_i:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<Type_> return __self__.value.out(_i);
     @:keep
     public dynamic function numOut():stdgo.StdGoTypes.GoInt return __self__.value.numOut();
     @:keep
     public dynamic function numIn():stdgo.StdGoTypes.GoInt return __self__.value.numIn();
     @:keep
-    public dynamic function in_(_i:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<Type> return __self__.value.in_(_i);
+    public dynamic function in_(_i:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<Type_> return __self__.value.in_(_i);
     @:embedded
     public dynamic function uncommon():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.UncommonType> return __self__.value.uncommon();
     @:embedded
@@ -4042,7 +4042,7 @@ class FuncType_asInterface {
     @:embedded
     public dynamic function kind():stdgo.internal.abi.Abi.Kind return __self__.value.kind();
     @:embedded
-    public dynamic function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.value.key();
+    public dynamic function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.value.key();
     @:embedded
     public dynamic function isDirectIface():Bool return __self__.value.isDirectIface();
     @:embedded
@@ -4060,9 +4060,9 @@ class FuncType_asInterface {
     @:embedded
     public dynamic function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return __self__.value.exportedMethods();
     @:embedded
-    public dynamic function elem():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.value.elem();
+    public dynamic function elem():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.value.elem();
     @:embedded
-    public dynamic function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.value.common();
+    public dynamic function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.value.common();
     @:embedded
     public dynamic function chanDir():stdgo.internal.abi.Abi.ChanDir return __self__.value.chanDir();
     @:embedded
@@ -4084,17 +4084,17 @@ class FuncType_asInterface {
         return _t.outCount & (32768 : stdgo.StdGoTypes.GoUInt16) != ((0 : stdgo.StdGoTypes.GoUInt16));
     }
     @:keep
-    static public function outSlice( _t:stdgo.StdGoTypes.Ref<FuncType>):stdgo.Slice<stdgo.StdGoTypes.Ref<Type>> {
+    static public function outSlice( _t:stdgo.StdGoTypes.Ref<FuncType>):stdgo.Slice<stdgo.StdGoTypes.Ref<Type_>> {
         @:recv var _t:stdgo.StdGoTypes.Ref<FuncType> = _t;
         var _outCount:stdgo.StdGoTypes.GoUInt16 = (_t.numOut() : stdgo.StdGoTypes.GoUInt16);
         if (_outCount == ((0 : stdgo.StdGoTypes.GoUInt16))) {
-            return (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>>);
+            return (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>>);
         };
         var _uadd:stdgo.StdGoTypes.GoUIntptr = stdgo.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((_t : stdgo.internal.abi.Abi.FuncType)));
         if (_t.type.tflag & (1 : stdgo.internal.abi.Abi.TFlag) != ((0 : stdgo.internal.abi.Abi.TFlag))) {
             _uadd = _uadd + (stdgo.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((new stdgo.internal.abi.Abi.UncommonType() : stdgo.internal.abi.Abi.UncommonType))));
         };
-        return ((_addChecked((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer), _uadd, ("outCount > 0" : stdgo.GoString)).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+        return ((_addChecked((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer), _uadd, ("outCount > 0" : stdgo.GoString)).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -4105,19 +4105,19 @@ class FuncType_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, 131072) })) : stdgo.StdGoTypes.Ref<stdgo.GoArray<stdgo.StdGoTypes.Ref<Type>>>).__slice__(_t.inCount, _t.inCount + _outCount, _t.inCount + _outCount) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>>);
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, 131072) })) : stdgo.StdGoTypes.Ref<stdgo.GoArray<stdgo.StdGoTypes.Ref<Type_>>>).__slice__(_t.inCount, _t.inCount + _outCount, _t.inCount + _outCount) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>>);
     }
     @:keep
-    static public function inSlice( _t:stdgo.StdGoTypes.Ref<FuncType>):stdgo.Slice<stdgo.StdGoTypes.Ref<Type>> {
+    static public function inSlice( _t:stdgo.StdGoTypes.Ref<FuncType>):stdgo.Slice<stdgo.StdGoTypes.Ref<Type_>> {
         @:recv var _t:stdgo.StdGoTypes.Ref<FuncType> = _t;
         var _uadd:stdgo.StdGoTypes.GoUIntptr = stdgo.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((_t : stdgo.internal.abi.Abi.FuncType)));
         if (_t.type.tflag & (1 : stdgo.internal.abi.Abi.TFlag) != ((0 : stdgo.internal.abi.Abi.TFlag))) {
             _uadd = _uadd + (stdgo.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((new stdgo.internal.abi.Abi.UncommonType() : stdgo.internal.abi.Abi.UncommonType))));
         };
         if (_t.inCount == ((0 : stdgo.StdGoTypes.GoUInt16))) {
-            return (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>>);
+            return (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>>);
         };
-        return ((_addChecked((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer), _uadd, ("t.inCount > 0" : stdgo.GoString)).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+        return ((_addChecked((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer), _uadd, ("t.inCount > 0" : stdgo.GoString)).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type_", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -4128,10 +4128,10 @@ class FuncType_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, 65536) })) : stdgo.StdGoTypes.Ref<stdgo.GoArray<stdgo.StdGoTypes.Ref<Type>>>).__slice__(0, _t.inCount, _t.inCount) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>>);
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, 65536) })) : stdgo.StdGoTypes.Ref<stdgo.GoArray<stdgo.StdGoTypes.Ref<Type_>>>).__slice__(0, _t.inCount, _t.inCount) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_>>);
     }
     @:keep
-    static public function out( _t:stdgo.StdGoTypes.Ref<FuncType>, _i:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<Type> {
+    static public function out( _t:stdgo.StdGoTypes.Ref<FuncType>, _i:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<Type_> {
         @:recv var _t:stdgo.StdGoTypes.Ref<FuncType> = _t;
         return (_t.outSlice()[(_i : stdgo.StdGoTypes.GoInt)]);
     }
@@ -4146,7 +4146,7 @@ class FuncType_asInterface {
         return (_t.inCount : stdgo.StdGoTypes.GoInt);
     }
     @:keep
-    static public function in_( _t:stdgo.StdGoTypes.Ref<FuncType>, _i:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<Type> {
+    static public function in_( _t:stdgo.StdGoTypes.Ref<FuncType>, _i:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<Type_> {
         @:recv var _t:stdgo.StdGoTypes.Ref<FuncType> = _t;
         return _t.inSlice()[(_i : stdgo.StdGoTypes.GoInt)];
     }
@@ -4167,7 +4167,7 @@ class FuncType_asInterface {
     @:embedded
     public static function kind( __self__:FuncType):stdgo.internal.abi.Abi.Kind return __self__.kind();
     @:embedded
-    public static function key( __self__:FuncType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.key();
+    public static function key( __self__:FuncType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.key();
     @:embedded
     public static function isDirectIface( __self__:FuncType):Bool return __self__.isDirectIface();
     @:embedded
@@ -4185,9 +4185,9 @@ class FuncType_asInterface {
     @:embedded
     public static function exportedMethods( __self__:FuncType):stdgo.Slice<stdgo.internal.abi.Abi.Method> return __self__.exportedMethods();
     @:embedded
-    public static function elem( __self__:FuncType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.elem();
+    public static function elem( __self__:FuncType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.elem();
     @:embedded
-    public static function common( __self__:FuncType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.common();
+    public static function common( __self__:FuncType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.common();
     @:embedded
     public static function chanDir( __self__:FuncType):stdgo.internal.abi.Abi.ChanDir return __self__.chanDir();
     @:embedded
@@ -4213,7 +4213,7 @@ class PtrType_asInterface {
     @:embedded
     public dynamic function kind():stdgo.internal.abi.Abi.Kind return __self__.value.kind();
     @:embedded
-    public dynamic function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.value.key();
+    public dynamic function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.value.key();
     @:embedded
     public dynamic function isDirectIface():Bool return __self__.value.isDirectIface();
     @:embedded
@@ -4231,7 +4231,7 @@ class PtrType_asInterface {
     @:embedded
     public dynamic function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return __self__.value.exportedMethods();
     @:embedded
-    public dynamic function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.value.common();
+    public dynamic function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.value.common();
     @:embedded
     public dynamic function chanDir():stdgo.internal.abi.Abi.ChanDir return __self__.value.chanDir();
     @:embedded
@@ -4264,7 +4264,7 @@ class PtrType_asInterface {
     @:embedded
     public static function kind( __self__:PtrType):stdgo.internal.abi.Abi.Kind return __self__.kind();
     @:embedded
-    public static function key( __self__:PtrType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.key();
+    public static function key( __self__:PtrType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.key();
     @:embedded
     public static function isDirectIface( __self__:PtrType):Bool return __self__.isDirectIface();
     @:embedded
@@ -4282,7 +4282,7 @@ class PtrType_asInterface {
     @:embedded
     public static function exportedMethods( __self__:PtrType):stdgo.Slice<stdgo.internal.abi.Abi.Method> return __self__.exportedMethods();
     @:embedded
-    public static function common( __self__:PtrType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.common();
+    public static function common( __self__:PtrType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.common();
     @:embedded
     public static function chanDir( __self__:PtrType):stdgo.internal.abi.Abi.ChanDir return __self__.chanDir();
     @:embedded
@@ -4326,7 +4326,7 @@ class StructType_asInterface {
     @:embedded
     public dynamic function kind():stdgo.internal.abi.Abi.Kind return __self__.value.kind();
     @:embedded
-    public dynamic function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.value.key();
+    public dynamic function key():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.value.key();
     @:embedded
     public dynamic function isDirectIface():Bool return __self__.value.isDirectIface();
     @:embedded
@@ -4344,9 +4344,9 @@ class StructType_asInterface {
     @:embedded
     public dynamic function exportedMethods():stdgo.Slice<stdgo.internal.abi.Abi.Method> return __self__.value.exportedMethods();
     @:embedded
-    public dynamic function elem():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.value.elem();
+    public dynamic function elem():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.value.elem();
     @:embedded
-    public dynamic function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.value.common();
+    public dynamic function common():stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.value.common();
     @:embedded
     public dynamic function chanDir():stdgo.internal.abi.Abi.ChanDir return __self__.value.chanDir();
     @:embedded
@@ -4379,7 +4379,7 @@ class StructType_asInterface {
     @:embedded
     public static function kind( __self__:StructType):stdgo.internal.abi.Abi.Kind return __self__.kind();
     @:embedded
-    public static function key( __self__:StructType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.key();
+    public static function key( __self__:StructType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.key();
     @:embedded
     public static function isDirectIface( __self__:StructType):Bool return __self__.isDirectIface();
     @:embedded
@@ -4397,9 +4397,9 @@ class StructType_asInterface {
     @:embedded
     public static function exportedMethods( __self__:StructType):stdgo.Slice<stdgo.internal.abi.Abi.Method> return __self__.exportedMethods();
     @:embedded
-    public static function elem( __self__:StructType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.elem();
+    public static function elem( __self__:StructType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.elem();
     @:embedded
-    public static function common( __self__:StructType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type> return __self__.common();
+    public static function common( __self__:StructType):stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type_> return __self__.common();
     @:embedded
     public static function chanDir( __self__:StructType):stdgo.internal.abi.Abi.ChanDir return __self__.chanDir();
     @:embedded

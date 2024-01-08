@@ -81,18 +81,18 @@ var _firstStoreInProgress = (0 : stdgo.StdGoTypes.GoUInt8);
     
     
 **/
-@:structInit @:using(stdgo.sync.atomic_.Atomic_.Pointer__static_extension) class Pointer_<T> {
+@:structInit @:using(stdgo.sync.atomic_.Atomic_.Pointer__static_extension) class Pointer_<T_> {
     /**
         // Mention *T in a field to disallow conversion between Pointer types.
         // See go.dev/issue/56603 for more details.
         // Use *T, not T, to avoid spurious recursive type definition errors.
     **/
     @:optional
-    public var __5 : stdgo.GoArray<stdgo.StdGoTypes.Ref<T>> = new stdgo.GoArray<stdgo.StdGoTypes.Ref<T>>(...[for (i in 0 ... 0) (null : stdgo.StdGoTypes.Ref<T>)]);
+    public var __5 : stdgo.GoArray<stdgo.StdGoTypes.Ref<T_>> = new stdgo.GoArray<stdgo.StdGoTypes.Ref<T_>>(...[for (i in 0 ... 0) (null : stdgo.StdGoTypes.Ref<T_>)]);
     @:optional
     public var __6 : stdgo.sync.atomic_.Atomic_.T_noCopy = ({} : stdgo.sync.atomic_.Atomic_.T_noCopy);
     public var _v : stdgo.unsafe.Unsafe.UnsafePointer = @:default_value_kind null;
-    public function new(?__5:stdgo.GoArray<stdgo.StdGoTypes.Ref<T>>, ?__6:stdgo.sync.atomic_.Atomic_.T_noCopy, ?_v:stdgo.unsafe.Unsafe.UnsafePointer) {
+    public function new(?__5:stdgo.GoArray<stdgo.StdGoTypes.Ref<T_>>, ?__6:stdgo.sync.atomic_.Atomic_.T_noCopy, ?_v:stdgo.unsafe.Unsafe.UnsafePointer) {
         if (__5 != null) this.__5 = __5;
         if (__6 != null) this.__6 = __6;
         if (_v != null) this._v = _v;
@@ -489,33 +489,33 @@ class Bool__asInterface {
     @:keep
     static public function load( _x:stdgo.StdGoTypes.Ref<Bool_>):Bool return @:privateAccess _x._v == 1;
 }
-class Pointer__asInterface<T> {
+class Pointer__asInterface<T_> {
     /**
         // CompareAndSwap executes the compare-and-swap operation for x.
     **/
     @:keep
-    public var compareAndSwap : (_old:stdgo.StdGoTypes.Ref<T>, _new:stdgo.StdGoTypes.Ref<T>) -> Bool;
+    public var compareAndSwap : (_old:stdgo.StdGoTypes.Ref<T_>, _new:stdgo.StdGoTypes.Ref<T_>) -> Bool;
     /**
         // Swap atomically stores new into x and returns the previous value.
     **/
     @:keep
-    public var swap : (_new:stdgo.StdGoTypes.Ref<T>) -> stdgo.StdGoTypes.Ref<T>;
+    public var swap : (_new:stdgo.StdGoTypes.Ref<T_>) -> stdgo.StdGoTypes.Ref<T_>;
     /**
         // Store atomically stores val into x.
     **/
     @:keep
-    public var store : (_val:stdgo.StdGoTypes.Ref<T>) -> Void;
+    public var store : (_val:stdgo.StdGoTypes.Ref<T_>) -> Void;
     /**
         // Load atomically loads and returns the value stored in x.
     **/
     @:keep
-    public var load : () -> stdgo.StdGoTypes.Ref<T>;
+    public var load : () -> stdgo.StdGoTypes.Ref<T_>;
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<Pointer_<T>>;
+    var __self__ : stdgo.Pointer<Pointer_<T_>>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.sync.atomic_.Atomic_.Pointer__asInterface) class Pointer__static_extension {
@@ -523,22 +523,22 @@ class Pointer__asInterface<T> {
         // CompareAndSwap executes the compare-and-swap operation for x.
     **/
     @:keep
-    macro static public function compareAndSwap<T>( _x:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<Pointer_<T>>>, __generic__0:haxe.macro.Expr.ExprOf<T>, _old:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T>>, _new:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T>>):haxe.macro.Expr.ExprOf<Bool>;
+    macro static public function compareAndSwap<T_>( _x:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<Pointer_<T_>>>, __generic__0:haxe.macro.Expr.ExprOf<T_>, _old:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T_>>, _new:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T_>>):haxe.macro.Expr.ExprOf<Bool>;
     /**
         // Swap atomically stores new into x and returns the previous value.
     **/
     @:keep
-    macro static public function swap<T>( _x:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<Pointer_<T>>>, __generic__0:haxe.macro.Expr.ExprOf<T>, _new:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T>>):haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T>>;
+    macro static public function swap<T_>( _x:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<Pointer_<T_>>>, __generic__0:haxe.macro.Expr.ExprOf<T_>, _new:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T_>>):haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T_>>;
     /**
         // Store atomically stores val into x.
     **/
     @:keep
-    macro static public function store<T>( _x:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<Pointer_<T>>>, __generic__0:haxe.macro.Expr.ExprOf<T>, _val:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T>>):haxe.macro.Expr.ExprOf<Void>;
+    macro static public function store<T_>( _x:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<Pointer_<T_>>>, __generic__0:haxe.macro.Expr.ExprOf<T_>, _val:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T_>>):haxe.macro.Expr.ExprOf<Void>;
     /**
         // Load atomically loads and returns the value stored in x.
     **/
     @:keep
-    macro static public function load<T>( _x:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<Pointer_<T>>>, __generic__0:haxe.macro.Expr.ExprOf<T>):haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T>>;
+    macro static public function load<T_>( _x:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<Pointer_<T_>>>, __generic__0:haxe.macro.Expr.ExprOf<T_>):haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T_>>;
 }
 class Int32_asInterface {
     /**

@@ -2586,7 +2586,7 @@ function sum(_data:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.GoArray<stdgo.Std
         _d.write(_data);
         return _d._checkSum()?.__copy__();
     }
-function testGolden(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testGolden(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_golden.length), _i++, {
@@ -2630,7 +2630,7 @@ function testGolden(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             });
         };
     }
-function testGoldenMarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testGoldenMarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _h:stdgo.hash.Hash.Hash = new_();
         var _h2:stdgo.hash.Hash.Hash = new_();
         for (__0 => _g in _golden) {
@@ -2663,7 +2663,7 @@ function testGoldenMarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             };
         };
     }
-function testSize(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testSize(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _c:stdgo.hash.Hash.Hash = new_();
         {
             var _got:stdgo.StdGoTypes.GoInt = _c.size();
@@ -2672,7 +2672,7 @@ function testSize(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testBlockSize(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testBlockSize(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _c:stdgo.hash.Hash.Hash = new_();
         {
             var _got:stdgo.StdGoTypes.GoInt = _c.blockSize();
@@ -2684,7 +2684,7 @@ function testBlockSize(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 /**
     // Tests that blockGeneric (pure Go) and block (in assembly for some architectures) match.
 **/
-function testBlockGeneric(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testBlockGeneric(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         if (false) {
             _t.skip(stdgo.Go.toInterface(("BoringCrypto doesn\'t expose digest" : stdgo.GoString)));
         };
@@ -2748,7 +2748,7 @@ function _safeSum(_h:stdgo.hash.Hash.Hash):{ var _0 : stdgo.Slice<stdgo.StdGoTyp
             return { _0 : _sum, _1 : _err };
         };
     }
-function testLargeHashes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testLargeHashes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_i => _test in _largeUnmarshalTests) {
             var _h:stdgo.hash.Hash.Hash = new_();
             {
@@ -2768,7 +2768,7 @@ function testLargeHashes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
             };
         };
     }
-function testAllocations(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAllocations(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         if (false) {
             _t.skip(stdgo.Go.toInterface(("BoringCrypto doesn\'t allocate the same way as stdlib" : stdgo.GoString)));
         };

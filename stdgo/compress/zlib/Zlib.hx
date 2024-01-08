@@ -372,7 +372,7 @@ function newReaderDict(_r:stdgo.io.Io.Reader, _dict:stdgo.Slice<stdgo.StdGoTypes
         };
         return { _0 : stdgo.Go.asInterface(_z), _1 : (null : stdgo.Error) };
     }
-function testDecompressor(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDecompressor(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _b = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
@@ -471,7 +471,7 @@ function newWriterLevelDict(_w:stdgo.io.Io.Writer, _level:stdgo.StdGoTypes.GoInt
     // Tests that compressing and then decompressing the given file at the given compression level and dictionary
     // yields equivalent bytes to the original file.
 **/
-function _testFileLevelDict(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _fn:stdgo.GoString, _level:stdgo.StdGoTypes.GoInt, _d:stdgo.GoString):Void {
+function _testFileLevelDict(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _fn:stdgo.GoString, _level:stdgo.StdGoTypes.GoInt, _d:stdgo.GoString):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var __tmp__ = stdgo.os.Os.open(_fn?.__copy__()), _golden:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -512,7 +512,7 @@ function _testFileLevelDict(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _f
             return;
         };
     }
-function _testLevelDict(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _fn:stdgo.GoString, _b0:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _level:stdgo.StdGoTypes.GoInt, _d:stdgo.GoString):Void {
+function _testLevelDict(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _fn:stdgo.GoString, _b0:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _level:stdgo.StdGoTypes.GoInt, _d:stdgo.GoString):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _dict:stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
@@ -638,7 +638,7 @@ function _testLevelDict(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _fn:st
             return;
         };
     }
-function _testFileLevelDictReset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _fn:stdgo.GoString, _level:stdgo.StdGoTypes.GoInt, _dict:stdgo.Slice<stdgo.StdGoTypes.GoByte>):Void {
+function _testFileLevelDictReset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _fn:stdgo.GoString, _level:stdgo.StdGoTypes.GoInt, _dict:stdgo.Slice<stdgo.StdGoTypes.GoByte>):Void {
         var _b0:stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
         var _err:stdgo.Error = (null : stdgo.Error);
         if (_fn != (stdgo.Go.str())) {
@@ -699,7 +699,7 @@ function _testFileLevelDictReset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
             _t.errorf(("%s (level=%d): different output after reset (got %d bytes, expected %d" : stdgo.GoString), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface((_out2.length)), stdgo.Go.toInterface((_out.length)));
         };
     }
-function testWriter(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWriter(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_i => _s in _data) {
             var _b = (_s : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
             var _tag:stdgo.GoString = stdgo.fmt.Fmt.sprintf(("#%d" : stdgo.GoString), stdgo.Go.toInterface(_i))?.__copy__();
@@ -714,7 +714,7 @@ function testWriter(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testWriterBig(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWriterBig(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_i => _fn in _filenames) {
             _testFileLevelDict(_t, _fn?.__copy__(), (-1 : stdgo.StdGoTypes.GoInt), stdgo.Go.str()?.__copy__());
             _testFileLevelDict(_t, _fn?.__copy__(), (0 : stdgo.StdGoTypes.GoInt), stdgo.Go.str()?.__copy__());
@@ -733,7 +733,7 @@ function testWriterBig(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testWriterDict(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWriterDict(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         for (_i => _fn in _filenames) {
             _testFileLevelDict(_t, _fn?.__copy__(), (-1 : stdgo.StdGoTypes.GoInt), ("0123456789." : stdgo.GoString));
@@ -753,7 +753,7 @@ function testWriterDict(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testWriterReset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWriterReset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         for (__0 => _fn in _filenames) {
             _testFileLevelDictReset(_t, _fn?.__copy__(), (0 : stdgo.StdGoTypes.GoInt), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>));
@@ -773,7 +773,7 @@ function testWriterReset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
             };
         };
     }
-function testWriterDictIsUsed(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWriterDictIsUsed(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _input:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = (("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
         var __tmp__ = newWriterLevelDict(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), (9 : stdgo.StdGoTypes.GoInt), _input), _compressor:stdgo.StdGoTypes.Ref<stdgo.compress.zlib.Zlib.Writer> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -823,10 +823,10 @@ class T_reader_asInterface {
         };
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_r) : stdgo.compress.flate.Flate.Reader)) : stdgo.compress.flate.Flate.Reader), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_r) : stdgo.compress.flate.Flate.Reader)) : stdgo.compress.flate.Flate.Reader), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.compress.flate.Flate.Reader), ok : false };
-            }, _fr = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.compress.flate.Flate.Reader), _1 : false };
+            }, _fr = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 _z._r = _fr;
             } else {

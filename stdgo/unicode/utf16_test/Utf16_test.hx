@@ -130,7 +130,7 @@ class T__struct_1_asInterface {
 /**
     // Validate the constants redefined from unicode.
 **/
-function testConstants(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testConstants(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         if (false) {
             _t.errorf(("utf16.maxRune is wrong: %x should be %x" : stdgo.GoString), stdgo.Go.toInterface((1114111 : stdgo.StdGoTypes.GoInt32)), stdgo.Go.toInterface((1114111 : stdgo.StdGoTypes.GoInt32)));
         };
@@ -138,7 +138,7 @@ function testConstants(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _t.errorf(("utf16.replacementChar is wrong: %x should be %x" : stdgo.GoString), stdgo.Go.toInterface((65533 : stdgo.StdGoTypes.GoInt32)), stdgo.Go.toInterface((65533 : stdgo.StdGoTypes.GoInt32)));
         };
     }
-function testEncode(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testEncode(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _tt in _encodeTests) {
             var _out = encode(_tt._in);
             if (!stdgo.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_tt._out))) {
@@ -146,7 +146,7 @@ function testEncode(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testAppendRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAppendRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _tt in _encodeTests) {
             var _out:stdgo.Slice<stdgo.StdGoTypes.GoUInt16> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt16>);
             for (__1 => _u in _tt._in) {
@@ -157,7 +157,7 @@ function testAppendRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testEncodeRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testEncodeRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_i => _tt in _encodeTests) {
             var _j:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             for (__0 => _r in _tt._in) {
@@ -191,7 +191,7 @@ function testEncodeRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testAllocationsDecode(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAllocationsDecode(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         stdgo.internal.testenv.Testenv.skipIfOptimizationOff(stdgo.Go.asInterface(_t));
         for (__0 => _tt in _decodeTests) {
             var _allocs:stdgo.StdGoTypes.GoFloat64 = stdgo.testing.Testing.allocsPerRun((10 : stdgo.StdGoTypes.GoInt), function():Void {
@@ -205,7 +205,7 @@ function testAllocationsDecode(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             };
         };
     }
-function testDecode(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDecode(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _tt in _decodeTests) {
             var _out = decode(_tt._in);
             if (!stdgo.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_tt._out))) {
@@ -213,7 +213,7 @@ function testDecode(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testDecodeRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDecodeRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_i => _tt in _decodeRuneTests) {
             var _got:stdgo.StdGoTypes.GoInt32 = decodeRune(_tt._r1, _tt._r2);
             if (_got != (_tt._want)) {
@@ -221,7 +221,7 @@ function testDecodeRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testIsSurrogate(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testIsSurrogate(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_i => _tt in _surrogateTests) {
             var _got:Bool = isSurrogate(_tt._r);
             if (_got != (_tt._want)) {

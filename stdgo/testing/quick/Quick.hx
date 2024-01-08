@@ -250,7 +250,7 @@ function _randInt64(_rand:stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>):stdgo
     // If the type implements the Generator interface, that will be used.
     // Note: To create arbitrary values for structs, all the fields must be exported.
 **/
-function value(_t:stdgo.reflect.Reflect.Type, _rand:stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>):{ var _0 : stdgo.reflect.Reflect.Value; var _1 : Bool; } {
+function value(_t:stdgo.reflect.Reflect.Type_, _rand:stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>):{ var _0 : stdgo.reflect.Reflect.Value; var _1 : Bool; } {
         var _value:stdgo.reflect.Reflect.Value = ({} : stdgo.reflect.Reflect.Value), _ok:Bool = false;
         return _sizedValue(_t, _rand, (50 : stdgo.StdGoTypes.GoInt));
     }
@@ -259,21 +259,21 @@ function value(_t:stdgo.reflect.Reflect.Type, _rand:stdgo.StdGoTypes.Ref<stdgo.m
     // hint is used for shrinking as a function of indirection level so
     // that recursive data structures will terminate.
 **/
-function _sizedValue(_t:stdgo.reflect.Reflect.Type, _rand:stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>, _size:stdgo.StdGoTypes.GoInt):{ var _0 : stdgo.reflect.Reflect.Value; var _1 : Bool; } {
+function _sizedValue(_t:stdgo.reflect.Reflect.Type_, _rand:stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>, _size:stdgo.StdGoTypes.GoInt):{ var _0 : stdgo.reflect.Reflect.Value; var _1 : Bool; } {
         var _value:stdgo.reflect.Reflect.Value = ({} : stdgo.reflect.Reflect.Value), _ok:Bool = false;
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.reflect.Reflect.zero(_t).interface_() : Generator)) : Generator), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.reflect.Reflect.zero(_t).interface_() : Generator)) : Generator), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.testing.quick.Quick.Generator), ok : false };
-            }, _m = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.testing.quick.Quick.Generator), _1 : false };
+            }, _m = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return { _0 : _m.generate(_rand, _size)?.__copy__(), _1 : true };
             };
         };
         var _v:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.new_(_t).elem()?.__copy__();
         {
-            var _concrete:stdgo.reflect.Reflect.Type = _t;
+            var _concrete:stdgo.reflect.Reflect.Type_ = _t;
             {
                 final __value__ = _concrete.kind();
                 if (__value__ == ((1u32 : stdgo.reflect.Reflect.Kind))) {
@@ -414,7 +414,7 @@ function check(_f:stdgo.StdGoTypes.AnyInterface, _config:stdgo.StdGoTypes.Ref<Co
         if (_config == null || (_config : Dynamic).__nil__) {
             _config = (stdgo.Go.setRef(_defaultConfig) : stdgo.StdGoTypes.Ref<stdgo.testing.quick.Quick.Config>);
         };
-        var __tmp__ = _functionAndType(_f), _fVal:stdgo.reflect.Reflect.Value = __tmp__._0, _fType:stdgo.reflect.Reflect.Type = __tmp__._1, _ok:Bool = __tmp__._2;
+        var __tmp__ = _functionAndType(_f), _fVal:stdgo.reflect.Reflect.Value = __tmp__._0, _fType:stdgo.reflect.Reflect.Type_ = __tmp__._1, _ok:Bool = __tmp__._2;
         if (!_ok) {
             return stdgo.Go.asInterface(((("argument is not a function" : stdgo.GoString) : stdgo.testing.quick.Quick.SetupError) : SetupError));
         };
@@ -451,11 +451,11 @@ function checkEqual(_f:stdgo.StdGoTypes.AnyInterface, _g:stdgo.StdGoTypes.AnyInt
         if (_config == null || (_config : Dynamic).__nil__) {
             _config = (stdgo.Go.setRef(_defaultConfig) : stdgo.StdGoTypes.Ref<stdgo.testing.quick.Quick.Config>);
         };
-        var __tmp__ = _functionAndType(_f), _x:stdgo.reflect.Reflect.Value = __tmp__._0, _xType:stdgo.reflect.Reflect.Type = __tmp__._1, _ok:Bool = __tmp__._2;
+        var __tmp__ = _functionAndType(_f), _x:stdgo.reflect.Reflect.Value = __tmp__._0, _xType:stdgo.reflect.Reflect.Type_ = __tmp__._1, _ok:Bool = __tmp__._2;
         if (!_ok) {
             return stdgo.Go.asInterface(((("f is not a function" : stdgo.GoString) : stdgo.testing.quick.Quick.SetupError) : SetupError));
         };
-        var __tmp__ = _functionAndType(_g), _y:stdgo.reflect.Reflect.Value = __tmp__._0, _yType:stdgo.reflect.Reflect.Type = __tmp__._1, _ok:Bool = __tmp__._2;
+        var __tmp__ = _functionAndType(_g), _y:stdgo.reflect.Reflect.Value = __tmp__._0, _yType:stdgo.reflect.Reflect.Type_ = __tmp__._1, _ok:Bool = __tmp__._2;
         if (!_ok) {
             return stdgo.Go.asInterface(((("g is not a function" : stdgo.GoString) : stdgo.testing.quick.Quick.SetupError) : SetupError));
         };
@@ -485,7 +485,7 @@ function checkEqual(_f:stdgo.StdGoTypes.AnyInterface, _g:stdgo.StdGoTypes.AnyInt
     // arbitraryValues writes Values to args such that args contains Values
     // suitable for calling f.
 **/
-function _arbitraryValues(_args:stdgo.Slice<stdgo.reflect.Reflect.Value>, _f:stdgo.reflect.Reflect.Type, _config:stdgo.StdGoTypes.Ref<Config>, _rand:stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>):stdgo.Error {
+function _arbitraryValues(_args:stdgo.Slice<stdgo.reflect.Reflect.Value>, _f:stdgo.reflect.Reflect.Type_, _config:stdgo.StdGoTypes.Ref<Config>, _rand:stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>):stdgo.Error {
         var _err:stdgo.Error = (null : stdgo.Error);
         if (_config.values != null) {
             _config.values(_args, _rand);
@@ -508,8 +508,8 @@ function _arbitraryValues(_args:stdgo.Slice<stdgo.reflect.Reflect.Value>, _f:std
         };
         return _err;
     }
-function _functionAndType(_f:stdgo.StdGoTypes.AnyInterface):{ var _0 : stdgo.reflect.Reflect.Value; var _1 : stdgo.reflect.Reflect.Type; var _2 : Bool; } {
-        var _v:stdgo.reflect.Reflect.Value = ({} : stdgo.reflect.Reflect.Value), _t:stdgo.reflect.Reflect.Type = (null : stdgo.reflect.Reflect.Type), _ok:Bool = false;
+function _functionAndType(_f:stdgo.StdGoTypes.AnyInterface):{ var _0 : stdgo.reflect.Reflect.Value; var _1 : stdgo.reflect.Reflect.Type_; var _2 : Bool; } {
+        var _v:stdgo.reflect.Reflect.Value = ({} : stdgo.reflect.Reflect.Value), _t:stdgo.reflect.Reflect.Type_ = (null : stdgo.reflect.Reflect.Type_), _ok:Bool = false;
         _v = stdgo.reflect.Reflect.valueOf(_f)?.__copy__();
         _ok = _v.kind() == ((19u32 : stdgo.reflect.Reflect.Kind));
         if (!_ok) {
@@ -668,12 +668,12 @@ function _fUintptr(_a:stdgo.StdGoTypes.GoUIntptr):stdgo.StdGoTypes.GoUIntptr {
 function _fUintptrAlias(_a:TestUintptrAlias):TestUintptrAlias {
         return _a;
     }
-function _reportError(_property:stdgo.GoString, _err:stdgo.Error, _t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function _reportError(_property:stdgo.GoString, _err:stdgo.Error, _t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         if (_err != null) {
             _t.errorf(("%s: %s" : stdgo.GoString), stdgo.Go.toInterface(_property), stdgo.Go.toInterface(_err));
         };
     }
-function testCheckEqual(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testCheckEqual(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         _reportError(("fArray" : stdgo.GoString), checkEqual(stdgo.Go.toInterface(_fArray), stdgo.Go.toInterface(_fArray), null), _t);
         _reportError(("fArrayAlias" : stdgo.GoString), checkEqual(stdgo.Go.toInterface(_fArrayAlias), stdgo.Go.toInterface(_fArrayAlias), null), _t);
         _reportError(("fBool" : stdgo.GoString), checkEqual(stdgo.Go.toInterface(_fBool), stdgo.Go.toInterface(_fBool), null), _t);
@@ -724,10 +724,10 @@ function testCheckEqual(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 function _myStructProperty(_in:T_myStruct):Bool {
         return _in._x == ((42 : stdgo.StdGoTypes.GoInt));
     }
-function testCheckProperty(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testCheckProperty(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         _reportError(("myStructProperty" : stdgo.GoString), check(stdgo.Go.toInterface(_myStructProperty), null), _t);
     }
-function testFailure(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testFailure(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _f:stdgo.StdGoTypes.GoInt -> Bool = function(_x:stdgo.StdGoTypes.GoInt):Bool {
             return false;
         };
@@ -737,10 +737,10 @@ function testFailure(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         };
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<CheckError>)) : stdgo.StdGoTypes.Ref<CheckError>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<CheckError>)) : stdgo.StdGoTypes.Ref<CheckError>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.testing.quick.Quick.CheckError>), ok : false };
-            }, __8 = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.testing.quick.Quick.CheckError>), _1 : false };
+            }, __8 = __tmp__._0, _ok = __tmp__._1;
             if (!_ok) {
                 _t.errorf(("Error was not a CheckError: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
@@ -751,10 +751,10 @@ function testFailure(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         };
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : SetupError)) : SetupError), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : SetupError)) : SetupError), _1 : true };
             } catch(_) {
-                { value : (("" : stdgo.GoString) : stdgo.testing.quick.Quick.SetupError), ok : false };
-            }, __25 = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (("" : stdgo.GoString) : stdgo.testing.quick.Quick.SetupError), _1 : false };
+            }, __25 = __tmp__._0, _ok = __tmp__._1;
             if (!_ok) {
                 _t.errorf(("#1 Error was not a SetupError: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
@@ -765,10 +765,10 @@ function testFailure(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         };
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : SetupError)) : SetupError), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : SetupError)) : SetupError), _1 : true };
             } catch(_) {
-                { value : (("" : stdgo.GoString) : stdgo.testing.quick.Quick.SetupError), ok : false };
-            }, __42 = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (("" : stdgo.GoString) : stdgo.testing.quick.Quick.SetupError), _1 : false };
+            }, __42 = __tmp__._0, _ok = __tmp__._1;
             if (!_ok) {
                 _t.errorf(("#2 Error was not a SetupError: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
@@ -783,10 +783,10 @@ function testFailure(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         };
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : SetupError)) : SetupError), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : SetupError)) : SetupError), _1 : true };
             } catch(_) {
-                { value : (("" : stdgo.GoString) : stdgo.testing.quick.Quick.SetupError), ok : false };
-            }, __59 = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (("" : stdgo.GoString) : stdgo.testing.quick.Quick.SetupError), _1 : false };
+            }, __59 = __tmp__._0, _ok = __tmp__._1;
             if (!_ok) {
                 _t.errorf(("#3 Error was not a SetupError: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
@@ -823,20 +823,20 @@ function testFailure(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
     // Recursive data structures didn't terminate.
     // Issues 8818 and 11148.
 **/
-function testRecursive(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testRecursive(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _f:stdgo.testing.quick.Quick.T_testRecursive_34___localname___R -> Bool = function(_r:T_testRecursive_34___localname___R):Bool {
             return true;
         };
         check(stdgo.Go.toInterface(_f), null);
     }
-function testEmptyStruct(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testEmptyStruct(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _f:T__struct_0 -> Bool = function(_0:T__struct_0):Bool {
             return true;
         };
         check(stdgo.Go.toInterface(_f), null);
     }
-function testMutuallyRecursive(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMutuallyRecursive(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _f:stdgo.testing.quick.Quick.A -> Bool = function(_a:A):Bool {
             return true;
         };
@@ -864,7 +864,7 @@ function testMutuallyRecursive(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
     // between a nil and an empty map or slice, so avoid generating the
     // zero value for these.
 **/
-function testNonZeroSliceAndMap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNonZeroSliceAndMap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _f:stdgo.testing.quick.Quick.T_testNonZeroSliceAndMap_35___localname___Q -> Bool = function(_q:T_testNonZeroSliceAndMap_35___localname___Q):Bool {
             return (_q.m != null) && (_q.s != null);
@@ -874,7 +874,7 @@ function testNonZeroSliceAndMap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
             _t.fatal(stdgo.Go.toInterface(_err));
         };
     }
-function testInt64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testInt64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __0:stdgo.StdGoTypes.GoInt64 = (0 : stdgo.StdGoTypes.GoInt64), __1:stdgo.StdGoTypes.GoInt64 = (0 : stdgo.StdGoTypes.GoInt64), _hi:stdgo.StdGoTypes.GoInt64 = __1, _lo:stdgo.StdGoTypes.GoInt64 = __0;
         var _f:stdgo.StdGoTypes.GoInt64 -> Bool = function(_x:stdgo.StdGoTypes.GoInt64):Bool {
             if (_x < _lo) {

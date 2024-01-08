@@ -386,9 +386,9 @@ var _assignOps : stdgo.GoMap<stdgo.go.token.Token.Token, stdgo.go.token.Token.To
     
     
 **/
-var _myInt : stdgo.go.types.Types.Type = {
-        var a = function():Type {
-            var _tname = newTypeName(_nopos, null, ("myInt" : stdgo.GoString), (null : stdgo.go.types.Types.Type));
+var _myInt : stdgo.go.types.Types.Type_ = {
+        var a = function():Type_ {
+            var _tname = newTypeName(_nopos, null, ("myInt" : stdgo.GoString), (null : stdgo.go.types.Types.Type_));
             return stdgo.Go.asInterface(newNamed(_tname, stdgo.Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)]), (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>)));
         };
         a();
@@ -993,13 +993,13 @@ var _universeIota = (null : stdgo.go.types.Types.Object);
     
     // uint8 alias, but has name "byte"
 **/
-var _universeByte = (null : stdgo.go.types.Types.Type);
+var _universeByte = (null : stdgo.go.types.Types.Type_);
 /**
     
     
     // int32 alias, but has name "rune"
 **/
-var _universeRune = (null : stdgo.go.types.Types.Type);
+var _universeRune = (null : stdgo.go.types.Types.Type_);
 /**
     
     
@@ -1011,7 +1011,7 @@ var _universeAny = (null : stdgo.go.types.Types.Object);
     
     
 **/
-var _universeError = (null : stdgo.go.types.Types.Type);
+var _universeError = (null : stdgo.go.types.Types.Type_);
 /**
     
     
@@ -1323,7 +1323,7 @@ typedef Object = stdgo.StdGoTypes.StructType & {
         
         // object type
     **/
-    public dynamic function type():Type;
+    public dynamic function type():Type_;
     /**
         
         
@@ -1362,7 +1362,7 @@ typedef Object = stdgo.StdGoTypes.StructType & {
         
         
     **/
-    public dynamic function _setType(_0:Type):Void;
+    public dynamic function _setType(_0:Type_):Void;
     /**
         // setOrder sets the order number of the object. It must be > 0.
         
@@ -1413,7 +1413,7 @@ typedef Sizes = stdgo.StdGoTypes.StructType & {
         
         
     **/
-    public dynamic function alignof_(t:Type):stdgo.StdGoTypes.GoInt64;
+    public dynamic function alignof_(t:Type_):stdgo.StdGoTypes.GoInt64;
     /**
         // Offsetsof returns the offsets of the given struct fields, in bytes.
         // Offsetsof must implement the offset guarantees required by the spec.
@@ -1429,7 +1429,7 @@ typedef Sizes = stdgo.StdGoTypes.StructType & {
         
         
     **/
-    public dynamic function sizeof(t:Type):stdgo.StdGoTypes.GoInt64;
+    public dynamic function sizeof(t:Type_):stdgo.StdGoTypes.GoInt64;
 };
 /**
     // A Type represents a type of Go.
@@ -1437,13 +1437,13 @@ typedef Sizes = stdgo.StdGoTypes.StructType & {
     
     
 **/
-typedef Type = stdgo.StdGoTypes.StructType & {
+typedef Type_ = stdgo.StdGoTypes.StructType & {
     /**
         // Underlying returns the underlying type of a type.
         
         
     **/
-    public dynamic function underlying():Type;
+    public dynamic function underlying():Type_;
     /**
         // String returns a string representation of a type.
         
@@ -1758,9 +1758,9 @@ __ErrorURL);
 **/
 @:structInit @:using(stdgo.go.types.Types.TypeAndValue_static_extension) class TypeAndValue {
     public var _mode : stdgo.go.types.Types.T_operandMode = ((0 : stdgo.StdGoTypes.GoUInt8) : stdgo.go.types.Types.T_operandMode);
-    public var type : stdgo.go.types.Types.Type = (null : stdgo.go.types.Types.Type);
+    public var type : stdgo.go.types.Types.Type_ = (null : stdgo.go.types.Types.Type_);
     public var value : stdgo.go.constant.Constant.Value = (null : stdgo.go.constant.Constant.Value);
-    public function new(?_mode:stdgo.go.types.Types.T_operandMode, ?type:stdgo.go.types.Types.Type, ?value:stdgo.go.constant.Constant.Value) {
+    public function new(?_mode:stdgo.go.types.Types.T_operandMode, ?type:stdgo.go.types.Types.Type_, ?value:stdgo.go.constant.Constant.Value) {
         if (_mode != null) this._mode = _mode;
         if (type != null) this.type = type;
         if (value != null) this.value = value;
@@ -1780,8 +1780,8 @@ __ErrorURL);
 **/
 @:structInit class Instance {
     public var typeArgs : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeList> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeList>);
-    public var type : stdgo.go.types.Types.Type = (null : stdgo.go.types.Types.Type);
-    public function new(?typeArgs:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeList>, ?type:stdgo.go.types.Types.Type) {
+    public var type : stdgo.go.types.Types.Type_ = (null : stdgo.go.types.Types.Type_);
+    public function new(?typeArgs:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeList>, ?type:stdgo.go.types.Types.Type_) {
         if (typeArgs != null) this.typeArgs = typeArgs;
         if (type != null) this.type = type;
     }
@@ -1816,8 +1816,8 @@ __ErrorURL);
 **/
 @:structInit @:using(stdgo.go.types.Types.Array__static_extension) class Array_ {
     public var _len : stdgo.StdGoTypes.GoInt64 = 0;
-    public var _elem : stdgo.go.types.Types.Type = (null : stdgo.go.types.Types.Type);
-    public function new(?_len:stdgo.StdGoTypes.GoInt64, ?_elem:stdgo.go.types.Types.Type) {
+    public var _elem : stdgo.go.types.Types.Type_ = (null : stdgo.go.types.Types.Type_);
+    public function new(?_len:stdgo.StdGoTypes.GoInt64, ?_elem:stdgo.go.types.Types.Type_) {
         if (_len != null) this._len = _len;
         if (_elem != null) this._elem = _elem;
     }
@@ -1852,8 +1852,8 @@ __ErrorURL);
 **/
 @:structInit @:using(stdgo.go.types.Types.Chan_static_extension) class Chan {
     public var _dir : stdgo.go.types.Types.ChanDir = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.types.Types.ChanDir);
-    public var _elem : stdgo.go.types.Types.Type = (null : stdgo.go.types.Types.Type);
-    public function new(?_dir:stdgo.go.types.Types.ChanDir, ?_elem:stdgo.go.types.Types.Type) {
+    public var _elem : stdgo.go.types.Types.Type_ = (null : stdgo.go.types.Types.Type_);
+    public function new(?_dir:stdgo.go.types.Types.ChanDir, ?_elem:stdgo.go.types.Types.Type_) {
         if (_dir != null) this._dir = _dir;
         if (_elem != null) this._elem = _elem;
     }
@@ -2089,7 +2089,7 @@ __ErrorURL);
     @:embedded
     public function objectOf(_id:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>):stdgo.go.types.Types.Object return info.objectOf(_id);
     @:embedded
-    public function typeOf(_e:stdgo.go.ast.Ast.Expr):stdgo.go.types.Types.Type return info.typeOf(_e);
+    public function typeOf(_e:stdgo.go.ast.Ast.Expr):stdgo.go.types.Types.Type_ return info.typeOf(_e);
     @:embedded
     public function _lookup(__0:stdgo.GoString):stdgo.go.types.Types.Object return _environment._lookup(__0);
     @:embedded
@@ -2169,8 +2169,8 @@ _indent);
     public var _mu : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
     public var _typeMap : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.go.types.Types.T_ctxtEntry>> = (null : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.go.types.Types.T_ctxtEntry>>);
     public var _nextID : stdgo.StdGoTypes.GoInt = 0;
-    public var _originIDs : stdgo.GoMap<stdgo.go.types.Types.Type, stdgo.StdGoTypes.GoInt> = (null : stdgo.GoMap<stdgo.go.types.Types.Type, stdgo.StdGoTypes.GoInt>);
-    public function new(?_mu:stdgo.sync.Sync.Mutex, ?_typeMap:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.go.types.Types.T_ctxtEntry>>, ?_nextID:stdgo.StdGoTypes.GoInt, ?_originIDs:stdgo.GoMap<stdgo.go.types.Types.Type, stdgo.StdGoTypes.GoInt>) {
+    public var _originIDs : stdgo.GoMap<stdgo.go.types.Types.Type_, stdgo.StdGoTypes.GoInt> = (null : stdgo.GoMap<stdgo.go.types.Types.Type_, stdgo.StdGoTypes.GoInt>);
+    public function new(?_mu:stdgo.sync.Sync.Mutex, ?_typeMap:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.go.types.Types.T_ctxtEntry>>, ?_nextID:stdgo.StdGoTypes.GoInt, ?_originIDs:stdgo.GoMap<stdgo.go.types.Types.Type_, stdgo.StdGoTypes.GoInt>) {
         if (_mu != null) this._mu = _mu;
         if (_typeMap != null) this._typeMap = _typeMap;
         if (_nextID != null) this._nextID = _nextID;
@@ -2187,10 +2187,10 @@ _indent);
     
 **/
 @:structInit @:private class T_ctxtEntry {
-    public var _orig : stdgo.go.types.Types.Type = (null : stdgo.go.types.Types.Type);
-    public var _targs : stdgo.Slice<stdgo.go.types.Types.Type> = (null : stdgo.Slice<stdgo.go.types.Types.Type>);
-    public var _instance : stdgo.go.types.Types.Type = (null : stdgo.go.types.Types.Type);
-    public function new(?_orig:stdgo.go.types.Types.Type, ?_targs:stdgo.Slice<stdgo.go.types.Types.Type>, ?_instance:stdgo.go.types.Types.Type) {
+    public var _orig : stdgo.go.types.Types.Type_ = (null : stdgo.go.types.Types.Type_);
+    public var _targs : stdgo.Slice<stdgo.go.types.Types.Type_> = (null : stdgo.Slice<stdgo.go.types.Types.Type_>);
+    public var _instance : stdgo.go.types.Types.Type_ = (null : stdgo.go.types.Types.Type_);
+    public function new(?_orig:stdgo.go.types.Types.Type_, ?_targs:stdgo.Slice<stdgo.go.types.Types.Type_>, ?_instance:stdgo.go.types.Types.Type_) {
         if (_orig != null) this._orig = _orig;
         if (_targs != null) this._targs = _targs;
         if (_instance != null) this._instance = _instance;
@@ -2352,8 +2352,8 @@ _indent);
 **/
 @:structInit @:private @:using(stdgo.go.types.Types.T_tpWalker_static_extension) class T_tpWalker {
     public var _tparams : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>> = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>);
-    public var _seen : stdgo.GoMap<stdgo.go.types.Types.Type, Bool> = (null : stdgo.GoMap<stdgo.go.types.Types.Type, Bool>);
-    public function new(?_tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>, ?_seen:stdgo.GoMap<stdgo.go.types.Types.Type, Bool>) {
+    public var _seen : stdgo.GoMap<stdgo.go.types.Types.Type_, Bool> = (null : stdgo.GoMap<stdgo.go.types.Types.Type_, Bool>);
+    public function new(?_tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>, ?_seen:stdgo.GoMap<stdgo.go.types.Types.Type_, Bool>) {
         if (_tparams != null) this._tparams = _tparams;
         if (_seen != null) this._seen = _seen;
     }
@@ -2369,9 +2369,9 @@ _indent);
 **/
 @:structInit @:private @:using(stdgo.go.types.Types.T_cycleFinder_static_extension) class T_cycleFinder {
     public var _tparams : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>> = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>);
-    public var _inferred : stdgo.Slice<stdgo.go.types.Types.Type> = (null : stdgo.Slice<stdgo.go.types.Types.Type>);
-    public var _seen : stdgo.GoMap<stdgo.go.types.Types.Type, Bool> = (null : stdgo.GoMap<stdgo.go.types.Types.Type, Bool>);
-    public function new(?_tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>, ?_inferred:stdgo.Slice<stdgo.go.types.Types.Type>, ?_seen:stdgo.GoMap<stdgo.go.types.Types.Type, Bool>) {
+    public var _inferred : stdgo.Slice<stdgo.go.types.Types.Type_> = (null : stdgo.Slice<stdgo.go.types.Types.Type_>);
+    public var _seen : stdgo.GoMap<stdgo.go.types.Types.Type_, Bool> = (null : stdgo.GoMap<stdgo.go.types.Types.Type_, Bool>);
+    public function new(?_tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>, ?_inferred:stdgo.Slice<stdgo.go.types.Types.Type_>, ?_seen:stdgo.GoMap<stdgo.go.types.Types.Type_, Bool>) {
         if (_tparams != null) this._tparams = _tparams;
         if (_inferred != null) this._inferred = _inferred;
         if (_seen != null) this._seen = _seen;
@@ -2415,12 +2415,12 @@ _indent);
 @:structInit @:using(stdgo.go.types.Types.Interface_static_extension) class Interface {
     public var _check : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Checker> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Checker>);
     public var _methods : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>> = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>);
-    public var _embeddeds : stdgo.Slice<stdgo.go.types.Types.Type> = (null : stdgo.Slice<stdgo.go.types.Types.Type>);
+    public var _embeddeds : stdgo.Slice<stdgo.go.types.Types.Type_> = (null : stdgo.Slice<stdgo.go.types.Types.Type_>);
     public var _embedPos : stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.go.token.Token.Pos>> = (null : stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.go.token.Token.Pos>>);
     public var _implicit : Bool = false;
     public var _complete : Bool = false;
     public var _tset : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T__TypeSet> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T__TypeSet>);
-    public function new(?_check:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Checker>, ?_methods:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>, ?_embeddeds:stdgo.Slice<stdgo.go.types.Types.Type>, ?_embedPos:stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.go.token.Token.Pos>>, ?_implicit:Bool, ?_complete:Bool, ?_tset:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T__TypeSet>) {
+    public function new(?_check:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Checker>, ?_methods:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>, ?_embeddeds:stdgo.Slice<stdgo.go.types.Types.Type_>, ?_embedPos:stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.go.token.Token.Pos>>, ?_implicit:Bool, ?_complete:Bool, ?_tset:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T__TypeSet>) {
         if (_check != null) this._check = _check;
         if (_methods != null) this._methods = _methods;
         if (_embeddeds != null) this._embeddeds = _embeddeds;
@@ -2459,11 +2459,11 @@ _indent);
     
 **/
 @:structInit @:private class T_embeddedType {
-    public var _typ : stdgo.go.types.Types.Type = (null : stdgo.go.types.Types.Type);
+    public var _typ : stdgo.go.types.Types.Type_ = (null : stdgo.go.types.Types.Type_);
     public var _index : stdgo.Slice<stdgo.StdGoTypes.GoInt> = (null : stdgo.Slice<stdgo.StdGoTypes.GoInt>);
     public var _indirect : Bool = false;
     public var _multiples : Bool = false;
-    public function new(?_typ:stdgo.go.types.Types.Type, ?_index:stdgo.Slice<stdgo.StdGoTypes.GoInt>, ?_indirect:Bool, ?_multiples:Bool) {
+    public function new(?_typ:stdgo.go.types.Types.Type_, ?_index:stdgo.Slice<stdgo.StdGoTypes.GoInt>, ?_indirect:Bool, ?_multiples:Bool) {
         if (_typ != null) this._typ = _typ;
         if (_index != null) this._index = _index;
         if (_indirect != null) this._indirect = _indirect;
@@ -2501,9 +2501,9 @@ _indent);
     
 **/
 @:structInit @:using(stdgo.go.types.Types.Map__static_extension) class Map_ {
-    public var _key : stdgo.go.types.Types.Type = (null : stdgo.go.types.Types.Type);
-    public var _elem : stdgo.go.types.Types.Type = (null : stdgo.go.types.Types.Type);
-    public function new(?_key:stdgo.go.types.Types.Type, ?_elem:stdgo.go.types.Types.Type) {
+    public var _key : stdgo.go.types.Types.Type_ = (null : stdgo.go.types.Types.Type_);
+    public var _elem : stdgo.go.types.Types.Type_ = (null : stdgo.go.types.Types.Type_);
+    public function new(?_key:stdgo.go.types.Types.Type_, ?_elem:stdgo.go.types.Types.Type_) {
         if (_key != null) this._key = _key;
         if (_elem != null) this._elem = _elem;
     }
@@ -2593,8 +2593,8 @@ _indent);
     public var _src : stdgo.StdGoTypes.GoInt = 0;
     public var _weight : stdgo.StdGoTypes.GoInt = 0;
     public var _pos : stdgo.go.token.Token.Pos = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.token.Token.Pos);
-    public var _typ : stdgo.go.types.Types.Type = (null : stdgo.go.types.Types.Type);
-    public function new(?_dst:stdgo.StdGoTypes.GoInt, ?_src:stdgo.StdGoTypes.GoInt, ?_weight:stdgo.StdGoTypes.GoInt, ?_pos:stdgo.go.token.Token.Pos, ?_typ:stdgo.go.types.Types.Type) {
+    public var _typ : stdgo.go.types.Types.Type_ = (null : stdgo.go.types.Types.Type_);
+    public function new(?_dst:stdgo.StdGoTypes.GoInt, ?_src:stdgo.StdGoTypes.GoInt, ?_weight:stdgo.StdGoTypes.GoInt, ?_pos:stdgo.go.token.Token.Pos, ?_typ:stdgo.go.types.Types.Type_) {
         if (_dst != null) this._dst = _dst;
         if (_src != null) this._src = _src;
         if (_weight != null) this._weight = _weight;
@@ -2619,14 +2619,14 @@ _indent);
         // from (for cycle reporting). Only used by validType, and therefore does not
         // require synchronization.
     **/
-    public var _fromRHS : stdgo.go.types.Types.Type = (null : stdgo.go.types.Types.Type);
+    public var _fromRHS : stdgo.go.types.Types.Type_ = (null : stdgo.go.types.Types.Type_);
     /**
         // information for instantiated types; nil otherwise
     **/
     public var _inst : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_instance> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_instance>);
     public var _mu : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
     public var _state_ : stdgo.StdGoTypes.GoUInt32 = 0;
-    public var _underlying : stdgo.go.types.Types.Type = (null : stdgo.go.types.Types.Type);
+    public var _underlying : stdgo.go.types.Types.Type_ = (null : stdgo.go.types.Types.Type_);
     public var _tparams : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParamList> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParamList>);
     /**
         // methods declared for this type (not the method set of this type)
@@ -2639,8 +2639,8 @@ _indent);
     /**
         // loader may be provided to lazily load type parameters, underlying type, and methods.
     **/
-    public var _loader : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named> -> { var _0 : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>; var _1 : stdgo.go.types.Types.Type; var _2 : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>; } = null;
-    public function new(?_check:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Checker>, ?_obj:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeName>, ?_fromRHS:stdgo.go.types.Types.Type, ?_inst:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_instance>, ?_mu:stdgo.sync.Sync.Mutex, ?_state_:stdgo.StdGoTypes.GoUInt32, ?_underlying:stdgo.go.types.Types.Type, ?_tparams:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParamList>, ?_methods:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>, ?_loader:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named> -> { var _0 : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>; var _1 : stdgo.go.types.Types.Type; var _2 : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>; }) {
+    public var _loader : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named> -> { var _0 : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>; var _1 : stdgo.go.types.Types.Type_; var _2 : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>; } = null;
+    public function new(?_check:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Checker>, ?_obj:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeName>, ?_fromRHS:stdgo.go.types.Types.Type_, ?_inst:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_instance>, ?_mu:stdgo.sync.Sync.Mutex, ?_state_:stdgo.StdGoTypes.GoUInt32, ?_underlying:stdgo.go.types.Types.Type_, ?_tparams:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParamList>, ?_methods:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>, ?_loader:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named> -> { var _0 : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>; var _1 : stdgo.go.types.Types.Type_; var _2 : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>; }) {
         if (_check != null) this._check = _check;
         if (_obj != null) this._obj = _obj;
         if (_fromRHS != null) this._fromRHS = _fromRHS;
@@ -2689,11 +2689,11 @@ _indent);
     public var _pos : stdgo.go.token.Token.Pos = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.token.Token.Pos);
     public var _pkg : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package>);
     public var _name : stdgo.GoString = "";
-    public var _typ : stdgo.go.types.Types.Type = (null : stdgo.go.types.Types.Type);
+    public var _typ : stdgo.go.types.Types.Type_ = (null : stdgo.go.types.Types.Type_);
     public var _order_ : stdgo.StdGoTypes.GoUInt32 = 0;
     public var _color_ : stdgo.go.types.Types.T_color = ((0 : stdgo.StdGoTypes.GoUInt32) : stdgo.go.types.Types.T_color);
     public var _scopePos_ : stdgo.go.token.Token.Pos = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.token.Token.Pos);
-    public function new(?_parent:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Scope>, ?_pos:stdgo.go.token.Token.Pos, ?_pkg:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package>, ?_name:stdgo.GoString, ?_typ:stdgo.go.types.Types.Type, ?_order_:stdgo.StdGoTypes.GoUInt32, ?_color_:stdgo.go.types.Types.T_color, ?_scopePos_:stdgo.go.token.Token.Pos) {
+    public function new(?_parent:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Scope>, ?_pos:stdgo.go.token.Token.Pos, ?_pkg:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package>, ?_name:stdgo.GoString, ?_typ:stdgo.go.types.Types.Type_, ?_order_:stdgo.StdGoTypes.GoUInt32, ?_color_:stdgo.go.types.Types.T_color, ?_scopePos_:stdgo.go.token.Token.Pos) {
         if (_parent != null) this._parent = _parent;
         if (_pos != null) this._pos = _pos;
         if (_pkg != null) this._pkg = _pkg;
@@ -2738,7 +2738,7 @@ _indent);
     @:embedded
     public function pos():stdgo.go.token.Token.Pos return _object.pos();
     @:embedded
-    public function type():stdgo.go.types.Types.Type return _object.type();
+    public function type():stdgo.go.types.Types.Type_ return _object.type();
     @:embedded
     public function _color():stdgo.go.types.Types.T_color return _object._color();
     @:embedded
@@ -2758,7 +2758,7 @@ _indent);
     @:embedded
     public function _setScopePos(_p:stdgo.go.token.Token.Pos) _object._setScopePos(_p);
     @:embedded
-    public function _setType(__0:stdgo.go.types.Types.Type) _object._setType(__0);
+    public function _setType(__0:stdgo.go.types.Types.Type_) _object._setType(__0);
     public function __copy__() {
         return new PkgName(_object, _imported, _used);
     }
@@ -2790,7 +2790,7 @@ _indent);
     @:embedded
     public function pos():stdgo.go.token.Token.Pos return _object.pos();
     @:embedded
-    public function type():stdgo.go.types.Types.Type return _object.type();
+    public function type():stdgo.go.types.Types.Type_ return _object.type();
     @:embedded
     public function _color():stdgo.go.types.Types.T_color return _object._color();
     @:embedded
@@ -2810,7 +2810,7 @@ _indent);
     @:embedded
     public function _setScopePos(_p:stdgo.go.token.Token.Pos) _object._setScopePos(_p);
     @:embedded
-    public function _setType(__0:stdgo.go.types.Types.Type) _object._setType(__0);
+    public function _setType(__0:stdgo.go.types.Types.Type_) _object._setType(__0);
     public function __copy__() {
         return new Const(_object, _val);
     }
@@ -2840,7 +2840,7 @@ _indent);
     @:embedded
     public function pos():stdgo.go.token.Token.Pos return _object.pos();
     @:embedded
-    public function type():stdgo.go.types.Types.Type return _object.type();
+    public function type():stdgo.go.types.Types.Type_ return _object.type();
     @:embedded
     public function _color():stdgo.go.types.Types.T_color return _object._color();
     @:embedded
@@ -2860,7 +2860,7 @@ _indent);
     @:embedded
     public function _setScopePos(_p:stdgo.go.token.Token.Pos) _object._setScopePos(_p);
     @:embedded
-    public function _setType(__0:stdgo.go.types.Types.Type) _object._setType(__0);
+    public function _setType(__0:stdgo.go.types.Types.Type_) _object._setType(__0);
     public function __copy__() {
         return new TypeName(_object);
     }
@@ -2898,7 +2898,7 @@ _indent);
     @:embedded
     public function pos():stdgo.go.token.Token.Pos return _object.pos();
     @:embedded
-    public function type():stdgo.go.types.Types.Type return _object.type();
+    public function type():stdgo.go.types.Types.Type_ return _object.type();
     @:embedded
     public function _color():stdgo.go.types.Types.T_color return _object._color();
     @:embedded
@@ -2918,7 +2918,7 @@ _indent);
     @:embedded
     public function _setScopePos(_p:stdgo.go.token.Token.Pos) _object._setScopePos(_p);
     @:embedded
-    public function _setType(__0:stdgo.go.types.Types.Type) _object._setType(__0);
+    public function _setType(__0:stdgo.go.types.Types.Type_) _object._setType(__0);
     public function __copy__() {
         return new Var(_object, _embedded, _isField, _used, _origin);
     }
@@ -2954,7 +2954,7 @@ _indent);
     @:embedded
     public function pos():stdgo.go.token.Token.Pos return _object.pos();
     @:embedded
-    public function type():stdgo.go.types.Types.Type return _object.type();
+    public function type():stdgo.go.types.Types.Type_ return _object.type();
     @:embedded
     public function _color():stdgo.go.types.Types.T_color return _object._color();
     @:embedded
@@ -2974,7 +2974,7 @@ _indent);
     @:embedded
     public function _setScopePos(_p:stdgo.go.token.Token.Pos) _object._setScopePos(_p);
     @:embedded
-    public function _setType(__0:stdgo.go.types.Types.Type) _object._setType(__0);
+    public function _setType(__0:stdgo.go.types.Types.Type_) _object._setType(__0);
     public function __copy__() {
         return new Func(_object, _hasPtrRecv_, _origin);
     }
@@ -3007,7 +3007,7 @@ _indent);
     @:embedded
     public function pos():stdgo.go.token.Token.Pos return _object.pos();
     @:embedded
-    public function type():stdgo.go.types.Types.Type return _object.type();
+    public function type():stdgo.go.types.Types.Type_ return _object.type();
     @:embedded
     public function _color():stdgo.go.types.Types.T_color return _object._color();
     @:embedded
@@ -3027,7 +3027,7 @@ _indent);
     @:embedded
     public function _setScopePos(_p:stdgo.go.token.Token.Pos) _object._setScopePos(_p);
     @:embedded
-    public function _setType(__0:stdgo.go.types.Types.Type) _object._setType(__0);
+    public function _setType(__0:stdgo.go.types.Types.Type_) _object._setType(__0);
     public function __copy__() {
         return new Label(_object, _used);
     }
@@ -3060,7 +3060,7 @@ _indent);
     @:embedded
     public function pos():stdgo.go.token.Token.Pos return _object.pos();
     @:embedded
-    public function type():stdgo.go.types.Types.Type return _object.type();
+    public function type():stdgo.go.types.Types.Type_ return _object.type();
     @:embedded
     public function _color():stdgo.go.types.Types.T_color return _object._color();
     @:embedded
@@ -3080,7 +3080,7 @@ _indent);
     @:embedded
     public function _setScopePos(_p:stdgo.go.token.Token.Pos) _object._setScopePos(_p);
     @:embedded
-    public function _setType(__0:stdgo.go.types.Types.Type) _object._setType(__0);
+    public function _setType(__0:stdgo.go.types.Types.Type_) _object._setType(__0);
     public function __copy__() {
         return new Builtin(_object, _id);
     }
@@ -3110,7 +3110,7 @@ _indent);
     @:embedded
     public function pos():stdgo.go.token.Token.Pos return _object.pos();
     @:embedded
-    public function type():stdgo.go.types.Types.Type return _object.type();
+    public function type():stdgo.go.types.Types.Type_ return _object.type();
     @:embedded
     public function _color():stdgo.go.types.Types.T_color return _object._color();
     @:embedded
@@ -3130,7 +3130,7 @@ _indent);
     @:embedded
     public function _setScopePos(_p:stdgo.go.token.Token.Pos) _object._setScopePos(_p);
     @:embedded
-    public function _setType(__0:stdgo.go.types.Types.Type) _object._setType(__0);
+    public function _setType(__0:stdgo.go.types.Types.Type_) _object._setType(__0);
     public function __copy__() {
         return new Nil(_object);
     }
@@ -3147,10 +3147,10 @@ _indent);
 @:structInit @:private @:using(stdgo.go.types.Types.T_operand_static_extension) class T_operand {
     public var _mode : stdgo.go.types.Types.T_operandMode = ((0 : stdgo.StdGoTypes.GoUInt8) : stdgo.go.types.Types.T_operandMode);
     public var _expr : stdgo.go.ast.Ast.Expr = (null : stdgo.go.ast.Ast.Expr);
-    public var _typ : stdgo.go.types.Types.Type = (null : stdgo.go.types.Types.Type);
+    public var _typ : stdgo.go.types.Types.Type_ = (null : stdgo.go.types.Types.Type_);
     public var _val : stdgo.go.constant.Constant.Value = (null : stdgo.go.constant.Constant.Value);
     public var _id : stdgo.go.types.Types.T_builtinId = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.types.Types.T_builtinId);
-    public function new(?_mode:stdgo.go.types.Types.T_operandMode, ?_expr:stdgo.go.ast.Ast.Expr, ?_typ:stdgo.go.types.Types.Type, ?_val:stdgo.go.constant.Constant.Value, ?_id:stdgo.go.types.Types.T_builtinId) {
+    public function new(?_mode:stdgo.go.types.Types.T_operandMode, ?_expr:stdgo.go.ast.Ast.Expr, ?_typ:stdgo.go.types.Types.Type_, ?_val:stdgo.go.constant.Constant.Value, ?_id:stdgo.go.types.Types.T_builtinId) {
         if (_mode != null) this._mode = _mode;
         if (_expr != null) this._expr = _expr;
         if (_typ != null) this._typ = _typ;
@@ -3197,8 +3197,8 @@ _indent);
     
 **/
 @:structInit @:using(stdgo.go.types.Types.Pointer__static_extension) class Pointer_ {
-    public var _base : stdgo.go.types.Types.Type = (null : stdgo.go.types.Types.Type);
-    public function new(?_base:stdgo.go.types.Types.Type) {
+    public var _base : stdgo.go.types.Types.Type_ = (null : stdgo.go.types.Types.Type_);
+    public function new(?_base:stdgo.go.types.Types.Type_) {
         if (_base != null) this._base = _base;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
@@ -3349,11 +3349,11 @@ _indent);
 **/
 @:structInit @:using(stdgo.go.types.Types.Selection_static_extension) class Selection {
     public var _kind : stdgo.go.types.Types.SelectionKind = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.types.Types.SelectionKind);
-    public var _recv : stdgo.go.types.Types.Type = (null : stdgo.go.types.Types.Type);
+    public var _recv : stdgo.go.types.Types.Type_ = (null : stdgo.go.types.Types.Type_);
     public var _obj : stdgo.go.types.Types.Object = (null : stdgo.go.types.Types.Object);
     public var _index : stdgo.Slice<stdgo.StdGoTypes.GoInt> = (null : stdgo.Slice<stdgo.StdGoTypes.GoInt>);
     public var _indirect : Bool = false;
-    public function new(?_kind:stdgo.go.types.Types.SelectionKind, ?_recv:stdgo.go.types.Types.Type, ?_obj:stdgo.go.types.Types.Object, ?_index:stdgo.Slice<stdgo.StdGoTypes.GoInt>, ?_indirect:Bool) {
+    public function new(?_kind:stdgo.go.types.Types.SelectionKind, ?_recv:stdgo.go.types.Types.Type_, ?_obj:stdgo.go.types.Types.Object, ?_index:stdgo.Slice<stdgo.StdGoTypes.GoInt>, ?_indirect:Bool) {
         if (_kind != null) this._kind = _kind;
         if (_recv != null) this._recv = _recv;
         if (_obj != null) this._obj = _obj;
@@ -3439,8 +3439,8 @@ _indent);
     
 **/
 @:structInit @:using(stdgo.go.types.Types.Slice__static_extension) class Slice_ {
-    public var _elem : stdgo.go.types.Types.Type = (null : stdgo.go.types.Types.Type);
-    public function new(?_elem:stdgo.go.types.Types.Type) {
+    public var _elem : stdgo.go.types.Types.Type_ = (null : stdgo.go.types.Types.Type_);
+    public function new(?_elem:stdgo.go.types.Types.Type_) {
         if (_elem != null) this._elem = _elem;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
@@ -3460,8 +3460,8 @@ _indent);
 **/
 @:structInit @:private class T_valueType {
     public var _pos : stdgo.go.token.Token.Pos = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.token.Token.Pos);
-    public var _typ : stdgo.go.types.Types.Type = (null : stdgo.go.types.Types.Type);
-    public function new(?_pos:stdgo.go.token.Token.Pos, ?_typ:stdgo.go.types.Types.Type) {
+    public var _typ : stdgo.go.types.Types.Type_ = (null : stdgo.go.types.Types.Type_);
+    public function new(?_pos:stdgo.go.token.Token.Pos, ?_typ:stdgo.go.types.Types.Type_) {
         if (_pos != null) this._pos = _pos;
         if (_typ != null) this._typ = _typ;
     }
@@ -3548,8 +3548,8 @@ _indent);
     
 **/
 @:structInit @:using(stdgo.go.types.Types.TypeList_static_extension) class TypeList {
-    public var _types : stdgo.Slice<stdgo.go.types.Types.Type> = (null : stdgo.Slice<stdgo.go.types.Types.Type>);
-    public function new(?_types:stdgo.Slice<stdgo.go.types.Types.Type>) {
+    public var _types : stdgo.Slice<stdgo.go.types.Types.Type_> = (null : stdgo.Slice<stdgo.go.types.Types.Type_>);
+    public function new(?_types:stdgo.Slice<stdgo.go.types.Types.Type_>) {
         if (_types != null) this._types = _types;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
@@ -3567,8 +3567,8 @@ _indent);
     public var _id : stdgo.StdGoTypes.GoUInt64 = 0;
     public var _obj : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeName> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeName>);
     public var _index : stdgo.StdGoTypes.GoInt = 0;
-    public var _bound : stdgo.go.types.Types.Type = (null : stdgo.go.types.Types.Type);
-    public function new(?_check:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Checker>, ?_id:stdgo.StdGoTypes.GoUInt64, ?_obj:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeName>, ?_index:stdgo.StdGoTypes.GoInt, ?_bound:stdgo.go.types.Types.Type) {
+    public var _bound : stdgo.go.types.Types.Type_ = (null : stdgo.go.types.Types.Type_);
+    public function new(?_check:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Checker>, ?_id:stdgo.StdGoTypes.GoUInt64, ?_obj:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeName>, ?_index:stdgo.StdGoTypes.GoInt, ?_bound:stdgo.go.types.Types.Type_) {
         if (_check != null) this._check = _check;
         if (_id != null) this._id = _id;
         if (_obj != null) this._obj = _obj;
@@ -3614,14 +3614,14 @@ _indent);
 **/
 @:structInit @:private @:using(stdgo.go.types.Types.T_typeWriter_static_extension) class T_typeWriter {
     public var _buf : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer> = (null : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
-    public var _seen : stdgo.GoMap<stdgo.go.types.Types.Type, Bool> = (null : stdgo.GoMap<stdgo.go.types.Types.Type, Bool>);
+    public var _seen : stdgo.GoMap<stdgo.go.types.Types.Type_, Bool> = (null : stdgo.GoMap<stdgo.go.types.Types.Type_, Bool>);
     public var _qf : stdgo.go.types.Types.Qualifier = (null : stdgo.go.types.Types.Qualifier);
     public var _ctxt : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Context> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Context>);
     public var _tparams : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParamList> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParamList>);
     public var _paramNames : Bool = false;
     public var _tpSubscripts : Bool = false;
     public var _pkgInfo : Bool = false;
-    public function new(?_buf:stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>, ?_seen:stdgo.GoMap<stdgo.go.types.Types.Type, Bool>, ?_qf:stdgo.go.types.Types.Qualifier, ?_ctxt:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Context>, ?_tparams:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParamList>, ?_paramNames:Bool, ?_tpSubscripts:Bool, ?_pkgInfo:Bool) {
+    public function new(?_buf:stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>, ?_seen:stdgo.GoMap<stdgo.go.types.Types.Type_, Bool>, ?_qf:stdgo.go.types.Types.Qualifier, ?_ctxt:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Context>, ?_tparams:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParamList>, ?_paramNames:Bool, ?_tpSubscripts:Bool, ?_pkgInfo:Bool) {
         if (_buf != null) this._buf = _buf;
         if (_seen != null) this._seen = _seen;
         if (_qf != null) this._qf = _qf;
@@ -3648,8 +3648,8 @@ _indent);
 **/
 @:structInit @:private @:using(stdgo.go.types.Types.T_term_static_extension) class T_term {
     public var _tilde : Bool = false;
-    public var _typ : stdgo.go.types.Types.Type = (null : stdgo.go.types.Types.Type);
-    public function new(?_tilde:Bool, ?_typ:stdgo.go.types.Types.Type) {
+    public var _typ : stdgo.go.types.Types.Type_ = (null : stdgo.go.types.Types.Type_);
+    public function new(?_tilde:Bool, ?_typ:stdgo.go.types.Types.Type_) {
         if (_tilde != null) this._tilde = _tilde;
         if (_typ != null) this._typ = _typ;
     }
@@ -3677,10 +3677,10 @@ _indent);
         // automatically infer the same type for all other parameters
         // unified (joined) with P.
     **/
-    public var _handles : stdgo.GoMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type>> = (null : stdgo.GoMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type>>);
+    public var _handles : stdgo.GoMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type_>> = (null : stdgo.GoMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type_>>);
     public var _depth : stdgo.StdGoTypes.GoInt = 0;
     public var _enableInterfaceInference : Bool = false;
-    public function new(?_handles:stdgo.GoMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type>>, ?_depth:stdgo.StdGoTypes.GoInt, ?_enableInterfaceInference:Bool) {
+    public function new(?_handles:stdgo.GoMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type_>>, ?_depth:stdgo.StdGoTypes.GoInt, ?_enableInterfaceInference:Bool) {
         if (_handles != null) this._handles = _handles;
         if (_depth != null) this._depth = _depth;
         if (_enableInterfaceInference != null) this._enableInterfaceInference = _enableInterfaceInference;
@@ -3893,7 +3893,7 @@ class T__struct_8_asInterface {
     // atPos wraps a token.Pos to implement the positioner interface.
 **/
 @:named @:using(stdgo.go.types.Types.T_atPos_static_extension) typedef T_atPos = stdgo.go.token.Token.Pos;
-@:named typedef T_opPredicates = stdgo.GoMap<stdgo.go.token.Token.Token, stdgo.go.types.Types.Type -> Bool>;
+@:named typedef T_opPredicates = stdgo.GoMap<stdgo.go.token.Token.Token, stdgo.go.types.Types.Type_ -> Bool>;
 /**
     // exprKind describes the kind of an expression; the kind
     // determines if an expression is valid in 'statement context'.
@@ -3953,7 +3953,7 @@ class T__struct_8_asInterface {
     // when the switch expression is of interface type.
 **/
 @:named typedef T_valueMap = stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.Slice<stdgo.go.types.Types.T_valueType>>;
-@:named @:using(stdgo.go.types.Types.T_substMap_static_extension) typedef T_substMap = stdgo.GoMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.go.types.Types.Type>;
+@:named @:using(stdgo.go.types.Types.T_substMap_static_extension) typedef T_substMap = stdgo.GoMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.go.types.Types.Type_>;
 /**
     // A termlist represents the type set represented by the union
     // t1 ∪ y2 ∪ ... tn of the type sets of the terms t1 to tn.
@@ -4004,7 +4004,7 @@ function _srcimporter_setUsesCgo(_conf:stdgo.StdGoTypes.Ref<Config>):Void {
     //     as a type constraint in Go code
     //   - if T is an uninstantiated generic type
 **/
-function assertableTo(v:stdgo.StdGoTypes.Ref<Interface>, t:Type):Bool {
+function assertableTo(v:stdgo.StdGoTypes.Ref<Interface>, t:Type_):Bool {
         if (stdgo.Go.toInterface(t.underlying()) == (stdgo.Go.toInterface(stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])))) {
             return false;
         };
@@ -4017,7 +4017,7 @@ function assertableTo(v:stdgo.StdGoTypes.Ref<Interface>, t:Type):Bool {
     // The behavior of AssignableTo is unspecified if V or T is Typ[Invalid] or an
     // uninstantiated generic type.
 **/
-function assignableTo(v:Type, t:Type):Bool {
+function assignableTo(v:Type_, t:Type_):Bool {
         var _x:stdgo.go.types.Types.T_operand = ({ _mode : (7 : stdgo.go.types.Types.T_operandMode), _typ : v } : stdgo.go.types.Types.T_operand);
         var __tmp__ = _x._assignableTo(null, t, (null : stdgo.Pointer<stdgo.GoString>)), _ok:Bool = __tmp__._0, __0:stdgo.internal.types.errors.Errors.Code = __tmp__._1;
         return _ok;
@@ -4029,7 +4029,7 @@ function assignableTo(v:Type, t:Type):Bool {
     // The behavior of ConvertibleTo is unspecified if V or T is Typ[Invalid] or an
     // uninstantiated generic type.
 **/
-function convertibleTo(v:Type, t:Type):Bool {
+function convertibleTo(v:Type_, t:Type_):Bool {
         var _x:stdgo.go.types.Types.T_operand = ({ _mode : (7 : stdgo.go.types.Types.T_operandMode), _typ : v } : stdgo.go.types.Types.T_operand);
         return _x._convertibleTo(null, t, (null : stdgo.Pointer<stdgo.GoString>));
     }
@@ -4039,7 +4039,7 @@ function convertibleTo(v:Type, t:Type):Bool {
     // The behavior of Implements is unspecified if V is Typ[Invalid] or an uninstantiated
     // generic type.
 **/
-function implements_(v:Type, t:stdgo.StdGoTypes.Ref<Interface>):Bool {
+function implements_(v:Type_, t:stdgo.StdGoTypes.Ref<Interface>):Bool {
         if (t.empty()) {
             return true;
         };
@@ -4054,14 +4054,14 @@ function implements_(v:Type, t:stdgo.StdGoTypes.Ref<Interface>):Bool {
     // The behavior of Satisfies is unspecified if V is Typ[Invalid] or an uninstantiated
     // generic type.
 **/
-function satisfies(v:Type, t:stdgo.StdGoTypes.Ref<Interface>):Bool {
+function satisfies(v:Type_, t:stdgo.StdGoTypes.Ref<Interface>):Bool {
         return ((null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Checker>) : stdgo.StdGoTypes.Ref<Checker>)._implements((0 : stdgo.go.token.Token.Pos), v, stdgo.Go.asInterface(t), true, (null : stdgo.Pointer<stdgo.GoString>));
     }
 /**
     // Identical reports whether x and y are identical types.
     // Receivers of Signature types are ignored.
 **/
-function identical(_x:Type, _y:Type):Bool {
+function identical(_x:Type_, _y:Type_):Bool {
         var _c:T_comparer = ({} : stdgo.go.types.Types.T_comparer);
         return _c._identical(_x, _y, null);
     }
@@ -4069,7 +4069,7 @@ function identical(_x:Type, _y:Type):Bool {
     // IdenticalIgnoreTags reports whether x and y are identical types if tags are ignored.
     // Receivers of Signature types are ignored.
 **/
-function identicalIgnoreTags(_x:Type, _y:Type):Bool {
+function identicalIgnoreTags(_x:Type_, _y:Type_):Bool {
         var _c:T_comparer = ({} : stdgo.go.types.Types.T_comparer);
         _c._ignoreTags = true;
         return _c._identical(_x, _y, null);
@@ -4078,14 +4078,14 @@ function identicalIgnoreTags(_x:Type, _y:Type):Bool {
     // NewArray returns a new array type for the given element type and length.
     // A negative length indicates an unknown length.
 **/
-function newArray(_elem:Type, _len:stdgo.StdGoTypes.GoInt64):stdgo.StdGoTypes.Ref<Array_> {
+function newArray(_elem:Type_, _len:stdgo.StdGoTypes.GoInt64):stdgo.StdGoTypes.Ref<Array_> {
         return (stdgo.Go.setRef(({ _len : _len, _elem : _elem } : stdgo.go.types.Types.Array_)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>);
     }
 /**
     // operandTypes returns the list of types for the given operands.
 **/
-function _operandTypes(_list:stdgo.Slice<stdgo.StdGoTypes.Ref<T_operand>>):stdgo.Slice<Type> {
-        var _res:stdgo.Slice<Type> = (null : stdgo.Slice<stdgo.go.types.Types.Type>);
+function _operandTypes(_list:stdgo.Slice<stdgo.StdGoTypes.Ref<T_operand>>):stdgo.Slice<Type_> {
+        var _res:stdgo.Slice<Type_> = (null : stdgo.Slice<stdgo.go.types.Types.Type_>);
         for (__0 => _x in _list) {
             _res = (_res.__append__(_x._typ));
         };
@@ -4094,8 +4094,8 @@ function _operandTypes(_list:stdgo.Slice<stdgo.StdGoTypes.Ref<T_operand>>):stdgo
 /**
     // varTypes returns the list of types for the given variables.
 **/
-function _varTypes(_list:stdgo.Slice<stdgo.StdGoTypes.Ref<Var>>):stdgo.Slice<Type> {
-        var _res:stdgo.Slice<Type> = (null : stdgo.Slice<stdgo.go.types.Types.Type>);
+function _varTypes(_list:stdgo.Slice<stdgo.StdGoTypes.Ref<Var>>):stdgo.Slice<Type_> {
+        var _res:stdgo.Slice<Type_> = (null : stdgo.Slice<stdgo.go.types.Types.Type_>);
         for (__0 => _x in _list) {
             _res = (_res.__append__(_x._object._typ));
         };
@@ -4112,19 +4112,19 @@ function _measure(_x:stdgo.StdGoTypes.GoInt, _unit:stdgo.GoString):stdgo.GoStrin
     // or if the type is infinitely-sized due to a cycle for which the type has not
     // yet been checked.
 **/
-function _hasVarSize(_t:Type, _seen:stdgo.GoMap<stdgo.StdGoTypes.Ref<Named>, Bool>):Bool {
+function _hasVarSize(_t:Type_, _seen:stdgo.GoMap<stdgo.StdGoTypes.Ref<Named>, Bool>):Bool {
         var __deferstack__:Array<Void -> Void> = [];
         var _varSized:Bool = false;
         try {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-                }, _named = __tmp__.value, __0 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+                }, _named = __tmp__._0, __0 = __tmp__._1;
                 if (_named != null && ((_named : Dynamic).__nil__ == null || !(_named : Dynamic).__nil__)) {
                     {
-                        var __tmp__ = (_seen != null && _seen.exists(_named) ? { value : _seen[_named], ok : true } : { value : false, ok : false }), _v:Bool = __tmp__.value, _ok:Bool = __tmp__.ok;
+                        var __tmp__ = (_seen != null && _seen.exists(_named) ? { _0 : _seen[_named], _1 : true } : { _0 : false, _1 : false }), _v:Bool = __tmp__._0, _ok:Bool = __tmp__._1;
                         if (_ok) {
                             return _v;
                         };
@@ -4176,7 +4176,7 @@ function _hasVarSize(_t:Type, _seen:stdgo.GoMap<stdgo.StdGoTypes.Ref<Named>, Boo
                         return _isTypeParam(_t);
                     };
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Named>)) || stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Union>))) {
-                    var _u:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                    var _u:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                     _unreachable();
                 };
             };
@@ -4211,8 +4211,8 @@ function _hasVarSize(_t:Type, _seen:stdgo.GoMap<stdgo.StdGoTypes.Ref<Named>, Boo
     // makeSig makes a signature for the given argument and result types.
     // Default types are used for untyped arguments, and res may be nil.
 **/
-function _makeSig(_res:Type, _args:haxe.Rest<Type>):stdgo.StdGoTypes.Ref<Signature> {
-        var _args = new stdgo.Slice<Type>(_args.length, 0, ..._args);
+function _makeSig(_res:Type_, _args:haxe.Rest<Type_>):stdgo.StdGoTypes.Ref<Signature> {
+        var _args = new stdgo.Slice<Type_>(_args.length, 0, ..._args);
         var _list = new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>>((_args.length : stdgo.StdGoTypes.GoInt).toBasic(), 0);
         for (_i => _param in _args) {
             _list[(_i : stdgo.StdGoTypes.GoInt)] = newVar(_nopos, null, stdgo.Go.str()?.__copy__(), default_(_param));
@@ -4229,20 +4229,20 @@ function _makeSig(_res:Type, _args:haxe.Rest<Type>):stdgo.StdGoTypes.Ref<Signatu
     // arrayPtrDeref returns A if typ is of the form *A and A is an array;
     // otherwise it returns typ.
 **/
-function _arrayPtrDeref(_typ:Type):Type {
+function _arrayPtrDeref(_typ:Type_):Type_ {
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), ok : false };
-            }, _p = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), _1 : false };
+            }, _p = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_p._base)) : stdgo.StdGoTypes.Ref<Array_>)) : stdgo.StdGoTypes.Ref<Array_>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_p._base)) : stdgo.StdGoTypes.Ref<Array_>)) : stdgo.StdGoTypes.Ref<Array_>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>), ok : false };
-                    }, _a = __tmp__.value, __0 = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>), _1 : false };
+                    }, _a = __tmp__._0, __0 = __tmp__._1;
                     if (_a != null && ((_a : Dynamic).__nil__ == null || !(_a : Dynamic).__nil__)) {
                         return stdgo.Go.asInterface(_a);
                     };
@@ -4257,10 +4257,10 @@ function _arrayPtrDeref(_typ:Type):Type {
 function _unparen(_e:stdgo.go.ast.Ast.Expr):stdgo.go.ast.Ast.Expr {
         while (true) {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr>), ok : false };
-            }, _p = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr>), _1 : false };
+            }, _p = __tmp__._0, _ok = __tmp__._1;
             if (!_ok) {
                 return _e;
             };
@@ -4270,7 +4270,7 @@ function _unparen(_e:stdgo.go.ast.Ast.Expr):stdgo.go.ast.Ast.Expr {
 /**
     // NewChan returns a new channel type for the given direction and element type.
 **/
-function newChan(_dir:ChanDir, _elem:Type):stdgo.StdGoTypes.Ref<stdgo.Chan> {
+function newChan(_dir:ChanDir, _elem:Type_):stdgo.StdGoTypes.Ref<stdgo.Chan> {
         return (stdgo.Go.setRef(({ _dir : _dir, _elem : _elem } : stdgo.Chan)) : stdgo.StdGoTypes.Ref<stdgo.Chan>);
     }
 /**
@@ -4347,7 +4347,7 @@ function _representableConst(_x:stdgo.go.constant.Constant.Value, _check:stdgo.S
         if (_check != null && ((_check : Dynamic).__nil__ == null || !(_check : Dynamic).__nil__)) {
             _conf = _check._conf;
         };
-        var _sizeof:stdgo.go.types.Types.Type -> stdgo.StdGoTypes.GoInt64 = function(t:Type):stdgo.StdGoTypes.GoInt64 {
+        var _sizeof:stdgo.go.types.Types.Type_ -> stdgo.StdGoTypes.GoInt64 = function(t:Type_):stdgo.StdGoTypes.GoInt64 {
             var _s:stdgo.StdGoTypes.GoInt64 = _conf._sizeof(t);
             return _s;
         };
@@ -4552,95 +4552,95 @@ function newContext():stdgo.StdGoTypes.Ref<Context> {
             @:mergeBlock {};
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.go.types.Types.T_ctxtEntry>>), _originIDs : ({
-            final x = new stdgo.GoMap.GoObjectMap<stdgo.go.types.Types.Type, stdgo.StdGoTypes.GoInt>();
-            x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }));
+            final x = new stdgo.GoMap.GoObjectMap<stdgo.go.types.Types.Type_, stdgo.StdGoTypes.GoInt>();
+            x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type_", [], stdgo.internal.reflect.Reflect.GoType.named("Type_", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }));
             x.__defaultValue__ = () -> (0 : stdgo.StdGoTypes.GoInt);
             @:mergeBlock {};
             cast x;
-        } : stdgo.GoMap<stdgo.go.types.Types.Type, stdgo.StdGoTypes.GoInt>) } : stdgo.go.types.Types.Context)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Context>);
+        } : stdgo.GoMap<stdgo.go.types.Types.Type_, stdgo.StdGoTypes.GoInt>) } : stdgo.go.types.Types.Context)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Context>);
     }
-function testContextHashCollisions(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testContextHashCollisions(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         if (false) {
             _t.skip(stdgo.Go.toInterface(("hash collisions are expected, and would fail debug assertions" : stdgo.GoString)));
         };
-        var __0:Type = (null : stdgo.go.types.Types.Type), __1:Type = (null : stdgo.go.types.Types.Type), __2:Type = (null : stdgo.go.types.Types.Type), _unaryP:Type = __2, _nullaryQ:Type = __1, _nullaryP:Type = __0;
+        var __0:Type_ = (null : stdgo.go.types.Types.Type_), __1:Type_ = (null : stdgo.go.types.Types.Type_), __2:Type_ = (null : stdgo.go.types.Types.Type_), _unaryP:Type_ = __2, _nullaryQ:Type_ = __1, _nullaryP:Type_ = __0;
         {
-            var _tparam = newTypeParam(newTypeName(_nopos, null, ("P" : stdgo.GoString), (null : stdgo.go.types.Types.Type)), stdgo.Go.asInterface((stdgo.Go.setRef(_emptyInterface) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>)));
+            var _tparam = newTypeParam(newTypeName(_nopos, null, ("P" : stdgo.GoString), (null : stdgo.go.types.Types.Type_)), stdgo.Go.asInterface((stdgo.Go.setRef(_emptyInterface) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>)));
             _nullaryP = stdgo.Go.asInterface(newSignatureType(null, (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>), (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>(1, 1, _tparam) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>), null, null, false));
         };
         {
-            var _tparam = newTypeParam(newTypeName(_nopos, null, ("Q" : stdgo.GoString), (null : stdgo.go.types.Types.Type)), stdgo.Go.asInterface((stdgo.Go.setRef(_emptyInterface) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>)));
+            var _tparam = newTypeParam(newTypeName(_nopos, null, ("Q" : stdgo.GoString), (null : stdgo.go.types.Types.Type_)), stdgo.Go.asInterface((stdgo.Go.setRef(_emptyInterface) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>)));
             _nullaryQ = stdgo.Go.asInterface(newSignatureType(null, (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>), (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>(1, 1, _tparam) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>), null, null, false));
         };
         {
-            var _tparam = newTypeParam(newTypeName(_nopos, null, ("P" : stdgo.GoString), (null : stdgo.go.types.Types.Type)), stdgo.Go.asInterface((stdgo.Go.setRef(_emptyInterface) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>)));
+            var _tparam = newTypeParam(newTypeName(_nopos, null, ("P" : stdgo.GoString), (null : stdgo.go.types.Types.Type_)), stdgo.Go.asInterface((stdgo.Go.setRef(_emptyInterface) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>)));
             var _params = newTuple(newVar(_nopos, null, ("_" : stdgo.GoString), stdgo.Go.asInterface(_tparam)));
             _unaryP = stdgo.Go.asInterface(newSignatureType(null, (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>), (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>(1, 1, _tparam) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>), _params, null, false));
         };
         var _ctxt = newContext();
         var _inst = newSignatureType(null, (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>), (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>), null, null, false);
         {
-            var _got:stdgo.go.types.Types.Type = _ctxt._update(stdgo.Go.str()?.__copy__(), _nullaryP, (new stdgo.Slice<stdgo.go.types.Types.Type>(1, 1, stdgo.Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])) : stdgo.Slice<stdgo.go.types.Types.Type>), stdgo.Go.asInterface(_inst));
+            var _got:stdgo.go.types.Types.Type_ = _ctxt._update(stdgo.Go.str()?.__copy__(), _nullaryP, (new stdgo.Slice<stdgo.go.types.Types.Type_>(1, 1, stdgo.Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])) : stdgo.Slice<stdgo.go.types.Types.Type_>), stdgo.Go.asInterface(_inst));
             if (stdgo.Go.toInterface(_got) != (stdgo.Go.toInterface(stdgo.Go.asInterface(_inst)))) {
                 _t.error(stdgo.Go.toInterface(("bad" : stdgo.GoString)));
             };
         };
         {
-            var _got:stdgo.go.types.Types.Type = _ctxt._lookup(stdgo.Go.str()?.__copy__(), _unaryP, (new stdgo.Slice<stdgo.go.types.Types.Type>(1, 1, stdgo.Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])) : stdgo.Slice<stdgo.go.types.Types.Type>));
+            var _got:stdgo.go.types.Types.Type_ = _ctxt._lookup(stdgo.Go.str()?.__copy__(), _unaryP, (new stdgo.Slice<stdgo.go.types.Types.Type_>(1, 1, stdgo.Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])) : stdgo.Slice<stdgo.go.types.Types.Type_>));
             if (_got != null) {
                 _t.error(stdgo.Go.toInterface(("bad" : stdgo.GoString)));
             };
         };
         {
-            var _got:stdgo.go.types.Types.Type = _ctxt._lookup(stdgo.Go.str()?.__copy__(), _nullaryQ, (new stdgo.Slice<stdgo.go.types.Types.Type>(1, 1, stdgo.Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])) : stdgo.Slice<stdgo.go.types.Types.Type>));
+            var _got:stdgo.go.types.Types.Type_ = _ctxt._lookup(stdgo.Go.str()?.__copy__(), _nullaryQ, (new stdgo.Slice<stdgo.go.types.Types.Type_>(1, 1, stdgo.Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])) : stdgo.Slice<stdgo.go.types.Types.Type_>));
             if (stdgo.Go.toInterface(_got) != (stdgo.Go.toInterface(stdgo.Go.asInterface(_inst)))) {
                 _t.error(stdgo.Go.toInterface(("bad" : stdgo.GoString)));
             };
         };
         {
-            var _got:stdgo.go.types.Types.Type = _ctxt._lookup(stdgo.Go.str()?.__copy__(), _nullaryQ, (new stdgo.Slice<stdgo.go.types.Types.Type>(1, 1, stdgo.Go.asInterface(typ[((17 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])) : stdgo.Slice<stdgo.go.types.Types.Type>));
+            var _got:stdgo.go.types.Types.Type_ = _ctxt._lookup(stdgo.Go.str()?.__copy__(), _nullaryQ, (new stdgo.Slice<stdgo.go.types.Types.Type_>(1, 1, stdgo.Go.asInterface(typ[((17 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])) : stdgo.Slice<stdgo.go.types.Types.Type_>));
             if (_got != null) {
                 _t.error(stdgo.Go.toInterface(("bad" : stdgo.GoString)));
             };
         };
     }
-function _isUintptr(_typ:Type):Bool {
+function _isUintptr(_typ:Type_):Bool {
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_typ)) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_typ)) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), ok : false };
-        }, _t = __tmp__.value, __0 = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), _1 : false };
+        }, _t = __tmp__._0, __0 = __tmp__._1;
         return ((_t != null) && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) && (_t._kind == (12 : stdgo.go.types.Types.BasicKind));
     }
-function _isUnsafePointer(_typ:Type):Bool {
+function _isUnsafePointer(_typ:Type_):Bool {
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_typ)) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_typ)) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), ok : false };
-        }, _t = __tmp__.value, __0 = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), _1 : false };
+        }, _t = __tmp__._0, __0 = __tmp__._1;
         return ((_t != null) && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) && (_t._kind == (18 : stdgo.go.types.Types.BasicKind));
     }
-function _isPointer(_typ:Type):Bool {
+function _isPointer(_typ:Type_):Bool {
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_typ)) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_typ)) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), ok : false };
-        }, __0 = __tmp__.value, _ok = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), _1 : false };
+        }, __0 = __tmp__._0, _ok = __tmp__._1;
         return _ok;
     }
-function _isBytesOrRunes(_typ:Type):Bool {
+function _isBytesOrRunes(_typ:Type_):Bool {
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_typ)) : stdgo.StdGoTypes.Ref<Slice_>)) : stdgo.StdGoTypes.Ref<Slice_>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_typ)) : stdgo.StdGoTypes.Ref<Slice_>)) : stdgo.StdGoTypes.Ref<Slice_>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>), ok : false };
-            }, _s = __tmp__.value, __0 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>), _1 : false };
+            }, _s = __tmp__._0, __0 = __tmp__._1;
             if (_s != null && ((_s : Dynamic).__nil__ == null || !(_s : Dynamic).__nil__)) {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_s._elem)) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_s._elem)) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), ok : false };
-                }, _t = __tmp__.value, __1 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), _1 : false };
+                }, _t = __tmp__._0, __1 = __tmp__._1;
                 return ((_t != null) && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) && ((_t._kind == (8 : stdgo.go.types.Types.BasicKind)) || (_t._kind == (5 : stdgo.go.types.Types.BasicKind)));
             };
         };
@@ -4724,15 +4724,15 @@ function _sprintf(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _qf:
                 } else if (stdgo.Go.typeEquals((__type__ : Object))) {
                     var _a:stdgo.go.types.Types.Object = __type__ == null ? (null : stdgo.go.types.Types.Object) : __type__.__underlying__() == null ? (null : stdgo.go.types.Types.Object) : __type__ == null ? (null : stdgo.go.types.Types.Object) : __type__.__underlying__().value;
                     _arg = stdgo.Go.toInterface(objectString(_a, _qf));
-                } else if (stdgo.Go.typeEquals((__type__ : Type))) {
-                    var _a:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : __type__.__underlying__() == null ? (null : stdgo.go.types.Types.Type) : __type__ == null ? (null : stdgo.go.types.Types.Type) : __type__.__underlying__().value;
+                } else if (stdgo.Go.typeEquals((__type__ : Type_))) {
+                    var _a:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : __type__.__underlying__() == null ? (null : stdgo.go.types.Types.Type_) : __type__ == null ? (null : stdgo.go.types.Types.Type_) : __type__.__underlying__().value;
                     var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
                     var _w = _newTypeWriter((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>), _qf);
                     _w._tpSubscripts = _tpSubscripts;
                     _w._typ(_a);
                     _arg = stdgo.Go.toInterface((_buf.string() : stdgo.GoString));
-                } else if (stdgo.Go.typeEquals((__type__ : stdgo.Slice<Type>))) {
-                    var _a:stdgo.Slice<stdgo.go.types.Types.Type> = __type__ == null ? (null : stdgo.Slice<stdgo.go.types.Types.Type>) : __type__.__underlying__() == null ? (null : stdgo.Slice<stdgo.go.types.Types.Type>) : __type__ == null ? (null : stdgo.Slice<stdgo.go.types.Types.Type>) : __type__.__underlying__().value;
+                } else if (stdgo.Go.typeEquals((__type__ : stdgo.Slice<Type_>))) {
+                    var _a:stdgo.Slice<stdgo.go.types.Types.Type_> = __type__ == null ? (null : stdgo.Slice<stdgo.go.types.Types.Type_>) : __type__.__underlying__() == null ? (null : stdgo.Slice<stdgo.go.types.Types.Type_>) : __type__ == null ? (null : stdgo.Slice<stdgo.go.types.Types.Type_>) : __type__.__underlying__().value;
                     var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
                     var _w = _newTypeWriter((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>), _qf);
                     _w._tpSubscripts = _tpSubscripts;
@@ -4831,7 +4831,7 @@ function _stripAnnotations(_s:stdgo.GoString):stdgo.GoString {
         };
         return _s?.__copy__();
     }
-function testError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _err:T_error_ = ({} : stdgo.go.types.Types.T_error_);
         var _want:stdgo.GoString = ("no error" : stdgo.GoString);
         {
@@ -4857,7 +4857,7 @@ function testError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testStripAnnotations(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testStripAnnotations(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in (new stdgo.Slice<T__struct_0>(5, 5, ({ _in : stdgo.Go.str()?.__copy__(), _want : stdgo.Go.str()?.__copy__() } : T__struct_0), ({ _in : ("   " : stdgo.GoString), _want : ("   " : stdgo.GoString) } : T__struct_0), ({ _in : ("foo" : stdgo.GoString), _want : ("foo" : stdgo.GoString) } : T__struct_0), ({ _in : ("foo₀" : stdgo.GoString), _want : ("foo" : stdgo.GoString) } : T__struct_0), ({ _in : ("foo(T₀)" : stdgo.GoString), _want : ("foo(T)" : stdgo.GoString) } : T__struct_0)) : stdgo.Slice<T__struct_0>)) {
             var _got:stdgo.GoString = _stripAnnotations(_test._in?.__copy__())?.__copy__();
             if (_got != (_test._want)) {
@@ -4950,7 +4950,7 @@ function checkExpr(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _pk
                 __deferstack__.unshift(() -> _check._handleBailout(_a0));
             };
             var _x:T_operand = ({} : stdgo.go.types.Types.T_operand);
-            _check._rawExpr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _expr, (null : stdgo.go.types.Types.Type), true);
+            _check._rawExpr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _expr, (null : stdgo.go.types.Types.Type_), true);
             _check._processDelayed((0 : stdgo.StdGoTypes.GoInt));
             _check._recordUntyped();
             {
@@ -5005,13 +5005,13 @@ function _opName(_e:stdgo.go.ast.Ast.Expr):stdgo.GoString {
     // If typ is a type parameter, underIs returns the result of typ.underIs(f).
     // Otherwise, underIs returns the result of f(under(typ)).
 **/
-function _underIs(_typ:Type, _f:Type -> Bool):Bool {
+function _underIs(_typ:Type_, _f:Type_ -> Bool):Bool {
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), ok : false };
-            }, _tpar = __tmp__.value, __0 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), _1 : false };
+            }, _tpar = __tmp__._0, __0 = __tmp__._1;
             if (_tpar != null && ((_tpar : Dynamic).__nil__ == null || !(_tpar : Dynamic).__nil__)) {
                 return _tpar._underIs(_f);
             };
@@ -5288,10 +5288,10 @@ function _writeFieldList(_buf:stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>, _l
             _writeIdentList(_buf, _f.names);
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_f.type) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncType>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncType>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_f.type) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncType>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncType>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncType>), ok : false };
-                }, _sig = __tmp__.value, __0 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncType>), _1 : false };
+                }, _sig = __tmp__._0, __0 = __tmp__._1;
                 if (((_sig != null) && ((_sig : Dynamic).__nil__ == null || !(_sig : Dynamic).__nil__)) && _iface) {
                     _writeSigExpr(_buf, _sig);
                     continue;
@@ -5322,7 +5322,7 @@ function _writeExprList(_buf:stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>, _li
 /**
     // containsNil reports whether list contains a nil entry.
 **/
-function _containsNil(_list:stdgo.Slice<Type>):Bool {
+function _containsNil(_list:stdgo.Slice<Type_>):Bool {
         for (__0 => _t in _list) {
             if (_t == null) {
                 return true;
@@ -5362,14 +5362,14 @@ function _typeParamsString(_list:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>):s
     // If typ is a generic function, isParameterized ignores the type parameter declarations;
     // it only considers the signature proper (incoming and result parameters).
 **/
-function _isParameterized(_tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _typ:Type):Bool {
+function _isParameterized(_tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _typ:Type_):Bool {
         var _w:stdgo.go.types.Types.T_tpWalker = ({ _tparams : _tparams, _seen : ({
-            final x = new stdgo.GoMap.GoObjectMap<stdgo.go.types.Types.Type, Bool>();
-            x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }));
+            final x = new stdgo.GoMap.GoObjectMap<stdgo.go.types.Types.Type_, Bool>();
+            x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type_", [], stdgo.internal.reflect.Reflect.GoType.named("Type_", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }));
             x.__defaultValue__ = () -> false;
             @:mergeBlock {};
             cast x;
-        } : stdgo.GoMap<stdgo.go.types.Types.Type, Bool>) } : stdgo.go.types.Types.T_tpWalker);
+        } : stdgo.GoMap<stdgo.go.types.Types.Type_, Bool>) } : stdgo.go.types.Types.T_tpWalker);
         return _w._isParameterized(_typ);
     }
 /**
@@ -5401,7 +5401,7 @@ function _coreTerm(_tpar:stdgo.StdGoTypes.Ref<TypeParam>):{ var _0 : stdgo.StdGo
             return { _0 : _single, _1 : true };
         };
         {
-            var _typ:stdgo.go.types.Types.Type = _coreType(stdgo.Go.asInterface(_tpar));
+            var _typ:stdgo.go.types.Types.Type_ = _coreType(stdgo.Go.asInterface(_tpar));
             if (_typ != null) {
                 return { _0 : (stdgo.Go.setRef((new stdgo.go.types.Types.T_term(_tilde, _typ) : stdgo.go.types.Types.T_term)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_term>), _1 : false };
             };
@@ -5417,14 +5417,14 @@ function _coreTerm(_tpar:stdgo.StdGoTypes.Ref<TypeParam>):{ var _0 : stdgo.StdGo
     // TODO(gri) Determine if we can simply abort inference as soon as we have
     // found a single cycle.
 **/
-function _killCycles(_tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _inferred:stdgo.Slice<Type>):Void {
+function _killCycles(_tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _inferred:stdgo.Slice<Type_>):Void {
         var _w:stdgo.go.types.Types.T_cycleFinder = (new stdgo.go.types.Types.T_cycleFinder(_tparams, _inferred, ({
-            final x = new stdgo.GoMap.GoObjectMap<stdgo.go.types.Types.Type, Bool>();
-            x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }));
+            final x = new stdgo.GoMap.GoObjectMap<stdgo.go.types.Types.Type_, Bool>();
+            x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type_", [], stdgo.internal.reflect.Reflect.GoType.named("Type_", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }));
             x.__defaultValue__ = () -> false;
             @:mergeBlock {};
             cast x;
-        } : stdgo.GoMap<stdgo.go.types.Types.Type, Bool>)) : stdgo.go.types.Types.T_cycleFinder);
+        } : stdgo.GoMap<stdgo.go.types.Types.Type_, Bool>)) : stdgo.go.types.Types.T_cycleFinder);
         for (__0 => _t in _tparams) {
             _w._typ(stdgo.Go.asInterface(_t));
         };
@@ -5480,10 +5480,10 @@ function _dependencyGraph(_objMap:stdgo.GoMap<Object, stdgo.StdGoTypes.Ref<T_dec
         for (_obj => _ in _objMap) {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : T_dependency)) : T_dependency), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : T_dependency)) : T_dependency), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.go.types.Types.T_dependency), ok : false };
-                }, _obj = __tmp__.value, __0 = __tmp__.ok;
+                    { _0 : (null : stdgo.go.types.Types.T_dependency), _1 : false };
+                }, _obj = __tmp__._0, __0 = __tmp__._1;
                 if (_obj != null) {
                     m[_obj] = (stdgo.Go.setRef(({ _obj : _obj } : stdgo.go.types.Types.T_graphNode)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_graphNode>);
                 };
@@ -5493,10 +5493,10 @@ function _dependencyGraph(_objMap:stdgo.GoMap<Object, stdgo.StdGoTypes.Ref<T_dec
             for (_d => _ in (_objMap[_obj] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_declInfo>))._deps) {
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_d) : T_dependency)) : T_dependency), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_d) : T_dependency)) : T_dependency), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.go.types.Types.T_dependency), ok : false };
-                    }, _d = __tmp__.value, __1 = __tmp__.ok;
+                        { _0 : (null : stdgo.go.types.Types.T_dependency), _1 : false };
+                    }, _d = __tmp__._0, __1 = __tmp__._1;
                     if (_d != null) {
                         var _d = (m[_d] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_graphNode>));
                         _n._succ._add(_d);
@@ -5509,10 +5509,10 @@ function _dependencyGraph(_objMap:stdgo.GoMap<Object, stdgo.StdGoTypes.Ref<T_dec
         for (__2 => _n in m) {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_n._obj) : stdgo.StdGoTypes.Ref<Func>)) : stdgo.StdGoTypes.Ref<Func>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_n._obj) : stdgo.StdGoTypes.Ref<Func>)) : stdgo.StdGoTypes.Ref<Func>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>), ok : false };
-                }, __3 = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>), _1 : false };
+                }, __3 = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
                     _funcG = (_funcG.__append__(_n));
                 } else {
@@ -5573,7 +5573,7 @@ function _dependencyGraph(_objMap:stdgo.GoMap<Object, stdgo.StdGoTypes.Ref<T_dec
     // count is incorrect; for *Named types, a panic may occur later inside the
     // *Named API.
 **/
-function instantiate(_ctxt:stdgo.StdGoTypes.Ref<Context>, _orig:Type, _targs:stdgo.Slice<Type>, _validate:Bool):{ var _0 : Type; var _1 : stdgo.Error; } {
+function instantiate(_ctxt:stdgo.StdGoTypes.Ref<Context>, _orig:Type_, _targs:stdgo.Slice<Type_>, _validate:Bool):{ var _0 : Type_; var _1 : stdgo.Error; } {
         if (_ctxt == null || (_ctxt : Dynamic).__nil__) {
             _ctxt = newContext();
         };
@@ -5590,23 +5590,23 @@ function instantiate(_ctxt:stdgo.StdGoTypes.Ref<Context>, _orig:Type, _targs:std
                 };
             };
             if ((_targs.length) != ((_tparams.length))) {
-                return { _0 : (null : stdgo.go.types.Types.Type), _1 : stdgo.fmt.Fmt.errorf(("got %d type arguments but %s has %d type parameters" : stdgo.GoString), stdgo.Go.toInterface((_targs.length)), stdgo.Go.toInterface(_orig), stdgo.Go.toInterface((_tparams.length))) };
+                return { _0 : (null : stdgo.go.types.Types.Type_), _1 : stdgo.fmt.Fmt.errorf(("got %d type arguments but %s has %d type parameters" : stdgo.GoString), stdgo.Go.toInterface((_targs.length)), stdgo.Go.toInterface(_orig), stdgo.Go.toInterface((_tparams.length))) };
             };
             {
                 var __tmp__ = ((null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Checker>) : stdgo.StdGoTypes.Ref<Checker>)._verify(_nopos, _tparams, _targs, _ctxt), _i:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
-                    return { _0 : (null : stdgo.go.types.Types.Type), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.go.types.Types.ArgumentError(_i, _err) : stdgo.go.types.Types.ArgumentError)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.ArgumentError>)) };
+                    return { _0 : (null : stdgo.go.types.Types.Type_), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.go.types.Types.ArgumentError(_i, _err) : stdgo.go.types.Types.ArgumentError)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.ArgumentError>)) };
                 };
             };
         };
-        var _inst:stdgo.go.types.Types.Type = ((null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Checker>) : stdgo.StdGoTypes.Ref<Checker>)._instance(_nopos, _orig, _targs, null, _ctxt);
+        var _inst:stdgo.go.types.Types.Type_ = ((null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Checker>) : stdgo.StdGoTypes.Ref<Checker>)._instance(_nopos, _orig, _targs, null, _ctxt);
         return { _0 : _inst, _1 : (null : stdgo.Error) };
     }
 /**
     // mentions reports whether type T "mentions" typ in an (embedded) element or term
     // of T (whether typ is in the type set of T or not). For better error messages.
 **/
-function _mentions(t:Type, _typ:Type):Bool {
+function _mentions(t:Type_, _typ:Type_):Bool {
         {
             final __type__ = t;
             if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Interface>))) {
@@ -5624,7 +5624,7 @@ function _mentions(t:Type, _typ:Type):Bool {
                     };
                 };
             } else {
-                var t:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                var t:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                 if (identical(t, _typ)) {
                     return true;
                 };
@@ -5640,7 +5640,7 @@ function _mentions(t:Type, _typ:Type):Bool {
     // Deprecated: Use NewInterfaceType instead which allows arbitrary embedded types.
 **/
 function newInterface(_methods:stdgo.Slice<stdgo.StdGoTypes.Ref<Func>>, _embeddeds:stdgo.Slice<stdgo.StdGoTypes.Ref<Named>>):stdgo.StdGoTypes.Ref<Interface> {
-        var _tnames = new stdgo.Slice<stdgo.go.types.Types.Type>((_embeddeds.length : stdgo.StdGoTypes.GoInt).toBasic(), 0);
+        var _tnames = new stdgo.Slice<stdgo.go.types.Types.Type_>((_embeddeds.length : stdgo.StdGoTypes.GoInt).toBasic(), 0);
         for (_i => _t in _embeddeds) {
             _tnames[(_i : stdgo.StdGoTypes.GoInt)] = stdgo.Go.asInterface(_t);
         };
@@ -5654,7 +5654,7 @@ function newInterface(_methods:stdgo.Slice<stdgo.StdGoTypes.Ref<Func>>, _embedde
     // To avoid race conditions, the interface's type set should be computed before
     // concurrent use of the interface, by explicitly calling Complete.
 **/
-function newInterfaceType(_methods:stdgo.Slice<stdgo.StdGoTypes.Ref<Func>>, _embeddeds:stdgo.Slice<Type>):stdgo.StdGoTypes.Ref<Interface> {
+function newInterfaceType(_methods:stdgo.Slice<stdgo.StdGoTypes.Ref<Func>>, _embeddeds:stdgo.Slice<Type_>):stdgo.StdGoTypes.Ref<Interface> {
         if ((_methods.length == (0 : stdgo.StdGoTypes.GoInt)) && (_embeddeds.length == (0 : stdgo.StdGoTypes.GoInt))) {
             return (stdgo.Go.setRef(_emptyInterface) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>);
         };
@@ -5700,24 +5700,24 @@ function newInterfaceType(_methods:stdgo.Slice<stdgo.StdGoTypes.Ref<Func>>, _emb
     //     but there was no pointer on the path from the actual receiver type to
     //     the method's formal receiver base type, nor was the receiver addressable.
 **/
-function lookupFieldOrMethod(t:Type, _addressable:Bool, _pkg:stdgo.StdGoTypes.Ref<Package>, _name:stdgo.GoString):{ var _0 : Object; var _1 : stdgo.Slice<stdgo.StdGoTypes.GoInt>; var _2 : Bool; } {
+function lookupFieldOrMethod(t:Type_, _addressable:Bool, _pkg:stdgo.StdGoTypes.Ref<Package>, _name:stdgo.GoString):{ var _0 : Object; var _1 : stdgo.Slice<stdgo.StdGoTypes.GoInt>; var _2 : Bool; } {
         var _obj:Object = (null : stdgo.go.types.Types.Object), _index:stdgo.Slice<stdgo.StdGoTypes.GoInt> = (null : stdgo.Slice<stdgo.StdGoTypes.GoInt>), _indirect:Bool = false;
         if (t == null) {
             throw stdgo.Go.toInterface(("LookupFieldOrMethod on nil type" : stdgo.GoString));
         };
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(t) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(t) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-            }, _t = __tmp__.value, __0 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+            }, _t = __tmp__._0, __0 = __tmp__._1;
             if (_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) {
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t.underlying()) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t.underlying()) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), ok : false };
-                    }, _p = __tmp__.value, __9 = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), _1 : false };
+                    }, _p = __tmp__._0, __9 = __tmp__._1;
                     if (_p != null && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__)) {
                         {
                             var __tmp__ = _lookupFieldOrMethodImpl(stdgo.Go.asInterface(_p), false, _pkg, _name?.__copy__(), false);
@@ -5727,10 +5727,10 @@ function lookupFieldOrMethod(t:Type, _addressable:Bool, _pkg:stdgo.StdGoTypes.Re
                         };
                         {
                             var __tmp__ = try {
-                                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<Func>)) : stdgo.StdGoTypes.Ref<Func>), ok : true };
+                                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<Func>)) : stdgo.StdGoTypes.Ref<Func>), _1 : true };
                             } catch(_) {
-                                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>), ok : false };
-                            }, __10 = __tmp__.value, _ok = __tmp__.ok;
+                                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>), _1 : false };
+                            }, __10 = __tmp__._0, _ok = __tmp__._1;
                             if (_ok) {
                                 return { _0 : (null : stdgo.go.types.Types.Object), _1 : (null : stdgo.Slice<stdgo.StdGoTypes.GoInt>), _2 : false };
                             };
@@ -5749,7 +5749,7 @@ function lookupFieldOrMethod(t:Type, _addressable:Bool, _pkg:stdgo.StdGoTypes.Re
         {};
         if ((false && (_obj == null)) && _isTypeParam(t)) {
             {
-                var _t:stdgo.go.types.Types.Type = _coreType(t);
+                var _t:stdgo.go.types.Types.Type_ = _coreType(t);
                 if (_t != null) {
                     {
                         var __tmp__ = _lookupFieldOrMethodImpl(_t, _addressable, _pkg, _name?.__copy__(), false);
@@ -5759,10 +5759,10 @@ function lookupFieldOrMethod(t:Type, _addressable:Bool, _pkg:stdgo.StdGoTypes.Re
                     };
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<Var>)) : stdgo.StdGoTypes.Ref<Var>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<Var>)) : stdgo.StdGoTypes.Ref<Var>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>), ok : false };
-                        }, __11 = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>), _1 : false };
+                        }, __11 = __tmp__._0, _ok = __tmp__._1;
                         if (!_ok) {
                             {
                                 final __tmp__0 = (null : stdgo.go.types.Types.Object);
@@ -5798,19 +5798,19 @@ function lookupFieldOrMethod(t:Type, _addressable:Bool, _pkg:stdgo.StdGoTypes.Re
     //
     // The resulting object may not be fully type-checked.
 **/
-function _lookupFieldOrMethodImpl(t:Type, _addressable:Bool, _pkg:stdgo.StdGoTypes.Ref<Package>, _name:stdgo.GoString, _foldCase:Bool):{ var _0 : Object; var _1 : stdgo.Slice<stdgo.StdGoTypes.GoInt>; var _2 : Bool; } {
+function _lookupFieldOrMethodImpl(t:Type_, _addressable:Bool, _pkg:stdgo.StdGoTypes.Ref<Package>, _name:stdgo.GoString, _foldCase:Bool):{ var _0 : Object; var _1 : stdgo.Slice<stdgo.StdGoTypes.GoInt>; var _2 : Bool; } {
         var _obj:Object = (null : stdgo.go.types.Types.Object), _index:stdgo.Slice<stdgo.StdGoTypes.GoInt> = (null : stdgo.Slice<stdgo.StdGoTypes.GoInt>), _indirect:Bool = false;
         if (_name == (("_" : stdgo.GoString))) {
             return { _0 : _obj, _1 : _index, _2 : _indirect };
         };
-        var __tmp__ = _deref(t), _typ:stdgo.go.types.Types.Type = __tmp__._0, _isPtr:Bool = __tmp__._1;
+        var __tmp__ = _deref(t), _typ:stdgo.go.types.Types.Type_ = __tmp__._0, _isPtr:Bool = __tmp__._1;
         if (_isPtr) {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_typ)) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_typ)) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), ok : false };
-                }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), _1 : false };
+                }, __0 = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
                     return { _0 : _obj, _1 : _index, _2 : _indirect };
                 };
@@ -5821,13 +5821,13 @@ function _lookupFieldOrMethodImpl(t:Type, _addressable:Bool, _pkg:stdgo.StdGoTyp
         while ((_current.length) > (0 : stdgo.StdGoTypes.GoInt)) {
             var _next:stdgo.Slice<T_embeddedType> = (null : stdgo.Slice<stdgo.go.types.Types.T_embeddedType>);
             for (__1 => _e in _current) {
-                var _typ:stdgo.go.types.Types.Type = _e._typ;
+                var _typ:stdgo.go.types.Types.Type_ = _e._typ;
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-                    }, _named = __tmp__.value, __2 = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+                    }, _named = __tmp__._0, __2 = __tmp__._1;
                     if (_named != null && ((_named : Dynamic).__nil__ == null || !(_named : Dynamic).__nil__)) {
                         {
                             var _alt = _seen._lookup(_named);
@@ -5866,7 +5866,7 @@ function _lookupFieldOrMethodImpl(t:Type, _addressable:Bool, _pkg:stdgo.StdGoTyp
                                 continue;
                             };
                             if ((_obj == null) && _f._embedded) {
-                                var __tmp__ = _deref(_f._object._typ), _typ:stdgo.go.types.Types.Type = __tmp__._0, _isPtr:Bool = __tmp__._1;
+                                var __tmp__ = _deref(_f._object._typ), _typ:stdgo.go.types.Types.Type_ = __tmp__._0, _isPtr:Bool = __tmp__._1;
                                 _next = (_next.__append__((new stdgo.go.types.Types.T_embeddedType(_typ, _concat(_e._index, _i), _e._indirect || _isPtr, _e._multiples) : stdgo.go.types.Types.T_embeddedType)));
                             };
                         };
@@ -5890,10 +5890,10 @@ function _lookupFieldOrMethodImpl(t:Type, _addressable:Bool, _pkg:stdgo.StdGoTyp
             if (_obj != null) {
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<Func>)) : stdgo.StdGoTypes.Ref<Func>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<Func>)) : stdgo.StdGoTypes.Ref<Func>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>), ok : false };
-                    }, _f = __tmp__.value, __19 = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>), _1 : false };
+                    }, _f = __tmp__._0, __19 = __tmp__._1;
                     if (_f != null && ((_f : Dynamic).__nil__ == null || !(_f : Dynamic).__nil__)) {
                         if ((_f._hasPtrRecv() && !_indirect) && !_addressable) {
                             return { _0 : (null : stdgo.go.types.Types.Object), _1 : (null : stdgo.Slice<stdgo.StdGoTypes.GoInt>), _2 : true };
@@ -5917,12 +5917,12 @@ function _consolidateMultiples(_list:stdgo.Slice<T_embeddedType>):stdgo.Slice<T_
         };
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         var _prev = ({
-            final x = new stdgo.GoMap.GoObjectMap<stdgo.go.types.Types.Type, stdgo.StdGoTypes.GoInt>();
-            x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }));
+            final x = new stdgo.GoMap.GoObjectMap<stdgo.go.types.Types.Type_, stdgo.StdGoTypes.GoInt>();
+            x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type_", [], stdgo.internal.reflect.Reflect.GoType.named("Type_", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }));
             x.__defaultValue__ = () -> (0 : stdgo.StdGoTypes.GoInt);
             @:mergeBlock {};
             cast x;
-        } : stdgo.GoMap<stdgo.go.types.Types.Type, stdgo.StdGoTypes.GoInt>);
+        } : stdgo.GoMap<stdgo.go.types.Types.Type_, stdgo.StdGoTypes.GoInt>);
         for (__0 => _e in _list) {
             {
                 var __tmp__ = _lookupType(_prev, _e._typ), _i:stdgo.StdGoTypes.GoInt = __tmp__._0, _found:Bool = __tmp__._1;
@@ -5937,9 +5937,9 @@ function _consolidateMultiples(_list:stdgo.Slice<T_embeddedType>):stdgo.Slice<T_
         };
         return (_list.__slice__(0, _n) : stdgo.Slice<stdgo.go.types.Types.T_embeddedType>);
     }
-function _lookupType(_m:stdgo.GoMap<Type, stdgo.StdGoTypes.GoInt>, _typ:Type):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : Bool; } {
+function _lookupType(_m:stdgo.GoMap<Type_, stdgo.StdGoTypes.GoInt>, _typ:Type_):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : Bool; } {
         {
-            var __tmp__ = (_m != null && _m.exists(_typ) ? { value : _m[_typ], ok : true } : { value : (0 : stdgo.StdGoTypes.GoInt), ok : false }), _i:stdgo.StdGoTypes.GoInt = __tmp__.value, _found:Bool = __tmp__.ok;
+            var __tmp__ = (_m != null && _m.exists(_typ) ? { _0 : _m[_typ], _1 : true } : { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : false }), _i:stdgo.StdGoTypes.GoInt = __tmp__._0, _found:Bool = __tmp__._1;
             if (_found) {
                 return { _0 : _i, _1 : true };
             };
@@ -5962,16 +5962,16 @@ function _lookupType(_m:stdgo.GoMap<Type, stdgo.StdGoTypes.GoInt>, _typ:Type):{ 
     // present in V have matching types (e.g., for a type assertion x.(T) where
     // x is of interface type V).
 **/
-function missingMethod(v:Type, t:stdgo.StdGoTypes.Ref<Interface>, _static:Bool):{ var _0 : stdgo.StdGoTypes.Ref<Func>; var _1 : Bool; } {
+function missingMethod(v:Type_, t:stdgo.StdGoTypes.Ref<Interface>, _static:Bool):{ var _0 : stdgo.StdGoTypes.Ref<Func>; var _1 : Bool; } {
         var _method:stdgo.StdGoTypes.Ref<Func> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>), _wrongType:Bool = false;
         return ((null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Checker>) : stdgo.StdGoTypes.Ref<Checker>)._missingMethod(v, stdgo.Go.asInterface(t), _static, identical, (null : stdgo.Pointer<stdgo.GoString>));
     }
-function _isInterfacePtr(t:Type):Bool {
+function _isInterfacePtr(t:Type_):Bool {
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(t)) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(t)) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), ok : false };
-        }, _p = __tmp__.value, __0 = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), _1 : false };
+        }, _p = __tmp__._0, __0 = __tmp__._1;
         return ((_p != null) && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__)) && isInterface(_p._base);
     }
 /**
@@ -5979,13 +5979,13 @@ function _isInterfacePtr(t:Type):Bool {
     // with an underlying pointer type!) and returns its base and true.
     // Otherwise it returns (typ, false).
 **/
-function _deref(_typ:Type):{ var _0 : Type; var _1 : Bool; } {
+function _deref(_typ:Type_):{ var _0 : Type_; var _1 : Bool; } {
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), ok : false };
-            }, _p = __tmp__.value, __0 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), _1 : false };
+            }, _p = __tmp__._0, __0 = __tmp__._1;
             if (_p != null && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__)) {
                 if (_p._base == null) {
                     if (false) {
@@ -6002,20 +6002,20 @@ function _deref(_typ:Type):{ var _0 : Type; var _1 : Bool; } {
     // derefStructPtr dereferences typ if it is a (named or unnamed) pointer to a
     // (named or unnamed) struct and returns its base. Otherwise it returns typ.
 **/
-function _derefStructPtr(_typ:Type):Type {
+function _derefStructPtr(_typ:Type_):Type_ {
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_typ)) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_typ)) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), ok : false };
-            }, _p = __tmp__.value, __0 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), _1 : false };
+            }, _p = __tmp__._0, __0 = __tmp__._1;
             if (_p != null && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__)) {
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_p._base)) : stdgo.StdGoTypes.Ref<Struct>)) : stdgo.StdGoTypes.Ref<Struct>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_p._base)) : stdgo.StdGoTypes.Ref<Struct>)) : stdgo.StdGoTypes.Ref<Struct>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Struct>), ok : false };
-                    }, __1 = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Struct>), _1 : false };
+                    }, __1 = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
                         return _p._base;
                     };
@@ -6063,26 +6063,26 @@ function _lookupMethod(_methods:stdgo.Slice<stdgo.StdGoTypes.Ref<Func>>, _pkg:st
 /**
     // NewMap returns a new map for the given key and element types.
 **/
-function newMap(_key:Type, _elem:Type):stdgo.StdGoTypes.Ref<Map_> {
+function newMap(_key:Type_, _elem:Type_):stdgo.StdGoTypes.Ref<Map_> {
         return (stdgo.Go.setRef(({ _key : _key, _elem : _elem } : stdgo.go.types.Types.Map_)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_>);
     }
 /**
     // NewMethodSet returns the method set for the given type T.
     // It always returns a non-nil method set, even if it is empty.
 **/
-function newMethodSet(t:Type):stdgo.StdGoTypes.Ref<MethodSet> {
+function newMethodSet(t:Type_):stdgo.StdGoTypes.Ref<MethodSet> {
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(t) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(t) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-            }, _t = __tmp__.value, __0 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+            }, _t = __tmp__._0, __0 = __tmp__._1;
             if (((_t != null) && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) && _isPointer(stdgo.Go.asInterface(_t))) {
                 return (stdgo.Go.setRef(_emptyMethodSet) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.MethodSet>);
             };
         };
         var _base:T_methodSet = (null : stdgo.go.types.Types.T_methodSet);
-        var __tmp__ = _deref(t), _typ:stdgo.go.types.Types.Type = __tmp__._0, _isPtr:Bool = __tmp__._1;
+        var __tmp__ = _deref(t), _typ:stdgo.go.types.Types.Type_ = __tmp__._0, _isPtr:Bool = __tmp__._1;
         if (_isPtr && isInterface(_typ)) {
             return (stdgo.Go.setRef(_emptyMethodSet) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.MethodSet>);
         };
@@ -6093,13 +6093,13 @@ function newMethodSet(t:Type):stdgo.StdGoTypes.Ref<MethodSet> {
             var _fset:stdgo.GoMap<stdgo.GoString, Bool> = (null : stdgo.GoMap<stdgo.GoString, Bool>);
             var _mset:T_methodSet = (null : stdgo.go.types.Types.T_methodSet);
             for (__1 => _e in _current) {
-                var _typ:stdgo.go.types.Types.Type = _e._typ;
+                var _typ:stdgo.go.types.Types.Type_ = _e._typ;
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-                    }, _named = __tmp__.value, __2 = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+                    }, _named = __tmp__._0, __2 = __tmp__._1;
                     if (_named != null && ((_named : Dynamic).__nil__ == null || !(_named : Dynamic).__nil__)) {
                         {
                             var _alt = _seen._lookup(_named);
@@ -6131,7 +6131,7 @@ function newMethodSet(t:Type):stdgo.StdGoTypes.Ref<MethodSet> {
                             };
                             _fset[_f.id()] = true;
                             if (_f._embedded) {
-                                var __tmp__ = _deref(_f._object._typ), _typ:stdgo.go.types.Types.Type = __tmp__._0, _isPtr:Bool = __tmp__._1;
+                                var __tmp__ = _deref(_f._object._typ), _typ:stdgo.go.types.Types.Type_ = __tmp__._0, _isPtr:Bool = __tmp__._1;
                                 _next = (_next.__append__((new stdgo.go.types.Types.T_embeddedType(_typ, _concat(_e._index, _i), _e._indirect || _isPtr, _e._multiples) : stdgo.go.types.Types.T_embeddedType)));
                             };
                         };
@@ -6143,7 +6143,7 @@ function newMethodSet(t:Type):stdgo.StdGoTypes.Ref<MethodSet> {
             };
             for (_k => _m in _mset) {
                 {
-                    var __tmp__ = (_base != null && _base.exists(_k?.__copy__()) ? { value : _base[_k?.__copy__()], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Selection>), ok : false }), __27:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Selection> = __tmp__.value, _found:Bool = __tmp__.ok;
+                    var __tmp__ = (_base != null && _base.exists(_k?.__copy__()) ? { _0 : _base[_k?.__copy__()], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Selection>), _1 : false }), __27:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Selection> = __tmp__._0, _found:Bool = __tmp__._1;
                     if (!_found) {
                         if ((_fset[_k] ?? false)) {
                             _m = null;
@@ -6162,7 +6162,7 @@ function newMethodSet(t:Type):stdgo.StdGoTypes.Ref<MethodSet> {
             };
             for (_k => _ in _fset) {
                 {
-                    var __tmp__ = (_base != null && _base.exists(_k?.__copy__()) ? { value : _base[_k?.__copy__()], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Selection>), ok : false }), __28:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Selection> = __tmp__.value, _found:Bool = __tmp__.ok;
+                    var __tmp__ = (_base != null && _base.exists(_k?.__copy__()) ? { _0 : _base[_k?.__copy__()], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Selection>), _1 : false }), __28:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Selection> = __tmp__._0, _found:Bool = __tmp__._1;
                     if (!_found) {
                         if (_base == null) {
                             _base = ({
@@ -6198,13 +6198,13 @@ function newMethodSet(t:Type):stdgo.StdGoTypes.Ref<MethodSet> {
     // If the given type name obj doesn't have a type yet, its type is set to the returned named type.
     // The underlying type must not be a *Named.
 **/
-function newNamed(_obj:stdgo.StdGoTypes.Ref<TypeName>, _underlying:Type, _methods:stdgo.Slice<stdgo.StdGoTypes.Ref<Func>>):stdgo.StdGoTypes.Ref<Named> {
+function newNamed(_obj:stdgo.StdGoTypes.Ref<TypeName>, _underlying:Type_, _methods:stdgo.Slice<stdgo.StdGoTypes.Ref<Func>>):stdgo.StdGoTypes.Ref<Named> {
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_underlying) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_underlying) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-            }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+            }, __0 = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 throw stdgo.Go.toInterface(("underlying type must not be *Named" : stdgo.GoString));
             };
@@ -6217,13 +6217,13 @@ function newNamed(_obj:stdgo.StdGoTypes.Ref<TypeName>, _underlying:Type, _method
     //
     // TODO(rfindley): eliminate this function or give it a better name.
 **/
-function _safeUnderlying(_typ:Type):Type {
+function _safeUnderlying(_typ:Type_):Type_ {
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-            }, _t = __tmp__.value, __0 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+            }, _t = __tmp__._0, __0 = __tmp__._1;
             if (_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) {
                 return _t._underlying;
             };
@@ -6252,7 +6252,7 @@ function id(_pkg:stdgo.StdGoTypes.Ref<Package>, _name:stdgo.GoString):stdgo.GoSt
     // colorFor returns the (initial) color for an object depending on
     // whether its type t is known or not.
 **/
-function _colorFor(_t:Type):T_color {
+function _colorFor(_t:Type_):T_color {
         if (_t != null) {
             return (1u32 : stdgo.go.types.Types.T_color);
         };
@@ -6269,7 +6269,7 @@ function newPkgName(_pos:stdgo.go.token.Token.Pos, _pkg:stdgo.StdGoTypes.Ref<Pac
     // NewConst returns a new constant with value val.
     // The remaining arguments set the attributes found with all Objects.
 **/
-function newConst(_pos:stdgo.go.token.Token.Pos, _pkg:stdgo.StdGoTypes.Ref<Package>, _name:stdgo.GoString, _typ:Type, _val:stdgo.go.constant.Constant.Value):stdgo.StdGoTypes.Ref<Const> {
+function newConst(_pos:stdgo.go.token.Token.Pos, _pkg:stdgo.StdGoTypes.Ref<Package>, _name:stdgo.GoString, _typ:Type_, _val:stdgo.go.constant.Constant.Value):stdgo.StdGoTypes.Ref<Const> {
         return (stdgo.Go.setRef((new stdgo.go.types.Types.Const((new stdgo.go.types.Types.T_object(null, _pos, _pkg, _name?.__copy__(), _typ, (0u32 : stdgo.StdGoTypes.GoUInt32), _colorFor(_typ), _nopos) : stdgo.go.types.Types.T_object), _val) : stdgo.go.types.Types.Const)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Const>);
     }
 /**
@@ -6281,29 +6281,29 @@ function newConst(_pos:stdgo.go.token.Token.Pos, _pkg:stdgo.StdGoTypes.Ref<Packa
     // argument for NewNamed, which will set the TypeName's type as a side-
     // effect.
 **/
-function newTypeName(_pos:stdgo.go.token.Token.Pos, _pkg:stdgo.StdGoTypes.Ref<Package>, _name:stdgo.GoString, _typ:Type):stdgo.StdGoTypes.Ref<TypeName> {
+function newTypeName(_pos:stdgo.go.token.Token.Pos, _pkg:stdgo.StdGoTypes.Ref<Package>, _name:stdgo.GoString, _typ:Type_):stdgo.StdGoTypes.Ref<TypeName> {
         return (stdgo.Go.setRef((new stdgo.go.types.Types.TypeName((new stdgo.go.types.Types.T_object(null, _pos, _pkg, _name?.__copy__(), _typ, (0u32 : stdgo.StdGoTypes.GoUInt32), _colorFor(_typ), _nopos) : stdgo.go.types.Types.T_object)) : stdgo.go.types.Types.TypeName)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeName>);
     }
 /**
     // NewTypeNameLazy returns a new defined type like NewTypeName, but it
     // lazily calls resolve to finish constructing the Named object.
 **/
-function __NewTypeNameLazy(_pos:stdgo.go.token.Token.Pos, _pkg:stdgo.StdGoTypes.Ref<Package>, _name:stdgo.GoString, _load:(_named:stdgo.StdGoTypes.Ref<Named>) -> { var _0 : stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>; var _1 : Type; var _2 : stdgo.Slice<stdgo.StdGoTypes.Ref<Func>>; }):stdgo.StdGoTypes.Ref<TypeName> {
-        var _obj = newTypeName(_pos, _pkg, _name?.__copy__(), (null : stdgo.go.types.Types.Type));
-        newNamed(_obj, (null : stdgo.go.types.Types.Type), (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>))._loader = _load;
+function __NewTypeNameLazy(_pos:stdgo.go.token.Token.Pos, _pkg:stdgo.StdGoTypes.Ref<Package>, _name:stdgo.GoString, _load:(_named:stdgo.StdGoTypes.Ref<Named>) -> { var _0 : stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>; var _1 : Type_; var _2 : stdgo.Slice<stdgo.StdGoTypes.Ref<Func>>; }):stdgo.StdGoTypes.Ref<TypeName> {
+        var _obj = newTypeName(_pos, _pkg, _name?.__copy__(), (null : stdgo.go.types.Types.Type_));
+        newNamed(_obj, (null : stdgo.go.types.Types.Type_), (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>))._loader = _load;
         return _obj;
     }
 /**
     // NewVar returns a new variable.
     // The arguments set the attributes found with all Objects.
 **/
-function newVar(_pos:stdgo.go.token.Token.Pos, _pkg:stdgo.StdGoTypes.Ref<Package>, _name:stdgo.GoString, _typ:Type):stdgo.StdGoTypes.Ref<Var> {
+function newVar(_pos:stdgo.go.token.Token.Pos, _pkg:stdgo.StdGoTypes.Ref<Package>, _name:stdgo.GoString, _typ:Type_):stdgo.StdGoTypes.Ref<Var> {
         return (stdgo.Go.setRef(({ _object : (new stdgo.go.types.Types.T_object(null, _pos, _pkg, _name?.__copy__(), _typ, (0u32 : stdgo.StdGoTypes.GoUInt32), _colorFor(_typ), _nopos) : stdgo.go.types.Types.T_object) } : stdgo.go.types.Types.Var)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>);
     }
 /**
     // NewParam returns a new variable representing a function parameter.
 **/
-function newParam(_pos:stdgo.go.token.Token.Pos, _pkg:stdgo.StdGoTypes.Ref<Package>, _name:stdgo.GoString, _typ:Type):stdgo.StdGoTypes.Ref<Var> {
+function newParam(_pos:stdgo.go.token.Token.Pos, _pkg:stdgo.StdGoTypes.Ref<Package>, _name:stdgo.GoString, _typ:Type_):stdgo.StdGoTypes.Ref<Var> {
         return (stdgo.Go.setRef(({ _object : (new stdgo.go.types.Types.T_object(null, _pos, _pkg, _name?.__copy__(), _typ, (0u32 : stdgo.StdGoTypes.GoUInt32), _colorFor(_typ), _nopos) : stdgo.go.types.Types.T_object), _used : true } : stdgo.go.types.Types.Var)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>);
     }
 /**
@@ -6311,7 +6311,7 @@ function newParam(_pos:stdgo.go.token.Token.Pos, _pkg:stdgo.StdGoTypes.Ref<Packa
     // For embedded fields, the name is the unqualified type name
     // under which the field is accessible.
 **/
-function newField(_pos:stdgo.go.token.Token.Pos, _pkg:stdgo.StdGoTypes.Ref<Package>, _name:stdgo.GoString, _typ:Type, _embedded:Bool):stdgo.StdGoTypes.Ref<Var> {
+function newField(_pos:stdgo.go.token.Token.Pos, _pkg:stdgo.StdGoTypes.Ref<Package>, _name:stdgo.GoString, _typ:Type_, _embedded:Bool):stdgo.StdGoTypes.Ref<Var> {
         return (stdgo.Go.setRef(({ _object : (new stdgo.go.types.Types.T_object(null, _pos, _pkg, _name?.__copy__(), _typ, (0u32 : stdgo.StdGoTypes.GoUInt32), _colorFor(_typ), _nopos) : stdgo.go.types.Types.T_object), _embedded : _embedded, _isField : true } : stdgo.go.types.Types.Var)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>);
     }
 /**
@@ -6319,7 +6319,7 @@ function newField(_pos:stdgo.go.token.Token.Pos, _pkg:stdgo.StdGoTypes.Ref<Packa
     // the function's type.
 **/
 function newFunc(_pos:stdgo.go.token.Token.Pos, _pkg:stdgo.StdGoTypes.Ref<Package>, _name:stdgo.GoString, _sig:stdgo.StdGoTypes.Ref<Signature>):stdgo.StdGoTypes.Ref<Func> {
-        var _typ:Type = (null : stdgo.go.types.Types.Type);
+        var _typ:Type_ = (null : stdgo.go.types.Types.Type_);
         if (_sig != null && ((_sig : Dynamic).__nil__ == null || !(_sig : Dynamic).__nil__)) {
             _typ = stdgo.Go.asInterface(_sig);
         };
@@ -6336,7 +6336,7 @@ function _newBuiltin(_id:T_builtinId):stdgo.StdGoTypes.Ref<Builtin> {
     }
 function _writeObject(_buf:stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>, _obj:Object, _qf:Qualifier):Void {
         var _tname:stdgo.StdGoTypes.Ref<TypeName> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeName>);
-        var _typ:stdgo.go.types.Types.Type = _obj.type();
+        var _typ:stdgo.go.types.Types.Type_ = _obj.type();
         {
             final __type__ = _obj;
             if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<PkgName>))) {
@@ -6377,11 +6377,11 @@ function _writeObject(_buf:stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>, _obj:
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Label>))) {
                 var _obj:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Label> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Label>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Label>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Label>) : __type__.__underlying__().value;
                 _buf.writeString(("label" : stdgo.GoString));
-                _typ = (null : stdgo.go.types.Types.Type);
+                _typ = (null : stdgo.go.types.Types.Type_);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Builtin>))) {
                 var _obj:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Builtin> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Builtin>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Builtin>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Builtin>) : __type__.__underlying__().value;
                 _buf.writeString(("builtin" : stdgo.GoString));
-                _typ = (null : stdgo.go.types.Types.Type);
+                _typ = (null : stdgo.go.types.Types.Type_);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Nil>))) {
                 var _obj:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Nil> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Nil>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Nil>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Nil>) : __type__.__underlying__().value;
                 _buf.writeString(("nil" : stdgo.GoString));
@@ -6416,10 +6416,10 @@ function _writeObject(_buf:stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>, _obj:
                 _buf.writeString((" =" : stdgo.GoString));
             } else {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), ok : false };
-                }, _t = __tmp__.value, __16 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), _1 : false };
+                }, _t = __tmp__._0, __16 = __tmp__._1;
                 if (_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) {
                     _typ = _t._bound;
                 } else {
@@ -6468,10 +6468,10 @@ function _writeFuncName(_buf:stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>, _f:
                     _buf.writeByte((40 : stdgo.StdGoTypes.GoUInt8));
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_recv.type()) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_recv.type()) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), ok : false };
-                        }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), _1 : false };
+                        }, __0 = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
                             _buf.writeString(("interface" : stdgo.GoString));
                         } else {
@@ -6592,10 +6592,10 @@ function _operandString(_x:stdgo.StdGoTypes.Ref<T_operand>, _qf:Qualifier):stdgo
                 writeType((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>), _x._typ, _qf);
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x._typ) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x._typ) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), ok : false };
-                    }, _tpar = __tmp__.value, __0 = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), _1 : false };
+                    }, _tpar = __tmp__._0, __0 = __tmp__._1;
                     if (_tpar != null && ((_tpar : Dynamic).__nil__ == null || !(_tpar : Dynamic).__nil__)) {
                         _buf.writeString((" constrained by " : stdgo.GoString));
                         writeType((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>), _tpar._bound, _qf);
@@ -6624,34 +6624,34 @@ function newPackage(_path:stdgo.GoString, _name:stdgo.GoString):stdgo.StdGoTypes
 /**
     // NewPointer returns a new pointer type for the given element (base) type.
 **/
-function newPointer(_elem:Type):stdgo.StdGoTypes.Ref<Pointer_> {
+function newPointer(_elem:Type_):stdgo.StdGoTypes.Ref<Pointer_> {
         return (stdgo.Go.setRef(({ _base : _elem } : stdgo.go.types.Types.Pointer_)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>);
     }
-function _isBoolean(_t:Type):Bool {
+function _isBoolean(_t:Type_):Bool {
         return _isBasic(_t, (1 : stdgo.go.types.Types.BasicInfo));
     }
-function _isInteger(_t:Type):Bool {
+function _isInteger(_t:Type_):Bool {
         return _isBasic(_t, (2 : stdgo.go.types.Types.BasicInfo));
     }
-function _isUnsigned(_t:Type):Bool {
+function _isUnsigned(_t:Type_):Bool {
         return _isBasic(_t, (4 : stdgo.go.types.Types.BasicInfo));
     }
-function _isFloat(_t:Type):Bool {
+function _isFloat(_t:Type_):Bool {
         return _isBasic(_t, (8 : stdgo.go.types.Types.BasicInfo));
     }
-function _isComplex(_t:Type):Bool {
+function _isComplex(_t:Type_):Bool {
         return _isBasic(_t, (16 : stdgo.go.types.Types.BasicInfo));
     }
-function _isNumeric(_t:Type):Bool {
+function _isNumeric(_t:Type_):Bool {
         return _isBasic(_t, (26 : stdgo.go.types.Types.BasicInfo));
     }
-function _isString(_t:Type):Bool {
+function _isString(_t:Type_):Bool {
         return _isBasic(_t, (32 : stdgo.go.types.Types.BasicInfo));
     }
-function _isIntegerOrFloat(_t:Type):Bool {
+function _isIntegerOrFloat(_t:Type_):Bool {
         return _isBasic(_t, (10 : stdgo.go.types.Types.BasicInfo));
     }
-function _isConstType(_t:Type):Bool {
+function _isConstType(_t:Type_):Bool {
         return _isBasic(_t, (59 : stdgo.go.types.Types.BasicInfo));
     }
 /**
@@ -6659,33 +6659,33 @@ function _isConstType(_t:Type):Bool {
     // If t is a type parameter the result is false; i.e.,
     // isBasic does not look inside a type parameter.
 **/
-function _isBasic(_t:Type, _info:BasicInfo):Bool {
+function _isBasic(_t:Type_, _info:BasicInfo):Bool {
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_t)) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_t)) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), ok : false };
-        }, _u = __tmp__.value, __0 = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), _1 : false };
+        }, _u = __tmp__._0, __0 = __tmp__._1;
         return ((_u != null) && ((_u : Dynamic).__nil__ == null || !(_u : Dynamic).__nil__)) && ((_u._info & _info) != (0 : stdgo.go.types.Types.BasicInfo));
     }
-function _allBoolean(_t:Type):Bool {
+function _allBoolean(_t:Type_):Bool {
         return _allBasic(_t, (1 : stdgo.go.types.Types.BasicInfo));
     }
-function _allInteger(_t:Type):Bool {
+function _allInteger(_t:Type_):Bool {
         return _allBasic(_t, (2 : stdgo.go.types.Types.BasicInfo));
     }
-function _allUnsigned(_t:Type):Bool {
+function _allUnsigned(_t:Type_):Bool {
         return _allBasic(_t, (4 : stdgo.go.types.Types.BasicInfo));
     }
-function _allNumeric(_t:Type):Bool {
+function _allNumeric(_t:Type_):Bool {
         return _allBasic(_t, (26 : stdgo.go.types.Types.BasicInfo));
     }
-function _allString(_t:Type):Bool {
+function _allString(_t:Type_):Bool {
         return _allBasic(_t, (32 : stdgo.go.types.Types.BasicInfo));
     }
-function _allOrdered(_t:Type):Bool {
+function _allOrdered(_t:Type_):Bool {
         return _allBasic(_t, (42 : stdgo.go.types.Types.BasicInfo));
     }
-function _allNumericOrString(_t:Type):Bool {
+function _allNumericOrString(_t:Type_):Bool {
         return _allBasic(_t, (58 : stdgo.go.types.Types.BasicInfo));
     }
 /**
@@ -6694,13 +6694,13 @@ function _allNumericOrString(_t:Type):Bool {
     // for all specific types of the type parameter's type set.
     // allBasic(t, info) is an optimized version of isBasic(coreType(t), info).
 **/
-function _allBasic(_t:Type, _info:BasicInfo):Bool {
+function _allBasic(_t:Type_, _info:BasicInfo):Bool {
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), ok : false };
-            }, _tpar = __tmp__.value, __0 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), _1 : false };
+            }, _tpar = __tmp__._0, __0 = __tmp__._1;
             if (_tpar != null && ((_tpar : Dynamic).__nil__ == null || !(_tpar : Dynamic).__nil__)) {
                 return _tpar._is(function(_t:stdgo.StdGoTypes.Ref<T_term>):Bool {
                     return ((_t != null) && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) && _isBasic(_t._typ, _info);
@@ -6714,7 +6714,7 @@ function _allBasic(_t:Type, _info:BasicInfo):Bool {
     // predeclared types, defined types, and type parameters.
     // hasName may be called with types that are not fully set up.
 **/
-function _hasName(_t:Type):Bool {
+function _hasName(_t:Type_):Bool {
         {
             final __type__ = _t;
             if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Basic>)) || stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Named>)) || stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<TypeParam>))) {
@@ -6728,7 +6728,7 @@ function _hasName(_t:Type):Bool {
     // This includes all non-defined types, but also basic types.
     // isTypeLit may be called with types that are not fully set up.
 **/
-function _isTypeLit(_t:Type):Bool {
+function _isTypeLit(_t:Type_):Bool {
         {
             final __type__ = _t;
             if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Named>)) || stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<TypeParam>))) {
@@ -6742,46 +6742,46 @@ function _isTypeLit(_t:Type):Bool {
     // constant or boolean. isTyped may be called with types that
     // are not fully set up.
 **/
-function _isTyped(_t:Type):Bool {
+function _isTyped(_t:Type_):Bool {
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), ok : false };
-        }, _b = __tmp__.value, __0 = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), _1 : false };
+        }, _b = __tmp__._0, __0 = __tmp__._1;
         return ((_b == null) || (_b : Dynamic).__nil__) || ((_b._info & (64 : stdgo.go.types.Types.BasicInfo)) == (0 : stdgo.go.types.Types.BasicInfo));
     }
 /**
     // isUntyped(t) is the same as !isTyped(t).
 **/
-function _isUntyped(_t:Type):Bool {
+function _isUntyped(_t:Type_):Bool {
         return !_isTyped(_t);
     }
 /**
     // IsInterface reports whether t is an interface type.
 **/
-function isInterface(_t:Type):Bool {
+function isInterface(_t:Type_):Bool {
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_t)) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_t)) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), ok : false };
-        }, __0 = __tmp__.value, _ok = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), _1 : false };
+        }, __0 = __tmp__._0, _ok = __tmp__._1;
         return _ok;
     }
 /**
     // isNonTypeParamInterface reports whether t is an interface type but not a type parameter.
 **/
-function _isNonTypeParamInterface(_t:Type):Bool {
+function _isNonTypeParamInterface(_t:Type_):Bool {
         return !_isTypeParam(_t) && isInterface(_t);
     }
 /**
     // isTypeParam reports whether t is a type parameter.
 **/
-function _isTypeParam(_t:Type):Bool {
+function _isTypeParam(_t:Type_):Bool {
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), ok : false };
-        }, __0 = __tmp__.value, _ok = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), _1 : false };
+        }, __0 = __tmp__._0, _ok = __tmp__._1;
         return _ok;
     }
 /**
@@ -6790,19 +6790,19 @@ function _isTypeParam(_t:Type):Bool {
     // use anywhere, but it may report a false negative if the type set has not been
     // computed yet.
 **/
-function _hasEmptyTypeset(_t:Type):Bool {
+function _hasEmptyTypeset(_t:Type_):Bool {
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), ok : false };
-            }, _tpar = __tmp__.value, __0 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), _1 : false };
+            }, _tpar = __tmp__._0, __0 = __tmp__._1;
             if (((_tpar != null) && ((_tpar : Dynamic).__nil__ == null || !(_tpar : Dynamic).__nil__)) && (_tpar._bound != null)) {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_safeUnderlying(_tpar._bound)) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_safeUnderlying(_tpar._bound)) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), ok : false };
-                }, _iface = __tmp__.value, __17 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), _1 : false };
+                }, _iface = __tmp__._0, __17 = __tmp__._1;
                 return (((_iface != null) && ((_iface : Dynamic).__nil__ == null || !(_iface : Dynamic).__nil__)) && ((_iface._tset != null) && ((_iface._tset : Dynamic).__nil__ == null || !(_iface._tset : Dynamic).__nil__))) && _iface._tset.isEmpty();
             };
         };
@@ -6813,36 +6813,36 @@ function _hasEmptyTypeset(_t:Type):Bool {
     // (generic signatures are not included).
     // TODO(gri) should we include signatures or assert that they are not present?
 **/
-function _isGeneric(_t:Type):Bool {
+function _isGeneric(_t:Type_):Bool {
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-        }, _named = __tmp__.value, __0 = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+        }, _named = __tmp__._0, __0 = __tmp__._1;
         return ((((_named != null) && ((_named : Dynamic).__nil__ == null || !(_named : Dynamic).__nil__)) && ((_named._obj != null) && ((_named._obj : Dynamic).__nil__ == null || !(_named._obj : Dynamic).__nil__))) && (_named._inst == null) || (_named._inst : Dynamic).__nil__) && (_named._check._environment._decl._tdecl.typeParams().len() > (0 : stdgo.StdGoTypes.GoInt));
     }
 /**
     // Comparable reports whether values of type T are comparable.
 **/
-function comparable(t:Type):Bool {
-        return _comparable(t, true, (null : stdgo.GoMap<stdgo.go.types.Types.Type, Bool>), null);
+function comparable(t:Type_):Bool {
+        return _comparable(t, true, (null : stdgo.GoMap<stdgo.go.types.Types.Type_, Bool>), null);
     }
 /**
     // If dynamic is set, non-type parameter interfaces are always comparable.
     // If reportf != nil, it may be used to report why T is not comparable.
 **/
-function _comparable(t:Type, _dynamic:Bool, _seen:stdgo.GoMap<Type, Bool>, _reportf:(stdgo.GoString, haxe.Rest<stdgo.StdGoTypes.AnyInterface>) -> Void):Bool {
+function _comparable(t:Type_, _dynamic:Bool, _seen:stdgo.GoMap<Type_, Bool>, _reportf:(stdgo.GoString, haxe.Rest<stdgo.StdGoTypes.AnyInterface>) -> Void):Bool {
         if ((_seen[t] ?? false)) {
             return true;
         };
         if (_seen == null) {
             _seen = ({
-                final x = new stdgo.GoMap.GoObjectMap<stdgo.go.types.Types.Type, Bool>();
-                x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }));
+                final x = new stdgo.GoMap.GoObjectMap<stdgo.go.types.Types.Type_, Bool>();
+                x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type_", [], stdgo.internal.reflect.Reflect.GoType.named("Type_", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }));
                 x.__defaultValue__ = () -> false;
                 @:mergeBlock {};
                 cast x;
-            } : stdgo.GoMap<stdgo.go.types.Types.Type, Bool>);
+            } : stdgo.GoMap<stdgo.go.types.Types.Type_, Bool>);
         };
         _seen[t] = true;
         {
@@ -6851,7 +6851,7 @@ function _comparable(t:Type, _dynamic:Bool, _seen:stdgo.GoMap<Type, Bool>, _repo
                 var _t:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>) : __type__.__underlying__().value;
                 return _t._kind != ((25 : stdgo.go.types.Types.BasicKind));
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Pointer_>)) || stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<stdgo.Chan>))) {
-                var _t:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                var _t:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                 return true;
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Struct>))) {
                 var _t:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Struct> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Struct>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Struct>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Struct>) : __type__.__underlying__().value;
@@ -6892,18 +6892,18 @@ function _comparable(t:Type, _dynamic:Bool, _seen:stdgo.GoMap<Type, Bool>, _repo
 /**
     // hasNil reports whether type t includes the nil value.
 **/
-function _hasNil(_t:Type):Bool {
+function _hasNil(_t:Type_):Bool {
         {
             final __type__ = _under(_t);
             if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Basic>))) {
                 var _u:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>) : __type__.__underlying__().value;
                 return _u._kind == ((18 : stdgo.go.types.Types.BasicKind));
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Slice_>)) || stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Pointer_>)) || stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Signature>)) || stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Map_>)) || stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<stdgo.Chan>))) {
-                var _u:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                var _u:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                 return true;
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Interface>))) {
                 var _u:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>) : __type__.__underlying__().value;
-                return !_isTypeParam(_t) || _u._typeSet()._underIs(function(_u:Type):Bool {
+                return !_isTypeParam(_t) || _u._typeSet()._underIs(function(_u:Type_):Bool {
                     return (_u != null) && _hasNil(_u);
                 });
             };
@@ -6921,7 +6921,7 @@ function _indenticalOrigin(_x:stdgo.StdGoTypes.Ref<Named>, _y:stdgo.StdGoTypes.R
     // Instantiations are identical if their origin and type arguments are
     // identical.
 **/
-function _identicalInstance(_xorig:Type, _xargs:stdgo.Slice<Type>, _yorig:Type, _yargs:stdgo.Slice<Type>):Bool {
+function _identicalInstance(_xorig:Type_, _xargs:stdgo.Slice<Type_>, _yorig:Type_, _yargs:stdgo.Slice<Type_>):Bool {
         if ((_xargs.length) != ((_yargs.length))) {
             return false;
         };
@@ -6937,13 +6937,13 @@ function _identicalInstance(_xorig:Type, _xargs:stdgo.Slice<Type>, _yorig:Type, 
     // it returns the incoming type for all other types. The default type
     // for untyped nil is untyped nil.
 **/
-function default_(_t:Type):Type {
+function default_(_t:Type_):Type_ {
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), ok : false };
-            }, _t = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), _1 : false };
+            }, _t = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 {
                     final __value__ = _t._kind;
@@ -6971,7 +6971,7 @@ function default_(_t:Type):Type {
     // that appears later in this list: integer, rune, floating-point, complex.
     // Otherwise, if x != y, the result is nil.
 **/
-function _maxType(_x:Type, _y:Type):Type {
+function _maxType(_x:Type_, _y:Type_):Type_ {
         if (stdgo.Go.toInterface(_x) == (stdgo.Go.toInterface(_y))) {
             return _x;
         };
@@ -6981,7 +6981,7 @@ function _maxType(_x:Type, _y:Type):Type {
             };
             return _y;
         };
-        return (null : stdgo.go.types.Types.Type);
+        return (null : stdgo.go.types.Types.Type_);
     }
 function _validatedImportPath(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         var __tmp__ = stdgo.strconv.Strconv.unquote(_path?.__copy__()), _s:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -7110,19 +7110,19 @@ function newScope(_parent:stdgo.StdGoTypes.Ref<Scope>, _pos:stdgo.go.token.Token
 function _resolve(_name:stdgo.GoString, _obj:Object):Object {
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<T_lazyObject>)) : stdgo.StdGoTypes.Ref<T_lazyObject>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<T_lazyObject>)) : stdgo.StdGoTypes.Ref<T_lazyObject>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_lazyObject>), ok : false };
-            }, _lazy = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_lazyObject>), _1 : false };
+            }, _lazy = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 _lazy._once.do_(function():Void {
                     var _obj:stdgo.go.types.Types.Object = _lazy._resolve();
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<T_lazyObject>)) : stdgo.StdGoTypes.Ref<T_lazyObject>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<T_lazyObject>)) : stdgo.StdGoTypes.Ref<T_lazyObject>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_lazyObject>), ok : false };
-                        }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_lazyObject>), _1 : false };
+                        }, __0 = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
                             throw stdgo.Go.toInterface(("recursive lazy object" : stdgo.GoString));
                         };
@@ -7171,7 +7171,7 @@ function selectionString(_s:stdgo.StdGoTypes.Ref<Selection>, _qf:Qualifier):stdg
         writeType((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>), _s.recv(), _qf);
         stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), (") %s" : stdgo.GoString), stdgo.Go.toInterface(_s._obj.name()));
         {
-            var t:stdgo.go.types.Types.Type = _s.type();
+            var t:stdgo.go.types.Types.Type_ = _s.type();
             if (_s._kind == ((0 : stdgo.go.types.Types.SelectionKind))) {
                 _buf.writeByte((32 : stdgo.StdGoTypes.GoUInt8));
                 writeType((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>), t, _qf);
@@ -7206,13 +7206,13 @@ function newSignatureType(_recv:stdgo.StdGoTypes.Ref<Var>, _recvTypeParams:stdgo
             if (_n == ((0 : stdgo.StdGoTypes.GoInt))) {
                 throw stdgo.Go.toInterface(("variadic function must have at least one parameter" : stdgo.GoString));
             };
-            var _core:stdgo.go.types.Types.Type = _coreString(_params.at(_n - (1 : stdgo.StdGoTypes.GoInt))._object._typ);
+            var _core:stdgo.go.types.Types.Type_ = _coreString(_params.at(_n - (1 : stdgo.StdGoTypes.GoInt))._object._typ);
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_core) : stdgo.StdGoTypes.Ref<Slice_>)) : stdgo.StdGoTypes.Ref<Slice_>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_core) : stdgo.StdGoTypes.Ref<Slice_>)) : stdgo.StdGoTypes.Ref<Slice_>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>), ok : false };
-                }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>), _1 : false };
+                }, __0 = __tmp__._0, _ok = __tmp__._1;
                 if (!_ok && !_isString(_core)) {
                     throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("got %s, want variadic parameter with unnamed slice type or string as core type" : stdgo.GoString), stdgo.Go.toInterface((_core.string() : stdgo.GoString))));
                 };
@@ -7236,7 +7236,7 @@ function newSignatureType(_recv:stdgo.StdGoTypes.Ref<Var>, _recvTypeParams:stdgo
 /**
     // Signal size changes of important structures.
 **/
-function testSizeof(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testSizeof(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _tests:stdgo.Slice<T__struct_1> = (new stdgo.Slice<T__struct_1>(
 25,
@@ -7277,12 +7277,12 @@ function testSizeof(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function __IsSyncAtomicAlign64(t:Type):Bool {
+function __IsSyncAtomicAlign64(t:Type_):Bool {
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(t) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(t) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-        }, _named = __tmp__.value, _ok = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+        }, _named = __tmp__._0, _ok = __tmp__._1;
         if (!_ok) {
             return false;
         };
@@ -7309,7 +7309,7 @@ function sizesFor(_compiler:stdgo.GoString, _arch:stdgo.GoString):Sizes {
                 return (null : stdgo.go.types.Types.Sizes);
             };
         };
-        var __tmp__ = (_m != null && _m.exists(_arch?.__copy__()) ? { value : _m[_arch?.__copy__()], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.StdSizes>), ok : false }), _s:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.StdSizes> = __tmp__.value, _ok:Bool = __tmp__.ok;
+        var __tmp__ = (_m != null && _m.exists(_arch?.__copy__()) ? { _0 : _m[_arch?.__copy__()], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.StdSizes>), _1 : false }), _s:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.StdSizes> = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             return (null : stdgo.go.types.Types.Sizes);
         };
@@ -7327,7 +7327,7 @@ function _align(_x:stdgo.StdGoTypes.GoInt64, _a:stdgo.StdGoTypes.GoInt64):stdgo.
 /**
     // NewSlice returns a new slice type for the given element type.
 **/
-function newSlice(_elem:Type):stdgo.StdGoTypes.Ref<Slice_> {
+function newSlice(_elem:Type_):stdgo.StdGoTypes.Ref<Slice_> {
         return (stdgo.Go.setRef(({ _elem : _elem } : stdgo.go.types.Types.Slice_)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>);
     }
 function _trimTrailingEmptyStmts(_list:stdgo.Slice<stdgo.go.ast.Ast.Stmt>):stdgo.Slice<stdgo.go.ast.Ast.Stmt> {
@@ -7336,10 +7336,10 @@ function _trimTrailingEmptyStmts(_list:stdgo.Slice<stdgo.go.ast.Ast.Stmt>):stdgo
             stdgo.Go.cfor(_i > (0 : stdgo.StdGoTypes.GoInt), _i--, {
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_list[(_i - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.EmptyStmt>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.EmptyStmt>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_list[(_i - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.EmptyStmt>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.EmptyStmt>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.EmptyStmt>), ok : false };
-                    }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.EmptyStmt>), _1 : false };
+                    }, __0 = __tmp__._0, _ok = __tmp__._1;
                     if (!_ok) {
                         return (_list.__slice__(0, _i) : stdgo.Slice<stdgo.go.ast.Ast.Stmt>);
                     };
@@ -7394,8 +7394,8 @@ function _goVal(_val:stdgo.go.constant.Constant.Value):stdgo.StdGoTypes.AnyInter
     // over an expression of type typ. If the range clause is not permitted
     // the results are nil.
 **/
-function _rangeKeyVal(_typ:Type):{ var _0 : Type; var _1 : Type; } {
-        var _key:Type = (null : stdgo.go.types.Types.Type), _val:Type = (null : stdgo.go.types.Types.Type);
+function _rangeKeyVal(_typ:Type_):{ var _0 : Type_; var _1 : Type_; } {
+        var _key:Type_ = (null : stdgo.go.types.Types.Type_), _val:Type_ = (null : stdgo.go.types.Types.Type_);
         {
             final __type__ = _arrayPtrDeref(_typ);
             if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Basic>))) {
@@ -7449,10 +7449,10 @@ function _embeddedFieldIdent(_e:stdgo.go.ast.Ast.Expr):stdgo.StdGoTypes.Ref<stdg
                 var _e:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.StarExpr> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.StarExpr>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.StarExpr>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.StarExpr>) : __type__.__underlying__().value;
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e.x) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.StarExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.StarExpr>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e.x) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.StarExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.StarExpr>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.StarExpr>), ok : false };
-                    }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.StarExpr>), _1 : false };
+                    }, __0 = __tmp__._0, _ok = __tmp__._1;
                     if (!_ok) {
                         return _embeddedFieldIdent(_e.x);
                     };
@@ -7474,13 +7474,13 @@ function _embeddedFieldIdent(_e:stdgo.go.ast.Ast.Expr):stdgo.StdGoTypes.Ref<stdg
     // makeSubstMap creates a new substitution map mapping tpars[i] to targs[i].
     // If targs[i] is nil, tpars[i] is not substituted.
 **/
-function _makeSubstMap(_tpars:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _targs:stdgo.Slice<Type>):T_substMap {
+function _makeSubstMap(_tpars:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _targs:stdgo.Slice<Type_>):T_substMap {
         _assert((_tpars.length) == ((_targs.length)));
         var _proj:stdgo.go.types.Types.T_substMap = ({
-            final x = new stdgo.GoMap.GoRefMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.go.types.Types.Type>();
+            final x = new stdgo.GoMap.GoRefMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.go.types.Types.Type_>();
             @:mergeBlock {};
             cast x;
-        } : stdgo.GoMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.go.types.Types.Type>);
+        } : stdgo.GoMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.go.types.Types.Type_>);
         for (_i => _tpar in _tpars) {
             _proj[_tpar] = _targs[(_i : stdgo.StdGoTypes.GoInt)];
         };
@@ -7493,22 +7493,22 @@ function _makeSubstMap(_tpars:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _tar
 function _makeRenameMap(_from:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _to:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>):T_substMap {
         _assert((_from.length) == ((_to.length)));
         var _proj:stdgo.go.types.Types.T_substMap = ({
-            final x = new stdgo.GoMap.GoRefMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.go.types.Types.Type>();
+            final x = new stdgo.GoMap.GoRefMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.go.types.Types.Type_>();
             @:mergeBlock {};
             cast x;
-        } : stdgo.GoMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.go.types.Types.Type>);
+        } : stdgo.GoMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.go.types.Types.Type_>);
         for (_i => _tpar in _from) {
             _proj[_tpar] = stdgo.Go.asInterface(_to[(_i : stdgo.StdGoTypes.GoInt)]);
         };
         return _proj;
     }
-function _substVar(_v:stdgo.StdGoTypes.Ref<Var>, _typ:Type):stdgo.StdGoTypes.Ref<Var> {
+function _substVar(_v:stdgo.StdGoTypes.Ref<Var>, _typ:Type_):stdgo.StdGoTypes.Ref<Var> {
         var _copy:stdgo.go.types.Types.Var = (_v : stdgo.go.types.Types.Var)?.__copy__();
         _copy._object._typ = _typ;
         _copy._origin = _v.origin();
         return (stdgo.Go.setRef(_copy) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>);
     }
-function _substFunc(_f:stdgo.StdGoTypes.Ref<Func>, _typ:Type):stdgo.StdGoTypes.Ref<Func> {
+function _substFunc(_f:stdgo.StdGoTypes.Ref<Func>, _typ:Type_):stdgo.StdGoTypes.Ref<Func> {
         var _copy:stdgo.go.types.Types.Func = (_f : stdgo.go.types.Types.Func)?.__copy__();
         _copy._object._typ = _typ;
         _copy._origin = _f.origin();
@@ -7522,7 +7522,7 @@ function _substFunc(_f:stdgo.StdGoTypes.Ref<Func>, _typ:Type):stdgo.StdGoTypes.R
     // The resulting out slice contains the updated functions, and copied reports
     // if anything was modified.
 **/
-function _replaceRecvType(_in:stdgo.Slice<stdgo.StdGoTypes.Ref<Func>>, _old:Type, _new:Type):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.Ref<Func>>; var _1 : Bool; } {
+function _replaceRecvType(_in:stdgo.Slice<stdgo.StdGoTypes.Ref<Func>>, _old:Type_, _new:Type_):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.Ref<Func>>; var _1 : Bool; } {
         var _out:stdgo.Slice<stdgo.StdGoTypes.Ref<Func>> = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>), _copied:Bool = false;
         _out = _in;
         for (_i => _method in _in) {
@@ -7552,12 +7552,12 @@ function _maketl(_s:stdgo.GoString):T_termlist {
         };
         return _r;
     }
-function testTermlistAll(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTermlistAll(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         if (!_allTermlist._isAll()) {
             _t.errorf(("allTermlist is not the set of all types" : stdgo.GoString));
         };
     }
-function testTermlistString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTermlistString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _want in (new stdgo.Slice<stdgo.GoString>(
 9,
 9,
@@ -7578,7 +7578,7 @@ function testTermlistString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             };
         };
     }
-function testTermlistIsEmpty(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTermlistIsEmpty(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_test => _want in ({
             final x = new stdgo.GoMap.GoStringMap<Bool>();
             x.__defaultValue__ = () -> false;
@@ -7600,7 +7600,7 @@ function testTermlistIsEmpty(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
             };
         };
     }
-function testTermlistIsAll(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTermlistIsAll(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_test => _want in ({
             final x = new stdgo.GoMap.GoStringMap<Bool>();
             x.__defaultValue__ = () -> false;
@@ -7623,7 +7623,7 @@ function testTermlistIsAll(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             };
         };
     }
-function testTermlistNorm(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTermlistNorm(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in (new stdgo.Slice<T__struct_2>(
 12,
 12,
@@ -7646,7 +7646,7 @@ function testTermlistNorm(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             };
         };
     }
-function testTermlistUnion(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTermlistUnion(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in (new stdgo.Slice<T__struct_3>(
 14,
 14,
@@ -7672,7 +7672,7 @@ function testTermlistUnion(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             };
         };
     }
-function testTermlistIntersect(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTermlistIntersect(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in (new stdgo.Slice<T__struct_3>(
 16,
 16,
@@ -7700,7 +7700,7 @@ function testTermlistIntersect(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             };
         };
     }
-function testTermlistEqual(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTermlistEqual(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in (new stdgo.Slice<T__struct_4>(
 9,
 9,
@@ -7721,7 +7721,7 @@ function testTermlistEqual(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             };
         };
     }
-function testTermlistIncludes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTermlistIncludes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in (new stdgo.Slice<T__struct_5>(
 11,
 11,
@@ -7737,14 +7737,14 @@ function testTermlistIncludes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
 ({ _xl : ("~int | myInt | ∅" : stdgo.GoString), _typ : ("myInt" : stdgo.GoString), _want : true } : T__struct_5),
 ({ _xl : ("myInt | ∅ | 𝓤" : stdgo.GoString), _typ : ("int" : stdgo.GoString), _want : true } : T__struct_5)) : stdgo.Slice<T__struct_5>)) {
             var _xl:stdgo.go.types.Types.T_termlist = _maketl(_test._xl?.__copy__());
-            var _yl:stdgo.go.types.Types.Type = _testTerm(_test._typ?.__copy__())._typ;
+            var _yl:stdgo.go.types.Types.Type_ = _testTerm(_test._typ?.__copy__())._typ;
             var _got:Bool = _xl._includes(_yl);
             if (_got != (_test._want)) {
                 _t.errorf(("(%v).includes(%v) = %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._xl), stdgo.Go.toInterface(_yl), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
             };
         };
     }
-function testTermlistSupersetOf(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTermlistSupersetOf(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in (new stdgo.Slice<T__struct_5>(
 21,
 21,
@@ -7777,7 +7777,7 @@ function testTermlistSupersetOf(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
             };
         };
     }
-function testTermlistSubsetOf(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTermlistSubsetOf(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in (new stdgo.Slice<T__struct_4>(
 16,
 16,
@@ -7805,13 +7805,13 @@ function testTermlistSubsetOf(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
             };
         };
     }
-function testZeroTok(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testZeroTok(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _zero:stdgo.go.token.Token.Token = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.token.Token.Token);
         if ((0 : stdgo.go.token.Token.Token) != (_zero)) {
             _t.errorf(("%s == %d; want 0" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface((0 : stdgo.go.token.Token.Token))), stdgo.Go.toInterface(stdgo.Go.asInterface(_zero)));
         };
     }
-function testAssignOp(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAssignOp(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (256 : stdgo.StdGoTypes.GoInt), _i++, {
@@ -7837,7 +7837,7 @@ function newTuple(_x:haxe.Rest<stdgo.StdGoTypes.Ref<Var>>):stdgo.StdGoTypes.Ref<
 /**
     // newTypeList returns a new TypeList with the types in list.
 **/
-function _newTypeList(_list:stdgo.Slice<Type>):stdgo.StdGoTypes.Ref<TypeList> {
+function _newTypeList(_list:stdgo.Slice<Type_>):stdgo.StdGoTypes.Ref<TypeList> {
         if ((_list.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
             return null;
         };
@@ -7870,7 +7870,7 @@ function _nextID():stdgo.StdGoTypes.GoUInt64 {
     // The constraint argument can be nil, and set later via SetConstraint. If the
     // constraint is non-nil, it must be fully defined.
 **/
-function newTypeParam(_obj:stdgo.StdGoTypes.Ref<TypeName>, _constraint:Type):stdgo.StdGoTypes.Ref<TypeParam> {
+function newTypeParam(_obj:stdgo.StdGoTypes.Ref<TypeName>, _constraint:Type_):stdgo.StdGoTypes.Ref<TypeParam> {
         return ((null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Checker>) : stdgo.StdGoTypes.Ref<Checker>)._newTypeParam(_obj, _constraint);
     }
 /**
@@ -7986,7 +7986,7 @@ function _computeInterfaceTypeSet(_check:stdgo.StdGoTypes.Ref<Checker>, _pos:std
                         _assert((_tset._methods.length) == ((0 : stdgo.StdGoTypes.GoInt)));
                         _terms = _tset._terms;
                     } else {
-                        var _u:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                        var _u:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                         if (stdgo.Go.toInterface(_u) == (stdgo.Go.toInterface(stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])))) {
                             continue;
                         };
@@ -8047,7 +8047,7 @@ function _intersectTermLists(_xterms:T_termlist, _xcomp:Bool, _yterms:T_termlist
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             for (__0 => _t in _terms) {
                 _assert(_t._typ != null);
-                if (_comparable(_t._typ, false, (null : stdgo.GoMap<stdgo.go.types.Types.Type, Bool>), null)) {
+                if (_comparable(_t._typ, false, (null : stdgo.GoMap<stdgo.go.types.Types.Type_, Bool>), null)) {
                     _terms[(_i : stdgo.StdGoTypes.GoInt)] = _t;
                     _i++;
                 };
@@ -8077,7 +8077,7 @@ function _assertSortedMethods(_list:stdgo.Slice<stdgo.StdGoTypes.Ref<Func>>):Voi
 **/
 function _computeUnionTypeSet(_check:stdgo.StdGoTypes.Ref<Checker>, _unionSets:stdgo.GoMap<stdgo.StdGoTypes.Ref<Union>, stdgo.StdGoTypes.Ref<T__TypeSet>>, _pos:stdgo.go.token.Token.Pos, _utyp:stdgo.StdGoTypes.Ref<Union>):stdgo.StdGoTypes.Ref<T__TypeSet> {
         {
-            var __tmp__ = (_unionSets != null && _unionSets.exists(_utyp) ? { value : _unionSets[_utyp], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T__TypeSet>), ok : false }), _tset:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T__TypeSet> = __tmp__.value, __0:Bool = __tmp__.ok;
+            var __tmp__ = (_unionSets != null && _unionSets.exists(_utyp) ? { _0 : _unionSets[_utyp], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T__TypeSet>), _1 : false }), _tset:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T__TypeSet> = __tmp__._0, __0:Bool = __tmp__._1;
             if (_tset != null && ((_tset : Dynamic).__nil__ == null || !(_tset : Dynamic).__nil__)) {
                 return _tset;
             };
@@ -8086,13 +8086,13 @@ function _computeUnionTypeSet(_check:stdgo.StdGoTypes.Ref<Checker>, _unionSets:s
         var _allTerms:T_termlist = new stdgo.go.types.Types.T_termlist(0, 0);
         for (__1 => _t in _utyp._terms) {
             var _terms:T_termlist = new stdgo.go.types.Types.T_termlist(0, 0);
-            var _u:stdgo.go.types.Types.Type = _under(_t._typ);
+            var _u:stdgo.go.types.Types.Type_ = _under(_t._typ);
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_u) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_u) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), ok : false };
-                }, _ui = __tmp__.value, __2 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), _1 : false };
+                }, _ui = __tmp__._0, __2 = __tmp__._1;
                 if (_ui != null && ((_ui : Dynamic).__nil__ == null || !(_ui : Dynamic).__nil__)) {
                     _assert(!_isTypeParam(_t._typ));
                     _terms = _computeInterfaceTypeSet(_check, _pos, _ui)._terms;
@@ -8120,12 +8120,12 @@ function _computeUnionTypeSet(_check:stdgo.StdGoTypes.Ref<Checker>, _unionSets:s
         (_unionSets[_utyp] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T__TypeSet>))._terms = _allTerms;
         return (_unionSets[_utyp] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T__TypeSet>));
     }
-function testInvalidTypeSet(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testInvalidTypeSet(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         if (!_invalidTypeSet.isEmpty()) {
             _t.error(stdgo.Go.toInterface(("invalidTypeSet is not empty" : stdgo.GoString)));
         };
     }
-function testTypeSetString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTypeSetString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_body => _want in ({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
             x.__defaultValue__ = () -> ("" : stdgo.GoString);
@@ -8170,10 +8170,10 @@ function testTypeSetString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                 _t.fatalf(("%s: T not found (invalid test case)" : stdgo.GoString), stdgo.Go.toInterface(_body));
             };
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_obj.type())) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_obj.type())) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), ok : false };
-            }, t = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), _1 : false };
+            }, t = __tmp__._0, _ok = __tmp__._1;
             if (!_ok) {
                 _t.fatalf(("%s: %v is not an interface (invalid test case)" : stdgo.GoString), stdgo.Go.toInterface(_body), stdgo.Go.toInterface(_obj));
             };
@@ -8203,7 +8203,7 @@ function relativeTo(_pkg:stdgo.StdGoTypes.Ref<Package>):Qualifier {
     // The Qualifier controls the printing of
     // package-level objects, and may be nil.
 **/
-function typeString(_typ:Type, _qf:Qualifier):stdgo.GoString {
+function typeString(_typ:Type_, _qf:Qualifier):stdgo.GoString {
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
         writeType((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>), _typ, _qf);
         return (_buf.string() : stdgo.GoString)?.__copy__();
@@ -8213,7 +8213,7 @@ function typeString(_typ:Type, _qf:Qualifier):stdgo.GoString {
     // The Qualifier controls the printing of
     // package-level objects, and may be nil.
 **/
-function writeType(_buf:stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>, _typ:Type, _qf:Qualifier):Void {
+function writeType(_buf:stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>, _typ:Type_, _qf:Qualifier):Void {
         _newTypeWriter(_buf, _qf)._typ(_typ);
     }
 /**
@@ -8226,22 +8226,22 @@ function writeSignature(_buf:stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>, _si
     }
 function _newTypeWriter(_buf:stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>, _qf:Qualifier):stdgo.StdGoTypes.Ref<T_typeWriter> {
         return (stdgo.Go.setRef((new stdgo.go.types.Types.T_typeWriter(_buf, ({
-            final x = new stdgo.GoMap.GoObjectMap<stdgo.go.types.Types.Type, Bool>();
-            x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }));
+            final x = new stdgo.GoMap.GoObjectMap<stdgo.go.types.Types.Type_, Bool>();
+            x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type_", [], stdgo.internal.reflect.Reflect.GoType.named("Type_", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }));
             x.__defaultValue__ = () -> false;
             @:mergeBlock {};
             cast x;
-        } : stdgo.GoMap<stdgo.go.types.Types.Type, Bool>), _qf, null, null, true, false, false) : stdgo.go.types.Types.T_typeWriter)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_typeWriter>);
+        } : stdgo.GoMap<stdgo.go.types.Types.Type_, Bool>), _qf, null, null, true, false, false) : stdgo.go.types.Types.T_typeWriter)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_typeWriter>);
     }
 function _newTypeHasher(_buf:stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>, _ctxt:stdgo.StdGoTypes.Ref<Context>):stdgo.StdGoTypes.Ref<T_typeWriter> {
         _assert(_ctxt != null && ((_ctxt : Dynamic).__nil__ == null || !(_ctxt : Dynamic).__nil__));
         return (stdgo.Go.setRef((new stdgo.go.types.Types.T_typeWriter(_buf, ({
-            final x = new stdgo.GoMap.GoObjectMap<stdgo.go.types.Types.Type, Bool>();
-            x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }));
+            final x = new stdgo.GoMap.GoObjectMap<stdgo.go.types.Types.Type_, Bool>();
+            x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type_", [], stdgo.internal.reflect.Reflect.GoType.named("Type_", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }));
             x.__defaultValue__ = () -> false;
             @:mergeBlock {};
             cast x;
-        } : stdgo.GoMap<stdgo.go.types.Types.Type, Bool>), null, _ctxt, null, false, false, false) : stdgo.go.types.Types.T_typeWriter)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_typeWriter>);
+        } : stdgo.GoMap<stdgo.go.types.Types.Type_, Bool>), null, _ctxt, null, false, false, false) : stdgo.go.types.Types.T_typeWriter)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_typeWriter>);
     }
 /**
     // subscript returns the decimal (utf8) representation of x using subscript digits.
@@ -8260,7 +8260,7 @@ function _subscript(_x:stdgo.StdGoTypes.GoUInt64):stdgo.GoString {
         };
         return ((_buf.__slice__(_i) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString)?.__copy__();
     }
-function testTermString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTermString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_want => _x in _testTerms) {
             {
                 var _got:stdgo.GoString = (_x.string() : stdgo.GoString)?.__copy__();
@@ -8278,13 +8278,13 @@ function _split(_s:stdgo.GoString, _n:stdgo.StdGoTypes.GoInt):stdgo.Slice<stdgo.
         return _r;
     }
 function _testTerm(_name:stdgo.GoString):stdgo.StdGoTypes.Ref<T_term> {
-        var __tmp__ = (_testTerms != null && _testTerms.exists(_name?.__copy__()) ? { value : _testTerms[_name?.__copy__()], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_term>), ok : false }), _r:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_term> = __tmp__.value, _ok:Bool = __tmp__.ok;
+        var __tmp__ = (_testTerms != null && _testTerms.exists(_name?.__copy__()) ? { _0 : _testTerms[_name?.__copy__()], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_term>), _1 : false }), _r:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_term> = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             throw stdgo.Go.toInterface(("invalid test argument: " : stdgo.GoString) + _name?.__copy__());
         };
         return _r;
     }
-function testTermEqual(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTermEqual(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in (new stdgo.Slice<stdgo.GoString>(
 14,
 14,
@@ -8326,7 +8326,7 @@ function testTermEqual(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testTermUnion(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTermUnion(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in (new stdgo.Slice<stdgo.GoString>(
 29,
 29,
@@ -8372,7 +8372,7 @@ function testTermUnion(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testTermIntersection(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTermIntersection(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in (new stdgo.Slice<stdgo.GoString>(
 16,
 16,
@@ -8416,11 +8416,11 @@ function testTermIntersection(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
             };
         };
     }
-function testTermIncludes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTermIncludes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in (new stdgo.Slice<stdgo.GoString>(8, 8, ("∅ int F" : stdgo.GoString), ("𝓤 int T" : stdgo.GoString), ("int int T" : stdgo.GoString), ("~int int T" : stdgo.GoString), ("~int myInt T" : stdgo.GoString), ("string int F" : stdgo.GoString), ("~string int F" : stdgo.GoString), ("myInt int F" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
             var _args = _split(_test?.__copy__(), (3 : stdgo.StdGoTypes.GoInt));
             var _x = _testTerm(_args[(0 : stdgo.StdGoTypes.GoInt)]?.__copy__());
-            var _y:stdgo.go.types.Types.Type = _testTerm(_args[(1 : stdgo.StdGoTypes.GoInt)]?.__copy__())._typ;
+            var _y:stdgo.go.types.Types.Type_ = _testTerm(_args[(1 : stdgo.StdGoTypes.GoInt)]?.__copy__())._typ;
             var _want:Bool = _args[(2 : stdgo.StdGoTypes.GoInt)] == (("T" : stdgo.GoString));
             {
                 var _got:Bool = _x._includes(_y);
@@ -8430,7 +8430,7 @@ function testTermIncludes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             };
         };
     }
-function testTermSubsetOf(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTermSubsetOf(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in (new stdgo.Slice<stdgo.GoString>(
 17,
 17,
@@ -8463,7 +8463,7 @@ function testTermSubsetOf(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             };
         };
     }
-function testTermDisjoint(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTermDisjoint(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in (new stdgo.Slice<stdgo.GoString>(
 10,
 10,
@@ -8505,7 +8505,7 @@ function testTermDisjoint(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
     // goTypeName returns the Go type name for typ and
     // removes any occurrences of "types." from that name.
 **/
-function _goTypeName(_typ:Type):stdgo.GoString {
+function _goTypeName(_typ:Type_):stdgo.GoString {
         return stdgo.strings.Strings.replaceAll(stdgo.fmt.Fmt.sprintf(("%T" : stdgo.GoString), stdgo.Go.toInterface(_typ))?.__copy__(), ("types." : stdgo.GoString), stdgo.Go.str()?.__copy__())?.__copy__();
     }
 /**
@@ -8514,13 +8514,13 @@ function _goTypeName(_typ:Type):stdgo.GoString {
     // under must only be called when a type is known
     // to be fully set up.
 **/
-function _under(_t:Type):Type {
+function _under(_t:Type_):Type_ {
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-            }, _t = __tmp__.value, __0 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+            }, _t = __tmp__._0, __0 = __tmp__._1;
             if (_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) {
                 return _t._under();
             };
@@ -8535,17 +8535,17 @@ function _under(_t:Type):Type {
     // identical element types), the single underlying type is the restricted
     // channel type if the restrictions are always the same, or nil otherwise.
 **/
-function _coreType(_t:Type):Type {
+function _coreType(_t:Type_):Type_ {
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), ok : false };
-        }, _tpar = __tmp__.value, __0 = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), _1 : false };
+        }, _tpar = __tmp__._0, __0 = __tmp__._1;
         if (_tpar == null || (_tpar : Dynamic).__nil__) {
             return _under(_t);
         };
-        var _su:Type = (null : stdgo.go.types.Types.Type);
-        if (_tpar._underIs(function(_u:Type):Bool {
+        var _su:Type_ = (null : stdgo.go.types.Types.Type_);
+        if (_tpar._underIs(function(_u:Type_):Bool {
             if (_u == null) {
                 return false;
             };
@@ -8560,25 +8560,25 @@ function _coreType(_t:Type):Type {
         })) {
             return _su;
         };
-        return (null : stdgo.go.types.Types.Type);
+        return (null : stdgo.go.types.Types.Type_);
     }
 /**
     // coreString is like coreType but also considers []byte
     // and strings as identical. In this case, if successful and we saw
     // a string, the result is of type (possibly untyped) string.
 **/
-function _coreString(_t:Type):Type {
+function _coreString(_t:Type_):Type_ {
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), ok : false };
-        }, _tpar = __tmp__.value, __0 = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), _1 : false };
+        }, _tpar = __tmp__._0, __0 = __tmp__._1;
         if (_tpar == null || (_tpar : Dynamic).__nil__) {
             return _under(_t);
         };
-        var _su:Type = (null : stdgo.go.types.Types.Type);
+        var _su:Type_ = (null : stdgo.go.types.Types.Type_);
         var _hasString:Bool = false;
-        if (_tpar._underIs(function(_u:Type):Bool {
+        if (_tpar._underIs(function(_u:Type_):Bool {
             if (_u == null) {
                 return false;
             };
@@ -8600,7 +8600,7 @@ function _coreString(_t:Type):Type {
             };
             return _su;
         };
-        return (null : stdgo.go.types.Types.Type);
+        return (null : stdgo.go.types.Types.Type_);
     }
 /**
     // If x and y are identical, match returns x.
@@ -8609,23 +8609,23 @@ function _coreString(_t:Type):Type {
     // with the restricted direction.
     // In all other cases, match returns nil.
 **/
-function _match(_x:Type, _y:Type):Type {
+function _match(_x:Type_, _y:Type_):Type_ {
         if (identical(_x, _y)) {
             return _x;
         };
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x) : stdgo.StdGoTypes.Ref<stdgo.Chan>)) : stdgo.StdGoTypes.Ref<stdgo.Chan>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x) : stdgo.StdGoTypes.Ref<stdgo.Chan>)) : stdgo.StdGoTypes.Ref<stdgo.Chan>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.Chan>), ok : false };
-            }, _x = __tmp__.value, __0 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.Chan>), _1 : false };
+            }, _x = __tmp__._0, __0 = __tmp__._1;
             if (_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__)) {
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<stdgo.Chan>)) : stdgo.StdGoTypes.Ref<stdgo.Chan>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<stdgo.Chan>)) : stdgo.StdGoTypes.Ref<stdgo.Chan>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.Chan>), ok : false };
-                    }, _y = __tmp__.value, __1 = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.Chan>), _1 : false };
+                    }, _y = __tmp__._0, __1 = __tmp__._1;
                     if (((_y != null) && ((_y : Dynamic).__nil__ == null || !(_y : Dynamic).__nil__)) && identical(_x._elem, _y._elem)) {
                         if (_x._dir == ((0 : stdgo.go.types.Types.ChanDir))) {
                             return stdgo.Go.asInterface(_y);
@@ -8636,7 +8636,7 @@ function _match(_x:Type, _y:Type):Type {
                 };
             };
         };
-        return (null : stdgo.go.types.Types.Type);
+        return (null : stdgo.go.types.Types.Type_);
     }
 /**
     // newUnifier returns a new unifier initialized with the given type parameter
@@ -8644,19 +8644,19 @@ function _match(_x:Type, _y:Type):Type {
     // than the type parameter list, and it may contain nil types. Matching type
     // parameters and arguments must have the same index.
 **/
-function _newUnifier(_tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _targs:stdgo.Slice<Type>, _enableInterfaceInference:Bool):stdgo.StdGoTypes.Ref<T_unifier> {
+function _newUnifier(_tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _targs:stdgo.Slice<Type_>, _enableInterfaceInference:Bool):stdgo.StdGoTypes.Ref<T_unifier> {
         _assert((_tparams.length) >= (_targs.length));
         var _handles = ({
-            final x = new stdgo.GoMap.GoRefMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type>>();
+            final x = new stdgo.GoMap.GoRefMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type_>>();
             @:mergeBlock {};
             cast x;
-        } : stdgo.GoMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type>>);
+        } : stdgo.GoMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type_>>);
         for (_i => _x in _tparams) {
-            var _t:Type = (null : stdgo.go.types.Types.Type);
+            var _t:Type_ = (null : stdgo.go.types.Types.Type_);
             if (_i < (_targs.length)) {
                 _t = _targs[(_i : stdgo.StdGoTypes.GoInt)];
             };
-            _handles[_x] = (stdgo.Go.setRef(_t) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type>);
+            _handles[_x] = (stdgo.Go.setRef(_t) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type_>);
         };
         return (stdgo.Go.setRef((new stdgo.go.types.Types.T_unifier(_handles, (0 : stdgo.StdGoTypes.GoInt), _enableInterfaceInference) : stdgo.go.types.Types.T_unifier)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_unifier>);
     }
@@ -8664,22 +8664,22 @@ function _newUnifier(_tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _tar
     // asInterface returns the underlying type of x as an interface if
     // it is a non-type parameter interface. Otherwise it returns nil.
 **/
-function _asInterface(_x:Type):stdgo.StdGoTypes.Ref<Interface> {
+function _asInterface(_x:Type_):stdgo.StdGoTypes.Ref<Interface> {
         var _i:stdgo.StdGoTypes.Ref<Interface> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>);
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), ok : false };
-            }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), _1 : false };
+            }, __0 = __tmp__._0, _ok = __tmp__._1;
             if (!_ok) {
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_x)) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_x)) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), ok : false };
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), _1 : false };
                     };
-                    _i = __tmp__.value;
+                    _i = __tmp__._0;
                 };
             };
         };
@@ -8698,18 +8698,18 @@ function newUnion(_terms:stdgo.Slice<stdgo.StdGoTypes.Ref<Term>>):stdgo.StdGoTyp
 /**
     // NewTerm returns a new union term.
 **/
-function newTerm(_tilde:Bool, _typ:Type):stdgo.StdGoTypes.Ref<Term> {
+function newTerm(_tilde:Bool, _typ:Type_):stdgo.StdGoTypes.Ref<Term> {
         return (stdgo.Go.setRef((new stdgo.go.types.Types.Term(_tilde, _typ) : stdgo.go.types.Types.Term)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Term>);
     }
 /**
     // parseUnion parses uexpr as a union of expressions.
     // The result is a Union type, or Typ[Invalid] for some errors.
 **/
-function _parseUnion(_check:stdgo.StdGoTypes.Ref<Checker>, _uexpr:stdgo.go.ast.Ast.Expr):Type {
+function _parseUnion(_check:stdgo.StdGoTypes.Ref<Checker>, _uexpr:stdgo.go.ast.Ast.Expr):Type_ {
         var __tmp__ = _flattenUnion((null : stdgo.Slice<stdgo.go.ast.Ast.Expr>), _uexpr), _blist:stdgo.Slice<stdgo.go.ast.Ast.Expr> = __tmp__._0, _tlist:stdgo.Slice<stdgo.go.ast.Ast.Expr> = __tmp__._1;
         _assert((_blist.length) == (_tlist.length - (1 : stdgo.StdGoTypes.GoInt)));
         var _terms:stdgo.Slice<stdgo.StdGoTypes.Ref<Term>> = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Term>>);
-        var _u:Type = (null : stdgo.go.types.Types.Type);
+        var _u:Type_ = (null : stdgo.go.types.Types.Type_);
         for (_i => _x in _tlist) {
             var _term = _parseTilde(_check, _x);
             if ((_tlist.length == (1 : stdgo.StdGoTypes.GoInt)) && !_term._tilde) {
@@ -8736,12 +8736,12 @@ function _parseUnion(_check:stdgo.StdGoTypes.Ref<Checker>, _uexpr:stdgo.go.ast.A
                 if (stdgo.Go.toInterface(_t._typ) == (stdgo.Go.toInterface(stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])))) {
                     continue;
                 };
-                var _u:stdgo.go.types.Types.Type = _under(_t._typ);
+                var _u:stdgo.go.types.Types.Type_ = _under(_t._typ);
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_u) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_u) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), ok : false };
-                }, _f = __tmp__.value, __24 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), _1 : false };
+                }, _f = __tmp__._0, __24 = __tmp__._1;
                 if (_t._tilde) {
                     if (_f != null && ((_f : Dynamic).__nil__ == null || !(_f : Dynamic).__nil__)) {
                         _check._errorf(_tlist[(_i : stdgo.StdGoTypes.GoInt)], (141 : stdgo.internal.types.errors.Errors.Code), ("invalid use of ~ (%s is an interface)" : stdgo.GoString), stdgo.Go.toInterface(_t._typ));
@@ -8778,16 +8778,16 @@ function _parseTilde(_check:stdgo.StdGoTypes.Ref<Checker>, _tx:stdgo.go.ast.Ast.
         var _tilde:Bool = false;
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.UnaryExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.UnaryExpr>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.UnaryExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.UnaryExpr>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.UnaryExpr>), ok : false };
-            }, _op = __tmp__.value, __0 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.UnaryExpr>), _1 : false };
+            }, _op = __tmp__._0, __0 = __tmp__._1;
             if (((_op != null) && ((_op : Dynamic).__nil__ == null || !(_op : Dynamic).__nil__)) && (_op.op == (88 : stdgo.go.token.Token.Token))) {
                 _x = _op.x;
                 _tilde = true;
             };
         };
-        var _typ:stdgo.go.types.Types.Type = _check._environment._sig._recv._object._typ(_x);
+        var _typ:stdgo.go.types.Types.Type_ = _check._environment._sig._recv._object._typ(_x);
         if (_isTypeParam(_typ)) {
             if (_tilde) {
                 _check._errorf(_x, (144 : stdgo.internal.types.errors.Errors.Code), ("type in term %s cannot be a type parameter" : stdgo.GoString), stdgo.Go.toInterface(_tx));
@@ -8839,10 +8839,10 @@ function _flattenUnion(_list:stdgo.Slice<stdgo.go.ast.Ast.Expr>, _x:stdgo.go.ast
         var _blist:stdgo.Slice<stdgo.go.ast.Ast.Expr> = (null : stdgo.Slice<stdgo.go.ast.Ast.Expr>), _tlist:stdgo.Slice<stdgo.go.ast.Ast.Expr> = (null : stdgo.Slice<stdgo.go.ast.Ast.Expr>);
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.BinaryExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.BinaryExpr>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.BinaryExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.BinaryExpr>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.BinaryExpr>), ok : false };
-            }, _o = __tmp__.value, __0 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.BinaryExpr>), _1 : false };
+            }, _o = __tmp__._0, __0 = __tmp__._1;
             if (((_o != null) && ((_o : Dynamic).__nil__ == null || !(_o : Dynamic).__nil__)) && (_o.op == (18 : stdgo.go.token.Token.Token))) {
                 {
                     var __tmp__ = _flattenUnion(_list, _o.x);
@@ -8864,9 +8864,9 @@ function _defPredeclaredTypes():Void {
         };
         _def(stdgo.Go.asInterface(newTypeName(_nopos, null, ("any" : stdgo.GoString), stdgo.Go.asInterface((stdgo.Go.setRef(({ _complete : true, _tset : (stdgo.Go.setRef(_topTypeSet) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T__TypeSet>) } : stdgo.go.types.Types.Interface)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>)))));
         {
-            var _obj = newTypeName(_nopos, null, ("error" : stdgo.GoString), (null : stdgo.go.types.Types.Type));
+            var _obj = newTypeName(_nopos, null, ("error" : stdgo.GoString), (null : stdgo.go.types.Types.Type_));
             _obj._setColor((1u32 : stdgo.go.types.Types.T_color));
-            var _typ = newNamed(_obj, (null : stdgo.go.types.Types.Type), (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>));
+            var _typ = newNamed(_obj, (null : stdgo.go.types.Types.Type_), (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>));
             var _recv = newVar(_nopos, null, stdgo.Go.str()?.__copy__(), stdgo.Go.asInterface(_typ));
             var _res = newVar(_nopos, null, stdgo.Go.str()?.__copy__(), stdgo.Go.asInterface(typ[((17 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)]));
             var _sig = newSignatureType(_recv, (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>), (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>), null, newTuple(_res), false);
@@ -8877,9 +8877,9 @@ function _defPredeclaredTypes():Void {
             _def(stdgo.Go.asInterface(_obj));
         };
         {
-            var _obj = newTypeName(_nopos, null, ("comparable" : stdgo.GoString), (null : stdgo.go.types.Types.Type));
+            var _obj = newTypeName(_nopos, null, ("comparable" : stdgo.GoString), (null : stdgo.go.types.Types.Type_));
             _obj._setColor((1u32 : stdgo.go.types.Types.T_color));
-            var _typ = newNamed(_obj, (null : stdgo.go.types.Types.Type), (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>));
+            var _typ = newNamed(_obj, (null : stdgo.go.types.Types.Type_), (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>));
             var _ityp = (stdgo.Go.setRef(({ _complete : true, _tset : (stdgo.Go.setRef((new stdgo.go.types.Types.T__TypeSet((null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>), _allTermlist, true) : stdgo.go.types.Types.T__TypeSet)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T__TypeSet>) } : stdgo.go.types.Types.Interface)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>);
             _typ.setUnderlying(stdgo.Go.asInterface(_ityp));
             _def(stdgo.Go.asInterface(_obj));
@@ -8927,10 +8927,10 @@ function _def(_obj:Object):Void {
         };
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj.type()) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj.type()) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-            }, _typ = __tmp__.value, __0 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+            }, _typ = __tmp__._0, __0 = __tmp__._1;
             if (_typ != null && ((_typ : Dynamic).__nil__ == null || !(_typ : Dynamic).__nil__)) {
                 _typ._obj = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<TypeName>)) : stdgo.StdGoTypes.Ref<TypeName>);
             };
@@ -9026,7 +9026,7 @@ function _parseGoVersion(_s:stdgo.GoString):{ var _0 : T_version; var _1 : stdgo
         });
         return { _0 : _v, _1 : _err };
     }
-function testParseGoVersion(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testParseGoVersion(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _tt in _parseGoVersionTests) {
             {
                 var __tmp__ = _parseGoVersion(_tt._in?.__copy__()), _out:stdgo.go.types.Types.T_version = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -9039,7 +9039,7 @@ function testParseGoVersion(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
 @:keep var _ = {
         try {
             _unaryOpPredicates = ({
-                final x = new stdgo.GoMap.GoIntMap<stdgo.go.types.Types.Type -> Bool>();
+                final x = new stdgo.GoMap.GoIntMap<stdgo.go.types.Types.Type_ -> Bool>();
                 x.__defaultValue__ = () -> null;
                 @:mergeBlock {
                     x.set((12 : stdgo.go.token.Token.Token), _allNumeric);
@@ -9048,9 +9048,9 @@ function testParseGoVersion(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
                     x.set((43 : stdgo.go.token.Token.Token), _allBoolean);
                 };
                 x;
-            } : stdgo.GoMap<stdgo.go.token.Token.Token, stdgo.go.types.Types.Type -> Bool>);
+            } : stdgo.GoMap<stdgo.go.token.Token.Token, stdgo.go.types.Types.Type_ -> Bool>);
             _binaryOpPredicates = ({
-                final x = new stdgo.GoMap.GoIntMap<stdgo.go.types.Types.Type -> Bool>();
+                final x = new stdgo.GoMap.GoIntMap<stdgo.go.types.Types.Type_ -> Bool>();
                 x.__defaultValue__ = () -> null;
                 @:mergeBlock {
                     x.set((12 : stdgo.go.token.Token.Token), _allNumericOrString);
@@ -9066,7 +9066,7 @@ function testParseGoVersion(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
                     x.set((35 : stdgo.go.token.Token.Token), _allBoolean);
                 };
                 x;
-            } : stdgo.GoMap<stdgo.go.token.Token.Token, stdgo.go.types.Types.Type -> Bool>);
+            } : stdgo.GoMap<stdgo.go.token.Token.Token, stdgo.go.types.Types.Type_ -> Bool>);
             universe = newScope(null, _nopos, _nopos, ("universe" : stdgo.GoString));
             unsafe = newPackage(("unsafe" : stdgo.GoString), ("unsafe" : stdgo.GoString));
             unsafe._complete = true;
@@ -9140,7 +9140,7 @@ class Config_asInterface {
         // If T is too large, the result is negative.
     **/
     @:keep
-    public dynamic function _sizeof(t:Type):stdgo.StdGoTypes.GoInt64 return __self__.value._sizeof(t);
+    public dynamic function _sizeof(t:Type_):stdgo.StdGoTypes.GoInt64 return __self__.value._sizeof(t);
     /**
         // offsetof returns the offset of the field specified via
         // the index sequence relative to T. All embedded fields
@@ -9149,11 +9149,11 @@ class Config_asInterface {
         // the result is negative.
     **/
     @:keep
-    public dynamic function _offsetof(t:Type, _index:stdgo.Slice<stdgo.StdGoTypes.GoInt>):stdgo.StdGoTypes.GoInt64 return __self__.value._offsetof(t, _index);
+    public dynamic function _offsetof(t:Type_, _index:stdgo.Slice<stdgo.StdGoTypes.GoInt>):stdgo.StdGoTypes.GoInt64 return __self__.value._offsetof(t, _index);
     @:keep
     public dynamic function _offsetsof(t:stdgo.StdGoTypes.Ref<Struct>):stdgo.Slice<stdgo.StdGoTypes.GoInt64> return __self__.value._offsetsof(t);
     @:keep
-    public dynamic function _alignof(t:Type):stdgo.StdGoTypes.GoInt64 return __self__.value._alignof(t);
+    public dynamic function _alignof(t:Type_):stdgo.StdGoTypes.GoInt64 return __self__.value._alignof(t);
     /**
         // Check type-checks a package and returns the resulting package object and
         // the first error if any. Additionally, if info != nil, Check populates each
@@ -9183,9 +9183,9 @@ class Config_asInterface {
         // If T is too large, the result is negative.
     **/
     @:keep
-    static public function _sizeof( _conf:stdgo.StdGoTypes.Ref<Config>, t:Type):stdgo.StdGoTypes.GoInt64 {
+    static public function _sizeof( _conf:stdgo.StdGoTypes.Ref<Config>, t:Type_):stdgo.StdGoTypes.GoInt64 {
         @:recv var _conf:stdgo.StdGoTypes.Ref<Config> = _conf;
-        var _f:stdgo.go.types.Types.Type -> stdgo.StdGoTypes.GoInt64 = _stdSizes.sizeof;
+        var _f:stdgo.go.types.Types.Type_ -> stdgo.StdGoTypes.GoInt64 = _stdSizes.sizeof;
         if (_conf.sizes != null) {
             _f = _conf.sizes.sizeof;
         };
@@ -9199,7 +9199,7 @@ class Config_asInterface {
         // the result is negative.
     **/
     @:keep
-    static public function _offsetof( _conf:stdgo.StdGoTypes.Ref<Config>, t:Type, _index:stdgo.Slice<stdgo.StdGoTypes.GoInt>):stdgo.StdGoTypes.GoInt64 {
+    static public function _offsetof( _conf:stdgo.StdGoTypes.Ref<Config>, t:Type_, _index:stdgo.Slice<stdgo.StdGoTypes.GoInt>):stdgo.StdGoTypes.GoInt64 {
         @:recv var _conf:stdgo.StdGoTypes.Ref<Config> = _conf;
         var _offs:stdgo.StdGoTypes.GoInt64 = (0 : stdgo.StdGoTypes.GoInt64);
         for (__0 => _i in _index) {
@@ -9233,9 +9233,9 @@ class Config_asInterface {
         return _offsets;
     }
     @:keep
-    static public function _alignof( _conf:stdgo.StdGoTypes.Ref<Config>, t:Type):stdgo.StdGoTypes.GoInt64 {
+    static public function _alignof( _conf:stdgo.StdGoTypes.Ref<Config>, t:Type_):stdgo.StdGoTypes.GoInt64 {
         @:recv var _conf:stdgo.StdGoTypes.Ref<Config> = _conf;
-        var _f:stdgo.go.types.Types.Type -> stdgo.StdGoTypes.GoInt64 = _stdSizes.alignof_;
+        var _f:stdgo.go.types.Types.Type_ -> stdgo.StdGoTypes.GoInt64 = _stdSizes.alignof_;
         if (_conf.sizes != null) {
             _f = _conf.sizes.alignof_;
         };
@@ -9284,7 +9284,7 @@ class Info_asInterface {
         // Precondition: the Types, Uses and Defs maps are populated.
     **/
     @:keep
-    public dynamic function typeOf(_e:stdgo.go.ast.Ast.Expr):Type return __self__.value.typeOf(_e);
+    public dynamic function typeOf(_e:stdgo.go.ast.Ast.Expr):Type_ return __self__.value.typeOf(_e);
     @:keep
     public dynamic function _recordTypes():Bool return __self__.value._recordTypes();
     public function new(__self__, __type__) {
@@ -9321,20 +9321,20 @@ class Info_asInterface {
         // Precondition: the Types, Uses and Defs maps are populated.
     **/
     @:keep
-    static public function typeOf( _info:stdgo.StdGoTypes.Ref<Info>, _e:stdgo.go.ast.Ast.Expr):Type {
+    static public function typeOf( _info:stdgo.StdGoTypes.Ref<Info>, _e:stdgo.go.ast.Ast.Expr):Type_ {
         @:recv var _info:stdgo.StdGoTypes.Ref<Info> = _info;
         {
-            var __tmp__ = (_info.types != null && _info.types.exists(_e) ? { value : _info.types[_e], ok : true } : { value : ({} : stdgo.go.types.Types.TypeAndValue), ok : false }), _t:stdgo.go.types.Types.TypeAndValue = __tmp__.value, _ok:Bool = __tmp__.ok;
+            var __tmp__ = (_info.types != null && _info.types.exists(_e) ? { _0 : _info.types[_e], _1 : true } : { _0 : ({} : stdgo.go.types.Types.TypeAndValue), _1 : false }), _t:stdgo.go.types.Types.TypeAndValue = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 return _t.type;
             };
         };
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : false };
-            }, _id = __tmp__.value, __0 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), _1 : false };
+            }, _id = __tmp__._0, __0 = __tmp__._1;
             if (_id != null && ((_id : Dynamic).__nil__ == null || !(_id : Dynamic).__nil__)) {
                 {
                     var _obj:stdgo.go.types.Types.Object = _info.objectOf(_id);
@@ -9344,7 +9344,7 @@ class Info_asInterface {
                 };
             };
         };
-        return (null : stdgo.go.types.Types.Type);
+        return (null : stdgo.go.types.Types.Type_);
     }
     @:keep
     static public function _recordTypes( _info:stdgo.StdGoTypes.Ref<Info>):Bool {
@@ -9520,12 +9520,12 @@ class Array__asInterface {
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:keep
-    public dynamic function underlying():Type return __self__.value.underlying();
+    public dynamic function underlying():Type_ return __self__.value.underlying();
     /**
         // Elem returns element type of array a.
     **/
     @:keep
-    public dynamic function elem():Type return __self__.value.elem();
+    public dynamic function elem():Type_ return __self__.value.elem();
     /**
         // Len returns the length of array a.
         // A negative result indicates an unknown length.
@@ -9547,7 +9547,7 @@ class Array__asInterface {
         return typeString(stdgo.Go.asInterface(_a), null)?.__copy__();
     }
     @:keep
-    static public function underlying( _a:stdgo.StdGoTypes.Ref<Array_>):Type {
+    static public function underlying( _a:stdgo.StdGoTypes.Ref<Array_>):Type_ {
         @:recv var _a:stdgo.StdGoTypes.Ref<Array_> = _a;
         return stdgo.Go.asInterface(_a);
     }
@@ -9555,7 +9555,7 @@ class Array__asInterface {
         // Elem returns element type of array a.
     **/
     @:keep
-    static public function elem( _a:stdgo.StdGoTypes.Ref<Array_>):Type {
+    static public function elem( _a:stdgo.StdGoTypes.Ref<Array_>):Type_ {
         @:recv var _a:stdgo.StdGoTypes.Ref<Array_> = _a;
         return _a._elem;
     }
@@ -9573,7 +9573,7 @@ class Basic_asInterface {
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:keep
-    public dynamic function underlying():Type return __self__.value.underlying();
+    public dynamic function underlying():Type_ return __self__.value.underlying();
     /**
         // Name returns the name of basic type b.
     **/
@@ -9604,7 +9604,7 @@ class Basic_asInterface {
         return typeString(stdgo.Go.asInterface(_b), null)?.__copy__();
     }
     @:keep
-    static public function underlying( _b:stdgo.StdGoTypes.Ref<Basic>):Type {
+    static public function underlying( _b:stdgo.StdGoTypes.Ref<Basic>):Type_ {
         @:recv var _b:stdgo.StdGoTypes.Ref<Basic> = _b;
         return stdgo.Go.asInterface(_b);
     }
@@ -9637,12 +9637,12 @@ class Chan_asInterface {
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:keep
-    public dynamic function underlying():Type return __self__.value.underlying();
+    public dynamic function underlying():Type_ return __self__.value.underlying();
     /**
         // Elem returns the element type of channel c.
     **/
     @:keep
-    public dynamic function elem():Type return __self__.value.elem();
+    public dynamic function elem():Type_ return __self__.value.elem();
     /**
         // Dir returns the direction of channel c.
     **/
@@ -9663,7 +9663,7 @@ class Chan_asInterface {
         return typeString(stdgo.Go.asInterface(_c), null)?.__copy__();
     }
     @:keep
-    static public function underlying( _c:stdgo.StdGoTypes.Ref<stdgo.Chan>):Type {
+    static public function underlying( _c:stdgo.StdGoTypes.Ref<stdgo.Chan>):Type_ {
         @:recv var _c:stdgo.StdGoTypes.Ref<stdgo.Chan> = _c;
         return stdgo.Go.asInterface(_c);
     }
@@ -9671,7 +9671,7 @@ class Chan_asInterface {
         // Elem returns the element type of channel c.
     **/
     @:keep
-    static public function elem( _c:stdgo.StdGoTypes.Ref<stdgo.Chan>):Type {
+    static public function elem( _c:stdgo.StdGoTypes.Ref<stdgo.Chan>):Type_ {
         @:recv var _c:stdgo.StdGoTypes.Ref<stdgo.Chan> = _c;
         return _c._elem;
     }
@@ -9771,7 +9771,7 @@ class Checker_asInterface {
         // path of named types in a cycle, it is only needed for error reporting.
     **/
     @:keep
-    public dynamic function _validType0(_typ:Type, _nest:stdgo.Slice<stdgo.StdGoTypes.Ref<Named>>, _path:stdgo.Slice<stdgo.StdGoTypes.Ref<Named>>):Bool return __self__.value._validType0(_typ, _nest, _path);
+    public dynamic function _validType0(_typ:Type_, _nest:stdgo.Slice<stdgo.StdGoTypes.Ref<Named>>, _path:stdgo.Slice<stdgo.StdGoTypes.Ref<Named>>):Bool return __self__.value._validType0(_typ, _nest, _path);
     /**
         // validType verifies that the given type does not "expand" indefinitely
         // producing a cycle in the type graph.
@@ -9785,7 +9785,7 @@ class Checker_asInterface {
         // If an error occurred, the result is nil, but all list elements were type-checked.
     **/
     @:keep
-    public dynamic function _typeList(_list:stdgo.Slice<stdgo.go.ast.Ast.Expr>):stdgo.Slice<Type> return __self__.value._typeList(_list);
+    public dynamic function _typeList(_list:stdgo.Slice<stdgo.go.ast.Ast.Expr>):stdgo.Slice<Type_> return __self__.value._typeList(_list);
     /**
         // arrayLength type-checks the array length expression e
         // and returns the constant length >= 0, or a value < 0
@@ -9794,20 +9794,20 @@ class Checker_asInterface {
     @:keep
     public dynamic function _arrayLength(_e:stdgo.go.ast.Ast.Expr):stdgo.StdGoTypes.GoInt64 return __self__.value._arrayLength(_e);
     @:keep
-    public dynamic function _instantiatedType(_ix:stdgo.StdGoTypes.Ref<stdgo.go.internal.typeparams.Typeparams.IndexExpr>, _def:stdgo.StdGoTypes.Ref<Named>):Type return __self__.value._instantiatedType(_ix, _def);
+    public dynamic function _instantiatedType(_ix:stdgo.StdGoTypes.Ref<stdgo.go.internal.typeparams.Typeparams.IndexExpr>, _def:stdgo.StdGoTypes.Ref<Named>):Type_ return __self__.value._instantiatedType(_ix, _def);
     /**
         // typInternal drives type checking of types.
         // Must only be called by definedType or genericType.
     **/
     @:keep
-    public dynamic function _typInternal(_e0:stdgo.go.ast.Ast.Expr, _def:stdgo.StdGoTypes.Ref<Named>):Type return __self__.value._typInternal(_e0, _def);
+    public dynamic function _typInternal(_e0:stdgo.go.ast.Ast.Expr, _def:stdgo.StdGoTypes.Ref<Named>):Type_ return __self__.value._typInternal(_e0, _def);
     /**
         // genericType is like typ but the type must be an (uninstantiated) generic
         // type. If cause is non-nil and the type expression was a valid type but not
         // generic, cause will be populated with a message describing the error.
     **/
     @:keep
-    public dynamic function _genericType(_e:stdgo.go.ast.Ast.Expr, _cause:stdgo.Pointer<stdgo.GoString>):Type return __self__.value._genericType(_e, _cause);
+    public dynamic function _genericType(_e:stdgo.go.ast.Ast.Expr, _cause:stdgo.Pointer<stdgo.GoString>):Type_ return __self__.value._genericType(_e, _cause);
     /**
         // definedType is like typ but also accepts a type name def.
         // If def != nil, e is the type specification for the defined type def, declared
@@ -9815,26 +9815,26 @@ class Checker_asInterface {
         // any components of e are type-checked.
     **/
     @:keep
-    public dynamic function _definedType(_e:stdgo.go.ast.Ast.Expr, _def:stdgo.StdGoTypes.Ref<Named>):Type return __self__.value._definedType(_e, _def);
+    public dynamic function _definedType(_e:stdgo.go.ast.Ast.Expr, _def:stdgo.StdGoTypes.Ref<Named>):Type_ return __self__.value._definedType(_e, _def);
     /**
         // validVarType reports an error if typ is a constraint interface.
         // The expression e is used for error reporting, if any.
     **/
     @:keep
-    public dynamic function _validVarType(_e:stdgo.go.ast.Ast.Expr, _typ:Type):Void __self__.value._validVarType(_e, _typ);
+    public dynamic function _validVarType(_e:stdgo.go.ast.Ast.Expr, _typ:Type_):Void __self__.value._validVarType(_e, _typ);
     /**
         // varType type-checks the type expression e and returns its type, or Typ[Invalid].
         // The type must not be an (uninstantiated) generic type and it must not be a
         // constraint interface.
     **/
     @:keep
-    public dynamic function _varType(_e:stdgo.go.ast.Ast.Expr):Type return __self__.value._varType(_e);
+    public dynamic function _varType(_e:stdgo.go.ast.Ast.Expr):Type_ return __self__.value._varType(_e);
     /**
         // typ type-checks the type expression e and returns its type, or Typ[Invalid].
         // The type must not be an (uninstantiated) generic type.
     **/
     @:keep
-    public dynamic function _typ(_e:stdgo.go.ast.Ast.Expr):Type return __self__.value._typ(_e);
+    public dynamic function _typ(_e:stdgo.go.ast.Ast.Expr):Type_ return __self__.value._typ(_e);
     /**
         // ident type-checks identifier e and initializes x with the value or type of e.
         // If an error occurred, x.mode is set to invalid.
@@ -9847,7 +9847,7 @@ class Checker_asInterface {
         // check may be nil
     **/
     @:keep
-    public dynamic function _newTypeParam(_obj:stdgo.StdGoTypes.Ref<TypeName>, _constraint:Type):stdgo.StdGoTypes.Ref<TypeParam> return __self__.value._newTypeParam(_obj, _constraint);
+    public dynamic function _newTypeParam(_obj:stdgo.StdGoTypes.Ref<TypeName>, _constraint:Type_):stdgo.StdGoTypes.Ref<TypeParam> return __self__.value._newTypeParam(_obj, _constraint);
     /**
         // subst returns the type typ with its type parameters tpars replaced by the
         // corresponding type arguments targs, recursively. subst doesn't modify the
@@ -9858,7 +9858,7 @@ class Checker_asInterface {
         // One of expanding or ctxt must be non-nil.
     **/
     @:keep
-    public dynamic function _subst(_pos:stdgo.go.token.Token.Pos, _typ:Type, _smap:T_substMap, _expanding:stdgo.StdGoTypes.Ref<Named>, _ctxt:stdgo.StdGoTypes.Ref<Context>):Type return __self__.value._subst(_pos, _typ, _smap, _expanding, _ctxt);
+    public dynamic function _subst(_pos:stdgo.go.token.Token.Pos, _typ:Type_, _smap:T_substMap, _expanding:stdgo.StdGoTypes.Ref<Named>, _ctxt:stdgo.StdGoTypes.Ref<Context>):Type_ return __self__.value._subst(_pos, _typ, _smap, _expanding, _ctxt);
     @:keep
     public dynamic function _tag(_t:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.BasicLit>):stdgo.GoString return __self__.value._tag(_t);
     @:keep
@@ -9874,7 +9874,7 @@ class Checker_asInterface {
         // If the type switch expression is invalid, x is nil.
     **/
     @:keep
-    public dynamic function _caseTypes(_x:stdgo.StdGoTypes.Ref<T_operand>, _types:stdgo.Slice<stdgo.go.ast.Ast.Expr>, _seen:stdgo.GoMap<Type, stdgo.go.ast.Ast.Expr>):Type return __self__.value._caseTypes(_x, _types, _seen);
+    public dynamic function _caseTypes(_x:stdgo.StdGoTypes.Ref<T_operand>, _types:stdgo.Slice<stdgo.go.ast.Ast.Expr>, _seen:stdgo.GoMap<Type_, stdgo.go.ast.Ast.Expr>):Type_ return __self__.value._caseTypes(_x, _types, _seen);
     /**
         // isNil reports whether the expression e denotes the predeclared value nil.
     **/
@@ -9991,12 +9991,12 @@ class Checker_asInterface {
         // led to the creation of this instance.
     **/
     @:keep
-    public dynamic function _newNamedInstance(_pos:stdgo.go.token.Token.Pos, _orig:stdgo.StdGoTypes.Ref<Named>, _targs:stdgo.Slice<Type>, _expanding:stdgo.StdGoTypes.Ref<Named>):stdgo.StdGoTypes.Ref<Named> return __self__.value._newNamedInstance(_pos, _orig, _targs, _expanding);
+    public dynamic function _newNamedInstance(_pos:stdgo.go.token.Token.Pos, _orig:stdgo.StdGoTypes.Ref<Named>, _targs:stdgo.Slice<Type_>, _expanding:stdgo.StdGoTypes.Ref<Named>):stdgo.StdGoTypes.Ref<Named> return __self__.value._newNamedInstance(_pos, _orig, _targs, _expanding);
     /**
         // newNamed is like NewNamed but with a *Checker receiver and additional orig argument.
     **/
     @:keep
-    public dynamic function _newNamed(_obj:stdgo.StdGoTypes.Ref<TypeName>, _underlying:Type, _methods:stdgo.Slice<stdgo.StdGoTypes.Ref<Func>>):stdgo.StdGoTypes.Ref<Named> return __self__.value._newNamed(_obj, _underlying, _methods);
+    public dynamic function _newNamed(_obj:stdgo.StdGoTypes.Ref<TypeName>, _underlying:Type_, _methods:stdgo.Slice<stdgo.StdGoTypes.Ref<Func>>):stdgo.StdGoTypes.Ref<Named> return __self__.value._newNamed(_obj, _underlying, _methods);
     @:keep
     public dynamic function _reportInstanceLoop(_v:stdgo.StdGoTypes.GoInt):Void __self__.value._reportInstanceLoop(_v);
     @:keep
@@ -10009,7 +10009,7 @@ class Checker_asInterface {
         // If the result is false and cause is not nil, *cause is set to the error cause.
     **/
     @:keep
-    public dynamic function _newAssertableTo(_pos:stdgo.go.token.Token.Pos, v:Type, t:Type, _cause:stdgo.Pointer<stdgo.GoString>):Bool return __self__.value._newAssertableTo(_pos, v, t, _cause);
+    public dynamic function _newAssertableTo(_pos:stdgo.go.token.Token.Pos, v:Type_, t:Type_, _cause:stdgo.Pointer<stdgo.GoString>):Bool return __self__.value._newAssertableTo(_pos, v, t, _cause);
     /**
         // assertableTo reports whether a value of type V can be asserted to have type T.
         // The receiver may be nil if assertableTo is invoked through an exported API call
@@ -10019,7 +10019,7 @@ class Checker_asInterface {
         // TODO(gri) replace calls to this function with calls to newAssertableTo.
     **/
     @:keep
-    public dynamic function _assertableTo(v:Type, t:Type, _cause:stdgo.Pointer<stdgo.GoString>):Bool return __self__.value._assertableTo(v, t, _cause);
+    public dynamic function _assertableTo(v:Type_, t:Type_, _cause:stdgo.Pointer<stdgo.GoString>):Bool return __self__.value._assertableTo(v, t, _cause);
     /**
         // funcString returns a string of the form name + signature for f.
         // check may be nil.
@@ -10030,7 +10030,7 @@ class Checker_asInterface {
         // check may be nil.
     **/
     @:keep
-    public dynamic function _interfacePtrError(t:Type):stdgo.GoString return __self__.value._interfacePtrError(t);
+    public dynamic function _interfacePtrError(t:Type_):stdgo.GoString return __self__.value._interfacePtrError(t);
     /**
         // missingMethod is like MissingMethod but accepts a *Checker as receiver,
         // a comparator equivalent for type comparison, and a *string for error causes.
@@ -10043,7 +10043,7 @@ class Checker_asInterface {
         // If a method is missing and cause is not nil, *cause describes the error.
     **/
     @:keep
-    public dynamic function _missingMethod(v:Type, t:Type, _static:Bool, _equivalent:(_x:Type, _y:Type) -> Bool, _cause:stdgo.Pointer<stdgo.GoString>):{ var _0 : stdgo.StdGoTypes.Ref<Func>; var _1 : Bool; } return __self__.value._missingMethod(v, t, _static, _equivalent, _cause);
+    public dynamic function _missingMethod(v:Type_, t:Type_, _static:Bool, _equivalent:(_x:Type_, _y:Type_) -> Bool, _cause:stdgo.Pointer<stdgo.GoString>):{ var _0 : stdgo.StdGoTypes.Ref<Func>; var _1 : Bool; } return __self__.value._missingMethod(v, t, _static, _equivalent, _cause);
     /**
         // blockBranches processes a block's statement list and returns the set of outgoing forward jumps.
         // all is the scope of all declared labels, parent the set of labels declared in the immediately
@@ -10072,9 +10072,9 @@ class Checker_asInterface {
         // explaining why V does not implement (or satisfy, for constraints) T.
     **/
     @:keep
-    public dynamic function _implements(_pos:stdgo.go.token.Token.Pos, v:Type, t:Type, _constraint:Bool, _cause:stdgo.Pointer<stdgo.GoString>):Bool return __self__.value._implements(_pos, v, t, _constraint, _cause);
+    public dynamic function _implements(_pos:stdgo.go.token.Token.Pos, v:Type_, t:Type_, _constraint:Bool, _cause:stdgo.Pointer<stdgo.GoString>):Bool return __self__.value._implements(_pos, v, t, _constraint, _cause);
     @:keep
-    public dynamic function _verify(_pos:stdgo.go.token.Token.Pos, _tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _targs:stdgo.Slice<Type>, _ctxt:stdgo.StdGoTypes.Ref<Context>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } return __self__.value._verify(_pos, _tparams, _targs, _ctxt);
+    public dynamic function _verify(_pos:stdgo.go.token.Token.Pos, _tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _targs:stdgo.Slice<Type_>, _ctxt:stdgo.StdGoTypes.Ref<Context>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } return __self__.value._verify(_pos, _tparams, _targs, _ctxt);
     /**
         // validateTArgLen verifies that the length of targs and tparams matches,
         // reporting an error if not. If validation fails and check is nil,
@@ -10096,7 +10096,7 @@ class Checker_asInterface {
         // For Named types the resulting instance may be unexpanded.
     **/
     @:keep
-    public dynamic function _instance(_pos:stdgo.go.token.Token.Pos, _orig:Type, _targs:stdgo.Slice<Type>, _expanding:stdgo.StdGoTypes.Ref<Named>, _ctxt:stdgo.StdGoTypes.Ref<Context>):Type return __self__.value._instance(_pos, _orig, _targs, _expanding, _ctxt);
+    public dynamic function _instance(_pos:stdgo.go.token.Token.Pos, _orig:Type_, _targs:stdgo.Slice<Type_>, _expanding:stdgo.StdGoTypes.Ref<Named>, _ctxt:stdgo.StdGoTypes.Ref<Context>):Type_ return __self__.value._instance(_pos, _orig, _targs, _expanding, _ctxt);
     /**
         // reportCycle reports an error for the given cycle.
     **/
@@ -10117,7 +10117,7 @@ class Checker_asInterface {
         // The positions is only used for debug traces.
     **/
     @:keep
-    public dynamic function _renameTParams(_pos:stdgo.go.token.Token.Pos, _tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _typ:Type):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>; var _1 : Type; } return __self__.value._renameTParams(_pos, _tparams, _typ);
+    public dynamic function _renameTParams(_pos:stdgo.go.token.Token.Pos, _tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _typ:Type_):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>; var _1 : Type_; } return __self__.value._renameTParams(_pos, _tparams, _typ);
     /**
         // infer attempts to infer the complete set of type arguments for generic function instantiation/call
         // based on the given type parameters tparams, type arguments targs, function parameters params, and
@@ -10127,7 +10127,7 @@ class Checker_asInterface {
         // type parameter. Otherwise the result is nil and appropriate errors will be reported.
     **/
     @:keep
-    public dynamic function _infer(_posn:T_positioner, _tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _targs:stdgo.Slice<Type>, _params:stdgo.StdGoTypes.Ref<Tuple>, _args:stdgo.Slice<stdgo.StdGoTypes.Ref<T_operand>>):stdgo.Slice<Type> return __self__.value._infer(_posn, _tparams, _targs, _params, _args);
+    public dynamic function _infer(_posn:T_positioner, _tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _targs:stdgo.Slice<Type_>, _params:stdgo.StdGoTypes.Ref<Tuple>, _args:stdgo.Slice<stdgo.StdGoTypes.Ref<T_operand>>):stdgo.Slice<Type_> return __self__.value._infer(_posn, _tparams, _targs, _params, _args);
     /**
         // indexedElts checks the elements (elts) of an array or slice composite literal
         // against the literal's element type (typ), and the element indices against
@@ -10135,7 +10135,7 @@ class Checker_asInterface {
         // literal (maximum index value + 1).
     **/
     @:keep
-    public dynamic function _indexedElts(_elts:stdgo.Slice<stdgo.go.ast.Ast.Expr>, _typ:Type, _length:stdgo.StdGoTypes.GoInt64):stdgo.StdGoTypes.GoInt64 return __self__.value._indexedElts(_elts, _typ, _length);
+    public dynamic function _indexedElts(_elts:stdgo.Slice<stdgo.go.ast.Ast.Expr>, _typ:Type_, _length:stdgo.StdGoTypes.GoInt64):stdgo.StdGoTypes.GoInt64 return __self__.value._indexedElts(_elts, _typ, _length);
     @:keep
     public dynamic function _isValidIndex(_x:stdgo.StdGoTypes.Ref<T_operand>, _code:Code, _what:stdgo.GoString, _allowNegative:Bool):Bool return __self__.value._isValidIndex(_x, _code, _what, _allowNegative);
     /**
@@ -10145,7 +10145,7 @@ class Checker_asInterface {
         // If the result val >= 0, index is valid and val is its constant int value.
     **/
     @:keep
-    public dynamic function _index(_index:stdgo.go.ast.Ast.Expr, _max:stdgo.StdGoTypes.GoInt64):{ var _0 : Type; var _1 : stdgo.StdGoTypes.GoInt64; } return __self__.value._index(_index, _max);
+    public dynamic function _index(_index:stdgo.go.ast.Ast.Expr, _max:stdgo.StdGoTypes.GoInt64):{ var _0 : Type_; var _1 : stdgo.StdGoTypes.GoInt64; } return __self__.value._index(_index, _max);
     /**
         // singleIndex returns the (single) index from the index expression e.
         // If the index is missing, or if there are multiple indices, an error
@@ -10187,7 +10187,7 @@ class Checker_asInterface {
         // If an error occurred, x.mode is set to invalid.
     **/
     @:keep
-    public dynamic function _exprWithHint(_x:stdgo.StdGoTypes.Ref<T_operand>, _e:stdgo.go.ast.Ast.Expr, _hint:Type):Void __self__.value._exprWithHint(_x, _e, _hint);
+    public dynamic function _exprWithHint(_x:stdgo.StdGoTypes.Ref<T_operand>, _e:stdgo.go.ast.Ast.Expr, _hint:Type_):Void __self__.value._exprWithHint(_x, _e, _hint);
     /**
         // multiExpr typechecks e and returns its value (or values) in list.
         // If allowCommaOk is set and e is a map index, comma-ok, or comma-err
@@ -10210,26 +10210,26 @@ class Checker_asInterface {
         // If an error occurred, x.mode is set to invalid.
     **/
     @:keep
-    public dynamic function _expr(t:Type, _x:stdgo.StdGoTypes.Ref<T_operand>, _e:stdgo.go.ast.Ast.Expr):Void __self__.value._expr(t, _x, _e);
+    public dynamic function _expr(t:Type_, _x:stdgo.StdGoTypes.Ref<T_operand>, _e:stdgo.go.ast.Ast.Expr):Void __self__.value._expr(t, _x, _e);
     /**
         // typeAssertion checks x.(T). The type of x must be an interface.
     **/
     @:keep
-    public dynamic function _typeAssertion(_e:stdgo.go.ast.Ast.Expr, _x:stdgo.StdGoTypes.Ref<T_operand>, t:Type, _typeSwitch:Bool):Void __self__.value._typeAssertion(_e, _x, t, _typeSwitch);
+    public dynamic function _typeAssertion(_e:stdgo.go.ast.Ast.Expr, _x:stdgo.StdGoTypes.Ref<T_operand>, t:Type_, _typeSwitch:Bool):Void __self__.value._typeAssertion(_e, _x, t, _typeSwitch);
     /**
         // exprInternal contains the core of type checking of expressions.
         // Must only be called by rawExpr.
         // (See rawExpr for an explanation of the parameters.)
     **/
     @:keep
-    public dynamic function _exprInternal(t:Type, _x:stdgo.StdGoTypes.Ref<T_operand>, _e:stdgo.go.ast.Ast.Expr, _hint:Type):T_exprKind return __self__.value._exprInternal(t, _x, _e, _hint);
+    public dynamic function _exprInternal(t:Type_, _x:stdgo.StdGoTypes.Ref<T_operand>, _e:stdgo.go.ast.Ast.Expr, _hint:Type_):T_exprKind return __self__.value._exprInternal(t, _x, _e, _hint);
     /**
         // If x is a generic type, or a generic function whose type arguments cannot be inferred
         // from a non-nil target type T, nonGeneric reports an error and invalidates x.mode and x.typ.
         // Otherwise it leaves x alone.
     **/
     @:keep
-    public dynamic function _nonGeneric(t:Type, _x:stdgo.StdGoTypes.Ref<T_operand>):Void __self__.value._nonGeneric(t, _x);
+    public dynamic function _nonGeneric(t:Type_, _x:stdgo.StdGoTypes.Ref<T_operand>):Void __self__.value._nonGeneric(t, _x);
     /**
         // rawExpr typechecks expression e and initializes x with the expression
         // value or type. If an error occurred, x.mode is set to invalid.
@@ -10240,7 +10240,7 @@ class Checker_asInterface {
         // parameterized type or function value.
     **/
     @:keep
-    public dynamic function _rawExpr(t:Type, _x:stdgo.StdGoTypes.Ref<T_operand>, _e:stdgo.go.ast.Ast.Expr, _hint:Type, _allowGeneric:Bool):T_exprKind return __self__.value._rawExpr(t, _x, _e, _hint, _allowGeneric);
+    public dynamic function _rawExpr(t:Type_, _x:stdgo.StdGoTypes.Ref<T_operand>, _e:stdgo.go.ast.Ast.Expr, _hint:Type_, _allowGeneric:Bool):T_exprKind return __self__.value._rawExpr(t, _x, _e, _hint, _allowGeneric);
     /**
         // matchTypes attempts to convert any untyped types x and y such that they match.
         // If an error occurs, x.mode is set to invalid.
@@ -10262,13 +10262,13 @@ class Checker_asInterface {
         // kindString returns the type kind as a string.
     **/
     @:keep
-    public dynamic function _kindString(_typ:Type):stdgo.GoString return __self__.value._kindString(_typ);
+    public dynamic function _kindString(_typ:Type_):stdgo.GoString return __self__.value._kindString(_typ);
     /**
         // incomparableCause returns a more specific cause why typ is not comparable.
         // If there is no more specific cause, the result is "".
     **/
     @:keep
-    public dynamic function _incomparableCause(_typ:Type):stdgo.GoString return __self__.value._incomparableCause(_typ);
+    public dynamic function _incomparableCause(_typ:Type_):stdgo.GoString return __self__.value._incomparableCause(_typ);
     /**
         // If switchCase is true, the operator op is ignored.
     **/
@@ -10283,14 +10283,14 @@ class Checker_asInterface {
         // representation of x in this context.
     **/
     @:keep
-    public dynamic function _implicitTypeAndValue(_x:stdgo.StdGoTypes.Ref<T_operand>, _target:Type):{ var _0 : Type; var _1 : stdgo.go.constant.Constant.Value; var _2 : Code; } return __self__.value._implicitTypeAndValue(_x, _target);
+    public dynamic function _implicitTypeAndValue(_x:stdgo.StdGoTypes.Ref<T_operand>, _target:Type_):{ var _0 : Type_; var _1 : stdgo.go.constant.Constant.Value; var _2 : Code; } return __self__.value._implicitTypeAndValue(_x, _target);
     /**
         // updateExprVal updates the value of x to val.
     **/
     @:keep
     public dynamic function _updateExprVal(_x:stdgo.go.ast.Ast.Expr, _val:stdgo.go.constant.Constant.Value):Void __self__.value._updateExprVal(_x, _val);
     @:keep
-    public dynamic function _updateExprType0(_parent:stdgo.go.ast.Ast.Expr, _x:stdgo.go.ast.Ast.Expr, _typ:Type, _final:Bool):Void __self__.value._updateExprType0(_parent, _x, _typ, _final);
+    public dynamic function _updateExprType0(_parent:stdgo.go.ast.Ast.Expr, _x:stdgo.go.ast.Ast.Expr, _typ:Type_, _final:Bool):Void __self__.value._updateExprType0(_parent, _x, _typ, _final);
     /**
         // updateExprType updates the type of x to typ and invokes itself
         // recursively for the operands of x, depending on expression kind.
@@ -10303,7 +10303,7 @@ class Checker_asInterface {
         // shift, it must be an integer value.
     **/
     @:keep
-    public dynamic function _updateExprType(_x:stdgo.go.ast.Ast.Expr, _typ:Type, _final:Bool):Void __self__.value._updateExprType(_x, _typ, _final);
+    public dynamic function _updateExprType(_x:stdgo.go.ast.Ast.Expr, _typ:Type_, _final:Bool):Void __self__.value._updateExprType(_x, _typ, _final);
     /**
         // The unary expression e may be nil. It's passed in for better error messages only.
     **/
@@ -10356,7 +10356,7 @@ class Checker_asInterface {
     @:keep
     public dynamic function _declareTypeParams(_tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _names:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>>):stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>> return __self__.value._declareTypeParams(_tparams, _names);
     @:keep
-    public dynamic function _bound(_x:stdgo.go.ast.Ast.Expr):Type return __self__.value._bound(_x);
+    public dynamic function _bound(_x:stdgo.go.ast.Ast.Expr):Type_ return __self__.value._bound(_x);
     @:keep
     public dynamic function _collectTypeParams(_dst:stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<TypeParamList>>, _list:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FieldList>):Void __self__.value._collectTypeParams(_dst, _list);
     @:keep
@@ -10365,7 +10365,7 @@ class Checker_asInterface {
         // isImportedConstraint reports whether typ is an imported type constraint.
     **/
     @:keep
-    public dynamic function _isImportedConstraint(_typ:Type):Bool return __self__.value._isImportedConstraint(_typ);
+    public dynamic function _isImportedConstraint(_typ:Type_):Bool return __self__.value._isImportedConstraint(_typ);
     @:keep
     public dynamic function _varDecl(_obj:stdgo.StdGoTypes.Ref<Var>, _lhs:stdgo.Slice<stdgo.StdGoTypes.Ref<Var>>, _typ:stdgo.go.ast.Ast.Expr, _init:stdgo.go.ast.Ast.Expr):Void __self__.value._varDecl(_obj, _lhs, _typ, _init);
     @:keep
@@ -10401,14 +10401,14 @@ class Checker_asInterface {
         // The result is in x.
     **/
     @:keep
-    public dynamic function _conversion(_x:stdgo.StdGoTypes.Ref<T_operand>, t:Type):Void __self__.value._conversion(_x, t);
+    public dynamic function _conversion(_x:stdgo.StdGoTypes.Ref<T_operand>, t:Type_):Void __self__.value._conversion(_x, t);
     /**
         // convertUntyped attempts to set the type of an untyped value to the target type.
     **/
     @:keep
-    public dynamic function _convertUntyped(_x:stdgo.StdGoTypes.Ref<T_operand>, _target:Type):Void __self__.value._convertUntyped(_x, _target);
+    public dynamic function _convertUntyped(_x:stdgo.StdGoTypes.Ref<T_operand>, _target:Type_):Void __self__.value._convertUntyped(_x, _target);
     @:keep
-    public dynamic function _invalidConversion(_code:Code, _x:stdgo.StdGoTypes.Ref<T_operand>, _target:Type):Void __self__.value._invalidConversion(_code, _x, _target);
+    public dynamic function _invalidConversion(_code:Code, _x:stdgo.StdGoTypes.Ref<T_operand>, _target:Type_):Void __self__.value._invalidConversion(_code, _x, _target);
     /**
         // representation returns the representation of the constant operand x as the
         // basic type typ.
@@ -10433,7 +10433,7 @@ class Checker_asInterface {
     @:keep
     public dynamic function _recordScope(_node:stdgo.go.ast.Ast.Node, _scope:stdgo.StdGoTypes.Ref<Scope>):Void __self__.value._recordScope(_node, _scope);
     @:keep
-    public dynamic function _recordSelection(_x:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr>, _kind:SelectionKind, _recv:Type, _obj:Object, _index:stdgo.Slice<stdgo.StdGoTypes.GoInt>, _indirect:Bool):Void __self__.value._recordSelection(_x, _kind, _recv, _obj, _index, _indirect);
+    public dynamic function _recordSelection(_x:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr>, _kind:SelectionKind, _recv:Type_, _obj:Object, _index:stdgo.Slice<stdgo.StdGoTypes.GoInt>, _indirect:Bool):Void __self__.value._recordSelection(_x, _kind, _recv, _obj, _index, _indirect);
     @:keep
     public dynamic function _recordImplicit(_node:stdgo.go.ast.Ast.Node, _obj:Object):Void __self__.value._recordImplicit(_node, _obj);
     @:keep
@@ -10449,7 +10449,7 @@ class Checker_asInterface {
         // instantiated identifier in some other way.
     **/
     @:keep
-    public dynamic function _recordInstance(_expr:stdgo.go.ast.Ast.Expr, _targs:stdgo.Slice<Type>, _typ:Type):Void __self__.value._recordInstance(_expr, _targs, _typ);
+    public dynamic function _recordInstance(_expr:stdgo.go.ast.Ast.Expr, _targs:stdgo.Slice<Type_>, _typ:Type_):Void __self__.value._recordInstance(_expr, _targs, _typ);
     /**
         // recordCommaOkTypes updates recorded types to reflect that x is used in a commaOk context
         // (and therefore has tuple type).
@@ -10459,7 +10459,7 @@ class Checker_asInterface {
     @:keep
     public dynamic function _recordBuiltinType(_f:stdgo.go.ast.Ast.Expr, _sig:stdgo.StdGoTypes.Ref<Signature>):Void __self__.value._recordBuiltinType(_f, _sig);
     @:keep
-    public dynamic function _recordTypeAndValue(_x:stdgo.go.ast.Ast.Expr, _mode:T_operandMode, _typ:Type, _val:stdgo.go.constant.Constant.Value):Void __self__.value._recordTypeAndValue(_x, _mode, _typ, _val);
+    public dynamic function _recordTypeAndValue(_x:stdgo.go.ast.Ast.Expr, _mode:T_operandMode, _typ:Type_, _val:stdgo.go.constant.Constant.Value):Void __self__.value._recordTypeAndValue(_x, _mode, _typ, _val);
     @:keep
     public dynamic function _recordUntyped():Void __self__.value._recordUntyped();
     @:keep
@@ -10526,7 +10526,7 @@ class Checker_asInterface {
         // validAlias records that alias has the valid type typ (possibly Typ[Invalid]).
     **/
     @:keep
-    public dynamic function _validAlias(_alias:stdgo.StdGoTypes.Ref<TypeName>, _typ:Type):Void __self__.value._validAlias(_alias, _typ);
+    public dynamic function _validAlias(_alias:stdgo.StdGoTypes.Ref<TypeName>, _typ:Type_):Void __self__.value._validAlias(_alias, _typ);
     /**
         // brokenAlias records that alias doesn't have a determined type yet.
         // It also sets alias.typ to Typ[Invalid].
@@ -10575,7 +10575,7 @@ class Checker_asInterface {
         // If an error occurred, the result signature is the incoming sig.
     **/
     @:keep
-    public dynamic function _arguments(_call:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>, _sig:stdgo.StdGoTypes.Ref<Signature>, _targs:stdgo.Slice<Type>, _xlist:stdgo.Slice<stdgo.go.ast.Ast.Expr>, _args:stdgo.Slice<stdgo.StdGoTypes.Ref<T_operand>>, _atargs:stdgo.Slice<stdgo.Slice<Type>>, _atxlist:stdgo.Slice<stdgo.Slice<stdgo.go.ast.Ast.Expr>>):stdgo.StdGoTypes.Ref<Signature> return __self__.value._arguments(_call, _sig, _targs, _xlist, _args, _atargs, _atxlist);
+    public dynamic function _arguments(_call:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>, _sig:stdgo.StdGoTypes.Ref<Signature>, _targs:stdgo.Slice<Type_>, _xlist:stdgo.Slice<stdgo.go.ast.Ast.Expr>, _args:stdgo.Slice<stdgo.StdGoTypes.Ref<T_operand>>, _atargs:stdgo.Slice<stdgo.Slice<Type_>>, _atxlist:stdgo.Slice<stdgo.Slice<stdgo.go.ast.Ast.Expr>>):stdgo.StdGoTypes.Ref<Signature> return __self__.value._arguments(_call, _sig, _targs, _xlist, _args, _atargs, _atxlist);
     /**
         // genericExprList is like exprList but result operands may be uninstantiated or partially
         // instantiated generic functions (where constraint information is insufficient to infer
@@ -10586,7 +10586,7 @@ class Checker_asInterface {
         // xlistList elements are the operand's partial type arguments and type expression lists.
     **/
     @:keep
-    public dynamic function _genericExprList(_elist:stdgo.Slice<stdgo.go.ast.Ast.Expr>):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.Ref<T_operand>>; var _1 : stdgo.Slice<stdgo.Slice<Type>>; var _2 : stdgo.Slice<stdgo.Slice<stdgo.go.ast.Ast.Expr>>; } return __self__.value._genericExprList(_elist);
+    public dynamic function _genericExprList(_elist:stdgo.Slice<stdgo.go.ast.Ast.Expr>):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.Ref<T_operand>>; var _1 : stdgo.Slice<stdgo.Slice<Type_>>; var _2 : stdgo.Slice<stdgo.Slice<stdgo.go.ast.Ast.Expr>>; } return __self__.value._genericExprList(_elist);
     /**
         // exprList evaluates a list of expressions and returns the corresponding operands.
         // A single-element expression list may evaluate to multiple operands.
@@ -10596,7 +10596,7 @@ class Checker_asInterface {
     @:keep
     public dynamic function _callExpr(_x:stdgo.StdGoTypes.Ref<T_operand>, _call:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>):T_exprKind return __self__.value._callExpr(_x, _call);
     @:keep
-    public dynamic function _instantiateSignature(_pos:stdgo.go.token.Token.Pos, _expr:stdgo.go.ast.Ast.Expr, _typ:stdgo.StdGoTypes.Ref<Signature>, _targs:stdgo.Slice<Type>, _xlist:stdgo.Slice<stdgo.go.ast.Ast.Expr>):stdgo.StdGoTypes.Ref<Signature> return __self__.value._instantiateSignature(_pos, _expr, _typ, _targs, _xlist);
+    public dynamic function _instantiateSignature(_pos:stdgo.go.token.Token.Pos, _expr:stdgo.go.ast.Ast.Expr, _typ:stdgo.StdGoTypes.Ref<Signature>, _targs:stdgo.Slice<Type_>, _xlist:stdgo.Slice<stdgo.go.ast.Ast.Expr>):stdgo.StdGoTypes.Ref<Signature> return __self__.value._instantiateSignature(_pos, _expr, _typ, _targs, _xlist);
     /**
         // funcInst type-checks a function instantiation.
         // The incoming x must be a generic function.
@@ -10619,7 +10619,7 @@ class Checker_asInterface {
         // and x.mode is set to invalid.
     **/
     @:keep
-    public dynamic function _funcInst(_tsig:stdgo.StdGoTypes.Ref<Signature>, _pos:stdgo.go.token.Token.Pos, _x:stdgo.StdGoTypes.Ref<T_operand>, _ix:stdgo.StdGoTypes.Ref<stdgo.go.internal.typeparams.Typeparams.IndexExpr>, _infer:Bool):{ var _0 : stdgo.Slice<Type>; var _1 : stdgo.Slice<stdgo.go.ast.Ast.Expr>; } return __self__.value._funcInst(_tsig, _pos, _x, _ix, _infer);
+    public dynamic function _funcInst(_tsig:stdgo.StdGoTypes.Ref<Signature>, _pos:stdgo.go.token.Token.Pos, _x:stdgo.StdGoTypes.Ref<T_operand>, _ix:stdgo.StdGoTypes.Ref<stdgo.go.internal.typeparams.Typeparams.IndexExpr>, _infer:Bool):{ var _0 : stdgo.Slice<Type_>; var _1 : stdgo.Slice<stdgo.go.ast.Ast.Expr>; } return __self__.value._funcInst(_tsig, _pos, _x, _ix, _infer);
     /**
         // applyTypeFunc applies f to x. If x is a type parameter,
         // the result is a type parameter constrained by an new
@@ -10630,7 +10630,7 @@ class Checker_asInterface {
         // If x is not a type parameter, the result is f(x).
     **/
     @:keep
-    public dynamic function _applyTypeFunc(_f:Type -> Type, _x:stdgo.StdGoTypes.Ref<T_operand>, _id:T_builtinId):Type return __self__.value._applyTypeFunc(_f, _x, _id);
+    public dynamic function _applyTypeFunc(_f:Type_ -> Type_, _x:stdgo.StdGoTypes.Ref<T_operand>, _id:T_builtinId):Type_ return __self__.value._applyTypeFunc(_f, _x, _id);
     /**
         // builtin type-checks a call to the built-in specified by id and
         // reports whether the call is valid, with *x holding the result;
@@ -10665,7 +10665,7 @@ class Checker_asInterface {
         // the form "...E" where E is the slice's element type.
     **/
     @:keep
-    public dynamic function _typesSummary(_list:stdgo.Slice<Type>, _variadic:Bool):stdgo.GoString return __self__.value._typesSummary(_list, _variadic);
+    public dynamic function _typesSummary(_list:stdgo.Slice<Type_>, _variadic:Bool):stdgo.GoString return __self__.value._typesSummary(_list, _variadic);
     /**
         // assignVar checks the assignment lhs = rhs (if x == nil), or lhs = x (if x != nil).
         // If x != nil, it must be the evaluation of rhs (and rhs will be ignored).
@@ -10680,7 +10680,7 @@ class Checker_asInterface {
         // and Typ[Invalid] if it is an invalid lhs expression.
     **/
     @:keep
-    public dynamic function _lhsVar(_lhs:stdgo.go.ast.Ast.Expr):Type return __self__.value._lhsVar(_lhs);
+    public dynamic function _lhsVar(_lhs:stdgo.go.ast.Ast.Expr):Type_ return __self__.value._lhsVar(_lhs);
     /**
         // initVar checks the initialization lhs = x in a variable declaration.
         // If lhs doesn't have a type yet, it is given the type of x,
@@ -10699,13 +10699,13 @@ class Checker_asInterface {
         // If the assignment check fails, x.mode is set to invalid.
     **/
     @:keep
-    public dynamic function _assignment(_x:stdgo.StdGoTypes.Ref<T_operand>, t:Type, _context:stdgo.GoString):Void __self__.value._assignment(_x, t, _context);
+    public dynamic function _assignment(_x:stdgo.StdGoTypes.Ref<T_operand>, t:Type_, _context:stdgo.GoString):Void __self__.value._assignment(_x, t, _context);
     @:embedded
     public dynamic function _recordTypes():Bool return __self__.value._recordTypes();
     @:embedded
     public dynamic function _lookup(__0:stdgo.GoString):stdgo.go.types.Types.Object return __self__.value._lookup(__0);
     @:embedded
-    public dynamic function typeOf(_e:stdgo.go.ast.Ast.Expr):stdgo.go.types.Types.Type return __self__.value.typeOf(_e);
+    public dynamic function typeOf(_e:stdgo.go.ast.Ast.Expr):stdgo.go.types.Types.Type_ return __self__.value.typeOf(_e);
     @:embedded
     public dynamic function objectOf(_id:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>):stdgo.go.types.Types.Object return __self__.value.objectOf(_id);
     public function new(__self__, __type__) {
@@ -10744,7 +10744,7 @@ class Checker_asInterface {
         };
         if (_check._posVers != null) {
             {
-                var __tmp__ = (_check._posVers != null && _check._posVers.exists(_check._fset.file(_at.pos())) ? { value : _check._posVers[_check._fset.file(_at.pos())], ok : true } : { value : ({} : stdgo.go.types.Types.T_version), ok : false }), _src:stdgo.go.types.Types.T_version = __tmp__.value, _ok:Bool = __tmp__.ok;
+                var __tmp__ = (_check._posVers != null && _check._posVers.exists(_check._fset.file(_at.pos())) ? { _0 : _check._posVers[_check._fset.file(_at.pos())], _1 : true } : { _0 : ({} : stdgo.go.types.Types.T_version), _1 : false }), _src:stdgo.go.types.Types.T_version = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok && (_src._major >= (1 : stdgo.StdGoTypes.GoInt))) {
                     return !_src._before(_v?.__copy__());
                 };
@@ -10796,7 +10796,7 @@ class Checker_asInterface {
         // path of named types in a cycle, it is only needed for error reporting.
     **/
     @:keep
-    static public function _validType0( _check:stdgo.StdGoTypes.Ref<Checker>, _typ:Type, _nest:stdgo.Slice<stdgo.StdGoTypes.Ref<Named>>, _path:stdgo.Slice<stdgo.StdGoTypes.Ref<Named>>):Bool {
+    static public function _validType0( _check:stdgo.StdGoTypes.Ref<Checker>, _typ:Type_, _nest:stdgo.Slice<stdgo.StdGoTypes.Ref<Named>>, _path:stdgo.Slice<stdgo.StdGoTypes.Ref<Named>>):Bool {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         {
             final __type__ = _typ;
@@ -10866,7 +10866,7 @@ class Checker_asInterface {
                             var _inst = _nest[((_nest.length) - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)];
                             for (_i => _tparam in _inst._check._environment._decl._tdecl.typeParams()._list()) {
                                 if ((_t == _tparam) && (_i < _inst.typeArgs().len())) {
-                                    var _targ:stdgo.go.types.Types.Type = _inst.typeArgs().at(_i);
+                                    var _targ:stdgo.go.types.Types.Type_ = _inst.typeArgs().at(_i);
                                     return _check._validType0(_targ, (_nest.__slice__(0, (_nest.length) - (1 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>>), _path);
                                 };
                             };
@@ -10894,13 +10894,13 @@ class Checker_asInterface {
         // If an error occurred, the result is nil, but all list elements were type-checked.
     **/
     @:keep
-    static public function _typeList( _check:stdgo.StdGoTypes.Ref<Checker>, _list:stdgo.Slice<stdgo.go.ast.Ast.Expr>):stdgo.Slice<Type> {
+    static public function _typeList( _check:stdgo.StdGoTypes.Ref<Checker>, _list:stdgo.Slice<stdgo.go.ast.Ast.Expr>):stdgo.Slice<Type_> {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
-        var _res = new stdgo.Slice<stdgo.go.types.Types.Type>((_list.length : stdgo.StdGoTypes.GoInt).toBasic(), 0);
+        var _res = new stdgo.Slice<stdgo.go.types.Types.Type_>((_list.length : stdgo.StdGoTypes.GoInt).toBasic(), 0);
         for (_i => _x in _list) {
-            var _t:stdgo.go.types.Types.Type = _check._varType(_x);
+            var _t:stdgo.go.types.Types.Type_ = _check._varType(_x);
             if (stdgo.Go.toInterface(_t) == (stdgo.Go.toInterface(stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])))) {
-                _res = (null : stdgo.Slice<stdgo.go.types.Types.Type>);
+                _res = (null : stdgo.Slice<stdgo.go.types.Types.Type_>);
             };
             if (_res != null) {
                 _res[(_i : stdgo.StdGoTypes.GoInt)] = _t;
@@ -10918,10 +10918,10 @@ class Checker_asInterface {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : false };
-            }, _name = __tmp__.value, __0 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), _1 : false };
+            }, _name = __tmp__._0, __0 = __tmp__._1;
             if (_name != null && ((_name : Dynamic).__nil__ == null || !(_name : Dynamic).__nil__)) {
                 var _obj:stdgo.go.types.Types.Object = _check._lookup(_name.name?.__copy__());
                 if (_obj == null) {
@@ -10930,10 +10930,10 @@ class Checker_asInterface {
                 };
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<Const>)) : stdgo.StdGoTypes.Ref<Const>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<Const>)) : stdgo.StdGoTypes.Ref<Const>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Const>), ok : false };
-                    }, __17 = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Const>), _1 : false };
+                    }, __17 = __tmp__._0, _ok = __tmp__._1;
                     if (!_ok) {
                         _check._errorf(stdgo.Go.asInterface(_name), (26 : stdgo.internal.types.errors.Errors.Code), ("invalid array length %s" : stdgo.GoString), stdgo.Go.toInterface(_name.name));
                         return (-1i64 : stdgo.StdGoTypes.GoInt64);
@@ -10942,7 +10942,7 @@ class Checker_asInterface {
             };
         };
         var _x:T_operand = ({} : stdgo.go.types.Types.T_operand);
-        _check._expr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _e);
+        _check._expr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _e);
         if (_x._mode != ((4 : stdgo.go.types.Types.T_operandMode))) {
             if (_x._mode != ((0 : stdgo.go.types.Types.T_operandMode))) {
                 _check._errorf(stdgo.Go.asInterface((stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>)), (26 : stdgo.internal.types.errors.Errors.Code), ("array length %s must be constant" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>))));
@@ -10974,10 +10974,10 @@ class Checker_asInterface {
         return (-1i64 : stdgo.StdGoTypes.GoInt64);
     }
     @:keep
-    static public function _instantiatedType( _check:stdgo.StdGoTypes.Ref<Checker>, _ix:stdgo.StdGoTypes.Ref<stdgo.go.internal.typeparams.Typeparams.IndexExpr>, _def:stdgo.StdGoTypes.Ref<Named>):Type {
+    static public function _instantiatedType( _check:stdgo.StdGoTypes.Ref<Checker>, _ix:stdgo.StdGoTypes.Ref<stdgo.go.internal.typeparams.Typeparams.IndexExpr>, _def:stdgo.StdGoTypes.Ref<Named>):Type_ {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         var __deferstack__:Array<Void -> Void> = [];
-        var _res:Type = (null : stdgo.go.types.Types.Type);
+        var _res:Type_ = (null : stdgo.go.types.Types.Type_);
         try {
             if (_check._conf.__Trace) {
                 _check._trace(_ix.pos(), ("-- instantiating type %s with %s" : stdgo.GoString), stdgo.Go.toInterface(_ix.indexListExpr.x), stdgo.Go.toInterface(_ix.indexListExpr.indices));
@@ -10991,7 +10991,7 @@ class Checker_asInterface {
                 });
             };
             var _cause:stdgo.GoString = ("" : stdgo.GoString);
-            var _gtyp:stdgo.go.types.Types.Type = _check._genericType(_ix.indexListExpr.x, stdgo.Go.pointer(_cause));
+            var _gtyp:stdgo.go.types.Types.Type_ = _check._genericType(_ix.indexListExpr.x, stdgo.Go.pointer(_cause));
             if (_cause != (stdgo.Go.str())) {
                 _check._errorf(_ix.orig, (136 : stdgo.internal.types.errors.Errors.Code), ("invalid operation: %s (%s)" : stdgo.GoString), stdgo.Go.toInterface(_ix.orig), stdgo.Go.toInterface(_cause));
             };
@@ -11004,10 +11004,10 @@ class Checker_asInterface {
                 };
             };
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_gtyp) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_gtyp) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-            }, _orig = __tmp__.value, __40 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+            }, _orig = __tmp__._0, __40 = __tmp__._1;
             if (_orig == null || (_orig : Dynamic).__nil__) {
                 throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v: cannot instantiate %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_ix.pos())), stdgo.Go.toInterface(_gtyp)));
             };
@@ -11073,10 +11073,10 @@ class Checker_asInterface {
         // Must only be called by definedType or genericType.
     **/
     @:keep
-    static public function _typInternal( _check:stdgo.StdGoTypes.Ref<Checker>, _e0:stdgo.go.ast.Ast.Expr, _def:stdgo.StdGoTypes.Ref<Named>):Type {
+    static public function _typInternal( _check:stdgo.StdGoTypes.Ref<Checker>, _e0:stdgo.go.ast.Ast.Expr, _def:stdgo.StdGoTypes.Ref<Named>):Type_ {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         var __deferstack__:Array<Void -> Void> = [];
-        var t:Type = (null : stdgo.go.types.Types.Type);
+        var t:Type_ = (null : stdgo.go.types.Types.Type_);
         try {
             if (_check._conf.__Trace) {
                 _check._trace(_e0.pos(), ("-- type %s" : stdgo.GoString), stdgo.Go.toInterface(_e0));
@@ -11084,7 +11084,7 @@ class Checker_asInterface {
                 __deferstack__.unshift(() -> {
                     var a = function():Void {
                         _check._indent--;
-                        var _under:Type = (null : stdgo.go.types.Types.Type);
+                        var _under:Type_ = (null : stdgo.go.types.Types.Type_);
                         if (t != null) {
                             _under = _safeUnderlying(t);
                         };
@@ -11108,7 +11108,7 @@ class Checker_asInterface {
                     {
                         final __value__ = _x._mode;
                         if (__value__ == ((3 : stdgo.go.types.Types.T_operandMode))) {
-                            var _typ:stdgo.go.types.Types.Type = _x._typ;
+                            var _typ:stdgo.go.types.Types.Type_ = _x._typ;
                             _def._setUnderlying(_typ);
                             {
                                 for (defer in __deferstack__) {
@@ -11129,7 +11129,7 @@ class Checker_asInterface {
                     {
                         final __value__ = _x._mode;
                         if (__value__ == ((3 : stdgo.go.types.Types.T_operandMode))) {
-                            var _typ:stdgo.go.types.Types.Type = _x._typ;
+                            var _typ:stdgo.go.types.Types.Type_ = _x._typ;
                             _def._setUnderlying(_typ);
                             {
                                 for (defer in __deferstack__) {
@@ -11178,10 +11178,10 @@ class Checker_asInterface {
                     _def._setUnderlying(stdgo.Go.asInterface(_typ));
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e.len) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ellipsis>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ellipsis>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e.len) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ellipsis>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ellipsis>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ellipsis>), ok : false };
-                        }, __136 = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ellipsis>), _1 : false };
+                        }, __136 = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
                             _check._error(_e.len, (77 : stdgo.internal.types.errors.Errors.Code), ("invalid use of [...] array (outside a composite literal)" : stdgo.GoString));
                             _typ._len = (-1i64 : stdgo.StdGoTypes.GoInt64);
@@ -11332,9 +11332,9 @@ class Checker_asInterface {
         // generic, cause will be populated with a message describing the error.
     **/
     @:keep
-    static public function _genericType( _check:stdgo.StdGoTypes.Ref<Checker>, _e:stdgo.go.ast.Ast.Expr, _cause:stdgo.Pointer<stdgo.GoString>):Type {
+    static public function _genericType( _check:stdgo.StdGoTypes.Ref<Checker>, _e:stdgo.go.ast.Ast.Expr, _cause:stdgo.Pointer<stdgo.GoString>):Type_ {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
-        var _typ:stdgo.go.types.Types.Type = _check._typInternal(_e, null);
+        var _typ:stdgo.go.types.Types.Type_ = _check._typInternal(_e, null);
         _assert(_isTyped(_typ));
         if ((stdgo.Go.toInterface(_typ) != stdgo.Go.toInterface(stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)]))) && !_isGeneric(_typ)) {
             if (_cause != null) {
@@ -11352,9 +11352,9 @@ class Checker_asInterface {
         // any components of e are type-checked.
     **/
     @:keep
-    static public function _definedType( _check:stdgo.StdGoTypes.Ref<Checker>, _e:stdgo.go.ast.Ast.Expr, _def:stdgo.StdGoTypes.Ref<Named>):Type {
+    static public function _definedType( _check:stdgo.StdGoTypes.Ref<Checker>, _e:stdgo.go.ast.Ast.Expr, _def:stdgo.StdGoTypes.Ref<Named>):Type_ {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
-        var _typ:stdgo.go.types.Types.Type = _check._typInternal(_e, _def);
+        var _typ:stdgo.go.types.Types.Type_ = _check._typInternal(_e, _def);
         _assert(_isTyped(_typ));
         if (_isGeneric(_typ)) {
             _check._errorf(_e, (137 : stdgo.internal.types.errors.Errors.Code), ("cannot use generic type %s without instantiation" : stdgo.GoString), stdgo.Go.toInterface(_typ));
@@ -11368,7 +11368,7 @@ class Checker_asInterface {
         // The expression e is used for error reporting, if any.
     **/
     @:keep
-    static public function _validVarType( _check:stdgo.StdGoTypes.Ref<Checker>, _e:stdgo.go.ast.Ast.Expr, _typ:Type):Void {
+    static public function _validVarType( _check:stdgo.StdGoTypes.Ref<Checker>, _e:stdgo.go.ast.Ast.Expr, _typ:Type_):Void {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         if (_isTypeParam(_typ)) {
             return;
@@ -11376,10 +11376,10 @@ class Checker_asInterface {
         _check._later(function():Void {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_typ)) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_typ)) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), ok : false };
-                }, _t = __tmp__.value, __8 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), _1 : false };
+                }, _t = __tmp__._0, __8 = __tmp__._1;
                 if (_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) {
                     var _tset = _computeInterfaceTypeSet(_check, _e.pos(), _t);
                     if (!_tset.isMethodSet()) {
@@ -11399,9 +11399,9 @@ class Checker_asInterface {
         // constraint interface.
     **/
     @:keep
-    static public function _varType( _check:stdgo.StdGoTypes.Ref<Checker>, _e:stdgo.go.ast.Ast.Expr):Type {
+    static public function _varType( _check:stdgo.StdGoTypes.Ref<Checker>, _e:stdgo.go.ast.Ast.Expr):Type_ {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
-        var _typ:stdgo.go.types.Types.Type = _check._definedType(_e, null);
+        var _typ:stdgo.go.types.Types.Type_ = _check._definedType(_e, null);
         _check._validVarType(_e, _typ);
         return _typ;
     }
@@ -11410,7 +11410,7 @@ class Checker_asInterface {
         // The type must not be an (uninstantiated) generic type.
     **/
     @:keep
-    static public function _typ( _check:stdgo.StdGoTypes.Ref<Checker>, _e:stdgo.go.ast.Ast.Expr):Type {
+    static public function _typ( _check:stdgo.StdGoTypes.Ref<Checker>, _e:stdgo.go.ast.Ast.Expr):Type_ {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         return _check._definedType(_e, null);
     }
@@ -11450,13 +11450,13 @@ class Checker_asInterface {
             };
         };
         _check._recordUse(_e, _obj);
-        var _typ:stdgo.go.types.Types.Type = _obj.type();
+        var _typ:stdgo.go.types.Types.Type_ = _obj.type();
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<TypeName>)) : stdgo.StdGoTypes.Ref<TypeName>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<TypeName>)) : stdgo.StdGoTypes.Ref<TypeName>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeName>), ok : false };
-            }, __56 = __tmp__.value, _gotType = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeName>), _1 : false };
+            }, __56 = __tmp__._0, _gotType = __tmp__._1;
             if ((_typ == null) || (_gotType && _wantType)) {
                 _check._objDecl(_obj, _def);
                 _typ = _obj.type();
@@ -11531,7 +11531,7 @@ class Checker_asInterface {
         // check may be nil
     **/
     @:keep
-    static public function _newTypeParam( _check:stdgo.StdGoTypes.Ref<Checker>, _obj:stdgo.StdGoTypes.Ref<TypeName>, _constraint:Type):stdgo.StdGoTypes.Ref<TypeParam> {
+    static public function _newTypeParam( _check:stdgo.StdGoTypes.Ref<Checker>, _obj:stdgo.StdGoTypes.Ref<TypeName>, _constraint:Type_):stdgo.StdGoTypes.Ref<TypeParam> {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         var _id:stdgo.StdGoTypes.GoUInt64 = _nextID();
         if (_check != null && ((_check : Dynamic).__nil__ == null || !(_check : Dynamic).__nil__)) {
@@ -11559,7 +11559,7 @@ class Checker_asInterface {
         // One of expanding or ctxt must be non-nil.
     **/
     @:keep
-    static public function _subst( _check:stdgo.StdGoTypes.Ref<Checker>, _pos:stdgo.go.token.Token.Pos, _typ:Type, _smap:T_substMap, _expanding:stdgo.StdGoTypes.Ref<Named>, _ctxt:stdgo.StdGoTypes.Ref<Context>):Type {
+    static public function _subst( _check:stdgo.StdGoTypes.Ref<Checker>, _pos:stdgo.go.token.Token.Pos, _typ:Type_, _smap:T_substMap, _expanding:stdgo.StdGoTypes.Ref<Named>, _ctxt:stdgo.StdGoTypes.Ref<Context>):Type_ {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         _assert(((_expanding != null) && ((_expanding : Dynamic).__nil__ == null || !(_expanding : Dynamic).__nil__)) || ((_ctxt != null) && ((_ctxt : Dynamic).__nil__ == null || !(_ctxt : Dynamic).__nil__)));
         if (_smap._empty()) {
@@ -11618,7 +11618,7 @@ class Checker_asInterface {
         var _fields:stdgo.Slice<stdgo.StdGoTypes.Ref<Var>> = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>>);
         var _tags:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
         var _fset:T_objset = (null : stdgo.go.types.Types.T_objset);
-        var _typ:Type = (null : stdgo.go.types.Types.Type);
+        var _typ:Type_ = (null : stdgo.go.types.Types.Type_);
         var _tag:stdgo.GoString = ("" : stdgo.GoString);
         var _add = function(_ident:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>, _embedded:Bool, _pos:stdgo.go.token.Token.Pos):Void {
             if ((_tag != stdgo.Go.str()) && (_tags == null)) {
@@ -11657,10 +11657,10 @@ class Checker_asInterface {
                     continue;
                 };
                 _add(_name, true, _name.pos());
-                var _embeddedTyp:stdgo.go.types.Types.Type = _typ;
+                var _embeddedTyp:stdgo.go.types.Types.Type_ = _typ;
                 var _embeddedPos:stdgo.go.ast.Ast.Expr = _f.type;
                 _check._later(function():Void {
-                    var __tmp__ = _deref(_embeddedTyp), _t:stdgo.go.types.Types.Type = __tmp__._0, _isPtr:Bool = __tmp__._1;
+                    var __tmp__ = _deref(_embeddedTyp), _t:stdgo.go.types.Types.Type_ = __tmp__._0, _isPtr:Bool = __tmp__._1;
                     {
                         final __type__ = _under(_t);
                         {
@@ -11747,7 +11747,7 @@ class Checker_asInterface {
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ExprStmt>))) {
                     var _s:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ExprStmt> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ExprStmt>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ExprStmt>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ExprStmt>) : __type__.__underlying__().value;
                     var _x:T_operand = ({} : stdgo.go.types.Types.T_operand);
-                    var _kind:stdgo.go.types.Types.T_exprKind = _check._rawExpr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _s.x, (null : stdgo.go.types.Types.Type), false);
+                    var _kind:stdgo.go.types.Types.T_exprKind = _check._rawExpr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _s.x, (null : stdgo.go.types.Types.Type_), false);
                     var _msg:stdgo.GoString = ("" : stdgo.GoString);
                     var _code:Code = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.internal.types.errors.Errors.Code);
                     {
@@ -11775,8 +11775,8 @@ class Checker_asInterface {
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SendStmt>))) {
                     var _s:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SendStmt> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SendStmt>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SendStmt>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SendStmt>) : __type__.__underlying__().value;
                     var __0:T_operand = ({} : stdgo.go.types.Types.T_operand), __1:T_operand = ({} : stdgo.go.types.Types.T_operand), _val:T_operand = __1, _ch:T_operand = __0;
-                    _check._expr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_ch) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _s.chan);
-                    _check._expr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_val) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _s.value);
+                    _check._expr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_ch) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _s.chan);
+                    _check._expr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_val) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _s.value);
                     if ((_ch._mode == (0 : stdgo.go.types.Types.T_operandMode)) || (_val._mode == (0 : stdgo.go.types.Types.T_operandMode))) {
                         {
                             for (defer in __deferstack__) {
@@ -11785,7 +11785,7 @@ class Checker_asInterface {
                             return;
                         };
                     };
-                    var _u:stdgo.go.types.Types.Type = _coreType(_ch._typ);
+                    var _u:stdgo.go.types.Types.Type_ = _coreType(_ch._typ);
                     if (_u == null) {
                         _check._errorf(stdgo.Go.asInterface(_inNode(stdgo.Go.asInterface(_s), _s.arrow)), (59 : stdgo.internal.types.errors.Errors.Code), ("invalid operation: cannot send to %s: no core type" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_ch) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>))));
                         {
@@ -11796,10 +11796,10 @@ class Checker_asInterface {
                         };
                     };
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_u) : stdgo.StdGoTypes.Ref<stdgo.Chan>)) : stdgo.StdGoTypes.Ref<stdgo.Chan>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_u) : stdgo.StdGoTypes.Ref<stdgo.Chan>)) : stdgo.StdGoTypes.Ref<stdgo.Chan>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.Chan>), ok : false };
-                    }, _uch = __tmp__.value, __88 = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.Chan>), _1 : false };
+                    }, _uch = __tmp__._0, __88 = __tmp__._1;
                     if (_uch == null || (_uch : Dynamic).__nil__) {
                         _check._errorf(stdgo.Go.asInterface(_inNode(stdgo.Go.asInterface(_s), _s.arrow)), (59 : stdgo.internal.types.errors.Errors.Code), ("invalid operation: cannot send to non-channel %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_ch) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>))));
                         {
@@ -11839,7 +11839,7 @@ class Checker_asInterface {
                         };
                     };
                     var _x:T_operand = ({} : stdgo.go.types.Types.T_operand);
-                    _check._expr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _s.x);
+                    _check._expr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _s.x);
                     if (_x._mode == ((0 : stdgo.go.types.Types.T_operandMode))) {
                         {
                             for (defer in __deferstack__) {
@@ -11994,7 +11994,7 @@ class Checker_asInterface {
                     __deferstack__.unshift(() -> _check._closeScope());
                     _check._simpleStmt(_s.init);
                     var _x:T_operand = ({} : stdgo.go.types.Types.T_operand);
-                    _check._expr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _s.cond);
+                    _check._expr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _s.cond);
                     if ((_x._mode != (0 : stdgo.go.types.Types.T_operandMode)) && !_allBoolean(_x._typ)) {
                         _check._error(_s.cond, (105 : stdgo.internal.types.errors.Errors.Code), ("non-boolean condition in if statement" : stdgo.GoString));
                     };
@@ -12015,8 +12015,8 @@ class Checker_asInterface {
                     _check._simpleStmt(_s.init);
                     var _x:T_operand = ({} : stdgo.go.types.Types.T_operand);
                     if (_s.tag != null) {
-                        _check._expr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _s.tag);
-                        _check._assignment((stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), (null : stdgo.go.types.Types.Type), ("switch expression" : stdgo.GoString));
+                        _check._expr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _s.tag);
+                        _check._assignment((stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), (null : stdgo.go.types.Types.Type_), ("switch expression" : stdgo.GoString));
                         if (((_x._mode != (0 : stdgo.go.types.Types.T_operandMode)) && !comparable(_x._typ)) && !_hasNil(_x._typ)) {
                             _check._errorf(stdgo.Go.asInterface((stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>)), (117 : stdgo.internal.types.errors.Errors.Code), ("cannot switch on %s (%s is not comparable)" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>))), stdgo.Go.toInterface(_x._typ));
                             _x._mode = (0 : stdgo.go.types.Types.T_operandMode);
@@ -12036,10 +12036,10 @@ class Checker_asInterface {
                     } : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.Slice<stdgo.go.types.Types.T_valueType>>);
                     for (_i => _c in _s.body.list) {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CaseClause>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CaseClause>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CaseClause>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CaseClause>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CaseClause>), ok : false };
-                        }, _clause = __tmp__.value, __450 = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CaseClause>), _1 : false };
+                        }, _clause = __tmp__._0, __450 = __tmp__._1;
                         if (_clause == null || (_clause : Dynamic).__nil__) {
                             _check._error(_c, (-1 : stdgo.internal.types.errors.Errors.Code), ("incorrect expression switch case" : stdgo.GoString));
                             continue;
@@ -12081,11 +12081,11 @@ class Checker_asInterface {
                             };
                             {
                                 var __tmp__ = try {
-                                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_guard.lhs[(0 : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : true };
+                                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_guard.lhs[(0 : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), _1 : true };
                                 } catch(_) {
-                                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : false };
+                                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), _1 : false };
                                 };
-                                _lhs = __tmp__.value;
+                                _lhs = __tmp__._0;
                             };
                             if (_lhs == null || (_lhs : Dynamic).__nil__) {
                                 _check._error(stdgo.Go.asInterface(_s), (-1 : stdgo.internal.types.errors.Errors.Code), ("incorrect form of type switch guard" : stdgo.GoString));
@@ -12115,10 +12115,10 @@ class Checker_asInterface {
                         };
                     };
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_rhs) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.TypeAssertExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.TypeAssertExpr>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_rhs) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.TypeAssertExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.TypeAssertExpr>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.TypeAssertExpr>), ok : false };
-                    }, _expr = __tmp__.value, __555 = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.TypeAssertExpr>), _1 : false };
+                    }, _expr = __tmp__._0, __555 = __tmp__._1;
                     if (((_expr == null) || (_expr : Dynamic).__nil__) || (_expr.type != null)) {
                         _check._error(stdgo.Go.asInterface(_s), (-1 : stdgo.internal.types.errors.Errors.Code), ("incorrect form of type switch guard" : stdgo.GoString));
                         {
@@ -12129,7 +12129,7 @@ class Checker_asInterface {
                         };
                     };
                     var _x:T_operand = ({} : stdgo.go.types.Types.T_operand);
-                    _check._expr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _expr.x);
+                    _check._expr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _expr.x);
                     if (_x._mode == ((0 : stdgo.go.types.Types.T_operandMode))) {
                         {
                             for (defer in __deferstack__) {
@@ -12144,10 +12144,10 @@ class Checker_asInterface {
                     } else {
                         {
                             var __tmp__ = try {
-                                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_x._typ)) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), ok : true };
+                                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_x._typ)) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), _1 : true };
                             } catch(_) {
-                                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), ok : false };
-                            }, __580 = __tmp__.value, _ok = __tmp__.ok;
+                                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), _1 : false };
+                            }, __580 = __tmp__._0, _ok = __tmp__._1;
                             if (_ok) {
                                 _sx = (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>);
                             } else {
@@ -12158,23 +12158,23 @@ class Checker_asInterface {
                     _check._multipleDefaults(_s.body.list);
                     var _lhsVars:stdgo.Slice<stdgo.StdGoTypes.Ref<Var>> = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>>);
                     var _seen = ({
-                        final x = new stdgo.GoMap.GoObjectMap<stdgo.go.types.Types.Type, stdgo.go.ast.Ast.Expr>();
-                        x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }));
+                        final x = new stdgo.GoMap.GoObjectMap<stdgo.go.types.Types.Type_, stdgo.go.ast.Ast.Expr>();
+                        x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type_", [], stdgo.internal.reflect.Reflect.GoType.named("Type_", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }));
                         x.__defaultValue__ = () -> (null : stdgo.go.ast.Ast.Expr);
                         @:mergeBlock {};
                         cast x;
-                    } : stdgo.GoMap<stdgo.go.types.Types.Type, stdgo.go.ast.Ast.Expr>);
+                    } : stdgo.GoMap<stdgo.go.types.Types.Type_, stdgo.go.ast.Ast.Expr>);
                     for (__597 => _s in _s.body.list) {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_s) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CaseClause>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CaseClause>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_s) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CaseClause>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CaseClause>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CaseClause>), ok : false };
-                        }, _clause = __tmp__.value, __598 = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CaseClause>), _1 : false };
+                        }, _clause = __tmp__._0, __598 = __tmp__._1;
                         if (_clause == null || (_clause : Dynamic).__nil__) {
                             _check._error(_s, (-1 : stdgo.internal.types.errors.Errors.Code), ("incorrect type switch case" : stdgo.GoString));
                             continue;
                         };
-                        var t:stdgo.go.types.Types.Type = _check._caseTypes(_sx, _clause.list, _seen);
+                        var t:stdgo.go.types.Types.Type_ = _check._caseTypes(_sx, _clause.list, _seen);
                         _check._openScope(stdgo.Go.asInterface(_clause), ("case" : stdgo.GoString));
                         if (_lhs != null && ((_lhs : Dynamic).__nil__ == null || !(_lhs : Dynamic).__nil__)) {
                             if ((_clause.list.length != (1 : stdgo.StdGoTypes.GoInt)) || (t == null)) {
@@ -12213,10 +12213,10 @@ class Checker_asInterface {
                     _check._multipleDefaults(_s.body.list);
                     for (__688 => _s in _s.body.list) {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_s) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CommClause>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CommClause>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_s) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CommClause>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CommClause>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CommClause>), ok : false };
-                        }, _clause = __tmp__.value, __689 = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CommClause>), _1 : false };
+                        }, _clause = __tmp__._0, __689 = __tmp__._1;
                         if (_clause == null || (_clause : Dynamic).__nil__) {
                             continue;
                         };
@@ -12240,10 +12240,10 @@ class Checker_asInterface {
                         if (_rhs != null) {
                             {
                                 var __tmp__ = try {
-                                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_unparen(_rhs)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.UnaryExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.UnaryExpr>), ok : true };
+                                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_unparen(_rhs)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.UnaryExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.UnaryExpr>), _1 : true };
                                 } catch(_) {
-                                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.UnaryExpr>), ok : false };
-                                }, _x = __tmp__.value, __690 = __tmp__.ok;
+                                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.UnaryExpr>), _1 : false };
+                                }, _x = __tmp__._0, __690 = __tmp__._1;
                                 if (((_x != null) && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__)) && (_x.op == (36 : stdgo.go.token.Token.Token))) {
                                     _valid = true;
                                 };
@@ -12268,7 +12268,7 @@ class Checker_asInterface {
                     _check._simpleStmt(_s.init);
                     if (_s.cond != null) {
                         var _x:T_operand = ({} : stdgo.go.types.Types.T_operand);
-                        _check._expr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _s.cond);
+                        _check._expr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _s.cond);
                         if ((_x._mode != (0 : stdgo.go.types.Types.T_operandMode)) && !_allBoolean(_x._typ)) {
                             _check._error(_s.cond, (105 : stdgo.internal.types.errors.Errors.Code), ("non-boolean condition in for statement" : stdgo.GoString));
                         };
@@ -12276,10 +12276,10 @@ class Checker_asInterface {
                     _check._simpleStmt(_s.post);
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_s.post) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.AssignStmt>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.AssignStmt>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_s.post) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.AssignStmt>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.AssignStmt>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.AssignStmt>), ok : false };
-                        }, _s = __tmp__.value, __779 = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.AssignStmt>), _1 : false };
+                        }, _s = __tmp__._0, __779 = __tmp__._1;
                         if (((_s != null) && ((_s : Dynamic).__nil__ == null || !(_s : Dynamic).__nil__)) && (_s.tok == (47 : stdgo.go.token.Token.Token))) {
                             _check._softErrorf(stdgo.Go.asInterface(_s), (106 : stdgo.internal.types.errors.Errors.Code), ("cannot declare in post statement" : stdgo.GoString));
                             _check._use(..._s.lhs.__toArray__());
@@ -12290,11 +12290,11 @@ class Checker_asInterface {
                     var _s:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.RangeStmt> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.RangeStmt>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.RangeStmt>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.RangeStmt>) : __type__.__underlying__().value;
                     _inner = _inner | ((3u32 : stdgo.go.types.Types.T_stmtContext));
                     var _x:T_operand = ({} : stdgo.go.types.Types.T_operand);
-                    _check._expr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _s.x);
-                    var __0:Type = (null : stdgo.go.types.Types.Type), __1:Type = (null : stdgo.go.types.Types.Type), _val:Type = __1, _key:Type = __0;
+                    _check._expr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _s.x);
+                    var __0:Type_ = (null : stdgo.go.types.Types.Type_), __1:Type_ = (null : stdgo.go.types.Types.Type_), _val:Type_ = __1, _key:Type_ = __0;
                     if (_x._mode != ((0 : stdgo.go.types.Types.T_operandMode))) {
                         var _cause:stdgo.GoString = ("" : stdgo.GoString);
-                        var _u:stdgo.go.types.Types.Type = _coreType(_x._typ);
+                        var _u:stdgo.go.types.Types.Type_ = _coreType(_x._typ);
                         {
                             final __type__ = _u;
                             if (__type__ == null) {
@@ -12326,7 +12326,7 @@ class Checker_asInterface {
                     _check._openScope(stdgo.Go.asInterface(_s), ("range" : stdgo.GoString));
                     __deferstack__.unshift(() -> _check._closeScope());
                     var _lhs = (new stdgo.GoArray<stdgo.go.ast.Ast.Expr>(_s.key, _s.value) : stdgo.GoArray<stdgo.go.ast.Ast.Expr>);
-                    var _rhs = (new stdgo.GoArray<stdgo.go.types.Types.Type>(_key, _val) : stdgo.GoArray<stdgo.go.types.Types.Type>);
+                    var _rhs = (new stdgo.GoArray<stdgo.go.types.Types.Type_>(_key, _val) : stdgo.GoArray<stdgo.go.types.Types.Type_>);
                     if (_s.tok == ((47 : stdgo.go.token.Token.Token))) {
                         var _vars:stdgo.Slice<stdgo.StdGoTypes.Ref<Var>> = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>>);
                         for (_i => _lhs in _lhs) {
@@ -12336,24 +12336,24 @@ class Checker_asInterface {
                             var _obj:stdgo.StdGoTypes.Ref<Var> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>);
                             {
                                 var __tmp__ = try {
-                                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_lhs) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : true };
+                                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_lhs) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), _1 : true };
                                 } catch(_) {
-                                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : false };
-                                }, _ident = __tmp__.value, __860 = __tmp__.ok;
+                                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), _1 : false };
+                                }, _ident = __tmp__._0, __860 = __tmp__._1;
                                 if (_ident != null && ((_ident : Dynamic).__nil__ == null || !(_ident : Dynamic).__nil__)) {
                                     var _name:stdgo.GoString = _ident.name?.__copy__();
-                                    _obj = newVar(_ident.pos(), _check._pkg, _name?.__copy__(), (null : stdgo.go.types.Types.Type));
+                                    _obj = newVar(_ident.pos(), _check._pkg, _name?.__copy__(), (null : stdgo.go.types.Types.Type_));
                                     _check._recordDef(_ident, stdgo.Go.asInterface(_obj));
                                     if (_name != (("_" : stdgo.GoString))) {
                                         _vars = (_vars.__append__(_obj));
                                     };
                                 } else {
                                     _check._errorf(_lhs, (-1 : stdgo.internal.types.errors.Errors.Code), ("cannot declare %s" : stdgo.GoString), stdgo.Go.toInterface(_lhs));
-                                    _obj = newVar(_lhs.pos(), _check._pkg, ("_" : stdgo.GoString), (null : stdgo.go.types.Types.Type));
+                                    _obj = newVar(_lhs.pos(), _check._pkg, ("_" : stdgo.GoString), (null : stdgo.go.types.Types.Type_));
                                 };
                             };
                             {
-                                var _typ:stdgo.go.types.Types.Type = _rhs[(_i : stdgo.StdGoTypes.GoInt)];
+                                var _typ:stdgo.go.types.Types.Type_ = _rhs[(_i : stdgo.StdGoTypes.GoInt)];
                                 if (_typ != null) {
                                     _x._mode = (7 : stdgo.go.types.Types.T_operandMode);
                                     _x._expr = _lhs;
@@ -12379,7 +12379,7 @@ class Checker_asInterface {
                                 continue;
                             };
                             {
-                                var _typ:stdgo.go.types.Types.Type = _rhs[(_i : stdgo.StdGoTypes.GoInt)];
+                                var _typ:stdgo.go.types.Types.Type_ = _rhs[(_i : stdgo.StdGoTypes.GoInt)];
                                 if (_typ != null) {
                                     _x._mode = (7 : stdgo.go.types.Types.T_operandMode);
                                     _x._expr = _lhs;
@@ -12420,15 +12420,15 @@ class Checker_asInterface {
         // If the type switch expression is invalid, x is nil.
     **/
     @:keep
-    static public function _caseTypes( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.StdGoTypes.Ref<T_operand>, _types:stdgo.Slice<stdgo.go.ast.Ast.Expr>, _seen:stdgo.GoMap<Type, stdgo.go.ast.Ast.Expr>):Type {
+    static public function _caseTypes( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.StdGoTypes.Ref<T_operand>, _types:stdgo.Slice<stdgo.go.ast.Ast.Expr>, _seen:stdgo.GoMap<Type_, stdgo.go.ast.Ast.Expr>):Type_ {
         stdgo.internal.Macro.controlFlow({
             @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
-            var t:Type = (null : stdgo.go.types.Types.Type);
+            var t:Type_ = (null : stdgo.go.types.Types.Type_);
             var _dummy:T_operand = ({} : stdgo.go.types.Types.T_operand);
             @:label("L") for (__0 => _e in _types) {
                 if (_check._isNil(_e)) {
-                    t = (null : stdgo.go.types.Types.Type);
-                    _check._expr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_dummy) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _e);
+                    t = (null : stdgo.go.types.Types.Type_);
+                    _check._expr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_dummy) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _e);
                 } else {
                     t = _check._varType(_e);
                     if (stdgo.Go.toInterface(t) == (stdgo.Go.toInterface(stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])))) {
@@ -12463,16 +12463,16 @@ class Checker_asInterface {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_unparen(_e)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_unparen(_e)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : false };
-            }, _name = __tmp__.value, __0 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), _1 : false };
+            }, _name = __tmp__._0, __0 = __tmp__._1;
             if (_name != null && ((_name : Dynamic).__nil__ == null || !(_name : Dynamic).__nil__)) {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_check._lookup(_name.name?.__copy__())) : stdgo.StdGoTypes.Ref<Nil>)) : stdgo.StdGoTypes.Ref<Nil>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_check._lookup(_name.name?.__copy__())) : stdgo.StdGoTypes.Ref<Nil>)) : stdgo.StdGoTypes.Ref<Nil>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Nil>), ok : false };
-                }, __9 = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Nil>), _1 : false };
+                }, __9 = __tmp__._0, _ok = __tmp__._1;
                 return _ok;
             };
         };
@@ -12484,7 +12484,7 @@ class Checker_asInterface {
             @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
             @:label("L") for (__0 => _e in _values) {
                 var _v:T_operand = ({} : stdgo.go.types.Types.T_operand);
-                _check._expr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_v) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _e);
+                _check._expr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_v) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _e);
                 if ((_x._mode == (0 : stdgo.go.types.Types.T_operandMode)) || (_v._mode == (0 : stdgo.go.types.Types.T_operandMode))) {
                     @:jump("L") continue;
                 };
@@ -12523,7 +12523,7 @@ class Checker_asInterface {
         var _msg:stdgo.GoString = ("" : stdgo.GoString);
         var _code:Code = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.internal.types.errors.Errors.Code);
         {
-            final __value__ = _check._rawExpr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), stdgo.Go.asInterface(_call), (null : stdgo.go.types.Types.Type), false);
+            final __value__ = _check._rawExpr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), stdgo.Go.asInterface(_call), (null : stdgo.go.types.Types.Type_), false);
             if (__value__ == ((0 : stdgo.go.types.Types.T_exprKind))) {
                 _msg = ("requires function call, not conversion" : stdgo.GoString);
                 _code = (129 : stdgo.internal.types.errors.Errors.Code);
@@ -12614,10 +12614,10 @@ class Checker_asInterface {
             _elem = _resolve(_name?.__copy__(), _elem);
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_elem) : stdgo.StdGoTypes.Ref<Var>)) : stdgo.StdGoTypes.Ref<Var>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_elem) : stdgo.StdGoTypes.Ref<Var>)) : stdgo.StdGoTypes.Ref<Var>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>), ok : false };
-                }, _v = __tmp__.value, __0 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>), _1 : false };
+                }, _v = __tmp__._0, __0 = __tmp__._1;
                 if (((_v != null) && ((_v : Dynamic).__nil__ == null || !(_v : Dynamic).__nil__)) && !_v._used) {
                     _unused = (_unused.__append__(_v));
                 };
@@ -12706,10 +12706,10 @@ class Checker_asInterface {
             var _ftype:stdgo.go.ast.Ast.Expr = _field.type;
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_ftype) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ellipsis>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ellipsis>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_ftype) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ellipsis>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ellipsis>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ellipsis>), ok : false };
-                }, _t = __tmp__.value, __0 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ellipsis>), _1 : false };
+                }, _t = __tmp__._0, __0 = __tmp__._1;
                 if (_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) {
                     _ftype = _t.elt;
                     if ((_variadicOk && (_i == (_list.list.length - (1 : stdgo.StdGoTypes.GoInt)))) && (_field.names.length <= (1 : stdgo.StdGoTypes.GoInt))) {
@@ -12719,7 +12719,7 @@ class Checker_asInterface {
                     };
                 };
             };
-            var _typ:stdgo.go.types.Types.Type = _check._varType(_ftype);
+            var _typ:stdgo.go.types.Types.Type_ = _check._varType(_ftype);
             if ((_field.names.length) > (0 : stdgo.StdGoTypes.GoInt)) {
                 for (__17 => _name in _field.names) {
                     if (_name.name == (stdgo.Go.str())) {
@@ -12781,10 +12781,10 @@ class Checker_asInterface {
                     if (_rname != null && ((_rname : Dynamic).__nil__ == null || !(_rname : Dynamic).__nil__)) {
                         {
                             var __tmp__ = try {
-                                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_check._genericType(stdgo.Go.asInterface(_rname), (null : stdgo.Pointer<stdgo.GoString>))) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+                                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_check._genericType(stdgo.Go.asInterface(_rname), (null : stdgo.Pointer<stdgo.GoString>))) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
                             } catch(_) {
-                                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-                            }, _recv = __tmp__.value, __97 = __tmp__.ok;
+                                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+                            }, _recv = __tmp__._0, __97 = __tmp__._1;
                             if (_recv != null && ((_recv : Dynamic).__nil__ == null || !(_recv : Dynamic).__nil__)) {
                                 _recvTParams = _recv._check._environment._decl._tdecl.typeParams()._list();
                             };
@@ -12848,7 +12848,7 @@ class Checker_asInterface {
                 };
                 _sig._recv = _recv;
                 _check._later(function():Void {
-                    var __tmp__ = _deref(_recv._object._typ), _rtyp:stdgo.go.types.Types.Type = __tmp__._0, __228:Bool = __tmp__._1;
+                    var __tmp__ = _deref(_recv._object._typ), _rtyp:stdgo.go.types.Types.Type_ = __tmp__._0, __228:Bool = __tmp__._1;
                     if (stdgo.Go.toInterface(_rtyp) == (stdgo.Go.toInterface(stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])))) {
                         return;
                     };
@@ -12877,7 +12877,7 @@ class Checker_asInterface {
                                                 _cause = ("unsafe.Pointer" : stdgo.GoString);
                                             };
                                         } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Pointer_>)) || stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Interface>))) {
-                                            var _u:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                                            var _u:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                                             _cause = ("pointer or interface type" : stdgo.GoString);
                                         } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<TypeParam>))) {
                                             var _u:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>) : __type__.__underlying__().value;
@@ -12891,7 +12891,7 @@ class Checker_asInterface {
                                     var t:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>) : __type__.__underlying__().value;
                                     _check._errorf(stdgo.Go.asInterface(_recv), (32 : stdgo.internal.types.errors.Errors.Code), ("cannot define new methods on non-local type %s" : stdgo.GoString), stdgo.Go.toInterface(_rtyp));
                                 } else {
-                                    var t:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                                    var t:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                                     _check._errorf(stdgo.Go.asInterface(_recv), (32 : stdgo.internal.types.errors.Errors.Code), ("invalid receiver type %s" : stdgo.GoString), stdgo.Go.toInterface(_recv._object._typ));
                                 };
                                 break;
@@ -12947,10 +12947,10 @@ class Checker_asInterface {
             stdgo.Go.cfor(_i >= (0 : stdgo.StdGoTypes.GoInt), _i--, {
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_list[(_i : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.EmptyStmt>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.EmptyStmt>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_list[(_i : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.EmptyStmt>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.EmptyStmt>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.EmptyStmt>), ok : false };
-                    }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.EmptyStmt>), _1 : false };
+                    }, __0 = __tmp__._0, _ok = __tmp__._1;
                     if (!_ok) {
                         return _check._isTerminating(_list[(_i : stdgo.StdGoTypes.GoInt)], _label?.__copy__());
                     };
@@ -12978,10 +12978,10 @@ class Checker_asInterface {
                 var _s:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ExprStmt> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ExprStmt>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ExprStmt>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ExprStmt>) : __type__.__underlying__().value;
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_unparen(_s.x)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_unparen(_s.x)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>), ok : false };
-                    }, _call = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>), _1 : false };
+                    }, _call = __tmp__._0, _ok = __tmp__._1;
                     if (_ok && (_check._environment._isPanic[_call] ?? false)) {
                         return true;
                     };
@@ -13077,10 +13077,10 @@ class Checker_asInterface {
         for (__16 => _obj in _objList) {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<TypeName>)) : stdgo.StdGoTypes.Ref<TypeName>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<TypeName>)) : stdgo.StdGoTypes.Ref<TypeName>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeName>), ok : false };
-                }, _obj = __tmp__.value, __17 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeName>), _1 : false };
+                }, _obj = __tmp__._0, __17 = __tmp__._1;
                 if (((_obj != null) && ((_obj : Dynamic).__nil__ == null || !(_obj : Dynamic).__nil__)) && (_obj._object._typ != null)) {
                     _check._collectMethods(_obj);
                 };
@@ -13091,10 +13091,10 @@ class Checker_asInterface {
         for (__26 => _obj in _objList) {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<TypeName>)) : stdgo.StdGoTypes.Ref<TypeName>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<TypeName>)) : stdgo.StdGoTypes.Ref<TypeName>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeName>), ok : false };
-                }, _tname = __tmp__.value, __27 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeName>), _1 : false };
+                }, _tname = __tmp__._0, __27 = __tmp__._1;
                 if (_tname != null && ((_tname : Dynamic).__nil__ == null || !(_tname : Dynamic).__nil__)) {
                     if ((_check._objMap[stdgo.Go.asInterface(_tname)] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_declInfo>))._tdecl.assign.isValid()) {
                         _aliasList = (_aliasList.__append__(_tname));
@@ -13130,10 +13130,10 @@ class Checker_asInterface {
             _typ = _unparen(_typ);
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.StarExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.StarExpr>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.StarExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.StarExpr>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.StarExpr>), ok : false };
-                }, _pexpr = __tmp__.value, __0 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.StarExpr>), _1 : false };
+                }, _pexpr = __tmp__._0, __0 = __tmp__._1;
                 if (_pexpr != null && ((_pexpr : Dynamic).__nil__ == null || !(_pexpr : Dynamic).__nil__)) {
                     if (_ptr) {
                         return { _0 : false, _1 : null };
@@ -13152,10 +13152,10 @@ class Checker_asInterface {
                     var _typ:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr>) : __type__.__underlying__().value;
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ.x) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ.x) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : false };
-                        }, _ident = __tmp__.value, __1 = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), _1 : false };
+                        }, _ident = __tmp__._0, __1 = __tmp__._1;
                         if (((_ident != null) && ((_ident : Dynamic).__nil__ == null || !(_ident : Dynamic).__nil__)) && (_ident.name == ("C" : stdgo.GoString))) {
                             var _obj:Object = (null : stdgo.go.types.Types.Object);
                             for (__2 => _scope in _fileScopes) {
@@ -13165,10 +13165,10 @@ class Checker_asInterface {
                             };
                             {
                                 var __tmp__ = try {
-                                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<PkgName>)) : stdgo.StdGoTypes.Ref<PkgName>), ok : true };
+                                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<PkgName>)) : stdgo.StdGoTypes.Ref<PkgName>), _1 : true };
                                 } catch(_) {
-                                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.PkgName>), ok : false };
-                                }, _pname = __tmp__.value, __3 = __tmp__.ok;
+                                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.PkgName>), _1 : false };
+                                }, _pname = __tmp__._0, __3 = __tmp__._1;
                                 if (_pname != null && ((_pname : Dynamic).__nil__ == null || !(_pname : Dynamic).__nil__)) {
                                     if (_pname._imported._cgo) {
                                         _name = ("_Ctype_" : stdgo.GoString) + _typ.sel.name?.__copy__()?.__copy__();
@@ -13190,10 +13190,10 @@ class Checker_asInterface {
                 return { _0 : false, _1 : null };
             };
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<TypeName>)) : stdgo.StdGoTypes.Ref<TypeName>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<TypeName>)) : stdgo.StdGoTypes.Ref<TypeName>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeName>), ok : false };
-            }, _tname = __tmp__.value, __12 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeName>), _1 : false };
+            }, _tname = __tmp__._0, __12 = __tmp__._1;
             if (_tname == null || (_tname : Dynamic).__nil__) {
                 return { _0 : false, _1 : null };
             };
@@ -13283,10 +13283,10 @@ class Checker_asInterface {
             };
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_rtyp) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_rtyp) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : false };
-                }, _name = __tmp__.value, __17 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), _1 : false };
+                }, _name = __tmp__._0, __17 = __tmp__._1;
                 if (_name != null && ((_name : Dynamic).__nil__ == null || !(_name : Dynamic).__nil__)) {
                     _rname = _name;
                 };
@@ -13406,7 +13406,7 @@ class Checker_asInterface {
                     } else if (stdgo.Go.typeEquals((__type__ : T_constDecl))) {
                         var _d:stdgo.go.types.Types.T_constDecl = __type__ == null ? ({} : stdgo.go.types.Types.T_constDecl) : __type__.__underlying__() == null ? ({} : stdgo.go.types.Types.T_constDecl) : __type__ == null ? ({} : stdgo.go.types.Types.T_constDecl) : __type__.__underlying__().value;
                         for (_i => _name in _d._spec.names) {
-                            var _obj = newConst(_name.pos(), _pkg, _name.name?.__copy__(), (null : stdgo.go.types.Types.Type), stdgo.go.constant.Constant.makeInt64((_d._iota : stdgo.StdGoTypes.GoInt64)));
+                            var _obj = newConst(_name.pos(), _pkg, _name.name?.__copy__(), (null : stdgo.go.types.Types.Type_), stdgo.go.constant.Constant.makeInt64((_d._iota : stdgo.StdGoTypes.GoInt64)));
                             var _init:stdgo.go.ast.Ast.Expr = (null : stdgo.go.ast.Ast.Expr);
                             if (_i < (_d._init.length)) {
                                 _init = _d._init[(_i : stdgo.StdGoTypes.GoInt)];
@@ -13422,7 +13422,7 @@ class Checker_asInterface {
                             _d1 = (stdgo.Go.setRef(({ _file : _fileScope, _lhs : _lhs, _vtyp : _d._spec.type, _init : _d._spec.values[(0 : stdgo.StdGoTypes.GoInt)] } : stdgo.go.types.Types.T_declInfo)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_declInfo>);
                         };
                         for (_i => _name in _d._spec.names) {
-                            var _obj = newVar(_name.pos(), _pkg, _name.name?.__copy__(), (null : stdgo.go.types.Types.Type));
+                            var _obj = newVar(_name.pos(), _pkg, _name.name?.__copy__(), (null : stdgo.go.types.Types.Type_));
                             _lhs[(_i : stdgo.StdGoTypes.GoInt)] = _obj;
                             var _di = _d1;
                             if (_di == null || (_di : Dynamic).__nil__) {
@@ -13437,7 +13437,7 @@ class Checker_asInterface {
                     } else if (stdgo.Go.typeEquals((__type__ : T_typeDecl))) {
                         var _d:stdgo.go.types.Types.T_typeDecl = __type__ == null ? ({} : stdgo.go.types.Types.T_typeDecl) : __type__.__underlying__() == null ? ({} : stdgo.go.types.Types.T_typeDecl) : __type__ == null ? ({} : stdgo.go.types.Types.T_typeDecl) : __type__.__underlying__().value;
                         (_d._spec.typeParams.numFields() != (0 : stdgo.StdGoTypes.GoInt)) && _check._verifyVersionf(stdgo.Go.asInterface(_d._spec.typeParams.list[(0 : stdgo.StdGoTypes.GoInt)]), _go1_18?.__copy__(), ("type parameter" : stdgo.GoString));
-                        var _obj = newTypeName(_d._spec.name.pos(), _pkg, _d._spec.name.name?.__copy__(), (null : stdgo.go.types.Types.Type));
+                        var _obj = newTypeName(_d._spec.name.pos(), _pkg, _d._spec.name.name?.__copy__(), (null : stdgo.go.types.Types.Type_));
                         _check._declarePkgObj(_d._spec.name, stdgo.Go.asInterface(_obj), (stdgo.Go.setRef(({ _file : _fileScope, _tdecl : _d._spec } : stdgo.go.types.Types.T_declInfo)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_declInfo>));
                     } else if (stdgo.Go.typeEquals((__type__ : T_funcDecl))) {
                         var _d:stdgo.go.types.Types.T_funcDecl = __type__ == null ? ({} : stdgo.go.types.Types.T_funcDecl) : __type__.__underlying__() == null ? ({} : stdgo.go.types.Types.T_funcDecl) : __type__ == null ? ({} : stdgo.go.types.Types.T_funcDecl) : __type__.__underlying__().value;
@@ -13496,10 +13496,10 @@ class Checker_asInterface {
                         _obj = _resolve(_name?.__copy__(), _obj);
                         {
                             var __tmp__ = try {
-                                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<PkgName>)) : stdgo.StdGoTypes.Ref<PkgName>), ok : true };
+                                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<PkgName>)) : stdgo.StdGoTypes.Ref<PkgName>), _1 : true };
                             } catch(_) {
-                                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.PkgName>), ok : false };
-                            }, _pkg = __tmp__.value, _ok = __tmp__.ok;
+                                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.PkgName>), _1 : false };
+                            }, _pkg = __tmp__._0, _ok = __tmp__._1;
                             if (_ok) {
                                 _check._errorf(_alt, (10 : stdgo.internal.types.errors.Errors.Code), ("%s already declared through import of %s" : stdgo.GoString), stdgo.Go.toInterface(_alt.name()), stdgo.Go.toInterface(stdgo.Go.asInterface(_pkg.imported())));
                                 _check._reportAltDecl(stdgo.Go.asInterface(_pkg));
@@ -13549,10 +13549,10 @@ class Checker_asInterface {
                     _err = stdgo.fmt.Fmt.errorf(("Config.Importer not installed" : stdgo.GoString));
                 } else {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_importer) : ImporterFrom)) : ImporterFrom), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_importer) : ImporterFrom)) : ImporterFrom), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.go.types.Types.ImporterFrom), ok : false };
-                    }, _importerFrom = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.go.types.Types.ImporterFrom), _1 : false };
+                    }, _importerFrom = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
                         {
                             var __tmp__ = _importerFrom.importFrom(_path?.__copy__(), _dir?.__copy__(), (0 : stdgo.go.types.Types.ImportMode));
@@ -13694,10 +13694,10 @@ class Checker_asInterface {
         // led to the creation of this instance.
     **/
     @:keep
-    static public function _newNamedInstance( _check:stdgo.StdGoTypes.Ref<Checker>, _pos:stdgo.go.token.Token.Pos, _orig:stdgo.StdGoTypes.Ref<Named>, _targs:stdgo.Slice<Type>, _expanding:stdgo.StdGoTypes.Ref<Named>):stdgo.StdGoTypes.Ref<Named> {
+    static public function _newNamedInstance( _check:stdgo.StdGoTypes.Ref<Checker>, _pos:stdgo.go.token.Token.Pos, _orig:stdgo.StdGoTypes.Ref<Named>, _targs:stdgo.Slice<Type_>, _expanding:stdgo.StdGoTypes.Ref<Named>):stdgo.StdGoTypes.Ref<Named> {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         _assert((_targs.length) > (0 : stdgo.StdGoTypes.GoInt));
-        var _obj = newTypeName(_pos, _orig._obj._object._pkg, _orig._obj._object._name?.__copy__(), (null : stdgo.go.types.Types.Type));
+        var _obj = newTypeName(_pos, _orig._obj._object._pkg, _orig._obj._object._name?.__copy__(), (null : stdgo.go.types.Types.Type_));
         var _inst = (stdgo.Go.setRef(({ _orig : _orig, _targs : _newTypeList(_targs) } : stdgo.go.types.Types.T_instance)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_instance>);
         if (((_expanding != null) && ((_expanding : Dynamic).__nil__ == null || !(_expanding : Dynamic).__nil__)) && (_expanding._check._environment._decl._tdecl.name.obj()._object._pkg == _obj._object._pkg)) {
             _inst._ctxt = _expanding._inst._ctxt;
@@ -13713,7 +13713,7 @@ class Checker_asInterface {
         // newNamed is like NewNamed but with a *Checker receiver and additional orig argument.
     **/
     @:keep
-    static public function _newNamed( _check:stdgo.StdGoTypes.Ref<Checker>, _obj:stdgo.StdGoTypes.Ref<TypeName>, _underlying:Type, _methods:stdgo.Slice<stdgo.StdGoTypes.Ref<Func>>):stdgo.StdGoTypes.Ref<Named> {
+    static public function _newNamed( _check:stdgo.StdGoTypes.Ref<Checker>, _obj:stdgo.StdGoTypes.Ref<TypeName>, _underlying:Type_, _methods:stdgo.Slice<stdgo.StdGoTypes.Ref<Func>>):stdgo.StdGoTypes.Ref<Named> {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         var _typ = (stdgo.Go.setRef(({ _check : _check, _obj : _obj, _fromRHS : _underlying, _underlying : _underlying, _methods : _methods } : stdgo.go.types.Types.Named)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>);
         if (_obj._object._typ == null) {
@@ -13787,7 +13787,7 @@ class Checker_asInterface {
         // If the result is false and cause is not nil, *cause is set to the error cause.
     **/
     @:keep
-    static public function _newAssertableTo( _check:stdgo.StdGoTypes.Ref<Checker>, _pos:stdgo.go.token.Token.Pos, v:Type, t:Type, _cause:stdgo.Pointer<stdgo.GoString>):Bool {
+    static public function _newAssertableTo( _check:stdgo.StdGoTypes.Ref<Checker>, _pos:stdgo.go.token.Token.Pos, v:Type_, t:Type_, _cause:stdgo.Pointer<stdgo.GoString>):Bool {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         if (isInterface(t)) {
             return true;
@@ -13803,7 +13803,7 @@ class Checker_asInterface {
         // TODO(gri) replace calls to this function with calls to newAssertableTo.
     **/
     @:keep
-    static public function _assertableTo( _check:stdgo.StdGoTypes.Ref<Checker>, v:Type, t:Type, _cause:stdgo.Pointer<stdgo.GoString>):Bool {
+    static public function _assertableTo( _check:stdgo.StdGoTypes.Ref<Checker>, v:Type_, t:Type_, _cause:stdgo.Pointer<stdgo.GoString>):Bool {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         if (isInterface(t)) {
             return true;
@@ -13833,15 +13833,15 @@ class Checker_asInterface {
         // check may be nil.
     **/
     @:keep
-    static public function _interfacePtrError( _check:stdgo.StdGoTypes.Ref<Checker>, t:Type):stdgo.GoString {
+    static public function _interfacePtrError( _check:stdgo.StdGoTypes.Ref<Checker>, t:Type_):stdgo.GoString {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         _assert(_isInterfacePtr(t));
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(t)) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(t)) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), ok : false };
-            }, _p = __tmp__.value, __0 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), _1 : false };
+            }, _p = __tmp__._0, __0 = __tmp__._1;
             if (_isTypeParam(_p._base)) {
                 return _check._sprintf(("type %s is pointer to type parameter, not type parameter" : stdgo.GoString), stdgo.Go.toInterface(t))?.__copy__();
             };
@@ -13860,7 +13860,7 @@ class Checker_asInterface {
         // If a method is missing and cause is not nil, *cause describes the error.
     **/
     @:keep
-    static public function _missingMethod( _check:stdgo.StdGoTypes.Ref<Checker>, v:Type, t:Type, _static:Bool, _equivalent:(_x:Type, _y:Type) -> Bool, _cause:stdgo.Pointer<stdgo.GoString>):{ var _0 : stdgo.StdGoTypes.Ref<Func>; var _1 : Bool; } {
+    static public function _missingMethod( _check:stdgo.StdGoTypes.Ref<Checker>, v:Type_, t:Type_, _static:Bool, _equivalent:(_x:Type_, _y:Type_) -> Bool, _cause:stdgo.Pointer<stdgo.GoString>):{ var _0 : stdgo.StdGoTypes.Ref<Func>; var _1 : Bool; } {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         var _method:stdgo.StdGoTypes.Ref<Func> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>), _wrongType:Bool = false;
         var _methods = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(t)) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>)._typeSet()._methods;
@@ -13873,10 +13873,10 @@ class Checker_asInterface {
         var _f:stdgo.StdGoTypes.Ref<Func> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>);
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(v)) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(v)) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), ok : false };
-            }, _u = __tmp__.value, __8 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), _1 : false };
+            }, _u = __tmp__._0, __8 = __tmp__._1;
             if (_u != null && ((_u : Dynamic).__nil__ == null || !(_u : Dynamic).__nil__)) {
                 var _tset = _u._typeSet();
                 for (__key__ => __value__ in _methods) {
@@ -13914,11 +13914,11 @@ class Checker_asInterface {
                             };
                             {
                                 var __tmp__ = try {
-                                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<Func>)) : stdgo.StdGoTypes.Ref<Func>), ok : true };
+                                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<Func>)) : stdgo.StdGoTypes.Ref<Func>), _1 : true };
                                 } catch(_) {
-                                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>), ok : false };
+                                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>), _1 : false };
                                 };
-                                _f = __tmp__.value;
+                                _f = __tmp__._0;
                             };
                             if (_f != null && ((_f : Dynamic).__nil__ == null || !(_f : Dynamic).__nil__)) {
                                 _state = (2 : stdgo.StdGoTypes.GoInt);
@@ -13928,11 +13928,11 @@ class Checker_asInterface {
                     };
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<Func>)) : stdgo.StdGoTypes.Ref<Func>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<Func>)) : stdgo.StdGoTypes.Ref<Func>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>), ok : false };
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>), _1 : false };
                         };
-                        _f = __tmp__.value;
+                        _f = __tmp__._0;
                     };
                     if (_f == null || (_f : Dynamic).__nil__) {
                         _state = (6 : stdgo.StdGoTypes.GoInt);
@@ -14029,10 +14029,10 @@ class Checker_asInterface {
                     var _s:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.DeclStmt> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.DeclStmt>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.DeclStmt>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.DeclStmt>) : __type__.__underlying__().value;
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_s.decl) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_s.decl) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>), ok : false };
-                        }, _d = __tmp__.value, __0 = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>), _1 : false };
+                        }, _d = __tmp__._0, __0 = __tmp__._1;
                         if (((_d != null) && ((_d : Dynamic).__nil__ == null || !(_d : Dynamic).__nil__)) && (_d.tok == (85 : stdgo.go.token.Token.Token))) {
                             _recordVarDecl(_d.pos());
                         };
@@ -14207,7 +14207,7 @@ class Checker_asInterface {
     @:keep
     static public function _interfaceType( _check:stdgo.StdGoTypes.Ref<Checker>, _ityp:stdgo.StdGoTypes.Ref<Interface>, _iface:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.InterfaceType>, _def:stdgo.StdGoTypes.Ref<Named>):Void {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
-        var _addEmbedded:(stdgo.go.token.Token.Pos, stdgo.go.types.Types.Type) -> Void = function(_pos:stdgo.go.token.Token.Pos, _typ:Type):Void {
+        var _addEmbedded:(stdgo.go.token.Token.Pos, stdgo.go.types.Types.Type_) -> Void = function(_pos:stdgo.go.token.Token.Pos, _typ:Type_):Void {
             _ityp._embeddeds = (_ityp._embeddeds.__append__(_typ));
             if (_ityp._embedPos == null || (_ityp._embedPos : Dynamic).__nil__) {
                 _ityp._embedPos = (stdgo.Go.setRef((null : stdgo.Slice<stdgo.go.token.Token.Pos>)) : stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.go.token.Token.Pos>>);
@@ -14224,12 +14224,12 @@ class Checker_asInterface {
                 _check._error(stdgo.Go.asInterface(_name), (27 : stdgo.internal.types.errors.Errors.Code), ("methods must have a unique non-blank name" : stdgo.GoString));
                 continue;
             };
-            var _typ:stdgo.go.types.Types.Type = _check._environment._sig._recv._object._typ(_f.type);
+            var _typ:stdgo.go.types.Types.Type_ = _check._environment._sig._recv._object._typ(_f.type);
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), ok : false };
-            }, _sig = __tmp__.value, __17 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), _1 : false };
+            }, _sig = __tmp__._0, __17 = __tmp__._1;
             if (_sig == null || (_sig : Dynamic).__nil__) {
                 if (stdgo.Go.toInterface(_typ) != (stdgo.Go.toInterface(stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])))) {
                     _check._errorf(_f.type, (-1 : stdgo.internal.types.errors.Errors.Code), ("%s is not a method signature" : stdgo.GoString), stdgo.Go.toInterface(_typ));
@@ -14240,17 +14240,17 @@ class Checker_asInterface {
                 var _at:T_positioner = _f.type;
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_f.type) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncType>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncType>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_f.type) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncType>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncType>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncType>), ok : false };
-                    }, _ftyp = __tmp__.value, __26 = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncType>), _1 : false };
+                    }, _ftyp = __tmp__._0, __26 = __tmp__._1;
                     if (((_ftyp != null) && ((_ftyp : Dynamic).__nil__ == null || !(_ftyp : Dynamic).__nil__)) && ((_ftyp.typeParams != null) && ((_ftyp.typeParams : Dynamic).__nil__ == null || !(_ftyp.typeParams : Dynamic).__nil__))) {
                         _at = stdgo.Go.asInterface(_ftyp.typeParams);
                     };
                 };
                 _check._error(_at, (143 : stdgo.internal.types.errors.Errors.Code), ("methods cannot have type parameters" : stdgo.GoString));
             };
-            var _recvTyp:Type = stdgo.Go.asInterface(_ityp);
+            var _recvTyp:Type_ = stdgo.Go.asInterface(_ityp);
             if (_def != null && ((_def : Dynamic).__nil__ == null || !(_def : Dynamic).__nil__)) {
                 _recvTyp = stdgo.Go.asInterface(_def);
             };
@@ -14290,19 +14290,19 @@ class Checker_asInterface {
         // explaining why V does not implement (or satisfy, for constraints) T.
     **/
     @:keep
-    static public function _implements( _check:stdgo.StdGoTypes.Ref<Checker>, _pos:stdgo.go.token.Token.Pos, v:Type, t:Type, _constraint:Bool, _cause:stdgo.Pointer<stdgo.GoString>):Bool {
+    static public function _implements( _check:stdgo.StdGoTypes.Ref<Checker>, _pos:stdgo.go.token.Token.Pos, v:Type_, t:Type_, _constraint:Bool, _cause:stdgo.Pointer<stdgo.GoString>):Bool {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
-        var vu:stdgo.go.types.Types.Type = _under(v);
-        var tu:stdgo.go.types.Types.Type = _under(t);
+        var vu:stdgo.go.types.Types.Type_ = _under(v);
+        var tu:stdgo.go.types.Types.Type_ = _under(t);
         if ((stdgo.Go.toInterface(vu) == stdgo.Go.toInterface(stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)]))) || (stdgo.Go.toInterface(tu) == stdgo.Go.toInterface(stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])))) {
             return true;
         };
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(vu) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(vu) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), ok : false };
-            }, _p = __tmp__.value, __0 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), _1 : false };
+            }, _p = __tmp__._0, __0 = __tmp__._1;
             if (((_p != null) && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__)) && (stdgo.Go.toInterface(_under(_p._base)) == stdgo.Go.toInterface(stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])))) {
                 return true;
             };
@@ -14312,10 +14312,10 @@ class Checker_asInterface {
             _verb = ("satisfy" : stdgo.GoString);
         };
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(tu) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(tu) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), ok : false };
-        }, ti = __tmp__.value, __1 = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), _1 : false };
+        }, ti = __tmp__._0, __1 = __tmp__._1;
         if (ti == null || (ti : Dynamic).__nil__) {
             if (_cause != null) {
                 var _detail:stdgo.GoString = ("" : stdgo.GoString);
@@ -14332,10 +14332,10 @@ class Checker_asInterface {
             return true;
         };
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(vu) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(vu) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), ok : false };
-        }, vi = __tmp__.value, __34 = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), _1 : false };
+        }, vi = __tmp__._0, __34 = __tmp__._1;
         if (((vi != null) && ((vi : Dynamic).__nil__ == null || !(vi : Dynamic).__nil__)) && vi._typeSet().isEmpty()) {
             return true;
         };
@@ -14358,10 +14358,10 @@ class Checker_asInterface {
             if (!ti.isComparable()) {
                 return true;
             };
-            if (_comparable(v, false, (null : stdgo.GoMap<stdgo.go.types.Types.Type, Bool>), null)) {
+            if (_comparable(v, false, (null : stdgo.GoMap<stdgo.go.types.Types.Type_, Bool>), null)) {
                 return true;
             };
-            if (_constraint && _comparable(v, true, (null : stdgo.GoMap<stdgo.go.types.Types.Type, Bool>), null)) {
+            if (_constraint && _comparable(v, true, (null : stdgo.GoMap<stdgo.go.types.Types.Type_, Bool>), null)) {
                 if (((_check == null) || (_check : Dynamic).__nil__) || _check._allowVersion(_check._pkg, stdgo.Go.asInterface((_pos : T_atPos)), _go1_20?.__copy__())) {
                     return true;
                 };
@@ -14387,7 +14387,7 @@ class Checker_asInterface {
             };
             return _checkComparability();
         };
-        var _alt:Type = (null : stdgo.go.types.Types.Type);
+        var _alt:Type_ = (null : stdgo.go.types.Types.Type_);
         if (ti._typeSet()._is(function(_t:stdgo.StdGoTypes.Ref<T_term>):Bool {
             if (!_t._includes(v)) {
                 if (((_alt == null) && !_t._tilde) && identical(_t._typ, _under(_t._typ))) {
@@ -14417,12 +14417,12 @@ class Checker_asInterface {
         return _checkComparability();
     }
     @:keep
-    static public function _verify( _check:stdgo.StdGoTypes.Ref<Checker>, _pos:stdgo.go.token.Token.Pos, _tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _targs:stdgo.Slice<Type>, _ctxt:stdgo.StdGoTypes.Ref<Context>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+    static public function _verify( _check:stdgo.StdGoTypes.Ref<Checker>, _pos:stdgo.go.token.Token.Pos, _tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _targs:stdgo.Slice<Type_>, _ctxt:stdgo.StdGoTypes.Ref<Context>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         var _smap:stdgo.go.types.Types.T_substMap = _makeSubstMap(_tparams, _targs);
         for (_i => _tpar in _tparams) {
             _tpar._iface();
-            var _bound:stdgo.go.types.Types.Type = _check._subst(_pos, _tpar._bound, _smap, null, _ctxt);
+            var _bound:stdgo.go.types.Types.Type_ = _check._subst(_pos, _tpar._bound, _smap, null, _ctxt);
             var _cause:stdgo.GoString = ("" : stdgo.GoString);
             if (!_check._implements(_pos, _targs[(_i : stdgo.StdGoTypes.GoInt)], _bound, true, stdgo.Go.pointer(_cause))) {
                 return { _0 : _i, _1 : stdgo.errors.Errors.new_(_cause?.__copy__()) };
@@ -14461,9 +14461,9 @@ class Checker_asInterface {
         // For Named types the resulting instance may be unexpanded.
     **/
     @:keep
-    static public function _instance( _check:stdgo.StdGoTypes.Ref<Checker>, _pos:stdgo.go.token.Token.Pos, _orig:Type, _targs:stdgo.Slice<Type>, _expanding:stdgo.StdGoTypes.Ref<Named>, _ctxt:stdgo.StdGoTypes.Ref<Context>):Type {
+    static public function _instance( _check:stdgo.StdGoTypes.Ref<Checker>, _pos:stdgo.go.token.Token.Pos, _orig:Type_, _targs:stdgo.Slice<Type_>, _expanding:stdgo.StdGoTypes.Ref<Named>, _ctxt:stdgo.StdGoTypes.Ref<Context>):Type_ {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
-        var _res:Type = (null : stdgo.go.types.Types.Type);
+        var _res:Type_ = (null : stdgo.go.types.Types.Type_);
         var _ctxts:stdgo.Slice<stdgo.StdGoTypes.Ref<Context>> = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Context>>);
         if (_expanding != null && ((_expanding : Dynamic).__nil__ == null || !(_expanding : Dynamic).__nil__)) {
             _ctxts = (_ctxts.__append__(_expanding._inst._ctxt));
@@ -14476,7 +14476,7 @@ class Checker_asInterface {
         for (_i => _ctxt in _ctxts) {
             _hashes[(_i : stdgo.StdGoTypes.GoInt)] = _ctxt._instanceHash(_orig, _targs)?.__copy__();
         };
-        var _updateContexts:stdgo.go.types.Types.Type -> stdgo.go.types.Types.Type = function(_res:Type):Type {
+        var _updateContexts:stdgo.go.types.Types.Type_ -> stdgo.go.types.Types.Type_ = function(_res:Type_):Type_ {
             {
                 var _i:stdgo.StdGoTypes.GoInt = (_ctxts.length) - (1 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_i >= (0 : stdgo.StdGoTypes.GoInt), _i--, {
@@ -14487,7 +14487,7 @@ class Checker_asInterface {
         };
         for (_i => _ctxt in _ctxts) {
             {
-                var _inst:stdgo.go.types.Types.Type = _ctxt._lookup(_hashes[(_i : stdgo.StdGoTypes.GoInt)]?.__copy__(), _orig, _targs);
+                var _inst:stdgo.go.types.Types.Type_ = _ctxt._lookup(_hashes[(_i : stdgo.StdGoTypes.GoInt)]?.__copy__(), _orig, _targs);
                 if (_inst != null) {
                     return _updateContexts(_inst);
                 };
@@ -14516,7 +14516,7 @@ class Checker_asInterface {
                 _sig._tparams = null;
                 _res = stdgo.Go.asInterface(_sig);
             } else {
-                var _orig:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                var _orig:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                 throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v: cannot instantiate %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_pos)), stdgo.Go.toInterface(_orig)));
             };
         };
@@ -14559,10 +14559,10 @@ class Checker_asInterface {
             for (_obj => _d in _check._objMap) {
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : T_dependency)) : T_dependency), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : T_dependency)) : T_dependency), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.go.types.Types.T_dependency), ok : false };
-                    }, _obj = __tmp__.value, __40 = __tmp__.ok;
+                        { _0 : (null : stdgo.go.types.Types.T_dependency), _1 : false };
+                    }, _obj = __tmp__._0, __40 = __tmp__._1;
                     if (_obj != null) {
                         if ((_d._deps.length) > (0 : stdgo.StdGoTypes.GoInt)) {
                             stdgo.fmt.Fmt.printf(("\t%s depends on\n" : stdgo.GoString), stdgo.Go.toInterface(_obj.name()));
@@ -14613,10 +14613,10 @@ class Checker_asInterface {
                 stdgo.container.heap.Heap.fix(stdgo.Go.asInterface((stdgo.Go.setRef(_pq) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_nodeQueue>)), _p._index);
             };
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_n._obj) : stdgo.StdGoTypes.Ref<Var>)) : stdgo.StdGoTypes.Ref<Var>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_n._obj) : stdgo.StdGoTypes.Ref<Var>)) : stdgo.StdGoTypes.Ref<Var>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>), ok : false };
-            }, _v = __tmp__.value, __58 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>), _1 : false };
+            }, _v = __tmp__._0, __58 = __tmp__._1;
             var _info = (_check._objMap[stdgo.Go.asInterface(_v)] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_declInfo>));
             if (((_v == null) || (_v : Dynamic).__nil__) || !_info._hasInitializer()) {
                 continue;
@@ -14651,15 +14651,15 @@ class Checker_asInterface {
         // The positions is only used for debug traces.
     **/
     @:keep
-    static public function _renameTParams( _check:stdgo.StdGoTypes.Ref<Checker>, _pos:stdgo.go.token.Token.Pos, _tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _typ:Type):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>; var _1 : Type; } {
+    static public function _renameTParams( _check:stdgo.StdGoTypes.Ref<Checker>, _pos:stdgo.go.token.Token.Pos, _tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _typ:Type_):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>; var _1 : Type_; } {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         if ((_tparams.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
             return { _0 : (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>), _1 : _typ };
         };
         var _tparams2 = new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>((_tparams.length : stdgo.StdGoTypes.GoInt).toBasic(), 0);
         for (_i => _tparam in _tparams) {
-            var _tname = newTypeName(_tparam._check._environment._decl._tdecl.name.obj().pos(), _tparam._check._environment._decl._tdecl.name.obj().pkg(), _tparam._check._environment._decl._tdecl.name.obj().name()?.__copy__(), (null : stdgo.go.types.Types.Type));
-            _tparams2[(_i : stdgo.StdGoTypes.GoInt)] = newTypeParam(_tname, (null : stdgo.go.types.Types.Type));
+            var _tname = newTypeName(_tparam._check._environment._decl._tdecl.name.obj().pos(), _tparam._check._environment._decl._tdecl.name.obj().pkg(), _tparam._check._environment._decl._tdecl.name.obj().name()?.__copy__(), (null : stdgo.go.types.Types.Type_));
+            _tparams2[(_i : stdgo.StdGoTypes.GoInt)] = newTypeParam(_tname, (null : stdgo.go.types.Types.Type_));
             _tparams2[(_i : stdgo.StdGoTypes.GoInt)]._index = _tparam._index;
         };
         var _renameMap:stdgo.go.types.Types.T_substMap = _makeRenameMap(_tparams, _tparams2);
@@ -14677,10 +14677,10 @@ class Checker_asInterface {
         // type parameter. Otherwise the result is nil and appropriate errors will be reported.
     **/
     @:keep
-    static public function _infer( _check:stdgo.StdGoTypes.Ref<Checker>, _posn:T_positioner, _tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _targs:stdgo.Slice<Type>, _params:stdgo.StdGoTypes.Ref<Tuple>, _args:stdgo.Slice<stdgo.StdGoTypes.Ref<T_operand>>):stdgo.Slice<Type> {
+    static public function _infer( _check:stdgo.StdGoTypes.Ref<Checker>, _posn:T_positioner, _tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _targs:stdgo.Slice<Type_>, _params:stdgo.StdGoTypes.Ref<Tuple>, _args:stdgo.Slice<stdgo.StdGoTypes.Ref<T_operand>>):stdgo.Slice<Type_> {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         var __deferstack__:Array<Void -> Void> = [];
-        var _inferred:stdgo.Slice<Type> = (null : stdgo.Slice<stdgo.go.types.Types.Type>);
+        var _inferred:stdgo.Slice<Type_> = (null : stdgo.Slice<stdgo.go.types.Types.Type_>);
         try {
             if (false) {
                 __deferstack__.unshift(() -> {
@@ -14711,7 +14711,7 @@ class Checker_asInterface {
                 };
             };
             if ((_targs.length) < _n) {
-                var _targs2 = new stdgo.Slice<stdgo.go.types.Types.Type>((_n : stdgo.StdGoTypes.GoInt).toBasic(), 0);
+                var _targs2 = new stdgo.Slice<stdgo.go.types.Types.Type_>((_n : stdgo.StdGoTypes.GoInt).toBasic(), 0);
                 stdgo.Go.copySlice(_targs2, _targs);
                 _targs = _targs2;
             };
@@ -14720,7 +14720,7 @@ class Checker_asInterface {
                 _params = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_check._subst(_nopos, stdgo.Go.asInterface(_params), _smap, null, _check._context())) : stdgo.StdGoTypes.Ref<Tuple>)) : stdgo.StdGoTypes.Ref<Tuple>);
             };
             var _u = _newUnifier(_tparams, _targs, _check._allowVersion(_check._pkg, _posn, _go1_21?.__copy__()));
-            var _errorf = function(_kind:stdgo.GoString, _tpar:Type, _targ:Type, _arg:stdgo.StdGoTypes.Ref<T_operand>):Void {
+            var _errorf = function(_kind:stdgo.GoString, _tpar:Type_, _targ:Type_, _arg:stdgo.StdGoTypes.Ref<T_operand>):Void {
                 var _targs = _u._inferred(_tparams);
                 if (_targs[(0 : stdgo.StdGoTypes.GoInt)] == null) {
                     var _allFailed:Bool = true;
@@ -14736,7 +14736,7 @@ class Checker_asInterface {
                     };
                 };
                 var _smap:stdgo.go.types.Types.T_substMap = _makeSubstMap(_tparams, _targs);
-                var _inferred:stdgo.go.types.Types.Type = _check._subst(_arg.pos(), _tpar, _smap, null, _check._context());
+                var _inferred:stdgo.go.types.Types.Type_ = _check._subst(_arg.pos(), _tpar, _smap, null, _check._context());
                 if (stdgo.Go.toInterface(_inferred) != (stdgo.Go.toInterface(_tpar))) {
                     _check._errorf(stdgo.Go.asInterface(_arg), (138 : stdgo.internal.types.errors.Errors.Code), ("%s %s of %s does not match inferred type %s for %s" : stdgo.GoString), stdgo.Go.toInterface(_kind), stdgo.Go.toInterface(_targ), stdgo.Go.toInterface(_arg._expr), stdgo.Go.toInterface(_inferred), stdgo.Go.toInterface(_tpar));
                 } else {
@@ -14761,15 +14761,15 @@ class Checker_asInterface {
                                 for (defer in __deferstack__) {
                                     defer();
                                 };
-                                return (null : stdgo.Slice<stdgo.go.types.Types.Type>);
+                                return (null : stdgo.Slice<stdgo.go.types.Types.Type_>);
                             };
                         };
                     } else {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_par._object._typ) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_par._object._typ) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), ok : false };
-                        }, __40 = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), _1 : false };
+                        }, __40 = __tmp__._0, _ok = __tmp__._1;
                         if (_ok && !_arg._isNil()) {
                             _untyped = (_untyped.__append__(_i));
                         };
@@ -14794,7 +14794,7 @@ class Checker_asInterface {
                         _u._tracef(("-- iteration %d" : stdgo.GoString), stdgo.Go.toInterface(_i));
                     };
                     for (__41 => _tpar in _tparams) {
-                        var _tx:stdgo.go.types.Types.Type = _u._at(_tpar);
+                        var _tx:stdgo.go.types.Types.Type_ = _u._at(_tpar);
                         var __tmp__ = _coreTerm(_tpar), _core:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_term> = __tmp__._0, _single:Bool = __tmp__._1;
                         if (false) {
                             _u._tracef(("-- type parameter %s = %s: core(%s) = %s, single = %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_tpar)), stdgo.Go.toInterface(_tx), stdgo.Go.toInterface(stdgo.Go.asInterface(_tpar)), stdgo.Go.toInterface(stdgo.Go.asInterface(_core)), stdgo.Go.toInterface(_single));
@@ -14807,7 +14807,7 @@ class Checker_asInterface {
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
-                                        return (null : stdgo.Slice<stdgo.go.types.Types.Type>);
+                                        return (null : stdgo.Slice<stdgo.go.types.Types.Type_>);
                                     };
                                 };
                             } else if (_single && !_core._tilde) {
@@ -14818,7 +14818,7 @@ class Checker_asInterface {
                                 var _cause:stdgo.GoString = ("" : stdgo.GoString);
                                 var _constraint = _tpar._iface();
                                 {
-                                    var __tmp__ = _check._missingMethod(_tx, stdgo.Go.asInterface(_constraint), true, function(_x:Type, _y:Type):Bool {
+                                    var __tmp__ = _check._missingMethod(_tx, stdgo.Go.asInterface(_constraint), true, function(_x:Type_, _y:Type_):Bool {
                                         return _u._unify(_x, _y, (2u32 : stdgo.go.types.Types.T_unifyMode));
                                     }, stdgo.Go.pointer(_cause)), _m:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func> = __tmp__._0, __74:Bool = __tmp__._1;
                                     if (_m != null && ((_m : Dynamic).__nil__ == null || !(_m : Dynamic).__nil__)) {
@@ -14827,7 +14827,7 @@ class Checker_asInterface {
                                             for (defer in __deferstack__) {
                                                 defer();
                                             };
-                                            return (null : stdgo.Slice<stdgo.go.types.Types.Type>);
+                                            return (null : stdgo.Slice<stdgo.go.types.Types.Type_>);
                                         };
                                     };
                                 };
@@ -14846,30 +14846,30 @@ class Checker_asInterface {
             if (false) {
                 _u._tracef(("== untyped arguments: %v" : stdgo.GoString), stdgo.Go.toInterface(_untyped));
             };
-            var _maxUntyped:stdgo.GoMap<stdgo.StdGoTypes.Ref<TypeParam>, Type> = (null : stdgo.GoMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.go.types.Types.Type>);
+            var _maxUntyped:stdgo.GoMap<stdgo.StdGoTypes.Ref<TypeParam>, Type_> = (null : stdgo.GoMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.go.types.Types.Type_>);
             for (__91 => _index in _untyped) {
                 var _tpar = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_params.at(_index)._object._typ) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>);
                 if (_u._at(_tpar) == null) {
                     var _arg = _args[(_index : stdgo.StdGoTypes.GoInt)];
                     if (_maxUntyped == null) {
                         _maxUntyped = ({
-                            final x = new stdgo.GoMap.GoRefMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.go.types.Types.Type>();
+                            final x = new stdgo.GoMap.GoRefMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.go.types.Types.Type_>();
                             @:mergeBlock {};
                             cast x;
-                        } : stdgo.GoMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.go.types.Types.Type>);
+                        } : stdgo.GoMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>, stdgo.go.types.Types.Type_>);
                     };
-                    var _max:stdgo.go.types.Types.Type = (_maxUntyped[_tpar] ?? (null : stdgo.go.types.Types.Type));
+                    var _max:stdgo.go.types.Types.Type_ = (_maxUntyped[_tpar] ?? (null : stdgo.go.types.Types.Type_));
                     if (_max == null) {
                         _max = _arg._typ;
                     } else {
-                        var _m:stdgo.go.types.Types.Type = _maxType(_max, _arg._typ);
+                        var _m:stdgo.go.types.Types.Type_ = _maxType(_max, _arg._typ);
                         if (_m == null) {
                             _check._errorf(stdgo.Go.asInterface(_arg), (138 : stdgo.internal.types.errors.Errors.Code), ("mismatched types %s and %s (cannot infer %s)" : stdgo.GoString), stdgo.Go.toInterface(_max), stdgo.Go.toInterface(_arg._typ), stdgo.Go.toInterface(stdgo.Go.asInterface(_tpar)));
                             {
                                 for (defer in __deferstack__) {
                                     defer();
                                 };
-                                return (null : stdgo.Slice<stdgo.go.types.Types.Type>);
+                                return (null : stdgo.Slice<stdgo.go.types.Types.Type_>);
                             };
                         };
                         _max = _m;
@@ -14878,7 +14878,7 @@ class Checker_asInterface {
                 };
             };
             for (_tpar => _typ in _maxUntyped) {
-                var _d:stdgo.go.types.Types.Type = default_(_typ);
+                var _d:stdgo.go.types.Types.Type_ = default_(_typ);
                 _assert(_isTyped(_d));
                 _u._set(_tpar, _d);
             };
@@ -14902,16 +14902,16 @@ class Checker_asInterface {
                 var _smap:stdgo.go.types.Types.T_substMap = _makeSubstMap(_tparams, _inferred);
                 var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 for (__104 => _index in _dirty) {
-                    var _t0:stdgo.go.types.Types.Type = _inferred[(_index : stdgo.StdGoTypes.GoInt)];
+                    var _t0:stdgo.go.types.Types.Type_ = _inferred[(_index : stdgo.StdGoTypes.GoInt)];
                     {
-                        var _t1:stdgo.go.types.Types.Type = _check._subst(_nopos, _t0, _smap, null, _check._context());
+                        var _t1:stdgo.go.types.Types.Type_ = _check._subst(_nopos, _t0, _smap, null, _check._context());
                         if (stdgo.Go.toInterface(_t1) != (stdgo.Go.toInterface(_t0))) {
                             {
                                 var __tmp__ = try {
-                                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t1) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), ok : true };
+                                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t1) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), _1 : true };
                                 } catch(_) {
-                                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), ok : false };
-                                }, _sig = __tmp__.value, __121 = __tmp__.ok;
+                                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), _1 : false };
+                                }, _sig = __tmp__._0, __121 = __tmp__._1;
                                 if ((((_sig != null) && ((_sig : Dynamic).__nil__ == null || !(_sig : Dynamic).__nil__)) && (_sig.typeParams().len() > (0 : stdgo.StdGoTypes.GoInt))) && !_isParameterized(_tparams, stdgo.Go.asInterface(_sig))) {
                                     _sig._tparams = null;
                                 };
@@ -14932,7 +14932,7 @@ class Checker_asInterface {
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return (null : stdgo.Slice<stdgo.go.types.Types.Type>);
+                        return (null : stdgo.Slice<stdgo.go.types.Types.Type_>);
                     };
                 };
             };
@@ -14970,7 +14970,7 @@ class Checker_asInterface {
         // literal (maximum index value + 1).
     **/
     @:keep
-    static public function _indexedElts( _check:stdgo.StdGoTypes.Ref<Checker>, _elts:stdgo.Slice<stdgo.go.ast.Ast.Expr>, _typ:Type, _length:stdgo.StdGoTypes.GoInt64):stdgo.StdGoTypes.GoInt64 {
+    static public function _indexedElts( _check:stdgo.StdGoTypes.Ref<Checker>, _elts:stdgo.Slice<stdgo.go.ast.Ast.Expr>, _typ:Type_, _length:stdgo.StdGoTypes.GoInt64):stdgo.StdGoTypes.GoInt64 {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         var _visited = ({
             final x = new stdgo.GoMap.GoInt64Map<Bool>();
@@ -14984,13 +14984,13 @@ class Checker_asInterface {
             var _eval:stdgo.go.ast.Ast.Expr = _e;
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), ok : false };
-                }, _kv = __tmp__.value, __1 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), _1 : false };
+                }, _kv = __tmp__._0, __1 = __tmp__._1;
                 if (_kv != null && ((_kv : Dynamic).__nil__ == null || !(_kv : Dynamic).__nil__)) {
                     {
-                        var __tmp__ = _check._index(_kv.key, _length), _typ:stdgo.go.types.Types.Type = __tmp__._0, _i:stdgo.StdGoTypes.GoInt64 = __tmp__._1;
+                        var __tmp__ = _check._index(_kv.key, _length), _typ:stdgo.go.types.Types.Type_ = __tmp__._0, _i:stdgo.StdGoTypes.GoInt64 = __tmp__._1;
                         if (stdgo.Go.toInterface(_typ) != (stdgo.Go.toInterface(stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])))) {
                             if (_i >= (0i64 : stdgo.StdGoTypes.GoInt64)) {
                                 _index = _i;
@@ -15056,13 +15056,13 @@ class Checker_asInterface {
         // If the result val >= 0, index is valid and val is its constant int value.
     **/
     @:keep
-    static public function _index( _check:stdgo.StdGoTypes.Ref<Checker>, _index:stdgo.go.ast.Ast.Expr, _max:stdgo.StdGoTypes.GoInt64):{ var _0 : Type; var _1 : stdgo.StdGoTypes.GoInt64; } {
+    static public function _index( _check:stdgo.StdGoTypes.Ref<Checker>, _index:stdgo.go.ast.Ast.Expr, _max:stdgo.StdGoTypes.GoInt64):{ var _0 : Type_; var _1 : stdgo.StdGoTypes.GoInt64; } {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
-        var _typ:Type = (null : stdgo.go.types.Types.Type), _val:stdgo.StdGoTypes.GoInt64 = (0 : stdgo.StdGoTypes.GoInt64);
+        var _typ:Type_ = (null : stdgo.go.types.Types.Type_), _val:stdgo.StdGoTypes.GoInt64 = (0 : stdgo.StdGoTypes.GoInt64);
         _typ = stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)]);
         _val = (-1i64 : stdgo.StdGoTypes.GoInt64);
         var _x:T_operand = ({} : stdgo.go.types.Types.T_operand);
-        _check._expr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _index);
+        _check._expr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _index);
         if (!_check._isValidIndex((stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), (52 : stdgo.internal.types.errors.Errors.Code), ("index" : stdgo.GoString), false)) {
             return { _0 : _typ, _1 : _val };
         };
@@ -15101,7 +15101,7 @@ class Checker_asInterface {
     static public function _sliceExpr( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.StdGoTypes.Ref<T_operand>, _e:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SliceExpr>):Void {
         stdgo.internal.Macro.controlFlow({
             @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
-            _check._expr((null : stdgo.go.types.Types.Type), _x, _e.x);
+            _check._expr((null : stdgo.go.types.Types.Type_), _x, _e.x);
             if (_x._mode == ((0 : stdgo.go.types.Types.T_operandMode))) {
                 _check._use(_e.low, _e.high, _e.max);
                 return;
@@ -15149,10 +15149,10 @@ class Checker_asInterface {
                     var _u:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>) : __type__.__underlying__().value;
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_u._base)) : stdgo.StdGoTypes.Ref<Array_>)) : stdgo.StdGoTypes.Ref<Array_>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_u._base)) : stdgo.StdGoTypes.Ref<Array_>)) : stdgo.StdGoTypes.Ref<Array_>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>), ok : false };
-                        }, _u = __tmp__.value, __40 = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>), _1 : false };
+                        }, _u = __tmp__._0, __40 = __tmp__._1;
                         if (_u != null && ((_u : Dynamic).__nil__ == null || !(_u : Dynamic).__nil__)) {
                             _valid = true;
                             _length = _u._len;
@@ -15184,7 +15184,7 @@ class Checker_asInterface {
                         _max = _length + (1i64 : stdgo.StdGoTypes.GoInt64);
                     };
                     {
-                        var __tmp__ = _check._index(_expr, _max), __65:stdgo.go.types.Types.Type = __tmp__._0, _v:stdgo.StdGoTypes.GoInt64 = __tmp__._1;
+                        var __tmp__ = _check._index(_expr, _max), __65:stdgo.go.types.Types.Type_ = __tmp__._0, _v:stdgo.StdGoTypes.GoInt64 = __tmp__._1;
                         if (_v >= (0i64 : stdgo.StdGoTypes.GoInt64)) {
                             _x = _v;
                         };
@@ -15234,17 +15234,17 @@ class Checker_asInterface {
             } else if (__value__ == ((7 : stdgo.go.types.Types.T_operandMode))) {
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_x._typ)) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_x._typ)) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), ok : false };
-                    }, _sig = __tmp__.value, __24 = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), _1 : false };
+                    }, _sig = __tmp__._0, __24 = __tmp__._1;
                     if (((_sig != null) && ((_sig : Dynamic).__nil__ == null || !(_sig : Dynamic).__nil__)) && (_sig.typeParams().len() > (0 : stdgo.StdGoTypes.GoInt))) {
                         return true;
                     };
                 };
             };
         };
-        _check._nonGeneric((null : stdgo.go.types.Types.Type), _x);
+        _check._nonGeneric((null : stdgo.go.types.Types.Type_), _x);
         if (_x._mode == ((0 : stdgo.go.types.Types.T_operandMode))) {
             return false;
         };
@@ -15278,10 +15278,10 @@ class Checker_asInterface {
                         var _typ:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>) : __type__.__underlying__().value;
                         {
                             var __tmp__ = try {
-                                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_typ._base)) : stdgo.StdGoTypes.Ref<Array_>)) : stdgo.StdGoTypes.Ref<Array_>), ok : true };
+                                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_typ._base)) : stdgo.StdGoTypes.Ref<Array_>)) : stdgo.StdGoTypes.Ref<Array_>), _1 : true };
                             } catch(_) {
-                                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>), ok : false };
-                            }, _typ = __tmp__.value, __33 = __tmp__.ok;
+                                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>), _1 : false };
+                            }, _typ = __tmp__._0, __33 = __tmp__._1;
                             if (_typ != null && ((_typ : Dynamic).__nil__ == null || !(_typ : Dynamic).__nil__)) {
                                 _valid = true;
                                 _length = _typ._len;
@@ -15302,7 +15302,7 @@ class Checker_asInterface {
                             return false;
                         };
                         var _key:T_operand = ({} : stdgo.go.types.Types.T_operand);
-                        _check._expr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_key) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _index);
+                        _check._expr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_key) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _index);
                         _check._assignment((stdgo.Go.setRef(_key) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _typ._key, ("map index" : stdgo.GoString));
                         _x._mode = (6 : stdgo.go.types.Types.T_operandMode);
                         _x._typ = _typ._elem;
@@ -15313,11 +15313,11 @@ class Checker_asInterface {
                         if (!_isTypeParam(_x._typ)) {
                             break;
                         };
-                        var __0:Type = (null : stdgo.go.types.Types.Type), __1:Type = (null : stdgo.go.types.Types.Type), _elem:Type = __1, _key:Type = __0;
+                        var __0:Type_ = (null : stdgo.go.types.Types.Type_), __1:Type_ = (null : stdgo.go.types.Types.Type_), _elem:Type_ = __1, _key:Type_ = __0;
                         var _mode:stdgo.go.types.Types.T_operandMode = (5 : stdgo.go.types.Types.T_operandMode);
-                        if (_typ._typeSet()._underIs(function(_u:Type):Bool {
+                        if (_typ._typeSet()._underIs(function(_u:Type_):Bool {
                             var _l:stdgo.StdGoTypes.GoInt64 = (-1i64 : stdgo.StdGoTypes.GoInt64);
-                            var __0:Type = (null : stdgo.go.types.Types.Type), __1:Type = (null : stdgo.go.types.Types.Type), _e:Type = __1, _k:Type = __0;
+                            var __0:Type_ = (null : stdgo.go.types.Types.Type_), __1:Type_ = (null : stdgo.go.types.Types.Type_), _e:Type_ = __1, _k:Type_ = __0;
                             {
                                 final __type__ = _u;
                                 if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Basic>))) {
@@ -15337,10 +15337,10 @@ class Checker_asInterface {
                                     var _t:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>) : __type__.__underlying__().value;
                                     {
                                         var __tmp__ = try {
-                                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_t._base)) : stdgo.StdGoTypes.Ref<Array_>)) : stdgo.StdGoTypes.Ref<Array_>), ok : true };
+                                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_t._base)) : stdgo.StdGoTypes.Ref<Array_>)) : stdgo.StdGoTypes.Ref<Array_>), _1 : true };
                                         } catch(_) {
-                                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>), ok : false };
-                                        }, _t = __tmp__.value, __66 = __tmp__.ok;
+                                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>), _1 : false };
+                                        }, _t = __tmp__._0, __66 = __tmp__._1;
                                         if (_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) {
                                             _l = _t._len;
                                             _e = _t._elem;
@@ -15386,7 +15386,7 @@ class Checker_asInterface {
                                     return false;
                                 };
                                 var _k:T_operand = ({} : stdgo.go.types.Types.T_operand);
-                                _check._expr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_k) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _index);
+                                _check._expr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_k) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _index);
                                 _check._assignment((stdgo.Go.setRef(_k) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _key, ("map index" : stdgo.GoString));
                                 _x._mode = (6 : stdgo.go.types.Types.T_operandMode);
                                 _x._typ = _elem;
@@ -15428,10 +15428,10 @@ class Checker_asInterface {
         if (_x._mode == ((7 : stdgo.go.types.Types.T_operandMode))) {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x._typ) : stdgo.StdGoTypes.Ref<Tuple>)) : stdgo.StdGoTypes.Ref<Tuple>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x._typ) : stdgo.StdGoTypes.Ref<Tuple>)) : stdgo.StdGoTypes.Ref<Tuple>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Tuple>), ok : false };
-                }, _t = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Tuple>), _1 : false };
+                }, _t = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
                     _assert(_t.len() != ((1 : stdgo.StdGoTypes.GoInt)));
                     _check._errorf(stdgo.Go.asInterface(_x), (41 : stdgo.internal.types.errors.Errors.Code), ("multiple-value %s in single-value context" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)));
@@ -15482,7 +15482,7 @@ class Checker_asInterface {
     @:keep
     static public function _exprOrType( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.StdGoTypes.Ref<T_operand>, _e:stdgo.go.ast.Ast.Expr, _allowGeneric:Bool):Void {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
-        _check._rawExpr((null : stdgo.go.types.Types.Type), _x, _e, (null : stdgo.go.types.Types.Type), _allowGeneric);
+        _check._rawExpr((null : stdgo.go.types.Types.Type_), _x, _e, (null : stdgo.go.types.Types.Type_), _allowGeneric);
         _check._exclude(_x, (2u32 : stdgo.StdGoTypes.GoUInt));
         _check._singleValue(_x);
     }
@@ -15492,10 +15492,10 @@ class Checker_asInterface {
         // If an error occurred, x.mode is set to invalid.
     **/
     @:keep
-    static public function _exprWithHint( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.StdGoTypes.Ref<T_operand>, _e:stdgo.go.ast.Ast.Expr, _hint:Type):Void {
+    static public function _exprWithHint( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.StdGoTypes.Ref<T_operand>, _e:stdgo.go.ast.Ast.Expr, _hint:Type_):Void {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         _assert(_hint != null);
-        _check._rawExpr((null : stdgo.go.types.Types.Type), _x, _e, _hint, false);
+        _check._rawExpr((null : stdgo.go.types.Types.Type_), _x, _e, _hint, false);
         _check._exclude(_x, (14u32 : stdgo.StdGoTypes.GoUInt));
         _check._singleValue(_x);
     }
@@ -15511,14 +15511,14 @@ class Checker_asInterface {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         var _list:stdgo.Slice<stdgo.StdGoTypes.Ref<T_operand>> = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>>), _commaOk:Bool = false;
         var _x:T_operand = ({} : stdgo.go.types.Types.T_operand);
-        _check._rawExpr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _e, (null : stdgo.go.types.Types.Type), false);
+        _check._rawExpr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _e, (null : stdgo.go.types.Types.Type_), false);
         _check._exclude((stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), (14u32 : stdgo.StdGoTypes.GoUInt));
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x._typ) : stdgo.StdGoTypes.Ref<Tuple>)) : stdgo.StdGoTypes.Ref<Tuple>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x._typ) : stdgo.StdGoTypes.Ref<Tuple>)) : stdgo.StdGoTypes.Ref<Tuple>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Tuple>), ok : false };
-            }, _t = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Tuple>), _1 : false };
+            }, _t = __tmp__._0, _ok = __tmp__._1;
             if (_ok && (_x._mode != (0 : stdgo.go.types.Types.T_operandMode))) {
                 _list = new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>>((_t.len() : stdgo.StdGoTypes.GoInt).toBasic(), 0);
                 for (_i => _v in _t._vars) {
@@ -15544,7 +15544,7 @@ class Checker_asInterface {
     @:keep
     static public function _genericExpr( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.StdGoTypes.Ref<T_operand>, _e:stdgo.go.ast.Ast.Expr):Void {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
-        _check._rawExpr((null : stdgo.go.types.Types.Type), _x, _e, (null : stdgo.go.types.Types.Type), true);
+        _check._rawExpr((null : stdgo.go.types.Types.Type_), _x, _e, (null : stdgo.go.types.Types.Type_), true);
         _check._exclude(_x, (14u32 : stdgo.StdGoTypes.GoUInt));
         _check._singleValue(_x);
     }
@@ -15556,9 +15556,9 @@ class Checker_asInterface {
         // If an error occurred, x.mode is set to invalid.
     **/
     @:keep
-    static public function _expr( _check:stdgo.StdGoTypes.Ref<Checker>, t:Type, _x:stdgo.StdGoTypes.Ref<T_operand>, _e:stdgo.go.ast.Ast.Expr):Void {
+    static public function _expr( _check:stdgo.StdGoTypes.Ref<Checker>, t:Type_, _x:stdgo.StdGoTypes.Ref<T_operand>, _e:stdgo.go.ast.Ast.Expr):Void {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
-        _check._rawExpr(t, _x, _e, (null : stdgo.go.types.Types.Type), false);
+        _check._rawExpr(t, _x, _e, (null : stdgo.go.types.Types.Type_), false);
         _check._exclude(_x, (14u32 : stdgo.StdGoTypes.GoUInt));
         _check._singleValue(_x);
     }
@@ -15566,7 +15566,7 @@ class Checker_asInterface {
         // typeAssertion checks x.(T). The type of x must be an interface.
     **/
     @:keep
-    static public function _typeAssertion( _check:stdgo.StdGoTypes.Ref<Checker>, _e:stdgo.go.ast.Ast.Expr, _x:stdgo.StdGoTypes.Ref<T_operand>, t:Type, _typeSwitch:Bool):Void {
+    static public function _typeAssertion( _check:stdgo.StdGoTypes.Ref<Checker>, _e:stdgo.go.ast.Ast.Expr, _x:stdgo.StdGoTypes.Ref<T_operand>, t:Type_, _typeSwitch:Bool):Void {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         var _cause:stdgo.GoString = ("" : stdgo.GoString);
         if (_check._assertableTo(_x._typ, t, stdgo.Go.pointer(_cause))) {
@@ -15584,7 +15584,7 @@ class Checker_asInterface {
         // (See rawExpr for an explanation of the parameters.)
     **/
     @:keep
-    static public function _exprInternal( _check:stdgo.StdGoTypes.Ref<Checker>, t:Type, _x:stdgo.StdGoTypes.Ref<T_operand>, _e:stdgo.go.ast.Ast.Expr, _hint:Type):T_exprKind {
+    static public function _exprInternal( _check:stdgo.StdGoTypes.Ref<Checker>, t:Type_, _x:stdgo.StdGoTypes.Ref<T_operand>, _e:stdgo.go.ast.Ast.Expr, _hint:Type_):T_exprKind {
         stdgo.internal.Macro.controlFlow({
             @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
             _x._mode = (0 : stdgo.go.types.Types.T_operandMode);
@@ -15628,10 +15628,10 @@ class Checker_asInterface {
                             var _e:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncLit> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncLit>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncLit>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncLit>) : __type__.__underlying__().value;
                             {
                                 var __tmp__ = try {
-                                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_check._environment._sig._recv._object._typ(stdgo.Go.asInterface(_e.type))) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), ok : true };
+                                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_check._environment._sig._recv._object._typ(stdgo.Go.asInterface(_e.type))) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), _1 : true };
                                 } catch(_) {
-                                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), ok : false };
-                                }, _sig = __tmp__.value, _ok = __tmp__.ok;
+                                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), _1 : false };
+                                }, _sig = __tmp__._0, _ok = __tmp__._1;
                                 if (_ok) {
                                     if (!_check._conf.ignoreFuncBodies && ((_e.body != null) && ((_e.body : Dynamic).__nil__ == null || !(_e.body : Dynamic).__nil__))) {
                                         var _decl = _check._environment._decl;
@@ -15649,7 +15649,7 @@ class Checker_asInterface {
                             };
                         } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CompositeLit>))) {
                             var _e:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CompositeLit> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CompositeLit>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CompositeLit>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CompositeLit>) : __type__.__underlying__().value;
-                            var __0:Type = (null : stdgo.go.types.Types.Type), __1:Type = (null : stdgo.go.types.Types.Type), _base:Type = __1, _typ:Type = __0;
+                            var __0:Type_ = (null : stdgo.go.types.Types.Type_), __1:Type_ = (null : stdgo.go.types.Types.Type_), _base:Type_ = __1, _typ:Type_ = __0;
                             {
                                 var __switchIndex__ = -1;
                                 var __run__ = true;
@@ -15658,17 +15658,17 @@ class Checker_asInterface {
                                     if (_e.type != null) {
                                         {
                                             var __tmp__ = try {
-                                                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e.type) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ArrayType>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ArrayType>), ok : true };
+                                                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e.type) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ArrayType>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ArrayType>), _1 : true };
                                             } catch(_) {
-                                                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ArrayType>), ok : false };
-                                            }, _atyp = __tmp__.value, __96 = __tmp__.ok;
+                                                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ArrayType>), _1 : false };
+                                            }, _atyp = __tmp__._0, __96 = __tmp__._1;
                                             if (((_atyp != null) && ((_atyp : Dynamic).__nil__ == null || !(_atyp : Dynamic).__nil__)) && (_atyp.len != null)) {
                                                 {
                                                     var __tmp__ = try {
-                                                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_atyp.len) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ellipsis>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ellipsis>), ok : true };
+                                                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_atyp.len) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ellipsis>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ellipsis>), _1 : true };
                                                     } catch(_) {
-                                                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ellipsis>), ok : false };
-                                                    }, _ellip = __tmp__.value, __97 = __tmp__.ok;
+                                                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ellipsis>), _1 : false };
+                                                    }, _ellip = __tmp__._0, __97 = __tmp__._1;
                                                     if (((_ellip != null) && ((_ellip : Dynamic).__nil__ == null || !(_ellip : Dynamic).__nil__)) && (_ellip.elt == null)) {
                                                         _typ = stdgo.Go.asInterface((stdgo.Go.setRef(({ _len : (-1i64 : stdgo.StdGoTypes.GoInt64), _elem : _check._varType(_atyp.elt) } : stdgo.go.types.Types.Array_)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>));
                                                         _base = _typ;
@@ -15716,28 +15716,28 @@ class Checker_asInterface {
                                             var _fields = _utyp._fields;
                                             {
                                                 var __tmp__ = try {
-                                                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e.elts[(0 : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), ok : true };
+                                                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e.elts[(0 : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), _1 : true };
                                                 } catch(_) {
-                                                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), ok : false };
-                                                }, __138 = __tmp__.value, _ok = __tmp__.ok;
+                                                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), _1 : false };
+                                                }, __138 = __tmp__._0, _ok = __tmp__._1;
                                                 if (_ok) {
                                                     var _visited = new stdgo.Slice<Bool>((_fields.length : stdgo.StdGoTypes.GoInt).toBasic(), 0);
                                                     for (__139 => _e in _e.elts) {
                                                         var __tmp__ = try {
-                                                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), ok : true };
+                                                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), _1 : true };
                                                         } catch(_) {
-                                                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), ok : false };
-                                                        }, _kv = __tmp__.value, __140 = __tmp__.ok;
+                                                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), _1 : false };
+                                                        }, _kv = __tmp__._0, __140 = __tmp__._1;
                                                         if (_kv == null || (_kv : Dynamic).__nil__) {
                                                             _check._error(_e, (64 : stdgo.internal.types.errors.Errors.Code), ("mixture of field:value and value elements in struct literal" : stdgo.GoString));
                                                             continue;
                                                         };
                                                         var __tmp__ = try {
-                                                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_kv.key) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : true };
+                                                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_kv.key) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), _1 : true };
                                                         } catch(_) {
-                                                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : false };
-                                                        }, _key = __tmp__.value, __149 = __tmp__.ok;
-                                                        _check._expr((null : stdgo.go.types.Types.Type), _x, _kv.value);
+                                                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), _1 : false };
+                                                        }, _key = __tmp__._0, __149 = __tmp__._1;
+                                                        _check._expr((null : stdgo.go.types.Types.Type_), _x, _kv.value);
                                                         if (_key == null || (_key : Dynamic).__nil__) {
                                                             _check._errorf(stdgo.Go.asInterface(_kv), (69 : stdgo.internal.types.errors.Errors.Code), ("invalid field name %s in struct literal" : stdgo.GoString), stdgo.Go.toInterface(_kv.key));
                                                             continue;
@@ -15749,7 +15749,7 @@ class Checker_asInterface {
                                                         };
                                                         var _fld = _fields[(_i : stdgo.StdGoTypes.GoInt)];
                                                         _check._recordUse(_key, stdgo.Go.asInterface(_fld));
-                                                        var _etyp:stdgo.go.types.Types.Type = _fld._object._typ;
+                                                        var _etyp:stdgo.go.types.Types.Type_ = _fld._object._typ;
                                                         _check._assignment(_x, _etyp, ("struct literal" : stdgo.GoString));
                                                         if (_visited[(_i : stdgo.StdGoTypes.GoInt)]) {
                                                             _check._errorf(stdgo.Go.asInterface(_kv), (67 : stdgo.internal.types.errors.Errors.Code), ("duplicate field name %s in struct literal" : stdgo.GoString), stdgo.Go.toInterface(_key.name));
@@ -15761,16 +15761,16 @@ class Checker_asInterface {
                                                     for (_i => _e in _e.elts) {
                                                         {
                                                             var __tmp__ = try {
-                                                                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), ok : true };
+                                                                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), _1 : true };
                                                             } catch(_) {
-                                                                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), ok : false };
-                                                            }, _kv = __tmp__.value, __206 = __tmp__.ok;
+                                                                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), _1 : false };
+                                                            }, _kv = __tmp__._0, __206 = __tmp__._1;
                                                             if (_kv != null && ((_kv : Dynamic).__nil__ == null || !(_kv : Dynamic).__nil__)) {
                                                                 _check._error(stdgo.Go.asInterface(_kv), (64 : stdgo.internal.types.errors.Errors.Code), ("mixture of field:value and value elements in struct literal" : stdgo.GoString));
                                                                 continue;
                                                             };
                                                         };
-                                                        _check._expr((null : stdgo.go.types.Types.Type), _x, _e);
+                                                        _check._expr((null : stdgo.go.types.Types.Type_), _x, _e);
                                                         if (_i >= (_fields.length)) {
                                                             _check._errorf(stdgo.Go.asInterface(_x), (65 : stdgo.internal.types.errors.Errors.Code), ("too many values in struct literal of type %s" : stdgo.GoString), stdgo.Go.toInterface(_base));
                                                             break;
@@ -15780,7 +15780,7 @@ class Checker_asInterface {
                                                             _check._errorf(stdgo.Go.asInterface(_x), (68 : stdgo.internal.types.errors.Errors.Code), ("implicit assignment to unexported field %s in struct literal of type %s" : stdgo.GoString), stdgo.Go.toInterface(_fld._object._name), stdgo.Go.toInterface(_base));
                                                             continue;
                                                         };
-                                                        var _etyp:stdgo.go.types.Types.Type = _fld._object._typ;
+                                                        var _etyp:stdgo.go.types.Types.Type_ = _fld._object._typ;
                                                         _check._assignment(_x, _etyp, ("struct literal" : stdgo.GoString));
                                                     };
                                                     if ((_e.elts.length) < (_fields.length)) {
@@ -15816,17 +15816,17 @@ class Checker_asInterface {
                                             };
                                             var _keyIsInterface:Bool = _isNonTypeParamInterface(_utyp._key);
                                             var _visited = ({
-                                                final x = new stdgo.GoMap.GoAnyInterfaceMap<stdgo.Slice<stdgo.go.types.Types.Type>>();
-                                                x.__defaultValue__ = () -> (null : stdgo.Slice<stdgo.go.types.Types.Type>);
+                                                final x = new stdgo.GoMap.GoAnyInterfaceMap<stdgo.Slice<stdgo.go.types.Types.Type_>>();
+                                                x.__defaultValue__ = () -> (null : stdgo.Slice<stdgo.go.types.Types.Type_>);
                                                 @:mergeBlock {};
                                                 cast x;
-                                            } : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.Slice<stdgo.go.types.Types.Type>>);
+                                            } : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.Slice<stdgo.go.types.Types.Type_>>);
                                             for (__311 => _e in _e.elts) {
                                                 var __tmp__ = try {
-                                                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), ok : true };
+                                                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), _1 : true };
                                                 } catch(_) {
-                                                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), ok : false };
-                                                }, _kv = __tmp__.value, __312 = __tmp__.ok;
+                                                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), _1 : false };
+                                                }, _kv = __tmp__._0, __312 = __tmp__._1;
                                                 if (_kv == null || (_kv : Dynamic).__nil__) {
                                                     _check._error(_e, (61 : stdgo.internal.types.errors.Errors.Code), ("missing key in map literal" : stdgo.GoString));
                                                     continue;
@@ -15840,19 +15840,19 @@ class Checker_asInterface {
                                                     var _duplicate:Bool = false;
                                                     var _xkey:stdgo.StdGoTypes.AnyInterface = _keyVal(_x._val);
                                                     if (_keyIsInterface) {
-                                                        for (__337 => _vtyp in (_visited[_xkey] ?? (null : stdgo.Slice<stdgo.go.types.Types.Type>))) {
+                                                        for (__337 => _vtyp in (_visited[_xkey] ?? (null : stdgo.Slice<stdgo.go.types.Types.Type_>))) {
                                                             if (identical(_vtyp, _x._typ)) {
                                                                 _duplicate = true;
                                                                 break;
                                                             };
                                                         };
-                                                        _visited[_xkey] = ((_visited[_xkey] ?? (null : stdgo.Slice<stdgo.go.types.Types.Type>)).__append__(_x._typ));
+                                                        _visited[_xkey] = ((_visited[_xkey] ?? (null : stdgo.Slice<stdgo.go.types.Types.Type_>)).__append__(_x._typ));
                                                     } else {
                                                         {
-                                                            var __tmp__ = (_visited != null && _visited.exists(_xkey) ? { value : _visited[_xkey], ok : true } : { value : (null : stdgo.Slice<stdgo.go.types.Types.Type>), ok : false });
-                                                            _duplicate = __tmp__.ok;
+                                                            var __tmp__ = (_visited != null && _visited.exists(_xkey) ? { _0 : _visited[_xkey], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.go.types.Types.Type_>), _1 : false });
+                                                            _duplicate = __tmp__._1;
                                                         };
-                                                        _visited[_xkey] = (null : stdgo.Slice<stdgo.go.types.Types.Type>);
+                                                        _visited[_xkey] = (null : stdgo.Slice<stdgo.go.types.Types.Type_>);
                                                     };
                                                     if (_duplicate) {
                                                         _check._errorf(stdgo.Go.asInterface(_x), (60 : stdgo.internal.types.errors.Errors.Code), ("duplicate key %s in map literal" : stdgo.GoString), stdgo.Go.toInterface(_x._val));
@@ -15863,14 +15863,14 @@ class Checker_asInterface {
                                                 _check._assignment(_x, _utyp._elem, ("map literal" : stdgo.GoString));
                                             };
                                         } else {
-                                            var _utyp:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                                            var _utyp:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                                             for (__362 => _e in _e.elts) {
                                                 {
                                                     var __tmp__ = try {
-                                                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), ok : true };
+                                                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), _1 : true };
                                                     } catch(_) {
-                                                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), ok : false };
-                                                    }, _kv = __tmp__.value, __363 = __tmp__.ok;
+                                                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.KeyValueExpr>), _1 : false };
+                                                    }, _kv = __tmp__._0, __363 = __tmp__._1;
                                                     if (_kv != null && ((_kv : Dynamic).__nil__ == null || !(_kv : Dynamic).__nil__)) {
                                                         _e = _kv.value;
                                                     };
@@ -15890,7 +15890,7 @@ class Checker_asInterface {
                             _x._typ = _typ;
                         } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr>))) {
                             var _e:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr>) : __type__.__underlying__().value;
-                            var _kind:stdgo.go.types.Types.T_exprKind = _check._rawExpr((null : stdgo.go.types.Types.Type), _x, _e.x, (null : stdgo.go.types.Types.Type), false);
+                            var _kind:stdgo.go.types.Types.T_exprKind = _check._rawExpr((null : stdgo.go.types.Types.Type_), _x, _e.x, (null : stdgo.go.types.Types.Type_), false);
                             _x._expr = stdgo.Go.asInterface(_e);
                             return _kind;
                         } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr>))) {
@@ -15904,11 +15904,11 @@ class Checker_asInterface {
                                 if (true && (t != null)) {
                                     {
                                         var __tmp__ = try {
-                                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(t)) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), ok : true };
+                                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(t)) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), _1 : true };
                                         } catch(_) {
-                                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), ok : false };
+                                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), _1 : false };
                                         };
-                                        _tsig = __tmp__.value;
+                                        _tsig = __tmp__._0;
                                     };
                                 };
                                 _check._funcInst(_tsig, _e.pos(), _x, _ix, true);
@@ -15924,7 +15924,7 @@ class Checker_asInterface {
                             };
                         } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.TypeAssertExpr>))) {
                             var _e:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.TypeAssertExpr> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.TypeAssertExpr>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.TypeAssertExpr>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.TypeAssertExpr>) : __type__.__underlying__().value;
-                            _check._expr((null : stdgo.go.types.Types.Type), _x, _e.x);
+                            _check._expr((null : stdgo.go.types.Types.Type_), _x, _e.x);
                             if (_x._mode == ((0 : stdgo.go.types.Types.T_operandMode))) {
                                 @:goto "Error";
                             };
@@ -15938,16 +15938,16 @@ class Checker_asInterface {
                             };
                             {
                                 var __tmp__ = try {
-                                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_x._typ)) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), ok : true };
+                                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_x._typ)) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), _1 : true };
                                 } catch(_) {
-                                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), ok : false };
-                                }, __444 = __tmp__.value, _ok = __tmp__.ok;
+                                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), _1 : false };
+                                }, __444 = __tmp__._0, _ok = __tmp__._1;
                                 if (!_ok) {
                                     _check._errorf(stdgo.Go.asInterface(_x), (94 : stdgo.internal.types.errors.Errors.Code), ("invalid operation: %s is not an interface" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)));
                                     @:goto "Error";
                                 };
                             };
-                            var t:stdgo.go.types.Types.Type = _check._varType(_e.type);
+                            var t:stdgo.go.types.Types.Type_ = _check._varType(_e.type);
                             if (stdgo.Go.toInterface(t) == (stdgo.Go.toInterface(stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])))) {
                                 @:goto "Error";
                             };
@@ -15968,13 +15968,13 @@ class Checker_asInterface {
                                     _check._validVarType(_e.x, _x._typ);
                                     _x._typ = stdgo.Go.asInterface((stdgo.Go.setRef(({ _base : _x._typ } : stdgo.go.types.Types.Pointer_)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>));
                                 } else {
-                                    var _base:Type = (null : stdgo.go.types.Types.Type);
-                                    if (!_underIs(_x._typ, function(_u:Type):Bool {
+                                    var _base:Type_ = (null : stdgo.go.types.Types.Type_);
+                                    if (!_underIs(_x._typ, function(_u:Type_):Bool {
                                         var __tmp__ = try {
-                                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_u) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), ok : true };
+                                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_u) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), _1 : true };
                                         } catch(_) {
-                                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), ok : false };
-                                        }, _p = __tmp__.value, __493 = __tmp__.ok;
+                                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), _1 : false };
+                                        }, _p = __tmp__._0, __493 = __tmp__._1;
                                         if (_p == null || (_p : Dynamic).__nil__) {
                                             _check._errorf(stdgo.Go.asInterface(_x), (50 : stdgo.internal.types.errors.Errors.Code), ("invalid operation: cannot indirect %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)));
                                             return false;
@@ -16038,7 +16038,7 @@ class Checker_asInterface {
         // Otherwise it leaves x alone.
     **/
     @:keep
-    static public function _nonGeneric( _check:stdgo.StdGoTypes.Ref<Checker>, t:Type, _x:stdgo.StdGoTypes.Ref<T_operand>):Void {
+    static public function _nonGeneric( _check:stdgo.StdGoTypes.Ref<Checker>, t:Type_, _x:stdgo.StdGoTypes.Ref<T_operand>):Void {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         if ((_x._mode == (0 : stdgo.go.types.Types.T_operandMode)) || (_x._mode == (1 : stdgo.go.types.Types.T_operandMode))) {
             return;
@@ -16057,10 +16057,10 @@ class Checker_asInterface {
                     if (true && (t != null)) {
                         {
                             var __tmp__ = try {
-                                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(t)) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), ok : true };
+                                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(t)) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), _1 : true };
                             } catch(_) {
-                                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), ok : false };
-                            }, _tsig = __tmp__.value, __0 = __tmp__.ok;
+                                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), _1 : false };
+                            }, _tsig = __tmp__._0, __0 = __tmp__._1;
                             if (_tsig != null && ((_tsig : Dynamic).__nil__ == null || !(_tsig : Dynamic).__nil__)) {
                                 _check._funcInst(_tsig, _x.pos(), _x, null, true);
                                 return;
@@ -16087,7 +16087,7 @@ class Checker_asInterface {
         // parameterized type or function value.
     **/
     @:keep
-    static public function _rawExpr( _check:stdgo.StdGoTypes.Ref<Checker>, t:Type, _x:stdgo.StdGoTypes.Ref<T_operand>, _e:stdgo.go.ast.Ast.Expr, _hint:Type, _allowGeneric:Bool):T_exprKind {
+    static public function _rawExpr( _check:stdgo.StdGoTypes.Ref<Checker>, t:Type_, _x:stdgo.StdGoTypes.Ref<T_operand>, _e:stdgo.go.ast.Ast.Expr, _hint:Type_, _allowGeneric:Bool):T_exprKind {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         var __deferstack__:Array<Void -> Void> = [];
         try {
@@ -16185,8 +16185,8 @@ class Checker_asInterface {
     static public function _binary( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.StdGoTypes.Ref<T_operand>, _e:stdgo.go.ast.Ast.Expr, _lhs:stdgo.go.ast.Ast.Expr, _rhs:stdgo.go.ast.Ast.Expr, _op:stdgo.go.token.Token.Token, _opPos:stdgo.go.token.Token.Pos):Void {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         var _y:T_operand = ({} : stdgo.go.types.Types.T_operand);
-        _check._expr((null : stdgo.go.types.Types.Type), _x, _lhs);
-        _check._expr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_y) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _rhs);
+        _check._expr((null : stdgo.go.types.Types.Type_), _x, _lhs);
+        _check._expr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_y) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _rhs);
         if (_x._mode == ((0 : stdgo.go.types.Types.T_operandMode))) {
             return;
         };
@@ -16329,10 +16329,10 @@ class Checker_asInterface {
                 var _opPos:stdgo.go.token.Token.Pos = _x.pos();
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.BinaryExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.BinaryExpr>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.BinaryExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.BinaryExpr>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.BinaryExpr>), ok : false };
-                    }, _b = __tmp__.value, __56 = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.BinaryExpr>), _1 : false };
+                    }, _b = __tmp__._0, __56 = __tmp__._1;
                     if (_b != null && ((_b : Dynamic).__nil__ == null || !(_b : Dynamic).__nil__)) {
                         _opPos = _b.opPos;
                     };
@@ -16342,7 +16342,7 @@ class Checker_asInterface {
             };
             if (_isUntyped(_x._typ)) {
                 {
-                    var __tmp__ = (_check._untyped != null && _check._untyped.exists(_x._expr) ? { value : _check._untyped[_x._expr], ok : true } : { value : ({} : stdgo.go.types.Types.T_exprInfo), ok : false }), _info:stdgo.go.types.Types.T_exprInfo = __tmp__.value, _found:Bool = __tmp__.ok;
+                    var __tmp__ = (_check._untyped != null && _check._untyped.exists(_x._expr) ? { _0 : _check._untyped[_x._expr], _1 : true } : { _0 : ({} : stdgo.go.types.Types.T_exprInfo), _1 : false }), _info:stdgo.go.types.Types.T_exprInfo = __tmp__._0, _found:Bool = __tmp__._1;
                     if (_found) {
                         _info._isLhs = true;
                         _check._untyped[_x._expr] = _info?.__copy__();
@@ -16363,7 +16363,7 @@ class Checker_asInterface {
         // kindString returns the type kind as a string.
     **/
     @:keep
-    static public function _kindString( _check:stdgo.StdGoTypes.Ref<Checker>, _typ:Type):stdgo.GoString {
+    static public function _kindString( _check:stdgo.StdGoTypes.Ref<Checker>, _typ:Type_):stdgo.GoString {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         {
             final __type__ = _under(_typ);
@@ -16396,7 +16396,7 @@ class Checker_asInterface {
         // If there is no more specific cause, the result is "".
     **/
     @:keep
-    static public function _incomparableCause( _check:stdgo.StdGoTypes.Ref<Checker>, _typ:Type):stdgo.GoString {
+    static public function _incomparableCause( _check:stdgo.StdGoTypes.Ref<Checker>, _typ:Type_):stdgo.GoString {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         {
             final __type__ = _under(_typ);
@@ -16405,7 +16405,7 @@ class Checker_asInterface {
             };
         };
         var _cause:stdgo.GoString = ("" : stdgo.GoString);
-        _comparable(_typ, true, (null : stdgo.GoMap<stdgo.go.types.Types.Type, Bool>), function(_format:stdgo.GoString, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
+        _comparable(_typ, true, (null : stdgo.GoMap<stdgo.go.types.Types.Type_, Bool>), function(_format:stdgo.GoString, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
             _cause = _check._sprintf(_format?.__copy__(), ..._args.__toArray__())?.__copy__();
         });
         return _cause?.__copy__();
@@ -16444,7 +16444,7 @@ class Checker_asInterface {
                 final __value__ = _op;
                 if (__value__ == ((39 : stdgo.go.token.Token.Token)) || __value__ == ((44 : stdgo.go.token.Token.Token))) {
                     if (_x._isNil() || _y._isNil()) {
-                        var _typ:stdgo.go.types.Types.Type = _x._typ;
+                        var _typ:stdgo.go.types.Types.Type_ = _x._typ;
                         if (_x._isNil()) {
                             _typ = _y._typ;
                         };
@@ -16509,19 +16509,19 @@ class Checker_asInterface {
         // representation of x in this context.
     **/
     @:keep
-    static public function _implicitTypeAndValue( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.StdGoTypes.Ref<T_operand>, _target:Type):{ var _0 : Type; var _1 : stdgo.go.constant.Constant.Value; var _2 : Code; } {
+    static public function _implicitTypeAndValue( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.StdGoTypes.Ref<T_operand>, _target:Type_):{ var _0 : Type_; var _1 : stdgo.go.constant.Constant.Value; var _2 : Code; } {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         if (((_x._mode == (0 : stdgo.go.types.Types.T_operandMode)) || _isTyped(_x._typ)) || (stdgo.Go.toInterface(_target) == stdgo.Go.toInterface(stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])))) {
             return { _0 : _x._typ, _1 : (null : stdgo.go.constant.Constant.Value), _2 : (0 : stdgo.internal.types.errors.Errors.Code) };
         };
         if (_isUntyped(_target)) {
             {
-                var _m:stdgo.go.types.Types.Type = _maxType(_x._typ, _target);
+                var _m:stdgo.go.types.Types.Type_ = _maxType(_x._typ, _target);
                 if (_m != null) {
                     return { _0 : _m, _1 : (null : stdgo.go.constant.Constant.Value), _2 : (0 : stdgo.internal.types.errors.Errors.Code) };
                 };
             };
-            return { _0 : (null : stdgo.go.types.Types.Type), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (97 : stdgo.internal.types.errors.Errors.Code) };
+            return { _0 : (null : stdgo.go.types.Types.Type_), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (97 : stdgo.internal.types.errors.Errors.Code) };
         };
         {
             final __type__ = _under(_target);
@@ -16534,7 +16534,7 @@ class Checker_asInterface {
                         if (_x._mode == ((4 : stdgo.go.types.Types.T_operandMode))) {
                             var __tmp__ = _check._representation(_x, _u), _v:stdgo.go.constant.Constant.Value = __tmp__._0, _code:stdgo.internal.types.errors.Errors.Code = __tmp__._1;
                             if (_code != ((0 : stdgo.internal.types.errors.Errors.Code))) {
-                                return { _0 : (null : stdgo.go.types.Types.Type), _1 : (null : stdgo.go.constant.Constant.Value), _2 : _code };
+                                return { _0 : (null : stdgo.go.types.Types.Type_), _1 : (null : stdgo.go.constant.Constant.Value), _2 : _code };
                             };
                             return { _0 : _target, _1 : _v, _2 : _code };
                         };
@@ -16542,36 +16542,36 @@ class Checker_asInterface {
                             final __value__ = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x._typ) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>)._kind;
                             if (__value__ == ((19 : stdgo.go.types.Types.BasicKind))) {
                                 if (!_isBoolean(_target)) {
-                                    return { _0 : (null : stdgo.go.types.Types.Type), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (97 : stdgo.internal.types.errors.Errors.Code) };
+                                    return { _0 : (null : stdgo.go.types.Types.Type_), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (97 : stdgo.internal.types.errors.Errors.Code) };
                                 };
                             } else if (__value__ == ((20 : stdgo.go.types.Types.BasicKind)) || __value__ == ((21 : stdgo.go.types.Types.BasicKind)) || __value__ == ((22 : stdgo.go.types.Types.BasicKind)) || __value__ == ((23 : stdgo.go.types.Types.BasicKind))) {
                                 if (!_isNumeric(_target)) {
-                                    return { _0 : (null : stdgo.go.types.Types.Type), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (97 : stdgo.internal.types.errors.Errors.Code) };
+                                    return { _0 : (null : stdgo.go.types.Types.Type_), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (97 : stdgo.internal.types.errors.Errors.Code) };
                                 };
                             } else if (__value__ == ((24 : stdgo.go.types.Types.BasicKind))) {
                                 if (!_isString(_target)) {
-                                    return { _0 : (null : stdgo.go.types.Types.Type), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (97 : stdgo.internal.types.errors.Errors.Code) };
+                                    return { _0 : (null : stdgo.go.types.Types.Type_), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (97 : stdgo.internal.types.errors.Errors.Code) };
                                 };
                             } else if (__value__ == ((25 : stdgo.go.types.Types.BasicKind))) {
                                 if (!_hasNil(_target)) {
-                                    return { _0 : (null : stdgo.go.types.Types.Type), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (97 : stdgo.internal.types.errors.Errors.Code) };
+                                    return { _0 : (null : stdgo.go.types.Types.Type_), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (97 : stdgo.internal.types.errors.Errors.Code) };
                                 };
                                 return { _0 : stdgo.Go.asInterface(typ[((25 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)]), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (0 : stdgo.internal.types.errors.Errors.Code) };
                             } else {
-                                return { _0 : (null : stdgo.go.types.Types.Type), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (97 : stdgo.internal.types.errors.Errors.Code) };
+                                return { _0 : (null : stdgo.go.types.Types.Type_), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (97 : stdgo.internal.types.errors.Errors.Code) };
                             };
                         };
                     } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Interface>))) {
                         var _u:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>) : __type__.__underlying__().value;
                         if (_isTypeParam(_target)) {
-                            if (!_u._typeSet()._underIs(function(_u:Type):Bool {
+                            if (!_u._typeSet()._underIs(function(_u:Type_):Bool {
                                 if (_u == null) {
                                     return false;
                                 };
-                                var __tmp__ = _check._implicitTypeAndValue(_x, _u), _t:stdgo.go.types.Types.Type = __tmp__._0, __24:stdgo.go.constant.Constant.Value = __tmp__._1, __25:stdgo.internal.types.errors.Errors.Code = __tmp__._2;
+                                var __tmp__ = _check._implicitTypeAndValue(_x, _u), _t:stdgo.go.types.Types.Type_ = __tmp__._0, __24:stdgo.go.constant.Constant.Value = __tmp__._1, __25:stdgo.internal.types.errors.Errors.Code = __tmp__._2;
                                 return _t != null;
                             })) {
-                                return { _0 : (null : stdgo.go.types.Types.Type), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (97 : stdgo.internal.types.errors.Errors.Code) };
+                                return { _0 : (null : stdgo.go.types.Types.Type_), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (97 : stdgo.internal.types.errors.Errors.Code) };
                             };
                             if (_x._isNil()) {
                                 return { _0 : stdgo.Go.asInterface(typ[((25 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)]), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (0 : stdgo.internal.types.errors.Errors.Code) };
@@ -16582,18 +16582,18 @@ class Checker_asInterface {
                             return { _0 : stdgo.Go.asInterface(typ[((25 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)]), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (0 : stdgo.internal.types.errors.Errors.Code) };
                         };
                         if (!_u.empty()) {
-                            return { _0 : (null : stdgo.go.types.Types.Type), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (97 : stdgo.internal.types.errors.Errors.Code) };
+                            return { _0 : (null : stdgo.go.types.Types.Type_), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (97 : stdgo.internal.types.errors.Errors.Code) };
                         };
                         return { _0 : default_(_x._typ), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (0 : stdgo.internal.types.errors.Errors.Code) };
                     } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Pointer_>)) || stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Signature>)) || stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Slice_>)) || stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Map_>)) || stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<stdgo.Chan>))) {
-                        var _u:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                        var _u:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                         if (!_x._isNil()) {
-                            return { _0 : (null : stdgo.go.types.Types.Type), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (97 : stdgo.internal.types.errors.Errors.Code) };
+                            return { _0 : (null : stdgo.go.types.Types.Type_), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (97 : stdgo.internal.types.errors.Errors.Code) };
                         };
                         return { _0 : stdgo.Go.asInterface(typ[((25 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)]), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (0 : stdgo.internal.types.errors.Errors.Code) };
                     } else {
-                        var _u:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
-                        return { _0 : (null : stdgo.go.types.Types.Type), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (97 : stdgo.internal.types.errors.Errors.Code) };
+                        var _u:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
+                        return { _0 : (null : stdgo.go.types.Types.Type_), _1 : (null : stdgo.go.constant.Constant.Value), _2 : (97 : stdgo.internal.types.errors.Errors.Code) };
                     };
                     break;
                 };
@@ -16608,7 +16608,7 @@ class Checker_asInterface {
     static public function _updateExprVal( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.go.ast.Ast.Expr, _val:stdgo.go.constant.Constant.Value):Void {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         {
-            var __tmp__ = (_check._untyped != null && _check._untyped.exists(_x) ? { value : _check._untyped[_x], ok : true } : { value : ({} : stdgo.go.types.Types.T_exprInfo), ok : false }), _info:stdgo.go.types.Types.T_exprInfo = __tmp__.value, _ok:Bool = __tmp__.ok;
+            var __tmp__ = (_check._untyped != null && _check._untyped.exists(_x) ? { _0 : _check._untyped[_x], _1 : true } : { _0 : ({} : stdgo.go.types.Types.T_exprInfo), _1 : false }), _info:stdgo.go.types.Types.T_exprInfo = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 _info._val = _val;
                 _check._untyped[_x] = _info?.__copy__();
@@ -16616,9 +16616,9 @@ class Checker_asInterface {
         };
     }
     @:keep
-    static public function _updateExprType0( _check:stdgo.StdGoTypes.Ref<Checker>, _parent:stdgo.go.ast.Ast.Expr, _x:stdgo.go.ast.Ast.Expr, _typ:Type, _final:Bool):Void {
+    static public function _updateExprType0( _check:stdgo.StdGoTypes.Ref<Checker>, _parent:stdgo.go.ast.Ast.Expr, _x:stdgo.go.ast.Ast.Expr, _typ:Type_, _final:Bool):Void {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
-        var __tmp__ = (_check._untyped != null && _check._untyped.exists(_x) ? { value : _check._untyped[_x], ok : true } : { value : ({} : stdgo.go.types.Types.T_exprInfo), ok : false }), _old:stdgo.go.types.Types.T_exprInfo = __tmp__.value, _found:Bool = __tmp__.ok;
+        var __tmp__ = (_check._untyped != null && _check._untyped.exists(_x) ? { _0 : _check._untyped[_x], _1 : true } : { _0 : ({} : stdgo.go.types.Types.T_exprInfo), _1 : false }), _old:stdgo.go.types.Types.T_exprInfo = __tmp__._0, _found:Bool = __tmp__._1;
         if (!_found) {
             return;
         };
@@ -16700,7 +16700,7 @@ class Checker_asInterface {
         // shift, it must be an integer value.
     **/
     @:keep
-    static public function _updateExprType( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.go.ast.Ast.Expr, _typ:Type, _final:Bool):Void {
+    static public function _updateExprType( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.go.ast.Ast.Expr, _typ:Type_, _final:Bool):Void {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         _check._updateExprType0((null : stdgo.go.ast.Ast.Expr), _x, _typ, _final);
     }
@@ -16710,7 +16710,7 @@ class Checker_asInterface {
     @:keep
     static public function _unary( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.StdGoTypes.Ref<T_operand>, _e:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.UnaryExpr>):Void {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
-        _check._expr((null : stdgo.go.types.Types.Type), _x, _e.x);
+        _check._expr((null : stdgo.go.types.Types.Type_), _x, _e.x);
         if (_x._mode == ((0 : stdgo.go.types.Types.T_operandMode))) {
             return;
         };
@@ -16720,10 +16720,10 @@ class Checker_asInterface {
             if (__value__ == ((17 : stdgo.go.token.Token.Token))) {
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_unparen(_e.x)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CompositeLit>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CompositeLit>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_unparen(_e.x)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CompositeLit>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CompositeLit>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CompositeLit>), ok : false };
-                    }, __8 = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CompositeLit>), _1 : false };
+                    }, __8 = __tmp__._0, _ok = __tmp__._1;
                     if (!_ok && (_x._mode != (5 : stdgo.go.types.Types.T_operandMode))) {
                         _check._errorf(stdgo.Go.asInterface(_x), (49 : stdgo.internal.types.errors.Errors.Code), ("invalid operation: cannot take address of %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)));
                         _x._mode = (0 : stdgo.go.types.Types.T_operandMode);
@@ -16734,17 +16734,17 @@ class Checker_asInterface {
                 _x._typ = stdgo.Go.asInterface((stdgo.Go.setRef(({ _base : _x._typ } : stdgo.go.types.Types.Pointer_)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>));
                 return;
             } else if (__value__ == ((36 : stdgo.go.token.Token.Token))) {
-                var _u:stdgo.go.types.Types.Type = _coreType(_x._typ);
+                var _u:stdgo.go.types.Types.Type_ = _coreType(_x._typ);
                 if (_u == null) {
                     _check._errorf(stdgo.Go.asInterface(_x), (58 : stdgo.internal.types.errors.Errors.Code), ("invalid operation: cannot receive from %s (no core type)" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)));
                     _x._mode = (0 : stdgo.go.types.Types.T_operandMode);
                     return;
                 };
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_u) : stdgo.StdGoTypes.Ref<stdgo.Chan>)) : stdgo.StdGoTypes.Ref<stdgo.Chan>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_u) : stdgo.StdGoTypes.Ref<stdgo.Chan>)) : stdgo.StdGoTypes.Ref<stdgo.Chan>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.Chan>), ok : false };
-                }, _ch = __tmp__.value, __25 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.Chan>), _1 : false };
+                }, _ch = __tmp__._0, __25 = __tmp__._1;
                 if (_ch == null || (_ch : Dynamic).__nil__) {
                     _check._errorf(stdgo.Go.asInterface(_x), (58 : stdgo.internal.types.errors.Errors.Code), ("invalid operation: cannot receive from non-channel %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)));
                     _x._mode = (0 : stdgo.go.types.Types.T_operandMode);
@@ -16792,7 +16792,7 @@ class Checker_asInterface {
     static public function _op( _check:stdgo.StdGoTypes.Ref<Checker>, _m:T_opPredicates, _x:stdgo.StdGoTypes.Ref<T_operand>, _op:stdgo.go.token.Token.Token):Bool {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         {
-            var _pred:stdgo.go.types.Types.Type -> Bool = (_m[_op] ?? null);
+            var _pred:stdgo.go.types.Types.Type_ -> Bool = (_m[_op] ?? null);
             if (_pred != null) {
                 if (!_pred(_x._typ)) {
                     _check._errorf(stdgo.Go.asInterface(_x), (45 : stdgo.internal.types.errors.Errors.Code), ("invalid operation: operator %s not defined on %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_op)), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)));
@@ -16932,7 +16932,7 @@ class Checker_asInterface {
             return;
         };
         _check._seenPkgMap[_pkg] = true;
-        var __tmp__ = (_check._pkgPathMap != null && _check._pkgPathMap.exists(_pkg._name?.__copy__()) ? { value : _check._pkgPathMap[_pkg._name?.__copy__()], ok : true } : { value : (null : stdgo.GoMap<stdgo.GoString, Bool>), ok : false }), _forName:stdgo.GoMap<stdgo.GoString, Bool> = __tmp__.value, _ok:Bool = __tmp__.ok;
+        var __tmp__ = (_check._pkgPathMap != null && _check._pkgPathMap.exists(_pkg._name?.__copy__()) ? { _0 : _check._pkgPathMap[_pkg._name?.__copy__()], _1 : true } : { _0 : (null : stdgo.GoMap<stdgo.GoString, Bool>), _1 : false }), _forName:stdgo.GoMap<stdgo.GoString, Bool> = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             _forName = ({
                 final x = new stdgo.GoMap.GoStringMap<Bool>();
@@ -16988,7 +16988,7 @@ class Checker_asInterface {
                             var _top:stdgo.StdGoTypes.GoInt = (_check._delayed.length);
                             var _lhs = new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Const>>((_d._spec.names.length : stdgo.StdGoTypes.GoInt).toBasic(), 0);
                             for (_i => _name in _d._spec.names) {
-                                var _obj = newConst(_name.pos(), _pkg, _name.name?.__copy__(), (null : stdgo.go.types.Types.Type), stdgo.go.constant.Constant.makeInt64((_d._iota : stdgo.StdGoTypes.GoInt64)));
+                                var _obj = newConst(_name.pos(), _pkg, _name.name?.__copy__(), (null : stdgo.go.types.Types.Type_), stdgo.go.constant.Constant.makeInt64((_d._iota : stdgo.StdGoTypes.GoInt64)));
                                 _lhs[(_i : stdgo.StdGoTypes.GoInt)] = _obj;
                                 var _init:stdgo.go.ast.Ast.Expr = (null : stdgo.go.ast.Ast.Expr);
                                 if (_i < (_d._init.length)) {
@@ -17006,7 +17006,7 @@ class Checker_asInterface {
                             var _top:stdgo.StdGoTypes.GoInt = (_check._delayed.length);
                             var _lhs0 = new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>>((_d._spec.names.length : stdgo.StdGoTypes.GoInt).toBasic(), 0);
                             for (_i => _name in _d._spec.names) {
-                                _lhs0[(_i : stdgo.StdGoTypes.GoInt)] = newVar(_name.pos(), _pkg, _name.name?.__copy__(), (null : stdgo.go.types.Types.Type));
+                                _lhs0[(_i : stdgo.StdGoTypes.GoInt)] = newVar(_name.pos(), _pkg, _name.name?.__copy__(), (null : stdgo.go.types.Types.Type_));
                             };
                             for (_i => _obj in _lhs0) {
                                 var _lhs:stdgo.Slice<stdgo.StdGoTypes.Ref<Var>> = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>>);
@@ -17041,7 +17041,7 @@ class Checker_asInterface {
                             };
                         } else if (stdgo.Go.typeEquals((__type__ : T_typeDecl))) {
                             var _d:stdgo.go.types.Types.T_typeDecl = __type__ == null ? ({} : stdgo.go.types.Types.T_typeDecl) : __type__.__underlying__() == null ? ({} : stdgo.go.types.Types.T_typeDecl) : __type__ == null ? ({} : stdgo.go.types.Types.T_typeDecl) : __type__.__underlying__().value;
-                            var _obj = newTypeName(_d._spec.name.pos(), _pkg, _d._spec.name.name?.__copy__(), (null : stdgo.go.types.Types.Type));
+                            var _obj = newTypeName(_d._spec.name.pos(), _pkg, _d._spec.name.name?.__copy__(), (null : stdgo.go.types.Types.Type_));
                             var _scopePos:stdgo.go.token.Token.Pos = _d._spec.name.pos();
                             _check._declare(_check._pkg._scope, _d._spec.name, stdgo.Go.asInterface(_obj), _scopePos);
                             _obj._setColor((2u32 : stdgo.go.types.Types.T_color) + (_check._push(stdgo.Go.asInterface(_obj)) : T_color));
@@ -17083,10 +17083,10 @@ class Checker_asInterface {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_base._under()) : stdgo.StdGoTypes.Ref<Struct>)) : stdgo.StdGoTypes.Ref<Struct>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_base._under()) : stdgo.StdGoTypes.Ref<Struct>)) : stdgo.StdGoTypes.Ref<Struct>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Struct>), ok : false };
-            }, _t = __tmp__.value, __8 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Struct>), _1 : false };
+            }, _t = __tmp__._0, __8 = __tmp__._1;
             if (_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) {
                 var _mset:T_objset = (null : stdgo.go.types.Types.T_objset);
                 {
@@ -17123,10 +17123,10 @@ class Checker_asInterface {
         _assert(!(_check._objMap[stdgo.Go.asInterface(_obj)] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_declInfo>))._tdecl.assign.isValid());
         var _mset:T_objset = (null : stdgo.go.types.Types.T_objset);
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj._object._typ) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj._object._typ) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-        }, _base = __tmp__.value, __24 = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+        }, _base = __tmp__._0, __24 = __tmp__._1;
         if (_base != null && ((_base : Dynamic).__nil__ == null || !(_base : Dynamic).__nil__)) {
             _assert(_base.typeArgs().len() == ((0 : stdgo.StdGoTypes.GoInt)));
             _check._later(function():Void {
@@ -17163,7 +17163,7 @@ class Checker_asInterface {
     static public function _declareTypeParams( _check:stdgo.StdGoTypes.Ref<Checker>, _tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _names:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>>):stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>> {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         for (__0 => _name in _names) {
-            var _tname = newTypeName(_name.pos(), _check._pkg, _name.name?.__copy__(), (null : stdgo.go.types.Types.Type));
+            var _tname = newTypeName(_name.pos(), _check._pkg, _name.name?.__copy__(), (null : stdgo.go.types.Types.Type_));
             var _tpar = _check._newTypeParam(_tname, stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)]));
             _check._declare(_check._pkg._scope, _name, stdgo.Go.asInterface(_tname), _check._pkg._scope._pos);
             _tparams = (_tparams.__append__(_tpar));
@@ -17174,7 +17174,7 @@ class Checker_asInterface {
         return _tparams;
     }
     @:keep
-    static public function _bound( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.go.ast.Ast.Expr):Type {
+    static public function _bound( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.go.ast.Ast.Expr):Type_ {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         var _wrap:Bool = false;
         {
@@ -17189,13 +17189,13 @@ class Checker_asInterface {
         };
         if (_wrap) {
             _x = stdgo.Go.asInterface((stdgo.Go.setRef(({ methods : (stdgo.Go.setRef(({ list : (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Field>>(1, 1, ({ type : _x } : stdgo.go.ast.Ast.Field)) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Field>>) } : stdgo.go.ast.Ast.FieldList)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FieldList>) } : stdgo.go.ast.Ast.InterfaceType)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.InterfaceType>));
-            var _t:stdgo.go.types.Types.Type = _check._environment._sig._recv._object._typ(_x);
+            var _t:stdgo.go.types.Types.Type_ = _check._environment._sig._recv._object._typ(_x);
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), ok : false };
-                }, _t = __tmp__.value, __8 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), _1 : false };
+                }, _t = __tmp__._0, __8 = __tmp__._1;
                 if (_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) {
                     _t._implicit = true;
                 };
@@ -17224,7 +17224,7 @@ class Checker_asInterface {
             });
             var _index:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             for (__25 => _f in _list.list) {
-                var _bound:Type = (null : stdgo.go.types.Types.Type);
+                var _bound:Type_ = (null : stdgo.go.types.Types.Type_);
                 if (_f.type != null) {
                     _bound = _check._bound(_f.type);
                     if (_isTypeParam(_bound)) {
@@ -17266,14 +17266,14 @@ class Checker_asInterface {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _assert(_obj._object._typ == null);
-            var _rhs:Type = (null : stdgo.go.types.Types.Type);
+            var _rhs:Type_ = (null : stdgo.go.types.Types.Type_);
             _check._later(function():Void {
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj._object._typ) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj._object._typ) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-                    }, _t = __tmp__.value, __8 = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+                    }, _t = __tmp__._0, __8 = __tmp__._1;
                     if (_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) {
                         _check._validType(_t);
                     };
@@ -17292,7 +17292,7 @@ class Checker_asInterface {
                 _check._validAlias(_obj, _rhs);
                 return;
             };
-            var _named = _check._newNamed(_obj, (null : stdgo.go.types.Types.Type), (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>));
+            var _named = _check._newNamed(_obj, (null : stdgo.go.types.Types.Type_), (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>));
             _def._setUnderlying(stdgo.Go.asInterface(_named));
             if (_tdecl.typeParams != null && ((_tdecl.typeParams : Dynamic).__nil__ == null || !(_tdecl.typeParams : Dynamic).__nil__)) {
                 _check._openScope(stdgo.Go.asInterface(_tdecl), ("type parameters" : stdgo.GoString));
@@ -17334,21 +17334,21 @@ class Checker_asInterface {
         // isImportedConstraint reports whether typ is an imported type constraint.
     **/
     @:keep
-    static public function _isImportedConstraint( _check:stdgo.StdGoTypes.Ref<Checker>, _typ:Type):Bool {
+    static public function _isImportedConstraint( _check:stdgo.StdGoTypes.Ref<Checker>, _typ:Type_):Bool {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-        }, _named = __tmp__.value, __0 = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+        }, _named = __tmp__._0, __0 = __tmp__._1;
         if ((((_named == null) || (_named : Dynamic).__nil__) || (_named._obj._object._pkg == _check._pkg)) || ((_named._obj._object._pkg == null) || (_named._obj._object._pkg : Dynamic).__nil__)) {
             return false;
         };
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_named._under()) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_named._under()) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), ok : false };
-        }, _u = __tmp__.value, __33 = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), _1 : false };
+        }, _u = __tmp__._0, __33 = __tmp__._1;
         return ((_u != null) && ((_u : Dynamic).__nil__ == null || !(_u : Dynamic).__nil__)) && !_u.isMethodSet();
     }
     @:keep
@@ -17411,7 +17411,7 @@ class Checker_asInterface {
             _check._environment._errpos = (null : stdgo.go.types.Types.T_positioner);
             _obj._val = stdgo.go.constant.Constant.makeUnknown();
             if (_typ != null) {
-                var _t:stdgo.go.types.Types.Type = _check._environment._sig._recv._object._typ(_typ);
+                var _t:stdgo.go.types.Types.Type_ = _check._environment._sig._recv._object._typ(_typ);
                 if (!_isConstType(_t)) {
                     if (stdgo.Go.toInterface(_under(_t)) != (stdgo.Go.toInterface(stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])))) {
                         _check._errorf(_typ, (15 : stdgo.internal.types.errors.Errors.Code), ("invalid constant type %s" : stdgo.GoString), stdgo.Go.toInterface(_t));
@@ -17431,7 +17431,7 @@ class Checker_asInterface {
                 if (_inherited) {
                     _check._environment._errpos = stdgo.Go.asInterface((_obj._object._pos : T_atPos));
                 };
-                _check._expr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _init);
+                _check._expr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _init);
             };
             _check._initConst(_obj, (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>));
             {
@@ -17532,10 +17532,10 @@ class Checker_asInterface {
         var _obj:stdgo.go.types.Types.Object = _cycle[(_i : stdgo.StdGoTypes.GoInt)];
         var _objName:stdgo.GoString = _name(_obj)?.__copy__();
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<TypeName>)) : stdgo.StdGoTypes.Ref<TypeName>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<TypeName>)) : stdgo.StdGoTypes.Ref<TypeName>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeName>), ok : false };
-        }, _tname = __tmp__.value, __0 = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeName>), _1 : false };
+        }, _tname = __tmp__._0, __0 = __tmp__._1;
         if (((_tname != null) && ((_tname : Dynamic).__nil__ == null || !(_tname : Dynamic).__nil__)) && _tname.isAlias()) {
             _check._validAlias(_tname, stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)]));
         };
@@ -17891,16 +17891,16 @@ class Checker_asInterface {
         // The result is in x.
     **/
     @:keep
-    static public function _conversion( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.StdGoTypes.Ref<T_operand>, t:Type):Void {
+    static public function _conversion( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.StdGoTypes.Ref<T_operand>, t:Type_):Void {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         var _constArg:Bool = _x._mode == ((4 : stdgo.go.types.Types.T_operandMode));
-        var _constConvertibleTo = function(t:Type, _val:stdgo.StdGoTypes.Ref<stdgo.go.constant.Constant.Value>):Bool {
+        var _constConvertibleTo = function(t:Type_, _val:stdgo.StdGoTypes.Ref<stdgo.go.constant.Constant.Value>):Bool {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(t)) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(t)) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), ok : false };
-                }, _t = __tmp__.value, __0 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), _1 : false };
+                }, _t = __tmp__._0, __0 = __tmp__._1;
                 if (_t == null || (_t : Dynamic).__nil__) {} else if (_representableConst(_x._val, _check, _t, _val)) {
                     return true;
                 } else if (_isInteger(_x._typ) && _isString(stdgo.Go.asInterface(_t))) {
@@ -17930,7 +17930,7 @@ class Checker_asInterface {
         if (_constArg && _isConstType(t)) {
             _ok = _constConvertibleTo(t, (stdgo.Go.setRef(_x._val) : stdgo.StdGoTypes.Ref<stdgo.go.constant.Constant.Value>));
         } else if (_constArg && _isTypeParam(t)) {
-            _ok = (stdgo.Go.typeAssert((stdgo.Go.toInterface(t) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>)._underIs(function(_u:Type):Bool {
+            _ok = (stdgo.Go.typeAssert((stdgo.Go.toInterface(t) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>)._underIs(function(_u:Type_):Bool {
                 if (_u == null) {
                     _cause = _check._sprintf(("%s does not contain specific types" : stdgo.GoString), stdgo.Go.toInterface(t))?.__copy__();
                     return false;
@@ -17959,7 +17959,7 @@ class Checker_asInterface {
             return;
         };
         if (_isUntyped(_x._typ)) {
-            var _final:stdgo.go.types.Types.Type = t;
+            var _final:stdgo.go.types.Types.Type_ = t;
             if ((_isNonTypeParamInterface(t) || (_constArg && !_isConstType(t))) || _x._isNil()) {
                 _final = default_(_x._typ);
             } else if (((_x._mode == (4 : stdgo.go.types.Types.T_operandMode)) && _isInteger(_x._typ)) && _allString(t)) {
@@ -17973,11 +17973,11 @@ class Checker_asInterface {
         // convertUntyped attempts to set the type of an untyped value to the target type.
     **/
     @:keep
-    static public function _convertUntyped( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.StdGoTypes.Ref<T_operand>, _target:Type):Void {
+    static public function _convertUntyped( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.StdGoTypes.Ref<T_operand>, _target:Type_):Void {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
-        var __tmp__ = _check._implicitTypeAndValue(_x, _target), _newType:stdgo.go.types.Types.Type = __tmp__._0, _val:stdgo.go.constant.Constant.Value = __tmp__._1, _code:stdgo.internal.types.errors.Errors.Code = __tmp__._2;
+        var __tmp__ = _check._implicitTypeAndValue(_x, _target), _newType:stdgo.go.types.Types.Type_ = __tmp__._0, _val:stdgo.go.constant.Constant.Value = __tmp__._1, _code:stdgo.internal.types.errors.Errors.Code = __tmp__._2;
         if (_code != ((0 : stdgo.internal.types.errors.Errors.Code))) {
-            var _t:stdgo.go.types.Types.Type = _target;
+            var _t:stdgo.go.types.Types.Type_ = _target;
             if (!_isTypeParam(_target)) {
                 _t = _safeUnderlying(_target);
             };
@@ -17995,7 +17995,7 @@ class Checker_asInterface {
         };
     }
     @:keep
-    static public function _invalidConversion( _check:stdgo.StdGoTypes.Ref<Checker>, _code:Code, _x:stdgo.StdGoTypes.Ref<T_operand>, _target:Type):Void {
+    static public function _invalidConversion( _check:stdgo.StdGoTypes.Ref<Checker>, _code:Code, _x:stdgo.StdGoTypes.Ref<T_operand>, _target:Type_):Void {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         var _msg:stdgo.GoString = ("cannot convert %s to type %s" : stdgo.GoString);
         {
@@ -18087,7 +18087,7 @@ class Checker_asInterface {
         };
     }
     @:keep
-    static public function _recordSelection( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr>, _kind:SelectionKind, _recv:Type, _obj:Object, _index:stdgo.Slice<stdgo.StdGoTypes.GoInt>, _indirect:Bool):Void {
+    static public function _recordSelection( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr>, _kind:SelectionKind, _recv:Type_, _obj:Object, _index:stdgo.Slice<stdgo.StdGoTypes.GoInt>, _indirect:Bool):Void {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         _assert((_obj != null) && ((_recv == null) || (_index.length > (0 : stdgo.StdGoTypes.GoInt))));
         _check._recordUse(_x.sel, _obj);
@@ -18142,7 +18142,7 @@ class Checker_asInterface {
         // instantiated identifier in some other way.
     **/
     @:keep
-    static public function _recordInstance( _check:stdgo.StdGoTypes.Ref<Checker>, _expr:stdgo.go.ast.Ast.Expr, _targs:stdgo.Slice<Type>, _typ:Type):Void {
+    static public function _recordInstance( _check:stdgo.StdGoTypes.Ref<Checker>, _expr:stdgo.go.ast.Ast.Expr, _targs:stdgo.Slice<Type_>, _typ:Type_):Void {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         var _ident = _instantiatedIdent(_expr);
         _assert(_ident != null && ((_ident : Dynamic).__nil__ == null || !(_ident : Dynamic).__nil__));
@@ -18166,7 +18166,7 @@ class Checker_asInterface {
         if (_a[(0 : stdgo.StdGoTypes.GoInt)]._mode == ((0 : stdgo.go.types.Types.T_operandMode))) {
             return;
         };
-        var __0:stdgo.go.types.Types.Type = _a[(0 : stdgo.StdGoTypes.GoInt)]._typ, __1:stdgo.go.types.Types.Type = _a[(1 : stdgo.StdGoTypes.GoInt)]._typ, _t1:stdgo.go.types.Types.Type = __1, _t0:stdgo.go.types.Types.Type = __0;
+        var __0:stdgo.go.types.Types.Type_ = _a[(0 : stdgo.StdGoTypes.GoInt)]._typ, __1:stdgo.go.types.Types.Type_ = _a[(1 : stdgo.StdGoTypes.GoInt)]._typ, _t1:stdgo.go.types.Types.Type_ = __1, _t0:stdgo.go.types.Types.Type_ = __0;
         _assert((_isTyped(_t0) && _isTyped(_t1)) && (_isBoolean(_t1) || (stdgo.Go.toInterface(_t1) == stdgo.Go.toInterface(_universeError))));
         {
             var _m = _check.info.types;
@@ -18178,10 +18178,10 @@ class Checker_asInterface {
                     _tv.type = stdgo.Go.asInterface(newTuple(newVar(_pos, _check._pkg, stdgo.Go.str()?.__copy__(), _t0), newVar(_pos, _check._pkg, stdgo.Go.str()?.__copy__(), _t1)));
                     _m[_x] = _tv?.__copy__();
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr>), ok : false };
-                    }, _p = __tmp__.value, __24 = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr>), _1 : false };
+                    }, _p = __tmp__._0, __24 = __tmp__._1;
                     if (_p == null || (_p : Dynamic).__nil__) {
                         break;
                     };
@@ -18211,7 +18211,7 @@ class Checker_asInterface {
         };
     }
     @:keep
-    static public function _recordTypeAndValue( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.go.ast.Ast.Expr, _mode:T_operandMode, _typ:Type, _val:stdgo.go.constant.Constant.Value):Void {
+    static public function _recordTypeAndValue( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.go.ast.Ast.Expr, _mode:T_operandMode, _typ:Type_, _val:stdgo.go.constant.Constant.Value):Void {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         _assert(_x != null);
         _assert(_typ != null);
@@ -18246,7 +18246,7 @@ class Checker_asInterface {
     @:keep
     static public function _record( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.StdGoTypes.Ref<T_operand>):Void {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
-        var _typ:Type = (null : stdgo.go.types.Types.Type);
+        var _typ:Type_ = (null : stdgo.go.types.Types.Type_);
         var _val:stdgo.go.constant.Constant.Value = (null : stdgo.go.constant.Constant.Value);
         {
             final __value__ = _x._mode;
@@ -18574,7 +18574,7 @@ class Checker_asInterface {
         // validAlias records that alias has the valid type typ (possibly Typ[Invalid]).
     **/
     @:keep
-    static public function _validAlias( _check:stdgo.StdGoTypes.Ref<Checker>, _alias:stdgo.StdGoTypes.Ref<TypeName>, _typ:Type):Void {
+    static public function _validAlias( _check:stdgo.StdGoTypes.Ref<Checker>, _alias:stdgo.StdGoTypes.Ref<TypeName>, _typ:Type_):Void {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         if (_check._brokenAliases != null) _check._brokenAliases.remove(_alias);
         _alias._object._typ = _typ;
@@ -18607,7 +18607,7 @@ class Checker_asInterface {
             return;
         };
         {
-            var __tmp__ = (_check._objMap != null && _check._objMap.exists(_to) ? { value : _check._objMap[_to], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_declInfo>), ok : false }), __24:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_declInfo> = __tmp__.value, _found:Bool = __tmp__.ok;
+            var __tmp__ = (_check._objMap != null && _check._objMap.exists(_to) ? { _0 : _check._objMap[_to], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_declInfo>), _1 : false }), __24:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_declInfo> = __tmp__._0, _found:Bool = __tmp__._1;
             if (!_found) {
                 return;
             };
@@ -18640,10 +18640,10 @@ class Checker_asInterface {
                                 if (_obj != null) {
                                     {
                                         var __tmp__ = try {
-                                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<Var>)) : stdgo.StdGoTypes.Ref<Var>), ok : true };
+                                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<Var>)) : stdgo.StdGoTypes.Ref<Var>), _1 : true };
                                         } catch(_) {
-                                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>), ok : false };
-                                        }, _w = __tmp__.value, __9 = __tmp__.ok;
+                                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>), _1 : false };
+                                        }, _w = __tmp__._0, __9 = __tmp__._1;
                                         if (((_w != null) && ((_w : Dynamic).__nil__ == null || !(_w : Dynamic).__nil__)) && (_w._object._pkg == _check._pkg)) {
                                             _v = _w;
                                             _v_used = _v._used;
@@ -18658,7 +18658,7 @@ class Checker_asInterface {
                         };
                     } else {
                         var _n:stdgo.go.ast.Ast.Expr = __type__ == null ? (null : stdgo.go.ast.Ast.Expr) : cast __type__;
-                        _check._rawExpr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _e, (null : stdgo.go.types.Types.Type), true);
+                        _check._rawExpr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _e, (null : stdgo.go.types.Types.Type_), true);
                     };
                     break;
                 };
@@ -18709,18 +18709,18 @@ class Checker_asInterface {
             var _sel:stdgo.GoString = _e.sel.name?.__copy__();
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e.x) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e.x) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : false };
-                }, _ident = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), _1 : false };
+                }, _ident = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
                     var _obj:stdgo.go.types.Types.Object = _check._lookup(_ident.name?.__copy__());
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<PkgName>)) : stdgo.StdGoTypes.Ref<PkgName>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<PkgName>)) : stdgo.StdGoTypes.Ref<PkgName>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.PkgName>), ok : false };
-                        }, _pname = __tmp__.value, __8 = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.PkgName>), _1 : false };
+                        }, _pname = __tmp__._0, __8 = __tmp__._1;
                         if (_pname != null && ((_pname : Dynamic).__nil__ == null || !(_pname : Dynamic).__nil__)) {
                             _assert(_pname._object._pkg == (_check._pkg));
                             _check._recordUse(_ident, stdgo.Go.asInterface(_pname));
@@ -18877,20 +18877,20 @@ class Checker_asInterface {
             };
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<Func>)) : stdgo.StdGoTypes.Ref<Func>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<Func>)) : stdgo.StdGoTypes.Ref<Func>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>), ok : false };
-                }, _m = __tmp__.value, __194 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>), _1 : false };
+                }, _m = __tmp__._0, __194 = __tmp__._1;
                 if (_m != null && ((_m : Dynamic).__nil__ == null || !(_m : Dynamic).__nil__)) {
                     _check._objDecl(stdgo.Go.asInterface(_m), null);
                 };
             };
             if (_x._mode == ((3 : stdgo.go.types.Types.T_operandMode))) {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<Func>)) : stdgo.StdGoTypes.Ref<Func>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<Func>)) : stdgo.StdGoTypes.Ref<Func>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>), ok : false };
-                }, _m = __tmp__.value, __203 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>), _1 : false };
+                }, _m = __tmp__._0, __203 = __tmp__._1;
                 if (_m == null || (_m : Dynamic).__nil__) {
                     _check._errorf(stdgo.Go.asInterface(_e.sel), (76 : stdgo.internal.types.errors.Errors.Code), ("%s.%s undefined (type %s has no method %s)" : stdgo.GoString), stdgo.Go.toInterface(_x._expr), stdgo.Go.toInterface(_sel), stdgo.Go.toInterface(_x._typ), stdgo.Go.toInterface(_sel));
                     @:goto "Error";
@@ -18933,14 +18933,14 @@ class Checker_asInterface {
                         _check._recordSelection(_e, (1 : stdgo.go.types.Types.SelectionKind), _x._typ, stdgo.Go.asInterface(_obj), _index, _indirect);
                         var _disabled:Bool = true;
                         if (!_disabled && false) {
-                            var _typ:stdgo.go.types.Types.Type = _x._typ;
+                            var _typ:stdgo.go.types.Types.Type_ = _x._typ;
                             if (_x._mode == ((5 : stdgo.go.types.Types.T_operandMode))) {
                                 {
                                     var __tmp__ = try {
-                                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), ok : true };
+                                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), _1 : true };
                                     } catch(_) {
-                                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), ok : false };
-                                    }, __252 = __tmp__.value, _ok = __tmp__.ok;
+                                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), _1 : false };
+                                    }, __252 = __tmp__._0, _ok = __tmp__._1;
                                     if (!_ok && !isInterface(_typ)) {
                                         _typ = stdgo.Go.asInterface((stdgo.Go.setRef(({ _base : _typ } : stdgo.go.types.Types.Pointer_)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>));
                                     };
@@ -18988,7 +18988,7 @@ class Checker_asInterface {
         // If an error occurred, the result signature is the incoming sig.
     **/
     @:keep
-    static public function _arguments( _check:stdgo.StdGoTypes.Ref<Checker>, _call:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>, _sig:stdgo.StdGoTypes.Ref<Signature>, _targs:stdgo.Slice<Type>, _xlist:stdgo.Slice<stdgo.go.ast.Ast.Expr>, _args:stdgo.Slice<stdgo.StdGoTypes.Ref<T_operand>>, _atargs:stdgo.Slice<stdgo.Slice<Type>>, _atxlist:stdgo.Slice<stdgo.Slice<stdgo.go.ast.Ast.Expr>>):stdgo.StdGoTypes.Ref<Signature> {
+    static public function _arguments( _check:stdgo.StdGoTypes.Ref<Checker>, _call:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>, _sig:stdgo.StdGoTypes.Ref<Signature>, _targs:stdgo.Slice<Type_>, _xlist:stdgo.Slice<stdgo.go.ast.Ast.Expr>, _args:stdgo.Slice<stdgo.StdGoTypes.Ref<T_operand>>, _atargs:stdgo.Slice<stdgo.Slice<Type_>>, _atxlist:stdgo.Slice<stdgo.Slice<stdgo.go.ast.Ast.Expr>>):stdgo.StdGoTypes.Ref<Signature> {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         var _rsig:stdgo.StdGoTypes.Ref<Signature> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>);
         _rsig = _sig;
@@ -19008,7 +19008,7 @@ class Checker_asInterface {
                     var _vars = new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>>((_npars - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt).toBasic(), 0);
                     stdgo.Go.copySlice(_vars, _sig._params._vars);
                     var _last = _sig._params._vars[(_npars - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)];
-                    var _typ:stdgo.go.types.Types.Type = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_last._object._typ) : stdgo.StdGoTypes.Ref<Slice_>)) : stdgo.StdGoTypes.Ref<Slice_>)._elem;
+                    var _typ:stdgo.go.types.Types.Type_ = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_last._object._typ) : stdgo.StdGoTypes.Ref<Slice_>)) : stdgo.StdGoTypes.Ref<Slice_>)._elem;
                     while ((_vars.length) < _nargs) {
                         _vars = (_vars.__append__(newParam(_last._object._pos, _last._object._pkg, _last._object._name?.__copy__(), _typ)));
                     };
@@ -19058,7 +19058,7 @@ class Checker_asInterface {
                     };
                 };
             };
-            var _tmp:Type = (null : stdgo.go.types.Types.Type);
+            var _tmp:Type_ = (null : stdgo.go.types.Types.Type_);
             {
                 var __tmp__ = _check._renameTParams(_call.pos(), _sig.typeParams()._list(), stdgo.Go.asInterface(_sigParams));
                 _tparams = __tmp__._0;
@@ -19066,7 +19066,7 @@ class Checker_asInterface {
             };
             _sigParams = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_tmp) : stdgo.StdGoTypes.Ref<Tuple>)) : stdgo.StdGoTypes.Ref<Tuple>);
             while ((_targs.length) < (_tparams.length)) {
-                _targs = (_targs.__append__((null : stdgo.go.types.Types.Type)));
+                _targs = (_targs.__append__((null : stdgo.go.types.Types.Type_)));
             };
         };
         _assert((_tparams.length) == ((_targs.length)));
@@ -19075,12 +19075,12 @@ class Checker_asInterface {
             for (_i => _arg in _args) {
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_arg._typ) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_arg._typ) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), ok : false };
-                    }, _asig = __tmp__.value, __80 = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), _1 : false };
+                    }, _asig = __tmp__._0, __80 = __tmp__._1;
                     if (((_asig != null) && ((_asig : Dynamic).__nil__ == null || !(_asig : Dynamic).__nil__)) && (_asig.typeParams().len() > (0 : stdgo.StdGoTypes.GoInt))) {
-                        var __tmp__ = _check._renameTParams(_call.pos(), _asig.typeParams()._list(), stdgo.Go.asInterface(_asig)), _atparams:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>> = __tmp__._0, _tmp:stdgo.go.types.Types.Type = __tmp__._1;
+                        var __tmp__ = _check._renameTParams(_call.pos(), _asig.typeParams()._list(), stdgo.Go.asInterface(_asig)), _atparams:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>> = __tmp__._0, _tmp:stdgo.go.types.Types.Type_ = __tmp__._1;
                         _asig = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_tmp) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>);
                         _asig._tparams = (stdgo.Go.setRef((new stdgo.go.types.Types.TypeParamList(_atparams) : stdgo.go.types.Types.TypeParamList)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParamList>);
                         _arg._typ = stdgo.Go.asInterface(_asig);
@@ -19089,7 +19089,7 @@ class Checker_asInterface {
                             _targs = (_targs.__append__(..._atargs[(_i : stdgo.StdGoTypes.GoInt)].__toArray__()));
                         };
                         while ((_targs.length) < (_tparams.length)) {
-                            _targs = (_targs.__append__((null : stdgo.go.types.Types.Type)));
+                            _targs = (_targs.__append__((null : stdgo.go.types.Types.Type_)));
                         };
                         _genericArgs = (_genericArgs.__append__(_i));
                     };
@@ -19104,9 +19104,9 @@ class Checker_asInterface {
                 return _rsig;
             };
             if (_n > (0 : stdgo.StdGoTypes.GoInt)) {
-                _rsig = _check._instantiateSignature(_call.pos(), _call.fun, _sig, (_targs.__slice__(0, _n) : stdgo.Slice<stdgo.go.types.Types.Type>), _xlist);
+                _rsig = _check._instantiateSignature(_call.pos(), _call.fun, _sig, (_targs.__slice__(0, _n) : stdgo.Slice<stdgo.go.types.Types.Type_>), _xlist);
                 if (_adjusted) {
-                    _sigParams = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_check._subst(_call.pos(), stdgo.Go.asInterface(_sigParams), _makeSubstMap((_tparams.__slice__(0, _n) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>), (_targs.__slice__(0, _n) : stdgo.Slice<stdgo.go.types.Types.Type>)), null, _check._context())) : stdgo.StdGoTypes.Ref<Tuple>)) : stdgo.StdGoTypes.Ref<Tuple>);
+                    _sigParams = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_check._subst(_call.pos(), stdgo.Go.asInterface(_sigParams), _makeSubstMap((_tparams.__slice__(0, _n) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>>), (_targs.__slice__(0, _n) : stdgo.Slice<stdgo.go.types.Types.Type_>)), null, _check._context())) : stdgo.StdGoTypes.Ref<Tuple>)) : stdgo.StdGoTypes.Ref<Tuple>);
                 } else {
                     _sigParams = _rsig._params;
                 };
@@ -19116,7 +19116,7 @@ class Checker_asInterface {
                 var _arg = _args[(_i : stdgo.StdGoTypes.GoInt)];
                 var _asig = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_arg._typ) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>);
                 var _k:stdgo.StdGoTypes.GoInt = _j + _asig.typeParams().len();
-                _arg._typ = stdgo.Go.asInterface(_check._instantiateSignature(_call.pos(), _arg._expr, _asig, (_targs.__slice__(_j, _k) : stdgo.Slice<stdgo.go.types.Types.Type>), (null : stdgo.Slice<stdgo.go.ast.Ast.Expr>)));
+                _arg._typ = stdgo.Go.asInterface(_check._instantiateSignature(_call.pos(), _arg._expr, _asig, (_targs.__slice__(_j, _k) : stdgo.Slice<stdgo.go.types.Types.Type_>), (null : stdgo.Slice<stdgo.go.ast.Ast.Expr>)));
                 _check._record(_arg);
                 _j = _k;
             };
@@ -19139,10 +19139,10 @@ class Checker_asInterface {
         // xlistList elements are the operand's partial type arguments and type expression lists.
     **/
     @:keep
-    static public function _genericExprList( _check:stdgo.StdGoTypes.Ref<Checker>, _elist:stdgo.Slice<stdgo.go.ast.Ast.Expr>):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.Ref<T_operand>>; var _1 : stdgo.Slice<stdgo.Slice<Type>>; var _2 : stdgo.Slice<stdgo.Slice<stdgo.go.ast.Ast.Expr>>; } {
+    static public function _genericExprList( _check:stdgo.StdGoTypes.Ref<Checker>, _elist:stdgo.Slice<stdgo.go.ast.Ast.Expr>):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.Ref<T_operand>>; var _1 : stdgo.Slice<stdgo.Slice<Type_>>; var _2 : stdgo.Slice<stdgo.Slice<stdgo.go.ast.Ast.Expr>>; } {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         var __deferstack__:Array<Void -> Void> = [];
-        var _resList:stdgo.Slice<stdgo.StdGoTypes.Ref<T_operand>> = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>>), _targsList:stdgo.Slice<stdgo.Slice<Type>> = (null : stdgo.Slice<stdgo.Slice<stdgo.go.types.Types.Type>>), _xlistList:stdgo.Slice<stdgo.Slice<stdgo.go.ast.Ast.Expr>> = (null : stdgo.Slice<stdgo.Slice<stdgo.go.ast.Ast.Expr>>);
+        var _resList:stdgo.Slice<stdgo.StdGoTypes.Ref<T_operand>> = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>>), _targsList:stdgo.Slice<stdgo.Slice<Type_>> = (null : stdgo.Slice<stdgo.Slice<stdgo.go.types.Types.Type_>>), _xlistList:stdgo.Slice<stdgo.Slice<stdgo.go.ast.Ast.Expr>> = (null : stdgo.Slice<stdgo.Slice<stdgo.go.ast.Ast.Expr>>);
         try {
             if (false) {
                 __deferstack__.unshift(() -> {
@@ -19173,9 +19173,9 @@ class Checker_asInterface {
                 {
                     var _ix = stdgo.go.internal.typeparams.Typeparams.unpackIndexExpr(_e);
                     if (((_ix != null) && ((_ix : Dynamic).__nil__ == null || !(_ix : Dynamic).__nil__)) && _check._indexExpr((stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _ix)) {
-                        var __tmp__ = _check._funcInst(null, _x.pos(), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _ix, _infer), _targs:stdgo.Slice<stdgo.go.types.Types.Type> = __tmp__._0, _xlist:stdgo.Slice<stdgo.go.ast.Ast.Expr> = __tmp__._1;
+                        var __tmp__ = _check._funcInst(null, _x.pos(), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _ix, _infer), _targs:stdgo.Slice<stdgo.go.types.Types.Type_> = __tmp__._0, _xlist:stdgo.Slice<stdgo.go.ast.Ast.Expr> = __tmp__._1;
                         if (_targs != null) {
-                            _targsList = (new stdgo.Slice<stdgo.Slice<stdgo.go.types.Types.Type>>(1, 1, _targs) : stdgo.Slice<stdgo.Slice<stdgo.go.types.Types.Type>>);
+                            _targsList = (new stdgo.Slice<stdgo.Slice<stdgo.go.types.Types.Type_>>(1, 1, _targs) : stdgo.Slice<stdgo.Slice<stdgo.go.types.Types.Type_>>);
                             _xlistList = (new stdgo.Slice<stdgo.Slice<stdgo.go.ast.Ast.Expr>>(1, 1, _xlist) : stdgo.Slice<stdgo.Slice<stdgo.go.ast.Ast.Expr>>);
                             _x._expr = _ix.orig;
                         } else {
@@ -19183,14 +19183,14 @@ class Checker_asInterface {
                         };
                         _resList = (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>>(1, 1, (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>)) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>>);
                     } else {
-                        _check._rawExpr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _e, (null : stdgo.go.types.Types.Type), true);
+                        _check._rawExpr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _e, (null : stdgo.go.types.Types.Type_), true);
                         _check._exclude((stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), (14u32 : stdgo.StdGoTypes.GoUInt));
                         {
                             var __tmp__ = try {
-                                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x._typ) : stdgo.StdGoTypes.Ref<Tuple>)) : stdgo.StdGoTypes.Ref<Tuple>), ok : true };
+                                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x._typ) : stdgo.StdGoTypes.Ref<Tuple>)) : stdgo.StdGoTypes.Ref<Tuple>), _1 : true };
                             } catch(_) {
-                                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Tuple>), ok : false };
-                            }, _t = __tmp__.value, _ok = __tmp__.ok;
+                                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Tuple>), _1 : false };
+                            }, _t = __tmp__._0, _ok = __tmp__._1;
                             if (_ok && (_x._mode != (0 : stdgo.go.types.Types.T_operandMode))) {
                                 _resList = new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>>((_t.len() : stdgo.StdGoTypes.GoInt).toBasic(), 0);
                                 for (_i => _v in _t._vars) {
@@ -19204,14 +19204,14 @@ class Checker_asInterface {
                 };
             } else if (_n > (1 : stdgo.StdGoTypes.GoInt)) {
                 _resList = new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>>((_n : stdgo.StdGoTypes.GoInt).toBasic(), 0);
-                _targsList = new stdgo.Slice<stdgo.Slice<stdgo.go.types.Types.Type>>((_n : stdgo.StdGoTypes.GoInt).toBasic(), 0);
+                _targsList = new stdgo.Slice<stdgo.Slice<stdgo.go.types.Types.Type_>>((_n : stdgo.StdGoTypes.GoInt).toBasic(), 0);
                 _xlistList = new stdgo.Slice<stdgo.Slice<stdgo.go.ast.Ast.Expr>>((_n : stdgo.StdGoTypes.GoInt).toBasic(), 0);
                 for (_i => _e in _elist) {
                     var _x:T_operand = ({} : stdgo.go.types.Types.T_operand);
                     {
                         var _ix = stdgo.go.internal.typeparams.Typeparams.unpackIndexExpr(_e);
                         if (((_ix != null) && ((_ix : Dynamic).__nil__ == null || !(_ix : Dynamic).__nil__)) && _check._indexExpr((stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _ix)) {
-                            var __tmp__ = _check._funcInst(null, _x.pos(), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _ix, _infer), _targs:stdgo.Slice<stdgo.go.types.Types.Type> = __tmp__._0, _xlist:stdgo.Slice<stdgo.go.ast.Ast.Expr> = __tmp__._1;
+                            var __tmp__ = _check._funcInst(null, _x.pos(), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _ix, _infer), _targs:stdgo.Slice<stdgo.go.types.Types.Type_> = __tmp__._0, _xlist:stdgo.Slice<stdgo.go.ast.Ast.Expr> = __tmp__._1;
                             if (_targs != null) {
                                 _targsList[(_i : stdgo.StdGoTypes.GoInt)] = _targs;
                                 _xlistList[(_i : stdgo.StdGoTypes.GoInt)] = _xlist;
@@ -19272,7 +19272,7 @@ class Checker_asInterface {
                 _xlist = new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>>((_n : stdgo.StdGoTypes.GoInt).toBasic(), 0);
                 for (_i => _e in _elist) {
                     var _x:T_operand = ({} : stdgo.go.types.Types.T_operand);
-                    _check._expr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _e);
+                    _check._expr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _e);
                     _xlist[(_i : stdgo.StdGoTypes.GoInt)] = (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>);
                 };
             };
@@ -19307,11 +19307,11 @@ class Checker_asInterface {
                         return (2 : stdgo.go.types.Types.T_exprKind);
                         break;
                     } else if (__value__ == ((3 : stdgo.go.types.Types.T_operandMode))) {
-                        _check._nonGeneric((null : stdgo.go.types.Types.Type), _x);
+                        _check._nonGeneric((null : stdgo.go.types.Types.Type_), _x);
                         if (_x._mode == ((0 : stdgo.go.types.Types.T_operandMode))) {
                             return (0 : stdgo.go.types.Types.T_exprKind);
                         };
-                        var t:stdgo.go.types.Types.Type = _x._typ;
+                        var t:stdgo.go.types.Types.Type_ = _x._typ;
                         _x._mode = (0 : stdgo.go.types.Types.T_operandMode);
                         {
                             var _n:stdgo.StdGoTypes.GoInt = (_call.args.length);
@@ -19326,7 +19326,7 @@ class Checker_asInterface {
                                             _check._errorf(stdgo.Go.asInterface(_inNode(stdgo.Go.asInterface(_call), _call.rparen)), (126 : stdgo.internal.types.errors.Errors.Code), ("missing argument in conversion to %s" : stdgo.GoString), stdgo.Go.toInterface(t));
                                             break;
                                         } else if (__value__ == ((1 : stdgo.StdGoTypes.GoInt))) {
-                                            _check._expr((null : stdgo.go.types.Types.Type), _x, _call.args[(0 : stdgo.StdGoTypes.GoInt)]);
+                                            _check._expr((null : stdgo.go.types.Types.Type_), _x, _call.args[(0 : stdgo.StdGoTypes.GoInt)]);
                                             if (_x._mode != ((0 : stdgo.go.types.Types.T_operandMode))) {
                                                 if (_call.ellipsis.isValid()) {
                                                     _check._errorf(_call.args[(0 : stdgo.StdGoTypes.GoInt)], (77 : stdgo.internal.types.errors.Errors.Code), ("invalid use of ... in conversion to %s" : stdgo.GoString), stdgo.Go.toInterface(t));
@@ -19334,10 +19334,10 @@ class Checker_asInterface {
                                                 };
                                                 {
                                                     var __tmp__ = try {
-                                                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(t)) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), ok : true };
+                                                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(t)) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), _1 : true };
                                                     } catch(_) {
-                                                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), ok : false };
-                                                    }, _t = __tmp__.value, __64 = __tmp__.ok;
+                                                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), _1 : false };
+                                                    }, _t = __tmp__._0, __64 = __tmp__._1;
                                                     if (((_t != null) && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) && !_isTypeParam(t)) {
                                                         if (!_t.isMethodSet()) {
                                                             _check._errorf(stdgo.Go.asInterface(_call), (142 : stdgo.internal.types.errors.Errors.Code), ("cannot use interface %s in conversion (contains specific type constraints or is comparable)" : stdgo.GoString), stdgo.Go.toInterface(t));
@@ -19378,10 +19378,10 @@ class Checker_asInterface {
         };
         var _cgocall:Bool = _x._mode == ((10 : stdgo.go.types.Types.T_operandMode));
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_coreType(_x._typ)) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_coreType(_x._typ)) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), ok : false };
-        }, _sig = __tmp__.value, __121 = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), _1 : false };
+        }, _sig = __tmp__._0, __121 = __tmp__._1;
         if (_sig == null || (_sig : Dynamic).__nil__) {
             _check._errorf(stdgo.Go.asInterface(_x), (127 : stdgo.internal.types.errors.Errors.Code), ("invalid operation: cannot call non-function %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)));
             _x._mode = (0 : stdgo.go.types.Types.T_operandMode);
@@ -19390,7 +19390,7 @@ class Checker_asInterface {
         };
         var _wasGeneric:Bool = _sig.typeParams().len() > (0 : stdgo.StdGoTypes.GoInt);
         var _xlist:stdgo.Slice<stdgo.go.ast.Ast.Expr> = (null : stdgo.Slice<stdgo.go.ast.Ast.Expr>);
-        var _targs:stdgo.Slice<Type> = (null : stdgo.Slice<stdgo.go.types.Types.Type>);
+        var _targs:stdgo.Slice<Type_> = (null : stdgo.Slice<stdgo.go.types.Types.Type_>);
         if (_ix != null && ((_ix : Dynamic).__nil__ == null || !(_ix : Dynamic).__nil__)) {
             _xlist = _ix.indexListExpr.indices;
             _targs = _check._typeList(_xlist);
@@ -19412,11 +19412,11 @@ class Checker_asInterface {
             if ((_got == _want) && (_want > (0 : stdgo.StdGoTypes.GoInt))) {
                 _check._verifyVersionf(stdgo.Go.asInterface((_ix.indexListExpr.lbrack : T_atPos)), _go1_18?.__copy__(), ("function instantiation" : stdgo.GoString));
                 _sig = _check._instantiateSignature(_ix.pos(), _ix.orig, _sig, _targs, _xlist);
-                _targs = (null : stdgo.Slice<stdgo.go.types.Types.Type>);
+                _targs = (null : stdgo.Slice<stdgo.go.types.Types.Type_>);
                 _xlist = (null : stdgo.Slice<stdgo.go.ast.Ast.Expr>);
             };
         };
-        var __tmp__ = _check._genericExprList(_call.args), _args:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>> = __tmp__._0, _atargs:stdgo.Slice<stdgo.Slice<stdgo.go.types.Types.Type>> = __tmp__._1, _atxlist:stdgo.Slice<stdgo.Slice<stdgo.go.ast.Ast.Expr>> = __tmp__._2;
+        var __tmp__ = _check._genericExprList(_call.args), _args:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>> = __tmp__._0, _atargs:stdgo.Slice<stdgo.Slice<stdgo.go.types.Types.Type_>> = __tmp__._1, _atxlist:stdgo.Slice<stdgo.Slice<stdgo.go.ast.Ast.Expr>> = __tmp__._2;
         _sig = _check._arguments(_call, _sig, _targs, _xlist, _args, _atargs, _atxlist);
         if (_wasGeneric && (_sig.typeParams().len() == (0 : stdgo.StdGoTypes.GoInt))) {
             _check._recordTypeAndValue(_call.fun, (7 : stdgo.go.types.Types.T_operandMode), stdgo.Go.asInterface(_sig), (null : stdgo.go.constant.Constant.Value));
@@ -19445,7 +19445,7 @@ class Checker_asInterface {
         return (2 : stdgo.go.types.Types.T_exprKind);
     }
     @:keep
-    static public function _instantiateSignature( _check:stdgo.StdGoTypes.Ref<Checker>, _pos:stdgo.go.token.Token.Pos, _expr:stdgo.go.ast.Ast.Expr, _typ:stdgo.StdGoTypes.Ref<Signature>, _targs:stdgo.Slice<Type>, _xlist:stdgo.Slice<stdgo.go.ast.Ast.Expr>):stdgo.StdGoTypes.Ref<Signature> {
+    static public function _instantiateSignature( _check:stdgo.StdGoTypes.Ref<Checker>, _pos:stdgo.go.token.Token.Pos, _expr:stdgo.go.ast.Ast.Expr, _typ:stdgo.StdGoTypes.Ref<Signature>, _targs:stdgo.Slice<Type_>, _xlist:stdgo.Slice<stdgo.go.ast.Ast.Expr>):stdgo.StdGoTypes.Ref<Signature> {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         var __deferstack__:Array<Void -> Void> = [];
         var _res:stdgo.StdGoTypes.Ref<Signature> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>);
@@ -19531,7 +19531,7 @@ class Checker_asInterface {
         // and x.mode is set to invalid.
     **/
     @:keep
-    static public function _funcInst( _check:stdgo.StdGoTypes.Ref<Checker>, _tsig:stdgo.StdGoTypes.Ref<Signature>, _pos:stdgo.go.token.Token.Pos, _x:stdgo.StdGoTypes.Ref<T_operand>, _ix:stdgo.StdGoTypes.Ref<stdgo.go.internal.typeparams.Typeparams.IndexExpr>, _infer:Bool):{ var _0 : stdgo.Slice<Type>; var _1 : stdgo.Slice<stdgo.go.ast.Ast.Expr>; } {
+    static public function _funcInst( _check:stdgo.StdGoTypes.Ref<Checker>, _tsig:stdgo.StdGoTypes.Ref<Signature>, _pos:stdgo.go.token.Token.Pos, _x:stdgo.StdGoTypes.Ref<T_operand>, _ix:stdgo.StdGoTypes.Ref<stdgo.go.internal.typeparams.Typeparams.IndexExpr>, _infer:Bool):{ var _0 : stdgo.Slice<Type_>; var _1 : stdgo.Slice<stdgo.go.ast.Ast.Expr>; } {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         _assert(((_tsig != null) && ((_tsig : Dynamic).__nil__ == null || !(_tsig : Dynamic).__nil__)) || ((_ix != null) && ((_ix : Dynamic).__nil__ == null || !(_ix : Dynamic).__nil__)));
         var _instErrPos:T_positioner = (null : stdgo.go.types.Types.T_positioner);
@@ -19541,7 +19541,7 @@ class Checker_asInterface {
             _instErrPos = stdgo.Go.asInterface((_pos : T_atPos));
         };
         var _versionErr:Bool = !_check._verifyVersionf(_instErrPos, _go1_18?.__copy__(), ("function instantiation" : stdgo.GoString));
-        var _targs:stdgo.Slice<Type> = (null : stdgo.Slice<stdgo.go.types.Types.Type>);
+        var _targs:stdgo.Slice<Type_> = (null : stdgo.Slice<stdgo.go.types.Types.Type_>);
         var _xlist:stdgo.Slice<stdgo.go.ast.Ast.Expr> = (null : stdgo.Slice<stdgo.go.ast.Ast.Expr>);
         if (_ix != null && ((_ix : Dynamic).__nil__ == null || !(_ix : Dynamic).__nil__)) {
             _xlist = _ix.indexListExpr.indices;
@@ -19549,7 +19549,7 @@ class Checker_asInterface {
             if (_targs == null) {
                 _x._mode = (0 : stdgo.go.types.Types.T_operandMode);
                 _x._expr = stdgo.Go.asInterface(_ix);
-                return { _0 : (null : stdgo.Slice<stdgo.go.types.Types.Type>), _1 : (null : stdgo.Slice<stdgo.go.ast.Ast.Expr>) };
+                return { _0 : (null : stdgo.Slice<stdgo.go.types.Types.Type_>), _1 : (null : stdgo.Slice<stdgo.go.ast.Ast.Expr>) };
             };
             _assert((_targs.length) == ((_xlist.length)));
         };
@@ -19559,7 +19559,7 @@ class Checker_asInterface {
             _check._errorf(_ix.indexListExpr.indices[(_got - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)], (137 : stdgo.internal.types.errors.Errors.Code), ("got %d type arguments but want %d" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
             _x._mode = (0 : stdgo.go.types.Types.T_operandMode);
             _x._expr = _ix.orig;
-            return { _0 : (null : stdgo.Slice<stdgo.go.types.Types.Type>), _1 : (null : stdgo.Slice<stdgo.go.ast.Ast.Expr>) };
+            return { _0 : (null : stdgo.Slice<stdgo.go.types.Types.Type_>), _1 : (null : stdgo.Slice<stdgo.go.ast.Ast.Expr>) };
         };
         if (_got < _want) {
             if (!_infer) {
@@ -19581,12 +19581,12 @@ class Checker_asInterface {
                 _expr.namePos = _x.pos();
                 _args = (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>>(1, 1, ({ _mode : (7 : stdgo.go.types.Types.T_operandMode), _expr : stdgo.Go.asInterface(_expr), _typ : stdgo.Go.asInterface(_tsig) } : stdgo.go.types.Types.T_operand)) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>>);
             };
-            var __tmp__ = _check._renameTParams(_pos, _sig.typeParams()._list(), stdgo.Go.asInterface(newTuple(..._params.__toArray__()))), _tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>> = __tmp__._0, _params2:stdgo.go.types.Types.Type = __tmp__._1;
+            var __tmp__ = _check._renameTParams(_pos, _sig.typeParams()._list(), stdgo.Go.asInterface(newTuple(..._params.__toArray__()))), _tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>> = __tmp__._0, _params2:stdgo.go.types.Types.Type_ = __tmp__._1;
             _targs = _check._infer(stdgo.Go.asInterface((_pos : T_atPos)), _tparams, _targs, (stdgo.Go.typeAssert((stdgo.Go.toInterface(_params2) : stdgo.StdGoTypes.Ref<Tuple>)) : stdgo.StdGoTypes.Ref<Tuple>), _args);
             if (_targs == null) {
                 _x._mode = (0 : stdgo.go.types.Types.T_operandMode);
                 _x._expr = stdgo.Go.asInterface(_ix);
-                return { _0 : (null : stdgo.Slice<stdgo.go.types.Types.Type>), _1 : (null : stdgo.Slice<stdgo.go.ast.Ast.Expr>) };
+                return { _0 : (null : stdgo.Slice<stdgo.go.types.Types.Type_>), _1 : (null : stdgo.Slice<stdgo.go.ast.Ast.Expr>) };
             };
             _got = (_targs.length);
         };
@@ -19599,7 +19599,7 @@ class Checker_asInterface {
         _x._typ = stdgo.Go.asInterface(_sig);
         _x._mode = (7 : stdgo.go.types.Types.T_operandMode);
         _x._expr = _expr;
-        return { _0 : (null : stdgo.Slice<stdgo.go.types.Types.Type>), _1 : (null : stdgo.Slice<stdgo.go.ast.Ast.Expr>) };
+        return { _0 : (null : stdgo.Slice<stdgo.go.types.Types.Type_>), _1 : (null : stdgo.Slice<stdgo.go.ast.Ast.Expr>) };
     }
     /**
         // applyTypeFunc applies f to x. If x is a type parameter,
@@ -19611,14 +19611,14 @@ class Checker_asInterface {
         // If x is not a type parameter, the result is f(x).
     **/
     @:keep
-    static public function _applyTypeFunc( _check:stdgo.StdGoTypes.Ref<Checker>, _f:Type -> Type, _x:stdgo.StdGoTypes.Ref<T_operand>, _id:T_builtinId):Type {
+    static public function _applyTypeFunc( _check:stdgo.StdGoTypes.Ref<Checker>, _f:Type_ -> Type_, _x:stdgo.StdGoTypes.Ref<T_operand>, _id:T_builtinId):Type_ {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x._typ) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x._typ) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), ok : false };
-            }, _tp = __tmp__.value, __0 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), _1 : false };
+            }, _tp = __tmp__._0, __0 = __tmp__._1;
             if (_tp != null && ((_tp : Dynamic).__nil__ == null || !(_tp : Dynamic).__nil__)) {
                 var _terms:stdgo.Slice<stdgo.StdGoTypes.Ref<Term>> = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Term>>);
                 if (!_tp._is(function(_t:stdgo.StdGoTypes.Ref<T_term>):Bool {
@@ -19626,7 +19626,7 @@ class Checker_asInterface {
                         return false;
                     };
                     {
-                        var _r:stdgo.go.types.Types.Type = _f(_t._typ);
+                        var _r:stdgo.go.types.Types.Type_ = _f(_t._typ);
                         if (_r != null) {
                             _terms = (_terms.__append__(newTerm(_t._tilde, _r)));
                             return true;
@@ -19634,7 +19634,7 @@ class Checker_asInterface {
                     };
                     return false;
                 })) {
-                    return (null : stdgo.go.types.Types.Type);
+                    return (null : stdgo.go.types.Types.Type_);
                 };
                 var _code:Code = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.internal.types.errors.Errors.Code);
                 {
@@ -19650,8 +19650,8 @@ class Checker_asInterface {
                     };
                 };
                 _check._softErrorf(stdgo.Go.asInterface(_x), _code, ("%s not supported as argument to %s for go1.18 (see go.dev/issue/50937)" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)), stdgo.Go.toInterface(_predeclaredFuncs[(_id : stdgo.StdGoTypes.GoInt)]._name));
-                var _tpar = newTypeName(_nopos, _check._pkg, _tp._obj._object._name?.__copy__(), (null : stdgo.go.types.Types.Type));
-                var _ptyp = _check._newTypeParam(_tpar, stdgo.Go.asInterface(newInterfaceType((null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>), (new stdgo.Slice<stdgo.go.types.Types.Type>(1, 1, stdgo.Go.asInterface(newUnion(_terms))) : stdgo.Slice<stdgo.go.types.Types.Type>))));
+                var _tpar = newTypeName(_nopos, _check._pkg, _tp._obj._object._name?.__copy__(), (null : stdgo.go.types.Types.Type_));
+                var _ptyp = _check._newTypeParam(_tpar, stdgo.Go.asInterface(newInterfaceType((null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>), (new stdgo.Slice<stdgo.go.types.Types.Type_>(1, 1, stdgo.Go.asInterface(newUnion(_terms))) : stdgo.Slice<stdgo.go.types.Types.Type_>))));
                 _ptyp._index = _tp._index;
                 return stdgo.Go.asInterface(_ptyp);
             };
@@ -19748,14 +19748,14 @@ class Checker_asInterface {
                     {
                         final __value__ = _id;
                         if (__value__ == ((0 : stdgo.go.types.Types.T_builtinId))) {
-                            var s:stdgo.go.types.Types.Type = _x._typ;
-                            var t:Type = (null : stdgo.go.types.Types.Type);
+                            var s:stdgo.go.types.Types.Type_ = _x._typ;
+                            var t:Type_ = (null : stdgo.go.types.Types.Type_);
                             {
                                 var __tmp__ = try {
-                                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_coreType(s)) : stdgo.StdGoTypes.Ref<Slice_>)) : stdgo.StdGoTypes.Ref<Slice_>), ok : true };
+                                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_coreType(s)) : stdgo.StdGoTypes.Ref<Slice_>)) : stdgo.StdGoTypes.Ref<Slice_>), _1 : true };
                                 } catch(_) {
-                                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>), ok : false };
-                                }, _s = __tmp__.value, __49 = __tmp__.ok;
+                                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>), _1 : false };
+                                }, _s = __tmp__._0, __49 = __tmp__._1;
                                 if (_s != null && ((_s : Dynamic).__nil__ == null || !(_s : Dynamic).__nil__)) {
                                     t = _s._elem;
                                 } else {
@@ -19764,7 +19764,7 @@ class Checker_asInterface {
                                         _cause = ("have untyped nil" : stdgo.GoString);
                                     } else if (_isTypeParam(s)) {
                                         {
-                                            var _u:stdgo.go.types.Types.Type = _coreType(s);
+                                            var _u:stdgo.go.types.Types.Type_ = _coreType(s);
                                             if (_u != null) {
                                                 _cause = _check._sprintf(("%s has core type %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)), stdgo.Go.toInterface(_u))?.__copy__();
                                             } else {
@@ -19789,7 +19789,7 @@ class Checker_asInterface {
                                     if (_ok) {
                                         var _y = _args[(1 : stdgo.StdGoTypes.GoInt)];
                                         {
-                                            var _t:stdgo.go.types.Types.Type = _coreString(_y._typ);
+                                            var _t:stdgo.go.types.Types.Type_ = _coreString(_y._typ);
                                             if ((_t != null) && _isString(_t)) {
                                                 if (_check._recordTypes()) {
                                                     var _sig = _makeSig(s, s, _y._typ);
@@ -19806,7 +19806,7 @@ class Checker_asInterface {
                             };
                             var _sig = _makeSig(s, s, stdgo.Go.asInterface(newSlice(t)));
                             _sig._variadic = true;
-                            _check._arguments(_call, _sig, (null : stdgo.Slice<stdgo.go.types.Types.Type>), (null : stdgo.Slice<stdgo.go.ast.Ast.Expr>), _args, (null : stdgo.Slice<stdgo.Slice<stdgo.go.types.Types.Type>>), (null : stdgo.Slice<stdgo.Slice<stdgo.go.ast.Ast.Expr>>));
+                            _check._arguments(_call, _sig, (null : stdgo.Slice<stdgo.go.types.Types.Type_>), (null : stdgo.Slice<stdgo.go.ast.Ast.Expr>), _args, (null : stdgo.Slice<stdgo.Slice<stdgo.go.types.Types.Type_>>), (null : stdgo.Slice<stdgo.Slice<stdgo.go.ast.Ast.Expr>>));
                             _x._mode = (7 : stdgo.go.types.Types.T_operandMode);
                             _x._typ = s;
                             if (_check._recordTypes()) {
@@ -19844,7 +19844,7 @@ class Checker_asInterface {
                                                 };
                                             };
                                         } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Slice_>)) || stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<stdgo.Chan>))) {
-                                            var _t:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                                            var _t:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                                             _mode = (7 : stdgo.go.types.Types.T_operandMode);
                                         } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Map_>))) {
                                             var _t:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_>) : __type__.__underlying__().value;
@@ -19856,7 +19856,7 @@ class Checker_asInterface {
                                             if (!_isTypeParam(_x._typ)) {
                                                 break;
                                             };
-                                            if (_t._typeSet()._underIs(function(_t:Type):Bool {
+                                            if (_t._typeSet()._underIs(function(_t:Type_):Bool {
                                                 {
                                                     final __type__ = _arrayPtrDeref(_t);
                                                     if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Basic>))) {
@@ -19865,7 +19865,7 @@ class Checker_asInterface {
                                                             return true;
                                                         };
                                                     } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Array_>)) || stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Slice_>)) || stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<stdgo.Chan>))) {
-                                                        var _t:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                                                        var _t:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                                                         return true;
                                                     } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Map_>))) {
                                                         var _t:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_>) : __type__.__underlying__().value;
@@ -19907,7 +19907,7 @@ class Checker_asInterface {
                             break;
                         } else if (__value__ == ((2 : stdgo.go.types.Types.T_builtinId))) {
                             _check._verifyVersionf(_call.fun, _go1_21?.__copy__(), ("clear" : stdgo.GoString));
-                            if (!_underIs(_x._typ, function(_u:Type):Bool {
+                            if (!_underIs(_x._typ, function(_u:Type_):Bool {
                                 {
                                     final __type__ = _u;
                                     if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Map_>)) || stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Slice_>))) {
@@ -19926,16 +19926,16 @@ class Checker_asInterface {
                             };
                             _x._mode = (1 : stdgo.go.types.Types.T_operandMode);
                             if (_check._recordTypes()) {
-                                _check._recordBuiltinType(_call.fun, _makeSig((null : stdgo.go.types.Types.Type), _x._typ));
+                                _check._recordBuiltinType(_call.fun, _makeSig((null : stdgo.go.types.Types.Type_), _x._typ));
                             };
                             break;
                         } else if (__value__ == ((3 : stdgo.go.types.Types.T_builtinId))) {
-                            if (!_underIs(_x._typ, function(_u:Type):Bool {
+                            if (!_underIs(_x._typ, function(_u:Type_):Bool {
                                 var __tmp__ = try {
-                                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_u) : stdgo.StdGoTypes.Ref<stdgo.Chan>)) : stdgo.StdGoTypes.Ref<stdgo.Chan>), ok : true };
+                                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_u) : stdgo.StdGoTypes.Ref<stdgo.Chan>)) : stdgo.StdGoTypes.Ref<stdgo.Chan>), _1 : true };
                                 } catch(_) {
-                                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.Chan>), ok : false };
-                                }, _uch = __tmp__.value, __187 = __tmp__.ok;
+                                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.Chan>), _1 : false };
+                                }, _uch = __tmp__._0, __187 = __tmp__._1;
                                 if (_uch == null || (_uch : Dynamic).__nil__) {
                                     _check._errorf(stdgo.Go.asInterface(_x), (85 : stdgo.internal.types.errors.Errors.Code), ("invalid operation: cannot close non-channel %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)));
                                     return false;
@@ -19955,7 +19955,7 @@ class Checker_asInterface {
                             };
                             _x._mode = (1 : stdgo.go.types.Types.T_operandMode);
                             if (_check._recordTypes()) {
-                                _check._recordBuiltinType(_call.fun, _makeSig((null : stdgo.go.types.Types.Type), _x._typ));
+                                _check._recordBuiltinType(_call.fun, _makeSig((null : stdgo.go.types.Types.Type_), _x._typ));
                             };
                             break;
                         } else if (__value__ == ((4 : stdgo.go.types.Types.T_builtinId))) {
@@ -20005,14 +20005,14 @@ class Checker_asInterface {
                                     return _0;
                                 };
                             };
-                            var _f:stdgo.go.types.Types.Type -> stdgo.go.types.Types.Type = function(_typ:Type):Type {
+                            var _f:stdgo.go.types.Types.Type_ -> stdgo.go.types.Types.Type_ = function(_typ:Type_):Type_ {
                                 _assert(!_isTypeParam(_typ));
                                 {
                                     var __tmp__ = try {
-                                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_typ)) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), ok : true };
+                                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_typ)) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), _1 : true };
                                     } catch(_) {
-                                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), ok : false };
-                                    }, _t = __tmp__.value, __243 = __tmp__.ok;
+                                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), _1 : false };
+                                    }, _t = __tmp__._0, __243 = __tmp__._1;
                                     if (_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) {
                                         {
                                             final __value__ = _t._kind;
@@ -20026,9 +20026,9 @@ class Checker_asInterface {
                                         };
                                     };
                                 };
-                                return (null : stdgo.go.types.Types.Type);
+                                return (null : stdgo.go.types.Types.Type_);
                             };
-                            var _resTyp:stdgo.go.types.Types.Type = _check._applyTypeFunc(_f, _x, _id);
+                            var _resTyp:stdgo.go.types.Types.Type_ = _check._applyTypeFunc(_f, _x, _id);
                             if (_resTyp == null) {
                                 _check._errorf(stdgo.Go.asInterface(_x), (87 : stdgo.internal.types.errors.Errors.Code), ("invalid argument: arguments have type %s, expected floating-point" : stdgo.GoString), stdgo.Go.toInterface(_x._typ));
                                 {
@@ -20050,20 +20050,20 @@ class Checker_asInterface {
                             break;
                         } else if (__value__ == ((5 : stdgo.go.types.Types.T_builtinId))) {
                             var __tmp__ = try {
-                                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_coreType(_x._typ)) : stdgo.StdGoTypes.Ref<Slice_>)) : stdgo.StdGoTypes.Ref<Slice_>), ok : true };
+                                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_coreType(_x._typ)) : stdgo.StdGoTypes.Ref<Slice_>)) : stdgo.StdGoTypes.Ref<Slice_>), _1 : true };
                             } catch(_) {
-                                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>), ok : false };
-                            }, _dst = __tmp__.value, __275 = __tmp__.ok;
+                                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>), _1 : false };
+                            }, _dst = __tmp__._0, __275 = __tmp__._1;
                             var _y = _args[(1 : stdgo.StdGoTypes.GoInt)];
-                            var _src0:stdgo.go.types.Types.Type = _coreString(_y._typ);
+                            var _src0:stdgo.go.types.Types.Type_ = _coreString(_y._typ);
                             if ((_src0 != null) && _isString(_src0)) {
                                 _src0 = stdgo.Go.asInterface(newSlice(_universeByte));
                             };
                             var __tmp__ = try {
-                                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_src0) : stdgo.StdGoTypes.Ref<Slice_>)) : stdgo.StdGoTypes.Ref<Slice_>), ok : true };
+                                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_src0) : stdgo.StdGoTypes.Ref<Slice_>)) : stdgo.StdGoTypes.Ref<Slice_>), _1 : true };
                             } catch(_) {
-                                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>), ok : false };
-                            }, _src = __tmp__.value, __276 = __tmp__.ok;
+                                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>), _1 : false };
+                            }, _src = __tmp__._0, __276 = __tmp__._1;
                             if (((_dst == null) || (_dst : Dynamic).__nil__) || ((_src == null) || (_src : Dynamic).__nil__)) {
                                 _check._errorf(stdgo.Go.asInterface(_x), (86 : stdgo.internal.types.errors.Errors.Code), ("invalid argument: copy expects slice arguments; found %s and %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)), stdgo.Go.toInterface(stdgo.Go.asInterface(_y)));
                                 {
@@ -20089,14 +20089,14 @@ class Checker_asInterface {
                             _x._typ = stdgo.Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)]);
                             break;
                         } else if (__value__ == ((6 : stdgo.go.types.Types.T_builtinId))) {
-                            var _map_:stdgo.go.types.Types.Type = _x._typ;
-                            var _key:Type = (null : stdgo.go.types.Types.Type);
-                            if (!_underIs(_map_, function(_u:Type):Bool {
+                            var _map_:stdgo.go.types.Types.Type_ = _x._typ;
+                            var _key:Type_ = (null : stdgo.go.types.Types.Type_);
+                            if (!_underIs(_map_, function(_u:Type_):Bool {
                                 var __tmp__ = try {
-                                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_u) : stdgo.StdGoTypes.Ref<Map_>)) : stdgo.StdGoTypes.Ref<Map_>), ok : true };
+                                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_u) : stdgo.StdGoTypes.Ref<Map_>)) : stdgo.StdGoTypes.Ref<Map_>), _1 : true };
                                 } catch(_) {
-                                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_>), ok : false };
-                                }, _map_ = __tmp__.value, __309 = __tmp__.ok;
+                                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_>), _1 : false };
+                                }, _map_ = __tmp__._0, __309 = __tmp__._1;
                                 if (_map_ == null || (_map_ : Dynamic).__nil__) {
                                     _check._errorf(stdgo.Go.asInterface(_x), (88 : stdgo.internal.types.errors.Errors.Code), ("invalid argument: %s is not a map" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)));
                                     return false;
@@ -20134,7 +20134,7 @@ class Checker_asInterface {
                             };
                             _x._mode = (1 : stdgo.go.types.Types.T_operandMode);
                             if (_check._recordTypes()) {
-                                _check._recordBuiltinType(_call.fun, _makeSig((null : stdgo.go.types.Types.Type), _map_, _key));
+                                _check._recordBuiltinType(_call.fun, _makeSig((null : stdgo.go.types.Types.Type_), _map_, _key));
                             };
                             break;
                         } else if (__value__ == ((7 : stdgo.go.types.Types.T_builtinId)) || __value__ == ((16 : stdgo.go.types.Types.T_builtinId))) {
@@ -20155,14 +20155,14 @@ class Checker_asInterface {
                                     };
                                 };
                             };
-                            var _f:stdgo.go.types.Types.Type -> stdgo.go.types.Types.Type = function(_typ:Type):Type {
+                            var _f:stdgo.go.types.Types.Type_ -> stdgo.go.types.Types.Type_ = function(_typ:Type_):Type_ {
                                 _assert(!_isTypeParam(_typ));
                                 {
                                     var __tmp__ = try {
-                                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_typ)) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), ok : true };
+                                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_typ)) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), _1 : true };
                                     } catch(_) {
-                                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), ok : false };
-                                    }, _t = __tmp__.value, __341 = __tmp__.ok;
+                                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), _1 : false };
+                                    }, _t = __tmp__._0, __341 = __tmp__._1;
                                     if (_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) {
                                         {
                                             final __value__ = _t._kind;
@@ -20176,9 +20176,9 @@ class Checker_asInterface {
                                         };
                                     };
                                 };
-                                return (null : stdgo.go.types.Types.Type);
+                                return (null : stdgo.go.types.Types.Type_);
                             };
-                            var _resTyp:stdgo.go.types.Types.Type = _check._applyTypeFunc(_f, _x, _id);
+                            var _resTyp:stdgo.go.types.Types.Type_ = _check._applyTypeFunc(_f, _x, _id);
                             if (_resTyp == null) {
                                 var _code:stdgo.internal.types.errors.Errors.Code = (89 : stdgo.internal.types.errors.Errors.Code);
                                 if (_id == ((16 : stdgo.go.types.Types.T_builtinId))) {
@@ -20208,7 +20208,7 @@ class Checker_asInterface {
                             break;
                         } else if (__value__ == ((9 : stdgo.go.types.Types.T_builtinId))) {
                             var _arg0:stdgo.go.ast.Ast.Expr = _argList[(0 : stdgo.StdGoTypes.GoInt)];
-                            var t:stdgo.go.types.Types.Type = _check._varType(_arg0);
+                            var t:stdgo.go.types.Types.Type_ = _check._varType(_arg0);
                             if (stdgo.Go.toInterface(t) == (stdgo.Go.toInterface(stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])))) {
                                 {
                                     for (defer in __deferstack__) {
@@ -20251,10 +20251,10 @@ class Checker_asInterface {
                                     return _0;
                                 };
                             };
-                            var _types = (new stdgo.Slice<stdgo.go.types.Types.Type>(1, 1, t) : stdgo.Slice<stdgo.go.types.Types.Type>);
+                            var _types = (new stdgo.Slice<stdgo.go.types.Types.Type_>(1, 1, t) : stdgo.Slice<stdgo.go.types.Types.Type_>);
                             var _sizes:stdgo.Slice<stdgo.StdGoTypes.GoInt64> = (null : stdgo.Slice<stdgo.StdGoTypes.GoInt64>);
                             for (__405 => _arg in (_argList.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.go.ast.Ast.Expr>)) {
-                                var __tmp__ = _check._index(_arg, (-1i64 : stdgo.StdGoTypes.GoInt64)), _typ:stdgo.go.types.Types.Type = __tmp__._0, _size:stdgo.StdGoTypes.GoInt64 = __tmp__._1;
+                                var __tmp__ = _check._index(_arg, (-1i64 : stdgo.StdGoTypes.GoInt64)), _typ:stdgo.go.types.Types.Type_ = __tmp__._0, _size:stdgo.StdGoTypes.GoInt64 = __tmp__._1;
                                 _types = (_types.__append__(_typ));
                                 if (_size >= (0i64 : stdgo.StdGoTypes.GoInt64)) {
                                     _sizes = (_sizes.__append__(_size));
@@ -20344,7 +20344,7 @@ class Checker_asInterface {
                                 _check._updateExprType(_a._expr, _x._typ, true);
                             };
                             if (_check._recordTypes() && (_x._mode != (4 : stdgo.go.types.Types.T_operandMode))) {
-                                var _types = new stdgo.Slice<stdgo.go.types.Types.Type>((_nargs : stdgo.StdGoTypes.GoInt).toBasic(), 0);
+                                var _types = new stdgo.Slice<stdgo.go.types.Types.Type_>((_nargs : stdgo.StdGoTypes.GoInt).toBasic(), 0);
                                 for (_i in 0 ... _types.length.toBasic()) {
                                     _types[(_i : stdgo.StdGoTypes.GoInt)] = _x._typ;
                                 };
@@ -20352,7 +20352,7 @@ class Checker_asInterface {
                             };
                             break;
                         } else if (__value__ == ((12 : stdgo.go.types.Types.T_builtinId))) {
-                            var t:stdgo.go.types.Types.Type = _check._varType(_argList[(0 : stdgo.StdGoTypes.GoInt)]);
+                            var t:stdgo.go.types.Types.Type_ = _check._varType(_argList[(0 : stdgo.StdGoTypes.GoInt)]);
                             if (stdgo.Go.toInterface(t) == (stdgo.Go.toInterface(stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])))) {
                                 {
                                     for (defer in __deferstack__) {
@@ -20391,15 +20391,15 @@ class Checker_asInterface {
                             };
                             _x._mode = (1 : stdgo.go.types.Types.T_operandMode);
                             if (_check._recordTypes()) {
-                                _check._recordBuiltinType(_call.fun, _makeSig((null : stdgo.go.types.Types.Type), stdgo.Go.asInterface((stdgo.Go.setRef(_emptyInterface) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>))));
+                                _check._recordBuiltinType(_call.fun, _makeSig((null : stdgo.go.types.Types.Type_), stdgo.Go.asInterface((stdgo.Go.setRef(_emptyInterface) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>))));
                             };
                             break;
                         } else if (__value__ == ((14 : stdgo.go.types.Types.T_builtinId)) || __value__ == ((15 : stdgo.go.types.Types.T_builtinId))) {
-                            var _params:stdgo.Slice<Type> = (null : stdgo.Slice<stdgo.go.types.Types.Type>);
+                            var _params:stdgo.Slice<Type_> = (null : stdgo.Slice<stdgo.go.types.Types.Type_>);
                             if (_nargs > (0 : stdgo.StdGoTypes.GoInt)) {
-                                _params = new stdgo.Slice<stdgo.go.types.Types.Type>((_nargs : stdgo.StdGoTypes.GoInt).toBasic(), 0);
+                                _params = new stdgo.Slice<stdgo.go.types.Types.Type_>((_nargs : stdgo.StdGoTypes.GoInt).toBasic(), 0);
                                 for (_i => _a in _args) {
-                                    _check._assignment(_a, (null : stdgo.go.types.Types.Type), ("argument to " : stdgo.GoString) + _predeclaredFuncs[(_id : stdgo.StdGoTypes.GoInt)]._name?.__copy__()?.__copy__());
+                                    _check._assignment(_a, (null : stdgo.go.types.Types.Type_), ("argument to " : stdgo.GoString) + _predeclaredFuncs[(_id : stdgo.StdGoTypes.GoInt)]._name?.__copy__()?.__copy__());
                                     if (_a._mode == ((0 : stdgo.go.types.Types.T_operandMode))) {
                                         {
                                             for (defer in __deferstack__) {
@@ -20413,7 +20413,7 @@ class Checker_asInterface {
                             };
                             _x._mode = (1 : stdgo.go.types.Types.T_operandMode);
                             if (_check._recordTypes()) {
-                                _check._recordBuiltinType(_call.fun, _makeSig((null : stdgo.go.types.Types.Type), ..._params.__toArray__()));
+                                _check._recordBuiltinType(_call.fun, _makeSig((null : stdgo.go.types.Types.Type_), ..._params.__toArray__()));
                             };
                             break;
                         } else if (__value__ == ((17 : stdgo.go.types.Types.T_builtinId))) {
@@ -20450,7 +20450,7 @@ class Checker_asInterface {
                             };
                             break;
                         } else if (__value__ == ((19 : stdgo.go.types.Types.T_builtinId))) {
-                            _check._assignment(_x, (null : stdgo.go.types.Types.Type), ("argument to unsafe.Alignof" : stdgo.GoString));
+                            _check._assignment(_x, (null : stdgo.go.types.Types.Type_), ("argument to unsafe.Alignof" : stdgo.GoString));
                             if (_x._mode == ((0 : stdgo.go.types.Types.T_operandMode))) {
                                 {
                                     for (defer in __deferstack__) {
@@ -20473,10 +20473,10 @@ class Checker_asInterface {
                         } else if (__value__ == ((20 : stdgo.go.types.Types.T_builtinId))) {
                             var _arg0:stdgo.go.ast.Ast.Expr = _argList[(0 : stdgo.StdGoTypes.GoInt)];
                             var __tmp__ = try {
-                                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_unparen(_arg0)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr>), ok : true };
+                                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_unparen(_arg0)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr>), _1 : true };
                             } catch(_) {
-                                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr>), ok : false };
-                            }, _selx = __tmp__.value, __695 = __tmp__.ok;
+                                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr>), _1 : false };
+                            }, _selx = __tmp__._0, __695 = __tmp__._1;
                             if (_selx == null || (_selx : Dynamic).__nil__) {
                                 _check._errorf(_arg0, (98 : stdgo.internal.types.errors.Errors.Code), ("invalid argument: %s is not a selector expression" : stdgo.GoString), stdgo.Go.toInterface(_arg0));
                                 _check._use(_arg0);
@@ -20487,7 +20487,7 @@ class Checker_asInterface {
                                     return _0;
                                 };
                             };
-                            _check._expr((null : stdgo.go.types.Types.Type), _x, _selx.x);
+                            _check._expr((null : stdgo.go.types.Types.Type_), _x, _selx.x);
                             if (_x._mode == ((0 : stdgo.go.types.Types.T_operandMode))) {
                                 {
                                     for (defer in __deferstack__) {
@@ -20496,7 +20496,7 @@ class Checker_asInterface {
                                     return _0;
                                 };
                             };
-                            var _base:stdgo.go.types.Types.Type = _derefStructPtr(_x._typ);
+                            var _base:stdgo.go.types.Types.Type_ = _derefStructPtr(_x._typ);
                             var _sel:stdgo.GoString = _selx.sel.name?.__copy__();
                             var __tmp__ = lookupFieldOrMethod(_base, false, _check._pkg, _sel?.__copy__()), _obj:stdgo.go.types.Types.Object = __tmp__._0, _index:stdgo.Slice<stdgo.StdGoTypes.GoInt> = __tmp__._1, _indirect:Bool = __tmp__._2;
                             {
@@ -20558,7 +20558,7 @@ class Checker_asInterface {
                             _x._typ = stdgo.Go.asInterface(typ[((12 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)]);
                             break;
                         } else if (__value__ == ((21 : stdgo.go.types.Types.T_builtinId))) {
-                            _check._assignment(_x, (null : stdgo.go.types.Types.Type), ("argument to unsafe.Sizeof" : stdgo.GoString));
+                            _check._assignment(_x, (null : stdgo.go.types.Types.Type_), ("argument to unsafe.Sizeof" : stdgo.GoString));
                             if (_x._mode == ((0 : stdgo.go.types.Types.T_operandMode))) {
                                 {
                                     for (defer in __deferstack__) {
@@ -20591,10 +20591,10 @@ class Checker_asInterface {
                         } else if (__value__ == ((22 : stdgo.go.types.Types.T_builtinId))) {
                             _check._verifyVersionf(_call.fun, _go1_17?.__copy__(), ("unsafe.Slice" : stdgo.GoString));
                             var __tmp__ = try {
-                                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_x._typ)) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), ok : true };
+                                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_x._typ)) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), _1 : true };
                             } catch(_) {
-                                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), ok : false };
-                            }, _ptr = __tmp__.value, __848 = __tmp__.ok;
+                                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), _1 : false };
+                            }, _ptr = __tmp__._0, __848 = __tmp__._1;
                             if (_ptr == null || (_ptr : Dynamic).__nil__) {
                                 _check._errorf(stdgo.Go.asInterface(_x), (134 : stdgo.internal.types.errors.Errors.Code), ("invalid argument: %s is not a pointer" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)));
                                 {
@@ -20622,10 +20622,10 @@ class Checker_asInterface {
                         } else if (__value__ == ((23 : stdgo.go.types.Types.T_builtinId))) {
                             _check._verifyVersionf(_call.fun, _go1_20?.__copy__(), ("unsafe.SliceData" : stdgo.GoString));
                             var __tmp__ = try {
-                                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_x._typ)) : stdgo.StdGoTypes.Ref<Slice_>)) : stdgo.StdGoTypes.Ref<Slice_>), ok : true };
+                                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_x._typ)) : stdgo.StdGoTypes.Ref<Slice_>)) : stdgo.StdGoTypes.Ref<Slice_>), _1 : true };
                             } catch(_) {
-                                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>), ok : false };
-                            }, _slice = __tmp__.value, __889 = __tmp__.ok;
+                                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>), _1 : false };
+                            }, _slice = __tmp__._0, __889 = __tmp__._1;
                             if (_slice == null || (_slice : Dynamic).__nil__) {
                                 _check._errorf(stdgo.Go.asInterface(_x), (145 : stdgo.internal.types.errors.Errors.Code), ("invalid argument: %s is not a slice" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)));
                                 {
@@ -20716,7 +20716,7 @@ class Checker_asInterface {
                             var _t:T_operand = ({} : stdgo.go.types.Types.T_operand);
                             var _x1 = _x;
                             for (__1018 => _arg in _argList) {
-                                _check._rawExpr((null : stdgo.go.types.Types.Type), _x1, _arg, (null : stdgo.go.types.Types.Type), false);
+                                _check._rawExpr((null : stdgo.go.types.Types.Type_), _x1, _arg, (null : stdgo.go.types.Types.Type_), false);
                                 _check._dump(("%v: %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_x1.pos())), stdgo.Go.toInterface(stdgo.Go.asInterface(_x1)));
                                 _x1 = (stdgo.Go.setRef(_t) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>);
                             };
@@ -20780,10 +20780,10 @@ class Checker_asInterface {
         var _hasErr:Bool = false;
         for (_i => _lhs in _lhs) {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_lhs) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_lhs) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : false };
-            }, _ident = __tmp__.value, __16 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), _1 : false };
+            }, _ident = __tmp__._0, __16 = __tmp__._1;
             if (_ident == null || (_ident : Dynamic).__nil__) {
                 _check._useLHS(_lhs);
                 _check._errorf(_lhs, (131 : stdgo.internal.types.errors.Errors.Code), ("non-name %s on left side of :=" : stdgo.GoString), stdgo.Go.toInterface(_lhs));
@@ -20805,10 +20805,10 @@ class Checker_asInterface {
                     _check._recordUse(_ident, _alt);
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_alt) : stdgo.StdGoTypes.Ref<Var>)) : stdgo.StdGoTypes.Ref<Var>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_alt) : stdgo.StdGoTypes.Ref<Var>)) : stdgo.StdGoTypes.Ref<Var>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>), ok : false };
-                        }, _obj = __tmp__.value, __49 = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>), _1 : false };
+                        }, _obj = __tmp__._0, __49 = __tmp__._1;
                         if (_obj != null && ((_obj : Dynamic).__nil__ == null || !(_obj : Dynamic).__nil__)) {
                             _lhsVars[(_i : stdgo.StdGoTypes.GoInt)] = _obj;
                         } else {
@@ -20819,7 +20819,7 @@ class Checker_asInterface {
                     continue;
                 };
             };
-            var _obj = newVar(_ident.pos(), _check._pkg, _name?.__copy__(), (null : stdgo.go.types.Types.Type));
+            var _obj = newVar(_ident.pos(), _check._pkg, _name?.__copy__(), (null : stdgo.go.types.Types.Type_));
             _lhsVars[(_i : stdgo.StdGoTypes.GoInt)] = _obj;
             if (_name != (("_" : stdgo.GoString))) {
                 _newVars = (_newVars.__append__(_obj));
@@ -20828,7 +20828,7 @@ class Checker_asInterface {
         };
         for (_i => _obj in _lhsVars) {
             if (_obj == null || (_obj : Dynamic).__nil__) {
-                _lhsVars[(_i : stdgo.StdGoTypes.GoInt)] = newVar(_lhs[(_i : stdgo.StdGoTypes.GoInt)].pos(), _check._pkg, ("_" : stdgo.GoString), (null : stdgo.go.types.Types.Type));
+                _lhsVars[(_i : stdgo.StdGoTypes.GoInt)] = newVar(_lhs[(_i : stdgo.StdGoTypes.GoInt)].pos(), _check._pkg, ("_" : stdgo.GoString), (null : stdgo.go.types.Types.Type_));
             };
         };
         _check._initVars(_lhsVars, _rhs, (null : stdgo.go.ast.Ast.Stmt));
@@ -20853,11 +20853,11 @@ class Checker_asInterface {
         if (_r == ((1 : stdgo.StdGoTypes.GoInt))) {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_unparen(_orig_rhs[(0 : stdgo.StdGoTypes.GoInt)])) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_unparen(_orig_rhs[(0 : stdgo.StdGoTypes.GoInt)])) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>), ok : false };
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>), _1 : false };
                 };
-                _isCall = __tmp__.ok;
+                _isCall = __tmp__._1;
             };
         };
         if ((_l == _r) && !_isCall) {
@@ -20908,11 +20908,11 @@ class Checker_asInterface {
         if (_r == ((1 : stdgo.StdGoTypes.GoInt))) {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_unparen(_orig_rhs[(0 : stdgo.StdGoTypes.GoInt)])) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_unparen(_orig_rhs[(0 : stdgo.StdGoTypes.GoInt)])) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>), ok : false };
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>), _1 : false };
                 };
-                _isCall = __tmp__.ok;
+                _isCall = __tmp__._1;
             };
         };
         if ((_l == _r) && !_isCall) {
@@ -20990,10 +20990,10 @@ class Checker_asInterface {
         if ((_rhs.length) == ((1 : stdgo.StdGoTypes.GoInt))) {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_unparen(_rhs0)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_unparen(_rhs0)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>), ok : false };
-                }, _call = __tmp__.value, __0 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>), _1 : false };
+                }, _call = __tmp__._0, __0 = __tmp__._1;
                 if (_call != null && ((_call : Dynamic).__nil__ == null || !(_call : Dynamic).__nil__)) {
                     _check._errorf(_rhs0, (17 : stdgo.internal.types.errors.Errors.Code), ("assignment mismatch: %s but %s returns %s" : stdgo.GoString), stdgo.Go.toInterface(_vars), stdgo.Go.toInterface(_call.fun), stdgo.Go.toInterface(_vals));
                     return;
@@ -21009,7 +21009,7 @@ class Checker_asInterface {
         // the form "...E" where E is the slice's element type.
     **/
     @:keep
-    static public function _typesSummary( _check:stdgo.StdGoTypes.Ref<Checker>, _list:stdgo.Slice<Type>, _variadic:Bool):stdgo.GoString {
+    static public function _typesSummary( _check:stdgo.StdGoTypes.Ref<Checker>, _list:stdgo.Slice<Type_>, _variadic:Bool):stdgo.GoString {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         var _res:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
         for (_i => _t in _list) {
@@ -21061,7 +21061,7 @@ class Checker_asInterface {
     @:keep
     static public function _assignVar( _check:stdgo.StdGoTypes.Ref<Checker>, _lhs:stdgo.go.ast.Ast.Expr, _rhs:stdgo.go.ast.Ast.Expr, _x:stdgo.StdGoTypes.Ref<T_operand>):Void {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
-        var t:stdgo.go.types.Types.Type = _check._lhsVar(_lhs);
+        var t:stdgo.go.types.Types.Type_ = _check._lhsVar(_lhs);
         if (stdgo.Go.toInterface(t) == (stdgo.Go.toInterface(stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])))) {
             if (_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__)) {
                 _x._mode = (0 : stdgo.go.types.Types.T_operandMode);
@@ -21087,16 +21087,16 @@ class Checker_asInterface {
         // and Typ[Invalid] if it is an invalid lhs expression.
     **/
     @:keep
-    static public function _lhsVar( _check:stdgo.StdGoTypes.Ref<Checker>, _lhs:stdgo.go.ast.Ast.Expr):Type {
+    static public function _lhsVar( _check:stdgo.StdGoTypes.Ref<Checker>, _lhs:stdgo.go.ast.Ast.Expr):Type_ {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_unparen(_lhs)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_unparen(_lhs)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : false };
-        }, _ident = __tmp__.value, __0 = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), _1 : false };
+        }, _ident = __tmp__._0, __0 = __tmp__._1;
         if (((_ident != null) && ((_ident : Dynamic).__nil__ == null || !(_ident : Dynamic).__nil__)) && (_ident.name == ("_" : stdgo.GoString))) {
             _check._recordDef(_ident, (null : stdgo.go.types.Types.Object));
-            return (null : stdgo.go.types.Types.Type);
+            return (null : stdgo.go.types.Types.Type_);
         };
         var _v:stdgo.StdGoTypes.Ref<Var> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>);
         var _v_used:Bool = false;
@@ -21106,10 +21106,10 @@ class Checker_asInterface {
                 if (_obj != null) {
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<Var>)) : stdgo.StdGoTypes.Ref<Var>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<Var>)) : stdgo.StdGoTypes.Ref<Var>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>), ok : false };
-                        }, _w = __tmp__.value, __17 = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>), _1 : false };
+                        }, _w = __tmp__._0, __17 = __tmp__._1;
                         if (((_w != null) && ((_w : Dynamic).__nil__ == null || !(_w : Dynamic).__nil__)) && (_w._object._pkg == _check._pkg)) {
                             _v = _w;
                             _v_used = _v._used;
@@ -21119,7 +21119,7 @@ class Checker_asInterface {
             };
         };
         var _x:T_operand = ({} : stdgo.go.types.Types.T_operand);
-        _check._expr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _lhs);
+        _check._expr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _lhs);
         if (_v != null && ((_v : Dynamic).__nil__ == null || !(_v : Dynamic).__nil__)) {
             _v._used = _v_used;
         };
@@ -21133,13 +21133,13 @@ class Checker_asInterface {
             } else if (__value__ == ((5 : stdgo.go.types.Types.T_operandMode)) || __value__ == ((6 : stdgo.go.types.Types.T_operandMode))) {} else {
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x._expr) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x._expr) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr>), ok : false };
-                    }, _sel = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr>), _1 : false };
+                    }, _sel = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
                         var _op:T_operand = ({} : stdgo.go.types.Types.T_operand);
-                        _check._expr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_op) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _sel.x);
+                        _check._expr((null : stdgo.go.types.Types.Type_), (stdgo.Go.setRef(_op) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _sel.x);
                         if (_op._mode == ((6 : stdgo.go.types.Types.T_operandMode))) {
                             _check._errorf(stdgo.Go.asInterface((stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>)), (24 : stdgo.internal.types.errors.Errors.Code), ("cannot assign to struct field %s in map" : stdgo.GoString), stdgo.Go.toInterface(exprString(_x._expr)));
                             return stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)]);
@@ -21169,7 +21169,7 @@ class Checker_asInterface {
             return;
         };
         if (_lhs._object._typ == null) {
-            var _typ:stdgo.go.types.Types.Type = _x._typ;
+            var _typ:stdgo.go.types.Types.Type_ = _x._typ;
             if (_isUntyped(_typ)) {
                 if (stdgo.Go.toInterface(_typ) == (stdgo.Go.toInterface(stdgo.Go.asInterface(typ[((25 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])))) {
                     _check._errorf(stdgo.Go.asInterface(_x), (16 : stdgo.internal.types.errors.Errors.Code), ("use of untyped nil in %s" : stdgo.GoString), stdgo.Go.toInterface(_context));
@@ -21217,7 +21217,7 @@ class Checker_asInterface {
         // If the assignment check fails, x.mode is set to invalid.
     **/
     @:keep
-    static public function _assignment( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.StdGoTypes.Ref<T_operand>, t:Type, _context:stdgo.GoString):Void {
+    static public function _assignment( _check:stdgo.StdGoTypes.Ref<Checker>, _x:stdgo.StdGoTypes.Ref<T_operand>, t:Type_, _context:stdgo.GoString):Void {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         _check._singleValue(_x);
         {
@@ -21231,7 +21231,7 @@ class Checker_asInterface {
             };
         };
         if (_isUntyped(_x._typ)) {
-            var _target:stdgo.go.types.Types.Type = t;
+            var _target:stdgo.go.types.Types.Type_ = t;
             if ((t == null) || _isNonTypeParamInterface(t)) {
                 if ((t == null) && (stdgo.Go.toInterface(_x._typ) == stdgo.Go.toInterface(stdgo.Go.asInterface(typ[((25 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])))) {
                     _check._errorf(stdgo.Go.asInterface(_x), (16 : stdgo.internal.types.errors.Errors.Code), ("use of untyped nil in %s" : stdgo.GoString), stdgo.Go.toInterface(_context));
@@ -21240,7 +21240,7 @@ class Checker_asInterface {
                 };
                 _target = default_(_x._typ);
             };
-            var __tmp__ = _check._implicitTypeAndValue(_x, _target), _newType:stdgo.go.types.Types.Type = __tmp__._0, _val:stdgo.go.constant.Constant.Value = __tmp__._1, _code:stdgo.internal.types.errors.Errors.Code = __tmp__._2;
+            var __tmp__ = _check._implicitTypeAndValue(_x, _target), _newType:stdgo.go.types.Types.Type_ = __tmp__._0, _val:stdgo.go.constant.Constant.Value = __tmp__._1, _code:stdgo.internal.types.errors.Errors.Code = __tmp__._2;
             if (_code != ((0 : stdgo.internal.types.errors.Errors.Code))) {
                 var _msg:stdgo.GoString = _check._sprintf(("cannot use %s as %s value in %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)), stdgo.Go.toInterface(_target), stdgo.Go.toInterface(_context))?.__copy__();
                 {
@@ -21268,10 +21268,10 @@ class Checker_asInterface {
         };
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_x._typ)) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_x._typ)) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), ok : false };
-            }, _sig = __tmp__.value, __64 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), _1 : false };
+            }, _sig = __tmp__._0, __64 = __tmp__._1;
             if (((_sig != null) && ((_sig : Dynamic).__nil__ == null || !(_sig : Dynamic).__nil__)) && (_sig.typeParams().len() > (0 : stdgo.StdGoTypes.GoInt))) {
                 _check._errorf(stdgo.Go.asInterface(_x), (137 : stdgo.internal.types.errors.Errors.Code), ("cannot use generic function %s without instantiation in %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)), stdgo.Go.toInterface(_context));
                 _x._mode = (0 : stdgo.go.types.Types.T_operandMode);
@@ -21299,7 +21299,7 @@ class Checker_asInterface {
     @:embedded
     public static function _lookup( __self__:Checker, __0:stdgo.GoString):stdgo.go.types.Types.Object return __self__._lookup(__0);
     @:embedded
-    public static function typeOf( __self__:Checker, _e:stdgo.go.ast.Ast.Expr):stdgo.go.types.Types.Type return __self__.typeOf(_e);
+    public static function typeOf( __self__:Checker, _e:stdgo.go.ast.Ast.Expr):stdgo.go.types.Types.Type_ return __self__.typeOf(_e);
     @:embedded
     public static function objectOf( __self__:Checker, _id:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>):stdgo.go.types.Types.Object return __self__.objectOf(_id);
 }
@@ -21327,7 +21327,7 @@ class Context_asInterface {
         // getID returns a unique ID for the type t.
     **/
     @:keep
-    public dynamic function _getID(_t:Type):stdgo.StdGoTypes.GoInt return __self__.value._getID(_t);
+    public dynamic function _getID(_t:Type_):stdgo.StdGoTypes.GoInt return __self__.value._getID(_t);
     /**
         // update de-duplicates n against previously seen types with the hash h.  If an
         // identical type is found with the type hash h, the previously seen type is
@@ -21335,20 +21335,20 @@ class Context_asInterface {
         // h.
     **/
     @:keep
-    public dynamic function _update(_h:stdgo.GoString, _orig:Type, _targs:stdgo.Slice<Type>, _inst:Type):Type return __self__.value._update(_h, _orig, _targs, _inst);
+    public dynamic function _update(_h:stdgo.GoString, _orig:Type_, _targs:stdgo.Slice<Type_>, _inst:Type_):Type_ return __self__.value._update(_h, _orig, _targs, _inst);
     /**
         // lookup returns an existing instantiation of orig with targs, if it exists.
         // Otherwise, it returns nil.
     **/
     @:keep
-    public dynamic function _lookup(_h:stdgo.GoString, _orig:Type, _targs:stdgo.Slice<Type>):Type return __self__.value._lookup(_h, _orig, _targs);
+    public dynamic function _lookup(_h:stdgo.GoString, _orig:Type_, _targs:stdgo.Slice<Type_>):Type_ return __self__.value._lookup(_h, _orig, _targs);
     /**
         // instanceHash returns a string representation of typ instantiated with targs.
         // The hash should be a perfect hash, though out of caution the type checker
         // does not assume this. The result is guaranteed to not contain blanks.
     **/
     @:keep
-    public dynamic function _instanceHash(_orig:Type, _targs:stdgo.Slice<Type>):stdgo.GoString return __self__.value._instanceHash(_orig, _targs);
+    public dynamic function _instanceHash(_orig:Type_, _targs:stdgo.Slice<Type_>):stdgo.GoString return __self__.value._instanceHash(_orig, _targs);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -21362,13 +21362,13 @@ class Context_asInterface {
         // getID returns a unique ID for the type t.
     **/
     @:keep
-    static public function _getID( _ctxt:stdgo.StdGoTypes.Ref<Context>, _t:Type):stdgo.StdGoTypes.GoInt {
+    static public function _getID( _ctxt:stdgo.StdGoTypes.Ref<Context>, _t:Type_):stdgo.StdGoTypes.GoInt {
         @:recv var _ctxt:stdgo.StdGoTypes.Ref<Context> = _ctxt;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _ctxt._mu.lock();
             __deferstack__.unshift(() -> _ctxt._mu.unlock());
-            var __tmp__ = (_ctxt._originIDs != null && _ctxt._originIDs.exists(_t) ? { value : _ctxt._originIDs[_t], ok : true } : { value : (0 : stdgo.StdGoTypes.GoInt), ok : false }), _id:stdgo.StdGoTypes.GoInt = __tmp__.value, _ok:Bool = __tmp__.ok;
+            var __tmp__ = (_ctxt._originIDs != null && _ctxt._originIDs.exists(_t) ? { _0 : _ctxt._originIDs[_t], _1 : true } : { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : false }), _id:stdgo.StdGoTypes.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 _id = _ctxt._nextID;
                 _ctxt._originIDs[_t] = _id;
@@ -21408,7 +21408,7 @@ class Context_asInterface {
         // h.
     **/
     @:keep
-    static public function _update( _ctxt:stdgo.StdGoTypes.Ref<Context>, _h:stdgo.GoString, _orig:Type, _targs:stdgo.Slice<Type>, _inst:Type):Type {
+    static public function _update( _ctxt:stdgo.StdGoTypes.Ref<Context>, _h:stdgo.GoString, _orig:Type_, _targs:stdgo.Slice<Type_>, _inst:Type_):Type_ {
         @:recv var _ctxt:stdgo.StdGoTypes.Ref<Context> = _ctxt;
         var __deferstack__:Array<Void -> Void> = [];
         try {
@@ -21440,7 +21440,7 @@ class Context_asInterface {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return (null : stdgo.go.types.Types.Type);
+                return (null : stdgo.go.types.Types.Type_);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -21453,7 +21453,7 @@ class Context_asInterface {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return (null : stdgo.go.types.Types.Type);
+            return (null : stdgo.go.types.Types.Type_);
         };
     }
     /**
@@ -21461,7 +21461,7 @@ class Context_asInterface {
         // Otherwise, it returns nil.
     **/
     @:keep
-    static public function _lookup( _ctxt:stdgo.StdGoTypes.Ref<Context>, _h:stdgo.GoString, _orig:Type, _targs:stdgo.Slice<Type>):Type {
+    static public function _lookup( _ctxt:stdgo.StdGoTypes.Ref<Context>, _h:stdgo.GoString, _orig:Type_, _targs:stdgo.Slice<Type_>):Type_ {
         @:recv var _ctxt:stdgo.StdGoTypes.Ref<Context> = _ctxt;
         var __deferstack__:Array<Void -> Void> = [];
         try {
@@ -21484,14 +21484,14 @@ class Context_asInterface {
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return (null : stdgo.go.types.Types.Type);
+                return (null : stdgo.go.types.Types.Type_);
             };
             {
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return (null : stdgo.go.types.Types.Type);
+                return (null : stdgo.go.types.Types.Type_);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -21504,7 +21504,7 @@ class Context_asInterface {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return (null : stdgo.go.types.Types.Type);
+            return (null : stdgo.go.types.Types.Type_);
         };
     }
     /**
@@ -21513,7 +21513,7 @@ class Context_asInterface {
         // does not assume this. The result is guaranteed to not contain blanks.
     **/
     @:keep
-    static public function _instanceHash( _ctxt:stdgo.StdGoTypes.Ref<Context>, _orig:Type, _targs:stdgo.Slice<Type>):stdgo.GoString {
+    static public function _instanceHash( _ctxt:stdgo.StdGoTypes.Ref<Context>, _orig:Type_, _targs:stdgo.Slice<Type_>):stdgo.GoString {
         @:recv var _ctxt:stdgo.StdGoTypes.Ref<Context> = _ctxt;
         _assert(_ctxt != null && ((_ctxt : Dynamic).__nil__ == null || !(_ctxt : Dynamic).__nil__));
         _assert(_orig != null);
@@ -21720,7 +21720,7 @@ class T_tpWalker_asInterface {
     @:keep
     public dynamic function _varList(_list:stdgo.Slice<stdgo.StdGoTypes.Ref<Var>>):Bool return __self__.value._varList(_list);
     @:keep
-    public dynamic function _isParameterized(_typ:Type):Bool return __self__.value._isParameterized(_typ);
+    public dynamic function _isParameterized(_typ:Type_):Bool return __self__.value._isParameterized(_typ);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -21741,13 +21741,13 @@ class T_tpWalker_asInterface {
         return false;
     }
     @:keep
-    static public function _isParameterized( _w:stdgo.StdGoTypes.Ref<T_tpWalker>, _typ:Type):Bool {
+    static public function _isParameterized( _w:stdgo.StdGoTypes.Ref<T_tpWalker>, _typ:Type_):Bool {
         @:recv var _w:stdgo.StdGoTypes.Ref<T_tpWalker> = _w;
         var __deferstack__:Array<Void -> Void> = [];
         var _res:Bool = false;
         try {
             {
-                var __tmp__ = (_w._seen != null && _w._seen.exists(_typ) ? { value : _w._seen[_typ], ok : true } : { value : false, ok : false }), _x:Bool = __tmp__.value, _ok:Bool = __tmp__.ok;
+                var __tmp__ = (_w._seen != null && _w._seen.exists(_typ) ? { _0 : _w._seen[_typ], _1 : true } : { _0 : false, _1 : false }), _x:Bool = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     return _x;
                 };
@@ -21869,7 +21869,7 @@ class T_tpWalker_asInterface {
                         return _tparamIndex(_w._tparams, _t) >= (0 : stdgo.StdGoTypes.GoInt);
                     };
                 } else {
-                    var _t:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                    var _t:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                     throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("unexpected %T" : stdgo.GoString), stdgo.Go.toInterface(_typ)));
                 };
             };
@@ -21905,7 +21905,7 @@ class T_cycleFinder_asInterface {
     @:keep
     public dynamic function _varList(_list:stdgo.Slice<stdgo.StdGoTypes.Ref<Var>>):Void __self__.value._varList(_list);
     @:keep
-    public dynamic function _typ(_typ:Type):Void __self__.value._typ(_typ);
+    public dynamic function _typ(_typ:Type_):Void __self__.value._typ(_typ);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -21923,22 +21923,22 @@ class T_cycleFinder_asInterface {
         };
     }
     @:keep
-    static public function _typ( _w:stdgo.StdGoTypes.Ref<T_cycleFinder>, _typ:Type):Void {
+    static public function _typ( _w:stdgo.StdGoTypes.Ref<T_cycleFinder>, _typ:Type_):Void {
         @:recv var _w:stdgo.StdGoTypes.Ref<T_cycleFinder> = _w;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             if ((_w._seen[_typ] ?? false)) {
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), ok : false };
-                    }, _tpar = __tmp__.value, __0 = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), _1 : false };
+                    }, _tpar = __tmp__._0, __0 = __tmp__._1;
                     if (_tpar != null && ((_tpar : Dynamic).__nil__ == null || !(_tpar : Dynamic).__nil__)) {
                         {
                             var _i:stdgo.StdGoTypes.GoInt = _tparamIndex(_w._tparams, _tpar);
                             if (_i >= (0 : stdgo.StdGoTypes.GoInt)) {
-                                _w._inferred[(_i : stdgo.StdGoTypes.GoInt)] = (null : stdgo.go.types.Types.Type);
+                                _w._inferred[(_i : stdgo.StdGoTypes.GoInt)] = (null : stdgo.go.types.Types.Type_);
                             };
                         };
                     };
@@ -22009,7 +22009,7 @@ class T_cycleFinder_asInterface {
                         };
                     };
                 } else {
-                    var _t:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                    var _t:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                     throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("unexpected %T" : stdgo.GoString), stdgo.Go.toInterface(_typ)));
                 };
             };
@@ -22067,7 +22067,7 @@ class Interface_asInterface {
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:keep
-    public dynamic function underlying():Type return __self__.value.underlying();
+    public dynamic function underlying():Type_ return __self__.value.underlying();
     /**
         // Complete computes the interface's type set. It must be called by users of
         // NewInterfaceType and NewInterface after the interface's embedded types are
@@ -22115,7 +22115,7 @@ class Interface_asInterface {
         // EmbeddedType returns the i'th embedded type of interface t for 0 <= i < t.NumEmbeddeds().
     **/
     @:keep
-    public dynamic function embeddedType(_i:stdgo.StdGoTypes.GoInt):Type return __self__.value.embeddedType(_i);
+    public dynamic function embeddedType(_i:stdgo.StdGoTypes.GoInt):Type_ return __self__.value.embeddedType(_i);
     /**
         // Embedded returns the i'th embedded defined (*Named) type of interface t for 0 <= i < t.NumEmbeddeds().
         // The result is nil if the i'th embedded type is not a defined type.
@@ -22174,7 +22174,7 @@ class Interface_asInterface {
         return typeString(stdgo.Go.asInterface(_t), null)?.__copy__();
     }
     @:keep
-    static public function underlying( _t:stdgo.StdGoTypes.Ref<Interface>):Type {
+    static public function underlying( _t:stdgo.StdGoTypes.Ref<Interface>):Type_ {
         @:recv var _t:stdgo.StdGoTypes.Ref<Interface> = _t;
         return stdgo.Go.asInterface(_t);
     }
@@ -22219,7 +22219,7 @@ class Interface_asInterface {
     @:keep
     static public function isComparable( _t:stdgo.StdGoTypes.Ref<Interface>):Bool {
         @:recv var _t:stdgo.StdGoTypes.Ref<Interface> = _t;
-        return _t._typeSet().isComparable((null : stdgo.GoMap<stdgo.go.types.Types.Type, Bool>));
+        return _t._typeSet().isComparable((null : stdgo.GoMap<stdgo.go.types.Types.Type_, Bool>));
     }
     /**
         // Empty reports whether t is the empty interface.
@@ -22250,7 +22250,7 @@ class Interface_asInterface {
         // EmbeddedType returns the i'th embedded type of interface t for 0 <= i < t.NumEmbeddeds().
     **/
     @:keep
-    static public function embeddedType( _t:stdgo.StdGoTypes.Ref<Interface>, _i:stdgo.StdGoTypes.GoInt):Type {
+    static public function embeddedType( _t:stdgo.StdGoTypes.Ref<Interface>, _i:stdgo.StdGoTypes.GoInt):Type_ {
         @:recv var _t:stdgo.StdGoTypes.Ref<Interface> = _t;
         return _t._embeddeds[(_i : stdgo.StdGoTypes.GoInt)];
     }
@@ -22264,10 +22264,10 @@ class Interface_asInterface {
     static public function embedded( _t:stdgo.StdGoTypes.Ref<Interface>, _i:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<Named> {
         @:recv var _t:stdgo.StdGoTypes.Ref<Interface> = _t;
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t._embeddeds[(_i : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t._embeddeds[(_i : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-        }, _tname = __tmp__.value, __8 = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+        }, _tname = __tmp__._0, __8 = __tmp__._1;
         return _tname;
     }
     /**
@@ -22460,17 +22460,17 @@ class Map__asInterface {
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:keep
-    public dynamic function underlying():Type return __self__.value.underlying();
+    public dynamic function underlying():Type_ return __self__.value.underlying();
     /**
         // Elem returns the element type of map m.
     **/
     @:keep
-    public dynamic function elem():Type return __self__.value.elem();
+    public dynamic function elem():Type_ return __self__.value.elem();
     /**
         // Key returns the key type of map m.
     **/
     @:keep
-    public dynamic function key():Type return __self__.value.key();
+    public dynamic function key():Type_ return __self__.value.key();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -22486,7 +22486,7 @@ class Map__asInterface {
         return typeString(stdgo.Go.asInterface(_t), null)?.__copy__();
     }
     @:keep
-    static public function underlying( _t:stdgo.StdGoTypes.Ref<Map_>):Type {
+    static public function underlying( _t:stdgo.StdGoTypes.Ref<Map_>):Type_ {
         @:recv var _t:stdgo.StdGoTypes.Ref<Map_> = _t;
         return stdgo.Go.asInterface(_t);
     }
@@ -22494,7 +22494,7 @@ class Map__asInterface {
         // Elem returns the element type of map m.
     **/
     @:keep
-    static public function elem( _m:stdgo.StdGoTypes.Ref<Map_>):Type {
+    static public function elem( _m:stdgo.StdGoTypes.Ref<Map_>):Type_ {
         @:recv var _m:stdgo.StdGoTypes.Ref<Map_> = _m;
         return _m._elem;
     }
@@ -22502,7 +22502,7 @@ class Map__asInterface {
         // Key returns the key type of map m.
     **/
     @:keep
-    static public function key( _m:stdgo.StdGoTypes.Ref<Map_>):Type {
+    static public function key( _m:stdgo.StdGoTypes.Ref<Map_>):Type_ {
         @:recv var _m:stdgo.StdGoTypes.Ref<Map_> = _m;
         return _m._key;
     }
@@ -22589,7 +22589,7 @@ class MethodSet_asInterface {
 }
 class T_monoGraph_asInterface {
     @:keep
-    public dynamic function _addEdge(_dst:stdgo.StdGoTypes.GoInt, _src:stdgo.StdGoTypes.GoInt, _weight:stdgo.StdGoTypes.GoInt, _pos:stdgo.go.token.Token.Pos, _typ:Type):Void __self__.value._addEdge(_dst, _src, _weight, _pos, _typ);
+    public dynamic function _addEdge(_dst:stdgo.StdGoTypes.GoInt, _src:stdgo.StdGoTypes.GoInt, _weight:stdgo.StdGoTypes.GoInt, _pos:stdgo.go.token.Token.Pos, _typ:Type_):Void __self__.value._addEdge(_dst, _src, _weight, _pos, _typ);
     /**
         // typeParamVertex returns the index of the vertex representing tpar.
     **/
@@ -22605,13 +22605,13 @@ class T_monoGraph_asInterface {
         // assign records that tpar was instantiated as targ at pos.
     **/
     @:keep
-    public dynamic function _assign(_pkg:stdgo.StdGoTypes.Ref<Package>, _pos:stdgo.go.token.Token.Pos, _tpar:stdgo.StdGoTypes.Ref<TypeParam>, _targ:Type):Void __self__.value._assign(_pkg, _pos, _tpar, _targ);
+    public dynamic function _assign(_pkg:stdgo.StdGoTypes.Ref<Package>, _pos:stdgo.go.token.Token.Pos, _tpar:stdgo.StdGoTypes.Ref<TypeParam>, _targ:Type_):Void __self__.value._assign(_pkg, _pos, _tpar, _targ);
     /**
         // recordInstance records that the given type parameters were
         // instantiated with the corresponding type arguments.
     **/
     @:keep
-    public dynamic function _recordInstance(_pkg:stdgo.StdGoTypes.Ref<Package>, _pos:stdgo.go.token.Token.Pos, _tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _targs:stdgo.Slice<Type>, _xlist:stdgo.Slice<stdgo.go.ast.Ast.Expr>):Void __self__.value._recordInstance(_pkg, _pos, _tparams, _targs, _xlist);
+    public dynamic function _recordInstance(_pkg:stdgo.StdGoTypes.Ref<Package>, _pos:stdgo.go.token.Token.Pos, _tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _targs:stdgo.Slice<Type_>, _xlist:stdgo.Slice<stdgo.go.ast.Ast.Expr>):Void __self__.value._recordInstance(_pkg, _pos, _tparams, _targs, _xlist);
     /**
         // recordCanon records that tpar is the canonical type parameter
         // corresponding to method type parameter mpar.
@@ -22628,7 +22628,7 @@ class T_monoGraph_asInterface {
 }
 @:keep @:allow(stdgo.go.types.Types.T_monoGraph_asInterface) class T_monoGraph_static_extension {
     @:keep
-    static public function _addEdge( _w:stdgo.StdGoTypes.Ref<T_monoGraph>, _dst:stdgo.StdGoTypes.GoInt, _src:stdgo.StdGoTypes.GoInt, _weight:stdgo.StdGoTypes.GoInt, _pos:stdgo.go.token.Token.Pos, _typ:Type):Void {
+    static public function _addEdge( _w:stdgo.StdGoTypes.Ref<T_monoGraph>, _dst:stdgo.StdGoTypes.GoInt, _src:stdgo.StdGoTypes.GoInt, _weight:stdgo.StdGoTypes.GoInt, _pos:stdgo.go.token.Token.Pos, _typ:Type_):Void {
         @:recv var _w:stdgo.StdGoTypes.Ref<T_monoGraph> = _w;
         _w._edges = (_w._edges.__append__(({ _dst : _dst, _src : _src, _weight : _weight, _pos : _pos, _typ : _typ } : stdgo.go.types.Types.T_monoEdge)));
     }
@@ -22639,14 +22639,14 @@ class T_monoGraph_asInterface {
     static public function _typeParamVertex( _w:stdgo.StdGoTypes.Ref<T_monoGraph>, _tpar:stdgo.StdGoTypes.Ref<TypeParam>):stdgo.StdGoTypes.GoInt {
         @:recv var _w:stdgo.StdGoTypes.Ref<T_monoGraph> = _w;
         {
-            var __tmp__ = (_w._canon != null && _w._canon.exists(_tpar) ? { value : _w._canon[_tpar], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), ok : false }), _x:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam> = __tmp__.value, _ok:Bool = __tmp__.ok;
+            var __tmp__ = (_w._canon != null && _w._canon.exists(_tpar) ? { _0 : _w._canon[_tpar], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), _1 : false }), _x:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 _tpar = _x;
             };
         };
         var _obj = _tpar._check._environment._decl._tdecl.name.obj();
         {
-            var __tmp__ = (_w._nameIdx != null && _w._nameIdx.exists(_obj) ? { value : _w._nameIdx[_obj], ok : true } : { value : (0 : stdgo.StdGoTypes.GoInt), ok : false }), _idx:stdgo.StdGoTypes.GoInt = __tmp__.value, _ok:Bool = __tmp__.ok;
+            var __tmp__ = (_w._nameIdx != null && _w._nameIdx.exists(_obj) ? { _0 : _w._nameIdx[_obj], _1 : true } : { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : false }), _idx:stdgo.StdGoTypes.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 return _idx;
             };
@@ -22679,7 +22679,7 @@ class T_monoGraph_asInterface {
             return (-1 : stdgo.StdGoTypes.GoInt);
         };
         {
-            var __tmp__ = (_w._nameIdx != null && _w._nameIdx.exists(_obj) ? { value : _w._nameIdx[_obj], ok : true } : { value : (0 : stdgo.StdGoTypes.GoInt), ok : false }), _idx:stdgo.StdGoTypes.GoInt = __tmp__.value, _ok:Bool = __tmp__.ok;
+            var __tmp__ = (_w._nameIdx != null && _w._nameIdx.exists(_obj) ? { _0 : _w._nameIdx[_obj], _1 : true } : { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : false }), _idx:stdgo.StdGoTypes.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 return _idx;
             };
@@ -22691,17 +22691,17 @@ class T_monoGraph_asInterface {
                 for (__8 => _elem in _scope._elems) {
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_elem) : stdgo.StdGoTypes.Ref<TypeName>)) : stdgo.StdGoTypes.Ref<TypeName>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_elem) : stdgo.StdGoTypes.Ref<TypeName>)) : stdgo.StdGoTypes.Ref<TypeName>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeName>), ok : false };
-                        }, _elem = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeName>), _1 : false };
+                        }, _elem = __tmp__._0, _ok = __tmp__._1;
                         if ((_ok && !_elem.isAlias()) && (_cmpPos(_elem.pos(), _obj.pos()) < (0 : stdgo.StdGoTypes.GoInt))) {
                             {
                                 var __tmp__ = try {
-                                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_elem.type()) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), ok : true };
+                                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_elem.type()) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), _1 : true };
                                 } catch(_) {
-                                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), ok : false };
-                                }, _tpar = __tmp__.value, _ok = __tmp__.ok;
+                                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), _1 : false };
+                                }, _tpar = __tmp__._0, _ok = __tmp__._1;
                                 if (_ok) {
                                     if (_idx < (0 : stdgo.StdGoTypes.GoInt)) {
                                         _idx = (_w._vertices.length);
@@ -22729,20 +22729,20 @@ class T_monoGraph_asInterface {
         // assign records that tpar was instantiated as targ at pos.
     **/
     @:keep
-    static public function _assign( _w:stdgo.StdGoTypes.Ref<T_monoGraph>, _pkg:stdgo.StdGoTypes.Ref<Package>, _pos:stdgo.go.token.Token.Pos, _tpar:stdgo.StdGoTypes.Ref<TypeParam>, _targ:Type):Void {
+    static public function _assign( _w:stdgo.StdGoTypes.Ref<T_monoGraph>, _pkg:stdgo.StdGoTypes.Ref<Package>, _pos:stdgo.go.token.Token.Pos, _tpar:stdgo.StdGoTypes.Ref<TypeParam>, _targ:Type_):Void {
         @:recv var _w:stdgo.StdGoTypes.Ref<T_monoGraph> = _w;
         if (_tpar._check._environment._decl._tdecl.name.obj().pkg() != (_pkg)) {
             return;
         };
-        var _flow:(stdgo.StdGoTypes.GoInt, stdgo.go.types.Types.Type) -> Void = function(_src:stdgo.StdGoTypes.GoInt, _typ:Type):Void {
+        var _flow:(stdgo.StdGoTypes.GoInt, stdgo.go.types.Types.Type_) -> Void = function(_src:stdgo.StdGoTypes.GoInt, _typ:Type_):Void {
             var _weight:stdgo.StdGoTypes.GoInt = (1 : stdgo.StdGoTypes.GoInt);
             if (stdgo.Go.toInterface(_typ) == (stdgo.Go.toInterface(_targ))) {
                 _weight = (0 : stdgo.StdGoTypes.GoInt);
             };
             _w._addEdge(_w._typeParamVertex(_tpar), _src, _weight, _pos, _targ);
         };
-        var _do:(_typ:Type) -> Void = null;
-        _do = function(_typ:Type):Void {
+        var _do:(_typ:Type_) -> Void = null;
+        _do = function(_typ:Type_):Void {
             {
                 final __type__ = _typ;
                 if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<TypeParam>))) {
@@ -22811,7 +22811,7 @@ class T_monoGraph_asInterface {
                         });
                     };
                 } else {
-                    var _typ:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                    var _typ:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                     throw stdgo.Go.toInterface(("unexpected type" : stdgo.GoString));
                 };
             };
@@ -22823,7 +22823,7 @@ class T_monoGraph_asInterface {
         // instantiated with the corresponding type arguments.
     **/
     @:keep
-    static public function _recordInstance( _w:stdgo.StdGoTypes.Ref<T_monoGraph>, _pkg:stdgo.StdGoTypes.Ref<Package>, _pos:stdgo.go.token.Token.Pos, _tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _targs:stdgo.Slice<Type>, _xlist:stdgo.Slice<stdgo.go.ast.Ast.Expr>):Void {
+    static public function _recordInstance( _w:stdgo.StdGoTypes.Ref<T_monoGraph>, _pkg:stdgo.StdGoTypes.Ref<Package>, _pos:stdgo.go.token.Token.Pos, _tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>, _targs:stdgo.Slice<Type_>, _xlist:stdgo.Slice<stdgo.go.ast.Ast.Expr>):Void {
         @:recv var _w:stdgo.StdGoTypes.Ref<T_monoGraph> = _w;
         for (_i => _tpar in _tparams) {
             var _pos:stdgo.go.token.Token.Pos = _pos;
@@ -22856,11 +22856,11 @@ class Named_asInterface {
         // returning the result. Returns Typ[Invalid] if there was an error.
     **/
     @:keep
-    public dynamic function _expandUnderlying():Type return __self__.value._expandUnderlying();
+    public dynamic function _expandUnderlying():Type_ return __self__.value._expandUnderlying();
     @:keep
     public dynamic function _lookupMethod(_pkg:stdgo.StdGoTypes.Ref<Package>, _name:stdgo.GoString, _foldCase:Bool):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.StdGoTypes.Ref<Func>; } return __self__.value._lookupMethod(_pkg, _name, _foldCase);
     @:keep
-    public dynamic function _setUnderlying(_typ:Type):Void __self__.value._setUnderlying(_typ);
+    public dynamic function _setUnderlying(_typ:Type_):Void __self__.value._setUnderlying(_typ);
     /**
         // under returns the expanded underlying type of n0; possibly by following
         // forward chains of named types. If an underlying type is found, resolve
@@ -22882,11 +22882,11 @@ class Named_asInterface {
         // and which has as its underlying type the named type B.
     **/
     @:keep
-    public dynamic function _under():Type return __self__.value._under();
+    public dynamic function _under():Type_ return __self__.value._under();
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:keep
-    public dynamic function underlying():Type return __self__.value.underlying();
+    public dynamic function underlying():Type_ return __self__.value.underlying();
     /**
         // AddMethod adds method m unless it is already in the method list.
         // t must not have type arguments.
@@ -22898,7 +22898,7 @@ class Named_asInterface {
         // t must not have type arguments.
     **/
     @:keep
-    public dynamic function setUnderlying(_underlying:Type):Void __self__.value.setUnderlying(_underlying);
+    public dynamic function setUnderlying(_underlying:Type_):Void __self__.value.setUnderlying(_underlying);
     /**
         // expandMethod substitutes type arguments in the i'th method for an
         // instantiated receiver.
@@ -22986,7 +22986,7 @@ class Named_asInterface {
         // returning the result. Returns Typ[Invalid] if there was an error.
     **/
     @:keep
-    static public function _expandUnderlying( _n:stdgo.StdGoTypes.Ref<Named>):Type {
+    static public function _expandUnderlying( _n:stdgo.StdGoTypes.Ref<Named>):Type_ {
         @:recv var _n:stdgo.StdGoTypes.Ref<Named> = _n;
         var __deferstack__:Array<Void -> Void> = [];
         try {
@@ -23010,10 +23010,10 @@ class Named_asInterface {
             var _targs = _n._inst._targs;
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_orig._underlying) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_orig._underlying) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-                }, __96 = __tmp__.value, _unexpanded = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+                }, __96 = __tmp__._0, _unexpanded = __tmp__._1;
                 if (_unexpanded) {
                     _assert(_check != null && ((_check : Dynamic).__nil__ == null || !(_check : Dynamic).__nil__));
                 };
@@ -23027,20 +23027,20 @@ class Named_asInterface {
                 };
             };
             var _h:stdgo.GoString = _n._inst._ctxt._instanceHash(stdgo.Go.asInterface(_orig), _targs._list())?.__copy__();
-            var _n2:stdgo.go.types.Types.Type = _n._inst._ctxt._update(_h?.__copy__(), stdgo.Go.asInterface(_orig), _n.typeArgs()._list(), stdgo.Go.asInterface(_n));
+            var _n2:stdgo.go.types.Types.Type_ = _n._inst._ctxt._update(_h?.__copy__(), stdgo.Go.asInterface(_orig), _n.typeArgs()._list(), stdgo.Go.asInterface(_n));
             _assert(stdgo.Go.toInterface(stdgo.Go.asInterface(_n)) == (stdgo.Go.toInterface(_n2)));
             var _smap:stdgo.go.types.Types.T_substMap = _makeSubstMap(_orig._tparams._list(), _targs._list());
             var _ctxt:stdgo.StdGoTypes.Ref<Context> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Context>);
             if (_check != null && ((_check : Dynamic).__nil__ == null || !(_check : Dynamic).__nil__)) {
                 _ctxt = _check._context();
             };
-            var _underlying:stdgo.go.types.Types.Type = _n._check._subst(_n._obj._object._pos, _orig._underlying, _smap, _n, _ctxt);
+            var _underlying:stdgo.go.types.Types.Type_ = _n._check._subst(_n._obj._object._pos, _orig._underlying, _smap, _n, _ctxt);
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_underlying) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_underlying) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), ok : false };
-                }, _iface = __tmp__.value, __177 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), _1 : false };
+                }, _iface = __tmp__._0, __177 = __tmp__._1;
                 if (_iface != null && ((_iface : Dynamic).__nil__ == null || !(_iface : Dynamic).__nil__)) {
                     {
                         var __tmp__ = _replaceRecvType(_iface._methods, stdgo.Go.asInterface(_orig), stdgo.Go.asInterface(_n)), _methods:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>> = __tmp__._0, _copied:Bool = __tmp__._1;
@@ -23069,7 +23069,7 @@ class Named_asInterface {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return (null : stdgo.go.types.Types.Type);
+                return (null : stdgo.go.types.Types.Type_);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -23082,7 +23082,7 @@ class Named_asInterface {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return (null : stdgo.go.types.Types.Type);
+            return (null : stdgo.go.types.Types.Type_);
         };
     }
     @:keep
@@ -23096,7 +23096,7 @@ class Named_asInterface {
         return { _0 : _i, _1 : _n.method(_i) };
     }
     @:keep
-    static public function _setUnderlying( _n:stdgo.StdGoTypes.Ref<Named>, _typ:Type):Void {
+    static public function _setUnderlying( _n:stdgo.StdGoTypes.Ref<Named>, _typ:Type_):Void {
         @:recv var _n:stdgo.StdGoTypes.Ref<Named> = _n;
         if (_n != null && ((_n : Dynamic).__nil__ == null || !(_n : Dynamic).__nil__)) {
             _n._underlying = _typ;
@@ -23123,10 +23123,10 @@ class Named_asInterface {
         // and which has as its underlying type the named type B.
     **/
     @:keep
-    static public function _under( _n0:stdgo.StdGoTypes.Ref<Named>):Type {
+    static public function _under( _n0:stdgo.StdGoTypes.Ref<Named>):Type_ {
         stdgo.internal.Macro.controlFlow({
             @:recv var _n0:stdgo.StdGoTypes.Ref<Named> = _n0;
-            var _u:stdgo.go.types.Types.Type = _n0.underlying();
+            var _u:stdgo.go.types.Types.Type_ = _n0.underlying();
             var _n1:stdgo.StdGoTypes.Ref<Named> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>);
             {
                 final __type__ = _u;
@@ -23137,7 +23137,7 @@ class Named_asInterface {
                     var _u1:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>) : __type__.__underlying__().value;
                     _n1 = _u1;
                 } else {
-                    var _u1:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                    var _u1:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                     return _u;
                 };
             };
@@ -23157,7 +23157,7 @@ class Named_asInterface {
                 _path = (_path.__append__(stdgo.Go.asInterface(_n._obj)));
                 _n = _n1;
                 {
-                    var __tmp__ = (_seen != null && _seen.exists(_n) ? { value : _seen[_n], ok : true } : { value : (0 : stdgo.StdGoTypes.GoInt), ok : false }), _i:stdgo.StdGoTypes.GoInt = __tmp__.value, _ok:Bool = __tmp__.ok;
+                    var __tmp__ = (_seen != null && _seen.exists(_n) ? { _0 : _seen[_n], _1 : true } : { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : false }), _i:stdgo.StdGoTypes.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (_ok) {
                         _check._cycleError((_path.__slice__(_i) : stdgo.Slice<stdgo.go.types.Types.Object>));
                         _u = stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)]);
@@ -23179,7 +23179,7 @@ class Named_asInterface {
                                 var _u1:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>) : __type__.__underlying__().value;
                                 _n1 = _u1;
                             } else {
-                                var _u1:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                                var _u1:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                                 @:jump("loop") break;
                             };
                             break;
@@ -23203,7 +23203,7 @@ class Named_asInterface {
         return typeString(stdgo.Go.asInterface(_t), null)?.__copy__();
     }
     @:keep
-    static public function underlying( _t:stdgo.StdGoTypes.Ref<Named>):Type {
+    static public function underlying( _t:stdgo.StdGoTypes.Ref<Named>):Type_ {
         @:recv var _t:stdgo.StdGoTypes.Ref<Named> = _t;
         return _t._resolve()._underlying;
     }
@@ -23228,7 +23228,7 @@ class Named_asInterface {
         // t must not have type arguments.
     **/
     @:keep
-    static public function setUnderlying( _t:stdgo.StdGoTypes.Ref<Named>, _underlying:Type):Void {
+    static public function setUnderlying( _t:stdgo.StdGoTypes.Ref<Named>, _underlying:Type_):Void {
         @:recv var _t:stdgo.StdGoTypes.Ref<Named> = _t;
         _assert(_t._inst == null || (_t._inst : Dynamic).__nil__);
         if (_underlying == null) {
@@ -23236,10 +23236,10 @@ class Named_asInterface {
         };
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_underlying) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_underlying) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-            }, __8 = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+            }, __8 = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 throw stdgo.Go.toInterface(("underlying type must not be *Named" : stdgo.GoString));
             };
@@ -23263,7 +23263,7 @@ class Named_asInterface {
             _check._objDecl(stdgo.Go.asInterface(_origm), null);
         };
         var _origSig = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_origm._object._typ) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>);
-        var __tmp__ = _deref(_origSig.recv().type()), _rbase:stdgo.go.types.Types.Type = __tmp__._0, __32:Bool = __tmp__._1;
+        var __tmp__ = _deref(_origSig.recv().type()), _rbase:stdgo.go.types.Types.Type_ = __tmp__._0, __32:Bool = __tmp__._1;
         if (stdgo.Go.toInterface(_rbase) == (stdgo.Go.toInterface(stdgo.Go.asInterface(_t)))) {
             return _origm;
         };
@@ -23280,7 +23280,7 @@ class Named_asInterface {
             var _copy:stdgo.go.types.Types.Signature = (_origSig : stdgo.go.types.Types.Signature)?.__copy__();
             _sig = (stdgo.Go.setRef(_copy) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>);
         };
-        var _rtyp:Type = (null : stdgo.go.types.Types.Type);
+        var _rtyp:Type_ = (null : stdgo.go.types.Types.Type_);
         if (_origm._hasPtrRecv()) {
             _rtyp = stdgo.Go.asInterface(newPointer(stdgo.Go.asInterface(_t)));
         } else {
@@ -23476,7 +23476,7 @@ class Named_asInterface {
                 _assert(_n._loader == null);
                 var _orig = _n._inst._orig;
                 _orig._resolve();
-                var _underlying:stdgo.go.types.Types.Type = _n._expandUnderlying();
+                var _underlying:stdgo.go.types.Types.Type_ = _n._expandUnderlying();
                 _n._tparams = _orig._tparams;
                 _n._underlying = _underlying;
                 _n._fromRHS = _orig._fromRHS;
@@ -23496,7 +23496,7 @@ class Named_asInterface {
             if (_n._loader != null) {
                 _assert(_n._underlying == null);
                 _assert(_n.typeArgs().len() == ((0 : stdgo.StdGoTypes.GoInt)));
-                var __tmp__ = _n._loader(_n), _tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>> = __tmp__._0, _underlying:stdgo.go.types.Types.Type = __tmp__._1, _methods:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>> = __tmp__._2;
+                var __tmp__ = _n._loader(_n), _tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>> = __tmp__._0, _underlying:stdgo.go.types.Types.Type_ = __tmp__._1, _methods:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>> = __tmp__._2;
                 _n._tparams = _bindTParams(_tparams);
                 _n._underlying = _underlying;
                 _n._fromRHS = _underlying;
@@ -23551,7 +23551,7 @@ class T_object_asInterface {
     @:keep
     public dynamic function _setOrder(_order:stdgo.StdGoTypes.GoUInt32):Void __self__.value._setOrder(_order);
     @:keep
-    public dynamic function _setType(_typ:Type):Void __self__.value._setType(_typ);
+    public dynamic function _setType(_typ:Type_):Void __self__.value._setType(_typ);
     @:keep
     public dynamic function _setParent(_parent:stdgo.StdGoTypes.Ref<Scope>):Void __self__.value._setParent(_parent);
     @:keep
@@ -23578,7 +23578,7 @@ class T_object_asInterface {
         // Type returns the object's type.
     **/
     @:keep
-    public dynamic function type():Type return __self__.value.type();
+    public dynamic function type():Type_ return __self__.value.type();
     /**
         // Name returns the object's (package-local, unqualified) name.
     **/
@@ -23674,7 +23674,7 @@ class T_object_asInterface {
         _obj._order_ = _order;
     }
     @:keep
-    static public function _setType( _obj:stdgo.StdGoTypes.Ref<T_object>, _typ:Type):Void {
+    static public function _setType( _obj:stdgo.StdGoTypes.Ref<T_object>, _typ:Type_):Void {
         @:recv var _obj:stdgo.StdGoTypes.Ref<T_object> = _obj;
         _obj._typ = _typ;
     }
@@ -23725,7 +23725,7 @@ class T_object_asInterface {
         // Type returns the object's type.
     **/
     @:keep
-    static public function type( _obj:stdgo.StdGoTypes.Ref<T_object>):Type {
+    static public function type( _obj:stdgo.StdGoTypes.Ref<T_object>):Type_ {
         @:recv var _obj:stdgo.StdGoTypes.Ref<T_object> = _obj;
         return _obj._typ;
     }
@@ -23774,7 +23774,7 @@ class PkgName_asInterface {
     @:keep
     public dynamic function imported():stdgo.StdGoTypes.Ref<Package> return __self__.value.imported();
     @:embedded
-    public dynamic function _setType(__0:stdgo.go.types.Types.Type):Void __self__.value._setType(__0);
+    public dynamic function _setType(__0:stdgo.go.types.Types.Type_):Void __self__.value._setType(__0);
     @:embedded
     public dynamic function _setScopePos(_p:stdgo.go.token.Token.Pos):Void __self__.value._setScopePos(_p);
     @:embedded
@@ -23794,7 +23794,7 @@ class PkgName_asInterface {
     @:embedded
     public dynamic function _color():stdgo.go.types.Types.T_color return __self__.value._color();
     @:embedded
-    public dynamic function type():stdgo.go.types.Types.Type return __self__.value.type();
+    public dynamic function type():stdgo.go.types.Types.Type_ return __self__.value.type();
     @:embedded
     public dynamic function pos():stdgo.go.token.Token.Pos return __self__.value.pos();
     @:embedded
@@ -23831,7 +23831,7 @@ class PkgName_asInterface {
         return _obj._imported;
     }
     @:embedded
-    public static function _setType( __self__:PkgName, __0:stdgo.go.types.Types.Type) __self__._setType(__0);
+    public static function _setType( __self__:PkgName, __0:stdgo.go.types.Types.Type_) __self__._setType(__0);
     @:embedded
     public static function _setScopePos( __self__:PkgName, _p:stdgo.go.token.Token.Pos) __self__._setScopePos(_p);
     @:embedded
@@ -23851,7 +23851,7 @@ class PkgName_asInterface {
     @:embedded
     public static function _color( __self__:PkgName):stdgo.go.types.Types.T_color return __self__._color();
     @:embedded
-    public static function type( __self__:PkgName):stdgo.go.types.Types.Type return __self__.type();
+    public static function type( __self__:PkgName):stdgo.go.types.Types.Type_ return __self__.type();
     @:embedded
     public static function pos( __self__:PkgName):stdgo.go.token.Token.Pos return __self__.pos();
     @:embedded
@@ -23876,7 +23876,7 @@ class Const_asInterface {
     @:keep
     public dynamic function val():stdgo.go.constant.Constant.Value return __self__.value.val();
     @:embedded
-    public dynamic function _setType(__0:stdgo.go.types.Types.Type):Void __self__.value._setType(__0);
+    public dynamic function _setType(__0:stdgo.go.types.Types.Type_):Void __self__.value._setType(__0);
     @:embedded
     public dynamic function _setScopePos(_p:stdgo.go.token.Token.Pos):Void __self__.value._setScopePos(_p);
     @:embedded
@@ -23896,7 +23896,7 @@ class Const_asInterface {
     @:embedded
     public dynamic function _color():stdgo.go.types.Types.T_color return __self__.value._color();
     @:embedded
-    public dynamic function type():stdgo.go.types.Types.Type return __self__.value.type();
+    public dynamic function type():stdgo.go.types.Types.Type_ return __self__.value.type();
     @:embedded
     public dynamic function pos():stdgo.go.token.Token.Pos return __self__.value.pos();
     @:embedded
@@ -23936,7 +23936,7 @@ class Const_asInterface {
         return _obj._val;
     }
     @:embedded
-    public static function _setType( __self__:Const, __0:stdgo.go.types.Types.Type) __self__._setType(__0);
+    public static function _setType( __self__:Const, __0:stdgo.go.types.Types.Type_) __self__._setType(__0);
     @:embedded
     public static function _setScopePos( __self__:Const, _p:stdgo.go.token.Token.Pos) __self__._setScopePos(_p);
     @:embedded
@@ -23956,7 +23956,7 @@ class Const_asInterface {
     @:embedded
     public static function _color( __self__:Const):stdgo.go.types.Types.T_color return __self__._color();
     @:embedded
-    public static function type( __self__:Const):stdgo.go.types.Types.Type return __self__.type();
+    public static function type( __self__:Const):stdgo.go.types.Types.Type_ return __self__.type();
     @:embedded
     public static function pos( __self__:Const):stdgo.go.token.Token.Pos return __self__.pos();
     @:embedded
@@ -23979,7 +23979,7 @@ class TypeName_asInterface {
     @:keep
     public dynamic function isAlias():Bool return __self__.value.isAlias();
     @:embedded
-    public dynamic function _setType(__0:stdgo.go.types.Types.Type):Void __self__.value._setType(__0);
+    public dynamic function _setType(__0:stdgo.go.types.Types.Type_):Void __self__.value._setType(__0);
     @:embedded
     public dynamic function _setScopePos(_p:stdgo.go.token.Token.Pos):Void __self__.value._setScopePos(_p);
     @:embedded
@@ -23999,7 +23999,7 @@ class TypeName_asInterface {
     @:embedded
     public dynamic function _color():stdgo.go.types.Types.T_color return __self__.value._color();
     @:embedded
-    public dynamic function type():stdgo.go.types.Types.Type return __self__.value.type();
+    public dynamic function type():stdgo.go.types.Types.Type_ return __self__.value.type();
     @:embedded
     public dynamic function pos():stdgo.go.token.Token.Pos return __self__.value.pos();
     @:embedded
@@ -24050,13 +24050,13 @@ class TypeName_asInterface {
                 var _t:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>) : __type__.__underlying__().value;
                 return _obj != (_t._obj);
             } else {
-                var _t:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                var _t:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                 return true;
             };
         };
     }
     @:embedded
-    public static function _setType( __self__:TypeName, __0:stdgo.go.types.Types.Type) __self__._setType(__0);
+    public static function _setType( __self__:TypeName, __0:stdgo.go.types.Types.Type_) __self__._setType(__0);
     @:embedded
     public static function _setScopePos( __self__:TypeName, _p:stdgo.go.token.Token.Pos) __self__._setScopePos(_p);
     @:embedded
@@ -24076,7 +24076,7 @@ class TypeName_asInterface {
     @:embedded
     public static function _color( __self__:TypeName):stdgo.go.types.Types.T_color return __self__._color();
     @:embedded
-    public static function type( __self__:TypeName):stdgo.go.types.Types.Type return __self__.type();
+    public static function type( __self__:TypeName):stdgo.go.types.Types.Type_ return __self__.type();
     @:embedded
     public static function pos( __self__:TypeName):stdgo.go.token.Token.Pos return __self__.pos();
     @:embedded
@@ -24123,7 +24123,7 @@ class Var_asInterface {
     @:keep
     public dynamic function anonymous():Bool return __self__.value.anonymous();
     @:embedded
-    public dynamic function _setType(__0:stdgo.go.types.Types.Type):Void __self__.value._setType(__0);
+    public dynamic function _setType(__0:stdgo.go.types.Types.Type_):Void __self__.value._setType(__0);
     @:embedded
     public dynamic function _setScopePos(_p:stdgo.go.token.Token.Pos):Void __self__.value._setScopePos(_p);
     @:embedded
@@ -24143,7 +24143,7 @@ class Var_asInterface {
     @:embedded
     public dynamic function _color():stdgo.go.types.Types.T_color return __self__.value._color();
     @:embedded
-    public dynamic function type():stdgo.go.types.Types.Type return __self__.value.type();
+    public dynamic function type():stdgo.go.types.Types.Type_ return __self__.value.type();
     @:embedded
     public dynamic function pos():stdgo.go.token.Token.Pos return __self__.value.pos();
     @:embedded
@@ -24217,7 +24217,7 @@ class Var_asInterface {
         return _obj._embedded;
     }
     @:embedded
-    public static function _setType( __self__:Var, __0:stdgo.go.types.Types.Type) __self__._setType(__0);
+    public static function _setType( __self__:Var, __0:stdgo.go.types.Types.Type_) __self__._setType(__0);
     @:embedded
     public static function _setScopePos( __self__:Var, _p:stdgo.go.token.Token.Pos) __self__._setScopePos(_p);
     @:embedded
@@ -24237,7 +24237,7 @@ class Var_asInterface {
     @:embedded
     public static function _color( __self__:Var):stdgo.go.types.Types.T_color return __self__._color();
     @:embedded
-    public static function type( __self__:Var):stdgo.go.types.Types.Type return __self__.type();
+    public static function type( __self__:Var):stdgo.go.types.Types.Type_ return __self__.type();
     @:embedded
     public static function pos( __self__:Var):stdgo.go.token.Token.Pos return __self__.pos();
     @:embedded
@@ -24286,7 +24286,7 @@ class Func_asInterface {
     @:keep
     public dynamic function fullName():stdgo.GoString return __self__.value.fullName();
     @:embedded
-    public dynamic function _setType(__0:stdgo.go.types.Types.Type):Void __self__.value._setType(__0);
+    public dynamic function _setType(__0:stdgo.go.types.Types.Type_):Void __self__.value._setType(__0);
     @:embedded
     public dynamic function _setScopePos(_p:stdgo.go.token.Token.Pos):Void __self__.value._setScopePos(_p);
     @:embedded
@@ -24306,7 +24306,7 @@ class Func_asInterface {
     @:embedded
     public dynamic function _color():stdgo.go.types.Types.T_color return __self__.value._color();
     @:embedded
-    public dynamic function type():stdgo.go.types.Types.Type return __self__.value.type();
+    public dynamic function type():stdgo.go.types.Types.Type_ return __self__.value.type();
     @:embedded
     public dynamic function pos():stdgo.go.token.Token.Pos return __self__.value.pos();
     @:embedded
@@ -24345,12 +24345,12 @@ class Func_asInterface {
         @:recv var _obj:stdgo.StdGoTypes.Ref<Func> = _obj;
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj._object._typ) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj._object._typ) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), ok : false };
-            }, _sig = __tmp__.value, __0 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), _1 : false };
+            }, _sig = __tmp__._0, __0 = __tmp__._1;
             if (((_sig != null) && ((_sig : Dynamic).__nil__ == null || !(_sig : Dynamic).__nil__)) && ((_sig._recv != null) && ((_sig._recv : Dynamic).__nil__ == null || !(_sig._recv : Dynamic).__nil__))) {
-                var __tmp__ = _deref(_sig._recv._object._typ), __1:stdgo.go.types.Types.Type = __tmp__._0, _isPtr:Bool = __tmp__._1;
+                var __tmp__ = _deref(_sig._recv._object._typ), __1:stdgo.go.types.Types.Type_ = __tmp__._0, _isPtr:Bool = __tmp__._1;
                 return _isPtr;
             };
         };
@@ -24395,7 +24395,7 @@ class Func_asInterface {
         return (_buf.string() : stdgo.GoString)?.__copy__();
     }
     @:embedded
-    public static function _setType( __self__:Func, __0:stdgo.go.types.Types.Type) __self__._setType(__0);
+    public static function _setType( __self__:Func, __0:stdgo.go.types.Types.Type_) __self__._setType(__0);
     @:embedded
     public static function _setScopePos( __self__:Func, _p:stdgo.go.token.Token.Pos) __self__._setScopePos(_p);
     @:embedded
@@ -24415,7 +24415,7 @@ class Func_asInterface {
     @:embedded
     public static function _color( __self__:Func):stdgo.go.types.Types.T_color return __self__._color();
     @:embedded
-    public static function type( __self__:Func):stdgo.go.types.Types.Type return __self__.type();
+    public static function type( __self__:Func):stdgo.go.types.Types.Type_ return __self__.type();
     @:embedded
     public static function pos( __self__:Func):stdgo.go.token.Token.Pos return __self__.pos();
     @:embedded
@@ -24433,7 +24433,7 @@ class Label_asInterface {
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:embedded
-    public dynamic function _setType(__0:stdgo.go.types.Types.Type):Void __self__.value._setType(__0);
+    public dynamic function _setType(__0:stdgo.go.types.Types.Type_):Void __self__.value._setType(__0);
     @:embedded
     public dynamic function _setScopePos(_p:stdgo.go.token.Token.Pos):Void __self__.value._setScopePos(_p);
     @:embedded
@@ -24453,7 +24453,7 @@ class Label_asInterface {
     @:embedded
     public dynamic function _color():stdgo.go.types.Types.T_color return __self__.value._color();
     @:embedded
-    public dynamic function type():stdgo.go.types.Types.Type return __self__.value.type();
+    public dynamic function type():stdgo.go.types.Types.Type_ return __self__.value.type();
     @:embedded
     public dynamic function pos():stdgo.go.token.Token.Pos return __self__.value.pos();
     @:embedded
@@ -24481,7 +24481,7 @@ class Label_asInterface {
         return objectString(stdgo.Go.asInterface(_obj), null)?.__copy__();
     }
     @:embedded
-    public static function _setType( __self__:Label, __0:stdgo.go.types.Types.Type) __self__._setType(__0);
+    public static function _setType( __self__:Label, __0:stdgo.go.types.Types.Type_) __self__._setType(__0);
     @:embedded
     public static function _setScopePos( __self__:Label, _p:stdgo.go.token.Token.Pos) __self__._setScopePos(_p);
     @:embedded
@@ -24501,7 +24501,7 @@ class Label_asInterface {
     @:embedded
     public static function _color( __self__:Label):stdgo.go.types.Types.T_color return __self__._color();
     @:embedded
-    public static function type( __self__:Label):stdgo.go.types.Types.Type return __self__.type();
+    public static function type( __self__:Label):stdgo.go.types.Types.Type_ return __self__.type();
     @:embedded
     public static function pos( __self__:Label):stdgo.go.token.Token.Pos return __self__.pos();
     @:embedded
@@ -24519,7 +24519,7 @@ class Builtin_asInterface {
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:embedded
-    public dynamic function _setType(__0:stdgo.go.types.Types.Type):Void __self__.value._setType(__0);
+    public dynamic function _setType(__0:stdgo.go.types.Types.Type_):Void __self__.value._setType(__0);
     @:embedded
     public dynamic function _setScopePos(_p:stdgo.go.token.Token.Pos):Void __self__.value._setScopePos(_p);
     @:embedded
@@ -24539,7 +24539,7 @@ class Builtin_asInterface {
     @:embedded
     public dynamic function _color():stdgo.go.types.Types.T_color return __self__.value._color();
     @:embedded
-    public dynamic function type():stdgo.go.types.Types.Type return __self__.value.type();
+    public dynamic function type():stdgo.go.types.Types.Type_ return __self__.value.type();
     @:embedded
     public dynamic function pos():stdgo.go.token.Token.Pos return __self__.value.pos();
     @:embedded
@@ -24567,7 +24567,7 @@ class Builtin_asInterface {
         return objectString(stdgo.Go.asInterface(_obj), null)?.__copy__();
     }
     @:embedded
-    public static function _setType( __self__:Builtin, __0:stdgo.go.types.Types.Type) __self__._setType(__0);
+    public static function _setType( __self__:Builtin, __0:stdgo.go.types.Types.Type_) __self__._setType(__0);
     @:embedded
     public static function _setScopePos( __self__:Builtin, _p:stdgo.go.token.Token.Pos) __self__._setScopePos(_p);
     @:embedded
@@ -24587,7 +24587,7 @@ class Builtin_asInterface {
     @:embedded
     public static function _color( __self__:Builtin):stdgo.go.types.Types.T_color return __self__._color();
     @:embedded
-    public static function type( __self__:Builtin):stdgo.go.types.Types.Type return __self__.type();
+    public static function type( __self__:Builtin):stdgo.go.types.Types.Type_ return __self__.type();
     @:embedded
     public static function pos( __self__:Builtin):stdgo.go.token.Token.Pos return __self__.pos();
     @:embedded
@@ -24605,7 +24605,7 @@ class Nil_asInterface {
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:embedded
-    public dynamic function _setType(__0:stdgo.go.types.Types.Type):Void __self__.value._setType(__0);
+    public dynamic function _setType(__0:stdgo.go.types.Types.Type_):Void __self__.value._setType(__0);
     @:embedded
     public dynamic function _setScopePos(_p:stdgo.go.token.Token.Pos):Void __self__.value._setScopePos(_p);
     @:embedded
@@ -24625,7 +24625,7 @@ class Nil_asInterface {
     @:embedded
     public dynamic function _color():stdgo.go.types.Types.T_color return __self__.value._color();
     @:embedded
-    public dynamic function type():stdgo.go.types.Types.Type return __self__.value.type();
+    public dynamic function type():stdgo.go.types.Types.Type_ return __self__.value.type();
     @:embedded
     public dynamic function pos():stdgo.go.token.Token.Pos return __self__.value.pos();
     @:embedded
@@ -24653,7 +24653,7 @@ class Nil_asInterface {
         return objectString(stdgo.Go.asInterface(_obj), null)?.__copy__();
     }
     @:embedded
-    public static function _setType( __self__:Nil, __0:stdgo.go.types.Types.Type) __self__._setType(__0);
+    public static function _setType( __self__:Nil, __0:stdgo.go.types.Types.Type_) __self__._setType(__0);
     @:embedded
     public static function _setScopePos( __self__:Nil, _p:stdgo.go.token.Token.Pos) __self__._setScopePos(_p);
     @:embedded
@@ -24673,7 +24673,7 @@ class Nil_asInterface {
     @:embedded
     public static function _color( __self__:Nil):stdgo.go.types.Types.T_color return __self__._color();
     @:embedded
-    public static function type( __self__:Nil):stdgo.go.types.Types.Type return __self__.type();
+    public static function type( __self__:Nil):stdgo.go.types.Types.Type_ return __self__.type();
     @:embedded
     public static function pos( __self__:Nil):stdgo.go.token.Token.Pos return __self__.pos();
     @:embedded
@@ -24697,7 +24697,7 @@ class T_operand_asInterface {
         // methods have been type-checked.
     **/
     @:keep
-    public dynamic function _assignableTo(_check:stdgo.StdGoTypes.Ref<Checker>, t:Type, _cause:stdgo.Pointer<stdgo.GoString>):{ var _0 : Bool; var _1 : Code; } return __self__.value._assignableTo(_check, t, _cause);
+    public dynamic function _assignableTo(_check:stdgo.StdGoTypes.Ref<Checker>, t:Type_, _cause:stdgo.Pointer<stdgo.GoString>):{ var _0 : Bool; var _1 : Code; } return __self__.value._assignableTo(_check, t, _cause);
     /**
         // isNil reports whether x is the (untyped) nil value.
     **/
@@ -24723,7 +24723,7 @@ class T_operand_asInterface {
         // exported API call, i.e., when all methods have been type-checked.
     **/
     @:keep
-    public dynamic function _convertibleTo(_check:stdgo.StdGoTypes.Ref<Checker>, t:Type, _cause:stdgo.Pointer<stdgo.GoString>):Bool return __self__.value._convertibleTo(_check, t, _cause);
+    public dynamic function _convertibleTo(_check:stdgo.StdGoTypes.Ref<Checker>, t:Type_, _cause:stdgo.Pointer<stdgo.GoString>):Bool return __self__.value._convertibleTo(_check, t, _cause);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -24742,27 +24742,27 @@ class T_operand_asInterface {
         // methods have been type-checked.
     **/
     @:keep
-    static public function _assignableTo( _x:stdgo.StdGoTypes.Ref<T_operand>, _check:stdgo.StdGoTypes.Ref<Checker>, t:Type, _cause:stdgo.Pointer<stdgo.GoString>):{ var _0 : Bool; var _1 : Code; } {
+    static public function _assignableTo( _x:stdgo.StdGoTypes.Ref<T_operand>, _check:stdgo.StdGoTypes.Ref<Checker>, t:Type_, _cause:stdgo.Pointer<stdgo.GoString>):{ var _0 : Bool; var _1 : Code; } {
         @:recv var _x:stdgo.StdGoTypes.Ref<T_operand> = _x;
         if ((_x._mode == (0 : stdgo.go.types.Types.T_operandMode)) || (stdgo.Go.toInterface(t) == stdgo.Go.toInterface(stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)])))) {
             return { _0 : true, _1 : (0 : stdgo.internal.types.errors.Errors.Code) };
         };
-        var v:stdgo.go.types.Types.Type = _x._typ;
+        var v:stdgo.go.types.Types.Type_ = _x._typ;
         if (identical(v, t)) {
             return { _0 : true, _1 : (0 : stdgo.internal.types.errors.Errors.Code) };
         };
-        var vu:stdgo.go.types.Types.Type = _under(v);
-        var tu:stdgo.go.types.Types.Type = _under(t);
+        var vu:stdgo.go.types.Types.Type_ = _under(v);
+        var tu:stdgo.go.types.Types.Type_ = _under(t);
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(v) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(v) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), ok : false };
-        }, vp = __tmp__.value, __0 = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), _1 : false };
+        }, vp = __tmp__._0, __0 = __tmp__._1;
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(t) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(t) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), ok : false };
-        }, tp = __tmp__.value, __1 = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), _1 : false };
+        }, tp = __tmp__._0, __1 = __tmp__._1;
         if (_isUntyped(vu)) {
             _assert(vp == null || (vp : Dynamic).__nil__);
             if (tp != null && ((tp : Dynamic).__nil__ == null || !(tp : Dynamic).__nil__)) {
@@ -24770,11 +24770,11 @@ class T_operand_asInterface {
                     if (_t == null || (_t : Dynamic).__nil__) {
                         return false;
                     };
-                    var __tmp__ = _check._implicitTypeAndValue(_x, _t._typ), _newType:stdgo.go.types.Types.Type = __tmp__._0, __18:stdgo.go.constant.Constant.Value = __tmp__._1, __19:stdgo.internal.types.errors.Errors.Code = __tmp__._2;
+                    var __tmp__ = _check._implicitTypeAndValue(_x, _t._typ), _newType:stdgo.go.types.Types.Type_ = __tmp__._0, __18:stdgo.go.constant.Constant.Value = __tmp__._1, __19:stdgo.internal.types.errors.Errors.Code = __tmp__._2;
                     return _newType != null;
                 }), _1 : (23 : stdgo.internal.types.errors.Errors.Code) };
             };
-            var __tmp__ = _check._implicitTypeAndValue(_x, t), _newType:stdgo.go.types.Types.Type = __tmp__._0, __18:stdgo.go.constant.Constant.Value = __tmp__._1, __19:stdgo.internal.types.errors.Errors.Code = __tmp__._2;
+            var __tmp__ = _check._implicitTypeAndValue(_x, t), _newType:stdgo.go.types.Types.Type_ = __tmp__._0, __18:stdgo.go.constant.Constant.Value = __tmp__._1, __19:stdgo.internal.types.errors.Errors.Code = __tmp__._2;
             return { _0 : _newType != null, _1 : (23 : stdgo.internal.types.errors.Errors.Code) };
         };
         if (((identical(vu, tu) && (!_hasName(v) || !_hasName(t))) && (vp == null) || (vp : Dynamic).__nil__) && (tp == null) || (tp : Dynamic).__nil__) {
@@ -24782,10 +24782,10 @@ class T_operand_asInterface {
         };
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(tu) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(tu) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), ok : false };
-            }, __20 = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), _1 : false };
+            }, __20 = __tmp__._0, _ok = __tmp__._1;
             if ((_ok && (tp == null) || (tp : Dynamic).__nil__) || _isInterfacePtr(tu)) {
                 if (_check._implements(_x.pos(), v, t, false, _cause)) {
                     return { _0 : true, _1 : (0 : stdgo.internal.types.errors.Errors.Code) };
@@ -24800,10 +24800,10 @@ class T_operand_asInterface {
         };
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(vu) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(vu) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), ok : false };
-            }, vi = __tmp__.value, __29 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), _1 : false };
+            }, vi = __tmp__._0, __29 = __tmp__._1;
             if (((vi != null) && ((vi : Dynamic).__nil__ == null || !(vi : Dynamic).__nil__)) && (vp == null) || (vp : Dynamic).__nil__) {
                 if (_check._implements(_x.pos(), t, v, false, (null : stdgo.Pointer<stdgo.GoString>))) {
                     if (_cause != null) {
@@ -24815,17 +24815,17 @@ class T_operand_asInterface {
         };
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(vu) : stdgo.StdGoTypes.Ref<stdgo.Chan>)) : stdgo.StdGoTypes.Ref<stdgo.Chan>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(vu) : stdgo.StdGoTypes.Ref<stdgo.Chan>)) : stdgo.StdGoTypes.Ref<stdgo.Chan>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.Chan>), ok : false };
-            }, vc = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.Chan>), _1 : false };
+            }, vc = __tmp__._0, _ok = __tmp__._1;
             if (_ok && (vc._dir == (0 : stdgo.go.types.Types.ChanDir))) {
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(tu) : stdgo.StdGoTypes.Ref<stdgo.Chan>)) : stdgo.StdGoTypes.Ref<stdgo.Chan>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(tu) : stdgo.StdGoTypes.Ref<stdgo.Chan>)) : stdgo.StdGoTypes.Ref<stdgo.Chan>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.Chan>), ok : false };
-                    }, tc = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.Chan>), _1 : false };
+                    }, tc = __tmp__._0, _ok = __tmp__._1;
                     if (_ok && identical(vc._elem, tc._elem)) {
                         return { _0 : !_hasName(v) || !_hasName(t), _1 : (22 : stdgo.internal.types.errors.Errors.Code) };
                     };
@@ -24953,7 +24953,7 @@ class T_operand_asInterface {
         // exported API call, i.e., when all methods have been type-checked.
     **/
     @:keep
-    static public function _convertibleTo( _x:stdgo.StdGoTypes.Ref<T_operand>, _check:stdgo.StdGoTypes.Ref<Checker>, t:Type, _cause:stdgo.Pointer<stdgo.GoString>):Bool {
+    static public function _convertibleTo( _x:stdgo.StdGoTypes.Ref<T_operand>, _check:stdgo.StdGoTypes.Ref<Checker>, t:Type_, _cause:stdgo.Pointer<stdgo.GoString>):Bool {
         @:recv var _x:stdgo.StdGoTypes.Ref<T_operand> = _x;
         {
             var __tmp__ = _x._assignableTo(_check, t, _cause), _ok:Bool = __tmp__._0, __0:stdgo.internal.types.errors.Errors.Code = __tmp__._1;
@@ -24961,35 +24961,35 @@ class T_operand_asInterface {
                 return true;
             };
         };
-        var v:stdgo.go.types.Types.Type = _x._typ;
-        var vu:stdgo.go.types.Types.Type = _under(v);
-        var tu:stdgo.go.types.Types.Type = _under(t);
+        var v:stdgo.go.types.Types.Type_ = _x._typ;
+        var vu:stdgo.go.types.Types.Type_ = _under(v);
+        var tu:stdgo.go.types.Types.Type_ = _under(t);
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(v) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(v) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), ok : false };
-        }, vp = __tmp__.value, __1 = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), _1 : false };
+        }, vp = __tmp__._0, __1 = __tmp__._1;
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(t) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(t) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), ok : false };
-        }, tp = __tmp__.value, __2 = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), _1 : false };
+        }, tp = __tmp__._0, __2 = __tmp__._1;
         if ((identicalIgnoreTags(vu, tu) && (vp == null) || (vp : Dynamic).__nil__) && (tp == null) || (tp : Dynamic).__nil__) {
             return true;
         };
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(v) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(v) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), ok : false };
-            }, v = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), _1 : false };
+            }, v = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(t) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(t) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), ok : false };
-                    }, t = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), _1 : false };
+                    }, t = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
                         if ((identicalIgnoreTags(_under(v._base), _under(t._base)) && !_isTypeParam(v._base)) && !_isTypeParam(t._base)) {
                             return true;
@@ -25018,10 +25018,10 @@ class T_operand_asInterface {
         };
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(vu) : stdgo.StdGoTypes.Ref<Slice_>)) : stdgo.StdGoTypes.Ref<Slice_>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(vu) : stdgo.StdGoTypes.Ref<Slice_>)) : stdgo.StdGoTypes.Ref<Slice_>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>), ok : false };
-            }, _s = __tmp__.value, __3 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>), _1 : false };
+            }, _s = __tmp__._0, __3 = __tmp__._1;
             if (_s != null && ((_s : Dynamic).__nil__ == null || !(_s : Dynamic).__nil__)) {
                 {
                     final __type__ = tu;
@@ -25040,10 +25040,10 @@ class T_operand_asInterface {
                         var _a:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>) : __type__.__underlying__().value;
                         {
                             var __tmp__ = try {
-                                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_a.elem())) : stdgo.StdGoTypes.Ref<Array_>)) : stdgo.StdGoTypes.Ref<Array_>), ok : true };
+                                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_a.elem())) : stdgo.StdGoTypes.Ref<Array_>)) : stdgo.StdGoTypes.Ref<Array_>), _1 : true };
                             } catch(_) {
-                                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>), ok : false };
-                            }, _a = __tmp__.value, __20 = __tmp__.ok;
+                                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>), _1 : false };
+                            }, _a = __tmp__._0, __20 = __tmp__._1;
                             if (_a != null && ((_a : Dynamic).__nil__ == null || !(_a : Dynamic).__nil__)) {
                                 if (identical(_s.elem(), _a.elem())) {
                                     if (((_check == null) || (_check : Dynamic).__nil__) || _check._allowVersion(_check._pkg, stdgo.Go.asInterface(_x), _go1_17?.__copy__())) {
@@ -25292,12 +25292,12 @@ class Pointer__asInterface {
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:keep
-    public dynamic function underlying():Type return __self__.value.underlying();
+    public dynamic function underlying():Type_ return __self__.value.underlying();
     /**
         // Elem returns the element type for the given pointer p.
     **/
     @:keep
-    public dynamic function elem():Type return __self__.value.elem();
+    public dynamic function elem():Type_ return __self__.value.elem();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -25313,7 +25313,7 @@ class Pointer__asInterface {
         return typeString(stdgo.Go.asInterface(_p), null)?.__copy__();
     }
     @:keep
-    static public function underlying( _p:stdgo.StdGoTypes.Ref<Pointer_>):Type {
+    static public function underlying( _p:stdgo.StdGoTypes.Ref<Pointer_>):Type_ {
         @:recv var _p:stdgo.StdGoTypes.Ref<Pointer_> = _p;
         return stdgo.Go.asInterface(_p);
     }
@@ -25321,7 +25321,7 @@ class Pointer__asInterface {
         // Elem returns the element type for the given pointer p.
     **/
     @:keep
-    static public function elem( _p:stdgo.StdGoTypes.Ref<Pointer_>):Type {
+    static public function elem( _p:stdgo.StdGoTypes.Ref<Pointer_>):Type_ {
         @:recv var _p:stdgo.StdGoTypes.Ref<Pointer_> = _p;
         return _p._base;
     }
@@ -25349,7 +25349,7 @@ class T_comparer_asInterface {
         // For changes to this code the corresponding changes should be made to unifier.nify.
     **/
     @:keep
-    public dynamic function _identical(_x:Type, _y:Type, _p:stdgo.StdGoTypes.Ref<T_ifacePair>):Bool return __self__.value._identical(_x, _y, _p);
+    public dynamic function _identical(_x:Type_, _y:Type_, _p:stdgo.StdGoTypes.Ref<T_ifacePair>):Bool return __self__.value._identical(_x, _y, _p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -25363,7 +25363,7 @@ class T_comparer_asInterface {
         // For changes to this code the corresponding changes should be made to unifier.nify.
     **/
     @:keep
-    static public function _identical( _c:stdgo.StdGoTypes.Ref<T_comparer>, _x:Type, _y:Type, _p:stdgo.StdGoTypes.Ref<T_ifacePair>):Bool {
+    static public function _identical( _c:stdgo.StdGoTypes.Ref<T_comparer>, _x:Type_, _y:Type_, _p:stdgo.StdGoTypes.Ref<T_ifacePair>):Bool {
         @:recv var _c:stdgo.StdGoTypes.Ref<T_comparer> = _c;
         if (stdgo.Go.toInterface(_x) == (stdgo.Go.toInterface(_y))) {
             return true;
@@ -25377,10 +25377,10 @@ class T_comparer_asInterface {
                 var _x:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>) : __type__.__underlying__().value;
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), ok : false };
-                    }, _y = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), _1 : false };
+                    }, _y = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
                         return _x._kind == (_y._kind);
                     };
@@ -25389,10 +25389,10 @@ class T_comparer_asInterface {
                 var _x:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>) : __type__.__underlying__().value;
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Array_>)) : stdgo.StdGoTypes.Ref<Array_>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Array_>)) : stdgo.StdGoTypes.Ref<Array_>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>), ok : false };
-                    }, _y = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>), _1 : false };
+                    }, _y = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
                         return (((_x._len < (0i64 : stdgo.StdGoTypes.GoInt64)) || (_y._len < (0i64 : stdgo.StdGoTypes.GoInt64))) || (_x._len == _y._len)) && _c._identical(_x._elem, _y._elem, _p);
                     };
@@ -25401,10 +25401,10 @@ class T_comparer_asInterface {
                 var _x:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>) : __type__.__underlying__().value;
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Slice_>)) : stdgo.StdGoTypes.Ref<Slice_>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Slice_>)) : stdgo.StdGoTypes.Ref<Slice_>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>), ok : false };
-                    }, _y = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>), _1 : false };
+                    }, _y = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
                         return _c._identical(_x._elem, _y._elem, _p);
                     };
@@ -25413,10 +25413,10 @@ class T_comparer_asInterface {
                 var _x:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Struct> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Struct>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Struct>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Struct>) : __type__.__underlying__().value;
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Struct>)) : stdgo.StdGoTypes.Ref<Struct>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Struct>)) : stdgo.StdGoTypes.Ref<Struct>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Struct>), ok : false };
-                    }, _y = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Struct>), _1 : false };
+                    }, _y = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
                         if (_x.numFields() == (_y.numFields())) {
                             for (_i => _f in _x._fields) {
@@ -25433,10 +25433,10 @@ class T_comparer_asInterface {
                 var _x:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>) : __type__.__underlying__().value;
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), ok : false };
-                    }, _y = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), _1 : false };
+                    }, _y = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
                         return _c._identical(_x._base, _y._base, _p);
                     };
@@ -25445,10 +25445,10 @@ class T_comparer_asInterface {
                 var _x:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Tuple> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Tuple>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Tuple>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Tuple>) : __type__.__underlying__().value;
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Tuple>)) : stdgo.StdGoTypes.Ref<Tuple>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Tuple>)) : stdgo.StdGoTypes.Ref<Tuple>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Tuple>), ok : false };
-                    }, _y = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Tuple>), _1 : false };
+                    }, _y = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
                         if (_x.len() == (_y.len())) {
                             if (_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__)) {
@@ -25466,10 +25466,10 @@ class T_comparer_asInterface {
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Signature>))) {
                 var _x:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>) : __type__.__underlying__().value;
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), ok : false };
-                }, _y = __tmp__.value, __0 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), _1 : false };
+                }, _y = __tmp__._0, __0 = __tmp__._1;
                 if (_y == null || (_y : Dynamic).__nil__) {
                     return false;
                 };
@@ -25481,7 +25481,7 @@ class T_comparer_asInterface {
                 if (_x.typeParams().len() > (0 : stdgo.StdGoTypes.GoInt)) {
                     var _xtparams = _x.typeParams()._list();
                     var _ytparams = _y.typeParams()._list();
-                    var _targs:stdgo.Slice<Type> = (null : stdgo.Slice<stdgo.go.types.Types.Type>);
+                    var _targs:stdgo.Slice<Type_> = (null : stdgo.Slice<stdgo.go.types.Types.Type_>);
                     for (_i in 0 ... _xtparams.length.toBasic()) {
                         _targs = (_targs.__append__(stdgo.Go.asInterface(_x.typeParams().at(_i))));
                     };
@@ -25489,7 +25489,7 @@ class T_comparer_asInterface {
                     var _check:stdgo.StdGoTypes.Ref<Checker> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Checker>);
                     var _ctxt = newContext();
                     for (_i => _xtparam in _xtparams) {
-                        var _ybound:stdgo.go.types.Types.Type = _check._subst(_nopos, _ytparams[(_i : stdgo.StdGoTypes.GoInt)]._bound, _smap, null, _ctxt);
+                        var _ybound:stdgo.go.types.Types.Type_ = _check._subst(_nopos, _ytparams[(_i : stdgo.StdGoTypes.GoInt)]._bound, _smap, null, _ctxt);
                         if (!_c._identical(_xtparam._bound, _ybound, _p)) {
                             return false;
                         };
@@ -25502,10 +25502,10 @@ class T_comparer_asInterface {
                 var _x:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Union> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Union>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Union>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Union>) : __type__.__underlying__().value;
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Union>)) : stdgo.StdGoTypes.Ref<Union>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Union>)) : stdgo.StdGoTypes.Ref<Union>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Union>), ok : false };
-                    }, _y = __tmp__.value, __41 = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Union>), _1 : false };
+                    }, _y = __tmp__._0, __41 = __tmp__._1;
                     if (_y != null && ((_y : Dynamic).__nil__ == null || !(_y : Dynamic).__nil__)) {
                         var _unionSets = ({
                             final x = new stdgo.GoMap.GoRefMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Union>, stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T__TypeSet>>();
@@ -25521,10 +25521,10 @@ class T_comparer_asInterface {
                 var _x:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>) : __type__.__underlying__().value;
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), ok : false };
-                    }, _y = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), _1 : false };
+                    }, _y = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
                         var _xset = _x._typeSet();
                         var _yset = _y._typeSet();
@@ -25562,10 +25562,10 @@ class T_comparer_asInterface {
                 var _x:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_>) : __type__.__underlying__().value;
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Map_>)) : stdgo.StdGoTypes.Ref<Map_>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Map_>)) : stdgo.StdGoTypes.Ref<Map_>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_>), ok : false };
-                    }, _y = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_>), _1 : false };
+                    }, _y = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
                         return _c._identical(_x._key, _y._key, _p) && _c._identical(_x._elem, _y._elem, _p);
                     };
@@ -25574,10 +25574,10 @@ class T_comparer_asInterface {
                 var _x:stdgo.StdGoTypes.Ref<stdgo.Chan> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.Chan>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.Chan>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.Chan>) : __type__.__underlying__().value;
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<stdgo.Chan>)) : stdgo.StdGoTypes.Ref<stdgo.Chan>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<stdgo.Chan>)) : stdgo.StdGoTypes.Ref<stdgo.Chan>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.Chan>), ok : false };
-                    }, _y = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.Chan>), _1 : false };
+                    }, _y = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
                         return (_x._dir == _y._dir) && _c._identical(_x._elem, _y._elem, _p);
                     };
@@ -25586,10 +25586,10 @@ class T_comparer_asInterface {
                 var _x:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>) : __type__.__underlying__().value;
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-                    }, _y = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+                    }, _y = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
                         var _xargs = _x.typeArgs()._list();
                         var _yargs = _y.typeArgs()._list();
@@ -25609,7 +25609,7 @@ class T_comparer_asInterface {
             } else if (__type__ == null) {
                 var _x:stdgo.StdGoTypes.AnyInterface = __type__ == null ? (null : stdgo.StdGoTypes.AnyInterface) : cast __type__;
             } else {
-                var _x:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                var _x:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                 _unreachable();
             };
         };
@@ -26071,7 +26071,7 @@ class T_lazyObject_asInterface {
     @:keep
     public dynamic function _setOrder(_0:stdgo.StdGoTypes.GoUInt32):Void __self__.value._setOrder(_0);
     @:keep
-    public dynamic function _setType(_0:Type):Void __self__.value._setType(_0);
+    public dynamic function _setType(_0:Type_):Void __self__.value._setType(_0);
     @:keep
     public dynamic function _color():T_color return __self__.value._color();
     @:keep
@@ -26083,7 +26083,7 @@ class T_lazyObject_asInterface {
     @:keep
     public dynamic function exported():Bool return __self__.value.exported();
     @:keep
-    public dynamic function type():Type return __self__.value.type();
+    public dynamic function type():Type_ return __self__.value.type();
     @:keep
     public dynamic function name():stdgo.GoString return __self__.value.name();
     @:keep
@@ -26136,7 +26136,7 @@ class T_lazyObject_asInterface {
         throw stdgo.Go.toInterface(("unreachable" : stdgo.GoString));
     }
     @:keep
-    static public function _setType( _:stdgo.StdGoTypes.Ref<T_lazyObject>, _0:Type):Void {
+    static public function _setType( _:stdgo.StdGoTypes.Ref<T_lazyObject>, _0:Type_):Void {
         @:recv var _:stdgo.StdGoTypes.Ref<T_lazyObject> = _;
         throw stdgo.Go.toInterface(("unreachable" : stdgo.GoString));
     }
@@ -26166,7 +26166,7 @@ class T_lazyObject_asInterface {
         throw stdgo.Go.toInterface(("unreachable" : stdgo.GoString));
     }
     @:keep
-    static public function type( _:stdgo.StdGoTypes.Ref<T_lazyObject>):Type {
+    static public function type( _:stdgo.StdGoTypes.Ref<T_lazyObject>):Type_ {
         @:recv var _:stdgo.StdGoTypes.Ref<T_lazyObject> = _;
         throw stdgo.Go.toInterface(("unreachable" : stdgo.GoString));
     }
@@ -26223,7 +26223,7 @@ class Selection_asInterface {
         // See Selection for more information.
     **/
     @:keep
-    public dynamic function type():Type return __self__.value.type();
+    public dynamic function type():Type_ return __self__.value.type();
     /**
         // Obj returns the object denoted by x.f; a *Var for
         // a field selection, and a *Func in all other cases.
@@ -26234,7 +26234,7 @@ class Selection_asInterface {
         // Recv returns the type of x in x.f.
     **/
     @:keep
-    public dynamic function recv():Type return __self__.value.recv();
+    public dynamic function recv():Type_ return __self__.value.recv();
     /**
         // Kind returns the selection kind.
     **/
@@ -26285,7 +26285,7 @@ class Selection_asInterface {
         // See Selection for more information.
     **/
     @:keep
-    static public function type( _s:stdgo.StdGoTypes.Ref<Selection>):Type {
+    static public function type( _s:stdgo.StdGoTypes.Ref<Selection>):Type_ {
         @:recv var _s:stdgo.StdGoTypes.Ref<Selection> = _s;
         {
             final __value__ = _s._kind;
@@ -26323,7 +26323,7 @@ class Selection_asInterface {
         // Recv returns the type of x in x.f.
     **/
     @:keep
-    static public function recv( _s:stdgo.StdGoTypes.Ref<Selection>):Type {
+    static public function recv( _s:stdgo.StdGoTypes.Ref<Selection>):Type_ {
         @:recv var _s:stdgo.StdGoTypes.Ref<Selection> = _s;
         return _s._recv;
     }
@@ -26340,7 +26340,7 @@ class Signature_asInterface {
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:keep
-    public dynamic function underlying():Type return __self__.value.underlying();
+    public dynamic function underlying():Type_ return __self__.value.underlying();
     /**
         // Variadic reports whether the signature s is variadic.
     **/
@@ -26391,7 +26391,7 @@ class Signature_asInterface {
         return typeString(stdgo.Go.asInterface(_t), null)?.__copy__();
     }
     @:keep
-    static public function underlying( _t:stdgo.StdGoTypes.Ref<Signature>):Type {
+    static public function underlying( _t:stdgo.StdGoTypes.Ref<Signature>):Type_ {
         @:recv var _t:stdgo.StdGoTypes.Ref<Signature> = _t;
         return stdgo.Go.asInterface(_t);
     }
@@ -26451,11 +26451,11 @@ class Signature_asInterface {
 }
 class StdSizes_asInterface {
     @:keep
-    public dynamic function sizeof(t:Type):stdgo.StdGoTypes.GoInt64 return __self__.value.sizeof(t);
+    public dynamic function sizeof(t:Type_):stdgo.StdGoTypes.GoInt64 return __self__.value.sizeof(t);
     @:keep
     public dynamic function offsetsof(_fields:stdgo.Slice<stdgo.StdGoTypes.Ref<Var>>):stdgo.Slice<stdgo.StdGoTypes.GoInt64> return __self__.value.offsetsof(_fields);
     @:keep
-    public dynamic function alignof_(t:Type):stdgo.StdGoTypes.GoInt64 return __self__.value.alignof_(t);
+    public dynamic function alignof_(t:Type_):stdgo.StdGoTypes.GoInt64 return __self__.value.alignof_(t);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -26466,7 +26466,7 @@ class StdSizes_asInterface {
 }
 @:keep @:allow(stdgo.go.types.Types.StdSizes_asInterface) class StdSizes_static_extension {
     @:keep
-    static public function sizeof( _s:stdgo.StdGoTypes.Ref<StdSizes>, t:Type):stdgo.StdGoTypes.GoInt64 {
+    static public function sizeof( _s:stdgo.StdGoTypes.Ref<StdSizes>, t:Type_):stdgo.StdGoTypes.GoInt64 {
         @:recv var _s:stdgo.StdGoTypes.Ref<StdSizes> = _s;
         {
             final __type__ = _under(t);
@@ -26530,7 +26530,7 @@ class StdSizes_asInterface {
                 _assert(!_isTypeParam(t));
                 return _s.wordSize * (2i64 : stdgo.StdGoTypes.GoInt64);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<TypeParam>)) || stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Union>))) {
-                var _t:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                var _t:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                 _unreachable();
             };
         };
@@ -26561,7 +26561,7 @@ class StdSizes_asInterface {
         return _offsets;
     }
     @:keep
-    static public function alignof_( _s:stdgo.StdGoTypes.Ref<StdSizes>, t:Type):stdgo.StdGoTypes.GoInt64 {
+    static public function alignof_( _s:stdgo.StdGoTypes.Ref<StdSizes>, t:Type_):stdgo.StdGoTypes.GoInt64 {
         @:recv var _s:stdgo.StdGoTypes.Ref<StdSizes> = _s;
         var __deferstack__:Array<Void -> Void> = [];
         var _result:stdgo.StdGoTypes.GoInt64 = (0 : stdgo.StdGoTypes.GoInt64);
@@ -26608,7 +26608,7 @@ class StdSizes_asInterface {
                         return _max;
                     };
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Slice_>)) || stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Interface>))) {
-                    var _t:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                    var _t:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                     _assert(!_isTypeParam(t));
                     {
                         for (defer in __deferstack__) {
@@ -26627,7 +26627,7 @@ class StdSizes_asInterface {
                         };
                     };
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<TypeParam>)) || stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Union>))) {
-                    var _t:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                    var _t:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                     _unreachable();
                 };
             };
@@ -26683,12 +26683,12 @@ class Slice__asInterface {
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:keep
-    public dynamic function underlying():Type return __self__.value.underlying();
+    public dynamic function underlying():Type_ return __self__.value.underlying();
     /**
         // Elem returns the element type of slice s.
     **/
     @:keep
-    public dynamic function elem():Type return __self__.value.elem();
+    public dynamic function elem():Type_ return __self__.value.elem();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -26704,7 +26704,7 @@ class Slice__asInterface {
         return typeString(stdgo.Go.asInterface(_s), null)?.__copy__();
     }
     @:keep
-    static public function underlying( _s:stdgo.StdGoTypes.Ref<Slice_>):Type {
+    static public function underlying( _s:stdgo.StdGoTypes.Ref<Slice_>):Type_ {
         @:recv var _s:stdgo.StdGoTypes.Ref<Slice_> = _s;
         return stdgo.Go.asInterface(_s);
     }
@@ -26712,7 +26712,7 @@ class Slice__asInterface {
         // Elem returns the element type of slice s.
     **/
     @:keep
-    static public function elem( _s:stdgo.StdGoTypes.Ref<Slice_>):Type {
+    static public function elem( _s:stdgo.StdGoTypes.Ref<Slice_>):Type_ {
         @:recv var _s:stdgo.StdGoTypes.Ref<Slice_> = _s;
         return _s._elem;
     }
@@ -26723,7 +26723,7 @@ class Struct_asInterface {
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:keep
-    public dynamic function underlying():Type return __self__.value.underlying();
+    public dynamic function underlying():Type_ return __self__.value.underlying();
     /**
         // Tag returns the i'th field tag for 0 <= i < NumFields().
     **/
@@ -26761,7 +26761,7 @@ class Struct_asInterface {
         return typeString(stdgo.Go.asInterface(_t), null)?.__copy__();
     }
     @:keep
-    static public function underlying( _t:stdgo.StdGoTypes.Ref<Struct>):Type {
+    static public function underlying( _t:stdgo.StdGoTypes.Ref<Struct>):Type_ {
         @:recv var _t:stdgo.StdGoTypes.Ref<Struct> = _t;
         return stdgo.Go.asInterface(_t);
     }
@@ -26797,7 +26797,7 @@ class T_subster_asInterface {
     @:keep
     public dynamic function _termlist(_in:stdgo.Slice<stdgo.StdGoTypes.Ref<Term>>):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.Ref<Term>>; var _1 : Bool; } return __self__.value._termlist(_in);
     @:keep
-    public dynamic function _typeList(_in:stdgo.Slice<Type>):{ var _0 : stdgo.Slice<Type>; var _1 : Bool; } return __self__.value._typeList(_in);
+    public dynamic function _typeList(_in:stdgo.Slice<Type_>):{ var _0 : stdgo.Slice<Type_>; var _1 : Bool; } return __self__.value._typeList(_in);
     @:keep
     public dynamic function _funcList(_in:stdgo.Slice<stdgo.StdGoTypes.Ref<Func>>):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.Ref<Func>>; var _1 : Bool; } return __self__.value._funcList(_in);
     @:keep
@@ -26814,9 +26814,9 @@ class T_subster_asInterface {
         // where an array/slice element is accessed before it is set up.
     **/
     @:keep
-    public dynamic function _typOrNil(_typ:Type):Type return __self__.value._typOrNil(_typ);
+    public dynamic function _typOrNil(_typ:Type_):Type_ return __self__.value._typOrNil(_typ);
     @:keep
-    public dynamic function _typ(_typ:Type):Type return __self__.value._typ(_typ);
+    public dynamic function _typ(_typ:Type_):Type_ return __self__.value._typ(_typ);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -26833,7 +26833,7 @@ class T_subster_asInterface {
         _out = _in;
         for (_i => _t in _in) {
             {
-                var _u:stdgo.go.types.Types.Type = _subst._expanding._obj._object._typ(_t._typ);
+                var _u:stdgo.go.types.Types.Type_ = _subst._expanding._obj._object._typ(_t._typ);
                 if (stdgo.Go.toInterface(_u) != (stdgo.Go.toInterface(_t._typ))) {
                     if (!_copied) {
                         var _new = new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Term>>((_in.length : stdgo.StdGoTypes.GoInt).toBasic(), 0);
@@ -26848,16 +26848,16 @@ class T_subster_asInterface {
         return { _0 : _out, _1 : _copied };
     }
     @:keep
-    static public function _typeList( _subst:stdgo.StdGoTypes.Ref<T_subster>, _in:stdgo.Slice<Type>):{ var _0 : stdgo.Slice<Type>; var _1 : Bool; } {
+    static public function _typeList( _subst:stdgo.StdGoTypes.Ref<T_subster>, _in:stdgo.Slice<Type_>):{ var _0 : stdgo.Slice<Type_>; var _1 : Bool; } {
         @:recv var _subst:stdgo.StdGoTypes.Ref<T_subster> = _subst;
-        var _out:stdgo.Slice<Type> = (null : stdgo.Slice<stdgo.go.types.Types.Type>), _copied:Bool = false;
+        var _out:stdgo.Slice<Type_> = (null : stdgo.Slice<stdgo.go.types.Types.Type_>), _copied:Bool = false;
         _out = _in;
         for (_i => _t in _in) {
             {
-                var _u:stdgo.go.types.Types.Type = _subst._expanding._obj._object._typ(_t);
+                var _u:stdgo.go.types.Types.Type_ = _subst._expanding._obj._object._typ(_t);
                 if (stdgo.Go.toInterface(_u) != (stdgo.Go.toInterface(_t))) {
                     if (!_copied) {
-                        var _new = new stdgo.Slice<stdgo.go.types.Types.Type>((_in.length : stdgo.StdGoTypes.GoInt).toBasic(), 0);
+                        var _new = new stdgo.Slice<stdgo.go.types.Types.Type_>((_in.length : stdgo.StdGoTypes.GoInt).toBasic(), 0);
                         stdgo.Go.copySlice(_new, _out);
                         _out = _new;
                         _copied = true;
@@ -26894,7 +26894,7 @@ class T_subster_asInterface {
         @:recv var _subst:stdgo.StdGoTypes.Ref<T_subster> = _subst;
         if (_f != null && ((_f : Dynamic).__nil__ == null || !(_f : Dynamic).__nil__)) {
             {
-                var _typ:stdgo.go.types.Types.Type = _subst._expanding._obj._object._typ(_f._object._typ);
+                var _typ:stdgo.go.types.Types.Type_ = _subst._expanding._obj._object._typ(_f._object._typ);
                 if (stdgo.Go.toInterface(_typ) != (stdgo.Go.toInterface(_f._object._typ))) {
                     return _substFunc(_f, _typ);
                 };
@@ -26941,7 +26941,7 @@ class T_subster_asInterface {
         @:recv var _subst:stdgo.StdGoTypes.Ref<T_subster> = _subst;
         if (_v != null && ((_v : Dynamic).__nil__ == null || !(_v : Dynamic).__nil__)) {
             {
-                var _typ:stdgo.go.types.Types.Type = _subst._expanding._obj._object._typ(_v._object._typ);
+                var _typ:stdgo.go.types.Types.Type_ = _subst._expanding._obj._object._typ(_v._object._typ);
                 if (stdgo.Go.toInterface(_typ) != (stdgo.Go.toInterface(_v._object._typ))) {
                     return _substVar(_v, _typ);
                 };
@@ -26955,7 +26955,7 @@ class T_subster_asInterface {
         // where an array/slice element is accessed before it is set up.
     **/
     @:keep
-    static public function _typOrNil( _subst:stdgo.StdGoTypes.Ref<T_subster>, _typ:Type):Type {
+    static public function _typOrNil( _subst:stdgo.StdGoTypes.Ref<T_subster>, _typ:Type_):Type_ {
         @:recv var _subst:stdgo.StdGoTypes.Ref<T_subster> = _subst;
         if (_typ == null) {
             return stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)]);
@@ -26963,7 +26963,7 @@ class T_subster_asInterface {
         return _subst._expanding._obj._object._typ(_typ);
     }
     @:keep
-    static public function _typ( _subst:stdgo.StdGoTypes.Ref<T_subster>, _typ:Type):Type {
+    static public function _typ( _subst:stdgo.StdGoTypes.Ref<T_subster>, _typ:Type_):Type_ {
         @:recv var _subst:stdgo.StdGoTypes.Ref<T_subster> = _subst;
         var __deferstack__:Array<Void -> Void> = [];
         try {
@@ -26976,13 +26976,13 @@ class T_subster_asInterface {
                     var _t:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>) : __type__.__underlying__().value;
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Array_>))) {
                     var _t:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>) : __type__.__underlying__().value;
-                    var _elem:stdgo.go.types.Types.Type = _subst._typOrNil(_t._elem);
+                    var _elem:stdgo.go.types.Types.Type_ = _subst._typOrNil(_t._elem);
                     if (stdgo.Go.toInterface(_elem) != (stdgo.Go.toInterface(_t._elem))) {
                         return stdgo.Go.asInterface((stdgo.Go.setRef(({ _len : _t._len, _elem : _elem } : stdgo.go.types.Types.Array_)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>));
                     };
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Slice_>))) {
                     var _t:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>) : __type__.__underlying__().value;
-                    var _elem:stdgo.go.types.Types.Type = _subst._typOrNil(_t._elem);
+                    var _elem:stdgo.go.types.Types.Type_ = _subst._typOrNil(_t._elem);
                     if (stdgo.Go.toInterface(_elem) != (stdgo.Go.toInterface(_t._elem))) {
                         return stdgo.Go.asInterface((stdgo.Go.setRef(({ _elem : _elem } : stdgo.go.types.Types.Slice_)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>));
                     };
@@ -26998,7 +26998,7 @@ class T_subster_asInterface {
                     };
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Pointer_>))) {
                     var _t:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>) : __type__.__underlying__().value;
-                    var _base:stdgo.go.types.Types.Type = _subst._expanding._obj._object._typ(_t._base);
+                    var _base:stdgo.go.types.Types.Type_ = _subst._expanding._obj._object._typ(_t._base);
                     if (stdgo.Go.toInterface(_base) != (stdgo.Go.toInterface(_t._base))) {
                         return stdgo.Go.asInterface((stdgo.Go.setRef(({ _base : _base } : stdgo.go.types.Types.Pointer_)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>));
                     };
@@ -27022,7 +27022,7 @@ class T_subster_asInterface {
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Interface>))) {
                     var _t:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>) : __type__.__underlying__().value;
                     var __tmp__ = _subst._funcList(_t._methods), _methods:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>> = __tmp__._0, _mcopied:Bool = __tmp__._1;
-                    var __tmp__ = _subst._typeList(_t._embeddeds), _embeddeds:stdgo.Slice<stdgo.go.types.Types.Type> = __tmp__._0, _ecopied:Bool = __tmp__._1;
+                    var __tmp__ = _subst._typeList(_t._embeddeds), _embeddeds:stdgo.Slice<stdgo.go.types.Types.Type_> = __tmp__._0, _ecopied:Bool = __tmp__._1;
                     if (_mcopied || _ecopied) {
                         var _iface = _subst._check._newInterface();
                         _iface._embeddeds = _embeddeds;
@@ -27036,14 +27036,14 @@ class T_subster_asInterface {
                     };
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Map_>))) {
                     var _t:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_>) : __type__.__underlying__().value;
-                    var _key:stdgo.go.types.Types.Type = _subst._expanding._obj._object._typ(_t._key);
-                    var _elem:stdgo.go.types.Types.Type = _subst._expanding._obj._object._typ(_t._elem);
+                    var _key:stdgo.go.types.Types.Type_ = _subst._expanding._obj._object._typ(_t._key);
+                    var _elem:stdgo.go.types.Types.Type_ = _subst._expanding._obj._object._typ(_t._elem);
                     if ((stdgo.Go.toInterface(_key) != stdgo.Go.toInterface(_t._key)) || (stdgo.Go.toInterface(_elem) != stdgo.Go.toInterface(_t._elem))) {
                         return stdgo.Go.asInterface((stdgo.Go.setRef(({ _key : _key, _elem : _elem } : stdgo.go.types.Types.Map_)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_>));
                     };
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<stdgo.Chan>))) {
                     var _t:stdgo.StdGoTypes.Ref<stdgo.Chan> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.Chan>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.Chan>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.Chan>) : __type__.__underlying__().value;
-                    var _elem:stdgo.go.types.Types.Type = _subst._expanding._obj._object._typ(_t._elem);
+                    var _elem:stdgo.go.types.Types.Type_ = _subst._expanding._obj._object._typ(_t._elem);
                     if (stdgo.Go.toInterface(_elem) != (stdgo.Go.toInterface(_t._elem))) {
                         return stdgo.Go.asInterface((stdgo.Go.setRef(({ _dir : _t._dir, _elem : _elem } : stdgo.Chan)) : stdgo.StdGoTypes.Ref<stdgo.Chan>));
                     };
@@ -27073,7 +27073,7 @@ class T_subster_asInterface {
                             return stdgo.Go.asInterface(_t);
                         };
                     };
-                    var _newTArgs:stdgo.Slice<Type> = (null : stdgo.Slice<stdgo.go.types.Types.Type>);
+                    var _newTArgs:stdgo.Slice<Type_> = (null : stdgo.Slice<stdgo.go.types.Types.Type_>);
                     if (_t.typeArgs().len() != (_n)) {
                         {
                             for (defer in __deferstack__) {
@@ -27085,11 +27085,11 @@ class T_subster_asInterface {
                     _dump((">>> %s already instantiated" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_t)));
                     for (_i => _targ in _t.typeArgs()._list()) {
                         _dump((">>> %d targ = %s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_targ));
-                        var _new_targ:stdgo.go.types.Types.Type = _subst._expanding._obj._object._typ(_targ);
+                        var _new_targ:stdgo.go.types.Types.Type_ = _subst._expanding._obj._object._typ(_targ);
                         if (stdgo.Go.toInterface(_new_targ) != (stdgo.Go.toInterface(_targ))) {
                             _dump((">>> substituted %d targ %s => %s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_targ), stdgo.Go.toInterface(_new_targ));
                             if (_newTArgs == null) {
-                                _newTArgs = new stdgo.Slice<stdgo.go.types.Types.Type>((_n : stdgo.StdGoTypes.GoInt).toBasic(), 0);
+                                _newTArgs = new stdgo.Slice<stdgo.go.types.Types.Type_>((_n : stdgo.StdGoTypes.GoInt).toBasic(), 0);
                                 stdgo.Go.copySlice(_newTArgs, _t.typeArgs()._list());
                             };
                             _newTArgs[(_i : stdgo.StdGoTypes.GoInt)] = _new_targ;
@@ -27119,7 +27119,7 @@ class T_subster_asInterface {
                         return _subst._smap._lookup(_t);
                     };
                 } else {
-                    var _t:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                    var _t:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                     _unreachable();
                 };
             };
@@ -27134,7 +27134,7 @@ class T_subster_asInterface {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return (null : stdgo.go.types.Types.Type);
+                return (null : stdgo.go.types.Types.Type_);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -27147,7 +27147,7 @@ class T_subster_asInterface {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return (null : stdgo.go.types.Types.Type);
+            return (null : stdgo.go.types.Types.Type_);
         };
     }
 }
@@ -27155,7 +27155,7 @@ class Tuple_asInterface {
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:keep
-    public dynamic function underlying():Type return __self__.value.underlying();
+    public dynamic function underlying():Type_ return __self__.value.underlying();
     /**
         // At returns the i'th variable of tuple t.
     **/
@@ -27181,7 +27181,7 @@ class Tuple_asInterface {
         return typeString(stdgo.Go.asInterface(_t), null)?.__copy__();
     }
     @:keep
-    static public function underlying( _t:stdgo.StdGoTypes.Ref<Tuple>):Type {
+    static public function underlying( _t:stdgo.StdGoTypes.Ref<Tuple>):Type_ {
         @:recv var _t:stdgo.StdGoTypes.Ref<Tuple> = _t;
         return stdgo.Go.asInterface(_t);
     }
@@ -27271,12 +27271,12 @@ class TypeList_asInterface {
         // TypeList instead.
     **/
     @:keep
-    public dynamic function _list():stdgo.Slice<Type> return __self__.value._list();
+    public dynamic function _list():stdgo.Slice<Type_> return __self__.value._list();
     /**
         // At returns the i'th type in the list.
     **/
     @:keep
-    public dynamic function at(_i:stdgo.StdGoTypes.GoInt):Type return __self__.value.at(_i);
+    public dynamic function at(_i:stdgo.StdGoTypes.GoInt):Type_ return __self__.value.at(_i);
     /**
         // Len returns the number of types in the list.
         // It is safe to call on a nil receiver.
@@ -27298,10 +27298,10 @@ class TypeList_asInterface {
         // TypeList instead.
     **/
     @:keep
-    static public function _list( _l:stdgo.StdGoTypes.Ref<TypeList>):stdgo.Slice<Type> {
+    static public function _list( _l:stdgo.StdGoTypes.Ref<TypeList>):stdgo.Slice<Type_> {
         @:recv var _l:stdgo.StdGoTypes.Ref<TypeList> = _l;
         if (_l == null || (_l : Dynamic).__nil__) {
-            return (null : stdgo.Slice<stdgo.go.types.Types.Type>);
+            return (null : stdgo.Slice<stdgo.go.types.Types.Type_>);
         };
         return _l._types;
     }
@@ -27309,7 +27309,7 @@ class TypeList_asInterface {
         // At returns the i'th type in the list.
     **/
     @:keep
-    static public function at( _l:stdgo.StdGoTypes.Ref<TypeList>, _i:stdgo.StdGoTypes.GoInt):Type {
+    static public function at( _l:stdgo.StdGoTypes.Ref<TypeList>, _i:stdgo.StdGoTypes.GoInt):Type_ {
         @:recv var _l:stdgo.StdGoTypes.Ref<TypeList> = _l;
         return _l._types[(_i : stdgo.StdGoTypes.GoInt)];
     }
@@ -27330,7 +27330,7 @@ class TypeParam_asInterface {
         // If there are no specific terms, underIs returns the result of f(nil).
     **/
     @:keep
-    public dynamic function _underIs(_f:Type -> Bool):Bool return __self__.value._underIs(_f);
+    public dynamic function _underIs(_f:Type_ -> Bool):Bool return __self__.value._underIs(_f);
     /**
         // is calls f with the specific type terms of t's constraint and reports whether
         // all calls to f returned true. If there are no specific terms, is
@@ -27348,7 +27348,7 @@ class TypeParam_asInterface {
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:keep
-    public dynamic function underlying():Type return __self__.value.underlying();
+    public dynamic function underlying():Type_ return __self__.value.underlying();
     /**
         // SetConstraint sets the type constraint for t.
         //
@@ -27358,12 +27358,12 @@ class TypeParam_asInterface {
         // concurrent use.
     **/
     @:keep
-    public dynamic function setConstraint(_bound:Type):Void __self__.value.setConstraint(_bound);
+    public dynamic function setConstraint(_bound:Type_):Void __self__.value.setConstraint(_bound);
     /**
         // Constraint returns the type constraint specified for t.
     **/
     @:keep
-    public dynamic function constraint():Type return __self__.value.constraint();
+    public dynamic function constraint():Type_ return __self__.value.constraint();
     /**
         // Index returns the index of the type param within its param list, or -1 if
         // the type parameter has not yet been bound to a type.
@@ -27390,7 +27390,7 @@ class TypeParam_asInterface {
         // If there are no specific terms, underIs returns the result of f(nil).
     **/
     @:keep
-    static public function _underIs( _t:stdgo.StdGoTypes.Ref<TypeParam>, _f:Type -> Bool):Bool {
+    static public function _underIs( _t:stdgo.StdGoTypes.Ref<TypeParam>, _f:Type_ -> Bool):Bool {
         @:recv var _t:stdgo.StdGoTypes.Ref<TypeParam> = _t;
         return _t._iface()._typeSet()._underIs(_f);
     }
@@ -27410,7 +27410,7 @@ class TypeParam_asInterface {
     @:keep
     static public function _iface( _t:stdgo.StdGoTypes.Ref<TypeParam>):stdgo.StdGoTypes.Ref<Interface> {
         @:recv var _t:stdgo.StdGoTypes.Ref<TypeParam> = _t;
-        var _bound:stdgo.go.types.Types.Type = _t._bound;
+        var _bound:stdgo.go.types.Types.Type_ = _t._bound;
         var _ityp:stdgo.StdGoTypes.Ref<Interface> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>);
         {
             final __type__ = _under(_bound);
@@ -27428,7 +27428,7 @@ class TypeParam_asInterface {
             };
         };
         if (_ityp == null || (_ityp : Dynamic).__nil__) {
-            _ityp = newInterfaceType((null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>), (new stdgo.Slice<stdgo.go.types.Types.Type>(1, 1, _bound) : stdgo.Slice<stdgo.go.types.Types.Type>));
+            _ityp = newInterfaceType((null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>>), (new stdgo.Slice<stdgo.go.types.Types.Type_>(1, 1, _bound) : stdgo.Slice<stdgo.go.types.Types.Type_>));
             _ityp._implicit = true;
             _t._bound = stdgo.Go.asInterface(_ityp);
         };
@@ -27436,10 +27436,10 @@ class TypeParam_asInterface {
             var _pos:stdgo.go.token.Token.Pos = _t._obj._object._pos;
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_bound) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_bound) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-                }, _n = __tmp__.value, __40 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+                }, _n = __tmp__._0, __40 = __tmp__._1;
                 if (_n != null && ((_n : Dynamic).__nil__ == null || !(_n : Dynamic).__nil__)) {
                     _pos = _n._obj._object._pos;
                 };
@@ -27460,7 +27460,7 @@ class TypeParam_asInterface {
         return typeString(stdgo.Go.asInterface(_t), null)?.__copy__();
     }
     @:keep
-    static public function underlying( _t:stdgo.StdGoTypes.Ref<TypeParam>):Type {
+    static public function underlying( _t:stdgo.StdGoTypes.Ref<TypeParam>):Type_ {
         @:recv var _t:stdgo.StdGoTypes.Ref<TypeParam> = _t;
         return stdgo.Go.asInterface(_t._iface());
     }
@@ -27473,7 +27473,7 @@ class TypeParam_asInterface {
         // concurrent use.
     **/
     @:keep
-    static public function setConstraint( _t:stdgo.StdGoTypes.Ref<TypeParam>, _bound:Type):Void {
+    static public function setConstraint( _t:stdgo.StdGoTypes.Ref<TypeParam>, _bound:Type_):Void {
         @:recv var _t:stdgo.StdGoTypes.Ref<TypeParam> = _t;
         if (_bound == null) {
             throw stdgo.Go.toInterface(("nil constraint" : stdgo.GoString));
@@ -27485,7 +27485,7 @@ class TypeParam_asInterface {
         // Constraint returns the type constraint specified for t.
     **/
     @:keep
-    static public function constraint( _t:stdgo.StdGoTypes.Ref<TypeParam>):Type {
+    static public function constraint( _t:stdgo.StdGoTypes.Ref<TypeParam>):Type_ {
         @:recv var _t:stdgo.StdGoTypes.Ref<TypeParam> = _t;
         return _t._bound;
     }
@@ -27514,7 +27514,7 @@ class T__TypeSet_asInterface {
         // no specific terms, underIs returns the result of f(nil).
     **/
     @:keep
-    public dynamic function _underIs(_f:Type -> Bool):Bool return __self__.value._underIs(_f);
+    public dynamic function _underIs(_f:Type_ -> Bool):Bool return __self__.value._underIs(_f);
     /**
         // is calls f with the specific type terms of s and reports whether
         // all calls to f returned true. If there are no specific terms, is
@@ -27554,7 +27554,7 @@ class T__TypeSet_asInterface {
         // IsComparable reports whether each type in the set is comparable.
     **/
     @:keep
-    public dynamic function isComparable(_seen:stdgo.GoMap<Type, Bool>):Bool return __self__.value.isComparable(_seen);
+    public dynamic function isComparable(_seen:stdgo.GoMap<Type_, Bool>):Bool return __self__.value.isComparable(_seen);
     /**
         // IsMethodSet reports whether the interface t is fully described by its method set.
     **/
@@ -27585,14 +27585,14 @@ class T__TypeSet_asInterface {
         // no specific terms, underIs returns the result of f(nil).
     **/
     @:keep
-    static public function _underIs( _s:stdgo.StdGoTypes.Ref<T__TypeSet>, _f:Type -> Bool):Bool {
+    static public function _underIs( _s:stdgo.StdGoTypes.Ref<T__TypeSet>, _f:Type_ -> Bool):Bool {
         @:recv var _s:stdgo.StdGoTypes.Ref<T__TypeSet> = _s;
         if (!_s._hasTerms()) {
-            return _f((null : stdgo.go.types.Types.Type));
+            return _f((null : stdgo.go.types.Types.Type_));
         };
         for (__0 => _t in _s._terms) {
             _assert(_t._typ != null);
-            var _u:stdgo.go.types.Types.Type = _t._typ;
+            var _u:stdgo.go.types.Types.Type_ = _t._typ;
             if (!_t._tilde) {
                 _u = _under(_u);
             };
@@ -27702,7 +27702,7 @@ class T__TypeSet_asInterface {
         // IsComparable reports whether each type in the set is comparable.
     **/
     @:keep
-    static public function isComparable( _s:stdgo.StdGoTypes.Ref<T__TypeSet>, _seen:stdgo.GoMap<Type, Bool>):Bool {
+    static public function isComparable( _s:stdgo.StdGoTypes.Ref<T__TypeSet>, _seen:stdgo.GoMap<Type_, Bool>):Bool {
         @:recv var _s:stdgo.StdGoTypes.Ref<T__TypeSet> = _s;
         if (_s._terms._isAll()) {
             return _s._comparable;
@@ -27746,14 +27746,14 @@ class T_typeWriter_asInterface {
     @:keep
     public dynamic function _tParamList(_list:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>):Void __self__.value._tParamList(_list);
     @:keep
-    public dynamic function _typeList(_list:stdgo.Slice<Type>):Void __self__.value._typeList(_list);
+    public dynamic function _typeList(_list:stdgo.Slice<Type_>):Void __self__.value._typeList(_list);
     /**
         // typeSet writes a canonical hash for an interface type set.
     **/
     @:keep
     public dynamic function _typeSet(_s:stdgo.StdGoTypes.Ref<T__TypeSet>):Void __self__.value._typeSet(_s);
     @:keep
-    public dynamic function _typ(_typ:Type):Void __self__.value._typ(_typ);
+    public dynamic function _typ(_typ:Type_):Void __self__.value._typ(_typ);
     @:keep
     public dynamic function _error(_msg:stdgo.GoString):Void __self__.value._error(_msg);
     @:keep
@@ -27842,24 +27842,24 @@ class T_typeWriter_asInterface {
                     _w._string(_v._object._name?.__copy__());
                     _w._byte((32 : stdgo.StdGoTypes.GoUInt8));
                 };
-                var _typ:stdgo.go.types.Types.Type = _v._object._typ;
+                var _typ:stdgo.go.types.Types.Type_ = _v._object._typ;
                 if (_variadic && (_i == (_tup._vars.length - (1 : stdgo.StdGoTypes.GoInt)))) {
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<Slice_>)) : stdgo.StdGoTypes.Ref<Slice_>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ) : stdgo.StdGoTypes.Ref<Slice_>)) : stdgo.StdGoTypes.Ref<Slice_>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>), ok : false };
-                        }, _s = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>), _1 : false };
+                        }, _s = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
                             _w._string(("..." : stdgo.GoString));
                             _typ = _s._elem;
                         } else {
                             {
                                 var __tmp__ = try {
-                                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_typ)) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), ok : true };
+                                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_typ)) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), _1 : true };
                                 } catch(_) {
-                                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), ok : false };
-                                }, _t = __tmp__.value, __0 = __tmp__.ok;
+                                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), _1 : false };
+                                }, _t = __tmp__._0, __0 = __tmp__._1;
                                 if (((_t == null) || (_t : Dynamic).__nil__) || (_t._kind != (17 : stdgo.go.types.Types.BasicKind))) {
                                     _w._error(("expected string type" : stdgo.GoString));
                                     continue;
@@ -27886,7 +27886,7 @@ class T_typeWriter_asInterface {
     static public function _tParamList( _w:stdgo.StdGoTypes.Ref<T_typeWriter>, _list:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>):Void {
         @:recv var _w:stdgo.StdGoTypes.Ref<T_typeWriter> = _w;
         _w._byte((91 : stdgo.StdGoTypes.GoUInt8));
-        var _prev:Type = (null : stdgo.go.types.Types.Type);
+        var _prev:Type_ = (null : stdgo.go.types.Types.Type_);
         for (_i => _tpar in _list) {
             if (_tpar == null || (_tpar : Dynamic).__nil__) {
                 _w._error(("nil type parameter" : stdgo.GoString));
@@ -27909,7 +27909,7 @@ class T_typeWriter_asInterface {
         _w._byte((93 : stdgo.StdGoTypes.GoUInt8));
     }
     @:keep
-    static public function _typeList( _w:stdgo.StdGoTypes.Ref<T_typeWriter>, _list:stdgo.Slice<Type>):Void {
+    static public function _typeList( _w:stdgo.StdGoTypes.Ref<T_typeWriter>, _list:stdgo.Slice<Type_>):Void {
         @:recv var _w:stdgo.StdGoTypes.Ref<T_typeWriter> = _w;
         _w._byte((91 : stdgo.StdGoTypes.GoUInt8));
         for (_i => _typ in _list) {
@@ -27956,7 +27956,7 @@ class T_typeWriter_asInterface {
         };
     }
     @:keep
-    static public function _typ( _w:stdgo.StdGoTypes.Ref<T_typeWriter>, _typ:Type):Void {
+    static public function _typ( _w:stdgo.StdGoTypes.Ref<T_typeWriter>, _typ:Type_):Void {
         @:recv var _w:stdgo.StdGoTypes.Ref<T_typeWriter> = _w;
         var __deferstack__:Array<Void -> Void> = [];
         try {
@@ -27984,10 +27984,10 @@ class T_typeWriter_asInterface {
                             if (stdgo.go.token.Token.isExported(_t._name?.__copy__())) {
                                 {
                                     var __tmp__ = try {
-                                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(unsafe._scope.lookup(_t._name?.__copy__())) : stdgo.StdGoTypes.Ref<TypeName>)) : stdgo.StdGoTypes.Ref<TypeName>), ok : true };
+                                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(unsafe._scope.lookup(_t._name?.__copy__())) : stdgo.StdGoTypes.Ref<TypeName>)) : stdgo.StdGoTypes.Ref<TypeName>), _1 : true };
                                     } catch(_) {
-                                        { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeName>), ok : false };
-                                    }, _obj = __tmp__.value, __0 = __tmp__.ok;
+                                        { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeName>), _1 : false };
+                                    }, _obj = __tmp__._0, __0 = __tmp__._1;
                                     if (_obj != null && ((_obj : Dynamic).__nil__ == null || !(_obj : Dynamic).__nil__)) {
                                         _w._typeName(_obj);
                                         break;
@@ -28119,10 +28119,10 @@ class T_typeWriter_asInterface {
                                     _s = ("chan " : stdgo.GoString);
                                     {
                                         var __tmp__ = try {
-                                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t._elem) : stdgo.StdGoTypes.Ref<stdgo.Chan>)) : stdgo.StdGoTypes.Ref<stdgo.Chan>), ok : true };
+                                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t._elem) : stdgo.StdGoTypes.Ref<stdgo.Chan>)) : stdgo.StdGoTypes.Ref<stdgo.Chan>), _1 : true };
                                         } catch(_) {
-                                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.Chan>), ok : false };
-                                        }, _c = __tmp__.value, __67 = __tmp__.ok;
+                                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.Chan>), _1 : false };
+                                        }, _c = __tmp__._0, __67 = __tmp__._1;
                                         if (((_c != null) && ((_c : Dynamic).__nil__ == null || !(_c : Dynamic).__nil__)) && (_c._dir == (2 : stdgo.go.types.Types.ChanDir))) {
                                             _parens = true;
                                         };
@@ -28175,7 +28175,7 @@ class T_typeWriter_asInterface {
                                 };
                             };
                         } else {
-                            var _t:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                            var _t:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                             _w._string((_t.string() : stdgo.GoString)?.__copy__());
                         };
                         break;
@@ -28248,7 +28248,7 @@ class T_term_asInterface {
         // includes reports whether t ∈ x.
     **/
     @:keep
-    public dynamic function _includes(_t:Type):Bool return __self__.value._includes(_t);
+    public dynamic function _includes(_t:Type_):Bool return __self__.value._includes(_t);
     /**
         // intersect returns the intersection x ∩ y.
     **/
@@ -28285,11 +28285,11 @@ class T_term_asInterface {
         if (false && ((_x._typ == null) || (_y._typ == null))) {
             throw stdgo.Go.toInterface(("invalid argument(s)" : stdgo.GoString));
         };
-        var _ux:stdgo.go.types.Types.Type = _x._typ;
+        var _ux:stdgo.go.types.Types.Type_ = _x._typ;
         if (_y._tilde) {
             _ux = _under(_ux);
         };
-        var _uy:stdgo.go.types.Types.Type = _y._typ;
+        var _uy:stdgo.go.types.Types.Type_ = _y._typ;
         if (_x._tilde) {
             _uy = _under(_uy);
         };
@@ -28319,14 +28319,14 @@ class T_term_asInterface {
         // includes reports whether t ∈ x.
     **/
     @:keep
-    static public function _includes( _x:stdgo.StdGoTypes.Ref<T_term>, _t:Type):Bool {
+    static public function _includes( _x:stdgo.StdGoTypes.Ref<T_term>, _t:Type_):Bool {
         @:recv var _x:stdgo.StdGoTypes.Ref<T_term> = _x;
         if (_x == null || (_x : Dynamic).__nil__) {
             return false;
         } else if (_x._typ == null) {
             return true;
         };
-        var _u:stdgo.go.types.Types.Type = _t;
+        var _u:stdgo.go.types.Types.Type_ = _t;
         if (_x._tilde) {
             _u = _under(_u);
         };
@@ -28414,7 +28414,7 @@ class T_unifier_asInterface {
         // Must not be called directly from outside the unifier.
     **/
     @:keep
-    public dynamic function _nify(_x:Type, _y:Type, _mode:T_unifyMode, _p:stdgo.StdGoTypes.Ref<T_ifacePair>):Bool return __self__.value._nify(_x, _y, _mode, _p);
+    public dynamic function _nify(_x:Type_, _y:Type_, _mode:T_unifyMode, _p:stdgo.StdGoTypes.Ref<T_ifacePair>):Bool return __self__.value._nify(_x, _y, _mode, _p);
     /**
         // inferred returns the list of inferred types for the given type parameter list.
         // The result is never nil and has the same length as tparams; result types that
@@ -28422,7 +28422,7 @@ class T_unifier_asInterface {
         // have identical indices.
     **/
     @:keep
-    public dynamic function _inferred(_tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>):stdgo.Slice<Type> return __self__.value._inferred(_tparams);
+    public dynamic function _inferred(_tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>):stdgo.Slice<Type_> return __self__.value._inferred(_tparams);
     /**
         // unknowns returns the number of type parameters for which no type has been set yet.
     **/
@@ -28433,24 +28433,24 @@ class T_unifier_asInterface {
         // t must not be nil.
     **/
     @:keep
-    public dynamic function _set(_x:stdgo.StdGoTypes.Ref<TypeParam>, _t:Type):Void __self__.value._set(_x, _t);
+    public dynamic function _set(_x:stdgo.StdGoTypes.Ref<TypeParam>, _t:Type_):Void __self__.value._set(_x, _t);
     /**
         // at returns the (possibly nil) type for type parameter x.
     **/
     @:keep
-    public dynamic function _at(_x:stdgo.StdGoTypes.Ref<TypeParam>):Type return __self__.value._at(_x);
+    public dynamic function _at(_x:stdgo.StdGoTypes.Ref<TypeParam>):Type_ return __self__.value._at(_x);
     /**
         // setHandle sets the handle for type parameter x
         // (and all its joined type parameters) to h.
     **/
     @:keep
-    public dynamic function _setHandle(_x:stdgo.StdGoTypes.Ref<TypeParam>, _h:stdgo.StdGoTypes.Ref<Type>):Void __self__.value._setHandle(_x, _h);
+    public dynamic function _setHandle(_x:stdgo.StdGoTypes.Ref<TypeParam>, _h:stdgo.StdGoTypes.Ref<Type_>):Void __self__.value._setHandle(_x, _h);
     /**
         // asTypeParam returns x.(*TypeParam) if x is a type parameter recorded with u.
         // Otherwise, the result is nil.
     **/
     @:keep
-    public dynamic function _asTypeParam(_x:Type):stdgo.StdGoTypes.Ref<TypeParam> return __self__.value._asTypeParam(_x);
+    public dynamic function _asTypeParam(_x:Type_):stdgo.StdGoTypes.Ref<TypeParam> return __self__.value._asTypeParam(_x);
     /**
         // join unifies the given type parameters x and y.
         // If both type parameters already have a type associated with them
@@ -28472,7 +28472,7 @@ class T_unifier_asInterface {
         // The mode parameter controls how types are compared.
     **/
     @:keep
-    public dynamic function _unify(_x:Type, _y:Type, _mode:T_unifyMode):Bool return __self__.value._unify(_x, _y, _mode);
+    public dynamic function _unify(_x:Type_, _y:Type_, _mode:T_unifyMode):Bool return __self__.value._unify(_x, _y, _mode);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -28489,7 +28489,7 @@ class T_unifier_asInterface {
         // Must not be called directly from outside the unifier.
     **/
     @:keep
-    static public function _nify( _u:stdgo.StdGoTypes.Ref<T_unifier>, _x:Type, _y:Type, _mode:T_unifyMode, _p:stdgo.StdGoTypes.Ref<T_ifacePair>):Bool {
+    static public function _nify( _u:stdgo.StdGoTypes.Ref<T_unifier>, _x:Type_, _y:Type_, _mode:T_unifyMode, _p:stdgo.StdGoTypes.Ref<T_ifacePair>):Bool {
         @:recv var _u:stdgo.StdGoTypes.Ref<T_unifier> = _u;
         var __deferstack__:Array<Void -> Void> = [];
         var _result:Bool = false;
@@ -28531,10 +28531,10 @@ class T_unifier_asInterface {
             };
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-                }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+                }, __0 = __tmp__._0, _ok = __tmp__._1;
                 if (_ok || ((_u._asTypeParam(_y) != null) && ((_u._asTypeParam(_y) : Dynamic).__nil__ == null || !(_u._asTypeParam(_y) : Dynamic).__nil__))) {
                     if (false) {
                         _u._tracef(("%s ≡ %s\t// swap" : stdgo.GoString), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(_x));
@@ -28549,10 +28549,10 @@ class T_unifier_asInterface {
             };
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-                }, _ny = __tmp__.value, __1 = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+                }, _ny = __tmp__._0, __1 = __tmp__._1;
                 if (((((_mode & (2u32 : stdgo.go.types.Types.T_unifyMode)) == (0u32 : stdgo.go.types.Types.T_unifyMode)) && ((_ny != null) && ((_ny : Dynamic).__nil__ == null || !(_ny : Dynamic).__nil__))) && _isTypeLit(_x)) && !(_u._enableInterfaceInference && isInterface(_x))) {
                     if (false) {
                         _u._tracef(("%s ≡ under %s" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(stdgo.Go.asInterface(_ny)));
@@ -28588,21 +28588,21 @@ class T_unifier_asInterface {
                     };
                 } else if (_px != null && ((_px : Dynamic).__nil__ == null || !(_px : Dynamic).__nil__)) {
                     {
-                        var _x:stdgo.go.types.Types.Type = _u._at(_px);
+                        var _x:stdgo.go.types.Types.Type_ = _u._at(_px);
                         if (_x != null) {
                             if (_u._nify(_x, _y, _mode, _p)) {
                                 var _xi = _asInterface(_x);
                                 var _yi = _asInterface(_y);
                                 var __tmp__ = try {
-                                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+                                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
                                 } catch(_) {
-                                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-                                }, __10 = __tmp__.value, _xn = __tmp__.ok;
+                                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+                                }, __10 = __tmp__._0, _xn = __tmp__._1;
                                 var __tmp__ = try {
-                                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+                                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
                                 } catch(_) {
-                                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-                                }, __11 = __tmp__.value, _yn = __tmp__.ok;
+                                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+                                }, __11 = __tmp__._0, _yn = __tmp__._1;
                                 if (((_xi != null) && ((_xi : Dynamic).__nil__ == null || !(_xi : Dynamic).__nil__)) && ((_yi != null) && ((_yi : Dynamic).__nil__ == null || !(_yi : Dynamic).__nil__))) {
                                     if (_xn && _yn) {
                                         {
@@ -28634,10 +28634,10 @@ class T_unifier_asInterface {
                                     } else {
                                         {
                                             var __tmp__ = try {
-                                                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_y)) : stdgo.StdGoTypes.Ref<stdgo.Chan>)) : stdgo.StdGoTypes.Ref<stdgo.Chan>), ok : true };
+                                                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_under(_y)) : stdgo.StdGoTypes.Ref<stdgo.Chan>)) : stdgo.StdGoTypes.Ref<stdgo.Chan>), _1 : true };
                                             } catch(_) {
-                                                { value : (null : stdgo.StdGoTypes.Ref<stdgo.Chan>), ok : false };
-                                            }, _yc = __tmp__.value, __28 = __tmp__.ok;
+                                                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.Chan>), _1 : false };
+                                            }, _yc = __tmp__._0, __28 = __tmp__._1;
                                             if (((_yc != null) && ((_yc : Dynamic).__nil__ == null || !(_yc : Dynamic).__nil__)) && (_yc._dir != (0 : stdgo.go.types.Types.ChanDir))) {
                                                 _u._set(_px, _y);
                                             };
@@ -28756,10 +28756,10 @@ class T_unifier_asInterface {
                         var __tmp__ = lookupFieldOrMethod(_y, false, _xm._object._pkg, _xm._object._name?.__copy__()), _obj:stdgo.go.types.Types.Object = __tmp__._0, __88:stdgo.Slice<stdgo.StdGoTypes.GoInt> = __tmp__._1, __89:Bool = __tmp__._2;
                         {
                             var __tmp__ = try {
-                                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<Func>)) : stdgo.StdGoTypes.Ref<Func>), ok : true };
+                                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<Func>)) : stdgo.StdGoTypes.Ref<Func>), _1 : true };
                             } catch(_) {
-                                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>), ok : false };
-                            }, _ym = __tmp__.value, __90 = __tmp__.ok;
+                                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>), _1 : false };
+                            }, _ym = __tmp__._0, __90 = __tmp__._1;
                             if (((_ym == null) || (_ym : Dynamic).__nil__) || !_u._nify(_xm._object._typ, _ym._object._typ, (2u32 : stdgo.go.types.Types.T_unifyMode), _p)) {
                                 {
                                     for (defer in __deferstack__) {
@@ -28795,10 +28795,10 @@ class T_unifier_asInterface {
                     var _x:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>) : __type__.__underlying__().value;
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Basic>)) : stdgo.StdGoTypes.Ref<Basic>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), ok : false };
-                        }, _y = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Basic>), _1 : false };
+                        }, _y = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
                             {
                                 for (defer in __deferstack__) {
@@ -28812,10 +28812,10 @@ class T_unifier_asInterface {
                     var _x:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>) : __type__.__underlying__().value;
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Array_>)) : stdgo.StdGoTypes.Ref<Array_>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Array_>)) : stdgo.StdGoTypes.Ref<Array_>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>), ok : false };
-                        }, _y = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Array_>), _1 : false };
+                        }, _y = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
                             {
                                 for (defer in __deferstack__) {
@@ -28829,10 +28829,10 @@ class T_unifier_asInterface {
                     var _x:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>) : __type__.__underlying__().value;
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Slice_>)) : stdgo.StdGoTypes.Ref<Slice_>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Slice_>)) : stdgo.StdGoTypes.Ref<Slice_>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>), ok : false };
-                        }, _y = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Slice_>), _1 : false };
+                        }, _y = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
                             {
                                 for (defer in __deferstack__) {
@@ -28846,10 +28846,10 @@ class T_unifier_asInterface {
                     var _x:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Struct> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Struct>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Struct>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Struct>) : __type__.__underlying__().value;
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Struct>)) : stdgo.StdGoTypes.Ref<Struct>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Struct>)) : stdgo.StdGoTypes.Ref<Struct>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Struct>), ok : false };
-                        }, _y = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Struct>), _1 : false };
+                        }, _y = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
                             if (_x.numFields() == (_y.numFields())) {
                                 for (_i => _f in _x._fields) {
@@ -28876,10 +28876,10 @@ class T_unifier_asInterface {
                     var _x:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>) : __type__.__underlying__().value;
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Pointer_>)) : stdgo.StdGoTypes.Ref<Pointer_>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), ok : false };
-                        }, _y = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Pointer_>), _1 : false };
+                        }, _y = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
                             {
                                 for (defer in __deferstack__) {
@@ -28893,10 +28893,10 @@ class T_unifier_asInterface {
                     var _x:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Tuple> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Tuple>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Tuple>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Tuple>) : __type__.__underlying__().value;
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Tuple>)) : stdgo.StdGoTypes.Ref<Tuple>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Tuple>)) : stdgo.StdGoTypes.Ref<Tuple>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Tuple>), ok : false };
-                        }, _y = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Tuple>), _1 : false };
+                        }, _y = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
                             if (_x.len() == (_y.len())) {
                                 if (_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__)) {
@@ -28925,10 +28925,10 @@ class T_unifier_asInterface {
                     var _x:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>) : __type__.__underlying__().value;
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), ok : false };
-                        }, _y = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), _1 : false };
+                        }, _y = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
                             {
                                 for (defer in __deferstack__) {
@@ -28943,10 +28943,10 @@ class T_unifier_asInterface {
                     _assert(!_u._enableInterfaceInference || ((_mode & (2u32 : stdgo.go.types.Types.T_unifyMode)) != (0u32 : stdgo.go.types.Types.T_unifyMode)));
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), ok : false };
-                        }, _y = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), _1 : false };
+                        }, _y = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
                             var _xset = _x._typeSet();
                             var _yset = _y._typeSet();
@@ -29009,10 +29009,10 @@ class T_unifier_asInterface {
                     var _x:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_>) : __type__.__underlying__().value;
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Map_>)) : stdgo.StdGoTypes.Ref<Map_>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Map_>)) : stdgo.StdGoTypes.Ref<Map_>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_>), ok : false };
-                        }, _y = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Map_>), _1 : false };
+                        }, _y = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
                             {
                                 for (defer in __deferstack__) {
@@ -29026,10 +29026,10 @@ class T_unifier_asInterface {
                     var _x:stdgo.StdGoTypes.Ref<stdgo.Chan> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.Chan>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.Chan>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.Chan>) : __type__.__underlying__().value;
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<stdgo.Chan>)) : stdgo.StdGoTypes.Ref<stdgo.Chan>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<stdgo.Chan>)) : stdgo.StdGoTypes.Ref<stdgo.Chan>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.Chan>), ok : false };
-                        }, _y = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.Chan>), _1 : false };
+                        }, _y = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
                             {
                                 for (defer in __deferstack__) {
@@ -29043,10 +29043,10 @@ class T_unifier_asInterface {
                     var _x:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>) : __type__.__underlying__().value;
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), ok : false };
-                        }, _y = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Named>), _1 : false };
+                        }, _y = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
                             var _xargs = _x.typeArgs()._list();
                             var _yargs = _y.typeArgs()._list();
@@ -29083,7 +29083,7 @@ class T_unifier_asInterface {
                     };
                     if (true) {
                         {
-                            var _cx:stdgo.go.types.Types.Type = _coreType(stdgo.Go.asInterface(_x));
+                            var _cx:stdgo.go.types.Types.Type_ = _coreType(stdgo.Go.asInterface(_x));
                             if (_cx != null) {
                                 if (false) {
                                     _u._tracef(("core %s ≡ %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)), stdgo.Go.toInterface(_y));
@@ -29100,7 +29100,7 @@ class T_unifier_asInterface {
                 } else if (__type__ == null) {
                     var _x:stdgo.StdGoTypes.AnyInterface = __type__ == null ? (null : stdgo.StdGoTypes.AnyInterface) : cast __type__;
                 } else {
-                    var _x:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
+                    var _x:stdgo.go.types.Types.Type_ = __type__ == null ? (null : stdgo.go.types.Types.Type_) : cast __type__;
                     throw stdgo.Go.toInterface(_sprintf(null, null, true, ("u.nify(%s, %s, %d)" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(stdgo.Go.asInterface(_mode))));
                 };
             };
@@ -29138,9 +29138,9 @@ class T_unifier_asInterface {
         // have identical indices.
     **/
     @:keep
-    static public function _inferred( _u:stdgo.StdGoTypes.Ref<T_unifier>, _tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>):stdgo.Slice<Type> {
+    static public function _inferred( _u:stdgo.StdGoTypes.Ref<T_unifier>, _tparams:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>):stdgo.Slice<Type_> {
         @:recv var _u:stdgo.StdGoTypes.Ref<T_unifier> = _u;
-        var _list = new stdgo.Slice<stdgo.go.types.Types.Type>((_tparams.length : stdgo.StdGoTypes.GoInt).toBasic(), 0);
+        var _list = new stdgo.Slice<stdgo.go.types.Types.Type_>((_tparams.length : stdgo.StdGoTypes.GoInt).toBasic(), 0);
         for (_i => _x in _tparams) {
             _list[(_i : stdgo.StdGoTypes.GoInt)] = _u._at(_x);
         };
@@ -29154,7 +29154,7 @@ class T_unifier_asInterface {
         @:recv var _u:stdgo.StdGoTypes.Ref<T_unifier> = _u;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         for (__0 => _h in _u._handles) {
-            if ((_h : stdgo.go.types.Types.Type) == null) {
+            if ((_h : stdgo.go.types.Types.Type_) == null) {
                 _n++;
             };
         };
@@ -29165,7 +29165,7 @@ class T_unifier_asInterface {
         // t must not be nil.
     **/
     @:keep
-    static public function _set( _u:stdgo.StdGoTypes.Ref<T_unifier>, _x:stdgo.StdGoTypes.Ref<TypeParam>, _t:Type):Void {
+    static public function _set( _u:stdgo.StdGoTypes.Ref<T_unifier>, _x:stdgo.StdGoTypes.Ref<TypeParam>, _t:Type_):Void {
         @:recv var _u:stdgo.StdGoTypes.Ref<T_unifier> = _u;
         _assert(_t != null);
         if (false) {
@@ -29173,26 +29173,26 @@ class T_unifier_asInterface {
         };
         {
             var __tmp__ = _t;
-            (_u._handles[_x] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type>)).string = __tmp__.string;
-            (_u._handles[_x] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type>)).underlying = __tmp__.underlying;
+            (_u._handles[_x] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type_>)).string = __tmp__.string;
+            (_u._handles[_x] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type_>)).underlying = __tmp__.underlying;
         };
     }
     /**
         // at returns the (possibly nil) type for type parameter x.
     **/
     @:keep
-    static public function _at( _u:stdgo.StdGoTypes.Ref<T_unifier>, _x:stdgo.StdGoTypes.Ref<TypeParam>):Type {
+    static public function _at( _u:stdgo.StdGoTypes.Ref<T_unifier>, _x:stdgo.StdGoTypes.Ref<TypeParam>):Type_ {
         @:recv var _u:stdgo.StdGoTypes.Ref<T_unifier> = _u;
-        return (_u._handles[_x] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type>) : stdgo.go.types.Types.Type);
+        return (_u._handles[_x] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type_>) : stdgo.go.types.Types.Type_);
     }
     /**
         // setHandle sets the handle for type parameter x
         // (and all its joined type parameters) to h.
     **/
     @:keep
-    static public function _setHandle( _u:stdgo.StdGoTypes.Ref<T_unifier>, _x:stdgo.StdGoTypes.Ref<TypeParam>, _h:stdgo.StdGoTypes.Ref<Type>):Void {
+    static public function _setHandle( _u:stdgo.StdGoTypes.Ref<T_unifier>, _x:stdgo.StdGoTypes.Ref<TypeParam>, _h:stdgo.StdGoTypes.Ref<Type_>):Void {
         @:recv var _u:stdgo.StdGoTypes.Ref<T_unifier> = _u;
-        var _hx = (_u._handles[_x] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type>));
+        var _hx = (_u._handles[_x] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type_>));
         _assert(_hx != null && ((_hx : Dynamic).__nil__ == null || !(_hx : Dynamic).__nil__));
         for (_y => _hy in _u._handles) {
             if (stdgo.Go.toInterface(_hy) == (stdgo.Go.toInterface(_hx))) {
@@ -29205,17 +29205,17 @@ class T_unifier_asInterface {
         // Otherwise, the result is nil.
     **/
     @:keep
-    static public function _asTypeParam( _u:stdgo.StdGoTypes.Ref<T_unifier>, _x:Type):stdgo.StdGoTypes.Ref<TypeParam> {
+    static public function _asTypeParam( _u:stdgo.StdGoTypes.Ref<T_unifier>, _x:Type_):stdgo.StdGoTypes.Ref<TypeParam> {
         @:recv var _u:stdgo.StdGoTypes.Ref<T_unifier> = _u;
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x) : stdgo.StdGoTypes.Ref<TypeParam>)) : stdgo.StdGoTypes.Ref<TypeParam>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), ok : false };
-            }, _x = __tmp__.value, __0 = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.TypeParam>), _1 : false };
+            }, _x = __tmp__._0, __0 = __tmp__._1;
             if (_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__)) {
                 {
-                    var __tmp__ = (_u._handles != null && _u._handles.exists(_x) ? { value : _u._handles[_x], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type>), ok : false }), __1:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type> = __tmp__.value, _found:Bool = __tmp__.ok;
+                    var __tmp__ = (_u._handles != null && _u._handles.exists(_x) ? { _0 : _u._handles[_x], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type_>), _1 : false }), __1:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type_> = __tmp__._0, _found:Bool = __tmp__._1;
                     if (_found) {
                         return _x;
                     };
@@ -29236,10 +29236,10 @@ class T_unifier_asInterface {
             _u._tracef(("%s ⇄ %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)), stdgo.Go.toInterface(stdgo.Go.asInterface(_y)));
         };
         {
-            var __0 = (_u._handles[_x] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type>)), __1 = (_u._handles[_y] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type>)), _hy = __1, _hx = __0;
-            if (stdgo.Go.toInterface(_hx) == (stdgo.Go.toInterface(_hy))) {} else if (((_hx : stdgo.go.types.Types.Type) != null) && ((_hy : stdgo.go.types.Types.Type) != null)) {
+            var __0 = (_u._handles[_x] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type_>)), __1 = (_u._handles[_y] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Type_>)), _hy = __1, _hx = __0;
+            if (stdgo.Go.toInterface(_hx) == (stdgo.Go.toInterface(_hy))) {} else if (((_hx : stdgo.go.types.Types.Type_) != null) && ((_hy : stdgo.go.types.Types.Type_) != null)) {
                 return false;
-            } else if ((_hx : stdgo.go.types.Types.Type) != null) {
+            } else if ((_hx : stdgo.go.types.Types.Type_) != null) {
                 _u._setHandle(_y, _hx);
             } else {
                 _u._setHandle(_x, _hy);
@@ -29287,7 +29287,7 @@ class T_unifier_asInterface {
         // The mode parameter controls how types are compared.
     **/
     @:keep
-    static public function _unify( _u:stdgo.StdGoTypes.Ref<T_unifier>, _x:Type, _y:Type, _mode:T_unifyMode):Bool {
+    static public function _unify( _u:stdgo.StdGoTypes.Ref<T_unifier>, _x:Type_, _y:Type_, _mode:T_unifyMode):Bool {
         @:recv var _u:stdgo.StdGoTypes.Ref<T_unifier> = _u;
         return _u._nify(_x, _y, _mode, null);
     }
@@ -29296,7 +29296,7 @@ class Union_asInterface {
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:keep
-    public dynamic function underlying():Type return __self__.value.underlying();
+    public dynamic function underlying():Type_ return __self__.value.underlying();
     @:keep
     public dynamic function term(_i:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<Term> return __self__.value.term(_i);
     @:keep
@@ -29316,7 +29316,7 @@ class Union_asInterface {
         return typeString(stdgo.Go.asInterface(_u), null)?.__copy__();
     }
     @:keep
-    static public function underlying( _u:stdgo.StdGoTypes.Ref<Union>):Type {
+    static public function underlying( _u:stdgo.StdGoTypes.Ref<Union>):Type_ {
         @:recv var _u:stdgo.StdGoTypes.Ref<Union> = _u;
         return stdgo.Go.asInterface(_u);
     }
@@ -29509,9 +29509,9 @@ class T_methodSet_asInterface {
         var _key:stdgo.GoString = _f.id()?.__copy__();
         if (!_multiples) {
             {
-                var __tmp__ = (_s != null && _s.exists(_key?.__copy__()) ? { value : _s[_key?.__copy__()], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Selection>), ok : false }), __0:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Selection> = __tmp__.value, _found:Bool = __tmp__.ok;
+                var __tmp__ = (_s != null && _s.exists(_key?.__copy__()) ? { _0 : _s[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Selection>), _1 : false }), __0:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Selection> = __tmp__._0, _found:Bool = __tmp__._1;
                 if (!_found && (_indirect || !_f._hasPtrRecv())) {
-                    _s[_key] = (stdgo.Go.setRef((new stdgo.go.types.Types.Selection((1 : stdgo.go.types.Types.SelectionKind), (null : stdgo.go.types.Types.Type), stdgo.Go.asInterface(_f), _index, _indirect) : stdgo.go.types.Types.Selection)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Selection>);
+                    _s[_key] = (stdgo.Go.setRef((new stdgo.go.types.Types.Selection((1 : stdgo.go.types.Types.SelectionKind), (null : stdgo.go.types.Types.Type_), stdgo.Go.asInterface(_f), _index, _indirect) : stdgo.go.types.Types.Selection)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Selection>);
                     return _s;
                 };
             };
@@ -29648,7 +29648,7 @@ class T_inSourceOrder_asInterface {
 }
 class T_substMap_asInterface {
     @:keep
-    public dynamic function _lookup(_tpar:stdgo.StdGoTypes.Ref<TypeParam>):Type return __self__.value._lookup(_tpar);
+    public dynamic function _lookup(_tpar:stdgo.StdGoTypes.Ref<TypeParam>):Type_ return __self__.value._lookup(_tpar);
     @:keep
     public dynamic function _empty():Bool return __self__.value._empty();
     public function new(__self__, __type__) {
@@ -29661,10 +29661,10 @@ class T_substMap_asInterface {
 }
 @:keep @:allow(stdgo.go.types.Types.T_substMap_asInterface) class T_substMap_static_extension {
     @:keep
-    static public function _lookup( _m:T_substMap, _tpar:stdgo.StdGoTypes.Ref<TypeParam>):Type {
+    static public function _lookup( _m:T_substMap, _tpar:stdgo.StdGoTypes.Ref<TypeParam>):Type_ {
         @:recv var _m:T_substMap = _m;
         {
-            var _t:stdgo.go.types.Types.Type = (_m[_tpar] ?? (null : stdgo.go.types.Types.Type));
+            var _t:stdgo.go.types.Types.Type_ = (_m[_tpar] ?? (null : stdgo.go.types.Types.Type_));
             if (_t != null) {
                 return _t;
             };
@@ -29692,7 +29692,7 @@ class T_termlist_asInterface {
         // includes reports whether t ∈ xl.
     **/
     @:keep
-    public dynamic function _includes(_t:Type):Bool return __self__.value._includes(_t);
+    public dynamic function _includes(_t:Type_):Bool return __self__.value._includes(_t);
     /**
         // equal reports whether xl and yl represent the same type set.
     **/
@@ -29770,7 +29770,7 @@ class T_termlist_asInterface {
         // includes reports whether t ∈ xl.
     **/
     @:keep
-    static public function _includes( _xl:T_termlist, _t:Type):Bool {
+    static public function _includes( _xl:T_termlist, _t:Type_):Bool {
         @:recv var _xl:T_termlist = _xl;
         for (__0 => _x in _xl) {
             if (_x._includes(_t)) {
@@ -30005,7 +30005,7 @@ class Term_asInterface {
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:keep
-    public dynamic function type():Type return __self__.value.type();
+    public dynamic function type():Type_ return __self__.value.type();
     @:keep
     public dynamic function tilde():Bool return __self__.value.tilde();
     public function new(__self__, __type__) {
@@ -30026,7 +30026,7 @@ class Term_asInterface {
         })).string() : stdgo.GoString)?.__copy__();
     }
     @:keep
-    static public function type( _t:stdgo.StdGoTypes.Ref<Term>):Type {
+    static public function type( _t:stdgo.StdGoTypes.Ref<Term>):Type_ {
         @:recv var _t:stdgo.StdGoTypes.Ref<Term> = _t;
         return _t._typ;
     }

@@ -9,10 +9,10 @@ function _parseFunc(_filename:stdgo.GoString, _functionname:stdgo.GoString):{ va
                 for (__0 => _d in _file.decls) {
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_d) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncDecl>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncDecl>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_d) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncDecl>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncDecl>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncDecl>), ok : false };
-                        }, _f = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncDecl>), _1 : false };
+                        }, _f = __tmp__._0, _ok = __tmp__._1;
                         if (_ok && (_f.name.name == _functionname)) {
                             _fun = _f;
                             return { _0 : _fun, _1 : _fset };

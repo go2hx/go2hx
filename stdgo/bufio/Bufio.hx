@@ -344,10 +344,10 @@ _done);
 **/
 function newReaderSize(_rd:stdgo.io.Io.Reader, _size:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<Reader> {
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_rd) : stdgo.StdGoTypes.Ref<Reader>)) : stdgo.StdGoTypes.Ref<Reader>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_rd) : stdgo.StdGoTypes.Ref<Reader>)) : stdgo.StdGoTypes.Ref<Reader>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.bufio.Bufio.Reader>), ok : false };
-        }, _b = __tmp__.value, _ok = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.bufio.Bufio.Reader>), _1 : false };
+        }, _b = __tmp__._0, _ok = __tmp__._1;
         if (_ok && (_b._buf.length >= _size)) {
             return _b;
         };
@@ -371,10 +371,10 @@ function newReader(_rd:stdgo.io.Io.Reader):stdgo.StdGoTypes.Ref<Reader> {
 **/
 function newWriterSize(_w:stdgo.io.Io.Writer, _size:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<Writer> {
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_w) : stdgo.StdGoTypes.Ref<Writer>)) : stdgo.StdGoTypes.Ref<Writer>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_w) : stdgo.StdGoTypes.Ref<Writer>)) : stdgo.StdGoTypes.Ref<Writer>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.bufio.Bufio.Writer>), ok : false };
-        }, _b = __tmp__.value, _ok = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.bufio.Bufio.Writer>), _1 : false };
+        }, _b = __tmp__._0, _ok = __tmp__._1;
         if (_ok && (_b._buf.length >= _size)) {
             return _b;
         };
@@ -756,10 +756,10 @@ class Reader_asInterface {
         };
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_b._rd) : stdgo.io.Io.WriterTo)) : stdgo.io.Io.WriterTo), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_b._rd) : stdgo.io.Io.WriterTo)) : stdgo.io.Io.WriterTo), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.io.Io.WriterTo), ok : false };
-            }, _r = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.io.Io.WriterTo), _1 : false };
+            }, _r = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 var __tmp__ = _r.writeTo(_w), _m:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 _n = _n + (_m);
@@ -768,10 +768,10 @@ class Reader_asInterface {
         };
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_w) : stdgo.io.Io.ReaderFrom)) : stdgo.io.Io.ReaderFrom), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_w) : stdgo.io.Io.ReaderFrom)) : stdgo.io.Io.ReaderFrom), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.io.Io.ReaderFrom), ok : false };
-            }, _w = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.io.Io.ReaderFrom), _1 : false };
+            }, _w = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 var __tmp__ = _w.readFrom(_b._rd), _m:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 _n = _n + (_m);
@@ -1388,10 +1388,10 @@ class Writer_asInterface {
             return { _0 : (0i64 : stdgo.StdGoTypes.GoInt64), _1 : _b._err };
         };
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_b._wr) : stdgo.io.Io.ReaderFrom)) : stdgo.io.Io.ReaderFrom), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_b._wr) : stdgo.io.Io.ReaderFrom)) : stdgo.io.Io.ReaderFrom), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.io.Io.ReaderFrom), ok : false };
-        }, _readerFrom = __tmp__.value, _readerFromOK = __tmp__.ok;
+            { _0 : (null : stdgo.io.Io.ReaderFrom), _1 : false };
+        }, _readerFrom = __tmp__._0, _readerFromOK = __tmp__._1;
         var _m:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         while (true) {
             if (_b.available() == ((0 : stdgo.StdGoTypes.GoInt))) {
@@ -1455,12 +1455,12 @@ class Writer_asInterface {
             if (((_b.buffered() == (0 : stdgo.StdGoTypes.GoInt)) && (_sw == null)) && _tryStringWriter) {
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_b._wr) : stdgo.io.Io.StringWriter)) : stdgo.io.Io.StringWriter), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_b._wr) : stdgo.io.Io.StringWriter)) : stdgo.io.Io.StringWriter), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.io.Io.StringWriter), ok : false };
+                        { _0 : (null : stdgo.io.Io.StringWriter), _1 : false };
                     };
-                    _sw = __tmp__.value;
-                    _tryStringWriter = __tmp__.ok;
+                    _sw = __tmp__._0;
+                    _tryStringWriter = __tmp__._1;
                 };
             };
             if ((_b.buffered() == (0 : stdgo.StdGoTypes.GoInt)) && _tryStringWriter) {

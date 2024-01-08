@@ -123,7 +123,7 @@ function testMain(_m:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.M>):Void {
         stdgo.go.build.Build.default_.goroot = stdgo.internal.testenv.Testenv.goroot((null : stdgo.testing.Testing.TB))?.__copy__();
         Sys.exit(_m.run());
     }
-function testForCompiler(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testForCompiler(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         stdgo.internal.testenv.Testenv.mustHaveGoBuild(stdgo.Go.asInterface(_t));
         {};
         var __tmp__ = stdgo.internal.testenv.Testenv.command(stdgo.Go.asInterface(_t), stdgo.internal.testenv.Testenv.goToolPath(stdgo.Go.asInterface(_t))?.__copy__(), ("list" : stdgo.GoString), ("-export" : stdgo.GoString), ("-f={{context.Compiler}}:{{.Export}}" : stdgo.GoString), ("math/big" : stdgo.GoString)).combinedOutput(), _out:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -136,7 +136,7 @@ function testForCompiler(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
             _t.skip(stdgo.Go.toInterface(("golang.org/issue/22500" : stdgo.GoString)));
         };
         var _fset = stdgo.go.token.Token.newFileSet();
-        _t.run(("LookupDefault" : stdgo.GoString), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+        _t.run(("LookupDefault" : stdgo.GoString), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
             var _imp:stdgo.go.types.Types.Importer = forCompiler(_fset, _compiler?.__copy__(), null);
             var __tmp__ = _imp.import_(("math/big" : stdgo.GoString)), _pkg:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -157,7 +157,7 @@ function testForCompiler(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
                 _t.fatalf(("Object %v position %s does not contain its declaration" : stdgo.GoString), stdgo.Go.toInterface(_mathBigInt), stdgo.Go.toInterface(stdgo.Go.asInterface(_posn)));
             };
         });
-        _t.run(("LookupCustom" : stdgo.GoString), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+        _t.run(("LookupCustom" : stdgo.GoString), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
             if (true) {
                 _t.skip(stdgo.Go.toInterface(("not supported by GOEXPERIMENT=unified; see go.dev/cl/406319" : stdgo.GoString)));
             };

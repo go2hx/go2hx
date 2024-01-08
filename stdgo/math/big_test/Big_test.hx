@@ -660,7 +660,7 @@ function _generatePositiveInt(_rand:stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Ra
     // v and x are two random Int values. v is randomized even if it will be
     // overwritten to test for improper buffer reuse.
 **/
-function _checkAliasingOneArg(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _f:(_v:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>, _x:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>) -> stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>, _v:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>, _x:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>):Bool {
+function _checkAliasingOneArg(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _f:(_v:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>, _x:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>) -> stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>, _v:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>, _x:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>):Bool {
         var __0 = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>).set(_x), __1 = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>).set(_x), _v1 = __1, _x1 = __0;
         {
             var _out = _f(_v, _x);
@@ -690,7 +690,7 @@ function _checkAliasingOneArg(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, 
     // v, x and y are random Int values. v is randomized even if it will be
     // overwritten to test for improper buffer reuse.
 **/
-function _checkAliasingTwoArgs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _f:(_v:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>, _x:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>, _y:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>) -> stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>, _v:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>, _x:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>, _y:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>):Bool {
+function _checkAliasingTwoArgs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _f:(_v:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>, _x:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>, _y:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>) -> stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>, _v:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>, _x:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>, _y:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>):Bool {
         var __0 = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>).set(_x), __1 = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>).set(_y), __2 = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>).set(_v), _v1 = __2, _y1 = __1, _x1 = __0;
         {
             var _out = _f(_v, _x, _y);
@@ -743,7 +743,7 @@ function _checkAliasingTwoArgs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>,
         };
         return _equal(_x, _x1) && _equal(_y, _y1);
     }
-function testAliasing(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAliasing(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_name => _f in ({
             final x = new stdgo.GoMap.GoStringMap<stdgo.StdGoTypes.AnyInterface>();
             x.__defaultValue__ = () -> (null : stdgo.StdGoTypes.AnyInterface);
@@ -860,7 +860,7 @@ function testAliasing(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.AnyInterface>)) {
-            _t.run(_name?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+            _t.run(_name?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
                 var _scale:stdgo.StdGoTypes.GoFloat64 = (1 : stdgo.StdGoTypes.GoFloat64);
                 {
                     final __value__ = _name;

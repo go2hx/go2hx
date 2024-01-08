@@ -221,10 +221,10 @@ function commandContext(_t:stdgo.testing.Testing.TB, _ctx:stdgo.context.Context.
         var __0:stdgo.context.Context.CancelFunc = (null : stdgo.context.Context.CancelFunc), __1:stdgo.time.Time.Duration = ((0 : stdgo.StdGoTypes.GoInt64) : stdgo.time.Time.Duration), _gracePeriod:stdgo.time.Time.Duration = __1, _cancelCtx:stdgo.context.Context.CancelFunc = __0;
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : T__interface_0)) : T__interface_0), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : T__interface_0)) : T__interface_0), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.internal.testenv.Testenv.T__interface_0), ok : false };
-            }, _t = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.internal.testenv.Testenv.T__interface_0), _1 : false };
+            }, _t = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 {
                     var __tmp__ = _t.deadline(), _td:stdgo.time.Time.Time = __tmp__._0, _ok:Bool = __tmp__._1;

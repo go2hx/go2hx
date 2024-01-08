@@ -70,7 +70,7 @@ function sort(_mapValue:stdgo.reflect.Reflect.Value):stdgo.StdGoTypes.Ref<Sorted
     // See the comment on Sort for the comparison rules.
 **/
 function _compare(_aVal:stdgo.reflect.Reflect.Value, _bVal:stdgo.reflect.Reflect.Value):stdgo.StdGoTypes.GoInt {
-        var __0:stdgo.reflect.Reflect.Type = _aVal.type(), __1:stdgo.reflect.Reflect.Type = _bVal.type(), _bType:stdgo.reflect.Reflect.Type = __1, _aType:stdgo.reflect.Reflect.Type = __0;
+        var __0:stdgo.reflect.Reflect.Type_ = _aVal.type(), __1:stdgo.reflect.Reflect.Type_ = _bVal.type(), _bType:stdgo.reflect.Reflect.Type_ = __1, _aType:stdgo.reflect.Reflect.Type_ = __0;
         if (!((_aType.string() : String) == (_bType.string() : String))) {
             return (-1 : stdgo.StdGoTypes.GoInt);
         };

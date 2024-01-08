@@ -4520,7 +4520,7 @@ function parseDuration(_s:stdgo.GoString):{ var _0 : Duration; var _1 : stdgo.Er
             };
             var _u:stdgo.GoString = (_s.__slice__(0, _i) : stdgo.GoString)?.__copy__();
             _s = (_s.__slice__(_i) : stdgo.GoString)?.__copy__();
-            var __tmp__ = (_unitMap != null && _unitMap.exists(_u?.__copy__()) ? { value : _unitMap[_u?.__copy__()], ok : true } : { value : (0 : stdgo.StdGoTypes.GoUInt64), ok : false }), _unit:stdgo.StdGoTypes.GoUInt64 = __tmp__.value, _ok:Bool = __tmp__.ok;
+            var __tmp__ = (_unitMap != null && _unitMap.exists(_u?.__copy__()) ? { _0 : _unitMap[_u?.__copy__()], _1 : true } : { _0 : (0 : stdgo.StdGoTypes.GoUInt64), _1 : false }), _unit:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 return { _0 : (0i64 : stdgo.time.Time.Duration), _1 : stdgo.errors.Errors.new_(("time: unknown unit " : stdgo.GoString) + _quote(_u?.__copy__())?.__copy__() + (" in duration " : stdgo.GoString)?.__copy__() + _quote(_orig?.__copy__())?.__copy__()?.__copy__()) };
             };

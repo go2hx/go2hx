@@ -19,13 +19,13 @@ var _nullLiteral : stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = (("null" : stdgo.GoSt
     
     
 **/
-var _textUnmarshalerType : stdgo.reflect.Reflect.Type = stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface((null : stdgo.StdGoTypes.Ref<stdgo.encoding.Encoding.TextUnmarshaler>))).elem();
+var _textUnmarshalerType : stdgo.reflect.Reflect.Type_ = stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface((null : stdgo.StdGoTypes.Ref<stdgo.encoding.Encoding.TextUnmarshaler>))).elem();
 /**
     
     
     
 **/
-var _numberType : stdgo.reflect.Reflect.Type = stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface(stdgo.Go.asInterface(((stdgo.Go.str() : stdgo.encoding.json.Json.Number) : Number))));
+var _numberType : stdgo.reflect.Reflect.Type_ = stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface(stdgo.Go.asInterface(((stdgo.Go.str() : stdgo.encoding.json.Json.Number) : Number))));
 /**
     
     
@@ -37,13 +37,13 @@ var _hex : stdgo.GoString = ("0123456789abcdef" : stdgo.GoString);
     
     
 **/
-var _marshalerType : stdgo.reflect.Reflect.Type = stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface(((null : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Marshaler>) : stdgo.StdGoTypes.Ref<Marshaler>))).elem();
+var _marshalerType : stdgo.reflect.Reflect.Type_ = stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface(((null : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Marshaler>) : stdgo.StdGoTypes.Ref<Marshaler>))).elem();
 /**
     
     
     
 **/
-var _textMarshalerType : stdgo.reflect.Reflect.Type = stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface((null : stdgo.StdGoTypes.Ref<stdgo.encoding.Encoding.TextMarshaler>))).elem();
+var _textMarshalerType : stdgo.reflect.Reflect.Type_ = stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface((null : stdgo.StdGoTypes.Ref<stdgo.encoding.Encoding.TextMarshaler>))).elem();
 /**
     
     
@@ -486,8 +486,8 @@ var _unmarshalTests : stdgo.Slice<stdgo.encoding.json.Json.T_unmarshalTest> = (n
 ({ _in : ("\"g-clef: \\uD834\\uDD1E\"" : stdgo.GoString), _ptr : stdgo.Go.toInterface(stdgo.Go.pointer(("" : stdgo.GoString))), _out : stdgo.Go.toInterface(("g-clef: 𝄞" : stdgo.GoString)) } : stdgo.encoding.json.Json.T_unmarshalTest),
 ({ _in : ("\"invalid: \\uD834x\\uDD1E\"" : stdgo.GoString), _ptr : stdgo.Go.toInterface(stdgo.Go.pointer(("" : stdgo.GoString))), _out : stdgo.Go.toInterface(("invalid: �x�" : stdgo.GoString)) } : stdgo.encoding.json.Json.T_unmarshalTest),
 ({ _in : ("null" : stdgo.GoString), _ptr : stdgo.Go.toInterface((stdgo.Go.setRef((null : stdgo.StdGoTypes.AnyInterface)) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>)), _out : (null : stdgo.StdGoTypes.AnyInterface) } : stdgo.encoding.json.Json.T_unmarshalTest),
-({ _in : ("{\"X\": [1,2,3], \"Y\": 4}" : stdgo.GoString), _ptr : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo.encoding.json.Json.T)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T>)), _out : stdgo.Go.toInterface(({ y : (4 : stdgo.StdGoTypes.GoInt) } : stdgo.encoding.json.Json.T)), _err : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.encoding.json.Json.UnmarshalTypeError(("array" : stdgo.GoString), stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface(stdgo.Go.str())), (7i64 : stdgo.StdGoTypes.GoInt64), ("T" : stdgo.GoString), ("X" : stdgo.GoString)) : stdgo.encoding.json.Json.UnmarshalTypeError)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.UnmarshalTypeError>)) } : stdgo.encoding.json.Json.T_unmarshalTest),
-({ _in : ("{\"X\": 23}" : stdgo.GoString), _ptr : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo.encoding.json.Json.T)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T>)), _out : stdgo.Go.toInterface((new stdgo.encoding.json.Json.T() : stdgo.encoding.json.Json.T)), _err : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.encoding.json.Json.UnmarshalTypeError(("number" : stdgo.GoString), stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface(stdgo.Go.str())), (8i64 : stdgo.StdGoTypes.GoInt64), ("T" : stdgo.GoString), ("X" : stdgo.GoString)) : stdgo.encoding.json.Json.UnmarshalTypeError)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.UnmarshalTypeError>)) } : stdgo.encoding.json.Json.T_unmarshalTest),
+({ _in : ("{\"X\": [1,2,3], \"Y\": 4}" : stdgo.GoString), _ptr : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo.encoding.json.Json.T_)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T_>)), _out : stdgo.Go.toInterface(({ y : (4 : stdgo.StdGoTypes.GoInt) } : stdgo.encoding.json.Json.T_)), _err : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.encoding.json.Json.UnmarshalTypeError(("array" : stdgo.GoString), stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface(stdgo.Go.str())), (7i64 : stdgo.StdGoTypes.GoInt64), ("T" : stdgo.GoString), ("X" : stdgo.GoString)) : stdgo.encoding.json.Json.UnmarshalTypeError)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.UnmarshalTypeError>)) } : stdgo.encoding.json.Json.T_unmarshalTest),
+({ _in : ("{\"X\": 23}" : stdgo.GoString), _ptr : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo.encoding.json.Json.T_)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T_>)), _out : stdgo.Go.toInterface((new stdgo.encoding.json.Json.T_() : stdgo.encoding.json.Json.T_)), _err : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.encoding.json.Json.UnmarshalTypeError(("number" : stdgo.GoString), stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface(stdgo.Go.str())), (8i64 : stdgo.StdGoTypes.GoInt64), ("T" : stdgo.GoString), ("X" : stdgo.GoString)) : stdgo.encoding.json.Json.UnmarshalTypeError)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.UnmarshalTypeError>)) } : stdgo.encoding.json.Json.T_unmarshalTest),
 ({ _in : ("{\"x\": 1}" : stdgo.GoString), _ptr : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo.encoding.json.Json.T_tx)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T_tx>)), _out : stdgo.Go.toInterface((new stdgo.encoding.json.Json.T_tx() : stdgo.encoding.json.Json.T_tx)) } : stdgo.encoding.json.Json.T_unmarshalTest),
 ({ _in : ("{\"x\": 1}" : stdgo.GoString), _ptr : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo.encoding.json.Json.T_tx)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T_tx>)), _out : stdgo.Go.toInterface((new stdgo.encoding.json.Json.T_tx() : stdgo.encoding.json.Json.T_tx)) } : stdgo.encoding.json.Json.T_unmarshalTest),
 ({ _in : ("{\"x\": 1}" : stdgo.GoString), _ptr : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo.encoding.json.Json.T_tx)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T_tx>)), _err : stdgo.fmt.Fmt.errorf(("json: unknown field \"x\"" : stdgo.GoString)), _disallowUnknownFields : true } : stdgo.encoding.json.Json.T_unmarshalTest),
@@ -501,8 +501,8 @@ var _unmarshalTests : stdgo.Slice<stdgo.encoding.json.Json.T_unmarshalTest> = (n
 ({ _in : ("\r 1.2 " : stdgo.GoString), _ptr : stdgo.Go.toInterface(stdgo.Go.pointer((0 : stdgo.StdGoTypes.GoFloat64))), _out : stdgo.Go.toInterface((1.2 : stdgo.StdGoTypes.GoFloat64)) } : stdgo.encoding.json.Json.T_unmarshalTest),
 ({ _in : ("\t -5 \n" : stdgo.GoString), _ptr : stdgo.Go.toInterface(stdgo.Go.pointer((0 : stdgo.StdGoTypes.GoInt16))), _out : stdgo.Go.toInterface((-5 : stdgo.StdGoTypes.GoInt16)) } : stdgo.encoding.json.Json.T_unmarshalTest),
 ({ _in : ("\t \"a\\u1234\" \n" : stdgo.GoString), _ptr : stdgo.Go.toInterface(stdgo.Go.pointer(("" : stdgo.GoString))), _out : stdgo.Go.toInterface(("aሴ" : stdgo.GoString)) } : stdgo.encoding.json.Json.T_unmarshalTest),
-({ _in : ("{\"Y\": 1, \"Z\": 2}" : stdgo.GoString), _ptr : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo.encoding.json.Json.T)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T>)), _out : stdgo.Go.toInterface(({ y : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.encoding.json.Json.T)) } : stdgo.encoding.json.Json.T_unmarshalTest),
-({ _in : ("{\"Y\": 1, \"Z\": 2}" : stdgo.GoString), _ptr : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo.encoding.json.Json.T)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T>)), _err : stdgo.fmt.Fmt.errorf(("json: unknown field \"Z\"" : stdgo.GoString)), _disallowUnknownFields : true } : stdgo.encoding.json.Json.T_unmarshalTest),
+({ _in : ("{\"Y\": 1, \"Z\": 2}" : stdgo.GoString), _ptr : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo.encoding.json.Json.T_)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T_>)), _out : stdgo.Go.toInterface(({ y : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.encoding.json.Json.T_)) } : stdgo.encoding.json.Json.T_unmarshalTest),
+({ _in : ("{\"Y\": 1, \"Z\": 2}" : stdgo.GoString), _ptr : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo.encoding.json.Json.T_)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T_>)), _err : stdgo.fmt.Fmt.errorf(("json: unknown field \"Z\"" : stdgo.GoString)), _disallowUnknownFields : true } : stdgo.encoding.json.Json.T_unmarshalTest),
 ({ _in : ("{\"alpha\": \"abc\", \"alphabet\": \"xyz\"}" : stdgo.GoString), _ptr : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo.encoding.json.Json.U)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.U>)), _out : stdgo.Go.toInterface(({ alphabet : ("abc" : stdgo.GoString) } : stdgo.encoding.json.Json.U)) } : stdgo.encoding.json.Json.T_unmarshalTest),
 ({ _in : ("{\"alpha\": \"abc\", \"alphabet\": \"xyz\"}" : stdgo.GoString), _ptr : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo.encoding.json.Json.U)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.U>)), _err : stdgo.fmt.Fmt.errorf(("json: unknown field \"alphabet\"" : stdgo.GoString)), _disallowUnknownFields : true } : stdgo.encoding.json.Json.T_unmarshalTest),
 ({ _in : ("{\"alpha\": \"abc\"}" : stdgo.GoString), _ptr : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo.encoding.json.Json.U)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.U>)), _out : stdgo.Go.toInterface(({ alphabet : ("abc" : stdgo.GoString) } : stdgo.encoding.json.Json.U)) } : stdgo.encoding.json.Json.T_unmarshalTest),
@@ -1477,11 +1477,11 @@ typedef Marshaler = stdgo.StdGoTypes.StructType & {
 **/
 @:structInit @:using(stdgo.encoding.json.Json.UnmarshalTypeError_static_extension) class UnmarshalTypeError {
     public var value : stdgo.GoString = "";
-    public var type : stdgo.reflect.Reflect.Type = (null : stdgo.reflect.Reflect.Type);
+    public var type : stdgo.reflect.Reflect.Type_ = (null : stdgo.reflect.Reflect.Type_);
     public var offset : stdgo.StdGoTypes.GoInt64 = 0;
     public var struct_ : stdgo.GoString = "";
     public var field : stdgo.GoString = "";
-    public function new(?value:stdgo.GoString, ?type:stdgo.reflect.Reflect.Type, ?offset:stdgo.StdGoTypes.GoInt64, ?struct_:stdgo.GoString, ?field:stdgo.GoString) {
+    public function new(?value:stdgo.GoString, ?type:stdgo.reflect.Reflect.Type_, ?offset:stdgo.StdGoTypes.GoInt64, ?struct_:stdgo.GoString, ?field:stdgo.GoString) {
         if (value != null) this.value = value;
         if (type != null) this.type = type;
         if (offset != null) this.offset = offset;
@@ -1503,9 +1503,9 @@ typedef Marshaler = stdgo.StdGoTypes.StructType & {
 **/
 @:structInit @:using(stdgo.encoding.json.Json.UnmarshalFieldError_static_extension) class UnmarshalFieldError {
     public var key : stdgo.GoString = "";
-    public var type : stdgo.reflect.Reflect.Type = (null : stdgo.reflect.Reflect.Type);
+    public var type : stdgo.reflect.Reflect.Type_ = (null : stdgo.reflect.Reflect.Type_);
     public var field : stdgo.reflect.Reflect.StructField = ({} : stdgo.reflect.Reflect.StructField);
-    public function new(?key:stdgo.GoString, ?type:stdgo.reflect.Reflect.Type, ?field:stdgo.reflect.Reflect.StructField) {
+    public function new(?key:stdgo.GoString, ?type:stdgo.reflect.Reflect.Type_, ?field:stdgo.reflect.Reflect.StructField) {
         if (key != null) this.key = key;
         if (type != null) this.type = type;
         if (field != null) this.field = field;
@@ -1522,8 +1522,8 @@ typedef Marshaler = stdgo.StdGoTypes.StructType & {
     
 **/
 @:structInit @:using(stdgo.encoding.json.Json.InvalidUnmarshalError_static_extension) class InvalidUnmarshalError {
-    public var type : stdgo.reflect.Reflect.Type = (null : stdgo.reflect.Reflect.Type);
-    public function new(?type:stdgo.reflect.Reflect.Type) {
+    public var type : stdgo.reflect.Reflect.Type_ = (null : stdgo.reflect.Reflect.Type_);
+    public function new(?type:stdgo.reflect.Reflect.Type_) {
         if (type != null) this.type = type;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
@@ -1537,9 +1537,9 @@ typedef Marshaler = stdgo.StdGoTypes.StructType & {
     
 **/
 @:structInit @:private class T_errorContext {
-    public var struct_ : stdgo.reflect.Reflect.Type = (null : stdgo.reflect.Reflect.Type);
+    public var struct_ : stdgo.reflect.Reflect.Type_ = (null : stdgo.reflect.Reflect.Type_);
     public var fieldStack : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-    public function new(?struct_:stdgo.reflect.Reflect.Type, ?fieldStack:stdgo.Slice<stdgo.GoString>) {
+    public function new(?struct_:stdgo.reflect.Reflect.Type_, ?fieldStack:stdgo.Slice<stdgo.GoString>) {
         if (struct_ != null) this.struct_ = struct_;
         if (fieldStack != null) this.fieldStack = fieldStack;
     }
@@ -1594,7 +1594,7 @@ typedef Marshaler = stdgo.StdGoTypes.StructType & {
     
     
 **/
-@:structInit class T {
+@:structInit class T_ {
     public var x : stdgo.GoString = "";
     public var y : stdgo.StdGoTypes.GoInt = 0;
     @:tag("`json:\"-\"`")
@@ -1606,7 +1606,7 @@ typedef Marshaler = stdgo.StdGoTypes.StructType & {
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T(x, y, z);
+        return new T_(x, y, z);
     }
 }
 /**
@@ -1697,9 +1697,9 @@ typedef Marshaler = stdgo.StdGoTypes.StructType & {
     
 **/
 @:structInit class PP {
-    public var t : stdgo.encoding.json.Json.T = ({} : stdgo.encoding.json.Json.T);
-    public var ts : stdgo.Slice<stdgo.encoding.json.Json.T> = (null : stdgo.Slice<stdgo.encoding.json.Json.T>);
-    public function new(?t:stdgo.encoding.json.Json.T, ?ts:stdgo.Slice<stdgo.encoding.json.Json.T>) {
+    public var t : stdgo.encoding.json.Json.T_ = ({} : stdgo.encoding.json.Json.T_);
+    public var ts : stdgo.Slice<stdgo.encoding.json.Json.T_> = (null : stdgo.Slice<stdgo.encoding.json.Json.T_>);
+    public function new(?t:stdgo.encoding.json.Json.T_, ?ts:stdgo.Slice<stdgo.encoding.json.Json.T_>) {
         if (t != null) this.t = t;
         if (ts != null) this.ts = ts;
     }
@@ -2677,8 +2677,8 @@ struct_);
     
 **/
 @:structInit @:using(stdgo.encoding.json.Json.UnsupportedTypeError_static_extension) class UnsupportedTypeError {
-    public var type : stdgo.reflect.Reflect.Type = (null : stdgo.reflect.Reflect.Type);
-    public function new(?type:stdgo.reflect.Reflect.Type) {
+    public var type : stdgo.reflect.Reflect.Type_ = (null : stdgo.reflect.Reflect.Type_);
+    public function new(?type:stdgo.reflect.Reflect.Type_) {
         if (type != null) this.type = type;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
@@ -2730,10 +2730,10 @@ struct_);
     
 **/
 @:structInit @:using(stdgo.encoding.json.Json.MarshalerError_static_extension) class MarshalerError {
-    public var type : stdgo.reflect.Reflect.Type = (null : stdgo.reflect.Reflect.Type);
+    public var type : stdgo.reflect.Reflect.Type_ = (null : stdgo.reflect.Reflect.Type_);
     public var err : stdgo.Error = (null : stdgo.Error);
     public var _sourceFunc : stdgo.GoString = "";
-    public function new(?type:stdgo.reflect.Reflect.Type, ?err:stdgo.Error, ?_sourceFunc:stdgo.GoString) {
+    public function new(?type:stdgo.reflect.Reflect.Type_, ?err:stdgo.Error, ?_sourceFunc:stdgo.GoString) {
         if (type != null) this.type = type;
         if (err != null) this.err = err;
         if (_sourceFunc != null) this._sourceFunc = _sourceFunc;
@@ -3009,11 +3009,11 @@ struct_);
     public var _nameEscHTML : stdgo.GoString = "";
     public var _tag : Bool = false;
     public var _index : stdgo.Slice<stdgo.StdGoTypes.GoInt> = (null : stdgo.Slice<stdgo.StdGoTypes.GoInt>);
-    public var _typ : stdgo.reflect.Reflect.Type = (null : stdgo.reflect.Reflect.Type);
+    public var _typ : stdgo.reflect.Reflect.Type_ = (null : stdgo.reflect.Reflect.Type_);
     public var _omitEmpty : Bool = false;
     public var _quoted : Bool = false;
     public var _encoder : stdgo.encoding.json.Json.T_encoderFunc = (null : stdgo.encoding.json.Json.T_encoderFunc);
-    public function new(?_name:stdgo.GoString, ?_nameBytes:stdgo.Slice<stdgo.StdGoTypes.GoUInt8>, ?_nameNonEsc:stdgo.GoString, ?_nameEscHTML:stdgo.GoString, ?_tag:Bool, ?_index:stdgo.Slice<stdgo.StdGoTypes.GoInt>, ?_typ:stdgo.reflect.Reflect.Type, ?_omitEmpty:Bool, ?_quoted:Bool, ?_encoder:stdgo.encoding.json.Json.T_encoderFunc) {
+    public function new(?_name:stdgo.GoString, ?_nameBytes:stdgo.Slice<stdgo.StdGoTypes.GoUInt8>, ?_nameNonEsc:stdgo.GoString, ?_nameEscHTML:stdgo.GoString, ?_tag:Bool, ?_index:stdgo.Slice<stdgo.StdGoTypes.GoInt>, ?_typ:stdgo.reflect.Reflect.Type_, ?_omitEmpty:Bool, ?_quoted:Bool, ?_encoder:stdgo.encoding.json.Json.T_encoderFunc) {
         if (_name != null) this._name = _name;
         if (_nameBytes != null) this._nameBytes = _nameBytes;
         if (_nameNonEsc != null) this._nameNonEsc = _nameNonEsc;
@@ -5137,7 +5137,7 @@ function benchmarkTypeFieldsCache(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
         if (stdgo.internal.testenv.Testenv.builder() != (stdgo.Go.str())) {
             _maxTypes = (1000 : stdgo.StdGoTypes.GoInt);
         };
-        var _types = new stdgo.Slice<stdgo.reflect.Reflect.Type>((_maxTypes : stdgo.StdGoTypes.GoInt).toBasic(), 0);
+        var _types = new stdgo.Slice<stdgo.reflect.Reflect.Type_>((_maxTypes : stdgo.StdGoTypes.GoInt).toBasic(), 0);
         var _fs = (new stdgo.Slice<stdgo.reflect.Reflect.StructField>(1, 1, ({ type : stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface(stdgo.Go.str())), index : (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(1, 1, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>) } : stdgo.reflect.Reflect.StructField)) : stdgo.Slice<stdgo.reflect.Reflect.StructField>);
         for (_i in 0 ... _types.length.toBasic()) {
             _fs[(0 : stdgo.StdGoTypes.GoInt)].name = stdgo.fmt.Fmt.sprintf(("TypeFieldsCache%d" : stdgo.GoString), stdgo.Go.toInterface(_i))?.__copy__();
@@ -5149,7 +5149,7 @@ function benchmarkTypeFieldsCache(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
         {
             var _nt:stdgo.StdGoTypes.GoInt = (1 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_nt <= _maxTypes, _nt = _nt * ((10 : stdgo.StdGoTypes.GoInt)), {
-                var _ts = (_types.__slice__(0, _nt) : stdgo.Slice<stdgo.reflect.Reflect.Type>);
+                var _ts = (_types.__slice__(0, _nt) : stdgo.Slice<stdgo.reflect.Reflect.Type_>);
                 _b.run(stdgo.fmt.Fmt.sprintf(("MissTypes%d" : stdgo.GoString), stdgo.Go.toInterface(_nt))?.__copy__(), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
                     var _nc:stdgo.StdGoTypes.GoInt = stdgo.runtime.Runtime.gomaxprocs((0 : stdgo.StdGoTypes.GoInt));
                     {
@@ -5163,7 +5163,7 @@ function benchmarkTypeFieldsCache(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
                                     _wg.add((1 : stdgo.StdGoTypes.GoInt));
                                     stdgo.Go.routine(() -> {
                                         var a = function(_j:stdgo.StdGoTypes.GoInt):Void {
-                                            for (__36 => _t in (_ts.__slice__((_j * _ts.length) / _nc, ((_j + (1 : stdgo.StdGoTypes.GoInt)) * _ts.length) / _nc) : stdgo.Slice<stdgo.reflect.Reflect.Type>)) {
+                                            for (__36 => _t in (_ts.__slice__((_j * _ts.length) / _nc, ((_j + (1 : stdgo.StdGoTypes.GoInt)) * _ts.length) / _nc) : stdgo.Slice<stdgo.reflect.Reflect.Type_>)) {
                                                 _cachedTypeFields(_t);
                                             };
                                             _wg.done();
@@ -5182,7 +5182,7 @@ function benchmarkTypeFieldsCache(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
             var _nt:stdgo.StdGoTypes.GoInt = (1 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_nt <= _maxTypes, _nt = _nt * ((10 : stdgo.StdGoTypes.GoInt)), {
                 _clearCache();
-                for (__24 => _t in (_types.__slice__(0, _nt) : stdgo.Slice<stdgo.reflect.Reflect.Type>)) {
+                for (__24 => _t in (_types.__slice__(0, _nt) : stdgo.Slice<stdgo.reflect.Reflect.Type_>)) {
                     _cachedTypeFields(_t);
                 };
                 _b.run(stdgo.fmt.Fmt.sprintf(("HitTypes%d" : stdgo.GoString), stdgo.Go.toInterface(_nt))?.__copy__(), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
@@ -5386,10 +5386,10 @@ function _indirect(_v:stdgo.reflect.Reflect.Value, _decodingNull:Bool):{ var _0 
             if ((_v.type().numMethod() > (0 : stdgo.StdGoTypes.GoInt)) && _v.canInterface()) {
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((_v.interface_() : Unmarshaler)) : Unmarshaler), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((_v.interface_() : Unmarshaler)) : Unmarshaler), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.encoding.json.Json.Unmarshaler), ok : false };
-                    }, _u = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.encoding.json.Json.Unmarshaler), _1 : false };
+                    }, _u = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
                         return { _0 : _u, _1 : (null : stdgo.encoding.Encoding.TextUnmarshaler), _2 : (new stdgo.reflect.Reflect.Value() : stdgo.reflect.Reflect.Value) };
                     };
@@ -5397,10 +5397,10 @@ function _indirect(_v:stdgo.reflect.Reflect.Value, _decodingNull:Bool):{ var _0 
                 if (!_decodingNull) {
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((_v.interface_() : stdgo.encoding.Encoding.TextUnmarshaler)) : stdgo.encoding.Encoding.TextUnmarshaler), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((_v.interface_() : stdgo.encoding.Encoding.TextUnmarshaler)) : stdgo.encoding.Encoding.TextUnmarshaler), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.encoding.Encoding.TextUnmarshaler), ok : false };
-                        }, _u = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.encoding.Encoding.TextUnmarshaler), _1 : false };
+                        }, _u = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
                             return { _0 : (null : stdgo.encoding.json.Json.Unmarshaler), _1 : _u, _2 : (new stdgo.reflect.Reflect.Value() : stdgo.reflect.Reflect.Value) };
                         };
@@ -5584,7 +5584,7 @@ function _unquoteBytes(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo
         };
         return { _0 : (_b.__slice__((0 : stdgo.StdGoTypes.GoInt), _w) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _1 : true };
     }
-function testMarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __tmp__ = marshal(stdgo.Go.toInterface(_allValue)), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _t.fatalf(("Marshal allValue: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
@@ -5608,7 +5608,7 @@ function testMarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             return;
         };
     }
-function testMarshalBadUTF8(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMarshalBadUTF8(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__8 => _tt in _badUTF8) {
             var __tmp__ = marshal(stdgo.Go.toInterface(_tt._in)), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (((_b : stdgo.GoString) != _tt._out) || (_err != null)) {
@@ -5616,7 +5616,7 @@ function testMarshalBadUTF8(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             };
         };
     }
-function testMarshalNumberZeroVal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMarshalNumberZeroVal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _n:Number = (("" : stdgo.GoString) : stdgo.encoding.json.Json.Number);
         var __tmp__ = marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(_n))), _out:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -5627,7 +5627,7 @@ function testMarshalNumberZeroVal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
             _t.fatalf(("Invalid zero val for Number: %q" : stdgo.GoString), stdgo.Go.toInterface(_outStr));
         };
     }
-function testMarshalEmbeds(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMarshalEmbeds(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _top = (stdgo.Go.setRef(({ level0 : (1 : stdgo.StdGoTypes.GoInt), embed0 : ({ level1b : (2 : stdgo.StdGoTypes.GoInt), level1c : (3 : stdgo.StdGoTypes.GoInt) } : stdgo.encoding.json.Json.Embed0), embed0a : (stdgo.Go.setRef(({ level1a : (5 : stdgo.StdGoTypes.GoInt), level1b : (6 : stdgo.StdGoTypes.GoInt) } : stdgo.encoding.json.Json.Embed0a)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Embed0a>), embed0b : (stdgo.Go.setRef(({ level1a : (8 : stdgo.StdGoTypes.GoInt), level1b : (9 : stdgo.StdGoTypes.GoInt), level1c : (10 : stdgo.StdGoTypes.GoInt), level1d : (11 : stdgo.StdGoTypes.GoInt), level1e : (12 : stdgo.StdGoTypes.GoInt) } : stdgo.encoding.json.Json.Embed0b)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Embed0b>), loop : ({ loop1 : (13 : stdgo.StdGoTypes.GoInt), loop2 : (14 : stdgo.StdGoTypes.GoInt) } : stdgo.encoding.json.Json.Loop), embed0p : ({ point : ({ x : (15 : stdgo.StdGoTypes.GoInt), y : (16 : stdgo.StdGoTypes.GoInt) } : stdgo.image.Image.Point) } : stdgo.encoding.json.Json.Embed0p), embed0q : ({ point : ({ z : (17 : stdgo.StdGoTypes.GoInt) } : stdgo.encoding.json.Json.Point) } : stdgo.encoding.json.Json.Embed0q), _embed : ({ q : (18 : stdgo.StdGoTypes.GoInt) } : stdgo.encoding.json.Json.T_embed) } : stdgo.encoding.json.Json.Top)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Top>);
         var __tmp__ = marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(_top))), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -5647,7 +5647,7 @@ function _equalError(_a:stdgo.Error, _b:stdgo.Error):Bool {
         };
         return _a.error() == (_b.error());
     }
-function testUnmarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnmarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_i => _tt in _unmarshalTests) {
             var _scan:T_scanner = ({} : stdgo.encoding.json.Json.T_scanner);
             var _in = (_tt._in : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
@@ -5663,7 +5663,7 @@ function testUnmarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             if (_tt._ptr == null) {
                 continue;
             };
-            var _typ:stdgo.reflect.Reflect.Type = stdgo.reflect.Reflect.typeOf(_tt._ptr);
+            var _typ:stdgo.reflect.Reflect.Type_ = stdgo.reflect.Reflect.typeOf(_tt._ptr);
             if (_typ.kind() != ((22u32 : stdgo.reflect.Reflect.Kind))) {
                 _t.errorf(("#%d: unmarshalTest.ptr %T is not a pointer type" : stdgo.GoString), stdgo.Go.toInterface(_i), _tt._ptr);
                 continue;
@@ -5731,7 +5731,7 @@ function testUnmarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testUnmarshalMarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnmarshalMarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         _initBig();
         var _v:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface);
         {
@@ -5753,7 +5753,7 @@ function testUnmarshalMarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
 /**
     // Independent of Decode, basic coverage of the accessors in Number
 **/
-function testNumberAccessors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNumberAccessors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__8 => _tt in _numberTests) {
             var _n:stdgo.encoding.json.Json.Number = (_tt._in : Number);
             {
@@ -5780,7 +5780,7 @@ function testNumberAccessors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
             };
         };
     }
-function testLargeByteSlice(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testLargeByteSlice(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _s0 = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((2000 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
         for (_i in 0 ... _s0.length.toBasic()) {
             _s0[(_i : stdgo.StdGoTypes.GoInt)] = (_i : stdgo.StdGoTypes.GoByte);
@@ -5801,7 +5801,7 @@ function testLargeByteSlice(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             _diff(_t, _s0, _s1);
         };
     }
-function testUnmarshalInterface(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnmarshalInterface(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _xint:Xint = ({} : stdgo.encoding.json.Json.Xint);
         var _i:stdgo.StdGoTypes.AnyInterface = stdgo.Go.toInterface((stdgo.Go.setRef(_xint) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Xint>));
         {
@@ -5814,7 +5814,7 @@ function testUnmarshalInterface(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
             _t.fatalf(("Did not write to xint" : stdgo.GoString));
         };
     }
-function testUnmarshalPtrPtr(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnmarshalPtrPtr(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _xint:Xint = ({} : stdgo.encoding.json.Json.Xint);
         var _pxint = (stdgo.Go.setRef(_xint) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Xint>);
         {
@@ -5827,7 +5827,7 @@ function testUnmarshalPtrPtr(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
             _t.fatalf(("Did not write to xint" : stdgo.GoString));
         };
     }
-function testEscape(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testEscape(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         {};
         var __tmp__ = marshal(stdgo.Go.toInterface(("\"foobar\"<html> [\u2028 \u2029]" : stdgo.GoString))), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -5845,7 +5845,7 @@ function testEscape(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
     // If people misuse the ,string modifier, the error message should be
     // helpful, telling the user that they're doing it wrong.
 **/
-function testErrorMessageFromMisusedString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testErrorMessageFromMisusedString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_n => _tt in _wrongStringTests) {
             var _r = stdgo.strings.Strings.newReader(_tt._in?.__copy__());
             var _s:WrongString = ({} : stdgo.encoding.json.Json.WrongString);
@@ -5886,7 +5886,7 @@ function _noSpace(_c:stdgo.StdGoTypes.GoRune):stdgo.StdGoTypes.GoRune {
         return new T_testRefUnmarshal_54___localname___S(r0, r1, r2, r3);
     }
 }
-function testRefUnmarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testRefUnmarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _want:stdgo.encoding.json.Json.T_testRefUnmarshal_54___localname___S = ({ r0 : (12 : stdgo.encoding.json.Json.Ref), r1 : stdgo.Go.pointer(((0 : stdgo.StdGoTypes.GoInt) : stdgo.encoding.json.Json.Ref)), r2 : (13 : stdgo.encoding.json.Json.RefText), r3 : stdgo.Go.pointer(((0 : stdgo.StdGoTypes.GoInt) : stdgo.encoding.json.Json.RefText)) } : stdgo.encoding.json.Json.T_testRefUnmarshal_54___localname___S);
         _want.r1.value = (12 : stdgo.encoding.json.Json.Ref);
@@ -5925,7 +5925,7 @@ function testRefUnmarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
     // Test that the empty string doesn't panic decoding when ,string is specified
     // Issue 3450
 **/
-function testEmptyString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testEmptyString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _data:stdgo.GoString = ("{\"Number1\":\"1\", \"Number2\":\"\"}" : stdgo.GoString);
         var _dec = newDecoder(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(_data?.__copy__())));
@@ -5964,7 +5964,7 @@ function testEmptyString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
     // Test that a null for ,string is not replaced with the previous quoted string (issue 7046).
     // It should also not be an error (issue 2540, issue 8587).
 **/
-function testNullString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNullString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _data = (("{\"A\": \"1\", \"B\": null, \"C\": null}" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
         var _s:T_testNullString_56___localname___T = ({} : stdgo.encoding.json.Json.T_testNullString_56___localname___T);
@@ -5989,7 +5989,7 @@ function _intpp(_x:stdgo.Pointer<stdgo.StdGoTypes.GoInt>):stdgo.StdGoTypes.Ref<s
         _pp = _x;
         return _pp;
     }
-function testInterfaceSet(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testInterfaceSet(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__8 => _tt in _interfaceSetTests) {
             var _b:T__struct_9 = ({ x : _tt._pre } : T__struct_9);
             var _blob:stdgo.GoString = ("{\"X\":" : stdgo.GoString) + _tt._json?.__copy__() + ("}" : stdgo.GoString)?.__copy__()?.__copy__();
@@ -6009,7 +6009,7 @@ function testInterfaceSet(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
     // JSON null values should be ignored for primitives and string values instead of resulting in an error.
     // Issue 2540
 **/
-function testUnmarshalNulls(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnmarshalNulls(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _jsonData = (("{\n\t\t\t\t\"Bool\"    : null,\n\t\t\t\t\"Int\"     : null,\n\t\t\t\t\"Int8\"    : null,\n\t\t\t\t\"Int16\"   : null,\n\t\t\t\t\"Int32\"   : null,\n\t\t\t\t\"Int64\"   : null,\n\t\t\t\t\"Uint\"    : null,\n\t\t\t\t\"Uint8\"   : null,\n\t\t\t\t\"Uint16\"  : null,\n\t\t\t\t\"Uint32\"  : null,\n\t\t\t\t\"Uint64\"  : null,\n\t\t\t\t\"Float32\" : null,\n\t\t\t\t\"Float64\" : null,\n\t\t\t\t\"String\"  : null,\n\t\t\t\t\"PBool\": null,\n\t\t\t\t\"Map\": null,\n\t\t\t\t\"Slice\": null,\n\t\t\t\t\"Interface\": null,\n\t\t\t\t\"PRaw\": null,\n\t\t\t\t\"PTime\": null,\n\t\t\t\t\"PBigInt\": null,\n\t\t\t\t\"PText\": null,\n\t\t\t\t\"PBuffer\": null,\n\t\t\t\t\"PStruct\": null,\n\t\t\t\t\"Raw\": null,\n\t\t\t\t\"Time\": null,\n\t\t\t\t\"BigInt\": null,\n\t\t\t\t\"Text\": null,\n\t\t\t\t\"Buffer\": null,\n\t\t\t\t\"Struct\": null\n\t\t\t}" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
         var _nulls:stdgo.encoding.json.Json.NullTest = ({ bool_ : true, int_ : (2 : stdgo.StdGoTypes.GoInt), int8 : (3 : stdgo.StdGoTypes.GoInt8), int16 : (4 : stdgo.StdGoTypes.GoInt16), int32 : (5 : stdgo.StdGoTypes.GoInt32), int64 : (6i64 : stdgo.StdGoTypes.GoInt64), uint : (7u32 : stdgo.StdGoTypes.GoUInt), uint8 : (8 : stdgo.StdGoTypes.GoUInt8), uint16 : (9 : stdgo.StdGoTypes.GoUInt16), uint32 : (10u32 : stdgo.StdGoTypes.GoUInt32), uint64 : (11i64 : stdgo.StdGoTypes.GoUInt64), float32 : (12.100000381469727 : stdgo.StdGoTypes.GoFloat64), float64 : (13.1 : stdgo.StdGoTypes.GoFloat64), string : ("14" : stdgo.GoString), pbool : stdgo.Go.pointer(false), map_ : ({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
@@ -6066,7 +6066,7 @@ function testUnmarshalNulls(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
         };
     }
 @:named typedef T_testStringKind_57___localname___stringKind = stdgo.GoString;
-function testStringKind(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testStringKind(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var __0:stdgo.GoMap<T_testStringKind_57___localname___stringKind, stdgo.StdGoTypes.GoInt> = (null : stdgo.GoMap<stdgo.encoding.json.Json.T_testStringKind_57___localname___stringKind, stdgo.StdGoTypes.GoInt>), __1:stdgo.GoMap<T_testStringKind_57___localname___stringKind, stdgo.StdGoTypes.GoInt> = (null : stdgo.GoMap<stdgo.encoding.json.Json.T_testStringKind_57___localname___stringKind, stdgo.StdGoTypes.GoInt>), _m2:stdgo.GoMap<T_testStringKind_57___localname___stringKind, stdgo.StdGoTypes.GoInt> = __1, _m1:stdgo.GoMap<T_testStringKind_57___localname___stringKind, stdgo.StdGoTypes.GoInt> = __0;
         _m1 = ({
@@ -6095,7 +6095,7 @@ function testStringKind(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
     // and then unmarshaled.
     // Issue 8962.
 **/
-function testByteKind(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testByteKind(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _a:stdgo.encoding.json.Json.T_testByteKind_58___localname___byteKind = (("hello" : stdgo.GoString) : T_testByteKind_58___localname___byteKind);
         var __tmp__ = marshal(stdgo.Go.toInterface(_a)), _data:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -6116,7 +6116,7 @@ function testByteKind(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
     // The fix for issue 8962 introduced a regression.
     // Issue 12921.
 **/
-function testSliceOfCustomByte(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testSliceOfCustomByte(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _a = (("hello" : stdgo.GoString) : stdgo.Slice<T_testSliceOfCustomByte_59___localname___Uint8>);
         var __tmp__ = marshal(stdgo.Go.toInterface(_a)), _data:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -6132,38 +6132,38 @@ function testSliceOfCustomByte(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             _t.fatalf(("expected %v == %v" : stdgo.GoString), stdgo.Go.toInterface(_a), stdgo.Go.toInterface(_b));
         };
     }
-function testUnmarshalTypeError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnmarshalTypeError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__8 => _item in _decodeTypeErrorTests) {
             var _err:stdgo.Error = unmarshal((_item._src : stdgo.Slice<stdgo.StdGoTypes.GoByte>), _item._dest);
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<UnmarshalTypeError>)) : stdgo.StdGoTypes.Ref<UnmarshalTypeError>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<UnmarshalTypeError>)) : stdgo.StdGoTypes.Ref<UnmarshalTypeError>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.UnmarshalTypeError>), ok : false };
-                }, __9 = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.UnmarshalTypeError>), _1 : false };
+                }, __9 = __tmp__._0, _ok = __tmp__._1;
                 if (!_ok) {
                     _t.errorf(("expected type error for Unmarshal(%q, type %T): got %T" : stdgo.GoString), stdgo.Go.toInterface(_item._src), _item._dest, stdgo.Go.toInterface(_err));
                 };
             };
         };
     }
-function testUnmarshalSyntax(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnmarshalSyntax(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _x:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface);
         for (__8 => _src in _unmarshalSyntaxTests) {
             var _err:stdgo.Error = unmarshal((_src : stdgo.Slice<stdgo.StdGoTypes.GoByte>), stdgo.Go.toInterface((stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>)));
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<SyntaxError>)) : stdgo.StdGoTypes.Ref<SyntaxError>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<SyntaxError>)) : stdgo.StdGoTypes.Ref<SyntaxError>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.SyntaxError>), ok : false };
-                }, __9 = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.SyntaxError>), _1 : false };
+                }, __9 = __tmp__._0, _ok = __tmp__._1;
                 if (!_ok) {
                     _t.errorf(("expected syntax error for Unmarshal(%q): got %T" : stdgo.GoString), stdgo.Go.toInterface(_src), stdgo.Go.toInterface(_err));
                 };
             };
         };
     }
-function testUnmarshalUnexported(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnmarshalUnexported(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _input:stdgo.GoString = ("{\"Name\": \"Bob\", \"m\": {\"x\": 123}, \"m2\": {\"y\": 456}, \"abcd\": {\"z\": 789}, \"s\": [2, 3]}" : stdgo.GoString);
         var _want = (stdgo.Go.setRef(({ name : ("Bob" : stdgo.GoString) } : stdgo.encoding.json.Json.T_unexportedFields)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T_unexportedFields>);
         var _out = (stdgo.Go.setRef((new stdgo.encoding.json.Json.T_unexportedFields() : stdgo.encoding.json.Json.T_unexportedFields)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T_unexportedFields>);
@@ -6175,7 +6175,7 @@ function testUnmarshalUnexported(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
             _t.errorf(("got %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_want));
         };
     }
-function testUnmarshalJSONLiteralError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnmarshalJSONLiteralError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _t3:Time3339 = ({} : stdgo.encoding.json.Json.Time3339);
         var _err:stdgo.Error = unmarshal((("\"0000-00-00T00:00:00Z\"" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_t3) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Time3339>))));
         if (_err == null) {
@@ -6193,7 +6193,7 @@ function testUnmarshalJSONLiteralError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Tes
     // "data changing underfoot" error.
     // Issue 3717
 **/
-function testSkipArrayObjects(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testSkipArrayObjects(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _json:stdgo.GoString = ("[{}]" : stdgo.GoString);
         var _dest:stdgo.GoArray<stdgo.StdGoTypes.AnyInterface> = new stdgo.GoArray<stdgo.StdGoTypes.AnyInterface>(...[for (i in 0 ... 0) (null : stdgo.StdGoTypes.AnyInterface)]);
         var _err:stdgo.Error = unmarshal((_json : stdgo.Slice<stdgo.StdGoTypes.GoByte>), stdgo.Go.toInterface((stdgo.Go.setRef(_dest) : stdgo.StdGoTypes.Ref<stdgo.GoArray<stdgo.StdGoTypes.AnyInterface>>)));
@@ -6206,7 +6206,7 @@ function testSkipArrayObjects(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
     // slices, and arrays.
     // Issues 4900 and 8837, among others.
 **/
-function testPrefilled(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testPrefilled(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _prefillTests:stdgo.Slice<T__struct_11> = (new stdgo.Slice<T__struct_11>(6, 6, ({ _in : ("{\"X\": 1, \"Y\": 2}" : stdgo.GoString), _ptr : stdgo.Go.toInterface((stdgo.Go.setRef(({ x : stdgo.Go.toInterface(((3 : stdgo.StdGoTypes.GoFloat64) : stdgo.StdGoTypes.GoFloat32)), y : stdgo.Go.toInterface((4 : stdgo.StdGoTypes.GoInt16)), z : stdgo.Go.toInterface((1.5 : stdgo.StdGoTypes.GoFloat64)) } : stdgo.encoding.json.Json.XYZ)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.XYZ>)), _out : stdgo.Go.toInterface((stdgo.Go.setRef(({ x : stdgo.Go.toInterface((1 : stdgo.StdGoTypes.GoFloat64)), y : stdgo.Go.toInterface((2 : stdgo.StdGoTypes.GoFloat64)), z : stdgo.Go.toInterface((1.5 : stdgo.StdGoTypes.GoFloat64)) } : stdgo.encoding.json.Json.XYZ)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.XYZ>)) } : T__struct_11), ({ _in : ("{\"X\": 1, \"Y\": 2}" : stdgo.GoString), _ptr : stdgo.Go.toInterface((stdgo.Go.setRef(({
             final x = new stdgo.GoMap.GoStringMap<stdgo.StdGoTypes.AnyInterface>();
             x.__defaultValue__ = () -> (null : stdgo.StdGoTypes.AnyInterface);
@@ -6237,7 +6237,7 @@ function testPrefilled(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testInvalidUnmarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testInvalidUnmarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _buf = (("{\"a\":\"1\"}" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
         for (__8 => _tt in _invalidUnmarshalTests) {
             var _err:stdgo.Error = unmarshal(_buf, _tt._v);
@@ -6253,7 +6253,7 @@ function testInvalidUnmarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
             };
         };
     }
-function testInvalidUnmarshalText(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testInvalidUnmarshalText(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _buf = (("123" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
         for (__8 => _tt in _invalidUnmarshalTextTests) {
             var _err:stdgo.Error = unmarshal(_buf, _tt._v);
@@ -6273,7 +6273,7 @@ function testInvalidUnmarshalText(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
     // Test that string option is ignored for invalid types.
     // Issue 9812.
 **/
-function testInvalidStringOption(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testInvalidStringOption(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _num:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         var _item:T__struct_13 = ({ t : ({} : stdgo.time.Time.Time), m : ({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
@@ -6518,7 +6518,7 @@ function testInvalidStringOption(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
     // (Issue 28145) If the embedded struct is given an explicit name and has
     // exported methods, don't cause a panic trying to get its value.
 **/
-function testUnmarshalEmbeddedUnexported(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnmarshalEmbeddedUnexported(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _tests = (new stdgo.Slice<T__struct_14>(
 9,
@@ -6542,7 +6542,7 @@ function testUnmarshalEmbeddedUnexported(_t:stdgo.StdGoTypes.Ref<stdgo.testing.T
             };
         };
     }
-function testUnmarshalErrorAfterMultipleJSON(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnmarshalErrorAfterMultipleJSON(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _tests = (new stdgo.Slice<T_indentErrorTest>(5, 5, ({ _in : ("1 false null :" : stdgo.GoString), _err : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.encoding.json.Json.SyntaxError(("invalid character \':\' looking for beginning of value" : stdgo.GoString), (14i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.encoding.json.Json.SyntaxError)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.SyntaxError>)) } : T_indentErrorTest), ({ _in : ("1 [] [,]" : stdgo.GoString), _err : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.encoding.json.Json.SyntaxError(("invalid character \',\' looking for beginning of value" : stdgo.GoString), (7i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.encoding.json.Json.SyntaxError)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.SyntaxError>)) } : T_indentErrorTest), ({ _in : ("1 [] [true:]" : stdgo.GoString), _err : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.encoding.json.Json.SyntaxError(("invalid character \':\' after array element" : stdgo.GoString), (11i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.encoding.json.Json.SyntaxError)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.SyntaxError>)) } : T_indentErrorTest), ({ _in : ("1  {}    {\"x\"=}" : stdgo.GoString), _err : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.encoding.json.Json.SyntaxError(("invalid character \'=\' after object key" : stdgo.GoString), (14i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.encoding.json.Json.SyntaxError)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.SyntaxError>)) } : T_indentErrorTest), ({ _in : ("falsetruenul#" : stdgo.GoString), _err : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.encoding.json.Json.SyntaxError(("invalid character \'#\' in literal null (expecting \'l\')" : stdgo.GoString), (13i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.encoding.json.Json.SyntaxError)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.SyntaxError>)) } : T_indentErrorTest)) : stdgo.Slice<T_indentErrorTest>);
         for (_i => _tt in _tests) {
             var _dec = newDecoder(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(_tt._in?.__copy__())));
@@ -6561,7 +6561,7 @@ function testUnmarshalErrorAfterMultipleJSON(_t:stdgo.StdGoTypes.Ref<stdgo.testi
             };
         };
     }
-function testUnmarshalPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnmarshalPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             __deferstack__.unshift(() -> {
@@ -6606,7 +6606,7 @@ function testUnmarshalPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
     // The decoder used to hang if decoding into an interface pointing to its own address.
     // See golang.org/issues/31740.
 **/
-function testUnmarshalRecursivePointer(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnmarshalRecursivePointer(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _v:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface);
         _v = stdgo.Go.toInterface((stdgo.Go.setRef(_v) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>));
         var _data = (("{\"a\": \"b\"}" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
@@ -6621,7 +6621,7 @@ function testUnmarshalRecursivePointer(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Tes
     // Test unmarshal to a map, where the map key is a user defined type.
     // See golang.org/issues/34437.
 **/
-function testUnmarshalMapWithTextUnmarshalerStringKey(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnmarshalMapWithTextUnmarshalerStringKey(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _p:stdgo.GoMap<T_textUnmarshalerString, stdgo.GoString> = (null : stdgo.GoMap<stdgo.encoding.json.Json.T_textUnmarshalerString, stdgo.GoString>);
         {
             var _err:stdgo.Error = unmarshal((("{\"FOO\": \"1\"}" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), stdgo.Go.toInterface((stdgo.Go.setRef(_p) : stdgo.StdGoTypes.Ref<stdgo.GoMap<stdgo.encoding.json.Json.T_textUnmarshalerString, stdgo.GoString>>)));
@@ -6630,7 +6630,7 @@ function testUnmarshalMapWithTextUnmarshalerStringKey(_t:stdgo.StdGoTypes.Ref<st
             };
         };
         {
-            var __tmp__ = (_p != null && _p.exists((("foo" : stdgo.GoString) : stdgo.encoding.json.Json.T_textUnmarshalerString)) ? { value : _p[(("foo" : stdgo.GoString) : stdgo.encoding.json.Json.T_textUnmarshalerString)], ok : true } : { value : ("" : stdgo.GoString), ok : false }), __8:stdgo.GoString = __tmp__.value, _ok:Bool = __tmp__.ok;
+            var __tmp__ = (_p != null && _p.exists((("foo" : stdgo.GoString) : stdgo.encoding.json.Json.T_textUnmarshalerString)) ? { _0 : _p[(("foo" : stdgo.GoString) : stdgo.encoding.json.Json.T_textUnmarshalerString)], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), __8:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 _t.errorf(("Key \"foo\" does not exist in map: %v" : stdgo.GoString), stdgo.Go.toInterface(_p));
             };
@@ -6652,7 +6652,7 @@ function testUnmarshalMapWithTextUnmarshalerStringKey(_t:stdgo.StdGoTypes.Ref<st
         return new T_testUnmarshalRescanLiteralMangledUnquote_72___localname___T(f1);
     }
 }
-function testUnmarshalRescanLiteralMangledUnquote(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnmarshalRescanLiteralMangledUnquote(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _p:stdgo.GoMap<T_textUnmarshalerString, stdgo.GoString> = (null : stdgo.GoMap<stdgo.encoding.json.Json.T_textUnmarshalerString, stdgo.GoString>);
         {
             var _err:stdgo.Error = unmarshal((("{\"开源\":\"12345开源\"}" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), stdgo.Go.toInterface((stdgo.Go.setRef(_p) : stdgo.StdGoTypes.Ref<stdgo.GoMap<stdgo.encoding.json.Json.T_textUnmarshalerString, stdgo.GoString>>)));
@@ -6661,7 +6661,7 @@ function testUnmarshalRescanLiteralMangledUnquote(_t:stdgo.StdGoTypes.Ref<stdgo.
             };
         };
         {
-            var __tmp__ = (_p != null && _p.exists((("开源" : stdgo.GoString) : stdgo.encoding.json.Json.T_textUnmarshalerString)) ? { value : _p[(("开源" : stdgo.GoString) : stdgo.encoding.json.Json.T_textUnmarshalerString)], ok : true } : { value : ("" : stdgo.GoString), ok : false }), __8:stdgo.GoString = __tmp__.value, _ok:Bool = __tmp__.ok;
+            var __tmp__ = (_p != null && _p.exists((("开源" : stdgo.GoString) : stdgo.encoding.json.Json.T_textUnmarshalerString)) ? { _0 : _p[(("开源" : stdgo.GoString) : stdgo.encoding.json.Json.T_textUnmarshalerString)], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), __8:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 _t.errorf(("Key \"开源\" does not exist in map: %v" : stdgo.GoString), stdgo.Go.toInterface(_p));
             };
@@ -6715,7 +6715,7 @@ function testUnmarshalRescanLiteralMangledUnquote(_t:stdgo.StdGoTypes.Ref<stdgo.
             _t.fatalf(("Unexpected roundtrip result:\nwant: %q\ngot:  %q" : stdgo.GoString), stdgo.Go.toInterface(_want), stdgo.Go.toInterface(_got));
         };
     }
-function testUnmarshalMaxDepth(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnmarshalMaxDepth(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _testcases = (new stdgo.Slice<T__struct_16>(6, 6, ({ _name : ("ArrayUnderMaxNestingDepth" : stdgo.GoString), _data : ("{\"a\":" : stdgo.GoString) + stdgo.strings.Strings.repeat(("[" : stdgo.GoString), (9999 : stdgo.StdGoTypes.GoInt))?.__copy__() + stdgo.strings.Strings.repeat(("]" : stdgo.GoString), (9999 : stdgo.StdGoTypes.GoInt))?.__copy__() + ("}" : stdgo.GoString)?.__copy__()?.__copy__(), _errMaxDepth : false } : T__struct_16), ({ _name : ("ArrayOverMaxNestingDepth" : stdgo.GoString), _data : ("{\"a\":" : stdgo.GoString) + stdgo.strings.Strings.repeat(("[" : stdgo.GoString), (10000 : stdgo.StdGoTypes.GoInt))?.__copy__() + stdgo.strings.Strings.repeat(("]" : stdgo.GoString), (10000 : stdgo.StdGoTypes.GoInt))?.__copy__() + ("}" : stdgo.GoString)?.__copy__()?.__copy__(), _errMaxDepth : true } : T__struct_16), ({ _name : ("ArrayOverStackDepth" : stdgo.GoString), _data : ("{\"a\":" : stdgo.GoString) + stdgo.strings.Strings.repeat(("[" : stdgo.GoString), (3000000 : stdgo.StdGoTypes.GoInt))?.__copy__() + stdgo.strings.Strings.repeat(("]" : stdgo.GoString), (3000000 : stdgo.StdGoTypes.GoInt))?.__copy__() + ("}" : stdgo.GoString)?.__copy__()?.__copy__(), _errMaxDepth : true } : T__struct_16), ({ _name : ("ObjectUnderMaxNestingDepth" : stdgo.GoString), _data : ("{\"a\":" : stdgo.GoString) + stdgo.strings.Strings.repeat(("{\"a\":" : stdgo.GoString), (9999 : stdgo.StdGoTypes.GoInt))?.__copy__() + ("0" : stdgo.GoString)?.__copy__() + stdgo.strings.Strings.repeat(("}" : stdgo.GoString), (9999 : stdgo.StdGoTypes.GoInt))?.__copy__() + ("}" : stdgo.GoString)?.__copy__()?.__copy__(), _errMaxDepth : false } : T__struct_16), ({ _name : ("ObjectOverMaxNestingDepth" : stdgo.GoString), _data : ("{\"a\":" : stdgo.GoString) + stdgo.strings.Strings.repeat(("{\"a\":" : stdgo.GoString), (10000 : stdgo.StdGoTypes.GoInt))?.__copy__() + ("0" : stdgo.GoString)?.__copy__() + stdgo.strings.Strings.repeat(("}" : stdgo.GoString), (10000 : stdgo.StdGoTypes.GoInt))?.__copy__() + ("}" : stdgo.GoString)?.__copy__()?.__copy__(), _errMaxDepth : true } : T__struct_16), ({ _name : ("ObjectOverStackDepth" : stdgo.GoString), _data : ("{\"a\":" : stdgo.GoString) + stdgo.strings.Strings.repeat(("{\"a\":" : stdgo.GoString), (3000000 : stdgo.StdGoTypes.GoInt))?.__copy__() + ("0" : stdgo.GoString)?.__copy__() + stdgo.strings.Strings.repeat(("}" : stdgo.GoString), (3000000 : stdgo.StdGoTypes.GoInt))?.__copy__() + ("}" : stdgo.GoString)?.__copy__()?.__copy__(), _errMaxDepth : true } : T__struct_16)) : stdgo.Slice<T__struct_16>);
         var _targets = (new stdgo.Slice<T__struct_17>(4, 4, ({ _name : ("unstructured" : stdgo.GoString), _newValue : function():stdgo.StdGoTypes.AnyInterface {
             var _v:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface);
@@ -6732,7 +6732,7 @@ function testUnmarshalMaxDepth(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
         } } : T__struct_17)) : stdgo.Slice<T__struct_17>);
         for (__8 => _tc in _testcases) {
             for (__9 => _target in _targets) {
-                _t.run(_target._name + ("-" : stdgo.GoString)?.__copy__() + _tc._name?.__copy__()?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+                _t.run(_target._name + ("-" : stdgo.GoString)?.__copy__() + _tc._name?.__copy__()?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
                     var _err:stdgo.Error = unmarshal((_tc._data : stdgo.Slice<stdgo.StdGoTypes.GoByte>), _target._newValue());
                     if (!_tc._errMaxDepth) {
                         if (_err != null) {
@@ -6992,7 +6992,7 @@ function _valueEncoder(_v:stdgo.reflect.Reflect.Value):T_encoderFunc {
         };
         return _typeEncoder(_v.type());
     }
-function _typeEncoder(_t:stdgo.reflect.Reflect.Type):T_encoderFunc {
+function _typeEncoder(_t:stdgo.reflect.Reflect.Type_):T_encoderFunc {
         {
             var __tmp__ = _encoderCache.load(stdgo.Go.toInterface(_t)), _fi:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
@@ -7017,7 +7017,7 @@ function _typeEncoder(_t:stdgo.reflect.Reflect.Type):T_encoderFunc {
     // newTypeEncoder constructs an encoderFunc for a type.
     // The returned encoder only checks CanAddr when allowAddr is true.
 **/
-function _newTypeEncoder(_t:stdgo.reflect.Reflect.Type, _allowAddr:Bool):T_encoderFunc {
+function _newTypeEncoder(_t:stdgo.reflect.Reflect.Type_, _allowAddr:Bool):T_encoderFunc {
         if (((_t.kind() != (22u32 : stdgo.reflect.Reflect.Kind)) && _allowAddr) && stdgo.reflect.Reflect.pointerTo(_t).implements_(_marshalerType)) {
             return _newCondAddrEncoder(_addrMarshalerEncoder, _newTypeEncoder(_t, false));
         };
@@ -7070,10 +7070,10 @@ function _marshalerEncoder(_e:stdgo.StdGoTypes.Ref<T_encodeState>, _v:stdgo.refl
             return;
         };
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((_v.interface_() : Marshaler)) : Marshaler), ok : true };
+            { _0 : (stdgo.Go.typeAssert((_v.interface_() : Marshaler)) : Marshaler), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.encoding.json.Json.Marshaler), ok : false };
-        }, _m = __tmp__.value, _ok = __tmp__.ok;
+            { _0 : (null : stdgo.encoding.json.Json.Marshaler), _1 : false };
+        }, _m = __tmp__._0, _ok = __tmp__._1;
         if (!_ok) {
             _e.writeString(("null" : stdgo.GoString));
             return;
@@ -7121,10 +7121,10 @@ function _textMarshalerEncoder(_e:stdgo.StdGoTypes.Ref<T_encodeState>, _v:stdgo.
             return;
         };
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((_v.interface_() : stdgo.encoding.Encoding.TextMarshaler)) : stdgo.encoding.Encoding.TextMarshaler), ok : true };
+            { _0 : (stdgo.Go.typeAssert((_v.interface_() : stdgo.encoding.Encoding.TextMarshaler)) : stdgo.encoding.Encoding.TextMarshaler), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.encoding.Encoding.TextMarshaler), ok : false };
-        }, _m = __tmp__.value, _ok = __tmp__.ok;
+            { _0 : (null : stdgo.encoding.Encoding.TextMarshaler), _1 : false };
+        }, _m = __tmp__._0, _ok = __tmp__._1;
         if (!_ok) {
             _e.writeString(("null" : stdgo.GoString));
             return;
@@ -7245,11 +7245,11 @@ function _interfaceEncoder(_e:stdgo.StdGoTypes.Ref<T_encodeState>, _v:stdgo.refl
 function _unsupportedTypeEncoder(_e:stdgo.StdGoTypes.Ref<T_encodeState>, _v:stdgo.reflect.Reflect.Value, __8:T_encOpts):Void {
         _e._error(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.encoding.json.Json.UnsupportedTypeError(_v.type()) : stdgo.encoding.json.Json.UnsupportedTypeError)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.UnsupportedTypeError>)));
     }
-function _newStructEncoder(_t:stdgo.reflect.Reflect.Type):T_encoderFunc {
+function _newStructEncoder(_t:stdgo.reflect.Reflect.Type_):T_encoderFunc {
         var _se:stdgo.encoding.json.Json.T_structEncoder = ({ _fields : _cachedTypeFields(_t)?.__copy__() } : stdgo.encoding.json.Json.T_structEncoder);
         return _se._encode;
     }
-function _newMapEncoder(_t:stdgo.reflect.Reflect.Type):T_encoderFunc {
+function _newMapEncoder(_t:stdgo.reflect.Reflect.Type_):T_encoderFunc {
         {
             final __value__ = _t.key().kind();
             if (__value__ == ((24u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((2u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((3u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((4u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((5u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((6u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((7u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((8u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((9u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((10u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((11u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((12u32 : stdgo.reflect.Reflect.Kind))) {} else {
@@ -7276,9 +7276,9 @@ function _encodeByteSlice(_e:stdgo.StdGoTypes.Ref<T_encodeState>, _v:stdgo.refle
         _b = (_b.__append__((34 : stdgo.StdGoTypes.GoUInt8)));
         _e.write(_b);
     }
-function _newSliceEncoder(_t:stdgo.reflect.Reflect.Type):T_encoderFunc {
+function _newSliceEncoder(_t:stdgo.reflect.Reflect.Type_):T_encoderFunc {
         if (_t.elem().kind() == ((8u32 : stdgo.reflect.Reflect.Kind))) {
-            var _p:stdgo.reflect.Reflect.Type = stdgo.reflect.Reflect.pointerTo(_t.elem());
+            var _p:stdgo.reflect.Reflect.Type_ = stdgo.reflect.Reflect.pointerTo(_t.elem());
             if (!_p.implements_(_marshalerType) && !_p.implements_(_textMarshalerType)) {
                 return _encodeByteSlice;
             };
@@ -7286,11 +7286,11 @@ function _newSliceEncoder(_t:stdgo.reflect.Reflect.Type):T_encoderFunc {
         var _enc:stdgo.encoding.json.Json.T_sliceEncoder = (new stdgo.encoding.json.Json.T_sliceEncoder(_newArrayEncoder(_t)) : stdgo.encoding.json.Json.T_sliceEncoder);
         return _enc._encode;
     }
-function _newArrayEncoder(_t:stdgo.reflect.Reflect.Type):T_encoderFunc {
+function _newArrayEncoder(_t:stdgo.reflect.Reflect.Type_):T_encoderFunc {
         var _enc:stdgo.encoding.json.Json.T_arrayEncoder = (new stdgo.encoding.json.Json.T_arrayEncoder(_typeEncoder(_t.elem())) : stdgo.encoding.json.Json.T_arrayEncoder);
         return _enc._encode;
     }
-function _newPtrEncoder(_t:stdgo.reflect.Reflect.Type):T_encoderFunc {
+function _newPtrEncoder(_t:stdgo.reflect.Reflect.Type_):T_encoderFunc {
         var _enc:stdgo.encoding.json.Json.T_ptrEncoder = (new stdgo.encoding.json.Json.T_ptrEncoder(_typeEncoder(_t.elem())) : stdgo.encoding.json.Json.T_ptrEncoder);
         return _enc._encode;
     }
@@ -7313,7 +7313,7 @@ function _isValidTag(_s:stdgo.GoString):Bool {
         };
         return true;
     }
-function _typeByIndex(_t:stdgo.reflect.Reflect.Type, _index:stdgo.Slice<stdgo.StdGoTypes.GoInt>):stdgo.reflect.Reflect.Type {
+function _typeByIndex(_t:stdgo.reflect.Reflect.Type_, _index:stdgo.Slice<stdgo.StdGoTypes.GoInt>):stdgo.reflect.Reflect.Type_ {
         for (__8 => _i in _index) {
             if (_t.kind() == ((22u32 : stdgo.reflect.Reflect.Kind))) {
                 _t = _t.elem();
@@ -7328,17 +7328,17 @@ macro function _appendString<Bytes>(__generic__0:haxe.macro.Expr.ExprOf<Bytes>, 
     // The algorithm is breadth-first search over the set of structs to include - the top struct
     // and then any reachable anonymous structs.
 **/
-function _typeFields(_t:stdgo.reflect.Reflect.Type):T_structFields {
+function _typeFields(_t:stdgo.reflect.Reflect.Type_):T_structFields {
         var _current = (new stdgo.Slice<stdgo.encoding.json.Json.T_field>(0, 0) : stdgo.Slice<stdgo.encoding.json.Json.T_field>);
         var _next = (new stdgo.Slice<stdgo.encoding.json.Json.T_field>(1, 1, ({ _typ : _t } : stdgo.encoding.json.Json.T_field)) : stdgo.Slice<stdgo.encoding.json.Json.T_field>);
-        var __0:stdgo.GoMap<stdgo.reflect.Reflect.Type, stdgo.StdGoTypes.GoInt> = (null : stdgo.GoMap<stdgo.reflect.Reflect.Type, stdgo.StdGoTypes.GoInt>), __1:stdgo.GoMap<stdgo.reflect.Reflect.Type, stdgo.StdGoTypes.GoInt> = (null : stdgo.GoMap<stdgo.reflect.Reflect.Type, stdgo.StdGoTypes.GoInt>), _nextCount:stdgo.GoMap<stdgo.reflect.Reflect.Type, stdgo.StdGoTypes.GoInt> = __1, _count:stdgo.GoMap<stdgo.reflect.Reflect.Type, stdgo.StdGoTypes.GoInt> = __0;
+        var __0:stdgo.GoMap<stdgo.reflect.Reflect.Type_, stdgo.StdGoTypes.GoInt> = (null : stdgo.GoMap<stdgo.reflect.Reflect.Type_, stdgo.StdGoTypes.GoInt>), __1:stdgo.GoMap<stdgo.reflect.Reflect.Type_, stdgo.StdGoTypes.GoInt> = (null : stdgo.GoMap<stdgo.reflect.Reflect.Type_, stdgo.StdGoTypes.GoInt>), _nextCount:stdgo.GoMap<stdgo.reflect.Reflect.Type_, stdgo.StdGoTypes.GoInt> = __1, _count:stdgo.GoMap<stdgo.reflect.Reflect.Type_, stdgo.StdGoTypes.GoInt> = __0;
         var _visited = ({
-            final x = new stdgo.GoMap.GoObjectMap<stdgo.reflect.Reflect.Type, Bool>();
-            x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.reflect.Reflect.Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }));
+            final x = new stdgo.GoMap.GoObjectMap<stdgo.reflect.Reflect.Type_, Bool>();
+            x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.reflect.Reflect.Type_", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }));
             x.__defaultValue__ = () -> false;
             @:mergeBlock {};
             cast x;
-        } : stdgo.GoMap<stdgo.reflect.Reflect.Type, Bool>);
+        } : stdgo.GoMap<stdgo.reflect.Reflect.Type_, Bool>);
         var _fields:stdgo.Slice<T_field> = (null : stdgo.Slice<stdgo.encoding.json.Json.T_field>);
         var _nameEscBuf:stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
         while ((_next.length) > (0 : stdgo.StdGoTypes.GoInt)) {
@@ -7351,12 +7351,12 @@ function _typeFields(_t:stdgo.reflect.Reflect.Type):T_structFields {
             {
                 final __tmp__0 = _nextCount;
                 final __tmp__1 = ({
-                    final x = new stdgo.GoMap.GoObjectMap<stdgo.reflect.Reflect.Type, stdgo.StdGoTypes.GoInt>();
-                    x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.reflect.Reflect.Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }));
+                    final x = new stdgo.GoMap.GoObjectMap<stdgo.reflect.Reflect.Type_, stdgo.StdGoTypes.GoInt>();
+                    x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.reflect.Reflect.Type_", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }));
                     x.__defaultValue__ = () -> (0 : stdgo.StdGoTypes.GoInt);
                     @:mergeBlock {};
                     cast x;
-                } : stdgo.GoMap<stdgo.reflect.Reflect.Type, stdgo.StdGoTypes.GoInt>);
+                } : stdgo.GoMap<stdgo.reflect.Reflect.Type_, stdgo.StdGoTypes.GoInt>);
                 _count = __tmp__0;
                 _nextCount = __tmp__1;
             };
@@ -7370,7 +7370,7 @@ function _typeFields(_t:stdgo.reflect.Reflect.Type):T_structFields {
                     stdgo.Go.cfor(_i < _f._typ.numField(), _i++, {
                         var _sf:stdgo.reflect.Reflect.StructField = _f._typ.field(_i)?.__copy__();
                         if (_sf.anonymous) {
-                            var _t:stdgo.reflect.Reflect.Type = _sf.type;
+                            var _t:stdgo.reflect.Reflect.Type_ = _sf.type;
                             if (_t.kind() == ((22u32 : stdgo.reflect.Reflect.Kind))) {
                                 _t = _t.elem();
                             };
@@ -7391,7 +7391,7 @@ function _typeFields(_t:stdgo.reflect.Reflect.Type):T_structFields {
                         var _index = new stdgo.Slice<stdgo.StdGoTypes.GoInt>(((_f._index.length) + (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
                         stdgo.Go.copySlice(_index, _f._index);
                         _index[(_f._index.length : stdgo.StdGoTypes.GoInt)] = _i;
-                        var _ft:stdgo.reflect.Reflect.Type = _sf.type;
+                        var _ft:stdgo.reflect.Reflect.Type_ = _sf.type;
                         if ((_ft.name() == stdgo.Go.str()) && (_ft.kind() == (22u32 : stdgo.reflect.Reflect.Kind))) {
                             _ft = _ft.elem();
                         };
@@ -7487,7 +7487,7 @@ function _typeFields(_t:stdgo.reflect.Reflect.Type):T_structFields {
         for (_i => _field in _fields) {
             _exactNameIndex[_field._name] = (stdgo.Go.setRef(_fields[(_i : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T_field>);
             {
-                var __tmp__ = (_foldedNameIndex != null && _foldedNameIndex.exists((_foldName(_field._nameBytes) : stdgo.GoString)?.__copy__()) ? { value : _foldedNameIndex[(_foldName(_field._nameBytes) : stdgo.GoString)?.__copy__()], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T_field>), ok : false }), __9:stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T_field> = __tmp__.value, _ok:Bool = __tmp__.ok;
+                var __tmp__ = (_foldedNameIndex != null && _foldedNameIndex.exists((_foldName(_field._nameBytes) : stdgo.GoString)?.__copy__()) ? { _0 : _foldedNameIndex[(_foldName(_field._nameBytes) : stdgo.GoString)?.__copy__()], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T_field>), _1 : false }), __9:stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T_field> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (!_ok) {
                     _foldedNameIndex[(_foldName(_field._nameBytes) : stdgo.GoString)] = (stdgo.Go.setRef(_fields[(_i : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T_field>);
                 };
@@ -7512,7 +7512,7 @@ function _dominantField(_fields:stdgo.Slice<T_field>):{ var _0 : T_field; var _1
 /**
     // cachedTypeFields is like typeFields but uses a cache to avoid repeated work.
 **/
-function _cachedTypeFields(_t:stdgo.reflect.Reflect.Type):T_structFields {
+function _cachedTypeFields(_t:stdgo.reflect.Reflect.Type_):T_structFields {
         {
             var __tmp__ = _fieldCache.load(stdgo.Go.toInterface(_t)), _f:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
@@ -7528,7 +7528,7 @@ function _mayAppendQuote(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _quoted:Bool):
         };
         return _b;
     }
-function testOmitEmpty(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testOmitEmpty(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _o:Optionals = ({} : stdgo.encoding.json.Json.Optionals);
         _o.sw = ("something" : stdgo.GoString);
         _o.mr = ({
@@ -7554,10 +7554,10 @@ function testOmitEmpty(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testRoundtripStringTag(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testRoundtripStringTag(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _tests = (new stdgo.Slice<T__struct_21>(2, 2, ({ _name : ("AllTypes" : stdgo.GoString), _in : ({ boolStr : true, intStr : (42i64 : stdgo.StdGoTypes.GoInt64), uintptrStr : (44 : stdgo.StdGoTypes.GoUIntptr), strStr : ("xzbit" : stdgo.GoString), numberStr : (("46" : stdgo.GoString) : stdgo.encoding.json.Json.Number) } : stdgo.encoding.json.Json.StringTag), _want : ("{\n\t\t\t\t\"BoolStr\": \"true\",\n\t\t\t\t\"IntStr\": \"42\",\n\t\t\t\t\"UintptrStr\": \"44\",\n\t\t\t\t\"StrStr\": \"\\\"xzbit\\\"\",\n\t\t\t\t\"NumberStr\": \"46\"\n\t\t\t}" : stdgo.GoString) } : T__struct_21), ({ _name : ("StringDoubleEscapes" : stdgo.GoString), _in : ({ strStr : ("\x08\x0C\n\r\t\"\\" : stdgo.GoString), numberStr : (("0" : stdgo.GoString) : stdgo.encoding.json.Json.Number) } : stdgo.encoding.json.Json.StringTag), _want : ("{\n\t\t\t\t\"BoolStr\": \"false\",\n\t\t\t\t\"IntStr\": \"0\",\n\t\t\t\t\"UintptrStr\": \"0\",\n\t\t\t\t\"StrStr\": \"\\\"\\\\u0008\\\\u000c\\\\n\\\\r\\\\t\\\\\\\"\\\\\\\\\\\"\",\n\t\t\t\t\"NumberStr\": \"0\"\n\t\t\t}" : stdgo.GoString) } : T__struct_21)) : stdgo.Slice<T__struct_21>);
         for (__8 => _test in _tests) {
-            _t.run(_test._name?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+            _t.run(_test._name?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
                 var __tmp__ = marshalIndent(stdgo.Go.toInterface((stdgo.Go.setRef(_test._in) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.StringTag>)), ("\t\t\t" : stdgo.GoString), ("\t" : stdgo.GoString)), _got:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
@@ -7581,7 +7581,7 @@ function testRoundtripStringTag(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
             });
         };
     }
-function testEncodeRenamedByteSlice(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testEncodeRenamedByteSlice(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _s:stdgo.encoding.json.Json.T_renamedByteSlice = (("abc" : stdgo.GoString) : T_renamedByteSlice);
         var __tmp__ = marshal(stdgo.Go.toInterface(_s)), _result:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -7604,7 +7604,7 @@ function testEncodeRenamedByteSlice(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
             _t.errorf((" got %s want %s" : stdgo.GoString), stdgo.Go.toInterface(_result), stdgo.Go.toInterface(_expect));
         };
     }
-function testSamePointerNoCycle(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testSamePointerNoCycle(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var __tmp__ = marshal(stdgo.Go.toInterface(_samePointerNoCycle)), __8:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -7612,7 +7612,7 @@ function testSamePointerNoCycle(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
             };
         };
     }
-function testSliceNoCycle(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testSliceNoCycle(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var __tmp__ = marshal(stdgo.Go.toInterface(_sliceNoCycle)), __8:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -7620,17 +7620,17 @@ function testSliceNoCycle(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             };
         };
     }
-function testUnsupportedValues(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnsupportedValues(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__8 => _v in _unsupportedValues) {
             {
                 var __tmp__ = marshal(_v), __9:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<UnsupportedValueError>)) : stdgo.StdGoTypes.Ref<UnsupportedValueError>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<UnsupportedValueError>)) : stdgo.StdGoTypes.Ref<UnsupportedValueError>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.UnsupportedValueError>), ok : false };
-                        }, __10 = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.UnsupportedValueError>), _1 : false };
+                        }, __10 = __tmp__._0, _ok = __tmp__._1;
                         if (!_ok) {
                             _t.errorf(("for %v, got %T want UnsupportedValueError" : stdgo.GoString), _v, stdgo.Go.toInterface(_err));
                         };
@@ -7644,7 +7644,7 @@ function testUnsupportedValues(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
 /**
     // Issue 43207
 **/
-function testMarshalTextFloatMap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMarshalTextFloatMap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _m = ({
             final x = new stdgo.GoMap.GoFloat64Map<stdgo.GoString>();
             x.__defaultValue__ = () -> ("" : stdgo.GoString);
@@ -7663,7 +7663,7 @@ function testMarshalTextFloatMap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
             _t.errorf(("Marshal() = %s, want %s" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
         };
     }
-function testRefValMarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testRefValMarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _s:T__struct_22 = ({ r0 : (12 : stdgo.encoding.json.Json.Ref), r1 : stdgo.Go.pointer(((0 : stdgo.StdGoTypes.GoInt) : stdgo.encoding.json.Json.Ref)), r2 : (14 : stdgo.encoding.json.Json.RefText), r3 : stdgo.Go.pointer(((0 : stdgo.StdGoTypes.GoInt) : stdgo.encoding.json.Json.RefText)), v0 : (13 : stdgo.encoding.json.Json.Val), v1 : stdgo.Go.pointer(((0 : stdgo.StdGoTypes.GoInt) : stdgo.encoding.json.Json.Val)), v2 : (15 : stdgo.encoding.json.Json.ValText), v3 : stdgo.Go.pointer(((0 : stdgo.StdGoTypes.GoInt) : stdgo.encoding.json.Json.ValText)) } : T__struct_22);
         {};
         var __tmp__ = marshal(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_s) : stdgo.StdGoTypes.Ref<T__struct_22>)))), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -7677,7 +7677,7 @@ function testRefValMarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             };
         };
     }
-function testMarshalerEscaping(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMarshalerEscaping(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _c:C = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.encoding.json.Json.C);
         var _want:stdgo.GoString = ("\"\\u003c\\u0026\\u003e\"" : stdgo.GoString);
         var __tmp__ = marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(_c))), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -8085,7 +8085,7 @@ function testMarshalerEscaping(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
         return new T_testAnonymousFields_100___localname___S(s2);
     }
 }
-function testAnonymousFields(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAnonymousFields(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _tests = (new stdgo.Slice<T__struct_23>(
 10,
 10,
@@ -8134,7 +8134,7 @@ function testAnonymousFields(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
             return stdgo.Go.toInterface((new stdgo.encoding.json.Json.T_testAnonymousFields_100___localname___S() : stdgo.encoding.json.Json.T_testAnonymousFields_100___localname___S));
         }, _want : ("{}" : stdgo.GoString) } : T__struct_23)) : stdgo.Slice<T__struct_23>);
         for (__8 => _tt in _tests) {
-            _t.run(_tt._label?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+            _t.run(_tt._label?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
                 var __tmp__ = marshal(_tt._makeInput()), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     _t.fatalf(("Marshal() = %v, want nil error" : stdgo.GoString), stdgo.Go.toInterface(_err));
@@ -8148,7 +8148,7 @@ function testAnonymousFields(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
 /**
     // See golang.org/issue/16042 and golang.org/issue/34235.
 **/
-function testNilMarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNilMarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _testCases = (new stdgo.Slice<T__struct_12>(
 13,
 13,
@@ -8176,7 +8176,7 @@ function testNilMarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 /**
     // Issue 5245.
 **/
-function testEmbeddedBug(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testEmbeddedBug(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _v:stdgo.encoding.json.Json.BugB = (new stdgo.encoding.json.Json.BugB((new stdgo.encoding.json.Json.BugA(("A" : stdgo.GoString)) : stdgo.encoding.json.Json.BugA), ("B" : stdgo.GoString)) : stdgo.encoding.json.Json.BugB);
         var __tmp__ = marshal(stdgo.Go.toInterface(_v)), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -8205,7 +8205,7 @@ function testEmbeddedBug(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
 /**
     // Test that a field with a tag dominates untagged fields.
 **/
-function testTaggedFieldDominates(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTaggedFieldDominates(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _v:stdgo.encoding.json.Json.BugY = (new stdgo.encoding.json.Json.BugY((new stdgo.encoding.json.Json.BugA(("BugA" : stdgo.GoString)) : stdgo.encoding.json.Json.BugA), (new stdgo.encoding.json.Json.BugD(("BugD" : stdgo.GoString)) : stdgo.encoding.json.Json.BugD)) : stdgo.encoding.json.Json.BugY);
         var __tmp__ = marshal(stdgo.Go.toInterface(_v)), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -8217,7 +8217,7 @@ function testTaggedFieldDominates(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
             _t.fatalf(("Marshal: got %s want %s" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
         };
     }
-function testDuplicatedFieldDisappears(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDuplicatedFieldDisappears(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _v:stdgo.encoding.json.Json.BugZ = (new stdgo.encoding.json.Json.BugZ((new stdgo.encoding.json.Json.BugA(("BugA" : stdgo.GoString)) : stdgo.encoding.json.Json.BugA), (new stdgo.encoding.json.Json.BugC(("BugC" : stdgo.GoString)) : stdgo.encoding.json.Json.BugC), (new stdgo.encoding.json.Json.BugY((new stdgo.encoding.json.Json.BugA(("nested BugA" : stdgo.GoString)) : stdgo.encoding.json.Json.BugA), (new stdgo.encoding.json.Json.BugD(("nested BugD" : stdgo.GoString)) : stdgo.encoding.json.Json.BugD)) : stdgo.encoding.json.Json.BugY)) : stdgo.encoding.json.Json.BugZ);
         var __tmp__ = marshal(stdgo.Go.toInterface(_v)), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -8244,7 +8244,7 @@ function testDuplicatedFieldDisappears(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Tes
         return new T_testIssue10281_101___localname___Foo(n);
     }
 }
-function testIssue10281(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testIssue10281(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _x:stdgo.encoding.json.Json.T_testIssue10281_101___localname___Foo = (new stdgo.encoding.json.Json.T_testIssue10281_101___localname___Foo(((("invalid" : stdgo.GoString) : stdgo.encoding.json.Json.Number) : Number)) : stdgo.encoding.json.Json.T_testIssue10281_101___localname___Foo);
         var __tmp__ = marshal(stdgo.Go.toInterface((stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T_testIssue10281_101___localname___Foo>))), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -8286,7 +8286,7 @@ function testIssue10281(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         return new T_testMarshalErrorAndReuseEncodeState_103___localname___Data(a, i);
     }
 }
-function testMarshalErrorAndReuseEncodeState(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMarshalErrorAndReuseEncodeState(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _percent:stdgo.StdGoTypes.GoInt = stdgo.runtime.debug.Debug.setGCPercent((-1 : stdgo.StdGoTypes.GoInt));
@@ -8340,7 +8340,7 @@ function testMarshalErrorAndReuseEncodeState(_t:stdgo.StdGoTypes.Ref<stdgo.testi
             return;
         };
     }
-function testHTMLEscape(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testHTMLEscape(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __0:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer), __1:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer), _want:stdgo.bytes.Bytes.Buffer = __1, _b:stdgo.bytes.Bytes.Buffer = __0;
         var _m:stdgo.GoString = ("{\"M\":\"<html>foo &\u2028 \u2029</html>\"}" : stdgo.GoString);
         _want.write((("{\"M\":\"\\u003chtml\\u003efoo \\u0026\\u2028 \\u2029\\u003c/html\\u003e\"}" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
@@ -8368,7 +8368,7 @@ function testHTMLEscape(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 /**
     // golang.org/issue/8582
 **/
-function testEncodePointerString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testEncodePointerString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _n:stdgo.StdGoTypes.GoInt64 = (42i64 : stdgo.StdGoTypes.GoInt64);
         var __tmp__ = marshal(stdgo.Go.toInterface(({ n : stdgo.Go.pointer(_n) } : stdgo.encoding.json.Json.T_testEncodePointerString_104___localname___stringPointer))), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -8393,7 +8393,7 @@ function testEncodePointerString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
             _t.fatalf(("*N = %d; want 42" : stdgo.GoString), stdgo.Go.toInterface(_back.n.value));
         };
     }
-function testEncodeString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testEncodeString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__8 => _tt in _encodeStringTests) {
             var __tmp__ = marshal(stdgo.Go.toInterface(_tt._in)), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -8415,7 +8415,7 @@ function _tenc(_format:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterfac
 /**
     // Issue 13783
 **/
-function testEncodeBytekind(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testEncodeBytekind(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _testdata = (new stdgo.Slice<T__struct_28>(
 13,
 13,
@@ -8444,7 +8444,7 @@ function testEncodeBytekind(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             };
         };
     }
-function testTextMarshalerMapKeysAreSorted(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTextMarshalerMapKeysAreSorted(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __tmp__ = marshal(stdgo.Go.toInterface(({
             final x = new stdgo.GoMap.GoObjectMap<stdgo.encoding.json.Json.T_unmarshalerText, stdgo.StdGoTypes.GoInt>();
             x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.encoding.json.Json.T_unmarshalerText", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "a", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "b", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }]), false, { get : () -> null }));
@@ -8468,7 +8468,7 @@ function testTextMarshalerMapKeysAreSorted(_t:stdgo.StdGoTypes.Ref<stdgo.testing
 /**
     // https://golang.org/issue/33675
 **/
-function testNilMarshalerTextMapKey(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNilMarshalerTextMapKey(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __tmp__ = marshal(stdgo.Go.toInterface(({
             final x = new stdgo.GoMap.GoRefMap<stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T_unmarshalerText>, stdgo.StdGoTypes.GoInt>();
             @:mergeBlock {
@@ -8485,7 +8485,7 @@ function testNilMarshalerTextMapKey(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
             _t.errorf(("Marshal map with *text.Marshaler keys: got %#q, want %#q" : stdgo.GoString), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(("{\"\":1,\"A:B\":2}" : stdgo.GoString)));
         };
     }
-function testMarshalFloat(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMarshalFloat(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         _t.parallel();
         var _nfail:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         var _test:(stdgo.StdGoTypes.GoFloat64, stdgo.StdGoTypes.GoInt) -> Void = function(_f:stdgo.StdGoTypes.GoFloat64, _bits:stdgo.StdGoTypes.GoInt):Void {
@@ -8600,7 +8600,7 @@ function testMarshalFloat(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
         return new T_testMarshalRawMessageValue_106___localname___T2(m);
     }
 }
-function testMarshalRawMessageValue(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMarshalRawMessageValue(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var __0:stdgo.encoding.json.Json.RawMessage = (new stdgo.encoding.json.Json.RawMessage(0, 0) : RawMessage), __1:stdgo.encoding.json.Json.RawMessage = ((new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(0, 0) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : RawMessage), __2:stdgo.encoding.json.Json.RawMessage = ((("\"foo\"" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>) : RawMessage), _rawText:stdgo.encoding.json.Json.RawMessage = __2, _rawEmpty:stdgo.encoding.json.Json.RawMessage = __1, _rawNil:stdgo.encoding.json.Json.RawMessage = __0;
         var _tests = (new stdgo.Slice<T__struct_29>(
@@ -8764,7 +8764,7 @@ function testMarshalRawMessageValue(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
             };
         };
     }
-function testMarshalPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMarshalPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             __deferstack__.unshift(() -> {
@@ -8805,7 +8805,7 @@ function testMarshalPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             return;
         };
     }
-function testMarshalUncommonFieldNames(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMarshalUncommonFieldNames(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _v:T__struct_34 = ({ a0 : (0 : stdgo.StdGoTypes.GoInt), __192 : (0 : stdgo.StdGoTypes.GoInt), a946 : (0 : stdgo.StdGoTypes.GoInt) } : T__struct_34);
         var __tmp__ = marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(_v))), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -8817,9 +8817,9 @@ function testMarshalUncommonFieldNames(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Tes
             _t.fatalf(("Marshal: got %s want %s" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
         };
     }
-function testMarshalerError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMarshalerError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _s:stdgo.GoString = ("test variable" : stdgo.GoString);
-        var _st:stdgo.reflect.Reflect.Type = stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface(_s));
+        var _st:stdgo.reflect.Reflect.Type_ = stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface(_s));
         var _errText:stdgo.GoString = ("json: test error" : stdgo.GoString);
         var _tests = (new stdgo.Slice<T__struct_35>(2, 2, ({ _err : (stdgo.Go.setRef((new stdgo.encoding.json.Json.MarshalerError(_st, stdgo.fmt.Fmt.errorf(_errText?.__copy__()), stdgo.Go.str()?.__copy__()) : stdgo.encoding.json.Json.MarshalerError)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.MarshalerError>), _want : ("json: error calling MarshalJSON for type " : stdgo.GoString) + (_st.string() : stdgo.GoString)?.__copy__() + (": " : stdgo.GoString)?.__copy__() + _errText?.__copy__()?.__copy__() } : T__struct_35), ({ _err : (stdgo.Go.setRef((new stdgo.encoding.json.Json.MarshalerError(_st, stdgo.fmt.Fmt.errorf(_errText?.__copy__()), ("TestMarshalerError" : stdgo.GoString)) : stdgo.encoding.json.Json.MarshalerError)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.MarshalerError>), _want : ("json: error calling TestMarshalerError for type " : stdgo.GoString) + (_st.string() : stdgo.GoString)?.__copy__() + (": " : stdgo.GoString)?.__copy__() + _errText?.__copy__()?.__copy__() } : T__struct_35)) : stdgo.Slice<T__struct_35>);
         for (_i => _tt in _tests) {
@@ -8905,7 +8905,7 @@ function fuzzEqualFold(_f:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.F>):Void {
         var _equalFold = function(_x:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _y:stdgo.Slice<stdgo.StdGoTypes.GoByte>):Bool {
             return (_foldName(_x) : stdgo.GoString) == ((_foldName(_y) : stdgo.GoString));
         };
-        _f.fuzz(stdgo.Go.toInterface(function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _x:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _y:stdgo.Slice<stdgo.StdGoTypes.GoByte>):Void {
+        _f.fuzz(stdgo.Go.toInterface(function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _x:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _y:stdgo.Slice<stdgo.StdGoTypes.GoByte>):Void {
             var _got:Bool = _equalFold(_x, _y);
             var _want:Bool = stdgo.bytes.Bytes.equalFold(_x, _y);
             if (_got != (_want)) {
@@ -8915,7 +8915,7 @@ function fuzzEqualFold(_f:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.F>):Void {
     }
 function fuzzUnmarshalJSON(_f:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.F>):Void {
         _f.add(stdgo.Go.toInterface((("{\n\"object\": {\n\t\"slice\": [\n\t\t1,\n\t\t2.0,\n\t\t\"3\",\n\t\t[4],\n\t\t{5: {}}\n\t]\n},\n\"slice\": [[]],\n\"string\": \":)\",\n\"int\": 1e5,\n\"float\": 3e-9\"\n}" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>)));
-        _f.fuzz(stdgo.Go.toInterface(function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):Void {
+        _f.fuzz(stdgo.Go.toInterface(function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):Void {
             for (__24 => _typ in (new stdgo.Slice<() -> stdgo.StdGoTypes.AnyInterface>(3, 3, function():stdgo.StdGoTypes.AnyInterface {
                 return stdgo.Go.toInterface((stdgo.Go.setRef((null : stdgo.StdGoTypes.AnyInterface)) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>));
             }, function():stdgo.StdGoTypes.AnyInterface {
@@ -8945,7 +8945,7 @@ function fuzzUnmarshalJSON(_f:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.F>):Voi
     }
 function fuzzDecoderToken(_f:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.F>):Void {
         _f.add(stdgo.Go.toInterface((("{\n\"object\": {\n\t\"slice\": [\n\t\t1,\n\t\t2.0,\n\t\t\"3\",\n\t\t[4],\n\t\t{5: {}}\n\t]\n},\n\"slice\": [[]],\n\"string\": \":)\",\n\"int\": 1e5,\n\"float\": 3e-9\"\n}" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>)));
-        _f.fuzz(stdgo.Go.toInterface(function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):Void {
+        _f.fuzz(stdgo.Go.toInterface(function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):Void {
             var _r = stdgo.bytes.Bytes.newReader(_b);
             var _d = newDecoder(stdgo.Go.asInterface(_r));
             while (true) {
@@ -9181,7 +9181,7 @@ function _appendIndent(_dst:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _src:stdgo.Sli
             return { _0 : (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _1 : (null : stdgo.Error) };
         };
     }
-function testNumberIsValid(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNumberIsValid(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _jsonNumberRegexp:stdgo.StdGoTypes.Ref<stdgo.regexp.Regexp.Regexp> = stdgo.regexp.Regexp.mustCompile(("^-?(?:0|[1-9]\\d*)(?:\\.\\d+)?(?:[eE][+-]?\\d+)?$" : stdgo.GoString));
         var _validTests = (new stdgo.Slice<stdgo.GoString>(
 46,
@@ -9789,7 +9789,7 @@ function _quoteChar(_c:stdgo.StdGoTypes.GoByte):stdgo.GoString {
         var _s:stdgo.GoString = stdgo.strconv.Strconv.quote((_c : stdgo.GoString)?.__copy__())?.__copy__();
         return ("\'" : stdgo.GoString) + (_s.__slice__((1 : stdgo.StdGoTypes.GoInt), (_s.length) - (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__() + ("\'" : stdgo.GoString)?.__copy__()?.__copy__();
     }
-function testValid(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testValid(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__8 => _tt in _validTests) {
             {
                 var _ok:Bool = valid((_tt._data : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
@@ -9799,7 +9799,7 @@ function testValid(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testCompact(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testCompact(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
         for (__8 => _tt in _examples) {
             _buf.reset();
@@ -9829,7 +9829,7 @@ function testCompact(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testCompactSeparators(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testCompactSeparators(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _tests = (new stdgo.Slice<T__struct_37>(2, 2, ({ _in : ("{\"\u2028\": 1}" : stdgo.GoString), _compact : ("{\"\u2028\":1}" : stdgo.GoString) } : T__struct_37), ({ _in : ("{\"\u2029\" :2}" : stdgo.GoString), _compact : ("{\"\u2029\":2}" : stdgo.GoString) } : T__struct_37)) : stdgo.Slice<T__struct_37>);
         for (__8 => _tt in _tests) {
             var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
@@ -9846,7 +9846,7 @@ function testCompactSeparators(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             };
         };
     }
-function testIndent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testIndent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
         for (__8 => _tt in _examples) {
             _buf.reset();
@@ -9876,7 +9876,7 @@ function testIndent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testCompactBig(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testCompactBig(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         _initBig();
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
         {
@@ -9892,7 +9892,7 @@ function testCompactBig(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             return;
         };
     }
-function testIndentBig(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testIndentBig(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         _t.parallel();
         _initBig();
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
@@ -9933,7 +9933,7 @@ function testIndentBig(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             return;
         };
     }
-function testIndentErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testIndentErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_i => _tt in _indentErrorTests) {
             var _slice = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((0 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
             var _buf = stdgo.bytes.Bytes.newBuffer(_slice);
@@ -9948,7 +9948,7 @@ function testIndentErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             };
         };
     }
-function _diff(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _a:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):Void {
+function _diff(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _a:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(true, _i++, {
@@ -10074,7 +10074,7 @@ function _nonSpace(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):Bool {
 function newEncoder(_w:stdgo.io.Io.Writer):stdgo.StdGoTypes.Ref<Encoder> {
         return (stdgo.Go.setRef(({ _w : _w, _escapeHTML : true } : stdgo.encoding.json.Json.Encoder)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Encoder>);
     }
-function testEncoder(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testEncoder(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i <= (_streamTest.length), _i++, {
@@ -10135,7 +10135,7 @@ function testEncoder(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         return new T_testEncoderErrorAndReuseEncodeState_108___localname___Data(a, i);
     }
 }
-function testEncoderErrorAndReuseEncodeState(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testEncoderErrorAndReuseEncodeState(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _percent:stdgo.StdGoTypes.GoInt = stdgo.runtime.debug.Debug.setGCPercent((-1 : stdgo.StdGoTypes.GoInt));
@@ -10193,7 +10193,7 @@ function testEncoderErrorAndReuseEncodeState(_t:stdgo.StdGoTypes.Ref<stdgo.testi
             return;
         };
     }
-function testEncoderIndent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testEncoderIndent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _buf:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
         var _enc = newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)));
         _enc.setIndent((">" : stdgo.GoString), ("." : stdgo.GoString));
@@ -10208,7 +10208,7 @@ function testEncoderIndent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             };
         };
     }
-function testEncoderSetEscapeHTML(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testEncoderSetEscapeHTML(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _c:C = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.encoding.json.Json.C);
         var _ct:CText = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.encoding.json.Json.CText);
         var _tagStruct:T__struct_38 = ({ valid : (0 : stdgo.StdGoTypes.GoInt), invalid : (0 : stdgo.StdGoTypes.GoInt) } : T__struct_38);
@@ -10247,7 +10247,7 @@ function testEncoderSetEscapeHTML(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
             };
         };
     }
-function testDecoder(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDecoder(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i <= (_streamTest.length), _i++, {
@@ -10279,7 +10279,7 @@ function testDecoder(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             });
         };
     }
-function testDecoderBuffered(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDecoderBuffered(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _r = stdgo.strings.Strings.newReader(("{\"Name\": \"Gopher\"} extra " : stdgo.GoString));
         var _m:T__struct_41 = ({ name : ("" : stdgo.GoString) } : T__struct_41);
         var _d = newDecoder(stdgo.Go.asInterface(_r));
@@ -10317,7 +10317,7 @@ function _nlines(_s:stdgo.GoString, _n:stdgo.StdGoTypes.GoInt):stdgo.GoString {
         };
         return _s?.__copy__();
     }
-function testRawMessage(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testRawMessage(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _data:T__struct_42 = ({ x : (0 : stdgo.StdGoTypes.GoFloat64), id : new stdgo.encoding.json.Json.RawMessage(0, 0), y : (0 : stdgo.StdGoTypes.GoFloat32) } : T__struct_42);
         {};
         {};
@@ -10336,7 +10336,7 @@ function testRawMessage(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _t.fatalf(("Marshal: have %#q want %#q" : stdgo.GoString), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(("{\"X\":0.1,\"Id\":[\"\\u0056\",null],\"Y\":0.2}" : stdgo.GoString)));
         };
     }
-function testNullRawMessage(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNullRawMessage(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _data:T__struct_43 = ({ x : (0 : stdgo.StdGoTypes.GoFloat64), id : new stdgo.encoding.json.Json.RawMessage(0, 0), idPtr : (null : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.RawMessage>), y : (0 : stdgo.StdGoTypes.GoFloat32) } : T__struct_43);
         {};
         var _err:stdgo.Error = unmarshal((("{\"X\":0.1,\"Id\":null,\"IdPtr\":null,\"Y\":0.2}" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_data) : stdgo.StdGoTypes.Ref<T__struct_43>))));
@@ -10360,7 +10360,7 @@ function testNullRawMessage(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             _t.fatalf(("Marshal: have %#q want %#q" : stdgo.GoString), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(("{\"X\":0.1,\"Id\":null,\"IdPtr\":null,\"Y\":0.2}" : stdgo.GoString)));
         };
     }
-function testBlocking(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testBlocking(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__8 => _enc in _blockingTests) {
             var __tmp__ = stdgo.net.Net.pipe(), _r:stdgo.net.Net.Conn = __tmp__._0, _w:stdgo.net.Net.Conn = __tmp__._1;
             stdgo.Go.routine(() -> _w.write((_enc : stdgo.Slice<stdgo.StdGoTypes.GoByte>)));
@@ -10375,7 +10375,7 @@ function testBlocking(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _w.close();
         };
     }
-function testDecodeInStream(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDecodeInStream(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_ci => _tcase in _tokenStreamCases) {
             var _dec = newDecoder(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(_tcase._json?.__copy__())));
             for (_i => _etk in _tcase._expTokens) {
@@ -10383,10 +10383,10 @@ function testDecodeInStream(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
                 var _err:stdgo.Error = (null : stdgo.Error);
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((_etk : T_decodeThis)) : T_decodeThis), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((_etk : T_decodeThis)) : T_decodeThis), _1 : true };
                     } catch(_) {
-                        { value : ({} : stdgo.encoding.json.Json.T_decodeThis), ok : false };
-                    }, _dt = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : ({} : stdgo.encoding.json.Json.T_decodeThis), _1 : false };
+                    }, _dt = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
                         _etk = _dt._v;
                         _err = _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_tk) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>)));
@@ -10400,10 +10400,10 @@ function testDecodeInStream(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
                 };
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((_etk : stdgo.Error)) : stdgo.Error), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((_etk : stdgo.Error)) : stdgo.Error), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.Error), ok : false };
-                    }, _experr = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.Error), _1 : false };
+                    }, _experr = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
                         if ((_err == null) || !stdgo.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_experr))) {
                             _t.errorf(("case %v: Expected error %#v in %q, but was %#v" : stdgo.GoString), stdgo.Go.toInterface(_ci), stdgo.Go.toInterface(_experr), stdgo.Go.toInterface(_tcase._json), stdgo.Go.toInterface(_err));
@@ -10427,7 +10427,7 @@ function testDecodeInStream(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
 /**
     // Test from golang.org/issue/11893
 **/
-function testHTTPDecoding(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testHTTPDecoding(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             {};
@@ -10474,7 +10474,7 @@ function testHTTPDecoding(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             return;
         };
     }
-function testStructTagObjectKey(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testStructTagObjectKey(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__8 => _tt in _structTagObjectKeyTests) {
             var __tmp__ = marshal(_tt._raw), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -10491,10 +10491,10 @@ function testStructTagObjectKey(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
                     if (__value__ == (_tt._key)) {
                         {
                             var __tmp__ = try {
-                                { value : (stdgo.Go.typeAssert((_v : stdgo.GoString)) : stdgo.GoString), ok : true };
+                                { _0 : (stdgo.Go.typeAssert((_v : stdgo.GoString)) : stdgo.GoString), _1 : true };
                             } catch(_) {
-                                { value : ("" : stdgo.GoString), ok : false };
-                            }, _s = __tmp__.value, _ok = __tmp__.ok;
+                                { _0 : ("" : stdgo.GoString), _1 : false };
+                            }, _s = __tmp__._0, _ok = __tmp__._1;
                             if (!_ok || (_s != _tt._value)) {
                                 _t.fatalf(("Unexpected value: %#q, want %v" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_tt._value));
                             };
@@ -10514,7 +10514,7 @@ function _parseTag(_tag:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : T_ta
         var __tmp__ = stdgo.strings.Strings.cut(_tag?.__copy__(), ("," : stdgo.GoString)), _tag:stdgo.GoString = __tmp__._0, _opt:stdgo.GoString = __tmp__._1, __8:Bool = __tmp__._2;
         return { _0 : _tag?.__copy__(), _1 : (_opt : T_tagOptions) };
     }
-function testTagParsing(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTagParsing(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __tmp__ = _parseTag(("field,foobar,foo" : stdgo.GoString)), _name:stdgo.GoString = __tmp__._0, _opts:stdgo.encoding.json.Json.T_tagOptions = __tmp__._1;
         if (_name != (("field" : stdgo.GoString))) {
             _t.fatalf(("name = %q, want field" : stdgo.GoString), stdgo.Go.toInterface(_name));
@@ -11113,7 +11113,7 @@ class T_decodeState_asInterface {
             return (null : stdgo.Error);
         };
         _v = _pv?.__copy__();
-        var _t:stdgo.reflect.Reflect.Type = _v.type();
+        var _t:stdgo.reflect.Reflect.Type_ = _v.type();
         if ((_v.kind() == (20u32 : stdgo.reflect.Reflect.Kind)) && (_v.numMethod() == (0 : stdgo.StdGoTypes.GoInt))) {
             var _oi = _d._objectInterface();
             _v.set(stdgo.reflect.Reflect.valueOf(stdgo.Go.toInterface(_oi))?.__copy__());
@@ -11167,7 +11167,7 @@ class T_decodeState_asInterface {
             var _subv:stdgo.reflect.Reflect.Value = ({} : stdgo.reflect.Reflect.Value);
             var _destring:Bool = false;
             if (_v.kind() == ((21u32 : stdgo.reflect.Reflect.Kind))) {
-                var _elemType:stdgo.reflect.Reflect.Type = _t.elem();
+                var _elemType:stdgo.reflect.Reflect.Type_ = _t.elem();
                 if (!_mapElem.isValid()) {
                     _mapElem = stdgo.reflect.Reflect.new_(_elemType).elem()?.__copy__();
                 } else {
@@ -11246,7 +11246,7 @@ class T_decodeState_asInterface {
                 };
             };
             if (_v.kind() == ((21u32 : stdgo.reflect.Reflect.Kind))) {
-                var _kt:stdgo.reflect.Reflect.Type = _t.key();
+                var _kt:stdgo.reflect.Reflect.Type_ = _t.key();
                 var _kv:stdgo.reflect.Reflect.Value = ({} : stdgo.reflect.Reflect.Value);
                 {
                     var __switchIndex__ = -1;
@@ -11683,7 +11683,7 @@ class T_decodeState_asInterface {
         _d._off = (0 : stdgo.StdGoTypes.GoInt);
         _d._savedError = (null : stdgo.Error);
         if (_d._errorContext != null && ((_d._errorContext : Dynamic).__nil__ == null || !(_d._errorContext : Dynamic).__nil__)) {
-            _d._errorContext.struct_ = (null : stdgo.reflect.Reflect.Type);
+            _d._errorContext.struct_ = (null : stdgo.reflect.Reflect.Type_);
             _d._errorContext.fieldStack = (_d._errorContext.fieldStack.__slice__(0, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.GoString>);
         };
         return _d;
@@ -12220,10 +12220,10 @@ class T_encodeState_asInterface {
                         if (_r != null) {
                             {
                                 var __tmp__ = try {
-                                    { value : (stdgo.Go.typeAssert((_r : T_jsonError)) : T_jsonError), ok : true };
+                                    { _0 : (stdgo.Go.typeAssert((_r : T_jsonError)) : T_jsonError), _1 : true };
                                 } catch(_) {
-                                    { value : ({} : stdgo.encoding.json.Json.T_jsonError), ok : false };
-                                }, _je = __tmp__.value, _ok = __tmp__.ok;
+                                    { _0 : ({} : stdgo.encoding.json.Json.T_jsonError), _1 : false };
+                                }, _je = __tmp__._0, _ok = __tmp__._1;
                                 if (_ok) {
                                     _err = _je._error;
                                 } else {
@@ -12409,7 +12409,7 @@ class T_mapEncoder_asInterface {
                 if (_e._ptrLevel > (1000u32 : stdgo.StdGoTypes.GoUInt)) {
                     var _ptr:stdgo.unsafe.Unsafe.UnsafePointer = _v.unsafePointer();
                     {
-                        var __tmp__ = (_e._ptrSeen != null && _e._ptrSeen.exists(stdgo.Go.toInterface(_ptr)) ? { value : _e._ptrSeen[stdgo.Go.toInterface(_ptr)], ok : true } : { value : ({} : T_unquotedValue), ok : false }), __8:T_unquotedValue = __tmp__.value, _ok:Bool = __tmp__.ok;
+                        var __tmp__ = (_e._ptrSeen != null && _e._ptrSeen.exists(stdgo.Go.toInterface(_ptr)) ? { _0 : _e._ptrSeen[stdgo.Go.toInterface(_ptr)], _1 : true } : { _0 : ({} : T_unquotedValue), _1 : false }), __8:T_unquotedValue = __tmp__._0, _ok:Bool = __tmp__._1;
                         if (_ok) {
                             _e._error(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.encoding.json.Json.UnsupportedValueError(_v?.__copy__(), stdgo.fmt.Fmt.sprintf(("encountered a cycle via %s" : stdgo.GoString), stdgo.Go.toInterface(_v.type()))?.__copy__()) : stdgo.encoding.json.Json.UnsupportedValueError)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.UnsupportedValueError>)));
                         };
@@ -12499,7 +12499,7 @@ class T_sliceEncoder_asInterface {
                 if (_e._ptrLevel > (1000u32 : stdgo.StdGoTypes.GoUInt)) {
                     var _ptr:T__struct_20 = ({ _ptr : stdgo.Go.toInterface(_v.unsafePointer()), _len : _v.len() } : T__struct_20);
                     {
-                        var __tmp__ = (_e._ptrSeen != null && _e._ptrSeen.exists(stdgo.Go.toInterface(stdgo.Go.asInterface(_ptr))) ? { value : _e._ptrSeen[stdgo.Go.toInterface(stdgo.Go.asInterface(_ptr))], ok : true } : { value : ({} : T_unquotedValue), ok : false }), __8:T_unquotedValue = __tmp__.value, _ok:Bool = __tmp__.ok;
+                        var __tmp__ = (_e._ptrSeen != null && _e._ptrSeen.exists(stdgo.Go.toInterface(stdgo.Go.asInterface(_ptr))) ? { _0 : _e._ptrSeen[stdgo.Go.toInterface(stdgo.Go.asInterface(_ptr))], _1 : true } : { _0 : ({} : T_unquotedValue), _1 : false }), __8:T_unquotedValue = __tmp__._0, _ok:Bool = __tmp__._1;
                         if (_ok) {
                             _e._error(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.encoding.json.Json.UnsupportedValueError(_v?.__copy__(), stdgo.fmt.Fmt.sprintf(("encountered a cycle via %s" : stdgo.GoString), stdgo.Go.toInterface(_v.type()))?.__copy__()) : stdgo.encoding.json.Json.UnsupportedValueError)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.UnsupportedValueError>)));
                         };
@@ -12591,7 +12591,7 @@ class T_ptrEncoder_asInterface {
                 if (_e._ptrLevel > (1000u32 : stdgo.StdGoTypes.GoUInt)) {
                     var _ptr:stdgo.StdGoTypes.AnyInterface = _v.interface_();
                     {
-                        var __tmp__ = (_e._ptrSeen != null && _e._ptrSeen.exists(_ptr) ? { value : _e._ptrSeen[_ptr], ok : true } : { value : ({} : T_unquotedValue), ok : false }), __8:T_unquotedValue = __tmp__.value, _ok:Bool = __tmp__.ok;
+                        var __tmp__ = (_e._ptrSeen != null && _e._ptrSeen.exists(_ptr) ? { _0 : _e._ptrSeen[_ptr], _1 : true } : { _0 : ({} : T_unquotedValue), _1 : false }), __8:T_unquotedValue = __tmp__._0, _ok:Bool = __tmp__._1;
                         if (_ok) {
                             _e._error(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.encoding.json.Json.UnsupportedValueError(_v?.__copy__(), stdgo.fmt.Fmt.sprintf(("encountered a cycle via %s" : stdgo.GoString), stdgo.Go.toInterface(_v.type()))?.__copy__()) : stdgo.encoding.json.Json.UnsupportedValueError)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.UnsupportedValueError>)));
                         };
@@ -12671,10 +12671,10 @@ class T_reflectWithString_asInterface {
         };
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((_w._k.interface_() : stdgo.encoding.Encoding.TextMarshaler)) : stdgo.encoding.Encoding.TextMarshaler), ok : true };
+                { _0 : (stdgo.Go.typeAssert((_w._k.interface_() : stdgo.encoding.Encoding.TextMarshaler)) : stdgo.encoding.Encoding.TextMarshaler), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.encoding.Encoding.TextMarshaler), ok : false };
-            }, _tm = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.encoding.Encoding.TextMarshaler), _1 : false };
+            }, _tm = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 if ((_w._k.kind() == (22u32 : stdgo.reflect.Reflect.Kind)) && _w._k.isNil()) {
                     return (null : stdgo.Error);

@@ -244,8 +244,8 @@ var __3 : stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 **/
 @:named @:using(stdgo.testing.fstest.Fstest.MapFS_static_extension) typedef MapFS = stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<stdgo.testing.fstest.Fstest.MapFile>>;
 @:named @:using(stdgo.testing.fstest.Fstest.T_shuffledFS_static_extension) typedef T_shuffledFS = stdgo.testing.fstest.Fstest.MapFS;
-function testMapFS(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {}
-function testMapFSChmodDot(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void throw ":testing.fstest.testMapFSChmodDot is not yet implemented";
+function testMapFS(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {}
+function testMapFSChmodDot(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":testing.fstest.testMapFSChmodDot is not yet implemented";
 /**
     // TestFS tests a file system implementation.
     // It walks the entire tree of files in fsys,
@@ -278,9 +278,9 @@ function _formatInfoEntry(_info:stdgo.io.fs.Fs.FileInfo):stdgo.GoString throw ":
     // formatInfo formats an fs.FileInfo into a string for error messages and comparison.
 **/
 function _formatInfo(_info:stdgo.io.fs.Fs.FileInfo):stdgo.GoString throw ":testing.fstest._formatInfo is not yet implemented";
-function testSymlink(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void throw ":testing.fstest.testSymlink is not yet implemented";
-function testDash(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void throw ":testing.fstest.testDash is not yet implemented";
-function testShuffledFS(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void throw ":testing.fstest.testShuffledFS is not yet implemented";
+function testSymlink(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":testing.fstest.testSymlink is not yet implemented";
+function testDash(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":testing.fstest.testDash is not yet implemented";
+function testShuffledFS(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":testing.fstest.testShuffledFS is not yet implemented";
 class T_fsOnly_asInterface {
     @:embedded
     public dynamic function open(_pattern:stdgo.GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return __self__.value.open(_pattern);

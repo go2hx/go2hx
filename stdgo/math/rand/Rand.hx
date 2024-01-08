@@ -2066,10 +2066,10 @@ function _newSource(_seed:stdgo.StdGoTypes.GoInt64):stdgo.StdGoTypes.Ref<T_rngSo
 **/
 function new_(_src:Source):stdgo.StdGoTypes.Ref<Rand> {
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_src) : Source64)) : Source64), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_src) : Source64)) : Source64), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.math.rand.Rand.Source64), ok : false };
-        }, _s64 = __tmp__.value, __6 = __tmp__.ok;
+            { _0 : (null : stdgo.math.rand.Rand.Source64), _1 : false };
+        }, _s64 = __tmp__._0, __6 = __tmp__._1;
         return (stdgo.Go.setRef(({ _src : _src, _s64 : _s64 } : stdgo.math.rand.Rand.Rand)) : stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>);
     }
 function _read(_p:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _src:Source, _readVal:stdgo.Pointer<stdgo.StdGoTypes.GoInt64>, _readPos:stdgo.Pointer<stdgo.StdGoTypes.GoInt8>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
@@ -2077,10 +2077,10 @@ function _read(_p:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _src:Source, _readVal:st
         var _pos:stdgo.StdGoTypes.GoInt8 = _readPos.value;
         var _val:stdgo.StdGoTypes.GoInt64 = _readVal.value;
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_src) : stdgo.StdGoTypes.Ref<T_rngSource>)) : stdgo.StdGoTypes.Ref<T_rngSource>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_src) : stdgo.StdGoTypes.Ref<T_rngSource>)) : stdgo.StdGoTypes.Ref<T_rngSource>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.T_rngSource>), ok : false };
-        }, _rng = __tmp__.value, __6 = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.T_rngSource>), _1 : false };
+        }, _rng = __tmp__._0, __6 = __tmp__._1;
         {
             _n = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_n < (_p.length), _n++, {
@@ -2152,10 +2152,10 @@ function seed(_seed:stdgo.StdGoTypes.GoInt64):Void {
         if (_orig != null && ((_orig : Dynamic).__nil__ == null || !(_orig : Dynamic).__nil__)) {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_orig._src) : stdgo.StdGoTypes.Ref<T_lockedSource>)) : stdgo.StdGoTypes.Ref<T_lockedSource>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_orig._src) : stdgo.StdGoTypes.Ref<T_lockedSource>)) : stdgo.StdGoTypes.Ref<T_lockedSource>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.T_lockedSource>), ok : false };
-                }, __12 = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.T_lockedSource>), _1 : false };
+                }, __12 = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
                     _orig.seed(_seed);
                     return;
@@ -2673,10 +2673,10 @@ class Rand_asInterface {
         @:recv var _r:stdgo.StdGoTypes.Ref<Rand> = _r;
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_r._src) : stdgo.StdGoTypes.Ref<T_lockedSource>)) : stdgo.StdGoTypes.Ref<T_lockedSource>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_r._src) : stdgo.StdGoTypes.Ref<T_lockedSource>)) : stdgo.StdGoTypes.Ref<T_lockedSource>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.T_lockedSource>), ok : false };
-            }, _lk = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.T_lockedSource>), _1 : false };
+            }, _lk = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 _lk._seedPos(_seed, stdgo.Go.pointer(_r._readPos));
                 return;

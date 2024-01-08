@@ -15,10 +15,10 @@ function example_retrievePositionInfo():Void {
             var _kind:stdgo.GoString = ("func" : stdgo.GoString);
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_decl) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_decl) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>), ok : false };
-                }, _gen = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>), _1 : false };
+                }, _gen = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
                     _kind = (_gen.tok.string() : stdgo.GoString)?.__copy__();
                 };

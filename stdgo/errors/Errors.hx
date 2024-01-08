@@ -77,7 +77,7 @@ var errUnsupported : stdgo.Error = new_(("unsupported operation" : stdgo.GoStrin
     
     
 **/
-var _errorType : stdgo.internal.reflectlite.Reflectlite.Type = stdgo.internal.reflectlite.Reflectlite.typeOf(stdgo.Go.toInterface((null : stdgo.StdGoTypes.Ref<stdgo.Error>))).elem();
+var _errorType : stdgo.internal.reflectlite.Reflectlite.Type_ = stdgo.internal.reflectlite.Reflectlite.typeOf(stdgo.Go.toInterface((null : stdgo.StdGoTypes.Ref<stdgo.Error>))).elem();
 /**
     
     
@@ -206,10 +206,10 @@ function join(_errs:haxe.Rest<stdgo.Error>):stdgo.Error {
 **/
 function unwrap(_err:stdgo.Error):stdgo.Error {
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : T__interface_0)) : T__interface_0), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : T__interface_0)) : T__interface_0), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.errors.Errors.T__interface_0), ok : false };
-        }, _u = __tmp__.value, _ok = __tmp__.ok;
+            { _0 : (null : stdgo.errors.Errors.T__interface_0), _1 : false };
+        }, _u = __tmp__._0, _ok = __tmp__._1;
         if (!_ok) {
             return (null : stdgo.Error);
         };
@@ -245,10 +245,10 @@ function is_(_err:stdgo.Error, _target:stdgo.Error):Bool {
             };
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : T__interface_1)) : T__interface_1), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : T__interface_1)) : T__interface_1), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.errors.Errors.T__interface_1), ok : false };
-                }, _x = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.errors.Errors.T__interface_1), _1 : false };
+                }, _x = __tmp__._0, _ok = __tmp__._1;
                 if (_ok && _x.is_(_target)) {
                     return true;
                 };
@@ -303,11 +303,11 @@ function as(_err:stdgo.Error, _target:stdgo.StdGoTypes.AnyInterface):Bool {
             throw stdgo.Go.toInterface(("errors: target cannot be nil" : stdgo.GoString));
         };
         var _val:stdgo.internal.reflectlite.Reflectlite.Value = stdgo.internal.reflectlite.Reflectlite.valueOf(_target)?.__copy__();
-        var _typ:stdgo.internal.reflectlite.Reflectlite.Type = _val.type();
+        var _typ:stdgo.internal.reflectlite.Reflectlite.Type_ = _val.type();
         if ((_typ.kind() != (22u32 : stdgo.internal.abi.Abi.Kind)) || _val.isNil()) {
             throw stdgo.Go.toInterface(("errors: target must be a non-nil pointer" : stdgo.GoString));
         };
-        var _targetType:stdgo.internal.reflectlite.Reflectlite.Type = _typ.elem();
+        var _targetType:stdgo.internal.reflectlite.Reflectlite.Type_ = _typ.elem();
         if ((_targetType.kind() != (20u32 : stdgo.internal.abi.Abi.Kind)) && !_targetType.implements_(_errorType)) {
             throw stdgo.Go.toInterface(("errors: *target must be interface or implement error" : stdgo.GoString));
         };
@@ -318,10 +318,10 @@ function as(_err:stdgo.Error, _target:stdgo.StdGoTypes.AnyInterface):Bool {
             };
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : T__interface_3)) : T__interface_3), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : T__interface_3)) : T__interface_3), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.errors.Errors.T__interface_3), ok : false };
-                }, _x = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.errors.Errors.T__interface_3), _1 : false };
+                }, _x = __tmp__._0, _ok = __tmp__._1;
                 if (_ok && _x.as(_target)) {
                     return true;
                 };

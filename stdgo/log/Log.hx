@@ -536,7 +536,7 @@ function output(_calldepth:stdgo.StdGoTypes.GoInt, _s:stdgo.GoString):stdgo.Erro
 /**
     // Test using Println("hello", 23, "world") or using Printf("hello %d world", 23)
 **/
-function _testPrint(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _flag:stdgo.StdGoTypes.GoInt, _prefix:stdgo.GoString, _pattern:stdgo.GoString, _useFormat:Bool):Void {
+function _testPrint(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _flag:stdgo.StdGoTypes.GoInt, _prefix:stdgo.GoString, _pattern:stdgo.GoString, _useFormat:Bool):Void {
         var _buf = (stdgo.Go.setRef(({} : stdgo.strings.Strings.Builder)) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>);
         setOutput(stdgo.Go.asInterface(_buf));
         setFlags(_flag);
@@ -558,7 +558,7 @@ function _testPrint(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _flag:stdg
         };
         setOutput(stdgo.Go.asInterface(stdgo.os.Os.stderr));
     }
-function testDefault(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDefault(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _got = default_();
             if (_got != (_std)) {
@@ -566,13 +566,13 @@ function testDefault(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testAll(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAll(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__8 => _testcase in _tests) {
             _testPrint(_t, _testcase._flag, _testcase._prefix?.__copy__(), _testcase._pattern?.__copy__(), false);
             _testPrint(_t, _testcase._flag, _testcase._prefix?.__copy__(), _testcase._pattern?.__copy__(), true);
         };
     }
-function testOutput(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testOutput(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _b:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
         var _l = new_(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), stdgo.Go.str()?.__copy__(), (0 : stdgo.StdGoTypes.GoInt));
@@ -584,12 +584,12 @@ function testOutput(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testNonNewLogger(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNonNewLogger(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _l:Logger = ({} : stdgo.log.Log.Logger);
         _l.setOutput(stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)));
         _l.print(stdgo.Go.toInterface(("hello" : stdgo.GoString)));
     }
-function testOutputRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testOutputRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
         var _l = new_(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), stdgo.Go.str()?.__copy__(), (0 : stdgo.StdGoTypes.GoInt));
         var _wg:stdgo.sync.Sync.WaitGroup = ({} : stdgo.sync.Sync.WaitGroup);
@@ -631,7 +631,7 @@ function testOutputRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         };
         _wg.wait_();
     }
-function testFlagAndPrefixSetting(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testFlagAndPrefixSetting(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
         var _l = new_(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), ("Test:" : stdgo.GoString), (3 : stdgo.StdGoTypes.GoInt));
         var _f:stdgo.StdGoTypes.GoInt = _l.flags();
@@ -672,7 +672,7 @@ function testFlagAndPrefixSetting(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
             };
         };
     }
-function testUTCFlag(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUTCFlag(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _b:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
         var _l = new_(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), ("Test:" : stdgo.GoString), (3 : stdgo.StdGoTypes.GoInt));
         _l.setFlags((35 : stdgo.StdGoTypes.GoInt));
@@ -690,7 +690,7 @@ function testUTCFlag(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         };
         _t.errorf(("got %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
     }
-function testEmptyPrintCreatesLine(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testEmptyPrintCreatesLine(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _b:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
         var _l = new_(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), ("Header:" : stdgo.GoString), (3 : stdgo.StdGoTypes.GoInt));
         _l.print();
@@ -709,7 +709,7 @@ function testEmptyPrintCreatesLine(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
             };
         };
     }
-function testDiscard(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDiscard(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _l = new_(stdgo.io.Io.discard, stdgo.Go.str()?.__copy__(), (0 : stdgo.StdGoTypes.GoInt));
         var _s:stdgo.GoString = stdgo.strings.Strings.repeat(("a" : stdgo.GoString), (102400 : stdgo.StdGoTypes.GoInt))?.__copy__();
         var _c:stdgo.StdGoTypes.GoFloat64 = stdgo.testing.Testing.allocsPerRun((100 : stdgo.StdGoTypes.GoInt), function():Void {

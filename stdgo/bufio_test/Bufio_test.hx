@@ -602,7 +602,7 @@ function _readBytes(_buf:stdgo.StdGoTypes.Ref<Reader>):stdgo.GoString {
         };
         return ((_b.__slice__((0 : stdgo.StdGoTypes.GoInt), _nb) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString)?.__copy__();
     }
-function testReaderSimple(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testReaderSimple(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _data:stdgo.GoString = ("hello world" : stdgo.GoString);
         var _b = newReader(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(_data?.__copy__())));
         {
@@ -652,7 +652,7 @@ function _reads(_buf:stdgo.StdGoTypes.Ref<Reader>, _m:stdgo.StdGoTypes.GoInt):st
         };
         return ((_b.__slice__((0 : stdgo.StdGoTypes.GoInt), _nb) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString)?.__copy__();
     }
-function testReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _texts:stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 31) ("" : stdgo.GoString)]);
         var _str:stdgo.GoString = stdgo.Go.str()?.__copy__();
         var _all:stdgo.GoString = stdgo.Go.str()?.__copy__();
@@ -696,7 +696,7 @@ function testReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             });
         };
     }
-function testZeroReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testZeroReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _z:T_zeroReader = ({} : stdgo.bufio_test.Bufio_test.T_zeroReader);
         var _r = newReader(stdgo.Go.asInterface(_z));
         var _c = new stdgo.Chan<stdgo.Error>(0, () -> (null : stdgo.Error));
@@ -736,7 +736,7 @@ function testZeroReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function _readRuneSegments(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _segments:stdgo.Slice<stdgo.GoString>):Void {
+function _readRuneSegments(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _segments:stdgo.Slice<stdgo.GoString>):Void {
         var _got:stdgo.GoString = stdgo.Go.str()?.__copy__();
         var _want:stdgo.GoString = stdgo.strings.Strings.join(_segments, stdgo.Go.str()?.__copy__())?.__copy__();
         var _r = newReader(stdgo.Go.asInterface((stdgo.Go.setRef(({ _data : _segments } : stdgo.bufio_test.Bufio_test.StringReader)) : stdgo.StdGoTypes.Ref<stdgo.bufio_test.Bufio_test.StringReader>)));
@@ -754,12 +754,12 @@ function _readRuneSegments(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _se
             _t.errorf(("segments=%v got=%s want=%s" : stdgo.GoString), stdgo.Go.toInterface(_segments), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
         };
     }
-function testReadRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testReadRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _s in _segmentList) {
             _readRuneSegments(_t, _s);
         };
     }
-function testUnreadRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnreadRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _segments = (new stdgo.Slice<stdgo.GoString>(2, 2, ("Hello, world:" : stdgo.GoString), ("日本語" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
         var _r = newReader(stdgo.Go.asInterface((stdgo.Go.setRef(({ _data : _segments } : stdgo.bufio_test.Bufio_test.StringReader)) : stdgo.StdGoTypes.Ref<stdgo.bufio_test.Bufio_test.StringReader>)));
         var _got:stdgo.GoString = stdgo.Go.str()?.__copy__();
@@ -791,7 +791,7 @@ function testUnreadRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _t.errorf(("got %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
         };
     }
-function testNoUnreadRuneAfterPeek(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNoUnreadRuneAfterPeek(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _br = newReader(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(("example" : stdgo.GoString))));
         _br.readRune();
         _br.peek((1 : stdgo.StdGoTypes.GoInt));
@@ -802,7 +802,7 @@ function testNoUnreadRuneAfterPeek(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
             };
         };
     }
-function testNoUnreadByteAfterPeek(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNoUnreadByteAfterPeek(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _br = newReader(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(("example" : stdgo.GoString))));
         _br.readByte();
         _br.peek((1 : stdgo.StdGoTypes.GoInt));
@@ -813,7 +813,7 @@ function testNoUnreadByteAfterPeek(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
             };
         };
     }
-function testNoUnreadRuneAfterDiscard(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNoUnreadRuneAfterDiscard(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _br = newReader(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(("example" : stdgo.GoString))));
         _br.readRune();
         _br.discard((1 : stdgo.StdGoTypes.GoInt));
@@ -824,7 +824,7 @@ function testNoUnreadRuneAfterDiscard(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Test
             };
         };
     }
-function testNoUnreadByteAfterDiscard(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNoUnreadByteAfterDiscard(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _br = newReader(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(("example" : stdgo.GoString))));
         _br.readByte();
         _br.discard((1 : stdgo.StdGoTypes.GoInt));
@@ -835,7 +835,7 @@ function testNoUnreadByteAfterDiscard(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Test
             };
         };
     }
-function testNoUnreadRuneAfterWriteTo(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNoUnreadRuneAfterWriteTo(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _br = newReader(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(("example" : stdgo.GoString))));
         _br.writeTo(stdgo.io.Io.discard);
         {
@@ -845,7 +845,7 @@ function testNoUnreadRuneAfterWriteTo(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Test
             };
         };
     }
-function testNoUnreadByteAfterWriteTo(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNoUnreadByteAfterWriteTo(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _br = newReader(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(("example" : stdgo.GoString))));
         _br.writeTo(stdgo.io.Io.discard);
         {
@@ -855,7 +855,7 @@ function testNoUnreadByteAfterWriteTo(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Test
             };
         };
     }
-function testUnreadByte(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnreadByte(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _segments = (new stdgo.Slice<stdgo.GoString>(2, 2, ("Hello, " : stdgo.GoString), ("world" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
         var _r = newReader(stdgo.Go.asInterface((stdgo.Go.setRef(({ _data : _segments } : stdgo.bufio_test.Bufio_test.StringReader)) : stdgo.StdGoTypes.Ref<stdgo.bufio_test.Bufio_test.StringReader>)));
         var _got:stdgo.GoString = stdgo.Go.str()?.__copy__();
@@ -887,7 +887,7 @@ function testUnreadByte(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _t.errorf(("got %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
         };
     }
-function testUnreadByteMultiple(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnreadByteMultiple(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _segments = (new stdgo.Slice<stdgo.GoString>(2, 2, ("Hello, " : stdgo.GoString), ("world" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
         var _data:stdgo.GoString = stdgo.strings.Strings.join(_segments, stdgo.Go.str()?.__copy__())?.__copy__();
         {
@@ -923,7 +923,7 @@ function testUnreadByteMultiple(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
             });
         };
     }
-function testUnreadByteOthers(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnreadByteOthers(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _readers:stdgo.Slice<(stdgo.StdGoTypes.Ref<stdgo.bufio.Bufio.Reader>, stdgo.StdGoTypes.GoUInt8) -> { var _0 : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>; var _1 : stdgo.Error; }> = (new stdgo.Slice<(stdgo.StdGoTypes.Ref<stdgo.bufio.Bufio.Reader>, stdgo.StdGoTypes.GoUInt8) -> { var _0 : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>; var _1 : stdgo.Error; }>(3, 3, Reader_static_extension.readBytes, Reader_static_extension.readSlice, function(_r:stdgo.StdGoTypes.Ref<Reader>, _delim:stdgo.StdGoTypes.GoByte):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _1 : stdgo.Error; } {
             var __tmp__ = _r.readString(_delim), _data:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             return { _0 : (_data : stdgo.Slice<stdgo.StdGoTypes.GoByte>), _1 : _err };
@@ -978,7 +978,7 @@ function testUnreadByteOthers(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
 /**
     // Test that UnreadRune fails if the preceding operation was not a ReadRune.
 **/
-function testUnreadRuneError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnreadRuneError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _buf = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((3 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
         var _r = newReader(stdgo.Go.asInterface((stdgo.Go.setRef(({ _data : (new stdgo.Slice<stdgo.GoString>(1, 1, ("日本語日本語日本語" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>) } : stdgo.bufio_test.Bufio_test.StringReader)) : stdgo.StdGoTypes.Ref<stdgo.bufio_test.Bufio_test.StringReader>)));
         if (_r.unreadRune() == null) {
@@ -1072,7 +1072,7 @@ function testUnreadRuneError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
             _t.error(stdgo.Go.toInterface(("expected error after ReadSlice (4)" : stdgo.GoString)));
         };
     }
-function testUnreadRuneAtEOF(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnreadRuneAtEOF(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _r = newReader(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(("x" : stdgo.GoString))));
         _r.readRune();
         _r.readRune();
@@ -1084,7 +1084,7 @@ function testUnreadRuneAtEOF(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
             _t.error(stdgo.Go.toInterface(("expected EOF; got" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
     }
-function testReadWriteRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testReadWriteRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _byteBuf = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
         var _w = newWriter(stdgo.Go.asInterface(_byteBuf));
@@ -1115,7 +1115,7 @@ function testReadWriteRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             });
         };
     }
-function testWriteInvalidRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWriteInvalidRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _r in (new stdgo.Slice<stdgo.StdGoTypes.GoInt32>(2, 2, (-1 : stdgo.StdGoTypes.GoInt32), (1114112 : stdgo.StdGoTypes.GoInt32)) : stdgo.Slice<stdgo.StdGoTypes.GoInt32>)) {
             var _buf:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
             var _w = newWriter(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)));
@@ -1129,7 +1129,7 @@ function testWriteInvalidRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
             };
         };
     }
-function testReadStringAllocs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testReadStringAllocs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _r = stdgo.strings.Strings.newReader(("       foo       foo        42        42        42        42        42        42        42        42       4.2       4.2       4.2       4.2\n" : stdgo.GoString));
         var _buf = newReader(stdgo.Go.asInterface(_r));
         var _allocs:stdgo.StdGoTypes.GoFloat64 = stdgo.testing.Testing.allocsPerRun((100 : stdgo.StdGoTypes.GoInt), function():Void {
@@ -1144,7 +1144,7 @@ function testReadStringAllocs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
             _t.errorf(("Unexpected number of allocations, got %f, want 1" : stdgo.GoString), stdgo.Go.toInterface(_allocs));
         };
     }
-function testWriter(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWriter(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _data:stdgo.GoArray<stdgo.StdGoTypes.GoByte> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(...[for (i in 0 ... 8192) (0 : stdgo.StdGoTypes.GoUInt8)]);
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -1194,7 +1194,7 @@ function testWriter(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             });
         };
     }
-function testWriterAppend(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWriterAppend(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _got = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
         var _want:stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
         var _rn = stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource((0i64 : stdgo.StdGoTypes.GoInt64)));
@@ -1220,7 +1220,7 @@ function testWriterAppend(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             _t.errorf(("output mismatch:\ngot  %s\nwant %s" : stdgo.GoString), stdgo.Go.toInterface(_got.bytes()), stdgo.Go.toInterface(_want));
         };
     }
-function testWriteErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWriteErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _w in _errorWriterTests) {
             var _buf = newWriter(stdgo.Go.asInterface(_w));
             var __tmp__ = _buf.write((("hello world" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>)), __1:stdgo.StdGoTypes.GoInt = __tmp__._0, _e:stdgo.Error = __tmp__._1;
@@ -1239,7 +1239,7 @@ function testWriteErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
             };
         };
     }
-function testNewReaderSizeIdempotent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNewReaderSizeIdempotent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _b = newReaderSize(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(("hello world" : stdgo.GoString))), (1000 : stdgo.StdGoTypes.GoInt));
         var _b1 = newReaderSize(stdgo.Go.asInterface(_b), (1000 : stdgo.StdGoTypes.GoInt));
@@ -1251,7 +1251,7 @@ function testNewReaderSizeIdempotent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testi
             _t.error(stdgo.Go.toInterface(("NewReaderSize did not enlarge buffer" : stdgo.GoString)));
         };
     }
-function testNewWriterSizeIdempotent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNewWriterSizeIdempotent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _b = newWriterSize(stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), (1000 : stdgo.StdGoTypes.GoInt));
         var _b1 = newWriterSize(stdgo.Go.asInterface(_b), (1000 : stdgo.StdGoTypes.GoInt));
@@ -1263,7 +1263,7 @@ function testNewWriterSizeIdempotent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testi
             _t.error(stdgo.Go.toInterface(("NewWriterSize did not enlarge buffer" : stdgo.GoString)));
         };
     }
-function testWriteString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWriteString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _buf = (stdgo.Go.setRef(({} : stdgo.strings.Strings.Builder)) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>);
         var _b = newWriterSize(stdgo.Go.asInterface(_buf), (8 : stdgo.StdGoTypes.GoInt));
@@ -1283,7 +1283,7 @@ function testWriteString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
             _t.errorf(("WriteString wants %q gets %q" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface((_buf.string() : stdgo.GoString)));
         };
     }
-function testWriteStringStringWriter(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWriteStringStringWriter(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         {
             var _tw = (stdgo.Go.setRef((new stdgo.bufio_test.Bufio_test.T_teststringwriter() : stdgo.bufio_test.Bufio_test.T_teststringwriter)) : stdgo.StdGoTypes.Ref<stdgo.bufio_test.Bufio_test.T_teststringwriter>);
@@ -1318,7 +1318,7 @@ function testWriteStringStringWriter(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testi
             _tw._check(_t, ("abc12345" : stdgo.GoString), ("6789012345" : stdgo.GoString));
         };
     }
-function testBufferFull(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testBufferFull(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _buf = newReaderSize(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(("And now, hello, world! It is the time for all good men to come to the aid of their party" : stdgo.GoString))), (16 : stdgo.StdGoTypes.GoInt));
         var __tmp__ = _buf.readSlice((33 : stdgo.StdGoTypes.GoUInt8)), _line:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -1334,7 +1334,7 @@ function testBufferFull(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _t.errorf(("second ReadSlice(,) = %q, %v" : stdgo.GoString), stdgo.Go.toInterface(_line), stdgo.Go.toInterface(_err));
         };
     }
-function testPeek(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testPeek(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _p = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((10 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
         var _buf = newReaderSize(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(("abcdefghijklmnop" : stdgo.GoString))), (16 : stdgo.StdGoTypes.GoInt));
         {
@@ -1435,14 +1435,14 @@ function testPeek(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testPeekThenUnreadRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testPeekThenUnreadRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _r = newReader(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(("x" : stdgo.GoString))));
         _r.readRune();
         _r.peek((1 : stdgo.StdGoTypes.GoInt));
         _r.unreadRune();
         _r.readRune();
     }
-function _testReadLine(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _input:stdgo.Slice<stdgo.StdGoTypes.GoByte>):Void {
+function _testReadLine(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _input:stdgo.Slice<stdgo.StdGoTypes.GoByte>):Void {
         {
             var _stride:stdgo.StdGoTypes.GoInt = (1 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_stride < (2 : stdgo.StdGoTypes.GoInt), _stride++, {
@@ -1477,11 +1477,11 @@ function _testReadLine(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _input:
             });
         };
     }
-function testReadLine(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testReadLine(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         _testReadLine(_t, _testInput);
         _testReadLine(_t, _testInputrn);
     }
-function testLineTooLong(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testLineTooLong(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _data = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((0 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -1525,7 +1525,7 @@ function testLineTooLong(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
             _t.errorf(("expected no more lines: %x %s" : stdgo.GoString), stdgo.Go.toInterface(_line), stdgo.Go.toInterface(_err));
         };
     }
-function testReadAfterLines(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testReadAfterLines(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _line1:stdgo.GoString = ("this is line1" : stdgo.GoString);
         var _restData:stdgo.GoString = ("this is line2\nthis is line 3\n" : stdgo.GoString);
         var _inbuf = stdgo.bytes.Bytes.newReader((_line1 + ("\n" : stdgo.GoString)?.__copy__() + _restData?.__copy__() : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
@@ -1544,14 +1544,14 @@ function testReadAfterLines(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             _t.errorf(("bad result for Read: got %q; expected %q" : stdgo.GoString), stdgo.Go.toInterface((_outbuf.string() : stdgo.GoString)), stdgo.Go.toInterface(_restData));
         };
     }
-function testReadEmptyBuffer(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testReadEmptyBuffer(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _l = newReaderSize(stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), (16 : stdgo.StdGoTypes.GoInt));
         var __tmp__ = _l.readLine(), _line:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _isPrefix:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo.io.Io.eof))) {
             _t.errorf(("expected EOF from ReadLine, got \'%s\' %t %s" : stdgo.GoString), stdgo.Go.toInterface(_line), stdgo.Go.toInterface(_isPrefix), stdgo.Go.toInterface(_err));
         };
     }
-function testLinesAfterRead(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testLinesAfterRead(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _l = newReaderSize(stdgo.Go.asInterface(stdgo.bytes.Bytes.newReader((("foo" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))), (16 : stdgo.StdGoTypes.GoInt));
         var __tmp__ = stdgo.io.Io.readAll(stdgo.Go.asInterface(_l)), __0:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -1563,7 +1563,7 @@ function testLinesAfterRead(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             _t.errorf(("expected EOF from ReadLine, got \'%s\' %t %s" : stdgo.GoString), stdgo.Go.toInterface(_line), stdgo.Go.toInterface(_isPrefix), stdgo.Go.toInterface(_err));
         };
     }
-function testReadLineNonNilLineOrError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testReadLineNonNilLineOrError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _r = newReader(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(("line 1\n" : stdgo.GoString))));
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -1575,12 +1575,12 @@ function testReadLineNonNilLineOrError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Tes
             });
         };
     }
-function testReadLineNewlines(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testReadLineNewlines(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _e in _readLineNewlinesTests) {
             _testReadLineNewlines(_t, _e._input?.__copy__(), _e._expect);
         };
     }
-function _testReadLineNewlines(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _input:stdgo.GoString, _expect:stdgo.Slice<T_readLineResult>):Void {
+function _testReadLineNewlines(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _input:stdgo.GoString, _expect:stdgo.Slice<T_readLineResult>):Void {
         var _b = newReaderSize(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(_input?.__copy__())), (16 : stdgo.StdGoTypes.GoInt));
         for (_i => _e in _expect) {
             var __tmp__ = _b.readLine(), _line:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _isPrefix:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
@@ -1608,7 +1608,7 @@ function _createTestInput(_n:stdgo.StdGoTypes.GoInt):stdgo.Slice<stdgo.StdGoType
         };
         return _input;
     }
-function testReaderWriteTo(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testReaderWriteTo(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _input = _createTestInput((8192 : stdgo.StdGoTypes.GoInt));
         var _r = newReader(stdgo.Go.asInterface((new stdgo.bufio_test.Bufio_test.T_onlyReader(stdgo.Go.asInterface(stdgo.bytes.Bytes.newReader(_input))) : stdgo.bufio_test.Bufio_test.T_onlyReader)));
         var _w = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
@@ -1624,7 +1624,7 @@ function testReaderWriteTo(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             };
         };
     }
-function testReaderWriteToErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testReaderWriteToErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_i => _rw in _errorWriterToTests) {
             var _r = newReader(stdgo.Go.asInterface(_rw));
             {
@@ -1635,7 +1635,7 @@ function testReaderWriteToErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
             };
         };
     }
-function testWriterReadFrom(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWriterReadFrom(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _ws = (new stdgo.Slice<stdgo.io.Io.Writer -> stdgo.io.Io.Writer>(2, 2, function(_w:stdgo.io.Io.Writer):stdgo.io.Io.Writer {
             return stdgo.Go.asInterface((new stdgo.bufio_test.Bufio_test.T_onlyWriter(_w) : stdgo.bufio_test.Bufio_test.T_onlyWriter));
         }, function(_w:stdgo.io.Io.Writer):stdgo.io.Io.Writer {
@@ -1673,7 +1673,7 @@ function testWriterReadFrom(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             };
         };
     }
-function testWriterReadFromErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWriterReadFromErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_i => _rw in _errorReaderFromTests) {
             var _w = newWriter(stdgo.Go.asInterface(_rw));
             {
@@ -1690,7 +1690,7 @@ function testWriterReadFromErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
     // buffering writes to a network socket, excessive network writes should be
     // avoided.
 **/
-function testWriterReadFromCounts(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWriterReadFromCounts(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _w0:T_writeCountingDiscard = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.bufio_test.Bufio_test.T_writeCountingDiscard);
         var _b0 = newWriterSize(stdgo.Go.asInterface(stdgo.Go.pointer(_w0)), (1234 : stdgo.StdGoTypes.GoInt));
         _b0.writeString(stdgo.strings.Strings.repeat(("x" : stdgo.GoString), (1000 : stdgo.StdGoTypes.GoInt))?.__copy__());
@@ -1733,7 +1733,7 @@ function testWriterReadFromCounts(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
             _t.fatalf(("flush 1200 + 1389 \'x\'s: got %d writes, want 3" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_w1)));
         };
     }
-function testNegativeRead(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNegativeRead(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _b = newReader(stdgo.Go.asInterface(stdgo.Go.pointer(((0 : stdgo.StdGoTypes.GoInt) : stdgo.bufio_test.Bufio_test.T_negativeReader))));
@@ -1783,7 +1783,7 @@ function testNegativeRead(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             return;
         };
     }
-function testReaderClearError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testReaderClearError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _r = (stdgo.Go.setRef((new stdgo.bufio_test.Bufio_test.T_errorThenGoodReader() : stdgo.bufio_test.Bufio_test.T_errorThenGoodReader)) : stdgo.StdGoTypes.Ref<stdgo.bufio_test.Bufio_test.T_errorThenGoodReader>);
         var _b = newReader(stdgo.Go.asInterface(_r));
         var _buf = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((1 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
@@ -1818,7 +1818,7 @@ function testReaderClearError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
 /**
     // Test for golang.org/issue/5947
 **/
-function testWriterReadFromWhileFull(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWriterReadFromWhileFull(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _buf = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
         var _w = newWriterSize(stdgo.Go.asInterface(_buf), (10 : stdgo.StdGoTypes.GoInt));
         var __tmp__ = _w.write((("0123456789" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>)), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -1833,7 +1833,7 @@ function testWriterReadFromWhileFull(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testi
 /**
     // Test for golang.org/issue/7611
 **/
-function testWriterReadFromUntilEOF(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWriterReadFromUntilEOF(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _buf = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
         var _w = newWriterSize(stdgo.Go.asInterface(_buf), (5 : stdgo.StdGoTypes.GoInt));
         var __tmp__ = _w.write((("0123" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>)), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -1853,7 +1853,7 @@ function testWriterReadFromUntilEOF(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
             };
         };
     }
-function testWriterReadFromErrNoProgress(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWriterReadFromErrNoProgress(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _buf = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
         var _w = newWriterSize(stdgo.Go.asInterface(_buf), (5 : stdgo.StdGoTypes.GoInt));
         var __tmp__ = _w.write((("0123" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>)), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -1870,7 +1870,7 @@ function testWriterReadFromErrNoProgress(_t:stdgo.StdGoTypes.Ref<stdgo.testing.T
     // Test that calling (*Writer).ReadFrom with a partially-filled buffer
     // fills the buffer before switching over to ReadFrom.
 **/
-function testWriterReadFromWithBufferedData(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWriterReadFromWithBufferedData(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _input = _createTestInput((64 : stdgo.StdGoTypes.GoInt));
         var _rfw = (stdgo.Go.setRef((new stdgo.bufio_test.Bufio_test.T_readFromWriter() : stdgo.bufio_test.Bufio_test.T_readFromWriter)) : stdgo.StdGoTypes.Ref<stdgo.bufio_test.Bufio_test.T_readFromWriter>);
@@ -1908,9 +1908,9 @@ function testWriterReadFromWithBufferedData(_t:stdgo.StdGoTypes.Ref<stdgo.testin
             };
         };
     }
-function testReadZero(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testReadZero(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _size in (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(2, 2, (100 : stdgo.StdGoTypes.GoInt), (2 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>)) {
-            _t.run(stdgo.fmt.Fmt.sprintf(("bufsize=%d" : stdgo.GoString), stdgo.Go.toInterface(_size))?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+            _t.run(stdgo.fmt.Fmt.sprintf(("bufsize=%d" : stdgo.GoString), stdgo.Go.toInterface(_size))?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
                 var _r:stdgo.io.Io.Reader = stdgo.io.Io.multiReader(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(("abc" : stdgo.GoString))), stdgo.Go.asInterface((stdgo.Go.setRef(({ _r : stdgo.Go.asInterface(stdgo.strings.Strings.newReader(("def" : stdgo.GoString))), _n : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.bufio_test.Bufio_test.T_emptyThenNonEmptyReader)) : stdgo.StdGoTypes.Ref<stdgo.bufio_test.Bufio_test.T_emptyThenNonEmptyReader>)));
                 var _br = newReaderSize(_r, _size);
                 var _want:(stdgo.GoString, stdgo.Error) -> Void = function(_s:stdgo.GoString, _wantErr:stdgo.Error):Void {
@@ -1928,7 +1928,7 @@ function testReadZero(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             });
         };
     }
-function testReaderReset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testReaderReset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _checkAll = function(_r:stdgo.StdGoTypes.Ref<Reader>, _want:stdgo.GoString):Void {
             _t.helper();
             var __tmp__ = stdgo.io.Io.readAll(stdgo.Go.asInterface(_r)), _all:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -1966,7 +1966,7 @@ function testReaderReset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
         _r2.reset(stdgo.Go.asInterface(_r));
         _checkAll(_r2, ("recur2" : stdgo.GoString));
     }
-function testWriterReset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWriterReset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __0:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder), __1:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder), __2:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder), __3:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder), __4:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder), _buf5:stdgo.strings.Strings.Builder = __4, _buf4:stdgo.strings.Strings.Builder = __3, _buf3:stdgo.strings.Strings.Builder = __2, _buf2:stdgo.strings.Strings.Builder = __1, _buf1:stdgo.strings.Strings.Builder = __0;
         var _w = newWriter(stdgo.Go.asInterface((stdgo.Go.setRef(_buf1) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)));
         _w.writeString(("foo" : stdgo.GoString));
@@ -2010,7 +2010,7 @@ function testWriterReset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
             _t.errorf(("buf5 = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface((_buf5.string() : stdgo.GoString)), stdgo.Go.toInterface(("recur2" : stdgo.GoString)));
         };
     }
-function testReaderDiscard(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testReaderDiscard(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _tests = (new stdgo.Slice<T__struct_1>(
 9,
 9,
@@ -2070,7 +2070,7 @@ function testReaderDiscard(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             };
         };
     }
-function testReaderSize(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testReaderSize(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var __0:stdgo.StdGoTypes.GoInt = newReader((null : stdgo.io.Io.Reader)).size(), __1:stdgo.StdGoTypes.GoInt = (4096 : stdgo.StdGoTypes.GoInt), _want:stdgo.StdGoTypes.GoInt = __1, _got:stdgo.StdGoTypes.GoInt = __0;
             if (_got != (_want)) {
@@ -2084,7 +2084,7 @@ function testReaderSize(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testWriterSize(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWriterSize(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var __0:stdgo.StdGoTypes.GoInt = newWriter((null : stdgo.io.Io.Writer)).size(), __1:stdgo.StdGoTypes.GoInt = (4096 : stdgo.StdGoTypes.GoInt), _want:stdgo.StdGoTypes.GoInt = __1, _got:stdgo.StdGoTypes.GoInt = __0;
             if (_got != (_want)) {
@@ -2103,7 +2103,7 @@ function _newScriptedReader(_steps:haxe.Rest<(_p:stdgo.Slice<stdgo.StdGoTypes.Go
         var _sr:stdgo.bufio_test.Bufio_test.T_scriptedReader = (_steps : T_scriptedReader);
         return stdgo.Go.asInterface((stdgo.Go.setRef(_sr) : stdgo.StdGoTypes.Ref<stdgo.bufio_test.Bufio_test.T_scriptedReader>));
     }
-function testPartialReadEOF(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testPartialReadEOF(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _src = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((10 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
         var _eofR = (stdgo.Go.setRef(({ _buf : _src } : stdgo.bufio_test.Bufio_test.T_eofReader)) : stdgo.StdGoTypes.Ref<stdgo.bufio_test.Bufio_test.T_eofReader>);
         var _r = newReader(stdgo.Go.asInterface(_eofR));
@@ -2142,7 +2142,7 @@ function testPartialReadEOF(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             _t.fatalf(("read %d bytes; want 0 bytes" : stdgo.GoString), stdgo.Go.toInterface(_read));
         };
     }
-function testWriterReadFromMustSetUnderlyingError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWriterReadFromMustSetUnderlyingError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _wr:stdgo.StdGoTypes.Ref<stdgo.bufio.Bufio.Writer> = newWriter(stdgo.Go.asInterface((new stdgo.bufio_test.Bufio_test.T_writerWithReadFromError() : stdgo.bufio_test.Bufio_test.T_writerWithReadFromError)));
         {
             var __tmp__ = _wr.readFrom(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(("test2" : stdgo.GoString)))), __0:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -2161,7 +2161,7 @@ function testWriterReadFromMustSetUnderlyingError(_t:stdgo.StdGoTypes.Ref<stdgo.
     // Ensure that previous Write errors are immediately returned
     // on any ReadFrom. See golang.org/issue/35194.
 **/
-function testWriterReadFromMustReturnUnderlyingError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWriterReadFromMustReturnUnderlyingError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _wr:stdgo.StdGoTypes.Ref<stdgo.bufio.Bufio.Writer> = newWriter(stdgo.Go.asInterface((new stdgo.bufio_test.Bufio_test.T_writeErrorOnlyWriter() : stdgo.bufio_test.Bufio_test.T_writeErrorOnlyWriter)));
         var _s:stdgo.GoString = ("test1" : stdgo.GoString);
         var _wantBuffered:stdgo.StdGoTypes.GoInt = (_s.length);
@@ -2243,10 +2243,10 @@ function benchmarkReaderWriteToOptimal(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Tes
         var _srcReader = newReaderSize(stdgo.Go.asInterface((new stdgo.bufio_test.Bufio_test.T_onlyReader(stdgo.Go.asInterface(_r)) : stdgo.bufio_test.Bufio_test.T_onlyReader)), (1024 : stdgo.StdGoTypes.GoInt));
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo.io.Io.discard) : stdgo.io.Io.ReaderFrom)) : stdgo.io.Io.ReaderFrom), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo.io.Io.discard) : stdgo.io.Io.ReaderFrom)) : stdgo.io.Io.ReaderFrom), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.io.Io.ReaderFrom), ok : false };
-            }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.io.Io.ReaderFrom), _1 : false };
+            }, __0 = __tmp__._0, _ok = __tmp__._1;
             if (!_ok) {
                 _b.fatal(stdgo.Go.toInterface(("io.Discard doesn\'t support ReaderFrom" : stdgo.GoString)));
             };
@@ -2513,7 +2513,7 @@ function exampleScanner_emptyFinalToken():Void {
 /**
     // Test white space table matches the Unicode definition.
 **/
-function testSpace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testSpace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _r:stdgo.StdGoTypes.GoInt32 = ((0 : stdgo.StdGoTypes.GoInt32) : stdgo.StdGoTypes.GoRune);
             stdgo.Go.cfor(_r <= (1114111 : stdgo.StdGoTypes.GoInt32), _r++, {
@@ -2523,7 +2523,7 @@ function testSpace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             });
         };
     }
-function testScanByte(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testScanByte(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_n => _test in _scanTests) {
             var _buf = stdgo.strings.Strings.newReader(_test?.__copy__());
             var _s = newScanner(stdgo.Go.asInterface(_buf));
@@ -2552,7 +2552,7 @@ function testScanByte(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 /**
     // Test that the rune splitter returns same sequence of runes (not bytes) as for range string.
 **/
-function testScanRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testScanRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_n => _test in _scanTests) {
             var _buf = stdgo.strings.Strings.newReader(_test?.__copy__());
             var _s = newScanner(stdgo.Go.asInterface(_buf));
@@ -2587,7 +2587,7 @@ function testScanRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 /**
     // Test that the word splitter returns the same data as strings.Fields.
 **/
-function testScanWords(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testScanWords(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_n => _test in _wordScanTests) {
             var _buf = stdgo.strings.Strings.newReader(_test?.__copy__());
             var _s = newScanner(stdgo.Go.asInterface(_buf));
@@ -2649,7 +2649,7 @@ function _genLine(_buf:stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>, _lineNum:
 /**
     // Test the line splitter, including some carriage returns but no long lines.
 **/
-function testScanLongLines(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testScanLongLines(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _tmp = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
         var _buf = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
         var _lineNum:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -2694,7 +2694,7 @@ function testScanLongLines(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
 /**
     // Test that the line splitter errors out on a long line.
 **/
-function testScanLineTooLong(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testScanLineTooLong(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _tmp = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
         var _buf = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
@@ -2736,7 +2736,7 @@ function testScanLineTooLong(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
 /**
     // Test that the line splitter handles a final line without a newline.
 **/
-function _testNoNewline(_text:stdgo.GoString, _lines:stdgo.Slice<stdgo.GoString>, _t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function _testNoNewline(_text:stdgo.GoString, _lines:stdgo.Slice<stdgo.GoString>, _t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _buf = stdgo.strings.Strings.newReader(_text?.__copy__());
         var _s = newScanner(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.bufio_test.Bufio_test.T_slowReader((7 : stdgo.StdGoTypes.GoInt), stdgo.Go.asInterface(_buf)) : stdgo.bufio_test.Bufio_test.T_slowReader)) : stdgo.StdGoTypes.Ref<stdgo.bufio_test.Bufio_test.T_slowReader>)));
         _s.split(scanLines);
@@ -2757,7 +2757,7 @@ function _testNoNewline(_text:stdgo.GoString, _lines:stdgo.Slice<stdgo.GoString>
 /**
     // Test that the line splitter handles a final line without a newline.
 **/
-function testScanLineNoNewline(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testScanLineNoNewline(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _lines = (new stdgo.Slice<stdgo.GoString>(2, 2, ("abcdefghijklmn" : stdgo.GoString), ("opqrstuvwxyz" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
         _testNoNewline(("abcdefghijklmn\nopqrstuvwxyz" : stdgo.GoString), _lines, _t);
@@ -2765,7 +2765,7 @@ function testScanLineNoNewline(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
 /**
     // Test that the line splitter handles a final line with a carriage return but no newline.
 **/
-function testScanLineReturnButNoNewline(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testScanLineReturnButNoNewline(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _lines = (new stdgo.Slice<stdgo.GoString>(2, 2, ("abcdefghijklmn" : stdgo.GoString), ("opqrstuvwxyz" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
         _testNoNewline(("abcdefghijklmn\nopqrstuvwxyz\r" : stdgo.GoString), _lines, _t);
@@ -2773,7 +2773,7 @@ function testScanLineReturnButNoNewline(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Te
 /**
     // Test that the line splitter handles a final empty line.
 **/
-function testScanLineEmptyFinalLine(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testScanLineEmptyFinalLine(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _lines = (new stdgo.Slice<stdgo.GoString>(3, 3, ("abcdefghijklmn" : stdgo.GoString), ("opqrstuvwxyz" : stdgo.GoString), stdgo.Go.str()?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         _testNoNewline(("abcdefghijklmn\nopqrstuvwxyz\n\n" : stdgo.GoString), _lines, _t);
@@ -2781,7 +2781,7 @@ function testScanLineEmptyFinalLine(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
 /**
     // Test that the line splitter handles a final empty line with a carriage return but no newline.
 **/
-function testScanLineEmptyFinalLineWithCR(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testScanLineEmptyFinalLineWithCR(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _lines = (new stdgo.Slice<stdgo.GoString>(3, 3, ("abcdefghijklmn" : stdgo.GoString), ("opqrstuvwxyz" : stdgo.GoString), stdgo.Go.str()?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         _testNoNewline(("abcdefghijklmn\nopqrstuvwxyz\n\r" : stdgo.GoString), _lines, _t);
@@ -2789,7 +2789,7 @@ function testScanLineEmptyFinalLineWithCR(_t:stdgo.StdGoTypes.Ref<stdgo.testing.
 /**
     // Test the correct error is returned when the split function errors out.
 **/
-function testSplitError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testSplitError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _numSplits:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         {};
         var _errorSplit = function(_data:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _atEOF:Bool):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _2 : stdgo.Error; } {
@@ -2827,7 +2827,7 @@ function testSplitError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 /**
     // Test that an EOF is overridden by a user-generated scan error.
 **/
-function testErrAtEOF(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testErrAtEOF(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _s = newScanner(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(("1 2 33" : stdgo.GoString))));
         var _split = function(_data:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _atEOF:Bool):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _2 : stdgo.Error; } {
             var _advance:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _token:stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _err:stdgo.Error = (null : stdgo.Error);
@@ -2851,7 +2851,7 @@ function testErrAtEOF(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _t.fatal(stdgo.Go.toInterface(("wrong error:" : stdgo.GoString)), stdgo.Go.toInterface(_s.err()));
         };
     }
-function testNonEOFWithEmptyRead(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNonEOFWithEmptyRead(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _scanner = newScanner(stdgo.Go.asInterface((new stdgo.bufio_test.Bufio_test.T_alwaysError() : stdgo.bufio_test.Bufio_test.T_alwaysError)));
         while (_scanner.scan()) {
             _t.fatal(stdgo.Go.toInterface(("read should fail" : stdgo.GoString)));
@@ -2861,7 +2861,7 @@ function testNonEOFWithEmptyRead(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
             _t.errorf(("unexpected error: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
     }
-function testBadReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testBadReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _scanner = newScanner(stdgo.Go.asInterface((new stdgo.bufio_test.Bufio_test.T_endlessZeros() : stdgo.bufio_test.Bufio_test.T_endlessZeros)));
         while (_scanner.scan()) {
             _t.fatal(stdgo.Go.toInterface(("read should fail" : stdgo.GoString)));
@@ -2871,7 +2871,7 @@ function testBadReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _t.errorf(("unexpected error: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
     }
-function testScanWordsExcessiveWhiteSpace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testScanWordsExcessiveWhiteSpace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _s:stdgo.GoString = stdgo.strings.Strings.repeat((" " : stdgo.GoString), (1024 : stdgo.StdGoTypes.GoInt)) + ("ipsum" : stdgo.GoString)?.__copy__()?.__copy__();
         var _scanner = newScanner(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(_s?.__copy__())));
@@ -2899,7 +2899,7 @@ function _commaSplit(_data:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _atEOF:Bool):{ 
         };
         return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : _data, _2 : errFinalToken };
     }
-function _testEmptyTokens(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _text:stdgo.GoString, _values:stdgo.Slice<stdgo.GoString>):Void {
+function _testEmptyTokens(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _text:stdgo.GoString, _values:stdgo.Slice<stdgo.GoString>):Void {
         var _s = newScanner(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(_text?.__copy__())));
         _s.split(_commaSplit);
         var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -2924,10 +2924,10 @@ function _testEmptyTokens(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _tex
             };
         };
     }
-function testEmptyTokens(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testEmptyTokens(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         _testEmptyTokens(_t, ("1,2,3," : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(4, 4, ("1" : stdgo.GoString), ("2" : stdgo.GoString), ("3" : stdgo.GoString), stdgo.Go.str()?.__copy__()) : stdgo.Slice<stdgo.GoString>));
     }
-function testWithNoEmptyTokens(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWithNoEmptyTokens(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         _testEmptyTokens(_t, ("1,2,3" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(3, 3, ("1" : stdgo.GoString), ("2" : stdgo.GoString), ("3" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>));
     }
 function _loopAtEOFSplit(_data:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _atEOF:Bool):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _2 : stdgo.Error; } {
@@ -2937,7 +2937,7 @@ function _loopAtEOFSplit(_data:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _atEOF:Bool
         };
         return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : _data, _2 : (null : stdgo.Error) };
     }
-function testDontLoopForever(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDontLoopForever(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _s = newScanner(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(("abc" : stdgo.GoString))));
@@ -2954,10 +2954,10 @@ function testDontLoopForever(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
                     };
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((_err : stdgo.GoString)) : stdgo.GoString), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((_err : stdgo.GoString)) : stdgo.GoString), _1 : true };
                         } catch(_) {
-                            { value : ("" : stdgo.GoString), ok : false };
-                        }, _msg = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : ("" : stdgo.GoString), _1 : false };
+                        }, _msg = __tmp__._0, _ok = __tmp__._1;
                         if (!_ok || !stdgo.strings.Strings.contains(_msg?.__copy__(), ("empty tokens" : stdgo.GoString))) {
                             throw stdgo.Go.toInterface(_err);
                         };
@@ -2997,7 +2997,7 @@ function testDontLoopForever(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
             return;
         };
     }
-function testBlankLines(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testBlankLines(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _s = newScanner(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(stdgo.strings.Strings.repeat(("\n" : stdgo.GoString), (1000 : stdgo.StdGoTypes.GoInt))?.__copy__())));
         {
             var _count:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -3014,7 +3014,7 @@ function testBlankLines(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 /**
     // Check that the looping-at-EOF check doesn't trigger for merely empty tokens.
 **/
-function testEmptyLinesOK(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testEmptyLinesOK(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _c:stdgo.bufio_test.Bufio_test.T_countdown = ((10000 : stdgo.bufio_test.Bufio_test.T_countdown) : T_countdown);
         var _s = newScanner(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(stdgo.strings.Strings.repeat(("\n" : stdgo.GoString), (10000 : stdgo.StdGoTypes.GoInt))?.__copy__())));
         _s.split(_c._split);
@@ -3029,7 +3029,7 @@ function testEmptyLinesOK(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
 /**
     // Make sure we can read a huge token if a big enough buffer is provided.
 **/
-function testHugeBuffer(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testHugeBuffer(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _text:stdgo.GoString = stdgo.strings.Strings.repeat(("x" : stdgo.GoString), (131072 : stdgo.StdGoTypes.GoInt))?.__copy__();
         var _s = newScanner(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(_text + ("\n" : stdgo.GoString)?.__copy__()?.__copy__())));
         _s.buffer(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((100 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__(), (196608 : stdgo.StdGoTypes.GoInt));
@@ -3047,7 +3047,7 @@ function testHugeBuffer(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
     // Test that the scanner doesn't panic and returns ErrBadReadCount
     // on a reader that returns a negative count of bytes read (issue 38053).
 **/
-function testNegativeEOFReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNegativeEOFReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _r:stdgo.bufio_test.Bufio_test.T_negativeEOFReader = ((10 : stdgo.bufio_test.Bufio_test.T_negativeEOFReader) : T_negativeEOFReader);
         var _scanner = newScanner(stdgo.Go.asInterface(stdgo.Go.pointer(_r)));
         var _c:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -3069,7 +3069,7 @@ function testNegativeEOFReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
     // Test that the scanner doesn't panic and returns ErrBadReadCount
     // on a reader that returns an impossibly large count of bytes read (issue 38053).
 **/
-function testLargeReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testLargeReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _scanner = newScanner(stdgo.Go.asInterface((new stdgo.bufio_test.Bufio_test.T_largeReader() : stdgo.bufio_test.Bufio_test.T_largeReader)));
         while (_scanner.scan()) {};
         {
@@ -3173,7 +3173,7 @@ class T_errorWriterTest_asInterface {
 }
 class T_teststringwriter_asInterface {
     @:keep
-    public dynamic function _check(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _write:stdgo.GoString, _writeString:stdgo.GoString):Void __self__.value._check(_t, _write, _writeString);
+    public dynamic function _check(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _write:stdgo.GoString, _writeString:stdgo.GoString):Void __self__.value._check(_t, _write, _writeString);
     @:keep
     public dynamic function writeString(_s:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } return __self__.value.writeString(_s);
     @:keep
@@ -3188,7 +3188,7 @@ class T_teststringwriter_asInterface {
 }
 @:keep @:allow(stdgo.bufio_test.Bufio_test.T_teststringwriter_asInterface) class T_teststringwriter_static_extension {
     @:keep
-    static public function _check( _w:stdgo.StdGoTypes.Ref<T_teststringwriter>, _t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _write:stdgo.GoString, _writeString:stdgo.GoString):Void {
+    static public function _check( _w:stdgo.StdGoTypes.Ref<T_teststringwriter>, _t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _write:stdgo.GoString, _writeString:stdgo.GoString):Void {
         @:recv var _w:stdgo.StdGoTypes.Ref<T_teststringwriter> = _w;
         _t.helper();
         if (_w._write != (_write)) {

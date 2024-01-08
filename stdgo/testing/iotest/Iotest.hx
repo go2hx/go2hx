@@ -211,10 +211,10 @@ function newWriteLogger(_prefix:stdgo.GoString, _w:stdgo.io.Io.Writer):stdgo.io.
     // printing the prefix and the hexadecimal data read.
 **/
 function newReadLogger(_prefix:stdgo.GoString, _r:stdgo.io.Io.Reader):stdgo.io.Io.Reader throw ":testing.iotest.newReadLogger is not yet implemented";
-function testWriteLogger(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {}
-function testWriteLogger_errorOnWrite(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void throw ":testing.iotest.testWriteLogger_errorOnWrite is not yet implemented";
-function testReadLogger(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void throw ":testing.iotest.testReadLogger is not yet implemented";
-function testReadLogger_errorOnRead(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void throw ":testing.iotest.testReadLogger_errorOnRead is not yet implemented";
+function testWriteLogger(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {}
+function testWriteLogger_errorOnWrite(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":testing.iotest.testWriteLogger_errorOnWrite is not yet implemented";
+function testReadLogger(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":testing.iotest.testReadLogger is not yet implemented";
+function testReadLogger_errorOnRead(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":testing.iotest.testReadLogger_errorOnRead is not yet implemented";
 /**
     // OneByteReader returns a Reader that implements
     // each non-empty Read by reading one byte from r.
@@ -252,22 +252,22 @@ function errReader(_err:stdgo.Error):stdgo.io.Io.Reader throw ":testing.iotest.e
     // The error text may span multiple lines.
 **/
 function testReader(_r:stdgo.io.Io.Reader, _content:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error throw ":testing.iotest.testReader is not yet implemented";
-function testOneByteReader_nonEmptyReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void throw ":testing.iotest.testOneByteReader_nonEmptyReader is not yet implemented";
-function testOneByteReader_emptyReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void throw ":testing.iotest.testOneByteReader_emptyReader is not yet implemented";
-function testHalfReader_nonEmptyReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void throw ":testing.iotest.testHalfReader_nonEmptyReader is not yet implemented";
-function testHalfReader_emptyReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void throw ":testing.iotest.testHalfReader_emptyReader is not yet implemented";
-function testTimeOutReader_nonEmptyReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void throw ":testing.iotest.testTimeOutReader_nonEmptyReader is not yet implemented";
-function testTimeOutReader_emptyReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void throw ":testing.iotest.testTimeOutReader_emptyReader is not yet implemented";
-function testDataErrReader_nonEmptyReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void throw ":testing.iotest.testDataErrReader_nonEmptyReader is not yet implemented";
-function testDataErrReader_emptyReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void throw ":testing.iotest.testDataErrReader_emptyReader is not yet implemented";
-function testErrReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void throw ":testing.iotest.testErrReader is not yet implemented";
-function testStringsReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void throw ":testing.iotest.testStringsReader is not yet implemented";
+function testOneByteReader_nonEmptyReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":testing.iotest.testOneByteReader_nonEmptyReader is not yet implemented";
+function testOneByteReader_emptyReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":testing.iotest.testOneByteReader_emptyReader is not yet implemented";
+function testHalfReader_nonEmptyReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":testing.iotest.testHalfReader_nonEmptyReader is not yet implemented";
+function testHalfReader_emptyReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":testing.iotest.testHalfReader_emptyReader is not yet implemented";
+function testTimeOutReader_nonEmptyReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":testing.iotest.testTimeOutReader_nonEmptyReader is not yet implemented";
+function testTimeOutReader_emptyReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":testing.iotest.testTimeOutReader_emptyReader is not yet implemented";
+function testDataErrReader_nonEmptyReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":testing.iotest.testDataErrReader_nonEmptyReader is not yet implemented";
+function testDataErrReader_emptyReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":testing.iotest.testDataErrReader_emptyReader is not yet implemented";
+function testErrReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":testing.iotest.testErrReader is not yet implemented";
+function testStringsReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":testing.iotest.testStringsReader is not yet implemented";
 /**
     // TruncateWriter returns a Writer that writes to w
     // but stops silently after n bytes.
 **/
 function truncateWriter(_w:stdgo.io.Io.Writer, _n:stdgo.StdGoTypes.GoInt64):stdgo.io.Io.Writer throw ":testing.iotest.truncateWriter is not yet implemented";
-function testTruncateWriter(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void throw ":testing.iotest.testTruncateWriter is not yet implemented";
+function testTruncateWriter(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":testing.iotest.testTruncateWriter is not yet implemented";
 class T_writeLogger_asInterface {
     @:keep
     public dynamic function write(_p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } return __self__.value.write(_p);

@@ -206,7 +206,7 @@ class T__struct_7_asInterface {
     public var _y : stdgo.StdGoTypes.GoUInt64;
     public var _rem : stdgo.StdGoTypes.GoUInt64;
 };
-function testUintSize(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUintSize(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _x:stdgo.StdGoTypes.GoUInt = (0 : stdgo.StdGoTypes.GoUInt);
         {
             var _want:stdgo.StdGoTypes.GoUIntptr = (32 : stdgo.StdGoTypes.GoUIntptr);
@@ -215,7 +215,7 @@ function testUintSize(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testLeadingZeros(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testLeadingZeros(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (256 : stdgo.StdGoTypes.GoInt), _i++, {
@@ -331,7 +331,7 @@ function benchmarkLeadingZeros64(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B
         };
         output = _s;
     }
-function testTrailingZeros(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTrailingZeros(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (256 : stdgo.StdGoTypes.GoInt), _i++, {
@@ -444,7 +444,7 @@ function benchmarkTrailingZeros64(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
         };
         output = _s;
     }
-function testOnesCount(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testOnesCount(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _x:stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64);
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -472,7 +472,7 @@ function testOnesCount(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             });
         };
     }
-function _testOnesCount(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _x:stdgo.StdGoTypes.GoUInt64, _want:stdgo.StdGoTypes.GoInt):Void {
+function _testOnesCount(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _x:stdgo.StdGoTypes.GoUInt64, _want:stdgo.StdGoTypes.GoInt):Void {
         if (_x <= (255i64 : stdgo.StdGoTypes.GoUInt64)) {
             var _got:stdgo.StdGoTypes.GoInt = onesCount8((_x : stdgo.StdGoTypes.GoUInt8));
             if (_got != (_want)) {
@@ -560,7 +560,7 @@ function benchmarkOnesCount64(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):
         };
         output = _s;
     }
-function testRotateLeft(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testRotateLeft(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _m:stdgo.StdGoTypes.GoUInt64 = (285870213051353865i64 : stdgo.StdGoTypes.GoUInt64);
         {
             var _k:stdgo.StdGoTypes.GoUInt = (0u32 : stdgo.StdGoTypes.GoUInt);
@@ -682,7 +682,7 @@ function benchmarkRotateLeft64(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>)
         };
         output = (_s : stdgo.StdGoTypes.GoInt);
     }
-function testReverse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testReverse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoUInt = (0u32 : stdgo.StdGoTypes.GoUInt);
             stdgo.Go.cfor(_i < (64u32 : stdgo.StdGoTypes.GoUInt), _i++, {
@@ -714,7 +714,7 @@ function testReverse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _testReverse(_t, _test._r, _test._x);
         };
     }
-function _testReverse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _x64:stdgo.StdGoTypes.GoUInt64, _want64:stdgo.StdGoTypes.GoUInt64):Void {
+function _testReverse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _x64:stdgo.StdGoTypes.GoUInt64, _want64:stdgo.StdGoTypes.GoUInt64):Void {
         var _x8:stdgo.StdGoTypes.GoUInt8 = (_x64 : stdgo.StdGoTypes.GoUInt8);
         var _got8:stdgo.StdGoTypes.GoUInt8 = reverse8(_x8);
         var _want8:stdgo.StdGoTypes.GoUInt8 = (_want64 >> (56i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoUInt8);
@@ -804,7 +804,7 @@ function benchmarkReverse64(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Vo
         };
         output = (_s : stdgo.StdGoTypes.GoInt);
     }
-function testReverseBytes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testReverseBytes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in (new stdgo.Slice<T__struct_0>(
 9,
 9,
@@ -821,7 +821,7 @@ function testReverseBytes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             _testReverseBytes(_t, _test._r, _test._x);
         };
     }
-function _testReverseBytes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _x64:stdgo.StdGoTypes.GoUInt64, _want64:stdgo.StdGoTypes.GoUInt64):Void {
+function _testReverseBytes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _x64:stdgo.StdGoTypes.GoUInt64, _want64:stdgo.StdGoTypes.GoUInt64):Void {
         var _x16:stdgo.StdGoTypes.GoUInt16 = (_x64 : stdgo.StdGoTypes.GoUInt16);
         var _got16:stdgo.StdGoTypes.GoUInt16 = reverseBytes16(_x16);
         var _want16:stdgo.StdGoTypes.GoUInt16 = (_want64 >> (48i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoUInt16);
@@ -895,7 +895,7 @@ function benchmarkReverseBytes64(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B
         };
         output = (_s : stdgo.StdGoTypes.GoInt);
     }
-function testLen(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testLen(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (256 : stdgo.StdGoTypes.GoInt), _i++, {
@@ -949,7 +949,7 @@ function testLen(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             });
         };
     }
-function testAddSubUint(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAddSubUint(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _test:(stdgo.GoString, (stdgo.StdGoTypes.GoUInt, stdgo.StdGoTypes.GoUInt, stdgo.StdGoTypes.GoUInt) -> { var _0 : stdgo.StdGoTypes.GoUInt; var _1 : stdgo.StdGoTypes.GoUInt; }, stdgo.StdGoTypes.GoUInt, stdgo.StdGoTypes.GoUInt, stdgo.StdGoTypes.GoUInt, stdgo.StdGoTypes.GoUInt, stdgo.StdGoTypes.GoUInt) -> Void = function(_msg:stdgo.GoString, _f:(_x:stdgo.StdGoTypes.GoUInt, _y:stdgo.StdGoTypes.GoUInt, _c:stdgo.StdGoTypes.GoUInt) -> { var _0 : stdgo.StdGoTypes.GoUInt; var _1 : stdgo.StdGoTypes.GoUInt; }, _x:stdgo.StdGoTypes.GoUInt, _y:stdgo.StdGoTypes.GoUInt, _c:stdgo.StdGoTypes.GoUInt, _z:stdgo.StdGoTypes.GoUInt, _cout:stdgo.StdGoTypes.GoUInt):Void {
             var __tmp__ = _f(_x, _y, _c), _z1:stdgo.StdGoTypes.GoUInt = __tmp__._0, _cout1:stdgo.StdGoTypes.GoUInt = __tmp__._1;
             if ((_z1 != _z) || (_cout1 != _cout)) {
@@ -988,7 +988,7 @@ function testAddSubUint(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             }, _a._z, _a._y, _a._c, _a._x, _a._cout);
         };
     }
-function testAddSubUint32(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAddSubUint32(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _test:(stdgo.GoString, (stdgo.StdGoTypes.GoUInt32, stdgo.StdGoTypes.GoUInt32, stdgo.StdGoTypes.GoUInt32) -> { var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : stdgo.StdGoTypes.GoUInt32; }, stdgo.StdGoTypes.GoUInt32, stdgo.StdGoTypes.GoUInt32, stdgo.StdGoTypes.GoUInt32, stdgo.StdGoTypes.GoUInt32, stdgo.StdGoTypes.GoUInt32) -> Void = function(_msg:stdgo.GoString, _f:(_x:stdgo.StdGoTypes.GoUInt32, _y:stdgo.StdGoTypes.GoUInt32, _c:stdgo.StdGoTypes.GoUInt32) -> { var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : stdgo.StdGoTypes.GoUInt32; }, _x:stdgo.StdGoTypes.GoUInt32, _y:stdgo.StdGoTypes.GoUInt32, _c:stdgo.StdGoTypes.GoUInt32, _z:stdgo.StdGoTypes.GoUInt32, _cout:stdgo.StdGoTypes.GoUInt32):Void {
             var __tmp__ = _f(_x, _y, _c), _z1:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, _cout1:stdgo.StdGoTypes.GoUInt32 = __tmp__._1;
             if ((_z1 != _z) || (_cout1 != _cout)) {
@@ -1015,7 +1015,7 @@ function testAddSubUint32(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             _test(("Sub32 symmetric" : stdgo.GoString), sub32, _a._z, _a._y, _a._c, _a._x, _a._cout);
         };
     }
-function testAddSubUint64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAddSubUint64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _test:(stdgo.GoString, (stdgo.StdGoTypes.GoUInt64, stdgo.StdGoTypes.GoUInt64, stdgo.StdGoTypes.GoUInt64) -> { var _0 : stdgo.StdGoTypes.GoUInt64; var _1 : stdgo.StdGoTypes.GoUInt64; }, stdgo.StdGoTypes.GoUInt64, stdgo.StdGoTypes.GoUInt64, stdgo.StdGoTypes.GoUInt64, stdgo.StdGoTypes.GoUInt64, stdgo.StdGoTypes.GoUInt64) -> Void = function(_msg:stdgo.GoString, _f:(_x:stdgo.StdGoTypes.GoUInt64, _y:stdgo.StdGoTypes.GoUInt64, _c:stdgo.StdGoTypes.GoUInt64) -> { var _0 : stdgo.StdGoTypes.GoUInt64; var _1 : stdgo.StdGoTypes.GoUInt64; }, _x:stdgo.StdGoTypes.GoUInt64, _y:stdgo.StdGoTypes.GoUInt64, _c:stdgo.StdGoTypes.GoUInt64, _z:stdgo.StdGoTypes.GoUInt64, _cout:stdgo.StdGoTypes.GoUInt64):Void {
             var __tmp__ = _f(_x, _y, _c), _z1:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, _cout1:stdgo.StdGoTypes.GoUInt64 = __tmp__._1;
             if ((_z1 != _z) || (_cout1 != _cout)) {
@@ -1054,7 +1054,7 @@ function testAddSubUint64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             }, _a._z, _a._y, _a._c, _a._x, _a._cout);
         };
     }
-function testAdd64OverflowPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAdd64OverflowPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _tests = (new stdgo.Slice<(stdgo.StdGoTypes.GoUInt64, stdgo.StdGoTypes.GoUInt64) -> stdgo.StdGoTypes.GoUInt64>(5, 5, function(_a:stdgo.StdGoTypes.GoUInt64, _b:stdgo.StdGoTypes.GoUInt64):stdgo.StdGoTypes.GoUInt64 {
             var __tmp__ = add64(_a, _b, (0i64 : stdgo.StdGoTypes.GoUInt64)), _x:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, _c:stdgo.StdGoTypes.GoUInt64 = __tmp__._1;
             if (_c > (0i64 : stdgo.StdGoTypes.GoUInt64)) {
@@ -1141,7 +1141,7 @@ function testAdd64OverflowPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
             _test((1i64 : stdgo.StdGoTypes.GoUInt64), (1i64 : stdgo.StdGoTypes.GoUInt64));
         };
     }
-function testSub64OverflowPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testSub64OverflowPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _tests = (new stdgo.Slice<(stdgo.StdGoTypes.GoUInt64, stdgo.StdGoTypes.GoUInt64) -> stdgo.StdGoTypes.GoUInt64>(5, 5, function(_a:stdgo.StdGoTypes.GoUInt64, _b:stdgo.StdGoTypes.GoUInt64):stdgo.StdGoTypes.GoUInt64 {
             var __tmp__ = sub64(_a, _b, (0i64 : stdgo.StdGoTypes.GoUInt64)), _x:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, _c:stdgo.StdGoTypes.GoUInt64 = __tmp__._1;
             if (_c > (0i64 : stdgo.StdGoTypes.GoUInt64)) {
@@ -1228,7 +1228,7 @@ function testSub64OverflowPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
             _test((1i64 : stdgo.StdGoTypes.GoUInt64), (1i64 : stdgo.StdGoTypes.GoUInt64));
         };
     }
-function testMulDiv(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMulDiv(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _testMul:(stdgo.GoString, (stdgo.StdGoTypes.GoUInt, stdgo.StdGoTypes.GoUInt) -> { var _0 : stdgo.StdGoTypes.GoUInt; var _1 : stdgo.StdGoTypes.GoUInt; }, stdgo.StdGoTypes.GoUInt, stdgo.StdGoTypes.GoUInt, stdgo.StdGoTypes.GoUInt, stdgo.StdGoTypes.GoUInt) -> Void = function(_msg:stdgo.GoString, _f:(_x:stdgo.StdGoTypes.GoUInt, _y:stdgo.StdGoTypes.GoUInt) -> { var _0 : stdgo.StdGoTypes.GoUInt; var _1 : stdgo.StdGoTypes.GoUInt; }, _x:stdgo.StdGoTypes.GoUInt, _y:stdgo.StdGoTypes.GoUInt, _hi:stdgo.StdGoTypes.GoUInt, _lo:stdgo.StdGoTypes.GoUInt):Void {
             var __tmp__ = _f(_x, _y), _hi1:stdgo.StdGoTypes.GoUInt = __tmp__._0, _lo1:stdgo.StdGoTypes.GoUInt = __tmp__._1;
             if ((_hi1 != _hi) || (_lo1 != _lo)) {
@@ -1260,7 +1260,7 @@ function testMulDiv(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             }, _a._hi, _a._lo + _a._r, _a._x, _a._y, _a._r);
         };
     }
-function testMulDiv32(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMulDiv32(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _testMul:(stdgo.GoString, (stdgo.StdGoTypes.GoUInt32, stdgo.StdGoTypes.GoUInt32) -> { var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : stdgo.StdGoTypes.GoUInt32; }, stdgo.StdGoTypes.GoUInt32, stdgo.StdGoTypes.GoUInt32, stdgo.StdGoTypes.GoUInt32, stdgo.StdGoTypes.GoUInt32) -> Void = function(_msg:stdgo.GoString, _f:(_x:stdgo.StdGoTypes.GoUInt32, _y:stdgo.StdGoTypes.GoUInt32) -> { var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : stdgo.StdGoTypes.GoUInt32; }, _x:stdgo.StdGoTypes.GoUInt32, _y:stdgo.StdGoTypes.GoUInt32, _hi:stdgo.StdGoTypes.GoUInt32, _lo:stdgo.StdGoTypes.GoUInt32):Void {
             var __tmp__ = _f(_x, _y), _hi1:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, _lo1:stdgo.StdGoTypes.GoUInt32 = __tmp__._1;
             if ((_hi1 != _hi) || (_lo1 != _lo)) {
@@ -1280,7 +1280,7 @@ function testMulDiv32(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _testDiv(("Div32 symmetric" : stdgo.GoString), div32, _a._hi, _a._lo + _a._r, _a._x, _a._y, _a._r);
         };
     }
-function testMulDiv64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMulDiv64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _testMul:(stdgo.GoString, (stdgo.StdGoTypes.GoUInt64, stdgo.StdGoTypes.GoUInt64) -> { var _0 : stdgo.StdGoTypes.GoUInt64; var _1 : stdgo.StdGoTypes.GoUInt64; }, stdgo.StdGoTypes.GoUInt64, stdgo.StdGoTypes.GoUInt64, stdgo.StdGoTypes.GoUInt64, stdgo.StdGoTypes.GoUInt64) -> Void = function(_msg:stdgo.GoString, _f:(_x:stdgo.StdGoTypes.GoUInt64, _y:stdgo.StdGoTypes.GoUInt64) -> { var _0 : stdgo.StdGoTypes.GoUInt64; var _1 : stdgo.StdGoTypes.GoUInt64; }, _x:stdgo.StdGoTypes.GoUInt64, _y:stdgo.StdGoTypes.GoUInt64, _hi:stdgo.StdGoTypes.GoUInt64, _lo:stdgo.StdGoTypes.GoUInt64):Void {
             var __tmp__ = _f(_x, _y), _hi1:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, _lo1:stdgo.StdGoTypes.GoUInt64 = __tmp__._1;
             if ((_hi1 != _hi) || (_lo1 != _lo)) {
@@ -1312,7 +1312,7 @@ function testMulDiv64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             }, _a._hi, _a._lo + _a._r, _a._x, _a._y, _a._r);
         };
     }
-function testDivPanicOverflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDivPanicOverflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             __deferstack__.unshift(() -> {
@@ -1327,10 +1327,10 @@ function testDivPanicOverflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
                             _t.error(stdgo.Go.toInterface(("Div should have panicked when y<=hi" : stdgo.GoString)));
                         } else {
                             var __tmp__ = try {
-                                { value : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok : true };
+                                { _0 : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), _1 : true };
                             } catch(_) {
-                                { value : (null : stdgo.runtime.Runtime.T_error), ok : false };
-                            }, _e = __tmp__.value, _ok = __tmp__.ok;
+                                { _0 : (null : stdgo.runtime.Runtime.T_error), _1 : false };
+                            }, _e = __tmp__._0, _ok = __tmp__._1;
                             if (!_ok || (_e.error() != ("runtime error: integer overflow" : stdgo.GoString))) {
                                 _t.errorf(("Div expected panic: %q, got: %q " : stdgo.GoString), stdgo.Go.toInterface(("runtime error: integer overflow" : stdgo.GoString)), stdgo.Go.toInterface(_e.error()));
                             };
@@ -1362,7 +1362,7 @@ function testDivPanicOverflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
             return;
         };
     }
-function testDiv32PanicOverflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDiv32PanicOverflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             __deferstack__.unshift(() -> {
@@ -1377,10 +1377,10 @@ function testDiv32PanicOverflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
                             _t.error(stdgo.Go.toInterface(("Div32 should have panicked when y<=hi" : stdgo.GoString)));
                         } else {
                             var __tmp__ = try {
-                                { value : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok : true };
+                                { _0 : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), _1 : true };
                             } catch(_) {
-                                { value : (null : stdgo.runtime.Runtime.T_error), ok : false };
-                            }, _e = __tmp__.value, _ok = __tmp__.ok;
+                                { _0 : (null : stdgo.runtime.Runtime.T_error), _1 : false };
+                            }, _e = __tmp__._0, _ok = __tmp__._1;
                             if (!_ok || (_e.error() != ("runtime error: integer overflow" : stdgo.GoString))) {
                                 _t.errorf(("Div32 expected panic: %q, got: %q " : stdgo.GoString), stdgo.Go.toInterface(("runtime error: integer overflow" : stdgo.GoString)), stdgo.Go.toInterface(_e.error()));
                             };
@@ -1412,7 +1412,7 @@ function testDiv32PanicOverflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
             return;
         };
     }
-function testDiv64PanicOverflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDiv64PanicOverflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             __deferstack__.unshift(() -> {
@@ -1427,10 +1427,10 @@ function testDiv64PanicOverflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
                             _t.error(stdgo.Go.toInterface(("Div64 should have panicked when y<=hi" : stdgo.GoString)));
                         } else {
                             var __tmp__ = try {
-                                { value : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok : true };
+                                { _0 : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), _1 : true };
                             } catch(_) {
-                                { value : (null : stdgo.runtime.Runtime.T_error), ok : false };
-                            }, _e = __tmp__.value, _ok = __tmp__.ok;
+                                { _0 : (null : stdgo.runtime.Runtime.T_error), _1 : false };
+                            }, _e = __tmp__._0, _ok = __tmp__._1;
                             if (!_ok || (_e.error() != ("runtime error: integer overflow" : stdgo.GoString))) {
                                 _t.errorf(("Div64 expected panic: %q, got: %q " : stdgo.GoString), stdgo.Go.toInterface(("runtime error: integer overflow" : stdgo.GoString)), stdgo.Go.toInterface(_e.error()));
                             };
@@ -1462,7 +1462,7 @@ function testDiv64PanicOverflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
             return;
         };
     }
-function testDivPanicZero(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDivPanicZero(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             __deferstack__.unshift(() -> {
@@ -1477,10 +1477,10 @@ function testDivPanicZero(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
                             _t.error(stdgo.Go.toInterface(("Div should have panicked when y==0" : stdgo.GoString)));
                         } else {
                             var __tmp__ = try {
-                                { value : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok : true };
+                                { _0 : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), _1 : true };
                             } catch(_) {
-                                { value : (null : stdgo.runtime.Runtime.T_error), ok : false };
-                            }, _e = __tmp__.value, _ok = __tmp__.ok;
+                                { _0 : (null : stdgo.runtime.Runtime.T_error), _1 : false };
+                            }, _e = __tmp__._0, _ok = __tmp__._1;
                             if (!_ok || (_e.error() != ("runtime error: integer divide by zero" : stdgo.GoString))) {
                                 _t.errorf(("Div expected panic: %q, got: %q " : stdgo.GoString), stdgo.Go.toInterface(("runtime error: integer divide by zero" : stdgo.GoString)), stdgo.Go.toInterface(_e.error()));
                             };
@@ -1512,7 +1512,7 @@ function testDivPanicZero(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             return;
         };
     }
-function testDiv32PanicZero(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDiv32PanicZero(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             __deferstack__.unshift(() -> {
@@ -1527,10 +1527,10 @@ function testDiv32PanicZero(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
                             _t.error(stdgo.Go.toInterface(("Div32 should have panicked when y==0" : stdgo.GoString)));
                         } else {
                             var __tmp__ = try {
-                                { value : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok : true };
+                                { _0 : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), _1 : true };
                             } catch(_) {
-                                { value : (null : stdgo.runtime.Runtime.T_error), ok : false };
-                            }, _e = __tmp__.value, _ok = __tmp__.ok;
+                                { _0 : (null : stdgo.runtime.Runtime.T_error), _1 : false };
+                            }, _e = __tmp__._0, _ok = __tmp__._1;
                             if (!_ok || (_e.error() != ("runtime error: integer divide by zero" : stdgo.GoString))) {
                                 _t.errorf(("Div32 expected panic: %q, got: %q " : stdgo.GoString), stdgo.Go.toInterface(("runtime error: integer divide by zero" : stdgo.GoString)), stdgo.Go.toInterface(_e.error()));
                             };
@@ -1562,7 +1562,7 @@ function testDiv32PanicZero(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             return;
         };
     }
-function testDiv64PanicZero(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDiv64PanicZero(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             __deferstack__.unshift(() -> {
@@ -1577,10 +1577,10 @@ function testDiv64PanicZero(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
                             _t.error(stdgo.Go.toInterface(("Div64 should have panicked when y==0" : stdgo.GoString)));
                         } else {
                             var __tmp__ = try {
-                                { value : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok : true };
+                                { _0 : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), _1 : true };
                             } catch(_) {
-                                { value : (null : stdgo.runtime.Runtime.T_error), ok : false };
-                            }, _e = __tmp__.value, _ok = __tmp__.ok;
+                                { _0 : (null : stdgo.runtime.Runtime.T_error), _1 : false };
+                            }, _e = __tmp__._0, _ok = __tmp__._1;
                             if (!_ok || (_e.error() != ("runtime error: integer divide by zero" : stdgo.GoString))) {
                                 _t.errorf(("Div64 expected panic: %q, got: %q " : stdgo.GoString), stdgo.Go.toInterface(("runtime error: integer divide by zero" : stdgo.GoString)), stdgo.Go.toInterface(_e.error()));
                             };
@@ -1612,7 +1612,7 @@ function testDiv64PanicZero(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             return;
         };
     }
-function testRem32(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testRem32(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __0:stdgo.StdGoTypes.GoUInt32 = (510510u32 : stdgo.StdGoTypes.GoUInt32), __1:stdgo.StdGoTypes.GoUInt32 = (9699690u32 : stdgo.StdGoTypes.GoUInt32), __2:stdgo.StdGoTypes.GoUInt32 = (510511u32 : stdgo.StdGoTypes.GoUInt32), _y:stdgo.StdGoTypes.GoUInt32 = __2, _lo:stdgo.StdGoTypes.GoUInt32 = __1, _hi:stdgo.StdGoTypes.GoUInt32 = __0;
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -1626,7 +1626,7 @@ function testRem32(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             });
         };
     }
-function testRem32Overflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testRem32Overflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __0:stdgo.StdGoTypes.GoUInt32 = (510510u32 : stdgo.StdGoTypes.GoUInt32), __1:stdgo.StdGoTypes.GoUInt32 = (9699690u32 : stdgo.StdGoTypes.GoUInt32), __2:stdgo.StdGoTypes.GoUInt32 = (7u32 : stdgo.StdGoTypes.GoUInt32), _y:stdgo.StdGoTypes.GoUInt32 = __2, _lo:stdgo.StdGoTypes.GoUInt32 = __1, _hi:stdgo.StdGoTypes.GoUInt32 = __0;
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -1640,7 +1640,7 @@ function testRem32Overflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             });
         };
     }
-function testRem64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testRem64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __0:stdgo.StdGoTypes.GoUInt64 = (510510i64 : stdgo.StdGoTypes.GoUInt64), __1:stdgo.StdGoTypes.GoUInt64 = (9699690i64 : stdgo.StdGoTypes.GoUInt64), __2:stdgo.StdGoTypes.GoUInt64 = (510511i64 : stdgo.StdGoTypes.GoUInt64), _y:stdgo.StdGoTypes.GoUInt64 = __2, _lo:stdgo.StdGoTypes.GoUInt64 = __1, _hi:stdgo.StdGoTypes.GoUInt64 = __0;
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -1654,7 +1654,7 @@ function testRem64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             });
         };
     }
-function testRem64Overflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testRem64Overflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var rem64Tests = (new stdgo.Slice<T__struct_7>(7, 7, ({ _hi : (42i64 : stdgo.StdGoTypes.GoUInt64), _lo : (1119i64 : stdgo.StdGoTypes.GoUInt64), _y : (42i64 : stdgo.StdGoTypes.GoUInt64), _rem : (27i64 : stdgo.StdGoTypes.GoUInt64) } : T__struct_7), ({ _hi : (42i64 : stdgo.StdGoTypes.GoUInt64), _lo : (1119i64 : stdgo.StdGoTypes.GoUInt64), _y : (38i64 : stdgo.StdGoTypes.GoUInt64), _rem : (9i64 : stdgo.StdGoTypes.GoUInt64) } : T__struct_7), ({ _hi : (42i64 : stdgo.StdGoTypes.GoUInt64), _lo : (1119i64 : stdgo.StdGoTypes.GoUInt64), _y : (26i64 : stdgo.StdGoTypes.GoUInt64), _rem : (23i64 : stdgo.StdGoTypes.GoUInt64) } : T__struct_7), ({ _hi : (469i64 : stdgo.StdGoTypes.GoUInt64), _lo : (0i64 : stdgo.StdGoTypes.GoUInt64), _y : (467i64 : stdgo.StdGoTypes.GoUInt64), _rem : (271i64 : stdgo.StdGoTypes.GoUInt64) } : T__struct_7), ({ _hi : (469i64 : stdgo.StdGoTypes.GoUInt64), _lo : (0i64 : stdgo.StdGoTypes.GoUInt64), _y : (113i64 : stdgo.StdGoTypes.GoUInt64), _rem : (58i64 : stdgo.StdGoTypes.GoUInt64) } : T__struct_7), ({ _hi : (111111i64 : stdgo.StdGoTypes.GoUInt64), _lo : (111111i64 : stdgo.StdGoTypes.GoUInt64), _y : (1171i64 : stdgo.StdGoTypes.GoUInt64), _rem : (803i64 : stdgo.StdGoTypes.GoUInt64) } : T__struct_7), ({ _hi : (3968194946088682615i64 : stdgo.StdGoTypes.GoUInt64), _lo : (3192705705065114702i64 : stdgo.StdGoTypes.GoUInt64), _y : (1000037i64 : stdgo.StdGoTypes.GoUInt64), _rem : (56067i64 : stdgo.StdGoTypes.GoUInt64) } : T__struct_7)) : stdgo.Slice<T__struct_7>);
         for (__0 => _rt in rem64Tests) {
             if (_rt._hi < _rt._y) {

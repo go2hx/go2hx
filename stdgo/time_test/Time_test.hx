@@ -2340,7 +2340,7 @@ function exampleFixedZone():Void {
         var _t:stdgo.time.Time.Time = stdgo.time.Time.date((2009 : stdgo.StdGoTypes.GoInt), (11 : stdgo.time.Time.Month), (10 : stdgo.StdGoTypes.GoInt), (23 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), _loc)?.__copy__();
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("The time is:" : stdgo.GoString)), stdgo.Go.toInterface(_t.format(("02 Jan 06 15:04 MST" : stdgo.GoString))));
     }
-function testNextStdChunk(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNextStdChunk(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _markChunks:stdgo.GoString -> stdgo.GoString = function(_format:stdgo.GoString):stdgo.GoString {
             var _out:stdgo.GoString = stdgo.Go.str()?.__copy__();
             {
@@ -2370,7 +2370,7 @@ function testNextStdChunk(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             };
         };
     }
-function testRFC3339Conversion(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testRFC3339Conversion(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _f in _rfc3339Formats) {
             if (_f._time.format(("2006-01-02T15:04:05Z07:00" : stdgo.GoString)) != (_f._formattedValue)) {
                 _t.error(stdgo.Go.toInterface(("RFC3339:" : stdgo.GoString)));
@@ -2379,7 +2379,7 @@ function testRFC3339Conversion(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             };
         };
     }
-function testAppendInt(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAppendInt(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _tests = (new stdgo.Slice<T__struct_0>(
 29,
 29,
@@ -2420,7 +2420,7 @@ function testAppendInt(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testFormat(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testFormat(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _time:stdgo.time.Time.Time = unix((0i64 : stdgo.StdGoTypes.GoInt64), (1233810057012345600i64 : stdgo.StdGoTypes.GoInt64))?.__copy__();
         for (__2 => _test in _formatTests) {
             var _result:stdgo.GoString = _time.format(_test._format?.__copy__())?.__copy__();
@@ -2429,7 +2429,7 @@ function testFormat(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testGoString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testGoString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _tt in _goStringTests) {
             if (_tt._in.goString() != (_tt._want)) {
                 _t.errorf(("GoString (%q): got %q want %q" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_tt._in)), stdgo.Go.toInterface(_tt._in.goString()), stdgo.Go.toInterface(_tt._want));
@@ -2439,7 +2439,7 @@ function testGoString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 /**
     // issue 12440.
 **/
-function testFormatSingleDigits(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testFormatSingleDigits(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _time:stdgo.time.Time.Time = date((2001 : stdgo.StdGoTypes.GoInt), (2 : stdgo.time.Time.Month), (3 : stdgo.StdGoTypes.GoInt), (4 : stdgo.StdGoTypes.GoInt), (5 : stdgo.StdGoTypes.GoInt), (6 : stdgo.StdGoTypes.GoInt), (700000000 : stdgo.StdGoTypes.GoInt), utc)?.__copy__();
         var _test:stdgo.time_test.Time_test.FormatTest = (new stdgo.time_test.Time_test.FormatTest(("single digit format" : stdgo.GoString), ("3:4:5" : stdgo.GoString), ("4:5:6" : stdgo.GoString)) : stdgo.time_test.Time_test.FormatTest);
         var _result:stdgo.GoString = _time.format(_test._format?.__copy__())?.__copy__();
@@ -2447,7 +2447,7 @@ function testFormatSingleDigits(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
             _t.errorf(("%s expected %q got %q" : stdgo.GoString), stdgo.Go.toInterface(_test._name), stdgo.Go.toInterface(_test._result), stdgo.Go.toInterface(_result));
         };
     }
-function testFormatShortYear(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testFormatShortYear(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _years = (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(
 33,
 33,
@@ -2498,7 +2498,7 @@ function testFormatShortYear(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
             };
         };
     }
-function testParse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testParse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _test in _parseTests) {
             var __tmp__ = parse(_test._format?.__copy__(), _test._value?.__copy__()), _time:stdgo.time.Time.Time = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -2508,7 +2508,7 @@ function testParse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testParseDayOutOfRange(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testParseDayOutOfRange(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _test in _dayOutOfRangeTests) {
             var __tmp__ = parse(("Mon Jan _2 15:04:05 2006" : stdgo.GoString), _test._date?.__copy__()), __3:stdgo.time.Time.Time = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_test._ok && (_err == null)) {} else if (!_test._ok && (_err != null)) {
@@ -2534,7 +2534,7 @@ function testParseDayOutOfRange(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
     // release); but we still want to make sure that the time package does
     // not get confused on systems with slightly older tzdata packages.
 **/
-function testParseInLocation(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testParseInLocation(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __tmp__ = loadLocation(("Asia/Baghdad" : stdgo.GoString)), _baghdad:stdgo.StdGoTypes.Ref<stdgo.time.Time.Location> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
@@ -2582,7 +2582,7 @@ function testParseInLocation(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
             _t.fatalf(("ParseInLocation(Feb 01 2013 AST, Blanc-Sablon).Zone = _, %d, want _, %d" : stdgo.GoString), stdgo.Go.toInterface(_offset), stdgo.Go.toInterface((-14400 : stdgo.StdGoTypes.GoInt)));
         };
     }
-function testLoadLocationZipFile(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testLoadLocationZipFile(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _undo:() -> Void = disablePlatformSources();
@@ -2615,7 +2615,7 @@ function testLoadLocationZipFile(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
 /**
     // Problematic time zone format needs special tests.
 **/
-function testRubyParse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testRubyParse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _test in _rubyTests) {
             var __tmp__ = parse(_test._format?.__copy__(), _test._value?.__copy__()), _time:stdgo.time.Time.Time = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -2625,7 +2625,7 @@ function testRubyParse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function _checkTime(_time:Time, _test:stdgo.StdGoTypes.Ref<ParseTest>, _t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function _checkTime(_time:Time, _test:stdgo.StdGoTypes.Ref<ParseTest>, _t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         if ((_test._yearSign >= (0 : stdgo.StdGoTypes.GoInt)) && ((_test._yearSign * _time.year()) != (2010 : stdgo.StdGoTypes.GoInt))) {
             _t.errorf(("%s: bad year: %d not %d" : stdgo.GoString), stdgo.Go.toInterface(_test._name), stdgo.Go.toInterface(_time.year()), stdgo.Go.toInterface((2010 : stdgo.StdGoTypes.GoInt)));
         };
@@ -2659,7 +2659,7 @@ function _checkTime(_time:Time, _test:stdgo.StdGoTypes.Ref<ParseTest>, _t:stdgo.
             _t.errorf(("%s: bad weekday: %s not %s" : stdgo.GoString), stdgo.Go.toInterface(_test._name), stdgo.Go.toInterface(stdgo.Go.asInterface(_time.weekday())), stdgo.Go.toInterface(stdgo.Go.asInterface((4 : stdgo.time.Time.Weekday))));
         };
     }
-function testFormatAndParse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testFormatAndParse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _f:stdgo.StdGoTypes.GoInt64 -> Bool = function(_sec:stdgo.StdGoTypes.GoInt64):Bool {
             var _t1:stdgo.time.Time.Time = unix(_sec / (2i64 : stdgo.StdGoTypes.GoInt64), (0i64 : stdgo.StdGoTypes.GoInt64))?.__copy__();
@@ -2694,7 +2694,7 @@ function testFormatAndParse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             };
         };
     }
-function testParseTimeZone(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testParseTimeZone(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _test in _parseTimeZoneTests) {
             var __tmp__ = parseTimeZone(_test._value?.__copy__()), _length:stdgo.StdGoTypes.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok != (_test._ok)) {
@@ -2704,7 +2704,7 @@ function testParseTimeZone(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             };
         };
     }
-function testParseErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testParseErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _test in _parseErrorTests) {
             var __tmp__ = parse(_test._format?.__copy__(), _test._value?.__copy__()), __3:stdgo.time.Time.Time = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err == null) {
@@ -2714,7 +2714,7 @@ function testParseErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
             };
         };
     }
-function testNoonIs12PM(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNoonIs12PM(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _noon:stdgo.time.Time.Time = date((0 : stdgo.StdGoTypes.GoInt), (1 : stdgo.time.Time.Month), (1 : stdgo.StdGoTypes.GoInt), (12 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), utc)?.__copy__();
         {};
         var _got:stdgo.GoString = _noon.format(("3:04PM" : stdgo.GoString))?.__copy__();
@@ -2726,7 +2726,7 @@ function testNoonIs12PM(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _t.errorf(("got %q; expect %q" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(("12:00PM" : stdgo.GoString)));
         };
     }
-function testMidnightIs12AM(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMidnightIs12AM(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _midnight:stdgo.time.Time.Time = date((0 : stdgo.StdGoTypes.GoInt), (1 : stdgo.time.Time.Month), (1 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), utc)?.__copy__();
         var _expect:stdgo.GoString = ("12:00AM" : stdgo.GoString);
         var _got:stdgo.GoString = _midnight.format(("3:04PM" : stdgo.GoString))?.__copy__();
@@ -2738,7 +2738,7 @@ function testMidnightIs12AM(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             _t.errorf(("got %q; expect %q" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_expect));
         };
     }
-function test12PMIsNoon(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function test12PMIsNoon(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __tmp__ = parse(("3:04PM" : stdgo.GoString), ("12:00PM" : stdgo.GoString)), _noon:stdgo.time.Time.Time = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(("error parsing date:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
@@ -2758,7 +2758,7 @@ function test12PMIsNoon(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _t.errorf(("got %d; expect 12" : stdgo.GoString), stdgo.Go.toInterface(_noon.hour()));
         };
     }
-function test12AMIsMidnight(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function test12AMIsMidnight(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __tmp__ = parse(("3:04PM" : stdgo.GoString), ("12:00AM" : stdgo.GoString)), _midnight:stdgo.time.Time.Time = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(("error parsing date:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
@@ -2782,7 +2782,7 @@ function test12AMIsMidnight(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
     // Check that a time without a Zone still produces a (numeric) time zone
     // when formatted with MST as a requested zone.
 **/
-function testMissingZone(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMissingZone(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __tmp__ = parse(("Mon Jan 02 15:04:05 -0700 2006" : stdgo.GoString), ("Thu Feb 02 16:10:03 -0500 2006" : stdgo.GoString)), _time:stdgo.time.Time.Time = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(("error parsing date:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
@@ -2793,7 +2793,7 @@ function testMissingZone(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
             _t.errorf(("got %s; expect %s" : stdgo.GoString), stdgo.Go.toInterface(_str), stdgo.Go.toInterface(_expect));
         };
     }
-function testMinutesInTimeZone(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMinutesInTimeZone(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __tmp__ = parse(("Mon Jan 02 15:04:05 -0700 2006" : stdgo.GoString), ("Mon Jan 02 15:04:05 +0123 2006" : stdgo.GoString)), _time:stdgo.time.Time.Time = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(("error parsing date:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
@@ -2804,7 +2804,7 @@ function testMinutesInTimeZone(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             _t.errorf(("ZoneOffset = %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_offset), stdgo.Go.toInterface(_expected));
         };
     }
-function testParseSecondsInTimeZone(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testParseSecondsInTimeZone(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _test in _secondsTimeZoneOffsetTests) {
             var __tmp__ = parse(_test._format?.__copy__(), _test._value?.__copy__()), _time:stdgo.time.Time.Time = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -2816,7 +2816,7 @@ function testParseSecondsInTimeZone(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
             };
         };
     }
-function testFormatSecondsInTimeZone(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testFormatSecondsInTimeZone(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _test in _secondsTimeZoneOffsetTests) {
             var _d:stdgo.time.Time.Time = date((1871 : stdgo.StdGoTypes.GoInt), (1 : stdgo.time.Time.Month), (1 : stdgo.StdGoTypes.GoInt), (5 : stdgo.StdGoTypes.GoInt), (33 : stdgo.StdGoTypes.GoInt), (2 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), fixedZone(("LMT" : stdgo.GoString), _test._expectedoffset))?.__copy__();
             var _timestr:stdgo.GoString = _d.format(_test._format?.__copy__())?.__copy__();
@@ -2828,7 +2828,7 @@ function testFormatSecondsInTimeZone(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testi
 /**
     // Issue 11334.
 **/
-function testUnderscoreTwoThousand(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnderscoreTwoThousand(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _format:stdgo.GoString = ("15:04_20060102" : stdgo.GoString);
         var _input:stdgo.GoString = ("14:38_20150618" : stdgo.GoString);
         var __tmp__ = parse(_format?.__copy__(), _input?.__copy__()), _time:stdgo.time.Time.Time = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -2857,7 +2857,7 @@ function testUnderscoreTwoThousand(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
 /**
     // Issue 29918, 29916
 **/
-function testStd0xParseError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testStd0xParseError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _tests = (new stdgo.Slice<T__struct_3>(3, 3, ({ _format : ("01 MST" : stdgo.GoString), _value : ("0 MST" : stdgo.GoString), _valueElemPrefix : ("0" : stdgo.GoString) } : T__struct_3), ({ _format : ("01 MST" : stdgo.GoString), _value : ("1 MST" : stdgo.GoString), _valueElemPrefix : ("1" : stdgo.GoString) } : T__struct_3), ({ _format : ("Monday, 02-Jan-06 15:04:05 MST" : stdgo.GoString), _value : ("Thursday, 04-Feb-1 21:00:57 PST" : stdgo.GoString), _valueElemPrefix : ("1" : stdgo.GoString) } : T__struct_3)) : stdgo.Slice<T__struct_3>);
         for (__2 => _tt in _tests) {
             var __tmp__ = parse(_tt._format?.__copy__(), _tt._value?.__copy__()), __3:stdgo.time.Time.Time = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -2865,10 +2865,10 @@ function testStd0xParseError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
                 _t.errorf(("Parse(%q, %q) did not fail as expected" : stdgo.GoString), stdgo.Go.toInterface(_tt._format), stdgo.Go.toInterface(_tt._value));
             } else {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<ParseError>)) : stdgo.StdGoTypes.Ref<ParseError>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<ParseError>)) : stdgo.StdGoTypes.Ref<ParseError>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.time.Time.ParseError>), ok : false };
-                }, _perr = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.time.Time.ParseError>), _1 : false };
+                }, _perr = __tmp__._0, _ok = __tmp__._1;
                 if (!_ok) {
                     _t.errorf(("Parse(%q, %q) returned error type %T, expected ParseError" : stdgo.GoString), stdgo.Go.toInterface(_tt._format), stdgo.Go.toInterface(_tt._value), stdgo.Go.toInterface(stdgo.Go.asInterface(_perr)));
                 } else if (!stdgo.strings.Strings.contains(_perr.error()?.__copy__(), ("cannot parse" : stdgo.GoString)) || !stdgo.strings.Strings.hasPrefix(_perr.valueElem?.__copy__(), _tt._valueElemPrefix?.__copy__())) {
@@ -2877,7 +2877,7 @@ function testStd0xParseError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
             };
         };
     }
-function testParseMonthOutOfRange(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testParseMonthOutOfRange(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _test in _monthOutOfRangeTests) {
             var __tmp__ = parse(("01-02" : stdgo.GoString), _test._value?.__copy__()), __3:stdgo.time.Time.Time = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (!_test._ok && (_err != null)) {
@@ -2894,7 +2894,7 @@ function testParseMonthOutOfRange(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
 /**
     // Issue 37387.
 **/
-function testParseYday(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testParseYday(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         _t.parallel();
         {
             var _i:stdgo.StdGoTypes.GoInt = (1 : stdgo.StdGoTypes.GoInt);
@@ -2912,7 +2912,7 @@ function testParseYday(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 /**
     // Issue 45391.
 **/
-function testQuote(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testQuote(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _tests = (new stdgo.Slice<T__struct_5>(7, 7, ({ _s : ("\"" : stdgo.GoString), _want : ("\"\\\"\"" : stdgo.GoString) } : T__struct_5), ({ _s : ("abc\"xyz\"" : stdgo.GoString), _want : ("\"abc\\\"xyz\\\"\"" : stdgo.GoString) } : T__struct_5), ({ _s : stdgo.Go.str()?.__copy__(), _want : ("\"\"" : stdgo.GoString) } : T__struct_5), ({ _s : ("abc" : stdgo.GoString), _want : ("\"abc\"" : stdgo.GoString) } : T__struct_5), ({ _s : ("☺" : stdgo.GoString), _want : ("\"\\xe2\\x98\\xba\"" : stdgo.GoString) } : T__struct_5), ({ _s : ("☺ hello ☺ hello" : stdgo.GoString), _want : ("\"\\xe2\\x98\\xba hello \\xe2\\x98\\xba hello\"" : stdgo.GoString) } : T__struct_5), ({ _s : stdgo.Go.str(4)?.__copy__(), _want : ("\"\\x04\"" : stdgo.GoString) } : T__struct_5)) : stdgo.Slice<T__struct_5>);
         for (__2 => _tt in _tests) {
             {
@@ -2926,7 +2926,7 @@ function testQuote(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 /**
     // Issue 48037
 **/
-function testFormatFractionalSecondSeparators(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testFormatFractionalSecondSeparators(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _tests = (new stdgo.Slice<T__struct_5>(4, 4, ({ _s : ("15:04:05.000" : stdgo.GoString), _want : ("21:00:57.012" : stdgo.GoString) } : T__struct_5), ({ _s : ("15:04:05.999" : stdgo.GoString), _want : ("21:00:57.012" : stdgo.GoString) } : T__struct_5), ({ _s : ("15:04:05,000" : stdgo.GoString), _want : ("21:00:57,012" : stdgo.GoString) } : T__struct_5), ({ _s : ("15:04:05,999" : stdgo.GoString), _want : ("21:00:57,012" : stdgo.GoString) } : T__struct_5)) : stdgo.Slice<T__struct_5>);
         var _time:stdgo.time.Time.Time = unix((0i64 : stdgo.StdGoTypes.GoInt64), (1233810057012345600i64 : stdgo.StdGoTypes.GoInt64))?.__copy__();
         for (__2 => _tt in _tests) {
@@ -2941,7 +2941,7 @@ function testFormatFractionalSecondSeparators(_t:stdgo.StdGoTypes.Ref<stdgo.test
 /**
     // Issue 48685 and 54567.
 **/
-function testParseFractionalSecondsLongerThanNineDigits(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testParseFractionalSecondsLongerThanNineDigits(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _tt in _longFractionalDigitsTests) {
             for (__3 => _format in (new stdgo.Slice<stdgo.GoString>(2, 2, ("2006-01-02T15:04:05Z07:00" : stdgo.GoString), ("2006-01-02T15:04:05.999999999Z07:00" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
                 var __tmp__ = parse(_format?.__copy__(), _tt._value?.__copy__()), _tm:stdgo.time.Time.Time = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -2967,7 +2967,7 @@ function fuzzFormatRFC3339(_f:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.F>):Voi
                 _f.add(stdgo.Go.toInterface(_ts[(0 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_ts[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(false), stdgo.Go.toInterface(false), stdgo.Go.toInterface(_offset));
             };
         };
-        _f.fuzz(stdgo.Go.toInterface(function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _sec:stdgo.StdGoTypes.GoInt64, _nsec:stdgo.StdGoTypes.GoInt64, _useUTC:Bool, _useLocal:Bool, _tzOffset:stdgo.StdGoTypes.GoInt):Void {
+        _f.fuzz(stdgo.Go.toInterface(function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _sec:stdgo.StdGoTypes.GoInt64, _nsec:stdgo.StdGoTypes.GoInt64, _useUTC:Bool, _useLocal:Bool, _tzOffset:stdgo.StdGoTypes.GoInt):Void {
             var _loc:stdgo.StdGoTypes.Ref<Location> = (null : stdgo.StdGoTypes.Ref<stdgo.time.Time.Location>);
             if (_useUTC) {
                 _loc = utc;
@@ -3002,7 +3002,7 @@ function fuzzParseRFC3339(_f:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.F>):Void
         for (__29 => _tt in _longFractionalDigitsTests) {
             _f.add(stdgo.Go.toInterface(_tt._value));
         };
-        _f.fuzz(stdgo.Go.toInterface(function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _s:stdgo.GoString):Void {
+        _f.fuzz(stdgo.Go.toInterface(function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _s:stdgo.GoString):Void {
             var _equalTime:(stdgo.time.Time.Time, stdgo.time.Time.Time) -> Bool = function(_t1:Time, _t2:Time):Bool {
                 var __tmp__ = _t1.zone(), _name1:stdgo.GoString = __tmp__._0, _offset1:stdgo.StdGoTypes.GoInt = __tmp__._1;
                 var __tmp__ = _t2.zone(), _name2:stdgo.GoString = __tmp__._0, _offset2:stdgo.StdGoTypes.GoInt = __tmp__._1;
@@ -3039,7 +3039,7 @@ function fuzzParseRFC3339(_f:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.F>):Void
             };
         }));
     }
-function testHasMonotonicClock(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testHasMonotonicClock(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _yes:(stdgo.GoString, stdgo.time.Time.Time) -> Void = function(_expr:stdgo.GoString, _tt:Time):Void {
             if (getMono((stdgo.Go.setRef(_tt) : stdgo.StdGoTypes.Ref<stdgo.time.Time.Time>)) == ((0i64 : stdgo.StdGoTypes.GoInt64))) {
                 _t.errorf(("%s: missing monotonic clock reading" : stdgo.GoString), stdgo.Go.toInterface(_expr));
@@ -3081,7 +3081,7 @@ function testHasMonotonicClock(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
         _no(("tm.Round(2)" : stdgo.GoString), _tm.round((2i64 : stdgo.time.Time.Duration))?.__copy__());
         _no(("tm.Truncate(2)" : stdgo.GoString), _tm.truncate((2i64 : stdgo.time.Time.Duration))?.__copy__());
     }
-function testMonotonicAdd(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMonotonicAdd(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _tm:stdgo.time.Time.Time = unix((1486057371i64 : stdgo.StdGoTypes.GoInt64), (123456i64 : stdgo.StdGoTypes.GoInt64))?.__copy__();
         setMono((stdgo.Go.setRef(_tm) : stdgo.StdGoTypes.Ref<stdgo.time.Time.Time>), (123456789012345i64 : stdgo.StdGoTypes.GoInt64));
         var _t2:stdgo.time.Time.Time = _tm.add((100000000i64 : stdgo.time.Time.Duration))?.__copy__();
@@ -3138,7 +3138,7 @@ function testMonotonicAdd(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             };
         };
     }
-function testMonotonicSub(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMonotonicSub(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _t1:stdgo.time.Time.Time = unix((1483228799i64 : stdgo.StdGoTypes.GoInt64), (995000000i64 : stdgo.StdGoTypes.GoInt64))?.__copy__();
         setMono((stdgo.Go.setRef(_t1) : stdgo.StdGoTypes.Ref<stdgo.time.Time.Time>), (123456789012345i64 : stdgo.StdGoTypes.GoInt64));
         var _t2:stdgo.time.Time.Time = unix((1483228799i64 : stdgo.StdGoTypes.GoInt64), (5000000i64 : stdgo.StdGoTypes.GoInt64))?.__copy__();
@@ -3210,7 +3210,7 @@ function testMonotonicSub(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
         _cmp(("t3" : stdgo.GoString), ("t2" : stdgo.GoString), _t3?.__copy__(), _t3w?.__copy__(), _t2?.__copy__(), _t2w?.__copy__(), (1 : stdgo.StdGoTypes.GoInt), (1 : stdgo.StdGoTypes.GoInt));
         _cmp(("t3" : stdgo.GoString), ("t3" : stdgo.GoString), _t3?.__copy__(), _t3w?.__copy__(), _t3?.__copy__(), _t3w?.__copy__(), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt));
     }
-function testMonotonicOverflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMonotonicOverflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _t1:stdgo.time.Time.Time = now().add((-30000000000i64 : stdgo.time.Time.Duration))?.__copy__();
         var _d:stdgo.time.Time.Duration = until(_t1?.__copy__());
         if ((_d < (-35000000000i64 : stdgo.time.Time.Duration)) || ((-30000000000i64 : stdgo.time.Time.Duration) < _d)) {
@@ -3260,7 +3260,7 @@ function testMonotonicOverflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             };
         };
     }
-function testMonotonicString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMonotonicString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _t1:stdgo.time.Time.Time = now()?.__copy__();
         _t.logf(("Now() = %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_t1)));
         for (__10 => _tt in _monotonicStringTests) {
@@ -3273,7 +3273,7 @@ function testMonotonicString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
             };
         };
     }
-function testSleep(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testSleep(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         stdgo.Go.routine(() -> {
             var a = function():Void {
@@ -3298,7 +3298,7 @@ function testSleep(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
     // behavior is tested elsewhere, since After and AfterFunc share
     // the same code.
 **/
-function testAfterFunc(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAfterFunc(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _i:stdgo.StdGoTypes.GoInt = (10 : stdgo.StdGoTypes.GoInt);
         var _c = new stdgo.Chan<Bool>(0, () -> false);
         var _f:() -> Void = null;
@@ -3314,7 +3314,7 @@ function testAfterFunc(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         afterFunc((0i64 : stdgo.time.Time.Duration), _f);
         _c.__get__();
     }
-function testAfterStress(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAfterStress(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _stop:stdgo.sync.atomic_.Atomic_.Bool_ = ({} : stdgo.sync.atomic_.Atomic_.Bool_);
         stdgo.Go.routine(() -> {
             var a = function():Void {
@@ -3485,7 +3485,7 @@ function benchmarkSleep(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
             _wg.wait_();
         });
     }
-function testAfter(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAfter(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _start:stdgo.time.Time.Time = now()?.__copy__();
         var _end:stdgo.time.Time.Time = after((100000000i64 : stdgo.time.Time.Duration)).__get__()?.__copy__();
@@ -3506,7 +3506,7 @@ function testAfter(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testAfterTick(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAfterTick(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var delta:stdgo.time.Time.Duration = (100000000i64 : stdgo.time.Time.Duration);
         if (stdgo.testing.Testing.short()) {
@@ -3529,7 +3529,7 @@ function testAfterTick(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _t.fatalf(("%d ticks of %s too slow: took %s, expected %s" : stdgo.GoString), stdgo.Go.toInterface((10 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.Go.asInterface(delta)), stdgo.Go.toInterface(stdgo.Go.asInterface(_d)), stdgo.Go.toInterface(stdgo.Go.asInterface(_target)));
         };
     }
-function testAfterStop(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAfterStop(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _errs:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
         var _logErrs:() -> Void = function():Void {
             for (__2 => _e in _errs) {
@@ -3598,7 +3598,7 @@ function testAfterStop(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         _t.errorf(("saw %d errors" : stdgo.GoString), stdgo.Go.toInterface((_errs.length)));
         _logErrs();
     }
-function testAfterQueuing(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAfterQueuing(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _err:stdgo.Error = stdgo.errors.Errors.new_(("!=nil" : stdgo.GoString));
         {
@@ -3647,7 +3647,7 @@ function _testAfterQueuing(_delta:Duration):stdgo.Error {
         };
         return (null : stdgo.Error);
     }
-function testTimerStopStress(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTimerStopStress(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         if (stdgo.testing.Testing.short()) {
             return;
         };
@@ -3668,7 +3668,7 @@ function testTimerStopStress(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
         };
         sleep((3000000000i64 : stdgo.time.Time.Duration));
     }
-function testSleepZeroDeadlock(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testSleepZeroDeadlock(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             {
@@ -3770,7 +3770,7 @@ function _testReset(_d:Duration):stdgo.Error {
         };
         return (null : stdgo.Error);
     }
-function testReset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testReset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _d:stdgo.time.Time.Duration = (1000000i64 : stdgo.time.Time.Duration);
         {};
         while (true) {
@@ -3791,7 +3791,7 @@ function testReset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
     // with execution of other timers. If it does, timers in this or subsequent
     // tests may not fire.
 **/
-function testOverflowSleep(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testOverflowSleep(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         stdgo.Go.routine(() -> {
             var a = function():Void {
@@ -3851,7 +3851,7 @@ function testOverflowSleep(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
     // Test that a panic while deleting a timer does not leave
     // the timers mutex held, deadlocking a ticker.Stop in a defer.
 **/
-function testIssue5745(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testIssue5745(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _ticker = newTicker((3600000000000i64 : stdgo.time.Time.Duration));
@@ -3895,20 +3895,20 @@ function testIssue5745(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             return;
         };
     }
-function testOverflowPeriodRuntimeTimer(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testOverflowPeriodRuntimeTimer(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         checkRuntimeTimerPeriodOverflow();
     }
-function _checkZeroPanicString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function _checkZeroPanicString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _e:stdgo.StdGoTypes.AnyInterface = ({
             final r = stdgo.Go.recover_exception;
             stdgo.Go.recover_exception = null;
             r;
         });
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((_e : stdgo.GoString)) : stdgo.GoString), ok : true };
+            { _0 : (stdgo.Go.typeAssert((_e : stdgo.GoString)) : stdgo.GoString), _1 : true };
         } catch(_) {
-            { value : ("" : stdgo.GoString), ok : false };
-        }, _s = __tmp__.value, __2 = __tmp__.ok;
+            { _0 : ("" : stdgo.GoString), _1 : false };
+        }, _s = __tmp__._0, __2 = __tmp__._1;
         {
             var _want:stdgo.GoString = ("called on uninitialized Timer" : stdgo.GoString);
             if (!stdgo.strings.Strings.contains(_s?.__copy__(), _want?.__copy__())) {
@@ -3916,7 +3916,7 @@ function _checkZeroPanicString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             };
         };
     }
-function testZeroTimerResetPanics(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testZeroTimerResetPanics(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             {
@@ -3946,7 +3946,7 @@ function testZeroTimerResetPanics(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
             return;
         };
     }
-function testZeroTimerStopPanics(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testZeroTimerStopPanics(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             {
@@ -3979,7 +3979,7 @@ function testZeroTimerStopPanics(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
 /**
     // Test that zero duration timers aren't missed by the scheduler. Regression test for issue 44868.
 **/
-function testZeroTimer(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testZeroTimer(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         if (stdgo.testing.Testing.short()) {
             _t.skip(stdgo.Go.toInterface(("-short" : stdgo.GoString)));
         };
@@ -4002,7 +4002,7 @@ function testZeroTimer(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
     // Test that rapidly moving a timer earlier doesn't cause it to get dropped.
     // Issue 47329.
 **/
-function testTimerModifiedEarlier(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTimerModifiedEarlier(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             if (false) {
@@ -4088,7 +4088,7 @@ function testTimerModifiedEarlier(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
     // some of the sleep times to be lost.
     // Issue 47762
 **/
-function testAdjustTimers(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAdjustTimers(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _rnd:stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand> = stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource(now().unixNano()));
         var _timers = new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.time.Time.Timer>>((100 : stdgo.StdGoTypes.GoInt).toBasic(), 0);
         var _states = new stdgo.Slice<stdgo.StdGoTypes.GoInt>((_timers.length : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
@@ -4325,7 +4325,7 @@ function _doWork(_dur:Duration):Void {
         var _start:stdgo.time.Time.Time = now()?.__copy__();
         while (since(_start?.__copy__()) < _dur) {};
     }
-function testTicker(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTicker(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _baseCount:stdgo.StdGoTypes.GoInt = (10 : stdgo.StdGoTypes.GoInt);
         var _baseDelta:stdgo.time.Time.Duration = (20000000i64 : stdgo.time.Time.Duration);
         if (false) {
@@ -4400,7 +4400,7 @@ function testTicker(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 /**
     // Issue 21874
 **/
-function testTickerStopWithDirectInitialization(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTickerStopWithDirectInitialization(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _c = new stdgo.Chan<stdgo.time.Time.Time>(0, () -> ({} : stdgo.time.Time.Time));
         var _tk = (stdgo.Go.setRef(({ c : _c } : stdgo.time.Time.Ticker)) : stdgo.StdGoTypes.Ref<stdgo.time.Time.Ticker>);
         _tk.stop();
@@ -4408,7 +4408,7 @@ function testTickerStopWithDirectInitialization(_t:stdgo.StdGoTypes.Ref<stdgo.te
 /**
     // Test that a bug tearing down a ticker has been fixed. This routine should not deadlock.
 **/
-function testTeardown(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTeardown(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var delta:stdgo.time.Time.Duration = (100000000i64 : stdgo.time.Time.Duration);
         if (stdgo.testing.Testing.short()) {
             delta = (20000000i64 : stdgo.time.Time.Duration);
@@ -4425,7 +4425,7 @@ function testTeardown(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 /**
     // Test the Tick convenience wrapper.
 **/
-function testTick(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTick(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _got = tick((-1i64 : stdgo.time.Time.Duration));
             if (_got != null) {
@@ -4436,7 +4436,7 @@ function testTick(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 /**
     // Test that NewTicker panics when given a duration less than zero.
 **/
-function testNewTickerLtZeroDuration(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNewTickerLtZeroDuration(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             __deferstack__.unshift(() -> {
@@ -4479,7 +4479,7 @@ function testNewTickerLtZeroDuration(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testi
 /**
     // Test that Ticker.Reset panics when given a duration less than zero.
 **/
-function testTickerResetLtZeroDuration(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTickerResetLtZeroDuration(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             __deferstack__.unshift(() -> {
@@ -4562,7 +4562,7 @@ function benchmarkTickerResetNaive(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
     // won't be. The purpose of this test is to at least explain why some of
     // the subsequent tests fail.
 **/
-function testZoneData(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testZoneData(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _lt:stdgo.time.Time.Time = now()?.__copy__();
         {
             var __tmp__ = _lt.zone(), _name:stdgo.GoString = __tmp__._0, _off:stdgo.StdGoTypes.GoInt = __tmp__._1;
@@ -4581,7 +4581,7 @@ function _same(_t:Time, _u:stdgo.StdGoTypes.Ref<T_parsedTime>):Bool {
         };
         return (((((((_t.year() == _u.year) && (_t.month() == _u.month)) && (_t.day() == _u.day)) && (_t.hour() == _u.hour)) && (_t.minute() == _u.minute)) && (_t.second() == _u.second)) && (_t.nanosecond() == _u.nanosecond)) && (_t.weekday() == _u.weekday);
     }
-function testSecondsToUTC(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testSecondsToUTC(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _test in _utctests) {
             var _sec:stdgo.StdGoTypes.GoInt64 = _test._seconds;
             var _golden = (stdgo.Go.setRef(_test._golden) : stdgo.StdGoTypes.Ref<stdgo.time_test.Time_test.T_parsedTime>);
@@ -4597,7 +4597,7 @@ function testSecondsToUTC(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             };
         };
     }
-function testNanosecondsToUTC(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNanosecondsToUTC(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _test in _nanoutctests) {
             var _golden = (stdgo.Go.setRef(_test._golden) : stdgo.StdGoTypes.Ref<stdgo.time_test.Time_test.T_parsedTime>);
             var _nsec:stdgo.StdGoTypes.GoInt64 = (_test._seconds * (1000000000i64 : stdgo.StdGoTypes.GoInt64)) + (_golden.nanosecond : stdgo.StdGoTypes.GoInt64);
@@ -4613,7 +4613,7 @@ function testNanosecondsToUTC(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
             };
         };
     }
-function testSecondsToLocalTime(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testSecondsToLocalTime(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _test in _localtests) {
             var _sec:stdgo.StdGoTypes.GoInt64 = _test._seconds;
             var _golden = (stdgo.Go.setRef(_test._golden) : stdgo.StdGoTypes.Ref<stdgo.time_test.Time_test.T_parsedTime>);
@@ -4629,7 +4629,7 @@ function testSecondsToLocalTime(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
             };
         };
     }
-function testNanosecondsToLocalTime(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNanosecondsToLocalTime(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _test in _nanolocaltests) {
             var _golden = (stdgo.Go.setRef(_test._golden) : stdgo.StdGoTypes.Ref<stdgo.time_test.Time_test.T_parsedTime>);
             var _nsec:stdgo.StdGoTypes.GoInt64 = (_test._seconds * (1000000000i64 : stdgo.StdGoTypes.GoInt64)) + (_golden.nanosecond : stdgo.StdGoTypes.GoInt64);
@@ -4645,7 +4645,7 @@ function testNanosecondsToLocalTime(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
             };
         };
     }
-function testSecondsToUTCAndBack(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testSecondsToUTCAndBack(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _f:stdgo.StdGoTypes.GoInt64 -> Bool = function(_sec:stdgo.StdGoTypes.GoInt64):Bool {
             return unix(_sec, (0i64 : stdgo.StdGoTypes.GoInt64)).utc().unix() == (_sec);
         };
@@ -4666,7 +4666,7 @@ function testSecondsToUTCAndBack(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
             };
         };
     }
-function testNanosecondsToUTCAndBack(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNanosecondsToUTCAndBack(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _f:stdgo.StdGoTypes.GoInt64 -> Bool = function(_nsec:stdgo.StdGoTypes.GoInt64):Bool {
             var _t:stdgo.time.Time.Time = unix((0i64 : stdgo.StdGoTypes.GoInt64), _nsec).utc()?.__copy__();
             var _ns:stdgo.StdGoTypes.GoInt64 = (_t.unix() * (1000000000i64 : stdgo.StdGoTypes.GoInt64)) + (_t.nanosecond() : stdgo.StdGoTypes.GoInt64);
@@ -4689,7 +4689,7 @@ function testNanosecondsToUTCAndBack(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testi
             };
         };
     }
-function testUnixMilli(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnixMilli(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _f:stdgo.StdGoTypes.GoInt64 -> Bool = function(_msec:stdgo.StdGoTypes.GoInt64):Bool {
             var _t:stdgo.time.Time.Time = unixMilli(_msec)?.__copy__();
             return _t.unixMilli() == (_msec);
@@ -4702,7 +4702,7 @@ function testUnixMilli(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testUnixMicro(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnixMicro(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _f:stdgo.StdGoTypes.GoInt64 -> Bool = function(_usec:stdgo.StdGoTypes.GoInt64):Bool {
             var _t:stdgo.time.Time.Time = unixMicro(_usec)?.__copy__();
             return _t.unixMicro() == (_usec);
@@ -4740,7 +4740,7 @@ function _absString(_t:Time):stdgo.GoString {
         };
         return stdgo.fmt.Fmt.sprintf(("%d%09d" : stdgo.GoString), stdgo.Go.toInterface(_sec), stdgo.Go.toInterface(_nsec))?.__copy__();
     }
-function testTruncateRound(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTruncateRound(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __0:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>), __1:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>), __2:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>), __3:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>), __4:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>), __5:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>), __6:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>), _b1e9:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __6, _bq:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __5, _br:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __4, _bt:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __3, _bd:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __2, _bnsec:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __1, _bsec:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __0;
         _b1e9.setInt64((1000000000i64 : stdgo.StdGoTypes.GoInt64));
         var _testOne:(stdgo.StdGoTypes.GoInt64, stdgo.StdGoTypes.GoInt64, stdgo.StdGoTypes.GoInt64) -> Bool = function(_ti:stdgo.StdGoTypes.GoInt64, _tns:stdgo.StdGoTypes.GoInt64, _di:stdgo.StdGoTypes.GoInt64):Bool {
@@ -4849,7 +4849,7 @@ function testTruncateRound(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
         };
         stdgo.testing.quick.Quick.check(stdgo.Go.toInterface(_f4), _cfg);
     }
-function testISOWeek(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testISOWeek(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _wt in _isoWeekTests) {
             var _dt:stdgo.time.Time.Time = date(_wt._year, (_wt._month : Month), _wt._day, (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), utc)?.__copy__();
             var __tmp__ = _dt.isoweek(), _y:stdgo.StdGoTypes.GoInt = __tmp__._0, _w:stdgo.StdGoTypes.GoInt = __tmp__._1;
@@ -4869,7 +4869,7 @@ function testISOWeek(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             });
         };
     }
-function testYearDay(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testYearDay(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_i => _loc in _yearDayLocations) {
             for (__2 => _ydt in _yearDayTests) {
                 var _dt:stdgo.time.Time.Time = date(_ydt._year, (_ydt._month : Month), _ydt._day, (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), _loc)?.__copy__();
@@ -4893,7 +4893,7 @@ function testYearDay(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testDurationString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDurationString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _tt in _durationTests) {
             {
                 var _str:stdgo.GoString = (_tt._d.string() : stdgo.GoString)?.__copy__();
@@ -4911,7 +4911,7 @@ function testDurationString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             };
         };
     }
-function testDate(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDate(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _tt in _dateTests) {
             var _time:stdgo.time.Time.Time = date(_tt._year, (_tt._month : Month), _tt._day, _tt._hour, _tt._min, _tt._sec, _tt._nsec, _tt._z)?.__copy__();
             var _want:stdgo.time.Time.Time = unix(_tt._unix, (0i64 : stdgo.StdGoTypes.GoInt64))?.__copy__();
@@ -4930,7 +4930,7 @@ stdgo.Go.toInterface(stdgo.Go.asInterface(_want)));
             };
         };
     }
-function testAddDate(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAddDate(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _t0:stdgo.time.Time.Time = date((2011 : stdgo.StdGoTypes.GoInt), (11 : stdgo.time.Time.Month), (18 : stdgo.StdGoTypes.GoInt), (7 : stdgo.StdGoTypes.GoInt), (56 : stdgo.StdGoTypes.GoInt), (35 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), utc)?.__copy__();
         var _t1:stdgo.time.Time.Time = date((2016 : stdgo.StdGoTypes.GoInt), (3 : stdgo.time.Time.Month), (19 : stdgo.StdGoTypes.GoInt), (7 : stdgo.StdGoTypes.GoInt), (56 : stdgo.StdGoTypes.GoInt), (35 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), utc)?.__copy__();
         for (__2 => _at in _addDateTests) {
@@ -4940,7 +4940,7 @@ function testAddDate(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testDaysIn(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDaysIn(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _tt in _daysInTests) {
             var _di:stdgo.StdGoTypes.GoInt = daysIn((_tt._month : Month), _tt._year);
             if (_di != (_tt._di)) {
@@ -4948,7 +4948,7 @@ function testDaysIn(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testAddToExactSecond(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAddToExactSecond(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _t1:stdgo.time.Time.Time = now()?.__copy__();
         var _t2:stdgo.time.Time.Time = _t1.add((1000000000i64 : stdgo.time.Time.Duration) - (_t1.nanosecond() : Duration))?.__copy__();
         var _sec:stdgo.StdGoTypes.GoInt = (_t1.second() + (1 : stdgo.StdGoTypes.GoInt)) % (60 : stdgo.StdGoTypes.GoInt);
@@ -4961,7 +4961,7 @@ function _equalTimeAndZone(_a:Time, _b:Time):Bool {
         var __tmp__ = _b.zone(), _bname:stdgo.GoString = __tmp__._0, _boffset:stdgo.StdGoTypes.GoInt = __tmp__._1;
         return (_a.equal(_b?.__copy__()) && (_aoffset == _boffset)) && (_aname == _bname);
     }
-function testTimeGob(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTimeGob(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
         var _enc = stdgo.encoding.gob.Gob.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)));
         var _dec = stdgo.encoding.gob.Gob.newDecoder(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)));
@@ -4983,7 +4983,7 @@ function testTimeGob(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _b.reset();
         };
     }
-function testInvalidTimeGob(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testInvalidTimeGob(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _tt in _invalidEncodingTests) {
             var _ignored:Time = ({} : stdgo.time.Time.Time);
             var _err:stdgo.Error = _ignored.gobDecode(_tt._bytes);
@@ -4996,7 +4996,7 @@ function testInvalidTimeGob(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             };
         };
     }
-function testNotGobEncodableTime(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNotGobEncodableTime(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _tt in _notEncodableTimes) {
             var __tmp__ = _tt._time.gobEncode(), __3:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if ((_err == null) || (_err.error() != _tt._want)) {
@@ -5011,7 +5011,7 @@ function testNotGobEncodableTime(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
             };
         };
     }
-function testTimeJSON(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTimeJSON(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _tt in _jsonTests) {
             var _jsonTime:Time = ({} : stdgo.time.Time.Time);
             {
@@ -5031,7 +5031,7 @@ function testTimeJSON(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testUnmarshalInvalidTimes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnmarshalInvalidTimes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _tests = (new stdgo.Slice<T__struct_18>(7, 7, ({ _in : ("{}" : stdgo.GoString), _want : ("Time.UnmarshalJSON: input is not a JSON string" : stdgo.GoString) } : T__struct_18), ({ _in : ("[]" : stdgo.GoString), _want : ("Time.UnmarshalJSON: input is not a JSON string" : stdgo.GoString) } : T__struct_18), ({ _in : ("\"2000-01-01T1:12:34Z\"" : stdgo.GoString), _want : ("<nil>" : stdgo.GoString) } : T__struct_18), ({ _in : ("\"2000-01-01T00:00:00,000Z\"" : stdgo.GoString), _want : ("<nil>" : stdgo.GoString) } : T__struct_18), ({ _in : ("\"2000-01-01T00:00:00+24:00\"" : stdgo.GoString), _want : ("<nil>" : stdgo.GoString) } : T__struct_18), ({ _in : ("\"2000-01-01T00:00:00+00:60\"" : stdgo.GoString), _want : ("<nil>" : stdgo.GoString) } : T__struct_18), ({ _in : ("\"2000-01-01T00:00:00+123:45\"" : stdgo.GoString), _want : ("parsing time \"2000-01-01T00:00:00+123:45\" as \"2006-01-02T15:04:05Z07:00\": cannot parse \"+123:45\" as \"Z07:00\"" : stdgo.GoString) } : T__struct_18)) : stdgo.Slice<T__struct_18>);
         for (__2 => _tt in _tests) {
             var _ts:Time = ({} : stdgo.time.Time.Time);
@@ -5048,7 +5048,7 @@ function testUnmarshalInvalidTimes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
             };
         };
     }
-function testMarshalInvalidTimes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMarshalInvalidTimes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _tests = (new stdgo.Slice<T__struct_16>(5, 5, ({ _time : date((10000 : stdgo.StdGoTypes.GoInt), (1 : stdgo.time.Time.Month), (1 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), utc)?.__copy__(), _want : ("Time.MarshalJSON: year outside of range [0,9999]" : stdgo.GoString) } : T__struct_16), ({ _time : date((-998 : stdgo.StdGoTypes.GoInt), (1 : stdgo.time.Time.Month), (1 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), utc).add((-1000000000i64 : stdgo.time.Time.Duration))?.__copy__(), _want : ("Time.MarshalJSON: year outside of range [0,9999]" : stdgo.GoString) } : T__struct_16), ({ _time : date((0 : stdgo.StdGoTypes.GoInt), (1 : stdgo.time.Time.Month), (1 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), utc).add((-1i64 : stdgo.time.Time.Duration))?.__copy__(), _want : ("Time.MarshalJSON: year outside of range [0,9999]" : stdgo.GoString) } : T__struct_16), ({ _time : date((2020 : stdgo.StdGoTypes.GoInt), (1 : stdgo.time.Time.Month), (1 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), fixedZone(stdgo.Go.str()?.__copy__(), (86400 : stdgo.StdGoTypes.GoInt)))?.__copy__(), _want : ("Time.MarshalJSON: timezone hour outside of range [0,23]" : stdgo.GoString) } : T__struct_16), ({ _time : date((2020 : stdgo.StdGoTypes.GoInt), (1 : stdgo.time.Time.Month), (1 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), fixedZone(stdgo.Go.str()?.__copy__(), (442800 : stdgo.StdGoTypes.GoInt)))?.__copy__(), _want : ("Time.MarshalJSON: timezone hour outside of range [0,23]" : stdgo.GoString) } : T__struct_16)) : stdgo.Slice<T__struct_16>);
         for (__2 => _tt in _tests) {
             var _want:stdgo.GoString = _tt._want?.__copy__();
@@ -5071,7 +5071,7 @@ function testMarshalInvalidTimes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
             };
         };
     }
-function testParseDuration(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testParseDuration(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _tc in _parseDurationTests) {
             var __tmp__ = parseDuration(_tc._in?.__copy__()), _d:stdgo.time.Time.Duration = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if ((_err != null) || (_d != _tc._want)) {
@@ -5079,7 +5079,7 @@ function testParseDuration(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             };
         };
     }
-function testParseDurationErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testParseDurationErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _tc in _parseDurationErrorTests) {
             var __tmp__ = parseDuration(_tc._in?.__copy__()), __3:stdgo.time.Time.Duration = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err == null) {
@@ -5089,7 +5089,7 @@ function testParseDurationErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
             };
         };
     }
-function testParseDurationRoundTrip(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testParseDurationRoundTrip(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _max0:stdgo.time.Time.Duration = ((9223372036854775807i64 : stdgo.time.Time.Duration) : Duration);
         var __tmp__ = parseDuration((_max0.string() : stdgo.GoString)?.__copy__()), _max1:stdgo.time.Time.Duration = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if ((_err != null) || (_max0 != _max1)) {
@@ -5115,7 +5115,7 @@ function testParseDurationRoundTrip(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
 /**
     // golang.org/issue/4622
 **/
-function testLocationRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testLocationRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         resetLocalOnceForTest();
         var _c = new stdgo.Chan<stdgo.GoString>((1 : stdgo.StdGoTypes.GoInt).toBasic(), () -> ("" : stdgo.GoString));
         stdgo.Go.routine(() -> {
@@ -5129,7 +5129,7 @@ function testLocationRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
         sleep((100000000i64 : stdgo.time.Time.Duration));
         forceUSPacificForTesting();
     }
-function testCountMallocs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testCountMallocs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         if (stdgo.testing.Testing.short()) {
             _t.skip(stdgo.Go.toInterface(("skipping malloc count in short mode" : stdgo.GoString)));
         };
@@ -5143,7 +5143,7 @@ function testCountMallocs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             };
         };
     }
-function testLoadFixed(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testLoadFixed(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __tmp__ = loadLocation(("Etc/GMT+1" : stdgo.GoString)), _loc:stdgo.StdGoTypes.Ref<stdgo.time.Time.Location> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
@@ -5153,7 +5153,7 @@ function testLoadFixed(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _t.errorf(("Now().In(loc).Zone() = %q, %d, want %q or %q, %d" : stdgo.GoString), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_offset), stdgo.Go.toInterface(("GMT+1" : stdgo.GoString)), stdgo.Go.toInterface(("-01" : stdgo.GoString)), stdgo.Go.toInterface((-3600 : stdgo.StdGoTypes.GoInt)));
         };
     }
-function testSub(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testSub(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_i => _st in _subTests) {
             var _got:stdgo.time.Time.Duration = _st._t.sub(_st._u?.__copy__());
             if (_got != (_st._d)) {
@@ -5161,7 +5161,7 @@ function testSub(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testDurationNanoseconds(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDurationNanoseconds(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _tt in _nsDurationTests) {
             {
                 var _got:stdgo.StdGoTypes.GoInt64 = _tt._d.nanoseconds();
@@ -5171,7 +5171,7 @@ function testDurationNanoseconds(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
             };
         };
     }
-function testDurationMicroseconds(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDurationMicroseconds(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _tt in _usDurationTests) {
             {
                 var _got:stdgo.StdGoTypes.GoInt64 = _tt._d.microseconds();
@@ -5181,7 +5181,7 @@ function testDurationMicroseconds(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
             };
         };
     }
-function testDurationMilliseconds(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDurationMilliseconds(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _tt in _msDurationTests) {
             {
                 var _got:stdgo.StdGoTypes.GoInt64 = _tt._d.milliseconds();
@@ -5191,7 +5191,7 @@ function testDurationMilliseconds(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
             };
         };
     }
-function testDurationSeconds(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDurationSeconds(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _tt in _secDurationTests) {
             {
                 var _got:stdgo.StdGoTypes.GoFloat64 = _tt._d.seconds();
@@ -5201,7 +5201,7 @@ function testDurationSeconds(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
             };
         };
     }
-function testDurationMinutes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDurationMinutes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _tt in _minDurationTests) {
             {
                 var _got:stdgo.StdGoTypes.GoFloat64 = _tt._d.minutes();
@@ -5211,7 +5211,7 @@ function testDurationMinutes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
             };
         };
     }
-function testDurationHours(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDurationHours(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _tt in _hourDurationTests) {
             {
                 var _got:stdgo.StdGoTypes.GoFloat64 = _tt._d.hours();
@@ -5221,7 +5221,7 @@ function testDurationHours(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             };
         };
     }
-function testDurationTruncate(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDurationTruncate(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _tt in _durationTruncateTests) {
             {
                 var _got:stdgo.time.Time.Duration = _tt._d.truncate(_tt._m);
@@ -5231,7 +5231,7 @@ function testDurationTruncate(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
             };
         };
     }
-function testDurationRound(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDurationRound(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _tt in _durationRoundTests) {
             {
                 var _got:stdgo.time.Time.Duration = _tt._d.round(_tt._m);
@@ -5241,7 +5241,7 @@ function testDurationRound(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             };
         };
     }
-function testDurationAbs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDurationAbs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _tt in _durationAbsTests) {
             {
                 var _got:stdgo.time.Time.Duration = _tt._d.abs();
@@ -5251,7 +5251,7 @@ function testDurationAbs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
             };
         };
     }
-function testDefaultLoc(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDefaultLoc(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _tt in _defaultLocTests) {
             var _t1:stdgo.time.Time.Time = (new stdgo.time.Time.Time() : stdgo.time.Time.Time);
             var _t2:stdgo.time.Time.Time = (new stdgo.time.Time.Time() : stdgo.time.Time.Time).utc()?.__copy__();
@@ -5459,7 +5459,7 @@ function benchmarkUnmarshalText(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>
             });
         };
     }
-function testMarshalBinaryZeroTime(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMarshalBinaryZeroTime(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _t0:stdgo.time.Time.Time = (new stdgo.time.Time.Time() : stdgo.time.Time.Time);
         var __tmp__ = _t0.marshalBinary(), _enc:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -5476,7 +5476,7 @@ function testMarshalBinaryZeroTime(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
             _t.errorf(("t0=%#v\nt1=%#v\nwant identical structures" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_t0)), stdgo.Go.toInterface(stdgo.Go.asInterface(_t1)));
         };
     }
-function testMarshalBinaryVersion2(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMarshalBinaryVersion2(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __tmp__ = parse(("2006-01-02T15:04:05Z07:00" : stdgo.GoString), ("1880-01-01T00:00:00Z" : stdgo.GoString)), _t0:stdgo.time.Time.Time = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _t.errorf(("Failed to parse time, error = %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
@@ -5504,7 +5504,7 @@ function testMarshalBinaryVersion2(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
             };
         };
     }
-function testUnmarshalTextAllocations(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testUnmarshalTextAllocations(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _in = (("2020-08-22T11:27:43.123456789Z" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
         {
             var _allocs:stdgo.StdGoTypes.GoFloat64 = stdgo.testing.Testing.allocsPerRun((100 : stdgo.StdGoTypes.GoInt), function():Void {
@@ -5519,7 +5519,7 @@ function testUnmarshalTextAllocations(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Test
 /**
     // Issue 17720: Zero value of time.Month fails to print
 **/
-function testZeroMonthString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testZeroMonthString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var __0:stdgo.GoString = (((0 : stdgo.time.Time.Month) : Month).string() : stdgo.GoString)?.__copy__(), __1:stdgo.GoString = ("%!Month(0)" : stdgo.GoString), _want:stdgo.GoString = __1, _got:stdgo.GoString = __0;
             if (_got != (_want)) {
@@ -5530,7 +5530,7 @@ function testZeroMonthString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
 /**
     // Issue 24692: Out of range weekday panics
 **/
-function testWeekdayString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWeekdayString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var __0:stdgo.GoString = (((2 : stdgo.time.Time.Weekday) : Weekday).string() : stdgo.GoString)?.__copy__(), __1:stdgo.GoString = ("Tuesday" : stdgo.GoString), _want:stdgo.GoString = __1, _got:stdgo.GoString = __0;
             if (_got != (_want)) {
@@ -5544,7 +5544,7 @@ function testWeekdayString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             };
         };
     }
-function testReadFileLimit(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testReadFileLimit(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         {
             var __tmp__ = stdgo.os.Os.stat(("/dev/zero" : stdgo.GoString)), __2:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -5564,7 +5564,7 @@ function testReadFileLimit(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
     // We are testing that we don't crash with "fatal error: panic holding locks",
     // and that we also don't panic.
 **/
-function testConcurrentTimerReset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testConcurrentTimerReset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         {};
         var _wg:stdgo.sync.Sync.WaitGroup = ({} : stdgo.sync.Sync.WaitGroup);
@@ -5614,7 +5614,7 @@ function testConcurrentTimerReset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
 /**
     // Issue 37400: panic with "racy use of timers".
 **/
-function testConcurrentTimerResetStop(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testConcurrentTimerResetStop(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         {};
         var _wg:stdgo.sync.Sync.WaitGroup = ({} : stdgo.sync.Sync.WaitGroup);
@@ -5690,7 +5690,7 @@ function testConcurrentTimerResetStop(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Test
         };
         _wg.wait_();
     }
-function testTimeIsDST(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTimeIsDST(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _undo:() -> Void = disablePlatformSources();
@@ -5743,7 +5743,7 @@ function testTimeIsDST(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             return;
         };
     }
-function testTimeAddSecOverflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTimeAddSecOverflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _maxInt64:stdgo.StdGoTypes.GoInt64 = (9223372036854775807i64 : stdgo.StdGoTypes.GoInt64);
         var _timeExt:stdgo.StdGoTypes.GoInt64 = (_maxInt64 - (62135596800i64 : stdgo.StdGoTypes.GoInt64)) - (50i64 : stdgo.StdGoTypes.GoInt64);
         var _notMonoTime:stdgo.time.Time.Time = unix(_timeExt, (0i64 : stdgo.StdGoTypes.GoInt64))?.__copy__();
@@ -5779,7 +5779,7 @@ function testTimeAddSecOverflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
 /**
     // Issue 49284: time: ParseInLocation incorrectly because of Daylight Saving Time
 **/
-function testTimeWithZoneTransition(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTimeWithZoneTransition(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _undo:() -> Void = disablePlatformSources();
@@ -5826,7 +5826,7 @@ function testTimeWithZoneTransition(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
             return;
         };
     }
-function testZoneBounds(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testZoneBounds(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _undo:() -> Void = disablePlatformSources();
@@ -5918,7 +5918,7 @@ function testZoneBounds(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             return;
         };
     }
-function testEmbeddedTZData(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testEmbeddedTZData(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _undo:() -> Void = stdgo.time.Time.disablePlatformSources();
@@ -5941,7 +5941,7 @@ function testEmbeddedTZData(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
                 };
                 var _v1:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface(_ref))).elem()?.__copy__();
                 var _v2:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface(_sample))).elem()?.__copy__();
-                var _typ:stdgo.reflect.Reflect.Type = _v1.type();
+                var _typ:stdgo.reflect.Reflect.Type_ = _v1.type();
                 var _nf:stdgo.StdGoTypes.GoInt = _typ.numField();
                 var _found:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 {
@@ -5986,7 +5986,7 @@ function testEmbeddedTZData(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
     // equal is a small version of reflect.DeepEqual that we use to
     // compare the values of zoneinfo unexported fields.
 **/
-function _equal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _f1:stdgo.reflect.Reflect.Value, _f2:stdgo.reflect.Reflect.Value):Bool {
+function _equal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _f1:stdgo.reflect.Reflect.Value, _f2:stdgo.reflect.Reflect.Value):Bool {
         {
             final __value__ = _f1.type().kind();
             if (__value__ == ((23u32 : stdgo.reflect.Reflect.Kind))) {
@@ -6027,7 +6027,7 @@ function _equal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _f1:stdgo.refl
             };
         };
     }
-function testEnvVarUsage(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testEnvVarUsage(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             stdgo.time.Time.resetZoneinfoForTesting();
@@ -6063,7 +6063,7 @@ function testEnvVarUsage(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
             return;
         };
     }
-function testBadLocationErrMsg(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testBadLocationErrMsg(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         stdgo.time.Time.resetZoneinfoForTesting();
         var _loc:stdgo.GoString = ("Asia/SomethingNotExist" : stdgo.GoString);
         var _want:stdgo.Error = stdgo.errors.Errors.new_(("unknown time zone " : stdgo.GoString) + _loc?.__copy__()?.__copy__());
@@ -6072,7 +6072,7 @@ function testBadLocationErrMsg(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             _t.errorf(("LoadLocation(%q) error = %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(_loc), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_want));
         };
     }
-function testLoadLocationValidatesNames(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testLoadLocationValidatesNames(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         stdgo.time.Time.resetZoneinfoForTesting();
         {};
         _t.setenv(("ZONEINFO" : stdgo.GoString), stdgo.Go.str()?.__copy__());
@@ -6084,7 +6084,7 @@ function testLoadLocationValidatesNames(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Te
             };
         };
     }
-function testVersion3(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testVersion3(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _undo:() -> Void = stdgo.time.Time.disablePlatformSources();
@@ -6119,7 +6119,7 @@ function testVersion3(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
     // transition time. To do this we explicitly check early dates in a
     // couple of specific timezones.
 **/
-function testFirstZone(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testFirstZone(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _undo:() -> Void = stdgo.time.Time.disablePlatformSources();
@@ -6161,7 +6161,7 @@ function testFirstZone(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             return;
         };
     }
-function testLocationNames(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testLocationNames(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         if ((stdgo.time.Time.local.string() : stdgo.GoString) != (("Local" : stdgo.GoString))) {
             _t.errorf(("invalid Local location name: got %q want \"Local\"" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo.time.Time.local)));
         };
@@ -6169,7 +6169,7 @@ function testLocationNames(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             _t.errorf(("invalid UTC location name: got %q want \"UTC\"" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo.time.Time.utc)));
         };
     }
-function testLoadLocationFromTZData(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testLoadLocationFromTZData(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _undo:() -> Void = stdgo.time.Time.disablePlatformSources();
@@ -6218,7 +6218,7 @@ function testLoadLocationFromTZData(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
 /**
     // Issue 30099.
 **/
-function testEarlyLocation(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testEarlyLocation(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _undo:() -> Void = stdgo.time.Time.disablePlatformSources();
@@ -6263,7 +6263,7 @@ function testEarlyLocation(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             return;
         };
     }
-function testMalformedTZData(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMalformedTZData(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _issue29437:stdgo.GoString = stdgo.Go.str("TZif",
 0,
 "000000000000000",
@@ -6297,7 +6297,7 @@ function testMalformedTZData(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
             _t.error(stdgo.Go.toInterface(("expected error, got none" : stdgo.GoString)));
         };
     }
-function testLoadLocationFromTZDataSlim(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testLoadLocationFromTZDataSlim(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _test in _slimTests) {
             var __tmp__ = stdgo.os.Os.readFile(("testdata/" : stdgo.GoString) + _test._fileName?.__copy__()?.__copy__()), _tzData:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -6319,7 +6319,7 @@ function testLoadLocationFromTZDataSlim(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Te
             };
         };
     }
-function testTzset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTzset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _test in (new stdgo.Slice<T__struct_33>(
 9,
 9,
@@ -6353,7 +6353,7 @@ stdgo.Go.toInterface(_test._ok));
             };
         };
     }
-function testTzsetName(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTzsetName(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _test in (new stdgo.Slice<T__struct_34>(6, 6, ({ _in : stdgo.Go.str()?.__copy__(), _name : stdgo.Go.str()?.__copy__(), _out : stdgo.Go.str()?.__copy__(), _ok : false } : T__struct_34), ({ _in : ("X" : stdgo.GoString), _name : stdgo.Go.str()?.__copy__(), _out : stdgo.Go.str()?.__copy__(), _ok : false } : T__struct_34), ({ _in : ("PST" : stdgo.GoString), _name : ("PST" : stdgo.GoString), _out : stdgo.Go.str()?.__copy__(), _ok : true } : T__struct_34), ({ _in : ("PST8PDT" : stdgo.GoString), _name : ("PST" : stdgo.GoString), _out : ("8PDT" : stdgo.GoString), _ok : true } : T__struct_34), ({ _in : ("PST-08" : stdgo.GoString), _name : ("PST" : stdgo.GoString), _out : ("-08" : stdgo.GoString), _ok : true } : T__struct_34), ({ _in : ("<A+B>+08" : stdgo.GoString), _name : ("A+B" : stdgo.GoString), _out : ("+08" : stdgo.GoString), _ok : true } : T__struct_34)) : stdgo.Slice<T__struct_34>)) {
             var __tmp__ = stdgo.time.Time.tzsetName(_test._in?.__copy__()), _name:stdgo.GoString = __tmp__._0, _out:stdgo.GoString = __tmp__._1, _ok:Bool = __tmp__._2;
             if (((_name != _test._name) || (_out != _test._out)) || (_ok != _test._ok)) {
@@ -6361,7 +6361,7 @@ function testTzsetName(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testTzsetOffset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTzsetOffset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _test in (new stdgo.Slice<T__struct_35>(
 9,
 9,
@@ -6380,7 +6380,7 @@ function testTzsetOffset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
             };
         };
     }
-function testTzsetRule(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTzsetRule(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__2 => _test in (new stdgo.Slice<T__struct_36>(
 9,
 9,

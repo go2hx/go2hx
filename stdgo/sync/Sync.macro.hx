@@ -5,18 +5,18 @@ package stdgo.sync;
     //
     // If f panics, the returned function will panic with the same value on every call.
 **/
-macro function onceValue<T>(__generic__0:haxe.macro.Expr.ExprOf<T>, _f:haxe.macro.Expr.ExprOf<() -> T>):haxe.macro.Expr.ExprOf<() -> T> {
-        final T:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(__generic__0));
+macro function onceValue<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _f:haxe.macro.Expr.ExprOf<() -> T_>):haxe.macro.Expr.ExprOf<() -> T_> {
+        final T_:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(__generic__0));
         {
-            var id = "T_" + "sync" + "_" + "onceValue" + "_" + "T_" + haxe.macro.ComplexTypeTools.toString(T) + "_";
+            var id = "T_" + "sync" + "_" + "onceValue" + "_" + "T_" + haxe.macro.ComplexTypeTools.toString(T_) + "_";
             id = StringTools.replace(id, ".", "_");
             id = StringTools.replace(id, "<", "_");
             id = StringTools.replace(id, ">", "_");
             try {
                 haxe.macro.Context.getType(id);
             } catch(_) {
-                final f = macro function f(__generic__0:$T, _f:() -> T) {
-                    var __0:stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once), __1:Bool = false, __2:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), __3:$T = stdgo.Go.defaultValue((cast (null) : $T)), _result:$T = __3, _p:stdgo.StdGoTypes.AnyInterface = __2, _valid:Bool = __1, _once:stdgo.sync.Sync.Once = __0;
+                final f = macro function f(__generic__0:$T_, _f:() -> T_) {
+                    var __0:stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once), __1:Bool = false, __2:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), __3:$T_ = stdgo.Go.defaultValue((cast (null) : $T_)), _result:$T_ = __3, _p:stdgo.StdGoTypes.AnyInterface = __2, _valid:Bool = __1, _once:stdgo.sync.Sync.Once = __0;
                     var _g:() -> Void = function():stdgo.sync.Sync.Void {
                         var __deferstack__:stdgo.sync.Sync.Array<stdgo.sync.Sync.Void -> Void> = [];
                         try {
@@ -56,7 +56,7 @@ macro function onceValue<T>(__generic__0:haxe.macro.Expr.ExprOf<T>, _f:haxe.macr
                             return;
                         };
                     };
-                    return function():$T {
+                    return function():$T_ {
                         _once.do_(_g);
                         if (!_valid) {
                             throw stdgo.Go.toInterface(_p);

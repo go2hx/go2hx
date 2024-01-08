@@ -34,7 +34,7 @@ function exampleRead():Void {
 /**
     // https://golang.org/issue/6849.
 **/
-function testPrimeSmall(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testPrimeSmall(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _n:stdgo.StdGoTypes.GoInt = (2 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_n < (10 : stdgo.StdGoTypes.GoInt), _n++, {
@@ -54,7 +54,7 @@ function testPrimeSmall(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 /**
     // Test that passing bits < 2 causes Prime to return nil, error
 **/
-function testPrimeBitsLt2(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testPrimeBitsLt2(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var __tmp__ = stdgo.crypto.rand.Rand.prime(stdgo.crypto.rand.Rand.reader, (1 : stdgo.StdGoTypes.GoInt)), _p:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (((_p != null) && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__)) || (_err == null)) {
@@ -62,7 +62,7 @@ function testPrimeBitsLt2(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             };
         };
     }
-function testPrimeNondeterministic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testPrimeNondeterministic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _r = stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource((42i64 : stdgo.StdGoTypes.GoInt64)));
         var __tmp__ = stdgo.crypto.rand.Rand.prime(stdgo.Go.asInterface(_r), (32 : stdgo.StdGoTypes.GoInt)), _p0:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -83,7 +83,7 @@ function testPrimeNondeterministic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
         };
         _t.error(stdgo.Go.toInterface(("Prime always generated the same prime given the same input" : stdgo.GoString)));
     }
-function testInt(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testInt(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _n:stdgo.StdGoTypes.GoInt = (128 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_n < (140 : stdgo.StdGoTypes.GoInt), _n++, {
@@ -101,12 +101,12 @@ function testInt(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
     // Test that Int reads only the necessary number of bytes from the reader for
     // max at each bit length
 **/
-function testIntReads(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testIntReads(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (32 : stdgo.StdGoTypes.GoInt), _i++, {
                 var _max:stdgo.StdGoTypes.GoInt64 = ((1i64 : stdgo.StdGoTypes.GoInt64) << (_i : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt64);
-                _t.run(stdgo.fmt.Fmt.sprintf(("max=%d" : stdgo.GoString), stdgo.Go.toInterface(_max))?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+                _t.run(stdgo.fmt.Fmt.sprintf(("max=%d" : stdgo.GoString), stdgo.Go.toInterface(_max))?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
                     var _reader = (stdgo.Go.setRef(({ _r : stdgo.crypto.rand.Rand.reader } : stdgo.crypto.rand_test.Rand_test.T_countingReader)) : stdgo.StdGoTypes.Ref<stdgo.crypto.rand_test.Rand_test.T_countingReader>);
                     var __tmp__ = stdgo.crypto.rand.Rand.int_(stdgo.Go.asInterface(_reader), stdgo.math.big.Big.newInt(_max)), __8:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
@@ -123,11 +123,11 @@ function testIntReads(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 /**
     // Test that Int does not mask out valid return values
 **/
-function testIntMask(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testIntMask(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _max:stdgo.StdGoTypes.GoInt = (1 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_max <= (256 : stdgo.StdGoTypes.GoInt), _max++, {
-                _t.run(stdgo.fmt.Fmt.sprintf(("max=%d" : stdgo.GoString), stdgo.Go.toInterface(_max))?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+                _t.run(stdgo.fmt.Fmt.sprintf(("max=%d" : stdgo.GoString), stdgo.Go.toInterface(_max))?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
                     {
                         var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                         stdgo.Go.cfor(_i < _max, _i++, {
@@ -149,7 +149,7 @@ function testIntMask(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             });
         };
     }
-function _testIntPanics(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _b:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>):Void {
+function _testIntPanics(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _b:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             __deferstack__.unshift(() -> {
@@ -192,14 +192,14 @@ function _testIntPanics(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _b:std
 /**
     // Test that passing a new big.Int as max causes Int to panic
 **/
-function testIntEmptyMaxPanics(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testIntEmptyMaxPanics(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _b = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
         _testIntPanics(_t, _b);
     }
 /**
     // Test that passing a negative value as max causes Int to panic
 **/
-function testIntNegativeMaxPanics(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testIntNegativeMaxPanics(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _b = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>).setInt64((-1i64 : stdgo.StdGoTypes.GoInt64));
         _testIntPanics(_t, _b);
     }

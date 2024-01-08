@@ -2441,10 +2441,10 @@ function _convErr(_err:stdgo.Error, _s:stdgo.GoString):{ var _0 : stdgo.Error; v
         var _syntax:stdgo.Error = (null : stdgo.Error), _range_:stdgo.Error = (null : stdgo.Error);
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<NumError>)) : stdgo.StdGoTypes.Ref<NumError>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<NumError>)) : stdgo.StdGoTypes.Ref<NumError>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>), ok : false };
-            }, _x = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>), _1 : false };
+            }, _x = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 _x.func = ("ParseComplex" : stdgo.GoString);
                 _x.num = _cloneString(_s?.__copy__())?.__copy__();
@@ -3268,10 +3268,10 @@ function atoi(_s:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : std
         var __tmp__ = parseInt(_s?.__copy__(), (10 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt)), _i64:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<NumError>)) : stdgo.StdGoTypes.Ref<NumError>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<NumError>)) : stdgo.StdGoTypes.Ref<NumError>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>), ok : false };
-            }, _nerr = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>), _1 : false };
+            }, _nerr = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 _nerr.func = ("Atoi" : stdgo.GoString);
             };

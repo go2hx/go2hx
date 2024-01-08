@@ -356,7 +356,7 @@ class T__struct_2_asInterface {
 };
 @:named typedef T_mapOp = stdgo.GoString;
 @:named @:using(stdgo.sync_test.Sync_test.T_one_static_extension) typedef T_one = stdgo.StdGoTypes.GoInt;
-function testCondSignal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testCondSignal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _m:Mutex = ({} : stdgo.sync.Sync.Mutex);
         var _c = newCond(stdgo.Go.asInterface((stdgo.Go.setRef(_m) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.Mutex>)));
         var _n:stdgo.StdGoTypes.GoInt = (2 : stdgo.StdGoTypes.GoInt);
@@ -430,7 +430,7 @@ function testCondSignal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         };
         _c.signal();
     }
-function testCondSignalGenerations(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testCondSignalGenerations(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _m:Mutex = ({} : stdgo.sync.Sync.Mutex);
         var _c = newCond(stdgo.Go.asInterface((stdgo.Go.setRef(_m) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.Mutex>)));
         var _n:stdgo.StdGoTypes.GoInt = (100 : stdgo.StdGoTypes.GoInt);
@@ -462,7 +462,7 @@ function testCondSignalGenerations(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
             });
         };
     }
-function testCondBroadcast(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testCondBroadcast(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _m:Mutex = ({} : stdgo.sync.Sync.Mutex);
         var _c = newCond(stdgo.Go.asInterface((stdgo.Go.setRef(_m) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.Mutex>)));
         var _n:stdgo.StdGoTypes.GoInt = (200 : stdgo.StdGoTypes.GoInt);
@@ -556,7 +556,7 @@ function testCondBroadcast(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
         };
         _c.broadcast();
     }
-function testRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _x:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         var _c = newCond(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.sync.Sync.Mutex() : stdgo.sync.Sync.Mutex)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.Mutex>)));
         var _done = new stdgo.Chan<Bool>(0, () -> false);
@@ -620,7 +620,7 @@ function testRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         _done.__get__();
         _done.__get__();
     }
-function testCondSignalStealing(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testCondSignalStealing(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _iters:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_iters < (1000 : stdgo.StdGoTypes.GoInt), _iters++, {
@@ -665,7 +665,7 @@ function testCondSignalStealing(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
             });
         };
     }
-function testCondCopy(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testCondCopy(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             __deferstack__.unshift(() -> {
@@ -918,10 +918,10 @@ function benchmarkLoadOrStoreBalanced(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Test
         _benchMap(_b, ({ _setup : function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.StdGoTypes.Ref<DeepCopyMap>)) : stdgo.StdGoTypes.Ref<DeepCopyMap>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.StdGoTypes.Ref<DeepCopyMap>)) : stdgo.StdGoTypes.Ref<DeepCopyMap>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), ok : false };
-                }, __4 = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), _1 : false };
+                }, __4 = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
                     _b.skip(stdgo.Go.toInterface(("DeepCopyMap has quadratic running time." : stdgo.GoString)));
                 };
@@ -963,10 +963,10 @@ function benchmarkLoadOrStoreUnique(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
         _benchMap(_b, ({ _setup : function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.StdGoTypes.Ref<DeepCopyMap>)) : stdgo.StdGoTypes.Ref<DeepCopyMap>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.StdGoTypes.Ref<DeepCopyMap>)) : stdgo.StdGoTypes.Ref<DeepCopyMap>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), ok : false };
-                }, __4 = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), _1 : false };
+                }, __4 = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
                     _b.skip(stdgo.Go.toInterface(("DeepCopyMap has quadratic running time." : stdgo.GoString)));
                 };
@@ -991,10 +991,10 @@ function benchmarkLoadAndDeleteBalanced(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Te
         _benchMap(_b, ({ _setup : function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.StdGoTypes.Ref<DeepCopyMap>)) : stdgo.StdGoTypes.Ref<DeepCopyMap>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.StdGoTypes.Ref<DeepCopyMap>)) : stdgo.StdGoTypes.Ref<DeepCopyMap>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), ok : false };
-                }, __4 = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), _1 : false };
+                }, __4 = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
                     _b.skip(stdgo.Go.toInterface(("DeepCopyMap has quadratic running time." : stdgo.GoString)));
                 };
@@ -1026,10 +1026,10 @@ function benchmarkLoadAndDeleteUnique(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Test
         _benchMap(_b, ({ _setup : function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.StdGoTypes.Ref<DeepCopyMap>)) : stdgo.StdGoTypes.Ref<DeepCopyMap>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.StdGoTypes.Ref<DeepCopyMap>)) : stdgo.StdGoTypes.Ref<DeepCopyMap>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), ok : false };
-                }, __4 = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), _1 : false };
+                }, __4 = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
                     _b.skip(stdgo.Go.toInterface(("DeepCopyMap has quadratic running time." : stdgo.GoString)));
                 };
@@ -1229,10 +1229,10 @@ function benchmarkCompareAndSwapMostlyHits(_b:stdgo.StdGoTypes.Ref<stdgo.testing
         _benchMap(_b, ({ _setup : function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.StdGoTypes.Ref<DeepCopyMap>)) : stdgo.StdGoTypes.Ref<DeepCopyMap>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.StdGoTypes.Ref<DeepCopyMap>)) : stdgo.StdGoTypes.Ref<DeepCopyMap>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), ok : false };
-                }, __4 = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), _1 : false };
+                }, __4 = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
                     _b.skip(stdgo.Go.toInterface(("DeepCopyMap has quadratic running time." : stdgo.GoString)));
                 };
@@ -1300,10 +1300,10 @@ function benchmarkCompareAndDeleteMostlyHits(_b:stdgo.StdGoTypes.Ref<stdgo.testi
         _benchMap(_b, ({ _setup : function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.StdGoTypes.Ref<DeepCopyMap>)) : stdgo.StdGoTypes.Ref<DeepCopyMap>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.StdGoTypes.Ref<DeepCopyMap>)) : stdgo.StdGoTypes.Ref<DeepCopyMap>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), ok : false };
-                }, __4 = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), _1 : false };
+                }, __4 = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
                     _b.skip(stdgo.Go.toInterface(("DeepCopyMap has quadratic running time." : stdgo.GoString)));
                 };
@@ -1393,7 +1393,7 @@ function _applyRWMutexMap(_calls:stdgo.Slice<T_mapCall>):{ var _0 : stdgo.Slice<
 function _applyDeepCopyMap(_calls:stdgo.Slice<T_mapCall>):{ var _0 : stdgo.Slice<T_mapResult>; var _1 : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>; } {
         return _applyCalls(stdgo.Go.asInterface(_new(DeepCopyMap_static_extension)), _calls);
     }
-function testMapMatchesRWMutex(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMapMatchesRWMutex(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _err:stdgo.Error = stdgo.testing.quick.Quick.checkEqual(stdgo.Go.toInterface(_applyMap), stdgo.Go.toInterface(_applyRWMutexMap), null);
             if (_err != null) {
@@ -1401,7 +1401,7 @@ function testMapMatchesRWMutex(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             };
         };
     }
-function testMapMatchesDeepCopy(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMapMatchesDeepCopy(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _err:stdgo.Error = stdgo.testing.quick.Quick.checkEqual(stdgo.Go.toInterface(_applyMap), stdgo.Go.toInterface(_applyDeepCopyMap), null);
             if (_err != null) {
@@ -1409,7 +1409,7 @@ function testMapMatchesDeepCopy(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
             };
         };
     }
-function testConcurrentRange(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testConcurrentRange(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             {};
@@ -1553,7 +1553,7 @@ function testConcurrentRange(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
             return;
         };
     }
-function testIssue40999(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testIssue40999(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _m:stdgo.sync.Sync.Map_ = ({} : stdgo.sync.Sync.Map_);
         _m.store((null : stdgo.StdGoTypes.AnyInterface), stdgo.Go.toInterface((new T_httpPkg() : T_httpPkg)));
         var _finalized:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32);
@@ -1567,7 +1567,7 @@ function testIssue40999(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             stdgo.runtime.Runtime.gc();
         };
     }
-function testMapRangeNestedCall(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMapRangeNestedCall(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _m:stdgo.sync.Sync.Map_ = ({} : stdgo.sync.Sync.Map_);
         for (_i => _v in (new stdgo.GoArray<stdgo.GoString>(("hello" : stdgo.GoString), ("world" : stdgo.GoString), ("Go" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>)) {
             _m.store(stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v));
@@ -1608,7 +1608,7 @@ function testMapRangeNestedCall(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
             _t.fatalf(("Unexpected sync.Map size, got %v want %v" : stdgo.GoString), stdgo.Go.toInterface(_length), stdgo.Go.toInterface((0 : stdgo.StdGoTypes.GoInt)));
         };
     }
-function testCompareAndSwap_NonExistingKey(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testCompareAndSwap_NonExistingKey(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _m = (stdgo.Go.setRef((new stdgo.sync.Sync.Map_() : stdgo.sync.Sync.Map_)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.Map_>);
         if (_m.compareAndSwap(stdgo.Go.toInterface(stdgo.Go.asInterface(_m)), (null : stdgo.StdGoTypes.AnyInterface), stdgo.Go.toInterface((42 : stdgo.StdGoTypes.GoInt)))) {
             _t.fatalf(("CompareAndSwap on an non-existing key succeeded" : stdgo.GoString));
@@ -1624,7 +1624,7 @@ function hammerSemaphore(_s:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _loops:std
         };
         _cdone.__send__(true);
     }
-function testSemaphore(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testSemaphore(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _s = _new(_uint32);
         _s.value = (1u32 : stdgo.StdGoTypes.GoUInt32);
         var _c = new stdgo.Chan<Bool>(0, () -> false);
@@ -1699,7 +1699,7 @@ function hammerMutex(_m:stdgo.StdGoTypes.Ref<Mutex>, _loops:stdgo.StdGoTypes.GoI
         };
         _cdone.__send__(true);
     }
-function testMutex(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMutex(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             {
@@ -1756,7 +1756,7 @@ function testMutex(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             return;
         };
     }
-function testMutexMisuse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMutexMisuse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         stdgo.internal.testenv.Testenv.mustHaveExec(stdgo.Go.asInterface(_t));
         for (__4 => _test in _misuseTests) {
             var __tmp__ = stdgo.os.exec.Exec.command(stdgo.os.Os.args[(0 : stdgo.StdGoTypes.GoInt)]?.__copy__(), ("TESTMISUSE" : stdgo.GoString), _test._name?.__copy__()).combinedOutput(), _out:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -1765,7 +1765,7 @@ function testMutexMisuse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
             };
         };
     }
-function testMutexFairness(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMutexFairness(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _mu:Mutex = ({} : stdgo.sync.Sync.Mutex);
@@ -1866,7 +1866,7 @@ function testMutexFairness(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
     
     
 **/
-@:structInit @:using(stdgo.sync_test.Sync_test.T_benchmarkMutexUncontended_29___localname___PaddedMutex_static_extension) class T_benchmarkMutexUncontended_29___localname___PaddedMutex {
+@:structInit @:using(stdgo.sync_test.Sync_test.T_benchmarkMutexUncontended_18___localname___PaddedMutex_static_extension) class T_benchmarkMutexUncontended_18___localname___PaddedMutex {
     @:embedded
     public var mutex : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
     public var _pad : stdgo.GoArray<stdgo.StdGoTypes.GoUInt8> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(...[for (i in 0 ... 128) (0 : stdgo.StdGoTypes.GoUInt8)]);
@@ -1886,13 +1886,13 @@ function testMutexFairness(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
     @:embedded
     public function _unlockSlow(__0:stdgo.StdGoTypes.GoInt32) mutex._unlockSlow(__0);
     public function __copy__() {
-        return new T_benchmarkMutexUncontended_29___localname___PaddedMutex(mutex, _pad);
+        return new T_benchmarkMutexUncontended_18___localname___PaddedMutex(mutex, _pad);
     }
 }
 function benchmarkMutexUncontended(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
         {};
         _b.runParallel(function(_pb:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.PB>):Void {
-            var _mu:T_benchmarkMutexUncontended_29___localname___PaddedMutex = ({} : stdgo.sync_test.Sync_test.T_benchmarkMutexUncontended_29___localname___PaddedMutex);
+            var _mu:T_benchmarkMutexUncontended_18___localname___PaddedMutex = ({} : stdgo.sync_test.Sync_test.T_benchmarkMutexUncontended_18___localname___PaddedMutex);
             while (_pb.next()) {
                 _mu.lock();
                 _mu.unlock();
@@ -1990,7 +1990,7 @@ function benchmarkMutexSpin(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Vo
             };
         });
     }
-function _run(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _once:stdgo.StdGoTypes.Ref<Once>, _o:stdgo.Pointer<T_one>, _c:stdgo.Chan<Bool>):Void {
+function _run(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _once:stdgo.StdGoTypes.Ref<Once>, _o:stdgo.Pointer<T_one>, _c:stdgo.Chan<Bool>):Void {
         _once.do_(function():Void {
             _o.value.increment(_o);
         });
@@ -2002,7 +2002,7 @@ function _run(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _once:stdgo.StdG
         };
         _c.__send__(true);
     }
-function testOnce(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testOnce(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _o = _new(_one);
         var _once = _new(once);
         var _c = new stdgo.Chan<Bool>(0, () -> false);
@@ -2023,7 +2023,7 @@ function testOnce(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _t.errorf(("once failed outside run: %d is not 1" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_o.value)));
         };
     }
-function testOncePanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testOncePanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _once:Once = ({} : stdgo.sync.Sync.Once);
         {
             var a = function():Void {
@@ -2083,7 +2083,7 @@ function benchmarkOnce(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
             };
         });
     }
-function testOnceFunc(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testOnceFunc(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _calls:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         var _f:() -> Void = stdgo.sync.Sync.onceFunc(function():Void {
             _calls++;
@@ -2096,7 +2096,7 @@ function testOnceFunc(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _t.errorf(("want 0 allocations per call, got %v" : stdgo.GoString), stdgo.Go.toInterface(_allocs));
         };
     }
-function testOnceValue(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testOnceValue(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _calls:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         var _f:() -> stdgo.StdGoTypes.GoInt = stdgo.sync.Sync.onceValue((0 : stdgo.StdGoTypes.GoInt), function():stdgo.StdGoTypes.GoInt {
             _calls++;
@@ -2116,7 +2116,7 @@ function testOnceValue(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _t.errorf(("want 0 allocations per call, got %v" : stdgo.GoString), stdgo.Go.toInterface(_allocs));
         };
     }
-function testOnceValues(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testOnceValues(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _calls:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         var _f:() -> { var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.StdGoTypes.GoInt; } = stdgo.sync.Sync.onceValues((0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), function():{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.StdGoTypes.GoInt; } {
             _calls++;
@@ -2136,14 +2136,14 @@ function testOnceValues(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _t.errorf(("want 0 allocations per call, got %v" : stdgo.GoString), stdgo.Go.toInterface(_allocs));
         };
     }
-function _testOncePanicX(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _calls:stdgo.Pointer<stdgo.StdGoTypes.GoInt>, _f:() -> Void):Void {
+function _testOncePanicX(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _calls:stdgo.Pointer<stdgo.StdGoTypes.GoInt>, _f:() -> Void):Void {
         _testOncePanicWith(_t, _calls, _f, function(_label:stdgo.GoString, _p:stdgo.StdGoTypes.AnyInterface):Void {
             if (_p != (stdgo.Go.toInterface(("x" : stdgo.GoString)))) {
                 _t.fatalf(("%s: want panic %v, got %v" : stdgo.GoString), stdgo.Go.toInterface(_label), stdgo.Go.toInterface(("x" : stdgo.GoString)), _p);
             };
         });
     }
-function _testOncePanicWith(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _calls:stdgo.Pointer<stdgo.StdGoTypes.GoInt>, _f:() -> Void, _check:(_label:stdgo.GoString, _p:stdgo.StdGoTypes.AnyInterface) -> Void):Void {
+function _testOncePanicWith(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _calls:stdgo.Pointer<stdgo.StdGoTypes.GoInt>, _f:() -> Void, _check:(_label:stdgo.GoString, _p:stdgo.StdGoTypes.AnyInterface) -> Void):Void {
         for (__4 => _label in (new stdgo.Slice<stdgo.GoString>(2, 2, ("first time" : stdgo.GoString), ("second time" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
             var _p:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface);
             var _panicked:Bool = true;
@@ -2195,7 +2195,7 @@ function _testOncePanicWith(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _c
             _t.errorf(("want calls==1, got %d" : stdgo.GoString), stdgo.Go.toInterface(_calls.value));
         };
     }
-function testOnceFuncPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testOnceFuncPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _calls:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         var _f:() -> Void = stdgo.sync.Sync.onceFunc(function():Void {
             _calls++;
@@ -2203,7 +2203,7 @@ function testOnceFuncPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
         });
         _testOncePanicX(_t, stdgo.Go.pointer(_calls), _f);
     }
-function testOnceValuePanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testOnceValuePanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _calls:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         var _f:() -> stdgo.StdGoTypes.GoInt = stdgo.sync.Sync.onceValue((0 : stdgo.StdGoTypes.GoInt), function():stdgo.StdGoTypes.GoInt {
             _calls++;
@@ -2213,7 +2213,7 @@ function testOnceValuePanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             _f();
         });
     }
-function testOnceValuesPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testOnceValuesPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _calls:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         var _f:() -> { var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.StdGoTypes.GoInt; } = stdgo.sync.Sync.onceValues((0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), function():{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.StdGoTypes.GoInt; } {
             _calls++;
@@ -2223,7 +2223,7 @@ function testOnceValuesPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
             _f();
         });
     }
-function testOnceFuncPanicNil(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testOnceFuncPanicNil(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _calls:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         var _f:() -> Void = stdgo.sync.Sync.onceFunc(function():Void {
             _calls++;
@@ -2239,7 +2239,7 @@ function testOnceFuncPanicNil(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
             _t.fatalf(("%s: want nil panic, got %v" : stdgo.GoString), stdgo.Go.toInterface(_label), _p);
         });
     }
-function testOnceFuncGoexit(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testOnceFuncGoexit(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _calls:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         var _f:() -> Void = stdgo.sync.Sync.onceFunc(function():Void {
             _calls++;
@@ -2296,7 +2296,7 @@ function testOnceFuncGoexit(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             _t.errorf(("want calls==1, got %d" : stdgo.GoString), stdgo.Go.toInterface(_calls));
         };
     }
-function testOnceFuncPanicTraceback(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testOnceFuncPanicTraceback(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _f:() -> Void = stdgo.sync.Sync.onceFunc(_onceFuncPanic);
@@ -2431,7 +2431,7 @@ function benchmarkOnceValue(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Vo
             };
         });
     }
-function testPool(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testPool(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             {
@@ -2505,7 +2505,7 @@ function testPool(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             return;
         };
     }
-function testPoolNew(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testPoolNew(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             {
@@ -2568,16 +2568,16 @@ function testPoolNew(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 /**
     // Test that Pool does not hold pointers to previously cached resources.
 **/
-function testPoolGC(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testPoolGC(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         _testPool(_t, true);
     }
 /**
     // Test that Pool releases resources on GC.
 **/
-function testPoolRelease(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testPoolRelease(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         _testPool(_t, false);
     }
-function _testPool(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _drain:Bool):Void {
+function _testPool(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _drain:Bool):Void {
         stdgo.internal.Macro.controlFlow({
             var _p:Pool = ({} : stdgo.sync.Sync.Pool);
             {};
@@ -2624,7 +2624,7 @@ function _testPool(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _drain:Bool
             };
         });
     }
-function testPoolStress(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testPoolStress(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var n:stdgo.StdGoTypes.GoInt = (1000000 : stdgo.StdGoTypes.GoInt);
         if (stdgo.testing.Testing.short()) {
@@ -2665,13 +2665,13 @@ function testPoolStress(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             });
         };
     }
-function testPoolDequeue(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testPoolDequeue(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         _testPoolDequeue(_t, newPoolDequeue((16 : stdgo.StdGoTypes.GoInt)));
     }
-function testPoolChain(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testPoolChain(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         _testPoolDequeue(_t, newPoolChain());
     }
-function _testPoolDequeue(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _d:PoolDequeue):Void {
+function _testPoolDequeue(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _d:PoolDequeue):Void {
         {};
         var n:stdgo.StdGoTypes.GoInt = (2000000 : stdgo.StdGoTypes.GoInt);
         if (stdgo.testing.Testing.short()) {
@@ -2919,7 +2919,7 @@ function benchmarkPoolExpensiveNew(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
     
     
 **/
-@:structInit class T_benchmarkSemaUncontended_30___localname___PaddedSem {
+@:structInit class T_benchmarkSemaUncontended_19___localname___PaddedSem {
     public var _sem : stdgo.StdGoTypes.GoUInt32 = 0;
     public var _pad : stdgo.GoArray<stdgo.StdGoTypes.GoUInt32> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt32>(...[for (i in 0 ... 32) (0 : stdgo.StdGoTypes.GoUInt32)]);
     public function new(?_sem:stdgo.StdGoTypes.GoUInt32, ?_pad:stdgo.GoArray<stdgo.StdGoTypes.GoUInt32>) {
@@ -2928,7 +2928,7 @@ function benchmarkPoolExpensiveNew(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_benchmarkSemaUncontended_30___localname___PaddedSem(_sem, _pad);
+        return new T_benchmarkSemaUncontended_19___localname___PaddedSem(_sem, _pad);
     }
 }
 function benchmarkSemaUncontended(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
@@ -3058,7 +3058,7 @@ function _doTestParallelReaders(_numReaders:stdgo.StdGoTypes.GoInt, _gomaxprocs:
             });
         };
     }
-function testParallelReaders(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testParallelReaders(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             {
@@ -3153,7 +3153,7 @@ function hammerRWMutex(_gomaxprocs:stdgo.StdGoTypes.GoInt, _numReaders:stdgo.Std
             });
         };
     }
-function testRWMutex(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testRWMutex(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _m:RWMutex = ({} : stdgo.sync.Sync.RWMutex);
@@ -3219,7 +3219,7 @@ function testRWMutex(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             return;
         };
     }
-function testRLocker(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testRLocker(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _wl:RWMutex = ({} : stdgo.sync.Sync.RWMutex);
         var _rl:Locker = (null : stdgo.sync.Sync.Locker);
         var _wlocked = new stdgo.Chan<Bool>((1 : stdgo.StdGoTypes.GoInt).toBasic(), () -> false);
@@ -3295,7 +3295,7 @@ function testRLocker(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
     
     
 **/
-@:structInit @:using(stdgo.sync_test.Sync_test.T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex_static_extension) class T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex {
+@:structInit @:using(stdgo.sync_test.Sync_test.T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex_static_extension) class T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex {
     @:embedded
     public var rwmutex : stdgo.sync.Sync.RWMutex = ({} : stdgo.sync.Sync.RWMutex);
     public var _pad : stdgo.GoArray<stdgo.StdGoTypes.GoUInt32> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt32>(...[for (i in 0 ... 32) (0 : stdgo.StdGoTypes.GoUInt32)]);
@@ -3321,13 +3321,13 @@ function testRLocker(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
     @:embedded
     public function _rUnlockSlow(__0:stdgo.StdGoTypes.GoInt32) rwmutex._rUnlockSlow(__0);
     public function __copy__() {
-        return new T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex(rwmutex, _pad);
+        return new T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex(rwmutex, _pad);
     }
 }
 function benchmarkRWMutexUncontended(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
         {};
         _b.runParallel(function(_pb:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.PB>):Void {
-            var _rwm:T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex = ({} : stdgo.sync_test.Sync_test.T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex);
+            var _rwm:T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex = ({} : stdgo.sync_test.Sync_test.T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex);
             while (_pb.next()) {
                 _rwm.rlock();
                 _rwm.rlock();
@@ -3374,7 +3374,7 @@ function benchmarkRWMutexWorkWrite100(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Test
 function benchmarkRWMutexWorkWrite10(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
         _benchmarkRWMutex(_b, (100 : stdgo.StdGoTypes.GoInt), (10 : stdgo.StdGoTypes.GoInt));
     }
-function _testWaitGroup(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _wg1:stdgo.StdGoTypes.Ref<WaitGroup>, _wg2:stdgo.StdGoTypes.Ref<WaitGroup>):Void {
+function _testWaitGroup(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _wg1:stdgo.StdGoTypes.Ref<WaitGroup>, _wg2:stdgo.StdGoTypes.Ref<WaitGroup>):Void {
         var _n:stdgo.StdGoTypes.GoInt = (16 : stdgo.StdGoTypes.GoInt);
         _wg1.add(_n);
         _wg2.add(_n);
@@ -3425,7 +3425,7 @@ function _testWaitGroup(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _wg1:s
             });
         };
     }
-function testWaitGroup(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWaitGroup(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _wg1 = (stdgo.Go.setRef((new stdgo.sync.Sync.WaitGroup() : stdgo.sync.Sync.WaitGroup)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.WaitGroup>);
         var _wg2 = (stdgo.Go.setRef((new stdgo.sync.Sync.WaitGroup() : stdgo.sync.Sync.WaitGroup)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.WaitGroup>);
         {
@@ -3435,7 +3435,7 @@ function testWaitGroup(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             });
         };
     }
-function testWaitGroupMisuse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWaitGroupMisuse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             __deferstack__.unshift(() -> {
@@ -3477,7 +3477,7 @@ function testWaitGroupMisuse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
             return;
         };
     }
-function testWaitGroupRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWaitGroupRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (1000 : stdgo.StdGoTypes.GoInt), _i++, {
@@ -3511,7 +3511,7 @@ function testWaitGroupRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
     
     
 **/
-@:structInit class T_testWaitGroupAlign_32___localname___X {
+@:structInit class T_testWaitGroupAlign_21___localname___X {
     public var _x : stdgo.StdGoTypes.GoUInt8 = 0;
     public var _wg : stdgo.sync.Sync.WaitGroup = ({} : stdgo.sync.Sync.WaitGroup);
     public function new(?_x:stdgo.StdGoTypes.GoUInt8, ?_wg:stdgo.sync.Sync.WaitGroup) {
@@ -3520,18 +3520,18 @@ function testWaitGroupRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_testWaitGroupAlign_32___localname___X(_x, _wg);
+        return new T_testWaitGroupAlign_21___localname___X(_x, _wg);
     }
 }
-function testWaitGroupAlign(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testWaitGroupAlign(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {};
-        var _x:T_testWaitGroupAlign_32___localname___X = ({} : stdgo.sync_test.Sync_test.T_testWaitGroupAlign_32___localname___X);
+        var _x:T_testWaitGroupAlign_21___localname___X = ({} : stdgo.sync_test.Sync_test.T_testWaitGroupAlign_21___localname___X);
         _x._wg.add((1 : stdgo.StdGoTypes.GoInt));
         stdgo.Go.routine(() -> {
-            var a = function(_x:stdgo.StdGoTypes.Ref<T_testWaitGroupAlign_32___localname___X>):Void {
+            var a = function(_x:stdgo.StdGoTypes.Ref<T_testWaitGroupAlign_21___localname___X>):Void {
                 _x._wg.done();
             };
-            a((stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.T_testWaitGroupAlign_32___localname___X>));
+            a((stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.T_testWaitGroupAlign_21___localname___X>));
         });
         _x._wg.wait_();
     }
@@ -3540,7 +3540,7 @@ function testWaitGroupAlign(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
     
     
 **/
-@:structInit @:using(stdgo.sync_test.Sync_test.T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup_static_extension) class T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup {
+@:structInit @:using(stdgo.sync_test.Sync_test.T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup_static_extension) class T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup {
     @:embedded
     public var waitGroup : stdgo.sync.Sync.WaitGroup = ({} : stdgo.sync.Sync.WaitGroup);
     public var _pad : stdgo.GoArray<stdgo.StdGoTypes.GoUInt8> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(...[for (i in 0 ... 128) (0 : stdgo.StdGoTypes.GoUInt8)]);
@@ -3556,13 +3556,13 @@ function testWaitGroupAlign(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
     @:embedded
     public function wait_() waitGroup.wait_();
     public function __copy__() {
-        return new T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup(waitGroup, _pad);
+        return new T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup(waitGroup, _pad);
     }
 }
 function benchmarkWaitGroupUncontended(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
         {};
         _b.runParallel(function(_pb:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.PB>):Void {
-            var _wg:T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup = ({} : stdgo.sync_test.Sync_test.T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup);
+            var _wg:T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup = ({} : stdgo.sync_test.Sync_test.T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup);
             while (_pb.next()) {
                 _wg.add((1 : stdgo.StdGoTypes.GoInt));
                 _wg.done();
@@ -3766,7 +3766,7 @@ class RWMutexMap_asInterface {
                     return false;
                 };
             };
-            var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : stdgo.StdGoTypes.AnyInterface), ok : false }), _value:stdgo.StdGoTypes.AnyInterface = __tmp__.value, _loaded:Bool = __tmp__.ok;
+            var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { _0 : _m._dirty[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false }), _value:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _loaded:Bool = __tmp__._1;
             if (_loaded && (_value == _old)) {
                 if (_m._dirty != null) _m._dirty.remove(_key);
                 {
@@ -3819,7 +3819,7 @@ class RWMutexMap_asInterface {
                     return false;
                 };
             };
-            var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : stdgo.StdGoTypes.AnyInterface), ok : false }), _value:stdgo.StdGoTypes.AnyInterface = __tmp__.value, _loaded:Bool = __tmp__.ok;
+            var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { _0 : _m._dirty[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false }), _value:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _loaded:Bool = __tmp__._1;
             if (_loaded && (_value == _old)) {
                 _m._dirty[_key] = _new;
                 {
@@ -3869,9 +3869,9 @@ class RWMutexMap_asInterface {
         var _value:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _loaded:Bool = false;
         _m._mu.lock();
         {
-            var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : stdgo.StdGoTypes.AnyInterface), ok : false });
-            _value = __tmp__.value;
-            _loaded = __tmp__.ok;
+            var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { _0 : _m._dirty[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false });
+            _value = __tmp__._0;
+            _loaded = __tmp__._1;
         };
         if (!_loaded) {
             _m._mu.unlock();
@@ -3895,9 +3895,9 @@ class RWMutexMap_asInterface {
             } : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>);
         };
         {
-            var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : stdgo.StdGoTypes.AnyInterface), ok : false });
-            _previous = __tmp__.value;
-            _loaded = __tmp__.ok;
+            var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { _0 : _m._dirty[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false });
+            _previous = __tmp__._0;
+            _loaded = __tmp__._1;
         };
         _m._dirty[_key] = _value;
         _m._mu.unlock();
@@ -3909,9 +3909,9 @@ class RWMutexMap_asInterface {
         var _actual:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _loaded:Bool = false;
         _m._mu.lock();
         {
-            var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : stdgo.StdGoTypes.AnyInterface), ok : false });
-            _actual = __tmp__.value;
-            _loaded = __tmp__.ok;
+            var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { _0 : _m._dirty[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false });
+            _actual = __tmp__._0;
+            _loaded = __tmp__._1;
         };
         if (!_loaded) {
             _actual = _value;
@@ -3949,9 +3949,9 @@ class RWMutexMap_asInterface {
         var _value:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _ok:Bool = false;
         _m._mu.rlock();
         {
-            var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : stdgo.StdGoTypes.AnyInterface), ok : false });
-            _value = __tmp__.value;
-            _ok = __tmp__.ok;
+            var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { _0 : _m._dirty[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false });
+            _value = __tmp__._0;
+            _ok = __tmp__._1;
         };
         _m._mu.runlock();
         return { _0 : _value, _1 : _ok };
@@ -3991,10 +3991,10 @@ class DeepCopyMap_asInterface {
     static public function _dirty( _m:stdgo.StdGoTypes.Ref<DeepCopyMap>):stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface> {
         @:recv var _m:stdgo.StdGoTypes.Ref<DeepCopyMap> = _m;
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : false };
-        }, _clean = __tmp__.value, __4 = __tmp__.ok;
+            { _0 : (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), _1 : false };
+        }, _clean = __tmp__._0, __4 = __tmp__._1;
         var _dirty = ({
             final x = new stdgo.GoMap.GoAnyInterfaceMap<stdgo.StdGoTypes.AnyInterface>();
             x.__defaultValue__ = () -> (null : stdgo.StdGoTypes.AnyInterface);
@@ -4010,10 +4010,10 @@ class DeepCopyMap_asInterface {
     static public function range( _m:stdgo.StdGoTypes.Ref<DeepCopyMap>, _f:(_key:stdgo.StdGoTypes.AnyInterface, _value:stdgo.StdGoTypes.AnyInterface) -> Bool):Void {
         @:recv var _m:stdgo.StdGoTypes.Ref<DeepCopyMap> = _m;
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : false };
-        }, _clean = __tmp__.value, __4 = __tmp__.ok;
+            { _0 : (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), _1 : false };
+        }, _clean = __tmp__._0, __4 = __tmp__._1;
         for (_k => _v in _clean) {
             if (!_f(_k, _v)) {
                 break;
@@ -4027,12 +4027,12 @@ class DeepCopyMap_asInterface {
         var _deleted:Bool = false;
         try {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : false };
-            }, _clean = __tmp__.value, __4 = __tmp__.ok;
+                { _0 : (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), _1 : false };
+            }, _clean = __tmp__._0, __4 = __tmp__._1;
             {
-                var __tmp__ = (_clean != null && _clean.exists(_key) ? { value : _clean[_key], ok : true } : { value : (null : stdgo.StdGoTypes.AnyInterface), ok : false }), _previous:stdgo.StdGoTypes.AnyInterface = __tmp__.value, _ok:Bool = __tmp__.ok;
+                var __tmp__ = (_clean != null && _clean.exists(_key) ? { _0 : _clean[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false }), _previous:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (!_ok || (_previous != _old)) {
                     return false;
                 };
@@ -4040,7 +4040,7 @@ class DeepCopyMap_asInterface {
             _m._mu.lock();
             __deferstack__.unshift(() -> _m._mu.unlock());
             var _dirty = _m._dirty();
-            var __tmp__ = (_dirty != null && _dirty.exists(_key) ? { value : _dirty[_key], ok : true } : { value : (null : stdgo.StdGoTypes.AnyInterface), ok : false }), _value:stdgo.StdGoTypes.AnyInterface = __tmp__.value, _loaded:Bool = __tmp__.ok;
+            var __tmp__ = (_dirty != null && _dirty.exists(_key) ? { _0 : _dirty[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false }), _value:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _loaded:Bool = __tmp__._1;
             if (_loaded && (_value == _old)) {
                 if (_dirty != null) _dirty.remove(_key);
                 _m._clean.store(stdgo.Go.toInterface(_dirty));
@@ -4085,12 +4085,12 @@ class DeepCopyMap_asInterface {
         var _swapped:Bool = false;
         try {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : false };
-            }, _clean = __tmp__.value, __4 = __tmp__.ok;
+                { _0 : (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), _1 : false };
+            }, _clean = __tmp__._0, __4 = __tmp__._1;
             {
-                var __tmp__ = (_clean != null && _clean.exists(_key) ? { value : _clean[_key], ok : true } : { value : (null : stdgo.StdGoTypes.AnyInterface), ok : false }), _previous:stdgo.StdGoTypes.AnyInterface = __tmp__.value, _ok:Bool = __tmp__.ok;
+                var __tmp__ = (_clean != null && _clean.exists(_key) ? { _0 : _clean[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false }), _previous:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (!_ok || (_previous != _old)) {
                     return false;
                 };
@@ -4098,7 +4098,7 @@ class DeepCopyMap_asInterface {
             _m._mu.lock();
             __deferstack__.unshift(() -> _m._mu.unlock());
             var _dirty = _m._dirty();
-            var __tmp__ = (_dirty != null && _dirty.exists(_key) ? { value : _dirty[_key], ok : true } : { value : (null : stdgo.StdGoTypes.AnyInterface), ok : false }), _value:stdgo.StdGoTypes.AnyInterface = __tmp__.value, _loaded:Bool = __tmp__.ok;
+            var __tmp__ = (_dirty != null && _dirty.exists(_key) ? { _0 : _dirty[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false }), _value:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _loaded:Bool = __tmp__._1;
             if (_loaded && (_value == _old)) {
                 _dirty[_key] = _new;
                 _m._clean.store(stdgo.Go.toInterface(_dirty));
@@ -4152,9 +4152,9 @@ class DeepCopyMap_asInterface {
         _m._mu.lock();
         var _dirty = _m._dirty();
         {
-            var __tmp__ = (_dirty != null && _dirty.exists(_key) ? { value : _dirty[_key], ok : true } : { value : (null : stdgo.StdGoTypes.AnyInterface), ok : false });
-            _value = __tmp__.value;
-            _loaded = __tmp__.ok;
+            var __tmp__ = (_dirty != null && _dirty.exists(_key) ? { _0 : _dirty[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false });
+            _value = __tmp__._0;
+            _loaded = __tmp__._1;
         };
         if (_dirty != null) _dirty.remove(_key);
         _m._clean.store(stdgo.Go.toInterface(_dirty));
@@ -4168,9 +4168,9 @@ class DeepCopyMap_asInterface {
         _m._mu.lock();
         var _dirty = _m._dirty();
         {
-            var __tmp__ = (_dirty != null && _dirty.exists(_key) ? { value : _dirty[_key], ok : true } : { value : (null : stdgo.StdGoTypes.AnyInterface), ok : false });
-            _previous = __tmp__.value;
-            _loaded = __tmp__.ok;
+            var __tmp__ = (_dirty != null && _dirty.exists(_key) ? { _0 : _dirty[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false });
+            _previous = __tmp__._0;
+            _loaded = __tmp__._1;
         };
         _dirty[_key] = _value;
         _m._clean.store(stdgo.Go.toInterface(_dirty));
@@ -4182,14 +4182,14 @@ class DeepCopyMap_asInterface {
         @:recv var _m:stdgo.StdGoTypes.Ref<DeepCopyMap> = _m;
         var _actual:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _loaded:Bool = false;
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : false };
-        }, _clean = __tmp__.value, __4 = __tmp__.ok;
+            { _0 : (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), _1 : false };
+        }, _clean = __tmp__._0, __4 = __tmp__._1;
         {
-            var __tmp__ = (_clean != null && _clean.exists(_key) ? { value : _clean[_key], ok : true } : { value : (null : stdgo.StdGoTypes.AnyInterface), ok : false });
-            _actual = __tmp__.value;
-            _loaded = __tmp__.ok;
+            var __tmp__ = (_clean != null && _clean.exists(_key) ? { _0 : _clean[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false });
+            _actual = __tmp__._0;
+            _loaded = __tmp__._1;
         };
         if (_loaded) {
             return { _0 : _actual, _1 : _loaded };
@@ -4197,16 +4197,16 @@ class DeepCopyMap_asInterface {
         _m._mu.lock();
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : false };
+                { _0 : (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), _1 : false };
             };
-            _clean = __tmp__.value;
+            _clean = __tmp__._0;
         };
         {
-            var __tmp__ = (_clean != null && _clean.exists(_key) ? { value : _clean[_key], ok : true } : { value : (null : stdgo.StdGoTypes.AnyInterface), ok : false });
-            _actual = __tmp__.value;
-            _loaded = __tmp__.ok;
+            var __tmp__ = (_clean != null && _clean.exists(_key) ? { _0 : _clean[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false });
+            _actual = __tmp__._0;
+            _loaded = __tmp__._1;
         };
         if (!_loaded) {
             var _dirty = _m._dirty();
@@ -4231,14 +4231,14 @@ class DeepCopyMap_asInterface {
         @:recv var _m:stdgo.StdGoTypes.Ref<DeepCopyMap> = _m;
         var _value:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _ok:Bool = false;
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : false };
-        }, _clean = __tmp__.value, __4 = __tmp__.ok;
+            { _0 : (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), _1 : false };
+        }, _clean = __tmp__._0, __4 = __tmp__._1;
         {
-            var __tmp__ = (_clean != null && _clean.exists(_key) ? { value : _clean[_key], ok : true } : { value : (null : stdgo.StdGoTypes.AnyInterface), ok : false });
-            _value = __tmp__.value;
-            _ok = __tmp__.ok;
+            var __tmp__ = (_clean != null && _clean.exists(_key) ? { _0 : _clean[_key], _1 : true } : { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false });
+            _value = __tmp__._0;
+            _ok = __tmp__._1;
         };
         return { _0 : _value, _1 : _ok };
     }
@@ -4329,7 +4329,7 @@ class T_one_asInterface {
         _o.value++;
     }
 }
-class T_benchmarkMutexUncontended_29___localname___PaddedMutex_asInterface {
+class T_benchmarkMutexUncontended_18___localname___PaddedMutex_asInterface {
     @:embedded
     public dynamic function _unlockSlow(__0:stdgo.StdGoTypes.GoInt32):Void __self__.value._unlockSlow(__0);
     @:embedded
@@ -4345,22 +4345,22 @@ class T_benchmarkMutexUncontended_29___localname___PaddedMutex_asInterface {
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<T_benchmarkMutexUncontended_29___localname___PaddedMutex>;
+    var __self__ : stdgo.Pointer<T_benchmarkMutexUncontended_18___localname___PaddedMutex>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
-@:keep @:allow(stdgo.sync_test.Sync_test.T_benchmarkMutexUncontended_29___localname___PaddedMutex_asInterface) class T_benchmarkMutexUncontended_29___localname___PaddedMutex_static_extension {
+@:keep @:allow(stdgo.sync_test.Sync_test.T_benchmarkMutexUncontended_18___localname___PaddedMutex_asInterface) class T_benchmarkMutexUncontended_18___localname___PaddedMutex_static_extension {
     @:embedded
-    public static function _unlockSlow( __self__:T_benchmarkMutexUncontended_29___localname___PaddedMutex, __0:stdgo.StdGoTypes.GoInt32) __self__._unlockSlow(__0);
+    public static function _unlockSlow( __self__:T_benchmarkMutexUncontended_18___localname___PaddedMutex, __0:stdgo.StdGoTypes.GoInt32) __self__._unlockSlow(__0);
     @:embedded
-    public static function _lockSlow( __self__:T_benchmarkMutexUncontended_29___localname___PaddedMutex) __self__._lockSlow();
+    public static function _lockSlow( __self__:T_benchmarkMutexUncontended_18___localname___PaddedMutex) __self__._lockSlow();
     @:embedded
-    public static function unlock( __self__:T_benchmarkMutexUncontended_29___localname___PaddedMutex) __self__.unlock();
+    public static function unlock( __self__:T_benchmarkMutexUncontended_18___localname___PaddedMutex) __self__.unlock();
     @:embedded
-    public static function tryLock( __self__:T_benchmarkMutexUncontended_29___localname___PaddedMutex):Bool return __self__.tryLock();
+    public static function tryLock( __self__:T_benchmarkMutexUncontended_18___localname___PaddedMutex):Bool return __self__.tryLock();
     @:embedded
-    public static function lock( __self__:T_benchmarkMutexUncontended_29___localname___PaddedMutex) __self__.lock();
+    public static function lock( __self__:T_benchmarkMutexUncontended_18___localname___PaddedMutex) __self__.lock();
 }
-class T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex_asInterface {
+class T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex_asInterface {
     @:embedded
     public dynamic function _rUnlockSlow(__0:stdgo.StdGoTypes.GoInt32):Void __self__.value._rUnlockSlow(__0);
     @:embedded
@@ -4382,28 +4382,28 @@ class T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex_asInterface {
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex>;
+    var __self__ : stdgo.Pointer<T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
-@:keep @:allow(stdgo.sync_test.Sync_test.T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex_asInterface) class T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex_static_extension {
+@:keep @:allow(stdgo.sync_test.Sync_test.T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex_asInterface) class T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex_static_extension {
     @:embedded
-    public static function _rUnlockSlow( __self__:T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex, __0:stdgo.StdGoTypes.GoInt32) __self__._rUnlockSlow(__0);
+    public static function _rUnlockSlow( __self__:T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex, __0:stdgo.StdGoTypes.GoInt32) __self__._rUnlockSlow(__0);
     @:embedded
-    public static function unlock( __self__:T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex) __self__.unlock();
+    public static function unlock( __self__:T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex) __self__.unlock();
     @:embedded
-    public static function tryRLock( __self__:T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex):Bool return __self__.tryRLock();
+    public static function tryRLock( __self__:T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex):Bool return __self__.tryRLock();
     @:embedded
-    public static function tryLock( __self__:T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex):Bool return __self__.tryLock();
+    public static function tryLock( __self__:T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex):Bool return __self__.tryLock();
     @:embedded
-    public static function runlock( __self__:T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex) __self__.runlock();
+    public static function runlock( __self__:T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex) __self__.runlock();
     @:embedded
-    public static function rlocker( __self__:T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex):stdgo.sync.Sync.Locker return __self__.rlocker();
+    public static function rlocker( __self__:T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex):stdgo.sync.Sync.Locker return __self__.rlocker();
     @:embedded
-    public static function rlock( __self__:T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex) __self__.rlock();
+    public static function rlock( __self__:T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex) __self__.rlock();
     @:embedded
-    public static function lock( __self__:T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex) __self__.lock();
+    public static function lock( __self__:T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex) __self__.lock();
 }
-class T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup_asInterface {
+class T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup_asInterface {
     @:embedded
     public dynamic function wait_():Void __self__.value.wait_();
     @:embedded
@@ -4415,14 +4415,14 @@ class T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup_asInterfa
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup>;
+    var __self__ : stdgo.Pointer<T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
-@:keep @:allow(stdgo.sync_test.Sync_test.T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup_asInterface) class T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup_static_extension {
+@:keep @:allow(stdgo.sync_test.Sync_test.T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup_asInterface) class T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup_static_extension {
     @:embedded
-    public static function wait_( __self__:T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup) __self__.wait_();
+    public static function wait_( __self__:T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup) __self__.wait_();
     @:embedded
-    public static function done( __self__:T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup) __self__.done();
+    public static function done( __self__:T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup) __self__.done();
     @:embedded
-    public static function add( __self__:T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup, __0:stdgo.StdGoTypes.GoInt) __self__.add(__0);
+    public static function add( __self__:T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup, __0:stdgo.StdGoTypes.GoInt) __self__.add(__0);
 }

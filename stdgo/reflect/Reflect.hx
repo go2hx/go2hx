@@ -232,7 +232,7 @@ final selectDefault = @:unknown_default_value null;
     
     
 **/
-typedef Type = stdgo.StdGoTypes.StructType & {
+typedef Type_ = stdgo.StdGoTypes.StructType & {
     /**
         // Align returns the alignment in bytes of a value of
         // this type when allocated in memory.
@@ -331,13 +331,13 @@ typedef Type = stdgo.StdGoTypes.StructType & {
         
         
     **/
-    public dynamic function implements_(_u:Type):Bool;
+    public dynamic function implements_(_u:Type_):Bool;
     /**
         // AssignableTo reports whether a value of the type is assignable to type u.
         
         
     **/
-    public dynamic function assignableTo(_u:Type):Bool;
+    public dynamic function assignableTo(_u:Type_):Bool;
     /**
         // ConvertibleTo reports whether a value of the type is convertible to type u.
         // Even if ConvertibleTo returns true, the conversion may still panic.
@@ -346,7 +346,7 @@ typedef Type = stdgo.StdGoTypes.StructType & {
         
         
     **/
-    public dynamic function convertibleTo(_u:Type):Bool;
+    public dynamic function convertibleTo(_u:Type_):Bool;
     /**
         // Comparable reports whether values of this type are comparable.
         // Even if Comparable returns true, the comparison may still panic.
@@ -394,7 +394,7 @@ typedef Type = stdgo.StdGoTypes.StructType & {
         
         
     **/
-    public dynamic function elem():Type;
+    public dynamic function elem():Type_;
     /**
         // Field returns a struct type's i'th field.
         // It panics if the type's Kind is not Struct.
@@ -443,14 +443,14 @@ typedef Type = stdgo.StdGoTypes.StructType & {
         
         
     **/
-    public dynamic function in_(_i:stdgo.StdGoTypes.GoInt):Type;
+    public dynamic function in_(_i:stdgo.StdGoTypes.GoInt):Type_;
     /**
         // Key returns a map type's key type.
         // It panics if the type's Kind is not Map.
         
         
     **/
-    public dynamic function key():Type;
+    public dynamic function key():Type_;
     /**
         // Len returns an array type's length.
         // It panics if the type's Kind is not Array.
@@ -486,7 +486,7 @@ typedef Type = stdgo.StdGoTypes.StructType & {
         
         
     **/
-    public dynamic function out(_i:stdgo.StdGoTypes.GoInt):Type;
+    public dynamic function out(_i:stdgo.StdGoTypes.GoInt):Type_;
 };
 /**
     // Method represents a single method.
@@ -506,10 +506,10 @@ typedef Type = stdgo.StdGoTypes.StructType & {
         // See https://golang.org/ref/spec#Uniqueness_of_identifiers
     **/
     public var pkgPath : stdgo.GoString = "";
-    public var type : stdgo.reflect.Reflect.Type = (null : stdgo.reflect.Reflect.Type);
+    public var type : stdgo.reflect.Reflect.Type_ = (null : stdgo.reflect.Reflect.Type_);
     public var func : stdgo.reflect.Reflect.Value = ({} : stdgo.reflect.Reflect.Value);
     public var index : stdgo.StdGoTypes.GoInt = 0;
-    public function new(?name:stdgo.GoString, ?pkgPath:stdgo.GoString, ?type:stdgo.reflect.Reflect.Type, ?func:stdgo.reflect.Reflect.Value, ?index:stdgo.StdGoTypes.GoInt) {
+    public function new(?name:stdgo.GoString, ?pkgPath:stdgo.GoString, ?type:stdgo.reflect.Reflect.Type_, ?func:stdgo.reflect.Reflect.Value, ?index:stdgo.StdGoTypes.GoInt) {
         if (name != null) this.name = name;
         if (pkgPath != null) this.pkgPath = pkgPath;
         if (type != null) this.type = type;
@@ -537,12 +537,12 @@ typedef Type = stdgo.StdGoTypes.StructType & {
         // See https://golang.org/ref/spec#Uniqueness_of_identifiers
     **/
     public var pkgPath : stdgo.GoString = "";
-    public var type : stdgo.reflect.Reflect.Type = (null : stdgo.reflect.Reflect.Type);
+    public var type : stdgo.reflect.Reflect.Type_ = (null : stdgo.reflect.Reflect.Type_);
     public var tag : stdgo.reflect.Reflect.StructTag = (("" : stdgo.GoString) : stdgo.reflect.Reflect.StructTag);
     public var offset : stdgo.StdGoTypes.GoUIntptr = 0;
     public var index : stdgo.Slice<stdgo.StdGoTypes.GoInt> = (null : stdgo.Slice<stdgo.StdGoTypes.GoInt>);
     public var anonymous : Bool = false;
-    public function new(?name:stdgo.GoString, ?pkgPath:stdgo.GoString, ?type:stdgo.reflect.Reflect.Type, ?tag:stdgo.reflect.Reflect.StructTag, ?offset:stdgo.StdGoTypes.GoUIntptr, ?index:stdgo.Slice<stdgo.StdGoTypes.GoInt>, ?anonymous:Bool) {
+    public function new(?name:stdgo.GoString, ?pkgPath:stdgo.GoString, ?type:stdgo.reflect.Reflect.Type_, ?tag:stdgo.reflect.Reflect.StructTag, ?offset:stdgo.StdGoTypes.GoUIntptr, ?index:stdgo.Slice<stdgo.StdGoTypes.GoInt>, ?anonymous:Bool) {
         if (name != null) this.name = name;
         if (pkgPath != null) this.pkgPath = pkgPath;
         if (type != null) this.type = type;
@@ -882,7 +882,7 @@ function deepEqual(_x:stdgo.StdGoTypes.AnyInterface, _y:stdgo.StdGoTypes.AnyInte
     // The Examples section of the documentation includes an illustration
     // of how to use MakeFunc to build a swap function for different types.
 **/
-function makeFunc(_typ:Type, _fn:(_args:stdgo.Slice<Value>) -> stdgo.Slice<Value>):Value throw ":reflect.makeFunc is not yet implemented";
+function makeFunc(_typ:Type_, _fn:(_args:stdgo.Slice<Value>) -> stdgo.Slice<Value>):Value throw ":reflect.makeFunc is not yet implemented";
 /**
     // Swapper returns a function that swaps the elements in the provided
     // slice.
@@ -894,7 +894,7 @@ function swapper(_slice:stdgo.StdGoTypes.AnyInterface):(_i:stdgo.StdGoTypes.GoIn
     // TypeOf returns the reflection Type that represents the dynamic type of i.
     // If i is a nil interface value, TypeOf returns nil.
 **/
-function typeOf(_i:stdgo.StdGoTypes.AnyInterface):Type {
+function typeOf(_i:stdgo.StdGoTypes.AnyInterface):Type_ {
         if (_i == null) return new stdgo.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(new stdgo.internal.reflect.Reflect._Type(basic(unsafepointer_kind))), new stdgo.internal.reflect.Reflect._Type(basic(unsafepointer_kind)));
         return new stdgo.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(_i.type), _i.type);
     }
@@ -905,12 +905,12 @@ function typeOf(_i:stdgo.StdGoTypes.AnyInterface):Type {
     // PtrTo is the old spelling of PointerTo.
     // The two functions behave identically.
 **/
-function ptrTo(_t:Type):Type throw ":reflect.ptrTo is not yet implemented";
+function ptrTo(_t:Type_):Type_ throw ":reflect.ptrTo is not yet implemented";
 /**
     // PointerTo returns the pointer type with element t.
     // For example, if t represents type Foo, PointerTo(t) represents *Foo.
 **/
-function pointerTo(_t:Type):Type throw ":reflect.pointerTo is not yet implemented";
+function pointerTo(_t:Type_):Type_ throw ":reflect.pointerTo is not yet implemented";
 /**
     // ChanOf returns the channel type with the given direction and element type.
     // For example, if t represents int, ChanOf(RecvDir, t) represents <-chan int.
@@ -918,7 +918,7 @@ function pointerTo(_t:Type):Type throw ":reflect.pointerTo is not yet implemente
     // The gc runtime imposes a limit of 64 kB on channel element types.
     // If t's size is equal to or exceeds this limit, ChanOf panics.
 **/
-function chanOf(_dir:ChanDir, _t:Type):Type throw ":reflect.chanOf is not yet implemented";
+function chanOf(_dir:ChanDir, _t:Type_):Type_ throw ":reflect.chanOf is not yet implemented";
 /**
     // MapOf returns the map type with the given key and element types.
     // For example, if k represents int and e represents string,
@@ -927,7 +927,7 @@ function chanOf(_dir:ChanDir, _t:Type):Type throw ":reflect.chanOf is not yet im
     // If the key type is not a valid map key type (that is, if it does
     // not implement Go's == operator), MapOf panics.
 **/
-function mapOf(_key:Type, _elem:Type):Type throw ":reflect.mapOf is not yet implemented";
+function mapOf(_key:Type_, _elem:Type_):Type_ throw ":reflect.mapOf is not yet implemented";
 /**
     // FuncOf returns the function type with the given argument and result types.
     // For example if k represents int and e represents string,
@@ -937,12 +937,12 @@ function mapOf(_key:Type, _elem:Type):Type throw ":reflect.mapOf is not yet impl
     // panics if the in[len(in)-1] does not represent a slice and variadic is
     // true.
 **/
-function funcOf(_in:stdgo.Slice<Type>, _out:stdgo.Slice<Type>, _variadic:Bool):Type throw ":reflect.funcOf is not yet implemented";
+function funcOf(_in:stdgo.Slice<Type_>, _out:stdgo.Slice<Type_>, _variadic:Bool):Type_ throw ":reflect.funcOf is not yet implemented";
 /**
     // SliceOf returns the slice type with element type t.
     // For example, if t represents int, SliceOf(t) represents []int.
 **/
-function sliceOf(_t:Type):Type throw ":reflect.sliceOf is not yet implemented";
+function sliceOf(_t:Type_):Type_ throw ":reflect.sliceOf is not yet implemented";
 /**
     // StructOf returns the struct type containing fields.
     // The Offset and Index fields are ignored and computed as they would be
@@ -952,7 +952,7 @@ function sliceOf(_t:Type):Type throw ":reflect.sliceOf is not yet implemented";
     // fields and panics if passed unexported StructFields.
     // These limitations may be lifted in a future version.
 **/
-function structOf(_fields:stdgo.Slice<StructField>):Type throw ":reflect.structOf is not yet implemented";
+function structOf(_fields:stdgo.Slice<StructField>):Type_ throw ":reflect.structOf is not yet implemented";
 /**
     // ArrayOf returns the array type with the given length and element type.
     // For example, if t represents int, ArrayOf(5, t) represents [5]int.
@@ -960,7 +960,7 @@ function structOf(_fields:stdgo.Slice<StructField>):Type throw ":reflect.structO
     // If the resulting type would be larger than the available address space,
     // ArrayOf panics.
 **/
-function arrayOf(_length:stdgo.StdGoTypes.GoInt, _elem:Type):Type throw ":reflect.arrayOf is not yet implemented";
+function arrayOf(_length:stdgo.StdGoTypes.GoInt, _elem:Type_):Type_ throw ":reflect.arrayOf is not yet implemented";
 /**
     // Append appends the values x to a slice s and returns the resulting slice.
     // As in Go, each x's value must be assignable to the slice's element type.
@@ -996,7 +996,7 @@ function select(_cases:stdgo.Slice<SelectCase>):{ var _0 : stdgo.StdGoTypes.GoIn
     // MakeSlice creates a new zero-initialized slice value
     // for the specified slice type, length, and capacity.
 **/
-function makeSlice(_typ:Type, _len:stdgo.StdGoTypes.GoInt, _cap:stdgo.StdGoTypes.GoInt):Value {
+function makeSlice(_typ:Type_, _len:stdgo.StdGoTypes.GoInt, _cap:stdgo.StdGoTypes.GoInt):Value {
         final value = stdgo.internal.reflect.Reflect.defaultValue(_typ);
         final slice = new stdgo.Slice(_len, _cap.toBasic(), ...[for (i in 0 ... _len.toBasic()) value]);
         final t = @:privateAccess (cast _typ : stdgo.internal.reflect.Reflect._Type_asInterface).__type__;
@@ -1005,16 +1005,16 @@ function makeSlice(_typ:Type, _len:stdgo.StdGoTypes.GoInt, _cap:stdgo.StdGoTypes
 /**
     // MakeChan creates a new channel with the specified type and buffer size.
 **/
-function makeChan(_typ:Type, _buffer:stdgo.StdGoTypes.GoInt):Value throw ":reflect.makeChan is not yet implemented";
+function makeChan(_typ:Type_, _buffer:stdgo.StdGoTypes.GoInt):Value throw ":reflect.makeChan is not yet implemented";
 /**
     // MakeMap creates a new map with the specified type.
 **/
-function makeMap(_typ:Type):Value throw ":reflect.makeMap is not yet implemented";
+function makeMap(_typ:Type_):Value throw ":reflect.makeMap is not yet implemented";
 /**
     // MakeMapWithSize creates a new map with the specified type
     // and initial space for approximately n elements.
 **/
-function makeMapWithSize(_typ:Type, _n:stdgo.StdGoTypes.GoInt):Value throw ":reflect.makeMapWithSize is not yet implemented";
+function makeMapWithSize(_typ:Type_, _n:stdgo.StdGoTypes.GoInt):Value throw ":reflect.makeMapWithSize is not yet implemented";
 /**
     // Indirect returns the value that v points to.
     // If v is a nil pointer, Indirect returns a zero Value.
@@ -1035,14 +1035,14 @@ function valueOf(_i:stdgo.StdGoTypes.AnyInterface):Value {
     // For example, Zero(TypeOf(42)) returns a Value with Kind Int and value 0.
     // The returned value is neither addressable nor settable.
 **/
-function zero(_typ:Type):Value {
+function zero(_typ:Type_):Value {
         return new Value(new stdgo.StdGoTypes.AnyInterface(stdgo.internal.reflect.Reflect.defaultValue(_typ), _typ.__underlying__().value));
     }
 /**
     // New returns a Value representing a pointer to a new zero value
     // for the specified type. That is, the returned Value's Type is PointerTo(typ).
 **/
-function new_(_typ:Type):Value {
+function new_(_typ:Type_):Value {
         var value = stdgo.internal.reflect.Reflect.defaultValue(_typ);
         var ptr = new Pointer(() -> value, x -> value = x);
         return new Value(new stdgo.StdGoTypes.AnyInterface(ptr, new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> @:privateAccess (_typ : Dynamic)._common() }))));
@@ -1051,7 +1051,7 @@ function new_(_typ:Type):Value {
     // NewAt returns a Value representing a pointer to a value of the
     // specified type, using p as that pointer.
 **/
-function newAt(_typ:Type, _p:stdgo.unsafe.Unsafe.UnsafePointer):Value throw ":reflect.newAt is not yet implemented";
+function newAt(_typ:Type_, _p:stdgo.unsafe.Unsafe.UnsafePointer):Value throw ":reflect.newAt is not yet implemented";
 /**
     // VisibleFields returns all the visible fields in t, which must be a
     // struct type. A field is defined as visible if it's accessible
@@ -1063,7 +1063,7 @@ function newAt(_typ:Type, _p:stdgo.unsafe.Unsafe.UnsafePointer):Value throw ":re
     // For each element e of the returned slice, the corresponding field
     // can be retrieved from a value v of type t by calling v.FieldByIndex(e.Index).
 **/
-function visibleFields(_t:Type):stdgo.Slice<StructField> throw ":reflect.visibleFields is not yet implemented";
+function visibleFields(_t:Type_):stdgo.Slice<StructField> throw ":reflect.visibleFields is not yet implemented";
 class Method_asInterface {
     /**
         // IsExported reports whether the method is exported.
@@ -1132,14 +1132,14 @@ class Value_asInterface {
         // If v.CanConvert(t) returns true then v.Convert(t) will not panic.
     **/
     @:keep
-    public dynamic function canConvert(_t:Type):Bool return __self__.value.canConvert(_t);
+    public dynamic function canConvert(_t:Type_):Bool return __self__.value.canConvert(_t);
     /**
         // Convert returns the value v converted to type t.
         // If the usual Go conversion rules do not allow conversion
         // of the value v to type t, or if converting v to type t panics, Convert panics.
     **/
     @:keep
-    public dynamic function convert(_t:Type):Value return __self__.value.convert(_t);
+    public dynamic function convert(_t:Type_):Value return __self__.value.convert(_t);
     /**
         // Clear clears the contents of a map or zeros the contents of a slice.
         //
@@ -1195,7 +1195,7 @@ class Value_asInterface {
         // Type returns v's type.
     **/
     @:keep
-    public dynamic function type():Type return __self__.value.type();
+    public dynamic function type():Type_ return __self__.value.type();
     /**
         // TrySend attempts to send x on the channel v but will not block.
         // It panics if v's Kind is not Chan.
@@ -1722,14 +1722,14 @@ class Value_asInterface {
         // If v.CanConvert(t) returns true then v.Convert(t) will not panic.
     **/
     @:keep
-    static public function canConvert( _v:Value, _t:Type):Bool throw "Value:reflect.canConvert is not yet implemented";
+    static public function canConvert( _v:Value, _t:Type_):Bool throw "Value:reflect.canConvert is not yet implemented";
     /**
         // Convert returns the value v converted to type t.
         // If the usual Go conversion rules do not allow conversion
         // of the value v to type t, or if converting v to type t panics, Convert panics.
     **/
     @:keep
-    static public function convert( _v:Value, _t:Type):Value throw "Value:reflect.convert is not yet implemented";
+    static public function convert( _v:Value, _t:Type_):Value throw "Value:reflect.convert is not yet implemented";
     /**
         // Clear clears the contents of a map or zeros the contents of a slice.
         //
@@ -1827,7 +1827,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
         // Type returns v's type.
     **/
     @:keep
-    static public function type( _v:Value):Type {
+    static public function type( _v:Value):Type_ {
         @:recv var _v:Value = _v?.__copy__();
         if (@:privateAccess _v.value == null) {
             var t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.invalidType);

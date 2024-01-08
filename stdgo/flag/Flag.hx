@@ -345,10 +345,10 @@ function resetForTesting(_usage:() -> Void):Void {
     }
 function _numError(_err:stdgo.Error):stdgo.Error {
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>), ok : false };
-        }, _ne = __tmp__.value, _ok = __tmp__.ok;
+            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>), _1 : false };
+        }, _ne = __tmp__._0, _ok = __tmp__._1;
         if (!_ok) {
             return _err;
         };
@@ -457,7 +457,7 @@ function _isZeroValue(_flag:stdgo.StdGoTypes.Ref<Flag>, _value:stdgo.GoString):{
         var __deferstack__:Array<Void -> Void> = [];
         var _ok:Bool = false, _err:stdgo.Error = (null : stdgo.Error);
         try {
-            var _typ:stdgo.reflect.Reflect.Type = stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface(_flag.value));
+            var _typ:stdgo.reflect.Reflect.Type_ = stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface(_flag.value));
             var _z:stdgo.reflect.Reflect.Value = ({} : stdgo.reflect.Reflect.Value);
             if (_typ.kind() == ((22u32 : stdgo.reflect.Reflect.Kind))) {
                 _z = stdgo.reflect.Reflect.new_(_typ.elem())?.__copy__();
@@ -825,10 +825,10 @@ class T_textValue_asInterface {
         @:recv var _v:T_textValue = _v?.__copy__();
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_v._p) : stdgo.encoding.Encoding.TextMarshaler)) : stdgo.encoding.Encoding.TextMarshaler), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_v._p) : stdgo.encoding.Encoding.TextMarshaler)) : stdgo.encoding.Encoding.TextMarshaler), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.encoding.Encoding.TextMarshaler), ok : false };
-            }, _m = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.encoding.Encoding.TextMarshaler), _1 : false };
+            }, _m = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 {
                     var __tmp__ = _m.marshalText(), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -1207,7 +1207,7 @@ class FlagSet_asInterface {
                 };
             });
         };
-        var __tmp__ = (_f._formal != null && _f._formal.exists(_name?.__copy__()) ? { value : _f._formal[_name?.__copy__()], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag>), ok : false }), _flag:stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag> = __tmp__.value, _ok:Bool = __tmp__.ok;
+        var __tmp__ = (_f._formal != null && _f._formal.exists(_name?.__copy__()) ? { _0 : _f._formal[_name?.__copy__()], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag>), _1 : false }), _flag:stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag> = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             if ((_name == ("help" : stdgo.GoString)) || (_name == ("h" : stdgo.GoString))) {
                 _f._usage();
@@ -1217,10 +1217,10 @@ class FlagSet_asInterface {
         };
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_flag.value) : T_boolFlag)) : T_boolFlag), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_flag.value) : T_boolFlag)) : T_boolFlag), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.flag.Flag.T_boolFlag), ok : false };
-            }, _fv = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.flag.Flag.T_boolFlag), _1 : false };
+            }, _fv = __tmp__._0, _ok = __tmp__._1;
             if (_ok && _fv.isBoolFlag()) {
                 if (_hasValue) {
                     {
@@ -1322,7 +1322,7 @@ class FlagSet_asInterface {
             throw stdgo.Go.toInterface(_f._sprintf(("flag %q contains =" : stdgo.GoString), stdgo.Go.toInterface(_name)));
         };
         var _flag = (stdgo.Go.setRef((new stdgo.flag.Flag.Flag(_name?.__copy__(), _usage?.__copy__(), _value, (_value.string() : stdgo.GoString)?.__copy__()) : stdgo.flag.Flag.Flag)) : stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag>);
-        var __tmp__ = (_f._formal != null && _f._formal.exists(_name?.__copy__()) ? { value : _f._formal[_name?.__copy__()], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag>), ok : false }), __0:stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag> = __tmp__.value, _alreadythere:Bool = __tmp__.ok;
+        var __tmp__ = (_f._formal != null && _f._formal.exists(_name?.__copy__()) ? { _0 : _f._formal[_name?.__copy__()], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag>), _1 : false }), __0:stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag> = __tmp__._0, _alreadythere:Bool = __tmp__._1;
         if (_alreadythere) {
             var _msg:stdgo.GoString = ("" : stdgo.GoString);
             if (_f._name == (stdgo.Go.str())) {
@@ -1622,10 +1622,10 @@ class FlagSet_asInterface {
                 } else if (!_isZero) {
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_flag.value) : stdgo.Pointer<T_stringValue>)) : stdgo.Pointer<T_stringValue>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_flag.value) : stdgo.Pointer<T_stringValue>)) : stdgo.Pointer<T_stringValue>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.Pointer<stdgo.flag.Flag.T_stringValue>), ok : false };
-                        }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.Pointer<stdgo.flag.Flag.T_stringValue>), _1 : false };
+                        }, __0 = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
                             stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), (" (default %q)" : stdgo.GoString), stdgo.Go.toInterface(_flag.defValue));
                         } else {
@@ -1649,7 +1649,7 @@ class FlagSet_asInterface {
     @:keep
     static public function _set( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _value:stdgo.GoString):stdgo.Error {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
-        var __tmp__ = (_f._formal != null && _f._formal.exists(_name?.__copy__()) ? { value : _f._formal[_name?.__copy__()], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag>), ok : false }), _flag:stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag> = __tmp__.value, _ok:Bool = __tmp__.ok;
+        var __tmp__ = (_f._formal != null && _f._formal.exists(_name?.__copy__()) ? { _0 : _f._formal[_name?.__copy__()], _1 : true } : { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag>), _1 : false }), _flag:stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag> = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             var __tmp__ = stdgo.runtime.Runtime.caller((2 : stdgo.StdGoTypes.GoInt)), __0:stdgo.StdGoTypes.GoUIntptr = __tmp__._0, _file:stdgo.GoString = __tmp__._1, _line:stdgo.StdGoTypes.GoInt = __tmp__._2, _ok:Bool = __tmp__._3;
             if (!_ok) {

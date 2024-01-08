@@ -1318,7 +1318,7 @@ function _toChar(_b:stdgo.StdGoTypes.GoByte):stdgo.StdGoTypes.GoByte {
         };
         return _b;
     }
-function testEncode(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testEncode(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_i => _test in _encDecTests) {
             var _dst = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((encodedLen((_test._dec.length)) : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
             var _n:stdgo.StdGoTypes.GoInt = encode(_dst, _test._dec);
@@ -1330,7 +1330,7 @@ function testEncode(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testDecode(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDecode(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _decTests = (_encDecTests.__append__((new stdgo.encoding.hex.Hex.T_encDecTest(("F8F9FAFBFCFDFEFF" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(8, 8, (248 : stdgo.StdGoTypes.GoUInt8), (249 : stdgo.StdGoTypes.GoUInt8), (250 : stdgo.StdGoTypes.GoUInt8), (251 : stdgo.StdGoTypes.GoUInt8), (252 : stdgo.StdGoTypes.GoUInt8), (253 : stdgo.StdGoTypes.GoUInt8), (254 : stdgo.StdGoTypes.GoUInt8), (255 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)) : stdgo.encoding.hex.Hex.T_encDecTest)));
         for (_i => _test in _decTests) {
             var _dst = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((decodedLen((_test._enc.length)) : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
@@ -1342,7 +1342,7 @@ function testDecode(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testEncodeToString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testEncodeToString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_i => _test in _encDecTests) {
             var _s:stdgo.GoString = encodeToString(_test._dec)?.__copy__();
             if (_s != (_test._enc)) {
@@ -1350,7 +1350,7 @@ function testEncodeToString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             };
         };
     }
-function testDecodeString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDecodeString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_i => _test in _encDecTests) {
             var __tmp__ = decodeString(_test._enc?.__copy__()), _dst:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -1362,7 +1362,7 @@ function testDecodeString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             };
         };
     }
-function testDecodeErr(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDecodeErr(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _tt in _errTests) {
             var _out = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(((_tt._in.length) + (10 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
             var __tmp__ = decode(_out, (_tt._in : stdgo.Slice<stdgo.StdGoTypes.GoByte>)), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -1371,7 +1371,7 @@ function testDecodeErr(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testDecodeStringErr(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDecodeStringErr(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _tt in _errTests) {
             var __tmp__ = decodeString(_tt._in?.__copy__()), _out:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (((_out : stdgo.GoString) != _tt._out) || (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(_tt._err))) {
@@ -1379,7 +1379,7 @@ function testDecodeStringErr(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
             };
         };
     }
-function testEncoderDecoder(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testEncoderDecoder(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _multiplier in (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(3, 3, (1 : stdgo.StdGoTypes.GoInt), (128 : stdgo.StdGoTypes.GoInt), (192 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>)) {
             for (__1 => _test in _encDecTests) {
                 var _input = stdgo.bytes.Bytes.repeat(_test._dec, _multiplier);
@@ -1417,7 +1417,7 @@ function testEncoderDecoder(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             };
         };
     }
-function testDecoderErr(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDecoderErr(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _tt in _errTests) {
             var _dec:stdgo.io.Io.Reader = newDecoder(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(_tt._in?.__copy__())));
             var __tmp__ = stdgo.io.Io.readAll(_dec), _out:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -1430,7 +1430,7 @@ function testDecoderErr(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testDumper(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDumper(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _in:stdgo.GoArray<stdgo.StdGoTypes.GoByte> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(...[for (i in 0 ... 40) (0 : stdgo.StdGoTypes.GoUInt8)]);
         for (_i in 0 ... _in.length.toBasic()) {
             _in[(_i : stdgo.StdGoTypes.GoInt)] = (_i + (30 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoByte);
@@ -1456,7 +1456,7 @@ function testDumper(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             });
         };
     }
-function testDumper_doubleclose(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDumper_doubleclose(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _out:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
         var _dumper:stdgo.io.Io.WriteCloser = dumper(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)));
         _dumper.write((("gopher" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
@@ -1469,7 +1469,7 @@ function testDumper_doubleclose(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
             _t.fatalf(("got:\n%#v\nwant:\n%#v" : stdgo.GoString), stdgo.Go.toInterface((_out.string() : stdgo.GoString)), stdgo.Go.toInterface(_expected));
         };
     }
-function testDumper_earlyclose(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDumper_earlyclose(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _out:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
         var _dumper:stdgo.io.Io.WriteCloser = dumper(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)));
         _dumper.close();
@@ -1479,7 +1479,7 @@ function testDumper_earlyclose(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             _t.fatalf(("got:\n%#v\nwant:\n%#v" : stdgo.GoString), stdgo.Go.toInterface((_out.string() : stdgo.GoString)), stdgo.Go.toInterface(_expected));
         };
     }
-function testDump(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testDump(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _in:stdgo.GoArray<stdgo.StdGoTypes.GoByte> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(...[for (i in 0 ... 40) (0 : stdgo.StdGoTypes.GoUInt8)]);
         for (_i in 0 ... _in.length.toBasic()) {
             _in[(_i : stdgo.StdGoTypes.GoInt)] = (_i + (30 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoByte);

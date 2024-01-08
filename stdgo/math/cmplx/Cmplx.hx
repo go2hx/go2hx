@@ -1108,7 +1108,7 @@ function _cAlike(_a:stdgo.StdGoTypes.GoComplex128, _b:stdgo.StdGoTypes.GoComplex
 function _isExact(_x:stdgo.StdGoTypes.GoFloat64):Bool {
         return (((stdgo.math.Math.isNaN(_x) || stdgo.math.Math.isInf(_x, (0 : stdgo.StdGoTypes.GoInt))) || (_x == (0 : stdgo.StdGoTypes.GoFloat64))) || (_x == (1 : stdgo.StdGoTypes.GoFloat64))) || (_x == (-1 : stdgo.StdGoTypes.GoFloat64));
     }
-function testAbs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAbs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_vc.length), _i++, {
@@ -1132,7 +1132,7 @@ function testAbs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             });
         };
     }
-function testAcos(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAcos(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_vc.length), _i++, {
@@ -1170,7 +1170,7 @@ function testAcos(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testAcosh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAcosh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_vc.length), _i++, {
@@ -1208,7 +1208,7 @@ function testAcosh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testAsin(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAsin(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_vc.length), _i++, {
@@ -1255,7 +1255,7 @@ function testAsin(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testAsinh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAsinh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_vc.length), _i++, {
@@ -1302,7 +1302,7 @@ function testAsinh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testAtan(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAtan(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_vc.length), _i++, {
@@ -1349,7 +1349,7 @@ function testAtan(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testAtanh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testAtanh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_vc.length), _i++, {
@@ -1396,7 +1396,7 @@ function testAtanh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testConj(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testConj(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_vc.length), _i++, {
@@ -1420,7 +1420,7 @@ function testConj(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             });
         };
     }
-function testCos(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testCos(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_vc.length), _i++, {
@@ -1459,7 +1459,7 @@ function testCos(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testCosh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testCosh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_vc.length), _i++, {
@@ -1498,7 +1498,7 @@ function testCosh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testExp(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testExp(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_vc.length), _i++, {
@@ -1528,7 +1528,7 @@ function testExp(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testIsNaN(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testIsNaN(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_vcIsNaNSC.length), _i++, {
@@ -1541,7 +1541,7 @@ function testIsNaN(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             });
         };
     }
-function testLog(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testLog(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_vc.length), _i++, {
@@ -1579,7 +1579,7 @@ function testLog(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testLog10(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testLog10(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_vc.length), _i++, {
@@ -1609,7 +1609,7 @@ function testLog10(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testPolar(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testPolar(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_vc.length), _i++, {
@@ -1633,7 +1633,7 @@ function testPolar(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             });
         };
     }
-function testPow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testPow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _zero:stdgo.StdGoTypes.GoComplex128 = new stdgo.StdGoTypes.GoComplex128((0i64 : stdgo.StdGoTypes.GoUInt64), (0i64 : stdgo.StdGoTypes.GoUInt64));
         var _zeroPowers = (new stdgo.Slice<stdgo.GoArray<stdgo.StdGoTypes.GoComplex128>>(4, 4, (new stdgo.GoArray<stdgo.StdGoTypes.GoComplex128>(((0f64 : stdgo.StdGoTypes.GoFloat64) + new stdgo.StdGoTypes.GoComplex128(0f64, 0f64)), ((1f64 : stdgo.StdGoTypes.GoFloat64) + new stdgo.StdGoTypes.GoComplex128(0f64, 0f64))) : stdgo.GoArray<stdgo.StdGoTypes.GoComplex128>), (new stdgo.GoArray<stdgo.StdGoTypes.GoComplex128>(((1.5f64 : stdgo.StdGoTypes.GoFloat64) + new stdgo.StdGoTypes.GoComplex128(0f64, 0f64)), ((0f64 : stdgo.StdGoTypes.GoFloat64) + new stdgo.StdGoTypes.GoComplex128(0f64, 0f64))) : stdgo.GoArray<stdgo.StdGoTypes.GoComplex128>), (new stdgo.GoArray<stdgo.StdGoTypes.GoComplex128>(((-1.5f64 : stdgo.StdGoTypes.GoFloat64) + new stdgo.StdGoTypes.GoComplex128(0f64, 0f64)), new stdgo.StdGoTypes.GoComplex128(stdgo.math.Math.inf((0 : stdgo.StdGoTypes.GoInt)), (0 : stdgo.StdGoTypes.GoFloat64))) : stdgo.GoArray<stdgo.StdGoTypes.GoComplex128>), (new stdgo.GoArray<stdgo.StdGoTypes.GoComplex128>(((-1.5f64 : stdgo.StdGoTypes.GoFloat64) + new stdgo.StdGoTypes.GoComplex128(0f64, 1.5f64)), inf()) : stdgo.GoArray<stdgo.StdGoTypes.GoComplex128>)) : stdgo.Slice<stdgo.GoArray<stdgo.StdGoTypes.GoComplex128>>);
         for (__0 => _zp in _zeroPowers) {
@@ -1676,7 +1676,7 @@ function testPow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testRect(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testRect(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_vc.length), _i++, {
@@ -1700,7 +1700,7 @@ function testRect(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             });
         };
     }
-function testSin(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testSin(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_vc.length), _i++, {
@@ -1739,7 +1739,7 @@ function testSin(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testSinh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testSinh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_vc.length), _i++, {
@@ -1778,7 +1778,7 @@ function testSinh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testSqrt(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testSqrt(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_vc.length), _i++, {
@@ -1816,7 +1816,7 @@ function testSqrt(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testTan(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTan(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_vc.length), _i++, {
@@ -1855,7 +1855,7 @@ function testTan(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testTanh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTanh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_vc.length), _i++, {
@@ -1897,7 +1897,7 @@ function testTanh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 /**
     // See issue 17577
 **/
-function testInfiniteLoopIntanSeries(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testInfiniteLoopIntanSeries(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _want:stdgo.StdGoTypes.GoComplex128 = inf();
         {
             var _got:stdgo.StdGoTypes.GoComplex128 = cot(((0f64 : stdgo.StdGoTypes.GoFloat64) + new stdgo.StdGoTypes.GoComplex128(0f64, 0f64)));
@@ -2114,7 +2114,7 @@ function exp(_x:stdgo.StdGoTypes.GoComplex128):stdgo.StdGoTypes.GoComplex128 {
         var __tmp__ = stdgo.math.Math.sincos(_x.imag), _s:stdgo.StdGoTypes.GoFloat64 = __tmp__._0, _c:stdgo.StdGoTypes.GoFloat64 = __tmp__._1;
         return new stdgo.StdGoTypes.GoComplex128(_r * _c, _r * _s);
     }
-function testTanHuge(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testTanHuge(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_i => _x in _hugeIn) {
             {
                 var _f:stdgo.StdGoTypes.GoComplex128 = tan(_x);

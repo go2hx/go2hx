@@ -126,49 +126,49 @@ final _typeFlagFunction = @:invalid_type null;
     
     
 **/
-final typeUndefined : stdgo.syscall.js.Js.Type = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type);
+final typeUndefined : stdgo.syscall.js.Js.Type_ = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type_);
 /**
     
     
     
 **/
-final typeNull = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type);
+final typeNull = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type_);
 /**
     
     
     
 **/
-final typeBoolean = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type);
+final typeBoolean = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type_);
 /**
     
     
     
 **/
-final typeNumber = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type);
+final typeNumber = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type_);
 /**
     
     
     
 **/
-final typeString = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type);
+final typeString = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type_);
 /**
     
     
     
 **/
-final typeSymbol = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type);
+final typeSymbol = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type_);
 /**
     
     
     
 **/
-final typeObject = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type);
+final typeObject = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type_);
 /**
     
     
     
 **/
-final typeFunction = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type);
+final typeFunction = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type_);
 /**
     // Func is a wrapped Go function to be called by JavaScript.
     
@@ -222,7 +222,7 @@ final typeFunction = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type);
     @:embedded
     public function truthy():Bool return false;
     @:embedded
-    public function type():stdgo.syscall.js.Js.Type return ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type);
+    public function type():stdgo.syscall.js.Js.Type_ return ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type_);
     @:embedded
     public function _float(_p:stdgo.GoString):stdgo.StdGoTypes.GoFloat64 return (0 : stdgo.StdGoTypes.GoFloat64);
     @:embedded
@@ -306,7 +306,7 @@ final typeFunction = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type);
     @:embedded
     public function truthy():Bool return false;
     @:embedded
-    public function type():stdgo.syscall.js.Js.Type return ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type);
+    public function type():stdgo.syscall.js.Js.Type_ return ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type_);
     @:embedded
     public function _float(_p:stdgo.GoString):stdgo.StdGoTypes.GoFloat64 return (0 : stdgo.StdGoTypes.GoFloat64);
     @:embedded
@@ -324,8 +324,8 @@ final typeFunction = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type);
 **/
 @:structInit @:using(stdgo.syscall.js.Js.ValueError_static_extension) class ValueError {
     public var method : stdgo.GoString = "";
-    public var type : stdgo.syscall.js.Js.Type = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type);
-    public function new(?method:stdgo.GoString, ?type:stdgo.syscall.js.Js.Type) {
+    public var type : stdgo.syscall.js.Js.Type_ = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type_);
+    public function new(?method:stdgo.GoString, ?type:stdgo.syscall.js.Js.Type_) {
         if (method != null) this.method = method;
         if (type != null) this.type = type;
     }
@@ -346,7 +346,7 @@ final typeFunction = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type);
 /**
     // Type represents the JavaScript type of a Value.
 **/
-@:named @:using(stdgo.syscall.js.Js.Type_static_extension) typedef Type = stdgo.StdGoTypes.GoInt;
+@:named @:using(stdgo.syscall.js.Js.Type__static_extension) typedef Type_ = stdgo.StdGoTypes.GoInt;
 /**
     // FuncOf returns a function to be used by JavaScript.
     //
@@ -501,7 +501,7 @@ class Func_asInterface {
     @:embedded
     public dynamic function _float(_p:stdgo.GoString):stdgo.StdGoTypes.GoFloat64 return __self__.value._float(_p);
     @:embedded
-    public dynamic function type():stdgo.syscall.js.Js.Type return __self__.value.type();
+    public dynamic function type():stdgo.syscall.js.Js.Type_ return __self__.value.type();
     @:embedded
     public dynamic function truthy():Bool return __self__.value.truthy();
     @:embedded
@@ -561,7 +561,7 @@ class Func_asInterface {
     @:embedded
     public static function _float( __self__:Func, _p:stdgo.GoString):stdgo.StdGoTypes.GoFloat64 return __self__._float(_p);
     @:embedded
-    public static function type( __self__:Func):stdgo.syscall.js.Js.Type return __self__.type();
+    public static function type( __self__:Func):stdgo.syscall.js.Js.Type_ return __self__.type();
     @:embedded
     public static function truthy( __self__:Func):Bool return __self__.truthy();
     @:embedded
@@ -706,7 +706,7 @@ class Value_asInterface {
         // except that it returns TypeNull instead of TypeObject for null.
     **/
     @:keep
-    public dynamic function type():Type return __self__.value.type();
+    public dynamic function type():Type_ return __self__.value.type();
     /**
         // IsNaN reports whether v is the JavaScript value "NaN".
     **/
@@ -840,7 +840,7 @@ class Value_asInterface {
         // except that it returns TypeNull instead of TypeObject for null.
     **/
     @:keep
-    static public function type( _v:Value):Type throw "Value:syscall.js.type is not yet implemented";
+    static public function type( _v:Value):Type_ throw "Value:syscall.js.type is not yet implemented";
     /**
         // IsNaN reports whether v is the JavaScript value "NaN".
     **/
@@ -873,7 +873,7 @@ class T_error_asInterface {
     @:embedded
     public dynamic function _float(_p:stdgo.GoString):stdgo.StdGoTypes.GoFloat64 return __self__.value._float(_p);
     @:embedded
-    public dynamic function type():stdgo.syscall.js.Js.Type return __self__.value.type();
+    public dynamic function type():stdgo.syscall.js.Js.Type_ return __self__.value.type();
     @:embedded
     public dynamic function truthy():Bool return __self__.value.truthy();
     @:embedded
@@ -931,7 +931,7 @@ class T_error_asInterface {
     @:embedded
     public static function _float( __self__:T_error, _p:stdgo.GoString):stdgo.StdGoTypes.GoFloat64 return __self__._float(_p);
     @:embedded
-    public static function type( __self__:T_error):stdgo.syscall.js.Js.Type return __self__.type();
+    public static function type( __self__:T_error):stdgo.syscall.js.Js.Type_ return __self__.type();
     @:embedded
     public static function truthy( __self__:T_error):Bool return __self__.truthy();
     @:embedded
@@ -986,7 +986,7 @@ class ValueError_asInterface {
     @:keep
     static public function error( _e:stdgo.StdGoTypes.Ref<ValueError>):stdgo.GoString throw "ValueError:syscall.js.error is not yet implemented";
 }
-class Type_asInterface {
+class Type__asInterface {
     @:keep
     public dynamic function _isObject():Bool return __self__.value._isObject();
     @:keep
@@ -996,12 +996,12 @@ class Type_asInterface {
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<Type>;
+    var __self__ : stdgo.Pointer<Type_>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
-@:keep @:allow(stdgo.syscall.js.Js.Type_asInterface) class Type_static_extension {
+@:keep @:allow(stdgo.syscall.js.Js.Type__asInterface) class Type__static_extension {
     @:keep
-    static public function _isObject( _t:Type):Bool throw "Type:syscall.js._isObject is not yet implemented";
+    static public function _isObject( _t:Type_):Bool throw "Type_:syscall.js._isObject is not yet implemented";
     @:keep
-    static public function string( _t:Type):stdgo.GoString throw "Type:syscall.js.string is not yet implemented";
+    static public function string( _t:Type_):stdgo.GoString throw "Type_:syscall.js.string is not yet implemented";
 }

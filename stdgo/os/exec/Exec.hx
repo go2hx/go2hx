@@ -552,7 +552,7 @@ _lookPathErr);
     }
 }
 function benchmarkExecHostname(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void throw ":os.exec.benchmarkExecHostname is not yet implemented";
-function testDedupEnv(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void throw ":os.exec.testDedupEnv is not yet implemented";
+function testDedupEnv(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":os.exec.testDedupEnv is not yet implemented";
 /**
     // Command returns the Cmd struct to execute the named program with
     // the given arguments.
@@ -628,8 +628,8 @@ function _addCriticalEnv(_env:stdgo.Slice<stdgo.GoString>):stdgo.Slice<stdgo.GoS
     // whether the provided stdin copy error should be ignored.
 **/
 function _skipStdinCopyError(_err:stdgo.Error):Bool throw ":os.exec._skipStdinCopyError is not yet implemented";
-function testPrefixSuffixSaver(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void throw ":os.exec.testPrefixSuffixSaver is not yet implemented";
-function testLookPathNotFound(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void throw ":os.exec.testLookPathNotFound is not yet implemented";
+function testPrefixSuffixSaver(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":os.exec.testPrefixSuffixSaver is not yet implemented";
+function testLookPathNotFound(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":os.exec.testLookPathNotFound is not yet implemented";
 /**
     // LookPath searches for an executable named file in the
     // directories named by the PATH environment variable.

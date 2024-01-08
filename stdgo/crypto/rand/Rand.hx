@@ -94,7 +94,7 @@ function _getRandom(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error {
         stdgo.syscall.js.Js.copyBytesToGo(_b, _a?.__copy__());
         return (null : stdgo.Error);
     }
-function testRead(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testRead(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _n:stdgo.StdGoTypes.GoInt = (4000000 : stdgo.StdGoTypes.GoInt);
         if (stdgo.testing.Testing.short()) {
             _n = (100000 : stdgo.StdGoTypes.GoInt);
@@ -112,7 +112,7 @@ function testRead(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _t.fatalf(("Compressed %d -> %d" : stdgo.GoString), stdgo.Go.toInterface((_b.length)), stdgo.Go.toInterface(_z.len()));
         };
     }
-function testReadEmpty(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testReadEmpty(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var __tmp__ = reader.read(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((0 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__()), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if ((_n != (0 : stdgo.StdGoTypes.GoInt)) || (_err != null)) {
             _t.fatalf(("Read(make([]byte, 0)) = %d, %v" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));

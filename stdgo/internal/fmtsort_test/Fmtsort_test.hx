@@ -191,7 +191,7 @@ class T__struct_0_asInterface {
     public var _x : stdgo.StdGoTypes.GoInt;
     public var _y : stdgo.StdGoTypes.GoInt;
 };
-function _ct(_typ:stdgo.reflect.Reflect.Type, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):stdgo.Slice<stdgo.reflect.Reflect.Value> {
+function _ct(_typ:stdgo.reflect.Reflect.Type_, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):stdgo.Slice<stdgo.reflect.Reflect.Value> {
         var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
         var _value = new stdgo.Slice<stdgo.reflect.Reflect.Value>((_args.length : stdgo.StdGoTypes.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_args.length : stdgo.StdGoTypes.GoInt).toBasic() > 0 ? (_args.length : stdgo.StdGoTypes.GoInt).toBasic() : 0 : stdgo.StdGoTypes.GoInt).toBasic()) ({} : stdgo.reflect.Reflect.Value)]);
         for (_i => _v in _args) {
@@ -205,7 +205,7 @@ function _ct(_typ:stdgo.reflect.Reflect.Type, _args:haxe.Rest<stdgo.StdGoTypes.A
         };
         return _value;
     }
-function testCompare(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testCompare(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in _compareTests) {
             for (_i => _v0 in _test) {
                 for (_j => _v1 in _test) {
@@ -214,7 +214,7 @@ function testCompare(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                     if (_i == (_j)) {
                         _expect = (0 : stdgo.StdGoTypes.GoInt);
                         {
-                            var _typ:stdgo.reflect.Reflect.Type = _v0.type();
+                            var _typ:stdgo.reflect.Reflect.Type_ = _v0.type();
                             if (((_typ.kind() == (13u32 : stdgo.reflect.Reflect.Kind)) || (_typ.kind() == (14u32 : stdgo.reflect.Reflect.Kind))) && stdgo.math.Math.isNaN(_v0.float_())) {
                                 _expect = (-1 : stdgo.StdGoTypes.GoInt);
                             };
@@ -340,7 +340,7 @@ function _chanMap():stdgo.GoMap<stdgo.Chan<stdgo.StdGoTypes.GoInt>, stdgo.GoStri
         };
         return _m;
     }
-function testOrder(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testOrder(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in _sortTests) {
             var _got:stdgo.GoString = _sprint(_test._data)?.__copy__();
             if (_got != (_test._print)) {
@@ -348,7 +348,7 @@ function testOrder(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testInterface(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testInterface(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _m = ({
             final x = new stdgo.GoMap.GoAnyInterfaceMap<stdgo.GoString>();
             x.__defaultValue__ = () -> ("" : stdgo.GoString);

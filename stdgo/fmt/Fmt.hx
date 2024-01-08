@@ -1072,11 +1072,11 @@ function errorf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterfa
                 var _w = (stdgo.Go.setRef(({ _msg : _s?.__copy__() } : stdgo.fmt.Fmt.T_wrapError)) : stdgo.StdGoTypes.Ref<stdgo.fmt.Fmt.T_wrapError>);
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((_a[(_p._wrappedErrs[(0 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoInt)] : stdgo.Error)) : stdgo.Error), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((_a[(_p._wrappedErrs[(0 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoInt)] : stdgo.Error)) : stdgo.Error), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.Error), ok : false };
+                        { _0 : (null : stdgo.Error), _1 : false };
                     };
-                    _w._err = __tmp__.value;
+                    _w._err = __tmp__._0;
                 };
                 _err = stdgo.Go.asInterface(_w);
             } else {
@@ -1090,10 +1090,10 @@ function errorf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterfa
                     };
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((_a[(_argNum : stdgo.StdGoTypes.GoInt)] : stdgo.Error)) : stdgo.Error), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((_a[(_argNum : stdgo.StdGoTypes.GoInt)] : stdgo.Error)) : stdgo.Error), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.Error), ok : false };
-                        }, _e = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.Error), _1 : false };
+                        }, _e = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
                             _errs = (_errs.__append__(_e));
                         };
@@ -1351,12 +1351,12 @@ function _intFromArg(_a:stdgo.Slice<stdgo.StdGoTypes.AnyInterface>, _argNum:stdg
         if (_argNum < (_a.length)) {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((_a[(_argNum : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoInt)) : stdgo.StdGoTypes.GoInt), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((_a[(_argNum : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoInt)) : stdgo.StdGoTypes.GoInt), _1 : true };
                 } catch(_) {
-                    { value : (0 : stdgo.StdGoTypes.GoInt), ok : false };
+                    { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : false };
                 };
-                _num = __tmp__.value;
-                _isInt = __tmp__.ok;
+                _num = __tmp__._0;
+                _isInt = __tmp__._1;
             };
             if (!_isInt) {
                 {
@@ -1560,10 +1560,10 @@ function _newScanState(_r:stdgo.io.Io.Reader, _nlIsSpace:Bool, _nlIsEnd:Bool):{ 
         _s = (stdgo.Go.typeAssert((_ssFree.get() : stdgo.StdGoTypes.Ref<T_ss>)) : stdgo.StdGoTypes.Ref<T_ss>);
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_r) : stdgo.io.Io.RuneScanner)) : stdgo.io.Io.RuneScanner), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_r) : stdgo.io.Io.RuneScanner)) : stdgo.io.Io.RuneScanner), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.io.Io.RuneScanner), ok : false };
-            }, _rs = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.io.Io.RuneScanner), _1 : false };
+            }, _rs = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 _s._rs = _rs;
             } else {
@@ -1629,10 +1629,10 @@ function _errorHandler(_errp:stdgo.StdGoTypes.Ref<stdgo.Error>):Void {
             if (_e != null) {
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((_e : T_scanError)) : T_scanError), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((_e : T_scanError)) : T_scanError), _1 : true };
                     } catch(_) {
-                        { value : ({} : stdgo.fmt.Fmt.T_scanError), ok : false };
-                    }, _se = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : ({} : stdgo.fmt.Fmt.T_scanError), _1 : false };
+                    }, _se = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
                         {
                             var __tmp__ = _se._err;
@@ -1640,10 +1640,10 @@ function _errorHandler(_errp:stdgo.StdGoTypes.Ref<stdgo.Error>):Void {
                         };
                     } else {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((_e : stdgo.Error)) : stdgo.Error), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((_e : stdgo.Error)) : stdgo.Error), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.Error), ok : false };
-                        }, _eof = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.Error), _1 : false };
+                        }, _eof = __tmp__._0, _ok = __tmp__._1;
                         if (_ok && (stdgo.Go.toInterface(_eof) == stdgo.Go.toInterface(stdgo.io.Io.eof))) {
                             {
                                 var __tmp__ = _eof;
@@ -2929,7 +2929,7 @@ class T_pp_asInterface {
                             {
                                 final __value__ = _verb;
                                 if (__value__ == ((115 : stdgo.StdGoTypes.GoInt32)) || __value__ == ((113 : stdgo.StdGoTypes.GoInt32)) || __value__ == ((120 : stdgo.StdGoTypes.GoInt32)) || __value__ == ((88 : stdgo.StdGoTypes.GoInt32))) {
-                                    var _t:stdgo.reflect.Reflect.Type = _f.type();
+                                    var _t:stdgo.reflect.Reflect.Type_ = _f.type();
                                     if (_t.elem().kind() == ((8u32 : stdgo.reflect.Reflect.Kind))) {
                                         var _bytes:stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
                                         if (_f.kind() == ((23u32 : stdgo.reflect.Reflect.Kind))) {
@@ -3123,10 +3123,10 @@ class T_pp_asInterface {
             };
             if (_verb == ((119 : stdgo.StdGoTypes.GoInt32))) {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((_p._arg : stdgo.Error)) : stdgo.Error), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((_p._arg : stdgo.Error)) : stdgo.Error), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.Error), ok : false };
-                }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.Error), _1 : false };
+                }, __0 = __tmp__._0, _ok = __tmp__._1;
                 if (!_ok || !_p._wrapErrs) {
                     _p._badVerb(_verb);
                     return true;
@@ -3135,10 +3135,10 @@ class T_pp_asInterface {
             };
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((_p._arg : Formatter)) : Formatter), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((_p._arg : Formatter)) : Formatter), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.fmt.Fmt.Formatter), ok : false };
-                }, _formatter = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.fmt.Fmt.Formatter), _1 : false };
+                }, _formatter = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
                     _handled = true;
                     {
@@ -3159,10 +3159,10 @@ class T_pp_asInterface {
             if (_p._fmt._fmtFlags._sharpV) {
                 {
                     var __tmp__ = try {
-                        { value : (stdgo.Go.typeAssert((_p._arg : GoStringer)) : GoStringer), ok : true };
+                        { _0 : (stdgo.Go.typeAssert((_p._arg : GoStringer)) : GoStringer), _1 : true };
                     } catch(_) {
-                        { value : (null : stdgo.fmt.Fmt.GoStringer), ok : false };
-                    }, _stringer = __tmp__.value, _ok = __tmp__.ok;
+                        { _0 : (null : stdgo.fmt.Fmt.GoStringer), _1 : false };
+                    }, _stringer = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
                         _handled = true;
                         {
@@ -4055,10 +4055,10 @@ class T_ss_asInterface {
         var _err:stdgo.Error = (null : stdgo.Error);
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((_arg : Scanner)) : Scanner), ok : true };
+                { _0 : (stdgo.Go.typeAssert((_arg : Scanner)) : Scanner), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.fmt.Fmt.Scanner), ok : false };
-            }, _v = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.fmt.Fmt.Scanner), _1 : false };
+            }, _v = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 _err = _v.scan(stdgo.Go.asInterface(_s), _verb);
                 if (_err != null) {
@@ -4155,7 +4155,7 @@ class T_ss_asInterface {
                         } else if (__value__ == ((24u32 : stdgo.reflect.Reflect.Kind))) {
                             _v.setString(_s._convertString(_verb)?.__copy__());
                         } else if (__value__ == ((23u32 : stdgo.reflect.Reflect.Kind))) {
-                            var _typ:stdgo.reflect.Reflect.Type = _v.type();
+                            var _typ:stdgo.reflect.Reflect.Type_ = _v.type();
                             if (_typ.elem().kind() != ((8u32 : stdgo.reflect.Reflect.Kind))) {
                                 _s._errorString(("can\'t scan type: " : stdgo.GoString) + (_val.type().string() : stdgo.GoString)?.__copy__()?.__copy__());
                             };
@@ -4346,10 +4346,10 @@ class T_ss_asInterface {
                 if (_err != null) {
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>), ok : false };
-                        }, _e = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>), _1 : false };
+                        }, _e = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
                             _e.num = _str?.__copy__();
                         };
@@ -4360,10 +4360,10 @@ class T_ss_asInterface {
                 if (_err != null) {
                     {
                         var __tmp__ = try {
-                            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>), ok : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>), _1 : true };
                         } catch(_) {
-                            { value : (null : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>), ok : false };
-                        }, _e = __tmp__.value, _ok = __tmp__.ok;
+                            { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>), _1 : false };
+                        }, _e = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
                             _e.num = _str?.__copy__();
                         };
@@ -4782,10 +4782,10 @@ class T_ss_asInterface {
                         if (_e != null) {
                             {
                                 var __tmp__ = try {
-                                    { value : (stdgo.Go.typeAssert((_e : T_scanError)) : T_scanError), ok : true };
+                                    { _0 : (stdgo.Go.typeAssert((_e : T_scanError)) : T_scanError), _1 : true };
                                 } catch(_) {
-                                    { value : ({} : stdgo.fmt.Fmt.T_scanError), ok : false };
-                                }, _se = __tmp__.value, _ok = __tmp__.ok;
+                                    { _0 : ({} : stdgo.fmt.Fmt.T_scanError), _1 : false };
+                                }, _se = __tmp__._0, _ok = __tmp__._1;
                                 if (_ok) {
                                     _err = _se._err;
                                 } else {

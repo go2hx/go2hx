@@ -65,10 +65,10 @@ function example_binaryMarshaler():Void {
         var _first:stdgo.hash.Hash.Hash = stdgo.crypto.sha256.Sha256.new_();
         _first.write((("The tunneling gopher digs downwards, " : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_first) : stdgo.encoding.Encoding.BinaryMarshaler)) : stdgo.encoding.Encoding.BinaryMarshaler), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_first) : stdgo.encoding.Encoding.BinaryMarshaler)) : stdgo.encoding.Encoding.BinaryMarshaler), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.encoding.Encoding.BinaryMarshaler), ok : false };
-        }, _marshaler = __tmp__.value, _ok = __tmp__.ok;
+            { _0 : (null : stdgo.encoding.Encoding.BinaryMarshaler), _1 : false };
+        }, _marshaler = __tmp__._0, _ok = __tmp__._1;
         if (!_ok) {
             stdgo.log.Log.fatal(stdgo.Go.toInterface(("first does not implement encoding.BinaryMarshaler" : stdgo.GoString)));
         };
@@ -78,10 +78,10 @@ function example_binaryMarshaler():Void {
         };
         var _second:stdgo.hash.Hash.Hash = stdgo.crypto.sha256.Sha256.new_();
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_second) : stdgo.encoding.Encoding.BinaryUnmarshaler)) : stdgo.encoding.Encoding.BinaryUnmarshaler), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_second) : stdgo.encoding.Encoding.BinaryUnmarshaler)) : stdgo.encoding.Encoding.BinaryUnmarshaler), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.encoding.Encoding.BinaryUnmarshaler), ok : false };
-        }, _unmarshaler = __tmp__.value, _ok = __tmp__.ok;
+            { _0 : (null : stdgo.encoding.Encoding.BinaryUnmarshaler), _1 : false };
+        }, _unmarshaler = __tmp__._0, _ok = __tmp__._1;
         if (!_ok) {
             stdgo.log.Log.fatal(stdgo.Go.toInterface(("second does not implement encoding.BinaryUnmarshaler" : stdgo.GoString)));
         };
@@ -103,9 +103,9 @@ function _fromHex(_s:stdgo.GoString):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
         };
         return _b;
     }
-function testMarshalHash(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testMarshalHash(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _tt in _marshalTests) {
-            _t.run(_tt._name?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+            _t.run(_tt._name?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
                 var _buf = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((256 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
                 for (_i in 0 ... _buf.length.toBasic()) {
                     _buf[(_i : stdgo.StdGoTypes.GoInt)] = (_i : stdgo.StdGoTypes.GoByte);
@@ -123,10 +123,10 @@ function testMarshalHash(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
                     });
                 };
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_h2) : stdgo.encoding.Encoding.BinaryMarshaler)) : stdgo.encoding.Encoding.BinaryMarshaler), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_h2) : stdgo.encoding.Encoding.BinaryMarshaler)) : stdgo.encoding.Encoding.BinaryMarshaler), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.encoding.Encoding.BinaryMarshaler), ok : false };
-                }, _h2m = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.encoding.Encoding.BinaryMarshaler), _1 : false };
+                }, _h2m = __tmp__._0, _ok = __tmp__._1;
                 if (!_ok) {
                     _t.fatalf(("Hash does not implement MarshalBinary" : stdgo.GoString));
                 };
@@ -138,10 +138,10 @@ function testMarshalHash(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
                     _t.errorf(("MarshalBinary = %x, want %x" : stdgo.GoString), stdgo.Go.toInterface(_enc), stdgo.Go.toInterface(_tt._golden));
                 };
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_h3) : stdgo.encoding.Encoding.BinaryUnmarshaler)) : stdgo.encoding.Encoding.BinaryUnmarshaler), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_h3) : stdgo.encoding.Encoding.BinaryUnmarshaler)) : stdgo.encoding.Encoding.BinaryUnmarshaler), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.encoding.Encoding.BinaryUnmarshaler), ok : false };
-                }, _h3u = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.encoding.Encoding.BinaryUnmarshaler), _1 : false };
+                }, _h3u = __tmp__._0, _ok = __tmp__._1;
                 if (!_ok) {
                     _t.fatalf(("Hash does not implement UnmarshalBinary" : stdgo.GoString));
                 };

@@ -393,10 +393,10 @@ function modelFunc(_f:Color -> Color):Model {
 function _rgbaModel(_c:Color):Color {
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : RGBA)) : RGBA), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : RGBA)) : RGBA), _1 : true };
             } catch(_) {
-                { value : ({} : stdgo.image.color.Color.RGBA), ok : false };
-            }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : ({} : stdgo.image.color.Color.RGBA), _1 : false };
+            }, __0 = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return _c;
             };
@@ -407,10 +407,10 @@ function _rgbaModel(_c:Color):Color {
 function _rgba64Model(_c:Color):Color {
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : RGBA64)) : RGBA64), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : RGBA64)) : RGBA64), _1 : true };
             } catch(_) {
-                { value : ({} : stdgo.image.color.Color.RGBA64), ok : false };
-            }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : ({} : stdgo.image.color.Color.RGBA64), _1 : false };
+            }, __0 = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return _c;
             };
@@ -421,10 +421,10 @@ function _rgba64Model(_c:Color):Color {
 function _nrgbaModel(_c:Color):Color {
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : NRGBA)) : NRGBA), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : NRGBA)) : NRGBA), _1 : true };
             } catch(_) {
-                { value : ({} : stdgo.image.color.Color.NRGBA), ok : false };
-            }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : ({} : stdgo.image.color.Color.NRGBA), _1 : false };
+            }, __0 = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return _c;
             };
@@ -444,10 +444,10 @@ function _nrgbaModel(_c:Color):Color {
 function _nrgba64Model(_c:Color):Color {
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : NRGBA64)) : NRGBA64), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : NRGBA64)) : NRGBA64), _1 : true };
             } catch(_) {
-                { value : ({} : stdgo.image.color.Color.NRGBA64), ok : false };
-            }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : ({} : stdgo.image.color.Color.NRGBA64), _1 : false };
+            }, __0 = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return _c;
             };
@@ -467,10 +467,10 @@ function _nrgba64Model(_c:Color):Color {
 function _alphaModel(_c:Color):Color {
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : Alpha)) : Alpha), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : Alpha)) : Alpha), _1 : true };
             } catch(_) {
-                { value : ({} : stdgo.image.color.Color.Alpha), ok : false };
-            }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : ({} : stdgo.image.color.Color.Alpha), _1 : false };
+            }, __0 = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return _c;
             };
@@ -481,10 +481,10 @@ function _alphaModel(_c:Color):Color {
 function _alpha16Model(_c:Color):Color {
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : Alpha16)) : Alpha16), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : Alpha16)) : Alpha16), _1 : true };
             } catch(_) {
-                { value : ({} : stdgo.image.color.Color.Alpha16), ok : false };
-            }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : ({} : stdgo.image.color.Color.Alpha16), _1 : false };
+            }, __0 = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return _c;
             };
@@ -495,10 +495,10 @@ function _alpha16Model(_c:Color):Color {
 function _grayModel(_c:Color):Color {
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : Gray)) : Gray), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : Gray)) : Gray), _1 : true };
             } catch(_) {
-                { value : ({} : stdgo.image.color.Color.Gray), ok : false };
-            }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : ({} : stdgo.image.color.Color.Gray), _1 : false };
+            }, __0 = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return _c;
             };
@@ -510,10 +510,10 @@ function _grayModel(_c:Color):Color {
 function _gray16Model(_c:Color):Color {
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : Gray16)) : Gray16), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : Gray16)) : Gray16), _1 : true };
             } catch(_) {
-                { value : ({} : stdgo.image.color.Color.Gray16), ok : false };
-            }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : ({} : stdgo.image.color.Color.Gray16), _1 : false };
+            }, __0 = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return _c;
             };
@@ -532,7 +532,7 @@ function _sqDiff(_x:stdgo.StdGoTypes.GoUInt32, _y:stdgo.StdGoTypes.GoUInt32):std
         var _d:stdgo.StdGoTypes.GoUInt32 = _x - _y;
         return (_d * _d) >> (2i64 : stdgo.StdGoTypes.GoUInt64);
     }
-function testSqDiff(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testSqDiff(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _orig:(stdgo.StdGoTypes.GoUInt32, stdgo.StdGoTypes.GoUInt32) -> stdgo.StdGoTypes.GoUInt32 = function(_x:stdgo.StdGoTypes.GoUInt32, _y:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoUInt32 {
             var _d:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32);
             if (_x > _y) {
@@ -626,10 +626,10 @@ function ycbCrToRGB(_y:stdgo.StdGoTypes.GoUInt8, _cb:stdgo.StdGoTypes.GoUInt8, _
 function _yCbCrModel(_c:Color):Color {
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : YCbCr)) : YCbCr), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : YCbCr)) : YCbCr), _1 : true };
             } catch(_) {
-                { value : ({} : stdgo.image.color.Color.YCbCr), ok : false };
-            }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : ({} : stdgo.image.color.Color.YCbCr), _1 : false };
+            }, __0 = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return _c;
             };
@@ -693,10 +693,10 @@ function cmyktoRGB(_c:stdgo.StdGoTypes.GoUInt8, _m:stdgo.StdGoTypes.GoUInt8, _y:
 function _cmykModel(_c:Color):Color {
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : CMYK)) : CMYK), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : CMYK)) : CMYK), _1 : true };
             } catch(_) {
-                { value : ({} : stdgo.image.color.Color.CMYK), ok : false };
-            }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : ({} : stdgo.image.color.Color.CMYK), _1 : false };
+            }, __0 = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return _c;
             };
@@ -723,7 +723,7 @@ function _eq(_c0:Color, _c1:Color):stdgo.Error {
     // TestYCbCrRoundtrip tests that a subset of RGB space can be converted to YCbCr
     // and back to within 2/256 tolerance.
 **/
-function testYCbCrRoundtrip(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testYCbCrRoundtrip(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _r:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_r < (256 : stdgo.StdGoTypes.GoInt), _r = _r + ((7 : stdgo.StdGoTypes.GoInt)), {
@@ -751,7 +751,7 @@ function testYCbCrRoundtrip(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
     // then truncating to 8 bits is equivalent to calling the YCbCrToRGB function (8
     // bit color).
 **/
-function testYCbCrToRGBConsistency(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testYCbCrToRGBConsistency(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _y:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_y < (256 : stdgo.StdGoTypes.GoInt), _y = _y + ((7 : stdgo.StdGoTypes.GoInt)), {
@@ -778,7 +778,7 @@ function testYCbCrToRGBConsistency(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
 /**
     // TestYCbCrGray tests that YCbCr colors are a superset of Gray colors.
 **/
-function testYCbCrGray(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testYCbCrGray(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (256 : stdgo.StdGoTypes.GoInt), _i++, {
@@ -796,7 +796,7 @@ function testYCbCrGray(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 /**
     // TestNYCbCrAAlpha tests that NYCbCrA colors are a superset of Alpha colors.
 **/
-function testNYCbCrAAlpha(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNYCbCrAAlpha(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (256 : stdgo.StdGoTypes.GoInt), _i++, {
@@ -814,7 +814,7 @@ function testNYCbCrAAlpha(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
 /**
     // TestNYCbCrAYCbCr tests that NYCbCrA colors are a superset of YCbCr colors.
 **/
-function testNYCbCrAYCbCr(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testNYCbCrAYCbCr(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (256 : stdgo.StdGoTypes.GoInt), _i++, {
@@ -833,7 +833,7 @@ function testNYCbCrAYCbCr(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
     // TestCMYKRoundtrip tests that a subset of RGB space can be converted to CMYK
     // and back to within 1/256 tolerance.
 **/
-function testCMYKRoundtrip(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testCMYKRoundtrip(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _r:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_r < (256 : stdgo.StdGoTypes.GoInt), _r = _r + ((7 : stdgo.StdGoTypes.GoInt)), {
@@ -871,7 +871,7 @@ stdgo.Go.toInterface(_b1));
     // then truncating to 8 bits is equivalent to calling the CMYKToRGB function (8
     // bit color).
 **/
-function testCMYKToRGBConsistency(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testCMYKToRGBConsistency(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _c:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_c < (256 : stdgo.StdGoTypes.GoInt), _c = _c + ((7 : stdgo.StdGoTypes.GoInt)), {
@@ -913,7 +913,7 @@ stdgo.Go.toInterface(_b2));
 /**
     // TestCMYKGray tests that CMYK colors are a superset of Gray colors.
 **/
-function testCMYKGray(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testCMYKGray(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (256 : stdgo.StdGoTypes.GoInt), _i++, {
@@ -926,7 +926,7 @@ function testCMYKGray(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             });
         };
     }
-function testPalette(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testPalette(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _p:stdgo.image.color.Color.Palette = (new stdgo.Slice<stdgo.image.color.Color.Color>(6, 6, stdgo.Go.asInterface((new stdgo.image.color.Color.RGBA((255 : stdgo.StdGoTypes.GoUInt8), (255 : stdgo.StdGoTypes.GoUInt8), (255 : stdgo.StdGoTypes.GoUInt8), (255 : stdgo.StdGoTypes.GoUInt8)) : stdgo.image.color.Color.RGBA)), stdgo.Go.asInterface((new stdgo.image.color.Color.RGBA((128 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (255 : stdgo.StdGoTypes.GoUInt8)) : stdgo.image.color.Color.RGBA)), stdgo.Go.asInterface((new stdgo.image.color.Color.RGBA((127 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (127 : stdgo.StdGoTypes.GoUInt8)) : stdgo.image.color.Color.RGBA)), stdgo.Go.asInterface((new stdgo.image.color.Color.RGBA((0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (127 : stdgo.StdGoTypes.GoUInt8)) : stdgo.image.color.Color.RGBA)), stdgo.Go.asInterface((new stdgo.image.color.Color.RGBA((0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8)) : stdgo.image.color.Color.RGBA)), stdgo.Go.asInterface((new stdgo.image.color.Color.RGBA((64 : stdgo.StdGoTypes.GoUInt8), (64 : stdgo.StdGoTypes.GoUInt8), (64 : stdgo.StdGoTypes.GoUInt8), (64 : stdgo.StdGoTypes.GoUInt8)) : stdgo.image.color.Color.RGBA))) : stdgo.image.color.Color.Palette);
         for (_i => _c in _p) {
             var _j:stdgo.StdGoTypes.GoInt = _p.index(_c);

@@ -729,10 +729,10 @@ function _globWithLimit(_fsys:FS, _pattern:stdgo.GoString, _depth:stdgo.StdGoTyp
         };
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_fsys) : GlobFS)) : GlobFS), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_fsys) : GlobFS)) : GlobFS), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.io.fs.Fs.GlobFS), ok : false };
-            }, _fsys = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.io.fs.Fs.GlobFS), _1 : false };
+            }, _fsys = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return _fsys.glob(_pattern?.__copy__());
             };
@@ -853,10 +853,10 @@ function readDir(_fsys:FS, _name:stdgo.GoString):{ var _0 : stdgo.Slice<DirEntry
         try {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_fsys) : ReadDirFS)) : ReadDirFS), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_fsys) : ReadDirFS)) : ReadDirFS), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.io.fs.Fs.ReadDirFS), ok : false };
-                }, _fsys = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.io.fs.Fs.ReadDirFS), _1 : false };
+                }, _fsys = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
                     return _fsys.readDir(_name?.__copy__());
                 };
@@ -867,10 +867,10 @@ function readDir(_fsys:FS, _name:stdgo.GoString):{ var _0 : stdgo.Slice<DirEntry
             };
             __deferstack__.unshift(() -> _file.close());
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_file) : ReadDirFile)) : ReadDirFile), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_file) : ReadDirFile)) : ReadDirFile), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.io.fs.Fs.ReadDirFile), ok : false };
-            }, _dir = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.io.fs.Fs.ReadDirFile), _1 : false };
+            }, _dir = __tmp__._0, _ok = __tmp__._1;
             if (!_ok) {
                 {
                     for (defer in __deferstack__) {
@@ -935,10 +935,10 @@ function readFile(_fsys:FS, _name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.S
         try {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_fsys) : ReadFileFS)) : ReadFileFS), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_fsys) : ReadFileFS)) : ReadFileFS), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.io.fs.Fs.ReadFileFS), ok : false };
-                }, _fsys = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.io.fs.Fs.ReadFileFS), _1 : false };
+                }, _fsys = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
                     return _fsys.readFile(_name?.__copy__());
                 };
@@ -1010,10 +1010,10 @@ function stat(_fsys:FS, _name:stdgo.GoString):{ var _0 : FileInfo; var _1 : stdg
         try {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_fsys) : StatFS)) : StatFS), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_fsys) : StatFS)) : StatFS), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.io.fs.Fs.StatFS), ok : false };
-                }, _fsys = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.io.fs.Fs.StatFS), _1 : false };
+                }, _fsys = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
                     return _fsys.stat(_name?.__copy__());
                 };
@@ -1075,10 +1075,10 @@ function sub(_fsys:FS, _dir:stdgo.GoString):{ var _0 : FS; var _1 : stdgo.Error;
         };
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_fsys) : SubFS)) : SubFS), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_fsys) : SubFS)) : SubFS), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.io.fs.Fs.SubFS), ok : false };
-            }, _fsys = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.io.fs.Fs.SubFS), _1 : false };
+            }, _fsys = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return _fsys.sub(_dir?.__copy__());
             };
@@ -1174,10 +1174,10 @@ class PathError_asInterface {
     static public function timeout( _e:stdgo.StdGoTypes.Ref<PathError>):Bool {
         @:recv var _e:stdgo.StdGoTypes.Ref<PathError> = _e;
         var __tmp__ = try {
-            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e.err) : T__interface_0)) : T__interface_0), ok : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e.err) : T__interface_0)) : T__interface_0), _1 : true };
         } catch(_) {
-            { value : (null : stdgo.io.fs.Fs.T__interface_0), ok : false };
-        }, _t = __tmp__.value, _ok = __tmp__.ok;
+            { _0 : (null : stdgo.io.fs.Fs.T__interface_0), _1 : false };
+        }, _t = __tmp__._0, _ok = __tmp__._1;
         return _ok && _t.timeout();
     }
     @:keep
@@ -1345,10 +1345,10 @@ class T_subFS_asInterface {
         @:recv var _f:stdgo.StdGoTypes.Ref<T_subFS> = _f;
         {
             var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<PathError>)) : stdgo.StdGoTypes.Ref<PathError>), ok : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<PathError>)) : stdgo.StdGoTypes.Ref<PathError>), _1 : true };
             } catch(_) {
-                { value : (null : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>), ok : false };
-            }, _e = __tmp__.value, _ok = __tmp__.ok;
+                { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>), _1 : false };
+            }, _e = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 {
                     var __tmp__ = _f._shorten(_e.path?.__copy__()), _short:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;

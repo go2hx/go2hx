@@ -76,7 +76,7 @@ function _ctext(_list:stdgo.Slice<stdgo.StdGoTypes.Ref<CommentGroup>>):stdgo.GoS
         };
         return (_buf.string() : stdgo.GoString)?.__copy__();
     }
-function testCommentMap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testCommentMap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _fset = stdgo.go.token.Token.newFileSet();
         var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, stdgo.Go.str()?.__copy__(), stdgo.Go.toInterface(("\n// the very first comment\n\n// package p\npackage p /* the name is p */\n\n// imports\nimport (\n\t\"bytes\"     // bytes\n\t\"fmt\"       // fmt\n\t\"go/ast\"\n\t\"go/parser\"\n)\n\n// T\ntype T struct {\n\ta, b, c int // associated with a, b, c\n\t// associated with x, y\n\tx, y float64    // float values\n\tz    complex128 // complex value\n}\n// also associated with T\n\n// x\nvar x = 0 // x = 0\n// also associated with x\n\n// f1\nfunc f1() {\n\t/* associated with s1 */\n\ts1()\n\t// also associated with s1\n\t\n\t// associated with s2\n\t\n\t// also associated with s2\n\ts2() // line comment for s2\n}\n// associated with f1\n// also associated with f1\n\n// associated with f2\n\n// f2\nfunc f2() {\n}\n\nfunc f3() {\n\ti := 1 /* 1 */ + 2 // addition\n\t_ = i\n}\n\n// the very last comment\n" : stdgo.GoString)), (4u32 : stdgo.go.parser.Parser.Mode)), _f:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -109,7 +109,7 @@ function testCommentMap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
     }
-function testFilter(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testFilter(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _fset = stdgo.go.token.Token.newFileSet();
         var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, stdgo.Go.str()?.__copy__(), stdgo.Go.toInterface(("\n// the very first comment\n\n// package p\npackage p /* the name is p */\n\n// imports\nimport (\n\t\"bytes\"     // bytes\n\t\"fmt\"       // fmt\n\t\"go/ast\"\n\t\"go/parser\"\n)\n\n// T\ntype T struct {\n\ta, b, c int // associated with a, b, c\n\t// associated with x, y\n\tx, y float64    // float values\n\tz    complex128 // complex value\n}\n// also associated with T\n\n// x\nvar x = 0 // x = 0\n// also associated with x\n\n// f1\nfunc f1() {\n\t/* associated with s1 */\n\ts1()\n\t// also associated with s1\n\t\n\t// associated with s2\n\t\n\t// also associated with s2\n\ts2() // line comment for s2\n}\n// associated with f1\n// also associated with f1\n\n// associated with f2\n\n// f2\nfunc f2() {\n}\n\nfunc f3() {\n\ti := 1 /* 1 */ + 2 // addition\n\t_ = i\n}\n\n// the very last comment\n" : stdgo.GoString)), (4u32 : stdgo.go.parser.Parser.Mode)), _f:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -119,10 +119,10 @@ function testFilter(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (_i => _decl in _f.decls) {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_decl) : stdgo.StdGoTypes.Ref<GenDecl>)) : stdgo.StdGoTypes.Ref<GenDecl>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_decl) : stdgo.StdGoTypes.Ref<GenDecl>)) : stdgo.StdGoTypes.Ref<GenDecl>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>), ok : false };
-                }, _gen = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>), _1 : false };
+                }, _gen = __tmp__._0, _ok = __tmp__._1;
                 if (_ok && (_gen.tok == (85 : stdgo.go.token.Token.Token))) {
                     stdgo.Go.copySlice((_f.decls.__slice__(_i) : stdgo.Slice<stdgo.go.ast.Ast.Decl>), (_f.decls.__slice__(_i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.go.ast.Ast.Decl>));
                     _f.decls = (_f.decls.__slice__(0, (_f.decls.length) - (1 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.go.ast.Ast.Decl>);
@@ -196,10 +196,10 @@ function exampleCommentMap():Void {
         for (_i => _decl in _f.decls) {
             {
                 var __tmp__ = try {
-                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_decl) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>), ok : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_decl) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>), _1 : true };
                 } catch(_) {
-                    { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>), ok : false };
-                }, _gen = __tmp__.value, _ok = __tmp__.ok;
+                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>), _1 : false };
+                }, _gen = __tmp__._0, _ok = __tmp__._1;
                 if (_ok && (_gen.tok == (85 : stdgo.go.token.Token.Token))) {
                     stdgo.Go.copySlice((_f.decls.__slice__(_i) : stdgo.Slice<stdgo.go.ast.Ast.Decl>), (_f.decls.__slice__(_i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.go.ast.Ast.Decl>));
                     _f.decls = (_f.decls.__slice__(0, (_f.decls.length) - (1 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.go.ast.Ast.Decl>);
@@ -217,7 +217,7 @@ function exampleCommentMap():Void {
         };
         stdgo.fmt.Fmt.printf(("%s" : stdgo.GoString), stdgo.Go.toInterface((_buf.string() : stdgo.GoString)));
     }
-function testFilterDuplicates(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testFilterDuplicates(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _fset = stdgo.go.token.Token.newFileSet();
         var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, stdgo.Go.str()?.__copy__(), stdgo.Go.toInterface(("package p\n\ntype t1 struct{}\ntype t2 struct{}\n\nfunc f1() {}\nfunc f1() {}\nfunc f2() {}\n\nfunc (*t1) f1() {}\nfunc (t1) f1() {}\nfunc (t1) f2() {}\n\nfunc (t2) f1() {}\nfunc (t2) f2() {}\nfunc (x *t2) f2() {}\n" : stdgo.GoString)), (0u32 : stdgo.go.parser.Parser.Mode)), _file:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -248,7 +248,7 @@ function testFilterDuplicates(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
             _t.errorf(("incorrect output:\n%s" : stdgo.GoString), stdgo.Go.toInterface(_output));
         };
     }
-function testIssue33649(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testIssue33649(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _src in (new stdgo.Slice<stdgo.GoString>(4, 4, ("package p; func _()" : stdgo.GoString), ("package p; func _() {" : stdgo.GoString), ("package p; func _() { _ = 0" : stdgo.GoString), ("package p; func _() { _ = 0 }" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
             var _fset = stdgo.go.token.Token.newFileSet();
             var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, stdgo.Go.str()?.__copy__(), stdgo.Go.toInterface(_src), (32u32 : stdgo.go.parser.Parser.Mode)), _f:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File> = __tmp__._0, __1:stdgo.Error = __tmp__._1;
@@ -271,7 +271,7 @@ function testIssue33649(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 /**
     // TestIssue28089 exercises the IsGenerated function.
 **/
-function testIssue28089(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+function testIssue28089(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         for (_i => _test in (new stdgo.Slice<T__struct_7>(
 10,
 10,

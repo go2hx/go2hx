@@ -928,17 +928,17 @@ haxe.macro.Context.defineType(td);
 /**
     // equal is simply ==.
 **/
-macro function _equal<T>(__generic__0:haxe.macro.Expr.ExprOf<T>, _v1:haxe.macro.Expr.ExprOf<T>, _v2:haxe.macro.Expr.ExprOf<T>):haxe.macro.Expr.ExprOf<Bool> {
-        final T:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(__generic__0));
+macro function _equal<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _v1:haxe.macro.Expr.ExprOf<T_>, _v2:haxe.macro.Expr.ExprOf<T_>):haxe.macro.Expr.ExprOf<Bool> {
+        final T_:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(__generic__0));
         {
-            var id = "T_" + "slices" + "_" + "_equal" + "_" + "T_" + haxe.macro.ComplexTypeTools.toString(T) + "_";
+            var id = "T_" + "slices" + "_" + "_equal" + "_" + "T_" + haxe.macro.ComplexTypeTools.toString(T_) + "_";
             id = StringTools.replace(id, ".", "_");
             id = StringTools.replace(id, "<", "_");
             id = StringTools.replace(id, ">", "_");
             try {
                 haxe.macro.Context.getType(id);
             } catch(_) {
-                final f = macro function f(__generic__0:$T, _v1:$T, _v2:$T) {
+                final f = macro function f(__generic__0:$T_, _v1:$T_, _v2:$T_) {
                     return _v1 == (_v2);
                 };
                 switch f.expr {
@@ -955,18 +955,18 @@ haxe.macro.Context.defineType(td);
 /**
     // equalNaN is like == except that all NaNs are equal.
 **/
-macro function _equalNaN<T>(__generic__0:haxe.macro.Expr.ExprOf<T>, _v1:haxe.macro.Expr.ExprOf<T>, _v2:haxe.macro.Expr.ExprOf<T>):haxe.macro.Expr.ExprOf<Bool> {
-        final T:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(__generic__0));
+macro function _equalNaN<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _v1:haxe.macro.Expr.ExprOf<T_>, _v2:haxe.macro.Expr.ExprOf<T_>):haxe.macro.Expr.ExprOf<Bool> {
+        final T_:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(__generic__0));
         {
-            var id = "T_" + "slices" + "_" + "_equalNaN" + "_" + "T_" + haxe.macro.ComplexTypeTools.toString(T) + "_";
+            var id = "T_" + "slices" + "_" + "_equalNaN" + "_" + "T_" + haxe.macro.ComplexTypeTools.toString(T_) + "_";
             id = StringTools.replace(id, ".", "_");
             id = StringTools.replace(id, "<", "_");
             id = StringTools.replace(id, ">", "_");
             try {
                 haxe.macro.Context.getType(id);
             } catch(_) {
-                final f = macro function f(__generic__0:$T, _v1:$T, _v2:$T) {
-                    var _isNaN:$T -> Bool = function(_f:$T):Bool {
+                final f = macro function f(__generic__0:$T_, _v1:$T_, _v2:$T_) {
+                    var _isNaN:$T_ -> Bool = function(_f:$T_):Bool {
                         return _f != (_f);
                     };
                     return (_v1 == _v2) || (_isNaN(_v1) && _isNaN(_v2));
@@ -982,18 +982,18 @@ haxe.macro.Context.defineType(td);
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_v1, $_v2));
         };
     }
-macro function _equalToCmp<T>(__generic__0:haxe.macro.Expr.ExprOf<T>, _eq:haxe.macro.Expr.ExprOf<($T, $T) -> Bool>):haxe.macro.Expr.ExprOf<(T, T) -> stdgo.StdGoTypes.GoInt> {
-        final T:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(__generic__0));
+macro function _equalToCmp<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _eq:haxe.macro.Expr.ExprOf<($T_, $T_) -> Bool>):haxe.macro.Expr.ExprOf<(T_, T_) -> stdgo.StdGoTypes.GoInt> {
+        final T_:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(__generic__0));
         {
-            var id = "T_" + "slices" + "_" + "_equalToCmp" + "_" + "T_" + haxe.macro.ComplexTypeTools.toString(T) + "_";
+            var id = "T_" + "slices" + "_" + "_equalToCmp" + "_" + "T_" + haxe.macro.ComplexTypeTools.toString(T_) + "_";
             id = StringTools.replace(id, ".", "_");
             id = StringTools.replace(id, "<", "_");
             id = StringTools.replace(id, ">", "_");
             try {
                 haxe.macro.Context.getType(id);
             } catch(_) {
-                final f = macro function f(__generic__0:$T, _eq:($T, $T) -> Bool) {
-                    return function(_v1:$T, _v2:$T):stdgo.StdGoTypes.GoInt {
+                final f = macro function f(__generic__0:$T_, _eq:($T_, $T_) -> Bool) {
+                    return function(_v1:$T_, _v2:$T_):stdgo.StdGoTypes.GoInt {
                         if (_eq(_v1, _v2)) {
                             return (0 : stdgo.StdGoTypes.GoInt);
                         };
@@ -1011,18 +1011,18 @@ haxe.macro.Context.defineType(td);
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_eq));
         };
     }
-macro function _equalToIndex<T>(__generic__0:haxe.macro.Expr.ExprOf<T>, _f:haxe.macro.Expr.ExprOf<($T, $T) -> Bool>, _v1:haxe.macro.Expr.ExprOf<T>):haxe.macro.Expr.ExprOf<T -> Bool> {
-        final T:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(__generic__0));
+macro function _equalToIndex<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _f:haxe.macro.Expr.ExprOf<($T_, $T_) -> Bool>, _v1:haxe.macro.Expr.ExprOf<T_>):haxe.macro.Expr.ExprOf<T_ -> Bool> {
+        final T_:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(__generic__0));
         {
-            var id = "T_" + "slices" + "_" + "_equalToIndex" + "_" + "T_" + haxe.macro.ComplexTypeTools.toString(T) + "_";
+            var id = "T_" + "slices" + "_" + "_equalToIndex" + "_" + "T_" + haxe.macro.ComplexTypeTools.toString(T_) + "_";
             id = StringTools.replace(id, ".", "_");
             id = StringTools.replace(id, "<", "_");
             id = StringTools.replace(id, ">", "_");
             try {
                 haxe.macro.Context.getType(id);
             } catch(_) {
-                final f = macro function f(__generic__0:$T, _f:($T, $T) -> Bool, _v1:$T) {
-                    return function(_v2:$T):Bool {
+                final f = macro function f(__generic__0:$T_, _f:($T_, $T_) -> Bool, _v1:$T_) {
+                    return function(_v2:$T_):Bool {
                         return _f(_v1, _v2);
                     };
                 };
@@ -1068,17 +1068,17 @@ haxe.macro.Context.defineType(td);
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_s, $_i, $_j, $_v));
         };
     }
-macro function _apply<T>(__generic__0:haxe.macro.Expr.ExprOf<T>, _v:haxe.macro.Expr.ExprOf<T>, _f:haxe.macro.Expr.ExprOf<$T -> Void>):haxe.macro.Expr.ExprOf<Void> {
-        final T:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(__generic__0));
+macro function _apply<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _v:haxe.macro.Expr.ExprOf<T_>, _f:haxe.macro.Expr.ExprOf<$T_ -> Void>):haxe.macro.Expr.ExprOf<Void> {
+        final T_:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(__generic__0));
         {
-            var id = "T_" + "slices" + "_" + "_apply" + "_" + "T_" + haxe.macro.ComplexTypeTools.toString(T) + "_";
+            var id = "T_" + "slices" + "_" + "_apply" + "_" + "T_" + haxe.macro.ComplexTypeTools.toString(T_) + "_";
             id = StringTools.replace(id, ".", "_");
             id = StringTools.replace(id, "<", "_");
             id = StringTools.replace(id, ">", "_");
             try {
                 haxe.macro.Context.getType(id);
             } catch(_) {
-                final f = macro function f(__generic__0:$T, _v:$T, _f:$T -> Void) {
+                final f = macro function f(__generic__0:$T_, _v:$T_, _f:$T_ -> Void) {
                     _f(_v);
                 };
                 switch f.expr {
@@ -1473,19 +1473,19 @@ haxe.macro.Context.defineType(td);
     // cmp must implement the same ordering as the slice, such that if
     // cmp(a, t) < 0 and cmp(b, t) >= 0, then a must precede b in the slice.
 **/
-macro function binarySearchFunc<S, E, T>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, __generic__2:haxe.macro.Expr.ExprOf<T>, _x:haxe.macro.Expr.ExprOf<S>, _target:haxe.macro.Expr.ExprOf<T>, _cmp:haxe.macro.Expr.ExprOf<($E, $T) -> stdgo.StdGoTypes.GoInt>):haxe.macro.Expr.ExprOf<{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : Bool; }> {
+macro function binarySearchFunc<S, E, T_>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, __generic__2:haxe.macro.Expr.ExprOf<T_>, _x:haxe.macro.Expr.ExprOf<S>, _target:haxe.macro.Expr.ExprOf<T_>, _cmp:haxe.macro.Expr.ExprOf<($E, $T_) -> stdgo.StdGoTypes.GoInt>):haxe.macro.Expr.ExprOf<{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : Bool; }> {
         final S:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(__generic__0));
         final E:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(__generic__1));
-        final T:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(__generic__2));
+        final T_:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(__generic__2));
         {
-            var id = "T_" + "slices" + "_" + "binarySearchFunc" + "_" + "T_" + haxe.macro.ComplexTypeTools.toString(S) + "_" + haxe.macro.ComplexTypeTools.toString(E) + "_" + haxe.macro.ComplexTypeTools.toString(T) + "_";
+            var id = "T_" + "slices" + "_" + "binarySearchFunc" + "_" + "T_" + haxe.macro.ComplexTypeTools.toString(S) + "_" + haxe.macro.ComplexTypeTools.toString(E) + "_" + haxe.macro.ComplexTypeTools.toString(T_) + "_";
             id = StringTools.replace(id, ".", "_");
             id = StringTools.replace(id, "<", "_");
             id = StringTools.replace(id, ">", "_");
             try {
                 haxe.macro.Context.getType(id);
             } catch(_) {
-                final f = macro function f(__generic__0:$S, __generic__1:$E, __generic__2:$T, _x:$S, _target:$T, _cmp:($E, $T) -> stdgo.StdGoTypes.GoInt) {
+                final f = macro function f(__generic__0:$S, __generic__1:$E, __generic__2:$T_, _x:$S, _target:$T_, _cmp:($E, $T_) -> stdgo.StdGoTypes.GoInt) {
                     var _n:stdgo.StdGoTypes.GoInt = (_x.length);
                     var __0:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), __1:stdgo.StdGoTypes.GoInt = _n, _j:stdgo.StdGoTypes.GoInt = __1, _i:stdgo.StdGoTypes.GoInt = __0;
                     while (_i < _j) {
@@ -1513,17 +1513,17 @@ haxe.macro.Context.defineType(td);
     // isNaN reports whether x is a NaN without requiring the math package.
     // This will always return false if T is not floating-point.
 **/
-macro function _isNaN<T>(__generic__0:haxe.macro.Expr.ExprOf<T>, _x:haxe.macro.Expr.ExprOf<T>):haxe.macro.Expr.ExprOf<Bool> {
-        final T:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(__generic__0));
+macro function _isNaN<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _x:haxe.macro.Expr.ExprOf<T_>):haxe.macro.Expr.ExprOf<Bool> {
+        final T_:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(__generic__0));
         {
-            var id = "T_" + "slices" + "_" + "_isNaN" + "_" + "T_" + haxe.macro.ComplexTypeTools.toString(T) + "_";
+            var id = "T_" + "slices" + "_" + "_isNaN" + "_" + "T_" + haxe.macro.ComplexTypeTools.toString(T_) + "_";
             id = StringTools.replace(id, ".", "_");
             id = StringTools.replace(id, "<", "_");
             id = StringTools.replace(id, ">", "_");
             try {
                 haxe.macro.Context.getType(id);
             } catch(_) {
-                final f = macro function f(__generic__0:$T, _x:$T) {
+                final f = macro function f(__generic__0:$T_, _x:$T_) {
                     return _x != (_x);
                 };
                 switch f.expr {

@@ -327,10 +327,9 @@ function _unsafePointerMap():stdgo.GoMap<stdgo.unsafe.Unsafe.UnsafePointer, stdg
     }
 function _chanMap():stdgo.GoMap<stdgo.Chan<stdgo.StdGoTypes.GoInt>, stdgo.GoString> {
         var _m = ({
-            final x = new stdgo.GoMap<stdgo.GoString>();
-            x.__defaultValue__ = () -> ("" : stdgo.GoString);
+            final x = new stdgo.GoMap.GoChanMap<stdgo.Chan<stdgo.StdGoTypes.GoInt>, stdgo.GoString>();
             @:mergeBlock {};
-            x;
+            cast x;
         } : stdgo.GoMap<stdgo.Chan<stdgo.StdGoTypes.GoInt>, stdgo.GoString>);
         {
             var _i:stdgo.StdGoTypes.GoInt = (2 : stdgo.StdGoTypes.GoInt);

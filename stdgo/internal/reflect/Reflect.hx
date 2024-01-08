@@ -2,9 +2,8 @@ package stdgo.internal.reflect;
 
 import stdgo.Pointer;
 import stdgo.StdGoTypes;
-import stdgo.reflect.Reflect;
 
-@:follow private typedef Type = Type_;
+@:follow private typedef Type = stdgo.reflect.Reflect.Type_;
 
 
 enum abstract KindType(stdgo.reflect.Reflect.Kind) from Int from stdgo.reflect.Reflect.Kind to stdgo.reflect.Reflect.Kind {
@@ -67,7 +66,7 @@ function namedUnderlying(obj:AnyInterface):AnyInterface {
 	public function new(?_typ) {}
 }
 
-function deepValueEqual(v1:Value, v2:Value, visited:GoMap<Visit, Bool>, depth:GoInt):Bool {
+function deepValueEqual(v1:stdgo.reflect.Reflect.Value, v2:stdgo.reflect.Reflect.Value, visited:GoMap<Visit, Bool>, depth:GoInt):Bool {
 	if (!v1.isValid() || !v2.isValid()) {
 		return v1.isValid() == v2.isValid();
 	}
@@ -825,7 +824,7 @@ function defaultValue(typ:Type):Any {
 	}
 }
 
-function _set(value:Value) {
+function _set(value:stdgo.reflect.Reflect.Value) {
 	if (@:privateAccess value.underlyingValue != null) {
 		if (@:privateAccess value.underlyingIndex == -1) {
 			if (@:privateAccess value.underlyingKey != null) {
@@ -952,16 +951,16 @@ class _Type {
 		}
 	}
 
-	static public function fieldByNameFunc(t:_Type, _match:GoString->Bool):{var _0:StructField; var _1:Bool;}
+	static public function fieldByNameFunc(t:_Type, _match:GoString->Bool):{var _0:stdgo.reflect.Reflect.StructField; var _1:Bool;}
 		throw "not implemented fieldByNameFunc";
 
-	static public function fieldByName(t:_Type, _name:GoString):{var _0:StructField; var _1:Bool;}
+	static public function fieldByName(t:_Type, _name:GoString):{var _0:stdgo.reflect.Reflect.StructField; var _1:Bool;}
 		throw "not implemented fieldByName";
 
-	static public function fieldByIndex(t:_Type, _index:Slice<GoInt>):StructField
+	static public function fieldByIndex(t:_Type, _index:Slice<GoInt>):stdgo.reflect.Reflect.StructField
 		throw "not implemented fieldByIndex";
 
-	static public function field(t:_Type, _i:GoInt):StructField {
+	static public function field(t:_Type, _i:GoInt):stdgo.reflect.Reflect.StructField {
 			var module = "";
 			final gt = t._common();
 			final underlyingType:GoType = getUnderlying(gt);
@@ -1003,7 +1002,7 @@ class _Type {
 	static public function isVariadic(t:_Type):Bool
 		throw "not implemented isVariadic";
 
-	static public function chanDir(t:_Type):ChanDir
+	static public function chanDir(t:_Type):stdgo.reflect.Reflect.ChanDir
 		throw "not implemented chanDir";
 
 	static public function bits(t:_Type):GoInt {
@@ -1057,7 +1056,7 @@ class _Type {
 		return implementsMethod(_u, new _Type_asInterface(Go.pointer(t), t));
 	}
 
-	static public function kind(t:_Type):Kind {
+	static public function kind(t:_Type):stdgo.reflect.Reflect.Kind {
 		var gt:GoType = cast t._common();
 		gt = getUnderlying(gt);
 		return switch gt {
@@ -1313,10 +1312,10 @@ class _Type {
 		}
 	}
 
-	static public function methodByName(t:_Type, _0:GoString):{var _0:Method; var _1:Bool;}
+	static public function methodByName(t:_Type, _0:GoString):{var _0:stdgo.reflect.Reflect.Method; var _1:Bool;}
 		throw "not implemented methodByName";
 
-	static public function method(t:_Type, _0:GoInt):Method
+	static public function method(t:_Type, _0:GoInt):stdgo.reflect.Reflect.Method
 		throw "not implemented method";
 
 	static public function fieldAlign(t:_Type):GoInt
@@ -1354,16 +1353,16 @@ class _Type_asInterface {
 	public dynamic function in_(_i:GoInt):Type
 		return __self__.value.in_(_i);
 
-	public dynamic function fieldByNameFunc(_match:GoString->Bool):{var _0:StructField; var _1:Bool;}
+	public dynamic function fieldByNameFunc(_match:GoString->Bool):{var _0:stdgo.reflect.Reflect.StructField; var _1:Bool;}
 		return __self__.value.fieldByNameFunc(_match);
 
-	public dynamic function fieldByName(_name:GoString):{var _0:StructField; var _1:Bool;}
+	public dynamic function fieldByName(_name:GoString):{var _0:stdgo.reflect.Reflect.StructField; var _1:Bool;}
 		return __self__.value.fieldByName(_name);
 
-	public dynamic function fieldByIndex(_index:Slice<GoInt>):StructField
+	public dynamic function fieldByIndex(_index:Slice<GoInt>):stdgo.reflect.Reflect.StructField
 		return __self__.value.fieldByIndex(_index);
 
-	public dynamic function field(_i:GoInt):StructField
+	public dynamic function field(_i:GoInt):stdgo.reflect.Reflect.StructField
 		return __self__.value.field(_i);
 
 	public dynamic function elem():Type {
@@ -1373,7 +1372,7 @@ class _Type_asInterface {
 	public dynamic function isVariadic():Bool
 		return __self__.value.isVariadic();
 
-	public dynamic function chanDir():ChanDir
+	public dynamic function chanDir():stdgo.reflect.Reflect.ChanDir
 		return __self__.value.chanDir();
 
 	public dynamic function bits():GoInt
@@ -1391,7 +1390,7 @@ class _Type_asInterface {
 	public dynamic function implements_(_u:Type):Bool
 		return __self__.value.implements_(_u);
 
-	public dynamic function kind():Kind {
+	public dynamic function kind():stdgo.reflect.Reflect.Kind {
 		return __self__.value.kind();
 	}
 
@@ -1410,10 +1409,10 @@ class _Type_asInterface {
 	public dynamic function numMethod():GoInt
 		return __self__.value.numMethod();
 
-	public dynamic function methodByName(_0:GoString):{var _0:Method; var _1:Bool;}
+	public dynamic function methodByName(_0:GoString):{var _0:stdgo.reflect.Reflect.Method; var _1:Bool;}
 		return __self__.value.methodByName(_0);
 
-	public dynamic function method(_0:GoInt):Method
+	public dynamic function method(_0:GoInt):stdgo.reflect.Reflect.Method
 		return __self__.value.method(_0);
 
 	public dynamic function fieldAlign():GoInt

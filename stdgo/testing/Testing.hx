@@ -562,10 +562,10 @@ typedef T_testDeps = StructType & {
 	public function stopTestLog():Error;
 	public function writeProfileTo(_0:GoString, _1:stdgo.io.Io.Writer, _2:GoInt):Error;
 	public function coordinateFuzzing(_0:Dynamic, _1:GoInt64, _2:Dynamic, _3:GoInt64, _4:GoInt, _5:Slice<T_corpusEntry>,
-		_6:Slice<stdgo.reflect.Reflect.Type>, _7:GoString, _8:GoString):Error;
+		_6:Slice<stdgo.reflect.Reflect.Type_>, _7:GoString, _8:GoString):Error;
 	public function runFuzzWorker(_0:T_corpusEntry->Error):Error;
-	public function readCorpus(_0:GoString, _1:Slice<stdgo.reflect.Reflect.Type>):{var _0:Slice<T_corpusEntry>; var _1:Error;};
-	public function checkCorpus(_0:Slice<AnyInterface>, _1:Slice<stdgo.reflect.Reflect.Type>):Error;
+	public function readCorpus(_0:GoString, _1:Slice<stdgo.reflect.Reflect.Type_>):{var _0:Slice<T_corpusEntry>; var _1:Error;};
+	public function checkCorpus(_0:Slice<AnyInterface>, _1:Slice<stdgo.reflect.Reflect.Type_>):Error;
 	public function resetCoverage():Void;
 	public function snapshotCoverage():Void;
 };

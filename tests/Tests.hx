@@ -446,8 +446,6 @@ private function sortDataToTests(sortData:SortData) {
 		final output = data.substr(index + 1);
 		final name = Path.withoutExtension(Path.withoutDirectory(path));
 		switch name {
-			case "issue48137", "bug285": // breaks compiler
-				continue;
 			case "issue32288": // inf loop
 				continue;
 		}

@@ -114,7 +114,7 @@ private function ofFloatInt64(x:Float):Int64 {
 
 private function ofFloatUInt64(x:Float):UInt64 {
 	if (x < 0.0)
-		throw "negative float passed to uint64";
+		x += 1;
 	if (Math.isNaN(x))
 		return haxe.Int64.make(0x80000000, 0);
 	if (x < 2147483647.0)

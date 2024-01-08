@@ -151,6 +151,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
             commit_message: yaegi easy tests update
+            file_pattern: '*.json'
   go-easy:
     timeout-minutes: 90
     needs: []
@@ -197,6 +198,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
             commit_message: go easy tests update
+            file_pattern: '*.json'
   generate-docs:
     timeout-minutes: 15
     needs: build

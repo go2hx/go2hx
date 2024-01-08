@@ -1286,6 +1286,8 @@ private function translateStruct(e:Expr, fromType:GoType, toType:GoType, info:In
 						final e = $e;
 						($expr : $toComplexType);
 					}));
+				case refType(_.get() => elem):
+					return translateStruct(e, fromType, elem, info);
 				default:
 					//return macro @:not_struct null;
 					throw info.panic() + "not a struct: " + underlying;
@@ -2174,7 +2176,9 @@ function getReturnTupleNames(type:GoType):Array<String> {
 	}
 }
 
-private function goTypesEqual(a:GoType, b:GoType) {
+private function goTypesEqual(a:GoType, b:GoType, depth:Int) {
+	if (depth > 20)
+		return true;
 	if (a == null || b == null)
 		return true;
 	return switch a {
@@ -2186,7 +2190,7 @@ private function goTypesEqual(a:GoType, b:GoType) {
 					} else {
 						var bool = true;
 						for (i in 0...fields.length) {
-							if (fields[i].name != fields2[i].name || !goTypesEqual(fields[i].type.get(), fields2[i].type.get())) {
+							if (fields[i].name != fields2[i].name || !goTypesEqual(fields[i].type.get(), fields2[i].type.get(), depth + 1)) {
 								bool = false;
 								break;
 							}
@@ -2204,7 +2208,7 @@ private function goTypesEqual(a:GoType, b:GoType) {
 					} else {
 						var bool = true;
 						for (i in 0...params.length) {
-							if (!goTypesEqual(params[i], params2[i])) {
+							if (!goTypesEqual(params[i], params2[i], depth + 1)) {
 								bool = false;
 								break;
 							}
@@ -2223,14 +2227,14 @@ private function goTypesEqual(a:GoType, b:GoType) {
 					} else {
 						var bool = true;
 						for (i in 0...params.length) {
-							if (!goTypesEqual(params[i], params2[i])) {
+							if (!goTypesEqual(params[i], params2[i], depth + 1)) {
 								bool = false;
 								break;
 							}
 						}
 						if (bool) {
 							for (i in 0...results.length) {
-								if (!goTypesEqual(results[i], results[i])) {
+								if (!goTypesEqual(results[i], results[i], depth +  1)) {
 									bool = false;
 									break;
 								}
@@ -2246,9 +2250,9 @@ private function goTypesEqual(a:GoType, b:GoType) {
 		case _var(_, _.get() => t):
 			switch b {
 				case _var(_, _.get() => t2):
-					goTypesEqual(t, t2);
+					goTypesEqual(t, t2, depth + 1);
 				default:
-					goTypesEqual(t, b);
+					goTypesEqual(t, b, depth + 1);
 			}
 		case tuple(len, _.get() => vars):
 			switch b {
@@ -2258,7 +2262,7 @@ private function goTypesEqual(a:GoType, b:GoType) {
 					} else {
 						var bool = true;
 						for (i in 0...vars.length) {
-							if (!goTypesEqual(vars[i], vars2[i])) {
+							if (!goTypesEqual(vars[i], vars2[i], depth + 1)) {
 								false;
 								break;
 							}
@@ -2278,20 +2282,20 @@ private function goTypesEqual(a:GoType, b:GoType) {
 		case arrayType(_.get() => elem, len), chanType(len, _.get() => elem):
 			switch b {
 				case arrayType(_.get() => elem2, len2), chanType(len2, _.get() => elem2): a.getIndex() == b.getIndex() && len == len2 && goTypesEqual(elem,
-						elem2);
+						elem2, depth + 1);
 				default:
 					false;
 			}
 		case mapType(_.get() => key, _.get() => value):
 			switch b {
-				case mapType(_.get() => key2, _.get() => value2): goTypesEqual(key, key2) && goTypesEqual(value, value2);
+				case mapType(_.get() => key2, _.get() => value2): goTypesEqual(key, key2, depth + 1) && goTypesEqual(value, value2, depth + 1);
 				default:
 					false;
 			}
 		case refType(_.get() => elem), pointerType(_.get() => elem), sliceType(_.get() => elem):
 			switch b {
 				case refType(_.get() => elem2), pointerType(_.get() => elem2), sliceType(_.get() => elem2): a.getIndex() == b.getIndex() && goTypesEqual(elem,
-						elem2);
+						elem2, depth + 1);
 				default:
 					false;
 			}
@@ -2316,8 +2320,8 @@ private function goTypesEqual(a:GoType, b:GoType) {
 							var bool = true;
 							for (i in 0...methods.length) {
 								if (methods[i].name != methods2[i].name
-									|| !goTypesEqual(methods[i].type.get(), methods2[i].type.get())
-									|| !goTypesEqual(methods[i].recv.get(), methods2[i].recv.get())) {
+									|| !goTypesEqual(methods[i].type.get(), methods2[i].type.get(), depth + 1)
+									|| !goTypesEqual(methods[i].recv.get(), methods2[i].recv.get(), depth + 1)) {
 									bool = false;
 									break;
 								}
@@ -2333,7 +2337,7 @@ private function goTypesEqual(a:GoType, b:GoType) {
 // explicit conversion
 private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):Expr {
 	// trace(fromType,toType);
-	if (goTypesEqual(fromType, toType)) {
+	if (goTypesEqual(fromType, toType, 0)) {
 		if (passCopy)
 			return passByCopy(toType, expr, info);
 		return expr;
@@ -4806,7 +4810,7 @@ function getTypePath(ct:ComplexType, info:Info):TypePath {
 		case TPath(p):
 			return p;
 		default:
-			throw info.panic() + "ComplexType not a TPath: " + ct;
+			return null;
 	}
 }
 
@@ -4976,7 +4980,7 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 	var isObjectMap = false;
 	function createRefPointerMap(name:String) {
 		final keyElemComplexType = keyComplexType;
-		final p:TypePath = {name: "GoMap", sub: name, pack: ["stdgo"], params: [TPType(keyElemComplexType), TPType(valueComplexType)]};
+		final p:TypePath = {name: "GoMap", sub: name, pack: ["stdgo"], params: [TPType(keyComplexType), TPType(valueComplexType)]};
 		return macro({
 			final x = new $p();
 			@:mergeBlock $b{exprs};
@@ -4984,7 +4988,7 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 		} : stdgo.GoMap<$keyComplexType, $valueComplexType>);
 	}
 	final uk = getUnderlying(k);
-	final p:TypePath = {name: "GoMap", pack: ["stdgo"], params: [TPType(valueComplexType)]};
+	final p:TypePath = {name: "GoMap", pack: ["stdgo"], params: [TPType(keyComplexType), TPType(valueComplexType)]};
 	switch uk {
 		case interfaceType(empty, _):
 			if (!empty) {
@@ -5015,7 +5019,12 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 				case unsafepointer_kind: isObjectMap = true;
 				default: throw info.panic() + 'Unknown BasicKind: $kind';
 			}
+		case chanType(_,_):
+			return createRefPointerMap("GoChanMap");
 		default:
+	}
+	if (p.sub != null) {
+		p.params = [p.params[1]];
 	}
 	if (isObjectMap) {
 		return macro({
@@ -7339,7 +7348,13 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				}
 			for (method in struct.methods.list) {
 				if (method.names.length == 0) {
-					implicits.push(getTypePath(typeExprType(method.type, info), info));
+					final ct = typeExprType(method.type, info);
+					final tp = getTypePath(ct, info);
+					if (tp == null) {
+
+					}else{
+						implicits.push(tp);
+					}
 				}
 			}
 			// Interface -> Struct creation

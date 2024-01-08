@@ -112,13 +112,17 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 		return this.bytes.get(this.low + index.toBasic());
 
 	@:to public function __toSliceByte__():Slice<GoByte> {
-		/*final slice = new Slice<GoByte>(this.high - this.low, this.high - this.low).__setNumber32__();
-		for (i in 0...this.high - this.low) {
-			final value = this.bytes.get(i + this.low);
-			// vector starts at 0
-			slice.__vector__.set(slice.__offset__ + i, value);
-		}*/
 		final slice = new stdgo.GoArray.GoArrayData<GoByte>(0,-1);
+		if (this == null) {
+			slice.bytes = haxe.io.Bytes.alloc(0);
+			slice.offset = 0;
+			slice.length = 0;
+			slice.capacity = 0;
+			#if !target.static
+			@:privateAccess slice.isNumber32 = true;
+			#end
+			return slice;
+		}
 		slice.bytes = this.bytes;
 		slice.offset = this.low;
 		slice.length = this.high - this.low;

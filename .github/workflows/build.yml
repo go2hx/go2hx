@@ -34,10 +34,6 @@ jobs:
       # go2hx setup
       - name: Set source
         run: npx haxelib dev go2hx .
-      - name: clone yaegi
-        run: git clone https://github.com/traefik/yaegi ./tests/yaegi
-      - name: clone tinygo
-        run: git clone https://github.com/tinygo-org/tinygo ./tests/tinygo
       - name: Test run
         run: npx haxelib run go2hx ./rnd
       # clean stdgo
@@ -142,6 +138,10 @@ jobs:
       - name: Run stdgo automatic compile
         run: npx haxe stdgo.hxml -D runnerCount=${{ env.CORES }}
       # run yaegi easy tests
+      - name: clone yaegi
+        run: git clone https://github.com/traefik/yaegi ./tests/yaegi
+      - name: Sort tests
+        run: go run ./scripts/sortTests
       - name: Run yaegi easy tests
         run: npx haxe tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }}
       # git pull latest
@@ -183,6 +183,8 @@ jobs:
       # compile stdgo
       - name: Run stdgo automatic compile
         run: npx haxe stdgo.hxml -D runnerCount=${{ env.CORES }}
+      - name: clone go
+        run: git clone https://github.com/golang/go ./tests/go
       - name: Sort tests
         run: go run ./scripts/sortTests
       # run go easy tests

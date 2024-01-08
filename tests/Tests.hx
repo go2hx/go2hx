@@ -164,7 +164,7 @@ function update() {
 	}
 	if (tasks.length > 0 && runningCount < Std.parseInt(runnerCount) ) {
 		final task = tasks.pop();
-		Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount);
+		Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount + " " + lastTaskLogs);
 		final taskString = task.command + " " + task.args.join(" ");
 		lastTaskLogs.push(taskString);
 		runningCount++;

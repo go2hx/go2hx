@@ -38,8 +38,6 @@ jobs:
         run: git clone https://github.com/traefik/yaegi ./tests/yaegi
       - name: clone tinygo
         run: git clone https://github.com/tinygo-org/tinygo ./tests/tinygo
-      - name: Sort tests
-        run: go run ./scripts/sortTests
       - name: Test run
         run: npx haxelib run go2hx ./rnd
       # clean stdgo
@@ -147,6 +145,44 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
             commit_message: yaegi easy tests update
+  go-easy:
+    timeout-minutes: 90
+    needs: []
+    runs-on: ubuntu-latest
+    steps:
+      - uses: cedx/setup-hashlink@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+      # Get the cores 
+      - name: Get number of cores (Ubuntu)
+        if: startsWith(runner.os, 'Linux')
+        run: echo "CORES=$(nproc --all)" >> $GITHUB_ENV
+      - name: Get number of cores (macOS)
+        if: startsWith(runner.os, 'macOS')
+        run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
+      - name: Install lix
+        run: npm i lix -g
+      - name: Run lix
+        run: npx lix download
+      # go2hx setup
+      - name: Set source
+        run: npx haxelib dev go2hx .
+      - name: Test run
+        run: npx haxelib run go2hx ./rnd
+      - name: Sort tests
+        run: go run ./scripts/sortTests
+      # run go easy tests
+      - name: Run go easy tests
+        run: npx haxe tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }}
+      # git pull latest
+      - name: Pull latest
+        run: git pull
+      # add go_easy.json regression 
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+            commit_message: go easy tests update
   generate-docs:
     timeout-minutes: 15
     needs: build

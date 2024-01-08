@@ -33,7 +33,7 @@ macro function equal<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_s1, $_s2));
@@ -76,7 +76,7 @@ macro function equalFunc<S1, S2, E1, E2>(__generic__0:haxe.macro.Expr.ExprOf<S1>
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $__generic__2, $__generic__3, $_s1, $_s2, $_eq));
@@ -125,7 +125,7 @@ macro function compare<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_s1, $_s2));
@@ -174,7 +174,7 @@ macro function compareFunc<S1, S2, E1, E2>(__generic__0:haxe.macro.Expr.ExprOf<S
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $__generic__2, $__generic__3, $_s1, $_s2, $_cmp));
@@ -208,7 +208,7 @@ macro function index<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_s, $_v));
@@ -242,7 +242,7 @@ macro function indexFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_s, $_f));
@@ -270,7 +270,7 @@ macro function contains<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic_
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_s, $_v));
@@ -299,7 +299,7 @@ macro function containsFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __gene
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_s, $_f));
@@ -356,7 +356,7 @@ macro function insert<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_s, $_i, $_v));
@@ -391,7 +391,7 @@ macro function delete<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_s, $_i, $_j));
@@ -440,7 +440,7 @@ macro function deleteFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generi
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_s, $_del));
@@ -513,7 +513,7 @@ macro function replace<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_s, $_i, $_j, $_v));
@@ -545,7 +545,7 @@ macro function clone<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_s));
@@ -594,7 +594,7 @@ macro function compact<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_s));
@@ -638,7 +638,7 @@ macro function compactFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __gener
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_s, $_eq));
@@ -678,7 +678,7 @@ macro function grow<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:h
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_s, $_n));
@@ -706,7 +706,7 @@ macro function clip<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:h
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_s));
@@ -747,7 +747,7 @@ macro function _rotateLeft<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _s:haxe.ma
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_s, $_r));
@@ -771,7 +771,7 @@ macro function _rotateRight<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _s:haxe.m
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_s, $_r));
@@ -808,7 +808,7 @@ macro function _swap<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _x:haxe.macro.Ex
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_x, $_y));
@@ -842,7 +842,7 @@ macro function _overlaps<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _a:haxe.macr
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_a, $_b));
@@ -876,7 +876,7 @@ macro function _startIdx<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _haystack:ha
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_haystack, $_needle));
@@ -919,7 +919,7 @@ macro function reverse<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_s));
@@ -946,7 +946,7 @@ macro function _equal<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _v1:haxe.macr
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_v1, $_v2));
@@ -976,7 +976,7 @@ macro function _equalNaN<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _v1:haxe.m
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_v1, $_v2));
@@ -1005,7 +1005,7 @@ macro function _equalToCmp<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _eq:haxe
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_eq));
@@ -1031,7 +1031,7 @@ macro function _equalToIndex<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _f:hax
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_f, $_v1));
@@ -1062,7 +1062,7 @@ macro function _naiveReplace<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __gen
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_s, $_i, $_j, $_v));
@@ -1086,7 +1086,7 @@ macro function _apply<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _v:haxe.macro
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_v, $_f));
@@ -1116,7 +1116,7 @@ macro function sort<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:h
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_x));
@@ -1151,7 +1151,7 @@ macro function sortFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic_
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_x, $_cmp));
@@ -1180,7 +1180,7 @@ macro function sortStableFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __ge
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_x, $_cmp));
@@ -1216,7 +1216,7 @@ macro function isSorted<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic_
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_x));
@@ -1253,7 +1253,7 @@ macro function isSortedFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __gene
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_x, $_cmp));
@@ -1293,7 +1293,7 @@ macro function min<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:ha
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_x));
@@ -1335,7 +1335,7 @@ macro function minFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_x, $_cmp));
@@ -1375,7 +1375,7 @@ macro function max<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:ha
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_x));
@@ -1417,7 +1417,7 @@ macro function maxFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_x, $_cmp));
@@ -1458,7 +1458,7 @@ macro function binarySearch<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __gene
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_x, $_target));
@@ -1503,7 +1503,7 @@ macro function binarySearchFunc<S, E, T_>(__generic__0:haxe.macro.Expr.ExprOf<S>
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $__generic__2, $_x, $_target, $_cmp));
@@ -1531,7 +1531,7 @@ macro function _isNaN<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _x:haxe.macro
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_x));
@@ -1573,7 +1573,7 @@ macro function _insertionSortCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, 
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b, $_cmp));
@@ -1620,7 +1620,7 @@ macro function _siftDownCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_lo, $_hi, $_first, $_cmp));
@@ -1664,7 +1664,7 @@ macro function _heapSortCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b, $_cmp));
@@ -1741,7 +1741,7 @@ macro function _pdqsortCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b, $_limit, $_cmp));
@@ -1827,7 +1827,7 @@ macro function _partitionCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _dat
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b, $_pivot, $_cmp));
@@ -1882,7 +1882,7 @@ macro function _partitionEqualCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>,
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b, $_pivot, $_cmp));
@@ -1963,7 +1963,7 @@ macro function _partialInsertionSortCmpFunc<E>(__generic__0:haxe.macro.Expr.Expr
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b, $_cmp));
@@ -2010,7 +2010,7 @@ macro function _breakPatternsCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, 
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b, $_cmp));
@@ -2062,7 +2062,7 @@ macro function _choosePivotCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _d
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b, $_cmp));
@@ -2093,7 +2093,7 @@ macro function _order2CmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:h
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b, $_swaps, $_cmp));
@@ -2135,7 +2135,7 @@ macro function _medianCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:h
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b, $_c, $_swaps, $_cmp));
@@ -2162,7 +2162,7 @@ macro function _medianAdjacentCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>,
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_swaps, $_cmp));
@@ -2197,7 +2197,7 @@ macro function _reverseRangeCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b, $_cmp));
@@ -2231,7 +2231,7 @@ macro function _swapRangeCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _dat
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b, $_n, $_cmp));
@@ -2282,7 +2282,7 @@ macro function _stableCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:h
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_n, $_cmp));
@@ -2403,7 +2403,7 @@ macro function _symMergeCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_m, $_b, $_cmp));
@@ -2444,7 +2444,7 @@ macro function _rotateCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:h
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_m, $_b, $_cmp));
@@ -2486,7 +2486,7 @@ macro function _insertionSortOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, 
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b));
@@ -2533,7 +2533,7 @@ macro function _siftDownOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_lo, $_hi, $_first));
@@ -2577,7 +2577,7 @@ macro function _heapSortOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b));
@@ -2654,7 +2654,7 @@ macro function _pdqsortOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b, $_limit));
@@ -2740,7 +2740,7 @@ macro function _partitionOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _dat
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b, $_pivot));
@@ -2795,7 +2795,7 @@ macro function _partitionEqualOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>,
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b, $_pivot));
@@ -2876,7 +2876,7 @@ macro function _partialInsertionSortOrdered<E>(__generic__0:haxe.macro.Expr.Expr
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b));
@@ -2923,7 +2923,7 @@ macro function _breakPatternsOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, 
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b));
@@ -2975,7 +2975,7 @@ macro function _choosePivotOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _d
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b));
@@ -3006,7 +3006,7 @@ macro function _order2Ordered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:h
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b, $_swaps));
@@ -3048,7 +3048,7 @@ macro function _medianOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:h
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b, $_c, $_swaps));
@@ -3075,7 +3075,7 @@ macro function _medianAdjacentOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>,
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_swaps));
@@ -3110,7 +3110,7 @@ macro function _reverseRangeOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b));
@@ -3144,7 +3144,7 @@ macro function _swapRangeOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _dat
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_b, $_n));
@@ -3195,7 +3195,7 @@ macro function _stableOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:h
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_n));
@@ -3316,7 +3316,7 @@ macro function _symMergeOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_m, $_b));
@@ -3357,7 +3357,7 @@ macro function _rotateOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:h
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw info.panic() + "invalid expr: " + f.expr;
+                        throw "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_data, $_a, $_m, $_b));

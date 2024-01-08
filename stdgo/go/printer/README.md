@@ -1,6 +1,6 @@
 # Module stdgo.go.printer has compilation errors, please do not use:
 ```
-stdgo/go/ast/Ast.hx:1622: characters 26-60 : Type not found : stdgo.go.scanner.Scanner
+stdgo/internal/reflect/Reflect.hx:7: characters 33-38 : Type not found : Type_
 
 ```
 

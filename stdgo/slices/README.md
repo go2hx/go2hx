@@ -1,6 +1,7 @@
 # Module stdgo.slices has compilation errors, please do not use:
 ```
-stdgo/slices/Slices.hx:568: characters 298-301 : Type not found : $E1
+stdgo/internal/reflect/Reflect.hx:7: characters 33-38 : Type not found : Type_
+stdgo/testing/Testing.hx:564: characters 12-39 : Module stdgo.reflect.Reflect does not define type Type_
 
 ```
 

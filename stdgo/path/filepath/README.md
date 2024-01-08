@@ -1,6 +1,6 @@
 # Module stdgo.path.filepath has compilation errors, please do not use:
 ```
-stdgo/slices/Slices.hx:568: characters 298-301 : Type not found : $E1
+stdgo/internal/reflect/Reflect.hx:7: characters 33-38 : Type not found : Type_
 
 ```
 

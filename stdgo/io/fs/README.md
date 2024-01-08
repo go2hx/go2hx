@@ -1,6 +1,6 @@
 # Module stdgo.io.fs has compilation errors, please do not use:
 ```
-stdgo/io/fs_test/Fs_test.hx:301: characters 9-11 : Unknown identifier : fs
+stdgo/internal/reflect/Reflect.hx:7: characters 33-38 : Type not found : Type_
 
 ```
 

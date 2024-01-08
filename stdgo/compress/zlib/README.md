@@ -1,6 +1,6 @@
 # Module stdgo.compress.zlib has compilation errors, please do not use:
 ```
-stdgo/compress/zlib/Zlib.hx:328: characters 51-84 : Type not found : stdgo.compress.flate.Flate
+stdgo/internal/reflect/Reflect.hx:7: characters 33-38 : Type not found : Type_
 
 ```
 

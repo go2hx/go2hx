@@ -1,52 +1,7 @@
-# Module: `stdgo.internal.oserror`
-
-[(view library index)](../../stdgo.md)
-
-
-# Overview
-
-
-
-Package oserror defines errors values used in the os package.  
-
-
-These types are defined here to permit the syscall package to reference them.  
-
-# Index
-
-
-- [Variables](<#variables>)
-
-# Variables
-
-
-```haxe
-import stdgo.internal.oserror.Oserror
+# Module stdgo.internal.oserror has compilation errors, please do not use:
 ```
+stdgo/internal/reflect/Reflect.hx:7: characters 33-38 : Type not found : Type_
+stdgo/GoMap.hx:520: characters 15-20 : Type not found : _Type
 
-
-```haxe
-var errClosed:stdgo.Error
 ```
-
-
-```haxe
-var errExist:stdgo.Error
-```
-
-
-```haxe
-var errInvalid:stdgo.Error
-```
-
-
-```haxe
-var errNotExist:stdgo.Error
-```
-
-
-```haxe
-var errPermission:stdgo.Error
-```
-
 

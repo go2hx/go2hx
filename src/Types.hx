@@ -223,9 +223,9 @@ function pointerUnwrap(type:GoType):GoType {
 	}
 }
 
-function getUnderlyingRefNamed(gt:GoType, once:Bool = false) {
+function getUnderlyingRefNamed(gt:GoType, once:Bool = false):GoType {
 	if (gt == null)
-		return;
+		return null;
 	return switch gt {
 		case named(_, _, type, _, _), refType(_.get() => type):
 			if (once) {

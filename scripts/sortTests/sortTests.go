@@ -7,6 +7,7 @@ import (
 	"go/parser"
 	"go/token"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"strings"
 )
@@ -16,8 +17,18 @@ var std = map[string]bool{}
 func main() {
 	// Specify the directory path
 	mapStd()
-	// write code to run command go env GOROOT
-	createConfig(sortImports("tests/go/test", "go"))
+	if len(os.Args) == 1 {
+		cmd := exec.Command("go", "env", "GOROOT")
+		out, err := cmd.Output()
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+		createConfig(sortImports(string(out[:len(out)-1])+"/test", "go"))
+	} else {
+		// write code to run command go env GOROOT
+		createConfig(sortImports("tests/go/test", "go"))
+	}
 	createConfig(sortImports("tests/tinygo/testdata", "tinygo"))
 	createConfig(sortImports("tests/yaegi/_test", "yaegi"))
 }

@@ -141,7 +141,7 @@ jobs:
       - name: clone yaegi
         run: git clone https://github.com/traefik/yaegi ./tests/yaegi
       - name: Sort tests
-        run: go run ./scripts/sortTests
+        run: go run ./scripts/sortTests ci
       - name: Run yaegi easy tests
         run: npx haxe tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }}
       # git pull latest
@@ -186,7 +186,7 @@ jobs:
       - name: clone go
         run: git clone https://github.com/golang/go ./tests/go
       - name: Sort tests
-        run: go run ./scripts/sortTests
+        run: go run ./scripts/sortTests ci
       # run go easy tests
       - name: Run go easy tests
         run: npx haxe tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }}

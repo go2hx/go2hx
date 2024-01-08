@@ -2701,6 +2701,8 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					switch e.expr {
 						case ECheckType(e2, _):
 							e = e2;
+						case EBinop(OpNullCoal, e2, _):
+							e = e2;
 						default:
 					}
 					var fieldName = names[i];
@@ -5392,7 +5394,9 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 	final fields = getStructFields(typeX);
 	if (fields.length > 0) {
 		var chains:Array<String> = []; // chains together a field selectors
-		function recursion(path:String, fields:Array<FieldType>) {
+		function recursion(path:String, fields:Array<FieldType>,depth:Int) {
+			if (depth >= 20)
+				return;
 			for (field in fields) {
 				var setPath = path + field.name;
 				chains.push(setPath);
@@ -5402,12 +5406,12 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 					setPath += "value.";
 				}
 				if (structFields.length > 0)
-					recursion(setPath, structFields);
+ 					recursion(setPath, structFields, depth+1);
 			}
 		}
-		recursion("", fields);
+		recursion("", fields, 0);
 		chains.sort((a, b) -> {
-			return a.length - b.length;
+			return a.split(".").length - b.split(".").length;
 		});
 		for (chain in chains) {
 			var field = chain.substr(chain.lastIndexOf(".") + 1);
@@ -7517,7 +7521,6 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 						expr = defaultValue(info.lastType, info);
 					}
 				}
-				type = null;
 			} else {
 				info.lastValue = value.values[i];
 				info.lastType = typeof(value.type, info, false);

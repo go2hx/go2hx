@@ -1,41 +1,11 @@
-# Module: `stdgo.log.internal`
-
-[(view library index)](../../stdgo.md)
-
-
-# Overview
-
-
-
-Package internal contains definitions used by both log and log/slog.  
-
-# Index
-
-
-- [`function defaultOutput(_pc:stdgo.GoUIntptr, _data:stdgo.Slice<stdgo.GoByte>):stdgo.Error`](<#function-defaultoutput>)
-
-# Functions
-
-
-```haxe
-import stdgo.log.internal.Internal
+# Module stdgo.log.internal has compilation errors, please do not use:
 ```
+stdgo/sync/atomic_/Atomic_.macro.hx:26: characters 31-35 : Unknown identifier : info
+stdgo/sync/atomic_/Atomic_.macro.hx:54: characters 31-35 : Unknown identifier : info
+stdgo/sync/atomic_/Atomic_.macro.hx:80: characters 31-35 : Unknown identifier : info
+stdgo/sync/atomic_/Atomic_.macro.hx:105: characters 31-35 : Unknown identifier : info
+stdgo/sync/Sync.macro.hx:72: characters 31-35 : Unknown identifier : info
+stdgo/sync/Sync.macro.hx:153: characters 31-35 : Unknown identifier : info
 
-
-## function defaultOutput
-
-
-```haxe
-function defaultOutput(_pc:stdgo.GoUIntptr, _data:stdgo.Slice<stdgo.GoByte>):stdgo.Error
 ```
-
-
-
-DefaultOutput holds a function which calls the default log.Logger's
-output function.
-It allows slog.defaultHandler to call into an unexported function of
-the log package.  
-
-[\(view code\)](<./Internal.hx#L14>)
-
 

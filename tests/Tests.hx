@@ -297,6 +297,14 @@ private function sanatize(s:String):String {
 
 private function testGo() { // go tests
 	type = "go";
+	final dir = path + "/tests/go/test/";
+	if (!FileSystem.exists(dir)) {
+		Sys.command("git clone https://github.com/golang/go tests/go");
+	} else {
+		Sys.setCwd("./tests/go");
+		Sys.command("git pull");
+		Sys.setCwd("../..");
+	}
 	sortDataToTests(Json.parse(File.getContent("tests/sort_go.json")));
 }
 

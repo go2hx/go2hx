@@ -68,4 +68,3 @@ runrnd
 *.dump
 actions-runner
 log.out
-tests/sort_go.json

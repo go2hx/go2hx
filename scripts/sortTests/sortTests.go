@@ -3,10 +3,10 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"go/ast"
 	"go/parser"
 	"go/token"
 	"os"
-	"os/exec"
 	"path/filepath"
 	"strings"
 )
@@ -17,13 +17,7 @@ func main() {
 	// Specify the directory path
 	mapStd()
 	// write code to run command go env GOROOT
-	cmd := exec.Command("go", "env", "GOROOT")
-	out, err := cmd.Output()
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	createConfig(sortImports(string(out[:len(out)-1])+"/test", "go"))
+	createConfig(sortImports("tests/go/test", "go"))
 	createConfig(sortImports("tests/tinygo/testdata", "tinygo"))
 	createConfig(sortImports("tests/yaegi/_test", "yaegi"))
 }
@@ -99,6 +93,19 @@ func sortImports(dir string, name string) (r Result) {
 				}
 				text := file.Comments[0].Text()
 				if !strings.HasPrefix(text, "run") {
+					return nil
+				}
+				// make sure the file does not use channels
+				chanBool := false
+				ast.Inspect(file, func(n ast.Node) bool {
+					switch n.(type) {
+					case *ast.ChanType:
+						chanBool = true
+						return false
+					}
+					return true
+				})
+				if chanBool {
 					return nil
 				}
 			case "tinygo":

@@ -252,7 +252,7 @@ For testing \*Pointer\[T\]'s methods can be inlined.
 Keep in sync with cmd/compile/internal/test/inl\_test.go:TestIntendedInlining.  
 
 ```haxe
-var _firstStoreInProgress:stdgo.GoUInt8
+var _firstStoreInProgress:stdgo.GoByte
 ```
 
 

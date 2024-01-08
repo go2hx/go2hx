@@ -638,7 +638,7 @@ var _benchInputHard:stdgo.Slice<stdgo.GoUInt8>
 
 
 ```haxe
-var _bmbuf:stdgo.Slice<stdgo.GoUInt8>
+var _bmbuf:stdgo.Slice<stdgo.GoByte>
 ```
 
 
@@ -773,7 +773,7 @@ var _splittests:stdgo.Slice<stdgo.bytes_test.SplitTest>
 
 
 ```haxe
-var _testBytes:stdgo.Slice<stdgo.GoUInt8>
+var _testBytes:stdgo.Slice<stdgo.GoByte>
 ```
 
 

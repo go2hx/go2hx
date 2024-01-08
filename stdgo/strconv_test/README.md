@@ -359,12 +359,12 @@ var _atoftests:stdgo.Slice<stdgo.strconv_test.T_atofTest>
 
 
 ```haxe
-var _benchQuoteBuf:stdgo.Slice<stdgo.GoUInt8>
+var _benchQuoteBuf:stdgo.Slice<stdgo.GoByte>
 ```
 
 
 ```haxe
-var _benchQuoteRuneBuf:stdgo.Slice<stdgo.GoUInt8>
+var _benchQuoteRuneBuf:stdgo.Slice<stdgo.GoByte>
 ```
 
 
@@ -399,7 +399,7 @@ var _ftoatests:stdgo.Slice<stdgo.strconv_test.T_ftoaTest>
 
 
 ```haxe
-var _globalBuf:stdgo.GoArray<stdgo.GoUInt8>
+var _globalBuf:stdgo.GoArray<stdgo.GoByte>
 ```
 
 
@@ -469,7 +469,7 @@ var _numErrorTests:stdgo.Slice<stdgo.strconv_test.T_numErrorTest>
 
 
 ```haxe
-var _oneMB:stdgo.Slice<stdgo.GoUInt8>
+var _oneMB:stdgo.Slice<stdgo.GoByte>
 ```
 
 

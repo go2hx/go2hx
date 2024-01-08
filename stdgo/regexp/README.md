@@ -812,7 +812,7 @@ var _sink:stdgo.GoString
 
 
 ```haxe
-var _specialBytes:stdgo.GoArray<stdgo.GoUInt8>
+var _specialBytes:stdgo.GoArray<stdgo.GoByte>
 ```
 
 
@@ -830,7 +830,7 @@ var _subexpCases:stdgo.Slice<stdgo.regexp.T_subexpCase>
 
 
 ```haxe
-var _text:stdgo.Slice<stdgo.GoUInt8>
+var _text:stdgo.Slice<stdgo.GoByte>
 ```
 
 

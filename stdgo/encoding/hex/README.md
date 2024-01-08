@@ -148,7 +148,7 @@ var _expectedHexDump:stdgo.Slice<stdgo.GoUInt8>
 
 
 ```haxe
-var _sink:stdgo.Slice<stdgo.GoUInt8>
+var _sink:stdgo.Slice<stdgo.GoByte>
 ```
 
 

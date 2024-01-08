@@ -6092,7 +6092,7 @@ final genericNames = params == null ? [] : [for (i in 0...params.length) params[
 								};
 								haxe.macro.Context.defineType(td);
 							default:
-								throw info.panic() + "invalid expr: " + f.expr;
+								throw "invalid expr: " + f.expr;
 						}
 					}
 					return @:macro stdgo.Go.refPointer($i{'$$p{[id,"f"]}'}($a{nameArgs}));

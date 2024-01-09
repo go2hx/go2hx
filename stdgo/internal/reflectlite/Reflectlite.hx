@@ -1,6 +1,6 @@
 package stdgo.internal.reflectlite;
 
-import stdgo.StdGoTypes;
+
 
 @:follow typedef Type_ = stdgo.reflect.Reflect.Type_;
 @:follow typedef Value = stdgo.reflect.Reflect.Value;

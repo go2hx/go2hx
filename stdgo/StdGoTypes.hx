@@ -50,6 +50,8 @@ typedef Ref<T> = T; // refrence type used only for macro reflection type info pu
 @:eager
 typedef InvalidType = Dynamic; // invalid type, attempt to use Dynamic
 
+typedef GoComparable = Dynamic; // comparable type, attempt to use Dynamic
+
 private function ofIntInt64(x:Int):Int64 {
 	return haxe.Int64.ofInt(x);
 }

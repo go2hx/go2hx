@@ -245,29 +245,8 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 					}
 				}
 			}
-			var valuesSorted = [];
-			for (name in pkg.order) {
-				for (value in values) {
-					if (value.name == name) {
-						if (value.pos != null) {
-							for (value2 in values) {
-								if (value2.pos != null && value2.pos.min == value.pos.min) {
-									values.remove(value2);
-									valuesSorted.push(value2);
-								}
-							}
-						}
-						values.remove(value);
-						valuesSorted.push(value);
-						break;
-					}
-				}
-			}
-			if (values.length > 0) {
-				// trace("unsorted values left: " + values.length);
-				valuesSorted = valuesSorted.concat(values);
-			}
-			data.defs = valuesSorted.concat(data.defs);
+			
+			data.defs = values.concat(data.defs);
 			for (decl in declFuncs) { // parse function bodies last
 				if (decl.recv != null && decl.recv.list.length > 0) {
 					recvFunctions.push({decl: decl, path: file.path});
@@ -3075,6 +3054,13 @@ private function starType(expr:Ast.StarExpr, info:Info):ComplexType { // pointer
 private function identType(expr:Ast.Ident, info:Info):ComplexType {
 	var name = className(expr.name, info);
 	if (!info.renameClasses.exists(expr.name) && !info.global.renameClasses.exists(name)) {
+		if (name == "T_comparable") {
+			return TPath({
+				pack: ["stdgo"],
+				name: "StdGoTypes",
+				sub: "GoComparable",
+			});
+		}
 		for (t in basicTypes) {
 			if (name == "T_" + t) {
 				name = "Go" + title(name.substr(2));
@@ -7348,12 +7334,17 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				}
 			for (method in struct.methods.list) {
 				if (method.names.length == 0) {
-					final ct = typeExprType(method.type, info);
-					final tp = getTypePath(ct, info);
-					if (tp == null) {
-
-					}else{
-						implicits.push(tp);
+					final t = typeof(method.type, info, false);
+					switch getUnderlying(t) {
+						case interfaceType(_, _):
+							final ct = typeExprType(method.type, info);
+							final tp = getTypePath(ct, info);
+							if (tp == null) {
+								
+							}else{
+								implicits.push(tp);
+							}
+						default:
 					}
 				}
 			}

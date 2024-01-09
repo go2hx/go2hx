@@ -309,6 +309,7 @@ final list = [
 		throw "os.open is not yet implemented";
 		return {_0: null, _1: null};
 	},
+	"regexp:_notab" => macro null,
 	"os:stdin" => macro new File(Sys.stdin(), null),
 	"os:stdout" => macro new File(null, Sys.stdout()),
 	"os:stderr" => macro new File(null, Sys.stderr()),

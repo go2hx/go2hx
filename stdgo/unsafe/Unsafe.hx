@@ -1,7 +1,7 @@
 package stdgo.unsafe;
 
 import stdgo.Pointer;
-import stdgo.StdGoTypes;
+
 import stdgo.internal.reflect.Reflect.GoType;
 using GoString.GoStringTools;
 
@@ -76,7 +76,7 @@ function stringData(s:GoString):Dynamic
 function sliceData<T>(s:Slice<T>):Dynamic
 	return null;
 
-function string(s:stdgo.Pointer<stdgo.StdGoTypes.GoByte>, len:GoInt):GoString
+function string(s:stdgo.Pointer<stdgo.GoByte>, len:GoInt):GoString
 	return "";
 
 function slice(_ptr:Pointer<Dynamic>,_len:GoInt):Array<Dynamic>

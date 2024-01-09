@@ -1,7 +1,7 @@
 package stdgo.internal.reflect;
 
 import stdgo.Pointer;
-import stdgo.StdGoTypes;
+
 
 @:follow private typedef Type = stdgo.reflect.Reflect.Type_;
 

@@ -1,7 +1,7 @@
 package stdgo;
 
 import haxe.io.Bytes;
-import stdgo.StdGoTypes;
+
 
 using GoString.GoStringTools;
 

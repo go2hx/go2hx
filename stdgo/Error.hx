@@ -8,7 +8,7 @@ import stdgo.GoMap;
 import stdgo.GoString;
 import stdgo.Pointer;
 import stdgo.Slice;
-import stdgo.StdGoTypes;
+
 
 private var _shiftError:Error = Go.asInterface((Go.str("negative shift amount") : T_errorString));
 private var _divideError:Error = Go.asInterface((Go.str("integer divide by zero") : T_errorString));
@@ -51,7 +51,7 @@ class T_errorString_asInterface {
 @:keep @:allow(Error.T_errorString_asInterface) class T_errorString_static_extension {
 	@:keep
 	static public function error(_e:T_errorString):GoString {
-		return ("runtime error: " : GoString) + (_e : GoString);
+		return ("runtime error: " : String) + (_e : String);
 	}
 
 	@:keep

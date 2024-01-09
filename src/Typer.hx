@@ -245,8 +245,32 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 					}
 				}
 			}
-			
-			data.defs = values.concat(data.defs);
+
+			var valuesSorted = [];
+			for (name in pkg.order) {
+				for (value in values) {
+					if (value.name == name) {
+						if (value.pos != null) {
+							for (value2 in values) {
+								if (value2.pos != null && value2.pos.min == value.pos.min) {
+									values.remove(value2);
+									valuesSorted.push(value2);
+								}
+							}
+						}
+						values.remove(value);
+						valuesSorted.push(value);
+						break;
+					}
+				}
+			}
+			if (values.length > 0) {
+				// trace("unsorted values left: " + values.length);
+				valuesSorted = valuesSorted.concat(values);
+			}
+			data.defs = valuesSorted.concat(data.defs);
+
+
 			for (decl in declFuncs) { // parse function bodies last
 				if (decl.recv != null && decl.recv.list.length > 0) {
 					recvFunctions.push({decl: decl, path: file.path});
@@ -550,7 +574,7 @@ private function createWrapper(wrapperName:String, ct:ComplexType) {
 		}
 
 		public function __underlying__()
-			return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer
+			return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer
 				&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 				__type__);
 
@@ -951,7 +975,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 		var catchBlock:Array<Expr> = [macro var exe:Dynamic = __exception__.native];
 		catchBlock.push(macro if ((exe is haxe.ValueException))
 			exe = exe.value);
-		catchBlock.push(macro if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+		catchBlock.push(macro if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
 			exe = stdgo.Go.toInterface(__exception__.message);
 		});
 		catchBlock.push(macro stdgo.Go.recover_exception = exe);
@@ -3016,7 +3040,7 @@ private function arrayTypeExpr(expr:Ast.ArrayType, info:Info):ComplexType {
 				len = toExpr(EConst(CInt("0")));
 			default:
 				len = typeExpr(expr.len, info);
-				len = macro($len : stdgo.StdGoTypes.GoInt).toBasic();
+				len = macro($len : stdgo.GoInt).toBasic();
 		}
 		return TPath({
 			pack: ["stdgo"],
@@ -3038,8 +3062,7 @@ private function starType(expr:Ast.StarExpr, info:Info):ComplexType { // pointer
 	if (isRefValue(t)) {
 		return TPath({
 			pack: ["stdgo"],
-			sub: "Ref",
-			name: "StdGoTypes",
+			name: "Ref",
 			params: type != null ? [TPType(type)] : [],
 		});
 	}
@@ -3057,8 +3080,7 @@ private function identType(expr:Ast.Ident, info:Info):ComplexType {
 		if (name == "T_comparable") {
 			return TPath({
 				pack: ["stdgo"],
-				name: "StdGoTypes",
-				sub: "GoComparable",
+				name: "GoComparable",
 			});
 		}
 		for (t in basicTypes) {
@@ -3075,8 +3097,7 @@ private function identType(expr:Ast.Ident, info:Info):ComplexType {
 				}
 				return TPath({
 					pack: ["stdgo"],
-					sub: name,
-					name: "StdGoTypes",
+					name: name,
 				});
 			}
 		}
@@ -3089,8 +3110,7 @@ private function identType(expr:Ast.Ident, info:Info):ComplexType {
 			case "AnyInterface":
 				return TPath({
 					pack: ["stdgo"],
-					sub: name,
-					name: "StdGoTypes",
+					name: name,
 				});
 			default:
 		}
@@ -3194,7 +3214,7 @@ private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 	switch t {
 		case arrayType(_, _), sliceType(_), basic(untyped_string_kind), basic(string_kind):
 			index = assignTranslate(typeof(expr.index, info, false), basic(int_kind), index, info, false);
-			index = macro($index : stdgo.StdGoTypes.GoInt); // explicit casting needed for macro typeParam system otherwise compilation breaks
+			index = macro($index : stdgo.GoInt); // explicit casting needed for macro typeParam system otherwise compilation breaks
 		case mapType(_.get() => indexType, _.get() => valueType):
 			index = assignTranslate(typeof(expr.index, info, false), indexType, index, info, false);
 			final value = defaultValue(valueType, info);
@@ -3558,7 +3578,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						return returnExpr(macro stdgo.Go.println($a{args})).expr;
 					case "complex":
 						genArgs(false);
-						return returnExpr(macro new stdgo.StdGoTypes.GoComplex128($a{args})).expr;
+						return returnExpr(macro new stdgo.GoComplex128($a{args})).expr;
 					case "real":
 						var e = typeExpr(expr.args[0], info);
 						var t = typeof(expr.args[0], info, false);
@@ -3590,7 +3610,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 								if (!isRefValue(t)) {
 									value = macro stdgo.Go.pointer($value);
 								} else {
-									final ct = TPath({sub: "Ref", name: "StdGoTypes", pack: ["stdgo"], params: [TPType(toComplexType(t, info))]});
+									final ct = TPath({name: "Ref", pack: ["stdgo"], params: [TPType(toComplexType(t, info))]});
 									value = macro(stdgo.Go.setRef($value) : $ct);
 								}
 								return returnExpr(value).expr;
@@ -3605,7 +3625,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						var setCap:Bool = cap != null;
 						if (size != null) {
 							size = assignTranslate(typeof(expr.args[1], info, false), basic(int_kind), size, info);
-							size = macro($size : stdgo.StdGoTypes.GoInt).toBasic();
+							size = macro($size : stdgo.GoInt).toBasic();
 						}
 						if (cap != null) {
 							cap = assignTranslate(typeof(expr.args[2], info, false), basic(int_kind), cap, info);
@@ -3695,7 +3715,7 @@ private function genSlice(elem:GoType, size:Expr, cap:Expr, returnExpr:Expr->Exp
 		return returnExpr(macro new $p(0, 0));
 	switch getUnderlying(elem) {
 		case structType(_):
-			return returnExpr(macro new $p($size, $cap, ...[for (i in 0...($size > $cap ? $size : $cap : stdgo.StdGoTypes.GoInt).toBasic()) $value]));
+			return returnExpr(macro new $p($size, $cap, ...[for (i in 0...($size > $cap ? $size : $cap : stdgo.GoInt).toBasic()) $value]));
 		case basic(kind):
 			switch kind {
 				case int8_kind, int16_kind, int32_kind, uint8_kind, uint16_kind, uint32_kind, float32_kind, float64_kind, untyped_float_kind,
@@ -3800,7 +3820,7 @@ private function toAnyInterface(x:Expr, t:GoType, info:Info,needWrapping:Bool=tr
 		case basic(kind):
 			switch kind {
 				case untyped_nil_kind:
-					return macro(null : stdgo.StdGoTypes.AnyInterface);
+					return macro(null : stdgo.AnyInterface);
 				default:
 			}
 		default:
@@ -4275,8 +4295,7 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 		case "AnyInterface":
 			return {
 				pack: ["stdgo"],
-				sub: cl,
-				name: "StdGoTypes",
+				name: cl,
 			};
 		default:
 	}
@@ -4303,30 +4322,30 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 	return switch e {
 		case refType(_.get() => elem):
 			final ct = toComplexType(elem, info);
-			TPath({pack: ["stdgo"], name: "StdGoTypes", sub: "Ref", params: [TPType(ct)]});
+			TPath({pack: ["stdgo"], name: "Ref", params: [TPType(ct)]});
 		case basic(kind):
 			switch kind {
-				case int64_kind: TPath({pack: ["stdgo"], name: "StdGoTypes", sub: "GoInt64"});
-				case int32_kind: TPath({pack: ["stdgo"], name: "StdGoTypes", sub: "GoInt32"});
-				case int16_kind: TPath({pack: ["stdgo"], name: "StdGoTypes", sub: "GoInt16"});
-				case int8_kind: TPath({pack:  ["stdgo"], name: "StdGoTypes", sub: "GoInt8"});
+				case int64_kind: TPath({pack: ["stdgo"], name: "GoInt64"});
+				case int32_kind: TPath({pack: ["stdgo"], name: "GoInt32"});
+				case int16_kind: TPath({pack: ["stdgo"], name: "GoInt16"});
+				case int8_kind: TPath({pack:  ["stdgo"], name: "GoInt8"});
 
-				case int_kind: TPath({pack: ["stdgo"], name: "StdGoTypes", sub: "GoInt"});
-				case uint_kind: TPath({pack: ["stdgo"], name: "StdGoTypes", sub: "GoUInt"});
+				case int_kind: TPath({pack: ["stdgo"], name: "GoInt"});
+				case uint_kind: TPath({pack: ["stdgo"], name: "GoUInt"});
 
-				case uint64_kind: TPath({pack: ["stdgo"], name: "StdGoTypes", sub: "GoUInt64"});
-				case uint32_kind: TPath({pack: ["stdgo"], name: "StdGoTypes", sub: "GoUInt32"});
-				case uint16_kind: TPath({pack: ["stdgo"], name: "StdGoTypes", sub: "GoUInt16"});
-				case uint8_kind: TPath({pack: ["stdgo"], name: "StdGoTypes", sub: "GoUInt8"});
+				case uint64_kind: TPath({pack: ["stdgo"], name: "GoUInt64"});
+				case uint32_kind: TPath({pack: ["stdgo"], name: "GoUInt32"});
+				case uint16_kind: TPath({pack: ["stdgo"], name: "GoUInt16"});
+				case uint8_kind: TPath({pack: ["stdgo"], name: "GoUInt8"});
 
 				case string_kind: TPath({pack: ["stdgo"], name: "GoString"});
-				case complex64_kind: TPath({pack: ["stdgo"], name: "StdGoTypes", sub: "GoComplex64"});
-				case complex128_kind: TPath({pack: ["stdgo"], name: "StdGoTypes", sub: "GoComplex128"});
-				case float32_kind: TPath({pack: ["stdgo"], name: "StdGoTypes", sub: "GoFloat32"});
-				case float64_kind: TPath({pack: ["stdgo"], name: "StdGoTypes", sub: "GoFloat64"});
+				case complex64_kind: TPath({pack: ["stdgo"], name: "GoComplex64"});
+				case complex128_kind: TPath({pack: ["stdgo"], name: "GoComplex128"});
+				case float32_kind: TPath({pack: ["stdgo"], name: "GoFloat32"});
+				case float64_kind: TPath({pack: ["stdgo"], name: "GoFloat64"});
 				case bool_kind: TPath({pack: [], name: "Bool"});
 
-				case uintptr_kind: TPath({pack: ["stdgo"], name: "StdGoTypes", sub: "GoUIntptr"});
+				case uintptr_kind: TPath({pack: ["stdgo"], name: "GoUIntptr"});
 
 				case untyped_int_kind, untyped_bool_kind, untyped_float_kind, untyped_rune_kind, untyped_complex_kind,
 					untyped_string_kind: throw info.panic() + "untyped kind: "
@@ -4439,9 +4458,9 @@ private function toGoType(expr:Expr):Expr {
 				case CString(_, _):
 					return macro($expr : stdgo.GoString);
 				case CInt(_):
-					return macro($expr : stdgo.StdGoTypes.GoInt);
+					return macro($expr : stdgo.GoInt);
 				case CFloat(_):
-					return macro($expr : stdgo.StdGoTypes.GoFloat64);
+					return macro($expr : stdgo.GoFloat64);
 				default:
 			}
 		default:
@@ -4469,14 +4488,14 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 				}
 			case FLOAT:
 				final e = toExpr(EConst(CFloat(expr.value, "f64")));
-				macro($e : stdgo.StdGoTypes.GoFloat64);
+				macro($e : stdgo.GoFloat64);
 			case IMAG:
 				final index = expr.value.indexOf("i");
 				var imagFloat = expr.value.substr(0, index);
 				var realFloat = expr.value.substr(index + 1);
 				final imag = toExpr(EConst(CFloat(imagFloat, "f64")));
 				final real = toExpr(EConst(CFloat(realFloat, "f64")));
-				macro new stdgo.StdGoTypes.GoComplex128($real, $imag);
+				macro new stdgo.GoComplex128($real, $imag);
 			case INT:
 				var e = toExpr(EConst(CInt(expr.value, "i32")));
 				e;
@@ -4494,7 +4513,7 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 		return e.expr;
 	}
 	return if (expr.info & Ast.BasicInfo.isFloat != 0) {
-		ECheckType(toExpr(EConst(CFloat(expr.value))), TPath({sub: "GoFloat64", name: "StdGoTypes", pack: ["stdgo"]}));
+		ECheckType(toExpr(EConst(CFloat(expr.value))), TPath({name: "GoFloat64", pack: ["stdgo"]}));
 	} else if (expr.info & Ast.BasicInfo.isInteger != 0) {
 		final t = typeof(expr.type, info, false);
 		final underlyingType = getUnderlying(t);
@@ -4530,7 +4549,7 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 		var realFloat = expr.value.substr(index + 1);
 		final imag = toExpr(EConst(CFloat(imagFloat, "f64")));
 		final real = toExpr(EConst(CFloat(realFloat, "f64")));
-		(macro new stdgo.StdGoTypes.GoComplex128($real, $imag)).expr;
+		(macro new stdgo.GoComplex128($real, $imag)).expr;
 	} else {
 		trace(expr);
 		(macro null).expr;
@@ -5564,7 +5583,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			case TPath(p):
 				var f = null;
 				f = (p:TypePath) -> {
-					if (p.pack.length == 1 && p.pack[0] == "stdgo" && (p.name == "Pointer" || p.sub == "Ref" && p.name == "StdGoTypes")) {
+					if (p.pack.length == 1 && p.pack[0] == "stdgo" && (p.name == "Pointer" || p.name == "Ref")) {
 						switch p.params[0] {
 							case TPType(TPath(p)):
 								return f(p);
@@ -6032,7 +6051,7 @@ final genericNames = params == null ? [] : [for (i in 0...params.length) params[
 				for (arg in f.args) {
 					switch arg.type {
 						case TPath(p):
-							if (p.pack.length == 1 && p.pack[0] == "stdgo" && p.name == "StdGoTypes" && p.sub == "Ref" && p.params != null && p.params.length > 0) {
+							if (p.pack.length == 1 && p.pack[0] == "stdgo" && p.name == "Ref" && p.params != null && p.params.length > 0) {
 								switch p.params[0] {
 									case TPType(TPath(p)):
 										if (p.name.charAt(0) == "$") {
@@ -6336,7 +6355,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			macro null;
 		case refType(_.get() => elem):
 			final ct = toComplexType(elem, info);
-			macro(null : stdgo.StdGoTypes.Ref<$ct>); // pointer can be nil
+			macro(null : stdgo.Ref<$ct>); // pointer can be nil
 		case named(path, _, underlying, alias, _):
 			switch getUnderlying(underlying) {
 				case chanType(_, _):
@@ -6373,22 +6392,22 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			if (strict) {
 				switch kind {
 					case bool_kind: macro false;
-					case int_kind: macro(0 : stdgo.StdGoTypes.GoInt);
-					case int8_kind: macro(0 : stdgo.StdGoTypes.GoInt8);
-					case int16_kind: macro(0 : stdgo.StdGoTypes.GoInt16);
-					case int32_kind: macro(0 : stdgo.StdGoTypes.GoInt32);
-					case int64_kind: macro(0 : stdgo.StdGoTypes.GoInt64);
+					case int_kind: macro(0 : stdgo.GoInt);
+					case int8_kind: macro(0 : stdgo.GoInt8);
+					case int16_kind: macro(0 : stdgo.GoInt16);
+					case int32_kind: macro(0 : stdgo.GoInt32);
+					case int64_kind: macro(0 : stdgo.GoInt64);
 					case string_kind: macro("" : stdgo.GoString);
-					case uint_kind: macro(0 : stdgo.StdGoTypes.GoUInt);
-					case uint8_kind: macro(0 : stdgo.StdGoTypes.GoUInt8);
-					case uint16_kind: macro(0 : stdgo.StdGoTypes.GoUInt16);
-					case uint32_kind: macro(0 : stdgo.StdGoTypes.GoUInt32);
-					case uint64_kind: macro(0 : stdgo.StdGoTypes.GoUInt64);
-					case uintptr_kind: macro(0 : stdgo.StdGoTypes.GoUIntptr);
-					case float32_kind: macro(0 : stdgo.StdGoTypes.GoFloat32);
-					case float64_kind: macro(0 : stdgo.StdGoTypes.GoFloat64);
-					case complex64_kind: macro new stdgo.StdGoTypes.GoComplex64(0, 0);
-					case complex128_kind: macro new stdgo.StdGoTypes.GoComplex128(0, 0);
+					case uint_kind: macro(0 : stdgo.GoUInt);
+					case uint8_kind: macro(0 : stdgo.GoUInt8);
+					case uint16_kind: macro(0 : stdgo.GoUInt16);
+					case uint32_kind: macro(0 : stdgo.GoUInt32);
+					case uint64_kind: macro(0 : stdgo.GoUInt64);
+					case uintptr_kind: macro(0 : stdgo.GoUIntptr);
+					case float32_kind: macro(0 : stdgo.GoFloat32);
+					case float64_kind: macro(0 : stdgo.GoFloat64);
+					case complex64_kind: macro new stdgo.GoComplex64(0, 0);
+					case complex128_kind: macro new stdgo.GoComplex128(0, 0);
 					case untyped_bool_kind, untyped_rune_kind, untyped_string_kind, untyped_int_kind, untyped_float_kind, untyped_complex_kind:
 						throw info.panic() + "untyped kind: " + kind;
 					default: macro @:default_value null;
@@ -6401,8 +6420,8 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 					case uint_kind, uint8_kind, uint16_kind, uint32_kind, uint64_kind: macro 0;
 					case uintptr_kind: macro 0;
 					case float32_kind, float64_kind: macro 0;
-					case complex64_kind: macro new stdgo.StdGoTypes.GoComplex64(0, 0);
-					case complex128_kind: macro new stdgo.StdGoTypes.GoComplex128(0, 0);
+					case complex64_kind: macro new stdgo.GoComplex64(0, 0);
+					case complex128_kind: macro new stdgo.GoComplex128(0, 0);
 					default: macro @:default_value_kind null;
 				}
 			}
@@ -7318,7 +7337,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				if (struct.methods.list.length == 1 && struct.methods.list[0].names.length == 0) {
 					if (struct.methods.list[0].type.id == "BinaryExpr") {
 						// union contract interface type
-						final meta:Metadata = [{name: "union", pos: null}];
+						final meta:Metadata = [{name: ":union", pos: null}];
 						final params = getParams(spec.params, info, true);
 						return {
 							name: name,
@@ -7328,7 +7347,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 							params: params,
 							isExtern: externBool,
 							meta: meta,
-							kind: TDAlias(TPath({name: "Any", pack: []})),
+							kind: TDStructure,//TDAlias(TPath({name: "Any", pack: []})),
 						};
 					}
 				}
@@ -7434,8 +7453,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				meta: meta,
 				kind: TDAlias(TIntersection([
 					TPath({
-						sub: "StructType",
-						name: "StdGoTypes",
+						name: "StructType",
 						pack: ["stdgo"]
 					}),
 					TExtend(implicits, fields)
@@ -7447,7 +7465,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 }
 
 private function anyInterfaceType()
-	return TPath({sub: "AnyInterface", name: "StdGoTypes", pack: ["stdgo"]});
+	return TPath({name: "AnyInterface", pack: ["stdgo"]});
 
 private function invalidComplexType()
 	return null;

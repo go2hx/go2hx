@@ -1,9 +1,8 @@
 package stdgo;
 
-import stdgo.StdGoTypes.GoInt;
 #if (target.threaded)
 import haxe.ds.Vector;
-import stdgo.StdGoTypes.GoInt;
+import stdgo.GoInt;
 import stdgo.internal.Async;
 import sys.thread.Deque;
 import sys.thread.Lock;

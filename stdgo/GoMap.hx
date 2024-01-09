@@ -1,12 +1,12 @@
 package stdgo;
 
-import stdgo.StdGoTypes.AnyInterface;
+import stdgo.AnyInterface;
 import haxe.ds.ObjectMap;
 import stdgo.internal.reflect.Reflect._Type;
 import stdgo.Pointer;
 import haxe.Constraints.IMap;
 import haxe.ds.BalancedTree;
-import stdgo.StdGoTypes;
+
 
 @:transitive
 @:multiType(@:followWithAbstracts K)

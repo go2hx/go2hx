@@ -3,7 +3,7 @@ package stdgo;
 import haxe.Rest;
 import haxe.macro.Expr;
 class Go {
-	public static var recover_exception:stdgo.StdGoTypes.AnyInterface= null;
+	public static var recover_exception:stdgo.AnyInterface= null;
 	// GOROUTINE
 	public static function routine(func:Void->Void) {
 		#if js

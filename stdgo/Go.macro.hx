@@ -105,13 +105,13 @@ class Go {
 			var dst = $dst;
 			var src = $src;
 			if (src == null || dst == null) {
-				(0 : stdgo.StdGoTypes.GoInt);
+				(0 : stdgo.GoInt);
 			} else {
 				final min:Int = src.length > dst.length ? dst.length : src.length;
 				for (i in 0...min) {
 					dst[i] = src[i];
 				}
-				(min : stdgo.StdGoTypes.GoInt);
+				(min : stdgo.GoInt);
 			}
 		};
 		return e;
@@ -515,7 +515,7 @@ class Go {
 							value = macro new stdgo.Slice(0, -1, null);
 						case "stdgo.AnyInterface":
 							// force cast into
-							value = macro new stdgo.StdGoTypes.AnyInterface(null, new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.invalidType));
+							value = macro new stdgo.AnyInterface(null, new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.invalidType));
 						case ".Null":
 							t = params[0];
 							value = gen(isNull);
@@ -667,14 +667,14 @@ class Go {
 				for (field in a.fields) {
 					if (field.name == "__underlying__") {
 						final gt = macro stdgo.internal.reflect.Reflect.GoType.basic(untyped_nil_kind);
-						return macro $expr == null ? new stdgo.StdGoTypes.AnyInterface(null,
-							new stdgo.internal.reflect.Reflect._Type($gt)) : new stdgo.StdGoTypes.AnyInterface($expr, $expr.__underlying__().type);
+						return macro $expr == null ? new stdgo.AnyInterface(null,
+							new stdgo.internal.reflect.Reflect._Type($gt)) : new stdgo.AnyInterface($expr, $expr.__underlying__().type);
 					}
 				}
 			default:
 		}
 		var ty = gtDecode(t, expr, []);
-		var e = macro new stdgo.StdGoTypes.AnyInterface($expr, new stdgo.internal.reflect.Reflect._Type($ty));
+		var e = macro new stdgo.AnyInterface($expr, new stdgo.internal.reflect.Reflect._Type($ty));
 		e.pos = Context.currentPos();
 		return e;
 	}
@@ -885,7 +885,7 @@ class Go {
 								//trace(new haxe.macro.Printer().printComplexType(Context.toComplexType(t)));
 								final expr = macro {
 									final _offset_ = ${e1}.__getOffset__();
-									final index = (${e2} : stdgo.StdGoTypes.GoInt).toBasic() + _offset_;
+									final index = (${e2} : stdgo.GoInt).toBasic() + _offset_;
 									final underlying = ${e1}.__toBasic__();
 									var underlyingIndex = index;
 									final get = () -> underlying.get(index);

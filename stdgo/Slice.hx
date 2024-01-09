@@ -1,8 +1,9 @@
 package stdgo;
 
 import haxe.Rest;
-import stdgo.StdGoTypes;
+
 import stdgo.GoArray;
+import stdgo.GoInt;
 
 @:forward(__ref__)
 @:forward.new
@@ -74,7 +75,7 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	}
 
 	@:to
-	public function toGoArray():stdgo.StdGoTypes.Ref<GoArray<T>> {
+	public function toGoArray():stdgo.Ref<GoArray<T>> {
 		return this;
 	}
 

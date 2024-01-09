@@ -1,6 +1,6 @@
 package stdgo;
 
-import stdgo.StdGoTypes.GoInt;
+import stdgo.GoInt;
 
 @:forward.new
 @:forward

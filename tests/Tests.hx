@@ -169,7 +169,7 @@ function update() {
 		lastTaskLogs.push(taskString);
 		runningCount++;
 		final ls = ChildProcess.spawn(task.command, task.args);
-		var timeoutTimer = new haxe.Timer((1000 * 60) * 50);
+		var timeoutTimer = new haxe.Timer((1000 * 60) * 4);
 		timeoutTimer.run = () -> {
 			runningCount--;
 			lastTaskLogs.remove(taskString);
@@ -185,14 +185,14 @@ function update() {
 			ls.kill();
 		};
 		ls.stdout.on('data', function(data) {
-			log(task.target + "|" + task.path + "|" + task.runtime);
+			log(task.target + "|" + task.path + "|" + task.runtime + "|" + task.stamp());
 			Sys.print(data);
 			task.output += data;
 			log(data);
 			timeout = 0;
 		});
 		ls.stderr.on('data', function(data) {
-			log(task.target + "|" + task.path + "|" + task.runtime);
+			log(task.target + "|" + task.path + "|" + task.runtime + "|" + task.stamp());
 			Sys.print(data);
 			task.output += data;
 			log(data);
@@ -448,6 +448,10 @@ private function sortDataToTests(sortData:SortData) {
 		switch name {
 			case "issue32288": // inf loop
 				continue;
+			case "index0": // no main func
+				continue;
+			case "zerosize": // uses obsecure &runtime.zerobase
+				continue;
 		}
 		tests.push(path);
 		final outputPath = sortData.name + "_" + name;
@@ -567,6 +571,7 @@ class TaskData {
 	public var out:String;
 	public var main:String;
 	public var output:String = "";
+	var _stamp:Float = 0;
 	public function new(path:String, command:String,args:Array<String>,target:String,runtime:Bool, out:String, main:String) {
 		this.path = path;
 		this.target = target;
@@ -575,6 +580,12 @@ class TaskData {
 		this.args = args;
 		this.out = out;
 		this.main = main;
+		this._stamp = haxe.Timer.stamp();
+	}
+	public function stamp():Float {
+		final oldStamp = this._stamp;
+		this._stamp = haxe.Timer.stamp();
+		return this._stamp - oldStamp;
 	}
 }
 

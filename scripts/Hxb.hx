@@ -7,8 +7,6 @@ import sys.io.File;
 function main() {
     genGo();
     runCompiler();
-    createHxb();
-    runHxb();
 }
 
 function runCompiler() {

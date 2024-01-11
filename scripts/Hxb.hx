@@ -11,7 +11,7 @@ function main() {
 
 function runCompiler() {
     Sys.println("Run Compiler");
-    Sys.command("haxelib run go2hx ./scripts/hxb");
+    Sys.command("haxelib run go2hx ./scripts/hxb --rebuild -compiler_interp");
 }
 
 function genGo() {

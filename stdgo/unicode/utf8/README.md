@@ -107,7 +107,7 @@ import stdgo.unicode.utf8.Utf8
 
 
 ```haxe
-final _as:stdgo.GoUInt64 = ((240i64 : stdgo.StdGoTypes.GoUInt64))
+final _as:stdgo.GoUInt64 = ((240i64 : stdgo.GoUInt64))
 ```
 
 
@@ -115,12 +115,12 @@ final _as:stdgo.GoUInt64 = ((240i64 : stdgo.StdGoTypes.GoUInt64))
 ASCII: size 1  
 
 ```haxe
-final _hicb:stdgo.GoUInt64 = ((191i64 : stdgo.StdGoTypes.GoUInt64))
+final _hicb:stdgo.GoUInt64 = ((191i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _locb:stdgo.GoUInt64 = ((128i64 : stdgo.StdGoTypes.GoUInt64))
+final _locb:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
 ```
 
 
@@ -128,42 +128,42 @@ final _locb:stdgo.GoUInt64 = ((128i64 : stdgo.StdGoTypes.GoUInt64))
 The default lowest and highest continuation byte.  
 
 ```haxe
-final _mask2:stdgo.GoUInt64 = ((31i64 : stdgo.StdGoTypes.GoUInt64))
+final _mask2:stdgo.GoUInt64 = ((31i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _mask3:stdgo.GoUInt64 = ((15i64 : stdgo.StdGoTypes.GoUInt64))
+final _mask3:stdgo.GoUInt64 = ((15i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _mask4:stdgo.GoUInt64 = ((7i64 : stdgo.StdGoTypes.GoUInt64))
+final _mask4:stdgo.GoUInt64 = ((7i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _maskx:stdgo.GoUInt64 = ((63i64 : stdgo.StdGoTypes.GoUInt64))
+final _maskx:stdgo.GoUInt64 = ((63i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _rune1Max:stdgo.GoUInt64 = ((127i64 : stdgo.StdGoTypes.GoUInt64))
+final _rune1Max:stdgo.GoUInt64 = ((127i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _rune2Max:stdgo.GoUInt64 = ((2047i64 : stdgo.StdGoTypes.GoUInt64))
+final _rune2Max:stdgo.GoUInt64 = ((2047i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _rune3Max:stdgo.GoUInt64 = ((65535i64 : stdgo.StdGoTypes.GoUInt64))
+final _rune3Max:stdgo.GoUInt64 = ((65535i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _s1:stdgo.GoUInt64 = ((2i64 : stdgo.StdGoTypes.GoUInt64))
+final _s1:stdgo.GoUInt64 = ((2i64 : stdgo.GoUInt64))
 ```
 
 
@@ -171,7 +171,7 @@ final _s1:stdgo.GoUInt64 = ((2i64 : stdgo.StdGoTypes.GoUInt64))
 accept 0, size 2  
 
 ```haxe
-final _s2:stdgo.GoUInt64 = ((19i64 : stdgo.StdGoTypes.GoUInt64))
+final _s2:stdgo.GoUInt64 = ((19i64 : stdgo.GoUInt64))
 ```
 
 
@@ -179,7 +179,7 @@ final _s2:stdgo.GoUInt64 = ((19i64 : stdgo.StdGoTypes.GoUInt64))
 accept 1, size 3  
 
 ```haxe
-final _s3:stdgo.GoUInt64 = ((3i64 : stdgo.StdGoTypes.GoUInt64))
+final _s3:stdgo.GoUInt64 = ((3i64 : stdgo.GoUInt64))
 ```
 
 
@@ -187,7 +187,7 @@ final _s3:stdgo.GoUInt64 = ((3i64 : stdgo.StdGoTypes.GoUInt64))
 accept 0, size 3  
 
 ```haxe
-final _s4:stdgo.GoUInt64 = ((35i64 : stdgo.StdGoTypes.GoUInt64))
+final _s4:stdgo.GoUInt64 = ((35i64 : stdgo.GoUInt64))
 ```
 
 
@@ -195,7 +195,7 @@ final _s4:stdgo.GoUInt64 = ((35i64 : stdgo.StdGoTypes.GoUInt64))
 accept 2, size 3  
 
 ```haxe
-final _s5:stdgo.GoUInt64 = ((52i64 : stdgo.StdGoTypes.GoUInt64))
+final _s5:stdgo.GoUInt64 = ((52i64 : stdgo.GoUInt64))
 ```
 
 
@@ -203,7 +203,7 @@ final _s5:stdgo.GoUInt64 = ((52i64 : stdgo.StdGoTypes.GoUInt64))
 accept 3, size 4  
 
 ```haxe
-final _s6:stdgo.GoUInt64 = ((4i64 : stdgo.StdGoTypes.GoUInt64))
+final _s6:stdgo.GoUInt64 = ((4i64 : stdgo.GoUInt64))
 ```
 
 
@@ -211,7 +211,7 @@ final _s6:stdgo.GoUInt64 = ((4i64 : stdgo.StdGoTypes.GoUInt64))
 accept 0, size 4  
 
 ```haxe
-final _s7:stdgo.GoUInt64 = ((68i64 : stdgo.StdGoTypes.GoUInt64))
+final _s7:stdgo.GoUInt64 = ((68i64 : stdgo.GoUInt64))
 ```
 
 
@@ -219,7 +219,7 @@ final _s7:stdgo.GoUInt64 = ((68i64 : stdgo.StdGoTypes.GoUInt64))
 accept 4, size 4  
 
 ```haxe
-final _surrogateMax:stdgo.GoUInt64 = ((57343i64 : stdgo.StdGoTypes.GoUInt64))
+final _surrogateMax:stdgo.GoUInt64 = ((57343i64 : stdgo.GoUInt64))
 ```
 
 
@@ -227,7 +227,7 @@ final _surrogateMax:stdgo.GoUInt64 = ((57343i64 : stdgo.StdGoTypes.GoUInt64))
 Code points in the surrogate range are not valid for UTF\-8.  
 
 ```haxe
-final _surrogateMin:stdgo.GoUInt64 = ((55296i64 : stdgo.StdGoTypes.GoUInt64))
+final _surrogateMin:stdgo.GoUInt64 = ((55296i64 : stdgo.GoUInt64))
 ```
 
 
@@ -235,37 +235,37 @@ final _surrogateMin:stdgo.GoUInt64 = ((55296i64 : stdgo.StdGoTypes.GoUInt64))
 Code points in the surrogate range are not valid for UTF\-8.  
 
 ```haxe
-final _t1:stdgo.GoUInt64 = ((0i64 : stdgo.StdGoTypes.GoUInt64))
+final _t1:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _t2:stdgo.GoUInt64 = ((192i64 : stdgo.StdGoTypes.GoUInt64))
+final _t2:stdgo.GoUInt64 = ((192i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _t3:stdgo.GoUInt64 = ((224i64 : stdgo.StdGoTypes.GoUInt64))
+final _t3:stdgo.GoUInt64 = ((224i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _t4:stdgo.GoUInt64 = ((240i64 : stdgo.StdGoTypes.GoUInt64))
+final _t4:stdgo.GoUInt64 = ((240i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _t5:stdgo.GoUInt64 = ((248i64 : stdgo.StdGoTypes.GoUInt64))
+final _t5:stdgo.GoUInt64 = ((248i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _tx:stdgo.GoUInt64 = ((128i64 : stdgo.StdGoTypes.GoUInt64))
+final _tx:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _xx:stdgo.GoUInt64 = ((241i64 : stdgo.StdGoTypes.GoUInt64))
+final _xx:stdgo.GoUInt64 = ((241i64 : stdgo.GoUInt64))
 ```
 
 
@@ -279,7 +279,7 @@ Status for the special one\-byte case.
 invalid: size 1  
 
 ```haxe
-final maxRune:stdgo.GoInt32 = ((1114111 : stdgo.StdGoTypes.GoInt32))
+final maxRune:stdgo.GoInt32 = ((1114111 : stdgo.GoInt32))
 ```
 
 
@@ -290,7 +290,7 @@ Numbers fundamental to the encoding.
 Maximum valid Unicode code point.  
 
 ```haxe
-final runeError:stdgo.GoInt32 = ((65533 : stdgo.StdGoTypes.GoInt32))
+final runeError:stdgo.GoInt32 = ((65533 : stdgo.GoInt32))
 ```
 
 
@@ -301,7 +301,7 @@ Numbers fundamental to the encoding.
 the "error" Rune or "Unicode replacement character"  
 
 ```haxe
-final runeSelf:stdgo.GoUInt64 = ((128i64 : stdgo.StdGoTypes.GoUInt64))
+final runeSelf:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
 ```
 
 
@@ -312,7 +312,7 @@ Numbers fundamental to the encoding.
 characters below RuneSelf are represented as themselves in a single byte.  
 
 ```haxe
-final utfmax:stdgo.GoUInt64 = ((4i64 : stdgo.StdGoTypes.GoUInt64))
+final utfmax:stdgo.GoUInt64 = ((4i64 : stdgo.GoUInt64))
 ```
 
 
@@ -387,8 +387,8 @@ it appends the encoding of RuneError.
 
 ```haxe
 function exampleAppendRune():Void {
-        var _buf1 = stdgo.unicode.utf8.Utf8.appendRune((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (65536 : stdgo.StdGoTypes.GoInt32));
-        var _buf2 = stdgo.unicode.utf8.Utf8.appendRune((("init" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (65536 : stdgo.StdGoTypes.GoInt32));
+        var _buf1 = stdgo.unicode.utf8.Utf8.appendRune((null : stdgo.Slice<stdgo.GoUInt8>), (65536 : stdgo.GoInt32));
+        var _buf2 = stdgo.unicode.utf8.Utf8.appendRune((("init" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (65536 : stdgo.GoInt32));
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface((_buf1 : stdgo.GoString)));
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface((_buf2 : stdgo.GoString)));
     }
@@ -433,11 +433,11 @@ value. No other validation is performed.
 
 ```haxe
 function exampleDecodeLastRune():Void {
-        var _b = (("Hello, 世界" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
-        while ((_b.length) > (0 : stdgo.StdGoTypes.GoInt)) {
-            var __tmp__ = stdgo.unicode.utf8.Utf8.decodeLastRune(_b), _r:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _size:stdgo.StdGoTypes.GoInt = __tmp__._1;
+        var _b = (("Hello, 世界" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
+        while ((_b.length) > (0 : stdgo.GoInt)) {
+            var __tmp__ = stdgo.unicode.utf8.Utf8.decodeLastRune(_b), _r:stdgo.GoInt32 = __tmp__._0, _size:stdgo.GoInt = __tmp__._1;
             stdgo.fmt.Fmt.printf(("%c %v\n" : stdgo.GoString), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_size));
-            _b = (_b.__slice__(0, (_b.length) - _size) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
+            _b = (_b.__slice__(0, (_b.length) - _size) : stdgo.Slice<stdgo.GoUInt8>);
         };
     }
 ```
@@ -482,8 +482,8 @@ value. No other validation is performed.
 ```haxe
 function exampleDecodeLastRuneInString():Void {
         var _str:stdgo.GoString = ("Hello, 世界" : stdgo.GoString);
-        while ((_str.length) > (0 : stdgo.StdGoTypes.GoInt)) {
-            var __tmp__ = stdgo.unicode.utf8.Utf8.decodeLastRuneInString(_str?.__copy__()), _r:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _size:stdgo.StdGoTypes.GoInt = __tmp__._1;
+        while ((_str.length) > (0 : stdgo.GoInt)) {
+            var __tmp__ = stdgo.unicode.utf8.Utf8.decodeLastRuneInString(_str?.__copy__()), _r:stdgo.GoInt32 = __tmp__._0, _size:stdgo.GoInt = __tmp__._1;
             stdgo.fmt.Fmt.printf(("%c %v\n" : stdgo.GoString), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_size));
             _str = (_str.__slice__(0, (_str.length) - _size) : stdgo.GoString)?.__copy__();
         };
@@ -529,11 +529,11 @@ value. No other validation is performed.
 
 ```haxe
 function exampleDecodeRune():Void {
-        var _b = (("Hello, 世界" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
-        while ((_b.length) > (0 : stdgo.StdGoTypes.GoInt)) {
-            var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRune(_b), _r:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _size:stdgo.StdGoTypes.GoInt = __tmp__._1;
+        var _b = (("Hello, 世界" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
+        while ((_b.length) > (0 : stdgo.GoInt)) {
+            var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRune(_b), _r:stdgo.GoInt32 = __tmp__._0, _size:stdgo.GoInt = __tmp__._1;
             stdgo.fmt.Fmt.printf(("%c %v\n" : stdgo.GoString), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_size));
-            _b = (_b.__slice__(_size) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
+            _b = (_b.__slice__(_size) : stdgo.Slice<stdgo.GoUInt8>);
         };
     }
 ```
@@ -578,8 +578,8 @@ value. No other validation is performed.
 ```haxe
 function exampleDecodeRuneInString():Void {
         var _str:stdgo.GoString = ("Hello, 世界" : stdgo.GoString);
-        while ((_str.length) > (0 : stdgo.StdGoTypes.GoInt)) {
-            var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_str?.__copy__()), _r:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _size:stdgo.StdGoTypes.GoInt = __tmp__._1;
+        while ((_str.length) > (0 : stdgo.GoInt)) {
+            var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_str?.__copy__()), _r:stdgo.GoInt32 = __tmp__._0, _size:stdgo.GoInt = __tmp__._1;
             stdgo.fmt.Fmt.printf(("%c %v\n" : stdgo.GoString), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_size));
             _str = (_str.__slice__(_size) : stdgo.GoString)?.__copy__();
         };
@@ -616,9 +616,9 @@ It returns the number of bytes written.
 
 ```haxe
 function exampleEncodeRune():Void {
-        var _r:stdgo.StdGoTypes.GoInt32 = (19990 : stdgo.StdGoTypes.GoInt32);
-        var _buf = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((3 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
-        var _n:stdgo.StdGoTypes.GoInt = stdgo.unicode.utf8.Utf8.encodeRune(_buf, _r);
+        var _r:stdgo.GoInt32 = (19990 : stdgo.GoInt32);
+        var _buf = new stdgo.Slice<stdgo.GoUInt8>((3 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _n:stdgo.GoInt = stdgo.unicode.utf8.Utf8.encodeRune(_buf, _r);
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_buf));
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_n));
     }
@@ -638,10 +638,10 @@ function exampleEncodeRune():Void {
 
 ```haxe
 function exampleEncodeRune_outOfRange():Void {
-        var _runes = (new stdgo.Slice<stdgo.StdGoTypes.GoInt32>(3, 3, (-1 : stdgo.StdGoTypes.GoInt32), (1114112 : stdgo.StdGoTypes.GoInt32), (65533 : stdgo.StdGoTypes.GoInt32)) : stdgo.Slice<stdgo.StdGoTypes.GoInt32>);
+        var _runes = (new stdgo.Slice<stdgo.GoInt32>(3, 3, (-1 : stdgo.GoInt32), (1114112 : stdgo.GoInt32), (65533 : stdgo.GoInt32)) : stdgo.Slice<stdgo.GoInt32>);
         for (_i => _c in _runes) {
-            var _buf = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((3 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
-            var _size:stdgo.StdGoTypes.GoInt = stdgo.unicode.utf8.Utf8.encodeRune(_buf, _c);
+            var _buf = new stdgo.Slice<stdgo.GoUInt8>((3 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _size:stdgo.GoInt = stdgo.unicode.utf8.Utf8.encodeRune(_buf, _c);
             stdgo.fmt.Fmt.printf(("%d: %d %[2]s %d\n" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_buf), stdgo.Go.toInterface(_size));
         };
     }
@@ -676,9 +676,9 @@ An invalid encoding is considered a full Rune since it will convert as a width\-
 
 ```haxe
 function exampleFullRune():Void {
-        var _buf = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(3, 3, (228 : stdgo.StdGoTypes.GoUInt8), (184 : stdgo.StdGoTypes.GoUInt8), (150 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
+        var _buf = (new stdgo.Slice<stdgo.GoUInt8>(3, 3, (228 : stdgo.GoUInt8), (184 : stdgo.GoUInt8), (150 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.fullRune(_buf)));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.fullRune((_buf.__slice__(0, (2 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.fullRune((_buf.__slice__(0, (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>))));
     }
 ```
 
@@ -712,7 +712,7 @@ FullRuneInString is like FullRune but its input is a string.
 function exampleFullRuneInString():Void {
         var _str:stdgo.GoString = ("世" : stdgo.GoString);
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.fullRuneInString(_str?.__copy__())));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.fullRuneInString((_str.__slice__(0, (2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.fullRuneInString((_str.__slice__(0, (2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__())));
     }
 ```
 
@@ -745,7 +745,7 @@ encodings are treated as single runes of width 1 byte.
 
 ```haxe
 function exampleRuneCount():Void {
-        var _buf = (("Hello, 世界" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
+        var _buf = (("Hello, 世界" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("bytes =" : stdgo.GoString)), stdgo.Go.toInterface((_buf.length)));
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("runes =" : stdgo.GoString)), stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.runeCount(_buf)));
     }
@@ -814,8 +814,8 @@ It returns \-1 if the rune is not a valid value to encode in UTF\-8.
 
 ```haxe
 function exampleRuneLen():Void {
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.runeLen((97 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.runeLen((30028 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.runeLen((97 : stdgo.GoInt32))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.runeLen((30028 : stdgo.GoInt32))));
     }
 ```
 
@@ -849,10 +849,10 @@ bits set to 10.
 
 ```haxe
 function exampleRuneStart():Void {
-        var _buf = (("a界" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.runeStart(_buf[(0 : stdgo.StdGoTypes.GoInt)])));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.runeStart(_buf[(1 : stdgo.StdGoTypes.GoInt)])));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.runeStart(_buf[(2 : stdgo.StdGoTypes.GoInt)])));
+        var _buf = (("a界" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.runeStart(_buf[(0 : stdgo.GoInt)])));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.runeStart(_buf[(1 : stdgo.GoInt)])));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.runeStart(_buf[(2 : stdgo.GoInt)])));
     }
 ```
 
@@ -884,8 +884,8 @@ Valid reports whether p consists entirely of valid UTF\-8\-encoded runes.
 
 ```haxe
 function exampleValid():Void {
-        var _valid = (("Hello, 世界" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
-        var _invalid = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(3, 3, (255 : stdgo.StdGoTypes.GoUInt8), (254 : stdgo.StdGoTypes.GoUInt8), (253 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
+        var _valid = (("Hello, 世界" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
+        var _invalid = (new stdgo.Slice<stdgo.GoUInt8>(3, 3, (255 : stdgo.GoUInt8), (254 : stdgo.GoUInt8), (253 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.valid(_valid)));
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.valid(_invalid)));
     }
@@ -920,8 +920,8 @@ Code points that are out of range or a surrogate half are illegal.
 
 ```haxe
 function exampleValidRune():Void {
-        var _valid:stdgo.StdGoTypes.GoInt32 = (97 : stdgo.StdGoTypes.GoInt32);
-        var _invalid:stdgo.StdGoTypes.GoInt32 = ((268435455 : stdgo.StdGoTypes.GoInt32) : stdgo.StdGoTypes.GoRune);
+        var _valid:stdgo.GoInt32 = (97 : stdgo.GoInt32);
+        var _invalid:stdgo.GoInt32 = ((268435455 : stdgo.GoInt32) : stdgo.GoRune);
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.validRune(_valid)));
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.validRune(_invalid)));
     }
@@ -956,7 +956,7 @@ ValidString reports whether s consists entirely of valid UTF\-8\-encoded runes.
 ```haxe
 function exampleValidString():Void {
         var _valid:stdgo.GoString = ("Hello, 世界" : stdgo.GoString);
-        var _invalid:stdgo.GoString = ((new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(3, 3, (255 : stdgo.StdGoTypes.GoUInt8), (254 : stdgo.StdGoTypes.GoUInt8), (253 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString);
+        var _invalid:stdgo.GoString = ((new stdgo.Slice<stdgo.GoUInt8>(3, 3, (255 : stdgo.GoUInt8), (254 : stdgo.GoUInt8), (253 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString);
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.validString(_valid?.__copy__())));
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.validString(_invalid?.__copy__())));
     }

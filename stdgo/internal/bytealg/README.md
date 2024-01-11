@@ -112,12 +112,12 @@ final _offsetX86HasSSE42:stdgo.GoUIntptr = stdgo.unsafe.Unsafe.offsetof_(stdgo.G
 Offsets into internal/cpu records for use in assembly.  
 
 ```haxe
-final maxBruteForce:stdgo.GoUInt64 = ((0i64 : stdgo.StdGoTypes.GoUInt64))
+final maxBruteForce:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final primeRK:stdgo.GoUInt64 = ((16777619i64 : stdgo.StdGoTypes.GoUInt64))
+final primeRK:stdgo.GoUInt64 = ((16777619i64 : stdgo.GoUInt64))
 ```
 
 

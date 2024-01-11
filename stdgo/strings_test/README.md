@@ -425,11 +425,11 @@
 
 - [class IndexTest](<#class-indextest>)
 
-  - [`function new(?_s:stdgo.GoString, ?_sep:stdgo.GoString, ?_out:Null<stdgo.GoInt>):Void`](<#indextest-function-new>)
+  - [`function new(?_s:stdgo.GoString, ?_sep:stdgo.GoString, ?_out:stdgo.GoInt):Void`](<#indextest-function-new>)
 
 - [class SplitTest](<#class-splittest>)
 
-  - [`function new(?_s:stdgo.GoString, ?_sep:stdgo.GoString, ?_n:Null<stdgo.GoInt>, ?_a:stdgo.Slice<stdgo.GoString>):Void`](<#splittest-function-new>)
+  - [`function new(?_s:stdgo.GoString, ?_sep:stdgo.GoString, ?_n:stdgo.GoInt, ?_a:stdgo.Slice<stdgo.GoString>):Void`](<#splittest-function-new>)
 
 - [class StringTest](<#class-stringtest>)
 
@@ -923,7 +923,7 @@ function _makeFieldsInput():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Strings.hx#L785>)
+[\(view code\)](<./Strings.hx#L809>)
 
 
 ## function \_makeFieldsInputASCII
@@ -934,7 +934,7 @@ function _makeFieldsInputASCII():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Strings.hx#L826>)
+[\(view code\)](<./Strings.hx#L850>)
 
 
 ## function \_not
@@ -3144,7 +3144,7 @@ var _sep:stdgo.GoString
 
 
 ```haxe
-function new(?_s:stdgo.GoString, ?_sep:stdgo.GoString, ?_out:Null<stdgo.GoInt>):Void
+function new(?_s:stdgo.GoString, ?_sep:stdgo.GoString, ?_out:stdgo.GoInt):Void
 ```
 
 
@@ -3178,7 +3178,7 @@ var _sep:stdgo.GoString
 
 
 ```haxe
-function new(?_s:stdgo.GoString, ?_sep:stdgo.GoString, ?_n:Null<stdgo.GoInt>, ?_a:stdgo.Slice<stdgo.GoString>):Void
+function new(?_s:stdgo.GoString, ?_sep:stdgo.GoString, ?_n:stdgo.GoInt, ?_a:stdgo.Slice<stdgo.GoString>):Void
 ```
 
 

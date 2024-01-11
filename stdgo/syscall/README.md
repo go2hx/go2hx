@@ -397,11 +397,11 @@ information.
 
 - [class SockaddrInet4](<#class-sockaddrinet4>)
 
-  - [`function new(?port:Null<stdgo.GoInt>, ?addr:stdgo.GoArray<stdgo.GoUInt8>):Void`](<#sockaddrinet4-function-new>)
+  - [`function new(?port:stdgo.GoInt, ?addr:stdgo.GoArray<stdgo.GoUInt8>):Void`](<#sockaddrinet4-function-new>)
 
 - [class SockaddrInet6](<#class-sockaddrinet6>)
 
-  - [`function new(?port:Null<stdgo.GoInt>, ?zoneId:stdgo.GoUInt32, ?addr:stdgo.GoArray<stdgo.GoUInt8>):Void`](<#sockaddrinet6-function-new>)
+  - [`function new(?port:stdgo.GoInt, ?zoneId:stdgo.GoUInt32, ?addr:stdgo.GoArray<stdgo.GoUInt8>):Void`](<#sockaddrinet6-function-new>)
 
 - [class SockaddrUnix](<#class-sockaddrunix>)
 
@@ -5061,7 +5061,7 @@ var port:stdgo.GoInt
 
 
 ```haxe
-function new(?port:Null<stdgo.GoInt>, ?addr:stdgo.GoArray<stdgo.GoUInt8>):Void
+function new(?port:stdgo.GoInt, ?addr:stdgo.GoArray<stdgo.GoUInt8>):Void
 ```
 
 
@@ -5090,7 +5090,7 @@ var zoneId:stdgo.GoUInt32
 
 
 ```haxe
-function new(?port:Null<stdgo.GoInt>, ?zoneId:stdgo.GoUInt32, ?addr:stdgo.GoArray<stdgo.GoUInt8>):Void
+function new(?port:stdgo.GoInt, ?zoneId:stdgo.GoUInt32, ?addr:stdgo.GoArray<stdgo.GoUInt8>):Void
 ```
 
 

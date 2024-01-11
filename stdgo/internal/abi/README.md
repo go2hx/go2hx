@@ -1328,7 +1328,7 @@ import stdgo.internal.abi.Abi
 
 
 ```haxe
-final argsSizeUnknown:stdgo.GoUInt64 = ((0i64 : stdgo.StdGoTypes.GoUInt64))
+final argsSizeUnknown:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1372,7 +1372,7 @@ final complex64:stdgo.internal.abi.Kind = ((26u32 : stdgo.internal.abi.Abi.Kind)
 
 
 ```haxe
-final effectiveFloatRegSize:stdgo.GoUInt64 = ((0i64 : stdgo.StdGoTypes.GoUInt64))
+final effectiveFloatRegSize:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1402,7 +1402,7 @@ final float64:stdgo.internal.abi.Kind = ((26u32 : stdgo.internal.abi.Abi.Kind))
 
 
 ```haxe
-final floatArgRegs:stdgo.GoUInt64 = ((0i64 : stdgo.StdGoTypes.GoUInt64))
+final floatArgRegs:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1569,7 +1569,7 @@ final funcID_systemstack_switch:stdgo.internal.abi.FuncID = ((21 : stdgo.interna
 
 
 ```haxe
-final funcdata_ArgInfo:stdgo.GoUInt64 = ((5i64 : stdgo.StdGoTypes.GoUInt64))
+final funcdata_ArgInfo:stdgo.GoUInt64 = ((5i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1580,7 +1580,7 @@ IDs for PCDATA and FUNCDATA tables in Go binaries.
 These must agree with ../../../runtime/funcdata.h.  
 
 ```haxe
-final funcdata_ArgLiveInfo:stdgo.GoUInt64 = ((6i64 : stdgo.StdGoTypes.GoUInt64))
+final funcdata_ArgLiveInfo:stdgo.GoUInt64 = ((6i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1591,7 +1591,7 @@ IDs for PCDATA and FUNCDATA tables in Go binaries.
 These must agree with ../../../runtime/funcdata.h.  
 
 ```haxe
-final funcdata_ArgsPointerMaps:stdgo.GoUInt64 = ((0i64 : stdgo.StdGoTypes.GoUInt64))
+final funcdata_ArgsPointerMaps:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1602,7 +1602,7 @@ IDs for PCDATA and FUNCDATA tables in Go binaries.
 These must agree with ../../../runtime/funcdata.h.  
 
 ```haxe
-final funcdata_InlTree:stdgo.GoUInt64 = ((3i64 : stdgo.StdGoTypes.GoUInt64))
+final funcdata_InlTree:stdgo.GoUInt64 = ((3i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1613,7 +1613,7 @@ IDs for PCDATA and FUNCDATA tables in Go binaries.
 These must agree with ../../../runtime/funcdata.h.  
 
 ```haxe
-final funcdata_LocalsPointerMaps:stdgo.GoUInt64 = ((1i64 : stdgo.StdGoTypes.GoUInt64))
+final funcdata_LocalsPointerMaps:stdgo.GoUInt64 = ((1i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1624,7 +1624,7 @@ IDs for PCDATA and FUNCDATA tables in Go binaries.
 These must agree with ../../../runtime/funcdata.h.  
 
 ```haxe
-final funcdata_OpenCodedDeferInfo:stdgo.GoUInt64 = ((4i64 : stdgo.StdGoTypes.GoUInt64))
+final funcdata_OpenCodedDeferInfo:stdgo.GoUInt64 = ((4i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1635,7 +1635,7 @@ IDs for PCDATA and FUNCDATA tables in Go binaries.
 These must agree with ../../../runtime/funcdata.h.  
 
 ```haxe
-final funcdata_StackObjects:stdgo.GoUInt64 = ((2i64 : stdgo.StdGoTypes.GoUInt64))
+final funcdata_StackObjects:stdgo.GoUInt64 = ((2i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1646,7 +1646,7 @@ IDs for PCDATA and FUNCDATA tables in Go binaries.
 These must agree with ../../../runtime/funcdata.h.  
 
 ```haxe
-final funcdata_WrapInfo:stdgo.GoUInt64 = ((7i64 : stdgo.StdGoTypes.GoUInt64))
+final funcdata_WrapInfo:stdgo.GoUInt64 = ((7i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1677,7 +1677,7 @@ final int8:stdgo.internal.abi.Kind = ((26u32 : stdgo.internal.abi.Abi.Kind))
 
 
 ```haxe
-final intArgRegs:stdgo.GoUInt64 = ((0i64 : stdgo.StdGoTypes.GoUInt64))
+final intArgRegs:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1707,7 +1707,7 @@ final invalidDir:stdgo.internal.abi.ChanDir = ((0 : stdgo.internal.abi.Abi.ChanD
 
 
 ```haxe
-final kindDirectIface:stdgo.GoUInt64 = ((32i64 : stdgo.StdGoTypes.GoUInt64))
+final kindDirectIface:stdgo.GoUInt64 = ((32i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1715,7 +1715,7 @@ final kindDirectIface:stdgo.GoUInt64 = ((32i64 : stdgo.StdGoTypes.GoUInt64))
 TODO \(khr, drchase\) why aren't these in TFlag?  Investigate, fix if possible.  
 
 ```haxe
-final kindGCProg:stdgo.GoUInt64 = ((64i64 : stdgo.StdGoTypes.GoUInt64))
+final kindGCProg:stdgo.GoUInt64 = ((64i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1723,12 +1723,12 @@ final kindGCProg:stdgo.GoUInt64 = ((64i64 : stdgo.StdGoTypes.GoUInt64))
 Type.gc points to GC program  
 
 ```haxe
-final kindMask:stdgo.GoUInt64 = ((31i64 : stdgo.StdGoTypes.GoUInt64))
+final kindMask:stdgo.GoUInt64 = ((31i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final mapBucketCount:stdgo.GoUInt64 = ((8i64 : stdgo.StdGoTypes.GoUInt64))
+final mapBucketCount:stdgo.GoUInt64 = ((8i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1737,7 +1737,7 @@ Map constants common to several packages
 runtime/runtime\-gdb.py:MapTypePrinter contains its own copy  
 
 ```haxe
-final mapBucketCountBits:stdgo.GoUInt64 = ((3i64 : stdgo.StdGoTypes.GoUInt64))
+final mapBucketCountBits:stdgo.GoUInt64 = ((3i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1749,7 +1749,7 @@ runtime/runtime\-gdb.py:MapTypePrinter contains its own copy
 log2 of number of elements in a bucket.  
 
 ```haxe
-final mapMaxElemBytes:stdgo.GoUInt64 = ((128i64 : stdgo.StdGoTypes.GoUInt64))
+final mapMaxElemBytes:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1761,7 +1761,7 @@ runtime/runtime\-gdb.py:MapTypePrinter contains its own copy
 Must fit in a uint8.  
 
 ```haxe
-final mapMaxKeyBytes:stdgo.GoUInt64 = ((128i64 : stdgo.StdGoTypes.GoUInt64))
+final mapMaxKeyBytes:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1778,7 +1778,7 @@ final map_:stdgo.internal.abi.Kind = ((26u32 : stdgo.internal.abi.Abi.Kind))
 
 
 ```haxe
-final pcdata_ArgLiveIndex:stdgo.GoUInt64 = ((3i64 : stdgo.StdGoTypes.GoUInt64))
+final pcdata_ArgLiveIndex:stdgo.GoUInt64 = ((3i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1789,7 +1789,7 @@ IDs for PCDATA and FUNCDATA tables in Go binaries.
 These must agree with ../../../runtime/funcdata.h.  
 
 ```haxe
-final pcdata_InlTreeIndex:stdgo.GoUInt64 = ((2i64 : stdgo.StdGoTypes.GoUInt64))
+final pcdata_InlTreeIndex:stdgo.GoUInt64 = ((2i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1800,7 +1800,7 @@ IDs for PCDATA and FUNCDATA tables in Go binaries.
 These must agree with ../../../runtime/funcdata.h.  
 
 ```haxe
-final pcdata_StackMapIndex:stdgo.GoUInt64 = ((1i64 : stdgo.StdGoTypes.GoUInt64))
+final pcdata_StackMapIndex:stdgo.GoUInt64 = ((1i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1811,7 +1811,7 @@ IDs for PCDATA and FUNCDATA tables in Go binaries.
 These must agree with ../../../runtime/funcdata.h.  
 
 ```haxe
-final pcdata_UnsafePoint:stdgo.GoUInt64 = ((0i64 : stdgo.StdGoTypes.GoUInt64))
+final pcdata_UnsafePoint:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1848,7 +1848,7 @@ final slice:stdgo.internal.abi.Kind = ((26u32 : stdgo.internal.abi.Abi.Kind))
 
 
 ```haxe
-final stackBig:stdgo.GoUInt64 = ((4096i64 : stdgo.StdGoTypes.GoUInt64))
+final stackBig:stdgo.GoUInt64 = ((4096i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1859,7 +1859,7 @@ more efficient check. In order to ensure this, StackBig must be \<= the
 size of the unmapped space at zero.  
 
 ```haxe
-final stackNosplitBase:stdgo.GoUInt64 = ((800i64 : stdgo.StdGoTypes.GoUInt64))
+final stackNosplitBase:stdgo.GoUInt64 = ((800i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1873,7 +1873,7 @@ use it directly. See runtime/stack.go:stackNosplit and
 cmd/internal/objabi/stack.go:StackNosplit.  
 
 ```haxe
-final stackSmall:stdgo.GoUInt64 = ((128i64 : stdgo.StdGoTypes.GoUInt64))
+final stackSmall:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1980,7 +1980,7 @@ final uintptr:stdgo.internal.abi.Kind = ((26u32 : stdgo.internal.abi.Abi.Kind))
 
 
 ```haxe
-final unsafePointRestart1:stdgo.GoUInt64 = ((0i64 : stdgo.StdGoTypes.GoUInt64))
+final unsafePointRestart1:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1992,7 +1992,7 @@ We need two so we can distinguish the start/end of the sequence
 in case that two sequences are next to each other.  
 
 ```haxe
-final unsafePointRestart2:stdgo.GoUInt64 = ((0i64 : stdgo.StdGoTypes.GoUInt64))
+final unsafePointRestart2:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
@@ -2000,7 +2000,7 @@ final unsafePointRestart2:stdgo.GoUInt64 = ((0i64 : stdgo.StdGoTypes.GoUInt64))
 Special values for the PCDATA\_UnsafePoint table.  
 
 ```haxe
-final unsafePointRestartAtEntry:stdgo.GoUInt64 = ((0i64 : stdgo.StdGoTypes.GoUInt64))
+final unsafePointRestartAtEntry:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
@@ -2008,7 +2008,7 @@ final unsafePointRestartAtEntry:stdgo.GoUInt64 = ((0i64 : stdgo.StdGoTypes.GoUIn
 Like UnsafePointRestart1, but back to function entry if async preempted.  
 
 ```haxe
-final unsafePointSafe:stdgo.GoUInt64 = ((0i64 : stdgo.StdGoTypes.GoUInt64))
+final unsafePointSafe:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
@@ -2019,7 +2019,7 @@ Special values for the PCDATA\_UnsafePoint table.
 Safe for async preemption  
 
 ```haxe
-final unsafePointUnsafe:stdgo.GoUInt64 = ((0i64 : stdgo.StdGoTypes.GoUInt64))
+final unsafePointUnsafe:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 

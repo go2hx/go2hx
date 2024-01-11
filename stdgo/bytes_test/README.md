@@ -491,7 +491,7 @@
 
 - [class BinOpTest](<#class-binoptest>)
 
-  - [`function new(?_a:stdgo.GoString, ?_b:stdgo.GoString, ?_i:Null<stdgo.GoInt>):Void`](<#binoptest-function-new>)
+  - [`function new(?_a:stdgo.GoString, ?_b:stdgo.GoString, ?_i:stdgo.GoInt):Void`](<#binoptest-function-new>)
 
 - [class FieldsTest](<#class-fieldstest>)
 
@@ -499,15 +499,15 @@
 
 - [class IndexFuncTest](<#class-indexfunctest>)
 
-  - [`function new(?_in:stdgo.GoString, ?_f:stdgo.bytes_test.T_predicate, ?_first:Null<stdgo.GoInt>, ?_last:Null<stdgo.GoInt>):Void`](<#indexfunctest-function-new>)
+  - [`function new(?_in:stdgo.GoString, ?_f:stdgo.bytes_test.T_predicate, ?_first:stdgo.GoInt, ?_last:stdgo.GoInt):Void`](<#indexfunctest-function-new>)
 
 - [class RepeatTest](<#class-repeattest>)
 
-  - [`function new(?_in:stdgo.GoString, ?_out:stdgo.GoString, ?_count:Null<stdgo.GoInt>):Void`](<#repeattest-function-new>)
+  - [`function new(?_in:stdgo.GoString, ?_out:stdgo.GoString, ?_count:stdgo.GoInt):Void`](<#repeattest-function-new>)
 
 - [class ReplaceTest](<#class-replacetest>)
 
-  - [`function new(?_in:stdgo.GoString, ?_old:stdgo.GoString, ?_new:stdgo.GoString, ?_n:Null<stdgo.GoInt>, ?_out:stdgo.GoString):Void`](<#replacetest-function-new>)
+  - [`function new(?_in:stdgo.GoString, ?_old:stdgo.GoString, ?_new:stdgo.GoString, ?_n:stdgo.GoInt, ?_out:stdgo.GoString):Void`](<#replacetest-function-new>)
 
 - [class RunesTest](<#class-runestest>)
 
@@ -515,31 +515,31 @@
 
 - [class SplitTest](<#class-splittest>)
 
-  - [`function new(?_s:stdgo.GoString, ?_sep:stdgo.GoString, ?_n:Null<stdgo.GoInt>, ?_a:stdgo.Slice<stdgo.GoString>):Void`](<#splittest-function-new>)
+  - [`function new(?_s:stdgo.GoString, ?_sep:stdgo.GoString, ?_n:stdgo.GoInt, ?_a:stdgo.Slice<stdgo.GoString>):Void`](<#splittest-function-new>)
 
 - [class StringTest](<#class-stringtest>)
 
   - [`function new(?_in:stdgo.GoString, ?_out:stdgo.Slice<stdgo.GoUInt8>):Void`](<#stringtest-function-new>)
 
-- [class T\_testReaderCopyNothing\_10\_\_\_localname\_\_\_justWriter](<#class-t_testreadercopynothing_10localnamejustwriter>)
+- [class T\_testReaderCopyNothing\_1\_\_\_localname\_\_\_nErr](<#class-t_testreadercopynothing_1localnamenerr>)
 
-  - [`function new(?writer:Null<stdgo.io.Writer>):Void`](<#t_testreadercopynothing_10localnamejustwriter-function-new>)
+  - [`function new(?_n:stdgo.GoInt64, ?_err:Null<stdgo.Error>):Void`](<#t_testreadercopynothing_1localnamenerr-function-new>)
 
-  - [`function write(__0:stdgo.Slice<stdgo.GoUInt8>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#t_testreadercopynothing_10localnamejustwriter-function-write>)
+- [class T\_testReaderCopyNothing\_2\_\_\_localname\_\_\_justReader](<#class-t_testreadercopynothing_2localnamejustreader>)
 
-  - [`function write( __0:stdgo.Slice<stdgo.GoUInt8>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#t_testreadercopynothing_10localnamejustwriter-function-write>)
+  - [`function new(?reader:Null<stdgo.io.Reader>):Void`](<#t_testreadercopynothing_2localnamejustreader-function-new>)
 
-- [class T\_testReaderCopyNothing\_8\_\_\_localname\_\_\_nErr](<#class-t_testreadercopynothing_8localnamenerr>)
+  - [`function read(__0:stdgo.Slice<stdgo.GoUInt8>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#t_testreadercopynothing_2localnamejustreader-function-read>)
 
-  - [`function new(?_n:stdgo.GoInt64, ?_err:Null<stdgo.Error>):Void`](<#t_testreadercopynothing_8localnamenerr-function-new>)
+  - [`function read( __0:stdgo.Slice<stdgo.GoUInt8>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#t_testreadercopynothing_2localnamejustreader-function-read>)
 
-- [class T\_testReaderCopyNothing\_9\_\_\_localname\_\_\_justReader](<#class-t_testreadercopynothing_9localnamejustreader>)
+- [class T\_testReaderCopyNothing\_3\_\_\_localname\_\_\_justWriter](<#class-t_testreadercopynothing_3localnamejustwriter>)
 
-  - [`function new(?reader:Null<stdgo.io.Reader>):Void`](<#t_testreadercopynothing_9localnamejustreader-function-new>)
+  - [`function new(?writer:Null<stdgo.io.Writer>):Void`](<#t_testreadercopynothing_3localnamejustwriter-function-new>)
 
-  - [`function read(__0:stdgo.Slice<stdgo.GoUInt8>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#t_testreadercopynothing_9localnamejustreader-function-read>)
+  - [`function write(__0:stdgo.Slice<stdgo.GoUInt8>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#t_testreadercopynothing_3localnamejustwriter-function-write>)
 
-  - [`function read( __0:stdgo.Slice<stdgo.GoUInt8>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#t_testreadercopynothing_9localnamejustreader-function-read>)
+  - [`function write( __0:stdgo.Slice<stdgo.GoUInt8>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#t_testreadercopynothing_3localnamejustwriter-function-write>)
 
 - [class TitleTest](<#class-titletest>)
 
@@ -607,7 +607,7 @@ final _space:stdgo.GoString = (("\t\x0B\r\x0C\n�  　" : stdgo.GoString))
 
 
 ```haxe
-final n:stdgo.GoUInt64 = ((10000i64 : stdgo.StdGoTypes.GoUInt64))
+final n:stdgo.GoUInt64 = ((10000i64 : stdgo.GoUInt64))
 ```
 
 
@@ -3581,7 +3581,7 @@ function main():Void
 ```
 
 
-[\(view code\)](<./Bytes.hx#L238>)
+[\(view code\)](<./Bytes.hx#L239>)
 
 
 # Classes
@@ -3614,7 +3614,7 @@ var _i:stdgo.GoInt
 
 
 ```haxe
-function new(?_a:stdgo.GoString, ?_b:stdgo.GoString, ?_i:Null<stdgo.GoInt>):Void
+function new(?_a:stdgo.GoString, ?_b:stdgo.GoString, ?_i:stdgo.GoInt):Void
 ```
 
 
@@ -3672,7 +3672,7 @@ var _last:stdgo.GoInt
 
 
 ```haxe
-function new(?_in:stdgo.GoString, ?_f:stdgo.bytes_test.T_predicate, ?_first:Null<stdgo.GoInt>, ?_last:Null<stdgo.GoInt>):Void
+function new(?_in:stdgo.GoString, ?_f:stdgo.bytes_test.T_predicate, ?_first:stdgo.GoInt, ?_last:stdgo.GoInt):Void
 ```
 
 
@@ -3701,7 +3701,7 @@ var _out:stdgo.GoString
 
 
 ```haxe
-function new(?_in:stdgo.GoString, ?_out:stdgo.GoString, ?_count:Null<stdgo.GoInt>):Void
+function new(?_in:stdgo.GoString, ?_out:stdgo.GoString, ?_count:stdgo.GoInt):Void
 ```
 
 
@@ -3740,7 +3740,7 @@ var _out:stdgo.GoString
 
 
 ```haxe
-function new(?_in:stdgo.GoString, ?_old:stdgo.GoString, ?_new:stdgo.GoString, ?_n:Null<stdgo.GoInt>, ?_out:stdgo.GoString):Void
+function new(?_in:stdgo.GoString, ?_old:stdgo.GoString, ?_new:stdgo.GoString, ?_n:stdgo.GoInt, ?_out:stdgo.GoString):Void
 ```
 
 
@@ -3803,7 +3803,7 @@ var _sep:stdgo.GoString
 
 
 ```haxe
-function new(?_s:stdgo.GoString, ?_sep:stdgo.GoString, ?_n:Null<stdgo.GoInt>, ?_a:stdgo.Slice<stdgo.GoString>):Void
+function new(?_s:stdgo.GoString, ?_sep:stdgo.GoString, ?_n:stdgo.GoInt, ?_a:stdgo.Slice<stdgo.GoString>):Void
 ```
 
 
@@ -3838,54 +3838,7 @@ function new(?_in:stdgo.GoString, ?_out:stdgo.Slice<stdgo.GoUInt8>):Void
 [\(view code\)](<./Bytes_test.hx#L847>)
 
 
-## class T\_testReaderCopyNothing\_10\_\_\_localname\_\_\_justWriter
-
-
-```haxe
-var writer:stdgo.io.Writer
-```
-
-
-### T\_testReaderCopyNothing\_10\_\_\_localname\_\_\_justWriter function new
-
-
-```haxe
-function new(?writer:Null<stdgo.io.Writer>):Void
-```
-
-
-[\(view code\)](<./Bytes_test.hx#L5060>)
-
-
-### T\_testReaderCopyNothing\_10\_\_\_localname\_\_\_justWriter function write
-
-
-```haxe
-function write(__0:stdgo.Slice<stdgo.GoUInt8>):{
-	_1:stdgo.Error;
-	_0:stdgo.GoInt;
-}
-```
-
-
-[\(view code\)](<./Bytes_test.hx#L5065>)
-
-
-### T\_testReaderCopyNothing\_10\_\_\_localname\_\_\_justWriter function write
-
-
-```haxe
-function write( __0:stdgo.Slice<stdgo.GoUInt8>):{
-	_1:stdgo.Error;
-	_0:stdgo.GoInt;
-}
-```
-
-
-[\(view code\)](<./Bytes_test.hx#L5272>)
-
-
-## class T\_testReaderCopyNothing\_8\_\_\_localname\_\_\_nErr
+## class T\_testReaderCopyNothing\_1\_\_\_localname\_\_\_nErr
 
 
 ```haxe
@@ -3898,7 +3851,7 @@ var _n:stdgo.GoInt64
 ```
 
 
-### T\_testReaderCopyNothing\_8\_\_\_localname\_\_\_nErr function new
+### T\_testReaderCopyNothing\_1\_\_\_localname\_\_\_nErr function new
 
 
 ```haxe
@@ -3909,7 +3862,7 @@ function new(?_n:stdgo.GoInt64, ?_err:Null<stdgo.Error>):Void
 [\(view code\)](<./Bytes_test.hx#L5025>)
 
 
-## class T\_testReaderCopyNothing\_9\_\_\_localname\_\_\_justReader
+## class T\_testReaderCopyNothing\_2\_\_\_localname\_\_\_justReader
 
 
 ```haxe
@@ -3917,7 +3870,7 @@ var reader:stdgo.io.Reader
 ```
 
 
-### T\_testReaderCopyNothing\_9\_\_\_localname\_\_\_justReader function new
+### T\_testReaderCopyNothing\_2\_\_\_localname\_\_\_justReader function new
 
 
 ```haxe
@@ -3928,7 +3881,7 @@ function new(?reader:Null<stdgo.io.Reader>):Void
 [\(view code\)](<./Bytes_test.hx#L5042>)
 
 
-### T\_testReaderCopyNothing\_9\_\_\_localname\_\_\_justReader function read
+### T\_testReaderCopyNothing\_2\_\_\_localname\_\_\_justReader function read
 
 
 ```haxe
@@ -3942,7 +3895,7 @@ function read(__0:stdgo.Slice<stdgo.GoUInt8>):{
 [\(view code\)](<./Bytes_test.hx#L5047>)
 
 
-### T\_testReaderCopyNothing\_9\_\_\_localname\_\_\_justReader function read
+### T\_testReaderCopyNothing\_2\_\_\_localname\_\_\_justReader function read
 
 
 ```haxe
@@ -3954,6 +3907,53 @@ function read( __0:stdgo.Slice<stdgo.GoUInt8>):{
 
 
 [\(view code\)](<./Bytes_test.hx#L5257>)
+
+
+## class T\_testReaderCopyNothing\_3\_\_\_localname\_\_\_justWriter
+
+
+```haxe
+var writer:stdgo.io.Writer
+```
+
+
+### T\_testReaderCopyNothing\_3\_\_\_localname\_\_\_justWriter function new
+
+
+```haxe
+function new(?writer:Null<stdgo.io.Writer>):Void
+```
+
+
+[\(view code\)](<./Bytes_test.hx#L5060>)
+
+
+### T\_testReaderCopyNothing\_3\_\_\_localname\_\_\_justWriter function write
+
+
+```haxe
+function write(__0:stdgo.Slice<stdgo.GoUInt8>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
+```
+
+
+[\(view code\)](<./Bytes_test.hx#L5065>)
+
+
+### T\_testReaderCopyNothing\_3\_\_\_localname\_\_\_justWriter function write
+
+
+```haxe
+function write( __0:stdgo.Slice<stdgo.GoUInt8>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
+```
+
+
+[\(view code\)](<./Bytes_test.hx#L5272>)
 
 
 ## class TitleTest

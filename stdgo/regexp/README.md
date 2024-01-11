@@ -427,7 +427,7 @@ before returning.
 
 - [class Regexp](<#class-regexp>)
 
-  - [`function new(?_expr:stdgo.GoString, ?_prog:stdgo.Ref<stdgo.regexp.syntax.Prog>, ?_onepass:stdgo.Ref<stdgo.regexp.T_onePassProg>, ?_numSubexp:Null<stdgo.GoInt>, ?_maxBitStateLen:Null<stdgo.GoInt>, ?_subexpNames:stdgo.Slice<stdgo.GoString>, ?_prefix:stdgo.GoString, ?_prefixBytes:stdgo.Slice<stdgo.GoUInt8>, ?_prefixRune:stdgo.GoInt32, ?_prefixEnd:stdgo.GoUInt32, ?_mpool:Null<stdgo.GoInt>, ?_matchcap:Null<stdgo.GoInt>, ?_prefixComplete:Bool, ?_cond:Null<stdgo.regexp.syntax.EmptyOp>, ?_minInputLen:Null<stdgo.GoInt>, ?_longest:Bool):Void`](<#regexp-function-new>)
+  - [`function new(?_expr:stdgo.GoString, ?_prog:stdgo.Ref<stdgo.regexp.syntax.Prog>, ?_onepass:stdgo.Ref<stdgo.regexp.T_onePassProg>, ?_numSubexp:stdgo.GoInt, ?_maxBitStateLen:stdgo.GoInt, ?_subexpNames:stdgo.Slice<stdgo.GoString>, ?_prefix:stdgo.GoString, ?_prefixBytes:stdgo.Slice<stdgo.GoUInt8>, ?_prefixRune:stdgo.GoInt32, ?_prefixEnd:stdgo.GoUInt32, ?_mpool:stdgo.GoInt, ?_matchcap:stdgo.GoInt, ?_prefixComplete:Bool, ?_cond:Null<stdgo.regexp.syntax.EmptyOp>, ?_minInputLen:stdgo.GoInt, ?_longest:Bool):Void`](<#regexp-function-new>)
 
   - [`function _allMatches( _s:stdgo.GoString, _b:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt, _deliver:()):Void`](<#regexp-function-_allmatches>)
 
@@ -579,12 +579,12 @@ import stdgo.regexp.Regexp
 
 
 ```haxe
-final _endOfText:stdgo.GoInt32 = ((-1 : stdgo.StdGoTypes.GoInt32))
+final _endOfText:stdgo.GoInt32 = ((-1 : stdgo.GoInt32))
 ```
 
 
 ```haxe
-final _maxBacktrackProg:stdgo.GoUInt64 = ((500i64 : stdgo.StdGoTypes.GoUInt64))
+final _maxBacktrackProg:stdgo.GoUInt64 = ((500i64 : stdgo.GoUInt64))
 ```
 
 
@@ -592,7 +592,7 @@ final _maxBacktrackProg:stdgo.GoUInt64 = ((500i64 : stdgo.StdGoTypes.GoUInt64))
 len\(prog.Inst\) \<= max  
 
 ```haxe
-final _maxBacktrackVector:stdgo.GoUInt64 = ((262144i64 : stdgo.StdGoTypes.GoUInt64))
+final _maxBacktrackVector:stdgo.GoUInt64 = ((262144i64 : stdgo.GoUInt64))
 ```
 
 
@@ -600,7 +600,7 @@ final _maxBacktrackVector:stdgo.GoUInt64 = ((262144i64 : stdgo.StdGoTypes.GoUInt
 bit vector size \<= max \(bits\)  
 
 ```haxe
-final _mergeFailed:stdgo.GoUInt32 = ((-1u32 : stdgo.StdGoTypes.GoUInt32))
+final _mergeFailed:stdgo.GoUInt32 = ((-1u32 : stdgo.GoUInt32))
 ```
 
 
@@ -612,7 +612,7 @@ NextIp array with the single element mergeFailed is returned.
 The code assumes that both inputs contain ordered and non\-intersecting rune pairs.  
 
 ```haxe
-final _startSize:stdgo.GoUInt64 = ((10i64 : stdgo.StdGoTypes.GoUInt64))
+final _startSize:stdgo.GoUInt64 = ((10i64 : stdgo.GoUInt64))
 ```
 
 
@@ -620,7 +620,7 @@ final _startSize:stdgo.GoUInt64 = ((10i64 : stdgo.StdGoTypes.GoUInt64))
 The size at which to start a slice in the 'All' routines.  
 
 ```haxe
-final _visitedBits:stdgo.GoUInt64 = ((32i64 : stdgo.StdGoTypes.GoUInt64))
+final _visitedBits:stdgo.GoUInt64 = ((32i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1869,16 +1869,16 @@ More complicated queries need to use Compile and the full Regexp interface.
 
 ```haxe
 function exampleMatch():Void {
-        var __tmp__ = stdgo.regexp.Regexp.match(("foo.*" : stdgo.GoString), (("seafood" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>)), _matched:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.regexp.Regexp.match(("foo.*" : stdgo.GoString), (("seafood" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>)), _matched:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_matched), stdgo.Go.toInterface(_err));
         {
-            var __tmp__ = stdgo.regexp.Regexp.match(("bar.*" : stdgo.GoString), (("seafood" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
+            var __tmp__ = stdgo.regexp.Regexp.match(("bar.*" : stdgo.GoString), (("seafood" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>));
             _matched = __tmp__._0;
             _err = __tmp__._1;
         };
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_matched), stdgo.Go.toInterface(_err));
         {
-            var __tmp__ = stdgo.regexp.Regexp.match(("a(b" : stdgo.GoString), (("seafood" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
+            var __tmp__ = stdgo.regexp.Regexp.match(("a(b" : stdgo.GoString), (("seafood" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>));
             _matched = __tmp__._0;
             _err = __tmp__._1;
         };
@@ -2771,7 +2771,7 @@ var _subexpNames:stdgo.Slice<stdgo.GoString>
 
 
 ```haxe
-function new(?_expr:stdgo.GoString, ?_prog:stdgo.Ref<stdgo.regexp.syntax.Prog>, ?_onepass:stdgo.Ref<stdgo.regexp.T_onePassProg>, ?_numSubexp:Null<stdgo.GoInt>, ?_maxBitStateLen:Null<stdgo.GoInt>, ?_subexpNames:stdgo.Slice<stdgo.GoString>, ?_prefix:stdgo.GoString, ?_prefixBytes:stdgo.Slice<stdgo.GoUInt8>, ?_prefixRune:stdgo.GoInt32, ?_prefixEnd:stdgo.GoUInt32, ?_mpool:Null<stdgo.GoInt>, ?_matchcap:Null<stdgo.GoInt>, ?_prefixComplete:Bool, ?_cond:Null<stdgo.regexp.syntax.EmptyOp>, ?_minInputLen:Null<stdgo.GoInt>, ?_longest:Bool):Void
+function new(?_expr:stdgo.GoString, ?_prog:stdgo.Ref<stdgo.regexp.syntax.Prog>, ?_onepass:stdgo.Ref<stdgo.regexp.T_onePassProg>, ?_numSubexp:stdgo.GoInt, ?_maxBitStateLen:stdgo.GoInt, ?_subexpNames:stdgo.Slice<stdgo.GoString>, ?_prefix:stdgo.GoString, ?_prefixBytes:stdgo.Slice<stdgo.GoUInt8>, ?_prefixRune:stdgo.GoInt32, ?_prefixEnd:stdgo.GoUInt32, ?_mpool:stdgo.GoInt, ?_matchcap:stdgo.GoInt, ?_prefixComplete:Bool, ?_cond:Null<stdgo.regexp.syntax.EmptyOp>, ?_minInputLen:stdgo.GoInt, ?_longest:Bool):Void
 ```
 
 
@@ -2805,7 +2805,7 @@ function _backtrack( _ib:stdgo.Slice<stdgo.GoByte>, _is:stdgo.GoString, _pos:std
 
 backtrack runs a backtracking search of prog on the input starting at pos.  
 
-[\(view code\)](<./Regexp.hx#L6119>)
+[\(view code\)](<./Regexp.hx#L6120>)
 
 
 ### Regexp function \_doExecute
@@ -2837,7 +2837,7 @@ function _doMatch( _r:stdgo.io.RuneReader, _b:stdgo.Slice<stdgo.GoByte>, _s:stdg
 
 doMatch reports whether either r, b or s match the regexp.  
 
-[\(view code\)](<./Regexp.hx#L5975>)
+[\(view code\)](<./Regexp.hx#L5976>)
 
 
 ### Regexp function \_doOnePass
@@ -2851,7 +2851,7 @@ function _doOnePass( _ir:stdgo.io.RuneReader, _ib:stdgo.Slice<stdgo.GoByte>, _is
 
 doOnePass implements r.doExecute using the one\-pass execution engine.  
 
-[\(view code\)](<./Regexp.hx#L5983>)
+[\(view code\)](<./Regexp.hx#L5984>)
 
 
 ### Regexp function \_expand
@@ -2935,7 +2935,7 @@ function _tryBacktrack( _b:stdgo.Ref<stdgo.regexp.T_bitState>, _i:stdgo.regexp.T
 
 tryBacktrack runs a backtracking search starting at pos.  
 
-[\(view code\)](<./Regexp.hx#L6175>)
+[\(view code\)](<./Regexp.hx#L6177>)
 
 
 ### Regexp function copy

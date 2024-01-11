@@ -3,7 +3,7 @@
 stdgo/os/exec_test/Exec_test.hx:1297: characters 25-61 : Type not found : stdgo.os.exec.internal.fdtest.Fdtest
 stdgo/os/exec_test/Exec_test.hx:1349: characters 27-40 : Type not found : stdgo.net.Net
 stdgo/os/exec_test/Exec_test.hx:1349: characters 113-135 : Type not found : stdgo.net.Net
-stdgo/os/exec_test/Exec_test.hx:1354: characters 150-175 : Type not found : stdgo.net.Net
+stdgo/os/exec_test/Exec_test.hx:1354: characters 128-153 : Type not found : stdgo.net.Net
 stdgo/os/exec_test/Exec_test.hx:1359: characters 27-40 : Type not found : stdgo.net.Net
 stdgo/os/exec_test/Exec_test.hx:1359: characters 64-86 : Type not found : stdgo.net.Net
 stdgo/os/exec_test/Exec_test.hx:1364: characters 23-55 : Type not found : stdgo.net.http.httptest.Httptest

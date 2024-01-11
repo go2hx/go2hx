@@ -191,7 +191,7 @@
 
 - [class Change](<#class-change>)
 
-  - [`function new(?_user:stdgo.GoString, ?_language:stdgo.GoString, ?_lines:Null<stdgo.GoInt>):Void`](<#change-function-new>)
+  - [`function new(?_user:stdgo.GoString, ?_language:stdgo.GoString, ?_lines:stdgo.GoInt):Void`](<#change-function-new>)
 
 - [class Organ](<#class-organ>)
 
@@ -199,7 +199,7 @@
 
 - [class Person](<#class-person>)
 
-  - [`function new(?name:stdgo.GoString, ?age:Null<stdgo.GoInt>):Void`](<#person-function-new>)
+  - [`function new(?name:stdgo.GoString, ?age:stdgo.GoInt):Void`](<#person-function-new>)
 
   - [`function string():stdgo.GoString`](<#person-function-string>)
 
@@ -242,67 +242,67 @@ import stdgo.sort_test.Sort
 
 
 ```haxe
-final __Copy:stdgo.GoUInt64 = ((6i64 : stdgo.StdGoTypes.GoUInt64))
+final __Copy:stdgo.GoUInt64 = ((6i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final __Dither:stdgo.GoUInt64 = ((6i64 : stdgo.StdGoTypes.GoUInt64))
+final __Dither:stdgo.GoUInt64 = ((6i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final __NDist:stdgo.GoUInt64 = ((5i64 : stdgo.StdGoTypes.GoUInt64))
+final __NDist:stdgo.GoUInt64 = ((5i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final __NMode:stdgo.GoUInt64 = ((6i64 : stdgo.StdGoTypes.GoUInt64))
+final __NMode:stdgo.GoUInt64 = ((6i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final __Plateau:stdgo.GoUInt64 = ((5i64 : stdgo.StdGoTypes.GoUInt64))
+final __Plateau:stdgo.GoUInt64 = ((5i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final __Rand:stdgo.GoUInt64 = ((5i64 : stdgo.StdGoTypes.GoUInt64))
+final __Rand:stdgo.GoUInt64 = ((5i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final __Reverse:stdgo.GoUInt64 = ((6i64 : stdgo.StdGoTypes.GoUInt64))
+final __Reverse:stdgo.GoUInt64 = ((6i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final __ReverseFirstHalf:stdgo.GoUInt64 = ((6i64 : stdgo.StdGoTypes.GoUInt64))
+final __ReverseFirstHalf:stdgo.GoUInt64 = ((6i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final __ReverseSecondHalf:stdgo.GoUInt64 = ((6i64 : stdgo.StdGoTypes.GoUInt64))
+final __ReverseSecondHalf:stdgo.GoUInt64 = ((6i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final __Sawtooth:stdgo.GoUInt64 = ((5i64 : stdgo.StdGoTypes.GoUInt64))
+final __Sawtooth:stdgo.GoUInt64 = ((5i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final __Shuffle:stdgo.GoUInt64 = ((5i64 : stdgo.StdGoTypes.GoUInt64))
+final __Shuffle:stdgo.GoUInt64 = ((5i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final __Sorted:stdgo.GoUInt64 = ((6i64 : stdgo.StdGoTypes.GoUInt64))
+final __Sorted:stdgo.GoUInt64 = ((6i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final __Stagger:stdgo.GoUInt64 = ((5i64 : stdgo.StdGoTypes.GoUInt64))
+final __Stagger:stdgo.GoUInt64 = ((5i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1443,7 +1443,7 @@ var _user:stdgo.GoString
 
 
 ```haxe
-function new(?_user:stdgo.GoString, ?_language:stdgo.GoString, ?_lines:Null<stdgo.GoInt>):Void
+function new(?_user:stdgo.GoString, ?_language:stdgo.GoString, ?_lines:stdgo.GoInt):Void
 ```
 
 
@@ -1491,7 +1491,7 @@ var name:stdgo.GoString
 
 
 ```haxe
-function new(?name:stdgo.GoString, ?age:Null<stdgo.GoInt>):Void
+function new(?name:stdgo.GoString, ?age:stdgo.GoInt):Void
 ```
 
 

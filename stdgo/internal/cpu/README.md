@@ -52,7 +52,7 @@ import stdgo.internal.cpu.Cpu
 
 
 ```haxe
-final cacheLinePadSize:stdgo.GoUInt64 = ((64i64 : stdgo.StdGoTypes.GoUInt64))
+final cacheLinePadSize:stdgo.GoUInt64 = ((64i64 : stdgo.GoUInt64))
 ```
 
 

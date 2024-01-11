@@ -234,7 +234,7 @@
 
 - [class A](<#class-a>)
 
-  - [`function new(?_i:Null<stdgo.GoInt>, ?_j:Null<stdgo.GoUInt>, ?_s:stdgo.GoString, ?_x:stdgo.Slice<stdgo.GoInt>):Void`](<#a-function-new>)
+  - [`function new(?_i:stdgo.GoInt, ?_j:Null<stdgo.GoUInt>, ?_s:stdgo.GoString, ?_x:stdgo.Slice<stdgo.GoInt>):Void`](<#a-function-new>)
 
 - [class Address](<#class-address>)
 
@@ -248,15 +248,15 @@
 
 - [class B](<#class-b>)
 
-  - [`function new(?i:Null<stdgo.fmt_test.I>, ?_j:Null<stdgo.GoInt>):Void`](<#b-function-new>)
+  - [`function new(?i:Null<stdgo.fmt_test.I>, ?_j:stdgo.GoInt):Void`](<#b-function-new>)
 
 - [class C](<#class-c>)
 
-  - [`function new(?_i:Null<stdgo.GoInt>, ?b:stdgo.fmt_test.B):Void`](<#c-function-new>)
+  - [`function new(?_i:stdgo.GoInt, ?b:stdgo.fmt_test.B):Void`](<#c-function-new>)
 
 - [class IntString](<#class-intstring>)
 
-  - [`function new(?_i:Null<stdgo.GoInt>, ?_s:stdgo.GoString):Void`](<#intstring-function-new>)
+  - [`function new(?_i:stdgo.GoInt, ?_s:stdgo.GoString):Void`](<#intstring-function-new>)
 
   - [`function scan( _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error`](<#intstring-function-scan>)
 
@@ -286,13 +286,13 @@
 
 - [class Recur](<#class-recur>)
 
-  - [`function new(?_i:Null<stdgo.GoInt>, ?_failed:stdgo.Pointer<Bool>):Void`](<#recur-function-new>)
+  - [`function new(?_i:stdgo.GoInt, ?_failed:stdgo.Pointer<Bool>):Void`](<#recur-function-new>)
 
   - [`function string():stdgo.GoString`](<#recur-function-string>)
 
 - [class RecursiveInt](<#class-recursiveint>)
 
-  - [`function new(?_i:Null<stdgo.GoInt>, ?_next:stdgo.Ref<stdgo.fmt_test.RecursiveInt>):Void`](<#recursiveint-function-new>)
+  - [`function new(?_i:stdgo.GoInt, ?_next:stdgo.Ref<stdgo.fmt_test.RecursiveInt>):Void`](<#recursiveint-function-new>)
 
   - [`function scan( _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error`](<#recursiveint-function-scan>)
 
@@ -2257,7 +2257,7 @@ var _x:stdgo.Slice<stdgo.GoInt>
 
 
 ```haxe
-function new(?_i:Null<stdgo.GoInt>, ?_j:Null<stdgo.GoUInt>, ?_s:stdgo.GoString, ?_x:stdgo.Slice<stdgo.GoInt>):Void
+function new(?_i:stdgo.GoInt, ?_j:Null<stdgo.GoUInt>, ?_s:stdgo.GoString, ?_x:stdgo.Slice<stdgo.GoInt>):Void
 ```
 
 
@@ -2354,7 +2354,7 @@ var i:stdgo.fmt_test.I
 
 
 ```haxe
-function new(?i:Null<stdgo.fmt_test.I>, ?_j:Null<stdgo.GoInt>):Void
+function new(?i:Null<stdgo.fmt_test.I>, ?_j:stdgo.GoInt):Void
 ```
 
 
@@ -2378,7 +2378,7 @@ var b:stdgo.fmt_test.B
 
 
 ```haxe
-function new(?_i:Null<stdgo.GoInt>, ?b:stdgo.fmt_test.B):Void
+function new(?_i:stdgo.GoInt, ?b:stdgo.fmt_test.B):Void
 ```
 
 
@@ -2406,7 +2406,7 @@ var _s:stdgo.GoString
 
 
 ```haxe
-function new(?_i:Null<stdgo.GoInt>, ?_s:stdgo.GoString):Void
+function new(?_i:stdgo.GoInt, ?_s:stdgo.GoString):Void
 ```
 
 
@@ -2596,7 +2596,7 @@ var _i:stdgo.GoInt
 
 
 ```haxe
-function new(?_i:Null<stdgo.GoInt>, ?_failed:stdgo.Pointer<Bool>):Void
+function new(?_i:stdgo.GoInt, ?_failed:stdgo.Pointer<Bool>):Void
 ```
 
 
@@ -2636,7 +2636,7 @@ var _next:stdgo.Ref<stdgo.fmt_test.RecursiveInt>
 
 
 ```haxe
-function new(?_i:Null<stdgo.GoInt>, ?_next:stdgo.Ref<stdgo.fmt_test.RecursiveInt>):Void
+function new(?_i:stdgo.GoInt, ?_next:stdgo.Ref<stdgo.fmt_test.RecursiveInt>):Void
 ```
 
 

@@ -1,6 +1,6 @@
 # Module stdgo.flag has compilation errors, please do not use:
 ```
-stdgo/flag_test/Flag_test.hx:19: characters 31-52 : Type not found : stdgo.net.url.Url
+stdgo/flag_test/Flag_test.hx:33: characters 20-41 : Type not found : stdgo.net.url.Url
 
 ```
 

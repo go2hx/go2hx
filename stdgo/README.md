@@ -13,6 +13,62 @@
 
 - [Variables](<#variables>)
 
+- [`function clampInt16(x:Int):Int`](<#function-clampint16>)
+
+- [`function clampInt8(x:Int):Int`](<#function-clampint8>)
+
+- [`function clampUInt(x:Int):stdgo.UInt32`](<#function-clampuint>)
+
+- [`function clampUInt16(x:Int):Int`](<#function-clampuint16>)
+
+- [`function clampUInt8(x:Int):Int`](<#function-clampuint8>)
+
+- [`function copyInt64(x:stdgo.Int64):stdgo.Int64`](<#function-copyint64>)
+
+- [`function copyUInt64(x:stdgo.UInt64):stdgo.UInt64`](<#function-copyuint64>)
+
+- [`function ofFloatInt64(x:stdgo.Float):stdgo.Int64`](<#function-offloatint64>)
+
+- [`function ofFloatUInt64(x:stdgo.Float):stdgo.UInt64`](<#function-offloatuint64>)
+
+- [`function ofIntInt64(x:Int):stdgo.Int64`](<#function-ofintint64>)
+
+- [`function ofIntUInt(x:Int):stdgo.UInt32`](<#function-ofintuint>)
+
+- [`function ofIntUInt64(x:Int):stdgo.UInt64`](<#function-ofintuint64>)
+
+- [`function ofUIntUInt64(x:UInt):stdgo.UInt64`](<#function-ofuintuint64>)
+
+- [`function oneInt64():stdgo.Int64`](<#function-oneint64>)
+
+- [`function oneUInt32():stdgo.UInt32`](<#function-oneuint32>)
+
+- [`function oneUInt64():stdgo.UInt64`](<#function-oneuint64>)
+
+- [`function shiftGuard(x:Int):Bool`](<#function-shiftguard>)
+
+- [`function toFloatInt64(x:stdgo.Int64):stdgo.Float`](<#function-tofloatint64>)
+
+- [`function toFloatUInt64(x:stdgo.UInt64):stdgo.Float`](<#function-tofloatuint64>)
+
+- [`function toInt64UInt64(x:stdgo.UInt64):stdgo.Int64`](<#function-toint64uint64>)
+
+- [`function toIntInt64(x:stdgo.Int64):Int`](<#function-tointint64>)
+
+- [`function toIntUInt64(x:stdgo.UInt64):Int`](<#function-tointuint64>)
+
+- [`function toStringInt64(x:stdgo.Int64):String`](<#function-tostringint64>)
+
+- [`function toStringUInt64(x:stdgo.UInt64):String`](<#function-tostringuint64>)
+
+- [`function toUInt64Int64(x:stdgo.Int64):stdgo.UInt64`](<#function-touint64int64>)
+
+- [`function zeroInt64():stdgo.Int64`](<#function-zeroint64>)
+
+- [`function zeroUInt32():stdgo.UInt32`](<#function-zerouint32>)
+
+- [`function zeroUInt64():stdgo.UInt64`](<#function-zerouint64>)
+
 - [class AnyInterfaceData](<#class-anyinterfacedata>)
 
   - [`function new(value:Any, type:stdgo.internal.reflect._Type):Void`](<#anyinterfacedata-function-new>)
@@ -155,14 +211,6 @@
 
   - [`function new():Void`](<#goint64map-function-new>)
 
-- [class GoIntIterator](<#class-gointiterator>)
-
-  - [`function hasNext():Bool`](<#gointiterator-function-hasnext>)
-
-  - [`function new(min:stdgo.GoInt, max:stdgo.GoInt):Void`](<#gointiterator-function-new>)
-
-  - [`function next():stdgo.GoInt`](<#gointiterator-function-next>)
-
 - [class GoObjectMap](<#class-goobjectmap>)
 
   - [`function get(key:Dynamic):stdgo.GoObjectMap.V`](<#goobjectmap-function-get>)
@@ -225,6 +273,12 @@
 
 - [typedef Error](<#typedef-error>)
 
+- [typedef Float](<#typedef-float>)
+
+- [typedef Float32](<#typedef-float32>)
+
+- [typedef Float64](<#typedef-float64>)
+
 - [typedef GoByte](<#typedef-gobyte>)
 
 - [typedef GoComplex64Map](<#typedef-gocomplex64map>)
@@ -257,59 +311,71 @@
 
 - [typedef GoUIntMap](<#typedef-gouintmap>)
 
-- [typedef InvalidType](<#typedef-invalidtype>)
+- [typedef Int16](<#typedef-int16>)
 
-- [typedef MapAccess](<#typedef-mapaccess>)
+- [typedef Int32](<#typedef-int32>)
+
+- [typedef Int64](<#typedef-int64>)
+
+- [typedef Int8](<#typedef-int8>)
 
 - [typedef Ref](<#typedef-ref>)
 
 - [typedef StructType](<#typedef-structtype>)
 
+- [typedef UInt16](<#typedef-uint16>)
+
+- [typedef UInt32](<#typedef-uint32>)
+
+- [typedef UInt64](<#typedef-uint64>)
+
+- [typedef UInt8](<#typedef-uint8>)
+
+- [abstract AnyInterface](<#abstract-anyinterface>)
+
 - [abstract Chan](<#abstract-chan>)
 
 - [abstract GoArray](<#abstract-goarray>)
+
+- [abstract GoComplex128](<#abstract-gocomplex128>)
+
+- [abstract GoComplex64](<#abstract-gocomplex64>)
+
+- [abstract GoFloat32](<#abstract-gofloat32>)
+
+- [abstract GoFloat64](<#abstract-gofloat64>)
+
+- [abstract GoInt16](<#abstract-goint16>)
+
+- [abstract GoInt32](<#abstract-goint32>)
+
+- [abstract GoInt64](<#abstract-goint64>)
+
+- [abstract GoInt8](<#abstract-goint8>)
 
 - [abstract GoMap](<#abstract-gomap>)
 
 - [abstract GoString](<#abstract-gostring>)
 
-- [abstract Pointer](<#abstract-pointer>)
-
-- [abstract Slice](<#abstract-slice>)
-
-- [abstract GoUIntptr](<#abstract-gouintptr>)
-
-- [abstract GoFloat64](<#abstract-gofloat64>)
-
-- [abstract GoFloat32](<#abstract-gofloat32>)
-
-- [abstract GoComplex64](<#abstract-gocomplex64>)
-
-- [abstract GoComplex128](<#abstract-gocomplex128>)
-
-- [abstract GoInt32](<#abstract-goint32>)
+- [abstract GoUInt16](<#abstract-gouint16>)
 
 - [abstract GoUInt32](<#abstract-gouint32>)
 
-- [abstract GoInt8](<#abstract-goint8>)
-
-- [abstract GoInt16](<#abstract-goint16>)
-
-- [abstract GoInt64](<#abstract-goint64>)
+- [abstract GoUInt64](<#abstract-gouint64>)
 
 - [abstract GoUInt8](<#abstract-gouint8>)
 
-- [abstract GoUInt16](<#abstract-gouint16>)
+- [abstract GoUIntptr](<#abstract-gouintptr>)
 
-- [abstract GoUInt64](<#abstract-gouint64>)
+- [abstract Pointer](<#abstract-pointer>)
 
-- [abstract AnyInterface](<#abstract-anyinterface>)
+- [abstract Slice](<#abstract-slice>)
 
 # Constants
 
 
 ```haxe
-import stdgo.StdGoTypes
+import stdgo.GoNumber
 ```
 
 
@@ -322,13 +388,333 @@ final globalAddressMutex:sys.thread.Mutex = new sys.thread.Mutex()
 
 
 ```haxe
-import stdgo.StdGoTypes
+import stdgo.GoNumber
 ```
 
 
 ```haxe
 var globalAddress:Int
 ```
+
+
+# Functions
+
+
+```haxe
+import stdgo.GoNumber
+```
+
+
+## function clampInt16
+
+
+```haxe
+function clampInt16(x:Int):Int
+```
+
+
+[\(view code\)](<./GoNumber.hx#L171>)
+
+
+## function clampInt8
+
+
+```haxe
+function clampInt8(x:Int):Int
+```
+
+
+[\(view code\)](<./GoNumber.hx#L191>)
+
+
+## function clampUInt
+
+
+```haxe
+function clampUInt(x:Int):stdgo.UInt32
+```
+
+
+[\(view code\)](<./GoNumber.hx#L185>)
+
+
+## function clampUInt16
+
+
+```haxe
+function clampUInt16(x:Int):Int
+```
+
+
+[\(view code\)](<./GoNumber.hx#L182>)
+
+
+## function clampUInt8
+
+
+```haxe
+function clampUInt8(x:Int):Int
+```
+
+
+[\(view code\)](<./GoNumber.hx#L179>)
+
+
+## function copyInt64
+
+
+```haxe
+function copyInt64(x:stdgo.Int64):stdgo.Int64
+```
+
+
+[\(view code\)](<./GoNumber.hx#L20>)
+
+
+## function copyUInt64
+
+
+```haxe
+function copyUInt64(x:stdgo.UInt64):stdgo.UInt64
+```
+
+
+[\(view code\)](<./GoNumber.hx#L23>)
+
+
+## function ofFloatInt64
+
+
+```haxe
+function ofFloatInt64(x:stdgo.Float):stdgo.Int64
+```
+
+
+[\(view code\)](<./GoNumber.hx#L63>)
+
+
+## function ofFloatUInt64
+
+
+```haxe
+function ofFloatUInt64(x:stdgo.Float):stdgo.UInt64
+```
+
+
+[\(view code\)](<./GoNumber.hx#L77>)
+
+
+## function ofIntInt64
+
+
+```haxe
+function ofIntInt64(x:Int):stdgo.Int64
+```
+
+
+[\(view code\)](<./GoNumber.hx#L198>)
+
+
+## function ofIntUInt
+
+
+```haxe
+function ofIntUInt(x:Int):stdgo.UInt32
+```
+
+
+[\(view code\)](<./GoNumber.hx#L58>)
+
+
+## function ofIntUInt64
+
+
+```haxe
+function ofIntUInt64(x:Int):stdgo.UInt64
+```
+
+
+[\(view code\)](<./GoNumber.hx#L25>)
+
+
+## function ofUIntUInt64
+
+
+```haxe
+function ofUIntUInt64(x:UInt):stdgo.UInt64
+```
+
+
+[\(view code\)](<./GoNumber.hx#L29>)
+
+
+## function oneInt64
+
+
+```haxe
+function oneInt64():stdgo.Int64
+```
+
+
+[\(view code\)](<./GoNumber.hx#L50>)
+
+
+## function oneUInt32
+
+
+```haxe
+function oneUInt32():stdgo.UInt32
+```
+
+
+[\(view code\)](<./GoNumber.hx#L44>)
+
+
+## function oneUInt64
+
+
+```haxe
+function oneUInt64():stdgo.UInt64
+```
+
+
+[\(view code\)](<./GoNumber.hx#L56>)
+
+
+## function shiftGuard
+
+
+```haxe
+function shiftGuard(x:Int):Bool
+```
+
+
+[\(view code\)](<./GoNumber.hx#L189>)
+
+
+## function toFloatInt64
+
+
+```haxe
+function toFloatInt64(x:stdgo.Int64):stdgo.Float
+```
+
+
+[\(view code\)](<./GoNumber.hx#L101>)
+
+
+## function toFloatUInt64
+
+
+```haxe
+function toFloatUInt64(x:stdgo.UInt64):stdgo.Float
+```
+
+
+[\(view code\)](<./GoNumber.hx#L106>)
+
+
+## function toInt64UInt64
+
+
+```haxe
+function toInt64UInt64(x:stdgo.UInt64):stdgo.Int64
+```
+
+
+[\(view code\)](<./GoNumber.hx#L146>)
+
+
+## function toIntInt64
+
+
+```haxe
+function toIntInt64(x:stdgo.Int64):Int
+```
+
+
+[\(view code\)](<./GoNumber.hx#L142>)
+
+
+## function toIntUInt64
+
+
+```haxe
+function toIntUInt64(x:stdgo.UInt64):Int
+```
+
+
+[\(view code\)](<./GoNumber.hx#L138>)
+
+
+## function toStringInt64
+
+
+```haxe
+function toStringInt64(x:stdgo.Int64):String
+```
+
+
+```
+Converts an `Int64` to `Float`;
+	Implementation by Elliott Stoneham.
+```
+[\(view code\)](<./GoNumber.hx#L133>)
+
+
+## function toStringUInt64
+
+
+```haxe
+function toStringUInt64(x:stdgo.UInt64):String
+```
+
+
+[\(view code\)](<./GoNumber.hx#L136>)
+
+
+## function toUInt64Int64
+
+
+```haxe
+function toUInt64Int64(x:stdgo.Int64):stdgo.UInt64
+```
+
+
+[\(view code\)](<./GoNumber.hx#L150>)
+
+
+## function zeroInt64
+
+
+```haxe
+function zeroInt64():stdgo.Int64
+```
+
+
+[\(view code\)](<./GoNumber.hx#L47>)
+
+
+## function zeroUInt32
+
+
+```haxe
+function zeroUInt32():stdgo.UInt32
+```
+
+
+[\(view code\)](<./GoNumber.hx#L41>)
+
+
+## function zeroUInt64
+
+
+```haxe
+function zeroUInt64():stdgo.UInt64
+```
+
+
+[\(view code\)](<./GoNumber.hx#L53>)
 
 
 # Classes
@@ -360,7 +746,7 @@ function new(value:Any, type:stdgo.internal.reflect._Type):Void
 ```
 
 
-[\(view code\)](<./StdGoTypes.hx#L1726>)
+[\(view code\)](<./AnyInterface.hx#L9>)
 
 
 ### AnyInterfaceData function toString
@@ -371,7 +757,7 @@ function toString():String
 ```
 
 
-[\(view code\)](<./StdGoTypes.hx#L1732>)
+[\(view code\)](<./AnyInterface.hx#L15>)
 
 
 ## class ChanData
@@ -395,7 +781,7 @@ function iterator():stdgo._Chan.ChanIterator<stdgo.ChanData.T>
 ```
 
 
-[\(view code\)](<./Chan.hx#L142>)
+[\(view code\)](<./Chan.hx#L141>)
 
 
 ### ChanData function keyValueIterator
@@ -406,7 +792,7 @@ function keyValueIterator():stdgo._Chan.ChanKeyValueIterator<stdgo.ChanData.T>
 ```
 
 
-[\(view code\)](<./Chan.hx#L139>)
+[\(view code\)](<./Chan.hx#L138>)
 
 
 ### ChanData function new
@@ -417,7 +803,7 @@ function new(length:stdgo.GoInt, defaultValue:():stdgo.ChanData.T):Void
 ```
 
 
-[\(view code\)](<./Chan.hx#L50>)
+[\(view code\)](<./Chan.hx#L49>)
 
 
 ### ChanData function toString
@@ -428,7 +814,7 @@ function toString():String
 ```
 
 
-[\(view code\)](<./Chan.hx#L144>)
+[\(view code\)](<./Chan.hx#L143>)
 
 
 ## class Complex
@@ -452,7 +838,7 @@ function new(r:stdgo.Complex.T, i:stdgo.Complex.T):Void
 ```
 
 
-[\(view code\)](<./StdGoTypes.hx#L200>)
+[\(view code\)](<./GoNumber.hx#L162>)
 
 
 ### Complex function toString
@@ -463,7 +849,7 @@ function toString():String
 ```
 
 
-[\(view code\)](<./StdGoTypes.hx#L206>)
+[\(view code\)](<./GoNumber.hx#L168>)
 
 
 ## class Go
@@ -747,7 +1133,7 @@ function get(index:Int):stdgo.GoArrayData.T
 ```
 
 
-[\(view code\)](<./GoArray.hx#L123>)
+[\(view code\)](<./GoArray.hx#L124>)
 
 
 ### GoArrayData function grow
@@ -758,7 +1144,7 @@ function grow():Void
 ```
 
 
-[\(view code\)](<./GoArray.hx#L169>)
+[\(view code\)](<./GoArray.hx#L170>)
 
 
 ### GoArrayData function new
@@ -780,7 +1166,7 @@ function set(index:Int, value:stdgo.GoArrayData.T):stdgo.GoArrayData.T
 ```
 
 
-[\(view code\)](<./GoArray.hx#L142>)
+[\(view code\)](<./GoArray.hx#L143>)
 
 
 ### GoArrayData function toArray
@@ -791,7 +1177,7 @@ function toArray():Array<stdgo.GoArrayData.T>
 ```
 
 
-[\(view code\)](<./GoArray.hx#L151>)
+[\(view code\)](<./GoArray.hx#L152>)
 
 
 ### GoArrayData function toVector
@@ -802,7 +1188,7 @@ function toVector():haxe.ds.Vector<stdgo.GoArrayData.T>
 ```
 
 
-[\(view code\)](<./GoArray.hx#L157>)
+[\(view code\)](<./GoArray.hx#L158>)
 
 
 ## class GoArrayDataIterator
@@ -816,7 +1202,7 @@ function hasNext():Bool
 ```
 
 
-[\(view code\)](<./GoArray.hx#L228>)
+[\(view code\)](<./GoArray.hx#L229>)
 
 
 ### GoArrayDataIterator function new
@@ -827,7 +1213,7 @@ function new(slice:stdgo.GoArrayData<stdgo.GoArrayDataIterator.T>):Void
 ```
 
 
-[\(view code\)](<./GoArray.hx#L224>)
+[\(view code\)](<./GoArray.hx#L225>)
 
 
 ### GoArrayDataIterator function next
@@ -838,7 +1224,7 @@ function next():stdgo.GoArrayDataIterator.T
 ```
 
 
-[\(view code\)](<./GoArray.hx#L232>)
+[\(view code\)](<./GoArray.hx#L233>)
 
 
 ## class GoArrayDataKeyValueIterator
@@ -852,7 +1238,7 @@ function hasNext():Bool
 ```
 
 
-[\(view code\)](<./GoArray.hx#L211>)
+[\(view code\)](<./GoArray.hx#L212>)
 
 
 ### GoArrayDataKeyValueIterator function new
@@ -863,7 +1249,7 @@ function new(slice:stdgo.GoArrayData<stdgo.GoArrayDataKeyValueIterator.T>):Void
 ```
 
 
-[\(view code\)](<./GoArray.hx#L207>)
+[\(view code\)](<./GoArray.hx#L208>)
 
 
 ### GoArrayDataKeyValueIterator function next
@@ -877,7 +1263,7 @@ function next():{
 ```
 
 
-[\(view code\)](<./GoArray.hx#L215>)
+[\(view code\)](<./GoArray.hx#L216>)
 
 
 ## class GoArrayMap
@@ -1017,42 +1403,6 @@ function new():Void
 
 
 [\(view code\)](<./GoMap.hx#L314>)
-
-
-## class GoIntIterator
-
-
-### GoIntIterator function hasNext
-
-
-```haxe
-function hasNext():Bool
-```
-
-
-[\(view code\)](<./StdGoTypes.hx#L1904>)
-
-
-### GoIntIterator function new
-
-
-```haxe
-function new(min:stdgo.GoInt, max:stdgo.GoInt):Void
-```
-
-
-[\(view code\)](<./StdGoTypes.hx#L1899>)
-
-
-### GoIntIterator function next
-
-
-```haxe
-function next():stdgo.GoInt
-```
-
-
-[\(view code\)](<./StdGoTypes.hx#L1908>)
 
 
 ## class GoObjectMap
@@ -1342,7 +1692,7 @@ import stdgo.*
 
 
 ```haxe
-typedef Complex128 = stdgo.Complex<stdgo._StdGoTypes.Float64>;
+typedef Complex128 = stdgo.Complex<stdgo.Float64>;
 ```
 
 
@@ -1350,7 +1700,7 @@ typedef Complex128 = stdgo.Complex<stdgo._StdGoTypes.Float64>;
 
 
 ```haxe
-typedef Complex64 = stdgo.Complex<stdgo._StdGoTypes.Float32>;
+typedef Complex64 = stdgo.Complex<stdgo.Float32>;
 ```
 
 
@@ -1361,6 +1711,30 @@ typedef Complex64 = stdgo.Complex<stdgo._StdGoTypes.Float32>;
 typedef Error = {
 	public function error():stdgo.GoString;
 };
+```
+
+
+## typedef Float
+
+
+```haxe
+typedef Float = stdgo.Float64;
+```
+
+
+## typedef Float32
+
+
+```haxe
+typedef Float32 = stdgo.Float64;
+```
+
+
+## typedef Float64
+
+
+```haxe
+typedef Float64 = Float;
 ```
 
 
@@ -1492,22 +1866,35 @@ typedef GoUIntMap = stdgo._GoMap.IntMap<stdgo.GoUIntMap.T>;
 ```
 
 
-## typedef InvalidType
+## typedef Int16
 
 
 ```haxe
-typedef InvalidType = Dynamic;
+typedef Int16 = Int;
 ```
 
 
-## typedef MapAccess
+## typedef Int32
 
 
 ```haxe
-typedef MapAccess = {
-	public function set(k:stdgo.MapAccess.K, v:stdgo.MapAccess.V):Void;
-	public function get(k:stdgo.MapAccess.K):Null<stdgo.MapAccess.V>;
-};
+typedef Int32 = haxe.Int32;
+```
+
+
+## typedef Int64
+
+
+```haxe
+typedef Int64 = haxe.Int64;
+```
+
+
+## typedef Int8
+
+
+```haxe
+typedef Int8 = Int;
 ```
 
 
@@ -1528,7 +1915,45 @@ typedef StructType = {
 ```
 
 
+## typedef UInt16
+
+
+```haxe
+typedef UInt16 = Int;
+```
+
+
+## typedef UInt32
+
+
+```haxe
+typedef UInt32 = UInt;
+```
+
+
+## typedef UInt64
+
+
+```haxe
+typedef UInt64 = haxe.UInt64;
+```
+
+
+## typedef UInt8
+
+
+```haxe
+typedef UInt8 = Int;
+```
+
+
 # Abstracts
+
+
+## abstract AnyInterface
+
+
+[\(view file containing code\)](<./AnyInterface.hx>)
 
 
 ## abstract Chan
@@ -1543,6 +1968,54 @@ typedef StructType = {
 [\(view file containing code\)](<./GoArray.hx>)
 
 
+## abstract GoComplex128
+
+
+[\(view file containing code\)](<./GoComplex128.hx>)
+
+
+## abstract GoComplex64
+
+
+[\(view file containing code\)](<./GoComplex64.hx>)
+
+
+## abstract GoFloat32
+
+
+[\(view file containing code\)](<./GoFloat32.hx>)
+
+
+## abstract GoFloat64
+
+
+[\(view file containing code\)](<./GoFloat64.hx>)
+
+
+## abstract GoInt16
+
+
+[\(view file containing code\)](<./GoInt16.hx>)
+
+
+## abstract GoInt32
+
+
+[\(view file containing code\)](<./GoInt32.hx>)
+
+
+## abstract GoInt64
+
+
+[\(view file containing code\)](<./GoInt64.hx>)
+
+
+## abstract GoInt8
+
+
+[\(view file containing code\)](<./GoInt8.hx>)
+
+
 ## abstract GoMap
 
 
@@ -1555,6 +2028,36 @@ typedef StructType = {
 [\(view file containing code\)](<./GoString.hx>)
 
 
+## abstract GoUInt16
+
+
+[\(view file containing code\)](<./GoUInt16.hx>)
+
+
+## abstract GoUInt32
+
+
+[\(view file containing code\)](<./GoUInt32.hx>)
+
+
+## abstract GoUInt64
+
+
+[\(view file containing code\)](<./GoUInt64.hx>)
+
+
+## abstract GoUInt8
+
+
+[\(view file containing code\)](<./GoUInt8.hx>)
+
+
+## abstract GoUIntptr
+
+
+[\(view file containing code\)](<./GoUIntptr.hx>)
+
+
 ## abstract Pointer
 
 
@@ -1565,89 +2068,5 @@ typedef StructType = {
 
 
 [\(view file containing code\)](<./Slice.hx>)
-
-
-## abstract GoUIntptr
-
-
-[\(view file containing code\)](<./StdGoTypes.hx>)
-
-
-## abstract GoFloat64
-
-
-[\(view file containing code\)](<./StdGoTypes.hx>)
-
-
-## abstract GoFloat32
-
-
-[\(view file containing code\)](<./StdGoTypes.hx>)
-
-
-## abstract GoComplex64
-
-
-[\(view file containing code\)](<./StdGoTypes.hx>)
-
-
-## abstract GoComplex128
-
-
-[\(view file containing code\)](<./StdGoTypes.hx>)
-
-
-## abstract GoInt32
-
-
-[\(view file containing code\)](<./StdGoTypes.hx>)
-
-
-## abstract GoUInt32
-
-
-[\(view file containing code\)](<./StdGoTypes.hx>)
-
-
-## abstract GoInt8
-
-
-[\(view file containing code\)](<./StdGoTypes.hx>)
-
-
-## abstract GoInt16
-
-
-[\(view file containing code\)](<./StdGoTypes.hx>)
-
-
-## abstract GoInt64
-
-
-[\(view file containing code\)](<./StdGoTypes.hx>)
-
-
-## abstract GoUInt8
-
-
-[\(view file containing code\)](<./StdGoTypes.hx>)
-
-
-## abstract GoUInt16
-
-
-[\(view file containing code\)](<./StdGoTypes.hx>)
-
-
-## abstract GoUInt64
-
-
-[\(view file containing code\)](<./StdGoTypes.hx>)
-
-
-## abstract AnyInterface
-
-
-[\(view file containing code\)](<./StdGoTypes.hx>)
 
 

@@ -281,12 +281,12 @@ import stdgo.internal.bisect.Bisect
 
 
 ```haxe
-final _offset64:stdgo.GoUInt64 = ((0 : stdgo.StdGoTypes.GoUInt64))
+final _offset64:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _prime64:stdgo.GoUInt64 = ((0 : stdgo.StdGoTypes.GoUInt64))
+final _prime64:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 

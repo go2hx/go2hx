@@ -131,7 +131,7 @@
 
 - [class T\_\_testSequence\_0\_\_\_localname\_\_\_info](<#class-ttestsequence_0_localname___info>)
 
-  - [`function new(?_index:Null<stdgo.GoInt>, ?_r:stdgo.GoInt32):Void`](<#ttestsequence_0_localname___info-function-new>)
+  - [`function new(?_index:stdgo.GoInt, ?_r:stdgo.GoInt32):Void`](<#ttestsequence_0_localname___info-function-new>)
 
 - [class Utf8Map](<#class-utf8map>)
 
@@ -957,7 +957,7 @@ var _r:stdgo.GoInt32
 
 
 ```haxe
-function new(?_index:Null<stdgo.GoInt>, ?_r:stdgo.GoInt32):Void
+function new(?_index:stdgo.GoInt, ?_r:stdgo.GoInt32):Void
 ```
 
 

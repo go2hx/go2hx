@@ -96,7 +96,7 @@ https://golang.org/doc/articles/laws_of_reflection.html
 
 - [class Method](<#class-method>)
 
-  - [`function new(?name:stdgo.GoString, ?pkgPath:stdgo.GoString, ?type:Null<stdgo.reflect.Type_>, ?func:stdgo.reflect.Value, ?index:Null<stdgo.GoInt>):Void`](<#method-function-new>)
+  - [`function new(?name:stdgo.GoString, ?pkgPath:stdgo.GoString, ?type:Null<stdgo.reflect.Type_>, ?func:stdgo.reflect.Value, ?index:stdgo.GoInt):Void`](<#method-function-new>)
 
   - [`function isExported():Bool`](<#method-function-isexported>)
 
@@ -106,11 +106,11 @@ https://golang.org/doc/articles/laws_of_reflection.html
 
 - [class SliceHeader](<#class-sliceheader>)
 
-  - [`function new(?data:stdgo.GoUIntptr, ?len:Null<stdgo.GoInt>, ?cap:Null<stdgo.GoInt>):Void`](<#sliceheader-function-new>)
+  - [`function new(?data:stdgo.GoUIntptr, ?len:stdgo.GoInt, ?cap:stdgo.GoInt):Void`](<#sliceheader-function-new>)
 
 - [class StringHeader](<#class-stringheader>)
 
-  - [`function new(?data:stdgo.GoUIntptr, ?len:Null<stdgo.GoInt>):Void`](<#stringheader-function-new>)
+  - [`function new(?data:stdgo.GoUIntptr, ?len:stdgo.GoInt):Void`](<#stringheader-function-new>)
 
 - [class StructField](<#class-structfield>)
 
@@ -120,7 +120,7 @@ https://golang.org/doc/articles/laws_of_reflection.html
 
 - [class Value](<#class-value>)
 
-  - [`function new(?value:stdgo.AnyInterface, ?underlyingValue:Dynamic, ?underlyingIndex:Null<stdgo.GoInt>, ?underlyingKey:Dynamic, ?canAddrBool:Bool, ?notSetBool:Bool, ?string:():stdgo.GoString):Void`](<#value-function-new>)
+  - [`function new(?value:stdgo.AnyInterface, ?underlyingValue:Dynamic, ?underlyingIndex:stdgo.GoInt, ?underlyingKey:Dynamic, ?canAddrBool:Bool, ?notSetBool:Bool, ?string:():stdgo.GoString):Void`](<#value-function-new>)
 
   - [`function string():stdgo.GoString`](<#value-function-string>)
 
@@ -301,17 +301,17 @@ import stdgo.reflect.Reflect
 
 
 ```haxe
-final array:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final array:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final bool_:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final bool_:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final bothDir:stdgo.reflect.ChanDir = ((((0 : stdgo.StdGoTypes.GoInt)) : stdgo.reflect.Reflect.ChanDir))
+final bothDir:stdgo.reflect.ChanDir = ((((0 : stdgo.GoInt)) : stdgo.reflect.Reflect.ChanDir))
 ```
 
 
@@ -319,82 +319,82 @@ final bothDir:stdgo.reflect.ChanDir = ((((0 : stdgo.StdGoTypes.GoInt)) : stdgo.r
 chan  
 
 ```haxe
-final chan:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final chan:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final complex128:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final complex128:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final complex64:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final complex64:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final float32:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final float32:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final float64:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final float64:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final func:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final func:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final int16:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final int16:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final int32:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final int32:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final int64:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final int64:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final int8:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final int8:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final int_:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final int_:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final interface_:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final interface_:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final invalid:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final invalid:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final map_:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final map_:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final pointer:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final pointer:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final ptr:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final ptr:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
@@ -402,7 +402,7 @@ final ptr:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect
 Ptr is the old name for the Pointer kind.  
 
 ```haxe
-final recvDir:stdgo.reflect.ChanDir = ((((0 : stdgo.StdGoTypes.GoInt)) : stdgo.reflect.Reflect.ChanDir))
+final recvDir:stdgo.reflect.ChanDir = ((((0 : stdgo.GoInt)) : stdgo.reflect.Reflect.ChanDir))
 ```
 
 
@@ -434,7 +434,7 @@ final selectSend:Null<Dynamic> = @:unknown_default_value null
 case Chan \<\- Send  
 
 ```haxe
-final sendDir:stdgo.reflect.ChanDir = ((((0 : stdgo.StdGoTypes.GoInt)) : stdgo.reflect.Reflect.ChanDir))
+final sendDir:stdgo.reflect.ChanDir = ((((0 : stdgo.GoInt)) : stdgo.reflect.Reflect.ChanDir))
 ```
 
 
@@ -442,52 +442,52 @@ final sendDir:stdgo.reflect.ChanDir = ((((0 : stdgo.StdGoTypes.GoInt)) : stdgo.r
 chan\<\-  
 
 ```haxe
-final slice:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final slice:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final string:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final string:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final struct_:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final struct_:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final uint:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final uint:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final uint16:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final uint16:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final uint32:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final uint32:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final uint64:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final uint64:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final uint8:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final uint8:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final uintptr:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final uintptr:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final unsafePointer:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final unsafePointer:stdgo.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 
@@ -1161,7 +1161,7 @@ var type:stdgo.reflect.Type_
 
 
 ```haxe
-function new(?name:stdgo.GoString, ?pkgPath:stdgo.GoString, ?type:Null<stdgo.reflect.Type_>, ?func:stdgo.reflect.Value, ?index:Null<stdgo.GoInt>):Void
+function new(?name:stdgo.GoString, ?pkgPath:stdgo.GoString, ?type:Null<stdgo.reflect.Type_>, ?func:stdgo.reflect.Value, ?index:stdgo.GoInt):Void
 ```
 
 
@@ -1265,7 +1265,7 @@ var len:stdgo.GoInt
 
 
 ```haxe
-function new(?data:stdgo.GoUIntptr, ?len:Null<stdgo.GoInt>, ?cap:Null<stdgo.GoInt>):Void
+function new(?data:stdgo.GoUIntptr, ?len:stdgo.GoInt, ?cap:stdgo.GoInt):Void
 ```
 
 
@@ -1300,7 +1300,7 @@ var len:stdgo.GoInt
 
 
 ```haxe
-function new(?data:stdgo.GoUIntptr, ?len:Null<stdgo.GoInt>):Void
+function new(?data:stdgo.GoUIntptr, ?len:stdgo.GoInt):Void
 ```
 
 
@@ -1415,7 +1415,7 @@ they represent.
 
 
 ```haxe
-function new(?value:stdgo.AnyInterface, ?underlyingValue:Dynamic, ?underlyingIndex:Null<stdgo.GoInt>, ?underlyingKey:Dynamic, ?canAddrBool:Bool, ?notSetBool:Bool, ?string:():stdgo.GoString):Void
+function new(?value:stdgo.AnyInterface, ?underlyingValue:Dynamic, ?underlyingIndex:stdgo.GoInt, ?underlyingKey:Dynamic, ?canAddrBool:Bool, ?notSetBool:Bool, ?string:():stdgo.GoString):Void
 ```
 
 

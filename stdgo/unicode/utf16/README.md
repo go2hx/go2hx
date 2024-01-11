@@ -41,7 +41,7 @@ import stdgo.unicode.utf16.Utf16
 
 
 ```haxe
-final _maxRune:stdgo.GoInt32 = ((1114111 : stdgo.StdGoTypes.GoInt32))
+final _maxRune:stdgo.GoInt32 = ((1114111 : stdgo.GoInt32))
 ```
 
 
@@ -49,7 +49,7 @@ final _maxRune:stdgo.GoInt32 = ((1114111 : stdgo.StdGoTypes.GoInt32))
 Maximum valid Unicode code point.  
 
 ```haxe
-final _replacementChar:stdgo.GoInt32 = ((65533 : stdgo.StdGoTypes.GoInt32))
+final _replacementChar:stdgo.GoInt32 = ((65533 : stdgo.GoInt32))
 ```
 
 
@@ -57,7 +57,7 @@ final _replacementChar:stdgo.GoInt32 = ((65533 : stdgo.StdGoTypes.GoInt32))
 Unicode replacement character  
 
 ```haxe
-final _surr1:stdgo.GoUInt64 = ((55296i64 : stdgo.StdGoTypes.GoUInt64))
+final _surr1:stdgo.GoUInt64 = ((55296i64 : stdgo.GoUInt64))
 ```
 
 
@@ -67,22 +67,22 @@ final _surr1:stdgo.GoUInt64 = ((55296i64 : stdgo.StdGoTypes.GoUInt64))
 the value is those 20 bits plus 0x10000.  
 
 ```haxe
-final _surr2:stdgo.GoUInt64 = ((56320i64 : stdgo.StdGoTypes.GoUInt64))
+final _surr2:stdgo.GoUInt64 = ((56320i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _surr3:stdgo.GoUInt64 = ((57344i64 : stdgo.StdGoTypes.GoUInt64))
+final _surr3:stdgo.GoUInt64 = ((57344i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _surrSelf:stdgo.GoUInt64 = ((65536i64 : stdgo.StdGoTypes.GoUInt64))
+final _surrSelf:stdgo.GoUInt64 = ((65536i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final maxRune:stdgo.GoInt32 = ((1114111 : stdgo.StdGoTypes.GoInt32))
+final maxRune:stdgo.GoInt32 = ((1114111 : stdgo.GoInt32))
 ```
 
 
@@ -90,7 +90,7 @@ final maxRune:stdgo.GoInt32 = ((1114111 : stdgo.StdGoTypes.GoInt32))
 Extra names for constants so we can validate them during testing.  
 
 ```haxe
-final replacementChar:stdgo.GoInt32 = ((65533 : stdgo.StdGoTypes.GoInt32))
+final replacementChar:stdgo.GoInt32 = ((65533 : stdgo.GoInt32))
 ```
 
 

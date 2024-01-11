@@ -194,7 +194,7 @@ import stdgo.internal.poll.Poll
 
 
 ```haxe
-final _maxRW:stdgo.GoUInt64 = ((0 : stdgo.StdGoTypes.GoUInt64))
+final _maxRW:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 
@@ -206,7 +206,7 @@ See golang.org/issue/7812 and golang.org/issue/16266.
 Use 1GB instead of, say, 2GB\-1, to keep subsequent reads aligned.  
 
 ```haxe
-final _mutexClosed:stdgo.GoUInt64 = ((0 : stdgo.StdGoTypes.GoUInt64))
+final _mutexClosed:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 
@@ -220,7 +220,7 @@ fdMutex.state is organized as follows:
 20 bits \- number of outstanding write waiters.  
 
 ```haxe
-final _mutexRLock:stdgo.GoUInt64 = ((0 : stdgo.StdGoTypes.GoUInt64))
+final _mutexRLock:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 
@@ -234,7 +234,7 @@ fdMutex.state is organized as follows:
 20 bits \- number of outstanding write waiters.  
 
 ```haxe
-final _mutexRMask:stdgo.GoUInt64 = ((0 : stdgo.StdGoTypes.GoUInt64))
+final _mutexRMask:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 
@@ -248,7 +248,7 @@ fdMutex.state is organized as follows:
 20 bits \- number of outstanding write waiters.  
 
 ```haxe
-final _mutexRWait:stdgo.GoUInt64 = ((0 : stdgo.StdGoTypes.GoUInt64))
+final _mutexRWait:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 
@@ -262,7 +262,7 @@ fdMutex.state is organized as follows:
 20 bits \- number of outstanding write waiters.  
 
 ```haxe
-final _mutexRef:stdgo.GoUInt64 = ((0 : stdgo.StdGoTypes.GoUInt64))
+final _mutexRef:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 
@@ -276,7 +276,7 @@ fdMutex.state is organized as follows:
 20 bits \- number of outstanding write waiters.  
 
 ```haxe
-final _mutexRefMask:stdgo.GoUInt64 = ((0 : stdgo.StdGoTypes.GoUInt64))
+final _mutexRefMask:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 
@@ -290,7 +290,7 @@ fdMutex.state is organized as follows:
 20 bits \- number of outstanding write waiters.  
 
 ```haxe
-final _mutexWLock:stdgo.GoUInt64 = ((0 : stdgo.StdGoTypes.GoUInt64))
+final _mutexWLock:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 
@@ -304,7 +304,7 @@ fdMutex.state is organized as follows:
 20 bits \- number of outstanding write waiters.  
 
 ```haxe
-final _mutexWMask:stdgo.GoUInt64 = ((0 : stdgo.StdGoTypes.GoUInt64))
+final _mutexWMask:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 
@@ -318,7 +318,7 @@ fdMutex.state is organized as follows:
 20 bits \- number of outstanding write waiters.  
 
 ```haxe
-final _mutexWWait:stdgo.GoUInt64 = ((0 : stdgo.StdGoTypes.GoUInt64))
+final _mutexWWait:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 
@@ -559,7 +559,7 @@ function acceptFunc()
 
 AcceptFunc is used to hook the accept call.  
 
-[\(view code\)](<./Poll.hx#L62>)
+[\(view code\)](<./Poll.hx#L192>)
 
 
 ## function closeFunc
@@ -573,7 +573,7 @@ function closeFunc()
 
 CloseFunc is used to hook the close call.  
 
-[\(view code\)](<./Poll.hx#L56>)
+[\(view code\)](<./Poll.hx#L186>)
 
 
 ## function dupCloseOnExec

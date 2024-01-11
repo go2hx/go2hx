@@ -381,7 +381,7 @@ final __Op_name_1:stdgo.GoString = (("opPseudo" : stdgo.GoString))
 
 
 ```haxe
-final _instSize:stdgo.GoUInt64 = ((40i64 : stdgo.StdGoTypes.GoUInt64))
+final _instSize:stdgo.GoUInt64 = ((40i64 : stdgo.GoUInt64))
 ```
 
 
@@ -397,12 +397,12 @@ corresponds to a 3.3 MB regexp.
 byte, 2 uint32, slice is 5 64\-bit words  
 
 ```haxe
-final _maxFold:stdgo.GoUInt64 = ((125251i64 : stdgo.StdGoTypes.GoUInt64))
+final _maxFold:stdgo.GoUInt64 = ((125251i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _maxHeight:stdgo.GoUInt64 = ((1000i64 : stdgo.StdGoTypes.GoUInt64))
+final _maxHeight:stdgo.GoUInt64 = ((1000i64 : stdgo.GoUInt64))
 ```
 
 
@@ -421,7 +421,7 @@ As an optimization, we don't even bother calculating heights
 until we've allocated at least maxHeight Regexp structures.  
 
 ```haxe
-final _maxRunes:stdgo.GoUInt64 = ((33554432i64 : stdgo.StdGoTypes.GoUInt64))
+final _maxRunes:stdgo.GoUInt64 = ((33554432i64 : stdgo.GoUInt64))
 ```
 
 
@@ -443,7 +443,7 @@ partial sharing between different character classes.
 So the limit is the best we can do.  
 
 ```haxe
-final _maxSize:stdgo.GoUInt64 = ((3355443i64 : stdgo.StdGoTypes.GoUInt64))
+final _maxSize:stdgo.GoUInt64 = ((3355443i64 : stdgo.GoUInt64))
 ```
 
 
@@ -461,7 +461,7 @@ final _meta:stdgo.GoString = (("\\.+*?()|[]{}^$" : stdgo.GoString))
 
 
 ```haxe
-final _minFold:stdgo.GoUInt64 = ((65i64 : stdgo.StdGoTypes.GoUInt64))
+final _minFold:stdgo.GoUInt64 = ((65i64 : stdgo.GoUInt64))
 ```
 
 
@@ -470,7 +470,7 @@ minimum and maximum runes involved in folding.
 checked during test.  
 
 ```haxe
-final _noMatch:stdgo.GoUInt64 = ((0i64 : stdgo.StdGoTypes.GoUInt64))
+final _noMatch:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
@@ -499,7 +499,7 @@ final _opVerticalBar:stdgo.regexp.syntax.Op = ((129 : stdgo.regexp.syntax.Syntax
 Pseudo\-ops for parsing stack.  
 
 ```haxe
-final _runeSize:stdgo.GoUInt64 = ((4i64 : stdgo.StdGoTypes.GoUInt64))
+final _runeSize:stdgo.GoUInt64 = ((4i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1946,7 +1946,7 @@ function _op():stdgo.regexp.syntax.InstOp
 
 op returns i.Op but merges all the Rune special cases into InstRune  
 
-[\(view code\)](<./Syntax.hx#L5410>)
+[\(view code\)](<./Syntax.hx#L5413>)
 
 
 ### Inst function matchEmptyWidth
@@ -1962,7 +1962,7 @@ MatchEmptyWidth reports whether the instruction matches
 an empty string between the runes before and after.
 It should only be called when i.Op == InstEmptyWidth.  
 
-[\(view code\)](<./Syntax.hx#L5308>)
+[\(view code\)](<./Syntax.hx#L5311>)
 
 
 ### Inst function matchRune
@@ -1977,7 +1977,7 @@ function matchRune( _r:stdgo.GoRune):Bool
 MatchRune reports whether the instruction matches \(and consumes\) r.
 It should only be called when i.Op == InstRune.  
 
-[\(view code\)](<./Syntax.hx#L5402>)
+[\(view code\)](<./Syntax.hx#L5405>)
 
 
 ### Inst function matchRunePos
@@ -1995,7 +1995,7 @@ If so, MatchRunePos returns the index of the matching rune pair
 If not, MatchRunePos returns \-1.
 MatchRunePos should only be called when i.Op == InstRune.  
 
-[\(view code\)](<./Syntax.hx#L5336>)
+[\(view code\)](<./Syntax.hx#L5339>)
 
 
 ### Inst function string
@@ -2006,7 +2006,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L5296>)
+[\(view code\)](<./Syntax.hx#L5299>)
 
 
 ## class Prog
@@ -2052,7 +2052,7 @@ function _skipNop( _pc:stdgo.GoUInt32):stdgo.Ref<stdgo.regexp.syntax.Inst>
 
 skipNop follows any no\-op or capturing instructions.  
 
-[\(view code\)](<./Syntax.hx#L5240>)
+[\(view code\)](<./Syntax.hx#L5243>)
 
 
 ### Prog function prefix
@@ -2071,7 +2071,7 @@ Prefix returns a literal string that all matches for the
 regexp must start with. Complete is true if the prefix
 is the entire match.  
 
-[\(view code\)](<./Syntax.hx#L5222>)
+[\(view code\)](<./Syntax.hx#L5225>)
 
 
 ### Prog function startCond
@@ -2097,7 +2097,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L5249>)
+[\(view code\)](<./Syntax.hx#L5252>)
 
 
 ## class Regexp
@@ -2175,7 +2175,7 @@ function _capNames( _names:stdgo.Slice<stdgo.GoString>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L5570>)
+[\(view code\)](<./Syntax.hx#L5573>)
 
 
 ### Regexp function capNames
@@ -2189,7 +2189,7 @@ function capNames():stdgo.Slice<stdgo.GoString>
 
 CapNames walks the regexp to find the names of capturing groups.  
 
-[\(view code\)](<./Syntax.hx#L5583>)
+[\(view code\)](<./Syntax.hx#L5586>)
 
 
 ### Regexp function equal
@@ -2203,7 +2203,7 @@ function equal( _y:stdgo.Ref<stdgo.regexp.syntax.Regexp>):Bool
 
 Equal reports whether x and y have identical structure.  
 
-[\(view code\)](<./Syntax.hx#L5620>)
+[\(view code\)](<./Syntax.hx#L5623>)
 
 
 ### Regexp function maxCap
@@ -2217,7 +2217,7 @@ function maxCap():stdgo.GoInt
 
 MaxCap walks the regexp to find the maximum capture index.  
 
-[\(view code\)](<./Syntax.hx#L5593>)
+[\(view code\)](<./Syntax.hx#L5596>)
 
 
 ### Regexp function simplify
@@ -2237,7 +2237,7 @@ may have been duplicated or removed. For example, the simplified form
 for /\(x\)\{1,2\}/ is /\(x\)\(x\)?/ but both parentheses capture as $1.
 The returned regexp may share structure with or be the original.  
 
-[\(view code\)](<./Syntax.hx#L5472>)
+[\(view code\)](<./Syntax.hx#L5475>)
 
 
 ### Regexp function string
@@ -2248,7 +2248,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L5610>)
+[\(view code\)](<./Syntax.hx#L5613>)
 
 
 ## class T\_error

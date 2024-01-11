@@ -107,7 +107,7 @@ import stdgo.encoding.hex.Hex
 
 
 ```haxe
-final _bufferSize:stdgo.GoUInt64 = ((1024i64 : stdgo.StdGoTypes.GoUInt64))
+final _bufferSize:stdgo.GoUInt64 = ((1024i64 : stdgo.GoUInt64))
 ```
 
 
@@ -189,7 +189,7 @@ function benchmarkDecode(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1507>)
+[\(view code\)](<./Hex.hx#L1508>)
 
 
 ## function benchmarkDump
@@ -200,7 +200,7 @@ function benchmarkDump(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1522>)
+[\(view code\)](<./Hex.hx#L1523>)
 
 
 ## function benchmarkEncode
@@ -211,7 +211,7 @@ function benchmarkEncode(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1492>)
+[\(view code\)](<./Hex.hx#L1493>)
 
 
 ## function decode
@@ -244,13 +244,13 @@ of bytes decoded before the error.
 
 ```haxe
 function exampleDecode():Void {
-        var _src = (("48656c6c6f20476f7068657221" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
-        var _dst = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((stdgo.encoding.hex.Hex.decodedLen((_src.length)) : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
-        var __tmp__ = stdgo.encoding.hex.Hex.decode(_dst, _src), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var _src = (("48656c6c6f20476f7068657221" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
+        var _dst = new stdgo.Slice<stdgo.GoUInt8>((stdgo.encoding.hex.Hex.decodedLen((_src.length)) : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var __tmp__ = stdgo.encoding.hex.Hex.decode(_dst, _src), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             stdgo.log.Log.fatal(stdgo.Go.toInterface(_err));
         };
-        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface((_dst.__slice__(0, _n) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)));
+        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface((_dst.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>)));
     }
 ```
 
@@ -292,7 +292,7 @@ the bytes decoded before the error.
 ```haxe
 function exampleDecodeString():Void {
         {};
-        var __tmp__ = stdgo.encoding.hex.Hex.decodeString(("48656c6c6f20476f7068657221" : stdgo.GoString)), _decoded:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.encoding.hex.Hex.decodeString(("48656c6c6f20476f7068657221" : stdgo.GoString)), _decoded:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             stdgo.log.Log.fatal(stdgo.Go.toInterface(_err));
         };
@@ -344,7 +344,7 @@ of the hex dump matches the output of \`hexdump \-C\` on the command line.
 
 ```haxe
 function exampleDump():Void {
-        var _content = (("Go is an open source programming language." : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
+        var _content = (("Go is an open source programming language." : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
         stdgo.fmt.Fmt.printf(("%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.encoding.hex.Hex.dump(_content)));
     }
 ```
@@ -385,7 +385,7 @@ function exampleDumper():Void {
             var _stdoutDumper:stdgo.io.Io.WriteCloser = stdgo.encoding.hex.Hex.dumper(stdgo.Go.asInterface(stdgo.os.Os.stdout));
             __deferstack__.unshift(() -> _stdoutDumper.close());
             for (__0 => _line in _lines) {
-                _stdoutDumper.write((_line : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
+                _stdoutDumper.write((_line : stdgo.Slice<stdgo.GoByte>));
             };
             {
                 for (defer in __deferstack__) {
@@ -397,7 +397,7 @@ function exampleDumper():Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
@@ -441,8 +441,8 @@ Encode implements hexadecimal encoding.
 
 ```haxe
 function exampleEncode():Void {
-        var _src = (("Hello Gopher!" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
-        var _dst = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((stdgo.encoding.hex.Hex.encodedLen((_src.length)) : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
+        var _src = (("Hello Gopher!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
+        var _dst = new stdgo.Slice<stdgo.GoUInt8>((stdgo.encoding.hex.Hex.encodedLen((_src.length)) : stdgo.GoInt).toBasic(), 0).__setNumber32__();
         stdgo.encoding.hex.Hex.encode(_dst, _src);
         stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(_dst));
     }
@@ -476,7 +476,7 @@ EncodeToString returns the hexadecimal encoding of src.
 
 ```haxe
 function exampleEncodeToString():Void {
-        var _src = (("Hello" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
+        var _src = (("Hello" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
         var _encodedStr:stdgo.GoString = stdgo.encoding.hex.Hex.encodeToString(_src)?.__copy__();
         stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(_encodedStr));
     }
@@ -586,7 +586,7 @@ function testDecoderErr(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1420>)
+[\(view code\)](<./Hex.hx#L1421>)
 
 
 ## function testDump
@@ -597,7 +597,7 @@ function testDump(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1482>)
+[\(view code\)](<./Hex.hx#L1483>)
 
 
 ## function testDumper
@@ -608,7 +608,7 @@ function testDumper(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1433>)
+[\(view code\)](<./Hex.hx#L1434>)
 
 
 ## function testDumper\_doubleclose
@@ -619,7 +619,7 @@ function testDumper_doubleclose(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1459>)
+[\(view code\)](<./Hex.hx#L1460>)
 
 
 ## function testDumper\_earlyclose
@@ -630,7 +630,7 @@ function testDumper_earlyclose(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1472>)
+[\(view code\)](<./Hex.hx#L1473>)
 
 
 ## function testEncode

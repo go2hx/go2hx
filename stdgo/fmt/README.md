@@ -733,7 +733,7 @@ final _decimalDigits:stdgo.GoString = (("0123456789" : stdgo.GoString))
 Numerical elements  
 
 ```haxe
-final _eof:stdgo.GoUInt64 = ((0i64 : stdgo.StdGoTypes.GoUInt64))
+final _eof:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
@@ -768,12 +768,12 @@ final _hexadecimalDigits:stdgo.GoString = (("0123456789aAbBcCdDeEfF" : stdgo.GoS
 Numerical elements  
 
 ```haxe
-final _hugeWid:stdgo.GoUInt64 = ((1073741824i64 : stdgo.StdGoTypes.GoUInt64))
+final _hugeWid:stdgo.GoUInt64 = ((1073741824i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _intBits:stdgo.GoUInt64 = ((32i64 : stdgo.StdGoTypes.GoUInt64))
+final _intBits:stdgo.GoUInt64 = ((32i64 : stdgo.GoUInt64))
 ```
 
 
@@ -898,7 +898,7 @@ final _udigits:stdgo.GoString = (("0123456789ABCDEFX" : stdgo.GoString))
 
 
 ```haxe
-final _uintptrBits:stdgo.GoUInt64 = ((32i64 : stdgo.StdGoTypes.GoUInt64))
+final _uintptrBits:stdgo.GoUInt64 = ((32i64 : stdgo.GoUInt64))
 ```
 
 
@@ -1228,7 +1228,7 @@ the error interface. The %w verb is otherwise a synonym for %v.
 ```haxe
 function exampleErrorf():Void {
         {};
-        var _err:stdgo.Error = stdgo.fmt.Fmt.errorf(("user %q (id %d) not found" : stdgo.GoString), stdgo.Go.toInterface(("bueller" : stdgo.GoString)), stdgo.Go.toInterface((17 : stdgo.StdGoTypes.GoInt)));
+        var _err:stdgo.Error = stdgo.fmt.Fmt.errorf(("user %q (id %d) not found" : stdgo.GoString), stdgo.Go.toInterface(("bueller" : stdgo.GoString)), stdgo.Go.toInterface((17 : stdgo.GoInt)));
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_err.error()));
     }
 ```
@@ -1286,7 +1286,7 @@ It returns the number of bytes written and any write error encountered.
 ```haxe
 function exampleFprint():Void {
         {};
-        var __tmp__ = stdgo.fmt.Fmt.fprint(stdgo.Go.asInterface(stdgo.os.Os.stdout), stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface((" is " : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface((" years old.\n" : stdgo.GoString))), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.fmt.Fmt.fprint(stdgo.Go.asInterface(stdgo.os.Os.stdout), stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface((" is " : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.GoInt)), stdgo.Go.toInterface((" years old.\n" : stdgo.GoString))), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(stdgo.os.Os.stderr), ("Fprint: %v\n" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
@@ -1327,7 +1327,7 @@ It returns the number of bytes written and any write error encountered.
 ```haxe
 function exampleFprintf():Void {
         {};
-        var __tmp__ = stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(stdgo.os.Os.stdout), ("%s is %d years old.\n" : stdgo.GoString), stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.StdGoTypes.GoInt))), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(stdgo.os.Os.stdout), ("%s is %d years old.\n" : stdgo.GoString), stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.GoInt))), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(stdgo.os.Os.stderr), ("Fprintf: %v\n" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
@@ -1369,7 +1369,7 @@ It returns the number of bytes written and any write error encountered.
 ```haxe
 function exampleFprintln():Void {
         {};
-        var __tmp__ = stdgo.fmt.Fmt.fprintln(stdgo.Go.asInterface(stdgo.os.Os.stdout), stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface(("is" : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(("years old." : stdgo.GoString))), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.fmt.Fmt.fprintln(stdgo.Go.asInterface(stdgo.os.Os.stdout), stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface(("is" : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.GoInt)), stdgo.Go.toInterface(("years old." : stdgo.GoString))), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(stdgo.os.Os.stderr), ("Fprintln: %v\n" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
@@ -1431,9 +1431,9 @@ Newlines in the input must match newlines in the format.
 
 ```haxe
 function exampleFscanf():Void {
-        var __0:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), __1:Bool = false, __2:stdgo.GoString = ("" : stdgo.GoString), _s:stdgo.GoString = __2, _b:Bool = __1, _i:stdgo.StdGoTypes.GoInt = __0;
+        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:Bool = false, __2:stdgo.GoString = ("" : stdgo.GoString), _s:stdgo.GoString = __2, _b:Bool = __1, _i:stdgo.GoInt = __0;
         var _r = stdgo.strings.Strings.newReader(("5 true gophers" : stdgo.GoString));
-        var __tmp__ = stdgo.fmt.Fmt.fscanf(stdgo.Go.asInterface(_r), ("%d %t %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_i)), stdgo.Go.toInterface(stdgo.Go.pointer(_b)), stdgo.Go.toInterface(stdgo.Go.pointer(_s))), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.fmt.Fmt.fscanf(stdgo.Go.asInterface(_r), ("%d %t %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_i)), stdgo.Go.toInterface(stdgo.Go.pointer(_b)), stdgo.Go.toInterface(stdgo.Go.pointer(_s))), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(stdgo.os.Os.stderr), ("Fscanf: %v\n" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
@@ -1477,10 +1477,10 @@ function exampleFscanln():Void {
         var _s:stdgo.GoString = ("dmr 1771 1.61803398875\n\tken 271828 3.14159" : stdgo.GoString);
         var _r = stdgo.strings.Strings.newReader(_s?.__copy__());
         var _a:stdgo.GoString = ("" : stdgo.GoString);
-        var _b:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-        var _c:stdgo.StdGoTypes.GoFloat64 = (0 : stdgo.StdGoTypes.GoFloat64);
+        var _b:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _c:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         while (true) {
-            var __tmp__ = stdgo.fmt.Fmt.fscanln(stdgo.Go.asInterface(_r), stdgo.Go.toInterface(stdgo.Go.pointer(_a)), stdgo.Go.toInterface(stdgo.Go.pointer(_b)), stdgo.Go.toInterface(stdgo.Go.pointer(_c))), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo.fmt.Fmt.fscanln(stdgo.Go.asInterface(_r), stdgo.Go.toInterface(stdgo.Go.pointer(_a)), stdgo.Go.toInterface(stdgo.Go.pointer(_b)), stdgo.Go.toInterface(stdgo.Go.pointer(_c))), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo.io.Io.eof))) {
                 break;
             };
@@ -1508,7 +1508,7 @@ function isSpace()
 ```
 
 
-[\(view code\)](<./Fmt.hx#L435>)
+[\(view code\)](<./Fmt.hx#L388>)
 
 
 ## function parsenum
@@ -1523,7 +1523,7 @@ function parsenum(:stdgo.GoString, :stdgo.GoInt, :stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Fmt.hx#L441>)
+[\(view code\)](<./Fmt.hx#L394>)
 
 
 ## function print
@@ -1552,7 +1552,7 @@ It returns the number of bytes written and any write error encountered.
 ```haxe
 function examplePrint():Void {
         {};
-        stdgo.fmt.Fmt.print(stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface((" is " : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface((" years old.\n" : stdgo.GoString)));
+        stdgo.fmt.Fmt.print(stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface((" is " : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.GoInt)), stdgo.Go.toInterface((" years old.\n" : stdgo.GoString)));
     }
 ```
 
@@ -1589,7 +1589,7 @@ It returns the number of bytes written and any write error encountered.
 ```haxe
 function examplePrintf():Void {
         {};
-        stdgo.fmt.Fmt.printf(("%s is %d years old.\n" : stdgo.GoString), stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.StdGoTypes.GoInt)));
+        stdgo.fmt.Fmt.printf(("%s is %d years old.\n" : stdgo.GoString), stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.GoInt)));
     }
 ```
 
@@ -1627,7 +1627,7 @@ It returns the number of bytes written and any write error encountered.
 ```haxe
 function examplePrintln():Void {
         {};
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface(("is" : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(("years old." : stdgo.GoString)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface(("is" : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.GoInt)), stdgo.Go.toInterface(("years old." : stdgo.GoString)));
     }
 ```
 
@@ -1722,7 +1722,7 @@ Spaces are added between operands when neither is a string.
 ```haxe
 function exampleSprint():Void {
         {};
-        var _s:stdgo.GoString = stdgo.fmt.Fmt.sprint(stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface((" is " : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface((" years old.\n" : stdgo.GoString)))?.__copy__();
+        var _s:stdgo.GoString = stdgo.fmt.Fmt.sprint(stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface((" is " : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.GoInt)), stdgo.Go.toInterface((" years old.\n" : stdgo.GoString)))?.__copy__();
         stdgo.io.Io.writeString(stdgo.Go.asInterface(stdgo.os.Os.stdout), _s?.__copy__());
     }
 ```
@@ -1756,7 +1756,7 @@ Sprintf formats according to a format specifier and returns the resulting string
 ```haxe
 function exampleSprintf():Void {
         {};
-        var _s:stdgo.GoString = stdgo.fmt.Fmt.sprintf(("%s is %d years old.\n" : stdgo.GoString), stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.StdGoTypes.GoInt)))?.__copy__();
+        var _s:stdgo.GoString = stdgo.fmt.Fmt.sprintf(("%s is %d years old.\n" : stdgo.GoString), stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.GoInt)))?.__copy__();
         stdgo.io.Io.writeString(stdgo.Go.asInterface(stdgo.os.Os.stdout), _s?.__copy__());
     }
 ```
@@ -1791,7 +1791,7 @@ Spaces are always added between operands and a newline is appended.
 ```haxe
 function exampleSprintln():Void {
         {};
-        var _s:stdgo.GoString = stdgo.fmt.Fmt.sprintln(stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface(("is" : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(("years old." : stdgo.GoString)))?.__copy__();
+        var _s:stdgo.GoString = stdgo.fmt.Fmt.sprintln(stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface(("is" : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.GoInt)), stdgo.Go.toInterface(("years old." : stdgo.GoString)))?.__copy__();
         stdgo.io.Io.writeString(stdgo.Go.asInterface(stdgo.os.Os.stdout), _s?.__copy__());
     }
 ```
@@ -1851,8 +1851,8 @@ Newlines in the input must match newlines in the format.
 ```haxe
 function exampleSscanf():Void {
         var _name:stdgo.GoString = ("" : stdgo.GoString);
-        var _age:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-        var __tmp__ = stdgo.fmt.Fmt.sscanf(("Kim is 22 years old" : stdgo.GoString), ("%s is %d years old" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_name)), stdgo.Go.toInterface(stdgo.Go.pointer(_age))), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var _age:stdgo.GoInt = (0 : stdgo.GoInt);
+        var __tmp__ = stdgo.fmt.Fmt.sscanf(("Kim is 22 years old" : stdgo.GoString), ("%s is %d years old" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_name)), stdgo.Go.toInterface(stdgo.Go.pointer(_age))), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             throw stdgo.Go.toInterface(_err);
         };

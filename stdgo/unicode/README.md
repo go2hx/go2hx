@@ -85,7 +85,7 @@ Unicode code points.
 
 - [class RangeTable](<#class-rangetable>)
 
-  - [`function new(?r16:stdgo.Slice<stdgo.unicode.Range16>, ?r32:stdgo.Slice<stdgo.unicode.Range32>, ?latinOffset:Null<stdgo.GoInt>):Void`](<#rangetable-function-new>)
+  - [`function new(?r16:stdgo.Slice<stdgo.unicode.Range16>, ?r32:stdgo.Slice<stdgo.unicode.Range32>, ?latinOffset:stdgo.GoInt):Void`](<#rangetable-function-new>)
 
 - [typedef SpecialCase](<#typedef-specialcase>)
 
@@ -129,7 +129,7 @@ import stdgo.unicode.Unicode
 
 
 ```haxe
-final _linearMax:stdgo.GoUInt64 = ((18i64 : stdgo.StdGoTypes.GoUInt64))
+final _linearMax:stdgo.GoUInt64 = ((18i64 : stdgo.GoUInt64))
 ```
 
 
@@ -138,7 +138,7 @@ linearMax is the maximum size table for linear search for non\-Latin1 rune.
 Derived by running 'go test \-calibrate'.  
 
 ```haxe
-final _pC:stdgo.GoUInt64 = ((128i64 : stdgo.StdGoTypes.GoUInt64))
+final _pC:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
 ```
 
 
@@ -149,7 +149,7 @@ Bit masks for each code point under U\+0100, for fast lookup.
 a control character.  
 
 ```haxe
-final _pLl:stdgo.GoUInt64 = ((128i64 : stdgo.StdGoTypes.GoUInt64))
+final _pLl:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
 ```
 
 
@@ -160,7 +160,7 @@ Bit masks for each code point under U\+0100, for fast lookup.
 a lower\-case letter.  
 
 ```haxe
-final _pLmask:stdgo.GoUInt64 = ((96i64 : stdgo.StdGoTypes.GoUInt64))
+final _pLmask:stdgo.GoUInt64 = ((96i64 : stdgo.GoUInt64))
 ```
 
 
@@ -168,7 +168,7 @@ final _pLmask:stdgo.GoUInt64 = ((96i64 : stdgo.StdGoTypes.GoUInt64))
 Bit masks for each code point under U\+0100, for fast lookup.  
 
 ```haxe
-final _pLo:stdgo.GoUInt64 = ((96i64 : stdgo.StdGoTypes.GoUInt64))
+final _pLo:stdgo.GoUInt64 = ((96i64 : stdgo.GoUInt64))
 ```
 
 
@@ -179,7 +179,7 @@ Bit masks for each code point under U\+0100, for fast lookup.
 a letter that is neither upper nor lower case.  
 
 ```haxe
-final _pLu:stdgo.GoUInt64 = ((128i64 : stdgo.StdGoTypes.GoUInt64))
+final _pLu:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
 ```
 
 
@@ -190,7 +190,7 @@ Bit masks for each code point under U\+0100, for fast lookup.
 an upper\-case letter.  
 
 ```haxe
-final _pN:stdgo.GoUInt64 = ((128i64 : stdgo.StdGoTypes.GoUInt64))
+final _pN:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
 ```
 
 
@@ -201,7 +201,7 @@ Bit masks for each code point under U\+0100, for fast lookup.
 a numeral.  
 
 ```haxe
-final _pP:stdgo.GoUInt64 = ((128i64 : stdgo.StdGoTypes.GoUInt64))
+final _pP:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
 ```
 
 
@@ -212,7 +212,7 @@ Bit masks for each code point under U\+0100, for fast lookup.
 a punctuation character.  
 
 ```haxe
-final _pS:stdgo.GoUInt64 = ((128i64 : stdgo.StdGoTypes.GoUInt64))
+final _pS:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
 ```
 
 
@@ -223,7 +223,7 @@ Bit masks for each code point under U\+0100, for fast lookup.
 a symbolic character.  
 
 ```haxe
-final _pZ:stdgo.GoUInt64 = ((128i64 : stdgo.StdGoTypes.GoUInt64))
+final _pZ:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
 ```
 
 
@@ -234,7 +234,7 @@ Bit masks for each code point under U\+0100, for fast lookup.
 a spacing character.  
 
 ```haxe
-final _pg:stdgo.GoUInt64 = ((144i64 : stdgo.StdGoTypes.GoUInt64))
+final _pg:stdgo.GoUInt64 = ((144i64 : stdgo.GoUInt64))
 ```
 
 
@@ -245,7 +245,7 @@ Bit masks for each code point under U\+0100, for fast lookup.
 a graphical character according to the Unicode definition.  
 
 ```haxe
-final _pp:stdgo.GoUInt64 = ((128i64 : stdgo.StdGoTypes.GoUInt64))
+final _pp:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
 ```
 
 
@@ -256,7 +256,7 @@ Bit masks for each code point under U\+0100, for fast lookup.
 a printable character according to Go's definition.  
 
 ```haxe
-final lowerCase:stdgo.GoUInt64 = ((2i64 : stdgo.StdGoTypes.GoUInt64))
+final lowerCase:stdgo.GoUInt64 = ((2i64 : stdgo.GoUInt64))
 ```
 
 
@@ -264,7 +264,7 @@ final lowerCase:stdgo.GoUInt64 = ((2i64 : stdgo.StdGoTypes.GoUInt64))
 Indices into the Delta arrays inside CaseRanges for case mapping.  
 
 ```haxe
-final maxASCII:stdgo.GoInt32 = ((127 : stdgo.StdGoTypes.GoInt32))
+final maxASCII:stdgo.GoInt32 = ((127 : stdgo.GoInt32))
 ```
 
 
@@ -272,7 +272,7 @@ final maxASCII:stdgo.GoInt32 = ((127 : stdgo.StdGoTypes.GoInt32))
 maximum ASCII value.  
 
 ```haxe
-final maxCase:stdgo.GoUInt64 = ((2i64 : stdgo.StdGoTypes.GoUInt64))
+final maxCase:stdgo.GoUInt64 = ((2i64 : stdgo.GoUInt64))
 ```
 
 
@@ -280,7 +280,7 @@ final maxCase:stdgo.GoUInt64 = ((2i64 : stdgo.StdGoTypes.GoUInt64))
 Indices into the Delta arrays inside CaseRanges for case mapping.  
 
 ```haxe
-final maxLatin1:stdgo.GoInt32 = ((255 : stdgo.StdGoTypes.GoInt32))
+final maxLatin1:stdgo.GoInt32 = ((255 : stdgo.GoInt32))
 ```
 
 
@@ -288,7 +288,7 @@ final maxLatin1:stdgo.GoInt32 = ((255 : stdgo.StdGoTypes.GoInt32))
 maximum Latin\-1 value.  
 
 ```haxe
-final maxRune:stdgo.GoInt32 = ((1114111 : stdgo.StdGoTypes.GoInt32))
+final maxRune:stdgo.GoInt32 = ((1114111 : stdgo.GoInt32))
 ```
 
 
@@ -296,7 +296,7 @@ final maxRune:stdgo.GoInt32 = ((1114111 : stdgo.StdGoTypes.GoInt32))
 Maximum valid Unicode code point.  
 
 ```haxe
-final replacementChar:stdgo.GoInt32 = ((65533 : stdgo.StdGoTypes.GoInt32))
+final replacementChar:stdgo.GoInt32 = ((65533 : stdgo.GoInt32))
 ```
 
 
@@ -304,7 +304,7 @@ final replacementChar:stdgo.GoInt32 = ((65533 : stdgo.StdGoTypes.GoInt32))
 Represents invalid code points.  
 
 ```haxe
-final titleCase:stdgo.GoUInt64 = ((2i64 : stdgo.StdGoTypes.GoUInt64))
+final titleCase:stdgo.GoUInt64 = ((2i64 : stdgo.GoUInt64))
 ```
 
 
@@ -312,7 +312,7 @@ final titleCase:stdgo.GoUInt64 = ((2i64 : stdgo.StdGoTypes.GoUInt64))
 Indices into the Delta arrays inside CaseRanges for case mapping.  
 
 ```haxe
-final upperCase:stdgo.GoUInt64 = ((2i64 : stdgo.StdGoTypes.GoUInt64))
+final upperCase:stdgo.GoUInt64 = ((2i64 : stdgo.GoUInt64))
 ```
 
 
@@ -320,7 +320,7 @@ final upperCase:stdgo.GoUInt64 = ((2i64 : stdgo.StdGoTypes.GoUInt64))
 Indices into the Delta arrays inside CaseRanges for case mapping.  
 
 ```haxe
-final upperLower:stdgo.GoInt32 = ((1114112 : stdgo.StdGoTypes.GoInt32))
+final upperLower:stdgo.GoInt32 = ((1114112 : stdgo.GoInt32))
 ```
 
 
@@ -4454,8 +4454,8 @@ IsDigit reports whether the rune is a decimal digit.
 
 ```haxe
 function exampleIsDigit():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isDigit((2537 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isDigit((65 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isDigit((2537 : stdgo.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isDigit((65 : stdgo.GoInt32))));
     }
 ```
 
@@ -4503,8 +4503,8 @@ IsLetter reports whether the rune is a letter \(category L\).
 
 ```haxe
 function exampleIsLetter():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLetter((65 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLetter((55 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLetter((65 : stdgo.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLetter((55 : stdgo.GoInt32))));
     }
 ```
 
@@ -4536,8 +4536,8 @@ IsLower reports whether the rune is a lower case letter.
 
 ```haxe
 function exampleIsLower():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLower((97 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLower((65 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLower((97 : stdgo.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLower((65 : stdgo.GoInt32))));
     }
 ```
 
@@ -4583,8 +4583,8 @@ IsNumber reports whether the rune is a number \(category N\).
 
 ```haxe
 function exampleIsNumber():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isNumber((8551 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isNumber((65 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isNumber((8551 : stdgo.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isNumber((65 : stdgo.GoInt32))));
     }
 ```
 
@@ -4673,10 +4673,10 @@ Z and property Pattern\_White\_Space.
 
 ```haxe
 function exampleIsSpace():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((32 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((10 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((9 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((97 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((32 : stdgo.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((10 : stdgo.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((9 : stdgo.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((97 : stdgo.GoInt32))));
     }
 ```
 
@@ -4722,8 +4722,8 @@ IsTitle reports whether the rune is a title case letter.
 
 ```haxe
 function exampleIsTitle():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isTitle((453 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isTitle((97 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isTitle((453 : stdgo.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isTitle((97 : stdgo.GoInt32))));
     }
 ```
 
@@ -4755,8 +4755,8 @@ IsUpper reports whether the rune is an upper case letter.
 
 ```haxe
 function exampleIsUpper():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isUpper((65 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isUpper((97 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isUpper((65 : stdgo.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isUpper((97 : stdgo.GoInt32))));
     }
 ```
 
@@ -4824,12 +4824,12 @@ For example:
 
 ```haxe
 function exampleSimpleFold():Void {
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((65 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((97 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((75 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((107 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((8490 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((49 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((65 : stdgo.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((97 : stdgo.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((75 : stdgo.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((107 : stdgo.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((8490 : stdgo.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((49 : stdgo.GoInt32))));
     }
 ```
 
@@ -4862,13 +4862,13 @@ To maps the rune to the specified case: UpperCase, LowerCase, or TitleCase.
 ```haxe
 function exampleTo():Void {
         {};
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((0 : stdgo.StdGoTypes.GoInt), (103 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((1 : stdgo.StdGoTypes.GoInt), (103 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((2 : stdgo.StdGoTypes.GoInt), (103 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((0 : stdgo.GoInt), (103 : stdgo.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((1 : stdgo.GoInt), (103 : stdgo.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((2 : stdgo.GoInt), (103 : stdgo.GoInt32))));
         {};
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((0 : stdgo.StdGoTypes.GoInt), (71 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((1 : stdgo.StdGoTypes.GoInt), (71 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((2 : stdgo.StdGoTypes.GoInt), (71 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((0 : stdgo.GoInt), (71 : stdgo.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((1 : stdgo.GoInt), (71 : stdgo.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((2 : stdgo.GoInt), (71 : stdgo.GoInt32))));
     }
 ```
 
@@ -4901,7 +4901,7 @@ ToLower maps the rune to lower case.
 ```haxe
 function exampleToLower():Void {
         {};
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.toLower((71 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.toLower((71 : stdgo.GoInt32))));
     }
 ```
 
@@ -4934,7 +4934,7 @@ ToTitle maps the rune to title case.
 ```haxe
 function exampleToTitle():Void {
         {};
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.toTitle((103 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.toTitle((103 : stdgo.GoInt32))));
     }
 ```
 
@@ -4967,7 +4967,7 @@ ToUpper maps the rune to upper case.
 ```haxe
 function exampleToUpper():Void {
         {};
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.toUpper((103 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.toUpper((103 : stdgo.GoInt32))));
     }
 ```
 
@@ -5128,7 +5128,7 @@ var r32:stdgo.Slice<stdgo.unicode.Range32>
 
 
 ```haxe
-function new(?r16:stdgo.Slice<stdgo.unicode.Range16>, ?r32:stdgo.Slice<stdgo.unicode.Range32>, ?latinOffset:Null<stdgo.GoInt>):Void
+function new(?r16:stdgo.Slice<stdgo.unicode.Range16>, ?r32:stdgo.Slice<stdgo.unicode.Range32>, ?latinOffset:stdgo.GoInt):Void
 ```
 
 

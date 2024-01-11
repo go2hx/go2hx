@@ -176,13 +176,13 @@ The testing/quick package is frozen and is not accepting new features.
 
 - [class CheckError](<#class-checkerror>)
 
-  - [`function new(?count:Null<stdgo.GoInt>, ?in_:stdgo.Slice<stdgo.AnyInterface>):Void`](<#checkerror-function-new>)
+  - [`function new(?count:stdgo.GoInt, ?in_:stdgo.Slice<stdgo.AnyInterface>):Void`](<#checkerror-function-new>)
 
   - [`function error():stdgo.GoString`](<#checkerror-function-error>)
 
 - [class Config](<#class-config>)
 
-  - [`function new(?maxCount:Null<stdgo.GoInt>, ?maxCountScale:stdgo.GoFloat64, ?rand:stdgo.Ref<stdgo.math.rand.Rand>, ?values:(:stdgo.Slice<stdgo.reflect.Value>, :stdgo.Ref<stdgo.math.rand.Rand>):Void):Void`](<#config-function-new>)
+  - [`function new(?maxCount:stdgo.GoInt, ?maxCountScale:stdgo.GoFloat64, ?rand:stdgo.Ref<stdgo.math.rand.Rand>, ?values:(:stdgo.Slice<stdgo.reflect.Value>, :stdgo.Ref<stdgo.math.rand.Rand>):Void):Void`](<#config-function-new>)
 
   - [`function values(:stdgo.Slice<stdgo.reflect.Value>, :stdgo.Ref<stdgo.math.rand.Rand>):Void`](<#config-function-values>)
 
@@ -200,7 +200,7 @@ The testing/quick package is frozen and is not accepting new features.
 
 - [class TestStruct](<#class-teststruct>)
 
-  - [`function new(?a:Null<stdgo.GoInt>, ?b:stdgo.GoString):Void`](<#teststruct-function-new>)
+  - [`function new(?a:stdgo.GoInt, ?b:stdgo.GoString):Void`](<#teststruct-function-new>)
 
 - [typedef Generator](<#typedef-generator>)
 
@@ -1185,7 +1185,7 @@ var in_:stdgo.Slice<stdgo.AnyInterface>
 
 
 ```haxe
-function new(?count:Null<stdgo.GoInt>, ?in_:stdgo.Slice<stdgo.AnyInterface>):Void
+function new(?count:stdgo.GoInt, ?in_:stdgo.Slice<stdgo.AnyInterface>):Void
 ```
 
 
@@ -1242,7 +1242,7 @@ If nil, a default pseudo\-random source will be used.
 
 
 ```haxe
-function new(?maxCount:Null<stdgo.GoInt>, ?maxCountScale:stdgo.GoFloat64, ?rand:stdgo.Ref<stdgo.math.rand.Rand>, ?values:(:stdgo.Slice<stdgo.reflect.Value>, :stdgo.Ref<stdgo.math.rand.Rand>):Void):Void
+function new(?maxCount:stdgo.GoInt, ?maxCountScale:stdgo.GoFloat64, ?rand:stdgo.Ref<stdgo.math.rand.Rand>, ?values:(:stdgo.Slice<stdgo.reflect.Value>, :stdgo.Ref<stdgo.math.rand.Rand>):Void):Void
 ```
 
 
@@ -1382,7 +1382,7 @@ var b:stdgo.GoString
 
 
 ```haxe
-function new(?a:Null<stdgo.GoInt>, ?b:stdgo.GoString):Void
+function new(?a:stdgo.GoInt, ?b:stdgo.GoString):Void
 ```
 
 

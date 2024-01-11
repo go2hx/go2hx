@@ -222,11 +222,11 @@ package or protocol buffers.
 
 - [class T\_](<#class-t_>)
 
-  - [`function new(?int_:Null<stdgo.GoInt>, ?uint:stdgo.GoUInt, ?uintptr:stdgo.GoUIntptr, ?array:stdgo.GoArray<stdgo.GoInt>):Void`](<#t_-function-new>)
+  - [`function new(?int_:stdgo.GoInt, ?uint:stdgo.GoUInt, ?uintptr:stdgo.GoUIntptr, ?array:stdgo.GoArray<stdgo.GoInt>):Void`](<#t_-function-new>)
 
 - [class T\_testNoFixedSize\_14\_\_\_localname\_\_\_Person](<#class-t_testnofixedsize_14localnameperson>)
 
-  - [`function new(?age:Null<stdgo.GoInt>, ?weight:stdgo.GoFloat64, ?height:stdgo.GoFloat64):Void`](<#t_testnofixedsize_14localnameperson-function-new>)
+  - [`function new(?age:stdgo.GoInt, ?weight:stdgo.GoFloat64, ?height:stdgo.GoFloat64):Void`](<#t_testnofixedsize_14localnameperson-function-new>)
 
 - [class T\_testSizeStructCache\_11\_\_\_localname\_\_\_foo](<#class-t_testsizestructcache_11localnamefoo>)
 
@@ -296,7 +296,7 @@ import stdgo.encoding.binary.Binary
 
 
 ```haxe
-final maxVarintLen16:stdgo.GoUInt64 = ((3i64 : stdgo.StdGoTypes.GoUInt64))
+final maxVarintLen16:stdgo.GoUInt64 = ((3i64 : stdgo.GoUInt64))
 ```
 
 
@@ -304,7 +304,7 @@ final maxVarintLen16:stdgo.GoUInt64 = ((3i64 : stdgo.StdGoTypes.GoUInt64))
 MaxVarintLenN is the maximum length of a varint\-encoded N\-bit integer.  
 
 ```haxe
-final maxVarintLen32:stdgo.GoUInt64 = ((5i64 : stdgo.StdGoTypes.GoUInt64))
+final maxVarintLen32:stdgo.GoUInt64 = ((5i64 : stdgo.GoUInt64))
 ```
 
 
@@ -312,7 +312,7 @@ final maxVarintLen32:stdgo.GoUInt64 = ((5i64 : stdgo.StdGoTypes.GoUInt64))
 MaxVarintLenN is the maximum length of a varint\-encoded N\-bit integer.  
 
 ```haxe
-final maxVarintLen64:stdgo.GoUInt64 = ((10i64 : stdgo.StdGoTypes.GoUInt64))
+final maxVarintLen64:stdgo.GoUInt64 = ((10i64 : stdgo.GoUInt64))
 ```
 
 
@@ -908,10 +908,10 @@ If the buffer is too small, PutUvarint will panic.
 
 ```haxe
 function examplePutUvarint():Void {
-        var _buf = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((10 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
-        for (__0 => _x in (new stdgo.Slice<stdgo.StdGoTypes.GoUInt64>(6, 6, (1i64 : stdgo.StdGoTypes.GoUInt64), (2i64 : stdgo.StdGoTypes.GoUInt64), (127i64 : stdgo.StdGoTypes.GoUInt64), (128i64 : stdgo.StdGoTypes.GoUInt64), (255i64 : stdgo.StdGoTypes.GoUInt64), (256i64 : stdgo.StdGoTypes.GoUInt64)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt64>)) {
-            var _n:stdgo.StdGoTypes.GoInt = stdgo.encoding.binary.Binary.putUvarint(_buf, _x);
-            stdgo.fmt.Fmt.printf(("%x\n" : stdgo.GoString), stdgo.Go.toInterface((_buf.__slice__(0, _n) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)));
+        var _buf = new stdgo.Slice<stdgo.GoUInt8>((10 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        for (__0 => _x in (new stdgo.Slice<stdgo.GoUInt64>(6, 6, (1i64 : stdgo.GoUInt64), (2i64 : stdgo.GoUInt64), (127i64 : stdgo.GoUInt64), (128i64 : stdgo.GoUInt64), (255i64 : stdgo.GoUInt64), (256i64 : stdgo.GoUInt64)) : stdgo.Slice<stdgo.GoUInt64>)) {
+            var _n:stdgo.GoInt = stdgo.encoding.binary.Binary.putUvarint(_buf, _x);
+            stdgo.fmt.Fmt.printf(("%x\n" : stdgo.GoString), stdgo.Go.toInterface((_buf.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>)));
         };
     }
 ```
@@ -945,21 +945,21 @@ If the buffer is too small, PutVarint will panic.
 
 ```haxe
 function examplePutVarint():Void {
-        var _buf = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((10 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
-        for (__0 => _x in (new stdgo.Slice<stdgo.StdGoTypes.GoInt64>(
+        var _buf = new stdgo.Slice<stdgo.GoUInt8>((10 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        for (__0 => _x in (new stdgo.Slice<stdgo.GoInt64>(
 9,
 9,
-(-65i64 : stdgo.StdGoTypes.GoInt64),
-(-64i64 : stdgo.StdGoTypes.GoInt64),
-(-2i64 : stdgo.StdGoTypes.GoInt64),
-(-1i64 : stdgo.StdGoTypes.GoInt64),
-(0i64 : stdgo.StdGoTypes.GoInt64),
-(1i64 : stdgo.StdGoTypes.GoInt64),
-(2i64 : stdgo.StdGoTypes.GoInt64),
-(63i64 : stdgo.StdGoTypes.GoInt64),
-(64i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.Slice<stdgo.StdGoTypes.GoInt64>)) {
-            var _n:stdgo.StdGoTypes.GoInt = stdgo.encoding.binary.Binary.putVarint(_buf, _x);
-            stdgo.fmt.Fmt.printf(("%x\n" : stdgo.GoString), stdgo.Go.toInterface((_buf.__slice__(0, _n) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)));
+(-65i64 : stdgo.GoInt64),
+(-64i64 : stdgo.GoInt64),
+(-2i64 : stdgo.GoInt64),
+(-1i64 : stdgo.GoInt64),
+(0i64 : stdgo.GoInt64),
+(1i64 : stdgo.GoInt64),
+(2i64 : stdgo.GoInt64),
+(63i64 : stdgo.GoInt64),
+(64i64 : stdgo.GoInt64)) : stdgo.Slice<stdgo.GoInt64>)) {
+            var _n:stdgo.GoInt = stdgo.encoding.binary.Binary.putVarint(_buf, _x);
+            stdgo.fmt.Fmt.printf(("%x\n" : stdgo.GoString), stdgo.Go.toInterface((_buf.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>)));
         };
     }
 ```
@@ -1008,8 +1008,8 @@ Read returns ErrUnexpectedEOF.
 
 ```haxe
 function exampleRead():Void {
-        var _pi:stdgo.StdGoTypes.GoFloat64 = (0 : stdgo.StdGoTypes.GoFloat64);
-        var _b = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(8, 8, (24 : stdgo.StdGoTypes.GoUInt8), (45 : stdgo.StdGoTypes.GoUInt8), (68 : stdgo.StdGoTypes.GoUInt8), (84 : stdgo.StdGoTypes.GoUInt8), (251 : stdgo.StdGoTypes.GoUInt8), (33 : stdgo.StdGoTypes.GoUInt8), (9 : stdgo.StdGoTypes.GoUInt8), (64 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
+        var _pi:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
+        var _b = (new stdgo.Slice<stdgo.GoUInt8>(8, 8, (24 : stdgo.GoUInt8), (45 : stdgo.GoUInt8), (68 : stdgo.GoUInt8), (84 : stdgo.GoUInt8), (251 : stdgo.GoUInt8), (33 : stdgo.GoUInt8), (9 : stdgo.GoUInt8), (64 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         var _buf = stdgo.bytes.Bytes.newReader(_b);
         var _err:stdgo.Error = stdgo.encoding.binary.Binary.read(stdgo.Go.asInterface(_buf), stdgo.Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), stdgo.Go.toInterface(stdgo.Go.pointer(_pi)));
         if (_err != null) {
@@ -1033,27 +1033,27 @@ function exampleRead():Void {
 
 ```haxe
 function exampleRead_multi():Void {
-        var _b = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(
+        var _b = (new stdgo.Slice<stdgo.GoUInt8>(
 14,
 14,
-(24 : stdgo.StdGoTypes.GoUInt8),
-(45 : stdgo.StdGoTypes.GoUInt8),
-(68 : stdgo.StdGoTypes.GoUInt8),
-(84 : stdgo.StdGoTypes.GoUInt8),
-(251 : stdgo.StdGoTypes.GoUInt8),
-(33 : stdgo.StdGoTypes.GoUInt8),
-(9 : stdgo.StdGoTypes.GoUInt8),
-(64 : stdgo.StdGoTypes.GoUInt8),
-(255 : stdgo.StdGoTypes.GoUInt8),
-(1 : stdgo.StdGoTypes.GoUInt8),
-(2 : stdgo.StdGoTypes.GoUInt8),
-(3 : stdgo.StdGoTypes.GoUInt8),
-(190 : stdgo.StdGoTypes.GoUInt8),
-(239 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
+(24 : stdgo.GoUInt8),
+(45 : stdgo.GoUInt8),
+(68 : stdgo.GoUInt8),
+(84 : stdgo.GoUInt8),
+(251 : stdgo.GoUInt8),
+(33 : stdgo.GoUInt8),
+(9 : stdgo.GoUInt8),
+(64 : stdgo.GoUInt8),
+(255 : stdgo.GoUInt8),
+(1 : stdgo.GoUInt8),
+(2 : stdgo.GoUInt8),
+(3 : stdgo.GoUInt8),
+(190 : stdgo.GoUInt8),
+(239 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         var _r = stdgo.bytes.Bytes.newReader(_b);
-        var _data:T__struct_7 = ({ pi : (0 : stdgo.StdGoTypes.GoFloat64), uate : (0 : stdgo.StdGoTypes.GoUInt8), mine : new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(...[for (i in 0 ... 3) (0 : stdgo.StdGoTypes.GoUInt8)]), too : (0 : stdgo.StdGoTypes.GoUInt16) } : T__struct_7);
+        var _data:T__struct_7 = ({ pi : (0 : stdgo.GoFloat64), uate : (0 : stdgo.GoUInt8), mine : new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 3) (0 : stdgo.GoUInt8)]), too : (0 : stdgo.GoUInt16) } : T__struct_7);
         {
-            var _err:stdgo.Error = stdgo.encoding.binary.Binary.read(stdgo.Go.asInterface(_r), stdgo.Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_data) : stdgo.StdGoTypes.Ref<T__struct_7>))));
+            var _err:stdgo.Error = stdgo.encoding.binary.Binary.read(stdgo.Go.asInterface(_r), stdgo.Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_data) : stdgo.Ref<T__struct_7>))));
             if (_err != null) {
                 stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("binary.Read failed:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };
@@ -1493,9 +1493,9 @@ and the number of bytes n is \<= 0 meaning:
 
 ```haxe
 function exampleUvarint():Void {
-        var _inputs = (new stdgo.Slice<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>(6, 6, (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (1 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (2 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (127 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(2, 2, (128 : stdgo.StdGoTypes.GoUInt8), (1 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(2, 2, (255 : stdgo.StdGoTypes.GoUInt8), (1 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(2, 2, (128 : stdgo.StdGoTypes.GoUInt8), (2 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)) : stdgo.Slice<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>);
+        var _inputs = (new stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>(6, 6, (new stdgo.Slice<stdgo.GoUInt8>(1, 1, (1 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo.Slice<stdgo.GoUInt8>(1, 1, (2 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo.Slice<stdgo.GoUInt8>(1, 1, (127 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo.Slice<stdgo.GoUInt8>(2, 2, (128 : stdgo.GoUInt8), (1 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo.Slice<stdgo.GoUInt8>(2, 2, (255 : stdgo.GoUInt8), (1 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo.Slice<stdgo.GoUInt8>(2, 2, (128 : stdgo.GoUInt8), (2 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
         for (__0 => _b in _inputs) {
-            var __tmp__ = stdgo.encoding.binary.Binary.uvarint(_b), _x:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, _n:stdgo.StdGoTypes.GoInt = __tmp__._1;
+            var __tmp__ = stdgo.encoding.binary.Binary.uvarint(_b), _x:stdgo.GoUInt64 = __tmp__._0, _n:stdgo.GoInt = __tmp__._1;
             if (_n != ((_b.length))) {
                 stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("Uvarint did not consume all of in" : stdgo.GoString)));
             };
@@ -1542,20 +1542,20 @@ and the number of bytes n is \<= 0 with the following meaning:
 
 ```haxe
 function exampleVarint():Void {
-        var _inputs = (new stdgo.Slice<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>(
+        var _inputs = (new stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>(
 9,
 9,
-(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(2, 2, (129 : stdgo.StdGoTypes.GoUInt8), (1 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>),
-(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (127 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>),
-(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (3 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>),
-(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (1 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>),
-(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (0 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>),
-(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (2 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>),
-(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (4 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>),
-(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (126 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>),
-(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(2, 2, (128 : stdgo.StdGoTypes.GoUInt8), (1 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)) : stdgo.Slice<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>);
+(new stdgo.Slice<stdgo.GoUInt8>(2, 2, (129 : stdgo.GoUInt8), (1 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>),
+(new stdgo.Slice<stdgo.GoUInt8>(1, 1, (127 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>),
+(new stdgo.Slice<stdgo.GoUInt8>(1, 1, (3 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>),
+(new stdgo.Slice<stdgo.GoUInt8>(1, 1, (1 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>),
+(new stdgo.Slice<stdgo.GoUInt8>(1, 1, (0 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>),
+(new stdgo.Slice<stdgo.GoUInt8>(1, 1, (2 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>),
+(new stdgo.Slice<stdgo.GoUInt8>(1, 1, (4 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>),
+(new stdgo.Slice<stdgo.GoUInt8>(1, 1, (126 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>),
+(new stdgo.Slice<stdgo.GoUInt8>(2, 2, (128 : stdgo.GoUInt8), (1 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
         for (__0 => _b in _inputs) {
-            var __tmp__ = stdgo.encoding.binary.Binary.varint(_b), _x:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _n:stdgo.StdGoTypes.GoInt = __tmp__._1;
+            var __tmp__ = stdgo.encoding.binary.Binary.varint(_b), _x:stdgo.GoInt64 = __tmp__._0, _n:stdgo.GoInt = __tmp__._1;
             if (_n != ((_b.length))) {
                 stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("Varint did not consume all of in" : stdgo.GoString)));
             };
@@ -1599,8 +1599,8 @@ with blank \(\_\) field names.
 
 ```haxe
 function exampleWrite():Void {
-        var _buf = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
-        var _pi:stdgo.StdGoTypes.GoFloat64 = (3.141592653589793 : stdgo.StdGoTypes.GoFloat64);
+        var _buf = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.Ref<stdgo.bytes.Bytes.Buffer>);
+        var _pi:stdgo.GoFloat64 = (3.141592653589793 : stdgo.GoFloat64);
         var _err:stdgo.Error = stdgo.encoding.binary.Binary.write(stdgo.Go.asInterface(_buf), stdgo.Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), stdgo.Go.toInterface(_pi));
         if (_err != null) {
             stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("binary.Write failed:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
@@ -1623,8 +1623,8 @@ function exampleWrite():Void {
 
 ```haxe
 function exampleWrite_multi():Void {
-        var _buf = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
-        var _data:stdgo.Slice<stdgo.StdGoTypes.AnyInterface> = (new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(3, 3, stdgo.Go.toInterface((61374 : stdgo.StdGoTypes.GoUInt16)), stdgo.Go.toInterface((-54 : stdgo.StdGoTypes.GoInt8)), stdgo.Go.toInterface((254 : stdgo.StdGoTypes.GoUInt8))) : stdgo.Slice<stdgo.StdGoTypes.AnyInterface>);
+        var _buf = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.Ref<stdgo.bytes.Bytes.Buffer>);
+        var _data:stdgo.Slice<stdgo.AnyInterface> = (new stdgo.Slice<stdgo.AnyInterface>(3, 3, stdgo.Go.toInterface((61374 : stdgo.GoUInt16)), stdgo.Go.toInterface((-54 : stdgo.GoInt8)), stdgo.Go.toInterface((254 : stdgo.GoUInt8))) : stdgo.Slice<stdgo.AnyInterface>);
         for (__0 => _v in _data) {
             var _err:stdgo.Error = stdgo.encoding.binary.Binary.write(stdgo.Go.asInterface(_buf), stdgo.Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), _v);
             if (_err != null) {
@@ -1873,7 +1873,7 @@ var uintptr:stdgo.GoUIntptr
 
 
 ```haxe
-function new(?int_:Null<stdgo.GoInt>, ?uint:stdgo.GoUInt, ?uintptr:stdgo.GoUIntptr, ?array:stdgo.GoArray<stdgo.GoInt>):Void
+function new(?int_:stdgo.GoInt, ?uint:stdgo.GoUInt, ?uintptr:stdgo.GoUIntptr, ?array:stdgo.GoArray<stdgo.GoInt>):Void
 ```
 
 
@@ -1902,7 +1902,7 @@ var weight:stdgo.GoFloat64
 
 
 ```haxe
-function new(?age:Null<stdgo.GoInt>, ?weight:stdgo.GoFloat64, ?height:stdgo.GoFloat64):Void
+function new(?age:stdgo.GoInt, ?weight:stdgo.GoFloat64, ?height:stdgo.GoFloat64):Void
 ```
 
 

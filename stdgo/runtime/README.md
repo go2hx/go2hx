@@ -399,7 +399,7 @@ checking if the uid/gid match the effective uid/gid.
 
 - [class Frame](<#class-frame>)
 
-  - [`function new(?pc:stdgo.GoUIntptr, ?func:stdgo.Ref<stdgo.runtime.Func>, ?function_:stdgo.GoString, ?file:stdgo.GoString, ?line:Null<stdgo.GoInt>, ?entry:stdgo.GoUIntptr):Void`](<#frame-function-new>)
+  - [`function new(?pc:stdgo.GoUIntptr, ?func:stdgo.Ref<stdgo.runtime.Func>, ?function_:stdgo.GoString, ?file:stdgo.GoString, ?line:stdgo.GoInt, ?entry:stdgo.GoUIntptr):Void`](<#frame-function-new>)
 
 - [class Frames](<#class-frames>)
 
@@ -1653,7 +1653,7 @@ symbolic information.
 
 
 ```haxe
-function new(?pc:stdgo.GoUIntptr, ?func:stdgo.Ref<stdgo.runtime.Func>, ?function_:stdgo.GoString, ?file:stdgo.GoString, ?line:Null<stdgo.GoInt>, ?entry:stdgo.GoUIntptr):Void
+function new(?pc:stdgo.GoUIntptr, ?func:stdgo.Ref<stdgo.runtime.Func>, ?function_:stdgo.GoString, ?file:stdgo.GoString, ?line:stdgo.GoInt, ?entry:stdgo.GoUIntptr):Void
 ```
 
 

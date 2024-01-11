@@ -28,6 +28,9 @@ function genGo() {
             return 0;
     });
     stdList = stdList.map(std -> '    _ "$std"');
+    if (!sys.FileSystem.exists("./scripts/hxb")) {
+        sys.FileSystem.createDirectory("./scripts/hxb");
+    }
     File.saveContent("./scripts/hxb/main.go",'package main\n
 import (\n' + stdList.join("\n") + '\n)\n
 func main() {

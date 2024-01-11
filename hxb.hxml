@@ -1,2 +1,4 @@
 -m scripts.Hxb
 --interp
+# haxe create_hxb.hxml
+# haxe consume_hxb.hxml

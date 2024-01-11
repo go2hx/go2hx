@@ -22,18 +22,6 @@ package stdgo.compress.zlib;
 **/
 private var __go2hxdoc__package : Bool;
 /**
-    
-    
-    
-**/
-final _zlibDeflate : stdgo.GoUInt64 = (8i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-final _zlibMaxWindow : stdgo.GoUInt64 = (7i64 : stdgo.GoUInt64);
-/**
     // ErrChecksum is returned when reading ZLIB data that has an invalid checksum.
     
     
@@ -207,6 +195,30 @@ var _zlibTests : stdgo.Slice<stdgo.compress.zlib.Zlib.T_zlibTest> = (new stdgo.S
 (111 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), stdgo.io.Io.errUnexpectedEOF) : stdgo.compress.zlib.Zlib.T_zlibTest),
 (new stdgo.compress.zlib.Zlib.T_zlibTest(("truncated zlib stream amid fixed-block" : stdgo.GoString), ("He" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(5, 5, (120 : stdgo.GoUInt8), (156 : stdgo.GoUInt8), (242 : stdgo.GoUInt8), (72 : stdgo.GoUInt8), (205 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), stdgo.io.Io.errUnexpectedEOF) : stdgo.compress.zlib.Zlib.T_zlibTest)) : stdgo.Slice<stdgo.compress.zlib.Zlib.T_zlibTest>);
 /**
+    
+    
+    
+**/
+var _filenames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(3, 3, ("../testdata/gettysburg.txt" : stdgo.GoString), ("../testdata/e.txt" : stdgo.GoString), ("../testdata/pi.txt" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+/**
+    
+    
+    
+**/
+var _data : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(1, 1, ("test a reasonable sized string that can be compressed" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+/**
+    
+    
+    
+**/
+final _zlibDeflate : stdgo.GoUInt64 = (8i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _zlibMaxWindow : stdgo.GoUInt64 = (7i64 : stdgo.GoUInt64);
+/**
     // These constants are copied from the flate package, so that code that imports
     // "compress/zlib" does not also have to import "compress/flate".
     
@@ -241,18 +253,6 @@ final defaultCompression : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
     
 **/
 final huffmanOnly : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-var _filenames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(3, 3, ("../testdata/gettysburg.txt" : stdgo.GoString), ("../testdata/e.txt" : stdgo.GoString), ("../testdata/pi.txt" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-/**
-    
-    
-    
-**/
-var _data : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(1, 1, ("test a reasonable sized string that can be compressed" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
 /**
     // Resetter resets a ReadCloser returned by NewReader or NewReaderDict
     // to switch to a new underlying Reader. This permits reusing a ReadCloser

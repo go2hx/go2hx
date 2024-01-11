@@ -385,6 +385,53 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
+var _ppFree : stdgo.sync.Sync.Pool = ({ new_ : function():stdgo.AnyInterface {
+        return stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo.fmt.Fmt.T_pp)) : stdgo.Ref<stdgo.fmt.Fmt.T_pp>)));
+    } } : stdgo.sync.Sync.Pool);
+/**
+    // space is a copy of the unicode.White_Space ranges,
+    // to avoid depending on package unicode.
+    
+    
+**/
+var _space : stdgo.Slice<stdgo.GoArray<stdgo.GoUInt16>> = (new stdgo.Slice<stdgo.GoArray<stdgo.GoUInt16>>(
+10,
+10,
+(new stdgo.GoArray<stdgo.GoUInt16>((9 : stdgo.GoUInt16), (13 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
+(new stdgo.GoArray<stdgo.GoUInt16>((32 : stdgo.GoUInt16), (32 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
+(new stdgo.GoArray<stdgo.GoUInt16>((133 : stdgo.GoUInt16), (133 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
+(new stdgo.GoArray<stdgo.GoUInt16>((160 : stdgo.GoUInt16), (160 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
+(new stdgo.GoArray<stdgo.GoUInt16>((5760 : stdgo.GoUInt16), (5760 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
+(new stdgo.GoArray<stdgo.GoUInt16>((8192 : stdgo.GoUInt16), (8202 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
+(new stdgo.GoArray<stdgo.GoUInt16>((8232 : stdgo.GoUInt16), (8233 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
+(new stdgo.GoArray<stdgo.GoUInt16>((8239 : stdgo.GoUInt16), (8239 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
+(new stdgo.GoArray<stdgo.GoUInt16>((8287 : stdgo.GoUInt16), (8287 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
+(new stdgo.GoArray<stdgo.GoUInt16>((12288 : stdgo.GoUInt16), (12288 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>)) : stdgo.Slice<stdgo.GoArray<stdgo.GoUInt16>>);
+/**
+    
+    
+    
+**/
+var _ssFree : stdgo.sync.Sync.Pool = ({ new_ : function():stdgo.AnyInterface {
+        return stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo.fmt.Fmt.T_ss)) : stdgo.Ref<stdgo.fmt.Fmt.T_ss>)));
+    } } : stdgo.sync.Sync.Pool);
+/**
+    
+    
+    
+**/
+var _errComplex : stdgo.Error = stdgo.errors.Errors.new_(("syntax error scanning complex number" : stdgo.GoString));
+/**
+    
+    
+    
+**/
+var _errBool : stdgo.Error = stdgo.errors.Errors.new_(("syntax error scanning boolean" : stdgo.GoString));
+/**
+    
+    
+    
+**/
 var isSpace : stdgo.GoInt32 -> Bool = _isSpace;
 /**
     
@@ -519,54 +566,7 @@ final _invReflectString : stdgo.GoString = ("<invalid reflect.Value>" : stdgo.Go
     
     
 **/
-var _ppFree : stdgo.sync.Sync.Pool = ({ new_ : function():stdgo.AnyInterface {
-        return stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo.fmt.Fmt.T_pp)) : stdgo.Ref<stdgo.fmt.Fmt.T_pp>)));
-    } } : stdgo.sync.Sync.Pool);
-/**
-    
-    
-    
-**/
 final _eof : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
-/**
-    // space is a copy of the unicode.White_Space ranges,
-    // to avoid depending on package unicode.
-    
-    
-**/
-var _space : stdgo.Slice<stdgo.GoArray<stdgo.GoUInt16>> = (new stdgo.Slice<stdgo.GoArray<stdgo.GoUInt16>>(
-10,
-10,
-(new stdgo.GoArray<stdgo.GoUInt16>((9 : stdgo.GoUInt16), (13 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((32 : stdgo.GoUInt16), (32 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((133 : stdgo.GoUInt16), (133 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((160 : stdgo.GoUInt16), (160 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((5760 : stdgo.GoUInt16), (5760 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((8192 : stdgo.GoUInt16), (8202 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((8232 : stdgo.GoUInt16), (8233 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((8239 : stdgo.GoUInt16), (8239 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((8287 : stdgo.GoUInt16), (8287 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((12288 : stdgo.GoUInt16), (12288 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>)) : stdgo.Slice<stdgo.GoArray<stdgo.GoUInt16>>);
-/**
-    
-    
-    
-**/
-var _ssFree : stdgo.sync.Sync.Pool = ({ new_ : function():stdgo.AnyInterface {
-        return stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo.fmt.Fmt.T_ss)) : stdgo.Ref<stdgo.fmt.Fmt.T_ss>)));
-    } } : stdgo.sync.Sync.Pool);
-/**
-    
-    
-    
-**/
-var _errComplex : stdgo.Error = stdgo.errors.Errors.new_(("syntax error scanning complex number" : stdgo.GoString));
-/**
-    
-    
-    
-**/
-var _errBool : stdgo.Error = stdgo.errors.Errors.new_(("syntax error scanning boolean" : stdgo.GoString));
 /**
     // Numerical elements
     

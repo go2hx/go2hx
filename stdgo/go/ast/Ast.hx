@@ -5,17 +5,34 @@ package stdgo.go.ast;
 **/
 private var __go2hxdoc__package : Bool;
 /**
-    
+    // separator is an empty //-style comment that is interspersed between
+    // different comment groups when they are concatenated into a single group
     
     
 **/
-final send : stdgo.go.ast.Ast.ChanDir = (2 : stdgo.go.ast.Ast.ChanDir);
+var _separator : stdgo.Ref<stdgo.go.ast.Ast.Comment> = (stdgo.Go.setRef((new stdgo.go.ast.Ast.Comment((0 : stdgo.go.token.Token.Pos), ("//" : stdgo.GoString)) : stdgo.go.ast.Ast.Comment)) : stdgo.Ref<stdgo.go.ast.Ast.Comment>);
 /**
     
     
     
 **/
-final recv = (2 : stdgo.go.ast.Ast.ChanDir);
+var _indent : stdgo.Slice<stdgo.GoUInt8> = ((".  " : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
+/**
+    
+    
+    
+**/
+var _objKindStrings : stdgo.GoArray<stdgo.GoString> = {
+        var s:stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 7) ""]);
+        s[0] = ("bad" : stdgo.GoString);
+        s[1] = ("package" : stdgo.GoString);
+        s[2] = ("const" : stdgo.GoString);
+        s[3] = ("type" : stdgo.GoString);
+        s[4] = ("var" : stdgo.GoString);
+        s[5] = ("func" : stdgo.GoString);
+        s[6] = ("label" : stdgo.GoString);
+        s;
+    };
 /**
     
     
@@ -70,38 +87,6 @@ var _isDirectiveTests : stdgo.Slice<T__struct_1> = (new stdgo.Slice<T__struct_1>
 ({ _in : ("extern foo" : stdgo.GoString), _ok : true } : T__struct_1),
 ({ _in : ("expert foo" : stdgo.GoString), _ok : false } : T__struct_1)) : stdgo.Slice<T__struct_1>);
 /**
-    // If set, duplicate function declarations are excluded.
-    
-    
-**/
-final filterFuncDuplicates : stdgo.go.ast.Ast.MergeMode = (4u32 : stdgo.go.ast.Ast.MergeMode);
-/**
-    // If set, comments that are not associated with a specific
-    // AST node (as Doc or Comment) are excluded.
-    
-    
-**/
-final filterUnassociatedComments = (4u32 : stdgo.go.ast.Ast.MergeMode);
-/**
-    // If set, duplicate import declarations are excluded.
-    
-    
-**/
-final filterImportDuplicates = (4u32 : stdgo.go.ast.Ast.MergeMode);
-/**
-    // separator is an empty //-style comment that is interspersed between
-    // different comment groups when they are concatenated into a single group
-    
-    
-**/
-var _separator : stdgo.Ref<stdgo.go.ast.Ast.Comment> = (stdgo.Go.setRef((new stdgo.go.ast.Ast.Comment((0 : stdgo.go.token.Token.Pos), ("//" : stdgo.GoString)) : stdgo.go.ast.Ast.Comment)) : stdgo.Ref<stdgo.go.ast.Ast.Comment>);
-/**
-    
-    
-    
-**/
-var _indent : stdgo.Slice<stdgo.GoUInt8> = ((".  " : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
-/**
     
     
     
@@ -140,6 +125,37 @@ var _tests : stdgo.Slice<T__struct_2> = (new stdgo.Slice<T__struct_2>(
 ({ _x : stdgo.Go.toInterface(stdgo.Go.asInterface(({ _x : (7 : stdgo.GoInt) } : T__struct_4))), _s : ("0  struct { x int } {}" : stdgo.GoString) } : T__struct_2),
 ({ _x : stdgo.Go.toInterface(stdgo.Go.asInterface(({ x : (42 : stdgo.GoInt), _y : (991 : stdgo.GoInt) } : T__struct_5))), _s : ("0  struct { X int; y int } {\n\t\t1  .  X: 42\n\t\t2  }" : stdgo.GoString) } : T__struct_2),
 ({ _x : stdgo.Go.toInterface(stdgo.Go.asInterface(({ x : (42 : stdgo.GoInt), y : (991 : stdgo.GoInt) } : T__struct_6))), _s : ("0  struct { X int; Y int } {\n\t\t1  .  X: 42\n\t\t2  .  Y: 991\n\t\t3  }" : stdgo.GoString) } : T__struct_2)) : stdgo.Slice<T__struct_2>);
+/**
+    
+    
+    
+**/
+final send : stdgo.go.ast.Ast.ChanDir = (2 : stdgo.go.ast.Ast.ChanDir);
+/**
+    
+    
+    
+**/
+final recv = (2 : stdgo.go.ast.Ast.ChanDir);
+/**
+    // If set, duplicate function declarations are excluded.
+    
+    
+**/
+final filterFuncDuplicates : stdgo.go.ast.Ast.MergeMode = (4u32 : stdgo.go.ast.Ast.MergeMode);
+/**
+    // If set, comments that are not associated with a specific
+    // AST node (as Doc or Comment) are excluded.
+    
+    
+**/
+final filterUnassociatedComments = (4u32 : stdgo.go.ast.Ast.MergeMode);
+/**
+    // If set, duplicate import declarations are excluded.
+    
+    
+**/
+final filterImportDuplicates = (4u32 : stdgo.go.ast.Ast.MergeMode);
 /**
     // The list of possible Object kinds.
     
@@ -182,22 +198,6 @@ final fun = (6 : stdgo.go.ast.Ast.ObjKind);
     // label
 **/
 final lbl = (6 : stdgo.go.ast.Ast.ObjKind);
-/**
-    
-    
-    
-**/
-var _objKindStrings : stdgo.GoArray<stdgo.GoString> = {
-        var s:stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 7) ""]);
-        s[0] = ("bad" : stdgo.GoString);
-        s[1] = ("package" : stdgo.GoString);
-        s[2] = ("const" : stdgo.GoString);
-        s[3] = ("type" : stdgo.GoString);
-        s[4] = ("var" : stdgo.GoString);
-        s[5] = ("func" : stdgo.GoString);
-        s[6] = ("label" : stdgo.GoString);
-        s;
-    };
 /**
     // All node types implement the Node interface.
     
@@ -2832,7 +2832,7 @@ function _fprint(_w:stdgo.io.Io.Writer, _fset:stdgo.Ref<stdgo.go.token.Token.Fil
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterfaceData)) {
+            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;

@@ -11,42 +11,6 @@ package stdgo.io;
 **/
 private var __go2hxdoc__package : Bool;
 /**
-    // exported for test
-    
-    
-**/
-var errInvalidWrite : stdgo.Error = _errInvalidWrite;
-/**
-    
-    
-    
-**/
-var errWhence : stdgo.Error = _errWhence;
-/**
-    
-    
-    
-**/
-var errOffset : stdgo.Error = _errOffset;
-/**
-    // Seek whence values.
-    
-    // seek relative to the origin of the file
-**/
-final seekStart : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
-/**
-    // Seek whence values.
-    
-    // seek relative to the current offset
-**/
-final seekCurrent : stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
-/**
-    // Seek whence values.
-    
-    // seek relative to the end
-**/
-final seekEnd : stdgo.GoUInt64 = (2i64 : stdgo.GoUInt64);
-/**
     // ErrShortWrite means that a write accepted fewer bytes than requested
     // but failed to return an explicit error.
     
@@ -112,13 +76,6 @@ var _errOffset : stdgo.Error = stdgo.errors.Errors.new_(("Seek: invalid offset" 
 **/
 var discard : stdgo.io.Io.Writer = stdgo.Go.asInterface((new stdgo.io.Io.T_discard() : stdgo.io.Io.T_discard));
 /**
-    // discard implements ReaderFrom as an optimization so Copy to
-    // io.Discard can avoid doing unnecessary work.
-    
-    
-**/
-var __3 : stdgo.io.Io.ReaderFrom = stdgo.Go.asInterface((new stdgo.io.Io.T_discard() : stdgo.io.Io.T_discard));
-/**
     
     
     
@@ -127,6 +84,55 @@ var _blackHolePool : stdgo.sync.Sync.Pool = ({ new_ : function():stdgo.AnyInterf
         var _b = new stdgo.Slice<stdgo.GoUInt8>((8192 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
         return stdgo.Go.toInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>));
     } } : stdgo.sync.Sync.Pool);
+/**
+    // ErrClosedPipe is the error used for read or write operations on a closed pipe.
+    
+    
+**/
+var errClosedPipe : stdgo.Error = stdgo.errors.Errors.new_(("io: read/write on closed pipe" : stdgo.GoString));
+/**
+    // exported for test
+    
+    
+**/
+var errInvalidWrite : stdgo.Error = _errInvalidWrite;
+/**
+    
+    
+    
+**/
+var errWhence : stdgo.Error = _errWhence;
+/**
+    
+    
+    
+**/
+var errOffset : stdgo.Error = _errOffset;
+/**
+    // Seek whence values.
+    
+    // seek relative to the origin of the file
+**/
+final seekStart : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+/**
+    // Seek whence values.
+    
+    // seek relative to the current offset
+**/
+final seekCurrent : stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
+/**
+    // Seek whence values.
+    
+    // seek relative to the end
+**/
+final seekEnd : stdgo.GoUInt64 = (2i64 : stdgo.GoUInt64);
+/**
+    // discard implements ReaderFrom as an optimization so Copy to
+    // io.Discard can avoid doing unnecessary work.
+    
+    
+**/
+var __3 : stdgo.io.Io.ReaderFrom = stdgo.Go.asInterface((new stdgo.io.Io.T_discard() : stdgo.io.Io.T_discard));
 /**
     
     
@@ -139,12 +145,6 @@ var __4 : stdgo.io.Io.WriterTo = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo.i
     
 **/
 var __5 : stdgo.io.Io.StringWriter = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo.io.Io.T_multiWriter>) : stdgo.Ref<T_multiWriter>));
-/**
-    // ErrClosedPipe is the error used for read or write operations on a closed pipe.
-    
-    
-**/
-var errClosedPipe : stdgo.Error = stdgo.errors.Errors.new_(("io: read/write on closed pipe" : stdgo.GoString));
 /**
     // Reader is the interface that wraps the basic Read method.
     //

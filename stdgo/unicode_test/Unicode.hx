@@ -1,5 +1,6 @@
 package stdgo.unicode_test;
 import stdgo.unicode.Unicode;
+import stdgo.unicode.Unicode;
 /**
     
     

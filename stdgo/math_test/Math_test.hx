@@ -2286,18 +2286,6 @@ var _y2SC : stdgo.Slice<stdgo.GoFloat64> = (new stdgo.Slice<stdgo.GoFloat64>(5, 
 **/
 var _yM3SC : stdgo.Slice<stdgo.GoFloat64> = (new stdgo.Slice<stdgo.GoFloat64>(5, 5, naN(), inf((1 : stdgo.GoInt)), (0 : stdgo.GoFloat64), naN(), naN()) : stdgo.Slice<stdgo.GoFloat64>);
 /**
-    // arguments and expected results for boundary cases
-    
-    // 2**-1022
-**/
-final smallestNormalFloat64 : stdgo.GoFloat64 = (2.2250738585072014e-308 : stdgo.GoFloat64);
-/**
-    // arguments and expected results for boundary cases
-    
-    
-**/
-final largestSubnormalFloat64 : stdgo.GoFloat64 = (2.225073858507201e-308 : stdgo.GoFloat64);
-/**
     
     
     
@@ -2444,33 +2432,6 @@ var _floatTests : stdgo.Slice<stdgo.math_test.Math_test.T_floatTest> = (new stdg
 **/
 var _indirectSqrt : stdgo.GoFloat64 -> stdgo.GoFloat64 = sqrt;
 /**
-    // Global exported variables are used to store the
-    // return values of functions measured in the benchmarks.
-    // Storing the results in these variables prevents the compiler
-    // from completely optimizing the benchmarked functions away.
-    
-    
-**/
-var globalI : stdgo.GoInt = (0 : stdgo.GoInt);
-/**
-    // Global exported variables are used to store the
-    // return values of functions measured in the benchmarks.
-    // Storing the results in these variables prevents the compiler
-    // from completely optimizing the benchmarked functions away.
-    
-    
-**/
-var globalB : Bool = false;
-/**
-    // Global exported variables are used to store the
-    // return values of functions measured in the benchmarks.
-    // Storing the results in these variables prevents the compiler
-    // from completely optimizing the benchmarked functions away.
-    
-    
-**/
-var globalF : stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
-/**
     
     
     
@@ -2599,6 +2560,45 @@ var _tanHuge : stdgo.Slice<stdgo.GoFloat64> = (new stdgo.Slice<stdgo.GoFloat64>(
 (-6.76813854009065 : stdgo.GoFloat64),
 (0.7641769501660493 : stdgo.GoFloat64),
 (-0.00496201587444489 : stdgo.GoFloat64)) : stdgo.Slice<stdgo.GoFloat64>);
+/**
+    // arguments and expected results for boundary cases
+    
+    // 2**-1022
+**/
+final smallestNormalFloat64 : stdgo.GoFloat64 = (2.2250738585072014e-308 : stdgo.GoFloat64);
+/**
+    // arguments and expected results for boundary cases
+    
+    
+**/
+final largestSubnormalFloat64 : stdgo.GoFloat64 = (2.225073858507201e-308 : stdgo.GoFloat64);
+/**
+    // Global exported variables are used to store the
+    // return values of functions measured in the benchmarks.
+    // Storing the results in these variables prevents the compiler
+    // from completely optimizing the benchmarked functions away.
+    
+    
+**/
+var globalI : stdgo.GoInt = (0 : stdgo.GoInt);
+/**
+    // Global exported variables are used to store the
+    // return values of functions measured in the benchmarks.
+    // Storing the results in these variables prevents the compiler
+    // from completely optimizing the benchmarked functions away.
+    
+    
+**/
+var globalB : Bool = false;
+/**
+    // Global exported variables are used to store the
+    // return values of functions measured in the benchmarks.
+    // Storing the results in these variables prevents the compiler
+    // from completely optimizing the benchmarked functions away.
+    
+    
+**/
+var globalF : stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
 /**
     
     

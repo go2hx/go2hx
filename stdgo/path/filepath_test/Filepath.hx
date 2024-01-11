@@ -1,5 +1,6 @@
 package stdgo.path.filepath_test;
 import stdgo.path.filepath.Filepath;
+import stdgo.path.filepath.Filepath;
 /**
     
     

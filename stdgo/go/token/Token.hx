@@ -5,14 +5,96 @@ package stdgo.go.token;
 **/
 private var __go2hxdoc__package : Bool;
 /**
-    // The zero value for Pos is NoPos; there is no file and line information
-    // associated with it, and NoPos.IsValid() is false. NoPos is always
-    // smaller than any other Pos value. The corresponding Position value
-    // for NoPos is the zero value for Position.
+    
     
     
 **/
-final noPos : stdgo.go.token.Token.Pos = (0 : stdgo.go.token.Token.Pos);
+var _tokens : stdgo.GoArray<stdgo.GoString> = {
+        var s:stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 89) ""]);
+        s[0] = ("ILLEGAL" : stdgo.GoString);
+        s[1] = ("EOF" : stdgo.GoString);
+        s[2] = ("COMMENT" : stdgo.GoString);
+        s[4] = ("IDENT" : stdgo.GoString);
+        s[5] = ("INT" : stdgo.GoString);
+        s[6] = ("FLOAT" : stdgo.GoString);
+        s[7] = ("IMAG" : stdgo.GoString);
+        s[8] = ("CHAR" : stdgo.GoString);
+        s[9] = ("STRING" : stdgo.GoString);
+        s[12] = ("+" : stdgo.GoString);
+        s[13] = ("-" : stdgo.GoString);
+        s[14] = ("*" : stdgo.GoString);
+        s[15] = ("/" : stdgo.GoString);
+        s[16] = ("%" : stdgo.GoString);
+        s[17] = ("&" : stdgo.GoString);
+        s[18] = ("|" : stdgo.GoString);
+        s[19] = ("^" : stdgo.GoString);
+        s[20] = ("<<" : stdgo.GoString);
+        s[21] = (">>" : stdgo.GoString);
+        s[22] = ("&^" : stdgo.GoString);
+        s[23] = ("+=" : stdgo.GoString);
+        s[24] = ("-=" : stdgo.GoString);
+        s[25] = ("*=" : stdgo.GoString);
+        s[26] = ("/=" : stdgo.GoString);
+        s[27] = ("%=" : stdgo.GoString);
+        s[28] = ("&=" : stdgo.GoString);
+        s[29] = ("|=" : stdgo.GoString);
+        s[30] = ("^=" : stdgo.GoString);
+        s[31] = ("<<=" : stdgo.GoString);
+        s[32] = (">>=" : stdgo.GoString);
+        s[33] = ("&^=" : stdgo.GoString);
+        s[34] = ("&&" : stdgo.GoString);
+        s[35] = ("||" : stdgo.GoString);
+        s[36] = ("<-" : stdgo.GoString);
+        s[37] = ("++" : stdgo.GoString);
+        s[38] = ("--" : stdgo.GoString);
+        s[39] = ("==" : stdgo.GoString);
+        s[40] = ("<" : stdgo.GoString);
+        s[41] = (">" : stdgo.GoString);
+        s[42] = ("=" : stdgo.GoString);
+        s[43] = ("!" : stdgo.GoString);
+        s[44] = ("!=" : stdgo.GoString);
+        s[45] = ("<=" : stdgo.GoString);
+        s[46] = (">=" : stdgo.GoString);
+        s[47] = (":=" : stdgo.GoString);
+        s[48] = ("..." : stdgo.GoString);
+        s[49] = ("(" : stdgo.GoString);
+        s[50] = ("[" : stdgo.GoString);
+        s[51] = ("{" : stdgo.GoString);
+        s[52] = ("," : stdgo.GoString);
+        s[53] = ("." : stdgo.GoString);
+        s[54] = (")" : stdgo.GoString);
+        s[55] = ("]" : stdgo.GoString);
+        s[56] = ("}" : stdgo.GoString);
+        s[57] = (";" : stdgo.GoString);
+        s[58] = (":" : stdgo.GoString);
+        s[61] = ("break" : stdgo.GoString);
+        s[62] = ("case" : stdgo.GoString);
+        s[63] = ("chan" : stdgo.GoString);
+        s[64] = ("const" : stdgo.GoString);
+        s[65] = ("continue" : stdgo.GoString);
+        s[66] = ("default" : stdgo.GoString);
+        s[67] = ("defer" : stdgo.GoString);
+        s[68] = ("else" : stdgo.GoString);
+        s[69] = ("fallthrough" : stdgo.GoString);
+        s[70] = ("for" : stdgo.GoString);
+        s[71] = ("func" : stdgo.GoString);
+        s[72] = ("go" : stdgo.GoString);
+        s[73] = ("goto" : stdgo.GoString);
+        s[74] = ("if" : stdgo.GoString);
+        s[75] = ("import" : stdgo.GoString);
+        s[76] = ("interface" : stdgo.GoString);
+        s[77] = ("map" : stdgo.GoString);
+        s[78] = ("package" : stdgo.GoString);
+        s[79] = ("range" : stdgo.GoString);
+        s[80] = ("return" : stdgo.GoString);
+        s[81] = ("select" : stdgo.GoString);
+        s[82] = ("struct" : stdgo.GoString);
+        s[83] = ("switch" : stdgo.GoString);
+        s[84] = ("type" : stdgo.GoString);
+        s[85] = ("var" : stdgo.GoString);
+        s[88] = ("~" : stdgo.GoString);
+        s;
+    };
 /**
     
     
@@ -57,6 +139,15 @@ var _tests : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(8, 8, ({ _
 (500 : stdgo.GoInt),
 (567 : stdgo.GoInt),
 (620 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>) } : T__struct_0), ({ _filename : ("f" : stdgo.GoString), _source : (("package p\n\nimport \"fmt\"" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), _size : (23 : stdgo.GoInt), _lines : (new stdgo.Slice<stdgo.GoInt>(3, 3, (0 : stdgo.GoInt), (10 : stdgo.GoInt), (11 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>) } : T__struct_0), ({ _filename : ("g" : stdgo.GoString), _source : (("package p\n\nimport \"fmt\"\n" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), _size : (24 : stdgo.GoInt), _lines : (new stdgo.Slice<stdgo.GoInt>(3, 3, (0 : stdgo.GoInt), (10 : stdgo.GoInt), (11 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>) } : T__struct_0), ({ _filename : ("h" : stdgo.GoString), _source : (("package p\n\nimport \"fmt\"\n " : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), _size : (25 : stdgo.GoInt), _lines : (new stdgo.Slice<stdgo.GoInt>(4, 4, (0 : stdgo.GoInt), (10 : stdgo.GoInt), (11 : stdgo.GoInt), (24 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>) } : T__struct_0)) : stdgo.Slice<T__struct_0>);
+/**
+    // The zero value for Pos is NoPos; there is no file and line information
+    // associated with it, and NoPos.IsValid() is false. NoPos is always
+    // smaller than any other Pos value. The corresponding Position value
+    // for NoPos is the zero value for Position.
+    
+    
+**/
+final noPos : stdgo.go.token.Token.Pos = (0 : stdgo.go.token.Token.Pos);
 /**
     // Special tokens
     
@@ -598,97 +689,6 @@ final tilde = (89 : stdgo.go.token.Token.Token);
     
 **/
 final _additional_end = (89 : stdgo.go.token.Token.Token);
-/**
-    
-    
-    
-**/
-var _tokens : stdgo.GoArray<stdgo.GoString> = {
-        var s:stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 89) ""]);
-        s[0] = ("ILLEGAL" : stdgo.GoString);
-        s[1] = ("EOF" : stdgo.GoString);
-        s[2] = ("COMMENT" : stdgo.GoString);
-        s[4] = ("IDENT" : stdgo.GoString);
-        s[5] = ("INT" : stdgo.GoString);
-        s[6] = ("FLOAT" : stdgo.GoString);
-        s[7] = ("IMAG" : stdgo.GoString);
-        s[8] = ("CHAR" : stdgo.GoString);
-        s[9] = ("STRING" : stdgo.GoString);
-        s[12] = ("+" : stdgo.GoString);
-        s[13] = ("-" : stdgo.GoString);
-        s[14] = ("*" : stdgo.GoString);
-        s[15] = ("/" : stdgo.GoString);
-        s[16] = ("%" : stdgo.GoString);
-        s[17] = ("&" : stdgo.GoString);
-        s[18] = ("|" : stdgo.GoString);
-        s[19] = ("^" : stdgo.GoString);
-        s[20] = ("<<" : stdgo.GoString);
-        s[21] = (">>" : stdgo.GoString);
-        s[22] = ("&^" : stdgo.GoString);
-        s[23] = ("+=" : stdgo.GoString);
-        s[24] = ("-=" : stdgo.GoString);
-        s[25] = ("*=" : stdgo.GoString);
-        s[26] = ("/=" : stdgo.GoString);
-        s[27] = ("%=" : stdgo.GoString);
-        s[28] = ("&=" : stdgo.GoString);
-        s[29] = ("|=" : stdgo.GoString);
-        s[30] = ("^=" : stdgo.GoString);
-        s[31] = ("<<=" : stdgo.GoString);
-        s[32] = (">>=" : stdgo.GoString);
-        s[33] = ("&^=" : stdgo.GoString);
-        s[34] = ("&&" : stdgo.GoString);
-        s[35] = ("||" : stdgo.GoString);
-        s[36] = ("<-" : stdgo.GoString);
-        s[37] = ("++" : stdgo.GoString);
-        s[38] = ("--" : stdgo.GoString);
-        s[39] = ("==" : stdgo.GoString);
-        s[40] = ("<" : stdgo.GoString);
-        s[41] = (">" : stdgo.GoString);
-        s[42] = ("=" : stdgo.GoString);
-        s[43] = ("!" : stdgo.GoString);
-        s[44] = ("!=" : stdgo.GoString);
-        s[45] = ("<=" : stdgo.GoString);
-        s[46] = (">=" : stdgo.GoString);
-        s[47] = (":=" : stdgo.GoString);
-        s[48] = ("..." : stdgo.GoString);
-        s[49] = ("(" : stdgo.GoString);
-        s[50] = ("[" : stdgo.GoString);
-        s[51] = ("{" : stdgo.GoString);
-        s[52] = ("," : stdgo.GoString);
-        s[53] = ("." : stdgo.GoString);
-        s[54] = (")" : stdgo.GoString);
-        s[55] = ("]" : stdgo.GoString);
-        s[56] = ("}" : stdgo.GoString);
-        s[57] = (";" : stdgo.GoString);
-        s[58] = (":" : stdgo.GoString);
-        s[61] = ("break" : stdgo.GoString);
-        s[62] = ("case" : stdgo.GoString);
-        s[63] = ("chan" : stdgo.GoString);
-        s[64] = ("const" : stdgo.GoString);
-        s[65] = ("continue" : stdgo.GoString);
-        s[66] = ("default" : stdgo.GoString);
-        s[67] = ("defer" : stdgo.GoString);
-        s[68] = ("else" : stdgo.GoString);
-        s[69] = ("fallthrough" : stdgo.GoString);
-        s[70] = ("for" : stdgo.GoString);
-        s[71] = ("func" : stdgo.GoString);
-        s[72] = ("go" : stdgo.GoString);
-        s[73] = ("goto" : stdgo.GoString);
-        s[74] = ("if" : stdgo.GoString);
-        s[75] = ("import" : stdgo.GoString);
-        s[76] = ("interface" : stdgo.GoString);
-        s[77] = ("map" : stdgo.GoString);
-        s[78] = ("package" : stdgo.GoString);
-        s[79] = ("range" : stdgo.GoString);
-        s[80] = ("return" : stdgo.GoString);
-        s[81] = ("select" : stdgo.GoString);
-        s[82] = ("struct" : stdgo.GoString);
-        s[83] = ("switch" : stdgo.GoString);
-        s[84] = ("type" : stdgo.GoString);
-        s[85] = ("var" : stdgo.GoString);
-        s[88] = ("~" : stdgo.GoString);
-        s;
-    };
 /**
     // A set of constants for precedence-based expression parsing.
     // Non-operators have lowest precedence, followed by operators
@@ -1494,7 +1494,7 @@ function _equal(_p:stdgo.Ref<FileSet>, _q:stdgo.Ref<FileSet>):stdgo.Error {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterfaceData)) {
+            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
@@ -2030,7 +2030,7 @@ class File_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterfaceData)) {
+            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
@@ -2130,7 +2130,7 @@ class File_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterfaceData)) {
+            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
@@ -2413,7 +2413,7 @@ class FileSet_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterfaceData)) {
+            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
@@ -2480,7 +2480,7 @@ class FileSet_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterfaceData)) {
+            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
@@ -2549,7 +2549,7 @@ class FileSet_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterfaceData)) {
+            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;

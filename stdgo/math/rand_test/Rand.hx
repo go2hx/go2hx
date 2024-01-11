@@ -1,5 +1,6 @@
 package stdgo.math.rand_test;
 import stdgo.math.rand.Rand;
+import stdgo.math.rand.Rand;
 /**
     
     

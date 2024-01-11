@@ -7,24 +7,6 @@ import stdgo.sync.atomic_.Atomic_;
     
     
 **/
-final _magic32 : stdgo.GoUInt64 = (233684719i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-final _magic64 : stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-var _global : stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 1024) (0 : stdgo.GoUInt8)]);
-/**
-    
-    
-    
-**/
 var _hammer32 : stdgo.GoMap<stdgo.GoString, (stdgo.Pointer<stdgo.GoUInt32>, stdgo.GoInt) -> Void> = ({
         final x = new stdgo.GoMap.GoStringMap<(stdgo.Pointer<stdgo.GoUInt32>, stdgo.GoInt) -> Void>();
         x.__defaultValue__ = () -> null;
@@ -85,12 +67,6 @@ var _hammer64 : stdgo.GoMap<stdgo.GoString, (stdgo.Pointer<stdgo.GoUInt64>, stdg
     
     
 **/
-final _arch32 : Bool = true;
-/**
-    
-    
-    
-**/
 var value_SwapTests : stdgo.Slice<T__struct_14> = (new stdgo.Slice<T__struct_14>(4, 4, ({ _init : (null : stdgo.AnyInterface), _new : (null : stdgo.AnyInterface), _want : (null : stdgo.AnyInterface), _err : stdgo.Go.toInterface(("sync/atomic: swap of nil value into Value" : stdgo.GoString)) } : T__struct_14), ({ _init : (null : stdgo.AnyInterface), _new : stdgo.Go.toInterface(true), _want : (null : stdgo.AnyInterface), _err : (null : stdgo.AnyInterface) } : T__struct_14), ({ _init : stdgo.Go.toInterface(true), _new : stdgo.Go.toInterface(stdgo.Go.str()), _want : (null : stdgo.AnyInterface), _err : stdgo.Go.toInterface(("sync/atomic: swap of inconsistently typed value into Value" : stdgo.GoString)) } : T__struct_14), ({ _init : stdgo.Go.toInterface(true), _new : stdgo.Go.toInterface(false), _want : stdgo.Go.toInterface(true), _err : (null : stdgo.AnyInterface) } : T__struct_14)) : stdgo.Slice<T__struct_14>);
 /**
     
@@ -110,6 +86,30 @@ var _heapB : T__struct_15 = ({ _uint : (0u32 : stdgo.GoUInt) } : T__struct_15);
     
 **/
 var value_CompareAndSwapTests : stdgo.Slice<T__struct_16> = (new stdgo.Slice<T__struct_16>(8, 8, ({ _init : (null : stdgo.AnyInterface), _new : (null : stdgo.AnyInterface), _old : (null : stdgo.AnyInterface), _want : false, _err : stdgo.Go.toInterface(("sync/atomic: compare and swap of nil value into Value" : stdgo.GoString)) } : T__struct_16), ({ _init : (null : stdgo.AnyInterface), _new : stdgo.Go.toInterface(true), _old : stdgo.Go.toInterface(stdgo.Go.str()), _want : false, _err : stdgo.Go.toInterface(("sync/atomic: compare and swap of inconsistently typed values into Value" : stdgo.GoString)) } : T__struct_16), ({ _init : (null : stdgo.AnyInterface), _new : stdgo.Go.toInterface(true), _old : stdgo.Go.toInterface(true), _want : false, _err : (null : stdgo.AnyInterface) } : T__struct_16), ({ _init : (null : stdgo.AnyInterface), _new : stdgo.Go.toInterface(true), _old : (null : stdgo.AnyInterface), _want : true, _err : (null : stdgo.AnyInterface) } : T__struct_16), ({ _init : stdgo.Go.toInterface(true), _new : stdgo.Go.toInterface(stdgo.Go.str()), _old : (null : stdgo.AnyInterface), _want : false, _err : stdgo.Go.toInterface(("sync/atomic: compare and swap of inconsistently typed value into Value" : stdgo.GoString)) } : T__struct_16), ({ _init : stdgo.Go.toInterface(true), _new : stdgo.Go.toInterface(true), _old : stdgo.Go.toInterface(false), _want : false, _err : (null : stdgo.AnyInterface) } : T__struct_16), ({ _init : stdgo.Go.toInterface(true), _new : stdgo.Go.toInterface(true), _old : stdgo.Go.toInterface(true), _want : true, _err : (null : stdgo.AnyInterface) } : T__struct_16), ({ _init : stdgo.Go.toInterface(stdgo.Go.asInterface(_heapA)), _new : stdgo.Go.toInterface(stdgo.Go.asInterface(({ _uint : (1u32 : stdgo.GoUInt) } : T__struct_15))), _old : stdgo.Go.toInterface(stdgo.Go.asInterface(_heapB)), _want : true, _err : (null : stdgo.AnyInterface) } : T__struct_16)) : stdgo.Slice<T__struct_16>);
+/**
+    
+    
+    
+**/
+final _magic32 : stdgo.GoUInt64 = (233684719i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _magic64 : stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+var _global : stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 1024) (0 : stdgo.GoUInt8)]);
+/**
+    
+    
+    
+**/
+final _arch32 : Bool = true;
 /**
     // Test that this compiles.
     // When atomic.Pointer used _ [0]T, it did not.
@@ -2748,7 +2748,7 @@ function testStoreLoadSeqCst64(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
     
     
 **/
-@:structInit class T_testStoreLoadRelAcq32_15___localname___Data {
+@:structInit class T_testStoreLoadRelAcq32_26___localname___Data {
     public var _signal : stdgo.GoInt32 = 0;
     public var _pad1 : stdgo.GoArray<stdgo.GoInt8> = new stdgo.GoArray<stdgo.GoInt8>(...[for (i in 0 ... 128) (0 : stdgo.GoInt8)]);
     public var _data1 : stdgo.GoInt32 = 0;
@@ -2763,7 +2763,7 @@ function testStoreLoadSeqCst64(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_testStoreLoadRelAcq32_15___localname___Data(_signal, _pad1, _data1, _pad2, _data2);
+        return new T_testStoreLoadRelAcq32_26___localname___Data(_signal, _pad1, _data1, _pad2, _data2);
     }
 }
 function testStoreLoadRelAcq32(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
@@ -2782,7 +2782,7 @@ function testStoreLoadRelAcq32(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
             };
             var _c = new stdgo.Chan<Bool>((2 : stdgo.GoInt).toBasic(), () -> false);
             {};
-            var x:T_testStoreLoadRelAcq32_15___localname___Data = ({} : stdgo.sync.atomic_test.Atomic_test.T_testStoreLoadRelAcq32_15___localname___Data);
+            var x:T_testStoreLoadRelAcq32_26___localname___Data = ({} : stdgo.sync.atomic_test.Atomic_test.T_testStoreLoadRelAcq32_26___localname___Data);
             {
                 var _p:stdgo.GoInt32 = (0 : stdgo.GoInt32);
                 stdgo.Go.cfor(_p < (2 : stdgo.GoInt32), _p++, {
@@ -2847,7 +2847,7 @@ function testStoreLoadRelAcq32(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
     
     
 **/
-@:structInit class T_testStoreLoadRelAcq64_16___localname___Data {
+@:structInit class T_testStoreLoadRelAcq64_27___localname___Data {
     public var _signal : stdgo.GoInt64 = 0;
     public var _pad1 : stdgo.GoArray<stdgo.GoInt8> = new stdgo.GoArray<stdgo.GoInt8>(...[for (i in 0 ... 128) (0 : stdgo.GoInt8)]);
     public var _data1 : stdgo.GoInt64 = 0;
@@ -2862,7 +2862,7 @@ function testStoreLoadRelAcq32(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_testStoreLoadRelAcq64_16___localname___Data(_signal, _pad1, _data1, _pad2, _data2);
+        return new T_testStoreLoadRelAcq64_27___localname___Data(_signal, _pad1, _data1, _pad2, _data2);
     }
 }
 function testStoreLoadRelAcq64(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
@@ -2881,7 +2881,7 @@ function testStoreLoadRelAcq64(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
             };
             var _c = new stdgo.Chan<Bool>((2 : stdgo.GoInt).toBasic(), () -> false);
             {};
-            var x:T_testStoreLoadRelAcq64_16___localname___Data = ({} : stdgo.sync.atomic_test.Atomic_test.T_testStoreLoadRelAcq64_16___localname___Data);
+            var x:T_testStoreLoadRelAcq64_27___localname___Data = ({} : stdgo.sync.atomic_test.Atomic_test.T_testStoreLoadRelAcq64_27___localname___Data);
             {
                 var _p:stdgo.GoInt64 = (0i64 : stdgo.GoInt64);
                 stdgo.Go.cfor(_p < (2i64 : stdgo.GoInt64), _p++, {
@@ -3312,7 +3312,7 @@ function exampleValue_config():Void {
             });
         };
     }
-@:named typedef T_exampleValue_readMostly_17___localname___Map = stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
+@:named typedef T_exampleValue_readMostly_28___localname___Map = stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
 /**
     // The following example shows how to maintain a scalable frequently read,
     // but infrequently updated data structure using copy-on-write idiom.
@@ -3329,7 +3329,7 @@ function exampleValue_readMostly():Void {
         var _mu:stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
         var _read:stdgo.GoString -> stdgo.GoString = function(_key:stdgo.GoString):stdgo.GoString {
             var _val:stdgo.GoString = ("" : stdgo.GoString);
-            var _m1:stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_17___localname___Map = (stdgo.Go.typeAssert((_m.load() : T_exampleValue_readMostly_17___localname___Map)) : T_exampleValue_readMostly_17___localname___Map);
+            var _m1:stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_28___localname___Map = (stdgo.Go.typeAssert((_m.load() : T_exampleValue_readMostly_28___localname___Map)) : T_exampleValue_readMostly_28___localname___Map);
             return (_m1[_key] ?? ("" : stdgo.GoString))?.__copy__();
         };
         var _insert:(stdgo.GoString, stdgo.GoString) -> Void = function(_key:stdgo.GoString, _val:stdgo.GoString):Void {
@@ -3337,8 +3337,8 @@ function exampleValue_readMostly():Void {
             try {
                 _mu.lock();
                 __deferstack__.unshift(() -> _mu.unlock());
-                var _m1:stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_17___localname___Map = (stdgo.Go.typeAssert((_m.load() : T_exampleValue_readMostly_17___localname___Map)) : T_exampleValue_readMostly_17___localname___Map);
-                var _m2:stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_17___localname___Map = ({
+                var _m1:stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_28___localname___Map = (stdgo.Go.typeAssert((_m.load() : T_exampleValue_readMostly_28___localname___Map)) : T_exampleValue_readMostly_28___localname___Map);
+                var _m2:stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_28___localname___Map = ({
                     final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
                     x.__defaultValue__ = () -> ("" : stdgo.GoString);
                     @:mergeBlock {};

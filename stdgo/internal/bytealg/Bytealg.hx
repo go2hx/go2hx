@@ -1,4 +1,5 @@
 package stdgo.internal.bytealg;
+import stdgo.unsafe.Unsafe;
 /**
     // Offsets into internal/cpu records for use in assembly.
     

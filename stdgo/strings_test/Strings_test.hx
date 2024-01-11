@@ -16,18 +16,6 @@ var _someBytes : stdgo.Slice<stdgo.GoUInt8> = (("some bytes sdljlk jsklj3lkjlk d
     
     
 **/
-var _sinkS : stdgo.GoString = ("" : stdgo.GoString);
-/**
-    
-    
-    
-**/
-var _emptyString : stdgo.GoString = ("" : stdgo.GoString);
-/**
-    
-    
-    
-**/
 var _compareTests : stdgo.Slice<T__struct_2> = (new stdgo.Slice<T__struct_2>(
 13,
 13,
@@ -271,12 +259,6 @@ var _lastIndexAnyTests : stdgo.Slice<stdgo.strings_test.Strings_test.IndexTest> 
     
     
 **/
-final _benchmarkString : stdgo.GoString = ("some_text=some☺value" : stdgo.GoString);
-/**
-    
-    
-    
-**/
 var _benchmarkLongString : stdgo.GoString = repeat((" " : stdgo.GoString), (100 : stdgo.GoInt)) + ("some_text=some☺value" : stdgo.GoString)?.__copy__();
 /**
     
@@ -391,12 +373,6 @@ var _lowerTests : stdgo.Slice<stdgo.strings_test.Strings_test.StringTest> = (new
 (new stdgo.strings_test.Strings_test.StringTest(("LONGⱯSTRINGⱯWITHⱯNONASCIIⱯCHARS" : stdgo.GoString), ("longɐstringɐwithɐnonasciiɐchars" : stdgo.GoString)) : stdgo.strings_test.Strings_test.StringTest),
 (new stdgo.strings_test.Strings_test.StringTest(("ⱭⱭⱭⱭⱭ" : stdgo.GoString), ("ɑɑɑɑɑ" : stdgo.GoString)) : stdgo.strings_test.Strings_test.StringTest),
 (new stdgo.strings_test.Strings_test.StringTest(("A\u0080\u{0010ffff}" : stdgo.GoString), ("a\u0080\u{0010ffff}" : stdgo.GoString)) : stdgo.strings_test.Strings_test.StringTest)) : stdgo.Slice<stdgo.strings_test.Strings_test.StringTest>);
-/**
-    
-    
-    
-**/
-final _space : stdgo.GoString = ("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000" : stdgo.GoString);
 /**
     
     
@@ -864,6 +840,30 @@ var _makeFieldsInputASCII : () -> stdgo.GoString = function():stdgo.GoString {
     
 **/
 var _stringdata : stdgo.Slice<T__struct_7> = (new stdgo.Slice<T__struct_7>(2, 2, ({ _name : ("ASCII" : stdgo.GoString), _data : _makeFieldsInputASCII()?.__copy__() } : T__struct_7), ({ _name : ("Mixed" : stdgo.GoString), _data : _makeFieldsInput()?.__copy__() } : T__struct_7)) : stdgo.Slice<T__struct_7>);
+/**
+    
+    
+    
+**/
+var _sinkS : stdgo.GoString = ("" : stdgo.GoString);
+/**
+    
+    
+    
+**/
+var _emptyString : stdgo.GoString = ("" : stdgo.GoString);
+/**
+    
+    
+    
+**/
+final _benchmarkString : stdgo.GoString = ("some_text=some☺value" : stdgo.GoString);
+/**
+    
+    
+    
+**/
+final _space : stdgo.GoString = ("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000" : stdgo.GoString);
 /**
     
     

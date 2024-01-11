@@ -1,5 +1,6 @@
 package stdgo.math.bits_test;
 import stdgo.math.bits.Bits;
+import stdgo.math.bits.Bits;
 /**
     
     

@@ -49,6 +49,18 @@ var errNotPollable : stdgo.Error = (null : stdgo.Error);
 **/
 var testHookDidWritev : stdgo.GoInt -> Void = null;
 /**
+    // CloseFunc is used to hook the close call.
+    
+    
+**/
+var closeFunc : stdgo.GoInt -> stdgo.Error = null;
+/**
+    // AcceptFunc is used to hook the accept call.
+    
+    
+**/
+var acceptFunc : stdgo.GoInt -> { var _0 : stdgo.GoInt; var _1 : stdgo.syscall.Syscall.Sockaddr; var _2 : stdgo.Error; } = null;
+/**
     // fdMutex.state is organized as follows:
     // 1 bit - whether FD is closed, if set all subsequent lock operations will fail.
     // 1 bit - lock for read operations.
@@ -178,18 +190,6 @@ final _maxRW : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
     
 **/
 var _dupCloexecUnsupported : stdgo.sync.atomic_.Atomic_.Bool_ = ({} : stdgo.sync.atomic_.Atomic_.Bool_);
-/**
-    // CloseFunc is used to hook the close call.
-    
-    
-**/
-var closeFunc : stdgo.GoInt -> stdgo.Error = null;
-/**
-    // AcceptFunc is used to hook the accept call.
-    
-    
-**/
-var acceptFunc : stdgo.GoInt -> { var _0 : stdgo.GoInt; var _1 : stdgo.syscall.Syscall.Sockaddr; var _2 : stdgo.Error; } = null;
 /**
     // errNetClosing is the type of the variable ErrNetClosing.
     // This is used to implement the net.Error interface.

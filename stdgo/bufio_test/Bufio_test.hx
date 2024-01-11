@@ -33,12 +33,6 @@ var _bufreaders : stdgo.Slice<stdgo.bufio_test.Bufio_test.T_bufReader> = (new st
     
     
 **/
-final _minReadBufferSize : stdgo.GoUInt64 = (16i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
 var _bufsizes : stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(
 10,
 10,
@@ -109,12 +103,6 @@ var _errFake : stdgo.Error = stdgo.errors.Errors.new_(("fake error" : stdgo.GoSt
 /**
     
     
-    // Much smaller for more efficient testing.
-**/
-final _smallMaxTokenSize : stdgo.GoUInt64 = (256i64 : stdgo.GoUInt64);
-/**
-    
-    
     
 **/
 var _scanTests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
@@ -141,6 +129,18 @@ var _wordScanTests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoStri
     
 **/
 var _testError : stdgo.Error = stdgo.errors.Errors.new_(("testError" : stdgo.GoString));
+/**
+    
+    
+    
+**/
+final _minReadBufferSize : stdgo.GoUInt64 = (16i64 : stdgo.GoUInt64);
+/**
+    
+    
+    // Much smaller for more efficient testing.
+**/
+final _smallMaxTokenSize : stdgo.GoUInt64 = (256i64 : stdgo.GoUInt64);
 /**
     // Reads from a reader and rot13s the result.
     

@@ -28,15 +28,15 @@ var _errUnreadByte : stdgo.Error = stdgo.errors.Errors.new_(("bytes.Buffer: Unre
     
 **/
 var _asciiSpace : stdgo.GoArray<stdgo.GoUInt8> = {
-    var s:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 256) 0]);
-    s[9] = (1 : stdgo.GoUInt8);
-    s[10] = (1 : stdgo.GoUInt8);
-    s[11] = (1 : stdgo.GoUInt8);
-    s[12] = (1 : stdgo.GoUInt8);
-    s[13] = (1 : stdgo.GoUInt8);
-    s[32] = (1 : stdgo.GoUInt8);
-    s;
-};
+        var s:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 256) 0]);
+        s[9] = (1 : stdgo.GoUInt8);
+        s[10] = (1 : stdgo.GoUInt8);
+        s[11] = (1 : stdgo.GoUInt8);
+        s[12] = (1 : stdgo.GoUInt8);
+        s[13] = (1 : stdgo.GoUInt8);
+        s[32] = (1 : stdgo.GoUInt8);
+        s;
+    };
 /**
     // Export func for testing
     
@@ -748,7 +748,7 @@ function fields(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.Slice<stdgo.GoBy
     
     
 **/
-@:structInit class T_fieldsFunc_0___localname___span {
+@:structInit class T_fieldsFunc_7___localname___span {
     public var _start : stdgo.GoInt = 0;
     public var _end : stdgo.GoInt = 0;
     public function new(?_start:stdgo.GoInt, ?_end:stdgo.GoInt) {
@@ -757,7 +757,7 @@ function fields(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.Slice<stdgo.GoBy
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_fieldsFunc_0___localname___span(_start, _end);
+        return new T_fieldsFunc_7___localname___span(_start, _end);
     }
 }
 /**
@@ -771,7 +771,7 @@ function fields(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.Slice<stdgo.GoBy
 **/
 function fieldsFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:stdgo.GoRune -> Bool):stdgo.Slice<stdgo.Slice<stdgo.GoByte>> {
         {};
-        var _spans = new stdgo.Slice<stdgo.bytes.Bytes.T_fieldsFunc_0___localname___span>((0 : stdgo.GoInt).toBasic(), (32 : stdgo.GoInt), ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > (32 : stdgo.GoInt) ? (0 : stdgo.GoInt).toBasic() : (32 : stdgo.GoInt) : stdgo.GoInt).toBasic()) ({} : stdgo.bytes.Bytes.T_fieldsFunc_0___localname___span)]);
+        var _spans = new stdgo.Slice<stdgo.bytes.Bytes.T_fieldsFunc_7___localname___span>((0 : stdgo.GoInt).toBasic(), (32 : stdgo.GoInt), ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > (32 : stdgo.GoInt) ? (0 : stdgo.GoInt).toBasic() : (32 : stdgo.GoInt) : stdgo.GoInt).toBasic()) ({} : stdgo.bytes.Bytes.T_fieldsFunc_7___localname___span)]);
         var _start:stdgo.GoInt = (-1 : stdgo.GoInt);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -787,7 +787,7 @@ function fieldsFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:stdgo.GoRune -> Bool):stdgo
                 };
                 if (_f(_r)) {
                     if (_start >= (0 : stdgo.GoInt)) {
-                        _spans = (_spans.__append__((new stdgo.bytes.Bytes.T_fieldsFunc_0___localname___span(_start, _i) : stdgo.bytes.Bytes.T_fieldsFunc_0___localname___span)));
+                        _spans = (_spans.__append__((new stdgo.bytes.Bytes.T_fieldsFunc_7___localname___span(_start, _i) : stdgo.bytes.Bytes.T_fieldsFunc_7___localname___span)));
                         _start = (-1 : stdgo.GoInt);
                     };
                 } else {
@@ -799,7 +799,7 @@ function fieldsFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:stdgo.GoRune -> Bool):stdgo
             };
         };
         if (_start >= (0 : stdgo.GoInt)) {
-            _spans = (_spans.__append__((new stdgo.bytes.Bytes.T_fieldsFunc_0___localname___span(_start, (_s.length)) : stdgo.bytes.Bytes.T_fieldsFunc_0___localname___span)));
+            _spans = (_spans.__append__((new stdgo.bytes.Bytes.T_fieldsFunc_7___localname___span(_start, (_s.length)) : stdgo.bytes.Bytes.T_fieldsFunc_7___localname___span)));
         };
         var _a = new stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>((_spans.length : stdgo.GoInt).toBasic(), 0);
         for (_i => _span in _spans) {
@@ -1598,13 +1598,11 @@ function index(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):std
                 if (_s[(_i : stdgo.GoInt)] != (_c0)) {
                     var _o:stdgo.GoInt = indexByte((_s.__slice__(_i + (1 : stdgo.GoInt), _t) : stdgo.Slice<stdgo.GoUInt8>), _c0);
                     if (_o < (0 : stdgo.GoInt)) {
-                        stdgo.Go.println(("-1" : stdgo.GoString));
                         return (-1 : stdgo.GoInt);
                     };
                     _i = _i + (_o + (1 : stdgo.GoInt));
                 };
                 if ((_s[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] == _c1) && equal((_s.__slice__(_i, _i + _n) : stdgo.Slice<stdgo.GoUInt8>), _sep)) {
-                    stdgo.Go.println(("-2" : stdgo.GoString));
                     return _i;
                 };
                 _fails++;
@@ -1612,14 +1610,11 @@ function index(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):std
                 if (_fails > stdgo.internal.bytealg.Bytealg.cutover(_i)) {
                     var _r:stdgo.GoInt = stdgo.internal.bytealg.Bytealg.index((_s.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), _sep);
                     if (_r >= (0 : stdgo.GoInt)) {
-                        stdgo.Go.println(("-3" : stdgo.GoString));
                         return _r + _i;
                     };
-                    stdgo.Go.println(("-4" : stdgo.GoString));
                     return (-1 : stdgo.GoInt);
                 };
             };
-            stdgo.Go.println(("-5" : stdgo.GoString));
             return (-1 : stdgo.GoInt);
         };
         var _c0:stdgo.GoUInt8 = _sep[(0 : stdgo.GoInt)];
@@ -1636,7 +1631,6 @@ function index(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):std
                 _i = _i + (_o + (1 : stdgo.GoInt));
             };
             if ((_s[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] == _c1) && equal((_s.__slice__(_i, _i + _n) : stdgo.Slice<stdgo.GoUInt8>), _sep)) {
-                stdgo.Go.println(("-6" : stdgo.GoString));
                 return _i;
             };
             _i++;
@@ -1644,10 +1638,8 @@ function index(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):std
             if ((_fails >= ((4 : stdgo.GoInt) + (_i >> (4i64 : stdgo.GoUInt64)))) && (_i < _t)) {
                 var _j:stdgo.GoInt = stdgo.internal.bytealg.Bytealg.indexRabinKarpBytes((_s.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), _sep);
                 if (_j < (0 : stdgo.GoInt)) {
-                    stdgo.Go.println(("-7" : stdgo.GoString));
                     return (-1 : stdgo.GoInt);
                 };
-                stdgo.Go.println(("-8" : stdgo.GoString));
                 return _i + _j;
             };
         };

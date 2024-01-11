@@ -1,5 +1,6 @@
 package stdgo.unicode.utf8_test;
 import stdgo.unicode.utf8.Utf8;
+import stdgo.unicode.utf8.Utf8;
 /**
     
     

@@ -1,5 +1,6 @@
 package stdgo.flag_test;
 import stdgo.flag.Flag;
+import stdgo.flag.Flag;
 /**
     
     

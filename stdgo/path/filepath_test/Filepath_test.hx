@@ -221,19 +221,7 @@ var _plan9islocaltests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsLo
     
     
 **/
-final _sep : stdgo.GoInt32 = (47 : stdgo.GoInt32);
-/**
-    
-    
-    
-**/
 var _slashtests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>(4, 4, (new stdgo.path.filepath_test.Filepath_test.PathTest(stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("/" : stdgo.GoString), ((47 : stdgo.GoInt32) : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("/a/b" : stdgo.GoString), ((new stdgo.Slice<stdgo.GoUInt8>(4, 4, (47 : stdgo.GoUInt8), (97 : stdgo.GoUInt8), (47 : stdgo.GoUInt8), (98 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("a//b" : stdgo.GoString), ((new stdgo.Slice<stdgo.GoUInt8>(4, 4, (97 : stdgo.GoUInt8), (47 : stdgo.GoUInt8), (47 : stdgo.GoUInt8), (98 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>);
-/**
-    
-    
-    
-**/
-final _lsep : stdgo.GoInt32 = (58 : stdgo.GoInt32);
 /**
     
     
@@ -626,6 +614,18 @@ var _volumenametests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.Volume
 (new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//./C:/a/b/c" : stdgo.GoString), ("\\\\.\\C:" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
 (new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//./UNC/host/share/a/b/c" : stdgo.GoString), ("\\\\.\\UNC\\host\\share" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
 (new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//./UNC/host" : stdgo.GoString), ("\\\\.\\UNC\\host" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.VolumeNameTest>);
+/**
+    
+    
+    
+**/
+final _sep : stdgo.GoInt32 = (47 : stdgo.GoInt32);
+/**
+    
+    
+    
+**/
+final _lsep : stdgo.GoInt32 = (58 : stdgo.GoInt32);
 /**
     
     

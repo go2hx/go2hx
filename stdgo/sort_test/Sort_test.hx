@@ -179,6 +179,23 @@ var _strings : stdgo.GoArray<stdgo.GoString> = (new stdgo.GoArray<stdgo.GoString
     
     
 **/
+var _countOpsSizes : stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(
+9,
+9,
+(100 : stdgo.GoInt),
+(300 : stdgo.GoInt),
+(1000 : stdgo.GoInt),
+(3000 : stdgo.GoInt),
+(10000 : stdgo.GoInt),
+(30000 : stdgo.GoInt),
+(100000 : stdgo.GoInt),
+(300000 : stdgo.GoInt),
+(1000000 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
+/**
+    
+    
+    
+**/
 final __Sawtooth : stdgo.GoUInt64 = (5i64 : stdgo.GoUInt64);
 /**
     
@@ -252,23 +269,6 @@ final __Dither = (6i64 : stdgo.GoUInt64);
     
 **/
 final __NMode = (6i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-var _countOpsSizes : stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(
-9,
-9,
-(100 : stdgo.GoInt),
-(300 : stdgo.GoInt),
-(1000 : stdgo.GoInt),
-(3000 : stdgo.GoInt),
-(10000 : stdgo.GoInt),
-(30000 : stdgo.GoInt),
-(100000 : stdgo.GoInt),
-(300000 : stdgo.GoInt),
-(1000000 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
 /**
     
     

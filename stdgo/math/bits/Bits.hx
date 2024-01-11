@@ -1,4 +1,5 @@
 package stdgo.math.bits;
+import stdgo.unsafe.Unsafe;
 /**
     // Package bits implements bit counting and manipulation
     // functions for the predeclared unsigned integer types.
@@ -10,24 +11,6 @@ package stdgo.math.bits;
     // architecture and the Go release.
 **/
 private var __go2hxdoc__package : Bool;
-/**
-    
-    
-    // 32 or 64
-**/
-final _uintSize : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
-/**
-    // UintSize is the size of a uint in bits.
-    
-    
-**/
-final uintSize : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
-/**
-    // See http://supertech.csail.mit.edu/papers/debruijn.pdf
-    
-    
-**/
-final _deBruijn32 : stdgo.GoUInt64 = (125613361i64 : stdgo.GoUInt64);
 /**
     
     
@@ -66,12 +49,6 @@ var _deBruijn32tab : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoU
 (5 : stdgo.GoUInt8),
 (10 : stdgo.GoUInt8),
 (9 : stdgo.GoUInt8)) : stdgo.GoArray<stdgo.GoUInt8>);
-/**
-    
-    
-    
-**/
-final _deBruijn64 : stdgo.GoUInt64 = (285870213051353865i64 : stdgo.GoUInt64);
 /**
     
     
@@ -142,6 +119,30 @@ var _deBruijn64tab : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoU
 (8 : stdgo.GoUInt8),
 (7 : stdgo.GoUInt8),
 (6 : stdgo.GoUInt8)) : stdgo.GoArray<stdgo.GoUInt8>);
+/**
+    
+    
+    // 32 or 64
+**/
+final _uintSize : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
+/**
+    // UintSize is the size of a uint in bits.
+    
+    
+**/
+final uintSize : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
+/**
+    // See http://supertech.csail.mit.edu/papers/debruijn.pdf
+    
+    
+**/
+final _deBruijn32 : stdgo.GoUInt64 = (125613361i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _deBruijn64 : stdgo.GoUInt64 = (285870213051353865i64 : stdgo.GoUInt64);
 /**
     
     

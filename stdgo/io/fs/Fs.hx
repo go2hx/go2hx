@@ -46,6 +46,22 @@ var errNotExist : stdgo.Error = _errNotExist();
 **/
 var errClosed : stdgo.Error = _errClosed();
 /**
+    // SkipDir is used as a return value from WalkDirFuncs to indicate that
+    // the directory named in the call is to be skipped. It is not returned
+    // as an error by any function.
+    
+    
+**/
+var skipDir : stdgo.Error = stdgo.errors.Errors.new_(("skip this directory" : stdgo.GoString));
+/**
+    // SkipAll is used as a return value from WalkDirFuncs to indicate that
+    // all remaining files and directories are to be skipped. It is not returned
+    // as an error by any function.
+    
+    
+**/
+var skipAll : stdgo.Error = stdgo.errors.Errors.new_(("skip everything and stop the walk" : stdgo.GoString));
+/**
     // The single letters are the abbreviations
     // used by the String method's formatting.
     
@@ -188,22 +204,6 @@ final modeType : stdgo.io.fs.Fs.FileMode = (-1893203968u32 : stdgo.io.fs.Fs.File
     // Unix permission bits
 **/
 final modePerm : stdgo.io.fs.Fs.FileMode = (511u32 : stdgo.io.fs.Fs.FileMode);
-/**
-    // SkipDir is used as a return value from WalkDirFuncs to indicate that
-    // the directory named in the call is to be skipped. It is not returned
-    // as an error by any function.
-    
-    
-**/
-var skipDir : stdgo.Error = stdgo.errors.Errors.new_(("skip this directory" : stdgo.GoString));
-/**
-    // SkipAll is used as a return value from WalkDirFuncs to indicate that
-    // all remaining files and directories are to be skipped. It is not returned
-    // as an error by any function.
-    
-    
-**/
-var skipAll : stdgo.Error = stdgo.errors.Errors.new_(("skip everything and stop the walk" : stdgo.GoString));
 /**
     // An FS provides access to a hierarchical file system.
     //

@@ -469,6 +469,82 @@ var _absSC : stdgo.Slice<stdgo.GoFloat64> = (new stdgo.Slice<stdgo.GoFloat64>(1,
     
     
 **/
+var _vcConjSC : stdgo.Slice<stdgo.GoComplex128> = (new stdgo.Slice<stdgo.GoComplex128>(1, 1, naN()) : stdgo.Slice<stdgo.GoComplex128>);
+/**
+    
+    
+    
+**/
+var _conjSC : stdgo.Slice<stdgo.GoComplex128> = (new stdgo.Slice<stdgo.GoComplex128>(1, 1, naN()) : stdgo.Slice<stdgo.GoComplex128>);
+/**
+    
+    
+    
+**/
+var _vcIsNaNSC : stdgo.Slice<stdgo.GoComplex128> = (new stdgo.Slice<stdgo.GoComplex128>(
+9,
+9,
+new stdgo.GoComplex128(stdgo.math.Math.inf((-1 : stdgo.GoInt)), stdgo.math.Math.inf((-1 : stdgo.GoInt))),
+new stdgo.GoComplex128(stdgo.math.Math.inf((-1 : stdgo.GoInt)), stdgo.math.Math.naN()),
+new stdgo.GoComplex128(stdgo.math.Math.naN(), stdgo.math.Math.inf((-1 : stdgo.GoInt))),
+new stdgo.GoComplex128((0 : stdgo.GoFloat64), stdgo.math.Math.naN()),
+new stdgo.GoComplex128(stdgo.math.Math.naN(), (0 : stdgo.GoFloat64)),
+new stdgo.GoComplex128(stdgo.math.Math.inf((1 : stdgo.GoInt)), stdgo.math.Math.inf((1 : stdgo.GoInt))),
+new stdgo.GoComplex128(stdgo.math.Math.inf((1 : stdgo.GoInt)), stdgo.math.Math.naN()),
+new stdgo.GoComplex128(stdgo.math.Math.naN(), stdgo.math.Math.inf((1 : stdgo.GoInt))),
+new stdgo.GoComplex128(stdgo.math.Math.naN(), stdgo.math.Math.naN())) : stdgo.Slice<stdgo.GoComplex128>);
+/**
+    
+    
+    
+**/
+var _isNaNSC : stdgo.Slice<Bool> = (new stdgo.Slice<Bool>(
+9,
+9,
+false,
+false,
+false,
+true,
+true,
+false,
+false,
+false,
+true) : stdgo.Slice<Bool>);
+/**
+    
+    
+    
+**/
+var _vcPolarSC : stdgo.Slice<stdgo.GoComplex128> = (new stdgo.Slice<stdgo.GoComplex128>(1, 1, naN()) : stdgo.Slice<stdgo.GoComplex128>);
+/**
+    
+    
+    
+**/
+var _polarSC : stdgo.Slice<stdgo.math.cmplx.Cmplx.T_ff> = (new stdgo.Slice<stdgo.math.cmplx.Cmplx.T_ff>(1, 1, (new stdgo.math.cmplx.Cmplx.T_ff(stdgo.math.Math.naN(), stdgo.math.Math.naN()) : stdgo.math.cmplx.Cmplx.T_ff)) : stdgo.Slice<stdgo.math.cmplx.Cmplx.T_ff>);
+/**
+    
+    
+    
+**/
+var _vcPowSC : stdgo.Slice<stdgo.GoArray<stdgo.GoComplex128>> = (new stdgo.Slice<stdgo.GoArray<stdgo.GoComplex128>>(2, 2, (new stdgo.GoArray<stdgo.GoComplex128>(naN(), naN()) : stdgo.GoArray<stdgo.GoComplex128>), (new stdgo.GoArray<stdgo.GoComplex128>(((0f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64)), naN()) : stdgo.GoArray<stdgo.GoComplex128>)) : stdgo.Slice<stdgo.GoArray<stdgo.GoComplex128>>);
+/**
+    
+    
+    
+**/
+var _powSC : stdgo.Slice<stdgo.GoComplex128> = (new stdgo.Slice<stdgo.GoComplex128>(2, 2, naN(), naN()) : stdgo.Slice<stdgo.GoComplex128>);
+/**
+    
+    
+    
+**/
+var _zero : stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
+/**
+    
+    
+    
+**/
 var _acosSC : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(
 15,
 15,
@@ -587,18 +663,6 @@ var _atanhSC : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(
     
     
 **/
-var _vcConjSC : stdgo.Slice<stdgo.GoComplex128> = (new stdgo.Slice<stdgo.GoComplex128>(1, 1, naN()) : stdgo.Slice<stdgo.GoComplex128>);
-/**
-    
-    
-    
-**/
-var _conjSC : stdgo.Slice<stdgo.GoComplex128> = (new stdgo.Slice<stdgo.GoComplex128>(1, 1, naN()) : stdgo.Slice<stdgo.GoComplex128>);
-/**
-    
-    
-    
-**/
 var _cosSC : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(
 13,
 13,
@@ -664,40 +728,6 @@ var _expSC : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(
     
     
 **/
-var _vcIsNaNSC : stdgo.Slice<stdgo.GoComplex128> = (new stdgo.Slice<stdgo.GoComplex128>(
-9,
-9,
-new stdgo.GoComplex128(stdgo.math.Math.inf((-1 : stdgo.GoInt)), stdgo.math.Math.inf((-1 : stdgo.GoInt))),
-new stdgo.GoComplex128(stdgo.math.Math.inf((-1 : stdgo.GoInt)), stdgo.math.Math.naN()),
-new stdgo.GoComplex128(stdgo.math.Math.naN(), stdgo.math.Math.inf((-1 : stdgo.GoInt))),
-new stdgo.GoComplex128((0 : stdgo.GoFloat64), stdgo.math.Math.naN()),
-new stdgo.GoComplex128(stdgo.math.Math.naN(), (0 : stdgo.GoFloat64)),
-new stdgo.GoComplex128(stdgo.math.Math.inf((1 : stdgo.GoInt)), stdgo.math.Math.inf((1 : stdgo.GoInt))),
-new stdgo.GoComplex128(stdgo.math.Math.inf((1 : stdgo.GoInt)), stdgo.math.Math.naN()),
-new stdgo.GoComplex128(stdgo.math.Math.naN(), stdgo.math.Math.inf((1 : stdgo.GoInt))),
-new stdgo.GoComplex128(stdgo.math.Math.naN(), stdgo.math.Math.naN())) : stdgo.Slice<stdgo.GoComplex128>);
-/**
-    
-    
-    
-**/
-var _isNaNSC : stdgo.Slice<Bool> = (new stdgo.Slice<Bool>(
-9,
-9,
-false,
-false,
-false,
-true,
-true,
-false,
-false,
-false,
-true) : stdgo.Slice<Bool>);
-/**
-    
-    
-    
-**/
 var _logSC : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(
 13,
 13,
@@ -735,30 +765,6 @@ var _log10SC : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(
 ({ _in : new stdgo.GoComplex128(_nan, (1 : stdgo.GoFloat64)), _want : naN() } : T__struct_0),
 ({ _in : new stdgo.GoComplex128(_nan, _inf), _want : new stdgo.GoComplex128(_inf, _nan) } : T__struct_0),
 ({ _in : naN(), _want : naN() } : T__struct_0)) : stdgo.Slice<T__struct_0>);
-/**
-    
-    
-    
-**/
-var _vcPolarSC : stdgo.Slice<stdgo.GoComplex128> = (new stdgo.Slice<stdgo.GoComplex128>(1, 1, naN()) : stdgo.Slice<stdgo.GoComplex128>);
-/**
-    
-    
-    
-**/
-var _polarSC : stdgo.Slice<stdgo.math.cmplx.Cmplx.T_ff> = (new stdgo.Slice<stdgo.math.cmplx.Cmplx.T_ff>(1, 1, (new stdgo.math.cmplx.Cmplx.T_ff(stdgo.math.Math.naN(), stdgo.math.Math.naN()) : stdgo.math.cmplx.Cmplx.T_ff)) : stdgo.Slice<stdgo.math.cmplx.Cmplx.T_ff>);
-/**
-    
-    
-    
-**/
-var _vcPowSC : stdgo.Slice<stdgo.GoArray<stdgo.GoComplex128>> = (new stdgo.Slice<stdgo.GoArray<stdgo.GoComplex128>>(2, 2, (new stdgo.GoArray<stdgo.GoComplex128>(naN(), naN()) : stdgo.GoArray<stdgo.GoComplex128>), (new stdgo.GoArray<stdgo.GoComplex128>(((0f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64)), naN()) : stdgo.GoArray<stdgo.GoComplex128>)) : stdgo.Slice<stdgo.GoArray<stdgo.GoComplex128>>);
-/**
-    
-    
-    
-**/
-var _powSC : stdgo.Slice<stdgo.GoComplex128> = (new stdgo.Slice<stdgo.GoComplex128>(2, 2, naN(), naN()) : stdgo.Slice<stdgo.GoComplex128>);
 /**
     
     
@@ -857,12 +863,6 @@ var _tanhSC : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(
 ({ _in : new stdgo.GoComplex128(_nan, (1 : stdgo.GoFloat64)), _want : naN() } : T__struct_0),
 ({ _in : new stdgo.GoComplex128(_nan, _inf), _want : naN() } : T__struct_0),
 ({ _in : naN(), _want : naN() } : T__struct_0)) : stdgo.Slice<T__struct_0>);
-/**
-    
-    
-    
-**/
-var _zero : stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
 /**
     
     

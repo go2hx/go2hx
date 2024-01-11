@@ -1,5 +1,6 @@
 package stdgo.errors_test;
 import stdgo.errors.Errors;
+import stdgo.errors.Errors;
 /**
     
     

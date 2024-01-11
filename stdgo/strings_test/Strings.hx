@@ -1,5 +1,6 @@
 package stdgo.strings_test;
 import stdgo.strings.Strings;
+import stdgo.strings.Strings;
 /**
     
     

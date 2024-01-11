@@ -24,36 +24,6 @@ package stdgo.syscall;
 **/
 private var __go2hxdoc__package : Bool;
 /**
-    
-    
-    
-**/
-final _asanenabled : Bool = false;
-/**
-    
-    
-    
-**/
-final _isBigEndian : Bool = false;
-/**
-    // envOnce guards initialization by copyenv, which populates env.
-    
-    
-**/
-var _envOnce : stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
-/**
-    // envLock guards env and envs.
-    
-    
-**/
-var _envLock : stdgo.sync.Sync.RWMutex = ({} : stdgo.sync.Sync.RWMutex);
-/**
-    // env maps from an environment variable to its first occurrence in envs.
-    
-    
-**/
-var _env : stdgo.GoMap<stdgo.GoString, stdgo.GoInt> = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>);
-/**
     // envs is provided by the runtime. elements are expected to
     // be of the form "key=value". An empty string means deleted
     // (or a duplicate to be ignored).
@@ -126,13 +96,82 @@ var _nodeEXCL : stdgo.GoInt = (0 : stdgo.GoInt);
     
     
 **/
-var _filesMu : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
+var _files : stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo.syscall.Syscall.T_jsFile>> = (null : stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo.syscall.Syscall.T_jsFile>>);
 /**
     
     
     
 **/
-var _files : stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo.syscall.Syscall.T_jsFile>> = (null : stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo.syscall.Syscall.T_jsFile>>);
+var _signals : stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 0) ("" : stdgo.GoString)]);
+/**
+    // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+    
+    
+**/
+var _errorstr : stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 2054) ("" : stdgo.GoString)]);
+/**
+    // Do the interface allocations only once for common
+    // Errno values.
+    
+    
+**/
+var _errEAGAIN : stdgo.Error = (null : stdgo.Error);
+/**
+    // Do the interface allocations only once for common
+    // Errno values.
+    
+    
+**/
+var _errEINVAL : stdgo.Error = (null : stdgo.Error);
+/**
+    // Do the interface allocations only once for common
+    // Errno values.
+    
+    
+**/
+var _errENOENT : stdgo.Error = (null : stdgo.Error);
+/**
+    
+    
+    
+**/
+var _errnoByCode : stdgo.GoMap<stdgo.GoString, stdgo.syscall.Syscall.Errno> = (null : stdgo.GoMap<stdgo.GoString, stdgo.syscall.Syscall.Errno>);
+/**
+    
+    
+    
+**/
+final _asanenabled : Bool = false;
+/**
+    
+    
+    
+**/
+final _isBigEndian : Bool = false;
+/**
+    // envOnce guards initialization by copyenv, which populates env.
+    
+    
+**/
+var _envOnce : stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
+/**
+    // envLock guards env and envs.
+    
+    
+**/
+var _envLock : stdgo.sync.Sync.RWMutex = ({} : stdgo.sync.Sync.RWMutex);
+/**
+    // env maps from an environment variable to its first occurrence in envs.
+    
+    
+**/
+var _env : stdgo.GoMap<stdgo.GoString, stdgo.GoInt> = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>);
+/**
+    
+    
+    
+**/
+var _filesMu : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
 /**
     
     
@@ -320,12 +359,6 @@ final sigquit = ((0 : stdgo.GoInt) : stdgo.syscall.Syscall.Signal);
     
 **/
 final sigterm = ((0 : stdgo.GoInt) : stdgo.syscall.Syscall.Signal);
-/**
-    
-    
-    
-**/
-var _signals : stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 0) ("" : stdgo.GoString)]);
 /**
     
     
@@ -2297,39 +2330,6 @@ final ecaseclash : stdgo.syscall.Syscall.Errno = ((0 : stdgo.GoUIntptr) : stdgo.
     /|* Operation would block *|/
 **/
 final ewouldblock : stdgo.syscall.Syscall.Errno = ((0 : stdgo.GoUIntptr) : stdgo.syscall.Syscall.Errno);
-/**
-    // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
-    
-    
-**/
-var _errorstr : stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 2054) ("" : stdgo.GoString)]);
-/**
-    // Do the interface allocations only once for common
-    // Errno values.
-    
-    
-**/
-var _errEAGAIN : stdgo.Error = (null : stdgo.Error);
-/**
-    // Do the interface allocations only once for common
-    // Errno values.
-    
-    
-**/
-var _errEINVAL : stdgo.Error = (null : stdgo.Error);
-/**
-    // Do the interface allocations only once for common
-    // Errno values.
-    
-    
-**/
-var _errENOENT : stdgo.Error = (null : stdgo.Error);
-/**
-    
-    
-    
-**/
-var _errnoByCode : stdgo.GoMap<stdgo.GoString, stdgo.syscall.Syscall.Errno> = (null : stdgo.GoMap<stdgo.GoString, stdgo.syscall.Syscall.Errno>);
 /**
     
     

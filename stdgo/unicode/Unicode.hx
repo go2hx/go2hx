@@ -9,215 +9,19 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-var turkishCase : stdgo.unicode.Unicode.SpecialCase = __TurkishCase;
-/**
-    
-    
-    
-**/
 var __TurkishCase : stdgo.unicode.Unicode.SpecialCase = (new stdgo.Slice<stdgo.unicode.Unicode.CaseRange>(4, 4, (new stdgo.unicode.Unicode.CaseRange((73u32 : stdgo.GoUInt32), (73u32 : stdgo.GoUInt32), (new stdgo.GoArray<stdgo.GoInt32>((0 : stdgo.GoInt32), (232 : stdgo.GoInt32), (0 : stdgo.GoInt32)) : stdgo.unicode.Unicode.T_d)) : stdgo.unicode.Unicode.CaseRange), (new stdgo.unicode.Unicode.CaseRange((105u32 : stdgo.GoUInt32), (105u32 : stdgo.GoUInt32), (new stdgo.GoArray<stdgo.GoInt32>((199 : stdgo.GoInt32), (0 : stdgo.GoInt32), (199 : stdgo.GoInt32)) : stdgo.unicode.Unicode.T_d)) : stdgo.unicode.Unicode.CaseRange), (new stdgo.unicode.Unicode.CaseRange((304u32 : stdgo.GoUInt32), (304u32 : stdgo.GoUInt32), (new stdgo.GoArray<stdgo.GoInt32>((0 : stdgo.GoInt32), (-199 : stdgo.GoInt32), (0 : stdgo.GoInt32)) : stdgo.unicode.Unicode.T_d)) : stdgo.unicode.Unicode.CaseRange), (new stdgo.unicode.Unicode.CaseRange((305u32 : stdgo.GoUInt32), (305u32 : stdgo.GoUInt32), (new stdgo.GoArray<stdgo.GoInt32>((-232 : stdgo.GoInt32), (0 : stdgo.GoInt32), (-232 : stdgo.GoInt32)) : stdgo.unicode.Unicode.T_d)) : stdgo.unicode.Unicode.CaseRange)) : stdgo.unicode.Unicode.SpecialCase);
 /**
     
     
     
 **/
+var turkishCase : stdgo.unicode.Unicode.SpecialCase = __TurkishCase;
+/**
+    
+    
+    
+**/
 var azeriCase : stdgo.unicode.Unicode.SpecialCase = __TurkishCase;
-/**
-    // Bit masks for each code point under U+0100, for fast lookup.
-    
-    // a control character.
-**/
-final _pC : stdgo.GoUInt64 = (128i64 : stdgo.GoUInt64);
-/**
-    // Bit masks for each code point under U+0100, for fast lookup.
-    
-    // a punctuation character.
-**/
-final _pP = (128i64 : stdgo.GoUInt64);
-/**
-    // Bit masks for each code point under U+0100, for fast lookup.
-    
-    // a numeral.
-**/
-final _pN = (128i64 : stdgo.GoUInt64);
-/**
-    // Bit masks for each code point under U+0100, for fast lookup.
-    
-    // a symbolic character.
-**/
-final _pS = (128i64 : stdgo.GoUInt64);
-/**
-    // Bit masks for each code point under U+0100, for fast lookup.
-    
-    // a spacing character.
-**/
-final _pZ = (128i64 : stdgo.GoUInt64);
-/**
-    // Bit masks for each code point under U+0100, for fast lookup.
-    
-    // an upper-case letter.
-**/
-final _pLu = (128i64 : stdgo.GoUInt64);
-/**
-    // Bit masks for each code point under U+0100, for fast lookup.
-    
-    // a lower-case letter.
-**/
-final _pLl = (128i64 : stdgo.GoUInt64);
-/**
-    // Bit masks for each code point under U+0100, for fast lookup.
-    
-    // a printable character according to Go's definition.
-**/
-final _pp = (128i64 : stdgo.GoUInt64);
-/**
-    // Bit masks for each code point under U+0100, for fast lookup.
-    
-    // a graphical character according to the Unicode definition.
-**/
-final _pg : stdgo.GoUInt64 = (144i64 : stdgo.GoUInt64);
-/**
-    // Bit masks for each code point under U+0100, for fast lookup.
-    
-    // a letter that is neither upper nor lower case.
-**/
-final _pLo : stdgo.GoUInt64 = (96i64 : stdgo.GoUInt64);
-/**
-    // Bit masks for each code point under U+0100, for fast lookup.
-    
-    
-**/
-final _pLmask : stdgo.GoUInt64 = (96i64 : stdgo.GoUInt64);
-/**
-    // GraphicRanges defines the set of graphic characters according to Unicode.
-    
-    
-**/
-var graphicRanges : stdgo.Slice<stdgo.Ref<stdgo.unicode.Unicode.RangeTable>> = (new stdgo.Slice<stdgo.Ref<stdgo.unicode.Unicode.RangeTable>>(6, 6, l, m, n, p, s, zs) : stdgo.Slice<stdgo.Ref<stdgo.unicode.Unicode.RangeTable>>);
-/**
-    // PrintRanges defines the set of printable characters according to Go.
-    // ASCII space, U+0020, is handled separately.
-    
-    
-**/
-var printRanges : stdgo.Slice<stdgo.Ref<stdgo.unicode.Unicode.RangeTable>> = (new stdgo.Slice<stdgo.Ref<stdgo.unicode.Unicode.RangeTable>>(5, 5, l, m, n, p, s) : stdgo.Slice<stdgo.Ref<stdgo.unicode.Unicode.RangeTable>>);
-/**
-    
-    
-    // Maximum valid Unicode code point.
-**/
-final maxRune : stdgo.GoInt32 = (1114111 : stdgo.GoInt32);
-/**
-    
-    
-    // Represents invalid code points.
-**/
-final replacementChar : stdgo.GoInt32 = (65533 : stdgo.GoInt32);
-/**
-    
-    
-    // maximum ASCII value.
-**/
-final maxASCII : stdgo.GoInt32 = (127 : stdgo.GoInt32);
-/**
-    
-    
-    // maximum Latin-1 value.
-**/
-final maxLatin1 : stdgo.GoInt32 = (255 : stdgo.GoInt32);
-/**
-    // Indices into the Delta arrays inside CaseRanges for case mapping.
-    
-    
-**/
-final upperCase : stdgo.GoUInt64 = (2i64 : stdgo.GoUInt64);
-/**
-    // Indices into the Delta arrays inside CaseRanges for case mapping.
-    
-    
-**/
-final lowerCase = (2i64 : stdgo.GoUInt64);
-/**
-    // Indices into the Delta arrays inside CaseRanges for case mapping.
-    
-    
-**/
-final titleCase = (2i64 : stdgo.GoUInt64);
-/**
-    // Indices into the Delta arrays inside CaseRanges for case mapping.
-    
-    
-**/
-final maxCase = (2i64 : stdgo.GoUInt64);
-/**
-    // If the Delta field of a CaseRange is UpperLower, it means
-    // this CaseRange represents a sequence of the form (say)
-    // Upper Lower Upper Lower.
-    
-    // (Cannot be a valid delta.)
-**/
-final upperLower : stdgo.GoInt32 = (1114112 : stdgo.GoInt32);
-/**
-    // linearMax is the maximum size table for linear search for non-Latin1 rune.
-    // Derived by running 'go test -calibrate'.
-    
-    
-**/
-final _linearMax : stdgo.GoUInt64 = (18i64 : stdgo.GoUInt64);
-/**
-    // Version is the Unicode edition from which the tables are derived.
-    
-    
-**/
-final version : stdgo.GoString = ("15.0.0" : stdgo.GoString);
-/**
-    // Categories is the set of Unicode category tables.
-    
-    
-**/
-var categories : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.Unicode.RangeTable>> = ({
-        final x = new stdgo.GoMap.GoStringMap<stdgo.Ref<stdgo.unicode.Unicode.RangeTable>>();
-        x.__defaultValue__ = () -> (null : stdgo.Ref<stdgo.unicode.Unicode.RangeTable>);
-        @:mergeBlock {
-            x.set(("C" : stdgo.GoString), c);
-            x.set(("Cc" : stdgo.GoString), cc);
-            x.set(("Cf" : stdgo.GoString), cf);
-            x.set(("Co" : stdgo.GoString), co);
-            x.set(("Cs" : stdgo.GoString), cs);
-            x.set(("L" : stdgo.GoString), l);
-            x.set(("Ll" : stdgo.GoString), ll);
-            x.set(("Lm" : stdgo.GoString), lm);
-            x.set(("Lo" : stdgo.GoString), lo);
-            x.set(("Lt" : stdgo.GoString), lt);
-            x.set(("Lu" : stdgo.GoString), lu);
-            x.set(("M" : stdgo.GoString), m);
-            x.set(("Mc" : stdgo.GoString), mc);
-            x.set(("Me" : stdgo.GoString), me);
-            x.set(("Mn" : stdgo.GoString), mn);
-            x.set(("N" : stdgo.GoString), n);
-            x.set(("Nd" : stdgo.GoString), nd);
-            x.set(("Nl" : stdgo.GoString), nl);
-            x.set(("No" : stdgo.GoString), no);
-            x.set(("P" : stdgo.GoString), p);
-            x.set(("Pc" : stdgo.GoString), pc);
-            x.set(("Pd" : stdgo.GoString), pd);
-            x.set(("Pe" : stdgo.GoString), pe);
-            x.set(("Pf" : stdgo.GoString), pf);
-            x.set(("Pi" : stdgo.GoString), pi);
-            x.set(("Po" : stdgo.GoString), po);
-            x.set(("Ps" : stdgo.GoString), ps);
-            x.set(("S" : stdgo.GoString), s);
-            x.set(("Sc" : stdgo.GoString), sc);
-            x.set(("Sk" : stdgo.GoString), sk);
-            x.set(("Sm" : stdgo.GoString), sm);
-            x.set(("So" : stdgo.GoString), so);
-            x.set(("Z" : stdgo.GoString), z);
-            x.set(("Zl" : stdgo.GoString), zl);
-            x.set(("Zp" : stdgo.GoString), zp);
-            x.set(("Zs" : stdgo.GoString), zs);
-        };
-        x;
-    } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.Unicode.RangeTable>>);
 /**
     
     
@@ -4125,6 +3929,13 @@ var symbol : stdgo.Ref<stdgo.unicode.Unicode.RangeTable> = __S;
 **/
 var s : stdgo.Ref<stdgo.unicode.Unicode.RangeTable> = __S;
 /**
+    // PrintRanges defines the set of printable characters according to Go.
+    // ASCII space, U+0020, is handled separately.
+    
+    
+**/
+var printRanges : stdgo.Slice<stdgo.Ref<stdgo.unicode.Unicode.RangeTable>> = (new stdgo.Slice<stdgo.Ref<stdgo.unicode.Unicode.RangeTable>>(5, 5, l, m, n, p, s) : stdgo.Slice<stdgo.Ref<stdgo.unicode.Unicode.RangeTable>>);
+/**
     // These variables have type *RangeTable.
     
     // Title is the set of Unicode title case letters.
@@ -4167,177 +3978,56 @@ var zp : stdgo.Ref<stdgo.unicode.Unicode.RangeTable> = __Zp;
 **/
 var zs : stdgo.Ref<stdgo.unicode.Unicode.RangeTable> = __Zs;
 /**
-    // Scripts is the set of Unicode script tables.
+    // GraphicRanges defines the set of graphic characters according to Unicode.
     
     
 **/
-var scripts : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.Unicode.RangeTable>> = ({
+var graphicRanges : stdgo.Slice<stdgo.Ref<stdgo.unicode.Unicode.RangeTable>> = (new stdgo.Slice<stdgo.Ref<stdgo.unicode.Unicode.RangeTable>>(6, 6, l, m, n, p, s, zs) : stdgo.Slice<stdgo.Ref<stdgo.unicode.Unicode.RangeTable>>);
+/**
+    // Categories is the set of Unicode category tables.
+    
+    
+**/
+var categories : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.Unicode.RangeTable>> = ({
         final x = new stdgo.GoMap.GoStringMap<stdgo.Ref<stdgo.unicode.Unicode.RangeTable>>();
         x.__defaultValue__ = () -> (null : stdgo.Ref<stdgo.unicode.Unicode.RangeTable>);
         @:mergeBlock {
-            x.set(("Adlam" : stdgo.GoString), adlam);
-            x.set(("Ahom" : stdgo.GoString), ahom);
-            x.set(("Anatolian_Hieroglyphs" : stdgo.GoString), anatolian_Hieroglyphs);
-            x.set(("Arabic" : stdgo.GoString), arabic);
-            x.set(("Armenian" : stdgo.GoString), armenian);
-            x.set(("Avestan" : stdgo.GoString), avestan);
-            x.set(("Balinese" : stdgo.GoString), balinese);
-            x.set(("Bamum" : stdgo.GoString), bamum);
-            x.set(("Bassa_Vah" : stdgo.GoString), bassa_Vah);
-            x.set(("Batak" : stdgo.GoString), batak);
-            x.set(("Bengali" : stdgo.GoString), bengali);
-            x.set(("Bhaiksuki" : stdgo.GoString), bhaiksuki);
-            x.set(("Bopomofo" : stdgo.GoString), bopomofo);
-            x.set(("Brahmi" : stdgo.GoString), brahmi);
-            x.set(("Braille" : stdgo.GoString), braille);
-            x.set(("Buginese" : stdgo.GoString), buginese);
-            x.set(("Buhid" : stdgo.GoString), buhid);
-            x.set(("Canadian_Aboriginal" : stdgo.GoString), canadian_Aboriginal);
-            x.set(("Carian" : stdgo.GoString), carian);
-            x.set(("Caucasian_Albanian" : stdgo.GoString), caucasian_Albanian);
-            x.set(("Chakma" : stdgo.GoString), chakma);
-            x.set(("Cham" : stdgo.GoString), cham);
-            x.set(("Cherokee" : stdgo.GoString), cherokee);
-            x.set(("Chorasmian" : stdgo.GoString), chorasmian);
-            x.set(("Common" : stdgo.GoString), common);
-            x.set(("Coptic" : stdgo.GoString), coptic);
-            x.set(("Cuneiform" : stdgo.GoString), cuneiform);
-            x.set(("Cypriot" : stdgo.GoString), cypriot);
-            x.set(("Cypro_Minoan" : stdgo.GoString), cypro_Minoan);
-            x.set(("Cyrillic" : stdgo.GoString), cyrillic);
-            x.set(("Deseret" : stdgo.GoString), deseret);
-            x.set(("Devanagari" : stdgo.GoString), devanagari);
-            x.set(("Dives_Akuru" : stdgo.GoString), dives_Akuru);
-            x.set(("Dogra" : stdgo.GoString), dogra);
-            x.set(("Duployan" : stdgo.GoString), duployan);
-            x.set(("Egyptian_Hieroglyphs" : stdgo.GoString), egyptian_Hieroglyphs);
-            x.set(("Elbasan" : stdgo.GoString), elbasan);
-            x.set(("Elymaic" : stdgo.GoString), elymaic);
-            x.set(("Ethiopic" : stdgo.GoString), ethiopic);
-            x.set(("Georgian" : stdgo.GoString), georgian);
-            x.set(("Glagolitic" : stdgo.GoString), glagolitic);
-            x.set(("Gothic" : stdgo.GoString), gothic);
-            x.set(("Grantha" : stdgo.GoString), grantha);
-            x.set(("Greek" : stdgo.GoString), greek);
-            x.set(("Gujarati" : stdgo.GoString), gujarati);
-            x.set(("Gunjala_Gondi" : stdgo.GoString), gunjala_Gondi);
-            x.set(("Gurmukhi" : stdgo.GoString), gurmukhi);
-            x.set(("Han" : stdgo.GoString), han);
-            x.set(("Hangul" : stdgo.GoString), hangul);
-            x.set(("Hanifi_Rohingya" : stdgo.GoString), hanifi_Rohingya);
-            x.set(("Hanunoo" : stdgo.GoString), hanunoo);
-            x.set(("Hatran" : stdgo.GoString), hatran);
-            x.set(("Hebrew" : stdgo.GoString), hebrew);
-            x.set(("Hiragana" : stdgo.GoString), hiragana);
-            x.set(("Imperial_Aramaic" : stdgo.GoString), imperial_Aramaic);
-            x.set(("Inherited" : stdgo.GoString), inherited);
-            x.set(("Inscriptional_Pahlavi" : stdgo.GoString), inscriptional_Pahlavi);
-            x.set(("Inscriptional_Parthian" : stdgo.GoString), inscriptional_Parthian);
-            x.set(("Javanese" : stdgo.GoString), javanese);
-            x.set(("Kaithi" : stdgo.GoString), kaithi);
-            x.set(("Kannada" : stdgo.GoString), kannada);
-            x.set(("Katakana" : stdgo.GoString), katakana);
-            x.set(("Kawi" : stdgo.GoString), kawi);
-            x.set(("Kayah_Li" : stdgo.GoString), kayah_Li);
-            x.set(("Kharoshthi" : stdgo.GoString), kharoshthi);
-            x.set(("Khitan_Small_Script" : stdgo.GoString), khitan_Small_Script);
-            x.set(("Khmer" : stdgo.GoString), khmer);
-            x.set(("Khojki" : stdgo.GoString), khojki);
-            x.set(("Khudawadi" : stdgo.GoString), khudawadi);
-            x.set(("Lao" : stdgo.GoString), lao);
-            x.set(("Latin" : stdgo.GoString), latin);
-            x.set(("Lepcha" : stdgo.GoString), lepcha);
-            x.set(("Limbu" : stdgo.GoString), limbu);
-            x.set(("Linear_A" : stdgo.GoString), linear_A);
-            x.set(("Linear_B" : stdgo.GoString), linear_B);
-            x.set(("Lisu" : stdgo.GoString), lisu);
-            x.set(("Lycian" : stdgo.GoString), lycian);
-            x.set(("Lydian" : stdgo.GoString), lydian);
-            x.set(("Mahajani" : stdgo.GoString), mahajani);
-            x.set(("Makasar" : stdgo.GoString), makasar);
-            x.set(("Malayalam" : stdgo.GoString), malayalam);
-            x.set(("Mandaic" : stdgo.GoString), mandaic);
-            x.set(("Manichaean" : stdgo.GoString), manichaean);
-            x.set(("Marchen" : stdgo.GoString), marchen);
-            x.set(("Masaram_Gondi" : stdgo.GoString), masaram_Gondi);
-            x.set(("Medefaidrin" : stdgo.GoString), medefaidrin);
-            x.set(("Meetei_Mayek" : stdgo.GoString), meetei_Mayek);
-            x.set(("Mende_Kikakui" : stdgo.GoString), mende_Kikakui);
-            x.set(("Meroitic_Cursive" : stdgo.GoString), meroitic_Cursive);
-            x.set(("Meroitic_Hieroglyphs" : stdgo.GoString), meroitic_Hieroglyphs);
-            x.set(("Miao" : stdgo.GoString), miao);
-            x.set(("Modi" : stdgo.GoString), modi);
-            x.set(("Mongolian" : stdgo.GoString), mongolian);
-            x.set(("Mro" : stdgo.GoString), mro);
-            x.set(("Multani" : stdgo.GoString), multani);
-            x.set(("Myanmar" : stdgo.GoString), myanmar);
-            x.set(("Nabataean" : stdgo.GoString), nabataean);
-            x.set(("Nag_Mundari" : stdgo.GoString), nag_Mundari);
-            x.set(("Nandinagari" : stdgo.GoString), nandinagari);
-            x.set(("New_Tai_Lue" : stdgo.GoString), new_Tai_Lue);
-            x.set(("Newa" : stdgo.GoString), newa);
-            x.set(("Nko" : stdgo.GoString), nko);
-            x.set(("Nushu" : stdgo.GoString), nushu);
-            x.set(("Nyiakeng_Puachue_Hmong" : stdgo.GoString), nyiakeng_Puachue_Hmong);
-            x.set(("Ogham" : stdgo.GoString), ogham);
-            x.set(("Ol_Chiki" : stdgo.GoString), ol_Chiki);
-            x.set(("Old_Hungarian" : stdgo.GoString), old_Hungarian);
-            x.set(("Old_Italic" : stdgo.GoString), old_Italic);
-            x.set(("Old_North_Arabian" : stdgo.GoString), old_North_Arabian);
-            x.set(("Old_Permic" : stdgo.GoString), old_Permic);
-            x.set(("Old_Persian" : stdgo.GoString), old_Persian);
-            x.set(("Old_Sogdian" : stdgo.GoString), old_Sogdian);
-            x.set(("Old_South_Arabian" : stdgo.GoString), old_South_Arabian);
-            x.set(("Old_Turkic" : stdgo.GoString), old_Turkic);
-            x.set(("Old_Uyghur" : stdgo.GoString), old_Uyghur);
-            x.set(("Oriya" : stdgo.GoString), oriya);
-            x.set(("Osage" : stdgo.GoString), osage);
-            x.set(("Osmanya" : stdgo.GoString), osmanya);
-            x.set(("Pahawh_Hmong" : stdgo.GoString), pahawh_Hmong);
-            x.set(("Palmyrene" : stdgo.GoString), palmyrene);
-            x.set(("Pau_Cin_Hau" : stdgo.GoString), pau_Cin_Hau);
-            x.set(("Phags_Pa" : stdgo.GoString), phags_Pa);
-            x.set(("Phoenician" : stdgo.GoString), phoenician);
-            x.set(("Psalter_Pahlavi" : stdgo.GoString), psalter_Pahlavi);
-            x.set(("Rejang" : stdgo.GoString), rejang);
-            x.set(("Runic" : stdgo.GoString), runic);
-            x.set(("Samaritan" : stdgo.GoString), samaritan);
-            x.set(("Saurashtra" : stdgo.GoString), saurashtra);
-            x.set(("Sharada" : stdgo.GoString), sharada);
-            x.set(("Shavian" : stdgo.GoString), shavian);
-            x.set(("Siddham" : stdgo.GoString), siddham);
-            x.set(("SignWriting" : stdgo.GoString), signWriting);
-            x.set(("Sinhala" : stdgo.GoString), sinhala);
-            x.set(("Sogdian" : stdgo.GoString), sogdian);
-            x.set(("Sora_Sompeng" : stdgo.GoString), sora_Sompeng);
-            x.set(("Soyombo" : stdgo.GoString), soyombo);
-            x.set(("Sundanese" : stdgo.GoString), sundanese);
-            x.set(("Syloti_Nagri" : stdgo.GoString), syloti_Nagri);
-            x.set(("Syriac" : stdgo.GoString), syriac);
-            x.set(("Tagalog" : stdgo.GoString), tagalog);
-            x.set(("Tagbanwa" : stdgo.GoString), tagbanwa);
-            x.set(("Tai_Le" : stdgo.GoString), tai_Le);
-            x.set(("Tai_Tham" : stdgo.GoString), tai_Tham);
-            x.set(("Tai_Viet" : stdgo.GoString), tai_Viet);
-            x.set(("Takri" : stdgo.GoString), takri);
-            x.set(("Tamil" : stdgo.GoString), tamil);
-            x.set(("Tangsa" : stdgo.GoString), tangsa);
-            x.set(("Tangut" : stdgo.GoString), tangut);
-            x.set(("Telugu" : stdgo.GoString), telugu);
-            x.set(("Thaana" : stdgo.GoString), thaana);
-            x.set(("Thai" : stdgo.GoString), thai);
-            x.set(("Tibetan" : stdgo.GoString), tibetan);
-            x.set(("Tifinagh" : stdgo.GoString), tifinagh);
-            x.set(("Tirhuta" : stdgo.GoString), tirhuta);
-            x.set(("Toto" : stdgo.GoString), toto);
-            x.set(("Ugaritic" : stdgo.GoString), ugaritic);
-            x.set(("Vai" : stdgo.GoString), vai);
-            x.set(("Vithkuqi" : stdgo.GoString), vithkuqi);
-            x.set(("Wancho" : stdgo.GoString), wancho);
-            x.set(("Warang_Citi" : stdgo.GoString), warang_Citi);
-            x.set(("Yezidi" : stdgo.GoString), yezidi);
-            x.set(("Yi" : stdgo.GoString), yi);
-            x.set(("Zanabazar_Square" : stdgo.GoString), zanabazar_Square);
+            x.set(("C" : stdgo.GoString), c);
+            x.set(("Cc" : stdgo.GoString), cc);
+            x.set(("Cf" : stdgo.GoString), cf);
+            x.set(("Co" : stdgo.GoString), co);
+            x.set(("Cs" : stdgo.GoString), cs);
+            x.set(("L" : stdgo.GoString), l);
+            x.set(("Ll" : stdgo.GoString), ll);
+            x.set(("Lm" : stdgo.GoString), lm);
+            x.set(("Lo" : stdgo.GoString), lo);
+            x.set(("Lt" : stdgo.GoString), lt);
+            x.set(("Lu" : stdgo.GoString), lu);
+            x.set(("M" : stdgo.GoString), m);
+            x.set(("Mc" : stdgo.GoString), mc);
+            x.set(("Me" : stdgo.GoString), me);
+            x.set(("Mn" : stdgo.GoString), mn);
+            x.set(("N" : stdgo.GoString), n);
+            x.set(("Nd" : stdgo.GoString), nd);
+            x.set(("Nl" : stdgo.GoString), nl);
+            x.set(("No" : stdgo.GoString), no);
+            x.set(("P" : stdgo.GoString), p);
+            x.set(("Pc" : stdgo.GoString), pc);
+            x.set(("Pd" : stdgo.GoString), pd);
+            x.set(("Pe" : stdgo.GoString), pe);
+            x.set(("Pf" : stdgo.GoString), pf);
+            x.set(("Pi" : stdgo.GoString), pi);
+            x.set(("Po" : stdgo.GoString), po);
+            x.set(("Ps" : stdgo.GoString), ps);
+            x.set(("S" : stdgo.GoString), s);
+            x.set(("Sc" : stdgo.GoString), sc);
+            x.set(("Sk" : stdgo.GoString), sk);
+            x.set(("Sm" : stdgo.GoString), sm);
+            x.set(("So" : stdgo.GoString), so);
+            x.set(("Z" : stdgo.GoString), z);
+            x.set(("Zl" : stdgo.GoString), zl);
+            x.set(("Zp" : stdgo.GoString), zp);
+            x.set(("Zs" : stdgo.GoString), zs);
         };
         x;
     } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.Unicode.RangeTable>>);
@@ -6855,49 +6545,177 @@ var yi : stdgo.Ref<stdgo.unicode.Unicode.RangeTable> = __Yi;
 **/
 var zanabazar_Square : stdgo.Ref<stdgo.unicode.Unicode.RangeTable> = __Zanabazar_Square;
 /**
-    // Properties is the set of Unicode property tables.
+    // Scripts is the set of Unicode script tables.
     
     
 **/
-var properties : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.Unicode.RangeTable>> = ({
+var scripts : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.Unicode.RangeTable>> = ({
         final x = new stdgo.GoMap.GoStringMap<stdgo.Ref<stdgo.unicode.Unicode.RangeTable>>();
         x.__defaultValue__ = () -> (null : stdgo.Ref<stdgo.unicode.Unicode.RangeTable>);
         @:mergeBlock {
-            x.set(("ASCII_Hex_Digit" : stdgo.GoString), ascii_Hex_Digit);
-            x.set(("Bidi_Control" : stdgo.GoString), bidi_Control);
-            x.set(("Dash" : stdgo.GoString), dash);
-            x.set(("Deprecated" : stdgo.GoString), deprecated);
-            x.set(("Diacritic" : stdgo.GoString), diacritic);
-            x.set(("Extender" : stdgo.GoString), extender);
-            x.set(("Hex_Digit" : stdgo.GoString), hex_Digit);
-            x.set(("Hyphen" : stdgo.GoString), hyphen);
-            x.set(("IDS_Binary_Operator" : stdgo.GoString), ids_Binary_Operator);
-            x.set(("IDS_Trinary_Operator" : stdgo.GoString), ids_Trinary_Operator);
-            x.set(("Ideographic" : stdgo.GoString), ideographic);
-            x.set(("Join_Control" : stdgo.GoString), join_Control);
-            x.set(("Logical_Order_Exception" : stdgo.GoString), logical_Order_Exception);
-            x.set(("Noncharacter_Code_Point" : stdgo.GoString), noncharacter_Code_Point);
-            x.set(("Other_Alphabetic" : stdgo.GoString), other_Alphabetic);
-            x.set(("Other_Default_Ignorable_Code_Point" : stdgo.GoString), other_Default_Ignorable_Code_Point);
-            x.set(("Other_Grapheme_Extend" : stdgo.GoString), other_Grapheme_Extend);
-            x.set(("Other_ID_Continue" : stdgo.GoString), other_ID_Continue);
-            x.set(("Other_ID_Start" : stdgo.GoString), other_ID_Start);
-            x.set(("Other_Lowercase" : stdgo.GoString), other_Lowercase);
-            x.set(("Other_Math" : stdgo.GoString), other_Math);
-            x.set(("Other_Uppercase" : stdgo.GoString), other_Uppercase);
-            x.set(("Pattern_Syntax" : stdgo.GoString), pattern_Syntax);
-            x.set(("Pattern_White_Space" : stdgo.GoString), pattern_White_Space);
-            x.set(("Prepended_Concatenation_Mark" : stdgo.GoString), prepended_Concatenation_Mark);
-            x.set(("Quotation_Mark" : stdgo.GoString), quotation_Mark);
-            x.set(("Radical" : stdgo.GoString), radical);
-            x.set(("Regional_Indicator" : stdgo.GoString), regional_Indicator);
-            x.set(("Sentence_Terminal" : stdgo.GoString), sentence_Terminal);
-            x.set(("STerm" : stdgo.GoString), sentence_Terminal);
-            x.set(("Soft_Dotted" : stdgo.GoString), soft_Dotted);
-            x.set(("Terminal_Punctuation" : stdgo.GoString), terminal_Punctuation);
-            x.set(("Unified_Ideograph" : stdgo.GoString), unified_Ideograph);
-            x.set(("Variation_Selector" : stdgo.GoString), variation_Selector);
-            x.set(("White_Space" : stdgo.GoString), white_Space);
+            x.set(("Adlam" : stdgo.GoString), adlam);
+            x.set(("Ahom" : stdgo.GoString), ahom);
+            x.set(("Anatolian_Hieroglyphs" : stdgo.GoString), anatolian_Hieroglyphs);
+            x.set(("Arabic" : stdgo.GoString), arabic);
+            x.set(("Armenian" : stdgo.GoString), armenian);
+            x.set(("Avestan" : stdgo.GoString), avestan);
+            x.set(("Balinese" : stdgo.GoString), balinese);
+            x.set(("Bamum" : stdgo.GoString), bamum);
+            x.set(("Bassa_Vah" : stdgo.GoString), bassa_Vah);
+            x.set(("Batak" : stdgo.GoString), batak);
+            x.set(("Bengali" : stdgo.GoString), bengali);
+            x.set(("Bhaiksuki" : stdgo.GoString), bhaiksuki);
+            x.set(("Bopomofo" : stdgo.GoString), bopomofo);
+            x.set(("Brahmi" : stdgo.GoString), brahmi);
+            x.set(("Braille" : stdgo.GoString), braille);
+            x.set(("Buginese" : stdgo.GoString), buginese);
+            x.set(("Buhid" : stdgo.GoString), buhid);
+            x.set(("Canadian_Aboriginal" : stdgo.GoString), canadian_Aboriginal);
+            x.set(("Carian" : stdgo.GoString), carian);
+            x.set(("Caucasian_Albanian" : stdgo.GoString), caucasian_Albanian);
+            x.set(("Chakma" : stdgo.GoString), chakma);
+            x.set(("Cham" : stdgo.GoString), cham);
+            x.set(("Cherokee" : stdgo.GoString), cherokee);
+            x.set(("Chorasmian" : stdgo.GoString), chorasmian);
+            x.set(("Common" : stdgo.GoString), common);
+            x.set(("Coptic" : stdgo.GoString), coptic);
+            x.set(("Cuneiform" : stdgo.GoString), cuneiform);
+            x.set(("Cypriot" : stdgo.GoString), cypriot);
+            x.set(("Cypro_Minoan" : stdgo.GoString), cypro_Minoan);
+            x.set(("Cyrillic" : stdgo.GoString), cyrillic);
+            x.set(("Deseret" : stdgo.GoString), deseret);
+            x.set(("Devanagari" : stdgo.GoString), devanagari);
+            x.set(("Dives_Akuru" : stdgo.GoString), dives_Akuru);
+            x.set(("Dogra" : stdgo.GoString), dogra);
+            x.set(("Duployan" : stdgo.GoString), duployan);
+            x.set(("Egyptian_Hieroglyphs" : stdgo.GoString), egyptian_Hieroglyphs);
+            x.set(("Elbasan" : stdgo.GoString), elbasan);
+            x.set(("Elymaic" : stdgo.GoString), elymaic);
+            x.set(("Ethiopic" : stdgo.GoString), ethiopic);
+            x.set(("Georgian" : stdgo.GoString), georgian);
+            x.set(("Glagolitic" : stdgo.GoString), glagolitic);
+            x.set(("Gothic" : stdgo.GoString), gothic);
+            x.set(("Grantha" : stdgo.GoString), grantha);
+            x.set(("Greek" : stdgo.GoString), greek);
+            x.set(("Gujarati" : stdgo.GoString), gujarati);
+            x.set(("Gunjala_Gondi" : stdgo.GoString), gunjala_Gondi);
+            x.set(("Gurmukhi" : stdgo.GoString), gurmukhi);
+            x.set(("Han" : stdgo.GoString), han);
+            x.set(("Hangul" : stdgo.GoString), hangul);
+            x.set(("Hanifi_Rohingya" : stdgo.GoString), hanifi_Rohingya);
+            x.set(("Hanunoo" : stdgo.GoString), hanunoo);
+            x.set(("Hatran" : stdgo.GoString), hatran);
+            x.set(("Hebrew" : stdgo.GoString), hebrew);
+            x.set(("Hiragana" : stdgo.GoString), hiragana);
+            x.set(("Imperial_Aramaic" : stdgo.GoString), imperial_Aramaic);
+            x.set(("Inherited" : stdgo.GoString), inherited);
+            x.set(("Inscriptional_Pahlavi" : stdgo.GoString), inscriptional_Pahlavi);
+            x.set(("Inscriptional_Parthian" : stdgo.GoString), inscriptional_Parthian);
+            x.set(("Javanese" : stdgo.GoString), javanese);
+            x.set(("Kaithi" : stdgo.GoString), kaithi);
+            x.set(("Kannada" : stdgo.GoString), kannada);
+            x.set(("Katakana" : stdgo.GoString), katakana);
+            x.set(("Kawi" : stdgo.GoString), kawi);
+            x.set(("Kayah_Li" : stdgo.GoString), kayah_Li);
+            x.set(("Kharoshthi" : stdgo.GoString), kharoshthi);
+            x.set(("Khitan_Small_Script" : stdgo.GoString), khitan_Small_Script);
+            x.set(("Khmer" : stdgo.GoString), khmer);
+            x.set(("Khojki" : stdgo.GoString), khojki);
+            x.set(("Khudawadi" : stdgo.GoString), khudawadi);
+            x.set(("Lao" : stdgo.GoString), lao);
+            x.set(("Latin" : stdgo.GoString), latin);
+            x.set(("Lepcha" : stdgo.GoString), lepcha);
+            x.set(("Limbu" : stdgo.GoString), limbu);
+            x.set(("Linear_A" : stdgo.GoString), linear_A);
+            x.set(("Linear_B" : stdgo.GoString), linear_B);
+            x.set(("Lisu" : stdgo.GoString), lisu);
+            x.set(("Lycian" : stdgo.GoString), lycian);
+            x.set(("Lydian" : stdgo.GoString), lydian);
+            x.set(("Mahajani" : stdgo.GoString), mahajani);
+            x.set(("Makasar" : stdgo.GoString), makasar);
+            x.set(("Malayalam" : stdgo.GoString), malayalam);
+            x.set(("Mandaic" : stdgo.GoString), mandaic);
+            x.set(("Manichaean" : stdgo.GoString), manichaean);
+            x.set(("Marchen" : stdgo.GoString), marchen);
+            x.set(("Masaram_Gondi" : stdgo.GoString), masaram_Gondi);
+            x.set(("Medefaidrin" : stdgo.GoString), medefaidrin);
+            x.set(("Meetei_Mayek" : stdgo.GoString), meetei_Mayek);
+            x.set(("Mende_Kikakui" : stdgo.GoString), mende_Kikakui);
+            x.set(("Meroitic_Cursive" : stdgo.GoString), meroitic_Cursive);
+            x.set(("Meroitic_Hieroglyphs" : stdgo.GoString), meroitic_Hieroglyphs);
+            x.set(("Miao" : stdgo.GoString), miao);
+            x.set(("Modi" : stdgo.GoString), modi);
+            x.set(("Mongolian" : stdgo.GoString), mongolian);
+            x.set(("Mro" : stdgo.GoString), mro);
+            x.set(("Multani" : stdgo.GoString), multani);
+            x.set(("Myanmar" : stdgo.GoString), myanmar);
+            x.set(("Nabataean" : stdgo.GoString), nabataean);
+            x.set(("Nag_Mundari" : stdgo.GoString), nag_Mundari);
+            x.set(("Nandinagari" : stdgo.GoString), nandinagari);
+            x.set(("New_Tai_Lue" : stdgo.GoString), new_Tai_Lue);
+            x.set(("Newa" : stdgo.GoString), newa);
+            x.set(("Nko" : stdgo.GoString), nko);
+            x.set(("Nushu" : stdgo.GoString), nushu);
+            x.set(("Nyiakeng_Puachue_Hmong" : stdgo.GoString), nyiakeng_Puachue_Hmong);
+            x.set(("Ogham" : stdgo.GoString), ogham);
+            x.set(("Ol_Chiki" : stdgo.GoString), ol_Chiki);
+            x.set(("Old_Hungarian" : stdgo.GoString), old_Hungarian);
+            x.set(("Old_Italic" : stdgo.GoString), old_Italic);
+            x.set(("Old_North_Arabian" : stdgo.GoString), old_North_Arabian);
+            x.set(("Old_Permic" : stdgo.GoString), old_Permic);
+            x.set(("Old_Persian" : stdgo.GoString), old_Persian);
+            x.set(("Old_Sogdian" : stdgo.GoString), old_Sogdian);
+            x.set(("Old_South_Arabian" : stdgo.GoString), old_South_Arabian);
+            x.set(("Old_Turkic" : stdgo.GoString), old_Turkic);
+            x.set(("Old_Uyghur" : stdgo.GoString), old_Uyghur);
+            x.set(("Oriya" : stdgo.GoString), oriya);
+            x.set(("Osage" : stdgo.GoString), osage);
+            x.set(("Osmanya" : stdgo.GoString), osmanya);
+            x.set(("Pahawh_Hmong" : stdgo.GoString), pahawh_Hmong);
+            x.set(("Palmyrene" : stdgo.GoString), palmyrene);
+            x.set(("Pau_Cin_Hau" : stdgo.GoString), pau_Cin_Hau);
+            x.set(("Phags_Pa" : stdgo.GoString), phags_Pa);
+            x.set(("Phoenician" : stdgo.GoString), phoenician);
+            x.set(("Psalter_Pahlavi" : stdgo.GoString), psalter_Pahlavi);
+            x.set(("Rejang" : stdgo.GoString), rejang);
+            x.set(("Runic" : stdgo.GoString), runic);
+            x.set(("Samaritan" : stdgo.GoString), samaritan);
+            x.set(("Saurashtra" : stdgo.GoString), saurashtra);
+            x.set(("Sharada" : stdgo.GoString), sharada);
+            x.set(("Shavian" : stdgo.GoString), shavian);
+            x.set(("Siddham" : stdgo.GoString), siddham);
+            x.set(("SignWriting" : stdgo.GoString), signWriting);
+            x.set(("Sinhala" : stdgo.GoString), sinhala);
+            x.set(("Sogdian" : stdgo.GoString), sogdian);
+            x.set(("Sora_Sompeng" : stdgo.GoString), sora_Sompeng);
+            x.set(("Soyombo" : stdgo.GoString), soyombo);
+            x.set(("Sundanese" : stdgo.GoString), sundanese);
+            x.set(("Syloti_Nagri" : stdgo.GoString), syloti_Nagri);
+            x.set(("Syriac" : stdgo.GoString), syriac);
+            x.set(("Tagalog" : stdgo.GoString), tagalog);
+            x.set(("Tagbanwa" : stdgo.GoString), tagbanwa);
+            x.set(("Tai_Le" : stdgo.GoString), tai_Le);
+            x.set(("Tai_Tham" : stdgo.GoString), tai_Tham);
+            x.set(("Tai_Viet" : stdgo.GoString), tai_Viet);
+            x.set(("Takri" : stdgo.GoString), takri);
+            x.set(("Tamil" : stdgo.GoString), tamil);
+            x.set(("Tangsa" : stdgo.GoString), tangsa);
+            x.set(("Tangut" : stdgo.GoString), tangut);
+            x.set(("Telugu" : stdgo.GoString), telugu);
+            x.set(("Thaana" : stdgo.GoString), thaana);
+            x.set(("Thai" : stdgo.GoString), thai);
+            x.set(("Tibetan" : stdgo.GoString), tibetan);
+            x.set(("Tifinagh" : stdgo.GoString), tifinagh);
+            x.set(("Tirhuta" : stdgo.GoString), tirhuta);
+            x.set(("Toto" : stdgo.GoString), toto);
+            x.set(("Ugaritic" : stdgo.GoString), ugaritic);
+            x.set(("Vai" : stdgo.GoString), vai);
+            x.set(("Vithkuqi" : stdgo.GoString), vithkuqi);
+            x.set(("Wancho" : stdgo.GoString), wancho);
+            x.set(("Warang_Citi" : stdgo.GoString), warang_Citi);
+            x.set(("Yezidi" : stdgo.GoString), yezidi);
+            x.set(("Yi" : stdgo.GoString), yi);
+            x.set(("Zanabazar_Square" : stdgo.GoString), zanabazar_Square);
         };
         x;
     } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.Unicode.RangeTable>>);
@@ -8170,12 +7988,52 @@ var variation_Selector : stdgo.Ref<stdgo.unicode.Unicode.RangeTable> = __Variati
 **/
 var white_Space : stdgo.Ref<stdgo.unicode.Unicode.RangeTable> = __White_Space;
 /**
-    // CaseRanges is the table describing case mappings for all letters with
-    // non-self mappings.
+    // Properties is the set of Unicode property tables.
     
     
 **/
-var caseRanges : stdgo.Slice<stdgo.unicode.Unicode.CaseRange> = __CaseRanges;
+var properties : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.Unicode.RangeTable>> = ({
+        final x = new stdgo.GoMap.GoStringMap<stdgo.Ref<stdgo.unicode.Unicode.RangeTable>>();
+        x.__defaultValue__ = () -> (null : stdgo.Ref<stdgo.unicode.Unicode.RangeTable>);
+        @:mergeBlock {
+            x.set(("ASCII_Hex_Digit" : stdgo.GoString), ascii_Hex_Digit);
+            x.set(("Bidi_Control" : stdgo.GoString), bidi_Control);
+            x.set(("Dash" : stdgo.GoString), dash);
+            x.set(("Deprecated" : stdgo.GoString), deprecated);
+            x.set(("Diacritic" : stdgo.GoString), diacritic);
+            x.set(("Extender" : stdgo.GoString), extender);
+            x.set(("Hex_Digit" : stdgo.GoString), hex_Digit);
+            x.set(("Hyphen" : stdgo.GoString), hyphen);
+            x.set(("IDS_Binary_Operator" : stdgo.GoString), ids_Binary_Operator);
+            x.set(("IDS_Trinary_Operator" : stdgo.GoString), ids_Trinary_Operator);
+            x.set(("Ideographic" : stdgo.GoString), ideographic);
+            x.set(("Join_Control" : stdgo.GoString), join_Control);
+            x.set(("Logical_Order_Exception" : stdgo.GoString), logical_Order_Exception);
+            x.set(("Noncharacter_Code_Point" : stdgo.GoString), noncharacter_Code_Point);
+            x.set(("Other_Alphabetic" : stdgo.GoString), other_Alphabetic);
+            x.set(("Other_Default_Ignorable_Code_Point" : stdgo.GoString), other_Default_Ignorable_Code_Point);
+            x.set(("Other_Grapheme_Extend" : stdgo.GoString), other_Grapheme_Extend);
+            x.set(("Other_ID_Continue" : stdgo.GoString), other_ID_Continue);
+            x.set(("Other_ID_Start" : stdgo.GoString), other_ID_Start);
+            x.set(("Other_Lowercase" : stdgo.GoString), other_Lowercase);
+            x.set(("Other_Math" : stdgo.GoString), other_Math);
+            x.set(("Other_Uppercase" : stdgo.GoString), other_Uppercase);
+            x.set(("Pattern_Syntax" : stdgo.GoString), pattern_Syntax);
+            x.set(("Pattern_White_Space" : stdgo.GoString), pattern_White_Space);
+            x.set(("Prepended_Concatenation_Mark" : stdgo.GoString), prepended_Concatenation_Mark);
+            x.set(("Quotation_Mark" : stdgo.GoString), quotation_Mark);
+            x.set(("Radical" : stdgo.GoString), radical);
+            x.set(("Regional_Indicator" : stdgo.GoString), regional_Indicator);
+            x.set(("Sentence_Terminal" : stdgo.GoString), sentence_Terminal);
+            x.set(("STerm" : stdgo.GoString), sentence_Terminal);
+            x.set(("Soft_Dotted" : stdgo.GoString), soft_Dotted);
+            x.set(("Terminal_Punctuation" : stdgo.GoString), terminal_Punctuation);
+            x.set(("Unified_Ideograph" : stdgo.GoString), unified_Ideograph);
+            x.set(("Variation_Selector" : stdgo.GoString), variation_Selector);
+            x.set(("White_Space" : stdgo.GoString), white_Space);
+        };
+        x;
+    } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.Unicode.RangeTable>>);
 /**
     
     
@@ -8512,6 +8370,13 @@ var __CaseRanges : stdgo.Slice<stdgo.unicode.Unicode.CaseRange> = (new stdgo.Sli
 (new stdgo.unicode.Unicode.CaseRange((93792u32 : stdgo.GoUInt32), (93823u32 : stdgo.GoUInt32), (new stdgo.GoArray<stdgo.GoInt32>((-32 : stdgo.GoInt32), (0 : stdgo.GoInt32), (-32 : stdgo.GoInt32)) : stdgo.unicode.Unicode.T_d)) : stdgo.unicode.Unicode.CaseRange),
 (new stdgo.unicode.Unicode.CaseRange((125184u32 : stdgo.GoUInt32), (125217u32 : stdgo.GoUInt32), (new stdgo.GoArray<stdgo.GoInt32>((0 : stdgo.GoInt32), (34 : stdgo.GoInt32), (0 : stdgo.GoInt32)) : stdgo.unicode.Unicode.T_d)) : stdgo.unicode.Unicode.CaseRange),
 (new stdgo.unicode.Unicode.CaseRange((125218u32 : stdgo.GoUInt32), (125251u32 : stdgo.GoUInt32), (new stdgo.GoArray<stdgo.GoInt32>((-34 : stdgo.GoInt32), (0 : stdgo.GoInt32), (-34 : stdgo.GoInt32)) : stdgo.unicode.Unicode.T_d)) : stdgo.unicode.Unicode.CaseRange)) : stdgo.Slice<stdgo.unicode.Unicode.CaseRange>);
+/**
+    // CaseRanges is the table describing case mappings for all letters with
+    // non-self mappings.
+    
+    
+**/
+var caseRanges : stdgo.Slice<stdgo.unicode.Unicode.CaseRange> = __CaseRanges;
 /**
     
     
@@ -9008,27 +8873,6 @@ var _caseOrbit : stdgo.Slice<stdgo.unicode.Unicode.T_foldPair> = (new stdgo.Slic
 (new stdgo.unicode.Unicode.T_foldPair((42570 : stdgo.GoUInt16), (42571 : stdgo.GoUInt16)) : stdgo.unicode.Unicode.T_foldPair),
 (new stdgo.unicode.Unicode.T_foldPair((42571 : stdgo.GoUInt16), (7304 : stdgo.GoUInt16)) : stdgo.unicode.Unicode.T_foldPair)) : stdgo.Slice<stdgo.unicode.Unicode.T_foldPair>);
 /**
-    // FoldCategory maps a category name to a table of
-    // code points outside the category that are equivalent under
-    // simple case folding to code points inside the category.
-    // If there is no entry for a category name, there are no such points.
-    
-    
-**/
-var foldCategory : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.Unicode.RangeTable>> = ({
-        final x = new stdgo.GoMap.GoStringMap<stdgo.Ref<stdgo.unicode.Unicode.RangeTable>>();
-        x.__defaultValue__ = () -> (null : stdgo.Ref<stdgo.unicode.Unicode.RangeTable>);
-        @:mergeBlock {
-            x.set(("L" : stdgo.GoString), _foldL);
-            x.set(("Ll" : stdgo.GoString), _foldLl);
-            x.set(("Lt" : stdgo.GoString), _foldLt);
-            x.set(("Lu" : stdgo.GoString), _foldLu);
-            x.set(("M" : stdgo.GoString), _foldM);
-            x.set(("Mn" : stdgo.GoString), _foldMn);
-        };
-        x;
-    } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.Unicode.RangeTable>>);
-/**
     
     
     
@@ -9321,20 +9165,23 @@ var _foldM : stdgo.Ref<stdgo.unicode.Unicode.RangeTable> = (stdgo.Go.setRef(({ r
 **/
 var _foldMn : stdgo.Ref<stdgo.unicode.Unicode.RangeTable> = (stdgo.Go.setRef(({ r16 : (new stdgo.Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((921 : stdgo.GoUInt16), (953 : stdgo.GoUInt16), (32 : stdgo.GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8126 : stdgo.GoUInt16), (8126 : stdgo.GoUInt16), (1 : stdgo.GoUInt16)) : stdgo.unicode.Unicode.Range16)) : stdgo.Slice<stdgo.unicode.Unicode.Range16>) } : stdgo.unicode.Unicode.RangeTable)) : stdgo.Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
-    // FoldScript maps a script name to a table of
-    // code points outside the script that are equivalent under
-    // simple case folding to code points inside the script.
-    // If there is no entry for a script name, there are no such points.
+    // FoldCategory maps a category name to a table of
+    // code points outside the category that are equivalent under
+    // simple case folding to code points inside the category.
+    // If there is no entry for a category name, there are no such points.
     
     
 **/
-var foldScript : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.Unicode.RangeTable>> = ({
+var foldCategory : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.Unicode.RangeTable>> = ({
         final x = new stdgo.GoMap.GoStringMap<stdgo.Ref<stdgo.unicode.Unicode.RangeTable>>();
         x.__defaultValue__ = () -> (null : stdgo.Ref<stdgo.unicode.Unicode.RangeTable>);
         @:mergeBlock {
-            x.set(("Common" : stdgo.GoString), _foldCommon);
-            x.set(("Greek" : stdgo.GoString), _foldGreek);
-            x.set(("Inherited" : stdgo.GoString), _foldInherited);
+            x.set(("L" : stdgo.GoString), _foldL);
+            x.set(("Ll" : stdgo.GoString), _foldLl);
+            x.set(("Lt" : stdgo.GoString), _foldLt);
+            x.set(("Lu" : stdgo.GoString), _foldLu);
+            x.set(("M" : stdgo.GoString), _foldM);
+            x.set(("Mn" : stdgo.GoString), _foldMn);
         };
         x;
     } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.Unicode.RangeTable>>);
@@ -9356,6 +9203,159 @@ var _foldGreek : stdgo.Ref<stdgo.unicode.Unicode.RangeTable> = (stdgo.Go.setRef(
     
 **/
 var _foldInherited : stdgo.Ref<stdgo.unicode.Unicode.RangeTable> = (stdgo.Go.setRef(({ r16 : (new stdgo.Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((921 : stdgo.GoUInt16), (953 : stdgo.GoUInt16), (32 : stdgo.GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8126 : stdgo.GoUInt16), (8126 : stdgo.GoUInt16), (1 : stdgo.GoUInt16)) : stdgo.unicode.Unicode.Range16)) : stdgo.Slice<stdgo.unicode.Unicode.Range16>) } : stdgo.unicode.Unicode.RangeTable)) : stdgo.Ref<stdgo.unicode.Unicode.RangeTable>);
+/**
+    // FoldScript maps a script name to a table of
+    // code points outside the script that are equivalent under
+    // simple case folding to code points inside the script.
+    // If there is no entry for a script name, there are no such points.
+    
+    
+**/
+var foldScript : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.Unicode.RangeTable>> = ({
+        final x = new stdgo.GoMap.GoStringMap<stdgo.Ref<stdgo.unicode.Unicode.RangeTable>>();
+        x.__defaultValue__ = () -> (null : stdgo.Ref<stdgo.unicode.Unicode.RangeTable>);
+        @:mergeBlock {
+            x.set(("Common" : stdgo.GoString), _foldCommon);
+            x.set(("Greek" : stdgo.GoString), _foldGreek);
+            x.set(("Inherited" : stdgo.GoString), _foldInherited);
+        };
+        x;
+    } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.Unicode.RangeTable>>);
+/**
+    // Bit masks for each code point under U+0100, for fast lookup.
+    
+    // a control character.
+**/
+final _pC : stdgo.GoUInt64 = (128i64 : stdgo.GoUInt64);
+/**
+    // Bit masks for each code point under U+0100, for fast lookup.
+    
+    // a punctuation character.
+**/
+final _pP = (128i64 : stdgo.GoUInt64);
+/**
+    // Bit masks for each code point under U+0100, for fast lookup.
+    
+    // a numeral.
+**/
+final _pN = (128i64 : stdgo.GoUInt64);
+/**
+    // Bit masks for each code point under U+0100, for fast lookup.
+    
+    // a symbolic character.
+**/
+final _pS = (128i64 : stdgo.GoUInt64);
+/**
+    // Bit masks for each code point under U+0100, for fast lookup.
+    
+    // a spacing character.
+**/
+final _pZ = (128i64 : stdgo.GoUInt64);
+/**
+    // Bit masks for each code point under U+0100, for fast lookup.
+    
+    // an upper-case letter.
+**/
+final _pLu = (128i64 : stdgo.GoUInt64);
+/**
+    // Bit masks for each code point under U+0100, for fast lookup.
+    
+    // a lower-case letter.
+**/
+final _pLl = (128i64 : stdgo.GoUInt64);
+/**
+    // Bit masks for each code point under U+0100, for fast lookup.
+    
+    // a printable character according to Go's definition.
+**/
+final _pp = (128i64 : stdgo.GoUInt64);
+/**
+    // Bit masks for each code point under U+0100, for fast lookup.
+    
+    // a graphical character according to the Unicode definition.
+**/
+final _pg : stdgo.GoUInt64 = (144i64 : stdgo.GoUInt64);
+/**
+    // Bit masks for each code point under U+0100, for fast lookup.
+    
+    // a letter that is neither upper nor lower case.
+**/
+final _pLo : stdgo.GoUInt64 = (96i64 : stdgo.GoUInt64);
+/**
+    // Bit masks for each code point under U+0100, for fast lookup.
+    
+    
+**/
+final _pLmask : stdgo.GoUInt64 = (96i64 : stdgo.GoUInt64);
+/**
+    
+    
+    // Maximum valid Unicode code point.
+**/
+final maxRune : stdgo.GoInt32 = (1114111 : stdgo.GoInt32);
+/**
+    
+    
+    // Represents invalid code points.
+**/
+final replacementChar : stdgo.GoInt32 = (65533 : stdgo.GoInt32);
+/**
+    
+    
+    // maximum ASCII value.
+**/
+final maxASCII : stdgo.GoInt32 = (127 : stdgo.GoInt32);
+/**
+    
+    
+    // maximum Latin-1 value.
+**/
+final maxLatin1 : stdgo.GoInt32 = (255 : stdgo.GoInt32);
+/**
+    // Indices into the Delta arrays inside CaseRanges for case mapping.
+    
+    
+**/
+final upperCase : stdgo.GoUInt64 = (2i64 : stdgo.GoUInt64);
+/**
+    // Indices into the Delta arrays inside CaseRanges for case mapping.
+    
+    
+**/
+final lowerCase = (2i64 : stdgo.GoUInt64);
+/**
+    // Indices into the Delta arrays inside CaseRanges for case mapping.
+    
+    
+**/
+final titleCase = (2i64 : stdgo.GoUInt64);
+/**
+    // Indices into the Delta arrays inside CaseRanges for case mapping.
+    
+    
+**/
+final maxCase = (2i64 : stdgo.GoUInt64);
+/**
+    // If the Delta field of a CaseRange is UpperLower, it means
+    // this CaseRange represents a sequence of the form (say)
+    // Upper Lower Upper Lower.
+    
+    // (Cannot be a valid delta.)
+**/
+final upperLower : stdgo.GoInt32 = (1114112 : stdgo.GoInt32);
+/**
+    // linearMax is the maximum size table for linear search for non-Latin1 rune.
+    // Derived by running 'go test -calibrate'.
+    
+    
+**/
+final _linearMax : stdgo.GoUInt64 = (18i64 : stdgo.GoUInt64);
+/**
+    // Version is the Unicode edition from which the tables are derived.
+    
+    
+**/
+final version : stdgo.GoString = ("15.0.0" : stdgo.GoString);
 /**
     // RangeTable defines a set of Unicode code points by listing the ranges of
     // code points within the set. The ranges are listed in two slices

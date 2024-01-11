@@ -1,4 +1,5 @@
 package stdgo.os;
+import stdgo.unsafe.Unsafe;
 /**
     // Package os provides a platform-independent interface to operating system
     // functionality. The design is Unix-like, although the error handling is
@@ -42,44 +43,7 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-final _readdirName : stdgo.os.Os.T_readdirMode = ((0 : stdgo.GoInt) : stdgo.os.Os.T_readdirMode);
-/**
-    
-    
-    
-**/
-final _readdirDirEntry = ((0 : stdgo.GoInt) : stdgo.os.Os.T_readdirMode);
-/**
-    
-    
-    
-**/
-final _readdirFileInfo = ((0 : stdgo.GoInt) : stdgo.os.Os.T_readdirMode);
-/**
-    // testingForceReadDirLstat forces ReadDir to call Lstat, for testing that code path.
-    // This can be difficult to provoke on some Unix systems otherwise.
-    
-    
-**/
-var _testingForceReadDirLstat : Bool = false;
-/**
-    // More than 5760 to work around https://golang.org/issue/24015.
-    
-    
-**/
-final _blockSize : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
 var _dirBufPool : stdgo.sync.Sync.Pool = ({} : stdgo.sync.Sync.Pool);
-/**
-    
-    
-    
-**/
-final _isBigEndian : Bool = false;
 /**
     // ErrInvalid indicates an invalid argument.
     // Methods on File will return this error when the receiver is nil.
@@ -172,37 +136,14 @@ var kill : stdgo.os.Os.Signal = (null : stdgo.os.Os.Signal);
     
     
 **/
-var atime : stdgo.io.fs.Fs.FileInfo -> stdgo.time.Time.Time = null;
+var _errWriteAtInAppendMode : stdgo.Error = (null : stdgo.Error);
 /**
-    
+    // checkWrapErr is the test hook to enable checking unexpected wrapped errors of poll.ErrFileClosing.
+    // It is set to true in the export_test.go for tests (including fuzz tests).
     
     
 **/
-var lstatP : stdgo.Ref<stdgo.GoString -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; }> = (null : stdgo.Ref<stdgo.GoString -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; }>);
-/**
-    
-    
-    
-**/
-var errWriteAtInAppendMode : stdgo.Error = (null : stdgo.Error);
-/**
-    
-    
-    
-**/
-var testingForceReadDirLstat : stdgo.Pointer<Bool> = (null : stdgo.Pointer<Bool>);
-/**
-    
-    
-    
-**/
-var errPatternHasSeparator : stdgo.Error = (null : stdgo.Error);
-/**
-    
-    
-    
-**/
-var splitPath : stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = null;
+var _checkWrapErr : Bool = false;
 /**
     // Stdin, Stdout, and Stderr are open Files pointing to the standard input,
     // standard output, and standard error file descriptors.
@@ -236,6 +177,91 @@ var stdout : stdgo.Ref<stdgo.os.Os.File> = new File(null, Sys.stdout());
     
 **/
 var stderr : stdgo.Ref<stdgo.os.Os.File> = new File(null, Sys.stderr());
+/**
+    
+    
+    
+**/
+var _errPatternHasSeparator : stdgo.Error = (null : stdgo.Error);
+/**
+    // lstat is overridden in tests.
+    
+    
+**/
+var _lstat : stdgo.GoString -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } = null;
+/**
+    
+    
+    
+**/
+var atime : stdgo.io.fs.Fs.FileInfo -> stdgo.time.Time.Time = null;
+/**
+    
+    
+    
+**/
+var lstatP : stdgo.Ref<stdgo.GoString -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; }> = (null : stdgo.Ref<stdgo.GoString -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; }>);
+/**
+    
+    
+    
+**/
+var errWriteAtInAppendMode : stdgo.Error = (null : stdgo.Error);
+/**
+    
+    
+    
+**/
+var testingForceReadDirLstat : stdgo.Pointer<Bool> = (null : stdgo.Pointer<Bool>);
+/**
+    
+    
+    
+**/
+var errPatternHasSeparator : stdgo.Error = (null : stdgo.Error);
+/**
+    
+    
+    
+**/
+var splitPath : stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = null;
+/**
+    
+    
+    
+**/
+final _readdirName : stdgo.os.Os.T_readdirMode = ((0 : stdgo.GoInt) : stdgo.os.Os.T_readdirMode);
+/**
+    
+    
+    
+**/
+final _readdirDirEntry = ((0 : stdgo.GoInt) : stdgo.os.Os.T_readdirMode);
+/**
+    
+    
+    
+**/
+final _readdirFileInfo = ((0 : stdgo.GoInt) : stdgo.os.Os.T_readdirMode);
+/**
+    // testingForceReadDirLstat forces ReadDir to call Lstat, for testing that code path.
+    // This can be difficult to provoke on some Unix systems otherwise.
+    
+    
+**/
+var _testingForceReadDirLstat : Bool = false;
+/**
+    // More than 5760 to work around https://golang.org/issue/24015.
+    
+    
+**/
+final _blockSize : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _isBigEndian : Bool = false;
 /**
     // Exactly one of O_RDONLY, O_WRONLY, or O_RDWR must be specified.
     
@@ -314,25 +340,6 @@ final seek_CUR : stdgo.GoInt = (0 : stdgo.GoInt);
     // seek relative to the end
 **/
 final seek_END : stdgo.GoInt = (0 : stdgo.GoInt);
-/**
-    
-    
-    
-**/
-var _errWriteAtInAppendMode : stdgo.Error = (null : stdgo.Error);
-/**
-    // lstat is overridden in tests.
-    
-    
-**/
-var _lstat : stdgo.GoString -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } = null;
-/**
-    // checkWrapErr is the test hook to enable checking unexpected wrapped errors of poll.ErrFileClosing.
-    // It is set to true in the export_test.go for tests (including fuzz tests).
-    
-    
-**/
-var _checkWrapErr : Bool = false;
 /**
     
     
@@ -424,12 +431,6 @@ final _hex : stdgo.GoString = ("" : stdgo.GoString);
     
 **/
 final _supportsCloseOnExec : Bool = false;
-/**
-    
-    
-    
-**/
-var _errPatternHasSeparator : stdgo.Error = (null : stdgo.Error);
 /**
     // The single letters are the abbreviations
     // used by the String method's formatting.

@@ -5,6 +5,18 @@ package stdgo.crypto.rand;
 **/
 private var __go2hxdoc__package : Bool;
 /**
+    
+    
+    
+**/
+var _jsCrypto : stdgo.syscall.js.Js.Value = stdgo.syscall.js.Js.global().get(("crypto" : stdgo.GoString));
+/**
+    
+    
+    
+**/
+var _uint8Array : stdgo.syscall.js.Js.Value = stdgo.syscall.js.Js.global().get(("Uint8Array" : stdgo.GoString));
+/**
     // Reader is a global, shared instance of a cryptographically
     // secure random number generator.
     //
@@ -32,18 +44,6 @@ final _maxGetRandomRead : stdgo.GoUInt64 = (65536i64 : stdgo.GoUInt64);
     
 **/
 var _batchedGetRandom : stdgo.Slice<stdgo.GoByte> -> stdgo.Error = null;
-/**
-    
-    
-    
-**/
-var _jsCrypto : stdgo.syscall.js.Js.Value = stdgo.syscall.js.Js.global().get(("crypto" : stdgo.GoString));
-/**
-    
-    
-    
-**/
-var _uint8Array : stdgo.syscall.js.Js.Value = stdgo.syscall.js.Js.global().get(("Uint8Array" : stdgo.GoString));
 /**
     // reader implements a pseudorandom generator
     // using JavaScript crypto.getRandomValues method.

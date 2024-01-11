@@ -6,6 +6,74 @@ private var __go2hxdoc__package : Bool;
 /**
     
     
+    
+**/
+var _aNewline : stdgo.Slice<stdgo.GoUInt8> = (("\n" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
+/**
+    
+    
+    
+**/
+var _printerPool : stdgo.sync.Sync.Pool = ({ new_ : function():stdgo.AnyInterface {
+        return stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(({ _output : new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (16384 : stdgo.GoInt)).__setNumber32__(), _wsbuf : new stdgo.Slice<stdgo.go.printer.Printer.T_whiteSpace>((0 : stdgo.GoInt).toBasic(), (16 : stdgo.GoInt)).__setNumber32__() } : stdgo.go.printer.Printer.T_printer)) : stdgo.Ref<stdgo.go.printer.Printer.T_printer>)));
+    } } : stdgo.sync.Sync.Pool);
+/**
+    
+    
+    
+**/
+var _update : stdgo.Pointer<Bool> = stdgo.flag.Flag.bool_(("update" : stdgo.GoString), false, ("update golden files" : stdgo.GoString));
+/**
+    
+    
+    
+**/
+var _fset : stdgo.Ref<stdgo.go.token.Token.FileSet> = stdgo.go.token.Token.newFileSet();
+/**
+    // Use go test -update to create/update the respective golden files.
+    
+    
+**/
+var _data : stdgo.Slice<stdgo.go.printer.Printer.T_entry> = (new stdgo.Slice<stdgo.go.printer.Printer.T_entry>(
+22,
+22,
+(new stdgo.go.printer.Printer.T_entry(("empty.input" : stdgo.GoString), ("empty.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
+(new stdgo.go.printer.Printer.T_entry(("comments.input" : stdgo.GoString), ("comments.golden" : stdgo.GoString), (0u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
+(new stdgo.go.printer.Printer.T_entry(("comments.input" : stdgo.GoString), ("comments.x" : stdgo.GoString), (1u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
+(new stdgo.go.printer.Printer.T_entry(("comments2.input" : stdgo.GoString), ("comments2.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
+(new stdgo.go.printer.Printer.T_entry(("alignment.input" : stdgo.GoString), ("alignment.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
+(new stdgo.go.printer.Printer.T_entry(("linebreaks.input" : stdgo.GoString), ("linebreaks.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
+(new stdgo.go.printer.Printer.T_entry(("expressions.input" : stdgo.GoString), ("expressions.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
+(new stdgo.go.printer.Printer.T_entry(("expressions.input" : stdgo.GoString), ("expressions.raw" : stdgo.GoString), (10u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
+(new stdgo.go.printer.Printer.T_entry(("declarations.input" : stdgo.GoString), ("declarations.golden" : stdgo.GoString), (0u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
+(new stdgo.go.printer.Printer.T_entry(("statements.input" : stdgo.GoString), ("statements.golden" : stdgo.GoString), (0u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
+(new stdgo.go.printer.Printer.T_entry(("slow.input" : stdgo.GoString), ("slow.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
+(new stdgo.go.printer.Printer.T_entry(("complit.input" : stdgo.GoString), ("complit.x" : stdgo.GoString), (1u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
+(new stdgo.go.printer.Printer.T_entry(("go2numbers.input" : stdgo.GoString), ("go2numbers.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
+(new stdgo.go.printer.Printer.T_entry(("go2numbers.input" : stdgo.GoString), ("go2numbers.norm" : stdgo.GoString), (12u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
+(new stdgo.go.printer.Printer.T_entry(("generics.input" : stdgo.GoString), ("generics.golden" : stdgo.GoString), (24u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
+(new stdgo.go.printer.Printer.T_entry(("gobuild1.input" : stdgo.GoString), ("gobuild1.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
+(new stdgo.go.printer.Printer.T_entry(("gobuild2.input" : stdgo.GoString), ("gobuild2.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
+(new stdgo.go.printer.Printer.T_entry(("gobuild3.input" : stdgo.GoString), ("gobuild3.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
+(new stdgo.go.printer.Printer.T_entry(("gobuild4.input" : stdgo.GoString), ("gobuild4.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
+(new stdgo.go.printer.Printer.T_entry(("gobuild5.input" : stdgo.GoString), ("gobuild5.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
+(new stdgo.go.printer.Printer.T_entry(("gobuild6.input" : stdgo.GoString), ("gobuild6.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
+(new stdgo.go.printer.Printer.T_entry(("gobuild7.input" : stdgo.GoString), ("gobuild7.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry)) : stdgo.Slice<stdgo.go.printer.Printer.T_entry>);
+/**
+    
+    
+    
+**/
+var _decls : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(3, 3, ("import \"fmt\"" : stdgo.GoString), ("const pi = 3.1415\nconst e = 2.71828\n\nvar x = pi" : stdgo.GoString), ("func sum(x, y int) int\t{ return x + y }" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+/**
+    
+    
+    
+**/
+var _stmts : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(3, 3, ("i := 0" : stdgo.GoString), ("select {}\nvar a, b = 1, 2\nreturn a + b" : stdgo.GoString), ("go f()\ndefer func() {}()" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+/**
+    
+    
     // list is optionally terminated by a comma
 **/
 final _commaTerm : stdgo.go.printer.Printer.T_exprListMode = (2u32 : stdgo.go.printer.Printer.T_exprListMode);
@@ -159,12 +227,6 @@ final _inText = (2i64 : stdgo.GoUInt64);
 /**
     
     
-    
-**/
-var _aNewline : stdgo.Slice<stdgo.GoUInt8> = (("\n" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
-/**
-    
-    
     // do not use a tabwriter; if set, UseSpaces is ignored
 **/
 final rawFormat : stdgo.go.printer.Printer.Mode = (8u32 : stdgo.go.printer.Printer.Mode);
@@ -203,14 +265,6 @@ final _normalizeNumbers : stdgo.go.printer.Printer.Mode = (1073741824u32 : stdgo
     
     
 **/
-var _printerPool : stdgo.sync.Sync.Pool = ({ new_ : function():stdgo.AnyInterface {
-        return stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(({ _output : new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (16384 : stdgo.GoInt)).__setNumber32__(), _wsbuf : new stdgo.Slice<stdgo.go.printer.Printer.T_whiteSpace>((0 : stdgo.GoInt).toBasic(), (16 : stdgo.GoInt)).__setNumber32__() } : stdgo.go.printer.Printer.T_printer)) : stdgo.Ref<stdgo.go.printer.Printer.T_printer>)));
-    } } : stdgo.sync.Sync.Pool);
-/**
-    
-    
-    
-**/
 final _dataDir : stdgo.GoString = ("testdata" : stdgo.GoString);
 /**
     
@@ -218,18 +272,6 @@ final _dataDir : stdgo.GoString = ("testdata" : stdgo.GoString);
     
 **/
 final _tabwidth : stdgo.GoUInt64 = (8i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-var _update : stdgo.Pointer<Bool> = stdgo.flag.Flag.bool_(("update" : stdgo.GoString), false, ("update golden files" : stdgo.GoString));
-/**
-    
-    
-    
-**/
-var _fset : stdgo.Ref<stdgo.go.token.Token.FileSet> = stdgo.go.token.Token.newFileSet();
 /**
     
     
@@ -260,48 +302,6 @@ final _idempotent = (16u32 : stdgo.go.printer.Printer.T_checkMode);
     
 **/
 final _allowTypeParams = (16u32 : stdgo.go.printer.Printer.T_checkMode);
-/**
-    // Use go test -update to create/update the respective golden files.
-    
-    
-**/
-var _data : stdgo.Slice<stdgo.go.printer.Printer.T_entry> = (new stdgo.Slice<stdgo.go.printer.Printer.T_entry>(
-22,
-22,
-(new stdgo.go.printer.Printer.T_entry(("empty.input" : stdgo.GoString), ("empty.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
-(new stdgo.go.printer.Printer.T_entry(("comments.input" : stdgo.GoString), ("comments.golden" : stdgo.GoString), (0u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
-(new stdgo.go.printer.Printer.T_entry(("comments.input" : stdgo.GoString), ("comments.x" : stdgo.GoString), (1u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
-(new stdgo.go.printer.Printer.T_entry(("comments2.input" : stdgo.GoString), ("comments2.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
-(new stdgo.go.printer.Printer.T_entry(("alignment.input" : stdgo.GoString), ("alignment.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
-(new stdgo.go.printer.Printer.T_entry(("linebreaks.input" : stdgo.GoString), ("linebreaks.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
-(new stdgo.go.printer.Printer.T_entry(("expressions.input" : stdgo.GoString), ("expressions.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
-(new stdgo.go.printer.Printer.T_entry(("expressions.input" : stdgo.GoString), ("expressions.raw" : stdgo.GoString), (10u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
-(new stdgo.go.printer.Printer.T_entry(("declarations.input" : stdgo.GoString), ("declarations.golden" : stdgo.GoString), (0u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
-(new stdgo.go.printer.Printer.T_entry(("statements.input" : stdgo.GoString), ("statements.golden" : stdgo.GoString), (0u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
-(new stdgo.go.printer.Printer.T_entry(("slow.input" : stdgo.GoString), ("slow.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
-(new stdgo.go.printer.Printer.T_entry(("complit.input" : stdgo.GoString), ("complit.x" : stdgo.GoString), (1u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
-(new stdgo.go.printer.Printer.T_entry(("go2numbers.input" : stdgo.GoString), ("go2numbers.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
-(new stdgo.go.printer.Printer.T_entry(("go2numbers.input" : stdgo.GoString), ("go2numbers.norm" : stdgo.GoString), (12u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
-(new stdgo.go.printer.Printer.T_entry(("generics.input" : stdgo.GoString), ("generics.golden" : stdgo.GoString), (24u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
-(new stdgo.go.printer.Printer.T_entry(("gobuild1.input" : stdgo.GoString), ("gobuild1.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
-(new stdgo.go.printer.Printer.T_entry(("gobuild2.input" : stdgo.GoString), ("gobuild2.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
-(new stdgo.go.printer.Printer.T_entry(("gobuild3.input" : stdgo.GoString), ("gobuild3.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
-(new stdgo.go.printer.Printer.T_entry(("gobuild4.input" : stdgo.GoString), ("gobuild4.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
-(new stdgo.go.printer.Printer.T_entry(("gobuild5.input" : stdgo.GoString), ("gobuild5.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
-(new stdgo.go.printer.Printer.T_entry(("gobuild6.input" : stdgo.GoString), ("gobuild6.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry),
-(new stdgo.go.printer.Printer.T_entry(("gobuild7.input" : stdgo.GoString), ("gobuild7.golden" : stdgo.GoString), (8u32 : stdgo.go.printer.Printer.T_checkMode)) : stdgo.go.printer.Printer.T_entry)) : stdgo.Slice<stdgo.go.printer.Printer.T_entry>);
-/**
-    
-    
-    
-**/
-var _decls : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(3, 3, ("import \"fmt\"" : stdgo.GoString), ("const pi = 3.1415\nconst e = 2.71828\n\nvar x = pi" : stdgo.GoString), ("func sum(x, y int) int\t{ return x + y }" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-/**
-    
-    
-    
-**/
-var _stmts : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(3, 3, ("i := 0" : stdgo.GoString), ("select {}\nvar a, b = 1, 2\nreturn a + b" : stdgo.GoString), ("go f()\ndefer func() {}()" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
 /**
     // sizeCounter is an io.Writer which counts the number of bytes written,
     // as well as whether a newline character was seen.
@@ -2912,7 +2912,7 @@ class T_printer_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterfaceData)) {
+            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
@@ -3229,7 +3229,7 @@ class T_printer_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterfaceData)) {
+            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
@@ -3441,7 +3441,7 @@ class T_printer_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterfaceData)) {
+            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
@@ -5209,7 +5209,7 @@ class Config_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterfaceData)) {
+            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;

@@ -10,12 +10,6 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-final _defaultBufSize : stdgo.GoUInt64 = (4096i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
 var errInvalidUnreadByte : stdgo.Error = stdgo.errors.Errors.new_(("bufio: invalid use of UnreadByte" : stdgo.GoString));
 /**
     
@@ -40,18 +34,6 @@ var errNegativeCount : stdgo.Error = stdgo.errors.Errors.new_(("bufio: negative 
     
     
 **/
-final _minReadBufferSize : stdgo.GoUInt64 = (16i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-final _maxConsecutiveEmptyReads : stdgo.GoUInt64 = (100i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
 var _errNegativeRead : stdgo.Error = stdgo.errors.Errors.new_(("bufio: reader returned negative count from Read" : stdgo.GoString));
 /**
     
@@ -59,18 +41,6 @@ var _errNegativeRead : stdgo.Error = stdgo.errors.Errors.new_(("bufio: reader re
     
 **/
 var _errNegativeWrite : stdgo.Error = stdgo.errors.Errors.new_(("bufio: writer returned negative count from Write" : stdgo.GoString));
-/**
-    
-    
-    
-**/
-var isSpace : stdgo.GoInt32 -> Bool = _isSpace;
-/**
-    
-    
-    
-**/
-final defaultBufSize : stdgo.GoUInt64 = (4096i64 : stdgo.GoUInt64);
 /**
     // Errors returned by Scanner.
     
@@ -96,21 +66,6 @@ var errAdvanceTooFar : stdgo.Error = stdgo.errors.Errors.new_(("bufio.Scanner: S
 **/
 var errBadReadCount : stdgo.Error = stdgo.errors.Errors.new_(("bufio.Scanner: Read returned impossible count" : stdgo.GoString));
 /**
-    // MaxScanTokenSize is the maximum size used to buffer a token
-    // unless the user provides an explicit buffer with Scanner.Buffer.
-    // The actual maximum token size may be smaller as the buffer
-    // may need to include, for instance, a newline.
-    
-    
-**/
-final maxScanTokenSize : stdgo.GoUInt64 = (65536i64 : stdgo.GoUInt64);
-/**
-    
-    
-    // Size of initial allocation for buffer.
-**/
-final _startBufSize : stdgo.GoUInt64 = (4096i64 : stdgo.GoUInt64);
-/**
     // ErrFinalToken is a special sentinel error value. It is intended to be
     // returned by a Split function to indicate that the token being delivered
     // with the error is the last token and scanning should stop after this one.
@@ -129,6 +84,51 @@ var errFinalToken : stdgo.Error = stdgo.errors.Errors.new_(("final token" : stdg
     
 **/
 var _errorRune : stdgo.Slice<stdgo.GoUInt8> = (((65533 : stdgo.GoInt32) : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
+/**
+    
+    
+    
+**/
+var isSpace : stdgo.GoInt32 -> Bool = _isSpace;
+/**
+    
+    
+    
+**/
+final _defaultBufSize : stdgo.GoUInt64 = (4096i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _minReadBufferSize : stdgo.GoUInt64 = (16i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _maxConsecutiveEmptyReads : stdgo.GoUInt64 = (100i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final defaultBufSize : stdgo.GoUInt64 = (4096i64 : stdgo.GoUInt64);
+/**
+    // MaxScanTokenSize is the maximum size used to buffer a token
+    // unless the user provides an explicit buffer with Scanner.Buffer.
+    // The actual maximum token size may be smaller as the buffer
+    // may need to include, for instance, a newline.
+    
+    
+**/
+final maxScanTokenSize : stdgo.GoUInt64 = (65536i64 : stdgo.GoUInt64);
+/**
+    
+    
+    // Size of initial allocation for buffer.
+**/
+final _startBufSize : stdgo.GoUInt64 = (4096i64 : stdgo.GoUInt64);
 /**
     // Reader implements buffering for an io.Reader object.
     

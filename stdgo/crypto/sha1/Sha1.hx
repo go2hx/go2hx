@@ -11,72 +11,6 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-final _boringEnabled : Bool = false;
-/**
-    // The size of a SHA-1 checksum in bytes.
-    
-    
-**/
-final size : stdgo.GoUInt64 = (20i64 : stdgo.GoUInt64);
-/**
-    // The blocksize of SHA-1 in bytes.
-    
-    
-**/
-final blockSize : stdgo.GoUInt64 = (64i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-final _chunk : stdgo.GoUInt64 = (64i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-final _init0 : stdgo.GoUInt64 = (1732584193i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-final _init1 : stdgo.GoUInt64 = (4023233417i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-final _init2 : stdgo.GoUInt64 = (2562383102i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-final _init3 : stdgo.GoUInt64 = (271733878i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-final _init4 : stdgo.GoUInt64 = (3285377520i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-final _magic : stdgo.GoString = stdgo.Go.str("sha", 1);
-/**
-    
-    
-    
-**/
-final _marshaledSize : stdgo.GoInt = (96 : stdgo.GoInt);
-/**
-    
-    
-    
-**/
 var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test>(
 32,
 32,
@@ -2456,6 +2390,72 @@ var _bench : stdgo.hash.Hash.Hash = new_();
     
 **/
 var _buf : stdgo.Slice<stdgo.GoUInt8> = new stdgo.Slice<stdgo.GoUInt8>((8192 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+/**
+    
+    
+    
+**/
+final _boringEnabled : Bool = false;
+/**
+    // The size of a SHA-1 checksum in bytes.
+    
+    
+**/
+final size : stdgo.GoUInt64 = (20i64 : stdgo.GoUInt64);
+/**
+    // The blocksize of SHA-1 in bytes.
+    
+    
+**/
+final blockSize : stdgo.GoUInt64 = (64i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _chunk : stdgo.GoUInt64 = (64i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _init0 : stdgo.GoUInt64 = (1732584193i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _init1 : stdgo.GoUInt64 = (4023233417i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _init2 : stdgo.GoUInt64 = (2562383102i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _init3 : stdgo.GoUInt64 = (271733878i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _init4 : stdgo.GoUInt64 = (3285377520i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _magic : stdgo.GoString = stdgo.Go.str("sha", 1);
+/**
+    
+    
+    
+**/
+final _marshaledSize : stdgo.GoInt = (96 : stdgo.GoInt);
 /**
     
     

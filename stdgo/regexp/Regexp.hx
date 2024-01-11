@@ -72,6 +72,41 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
+var _noRune : stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>(0, 0) : stdgo.Slice<stdgo.GoInt32>);
+/**
+    
+    
+    
+**/
+var _noNext : stdgo.Slice<stdgo.GoUInt32> = (new stdgo.Slice<stdgo.GoUInt32>(1, 1, (-1u32 : stdgo.GoUInt32)) : stdgo.Slice<stdgo.GoUInt32>);
+/**
+    
+    
+    
+**/
+var _anyRuneNotNL : stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>(4, 4, (0 : stdgo.GoInt32), (9 : stdgo.GoInt32), (11 : stdgo.GoInt32), (1114111 : stdgo.GoInt32)) : stdgo.Slice<stdgo.GoInt32>);
+/**
+    
+    
+    
+**/
+var _anyRune : stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>(2, 2, (0 : stdgo.GoInt32), (1114111 : stdgo.GoInt32)) : stdgo.Slice<stdgo.GoInt32>);
+/**
+    // Pools of *machine for use during (*Regexp).doExecute,
+    // split up by the size of the execution queues.
+    // matchPool[i] machines have queue size matchSize[i].
+    // On a 64-bit system each queue entry is 16 bytes,
+    // so matchPool[0] has 16*2*128 = 4kB queues, etc.
+    // The final matchPool is a catch-all for very large queues.
+    
+    
+**/
+var _matchSize : stdgo.GoArray<stdgo.GoInt> = (new stdgo.GoArray<stdgo.GoInt>((128 : stdgo.GoInt), (512 : stdgo.GoInt), (2048 : stdgo.GoInt), (16384 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo.GoArray<stdgo.GoInt>);
+/**
+    
+    
+    
+**/
 var _goodRe : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
 17,
 17,
@@ -313,12 +348,6 @@ var _splitTests : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(
     
     
 **/
-var _sink : stdgo.GoString = ("" : stdgo.GoString);
-/**
-    
-    
-    
-**/
 var _compileBenchData : stdgo.Slice<T__struct_2> = (new stdgo.Slice<T__struct_2>(3, 3, ({ _name : ("Onepass" : stdgo.GoString), _re : ("^a.[l-nA-Cg-j]?e$" : stdgo.GoString) } : T__struct_2), ({ _name : ("Medium" : stdgo.GoString), _re : ("^((a|b|[d-z0-9])*(日){4,5}.)+$" : stdgo.GoString) } : T__struct_2), ({ _name : ("Hard" : stdgo.GoString), _re : stdgo.strings.Strings.repeat(("((abc)*|" : stdgo.GoString), (50 : stdgo.GoInt)) + stdgo.strings.Strings.repeat((")" : stdgo.GoString), (50 : stdgo.GoInt))?.__copy__()?.__copy__() } : T__struct_2)) : stdgo.Slice<T__struct_2>);
 /**
     
@@ -345,43 +374,6 @@ var _minInputLenTests : stdgo.Slice<T__struct_3> = (new stdgo.Slice<T__struct_3>
     
     
 **/
-final _visitedBits : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
-/**
-    
-    
-    // len(prog.Inst) <= max
-**/
-final _maxBacktrackProg : stdgo.GoUInt64 = (500i64 : stdgo.GoUInt64);
-/**
-    
-    
-    // bit vector size <= max (bits)
-**/
-final _maxBacktrackVector : stdgo.GoUInt64 = (262144i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-var _bitStatePool : stdgo.sync.Sync.Pool = ({} : stdgo.sync.Sync.Pool);
-/**
-    
-    
-    
-**/
-var _onePassPool : stdgo.sync.Sync.Pool = ({} : stdgo.sync.Sync.Pool);
-/**
-    // arrayNoInts is returned by doExecute match if nil dstCap is passed
-    // to it with ncap=0.
-    
-    
-**/
-var _arrayNoInts : stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(...[for (i in 0 ... 0) (0 : stdgo.GoInt)]);
-/**
-    
-    
-    
-**/
 var _run : stdgo.Slice<(stdgo.Ref<stdgo.regexp.Regexp.Regexp>, stdgo.Ref<stdgo.regexp.Regexp.Regexp>, stdgo.GoString) -> { var _0 : stdgo.Slice<stdgo.GoInt>; var _1 : stdgo.GoString; }> = (new stdgo.Slice<(stdgo.Ref<stdgo.regexp.Regexp.Regexp>, stdgo.Ref<stdgo.regexp.Regexp.Regexp>, stdgo.GoString) -> { var _0 : stdgo.Slice<stdgo.GoInt>; var _1 : stdgo.GoString; }>(4, 4, _runFull, _runPartial, _runFullLongest, _runPartialLongest) : stdgo.Slice<(stdgo.Ref<stdgo.regexp.Regexp.Regexp>, stdgo.Ref<stdgo.regexp.Regexp.Regexp>, stdgo.GoString) -> { var _0 : stdgo.Slice<stdgo.GoInt>; var _1 : stdgo.GoString; }>);
 /**
     
@@ -395,12 +387,6 @@ var _match : stdgo.Slice<(stdgo.Ref<stdgo.regexp.Regexp.Regexp>, stdgo.Ref<stdgo
     
 **/
 var _notab : stdgo.Ref<stdgo.regexp.Regexp.Regexp> = null;
-/**
-    
-    
-    
-**/
-var _text : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
 /**
     
     
@@ -625,40 +611,6 @@ var _findTests : stdgo.Slice<stdgo.regexp.Regexp.FindTest> = (new stdgo.Slice<st
 (35 : stdgo.GoInt),
 (36 : stdgo.GoInt))) : stdgo.regexp.Regexp.FindTest)) : stdgo.Slice<stdgo.regexp.Regexp.FindTest>);
 /**
-    // mergeRuneSets merges two non-intersecting runesets, and returns the merged result,
-    // and a NextIp array. The idea is that if a rune matches the OnePassRunes at index
-    // i, NextIp[i/2] is the target. If the input sets intersect, an empty runeset and a
-    // NextIp array with the single element mergeFailed is returned.
-    // The code assumes that both inputs contain ordered and non-intersecting rune pairs.
-    
-    
-**/
-final _mergeFailed : stdgo.GoUInt32 = (-1u32 : stdgo.GoUInt32);
-/**
-    
-    
-    
-**/
-var _noRune : stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>(0, 0) : stdgo.Slice<stdgo.GoInt32>);
-/**
-    
-    
-    
-**/
-var _noNext : stdgo.Slice<stdgo.GoUInt32> = (new stdgo.Slice<stdgo.GoUInt32>(1, 1, (-1u32 : stdgo.GoUInt32)) : stdgo.Slice<stdgo.GoUInt32>);
-/**
-    
-    
-    
-**/
-var _anyRuneNotNL : stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>(4, 4, (0 : stdgo.GoInt32), (9 : stdgo.GoInt32), (11 : stdgo.GoInt32), (1114111 : stdgo.GoInt32)) : stdgo.Slice<stdgo.GoInt32>);
-/**
-    
-    
-    
-**/
-var _anyRune : stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>(2, 2, (0 : stdgo.GoInt32), (1114111 : stdgo.GoInt32)) : stdgo.Slice<stdgo.GoInt32>);
-/**
     
     
     
@@ -741,16 +693,64 @@ var _onePassTests : stdgo.Slice<T__struct_6> = (new stdgo.Slice<T__struct_6>(
 **/
 var _onePassTests1 : stdgo.Slice<T__struct_7> = (new stdgo.Slice<T__struct_7>(1, 1, ({ _re : ("^a(/b+(#c+)*)*$" : stdgo.GoString), _match : ("a/b#c" : stdgo.GoString) } : T__struct_7)) : stdgo.Slice<T__struct_7>);
 /**
-    // Pools of *machine for use during (*Regexp).doExecute,
-    // split up by the size of the execution queues.
-    // matchPool[i] machines have queue size matchSize[i].
-    // On a 64-bit system each queue entry is 16 bytes,
-    // so matchPool[0] has 16*2*128 = 4kB queues, etc.
-    // The final matchPool is a catch-all for very large queues.
+    
     
     
 **/
-var _matchSize : stdgo.GoArray<stdgo.GoInt> = (new stdgo.GoArray<stdgo.GoInt>((128 : stdgo.GoInt), (512 : stdgo.GoInt), (2048 : stdgo.GoInt), (16384 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo.GoArray<stdgo.GoInt>);
+var _sink : stdgo.GoString = ("" : stdgo.GoString);
+/**
+    
+    
+    
+**/
+final _visitedBits : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
+/**
+    
+    
+    // len(prog.Inst) <= max
+**/
+final _maxBacktrackProg : stdgo.GoUInt64 = (500i64 : stdgo.GoUInt64);
+/**
+    
+    
+    // bit vector size <= max (bits)
+**/
+final _maxBacktrackVector : stdgo.GoUInt64 = (262144i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+var _bitStatePool : stdgo.sync.Sync.Pool = ({} : stdgo.sync.Sync.Pool);
+/**
+    
+    
+    
+**/
+var _onePassPool : stdgo.sync.Sync.Pool = ({} : stdgo.sync.Sync.Pool);
+/**
+    // arrayNoInts is returned by doExecute match if nil dstCap is passed
+    // to it with ncap=0.
+    
+    
+**/
+var _arrayNoInts : stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(...[for (i in 0 ... 0) (0 : stdgo.GoInt)]);
+/**
+    
+    
+    
+**/
+var _text : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
+/**
+    // mergeRuneSets merges two non-intersecting runesets, and returns the merged result,
+    // and a NextIp array. The idea is that if a rune matches the OnePassRunes at index
+    // i, NextIp[i/2] is the target. If the input sets intersect, an empty runeset and a
+    // NextIp array with the single element mergeFailed is returned.
+    // The code assumes that both inputs contain ordered and non-intersecting rune pairs.
+    
+    
+**/
+final _mergeFailed : stdgo.GoUInt32 = (-1u32 : stdgo.GoUInt32);
 /**
     // Pools of *machine for use during (*Regexp).doExecute,
     // split up by the size of the execution queues.
@@ -5955,8 +5955,7 @@ class Regexp_asInterface {
             return _re._doOnePass(_r, _b, _s?.__copy__(), _pos, _ncap, _dstCap);
         };
         if ((_r == null) && ((_b.length + _s.length) < _re._maxBitStateLen)) {
-            var _v = _re._backtrack(_b, _s?.__copy__(), _pos, _ncap, _dstCap);
-            return _v;
+            return _re._backtrack(_b, _s?.__copy__(), _pos, _ncap, _dstCap);
         };
         var _m = _re._get();
         var __tmp__ = _m._inputs._init(_r, _b, _s?.__copy__()), _i:stdgo.regexp.Regexp.T_input = __tmp__._0, __1:stdgo.GoInt = __tmp__._1;
@@ -6152,8 +6151,7 @@ class Regexp_asInterface {
                     if ((_b._cap.length) > (0 : stdgo.GoInt)) {
                         _b._cap[(0 : stdgo.GoInt)] = _pos;
                     };
-                    var _v:Bool = _re._tryBacktrack(_b, _i, (_re._prog.start : stdgo.GoUInt32), _pos);
-                    if (_v) {
+                    if (_re._tryBacktrack(_b, _i, (_re._prog.start : stdgo.GoUInt32), _pos)) {
                         @:goto "Match";
                     };
                     {

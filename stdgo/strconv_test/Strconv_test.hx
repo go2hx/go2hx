@@ -437,30 +437,6 @@ var _atof32tests : stdgo.Slice<stdgo.strconv_test.Strconv_test.T_atofTest> = (ne
     
     
 **/
-var _atofOnce : stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
-/**
-    
-    
-    
-**/
-var _atofRandomTests : stdgo.Slice<T_atofSimpleTest> = (null : stdgo.Slice<stdgo.strconv_test.Strconv_test.T_atofSimpleTest>);
-/**
-    
-    
-    
-**/
-var _benchmarksRandomBits : stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 1024) ("" : stdgo.GoString)]);
-/**
-    
-    
-    
-**/
-var _benchmarksRandomNormal : stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 1024) ("" : stdgo.GoString)]);
-/**
-    
-    
-    
-**/
 var _roundTripCases : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(2, 2, ({ _f : (4.87402195346389e+27 : stdgo.GoFloat64), _s : ("4.87402195346389e+27" : stdgo.GoString) } : T__struct_0), ({ _f : (4.8740219534638903e+27 : stdgo.GoFloat64), _s : ("4.8740219534638903e+27" : stdgo.GoString) } : T__struct_0)) : stdgo.Slice<T__struct_0>);
 /**
     
@@ -794,18 +770,6 @@ var _roundinttests : stdgo.Slice<stdgo.strconv_test.Strconv_test.T_roundIntTest>
     
     
 **/
-final _below1e23 : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-final _above1e23 : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
 var _ftoatests : stdgo.Slice<stdgo.strconv_test.Strconv_test.T_ftoaTest> = (new stdgo.Slice<stdgo.strconv_test.Strconv_test.T_ftoaTest>(
 113,
 113,
@@ -1038,27 +1002,9 @@ var _varlenUints : stdgo.Slice<T__struct_3> = (new stdgo.Slice<T__struct_3>(
 /**
     
     
-    // make sure compiler cannot optimize away benchmarks
-**/
-var benchSink : stdgo.GoInt = (0 : stdgo.GoInt);
-/**
-    
-    
     
 **/
 var _quotetests : stdgo.Slice<stdgo.strconv_test.Strconv_test.T_quoteTest> = (new stdgo.Slice<stdgo.strconv_test.Strconv_test.T_quoteTest>(8, 8, (new stdgo.strconv_test.Strconv_test.T_quoteTest(("\x07\x08\x0C\r\n\t\x0B" : stdgo.GoString), ("\"\\a\\b\\f\\r\\n\\t\\v\"" : stdgo.GoString), ("\"\\a\\b\\f\\r\\n\\t\\v\"" : stdgo.GoString), ("\"\\a\\b\\f\\r\\n\\t\\v\"" : stdgo.GoString)) : stdgo.strconv_test.Strconv_test.T_quoteTest), (new stdgo.strconv_test.Strconv_test.T_quoteTest(("\\" : stdgo.GoString), ("\"\\\\\"" : stdgo.GoString), ("\"\\\\\"" : stdgo.GoString), ("\"\\\\\"" : stdgo.GoString)) : stdgo.strconv_test.Strconv_test.T_quoteTest), (new stdgo.strconv_test.Strconv_test.T_quoteTest(stdgo.Go.str("abc", 255, "def")?.__copy__(), ("\"abc\\xffdef\"" : stdgo.GoString), ("\"abc\\xffdef\"" : stdgo.GoString), ("\"abc\\xffdef\"" : stdgo.GoString)) : stdgo.strconv_test.Strconv_test.T_quoteTest), (new stdgo.strconv_test.Strconv_test.T_quoteTest(("☺" : stdgo.GoString), ("\"☺\"" : stdgo.GoString), ("\"\\u263a\"" : stdgo.GoString), ("\"☺\"" : stdgo.GoString)) : stdgo.strconv_test.Strconv_test.T_quoteTest), (new stdgo.strconv_test.Strconv_test.T_quoteTest(("\u{0010ffff}" : stdgo.GoString), ("\"\\U0010ffff\"" : stdgo.GoString), ("\"\\U0010ffff\"" : stdgo.GoString), ("\"\\U0010ffff\"" : stdgo.GoString)) : stdgo.strconv_test.Strconv_test.T_quoteTest), (new stdgo.strconv_test.Strconv_test.T_quoteTest(stdgo.Go.str(4)?.__copy__(), ("\"\\x04\"" : stdgo.GoString), ("\"\\x04\"" : stdgo.GoString), ("\"\\x04\"" : stdgo.GoString)) : stdgo.strconv_test.Strconv_test.T_quoteTest), (new stdgo.strconv_test.Strconv_test.T_quoteTest(("!\u00a0!\u2000!\u3000!" : stdgo.GoString), ("\"!\\u00a0!\\u2000!\\u3000!\"" : stdgo.GoString), ("\"!\\u00a0!\\u2000!\\u3000!\"" : stdgo.GoString), ("\"!\u00a0!\u2000!\u3000!\"" : stdgo.GoString)) : stdgo.strconv_test.Strconv_test.T_quoteTest), (new stdgo.strconv_test.Strconv_test.T_quoteTest(stdgo.Go.str(127)?.__copy__(), ("\"\\x7f\"" : stdgo.GoString), ("\"\\x7f\"" : stdgo.GoString), ("\"\\x7f\"" : stdgo.GoString)) : stdgo.strconv_test.Strconv_test.T_quoteTest)) : stdgo.Slice<stdgo.strconv_test.Strconv_test.T_quoteTest>);
-/**
-    
-    
-    
-**/
-var _benchQuoteBuf : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
-/**
-    
-    
-    
-**/
-var _benchQuoteRuneBuf : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
 /**
     
     
@@ -1215,12 +1161,6 @@ stdgo.Go.str()?.__copy__(),
     
     
 **/
-var _globalBuf : stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 64) (0 : stdgo.GoUInt8)]);
-/**
-    
-    
-    
-**/
 var _nextToOne : stdgo.GoString = ("1.00000000000000011102230246251565404236316680908203125" : stdgo.GoString) + stdgo.strings.Strings.repeat(("0" : stdgo.GoString), (10000 : stdgo.GoInt))?.__copy__() + ("1" : stdgo.GoString)?.__copy__();
 /**
     
@@ -1259,6 +1199,66 @@ var _mallocTest : stdgo.Slice<T__struct_5> = (new stdgo.Slice<T__struct_5>(
 ({ _count : (0 : stdgo.GoInt), _desc : ("ParseFloat(\"1.0000000000000001110223024625156540423631668090820312500...001\", 64)" : stdgo.GoString), _fn : function():Void {
         parseFloat(_nextToOne?.__copy__(), (64 : stdgo.GoInt));
     } } : T__struct_5)) : stdgo.Slice<T__struct_5>);
+/**
+    
+    
+    
+**/
+var _atofOnce : stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
+/**
+    
+    
+    
+**/
+var _atofRandomTests : stdgo.Slice<T_atofSimpleTest> = (null : stdgo.Slice<stdgo.strconv_test.Strconv_test.T_atofSimpleTest>);
+/**
+    
+    
+    
+**/
+var _benchmarksRandomBits : stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 1024) ("" : stdgo.GoString)]);
+/**
+    
+    
+    
+**/
+var _benchmarksRandomNormal : stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 1024) ("" : stdgo.GoString)]);
+/**
+    
+    
+    
+**/
+final _below1e23 : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _above1e23 : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+/**
+    
+    
+    // make sure compiler cannot optimize away benchmarks
+**/
+var benchSink : stdgo.GoInt = (0 : stdgo.GoInt);
+/**
+    
+    
+    
+**/
+var _benchQuoteBuf : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
+/**
+    
+    
+    
+**/
+var _benchQuoteRuneBuf : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
+/**
+    
+    
+    
+**/
+var _globalBuf : stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 64) (0 : stdgo.GoUInt8)]);
 /**
     
     

@@ -1,4 +1,5 @@
 package stdgo.math.rand;
+import stdgo.unsafe.Unsafe;
 /**
     // Package rand implements pseudo-random number generators suitable for tasks
     // such as simulation, but it should not be used for security-sensitive work.
@@ -15,12 +16,6 @@ package stdgo.math.rand;
     // crypto/rand package.
 **/
 private var __go2hxdoc__package : Bool;
-/**
-    
-    
-    
-**/
-final _re : stdgo.GoFloat64 = (7.69711747013105 : stdgo.GoFloat64);
 /**
     
     
@@ -812,12 +807,6 @@ var _fe : stdgo.GoArray<stdgo.GoFloat32> = (new stdgo.GoArray<stdgo.GoFloat32>(
     
     
 **/
-final _rn : stdgo.GoFloat64 = (3.442619855899 : stdgo.GoFloat64);
-/**
-    
-    
-    
-**/
 var _kn : stdgo.GoArray<stdgo.GoUInt32> = (new stdgo.GoArray<stdgo.GoUInt32>(
 (1991057938u32 : stdgo.GoUInt32),
 (0u32 : stdgo.GoUInt32),
@@ -1216,50 +1205,11 @@ var _fn : stdgo.GoArray<stdgo.GoFloat32> = (new stdgo.GoArray<stdgo.GoFloat32>(
 (0.005548994988203049 : stdgo.GoFloat64),
 (0.0026696291752159595 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat32>);
 /**
-    // globalRandGenerator is the source of random numbers for the top-level
-    // convenience functions. When possible it uses the runtime fastrand64
-    // function to avoid locking. This is not possible if the user called Seed,
-    // either explicitly or implicitly via GODEBUG=randautoseed=0.
-    
-    
-**/
-var _globalRandGenerator : stdgo.sync.atomic_.Atomic_.Pointer_<Rand> = ({} : stdgo.sync.atomic_.Atomic_.Pointer_<stdgo.math.rand.Rand.Rand>);
-/**
     
     
     
 **/
 var _randautoseed : stdgo.Ref<stdgo.internal.godebug.Godebug.Setting> = stdgo.internal.godebug.Godebug.new_(("randautoseed" : stdgo.GoString));
-/**
-    
-    
-    
-**/
-final _rngLen : stdgo.GoUInt64 = (607i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-final _rngTap : stdgo.GoUInt64 = (273i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-final _rngMax : stdgo.GoUInt64 = (-9223372036854775808i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-final _rngMask : stdgo.GoUInt64 = (9223372036854775807i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-final _int32max : stdgo.GoUInt64 = (2147483647i64 : stdgo.GoUInt64);
 /**
     // rngCooked used for seeding. See gen_cooked.go for details.
     
@@ -1873,6 +1823,57 @@ var _rngCooked : stdgo.GoArray<stdgo.GoInt64> = (new stdgo.GoArray<stdgo.GoInt64
 (8382142935188824023i64 : stdgo.GoInt64),
 (9103922860780351547i64 : stdgo.GoInt64),
 (4152330101494654406i64 : stdgo.GoInt64)) : stdgo.GoArray<stdgo.GoInt64>);
+/**
+    
+    
+    
+**/
+final _re : stdgo.GoFloat64 = (7.69711747013105 : stdgo.GoFloat64);
+/**
+    
+    
+    
+**/
+final _rn : stdgo.GoFloat64 = (3.442619855899 : stdgo.GoFloat64);
+/**
+    // globalRandGenerator is the source of random numbers for the top-level
+    // convenience functions. When possible it uses the runtime fastrand64
+    // function to avoid locking. This is not possible if the user called Seed,
+    // either explicitly or implicitly via GODEBUG=randautoseed=0.
+    
+    
+**/
+var _globalRandGenerator : stdgo.sync.atomic_.Atomic_.Pointer_<Rand> = ({} : stdgo.sync.atomic_.Atomic_.Pointer_<stdgo.math.rand.Rand.Rand>);
+/**
+    
+    
+    
+**/
+final _rngLen : stdgo.GoUInt64 = (607i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _rngTap : stdgo.GoUInt64 = (273i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _rngMax : stdgo.GoUInt64 = (-9223372036854775808i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _rngMask : stdgo.GoUInt64 = (9223372036854775807i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _int32max : stdgo.GoUInt64 = (2147483647i64 : stdgo.GoUInt64);
 /**
     // A Source represents a source of uniformly-distributed
     // pseudo-random int64 values in the range [0, 1<<63).

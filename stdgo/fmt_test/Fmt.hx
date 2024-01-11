@@ -1,5 +1,6 @@
 package stdgo.fmt_test;
 import stdgo.fmt.Fmt;
+import stdgo.fmt.Fmt;
 /**
     
     

@@ -56,12 +56,6 @@ private var __go2hxdoc__package : Bool;
 /**
     
     
-    
-**/
-final _fnParseComplex : stdgo.GoString = ("ParseComplex" : stdgo.GoString);
-/**
-    
-    
     // set to false to force slow-path conversions for testing
 **/
 var _optimize : Bool = true;
@@ -133,12 +127,6 @@ var _float32pow10 : stdgo.Slice<stdgo.GoFloat32> = (new stdgo.Slice<stdgo.GoFloa
 (1e+09 : stdgo.GoFloat64),
 (1e+10 : stdgo.GoFloat64)) : stdgo.Slice<stdgo.GoFloat32>);
 /**
-    
-    
-    
-**/
-final _fnParseFloat : stdgo.GoString = ("ParseFloat" : stdgo.GoString);
-/**
     // ErrRange indicates that a value is out of range for the target type.
     
     
@@ -150,37 +138,6 @@ var errRange : stdgo.Error = stdgo.errors.Errors.new_(("value out of range" : st
     
 **/
 var errSyntax : stdgo.Error = stdgo.errors.Errors.new_(("invalid syntax" : stdgo.GoString));
-/**
-    
-    
-    
-**/
-final _intSize : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
-/**
-    // IntSize is the size in bits of an int or uint value.
-    
-    
-**/
-final intSize : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-final _maxUint64 : stdgo.GoUInt64 = (-1i64 : stdgo.GoUInt64);
-/**
-    // Maximum shift that we can do in one pass without overflow.
-    // A uint has 32 or 64 bits, and we have to be able to accommodate 9<<k.
-    
-    
-**/
-final _uintSize : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-final _maxShift : stdgo.GoUInt64 = (28i64 : stdgo.GoUInt64);
 /**
     
     
@@ -250,20 +207,6 @@ var _leftcheats : stdgo.Slice<stdgo.strconv.Strconv.T_leftCheat> = (new stdgo.Sl
 (new stdgo.strconv.Strconv.T_leftCheat((18 : stdgo.GoInt), ("34694469519536141888238489627838134765625" : stdgo.GoString)) : stdgo.strconv.Strconv.T_leftCheat),
 (new stdgo.strconv.Strconv.T_leftCheat((18 : stdgo.GoInt), ("173472347597680709441192448139190673828125" : stdgo.GoString)) : stdgo.strconv.Strconv.T_leftCheat),
 (new stdgo.strconv.Strconv.T_leftCheat((19 : stdgo.GoInt), ("867361737988403547205962240695953369140625" : stdgo.GoString)) : stdgo.strconv.Strconv.T_leftCheat)) : stdgo.Slice<stdgo.strconv.Strconv.T_leftCheat>);
-/**
-    // detailedPowersOfTen{Min,Max}Exp10 is the power of 10 represented by the
-    // first and last rows of detailedPowersOfTen. Both bounds are inclusive.
-    
-    
-**/
-final _detailedPowersOfTenMinExp10 : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
-/**
-    // detailedPowersOfTen{Min,Max}Exp10 is the power of 10 represented by the
-    // first and last rows of detailedPowersOfTen. Both bounds are inclusive.
-    
-    
-**/
-final _detailedPowersOfTenMaxExp10 : stdgo.GoUInt64 = (347i64 : stdgo.GoUInt64);
 /**
     // detailedPowersOfTen contains 128-bit mantissa approximations (rounded down)
     // to the powers of 10. For example:
@@ -976,18 +919,6 @@ var _detailedPowersOfTen : stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt64>> = (new s
 (new stdgo.GoArray<stdgo.GoUInt64>((-947992276657025519i64 : stdgo.GoUInt64), (-8797024428372705051i64 : stdgo.GoUInt64)) : stdgo.GoArray<stdgo.GoUInt64>),
 (new stdgo.GoArray<stdgo.GoUInt64>((8038381691033493909i64 : stdgo.GoUInt64), (-6384594517038493409i64 : stdgo.GoUInt64)) : stdgo.GoArray<stdgo.GoUInt64>),
 (new stdgo.GoArray<stdgo.GoUInt64>((5436291095364479483i64 : stdgo.GoUInt64), (-3369057127870728857i64 : stdgo.GoUInt64)) : stdgo.GoArray<stdgo.GoUInt64>)) : stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt64>>);
-/**
-    
-    
-    
-**/
-var bitSizeError : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo.strconv.Strconv.NumError> = _bitSizeError;
-/**
-    
-    
-    
-**/
-var baseError : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo.strconv.Strconv.NumError> = _baseError;
 /**
     
     
@@ -2259,6 +2190,75 @@ var _isGraphic : stdgo.Slice<stdgo.GoUInt16> = (new stdgo.Slice<stdgo.GoUInt16>(
 (8239 : stdgo.GoUInt16),
 (8287 : stdgo.GoUInt16),
 (12288 : stdgo.GoUInt16)) : stdgo.Slice<stdgo.GoUInt16>);
+/**
+    
+    
+    
+**/
+var bitSizeError : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo.strconv.Strconv.NumError> = _bitSizeError;
+/**
+    
+    
+    
+**/
+var baseError : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo.strconv.Strconv.NumError> = _baseError;
+/**
+    
+    
+    
+**/
+final _fnParseComplex : stdgo.GoString = ("ParseComplex" : stdgo.GoString);
+/**
+    
+    
+    
+**/
+final _fnParseFloat : stdgo.GoString = ("ParseFloat" : stdgo.GoString);
+/**
+    
+    
+    
+**/
+final _intSize : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
+/**
+    // IntSize is the size in bits of an int or uint value.
+    
+    
+**/
+final intSize : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _maxUint64 : stdgo.GoUInt64 = (-1i64 : stdgo.GoUInt64);
+/**
+    // Maximum shift that we can do in one pass without overflow.
+    // A uint has 32 or 64 bits, and we have to be able to accommodate 9<<k.
+    
+    
+**/
+final _uintSize : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _maxShift : stdgo.GoUInt64 = (28i64 : stdgo.GoUInt64);
+/**
+    // detailedPowersOfTen{Min,Max}Exp10 is the power of 10 represented by the
+    // first and last rows of detailedPowersOfTen. Both bounds are inclusive.
+    
+    
+**/
+final _detailedPowersOfTenMinExp10 : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+/**
+    // detailedPowersOfTen{Min,Max}Exp10 is the power of 10 represented by the
+    // first and last rows of detailedPowersOfTen. Both bounds are inclusive.
+    
+    
+**/
+final _detailedPowersOfTenMaxExp10 : stdgo.GoUInt64 = (347i64 : stdgo.GoUInt64);
 /**
     
     

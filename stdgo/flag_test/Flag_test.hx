@@ -12,6 +12,12 @@ private var __go2hxdoc__package : Bool;
 **/
 var _species : stdgo.Pointer<stdgo.GoString> = stdgo.flag.Flag.string(("species" : stdgo.GoString), ("gopher" : stdgo.GoString), ("the species we are studying" : stdgo.GoString));
 /**
+    
+    
+    
+**/
+var _u : stdgo.Ref<stdgo.net.url.Url.URL> = (stdgo.Go.setRef((new stdgo.net.url.Url.URL() : stdgo.net.url.Url.URL)) : stdgo.Ref<stdgo.net.url.Url.URL>);
+/**
     // Example 2: Two flags sharing a variable, so we can have a shorthand.
     // The order of initialization is undefined, so make sure both use the
     // same default value. They must be set up with an init function.
@@ -25,12 +31,6 @@ var _gopherType : stdgo.GoString = ("" : stdgo.GoString);
     
 **/
 var _intervalFlag : T_interval = new stdgo.flag_test.Flag_test.T_interval(0, 0);
-/**
-    
-    
-    
-**/
-var _u : stdgo.Ref<stdgo.net.url.Url.URL> = (stdgo.Go.setRef((new stdgo.net.url.Url.URL() : stdgo.net.url.Url.URL)) : stdgo.Ref<stdgo.net.url.Url.URL>);
 /**
     
     

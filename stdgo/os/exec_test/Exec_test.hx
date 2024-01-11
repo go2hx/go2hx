@@ -28,25 +28,6 @@ var _quitSignal : stdgo.os.Os.Signal = (null : stdgo.os.Os.Signal);
 **/
 var _pipeSignal : stdgo.os.Os.Signal = (null : stdgo.os.Os.Signal);
 /**
-    // haveUnexpectedFDs is set at init time to report whether any file descriptors
-    // were open at program start.
-    
-    
-**/
-var _haveUnexpectedFDs : Bool = false;
-/**
-    
-    
-    
-**/
-var _exeOnce : T__struct_1 = ({ _path : ("" : stdgo.GoString), _err : (null : stdgo.Error), once : ({} : stdgo.sync.Sync.Once) } : T__struct_1);
-/**
-    
-    
-    
-**/
-var _helperCommandUsed : stdgo.sync.Sync.Map_ = ({} : stdgo.sync.Sync.Map_);
-/**
     
     
     
@@ -68,6 +49,25 @@ var _helperCommands : stdgo.GoMap<stdgo.GoString, haxe.Rest<stdgo.GoString> -> V
         };
         x;
     } : stdgo.GoMap<stdgo.GoString, haxe.Rest<stdgo.GoString> -> Void>);
+/**
+    // haveUnexpectedFDs is set at init time to report whether any file descriptors
+    // were open at program start.
+    
+    
+**/
+var _haveUnexpectedFDs : Bool = false;
+/**
+    
+    
+    
+**/
+var _exeOnce : T__struct_1 = ({ _path : ("" : stdgo.GoString), _err : (null : stdgo.Error), once : ({} : stdgo.sync.Sync.Once) } : T__struct_1);
+/**
+    
+    
+    
+**/
+var _helperCommandUsed : stdgo.sync.Sync.Map_ = ({} : stdgo.sync.Sync.Map_);
 /**
     
     

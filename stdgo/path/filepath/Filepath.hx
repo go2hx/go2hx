@@ -10,29 +10,11 @@ package stdgo.path.filepath;
 **/
 private var __go2hxdoc__package : Bool;
 /**
-    
-    
-    
-**/
-var lstatP : stdgo.Ref<stdgo.GoString -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; }> = (stdgo.Go.setRef(_lstat) : stdgo.Ref<stdgo.GoString -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; }>);
-/**
     // ErrBadPattern indicates a pattern was malformed.
     
     
 **/
 var errBadPattern : stdgo.Error = stdgo.errors.Errors.new_(("syntax error in pattern" : stdgo.GoString));
-/**
-    
-    
-    
-**/
-final separator : stdgo.GoInt32 = (47 : stdgo.GoInt32);
-/**
-    
-    
-    
-**/
-final listSeparator : stdgo.GoInt32 = (58 : stdgo.GoInt32);
 /**
     // SkipDir is used as a return value from WalkFuncs to indicate that
     // the directory named in the call is to be skipped. It is not returned
@@ -55,6 +37,24 @@ var skipAll : stdgo.Error = stdgo.io.fs.Fs.skipAll;
     // for testing
 **/
 var _lstat : stdgo.GoString -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } = stdgo.os.Os.lstat;
+/**
+    
+    
+    
+**/
+var lstatP : stdgo.Ref<stdgo.GoString -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; }> = (stdgo.Go.setRef(_lstat) : stdgo.Ref<stdgo.GoString -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; }>);
+/**
+    
+    
+    
+**/
+final separator : stdgo.GoInt32 = (47 : stdgo.GoInt32);
+/**
+    
+    
+    
+**/
+final listSeparator : stdgo.GoInt32 = (58 : stdgo.GoInt32);
 /**
     // A lazybuf is a lazily constructed path buffer.
     // It supports append, reading previously appended bytes,

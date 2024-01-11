@@ -10,6 +10,441 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
+var __gamP : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((0.00016011952247675185 : stdgo.GoFloat64), (0.0011913514700658638 : stdgo.GoFloat64), (0.010421379756176158 : stdgo.GoFloat64), (0.04763678004571372 : stdgo.GoFloat64), (0.20744822764843598 : stdgo.GoFloat64), (0.4942148268014971 : stdgo.GoFloat64), (1 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var __gamQ : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-2.3158187332412014e-05 : stdgo.GoFloat64), (0.0005396055804933034 : stdgo.GoFloat64), (-0.004456419138517973 : stdgo.GoFloat64), (0.011813978522206043 : stdgo.GoFloat64), (0.035823639860549865 : stdgo.GoFloat64), (-0.23459179571824335 : stdgo.GoFloat64), (0.0714304917030273 : stdgo.GoFloat64), (1 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var __gamS : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((0.0007873113957930937 : stdgo.GoFloat64), (-0.00022954996161337813 : stdgo.GoFloat64), (-0.0026813261780578124 : stdgo.GoFloat64), (0.0034722222160545866 : stdgo.GoFloat64), (0.08333333333334822 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    // for x in [inf, 8]=1/[0,0.125]
+    
+    
+**/
+var _p0R8 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((0 : stdgo.GoFloat64), (-0.07031249999999004 : stdgo.GoFloat64), (-8.081670412753498 : stdgo.GoFloat64), (-257.06310567970485 : stdgo.GoFloat64), (-2485.216410094288 : stdgo.GoFloat64), (-5253.043804907295 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var _p0S8 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((116.53436461966818 : stdgo.GoFloat64), (3833.7447536412183 : stdgo.GoFloat64), (40597.857264847255 : stdgo.GoFloat64), (116752.97256437592 : stdgo.GoFloat64), (47627.728414673096 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    // for x in [8,4.5454]=1/[0.125,0.22001]
+    
+    
+**/
+var _p0R5 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-1.141254646918945e-11 : stdgo.GoFloat64), (-0.07031249408735993 : stdgo.GoFloat64), (-4.159610644705878 : stdgo.GoFloat64), (-67.67476522651673 : stdgo.GoFloat64), (-331.23129964917297 : stdgo.GoFloat64), (-346.4333883656049 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var _p0S5 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((60.753938269230034 : stdgo.GoFloat64), (1051.2523059570458 : stdgo.GoFloat64), (5978.970943338558 : stdgo.GoFloat64), (9625.445143577745 : stdgo.GoFloat64), (2406.058159229391 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    // for x in [4.547,2.8571]=1/[0.2199,0.35001]
+    
+    
+**/
+var _p0R3 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-2.547046017719519e-09 : stdgo.GoFloat64), (-0.07031196163814817 : stdgo.GoFloat64), (-2.409032215495296 : stdgo.GoFloat64), (-21.96597747348831 : stdgo.GoFloat64), (-58.07917047017376 : stdgo.GoFloat64), (-31.44794705948885 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var _p0S3 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((35.85603380552097 : stdgo.GoFloat64), (361.51398305030386 : stdgo.GoFloat64), (1193.6078379211153 : stdgo.GoFloat64), (1127.9967985690741 : stdgo.GoFloat64), (173.58093081333575 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    // for x in [2.8570,2]=1/[0.3499,0.5]
+    
+    
+**/
+var _p0R2 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-8.875343330325264e-08 : stdgo.GoFloat64), (-0.07030309954836247 : stdgo.GoFloat64), (-1.4507384678095299 : stdgo.GoFloat64), (-7.635696138235278 : stdgo.GoFloat64), (-11.193166886035675 : stdgo.GoFloat64), (-3.2336457935133534 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var _p0S2 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((22.22029975320888 : stdgo.GoFloat64), (136.2067942182152 : stdgo.GoFloat64), (270.4702786580835 : stdgo.GoFloat64), (153.87539420832033 : stdgo.GoFloat64), (14.65761769482562 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    // for x in [inf, 8]=1/[0,0.125]
+    
+    
+**/
+var _q0R8 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((0 : stdgo.GoFloat64), (0.0732421874999935 : stdgo.GoFloat64), (11.76820646822527 : stdgo.GoFloat64), (557.6733802564019 : stdgo.GoFloat64), (8859.197207564686 : stdgo.GoFloat64), (37014.62677768878 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var _q0S8 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((163.77602689568982 : stdgo.GoFloat64), (8098.344946564498 : stdgo.GoFloat64), (142538.29141912048 : stdgo.GoFloat64), (803309.2571195144 : stdgo.GoFloat64), (840501.5798190605 : stdgo.GoFloat64), (-343899.2935378666 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    // for x in [8,4.5454]=1/[0.125,0.22001]
+    
+    
+**/
+var _q0R5 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((1.8408596359451553e-11 : stdgo.GoFloat64), (0.07324217666126848 : stdgo.GoFloat64), (5.8356350896205695 : stdgo.GoFloat64), (135.11157728644983 : stdgo.GoFloat64), (1027.243765961641 : stdgo.GoFloat64), (1989.9778586460538 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var _q0S5 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((82.77661022365378 : stdgo.GoFloat64), (2077.81416421393 : stdgo.GoFloat64), (18847.28877857181 : stdgo.GoFloat64), (56751.11228949473 : stdgo.GoFloat64), (35976.75384251145 : stdgo.GoFloat64), (-5354.342756019448 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    // for x in [4.547,2.8571]=1/[0.2199,0.35001]
+    
+    
+**/
+var _q0R3 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((4.377410140897386e-09 : stdgo.GoFloat64), (0.07324111800429114 : stdgo.GoFloat64), (3.344231375161707 : stdgo.GoFloat64), (42.621844074541265 : stdgo.GoFloat64), (170.8080913405656 : stdgo.GoFloat64), (166.73394869665117 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var _q0S3 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((48.75887297245872 : stdgo.GoFloat64), (709.689221056606 : stdgo.GoFloat64), (3704.1482262011136 : stdgo.GoFloat64), (6460.425167525689 : stdgo.GoFloat64), (2516.3336892036896 : stdgo.GoFloat64), (-149.2474518361564 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    // for x in [2.8570,2]=1/[0.3499,0.5]
+    
+    
+**/
+var _q0R2 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((1.5044444488698327e-07 : stdgo.GoFloat64), (0.07322342659630793 : stdgo.GoFloat64), (1.99819174093816 : stdgo.GoFloat64), (14.495602934788574 : stdgo.GoFloat64), (31.666231750478154 : stdgo.GoFloat64), (16.252707571092927 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var _q0S2 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((30.36558483552192 : stdgo.GoFloat64), (269.34811860804984 : stdgo.GoFloat64), (844.7837575953201 : stdgo.GoFloat64), (882.9358451124886 : stdgo.GoFloat64), (212.66638851179883 : stdgo.GoFloat64), (-5.3109549388266695 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    // for x in [inf, 8]=1/[0,0.125]
+    
+    
+**/
+var _p1R8 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((0 : stdgo.GoFloat64), (0.11718749999998865 : stdgo.GoFloat64), (13.239480659307358 : stdgo.GoFloat64), (412.05185430737856 : stdgo.GoFloat64), (3874.7453891396053 : stdgo.GoFloat64), (7914.479540318917 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var _p1S8 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((114.20737037567841 : stdgo.GoFloat64), (3650.9308342085346 : stdgo.GoFloat64), (36956.206026903346 : stdgo.GoFloat64), (97602.79359349508 : stdgo.GoFloat64), (30804.27206278888 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    // for x in [8,4.5454] = 1/[0.125,0.22001]
+    
+    
+**/
+var _p1R5 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((1.3199051955624352e-11 : stdgo.GoFloat64), (0.1171874931906141 : stdgo.GoFloat64), (6.802751278684329 : stdgo.GoFloat64), (108.30818299018911 : stdgo.GoFloat64), (517.6361395331998 : stdgo.GoFloat64), (528.7152013633375 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var _p1S5 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((59.28059872211313 : stdgo.GoFloat64), (991.4014187336144 : stdgo.GoFloat64), (5353.26695291488 : stdgo.GoFloat64), (7844.690317495512 : stdgo.GoFloat64), (1504.0468881036106 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    // for x in[4.5453,2.8571] = 1/[0.2199,0.35001]
+    
+    
+**/
+var _p1R3 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((3.025039161373736e-09 : stdgo.GoFloat64), (0.11718686556725359 : stdgo.GoFloat64), (3.9329775003331564 : stdgo.GoFloat64), (35.11940355916369 : stdgo.GoFloat64), (91.05501107507813 : stdgo.GoFloat64), (48.55906851973649 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var _p1S3 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((34.79130950012515 : stdgo.GoFloat64), (336.76245874782575 : stdgo.GoFloat64), (1046.8713997577513 : stdgo.GoFloat64), (890.8113463982564 : stdgo.GoFloat64), (103.78793243963928 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    // for x in [2.8570,2] = 1/[0.3499,0.5]
+    
+    
+**/
+var _p1R2 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((1.0771083010687374e-07 : stdgo.GoFloat64), (0.11717621946268335 : stdgo.GoFloat64), (2.368514966676088 : stdgo.GoFloat64), (12.242610914826123 : stdgo.GoFloat64), (17.693971127168773 : stdgo.GoFloat64), (5.073523125888185 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var _p1S2 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((21.43648593638214 : stdgo.GoFloat64), (125.29022716840275 : stdgo.GoFloat64), (232.2764690571628 : stdgo.GoFloat64), (117.6793732871471 : stdgo.GoFloat64), (8.364638933716183 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    // for x in [inf, 8] = 1/[0,0.125]
+    
+    
+**/
+var _q1R8 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((0 : stdgo.GoFloat64), (-0.10253906249999271 : stdgo.GoFloat64), (-16.271753454459 : stdgo.GoFloat64), (-759.6017225139501 : stdgo.GoFloat64), (-11849.806670242959 : stdgo.GoFloat64), (-48438.512428575035 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var _q1S8 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((161.3953697007229 : stdgo.GoFloat64), (7825.385999233485 : stdgo.GoFloat64), (133875.33628724958 : stdgo.GoFloat64), (719657.7236832409 : stdgo.GoFloat64), (666601.2326177764 : stdgo.GoFloat64), (-294490.26430383464 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    // for x in [8,4.5454] = 1/[0.125,0.22001]
+    
+    
+**/
+var _q1R5 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-2.089799311417641e-11 : stdgo.GoFloat64), (-0.10253905024137543 : stdgo.GoFloat64), (-8.05644828123936 : stdgo.GoFloat64), (-183.66960747488838 : stdgo.GoFloat64), (-1373.1937606550816 : stdgo.GoFloat64), (-2612.4444045321566 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var _q1S5 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((81.27655013843358 : stdgo.GoFloat64), (1991.7987346048596 : stdgo.GoFloat64), (17468.48519249089 : stdgo.GoFloat64), (49851.42709103523 : stdgo.GoFloat64), (27948.075163891812 : stdgo.GoFloat64), (-4719.183547951285 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    // for x in [4.5454,2.8571] = 1/[0.2199,0.35001] ???
+    
+    
+**/
+var _q1R3 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-5.078312264617666e-09 : stdgo.GoFloat64), (-0.10253782982083709 : stdgo.GoFloat64), (-4.610115811394734 : stdgo.GoFloat64), (-57.847221656278364 : stdgo.GoFloat64), (-228.2445407376317 : stdgo.GoFloat64), (-219.21012847890933 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var _q1S3 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((47.66515503237295 : stdgo.GoFloat64), (673.8651126766997 : stdgo.GoFloat64), (3380.1528667952634 : stdgo.GoFloat64), (5547.729097207228 : stdgo.GoFloat64), (1903.119193388108 : stdgo.GoFloat64), (-135.20119144430734 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    // for x in [2.8570,2] = 1/[0.3499,0.5]
+    
+    
+**/
+var _q1R2 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-1.7838172751095887e-07 : stdgo.GoFloat64), (-0.10251704260798555 : stdgo.GoFloat64), (-2.7522056827818746 : stdgo.GoFloat64), (-19.663616264370372 : stdgo.GoFloat64), (-42.32531333728305 : stdgo.GoFloat64), (-21.371921170370406 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var _q1S2 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((29.533362906052385 : stdgo.GoFloat64), (252.98154998219053 : stdgo.GoFloat64), (757.5028348686454 : stdgo.GoFloat64), (739.3932053204672 : stdgo.GoFloat64), (155.94900333666612 : stdgo.GoFloat64), (-4.959498988226282 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var __lgamA : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>(
+(0.07721566490153287 : stdgo.GoFloat64),
+(0.3224670334241136 : stdgo.GoFloat64),
+(0.06735230105312927 : stdgo.GoFloat64),
+(0.020580808432516733 : stdgo.GoFloat64),
+(0.007385550860814029 : stdgo.GoFloat64),
+(0.0028905138367341563 : stdgo.GoFloat64),
+(0.0011927076318336207 : stdgo.GoFloat64),
+(0.0005100697921535113 : stdgo.GoFloat64),
+(0.00022086279071390839 : stdgo.GoFloat64),
+(0.00010801156724758394 : stdgo.GoFloat64),
+(2.5214456545125733e-05 : stdgo.GoFloat64),
+(4.4864094961891516e-05 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var __lgamR : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((1 : stdgo.GoFloat64), (1.3920053346762105 : stdgo.GoFloat64), (0.7219355475671381 : stdgo.GoFloat64), (0.17193386563280308 : stdgo.GoFloat64), (0.01864591917156529 : stdgo.GoFloat64), (0.0007779424963818936 : stdgo.GoFloat64), (7.326684307446256e-06 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var __lgamS : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-0.07721566490153287 : stdgo.GoFloat64), (0.21498241596060885 : stdgo.GoFloat64), (0.325778796408931 : stdgo.GoFloat64), (0.14635047265246445 : stdgo.GoFloat64), (0.02664227030336386 : stdgo.GoFloat64), (0.0018402845140733772 : stdgo.GoFloat64), (3.194753265841009e-05 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var __lgamT : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>(
+(0.48383612272381005 : stdgo.GoFloat64),
+(-0.1475877229945939 : stdgo.GoFloat64),
+(0.06462494023913339 : stdgo.GoFloat64),
+(-0.032788541075985965 : stdgo.GoFloat64),
+(0.01797067508118204 : stdgo.GoFloat64),
+(-0.010314224129834144 : stdgo.GoFloat64),
+(0.006100538702462913 : stdgo.GoFloat64),
+(-0.0036845201678113826 : stdgo.GoFloat64),
+(0.0022596478090061247 : stdgo.GoFloat64),
+(-0.0014034646998923284 : stdgo.GoFloat64),
+(0.000881081882437654 : stdgo.GoFloat64),
+(-0.0005385953053567405 : stdgo.GoFloat64),
+(0.00031563207090362595 : stdgo.GoFloat64),
+(-0.00031275416837512086 : stdgo.GoFloat64),
+(0.0003355291926355191 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var __lgamU : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-0.07721566490153287 : stdgo.GoFloat64), (0.6328270640250934 : stdgo.GoFloat64), (1.4549225013723477 : stdgo.GoFloat64), (0.9777175279633727 : stdgo.GoFloat64), (0.22896372806469245 : stdgo.GoFloat64), (0.013381091853678766 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var __lgamV : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((1 : stdgo.GoFloat64), (2.4559779371304113 : stdgo.GoFloat64), (2.128489763798934 : stdgo.GoFloat64), (0.7692851504566728 : stdgo.GoFloat64), (0.10422264559336913 : stdgo.GoFloat64), (0.003217092422824239 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var __lgamW : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((0.4189385332046727 : stdgo.GoFloat64), (0.08333333333333297 : stdgo.GoFloat64), (-0.0027777777772877554 : stdgo.GoFloat64), (0.0007936505586430196 : stdgo.GoFloat64), (-0.00059518755745034 : stdgo.GoFloat64), (0.0008363399189962821 : stdgo.GoFloat64), (-0.0016309293409657527 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    // pow10tab stores the pre-computed values 10**i for i < 32.
+    
+    
+**/
+var _pow10tab : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>(
+(1 : stdgo.GoFloat64),
+(10 : stdgo.GoFloat64),
+(100 : stdgo.GoFloat64),
+(1000 : stdgo.GoFloat64),
+(10000 : stdgo.GoFloat64),
+(100000 : stdgo.GoFloat64),
+(1e+06 : stdgo.GoFloat64),
+(1e+07 : stdgo.GoFloat64),
+(1e+08 : stdgo.GoFloat64),
+(1e+09 : stdgo.GoFloat64),
+(1e+10 : stdgo.GoFloat64),
+(1e+11 : stdgo.GoFloat64),
+(1e+12 : stdgo.GoFloat64),
+(1e+13 : stdgo.GoFloat64),
+(1e+14 : stdgo.GoFloat64),
+(1e+15 : stdgo.GoFloat64),
+(1e+16 : stdgo.GoFloat64),
+(1e+17 : stdgo.GoFloat64),
+(1e+18 : stdgo.GoFloat64),
+(1e+19 : stdgo.GoFloat64),
+(1e+20 : stdgo.GoFloat64),
+(1e+21 : stdgo.GoFloat64),
+(1e+22 : stdgo.GoFloat64),
+(1e+23 : stdgo.GoFloat64),
+(1e+24 : stdgo.GoFloat64),
+(1e+25 : stdgo.GoFloat64),
+(1e+26 : stdgo.GoFloat64),
+(1e+27 : stdgo.GoFloat64),
+(1e+28 : stdgo.GoFloat64),
+(1e+29 : stdgo.GoFloat64),
+(1e+30 : stdgo.GoFloat64),
+(1e+31 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    // pow10postab32 stores the pre-computed value for 10**(i*32) at index i.
+    
+    
+**/
+var _pow10postab32 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((1 : stdgo.GoFloat64), (1e+32 : stdgo.GoFloat64), (1e+64 : stdgo.GoFloat64), (1e+96 : stdgo.GoFloat64), (1e+128 : stdgo.GoFloat64), (1e+160 : stdgo.GoFloat64), (1e+192 : stdgo.GoFloat64), (1e+224 : stdgo.GoFloat64), (1e+256 : stdgo.GoFloat64), (1e+288 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    // pow10negtab32 stores the pre-computed value for 10**(-i*32) at index i.
+    
+    
+**/
+var _pow10negtab32 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>(
+(1 : stdgo.GoFloat64),
+(1e-32 : stdgo.GoFloat64),
+(1e-64 : stdgo.GoFloat64),
+(1e-96 : stdgo.GoFloat64),
+(1e-128 : stdgo.GoFloat64),
+(1e-160 : stdgo.GoFloat64),
+(1e-192 : stdgo.GoFloat64),
+(1e-224 : stdgo.GoFloat64),
+(1e-256 : stdgo.GoFloat64),
+(1e-288 : stdgo.GoFloat64),
+(1e-320 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    // sin coefficients
+    
+    
+**/
+var __sin : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((1.5896230157654656e-10 : stdgo.GoFloat64), (-2.5050747762857807e-08 : stdgo.GoFloat64), (2.7557313621385722e-06 : stdgo.GoFloat64), (-0.0001984126982958954 : stdgo.GoFloat64), (0.008333333333322118 : stdgo.GoFloat64), (-0.1666666666666663 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    // cos coefficients
+    
+    
+**/
+var __cos : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-1.1358536521387682e-11 : stdgo.GoFloat64), (2.087570084197473e-09 : stdgo.GoFloat64), (-2.755731417929674e-07 : stdgo.GoFloat64), (2.4801587288851704e-05 : stdgo.GoFloat64), (-0.0013888888888873056 : stdgo.GoFloat64), (0.041666666666666595 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    // tan coefficients
+    
+    
+**/
+var __tanP : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-13093.693918138379 : stdgo.GoFloat64), (1.1535166483858742e+06 : stdgo.GoFloat64), (-1.7956525197648488e+07 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var __tanQ : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((1 : stdgo.GoFloat64), (13681.296347069296 : stdgo.GoFloat64), (-1.3208923444021097e+06 : stdgo.GoFloat64), (2.500838018233579e+07 : stdgo.GoFloat64), (-5.3869575592945464e+07 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var _tanhP : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-0.9643991794250523 : stdgo.GoFloat64), (-99.28772310019185 : stdgo.GoFloat64), (-1614.6876844170845 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    
+    
+    
+**/
+var _tanhQ : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((112.81167849163293 : stdgo.GoFloat64), (2235.4883906010045 : stdgo.GoFloat64), (4844.063053251255 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
+/**
+    // mPi4 is the binary digits of 4/pi as a uint64 array,
+    // that is, 4/pi = Sum mPi4[i]*2^(-64*i)
+    // 19 64-bit digits and the leading one bit give 1217 bits
+    // of precision to handle the largest possible float64 exponent.
+    
+    
+**/
+var _mPi4 : stdgo.GoArray<stdgo.GoUInt64> = (new stdgo.GoArray<stdgo.GoUInt64>(
+(1i64 : stdgo.GoUInt64),
+(5040379952546458195i64 : stdgo.GoUInt64),
+(-554312585572664447i64 : stdgo.GoUInt64),
+(-5276763892624187261i64 : stdgo.GoUInt64),
+(-242412250269775165i64 : stdgo.GoUInt64),
+(7946843935494350272i64 : stdgo.GoUInt64),
+(905889640498799673i64 : stdgo.GoUInt64),
+(-271387810574676355i64 : stdgo.GoUInt64),
+(-3385462365541201655i64 : stdgo.GoUInt64),
+(-3226582509936509822i64 : stdgo.GoUInt64),
+(8296664548579374057i64 : stdgo.GoUInt64),
+(4109744767560208502i64 : stdgo.GoUInt64),
+(4607516669194743839i64 : stdgo.GoUInt64),
+(-2423460969061230018i64 : stdgo.GoUInt64),
+(-2707510419574615186i64 : stdgo.GoUInt64),
+(-7022098299024845734i64 : stdgo.GoUInt64),
+(-1562901285013036298i64 : stdgo.GoUInt64),
+(8795094592981902804i64 : stdgo.GoUInt64),
+(-2884908082597807600i64 : stdgo.GoUInt64),
+(-6051042886442100905i64 : stdgo.GoUInt64)) : stdgo.GoArray<stdgo.GoUInt64>);
+/**
+    // Export internal functions for testing.
+    
+    
+**/
+var expGo : stdgo.GoFloat64 -> stdgo.GoFloat64 = _exp;
+/**
+    
+    
+    
+**/
+var exp2Go : stdgo.GoFloat64 -> stdgo.GoFloat64 = _exp2;
+/**
+    
+    
+    
+**/
+var hypotGo : (stdgo.GoFloat64, stdgo.GoFloat64) -> stdgo.GoFloat64 = _hypot;
+/**
+    
+    
+    
+**/
+var sqrtGo : stdgo.GoFloat64 -> stdgo.GoFloat64 = _sqrt;
+/**
+    
+    
+    
+**/
+var trigReduce : stdgo.GoFloat64 -> { var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; } = _trigReduce;
+/**
+    
+    
+    
+**/
 final _uvnan : stdgo.GoUInt64 = (9221120237041090561i64 : stdgo.GoUInt64);
 /**
     
@@ -902,36 +1337,6 @@ final _haveArchExp2 : Bool = false;
 **/
 final _haveArchExp : Bool = false;
 /**
-    // Export internal functions for testing.
-    
-    
-**/
-var expGo : stdgo.GoFloat64 -> stdgo.GoFloat64 = _exp;
-/**
-    
-    
-    
-**/
-var exp2Go : stdgo.GoFloat64 -> stdgo.GoFloat64 = _exp2;
-/**
-    
-    
-    
-**/
-var hypotGo : (stdgo.GoFloat64, stdgo.GoFloat64) -> stdgo.GoFloat64 = _hypot;
-/**
-    
-    
-    
-**/
-var sqrtGo : stdgo.GoFloat64 -> stdgo.GoFloat64 = _sqrt;
-/**
-    
-    
-    
-**/
-var trigReduce : stdgo.GoFloat64 -> { var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; } = _trigReduce;
-/**
     
     
     
@@ -960,286 +1365,7 @@ final _haveArchTrunc : Bool = true;
     
     
 **/
-var __gamP : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((0.00016011952247675185 : stdgo.GoFloat64), (0.0011913514700658638 : stdgo.GoFloat64), (0.010421379756176158 : stdgo.GoFloat64), (0.04763678004571372 : stdgo.GoFloat64), (0.20744822764843598 : stdgo.GoFloat64), (0.4942148268014971 : stdgo.GoFloat64), (1 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var __gamQ : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-2.3158187332412014e-05 : stdgo.GoFloat64), (0.0005396055804933034 : stdgo.GoFloat64), (-0.004456419138517973 : stdgo.GoFloat64), (0.011813978522206043 : stdgo.GoFloat64), (0.035823639860549865 : stdgo.GoFloat64), (-0.23459179571824335 : stdgo.GoFloat64), (0.0714304917030273 : stdgo.GoFloat64), (1 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var __gamS : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((0.0007873113957930937 : stdgo.GoFloat64), (-0.00022954996161337813 : stdgo.GoFloat64), (-0.0026813261780578124 : stdgo.GoFloat64), (0.0034722222160545866 : stdgo.GoFloat64), (0.08333333333334822 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
 final _haveArchHypot : Bool = false;
-/**
-    // for x in [inf, 8]=1/[0,0.125]
-    
-    
-**/
-var _p0R8 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((0 : stdgo.GoFloat64), (-0.07031249999999004 : stdgo.GoFloat64), (-8.081670412753498 : stdgo.GoFloat64), (-257.06310567970485 : stdgo.GoFloat64), (-2485.216410094288 : stdgo.GoFloat64), (-5253.043804907295 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var _p0S8 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((116.53436461966818 : stdgo.GoFloat64), (3833.7447536412183 : stdgo.GoFloat64), (40597.857264847255 : stdgo.GoFloat64), (116752.97256437592 : stdgo.GoFloat64), (47627.728414673096 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    // for x in [8,4.5454]=1/[0.125,0.22001]
-    
-    
-**/
-var _p0R5 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-1.141254646918945e-11 : stdgo.GoFloat64), (-0.07031249408735993 : stdgo.GoFloat64), (-4.159610644705878 : stdgo.GoFloat64), (-67.67476522651673 : stdgo.GoFloat64), (-331.23129964917297 : stdgo.GoFloat64), (-346.4333883656049 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var _p0S5 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((60.753938269230034 : stdgo.GoFloat64), (1051.2523059570458 : stdgo.GoFloat64), (5978.970943338558 : stdgo.GoFloat64), (9625.445143577745 : stdgo.GoFloat64), (2406.058159229391 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    // for x in [4.547,2.8571]=1/[0.2199,0.35001]
-    
-    
-**/
-var _p0R3 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-2.547046017719519e-09 : stdgo.GoFloat64), (-0.07031196163814817 : stdgo.GoFloat64), (-2.409032215495296 : stdgo.GoFloat64), (-21.96597747348831 : stdgo.GoFloat64), (-58.07917047017376 : stdgo.GoFloat64), (-31.44794705948885 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var _p0S3 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((35.85603380552097 : stdgo.GoFloat64), (361.51398305030386 : stdgo.GoFloat64), (1193.6078379211153 : stdgo.GoFloat64), (1127.9967985690741 : stdgo.GoFloat64), (173.58093081333575 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    // for x in [2.8570,2]=1/[0.3499,0.5]
-    
-    
-**/
-var _p0R2 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-8.875343330325264e-08 : stdgo.GoFloat64), (-0.07030309954836247 : stdgo.GoFloat64), (-1.4507384678095299 : stdgo.GoFloat64), (-7.635696138235278 : stdgo.GoFloat64), (-11.193166886035675 : stdgo.GoFloat64), (-3.2336457935133534 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var _p0S2 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((22.22029975320888 : stdgo.GoFloat64), (136.2067942182152 : stdgo.GoFloat64), (270.4702786580835 : stdgo.GoFloat64), (153.87539420832033 : stdgo.GoFloat64), (14.65761769482562 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    // for x in [inf, 8]=1/[0,0.125]
-    
-    
-**/
-var _q0R8 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((0 : stdgo.GoFloat64), (0.0732421874999935 : stdgo.GoFloat64), (11.76820646822527 : stdgo.GoFloat64), (557.6733802564019 : stdgo.GoFloat64), (8859.197207564686 : stdgo.GoFloat64), (37014.62677768878 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var _q0S8 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((163.77602689568982 : stdgo.GoFloat64), (8098.344946564498 : stdgo.GoFloat64), (142538.29141912048 : stdgo.GoFloat64), (803309.2571195144 : stdgo.GoFloat64), (840501.5798190605 : stdgo.GoFloat64), (-343899.2935378666 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    // for x in [8,4.5454]=1/[0.125,0.22001]
-    
-    
-**/
-var _q0R5 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((1.8408596359451553e-11 : stdgo.GoFloat64), (0.07324217666126848 : stdgo.GoFloat64), (5.8356350896205695 : stdgo.GoFloat64), (135.11157728644983 : stdgo.GoFloat64), (1027.243765961641 : stdgo.GoFloat64), (1989.9778586460538 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var _q0S5 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((82.77661022365378 : stdgo.GoFloat64), (2077.81416421393 : stdgo.GoFloat64), (18847.28877857181 : stdgo.GoFloat64), (56751.11228949473 : stdgo.GoFloat64), (35976.75384251145 : stdgo.GoFloat64), (-5354.342756019448 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    // for x in [4.547,2.8571]=1/[0.2199,0.35001]
-    
-    
-**/
-var _q0R3 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((4.377410140897386e-09 : stdgo.GoFloat64), (0.07324111800429114 : stdgo.GoFloat64), (3.344231375161707 : stdgo.GoFloat64), (42.621844074541265 : stdgo.GoFloat64), (170.8080913405656 : stdgo.GoFloat64), (166.73394869665117 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var _q0S3 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((48.75887297245872 : stdgo.GoFloat64), (709.689221056606 : stdgo.GoFloat64), (3704.1482262011136 : stdgo.GoFloat64), (6460.425167525689 : stdgo.GoFloat64), (2516.3336892036896 : stdgo.GoFloat64), (-149.2474518361564 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    // for x in [2.8570,2]=1/[0.3499,0.5]
-    
-    
-**/
-var _q0R2 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((1.5044444488698327e-07 : stdgo.GoFloat64), (0.07322342659630793 : stdgo.GoFloat64), (1.99819174093816 : stdgo.GoFloat64), (14.495602934788574 : stdgo.GoFloat64), (31.666231750478154 : stdgo.GoFloat64), (16.252707571092927 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var _q0S2 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((30.36558483552192 : stdgo.GoFloat64), (269.34811860804984 : stdgo.GoFloat64), (844.7837575953201 : stdgo.GoFloat64), (882.9358451124886 : stdgo.GoFloat64), (212.66638851179883 : stdgo.GoFloat64), (-5.3109549388266695 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    // for x in [inf, 8]=1/[0,0.125]
-    
-    
-**/
-var _p1R8 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((0 : stdgo.GoFloat64), (0.11718749999998865 : stdgo.GoFloat64), (13.239480659307358 : stdgo.GoFloat64), (412.05185430737856 : stdgo.GoFloat64), (3874.7453891396053 : stdgo.GoFloat64), (7914.479540318917 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var _p1S8 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((114.20737037567841 : stdgo.GoFloat64), (3650.9308342085346 : stdgo.GoFloat64), (36956.206026903346 : stdgo.GoFloat64), (97602.79359349508 : stdgo.GoFloat64), (30804.27206278888 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    // for x in [8,4.5454] = 1/[0.125,0.22001]
-    
-    
-**/
-var _p1R5 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((1.3199051955624352e-11 : stdgo.GoFloat64), (0.1171874931906141 : stdgo.GoFloat64), (6.802751278684329 : stdgo.GoFloat64), (108.30818299018911 : stdgo.GoFloat64), (517.6361395331998 : stdgo.GoFloat64), (528.7152013633375 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var _p1S5 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((59.28059872211313 : stdgo.GoFloat64), (991.4014187336144 : stdgo.GoFloat64), (5353.26695291488 : stdgo.GoFloat64), (7844.690317495512 : stdgo.GoFloat64), (1504.0468881036106 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    // for x in[4.5453,2.8571] = 1/[0.2199,0.35001]
-    
-    
-**/
-var _p1R3 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((3.025039161373736e-09 : stdgo.GoFloat64), (0.11718686556725359 : stdgo.GoFloat64), (3.9329775003331564 : stdgo.GoFloat64), (35.11940355916369 : stdgo.GoFloat64), (91.05501107507813 : stdgo.GoFloat64), (48.55906851973649 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var _p1S3 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((34.79130950012515 : stdgo.GoFloat64), (336.76245874782575 : stdgo.GoFloat64), (1046.8713997577513 : stdgo.GoFloat64), (890.8113463982564 : stdgo.GoFloat64), (103.78793243963928 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    // for x in [2.8570,2] = 1/[0.3499,0.5]
-    
-    
-**/
-var _p1R2 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((1.0771083010687374e-07 : stdgo.GoFloat64), (0.11717621946268335 : stdgo.GoFloat64), (2.368514966676088 : stdgo.GoFloat64), (12.242610914826123 : stdgo.GoFloat64), (17.693971127168773 : stdgo.GoFloat64), (5.073523125888185 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var _p1S2 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((21.43648593638214 : stdgo.GoFloat64), (125.29022716840275 : stdgo.GoFloat64), (232.2764690571628 : stdgo.GoFloat64), (117.6793732871471 : stdgo.GoFloat64), (8.364638933716183 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    // for x in [inf, 8] = 1/[0,0.125]
-    
-    
-**/
-var _q1R8 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((0 : stdgo.GoFloat64), (-0.10253906249999271 : stdgo.GoFloat64), (-16.271753454459 : stdgo.GoFloat64), (-759.6017225139501 : stdgo.GoFloat64), (-11849.806670242959 : stdgo.GoFloat64), (-48438.512428575035 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var _q1S8 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((161.3953697007229 : stdgo.GoFloat64), (7825.385999233485 : stdgo.GoFloat64), (133875.33628724958 : stdgo.GoFloat64), (719657.7236832409 : stdgo.GoFloat64), (666601.2326177764 : stdgo.GoFloat64), (-294490.26430383464 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    // for x in [8,4.5454] = 1/[0.125,0.22001]
-    
-    
-**/
-var _q1R5 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-2.089799311417641e-11 : stdgo.GoFloat64), (-0.10253905024137543 : stdgo.GoFloat64), (-8.05644828123936 : stdgo.GoFloat64), (-183.66960747488838 : stdgo.GoFloat64), (-1373.1937606550816 : stdgo.GoFloat64), (-2612.4444045321566 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var _q1S5 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((81.27655013843358 : stdgo.GoFloat64), (1991.7987346048596 : stdgo.GoFloat64), (17468.48519249089 : stdgo.GoFloat64), (49851.42709103523 : stdgo.GoFloat64), (27948.075163891812 : stdgo.GoFloat64), (-4719.183547951285 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    // for x in [4.5454,2.8571] = 1/[0.2199,0.35001] ???
-    
-    
-**/
-var _q1R3 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-5.078312264617666e-09 : stdgo.GoFloat64), (-0.10253782982083709 : stdgo.GoFloat64), (-4.610115811394734 : stdgo.GoFloat64), (-57.847221656278364 : stdgo.GoFloat64), (-228.2445407376317 : stdgo.GoFloat64), (-219.21012847890933 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var _q1S3 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((47.66515503237295 : stdgo.GoFloat64), (673.8651126766997 : stdgo.GoFloat64), (3380.1528667952634 : stdgo.GoFloat64), (5547.729097207228 : stdgo.GoFloat64), (1903.119193388108 : stdgo.GoFloat64), (-135.20119144430734 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    // for x in [2.8570,2] = 1/[0.3499,0.5]
-    
-    
-**/
-var _q1R2 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-1.7838172751095887e-07 : stdgo.GoFloat64), (-0.10251704260798555 : stdgo.GoFloat64), (-2.7522056827818746 : stdgo.GoFloat64), (-19.663616264370372 : stdgo.GoFloat64), (-42.32531333728305 : stdgo.GoFloat64), (-21.371921170370406 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var _q1S2 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((29.533362906052385 : stdgo.GoFloat64), (252.98154998219053 : stdgo.GoFloat64), (757.5028348686454 : stdgo.GoFloat64), (739.3932053204672 : stdgo.GoFloat64), (155.94900333666612 : stdgo.GoFloat64), (-4.959498988226282 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var __lgamA : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>(
-(0.07721566490153287 : stdgo.GoFloat64),
-(0.3224670334241136 : stdgo.GoFloat64),
-(0.06735230105312927 : stdgo.GoFloat64),
-(0.020580808432516733 : stdgo.GoFloat64),
-(0.007385550860814029 : stdgo.GoFloat64),
-(0.0028905138367341563 : stdgo.GoFloat64),
-(0.0011927076318336207 : stdgo.GoFloat64),
-(0.0005100697921535113 : stdgo.GoFloat64),
-(0.00022086279071390839 : stdgo.GoFloat64),
-(0.00010801156724758394 : stdgo.GoFloat64),
-(2.5214456545125733e-05 : stdgo.GoFloat64),
-(4.4864094961891516e-05 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var __lgamR : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((1 : stdgo.GoFloat64), (1.3920053346762105 : stdgo.GoFloat64), (0.7219355475671381 : stdgo.GoFloat64), (0.17193386563280308 : stdgo.GoFloat64), (0.01864591917156529 : stdgo.GoFloat64), (0.0007779424963818936 : stdgo.GoFloat64), (7.326684307446256e-06 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var __lgamS : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-0.07721566490153287 : stdgo.GoFloat64), (0.21498241596060885 : stdgo.GoFloat64), (0.325778796408931 : stdgo.GoFloat64), (0.14635047265246445 : stdgo.GoFloat64), (0.02664227030336386 : stdgo.GoFloat64), (0.0018402845140733772 : stdgo.GoFloat64), (3.194753265841009e-05 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var __lgamT : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>(
-(0.48383612272381005 : stdgo.GoFloat64),
-(-0.1475877229945939 : stdgo.GoFloat64),
-(0.06462494023913339 : stdgo.GoFloat64),
-(-0.032788541075985965 : stdgo.GoFloat64),
-(0.01797067508118204 : stdgo.GoFloat64),
-(-0.010314224129834144 : stdgo.GoFloat64),
-(0.006100538702462913 : stdgo.GoFloat64),
-(-0.0036845201678113826 : stdgo.GoFloat64),
-(0.0022596478090061247 : stdgo.GoFloat64),
-(-0.0014034646998923284 : stdgo.GoFloat64),
-(0.000881081882437654 : stdgo.GoFloat64),
-(-0.0005385953053567405 : stdgo.GoFloat64),
-(0.00031563207090362595 : stdgo.GoFloat64),
-(-0.00031275416837512086 : stdgo.GoFloat64),
-(0.0003355291926355191 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var __lgamU : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-0.07721566490153287 : stdgo.GoFloat64), (0.6328270640250934 : stdgo.GoFloat64), (1.4549225013723477 : stdgo.GoFloat64), (0.9777175279633727 : stdgo.GoFloat64), (0.22896372806469245 : stdgo.GoFloat64), (0.013381091853678766 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var __lgamV : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((1 : stdgo.GoFloat64), (2.4559779371304113 : stdgo.GoFloat64), (2.128489763798934 : stdgo.GoFloat64), (0.7692851504566728 : stdgo.GoFloat64), (0.10422264559336913 : stdgo.GoFloat64), (0.003217092422824239 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var __lgamW : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((0.4189385332046727 : stdgo.GoFloat64), (0.08333333333333297 : stdgo.GoFloat64), (-0.0027777777772877554 : stdgo.GoFloat64), (0.0007936505586430196 : stdgo.GoFloat64), (-0.00059518755745034 : stdgo.GoFloat64), (0.0008363399189962821 : stdgo.GoFloat64), (-0.0016309293409657527 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
 /**
     
     
@@ -1252,79 +1378,6 @@ final _haveArchLog : Bool = false;
     
 **/
 final _haveArchModf : Bool = false;
-/**
-    // pow10tab stores the pre-computed values 10**i for i < 32.
-    
-    
-**/
-var _pow10tab : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>(
-(1 : stdgo.GoFloat64),
-(10 : stdgo.GoFloat64),
-(100 : stdgo.GoFloat64),
-(1000 : stdgo.GoFloat64),
-(10000 : stdgo.GoFloat64),
-(100000 : stdgo.GoFloat64),
-(1e+06 : stdgo.GoFloat64),
-(1e+07 : stdgo.GoFloat64),
-(1e+08 : stdgo.GoFloat64),
-(1e+09 : stdgo.GoFloat64),
-(1e+10 : stdgo.GoFloat64),
-(1e+11 : stdgo.GoFloat64),
-(1e+12 : stdgo.GoFloat64),
-(1e+13 : stdgo.GoFloat64),
-(1e+14 : stdgo.GoFloat64),
-(1e+15 : stdgo.GoFloat64),
-(1e+16 : stdgo.GoFloat64),
-(1e+17 : stdgo.GoFloat64),
-(1e+18 : stdgo.GoFloat64),
-(1e+19 : stdgo.GoFloat64),
-(1e+20 : stdgo.GoFloat64),
-(1e+21 : stdgo.GoFloat64),
-(1e+22 : stdgo.GoFloat64),
-(1e+23 : stdgo.GoFloat64),
-(1e+24 : stdgo.GoFloat64),
-(1e+25 : stdgo.GoFloat64),
-(1e+26 : stdgo.GoFloat64),
-(1e+27 : stdgo.GoFloat64),
-(1e+28 : stdgo.GoFloat64),
-(1e+29 : stdgo.GoFloat64),
-(1e+30 : stdgo.GoFloat64),
-(1e+31 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    // pow10postab32 stores the pre-computed value for 10**(i*32) at index i.
-    
-    
-**/
-var _pow10postab32 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((1 : stdgo.GoFloat64), (1e+32 : stdgo.GoFloat64), (1e+64 : stdgo.GoFloat64), (1e+96 : stdgo.GoFloat64), (1e+128 : stdgo.GoFloat64), (1e+160 : stdgo.GoFloat64), (1e+192 : stdgo.GoFloat64), (1e+224 : stdgo.GoFloat64), (1e+256 : stdgo.GoFloat64), (1e+288 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    // pow10negtab32 stores the pre-computed value for 10**(-i*32) at index i.
-    
-    
-**/
-var _pow10negtab32 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>(
-(1 : stdgo.GoFloat64),
-(1e-32 : stdgo.GoFloat64),
-(1e-64 : stdgo.GoFloat64),
-(1e-96 : stdgo.GoFloat64),
-(1e-128 : stdgo.GoFloat64),
-(1e-160 : stdgo.GoFloat64),
-(1e-192 : stdgo.GoFloat64),
-(1e-224 : stdgo.GoFloat64),
-(1e-256 : stdgo.GoFloat64),
-(1e-288 : stdgo.GoFloat64),
-(1e-320 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    // sin coefficients
-    
-    
-**/
-var __sin : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((1.5896230157654656e-10 : stdgo.GoFloat64), (-2.5050747762857807e-08 : stdgo.GoFloat64), (2.7557313621385722e-06 : stdgo.GoFloat64), (-0.0001984126982958954 : stdgo.GoFloat64), (0.008333333333322118 : stdgo.GoFloat64), (-0.1666666666666663 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    // cos coefficients
-    
-    
-**/
-var __cos : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-1.1358536521387682e-11 : stdgo.GoFloat64), (2.087570084197473e-09 : stdgo.GoFloat64), (-2.755731417929674e-07 : stdgo.GoFloat64), (2.4801587288851704e-05 : stdgo.GoFloat64), (-0.0013888888888873056 : stdgo.GoFloat64), (0.041666666666666595 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
 /**
     
     
@@ -1476,30 +1529,6 @@ final _haveArchTan : Bool = false;
 **/
 final _haveArchTanh : Bool = false;
 /**
-    // tan coefficients
-    
-    
-**/
-var __tanP : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-13093.693918138379 : stdgo.GoFloat64), (1.1535166483858742e+06 : stdgo.GoFloat64), (-1.7956525197648488e+07 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var __tanQ : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((1 : stdgo.GoFloat64), (13681.296347069296 : stdgo.GoFloat64), (-1.3208923444021097e+06 : stdgo.GoFloat64), (2.500838018233579e+07 : stdgo.GoFloat64), (-5.3869575592945464e+07 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var _tanhP : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((-0.9643991794250523 : stdgo.GoFloat64), (-99.28772310019185 : stdgo.GoFloat64), (-1614.6876844170845 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
-    
-    
-    
-**/
-var _tanhQ : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>((112.81167849163293 : stdgo.GoFloat64), (2235.4883906010045 : stdgo.GoFloat64), (4844.063053251255 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-/**
     // reduceThreshold is the maximum value of x where the reduction using Pi/4
     // in 3 float64 parts still gives accurate results. This threshold
     // is set by y*C being representable as a float64 without error
@@ -1515,35 +1544,6 @@ var _tanhQ : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64
     
 **/
 final _reduceThreshold : stdgo.GoUInt64 = (536870912i64 : stdgo.GoUInt64);
-/**
-    // mPi4 is the binary digits of 4/pi as a uint64 array,
-    // that is, 4/pi = Sum mPi4[i]*2^(-64*i)
-    // 19 64-bit digits and the leading one bit give 1217 bits
-    // of precision to handle the largest possible float64 exponent.
-    
-    
-**/
-var _mPi4 : stdgo.GoArray<stdgo.GoUInt64> = (new stdgo.GoArray<stdgo.GoUInt64>(
-(1i64 : stdgo.GoUInt64),
-(5040379952546458195i64 : stdgo.GoUInt64),
-(-554312585572664447i64 : stdgo.GoUInt64),
-(-5276763892624187261i64 : stdgo.GoUInt64),
-(-242412250269775165i64 : stdgo.GoUInt64),
-(7946843935494350272i64 : stdgo.GoUInt64),
-(905889640498799673i64 : stdgo.GoUInt64),
-(-271387810574676355i64 : stdgo.GoUInt64),
-(-3385462365541201655i64 : stdgo.GoUInt64),
-(-3226582509936509822i64 : stdgo.GoUInt64),
-(8296664548579374057i64 : stdgo.GoUInt64),
-(4109744767560208502i64 : stdgo.GoUInt64),
-(4607516669194743839i64 : stdgo.GoUInt64),
-(-2423460969061230018i64 : stdgo.GoUInt64),
-(-2707510419574615186i64 : stdgo.GoUInt64),
-(-7022098299024845734i64 : stdgo.GoUInt64),
-(-1562901285013036298i64 : stdgo.GoUInt64),
-(8795094592981902804i64 : stdgo.GoUInt64),
-(-2884908082597807600i64 : stdgo.GoUInt64),
-(-6051042886442100905i64 : stdgo.GoUInt64)) : stdgo.GoArray<stdgo.GoUInt64>);
 /**
     // Abs returns the absolute value of x.
     //

@@ -81,12 +81,6 @@ package stdgo.flag;
 **/
 private var __go2hxdoc__package : Bool;
 /**
-    
-    
-    
-**/
-var defaultUsage : () -> Void = usage;
-/**
     // ErrHelp is the error returned if the -help or -h flag is invoked
     // but no such flag is defined.
     
@@ -108,23 +102,13 @@ var _errParse : stdgo.Error = stdgo.errors.Errors.new_(("parse error" : stdgo.Go
 **/
 var _errRange : stdgo.Error = stdgo.errors.Errors.new_(("value out of range" : stdgo.GoString));
 /**
-    // These constants cause FlagSet.Parse to behave as described if the parse fails.
+    // CommandLine is the default set of command-line flags, parsed from os.Args.
+    // The top-level functions such as BoolVar, Arg, and so on are wrappers for the
+    // methods of CommandLine.
     
-    // Return a descriptive error.
-**/
-final continueOnError : stdgo.flag.Flag.ErrorHandling = (2 : stdgo.flag.Flag.ErrorHandling);
-/**
-    // These constants cause FlagSet.Parse to behave as described if the parse fails.
     
-    // Call os.Exit(2) or for -h/-help Exit(0).
 **/
-final exitOnError = (2 : stdgo.flag.Flag.ErrorHandling);
-/**
-    // These constants cause FlagSet.Parse to behave as described if the parse fails.
-    
-    // Call panic with a descriptive error.
-**/
-final panicOnError = (2 : stdgo.flag.Flag.ErrorHandling);
+var commandLine : stdgo.Ref<stdgo.flag.Flag.FlagSet> = newFlagSet(stdgo.os.Os.args[(0 : stdgo.GoInt)]?.__copy__(), (1 : stdgo.flag.Flag.ErrorHandling));
 /**
     // Usage prints a usage message documenting all defined command-line flags
     // to CommandLine's output, which by default is os.Stderr.
@@ -143,13 +127,29 @@ var usage : () -> Void = function():Void {
         printDefaults();
     };
 /**
-    // CommandLine is the default set of command-line flags, parsed from os.Args.
-    // The top-level functions such as BoolVar, Arg, and so on are wrappers for the
-    // methods of CommandLine.
+    
     
     
 **/
-var commandLine : stdgo.Ref<stdgo.flag.Flag.FlagSet> = newFlagSet(stdgo.os.Os.args[(0 : stdgo.GoInt)]?.__copy__(), (1 : stdgo.flag.Flag.ErrorHandling));
+var defaultUsage : () -> Void = usage;
+/**
+    // These constants cause FlagSet.Parse to behave as described if the parse fails.
+    
+    // Return a descriptive error.
+**/
+final continueOnError : stdgo.flag.Flag.ErrorHandling = (2 : stdgo.flag.Flag.ErrorHandling);
+/**
+    // These constants cause FlagSet.Parse to behave as described if the parse fails.
+    
+    // Call os.Exit(2) or for -h/-help Exit(0).
+**/
+final exitOnError = (2 : stdgo.flag.Flag.ErrorHandling);
+/**
+    // These constants cause FlagSet.Parse to behave as described if the parse fails.
+    
+    // Call panic with a descriptive error.
+**/
+final panicOnError = (2 : stdgo.flag.Flag.ErrorHandling);
 /**
     // optional interface to indicate boolean flags that can be
     // supplied without "=value" text

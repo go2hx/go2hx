@@ -1,5 +1,6 @@
 package stdgo.internal.fmtsort_test;
 import stdgo.internal.fmtsort.Fmtsort;
+import stdgo.internal.fmtsort.Fmtsort;
 /**
     
     

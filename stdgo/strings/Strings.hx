@@ -6,6 +6,21 @@ package stdgo.strings;
 **/
 private var __go2hxdoc__package : Bool;
 /**
+    
+    
+    
+**/
+var _asciiSpace : stdgo.GoArray<stdgo.GoUInt8> = {
+        var s:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 256) 0]);
+        s[9] = (1 : stdgo.GoUInt8);
+        s[10] = (1 : stdgo.GoUInt8);
+        s[11] = (1 : stdgo.GoUInt8);
+        s[12] = (1 : stdgo.GoUInt8);
+        s[13] = (1 : stdgo.GoUInt8);
+        s[32] = (1 : stdgo.GoUInt8);
+        s;
+    };
+/**
     // countCutOff controls the ratio of a string length to a number of replacements
     // at which (*byteStringReplacer).Replace switches algorithms.
     // For strings with higher ration of length to replacements than that value,
@@ -23,21 +38,6 @@ final _countCutOff : stdgo.GoUInt64 = (8i64 : stdgo.GoUInt64);
     
 **/
 final _maxInt : stdgo.GoInt = ((2147483647u32 : stdgo.GoUInt) : stdgo.GoInt);
-/**
-    
-    
-    
-**/
-var _asciiSpace : stdgo.GoArray<stdgo.GoUInt8> = {
-        var s:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 256) 0]);
-        s[9] = (1 : stdgo.GoUInt8);
-        s[10] = (1 : stdgo.GoUInt8);
-        s[11] = (1 : stdgo.GoUInt8);
-        s[12] = (1 : stdgo.GoUInt8);
-        s[13] = (1 : stdgo.GoUInt8);
-        s[32] = (1 : stdgo.GoUInt8);
-        s;
-    };
 /**
     // replacer is the interface that a replacement algorithm needs to implement.
     

@@ -5,14 +5,6 @@ package stdgo.internal.cpu;
 **/
 private var __go2hxdoc__package : Bool;
 /**
-    // DebugOptions is set to true by the runtime if the OS supports reading
-    // GODEBUG early in runtime startup.
-    // This should not be changed after it is initialized.
-    
-    
-**/
-var debugOptions : Bool = false;
-/**
     // CacheLineSize is the CPU's assumed cache line size.
     // There is currently no runtime detection of the real cache line size
     // so we use the constant per GOARCH CacheLinePadSize as an approximation.
@@ -20,6 +12,14 @@ var debugOptions : Bool = false;
     
 **/
 var cacheLineSize : stdgo.GoUIntptr = (64 : stdgo.GoUIntptr);
+/**
+    // DebugOptions is set to true by the runtime if the OS supports reading
+    // GODEBUG early in runtime startup.
+    // This should not be changed after it is initialized.
+    
+    
+**/
+var debugOptions : Bool = false;
 /**
     // The booleans in X86 contain the correspondingly named cpuid feature bit.
     // HasAVX and HasAVX2 are only set if the OS does support XMM and YMM registers

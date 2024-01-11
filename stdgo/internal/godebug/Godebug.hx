@@ -1,4 +1,5 @@
 package stdgo.internal.godebug;
+import stdgo.unsafe.Unsafe;
 /**
     // Package godebug makes the settings in the $GODEBUG environment variable
     // available to other packages. These settings are often used for compatibility

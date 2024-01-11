@@ -23,12 +23,6 @@ import stdgo.go.types.Types;
 **/
 private var __go2hxdoc__package : Bool;
 /**
-    // nopos indicates an unknown position
-    
-    
-**/
-var _nopos : stdgo.go.token.Token.Pos = ((0 : stdgo.GoInt) : stdgo.go.token.Token.Pos);
-/**
     
     
     
@@ -167,18 +161,6 @@ var _fset : stdgo.Ref<stdgo.go.token.Token.FileSet> = stdgo.go.token.Token.newFi
     
     
 **/
-final _errorfMinArgCount : stdgo.GoUInt64 = (4i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-final _errorfFormatIndex : stdgo.GoUInt64 = (2i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
 var _testExprs : stdgo.Slice<stdgo.go.types_test.Types_test.T_testEntry> = (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testEntry>(
 70,
 70,
@@ -258,18 +240,6 @@ _dup(("x + y << (2 * s)" : stdgo.GoString))?.__copy__()) : stdgo.Slice<stdgo.go.
     
 **/
 var _filesToWrite : stdgo.Pointer<stdgo.GoString> = stdgo.flag.Flag.string(("write" : stdgo.GoString), stdgo.Go.str()?.__copy__(), ("go/types files to generate, or \"all\" for all files" : stdgo.GoString));
-/**
-    
-    
-    
-**/
-final _srcDir : stdgo.GoString = ("/src/cmd/compile/internal/types2/" : stdgo.GoString);
-/**
-    
-    
-    
-**/
-final _dstDir : stdgo.GoString = ("/src/go/types/" : stdgo.GoString);
 /**
     
     
@@ -451,22 +421,6 @@ var _excluded : stdgo.GoMap<stdgo.GoString, Bool> = ({
         x;
     } : stdgo.GoMap<stdgo.GoString, Bool>);
 /**
-    // printPackageMu synchronizes the printing of type-checked package files in
-    // the typecheckFiles function.
-    //
-    // Without synchronization, package files may be interleaved during concurrent
-    // type-checking.
-    
-    
-**/
-var _printPackageMu : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
-/**
-    
-    
-    
-**/
-final _filename : stdgo.GoString = ("<src>" : stdgo.GoString);
-/**
     // types that don't depend on any other type declarations
     
     
@@ -526,6 +480,52 @@ _dup(("<-chan []func() int" : stdgo.GoString))?.__copy__()) : stdgo.Slice<stdgo.
     
 **/
 var _dependentTestTypes : stdgo.Slice<stdgo.go.types_test.Types_test.T_testEntry> = (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testEntry>(3, 3, _dup(("interface{io.Reader; io.Writer}" : stdgo.GoString))?.__copy__(), _dup(("interface{m() int; io.Writer}" : stdgo.GoString))?.__copy__(), (new stdgo.go.types_test.Types_test.T_testEntry(("interface{m() interface{T}}" : stdgo.GoString), ("interface{m() interface{p.T}}" : stdgo.GoString)) : stdgo.go.types_test.Types_test.T_testEntry)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testEntry>);
+/**
+    // nopos indicates an unknown position
+    
+    
+**/
+var _nopos : stdgo.go.token.Token.Pos = ((0 : stdgo.GoInt) : stdgo.go.token.Token.Pos);
+/**
+    
+    
+    
+**/
+final _errorfMinArgCount : stdgo.GoUInt64 = (4i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _errorfFormatIndex : stdgo.GoUInt64 = (2i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _srcDir : stdgo.GoString = ("/src/cmd/compile/internal/types2/" : stdgo.GoString);
+/**
+    
+    
+    
+**/
+final _dstDir : stdgo.GoString = ("/src/go/types/" : stdgo.GoString);
+/**
+    // printPackageMu synchronizes the printing of type-checked package files in
+    // the typecheckFiles function.
+    //
+    // Without synchronization, package files may be interleaved during concurrent
+    // type-checking.
+    
+    
+**/
+var _printPackageMu : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
+/**
+    
+    
+    
+**/
+final _filename : stdgo.GoString = ("<src>" : stdgo.GoString);
 /**
     
     
@@ -2348,7 +2348,7 @@ function testLookupFieldOrMethodOnNil(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Vo
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterfaceData)) {
+            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
@@ -3391,7 +3391,7 @@ function _testFiles(_t:stdgo.Ref<stdgo.testing.Testing.T_>, _filenames:stdgo.Sli
             } catch(__exception__) {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterfaceData)) {
+                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };
                 stdgo.Go.recover_exception = exe;
@@ -5006,7 +5006,7 @@ function testIssue34921(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterfaceData)) {
+            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
@@ -6040,7 +6040,7 @@ function testStdlib(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
                     } catch(__exception__) {
                         var exe:Dynamic = __exception__.native;
                         if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterfaceData)) {
+                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
                             exe = stdgo.Go.toInterface(__exception__.message);
                         };
                         stdgo.Go.recover_exception = exe;
@@ -6119,7 +6119,7 @@ function _firstComment(_filename:stdgo.GoString):stdgo.GoString {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterfaceData)) {
+            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;

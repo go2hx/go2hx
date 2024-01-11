@@ -1,5 +1,6 @@
 package stdgo.sync.atomic_test;
 import stdgo.sync.atomic_.Atomic_;
+import stdgo.sync.atomic_.Atomic_;
 /**
     
     

@@ -20,6 +20,64 @@ var _bufPool : stdgo.sync.Sync.Pool = ({ new_ : function():stdgo.AnyInterface {
     
     
 **/
+var _mapOps : stdgo.GoArray<stdgo.sync_test.Sync_test.T_mapOp> = (new stdgo.GoArray<stdgo.sync_test.Sync_test.T_mapOp>((("Load" : stdgo.GoString) : stdgo.sync_test.Sync_test.T_mapOp), (("Store" : stdgo.GoString) : stdgo.sync_test.Sync_test.T_mapOp), (("LoadOrStore" : stdgo.GoString) : stdgo.sync_test.Sync_test.T_mapOp), (("LoadAndDelete" : stdgo.GoString) : stdgo.sync_test.Sync_test.T_mapOp), (("Delete" : stdgo.GoString) : stdgo.sync_test.Sync_test.T_mapOp), (("Swap" : stdgo.GoString) : stdgo.sync_test.Sync_test.T_mapOp), (("CompareAndSwap" : stdgo.GoString) : stdgo.sync_test.Sync_test.T_mapOp), (("CompareAndDelete" : stdgo.GoString) : stdgo.sync_test.Sync_test.T_mapOp)) : stdgo.GoArray<stdgo.sync_test.Sync_test.T_mapOp>);
+/**
+    
+    
+    
+**/
+var _misuseTests : stdgo.Slice<T__struct_2> = (new stdgo.Slice<T__struct_2>(8, 8, ({ _name : ("Mutex.Unlock" : stdgo.GoString), _f : function():Void {
+        var _mu:Mutex = ({} : stdgo.sync.Sync.Mutex);
+        _mu.unlock();
+    } } : T__struct_2), ({ _name : ("Mutex.Unlock2" : stdgo.GoString), _f : function():Void {
+        var _mu:Mutex = ({} : stdgo.sync.Sync.Mutex);
+        _mu.lock();
+        _mu.unlock();
+        _mu.unlock();
+    } } : T__struct_2), ({ _name : ("RWMutex.Unlock" : stdgo.GoString), _f : function():Void {
+        var _mu:RWMutex = ({} : stdgo.sync.Sync.RWMutex);
+        _mu.unlock();
+    } } : T__struct_2), ({ _name : ("RWMutex.Unlock2" : stdgo.GoString), _f : function():Void {
+        var _mu:RWMutex = ({} : stdgo.sync.Sync.RWMutex);
+        _mu.rlock();
+        _mu.unlock();
+    } } : T__struct_2), ({ _name : ("RWMutex.Unlock3" : stdgo.GoString), _f : function():Void {
+        var _mu:RWMutex = ({} : stdgo.sync.Sync.RWMutex);
+        _mu.lock();
+        _mu.unlock();
+        _mu.unlock();
+    } } : T__struct_2), ({ _name : ("RWMutex.RUnlock" : stdgo.GoString), _f : function():Void {
+        var _mu:RWMutex = ({} : stdgo.sync.Sync.RWMutex);
+        _mu.runlock();
+    } } : T__struct_2), ({ _name : ("RWMutex.RUnlock2" : stdgo.GoString), _f : function():Void {
+        var _mu:RWMutex = ({} : stdgo.sync.Sync.RWMutex);
+        _mu.lock();
+        _mu.runlock();
+    } } : T__struct_2), ({ _name : ("RWMutex.RUnlock3" : stdgo.GoString), _f : function():Void {
+        var _mu:RWMutex = ({} : stdgo.sync.Sync.RWMutex);
+        _mu.rlock();
+        _mu.runlock();
+        _mu.runlock();
+    } } : T__struct_2)) : stdgo.Slice<T__struct_2>);
+/**
+    
+    
+    
+**/
+var _onceFunc : () -> Void = stdgo.sync.Sync.onceFunc(function():Void {});
+/**
+    
+    
+    
+**/
+var _onceValue : () -> stdgo.GoInt = stdgo.sync.Sync.onceValue((0 : stdgo.GoInt), function():stdgo.GoInt {
+        return (42 : stdgo.GoInt);
+    });
+/**
+    
+    
+    
+**/
 var _http : T_httpPkg = ({} : stdgo.sync_test.Sync_test.T_httpPkg);
 /**
     
@@ -86,65 +144,7 @@ final _opCompareAndDelete : stdgo.sync_test.Sync_test.T_mapOp = ((("CompareAndDe
     
     
 **/
-var _mapOps : stdgo.GoArray<stdgo.sync_test.Sync_test.T_mapOp> = (new stdgo.GoArray<stdgo.sync_test.Sync_test.T_mapOp>((("Load" : stdgo.GoString) : stdgo.sync_test.Sync_test.T_mapOp), (("Store" : stdgo.GoString) : stdgo.sync_test.Sync_test.T_mapOp), (("LoadOrStore" : stdgo.GoString) : stdgo.sync_test.Sync_test.T_mapOp), (("LoadAndDelete" : stdgo.GoString) : stdgo.sync_test.Sync_test.T_mapOp), (("Delete" : stdgo.GoString) : stdgo.sync_test.Sync_test.T_mapOp), (("Swap" : stdgo.GoString) : stdgo.sync_test.Sync_test.T_mapOp), (("CompareAndSwap" : stdgo.GoString) : stdgo.sync_test.Sync_test.T_mapOp), (("CompareAndDelete" : stdgo.GoString) : stdgo.sync_test.Sync_test.T_mapOp)) : stdgo.GoArray<stdgo.sync_test.Sync_test.T_mapOp>);
-/**
-    
-    
-    
-**/
-var _misuseTests : stdgo.Slice<T__struct_2> = (new stdgo.Slice<T__struct_2>(8, 8, ({ _name : ("Mutex.Unlock" : stdgo.GoString), _f : function():Void {
-        var _mu:Mutex = ({} : stdgo.sync.Sync.Mutex);
-        _mu.unlock();
-    } } : T__struct_2), ({ _name : ("Mutex.Unlock2" : stdgo.GoString), _f : function():Void {
-        var _mu:Mutex = ({} : stdgo.sync.Sync.Mutex);
-        _mu.lock();
-        _mu.unlock();
-        _mu.unlock();
-    } } : T__struct_2), ({ _name : ("RWMutex.Unlock" : stdgo.GoString), _f : function():Void {
-        var _mu:RWMutex = ({} : stdgo.sync.Sync.RWMutex);
-        _mu.unlock();
-    } } : T__struct_2), ({ _name : ("RWMutex.Unlock2" : stdgo.GoString), _f : function():Void {
-        var _mu:RWMutex = ({} : stdgo.sync.Sync.RWMutex);
-        _mu.rlock();
-        _mu.unlock();
-    } } : T__struct_2), ({ _name : ("RWMutex.Unlock3" : stdgo.GoString), _f : function():Void {
-        var _mu:RWMutex = ({} : stdgo.sync.Sync.RWMutex);
-        _mu.lock();
-        _mu.unlock();
-        _mu.unlock();
-    } } : T__struct_2), ({ _name : ("RWMutex.RUnlock" : stdgo.GoString), _f : function():Void {
-        var _mu:RWMutex = ({} : stdgo.sync.Sync.RWMutex);
-        _mu.runlock();
-    } } : T__struct_2), ({ _name : ("RWMutex.RUnlock2" : stdgo.GoString), _f : function():Void {
-        var _mu:RWMutex = ({} : stdgo.sync.Sync.RWMutex);
-        _mu.lock();
-        _mu.runlock();
-    } } : T__struct_2), ({ _name : ("RWMutex.RUnlock3" : stdgo.GoString), _f : function():Void {
-        var _mu:RWMutex = ({} : stdgo.sync.Sync.RWMutex);
-        _mu.rlock();
-        _mu.runlock();
-        _mu.runlock();
-    } } : T__struct_2)) : stdgo.Slice<T__struct_2>);
-/**
-    
-    
-    
-**/
-var _onceFunc : () -> Void = stdgo.sync.Sync.onceFunc(function():Void {});
-/**
-    
-    
-    
-**/
 var _onceFuncOnce : stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
-/**
-    
-    
-    
-**/
-var _onceValue : () -> stdgo.GoInt = stdgo.sync.Sync.onceValue((0 : stdgo.GoInt), function():stdgo.GoInt {
-        return (42 : stdgo.GoInt);
-    });
 /**
     
     

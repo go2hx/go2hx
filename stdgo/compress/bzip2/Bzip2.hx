@@ -6,6 +6,24 @@ private var __go2hxdoc__package : Bool;
 /**
     
     
+    
+**/
+var _digits : stdgo.Slice<stdgo.GoUInt8> = _mustLoadFile(("testdata/e.txt.bz2" : stdgo.GoString));
+/**
+    
+    
+    
+**/
+var _newton : stdgo.Slice<stdgo.GoUInt8> = _mustLoadFile(("testdata/Isaac.Newton-Opticks.txt.bz2" : stdgo.GoString));
+/**
+    
+    
+    
+**/
+var _random : stdgo.Slice<stdgo.GoUInt8> = _mustLoadFile(("testdata/random.data.bz2" : stdgo.GoString));
+/**
+    
+    
     // "BZ"
 **/
 final _bzip2FileMagic : stdgo.GoUInt64 = (16986i64 : stdgo.GoUInt64);
@@ -27,24 +45,6 @@ final _bzip2FinalMagic : stdgo.GoUInt64 = (25779555029136i64 : stdgo.GoUInt64);
     
 **/
 var _crctab : stdgo.GoArray<stdgo.GoUInt32> = new stdgo.GoArray<stdgo.GoUInt32>(...[for (i in 0 ... 256) (0 : stdgo.GoUInt32)]);
-/**
-    
-    
-    
-**/
-var _digits : stdgo.Slice<stdgo.GoUInt8> = _mustLoadFile(("testdata/e.txt.bz2" : stdgo.GoString));
-/**
-    
-    
-    
-**/
-var _newton : stdgo.Slice<stdgo.GoUInt8> = _mustLoadFile(("testdata/Isaac.Newton-Opticks.txt.bz2" : stdgo.GoString));
-/**
-    
-    
-    
-**/
-var _random : stdgo.Slice<stdgo.GoUInt8> = _mustLoadFile(("testdata/random.data.bz2" : stdgo.GoString));
 /**
     // invalidNodeValue is an invalid index which marks a leaf node in the tree.
     

@@ -14,93 +14,13 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-final __Kind_name : stdgo.GoString = ("UnknownBoolStringIntFloatComplex" : stdgo.GoString);
-/**
-    
-    
-    
-**/
 var __Kind_index : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>((0 : stdgo.GoUInt8), (7 : stdgo.GoUInt8), (11 : stdgo.GoUInt8), (17 : stdgo.GoUInt8), (20 : stdgo.GoUInt8), (25 : stdgo.GoUInt8), (32 : stdgo.GoUInt8)) : stdgo.GoArray<stdgo.GoUInt8>);
-/**
-    // unknown values
-    
-    
-**/
-final unknown : stdgo.go.constant.Constant.Kind = (5 : stdgo.go.constant.Constant.Kind);
-/**
-    // non-numeric values
-    
-    
-**/
-final bool_ = (5 : stdgo.go.constant.Constant.Kind);
-/**
-    
-    
-    
-**/
-final string = (5 : stdgo.go.constant.Constant.Kind);
-/**
-    // numeric values
-    
-    
-**/
-final int_ = (5 : stdgo.go.constant.Constant.Kind);
-/**
-    
-    
-    
-**/
-final float_ = (5 : stdgo.go.constant.Constant.Kind);
-/**
-    
-    
-    
-**/
-final complex = (5 : stdgo.go.constant.Constant.Kind);
-/**
-    // Maximum supported mantissa precision.
-    // The spec requires at least 256 bits; typical implementations use 512 bits.
-    
-    
-**/
-final _prec : stdgo.GoUInt64 = (512i64 : stdgo.GoUInt64);
 /**
     
     
     
 **/
 var _floatVal0 : stdgo.go.constant.Constant.T_floatVal = (new stdgo.go.constant.Constant.T_floatVal(_newFloat()) : stdgo.go.constant.Constant.T_floatVal);
-/**
-    // Permit fractions with component sizes up to maxExp
-    // before switching to using floating-point numbers.
-    
-    
-**/
-final _maxExp : stdgo.GoUInt64 = (4096i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-var _emptyString : T_stringVal = ({} : stdgo.go.constant.Constant.T_stringVal);
-/**
-    // Compute the size of a Word in bytes.
-    
-    
-**/
-final __m : stdgo.math.big.Big.Word = (-1u32 : stdgo.math.big.Big.Word);
-/**
-    
-    
-    
-**/
-final __log : stdgo.math.big.Big.Word = (2u32 : stdgo.math.big.Big.Word);
-/**
-    
-    
-    
-**/
-final _wordSize : stdgo.GoUInt64 = (4i64 : stdgo.GoUInt64);
 /**
     
     
@@ -426,6 +346,86 @@ var _bytesTests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>
     
 **/
 var _bitLenTests : stdgo.Slice<T__struct_2> = (new stdgo.Slice<T__struct_2>(7, 7, ({ _val : (0i64 : stdgo.GoInt64), _want : (0 : stdgo.GoInt) } : T__struct_2), ({ _val : (1i64 : stdgo.GoInt64), _want : (1 : stdgo.GoInt) } : T__struct_2), ({ _val : (-16i64 : stdgo.GoInt64), _want : (5 : stdgo.GoInt) } : T__struct_2), ({ _val : (2305843009213693952i64 : stdgo.GoInt64), _want : (62 : stdgo.GoInt) } : T__struct_2), ({ _val : (4611686018427387904i64 : stdgo.GoInt64), _want : (63 : stdgo.GoInt) } : T__struct_2), ({ _val : (-4611686018427387904i64 : stdgo.GoInt64), _want : (63 : stdgo.GoInt) } : T__struct_2), ({ _val : (-9223372036854775808i64 : stdgo.GoInt64), _want : (64 : stdgo.GoInt) } : T__struct_2)) : stdgo.Slice<T__struct_2>);
+/**
+    
+    
+    
+**/
+final __Kind_name : stdgo.GoString = ("UnknownBoolStringIntFloatComplex" : stdgo.GoString);
+/**
+    // unknown values
+    
+    
+**/
+final unknown : stdgo.go.constant.Constant.Kind = (5 : stdgo.go.constant.Constant.Kind);
+/**
+    // non-numeric values
+    
+    
+**/
+final bool_ = (5 : stdgo.go.constant.Constant.Kind);
+/**
+    
+    
+    
+**/
+final string = (5 : stdgo.go.constant.Constant.Kind);
+/**
+    // numeric values
+    
+    
+**/
+final int_ = (5 : stdgo.go.constant.Constant.Kind);
+/**
+    
+    
+    
+**/
+final float_ = (5 : stdgo.go.constant.Constant.Kind);
+/**
+    
+    
+    
+**/
+final complex = (5 : stdgo.go.constant.Constant.Kind);
+/**
+    // Maximum supported mantissa precision.
+    // The spec requires at least 256 bits; typical implementations use 512 bits.
+    
+    
+**/
+final _prec : stdgo.GoUInt64 = (512i64 : stdgo.GoUInt64);
+/**
+    // Permit fractions with component sizes up to maxExp
+    // before switching to using floating-point numbers.
+    
+    
+**/
+final _maxExp : stdgo.GoUInt64 = (4096i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+var _emptyString : T_stringVal = ({} : stdgo.go.constant.Constant.T_stringVal);
+/**
+    // Compute the size of a Word in bytes.
+    
+    
+**/
+final __m : stdgo.math.big.Big.Word = (-1u32 : stdgo.math.big.Big.Word);
+/**
+    
+    
+    
+**/
+final __log : stdgo.math.big.Big.Word = (2u32 : stdgo.math.big.Big.Word);
+/**
+    
+    
+    
+**/
+final _wordSize : stdgo.GoUInt64 = (4i64 : stdgo.GoUInt64);
 /**
     // A Value represents the value of a Go constant.
     
@@ -2269,7 +2269,7 @@ function _doOp(_x:Value, _op:stdgo.go.token.Token.Token, _y:Value):Value {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterfaceData)) {
+            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;

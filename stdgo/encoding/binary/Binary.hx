@@ -20,23 +20,11 @@ package stdgo.encoding.binary;
 **/
 private var __go2hxdoc__package : Bool;
 /**
-    // LittleEndian is the little-endian implementation of ByteOrder and AppendByteOrder.
     
-    
-**/
-var littleEndian : T_littleEndian = ({} : stdgo.encoding.binary.Binary.T_littleEndian);
-/**
-    // BigEndian is the big-endian implementation of ByteOrder and AppendByteOrder.
     
     
 **/
-var bigEndian : T_bigEndian = ({} : stdgo.encoding.binary.Binary.T_bigEndian);
-/**
-    
-    
-    // map[reflect.Type]int
-**/
-var _structSize : stdgo.sync.Sync.Map_ = ({} : stdgo.sync.Sync.Map_);
+var _errOverflow : stdgo.Error = stdgo.errors.Errors.new_(("binary: varint overflows a 64-bit integer" : stdgo.GoString));
 /**
     
     
@@ -249,36 +237,6 @@ var _putbuf : stdgo.Slice<stdgo.GoUInt8> = (new stdgo.Slice<stdgo.GoUInt8>(8, 8,
 **/
 var _intArrays : stdgo.Slice<stdgo.AnyInterface> = (new stdgo.Slice<stdgo.AnyInterface>(8, 8, stdgo.Go.toInterface((stdgo.Go.setRef((new stdgo.GoArray<stdgo.GoInt8>(...([].concat([for (i in 0 ... 100) (0 : stdgo.GoInt8)]))) : stdgo.GoArray<stdgo.GoInt8>)) : stdgo.Ref<stdgo.GoArray<stdgo.GoInt8>>)), stdgo.Go.toInterface((stdgo.Go.setRef((new stdgo.GoArray<stdgo.GoInt16>(...([].concat([for (i in 0 ... 100) (0 : stdgo.GoInt16)]))) : stdgo.GoArray<stdgo.GoInt16>)) : stdgo.Ref<stdgo.GoArray<stdgo.GoInt16>>)), stdgo.Go.toInterface((stdgo.Go.setRef((new stdgo.GoArray<stdgo.GoInt32>(...([].concat([for (i in 0 ... 100) (0 : stdgo.GoInt32)]))) : stdgo.GoArray<stdgo.GoInt32>)) : stdgo.Ref<stdgo.GoArray<stdgo.GoInt32>>)), stdgo.Go.toInterface((stdgo.Go.setRef((new stdgo.GoArray<stdgo.GoInt64>(...([].concat([for (i in 0 ... 100) (0 : stdgo.GoInt64)]))) : stdgo.GoArray<stdgo.GoInt64>)) : stdgo.Ref<stdgo.GoArray<stdgo.GoInt64>>)), stdgo.Go.toInterface((stdgo.Go.setRef((new stdgo.GoArray<stdgo.GoUInt8>(...([].concat([for (i in 0 ... 100) (0 : stdgo.GoUInt8)]))) : stdgo.GoArray<stdgo.GoUInt8>)) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>)), stdgo.Go.toInterface((stdgo.Go.setRef((new stdgo.GoArray<stdgo.GoUInt16>(...([].concat([for (i in 0 ... 100) (0 : stdgo.GoUInt16)]))) : stdgo.GoArray<stdgo.GoUInt16>)) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt16>>)), stdgo.Go.toInterface((stdgo.Go.setRef((new stdgo.GoArray<stdgo.GoUInt32>(...([].concat([for (i in 0 ... 100) (0 : stdgo.GoUInt32)]))) : stdgo.GoArray<stdgo.GoUInt32>)) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt32>>)), stdgo.Go.toInterface((stdgo.Go.setRef((new stdgo.GoArray<stdgo.GoUInt64>(...([].concat([for (i in 0 ... 100) (0 : stdgo.GoUInt64)]))) : stdgo.GoArray<stdgo.GoUInt64>)) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt64>>))) : stdgo.Slice<stdgo.AnyInterface>);
 /**
-    // NativeEndian is the native-endian implementation of ByteOrder and AppendByteOrder.
-    
-    
-**/
-var nativeEndian : T_nativeEndian = ({} : stdgo.encoding.binary.Binary.T_nativeEndian);
-/**
-    // MaxVarintLenN is the maximum length of a varint-encoded N-bit integer.
-    
-    
-**/
-final maxVarintLen16 : stdgo.GoUInt64 = (3i64 : stdgo.GoUInt64);
-/**
-    // MaxVarintLenN is the maximum length of a varint-encoded N-bit integer.
-    
-    
-**/
-final maxVarintLen32 : stdgo.GoUInt64 = (5i64 : stdgo.GoUInt64);
-/**
-    // MaxVarintLenN is the maximum length of a varint-encoded N-bit integer.
-    
-    
-**/
-final maxVarintLen64 : stdgo.GoUInt64 = (10i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-var _errOverflow : stdgo.Error = stdgo.errors.Errors.new_(("binary: varint overflows a 64-bit integer" : stdgo.GoString));
-/**
     
     
     
@@ -304,6 +262,48 @@ var _tests : stdgo.Slice<stdgo.GoInt64> = (new stdgo.Slice<stdgo.GoInt64>(
 (256i64 : stdgo.GoInt64),
 (257i64 : stdgo.GoInt64),
 (9223372036854775807i64 : stdgo.GoInt64)) : stdgo.Slice<stdgo.GoInt64>);
+/**
+    // LittleEndian is the little-endian implementation of ByteOrder and AppendByteOrder.
+    
+    
+**/
+var littleEndian : T_littleEndian = ({} : stdgo.encoding.binary.Binary.T_littleEndian);
+/**
+    // BigEndian is the big-endian implementation of ByteOrder and AppendByteOrder.
+    
+    
+**/
+var bigEndian : T_bigEndian = ({} : stdgo.encoding.binary.Binary.T_bigEndian);
+/**
+    
+    
+    // map[reflect.Type]int
+**/
+var _structSize : stdgo.sync.Sync.Map_ = ({} : stdgo.sync.Sync.Map_);
+/**
+    // NativeEndian is the native-endian implementation of ByteOrder and AppendByteOrder.
+    
+    
+**/
+var nativeEndian : T_nativeEndian = ({} : stdgo.encoding.binary.Binary.T_nativeEndian);
+/**
+    // MaxVarintLenN is the maximum length of a varint-encoded N-bit integer.
+    
+    
+**/
+final maxVarintLen16 : stdgo.GoUInt64 = (3i64 : stdgo.GoUInt64);
+/**
+    // MaxVarintLenN is the maximum length of a varint-encoded N-bit integer.
+    
+    
+**/
+final maxVarintLen32 : stdgo.GoUInt64 = (5i64 : stdgo.GoUInt64);
+/**
+    // MaxVarintLenN is the maximum length of a varint-encoded N-bit integer.
+    
+    
+**/
+final maxVarintLen64 : stdgo.GoUInt64 = (10i64 : stdgo.GoUInt64);
 /**
     // A ByteOrder specifies how to convert byte slices into
     // 16-, 32-, or 64-bit unsigned integers.

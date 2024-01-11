@@ -65,6 +65,12 @@ var canceled : stdgo.Error = (null : stdgo.Error);
 **/
 var deadlineExceeded : stdgo.Error = (null : stdgo.Error);
 /**
+    // closedchan is a reusable closed channel.
+    
+    
+**/
+var _closedchan : stdgo.Chan<T_deadlineExceededError> = (null : stdgo.Chan<T_deadlineExceededError>);
+/**
     // goroutines counts the number of goroutines ever created; for testing.
     
     
@@ -76,12 +82,6 @@ var _goroutines : stdgo.sync.atomic_.Atomic_.Int32 = ({} : stdgo.sync.atomic_.At
     
 **/
 var _cancelCtxKey : stdgo.GoInt = (0 : stdgo.GoInt);
-/**
-    // closedchan is a reusable closed channel.
-    
-    
-**/
-var _closedchan : stdgo.Chan<T_deadlineExceededError> = (null : stdgo.Chan<T_deadlineExceededError>);
 /**
     // A Context carries a deadline, a cancellation signal, and other values across
     // API boundaries.

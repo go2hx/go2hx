@@ -1,4 +1,5 @@
 package stdgo.time;
+import stdgo.unsafe.Unsafe;
 /**
     // Package time provides functionality for measuring and displaying time.
     //
@@ -77,11 +78,176 @@ package stdgo.time;
 **/
 private var __go2hxdoc__package : Bool;
 /**
+    // std0x records the std values for "01", "02", ..., "06".
+    
+    
+**/
+var _std0x : stdgo.GoArray<stdgo.GoInt> = (new stdgo.GoArray<stdgo.GoInt>((260 : stdgo.GoInt), (265 : stdgo.GoInt), (526 : stdgo.GoInt), (528 : stdgo.GoInt), (530 : stdgo.GoInt), (276 : stdgo.GoInt)) : stdgo.GoArray<stdgo.GoInt>);
+/**
     
     
     
 **/
-var disablePlatformSources : () -> (() -> Void) = _disablePlatformSources;
+var _longDayNames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(7, 7, ("Sunday" : stdgo.GoString), ("Monday" : stdgo.GoString), ("Tuesday" : stdgo.GoString), ("Wednesday" : stdgo.GoString), ("Thursday" : stdgo.GoString), ("Friday" : stdgo.GoString), ("Saturday" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+/**
+    
+    
+    
+**/
+var _shortDayNames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(7, 7, ("Sun" : stdgo.GoString), ("Mon" : stdgo.GoString), ("Tue" : stdgo.GoString), ("Wed" : stdgo.GoString), ("Thu" : stdgo.GoString), ("Fri" : stdgo.GoString), ("Sat" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+/**
+    
+    
+    
+**/
+var _shortMonthNames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
+12,
+12,
+("Jan" : stdgo.GoString),
+("Feb" : stdgo.GoString),
+("Mar" : stdgo.GoString),
+("Apr" : stdgo.GoString),
+("May" : stdgo.GoString),
+("Jun" : stdgo.GoString),
+("Jul" : stdgo.GoString),
+("Aug" : stdgo.GoString),
+("Sep" : stdgo.GoString),
+("Oct" : stdgo.GoString),
+("Nov" : stdgo.GoString),
+("Dec" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+/**
+    
+    
+    
+**/
+var _longMonthNames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
+12,
+12,
+("January" : stdgo.GoString),
+("February" : stdgo.GoString),
+("March" : stdgo.GoString),
+("April" : stdgo.GoString),
+("May" : stdgo.GoString),
+("June" : stdgo.GoString),
+("July" : stdgo.GoString),
+("August" : stdgo.GoString),
+("September" : stdgo.GoString),
+("October" : stdgo.GoString),
+("November" : stdgo.GoString),
+("December" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+/**
+    // Never printed, just needs to be non-nil for return by atoi.
+    
+    
+**/
+var _errAtoi : stdgo.Error = stdgo.errors.Errors.new_(("time: invalid number" : stdgo.GoString));
+/**
+    
+    
+    // placeholder not passed to user
+**/
+var _errBad : stdgo.Error = stdgo.errors.Errors.new_(("bad value for field" : stdgo.GoString));
+/**
+    
+    
+    // never printed
+**/
+var _errLeadingInt : stdgo.Error = stdgo.errors.Errors.new_(("time: bad [0-9]*" : stdgo.GoString));
+/**
+    
+    
+    
+**/
+var _unitMap : stdgo.GoMap<stdgo.GoString, stdgo.GoUInt64> = ({
+        final x = new stdgo.GoMap.GoStringMap<stdgo.GoUInt64>();
+        x.__defaultValue__ = () -> (0 : stdgo.GoUInt64);
+        @:mergeBlock {
+            x.set(("ns" : stdgo.GoString), ((1i64 : stdgo.time.Time.Duration) : stdgo.GoUInt64));
+            x.set(("us" : stdgo.GoString), ((1000i64 : stdgo.time.Time.Duration) : stdgo.GoUInt64));
+            x.set(("µs" : stdgo.GoString), ((1000i64 : stdgo.time.Time.Duration) : stdgo.GoUInt64));
+            x.set(("μs" : stdgo.GoString), ((1000i64 : stdgo.time.Time.Duration) : stdgo.GoUInt64));
+            x.set(("ms" : stdgo.GoString), ((1000000i64 : stdgo.time.Time.Duration) : stdgo.GoUInt64));
+            x.set(("s" : stdgo.GoString), ((1000000000i64 : stdgo.time.Time.Duration) : stdgo.GoUInt64));
+            x.set(("m" : stdgo.GoString), ((60000000000i64 : stdgo.time.Time.Duration) : stdgo.GoUInt64));
+            x.set(("h" : stdgo.GoString), ((3600000000000i64 : stdgo.time.Time.Duration) : stdgo.GoUInt64));
+        };
+        x;
+    } : stdgo.GoMap<stdgo.GoString, stdgo.GoUInt64>);
+/**
+    // daysBefore[m] counts the number of days in a non-leap year
+    // before month m begins. There is an entry for m=12, counting
+    // the number of days before January of next year (365).
+    
+    
+**/
+var _daysBefore : stdgo.GoArray<stdgo.GoInt32> = (new stdgo.GoArray<stdgo.GoInt32>(
+(0 : stdgo.GoInt32),
+(31 : stdgo.GoInt32),
+(59 : stdgo.GoInt32),
+(90 : stdgo.GoInt32),
+(120 : stdgo.GoInt32),
+(151 : stdgo.GoInt32),
+(181 : stdgo.GoInt32),
+(212 : stdgo.GoInt32),
+(243 : stdgo.GoInt32),
+(273 : stdgo.GoInt32),
+(304 : stdgo.GoInt32),
+(334 : stdgo.GoInt32),
+(365 : stdgo.GoInt32)) : stdgo.GoArray<stdgo.GoInt32>);
+/**
+    // Monotonic times are reported as offsets from startNano.
+    // We initialize startNano to runtimeNano() - 1 so that on systems where
+    // monotonic time resolution is fairly low (e.g. Windows 2008
+    // which appears to have a default resolution of 15ms),
+    // we avoid ever reporting a monotonic time of 0.
+    // (Callers may want to use 0 as "time not set".)
+    
+    
+**/
+var _startNano : stdgo.GoInt64 = _runtimeNano() - (1i64 : stdgo.GoInt64);
+/**
+    // utcLoc is separate so that get can refer to &utcLoc
+    // and ensure that it never returns a nil *Location,
+    // even if a badly behaved client has changed UTC.
+    
+    
+**/
+var _utcLoc : stdgo.time.Time.Location = ({ _name : ("UTC" : stdgo.GoString) } : stdgo.time.Time.Location);
+/**
+    // UTC represents Universal Coordinated Time (UTC).
+    
+    
+**/
+var utc : stdgo.Ref<stdgo.time.Time.Location> = (stdgo.Go.setRef(_utcLoc) : stdgo.Ref<stdgo.time.Time.Location>);
+/**
+    // Local represents the system's local time zone.
+    // On Unix systems, Local consults the TZ environment
+    // variable to find the time zone to use. No TZ means
+    // use the system default /etc/localtime.
+    // TZ="" means use UTC.
+    // TZ="foo" means use file foo in the system timezone directory.
+    
+    
+**/
+var local : stdgo.Ref<stdgo.time.Time.Location> = (stdgo.Go.setRef(_localLoc) : stdgo.Ref<stdgo.time.Time.Location>);
+/**
+    
+    
+    
+**/
+var _errLocation : stdgo.Error = stdgo.errors.Errors.new_(("time: invalid location name" : stdgo.GoString));
+/**
+    
+    
+    
+**/
+var _platformZoneSources : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(3, 3, ("/usr/share/zoneinfo/" : stdgo.GoString), ("/usr/share/lib/zoneinfo/" : stdgo.GoString), ("/usr/lib/locale/TZ/" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+/**
+    
+    
+    
+**/
+var _errBadData : stdgo.Error = stdgo.errors.Errors.new_(("malformed time zone information" : stdgo.GoString));
 /**
     
     
@@ -148,30 +314,6 @@ var tzsetName : stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoSt
     
 **/
 var tzsetOffset : stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; } = _tzsetOffset;
-/**
-    
-    
-    
-**/
-final ruleJulian : stdgo.time.Time.RuleKind = ((0 : stdgo.time.Time.T_ruleKind) : RuleKind);
-/**
-    
-    
-    
-**/
-final ruleDOY : stdgo.time.Time.RuleKind = ((1 : stdgo.time.Time.T_ruleKind) : RuleKind);
-/**
-    
-    
-    
-**/
-final ruleMonthWeekDay : stdgo.time.Time.RuleKind = ((2 : stdgo.time.Time.T_ruleKind) : RuleKind);
-/**
-    
-    
-    
-**/
-final unixToInternal : stdgo.GoInt64 = (62135596800i64 : stdgo.GoInt64);
 /**
     // StdChunkNames maps from nextStdChunk results to the matched strings.
     
@@ -272,6 +414,72 @@ var parseAny : (stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo.time.Time.Locati
     
 **/
 var parseRFC3339 : (stdgo.GoString, stdgo.Ref<stdgo.time.Time.Location>) -> { var _0 : stdgo.time.Time.Time; var _1 : Bool; } = function(s:stdgo.GoString, local:stdgo.Ref<stdgo.time.Time.Location>):{ var _0 : stdgo.time.Time.Time; var _1 : Bool; } return _parseRFC3339(("" : stdgo.GoString), s, local);
+/**
+    
+    
+    
+**/
+var _origPlatformZoneSources : stdgo.Slice<stdgo.GoString> = _platformZoneSources;
+/**
+    
+    
+    
+**/
+var disablePlatformSources : () -> (() -> Void) = _disablePlatformSources;
+/**
+    
+    
+    
+**/
+var interrupt : () -> Void = _interrupt;
+/**
+    
+    
+    
+**/
+var daysIn : (stdgo.time.Time.Month, stdgo.GoInt) -> stdgo.GoInt = _daysIn;
+/**
+    
+    
+    
+**/
+var minMonoTime : stdgo.time.Time.Time = ({ _wall : (-9223372036854775808i64 : stdgo.GoUInt64), _ext : (-9223372036854775808i64 : stdgo.GoInt64), _loc : utc } : stdgo.time.Time.Time);
+/**
+    
+    
+    
+**/
+var maxMonoTime : stdgo.time.Time.Time = ({ _wall : (-9223372036854775808i64 : stdgo.GoUInt64), _ext : (9223372036854775807i64 : stdgo.GoInt64), _loc : utc } : stdgo.time.Time.Time);
+/**
+    
+    
+    
+**/
+var notMonoNegativeTime : stdgo.time.Time.Time = ({ _wall : (0i64 : stdgo.GoUInt64), _ext : (-9223372036854775758i64 : stdgo.GoInt64) } : stdgo.time.Time.Time);
+/**
+    
+    
+    
+**/
+final ruleJulian : stdgo.time.Time.RuleKind = ((0 : stdgo.time.Time.T_ruleKind) : RuleKind);
+/**
+    
+    
+    
+**/
+final ruleDOY : stdgo.time.Time.RuleKind = ((1 : stdgo.time.Time.T_ruleKind) : RuleKind);
+/**
+    
+    
+    
+**/
+final ruleMonthWeekDay : stdgo.time.Time.RuleKind = ((2 : stdgo.time.Time.T_ruleKind) : RuleKind);
+/**
+    
+    
+    
+**/
+final unixToInternal : stdgo.GoInt64 = (62135596800i64 : stdgo.GoInt64);
 /**
     // These are predefined layouts for use in Time.Format and time.Parse.
     // The reference time used in these layouts is the specific time stamp:
@@ -2271,76 +2479,6 @@ final _stdSeparatorShift : stdgo.GoUInt64 = (28i64 : stdgo.GoUInt64);
 **/
 final _stdMask : stdgo.GoUInt64 = (65535i64 : stdgo.GoUInt64);
 /**
-    // std0x records the std values for "01", "02", ..., "06".
-    
-    
-**/
-var _std0x : stdgo.GoArray<stdgo.GoInt> = (new stdgo.GoArray<stdgo.GoInt>((260 : stdgo.GoInt), (265 : stdgo.GoInt), (526 : stdgo.GoInt), (528 : stdgo.GoInt), (530 : stdgo.GoInt), (276 : stdgo.GoInt)) : stdgo.GoArray<stdgo.GoInt>);
-/**
-    
-    
-    
-**/
-var _longDayNames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(7, 7, ("Sunday" : stdgo.GoString), ("Monday" : stdgo.GoString), ("Tuesday" : stdgo.GoString), ("Wednesday" : stdgo.GoString), ("Thursday" : stdgo.GoString), ("Friday" : stdgo.GoString), ("Saturday" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-/**
-    
-    
-    
-**/
-var _shortDayNames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(7, 7, ("Sun" : stdgo.GoString), ("Mon" : stdgo.GoString), ("Tue" : stdgo.GoString), ("Wed" : stdgo.GoString), ("Thu" : stdgo.GoString), ("Fri" : stdgo.GoString), ("Sat" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-/**
-    
-    
-    
-**/
-var _shortMonthNames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
-12,
-12,
-("Jan" : stdgo.GoString),
-("Feb" : stdgo.GoString),
-("Mar" : stdgo.GoString),
-("Apr" : stdgo.GoString),
-("May" : stdgo.GoString),
-("Jun" : stdgo.GoString),
-("Jul" : stdgo.GoString),
-("Aug" : stdgo.GoString),
-("Sep" : stdgo.GoString),
-("Oct" : stdgo.GoString),
-("Nov" : stdgo.GoString),
-("Dec" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-/**
-    
-    
-    
-**/
-var _longMonthNames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
-12,
-12,
-("January" : stdgo.GoString),
-("February" : stdgo.GoString),
-("March" : stdgo.GoString),
-("April" : stdgo.GoString),
-("May" : stdgo.GoString),
-("June" : stdgo.GoString),
-("July" : stdgo.GoString),
-("August" : stdgo.GoString),
-("September" : stdgo.GoString),
-("October" : stdgo.GoString),
-("November" : stdgo.GoString),
-("December" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-/**
-    // Never printed, just needs to be non-nil for return by atoi.
-    
-    
-**/
-var _errAtoi : stdgo.Error = stdgo.errors.Errors.new_(("time: invalid number" : stdgo.GoString));
-/**
-    
-    
-    // placeholder not passed to user
-**/
-var _errBad : stdgo.Error = stdgo.errors.Errors.new_(("bad value for field" : stdgo.GoString));
-/**
     // These are borrowed from unicode/utf8 and strconv and replicate behavior in
     // that package, since we can't take a dependency on either.
     
@@ -2361,68 +2499,6 @@ final _runeSelf : stdgo.GoUInt64 = (128i64 : stdgo.GoUInt64);
     
 **/
 final _runeError : stdgo.GoInt32 = (65533 : stdgo.GoInt32);
-/**
-    
-    
-    // never printed
-**/
-var _errLeadingInt : stdgo.Error = stdgo.errors.Errors.new_(("time: bad [0-9]*" : stdgo.GoString));
-/**
-    
-    
-    
-**/
-var _unitMap : stdgo.GoMap<stdgo.GoString, stdgo.GoUInt64> = ({
-        final x = new stdgo.GoMap.GoStringMap<stdgo.GoUInt64>();
-        x.__defaultValue__ = () -> (0 : stdgo.GoUInt64);
-        @:mergeBlock {
-            x.set(("ns" : stdgo.GoString), ((1i64 : stdgo.time.Time.Duration) : stdgo.GoUInt64));
-            x.set(("us" : stdgo.GoString), ((1000i64 : stdgo.time.Time.Duration) : stdgo.GoUInt64));
-            x.set(("µs" : stdgo.GoString), ((1000i64 : stdgo.time.Time.Duration) : stdgo.GoUInt64));
-            x.set(("μs" : stdgo.GoString), ((1000i64 : stdgo.time.Time.Duration) : stdgo.GoUInt64));
-            x.set(("ms" : stdgo.GoString), ((1000000i64 : stdgo.time.Time.Duration) : stdgo.GoUInt64));
-            x.set(("s" : stdgo.GoString), ((1000000000i64 : stdgo.time.Time.Duration) : stdgo.GoUInt64));
-            x.set(("m" : stdgo.GoString), ((60000000000i64 : stdgo.time.Time.Duration) : stdgo.GoUInt64));
-            x.set(("h" : stdgo.GoString), ((3600000000000i64 : stdgo.time.Time.Duration) : stdgo.GoUInt64));
-        };
-        x;
-    } : stdgo.GoMap<stdgo.GoString, stdgo.GoUInt64>);
-/**
-    
-    
-    
-**/
-var _origPlatformZoneSources : stdgo.Slice<stdgo.GoString> = _platformZoneSources;
-/**
-    
-    
-    
-**/
-var interrupt : () -> Void = _interrupt;
-/**
-    
-    
-    
-**/
-var daysIn : (stdgo.time.Time.Month, stdgo.GoInt) -> stdgo.GoInt = _daysIn;
-/**
-    
-    
-    
-**/
-var minMonoTime : stdgo.time.Time.Time = ({ _wall : (-9223372036854775808i64 : stdgo.GoUInt64), _ext : (-9223372036854775808i64 : stdgo.GoInt64), _loc : utc } : stdgo.time.Time.Time);
-/**
-    
-    
-    
-**/
-var maxMonoTime : stdgo.time.Time.Time = ({ _wall : (-9223372036854775808i64 : stdgo.GoUInt64), _ext : (9223372036854775807i64 : stdgo.GoInt64), _loc : utc } : stdgo.time.Time.Time);
-/**
-    
-    
-    
-**/
-var notMonoNegativeTime : stdgo.time.Time.Time = ({ _wall : (0i64 : stdgo.GoUInt64), _ext : (-9223372036854775758i64 : stdgo.GoInt64) } : stdgo.time.Time.Time);
 /**
     
     
@@ -2769,38 +2845,6 @@ final _daysPer100Years : stdgo.GoUInt64 = (36524i64 : stdgo.GoUInt64);
 **/
 final _daysPer4Years : stdgo.GoUInt64 = (1461i64 : stdgo.GoUInt64);
 /**
-    // daysBefore[m] counts the number of days in a non-leap year
-    // before month m begins. There is an entry for m=12, counting
-    // the number of days before January of next year (365).
-    
-    
-**/
-var _daysBefore : stdgo.GoArray<stdgo.GoInt32> = (new stdgo.GoArray<stdgo.GoInt32>(
-(0 : stdgo.GoInt32),
-(31 : stdgo.GoInt32),
-(59 : stdgo.GoInt32),
-(90 : stdgo.GoInt32),
-(120 : stdgo.GoInt32),
-(151 : stdgo.GoInt32),
-(181 : stdgo.GoInt32),
-(212 : stdgo.GoInt32),
-(243 : stdgo.GoInt32),
-(273 : stdgo.GoInt32),
-(304 : stdgo.GoInt32),
-(334 : stdgo.GoInt32),
-(365 : stdgo.GoInt32)) : stdgo.GoArray<stdgo.GoInt32>);
-/**
-    // Monotonic times are reported as offsets from startNano.
-    // We initialize startNano to runtimeNano() - 1 so that on systems where
-    // monotonic time resolution is fairly low (e.g. Windows 2008
-    // which appears to have a default resolution of 15ms),
-    // we avoid ever reporting a monotonic time of 0.
-    // (Callers may want to use 0 as "time not set".)
-    
-    
-**/
-var _startNano : stdgo.GoInt64 = _runtimeNano() - (1i64 : stdgo.GoInt64);
-/**
     
     
     // For general situation
@@ -2826,31 +2870,6 @@ final _alpha : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
     // math.MaxInt64
 **/
 final _omega : stdgo.GoUInt64 = (9223372036854775807i64 : stdgo.GoUInt64);
-/**
-    // UTC represents Universal Coordinated Time (UTC).
-    
-    
-**/
-var utc : stdgo.Ref<stdgo.time.Time.Location> = (stdgo.Go.setRef(_utcLoc) : stdgo.Ref<stdgo.time.Time.Location>);
-/**
-    // utcLoc is separate so that get can refer to &utcLoc
-    // and ensure that it never returns a nil *Location,
-    // even if a badly behaved client has changed UTC.
-    
-    
-**/
-var _utcLoc : stdgo.time.Time.Location = ({ _name : ("UTC" : stdgo.GoString) } : stdgo.time.Time.Location);
-/**
-    // Local represents the system's local time zone.
-    // On Unix systems, Local consults the TZ environment
-    // variable to find the time zone to use. No TZ means
-    // use the system default /etc/localtime.
-    // TZ="" means use UTC.
-    // TZ="foo" means use file foo in the system timezone directory.
-    
-    
-**/
-var local : stdgo.Ref<stdgo.time.Time.Location> = (stdgo.Go.setRef(_localLoc) : stdgo.Ref<stdgo.time.Time.Location>);
 /**
     // localLoc is separate so that initLocal can initialize
     // it even if a client has changed Local.
@@ -2899,12 +2918,6 @@ final _ruleMonthWeekDay = (2 : stdgo.time.Time.T_ruleKind);
     
     
 **/
-var _errLocation : stdgo.Error = stdgo.errors.Errors.new_(("time: invalid location name" : stdgo.GoString));
-/**
-    
-    
-    
-**/
 var _zoneinfo : stdgo.Pointer<stdgo.GoString> = (null : stdgo.Pointer<stdgo.GoString>);
 /**
     
@@ -2912,12 +2925,6 @@ var _zoneinfo : stdgo.Pointer<stdgo.GoString> = (null : stdgo.Pointer<stdgo.GoSt
     
 **/
 var _zoneinfoOnce : stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
-/**
-    
-    
-    
-**/
-var _platformZoneSources : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(3, 3, ("/usr/share/zoneinfo/" : stdgo.GoString), ("/usr/share/lib/zoneinfo/" : stdgo.GoString), ("/usr/lib/locale/TZ/" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
 /**
     // loadFromEmbeddedTZData is used to load a specific tzdata file
     // from tzdata information embedded in the binary itself.
@@ -2953,12 +2960,6 @@ final _seekCurrent : stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
     
 **/
 final _seekEnd : stdgo.GoUInt64 = (2i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-var _errBadData : stdgo.Error = stdgo.errors.Errors.new_(("malformed time zone information" : stdgo.GoString));
 /**
     // loadTzinfoFromTzdata returns the time zone information of the time zone
     // with the given name, from a tzdata database file as they are typically

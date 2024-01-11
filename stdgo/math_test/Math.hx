@@ -1,5 +1,6 @@
 package stdgo.math_test;
 import stdgo.math.Math;
+import stdgo.math.Math;
 /**
     
     

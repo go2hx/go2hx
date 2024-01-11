@@ -9,6 +9,28 @@ package stdgo.internal.testenv;
 **/
 private var __go2hxdoc__package : Bool;
 /**
+    // Save the original environment during init for use in checks. A test
+    // binary may modify its environment before calling HasExec to change its
+    // behavior (such as mimicking a command-line tool), and that modified
+    // environment might cause environment checks to behave erratically.
+    
+    
+**/
+var _origEnv : stdgo.Slice<stdgo.GoString> = stdgo.os.Os.environ();
+/**
+    
+    
+    
+**/
+var _flaky : stdgo.Pointer<Bool> = stdgo.flag.Flag.bool_(("flaky" : stdgo.GoString), false, ("run known-flaky tests too" : stdgo.GoString));
+/**
+    // Sigquit is the signal to send to kill a hanging subprocess.
+    // On Unix we send SIGQUIT, but on non-Unix we only have os.Kill.
+    
+    
+**/
+var sigquit : stdgo.os.Os.Signal = stdgo.os.Os.kill;
+/**
     
     
     
@@ -26,15 +48,6 @@ var _tryExecErr : stdgo.Error = (null : stdgo.Error);
     // path -> error
 **/
 var _execPaths : stdgo.sync.Sync.Map_ = ({} : stdgo.sync.Sync.Map_);
-/**
-    // Save the original environment during init for use in checks. A test
-    // binary may modify its environment before calling HasExec to change its
-    // behavior (such as mimicking a command-line tool), and that modified
-    // environment might cause environment checks to behave erratically.
-    
-    
-**/
-var _origEnv : stdgo.Slice<stdgo.GoString> = stdgo.os.Os.environ();
 /**
     
     
@@ -95,19 +108,6 @@ var _hasCgoOnce : stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
     
 **/
 var _hasCgo : Bool = false;
-/**
-    
-    
-    
-**/
-var _flaky : stdgo.Pointer<Bool> = stdgo.flag.Flag.bool_(("flaky" : stdgo.GoString), false, ("run known-flaky tests too" : stdgo.GoString));
-/**
-    // Sigquit is the signal to send to kill a hanging subprocess.
-    // On Unix we send SIGQUIT, but on non-Unix we only have os.Kill.
-    
-    
-**/
-var sigquit : stdgo.os.Os.Signal = stdgo.os.Os.kill;
 /**
     
     

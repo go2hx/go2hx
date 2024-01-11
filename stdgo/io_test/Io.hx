@@ -1,5 +1,6 @@
 package stdgo.io_test;
 import stdgo.io.Io;
+import stdgo.io.Io;
 /**
     
     

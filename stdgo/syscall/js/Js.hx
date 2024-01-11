@@ -12,12 +12,6 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-var _funcsMu : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
-/**
-    
-    
-    
-**/
 var _funcs : stdgo.GoMap<stdgo.GoUInt32, (stdgo.syscall.js.Js.Value, stdgo.Slice<stdgo.syscall.js.Js.Value>) -> stdgo.AnyInterface> = (null : stdgo.GoMap<stdgo.GoUInt32, (stdgo.syscall.js.Js.Value, stdgo.Slice<stdgo.syscall.js.Js.Value>) -> stdgo.AnyInterface>);
 /**
     
@@ -25,42 +19,6 @@ var _funcs : stdgo.GoMap<stdgo.GoUInt32, (stdgo.syscall.js.Js.Value, stdgo.Slice
     
 **/
 var _nextFuncID : stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-/**
-    // nanHead are the upper 32 bits of a ref which are set if the value is not encoded as an IEEE 754 number (see above).
-    
-    
-**/
-final _nanHead : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-/**
-    // the type flags need to be in sync with wasm_exec.js
-    
-    
-**/
-final _typeFlagNone : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-final _typeFlagObject = @:invalid_type null;
-/**
-    
-    
-    
-**/
-final _typeFlagString = @:invalid_type null;
-/**
-    
-    
-    
-**/
-final _typeFlagSymbol = @:invalid_type null;
-/**
-    
-    
-    
-**/
-final _typeFlagFunction = @:invalid_type null;
 /**
     
     
@@ -121,6 +79,48 @@ var _objectConstructor : stdgo.syscall.js.Js.Value = ({} : stdgo.syscall.js.Js.V
     
 **/
 var _arrayConstructor : stdgo.syscall.js.Js.Value = ({} : stdgo.syscall.js.Js.Value);
+/**
+    
+    
+    
+**/
+var _funcsMu : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
+/**
+    // nanHead are the upper 32 bits of a ref which are set if the value is not encoded as an IEEE 754 number (see above).
+    
+    
+**/
+final _nanHead : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+/**
+    // the type flags need to be in sync with wasm_exec.js
+    
+    
+**/
+final _typeFlagNone : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _typeFlagObject = @:invalid_type null;
+/**
+    
+    
+    
+**/
+final _typeFlagString = @:invalid_type null;
+/**
+    
+    
+    
+**/
+final _typeFlagSymbol = @:invalid_type null;
+/**
+    
+    
+    
+**/
+final _typeFlagFunction = @:invalid_type null;
 /**
     
     

@@ -121,17 +121,17 @@ var _execerrdot : stdgo.Ref<stdgo.internal.godebug.Godebug.Setting> = (null : st
 **/
 var errDot : stdgo.Error = (null : stdgo.Error);
 /**
-    
-    
-    
-**/
-var _nonExistentPaths : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-/**
     // ErrNotFound is the error resulting if a path search failed to find an executable file.
     
     
 **/
 var errNotFound : stdgo.Error = (null : stdgo.Error);
+/**
+    
+    
+    
+**/
+var _nonExistentPaths : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
 /**
     // Error is returned by LookPath when it fails to classify a file as an
     // executable.

@@ -4,13 +4,8 @@ import stdgo.time.Time;
 import stdgo.time.Time;
 import stdgo.time.Time;
 import stdgo.time.Time;
+import stdgo.time.tzdata.Tzdata;
 import stdgo.time.Time;
-/**
-    
-    
-    
-**/
-var _c : stdgo.Chan<stdgo.GoInt> = (null : stdgo.Chan<stdgo.GoInt>);
 /**
     
     
@@ -295,17 +290,6 @@ var _longFractionalDigitsTests : stdgo.Slice<T__struct_6> = (new stdgo.Slice<T__
 **/
 var _monotonicStringTests : stdgo.Slice<T__struct_7> = (new stdgo.Slice<T__struct_7>(8, 8, ({ _mono : (0i64 : stdgo.GoInt64), _want : ("m=+0.000000000" : stdgo.GoString) } : T__struct_7), ({ _mono : (123456789i64 : stdgo.GoInt64), _want : ("m=+0.123456789" : stdgo.GoString) } : T__struct_7), ({ _mono : (-123456789i64 : stdgo.GoInt64), _want : ("m=-0.123456789" : stdgo.GoString) } : T__struct_7), ({ _mono : (123456789000i64 : stdgo.GoInt64), _want : ("m=+123.456789000" : stdgo.GoString) } : T__struct_7), ({ _mono : (-123456789000i64 : stdgo.GoInt64), _want : ("m=-123.456789000" : stdgo.GoString) } : T__struct_7), ({ _mono : (9000000000000000000i64 : stdgo.GoInt64), _want : ("m=+9000000000.000000000" : stdgo.GoString) } : T__struct_7), ({ _mono : (-9000000000000000000i64 : stdgo.GoInt64), _want : ("m=-9000000000.000000000" : stdgo.GoString) } : T__struct_7), ({ _mono : (-9223372036854775808i64 : stdgo.GoInt64), _want : ("m=-9223372036.854775808" : stdgo.GoString) } : T__struct_7)) : stdgo.Slice<T__struct_7>);
 /**
-    // Go runtime uses different Windows timers for time.Now and sleeping.
-    // These can tick at different frequencies and can arrive out of sync.
-    // The effect can be seen, for example, as time.Sleep(100ms) is actually
-    // shorter then 100ms when measured as difference between time.Now before and
-    // after time.Sleep call. This was observed on Windows XP SP3 (windows/386).
-    // windowsInaccuracy is to ignore such errors.
-    
-    
-**/
-final _windowsInaccuracy : stdgo.time.Time.Duration = (17000000i64 : stdgo.time.Time.Duration);
-/**
     
     
     
@@ -361,18 +345,6 @@ var _localtests : stdgo.Slice<stdgo.time_test.Time_test.TimeTest> = (new stdgo.S
     
 **/
 var _nanolocaltests : stdgo.Slice<stdgo.time_test.Time_test.TimeTest> = (new stdgo.Slice<stdgo.time_test.Time_test.TimeTest>(2, 2, (new stdgo.time_test.Time_test.TimeTest((0i64 : stdgo.GoInt64), (new stdgo.time_test.Time_test.T_parsedTime((1969 : stdgo.GoInt), (12 : stdgo.time.Time.Month), (31 : stdgo.GoInt), (16 : stdgo.GoInt), (0 : stdgo.GoInt), (0 : stdgo.GoInt), (100000000 : stdgo.GoInt), (3 : stdgo.time.Time.Weekday), (-28800 : stdgo.GoInt), ("PST" : stdgo.GoString)) : stdgo.time_test.Time_test.T_parsedTime)) : stdgo.time_test.Time_test.TimeTest), (new stdgo.time_test.Time_test.TimeTest((1221681866i64 : stdgo.GoInt64), (new stdgo.time_test.Time_test.T_parsedTime((2008 : stdgo.GoInt), (9 : stdgo.time.Time.Month), (17 : stdgo.GoInt), (13 : stdgo.GoInt), (4 : stdgo.GoInt), (26 : stdgo.GoInt), (300000000 : stdgo.GoInt), (3 : stdgo.time.Time.Weekday), (-25200 : stdgo.GoInt), ("PDT" : stdgo.GoString)) : stdgo.time_test.Time_test.T_parsedTime)) : stdgo.time_test.Time_test.TimeTest)) : stdgo.Slice<stdgo.time_test.Time_test.TimeTest>);
-/**
-    // The time routines provide no way to get absolute time
-    // (seconds since zero), but we need it to compute the right
-    // answer for bizarre roundings like "to the nearest 3 ns".
-    // Compute as t - year1 = (t - 1970) + (1970 - 2001) + (2001 - 1).
-    // t - 1970 is returned by Unix and Nanosecond.
-    // 1970 - 2001 is -(31*365+8)*86400 = -978307200 seconds.
-    // 2001 - 1 is 2000*365.2425*86400 = 63113904000 seconds.
-    
-    
-**/
-final _unixToZero : stdgo.GoUInt64 = (62135596800i64 : stdgo.GoUInt64);
 /**
     
     
@@ -720,18 +692,6 @@ var _parseDurationErrorTests : stdgo.Slice<T__struct_20> = (new stdgo.Slice<T__s
     
     
 **/
-var _t : Time = ({} : stdgo.time.Time.Time);
-/**
-    
-    
-    
-**/
-var _u : stdgo.GoInt64 = (0 : stdgo.GoInt64);
-/**
-    
-    
-    
-**/
 var _mallocTest : stdgo.Slice<T__struct_21> = (new stdgo.Slice<T__struct_21>(4, 4, ({ _count : (0 : stdgo.GoInt), _desc : ("time.Now()" : stdgo.GoString), _fn : function():Void {
         _t = now()?.__copy__();
     } } : T__struct_21), ({ _count : (0 : stdgo.GoInt), _desc : ("time.Now().UnixNano()" : stdgo.GoString), _fn : function():Void {
@@ -741,18 +701,6 @@ var _mallocTest : stdgo.Slice<T__struct_21> = (new stdgo.Slice<T__struct_21>(4, 
     } } : T__struct_21), ({ _count : (0 : stdgo.GoInt), _desc : ("time.Now().UnixMicro()" : stdgo.GoString), _fn : function():Void {
         _u = now().unixMicro();
     } } : T__struct_21)) : stdgo.Slice<T__struct_21>);
-/**
-    
-    
-    
-**/
-final _minDuration : stdgo.time.Time.Duration = (-9223372036854775808i64 : stdgo.time.Time.Duration);
-/**
-    
-    
-    
-**/
-final _maxDuration : stdgo.time.Time.Duration = (9223372036854775807i64 : stdgo.time.Time.Duration);
 /**
     
     
@@ -1014,19 +962,7 @@ var _defaultLocTests : stdgo.Slice<T__struct_27> = (new stdgo.Slice<T__struct_27
     
     
 **/
-final _testdataRFC3339UTC : stdgo.GoString = ("2020-08-22T11:27:43.123456789Z" : stdgo.GoString);
-/**
-    
-    
-    
-**/
 var _testdataRFC3339UTCBytes : stdgo.Slice<stdgo.GoUInt8> = (("2020-08-22T11:27:43.123456789Z" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
-/**
-    
-    
-    
-**/
-final _testdataRFC3339TZ : stdgo.GoString = ("2020-08-22T11:27:43.123456789-02:00" : stdgo.GoString);
 /**
     
     
@@ -1053,6 +989,71 @@ var _slimTests : stdgo.Slice<T__struct_32> = (new stdgo.Slice<T__struct_32>(4, 4
     }, _wantName : ("EET" : stdgo.GoString), _wantOffset : (7200 : stdgo.GoInt) } : T__struct_32), ({ _zoneName : ("Europe/Dublin" : stdgo.GoString), _fileName : ("2021a_Europe_Dublin" : stdgo.GoString), _date : function(_loc:stdgo.Ref<stdgo.time.Time.Location>):stdgo.time.Time.Time {
         return stdgo.time.Time.date((2021 : stdgo.GoInt), (4 : stdgo.time.Time.Month), (2 : stdgo.GoInt), (11 : stdgo.GoInt), (12 : stdgo.GoInt), (13 : stdgo.GoInt), (0 : stdgo.GoInt), _loc)?.__copy__();
     }, _wantName : ("IST" : stdgo.GoString), _wantOffset : (3600 : stdgo.GoInt) } : T__struct_32)) : stdgo.Slice<T__struct_32>);
+/**
+    
+    
+    
+**/
+var _c : stdgo.Chan<stdgo.GoInt> = (null : stdgo.Chan<stdgo.GoInt>);
+/**
+    // Go runtime uses different Windows timers for time.Now and sleeping.
+    // These can tick at different frequencies and can arrive out of sync.
+    // The effect can be seen, for example, as time.Sleep(100ms) is actually
+    // shorter then 100ms when measured as difference between time.Now before and
+    // after time.Sleep call. This was observed on Windows XP SP3 (windows/386).
+    // windowsInaccuracy is to ignore such errors.
+    
+    
+**/
+final _windowsInaccuracy : stdgo.time.Time.Duration = (17000000i64 : stdgo.time.Time.Duration);
+/**
+    // The time routines provide no way to get absolute time
+    // (seconds since zero), but we need it to compute the right
+    // answer for bizarre roundings like "to the nearest 3 ns".
+    // Compute as t - year1 = (t - 1970) + (1970 - 2001) + (2001 - 1).
+    // t - 1970 is returned by Unix and Nanosecond.
+    // 1970 - 2001 is -(31*365+8)*86400 = -978307200 seconds.
+    // 2001 - 1 is 2000*365.2425*86400 = 63113904000 seconds.
+    
+    
+**/
+final _unixToZero : stdgo.GoUInt64 = (62135596800i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+var _t : Time = ({} : stdgo.time.Time.Time);
+/**
+    
+    
+    
+**/
+var _u : stdgo.GoInt64 = (0 : stdgo.GoInt64);
+/**
+    
+    
+    
+**/
+final _minDuration : stdgo.time.Time.Duration = (-9223372036854775808i64 : stdgo.time.Time.Duration);
+/**
+    
+    
+    
+**/
+final _maxDuration : stdgo.time.Time.Duration = (9223372036854775807i64 : stdgo.time.Time.Duration);
+/**
+    
+    
+    
+**/
+final _testdataRFC3339UTC : stdgo.GoString = ("2020-08-22T11:27:43.123456789Z" : stdgo.GoString);
+/**
+    
+    
+    
+**/
+final _testdataRFC3339TZ : stdgo.GoString = ("2020-08-22T11:27:43.123456789-02:00" : stdgo.GoString);
 /**
     
     

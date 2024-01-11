@@ -1,5 +1,6 @@
 package stdgo.time_test;
 import stdgo.time.Time;
+import stdgo.time.Time;
 /**
     
     

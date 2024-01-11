@@ -38,12 +38,6 @@ var _expandTests : stdgo.Slice<T__struct_1> = (new stdgo.Slice<T__struct_1>(
     
     
 **/
-var _global : stdgo.AnyInterface = (null : stdgo.AnyInterface);
-/**
-    
-    
-    
-**/
 var _isExistTests : stdgo.Slice<stdgo.os_test.Os_test.T_isExistTest> = (new stdgo.Slice<stdgo.os_test.Os_test.T_isExistTest>(
 13,
 13,
@@ -66,18 +60,6 @@ var _isExistTests : stdgo.Slice<stdgo.os_test.Os_test.T_isExistTest> = (new stdg
     
 **/
 var _isPermissionTests : stdgo.Slice<stdgo.os_test.Os_test.T_isPermissionTest> = (new stdgo.Slice<stdgo.os_test.Os_test.T_isPermissionTest>(3, 3, (new stdgo.os_test.Os_test.T_isPermissionTest((null : stdgo.Error), false) : stdgo.os_test.Os_test.T_isPermissionTest), (new stdgo.os_test.Os_test.T_isPermissionTest(stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.io.fs.Fs.errPermission } : stdgo.io.fs.Fs.PathError)) : stdgo.Ref<stdgo.io.fs.Fs.PathError>)), true) : stdgo.os_test.Os_test.T_isPermissionTest), (new stdgo.os_test.Os_test.T_isPermissionTest(stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.io.fs.Fs.errPermission } : stdgo.os.Os.SyscallError)) : stdgo.Ref<stdgo.os.Os.SyscallError>)), true) : stdgo.os_test.Os_test.T_isPermissionTest)) : stdgo.Slice<stdgo.os_test.Os_test.T_isPermissionTest>);
-/**
-    
-    
-    
-**/
-final _executable_EnvVar : stdgo.GoString = ("OSTEST_OUTPUT_EXECPATH" : stdgo.GoString);
-/**
-    
-    
-    
-**/
-final _testExecutableDeletion : stdgo.GoString = ("package main\n\nimport (\n\t\"fmt\"\n\t\"os\"\n)\n\nfunc main() {\n\tbefore, err := os.Executable()\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to read executable name before deletion: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\terr = os.Remove(before)\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to remove executable: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\tafter, err := os.Executable()\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to read executable name after deletion: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\tif before != after {\n\t\tfmt.Fprintf(os.Stderr, \"before and after do not match: %v != %v\\n\", before, after)\n\t\tos.Exit(1)\n\t}\n}\n" : stdgo.GoString);
 /**
     
     
@@ -234,6 +216,24 @@ var _nilFileMethodTests : stdgo.Slice<T__struct_5> = (new stdgo.Slice<T__struct_
 var _isReadonlyError : stdgo.Error -> Bool = function(_0:stdgo.Error):Bool {
         return false;
     };
+/**
+    
+    
+    
+**/
+var _global : stdgo.AnyInterface = (null : stdgo.AnyInterface);
+/**
+    
+    
+    
+**/
+final _executable_EnvVar : stdgo.GoString = ("OSTEST_OUTPUT_EXECPATH" : stdgo.GoString);
+/**
+    
+    
+    
+**/
+final _testExecutableDeletion : stdgo.GoString = ("package main\n\nimport (\n\t\"fmt\"\n\t\"os\"\n)\n\nfunc main() {\n\tbefore, err := os.Executable()\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to read executable name before deletion: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\terr = os.Remove(before)\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to remove executable: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\tafter, err := os.Executable()\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to read executable name after deletion: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\tif before != after {\n\t\tfmt.Fprintf(os.Stderr, \"before and after do not match: %v != %v\\n\", before, after)\n\t\tos.Exit(1)\n\t}\n}\n" : stdgo.GoString);
 /**
     
     

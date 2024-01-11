@@ -1,5 +1,6 @@
 package stdgo.io.fs_test;
 import stdgo.io.fs.Fs;
+import stdgo.io.fs.Fs;
 /**
     
     

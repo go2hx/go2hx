@@ -9,6 +9,13 @@ package stdgo.sync;
 **/
 private var __go2hxdoc__package : Bool;
 /**
+    // expunged is an arbitrary pointer that marks entries which have been deleted
+    // from the dirty map.
+    
+    
+**/
+var _expunged : stdgo.Ref<stdgo.AnyInterface> = (stdgo.Go.setRef((null : stdgo.AnyInterface)) : stdgo.Ref<stdgo.AnyInterface>);
+/**
     // Export for testing.
     
     
@@ -32,13 +39,6 @@ var runtime_procPin : () -> stdgo.GoInt = _runtime_procPin;
     
 **/
 var runtime_procUnpin : () -> Void = _runtime_procUnpin;
-/**
-    // expunged is an arbitrary pointer that marks entries which have been deleted
-    // from the dirty map.
-    
-    
-**/
-var _expunged : stdgo.Ref<stdgo.AnyInterface> = (stdgo.Go.setRef((null : stdgo.AnyInterface)) : stdgo.Ref<stdgo.AnyInterface>);
 /**
     
     

@@ -5,22 +5,18 @@ import stdgo.math.rand.Rand;
 import stdgo.math.rand.Rand;
 import stdgo.math.rand.Rand;
 import stdgo.math.rand.Rand;
-/**
-    
-    
-    
-**/
-final _numTestSamples : stdgo.GoUInt64 = (10000i64 : stdgo.GoUInt64);
 var __tmp__0 = getNormalDistributionParameters();
-var _rn = __tmp__0._0;
 var _kn = __tmp__0._1;
-var _wn = __tmp__0._2;
 var _fn = __tmp__0._3;
+var _rn = __tmp__0._0;
+var _wn = __tmp__0._2;
+var _wn = __tmp__0._2;
 var __tmp__2 = getExponentialDistributionParameters();
-var _re = __tmp__2._0;
 var _ke = __tmp__2._1;
-var _we = __tmp__2._2;
 var _fe = __tmp__2._3;
+var _re = __tmp__2._0;
+var _we = __tmp__2._2;
+var _we = __tmp__2._2;
 /**
     
     
@@ -518,6 +514,12 @@ stdgo.Go.toInterface((-2078447788915794233i64 : stdgo.GoUInt64)),
 stdgo.Go.toInterface((161231572858529631i64 : stdgo.GoUInt64)),
 stdgo.Go.toInterface((-1963896117343857469i64 : stdgo.GoUInt64)),
 stdgo.Go.toInterface((-1850266556657611060i64 : stdgo.GoUInt64))) : stdgo.Slice<stdgo.AnyInterface>);
+/**
+    
+    
+    
+**/
+final _numTestSamples : stdgo.GoUInt64 = (10000i64 : stdgo.GoUInt64);
 /**
     
     

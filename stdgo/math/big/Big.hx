@@ -100,37 +100,125 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-final __Accuracy_name : stdgo.GoString = ("BelowExactAbove" : stdgo.GoString);
-/**
-    
-    
-    
-**/
 var __Accuracy_index : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>((0 : stdgo.GoUInt8), (5 : stdgo.GoUInt8), (10 : stdgo.GoUInt8), (15 : stdgo.GoUInt8)) : stdgo.GoArray<stdgo.GoUInt8>);
 /**
+    // These powers of 5 fit into a uint64.
+    //
+    //	for p, q := uint64(0), uint64(1); p < q; p, q = q, q*5 {
+    //		fmt.Println(q)
+    //	}
     
     
-    // word size in bytes
 **/
-final __S : stdgo.GoUInt64 = (4i64 : stdgo.GoUInt64);
+var _pow5tab : stdgo.GoArray<stdgo.GoUInt64> = (new stdgo.GoArray<stdgo.GoUInt64>(
+(1i64 : stdgo.GoUInt64),
+(5i64 : stdgo.GoUInt64),
+(25i64 : stdgo.GoUInt64),
+(125i64 : stdgo.GoUInt64),
+(625i64 : stdgo.GoUInt64),
+(3125i64 : stdgo.GoUInt64),
+(15625i64 : stdgo.GoUInt64),
+(78125i64 : stdgo.GoUInt64),
+(390625i64 : stdgo.GoUInt64),
+(1953125i64 : stdgo.GoUInt64),
+(9765625i64 : stdgo.GoUInt64),
+(48828125i64 : stdgo.GoUInt64),
+(244140625i64 : stdgo.GoUInt64),
+(1220703125i64 : stdgo.GoUInt64),
+(6103515625i64 : stdgo.GoUInt64),
+(30517578125i64 : stdgo.GoUInt64),
+(152587890625i64 : stdgo.GoUInt64),
+(762939453125i64 : stdgo.GoUInt64),
+(3814697265625i64 : stdgo.GoUInt64),
+(19073486328125i64 : stdgo.GoUInt64),
+(95367431640625i64 : stdgo.GoUInt64),
+(476837158203125i64 : stdgo.GoUInt64),
+(2384185791015625i64 : stdgo.GoUInt64),
+(11920928955078125i64 : stdgo.GoUInt64),
+(59604644775390625i64 : stdgo.GoUInt64),
+(298023223876953125i64 : stdgo.GoUInt64),
+(1490116119384765625i64 : stdgo.GoUInt64),
+(7450580596923828125i64 : stdgo.GoUInt64)) : stdgo.GoArray<stdgo.GoUInt64>);
 /**
     
     
-    // word size in bits
+    
 **/
-final __W : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
+var _natOne : stdgo.math.big.Big.T_nat = (new stdgo.Slice<stdgo.math.big.Big.Word>(1, 1, (1u32 : stdgo.math.big.Big.Word)) : stdgo.math.big.Big.T_nat);
 /**
     
     
-    // digit base
+    
 **/
-final __B : stdgo.GoUInt64 = (4294967296i64 : stdgo.GoUInt64);
+var _intOne : stdgo.Ref<stdgo.math.big.Big.Int_> = (stdgo.Go.setRef((new stdgo.math.big.Big.Int_(false, _natOne) : stdgo.math.big.Big.Int_)) : stdgo.Ref<stdgo.math.big.Big.Int_>);
 /**
     
     
-    // digit mask
+    
 **/
-final __M : stdgo.GoUInt64 = (4294967295i64 : stdgo.GoUInt64);
+var _natTwo : stdgo.math.big.Big.T_nat = (new stdgo.Slice<stdgo.math.big.Big.Word>(1, 1, (2u32 : stdgo.math.big.Big.Word)) : stdgo.math.big.Big.T_nat);
+/**
+    
+    
+    
+**/
+var _natFive : stdgo.math.big.Big.T_nat = (new stdgo.Slice<stdgo.math.big.Big.Word>(1, 1, (5u32 : stdgo.math.big.Big.Word)) : stdgo.math.big.Big.T_nat);
+/**
+    
+    
+    
+**/
+var _natTen : stdgo.math.big.Big.T_nat = (new stdgo.Slice<stdgo.math.big.Big.Word>(1, 1, (10u32 : stdgo.math.big.Big.Word)) : stdgo.math.big.Big.T_nat);
+/**
+    // Operands that are shorter than karatsubaThreshold are multiplied using
+    // "grade school" multiplication; for longer operands the Karatsuba algorithm
+    // is used.
+    
+    // computed by calibrate_test.go
+**/
+var _karatsubaThreshold : stdgo.GoInt = (40 : stdgo.GoInt);
+/**
+    // Operands that are shorter than basicSqrThreshold are squared using
+    // "grade school" multiplication; for operands longer than karatsubaSqrThreshold
+    // we use the Karatsuba algorithm optimized for x == y.
+    
+    // computed by calibrate_test.go
+**/
+var _basicSqrThreshold : stdgo.GoInt = (20 : stdgo.GoInt);
+/**
+    
+    
+    // computed by calibrate_test.go
+**/
+var _karatsubaSqrThreshold : stdgo.GoInt = (260 : stdgo.GoInt);
+/**
+    // scan errors
+    
+    
+**/
+var _errNoDigits : stdgo.Error = stdgo.errors.Errors.new_(("number has no digits" : stdgo.GoString));
+/**
+    // scan errors
+    
+    
+**/
+var _errInvalSep : stdgo.Error = stdgo.errors.Errors.new_(("\'_\' must separate successive digits" : stdgo.GoString));
+/**
+    // Split blocks greater than leafSize Words (or set to 0 to disable recursive conversion)
+    // Benchmark and configure leafSize using: go test -bench="Leaf"
+    //
+    //	8 and 16 effective on 3.0 GHz Xeon "Clovertown" CPU (128 byte cache lines)
+    //	8 and 16 effective on 2.66 GHz Core 2 Duo "Penryn" CPU
+    
+    // number of Word-size binary values treat as a monolithic block
+**/
+var _leafSize : stdgo.GoInt = (8 : stdgo.GoInt);
+/**
+    
+    
+    
+**/
+var __RoundingMode_index : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>((0 : stdgo.GoUInt8), (13 : stdgo.GoUInt8), (26 : stdgo.GoUInt8), (32 : stdgo.GoUInt8), (44 : stdgo.GoUInt8), (57 : stdgo.GoUInt8), (70 : stdgo.GoUInt8)) : stdgo.GoArray<stdgo.GoUInt8>);
 /**
     
     
@@ -437,12 +525,6 @@ var _argshrVU : stdgo.Slice<stdgo.math.big.Big.T_argVU> = (new stdgo.Slice<stdgo
     
     
 **/
-final _issue42838Value : stdgo.GoString = ("159309191113245227702888039776771180559110455519261878607388585338616290151305816094308987472018268594098344692611135542392730712890625" : stdgo.GoString);
-/**
-    
-    
-    
-**/
 var _prodVWW : stdgo.Slice<stdgo.math.big.Big.T_argVWW> = (new stdgo.Slice<stdgo.math.big.Big.T_argVWW>(
 23,
 23,
@@ -492,146 +574,7 @@ var _divWWTests : stdgo.Slice<T__struct_3> = (new stdgo.Slice<T__struct_3>(2, 2,
     
     
 **/
-final _testsNumber : stdgo.GoUInt64 = (65536i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
 var _calibrate : stdgo.Pointer<Bool> = stdgo.flag.Flag.bool_(("calibrate" : stdgo.GoString), false, ("run calibration test" : stdgo.GoString));
-/**
-    
-    
-    
-**/
-final _sqrModeMul : stdgo.GoString = ("mul(x, x)" : stdgo.GoString);
-/**
-    
-    
-    
-**/
-final _sqrModeBasic : stdgo.GoString = ("basicSqr(x)" : stdgo.GoString);
-/**
-    
-    
-    
-**/
-final _sqrModeKaratsuba : stdgo.GoString = ("karatsubaSqr(x)" : stdgo.GoString);
-/**
-    // Maximum shift amount that can be done in one pass without overflow.
-    // A Word has _W bits and (1<<maxShift - 1)*10 + 9 must fit into Word.
-    
-    
-**/
-final _maxShift : stdgo.GoUInt64 = (28i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-var _sink : stdgo.GoString = ("" : stdgo.GoString);
-/**
-    
-    
-    // enable for debugging
-**/
-final _debugFloat : Bool = false;
-/**
-    // Exponent and precision limits.
-    
-    // largest supported exponent
-**/
-final maxExp : stdgo.GoUInt64 = (2147483647i64 : stdgo.GoUInt64);
-/**
-    // Exponent and precision limits.
-    
-    // smallest supported exponent
-**/
-final minExp : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
-/**
-    // Exponent and precision limits.
-    
-    // largest (theoretically) supported precision; likely memory-limited
-**/
-final maxPrec : stdgo.GoUInt64 = (4294967295i64 : stdgo.GoUInt64);
-/**
-    // The form value order is relevant - do not change!
-    
-    
-**/
-final _zero : stdgo.math.big.Big.T_form = (2 : stdgo.math.big.Big.T_form);
-/**
-    // The form value order is relevant - do not change!
-    
-    
-**/
-final _finite = (2 : stdgo.math.big.Big.T_form);
-/**
-    // The form value order is relevant - do not change!
-    
-    
-**/
-final _inf = (2 : stdgo.math.big.Big.T_form);
-/**
-    // These constants define supported rounding modes.
-    
-    // == IEEE 754-2008 roundTiesToEven
-**/
-final toNearestEven : stdgo.math.big.Big.RoundingMode = (5 : stdgo.math.big.Big.RoundingMode);
-/**
-    // These constants define supported rounding modes.
-    
-    // == IEEE 754-2008 roundTiesToAway
-**/
-final toNearestAway = (5 : stdgo.math.big.Big.RoundingMode);
-/**
-    // These constants define supported rounding modes.
-    
-    // == IEEE 754-2008 roundTowardZero
-**/
-final toZero = (5 : stdgo.math.big.Big.RoundingMode);
-/**
-    // These constants define supported rounding modes.
-    
-    // no IEEE 754-2008 equivalent
-**/
-final awayFromZero = (5 : stdgo.math.big.Big.RoundingMode);
-/**
-    // These constants define supported rounding modes.
-    
-    // == IEEE 754-2008 roundTowardNegative
-**/
-final toNegativeInf = (5 : stdgo.math.big.Big.RoundingMode);
-/**
-    // These constants define supported rounding modes.
-    
-    // == IEEE 754-2008 roundTowardPositive
-**/
-final toPositiveInf = (5 : stdgo.math.big.Big.RoundingMode);
-/**
-    // Constants describing the Accuracy of a Float.
-    
-    
-**/
-final below : stdgo.math.big.Big.Accuracy = (-1 : stdgo.math.big.Big.Accuracy);
-/**
-    // Constants describing the Accuracy of a Float.
-    
-    
-**/
-final exact : stdgo.math.big.Big.Accuracy = (0 : stdgo.math.big.Big.Accuracy);
-/**
-    // Constants describing the Accuracy of a Float.
-    
-    
-**/
-final above : stdgo.math.big.Big.Accuracy = (1 : stdgo.math.big.Big.Accuracy);
-/**
-    // Verify that ErrNaN implements the error interface.
-    
-    
-**/
-var __8 : stdgo.Error = stdgo.Go.asInterface((new stdgo.math.big.Big.ErrNaN() : stdgo.math.big.Big.ErrNaN));
 /**
     // Selected precisions with which to run various tests.
     
@@ -676,80 +619,6 @@ var _long : stdgo.Pointer<Bool> = stdgo.flag.Flag.bool_(("long" : stdgo.GoString
     
     
 **/
-var _floatZero : Float_ = ({} : stdgo.math.big.Big.Float_);
-/**
-    // These powers of 5 fit into a uint64.
-    //
-    //	for p, q := uint64(0), uint64(1); p < q; p, q = q, q*5 {
-    //		fmt.Println(q)
-    //	}
-    
-    
-**/
-var _pow5tab : stdgo.GoArray<stdgo.GoUInt64> = (new stdgo.GoArray<stdgo.GoUInt64>(
-(1i64 : stdgo.GoUInt64),
-(5i64 : stdgo.GoUInt64),
-(25i64 : stdgo.GoUInt64),
-(125i64 : stdgo.GoUInt64),
-(625i64 : stdgo.GoUInt64),
-(3125i64 : stdgo.GoUInt64),
-(15625i64 : stdgo.GoUInt64),
-(78125i64 : stdgo.GoUInt64),
-(390625i64 : stdgo.GoUInt64),
-(1953125i64 : stdgo.GoUInt64),
-(9765625i64 : stdgo.GoUInt64),
-(48828125i64 : stdgo.GoUInt64),
-(244140625i64 : stdgo.GoUInt64),
-(1220703125i64 : stdgo.GoUInt64),
-(6103515625i64 : stdgo.GoUInt64),
-(30517578125i64 : stdgo.GoUInt64),
-(152587890625i64 : stdgo.GoUInt64),
-(762939453125i64 : stdgo.GoUInt64),
-(3814697265625i64 : stdgo.GoUInt64),
-(19073486328125i64 : stdgo.GoUInt64),
-(95367431640625i64 : stdgo.GoUInt64),
-(476837158203125i64 : stdgo.GoUInt64),
-(2384185791015625i64 : stdgo.GoUInt64),
-(11920928955078125i64 : stdgo.GoUInt64),
-(59604644775390625i64 : stdgo.GoUInt64),
-(298023223876953125i64 : stdgo.GoUInt64),
-(1490116119384765625i64 : stdgo.GoUInt64),
-(7450580596923828125i64 : stdgo.GoUInt64)) : stdgo.GoArray<stdgo.GoUInt64>);
-/**
-    
-    
-    // *Float must implement fmt.Scanner
-**/
-var __9 : stdgo.fmt.Fmt.Scanner = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo.math.big.Big.Float_>) : stdgo.Ref<Float_>));
-/**
-    
-    
-    
-**/
-var _zero_ : stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
-/**
-    
-    
-    
-**/
-final _below1e23 : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-final _above1e23 : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
-/**
-    // Gob codec version. Permits backward-compatible changes to the encoding.
-    
-    
-**/
-final _floatGobVersion : stdgo.GoUInt8 = (1 : stdgo.GoUInt8);
-/**
-    
-    
-    
-**/
 var _floatVals : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
 11,
 11,
@@ -764,18 +633,6 @@ var _floatVals : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
 ("0.73895739579347546656564656573475734957975995797598589749859834759476745986795497e100" : stdgo.GoString),
 ("inf" : stdgo.GoString),
 ("Inf" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-/**
-    
-    
-    // *Float must implement fmt.Formatter
-**/
-var __10 : stdgo.fmt.Fmt.Formatter = stdgo.Go.asInterface((stdgo.Go.setRef(_floatZero) : stdgo.Ref<stdgo.math.big.Big.Float_>));
-/**
-    
-    
-    
-**/
-var _intOne : stdgo.Ref<stdgo.math.big.Big.Int_> = (stdgo.Go.setRef((new stdgo.math.big.Big.Int_(false, _natOne) : stdgo.math.big.Big.Int_)) : stdgo.Ref<stdgo.math.big.Big.Int_>);
 /**
     
     
@@ -1082,18 +939,6 @@ var _modInverseTests : stdgo.Slice<T__struct_46> = (new stdgo.Slice<T__struct_46
 /**
     
     
-    // *Int must implement fmt.Formatter
-**/
-var __11 : stdgo.fmt.Fmt.Formatter = stdgo.Go.asInterface(_intOne);
-/**
-    
-    
-    // *Int must implement fmt.Scanner
-**/
-var __12 : stdgo.fmt.Fmt.Scanner = stdgo.Go.asInterface(_intOne);
-/**
-    
-    
     
 **/
 var _stringTests : stdgo.Slice<T__struct_49> = (new stdgo.Slice<T__struct_49>(
@@ -1321,69 +1166,11 @@ var _scanTests : stdgo.Slice<T__struct_51> = (new stdgo.Slice<T__struct_51>(
 ({ _input : ("2+3" : stdgo.GoString), _format : ("%v" : stdgo.GoString), _output : ("2" : stdgo.GoString), _remaining : (2 : stdgo.GoInt) } : T__struct_51),
 ({ _input : ("0XABC 12" : stdgo.GoString), _format : ("%v" : stdgo.GoString), _output : ("2748" : stdgo.GoString), _remaining : (3 : stdgo.GoInt) } : T__struct_51)) : stdgo.Slice<T__struct_51>);
 /**
-    // Gob codec version. Permits backward-compatible changes to the encoding.
-    
-    
-**/
-final _intGobVersion : stdgo.GoUInt8 = (1 : stdgo.GoUInt8);
-/**
     
     
     
 **/
 var _encodingTests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(7, 7, ("0" : stdgo.GoString), ("1" : stdgo.GoString), ("2" : stdgo.GoString), ("10" : stdgo.GoString), ("1000" : stdgo.GoString), ("1234567890" : stdgo.GoString), ("298472983472983471903246121093472394872319615612417471234712061" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-/**
-    
-    
-    
-**/
-var _natOne : stdgo.math.big.Big.T_nat = (new stdgo.Slice<stdgo.math.big.Big.Word>(1, 1, (1u32 : stdgo.math.big.Big.Word)) : stdgo.math.big.Big.T_nat);
-/**
-    
-    
-    
-**/
-var _natTwo : stdgo.math.big.Big.T_nat = (new stdgo.Slice<stdgo.math.big.Big.Word>(1, 1, (2u32 : stdgo.math.big.Big.Word)) : stdgo.math.big.Big.T_nat);
-/**
-    
-    
-    
-**/
-var _natFive : stdgo.math.big.Big.T_nat = (new stdgo.Slice<stdgo.math.big.Big.Word>(1, 1, (5u32 : stdgo.math.big.Big.Word)) : stdgo.math.big.Big.T_nat);
-/**
-    
-    
-    
-**/
-var _natTen : stdgo.math.big.Big.T_nat = (new stdgo.Slice<stdgo.math.big.Big.Word>(1, 1, (10u32 : stdgo.math.big.Big.Word)) : stdgo.math.big.Big.T_nat);
-/**
-    // Operands that are shorter than karatsubaThreshold are multiplied using
-    // "grade school" multiplication; for longer operands the Karatsuba algorithm
-    // is used.
-    
-    // computed by calibrate_test.go
-**/
-var _karatsubaThreshold : stdgo.GoInt = (40 : stdgo.GoInt);
-/**
-    // Operands that are shorter than basicSqrThreshold are squared using
-    // "grade school" multiplication; for operands longer than karatsubaSqrThreshold
-    // we use the Karatsuba algorithm optimized for x == y.
-    
-    // computed by calibrate_test.go
-**/
-var _basicSqrThreshold : stdgo.GoInt = (20 : stdgo.GoInt);
-/**
-    
-    
-    // computed by calibrate_test.go
-**/
-var _karatsubaSqrThreshold : stdgo.GoInt = (260 : stdgo.GoInt);
-/**
-    
-    
-    
-**/
-var _natPool : stdgo.sync.Sync.Pool = ({} : stdgo.sync.Sync.Pool);
 /**
     
     
@@ -1613,52 +1400,6 @@ var _subMod2NTests : stdgo.Slice<T__struct_56> = (new stdgo.Slice<T__struct_56>(
     
     
 **/
-final _digits : stdgo.GoString = ("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : stdgo.GoString);
-/**
-    // MaxBase is the largest number base accepted for string conversions.
-    
-    
-**/
-final maxBase : stdgo.GoInt32 = (62 : stdgo.GoInt32);
-/**
-    
-    
-    
-**/
-final _maxBaseSmall : stdgo.GoInt32 = (36 : stdgo.GoInt32);
-/**
-    // scan errors
-    
-    
-**/
-var _errNoDigits : stdgo.Error = stdgo.errors.Errors.new_(("number has no digits" : stdgo.GoString));
-/**
-    // scan errors
-    
-    
-**/
-var _errInvalSep : stdgo.Error = stdgo.errors.Errors.new_(("\'_\' must separate successive digits" : stdgo.GoString));
-/**
-    // Split blocks greater than leafSize Words (or set to 0 to disable recursive conversion)
-    // Benchmark and configure leafSize using: go test -bench="Leaf"
-    //
-    //	8 and 16 effective on 3.0 GHz Xeon "Clovertown" CPU (128 byte cache lines)
-    //	8 and 16 effective on 2.66 GHz Core 2 Duo "Penryn" CPU
-    
-    // number of Word-size binary values treat as a monolithic block
-**/
-var _leafSize : stdgo.GoInt = (8 : stdgo.GoInt);
-/**
-    
-    
-    
-**/
-var _cacheBase10 : T__struct_57 = ({ mutex : ({} : stdgo.sync.Sync.Mutex), _table : new stdgo.GoArray<stdgo.math.big.Big.T_divisor>(...[for (i in 0 ... 64) ({} : stdgo.math.big.Big.T_divisor)]) } : T__struct_57);
-/**
-    
-    
-    
-**/
 var _strTests : stdgo.Slice<T__struct_58> = (new stdgo.Slice<T__struct_58>(
 10,
 10,
@@ -1782,13 +1523,6 @@ var _natScanTests : stdgo.Slice<T__struct_59> = (new stdgo.Slice<T__struct_59>(
     
 **/
 var _pi : stdgo.GoString = ("3141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067982148086513282306647093844609550582231725359408128481117450284102701938521105559644622948954930381964428810975665933446128475648233786783165271201909145648566923460348610454326648213393607260249141273724587006606315588174881520920962829254091715364367892590360011330530548820466521384146951941511609433057270365759591953092186117381932611793105118548074462379962749567351885752724891227938183011949129833673362440656643086021394946395224737190702179860943702770539217176293176752384674818467669405132000568127145263560827785771342757789609173637178721468440901224953430146549585371050792279689258923542019956112129021960864034418159813629774771309960518707211349999998372978049951059731732816096318595024459455346908302642522308253344685035261931188171010003137838752886587533208381420617177669147303598253490428755468731159562863882353787593751957781857780532171226806613001927876611195909216420198938095257201065485863278865936153381827968230301952035301852968995773622599413891249721775283479131515574857242454150695950829533116861727855889075098381754637464939319255060400927701671139009848824012858361603563707660104710181942955596198946767837449448255379774726847104047534646208046684259069491293313677028989152104752162056966024058038150193511253382430035587640247496473263914199272604269922796782354781636009341721641219924586315030286182974555706749838505494588586926995690927210797509302955321165344987202755960236480665499119881834797753566369807426542527862551818417574672890977772793800081647060016145249192173217214772350141441973568548161361157352552133475741849468438523323907394143334547762416862518983569485562099219222184272550254256887671790494601653466804988627232791786085784383827967976681454100953883786360950680064225125205117392984896084128488626945604241965285022210661186306744278622039194945047123713786960956364371917287467764657573962413890865832645995813390478027590099465764078951269468398352595709825822620522489407726719478268482601476990902640136394437455305068203496252451749399651431429809190659250937221696461515709858387410597885959772975498930161753928468138268683868942774155991855925245953959431049972524680845987273644695848653836736222626099124608051243884390451244136549762780797715691435997700129616089441694868555848406353422072225828488648158456028506016842739452267467678895252138522549954666727823986456596116354886230577456498035593634568174324112515076069479451096596094025228879710893145669136867228748940560101503308617928680920874760917824938589009714909675985261365549781893129784821682998948722658804857564014270477555132379641451523746234364542858444795265867821051141354735739523113427166102135969536231442952484937187110145765403590279934403742007310578539062198387447808478489683321445713868751943506430218453191048481005370614680674919278191197939952061419663428754440643745123718192179998391015919561814675142691239748940907186494231961567945208095146550225231603881930142093762137855956638937787083039069792077346722182562599661501421503068038447734549202605414665925201497442850732518666002132434088190710486331734649651453905796268561005508106658796998163574736384052571459102897064140110971206280439039759515677157700420337869936007230558763176359421873125147120532928191826186125867321579198414848829164470609575270695722091756711672291098169091528017350671274858322287183520935396572512108357915136988209144421006751033467110314126711136990865851639831501970165151168517143765761835155650884909989859982387345528331635507647918535893226185489632132933089857064204675259070915481416549859461637180270981994309924488957571282890592323326097299712084433573265489382391193259746366730583604142813883032038249037589852437441702913276561809377344403070746921120191302033038019762110110044929321516084244485963766983895228684783123552658213144957685726243344189303968642624341077322697802807318915441101044682325271620105265227211166039666557309254711055785376346682065310989652691862056476931257058635662018558100729360659876486117910453348850346113657686753249441668039626579787718556084552965412665408530614344431858676975145661406800700237877659134401712749470420562230538994561314071127000407854733269939081454664645880797270826683063432858785698305235808933065757406795457163775254202114955761581400250126228594130216471550979259230990796547376125517656751357517829666454779174501129961489030463994713296210734043751895735961458901938971311179042978285647503203198691514028708085990480109412147221317947647772622414254854540332157185306142288137585043063321751829798662237172159160771669254748738986654949450114654062843366393790039769265672146385306736096571209180763832716641627488880078692560290228472104031721186082041900042296617119637792133757511495950156604963186294726547364252308177036751590673502350728354056704038674351362222477158915049530984448933309634087807693259939780541934144737744184263129860809988868741326047215695162396586457302163159819319516735381297416772947867242292465436680098067692823828068996400482435403701416314965897940924323789690706977942236250822168895738379862300159377647165122893578601588161755782973523344604281512627203734314653197777416031990665541876397929334419521541341899485444734567383162499341913181480927777103863877343177207545654532207770921201905166096280490926360197598828161332316663652861932668633606273567630354477628035045077723554710585954870279081435624014517180624643626794561275318134078330336254232783944975382437205835311477119926063813346776879695970309833913077109870408591337" : stdgo.GoString);
-/**
-    // divRecursiveThreshold is the number of divisor digits
-    // at which point divRecursive is faster than divBasic.
-    
-    
-**/
-final _divRecursiveThreshold : stdgo.GoUInt64 = (100i64 : stdgo.GoUInt64);
 /**
     
     
@@ -1931,18 +1665,6 @@ var _ratBinTests : stdgo.Slice<T__struct_61> = (new stdgo.Slice<T__struct_61>(
     
 **/
 var _setFrac64Tests : stdgo.Slice<T__struct_62> = (new stdgo.Slice<T__struct_62>(7, 7, ({ _a : (0i64 : stdgo.GoInt64), _b : (1i64 : stdgo.GoInt64), _out : ("0" : stdgo.GoString) } : T__struct_62), ({ _a : (0i64 : stdgo.GoInt64), _b : (-1i64 : stdgo.GoInt64), _out : ("0" : stdgo.GoString) } : T__struct_62), ({ _a : (1i64 : stdgo.GoInt64), _b : (1i64 : stdgo.GoInt64), _out : ("1" : stdgo.GoString) } : T__struct_62), ({ _a : (-1i64 : stdgo.GoInt64), _b : (1i64 : stdgo.GoInt64), _out : ("-1" : stdgo.GoString) } : T__struct_62), ({ _a : (1i64 : stdgo.GoInt64), _b : (-1i64 : stdgo.GoInt64), _out : ("-1" : stdgo.GoString) } : T__struct_62), ({ _a : (-1i64 : stdgo.GoInt64), _b : (-1i64 : stdgo.GoInt64), _out : ("1" : stdgo.GoString) } : T__struct_62), ({ _a : (-9223372036854775808i64 : stdgo.GoInt64), _b : (-9223372036854775808i64 : stdgo.GoInt64), _out : ("1" : stdgo.GoString) } : T__struct_62)) : stdgo.Slice<T__struct_62>);
-/**
-    
-    
-    
-**/
-var _ratZero : Rat = ({} : stdgo.math.big.Big.Rat);
-/**
-    
-    
-    // *Rat must implement fmt.Scanner
-**/
-var __13 : stdgo.fmt.Fmt.Scanner = stdgo.Go.asInterface((stdgo.Go.setRef(_ratZero) : stdgo.Ref<stdgo.math.big.Big.Rat>));
 /**
     
     
@@ -2237,12 +1959,6 @@ var _float64inputs : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoStri
 ("-1152921504606846977" : stdgo.GoString),
 ("1/3" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
 /**
-    // Gob codec version. Permits backward-compatible changes to the encoding.
-    
-    
-**/
-final _ratGobVersion : stdgo.GoUInt8 = (1 : stdgo.GoUInt8);
-/**
     
     
     
@@ -2270,13 +1986,297 @@ var _ratDenoms : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
     
     
 **/
-final __RoundingMode_name : stdgo.GoString = ("ToNearestEvenToNearestAwayToZeroAwayFromZeroToNegativeInfToPositiveInf" : stdgo.GoString);
+final __Accuracy_name : stdgo.GoString = ("BelowExactAbove" : stdgo.GoString);
+/**
+    
+    
+    // word size in bytes
+**/
+final __S : stdgo.GoUInt64 = (4i64 : stdgo.GoUInt64);
+/**
+    
+    
+    // word size in bits
+**/
+final __W : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
+/**
+    
+    
+    // digit base
+**/
+final __B : stdgo.GoUInt64 = (4294967296i64 : stdgo.GoUInt64);
+/**
+    
+    
+    // digit mask
+**/
+final __M : stdgo.GoUInt64 = (4294967295i64 : stdgo.GoUInt64);
 /**
     
     
     
 **/
-var __RoundingMode_index : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>((0 : stdgo.GoUInt8), (13 : stdgo.GoUInt8), (26 : stdgo.GoUInt8), (32 : stdgo.GoUInt8), (44 : stdgo.GoUInt8), (57 : stdgo.GoUInt8), (70 : stdgo.GoUInt8)) : stdgo.GoArray<stdgo.GoUInt8>);
+final _issue42838Value : stdgo.GoString = ("159309191113245227702888039776771180559110455519261878607388585338616290151305816094308987472018268594098344692611135542392730712890625" : stdgo.GoString);
+/**
+    
+    
+    
+**/
+final _testsNumber : stdgo.GoUInt64 = (65536i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _sqrModeMul : stdgo.GoString = ("mul(x, x)" : stdgo.GoString);
+/**
+    
+    
+    
+**/
+final _sqrModeBasic : stdgo.GoString = ("basicSqr(x)" : stdgo.GoString);
+/**
+    
+    
+    
+**/
+final _sqrModeKaratsuba : stdgo.GoString = ("karatsubaSqr(x)" : stdgo.GoString);
+/**
+    // Maximum shift amount that can be done in one pass without overflow.
+    // A Word has _W bits and (1<<maxShift - 1)*10 + 9 must fit into Word.
+    
+    
+**/
+final _maxShift : stdgo.GoUInt64 = (28i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+var _sink : stdgo.GoString = ("" : stdgo.GoString);
+/**
+    
+    
+    // enable for debugging
+**/
+final _debugFloat : Bool = false;
+/**
+    // Exponent and precision limits.
+    
+    // largest supported exponent
+**/
+final maxExp : stdgo.GoUInt64 = (2147483647i64 : stdgo.GoUInt64);
+/**
+    // Exponent and precision limits.
+    
+    // smallest supported exponent
+**/
+final minExp : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+/**
+    // Exponent and precision limits.
+    
+    // largest (theoretically) supported precision; likely memory-limited
+**/
+final maxPrec : stdgo.GoUInt64 = (4294967295i64 : stdgo.GoUInt64);
+/**
+    // The form value order is relevant - do not change!
+    
+    
+**/
+final _zero : stdgo.math.big.Big.T_form = (2 : stdgo.math.big.Big.T_form);
+/**
+    // The form value order is relevant - do not change!
+    
+    
+**/
+final _finite = (2 : stdgo.math.big.Big.T_form);
+/**
+    // The form value order is relevant - do not change!
+    
+    
+**/
+final _inf = (2 : stdgo.math.big.Big.T_form);
+/**
+    // These constants define supported rounding modes.
+    
+    // == IEEE 754-2008 roundTiesToEven
+**/
+final toNearestEven : stdgo.math.big.Big.RoundingMode = (5 : stdgo.math.big.Big.RoundingMode);
+/**
+    // These constants define supported rounding modes.
+    
+    // == IEEE 754-2008 roundTiesToAway
+**/
+final toNearestAway = (5 : stdgo.math.big.Big.RoundingMode);
+/**
+    // These constants define supported rounding modes.
+    
+    // == IEEE 754-2008 roundTowardZero
+**/
+final toZero = (5 : stdgo.math.big.Big.RoundingMode);
+/**
+    // These constants define supported rounding modes.
+    
+    // no IEEE 754-2008 equivalent
+**/
+final awayFromZero = (5 : stdgo.math.big.Big.RoundingMode);
+/**
+    // These constants define supported rounding modes.
+    
+    // == IEEE 754-2008 roundTowardNegative
+**/
+final toNegativeInf = (5 : stdgo.math.big.Big.RoundingMode);
+/**
+    // These constants define supported rounding modes.
+    
+    // == IEEE 754-2008 roundTowardPositive
+**/
+final toPositiveInf = (5 : stdgo.math.big.Big.RoundingMode);
+/**
+    // Constants describing the Accuracy of a Float.
+    
+    
+**/
+final below : stdgo.math.big.Big.Accuracy = (-1 : stdgo.math.big.Big.Accuracy);
+/**
+    // Constants describing the Accuracy of a Float.
+    
+    
+**/
+final exact : stdgo.math.big.Big.Accuracy = (0 : stdgo.math.big.Big.Accuracy);
+/**
+    // Constants describing the Accuracy of a Float.
+    
+    
+**/
+final above : stdgo.math.big.Big.Accuracy = (1 : stdgo.math.big.Big.Accuracy);
+/**
+    // Verify that ErrNaN implements the error interface.
+    
+    
+**/
+var __8 : stdgo.Error = stdgo.Go.asInterface((new stdgo.math.big.Big.ErrNaN() : stdgo.math.big.Big.ErrNaN));
+/**
+    
+    
+    
+**/
+var _floatZero : Float_ = ({} : stdgo.math.big.Big.Float_);
+/**
+    
+    
+    // *Float must implement fmt.Scanner
+**/
+var __9 : stdgo.fmt.Fmt.Scanner = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo.math.big.Big.Float_>) : stdgo.Ref<Float_>));
+/**
+    
+    
+    
+**/
+var _zero_ : stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
+/**
+    
+    
+    
+**/
+final _below1e23 : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+final _above1e23 : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+/**
+    // Gob codec version. Permits backward-compatible changes to the encoding.
+    
+    
+**/
+final _floatGobVersion : stdgo.GoUInt8 = (1 : stdgo.GoUInt8);
+/**
+    
+    
+    // *Float must implement fmt.Formatter
+**/
+var __10 : stdgo.fmt.Fmt.Formatter = stdgo.Go.asInterface((stdgo.Go.setRef(_floatZero) : stdgo.Ref<stdgo.math.big.Big.Float_>));
+/**
+    
+    
+    // *Int must implement fmt.Formatter
+**/
+var __11 : stdgo.fmt.Fmt.Formatter = stdgo.Go.asInterface(_intOne);
+/**
+    
+    
+    // *Int must implement fmt.Scanner
+**/
+var __12 : stdgo.fmt.Fmt.Scanner = stdgo.Go.asInterface(_intOne);
+/**
+    // Gob codec version. Permits backward-compatible changes to the encoding.
+    
+    
+**/
+final _intGobVersion : stdgo.GoUInt8 = (1 : stdgo.GoUInt8);
+/**
+    
+    
+    
+**/
+var _natPool : stdgo.sync.Sync.Pool = ({} : stdgo.sync.Sync.Pool);
+/**
+    
+    
+    
+**/
+final _digits : stdgo.GoString = ("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : stdgo.GoString);
+/**
+    // MaxBase is the largest number base accepted for string conversions.
+    
+    
+**/
+final maxBase : stdgo.GoInt32 = (62 : stdgo.GoInt32);
+/**
+    
+    
+    
+**/
+final _maxBaseSmall : stdgo.GoInt32 = (36 : stdgo.GoInt32);
+/**
+    
+    
+    
+**/
+var _cacheBase10 : T__struct_57 = ({ mutex : ({} : stdgo.sync.Sync.Mutex), _table : new stdgo.GoArray<stdgo.math.big.Big.T_divisor>(...[for (i in 0 ... 64) ({} : stdgo.math.big.Big.T_divisor)]) } : T__struct_57);
+/**
+    // divRecursiveThreshold is the number of divisor digits
+    // at which point divRecursive is faster than divBasic.
+    
+    
+**/
+final _divRecursiveThreshold : stdgo.GoUInt64 = (100i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+var _ratZero : Rat = ({} : stdgo.math.big.Big.Rat);
+/**
+    
+    
+    // *Rat must implement fmt.Scanner
+**/
+var __13 : stdgo.fmt.Fmt.Scanner = stdgo.Go.asInterface((stdgo.Go.setRef(_ratZero) : stdgo.Ref<stdgo.math.big.Big.Rat>));
+/**
+    // Gob codec version. Permits backward-compatible changes to the encoding.
+    
+    
+**/
+final _ratGobVersion : stdgo.GoUInt8 = (1 : stdgo.GoUInt8);
+/**
+    
+    
+    
+**/
+final __RoundingMode_name : stdgo.GoString = ("ToNearestEvenToNearestAwayToZeroAwayFromZeroToNegativeInfToPositiveInf" : stdgo.GoString);
 /**
     
     

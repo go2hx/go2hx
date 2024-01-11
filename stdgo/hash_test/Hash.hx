@@ -1,5 +1,6 @@
 package stdgo.hash_test;
 import stdgo.hash.Hash;
+import stdgo.hash.Hash;
 /**
     
     

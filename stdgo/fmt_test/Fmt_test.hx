@@ -56,12 +56,6 @@ var _islice : stdgo.Slice<stdgo.AnyInterface> = (_iarray.__slice__(0) : stdgo.Sl
     
     
 **/
-var _pValue : P = ((0 : stdgo.GoInt) : stdgo.fmt_test.Fmt_test.P);
-/**
-    
-    
-    
-**/
 var _barray : stdgo.GoArray<stdgo.fmt_test.Fmt_test.T_renamedUint8> = (new stdgo.GoArray<stdgo.fmt_test.Fmt_test.T_renamedUint8>((1 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (2 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (3 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (4 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (5 : stdgo.fmt_test.Fmt_test.T_renamedUint8)) : stdgo.GoArray<stdgo.fmt_test.Fmt_test.T_renamedUint8>);
 /**
     
@@ -941,18 +935,6 @@ var _reorderTests : stdgo.Slice<T__struct_3> = (new stdgo.Slice<T__struct_3>(
     
     
 **/
-var _mallocBuf : stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-/**
-    
-    
-    // A pointer so we know the interface value won't allocate.
-**/
-var _mallocPointer : stdgo.Pointer<stdgo.GoInt> = (null : stdgo.Pointer<stdgo.GoInt>);
-/**
-    
-    
-    
-**/
 var _mallocTest : stdgo.Slice<T__struct_4> = (new stdgo.Slice<T__struct_4>(
 13,
 13,
@@ -1000,12 +982,6 @@ var _mallocTest : stdgo.Slice<T__struct_4> = (new stdgo.Slice<T__struct_4>(
         _mallocBuf.reset();
         fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_mallocBuf) : stdgo.Ref<stdgo.bytes.Bytes.Buffer>)), ("%x %x %x" : stdgo.GoString), stdgo.Go.toInterface(_mallocPointer), stdgo.Go.toInterface(_mallocPointer), stdgo.Go.toInterface(_mallocPointer));
     } } : T__struct_4)) : stdgo.Slice<T__struct_4>);
-/**
-    
-    
-    
-**/
-var __1 : stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
 /**
     
     
@@ -1137,252 +1113,6 @@ var _formatterFlagTests : stdgo.Slice<T__struct_9> = (new stdgo.Slice<T__struct_
 ({ _in : ("%-+1.2v" : stdgo.GoString), _val : stdgo.Go.toInterface((new stdgo.GoArray<stdgo.fmt_test.Fmt_test.T_flagPrinter>(...([].concat([for (i in 0 ... 1) ({} : stdgo.fmt_test.Fmt_test.T_flagPrinter)]))) : stdgo.GoArray<stdgo.fmt_test.Fmt_test.T_flagPrinter>)), _out : ("[[%+-1.2v]]" : stdgo.GoString) } : T__struct_9),
 ({ _in : ("%-+1.2vbc" : stdgo.GoString), _val : stdgo.Go.toInterface((new stdgo.GoArray<stdgo.fmt_test.Fmt_test.T_flagPrinter>(...([].concat([for (i in 0 ... 1) ({} : stdgo.fmt_test.Fmt_test.T_flagPrinter)]))) : stdgo.GoArray<stdgo.fmt_test.Fmt_test.T_flagPrinter>)), _out : ("[[%+-1.2v]]bc" : stdgo.GoString) } : T__struct_9),
 ({ _in : ("%-1.2vbc" : stdgo.GoString), _val : stdgo.Go.toInterface((new stdgo.GoArray<stdgo.fmt_test.Fmt_test.T_flagPrinter>(...([].concat([for (i in 0 ... 1) ({} : stdgo.fmt_test.Fmt_test.T_flagPrinter)]))) : stdgo.GoArray<stdgo.fmt_test.Fmt_test.T_flagPrinter>)), _out : ("[[%-1.2v]]bc" : stdgo.GoString) } : T__struct_9)) : stdgo.Slice<T__struct_9>);
-/**
-    
-    
-    
-**/
-final _appendResult : stdgo.GoString = ("hello world, 23" : stdgo.GoString);
-/**
-    
-    
-    
-**/
-final _hello : stdgo.GoString = ("hello " : stdgo.GoString);
-/**
-    
-    
-    
-**/
-var _boolVal : Bool = false;
-/**
-    
-    
-    
-**/
-var _intVal : stdgo.GoInt = (0 : stdgo.GoInt);
-/**
-    
-    
-    
-**/
-var _int8Val : stdgo.GoInt8 = (0 : stdgo.GoInt8);
-/**
-    
-    
-    
-**/
-var _int16Val : stdgo.GoInt16 = (0 : stdgo.GoInt16);
-/**
-    
-    
-    
-**/
-var _int32Val : stdgo.GoInt32 = (0 : stdgo.GoInt32);
-/**
-    
-    
-    
-**/
-var _int64Val : stdgo.GoInt64 = (0 : stdgo.GoInt64);
-/**
-    
-    
-    
-**/
-var _uintVal : stdgo.GoUInt = (0 : stdgo.GoUInt);
-/**
-    
-    
-    
-**/
-var _uint8Val : stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-/**
-    
-    
-    
-**/
-var _uint16Val : stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
-/**
-    
-    
-    
-**/
-var _uint32Val : stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-/**
-    
-    
-    
-**/
-var _uint64Val : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-var _uintptrVal : stdgo.GoUIntptr = (0 : stdgo.GoUIntptr);
-/**
-    
-    
-    
-**/
-var _float32Val : stdgo.GoFloat32 = (0 : stdgo.GoFloat32);
-/**
-    
-    
-    
-**/
-var _float64Val : stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
-/**
-    
-    
-    
-**/
-var _stringVal : stdgo.GoString = ("" : stdgo.GoString);
-/**
-    
-    
-    
-**/
-var _bytesVal : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
-/**
-    
-    
-    
-**/
-var _runeVal : stdgo.GoRune = (0 : stdgo.GoInt32);
-/**
-    
-    
-    
-**/
-var _complex64Val : stdgo.GoComplex64 = new stdgo.GoComplex64(0, 0);
-/**
-    
-    
-    
-**/
-var _complex128Val : stdgo.GoComplex128 = new stdgo.GoComplex128(0, 0);
-/**
-    
-    
-    
-**/
-var _renamedBoolVal : T_renamedBool = (false : stdgo.fmt_test.Fmt_test.T_renamedBool);
-/**
-    
-    
-    
-**/
-var _renamedIntVal : T_renamedInt = ((0 : stdgo.GoInt) : stdgo.fmt_test.Fmt_test.T_renamedInt);
-/**
-    
-    
-    
-**/
-var _renamedInt8Val : T_renamedInt8 = ((0 : stdgo.GoInt8) : stdgo.fmt_test.Fmt_test.T_renamedInt8);
-/**
-    
-    
-    
-**/
-var _renamedInt16Val : T_renamedInt16 = ((0 : stdgo.GoInt16) : stdgo.fmt_test.Fmt_test.T_renamedInt16);
-/**
-    
-    
-    
-**/
-var _renamedInt32Val : T_renamedInt32 = ((0 : stdgo.GoInt32) : stdgo.fmt_test.Fmt_test.T_renamedInt32);
-/**
-    
-    
-    
-**/
-var _renamedInt64Val : T_renamedInt64 = ((0 : stdgo.GoInt64) : stdgo.fmt_test.Fmt_test.T_renamedInt64);
-/**
-    
-    
-    
-**/
-var _renamedUintVal : T_renamedUint = ((0 : stdgo.GoUInt) : stdgo.fmt_test.Fmt_test.T_renamedUint);
-/**
-    
-    
-    
-**/
-var _renamedUint8Val : T_renamedUint8 = ((0 : stdgo.GoUInt8) : stdgo.fmt_test.Fmt_test.T_renamedUint8);
-/**
-    
-    
-    
-**/
-var _renamedUint16Val : T_renamedUint16 = ((0 : stdgo.GoUInt16) : stdgo.fmt_test.Fmt_test.T_renamedUint16);
-/**
-    
-    
-    
-**/
-var _renamedUint32Val : T_renamedUint32 = ((0 : stdgo.GoUInt32) : stdgo.fmt_test.Fmt_test.T_renamedUint32);
-/**
-    
-    
-    
-**/
-var _renamedUint64Val : T_renamedUint64 = ((0 : stdgo.GoUInt64) : stdgo.fmt_test.Fmt_test.T_renamedUint64);
-/**
-    
-    
-    
-**/
-var _renamedUintptrVal : T_renamedUintptr = ((0 : stdgo.GoUIntptr) : stdgo.fmt_test.Fmt_test.T_renamedUintptr);
-/**
-    
-    
-    
-**/
-var _renamedStringVal : T_renamedString = (("" : stdgo.GoString) : stdgo.fmt_test.Fmt_test.T_renamedString);
-/**
-    
-    
-    
-**/
-var _renamedBytesVal : T_renamedBytes = new stdgo.fmt_test.Fmt_test.T_renamedBytes(0, 0);
-/**
-    
-    
-    
-**/
-var _renamedFloat32Val : T_renamedFloat32 = ((0 : stdgo.GoFloat32) : stdgo.fmt_test.Fmt_test.T_renamedFloat32);
-/**
-    
-    
-    
-**/
-var _renamedFloat64Val : T_renamedFloat64 = ((0 : stdgo.GoFloat64) : stdgo.fmt_test.Fmt_test.T_renamedFloat64);
-/**
-    
-    
-    
-**/
-var _renamedComplex64Val : T_renamedComplex64 = (new stdgo.GoComplex64(0, 0) : stdgo.fmt_test.Fmt_test.T_renamedComplex64);
-/**
-    
-    
-    
-**/
-var _renamedComplex128Val : T_renamedComplex128 = (new stdgo.GoComplex128(0, 0) : stdgo.fmt_test.Fmt_test.T_renamedComplex128);
-/**
-    
-    
-    
-**/
-var _xVal : Xs = (("" : stdgo.GoString) : stdgo.fmt_test.Fmt_test.Xs);
-/**
-    
-    
-    
-**/
-var _intStringVal : IntString = ({} : stdgo.fmt_test.Fmt_test.IntString);
 /**
     
     
@@ -1677,6 +1407,349 @@ var _overflowTests : stdgo.Slice<stdgo.fmt_test.Fmt_test.ScanTest> = (new stdgo.
     
     
 **/
+var _multiTests : stdgo.Slice<stdgo.fmt_test.Fmt_test.ScanfMultiTest> = (new stdgo.Slice<stdgo.fmt_test.Fmt_test.ScanfMultiTest>(
+26,
+26,
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.AnyInterface>(0, 0) : stdgo.Slice<stdgo.AnyInterface>), (new stdgo.Slice<stdgo.AnyInterface>(0, 0) : stdgo.Slice<stdgo.AnyInterface>), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%d" : stdgo.GoString), ("23" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_i))), _args(stdgo.Go.toInterface((23 : stdgo.GoInt))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%2s%3s" : stdgo.GoString), ("22333" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_s)), stdgo.Go.toInterface(stdgo.Go.pointer(_t))), _args(stdgo.Go.toInterface(("22" : stdgo.GoString)), stdgo.Go.toInterface(("333" : stdgo.GoString))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%2d%3d" : stdgo.GoString), ("44555" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_i)), stdgo.Go.toInterface(stdgo.Go.pointer(_j))), _args(stdgo.Go.toInterface((44 : stdgo.GoInt)), stdgo.Go.toInterface((555 : stdgo.GoInt))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%2d.%3d" : stdgo.GoString), ("66.777" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_i)), stdgo.Go.toInterface(stdgo.Go.pointer(_j))), _args(stdgo.Go.toInterface((66 : stdgo.GoInt)), stdgo.Go.toInterface((777 : stdgo.GoInt))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%d, %d" : stdgo.GoString), ("23, 18" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_i)), stdgo.Go.toInterface(stdgo.Go.pointer(_j))), _args(stdgo.Go.toInterface((23 : stdgo.GoInt)), stdgo.Go.toInterface((18 : stdgo.GoInt))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%3d22%3d" : stdgo.GoString), ("33322333" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_i)), stdgo.Go.toInterface(stdgo.Go.pointer(_j))), _args(stdgo.Go.toInterface((333 : stdgo.GoInt)), stdgo.Go.toInterface((333 : stdgo.GoInt))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%6vX=%3fY" : stdgo.GoString), ("3+2iX=2.5Y" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_c)), stdgo.Go.toInterface(stdgo.Go.pointer(_f))), _args(stdgo.Go.toInterface(((3f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 2f64))), stdgo.Go.toInterface((2.5 : stdgo.GoFloat64))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%d%s" : stdgo.GoString), ("123abc" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_i)), stdgo.Go.toInterface(stdgo.Go.pointer(_s))), _args(stdgo.Go.toInterface((123 : stdgo.GoInt)), stdgo.Go.toInterface(("abc" : stdgo.GoString))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%c%c%c" : stdgo.GoString), ("2僂X" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_r1)), stdgo.Go.toInterface(stdgo.Go.pointer(_r2)), stdgo.Go.toInterface(stdgo.Go.pointer(_r3))), _args(stdgo.Go.toInterface((50 : stdgo.GoInt32)), stdgo.Go.toInterface((20674 : stdgo.GoInt32)), stdgo.Go.toInterface((88 : stdgo.GoInt32))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%5s%d" : stdgo.GoString), (" 1234567 " : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_s)), stdgo.Go.toInterface(stdgo.Go.pointer(_i))), _args(stdgo.Go.toInterface(("12345" : stdgo.GoString)), stdgo.Go.toInterface((67 : stdgo.GoInt))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%5s%d" : stdgo.GoString), (" 12 34 567 " : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_s)), stdgo.Go.toInterface(stdgo.Go.pointer(_i))), _args(stdgo.Go.toInterface(("12" : stdgo.GoString)), stdgo.Go.toInterface((34 : stdgo.GoInt))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%e%f" : stdgo.GoString), ("eefffff" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_x)), stdgo.Go.toInterface(stdgo.Go.pointer(_y))), _args(stdgo.Go.toInterface(stdgo.Go.asInterface(((("ee" : stdgo.GoString) : stdgo.fmt_test.Fmt_test.Xs) : Xs))), stdgo.Go.toInterface(stdgo.Go.asInterface(((("fffff" : stdgo.GoString) : stdgo.fmt_test.Fmt_test.Xs) : Xs)))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%4v%s" : stdgo.GoString), ("12abcd" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_z) : stdgo.Ref<stdgo.fmt_test.Fmt_test.IntString>))), stdgo.Go.toInterface(stdgo.Go.pointer(_s))), _args(stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.fmt_test.Fmt_test.IntString((12 : stdgo.GoInt), ("ab" : stdgo.GoString)) : stdgo.fmt_test.Fmt_test.IntString))), stdgo.Go.toInterface(("cd" : stdgo.GoString))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%t" : stdgo.GoString), ("23 18" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_i))), (null : stdgo.Slice<stdgo.AnyInterface>), ("bad verb" : stdgo.GoString)) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%d %d %d" : stdgo.GoString), ("23 18" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_i)), stdgo.Go.toInterface(stdgo.Go.pointer(_j))), _args(stdgo.Go.toInterface((23 : stdgo.GoInt)), stdgo.Go.toInterface((18 : stdgo.GoInt))), ("too few operands" : stdgo.GoString)) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%d %d" : stdgo.GoString), ("23 18 27" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_i)), stdgo.Go.toInterface(stdgo.Go.pointer(_j)), stdgo.Go.toInterface(stdgo.Go.pointer(_k))), _args(stdgo.Go.toInterface((23 : stdgo.GoInt)), stdgo.Go.toInterface((18 : stdgo.GoInt))), ("too many operands" : stdgo.GoString)) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%c" : stdgo.GoString), ("Ā" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_int8Val))), (null : stdgo.Slice<stdgo.AnyInterface>), ("overflow" : stdgo.GoString)) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("X%d" : stdgo.GoString), ("10X" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_intVal))), (null : stdgo.Slice<stdgo.AnyInterface>), ("input does not match format" : stdgo.GoString)) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%d%" : stdgo.GoString), ("42%" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_intVal))), _args(stdgo.Go.toInterface((42 : stdgo.GoInt))), ("missing verb: % at end of format string" : stdgo.GoString)) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%d% " : stdgo.GoString), ("42%" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_intVal))), _args(stdgo.Go.toInterface((42 : stdgo.GoInt))), ("too few operands for format \'% \'" : stdgo.GoString)) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%%%d" : stdgo.GoString), ("xxx 42" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_intVal))), _args(stdgo.Go.toInterface((42 : stdgo.GoInt))), ("missing literal %" : stdgo.GoString)) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%%%d" : stdgo.GoString), ("x42" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_intVal))), _args(stdgo.Go.toInterface((42 : stdgo.GoInt))), ("missing literal %" : stdgo.GoString)) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%%%d" : stdgo.GoString), ("42" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_intVal))), _args(stdgo.Go.toInterface((42 : stdgo.GoInt))), ("missing literal %" : stdgo.GoString)) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%c%c%c" : stdgo.GoString), stdgo.Go.str(194, "X", 194)?.__copy__(), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_r1)), stdgo.Go.toInterface(stdgo.Go.pointer(_r2)), stdgo.Go.toInterface(stdgo.Go.pointer(_r3))), _args(stdgo.Go.toInterface((65533 : stdgo.GoInt32)), stdgo.Go.toInterface((88 : stdgo.GoInt32)), stdgo.Go.toInterface((65533 : stdgo.GoInt32))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
+(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%v%v" : stdgo.GoString), ("FALSE23" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_truth)), stdgo.Go.toInterface(stdgo.Go.pointer(_i))), _args(stdgo.Go.toInterface(false), stdgo.Go.toInterface((23 : stdgo.GoInt))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest)) : stdgo.Slice<stdgo.fmt_test.Fmt_test.ScanfMultiTest>);
+/**
+    
+    
+    
+**/
+var _readers : stdgo.Slice<T__struct_11> = (new stdgo.Slice<T__struct_11>(4, 4, ({ _name : ("StringReader" : stdgo.GoString), _f : function(_s:stdgo.GoString):stdgo.io.Io.Reader {
+        return stdgo.Go.asInterface(stdgo.strings.Strings.newReader(_s?.__copy__()));
+    } } : T__struct_11), ({ _name : ("ReaderOnly" : stdgo.GoString), _f : function(_s:stdgo.GoString):stdgo.io.Io.Reader {
+        return stdgo.Go.asInterface(({ reader : stdgo.Go.asInterface(stdgo.strings.Strings.newReader(_s?.__copy__())) } : T__struct_12));
+    } } : T__struct_11), ({ _name : ("OneByteReader" : stdgo.GoString), _f : function(_s:stdgo.GoString):stdgo.io.Io.Reader {
+        return stdgo.testing.iotest.Iotest.oneByteReader(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(_s?.__copy__())));
+    } } : T__struct_11), ({ _name : ("DataErrReader" : stdgo.GoString), _f : function(_s:stdgo.GoString):stdgo.io.Io.Reader {
+        return stdgo.testing.iotest.Iotest.dataErrReader(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(_s?.__copy__())));
+    } } : T__struct_11)) : stdgo.Slice<T__struct_11>);
+/**
+    
+    
+    
+**/
+var _eofTests : stdgo.Slice<T__struct_13> = (new stdgo.Slice<T__struct_13>(
+17,
+17,
+({ _format : ("%s" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_stringVal)) } : T__struct_13),
+({ _format : ("%q" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_stringVal)) } : T__struct_13),
+({ _format : ("%x" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_stringVal)) } : T__struct_13),
+({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_stringVal)) } : T__struct_13),
+({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface((stdgo.Go.setRef(_bytesVal) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) } : T__struct_13),
+({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_intVal)) } : T__struct_13),
+({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_uintVal)) } : T__struct_13),
+({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_boolVal)) } : T__struct_13),
+({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_float32Val)) } : T__struct_13),
+({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_complex64Val)) } : T__struct_13),
+({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_renamedStringVal)) } : T__struct_13),
+({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface((stdgo.Go.setRef(_renamedBytesVal) : stdgo.Ref<stdgo.fmt_test.Fmt_test.T_renamedBytes>)) } : T__struct_13),
+({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_renamedIntVal)) } : T__struct_13),
+({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_renamedUintVal)) } : T__struct_13),
+({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_renamedBoolVal)) } : T__struct_13),
+({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_renamedFloat32Val)) } : T__struct_13),
+({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_renamedComplex64Val)) } : T__struct_13)) : stdgo.Slice<T__struct_13>);
+/**
+    
+    
+    
+**/
+var _pValue : P = ((0 : stdgo.GoInt) : stdgo.fmt_test.Fmt_test.P);
+/**
+    
+    
+    
+**/
+var _mallocBuf : stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
+/**
+    
+    
+    // A pointer so we know the interface value won't allocate.
+**/
+var _mallocPointer : stdgo.Pointer<stdgo.GoInt> = (null : stdgo.Pointer<stdgo.GoInt>);
+/**
+    
+    
+    
+**/
+var __1 : stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
+/**
+    
+    
+    
+**/
+final _appendResult : stdgo.GoString = ("hello world, 23" : stdgo.GoString);
+/**
+    
+    
+    
+**/
+final _hello : stdgo.GoString = ("hello " : stdgo.GoString);
+/**
+    
+    
+    
+**/
+var _boolVal : Bool = false;
+/**
+    
+    
+    
+**/
+var _intVal : stdgo.GoInt = (0 : stdgo.GoInt);
+/**
+    
+    
+    
+**/
+var _int8Val : stdgo.GoInt8 = (0 : stdgo.GoInt8);
+/**
+    
+    
+    
+**/
+var _int16Val : stdgo.GoInt16 = (0 : stdgo.GoInt16);
+/**
+    
+    
+    
+**/
+var _int32Val : stdgo.GoInt32 = (0 : stdgo.GoInt32);
+/**
+    
+    
+    
+**/
+var _int64Val : stdgo.GoInt64 = (0 : stdgo.GoInt64);
+/**
+    
+    
+    
+**/
+var _uintVal : stdgo.GoUInt = (0 : stdgo.GoUInt);
+/**
+    
+    
+    
+**/
+var _uint8Val : stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+/**
+    
+    
+    
+**/
+var _uint16Val : stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
+/**
+    
+    
+    
+**/
+var _uint32Val : stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+/**
+    
+    
+    
+**/
+var _uint64Val : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+var _uintptrVal : stdgo.GoUIntptr = (0 : stdgo.GoUIntptr);
+/**
+    
+    
+    
+**/
+var _float32Val : stdgo.GoFloat32 = (0 : stdgo.GoFloat32);
+/**
+    
+    
+    
+**/
+var _float64Val : stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
+/**
+    
+    
+    
+**/
+var _stringVal : stdgo.GoString = ("" : stdgo.GoString);
+/**
+    
+    
+    
+**/
+var _bytesVal : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
+/**
+    
+    
+    
+**/
+var _runeVal : stdgo.GoRune = (0 : stdgo.GoInt32);
+/**
+    
+    
+    
+**/
+var _complex64Val : stdgo.GoComplex64 = new stdgo.GoComplex64(0, 0);
+/**
+    
+    
+    
+**/
+var _complex128Val : stdgo.GoComplex128 = new stdgo.GoComplex128(0, 0);
+/**
+    
+    
+    
+**/
+var _renamedBoolVal : T_renamedBool = (false : stdgo.fmt_test.Fmt_test.T_renamedBool);
+/**
+    
+    
+    
+**/
+var _renamedIntVal : T_renamedInt = ((0 : stdgo.GoInt) : stdgo.fmt_test.Fmt_test.T_renamedInt);
+/**
+    
+    
+    
+**/
+var _renamedInt8Val : T_renamedInt8 = ((0 : stdgo.GoInt8) : stdgo.fmt_test.Fmt_test.T_renamedInt8);
+/**
+    
+    
+    
+**/
+var _renamedInt16Val : T_renamedInt16 = ((0 : stdgo.GoInt16) : stdgo.fmt_test.Fmt_test.T_renamedInt16);
+/**
+    
+    
+    
+**/
+var _renamedInt32Val : T_renamedInt32 = ((0 : stdgo.GoInt32) : stdgo.fmt_test.Fmt_test.T_renamedInt32);
+/**
+    
+    
+    
+**/
+var _renamedInt64Val : T_renamedInt64 = ((0 : stdgo.GoInt64) : stdgo.fmt_test.Fmt_test.T_renamedInt64);
+/**
+    
+    
+    
+**/
+var _renamedUintVal : T_renamedUint = ((0 : stdgo.GoUInt) : stdgo.fmt_test.Fmt_test.T_renamedUint);
+/**
+    
+    
+    
+**/
+var _renamedUint8Val : T_renamedUint8 = ((0 : stdgo.GoUInt8) : stdgo.fmt_test.Fmt_test.T_renamedUint8);
+/**
+    
+    
+    
+**/
+var _renamedUint16Val : T_renamedUint16 = ((0 : stdgo.GoUInt16) : stdgo.fmt_test.Fmt_test.T_renamedUint16);
+/**
+    
+    
+    
+**/
+var _renamedUint32Val : T_renamedUint32 = ((0 : stdgo.GoUInt32) : stdgo.fmt_test.Fmt_test.T_renamedUint32);
+/**
+    
+    
+    
+**/
+var _renamedUint64Val : T_renamedUint64 = ((0 : stdgo.GoUInt64) : stdgo.fmt_test.Fmt_test.T_renamedUint64);
+/**
+    
+    
+    
+**/
+var _renamedUintptrVal : T_renamedUintptr = ((0 : stdgo.GoUIntptr) : stdgo.fmt_test.Fmt_test.T_renamedUintptr);
+/**
+    
+    
+    
+**/
+var _renamedStringVal : T_renamedString = (("" : stdgo.GoString) : stdgo.fmt_test.Fmt_test.T_renamedString);
+/**
+    
+    
+    
+**/
+var _renamedBytesVal : T_renamedBytes = new stdgo.fmt_test.Fmt_test.T_renamedBytes(0, 0);
+/**
+    
+    
+    
+**/
+var _renamedFloat32Val : T_renamedFloat32 = ((0 : stdgo.GoFloat32) : stdgo.fmt_test.Fmt_test.T_renamedFloat32);
+/**
+    
+    
+    
+**/
+var _renamedFloat64Val : T_renamedFloat64 = ((0 : stdgo.GoFloat64) : stdgo.fmt_test.Fmt_test.T_renamedFloat64);
+/**
+    
+    
+    
+**/
+var _renamedComplex64Val : T_renamedComplex64 = (new stdgo.GoComplex64(0, 0) : stdgo.fmt_test.Fmt_test.T_renamedComplex64);
+/**
+    
+    
+    
+**/
+var _renamedComplex128Val : T_renamedComplex128 = (new stdgo.GoComplex128(0, 0) : stdgo.fmt_test.Fmt_test.T_renamedComplex128);
+/**
+    
+    
+    
+**/
+var _xVal : Xs = (("" : stdgo.GoString) : stdgo.fmt_test.Fmt_test.Xs);
+/**
+    
+    
+    
+**/
+var _intStringVal : IntString = ({} : stdgo.fmt_test.Fmt_test.IntString);
+/**
+    
+    
+    
+**/
 var _truth : Bool = false;
 /**
     
@@ -1756,79 +1829,6 @@ var _r2 : stdgo.GoRune = (0 : stdgo.GoInt32);
     
 **/
 var _r3 : stdgo.GoRune = (0 : stdgo.GoInt32);
-/**
-    
-    
-    
-**/
-var _multiTests : stdgo.Slice<stdgo.fmt_test.Fmt_test.ScanfMultiTest> = (new stdgo.Slice<stdgo.fmt_test.Fmt_test.ScanfMultiTest>(
-26,
-26,
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.AnyInterface>(0, 0) : stdgo.Slice<stdgo.AnyInterface>), (new stdgo.Slice<stdgo.AnyInterface>(0, 0) : stdgo.Slice<stdgo.AnyInterface>), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%d" : stdgo.GoString), ("23" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_i))), _args(stdgo.Go.toInterface((23 : stdgo.GoInt))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%2s%3s" : stdgo.GoString), ("22333" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_s)), stdgo.Go.toInterface(stdgo.Go.pointer(_t))), _args(stdgo.Go.toInterface(("22" : stdgo.GoString)), stdgo.Go.toInterface(("333" : stdgo.GoString))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%2d%3d" : stdgo.GoString), ("44555" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_i)), stdgo.Go.toInterface(stdgo.Go.pointer(_j))), _args(stdgo.Go.toInterface((44 : stdgo.GoInt)), stdgo.Go.toInterface((555 : stdgo.GoInt))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%2d.%3d" : stdgo.GoString), ("66.777" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_i)), stdgo.Go.toInterface(stdgo.Go.pointer(_j))), _args(stdgo.Go.toInterface((66 : stdgo.GoInt)), stdgo.Go.toInterface((777 : stdgo.GoInt))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%d, %d" : stdgo.GoString), ("23, 18" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_i)), stdgo.Go.toInterface(stdgo.Go.pointer(_j))), _args(stdgo.Go.toInterface((23 : stdgo.GoInt)), stdgo.Go.toInterface((18 : stdgo.GoInt))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%3d22%3d" : stdgo.GoString), ("33322333" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_i)), stdgo.Go.toInterface(stdgo.Go.pointer(_j))), _args(stdgo.Go.toInterface((333 : stdgo.GoInt)), stdgo.Go.toInterface((333 : stdgo.GoInt))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%6vX=%3fY" : stdgo.GoString), ("3+2iX=2.5Y" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_c)), stdgo.Go.toInterface(stdgo.Go.pointer(_f))), _args(stdgo.Go.toInterface(((3f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 2f64))), stdgo.Go.toInterface((2.5 : stdgo.GoFloat64))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%d%s" : stdgo.GoString), ("123abc" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_i)), stdgo.Go.toInterface(stdgo.Go.pointer(_s))), _args(stdgo.Go.toInterface((123 : stdgo.GoInt)), stdgo.Go.toInterface(("abc" : stdgo.GoString))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%c%c%c" : stdgo.GoString), ("2僂X" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_r1)), stdgo.Go.toInterface(stdgo.Go.pointer(_r2)), stdgo.Go.toInterface(stdgo.Go.pointer(_r3))), _args(stdgo.Go.toInterface((50 : stdgo.GoInt32)), stdgo.Go.toInterface((20674 : stdgo.GoInt32)), stdgo.Go.toInterface((88 : stdgo.GoInt32))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%5s%d" : stdgo.GoString), (" 1234567 " : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_s)), stdgo.Go.toInterface(stdgo.Go.pointer(_i))), _args(stdgo.Go.toInterface(("12345" : stdgo.GoString)), stdgo.Go.toInterface((67 : stdgo.GoInt))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%5s%d" : stdgo.GoString), (" 12 34 567 " : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_s)), stdgo.Go.toInterface(stdgo.Go.pointer(_i))), _args(stdgo.Go.toInterface(("12" : stdgo.GoString)), stdgo.Go.toInterface((34 : stdgo.GoInt))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%e%f" : stdgo.GoString), ("eefffff" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_x)), stdgo.Go.toInterface(stdgo.Go.pointer(_y))), _args(stdgo.Go.toInterface(stdgo.Go.asInterface(((("ee" : stdgo.GoString) : stdgo.fmt_test.Fmt_test.Xs) : Xs))), stdgo.Go.toInterface(stdgo.Go.asInterface(((("fffff" : stdgo.GoString) : stdgo.fmt_test.Fmt_test.Xs) : Xs)))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%4v%s" : stdgo.GoString), ("12abcd" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_z) : stdgo.Ref<stdgo.fmt_test.Fmt_test.IntString>))), stdgo.Go.toInterface(stdgo.Go.pointer(_s))), _args(stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.fmt_test.Fmt_test.IntString((12 : stdgo.GoInt), ("ab" : stdgo.GoString)) : stdgo.fmt_test.Fmt_test.IntString))), stdgo.Go.toInterface(("cd" : stdgo.GoString))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%t" : stdgo.GoString), ("23 18" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_i))), (null : stdgo.Slice<stdgo.AnyInterface>), ("bad verb" : stdgo.GoString)) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%d %d %d" : stdgo.GoString), ("23 18" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_i)), stdgo.Go.toInterface(stdgo.Go.pointer(_j))), _args(stdgo.Go.toInterface((23 : stdgo.GoInt)), stdgo.Go.toInterface((18 : stdgo.GoInt))), ("too few operands" : stdgo.GoString)) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%d %d" : stdgo.GoString), ("23 18 27" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_i)), stdgo.Go.toInterface(stdgo.Go.pointer(_j)), stdgo.Go.toInterface(stdgo.Go.pointer(_k))), _args(stdgo.Go.toInterface((23 : stdgo.GoInt)), stdgo.Go.toInterface((18 : stdgo.GoInt))), ("too many operands" : stdgo.GoString)) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%c" : stdgo.GoString), ("Ā" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_int8Val))), (null : stdgo.Slice<stdgo.AnyInterface>), ("overflow" : stdgo.GoString)) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("X%d" : stdgo.GoString), ("10X" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_intVal))), (null : stdgo.Slice<stdgo.AnyInterface>), ("input does not match format" : stdgo.GoString)) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%d%" : stdgo.GoString), ("42%" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_intVal))), _args(stdgo.Go.toInterface((42 : stdgo.GoInt))), ("missing verb: % at end of format string" : stdgo.GoString)) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%d% " : stdgo.GoString), ("42%" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_intVal))), _args(stdgo.Go.toInterface((42 : stdgo.GoInt))), ("too few operands for format \'% \'" : stdgo.GoString)) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%%%d" : stdgo.GoString), ("xxx 42" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_intVal))), _args(stdgo.Go.toInterface((42 : stdgo.GoInt))), ("missing literal %" : stdgo.GoString)) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%%%d" : stdgo.GoString), ("x42" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_intVal))), _args(stdgo.Go.toInterface((42 : stdgo.GoInt))), ("missing literal %" : stdgo.GoString)) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%%%d" : stdgo.GoString), ("42" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_intVal))), _args(stdgo.Go.toInterface((42 : stdgo.GoInt))), ("missing literal %" : stdgo.GoString)) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%c%c%c" : stdgo.GoString), stdgo.Go.str(194, "X", 194)?.__copy__(), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_r1)), stdgo.Go.toInterface(stdgo.Go.pointer(_r2)), stdgo.Go.toInterface(stdgo.Go.pointer(_r3))), _args(stdgo.Go.toInterface((65533 : stdgo.GoInt32)), stdgo.Go.toInterface((88 : stdgo.GoInt32)), stdgo.Go.toInterface((65533 : stdgo.GoInt32))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%v%v" : stdgo.GoString), ("FALSE23" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_truth)), stdgo.Go.toInterface(stdgo.Go.pointer(_i))), _args(stdgo.Go.toInterface(false), stdgo.Go.toInterface((23 : stdgo.GoInt))), stdgo.Go.str()?.__copy__()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest)) : stdgo.Slice<stdgo.fmt_test.Fmt_test.ScanfMultiTest>);
-/**
-    
-    
-    
-**/
-var _readers : stdgo.Slice<T__struct_11> = (new stdgo.Slice<T__struct_11>(4, 4, ({ _name : ("StringReader" : stdgo.GoString), _f : function(_s:stdgo.GoString):stdgo.io.Io.Reader {
-        return stdgo.Go.asInterface(stdgo.strings.Strings.newReader(_s?.__copy__()));
-    } } : T__struct_11), ({ _name : ("ReaderOnly" : stdgo.GoString), _f : function(_s:stdgo.GoString):stdgo.io.Io.Reader {
-        return stdgo.Go.asInterface(({ reader : stdgo.Go.asInterface(stdgo.strings.Strings.newReader(_s?.__copy__())) } : T__struct_12));
-    } } : T__struct_11), ({ _name : ("OneByteReader" : stdgo.GoString), _f : function(_s:stdgo.GoString):stdgo.io.Io.Reader {
-        return stdgo.testing.iotest.Iotest.oneByteReader(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(_s?.__copy__())));
-    } } : T__struct_11), ({ _name : ("DataErrReader" : stdgo.GoString), _f : function(_s:stdgo.GoString):stdgo.io.Io.Reader {
-        return stdgo.testing.iotest.Iotest.dataErrReader(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(_s?.__copy__())));
-    } } : T__struct_11)) : stdgo.Slice<T__struct_11>);
-/**
-    
-    
-    
-**/
-var _eofTests : stdgo.Slice<T__struct_13> = (new stdgo.Slice<T__struct_13>(
-17,
-17,
-({ _format : ("%s" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_stringVal)) } : T__struct_13),
-({ _format : ("%q" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_stringVal)) } : T__struct_13),
-({ _format : ("%x" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_stringVal)) } : T__struct_13),
-({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_stringVal)) } : T__struct_13),
-({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface((stdgo.Go.setRef(_bytesVal) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) } : T__struct_13),
-({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_intVal)) } : T__struct_13),
-({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_uintVal)) } : T__struct_13),
-({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_boolVal)) } : T__struct_13),
-({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_float32Val)) } : T__struct_13),
-({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_complex64Val)) } : T__struct_13),
-({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_renamedStringVal)) } : T__struct_13),
-({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface((stdgo.Go.setRef(_renamedBytesVal) : stdgo.Ref<stdgo.fmt_test.Fmt_test.T_renamedBytes>)) } : T__struct_13),
-({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_renamedIntVal)) } : T__struct_13),
-({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_renamedUintVal)) } : T__struct_13),
-({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_renamedBoolVal)) } : T__struct_13),
-({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_renamedFloat32Val)) } : T__struct_13),
-({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_renamedComplex64Val)) } : T__struct_13)) : stdgo.Slice<T__struct_13>);
 /**
     // 800 is small enough to not overflow the stack when using gccgo on a
     // platform that does not support split stack.

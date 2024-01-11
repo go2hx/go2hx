@@ -4,6 +4,43 @@ package stdgo.encoding.hex;
 **/
 private var __go2hxdoc__package : Bool;
 /**
+    // ErrLength reports an attempt to decode an odd-length input
+    // using Decode or DecodeString.
+    // The stream-based Decoder returns io.ErrUnexpectedEOF instead of ErrLength.
+    
+    
+**/
+var errLength : stdgo.Error = stdgo.errors.Errors.new_(("encoding/hex: odd length hex string" : stdgo.GoString));
+/**
+    
+    
+    
+**/
+var _encDecTests : stdgo.Slice<stdgo.encoding.hex.Hex.T_encDecTest> = (new stdgo.Slice<stdgo.encoding.hex.Hex.T_encDecTest>(7, 7, (new stdgo.encoding.hex.Hex.T_encDecTest(stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(0, 0) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.encoding.hex.Hex.T_encDecTest), (new stdgo.encoding.hex.Hex.T_encDecTest(("0001020304050607" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(8, 8, (0 : stdgo.GoUInt8), (1 : stdgo.GoUInt8), (2 : stdgo.GoUInt8), (3 : stdgo.GoUInt8), (4 : stdgo.GoUInt8), (5 : stdgo.GoUInt8), (6 : stdgo.GoUInt8), (7 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.encoding.hex.Hex.T_encDecTest), (new stdgo.encoding.hex.Hex.T_encDecTest(("08090a0b0c0d0e0f" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(8, 8, (8 : stdgo.GoUInt8), (9 : stdgo.GoUInt8), (10 : stdgo.GoUInt8), (11 : stdgo.GoUInt8), (12 : stdgo.GoUInt8), (13 : stdgo.GoUInt8), (14 : stdgo.GoUInt8), (15 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.encoding.hex.Hex.T_encDecTest), (new stdgo.encoding.hex.Hex.T_encDecTest(("f0f1f2f3f4f5f6f7" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(8, 8, (240 : stdgo.GoUInt8), (241 : stdgo.GoUInt8), (242 : stdgo.GoUInt8), (243 : stdgo.GoUInt8), (244 : stdgo.GoUInt8), (245 : stdgo.GoUInt8), (246 : stdgo.GoUInt8), (247 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.encoding.hex.Hex.T_encDecTest), (new stdgo.encoding.hex.Hex.T_encDecTest(("f8f9fafbfcfdfeff" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(8, 8, (248 : stdgo.GoUInt8), (249 : stdgo.GoUInt8), (250 : stdgo.GoUInt8), (251 : stdgo.GoUInt8), (252 : stdgo.GoUInt8), (253 : stdgo.GoUInt8), (254 : stdgo.GoUInt8), (255 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.encoding.hex.Hex.T_encDecTest), (new stdgo.encoding.hex.Hex.T_encDecTest(("67" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(1, 1, (103 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.encoding.hex.Hex.T_encDecTest), (new stdgo.encoding.hex.Hex.T_encDecTest(("e3a1" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(2, 2, (227 : stdgo.GoUInt8), (161 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.encoding.hex.Hex.T_encDecTest)) : stdgo.Slice<stdgo.encoding.hex.Hex.T_encDecTest>);
+/**
+    
+    
+    
+**/
+var _errTests : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(
+9,
+9,
+({ _in : stdgo.Go.str()?.__copy__(), _out : stdgo.Go.str()?.__copy__(), _err : (null : stdgo.Error) } : T__struct_0),
+({ _in : ("0" : stdgo.GoString), _out : stdgo.Go.str()?.__copy__(), _err : errLength } : T__struct_0),
+({ _in : ("zd4aa" : stdgo.GoString), _out : stdgo.Go.str()?.__copy__(), _err : stdgo.Go.asInterface(((122 : stdgo.encoding.hex.Hex.InvalidByteError) : InvalidByteError)) } : T__struct_0),
+({ _in : ("d4aaz" : stdgo.GoString), _out : ("Ԫ" : stdgo.GoString), _err : stdgo.Go.asInterface(((122 : stdgo.encoding.hex.Hex.InvalidByteError) : InvalidByteError)) } : T__struct_0),
+({ _in : ("30313" : stdgo.GoString), _out : ("01" : stdgo.GoString), _err : errLength } : T__struct_0),
+({ _in : ("0g" : stdgo.GoString), _out : stdgo.Go.str()?.__copy__(), _err : stdgo.Go.asInterface(((103 : stdgo.encoding.hex.Hex.InvalidByteError) : InvalidByteError)) } : T__struct_0),
+({ _in : ("00gg" : stdgo.GoString), _out : stdgo.Go.str(0)?.__copy__(), _err : stdgo.Go.asInterface(((103 : stdgo.encoding.hex.Hex.InvalidByteError) : InvalidByteError)) } : T__struct_0),
+({ _in : stdgo.Go.str("0", 1)?.__copy__(), _out : stdgo.Go.str()?.__copy__(), _err : stdgo.Go.asInterface(((1 : stdgo.encoding.hex.Hex.InvalidByteError) : InvalidByteError)) } : T__struct_0),
+({ _in : ("ffeed" : stdgo.GoString), _out : stdgo.Go.str(255, 238)?.__copy__(), _err : errLength } : T__struct_0)) : stdgo.Slice<T__struct_0>);
+/**
+    
+    
+    
+**/
+var _expectedHexDump : stdgo.Slice<stdgo.GoUInt8> = (("00000000  1e 1f 20 21 22 23 24 25  26 27 28 29 2a 2b 2c 2d  |.. !\"#$%&\'()*+,-|\n00000010  2e 2f 30 31 32 33 34 35  36 37 38 39 3a 3b 3c 3d  |./0123456789:;<=|\n00000020  3e 3f 40 41 42 43 44 45                           |>?@ABCDE|\n" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
+/**
     
     
     
@@ -263,48 +300,11 @@ final _reverseHexTable : stdgo.GoString = stdgo.Go.str(255,
 255,
 255);
 /**
-    // ErrLength reports an attempt to decode an odd-length input
-    // using Decode or DecodeString.
-    // The stream-based Decoder returns io.ErrUnexpectedEOF instead of ErrLength.
-    
-    
-**/
-var errLength : stdgo.Error = stdgo.errors.Errors.new_(("encoding/hex: odd length hex string" : stdgo.GoString));
-/**
     // bufferSize is the number of hexadecimal characters to buffer in encoder and decoder.
     
     
 **/
 final _bufferSize : stdgo.GoUInt64 = (1024i64 : stdgo.GoUInt64);
-/**
-    
-    
-    
-**/
-var _encDecTests : stdgo.Slice<stdgo.encoding.hex.Hex.T_encDecTest> = (new stdgo.Slice<stdgo.encoding.hex.Hex.T_encDecTest>(7, 7, (new stdgo.encoding.hex.Hex.T_encDecTest(stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(0, 0) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.encoding.hex.Hex.T_encDecTest), (new stdgo.encoding.hex.Hex.T_encDecTest(("0001020304050607" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(8, 8, (0 : stdgo.GoUInt8), (1 : stdgo.GoUInt8), (2 : stdgo.GoUInt8), (3 : stdgo.GoUInt8), (4 : stdgo.GoUInt8), (5 : stdgo.GoUInt8), (6 : stdgo.GoUInt8), (7 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.encoding.hex.Hex.T_encDecTest), (new stdgo.encoding.hex.Hex.T_encDecTest(("08090a0b0c0d0e0f" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(8, 8, (8 : stdgo.GoUInt8), (9 : stdgo.GoUInt8), (10 : stdgo.GoUInt8), (11 : stdgo.GoUInt8), (12 : stdgo.GoUInt8), (13 : stdgo.GoUInt8), (14 : stdgo.GoUInt8), (15 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.encoding.hex.Hex.T_encDecTest), (new stdgo.encoding.hex.Hex.T_encDecTest(("f0f1f2f3f4f5f6f7" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(8, 8, (240 : stdgo.GoUInt8), (241 : stdgo.GoUInt8), (242 : stdgo.GoUInt8), (243 : stdgo.GoUInt8), (244 : stdgo.GoUInt8), (245 : stdgo.GoUInt8), (246 : stdgo.GoUInt8), (247 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.encoding.hex.Hex.T_encDecTest), (new stdgo.encoding.hex.Hex.T_encDecTest(("f8f9fafbfcfdfeff" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(8, 8, (248 : stdgo.GoUInt8), (249 : stdgo.GoUInt8), (250 : stdgo.GoUInt8), (251 : stdgo.GoUInt8), (252 : stdgo.GoUInt8), (253 : stdgo.GoUInt8), (254 : stdgo.GoUInt8), (255 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.encoding.hex.Hex.T_encDecTest), (new stdgo.encoding.hex.Hex.T_encDecTest(("67" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(1, 1, (103 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.encoding.hex.Hex.T_encDecTest), (new stdgo.encoding.hex.Hex.T_encDecTest(("e3a1" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(2, 2, (227 : stdgo.GoUInt8), (161 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.encoding.hex.Hex.T_encDecTest)) : stdgo.Slice<stdgo.encoding.hex.Hex.T_encDecTest>);
-/**
-    
-    
-    
-**/
-var _errTests : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(
-9,
-9,
-({ _in : stdgo.Go.str()?.__copy__(), _out : stdgo.Go.str()?.__copy__(), _err : (null : stdgo.Error) } : T__struct_0),
-({ _in : ("0" : stdgo.GoString), _out : stdgo.Go.str()?.__copy__(), _err : errLength } : T__struct_0),
-({ _in : ("zd4aa" : stdgo.GoString), _out : stdgo.Go.str()?.__copy__(), _err : stdgo.Go.asInterface(((122 : stdgo.encoding.hex.Hex.InvalidByteError) : InvalidByteError)) } : T__struct_0),
-({ _in : ("d4aaz" : stdgo.GoString), _out : ("Ԫ" : stdgo.GoString), _err : stdgo.Go.asInterface(((122 : stdgo.encoding.hex.Hex.InvalidByteError) : InvalidByteError)) } : T__struct_0),
-({ _in : ("30313" : stdgo.GoString), _out : ("01" : stdgo.GoString), _err : errLength } : T__struct_0),
-({ _in : ("0g" : stdgo.GoString), _out : stdgo.Go.str()?.__copy__(), _err : stdgo.Go.asInterface(((103 : stdgo.encoding.hex.Hex.InvalidByteError) : InvalidByteError)) } : T__struct_0),
-({ _in : ("00gg" : stdgo.GoString), _out : stdgo.Go.str(0)?.__copy__(), _err : stdgo.Go.asInterface(((103 : stdgo.encoding.hex.Hex.InvalidByteError) : InvalidByteError)) } : T__struct_0),
-({ _in : stdgo.Go.str("0", 1)?.__copy__(), _out : stdgo.Go.str()?.__copy__(), _err : stdgo.Go.asInterface(((1 : stdgo.encoding.hex.Hex.InvalidByteError) : InvalidByteError)) } : T__struct_0),
-({ _in : ("ffeed" : stdgo.GoString), _out : stdgo.Go.str(255, 238)?.__copy__(), _err : errLength } : T__struct_0)) : stdgo.Slice<T__struct_0>);
-/**
-    
-    
-    
-**/
-var _expectedHexDump : stdgo.Slice<stdgo.GoUInt8> = (("00000000  1e 1f 20 21 22 23 24 25  26 27 28 29 2a 2b 2c 2d  |.. !\"#$%&\'()*+,-|\n00000010  2e 2f 30 31 32 33 34 35  36 37 38 39 3a 3b 3c 3d  |./0123456789:;<=|\n00000020  3e 3f 40 41 42 43 44 45                           |>?@ABCDE|\n" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
 /**
     
     
@@ -1380,13 +1380,12 @@ function testDecodeStringErr(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         };
     }
 function testEncoderDecoder(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
-        for (_i => _multiplier in (new stdgo.Slice<stdgo.GoInt>(3, 3, (1 : stdgo.GoInt), (128 : stdgo.GoInt), (192 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)) {
-            for (__0 => _test in _encDecTests) {
+        for (__0 => _multiplier in (new stdgo.Slice<stdgo.GoInt>(3, 3, (1 : stdgo.GoInt), (128 : stdgo.GoInt), (192 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)) {
+            for (__1 => _test in _encDecTests) {
                 var _input = stdgo.bytes.Bytes.repeat(_test._dec, _multiplier);
                 var _output:stdgo.GoString = stdgo.strings.Strings.repeat(_test._enc?.__copy__(), _multiplier)?.__copy__();
                 var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
                 var _enc:stdgo.io.Io.Writer = newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo.bytes.Bytes.Buffer>)));
-                _i;
                 var _r:T__struct_1 = ({ reader : stdgo.Go.asInterface(stdgo.bytes.Bytes.newReader(_input)) } : T__struct_1);
                 {
                     var __tmp__ = stdgo.io.Io.copyBuffer(_enc, stdgo.Go.asInterface(_r), new stdgo.Slice<stdgo.GoUInt8>((7 : stdgo.GoInt).toBasic(), 0).__setNumber32__()), _n:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -1406,7 +1405,7 @@ function testEncoderDecoder(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
                 var _decBuf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
                 var _w:T__struct_2 = ({ writer : stdgo.Go.asInterface((stdgo.Go.setRef(_decBuf) : stdgo.Ref<stdgo.bytes.Bytes.Buffer>)) } : T__struct_2);
                 {
-                    var __tmp__ = stdgo.io.Io.copyBuffer(stdgo.Go.asInterface(_w), _dec, new stdgo.Slice<stdgo.GoUInt8>((7 : stdgo.GoInt).toBasic(), 0).__setNumber32__()), __17:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = stdgo.io.Io.copyBuffer(stdgo.Go.asInterface(_w), _dec, new stdgo.Slice<stdgo.GoUInt8>((7 : stdgo.GoInt).toBasic(), 0).__setNumber32__()), __18:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if ((_err != null) || (_decBuf.len() != (_input.length))) {
                         _t.errorf(("decoder.Read(%q*%d) = (%d, %v), want (%d, nil)" : stdgo.GoString), stdgo.Go.toInterface(_test._enc), stdgo.Go.toInterface(_multiplier), stdgo.Go.toInterface(_decBuf.len()), stdgo.Go.toInterface(_err), stdgo.Go.toInterface((_input.length)));
                     };

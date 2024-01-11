@@ -1,5 +1,6 @@
 package stdgo.sort_test;
 import stdgo.sort.Sort;
+import stdgo.sort.Sort;
 /**
     
     

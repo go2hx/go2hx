@@ -66,16 +66,13 @@ function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{ var _0 : Bool; v
             @:label("Pattern") while ((_pattern.length) > (0 : stdgo.GoInt)) {
                 var _star:Bool = false;
                 var _chunk:stdgo.GoString = ("" : stdgo.GoString);
-                stdgo.Go.println(("p:" : stdgo.GoString), _pattern);
                 {
                     var __tmp__ = _scanChunk(_pattern?.__copy__());
                     _star = __tmp__._0;
                     _chunk = __tmp__._1?.__copy__();
                     _pattern = __tmp__._2?.__copy__();
                 };
-                stdgo.Go.println(_star, _chunk);
                 if (_star && (_chunk == stdgo.Go.str())) {
-                    stdgo.Go.println(("1" : stdgo.GoString));
                     return { _0 : stdgo.internal.bytealg.Bytealg.indexByteString(_name?.__copy__(), (47 : stdgo.GoUInt8)) < (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
                 };
                 var __tmp__ = _matchChunk(_chunk?.__copy__(), _name?.__copy__()), _t:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
@@ -83,11 +80,9 @@ function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{ var _0 : Bool; v
                     _name = _t?.__copy__();
                     continue;
                 };
-                stdgo.Go.println(("2" : stdgo.GoString));
                 if (_err != null) {
                     return { _0 : false, _1 : _err };
                 };
-                stdgo.Go.println(("3" : stdgo.GoString));
                 if (_star) {
                     {
                         var _i:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -100,7 +95,6 @@ function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{ var _0 : Bool; v
                                 _name = _t?.__copy__();
                                 @:jump("Pattern") continue;
                             };
-                            stdgo.Go.println(("4" : stdgo.GoString));
                             if (_err != null) {
                                 return { _0 : false, _1 : _err };
                             };
@@ -113,7 +107,6 @@ function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{ var _0 : Bool; v
                         _chunk = __tmp__._1?.__copy__();
                         _pattern = __tmp__._2?.__copy__();
                     };
-                    stdgo.Go.println(("5" : stdgo.GoString));
                     {
                         var __tmp__ = _matchChunk(_chunk?.__copy__(), stdgo.Go.str()?.__copy__()), __0:stdgo.GoString = __tmp__._0, __1:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                         if (_err != null) {
@@ -121,10 +114,8 @@ function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{ var _0 : Bool; v
                         };
                     };
                 };
-                stdgo.Go.println(("6" : stdgo.GoString));
                 return { _0 : false, _1 : (null : stdgo.Error) };
             };
-            stdgo.Go.println(("7" : stdgo.GoString));
             return { _0 : (_name.length) == ((0 : stdgo.GoInt)), _1 : (null : stdgo.Error) };
         });
         throw "controlFlow did not return";
@@ -175,7 +166,6 @@ function _scanChunk(_pattern:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.GoS
                     };
                 });
             };
-            stdgo.Go.println(("scanChunk i:" : stdgo.GoString), _i, ("|" : stdgo.GoString), (_pattern.__slice__((0 : stdgo.GoInt), _i) : stdgo.GoString), (_pattern.__slice__(_i) : stdgo.GoString), ("lens:" : stdgo.GoString), (_pattern.length), ((_pattern.__slice__((0 : stdgo.GoInt), _i) : stdgo.GoString).length), ((_pattern.__slice__(_i) : stdgo.GoString).length));
             return { _0 : _star, _1 : (_pattern.__slice__((0 : stdgo.GoInt), _i) : stdgo.GoString)?.__copy__(), _2 : (_pattern.__slice__(_i) : stdgo.GoString)?.__copy__() };
         });
         throw "controlFlow did not return";

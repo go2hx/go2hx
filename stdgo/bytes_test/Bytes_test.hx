@@ -5019,7 +5019,7 @@ function testReaderDoubleUnreadRune(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void
     
     
 **/
-@:structInit class T_testReaderCopyNothing_1___localname___nErr {
+@:structInit class T_testReaderCopyNothing_8___localname___nErr {
     public var _n : stdgo.GoInt64 = 0;
     public var _err : stdgo.Error = (null : stdgo.Error);
     public function new(?_n:stdgo.GoInt64, ?_err:stdgo.Error) {
@@ -5028,7 +5028,7 @@ function testReaderDoubleUnreadRune(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_testReaderCopyNothing_1___localname___nErr(_n, _err);
+        return new T_testReaderCopyNothing_8___localname___nErr(_n, _err);
     }
 }
 /**
@@ -5036,7 +5036,7 @@ function testReaderDoubleUnreadRune(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void
     
     
 **/
-@:structInit @:using(stdgo.bytes_test.Bytes_test.T_testReaderCopyNothing_2___localname___justReader_static_extension) class T_testReaderCopyNothing_2___localname___justReader {
+@:structInit @:using(stdgo.bytes_test.Bytes_test.T_testReaderCopyNothing_9___localname___justReader_static_extension) class T_testReaderCopyNothing_9___localname___justReader {
     @:embedded
     public var reader : stdgo.io.Io.Reader = (null : stdgo.io.Io.Reader);
     public function new(?reader:stdgo.io.Io.Reader) {
@@ -5046,7 +5046,7 @@ function testReaderDoubleUnreadRune(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void
     @:embedded
     public function read(__0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return reader.read(__0);
     public function __copy__() {
-        return new T_testReaderCopyNothing_2___localname___justReader(reader);
+        return new T_testReaderCopyNothing_9___localname___justReader(reader);
     }
 }
 /**
@@ -5054,7 +5054,7 @@ function testReaderDoubleUnreadRune(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void
     
     
 **/
-@:structInit @:using(stdgo.bytes_test.Bytes_test.T_testReaderCopyNothing_3___localname___justWriter_static_extension) class T_testReaderCopyNothing_3___localname___justWriter {
+@:structInit @:using(stdgo.bytes_test.Bytes_test.T_testReaderCopyNothing_10___localname___justWriter_static_extension) class T_testReaderCopyNothing_10___localname___justWriter {
     @:embedded
     public var writer : stdgo.io.Io.Writer = (null : stdgo.io.Io.Writer);
     public function new(?writer:stdgo.io.Io.Writer) {
@@ -5064,7 +5064,7 @@ function testReaderDoubleUnreadRune(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void
     @:embedded
     public function write(__0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return writer.write(__0);
     public function __copy__() {
-        return new T_testReaderCopyNothing_3___localname___justWriter(writer);
+        return new T_testReaderCopyNothing_10___localname___justWriter(writer);
     }
 }
 /**
@@ -5075,15 +5075,15 @@ function testReaderCopyNothing(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         {};
         {};
-        var _discard:stdgo.bytes_test.Bytes_test.T_testReaderCopyNothing_3___localname___justWriter = (new stdgo.bytes_test.Bytes_test.T_testReaderCopyNothing_3___localname___justWriter(stdgo.io.Io.discard) : stdgo.bytes_test.Bytes_test.T_testReaderCopyNothing_3___localname___justWriter);
-        var __0:T_testReaderCopyNothing_1___localname___nErr = ({} : stdgo.bytes_test.Bytes_test.T_testReaderCopyNothing_1___localname___nErr), __1:T_testReaderCopyNothing_1___localname___nErr = ({} : stdgo.bytes_test.Bytes_test.T_testReaderCopyNothing_1___localname___nErr), _withOut:T_testReaderCopyNothing_1___localname___nErr = __1, _with:T_testReaderCopyNothing_1___localname___nErr = __0;
+        var _discard:stdgo.bytes_test.Bytes_test.T_testReaderCopyNothing_10___localname___justWriter = (new stdgo.bytes_test.Bytes_test.T_testReaderCopyNothing_10___localname___justWriter(stdgo.io.Io.discard) : stdgo.bytes_test.Bytes_test.T_testReaderCopyNothing_10___localname___justWriter);
+        var __0:T_testReaderCopyNothing_8___localname___nErr = ({} : stdgo.bytes_test.Bytes_test.T_testReaderCopyNothing_8___localname___nErr), __1:T_testReaderCopyNothing_8___localname___nErr = ({} : stdgo.bytes_test.Bytes_test.T_testReaderCopyNothing_8___localname___nErr), _withOut:T_testReaderCopyNothing_8___localname___nErr = __1, _with:T_testReaderCopyNothing_8___localname___nErr = __0;
         {
             var __tmp__ = stdgo.io.Io.copy(stdgo.Go.asInterface(_discard), stdgo.Go.asInterface(newReader((null : stdgo.Slice<stdgo.GoUInt8>))));
             _with._n = __tmp__._0;
             _with._err = __tmp__._1;
         };
         {
-            var __tmp__ = stdgo.io.Io.copy(stdgo.Go.asInterface(_discard), stdgo.Go.asInterface((new stdgo.bytes_test.Bytes_test.T_testReaderCopyNothing_2___localname___justReader(stdgo.Go.asInterface(newReader((null : stdgo.Slice<stdgo.GoUInt8>)))) : stdgo.bytes_test.Bytes_test.T_testReaderCopyNothing_2___localname___justReader)));
+            var __tmp__ = stdgo.io.Io.copy(stdgo.Go.asInterface(_discard), stdgo.Go.asInterface((new stdgo.bytes_test.Bytes_test.T_testReaderCopyNothing_9___localname___justReader(stdgo.Go.asInterface(newReader((null : stdgo.Slice<stdgo.GoUInt8>)))) : stdgo.bytes_test.Bytes_test.T_testReaderCopyNothing_9___localname___justReader)));
             _withOut._n = __tmp__._0;
             _withOut._err = __tmp__._1;
         };
@@ -5241,7 +5241,7 @@ class T_panicReader_asInterface {
         return { _0 : (0 : stdgo.GoInt), _1 : stdgo.io.Io.eof };
     }
 }
-class T_testReaderCopyNothing_2___localname___justReader_asInterface {
+class T_testReaderCopyNothing_9___localname___justReader_asInterface {
     @:embedded
     public dynamic function read(__0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.value.read(__0);
     public function new(__self__, __type__) {
@@ -5249,14 +5249,14 @@ class T_testReaderCopyNothing_2___localname___justReader_asInterface {
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<T_testReaderCopyNothing_2___localname___justReader>;
+    var __self__ : stdgo.Pointer<T_testReaderCopyNothing_9___localname___justReader>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
-@:keep @:allow(stdgo.bytes_test.Bytes_test.T_testReaderCopyNothing_2___localname___justReader_asInterface) class T_testReaderCopyNothing_2___localname___justReader_static_extension {
+@:keep @:allow(stdgo.bytes_test.Bytes_test.T_testReaderCopyNothing_9___localname___justReader_asInterface) class T_testReaderCopyNothing_9___localname___justReader_static_extension {
     @:embedded
-    public static function read( __self__:T_testReaderCopyNothing_2___localname___justReader, __0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.read(__0);
+    public static function read( __self__:T_testReaderCopyNothing_9___localname___justReader, __0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.read(__0);
 }
-class T_testReaderCopyNothing_3___localname___justWriter_asInterface {
+class T_testReaderCopyNothing_10___localname___justWriter_asInterface {
     @:embedded
     public dynamic function write(__0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.value.write(__0);
     public function new(__self__, __type__) {
@@ -5264,10 +5264,10 @@ class T_testReaderCopyNothing_3___localname___justWriter_asInterface {
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<T_testReaderCopyNothing_3___localname___justWriter>;
+    var __self__ : stdgo.Pointer<T_testReaderCopyNothing_10___localname___justWriter>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
-@:keep @:allow(stdgo.bytes_test.Bytes_test.T_testReaderCopyNothing_3___localname___justWriter_asInterface) class T_testReaderCopyNothing_3___localname___justWriter_static_extension {
+@:keep @:allow(stdgo.bytes_test.Bytes_test.T_testReaderCopyNothing_10___localname___justWriter_asInterface) class T_testReaderCopyNothing_10___localname___justWriter_static_extension {
     @:embedded
-    public static function write( __self__:T_testReaderCopyNothing_3___localname___justWriter, __0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.write(__0);
+    public static function write( __self__:T_testReaderCopyNothing_10___localname___justWriter, __0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.write(__0);
 }

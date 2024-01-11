@@ -1,5 +1,6 @@
 package stdgo.sync_test;
 import stdgo.sync.Sync;
+import stdgo.sync.Sync;
 /**
     
     

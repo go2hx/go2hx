@@ -1,5 +1,6 @@
 package stdgo.bufio_test;
 import stdgo.bufio.Bufio;
+import stdgo.bufio.Bufio;
 /**
     
     

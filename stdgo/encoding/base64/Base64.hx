@@ -4,6 +4,92 @@ package stdgo.encoding.base64;
 **/
 private var __go2hxdoc__package : Bool;
 /**
+    // StdEncoding is the standard base64 encoding, as defined in
+    // RFC 4648.
+    
+    
+**/
+var stdEncoding : stdgo.Ref<stdgo.encoding.base64.Base64.Encoding> = newEncoding(("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/" : stdgo.GoString));
+/**
+    // URLEncoding is the alternate base64 encoding defined in RFC 4648.
+    // It is typically used in URLs and file names.
+    
+    
+**/
+var urlencoding : stdgo.Ref<stdgo.encoding.base64.Base64.Encoding> = newEncoding(("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_" : stdgo.GoString));
+/**
+    // RawStdEncoding is the standard raw, unpadded base64 encoding,
+    // as defined in RFC 4648 section 3.2.
+    // This is the same as StdEncoding but omits padding characters.
+    
+    
+**/
+var rawStdEncoding : stdgo.Ref<stdgo.encoding.base64.Base64.Encoding> = stdEncoding.withPadding((-1 : stdgo.GoInt32));
+/**
+    // RawURLEncoding is the unpadded alternate base64 encoding defined in RFC 4648.
+    // It is typically used in URLs and file names.
+    // This is the same as URLEncoding but omits padding characters.
+    
+    
+**/
+var rawURLEncoding : stdgo.Ref<stdgo.encoding.base64.Base64.Encoding> = urlencoding.withPadding((-1 : stdgo.GoInt32));
+/**
+    
+    
+    
+**/
+var _pairs : stdgo.Slice<stdgo.encoding.base64.Base64.T_testpair> = (new stdgo.Slice<stdgo.encoding.base64.Base64.T_testpair>(
+18,
+18,
+(new stdgo.encoding.base64.Base64.T_testpair(stdgo.Go.str(20, 251, 156, 3, 217, "~")?.__copy__(), ("FPucA9l+" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(stdgo.Go.str(20, 251, 156, 3, 217)?.__copy__(), ("FPucA9k=" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(stdgo.Go.str(20, 251, 156, 3)?.__copy__(), ("FPucAw==" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("f" : stdgo.GoString), ("Zg==" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("fo" : stdgo.GoString), ("Zm8=" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("foo" : stdgo.GoString), ("Zm9v" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("foob" : stdgo.GoString), ("Zm9vYg==" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("fooba" : stdgo.GoString), ("Zm9vYmE=" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("foobar" : stdgo.GoString), ("Zm9vYmFy" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("sure." : stdgo.GoString), ("c3VyZS4=" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("sure" : stdgo.GoString), ("c3VyZQ==" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("sur" : stdgo.GoString), ("c3Vy" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("su" : stdgo.GoString), ("c3U=" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("leasure." : stdgo.GoString), ("bGVhc3VyZS4=" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("easure." : stdgo.GoString), ("ZWFzdXJlLg==" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("asure." : stdgo.GoString), ("YXN1cmUu" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("sure." : stdgo.GoString), ("c3VyZS4=" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair)) : stdgo.Slice<stdgo.encoding.base64.Base64.T_testpair>);
+/**
+    // A nonstandard encoding with a funny padding character, for testing
+    
+    
+**/
+var _funnyEncoding : stdgo.Ref<stdgo.encoding.base64.Base64.Encoding> = newEncoding(("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/" : stdgo.GoString)).withPadding(((64 : stdgo.GoInt32) : stdgo.GoRune));
+/**
+    
+    
+    
+**/
+var _encodingTests : stdgo.Slice<stdgo.encoding.base64.Base64.T_encodingTest> = (new stdgo.Slice<stdgo.encoding.base64.Base64.T_encodingTest>(
+10,
+10,
+(new stdgo.encoding.base64.Base64.T_encodingTest(stdEncoding, _stdRef) : stdgo.encoding.base64.Base64.T_encodingTest),
+(new stdgo.encoding.base64.Base64.T_encodingTest(urlencoding, _urlRef) : stdgo.encoding.base64.Base64.T_encodingTest),
+(new stdgo.encoding.base64.Base64.T_encodingTest(rawStdEncoding, _rawRef) : stdgo.encoding.base64.Base64.T_encodingTest),
+(new stdgo.encoding.base64.Base64.T_encodingTest(rawURLEncoding, _rawURLRef) : stdgo.encoding.base64.Base64.T_encodingTest),
+(new stdgo.encoding.base64.Base64.T_encodingTest(_funnyEncoding, _funnyRef) : stdgo.encoding.base64.Base64.T_encodingTest),
+(new stdgo.encoding.base64.Base64.T_encodingTest(stdEncoding.strict(), _stdRef) : stdgo.encoding.base64.Base64.T_encodingTest),
+(new stdgo.encoding.base64.Base64.T_encodingTest(urlencoding.strict(), _urlRef) : stdgo.encoding.base64.Base64.T_encodingTest),
+(new stdgo.encoding.base64.Base64.T_encodingTest(rawStdEncoding.strict(), _rawRef) : stdgo.encoding.base64.Base64.T_encodingTest),
+(new stdgo.encoding.base64.Base64.T_encodingTest(rawURLEncoding.strict(), _rawURLRef) : stdgo.encoding.base64.Base64.T_encodingTest),
+(new stdgo.encoding.base64.Base64.T_encodingTest(_funnyEncoding.strict(), _funnyRef) : stdgo.encoding.base64.Base64.T_encodingTest)) : stdgo.Slice<stdgo.encoding.base64.Base64.T_encodingTest>);
+/**
+    
+    
+    
+**/
+var _bigtest : stdgo.encoding.base64.Base64.T_testpair = (new stdgo.encoding.base64.Base64.T_testpair(("Twas brillig, and the slithy toves" : stdgo.GoString), ("VHdhcyBicmlsbGlnLCBhbmQgdGhlIHNsaXRoeSB0b3Zlcw==" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair);
+/**
     
     
     // Standard padding character
@@ -288,92 +374,6 @@ final _encodeStd : stdgo.GoString = ("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnop
     
 **/
 final _encodeURL : stdgo.GoString = ("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_" : stdgo.GoString);
-/**
-    // StdEncoding is the standard base64 encoding, as defined in
-    // RFC 4648.
-    
-    
-**/
-var stdEncoding : stdgo.Ref<stdgo.encoding.base64.Base64.Encoding> = newEncoding(("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/" : stdgo.GoString));
-/**
-    // URLEncoding is the alternate base64 encoding defined in RFC 4648.
-    // It is typically used in URLs and file names.
-    
-    
-**/
-var urlencoding : stdgo.Ref<stdgo.encoding.base64.Base64.Encoding> = newEncoding(("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_" : stdgo.GoString));
-/**
-    // RawStdEncoding is the standard raw, unpadded base64 encoding,
-    // as defined in RFC 4648 section 3.2.
-    // This is the same as StdEncoding but omits padding characters.
-    
-    
-**/
-var rawStdEncoding : stdgo.Ref<stdgo.encoding.base64.Base64.Encoding> = stdEncoding.withPadding((-1 : stdgo.GoInt32));
-/**
-    // RawURLEncoding is the unpadded alternate base64 encoding defined in RFC 4648.
-    // It is typically used in URLs and file names.
-    // This is the same as URLEncoding but omits padding characters.
-    
-    
-**/
-var rawURLEncoding : stdgo.Ref<stdgo.encoding.base64.Base64.Encoding> = urlencoding.withPadding((-1 : stdgo.GoInt32));
-/**
-    
-    
-    
-**/
-var _pairs : stdgo.Slice<stdgo.encoding.base64.Base64.T_testpair> = (new stdgo.Slice<stdgo.encoding.base64.Base64.T_testpair>(
-18,
-18,
-(new stdgo.encoding.base64.Base64.T_testpair(stdgo.Go.str(20, 251, 156, 3, 217, "~")?.__copy__(), ("FPucA9l+" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
-(new stdgo.encoding.base64.Base64.T_testpair(stdgo.Go.str(20, 251, 156, 3, 217)?.__copy__(), ("FPucA9k=" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
-(new stdgo.encoding.base64.Base64.T_testpair(stdgo.Go.str(20, 251, 156, 3)?.__copy__(), ("FPucAw==" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
-(new stdgo.encoding.base64.Base64.T_testpair(stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.encoding.base64.Base64.T_testpair),
-(new stdgo.encoding.base64.Base64.T_testpair(("f" : stdgo.GoString), ("Zg==" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
-(new stdgo.encoding.base64.Base64.T_testpair(("fo" : stdgo.GoString), ("Zm8=" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
-(new stdgo.encoding.base64.Base64.T_testpair(("foo" : stdgo.GoString), ("Zm9v" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
-(new stdgo.encoding.base64.Base64.T_testpair(("foob" : stdgo.GoString), ("Zm9vYg==" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
-(new stdgo.encoding.base64.Base64.T_testpair(("fooba" : stdgo.GoString), ("Zm9vYmE=" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
-(new stdgo.encoding.base64.Base64.T_testpair(("foobar" : stdgo.GoString), ("Zm9vYmFy" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
-(new stdgo.encoding.base64.Base64.T_testpair(("sure." : stdgo.GoString), ("c3VyZS4=" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
-(new stdgo.encoding.base64.Base64.T_testpair(("sure" : stdgo.GoString), ("c3VyZQ==" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
-(new stdgo.encoding.base64.Base64.T_testpair(("sur" : stdgo.GoString), ("c3Vy" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
-(new stdgo.encoding.base64.Base64.T_testpair(("su" : stdgo.GoString), ("c3U=" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
-(new stdgo.encoding.base64.Base64.T_testpair(("leasure." : stdgo.GoString), ("bGVhc3VyZS4=" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
-(new stdgo.encoding.base64.Base64.T_testpair(("easure." : stdgo.GoString), ("ZWFzdXJlLg==" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
-(new stdgo.encoding.base64.Base64.T_testpair(("asure." : stdgo.GoString), ("YXN1cmUu" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair),
-(new stdgo.encoding.base64.Base64.T_testpair(("sure." : stdgo.GoString), ("c3VyZS4=" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair)) : stdgo.Slice<stdgo.encoding.base64.Base64.T_testpair>);
-/**
-    // A nonstandard encoding with a funny padding character, for testing
-    
-    
-**/
-var _funnyEncoding : stdgo.Ref<stdgo.encoding.base64.Base64.Encoding> = newEncoding(("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/" : stdgo.GoString)).withPadding(((64 : stdgo.GoInt32) : stdgo.GoRune));
-/**
-    
-    
-    
-**/
-var _encodingTests : stdgo.Slice<stdgo.encoding.base64.Base64.T_encodingTest> = (new stdgo.Slice<stdgo.encoding.base64.Base64.T_encodingTest>(
-10,
-10,
-(new stdgo.encoding.base64.Base64.T_encodingTest(stdEncoding, _stdRef) : stdgo.encoding.base64.Base64.T_encodingTest),
-(new stdgo.encoding.base64.Base64.T_encodingTest(urlencoding, _urlRef) : stdgo.encoding.base64.Base64.T_encodingTest),
-(new stdgo.encoding.base64.Base64.T_encodingTest(rawStdEncoding, _rawRef) : stdgo.encoding.base64.Base64.T_encodingTest),
-(new stdgo.encoding.base64.Base64.T_encodingTest(rawURLEncoding, _rawURLRef) : stdgo.encoding.base64.Base64.T_encodingTest),
-(new stdgo.encoding.base64.Base64.T_encodingTest(_funnyEncoding, _funnyRef) : stdgo.encoding.base64.Base64.T_encodingTest),
-(new stdgo.encoding.base64.Base64.T_encodingTest(stdEncoding.strict(), _stdRef) : stdgo.encoding.base64.Base64.T_encodingTest),
-(new stdgo.encoding.base64.Base64.T_encodingTest(urlencoding.strict(), _urlRef) : stdgo.encoding.base64.Base64.T_encodingTest),
-(new stdgo.encoding.base64.Base64.T_encodingTest(rawStdEncoding.strict(), _rawRef) : stdgo.encoding.base64.Base64.T_encodingTest),
-(new stdgo.encoding.base64.Base64.T_encodingTest(rawURLEncoding.strict(), _rawURLRef) : stdgo.encoding.base64.Base64.T_encodingTest),
-(new stdgo.encoding.base64.Base64.T_encodingTest(_funnyEncoding.strict(), _funnyRef) : stdgo.encoding.base64.Base64.T_encodingTest)) : stdgo.Slice<stdgo.encoding.base64.Base64.T_encodingTest>);
-/**
-    
-    
-    
-**/
-var _bigtest : stdgo.encoding.base64.Base64.T_testpair = (new stdgo.encoding.base64.Base64.T_testpair(("Twas brillig, and the slithy toves" : stdgo.GoString), ("VHdhcyBicmlsbGlnLCBhbmQgdGhlIHNsaXRoeSB0b3Zlcw==" : stdgo.GoString)) : stdgo.encoding.base64.Base64.T_testpair);
 /**
     // An Encoding is a radix 64 encoding/decoding scheme, defined by a
     // 64-character alphabet. The most common encoding is the "base64"
@@ -930,9 +930,7 @@ function _funnyRef(_ref:stdgo.GoString):stdgo.GoString {
 function _testEqual(_t:stdgo.Ref<stdgo.testing.Testing.T_>, _msg:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Bool {
         var _args = new stdgo.Slice<stdgo.AnyInterface>(_args.length, 0, ..._args);
         _t.helper();
-        var _a:stdgo.AnyInterface = _args[((_args.length) - (2 : stdgo.GoInt) : stdgo.GoInt)];
-        var _b:stdgo.AnyInterface = _args[((_args.length) - (1 : stdgo.GoInt) : stdgo.GoInt)];
-        if (_a != (_b)) {
+        if (_args[((_args.length) - (2 : stdgo.GoInt) : stdgo.GoInt)] != (_args[((_args.length) - (1 : stdgo.GoInt) : stdgo.GoInt)])) {
             _t.errorf(_msg?.__copy__(), ..._args.__toArray__());
             return false;
         };

@@ -7479,8 +7479,11 @@ private function typeImport(imp:Ast.ImportSpec, info:Info) {
 	final path = normalizePath(imp.path);
 	final pack = path.split("/");
 	var alias = imp.name;
-	if (alias == "_")
+	var blankAlias = false;
+	if (alias == "_") {
+		blankAlias = true;
 		alias = "";
+	}
 	if (stdgoList.indexOf(toGoPath(path)) != -1) { // haxe only type, otherwise the go code refrences Haxe
 		pack.unshift("stdgo");
 	}
@@ -7501,6 +7504,13 @@ private function typeImport(imp:Ast.ImportSpec, info:Info) {
 			info.renameIdents["atomic"] = pack.join(".");
 		}
 		info.renameIdents[name] = pack.join(".");
+	}
+	if (blankAlias) {
+		info.data.imports.push({
+			path: pack,
+			alias: alias,
+			doc: info.global.noCommentsBool ? "" : doc,
+		});
 	}
 }
 

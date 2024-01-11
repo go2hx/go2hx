@@ -1,0 +1,5 @@
+-lib go2hx
+-cp golibs
+-m github_com.go2hx.go4hx.scripts.hxb.Hxb
+--hl hxb.hl
+--hxb prebuild.zip

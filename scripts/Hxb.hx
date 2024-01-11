@@ -11,16 +11,6 @@ function main() {
     runHxb();
 }
 
-function runHxb() {
-    Sys.println("Run Hxb");
-    Sys.command("haxe -lib go2hx -cp golibs -m github_com.go2hx.go4hx.scripts.hxb.Hxb --hl hxb.hl --hxb-lib prebuild.zip");
-}
-
-function createHxb() {
-    Sys.println("Create Hxb");
-    Sys.command("haxe -lib go2hx -cp golibs -m github_com.go2hx.go4hx.scripts.hxb.Hxb --hl hxb.hl --hxb prebuild.zip");
-}
-
 function runCompiler() {
     Sys.println("Run Compiler");
     Sys.command("haxelib run go2hx ./scripts/hxb");

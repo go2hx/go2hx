@@ -26,10 +26,10 @@ var all : stdgo.Slice<stdgo.internal.godebugs.Godebugs.Info> = (null : stdgo.Sli
 @:structInit class Info {
     public var name : stdgo.GoString = "";
     public var package_ : stdgo.GoString = "";
-    public var changed : stdgo.StdGoTypes.GoInt = 0;
+    public var changed : stdgo.GoInt = 0;
     public var old : stdgo.GoString = "";
     public var opaque : Bool = false;
-    public function new(?name:stdgo.GoString, ?package_:stdgo.GoString, ?changed:stdgo.StdGoTypes.GoInt, ?old:stdgo.GoString, ?opaque:Bool) {
+    public function new(?name:stdgo.GoString, ?package_:stdgo.GoString, ?changed:stdgo.GoInt, ?old:stdgo.GoString, ?opaque:Bool) {
         if (name != null) this.name = name;
         if (package_ != null) this.package_ = package_;
         if (changed != null) this.changed = changed;
@@ -44,4 +44,4 @@ var all : stdgo.Slice<stdgo.internal.godebugs.Godebugs.Info> = (null : stdgo.Sli
 /**
     // Lookup returns the Info with the given name.
 **/
-function lookup(_name:stdgo.GoString):stdgo.StdGoTypes.Ref<Info> throw ":internal.godebugs.lookup is not yet implemented";
+function lookup(_name:stdgo.GoString):stdgo.Ref<Info> throw ":internal.godebugs.lookup is not yet implemented";

@@ -3,7 +3,7 @@ import stdgo.go.token.Token;
 function example_retrievePositionInfo():Void {
         var _fset = stdgo.go.token.Token.newFileSet();
         {};
-        var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, ("main.go" : stdgo.GoString), stdgo.Go.toInterface(("package main\n\nimport \"fmt\"\n\nimport \"go/token\"\n\n//line :1:5\ntype p = token.Pos\n\nconst bad = token.NoPos\n\n//line fake.go:42:11\nfunc ok(pos p) bool {\n\treturn pos != bad\n}\n\n/*line :7:9*/func main() {\n\tfmt.Println(ok(bad) == bad.IsValid())\n}\n" : stdgo.GoString)), (0u32 : stdgo.go.parser.Parser.Mode)), _f:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, ("main.go" : stdgo.GoString), stdgo.Go.toInterface(("package main\n\nimport \"fmt\"\n\nimport \"go/token\"\n\n//line :1:5\ntype p = token.Pos\n\nconst bad = token.NoPos\n\n//line fake.go:42:11\nfunc ok(pos p) bool {\n\treturn pos != bad\n}\n\n/*line :7:9*/func main() {\n\tfmt.Println(ok(bad) == bad.IsValid())\n}\n" : stdgo.GoString)), (0u32 : stdgo.go.parser.Parser.Mode)), _f:stdgo.Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_err));
             return;
@@ -15,9 +15,9 @@ function example_retrievePositionInfo():Void {
             var _kind:stdgo.GoString = ("func" : stdgo.GoString);
             {
                 var __tmp__ = try {
-                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_decl) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>), _1 : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_decl) : stdgo.Ref<stdgo.go.ast.Ast.GenDecl>)) : stdgo.Ref<stdgo.go.ast.Ast.GenDecl>), _1 : true };
                 } catch(_) {
-                    { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>), _1 : false };
+                    { _0 : (null : stdgo.Ref<stdgo.go.ast.Ast.GenDecl>), _1 : false };
                 }, _gen = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
                     _kind = (_gen.tok.string() : stdgo.GoString)?.__copy__();

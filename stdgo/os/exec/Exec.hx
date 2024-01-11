@@ -101,13 +101,13 @@ var errWaitDelay : stdgo.Error = (null : stdgo.Error);
     
     
 **/
-var _execwait : stdgo.StdGoTypes.Ref<stdgo.internal.godebug.Godebug.Setting> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.godebug.Godebug.Setting>);
+var _execwait : stdgo.Ref<stdgo.internal.godebug.Godebug.Setting> = (null : stdgo.Ref<stdgo.internal.godebug.Godebug.Setting>);
 /**
     
     
     
 **/
-var _execerrdot : stdgo.StdGoTypes.Ref<stdgo.internal.godebug.Godebug.Setting> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.godebug.Godebug.Setting>);
+var _execerrdot : stdgo.Ref<stdgo.internal.godebug.Godebug.Setting> = (null : stdgo.Ref<stdgo.internal.godebug.Godebug.Setting>);
 /**
     // ErrDot indicates that a path lookup resolved to an executable
     // in the current directory due to ‘.’ being in the path, either
@@ -121,17 +121,17 @@ var _execerrdot : stdgo.StdGoTypes.Ref<stdgo.internal.godebug.Godebug.Setting> =
 **/
 var errDot : stdgo.Error = (null : stdgo.Error);
 /**
-    // ErrNotFound is the error resulting if a path search failed to find an executable file.
-    
-    
-**/
-var errNotFound : stdgo.Error = (null : stdgo.Error);
-/**
     
     
     
 **/
 var _nonExistentPaths : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
+/**
+    // ErrNotFound is the error resulting if a path search failed to find an executable file.
+    
+    
+**/
+var errNotFound : stdgo.Error = (null : stdgo.Error);
 /**
     // Error is returned by LookPath when it fails to classify a file as an
     // executable.
@@ -257,22 +257,22 @@ var _nonExistentPaths : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.
         //
         // ExtraFiles is not supported on Windows.
     **/
-    public var extraFiles : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.os.Os.File>> = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.os.Os.File>>);
+    public var extraFiles : stdgo.Slice<stdgo.Ref<stdgo.os.Os.File>> = (null : stdgo.Slice<stdgo.Ref<stdgo.os.Os.File>>);
     /**
         // SysProcAttr holds optional, operating system-specific attributes.
         // Run passes it to os.StartProcess as the os.ProcAttr's Sys field.
     **/
-    public var sysProcAttr : stdgo.StdGoTypes.Ref<stdgo.syscall.Syscall.SysProcAttr> = (null : stdgo.StdGoTypes.Ref<stdgo.syscall.Syscall.SysProcAttr>);
+    public var sysProcAttr : stdgo.Ref<stdgo.syscall.Syscall.SysProcAttr> = (null : stdgo.Ref<stdgo.syscall.Syscall.SysProcAttr>);
     /**
         // Process is the underlying process, once started.
     **/
-    public var process : stdgo.StdGoTypes.Ref<stdgo.os.Os.Process> = (null : stdgo.StdGoTypes.Ref<stdgo.os.Os.Process>);
+    public var process : stdgo.Ref<stdgo.os.Os.Process> = (null : stdgo.Ref<stdgo.os.Os.Process>);
     /**
         // ProcessState contains information about an exited process.
         // If the process was started successfully, Wait or Run will
         // populate its ProcessState when the command completes.
     **/
-    public var processState : stdgo.StdGoTypes.Ref<stdgo.os.Os.ProcessState> = (null : stdgo.StdGoTypes.Ref<stdgo.os.Os.ProcessState>);
+    public var processState : stdgo.Ref<stdgo.os.Os.ProcessState> = (null : stdgo.Ref<stdgo.os.Os.ProcessState>);
     /**
         // ctx is the context passed to CommandContext, if any.
     **/
@@ -333,7 +333,7 @@ var _nonExistentPaths : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.
         // which might not occur until orphaned subprocesses of the command have
         // also closed their descriptors for the pipes.
     **/
-    public var waitDelay : stdgo.time.Time.Duration = ((0 : stdgo.StdGoTypes.GoInt64) : stdgo.time.Time.Duration);
+    public var waitDelay : stdgo.time.Time.Duration = ((0 : stdgo.GoInt64) : stdgo.time.Time.Duration);
     /**
         // childIOFiles holds closers for any of the child process's
         // stdin, stdout, and/or stderr files that were opened by the Cmd itself
@@ -368,7 +368,7 @@ var _nonExistentPaths : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.
         // The stack saved when the Command was created, if GODEBUG contains
         // execwait=2. Used for debugging leaks.
     **/
-    public var _createdByStack : stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
+    public var _createdByStack : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     /**
         // For a security release long ago, we created x/sys/execabs,
         // which manipulated the unexported lookPathErr error field
@@ -389,7 +389,7 @@ var _nonExistentPaths : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.
         // and https://go.dev/issue/43724 for more context.
     **/
     public var _lookPathErr : stdgo.Error = (null : stdgo.Error);
-    public function new(?path:stdgo.GoString, ?args:stdgo.Slice<stdgo.GoString>, ?env:stdgo.Slice<stdgo.GoString>, ?dir:stdgo.GoString, ?stdin:stdgo.io.Io.Reader, ?stdout:stdgo.io.Io.Writer, ?stderr:stdgo.io.Io.Writer, ?extraFiles:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.os.Os.File>>, ?sysProcAttr:stdgo.StdGoTypes.Ref<stdgo.syscall.Syscall.SysProcAttr>, ?process:stdgo.StdGoTypes.Ref<stdgo.os.Os.Process>, ?processState:stdgo.StdGoTypes.Ref<stdgo.os.Os.ProcessState>, ?_ctx:stdgo.context.Context.Context, ?err:stdgo.Error, ?cancel:() -> stdgo.Error, ?waitDelay:stdgo.time.Time.Duration, ?_childIOFiles:stdgo.Slice<stdgo.io.Io.Closer>, ?_parentIOPipes:stdgo.Slice<stdgo.io.Io.Closer>, ?_goroutine:stdgo.Slice<() -> stdgo.Error>, ?_goroutineErr:stdgo.Chan<stdgo.Error>, ?_ctxResult:stdgo.Chan<stdgo.os.exec.Exec.T_ctxResult>, ?_createdByStack:stdgo.Slice<stdgo.StdGoTypes.GoUInt8>, ?_lookPathErr:stdgo.Error) {
+    public function new(?path:stdgo.GoString, ?args:stdgo.Slice<stdgo.GoString>, ?env:stdgo.Slice<stdgo.GoString>, ?dir:stdgo.GoString, ?stdin:stdgo.io.Io.Reader, ?stdout:stdgo.io.Io.Writer, ?stderr:stdgo.io.Io.Writer, ?extraFiles:stdgo.Slice<stdgo.Ref<stdgo.os.Os.File>>, ?sysProcAttr:stdgo.Ref<stdgo.syscall.Syscall.SysProcAttr>, ?process:stdgo.Ref<stdgo.os.Os.Process>, ?processState:stdgo.Ref<stdgo.os.Os.ProcessState>, ?_ctx:stdgo.context.Context.Context, ?err:stdgo.Error, ?cancel:() -> stdgo.Error, ?waitDelay:stdgo.time.Time.Duration, ?_childIOFiles:stdgo.Slice<stdgo.io.Io.Closer>, ?_parentIOPipes:stdgo.Slice<stdgo.io.Io.Closer>, ?_goroutine:stdgo.Slice<() -> stdgo.Error>, ?_goroutineErr:stdgo.Chan<stdgo.Error>, ?_ctxResult:stdgo.Chan<stdgo.os.exec.Exec.T_ctxResult>, ?_createdByStack:stdgo.Slice<stdgo.GoUInt8>, ?_lookPathErr:stdgo.Error) {
         if (path != null) this.path = path;
         if (args != null) this.args = args;
         if (env != null) this.env = env;
@@ -456,8 +456,8 @@ _lookPathErr);
         // command completed, or no WaitDelay was set, or the WaitDelay already
         // expired and its effect was already applied.)
     **/
-    public var _timer : stdgo.StdGoTypes.Ref<stdgo.time.Time.Timer> = (null : stdgo.StdGoTypes.Ref<stdgo.time.Time.Timer>);
-    public function new(?_err:stdgo.Error, ?_timer:stdgo.StdGoTypes.Ref<stdgo.time.Time.Timer>) {
+    public var _timer : stdgo.Ref<stdgo.time.Time.Timer> = (null : stdgo.Ref<stdgo.time.Time.Timer>);
+    public function new(?_err:stdgo.Error, ?_timer:stdgo.Ref<stdgo.time.Time.Timer>) {
         if (_err != null) this._err = _err;
         if (_timer != null) this._timer = _timer;
     }
@@ -473,7 +473,7 @@ _lookPathErr);
 **/
 @:structInit @:using(stdgo.os.exec.Exec.ExitError_static_extension) class ExitError {
     @:embedded
-    public var processState : stdgo.StdGoTypes.Ref<stdgo.os.Os.ProcessState> = (null : stdgo.StdGoTypes.Ref<stdgo.os.Os.ProcessState>);
+    public var processState : stdgo.Ref<stdgo.os.Os.ProcessState> = (null : stdgo.Ref<stdgo.os.Os.ProcessState>);
     /**
         // Stderr holds a subset of the standard error output from the
         // Cmd.Output method if standard error was not otherwise being
@@ -486,42 +486,42 @@ _lookPathErr);
         // Stderr is provided for debugging, for inclusion in error messages.
         // Users with other needs should redirect Cmd.Stderr as needed.
     **/
-    public var stderr : stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
-    public function new(?processState:stdgo.StdGoTypes.Ref<stdgo.os.Os.ProcessState>, ?stderr:stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) {
+    public var stderr : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+    public function new(?processState:stdgo.Ref<stdgo.os.Os.ProcessState>, ?stderr:stdgo.Slice<stdgo.GoUInt8>) {
         if (processState != null) this.processState = processState;
         if (stderr != null) this.stderr = stderr;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     @:embedded
-    public function exitCode():stdgo.StdGoTypes.GoInt return (0 : stdgo.StdGoTypes.GoInt);
+    public function exitCode():stdgo.GoInt return (0 : stdgo.GoInt);
     @:embedded
     public function exited():Bool return false;
     @:embedded
-    public function pid():stdgo.StdGoTypes.GoInt return (0 : stdgo.StdGoTypes.GoInt);
+    public function pid():stdgo.GoInt return (0 : stdgo.GoInt);
     @:embedded
     public function string():stdgo.GoString return ("" : stdgo.GoString);
     @:embedded
     public function success():Bool return false;
     @:embedded
-    public function sys():stdgo.StdGoTypes.AnyInterface return (null : stdgo.StdGoTypes.AnyInterface);
+    public function sys():stdgo.AnyInterface return (null : stdgo.AnyInterface);
     @:embedded
-    public function sysUsage():stdgo.StdGoTypes.AnyInterface return (null : stdgo.StdGoTypes.AnyInterface);
+    public function sysUsage():stdgo.AnyInterface return (null : stdgo.AnyInterface);
     @:embedded
-    public function systemTime():stdgo.time.Time.Duration return ((0 : stdgo.StdGoTypes.GoInt64) : stdgo.time.Time.Duration);
+    public function systemTime():stdgo.time.Time.Duration return ((0 : stdgo.GoInt64) : stdgo.time.Time.Duration);
     @:embedded
-    public function userTime():stdgo.time.Time.Duration return ((0 : stdgo.StdGoTypes.GoInt64) : stdgo.time.Time.Duration);
+    public function userTime():stdgo.time.Time.Duration return ((0 : stdgo.GoInt64) : stdgo.time.Time.Duration);
     @:embedded
     public function _exited():Bool return false;
     @:embedded
     public function _success():Bool return false;
     @:embedded
-    public function _sys():stdgo.StdGoTypes.AnyInterface return (null : stdgo.StdGoTypes.AnyInterface);
+    public function _sys():stdgo.AnyInterface return (null : stdgo.AnyInterface);
     @:embedded
-    public function _sysUsage():stdgo.StdGoTypes.AnyInterface return (null : stdgo.StdGoTypes.AnyInterface);
+    public function _sysUsage():stdgo.AnyInterface return (null : stdgo.AnyInterface);
     @:embedded
-    public function _systemTime():stdgo.time.Time.Duration return ((0 : stdgo.StdGoTypes.GoInt64) : stdgo.time.Time.Duration);
+    public function _systemTime():stdgo.time.Time.Duration return ((0 : stdgo.GoInt64) : stdgo.time.Time.Duration);
     @:embedded
-    public function _userTime():stdgo.time.Time.Duration return ((0 : stdgo.StdGoTypes.GoInt64) : stdgo.time.Time.Duration);
+    public function _userTime():stdgo.time.Time.Duration return ((0 : stdgo.GoInt64) : stdgo.time.Time.Duration);
     public function __copy__() {
         return new ExitError(processState, stderr);
     }
@@ -534,12 +534,12 @@ _lookPathErr);
     
 **/
 @:structInit @:private @:using(stdgo.os.exec.Exec.T_prefixSuffixSaver_static_extension) class T_prefixSuffixSaver {
-    public var n : stdgo.StdGoTypes.GoInt = 0;
-    public var _prefix : stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
-    public var _suffix : stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
-    public var _suffixOff : stdgo.StdGoTypes.GoInt = 0;
-    public var _skipped : stdgo.StdGoTypes.GoInt64 = 0;
-    public function new(?n:stdgo.StdGoTypes.GoInt, ?_prefix:stdgo.Slice<stdgo.StdGoTypes.GoUInt8>, ?_suffix:stdgo.Slice<stdgo.StdGoTypes.GoUInt8>, ?_suffixOff:stdgo.StdGoTypes.GoInt, ?_skipped:stdgo.StdGoTypes.GoInt64) {
+    public var n : stdgo.GoInt = 0;
+    public var _prefix : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+    public var _suffix : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+    public var _suffixOff : stdgo.GoInt = 0;
+    public var _skipped : stdgo.GoInt64 = 0;
+    public function new(?n:stdgo.GoInt, ?_prefix:stdgo.Slice<stdgo.GoUInt8>, ?_suffix:stdgo.Slice<stdgo.GoUInt8>, ?_suffixOff:stdgo.GoInt, ?_skipped:stdgo.GoInt64) {
         if (n != null) this.n = n;
         if (_prefix != null) this._prefix = _prefix;
         if (_suffix != null) this._suffix = _suffix;
@@ -551,8 +551,8 @@ _lookPathErr);
         return new T_prefixSuffixSaver(n, _prefix, _suffix, _suffixOff, _skipped);
     }
 }
-function benchmarkExecHostname(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void throw ":os.exec.benchmarkExecHostname is not yet implemented";
-function testDedupEnv(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":os.exec.testDedupEnv is not yet implemented";
+function benchmarkExecHostname(_b:stdgo.Ref<stdgo.testing.Testing.B>):Void throw ":os.exec.benchmarkExecHostname is not yet implemented";
+function testDedupEnv(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void throw ":os.exec.testDedupEnv is not yet implemented";
 /**
     // Command returns the Cmd struct to execute the named program with
     // the given arguments.
@@ -577,7 +577,7 @@ function testDedupEnv(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void th
     // quoting yourself and provide the full command line in SysProcAttr.CmdLine,
     // leaving Args empty.
 **/
-function command(_name:stdgo.GoString, _arg:haxe.Rest<stdgo.GoString>):stdgo.StdGoTypes.Ref<Cmd> throw ":os.exec.command is not yet implemented";
+function command(_name:stdgo.GoString, _arg:haxe.Rest<stdgo.GoString>):stdgo.Ref<Cmd> throw ":os.exec.command is not yet implemented";
 /**
     // CommandContext is like Command but includes a context.
     //
@@ -589,12 +589,12 @@ function command(_name:stdgo.GoString, _arg:haxe.Rest<stdgo.GoString>):stdgo.Std
     // on its Process, and leaves its WaitDelay unset. The caller may change the
     // cancellation behavior by modifying those fields before starting the command.
 **/
-function commandContext(_ctx:stdgo.context.Context.Context, _name:stdgo.GoString, _arg:haxe.Rest<stdgo.GoString>):stdgo.StdGoTypes.Ref<Cmd> throw ":os.exec.commandContext is not yet implemented";
+function commandContext(_ctx:stdgo.context.Context.Context, _name:stdgo.GoString, _arg:haxe.Rest<stdgo.GoString>):stdgo.Ref<Cmd> throw ":os.exec.commandContext is not yet implemented";
 /**
     // interfaceEqual protects against panics from doing equality tests on
     // two interfaces with non-comparable underlying types.
 **/
-function _interfaceEqual(_a:stdgo.StdGoTypes.AnyInterface, _b:stdgo.StdGoTypes.AnyInterface):Bool throw ":os.exec._interfaceEqual is not yet implemented";
+function _interfaceEqual(_a:stdgo.AnyInterface, _b:stdgo.AnyInterface):Bool throw ":os.exec._interfaceEqual is not yet implemented";
 function _closeDescriptors(_closers:stdgo.Slice<stdgo.io.Io.Closer>):Void throw ":os.exec._closeDescriptors is not yet implemented";
 /**
     // lookExtensions finds windows executable by its dir and path.
@@ -602,7 +602,7 @@ function _closeDescriptors(_closers:stdgo.Slice<stdgo.io.Io.Closer>):Void throw 
     // lookExtensions does not search PATH, instead it converts `prog` into `.\prog`.
 **/
 function _lookExtensions(_path:stdgo.GoString, _dir:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } throw ":os.exec._lookExtensions is not yet implemented";
-function _minInt(_a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt throw ":os.exec._minInt is not yet implemented";
+function _minInt(_a:stdgo.GoInt, _b:stdgo.GoInt):stdgo.GoInt throw ":os.exec._minInt is not yet implemented";
 /**
     // dedupEnv returns a copy of env with any duplicates removed, in favor of
     // later values.
@@ -628,8 +628,8 @@ function _addCriticalEnv(_env:stdgo.Slice<stdgo.GoString>):stdgo.Slice<stdgo.GoS
     // whether the provided stdin copy error should be ignored.
 **/
 function _skipStdinCopyError(_err:stdgo.Error):Bool throw ":os.exec._skipStdinCopyError is not yet implemented";
-function testPrefixSuffixSaver(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":os.exec.testPrefixSuffixSaver is not yet implemented";
-function testLookPathNotFound(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void throw ":os.exec.testLookPathNotFound is not yet implemented";
+function testPrefixSuffixSaver(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void throw ":os.exec.testPrefixSuffixSaver is not yet implemented";
+function testLookPathNotFound(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void throw ":os.exec.testLookPathNotFound is not yet implemented";
 /**
     // LookPath searches for an executable named file in the
     // directories named by the PATH environment variable.
@@ -646,15 +646,15 @@ class T_error_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T_error>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.os.exec.Exec.T_error_asInterface) class T_error_static_extension {
     @:keep
-    static public function unwrap( _e:stdgo.StdGoTypes.Ref<T_error>):stdgo.Error throw "T_error:os.exec.unwrap is not yet implemented";
+    static public function unwrap( _e:stdgo.Ref<T_error>):stdgo.Error throw "T_error:os.exec.unwrap is not yet implemented";
     @:keep
-    static public function error( _e:stdgo.StdGoTypes.Ref<T_error>):stdgo.GoString throw "T_error:os.exec.error is not yet implemented";
+    static public function error( _e:stdgo.Ref<T_error>):stdgo.GoString throw "T_error:os.exec.error is not yet implemented";
 }
 class T_wrappedError_asInterface {
     @:keep
@@ -665,7 +665,7 @@ class T_wrappedError_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T_wrappedError>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -728,14 +728,14 @@ class Cmd_asInterface {
         // output and standard error.
     **/
     @:keep
-    public dynamic function combinedOutput():{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _1 : stdgo.Error; } return __self__.value.combinedOutput();
+    public dynamic function combinedOutput():{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } return __self__.value.combinedOutput();
     /**
         // Output runs the command and returns its standard output.
         // Any returned error will usually be of type *ExitError.
         // If c.Stderr was nil, Output populates ExitError.Stderr.
     **/
     @:keep
-    public dynamic function output():{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _1 : stdgo.Error; } return __self__.value.output();
+    public dynamic function output():{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } return __self__.value.output();
     /**
         // awaitGoroutines waits for the results of the goroutines copying data to or
         // from the command's I/O pipes.
@@ -746,7 +746,7 @@ class Cmd_asInterface {
         // If timer is non-nil, it must send to timer.C at the end of c.WaitDelay.
     **/
     @:keep
-    public dynamic function _awaitGoroutines(_timer:stdgo.StdGoTypes.Ref<stdgo.time.Time.Timer>):stdgo.Error return __self__.value._awaitGoroutines(_timer);
+    public dynamic function _awaitGoroutines(_timer:stdgo.Ref<stdgo.time.Time.Timer>):stdgo.Error return __self__.value._awaitGoroutines(_timer);
     /**
         // Wait waits for the command to exit and waits for any copying to
         // stdin or copying from stdout or stderr to complete.
@@ -813,13 +813,13 @@ class Cmd_asInterface {
         // If w is nil, writerDescriptor returns a File that writes to os.DevNull.
     **/
     @:keep
-    public dynamic function _writerDescriptor(_w:stdgo.io.Io.Writer):{ var _0 : stdgo.StdGoTypes.Ref<stdgo.os.Os.File>; var _1 : stdgo.Error; } return __self__.value._writerDescriptor(_w);
+    public dynamic function _writerDescriptor(_w:stdgo.io.Io.Writer):{ var _0 : stdgo.Ref<stdgo.os.Os.File>; var _1 : stdgo.Error; } return __self__.value._writerDescriptor(_w);
     @:keep
-    public dynamic function _childStderr(_childStdout:stdgo.StdGoTypes.Ref<stdgo.os.Os.File>):{ var _0 : stdgo.StdGoTypes.Ref<stdgo.os.Os.File>; var _1 : stdgo.Error; } return __self__.value._childStderr(_childStdout);
+    public dynamic function _childStderr(_childStdout:stdgo.Ref<stdgo.os.Os.File>):{ var _0 : stdgo.Ref<stdgo.os.Os.File>; var _1 : stdgo.Error; } return __self__.value._childStderr(_childStdout);
     @:keep
-    public dynamic function _childStdout():{ var _0 : stdgo.StdGoTypes.Ref<stdgo.os.Os.File>; var _1 : stdgo.Error; } return __self__.value._childStdout();
+    public dynamic function _childStdout():{ var _0 : stdgo.Ref<stdgo.os.Os.File>; var _1 : stdgo.Error; } return __self__.value._childStdout();
     @:keep
-    public dynamic function _childStdin():{ var _0 : stdgo.StdGoTypes.Ref<stdgo.os.Os.File>; var _1 : stdgo.Error; } return __self__.value._childStdin();
+    public dynamic function _childStdin():{ var _0 : stdgo.Ref<stdgo.os.Os.File>; var _1 : stdgo.Error; } return __self__.value._childStdin();
     @:keep
     public dynamic function _argv():stdgo.Slice<stdgo.GoString> return __self__.value._argv();
     /**
@@ -834,7 +834,7 @@ class Cmd_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<Cmd>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -844,14 +844,14 @@ class Cmd_asInterface {
         // as it is currently configured.
     **/
     @:keep
-    static public function environ( _c:stdgo.StdGoTypes.Ref<Cmd>):stdgo.Slice<stdgo.GoString> throw "Cmd:os.exec.environ is not yet implemented";
+    static public function environ( _c:stdgo.Ref<Cmd>):stdgo.Slice<stdgo.GoString> throw "Cmd:os.exec.environ is not yet implemented";
     /**
         // environ returns a best-effort copy of the environment in which the command
         // would be run as it is currently configured. If an error occurs in computing
         // the environment, it is returned alongside the best-effort copy.
     **/
     @:keep
-    static public function _environ( _c:stdgo.StdGoTypes.Ref<Cmd>):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } throw "Cmd:os.exec._environ is not yet implemented";
+    static public function _environ( _c:stdgo.Ref<Cmd>):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } throw "Cmd:os.exec._environ is not yet implemented";
     /**
         // StderrPipe returns a pipe that will be connected to the command's
         // standard error when the command starts.
@@ -863,7 +863,7 @@ class Cmd_asInterface {
         // See the StdoutPipe example for idiomatic usage.
     **/
     @:keep
-    static public function stderrPipe( _c:stdgo.StdGoTypes.Ref<Cmd>):{ var _0 : stdgo.io.Io.ReadCloser; var _1 : stdgo.Error; } throw "Cmd:os.exec.stderrPipe is not yet implemented";
+    static public function stderrPipe( _c:stdgo.Ref<Cmd>):{ var _0 : stdgo.io.Io.ReadCloser; var _1 : stdgo.Error; } throw "Cmd:os.exec.stderrPipe is not yet implemented";
     /**
         // StdoutPipe returns a pipe that will be connected to the command's
         // standard output when the command starts.
@@ -875,7 +875,7 @@ class Cmd_asInterface {
         // See the example for idiomatic usage.
     **/
     @:keep
-    static public function stdoutPipe( _c:stdgo.StdGoTypes.Ref<Cmd>):{ var _0 : stdgo.io.Io.ReadCloser; var _1 : stdgo.Error; } throw "Cmd:os.exec.stdoutPipe is not yet implemented";
+    static public function stdoutPipe( _c:stdgo.Ref<Cmd>):{ var _0 : stdgo.io.Io.ReadCloser; var _1 : stdgo.Error; } throw "Cmd:os.exec.stdoutPipe is not yet implemented";
     /**
         // StdinPipe returns a pipe that will be connected to the command's
         // standard input when the command starts.
@@ -885,20 +885,20 @@ class Cmd_asInterface {
         // is closed, the caller must close the pipe.
     **/
     @:keep
-    static public function stdinPipe( _c:stdgo.StdGoTypes.Ref<Cmd>):{ var _0 : stdgo.io.Io.WriteCloser; var _1 : stdgo.Error; } throw "Cmd:os.exec.stdinPipe is not yet implemented";
+    static public function stdinPipe( _c:stdgo.Ref<Cmd>):{ var _0 : stdgo.io.Io.WriteCloser; var _1 : stdgo.Error; } throw "Cmd:os.exec.stdinPipe is not yet implemented";
     /**
         // CombinedOutput runs the command and returns its combined standard
         // output and standard error.
     **/
     @:keep
-    static public function combinedOutput( _c:stdgo.StdGoTypes.Ref<Cmd>):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _1 : stdgo.Error; } throw "Cmd:os.exec.combinedOutput is not yet implemented";
+    static public function combinedOutput( _c:stdgo.Ref<Cmd>):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } throw "Cmd:os.exec.combinedOutput is not yet implemented";
     /**
         // Output runs the command and returns its standard output.
         // Any returned error will usually be of type *ExitError.
         // If c.Stderr was nil, Output populates ExitError.Stderr.
     **/
     @:keep
-    static public function output( _c:stdgo.StdGoTypes.Ref<Cmd>):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _1 : stdgo.Error; } throw "Cmd:os.exec.output is not yet implemented";
+    static public function output( _c:stdgo.Ref<Cmd>):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } throw "Cmd:os.exec.output is not yet implemented";
     /**
         // awaitGoroutines waits for the results of the goroutines copying data to or
         // from the command's I/O pipes.
@@ -909,7 +909,7 @@ class Cmd_asInterface {
         // If timer is non-nil, it must send to timer.C at the end of c.WaitDelay.
     **/
     @:keep
-    static public function _awaitGoroutines( _c:stdgo.StdGoTypes.Ref<Cmd>, _timer:stdgo.StdGoTypes.Ref<stdgo.time.Time.Timer>):stdgo.Error throw "Cmd:os.exec._awaitGoroutines is not yet implemented";
+    static public function _awaitGoroutines( _c:stdgo.Ref<Cmd>, _timer:stdgo.Ref<stdgo.time.Time.Timer>):stdgo.Error throw "Cmd:os.exec._awaitGoroutines is not yet implemented";
     /**
         // Wait waits for the command to exit and waits for any copying to
         // stdin or copying from stdout or stderr to complete.
@@ -930,7 +930,7 @@ class Cmd_asInterface {
         // Wait releases any resources associated with the Cmd.
     **/
     @:keep
-    static public function wait_( _c:stdgo.StdGoTypes.Ref<Cmd>):stdgo.Error throw "Cmd:os.exec.wait_ is not yet implemented";
+    static public function wait_( _c:stdgo.Ref<Cmd>):stdgo.Error throw "Cmd:os.exec.wait_ is not yet implemented";
     /**
         // watchCtx watches c.ctx until it is able to send a result to resultc.
         //
@@ -941,7 +941,7 @@ class Cmd_asInterface {
         // c.awaitGoroutines is called.
     **/
     @:keep
-    static public function _watchCtx( _c:stdgo.StdGoTypes.Ref<Cmd>, _resultc:stdgo.Chan<T_ctxResult>):Void throw "Cmd:os.exec._watchCtx is not yet implemented";
+    static public function _watchCtx( _c:stdgo.Ref<Cmd>, _resultc:stdgo.Chan<T_ctxResult>):Void throw "Cmd:os.exec._watchCtx is not yet implemented";
     /**
         // Start starts the specified command but does not wait for it to complete.
         //
@@ -951,7 +951,7 @@ class Cmd_asInterface {
         // order to release associated system resources.
     **/
     @:keep
-    static public function start( _c:stdgo.StdGoTypes.Ref<Cmd>):stdgo.Error throw "Cmd:os.exec.start is not yet implemented";
+    static public function start( _c:stdgo.Ref<Cmd>):stdgo.Error throw "Cmd:os.exec.start is not yet implemented";
     /**
         // Run starts the specified command and waits for it to complete.
         //
@@ -968,7 +968,7 @@ class Cmd_asInterface {
         // process will inherit the caller's thread state.
     **/
     @:keep
-    static public function run( _c:stdgo.StdGoTypes.Ref<Cmd>):stdgo.Error throw "Cmd:os.exec.run is not yet implemented";
+    static public function run( _c:stdgo.Ref<Cmd>):stdgo.Error throw "Cmd:os.exec.run is not yet implemented";
     /**
         // writerDescriptor returns an os.File to which the child process
         // can write to send data to w.
@@ -976,15 +976,15 @@ class Cmd_asInterface {
         // If w is nil, writerDescriptor returns a File that writes to os.DevNull.
     **/
     @:keep
-    static public function _writerDescriptor( _c:stdgo.StdGoTypes.Ref<Cmd>, _w:stdgo.io.Io.Writer):{ var _0 : stdgo.StdGoTypes.Ref<stdgo.os.Os.File>; var _1 : stdgo.Error; } throw "Cmd:os.exec._writerDescriptor is not yet implemented";
+    static public function _writerDescriptor( _c:stdgo.Ref<Cmd>, _w:stdgo.io.Io.Writer):{ var _0 : stdgo.Ref<stdgo.os.Os.File>; var _1 : stdgo.Error; } throw "Cmd:os.exec._writerDescriptor is not yet implemented";
     @:keep
-    static public function _childStderr( _c:stdgo.StdGoTypes.Ref<Cmd>, _childStdout:stdgo.StdGoTypes.Ref<stdgo.os.Os.File>):{ var _0 : stdgo.StdGoTypes.Ref<stdgo.os.Os.File>; var _1 : stdgo.Error; } throw "Cmd:os.exec._childStderr is not yet implemented";
+    static public function _childStderr( _c:stdgo.Ref<Cmd>, _childStdout:stdgo.Ref<stdgo.os.Os.File>):{ var _0 : stdgo.Ref<stdgo.os.Os.File>; var _1 : stdgo.Error; } throw "Cmd:os.exec._childStderr is not yet implemented";
     @:keep
-    static public function _childStdout( _c:stdgo.StdGoTypes.Ref<Cmd>):{ var _0 : stdgo.StdGoTypes.Ref<stdgo.os.Os.File>; var _1 : stdgo.Error; } throw "Cmd:os.exec._childStdout is not yet implemented";
+    static public function _childStdout( _c:stdgo.Ref<Cmd>):{ var _0 : stdgo.Ref<stdgo.os.Os.File>; var _1 : stdgo.Error; } throw "Cmd:os.exec._childStdout is not yet implemented";
     @:keep
-    static public function _childStdin( _c:stdgo.StdGoTypes.Ref<Cmd>):{ var _0 : stdgo.StdGoTypes.Ref<stdgo.os.Os.File>; var _1 : stdgo.Error; } throw "Cmd:os.exec._childStdin is not yet implemented";
+    static public function _childStdin( _c:stdgo.Ref<Cmd>):{ var _0 : stdgo.Ref<stdgo.os.Os.File>; var _1 : stdgo.Error; } throw "Cmd:os.exec._childStdin is not yet implemented";
     @:keep
-    static public function _argv( _c:stdgo.StdGoTypes.Ref<Cmd>):stdgo.Slice<stdgo.GoString> throw "Cmd:os.exec._argv is not yet implemented";
+    static public function _argv( _c:stdgo.Ref<Cmd>):stdgo.Slice<stdgo.GoString> throw "Cmd:os.exec._argv is not yet implemented";
     /**
         // String returns a human-readable description of c.
         // It is intended only for debugging.
@@ -992,7 +992,7 @@ class Cmd_asInterface {
         // The output of String may vary across Go releases.
     **/
     @:keep
-    static public function string( _c:stdgo.StdGoTypes.Ref<Cmd>):stdgo.GoString throw "Cmd:os.exec.string is not yet implemented";
+    static public function string( _c:stdgo.Ref<Cmd>):stdgo.GoString throw "Cmd:os.exec.string is not yet implemented";
 }
 class ExitError_asInterface {
     @:keep
@@ -1002,9 +1002,9 @@ class ExitError_asInterface {
     @:embedded
     public dynamic function _systemTime():stdgo.time.Time.Duration return __self__.value._systemTime();
     @:embedded
-    public dynamic function _sysUsage():stdgo.StdGoTypes.AnyInterface return __self__.value._sysUsage();
+    public dynamic function _sysUsage():stdgo.AnyInterface return __self__.value._sysUsage();
     @:embedded
-    public dynamic function _sys():stdgo.StdGoTypes.AnyInterface return __self__.value._sys();
+    public dynamic function _sys():stdgo.AnyInterface return __self__.value._sys();
     @:embedded
     public dynamic function _success():Bool return __self__.value._success();
     @:embedded
@@ -1014,38 +1014,38 @@ class ExitError_asInterface {
     @:embedded
     public dynamic function systemTime():stdgo.time.Time.Duration return __self__.value.systemTime();
     @:embedded
-    public dynamic function sysUsage():stdgo.StdGoTypes.AnyInterface return __self__.value.sysUsage();
+    public dynamic function sysUsage():stdgo.AnyInterface return __self__.value.sysUsage();
     @:embedded
-    public dynamic function sys():stdgo.StdGoTypes.AnyInterface return __self__.value.sys();
+    public dynamic function sys():stdgo.AnyInterface return __self__.value.sys();
     @:embedded
     public dynamic function success():Bool return __self__.value.success();
     @:embedded
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:embedded
-    public dynamic function pid():stdgo.StdGoTypes.GoInt return __self__.value.pid();
+    public dynamic function pid():stdgo.GoInt return __self__.value.pid();
     @:embedded
     public dynamic function exited():Bool return __self__.value.exited();
     @:embedded
-    public dynamic function exitCode():stdgo.StdGoTypes.GoInt return __self__.value.exitCode();
+    public dynamic function exitCode():stdgo.GoInt return __self__.value.exitCode();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<ExitError>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.os.exec.Exec.ExitError_asInterface) class ExitError_static_extension {
     @:keep
-    static public function error( _e:stdgo.StdGoTypes.Ref<ExitError>):stdgo.GoString throw "ExitError:os.exec.error is not yet implemented";
+    static public function error( _e:stdgo.Ref<ExitError>):stdgo.GoString throw "ExitError:os.exec.error is not yet implemented";
     @:embedded
     public static function _userTime( __self__:ExitError):stdgo.time.Time.Duration return __self__._userTime();
     @:embedded
     public static function _systemTime( __self__:ExitError):stdgo.time.Time.Duration return __self__._systemTime();
     @:embedded
-    public static function _sysUsage( __self__:ExitError):stdgo.StdGoTypes.AnyInterface return __self__._sysUsage();
+    public static function _sysUsage( __self__:ExitError):stdgo.AnyInterface return __self__._sysUsage();
     @:embedded
-    public static function _sys( __self__:ExitError):stdgo.StdGoTypes.AnyInterface return __self__._sys();
+    public static function _sys( __self__:ExitError):stdgo.AnyInterface return __self__._sys();
     @:embedded
     public static function _success( __self__:ExitError):Bool return __self__._success();
     @:embedded
@@ -1055,48 +1055,48 @@ class ExitError_asInterface {
     @:embedded
     public static function systemTime( __self__:ExitError):stdgo.time.Time.Duration return __self__.systemTime();
     @:embedded
-    public static function sysUsage( __self__:ExitError):stdgo.StdGoTypes.AnyInterface return __self__.sysUsage();
+    public static function sysUsage( __self__:ExitError):stdgo.AnyInterface return __self__.sysUsage();
     @:embedded
-    public static function sys( __self__:ExitError):stdgo.StdGoTypes.AnyInterface return __self__.sys();
+    public static function sys( __self__:ExitError):stdgo.AnyInterface return __self__.sys();
     @:embedded
     public static function success( __self__:ExitError):Bool return __self__.success();
     @:embedded
     public static function string( __self__:ExitError):stdgo.GoString return __self__.string();
     @:embedded
-    public static function pid( __self__:ExitError):stdgo.StdGoTypes.GoInt return __self__.pid();
+    public static function pid( __self__:ExitError):stdgo.GoInt return __self__.pid();
     @:embedded
     public static function exited( __self__:ExitError):Bool return __self__.exited();
     @:embedded
-    public static function exitCode( __self__:ExitError):stdgo.StdGoTypes.GoInt return __self__.exitCode();
+    public static function exitCode( __self__:ExitError):stdgo.GoInt return __self__.exitCode();
 }
 class T_prefixSuffixSaver_asInterface {
     @:keep
-    public dynamic function bytes():stdgo.Slice<stdgo.StdGoTypes.GoByte> return __self__.value.bytes();
+    public dynamic function bytes():stdgo.Slice<stdgo.GoByte> return __self__.value.bytes();
     /**
         // fill appends up to len(p) bytes of p to *dst, such that *dst does not
         // grow larger than w.N. It returns the un-appended suffix of p.
     **/
     @:keep
-    public dynamic function _fill(_dst:stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.GoByte>>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> return __self__.value._fill(_dst, _p);
+    public dynamic function _fill(_dst:stdgo.Ref<stdgo.Slice<stdgo.GoByte>>, _p:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> return __self__.value._fill(_dst, _p);
     @:keep
-    public dynamic function write(_p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } return __self__.value.write(_p);
+    public dynamic function write(_p:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.value.write(_p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T_prefixSuffixSaver>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.os.exec.Exec.T_prefixSuffixSaver_asInterface) class T_prefixSuffixSaver_static_extension {
     @:keep
-    static public function bytes( _w:stdgo.StdGoTypes.Ref<T_prefixSuffixSaver>):stdgo.Slice<stdgo.StdGoTypes.GoByte> throw "T_prefixSuffixSaver:os.exec.bytes is not yet implemented";
+    static public function bytes( _w:stdgo.Ref<T_prefixSuffixSaver>):stdgo.Slice<stdgo.GoByte> throw "T_prefixSuffixSaver:os.exec.bytes is not yet implemented";
     /**
         // fill appends up to len(p) bytes of p to *dst, such that *dst does not
         // grow larger than w.N. It returns the un-appended suffix of p.
     **/
     @:keep
-    static public function _fill( _w:stdgo.StdGoTypes.Ref<T_prefixSuffixSaver>, _dst:stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.GoByte>>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> throw "T_prefixSuffixSaver:os.exec._fill is not yet implemented";
+    static public function _fill( _w:stdgo.Ref<T_prefixSuffixSaver>, _dst:stdgo.Ref<stdgo.Slice<stdgo.GoByte>>, _p:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> throw "T_prefixSuffixSaver:os.exec._fill is not yet implemented";
     @:keep
-    static public function write( _w:stdgo.StdGoTypes.Ref<T_prefixSuffixSaver>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } throw "T_prefixSuffixSaver:os.exec.write is not yet implemented";
+    static public function write( _w:stdgo.Ref<T_prefixSuffixSaver>, _p:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } throw "T_prefixSuffixSaver:os.exec.write is not yet implemented";
 }

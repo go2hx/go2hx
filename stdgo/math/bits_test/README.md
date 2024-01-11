@@ -258,17 +258,17 @@ import stdgo.math.bits_test.Bits
 
 
 ```haxe
-final __M:stdgo.GoUInt64 = ((4294967295i64 : stdgo.StdGoTypes.GoUInt64))
+final __M:stdgo.GoUInt64 = ((4294967295i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final __M32:stdgo.GoUInt64 = ((4294967295i64 : stdgo.StdGoTypes.GoUInt64))
+final __M32:stdgo.GoUInt64 = ((4294967295i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final __M64:stdgo.GoUInt64 = ((-1i64 : stdgo.StdGoTypes.GoUInt64))
+final __M64:stdgo.GoUInt64 = ((-1i64 : stdgo.GoUInt64))
 ```
 
 

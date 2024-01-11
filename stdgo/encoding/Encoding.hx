@@ -23,13 +23,13 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-typedef BinaryMarshaler = stdgo.StdGoTypes.StructType & {
+typedef BinaryMarshaler = stdgo.StructType & {
     /**
         
         
         
     **/
-    public dynamic function marshalBinary():{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _1 : stdgo.Error; };
+    public dynamic function marshalBinary():{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; };
 };
 /**
     // BinaryUnmarshaler is the interface implemented by an object that can
@@ -41,13 +41,13 @@ typedef BinaryMarshaler = stdgo.StdGoTypes.StructType & {
     
     
 **/
-typedef BinaryUnmarshaler = stdgo.StdGoTypes.StructType & {
+typedef BinaryUnmarshaler = stdgo.StructType & {
     /**
         
         
         
     **/
-    public dynamic function unmarshalBinary(_data:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error;
+    public dynamic function unmarshalBinary(_data:stdgo.Slice<stdgo.GoByte>):stdgo.Error;
 };
 /**
     // TextMarshaler is the interface implemented by an object that can
@@ -57,13 +57,13 @@ typedef BinaryUnmarshaler = stdgo.StdGoTypes.StructType & {
     
     
 **/
-typedef TextMarshaler = stdgo.StdGoTypes.StructType & {
+typedef TextMarshaler = stdgo.StructType & {
     /**
         
         
         
     **/
-    public dynamic function marshalText():{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _1 : stdgo.Error; };
+    public dynamic function marshalText():{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; };
 };
 /**
     // TextUnmarshaler is the interface implemented by an object that can
@@ -75,11 +75,11 @@ typedef TextMarshaler = stdgo.StdGoTypes.StructType & {
     
     
 **/
-typedef TextUnmarshaler = stdgo.StdGoTypes.StructType & {
+typedef TextUnmarshaler = stdgo.StructType & {
     /**
         
         
         
     **/
-    public dynamic function unmarshalText(_text:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error;
+    public dynamic function unmarshalText(_text:stdgo.Slice<stdgo.GoByte>):stdgo.Error;
 };

@@ -5,13 +5,13 @@ import stdgo.errors.Errors;
     
     
 **/
-var _poserPathErr : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError> = (stdgo.Go.setRef(({ op : ("poser" : stdgo.GoString) } : stdgo.io.fs.Fs.PathError)) : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>);
+var _poserPathErr : stdgo.Ref<stdgo.io.fs.Fs.PathError> = (stdgo.Go.setRef(({ op : ("poser" : stdgo.GoString) } : stdgo.io.fs.Fs.PathError)) : stdgo.Ref<stdgo.io.fs.Fs.PathError>);
 /**
     
     
     
 **/
-typedef T__interface_4 = stdgo.StdGoTypes.StructType & {
+typedef T__interface_4 = stdgo.StructType & {
     /**
         
         
@@ -24,7 +24,7 @@ typedef T__interface_4 = stdgo.StdGoTypes.StructType & {
     
     
 **/
-typedef T__interface_5 = stdgo.StdGoTypes.StructType & {
+typedef T__interface_5 = stdgo.StructType & {
     /**
         
         
@@ -118,7 +118,7 @@ class T__struct_0_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T__struct_0>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -134,7 +134,7 @@ class T__struct_1_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T__struct_1>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -150,7 +150,7 @@ class T__struct_2_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T__struct_2>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -167,7 +167,7 @@ class T__struct_3_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T__struct_3>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -176,16 +176,16 @@ class T__struct_3_asInterface {
 }
 @:local @:using(stdgo.errors_test.Errors_test.T__struct_3_static_extension) typedef T__struct_3 = {
     public var _err : stdgo.Error;
-    public var _target : stdgo.StdGoTypes.AnyInterface;
+    public var _target : stdgo.AnyInterface;
     public var _match : Bool;
-    public var _want : stdgo.StdGoTypes.AnyInterface;
+    public var _want : stdgo.AnyInterface;
 };
 class T__struct_4_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T__struct_4>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -197,7 +197,7 @@ class T__struct_4_asInterface {
     public var _want : stdgo.Error;
 };
 @:named @:using(stdgo.errors_test.Errors_test.T_multiErr_static_extension) typedef T_multiErr = stdgo.Slice<stdgo.Error>;
-function testNewEqual(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testNewEqual(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         if (stdgo.Go.toInterface(stdgo.errors.Errors.new_(("abc" : stdgo.GoString))) == (stdgo.Go.toInterface(stdgo.errors.Errors.new_(("abc" : stdgo.GoString))))) {
             _t.errorf(("New(\"abc\") == New(\"abc\")" : stdgo.GoString));
         };
@@ -209,14 +209,14 @@ function testNewEqual(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
             _t.errorf(("err != err" : stdgo.GoString));
         };
     }
-function testErrorMethod(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testErrorMethod(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _err:stdgo.Error = stdgo.errors.Errors.new_(("abc" : stdgo.GoString));
         if (_err.error() != (("abc" : stdgo.GoString))) {
             _t.errorf(("New(\"abc\").Error() = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_err.error()), stdgo.Go.toInterface(("abc" : stdgo.GoString)));
         };
     }
 function _oops():stdgo.Error {
-        return stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.MyError(stdgo.time.Time.date((1989 : stdgo.StdGoTypes.GoInt), (3 : stdgo.time.Time.Month), (15 : stdgo.StdGoTypes.GoInt), (22 : stdgo.StdGoTypes.GoInt), (30 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), stdgo.time.Time.utc)?.__copy__(), ("the file system has gone away" : stdgo.GoString)) : stdgo.errors_test.Errors_test.MyError));
+        return stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.MyError(stdgo.time.Time.date((1989 : stdgo.GoInt), (3 : stdgo.time.Time.Month), (15 : stdgo.GoInt), (22 : stdgo.GoInt), (30 : stdgo.GoInt), (0 : stdgo.GoInt), (0 : stdgo.GoInt), stdgo.time.Time.utc)?.__copy__(), ("the file system has gone away" : stdgo.GoString)) : stdgo.errors_test.Errors_test.MyError));
     }
 function example():Void {
         {
@@ -238,7 +238,7 @@ function exampleNew():Void {
 **/
 function exampleNew_errorf():Void {
         {};
-        var _err:stdgo.Error = stdgo.fmt.Fmt.errorf(("user %q (id %d) not found" : stdgo.GoString), stdgo.Go.toInterface(("bimmler" : stdgo.GoString)), stdgo.Go.toInterface((17 : stdgo.StdGoTypes.GoInt)));
+        var _err:stdgo.Error = stdgo.fmt.Fmt.errorf(("user %q (id %d) not found" : stdgo.GoString), stdgo.Go.toInterface(("bimmler" : stdgo.GoString)), stdgo.Go.toInterface((17 : stdgo.GoInt)));
         if (_err != null) {
             stdgo.fmt.Fmt.print(stdgo.Go.toInterface(_err));
         };
@@ -257,7 +257,7 @@ function exampleJoin():Void {
     }
 function exampleIs():Void {
         {
-            var __tmp__ = stdgo.os.Os.open(("non-existing" : stdgo.GoString)), __0:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo.os.Os.open(("non-existing" : stdgo.GoString)), __0:stdgo.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 if (stdgo.errors.Errors.is_(_err, stdgo.io.fs.Fs.errNotExist)) {
                     stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("file does not exist" : stdgo.GoString)));
@@ -269,10 +269,10 @@ function exampleIs():Void {
     }
 function exampleAs():Void {
         {
-            var __tmp__ = stdgo.os.Os.open(("non-existing" : stdgo.GoString)), __0:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo.os.Os.open(("non-existing" : stdgo.GoString)), __0:stdgo.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                var _pathError:stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError> = (null : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>);
-                if (stdgo.errors.Errors.as(_err, stdgo.Go.toInterface((stdgo.Go.setRef(_pathError) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>>)))) {
+                var _pathError:stdgo.Ref<stdgo.io.fs.Fs.PathError> = (null : stdgo.Ref<stdgo.io.fs.Fs.PathError>);
+                if (stdgo.errors.Errors.as(_err, stdgo.Go.toInterface((stdgo.Go.setRef(_pathError) : stdgo.Ref<stdgo.Ref<stdgo.io.fs.Fs.PathError>>)))) {
                     stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("Failed at path:" : stdgo.GoString)), stdgo.Go.toInterface(_pathError.path));
                 } else {
                     stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_err));
@@ -286,7 +286,7 @@ function exampleUnwrap():Void {
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_err2));
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.errors.Errors.unwrap(_err2)));
     }
-function testJoinReturnsNil(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testJoinReturnsNil(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _err:stdgo.Error = stdgo.errors.Errors.join();
             if (_err != null) {
@@ -306,7 +306,7 @@ function testJoinReturnsNil(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):V
             };
         };
     }
-function testJoin(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testJoin(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _err1:stdgo.Error = stdgo.errors.Errors.new_(("err1" : stdgo.GoString));
         var _err2:stdgo.Error = stdgo.errors.Errors.new_(("err2" : stdgo.GoString));
         for (__0 => _test in (new stdgo.Slice<T__struct_0>(3, 3, ({ _errs : (new stdgo.Slice<stdgo.Error>(1, 1, _err1) : stdgo.Slice<stdgo.Error>), _want : (new stdgo.Slice<stdgo.Error>(1, 1, _err1) : stdgo.Slice<stdgo.Error>) } : T__struct_0), ({ _errs : (new stdgo.Slice<stdgo.Error>(2, 2, _err1, _err2) : stdgo.Slice<stdgo.Error>), _want : (new stdgo.Slice<stdgo.Error>(2, 2, _err1, _err2) : stdgo.Slice<stdgo.Error>) } : T__struct_0), ({ _errs : (new stdgo.Slice<stdgo.Error>(3, 3, _err1, (null : stdgo.Error), _err2) : stdgo.Slice<stdgo.Error>), _want : (new stdgo.Slice<stdgo.Error>(2, 2, _err1, _err2) : stdgo.Slice<stdgo.Error>) } : T__struct_0)) : stdgo.Slice<T__struct_0>)) {
@@ -319,7 +319,7 @@ function testJoin(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
             };
         };
     }
-function testJoinErrorMethod(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testJoinErrorMethod(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _err1:stdgo.Error = stdgo.errors.Errors.new_(("err1" : stdgo.GoString));
         var _err2:stdgo.Error = stdgo.errors.Errors.new_(("err2" : stdgo.GoString));
         for (__0 => _test in (new stdgo.Slice<T__struct_1>(3, 3, ({ _errs : (new stdgo.Slice<stdgo.Error>(1, 1, _err1) : stdgo.Slice<stdgo.Error>), _want : ("err1" : stdgo.GoString) } : T__struct_1), ({ _errs : (new stdgo.Slice<stdgo.Error>(2, 2, _err1, _err2) : stdgo.Slice<stdgo.Error>), _want : ("err1\nerr2" : stdgo.GoString) } : T__struct_1), ({ _errs : (new stdgo.Slice<stdgo.Error>(3, 3, _err1, (null : stdgo.Error), _err2) : stdgo.Slice<stdgo.Error>), _want : ("err1\nerr2" : stdgo.GoString) } : T__struct_1)) : stdgo.Slice<T__struct_1>)) {
@@ -329,14 +329,14 @@ function testJoinErrorMethod(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):
             };
         };
     }
-function testIs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testIs(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _err1:stdgo.Error = stdgo.errors.Errors.new_(("1" : stdgo.GoString));
         var _erra:stdgo.errors_test.Errors_test.T_wrapped = (new stdgo.errors_test.Errors_test.T_wrapped(("wrap 2" : stdgo.GoString), _err1) : stdgo.errors_test.Errors_test.T_wrapped);
         var _errb:stdgo.errors_test.Errors_test.T_wrapped = (new stdgo.errors_test.Errors_test.T_wrapped(("wrap 3" : stdgo.GoString), stdgo.Go.asInterface(_erra)) : stdgo.errors_test.Errors_test.T_wrapped);
         var _err3:stdgo.Error = stdgo.errors.Errors.new_(("3" : stdgo.GoString));
         var _poser = (stdgo.Go.setRef((new stdgo.errors_test.Errors_test.T_poser(("either 1 or 3" : stdgo.GoString), function(_err:stdgo.Error):Bool {
             return (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(_err1)) || (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(_err3));
-        }) : stdgo.errors_test.Errors_test.T_poser)) : stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_poser>);
+        }) : stdgo.errors_test.Errors_test.T_poser)) : stdgo.Ref<stdgo.errors_test.Errors_test.T_poser>);
         var _testCases = (new stdgo.Slice<T__struct_2>(
 29,
 29,
@@ -353,11 +353,11 @@ function testIs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
 ({ _err : stdgo.Go.asInterface(_poser), _target : stdgo.Go.asInterface(_erra), _match : false } : T__struct_2),
 ({ _err : stdgo.Go.asInterface(_poser), _target : stdgo.Go.asInterface(_errb), _match : false } : T__struct_2),
 ({ _err : stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)), _target : stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)), _match : true } : T__struct_2),
-({ _err : stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)), _target : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)) : stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_errorUncomparable>)), _match : false } : T__struct_2),
-({ _err : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)) : stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_errorUncomparable>)), _target : stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)), _match : true } : T__struct_2),
-({ _err : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)) : stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_errorUncomparable>)), _target : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)) : stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_errorUncomparable>)), _match : false } : T__struct_2),
+({ _err : stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)), _target : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)) : stdgo.Ref<stdgo.errors_test.Errors_test.T_errorUncomparable>)), _match : false } : T__struct_2),
+({ _err : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)) : stdgo.Ref<stdgo.errors_test.Errors_test.T_errorUncomparable>)), _target : stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)), _match : true } : T__struct_2),
+({ _err : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)) : stdgo.Ref<stdgo.errors_test.Errors_test.T_errorUncomparable>)), _target : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)) : stdgo.Ref<stdgo.errors_test.Errors_test.T_errorUncomparable>)), _match : false } : T__struct_2),
 ({ _err : stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)), _target : _err1, _match : false } : T__struct_2),
-({ _err : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)) : stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_errorUncomparable>)), _target : _err1, _match : false } : T__struct_2),
+({ _err : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)) : stdgo.Ref<stdgo.errors_test.Errors_test.T_errorUncomparable>)), _target : _err1, _match : false } : T__struct_2),
 ({ _err : stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(0, 0) : stdgo.errors_test.Errors_test.T_multiErr)), _target : _err1, _match : false } : T__struct_2),
 ({ _err : stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(2, 2, _err1, _err3) : stdgo.errors_test.Errors_test.T_multiErr)), _target : _err1, _match : true } : T__struct_2),
 ({ _err : stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(2, 2, _err3, _err1) : stdgo.errors_test.Errors_test.T_multiErr)), _target : _err1, _match : true } : T__struct_2),
@@ -370,7 +370,7 @@ function testIs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
 ({ _err : stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(1, 1, stdgo.Go.asInterface(_poser)) : stdgo.errors_test.Errors_test.T_multiErr)), _target : _err3, _match : true } : T__struct_2),
 ({ _err : stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(1, 1, (null : stdgo.Error)) : stdgo.errors_test.Errors_test.T_multiErr)), _target : (null : stdgo.Error), _match : false } : T__struct_2)) : stdgo.Slice<T__struct_2>);
         for (__0 => _tc in _testCases) {
-            _t.run(stdgo.Go.str()?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+            _t.run(stdgo.Go.str()?.__copy__(), function(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
                 {
                     var _got:Bool = stdgo.errors.Errors.is_(_tc._err, _tc._target);
                     if (_got != (_tc._match)) {
@@ -380,39 +380,39 @@ function testIs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
             });
         };
     }
-function testAs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testAs(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _errT:T_errorT = ({} : stdgo.errors_test.Errors_test.T_errorT);
-        var _errP:stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError> = (null : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>);
+        var _errP:stdgo.Ref<stdgo.io.fs.Fs.PathError> = (null : stdgo.Ref<stdgo.io.fs.Fs.PathError>);
         var _timeout:T__interface_5 = (null : stdgo.errors_test.Errors_test.T__interface_5);
-        var _p:stdgo.StdGoTypes.Ref<T_poser> = (null : stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_poser>);
-        var __tmp__ = stdgo.os.Os.open(("non-existing" : stdgo.GoString)), __0:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _errF:stdgo.Error = __tmp__._1;
-        var _poserErr = (stdgo.Go.setRef((new stdgo.errors_test.Errors_test.T_poser(("oh no" : stdgo.GoString), null) : stdgo.errors_test.Errors_test.T_poser)) : stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_poser>);
+        var _p:stdgo.Ref<T_poser> = (null : stdgo.Ref<stdgo.errors_test.Errors_test.T_poser>);
+        var __tmp__ = stdgo.os.Os.open(("non-existing" : stdgo.GoString)), __0:stdgo.Ref<stdgo.os.Os.File> = __tmp__._0, _errF:stdgo.Error = __tmp__._1;
+        var _poserErr = (stdgo.Go.setRef((new stdgo.errors_test.Errors_test.T_poser(("oh no" : stdgo.GoString), null) : stdgo.errors_test.Errors_test.T_poser)) : stdgo.Ref<stdgo.errors_test.Errors_test.T_poser>);
         var _testCases = (new stdgo.Slice<T__struct_3>(
 18,
 18,
-({ _err : (null : stdgo.Error), _target : stdgo.Go.toInterface((stdgo.Go.setRef(_errP) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>>)), _match : false, _want : (null : stdgo.StdGoTypes.AnyInterface) } : T__struct_3),
-({ _err : stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_wrapped(("pitied the fool" : stdgo.GoString), stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("T" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT))) : stdgo.errors_test.Errors_test.T_wrapped)), _target : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_errT) : stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : true, _want : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("T" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT))) } : T__struct_3),
-({ _err : _errF, _target : stdgo.Go.toInterface((stdgo.Go.setRef(_errP) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>>)), _match : true, _want : stdgo.Go.toInterface(_errF) } : T__struct_3),
-({ _err : stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT() : stdgo.errors_test.Errors_test.T_errorT)), _target : stdgo.Go.toInterface((stdgo.Go.setRef(_errP) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>>)), _match : false, _want : (null : stdgo.StdGoTypes.AnyInterface) } : T__struct_3),
-({ _err : stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_wrapped(("wrapped" : stdgo.GoString), (null : stdgo.Error)) : stdgo.errors_test.Errors_test.T_wrapped)), _target : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_errT) : stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : false, _want : (null : stdgo.StdGoTypes.AnyInterface) } : T__struct_3),
-({ _err : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.errors_test.Errors_test.T_poser(("error" : stdgo.GoString), null) : stdgo.errors_test.Errors_test.T_poser)) : stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_poser>)), _target : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_errT) : stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : true, _want : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("poser" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT))) } : T__struct_3),
-({ _err : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.errors_test.Errors_test.T_poser(("path" : stdgo.GoString), null) : stdgo.errors_test.Errors_test.T_poser)) : stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_poser>)), _target : stdgo.Go.toInterface((stdgo.Go.setRef(_errP) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>>)), _match : true, _want : stdgo.Go.toInterface(stdgo.Go.asInterface(_poserPathErr)) } : T__struct_3),
-({ _err : stdgo.Go.asInterface(_poserErr), _target : stdgo.Go.toInterface((stdgo.Go.setRef(_p) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_poser>>)), _match : true, _want : stdgo.Go.toInterface(stdgo.Go.asInterface(_poserErr)) } : T__struct_3),
-({ _err : stdgo.errors.Errors.new_(("err" : stdgo.GoString)), _target : stdgo.Go.toInterface((stdgo.Go.setRef(_timeout) : stdgo.StdGoTypes.Ref<T__interface_5>)), _match : false, _want : (null : stdgo.StdGoTypes.AnyInterface) } : T__struct_3),
-({ _err : _errF, _target : stdgo.Go.toInterface((stdgo.Go.setRef(_timeout) : stdgo.StdGoTypes.Ref<T__interface_5>)), _match : true, _want : stdgo.Go.toInterface(_errF) } : T__struct_3),
-({ _err : stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_wrapped(("path error" : stdgo.GoString), _errF) : stdgo.errors_test.Errors_test.T_wrapped)), _target : stdgo.Go.toInterface((stdgo.Go.setRef(_timeout) : stdgo.StdGoTypes.Ref<T__interface_5>)), _match : true, _want : stdgo.Go.toInterface(_errF) } : T__struct_3),
-({ _err : stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(0, 0) : stdgo.errors_test.Errors_test.T_multiErr)), _target : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_errT) : stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : false, _want : (null : stdgo.StdGoTypes.AnyInterface) } : T__struct_3),
-({ _err : stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(2, 2, stdgo.errors.Errors.new_(("a" : stdgo.GoString)), stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("T" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT))) : stdgo.errors_test.Errors_test.T_multiErr)), _target : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_errT) : stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : true, _want : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("T" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT))) } : T__struct_3),
-({ _err : stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(2, 2, stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("T" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT)), stdgo.errors.Errors.new_(("a" : stdgo.GoString))) : stdgo.errors_test.Errors_test.T_multiErr)), _target : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_errT) : stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : true, _want : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("T" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT))) } : T__struct_3),
-({ _err : stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(2, 2, stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("a" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT)), stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("b" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT))) : stdgo.errors_test.Errors_test.T_multiErr)), _target : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_errT) : stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : true, _want : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("a" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT))) } : T__struct_3),
-({ _err : stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(2, 2, stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(2, 2, stdgo.errors.Errors.new_(("a" : stdgo.GoString)), stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("a" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT))) : stdgo.errors_test.Errors_test.T_multiErr)), stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("b" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT))) : stdgo.errors_test.Errors_test.T_multiErr)), _target : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_errT) : stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : true, _want : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("a" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT))) } : T__struct_3),
-({ _err : stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(1, 1, stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_wrapped(("path error" : stdgo.GoString), _errF) : stdgo.errors_test.Errors_test.T_wrapped))) : stdgo.errors_test.Errors_test.T_multiErr)), _target : stdgo.Go.toInterface((stdgo.Go.setRef(_timeout) : stdgo.StdGoTypes.Ref<T__interface_5>)), _match : true, _want : stdgo.Go.toInterface(_errF) } : T__struct_3),
-({ _err : stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(1, 1, (null : stdgo.Error)) : stdgo.errors_test.Errors_test.T_multiErr)), _target : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_errT) : stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : false, _want : (null : stdgo.StdGoTypes.AnyInterface) } : T__struct_3)) : stdgo.Slice<T__struct_3>);
+({ _err : (null : stdgo.Error), _target : stdgo.Go.toInterface((stdgo.Go.setRef(_errP) : stdgo.Ref<stdgo.Ref<stdgo.io.fs.Fs.PathError>>)), _match : false, _want : (null : stdgo.AnyInterface) } : T__struct_3),
+({ _err : stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_wrapped(("pitied the fool" : stdgo.GoString), stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("T" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT))) : stdgo.errors_test.Errors_test.T_wrapped)), _target : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_errT) : stdgo.Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : true, _want : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("T" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT))) } : T__struct_3),
+({ _err : _errF, _target : stdgo.Go.toInterface((stdgo.Go.setRef(_errP) : stdgo.Ref<stdgo.Ref<stdgo.io.fs.Fs.PathError>>)), _match : true, _want : stdgo.Go.toInterface(_errF) } : T__struct_3),
+({ _err : stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT() : stdgo.errors_test.Errors_test.T_errorT)), _target : stdgo.Go.toInterface((stdgo.Go.setRef(_errP) : stdgo.Ref<stdgo.Ref<stdgo.io.fs.Fs.PathError>>)), _match : false, _want : (null : stdgo.AnyInterface) } : T__struct_3),
+({ _err : stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_wrapped(("wrapped" : stdgo.GoString), (null : stdgo.Error)) : stdgo.errors_test.Errors_test.T_wrapped)), _target : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_errT) : stdgo.Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : false, _want : (null : stdgo.AnyInterface) } : T__struct_3),
+({ _err : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.errors_test.Errors_test.T_poser(("error" : stdgo.GoString), null) : stdgo.errors_test.Errors_test.T_poser)) : stdgo.Ref<stdgo.errors_test.Errors_test.T_poser>)), _target : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_errT) : stdgo.Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : true, _want : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("poser" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT))) } : T__struct_3),
+({ _err : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.errors_test.Errors_test.T_poser(("path" : stdgo.GoString), null) : stdgo.errors_test.Errors_test.T_poser)) : stdgo.Ref<stdgo.errors_test.Errors_test.T_poser>)), _target : stdgo.Go.toInterface((stdgo.Go.setRef(_errP) : stdgo.Ref<stdgo.Ref<stdgo.io.fs.Fs.PathError>>)), _match : true, _want : stdgo.Go.toInterface(stdgo.Go.asInterface(_poserPathErr)) } : T__struct_3),
+({ _err : stdgo.Go.asInterface(_poserErr), _target : stdgo.Go.toInterface((stdgo.Go.setRef(_p) : stdgo.Ref<stdgo.Ref<stdgo.errors_test.Errors_test.T_poser>>)), _match : true, _want : stdgo.Go.toInterface(stdgo.Go.asInterface(_poserErr)) } : T__struct_3),
+({ _err : stdgo.errors.Errors.new_(("err" : stdgo.GoString)), _target : stdgo.Go.toInterface((stdgo.Go.setRef(_timeout) : stdgo.Ref<T__interface_5>)), _match : false, _want : (null : stdgo.AnyInterface) } : T__struct_3),
+({ _err : _errF, _target : stdgo.Go.toInterface((stdgo.Go.setRef(_timeout) : stdgo.Ref<T__interface_5>)), _match : true, _want : stdgo.Go.toInterface(_errF) } : T__struct_3),
+({ _err : stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_wrapped(("path error" : stdgo.GoString), _errF) : stdgo.errors_test.Errors_test.T_wrapped)), _target : stdgo.Go.toInterface((stdgo.Go.setRef(_timeout) : stdgo.Ref<T__interface_5>)), _match : true, _want : stdgo.Go.toInterface(_errF) } : T__struct_3),
+({ _err : stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(0, 0) : stdgo.errors_test.Errors_test.T_multiErr)), _target : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_errT) : stdgo.Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : false, _want : (null : stdgo.AnyInterface) } : T__struct_3),
+({ _err : stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(2, 2, stdgo.errors.Errors.new_(("a" : stdgo.GoString)), stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("T" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT))) : stdgo.errors_test.Errors_test.T_multiErr)), _target : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_errT) : stdgo.Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : true, _want : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("T" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT))) } : T__struct_3),
+({ _err : stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(2, 2, stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("T" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT)), stdgo.errors.Errors.new_(("a" : stdgo.GoString))) : stdgo.errors_test.Errors_test.T_multiErr)), _target : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_errT) : stdgo.Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : true, _want : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("T" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT))) } : T__struct_3),
+({ _err : stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(2, 2, stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("a" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT)), stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("b" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT))) : stdgo.errors_test.Errors_test.T_multiErr)), _target : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_errT) : stdgo.Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : true, _want : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("a" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT))) } : T__struct_3),
+({ _err : stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(2, 2, stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(2, 2, stdgo.errors.Errors.new_(("a" : stdgo.GoString)), stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("a" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT))) : stdgo.errors_test.Errors_test.T_multiErr)), stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("b" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT))) : stdgo.errors_test.Errors_test.T_multiErr)), _target : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_errT) : stdgo.Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : true, _want : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT(("a" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT))) } : T__struct_3),
+({ _err : stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(1, 1, stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_wrapped(("path error" : stdgo.GoString), _errF) : stdgo.errors_test.Errors_test.T_wrapped))) : stdgo.errors_test.Errors_test.T_multiErr)), _target : stdgo.Go.toInterface((stdgo.Go.setRef(_timeout) : stdgo.Ref<T__interface_5>)), _match : true, _want : stdgo.Go.toInterface(_errF) } : T__struct_3),
+({ _err : stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(1, 1, (null : stdgo.Error)) : stdgo.errors_test.Errors_test.T_multiErr)), _target : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_errT) : stdgo.Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : false, _want : (null : stdgo.AnyInterface) } : T__struct_3)) : stdgo.Slice<T__struct_3>);
         for (_i => _tc in _testCases) {
             var _name:stdgo.GoString = stdgo.fmt.Fmt.sprintf(("%d:As(Errorf(..., %v), %v)" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_tc._err), _tc._target)?.__copy__();
             var _rtarget:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(_tc._target)?.__copy__();
             _rtarget.elem().set(stdgo.reflect.Reflect.zero(stdgo.reflect.Reflect.typeOf(_tc._target).elem())?.__copy__());
-            _t.run(_name?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+            _t.run(_name?.__copy__(), function(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
                 var _match:Bool = stdgo.errors.Errors.as(_tc._err, _tc._target);
                 if (_match != (_tc._match)) {
                     _t.fatalf(("match: got %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(_match), stdgo.Go.toInterface(_tc._match));
@@ -421,7 +421,7 @@ function testAs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
                     return;
                 };
                 {
-                    var _got:stdgo.StdGoTypes.AnyInterface = _rtarget.elem().interface_();
+                    var _got:stdgo.AnyInterface = _rtarget.elem().interface_();
                     if (_got != (_tc._want)) {
                         _t.fatalf(("got %#v, want %#v" : stdgo.GoString), _got, _tc._want);
                     };
@@ -429,12 +429,12 @@ function testAs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
             });
         };
     }
-function testAsValidation(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testAsValidation(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _s:stdgo.GoString = ("" : stdgo.GoString);
-        var _testCases = (new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(4, 4, (null : stdgo.StdGoTypes.AnyInterface), stdgo.Go.toInterface((null : stdgo.Pointer<stdgo.StdGoTypes.GoInt>)), stdgo.Go.toInterface(("error" : stdgo.GoString)), stdgo.Go.toInterface(stdgo.Go.pointer(_s))) : stdgo.Slice<stdgo.StdGoTypes.AnyInterface>);
+        var _testCases = (new stdgo.Slice<stdgo.AnyInterface>(4, 4, (null : stdgo.AnyInterface), stdgo.Go.toInterface((null : stdgo.Pointer<stdgo.GoInt>)), stdgo.Go.toInterface(("error" : stdgo.GoString)), stdgo.Go.toInterface(stdgo.Go.pointer(_s))) : stdgo.Slice<stdgo.AnyInterface>);
         var _err:stdgo.Error = stdgo.errors.Errors.new_(("error" : stdgo.GoString));
         for (__0 => _tc in _testCases) {
-            _t.run(stdgo.fmt.Fmt.sprintf(("%T(%v)" : stdgo.GoString), _tc, _tc)?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+            _t.run(stdgo.fmt.Fmt.sprintf(("%T(%v)" : stdgo.GoString), _tc, _tc)?.__copy__(), function(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
                 var __deferstack__:Array<Void -> Void> = [];
                 try {
                     __deferstack__.unshift(() -> {
@@ -467,7 +467,7 @@ function testAsValidation(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Voi
                 } catch(__exception__) {
                     var exe:Dynamic = __exception__.native;
                     if ((exe is haxe.ValueException)) exe = exe.value;
-                    if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
                         exe = stdgo.Go.toInterface(__exception__.message);
                     };
                     stdgo.Go.recover_exception = exe;
@@ -480,7 +480,7 @@ function testAsValidation(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Voi
             });
         };
     }
-function testUnwrap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testUnwrap(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _err1:stdgo.Error = stdgo.errors.Errors.new_(("1" : stdgo.GoString));
         var _erra:stdgo.errors_test.Errors_test.T_wrapped = (new stdgo.errors_test.Errors_test.T_wrapped(("wrap 2" : stdgo.GoString), _err1) : stdgo.errors_test.Errors_test.T_wrapped);
         var _testCases = (new stdgo.Slice<T__struct_4>(5, 5, ({ _err : (null : stdgo.Error), _want : (null : stdgo.Error) } : T__struct_4), ({ _err : stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_wrapped(("wrapped" : stdgo.GoString), (null : stdgo.Error)) : stdgo.errors_test.Errors_test.T_wrapped)), _want : (null : stdgo.Error) } : T__struct_4), ({ _err : _err1, _want : (null : stdgo.Error) } : T__struct_4), ({ _err : stdgo.Go.asInterface(_erra), _want : _err1 } : T__struct_4), ({ _err : stdgo.Go.asInterface((new stdgo.errors_test.Errors_test.T_wrapped(("wrap 3" : stdgo.GoString), stdgo.Go.asInterface(_erra)) : stdgo.errors_test.Errors_test.T_wrapped)), _want : stdgo.Go.asInterface(_erra) } : T__struct_4)) : stdgo.Slice<T__struct_4>);
@@ -500,7 +500,7 @@ class MyError_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<MyError>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -513,7 +513,7 @@ class MyError_asInterface {
 }
 class T_poser_asInterface {
     @:keep
-    public dynamic function as(_err:stdgo.StdGoTypes.AnyInterface):Bool return __self__.value.as(_err);
+    public dynamic function as(_err:stdgo.AnyInterface):Bool return __self__.value.as(_err);
     @:keep
     public dynamic function is_(_err:stdgo.Error):Bool return __self__.value.is_(_err);
     @:keep
@@ -522,43 +522,43 @@ class T_poser_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T_poser>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.errors_test.Errors_test.T_poser_asInterface) class T_poser_static_extension {
     @:keep
-    static public function as( _p:stdgo.StdGoTypes.Ref<T_poser>, _err:stdgo.StdGoTypes.AnyInterface):Bool {
-        @:recv var _p:stdgo.StdGoTypes.Ref<T_poser> = _p;
+    static public function as( _p:stdgo.Ref<T_poser>, _err:stdgo.AnyInterface):Bool {
+        @:recv var _p:stdgo.Ref<T_poser> = _p;
         {
             final __type__ = _err;
-            if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<T_poser>>))) {
-                var _x:stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_poser>> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_poser>>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_poser>>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_poser>>) : __type__.__underlying__().value;
+            if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo.Ref<T_poser>>))) {
+                var _x:stdgo.Ref<stdgo.Ref<stdgo.errors_test.Errors_test.T_poser>> = __type__ == null ? (null : stdgo.Ref<stdgo.Ref<stdgo.errors_test.Errors_test.T_poser>>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo.Ref<stdgo.errors_test.Errors_test.T_poser>>) : __type__ == null ? (null : stdgo.Ref<stdgo.Ref<stdgo.errors_test.Errors_test.T_poser>>) : __type__.__underlying__().value;
                 _x = _p;
-            } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<T_errorT>))) {
-                var _x:stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_errorT> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_errorT>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_errorT>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.errors_test.Errors_test.T_errorT>) : __type__.__underlying__().value;
+            } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<T_errorT>))) {
+                var _x:stdgo.Ref<stdgo.errors_test.Errors_test.T_errorT> = __type__ == null ? (null : stdgo.Ref<stdgo.errors_test.Errors_test.T_errorT>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo.errors_test.Errors_test.T_errorT>) : __type__ == null ? (null : stdgo.Ref<stdgo.errors_test.Errors_test.T_errorT>) : __type__.__underlying__().value;
                 {
                     var __tmp__ = (new stdgo.errors_test.Errors_test.T_errorT(("poser" : stdgo.GoString)) : stdgo.errors_test.Errors_test.T_errorT);
                     _x._s = __tmp__._s;
                 };
-            } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>>))) {
-                var _x:stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>>) : __type__.__underlying__().value;
+            } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo.Ref<stdgo.io.fs.Fs.PathError>>))) {
+                var _x:stdgo.Ref<stdgo.Ref<stdgo.io.fs.Fs.PathError>> = __type__ == null ? (null : stdgo.Ref<stdgo.Ref<stdgo.io.fs.Fs.PathError>>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo.Ref<stdgo.io.fs.Fs.PathError>>) : __type__ == null ? (null : stdgo.Ref<stdgo.Ref<stdgo.io.fs.Fs.PathError>>) : __type__.__underlying__().value;
                 _x = _poserPathErr;
             } else {
-                var _x:stdgo.StdGoTypes.AnyInterface = __type__?.__underlying__();
+                var _x:stdgo.AnyInterface = __type__?.__underlying__();
                 return false;
             };
         };
         return true;
     }
     @:keep
-    static public function is_( _p:stdgo.StdGoTypes.Ref<T_poser>, _err:stdgo.Error):Bool {
-        @:recv var _p:stdgo.StdGoTypes.Ref<T_poser> = _p;
+    static public function is_( _p:stdgo.Ref<T_poser>, _err:stdgo.Error):Bool {
+        @:recv var _p:stdgo.Ref<T_poser> = _p;
         return _p._f(_err);
     }
     @:keep
-    static public function error( _p:stdgo.StdGoTypes.Ref<T_poser>):stdgo.GoString {
-        @:recv var _p:stdgo.StdGoTypes.Ref<T_poser> = _p;
+    static public function error( _p:stdgo.Ref<T_poser>):stdgo.GoString {
+        @:recv var _p:stdgo.Ref<T_poser> = _p;
         return _p._msg?.__copy__();
     }
 }
@@ -569,7 +569,7 @@ class T_errorT_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T_errorT>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -589,7 +589,7 @@ class T_wrapped_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T_wrapped>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -614,7 +614,7 @@ class T_errorUncomparable_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T_errorUncomparable>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -644,7 +644,7 @@ class T_multiErr_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T_multiErr>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }

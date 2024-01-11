@@ -23,7 +23,7 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-typedef Hash = stdgo.StdGoTypes.StructType & {
+typedef Hash = stdgo.StructType & {
     > stdgo.io.Io.Writer,
     /**
         // Sum appends the current hash to b and returns the resulting slice.
@@ -31,7 +31,7 @@ typedef Hash = stdgo.StdGoTypes.StructType & {
         
         
     **/
-    public dynamic function sum(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte>;
+    public dynamic function sum(_b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>;
     /**
         // Reset resets the Hash to its initial state.
         
@@ -43,7 +43,7 @@ typedef Hash = stdgo.StdGoTypes.StructType & {
         
         
     **/
-    public dynamic function size():stdgo.StdGoTypes.GoInt;
+    public dynamic function size():stdgo.GoInt;
     /**
         // BlockSize returns the hash's underlying block size.
         // The Write method must be able to accept any amount
@@ -52,33 +52,33 @@ typedef Hash = stdgo.StdGoTypes.StructType & {
         
         
     **/
-    public dynamic function blockSize():stdgo.StdGoTypes.GoInt;
+    public dynamic function blockSize():stdgo.GoInt;
 };
 /**
     // Hash32 is the common interface implemented by all 32-bit hash functions.
     
     
 **/
-typedef Hash32 = stdgo.StdGoTypes.StructType & {
+typedef Hash32 = stdgo.StructType & {
     > Hash,
     /**
         
         
         
     **/
-    public dynamic function sum32():stdgo.StdGoTypes.GoUInt32;
+    public dynamic function sum32():stdgo.GoUInt32;
 };
 /**
     // Hash64 is the common interface implemented by all 64-bit hash functions.
     
     
 **/
-typedef Hash64 = stdgo.StdGoTypes.StructType & {
+typedef Hash64 = stdgo.StructType & {
     > Hash,
     /**
         
         
         
     **/
-    public dynamic function sum64():stdgo.StdGoTypes.GoUInt64;
+    public dynamic function sum64():stdgo.GoUInt64;
 };

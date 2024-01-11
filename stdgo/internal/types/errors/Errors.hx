@@ -4,183 +4,6 @@ package stdgo.internal.types.errors;
     
     
 **/
-var __Code_index_1 : stdgo.GoArray<stdgo.StdGoTypes.GoUInt16> = (new stdgo.GoArray<stdgo.StdGoTypes.GoUInt16>(
-(0 : stdgo.StdGoTypes.GoUInt16),
-(4 : stdgo.StdGoTypes.GoUInt16),
-(16 : stdgo.StdGoTypes.GoUInt16),
-(33 : stdgo.StdGoTypes.GoUInt16),
-(46 : stdgo.StdGoTypes.GoUInt16),
-(59 : stdgo.StdGoTypes.GoUInt16),
-(71 : stdgo.StdGoTypes.GoUInt16),
-(85 : stdgo.StdGoTypes.GoUInt16),
-(97 : stdgo.StdGoTypes.GoUInt16),
-(113 : stdgo.StdGoTypes.GoUInt16),
-(126 : stdgo.StdGoTypes.GoUInt16),
-(142 : stdgo.StdGoTypes.GoUInt16),
-(158 : stdgo.StdGoTypes.GoUInt16),
-(174 : stdgo.StdGoTypes.GoUInt16),
-(189 : stdgo.StdGoTypes.GoUInt16),
-(205 : stdgo.StdGoTypes.GoUInt16),
-(218 : stdgo.StdGoTypes.GoUInt16),
-(234 : stdgo.StdGoTypes.GoUInt16),
-(253 : stdgo.StdGoTypes.GoUInt16),
-(261 : stdgo.StdGoTypes.GoUInt16),
-(277 : stdgo.StdGoTypes.GoUInt16),
-(295 : stdgo.StdGoTypes.GoUInt16),
-(312 : stdgo.StdGoTypes.GoUInt16),
-(330 : stdgo.StdGoTypes.GoUInt16),
-(354 : stdgo.StdGoTypes.GoUInt16),
-(362 : stdgo.StdGoTypes.GoUInt16),
-(377 : stdgo.StdGoTypes.GoUInt16),
-(393 : stdgo.StdGoTypes.GoUInt16),
-(411 : stdgo.StdGoTypes.GoUInt16)) : stdgo.GoArray<stdgo.StdGoTypes.GoUInt16>);
-/**
-    
-    
-    
-**/
-var __Code_index_2 : stdgo.GoArray<stdgo.StdGoTypes.GoUInt16> = (new stdgo.GoArray<stdgo.StdGoTypes.GoUInt16>(
-(0 : stdgo.StdGoTypes.GoUInt16),
-(15 : stdgo.StdGoTypes.GoUInt16),
-(22 : stdgo.StdGoTypes.GoUInt16),
-(33 : stdgo.StdGoTypes.GoUInt16),
-(56 : stdgo.StdGoTypes.GoUInt16),
-(71 : stdgo.StdGoTypes.GoUInt16),
-(83 : stdgo.StdGoTypes.GoUInt16),
-(94 : stdgo.StdGoTypes.GoUInt16),
-(109 : stdgo.StdGoTypes.GoUInt16),
-(123 : stdgo.StdGoTypes.GoUInt16),
-(138 : stdgo.StdGoTypes.GoUInt16),
-(153 : stdgo.StdGoTypes.GoUInt16),
-(166 : stdgo.StdGoTypes.GoUInt16),
-(175 : stdgo.StdGoTypes.GoUInt16),
-(189 : stdgo.StdGoTypes.GoUInt16),
-(204 : stdgo.StdGoTypes.GoUInt16),
-(215 : stdgo.StdGoTypes.GoUInt16),
-(230 : stdgo.StdGoTypes.GoUInt16),
-(239 : stdgo.StdGoTypes.GoUInt16),
-(255 : stdgo.StdGoTypes.GoUInt16),
-(275 : stdgo.StdGoTypes.GoUInt16),
-(293 : stdgo.StdGoTypes.GoUInt16),
-(312 : stdgo.StdGoTypes.GoUInt16),
-(324 : stdgo.StdGoTypes.GoUInt16),
-(343 : stdgo.StdGoTypes.GoUInt16),
-(362 : stdgo.StdGoTypes.GoUInt16),
-(378 : stdgo.StdGoTypes.GoUInt16),
-(395 : stdgo.StdGoTypes.GoUInt16),
-(414 : stdgo.StdGoTypes.GoUInt16),
-(428 : stdgo.StdGoTypes.GoUInt16),
-(439 : stdgo.StdGoTypes.GoUInt16),
-(454 : stdgo.StdGoTypes.GoUInt16),
-(467 : stdgo.StdGoTypes.GoUInt16),
-(482 : stdgo.StdGoTypes.GoUInt16),
-(498 : stdgo.StdGoTypes.GoUInt16),
-(512 : stdgo.StdGoTypes.GoUInt16),
-(528 : stdgo.StdGoTypes.GoUInt16),
-(543 : stdgo.StdGoTypes.GoUInt16),
-(560 : stdgo.StdGoTypes.GoUInt16),
-(578 : stdgo.StdGoTypes.GoUInt16),
-(593 : stdgo.StdGoTypes.GoUInt16),
-(603 : stdgo.StdGoTypes.GoUInt16),
-(613 : stdgo.StdGoTypes.GoUInt16),
-(630 : stdgo.StdGoTypes.GoUInt16),
-(652 : stdgo.StdGoTypes.GoUInt16),
-(666 : stdgo.StdGoTypes.GoUInt16),
-(680 : stdgo.StdGoTypes.GoUInt16),
-(700 : stdgo.StdGoTypes.GoUInt16),
-(718 : stdgo.StdGoTypes.GoUInt16),
-(738 : stdgo.StdGoTypes.GoUInt16),
-(756 : stdgo.StdGoTypes.GoUInt16)) : stdgo.GoArray<stdgo.StdGoTypes.GoUInt16>);
-/**
-    
-    
-    
-**/
-var __Code_index_3 : stdgo.GoArray<stdgo.StdGoTypes.GoUInt16> = (new stdgo.GoArray<stdgo.StdGoTypes.GoUInt16>(
-(0 : stdgo.StdGoTypes.GoUInt16),
-(16 : stdgo.StdGoTypes.GoUInt16),
-(31 : stdgo.StdGoTypes.GoUInt16),
-(44 : stdgo.StdGoTypes.GoUInt16),
-(54 : stdgo.StdGoTypes.GoUInt16),
-(66 : stdgo.StdGoTypes.GoUInt16),
-(77 : stdgo.StdGoTypes.GoUInt16),
-(91 : stdgo.StdGoTypes.GoUInt16),
-(104 : stdgo.StdGoTypes.GoUInt16),
-(115 : stdgo.StdGoTypes.GoUInt16),
-(125 : stdgo.StdGoTypes.GoUInt16),
-(140 : stdgo.StdGoTypes.GoUInt16),
-(151 : stdgo.StdGoTypes.GoUInt16),
-(162 : stdgo.StdGoTypes.GoUInt16),
-(175 : stdgo.StdGoTypes.GoUInt16),
-(191 : stdgo.StdGoTypes.GoUInt16),
-(208 : stdgo.StdGoTypes.GoUInt16),
-(232 : stdgo.StdGoTypes.GoUInt16),
-(249 : stdgo.StdGoTypes.GoUInt16),
-(264 : stdgo.StdGoTypes.GoUInt16),
-(274 : stdgo.StdGoTypes.GoUInt16),
-(283 : stdgo.StdGoTypes.GoUInt16),
-(296 : stdgo.StdGoTypes.GoUInt16),
-(312 : stdgo.StdGoTypes.GoUInt16),
-(328 : stdgo.StdGoTypes.GoUInt16),
-(339 : stdgo.StdGoTypes.GoUInt16),
-(354 : stdgo.StdGoTypes.GoUInt16)) : stdgo.GoArray<stdgo.StdGoTypes.GoUInt16>);
-/**
-    
-    
-    
-**/
-var __Code_index_4 : stdgo.GoArray<stdgo.StdGoTypes.GoUInt16> = (new stdgo.GoArray<stdgo.StdGoTypes.GoUInt16>(
-(0 : stdgo.StdGoTypes.GoUInt16),
-(14 : stdgo.StdGoTypes.GoUInt16),
-(30 : stdgo.StdGoTypes.GoUInt16),
-(44 : stdgo.StdGoTypes.GoUInt16),
-(61 : stdgo.StdGoTypes.GoUInt16),
-(81 : stdgo.StdGoTypes.GoUInt16),
-(94 : stdgo.StdGoTypes.GoUInt16),
-(110 : stdgo.StdGoTypes.GoUInt16),
-(124 : stdgo.StdGoTypes.GoUInt16),
-(141 : stdgo.StdGoTypes.GoUInt16),
-(158 : stdgo.StdGoTypes.GoUInt16),
-(175 : stdgo.StdGoTypes.GoUInt16),
-(190 : stdgo.StdGoTypes.GoUInt16),
-(204 : stdgo.StdGoTypes.GoUInt16),
-(218 : stdgo.StdGoTypes.GoUInt16),
-(229 : stdgo.StdGoTypes.GoUInt16),
-(241 : stdgo.StdGoTypes.GoUInt16),
-(254 : stdgo.StdGoTypes.GoUInt16),
-(271 : stdgo.StdGoTypes.GoUInt16),
-(284 : stdgo.StdGoTypes.GoUInt16),
-(295 : stdgo.StdGoTypes.GoUInt16),
-(308 : stdgo.StdGoTypes.GoUInt16),
-(320 : stdgo.StdGoTypes.GoUInt16),
-(329 : stdgo.StdGoTypes.GoUInt16),
-(336 : stdgo.StdGoTypes.GoUInt16),
-(348 : stdgo.StdGoTypes.GoUInt16),
-(364 : stdgo.StdGoTypes.GoUInt16),
-(382 : stdgo.StdGoTypes.GoUInt16),
-(400 : stdgo.StdGoTypes.GoUInt16),
-(415 : stdgo.StdGoTypes.GoUInt16),
-(432 : stdgo.StdGoTypes.GoUInt16),
-(451 : stdgo.StdGoTypes.GoUInt16),
-(465 : stdgo.StdGoTypes.GoUInt16),
-(485 : stdgo.StdGoTypes.GoUInt16),
-(497 : stdgo.StdGoTypes.GoUInt16),
-(521 : stdgo.StdGoTypes.GoUInt16),
-(544 : stdgo.StdGoTypes.GoUInt16),
-(562 : stdgo.StdGoTypes.GoUInt16),
-(584 : stdgo.StdGoTypes.GoUInt16),
-(603 : stdgo.StdGoTypes.GoUInt16)) : stdgo.GoArray<stdgo.StdGoTypes.GoUInt16>);
-/**
-    
-    
-    
-**/
-var __Code_index_5 : stdgo.GoArray<stdgo.StdGoTypes.GoUInt8> = (new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>((0 : stdgo.StdGoTypes.GoUInt8), (12 : stdgo.StdGoTypes.GoUInt8), (24 : stdgo.StdGoTypes.GoUInt8), (44 : stdgo.StdGoTypes.GoUInt8)) : stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>);
-/**
-    
-    
-    
-**/
 final __Code_name_0 : stdgo.GoString = ("InvalidSyntaxTree" : stdgo.GoString);
 /**
     
@@ -212,6 +35,183 @@ final __Code_name_4 : stdgo.GoString = ("InvalidIterVarInvalidRangeExprMisplaced
     
 **/
 final __Code_name_5 : stdgo.GoString = ("InvalidClearTypeTooLargeInvalidMinMaxOperand" : stdgo.GoString);
+/**
+    
+    
+    
+**/
+var __Code_index_1 : stdgo.GoArray<stdgo.GoUInt16> = (new stdgo.GoArray<stdgo.GoUInt16>(
+(0 : stdgo.GoUInt16),
+(4 : stdgo.GoUInt16),
+(16 : stdgo.GoUInt16),
+(33 : stdgo.GoUInt16),
+(46 : stdgo.GoUInt16),
+(59 : stdgo.GoUInt16),
+(71 : stdgo.GoUInt16),
+(85 : stdgo.GoUInt16),
+(97 : stdgo.GoUInt16),
+(113 : stdgo.GoUInt16),
+(126 : stdgo.GoUInt16),
+(142 : stdgo.GoUInt16),
+(158 : stdgo.GoUInt16),
+(174 : stdgo.GoUInt16),
+(189 : stdgo.GoUInt16),
+(205 : stdgo.GoUInt16),
+(218 : stdgo.GoUInt16),
+(234 : stdgo.GoUInt16),
+(253 : stdgo.GoUInt16),
+(261 : stdgo.GoUInt16),
+(277 : stdgo.GoUInt16),
+(295 : stdgo.GoUInt16),
+(312 : stdgo.GoUInt16),
+(330 : stdgo.GoUInt16),
+(354 : stdgo.GoUInt16),
+(362 : stdgo.GoUInt16),
+(377 : stdgo.GoUInt16),
+(393 : stdgo.GoUInt16),
+(411 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>);
+/**
+    
+    
+    
+**/
+var __Code_index_2 : stdgo.GoArray<stdgo.GoUInt16> = (new stdgo.GoArray<stdgo.GoUInt16>(
+(0 : stdgo.GoUInt16),
+(15 : stdgo.GoUInt16),
+(22 : stdgo.GoUInt16),
+(33 : stdgo.GoUInt16),
+(56 : stdgo.GoUInt16),
+(71 : stdgo.GoUInt16),
+(83 : stdgo.GoUInt16),
+(94 : stdgo.GoUInt16),
+(109 : stdgo.GoUInt16),
+(123 : stdgo.GoUInt16),
+(138 : stdgo.GoUInt16),
+(153 : stdgo.GoUInt16),
+(166 : stdgo.GoUInt16),
+(175 : stdgo.GoUInt16),
+(189 : stdgo.GoUInt16),
+(204 : stdgo.GoUInt16),
+(215 : stdgo.GoUInt16),
+(230 : stdgo.GoUInt16),
+(239 : stdgo.GoUInt16),
+(255 : stdgo.GoUInt16),
+(275 : stdgo.GoUInt16),
+(293 : stdgo.GoUInt16),
+(312 : stdgo.GoUInt16),
+(324 : stdgo.GoUInt16),
+(343 : stdgo.GoUInt16),
+(362 : stdgo.GoUInt16),
+(378 : stdgo.GoUInt16),
+(395 : stdgo.GoUInt16),
+(414 : stdgo.GoUInt16),
+(428 : stdgo.GoUInt16),
+(439 : stdgo.GoUInt16),
+(454 : stdgo.GoUInt16),
+(467 : stdgo.GoUInt16),
+(482 : stdgo.GoUInt16),
+(498 : stdgo.GoUInt16),
+(512 : stdgo.GoUInt16),
+(528 : stdgo.GoUInt16),
+(543 : stdgo.GoUInt16),
+(560 : stdgo.GoUInt16),
+(578 : stdgo.GoUInt16),
+(593 : stdgo.GoUInt16),
+(603 : stdgo.GoUInt16),
+(613 : stdgo.GoUInt16),
+(630 : stdgo.GoUInt16),
+(652 : stdgo.GoUInt16),
+(666 : stdgo.GoUInt16),
+(680 : stdgo.GoUInt16),
+(700 : stdgo.GoUInt16),
+(718 : stdgo.GoUInt16),
+(738 : stdgo.GoUInt16),
+(756 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>);
+/**
+    
+    
+    
+**/
+var __Code_index_3 : stdgo.GoArray<stdgo.GoUInt16> = (new stdgo.GoArray<stdgo.GoUInt16>(
+(0 : stdgo.GoUInt16),
+(16 : stdgo.GoUInt16),
+(31 : stdgo.GoUInt16),
+(44 : stdgo.GoUInt16),
+(54 : stdgo.GoUInt16),
+(66 : stdgo.GoUInt16),
+(77 : stdgo.GoUInt16),
+(91 : stdgo.GoUInt16),
+(104 : stdgo.GoUInt16),
+(115 : stdgo.GoUInt16),
+(125 : stdgo.GoUInt16),
+(140 : stdgo.GoUInt16),
+(151 : stdgo.GoUInt16),
+(162 : stdgo.GoUInt16),
+(175 : stdgo.GoUInt16),
+(191 : stdgo.GoUInt16),
+(208 : stdgo.GoUInt16),
+(232 : stdgo.GoUInt16),
+(249 : stdgo.GoUInt16),
+(264 : stdgo.GoUInt16),
+(274 : stdgo.GoUInt16),
+(283 : stdgo.GoUInt16),
+(296 : stdgo.GoUInt16),
+(312 : stdgo.GoUInt16),
+(328 : stdgo.GoUInt16),
+(339 : stdgo.GoUInt16),
+(354 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>);
+/**
+    
+    
+    
+**/
+var __Code_index_4 : stdgo.GoArray<stdgo.GoUInt16> = (new stdgo.GoArray<stdgo.GoUInt16>(
+(0 : stdgo.GoUInt16),
+(14 : stdgo.GoUInt16),
+(30 : stdgo.GoUInt16),
+(44 : stdgo.GoUInt16),
+(61 : stdgo.GoUInt16),
+(81 : stdgo.GoUInt16),
+(94 : stdgo.GoUInt16),
+(110 : stdgo.GoUInt16),
+(124 : stdgo.GoUInt16),
+(141 : stdgo.GoUInt16),
+(158 : stdgo.GoUInt16),
+(175 : stdgo.GoUInt16),
+(190 : stdgo.GoUInt16),
+(204 : stdgo.GoUInt16),
+(218 : stdgo.GoUInt16),
+(229 : stdgo.GoUInt16),
+(241 : stdgo.GoUInt16),
+(254 : stdgo.GoUInt16),
+(271 : stdgo.GoUInt16),
+(284 : stdgo.GoUInt16),
+(295 : stdgo.GoUInt16),
+(308 : stdgo.GoUInt16),
+(320 : stdgo.GoUInt16),
+(329 : stdgo.GoUInt16),
+(336 : stdgo.GoUInt16),
+(348 : stdgo.GoUInt16),
+(364 : stdgo.GoUInt16),
+(382 : stdgo.GoUInt16),
+(400 : stdgo.GoUInt16),
+(415 : stdgo.GoUInt16),
+(432 : stdgo.GoUInt16),
+(451 : stdgo.GoUInt16),
+(465 : stdgo.GoUInt16),
+(485 : stdgo.GoUInt16),
+(497 : stdgo.GoUInt16),
+(521 : stdgo.GoUInt16),
+(544 : stdgo.GoUInt16),
+(562 : stdgo.GoUInt16),
+(584 : stdgo.GoUInt16),
+(603 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>);
+/**
+    
+    
+    
+**/
+var __Code_index_5 : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>((0 : stdgo.GoUInt8), (12 : stdgo.GoUInt8), (24 : stdgo.GoUInt8), (44 : stdgo.GoUInt8)) : stdgo.GoArray<stdgo.GoUInt8>);
 /**
     // InvalidSyntaxTree occurs if an invalid syntax tree is provided
     // to the type checker. It should never happen.
@@ -2111,7 +2111,7 @@ class T__struct_0_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T__struct_0>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -2119,7 +2119,7 @@ class T__struct_0_asInterface {
 
 }
 @:local @:using(stdgo.internal.types.errors.Errors.T__struct_0_static_extension) typedef T__struct_0 = {};
-@:named @:using(stdgo.internal.types.errors.Errors.Code_static_extension) typedef Code = stdgo.StdGoTypes.GoInt;
+@:named @:using(stdgo.internal.types.errors.Errors.Code_static_extension) typedef Code = stdgo.GoInt;
 class Code_asInterface {
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();
@@ -2127,7 +2127,7 @@ class Code_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<Code>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -2139,21 +2139,21 @@ class Code_asInterface {
             return ("InvalidSyntaxTree" : stdgo.GoString);
         } else if (((1 : stdgo.internal.types.errors.Errors.Code) <= _i) && (_i <= (28 : stdgo.internal.types.errors.Errors.Code))) {
             _i = _i - ((1 : stdgo.internal.types.errors.Errors.Code));
-            return (("TestBlankPkgNameMismatchedPkgNameInvalidPkgUseBadImportPathBrokenImportImportCRenamedUnusedImportInvalidInitCycleDuplicateDeclInvalidDeclCycleInvalidTypeCycleInvalidConstInitInvalidConstValInvalidConstTypeUntypedNilUseWrongAssignCountUnassignableOperandNoNewVarMultiValAssignOpInvalidIfaceAssignInvalidChanAssignIncompatibleAssignUnaddressableFieldAssignNotATypeInvalidArrayLenBlankIfaceMethodIncomparableMapKey" : stdgo.GoString).__slice__(__Code_index_1[(_i : stdgo.StdGoTypes.GoInt)], __Code_index_1[(_i + (1 : stdgo.internal.types.errors.Errors.Code) : stdgo.StdGoTypes.GoInt)]) : stdgo.GoString)?.__copy__();
+            return (("TestBlankPkgNameMismatchedPkgNameInvalidPkgUseBadImportPathBrokenImportImportCRenamedUnusedImportInvalidInitCycleDuplicateDeclInvalidDeclCycleInvalidTypeCycleInvalidConstInitInvalidConstValInvalidConstTypeUntypedNilUseWrongAssignCountUnassignableOperandNoNewVarMultiValAssignOpInvalidIfaceAssignInvalidChanAssignIncompatibleAssignUnaddressableFieldAssignNotATypeInvalidArrayLenBlankIfaceMethodIncomparableMapKey" : stdgo.GoString).__slice__(__Code_index_1[(_i : stdgo.GoInt)], __Code_index_1[(_i + (1 : stdgo.internal.types.errors.Errors.Code) : stdgo.GoInt)]) : stdgo.GoString)?.__copy__();
         } else if (((30 : stdgo.internal.types.errors.Errors.Code) <= _i) && (_i <= (79 : stdgo.internal.types.errors.Errors.Code))) {
             _i = _i - ((30 : stdgo.internal.types.errors.Errors.Code));
-            return (("InvalidPtrEmbedBadRecvInvalidRecvDuplicateFieldAndMethodDuplicateMethodInvalidBlankInvalidIotaMissingInitBodyInvalidInitSigInvalidInitDeclInvalidMainDeclTooManyValuesNotAnExprTruncatedFloatNumericOverflowUndefinedOpMismatchedTypesDivByZeroNonNumericIncDecUnaddressableOperandInvalidIndirectionNonIndexableOperandInvalidIndexSwappedSliceIndicesNonSliceableOperandInvalidSliceExprInvalidShiftCountInvalidShiftOperandInvalidReceiveInvalidSendDuplicateLitKeyMissingLitKeyInvalidLitIndexOversizeArrayLitMixedStructLitInvalidStructLitMissingLitFieldDuplicateLitFieldUnexportedLitFieldInvalidLitFieldUntypedLitInvalidLitAmbiguousSelectorUndeclaredImportedNameUnexportedNameUndeclaredNameMissingFieldOrMethodBadDotDotDotSyntaxNonVariadicDotDotDotMisplacedDotDotDot" : stdgo.GoString).__slice__(__Code_index_2[(_i : stdgo.StdGoTypes.GoInt)], __Code_index_2[(_i + (1 : stdgo.internal.types.errors.Errors.Code) : stdgo.StdGoTypes.GoInt)]) : stdgo.GoString)?.__copy__();
+            return (("InvalidPtrEmbedBadRecvInvalidRecvDuplicateFieldAndMethodDuplicateMethodInvalidBlankInvalidIotaMissingInitBodyInvalidInitSigInvalidInitDeclInvalidMainDeclTooManyValuesNotAnExprTruncatedFloatNumericOverflowUndefinedOpMismatchedTypesDivByZeroNonNumericIncDecUnaddressableOperandInvalidIndirectionNonIndexableOperandInvalidIndexSwappedSliceIndicesNonSliceableOperandInvalidSliceExprInvalidShiftCountInvalidShiftOperandInvalidReceiveInvalidSendDuplicateLitKeyMissingLitKeyInvalidLitIndexOversizeArrayLitMixedStructLitInvalidStructLitMissingLitFieldDuplicateLitFieldUnexportedLitFieldInvalidLitFieldUntypedLitInvalidLitAmbiguousSelectorUndeclaredImportedNameUnexportedNameUndeclaredNameMissingFieldOrMethodBadDotDotDotSyntaxNonVariadicDotDotDotMisplacedDotDotDot" : stdgo.GoString).__slice__(__Code_index_2[(_i : stdgo.GoInt)], __Code_index_2[(_i + (1 : stdgo.internal.types.errors.Errors.Code) : stdgo.GoInt)]) : stdgo.GoString)?.__copy__();
         } else if (((81 : stdgo.internal.types.errors.Errors.Code) <= _i) && (_i <= (106 : stdgo.internal.types.errors.Errors.Code))) {
             _i = _i - ((81 : stdgo.internal.types.errors.Errors.Code));
-            return (("InvalidDotDotDotUncalledBuiltinInvalidAppendInvalidCapInvalidCloseInvalidCopyInvalidComplexInvalidDeleteInvalidImagInvalidLenSwappedMakeArgsInvalidMakeInvalidRealInvalidAssertImpossibleAssertInvalidConversionInvalidUntypedConversionBadOffsetofSyntaxInvalidOffsetofUnusedExprUnusedVarMissingReturnWrongResultCountOutOfScopeResultInvalidCondInvalidPostDecl" : stdgo.GoString).__slice__(__Code_index_3[(_i : stdgo.StdGoTypes.GoInt)], __Code_index_3[(_i + (1 : stdgo.internal.types.errors.Errors.Code) : stdgo.StdGoTypes.GoInt)]) : stdgo.GoString)?.__copy__();
+            return (("InvalidDotDotDotUncalledBuiltinInvalidAppendInvalidCapInvalidCloseInvalidCopyInvalidComplexInvalidDeleteInvalidImagInvalidLenSwappedMakeArgsInvalidMakeInvalidRealInvalidAssertImpossibleAssertInvalidConversionInvalidUntypedConversionBadOffsetofSyntaxInvalidOffsetofUnusedExprUnusedVarMissingReturnWrongResultCountOutOfScopeResultInvalidCondInvalidPostDecl" : stdgo.GoString).__slice__(__Code_index_3[(_i : stdgo.GoInt)], __Code_index_3[(_i + (1 : stdgo.internal.types.errors.Errors.Code) : stdgo.GoInt)]) : stdgo.GoString)?.__copy__();
         } else if (((108 : stdgo.internal.types.errors.Errors.Code) <= _i) && (_i <= (146 : stdgo.internal.types.errors.Errors.Code))) {
             _i = _i - ((108 : stdgo.internal.types.errors.Errors.Code));
-            return (("InvalidIterVarInvalidRangeExprMisplacedBreakMisplacedContinueMisplacedFallthroughDuplicateCaseDuplicateDefaultBadTypeKeywordInvalidTypeSwitchInvalidExprSwitchInvalidSelectCaseUndeclaredLabelDuplicateLabelMisplacedLabelUnusedLabelJumpOverDeclJumpIntoBlockInvalidMethodExprWrongArgCountInvalidCallUnusedResultsInvalidDeferInvalidGoBadDeclRepeatedDeclInvalidUnsafeAddInvalidUnsafeSliceUnsupportedFeatureNotAGenericTypeWrongTypeArgCountCannotInferTypeArgsInvalidTypeArgInvalidInstanceCycleInvalidUnionMisplacedConstraintIfaceInvalidMethodTypeParamsMisplacedTypeParamInvalidUnsafeSliceDataInvalidUnsafeString" : stdgo.GoString).__slice__(__Code_index_4[(_i : stdgo.StdGoTypes.GoInt)], __Code_index_4[(_i + (1 : stdgo.internal.types.errors.Errors.Code) : stdgo.StdGoTypes.GoInt)]) : stdgo.GoString)?.__copy__();
+            return (("InvalidIterVarInvalidRangeExprMisplacedBreakMisplacedContinueMisplacedFallthroughDuplicateCaseDuplicateDefaultBadTypeKeywordInvalidTypeSwitchInvalidExprSwitchInvalidSelectCaseUndeclaredLabelDuplicateLabelMisplacedLabelUnusedLabelJumpOverDeclJumpIntoBlockInvalidMethodExprWrongArgCountInvalidCallUnusedResultsInvalidDeferInvalidGoBadDeclRepeatedDeclInvalidUnsafeAddInvalidUnsafeSliceUnsupportedFeatureNotAGenericTypeWrongTypeArgCountCannotInferTypeArgsInvalidTypeArgInvalidInstanceCycleInvalidUnionMisplacedConstraintIfaceInvalidMethodTypeParamsMisplacedTypeParamInvalidUnsafeSliceDataInvalidUnsafeString" : stdgo.GoString).__slice__(__Code_index_4[(_i : stdgo.GoInt)], __Code_index_4[(_i + (1 : stdgo.internal.types.errors.Errors.Code) : stdgo.GoInt)]) : stdgo.GoString)?.__copy__();
         } else if (((148 : stdgo.internal.types.errors.Errors.Code) <= _i) && (_i <= (150 : stdgo.internal.types.errors.Errors.Code))) {
             _i = _i - ((148 : stdgo.internal.types.errors.Errors.Code));
-            return (("InvalidClearTypeTooLargeInvalidMinMaxOperand" : stdgo.GoString).__slice__(__Code_index_5[(_i : stdgo.StdGoTypes.GoInt)], __Code_index_5[(_i + (1 : stdgo.internal.types.errors.Errors.Code) : stdgo.StdGoTypes.GoInt)]) : stdgo.GoString)?.__copy__();
+            return (("InvalidClearTypeTooLargeInvalidMinMaxOperand" : stdgo.GoString).__slice__(__Code_index_5[(_i : stdgo.GoInt)], __Code_index_5[(_i + (1 : stdgo.internal.types.errors.Errors.Code) : stdgo.GoInt)]) : stdgo.GoString)?.__copy__();
         } else {
-            return ("Code(" : stdgo.GoString) + stdgo.strconv.Strconv.formatInt((_i : stdgo.StdGoTypes.GoInt64), (10 : stdgo.StdGoTypes.GoInt))?.__copy__() + (")" : stdgo.GoString)?.__copy__()?.__copy__();
+            return ("Code(" : stdgo.GoString) + stdgo.strconv.Strconv.formatInt((_i : stdgo.GoInt64), (10 : stdgo.GoInt))?.__copy__() + (")" : stdgo.GoString)?.__copy__()?.__copy__();
         };
     }
 }

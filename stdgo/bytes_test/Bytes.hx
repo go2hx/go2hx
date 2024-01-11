@@ -1,5 +1,6 @@
 package stdgo.bytes_test;
 import stdgo.bytes.Bytes;
+import stdgo.bytes.Bytes;
 /**
     
     

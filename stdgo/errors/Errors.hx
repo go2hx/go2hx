@@ -77,13 +77,13 @@ var errUnsupported : stdgo.Error = new_(("unsupported operation" : stdgo.GoStrin
     
     
 **/
-var _errorType : stdgo.internal.reflectlite.Reflectlite.Type_ = stdgo.internal.reflectlite.Reflectlite.typeOf(stdgo.Go.toInterface((null : stdgo.StdGoTypes.Ref<stdgo.Error>))).elem();
+var _errorType : stdgo.internal.reflectlite.Reflectlite.Type_ = stdgo.internal.reflectlite.Reflectlite.typeOf(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Error>))).elem();
 /**
     
     
     
 **/
-typedef T__interface_0 = stdgo.StdGoTypes.StructType & {
+typedef T__interface_0 = stdgo.StructType & {
     /**
         
         
@@ -96,7 +96,7 @@ typedef T__interface_0 = stdgo.StdGoTypes.StructType & {
     
     
 **/
-typedef T__interface_1 = stdgo.StdGoTypes.StructType & {
+typedef T__interface_1 = stdgo.StructType & {
     /**
         
         
@@ -109,7 +109,7 @@ typedef T__interface_1 = stdgo.StdGoTypes.StructType & {
     
     
 **/
-typedef T__interface_2 = stdgo.StdGoTypes.StructType & {
+typedef T__interface_2 = stdgo.StructType & {
     /**
         
         
@@ -122,13 +122,13 @@ typedef T__interface_2 = stdgo.StdGoTypes.StructType & {
     
     
 **/
-typedef T__interface_3 = stdgo.StdGoTypes.StructType & {
+typedef T__interface_3 = stdgo.StructType & {
     /**
         
         
         
     **/
-    public dynamic function as(_0:stdgo.StdGoTypes.AnyInterface):Bool;
+    public dynamic function as(_0:stdgo.AnyInterface):Bool;
 };
 /**
     // errorString is a trivial implementation of error.
@@ -165,7 +165,7 @@ typedef T__interface_3 = stdgo.StdGoTypes.StructType & {
     // Each call to New returns a distinct error value even if the text is identical.
 **/
 function new_(_text:stdgo.GoString):stdgo.Error {
-        return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.errors.Errors.T_errorString(_text?.__copy__()) : stdgo.errors.Errors.T_errorString)) : stdgo.StdGoTypes.Ref<stdgo.errors.Errors.T_errorString>));
+        return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.errors.Errors.T_errorString(_text?.__copy__()) : stdgo.errors.Errors.T_errorString)) : stdgo.Ref<stdgo.errors.Errors.T_errorString>));
     }
 /**
     // Join returns an error that wraps the given errors.
@@ -179,16 +179,16 @@ function new_(_text:stdgo.GoString):stdgo.Error {
 **/
 function join(_errs:haxe.Rest<stdgo.Error>):stdgo.Error {
         var _errs = new stdgo.Slice<stdgo.Error>(_errs.length, 0, ..._errs);
-        var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+        var _n:stdgo.GoInt = (0 : stdgo.GoInt);
         for (__0 => _err in _errs) {
             if (_err != null) {
                 _n++;
             };
         };
-        if (_n == ((0 : stdgo.StdGoTypes.GoInt))) {
+        if (_n == ((0 : stdgo.GoInt))) {
             return (null : stdgo.Error);
         };
-        var _e = (stdgo.Go.setRef(({ _errs : new stdgo.Slice<stdgo.Error>((0 : stdgo.StdGoTypes.GoInt).toBasic(), _n) } : stdgo.errors.Errors.T_joinError)) : stdgo.StdGoTypes.Ref<stdgo.errors.Errors.T_joinError>);
+        var _e = (stdgo.Go.setRef(({ _errs : new stdgo.Slice<stdgo.Error>((0 : stdgo.GoInt).toBasic(), _n) } : stdgo.errors.Errors.T_joinError)) : stdgo.Ref<stdgo.errors.Errors.T_joinError>);
         for (__1 => _err in _errs) {
             if (_err != null) {
                 _e._errs = (_e._errs.__append__(_err));
@@ -295,7 +295,7 @@ function is_(_err:stdgo.Error, _target:stdgo.Error):Bool {
     // As panics if target is not a non-nil pointer to either a type that implements
     // error, or to any interface type.
 **/
-function as(_err:stdgo.Error, _target:stdgo.StdGoTypes.AnyInterface):Bool {
+function as(_err:stdgo.Error, _target:stdgo.AnyInterface):Bool {
         if (_err == null) {
             return false;
         };
@@ -356,14 +356,14 @@ class T_errorString_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T_errorString>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.errors.Errors.T_errorString_asInterface) class T_errorString_static_extension {
     @:keep
-    static public function error( _e:stdgo.StdGoTypes.Ref<T_errorString>):stdgo.GoString {
-        @:recv var _e:stdgo.StdGoTypes.Ref<T_errorString> = _e;
+    static public function error( _e:stdgo.Ref<T_errorString>):stdgo.GoString {
+        @:recv var _e:stdgo.Ref<T_errorString> = _e;
         return _e._s?.__copy__();
     }
 }
@@ -376,23 +376,23 @@ class T_joinError_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T_joinError>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.errors.Errors.T_joinError_asInterface) class T_joinError_static_extension {
     @:keep
-    static public function unwrap( _e:stdgo.StdGoTypes.Ref<T_joinError>):stdgo.Slice<stdgo.Error> {
-        @:recv var _e:stdgo.StdGoTypes.Ref<T_joinError> = _e;
+    static public function unwrap( _e:stdgo.Ref<T_joinError>):stdgo.Slice<stdgo.Error> {
+        @:recv var _e:stdgo.Ref<T_joinError> = _e;
         return _e._errs;
     }
     @:keep
-    static public function error( _e:stdgo.StdGoTypes.Ref<T_joinError>):stdgo.GoString {
-        @:recv var _e:stdgo.StdGoTypes.Ref<T_joinError> = _e;
-        var _b:stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
+    static public function error( _e:stdgo.Ref<T_joinError>):stdgo.GoString {
+        @:recv var _e:stdgo.Ref<T_joinError> = _e;
+        var _b:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
         for (_i => _err in _e._errs) {
-            if (_i > (0 : stdgo.StdGoTypes.GoInt)) {
-                _b = (_b.__append__((10 : stdgo.StdGoTypes.GoUInt8)));
+            if (_i > (0 : stdgo.GoInt)) {
+                _b = (_b.__append__((10 : stdgo.GoUInt8)));
             };
             _b = (_b.__append__(..._err.error().__toArray__()));
         };

@@ -306,12 +306,12 @@ import stdgo.strconv_test.Strconv
 
 
 ```haxe
-final _above1e23:stdgo.GoUInt64 = ((0i64 : stdgo.StdGoTypes.GoUInt64))
+final _above1e23:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _below1e23:stdgo.GoUInt64 = ((0i64 : stdgo.StdGoTypes.GoUInt64))
+final _below1e23:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 

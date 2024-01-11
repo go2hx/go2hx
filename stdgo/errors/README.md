@@ -196,10 +196,10 @@ error, or to any interface type.
 ```haxe
 function exampleAs():Void {
         {
-            var __tmp__ = stdgo.os.Os.open(("non-existing" : stdgo.GoString)), __0:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo.os.Os.open(("non-existing" : stdgo.GoString)), __0:stdgo.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                var _pathError:stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError> = (null : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>);
-                if (stdgo.errors.Errors.as(_err, stdgo.Go.toInterface((stdgo.Go.setRef(_pathError) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>>)))) {
+                var _pathError:stdgo.Ref<stdgo.io.fs.Fs.PathError> = (null : stdgo.Ref<stdgo.io.fs.Fs.PathError>);
+                if (stdgo.errors.Errors.as(_err, stdgo.Go.toInterface((stdgo.Go.setRef(_pathError) : stdgo.Ref<stdgo.Ref<stdgo.io.fs.Fs.PathError>>)))) {
                     stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("Failed at path:" : stdgo.GoString)), stdgo.Go.toInterface(_pathError.path));
                 } else {
                     stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_err));

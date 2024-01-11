@@ -5,141 +5,6 @@ package stdgo.go.token;
 **/
 private var __go2hxdoc__package : Bool;
 /**
-    
-    
-    
-**/
-var _tokens : stdgo.GoArray<stdgo.GoString> = {
-        var s:stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 89) ""]);
-        s[0] = ("ILLEGAL" : stdgo.GoString);
-        s[1] = ("EOF" : stdgo.GoString);
-        s[2] = ("COMMENT" : stdgo.GoString);
-        s[4] = ("IDENT" : stdgo.GoString);
-        s[5] = ("INT" : stdgo.GoString);
-        s[6] = ("FLOAT" : stdgo.GoString);
-        s[7] = ("IMAG" : stdgo.GoString);
-        s[8] = ("CHAR" : stdgo.GoString);
-        s[9] = ("STRING" : stdgo.GoString);
-        s[12] = ("+" : stdgo.GoString);
-        s[13] = ("-" : stdgo.GoString);
-        s[14] = ("*" : stdgo.GoString);
-        s[15] = ("/" : stdgo.GoString);
-        s[16] = ("%" : stdgo.GoString);
-        s[17] = ("&" : stdgo.GoString);
-        s[18] = ("|" : stdgo.GoString);
-        s[19] = ("^" : stdgo.GoString);
-        s[20] = ("<<" : stdgo.GoString);
-        s[21] = (">>" : stdgo.GoString);
-        s[22] = ("&^" : stdgo.GoString);
-        s[23] = ("+=" : stdgo.GoString);
-        s[24] = ("-=" : stdgo.GoString);
-        s[25] = ("*=" : stdgo.GoString);
-        s[26] = ("/=" : stdgo.GoString);
-        s[27] = ("%=" : stdgo.GoString);
-        s[28] = ("&=" : stdgo.GoString);
-        s[29] = ("|=" : stdgo.GoString);
-        s[30] = ("^=" : stdgo.GoString);
-        s[31] = ("<<=" : stdgo.GoString);
-        s[32] = (">>=" : stdgo.GoString);
-        s[33] = ("&^=" : stdgo.GoString);
-        s[34] = ("&&" : stdgo.GoString);
-        s[35] = ("||" : stdgo.GoString);
-        s[36] = ("<-" : stdgo.GoString);
-        s[37] = ("++" : stdgo.GoString);
-        s[38] = ("--" : stdgo.GoString);
-        s[39] = ("==" : stdgo.GoString);
-        s[40] = ("<" : stdgo.GoString);
-        s[41] = (">" : stdgo.GoString);
-        s[42] = ("=" : stdgo.GoString);
-        s[43] = ("!" : stdgo.GoString);
-        s[44] = ("!=" : stdgo.GoString);
-        s[45] = ("<=" : stdgo.GoString);
-        s[46] = (">=" : stdgo.GoString);
-        s[47] = (":=" : stdgo.GoString);
-        s[48] = ("..." : stdgo.GoString);
-        s[49] = ("(" : stdgo.GoString);
-        s[50] = ("[" : stdgo.GoString);
-        s[51] = ("{" : stdgo.GoString);
-        s[52] = ("," : stdgo.GoString);
-        s[53] = ("." : stdgo.GoString);
-        s[54] = (")" : stdgo.GoString);
-        s[55] = ("]" : stdgo.GoString);
-        s[56] = ("}" : stdgo.GoString);
-        s[57] = (";" : stdgo.GoString);
-        s[58] = (":" : stdgo.GoString);
-        s[61] = ("break" : stdgo.GoString);
-        s[62] = ("case" : stdgo.GoString);
-        s[63] = ("chan" : stdgo.GoString);
-        s[64] = ("const" : stdgo.GoString);
-        s[65] = ("continue" : stdgo.GoString);
-        s[66] = ("default" : stdgo.GoString);
-        s[67] = ("defer" : stdgo.GoString);
-        s[68] = ("else" : stdgo.GoString);
-        s[69] = ("fallthrough" : stdgo.GoString);
-        s[70] = ("for" : stdgo.GoString);
-        s[71] = ("func" : stdgo.GoString);
-        s[72] = ("go" : stdgo.GoString);
-        s[73] = ("goto" : stdgo.GoString);
-        s[74] = ("if" : stdgo.GoString);
-        s[75] = ("import" : stdgo.GoString);
-        s[76] = ("interface" : stdgo.GoString);
-        s[77] = ("map" : stdgo.GoString);
-        s[78] = ("package" : stdgo.GoString);
-        s[79] = ("range" : stdgo.GoString);
-        s[80] = ("return" : stdgo.GoString);
-        s[81] = ("select" : stdgo.GoString);
-        s[82] = ("struct" : stdgo.GoString);
-        s[83] = ("switch" : stdgo.GoString);
-        s[84] = ("type" : stdgo.GoString);
-        s[85] = ("var" : stdgo.GoString);
-        s[88] = ("~" : stdgo.GoString);
-        s;
-    };
-/**
-    
-    
-    
-**/
-var _tests : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(8, 8, ({ _filename : ("a" : stdgo.GoString), _source : (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(0, 0) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _size : (0 : stdgo.StdGoTypes.GoInt), _lines : (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(0, 0) : stdgo.Slice<stdgo.StdGoTypes.GoInt>) } : T__struct_0), ({ _filename : ("b" : stdgo.GoString), _source : (("01234" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), _size : (5 : stdgo.StdGoTypes.GoInt), _lines : (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(1, 1, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>) } : T__struct_0), ({ _filename : ("c" : stdgo.GoString), _source : (("\n\n\n\n\n\n\n\n\n" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), _size : (9 : stdgo.StdGoTypes.GoInt), _lines : (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(
-9,
-9,
-(0 : stdgo.StdGoTypes.GoInt),
-(1 : stdgo.StdGoTypes.GoInt),
-(2 : stdgo.StdGoTypes.GoInt),
-(3 : stdgo.StdGoTypes.GoInt),
-(4 : stdgo.StdGoTypes.GoInt),
-(5 : stdgo.StdGoTypes.GoInt),
-(6 : stdgo.StdGoTypes.GoInt),
-(7 : stdgo.StdGoTypes.GoInt),
-(8 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>) } : T__struct_0), ({ _filename : ("d" : stdgo.GoString), _source : (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _size : (100 : stdgo.StdGoTypes.GoInt), _lines : (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(
-12,
-12,
-(0 : stdgo.StdGoTypes.GoInt),
-(5 : stdgo.StdGoTypes.GoInt),
-(10 : stdgo.StdGoTypes.GoInt),
-(20 : stdgo.StdGoTypes.GoInt),
-(30 : stdgo.StdGoTypes.GoInt),
-(70 : stdgo.StdGoTypes.GoInt),
-(71 : stdgo.StdGoTypes.GoInt),
-(72 : stdgo.StdGoTypes.GoInt),
-(80 : stdgo.StdGoTypes.GoInt),
-(85 : stdgo.StdGoTypes.GoInt),
-(90 : stdgo.StdGoTypes.GoInt),
-(99 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>) } : T__struct_0), ({ _filename : ("e" : stdgo.GoString), _source : (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _size : (777 : stdgo.StdGoTypes.GoInt), _lines : (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(
-11,
-11,
-(0 : stdgo.StdGoTypes.GoInt),
-(80 : stdgo.StdGoTypes.GoInt),
-(100 : stdgo.StdGoTypes.GoInt),
-(120 : stdgo.StdGoTypes.GoInt),
-(130 : stdgo.StdGoTypes.GoInt),
-(180 : stdgo.StdGoTypes.GoInt),
-(267 : stdgo.StdGoTypes.GoInt),
-(455 : stdgo.StdGoTypes.GoInt),
-(500 : stdgo.StdGoTypes.GoInt),
-(567 : stdgo.StdGoTypes.GoInt),
-(620 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>) } : T__struct_0), ({ _filename : ("f" : stdgo.GoString), _source : (("package p\n\nimport \"fmt\"" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), _size : (23 : stdgo.StdGoTypes.GoInt), _lines : (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(3, 3, (0 : stdgo.StdGoTypes.GoInt), (10 : stdgo.StdGoTypes.GoInt), (11 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>) } : T__struct_0), ({ _filename : ("g" : stdgo.GoString), _source : (("package p\n\nimport \"fmt\"\n" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), _size : (24 : stdgo.StdGoTypes.GoInt), _lines : (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(3, 3, (0 : stdgo.StdGoTypes.GoInt), (10 : stdgo.StdGoTypes.GoInt), (11 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>) } : T__struct_0), ({ _filename : ("h" : stdgo.GoString), _source : (("package p\n\nimport \"fmt\"\n " : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), _size : (25 : stdgo.StdGoTypes.GoInt), _lines : (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(4, 4, (0 : stdgo.StdGoTypes.GoInt), (10 : stdgo.StdGoTypes.GoInt), (11 : stdgo.StdGoTypes.GoInt), (24 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>) } : T__struct_0)) : stdgo.Slice<T__struct_0>);
-/**
     // The zero value for Pos is NoPos; there is no file and line information
     // associated with it, and NoPos.IsValid() is false. NoPos is always
     // smaller than any other Pos value. The corresponding Position value
@@ -148,6 +13,50 @@ var _tests : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(8, 8, ({ _
     
 **/
 final noPos : stdgo.go.token.Token.Pos = (0 : stdgo.go.token.Token.Pos);
+/**
+    
+    
+    
+**/
+var _tests : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(8, 8, ({ _filename : ("a" : stdgo.GoString), _source : (new stdgo.Slice<stdgo.GoUInt8>(0, 0) : stdgo.Slice<stdgo.GoUInt8>), _size : (0 : stdgo.GoInt), _lines : (new stdgo.Slice<stdgo.GoInt>(0, 0) : stdgo.Slice<stdgo.GoInt>) } : T__struct_0), ({ _filename : ("b" : stdgo.GoString), _source : (("01234" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), _size : (5 : stdgo.GoInt), _lines : (new stdgo.Slice<stdgo.GoInt>(1, 1, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>) } : T__struct_0), ({ _filename : ("c" : stdgo.GoString), _source : (("\n\n\n\n\n\n\n\n\n" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), _size : (9 : stdgo.GoInt), _lines : (new stdgo.Slice<stdgo.GoInt>(
+9,
+9,
+(0 : stdgo.GoInt),
+(1 : stdgo.GoInt),
+(2 : stdgo.GoInt),
+(3 : stdgo.GoInt),
+(4 : stdgo.GoInt),
+(5 : stdgo.GoInt),
+(6 : stdgo.GoInt),
+(7 : stdgo.GoInt),
+(8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>) } : T__struct_0), ({ _filename : ("d" : stdgo.GoString), _source : (null : stdgo.Slice<stdgo.GoUInt8>), _size : (100 : stdgo.GoInt), _lines : (new stdgo.Slice<stdgo.GoInt>(
+12,
+12,
+(0 : stdgo.GoInt),
+(5 : stdgo.GoInt),
+(10 : stdgo.GoInt),
+(20 : stdgo.GoInt),
+(30 : stdgo.GoInt),
+(70 : stdgo.GoInt),
+(71 : stdgo.GoInt),
+(72 : stdgo.GoInt),
+(80 : stdgo.GoInt),
+(85 : stdgo.GoInt),
+(90 : stdgo.GoInt),
+(99 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>) } : T__struct_0), ({ _filename : ("e" : stdgo.GoString), _source : (null : stdgo.Slice<stdgo.GoUInt8>), _size : (777 : stdgo.GoInt), _lines : (new stdgo.Slice<stdgo.GoInt>(
+11,
+11,
+(0 : stdgo.GoInt),
+(80 : stdgo.GoInt),
+(100 : stdgo.GoInt),
+(120 : stdgo.GoInt),
+(130 : stdgo.GoInt),
+(180 : stdgo.GoInt),
+(267 : stdgo.GoInt),
+(455 : stdgo.GoInt),
+(500 : stdgo.GoInt),
+(567 : stdgo.GoInt),
+(620 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>) } : T__struct_0), ({ _filename : ("f" : stdgo.GoString), _source : (("package p\n\nimport \"fmt\"" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), _size : (23 : stdgo.GoInt), _lines : (new stdgo.Slice<stdgo.GoInt>(3, 3, (0 : stdgo.GoInt), (10 : stdgo.GoInt), (11 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>) } : T__struct_0), ({ _filename : ("g" : stdgo.GoString), _source : (("package p\n\nimport \"fmt\"\n" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), _size : (24 : stdgo.GoInt), _lines : (new stdgo.Slice<stdgo.GoInt>(3, 3, (0 : stdgo.GoInt), (10 : stdgo.GoInt), (11 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>) } : T__struct_0), ({ _filename : ("h" : stdgo.GoString), _source : (("package p\n\nimport \"fmt\"\n " : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), _size : (25 : stdgo.GoInt), _lines : (new stdgo.Slice<stdgo.GoInt>(4, 4, (0 : stdgo.GoInt), (10 : stdgo.GoInt), (11 : stdgo.GoInt), (24 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>) } : T__struct_0)) : stdgo.Slice<T__struct_0>);
 /**
     // Special tokens
     
@@ -690,6 +599,97 @@ final tilde = (89 : stdgo.go.token.Token.Token);
 **/
 final _additional_end = (89 : stdgo.go.token.Token.Token);
 /**
+    
+    
+    
+**/
+var _tokens : stdgo.GoArray<stdgo.GoString> = {
+        var s:stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 89) ""]);
+        s[0] = ("ILLEGAL" : stdgo.GoString);
+        s[1] = ("EOF" : stdgo.GoString);
+        s[2] = ("COMMENT" : stdgo.GoString);
+        s[4] = ("IDENT" : stdgo.GoString);
+        s[5] = ("INT" : stdgo.GoString);
+        s[6] = ("FLOAT" : stdgo.GoString);
+        s[7] = ("IMAG" : stdgo.GoString);
+        s[8] = ("CHAR" : stdgo.GoString);
+        s[9] = ("STRING" : stdgo.GoString);
+        s[12] = ("+" : stdgo.GoString);
+        s[13] = ("-" : stdgo.GoString);
+        s[14] = ("*" : stdgo.GoString);
+        s[15] = ("/" : stdgo.GoString);
+        s[16] = ("%" : stdgo.GoString);
+        s[17] = ("&" : stdgo.GoString);
+        s[18] = ("|" : stdgo.GoString);
+        s[19] = ("^" : stdgo.GoString);
+        s[20] = ("<<" : stdgo.GoString);
+        s[21] = (">>" : stdgo.GoString);
+        s[22] = ("&^" : stdgo.GoString);
+        s[23] = ("+=" : stdgo.GoString);
+        s[24] = ("-=" : stdgo.GoString);
+        s[25] = ("*=" : stdgo.GoString);
+        s[26] = ("/=" : stdgo.GoString);
+        s[27] = ("%=" : stdgo.GoString);
+        s[28] = ("&=" : stdgo.GoString);
+        s[29] = ("|=" : stdgo.GoString);
+        s[30] = ("^=" : stdgo.GoString);
+        s[31] = ("<<=" : stdgo.GoString);
+        s[32] = (">>=" : stdgo.GoString);
+        s[33] = ("&^=" : stdgo.GoString);
+        s[34] = ("&&" : stdgo.GoString);
+        s[35] = ("||" : stdgo.GoString);
+        s[36] = ("<-" : stdgo.GoString);
+        s[37] = ("++" : stdgo.GoString);
+        s[38] = ("--" : stdgo.GoString);
+        s[39] = ("==" : stdgo.GoString);
+        s[40] = ("<" : stdgo.GoString);
+        s[41] = (">" : stdgo.GoString);
+        s[42] = ("=" : stdgo.GoString);
+        s[43] = ("!" : stdgo.GoString);
+        s[44] = ("!=" : stdgo.GoString);
+        s[45] = ("<=" : stdgo.GoString);
+        s[46] = (">=" : stdgo.GoString);
+        s[47] = (":=" : stdgo.GoString);
+        s[48] = ("..." : stdgo.GoString);
+        s[49] = ("(" : stdgo.GoString);
+        s[50] = ("[" : stdgo.GoString);
+        s[51] = ("{" : stdgo.GoString);
+        s[52] = ("," : stdgo.GoString);
+        s[53] = ("." : stdgo.GoString);
+        s[54] = (")" : stdgo.GoString);
+        s[55] = ("]" : stdgo.GoString);
+        s[56] = ("}" : stdgo.GoString);
+        s[57] = (";" : stdgo.GoString);
+        s[58] = (":" : stdgo.GoString);
+        s[61] = ("break" : stdgo.GoString);
+        s[62] = ("case" : stdgo.GoString);
+        s[63] = ("chan" : stdgo.GoString);
+        s[64] = ("const" : stdgo.GoString);
+        s[65] = ("continue" : stdgo.GoString);
+        s[66] = ("default" : stdgo.GoString);
+        s[67] = ("defer" : stdgo.GoString);
+        s[68] = ("else" : stdgo.GoString);
+        s[69] = ("fallthrough" : stdgo.GoString);
+        s[70] = ("for" : stdgo.GoString);
+        s[71] = ("func" : stdgo.GoString);
+        s[72] = ("go" : stdgo.GoString);
+        s[73] = ("goto" : stdgo.GoString);
+        s[74] = ("if" : stdgo.GoString);
+        s[75] = ("import" : stdgo.GoString);
+        s[76] = ("interface" : stdgo.GoString);
+        s[77] = ("map" : stdgo.GoString);
+        s[78] = ("package" : stdgo.GoString);
+        s[79] = ("range" : stdgo.GoString);
+        s[80] = ("return" : stdgo.GoString);
+        s[81] = ("select" : stdgo.GoString);
+        s[82] = ("struct" : stdgo.GoString);
+        s[83] = ("switch" : stdgo.GoString);
+        s[84] = ("type" : stdgo.GoString);
+        s[85] = ("var" : stdgo.GoString);
+        s[88] = ("~" : stdgo.GoString);
+        s;
+    };
+/**
     // A set of constants for precedence-based expression parsing.
     // Non-operators have lowest precedence, followed by operators
     // starting with precedence 1 up to unary operators. The highest
@@ -698,7 +698,7 @@ final _additional_end = (89 : stdgo.go.token.Token.Token);
     
     // non-operators
 **/
-final lowestPrec : stdgo.StdGoTypes.GoUInt64 = (0i64 : stdgo.StdGoTypes.GoUInt64);
+final lowestPrec : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
 /**
     // A set of constants for precedence-based expression parsing.
     // Non-operators have lowest precedence, followed by operators
@@ -708,7 +708,7 @@ final lowestPrec : stdgo.StdGoTypes.GoUInt64 = (0i64 : stdgo.StdGoTypes.GoUInt64
     
     
 **/
-final unaryPrec : stdgo.StdGoTypes.GoUInt64 = (6i64 : stdgo.StdGoTypes.GoUInt64);
+final unaryPrec : stdgo.GoUInt64 = (6i64 : stdgo.GoUInt64);
 /**
     // A set of constants for precedence-based expression parsing.
     // Non-operators have lowest precedence, followed by operators
@@ -718,7 +718,7 @@ final unaryPrec : stdgo.StdGoTypes.GoUInt64 = (6i64 : stdgo.StdGoTypes.GoUInt64)
     
     
 **/
-final highestPrec : stdgo.StdGoTypes.GoUInt64 = (7i64 : stdgo.StdGoTypes.GoUInt64);
+final highestPrec : stdgo.GoUInt64 = (7i64 : stdgo.GoUInt64);
 /**
     
     
@@ -734,10 +734,10 @@ var _keywords : stdgo.GoMap<stdgo.GoString, Token> = (null : stdgo.GoMap<stdgo.G
 **/
 @:structInit @:using(stdgo.go.token.Token.Position_static_extension) class Position {
     public var filename : stdgo.GoString = "";
-    public var offset : stdgo.StdGoTypes.GoInt = 0;
-    public var line : stdgo.StdGoTypes.GoInt = 0;
-    public var column : stdgo.StdGoTypes.GoInt = 0;
-    public function new(?filename:stdgo.GoString, ?offset:stdgo.StdGoTypes.GoInt, ?line:stdgo.StdGoTypes.GoInt, ?column:stdgo.StdGoTypes.GoInt) {
+    public var offset : stdgo.GoInt = 0;
+    public var line : stdgo.GoInt = 0;
+    public var column : stdgo.GoInt = 0;
+    public function new(?filename:stdgo.GoString, ?offset:stdgo.GoInt, ?line:stdgo.GoInt, ?column:stdgo.GoInt) {
         if (filename != null) this.filename = filename;
         if (offset != null) this.offset = offset;
         if (line != null) this.line = line;
@@ -756,15 +756,15 @@ var _keywords : stdgo.GoMap<stdgo.GoString, Token> = (null : stdgo.GoMap<stdgo.G
 **/
 @:structInit @:using(stdgo.go.token.Token.File_static_extension) class File {
     public var _name : stdgo.GoString = "";
-    public var _base : stdgo.StdGoTypes.GoInt = 0;
-    public var _size : stdgo.StdGoTypes.GoInt = 0;
+    public var _base : stdgo.GoInt = 0;
+    public var _size : stdgo.GoInt = 0;
     /**
         // lines and infos are protected by mutex
     **/
     public var _mutex : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
-    public var _lines : stdgo.Slice<stdgo.StdGoTypes.GoInt> = (null : stdgo.Slice<stdgo.StdGoTypes.GoInt>);
+    public var _lines : stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
     public var _infos : stdgo.Slice<stdgo.go.token.Token.T_lineInfo> = (null : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>);
-    public function new(?_name:stdgo.GoString, ?_base:stdgo.StdGoTypes.GoInt, ?_size:stdgo.StdGoTypes.GoInt, ?_mutex:stdgo.sync.Sync.Mutex, ?_lines:stdgo.Slice<stdgo.StdGoTypes.GoInt>, ?_infos:stdgo.Slice<stdgo.go.token.Token.T_lineInfo>) {
+    public function new(?_name:stdgo.GoString, ?_base:stdgo.GoInt, ?_size:stdgo.GoInt, ?_mutex:stdgo.sync.Sync.Mutex, ?_lines:stdgo.Slice<stdgo.GoInt>, ?_infos:stdgo.Slice<stdgo.go.token.Token.T_lineInfo>) {
         if (_name != null) this._name = _name;
         if (_base != null) this._base = _base;
         if (_size != null) this._size = _size;
@@ -788,11 +788,11 @@ var _keywords : stdgo.GoMap<stdgo.GoString, Token> = (null : stdgo.GoMap<stdgo.G
     /**
         // fields are exported to make them accessible to gob
     **/
-    public var offset : stdgo.StdGoTypes.GoInt = 0;
+    public var offset : stdgo.GoInt = 0;
     public var filename : stdgo.GoString = "";
-    public var line : stdgo.StdGoTypes.GoInt = 0;
-    public var column : stdgo.StdGoTypes.GoInt = 0;
-    public function new(?offset:stdgo.StdGoTypes.GoInt, ?filename:stdgo.GoString, ?line:stdgo.StdGoTypes.GoInt, ?column:stdgo.StdGoTypes.GoInt) {
+    public var line : stdgo.GoInt = 0;
+    public var column : stdgo.GoInt = 0;
+    public function new(?offset:stdgo.GoInt, ?filename:stdgo.GoString, ?line:stdgo.GoInt, ?column:stdgo.GoInt) {
         if (offset != null) this.offset = offset;
         if (filename != null) this.filename = filename;
         if (line != null) this.line = line;
@@ -831,10 +831,10 @@ var _keywords : stdgo.GoMap<stdgo.GoString, Token> = (null : stdgo.GoMap<stdgo.G
 **/
 @:structInit @:using(stdgo.go.token.Token.FileSet_static_extension) class FileSet {
     public var _mutex : stdgo.sync.Sync.RWMutex = ({} : stdgo.sync.Sync.RWMutex);
-    public var _base : stdgo.StdGoTypes.GoInt = 0;
-    public var _files : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>> = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>>);
+    public var _base : stdgo.GoInt = 0;
+    public var _files : stdgo.Slice<stdgo.Ref<stdgo.go.token.Token.File>> = (null : stdgo.Slice<stdgo.Ref<stdgo.go.token.Token.File>>);
     public var _last : stdgo.sync.atomic_.Atomic_.Pointer_<stdgo.go.token.Token.File> = ({} : stdgo.sync.atomic_.Atomic_.Pointer_<stdgo.go.token.Token.File>);
-    public function new(?_mutex:stdgo.sync.Sync.RWMutex, ?_base:stdgo.StdGoTypes.GoInt, ?_files:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>>, ?_last:stdgo.sync.atomic_.Atomic_.Pointer_<stdgo.go.token.Token.File>) {
+    public function new(?_mutex:stdgo.sync.Sync.RWMutex, ?_base:stdgo.GoInt, ?_files:stdgo.Slice<stdgo.Ref<stdgo.go.token.Token.File>>, ?_last:stdgo.sync.atomic_.Atomic_.Pointer_<stdgo.go.token.Token.File>) {
         if (_mutex != null) this._mutex = _mutex;
         if (_base != null) this._base = _base;
         if (_files != null) this._files = _files;
@@ -855,11 +855,11 @@ var _keywords : stdgo.GoMap<stdgo.GoString, Token> = (null : stdgo.GoMap<stdgo.G
         // fields correspond 1:1 to fields with same (lower-case) name in File
     **/
     public var name : stdgo.GoString = "";
-    public var base : stdgo.StdGoTypes.GoInt = 0;
-    public var size : stdgo.StdGoTypes.GoInt = 0;
-    public var lines : stdgo.Slice<stdgo.StdGoTypes.GoInt> = (null : stdgo.Slice<stdgo.StdGoTypes.GoInt>);
+    public var base : stdgo.GoInt = 0;
+    public var size : stdgo.GoInt = 0;
+    public var lines : stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
     public var infos : stdgo.Slice<stdgo.go.token.Token.T_lineInfo> = (null : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>);
-    public function new(?name:stdgo.GoString, ?base:stdgo.StdGoTypes.GoInt, ?size:stdgo.StdGoTypes.GoInt, ?lines:stdgo.Slice<stdgo.StdGoTypes.GoInt>, ?infos:stdgo.Slice<stdgo.go.token.Token.T_lineInfo>) {
+    public function new(?name:stdgo.GoString, ?base:stdgo.GoInt, ?size:stdgo.GoInt, ?lines:stdgo.Slice<stdgo.GoInt>, ?infos:stdgo.Slice<stdgo.go.token.Token.T_lineInfo>) {
         if (name != null) this.name = name;
         if (base != null) this.base = base;
         if (size != null) this.size = size;
@@ -877,9 +877,9 @@ var _keywords : stdgo.GoMap<stdgo.GoString, Token> = (null : stdgo.GoMap<stdgo.G
     
 **/
 @:structInit @:private class T_serializedFileSet {
-    public var base : stdgo.StdGoTypes.GoInt = 0;
+    public var base : stdgo.GoInt = 0;
     public var files : stdgo.Slice<stdgo.go.token.Token.T_serializedFile> = (null : stdgo.Slice<stdgo.go.token.Token.T_serializedFile>);
-    public function new(?base:stdgo.StdGoTypes.GoInt, ?files:stdgo.Slice<stdgo.go.token.Token.T_serializedFile>) {
+    public function new(?base:stdgo.GoInt, ?files:stdgo.Slice<stdgo.go.token.Token.T_serializedFile>) {
         if (base != null) this.base = base;
         if (files != null) this.files = files;
     }
@@ -893,7 +893,7 @@ class T__struct_0_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T__struct_0>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -902,16 +902,16 @@ class T__struct_0_asInterface {
 }
 @:local @:using(stdgo.go.token.Token.T__struct_0_static_extension) typedef T__struct_0 = {
     public var _filename : stdgo.GoString;
-    public var _source : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>;
-    public var _size : stdgo.StdGoTypes.GoInt;
-    public var _lines : stdgo.Slice<stdgo.StdGoTypes.GoInt>;
+    public var _source : stdgo.Slice<stdgo.GoUInt8>;
+    public var _size : stdgo.GoInt;
+    public var _lines : stdgo.Slice<stdgo.GoInt>;
 };
 class T__struct_1_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T__struct_1>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -928,7 +928,7 @@ class T__struct_2_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T__struct_2>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -964,63 +964,63 @@ class T__struct_2_asInterface {
     // are in different files, p < q is true if the file implied by p was added
     // to the respective file set before the file implied by q.
 **/
-@:named @:using(stdgo.go.token.Token.Pos_static_extension) typedef Pos = stdgo.StdGoTypes.GoInt;
+@:named @:using(stdgo.go.token.Token.Pos_static_extension) typedef Pos = stdgo.GoInt;
 /**
     // Token is the set of lexical tokens of the Go programming language.
 **/
-@:named @:using(stdgo.go.token.Token.Token_static_extension) typedef Token = stdgo.StdGoTypes.GoInt;
-function _searchLineInfos(_a:stdgo.Slice<T_lineInfo>, _x:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt {
-        return stdgo.sort.Sort.search((_a.length), function(_i:stdgo.StdGoTypes.GoInt):Bool {
-            return _a[(_i : stdgo.StdGoTypes.GoInt)].offset > _x;
-        }) - (1 : stdgo.StdGoTypes.GoInt);
+@:named @:using(stdgo.go.token.Token.Token_static_extension) typedef Token = stdgo.GoInt;
+function _searchLineInfos(_a:stdgo.Slice<T_lineInfo>, _x:stdgo.GoInt):stdgo.GoInt {
+        return stdgo.sort.Sort.search((_a.length), function(_i:stdgo.GoInt):Bool {
+            return _a[(_i : stdgo.GoInt)].offset > _x;
+        }) - (1 : stdgo.GoInt);
     }
 /**
     // NewFileSet creates a new file set.
 **/
-function newFileSet():stdgo.StdGoTypes.Ref<FileSet> {
-        return (stdgo.Go.setRef(({ _base : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.FileSet)) : stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>);
+function newFileSet():stdgo.Ref<FileSet> {
+        return (stdgo.Go.setRef(({ _base : (1 : stdgo.GoInt) } : stdgo.go.token.Token.FileSet)) : stdgo.Ref<stdgo.go.token.Token.FileSet>);
     }
-function _searchFiles(_a:stdgo.Slice<stdgo.StdGoTypes.Ref<File>>, _x:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt {
-        return stdgo.sort.Sort.search((_a.length), function(_i:stdgo.StdGoTypes.GoInt):Bool {
-            return _a[(_i : stdgo.StdGoTypes.GoInt)]._base > _x;
-        }) - (1 : stdgo.StdGoTypes.GoInt);
+function _searchFiles(_a:stdgo.Slice<stdgo.Ref<File>>, _x:stdgo.GoInt):stdgo.GoInt {
+        return stdgo.sort.Sort.search((_a.length), function(_i:stdgo.GoInt):Bool {
+            return _a[(_i : stdgo.GoInt)]._base > _x;
+        }) - (1 : stdgo.GoInt);
     }
-function _searchInts(_a:stdgo.Slice<stdgo.StdGoTypes.GoInt>, _x:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt {
-        var __0:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), __1:stdgo.StdGoTypes.GoInt = (_a.length), _j:stdgo.StdGoTypes.GoInt = __1, _i:stdgo.StdGoTypes.GoInt = __0;
+function _searchInts(_a:stdgo.Slice<stdgo.GoInt>, _x:stdgo.GoInt):stdgo.GoInt {
+        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (_a.length), _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
         while (_i < _j) {
-            var _h:stdgo.StdGoTypes.GoInt = ((_i + _j : stdgo.StdGoTypes.GoUInt) >> (1i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt);
-            if (_a[(_h : stdgo.StdGoTypes.GoInt)] <= _x) {
-                _i = _h + (1 : stdgo.StdGoTypes.GoInt);
+            var _h:stdgo.GoInt = ((_i + _j : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt);
+            if (_a[(_h : stdgo.GoInt)] <= _x) {
+                _i = _h + (1 : stdgo.GoInt);
             } else {
                 _j = _h;
             };
         };
-        return _i - (1 : stdgo.StdGoTypes.GoInt);
+        return _i - (1 : stdgo.GoInt);
     }
-function benchmarkSearchInts(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
-        var _data = new stdgo.Slice<stdgo.StdGoTypes.GoInt>((10000 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
+function benchmarkSearchInts(_b:stdgo.Ref<stdgo.testing.Testing.B>):Void {
+        var _data = new stdgo.Slice<stdgo.GoInt>((10000 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
         {
-            var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-            stdgo.Go.cfor(_i < (10000 : stdgo.StdGoTypes.GoInt), _i++, {
-                _data[(_i : stdgo.StdGoTypes.GoInt)] = _i;
+            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            stdgo.Go.cfor(_i < (10000 : stdgo.GoInt), _i++, {
+                _data[(_i : stdgo.GoInt)] = _i;
             });
         };
         {};
         {
-            var _r:stdgo.StdGoTypes.GoInt = _searchInts(_data, (8 : stdgo.StdGoTypes.GoInt));
-            if (_r != ((8 : stdgo.StdGoTypes.GoInt))) {
-                _b.errorf(("got index = %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(_r), stdgo.Go.toInterface((8 : stdgo.StdGoTypes.GoInt)));
+            var _r:stdgo.GoInt = _searchInts(_data, (8 : stdgo.GoInt));
+            if (_r != ((8 : stdgo.GoInt))) {
+                _b.errorf(("got index = %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(_r), stdgo.Go.toInterface((8 : stdgo.GoInt)));
             };
         };
         _b.resetTimer();
         {
-            var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor(_i < _b.n, _i++, {
-                _searchInts(_data, (8 : stdgo.StdGoTypes.GoInt));
+                _searchInts(_data, (8 : stdgo.GoInt));
             });
         };
     }
-function _checkPos(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _msg:stdgo.GoString, _got:Position, _want:Position):Void {
+function _checkPos(_t:stdgo.Ref<stdgo.testing.Testing.T_>, _msg:stdgo.GoString, _got:Position, _want:Position):Void {
         if (_got.filename != (_want.filename)) {
             _t.errorf(("%s: got filename = %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(_msg), stdgo.Go.toInterface(_got.filename), stdgo.Go.toInterface(_want.filename));
         };
@@ -1034,77 +1034,77 @@ function _checkPos(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _msg:stdgo
             _t.errorf(("%s: got column = %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(_msg), stdgo.Go.toInterface(_got.column), stdgo.Go.toInterface(_want.column));
         };
     }
-function testNoPos(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testNoPos(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         if ((0 : stdgo.go.token.Token.Pos).isValid()) {
             _t.errorf(("NoPos should not be valid" : stdgo.GoString));
         };
-        var _fset:stdgo.StdGoTypes.Ref<FileSet> = (null : stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>);
+        var _fset:stdgo.Ref<FileSet> = (null : stdgo.Ref<stdgo.go.token.Token.FileSet>);
         _checkPos(_t, ("nil NoPos" : stdgo.GoString), _fset.position((0 : stdgo.go.token.Token.Pos))?.__copy__(), (new stdgo.go.token.Token.Position() : stdgo.go.token.Token.Position));
         _fset = newFileSet();
         _checkPos(_t, ("fset NoPos" : stdgo.GoString), _fset.position((0 : stdgo.go.token.Token.Pos))?.__copy__(), (new stdgo.go.token.Token.Position() : stdgo.go.token.Token.Position));
     }
-function _linecol(_lines:stdgo.Slice<stdgo.StdGoTypes.GoInt>, _offs:stdgo.StdGoTypes.GoInt):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.StdGoTypes.GoInt; } {
-        var _prevLineOffs:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+function _linecol(_lines:stdgo.Slice<stdgo.GoInt>, _offs:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } {
+        var _prevLineOffs:stdgo.GoInt = (0 : stdgo.GoInt);
         for (_line => _lineOffs in _lines) {
             if (_offs < _lineOffs) {
-                return { _0 : _line, _1 : (_offs - _prevLineOffs) + (1 : stdgo.StdGoTypes.GoInt) };
+                return { _0 : _line, _1 : (_offs - _prevLineOffs) + (1 : stdgo.GoInt) };
             };
             _prevLineOffs = _lineOffs;
         };
-        return { _0 : (_lines.length), _1 : (_offs - _prevLineOffs) + (1 : stdgo.StdGoTypes.GoInt) };
+        return { _0 : (_lines.length), _1 : (_offs - _prevLineOffs) + (1 : stdgo.GoInt) };
     }
-function _verifyPositions(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _fset:stdgo.StdGoTypes.Ref<FileSet>, _f:stdgo.StdGoTypes.Ref<File>, _lines:stdgo.Slice<stdgo.StdGoTypes.GoInt>):Void {
+function _verifyPositions(_t:stdgo.Ref<stdgo.testing.Testing.T_>, _fset:stdgo.Ref<FileSet>, _f:stdgo.Ref<File>, _lines:stdgo.Slice<stdgo.GoInt>):Void {
         {
-            var _offs:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+            var _offs:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor(_offs < _f.size(), _offs++, {
                 var _p:stdgo.go.token.Token.Pos = _f.pos(_offs);
-                var _offs2:stdgo.StdGoTypes.GoInt = _f.offset(_p);
+                var _offs2:stdgo.GoInt = _f.offset(_p);
                 if (_offs2 != (_offs)) {
                     _t.errorf(("%s, Offset: got offset %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(_f.name()), stdgo.Go.toInterface(_offs2), stdgo.Go.toInterface(_offs));
                 };
-                var __tmp__ = _linecol(_lines, _offs), _line:stdgo.StdGoTypes.GoInt = __tmp__._0, _col:stdgo.StdGoTypes.GoInt = __tmp__._1;
+                var __tmp__ = _linecol(_lines, _offs), _line:stdgo.GoInt = __tmp__._0, _col:stdgo.GoInt = __tmp__._1;
                 var _msg:stdgo.GoString = stdgo.fmt.Fmt.sprintf(("%s (offs = %d, p = %d)" : stdgo.GoString), stdgo.Go.toInterface(_f.name()), stdgo.Go.toInterface(_offs), stdgo.Go.toInterface(stdgo.Go.asInterface(_p)))?.__copy__();
                 _checkPos(_t, _msg?.__copy__(), _f.position(_f.pos(_offs))?.__copy__(), (new stdgo.go.token.Token.Position(_f.name()?.__copy__(), _offs, _line, _col) : stdgo.go.token.Token.Position));
                 _checkPos(_t, _msg?.__copy__(), _fset.position(_p)?.__copy__(), (new stdgo.go.token.Token.Position(_f.name()?.__copy__(), _offs, _line, _col) : stdgo.go.token.Token.Position));
             });
         };
     }
-function _makeTestSource(_size:stdgo.StdGoTypes.GoInt, _lines:stdgo.Slice<stdgo.StdGoTypes.GoInt>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
-        var _src = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((_size : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
+function _makeTestSource(_size:stdgo.GoInt, _lines:stdgo.Slice<stdgo.GoInt>):stdgo.Slice<stdgo.GoByte> {
+        var _src = new stdgo.Slice<stdgo.GoUInt8>((_size : stdgo.GoInt).toBasic(), 0).__setNumber32__();
         for (__4 => _offs in _lines) {
-            if (_offs > (0 : stdgo.StdGoTypes.GoInt)) {
-                _src[(_offs - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)] = (10 : stdgo.StdGoTypes.GoUInt8);
+            if (_offs > (0 : stdgo.GoInt)) {
+                _src[(_offs - (1 : stdgo.GoInt) : stdgo.GoInt)] = (10 : stdgo.GoUInt8);
             };
         };
         return _src;
     }
-function testPositions(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testPositions(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _fset = newFileSet();
         for (__4 => _test in _tests) {
             if ((_test._source != null) && (_test._source.length != _test._size)) {
                 _t.errorf(("%s: inconsistent test case: got file size %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(_test._filename), stdgo.Go.toInterface((_test._source.length)), stdgo.Go.toInterface(_test._size));
             };
-            var _f = _fset.addFile(_test._filename?.__copy__(), _fset.base() + (7 : stdgo.StdGoTypes.GoInt), _test._size);
+            var _f = _fset.addFile(_test._filename?.__copy__(), _fset.base() + (7 : stdgo.GoInt), _test._size);
             if (_f.name() != (_test._filename)) {
                 _t.errorf(("got filename %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(_f.name()), stdgo.Go.toInterface(_test._filename));
             };
             if (_f.size() != (_test._size)) {
                 _t.errorf(("%s: got file size %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(_f.name()), stdgo.Go.toInterface(_f.size()), stdgo.Go.toInterface(_test._size));
             };
-            if (_fset.file(_f.pos((0 : stdgo.StdGoTypes.GoInt))) != (_f)) {
+            if (_fset.file(_f.pos((0 : stdgo.GoInt))) != (_f)) {
                 _t.errorf(("%s: f.Pos(0) was not found in f" : stdgo.GoString), stdgo.Go.toInterface(_f.name()));
             };
             for (_i => _offset in _test._lines) {
                 _f.addLine(_offset);
-                if (_f.lineCount() != (_i + (1 : stdgo.StdGoTypes.GoInt))) {
-                    _t.errorf(("%s, AddLine: got line count %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(_f.name()), stdgo.Go.toInterface(_f.lineCount()), stdgo.Go.toInterface(_i + (1 : stdgo.StdGoTypes.GoInt)));
+                if (_f.lineCount() != (_i + (1 : stdgo.GoInt))) {
+                    _t.errorf(("%s, AddLine: got line count %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(_f.name()), stdgo.Go.toInterface(_f.lineCount()), stdgo.Go.toInterface(_i + (1 : stdgo.GoInt)));
                 };
                 _f.addLine(_offset);
-                if (_f.lineCount() != (_i + (1 : stdgo.StdGoTypes.GoInt))) {
-                    _t.errorf(("%s, AddLine: got unchanged line count %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(_f.name()), stdgo.Go.toInterface(_f.lineCount()), stdgo.Go.toInterface(_i + (1 : stdgo.StdGoTypes.GoInt)));
+                if (_f.lineCount() != (_i + (1 : stdgo.GoInt))) {
+                    _t.errorf(("%s, AddLine: got unchanged line count %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(_f.name()), stdgo.Go.toInterface(_f.lineCount()), stdgo.Go.toInterface(_i + (1 : stdgo.GoInt)));
                 };
-                _verifyPositions(_t, _fset, _f, (_test._lines.__slice__((0 : stdgo.StdGoTypes.GoInt), _i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>));
+                _verifyPositions(_t, _fset, _f, (_test._lines.__slice__((0 : stdgo.GoInt), _i + (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>));
             };
             {
                 var _ok:Bool = _f.setLines(_test._lines);
@@ -1130,62 +1130,62 @@ function testPositions(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
             _verifyPositions(_t, _fset, _f, _test._lines);
         };
     }
-function testLineInfo(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testLineInfo(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _fset = newFileSet();
-        var _f = _fset.addFile(("foo" : stdgo.GoString), _fset.base(), (500 : stdgo.StdGoTypes.GoInt));
-        var _lines = (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(
+        var _f = _fset.addFile(("foo" : stdgo.GoString), _fset.base(), (500 : stdgo.GoInt));
+        var _lines = (new stdgo.Slice<stdgo.GoInt>(
 10,
 10,
-(0 : stdgo.StdGoTypes.GoInt),
-(42 : stdgo.StdGoTypes.GoInt),
-(77 : stdgo.StdGoTypes.GoInt),
-(100 : stdgo.StdGoTypes.GoInt),
-(210 : stdgo.StdGoTypes.GoInt),
-(220 : stdgo.StdGoTypes.GoInt),
-(277 : stdgo.StdGoTypes.GoInt),
-(300 : stdgo.StdGoTypes.GoInt),
-(333 : stdgo.StdGoTypes.GoInt),
-(401 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>);
+(0 : stdgo.GoInt),
+(42 : stdgo.GoInt),
+(77 : stdgo.GoInt),
+(100 : stdgo.GoInt),
+(210 : stdgo.GoInt),
+(220 : stdgo.GoInt),
+(277 : stdgo.GoInt),
+(300 : stdgo.GoInt),
+(333 : stdgo.GoInt),
+(401 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
         for (__20 => _offs in _lines) {
             _f.addLine(_offs);
-            _f.addLineInfo(_offs, ("bar" : stdgo.GoString), (42 : stdgo.StdGoTypes.GoInt));
+            _f.addLineInfo(_offs, ("bar" : stdgo.GoString), (42 : stdgo.GoInt));
         };
         {
-            var _offs:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+            var _offs:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor(_offs <= _f.size(), _offs++, {
                 var _p:stdgo.go.token.Token.Pos = _f.pos(_offs);
-                var __tmp__ = _linecol(_lines, _offs), __21:stdgo.StdGoTypes.GoInt = __tmp__._0, _col:stdgo.StdGoTypes.GoInt = __tmp__._1;
+                var __tmp__ = _linecol(_lines, _offs), __21:stdgo.GoInt = __tmp__._0, _col:stdgo.GoInt = __tmp__._1;
                 var _msg:stdgo.GoString = stdgo.fmt.Fmt.sprintf(("%s (offs = %d, p = %d)" : stdgo.GoString), stdgo.Go.toInterface(_f.name()), stdgo.Go.toInterface(_offs), stdgo.Go.toInterface(stdgo.Go.asInterface(_p)))?.__copy__();
-                _checkPos(_t, _msg?.__copy__(), _f.position(_f.pos(_offs))?.__copy__(), (new stdgo.go.token.Token.Position(("bar" : stdgo.GoString), _offs, (42 : stdgo.StdGoTypes.GoInt), _col) : stdgo.go.token.Token.Position));
-                _checkPos(_t, _msg?.__copy__(), _fset.position(_p)?.__copy__(), (new stdgo.go.token.Token.Position(("bar" : stdgo.GoString), _offs, (42 : stdgo.StdGoTypes.GoInt), _col) : stdgo.go.token.Token.Position));
+                _checkPos(_t, _msg?.__copy__(), _f.position(_f.pos(_offs))?.__copy__(), (new stdgo.go.token.Token.Position(("bar" : stdgo.GoString), _offs, (42 : stdgo.GoInt), _col) : stdgo.go.token.Token.Position));
+                _checkPos(_t, _msg?.__copy__(), _fset.position(_p)?.__copy__(), (new stdgo.go.token.Token.Position(("bar" : stdgo.GoString), _offs, (42 : stdgo.GoInt), _col) : stdgo.go.token.Token.Position));
             });
         };
     }
-function testFiles(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testFiles(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _fset = newFileSet();
         for (_i => _test in _tests) {
-            var _base:stdgo.StdGoTypes.GoInt = _fset.base();
-            if (_i % (2 : stdgo.StdGoTypes.GoInt) == ((1 : stdgo.StdGoTypes.GoInt))) {
-                _base = (-1 : stdgo.StdGoTypes.GoInt);
+            var _base:stdgo.GoInt = _fset.base();
+            if (_i % (2 : stdgo.GoInt) == ((1 : stdgo.GoInt))) {
+                _base = (-1 : stdgo.GoInt);
             };
             _fset.addFile(_test._filename?.__copy__(), _base, _test._size);
-            var _j:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-            _fset.iterate(function(_f:stdgo.StdGoTypes.Ref<File>):Bool {
-                if (_f.name() != (_tests[(_j : stdgo.StdGoTypes.GoInt)]._filename)) {
-                    _t.errorf(("got filename = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_f.name()), stdgo.Go.toInterface(_tests[(_j : stdgo.StdGoTypes.GoInt)]._filename));
+            var _j:stdgo.GoInt = (0 : stdgo.GoInt);
+            _fset.iterate(function(_f:stdgo.Ref<File>):Bool {
+                if (_f.name() != (_tests[(_j : stdgo.GoInt)]._filename)) {
+                    _t.errorf(("got filename = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_f.name()), stdgo.Go.toInterface(_tests[(_j : stdgo.GoInt)]._filename));
                 };
                 _j++;
                 return true;
             });
-            if (_j != (_i + (1 : stdgo.StdGoTypes.GoInt))) {
-                _t.errorf(("got %d files; want %d" : stdgo.GoString), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_i + (1 : stdgo.StdGoTypes.GoInt)));
+            if (_j != (_i + (1 : stdgo.GoInt))) {
+                _t.errorf(("got %d files; want %d" : stdgo.GoString), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_i + (1 : stdgo.GoInt)));
             };
         };
     }
 /**
     // FileSet.File should return nil if Pos is past the end of the FileSet.
 **/
-function testFileSetPastEnd(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testFileSetPastEnd(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _fset = newFileSet();
         for (__4 => _test in _tests) {
             _fset.addFile(_test._filename?.__copy__(), _fset.base(), _test._size);
@@ -1197,14 +1197,14 @@ function testFileSetPastEnd(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):V
             };
         };
     }
-function testFileSetCacheUnlikely(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testFileSetCacheUnlikely(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _fset = newFileSet();
         var _offsets = ({
-            final x = new stdgo.GoMap.GoStringMap<stdgo.StdGoTypes.GoInt>();
-            x.__defaultValue__ = () -> (0 : stdgo.StdGoTypes.GoInt);
+            final x = new stdgo.GoMap.GoStringMap<stdgo.GoInt>();
+            x.__defaultValue__ = () -> (0 : stdgo.GoInt);
             @:mergeBlock {};
             x;
-        } : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.GoInt>);
+        } : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>);
         for (__4 => _test in _tests) {
             _offsets[_test._filename] = _fset.base();
             _fset.addFile(_test._filename?.__copy__(), _fset.base(), _test._size);
@@ -1220,27 +1220,27 @@ function testFileSetCacheUnlikely(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
     // issue 4345. Test that concurrent use of FileSet.Pos does not trigger a
     // race in the FileSet position cache.
 **/
-function testFileSetRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testFileSetRace(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _fset = newFileSet();
         {
-            var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-            stdgo.Go.cfor(_i < (100 : stdgo.StdGoTypes.GoInt), _i++, {
-                _fset.addFile(stdgo.fmt.Fmt.sprintf(("file-%d" : stdgo.GoString), stdgo.Go.toInterface(_i))?.__copy__(), _fset.base(), (1031 : stdgo.StdGoTypes.GoInt));
+            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            stdgo.Go.cfor(_i < (100 : stdgo.GoInt), _i++, {
+                _fset.addFile(stdgo.fmt.Fmt.sprintf(("file-%d" : stdgo.GoString), stdgo.Go.toInterface(_i))?.__copy__(), _fset.base(), (1031 : stdgo.GoInt));
             });
         };
-        var _max:stdgo.StdGoTypes.GoInt32 = (_fset.base() : stdgo.StdGoTypes.GoInt32);
+        var _max:stdgo.GoInt32 = (_fset.base() : stdgo.GoInt32);
         var _stop:stdgo.sync.Sync.WaitGroup = ({} : stdgo.sync.Sync.WaitGroup);
-        var _r = stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource((7i64 : stdgo.StdGoTypes.GoInt64)));
+        var _r = stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource((7i64 : stdgo.GoInt64)));
         {
-            var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-            stdgo.Go.cfor(_i < (2 : stdgo.StdGoTypes.GoInt), _i++, {
+            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            stdgo.Go.cfor(_i < (2 : stdgo.GoInt), _i++, {
                 var _r = stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource(_r.int63()));
-                _stop.add((1 : stdgo.StdGoTypes.GoInt));
+                _stop.add((1 : stdgo.GoInt));
                 stdgo.Go.routine(() -> {
                     var a = function():Void {
                         {
-                            var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-                            stdgo.Go.cfor(_i < (1000 : stdgo.StdGoTypes.GoInt), _i++, {
+                            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+                            stdgo.Go.cfor(_i < (1000 : stdgo.GoInt), _i++, {
                                 _fset.position((_r.int31n(_max) : Pos));
                             });
                         };
@@ -1256,39 +1256,39 @@ function testFileSetRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void
     // issue 16548. Test that concurrent use of File.AddLine and FileSet.PositionFor
     // does not trigger a race in the FileSet position cache.
 **/
-function testFileSetRace2(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testFileSetRace2(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         {};
-        var __0:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet> = newFileSet(), __1:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File> = _fset.addFile(stdgo.Go.str()?.__copy__(), (-1 : stdgo.StdGoTypes.GoInt), (1000 : stdgo.StdGoTypes.GoInt)), __2:stdgo.Chan<stdgo.StdGoTypes.GoInt> = new stdgo.Chan<stdgo.StdGoTypes.GoInt>((2 : stdgo.StdGoTypes.GoInt).toBasic(), () -> (0 : stdgo.StdGoTypes.GoInt)), _ch:stdgo.Chan<stdgo.StdGoTypes.GoInt> = __2, _file:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File> = __1, _fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet> = __0;
+        var __0:stdgo.Ref<stdgo.go.token.Token.FileSet> = newFileSet(), __1:stdgo.Ref<stdgo.go.token.Token.File> = _fset.addFile(stdgo.Go.str()?.__copy__(), (-1 : stdgo.GoInt), (1000 : stdgo.GoInt)), __2:stdgo.Chan<stdgo.GoInt> = new stdgo.Chan<stdgo.GoInt>((2 : stdgo.GoInt).toBasic(), () -> (0 : stdgo.GoInt)), _ch:stdgo.Chan<stdgo.GoInt> = __2, _file:stdgo.Ref<stdgo.go.token.Token.File> = __1, _fset:stdgo.Ref<stdgo.go.token.Token.FileSet> = __0;
         stdgo.Go.routine(() -> {
             var a = function():Void {
                 {
-                    var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-                    stdgo.Go.cfor(_i < (1000 : stdgo.StdGoTypes.GoInt), _i++, {
+                    var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+                    stdgo.Go.cfor(_i < (1000 : stdgo.GoInt), _i++, {
                         _file.addLine(_i);
                     });
                 };
-                _ch.__send__((1 : stdgo.StdGoTypes.GoInt));
+                _ch.__send__((1 : stdgo.GoInt));
             };
             a();
         });
         stdgo.Go.routine(() -> {
             var a = function():Void {
-                var _pos:stdgo.go.token.Token.Pos = _file.pos((0 : stdgo.StdGoTypes.GoInt));
+                var _pos:stdgo.go.token.Token.Pos = _file.pos((0 : stdgo.GoInt));
                 {
-                    var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-                    stdgo.Go.cfor(_i < (1000 : stdgo.StdGoTypes.GoInt), _i++, {
+                    var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+                    stdgo.Go.cfor(_i < (1000 : stdgo.GoInt), _i++, {
                         _fset.positionFor(_pos, false);
                     });
                 };
-                _ch.__send__((1 : stdgo.StdGoTypes.GoInt));
+                _ch.__send__((1 : stdgo.GoInt));
             };
             a();
         });
         _ch.__get__();
         _ch.__get__();
     }
-function testPositionFor(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
-        var _src = (("\nfoo\nb\nar\n//line :100\nfoobar\n//line bar:3\ndone\n" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
+function testPositionFor(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
+        var _src = (("\nfoo\nb\nar\n//line :100\nfoobar\n//line bar:3\ndone\n" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
         {};
         var _fset = newFileSet();
         var _f = _fset.addFile(("foo" : stdgo.GoString), _fset.base(), (_src.length));
@@ -1297,59 +1297,59 @@ function testPositionFor(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void
             var _got1:stdgo.go.token.Token.Position = _f.positionFor(_f.pos(_offs), false)?.__copy__();
             var _got2:stdgo.go.token.Token.Position = _f.positionFor(_f.pos(_offs), true)?.__copy__();
             var _got3:stdgo.go.token.Token.Position = _f.position(_f.pos(_offs))?.__copy__();
-            var _want:stdgo.go.token.Token.Position = (new stdgo.go.token.Token.Position(("foo" : stdgo.GoString), _offs, _i + (1 : stdgo.StdGoTypes.GoInt), (1 : stdgo.StdGoTypes.GoInt)) : stdgo.go.token.Token.Position);
+            var _want:stdgo.go.token.Token.Position = (new stdgo.go.token.Token.Position(("foo" : stdgo.GoString), _offs, _i + (1 : stdgo.GoInt), (1 : stdgo.GoInt)) : stdgo.go.token.Token.Position);
             _checkPos(_t, ("1. PositionFor unadjusted" : stdgo.GoString), _got1?.__copy__(), _want?.__copy__());
             _checkPos(_t, ("1. PositionFor adjusted" : stdgo.GoString), _got2?.__copy__(), _want?.__copy__());
             _checkPos(_t, ("1. Position" : stdgo.GoString), _got3?.__copy__(), _want?.__copy__());
         };
         {};
-        _f.addLineInfo(_f._lines[(4 : stdgo.StdGoTypes.GoInt)], stdgo.Go.str()?.__copy__(), (100 : stdgo.StdGoTypes.GoInt));
-        _f.addLineInfo(_f._lines[(6 : stdgo.StdGoTypes.GoInt)], ("bar" : stdgo.GoString), (3 : stdgo.StdGoTypes.GoInt));
+        _f.addLineInfo(_f._lines[(4 : stdgo.GoInt)], stdgo.Go.str()?.__copy__(), (100 : stdgo.GoInt));
+        _f.addLineInfo(_f._lines[(6 : stdgo.GoInt)], ("bar" : stdgo.GoString), (3 : stdgo.GoInt));
         for (_i => _offs in _f._lines) {
             var _got1:stdgo.go.token.Token.Position = _f.positionFor(_f.pos(_offs), false)?.__copy__();
-            var _want:stdgo.go.token.Token.Position = (new stdgo.go.token.Token.Position(("foo" : stdgo.GoString), _offs, _i + (1 : stdgo.StdGoTypes.GoInt), (1 : stdgo.StdGoTypes.GoInt)) : stdgo.go.token.Token.Position);
+            var _want:stdgo.go.token.Token.Position = (new stdgo.go.token.Token.Position(("foo" : stdgo.GoString), _offs, _i + (1 : stdgo.GoInt), (1 : stdgo.GoInt)) : stdgo.go.token.Token.Position);
             _checkPos(_t, ("2. PositionFor unadjusted" : stdgo.GoString), _got1?.__copy__(), _want?.__copy__());
         };
         for (_i => _offs in _f._lines) {
             var _got2:stdgo.go.token.Token.Position = _f.positionFor(_f.pos(_offs), true)?.__copy__();
             var _got3:stdgo.go.token.Token.Position = _f.position(_f.pos(_offs))?.__copy__();
-            var _want:stdgo.go.token.Token.Position = (new stdgo.go.token.Token.Position(("foo" : stdgo.GoString), _offs, _i + (1 : stdgo.StdGoTypes.GoInt), (1 : stdgo.StdGoTypes.GoInt)) : stdgo.go.token.Token.Position);
-            var _line:stdgo.StdGoTypes.GoInt = _want.line;
-            if ((_i + (1 : stdgo.StdGoTypes.GoInt)) >= (5 : stdgo.StdGoTypes.GoInt)) {
+            var _want:stdgo.go.token.Token.Position = (new stdgo.go.token.Token.Position(("foo" : stdgo.GoString), _offs, _i + (1 : stdgo.GoInt), (1 : stdgo.GoInt)) : stdgo.go.token.Token.Position);
+            var _line:stdgo.GoInt = _want.line;
+            if ((_i + (1 : stdgo.GoInt)) >= (5 : stdgo.GoInt)) {
                 _want.filename = stdgo.Go.str()?.__copy__();
-                _want.line = (_line - (5 : stdgo.StdGoTypes.GoInt)) + (100 : stdgo.StdGoTypes.GoInt);
+                _want.line = (_line - (5 : stdgo.GoInt)) + (100 : stdgo.GoInt);
             };
-            if ((_i + (1 : stdgo.StdGoTypes.GoInt)) >= (7 : stdgo.StdGoTypes.GoInt)) {
+            if ((_i + (1 : stdgo.GoInt)) >= (7 : stdgo.GoInt)) {
                 _want.filename = ("bar" : stdgo.GoString);
-                _want.line = (_line - (7 : stdgo.StdGoTypes.GoInt)) + (3 : stdgo.StdGoTypes.GoInt);
+                _want.line = (_line - (7 : stdgo.GoInt)) + (3 : stdgo.GoInt);
             };
             _checkPos(_t, ("3. PositionFor adjusted" : stdgo.GoString), _got2?.__copy__(), _want?.__copy__());
             _checkPos(_t, ("3. Position" : stdgo.GoString), _got3?.__copy__(), _want?.__copy__());
         };
     }
-function testLineStart(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testLineStart(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         {};
         var _fset = newFileSet();
-        var _f = _fset.addFile(("input" : stdgo.GoString), (-1 : stdgo.StdGoTypes.GoInt), (("one\ntwo\nthree\n" : stdgo.GoString).length));
-        _f.setLinesForContent((("one\ntwo\nthree\n" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
+        var _f = _fset.addFile(("input" : stdgo.GoString), (-1 : stdgo.GoInt), (("one\ntwo\nthree\n" : stdgo.GoString).length));
+        _f.setLinesForContent((("one\ntwo\nthree\n" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>));
         {
-            var _line:stdgo.StdGoTypes.GoInt = (1 : stdgo.StdGoTypes.GoInt);
-            stdgo.Go.cfor(_line <= (3 : stdgo.StdGoTypes.GoInt), _line++, {
+            var _line:stdgo.GoInt = (1 : stdgo.GoInt);
+            stdgo.Go.cfor(_line <= (3 : stdgo.GoInt), _line++, {
                 var _pos:stdgo.go.token.Token.Pos = _f.lineStart(_line);
                 var _position:stdgo.go.token.Token.Position = _fset.position(_pos)?.__copy__();
-                if ((_position.line != _line) || (_position.column != (1 : stdgo.StdGoTypes.GoInt))) {
+                if ((_position.line != _line) || (_position.column != (1 : stdgo.GoInt))) {
                     _t.errorf(("LineStart(%d) returned wrong pos %d: %s" : stdgo.GoString), stdgo.Go.toInterface(_line), stdgo.Go.toInterface(stdgo.Go.asInterface(_pos)), stdgo.Go.toInterface(stdgo.Go.asInterface(_position)));
                 };
             });
         };
     }
-function testRemoveFile(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
-        var _contentA = (("this\nis\nfileA" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
-        var _contentB = (("this\nis\nfileB" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
+function testRemoveFile(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
+        var _contentA = (("this\nis\nfileA" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
+        var _contentB = (("this\nis\nfileB" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
         var _fset = newFileSet();
-        var _a = _fset.addFile(("fileA" : stdgo.GoString), (-1 : stdgo.StdGoTypes.GoInt), (_contentA.length));
+        var _a = _fset.addFile(("fileA" : stdgo.GoString), (-1 : stdgo.GoInt), (_contentA.length));
         _a.setLinesForContent(_contentA);
-        var _b = _fset.addFile(("fileB" : stdgo.GoString), (-1 : stdgo.StdGoTypes.GoInt), (_contentB.length));
+        var _b = _fset.addFile(("fileB" : stdgo.GoString), (-1 : stdgo.GoInt), (_contentB.length));
         _b.setLinesForContent(_contentB);
         var _checkPos:(stdgo.go.token.Token.Pos, stdgo.GoString) -> Void = function(_pos:Pos, _want:stdgo.GoString):Void {
             {
@@ -1359,9 +1359,9 @@ function testRemoveFile(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void 
                 };
             };
         };
-        var _checkNumFiles:stdgo.StdGoTypes.GoInt -> Void = function(_want:stdgo.StdGoTypes.GoInt):Void {
-            var _got:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-            _fset.iterate(function(_0:stdgo.StdGoTypes.Ref<File>):Bool {
+        var _checkNumFiles:stdgo.GoInt -> Void = function(_want:stdgo.GoInt):Void {
+            var _got:stdgo.GoInt = (0 : stdgo.GoInt);
+            _fset.iterate(function(_0:stdgo.Ref<File>):Bool {
                 _got++;
                 return true;
             });
@@ -1369,27 +1369,27 @@ function testRemoveFile(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void 
                 _t.errorf(("Iterate called %d times, want %d" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
             };
         };
-        var _apos3:stdgo.go.token.Token.Pos = _a.pos((3 : stdgo.StdGoTypes.GoInt));
-        var _bpos3:stdgo.go.token.Token.Pos = _b.pos((3 : stdgo.StdGoTypes.GoInt));
+        var _apos3:stdgo.go.token.Token.Pos = _a.pos((3 : stdgo.GoInt));
+        var _bpos3:stdgo.go.token.Token.Pos = _b.pos((3 : stdgo.GoInt));
         _checkPos(_apos3, ("fileA:1:4" : stdgo.GoString));
         _checkPos(_bpos3, ("fileB:1:4" : stdgo.GoString));
-        _checkNumFiles((2 : stdgo.StdGoTypes.GoInt));
+        _checkNumFiles((2 : stdgo.GoInt));
         _fset.removeFile(_a);
         _checkPos(_apos3, ("-" : stdgo.GoString));
         _checkPos(_bpos3, ("fileB:1:4" : stdgo.GoString));
-        _checkNumFiles((1 : stdgo.StdGoTypes.GoInt));
+        _checkNumFiles((1 : stdgo.GoInt));
         _fset.removeFile(_a);
         _checkPos(_apos3, ("-" : stdgo.GoString));
         _checkPos(_bpos3, ("fileB:1:4" : stdgo.GoString));
-        _checkNumFiles((1 : stdgo.StdGoTypes.GoInt));
+        _checkNumFiles((1 : stdgo.GoInt));
     }
-function testFileAddLineColumnInfo(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testFileAddLineColumnInfo(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         {};
-        var _tests = (new stdgo.Slice<T__struct_1>(7, 7, ({ _name : ("normal" : stdgo.GoString), _infos : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(3, 3, ({ offset : (10 : stdgo.StdGoTypes.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.StdGoTypes.GoInt), column : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.T_lineInfo), ({ offset : (50 : stdgo.StdGoTypes.GoInt), filename : ("test.go" : stdgo.GoString), line : (3 : stdgo.StdGoTypes.GoInt), column : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.T_lineInfo), ({ offset : (80 : stdgo.StdGoTypes.GoInt), filename : ("test.go" : stdgo.GoString), line : (4 : stdgo.StdGoTypes.GoInt), column : (2 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>), _want : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(3, 3, ({ offset : (10 : stdgo.StdGoTypes.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.StdGoTypes.GoInt), column : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.T_lineInfo), ({ offset : (50 : stdgo.StdGoTypes.GoInt), filename : ("test.go" : stdgo.GoString), line : (3 : stdgo.StdGoTypes.GoInt), column : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.T_lineInfo), ({ offset : (80 : stdgo.StdGoTypes.GoInt), filename : ("test.go" : stdgo.GoString), line : (4 : stdgo.StdGoTypes.GoInt), column : (2 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>) } : T__struct_1), ({ _name : ("offset1 == file size" : stdgo.GoString), _infos : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(1, 1, ({ offset : (100 : stdgo.StdGoTypes.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.StdGoTypes.GoInt), column : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>), _want : (null : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>) } : T__struct_1), ({ _name : ("offset1 > file size" : stdgo.GoString), _infos : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(1, 1, ({ offset : (101 : stdgo.StdGoTypes.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.StdGoTypes.GoInt), column : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>), _want : (null : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>) } : T__struct_1), ({ _name : ("offset2 == file size" : stdgo.GoString), _infos : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(2, 2, ({ offset : (10 : stdgo.StdGoTypes.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.StdGoTypes.GoInt), column : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.T_lineInfo), ({ offset : (100 : stdgo.StdGoTypes.GoInt), filename : ("test.go" : stdgo.GoString), line : (3 : stdgo.StdGoTypes.GoInt), column : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>), _want : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(1, 1, ({ offset : (10 : stdgo.StdGoTypes.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.StdGoTypes.GoInt), column : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>) } : T__struct_1), ({ _name : ("offset2 > file size" : stdgo.GoString), _infos : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(2, 2, ({ offset : (10 : stdgo.StdGoTypes.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.StdGoTypes.GoInt), column : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.T_lineInfo), ({ offset : (101 : stdgo.StdGoTypes.GoInt), filename : ("test.go" : stdgo.GoString), line : (3 : stdgo.StdGoTypes.GoInt), column : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>), _want : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(1, 1, ({ offset : (10 : stdgo.StdGoTypes.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.StdGoTypes.GoInt), column : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>) } : T__struct_1), ({ _name : ("offset2 == offset1" : stdgo.GoString), _infos : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(2, 2, ({ offset : (10 : stdgo.StdGoTypes.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.StdGoTypes.GoInt), column : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.T_lineInfo), ({ offset : (10 : stdgo.StdGoTypes.GoInt), filename : ("test.go" : stdgo.GoString), line : (3 : stdgo.StdGoTypes.GoInt), column : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>), _want : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(1, 1, ({ offset : (10 : stdgo.StdGoTypes.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.StdGoTypes.GoInt), column : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>) } : T__struct_1), ({ _name : ("offset2 < offset1" : stdgo.GoString), _infos : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(2, 2, ({ offset : (10 : stdgo.StdGoTypes.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.StdGoTypes.GoInt), column : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.T_lineInfo), ({ offset : (9 : stdgo.StdGoTypes.GoInt), filename : ("test.go" : stdgo.GoString), line : (3 : stdgo.StdGoTypes.GoInt), column : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>), _want : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(1, 1, ({ offset : (10 : stdgo.StdGoTypes.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.StdGoTypes.GoInt), column : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>) } : T__struct_1)) : stdgo.Slice<T__struct_1>);
+        var _tests = (new stdgo.Slice<T__struct_1>(7, 7, ({ _name : ("normal" : stdgo.GoString), _infos : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(3, 3, ({ offset : (10 : stdgo.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.GoInt), column : (1 : stdgo.GoInt) } : stdgo.go.token.Token.T_lineInfo), ({ offset : (50 : stdgo.GoInt), filename : ("test.go" : stdgo.GoString), line : (3 : stdgo.GoInt), column : (1 : stdgo.GoInt) } : stdgo.go.token.Token.T_lineInfo), ({ offset : (80 : stdgo.GoInt), filename : ("test.go" : stdgo.GoString), line : (4 : stdgo.GoInt), column : (2 : stdgo.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>), _want : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(3, 3, ({ offset : (10 : stdgo.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.GoInt), column : (1 : stdgo.GoInt) } : stdgo.go.token.Token.T_lineInfo), ({ offset : (50 : stdgo.GoInt), filename : ("test.go" : stdgo.GoString), line : (3 : stdgo.GoInt), column : (1 : stdgo.GoInt) } : stdgo.go.token.Token.T_lineInfo), ({ offset : (80 : stdgo.GoInt), filename : ("test.go" : stdgo.GoString), line : (4 : stdgo.GoInt), column : (2 : stdgo.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>) } : T__struct_1), ({ _name : ("offset1 == file size" : stdgo.GoString), _infos : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(1, 1, ({ offset : (100 : stdgo.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.GoInt), column : (1 : stdgo.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>), _want : (null : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>) } : T__struct_1), ({ _name : ("offset1 > file size" : stdgo.GoString), _infos : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(1, 1, ({ offset : (101 : stdgo.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.GoInt), column : (1 : stdgo.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>), _want : (null : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>) } : T__struct_1), ({ _name : ("offset2 == file size" : stdgo.GoString), _infos : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(2, 2, ({ offset : (10 : stdgo.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.GoInt), column : (1 : stdgo.GoInt) } : stdgo.go.token.Token.T_lineInfo), ({ offset : (100 : stdgo.GoInt), filename : ("test.go" : stdgo.GoString), line : (3 : stdgo.GoInt), column : (1 : stdgo.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>), _want : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(1, 1, ({ offset : (10 : stdgo.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.GoInt), column : (1 : stdgo.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>) } : T__struct_1), ({ _name : ("offset2 > file size" : stdgo.GoString), _infos : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(2, 2, ({ offset : (10 : stdgo.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.GoInt), column : (1 : stdgo.GoInt) } : stdgo.go.token.Token.T_lineInfo), ({ offset : (101 : stdgo.GoInt), filename : ("test.go" : stdgo.GoString), line : (3 : stdgo.GoInt), column : (1 : stdgo.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>), _want : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(1, 1, ({ offset : (10 : stdgo.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.GoInt), column : (1 : stdgo.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>) } : T__struct_1), ({ _name : ("offset2 == offset1" : stdgo.GoString), _infos : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(2, 2, ({ offset : (10 : stdgo.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.GoInt), column : (1 : stdgo.GoInt) } : stdgo.go.token.Token.T_lineInfo), ({ offset : (10 : stdgo.GoInt), filename : ("test.go" : stdgo.GoString), line : (3 : stdgo.GoInt), column : (1 : stdgo.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>), _want : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(1, 1, ({ offset : (10 : stdgo.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.GoInt), column : (1 : stdgo.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>) } : T__struct_1), ({ _name : ("offset2 < offset1" : stdgo.GoString), _infos : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(2, 2, ({ offset : (10 : stdgo.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.GoInt), column : (1 : stdgo.GoInt) } : stdgo.go.token.Token.T_lineInfo), ({ offset : (9 : stdgo.GoInt), filename : ("test.go" : stdgo.GoString), line : (3 : stdgo.GoInt), column : (1 : stdgo.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>), _want : (new stdgo.Slice<stdgo.go.token.Token.T_lineInfo>(1, 1, ({ offset : (10 : stdgo.GoInt), filename : ("test.go" : stdgo.GoString), line : (2 : stdgo.GoInt), column : (1 : stdgo.GoInt) } : stdgo.go.token.Token.T_lineInfo)) : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>) } : T__struct_1)) : stdgo.Slice<T__struct_1>);
         for (__4 => _test in _tests) {
-            _t.run(_test._name?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+            _t.run(_test._name?.__copy__(), function(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
                 var _fs = newFileSet();
-                var _f = _fs.addFile(("test.go" : stdgo.GoString), (-1 : stdgo.StdGoTypes.GoInt), (100 : stdgo.StdGoTypes.GoInt));
+                var _f = _fs.addFile(("test.go" : stdgo.GoString), (-1 : stdgo.GoInt), (100 : stdgo.GoInt));
                 for (__13 => _info in _test._infos) {
                     _f.addLineColumnInfo(_info.offset, _info.filename?.__copy__(), _info.line, _info.column);
                 };
@@ -1403,7 +1403,7 @@ function testFileAddLineColumnInfo(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
     // equal returns nil if p and q describe the same file set;
     // otherwise it returns an error describing the discrepancy.
 **/
-function _equal(_p:stdgo.StdGoTypes.Ref<FileSet>, _q:stdgo.StdGoTypes.Ref<FileSet>):stdgo.Error {
+function _equal(_p:stdgo.Ref<FileSet>, _q:stdgo.Ref<FileSet>):stdgo.Error {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             if (_p == (_q)) {
@@ -1430,7 +1430,7 @@ function _equal(_p:stdgo.StdGoTypes.Ref<FileSet>, _q:stdgo.StdGoTypes.Ref<FileSe
                 };
             };
             for (_i => _f in _p._files) {
-                var _g = _q._files[(_i : stdgo.StdGoTypes.GoInt)];
+                var _g = _q._files[(_i : stdgo.GoInt)];
                 if (_f._name != (_g._name)) {
                     {
                         for (defer in __deferstack__) {
@@ -1456,7 +1456,7 @@ function _equal(_p:stdgo.StdGoTypes.Ref<FileSet>, _q:stdgo.StdGoTypes.Ref<FileSe
                     };
                 };
                 for (_j => _l in _f._lines) {
-                    var _m:stdgo.StdGoTypes.GoInt = _g._lines[(_j : stdgo.StdGoTypes.GoInt)];
+                    var _m:stdgo.GoInt = _g._lines[(_j : stdgo.GoInt)];
                     if (_l != (_m)) {
                         {
                             for (defer in __deferstack__) {
@@ -1467,7 +1467,7 @@ function _equal(_p:stdgo.StdGoTypes.Ref<FileSet>, _q:stdgo.StdGoTypes.Ref<FileSe
                     };
                 };
                 for (_j => _l in _f._infos) {
-                    var _m:stdgo.go.token.Token.T_lineInfo = _g._infos[(_j : stdgo.StdGoTypes.GoInt)];
+                    var _m:stdgo.go.token.Token.T_lineInfo = _g._infos[(_j : stdgo.GoInt)];
                     if (((_l.offset != _m.offset) || (_l.filename != _m.filename)) || (_l.line != _m.line)) {
                         {
                             for (defer in __deferstack__) {
@@ -1494,7 +1494,7 @@ function _equal(_p:stdgo.StdGoTypes.Ref<FileSet>, _q:stdgo.StdGoTypes.Ref<FileSe
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+            if (!(exe is stdgo.AnyInterfaceData)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
@@ -1505,10 +1505,10 @@ function _equal(_p:stdgo.StdGoTypes.Ref<FileSet>, _q:stdgo.StdGoTypes.Ref<FileSe
             return (null : stdgo.Error);
         };
     }
-function _checkSerialize(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _p:stdgo.StdGoTypes.Ref<FileSet>):Void {
+function _checkSerialize(_t:stdgo.Ref<stdgo.testing.Testing.T_>, _p:stdgo.Ref<FileSet>):Void {
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        var _encode:stdgo.StdGoTypes.AnyInterface -> stdgo.Error = function(_x:stdgo.StdGoTypes.AnyInterface):stdgo.Error {
-            return stdgo.encoding.gob.Gob.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>))).encode(_x);
+        var _encode:stdgo.AnyInterface -> stdgo.Error = function(_x:stdgo.AnyInterface):stdgo.Error {
+            return stdgo.encoding.gob.Gob.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo.bytes.Bytes.Buffer>))).encode(_x);
         };
         {
             var _err:stdgo.Error = _p.write(_encode);
@@ -1518,8 +1518,8 @@ function _checkSerialize(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _p:s
             };
         };
         var _q = newFileSet();
-        var _decode:stdgo.StdGoTypes.AnyInterface -> stdgo.Error = function(_x:stdgo.StdGoTypes.AnyInterface):stdgo.Error {
-            return stdgo.encoding.gob.Gob.newDecoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>))).decode(_x);
+        var _decode:stdgo.AnyInterface -> stdgo.Error = function(_x:stdgo.AnyInterface):stdgo.Error {
+            return stdgo.encoding.gob.Gob.newDecoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo.bytes.Bytes.Buffer>))).decode(_x);
         };
         {
             var _err:stdgo.Error = _q.read(_decode);
@@ -1535,22 +1535,22 @@ function _checkSerialize(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>, _p:s
             };
         };
     }
-function testSerialization(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testSerialization(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _p = newFileSet();
         _checkSerialize(_t, _p);
         {
-            var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-            stdgo.Go.cfor(_i < (10 : stdgo.StdGoTypes.GoInt), _i++, {
-                var _f = _p.addFile(stdgo.fmt.Fmt.sprintf(("file%d" : stdgo.GoString), stdgo.Go.toInterface(_i))?.__copy__(), _p.base() + _i, _i * (100 : stdgo.StdGoTypes.GoInt));
+            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            stdgo.Go.cfor(_i < (10 : stdgo.GoInt), _i++, {
+                var _f = _p.addFile(stdgo.fmt.Fmt.sprintf(("file%d" : stdgo.GoString), stdgo.Go.toInterface(_i))?.__copy__(), _p.base() + _i, _i * (100 : stdgo.GoInt));
                 _checkSerialize(_t, _p);
-                var _line:stdgo.StdGoTypes.GoInt = (1000 : stdgo.StdGoTypes.GoInt);
+                var _line:stdgo.GoInt = (1000 : stdgo.GoInt);
                 {
-                    var _offs:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-                    stdgo.Go.cfor(_offs < _f.size(), _offs = _offs + ((40 : stdgo.StdGoTypes.GoInt) + _i), {
+                    var _offs:stdgo.GoInt = (0 : stdgo.GoInt);
+                    stdgo.Go.cfor(_offs < _f.size(), _offs = _offs + ((40 : stdgo.GoInt) + _i), {
                         _f.addLine(_offs);
-                        if (_offs % (7 : stdgo.StdGoTypes.GoInt) == ((0 : stdgo.StdGoTypes.GoInt))) {
+                        if (_offs % (7 : stdgo.GoInt) == ((0 : stdgo.GoInt))) {
                             _f.addLineInfo(_offs, stdgo.fmt.Fmt.sprintf(("file%d" : stdgo.GoString), stdgo.Go.toInterface(_offs))?.__copy__(), _line);
-                            _line = _line + ((33 : stdgo.StdGoTypes.GoInt));
+                            _line = _line + ((33 : stdgo.GoInt));
                         };
                     });
                 };
@@ -1563,7 +1563,7 @@ function testSerialization(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Vo
 **/
 function lookup(_ident:stdgo.GoString):Token {
         {
-            var __tmp__ = (_keywords != null && _keywords.exists(_ident?.__copy__()) ? { _0 : _keywords[_ident?.__copy__()], _1 : true } : { _0 : ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.token.Token.Token), _1 : false }), _tok:stdgo.go.token.Token.Token = __tmp__._0, _is_keyword:Bool = __tmp__._1;
+            var __tmp__ = (_keywords != null && _keywords.exists(_ident?.__copy__()) ? { _0 : _keywords[_ident?.__copy__()], _1 : true } : { _0 : ((0 : stdgo.GoInt) : stdgo.go.token.Token.Token), _1 : false }), _tok:stdgo.go.token.Token.Token = __tmp__._0, _is_keyword:Bool = __tmp__._1;
             if (_is_keyword) {
                 return _tok;
             };
@@ -1574,14 +1574,14 @@ function lookup(_ident:stdgo.GoString):Token {
     // IsExported reports whether name starts with an upper-case letter.
 **/
 function isExported(_name:stdgo.GoString):Bool {
-        var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_name?.__copy__()), _ch:stdgo.StdGoTypes.GoInt32 = __tmp__._0, __4:stdgo.StdGoTypes.GoInt = __tmp__._1;
+        var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_name?.__copy__()), _ch:stdgo.GoInt32 = __tmp__._0, __4:stdgo.GoInt = __tmp__._1;
         return stdgo.unicode.Unicode.isUpper(_ch);
     }
 /**
     // IsKeyword reports whether name is a Go keyword, such as "func" or "return".
 **/
 function isKeyword(_name:stdgo.GoString):Bool {
-        var __tmp__ = (_keywords != null && _keywords.exists(_name?.__copy__()) ? { _0 : _keywords[_name?.__copy__()], _1 : true } : { _0 : ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.token.Token.Token), _1 : false }), __4:stdgo.go.token.Token.Token = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = (_keywords != null && _keywords.exists(_name?.__copy__()) ? { _0 : _keywords[_name?.__copy__()], _1 : true } : { _0 : ((0 : stdgo.GoInt) : stdgo.go.token.Token.Token), _1 : false }), __4:stdgo.go.token.Token.Token = __tmp__._0, _ok:Bool = __tmp__._1;
         return _ok;
     }
 /**
@@ -1594,13 +1594,13 @@ function isIdentifier(_name:stdgo.GoString):Bool {
             return false;
         };
         for (_i => _c in _name) {
-            if ((!stdgo.unicode.Unicode.isLetter(_c) && (_c != (95 : stdgo.StdGoTypes.GoInt32))) && ((_i == (0 : stdgo.StdGoTypes.GoInt)) || !stdgo.unicode.Unicode.isDigit(_c))) {
+            if ((!stdgo.unicode.Unicode.isLetter(_c) && (_c != (95 : stdgo.GoInt32))) && ((_i == (0 : stdgo.GoInt)) || !stdgo.unicode.Unicode.isDigit(_c))) {
                 return false;
             };
         };
         return true;
     }
-function testIsIdentifier(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testIsIdentifier(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _tests = (new stdgo.Slice<T__struct_2>(
 9,
 9,
@@ -1614,7 +1614,7 @@ function testIsIdentifier(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Voi
 ({ _name : ("UppercaseKeyword" : stdgo.GoString), _in : ("Func" : stdgo.GoString), _want : true } : T__struct_2),
 ({ _name : ("LettersUnicode" : stdgo.GoString), _in : ("fóö" : stdgo.GoString), _want : true } : T__struct_2)) : stdgo.Slice<T__struct_2>);
         for (__4 => _test in _tests) {
-            _t.run(_test._name?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+            _t.run(_test._name?.__copy__(), function(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
                 {
                     var _got:Bool = isIdentifier(_test._in?.__copy__());
                     if (_got != (_test._want)) {
@@ -1628,14 +1628,14 @@ function testIsIdentifier(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Voi
         try {
             _keywords = ({
                 final x = new stdgo.GoMap.GoStringMap<stdgo.go.token.Token.Token>();
-                x.__defaultValue__ = () -> ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.token.Token.Token);
+                x.__defaultValue__ = () -> ((0 : stdgo.GoInt) : stdgo.go.token.Token.Token);
                 @:mergeBlock {};
                 x;
             } : stdgo.GoMap<stdgo.GoString, stdgo.go.token.Token.Token>);
             {
                 var _i:stdgo.go.token.Token.Token = (61 : stdgo.go.token.Token.Token);
                 stdgo.Go.cfor(_i < (86 : stdgo.go.token.Token.Token), _i++, {
-                    _keywords[_tokens[(_i : stdgo.StdGoTypes.GoInt)]] = _i;
+                    _keywords[_tokens[(_i : stdgo.GoInt)]] = _i;
                 });
             };
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
@@ -1663,7 +1663,7 @@ class Position_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<Position>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -1687,7 +1687,7 @@ class Position_asInterface {
                 _s = _s + ((":" : stdgo.GoString))?.__copy__();
             };
             _s = _s + (stdgo.strconv.Strconv.itoa(_pos.line))?.__copy__();
-            if (_pos.column != ((0 : stdgo.StdGoTypes.GoInt))) {
+            if (_pos.column != ((0 : stdgo.GoInt))) {
                 _s = _s + (stdgo.fmt.Fmt.sprintf((":%d" : stdgo.GoString), stdgo.Go.toInterface(_pos.column)))?.__copy__();
             };
         };
@@ -1700,9 +1700,9 @@ class Position_asInterface {
         // IsValid reports whether the position is valid.
     **/
     @:keep
-    static public function isValid( _pos:stdgo.StdGoTypes.Ref<Position>):Bool {
-        @:recv var _pos:stdgo.StdGoTypes.Ref<Position> = _pos;
-        return _pos.line > (0 : stdgo.StdGoTypes.GoInt);
+    static public function isValid( _pos:stdgo.Ref<Position>):Bool {
+        @:recv var _pos:stdgo.Ref<Position> = _pos;
+        return _pos.line > (0 : stdgo.GoInt);
     }
 }
 class File_asInterface {
@@ -1728,27 +1728,27 @@ class File_asInterface {
         // possibly adjusted by //line comments; otherwise those comments are ignored.
     **/
     @:keep
-    public dynamic function _unpack(_offset:stdgo.StdGoTypes.GoInt, _adjusted:Bool):{ var _0 : stdgo.GoString; var _1 : stdgo.StdGoTypes.GoInt; var _2 : stdgo.StdGoTypes.GoInt; } return __self__.value._unpack(_offset, _adjusted);
+    public dynamic function _unpack(_offset:stdgo.GoInt, _adjusted:Bool):{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt; } return __self__.value._unpack(_offset, _adjusted);
     /**
         // Line returns the line number for the given file position p;
         // p must be a Pos value in that file or NoPos.
     **/
     @:keep
-    public dynamic function line(_p:Pos):stdgo.StdGoTypes.GoInt return __self__.value.line(_p);
+    public dynamic function line(_p:Pos):stdgo.GoInt return __self__.value.line(_p);
     /**
         // Offset returns the offset for the given file position p;
         // p must be a valid Pos value in that file.
         // f.Offset(f.Pos(offset)) == offset.
     **/
     @:keep
-    public dynamic function offset(_p:Pos):stdgo.StdGoTypes.GoInt return __self__.value.offset(_p);
+    public dynamic function offset(_p:Pos):stdgo.GoInt return __self__.value.offset(_p);
     /**
         // Pos returns the Pos value for the given file offset;
         // the offset must be <= f.Size().
         // f.Pos(f.Offset(p)) == p.
     **/
     @:keep
-    public dynamic function pos(_offset:stdgo.StdGoTypes.GoInt):Pos return __self__.value.pos(_offset);
+    public dynamic function pos(_offset:stdgo.GoInt):Pos return __self__.value.pos(_offset);
     /**
         // AddLineColumnInfo adds alternative file, line, and column number
         // information for a given file offset. The offset must be larger
@@ -1760,26 +1760,26 @@ class File_asInterface {
         // information for line directives such as //line filename:line:column.
     **/
     @:keep
-    public dynamic function addLineColumnInfo(_offset:stdgo.StdGoTypes.GoInt, _filename:stdgo.GoString, _line:stdgo.StdGoTypes.GoInt, _column:stdgo.StdGoTypes.GoInt):Void __self__.value.addLineColumnInfo(_offset, _filename, _line, _column);
+    public dynamic function addLineColumnInfo(_offset:stdgo.GoInt, _filename:stdgo.GoString, _line:stdgo.GoInt, _column:stdgo.GoInt):Void __self__.value.addLineColumnInfo(_offset, _filename, _line, _column);
     /**
         // AddLineInfo is like AddLineColumnInfo with a column = 1 argument.
         // It is here for backward-compatibility for code prior to Go 1.11.
     **/
     @:keep
-    public dynamic function addLineInfo(_offset:stdgo.StdGoTypes.GoInt, _filename:stdgo.GoString, _line:stdgo.StdGoTypes.GoInt):Void __self__.value.addLineInfo(_offset, _filename, _line);
+    public dynamic function addLineInfo(_offset:stdgo.GoInt, _filename:stdgo.GoString, _line:stdgo.GoInt):Void __self__.value.addLineInfo(_offset, _filename, _line);
     /**
         // LineStart returns the Pos value of the start of the specified line.
         // It ignores any alternative positions set using AddLineColumnInfo.
         // LineStart panics if the 1-based line number is invalid.
     **/
     @:keep
-    public dynamic function lineStart(_line:stdgo.StdGoTypes.GoInt):Pos return __self__.value.lineStart(_line);
+    public dynamic function lineStart(_line:stdgo.GoInt):Pos return __self__.value.lineStart(_line);
     /**
         // SetLinesForContent sets the line offsets for the given file content.
         // It ignores position-altering //line comments.
     **/
     @:keep
-    public dynamic function setLinesForContent(_content:stdgo.Slice<stdgo.StdGoTypes.GoByte>):Void __self__.value.setLinesForContent(_content);
+    public dynamic function setLinesForContent(_content:stdgo.Slice<stdgo.GoByte>):Void __self__.value.setLinesForContent(_content);
     /**
         // SetLines sets the line offsets for a file and reports whether it succeeded.
         // The line offsets are the offsets of the first character of each line;
@@ -1791,13 +1791,13 @@ class File_asInterface {
         // Callers must not mutate the provided slice after SetLines returns.
     **/
     @:keep
-    public dynamic function setLines(_lines:stdgo.Slice<stdgo.StdGoTypes.GoInt>):Bool return __self__.value.setLines(_lines);
+    public dynamic function setLines(_lines:stdgo.Slice<stdgo.GoInt>):Bool return __self__.value.setLines(_lines);
     /**
         // Lines returns the effective line offset table of the form described by SetLines.
         // Callers must not mutate the result.
     **/
     @:keep
-    public dynamic function lines():stdgo.Slice<stdgo.StdGoTypes.GoInt> return __self__.value.lines();
+    public dynamic function lines():stdgo.Slice<stdgo.GoInt> return __self__.value.lines();
     /**
         // MergeLine merges a line with the following line. It is akin to replacing
         // the newline character at the end of the line with a space (to not change the
@@ -1805,29 +1805,29 @@ class File_asInterface {
         // MergeLine will panic if given an invalid line number.
     **/
     @:keep
-    public dynamic function mergeLine(_line:stdgo.StdGoTypes.GoInt):Void __self__.value.mergeLine(_line);
+    public dynamic function mergeLine(_line:stdgo.GoInt):Void __self__.value.mergeLine(_line);
     /**
         // AddLine adds the line offset for a new line.
         // The line offset must be larger than the offset for the previous line
         // and smaller than the file size; otherwise the line offset is ignored.
     **/
     @:keep
-    public dynamic function addLine(_offset:stdgo.StdGoTypes.GoInt):Void __self__.value.addLine(_offset);
+    public dynamic function addLine(_offset:stdgo.GoInt):Void __self__.value.addLine(_offset);
     /**
         // LineCount returns the number of lines in file f.
     **/
     @:keep
-    public dynamic function lineCount():stdgo.StdGoTypes.GoInt return __self__.value.lineCount();
+    public dynamic function lineCount():stdgo.GoInt return __self__.value.lineCount();
     /**
         // Size returns the size of file f as registered with AddFile.
     **/
     @:keep
-    public dynamic function size():stdgo.StdGoTypes.GoInt return __self__.value.size();
+    public dynamic function size():stdgo.GoInt return __self__.value.size();
     /**
         // Base returns the base offset of file f as registered with AddFile.
     **/
     @:keep
-    public dynamic function base():stdgo.StdGoTypes.GoInt return __self__.value.base();
+    public dynamic function base():stdgo.GoInt return __self__.value.base();
     /**
         // Name returns the file name of file f as registered with AddFile.
     **/
@@ -1837,7 +1837,7 @@ class File_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<File>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -1847,8 +1847,8 @@ class File_asInterface {
         // Calling f.Position(p) is equivalent to calling f.PositionFor(p, true).
     **/
     @:keep
-    static public function position( _f:stdgo.StdGoTypes.Ref<File>, _p:Pos):Position {
-        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
+    static public function position( _f:stdgo.Ref<File>, _p:Pos):Position {
+        @:recv var _f:stdgo.Ref<File> = _f;
         var _pos:Position = ({} : stdgo.go.token.Token.Position);
         return _f.positionFor(_p, true)?.__copy__();
     }
@@ -1859,11 +1859,11 @@ class File_asInterface {
         // p must be a Pos value in f or NoPos.
     **/
     @:keep
-    static public function positionFor( _f:stdgo.StdGoTypes.Ref<File>, _p:Pos, _adjusted:Bool):Position {
-        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
+    static public function positionFor( _f:stdgo.Ref<File>, _p:Pos, _adjusted:Bool):Position {
+        @:recv var _f:stdgo.Ref<File> = _f;
         var _pos:Position = ({} : stdgo.go.token.Token.Position);
         if (_p != ((0 : stdgo.go.token.Token.Pos))) {
-            if (((_p : stdgo.StdGoTypes.GoInt) < _f._base) || ((_p : stdgo.StdGoTypes.GoInt) > (_f._base + _f._size))) {
+            if (((_p : stdgo.GoInt) < _f._base) || ((_p : stdgo.GoInt) > (_f._base + _f._size))) {
                 throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid Pos value %d (should be in [%d, %d])" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_p)), stdgo.Go.toInterface(_f._base), stdgo.Go.toInterface(_f._base + _f._size)));
             };
             _pos = _f._position(_p, _adjusted)?.__copy__();
@@ -1871,10 +1871,10 @@ class File_asInterface {
         return _pos;
     }
     @:keep
-    static public function _position( _f:stdgo.StdGoTypes.Ref<File>, _p:Pos, _adjusted:Bool):Position {
-        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
+    static public function _position( _f:stdgo.Ref<File>, _p:Pos, _adjusted:Bool):Position {
+        @:recv var _f:stdgo.Ref<File> = _f;
         var _pos:Position = ({} : stdgo.go.token.Token.Position);
-        var _offset:stdgo.StdGoTypes.GoInt = (_p : stdgo.StdGoTypes.GoInt) - _f._base;
+        var _offset:stdgo.GoInt = (_p : stdgo.GoInt) - _f._base;
         _pos.offset = _offset;
         {
             var __tmp__ = _f._unpack(_offset, _adjusted);
@@ -1890,36 +1890,36 @@ class File_asInterface {
         // possibly adjusted by //line comments; otherwise those comments are ignored.
     **/
     @:keep
-    static public function _unpack( _f:stdgo.StdGoTypes.Ref<File>, _offset:stdgo.StdGoTypes.GoInt, _adjusted:Bool):{ var _0 : stdgo.GoString; var _1 : stdgo.StdGoTypes.GoInt; var _2 : stdgo.StdGoTypes.GoInt; } {
-        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
-        var _filename:stdgo.GoString = ("" : stdgo.GoString), _line:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _column:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+    static public function _unpack( _f:stdgo.Ref<File>, _offset:stdgo.GoInt, _adjusted:Bool):{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt; } {
+        @:recv var _f:stdgo.Ref<File> = _f;
+        var _filename:stdgo.GoString = ("" : stdgo.GoString), _line:stdgo.GoInt = (0 : stdgo.GoInt), _column:stdgo.GoInt = (0 : stdgo.GoInt);
         _f._mutex.lock();
         _filename = _f._name?.__copy__();
         {
-            var _i:stdgo.StdGoTypes.GoInt = _searchInts(_f._lines, _offset);
-            if (_i >= (0 : stdgo.StdGoTypes.GoInt)) {
+            var _i:stdgo.GoInt = _searchInts(_f._lines, _offset);
+            if (_i >= (0 : stdgo.GoInt)) {
                 {
-                    final __tmp__0 = _i + (1 : stdgo.StdGoTypes.GoInt);
-                    final __tmp__1 = (_offset - _f._lines[(_i : stdgo.StdGoTypes.GoInt)]) + (1 : stdgo.StdGoTypes.GoInt);
+                    final __tmp__0 = _i + (1 : stdgo.GoInt);
+                    final __tmp__1 = (_offset - _f._lines[(_i : stdgo.GoInt)]) + (1 : stdgo.GoInt);
                     _line = __tmp__0;
                     _column = __tmp__1;
                 };
             };
         };
-        if (_adjusted && (_f._infos.length > (0 : stdgo.StdGoTypes.GoInt))) {
+        if (_adjusted && (_f._infos.length > (0 : stdgo.GoInt))) {
             {
-                var _i:stdgo.StdGoTypes.GoInt = _searchLineInfos(_f._infos, _offset);
-                if (_i >= (0 : stdgo.StdGoTypes.GoInt)) {
-                    var _alt = (stdgo.Go.setRef(_f._infos[(_i : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.go.token.Token.T_lineInfo>);
+                var _i:stdgo.GoInt = _searchLineInfos(_f._infos, _offset);
+                if (_i >= (0 : stdgo.GoInt)) {
+                    var _alt = (stdgo.Go.setRef(_f._infos[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo.go.token.Token.T_lineInfo>);
                     _filename = _alt.filename?.__copy__();
                     {
-                        var _i:stdgo.StdGoTypes.GoInt = _searchInts(_f._lines, _alt.offset);
-                        if (_i >= (0 : stdgo.StdGoTypes.GoInt)) {
-                            var _d:stdgo.StdGoTypes.GoInt = _line - (_i + (1 : stdgo.StdGoTypes.GoInt));
+                        var _i:stdgo.GoInt = _searchInts(_f._lines, _alt.offset);
+                        if (_i >= (0 : stdgo.GoInt)) {
+                            var _d:stdgo.GoInt = _line - (_i + (1 : stdgo.GoInt));
                             _line = _alt.line + _d;
-                            if (_alt.column == ((0 : stdgo.StdGoTypes.GoInt))) {
-                                _column = (0 : stdgo.StdGoTypes.GoInt);
-                            } else if (_d == ((0 : stdgo.StdGoTypes.GoInt))) {
+                            if (_alt.column == ((0 : stdgo.GoInt))) {
+                                _column = (0 : stdgo.GoInt);
+                            } else if (_d == ((0 : stdgo.GoInt))) {
                                 _column = _alt.column + (_offset - _alt.offset);
                             };
                         };
@@ -1935,8 +1935,8 @@ class File_asInterface {
         // p must be a Pos value in that file or NoPos.
     **/
     @:keep
-    static public function line( _f:stdgo.StdGoTypes.Ref<File>, _p:Pos):stdgo.StdGoTypes.GoInt {
-        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
+    static public function line( _f:stdgo.Ref<File>, _p:Pos):stdgo.GoInt {
+        @:recv var _f:stdgo.Ref<File> = _f;
         return _f.position(_p).line;
     }
     /**
@@ -1945,12 +1945,12 @@ class File_asInterface {
         // f.Offset(f.Pos(offset)) == offset.
     **/
     @:keep
-    static public function offset( _f:stdgo.StdGoTypes.Ref<File>, _p:Pos):stdgo.StdGoTypes.GoInt {
-        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
-        if (((_p : stdgo.StdGoTypes.GoInt) < _f._base) || ((_p : stdgo.StdGoTypes.GoInt) > (_f._base + _f._size))) {
+    static public function offset( _f:stdgo.Ref<File>, _p:Pos):stdgo.GoInt {
+        @:recv var _f:stdgo.Ref<File> = _f;
+        if (((_p : stdgo.GoInt) < _f._base) || ((_p : stdgo.GoInt) > (_f._base + _f._size))) {
             throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid Pos value %d (should be in [%d, %d])" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_p)), stdgo.Go.toInterface(_f._base), stdgo.Go.toInterface(_f._base + _f._size)));
         };
-        return (_p : stdgo.StdGoTypes.GoInt) - _f._base;
+        return (_p : stdgo.GoInt) - _f._base;
     }
     /**
         // Pos returns the Pos value for the given file offset;
@@ -1958,8 +1958,8 @@ class File_asInterface {
         // f.Pos(f.Offset(p)) == p.
     **/
     @:keep
-    static public function pos( _f:stdgo.StdGoTypes.Ref<File>, _offset:stdgo.StdGoTypes.GoInt):Pos {
-        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
+    static public function pos( _f:stdgo.Ref<File>, _offset:stdgo.GoInt):Pos {
+        @:recv var _f:stdgo.Ref<File> = _f;
         if (_offset > _f._size) {
             throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid file offset %d (should be <= %d)" : stdgo.GoString), stdgo.Go.toInterface(_offset), stdgo.Go.toInterface(_f._size)));
         };
@@ -1976,12 +1976,12 @@ class File_asInterface {
         // information for line directives such as //line filename:line:column.
     **/
     @:keep
-    static public function addLineColumnInfo( _f:stdgo.StdGoTypes.Ref<File>, _offset:stdgo.StdGoTypes.GoInt, _filename:stdgo.GoString, _line:stdgo.StdGoTypes.GoInt, _column:stdgo.StdGoTypes.GoInt):Void {
-        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
+    static public function addLineColumnInfo( _f:stdgo.Ref<File>, _offset:stdgo.GoInt, _filename:stdgo.GoString, _line:stdgo.GoInt, _column:stdgo.GoInt):Void {
+        @:recv var _f:stdgo.Ref<File> = _f;
         _f._mutex.lock();
         {
-            var _i:stdgo.StdGoTypes.GoInt = (_f._infos.length);
-            if (((_i == (0 : stdgo.StdGoTypes.GoInt)) || (_f._infos[(_i - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)].offset < _offset)) && (_offset < _f._size)) {
+            var _i:stdgo.GoInt = (_f._infos.length);
+            if (((_i == (0 : stdgo.GoInt)) || (_f._infos[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)].offset < _offset)) && (_offset < _f._size)) {
                 _f._infos = (_f._infos.__append__((new stdgo.go.token.Token.T_lineInfo(_offset, _filename?.__copy__(), _line, _column) : stdgo.go.token.Token.T_lineInfo)));
             };
         };
@@ -1992,9 +1992,9 @@ class File_asInterface {
         // It is here for backward-compatibility for code prior to Go 1.11.
     **/
     @:keep
-    static public function addLineInfo( _f:stdgo.StdGoTypes.Ref<File>, _offset:stdgo.StdGoTypes.GoInt, _filename:stdgo.GoString, _line:stdgo.StdGoTypes.GoInt):Void {
-        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
-        _f.addLineColumnInfo(_offset, _filename?.__copy__(), _line, (1 : stdgo.StdGoTypes.GoInt));
+    static public function addLineInfo( _f:stdgo.Ref<File>, _offset:stdgo.GoInt, _filename:stdgo.GoString, _line:stdgo.GoInt):Void {
+        @:recv var _f:stdgo.Ref<File> = _f;
+        _f.addLineColumnInfo(_offset, _filename?.__copy__(), _line, (1 : stdgo.GoInt));
     }
     /**
         // LineStart returns the Pos value of the start of the specified line.
@@ -2002,11 +2002,11 @@ class File_asInterface {
         // LineStart panics if the 1-based line number is invalid.
     **/
     @:keep
-    static public function lineStart( _f:stdgo.StdGoTypes.Ref<File>, _line:stdgo.StdGoTypes.GoInt):Pos {
-        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
+    static public function lineStart( _f:stdgo.Ref<File>, _line:stdgo.GoInt):Pos {
+        @:recv var _f:stdgo.Ref<File> = _f;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            if (_line < (1 : stdgo.StdGoTypes.GoInt)) {
+            if (_line < (1 : stdgo.GoInt)) {
                 throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid line number %d (should be >= 1)" : stdgo.GoString), stdgo.Go.toInterface(_line)));
             };
             _f._mutex.lock();
@@ -2018,19 +2018,19 @@ class File_asInterface {
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return (_f._base + _f._lines[(_line - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)] : Pos);
+                return (_f._base + _f._lines[(_line - (1 : stdgo.GoInt) : stdgo.GoInt)] : Pos);
             };
             {
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.token.Token.Pos);
+                return ((0 : stdgo.GoInt) : stdgo.go.token.Token.Pos);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+            if (!(exe is stdgo.AnyInterfaceData)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
@@ -2038,7 +2038,7 @@ class File_asInterface {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.token.Token.Pos);
+            return ((0 : stdgo.GoInt) : stdgo.go.token.Token.Pos);
         };
     }
     /**
@@ -2046,17 +2046,17 @@ class File_asInterface {
         // It ignores position-altering //line comments.
     **/
     @:keep
-    static public function setLinesForContent( _f:stdgo.StdGoTypes.Ref<File>, _content:stdgo.Slice<stdgo.StdGoTypes.GoByte>):Void {
-        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
-        var _lines:stdgo.Slice<stdgo.StdGoTypes.GoInt> = (null : stdgo.Slice<stdgo.StdGoTypes.GoInt>);
-        var _line:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+    static public function setLinesForContent( _f:stdgo.Ref<File>, _content:stdgo.Slice<stdgo.GoByte>):Void {
+        @:recv var _f:stdgo.Ref<File> = _f;
+        var _lines:stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
+        var _line:stdgo.GoInt = (0 : stdgo.GoInt);
         for (_offset => _b in _content) {
-            if (_line >= (0 : stdgo.StdGoTypes.GoInt)) {
+            if (_line >= (0 : stdgo.GoInt)) {
                 _lines = (_lines.__append__(_line));
             };
-            _line = (-1 : stdgo.StdGoTypes.GoInt);
-            if (_b == ((10 : stdgo.StdGoTypes.GoUInt8))) {
-                _line = _offset + (1 : stdgo.StdGoTypes.GoInt);
+            _line = (-1 : stdgo.GoInt);
+            if (_b == ((10 : stdgo.GoUInt8))) {
+                _line = _offset + (1 : stdgo.GoInt);
             };
         };
         _f._mutex.lock();
@@ -2074,11 +2074,11 @@ class File_asInterface {
         // Callers must not mutate the provided slice after SetLines returns.
     **/
     @:keep
-    static public function setLines( _f:stdgo.StdGoTypes.Ref<File>, _lines:stdgo.Slice<stdgo.StdGoTypes.GoInt>):Bool {
-        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
-        var _size:stdgo.StdGoTypes.GoInt = _f._size;
+    static public function setLines( _f:stdgo.Ref<File>, _lines:stdgo.Slice<stdgo.GoInt>):Bool {
+        @:recv var _f:stdgo.Ref<File> = _f;
+        var _size:stdgo.GoInt = _f._size;
         for (_i => _offset in _lines) {
-            if (((_i > (0 : stdgo.StdGoTypes.GoInt)) && (_offset <= _lines[(_i - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)])) || (_size <= _offset)) {
+            if (((_i > (0 : stdgo.GoInt)) && (_offset <= _lines[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)])) || (_size <= _offset)) {
                 return false;
             };
         };
@@ -2092,8 +2092,8 @@ class File_asInterface {
         // Callers must not mutate the result.
     **/
     @:keep
-    static public function lines( _f:stdgo.StdGoTypes.Ref<File>):stdgo.Slice<stdgo.StdGoTypes.GoInt> {
-        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
+    static public function lines( _f:stdgo.Ref<File>):stdgo.Slice<stdgo.GoInt> {
+        @:recv var _f:stdgo.Ref<File> = _f;
         _f._mutex.lock();
         var _lines = _f._lines;
         _f._mutex.unlock();
@@ -2106,11 +2106,11 @@ class File_asInterface {
         // MergeLine will panic if given an invalid line number.
     **/
     @:keep
-    static public function mergeLine( _f:stdgo.StdGoTypes.Ref<File>, _line:stdgo.StdGoTypes.GoInt):Void {
-        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
+    static public function mergeLine( _f:stdgo.Ref<File>, _line:stdgo.GoInt):Void {
+        @:recv var _f:stdgo.Ref<File> = _f;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            if (_line < (1 : stdgo.StdGoTypes.GoInt)) {
+            if (_line < (1 : stdgo.GoInt)) {
                 throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid line number %d (should be >= 1)" : stdgo.GoString), stdgo.Go.toInterface(_line)));
             };
             _f._mutex.lock();
@@ -2118,8 +2118,8 @@ class File_asInterface {
             if (_line >= (_f._lines.length)) {
                 throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid line number %d (should be < %d)" : stdgo.GoString), stdgo.Go.toInterface(_line), stdgo.Go.toInterface((_f._lines.length))));
             };
-            stdgo.Go.copySlice((_f._lines.__slice__(_line) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), (_f._lines.__slice__(_line + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>));
-            _f._lines = (_f._lines.__slice__(0, (_f._lines.length) - (1 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>);
+            stdgo.Go.copySlice((_f._lines.__slice__(_line) : stdgo.Slice<stdgo.GoInt>), (_f._lines.__slice__(_line + (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>));
+            _f._lines = (_f._lines.__slice__(0, (_f._lines.length) - (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -2130,7 +2130,7 @@ class File_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+            if (!(exe is stdgo.AnyInterfaceData)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
@@ -2147,12 +2147,12 @@ class File_asInterface {
         // and smaller than the file size; otherwise the line offset is ignored.
     **/
     @:keep
-    static public function addLine( _f:stdgo.StdGoTypes.Ref<File>, _offset:stdgo.StdGoTypes.GoInt):Void {
-        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
+    static public function addLine( _f:stdgo.Ref<File>, _offset:stdgo.GoInt):Void {
+        @:recv var _f:stdgo.Ref<File> = _f;
         _f._mutex.lock();
         {
-            var _i:stdgo.StdGoTypes.GoInt = (_f._lines.length);
-            if (((_i == (0 : stdgo.StdGoTypes.GoInt)) || (_f._lines[(_i - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)] < _offset)) && (_offset < _f._size)) {
+            var _i:stdgo.GoInt = (_f._lines.length);
+            if (((_i == (0 : stdgo.GoInt)) || (_f._lines[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)] < _offset)) && (_offset < _f._size)) {
                 _f._lines = (_f._lines.__append__(_offset));
             };
         };
@@ -2162,10 +2162,10 @@ class File_asInterface {
         // LineCount returns the number of lines in file f.
     **/
     @:keep
-    static public function lineCount( _f:stdgo.StdGoTypes.Ref<File>):stdgo.StdGoTypes.GoInt {
-        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
+    static public function lineCount( _f:stdgo.Ref<File>):stdgo.GoInt {
+        @:recv var _f:stdgo.Ref<File> = _f;
         _f._mutex.lock();
-        var _n:stdgo.StdGoTypes.GoInt = (_f._lines.length);
+        var _n:stdgo.GoInt = (_f._lines.length);
         _f._mutex.unlock();
         return _n;
     }
@@ -2173,24 +2173,24 @@ class File_asInterface {
         // Size returns the size of file f as registered with AddFile.
     **/
     @:keep
-    static public function size( _f:stdgo.StdGoTypes.Ref<File>):stdgo.StdGoTypes.GoInt {
-        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
+    static public function size( _f:stdgo.Ref<File>):stdgo.GoInt {
+        @:recv var _f:stdgo.Ref<File> = _f;
         return _f._size;
     }
     /**
         // Base returns the base offset of file f as registered with AddFile.
     **/
     @:keep
-    static public function base( _f:stdgo.StdGoTypes.Ref<File>):stdgo.StdGoTypes.GoInt {
-        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
+    static public function base( _f:stdgo.Ref<File>):stdgo.GoInt {
+        @:recv var _f:stdgo.Ref<File> = _f;
         return _f._base;
     }
     /**
         // Name returns the file name of file f as registered with AddFile.
     **/
     @:keep
-    static public function name( _f:stdgo.StdGoTypes.Ref<File>):stdgo.GoString {
-        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
+    static public function name( _f:stdgo.Ref<File>):stdgo.GoString {
+        @:recv var _f:stdgo.Ref<File> = _f;
         return _f._name?.__copy__();
     }
 }
@@ -2199,12 +2199,12 @@ class FileSet_asInterface {
         // Write calls encode to serialize the file set s.
     **/
     @:keep
-    public dynamic function write(_encode:stdgo.StdGoTypes.AnyInterface -> stdgo.Error):stdgo.Error return __self__.value.write(_encode);
+    public dynamic function write(_encode:stdgo.AnyInterface -> stdgo.Error):stdgo.Error return __self__.value.write(_encode);
     /**
         // Read calls decode to deserialize a file set into s; s must not be nil.
     **/
     @:keep
-    public dynamic function read(_decode:stdgo.StdGoTypes.AnyInterface -> stdgo.Error):stdgo.Error return __self__.value.read(_decode);
+    public dynamic function read(_decode:stdgo.AnyInterface -> stdgo.Error):stdgo.Error return __self__.value.read(_decode);
     /**
         // Position converts a Pos p in the fileset into a Position value.
         // Calling s.Position(p) is equivalent to calling s.PositionFor(p, true).
@@ -2225,15 +2225,15 @@ class FileSet_asInterface {
         // the result is nil.
     **/
     @:keep
-    public dynamic function file(_p:Pos):stdgo.StdGoTypes.Ref<File> return __self__.value.file(_p);
+    public dynamic function file(_p:Pos):stdgo.Ref<File> return __self__.value.file(_p);
     @:keep
-    public dynamic function _file(_p:Pos):stdgo.StdGoTypes.Ref<File> return __self__.value._file(_p);
+    public dynamic function _file(_p:Pos):stdgo.Ref<File> return __self__.value._file(_p);
     /**
         // Iterate calls f for the files in the file set in the order they were added
         // until f returns false.
     **/
     @:keep
-    public dynamic function iterate(_f:stdgo.StdGoTypes.Ref<File> -> Bool):Void __self__.value.iterate(_f);
+    public dynamic function iterate(_f:stdgo.Ref<File> -> Bool):Void __self__.value.iterate(_f);
     /**
         // RemoveFile removes a file from the FileSet so that subsequent
         // queries for its Pos interval yield a negative result.
@@ -2243,7 +2243,7 @@ class FileSet_asInterface {
         // Removing a file that does not belong to the set has no effect.
     **/
     @:keep
-    public dynamic function removeFile(_file:stdgo.StdGoTypes.Ref<File>):Void __self__.value.removeFile(_file);
+    public dynamic function removeFile(_file:stdgo.Ref<File>):Void __self__.value.removeFile(_file);
     /**
         // AddFile adds a new file with a given filename, base offset, and file size
         // to the file set s and returns the file. Multiple files may have the same
@@ -2262,18 +2262,18 @@ class FileSet_asInterface {
         // values from a file offset.
     **/
     @:keep
-    public dynamic function addFile(_filename:stdgo.GoString, _base:stdgo.StdGoTypes.GoInt, _size:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<File> return __self__.value.addFile(_filename, _base, _size);
+    public dynamic function addFile(_filename:stdgo.GoString, _base:stdgo.GoInt, _size:stdgo.GoInt):stdgo.Ref<File> return __self__.value.addFile(_filename, _base, _size);
     /**
         // Base returns the minimum base offset that must be provided to
         // AddFile when adding the next file.
     **/
     @:keep
-    public dynamic function base():stdgo.StdGoTypes.GoInt return __self__.value.base();
+    public dynamic function base():stdgo.GoInt return __self__.value.base();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<FileSet>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -2282,15 +2282,15 @@ class FileSet_asInterface {
         // Write calls encode to serialize the file set s.
     **/
     @:keep
-    static public function write( _s:stdgo.StdGoTypes.Ref<FileSet>, _encode:stdgo.StdGoTypes.AnyInterface -> stdgo.Error):stdgo.Error {
-        @:recv var _s:stdgo.StdGoTypes.Ref<FileSet> = _s;
+    static public function write( _s:stdgo.Ref<FileSet>, _encode:stdgo.AnyInterface -> stdgo.Error):stdgo.Error {
+        @:recv var _s:stdgo.Ref<FileSet> = _s;
         var _ss:T_serializedFileSet = ({} : stdgo.go.token.Token.T_serializedFileSet);
         _s._mutex.lock();
         _ss.base = _s._base;
-        var _files = new stdgo.Slice<stdgo.go.token.Token.T_serializedFile>((_s._files.length : stdgo.StdGoTypes.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_s._files.length : stdgo.StdGoTypes.GoInt).toBasic() > 0 ? (_s._files.length : stdgo.StdGoTypes.GoInt).toBasic() : 0 : stdgo.StdGoTypes.GoInt).toBasic()) ({} : stdgo.go.token.Token.T_serializedFile)]);
+        var _files = new stdgo.Slice<stdgo.go.token.Token.T_serializedFile>((_s._files.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_s._files.length : stdgo.GoInt).toBasic() > 0 ? (_s._files.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo.go.token.Token.T_serializedFile)]);
         for (_i => _f in _s._files) {
             _f._mutex.lock();
-            _files[(_i : stdgo.StdGoTypes.GoInt)] = ({ name : _f._name?.__copy__(), base : _f._base, size : _f._size, lines : ((null : stdgo.Slice<stdgo.StdGoTypes.GoInt>).__append__(..._f._lines.__toArray__())), infos : (((null : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>) : stdgo.Slice<T_lineInfo>).__append__(..._f._infos.__toArray__())) } : stdgo.go.token.Token.T_serializedFile);
+            _files[(_i : stdgo.GoInt)] = ({ name : _f._name?.__copy__(), base : _f._base, size : _f._size, lines : ((null : stdgo.Slice<stdgo.GoInt>).__append__(..._f._lines.__toArray__())), infos : (((null : stdgo.Slice<stdgo.go.token.Token.T_lineInfo>) : stdgo.Slice<T_lineInfo>).__append__(..._f._infos.__toArray__())) } : stdgo.go.token.Token.T_serializedFile);
             _f._mutex.unlock();
         };
         _ss.files = _files;
@@ -2301,23 +2301,23 @@ class FileSet_asInterface {
         // Read calls decode to deserialize a file set into s; s must not be nil.
     **/
     @:keep
-    static public function read( _s:stdgo.StdGoTypes.Ref<FileSet>, _decode:stdgo.StdGoTypes.AnyInterface -> stdgo.Error):stdgo.Error {
-        @:recv var _s:stdgo.StdGoTypes.Ref<FileSet> = _s;
+    static public function read( _s:stdgo.Ref<FileSet>, _decode:stdgo.AnyInterface -> stdgo.Error):stdgo.Error {
+        @:recv var _s:stdgo.Ref<FileSet> = _s;
         var _ss:T_serializedFileSet = ({} : stdgo.go.token.Token.T_serializedFileSet);
         {
-            var _err:stdgo.Error = _decode(stdgo.Go.toInterface((stdgo.Go.setRef(_ss) : stdgo.StdGoTypes.Ref<stdgo.go.token.Token.T_serializedFileSet>)));
+            var _err:stdgo.Error = _decode(stdgo.Go.toInterface((stdgo.Go.setRef(_ss) : stdgo.Ref<stdgo.go.token.Token.T_serializedFileSet>)));
             if (_err != null) {
                 return _err;
             };
         };
         _s._mutex.lock();
         _s._base = _ss.base;
-        var _files = new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>>((_ss.files.length : stdgo.StdGoTypes.GoInt).toBasic(), 0);
+        var _files = new stdgo.Slice<stdgo.Ref<stdgo.go.token.Token.File>>((_ss.files.length : stdgo.GoInt).toBasic(), 0);
         {
-            var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor(_i < (_ss.files.length), _i++, {
-                var _f = (stdgo.Go.setRef(_ss.files[(_i : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.go.token.Token.T_serializedFile>);
-                _files[(_i : stdgo.StdGoTypes.GoInt)] = (stdgo.Go.setRef(({ _name : _f.name?.__copy__(), _base : _f.base, _size : _f.size, _lines : _f.lines, _infos : _f.infos } : stdgo.go.token.Token.File)) : stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>);
+                var _f = (stdgo.Go.setRef(_ss.files[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo.go.token.Token.T_serializedFile>);
+                _files[(_i : stdgo.GoInt)] = (stdgo.Go.setRef(({ _name : _f.name?.__copy__(), _base : _f.base, _size : _f.size, _lines : _f.lines, _infos : _f.infos } : stdgo.go.token.Token.File)) : stdgo.Ref<stdgo.go.token.Token.File>);
             });
         };
         _s._files = _files;
@@ -2330,8 +2330,8 @@ class FileSet_asInterface {
         // Calling s.Position(p) is equivalent to calling s.PositionFor(p, true).
     **/
     @:keep
-    static public function position( _s:stdgo.StdGoTypes.Ref<FileSet>, _p:Pos):Position {
-        @:recv var _s:stdgo.StdGoTypes.Ref<FileSet> = _s;
+    static public function position( _s:stdgo.Ref<FileSet>, _p:Pos):Position {
+        @:recv var _s:stdgo.Ref<FileSet> = _s;
         var _pos:Position = ({} : stdgo.go.token.Token.Position);
         return _s.positionFor(_p, true)?.__copy__();
     }
@@ -2342,8 +2342,8 @@ class FileSet_asInterface {
         // p must be a Pos value in s or NoPos.
     **/
     @:keep
-    static public function positionFor( _s:stdgo.StdGoTypes.Ref<FileSet>, _p:Pos, _adjusted:Bool):Position {
-        @:recv var _s:stdgo.StdGoTypes.Ref<FileSet> = _s;
+    static public function positionFor( _s:stdgo.Ref<FileSet>, _p:Pos, _adjusted:Bool):Position {
+        @:recv var _s:stdgo.Ref<FileSet> = _s;
         var _pos:Position = ({} : stdgo.go.token.Token.Position);
         if (_p != ((0 : stdgo.go.token.Token.Pos))) {
             {
@@ -2361,32 +2361,32 @@ class FileSet_asInterface {
         // the result is nil.
     **/
     @:keep
-    static public function file( _s:stdgo.StdGoTypes.Ref<FileSet>, _p:Pos):stdgo.StdGoTypes.Ref<File> {
-        @:recv var _s:stdgo.StdGoTypes.Ref<FileSet> = _s;
-        var _f:stdgo.StdGoTypes.Ref<File> = (null : stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>);
+    static public function file( _s:stdgo.Ref<FileSet>, _p:Pos):stdgo.Ref<File> {
+        @:recv var _s:stdgo.Ref<FileSet> = _s;
+        var _f:stdgo.Ref<File> = (null : stdgo.Ref<stdgo.go.token.Token.File>);
         if (_p != ((0 : stdgo.go.token.Token.Pos))) {
             _f = _s._file(_p);
         };
         return _f;
     }
     @:keep
-    static public function _file( _s:stdgo.StdGoTypes.Ref<FileSet>, _p:Pos):stdgo.StdGoTypes.Ref<File> {
-        @:recv var _s:stdgo.StdGoTypes.Ref<FileSet> = _s;
+    static public function _file( _s:stdgo.Ref<FileSet>, _p:Pos):stdgo.Ref<File> {
+        @:recv var _s:stdgo.Ref<FileSet> = _s;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             {
                 var _f = _s._last.load(({} : stdgo.go.token.Token.File));
-                if ((((_f != null) && ((_f : Dynamic).__nil__ == null || !(_f : Dynamic).__nil__)) && (_f._base <= (_p : stdgo.StdGoTypes.GoInt))) && ((_p : stdgo.StdGoTypes.GoInt) <= (_f._base + _f._size))) {
+                if ((((_f != null) && ((_f : Dynamic).__nil__ == null || !(_f : Dynamic).__nil__)) && (_f._base <= (_p : stdgo.GoInt))) && ((_p : stdgo.GoInt) <= (_f._base + _f._size))) {
                     return _f;
                 };
             };
             _s._mutex.rlock();
             __deferstack__.unshift(() -> _s._mutex.runlock());
             {
-                var _i:stdgo.StdGoTypes.GoInt = _searchFiles(_s._files, (_p : stdgo.StdGoTypes.GoInt));
-                if (_i >= (0 : stdgo.StdGoTypes.GoInt)) {
-                    var _f = _s._files[(_i : stdgo.StdGoTypes.GoInt)];
-                    if ((_p : stdgo.StdGoTypes.GoInt) <= (_f._base + _f._size)) {
+                var _i:stdgo.GoInt = _searchFiles(_s._files, (_p : stdgo.GoInt));
+                if (_i >= (0 : stdgo.GoInt)) {
+                    var _f = _s._files[(_i : stdgo.GoInt)];
+                    if ((_p : stdgo.GoInt) <= (_f._base + _f._size)) {
                         _s._last.store(({} : stdgo.go.token.Token.File), _f);
                         {
                             for (defer in __deferstack__) {
@@ -2408,12 +2408,12 @@ class FileSet_asInterface {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return (null : stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>);
+                return (null : stdgo.Ref<stdgo.go.token.Token.File>);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+            if (!(exe is stdgo.AnyInterfaceData)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
@@ -2421,7 +2421,7 @@ class FileSet_asInterface {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return (null : stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>);
+            return (null : stdgo.Ref<stdgo.go.token.Token.File>);
         };
     }
     /**
@@ -2429,15 +2429,15 @@ class FileSet_asInterface {
         // until f returns false.
     **/
     @:keep
-    static public function iterate( _s:stdgo.StdGoTypes.Ref<FileSet>, _f:stdgo.StdGoTypes.Ref<File> -> Bool):Void {
-        @:recv var _s:stdgo.StdGoTypes.Ref<FileSet> = _s;
+    static public function iterate( _s:stdgo.Ref<FileSet>, _f:stdgo.Ref<File> -> Bool):Void {
+        @:recv var _s:stdgo.Ref<FileSet> = _s;
         {
-            var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor(true, _i++, {
-                var _file:stdgo.StdGoTypes.Ref<File> = (null : stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>);
+                var _file:stdgo.Ref<File> = (null : stdgo.Ref<stdgo.go.token.Token.File>);
                 _s._mutex.rlock();
                 if (_i < (_s._files.length)) {
-                    _file = _s._files[(_i : stdgo.StdGoTypes.GoInt)];
+                    _file = _s._files[(_i : stdgo.GoInt)];
                 };
                 _s._mutex.runlock();
                 if (((_file == null) || (_file : Dynamic).__nil__) || !_f(_file)) {
@@ -2455,18 +2455,18 @@ class FileSet_asInterface {
         // Removing a file that does not belong to the set has no effect.
     **/
     @:keep
-    static public function removeFile( _s:stdgo.StdGoTypes.Ref<FileSet>, _file:stdgo.StdGoTypes.Ref<File>):Void {
-        @:recv var _s:stdgo.StdGoTypes.Ref<FileSet> = _s;
+    static public function removeFile( _s:stdgo.Ref<FileSet>, _file:stdgo.Ref<File>):Void {
+        @:recv var _s:stdgo.Ref<FileSet> = _s;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _s._last.compareAndSwap(({} : stdgo.go.token.Token.File), _file, null);
             _s._mutex.lock();
             __deferstack__.unshift(() -> _s._mutex.unlock());
             {
-                var _i:stdgo.StdGoTypes.GoInt = _searchFiles(_s._files, _file._base);
-                if ((_i >= (0 : stdgo.StdGoTypes.GoInt)) && (_s._files[(_i : stdgo.StdGoTypes.GoInt)] == _file)) {
-                    var _last = (stdgo.Go.setRef(_s._files[((_s._files.length) - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>>);
-                    _s._files = ((_s._files.__slice__(0, _i) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>>).__append__(...(_s._files.__slice__(_i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>>).__toArray__()));
+                var _i:stdgo.GoInt = _searchFiles(_s._files, _file._base);
+                if ((_i >= (0 : stdgo.GoInt)) && (_s._files[(_i : stdgo.GoInt)] == _file)) {
+                    var _last = (stdgo.Go.setRef(_s._files[((_s._files.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.Ref<stdgo.Ref<stdgo.go.token.Token.File>>);
+                    _s._files = ((_s._files.__slice__(0, _i) : stdgo.Slice<stdgo.Ref<stdgo.go.token.Token.File>>).__append__(...(_s._files.__slice__(_i + (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo.go.token.Token.File>>).__toArray__()));
                     _last = null;
                 };
             };
@@ -2480,7 +2480,7 @@ class FileSet_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+            if (!(exe is stdgo.AnyInterfaceData)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
@@ -2509,25 +2509,25 @@ class FileSet_asInterface {
         // values from a file offset.
     **/
     @:keep
-    static public function addFile( _s:stdgo.StdGoTypes.Ref<FileSet>, _filename:stdgo.GoString, _base:stdgo.StdGoTypes.GoInt, _size:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<File> {
-        @:recv var _s:stdgo.StdGoTypes.Ref<FileSet> = _s;
+    static public function addFile( _s:stdgo.Ref<FileSet>, _filename:stdgo.GoString, _base:stdgo.GoInt, _size:stdgo.GoInt):stdgo.Ref<File> {
+        @:recv var _s:stdgo.Ref<FileSet> = _s;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            var _f = (stdgo.Go.setRef(({ _name : _filename?.__copy__(), _size : _size, _lines : (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(1, 1, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>) } : stdgo.go.token.Token.File)) : stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>);
+            var _f = (stdgo.Go.setRef(({ _name : _filename?.__copy__(), _size : _size, _lines : (new stdgo.Slice<stdgo.GoInt>(1, 1, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>) } : stdgo.go.token.Token.File)) : stdgo.Ref<stdgo.go.token.Token.File>);
             _s._mutex.lock();
             __deferstack__.unshift(() -> _s._mutex.unlock());
-            if (_base < (0 : stdgo.StdGoTypes.GoInt)) {
+            if (_base < (0 : stdgo.GoInt)) {
                 _base = _s._base;
             };
             if (_base < _s._base) {
                 throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid base %d (should be >= %d)" : stdgo.GoString), stdgo.Go.toInterface(_base), stdgo.Go.toInterface(_s._base)));
             };
             _f._base = _base;
-            if (_size < (0 : stdgo.StdGoTypes.GoInt)) {
+            if (_size < (0 : stdgo.GoInt)) {
                 throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid size %d (should be >= 0)" : stdgo.GoString), stdgo.Go.toInterface(_size)));
             };
-            _base = _base + (_size + (1 : stdgo.StdGoTypes.GoInt));
-            if (_base < (0 : stdgo.StdGoTypes.GoInt)) {
+            _base = _base + (_size + (1 : stdgo.GoInt));
+            if (_base < (0 : stdgo.GoInt)) {
                 throw stdgo.Go.toInterface(("token.Pos offset overflow (> 2G of source code in file set)" : stdgo.GoString));
             };
             _s._base = _base;
@@ -2544,12 +2544,12 @@ class FileSet_asInterface {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return (null : stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>);
+                return (null : stdgo.Ref<stdgo.go.token.Token.File>);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+            if (!(exe is stdgo.AnyInterfaceData)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
@@ -2557,7 +2557,7 @@ class FileSet_asInterface {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return (null : stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>);
+            return (null : stdgo.Ref<stdgo.go.token.Token.File>);
         };
     }
     /**
@@ -2565,10 +2565,10 @@ class FileSet_asInterface {
         // AddFile when adding the next file.
     **/
     @:keep
-    static public function base( _s:stdgo.StdGoTypes.Ref<FileSet>):stdgo.StdGoTypes.GoInt {
-        @:recv var _s:stdgo.StdGoTypes.Ref<FileSet> = _s;
+    static public function base( _s:stdgo.Ref<FileSet>):stdgo.GoInt {
+        @:recv var _s:stdgo.Ref<FileSet> = _s;
         _s._mutex.rlock();
-        var _b:stdgo.StdGoTypes.GoInt = _s._base;
+        var _b:stdgo.GoInt = _s._base;
         _s._mutex.runlock();
         return _b;
     }
@@ -2583,7 +2583,7 @@ class Pos_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<Pos>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -2622,7 +2622,7 @@ class Token_asInterface {
         // is LowestPrecedence.
     **/
     @:keep
-    public dynamic function precedence():stdgo.StdGoTypes.GoInt return __self__.value.precedence();
+    public dynamic function precedence():stdgo.GoInt return __self__.value.precedence();
     /**
         // String returns the string corresponding to the token tok.
         // For operators, delimiters, and keywords the string is the actual
@@ -2636,7 +2636,7 @@ class Token_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<Token>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -2674,23 +2674,23 @@ class Token_asInterface {
         // is LowestPrecedence.
     **/
     @:keep
-    static public function precedence( _op:Token):stdgo.StdGoTypes.GoInt {
+    static public function precedence( _op:Token):stdgo.GoInt {
         @:recv var _op:Token = _op;
         {
             final __value__ = _op;
             if (__value__ == ((35 : stdgo.go.token.Token.Token))) {
-                return (1 : stdgo.StdGoTypes.GoInt);
+                return (1 : stdgo.GoInt);
             } else if (__value__ == ((34 : stdgo.go.token.Token.Token))) {
-                return (2 : stdgo.StdGoTypes.GoInt);
+                return (2 : stdgo.GoInt);
             } else if (__value__ == ((39 : stdgo.go.token.Token.Token)) || __value__ == ((44 : stdgo.go.token.Token.Token)) || __value__ == ((40 : stdgo.go.token.Token.Token)) || __value__ == ((45 : stdgo.go.token.Token.Token)) || __value__ == ((41 : stdgo.go.token.Token.Token)) || __value__ == ((46 : stdgo.go.token.Token.Token))) {
-                return (3 : stdgo.StdGoTypes.GoInt);
+                return (3 : stdgo.GoInt);
             } else if (__value__ == ((12 : stdgo.go.token.Token.Token)) || __value__ == ((13 : stdgo.go.token.Token.Token)) || __value__ == ((18 : stdgo.go.token.Token.Token)) || __value__ == ((19 : stdgo.go.token.Token.Token))) {
-                return (4 : stdgo.StdGoTypes.GoInt);
+                return (4 : stdgo.GoInt);
             } else if (__value__ == ((14 : stdgo.go.token.Token.Token)) || __value__ == ((15 : stdgo.go.token.Token.Token)) || __value__ == ((16 : stdgo.go.token.Token.Token)) || __value__ == ((20 : stdgo.go.token.Token.Token)) || __value__ == ((21 : stdgo.go.token.Token.Token)) || __value__ == ((17 : stdgo.go.token.Token.Token)) || __value__ == ((22 : stdgo.go.token.Token.Token))) {
-                return (5 : stdgo.StdGoTypes.GoInt);
+                return (5 : stdgo.GoInt);
             };
         };
-        return (0 : stdgo.StdGoTypes.GoInt);
+        return (0 : stdgo.GoInt);
     }
     /**
         // String returns the string corresponding to the token tok.
@@ -2704,10 +2704,10 @@ class Token_asInterface {
         @:recv var _tok:Token = _tok;
         var _s:stdgo.GoString = stdgo.Go.str()?.__copy__();
         if (((0 : stdgo.go.token.Token.Token) <= _tok) && (_tok < (_tokens.length : Token))) {
-            _s = _tokens[(_tok : stdgo.StdGoTypes.GoInt)]?.__copy__();
+            _s = _tokens[(_tok : stdgo.GoInt)]?.__copy__();
         };
         if (_s == (stdgo.Go.str())) {
-            _s = ("token(" : stdgo.GoString) + stdgo.strconv.Strconv.itoa((_tok : stdgo.StdGoTypes.GoInt))?.__copy__() + (")" : stdgo.GoString)?.__copy__()?.__copy__();
+            _s = ("token(" : stdgo.GoString) + stdgo.strconv.Strconv.itoa((_tok : stdgo.GoInt))?.__copy__() + (")" : stdgo.GoString)?.__copy__()?.__copy__();
         };
         return _s?.__copy__();
     }

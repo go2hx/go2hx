@@ -9,28 +9,6 @@ package stdgo.internal.testenv;
 **/
 private var __go2hxdoc__package : Bool;
 /**
-    // Save the original environment during init for use in checks. A test
-    // binary may modify its environment before calling HasExec to change its
-    // behavior (such as mimicking a command-line tool), and that modified
-    // environment might cause environment checks to behave erratically.
-    
-    
-**/
-var _origEnv : stdgo.Slice<stdgo.GoString> = stdgo.os.Os.environ();
-/**
-    
-    
-    
-**/
-var _flaky : stdgo.Pointer<Bool> = stdgo.flag.Flag.bool_(("flaky" : stdgo.GoString), false, ("run known-flaky tests too" : stdgo.GoString));
-/**
-    // Sigquit is the signal to send to kill a hanging subprocess.
-    // On Unix we send SIGQUIT, but on non-Unix we only have os.Kill.
-    
-    
-**/
-var sigquit : stdgo.os.Os.Signal = stdgo.os.Os.kill;
-/**
     
     
     
@@ -48,6 +26,15 @@ var _tryExecErr : stdgo.Error = (null : stdgo.Error);
     // path -> error
 **/
 var _execPaths : stdgo.sync.Sync.Map_ = ({} : stdgo.sync.Sync.Map_);
+/**
+    // Save the original environment during init for use in checks. A test
+    // binary may modify its environment before calling HasExec to change its
+    // behavior (such as mimicking a command-line tool), and that modified
+    // environment might cause environment checks to behave erratically.
+    
+    
+**/
+var _origEnv : stdgo.Slice<stdgo.GoString> = stdgo.os.Os.environ();
 /**
     
     
@@ -113,7 +100,20 @@ var _hasCgo : Bool = false;
     
     
 **/
-typedef T__interface_0 = stdgo.StdGoTypes.StructType & {
+var _flaky : stdgo.Pointer<Bool> = stdgo.flag.Flag.bool_(("flaky" : stdgo.GoString), false, ("run known-flaky tests too" : stdgo.GoString));
+/**
+    // Sigquit is the signal to send to kill a hanging subprocess.
+    // On Unix we send SIGQUIT, but on non-Unix we only have os.Kill.
+    
+    
+**/
+var sigquit : stdgo.os.Os.Signal = stdgo.os.Os.kill;
+/**
+    
+    
+    
+**/
+typedef T__interface_0 = stdgo.StructType & {
     > stdgo.testing.Testing.TB,
     /**
         
@@ -169,7 +169,7 @@ function _tryExec():stdgo.Error {
 **/
 function mustHaveExecPath(_t:stdgo.testing.Testing.TB, _path:stdgo.GoString):Void {
         mustHaveExec(_t);
-        var __tmp__ = _execPaths.load(stdgo.Go.toInterface(_path)), _err:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _found:Bool = __tmp__._1;
+        var __tmp__ = _execPaths.load(stdgo.Go.toInterface(_path)), _err:stdgo.AnyInterface = __tmp__._0, _found:Bool = __tmp__._1;
         if (!_found) {
             {
                 var __tmp__ = stdgo.os.exec.Exec.lookPath(_path?.__copy__());
@@ -189,7 +189,7 @@ function mustHaveExecPath(_t:stdgo.testing.Testing.TB, _path:stdgo.GoString):Voi
     // variables that could modify the behavior of the Go tools such as
     // GODEBUG and GOTRACEBACK.
 **/
-function cleanCmdEnv(_cmd:stdgo.StdGoTypes.Ref<stdgo.os.exec.Exec.Cmd>):stdgo.StdGoTypes.Ref<stdgo.os.exec.Exec.Cmd> {
+function cleanCmdEnv(_cmd:stdgo.Ref<stdgo.os.exec.Exec.Cmd>):stdgo.Ref<stdgo.os.exec.Exec.Cmd> {
         if (_cmd.env != null) {
             throw stdgo.Go.toInterface(("environment already set" : stdgo.GoString));
         };
@@ -214,11 +214,11 @@ function cleanCmdEnv(_cmd:stdgo.StdGoTypes.Ref<stdgo.os.exec.Exec.Cmd>):stdgo.St
     //   - fails the test if the command does not complete before the test's deadline, and
     //   - sets a Cleanup function that verifies that the test did not leak a subprocess.
 **/
-function commandContext(_t:stdgo.testing.Testing.TB, _ctx:stdgo.context.Context.Context, _name:stdgo.GoString, _args:haxe.Rest<stdgo.GoString>):stdgo.StdGoTypes.Ref<stdgo.os.exec.Exec.Cmd> {
+function commandContext(_t:stdgo.testing.Testing.TB, _ctx:stdgo.context.Context.Context, _name:stdgo.GoString, _args:haxe.Rest<stdgo.GoString>):stdgo.Ref<stdgo.os.exec.Exec.Cmd> {
         var _args = new stdgo.Slice<stdgo.GoString>(_args.length, 0, ..._args);
         _t.helper();
         mustHaveExec(_t);
-        var __0:stdgo.context.Context.CancelFunc = (null : stdgo.context.Context.CancelFunc), __1:stdgo.time.Time.Duration = ((0 : stdgo.StdGoTypes.GoInt64) : stdgo.time.Time.Duration), _gracePeriod:stdgo.time.Time.Duration = __1, _cancelCtx:stdgo.context.Context.CancelFunc = __0;
+        var __0:stdgo.context.Context.CancelFunc = (null : stdgo.context.Context.CancelFunc), __1:stdgo.time.Time.Duration = ((0 : stdgo.GoInt64) : stdgo.time.Time.Duration), _gracePeriod:stdgo.time.Time.Duration = __1, _cancelCtx:stdgo.context.Context.CancelFunc = __0;
         {
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : T__interface_0)) : T__interface_0), _1 : true };
@@ -233,7 +233,7 @@ function commandContext(_t:stdgo.testing.Testing.TB, _ctx:stdgo.context.Context.
                         {
                             var _s:stdgo.GoString = stdgo.os.Os.getenv(("GO_TEST_TIMEOUT_SCALE" : stdgo.GoString))?.__copy__();
                             if (_s != (stdgo.Go.str())) {
-                                var __tmp__ = stdgo.strconv.Strconv.atoi(_s?.__copy__()), _scale:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                                var __tmp__ = stdgo.strconv.Strconv.atoi(_s?.__copy__()), _scale:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                 if (_err != null) {
                                     _t.fatalf(("invalid GO_TEST_TIMEOUT_SCALE: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                                 };
@@ -286,7 +286,7 @@ function commandContext(_t:stdgo.testing.Testing.TB, _ctx:stdgo.context.Context.
     // Command is like exec.Command, but applies the same changes as
     // testenv.CommandContext (with a default Context).
 **/
-function command(_t:stdgo.testing.Testing.TB, _name:stdgo.GoString, _args:haxe.Rest<stdgo.GoString>):stdgo.StdGoTypes.Ref<stdgo.os.exec.Exec.Cmd> {
+function command(_t:stdgo.testing.Testing.TB, _name:stdgo.GoString, _args:haxe.Rest<stdgo.GoString>):stdgo.Ref<stdgo.os.exec.Exec.Cmd> {
         var _args = new stdgo.Slice<stdgo.GoString>(_args.length, 0, ..._args);
         _t.helper();
         return commandContext(_t, stdgo.context.Context.background(), _name?.__copy__(), ..._args.__toArray__());
@@ -394,7 +394,7 @@ function _findGOROOT():{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
                         continue;
                     };
                 };
-                var __tmp__ = stdgo.os.Os.readFile(stdgo.path.filepath.Filepath.join(_dir?.__copy__(), ("go.mod" : stdgo.GoString))?.__copy__()), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo.os.Os.readFile(stdgo.path.filepath.Filepath.join(_dir?.__copy__(), ("go.mod" : stdgo.GoString))?.__copy__()), _b:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     if (stdgo.os.Os.isNotExist(_err)) {
                         _dir = _parent?.__copy__();
@@ -412,7 +412,7 @@ function _findGOROOT():{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
                         _goMod = __tmp__._1?.__copy__();
                     };
                     var _fields = stdgo.strings.Strings.fields(_line?.__copy__());
-                    if (((_fields.length >= (2 : stdgo.StdGoTypes.GoInt)) && (_fields[(0 : stdgo.StdGoTypes.GoInt)] == ("module" : stdgo.GoString))) && (_fields[(1 : stdgo.StdGoTypes.GoInt)] == ("std" : stdgo.GoString))) {
+                    if (((_fields.length >= (2 : stdgo.GoInt)) && (_fields[(0 : stdgo.GoInt)] == ("module" : stdgo.GoString))) && (_fields[(1 : stdgo.GoInt)] == ("std" : stdgo.GoString))) {
                         _gorootPath = _parent?.__copy__();
                         return;
                     };
@@ -502,7 +502,7 @@ function hasCGO():Bool {
             };
             var _cmd = stdgo.os.exec.Exec.command(_goTool?.__copy__(), ("env" : stdgo.GoString), ("CGO_ENABLED" : stdgo.GoString));
             _cmd.env = _origEnv;
-            var __tmp__ = _cmd.output(), _out:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = _cmd.output(), _out:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)), stdgo.Go.toInterface(_out)));
             };
@@ -585,7 +585,7 @@ function mustHaveLink(_t:stdgo.testing.Testing.TB):Void {
             _t.skipf(("skipping test: hardlinks are not supported on %s/%s" : stdgo.GoString), stdgo.Go.toInterface(("js" : stdgo.GoString)), stdgo.Go.toInterface(("wasm" : stdgo.GoString)));
         };
     }
-function skipFlaky(_t:stdgo.testing.Testing.TB, _issue:stdgo.StdGoTypes.GoInt):Void {
+function skipFlaky(_t:stdgo.testing.Testing.TB, _issue:stdgo.GoInt):Void {
         _t.helper();
         if (!_flaky.value) {
             _t.skipf(("skipping known flaky test without the -flaky flag; see golang.org/issue/%d" : stdgo.GoString), stdgo.Go.toInterface(_issue));
@@ -644,16 +644,16 @@ function skipIfOptimizationOff(_t:stdgo.testing.Testing.TB):Void {
 function writeImportcfg(_t:stdgo.testing.Testing.TB, _dstPath:stdgo.GoString, _packageFiles:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, _pkgs:haxe.Rest<stdgo.GoString>):Void {
         var _pkgs = new stdgo.Slice<stdgo.GoString>(_pkgs.length, 0, ..._pkgs);
         _t.helper();
-        var _icfg = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
+        var _icfg = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.Ref<stdgo.bytes.Bytes.Buffer>);
         _icfg.writeString(("# import config\n" : stdgo.GoString));
         for (_k => _v in _packageFiles) {
             stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(_icfg), ("packagefile %s=%s\n" : stdgo.GoString), stdgo.Go.toInterface(_k), stdgo.Go.toInterface(_v));
         };
-        if ((_pkgs.length) > (0 : stdgo.StdGoTypes.GoInt)) {
+        if ((_pkgs.length) > (0 : stdgo.GoInt)) {
             var _cmd = command(_t, goToolPath(_t)?.__copy__(), ("list" : stdgo.GoString), ("-export" : stdgo.GoString), ("-deps" : stdgo.GoString), ("-f" : stdgo.GoString), ("{{if ne .ImportPath \"command-line-arguments\"}}{{if .Export}}{{.ImportPath}}={{.Export}}{{end}}{{end}}" : stdgo.GoString));
             _cmd.args = (_cmd.args.__append__(..._pkgs.__toArray__()));
-            _cmd.stderr = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo.strings.Strings.Builder)) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>));
-            var __tmp__ = _cmd.output(), _out:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            _cmd.stderr = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo.strings.Strings.Builder)) : stdgo.Ref<stdgo.strings.Strings.Builder>));
+            var __tmp__ = _cmd.output(), _out:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.fatalf(("%v: %v\n%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_cmd.stderr));
             };
@@ -708,7 +708,7 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                     });
                     var _fpath:stdgo.GoString = stdgo.path.filepath.Filepath.join(_dir?.__copy__(), ("testfile.txt" : stdgo.GoString))?.__copy__();
                     {
-                        var _err:stdgo.Error = stdgo.os.Os.writeFile(_fpath?.__copy__(), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (420u32 : stdgo.io.fs.Fs.FileMode));
+                        var _err:stdgo.Error = stdgo.os.Os.writeFile(_fpath?.__copy__(), (null : stdgo.Slice<stdgo.GoUInt8>), (420u32 : stdgo.io.fs.Fs.FileMode));
                         if (_err != null) {
                             {
                                 for (defer in __deferstack__) {
@@ -755,7 +755,7 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;

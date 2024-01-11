@@ -65,12 +65,6 @@ var canceled : stdgo.Error = (null : stdgo.Error);
 **/
 var deadlineExceeded : stdgo.Error = (null : stdgo.Error);
 /**
-    // closedchan is a reusable closed channel.
-    
-    
-**/
-var _closedchan : stdgo.Chan<T_deadlineExceededError> = (null : stdgo.Chan<T_deadlineExceededError>);
-/**
     // goroutines counts the number of goroutines ever created; for testing.
     
     
@@ -81,7 +75,13 @@ var _goroutines : stdgo.sync.atomic_.Atomic_.Int32 = ({} : stdgo.sync.atomic_.At
     
     
 **/
-var _cancelCtxKey : stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+var _cancelCtxKey : stdgo.GoInt = (0 : stdgo.GoInt);
+/**
+    // closedchan is a reusable closed channel.
+    
+    
+**/
+var _closedchan : stdgo.Chan<T_deadlineExceededError> = (null : stdgo.Chan<T_deadlineExceededError>);
 /**
     // A Context carries a deadline, a cancellation signal, and other values across
     // API boundaries.
@@ -90,7 +90,7 @@ var _cancelCtxKey : stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
     
     
 **/
-typedef Context = stdgo.StdGoTypes.StructType & {
+typedef Context = stdgo.StructType & {
     /**
         // Deadline returns the time when work done on behalf of this context
         // should be canceled. Deadline returns ok==false when no deadline is
@@ -194,14 +194,14 @@ typedef Context = stdgo.StdGoTypes.StructType & {
         
         
     **/
-    public dynamic function value(_key:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface;
+    public dynamic function value(_key:stdgo.AnyInterface):stdgo.AnyInterface;
 };
 /**
     
     
     
 **/
-typedef T_afterFuncer = stdgo.StdGoTypes.StructType & {
+typedef T_afterFuncer = stdgo.StructType & {
     /**
         
         
@@ -215,7 +215,7 @@ typedef T_afterFuncer = stdgo.StdGoTypes.StructType & {
     
     
 **/
-typedef T_canceler = stdgo.StdGoTypes.StructType & {
+typedef T_canceler = stdgo.StructType & {
     /**
         
         
@@ -234,7 +234,7 @@ typedef T_canceler = stdgo.StdGoTypes.StructType & {
     
     
 **/
-typedef T_stringer = stdgo.StdGoTypes.StructType & {
+typedef T_stringer = stdgo.StructType & {
     /**
         
         
@@ -286,7 +286,7 @@ typedef T_stringer = stdgo.StdGoTypes.StructType & {
     @:embedded
     public function err():stdgo.Error return (null : stdgo.Error);
     @:embedded
-    public function value(_key_:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface return (null : stdgo.StdGoTypes.AnyInterface);
+    public function value(_key_:stdgo.AnyInterface):stdgo.AnyInterface return (null : stdgo.AnyInterface);
     public function __copy__() {
         return new T_backgroundCtx(_emptyCtx);
     }
@@ -310,7 +310,7 @@ typedef T_stringer = stdgo.StdGoTypes.StructType & {
     @:embedded
     public function err():stdgo.Error return (null : stdgo.Error);
     @:embedded
-    public function value(_key_:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface return (null : stdgo.StdGoTypes.AnyInterface);
+    public function value(_key_:stdgo.AnyInterface):stdgo.AnyInterface return (null : stdgo.AnyInterface);
     public function __copy__() {
         return new T_todoCtx(_emptyCtx);
     }
@@ -340,7 +340,7 @@ typedef T_stringer = stdgo.StdGoTypes.StructType & {
     @:embedded
     public function string():stdgo.GoString return ("" : stdgo.GoString);
     @:embedded
-    public function value(_key_:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface return (null : stdgo.StdGoTypes.AnyInterface);
+    public function value(_key_:stdgo.AnyInterface):stdgo.AnyInterface return (null : stdgo.AnyInterface);
     @:embedded
     public function _propagateCancel(_parent:stdgo.context.Context.Context, _child:stdgo.context.Context.T_canceler) @:typeType null;
     public function __copy__() {
@@ -370,7 +370,7 @@ typedef T_stringer = stdgo.StdGoTypes.StructType & {
     @:embedded
     public function err():stdgo.Error return (null : stdgo.Error);
     @:embedded
-    public function value(_key_:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface return (null : stdgo.StdGoTypes.AnyInterface);
+    public function value(_key_:stdgo.AnyInterface):stdgo.AnyInterface return (null : stdgo.AnyInterface);
     public function __copy__() {
         return new T_stopCtx(context, _stop);
     }
@@ -429,9 +429,9 @@ typedef T_stringer = stdgo.StdGoTypes.StructType & {
 @:structInit @:private @:using(stdgo.context.Context.T_timerCtx_static_extension) class T_timerCtx {
     @:embedded
     public var _cancelCtx : stdgo.context.Context.T_cancelCtx = ({} : stdgo.context.Context.T_cancelCtx);
-    public var _timer : stdgo.StdGoTypes.Ref<stdgo.time.Time.Timer> = (null : stdgo.StdGoTypes.Ref<stdgo.time.Time.Timer>);
+    public var _timer : stdgo.Ref<stdgo.time.Time.Timer> = (null : stdgo.Ref<stdgo.time.Time.Timer>);
     public var _deadline : stdgo.time.Time.Time = ({} : stdgo.time.Time.Time);
-    public function new(?_cancelCtx:stdgo.context.Context.T_cancelCtx, ?_timer:stdgo.StdGoTypes.Ref<stdgo.time.Time.Timer>, ?_deadline:stdgo.time.Time.Time) {
+    public function new(?_cancelCtx:stdgo.context.Context.T_cancelCtx, ?_timer:stdgo.Ref<stdgo.time.Time.Timer>, ?_deadline:stdgo.time.Time.Time) {
         if (_cancelCtx != null) this._cancelCtx = _cancelCtx;
         if (_timer != null) this._timer = _timer;
         if (_deadline != null) this._deadline = _deadline;
@@ -442,7 +442,7 @@ typedef T_stringer = stdgo.StdGoTypes.StructType & {
     @:embedded
     public function err():stdgo.Error return (null : stdgo.Error);
     @:embedded
-    public function value(_key_:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface return (null : stdgo.StdGoTypes.AnyInterface);
+    public function value(_key_:stdgo.AnyInterface):stdgo.AnyInterface return (null : stdgo.AnyInterface);
     @:embedded
     public function _propagateCancel(_parent:stdgo.context.Context.Context, _child:stdgo.context.Context.T_canceler) @:typeType null;
     public function __copy__() {
@@ -458,9 +458,9 @@ typedef T_stringer = stdgo.StdGoTypes.StructType & {
 @:structInit @:private @:using(stdgo.context.Context.T_valueCtx_static_extension) class T_valueCtx {
     @:embedded
     public var context : stdgo.context.Context.Context = (null : stdgo.context.Context.Context);
-    public var _key : stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface);
-    public var _val : stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface);
-    public function new(?context:stdgo.context.Context.Context, ?_key:stdgo.StdGoTypes.AnyInterface, ?_val:stdgo.StdGoTypes.AnyInterface) {
+    public var _key : stdgo.AnyInterface = (null : stdgo.AnyInterface);
+    public var _val : stdgo.AnyInterface = (null : stdgo.AnyInterface);
+    public function new(?context:stdgo.context.Context.Context, ?_key:stdgo.AnyInterface, ?_val:stdgo.AnyInterface) {
         if (context != null) this.context = context;
         if (_key != null) this._key = _key;
         if (_val != null) this._val = _val;
@@ -481,7 +481,7 @@ class T__struct_0_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T__struct_0>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -546,7 +546,7 @@ function withCancel(_parent:Context):{ var _0 : Context; var _1 : CancelFunc; } 
     //	context.Cause(ctx) // returns myError
 **/
 function withCancelCause(_parent:Context):{ var _0 : Context; var _1 : CancelCauseFunc; } throw ":context.withCancelCause is not yet implemented";
-function _withCancel(_parent:Context):stdgo.StdGoTypes.Ref<T_cancelCtx> throw ":context._withCancel is not yet implemented";
+function _withCancel(_parent:Context):stdgo.Ref<T_cancelCtx> throw ":context._withCancel is not yet implemented";
 /**
     // Cause returns a non-nil error explaining why c was canceled.
     // The first cancellation of c or one of its parents sets the cause.
@@ -585,7 +585,7 @@ function afterFunc(_ctx:Context, _f:() -> Void):() -> Bool throw ":context.after
     // has been wrapped in a custom implementation providing a
     // different done channel, in which case we should not bypass it.)
 **/
-function _parentCancelCtx(_parent:Context):{ var _0 : stdgo.StdGoTypes.Ref<T_cancelCtx>; var _1 : Bool; } throw ":context._parentCancelCtx is not yet implemented";
+function _parentCancelCtx(_parent:Context):{ var _0 : stdgo.Ref<T_cancelCtx>; var _1 : Bool; } throw ":context._parentCancelCtx is not yet implemented";
 /**
     // removeChild removes a context from its parent.
 **/
@@ -649,14 +649,14 @@ function withTimeoutCause(_parent:Context, _timeout:stdgo.time.Time.Duration, _c
     // struct{}. Alternatively, exported context key variables' static
     // type should be a pointer or interface.
 **/
-function withValue(_parent:Context, _key:stdgo.StdGoTypes.AnyInterface, _val:stdgo.StdGoTypes.AnyInterface):Context throw ":context.withValue is not yet implemented";
+function withValue(_parent:Context, _key:stdgo.AnyInterface, _val:stdgo.AnyInterface):Context throw ":context.withValue is not yet implemented";
 /**
     // stringify tries a bit to stringify v, without using fmt, since we don't
     // want context depending on the unicode tables. This is only used by
     // *valueCtx.String().
 **/
-function _stringify(_v:stdgo.StdGoTypes.AnyInterface):stdgo.GoString throw ":context._stringify is not yet implemented";
-function _value(_c:Context, _key:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface throw ":context._value is not yet implemented";
+function _stringify(_v:stdgo.AnyInterface):stdgo.GoString throw ":context._stringify is not yet implemented";
+function _value(_c:Context, _key:stdgo.AnyInterface):stdgo.AnyInterface throw ":context._value is not yet implemented";
 class T_deadlineExceededError_asInterface {
     @:keep
     public dynamic function temporary():Bool return __self__.value.temporary();
@@ -668,7 +668,7 @@ class T_deadlineExceededError_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T_deadlineExceededError>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -682,7 +682,7 @@ class T_deadlineExceededError_asInterface {
 }
 class T_emptyCtx_asInterface {
     @:keep
-    public dynamic function value(_key:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface return __self__.value.value(_key);
+    public dynamic function value(_key:stdgo.AnyInterface):stdgo.AnyInterface return __self__.value.value(_key);
     @:keep
     public dynamic function err():stdgo.Error return __self__.value.err();
     @:keep
@@ -693,13 +693,13 @@ class T_emptyCtx_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T_emptyCtx>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.context.Context.T_emptyCtx_asInterface) class T_emptyCtx_static_extension {
     @:keep
-    static public function value( _:T_emptyCtx, _key:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface throw "T_emptyCtx:context.value is not yet implemented";
+    static public function value( _:T_emptyCtx, _key:stdgo.AnyInterface):stdgo.AnyInterface throw "T_emptyCtx:context.value is not yet implemented";
     @:keep
     static public function err( _:T_emptyCtx):stdgo.Error throw "T_emptyCtx:context.err is not yet implemented";
     @:keep
@@ -711,7 +711,7 @@ class T_backgroundCtx_asInterface {
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:embedded
-    public dynamic function value(_key_:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface return __self__.value.value(_key_);
+    public dynamic function value(_key_:stdgo.AnyInterface):stdgo.AnyInterface return __self__.value.value(_key_);
     @:embedded
     public dynamic function err():stdgo.Error return __self__.value.err();
     @:embedded
@@ -722,7 +722,7 @@ class T_backgroundCtx_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T_backgroundCtx>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -730,7 +730,7 @@ class T_backgroundCtx_asInterface {
     @:keep
     static public function string( _:T_backgroundCtx):stdgo.GoString throw "T_backgroundCtx:context.string is not yet implemented";
     @:embedded
-    public static function value( __self__:T_backgroundCtx, _key_:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface return __self__.value(_key_);
+    public static function value( __self__:T_backgroundCtx, _key_:stdgo.AnyInterface):stdgo.AnyInterface return __self__.value(_key_);
     @:embedded
     public static function err( __self__:T_backgroundCtx):stdgo.Error return __self__.err();
     @:embedded
@@ -742,7 +742,7 @@ class T_todoCtx_asInterface {
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:embedded
-    public dynamic function value(_key_:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface return __self__.value.value(_key_);
+    public dynamic function value(_key_:stdgo.AnyInterface):stdgo.AnyInterface return __self__.value.value(_key_);
     @:embedded
     public dynamic function err():stdgo.Error return __self__.value.err();
     @:embedded
@@ -753,7 +753,7 @@ class T_todoCtx_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T_todoCtx>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -761,7 +761,7 @@ class T_todoCtx_asInterface {
     @:keep
     static public function string( _:T_todoCtx):stdgo.GoString throw "T_todoCtx:context.string is not yet implemented";
     @:embedded
-    public static function value( __self__:T_todoCtx, _key_:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface return __self__.value(_key_);
+    public static function value( __self__:T_todoCtx, _key_:stdgo.AnyInterface):stdgo.AnyInterface return __self__.value(_key_);
     @:embedded
     public static function err( __self__:T_todoCtx):stdgo.Error return __self__.err();
     @:embedded
@@ -775,7 +775,7 @@ class T_afterFuncCtx_asInterface {
     @:embedded
     public dynamic function _propagateCancel(_parent:stdgo.context.Context.Context, _child:stdgo.context.Context.T_canceler):Void __self__.value._propagateCancel(_parent, _child);
     @:embedded
-    public dynamic function value(_key_:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface return __self__.value.value(_key_);
+    public dynamic function value(_key_:stdgo.AnyInterface):stdgo.AnyInterface return __self__.value.value(_key_);
     @:embedded
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:embedded
@@ -788,17 +788,17 @@ class T_afterFuncCtx_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T_afterFuncCtx>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.context.Context.T_afterFuncCtx_asInterface) class T_afterFuncCtx_static_extension {
     @:keep
-    static public function _cancel( _a:stdgo.StdGoTypes.Ref<T_afterFuncCtx>, _removeFromParent:Bool, _err:stdgo.Error, _cause:stdgo.Error):Void throw "T_afterFuncCtx:context._cancel is not yet implemented";
+    static public function _cancel( _a:stdgo.Ref<T_afterFuncCtx>, _removeFromParent:Bool, _err:stdgo.Error, _cause:stdgo.Error):Void throw "T_afterFuncCtx:context._cancel is not yet implemented";
     @:embedded
     public static function _propagateCancel( __self__:T_afterFuncCtx, _parent:stdgo.context.Context.Context, _child:stdgo.context.Context.T_canceler) __self__._propagateCancel(_parent, _child);
     @:embedded
-    public static function value( __self__:T_afterFuncCtx, _key_:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface return __self__.value(_key_);
+    public static function value( __self__:T_afterFuncCtx, _key_:stdgo.AnyInterface):stdgo.AnyInterface return __self__.value(_key_);
     @:embedded
     public static function string( __self__:T_afterFuncCtx):stdgo.GoString return __self__.string();
     @:embedded
@@ -810,7 +810,7 @@ class T_afterFuncCtx_asInterface {
 }
 class T_stopCtx_asInterface {
     @:embedded
-    public dynamic function value(_key_:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface return __self__.value.value(_key_);
+    public dynamic function value(_key_:stdgo.AnyInterface):stdgo.AnyInterface return __self__.value.value(_key_);
     @:embedded
     public dynamic function err():stdgo.Error return __self__.value.err();
     @:embedded
@@ -821,13 +821,13 @@ class T_stopCtx_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T_stopCtx>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.context.Context.T_stopCtx_asInterface) class T_stopCtx_static_extension {
     @:embedded
-    public static function value( __self__:T_stopCtx, _key_:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface return __self__.value(_key_);
+    public static function value( __self__:T_stopCtx, _key_:stdgo.AnyInterface):stdgo.AnyInterface return __self__.value(_key_);
     @:embedded
     public static function err( __self__:T_stopCtx):stdgo.Error return __self__.err();
     @:embedded
@@ -856,14 +856,14 @@ class T_cancelCtx_asInterface {
     @:keep
     public dynamic function done():stdgo.Chan<T__struct_0> return __self__.value.done();
     @:keep
-    public dynamic function value(_key:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface return __self__.value.value(_key);
+    public dynamic function value(_key:stdgo.AnyInterface):stdgo.AnyInterface return __self__.value.value(_key);
     @:embedded
     public dynamic function deadline():{ var _0 : stdgo.time.Time.Time; var _1 : Bool; } return __self__.value.deadline();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T_cancelCtx>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -874,21 +874,21 @@ class T_cancelCtx_asInterface {
         // cancel sets c.cause to cause if this is the first time c is canceled.
     **/
     @:keep
-    static public function _cancel( _c:stdgo.StdGoTypes.Ref<T_cancelCtx>, _removeFromParent:Bool, _err:stdgo.Error, _cause:stdgo.Error):Void throw "T_cancelCtx:context._cancel is not yet implemented";
+    static public function _cancel( _c:stdgo.Ref<T_cancelCtx>, _removeFromParent:Bool, _err:stdgo.Error, _cause:stdgo.Error):Void throw "T_cancelCtx:context._cancel is not yet implemented";
     @:keep
-    static public function string( _c:stdgo.StdGoTypes.Ref<T_cancelCtx>):stdgo.GoString throw "T_cancelCtx:context.string is not yet implemented";
+    static public function string( _c:stdgo.Ref<T_cancelCtx>):stdgo.GoString throw "T_cancelCtx:context.string is not yet implemented";
     /**
         // propagateCancel arranges for child to be canceled when parent is.
         // It sets the parent context of cancelCtx.
     **/
     @:keep
-    static public function _propagateCancel( _c:stdgo.StdGoTypes.Ref<T_cancelCtx>, _parent:Context, _child:T_canceler):Void throw "T_cancelCtx:context._propagateCancel is not yet implemented";
+    static public function _propagateCancel( _c:stdgo.Ref<T_cancelCtx>, _parent:Context, _child:T_canceler):Void throw "T_cancelCtx:context._propagateCancel is not yet implemented";
     @:keep
-    static public function err( _c:stdgo.StdGoTypes.Ref<T_cancelCtx>):stdgo.Error throw "T_cancelCtx:context.err is not yet implemented";
+    static public function err( _c:stdgo.Ref<T_cancelCtx>):stdgo.Error throw "T_cancelCtx:context.err is not yet implemented";
     @:keep
-    static public function done( _c:stdgo.StdGoTypes.Ref<T_cancelCtx>):stdgo.Chan<T__struct_0> throw "T_cancelCtx:context.done is not yet implemented";
+    static public function done( _c:stdgo.Ref<T_cancelCtx>):stdgo.Chan<T__struct_0> throw "T_cancelCtx:context.done is not yet implemented";
     @:keep
-    static public function value( _c:stdgo.StdGoTypes.Ref<T_cancelCtx>, _key:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface throw "T_cancelCtx:context.value is not yet implemented";
+    static public function value( _c:stdgo.Ref<T_cancelCtx>, _key:stdgo.AnyInterface):stdgo.AnyInterface throw "T_cancelCtx:context.value is not yet implemented";
     @:embedded
     public static function deadline( __self__:T_cancelCtx):{ var _0 : stdgo.time.Time.Time; var _1 : Bool; } return __self__.deadline();
 }
@@ -896,7 +896,7 @@ class T_withoutCancelCtx_asInterface {
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:keep
-    public dynamic function value(_key:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface return __self__.value.value(_key);
+    public dynamic function value(_key:stdgo.AnyInterface):stdgo.AnyInterface return __self__.value.value(_key);
     @:keep
     public dynamic function err():stdgo.Error return __self__.value.err();
     @:keep
@@ -907,7 +907,7 @@ class T_withoutCancelCtx_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T_withoutCancelCtx>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -915,7 +915,7 @@ class T_withoutCancelCtx_asInterface {
     @:keep
     static public function string( _c:T_withoutCancelCtx):stdgo.GoString throw "T_withoutCancelCtx:context.string is not yet implemented";
     @:keep
-    static public function value( _c:T_withoutCancelCtx, _key:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface throw "T_withoutCancelCtx:context.value is not yet implemented";
+    static public function value( _c:T_withoutCancelCtx, _key:stdgo.AnyInterface):stdgo.AnyInterface throw "T_withoutCancelCtx:context.value is not yet implemented";
     @:keep
     static public function err( _:T_withoutCancelCtx):stdgo.Error throw "T_withoutCancelCtx:context.err is not yet implemented";
     @:keep
@@ -933,7 +933,7 @@ class T_timerCtx_asInterface {
     @:embedded
     public dynamic function _propagateCancel(_parent:stdgo.context.Context.Context, _child:stdgo.context.Context.T_canceler):Void __self__.value._propagateCancel(_parent, _child);
     @:embedded
-    public dynamic function value(_key_:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface return __self__.value.value(_key_);
+    public dynamic function value(_key_:stdgo.AnyInterface):stdgo.AnyInterface return __self__.value.value(_key_);
     @:embedded
     public dynamic function err():stdgo.Error return __self__.value.err();
     @:embedded
@@ -942,21 +942,21 @@ class T_timerCtx_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T_timerCtx>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.context.Context.T_timerCtx_asInterface) class T_timerCtx_static_extension {
     @:keep
-    static public function _cancel( _c:stdgo.StdGoTypes.Ref<T_timerCtx>, _removeFromParent:Bool, _err:stdgo.Error, _cause:stdgo.Error):Void throw "T_timerCtx:context._cancel is not yet implemented";
+    static public function _cancel( _c:stdgo.Ref<T_timerCtx>, _removeFromParent:Bool, _err:stdgo.Error, _cause:stdgo.Error):Void throw "T_timerCtx:context._cancel is not yet implemented";
     @:keep
-    static public function string( _c:stdgo.StdGoTypes.Ref<T_timerCtx>):stdgo.GoString throw "T_timerCtx:context.string is not yet implemented";
+    static public function string( _c:stdgo.Ref<T_timerCtx>):stdgo.GoString throw "T_timerCtx:context.string is not yet implemented";
     @:keep
-    static public function deadline( _c:stdgo.StdGoTypes.Ref<T_timerCtx>):{ var _0 : stdgo.time.Time.Time; var _1 : Bool; } throw "T_timerCtx:context.deadline is not yet implemented";
+    static public function deadline( _c:stdgo.Ref<T_timerCtx>):{ var _0 : stdgo.time.Time.Time; var _1 : Bool; } throw "T_timerCtx:context.deadline is not yet implemented";
     @:embedded
     public static function _propagateCancel( __self__:T_timerCtx, _parent:stdgo.context.Context.Context, _child:stdgo.context.Context.T_canceler) __self__._propagateCancel(_parent, _child);
     @:embedded
-    public static function value( __self__:T_timerCtx, _key_:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface return __self__.value(_key_);
+    public static function value( __self__:T_timerCtx, _key_:stdgo.AnyInterface):stdgo.AnyInterface return __self__.value(_key_);
     @:embedded
     public static function err( __self__:T_timerCtx):stdgo.Error return __self__.err();
     @:embedded
@@ -964,7 +964,7 @@ class T_timerCtx_asInterface {
 }
 class T_valueCtx_asInterface {
     @:keep
-    public dynamic function value(_key:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface return __self__.value.value(_key);
+    public dynamic function value(_key:stdgo.AnyInterface):stdgo.AnyInterface return __self__.value.value(_key);
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:embedded
@@ -977,15 +977,15 @@ class T_valueCtx_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T_valueCtx>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.context.Context.T_valueCtx_asInterface) class T_valueCtx_static_extension {
     @:keep
-    static public function value( _c:stdgo.StdGoTypes.Ref<T_valueCtx>, _key:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface throw "T_valueCtx:context.value is not yet implemented";
+    static public function value( _c:stdgo.Ref<T_valueCtx>, _key:stdgo.AnyInterface):stdgo.AnyInterface throw "T_valueCtx:context.value is not yet implemented";
     @:keep
-    static public function string( _c:stdgo.StdGoTypes.Ref<T_valueCtx>):stdgo.GoString throw "T_valueCtx:context.string is not yet implemented";
+    static public function string( _c:stdgo.Ref<T_valueCtx>):stdgo.GoString throw "T_valueCtx:context.string is not yet implemented";
     @:embedded
     public static function err( __self__:T_valueCtx):stdgo.Error return __self__.err();
     @:embedded

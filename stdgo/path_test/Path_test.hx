@@ -354,7 +354,7 @@ function exampleSplit():Void {
         _split(("myfile.css" : stdgo.GoString));
         _split(stdgo.Go.str()?.__copy__());
     }
-function testMatch(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testMatch(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _tt in _matchTests) {
             var __tmp__ = match(_tt._pattern?.__copy__(), _tt._s?.__copy__()), _ok:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if ((_ok != _tt._match) || (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(_tt._err))) {
@@ -362,7 +362,7 @@ function testMatch(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
             };
         };
     }
-function testClean(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testClean(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in _cleantests) {
             {
                 var _s:stdgo.GoString = clean(_test._path?.__copy__())?.__copy__();
@@ -378,24 +378,24 @@ function testClean(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
             };
         };
     }
-function testCleanMallocs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testCleanMallocs(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         if (stdgo.testing.Testing.short()) {
             _t.skip(stdgo.Go.toInterface(("skipping malloc count in short mode" : stdgo.GoString)));
         };
-        if (stdgo.runtime.Runtime.gomaxprocs((0 : stdgo.StdGoTypes.GoInt)) > (1 : stdgo.StdGoTypes.GoInt)) {
+        if (stdgo.runtime.Runtime.gomaxprocs((0 : stdgo.GoInt)) > (1 : stdgo.GoInt)) {
             _t.log(stdgo.Go.toInterface(("skipping AllocsPerRun checks; GOMAXPROCS>1" : stdgo.GoString)));
             return;
         };
         for (__16 => _test in _cleantests) {
-            var _allocs:stdgo.StdGoTypes.GoFloat64 = stdgo.testing.Testing.allocsPerRun((100 : stdgo.StdGoTypes.GoInt), function():Void {
+            var _allocs:stdgo.GoFloat64 = stdgo.testing.Testing.allocsPerRun((100 : stdgo.GoInt), function():Void {
                 clean(_test._result?.__copy__());
             });
-            if (_allocs > (0 : stdgo.StdGoTypes.GoFloat64)) {
+            if (_allocs > (0 : stdgo.GoFloat64)) {
                 _t.errorf(("Clean(%q): %v allocs, want zero" : stdgo.GoString), stdgo.Go.toInterface(_test._result), stdgo.Go.toInterface(_allocs));
             };
         };
     }
-function testSplit(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testSplit(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in _splittests) {
             {
                 var __tmp__ = split(_test._path?.__copy__()), _d:stdgo.GoString = __tmp__._0, _f:stdgo.GoString = __tmp__._1;
@@ -405,7 +405,7 @@ function testSplit(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
             };
         };
     }
-function testJoin(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testJoin(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in _jointests) {
             {
                 var _p:stdgo.GoString = join(..._test._elem.__toArray__())?.__copy__();
@@ -415,7 +415,7 @@ function testJoin(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
             };
         };
     }
-function testExt(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testExt(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in _exttests) {
             {
                 var _x:stdgo.GoString = ext(_test._path?.__copy__())?.__copy__();
@@ -425,7 +425,7 @@ function testExt(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
             };
         };
     }
-function testBase(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testBase(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in _basetests) {
             {
                 var _s:stdgo.GoString = base(_test._path?.__copy__())?.__copy__();
@@ -435,7 +435,7 @@ function testBase(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
             };
         };
     }
-function testDir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testDir(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in _dirtests) {
             {
                 var _s:stdgo.GoString = dir(_test._path?.__copy__())?.__copy__();
@@ -445,7 +445,7 @@ function testDir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
             };
         };
     }
-function testIsAbs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testIsAbs(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _test in _isAbsTests) {
             {
                 var _r:Bool = isAbs(_test._path?.__copy__());

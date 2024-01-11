@@ -15,7 +15,7 @@ var _marshalTests : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(
         return stdgo.hash.crc32.Crc32.newIEEE();
     }, _golden : _fromHex(("63726301ca87914dc956d3e8" : stdgo.GoString)) } : T__struct_0),
 ({ _name : ("crc64" : stdgo.GoString), _new : function():stdgo.hash.Hash.Hash {
-        return stdgo.hash.crc64.Crc64.new_(stdgo.hash.crc64.Crc64.makeTable((-2882303761517117440i64 : stdgo.StdGoTypes.GoUInt64)));
+        return stdgo.hash.crc64.Crc64.new_(stdgo.hash.crc64.Crc64.makeTable((-2882303761517117440i64 : stdgo.GoUInt64)));
     }, _golden : _fromHex(("6372630273ba8484bbcd5def5d51c83c581695be" : stdgo.GoString)) } : T__struct_0),
 ({ _name : ("fnv32" : stdgo.GoString), _new : function():stdgo.hash.Hash.Hash {
         return stdgo.hash.fnv.Fnv.new32();
@@ -48,7 +48,7 @@ class T__struct_0_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T__struct_0>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -58,12 +58,12 @@ class T__struct_0_asInterface {
 @:local @:using(stdgo.hash_test.Hash_test.T__struct_0_static_extension) typedef T__struct_0 = {
     public var _name : stdgo.GoString;
     public var _new : () -> stdgo.hash.Hash.Hash;
-    public var _golden : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>;
+    public var _golden : stdgo.Slice<stdgo.GoUInt8>;
 };
 function example_binaryMarshaler():Void {
         {};
         var _first:stdgo.hash.Hash.Hash = stdgo.crypto.sha256.Sha256.new_();
-        _first.write((("The tunneling gopher digs downwards, " : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
+        _first.write((("The tunneling gopher digs downwards, " : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>));
         var __tmp__ = try {
             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_first) : stdgo.encoding.Encoding.BinaryMarshaler)) : stdgo.encoding.Encoding.BinaryMarshaler), _1 : true };
         } catch(_) {
@@ -72,7 +72,7 @@ function example_binaryMarshaler():Void {
         if (!_ok) {
             stdgo.log.Log.fatal(stdgo.Go.toInterface(("first does not implement encoding.BinaryMarshaler" : stdgo.GoString)));
         };
-        var __tmp__ = _marshaler.marshalBinary(), _state:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _marshaler.marshalBinary(), _state:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             stdgo.log.Log.fatal(stdgo.Go.toInterface(("unable to marshal hash:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
@@ -91,35 +91,35 @@ function example_binaryMarshaler():Void {
                 stdgo.log.Log.fatal(stdgo.Go.toInterface(("unable to unmarshal hash:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };
         };
-        _first.write((("unaware of what he will find." : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
-        _second.write((("unaware of what he will find." : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
-        stdgo.fmt.Fmt.printf(("%x\n" : stdgo.GoString), stdgo.Go.toInterface(_first.sum((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.equal(_first.sum((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), _second.sum((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)))));
+        _first.write((("unaware of what he will find." : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>));
+        _second.write((("unaware of what he will find." : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>));
+        stdgo.fmt.Fmt.printf(("%x\n" : stdgo.GoString), stdgo.Go.toInterface(_first.sum((null : stdgo.Slice<stdgo.GoUInt8>))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.equal(_first.sum((null : stdgo.Slice<stdgo.GoUInt8>)), _second.sum((null : stdgo.Slice<stdgo.GoUInt8>)))));
     }
-function _fromHex(_s:stdgo.GoString):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
-        var __tmp__ = stdgo.encoding.hex.Hex.decodeString(_s?.__copy__()), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+function _fromHex(_s:stdgo.GoString):stdgo.Slice<stdgo.GoByte> {
+        var __tmp__ = stdgo.encoding.hex.Hex.decodeString(_s?.__copy__()), _b:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             throw stdgo.Go.toInterface(_err);
         };
         return _b;
     }
-function testMarshalHash(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
+function testMarshalHash(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _tt in _marshalTests) {
-            _t.run(_tt._name?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
-                var _buf = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((256 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
+            _t.run(_tt._name?.__copy__(), function(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
+                var _buf = new stdgo.Slice<stdgo.GoUInt8>((256 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
                 for (_i in 0 ... _buf.length.toBasic()) {
-                    _buf[(_i : stdgo.StdGoTypes.GoInt)] = (_i : stdgo.StdGoTypes.GoByte);
+                    _buf[(_i : stdgo.GoInt)] = (_i : stdgo.GoByte);
                 };
                 var _h:stdgo.hash.Hash.Hash = _tt._new();
-                _h.write((_buf.__slice__(0, (256 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>));
-                var _sum = _h.sum((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>));
+                _h.write((_buf.__slice__(0, (256 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+                var _sum = _h.sum((null : stdgo.Slice<stdgo.GoUInt8>));
                 var _h2:stdgo.hash.Hash.Hash = _tt._new();
                 var _h3:stdgo.hash.Hash.Hash = _tt._new();
                 {};
                 {
-                    var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-                    stdgo.Go.cfor(_i < (249 : stdgo.StdGoTypes.GoInt), _i++, {
-                        _h2.write((_buf.__slice__(_i, _i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>));
+                    var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+                    stdgo.Go.cfor(_i < (249 : stdgo.GoInt), _i++, {
+                        _h2.write((_buf.__slice__(_i, _i + (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
                     });
                 };
                 var __tmp__ = try {
@@ -130,7 +130,7 @@ function testMarshalHash(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void
                 if (!_ok) {
                     _t.fatalf(("Hash does not implement MarshalBinary" : stdgo.GoString));
                 };
-                var __tmp__ = _h2m.marshalBinary(), _enc:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = _h2m.marshalBinary(), _enc:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     _t.fatalf(("MarshalBinary: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                 };
@@ -151,10 +151,10 @@ function testMarshalHash(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void
                         _t.fatalf(("UnmarshalBinary: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                     };
                 };
-                _h2.write((_buf.__slice__((249 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>));
-                _h3.write((_buf.__slice__((249 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>));
-                var _sum2 = _h2.sum((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>));
-                var _sum3 = _h3.sum((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>));
+                _h2.write((_buf.__slice__((249 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+                _h3.write((_buf.__slice__((249 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+                var _sum2 = _h2.sum((null : stdgo.Slice<stdgo.GoUInt8>));
+                var _sum3 = _h3.sum((null : stdgo.Slice<stdgo.GoUInt8>));
                 if (!stdgo.bytes.Bytes.equal(_sum2, _sum)) {
                     _t.fatalf(("Sum after MarshalBinary = %x, want %x" : stdgo.GoString), stdgo.Go.toInterface(_sum2), stdgo.Go.toInterface(_sum));
                 };

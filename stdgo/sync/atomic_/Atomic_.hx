@@ -50,13 +50,13 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-var __24 : stdgo.StdGoTypes.Ref<stdgo.sync.atomic_.Atomic_.Pointer_<stdgo.StdGoTypes.GoInt>> = (null : stdgo.StdGoTypes.Ref<stdgo.sync.atomic_.Atomic_.Pointer_<stdgo.StdGoTypes.GoInt>>);
+var __24 : stdgo.Ref<stdgo.sync.atomic_.Atomic_.Pointer_<stdgo.GoInt>> = (null : stdgo.Ref<stdgo.sync.atomic_.Atomic_.Pointer_<stdgo.GoInt>>);
 /**
     
     
     
 **/
-var _firstStoreInProgress : stdgo.StdGoTypes.GoByte = (0 : stdgo.StdGoTypes.GoUInt8);
+var _firstStoreInProgress : stdgo.GoByte = (0 : stdgo.GoUInt8);
 /**
     // A Bool is an atomic boolean value.
     // The zero value is false.
@@ -66,8 +66,8 @@ var _firstStoreInProgress : stdgo.StdGoTypes.GoByte = (0 : stdgo.StdGoTypes.GoUI
 @:structInit @:using(stdgo.sync.atomic_.Atomic_.Bool__static_extension) class Bool_ {
     @:optional
     public var __2 : stdgo.sync.atomic_.Atomic_.T_noCopy = ({} : stdgo.sync.atomic_.Atomic_.T_noCopy);
-    public var _v : stdgo.StdGoTypes.GoUInt32 = 0;
-    public function new(?__2:stdgo.sync.atomic_.Atomic_.T_noCopy, ?_v:stdgo.StdGoTypes.GoUInt32) {
+    public var _v : stdgo.GoUInt32 = 0;
+    public function new(?__2:stdgo.sync.atomic_.Atomic_.T_noCopy, ?_v:stdgo.GoUInt32) {
         if (__2 != null) this.__2 = __2;
         if (_v != null) this._v = _v;
     }
@@ -88,11 +88,11 @@ var _firstStoreInProgress : stdgo.StdGoTypes.GoByte = (0 : stdgo.StdGoTypes.GoUI
         // Use *T, not T, to avoid spurious recursive type definition errors.
     **/
     @:optional
-    public var __5 : stdgo.GoArray<stdgo.StdGoTypes.Ref<T_>> = new stdgo.GoArray<stdgo.StdGoTypes.Ref<T_>>(...[for (i in 0 ... 0) (null : stdgo.StdGoTypes.Ref<T_>)]);
+    public var __5 : stdgo.GoArray<stdgo.Ref<T_>> = new stdgo.GoArray<stdgo.Ref<T_>>(...[for (i in 0 ... 0) (null : stdgo.Ref<T_>)]);
     @:optional
     public var __6 : stdgo.sync.atomic_.Atomic_.T_noCopy = ({} : stdgo.sync.atomic_.Atomic_.T_noCopy);
     public var _v : stdgo.unsafe.Unsafe.UnsafePointer = @:default_value_kind null;
-    public function new(?__5:stdgo.GoArray<stdgo.StdGoTypes.Ref<T_>>, ?__6:stdgo.sync.atomic_.Atomic_.T_noCopy, ?_v:stdgo.unsafe.Unsafe.UnsafePointer) {
+    public function new(?__5:stdgo.GoArray<stdgo.Ref<T_>>, ?__6:stdgo.sync.atomic_.Atomic_.T_noCopy, ?_v:stdgo.unsafe.Unsafe.UnsafePointer) {
         if (__5 != null) this.__5 = __5;
         if (__6 != null) this.__6 = __6;
         if (_v != null) this._v = _v;
@@ -110,8 +110,8 @@ var _firstStoreInProgress : stdgo.StdGoTypes.GoByte = (0 : stdgo.StdGoTypes.GoUI
 @:structInit @:using(stdgo.sync.atomic_.Atomic_.Int32_static_extension) class Int32 {
     @:optional
     public var __8 : stdgo.sync.atomic_.Atomic_.T_noCopy = ({} : stdgo.sync.atomic_.Atomic_.T_noCopy);
-    public var _v : stdgo.StdGoTypes.GoInt32 = 0;
-    public function new(?__8:stdgo.sync.atomic_.Atomic_.T_noCopy, ?_v:stdgo.StdGoTypes.GoInt32) {
+    public var _v : stdgo.GoInt32 = 0;
+    public function new(?__8:stdgo.sync.atomic_.Atomic_.T_noCopy, ?_v:stdgo.GoInt32) {
         if (__8 != null) this.__8 = __8;
         if (_v != null) this._v = _v;
     }
@@ -130,8 +130,8 @@ var _firstStoreInProgress : stdgo.StdGoTypes.GoByte = (0 : stdgo.StdGoTypes.GoUI
     public var __11 : stdgo.sync.atomic_.Atomic_.T_noCopy = ({} : stdgo.sync.atomic_.Atomic_.T_noCopy);
     @:optional
     public var __12 : stdgo.sync.atomic_.Atomic_.T_align64 = ({} : stdgo.sync.atomic_.Atomic_.T_align64);
-    public var _v : stdgo.StdGoTypes.GoInt64 = 0;
-    public function new(?__11:stdgo.sync.atomic_.Atomic_.T_noCopy, ?__12:stdgo.sync.atomic_.Atomic_.T_align64, ?_v:stdgo.StdGoTypes.GoInt64) {
+    public var _v : stdgo.GoInt64 = 0;
+    public function new(?__11:stdgo.sync.atomic_.Atomic_.T_noCopy, ?__12:stdgo.sync.atomic_.Atomic_.T_align64, ?_v:stdgo.GoInt64) {
         if (__11 != null) this.__11 = __11;
         if (__12 != null) this.__12 = __12;
         if (_v != null) this._v = _v;
@@ -149,8 +149,8 @@ var _firstStoreInProgress : stdgo.StdGoTypes.GoByte = (0 : stdgo.StdGoTypes.GoUI
 @:structInit @:using(stdgo.sync.atomic_.Atomic_.Uint32_static_extension) class Uint32 {
     @:optional
     public var __13 : stdgo.sync.atomic_.Atomic_.T_noCopy = ({} : stdgo.sync.atomic_.Atomic_.T_noCopy);
-    public var _v : stdgo.StdGoTypes.GoUInt32 = 0;
-    public function new(?__13:stdgo.sync.atomic_.Atomic_.T_noCopy, ?_v:stdgo.StdGoTypes.GoUInt32) {
+    public var _v : stdgo.GoUInt32 = 0;
+    public function new(?__13:stdgo.sync.atomic_.Atomic_.T_noCopy, ?_v:stdgo.GoUInt32) {
         if (__13 != null) this.__13 = __13;
         if (_v != null) this._v = _v;
     }
@@ -169,8 +169,8 @@ var _firstStoreInProgress : stdgo.StdGoTypes.GoByte = (0 : stdgo.StdGoTypes.GoUI
     public var __16 : stdgo.sync.atomic_.Atomic_.T_noCopy = ({} : stdgo.sync.atomic_.Atomic_.T_noCopy);
     @:optional
     public var __17 : stdgo.sync.atomic_.Atomic_.T_align64 = ({} : stdgo.sync.atomic_.Atomic_.T_align64);
-    public var _v : stdgo.StdGoTypes.GoUInt64 = 0;
-    public function new(?__16:stdgo.sync.atomic_.Atomic_.T_noCopy, ?__17:stdgo.sync.atomic_.Atomic_.T_align64, ?_v:stdgo.StdGoTypes.GoUInt64) {
+    public var _v : stdgo.GoUInt64 = 0;
+    public function new(?__16:stdgo.sync.atomic_.Atomic_.T_noCopy, ?__17:stdgo.sync.atomic_.Atomic_.T_align64, ?_v:stdgo.GoUInt64) {
         if (__16 != null) this.__16 = __16;
         if (__17 != null) this.__17 = __17;
         if (_v != null) this._v = _v;
@@ -188,8 +188,8 @@ var _firstStoreInProgress : stdgo.StdGoTypes.GoByte = (0 : stdgo.StdGoTypes.GoUI
 @:structInit @:using(stdgo.sync.atomic_.Atomic_.Uintptr_static_extension) class Uintptr {
     @:optional
     public var __19 : stdgo.sync.atomic_.Atomic_.T_noCopy = ({} : stdgo.sync.atomic_.Atomic_.T_noCopy);
-    public var _v : stdgo.StdGoTypes.GoUIntptr = 0;
-    public function new(?__19:stdgo.sync.atomic_.Atomic_.T_noCopy, ?_v:stdgo.StdGoTypes.GoUIntptr) {
+    public var _v : stdgo.GoUIntptr = 0;
+    public function new(?__19:stdgo.sync.atomic_.Atomic_.T_noCopy, ?_v:stdgo.GoUIntptr) {
         if (__19 != null) this.__19 = __19;
         if (_v != null) this._v = _v;
     }
@@ -240,8 +240,8 @@ var _firstStoreInProgress : stdgo.StdGoTypes.GoByte = (0 : stdgo.StdGoTypes.GoUI
     
 **/
 @:structInit @:using(stdgo.sync.atomic_.Atomic_.Value_static_extension) class Value {
-    public var _v : stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface);
-    public function new(?_v:stdgo.StdGoTypes.AnyInterface) {
+    public var _v : stdgo.AnyInterface = (null : stdgo.AnyInterface);
+    public function new(?_v:stdgo.AnyInterface) {
         if (_v != null) this._v = _v;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
@@ -270,29 +270,29 @@ var _firstStoreInProgress : stdgo.StdGoTypes.GoByte = (0 : stdgo.StdGoTypes.GoUI
     // SwapInt32 atomically stores new into *addr and returns the previous *addr value.
     // Consider using the more ergonomic and less error-prone [Int32.Swap] instead.
 **/
-function swapInt32(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoInt32>, _new:stdgo.StdGoTypes.GoInt32):stdgo.StdGoTypes.GoInt32 throw ":sync.atomic_.swapInt32 is not yet implemented";
+function swapInt32(_addr:stdgo.Pointer<stdgo.GoInt32>, _new:stdgo.GoInt32):stdgo.GoInt32 throw ":sync.atomic_.swapInt32 is not yet implemented";
 /**
     // SwapInt64 atomically stores new into *addr and returns the previous *addr value.
     // Consider using the more ergonomic and less error-prone [Int64.Swap] instead
     // (particularly if you target 32-bit platforms; see the bugs section).
 **/
-function swapInt64(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoInt64>, _new:stdgo.StdGoTypes.GoInt64):stdgo.StdGoTypes.GoInt64 throw ":sync.atomic_.swapInt64 is not yet implemented";
+function swapInt64(_addr:stdgo.Pointer<stdgo.GoInt64>, _new:stdgo.GoInt64):stdgo.GoInt64 throw ":sync.atomic_.swapInt64 is not yet implemented";
 /**
     // SwapUint32 atomically stores new into *addr and returns the previous *addr value.
     // Consider using the more ergonomic and less error-prone [Uint32.Swap] instead.
 **/
-function swapUint32(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _new:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoUInt32 throw ":sync.atomic_.swapUint32 is not yet implemented";
+function swapUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _new:stdgo.GoUInt32):stdgo.GoUInt32 throw ":sync.atomic_.swapUint32 is not yet implemented";
 /**
     // SwapUint64 atomically stores new into *addr and returns the previous *addr value.
     // Consider using the more ergonomic and less error-prone [Uint64.Swap] instead
     // (particularly if you target 32-bit platforms; see the bugs section).
 **/
-function swapUint64(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _new:stdgo.StdGoTypes.GoUInt64):stdgo.StdGoTypes.GoUInt64 throw ":sync.atomic_.swapUint64 is not yet implemented";
+function swapUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _new:stdgo.GoUInt64):stdgo.GoUInt64 throw ":sync.atomic_.swapUint64 is not yet implemented";
 /**
     // SwapUintptr atomically stores new into *addr and returns the previous *addr value.
     // Consider using the more ergonomic and less error-prone [Uintptr.Swap] instead.
 **/
-function swapUintptr(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUIntptr>, _new:stdgo.StdGoTypes.GoUIntptr):stdgo.StdGoTypes.GoUIntptr throw ":sync.atomic_.swapUintptr is not yet implemented";
+function swapUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _new:stdgo.GoUIntptr):stdgo.GoUIntptr throw ":sync.atomic_.swapUintptr is not yet implemented";
 /**
     // SwapPointer atomically stores new into *addr and returns the previous *addr value.
     // Consider using the more ergonomic and less error-prone [Pointer.Swap] instead.
@@ -302,29 +302,29 @@ function swapPointer(_addr:stdgo.Pointer<stdgo.unsafe.Unsafe.UnsafePointer>, _ne
     // CompareAndSwapInt32 executes the compare-and-swap operation for an int32 value.
     // Consider using the more ergonomic and less error-prone [Int32.CompareAndSwap] instead.
 **/
-function compareAndSwapInt32(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoInt32>, _old:stdgo.StdGoTypes.GoInt32, _new:stdgo.StdGoTypes.GoInt32):Bool throw ":sync.atomic_.compareAndSwapInt32 is not yet implemented";
+function compareAndSwapInt32(_addr:stdgo.Pointer<stdgo.GoInt32>, _old:stdgo.GoInt32, _new:stdgo.GoInt32):Bool throw ":sync.atomic_.compareAndSwapInt32 is not yet implemented";
 /**
     // CompareAndSwapInt64 executes the compare-and-swap operation for an int64 value.
     // Consider using the more ergonomic and less error-prone [Int64.CompareAndSwap] instead
     // (particularly if you target 32-bit platforms; see the bugs section).
 **/
-function compareAndSwapInt64(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoInt64>, _old:stdgo.StdGoTypes.GoInt64, _new:stdgo.StdGoTypes.GoInt64):Bool throw ":sync.atomic_.compareAndSwapInt64 is not yet implemented";
+function compareAndSwapInt64(_addr:stdgo.Pointer<stdgo.GoInt64>, _old:stdgo.GoInt64, _new:stdgo.GoInt64):Bool throw ":sync.atomic_.compareAndSwapInt64 is not yet implemented";
 /**
     // CompareAndSwapUint32 executes the compare-and-swap operation for a uint32 value.
     // Consider using the more ergonomic and less error-prone [Uint32.CompareAndSwap] instead.
 **/
-function compareAndSwapUint32(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _old:stdgo.StdGoTypes.GoUInt32, _new:stdgo.StdGoTypes.GoUInt32):Bool throw ":sync.atomic_.compareAndSwapUint32 is not yet implemented";
+function compareAndSwapUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _old:stdgo.GoUInt32, _new:stdgo.GoUInt32):Bool throw ":sync.atomic_.compareAndSwapUint32 is not yet implemented";
 /**
     // CompareAndSwapUint64 executes the compare-and-swap operation for a uint64 value.
     // Consider using the more ergonomic and less error-prone [Uint64.CompareAndSwap] instead
     // (particularly if you target 32-bit platforms; see the bugs section).
 **/
-function compareAndSwapUint64(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _old:stdgo.StdGoTypes.GoUInt64, _new:stdgo.StdGoTypes.GoUInt64):Bool throw ":sync.atomic_.compareAndSwapUint64 is not yet implemented";
+function compareAndSwapUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _old:stdgo.GoUInt64, _new:stdgo.GoUInt64):Bool throw ":sync.atomic_.compareAndSwapUint64 is not yet implemented";
 /**
     // CompareAndSwapUintptr executes the compare-and-swap operation for a uintptr value.
     // Consider using the more ergonomic and less error-prone [Uintptr.CompareAndSwap] instead.
 **/
-function compareAndSwapUintptr(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUIntptr>, _old:stdgo.StdGoTypes.GoUIntptr, _new:stdgo.StdGoTypes.GoUIntptr):Bool throw ":sync.atomic_.compareAndSwapUintptr is not yet implemented";
+function compareAndSwapUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _old:stdgo.GoUIntptr, _new:stdgo.GoUIntptr):Bool throw ":sync.atomic_.compareAndSwapUintptr is not yet implemented";
 /**
     // CompareAndSwapPointer executes the compare-and-swap operation for a unsafe.Pointer value.
     // Consider using the more ergonomic and less error-prone [Pointer.CompareAndSwap] instead.
@@ -334,20 +334,20 @@ function compareAndSwapPointer(_addr:stdgo.Pointer<stdgo.unsafe.Unsafe.UnsafePoi
     // AddInt32 atomically adds delta to *addr and returns the new value.
     // Consider using the more ergonomic and less error-prone [Int32.Add] instead.
 **/
-function addInt32(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoInt32>, _delta:stdgo.StdGoTypes.GoInt32):stdgo.StdGoTypes.GoInt32 throw ":sync.atomic_.addInt32 is not yet implemented";
+function addInt32(_addr:stdgo.Pointer<stdgo.GoInt32>, _delta:stdgo.GoInt32):stdgo.GoInt32 throw ":sync.atomic_.addInt32 is not yet implemented";
 /**
     // AddUint32 atomically adds delta to *addr and returns the new value.
     // To subtract a signed positive constant value c from x, do AddUint32(&x, ^uint32(c-1)).
     // In particular, to decrement x, do AddUint32(&x, ^uint32(0)).
     // Consider using the more ergonomic and less error-prone [Uint32.Add] instead.
 **/
-function addUint32(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _delta:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoUInt32 throw ":sync.atomic_.addUint32 is not yet implemented";
+function addUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _delta:stdgo.GoUInt32):stdgo.GoUInt32 throw ":sync.atomic_.addUint32 is not yet implemented";
 /**
     // AddInt64 atomically adds delta to *addr and returns the new value.
     // Consider using the more ergonomic and less error-prone [Int64.Add] instead
     // (particularly if you target 32-bit platforms; see the bugs section).
 **/
-function addInt64(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoInt64>, _delta:stdgo.StdGoTypes.GoInt64):stdgo.StdGoTypes.GoInt64 throw ":sync.atomic_.addInt64 is not yet implemented";
+function addInt64(_addr:stdgo.Pointer<stdgo.GoInt64>, _delta:stdgo.GoInt64):stdgo.GoInt64 throw ":sync.atomic_.addInt64 is not yet implemented";
 /**
     // AddUint64 atomically adds delta to *addr and returns the new value.
     // To subtract a signed positive constant value c from x, do AddUint64(&x, ^uint64(c-1)).
@@ -355,39 +355,39 @@ function addInt64(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoInt64>, _delta:stdgo.St
     // Consider using the more ergonomic and less error-prone [Uint64.Add] instead
     // (particularly if you target 32-bit platforms; see the bugs section).
 **/
-function addUint64(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _delta:stdgo.StdGoTypes.GoUInt64):stdgo.StdGoTypes.GoUInt64 throw ":sync.atomic_.addUint64 is not yet implemented";
+function addUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _delta:stdgo.GoUInt64):stdgo.GoUInt64 throw ":sync.atomic_.addUint64 is not yet implemented";
 /**
     // AddUintptr atomically adds delta to *addr and returns the new value.
     // Consider using the more ergonomic and less error-prone [Uintptr.Add] instead.
 **/
-function addUintptr(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUIntptr>, _delta:stdgo.StdGoTypes.GoUIntptr):stdgo.StdGoTypes.GoUIntptr throw ":sync.atomic_.addUintptr is not yet implemented";
+function addUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _delta:stdgo.GoUIntptr):stdgo.GoUIntptr throw ":sync.atomic_.addUintptr is not yet implemented";
 /**
     // LoadInt32 atomically loads *addr.
     // Consider using the more ergonomic and less error-prone [Int32.Load] instead.
 **/
-function loadInt32(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoInt32>):stdgo.StdGoTypes.GoInt32 throw ":sync.atomic_.loadInt32 is not yet implemented";
+function loadInt32(_addr:stdgo.Pointer<stdgo.GoInt32>):stdgo.GoInt32 throw ":sync.atomic_.loadInt32 is not yet implemented";
 /**
     // LoadInt64 atomically loads *addr.
     // Consider using the more ergonomic and less error-prone [Int64.Load] instead
     // (particularly if you target 32-bit platforms; see the bugs section).
 **/
-function loadInt64(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoInt64>):stdgo.StdGoTypes.GoInt64 throw ":sync.atomic_.loadInt64 is not yet implemented";
+function loadInt64(_addr:stdgo.Pointer<stdgo.GoInt64>):stdgo.GoInt64 throw ":sync.atomic_.loadInt64 is not yet implemented";
 /**
     // LoadUint32 atomically loads *addr.
     // Consider using the more ergonomic and less error-prone [Uint32.Load] instead.
 **/
-function loadUint32(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>):stdgo.StdGoTypes.GoUInt32 throw ":sync.atomic_.loadUint32 is not yet implemented";
+function loadUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>):stdgo.GoUInt32 throw ":sync.atomic_.loadUint32 is not yet implemented";
 /**
     // LoadUint64 atomically loads *addr.
     // Consider using the more ergonomic and less error-prone [Uint64.Load] instead
     // (particularly if you target 32-bit platforms; see the bugs section).
 **/
-function loadUint64(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>):stdgo.StdGoTypes.GoUInt64 throw ":sync.atomic_.loadUint64 is not yet implemented";
+function loadUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>):stdgo.GoUInt64 throw ":sync.atomic_.loadUint64 is not yet implemented";
 /**
     // LoadUintptr atomically loads *addr.
     // Consider using the more ergonomic and less error-prone [Uintptr.Load] instead.
 **/
-function loadUintptr(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUIntptr>):stdgo.StdGoTypes.GoUIntptr throw ":sync.atomic_.loadUintptr is not yet implemented";
+function loadUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>):stdgo.GoUIntptr throw ":sync.atomic_.loadUintptr is not yet implemented";
 /**
     // LoadPointer atomically loads *addr.
     // Consider using the more ergonomic and less error-prone [Pointer.Load] instead.
@@ -397,18 +397,18 @@ function loadPointer(_addr:stdgo.Pointer<stdgo.unsafe.Unsafe.UnsafePointer>):std
     // StoreInt32 atomically stores val into *addr.
     // Consider using the more ergonomic and less error-prone [Int32.Store] instead.
 **/
-function storeInt32(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoInt32>, _val:stdgo.StdGoTypes.GoInt32):Void throw ":sync.atomic_.storeInt32 is not yet implemented";
+function storeInt32(_addr:stdgo.Pointer<stdgo.GoInt32>, _val:stdgo.GoInt32):Void throw ":sync.atomic_.storeInt32 is not yet implemented";
 /**
     // StoreInt64 atomically stores val into *addr.
     // Consider using the more ergonomic and less error-prone [Int64.Store] instead
     // (particularly if you target 32-bit platforms; see the bugs section).
 **/
-function storeInt64(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoInt64>, _val:stdgo.StdGoTypes.GoInt64):Void throw ":sync.atomic_.storeInt64 is not yet implemented";
+function storeInt64(_addr:stdgo.Pointer<stdgo.GoInt64>, _val:stdgo.GoInt64):Void throw ":sync.atomic_.storeInt64 is not yet implemented";
 /**
     // StoreUint32 atomically stores val into *addr.
     // Consider using the more ergonomic and less error-prone [Uint32.Store] instead.
 **/
-function storeUint32(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _val:stdgo.StdGoTypes.GoUInt32):Void {
+function storeUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _val:stdgo.GoUInt32):Void {
         _addr.value = _val;
     }
 /**
@@ -416,14 +416,14 @@ function storeUint32(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _val:stdgo.
     // Consider using the more ergonomic and less error-prone [Uint64.Store] instead
     // (particularly if you target 32-bit platforms; see the bugs section).
 **/
-function storeUint64(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _val:stdgo.StdGoTypes.GoUInt64):Void {
+function storeUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _val:stdgo.GoUInt64):Void {
         _addr.value = _val;
     }
 /**
     // StoreUintptr atomically stores val into *addr.
     // Consider using the more ergonomic and less error-prone [Uintptr.Store] instead.
 **/
-function storeUintptr(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUIntptr>, _val:stdgo.StdGoTypes.GoUIntptr):Void throw ":sync.atomic_.storeUintptr is not yet implemented";
+function storeUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _val:stdgo.GoUIntptr):Void throw ":sync.atomic_.storeUintptr is not yet implemented";
 /**
     // StorePointer atomically stores val into *addr.
     // Consider using the more ergonomic and less error-prone [Pointer.Store] instead.
@@ -432,11 +432,11 @@ function storePointer(_addr:stdgo.Pointer<stdgo.unsafe.Unsafe.UnsafePointer>, _v
 /**
     // b32 returns a uint32 0 or 1 representing b.
 **/
-function _b32(_b:Bool):stdgo.StdGoTypes.GoUInt32 throw ":sync.atomic_._b32 is not yet implemented";
+function _b32(_b:Bool):stdgo.GoUInt32 throw ":sync.atomic_._b32 is not yet implemented";
 /**
     // Disable/enable preemption, implemented in runtime.
 **/
-function _runtime_procPin():stdgo.StdGoTypes.GoInt throw ":sync.atomic_._runtime_procPin is not yet implemented";
+function _runtime_procPin():stdgo.GoInt throw ":sync.atomic_._runtime_procPin is not yet implemented";
 function _runtime_procUnpin():Void throw ":sync.atomic_._runtime_procUnpin is not yet implemented";
 class Bool__asInterface {
     /**
@@ -463,7 +463,7 @@ class Bool__asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<Bool_>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -472,49 +472,49 @@ class Bool__asInterface {
         // CompareAndSwap executes the compare-and-swap operation for the boolean value x.
     **/
     @:keep
-    static public function compareAndSwap( _x:stdgo.StdGoTypes.Ref<Bool_>, _old:Bool, _new:Bool):Bool throw "Bool_:sync.atomic_.compareAndSwap is not yet implemented";
+    static public function compareAndSwap( _x:stdgo.Ref<Bool_>, _old:Bool, _new:Bool):Bool throw "Bool_:sync.atomic_.compareAndSwap is not yet implemented";
     /**
         // Swap atomically stores new into x and returns the previous value.
     **/
     @:keep
-    static public function swap( _x:stdgo.StdGoTypes.Ref<Bool_>, _new:Bool):Bool throw "Bool_:sync.atomic_.swap is not yet implemented";
+    static public function swap( _x:stdgo.Ref<Bool_>, _new:Bool):Bool throw "Bool_:sync.atomic_.swap is not yet implemented";
     /**
         // Store atomically stores val into x.
     **/
     @:keep
-    static public function store( _x:stdgo.StdGoTypes.Ref<Bool_>, _val:Bool):Void storeUint32(stdgo.Go.pointer(_x._v), _val ? 1 : 0);
+    static public function store( _x:stdgo.Ref<Bool_>, _val:Bool):Void storeUint32(stdgo.Go.pointer(_x._v), _val ? 1 : 0);
     /**
         // Load atomically loads and returns the value stored in x.
     **/
     @:keep
-    static public function load( _x:stdgo.StdGoTypes.Ref<Bool_>):Bool return @:privateAccess _x._v == 1;
+    static public function load( _x:stdgo.Ref<Bool_>):Bool return @:privateAccess _x._v == 1;
 }
 class Pointer__asInterface<T_> {
     /**
         // CompareAndSwap executes the compare-and-swap operation for x.
     **/
     @:keep
-    public var compareAndSwap : (_old:stdgo.StdGoTypes.Ref<T_>, _new:stdgo.StdGoTypes.Ref<T_>) -> Bool;
+    public var compareAndSwap : (_old:stdgo.Ref<T_>, _new:stdgo.Ref<T_>) -> Bool;
     /**
         // Swap atomically stores new into x and returns the previous value.
     **/
     @:keep
-    public var swap : (_new:stdgo.StdGoTypes.Ref<T_>) -> stdgo.StdGoTypes.Ref<T_>;
+    public var swap : (_new:stdgo.Ref<T_>) -> stdgo.Ref<T_>;
     /**
         // Store atomically stores val into x.
     **/
     @:keep
-    public var store : (_val:stdgo.StdGoTypes.Ref<T_>) -> Void;
+    public var store : (_val:stdgo.Ref<T_>) -> Void;
     /**
         // Load atomically loads and returns the value stored in x.
     **/
     @:keep
-    public var load : () -> stdgo.StdGoTypes.Ref<T_>;
+    public var load : () -> stdgo.Ref<T_>;
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<Pointer_<T_>>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -523,54 +523,54 @@ class Pointer__asInterface<T_> {
         // CompareAndSwap executes the compare-and-swap operation for x.
     **/
     @:keep
-    macro static public function compareAndSwap<T_>( _x:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<Pointer_<T_>>>, __generic__0:haxe.macro.Expr.ExprOf<T_>, _old:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T_>>, _new:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T_>>):haxe.macro.Expr.ExprOf<Bool>;
+    macro static public function compareAndSwap<T_>( _x:haxe.macro.Expr.ExprOf<stdgo.Ref<Pointer_<T_>>>, __generic__0:haxe.macro.Expr.ExprOf<T_>, _old:haxe.macro.Expr.ExprOf<stdgo.Ref<T_>>, _new:haxe.macro.Expr.ExprOf<stdgo.Ref<T_>>):haxe.macro.Expr.ExprOf<Bool>;
     /**
         // Swap atomically stores new into x and returns the previous value.
     **/
     @:keep
-    macro static public function swap<T_>( _x:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<Pointer_<T_>>>, __generic__0:haxe.macro.Expr.ExprOf<T_>, _new:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T_>>):haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T_>>;
+    macro static public function swap<T_>( _x:haxe.macro.Expr.ExprOf<stdgo.Ref<Pointer_<T_>>>, __generic__0:haxe.macro.Expr.ExprOf<T_>, _new:haxe.macro.Expr.ExprOf<stdgo.Ref<T_>>):haxe.macro.Expr.ExprOf<stdgo.Ref<T_>>;
     /**
         // Store atomically stores val into x.
     **/
     @:keep
-    macro static public function store<T_>( _x:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<Pointer_<T_>>>, __generic__0:haxe.macro.Expr.ExprOf<T_>, _val:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T_>>):haxe.macro.Expr.ExprOf<Void>;
+    macro static public function store<T_>( _x:haxe.macro.Expr.ExprOf<stdgo.Ref<Pointer_<T_>>>, __generic__0:haxe.macro.Expr.ExprOf<T_>, _val:haxe.macro.Expr.ExprOf<stdgo.Ref<T_>>):haxe.macro.Expr.ExprOf<Void>;
     /**
         // Load atomically loads and returns the value stored in x.
     **/
     @:keep
-    macro static public function load<T_>( _x:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<Pointer_<T_>>>, __generic__0:haxe.macro.Expr.ExprOf<T_>):haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T_>>;
+    macro static public function load<T_>( _x:haxe.macro.Expr.ExprOf<stdgo.Ref<Pointer_<T_>>>, __generic__0:haxe.macro.Expr.ExprOf<T_>):haxe.macro.Expr.ExprOf<stdgo.Ref<T_>>;
 }
 class Int32_asInterface {
     /**
         // Add atomically adds delta to x and returns the new value.
     **/
     @:keep
-    public dynamic function add(_delta:stdgo.StdGoTypes.GoInt32):stdgo.StdGoTypes.GoInt32 return __self__.value.add(_delta);
+    public dynamic function add(_delta:stdgo.GoInt32):stdgo.GoInt32 return __self__.value.add(_delta);
     /**
         // CompareAndSwap executes the compare-and-swap operation for x.
     **/
     @:keep
-    public dynamic function compareAndSwap(_old:stdgo.StdGoTypes.GoInt32, _new:stdgo.StdGoTypes.GoInt32):Bool return __self__.value.compareAndSwap(_old, _new);
+    public dynamic function compareAndSwap(_old:stdgo.GoInt32, _new:stdgo.GoInt32):Bool return __self__.value.compareAndSwap(_old, _new);
     /**
         // Swap atomically stores new into x and returns the previous value.
     **/
     @:keep
-    public dynamic function swap(_new:stdgo.StdGoTypes.GoInt32):stdgo.StdGoTypes.GoInt32 return __self__.value.swap(_new);
+    public dynamic function swap(_new:stdgo.GoInt32):stdgo.GoInt32 return __self__.value.swap(_new);
     /**
         // Store atomically stores val into x.
     **/
     @:keep
-    public dynamic function store(_val:stdgo.StdGoTypes.GoInt32):Void __self__.value.store(_val);
+    public dynamic function store(_val:stdgo.GoInt32):Void __self__.value.store(_val);
     /**
         // Load atomically loads and returns the value stored in x.
     **/
     @:keep
-    public dynamic function load():stdgo.StdGoTypes.GoInt32 return __self__.value.load();
+    public dynamic function load():stdgo.GoInt32 return __self__.value.load();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<Int32>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -579,31 +579,31 @@ class Int32_asInterface {
         // Add atomically adds delta to x and returns the new value.
     **/
     @:keep
-    static public function add( _x:stdgo.StdGoTypes.Ref<Int32>, _delta:stdgo.StdGoTypes.GoInt32):stdgo.StdGoTypes.GoInt32 throw "Int32:sync.atomic_.add is not yet implemented";
+    static public function add( _x:stdgo.Ref<Int32>, _delta:stdgo.GoInt32):stdgo.GoInt32 throw "Int32:sync.atomic_.add is not yet implemented";
     /**
         // CompareAndSwap executes the compare-and-swap operation for x.
     **/
     @:keep
-    static public function compareAndSwap( _x:stdgo.StdGoTypes.Ref<Int32>, _old:stdgo.StdGoTypes.GoInt32, _new:stdgo.StdGoTypes.GoInt32):Bool throw "Int32:sync.atomic_.compareAndSwap is not yet implemented";
+    static public function compareAndSwap( _x:stdgo.Ref<Int32>, _old:stdgo.GoInt32, _new:stdgo.GoInt32):Bool throw "Int32:sync.atomic_.compareAndSwap is not yet implemented";
     /**
         // Swap atomically stores new into x and returns the previous value.
     **/
     @:keep
-    static public function swap( _x:stdgo.StdGoTypes.Ref<Int32>, _new:stdgo.StdGoTypes.GoInt32):stdgo.StdGoTypes.GoInt32 throw "Int32:sync.atomic_.swap is not yet implemented";
+    static public function swap( _x:stdgo.Ref<Int32>, _new:stdgo.GoInt32):stdgo.GoInt32 throw "Int32:sync.atomic_.swap is not yet implemented";
     /**
         // Store atomically stores val into x.
     **/
     @:keep
-    static public function store( _x:stdgo.StdGoTypes.Ref<Int32>, _val:stdgo.StdGoTypes.GoInt32):Void {
-        @:recv var _x:stdgo.StdGoTypes.Ref<Int32> = _x;
+    static public function store( _x:stdgo.Ref<Int32>, _val:stdgo.GoInt32):Void {
+        @:recv var _x:stdgo.Ref<Int32> = _x;
         _x._v = _val;
     }
     /**
         // Load atomically loads and returns the value stored in x.
     **/
     @:keep
-    static public function load( _x:stdgo.StdGoTypes.Ref<Int32>):stdgo.StdGoTypes.GoInt32 {
-        @:recv var _x:stdgo.StdGoTypes.Ref<Int32> = _x;
+    static public function load( _x:stdgo.Ref<Int32>):stdgo.GoInt32 {
+        @:recv var _x:stdgo.Ref<Int32> = _x;
         return @:privateAccess _x._v;
     }
 }
@@ -612,32 +612,32 @@ class Int64__asInterface {
         // Add atomically adds delta to x and returns the new value.
     **/
     @:keep
-    public dynamic function add(_delta:stdgo.StdGoTypes.GoInt64):stdgo.StdGoTypes.GoInt64 return __self__.value.add(_delta);
+    public dynamic function add(_delta:stdgo.GoInt64):stdgo.GoInt64 return __self__.value.add(_delta);
     /**
         // CompareAndSwap executes the compare-and-swap operation for x.
     **/
     @:keep
-    public dynamic function compareAndSwap(_old:stdgo.StdGoTypes.GoInt64, _new:stdgo.StdGoTypes.GoInt64):Bool return __self__.value.compareAndSwap(_old, _new);
+    public dynamic function compareAndSwap(_old:stdgo.GoInt64, _new:stdgo.GoInt64):Bool return __self__.value.compareAndSwap(_old, _new);
     /**
         // Swap atomically stores new into x and returns the previous value.
     **/
     @:keep
-    public dynamic function swap(_new:stdgo.StdGoTypes.GoInt64):stdgo.StdGoTypes.GoInt64 return __self__.value.swap(_new);
+    public dynamic function swap(_new:stdgo.GoInt64):stdgo.GoInt64 return __self__.value.swap(_new);
     /**
         // Store atomically stores val into x.
     **/
     @:keep
-    public dynamic function store(_val:stdgo.StdGoTypes.GoInt64):Void __self__.value.store(_val);
+    public dynamic function store(_val:stdgo.GoInt64):Void __self__.value.store(_val);
     /**
         // Load atomically loads and returns the value stored in x.
     **/
     @:keep
-    public dynamic function load():stdgo.StdGoTypes.GoInt64 return __self__.value.load();
+    public dynamic function load():stdgo.GoInt64 return __self__.value.load();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<Int64_>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -646,59 +646,59 @@ class Int64__asInterface {
         // Add atomically adds delta to x and returns the new value.
     **/
     @:keep
-    static public function add( _x:stdgo.StdGoTypes.Ref<Int64_>, _delta:stdgo.StdGoTypes.GoInt64):stdgo.StdGoTypes.GoInt64 throw "Int64_:sync.atomic_.add is not yet implemented";
+    static public function add( _x:stdgo.Ref<Int64_>, _delta:stdgo.GoInt64):stdgo.GoInt64 throw "Int64_:sync.atomic_.add is not yet implemented";
     /**
         // CompareAndSwap executes the compare-and-swap operation for x.
     **/
     @:keep
-    static public function compareAndSwap( _x:stdgo.StdGoTypes.Ref<Int64_>, _old:stdgo.StdGoTypes.GoInt64, _new:stdgo.StdGoTypes.GoInt64):Bool throw "Int64_:sync.atomic_.compareAndSwap is not yet implemented";
+    static public function compareAndSwap( _x:stdgo.Ref<Int64_>, _old:stdgo.GoInt64, _new:stdgo.GoInt64):Bool throw "Int64_:sync.atomic_.compareAndSwap is not yet implemented";
     /**
         // Swap atomically stores new into x and returns the previous value.
     **/
     @:keep
-    static public function swap( _x:stdgo.StdGoTypes.Ref<Int64_>, _new:stdgo.StdGoTypes.GoInt64):stdgo.StdGoTypes.GoInt64 throw "Int64_:sync.atomic_.swap is not yet implemented";
+    static public function swap( _x:stdgo.Ref<Int64_>, _new:stdgo.GoInt64):stdgo.GoInt64 throw "Int64_:sync.atomic_.swap is not yet implemented";
     /**
         // Store atomically stores val into x.
     **/
     @:keep
-    static public function store( _x:stdgo.StdGoTypes.Ref<Int64_>, _val:stdgo.StdGoTypes.GoInt64):Void throw "Int64_:sync.atomic_.store is not yet implemented";
+    static public function store( _x:stdgo.Ref<Int64_>, _val:stdgo.GoInt64):Void throw "Int64_:sync.atomic_.store is not yet implemented";
     /**
         // Load atomically loads and returns the value stored in x.
     **/
     @:keep
-    static public function load( _x:stdgo.StdGoTypes.Ref<Int64_>):stdgo.StdGoTypes.GoInt64 throw "Int64_:sync.atomic_.load is not yet implemented";
+    static public function load( _x:stdgo.Ref<Int64_>):stdgo.GoInt64 throw "Int64_:sync.atomic_.load is not yet implemented";
 }
 class Uint32_asInterface {
     /**
         // Add atomically adds delta to x and returns the new value.
     **/
     @:keep
-    public dynamic function add(_delta:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoUInt32 return __self__.value.add(_delta);
+    public dynamic function add(_delta:stdgo.GoUInt32):stdgo.GoUInt32 return __self__.value.add(_delta);
     /**
         // CompareAndSwap executes the compare-and-swap operation for x.
     **/
     @:keep
-    public dynamic function compareAndSwap(_old:stdgo.StdGoTypes.GoUInt32, _new:stdgo.StdGoTypes.GoUInt32):Bool return __self__.value.compareAndSwap(_old, _new);
+    public dynamic function compareAndSwap(_old:stdgo.GoUInt32, _new:stdgo.GoUInt32):Bool return __self__.value.compareAndSwap(_old, _new);
     /**
         // Swap atomically stores new into x and returns the previous value.
     **/
     @:keep
-    public dynamic function swap(_new:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoUInt32 return __self__.value.swap(_new);
+    public dynamic function swap(_new:stdgo.GoUInt32):stdgo.GoUInt32 return __self__.value.swap(_new);
     /**
         // Store atomically stores val into x.
     **/
     @:keep
-    public dynamic function store(_val:stdgo.StdGoTypes.GoUInt32):Void __self__.value.store(_val);
+    public dynamic function store(_val:stdgo.GoUInt32):Void __self__.value.store(_val);
     /**
         // Load atomically loads and returns the value stored in x.
     **/
     @:keep
-    public dynamic function load():stdgo.StdGoTypes.GoUInt32 return __self__.value.load();
+    public dynamic function load():stdgo.GoUInt32 return __self__.value.load();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<Uint32>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -707,59 +707,59 @@ class Uint32_asInterface {
         // Add atomically adds delta to x and returns the new value.
     **/
     @:keep
-    static public function add( _x:stdgo.StdGoTypes.Ref<Uint32>, _delta:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoUInt32 throw "Uint32:sync.atomic_.add is not yet implemented";
+    static public function add( _x:stdgo.Ref<Uint32>, _delta:stdgo.GoUInt32):stdgo.GoUInt32 throw "Uint32:sync.atomic_.add is not yet implemented";
     /**
         // CompareAndSwap executes the compare-and-swap operation for x.
     **/
     @:keep
-    static public function compareAndSwap( _x:stdgo.StdGoTypes.Ref<Uint32>, _old:stdgo.StdGoTypes.GoUInt32, _new:stdgo.StdGoTypes.GoUInt32):Bool throw "Uint32:sync.atomic_.compareAndSwap is not yet implemented";
+    static public function compareAndSwap( _x:stdgo.Ref<Uint32>, _old:stdgo.GoUInt32, _new:stdgo.GoUInt32):Bool throw "Uint32:sync.atomic_.compareAndSwap is not yet implemented";
     /**
         // Swap atomically stores new into x and returns the previous value.
     **/
     @:keep
-    static public function swap( _x:stdgo.StdGoTypes.Ref<Uint32>, _new:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoUInt32 throw "Uint32:sync.atomic_.swap is not yet implemented";
+    static public function swap( _x:stdgo.Ref<Uint32>, _new:stdgo.GoUInt32):stdgo.GoUInt32 throw "Uint32:sync.atomic_.swap is not yet implemented";
     /**
         // Store atomically stores val into x.
     **/
     @:keep
-    static public function store( _x:stdgo.StdGoTypes.Ref<Uint32>, _val:stdgo.StdGoTypes.GoUInt32):Void throw "Uint32:sync.atomic_.store is not yet implemented";
+    static public function store( _x:stdgo.Ref<Uint32>, _val:stdgo.GoUInt32):Void throw "Uint32:sync.atomic_.store is not yet implemented";
     /**
         // Load atomically loads and returns the value stored in x.
     **/
     @:keep
-    static public function load( _x:stdgo.StdGoTypes.Ref<Uint32>):stdgo.StdGoTypes.GoUInt32 throw "Uint32:sync.atomic_.load is not yet implemented";
+    static public function load( _x:stdgo.Ref<Uint32>):stdgo.GoUInt32 throw "Uint32:sync.atomic_.load is not yet implemented";
 }
 class Uint64_asInterface {
     /**
         // Add atomically adds delta to x and returns the new value.
     **/
     @:keep
-    public dynamic function add(_delta:stdgo.StdGoTypes.GoUInt64):stdgo.StdGoTypes.GoUInt64 return __self__.value.add(_delta);
+    public dynamic function add(_delta:stdgo.GoUInt64):stdgo.GoUInt64 return __self__.value.add(_delta);
     /**
         // CompareAndSwap executes the compare-and-swap operation for x.
     **/
     @:keep
-    public dynamic function compareAndSwap(_old:stdgo.StdGoTypes.GoUInt64, _new:stdgo.StdGoTypes.GoUInt64):Bool return __self__.value.compareAndSwap(_old, _new);
+    public dynamic function compareAndSwap(_old:stdgo.GoUInt64, _new:stdgo.GoUInt64):Bool return __self__.value.compareAndSwap(_old, _new);
     /**
         // Swap atomically stores new into x and returns the previous value.
     **/
     @:keep
-    public dynamic function swap(_new:stdgo.StdGoTypes.GoUInt64):stdgo.StdGoTypes.GoUInt64 return __self__.value.swap(_new);
+    public dynamic function swap(_new:stdgo.GoUInt64):stdgo.GoUInt64 return __self__.value.swap(_new);
     /**
         // Store atomically stores val into x.
     **/
     @:keep
-    public dynamic function store(_val:stdgo.StdGoTypes.GoUInt64):Void __self__.value.store(_val);
+    public dynamic function store(_val:stdgo.GoUInt64):Void __self__.value.store(_val);
     /**
         // Load atomically loads and returns the value stored in x.
     **/
     @:keep
-    public dynamic function load():stdgo.StdGoTypes.GoUInt64 return __self__.value.load();
+    public dynamic function load():stdgo.GoUInt64 return __self__.value.load();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<Uint64>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -768,59 +768,59 @@ class Uint64_asInterface {
         // Add atomically adds delta to x and returns the new value.
     **/
     @:keep
-    static public function add( _x:stdgo.StdGoTypes.Ref<Uint64>, _delta:stdgo.StdGoTypes.GoUInt64):stdgo.StdGoTypes.GoUInt64 throw "Uint64:sync.atomic_.add is not yet implemented";
+    static public function add( _x:stdgo.Ref<Uint64>, _delta:stdgo.GoUInt64):stdgo.GoUInt64 throw "Uint64:sync.atomic_.add is not yet implemented";
     /**
         // CompareAndSwap executes the compare-and-swap operation for x.
     **/
     @:keep
-    static public function compareAndSwap( _x:stdgo.StdGoTypes.Ref<Uint64>, _old:stdgo.StdGoTypes.GoUInt64, _new:stdgo.StdGoTypes.GoUInt64):Bool throw "Uint64:sync.atomic_.compareAndSwap is not yet implemented";
+    static public function compareAndSwap( _x:stdgo.Ref<Uint64>, _old:stdgo.GoUInt64, _new:stdgo.GoUInt64):Bool throw "Uint64:sync.atomic_.compareAndSwap is not yet implemented";
     /**
         // Swap atomically stores new into x and returns the previous value.
     **/
     @:keep
-    static public function swap( _x:stdgo.StdGoTypes.Ref<Uint64>, _new:stdgo.StdGoTypes.GoUInt64):stdgo.StdGoTypes.GoUInt64 throw "Uint64:sync.atomic_.swap is not yet implemented";
+    static public function swap( _x:stdgo.Ref<Uint64>, _new:stdgo.GoUInt64):stdgo.GoUInt64 throw "Uint64:sync.atomic_.swap is not yet implemented";
     /**
         // Store atomically stores val into x.
     **/
     @:keep
-    static public function store( _x:stdgo.StdGoTypes.Ref<Uint64>, _val:stdgo.StdGoTypes.GoUInt64):Void throw "Uint64:sync.atomic_.store is not yet implemented";
+    static public function store( _x:stdgo.Ref<Uint64>, _val:stdgo.GoUInt64):Void throw "Uint64:sync.atomic_.store is not yet implemented";
     /**
         // Load atomically loads and returns the value stored in x.
     **/
     @:keep
-    static public function load( _x:stdgo.StdGoTypes.Ref<Uint64>):stdgo.StdGoTypes.GoUInt64 throw "Uint64:sync.atomic_.load is not yet implemented";
+    static public function load( _x:stdgo.Ref<Uint64>):stdgo.GoUInt64 throw "Uint64:sync.atomic_.load is not yet implemented";
 }
 class Uintptr_asInterface {
     /**
         // Add atomically adds delta to x and returns the new value.
     **/
     @:keep
-    public dynamic function add(_delta:stdgo.StdGoTypes.GoUIntptr):stdgo.StdGoTypes.GoUIntptr return __self__.value.add(_delta);
+    public dynamic function add(_delta:stdgo.GoUIntptr):stdgo.GoUIntptr return __self__.value.add(_delta);
     /**
         // CompareAndSwap executes the compare-and-swap operation for x.
     **/
     @:keep
-    public dynamic function compareAndSwap(_old:stdgo.StdGoTypes.GoUIntptr, _new:stdgo.StdGoTypes.GoUIntptr):Bool return __self__.value.compareAndSwap(_old, _new);
+    public dynamic function compareAndSwap(_old:stdgo.GoUIntptr, _new:stdgo.GoUIntptr):Bool return __self__.value.compareAndSwap(_old, _new);
     /**
         // Swap atomically stores new into x and returns the previous value.
     **/
     @:keep
-    public dynamic function swap(_new:stdgo.StdGoTypes.GoUIntptr):stdgo.StdGoTypes.GoUIntptr return __self__.value.swap(_new);
+    public dynamic function swap(_new:stdgo.GoUIntptr):stdgo.GoUIntptr return __self__.value.swap(_new);
     /**
         // Store atomically stores val into x.
     **/
     @:keep
-    public dynamic function store(_val:stdgo.StdGoTypes.GoUIntptr):Void __self__.value.store(_val);
+    public dynamic function store(_val:stdgo.GoUIntptr):Void __self__.value.store(_val);
     /**
         // Load atomically loads and returns the value stored in x.
     **/
     @:keep
-    public dynamic function load():stdgo.StdGoTypes.GoUIntptr return __self__.value.load();
+    public dynamic function load():stdgo.GoUIntptr return __self__.value.load();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<Uintptr>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -829,27 +829,27 @@ class Uintptr_asInterface {
         // Add atomically adds delta to x and returns the new value.
     **/
     @:keep
-    static public function add( _x:stdgo.StdGoTypes.Ref<Uintptr>, _delta:stdgo.StdGoTypes.GoUIntptr):stdgo.StdGoTypes.GoUIntptr throw "Uintptr:sync.atomic_.add is not yet implemented";
+    static public function add( _x:stdgo.Ref<Uintptr>, _delta:stdgo.GoUIntptr):stdgo.GoUIntptr throw "Uintptr:sync.atomic_.add is not yet implemented";
     /**
         // CompareAndSwap executes the compare-and-swap operation for x.
     **/
     @:keep
-    static public function compareAndSwap( _x:stdgo.StdGoTypes.Ref<Uintptr>, _old:stdgo.StdGoTypes.GoUIntptr, _new:stdgo.StdGoTypes.GoUIntptr):Bool throw "Uintptr:sync.atomic_.compareAndSwap is not yet implemented";
+    static public function compareAndSwap( _x:stdgo.Ref<Uintptr>, _old:stdgo.GoUIntptr, _new:stdgo.GoUIntptr):Bool throw "Uintptr:sync.atomic_.compareAndSwap is not yet implemented";
     /**
         // Swap atomically stores new into x and returns the previous value.
     **/
     @:keep
-    static public function swap( _x:stdgo.StdGoTypes.Ref<Uintptr>, _new:stdgo.StdGoTypes.GoUIntptr):stdgo.StdGoTypes.GoUIntptr throw "Uintptr:sync.atomic_.swap is not yet implemented";
+    static public function swap( _x:stdgo.Ref<Uintptr>, _new:stdgo.GoUIntptr):stdgo.GoUIntptr throw "Uintptr:sync.atomic_.swap is not yet implemented";
     /**
         // Store atomically stores val into x.
     **/
     @:keep
-    static public function store( _x:stdgo.StdGoTypes.Ref<Uintptr>, _val:stdgo.StdGoTypes.GoUIntptr):Void throw "Uintptr:sync.atomic_.store is not yet implemented";
+    static public function store( _x:stdgo.Ref<Uintptr>, _val:stdgo.GoUIntptr):Void throw "Uintptr:sync.atomic_.store is not yet implemented";
     /**
         // Load atomically loads and returns the value stored in x.
     **/
     @:keep
-    static public function load( _x:stdgo.StdGoTypes.Ref<Uintptr>):stdgo.StdGoTypes.GoUIntptr throw "Uintptr:sync.atomic_.load is not yet implemented";
+    static public function load( _x:stdgo.Ref<Uintptr>):stdgo.GoUIntptr throw "Uintptr:sync.atomic_.load is not yet implemented";
 }
 class T_noCopy_asInterface {
     @:keep
@@ -863,18 +863,18 @@ class T_noCopy_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T_noCopy>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.sync.atomic_.Atomic_.T_noCopy_asInterface) class T_noCopy_static_extension {
     @:keep
-    static public function unlock( _:stdgo.StdGoTypes.Ref<T_noCopy>):Void throw "T_noCopy:sync.atomic_.unlock is not yet implemented";
+    static public function unlock( _:stdgo.Ref<T_noCopy>):Void throw "T_noCopy:sync.atomic_.unlock is not yet implemented";
     /**
         // Lock is a no-op used by -copylocks checker from `go vet`.
     **/
     @:keep
-    static public function lock( _:stdgo.StdGoTypes.Ref<T_noCopy>):Void throw "T_noCopy:sync.atomic_.lock is not yet implemented";
+    static public function lock( _:stdgo.Ref<T_noCopy>):Void throw "T_noCopy:sync.atomic_.lock is not yet implemented";
 }
 class Value_asInterface {
     /**
@@ -885,7 +885,7 @@ class Value_asInterface {
         // CompareAndSwap(old, nil).
     **/
     @:keep
-    public dynamic function compareAndSwap(_old:stdgo.StdGoTypes.AnyInterface, _new:stdgo.StdGoTypes.AnyInterface):Bool return __self__.value.compareAndSwap(_old, _new);
+    public dynamic function compareAndSwap(_old:stdgo.AnyInterface, _new:stdgo.AnyInterface):Bool return __self__.value.compareAndSwap(_old, _new);
     /**
         // Swap stores new into Value and returns the previous value. It returns nil if
         // the Value is empty.
@@ -894,25 +894,25 @@ class Value_asInterface {
         // type. Swap of an inconsistent type panics, as does Swap(nil).
     **/
     @:keep
-    public dynamic function swap(_new:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface return __self__.value.swap(_new);
+    public dynamic function swap(_new:stdgo.AnyInterface):stdgo.AnyInterface return __self__.value.swap(_new);
     /**
         // Store sets the value of the Value v to val.
         // All calls to Store for a given Value must use values of the same concrete type.
         // Store of an inconsistent type panics, as does Store(nil).
     **/
     @:keep
-    public dynamic function store(_val:stdgo.StdGoTypes.AnyInterface):Void __self__.value.store(_val);
+    public dynamic function store(_val:stdgo.AnyInterface):Void __self__.value.store(_val);
     /**
         // Load returns the value set by the most recent Store.
         // It returns nil if there has been no call to Store for this Value.
     **/
     @:keep
-    public dynamic function load():stdgo.StdGoTypes.AnyInterface return __self__.value.load();
+    public dynamic function load():stdgo.AnyInterface return __self__.value.load();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<Value>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -925,7 +925,7 @@ class Value_asInterface {
         // CompareAndSwap(old, nil).
     **/
     @:keep
-    static public function compareAndSwap( _v:stdgo.StdGoTypes.Ref<Value>, _old:stdgo.StdGoTypes.AnyInterface, _new:stdgo.StdGoTypes.AnyInterface):Bool throw "Value:sync.atomic_.compareAndSwap is not yet implemented";
+    static public function compareAndSwap( _v:stdgo.Ref<Value>, _old:stdgo.AnyInterface, _new:stdgo.AnyInterface):Bool throw "Value:sync.atomic_.compareAndSwap is not yet implemented";
     /**
         // Swap stores new into Value and returns the previous value. It returns nil if
         // the Value is empty.
@@ -934,18 +934,18 @@ class Value_asInterface {
         // type. Swap of an inconsistent type panics, as does Swap(nil).
     **/
     @:keep
-    static public function swap( _v:stdgo.StdGoTypes.Ref<Value>, _new:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.AnyInterface throw "Value:sync.atomic_.swap is not yet implemented";
+    static public function swap( _v:stdgo.Ref<Value>, _new:stdgo.AnyInterface):stdgo.AnyInterface throw "Value:sync.atomic_.swap is not yet implemented";
     /**
         // Store sets the value of the Value v to val.
         // All calls to Store for a given Value must use values of the same concrete type.
         // Store of an inconsistent type panics, as does Store(nil).
     **/
     @:keep
-    static public function store( _v:stdgo.StdGoTypes.Ref<Value>, _val:stdgo.StdGoTypes.AnyInterface):Void throw "Value:sync.atomic_.store is not yet implemented";
+    static public function store( _v:stdgo.Ref<Value>, _val:stdgo.AnyInterface):Void throw "Value:sync.atomic_.store is not yet implemented";
     /**
         // Load returns the value set by the most recent Store.
         // It returns nil if there has been no call to Store for this Value.
     **/
     @:keep
-    static public function load( _v:stdgo.StdGoTypes.Ref<Value>):stdgo.StdGoTypes.AnyInterface throw "Value:sync.atomic_.load is not yet implemented";
+    static public function load( _v:stdgo.Ref<Value>):stdgo.AnyInterface throw "Value:sync.atomic_.load is not yet implemented";
 }

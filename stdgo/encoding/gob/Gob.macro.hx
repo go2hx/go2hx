@@ -3,7 +3,7 @@ package stdgo.encoding.gob;
     // growSlice is called for a slice that we only partially allocated,
     // to grow it up to length.
 **/
-macro function _growSlice<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _v:haxe.macro.Expr.ExprOf<stdgo.reflect.Reflect.Value>, _ps:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<stdgo.Slice<E>>>, _length:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.GoInt>):haxe.macro.Expr.ExprOf<Void> {
+macro function _growSlice<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _v:haxe.macro.Expr.ExprOf<stdgo.reflect.Reflect.Value>, _ps:haxe.macro.Expr.ExprOf<stdgo.Ref<stdgo.Slice<E>>>, _length:haxe.macro.Expr.ExprOf<stdgo.GoInt>):haxe.macro.Expr.ExprOf<Void> {
         final E:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(__generic__0));
         {
             var id = "T_" + "encoding.gob" + "_" + "_growSlice" + "_" + "T_" + haxe.macro.ComplexTypeTools.toString(E) + "_";
@@ -13,11 +13,11 @@ macro function _growSlice<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _v:haxe.mac
             try {
                 haxe.macro.Context.getType(id);
             } catch(_) {
-                final f = macro function f(__generic__0:$E, _v:stdgo.reflect.Reflect.Value, _ps:stdgo.StdGoTypes.Ref<stdgo.Slice<$E>>, _length:stdgo.StdGoTypes.GoInt) {
+                final f = macro function f(__generic__0:$E, _v:stdgo.reflect.Reflect.Value, _ps:stdgo.Ref<stdgo.Slice<$E>>, _length:stdgo.GoInt) {
                     var _zero:$E = stdgo.Go.defaultValue((cast (null) : $E));
                     var _s = (_ps : stdgo.Slice<$E>);
                     _s = (_s.__append__(_zero));
-                    var _cp:stdgo.StdGoTypes.GoInt = _s.capacity;
+                    var _cp:stdgo.GoInt = _s.capacity;
                     if (_cp > _length) {
                         _cp = _length;
                     };

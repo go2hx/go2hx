@@ -5,14 +5,6 @@ package stdgo.internal.cpu;
 **/
 private var __go2hxdoc__package : Bool;
 /**
-    // CacheLineSize is the CPU's assumed cache line size.
-    // There is currently no runtime detection of the real cache line size
-    // so we use the constant per GOARCH CacheLinePadSize as an approximation.
-    
-    
-**/
-var cacheLineSize : stdgo.StdGoTypes.GoUIntptr = (64 : stdgo.StdGoTypes.GoUIntptr);
-/**
     // DebugOptions is set to true by the runtime if the OS supports reading
     // GODEBUG early in runtime startup.
     // This should not be changed after it is initialized.
@@ -20,6 +12,14 @@ var cacheLineSize : stdgo.StdGoTypes.GoUIntptr = (64 : stdgo.StdGoTypes.GoUIntpt
     
 **/
 var debugOptions : Bool = false;
+/**
+    // CacheLineSize is the CPU's assumed cache line size.
+    // There is currently no runtime detection of the real cache line size
+    // so we use the constant per GOARCH CacheLinePadSize as an approximation.
+    
+    
+**/
+var cacheLineSize : stdgo.GoUIntptr = (64 : stdgo.GoUIntptr);
 /**
     // The booleans in X86 contain the correspondingly named cpuid feature bit.
     // HasAVX and HasAVX2 are only set if the OS does support XMM and YMM registers
@@ -79,7 +79,7 @@ var _options : stdgo.Slice<T_option> = (null : stdgo.Slice<stdgo.internal.cpu.Cp
     
     
 **/
-final cacheLinePadSize : stdgo.StdGoTypes.GoUInt64 = (64i64 : stdgo.StdGoTypes.GoUInt64);
+final cacheLinePadSize : stdgo.GoUInt64 = (64i64 : stdgo.GoUInt64);
 /**
     // CacheLinePad is used to pad structs to avoid false sharing.
     
@@ -87,8 +87,8 @@ final cacheLinePadSize : stdgo.StdGoTypes.GoUInt64 = (64i64 : stdgo.StdGoTypes.G
 **/
 @:structInit class CacheLinePad {
     @:optional
-    public var __1 : stdgo.GoArray<stdgo.StdGoTypes.GoUInt8> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(...[for (i in 0 ... 64) (0 : stdgo.StdGoTypes.GoUInt8)]);
-    public function new(?__1:stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>) {
+    public var __1 : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 64) (0 : stdgo.GoUInt8)]);
+    public function new(?__1:stdgo.GoArray<stdgo.GoUInt8>) {
         if (__1 != null) this.__1 = __1;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
@@ -122,7 +122,7 @@ class T__struct_0_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T__struct_0>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -157,7 +157,7 @@ class T__struct_1_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T__struct_1>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -177,7 +177,7 @@ class T__struct_2_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T__struct_2>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -204,7 +204,7 @@ class T__struct_3_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T__struct_3>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -223,7 +223,7 @@ class T__struct_4_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T__struct_4>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -246,7 +246,7 @@ class T__struct_5_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
     var __self__ : stdgo.Pointer<T__struct_5>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
@@ -302,8 +302,8 @@ function _processOptions(_env:stdgo.GoString):Void {
         stdgo.internal.Macro.controlFlow({
             @:label("field") while (_env != (stdgo.Go.str())) {
                 var _field:stdgo.GoString = stdgo.Go.str()?.__copy__();
-                var _i:stdgo.StdGoTypes.GoInt = _indexByte(_env?.__copy__(), (44 : stdgo.StdGoTypes.GoUInt8));
-                if (_i < (0 : stdgo.StdGoTypes.GoInt)) {
+                var _i:stdgo.GoInt = _indexByte(_env?.__copy__(), (44 : stdgo.GoUInt8));
+                if (_i < (0 : stdgo.GoInt)) {
                     {
                         final __tmp__0 = _env?.__copy__();
                         final __tmp__1 = stdgo.Go.str()?.__copy__();
@@ -313,20 +313,20 @@ function _processOptions(_env:stdgo.GoString):Void {
                 } else {
                     {
                         final __tmp__0 = (_env.__slice__(0, _i) : stdgo.GoString)?.__copy__();
-                        final __tmp__1 = (_env.__slice__(_i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
+                        final __tmp__1 = (_env.__slice__(_i + (1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                         _field = __tmp__0;
                         _env = __tmp__1;
                     };
                 };
-                if ((_field.length < (4 : stdgo.StdGoTypes.GoInt)) || ((_field.__slice__(0, (4 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString) != ("cpu." : stdgo.GoString))) {
+                if ((_field.length < (4 : stdgo.GoInt)) || ((_field.__slice__(0, (4 : stdgo.GoInt)) : stdgo.GoString) != ("cpu." : stdgo.GoString))) {
                     continue;
                 };
-                _i = _indexByte(_field?.__copy__(), (61 : stdgo.StdGoTypes.GoUInt8));
-                if (_i < (0 : stdgo.StdGoTypes.GoInt)) {
+                _i = _indexByte(_field?.__copy__(), (61 : stdgo.GoUInt8));
+                if (_i < (0 : stdgo.GoInt)) {
                     stdgo.Go.print(("GODEBUG: no value specified for \"" : stdgo.GoString), _field, ("\"\n" : stdgo.GoString));
                     continue;
                 };
-                var __0:stdgo.GoString = (_field.__slice__((4 : stdgo.StdGoTypes.GoInt), _i) : stdgo.GoString)?.__copy__(), __1:stdgo.GoString = (_field.__slice__(_i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__(), _value:stdgo.GoString = __1, _key:stdgo.GoString = __0;
+                var __0:stdgo.GoString = (_field.__slice__((4 : stdgo.GoInt), _i) : stdgo.GoString)?.__copy__(), __1:stdgo.GoString = (_field.__slice__(_i + (1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _value:stdgo.GoString = __1, _key:stdgo.GoString = __0;
                 var _enable:Bool = false;
                 {
                     final __value__ = _value;
@@ -341,15 +341,15 @@ function _processOptions(_env:stdgo.GoString):Void {
                 };
                 if (_key == (("all" : stdgo.GoString))) {
                     for (_i in 0 ... _options.length.toBasic()) {
-                        _options[(_i : stdgo.StdGoTypes.GoInt)].specified = true;
-                        _options[(_i : stdgo.StdGoTypes.GoInt)].enable = _enable;
+                        _options[(_i : stdgo.GoInt)].specified = true;
+                        _options[(_i : stdgo.GoInt)].enable = _enable;
                     };
                     @:jump("field") continue;
                 };
                 for (_i in 0 ... _options.length.toBasic()) {
-                    if (_options[(_i : stdgo.StdGoTypes.GoInt)].name == (_key)) {
-                        _options[(_i : stdgo.StdGoTypes.GoInt)].specified = true;
-                        _options[(_i : stdgo.StdGoTypes.GoInt)].enable = _enable;
+                    if (_options[(_i : stdgo.GoInt)].name == (_key)) {
+                        _options[(_i : stdgo.GoInt)].specified = true;
+                        _options[(_i : stdgo.GoInt)].enable = _enable;
                         @:jump("field") continue;
                     };
                 };
@@ -371,16 +371,16 @@ function _processOptions(_env:stdgo.GoString):Void {
     // indexByte returns the index of the first instance of c in s,
     // or -1 if c is not present in s.
 **/
-function _indexByte(_s:stdgo.GoString, _c:stdgo.StdGoTypes.GoByte):stdgo.StdGoTypes.GoInt {
+function _indexByte(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoInt {
         {
-            var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor(_i < (_s.length), _i++, {
-                if (_s[(_i : stdgo.StdGoTypes.GoInt)] == (_c)) {
+                if (_s[(_i : stdgo.GoInt)] == (_c)) {
                     return _i;
                 };
             });
         };
-        return (-1 : stdgo.StdGoTypes.GoInt);
+        return (-1 : stdgo.GoInt);
     }
 /**
     // Name returns the CPU name given by the vendor

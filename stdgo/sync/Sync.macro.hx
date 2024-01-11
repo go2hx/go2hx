@@ -16,7 +16,7 @@ macro function onceValue<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _f:haxe.ma
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$T_, _f:() -> T_) {
-                    var __0:stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once), __1:Bool = false, __2:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), __3:$T_ = stdgo.Go.defaultValue((cast (null) : $T_)), _result:$T_ = __3, _p:stdgo.StdGoTypes.AnyInterface = __2, _valid:Bool = __1, _once:stdgo.sync.Sync.Once = __0;
+                    var __0:stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once), __1:Bool = false, __2:stdgo.AnyInterface = (null : stdgo.AnyInterface), __3:$T_ = stdgo.Go.defaultValue((cast (null) : $T_)), _result:$T_ = __3, _p:stdgo.AnyInterface = __2, _valid:Bool = __1, _once:stdgo.sync.Sync.Once = __0;
                     var _g:() -> Void = function():stdgo.sync.Sync.Void {
                         var __deferstack__:stdgo.sync.Sync.Array<stdgo.sync.Sync.Void -> Void> = [];
                         try {
@@ -45,7 +45,7 @@ macro function onceValue<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _f:haxe.ma
                         } catch(__exception__) {
                             var exe:stdgo.sync.Sync.Dynamic = __exception__.native;
                             if ((exe is haxe.ValueException)) exe = exe.value;
-                            if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
                                 exe = stdgo.Go.toInterface(__exception__.message);
                             };
                             stdgo.Go.recover_exception = exe;
@@ -93,7 +93,7 @@ macro function onceValues<T1, T2>(__generic__0:haxe.macro.Expr.ExprOf<T1>, __gen
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$T1, __generic__1:$T2, _f:() -> { var _0 : T1; var _1 : T2; }) {
-                    var __0:stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once), __1:Bool = false, __2:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), __3:$T1 = stdgo.Go.defaultValue((cast (null) : $T1)), __4:$T2 = stdgo.Go.defaultValue((cast (null) : $T2)), _r2:$T2 = __4, _r1:$T1 = __3, _p:stdgo.StdGoTypes.AnyInterface = __2, _valid:Bool = __1, _once:stdgo.sync.Sync.Once = __0;
+                    var __0:stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once), __1:Bool = false, __2:stdgo.AnyInterface = (null : stdgo.AnyInterface), __3:$T1 = stdgo.Go.defaultValue((cast (null) : $T1)), __4:$T2 = stdgo.Go.defaultValue((cast (null) : $T2)), _r2:$T2 = __4, _r1:$T1 = __3, _p:stdgo.AnyInterface = __2, _valid:Bool = __1, _once:stdgo.sync.Sync.Once = __0;
                     var _g:() -> Void = function():stdgo.sync.Sync.Void {
                         var __deferstack__:stdgo.sync.Sync.Array<stdgo.sync.Sync.Void -> Void> = [];
                         try {
@@ -126,7 +126,7 @@ macro function onceValues<T1, T2>(__generic__0:haxe.macro.Expr.ExprOf<T1>, __gen
                         } catch(__exception__) {
                             var exe:stdgo.sync.Sync.Dynamic = __exception__.native;
                             if ((exe is haxe.ValueException)) exe = exe.value;
-                            if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
                                 exe = stdgo.Go.toInterface(__exception__.message);
                             };
                             stdgo.Go.recover_exception = exe;

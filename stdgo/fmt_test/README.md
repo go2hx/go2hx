@@ -477,7 +477,7 @@ final _hello:stdgo.GoString = (("hello " : stdgo.GoString))
 
 
 ```haxe
-final _intCount:stdgo.GoUInt64 = ((800i64 : stdgo.StdGoTypes.GoUInt64))
+final _intCount:stdgo.GoUInt64 = ((800i64 : stdgo.GoUInt64))
 ```
 
 
@@ -486,7 +486,7 @@ final _intCount:stdgo.GoUInt64 = ((800i64 : stdgo.StdGoTypes.GoUInt64))
 platform that does not support split stack.  
 
 ```haxe
-final no:stdgo.GoUInt64 = ((0i64 : stdgo.StdGoTypes.GoUInt64))
+final no:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 

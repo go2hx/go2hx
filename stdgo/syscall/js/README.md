@@ -357,7 +357,7 @@ import stdgo.syscall.js.Js
 
 
 ```haxe
-final _nanHead:stdgo.GoUInt64 = ((0 : stdgo.StdGoTypes.GoUInt64))
+final _nanHead:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 
@@ -370,7 +370,7 @@ final _typeFlagFunction:Null<Dynamic> = @:invalid_type null
 
 
 ```haxe
-final _typeFlagNone:stdgo.GoUInt64 = ((0 : stdgo.StdGoTypes.GoUInt64))
+final _typeFlagNone:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 
@@ -393,42 +393,42 @@ final _typeFlagSymbol:Null<Dynamic> = @:invalid_type null
 
 
 ```haxe
-final typeBoolean:stdgo.syscall.js.Type_ = ((((0 : stdgo.StdGoTypes.GoInt)) : stdgo.syscall.js.Js.Type_))
+final typeBoolean:stdgo.syscall.js.Type_ = ((((0 : stdgo.GoInt)) : stdgo.syscall.js.Js.Type_))
 ```
 
 
 ```haxe
-final typeFunction:stdgo.syscall.js.Type_ = ((((0 : stdgo.StdGoTypes.GoInt)) : stdgo.syscall.js.Js.Type_))
+final typeFunction:stdgo.syscall.js.Type_ = ((((0 : stdgo.GoInt)) : stdgo.syscall.js.Js.Type_))
 ```
 
 
 ```haxe
-final typeNull:stdgo.syscall.js.Type_ = ((((0 : stdgo.StdGoTypes.GoInt)) : stdgo.syscall.js.Js.Type_))
+final typeNull:stdgo.syscall.js.Type_ = ((((0 : stdgo.GoInt)) : stdgo.syscall.js.Js.Type_))
 ```
 
 
 ```haxe
-final typeNumber:stdgo.syscall.js.Type_ = ((((0 : stdgo.StdGoTypes.GoInt)) : stdgo.syscall.js.Js.Type_))
+final typeNumber:stdgo.syscall.js.Type_ = ((((0 : stdgo.GoInt)) : stdgo.syscall.js.Js.Type_))
 ```
 
 
 ```haxe
-final typeObject:stdgo.syscall.js.Type_ = ((((0 : stdgo.StdGoTypes.GoInt)) : stdgo.syscall.js.Js.Type_))
+final typeObject:stdgo.syscall.js.Type_ = ((((0 : stdgo.GoInt)) : stdgo.syscall.js.Js.Type_))
 ```
 
 
 ```haxe
-final typeString:stdgo.syscall.js.Type_ = ((((0 : stdgo.StdGoTypes.GoInt)) : stdgo.syscall.js.Js.Type_))
+final typeString:stdgo.syscall.js.Type_ = ((((0 : stdgo.GoInt)) : stdgo.syscall.js.Js.Type_))
 ```
 
 
 ```haxe
-final typeSymbol:stdgo.syscall.js.Type_ = ((((0 : stdgo.StdGoTypes.GoInt)) : stdgo.syscall.js.Js.Type_))
+final typeSymbol:stdgo.syscall.js.Type_ = ((((0 : stdgo.GoInt)) : stdgo.syscall.js.Js.Type_))
 ```
 
 
 ```haxe
-final typeUndefined:stdgo.syscall.js.Type_ = ((((0 : stdgo.StdGoTypes.GoInt)) : stdgo.syscall.js.Js.Type_))
+final typeUndefined:stdgo.syscall.js.Type_ = ((((0 : stdgo.GoInt)) : stdgo.syscall.js.Js.Type_))
 ```
 
 

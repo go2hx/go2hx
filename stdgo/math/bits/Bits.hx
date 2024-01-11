@@ -13,165 +13,165 @@ private var __go2hxdoc__package : Bool;
 /**
     
     
-    
-**/
-var _deBruijn32tab : stdgo.GoArray<stdgo.StdGoTypes.GoUInt8> = (new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(
-(0 : stdgo.StdGoTypes.GoUInt8),
-(1 : stdgo.StdGoTypes.GoUInt8),
-(28 : stdgo.StdGoTypes.GoUInt8),
-(2 : stdgo.StdGoTypes.GoUInt8),
-(29 : stdgo.StdGoTypes.GoUInt8),
-(14 : stdgo.StdGoTypes.GoUInt8),
-(24 : stdgo.StdGoTypes.GoUInt8),
-(3 : stdgo.StdGoTypes.GoUInt8),
-(30 : stdgo.StdGoTypes.GoUInt8),
-(22 : stdgo.StdGoTypes.GoUInt8),
-(20 : stdgo.StdGoTypes.GoUInt8),
-(15 : stdgo.StdGoTypes.GoUInt8),
-(25 : stdgo.StdGoTypes.GoUInt8),
-(17 : stdgo.StdGoTypes.GoUInt8),
-(4 : stdgo.StdGoTypes.GoUInt8),
-(8 : stdgo.StdGoTypes.GoUInt8),
-(31 : stdgo.StdGoTypes.GoUInt8),
-(27 : stdgo.StdGoTypes.GoUInt8),
-(13 : stdgo.StdGoTypes.GoUInt8),
-(23 : stdgo.StdGoTypes.GoUInt8),
-(21 : stdgo.StdGoTypes.GoUInt8),
-(19 : stdgo.StdGoTypes.GoUInt8),
-(16 : stdgo.StdGoTypes.GoUInt8),
-(7 : stdgo.StdGoTypes.GoUInt8),
-(26 : stdgo.StdGoTypes.GoUInt8),
-(12 : stdgo.StdGoTypes.GoUInt8),
-(18 : stdgo.StdGoTypes.GoUInt8),
-(6 : stdgo.StdGoTypes.GoUInt8),
-(11 : stdgo.StdGoTypes.GoUInt8),
-(5 : stdgo.StdGoTypes.GoUInt8),
-(10 : stdgo.StdGoTypes.GoUInt8),
-(9 : stdgo.StdGoTypes.GoUInt8)) : stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>);
-/**
-    
-    
-    
-**/
-var _deBruijn64tab : stdgo.GoArray<stdgo.StdGoTypes.GoUInt8> = (new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(
-(0 : stdgo.StdGoTypes.GoUInt8),
-(1 : stdgo.StdGoTypes.GoUInt8),
-(56 : stdgo.StdGoTypes.GoUInt8),
-(2 : stdgo.StdGoTypes.GoUInt8),
-(57 : stdgo.StdGoTypes.GoUInt8),
-(49 : stdgo.StdGoTypes.GoUInt8),
-(28 : stdgo.StdGoTypes.GoUInt8),
-(3 : stdgo.StdGoTypes.GoUInt8),
-(61 : stdgo.StdGoTypes.GoUInt8),
-(58 : stdgo.StdGoTypes.GoUInt8),
-(42 : stdgo.StdGoTypes.GoUInt8),
-(50 : stdgo.StdGoTypes.GoUInt8),
-(38 : stdgo.StdGoTypes.GoUInt8),
-(29 : stdgo.StdGoTypes.GoUInt8),
-(17 : stdgo.StdGoTypes.GoUInt8),
-(4 : stdgo.StdGoTypes.GoUInt8),
-(62 : stdgo.StdGoTypes.GoUInt8),
-(47 : stdgo.StdGoTypes.GoUInt8),
-(59 : stdgo.StdGoTypes.GoUInt8),
-(36 : stdgo.StdGoTypes.GoUInt8),
-(45 : stdgo.StdGoTypes.GoUInt8),
-(43 : stdgo.StdGoTypes.GoUInt8),
-(51 : stdgo.StdGoTypes.GoUInt8),
-(22 : stdgo.StdGoTypes.GoUInt8),
-(53 : stdgo.StdGoTypes.GoUInt8),
-(39 : stdgo.StdGoTypes.GoUInt8),
-(33 : stdgo.StdGoTypes.GoUInt8),
-(30 : stdgo.StdGoTypes.GoUInt8),
-(24 : stdgo.StdGoTypes.GoUInt8),
-(18 : stdgo.StdGoTypes.GoUInt8),
-(12 : stdgo.StdGoTypes.GoUInt8),
-(5 : stdgo.StdGoTypes.GoUInt8),
-(63 : stdgo.StdGoTypes.GoUInt8),
-(55 : stdgo.StdGoTypes.GoUInt8),
-(48 : stdgo.StdGoTypes.GoUInt8),
-(27 : stdgo.StdGoTypes.GoUInt8),
-(60 : stdgo.StdGoTypes.GoUInt8),
-(41 : stdgo.StdGoTypes.GoUInt8),
-(37 : stdgo.StdGoTypes.GoUInt8),
-(16 : stdgo.StdGoTypes.GoUInt8),
-(46 : stdgo.StdGoTypes.GoUInt8),
-(35 : stdgo.StdGoTypes.GoUInt8),
-(44 : stdgo.StdGoTypes.GoUInt8),
-(21 : stdgo.StdGoTypes.GoUInt8),
-(52 : stdgo.StdGoTypes.GoUInt8),
-(32 : stdgo.StdGoTypes.GoUInt8),
-(23 : stdgo.StdGoTypes.GoUInt8),
-(11 : stdgo.StdGoTypes.GoUInt8),
-(54 : stdgo.StdGoTypes.GoUInt8),
-(26 : stdgo.StdGoTypes.GoUInt8),
-(40 : stdgo.StdGoTypes.GoUInt8),
-(15 : stdgo.StdGoTypes.GoUInt8),
-(34 : stdgo.StdGoTypes.GoUInt8),
-(20 : stdgo.StdGoTypes.GoUInt8),
-(31 : stdgo.StdGoTypes.GoUInt8),
-(10 : stdgo.StdGoTypes.GoUInt8),
-(25 : stdgo.StdGoTypes.GoUInt8),
-(14 : stdgo.StdGoTypes.GoUInt8),
-(19 : stdgo.StdGoTypes.GoUInt8),
-(9 : stdgo.StdGoTypes.GoUInt8),
-(13 : stdgo.StdGoTypes.GoUInt8),
-(8 : stdgo.StdGoTypes.GoUInt8),
-(7 : stdgo.StdGoTypes.GoUInt8),
-(6 : stdgo.StdGoTypes.GoUInt8)) : stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>);
-/**
-    
-    
     // 32 or 64
 **/
-final _uintSize : stdgo.StdGoTypes.GoUInt64 = (32i64 : stdgo.StdGoTypes.GoUInt64);
+final _uintSize : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
 /**
     // UintSize is the size of a uint in bits.
     
     
 **/
-final uintSize : stdgo.StdGoTypes.GoUInt64 = (32i64 : stdgo.StdGoTypes.GoUInt64);
+final uintSize : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
 /**
     // See http://supertech.csail.mit.edu/papers/debruijn.pdf
     
     
 **/
-final _deBruijn32 : stdgo.StdGoTypes.GoUInt64 = (125613361i64 : stdgo.StdGoTypes.GoUInt64);
+final _deBruijn32 : stdgo.GoUInt64 = (125613361i64 : stdgo.GoUInt64);
 /**
     
     
     
 **/
-final _deBruijn64 : stdgo.StdGoTypes.GoUInt64 = (285870213051353865i64 : stdgo.StdGoTypes.GoUInt64);
+var _deBruijn32tab : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(
+(0 : stdgo.GoUInt8),
+(1 : stdgo.GoUInt8),
+(28 : stdgo.GoUInt8),
+(2 : stdgo.GoUInt8),
+(29 : stdgo.GoUInt8),
+(14 : stdgo.GoUInt8),
+(24 : stdgo.GoUInt8),
+(3 : stdgo.GoUInt8),
+(30 : stdgo.GoUInt8),
+(22 : stdgo.GoUInt8),
+(20 : stdgo.GoUInt8),
+(15 : stdgo.GoUInt8),
+(25 : stdgo.GoUInt8),
+(17 : stdgo.GoUInt8),
+(4 : stdgo.GoUInt8),
+(8 : stdgo.GoUInt8),
+(31 : stdgo.GoUInt8),
+(27 : stdgo.GoUInt8),
+(13 : stdgo.GoUInt8),
+(23 : stdgo.GoUInt8),
+(21 : stdgo.GoUInt8),
+(19 : stdgo.GoUInt8),
+(16 : stdgo.GoUInt8),
+(7 : stdgo.GoUInt8),
+(26 : stdgo.GoUInt8),
+(12 : stdgo.GoUInt8),
+(18 : stdgo.GoUInt8),
+(6 : stdgo.GoUInt8),
+(11 : stdgo.GoUInt8),
+(5 : stdgo.GoUInt8),
+(10 : stdgo.GoUInt8),
+(9 : stdgo.GoUInt8)) : stdgo.GoArray<stdgo.GoUInt8>);
+/**
+    
+    
+    
+**/
+final _deBruijn64 : stdgo.GoUInt64 = (285870213051353865i64 : stdgo.GoUInt64);
+/**
+    
+    
+    
+**/
+var _deBruijn64tab : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(
+(0 : stdgo.GoUInt8),
+(1 : stdgo.GoUInt8),
+(56 : stdgo.GoUInt8),
+(2 : stdgo.GoUInt8),
+(57 : stdgo.GoUInt8),
+(49 : stdgo.GoUInt8),
+(28 : stdgo.GoUInt8),
+(3 : stdgo.GoUInt8),
+(61 : stdgo.GoUInt8),
+(58 : stdgo.GoUInt8),
+(42 : stdgo.GoUInt8),
+(50 : stdgo.GoUInt8),
+(38 : stdgo.GoUInt8),
+(29 : stdgo.GoUInt8),
+(17 : stdgo.GoUInt8),
+(4 : stdgo.GoUInt8),
+(62 : stdgo.GoUInt8),
+(47 : stdgo.GoUInt8),
+(59 : stdgo.GoUInt8),
+(36 : stdgo.GoUInt8),
+(45 : stdgo.GoUInt8),
+(43 : stdgo.GoUInt8),
+(51 : stdgo.GoUInt8),
+(22 : stdgo.GoUInt8),
+(53 : stdgo.GoUInt8),
+(39 : stdgo.GoUInt8),
+(33 : stdgo.GoUInt8),
+(30 : stdgo.GoUInt8),
+(24 : stdgo.GoUInt8),
+(18 : stdgo.GoUInt8),
+(12 : stdgo.GoUInt8),
+(5 : stdgo.GoUInt8),
+(63 : stdgo.GoUInt8),
+(55 : stdgo.GoUInt8),
+(48 : stdgo.GoUInt8),
+(27 : stdgo.GoUInt8),
+(60 : stdgo.GoUInt8),
+(41 : stdgo.GoUInt8),
+(37 : stdgo.GoUInt8),
+(16 : stdgo.GoUInt8),
+(46 : stdgo.GoUInt8),
+(35 : stdgo.GoUInt8),
+(44 : stdgo.GoUInt8),
+(21 : stdgo.GoUInt8),
+(52 : stdgo.GoUInt8),
+(32 : stdgo.GoUInt8),
+(23 : stdgo.GoUInt8),
+(11 : stdgo.GoUInt8),
+(54 : stdgo.GoUInt8),
+(26 : stdgo.GoUInt8),
+(40 : stdgo.GoUInt8),
+(15 : stdgo.GoUInt8),
+(34 : stdgo.GoUInt8),
+(20 : stdgo.GoUInt8),
+(31 : stdgo.GoUInt8),
+(10 : stdgo.GoUInt8),
+(25 : stdgo.GoUInt8),
+(14 : stdgo.GoUInt8),
+(19 : stdgo.GoUInt8),
+(9 : stdgo.GoUInt8),
+(13 : stdgo.GoUInt8),
+(8 : stdgo.GoUInt8),
+(7 : stdgo.GoUInt8),
+(6 : stdgo.GoUInt8)) : stdgo.GoArray<stdgo.GoUInt8>);
 /**
     
     
     // 01010101 ...
 **/
-final _m0 : stdgo.StdGoTypes.GoUInt64 = (6148914691236517205i64 : stdgo.StdGoTypes.GoUInt64);
+final _m0 : stdgo.GoUInt64 = (6148914691236517205i64 : stdgo.GoUInt64);
 /**
     
     
     // 00110011 ...
 **/
-final _m1 : stdgo.StdGoTypes.GoUInt64 = (3689348814741910323i64 : stdgo.StdGoTypes.GoUInt64);
+final _m1 : stdgo.GoUInt64 = (3689348814741910323i64 : stdgo.GoUInt64);
 /**
     
     
     // 00001111 ...
 **/
-final _m2 : stdgo.StdGoTypes.GoUInt64 = (1085102592571150095i64 : stdgo.StdGoTypes.GoUInt64);
+final _m2 : stdgo.GoUInt64 = (1085102592571150095i64 : stdgo.GoUInt64);
 /**
     
     
     // etc.
 **/
-final _m3 : stdgo.StdGoTypes.GoUInt64 = (71777214294589695i64 : stdgo.StdGoTypes.GoUInt64);
+final _m3 : stdgo.GoUInt64 = (71777214294589695i64 : stdgo.GoUInt64);
 /**
     
     
     
 **/
-final _m4 : stdgo.StdGoTypes.GoUInt64 = (281470681808895i64 : stdgo.StdGoTypes.GoUInt64);
+final _m4 : stdgo.GoUInt64 = (281470681808895i64 : stdgo.GoUInt64);
 /**
     //go:linkname overflowError runtime.overflowError
     
@@ -1040,50 +1040,50 @@ final _len8tab : stdgo.GoString = stdgo.Go.str(0,
     
     
 **/
-final deBruijn64 : stdgo.StdGoTypes.GoUInt64 = (285870213051353865i64 : stdgo.StdGoTypes.GoUInt64);
+final deBruijn64 : stdgo.GoUInt64 = (285870213051353865i64 : stdgo.GoUInt64);
 /**
     // LeadingZeros returns the number of leading zero bits in x; the result is UintSize for x == 0.
 **/
-function leadingZeros(_x:stdgo.StdGoTypes.GoUInt):stdgo.StdGoTypes.GoInt {
-        return (32 : stdgo.StdGoTypes.GoInt) - len(_x);
+function leadingZeros(_x:stdgo.GoUInt):stdgo.GoInt {
+        return (32 : stdgo.GoInt) - len(_x);
     }
 /**
     // LeadingZeros8 returns the number of leading zero bits in x; the result is 8 for x == 0.
 **/
-function leadingZeros8(_x:stdgo.StdGoTypes.GoUInt8):stdgo.StdGoTypes.GoInt {
-        return (8 : stdgo.StdGoTypes.GoInt) - len8(_x);
+function leadingZeros8(_x:stdgo.GoUInt8):stdgo.GoInt {
+        return (8 : stdgo.GoInt) - len8(_x);
     }
 /**
     // LeadingZeros16 returns the number of leading zero bits in x; the result is 16 for x == 0.
 **/
-function leadingZeros16(_x:stdgo.StdGoTypes.GoUInt16):stdgo.StdGoTypes.GoInt {
-        return (16 : stdgo.StdGoTypes.GoInt) - len16(_x);
+function leadingZeros16(_x:stdgo.GoUInt16):stdgo.GoInt {
+        return (16 : stdgo.GoInt) - len16(_x);
     }
 /**
     // LeadingZeros32 returns the number of leading zero bits in x; the result is 32 for x == 0.
 **/
-function leadingZeros32(_x:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoInt {
-        return (32 : stdgo.StdGoTypes.GoInt) - len32(_x);
+function leadingZeros32(_x:stdgo.GoUInt32):stdgo.GoInt {
+        return (32 : stdgo.GoInt) - len32(_x);
     }
 /**
     // LeadingZeros64 returns the number of leading zero bits in x; the result is 64 for x == 0.
 **/
-function leadingZeros64(_x:stdgo.StdGoTypes.GoUInt64):stdgo.StdGoTypes.GoInt {
-        return (64 : stdgo.StdGoTypes.GoInt) - len64(_x);
+function leadingZeros64(_x:stdgo.GoUInt64):stdgo.GoInt {
+        return (64 : stdgo.GoInt) - len64(_x);
     }
 /**
     // TrailingZeros returns the number of trailing zero bits in x; the result is UintSize for x == 0.
 **/
-function trailingZeros(_x:stdgo.StdGoTypes.GoUInt):stdgo.StdGoTypes.GoInt {
+function trailingZeros(_x:stdgo.GoUInt):stdgo.GoInt {
         if (true) {
-            return trailingZeros32((_x : stdgo.StdGoTypes.GoUInt32));
+            return trailingZeros32((_x : stdgo.GoUInt32));
         };
-        return trailingZeros64((_x : stdgo.StdGoTypes.GoUInt64));
+        return trailingZeros64((_x : stdgo.GoUInt64));
     }
 /**
     // TrailingZeros8 returns the number of trailing zero bits in x; the result is 8 for x == 0.
 **/
-function trailingZeros8(_x:stdgo.StdGoTypes.GoUInt8):stdgo.StdGoTypes.GoInt {
+function trailingZeros8(_x:stdgo.GoUInt8):stdgo.GoInt {
         return (stdgo.Go.str("\x08",
 0,
 1,
@@ -1339,48 +1339,48 @@ function trailingZeros8(_x:stdgo.StdGoTypes.GoUInt8):stdgo.StdGoTypes.GoInt {
 2,
 0,
 1,
-0)[(_x : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoInt);
+0)[(_x : stdgo.GoInt)] : stdgo.GoInt);
     }
 /**
     // TrailingZeros16 returns the number of trailing zero bits in x; the result is 16 for x == 0.
 **/
-function trailingZeros16(_x:stdgo.StdGoTypes.GoUInt16):stdgo.StdGoTypes.GoInt {
-        if (_x == ((0 : stdgo.StdGoTypes.GoUInt16))) {
-            return (16 : stdgo.StdGoTypes.GoInt);
+function trailingZeros16(_x:stdgo.GoUInt16):stdgo.GoInt {
+        if (_x == ((0 : stdgo.GoUInt16))) {
+            return (16 : stdgo.GoInt);
         };
-        return (_deBruijn32tab[(((_x & -_x : stdgo.StdGoTypes.GoUInt32) * (125613361u32 : stdgo.StdGoTypes.GoUInt32)) >> (27i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoInt);
+        return (_deBruijn32tab[(((_x & -_x : stdgo.GoUInt32) * (125613361u32 : stdgo.GoUInt32)) >> (27i64 : stdgo.GoUInt64) : stdgo.GoInt)] : stdgo.GoInt);
     }
 /**
     // TrailingZeros32 returns the number of trailing zero bits in x; the result is 32 for x == 0.
 **/
-function trailingZeros32(_x:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoInt {
-        if (_x == ((0u32 : stdgo.StdGoTypes.GoUInt32))) {
-            return (32 : stdgo.StdGoTypes.GoInt);
+function trailingZeros32(_x:stdgo.GoUInt32):stdgo.GoInt {
+        if (_x == ((0u32 : stdgo.GoUInt32))) {
+            return (32 : stdgo.GoInt);
         };
-        return (_deBruijn32tab[(((_x & -_x) * (125613361u32 : stdgo.StdGoTypes.GoUInt32)) >> (27i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoInt);
+        return (_deBruijn32tab[(((_x & -_x) * (125613361u32 : stdgo.GoUInt32)) >> (27i64 : stdgo.GoUInt64) : stdgo.GoInt)] : stdgo.GoInt);
     }
 /**
     // TrailingZeros64 returns the number of trailing zero bits in x; the result is 64 for x == 0.
 **/
-function trailingZeros64(_x:stdgo.StdGoTypes.GoUInt64):stdgo.StdGoTypes.GoInt {
-        if (_x == ((0i64 : stdgo.StdGoTypes.GoUInt64))) {
-            return (64 : stdgo.StdGoTypes.GoInt);
+function trailingZeros64(_x:stdgo.GoUInt64):stdgo.GoInt {
+        if (_x == ((0i64 : stdgo.GoUInt64))) {
+            return (64 : stdgo.GoInt);
         };
-        return (_deBruijn64tab[(((_x & -_x) * (285870213051353865i64 : stdgo.StdGoTypes.GoUInt64)) >> (58i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoInt);
+        return (_deBruijn64tab[(((_x & -_x) * (285870213051353865i64 : stdgo.GoUInt64)) >> (58i64 : stdgo.GoUInt64) : stdgo.GoInt)] : stdgo.GoInt);
     }
 /**
     // OnesCount returns the number of one bits ("population count") in x.
 **/
-function onesCount(_x:stdgo.StdGoTypes.GoUInt):stdgo.StdGoTypes.GoInt {
+function onesCount(_x:stdgo.GoUInt):stdgo.GoInt {
         if (true) {
-            return onesCount32((_x : stdgo.StdGoTypes.GoUInt32));
+            return onesCount32((_x : stdgo.GoUInt32));
         };
-        return onesCount64((_x : stdgo.StdGoTypes.GoUInt64));
+        return onesCount64((_x : stdgo.GoUInt64));
     }
 /**
     // OnesCount8 returns the number of one bits ("population count") in x.
 **/
-function onesCount8(_x:stdgo.StdGoTypes.GoUInt8):stdgo.StdGoTypes.GoInt {
+function onesCount8(_x:stdgo.GoUInt8):stdgo.GoInt {
         return (stdgo.Go.str(0,
 1,
 1,
@@ -1634,12 +1634,12 @@ function onesCount8(_x:stdgo.StdGoTypes.GoUInt8):stdgo.StdGoTypes.GoInt {
 6,
 "\x07",
 6,
-"\x07\x07\x08")[(_x : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoInt);
+"\x07\x07\x08")[(_x : stdgo.GoInt)] : stdgo.GoInt);
     }
 /**
     // OnesCount16 returns the number of one bits ("population count") in x.
 **/
-function onesCount16(_x:stdgo.StdGoTypes.GoUInt16):stdgo.StdGoTypes.GoInt {
+function onesCount16(_x:stdgo.GoUInt16):stdgo.GoInt {
         return (stdgo.Go.str(0,
 1,
 1,
@@ -1893,7 +1893,7 @@ function onesCount16(_x:stdgo.StdGoTypes.GoUInt16):stdgo.StdGoTypes.GoInt {
 6,
 "\x07",
 6,
-"\x07\x07\x08")[(_x >> (8i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt)] + stdgo.Go.str(0,
+"\x07\x07\x08")[(_x >> (8i64 : stdgo.GoUInt64) : stdgo.GoInt)] + stdgo.Go.str(0,
 1,
 1,
 2,
@@ -2146,12 +2146,12 @@ function onesCount16(_x:stdgo.StdGoTypes.GoUInt16):stdgo.StdGoTypes.GoInt {
 6,
 "\x07",
 6,
-"\x07\x07\x08")[(_x & (255 : stdgo.StdGoTypes.GoUInt16) : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoInt);
+"\x07\x07\x08")[(_x & (255 : stdgo.GoUInt16) : stdgo.GoInt)] : stdgo.GoInt);
     }
 /**
     // OnesCount32 returns the number of one bits ("population count") in x.
 **/
-function onesCount32(_x:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoInt {
+function onesCount32(_x:stdgo.GoUInt32):stdgo.GoInt {
         return (((stdgo.Go.str(0,
 1,
 1,
@@ -2405,7 +2405,7 @@ function onesCount32(_x:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoInt {
 6,
 "\x07",
 6,
-"\x07\x07\x08")[(_x >> (24i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt)] + stdgo.Go.str(0,
+"\x07\x07\x08")[(_x >> (24i64 : stdgo.GoUInt64) : stdgo.GoInt)] + stdgo.Go.str(0,
 1,
 1,
 2,
@@ -2658,7 +2658,7 @@ function onesCount32(_x:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoInt {
 6,
 "\x07",
 6,
-"\x07\x07\x08")[((_x >> (16i64 : stdgo.StdGoTypes.GoUInt64)) & (255u32 : stdgo.StdGoTypes.GoUInt32) : stdgo.StdGoTypes.GoInt)]) + stdgo.Go.str(0,
+"\x07\x07\x08")[((_x >> (16i64 : stdgo.GoUInt64)) & (255u32 : stdgo.GoUInt32) : stdgo.GoInt)]) + stdgo.Go.str(0,
 1,
 1,
 2,
@@ -2911,7 +2911,7 @@ function onesCount32(_x:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoInt {
 6,
 "\x07",
 6,
-"\x07\x07\x08")[((_x >> (8i64 : stdgo.StdGoTypes.GoUInt64)) & (255u32 : stdgo.StdGoTypes.GoUInt32) : stdgo.StdGoTypes.GoInt)]) + stdgo.Go.str(0,
+"\x07\x07\x08")[((_x >> (8i64 : stdgo.GoUInt64)) & (255u32 : stdgo.GoUInt32) : stdgo.GoInt)]) + stdgo.Go.str(0,
 1,
 1,
 2,
@@ -3164,20 +3164,20 @@ function onesCount32(_x:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoInt {
 6,
 "\x07",
 6,
-"\x07\x07\x08")[(_x & (255u32 : stdgo.StdGoTypes.GoUInt32) : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoInt);
+"\x07\x07\x08")[(_x & (255u32 : stdgo.GoUInt32) : stdgo.GoInt)] : stdgo.GoInt);
     }
 /**
     // OnesCount64 returns the number of one bits ("population count") in x.
 **/
-function onesCount64(_x:stdgo.StdGoTypes.GoUInt64):stdgo.StdGoTypes.GoInt {
+function onesCount64(_x:stdgo.GoUInt64):stdgo.GoInt {
         {};
-        _x = ((_x >> (1i64 : stdgo.StdGoTypes.GoUInt64)) & (6148914691236517205i64 : stdgo.StdGoTypes.GoUInt64)) + (_x & (6148914691236517205i64 : stdgo.StdGoTypes.GoUInt64));
-        _x = ((_x >> (2i64 : stdgo.StdGoTypes.GoUInt64)) & (3689348814741910323i64 : stdgo.StdGoTypes.GoUInt64)) + (_x & (3689348814741910323i64 : stdgo.StdGoTypes.GoUInt64));
-        _x = ((_x >> (4i64 : stdgo.StdGoTypes.GoUInt64)) + _x) & (1085102592571150095i64 : stdgo.StdGoTypes.GoUInt64);
-        _x = _x + (_x >> (8i64 : stdgo.StdGoTypes.GoUInt64));
-        _x = _x + (_x >> (16i64 : stdgo.StdGoTypes.GoUInt64));
-        _x = _x + (_x >> (32i64 : stdgo.StdGoTypes.GoUInt64));
-        return (_x : stdgo.StdGoTypes.GoInt) & (127 : stdgo.StdGoTypes.GoInt);
+        _x = ((_x >> (1i64 : stdgo.GoUInt64)) & (6148914691236517205i64 : stdgo.GoUInt64)) + (_x & (6148914691236517205i64 : stdgo.GoUInt64));
+        _x = ((_x >> (2i64 : stdgo.GoUInt64)) & (3689348814741910323i64 : stdgo.GoUInt64)) + (_x & (3689348814741910323i64 : stdgo.GoUInt64));
+        _x = ((_x >> (4i64 : stdgo.GoUInt64)) + _x) & (1085102592571150095i64 : stdgo.GoUInt64);
+        _x = _x + (_x >> (8i64 : stdgo.GoUInt64));
+        _x = _x + (_x >> (16i64 : stdgo.GoUInt64));
+        _x = _x + (_x >> (32i64 : stdgo.GoUInt64));
+        return (_x : stdgo.GoInt) & (127 : stdgo.GoInt);
     }
 /**
     // RotateLeft returns the value of x rotated left by (k mod UintSize) bits.
@@ -3185,11 +3185,11 @@ function onesCount64(_x:stdgo.StdGoTypes.GoUInt64):stdgo.StdGoTypes.GoInt {
     //
     // This function's execution time does not depend on the inputs.
 **/
-function rotateLeft(_x:stdgo.StdGoTypes.GoUInt, _k:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoUInt {
+function rotateLeft(_x:stdgo.GoUInt, _k:stdgo.GoInt):stdgo.GoUInt {
         if (true) {
-            return (rotateLeft32((_x : stdgo.StdGoTypes.GoUInt32), _k) : stdgo.StdGoTypes.GoUInt);
+            return (rotateLeft32((_x : stdgo.GoUInt32), _k) : stdgo.GoUInt);
         };
-        return (rotateLeft64((_x : stdgo.StdGoTypes.GoUInt64), _k) : stdgo.StdGoTypes.GoUInt);
+        return (rotateLeft64((_x : stdgo.GoUInt64), _k) : stdgo.GoUInt);
     }
 /**
     // RotateLeft8 returns the value of x rotated left by (k mod 8) bits.
@@ -3197,10 +3197,10 @@ function rotateLeft(_x:stdgo.StdGoTypes.GoUInt, _k:stdgo.StdGoTypes.GoInt):stdgo
     //
     // This function's execution time does not depend on the inputs.
 **/
-function rotateLeft8(_x:stdgo.StdGoTypes.GoUInt8, _k:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoUInt8 {
+function rotateLeft8(_x:stdgo.GoUInt8, _k:stdgo.GoInt):stdgo.GoUInt8 {
         {};
-        var _s:stdgo.StdGoTypes.GoUInt = (_k : stdgo.StdGoTypes.GoUInt) & (7u32 : stdgo.StdGoTypes.GoUInt);
-        return (_x << _s) | (_x >> ((8u32 : stdgo.StdGoTypes.GoUInt) - _s));
+        var _s:stdgo.GoUInt = (_k : stdgo.GoUInt) & (7u32 : stdgo.GoUInt);
+        return (_x << _s) | (_x >> ((8u32 : stdgo.GoUInt) - _s));
     }
 /**
     // RotateLeft16 returns the value of x rotated left by (k mod 16) bits.
@@ -3208,10 +3208,10 @@ function rotateLeft8(_x:stdgo.StdGoTypes.GoUInt8, _k:stdgo.StdGoTypes.GoInt):std
     //
     // This function's execution time does not depend on the inputs.
 **/
-function rotateLeft16(_x:stdgo.StdGoTypes.GoUInt16, _k:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoUInt16 {
+function rotateLeft16(_x:stdgo.GoUInt16, _k:stdgo.GoInt):stdgo.GoUInt16 {
         {};
-        var _s:stdgo.StdGoTypes.GoUInt = (_k : stdgo.StdGoTypes.GoUInt) & (15u32 : stdgo.StdGoTypes.GoUInt);
-        return (_x << _s) | (_x >> ((16u32 : stdgo.StdGoTypes.GoUInt) - _s));
+        var _s:stdgo.GoUInt = (_k : stdgo.GoUInt) & (15u32 : stdgo.GoUInt);
+        return (_x << _s) | (_x >> ((16u32 : stdgo.GoUInt) - _s));
     }
 /**
     // RotateLeft32 returns the value of x rotated left by (k mod 32) bits.
@@ -3219,10 +3219,10 @@ function rotateLeft16(_x:stdgo.StdGoTypes.GoUInt16, _k:stdgo.StdGoTypes.GoInt):s
     //
     // This function's execution time does not depend on the inputs.
 **/
-function rotateLeft32(_x:stdgo.StdGoTypes.GoUInt32, _k:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoUInt32 {
+function rotateLeft32(_x:stdgo.GoUInt32, _k:stdgo.GoInt):stdgo.GoUInt32 {
         {};
-        var _s:stdgo.StdGoTypes.GoUInt = (_k : stdgo.StdGoTypes.GoUInt) & (31u32 : stdgo.StdGoTypes.GoUInt);
-        return (_x << _s) | (_x >> ((32u32 : stdgo.StdGoTypes.GoUInt) - _s));
+        var _s:stdgo.GoUInt = (_k : stdgo.GoUInt) & (31u32 : stdgo.GoUInt);
+        return (_x << _s) | (_x >> ((32u32 : stdgo.GoUInt) - _s));
     }
 /**
     // RotateLeft64 returns the value of x rotated left by (k mod 64) bits.
@@ -3230,24 +3230,24 @@ function rotateLeft32(_x:stdgo.StdGoTypes.GoUInt32, _k:stdgo.StdGoTypes.GoInt):s
     //
     // This function's execution time does not depend on the inputs.
 **/
-function rotateLeft64(_x:stdgo.StdGoTypes.GoUInt64, _k:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoUInt64 {
+function rotateLeft64(_x:stdgo.GoUInt64, _k:stdgo.GoInt):stdgo.GoUInt64 {
         {};
-        var _s:stdgo.StdGoTypes.GoUInt = (_k : stdgo.StdGoTypes.GoUInt) & (63u32 : stdgo.StdGoTypes.GoUInt);
-        return (_x << _s) | (_x >> ((64u32 : stdgo.StdGoTypes.GoUInt) - _s));
+        var _s:stdgo.GoUInt = (_k : stdgo.GoUInt) & (63u32 : stdgo.GoUInt);
+        return (_x << _s) | (_x >> ((64u32 : stdgo.GoUInt) - _s));
     }
 /**
     // Reverse returns the value of x with its bits in reversed order.
 **/
-function reverse(_x:stdgo.StdGoTypes.GoUInt):stdgo.StdGoTypes.GoUInt {
+function reverse(_x:stdgo.GoUInt):stdgo.GoUInt {
         if (true) {
-            return (reverse32((_x : stdgo.StdGoTypes.GoUInt32)) : stdgo.StdGoTypes.GoUInt);
+            return (reverse32((_x : stdgo.GoUInt32)) : stdgo.GoUInt);
         };
-        return (reverse64((_x : stdgo.StdGoTypes.GoUInt64)) : stdgo.StdGoTypes.GoUInt);
+        return (reverse64((_x : stdgo.GoUInt64)) : stdgo.GoUInt);
     }
 /**
     // Reverse8 returns the value of x with its bits in reversed order.
 **/
-function reverse8(_x:stdgo.StdGoTypes.GoUInt8):stdgo.StdGoTypes.GoUInt8 {
+function reverse8(_x:stdgo.GoUInt8):stdgo.GoUInt8 {
         return stdgo.Go.str(0,
 128,
 "@",
@@ -3503,12 +3503,12 @@ function reverse8(_x:stdgo.StdGoTypes.GoUInt8):stdgo.StdGoTypes.GoUInt8 {
 "?",
 191,
 127,
-255)[(_x : stdgo.StdGoTypes.GoInt)];
+255)[(_x : stdgo.GoInt)];
     }
 /**
     // Reverse16 returns the value of x with its bits in reversed order.
 **/
-function reverse16(_x:stdgo.StdGoTypes.GoUInt16):stdgo.StdGoTypes.GoUInt16 {
+function reverse16(_x:stdgo.GoUInt16):stdgo.GoUInt16 {
         return (stdgo.Go.str(0,
 128,
 "@",
@@ -3764,7 +3764,7 @@ function reverse16(_x:stdgo.StdGoTypes.GoUInt16):stdgo.StdGoTypes.GoUInt16 {
 "?",
 191,
 127,
-255)[(_x >> (8i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt16) | ((stdgo.Go.str(0,
+255)[(_x >> (8i64 : stdgo.GoUInt64) : stdgo.GoInt)] : stdgo.GoUInt16) | ((stdgo.Go.str(0,
 128,
 "@",
 192,
@@ -4019,26 +4019,26 @@ function reverse16(_x:stdgo.StdGoTypes.GoUInt16):stdgo.StdGoTypes.GoUInt16 {
 "?",
 191,
 127,
-255)[(_x & (255 : stdgo.StdGoTypes.GoUInt16) : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt16) << (8i64 : stdgo.StdGoTypes.GoUInt64));
+255)[(_x & (255 : stdgo.GoUInt16) : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64));
     }
 /**
     // Reverse32 returns the value of x with its bits in reversed order.
 **/
-function reverse32(_x:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoUInt32 {
+function reverse32(_x:stdgo.GoUInt32):stdgo.GoUInt32 {
         {};
-        _x = ((_x >> (1i64 : stdgo.StdGoTypes.GoUInt64)) & (1431655765u32 : stdgo.StdGoTypes.GoUInt32)) | ((_x & (1431655765u32 : stdgo.StdGoTypes.GoUInt32)) << (1i64 : stdgo.StdGoTypes.GoUInt64));
-        _x = ((_x >> (2i64 : stdgo.StdGoTypes.GoUInt64)) & (858993459u32 : stdgo.StdGoTypes.GoUInt32)) | ((_x & (858993459u32 : stdgo.StdGoTypes.GoUInt32)) << (2i64 : stdgo.StdGoTypes.GoUInt64));
-        _x = ((_x >> (4i64 : stdgo.StdGoTypes.GoUInt64)) & (252645135u32 : stdgo.StdGoTypes.GoUInt32)) | ((_x & (252645135u32 : stdgo.StdGoTypes.GoUInt32)) << (4i64 : stdgo.StdGoTypes.GoUInt64));
+        _x = ((_x >> (1i64 : stdgo.GoUInt64)) & (1431655765u32 : stdgo.GoUInt32)) | ((_x & (1431655765u32 : stdgo.GoUInt32)) << (1i64 : stdgo.GoUInt64));
+        _x = ((_x >> (2i64 : stdgo.GoUInt64)) & (858993459u32 : stdgo.GoUInt32)) | ((_x & (858993459u32 : stdgo.GoUInt32)) << (2i64 : stdgo.GoUInt64));
+        _x = ((_x >> (4i64 : stdgo.GoUInt64)) & (252645135u32 : stdgo.GoUInt32)) | ((_x & (252645135u32 : stdgo.GoUInt32)) << (4i64 : stdgo.GoUInt64));
         return reverseBytes32(_x);
     }
 /**
     // Reverse64 returns the value of x with its bits in reversed order.
 **/
-function reverse64(_x:stdgo.StdGoTypes.GoUInt64):stdgo.StdGoTypes.GoUInt64 {
+function reverse64(_x:stdgo.GoUInt64):stdgo.GoUInt64 {
         {};
-        _x = ((_x >> (1i64 : stdgo.StdGoTypes.GoUInt64)) & (6148914691236517205i64 : stdgo.StdGoTypes.GoUInt64)) | ((_x & (6148914691236517205i64 : stdgo.StdGoTypes.GoUInt64)) << (1i64 : stdgo.StdGoTypes.GoUInt64));
-        _x = ((_x >> (2i64 : stdgo.StdGoTypes.GoUInt64)) & (3689348814741910323i64 : stdgo.StdGoTypes.GoUInt64)) | ((_x & (3689348814741910323i64 : stdgo.StdGoTypes.GoUInt64)) << (2i64 : stdgo.StdGoTypes.GoUInt64));
-        _x = ((_x >> (4i64 : stdgo.StdGoTypes.GoUInt64)) & (1085102592571150095i64 : stdgo.StdGoTypes.GoUInt64)) | ((_x & (1085102592571150095i64 : stdgo.StdGoTypes.GoUInt64)) << (4i64 : stdgo.StdGoTypes.GoUInt64));
+        _x = ((_x >> (1i64 : stdgo.GoUInt64)) & (6148914691236517205i64 : stdgo.GoUInt64)) | ((_x & (6148914691236517205i64 : stdgo.GoUInt64)) << (1i64 : stdgo.GoUInt64));
+        _x = ((_x >> (2i64 : stdgo.GoUInt64)) & (3689348814741910323i64 : stdgo.GoUInt64)) | ((_x & (3689348814741910323i64 : stdgo.GoUInt64)) << (2i64 : stdgo.GoUInt64));
+        _x = ((_x >> (4i64 : stdgo.GoUInt64)) & (1085102592571150095i64 : stdgo.GoUInt64)) | ((_x & (1085102592571150095i64 : stdgo.GoUInt64)) << (4i64 : stdgo.GoUInt64));
         return reverseBytes64(_x);
     }
 /**
@@ -4046,54 +4046,54 @@ function reverse64(_x:stdgo.StdGoTypes.GoUInt64):stdgo.StdGoTypes.GoUInt64 {
     //
     // This function's execution time does not depend on the inputs.
 **/
-function reverseBytes(_x:stdgo.StdGoTypes.GoUInt):stdgo.StdGoTypes.GoUInt {
+function reverseBytes(_x:stdgo.GoUInt):stdgo.GoUInt {
         if (true) {
-            return (reverseBytes32((_x : stdgo.StdGoTypes.GoUInt32)) : stdgo.StdGoTypes.GoUInt);
+            return (reverseBytes32((_x : stdgo.GoUInt32)) : stdgo.GoUInt);
         };
-        return (reverseBytes64((_x : stdgo.StdGoTypes.GoUInt64)) : stdgo.StdGoTypes.GoUInt);
+        return (reverseBytes64((_x : stdgo.GoUInt64)) : stdgo.GoUInt);
     }
 /**
     // ReverseBytes16 returns the value of x with its bytes in reversed order.
     //
     // This function's execution time does not depend on the inputs.
 **/
-function reverseBytes16(_x:stdgo.StdGoTypes.GoUInt16):stdgo.StdGoTypes.GoUInt16 {
-        return (_x >> (8i64 : stdgo.StdGoTypes.GoUInt64)) | (_x << (8i64 : stdgo.StdGoTypes.GoUInt64));
+function reverseBytes16(_x:stdgo.GoUInt16):stdgo.GoUInt16 {
+        return (_x >> (8i64 : stdgo.GoUInt64)) | (_x << (8i64 : stdgo.GoUInt64));
     }
 /**
     // ReverseBytes32 returns the value of x with its bytes in reversed order.
     //
     // This function's execution time does not depend on the inputs.
 **/
-function reverseBytes32(_x:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoUInt32 {
+function reverseBytes32(_x:stdgo.GoUInt32):stdgo.GoUInt32 {
         {};
-        _x = ((_x >> (8i64 : stdgo.StdGoTypes.GoUInt64)) & (16711935u32 : stdgo.StdGoTypes.GoUInt32)) | ((_x & (16711935u32 : stdgo.StdGoTypes.GoUInt32)) << (8i64 : stdgo.StdGoTypes.GoUInt64));
-        return (_x >> (16i64 : stdgo.StdGoTypes.GoUInt64)) | (_x << (16i64 : stdgo.StdGoTypes.GoUInt64));
+        _x = ((_x >> (8i64 : stdgo.GoUInt64)) & (16711935u32 : stdgo.GoUInt32)) | ((_x & (16711935u32 : stdgo.GoUInt32)) << (8i64 : stdgo.GoUInt64));
+        return (_x >> (16i64 : stdgo.GoUInt64)) | (_x << (16i64 : stdgo.GoUInt64));
     }
 /**
     // ReverseBytes64 returns the value of x with its bytes in reversed order.
     //
     // This function's execution time does not depend on the inputs.
 **/
-function reverseBytes64(_x:stdgo.StdGoTypes.GoUInt64):stdgo.StdGoTypes.GoUInt64 {
+function reverseBytes64(_x:stdgo.GoUInt64):stdgo.GoUInt64 {
         {};
-        _x = ((_x >> (8i64 : stdgo.StdGoTypes.GoUInt64)) & (71777214294589695i64 : stdgo.StdGoTypes.GoUInt64)) | ((_x & (71777214294589695i64 : stdgo.StdGoTypes.GoUInt64)) << (8i64 : stdgo.StdGoTypes.GoUInt64));
-        _x = ((_x >> (16i64 : stdgo.StdGoTypes.GoUInt64)) & (281470681808895i64 : stdgo.StdGoTypes.GoUInt64)) | ((_x & (281470681808895i64 : stdgo.StdGoTypes.GoUInt64)) << (16i64 : stdgo.StdGoTypes.GoUInt64));
-        return (_x >> (32i64 : stdgo.StdGoTypes.GoUInt64)) | (_x << (32i64 : stdgo.StdGoTypes.GoUInt64));
+        _x = ((_x >> (8i64 : stdgo.GoUInt64)) & (71777214294589695i64 : stdgo.GoUInt64)) | ((_x & (71777214294589695i64 : stdgo.GoUInt64)) << (8i64 : stdgo.GoUInt64));
+        _x = ((_x >> (16i64 : stdgo.GoUInt64)) & (281470681808895i64 : stdgo.GoUInt64)) | ((_x & (281470681808895i64 : stdgo.GoUInt64)) << (16i64 : stdgo.GoUInt64));
+        return (_x >> (32i64 : stdgo.GoUInt64)) | (_x << (32i64 : stdgo.GoUInt64));
     }
 /**
     // Len returns the minimum number of bits required to represent x; the result is 0 for x == 0.
 **/
-function len(_x:stdgo.StdGoTypes.GoUInt):stdgo.StdGoTypes.GoInt {
+function len(_x:stdgo.GoUInt):stdgo.GoInt {
         if (true) {
-            return len32((_x : stdgo.StdGoTypes.GoUInt32));
+            return len32((_x : stdgo.GoUInt32));
         };
-        return len64((_x : stdgo.StdGoTypes.GoUInt64));
+        return len64((_x : stdgo.GoUInt64));
     }
 /**
     // Len8 returns the minimum number of bits required to represent x; the result is 0 for x == 0.
 **/
-function len8(_x:stdgo.StdGoTypes.GoUInt8):stdgo.StdGoTypes.GoInt {
+function len8(_x:stdgo.GoUInt8):stdgo.GoInt {
         return (stdgo.Go.str(0,
 1,
 2,
@@ -4158,16 +4158,16 @@ function len8(_x:stdgo.StdGoTypes.GoUInt8):stdgo.StdGoTypes.GoInt {
 6,
 6,
 6,
-"\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08")[(_x : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoInt);
+"\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08")[(_x : stdgo.GoInt)] : stdgo.GoInt);
     }
 /**
     // Len16 returns the minimum number of bits required to represent x; the result is 0 for x == 0.
 **/
-function len16(_x:stdgo.StdGoTypes.GoUInt16):stdgo.StdGoTypes.GoInt {
-        var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-        if (_x >= (256 : stdgo.StdGoTypes.GoUInt16)) {
-            _x = _x >> ((8i64 : stdgo.StdGoTypes.GoUInt64));
-            _n = (8 : stdgo.StdGoTypes.GoInt);
+function len16(_x:stdgo.GoUInt16):stdgo.GoInt {
+        var _n:stdgo.GoInt = (0 : stdgo.GoInt);
+        if (_x >= (256 : stdgo.GoUInt16)) {
+            _x = _x >> ((8i64 : stdgo.GoUInt64));
+            _n = (8 : stdgo.GoInt);
         };
         return _n + (stdgo.Go.str(0,
 1,
@@ -4233,20 +4233,20 @@ function len16(_x:stdgo.StdGoTypes.GoUInt16):stdgo.StdGoTypes.GoInt {
 6,
 6,
 6,
-"\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08")[(_x : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoInt);
+"\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08")[(_x : stdgo.GoInt)] : stdgo.GoInt);
     }
 /**
     // Len32 returns the minimum number of bits required to represent x; the result is 0 for x == 0.
 **/
-function len32(_x:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoInt {
-        var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-        if (_x >= (65536u32 : stdgo.StdGoTypes.GoUInt32)) {
-            _x = _x >> ((16i64 : stdgo.StdGoTypes.GoUInt64));
-            _n = (16 : stdgo.StdGoTypes.GoInt);
+function len32(_x:stdgo.GoUInt32):stdgo.GoInt {
+        var _n:stdgo.GoInt = (0 : stdgo.GoInt);
+        if (_x >= (65536u32 : stdgo.GoUInt32)) {
+            _x = _x >> ((16i64 : stdgo.GoUInt64));
+            _n = (16 : stdgo.GoInt);
         };
-        if (_x >= (256u32 : stdgo.StdGoTypes.GoUInt32)) {
-            _x = _x >> ((8i64 : stdgo.StdGoTypes.GoUInt64));
-            _n = _n + ((8 : stdgo.StdGoTypes.GoInt));
+        if (_x >= (256u32 : stdgo.GoUInt32)) {
+            _x = _x >> ((8i64 : stdgo.GoUInt64));
+            _n = _n + ((8 : stdgo.GoInt));
         };
         return _n + (stdgo.Go.str(0,
 1,
@@ -4312,24 +4312,24 @@ function len32(_x:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoInt {
 6,
 6,
 6,
-"\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08")[(_x : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoInt);
+"\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08")[(_x : stdgo.GoInt)] : stdgo.GoInt);
     }
 /**
     // Len64 returns the minimum number of bits required to represent x; the result is 0 for x == 0.
 **/
-function len64(_x:stdgo.StdGoTypes.GoUInt64):stdgo.StdGoTypes.GoInt {
-        var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-        if (_x >= (4294967296i64 : stdgo.StdGoTypes.GoUInt64)) {
-            _x = _x >> ((32i64 : stdgo.StdGoTypes.GoUInt64));
-            _n = (32 : stdgo.StdGoTypes.GoInt);
+function len64(_x:stdgo.GoUInt64):stdgo.GoInt {
+        var _n:stdgo.GoInt = (0 : stdgo.GoInt);
+        if (_x >= (4294967296i64 : stdgo.GoUInt64)) {
+            _x = _x >> ((32i64 : stdgo.GoUInt64));
+            _n = (32 : stdgo.GoInt);
         };
-        if (_x >= (65536i64 : stdgo.StdGoTypes.GoUInt64)) {
-            _x = _x >> ((16i64 : stdgo.StdGoTypes.GoUInt64));
-            _n = _n + ((16 : stdgo.StdGoTypes.GoInt));
+        if (_x >= (65536i64 : stdgo.GoUInt64)) {
+            _x = _x >> ((16i64 : stdgo.GoUInt64));
+            _n = _n + ((16 : stdgo.GoInt));
         };
-        if (_x >= (256i64 : stdgo.StdGoTypes.GoUInt64)) {
-            _x = _x >> ((8i64 : stdgo.StdGoTypes.GoUInt64));
-            _n = _n + ((8 : stdgo.StdGoTypes.GoInt));
+        if (_x >= (256i64 : stdgo.GoUInt64)) {
+            _x = _x >> ((8i64 : stdgo.GoUInt64));
+            _n = _n + ((8 : stdgo.GoInt));
         };
         return _n + (stdgo.Go.str(0,
 1,
@@ -4395,7 +4395,7 @@ function len64(_x:stdgo.StdGoTypes.GoUInt64):stdgo.StdGoTypes.GoInt {
 6,
 6,
 6,
-"\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08")[(_x : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoInt);
+"\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08")[(_x : stdgo.GoInt)] : stdgo.GoInt);
     }
 /**
     // Add returns the sum with carry of x, y and carry: sum = x + y + carry.
@@ -4404,14 +4404,14 @@ function len64(_x:stdgo.StdGoTypes.GoUInt64):stdgo.StdGoTypes.GoInt {
     //
     // This function's execution time does not depend on the inputs.
 **/
-function add(_x:stdgo.StdGoTypes.GoUInt, _y:stdgo.StdGoTypes.GoUInt, _carry:stdgo.StdGoTypes.GoUInt):{ var _0 : stdgo.StdGoTypes.GoUInt; var _1 : stdgo.StdGoTypes.GoUInt; } {
-        var _sum:stdgo.StdGoTypes.GoUInt = (0 : stdgo.StdGoTypes.GoUInt), _carryOut:stdgo.StdGoTypes.GoUInt = (0 : stdgo.StdGoTypes.GoUInt);
+function add(_x:stdgo.GoUInt, _y:stdgo.GoUInt, _carry:stdgo.GoUInt):{ var _0 : stdgo.GoUInt; var _1 : stdgo.GoUInt; } {
+        var _sum:stdgo.GoUInt = (0 : stdgo.GoUInt), _carryOut:stdgo.GoUInt = (0 : stdgo.GoUInt);
         if (true) {
-            var __tmp__ = add32((_x : stdgo.StdGoTypes.GoUInt32), (_y : stdgo.StdGoTypes.GoUInt32), (_carry : stdgo.StdGoTypes.GoUInt32)), _s32:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, _c32:stdgo.StdGoTypes.GoUInt32 = __tmp__._1;
-            return { _0 : (_s32 : stdgo.StdGoTypes.GoUInt), _1 : (_c32 : stdgo.StdGoTypes.GoUInt) };
+            var __tmp__ = add32((_x : stdgo.GoUInt32), (_y : stdgo.GoUInt32), (_carry : stdgo.GoUInt32)), _s32:stdgo.GoUInt32 = __tmp__._0, _c32:stdgo.GoUInt32 = __tmp__._1;
+            return { _0 : (_s32 : stdgo.GoUInt), _1 : (_c32 : stdgo.GoUInt) };
         };
-        var __tmp__ = add64((_x : stdgo.StdGoTypes.GoUInt64), (_y : stdgo.StdGoTypes.GoUInt64), (_carry : stdgo.StdGoTypes.GoUInt64)), _s64:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, _c64:stdgo.StdGoTypes.GoUInt64 = __tmp__._1;
-        return { _0 : (_s64 : stdgo.StdGoTypes.GoUInt), _1 : (_c64 : stdgo.StdGoTypes.GoUInt) };
+        var __tmp__ = add64((_x : stdgo.GoUInt64), (_y : stdgo.GoUInt64), (_carry : stdgo.GoUInt64)), _s64:stdgo.GoUInt64 = __tmp__._0, _c64:stdgo.GoUInt64 = __tmp__._1;
+        return { _0 : (_s64 : stdgo.GoUInt), _1 : (_c64 : stdgo.GoUInt) };
     }
 /**
     // Add32 returns the sum with carry of x, y and carry: sum = x + y + carry.
@@ -4420,11 +4420,11 @@ function add(_x:stdgo.StdGoTypes.GoUInt, _y:stdgo.StdGoTypes.GoUInt, _carry:stdg
     //
     // This function's execution time does not depend on the inputs.
 **/
-function add32(_x:stdgo.StdGoTypes.GoUInt32, _y:stdgo.StdGoTypes.GoUInt32, _carry:stdgo.StdGoTypes.GoUInt32):{ var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : stdgo.StdGoTypes.GoUInt32; } {
-        var _sum:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _carryOut:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32);
-        var _sum64:stdgo.StdGoTypes.GoUInt64 = ((_x : stdgo.StdGoTypes.GoUInt64) + (_y : stdgo.StdGoTypes.GoUInt64)) + (_carry : stdgo.StdGoTypes.GoUInt64);
-        _sum = (_sum64 : stdgo.StdGoTypes.GoUInt32);
-        _carryOut = (_sum64 >> (32i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoUInt32);
+function add32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32, _carry:stdgo.GoUInt32):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
+        var _sum:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _carryOut:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _sum64:stdgo.GoUInt64 = ((_x : stdgo.GoUInt64) + (_y : stdgo.GoUInt64)) + (_carry : stdgo.GoUInt64);
+        _sum = (_sum64 : stdgo.GoUInt32);
+        _carryOut = (_sum64 >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
         return { _0 : _sum, _1 : _carryOut };
     }
 /**
@@ -4434,10 +4434,10 @@ function add32(_x:stdgo.StdGoTypes.GoUInt32, _y:stdgo.StdGoTypes.GoUInt32, _carr
     //
     // This function's execution time does not depend on the inputs.
 **/
-function add64(_x:stdgo.StdGoTypes.GoUInt64, _y:stdgo.StdGoTypes.GoUInt64, _carry:stdgo.StdGoTypes.GoUInt64):{ var _0 : stdgo.StdGoTypes.GoUInt64; var _1 : stdgo.StdGoTypes.GoUInt64; } {
-        var _sum:stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64), _carryOut:stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64);
+function add64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64, _carry:stdgo.GoUInt64):{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoUInt64; } {
+        var _sum:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _carryOut:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         _sum = (_x + _y) + _carry;
-        _carryOut = ((_x & _y) | ((_x | _y) & (_sum ^ (-1i32 : stdgo.StdGoTypes.GoInt)))) >> (63i64 : stdgo.StdGoTypes.GoUInt64);
+        _carryOut = ((_x & _y) | ((_x | _y) & (_sum ^ (-1i32 : stdgo.GoInt)))) >> (63i64 : stdgo.GoUInt64);
         return { _0 : _sum, _1 : _carryOut };
     }
 /**
@@ -4447,14 +4447,14 @@ function add64(_x:stdgo.StdGoTypes.GoUInt64, _y:stdgo.StdGoTypes.GoUInt64, _carr
     //
     // This function's execution time does not depend on the inputs.
 **/
-function sub(_x:stdgo.StdGoTypes.GoUInt, _y:stdgo.StdGoTypes.GoUInt, _borrow:stdgo.StdGoTypes.GoUInt):{ var _0 : stdgo.StdGoTypes.GoUInt; var _1 : stdgo.StdGoTypes.GoUInt; } {
-        var _diff:stdgo.StdGoTypes.GoUInt = (0 : stdgo.StdGoTypes.GoUInt), _borrowOut:stdgo.StdGoTypes.GoUInt = (0 : stdgo.StdGoTypes.GoUInt);
+function sub(_x:stdgo.GoUInt, _y:stdgo.GoUInt, _borrow:stdgo.GoUInt):{ var _0 : stdgo.GoUInt; var _1 : stdgo.GoUInt; } {
+        var _diff:stdgo.GoUInt = (0 : stdgo.GoUInt), _borrowOut:stdgo.GoUInt = (0 : stdgo.GoUInt);
         if (true) {
-            var __tmp__ = sub32((_x : stdgo.StdGoTypes.GoUInt32), (_y : stdgo.StdGoTypes.GoUInt32), (_borrow : stdgo.StdGoTypes.GoUInt32)), _d32:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, _b32:stdgo.StdGoTypes.GoUInt32 = __tmp__._1;
-            return { _0 : (_d32 : stdgo.StdGoTypes.GoUInt), _1 : (_b32 : stdgo.StdGoTypes.GoUInt) };
+            var __tmp__ = sub32((_x : stdgo.GoUInt32), (_y : stdgo.GoUInt32), (_borrow : stdgo.GoUInt32)), _d32:stdgo.GoUInt32 = __tmp__._0, _b32:stdgo.GoUInt32 = __tmp__._1;
+            return { _0 : (_d32 : stdgo.GoUInt), _1 : (_b32 : stdgo.GoUInt) };
         };
-        var __tmp__ = sub64((_x : stdgo.StdGoTypes.GoUInt64), (_y : stdgo.StdGoTypes.GoUInt64), (_borrow : stdgo.StdGoTypes.GoUInt64)), _d64:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, _b64:stdgo.StdGoTypes.GoUInt64 = __tmp__._1;
-        return { _0 : (_d64 : stdgo.StdGoTypes.GoUInt), _1 : (_b64 : stdgo.StdGoTypes.GoUInt) };
+        var __tmp__ = sub64((_x : stdgo.GoUInt64), (_y : stdgo.GoUInt64), (_borrow : stdgo.GoUInt64)), _d64:stdgo.GoUInt64 = __tmp__._0, _b64:stdgo.GoUInt64 = __tmp__._1;
+        return { _0 : (_d64 : stdgo.GoUInt), _1 : (_b64 : stdgo.GoUInt) };
     }
 /**
     // Sub32 returns the difference of x, y and borrow, diff = x - y - borrow.
@@ -4463,10 +4463,10 @@ function sub(_x:stdgo.StdGoTypes.GoUInt, _y:stdgo.StdGoTypes.GoUInt, _borrow:std
     //
     // This function's execution time does not depend on the inputs.
 **/
-function sub32(_x:stdgo.StdGoTypes.GoUInt32, _y:stdgo.StdGoTypes.GoUInt32, _borrow:stdgo.StdGoTypes.GoUInt32):{ var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : stdgo.StdGoTypes.GoUInt32; } {
-        var _diff:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _borrowOut:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32);
+function sub32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32, _borrow:stdgo.GoUInt32):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
+        var _diff:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _borrowOut:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         _diff = (_x - _y) - _borrow;
-        _borrowOut = (((-1 ^ _x) & _y) | ((-1 ^ (_x ^ _y)) & _diff)) >> (31i64 : stdgo.StdGoTypes.GoUInt64);
+        _borrowOut = (((-1 ^ _x) & _y) | ((-1 ^ (_x ^ _y)) & _diff)) >> (31i64 : stdgo.GoUInt64);
         return { _0 : _diff, _1 : _borrowOut };
     }
 /**
@@ -4476,10 +4476,10 @@ function sub32(_x:stdgo.StdGoTypes.GoUInt32, _y:stdgo.StdGoTypes.GoUInt32, _borr
     //
     // This function's execution time does not depend on the inputs.
 **/
-function sub64(_x:stdgo.StdGoTypes.GoUInt64, _y:stdgo.StdGoTypes.GoUInt64, _borrow:stdgo.StdGoTypes.GoUInt64):{ var _0 : stdgo.StdGoTypes.GoUInt64; var _1 : stdgo.StdGoTypes.GoUInt64; } {
-        var _diff:stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64), _borrowOut:stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64);
+function sub64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64, _borrow:stdgo.GoUInt64):{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoUInt64; } {
+        var _diff:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _borrowOut:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         _diff = (_x - _y) - _borrow;
-        _borrowOut = (((-1 ^ _x) & _y) | ((-1 ^ (_x ^ _y)) & _diff)) >> (63i64 : stdgo.StdGoTypes.GoUInt64);
+        _borrowOut = (((-1 ^ _x) & _y) | ((-1 ^ (_x ^ _y)) & _diff)) >> (63i64 : stdgo.GoUInt64);
         return { _0 : _diff, _1 : _borrowOut };
     }
 /**
@@ -4489,14 +4489,14 @@ function sub64(_x:stdgo.StdGoTypes.GoUInt64, _y:stdgo.StdGoTypes.GoUInt64, _borr
     //
     // This function's execution time does not depend on the inputs.
 **/
-function mul(_x:stdgo.StdGoTypes.GoUInt, _y:stdgo.StdGoTypes.GoUInt):{ var _0 : stdgo.StdGoTypes.GoUInt; var _1 : stdgo.StdGoTypes.GoUInt; } {
-        var _hi:stdgo.StdGoTypes.GoUInt = (0 : stdgo.StdGoTypes.GoUInt), _lo:stdgo.StdGoTypes.GoUInt = (0 : stdgo.StdGoTypes.GoUInt);
+function mul(_x:stdgo.GoUInt, _y:stdgo.GoUInt):{ var _0 : stdgo.GoUInt; var _1 : stdgo.GoUInt; } {
+        var _hi:stdgo.GoUInt = (0 : stdgo.GoUInt), _lo:stdgo.GoUInt = (0 : stdgo.GoUInt);
         if (true) {
-            var __tmp__ = mul32((_x : stdgo.StdGoTypes.GoUInt32), (_y : stdgo.StdGoTypes.GoUInt32)), _h:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, _l:stdgo.StdGoTypes.GoUInt32 = __tmp__._1;
-            return { _0 : (_h : stdgo.StdGoTypes.GoUInt), _1 : (_l : stdgo.StdGoTypes.GoUInt) };
+            var __tmp__ = mul32((_x : stdgo.GoUInt32), (_y : stdgo.GoUInt32)), _h:stdgo.GoUInt32 = __tmp__._0, _l:stdgo.GoUInt32 = __tmp__._1;
+            return { _0 : (_h : stdgo.GoUInt), _1 : (_l : stdgo.GoUInt) };
         };
-        var __tmp__ = mul64((_x : stdgo.StdGoTypes.GoUInt64), (_y : stdgo.StdGoTypes.GoUInt64)), _h:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, _l:stdgo.StdGoTypes.GoUInt64 = __tmp__._1;
-        return { _0 : (_h : stdgo.StdGoTypes.GoUInt), _1 : (_l : stdgo.StdGoTypes.GoUInt) };
+        var __tmp__ = mul64((_x : stdgo.GoUInt64), (_y : stdgo.GoUInt64)), _h:stdgo.GoUInt64 = __tmp__._0, _l:stdgo.GoUInt64 = __tmp__._1;
+        return { _0 : (_h : stdgo.GoUInt), _1 : (_l : stdgo.GoUInt) };
     }
 /**
     // Mul32 returns the 64-bit product of x and y: (hi, lo) = x * y
@@ -4505,12 +4505,12 @@ function mul(_x:stdgo.StdGoTypes.GoUInt, _y:stdgo.StdGoTypes.GoUInt):{ var _0 : 
     //
     // This function's execution time does not depend on the inputs.
 **/
-function mul32(_x:stdgo.StdGoTypes.GoUInt32, _y:stdgo.StdGoTypes.GoUInt32):{ var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : stdgo.StdGoTypes.GoUInt32; } {
-        var _hi:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _lo:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32);
-        var _tmp:stdgo.StdGoTypes.GoUInt64 = (_x : stdgo.StdGoTypes.GoUInt64) * (_y : stdgo.StdGoTypes.GoUInt64);
+function mul32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
+        var _hi:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _lo:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _tmp:stdgo.GoUInt64 = (_x : stdgo.GoUInt64) * (_y : stdgo.GoUInt64);
         {
-            final __tmp__0 = (_tmp >> (32i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoUInt32);
-            final __tmp__1 = (_tmp : stdgo.StdGoTypes.GoUInt32);
+            final __tmp__0 = (_tmp >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
+            final __tmp__1 = (_tmp : stdgo.GoUInt32);
             _hi = __tmp__0;
             _lo = __tmp__1;
         };
@@ -4523,19 +4523,19 @@ function mul32(_x:stdgo.StdGoTypes.GoUInt32, _y:stdgo.StdGoTypes.GoUInt32):{ var
     //
     // This function's execution time does not depend on the inputs.
 **/
-function mul64(_x:stdgo.StdGoTypes.GoUInt64, _y:stdgo.StdGoTypes.GoUInt64):{ var _0 : stdgo.StdGoTypes.GoUInt64; var _1 : stdgo.StdGoTypes.GoUInt64; } {
-        var _hi:stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64), _lo:stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64);
+function mul64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64):{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoUInt64; } {
+        var _hi:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _lo:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         {};
-        var _x0:stdgo.StdGoTypes.GoUInt64 = _x & (4294967295i64 : stdgo.StdGoTypes.GoUInt64);
-        var _x1:stdgo.StdGoTypes.GoUInt64 = _x >> (32i64 : stdgo.StdGoTypes.GoUInt64);
-        var _y0:stdgo.StdGoTypes.GoUInt64 = _y & (4294967295i64 : stdgo.StdGoTypes.GoUInt64);
-        var _y1:stdgo.StdGoTypes.GoUInt64 = _y >> (32i64 : stdgo.StdGoTypes.GoUInt64);
-        var _w0:stdgo.StdGoTypes.GoUInt64 = _x0 * _y0;
-        var _t:stdgo.StdGoTypes.GoUInt64 = (_x1 * _y0) + (_w0 >> (32i64 : stdgo.StdGoTypes.GoUInt64));
-        var _w1:stdgo.StdGoTypes.GoUInt64 = _t & (4294967295i64 : stdgo.StdGoTypes.GoUInt64);
-        var _w2:stdgo.StdGoTypes.GoUInt64 = _t >> (32i64 : stdgo.StdGoTypes.GoUInt64);
+        var _x0:stdgo.GoUInt64 = _x & (4294967295i64 : stdgo.GoUInt64);
+        var _x1:stdgo.GoUInt64 = _x >> (32i64 : stdgo.GoUInt64);
+        var _y0:stdgo.GoUInt64 = _y & (4294967295i64 : stdgo.GoUInt64);
+        var _y1:stdgo.GoUInt64 = _y >> (32i64 : stdgo.GoUInt64);
+        var _w0:stdgo.GoUInt64 = _x0 * _y0;
+        var _t:stdgo.GoUInt64 = (_x1 * _y0) + (_w0 >> (32i64 : stdgo.GoUInt64));
+        var _w1:stdgo.GoUInt64 = _t & (4294967295i64 : stdgo.GoUInt64);
+        var _w2:stdgo.GoUInt64 = _t >> (32i64 : stdgo.GoUInt64);
         _w1 = _w1 + (_x0 * _y1);
-        _hi = ((_x1 * _y1) + _w2) + (_w1 >> (32i64 : stdgo.StdGoTypes.GoUInt64));
+        _hi = ((_x1 * _y1) + _w2) + (_w1 >> (32i64 : stdgo.GoUInt64));
         _lo = _x * _y;
         return { _0 : _hi, _1 : _lo };
     }
@@ -4545,14 +4545,14 @@ function mul64(_x:stdgo.StdGoTypes.GoUInt64, _y:stdgo.StdGoTypes.GoUInt64):{ var
     // half in parameter hi and the lower half in parameter lo.
     // Div panics for y == 0 (division by zero) or y <= hi (quotient overflow).
 **/
-function div(_hi:stdgo.StdGoTypes.GoUInt, _lo:stdgo.StdGoTypes.GoUInt, _y:stdgo.StdGoTypes.GoUInt):{ var _0 : stdgo.StdGoTypes.GoUInt; var _1 : stdgo.StdGoTypes.GoUInt; } {
-        var _quo:stdgo.StdGoTypes.GoUInt = (0 : stdgo.StdGoTypes.GoUInt), _rem:stdgo.StdGoTypes.GoUInt = (0 : stdgo.StdGoTypes.GoUInt);
+function div(_hi:stdgo.GoUInt, _lo:stdgo.GoUInt, _y:stdgo.GoUInt):{ var _0 : stdgo.GoUInt; var _1 : stdgo.GoUInt; } {
+        var _quo:stdgo.GoUInt = (0 : stdgo.GoUInt), _rem:stdgo.GoUInt = (0 : stdgo.GoUInt);
         if (true) {
-            var __tmp__ = div32((_hi : stdgo.StdGoTypes.GoUInt32), (_lo : stdgo.StdGoTypes.GoUInt32), (_y : stdgo.StdGoTypes.GoUInt32)), _q:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, _r:stdgo.StdGoTypes.GoUInt32 = __tmp__._1;
-            return { _0 : (_q : stdgo.StdGoTypes.GoUInt), _1 : (_r : stdgo.StdGoTypes.GoUInt) };
+            var __tmp__ = div32((_hi : stdgo.GoUInt32), (_lo : stdgo.GoUInt32), (_y : stdgo.GoUInt32)), _q:stdgo.GoUInt32 = __tmp__._0, _r:stdgo.GoUInt32 = __tmp__._1;
+            return { _0 : (_q : stdgo.GoUInt), _1 : (_r : stdgo.GoUInt) };
         };
-        var __tmp__ = div64((_hi : stdgo.StdGoTypes.GoUInt64), (_lo : stdgo.StdGoTypes.GoUInt64), (_y : stdgo.StdGoTypes.GoUInt64)), _q:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, _r:stdgo.StdGoTypes.GoUInt64 = __tmp__._1;
-        return { _0 : (_q : stdgo.StdGoTypes.GoUInt), _1 : (_r : stdgo.StdGoTypes.GoUInt) };
+        var __tmp__ = div64((_hi : stdgo.GoUInt64), (_lo : stdgo.GoUInt64), (_y : stdgo.GoUInt64)), _q:stdgo.GoUInt64 = __tmp__._0, _r:stdgo.GoUInt64 = __tmp__._1;
+        return { _0 : (_q : stdgo.GoUInt), _1 : (_r : stdgo.GoUInt) };
     }
 /**
     // Div32 returns the quotient and remainder of (hi, lo) divided by y:
@@ -4560,15 +4560,15 @@ function div(_hi:stdgo.StdGoTypes.GoUInt, _lo:stdgo.StdGoTypes.GoUInt, _y:stdgo.
     // half in parameter hi and the lower half in parameter lo.
     // Div32 panics for y == 0 (division by zero) or y <= hi (quotient overflow).
 **/
-function div32(_hi:stdgo.StdGoTypes.GoUInt32, _lo:stdgo.StdGoTypes.GoUInt32, _y:stdgo.StdGoTypes.GoUInt32):{ var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : stdgo.StdGoTypes.GoUInt32; } {
-        var _quo:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _rem:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32);
-        if ((_y != (0u32 : stdgo.StdGoTypes.GoUInt32)) && (_y <= _hi)) {
+function div32(_hi:stdgo.GoUInt32, _lo:stdgo.GoUInt32, _y:stdgo.GoUInt32):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
+        var _quo:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _rem:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        if ((_y != (0u32 : stdgo.GoUInt32)) && (_y <= _hi)) {
             throw stdgo.Go.toInterface(_overflowError);
         };
-        var _z:stdgo.StdGoTypes.GoUInt64 = ((_hi : stdgo.StdGoTypes.GoUInt64) << (32i64 : stdgo.StdGoTypes.GoUInt64)) | (_lo : stdgo.StdGoTypes.GoUInt64);
+        var _z:stdgo.GoUInt64 = ((_hi : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64)) | (_lo : stdgo.GoUInt64);
         {
-            final __tmp__0 = (_z / (_y : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoUInt32);
-            final __tmp__1 = (_z % (_y : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoUInt32);
+            final __tmp__0 = (_z / (_y : stdgo.GoUInt64) : stdgo.GoUInt32);
+            final __tmp__1 = (_z % (_y : stdgo.GoUInt64) : stdgo.GoUInt32);
             _quo = __tmp__0;
             _rem = __tmp__1;
         };
@@ -4580,72 +4580,72 @@ function div32(_hi:stdgo.StdGoTypes.GoUInt32, _lo:stdgo.StdGoTypes.GoUInt32, _y:
     // half in parameter hi and the lower half in parameter lo.
     // Div64 panics for y == 0 (division by zero) or y <= hi (quotient overflow).
 **/
-function div64(_hi:stdgo.StdGoTypes.GoUInt64, _lo:stdgo.StdGoTypes.GoUInt64, _y:stdgo.StdGoTypes.GoUInt64):{ var _0 : stdgo.StdGoTypes.GoUInt64; var _1 : stdgo.StdGoTypes.GoUInt64; } {
-        var _quo:stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64), _rem:stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64);
-        if (_y == ((0i64 : stdgo.StdGoTypes.GoUInt64))) {
+function div64(_hi:stdgo.GoUInt64, _lo:stdgo.GoUInt64, _y:stdgo.GoUInt64):{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoUInt64; } {
+        var _quo:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _rem:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        if (_y == ((0i64 : stdgo.GoUInt64))) {
             throw stdgo.Go.toInterface(_divideError);
         };
         if (_y <= _hi) {
             throw stdgo.Go.toInterface(_overflowError);
         };
-        if (_hi == ((0i64 : stdgo.StdGoTypes.GoUInt64))) {
+        if (_hi == ((0i64 : stdgo.GoUInt64))) {
             return { _0 : _lo / _y, _1 : _lo % _y };
         };
-        var _s:stdgo.StdGoTypes.GoUInt = (leadingZeros64(_y) : stdgo.StdGoTypes.GoUInt);
+        var _s:stdgo.GoUInt = (leadingZeros64(_y) : stdgo.GoUInt);
         _y = _y << (_s);
         {};
-        var _yn1:stdgo.StdGoTypes.GoUInt64 = _y >> (32i64 : stdgo.StdGoTypes.GoUInt64);
-        var _yn0:stdgo.StdGoTypes.GoUInt64 = _y & (4294967295i64 : stdgo.StdGoTypes.GoUInt64);
-        var _un32:stdgo.StdGoTypes.GoUInt64 = (_hi << _s) | (_lo >> ((64u32 : stdgo.StdGoTypes.GoUInt) - _s));
-        var _un10:stdgo.StdGoTypes.GoUInt64 = _lo << _s;
-        var _un1:stdgo.StdGoTypes.GoUInt64 = _un10 >> (32i64 : stdgo.StdGoTypes.GoUInt64);
-        var _un0:stdgo.StdGoTypes.GoUInt64 = _un10 & (4294967295i64 : stdgo.StdGoTypes.GoUInt64);
-        var _q1:stdgo.StdGoTypes.GoUInt64 = _un32 / _yn1;
-        var _rhat:stdgo.StdGoTypes.GoUInt64 = _un32 - (_q1 * _yn1);
-        while ((_q1 >= (4294967296i64 : stdgo.StdGoTypes.GoUInt64)) || ((_q1 * _yn0) > (((4294967296i64 : stdgo.StdGoTypes.GoUInt64) * _rhat) + _un1))) {
+        var _yn1:stdgo.GoUInt64 = _y >> (32i64 : stdgo.GoUInt64);
+        var _yn0:stdgo.GoUInt64 = _y & (4294967295i64 : stdgo.GoUInt64);
+        var _un32:stdgo.GoUInt64 = (_hi << _s) | (_lo >> ((64u32 : stdgo.GoUInt) - _s));
+        var _un10:stdgo.GoUInt64 = _lo << _s;
+        var _un1:stdgo.GoUInt64 = _un10 >> (32i64 : stdgo.GoUInt64);
+        var _un0:stdgo.GoUInt64 = _un10 & (4294967295i64 : stdgo.GoUInt64);
+        var _q1:stdgo.GoUInt64 = _un32 / _yn1;
+        var _rhat:stdgo.GoUInt64 = _un32 - (_q1 * _yn1);
+        while ((_q1 >= (4294967296i64 : stdgo.GoUInt64)) || ((_q1 * _yn0) > (((4294967296i64 : stdgo.GoUInt64) * _rhat) + _un1))) {
             _q1--;
             _rhat = _rhat + (_yn1);
-            if (_rhat >= (4294967296i64 : stdgo.StdGoTypes.GoUInt64)) {
+            if (_rhat >= (4294967296i64 : stdgo.GoUInt64)) {
                 break;
             };
         };
-        var _un21:stdgo.StdGoTypes.GoUInt64 = ((_un32 * (4294967296i64 : stdgo.StdGoTypes.GoUInt64)) + _un1) - (_q1 * _y);
-        var _q0:stdgo.StdGoTypes.GoUInt64 = _un21 / _yn1;
+        var _un21:stdgo.GoUInt64 = ((_un32 * (4294967296i64 : stdgo.GoUInt64)) + _un1) - (_q1 * _y);
+        var _q0:stdgo.GoUInt64 = _un21 / _yn1;
         _rhat = _un21 - (_q0 * _yn1);
-        while ((_q0 >= (4294967296i64 : stdgo.StdGoTypes.GoUInt64)) || ((_q0 * _yn0) > (((4294967296i64 : stdgo.StdGoTypes.GoUInt64) * _rhat) + _un0))) {
+        while ((_q0 >= (4294967296i64 : stdgo.GoUInt64)) || ((_q0 * _yn0) > (((4294967296i64 : stdgo.GoUInt64) * _rhat) + _un0))) {
             _q0--;
             _rhat = _rhat + (_yn1);
-            if (_rhat >= (4294967296i64 : stdgo.StdGoTypes.GoUInt64)) {
+            if (_rhat >= (4294967296i64 : stdgo.GoUInt64)) {
                 break;
             };
         };
-        return { _0 : (_q1 * (4294967296i64 : stdgo.StdGoTypes.GoUInt64)) + _q0, _1 : (((_un21 * (4294967296i64 : stdgo.StdGoTypes.GoUInt64)) + _un0) - (_q0 * _y)) >> _s };
+        return { _0 : (_q1 * (4294967296i64 : stdgo.GoUInt64)) + _q0, _1 : (((_un21 * (4294967296i64 : stdgo.GoUInt64)) + _un0) - (_q0 * _y)) >> _s };
     }
 /**
     // Rem returns the remainder of (hi, lo) divided by y. Rem panics for
     // y == 0 (division by zero) but, unlike Div, it doesn't panic on a
     // quotient overflow.
 **/
-function rem(_hi:stdgo.StdGoTypes.GoUInt, _lo:stdgo.StdGoTypes.GoUInt, _y:stdgo.StdGoTypes.GoUInt):stdgo.StdGoTypes.GoUInt {
+function rem(_hi:stdgo.GoUInt, _lo:stdgo.GoUInt, _y:stdgo.GoUInt):stdgo.GoUInt {
         if (true) {
-            return (rem32((_hi : stdgo.StdGoTypes.GoUInt32), (_lo : stdgo.StdGoTypes.GoUInt32), (_y : stdgo.StdGoTypes.GoUInt32)) : stdgo.StdGoTypes.GoUInt);
+            return (rem32((_hi : stdgo.GoUInt32), (_lo : stdgo.GoUInt32), (_y : stdgo.GoUInt32)) : stdgo.GoUInt);
         };
-        return (rem64((_hi : stdgo.StdGoTypes.GoUInt64), (_lo : stdgo.StdGoTypes.GoUInt64), (_y : stdgo.StdGoTypes.GoUInt64)) : stdgo.StdGoTypes.GoUInt);
+        return (rem64((_hi : stdgo.GoUInt64), (_lo : stdgo.GoUInt64), (_y : stdgo.GoUInt64)) : stdgo.GoUInt);
     }
 /**
     // Rem32 returns the remainder of (hi, lo) divided by y. Rem32 panics
     // for y == 0 (division by zero) but, unlike Div32, it doesn't panic
     // on a quotient overflow.
 **/
-function rem32(_hi:stdgo.StdGoTypes.GoUInt32, _lo:stdgo.StdGoTypes.GoUInt32, _y:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoUInt32 {
-        return ((((_hi : stdgo.StdGoTypes.GoUInt64) << (32i64 : stdgo.StdGoTypes.GoUInt64)) | (_lo : stdgo.StdGoTypes.GoUInt64)) % (_y : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoUInt32);
+function rem32(_hi:stdgo.GoUInt32, _lo:stdgo.GoUInt32, _y:stdgo.GoUInt32):stdgo.GoUInt32 {
+        return ((((_hi : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64)) | (_lo : stdgo.GoUInt64)) % (_y : stdgo.GoUInt64) : stdgo.GoUInt32);
     }
 /**
     // Rem64 returns the remainder of (hi, lo) divided by y. Rem64 panics
     // for y == 0 (division by zero) but, unlike Div64, it doesn't panic
     // on a quotient overflow.
 **/
-function rem64(_hi:stdgo.StdGoTypes.GoUInt64, _lo:stdgo.StdGoTypes.GoUInt64, _y:stdgo.StdGoTypes.GoUInt64):stdgo.StdGoTypes.GoUInt64 {
-        var __tmp__ = div64(_hi % _y, _lo, _y), __0:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, _rem:stdgo.StdGoTypes.GoUInt64 = __tmp__._1;
+function rem64(_hi:stdgo.GoUInt64, _lo:stdgo.GoUInt64, _y:stdgo.GoUInt64):stdgo.GoUInt64 {
+        var __tmp__ = div64(_hi % _y, _lo, _y), __0:stdgo.GoUInt64 = __tmp__._0, _rem:stdgo.GoUInt64 = __tmp__._1;
         return _rem;
     }

@@ -261,7 +261,7 @@ import stdgo.testing.quick.Quick
 
 
 ```haxe
-final _complexSize:stdgo.GoUInt64 = ((50i64 : stdgo.StdGoTypes.GoUInt64))
+final _complexSize:stdgo.GoUInt64 = ((50i64 : stdgo.GoUInt64))
 ```
 
 

@@ -138,7 +138,7 @@ function update() {
 		trace("COMPLETE");
 		close();
 	}
-	if (timeout++ > (10 * 60) * 24) {
+	if (timeout++ > (10 * 60) * 6) {
 		trace("TIMEOUT");
 		trace("tests.length:",tests.length);
 		trace("tasks.length:",tasks.length);
@@ -172,9 +172,6 @@ function update() {
 		var timeoutTimer = new haxe.Timer((1000 * 60) * 4);
 		timeoutTimer.run = () -> {
 			runningCount--;
-			lastTaskLogs.remove(taskString);
-			timeout = 0;
-			timeoutTimer.stop();
 			trace("TEST TIMEOUT: " + task.command + " " + task.args);
 			if (task.runtime) {
 				suite.runtimeError(task);
@@ -200,9 +197,9 @@ function update() {
 		});
 		ls.on('close', function(code) {
 			timeout = 0;
+			timeoutTimer.stop();
 			lastTaskLogs.remove(taskString);
 			completeBool = true;
-			timeoutTimer.stop();
 			runningCount--;
 			if (code == 0) {
 				if (task.runtime) {

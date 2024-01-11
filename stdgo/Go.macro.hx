@@ -580,16 +580,10 @@ class Go {
 					if (p.name == "Ref" && p.pack.length == 1 && p.pack[0] == "stdgo") {
 						switch p.params[0] {
 							case TPType(TPath(p)):
-								if (p.pack.length == 1 && p.pack[0] == "stdgo") {
-									if (p.name == "GoString") {
+								switch p.name {
+									case "GoString", "GoInt", "GoInt8", "GoInt16", "GoInt32", "GoInt64", "GoUInt", "GoUInt8", "GoUInt16", "GoUInt32", "GoUInt64", "GoFloat32", "GoFloat64", "GoComplex64", "GoComplex128", "GoByte", "GoRune":
 										return macro stdgo.Go.pointer($expr);
-									}else if (p.name == "StdGoTypes") {
-										switch p.sub {
-											case "GoInt", "GoInt8", "GoInt16", "GoInt32", "GoInt64", "GoUInt", "GoUInt8", "GoUInt16", "GoUInt32", "GoUInt64", "GoFloat32", "GoFloat64", "GoComplex64", "GoComplex128", "GoByte", "GoRune":
-												return macro stdgo.Go.pointer($expr);
-											default:
-										}
-									}
+									default:
 								}
 							default:
 						}

@@ -95,33 +95,9 @@ class GoArrayData<T> {
 			return slice;
 		}
 		// grow capacity
-		final newLen = slice.length;
-		final oldCap = slice.capacity;
-		var newcap = oldCap;
-		final doublecap = newcap + newcap;
-		if (newLen > doublecap) {
-			newcap = newLen;
-		} else {
-			final threshold = 256;
-			if (oldCap < threshold) {
-				newcap = doublecap;
-			} else {
-				// Check 0 < newcap to detect overflow
-				// and prevent an infinite loop.
-				while (0 < newcap && newcap < newLen) {
-					// Transition from growing 2x for small slices
-					// to growing 1.25x for large slices. This formula
-					// gives a smooth-ish transition between the two.
-					newcap += Math.ceil((newcap + 3*threshold) / 4);
-				}
-				// Set newcap to the requested cap when
-				// the newcap calculation overflowed.
-				if (newcap <= 0) {
-					newcap = newLen;
-				}
-			}
-		}
-		slice.capacity = newcap;
+		slice.capacity += growCapacity;
+		// grow by 50%
+		slice.capacity += slice.capacity >> 2;
 		slice.grow(); // allocation
 		slice.length += args.length;
 		if (slice.bytes != null) {

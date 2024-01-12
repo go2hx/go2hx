@@ -314,7 +314,7 @@ function main():Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L38>)
+[\(view code\)](<./Errors.hx#L39>)
 
 
 # Classes

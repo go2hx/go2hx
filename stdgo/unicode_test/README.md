@@ -738,7 +738,7 @@ function main():Void
 ```
 
 
-[\(view code\)](<./Unicode.hx#L73>)
+[\(view code\)](<./Unicode.hx#L74>)
 
 
 # Classes

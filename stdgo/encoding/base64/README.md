@@ -358,7 +358,7 @@ function benchmarkDecodeString(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1350>)
+[\(view code\)](<./Base64.hx#L1348>)
 
 
 ## function benchmarkEncodeToString
@@ -369,7 +369,7 @@ function benchmarkEncodeToString(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1340>)
+[\(view code\)](<./Base64.hx#L1338>)
 
 
 ## function benchmarkNewEncoding
@@ -380,7 +380,7 @@ function benchmarkNewEncoding(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1369>)
+[\(view code\)](<./Base64.hx#L1367>)
 
 
 ## function newDecoder
@@ -463,7 +463,7 @@ function testBig(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1175>)
+[\(view code\)](<./Base64.hx#L1173>)
 
 
 ## function testDecode
@@ -474,7 +474,7 @@ function testDecode(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L983>)
+[\(view code\)](<./Base64.hx#L981>)
 
 
 ## function testDecodeBounds
@@ -485,7 +485,7 @@ function testDecodeBounds(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1097>)
+[\(view code\)](<./Base64.hx#L1095>)
 
 
 ## function testDecodeCorrupt
@@ -496,7 +496,7 @@ function testDecodeCorrupt(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1048>)
+[\(view code\)](<./Base64.hx#L1046>)
 
 
 ## function testDecodedLen
@@ -507,7 +507,7 @@ function testDecodedLen(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1165>)
+[\(view code\)](<./Base64.hx#L1163>)
 
 
 ## function testDecoder
@@ -518,7 +518,7 @@ function testDecoder(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1002>)
+[\(view code\)](<./Base64.hx#L1000>)
 
 
 ## function testDecoderBuffering
@@ -529,7 +529,7 @@ function testDecoderBuffering(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1021>)
+[\(view code\)](<./Base64.hx#L1019>)
 
 
 ## function testDecoderIssue15656
@@ -540,7 +540,7 @@ function testDecoderIssue15656(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1319>)
+[\(view code\)](<./Base64.hx#L1317>)
 
 
 ## function testDecoderIssue3577
@@ -554,7 +554,7 @@ function testDecoderIssue3577(_t:stdgo.Ref<stdgo.testing.T_>):Void
 
 tests that we don't ignore errors from our underlying reader  
 
-[\(view code\)](<./Base64.hx#L1245>)
+[\(view code\)](<./Base64.hx#L1243>)
 
 
 ## function testDecoderIssue4779
@@ -565,7 +565,7 @@ function testDecoderIssue4779(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1287>)
+[\(view code\)](<./Base64.hx#L1285>)
 
 
 ## function testDecoderIssue7733
@@ -576,7 +576,7 @@ function testDecoderIssue7733(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1309>)
+[\(view code\)](<./Base64.hx#L1307>)
 
 
 ## function testDecoderRaw
@@ -587,7 +587,7 @@ function testDecoderRaw(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1381>)
+[\(view code\)](<./Base64.hx#L1379>)
 
 
 ## function testEncode
@@ -598,7 +598,7 @@ function testEncode(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L941>)
+[\(view code\)](<./Base64.hx#L939>)
 
 
 ## function testEncodedLen
@@ -609,7 +609,7 @@ function testEncodedLen(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1142>)
+[\(view code\)](<./Base64.hx#L1140>)
 
 
 ## function testEncoder
@@ -620,7 +620,7 @@ function testEncoder(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L949>)
+[\(view code\)](<./Base64.hx#L947>)
 
 
 ## function testEncoderBuffering
@@ -631,7 +631,7 @@ function testEncoderBuffering(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L958>)
+[\(view code\)](<./Base64.hx#L956>)
 
 
 ## function testNewLineCharacters
@@ -642,7 +642,7 @@ function testNewLineCharacters(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1212>)
+[\(view code\)](<./Base64.hx#L1210>)
 
 
 # Classes
@@ -713,7 +713,7 @@ source buffer si.
 It returns the number of bytes read from src, the number of bytes written
 to dst, and an error, if any.  
 
-[\(view code\)](<./Base64.hx#L1587>)
+[\(view code\)](<./Base64.hx#L1585>)
 
 
 ### Encoding function decode
@@ -734,7 +734,7 @@ written. If src contains invalid base64 data, it will return the
 number of bytes successfully written and CorruptInputError.
 New line characters \(\\r and \\n\) are ignored.  
 
-[\(view code\)](<./Base64.hx#L1500>)
+[\(view code\)](<./Base64.hx#L1498>)
 
 
 ### Encoding function decodeString
@@ -751,7 +751,7 @@ function decodeString( _s:stdgo.GoString):{
 
 DecodeString returns the bytes represented by the base64 string s.  
 
-[\(view code\)](<./Base64.hx#L1573>)
+[\(view code\)](<./Base64.hx#L1571>)
 
 
 ### Encoding function decodedLen
@@ -766,7 +766,7 @@ function decodedLen( _n:stdgo.GoInt):stdgo.GoInt
 DecodedLen returns the maximum length in bytes of the decoded data
 corresponding to n bytes of base64\-encoded data.  
 
-[\(view code\)](<./Base64.hx#L1485>)
+[\(view code\)](<./Base64.hx#L1483>)
 
 
 ### Encoding function encode
@@ -786,7 +786,7 @@ The encoding pads the output to a multiple of 4 bytes,
 so Encode is not appropriate for use on individual blocks
 of a large data stream. Use NewEncoder\(\) instead.  
 
-[\(view code\)](<./Base64.hx#L1728>)
+[\(view code\)](<./Base64.hx#L1726>)
 
 
 ### Encoding function encodeToString
@@ -800,7 +800,7 @@ function encodeToString( _src:stdgo.Slice<stdgo.GoByte>):stdgo.GoString
 
 EncodeToString returns the base64 encoding of src.  
 
-[\(view code\)](<./Base64.hx#L1713>)
+[\(view code\)](<./Base64.hx#L1711>)
 
 
 ### Encoding function encodedLen
@@ -815,7 +815,7 @@ function encodedLen( _n:stdgo.GoInt):stdgo.GoInt
 EncodedLen returns the length in bytes of the base64 encoding
 of an input buffer of length n.  
 
-[\(view code\)](<./Base64.hx#L1702>)
+[\(view code\)](<./Base64.hx#L1700>)
 
 
 ### Encoding function strict
@@ -835,7 +835,7 @@ trailing padding bits are zero, as described in RFC 4648 section 3.5.
 Note that the input is still malleable, as new line characters
 \(CR and LF\) are still ignored.  
 
-[\(view code\)](<./Base64.hx#L1779>)
+[\(view code\)](<./Base64.hx#L1777>)
 
 
 ### Encoding function withPadding
@@ -855,7 +855,7 @@ below '\\xff'.
 Padding characters above '\\x7f' are encoded as their exact byte value
 rather than using the UTF\-8 representation of the codepoint.  
 
-[\(view code\)](<./Base64.hx#L1794>)
+[\(view code\)](<./Base64.hx#L1792>)
 
 
 # Typedefs

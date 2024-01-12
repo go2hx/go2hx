@@ -2042,7 +2042,7 @@ function baseError(:stdgo.GoString, :stdgo.GoString, :stdgo.GoInt):stdgo.Ref<std
 ```
 
 
-[\(view code\)](<./Strconv.hx#L990>)
+[\(view code\)](<./Strconv.hx#L2204>)
 
 
 ## function bitSizeError
@@ -2053,7 +2053,7 @@ function bitSizeError(:stdgo.GoString, :stdgo.GoString, :stdgo.GoInt):stdgo.Ref<
 ```
 
 
-[\(view code\)](<./Strconv.hx#L984>)
+[\(view code\)](<./Strconv.hx#L2198>)
 
 
 ## function canBackquote

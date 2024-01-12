@@ -225,7 +225,7 @@ function main():Void
 ```
 
 
-[\(view code\)](<./Fmtsort.hx#L27>)
+[\(view code\)](<./Fmtsort.hx#L28>)
 
 
 # Typedefs

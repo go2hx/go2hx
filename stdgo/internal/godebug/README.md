@@ -143,7 +143,7 @@ function _lookup(_name:stdgo.GoString):stdgo.Ref<stdgo.internal.godebug.T_settin
 
 lookup returns the unique \*setting value for the given name.  
 
-[\(view code\)](<./Godebug.hx#L151>)
+[\(view code\)](<./Godebug.hx#L152>)
 
 
 ## function \_newIncNonDefault
@@ -154,7 +154,7 @@ function _newIncNonDefault(_name:stdgo.GoString):():Void
 ```
 
 
-[\(view code\)](<./Godebug.hx#L185>)
+[\(view code\)](<./Godebug.hx#L186>)
 
 
 ## function \_parse
@@ -175,7 +175,7 @@ Each value v can also have the form v\#pattern,
 in which case the GODEBUG is only enabled for call stacks
 matching pattern, for use with golang.org/x/tools/cmd/bisect.  
 
-[\(view code\)](<./Godebug.hx#L202>)
+[\(view code\)](<./Godebug.hx#L203>)
 
 
 ## function \_registerMetric
@@ -193,7 +193,7 @@ It forwards registrations to runtime/metrics.
 ```
 go:linkname registerMetric
 ```
-[\(view code\)](<./Godebug.hx#L169>)
+[\(view code\)](<./Godebug.hx#L170>)
 
 
 ## function \_setNewIncNonDefault
@@ -223,7 +223,7 @@ since it cannot import godebug.
 ```
 go:linkname setNewIncNonDefault
 ```
-[\(view code\)](<./Godebug.hx#L184>)
+[\(view code\)](<./Godebug.hx#L185>)
 
 
 ## function \_setUpdate
@@ -245,7 +245,7 @@ again each time the environment variable changes
 ```
 go:linkname setUpdate
 ```
-[\(view code\)](<./Godebug.hx#L162>)
+[\(view code\)](<./Godebug.hx#L163>)
 
 
 ## function \_update
@@ -261,7 +261,7 @@ update records an updated GODEBUG setting.
 def is the default GODEBUG setting for the running binary,
 and env is the current value of the $GODEBUG environment variable.  
 
-[\(view code\)](<./Godebug.hx#L191>)
+[\(view code\)](<./Godebug.hx#L192>)
 
 
 ## function \_write
@@ -279,7 +279,7 @@ to print to standard error.
 ```
 go:linkname write runtime.write
 ```
-[\(view code\)](<./Godebug.hx#L209>)
+[\(view code\)](<./Godebug.hx#L210>)
 
 
 ## function new\_
@@ -302,7 +302,7 @@ To disable that panic for access to an undocumented setting,
 prefix the name with a \#, as in godebug.New\("\#gofsystrace"\).
 The \# is a signal to New but not part of the key used in $GODEBUG.  
 
-[\(view code\)](<./Godebug.hx#L147>)
+[\(view code\)](<./Godebug.hx#L148>)
 
 
 # Classes
@@ -342,7 +342,7 @@ function new(?_name:stdgo.GoString, ?_once:stdgo.sync.Once, ?_setting:stdgo.Ref<
 ```
 
 
-[\(view code\)](<./Godebug.hx#L76>)
+[\(view code\)](<./Godebug.hx#L77>)
 
 
 ### Setting function \_register
@@ -353,7 +353,7 @@ function _register():Void
 ```
 
 
-[\(view code\)](<./Godebug.hx#L270>)
+[\(view code\)](<./Godebug.hx#L271>)
 
 
 ### Setting function incNonDefault
@@ -373,7 +373,7 @@ This counter is exposed in the runtime/metrics value
 
 Note that Value must be called at least once before IncNonDefault.  
 
-[\(view code\)](<./Godebug.hx#L280>)
+[\(view code\)](<./Godebug.hx#L281>)
 
 
 ### Setting function name
@@ -387,7 +387,7 @@ function name():stdgo.GoString
 
 Name returns the name of the setting.  
 
-[\(view code\)](<./Godebug.hx#L295>)
+[\(view code\)](<./Godebug.hx#L296>)
 
 
 ### Setting function string
@@ -401,7 +401,7 @@ function string():stdgo.GoString
 
 String returns a printable form for the setting: name=value.  
 
-[\(view code\)](<./Godebug.hx#L285>)
+[\(view code\)](<./Godebug.hx#L286>)
 
 
 ### Setting function undocumented
@@ -415,7 +415,7 @@ function undocumented():Bool
 
 Undocumented reports whether this is an undocumented setting.  
 
-[\(view code\)](<./Godebug.hx#L290>)
+[\(view code\)](<./Godebug.hx#L291>)
 
 
 ### Setting function value
@@ -436,6 +436,6 @@ making Value efficient to call as frequently as needed.
 Clients should therefore typically not attempt their own
 caching of Value's result.  
 
-[\(view code\)](<./Godebug.hx#L268>)
+[\(view code\)](<./Godebug.hx#L269>)
 
 

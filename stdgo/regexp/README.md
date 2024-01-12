@@ -2805,7 +2805,7 @@ function _backtrack( _ib:stdgo.Slice<stdgo.GoByte>, _is:stdgo.GoString, _pos:std
 
 backtrack runs a backtracking search of prog on the input starting at pos.  
 
-[\(view code\)](<./Regexp.hx#L6120>)
+[\(view code\)](<./Regexp.hx#L6119>)
 
 
 ### Regexp function \_doExecute
@@ -2837,7 +2837,7 @@ function _doMatch( _r:stdgo.io.RuneReader, _b:stdgo.Slice<stdgo.GoByte>, _s:stdg
 
 doMatch reports whether either r, b or s match the regexp.  
 
-[\(view code\)](<./Regexp.hx#L5976>)
+[\(view code\)](<./Regexp.hx#L5975>)
 
 
 ### Regexp function \_doOnePass
@@ -2851,7 +2851,7 @@ function _doOnePass( _ir:stdgo.io.RuneReader, _ib:stdgo.Slice<stdgo.GoByte>, _is
 
 doOnePass implements r.doExecute using the one\-pass execution engine.  
 
-[\(view code\)](<./Regexp.hx#L5984>)
+[\(view code\)](<./Regexp.hx#L5983>)
 
 
 ### Regexp function \_expand
@@ -2935,7 +2935,7 @@ function _tryBacktrack( _b:stdgo.Ref<stdgo.regexp.T_bitState>, _i:stdgo.regexp.T
 
 tryBacktrack runs a backtracking search starting at pos.  
 
-[\(view code\)](<./Regexp.hx#L6177>)
+[\(view code\)](<./Regexp.hx#L6175>)
 
 
 ### Regexp function copy

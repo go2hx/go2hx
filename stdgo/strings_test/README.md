@@ -923,7 +923,7 @@ function _makeFieldsInput():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Strings.hx#L809>)
+[\(view code\)](<./Strings.hx#L785>)
 
 
 ## function \_makeFieldsInputASCII
@@ -934,7 +934,7 @@ function _makeFieldsInputASCII():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Strings.hx#L850>)
+[\(view code\)](<./Strings.hx#L826>)
 
 
 ## function \_not
@@ -3087,7 +3087,7 @@ function main():Void
 ```
 
 
-[\(view code\)](<./Strings.hx#L215>)
+[\(view code\)](<./Strings.hx#L216>)
 
 
 # Classes

@@ -394,7 +394,7 @@ The carryOut output is guaranteed to be 0 or 1.
 
 This function's execution time does not depend on the inputs.  
 
-[\(view code\)](<./Bits.hx#L4407>)
+[\(view code\)](<./Bits.hx#L4408>)
 
 
 ## function add32
@@ -452,7 +452,7 @@ function exampleAdd32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L4423>)
+[\(view code\)](<./Bits.hx#L4424>)
 
 
 ## function add64
@@ -510,7 +510,7 @@ function exampleAdd64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L4437>)
+[\(view code\)](<./Bits.hx#L4438>)
 
 
 ## function div
@@ -530,7 +530,7 @@ quo = \(hi, lo\)/y, rem = \(hi, lo\)%y with the dividend bits' upper
 half in parameter hi and the lower half in parameter lo.
 Div panics for y == 0 \(division by zero\) or y \<= hi \(quotient overflow\).  
 
-[\(view code\)](<./Bits.hx#L4548>)
+[\(view code\)](<./Bits.hx#L4549>)
 
 
 ## function div32
@@ -581,7 +581,7 @@ function exampleDiv32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L4563>)
+[\(view code\)](<./Bits.hx#L4564>)
 
 
 ## function div64
@@ -632,7 +632,7 @@ function exampleDiv64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L4583>)
+[\(view code\)](<./Bits.hx#L4584>)
 
 
 ## function leadingZeros
@@ -646,7 +646,7 @@ function leadingZeros(_x:stdgo.GoUInt):stdgo.GoInt
 
 LeadingZeros returns the number of leading zero bits in x; the result is UintSize for x == 0.  
 
-[\(view code\)](<./Bits.hx#L1047>)
+[\(view code\)](<./Bits.hx#L1048>)
 
 
 ## function leadingZeros16
@@ -678,7 +678,7 @@ function exampleLeadingZeros16():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L1059>)
+[\(view code\)](<./Bits.hx#L1060>)
 
 
 ## function leadingZeros32
@@ -710,7 +710,7 @@ function exampleLeadingZeros32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L1065>)
+[\(view code\)](<./Bits.hx#L1066>)
 
 
 ## function leadingZeros64
@@ -742,7 +742,7 @@ function exampleLeadingZeros64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L1071>)
+[\(view code\)](<./Bits.hx#L1072>)
 
 
 ## function leadingZeros8
@@ -774,7 +774,7 @@ function exampleLeadingZeros8():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L1053>)
+[\(view code\)](<./Bits.hx#L1054>)
 
 
 ## function len
@@ -788,7 +788,7 @@ function len(_x:stdgo.GoUInt):stdgo.GoInt
 
 Len returns the minimum number of bits required to represent x; the result is 0 for x == 0.  
 
-[\(view code\)](<./Bits.hx#L4087>)
+[\(view code\)](<./Bits.hx#L4088>)
 
 
 ## function len16
@@ -820,7 +820,7 @@ function exampleLen16():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L4166>)
+[\(view code\)](<./Bits.hx#L4167>)
 
 
 ## function len32
@@ -852,7 +852,7 @@ function exampleLen32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L4241>)
+[\(view code\)](<./Bits.hx#L4242>)
 
 
 ## function len64
@@ -884,7 +884,7 @@ function exampleLen64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L4320>)
+[\(view code\)](<./Bits.hx#L4321>)
 
 
 ## function len8
@@ -916,7 +916,7 @@ function exampleLen8():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L4096>)
+[\(view code\)](<./Bits.hx#L4097>)
 
 
 ## function mul
@@ -938,7 +938,7 @@ half returned in lo.
 
 This function's execution time does not depend on the inputs.  
 
-[\(view code\)](<./Bits.hx#L4492>)
+[\(view code\)](<./Bits.hx#L4493>)
 
 
 ## function mul32
@@ -991,7 +991,7 @@ function exampleMul32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L4508>)
+[\(view code\)](<./Bits.hx#L4509>)
 
 
 ## function mul64
@@ -1044,7 +1044,7 @@ function exampleMul64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L4526>)
+[\(view code\)](<./Bits.hx#L4527>)
 
 
 ## function onesCount
@@ -1076,7 +1076,7 @@ function exampleOnesCount():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L1374>)
+[\(view code\)](<./Bits.hx#L1375>)
 
 
 ## function onesCount16
@@ -1108,7 +1108,7 @@ function exampleOnesCount16():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L1642>)
+[\(view code\)](<./Bits.hx#L1643>)
 
 
 ## function onesCount32
@@ -1140,7 +1140,7 @@ function exampleOnesCount32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L2154>)
+[\(view code\)](<./Bits.hx#L2155>)
 
 
 ## function onesCount64
@@ -1172,7 +1172,7 @@ function exampleOnesCount64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L3172>)
+[\(view code\)](<./Bits.hx#L3173>)
 
 
 ## function onesCount8
@@ -1204,7 +1204,7 @@ function exampleOnesCount8():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L1383>)
+[\(view code\)](<./Bits.hx#L1384>)
 
 
 ## function rem
@@ -1220,7 +1220,7 @@ Rem returns the remainder of \(hi, lo\) divided by y. Rem panics for
 y == 0 \(division by zero\) but, unlike Div, it doesn't panic on a
 quotient overflow.  
 
-[\(view code\)](<./Bits.hx#L4629>)
+[\(view code\)](<./Bits.hx#L4630>)
 
 
 ## function rem32
@@ -1236,7 +1236,7 @@ Rem32 returns the remainder of \(hi, lo\) divided by y. Rem32 panics
 for y == 0 \(division by zero\) but, unlike Div32, it doesn't panic
 on a quotient overflow.  
 
-[\(view code\)](<./Bits.hx#L4640>)
+[\(view code\)](<./Bits.hx#L4641>)
 
 
 ## function rem64
@@ -1252,7 +1252,7 @@ Rem64 returns the remainder of \(hi, lo\) divided by y. Rem64 panics
 for y == 0 \(division by zero\) but, unlike Div64, it doesn't panic
 on a quotient overflow.  
 
-[\(view code\)](<./Bits.hx#L4648>)
+[\(view code\)](<./Bits.hx#L4649>)
 
 
 ## function reverse
@@ -1266,7 +1266,7 @@ function reverse(_x:stdgo.GoUInt):stdgo.GoUInt
 
 Reverse returns the value of x with its bits in reversed order.  
 
-[\(view code\)](<./Bits.hx#L3241>)
+[\(view code\)](<./Bits.hx#L3242>)
 
 
 ## function reverse16
@@ -1299,7 +1299,7 @@ function exampleReverse16():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L3511>)
+[\(view code\)](<./Bits.hx#L3512>)
 
 
 ## function reverse32
@@ -1332,7 +1332,7 @@ function exampleReverse32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L4027>)
+[\(view code\)](<./Bits.hx#L4028>)
 
 
 ## function reverse64
@@ -1365,7 +1365,7 @@ function exampleReverse64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L4037>)
+[\(view code\)](<./Bits.hx#L4038>)
 
 
 ## function reverse8
@@ -1398,7 +1398,7 @@ function exampleReverse8():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L3250>)
+[\(view code\)](<./Bits.hx#L3251>)
 
 
 ## function reverseBytes
@@ -1415,7 +1415,7 @@ ReverseBytes returns the value of x with its bytes in reversed order.
 
 This function's execution time does not depend on the inputs.  
 
-[\(view code\)](<./Bits.hx#L4049>)
+[\(view code\)](<./Bits.hx#L4050>)
 
 
 ## function reverseBytes16
@@ -1451,7 +1451,7 @@ function exampleReverseBytes16():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L4060>)
+[\(view code\)](<./Bits.hx#L4061>)
 
 
 ## function reverseBytes32
@@ -1487,7 +1487,7 @@ function exampleReverseBytes32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L4068>)
+[\(view code\)](<./Bits.hx#L4069>)
 
 
 ## function reverseBytes64
@@ -1523,7 +1523,7 @@ function exampleReverseBytes64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L4078>)
+[\(view code\)](<./Bits.hx#L4079>)
 
 
 ## function rotateLeft
@@ -1541,7 +1541,7 @@ To rotate x right by k bits, call RotateLeft\(x, \-k\).
 
 This function's execution time does not depend on the inputs.  
 
-[\(view code\)](<./Bits.hx#L3188>)
+[\(view code\)](<./Bits.hx#L3189>)
 
 
 ## function rotateLeft16
@@ -1579,7 +1579,7 @@ function exampleRotateLeft16():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L3211>)
+[\(view code\)](<./Bits.hx#L3212>)
 
 
 ## function rotateLeft32
@@ -1617,7 +1617,7 @@ function exampleRotateLeft32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L3222>)
+[\(view code\)](<./Bits.hx#L3223>)
 
 
 ## function rotateLeft64
@@ -1655,7 +1655,7 @@ function exampleRotateLeft64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L3233>)
+[\(view code\)](<./Bits.hx#L3234>)
 
 
 ## function rotateLeft8
@@ -1693,7 +1693,7 @@ function exampleRotateLeft8():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L3200>)
+[\(view code\)](<./Bits.hx#L3201>)
 
 
 ## function sub
@@ -1715,7 +1715,7 @@ The borrowOut output is guaranteed to be 0 or 1.
 
 This function's execution time does not depend on the inputs.  
 
-[\(view code\)](<./Bits.hx#L4450>)
+[\(view code\)](<./Bits.hx#L4451>)
 
 
 ## function sub32
@@ -1773,7 +1773,7 @@ function exampleSub32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L4466>)
+[\(view code\)](<./Bits.hx#L4467>)
 
 
 ## function sub64
@@ -1831,7 +1831,7 @@ function exampleSub64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L4479>)
+[\(view code\)](<./Bits.hx#L4480>)
 
 
 ## function trailingZeros
@@ -1845,7 +1845,7 @@ function trailingZeros(_x:stdgo.GoUInt):stdgo.GoInt
 
 TrailingZeros returns the number of trailing zero bits in x; the result is UintSize for x == 0.  
 
-[\(view code\)](<./Bits.hx#L1077>)
+[\(view code\)](<./Bits.hx#L1078>)
 
 
 ## function trailingZeros16
@@ -1877,7 +1877,7 @@ function exampleTrailingZeros16():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L1347>)
+[\(view code\)](<./Bits.hx#L1348>)
 
 
 ## function trailingZeros32
@@ -1909,7 +1909,7 @@ function exampleTrailingZeros32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L1356>)
+[\(view code\)](<./Bits.hx#L1357>)
 
 
 ## function trailingZeros64
@@ -1941,7 +1941,7 @@ function exampleTrailingZeros64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L1365>)
+[\(view code\)](<./Bits.hx#L1366>)
 
 
 ## function trailingZeros8
@@ -1973,6 +1973,6 @@ function exampleTrailingZeros8():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L1086>)
+[\(view code\)](<./Bits.hx#L1087>)
 
 

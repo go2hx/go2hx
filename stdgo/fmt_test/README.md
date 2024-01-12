@@ -2219,7 +2219,7 @@ function main():Void
 ```
 
 
-[\(view code\)](<./Fmt.hx#L126>)
+[\(view code\)](<./Fmt.hx#L127>)
 
 
 # Classes

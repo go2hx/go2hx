@@ -297,7 +297,7 @@ function main():Void
 ```
 
 
-[\(view code\)](<./Utf16.hx#L27>)
+[\(view code\)](<./Utf16.hx#L28>)
 
 
 # Typedefs

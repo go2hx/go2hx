@@ -189,7 +189,7 @@ function benchmarkDecode(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1508>)
+[\(view code\)](<./Hex.hx#L1507>)
 
 
 ## function benchmarkDump
@@ -200,7 +200,7 @@ function benchmarkDump(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1523>)
+[\(view code\)](<./Hex.hx#L1522>)
 
 
 ## function benchmarkEncode
@@ -211,7 +211,7 @@ function benchmarkEncode(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1493>)
+[\(view code\)](<./Hex.hx#L1492>)
 
 
 ## function decode
@@ -586,7 +586,7 @@ function testDecoderErr(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1421>)
+[\(view code\)](<./Hex.hx#L1420>)
 
 
 ## function testDump
@@ -597,7 +597,7 @@ function testDump(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1483>)
+[\(view code\)](<./Hex.hx#L1482>)
 
 
 ## function testDumper
@@ -608,7 +608,7 @@ function testDumper(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1434>)
+[\(view code\)](<./Hex.hx#L1433>)
 
 
 ## function testDumper\_doubleclose
@@ -619,7 +619,7 @@ function testDumper_doubleclose(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1460>)
+[\(view code\)](<./Hex.hx#L1459>)
 
 
 ## function testDumper\_earlyclose
@@ -630,7 +630,7 @@ function testDumper_earlyclose(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1473>)
+[\(view code\)](<./Hex.hx#L1472>)
 
 
 ## function testEncode

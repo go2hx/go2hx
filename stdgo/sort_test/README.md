@@ -1251,7 +1251,7 @@ function main():Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L95>)
+[\(view code\)](<./Sort.hx#L96>)
 
 
 # Classes

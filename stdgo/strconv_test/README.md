@@ -2070,7 +2070,7 @@ function main():Void
 ```
 
 
-[\(view code\)](<./Strconv.hx#L148>)
+[\(view code\)](<./Strconv.hx#L149>)
 
 
 # Typedefs

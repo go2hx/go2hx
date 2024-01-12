@@ -559,7 +559,7 @@ function acceptFunc()
 
 AcceptFunc is used to hook the accept call.  
 
-[\(view code\)](<./Poll.hx#L192>)
+[\(view code\)](<./Poll.hx#L62>)
 
 
 ## function closeFunc
@@ -573,7 +573,7 @@ function closeFunc()
 
 CloseFunc is used to hook the close call.  
 
-[\(view code\)](<./Poll.hx#L186>)
+[\(view code\)](<./Poll.hx#L56>)
 
 
 ## function dupCloseOnExec

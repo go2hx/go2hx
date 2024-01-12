@@ -1508,7 +1508,7 @@ function isSpace()
 ```
 
 
-[\(view code\)](<./Fmt.hx#L388>)
+[\(view code\)](<./Fmt.hx#L435>)
 
 
 ## function parsenum
@@ -1523,7 +1523,7 @@ function parsenum(:stdgo.GoString, :stdgo.GoInt, :stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Fmt.hx#L394>)
+[\(view code\)](<./Fmt.hx#L441>)
 
 
 ## function print

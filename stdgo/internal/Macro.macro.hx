@@ -23,7 +23,8 @@ class Macro {
 					exprs.push(macro $v{name} => $e);
 				}
 				final e = macro $a{exprs};
-				final cl = macro class TypeInfoData {
+				final className = "TypeInfoData";
+				final cl = macro class T {
 					public var names:Map<String,Dynamic> = null;
 					public function new() {
 						try {
@@ -33,8 +34,47 @@ class Macro {
 						}
 					}
 				}
+				final hxbClassName = className + "_hxb_";
 				// trace("define cached macro GoType info");
-				Context.defineType(cl);
+				final p:TypePath = {name: hxbClassName, pack: []};
+				if (Context.definedValue("hxb") == "1") {
+					sys.io.File.saveContent('$hxbClassName.hx', new haxe.macro.Printer().printTypeDefinition(cl));
+					final cl2 = macro class T {
+						public function new() {
+							try {
+								names = new $p().names;
+							}catch(e) {
+								throw e.details();
+							}
+						}
+					}
+					cl.name = hxbClassName;
+					cl.fields[1] = cl2.fields[0];
+					trace(new haxe.macro.Printer().printTypeDefinition(cl));
+					Context.defineType(cl);
+				}else{
+					try {
+						Context.getType(hxbClassName);
+						final cl2 = macro class T {
+							public function new() {
+								try {
+									names = $e;
+									final moreNames = @:privateAccess new $p().names;
+									for (key => value in moreNames) {
+										names[key] = value;
+									}
+								}catch(e) {
+									throw e.details();
+								}
+							}
+						}
+						cl.fields[1] = cl2.fields[0];
+					}catch(_) {
+
+					}
+					cl.name = className + "_go2hx_";
+					Context.defineType(cl);
+				}
 			});
 	}
 

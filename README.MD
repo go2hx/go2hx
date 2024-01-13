@@ -2,7 +2,8 @@
 
 go2hx
 ==========
-*warning: experimental version.*
+> [!WARNING]  
+> experimental version, not able to convert most Go code correctly.
 
 Compile [Go](https://go.dev) to [Haxe](https://haxe.org).
 
@@ -21,22 +22,17 @@ Compile [Go](https://go.dev) to [Haxe](https://haxe.org).
 ```sh
 haxelib git go2hx https://github.com/go2hx/go2hx
 ```
-Create a main.go to find good small test programs look at [gobyexample](https://gobyexample.com/):
-```go
-package main
-func main() {
-    println("hello world")
-}
-```
-Run compiler:
+
+
+Run compiler on a file:
 ```sh
 haxelib run go2hx ./main.go
 ```
 
 
-## External libraries (3rd party) 
-**warning:** *most libraries will not work because of the limited supported of the standard libraries*
-
+Run compiler on a library:
+> [!CAUTION]
+> Almost all libs will not work yet, because of missing stdlib support.
 
 ```sh
 haxelib run go2hx golang.org/x/example/stringutil
@@ -49,11 +45,8 @@ haxelib run go2hx golang.org/x/example/stringutil
 A spiritual successor to Tardisgo written by [Elliott Stoneham](https://github.com/elliott5),
 A maintainer, mentor, and code contribuitor of this project. Elliott's wise counsel, solid engineering design, and effective programming is the core of this project and go2hx would not exist without him.
 
-## Good to know
-
-### npx prefix
-Commands in this documentation such as: ``haxe`` and ``haxelib`` may have ``npx`` as a prefix, that's because in those cases the command is using the local npm package lix to run Haxe, this is optional and if you would like to use non lix commands that's supported as well.
-
+> [!TIP]
+> Commands in this documentation such as: ``haxe`` and ``haxelib`` may have ``npx`` as a prefix, that's because in those cases the command is using the local npm package lix to run Haxe, this is optional and if you would like to use non lix commands that's supported as well.
 
 
 ## Setup from source
@@ -71,8 +64,8 @@ Now you can run the compiler, for example:
 npx haxelib run go2hx ./main.go 
 ```
 
-
-Look at [Run.hx](./Run.hx) to see how the building occurs.
+> [!NOTE]
+> Look at [Run.hx](./Run.hx) to see how the building occurs.
 
 ## Using the compiler development environment
 

@@ -1,6 +1,9 @@
 package stdgo.internal;
 class TypeInfo {
     public static var names:TypeInternalMap = std.Type.createInstance(std.Type.resolveClass('TypeInfoData_go2hx_'),[]).names;
+    /*public static var names:TypeInternalMap = try std.Type.createInstance(std.Type.resolveClass('TypeInfoData_go2hx_'),[]).names catch(_) {
+        null;
+    };*/
 
 }
 

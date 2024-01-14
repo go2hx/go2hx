@@ -34,8 +34,10 @@ abstract GoUInt8(UInt8) from UInt8 from Int to UInt8 {
 	@:to inline function toUInt32():GoUInt32
 		return clampUInt(this);
 
-	@:to inline function toUInt8():GoUInt8
+	@:to inline function toUInt8():GoUInt8 {
+		trace("here");
 		return clampUInt8(this);
+	}
 
 	@:to inline function toUInt16():GoUInt16
 		return clampUInt16(this);
@@ -93,8 +95,10 @@ abstract GoUInt8(UInt8) from UInt8 from Int to UInt8 {
 
 	@:op(A / B) private static function div(a:GoUInt8, b:GoUInt8):GoUInt8 {
 		if (b == 0) {
-			#if !macro
+			#if numberlinkerror
 			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+			#else
+			throw "divide by zero";
 			#end
 		}
 		return clamp(Std.int(a.toBasic() / b.toBasic()));

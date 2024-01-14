@@ -72,8 +72,10 @@ abstract GoUInt32(UInt) from UInt from Int to UInt to Int {
 
 	@:op(A / B) private static function div(a:GoUInt32, b:GoUInt32):GoUInt32 {
 		if (b == 0) {
-			#if !macro
+			#if numberlinkerror
 			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+			#else
+			throw "divide by zero";
 			#end
 		}
 		return Std.int(a.toBasic() / b.toBasic());

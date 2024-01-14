@@ -95,8 +95,10 @@ abstract GoInt16(Int16) from Int16 from Int to Int16 {
 
 	@:op(A / B) private static function div(a:GoInt16, b:GoInt16):GoInt16 {
 		if (b == 0) {
-			#if !macro
+			#if numberlinkerror
 			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+			#else
+			throw "divide by zero";
 			#end
 		}
 		return Std.int(a.toBasic() / b.toBasic());

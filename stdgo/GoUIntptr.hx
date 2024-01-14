@@ -8,7 +8,7 @@ abstract GoUIntptr(Dynamic) from Dynamic {
 	}
 
 	@:to
-	private function toError():Error
+	private function toError():Dynamic
 		return {error: () -> 'uintptr: $this', __underlying__: () -> null};
 
 	@:to

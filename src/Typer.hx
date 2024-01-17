@@ -6015,8 +6015,9 @@ final genericNames = params == null ? [] : [for (i in 0...params.length) params[
 		}
 		final func = toExpr(EFunction(FNamed("f", false), {
 			args: args.copy(),
-			expr: findGenericTypes(locals, block),
+			expr: block,
 		}));
+		final func = findGenericTypes(locals, func);
 		final funcArgs = args.map(arg -> {
 			final t = switch arg.type {
 				case TPath(p):

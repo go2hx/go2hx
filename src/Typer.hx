@@ -1134,20 +1134,10 @@ private function className(name:String, info:Info):String {
 		return info.global.renameClasses[name];
 	if (info.renameClasses.exists(name))
 		return info.renameClasses[name];
+
 	if (name == "bool")
 		return "Bool";
 
-	if (name == "any") {
-		return "stdgo.AnyInterface";
-	}
-	if (name == "AnyInterface")
-		return "T_AnyInterface";
-
-	if (name == "error") {
-		return "stdgo.Error";
-	}
-	if (name == "Error")
-		return "T_error";
 	if (!isTitle(name) || isInvalidTitle(name))
 		name = "T_" + name;
 
@@ -3113,19 +3103,10 @@ private function identType(expr:Ast.Ident, info:Info):ComplexType {
 				});
 			}
 		}
-		switch name {
-			case "Error", "Chan":
-				return TPath({
-					pack: ["stdgo"],
-					name: name,
-				});
-			case "AnyInterface":
-				return TPath({
-					pack: ["stdgo"],
-					name: name,
-				});
-			default:
-		}
+		final basicType = classToBasicTypePath(expr.name, info);
+		if (basicType != null)
+			return TPath(basicType);
+
 	}
 	if (StringTools.startsWith(name, "T__struct_") && expr.type != null) {
 		final type = hashTypeToExprType(expr.type, info);
@@ -3138,6 +3119,28 @@ private function identType(expr:Ast.Ident, info:Info):ComplexType {
 		name: name,
 		sub: null,
 	});
+}
+
+private function classToBasicTypePath(name:String, info:Info):TypePath {
+	return switch name {
+		case "error":
+			{
+				pack: ["stdgo"],
+				name: "Error",
+			};
+		case "chan":
+			{
+				pack: ["stdgo"],
+				name: "Chan",
+			};
+		case "any":
+			{
+				pack: ["stdgo"],
+				name: "AnyInterface",
+			};
+		default:
+			null;
+	}
 }
 
 private function selectorType(expr:Ast.SelectorExpr, info:Info):ComplexType {
@@ -4298,19 +4301,9 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 	var pkg = part.substr(0, split);
 	final clName = part.substr(split + 1);
 	var cl = className(clName, info);
-	switch cl {
-		case "Error", "Chan":
-			return {
-				name: cl,
-				pack: ["stdgo"],
-			};
-		case "AnyInterface":
-			return {
-				pack: ["stdgo"],
-				name: cl,
-			};
-		default:
-	}
+	final basicType = classToBasicTypePath(clName, info);
+	if (basicType != null)
+		return basicType;
 	path = path.substr(0, last) + pkg;
 	if (path == "command-line-arguments")
 		path = "";

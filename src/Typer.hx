@@ -1070,14 +1070,27 @@ private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
 }
 
 private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef { // for stmt
-	var key = stmt.key == null ? macro _ : typeExpr(stmt.key, info); // iterator int
 	var x = typeExpr(stmt.x, info);
 	var xType = typeof(stmt.x, info, false);
 	x = destructureExpr(x, xType).x;
-	var value = stmt.value == null ? macro _ : typeExpr(stmt.value, info); // value of x[key]
+	final assign = stmt.tok == ASSIGN;
+	var key = null;
+	var value = null;
+	if (!assign) {
+		if (stmt.key != null && stmt.key.id == "Ident") {
+			key = macro $i{nameIdent(stmt.key.name, false, true, info)};
+		}
+		if (stmt.value != null && stmt.value.id == "Ident") {
+			value = macro $i{nameIdent(stmt.value.name, false, true, info)};
+		}
+	}
+
+	if (key == null)
+		key = stmt.key == null ? macro _ : typeExpr(stmt.key, info); // iterator int
+	if (value == null)
+		value = stmt.value == null ? macro _ : typeExpr(stmt.value, info); // value of x[key]
 	var body = {expr: typeBlockStmt(stmt.body, info, false), pos: null};
-	var assign = false;
-	if (stmt.value == null && stmt.tok != ASSIGN) {
+	if (stmt.value == null && assign) {
 		switch xType {
 			case arrayType(_, _), sliceType(_):
 				return (macro for ($key in 0...$x.length.toBasic()) $body).expr;
@@ -1085,14 +1098,13 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef { // for s
 		}
 	}
 	// both key and value
-	if (stmt.tok == ASSIGN) { // non var
+	if (assign) { // non var
 		switch body.expr {
 			case EBlock(exprs):
 				if (stmt.key != null && (stmt.key.id != "Ident" || stmt.key.name != "_"))
 					exprs.unshift(macro $key = __key__);
 				if (stmt.value != null && (stmt.value.id != "Ident" || stmt.value.name != "_"))
 					exprs.unshift(macro $value = __value__);
-				assign = true;
 			default:
 		}
 	}
@@ -3076,7 +3088,7 @@ private function starType(expr:Ast.StarExpr, info:Info):ComplexType { // pointer
 
 private function identType(expr:Ast.Ident, info:Info):ComplexType {
 	var name = className(expr.name, info);
-	if (!info.renameClasses.exists(expr.name) && !info.global.renameClasses.exists(name)) {
+	if (!info.renameClasses.exists(expr.name) && !info.global.renameClasses.exists(name)) { 
 		if (name == "T_comparable") {
 			return TPath({
 				pack: ["stdgo"],
@@ -5626,6 +5638,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	}
 	final genericNames = params == null ? [] : [for (i in 0...params.length) params[i].name];
 	identifierNames = identifierNames.concat(genericNames);
+	final previousRenameClasses = info.global.renameClasses.copy();
 	for (name in identifierNames) {
 		info.global.renameClasses[name] = name;
 	}
@@ -5660,7 +5673,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		}
 		macro $block;
 	}
-	info.global.renameClasses = [];
+	info.global.renameClasses = previousRenameClasses;
 
 	final patch = Patch.list[patchName];
 	if (patch != null) {
@@ -5789,10 +5802,6 @@ final genericNames = params == null ? [] : [for (i in 0...params.length) params[
 		if (recvArg != null) {
 			args.unshift(recvArg);
 		}
-		var func = toExpr(EFunction(FNamed("f", false), {
-			args: args.copy(),
-			expr: block,
-		}));
 		final locals = args.map(arg -> arg.name);
 		function setGenericParam(t:TypeParamDecl):TypeParamDecl {
 			if (t == null)
@@ -6004,7 +6013,10 @@ final genericNames = params == null ? [] : [for (i in 0...params.length) params[
 					//haxe.macro.ExprTools.map(e, findGenericTypes);
 			}
 		}
-		func = findGenericTypes(locals, func);
+		final func = toExpr(EFunction(FNamed("f", false), {
+			args: args.copy(),
+			expr: findGenericTypes(locals, block),
+		}));
 		final funcArgs = args.map(arg -> {
 			final t = switch arg.type {
 				case TPath(p):
@@ -6071,8 +6083,9 @@ final genericNames = params == null ? [] : [for (i in 0...params.length) params[
 			default:
 		}
 		final nameArgs = [
-			for (arg in args)
-				macro $i{"$" + arg.name}
+			for (arg in args) {
+				macro $i{"$" + arg.name};
+			}
 		];
 		block = macro $b{
 			genericTypes.concat(nonGenericTypes).concat([
@@ -6746,7 +6759,7 @@ private function addAbstractToField(ct:ComplexType, wrapperType:TypePath):Field 
 
 private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	final name = className(spec.name.name, info);
-	info.renameClasses[spec.name.name] = name;
+	info.global.renameClasses[spec.name.name] = name;
 	//info.renameIdents[spec.name.name] = name + "_static_extension";
 	//info.classNames[spec.name.name] = name + "_static_extension";
 	var externBool = isTitle(spec.name.name);
@@ -6949,6 +6962,7 @@ private function makeStringLit(values:Array<{?s:String, ?code:Int}>):Expr {
 
 private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash:UInt = 0):TypeDefinition {
 	var name = className(spec.name.name, info);
+	info.global.renameClasses[spec.name.name] = name;
 	var externBool = isTitle(spec.name.name);
 	info.className = name;
 	var doc:String = getDocComment(spec, spec) + getSource(spec, info);
@@ -7824,6 +7838,7 @@ class Global {
 		var g = new Global();
 		g.initBlock = initBlock.copy();
 		g.noCommentsBool = noCommentsBool;
+		g.renameClasses = renameClasses;
 		g.path = path;
 		g.module = module;
 		g.filePath = filePath;

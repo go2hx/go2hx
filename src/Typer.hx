@@ -3103,7 +3103,7 @@ private function identType(expr:Ast.Ident, info:Info):ComplexType {
 				});
 			}
 		}
-		final basicType = classToBasicTypePath(expr.name, info);
+		final basicType = classToBuiltinTypePath(expr.name, info);
 		if (basicType != null)
 			return TPath(basicType);
 
@@ -3121,7 +3121,7 @@ private function identType(expr:Ast.Ident, info:Info):ComplexType {
 	});
 }
 
-private function classToBasicTypePath(name:String, info:Info):TypePath {
+private function classToBuiltinTypePath(name:String, info:Info):TypePath {
 	return switch name {
 		case "error":
 			{
@@ -4301,7 +4301,7 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 	var pkg = part.substr(0, split);
 	final clName = part.substr(split + 1);
 	var cl = className(clName, info);
-	final basicType = classToBasicTypePath(clName, info);
+	final basicType = classToBuiltinTypePath(clName, info);
 	if (basicType != null)
 		return basicType;
 	path = path.substr(0, last) + pkg;

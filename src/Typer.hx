@@ -1138,13 +1138,13 @@ private function className(name:String, info:Info):String {
 		return "Bool";
 
 	if (name == "any") {
-		return "AnyInterface";
+		return "stdgo.AnyInterface";
 	}
 	if (name == "AnyInterface")
 		return "T_AnyInterface";
 
 	if (name == "error") {
-		return "Error";
+		return "stdgo.Error";
 	}
 	if (name == "Error")
 		return "T_error";

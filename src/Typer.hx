@@ -7359,6 +7359,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						};
 					}
 				}
+
 			for (method in struct.methods.list) {
 				if (method.names.length == 0) {
 					final t = typeof(method.type, info, false);
@@ -7440,7 +7441,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 			final params = getParams(spec.params, info, true);
 			if (struct.incomplete) {
 				switch name {
-					case "T_error":
+					case "Error":
 						implicits.push(switch errorType() {
 							case TPath(p):
 								p;
@@ -7448,6 +7449,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 								throw "invalid";
 						});
 					default:
+						trace("struct incomplete: " + name);
 				}
 			}
 			return {

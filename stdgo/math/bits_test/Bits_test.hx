@@ -1327,9 +1327,9 @@ function testDivPanicOverflow(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
                             _t.error(stdgo.Go.toInterface(("Div should have panicked when y<=hi" : stdgo.GoString)));
                         } else {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.Error)) : stdgo.runtime.Runtime.Error), _1 : true };
                             } catch(_) {
-                                { _0 : (null : stdgo.runtime.Runtime.T_error), _1 : false };
+                                { _0 : (null : stdgo.runtime.Runtime.Error), _1 : false };
                             }, _e = __tmp__._0, _ok = __tmp__._1;
                             if (!_ok || (_e.error() != ("runtime error: integer overflow" : stdgo.GoString))) {
                                 _t.errorf(("Div expected panic: %q, got: %q " : stdgo.GoString), stdgo.Go.toInterface(("runtime error: integer overflow" : stdgo.GoString)), stdgo.Go.toInterface(_e.error()));
@@ -1377,9 +1377,9 @@ function testDiv32PanicOverflow(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
                             _t.error(stdgo.Go.toInterface(("Div32 should have panicked when y<=hi" : stdgo.GoString)));
                         } else {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.Error)) : stdgo.runtime.Runtime.Error), _1 : true };
                             } catch(_) {
-                                { _0 : (null : stdgo.runtime.Runtime.T_error), _1 : false };
+                                { _0 : (null : stdgo.runtime.Runtime.Error), _1 : false };
                             }, _e = __tmp__._0, _ok = __tmp__._1;
                             if (!_ok || (_e.error() != ("runtime error: integer overflow" : stdgo.GoString))) {
                                 _t.errorf(("Div32 expected panic: %q, got: %q " : stdgo.GoString), stdgo.Go.toInterface(("runtime error: integer overflow" : stdgo.GoString)), stdgo.Go.toInterface(_e.error()));
@@ -1427,9 +1427,9 @@ function testDiv64PanicOverflow(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
                             _t.error(stdgo.Go.toInterface(("Div64 should have panicked when y<=hi" : stdgo.GoString)));
                         } else {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.Error)) : stdgo.runtime.Runtime.Error), _1 : true };
                             } catch(_) {
-                                { _0 : (null : stdgo.runtime.Runtime.T_error), _1 : false };
+                                { _0 : (null : stdgo.runtime.Runtime.Error), _1 : false };
                             }, _e = __tmp__._0, _ok = __tmp__._1;
                             if (!_ok || (_e.error() != ("runtime error: integer overflow" : stdgo.GoString))) {
                                 _t.errorf(("Div64 expected panic: %q, got: %q " : stdgo.GoString), stdgo.Go.toInterface(("runtime error: integer overflow" : stdgo.GoString)), stdgo.Go.toInterface(_e.error()));
@@ -1477,9 +1477,9 @@ function testDivPanicZero(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
                             _t.error(stdgo.Go.toInterface(("Div should have panicked when y==0" : stdgo.GoString)));
                         } else {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.Error)) : stdgo.runtime.Runtime.Error), _1 : true };
                             } catch(_) {
-                                { _0 : (null : stdgo.runtime.Runtime.T_error), _1 : false };
+                                { _0 : (null : stdgo.runtime.Runtime.Error), _1 : false };
                             }, _e = __tmp__._0, _ok = __tmp__._1;
                             if (!_ok || (_e.error() != ("runtime error: integer divide by zero" : stdgo.GoString))) {
                                 _t.errorf(("Div expected panic: %q, got: %q " : stdgo.GoString), stdgo.Go.toInterface(("runtime error: integer divide by zero" : stdgo.GoString)), stdgo.Go.toInterface(_e.error()));
@@ -1527,9 +1527,9 @@ function testDiv32PanicZero(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
                             _t.error(stdgo.Go.toInterface(("Div32 should have panicked when y==0" : stdgo.GoString)));
                         } else {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.Error)) : stdgo.runtime.Runtime.Error), _1 : true };
                             } catch(_) {
-                                { _0 : (null : stdgo.runtime.Runtime.T_error), _1 : false };
+                                { _0 : (null : stdgo.runtime.Runtime.Error), _1 : false };
                             }, _e = __tmp__._0, _ok = __tmp__._1;
                             if (!_ok || (_e.error() != ("runtime error: integer divide by zero" : stdgo.GoString))) {
                                 _t.errorf(("Div32 expected panic: %q, got: %q " : stdgo.GoString), stdgo.Go.toInterface(("runtime error: integer divide by zero" : stdgo.GoString)), stdgo.Go.toInterface(_e.error()));
@@ -1577,9 +1577,9 @@ function testDiv64PanicZero(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
                             _t.error(stdgo.Go.toInterface(("Div64 should have panicked when y==0" : stdgo.GoString)));
                         } else {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_err : stdgo.runtime.Runtime.Error)) : stdgo.runtime.Runtime.Error), _1 : true };
                             } catch(_) {
-                                { _0 : (null : stdgo.runtime.Runtime.T_error), _1 : false };
+                                { _0 : (null : stdgo.runtime.Runtime.Error), _1 : false };
                             }, _e = __tmp__._0, _ok = __tmp__._1;
                             if (!_ok || (_e.error() != ("runtime error: integer divide by zero" : stdgo.GoString))) {
                                 _t.errorf(("Div64 expected panic: %q, got: %q " : stdgo.GoString), stdgo.Go.toInterface(("runtime error: integer divide by zero" : stdgo.GoString)), stdgo.Go.toInterface(_e.error()));

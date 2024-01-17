@@ -864,9 +864,9 @@ macro function _startIdx<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _haystack:ha
             } catch(_) {
                 final f = macro function f(__generic__0:$E, _haystack:stdgo.Slice<$E>, _needle:stdgo.Slice<$E>) {
                     var _p = (stdgo.Go.setRef(_needle[(0 : stdgo.GoInt)]) : stdgo.Ref<$E>);
-                    for (@:privateAccess stdgo.slices.Slices._i in 0 ... _haystack.length.toBasic()) {
-                        if (_p == ((stdgo.Go.setRef(_haystack[(@:privateAccess stdgo.slices.Slices._i : stdgo.GoInt)]) : stdgo.Ref<$E>))) {
-                            return @:privateAccess stdgo.slices.Slices._i;
+                    for (_i => _ in _haystack) {
+                        if (_p == ((stdgo.Go.setRef(_haystack[(_i : stdgo.GoInt)]) : stdgo.Ref<$E>))) {
+                            return _i;
                         };
                     };
                     throw stdgo.Go.toInterface(("needle not found" : stdgo.GoString));

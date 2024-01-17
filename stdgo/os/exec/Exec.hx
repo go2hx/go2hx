@@ -138,7 +138,7 @@ var _nonExistentPaths : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.
     
     
 **/
-@:structInit @:using(stdgo.os.exec.Exec.T_error_static_extension) class T_error {
+@:structInit @:using(stdgo.os.exec.Exec.Error_static_extension) class Error {
     /**
         // Name is the file name for which the error occurred.
     **/
@@ -153,7 +153,7 @@ var _nonExistentPaths : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_error(name, err);
+        return new Error(name, err);
     }
 }
 /**
@@ -637,7 +637,7 @@ function testLookPathNotFound(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void throw
     // The result may be an absolute path or a path relative to the current directory.
 **/
 function lookPath(_file:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } throw ":os.exec.lookPath is not yet implemented";
-class T_error_asInterface {
+class Error_asInterface {
     @:keep
     public dynamic function unwrap():stdgo.Error return __self__.value.unwrap();
     @:keep
@@ -647,14 +647,14 @@ class T_error_asInterface {
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<T_error>;
+    var __self__ : stdgo.Pointer<Error>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
-@:keep @:allow(stdgo.os.exec.Exec.T_error_asInterface) class T_error_static_extension {
+@:keep @:allow(stdgo.os.exec.Exec.Error_asInterface) class Error_static_extension {
     @:keep
-    static public function unwrap( _e:stdgo.Ref<T_error>):stdgo.Error throw "T_error:os.exec.unwrap is not yet implemented";
+    static public function unwrap( _e:stdgo.Ref<Error>):stdgo.Error throw "Error:os.exec.unwrap is not yet implemented";
     @:keep
-    static public function error( _e:stdgo.Ref<T_error>):stdgo.GoString throw "T_error:os.exec.error is not yet implemented";
+    static public function error( _e:stdgo.Ref<Error>):stdgo.GoString throw "Error:os.exec.error is not yet implemented";
 }
 class T_wrappedError_asInterface {
     @:keep

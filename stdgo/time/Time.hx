@@ -5891,7 +5891,7 @@ function loadLocationFromTZData(_name:stdgo.GoString, _data:stdgo.Slice<stdgo.Go
             return { _0 : null, _1 : _errBadData };
         };
         var _zones = new stdgo.Slice<stdgo.time.Time.T_zone>((_nzone : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_nzone : stdgo.GoInt).toBasic() > 0 ? (_nzone : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo.time.Time.T_zone)]);
-        for (_i in 0 ... _zones.length.toBasic()) {
+        for (_i => _ in _zones) {
             var _ok:Bool = false;
             var _n:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
             {
@@ -5938,7 +5938,7 @@ function loadLocationFromTZData(_name:stdgo.GoString, _data:stdgo.Slice<stdgo.Go
             };
         };
         var _tx = new stdgo.Slice<stdgo.time.Time.T_zoneTrans>((_n[(3 : stdgo.GoInt)] : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_n[(3 : stdgo.GoInt)] : stdgo.GoInt).toBasic() > 0 ? (_n[(3 : stdgo.GoInt)] : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo.time.Time.T_zoneTrans)]);
-        for (_i in 0 ... _tx.length.toBasic()) {
+        for (_i => _ in _tx) {
             var _n:stdgo.GoInt64 = (0 : stdgo.GoInt64);
             if (!_is64) {
                 {
@@ -5976,7 +5976,7 @@ function loadLocationFromTZData(_name:stdgo.GoString, _data:stdgo.Slice<stdgo.Go
         };
         var _l = (stdgo.Go.setRef(({ _name : _name?.__copy__(), _zone : _zones, _tx : _tx, _extend : _extend?.__copy__() } : stdgo.time.Time.Location)) : stdgo.Ref<stdgo.time.Time.Location>);
         var __tmp__ = _now(), _sec:stdgo.GoInt64 = __tmp__._0, __1:stdgo.GoInt32 = __tmp__._1, __2:stdgo.GoInt64 = __tmp__._2;
-        for (_i in 0 ... _tx.length.toBasic()) {
+        for (_i => _ in _tx) {
             if ((_tx[(_i : stdgo.GoInt)]._when <= _sec) && (((_i + (1 : stdgo.GoInt)) == (_tx.length)) || (_sec < _tx[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)]._when))) {
                 _l._cacheStart = _tx[(_i : stdgo.GoInt)]._when;
                 _l._cacheEnd = (9223372036854775807i64 : stdgo.GoInt64);
@@ -8215,7 +8215,7 @@ class Location_asInterface {
         @:recv var _l:stdgo.Ref<Location> = _l;
         var _offset:stdgo.GoInt = (0 : stdgo.GoInt), _ok:Bool = false;
         _l = _l._get();
-        for (_i in 0 ... _l._zone.length.toBasic()) {
+        for (_i => _ in _l._zone) {
             var _zone = (stdgo.Go.setRef(_l._zone[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo.time.Time.T_zone>);
             if (_zone._name == (_name)) {
                 var __tmp__ = _l._lookup(_unix - (_zone._offset : stdgo.GoInt64)), _nam:stdgo.GoString = __tmp__._0, _offset:stdgo.GoInt = __tmp__._1, __1:stdgo.GoInt64 = __tmp__._2, __2:stdgo.GoInt64 = __tmp__._3, __3:Bool = __tmp__._4;
@@ -8224,7 +8224,7 @@ class Location_asInterface {
                 };
             };
         };
-        for (_i in 0 ... _l._zone.length.toBasic()) {
+        for (_i => _ in _l._zone) {
             var _zone = (stdgo.Go.setRef(_l._zone[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo.time.Time.T_zone>);
             if (_zone._name == (_name)) {
                 return { _0 : _zone._offset, _1 : true };
@@ -8279,7 +8279,7 @@ class Location_asInterface {
                 });
             };
         };
-        for (_zi in 0 ... _l._zone.length.toBasic()) {
+        for (_zi => _ in _l._zone) {
             if (!_l._zone[(_zi : stdgo.GoInt)]._isDST) {
                 return _zi;
             };

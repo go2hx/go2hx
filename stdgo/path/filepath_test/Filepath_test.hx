@@ -1347,7 +1347,7 @@ function testNonWindowsGlobEscape(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
 function testClean(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _tests = _cleantests;
         if (false) {
-            for (_i in 0 ... _tests.length.toBasic()) {
+            for (_i => _ in _tests) {
                 _tests[(_i : stdgo.GoInt)]._result = stdgo.path.filepath.Filepath.fromSlash(_tests[(_i : stdgo.GoInt)]._result?.__copy__())?.__copy__();
             };
             _tests = (_tests.__append__(..._wincleantests.__toArray__()));
@@ -1971,7 +1971,7 @@ function testWalkSymlinkRoot(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
 function testBase(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _tests = _basetests;
         if (false) {
-            for (_i in 0 ... _tests.length.toBasic()) {
+            for (_i => _ in _tests) {
                 _tests[(_i : stdgo.GoInt)]._result = stdgo.path.filepath.Filepath.clean(_tests[(_i : stdgo.GoInt)]._result?.__copy__())?.__copy__();
             };
             _tests = (_tests.__append__(..._winbasetests.__toArray__()));
@@ -1988,7 +1988,7 @@ function testBase(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
 function testDir(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _tests = _dirtests;
         if (false) {
-            for (_i in 0 ... _tests.length.toBasic()) {
+            for (_i => _ in _tests) {
                 _tests[(_i : stdgo.GoInt)]._result = stdgo.path.filepath.Filepath.clean(_tests[(_i : stdgo.GoInt)]._result?.__copy__())?.__copy__();
             };
             _tests = (_tests.__append__(..._windirtests.__toArray__()));
@@ -2403,7 +2403,7 @@ function testAbsEmptyString(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
 function testRel(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _tests = ((new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.RelTests>(0, 0) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.RelTests>).__append__(..._reltests.__toArray__()));
         if (false) {
-            for (_i in 0 ... _tests.length.toBasic()) {
+            for (_i => _ in _tests) {
                 _tests[(_i : stdgo.GoInt)]._want = stdgo.path.filepath.Filepath.fromSlash(_tests[(_i : stdgo.GoInt)]._want?.__copy__())?.__copy__();
             };
             _tests = (_tests.__append__(..._winreltests.__toArray__()));

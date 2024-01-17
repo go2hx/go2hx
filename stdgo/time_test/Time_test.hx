@@ -3339,7 +3339,7 @@ function testAfterStress(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
 function _benchmark(_b:stdgo.Ref<stdgo.testing.Testing.B>, _bench:(_n:stdgo.GoInt) -> Void):Void {
         var _wg:stdgo.sync.Sync.WaitGroup = ({} : stdgo.sync.Sync.WaitGroup);
         var _garbageAll = new stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo.time.Time.Timer>>>((stdgo.runtime.Runtime.gomaxprocs((0 : stdgo.GoInt)) : stdgo.GoInt).toBasic(), 0);
-        for (_i in 0 ... _garbageAll.length.toBasic()) {
+        for (_i => _ in _garbageAll) {
             _wg.add((1 : stdgo.GoInt));
             stdgo.Go.routine(() -> {
                 var a = function(_i:stdgo.GoInt):Void {
@@ -3347,7 +3347,7 @@ function _benchmark(_b:stdgo.Ref<stdgo.testing.Testing.B>, _bench:(_n:stdgo.GoIn
                     try {
                         __deferstack__.unshift(() -> _wg.done());
                         var _garbage = new stdgo.Slice<stdgo.Ref<stdgo.time.Time.Timer>>((32768 : stdgo.GoInt).toBasic(), 0);
-                        for (_j in 0 ... _garbage.length.toBasic()) {
+                        for (_j => _ in _garbage) {
                             _garbage[(_j : stdgo.GoInt)] = afterFunc((3600000000000i64 : stdgo.time.Time.Duration), null);
                         };
                         _garbageAll[(_i : stdgo.GoInt)] = _garbage;
@@ -3629,12 +3629,12 @@ function _testAfterQueuing(_delta:Duration):stdgo.Error {
         };
         var _order:stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
         var _times:stdgo.Slice<Time> = (null : stdgo.Slice<stdgo.time.Time.Time>);
-        for (_ in 0 ... _slots.length.toBasic()) {
+        for (_ => _ in _slots) {
             var _r:stdgo.time_test.Time_test.T_afterResult = _result.__get__()?.__copy__();
             _order = (_order.__append__(_r._slot));
             _times = (_times.__append__(_r._t?.__copy__()));
         };
-        for (_i in 0 ... _order.length.toBasic()) {
+        for (_i => _ in _order) {
             if ((_i > (0 : stdgo.GoInt)) && (_order[(_i : stdgo.GoInt)] < _order[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)])) {
                 return stdgo.fmt.Fmt.errorf(("After calls returned out of order: %v" : stdgo.GoString), stdgo.Go.toInterface(_order));
             };

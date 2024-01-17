@@ -3341,7 +3341,7 @@ function formatComplex(_c:stdgo.GoComplex128, _fmt:stdgo.GoByte, _prec:stdgo.GoI
         return ("(" : stdgo.GoString) + formatFloat(_c.real, _fmt, _prec, _bitSize)?.__copy__() + _im?.__copy__() + ("i)" : stdgo.GoString)?.__copy__()?.__copy__();
     }
 function _digitZero(_dst:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt {
-        for (_i in 0 ... _dst.length.toBasic()) {
+        for (_i => _ in _dst) {
             _dst[(_i : stdgo.GoInt)] = (48 : stdgo.GoUInt8);
         };
         return (_dst.length);

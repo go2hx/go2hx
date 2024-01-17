@@ -830,7 +830,7 @@ class Reader_asInterface {
         var __tmp__ = _b._collectFragments(_delim), _full:stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>> = __tmp__._0, _frag:stdgo.Slice<stdgo.GoUInt8> = __tmp__._1, _n:stdgo.GoInt = __tmp__._2, _err:stdgo.Error = __tmp__._3;
         var _buf = new stdgo.Slice<stdgo.GoUInt8>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
         _n = (0 : stdgo.GoInt);
-        for (_i in 0 ... _full.length.toBasic()) {
+        for (_i => _ in _full) {
             _n = _n + (stdgo.Go.copySlice((_buf.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>), _full[(_i : stdgo.GoInt)]));
         };
         stdgo.Go.copySlice((_buf.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>), _frag);

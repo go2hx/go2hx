@@ -1432,7 +1432,7 @@ function testDecoderErr(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
     }
 function testDumper(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _in:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 40) (0 : stdgo.GoUInt8)]);
-        for (_i in 0 ... _in.length.toBasic()) {
+        for (_i => _ in _in) {
             _in[(_i : stdgo.GoInt)] = (_i + (30 : stdgo.GoInt) : stdgo.GoByte);
         };
         {
@@ -1481,7 +1481,7 @@ function testDumper_earlyclose(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
     }
 function testDump(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _in:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 40) (0 : stdgo.GoUInt8)]);
-        for (_i in 0 ... _in.length.toBasic()) {
+        for (_i => _ in _in) {
             _in[(_i : stdgo.GoInt)] = (_i + (30 : stdgo.GoInt) : stdgo.GoByte);
         };
         var _out = (dump((_in.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoByte>);
@@ -1934,7 +1934,7 @@ class T_dumper_asInterface {
         if (_h._closed) {
             return { _0 : (0 : stdgo.GoInt), _1 : stdgo.errors.Errors.new_(("encoding/hex: dumper closed" : stdgo.GoString)) };
         };
-        for (_i in 0 ... _data.length.toBasic()) {
+        for (_i => _ in _data) {
             if (_h._used == ((0 : stdgo.GoInt))) {
                 _h._buf[(0 : stdgo.GoInt)] = (_h._n >> (24i64 : stdgo.GoUInt64) : stdgo.GoByte);
                 _h._buf[(1 : stdgo.GoInt)] = (_h._n >> (16i64 : stdgo.GoUInt64) : stdgo.GoByte);

@@ -1515,10 +1515,10 @@ function testExtraFilesRace(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
                 };
                 _la.close();
                 _lb.close();
-                for (__44 => _f in _ca.extraFiles) {
+                for (__50 => _f in _ca.extraFiles) {
                     _f.close();
                 };
-                for (__51 => _f in _cb.extraFiles) {
+                for (__57 => _f in _cb.extraFiles) {
                     _f.close();
                 };
             });
@@ -2578,7 +2578,7 @@ class T_delayedInfiniteReader_asInterface {
     static public function read( _:T_delayedInfiniteReader, _b:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _:T_delayedInfiniteReader = _?.__copy__();
         stdgo.time.Time.sleep((100000000i64 : stdgo.time.Time.Duration));
-        for (_i in 0 ... _b.length.toBasic()) {
+        for (_i => _ in _b) {
             _b[(_i : stdgo.GoInt)] = (120 : stdgo.GoUInt8);
         };
         return { _0 : (_b.length), _1 : (null : stdgo.Error) };

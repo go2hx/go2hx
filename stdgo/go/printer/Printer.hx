@@ -2808,7 +2808,7 @@ class T_printer_asInterface {
     @:keep
     static public function _containsLinebreak( _p:stdgo.Ref<T_printer>):Bool {
         @:recv var _p:stdgo.Ref<T_printer> = _p;
-        for (__0 => _ch in _p._wsbuf) {
+        for (__8 => _ch in _p._wsbuf) {
             if ((_ch == (10 : stdgo.go.printer.Printer.T_whiteSpace)) || (_ch == (12 : stdgo.go.printer.Printer.T_whiteSpace))) {
                 return true;
             };
@@ -3208,7 +3208,7 @@ class T_printer_asInterface {
             };
             var _size:stdgo.GoInt = (0 : stdgo.GoInt);
             while (_p._commentBefore(_next?.__copy__())) {
-                for (__16 => _c in _p._commentInfo._comment.list) {
+                for (__24 => _c in _p._commentInfo._comment.list) {
                     _size = _size + ((_c.text.length));
                 };
                 _p._nextComment();
@@ -4891,7 +4891,7 @@ class T_printer_asInterface {
                 {
                     final __value__ = (_p._goBuild.length);
                     if (__value__ == ((0 : stdgo.GoInt))) {
-                        for (__160 => _pos in _p._plusBuild) {
+                        for (__168 => _pos in _p._plusBuild) {
                             var __tmp__ = stdgo.go.build.constraint.Constraint.parse(_p._commentTextAt(_pos)?.__copy__()), _y:stdgo.go.build.constraint.Constraint.Expr = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                             if (_err != null) {
                                 _x = (null : stdgo.go.build.constraint.Constraint.Expr);
@@ -4917,10 +4917,10 @@ class T_printer_asInterface {
         };
         var _block:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
         if (_x == null) {
-            for (__193 => _pos in _p._goBuild) {
+            for (__201 => _pos in _p._goBuild) {
                 _block = (_block.__append__(..._p._lineAt(_pos).__toArray__()));
             };
-            for (__210 => _pos in _p._plusBuild) {
+            for (__218 => _pos in _p._plusBuild) {
                 _block = (_block.__append__(..._p._lineAt(_pos).__toArray__()));
             };
         } else {

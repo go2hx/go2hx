@@ -1130,7 +1130,7 @@ function testReverseSortIntSlice(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
     }
 function testBreakPatterns(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _data = new stdgo.Slice<stdgo.GoInt>((30 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        for (_i in 0 ... _data.length.toBasic()) {
+        for (_i => _ in _data) {
             _data[(_i : stdgo.GoInt)] = (10 : stdgo.GoInt);
         };
         _data[((_data.length / (4 : stdgo.GoInt)) * (1 : stdgo.GoInt) : stdgo.GoInt)] = (0 : stdgo.GoInt);
@@ -1207,7 +1207,7 @@ function testNonDeterministicComparison(_t:stdgo.Ref<stdgo.testing.Testing.T_>):
 function benchmarkSortString1K(_b:stdgo.Ref<stdgo.testing.Testing.B>):Void {
         _b.stopTimer();
         var _unsorted = new stdgo.Slice<stdgo.GoString>((1024 : stdgo.GoInt).toBasic(), 0).__setString__();
-        for (_i in 0 ... _unsorted.length.toBasic()) {
+        for (_i => _ in _unsorted) {
             _unsorted[(_i : stdgo.GoInt)] = stdgo.strconv.Strconv.itoa(_i ^ (716 : stdgo.GoInt))?.__copy__();
         };
         var _data = new stdgo.Slice<stdgo.GoString>((_unsorted.length : stdgo.GoInt).toBasic(), 0).__setString__();
@@ -1224,7 +1224,7 @@ function benchmarkSortString1K(_b:stdgo.Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkSortString1K_Slice(_b:stdgo.Ref<stdgo.testing.Testing.B>):Void {
         _b.stopTimer();
         var _unsorted = new stdgo.Slice<stdgo.GoString>((1024 : stdgo.GoInt).toBasic(), 0).__setString__();
-        for (_i in 0 ... _unsorted.length.toBasic()) {
+        for (_i => _ in _unsorted) {
             _unsorted[(_i : stdgo.GoInt)] = stdgo.strconv.Strconv.itoa(_i ^ (716 : stdgo.GoInt))?.__copy__();
         };
         var _data = new stdgo.Slice<stdgo.GoString>((_unsorted.length : stdgo.GoInt).toBasic(), 0).__setString__();
@@ -1243,7 +1243,7 @@ function benchmarkSortString1K_Slice(_b:stdgo.Ref<stdgo.testing.Testing.B>):Void
 function benchmarkStableString1K(_b:stdgo.Ref<stdgo.testing.Testing.B>):Void {
         _b.stopTimer();
         var _unsorted = new stdgo.Slice<stdgo.GoString>((1024 : stdgo.GoInt).toBasic(), 0).__setString__();
-        for (_i in 0 ... _unsorted.length.toBasic()) {
+        for (_i => _ in _unsorted) {
             _unsorted[(_i : stdgo.GoInt)] = stdgo.strconv.Strconv.itoa(_i ^ (716 : stdgo.GoInt))?.__copy__();
         };
         var _data = new stdgo.Slice<stdgo.GoString>((_unsorted.length : stdgo.GoInt).toBasic(), 0).__setString__();
@@ -1332,7 +1332,7 @@ function benchmarkSortInt1K_Mod8(_b:stdgo.Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkStableInt1K(_b:stdgo.Ref<stdgo.testing.Testing.B>):Void {
         _b.stopTimer();
         var _unsorted = new stdgo.Slice<stdgo.GoInt>((1024 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        for (_i in 0 ... _unsorted.length.toBasic()) {
+        for (_i => _ in _unsorted) {
             _unsorted[(_i : stdgo.GoInt)] = _i ^ (716 : stdgo.GoInt);
         };
         var _data = new stdgo.Slice<stdgo.GoInt>((_unsorted.length : stdgo.GoInt).toBasic(), 0).__setNumber32__();
@@ -1349,7 +1349,7 @@ function benchmarkStableInt1K(_b:stdgo.Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkStableInt1K_Slice(_b:stdgo.Ref<stdgo.testing.Testing.B>):Void {
         _b.stopTimer();
         var _unsorted = new stdgo.Slice<stdgo.GoInt>((1024 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        for (_i in 0 ... _unsorted.length.toBasic()) {
+        for (_i => _ in _unsorted) {
             _unsorted[(_i : stdgo.GoInt)] = _i ^ (716 : stdgo.GoInt);
         };
         var _data = new stdgo.Slice<stdgo.GoInt>((_unsorted.length : stdgo.GoInt).toBasic(), 0).__setNumber32__();

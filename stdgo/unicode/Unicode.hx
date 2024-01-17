@@ -9614,7 +9614,7 @@ function isSymbol(_r:stdgo.GoRune):Bool {
 **/
 function _is16(_ranges:stdgo.Slice<Range16>, _r:stdgo.GoUInt16):Bool {
         if ((_ranges.length <= (18 : stdgo.GoInt)) || (_r <= (255 : stdgo.GoUInt16))) {
-            for (_i in 0 ... _ranges.length.toBasic()) {
+            for (_i => _ in _ranges) {
                 var _range_ = (stdgo.Go.setRef(_ranges[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo.unicode.Unicode.Range16>);
                 if (_r < _range_.lo) {
                     return false;
@@ -9646,7 +9646,7 @@ function _is16(_ranges:stdgo.Slice<Range16>, _r:stdgo.GoUInt16):Bool {
 **/
 function _is32(_ranges:stdgo.Slice<Range32>, _r:stdgo.GoUInt32):Bool {
         if ((_ranges.length) <= (18 : stdgo.GoInt)) {
-            for (_i in 0 ... _ranges.length.toBasic()) {
+            for (_i => _ in _ranges) {
                 var _range_ = (stdgo.Go.setRef(_ranges[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo.unicode.Unicode.Range32>);
                 if (_r < _range_.lo) {
                     return false;

@@ -3621,7 +3621,7 @@ function testChdirAndGetwd(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
                 _dirs = (new stdgo.Slice<stdgo.GoString>(2, 2, ("/" : stdgo.GoString), ("/usr" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
             } else if (__value__ == (("ios" : stdgo.GoString)) || __value__ == (("windows" : stdgo.GoString)) || __value__ == (("wasip1" : stdgo.GoString))) {
                 _dirs = (null : stdgo.Slice<stdgo.GoString>);
-                for (__8 => _dir in (new stdgo.Slice<stdgo.GoString>(2, 2, _t.tempDir()?.__copy__(), _t.tempDir()?.__copy__()) : stdgo.Slice<stdgo.GoString>)) {
+                for (__24 => _dir in (new stdgo.Slice<stdgo.GoString>(2, 2, _t.tempDir()?.__copy__(), _t.tempDir()?.__copy__()) : stdgo.Slice<stdgo.GoString>)) {
                     {
                         var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_dir?.__copy__());
                         _dir = __tmp__._0?.__copy__();
@@ -4635,7 +4635,7 @@ function testLargeWriteToConsole(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
             _t.skip(stdgo.Go.toInterface(("skipping console-flooding test; enable with -large_write" : stdgo.GoString)));
         };
         var _b = new stdgo.Slice<stdgo.GoUInt8>((32000 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        for (_i in 0 ... _b.length.toBasic()) {
+        for (_i => _ in _b) {
             _b[(_i : stdgo.GoInt)] = (46 : stdgo.GoUInt8);
         };
         _b[((_b.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] = (10 : stdgo.GoUInt8);

@@ -3686,8 +3686,8 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void 
     public var ri : stdgo.GoComplex64 = new stdgo.GoComplex64(0, 0);
     public var s : stdgo.GoString = "";
     public var y : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-    public var t : stdgo.Ref<stdgo.encoding.gob.Gob.T_testEndToEnd_50___localname___T2> = (null : stdgo.Ref<stdgo.encoding.gob.Gob.T_testEndToEnd_50___localname___T2>);
-    public function new(?a:stdgo.GoInt, ?b:stdgo.GoInt, ?c:stdgo.GoInt, ?m:stdgo.GoMap<stdgo.GoString, stdgo.Pointer<stdgo.GoFloat64>>, ?m2:stdgo.GoMap<stdgo.GoInt, stdgo.encoding.gob.Gob.T_testEndToEnd_51___localname___T3>, ?mstring:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?mintptr:stdgo.GoMap<stdgo.GoInt, stdgo.Pointer<stdgo.GoInt>>, ?mcomp:stdgo.GoMap<stdgo.GoComplex128, stdgo.GoComplex128>, ?marr:stdgo.GoMap<stdgo.GoArray<stdgo.GoString>, stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>>, ?emptyMap:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?n:stdgo.Ref<stdgo.GoArray<stdgo.GoFloat64>>, ?strs:stdgo.Ref<stdgo.GoArray<stdgo.GoString>>, ?int64s:stdgo.Ref<stdgo.Slice<stdgo.GoInt64>>, ?ri:stdgo.GoComplex64, ?s:stdgo.GoString, ?y:stdgo.Slice<stdgo.GoUInt8>, ?t:stdgo.Ref<stdgo.encoding.gob.Gob.T_testEndToEnd_50___localname___T2>) {
+    public var t : stdgo.Ref<stdgo.encoding.gob.Gob.T2> = (null : stdgo.Ref<stdgo.encoding.gob.Gob.T2>);
+    public function new(?a:stdgo.GoInt, ?b:stdgo.GoInt, ?c:stdgo.GoInt, ?m:stdgo.GoMap<stdgo.GoString, stdgo.Pointer<stdgo.GoFloat64>>, ?m2:stdgo.GoMap<stdgo.GoInt, stdgo.encoding.gob.Gob.T_testEndToEnd_51___localname___T3>, ?mstring:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?mintptr:stdgo.GoMap<stdgo.GoInt, stdgo.Pointer<stdgo.GoInt>>, ?mcomp:stdgo.GoMap<stdgo.GoComplex128, stdgo.GoComplex128>, ?marr:stdgo.GoMap<stdgo.GoArray<stdgo.GoString>, stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>>, ?emptyMap:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?n:stdgo.Ref<stdgo.GoArray<stdgo.GoFloat64>>, ?strs:stdgo.Ref<stdgo.GoArray<stdgo.GoString>>, ?int64s:stdgo.Ref<stdgo.Slice<stdgo.GoInt64>>, ?ri:stdgo.GoComplex64, ?s:stdgo.GoString, ?y:stdgo.Slice<stdgo.GoUInt8>, ?t:stdgo.Ref<stdgo.encoding.gob.Gob.T2>) {
         if (a != null) this.a = a;
         if (b != null) this.b = b;
         if (c != null) this.c = c;
@@ -3807,19 +3807,19 @@ function testEndToEnd(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
             x.__defaultValue__ = () -> (0 : stdgo.GoInt);
             @:mergeBlock {};
             x;
-        } : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>), n : (stdgo.Go.setRef((new stdgo.GoArray<stdgo.GoFloat64>((1.5 : stdgo.GoFloat64), (2.5 : stdgo.GoFloat64), (3.5 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>)) : stdgo.Ref<stdgo.GoArray<stdgo.GoFloat64>>), strs : (stdgo.Go.setRef((new stdgo.GoArray<stdgo.GoString>(_s1?.__copy__(), _s2?.__copy__()) : stdgo.GoArray<stdgo.GoString>)) : stdgo.Ref<stdgo.GoArray<stdgo.GoString>>), int64s : (stdgo.Go.setRef((new stdgo.Slice<stdgo.GoInt64>(3, 3, (77i64 : stdgo.GoInt64), (89i64 : stdgo.GoInt64), (123412342134i64 : stdgo.GoInt64)) : stdgo.Slice<stdgo.GoInt64>)) : stdgo.Ref<stdgo.Slice<stdgo.GoInt64>>), ri : ((17f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, -23f64)), s : ("Now is the time" : stdgo.GoString), y : (("hello, sailor" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), t : (stdgo.Go.setRef((new stdgo.encoding.gob.Gob.T_testEndToEnd_50___localname___T2(("this is T2" : stdgo.GoString)) : stdgo.encoding.gob.Gob.T_testEndToEnd_50___localname___T2)) : stdgo.Ref<stdgo.encoding.gob.Gob.T_testEndToEnd_50___localname___T2>) } : stdgo.encoding.gob.Gob.T_testEndToEnd_52___localname___T1)) : stdgo.Ref<stdgo.encoding.gob.Gob.T_testEndToEnd_52___localname___T1>);
+        } : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>), n : (stdgo.Go.setRef((new stdgo.GoArray<stdgo.GoFloat64>((1.5 : stdgo.GoFloat64), (2.5 : stdgo.GoFloat64), (3.5 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>)) : stdgo.Ref<stdgo.GoArray<stdgo.GoFloat64>>), strs : (stdgo.Go.setRef((new stdgo.GoArray<stdgo.GoString>(_s1?.__copy__(), _s2?.__copy__()) : stdgo.GoArray<stdgo.GoString>)) : stdgo.Ref<stdgo.GoArray<stdgo.GoString>>), int64s : (stdgo.Go.setRef((new stdgo.Slice<stdgo.GoInt64>(3, 3, (77i64 : stdgo.GoInt64), (89i64 : stdgo.GoInt64), (123412342134i64 : stdgo.GoInt64)) : stdgo.Slice<stdgo.GoInt64>)) : stdgo.Ref<stdgo.Slice<stdgo.GoInt64>>), ri : ((17f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, -23f64)), s : ("Now is the time" : stdgo.GoString), y : (("hello, sailor" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), t : (stdgo.Go.setRef((new stdgo.encoding.gob.Gob.T2(("this is T2" : stdgo.GoString)) : stdgo.encoding.gob.Gob.T2)) : stdgo.Ref<stdgo.encoding.gob.Gob.T2>) } : stdgo.encoding.gob.Gob.T1)) : stdgo.Ref<stdgo.encoding.gob.Gob.T1>);
         var _b = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.Ref<stdgo.bytes.Bytes.Buffer>);
         var _err:stdgo.Error = newEncoder(stdgo.Go.asInterface(_b)).encode(stdgo.Go.toInterface(_t1));
         if (_err != null) {
             _t.error(stdgo.Go.toInterface(("encode:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
-        var __t1:T_testEndToEnd_52___localname___T1 = ({} : stdgo.encoding.gob.Gob.T_testEndToEnd_52___localname___T1);
-        _err = newDecoder(stdgo.Go.asInterface(_b)).decode(stdgo.Go.toInterface((stdgo.Go.setRef(__t1) : stdgo.Ref<stdgo.encoding.gob.Gob.T_testEndToEnd_52___localname___T1>)));
+        var __t1:T1 = ({} : stdgo.encoding.gob.Gob.T1);
+        _err = newDecoder(stdgo.Go.asInterface(_b)).decode(stdgo.Go.toInterface((stdgo.Go.setRef(__t1) : stdgo.Ref<stdgo.encoding.gob.Gob.T1>)));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(("decode:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
-        if (!stdgo.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_t1), stdgo.Go.toInterface((stdgo.Go.setRef(__t1) : stdgo.Ref<stdgo.encoding.gob.Gob.T_testEndToEnd_52___localname___T1>)))) {
-            _t.errorf(("encode expected %v got %v" : stdgo.GoString), stdgo.Go.toInterface((_t1 : stdgo.encoding.gob.Gob.T_testEndToEnd_52___localname___T1)), stdgo.Go.toInterface(__t1));
+        if (!stdgo.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_t1), stdgo.Go.toInterface((stdgo.Go.setRef(__t1) : stdgo.Ref<stdgo.encoding.gob.Gob.T1>)))) {
+            _t.errorf(("encode expected %v got %v" : stdgo.GoString), stdgo.Go.toInterface((_t1 : stdgo.encoding.gob.Gob.T1)), stdgo.Go.toInterface(__t1));
         };
         if (_t1.emptyMap == null) {
             _t.errorf(("nil map sent" : stdgo.GoString));
@@ -4750,7 +4750,7 @@ function testLargeSlice(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         _t.run(("byte" : stdgo.GoString), function(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
             _t.parallel();
             var _s = new stdgo.Slice<stdgo.GoUInt8>((20971520 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-            for (_i in 0 ... _s.length.toBasic()) {
+            for (_i => _ in _s) {
                 _s[(_i : stdgo.GoInt)] = (_i : stdgo.GoByte);
             };
             var _st = (stdgo.Go.setRef(({ s : _s } : stdgo.encoding.gob.Gob.LargeSliceByte)) : stdgo.Ref<stdgo.encoding.gob.Gob.LargeSliceByte>);
@@ -4760,7 +4760,7 @@ function testLargeSlice(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         _t.run(("int8" : stdgo.GoString), function(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
             _t.parallel();
             var _s = new stdgo.Slice<stdgo.GoInt8>((20971520 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-            for (_i in 0 ... _s.length.toBasic()) {
+            for (_i => _ in _s) {
                 _s[(_i : stdgo.GoInt)] = (_i : stdgo.GoInt8);
             };
             var _st = (stdgo.Go.setRef(({ s : _s } : stdgo.encoding.gob.Gob.LargeSliceInt8)) : stdgo.Ref<stdgo.encoding.gob.Gob.LargeSliceInt8>);
@@ -4770,7 +4770,7 @@ function testLargeSlice(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         _t.run(("struct" : stdgo.GoString), function(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
             _t.parallel();
             var _s = new stdgo.Slice<stdgo.encoding.gob.Gob.StringPair>((2097152 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((2097152 : stdgo.GoInt).toBasic() > 0 ? (2097152 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo.encoding.gob.Gob.StringPair)]);
-            for (_i in 0 ... _s.length.toBasic()) {
+            for (_i => _ in _s) {
                 _s[(_i : stdgo.GoInt)].a = ((_i : stdgo.GoRune) : stdgo.GoString)?.__copy__();
                 _s[(_i : stdgo.GoInt)].b = _s[(_i : stdgo.GoInt)].a?.__copy__();
             };
@@ -4781,7 +4781,7 @@ function testLargeSlice(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         _t.run(("string" : stdgo.GoString), function(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
             _t.parallel();
             var _s = new stdgo.Slice<stdgo.GoString>((2097152 : stdgo.GoInt).toBasic(), 0).__setString__();
-            for (_i in 0 ... _s.length.toBasic()) {
+            for (_i => _ in _s) {
                 _s[(_i : stdgo.GoInt)] = ((_i : stdgo.GoRune) : stdgo.GoString)?.__copy__();
             };
             var _st = (stdgo.Go.setRef(({ s : _s } : stdgo.encoding.gob.Gob.LargeSliceString)) : stdgo.Ref<stdgo.encoding.gob.Gob.LargeSliceString>);
@@ -7609,7 +7609,7 @@ function testMutipleEncodingsOfBadType(_t:stdgo.Ref<stdgo.testing.Testing.T_>):V
 function test29ElementSlice(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         register(stdgo.Go.toInterface((new stdgo.encoding.gob.Gob.Z() : stdgo.encoding.gob.Gob.Z)));
         var _src = new stdgo.Slice<stdgo.AnyInterface>((100 : stdgo.GoInt).toBasic(), 0);
-        for (_i in 0 ... _src.length.toBasic()) {
+        for (_i => _ in _src) {
             _src[(_i : stdgo.GoInt)] = stdgo.Go.toInterface((new stdgo.encoding.gob.Gob.Z() : stdgo.encoding.gob.Gob.Z));
         };
         var _buf = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.Ref<stdgo.bytes.Bytes.Buffer>);
@@ -8023,7 +8023,7 @@ function testGobEncoderArrayField(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _enc = newEncoder(stdgo.Go.asInterface(_b));
         var _a:GobTestArrayEncDec = ({} : stdgo.encoding.gob.Gob.GobTestArrayEncDec);
         _a.x = (17 : stdgo.GoInt);
-        for (_i in 0 ... _a.a._a.length.toBasic()) {
+        for (_i => _ in _a.a._a) {
             _a.a._a[(_i : stdgo.GoInt)] = (_i : stdgo.GoByte);
         };
         var _err:stdgo.Error = _enc.encode(stdgo.Go.toInterface((stdgo.Go.setRef(_a) : stdgo.Ref<stdgo.encoding.gob.Gob.GobTestArrayEncDec>)));
@@ -8055,7 +8055,7 @@ function testGobEncoderIndirectArrayField(_t:stdgo.Ref<stdgo.testing.Testing.T_>
         var _ap = (stdgo.Go.setRef(_array) : stdgo.Ref<stdgo.encoding.gob.Gob.ArrayStruct>);
         var _app = (stdgo.Go.setRef(_ap) : stdgo.Ref<stdgo.Ref<stdgo.encoding.gob.Gob.ArrayStruct>>);
         _a.a = stdgo.Go.pointer(_app);
-        for (_i in 0 ... _array._a.length.toBasic()) {
+        for (_i => _ in _array._a) {
             _array._a[(_i : stdgo.GoInt)] = (_i : stdgo.GoByte);
         };
         var _err:stdgo.Error = _enc.encode(stdgo.Go.toInterface(_a));
@@ -8577,7 +8577,7 @@ function benchmarkEndToEndSliceByteBuffer(_b:stdgo.Ref<stdgo.testing.Testing.B>)
             var _v = (stdgo.Go.setRef((new stdgo.encoding.gob.Gob.Bench((7 : stdgo.GoInt), (3.2 : stdgo.GoFloat64), ("now is the time" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.encoding.gob.Gob.Bench)) : stdgo.Ref<stdgo.encoding.gob.Gob.Bench>);
             register(stdgo.Go.toInterface(_v));
             var _arr = new stdgo.Slice<stdgo.AnyInterface>((100 : stdgo.GoInt).toBasic(), 0);
-            for (_i in 0 ... _arr.length.toBasic()) {
+            for (_i => _ in _arr) {
                 _arr[(_i : stdgo.GoInt)] = stdgo.Go.toInterface(_v);
             };
             return stdgo.Go.toInterface((stdgo.Go.setRef(_arr) : stdgo.Ref<stdgo.Slice<stdgo.AnyInterface>>));
@@ -8660,35 +8660,35 @@ function _benchmarkEncodeSlice(_b:stdgo.Ref<stdgo.testing.Testing.B>, _a:stdgo.A
     }
 function benchmarkEncodeComplex128Slice(_b:stdgo.Ref<stdgo.testing.Testing.B>):Void {
         var _a = new stdgo.Slice<stdgo.GoComplex128>((1000 : stdgo.GoInt).toBasic(), 0);
-        for (_i in 0 ... _a.length.toBasic()) {
+        for (_i => _ in _a) {
             _a[(_i : stdgo.GoInt)] = ((1.2f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 3.4f64));
         };
         _benchmarkEncodeSlice(_b, stdgo.Go.toInterface(_a));
     }
 function benchmarkEncodeFloat64Slice(_b:stdgo.Ref<stdgo.testing.Testing.B>):Void {
         var _a = new stdgo.Slice<stdgo.GoFloat64>((1000 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        for (_i in 0 ... _a.length.toBasic()) {
+        for (_i => _ in _a) {
             _a[(_i : stdgo.GoInt)] = (12300 : stdgo.GoFloat64);
         };
         _benchmarkEncodeSlice(_b, stdgo.Go.toInterface(_a));
     }
 function benchmarkEncodeInt32Slice(_b:stdgo.Ref<stdgo.testing.Testing.B>):Void {
         var _a = new stdgo.Slice<stdgo.GoInt32>((1000 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        for (_i in 0 ... _a.length.toBasic()) {
+        for (_i => _ in _a) {
             _a[(_i : stdgo.GoInt)] = (_i * (100 : stdgo.GoInt) : stdgo.GoInt32);
         };
         _benchmarkEncodeSlice(_b, stdgo.Go.toInterface(_a));
     }
 function benchmarkEncodeStringSlice(_b:stdgo.Ref<stdgo.testing.Testing.B>):Void {
         var _a = new stdgo.Slice<stdgo.GoString>((1000 : stdgo.GoInt).toBasic(), 0).__setString__();
-        for (_i in 0 ... _a.length.toBasic()) {
+        for (_i => _ in _a) {
             _a[(_i : stdgo.GoInt)] = ("now is the time" : stdgo.GoString);
         };
         _benchmarkEncodeSlice(_b, stdgo.Go.toInterface(_a));
     }
 function benchmarkEncodeInterfaceSlice(_b:stdgo.Ref<stdgo.testing.Testing.B>):Void {
         var _a = new stdgo.Slice<stdgo.AnyInterface>((1000 : stdgo.GoInt).toBasic(), 0);
-        for (_i in 0 ... _a.length.toBasic()) {
+        for (_i => _ in _a) {
             _a[(_i : stdgo.GoInt)] = stdgo.Go.toInterface(("now is the time" : stdgo.GoString));
         };
         _benchmarkEncodeSlice(_b, stdgo.Go.toInterface(_a));
@@ -8721,49 +8721,49 @@ function _benchmarkDecodeSlice(_b:stdgo.Ref<stdgo.testing.Testing.B>, _a:stdgo.A
     }
 function benchmarkDecodeComplex128Slice(_b:stdgo.Ref<stdgo.testing.Testing.B>):Void {
         var _a = new stdgo.Slice<stdgo.GoComplex128>((1000 : stdgo.GoInt).toBasic(), 0);
-        for (_i in 0 ... _a.length.toBasic()) {
+        for (_i => _ in _a) {
             _a[(_i : stdgo.GoInt)] = ((1.2f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 3.4f64));
         };
         _benchmarkDecodeSlice(_b, stdgo.Go.toInterface(_a));
     }
 function benchmarkDecodeFloat64Slice(_b:stdgo.Ref<stdgo.testing.Testing.B>):Void {
         var _a = new stdgo.Slice<stdgo.GoFloat64>((1000 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        for (_i in 0 ... _a.length.toBasic()) {
+        for (_i => _ in _a) {
             _a[(_i : stdgo.GoInt)] = (12300 : stdgo.GoFloat64);
         };
         _benchmarkDecodeSlice(_b, stdgo.Go.toInterface(_a));
     }
 function benchmarkDecodeInt32Slice(_b:stdgo.Ref<stdgo.testing.Testing.B>):Void {
         var _a = new stdgo.Slice<stdgo.GoInt32>((1000 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        for (_i in 0 ... _a.length.toBasic()) {
+        for (_i => _ in _a) {
             _a[(_i : stdgo.GoInt)] = (1234 : stdgo.GoInt32);
         };
         _benchmarkDecodeSlice(_b, stdgo.Go.toInterface(_a));
     }
 function benchmarkDecodeStringSlice(_b:stdgo.Ref<stdgo.testing.Testing.B>):Void {
         var _a = new stdgo.Slice<stdgo.GoString>((1000 : stdgo.GoInt).toBasic(), 0).__setString__();
-        for (_i in 0 ... _a.length.toBasic()) {
+        for (_i => _ in _a) {
             _a[(_i : stdgo.GoInt)] = ("now is the time" : stdgo.GoString);
         };
         _benchmarkDecodeSlice(_b, stdgo.Go.toInterface(_a));
     }
 function benchmarkDecodeStringsSlice(_b:stdgo.Ref<stdgo.testing.Testing.B>):Void {
         var _a = new stdgo.Slice<stdgo.Slice<stdgo.GoString>>((1000 : stdgo.GoInt).toBasic(), 0);
-        for (_i in 0 ... _a.length.toBasic()) {
+        for (_i => _ in _a) {
             _a[(_i : stdgo.GoInt)] = (new stdgo.Slice<stdgo.GoString>(1, 1, ("now is the time" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
         };
         _benchmarkDecodeSlice(_b, stdgo.Go.toInterface(_a));
     }
 function benchmarkDecodeBytesSlice(_b:stdgo.Ref<stdgo.testing.Testing.B>):Void {
         var _a = new stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>((1000 : stdgo.GoInt).toBasic(), 0);
-        for (_i in 0 ... _a.length.toBasic()) {
+        for (_i => _ in _a) {
             _a[(_i : stdgo.GoInt)] = (("now is the time" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
         };
         _benchmarkDecodeSlice(_b, stdgo.Go.toInterface(_a));
     }
 function benchmarkDecodeInterfaceSlice(_b:stdgo.Ref<stdgo.testing.Testing.B>):Void {
         var _a = new stdgo.Slice<stdgo.AnyInterface>((1000 : stdgo.GoInt).toBasic(), 0);
-        for (_i in 0 ... _a.length.toBasic()) {
+        for (_i => _ in _a) {
             _a[(_i : stdgo.GoInt)] = stdgo.Go.toInterface(("now is the time" : stdgo.GoString));
         };
         _benchmarkDecodeSlice(_b, stdgo.Go.toInterface(_a));
@@ -9736,7 +9736,7 @@ function testStressParallel(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
             stdgo.Go.cfor(_i < (10 : stdgo.GoInt), _i++, {
                 stdgo.Go.routine(() -> {
                     var a = function():Void {
-                        var _p = (stdgo.Go.setRef(({} : stdgo.encoding.gob.Gob.T_testStressParallel_80___localname___T2)) : stdgo.Ref<stdgo.encoding.gob.Gob.T_testStressParallel_80___localname___T2>);
+                        var _p = (stdgo.Go.setRef(({} : stdgo.encoding.gob.Gob.T2)) : stdgo.Ref<stdgo.encoding.gob.Gob.T2>);
                         register(stdgo.Go.toInterface(_p));
                         var _b = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.Ref<stdgo.bytes.Bytes.Buffer>);
                         var _enc = newEncoder(stdgo.Go.asInterface(_b));

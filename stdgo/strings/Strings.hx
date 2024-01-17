@@ -472,7 +472,7 @@ function _makeSingleStringReplacer(_pattern:stdgo.GoString, _value:stdgo.GoStrin
 function _makeStringFinder(_pattern:stdgo.GoString):stdgo.Ref<T_stringFinder> {
         var _f = (stdgo.Go.setRef(({ _pattern : _pattern?.__copy__(), _goodSuffixSkip : new stdgo.Slice<stdgo.GoInt>((_pattern.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() } : stdgo.strings.Strings.T_stringFinder)) : stdgo.Ref<stdgo.strings.Strings.T_stringFinder>);
         var _last:stdgo.GoInt = (_pattern.length) - (1 : stdgo.GoInt);
-        for (_i in 0 ... _f._badCharSkip.length.toBasic()) {
+        for (_i => _ in _f._badCharSkip) {
             _f._badCharSkip[(_i : stdgo.GoInt)] = (_pattern.length);
         };
         {

@@ -784,7 +784,7 @@ var _benchNeedleTorture : stdgo.GoString = repeat(("ABC" : stdgo.GoString), (102
 **/
 var _makeFieldsInput : () -> stdgo.GoString = function():stdgo.GoString {
         var _x = new stdgo.Slice<stdgo.GoUInt8>((1048576 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        for (_i in 0 ... _x.length.toBasic()) {
+        for (_i => _ in _x) {
             {
                 var __switchIndex__ = -1;
                 var __run__ = true;
@@ -825,7 +825,7 @@ var _makeFieldsInput : () -> stdgo.GoString = function():stdgo.GoString {
 **/
 var _makeFieldsInputASCII : () -> stdgo.GoString = function():stdgo.GoString {
         var _x = new stdgo.Slice<stdgo.GoUInt8>((1048576 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        for (_i in 0 ... _x.length.toBasic()) {
+        for (_i => _ in _x) {
             if (stdgo.math.rand.Rand.intn((10 : stdgo.GoInt)) == ((0 : stdgo.GoInt))) {
                 _x[(_i : stdgo.GoInt)] = (32 : stdgo.GoUInt8);
             } else {
@@ -2643,7 +2643,7 @@ function testReplacer(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _foo4 = newReplacer(("foo12" : stdgo.GoString), ("B" : stdgo.GoString), ("foo32" : stdgo.GoString), ("D" : stdgo.GoString));
         _testCases = (_testCases.__append__((new stdgo.strings_test.Strings_test.T_testReplacer_2___localname___testCase(_foo1, ("fofoofoo12foo32oo" : stdgo.GoString), ("fofooA2C2oo" : stdgo.GoString)) : stdgo.strings_test.Strings_test.T_testReplacer_2___localname___testCase), (new stdgo.strings_test.Strings_test.T_testReplacer_2___localname___testCase(_foo1, stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.strings_test.Strings_test.T_testReplacer_2___localname___testCase), (new stdgo.strings_test.Strings_test.T_testReplacer_2___localname___testCase(_foo2, ("fofoofoo12foo32oo" : stdgo.GoString), ("fofooA2Doo" : stdgo.GoString)) : stdgo.strings_test.Strings_test.T_testReplacer_2___localname___testCase), (new stdgo.strings_test.Strings_test.T_testReplacer_2___localname___testCase(_foo2, stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.strings_test.Strings_test.T_testReplacer_2___localname___testCase), (new stdgo.strings_test.Strings_test.T_testReplacer_2___localname___testCase(_foo3, ("fofoofoo12foo32oo" : stdgo.GoString), ("fofooBDoo" : stdgo.GoString)) : stdgo.strings_test.Strings_test.T_testReplacer_2___localname___testCase), (new stdgo.strings_test.Strings_test.T_testReplacer_2___localname___testCase(_foo3, stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.strings_test.Strings_test.T_testReplacer_2___localname___testCase), (new stdgo.strings_test.Strings_test.T_testReplacer_2___localname___testCase(_foo4, ("fofoofoo12foo32oo" : stdgo.GoString), ("fofooBDoo" : stdgo.GoString)) : stdgo.strings_test.Strings_test.T_testReplacer_2___localname___testCase), (new stdgo.strings_test.Strings_test.T_testReplacer_2___localname___testCase(_foo4, stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.strings_test.Strings_test.T_testReplacer_2___localname___testCase)));
         var _allBytes = new stdgo.Slice<stdgo.GoUInt8>((256 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        for (_i in 0 ... _allBytes.length.toBasic()) {
+        for (_i => _ in _allBytes) {
             _allBytes[(_i : stdgo.GoInt)] = (_i : stdgo.GoByte);
         };
         var _allString:stdgo.GoString = (_allBytes : stdgo.GoString)?.__copy__();
@@ -3126,7 +3126,7 @@ function testIndexRandom(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
                     var _strLen:stdgo.GoInt = (5 : stdgo.GoInt) + stdgo.math.rand.Rand.intn((5 : stdgo.GoInt));
                     stdgo.Go.cfor(_strLen < (140 : stdgo.GoInt), _strLen = _strLen + ((10 : stdgo.GoInt)), {
                         var _s1 = new stdgo.Slice<stdgo.GoUInt8>((_strLen : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-                        for (_i in 0 ... _s1.length.toBasic()) {
+                        for (_i => _ in _s1) {
                             _s1[(_i : stdgo.GoInt)] = ("abcdefghijklmnopqrstuvwxyz0123456789" : stdgo.GoString)[(stdgo.math.rand.Rand.intn((("abcdefghijklmnopqrstuvwxyz0123456789" : stdgo.GoString).length)) : stdgo.GoInt)];
                         };
                         var _s:stdgo.GoString = (_s1 : stdgo.GoString)?.__copy__();
@@ -3368,7 +3368,7 @@ function _runStringTests(_t:stdgo.Ref<stdgo.testing.Testing.T_>, _f:stdgo.GoStri
     }
 function _tenRunes(_ch:stdgo.GoRune):stdgo.GoString {
         var _r = new stdgo.Slice<stdgo.GoInt32>((10 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        for (_i in 0 ... _r.length.toBasic()) {
+        for (_i => _ in _r) {
             _r[(_i : stdgo.GoInt)] = _ch;
         };
         return (_r : stdgo.GoString)?.__copy__();
@@ -3682,7 +3682,7 @@ function testCaseConsistency(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
             _numRunes = (1000 : stdgo.GoInt);
         };
         var _a = new stdgo.Slice<stdgo.GoInt32>((_numRunes : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        for (_i in 0 ... _a.length.toBasic()) {
+        for (_i => _ in _a) {
             _a[(_i : stdgo.GoInt)] = (_i : stdgo.GoRune);
         };
         var _s:stdgo.GoString = (_a : stdgo.GoString)?.__copy__();

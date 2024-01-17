@@ -340,13 +340,13 @@ function _processOptions(_env:stdgo.GoString):Void {
                     };
                 };
                 if (_key == (("all" : stdgo.GoString))) {
-                    for (_i in 0 ... _options.length.toBasic()) {
+                    for (_i => _ in _options) {
                         _options[(_i : stdgo.GoInt)].specified = true;
                         _options[(_i : stdgo.GoInt)].enable = _enable;
                     };
                     @:jump("field") continue;
                 };
-                for (_i in 0 ... _options.length.toBasic()) {
+                for (_i => _ in _options) {
                     if (_options[(_i : stdgo.GoInt)].name == (_key)) {
                         _options[(_i : stdgo.GoInt)].specified = true;
                         _options[(_i : stdgo.GoInt)].enable = _enable;

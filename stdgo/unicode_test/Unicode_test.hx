@@ -977,7 +977,7 @@ function _fakeTable(_n:stdgo.GoInt):stdgo.Slice<Range16> {
         return _r16;
     }
 function _linear(_ranges:stdgo.Slice<Range16>, _r:stdgo.GoUInt16):Bool {
-        for (_i in 0 ... _ranges.length.toBasic()) {
+        for (_i => _ in _ranges) {
             var _range_ = (stdgo.Go.setRef(_ranges[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo.unicode.Unicode.Range16>);
             if (_r < _range_.lo) {
                 return false;

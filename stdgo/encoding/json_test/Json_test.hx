@@ -124,8 +124,8 @@ function exampleMarshal():Void {
 function exampleUnmarshal():Void {
         var _jsonBlob:stdgo.Slice<stdgo.GoUInt8> = (("[\n\t{\"Name\": \"Platypus\", \"Order\": \"Monotremata\"},\n\t{\"Name\": \"Quoll\",    \"Order\": \"Dasyuromorphia\"}\n]" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
         {};
-        var _animals:stdgo.Slice<T_exampleUnmarshal_141___localname___Animal> = (null : stdgo.Slice<stdgo.encoding.json_test.Json_test.T_exampleUnmarshal_141___localname___Animal>);
-        var _err:stdgo.Error = stdgo.encoding.json.Json.unmarshal(_jsonBlob, stdgo.Go.toInterface((stdgo.Go.setRef(_animals) : stdgo.Ref<stdgo.Slice<stdgo.encoding.json_test.Json_test.T_exampleUnmarshal_141___localname___Animal>>)));
+        var _animals:stdgo.Slice<Animal> = (null : stdgo.Slice<stdgo.encoding.json_test.Json_test.Animal>);
+        var _err:stdgo.Error = stdgo.encoding.json.Json.unmarshal(_jsonBlob, stdgo.Go.toInterface((stdgo.Go.setRef(_animals) : stdgo.Ref<stdgo.Slice<stdgo.encoding.json_test.Json_test.Animal>>)));
         if (_err != null) {
             stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };

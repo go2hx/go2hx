@@ -2938,7 +2938,7 @@ class T_pp_asInterface {
                                             _bytes = _f.slice((0 : stdgo.GoInt), _f.len()).bytes();
                                         } else {
                                             _bytes = new stdgo.Slice<stdgo.GoUInt8>((_f.len() : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-                                            for (_i in 0 ... _bytes.length.toBasic()) {
+                                            for (_i => _ in _bytes) {
                                                 _bytes[(_i : stdgo.GoInt)] = (_f.index(_i).uint() : stdgo.GoByte);
                                             };
                                         };

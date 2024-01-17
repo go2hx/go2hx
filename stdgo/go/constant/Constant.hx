@@ -2317,7 +2317,7 @@ function testUnknown(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _values:stdgo.Slice<stdgo.go.constant.Constant.Value> = (new stdgo.Slice<stdgo.go.constant.Constant.Value>(8, 8, _u, makeBool(false), makeString(stdgo.Go.str()?.__copy__()), makeInt64((1i64 : stdgo.GoInt64)), makeFromLiteral(("\'\'" : stdgo.GoString), (8 : stdgo.go.token.Token.Token), (0u32 : stdgo.GoUInt)), makeFromLiteral(("-1234567890123456789012345678901234567890" : stdgo.GoString), (5 : stdgo.go.token.Token.Token), (0u32 : stdgo.GoUInt)), makeFloat64((1.2 : stdgo.GoFloat64)), makeImag(makeFloat64((1.2 : stdgo.GoFloat64)))) : stdgo.Slice<stdgo.go.constant.Constant.Value>);
         for (__1 => _val in _values) {
             var __0:stdgo.go.constant.Constant.Value = _val, __1:stdgo.go.constant.Constant.Value = _u, _y:stdgo.go.constant.Constant.Value = __1, _x:stdgo.go.constant.Constant.Value = __0;
-            for (_i in 0 ... (new stdgo.GoArray<stdgo.GoInt>(...([].concat([for (i in 0 ... 2) (0 : stdgo.GoInt)]))) : stdgo.GoArray<stdgo.GoInt>).length.toBasic()) {
+            for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(...([].concat([for (i in 0 ... 2) (0 : stdgo.GoInt)]))) : stdgo.GoArray<stdgo.GoInt>)) {
                 if (_i == ((1 : stdgo.GoInt))) {
                     {
                         final __tmp__0 = _y;
@@ -2365,7 +2365,7 @@ _zero,
                 _t.errorf(("%v: got %v (exact = %v)" : stdgo.GoString), stdgo.Go.toInterface(_arg), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_exact));
             };
         };
-        for (_sign in 0 ... (new stdgo.Slice<stdgo.GoInt>(2, 2, (-1 : stdgo.GoInt), (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>).length.toBasic()) {
+        for (_sign => _ in (new stdgo.Slice<stdgo.GoInt>(2, 2, (-1 : stdgo.GoInt), (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)) {
             var _arg:stdgo.GoFloat64 = stdgo.math.Math.inf(_sign);
             var _val:stdgo.go.constant.Constant.Value = makeFloat64(_arg);
             if (_val.kind() != ((0 : stdgo.go.constant.Constant.Kind))) {

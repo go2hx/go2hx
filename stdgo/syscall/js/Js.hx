@@ -257,7 +257,7 @@ final typeFunction = ((0 : stdgo.GoInt) : stdgo.syscall.js.Js.Type_);
     
     
 **/
-@:structInit @:using(stdgo.syscall.js.Js.T_error_static_extension) class T_error {
+@:structInit @:using(stdgo.syscall.js.Js.Error_static_extension) class Error {
     /**
         // Value is the underlying JavaScript error value.
     **/
@@ -312,7 +312,7 @@ final typeFunction = ((0 : stdgo.GoInt) : stdgo.syscall.js.Js.Type_);
     @:embedded
     public function _isNumber():Bool return false;
     public function __copy__() {
-        return new T_error(value);
+        return new Error(value);
     }
 }
 /**
@@ -862,7 +862,7 @@ class Value_asInterface {
     @:keep
     static public function equal( _v:Value, _w:Value):Bool throw "Value:syscall.js.equal is not yet implemented";
 }
-class T_error_asInterface {
+class Error_asInterface {
     /**
         // Error implements the error interface.
     **/
@@ -917,59 +917,59 @@ class T_error_asInterface {
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<T_error>;
+    var __self__ : stdgo.Pointer<Error>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
-@:keep @:allow(stdgo.syscall.js.Js.T_error_asInterface) class T_error_static_extension {
+@:keep @:allow(stdgo.syscall.js.Js.Error_asInterface) class Error_static_extension {
     /**
         // Error implements the error interface.
     **/
     @:keep
-    static public function error( _e:T_error):stdgo.GoString throw "T_error:syscall.js.error is not yet implemented";
+    static public function error( _e:Error):stdgo.GoString throw "Error:syscall.js.error is not yet implemented";
     @:embedded
-    public static function _isNumber( __self__:T_error):Bool return __self__._isNumber();
+    public static function _isNumber( __self__:Error):Bool return __self__._isNumber();
     @:embedded
-    public static function _float( __self__:T_error, _p:stdgo.GoString):stdgo.GoFloat64 return __self__._float(_p);
+    public static function _float( __self__:Error, _p:stdgo.GoString):stdgo.GoFloat64 return __self__._float(_p);
     @:embedded
-    public static function type( __self__:T_error):stdgo.syscall.js.Js.Type_ return __self__.type();
+    public static function type( __self__:Error):stdgo.syscall.js.Js.Type_ return __self__.type();
     @:embedded
-    public static function truthy( __self__:T_error):Bool return __self__.truthy();
+    public static function truthy( __self__:Error):Bool return __self__.truthy();
     @:embedded
-    public static function string( __self__:T_error):stdgo.GoString return __self__.string();
+    public static function string( __self__:Error):stdgo.GoString return __self__.string();
     @:embedded
-    public static function setIndex( __self__:T_error, _i:stdgo.GoInt, _x:stdgo.AnyInterface) __self__.setIndex(_i, _x);
+    public static function setIndex( __self__:Error, _i:stdgo.GoInt, _x:stdgo.AnyInterface) __self__.setIndex(_i, _x);
     @:embedded
-    public static function set( __self__:T_error, _p:stdgo.GoString, _x:stdgo.AnyInterface) __self__.set(_p, _x);
+    public static function set( __self__:Error, _p:stdgo.GoString, _x:stdgo.AnyInterface) __self__.set(_p, _x);
     @:embedded
-    public static function new_( __self__:T_error, _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Js.Value return __self__.new_(..._args);
+    public static function new_( __self__:Error, _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Js.Value return __self__.new_(..._args);
     @:embedded
-    public static function length_( __self__:T_error):stdgo.GoInt return __self__.length_();
+    public static function length_( __self__:Error):stdgo.GoInt return __self__.length_();
     @:embedded
-    public static function isUndefined( __self__:T_error):Bool return __self__.isUndefined();
+    public static function isUndefined( __self__:Error):Bool return __self__.isUndefined();
     @:embedded
-    public static function isNull( __self__:T_error):Bool return __self__.isNull();
+    public static function isNull( __self__:Error):Bool return __self__.isNull();
     @:embedded
-    public static function isNaN( __self__:T_error):Bool return __self__.isNaN();
+    public static function isNaN( __self__:Error):Bool return __self__.isNaN();
     @:embedded
-    public static function invoke( __self__:T_error, _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Js.Value return __self__.invoke(..._args);
+    public static function invoke( __self__:Error, _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Js.Value return __self__.invoke(..._args);
     @:embedded
-    public static function int_( __self__:T_error):stdgo.GoInt return __self__.int_();
+    public static function int_( __self__:Error):stdgo.GoInt return __self__.int_();
     @:embedded
-    public static function instanceOf( __self__:T_error, __0:stdgo.syscall.js.Js.Value):Bool return __self__.instanceOf(__0);
+    public static function instanceOf( __self__:Error, __0:stdgo.syscall.js.Js.Value):Bool return __self__.instanceOf(__0);
     @:embedded
-    public static function index( __self__:T_error, _i:stdgo.GoInt):stdgo.syscall.js.Js.Value return __self__.index(_i);
+    public static function index( __self__:Error, _i:stdgo.GoInt):stdgo.syscall.js.Js.Value return __self__.index(_i);
     @:embedded
-    public static function get( __self__:T_error, _p:stdgo.GoString):stdgo.syscall.js.Js.Value return __self__.get(_p);
+    public static function get( __self__:Error, _p:stdgo.GoString):stdgo.syscall.js.Js.Value return __self__.get(_p);
     @:embedded
-    public static function float_( __self__:T_error):stdgo.GoFloat64 return __self__.float_();
+    public static function float_( __self__:Error):stdgo.GoFloat64 return __self__.float_();
     @:embedded
-    public static function equal( __self__:T_error, __0:stdgo.syscall.js.Js.Value):Bool return __self__.equal(__0);
+    public static function equal( __self__:Error, __0:stdgo.syscall.js.Js.Value):Bool return __self__.equal(__0);
     @:embedded
-    public static function delete( __self__:T_error, _p:stdgo.GoString) __self__.delete(_p);
+    public static function delete( __self__:Error, _p:stdgo.GoString) __self__.delete(_p);
     @:embedded
-    public static function call( __self__:T_error, _m:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Js.Value return __self__.call(_m, ..._args);
+    public static function call( __self__:Error, _m:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Js.Value return __self__.call(_m, ..._args);
     @:embedded
-    public static function bool_( __self__:T_error):Bool return __self__.bool_();
+    public static function bool_( __self__:Error):Bool return __self__.bool_();
 }
 class ValueError_asInterface {
     @:keep

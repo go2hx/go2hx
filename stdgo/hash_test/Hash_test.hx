@@ -107,7 +107,7 @@ function testMarshalHash(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         for (__0 => _tt in _marshalTests) {
             _t.run(_tt._name?.__copy__(), function(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
                 var _buf = new stdgo.Slice<stdgo.GoUInt8>((256 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-                for (_i in 0 ... _buf.length.toBasic()) {
+                for (_i => _ in _buf) {
                     _buf[(_i : stdgo.GoInt)] = (_i : stdgo.GoByte);
                 };
                 var _h:stdgo.hash.Hash.Hash = _tt._new();

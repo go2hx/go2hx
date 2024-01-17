@@ -304,7 +304,7 @@ final goarch : stdgo.GoString = ("" : stdgo.GoString);
     
     
 **/
-typedef T_error = stdgo.StructType & {
+typedef Error = stdgo.StructType & {
     > stdgo.Error,
     /**
         // RuntimeError is a no-op function but

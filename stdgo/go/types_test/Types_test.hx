@@ -2478,28 +2478,28 @@ function testScopeLookupParent(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         var _mainScope = (_imports[("main" : stdgo.GoString)] ?? (null : stdgo.Ref<stdgo.go.types.Types.Package>)).scope();
         var _rx = stdgo.regexp.Regexp.mustCompile(("^/\\*(\\w*)=([\\w:]*)\\*/$" : stdgo.GoString));
         for (__0 => _group in _f.comments) {
-            for (__1 => T_comment_static_extension in _group.list) {
-                var _m = _rx.findStringSubmatch(T_comment_static_extension.text?.__copy__());
+            for (__1 => _comment in _group.list) {
+                var _m = _rx.findStringSubmatch(_comment.text?.__copy__());
                 if (_m == null) {
-                    _t.errorf(("%s: bad comment: %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_fset.position(T_comment_static_extension.pos()))), stdgo.Go.toInterface(T_comment_static_extension.text));
+                    _t.errorf(("%s: bad comment: %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_fset.position(_comment.pos()))), stdgo.Go.toInterface(_comment.text));
                     continue;
                 };
                 var __0:stdgo.GoString = _m[(1 : stdgo.GoInt)]?.__copy__(), __1:stdgo.GoString = _m[(2 : stdgo.GoInt)]?.__copy__(), _want:stdgo.GoString = __1, _name:stdgo.GoString = __0;
-                var _inner = _mainScope.innermost(T_comment_static_extension.pos());
+                var _inner = _mainScope.innermost(_comment.pos());
                 if (_inner == null || (_inner : Dynamic).__nil__) {
-                    _t.errorf(("%s: at %s: can\'t find innermost scope" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_fset.position(T_comment_static_extension.pos()))), stdgo.Go.toInterface(T_comment_static_extension.text));
+                    _t.errorf(("%s: at %s: can\'t find innermost scope" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_fset.position(_comment.pos()))), stdgo.Go.toInterface(_comment.text));
                     continue;
                 };
                 var _got:stdgo.GoString = ("undef" : stdgo.GoString);
                 {
-                    var __tmp__ = _inner.lookupParent(_name?.__copy__(), T_comment_static_extension.pos()), __34:stdgo.Ref<stdgo.go.types.Types.Scope> = __tmp__._0, _obj:stdgo.go.types.Types.Object = __tmp__._1;
+                    var __tmp__ = _inner.lookupParent(_name?.__copy__(), _comment.pos()), __34:stdgo.Ref<stdgo.go.types.Types.Scope> = __tmp__._0, _obj:stdgo.go.types.Types.Object = __tmp__._1;
                     if (_obj != null) {
                         var _kind:stdgo.GoString = stdgo.strings.Strings.toLower(stdgo.strings.Strings.trimPrefix((stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface(_obj)).string() : stdgo.GoString)?.__copy__(), ("*types." : stdgo.GoString))?.__copy__())?.__copy__();
                         _got = stdgo.fmt.Fmt.sprintf(("%s:%d" : stdgo.GoString), stdgo.Go.toInterface(_kind), stdgo.Go.toInterface(_fset.position(_obj.pos()).line))?.__copy__();
                     };
                 };
                 if (_got != (_want)) {
-                    _t.errorf(("%s: at %s: %s resolved to %s, want %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_fset.position(T_comment_static_extension.pos()))), stdgo.Go.toInterface(T_comment_static_extension.text), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                    _t.errorf(("%s: at %s: %s resolved to %s, want %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_fset.position(_comment.pos()))), stdgo.Go.toInterface(_comment.text), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                 };
             };
         };
@@ -2872,9 +2872,9 @@ function testInstantiateErrors(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         };
     }
 function testArgumentErrorUnwrapping(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
-        var _err:stdgo.Error = stdgo.Go.asInterface((stdgo.Go.setRef(({ index : (1 : stdgo.GoInt), err : stdgo.Go.asInterface(({ msg : ("test" : stdgo.GoString) } : stdgo.go.types.Types.T_error)) } : stdgo.go.types.Types.ArgumentError)) : stdgo.Ref<stdgo.go.types.Types.ArgumentError>));
-        var _e:T_error = ({} : stdgo.go.types.Types.T_error);
-        if (!stdgo.errors.Errors.as(_err, stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_e) : stdgo.Ref<stdgo.go.types.Types.T_error>))))) {
+        var _err:stdgo.Error = stdgo.Go.asInterface((stdgo.Go.setRef(({ index : (1 : stdgo.GoInt), err : stdgo.Go.asInterface(({ msg : ("test" : stdgo.GoString) } : stdgo.go.types.Types.Error)) } : stdgo.go.types.Types.ArgumentError)) : stdgo.Ref<stdgo.go.types.Types.ArgumentError>));
+        var _e:Error = ({} : stdgo.go.types.Types.Error);
+        if (!stdgo.errors.Errors.as(_err, stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_e) : stdgo.Ref<stdgo.go.types.Types.Error>))))) {
             _t.fatalf(("error %v does not wrap types.Error" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
         if (_e.msg != (("test" : stdgo.GoString))) {
@@ -3278,11 +3278,11 @@ function _parseFiles(_t:stdgo.Ref<stdgo.testing.Testing.T_>, _filenames:stdgo.Sl
 function _unpackError(_fset:stdgo.Ref<stdgo.go.token.Token.FileSet>, _err:stdgo.Error):{ var _0 : stdgo.go.token.Token.Position; var _1 : stdgo.GoString; } {
         {
             final __type__ = _err;
-            if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo.go.scanner.Scanner.T_error>))) {
-                var _err:stdgo.Ref<stdgo.go.scanner.Scanner.T_error> = __type__ == null ? (null : stdgo.Ref<stdgo.go.scanner.Scanner.T_error>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo.go.scanner.Scanner.T_error>) : __type__ == null ? (null : stdgo.Ref<stdgo.go.scanner.Scanner.T_error>) : __type__.__underlying__().value;
+            if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo.go.scanner.Scanner.Error>))) {
+                var _err:stdgo.Ref<stdgo.go.scanner.Scanner.Error> = __type__ == null ? (null : stdgo.Ref<stdgo.go.scanner.Scanner.Error>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo.go.scanner.Scanner.Error>) : __type__ == null ? (null : stdgo.Ref<stdgo.go.scanner.Scanner.Error>) : __type__.__underlying__().value;
                 return { _0 : _err.pos?.__copy__(), _1 : _err.msg?.__copy__() };
-            } else if (stdgo.Go.typeEquals((__type__ : T_error))) {
-                var _err:stdgo.go.types.Types.T_error = __type__ == null ? ({} : stdgo.go.types.Types.T_error) : __type__.__underlying__() == null ? ({} : stdgo.go.types.Types.T_error) : __type__ == null ? ({} : stdgo.go.types.Types.T_error) : __type__.__underlying__().value;
+            } else if (stdgo.Go.typeEquals((__type__ : Error))) {
+                var _err:stdgo.go.types.Types.Error = __type__ == null ? ({} : stdgo.go.types.Types.Error) : __type__.__underlying__() == null ? ({} : stdgo.go.types.Types.Error) : __type__ == null ? ({} : stdgo.go.types.Types.Error) : __type__.__underlying__().value;
                 return { _0 : _fset.position(_err.pos)?.__copy__(), _1 : _err.msg?.__copy__() };
             };
         };
@@ -3515,7 +3515,7 @@ function _testFiles(_t:stdgo.Ref<stdgo.testing.Testing.T_>, _filenames:stdgo.Sli
             };
         };
     }
-function _readCode(_err:T_error):stdgo.internal.types.errors.Errors.Code {
+function _readCode(_err:Error):stdgo.internal.types.errors.Errors.Code {
         var _v:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface(_err)))?.__copy__();
         return (_v.fieldByName(("go116code" : stdgo.GoString)).int_() : stdgo.internal.types.errors.Errors.Code);
     }
@@ -3929,12 +3929,12 @@ function testEvalPos(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         };
         for (__80 => _file in _files) {
             for (__81 => _group in _file.comments) {
-                for (__82 => T_comment_static_extension in _group.list) {
-                    var _s:stdgo.GoString = T_comment_static_extension.text?.__copy__();
+                for (__82 => _comment in _group.list) {
+                    var _s:stdgo.GoString = _comment.text?.__copy__();
                     if (((_s.length >= (4 : stdgo.GoInt)) && ((_s.__slice__(0, (2 : stdgo.GoInt)) : stdgo.GoString) == ("/*" : stdgo.GoString))) && ((_s.__slice__((_s.length) - (2 : stdgo.GoInt)) : stdgo.GoString) == ("*/" : stdgo.GoString))) {
                         var __tmp__ = _split((_s.__slice__((2 : stdgo.GoInt), (_s.length) - (2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), (", " : stdgo.GoString)), _str:stdgo.GoString = __tmp__._0, _typ:stdgo.GoString = __tmp__._1;
                         var __tmp__ = _split(_str?.__copy__(), ("=>" : stdgo.GoString)), _str:stdgo.GoString = __tmp__._0, _val:stdgo.GoString = __tmp__._1;
-                        _testEval(_t, _fset, _pkg, T_comment_static_extension.pos(), _str?.__copy__(), (null : stdgo.go.types.Types.Type_), _typ?.__copy__(), _val?.__copy__());
+                        _testEval(_t, _fset, _pkg, _comment.pos(), _str?.__copy__(), (null : stdgo.go.types.Types.Type_), _typ?.__copy__(), _val?.__copy__());
                     };
                 };
             };
@@ -4009,10 +4009,10 @@ function testCheckExpr(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
             return { _0 : (null : stdgo.go.types.Types.Object), _1 : stdgo.fmt.Fmt.errorf(("no object for %s" : stdgo.GoString), stdgo.Go.toInterface(_str)) };
         };
         for (__80 => _group in _f.comments) {
-            for (__81 => T_comment_static_extension in _group.list) {
-                var _s:stdgo.GoString = T_comment_static_extension.text?.__copy__();
+            for (__81 => _comment in _group.list) {
+                var _s:stdgo.GoString = _comment.text?.__copy__();
                 if (((_s.length >= (4 : stdgo.GoInt)) && stdgo.strings.Strings.hasPrefix(_s?.__copy__(), ("/*" : stdgo.GoString))) && stdgo.strings.Strings.hasSuffix(_s?.__copy__(), ("*/" : stdgo.GoString))) {
-                    var _pos:stdgo.go.token.Token.Pos = T_comment_static_extension.pos();
+                    var _pos:stdgo.go.token.Token.Pos = _comment.pos();
                     var __tmp__ = _split((_s.__slice__((2 : stdgo.GoInt), (_s.length) - (2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), ("=>" : stdgo.GoString)), _expr:stdgo.GoString = __tmp__._0, _wantObj:stdgo.GoString = __tmp__._1;
                     var __tmp__ = _checkExpr(_pos, _expr?.__copy__()), _obj:stdgo.go.types.Types.Object = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
@@ -4801,9 +4801,9 @@ function testIssue25627(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
             if (_err != null) {
                 {
                     var __tmp__ = try {
-                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : T_error)) : T_error), _1 : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : Error)) : Error), _1 : true };
                     } catch(_) {
-                        { _0 : ({} : stdgo.go.types.Types.T_error), _1 : false };
+                        { _0 : ({} : stdgo.go.types.Types.Error), _1 : false };
                     }, __66 = __tmp__._0, _ok = __tmp__._1;
                     if (!_ok) {
                         _t.fatal(stdgo.Go.toInterface(_err));
@@ -4844,7 +4844,7 @@ function testIssue28005(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         };
         for (__64 => _perm in (new stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>(6, 6, (new stdgo.GoArray<stdgo.GoInt>((0 : stdgo.GoInt), (1 : stdgo.GoInt), (2 : stdgo.GoInt)) : stdgo.GoArray<stdgo.GoInt>), (new stdgo.GoArray<stdgo.GoInt>((0 : stdgo.GoInt), (2 : stdgo.GoInt), (1 : stdgo.GoInt)) : stdgo.GoArray<stdgo.GoInt>), (new stdgo.GoArray<stdgo.GoInt>((1 : stdgo.GoInt), (0 : stdgo.GoInt), (2 : stdgo.GoInt)) : stdgo.GoArray<stdgo.GoInt>), (new stdgo.GoArray<stdgo.GoInt>((1 : stdgo.GoInt), (2 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo.GoArray<stdgo.GoInt>), (new stdgo.GoArray<stdgo.GoInt>((2 : stdgo.GoInt), (0 : stdgo.GoInt), (1 : stdgo.GoInt)) : stdgo.GoArray<stdgo.GoInt>), (new stdgo.GoArray<stdgo.GoInt>((2 : stdgo.GoInt), (1 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo.GoArray<stdgo.GoInt>)) : stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>)) {
             var _files = new stdgo.Slice<stdgo.Ref<stdgo.go.ast.Ast.File>>((_sources.length : stdgo.GoInt).toBasic(), 0);
-            for (_i in 0 ... _perm.length.toBasic()) {
+            for (_i => _ in _perm) {
                 _files[(_i : stdgo.GoInt)] = _orig[(_perm[(_i : stdgo.GoInt)] : stdgo.GoInt)];
             };
             var _conf:Config = ({} : stdgo.go.types.Types.Config);

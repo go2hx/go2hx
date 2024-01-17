@@ -260,7 +260,7 @@ function _sprintKey(_key:stdgo.reflect.Reflect.Value):stdgo.GoString {
                 final __value__ = _str;
                 if (__value__ == (("*int" : stdgo.GoString))) {
                     var _ptr = (stdgo.Go.typeAssert((_key.interface_() : stdgo.Pointer<stdgo.GoInt>)) : stdgo.Pointer<stdgo.GoInt>);
-                    for (_i in 0 ... _ints.length.toBasic()) {
+                    for (_i => _ in _ints) {
                         if (_ptr == (stdgo.Go.pointer(_ints[(_i : stdgo.GoInt)]))) {
                             return stdgo.fmt.Fmt.sprintf(("PTR%d" : stdgo.GoString), stdgo.Go.toInterface(_i))?.__copy__();
                         };
@@ -268,7 +268,7 @@ function _sprintKey(_key:stdgo.reflect.Reflect.Value):stdgo.GoString {
                     return ("PTR???" : stdgo.GoString);
                 } else if (__value__ == (("unsafe.Pointer" : stdgo.GoString))) {
                     var _ptr:stdgo.unsafe.Unsafe.UnsafePointer = (stdgo.Go.typeAssert((_key.interface_() : stdgo.unsafe.Unsafe.UnsafePointer)) : stdgo.unsafe.Unsafe.UnsafePointer);
-                    for (_i in 0 ... _ints.length.toBasic()) {
+                    for (_i => _ in _ints) {
                         if (_ptr == ((stdgo.Go.toInterface(stdgo.Go.pointer(_ints[(_i : stdgo.GoInt)])) : stdgo.unsafe.Unsafe.UnsafePointer))) {
                             return stdgo.fmt.Fmt.sprintf(("UNSAFEPTR%d" : stdgo.GoString), stdgo.Go.toInterface(_i))?.__copy__();
                         };
@@ -276,7 +276,7 @@ function _sprintKey(_key:stdgo.reflect.Reflect.Value):stdgo.GoString {
                     return ("UNSAFEPTR???" : stdgo.GoString);
                 } else if (__value__ == (("chan int" : stdgo.GoString))) {
                     var _c = (stdgo.Go.typeAssert((_key.interface_() : stdgo.Chan<stdgo.GoInt>)) : stdgo.Chan<stdgo.GoInt>);
-                    for (_i in 0 ... _chans.length.toBasic()) {
+                    for (_i => _ in _chans) {
                         if (_c == (_chans[(_i : stdgo.GoInt)])) {
                             return stdgo.fmt.Fmt.sprintf(("CHAN%d" : stdgo.GoString), stdgo.Go.toInterface(_i))?.__copy__();
                         };

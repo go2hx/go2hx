@@ -4405,7 +4405,7 @@ function _rndW():Word {
     }
 function _rndV(_n:stdgo.GoInt):stdgo.Slice<Word> {
         var _v = new stdgo.Slice<stdgo.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        for (_i in 0 ... _v.length.toBasic()) {
+        for (_i => _ in _v) {
             _v[(_i : stdgo.GoInt)] = _rndW();
         };
         return _v;
@@ -4510,7 +4510,7 @@ function testFunVW(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
 **/
 function _makeWordVec(_e:Word, _n:stdgo.GoInt):stdgo.Slice<Word> {
         var _v = new stdgo.Slice<stdgo.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        for (_i in 0 ... _v.length.toBasic()) {
+        for (_i => _ in _v) {
             _v[(_i : stdgo.GoInt)] = _e;
         };
         return _v;
@@ -5809,7 +5809,7 @@ function testFloatSetUint64(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
     }
 function testFloatSetInt64(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         for (__14 => _want in (new stdgo.Slice<stdgo.GoInt64>(8, 8, (0i64 : stdgo.GoInt64), (1i64 : stdgo.GoInt64), (2i64 : stdgo.GoInt64), (10i64 : stdgo.GoInt64), (100i64 : stdgo.GoInt64), (4294967295i64 : stdgo.GoInt64), (4294967296i64 : stdgo.GoInt64), (9223372036854775807i64 : stdgo.GoInt64)) : stdgo.Slice<stdgo.GoInt64>)) {
-            for (_i in 0 ... (new stdgo.GoArray<stdgo.GoInt>(...([].concat([for (i in 0 ... 2) (0 : stdgo.GoInt)]))) : stdgo.GoArray<stdgo.GoInt>).length.toBasic()) {
+            for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(...([].concat([for (i in 0 ... 2) (0 : stdgo.GoInt)]))) : stdgo.GoArray<stdgo.GoInt>)) {
                 if (_i & (1 : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                     _want = -_want;
                 };
@@ -5858,7 +5858,7 @@ function testFloatSetFloat64(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
 stdgo.math.Math.inf((-1 : stdgo.GoInt)),
 stdgo.math.Math.inf((0 : stdgo.GoInt)),
 -stdgo.math.Math.inf((1 : stdgo.GoInt))) : stdgo.Slice<stdgo.GoFloat64>)) {
-                for (_i in 0 ... (new stdgo.GoArray<stdgo.GoInt>(...([].concat([for (i in 0 ... 2) (0 : stdgo.GoInt)]))) : stdgo.GoArray<stdgo.GoInt>).length.toBasic()) {
+                for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(...([].concat([for (i in 0 ... 2) (0 : stdgo.GoInt)]))) : stdgo.GoArray<stdgo.GoInt>)) {
                     if (_i & (1 : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                         _want = -_want;
                     };
@@ -6432,7 +6432,7 @@ function testFloatAdd32(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _d:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor(_d <= (16 : stdgo.GoInt), _d++, {
-                for (_i in 0 ... (new stdgo.GoArray<stdgo.GoInt>(...([].concat([for (i in 0 ... 2) (0 : stdgo.GoInt)]))) : stdgo.GoArray<stdgo.GoInt>).length.toBasic()) {
+                for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(...([].concat([for (i in 0 ... 2) (0 : stdgo.GoInt)]))) : stdgo.GoArray<stdgo.GoInt>)) {
                     var __0:stdgo.GoFloat64 = (6.7108848e+07 : stdgo.GoFloat64), __1:stdgo.GoFloat64 = (_d : stdgo.GoFloat64), _y0:stdgo.GoFloat64 = __1, _x0:stdgo.GoFloat64 = __0;
                     if (_i & (1 : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                         {
@@ -6474,7 +6474,7 @@ function testFloatAdd64(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         {
             var _d:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor(_d <= (16 : stdgo.GoInt), _d++, {
-                for (_i in 0 ... (new stdgo.GoArray<stdgo.GoInt>(...([].concat([for (i in 0 ... 2) (0 : stdgo.GoInt)]))) : stdgo.GoArray<stdgo.GoInt>).length.toBasic()) {
+                for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(...([].concat([for (i in 0 ... 2) (0 : stdgo.GoInt)]))) : stdgo.GoArray<stdgo.GoInt>)) {
                     var __0:stdgo.GoFloat64 = (3.602879701896395e+16 : stdgo.GoFloat64), __1:stdgo.GoFloat64 = (_d : stdgo.GoFloat64), _y0:stdgo.GoFloat64 = __1, _x0:stdgo.GoFloat64 = __0;
                     if (_i & (1 : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                         {
@@ -6564,7 +6564,7 @@ function testFloatMul(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
 **/
 function testFloatMul64(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         for (__14 => _test in (new stdgo.Slice<T__struct_25>(8, 8, ({ _x : (0 : stdgo.GoFloat64), _y : (0 : stdgo.GoFloat64) } : T__struct_25), ({ _x : (0 : stdgo.GoFloat64), _y : (1 : stdgo.GoFloat64) } : T__struct_25), ({ _x : (1 : stdgo.GoFloat64), _y : (1 : stdgo.GoFloat64) } : T__struct_25), ({ _x : (1 : stdgo.GoFloat64), _y : (1.5 : stdgo.GoFloat64) } : T__struct_25), ({ _x : (1.234 : stdgo.GoFloat64), _y : (0.5678 : stdgo.GoFloat64) } : T__struct_25), ({ _x : (2.718281828 : stdgo.GoFloat64), _y : (3.14159265358979 : stdgo.GoFloat64) } : T__struct_25), ({ _x : (2.718281828e+10 : stdgo.GoFloat64), _y : (3.14159265358979e-32 : stdgo.GoFloat64) } : T__struct_25), ({ _x : (0.3333333333333333 : stdgo.GoFloat64), _y : (1e+200 : stdgo.GoFloat64) } : T__struct_25)) : stdgo.Slice<T__struct_25>)) {
-            for (_i in 0 ... (new stdgo.GoArray<stdgo.GoInt>(...([].concat([for (i in 0 ... 8) (0 : stdgo.GoInt)]))) : stdgo.GoArray<stdgo.GoInt>).length.toBasic()) {
+            for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(...([].concat([for (i in 0 ... 8) (0 : stdgo.GoInt)]))) : stdgo.GoArray<stdgo.GoInt>)) {
                 var __0:stdgo.GoFloat64 = _test._x, __1:stdgo.GoFloat64 = _test._y, _y0:stdgo.GoFloat64 = __1, _x0:stdgo.GoFloat64 = __0;
                 if (_i & (1 : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                     _x0 = -_x0;
@@ -9858,7 +9858,7 @@ function testFillBytes(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
                 var _buf = new stdgo.Slice<stdgo.GoUInt8>((_byteLen : stdgo.GoInt).toBasic(), 0).__setNumber32__();
                 _checkResult(_t, _x.fillBytes(_buf), _x);
                 _buf = new stdgo.Slice<stdgo.GoUInt8>((100 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-                for (_i in 0 ... _buf.length.toBasic()) {
+                for (_i => _ in _buf) {
                     _buf[(_i : stdgo.GoInt)] = (255 : stdgo.GoUInt8);
                 };
                 _checkResult(_t, _x.fillBytes(_buf), _x);
@@ -17614,7 +17614,7 @@ _even);
     @:keep
     static public function fillBytes( _x:stdgo.Ref<Int_>, _buf:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> {
         @:recv var _x:stdgo.Ref<Int_> = _x;
-        for (_i in 0 ... _buf.length.toBasic()) {
+        for (_i => _ in _buf) {
             _buf[(_i : stdgo.GoInt)] = (0 : stdgo.GoUInt8);
         };
         _x._abs._bytes(_buf);
@@ -20860,7 +20860,7 @@ class T_nat_asInterface {
         var _zz:stdgo.math.big.Big.T_nat = (_zzp : stdgo.math.big.Big.T_nat);
         {};
         var _powers:stdgo.GoArray<stdgo.Ref<T_nat>> = new stdgo.GoArray<stdgo.Ref<stdgo.math.big.Big.T_nat>>(...[for (i in 0 ... 16) (null : stdgo.Ref<stdgo.math.big.Big.T_nat>)]);
-        for (_i in 0 ... _powers.length.toBasic()) {
+        for (_i => _ in _powers) {
             _powers[(_i : stdgo.GoInt)] = _getNat(_w);
         };
         _powers[(0 : stdgo.GoInt)].__setData__(_powers[(0 : stdgo.GoInt)]._set(_natOne));
@@ -20946,7 +20946,7 @@ class T_nat_asInterface {
         });
         _zzp.__setData__(_zz);
         _putNat(_zzp);
-        for (_i in 0 ... _powers.length.toBasic()) {
+        for (_i => _ in _powers) {
             _putNat(_powers[(_i : stdgo.GoInt)]);
         };
         return _z._norm();

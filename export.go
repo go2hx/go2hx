@@ -63,19 +63,19 @@ type interfaceData struct {
 	isExport bool
 }
 
-//go:embed stdgo.json
+//go:embed data/stdgo.json
 var stdgoListBytes []byte
 
-//go:embed excludes.json
+//go:embed data/excludes.json
 var excludesBytes []byte
 
 var fset *token.FileSet
 var stdgoList map[string]bool
 
-//go:embed stdgoExports.json
+//go:embed data/stdgoExports.json
 var stdgoExportsBytes []byte
 
-//go:embed stdgoExterns.json
+//go:embed data/stdgoExterns.json
 var stdgoExternsBytes []byte
 
 var stdgoExterns map[string]bool

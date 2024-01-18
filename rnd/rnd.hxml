@@ -2,15 +2,15 @@
 -cp src
 -main RunRnd
 #--interp
--D debug
+#-D debug
 -D nolinkstd
 -D watch.run=hl rnd.hl
--D no-deprecation-warnings
 -D watch.excludes=golibs
--dce full
-# -lib hxnodejs
-# --js rnd.js
-# --cmd node rnd.js
+-D no-deprecation-warnings
+#-dce full
+#-lib hxnodejs
+#--js rnd.js
+#--cmd node rnd.js
 
 #-hl rnd.hl
 #--cmd hl rnd.hl

@@ -19,6 +19,11 @@ function main() {
 		return;
 	}
 
+	if (args.length > 0 && args[0] == "hxb") {
+		setupHxb();
+		return;
+	}
+
 	var process = new Process("go", ["version"]);
 	var code = process.exitCode();
 	if (code != 0) {
@@ -59,6 +64,7 @@ function main() {
 		Sys.println("rebuilding...");
 		rebuild = true;
 	}
+	//if (!FileSystem.exists("prebuild.zip"))
 	// run go compiler
 	if (!FileSystem.exists("go4hx") || rebuild)
 		Sys.command("go build .");
@@ -146,9 +152,9 @@ function setupNodeJS(rebuild:Bool,args:Array<String>) {
 	Sys.println("NodeJS compiler version");
 	// run nodejs
 	if (!FileSystem.exists("build.js") || rebuild) {
-		Sys.command("haxe build-js.hxml");
+		Sys.command("haxe scripts/build-js.hxml");
 	}
-	args.unshift("build.js");
+	args.unshift("export/build.js");
 	// 4gb = 4096, 2gb = 2048
 	// args.unshift("--max-old-space-size=4096");
 	//args.unshift("--expose-gc");
@@ -169,18 +175,23 @@ function setupHashlink(rebuild:Bool,args:Array<String>) {
 		args.remove(args[index]);
 	}
 	if (!FileSystem.exists("build.hl") || rebuild) {
-		var cmd = "haxe build-hl.hxml";
+		var cmd = "haxe scripts/build-hl.hxml";
 		if (no_uv)
 			cmd += " -D no_uv";
 		if (no_fmt)
 			cmd += " -D no_fmt";
 		Sys.command(cmd);
 	}
-	args.unshift("build.hl");
+	args.unshift("export/build.hl");
 	Sys.command("hl", args);
 }
 
 function setupInterp(rebuild:Bool, args:Array<String>) {
 	Sys.println("Interp compiler version");
 	Sys.command("haxe build-interp.hxml " + args.join(" "));
+}
+
+function setupHxb() {
+	Sys.command("haxe hxb.hxml");
+	Sys.command("haxe create_hxb.hxml");
 }

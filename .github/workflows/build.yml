@@ -34,18 +34,20 @@ jobs:
       # go2hx setup
       - name: Set source
         run: npx haxelib dev go2hx .
-      - name: Test run
-        run: npx haxelib run go2hx ./rnd
       # clean stdgo
       - name: Clean go2hx
         run: npx haxelib run go2hx clean
       # compile stdgo
       - name: Run stdgo automatic compile
-        run: npx haxe stdgo.hxml -D runnerCount=${{ env.CORES }}
+        run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
+      - name: Create hxb
+        run: npx haxelib run go2hx hxb
+      - name: Test run
+        run: npx haxelib run go2hx ./rnd
       - name: Run unit
-        run: npx haxe tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }}
+        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }}
       - name: Run std
-        run: npx haxe tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }}
+        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }}
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: stdgo automatic compile
@@ -76,7 +78,7 @@ jobs:
   #       run: npx haxelib run go2hx ./rnd
   #     # run hxcpp tests
   #     - name: Run unit hxcpp tests
-  #       run: npx haxe tests.hxml -D unit -D ci -D target_hxcpp -D runnerCount=${{ env.CORES }}
+  #       run: npx haxe tests/tests.hxml -D unit -D ci -D target_hxcpp -D runnerCount=${{ env.CORES }}
   # test-cpp-std:
   #   timeout-minutes: 360
   #   needs: build
@@ -104,7 +106,7 @@ jobs:
   #     run: npx haxelib run go2hx ./rnd
   #   # run hxcpp tests
   #   - name: Run unit hxcpp tests
-  #     run: npx haxe tests.hxml -D std -D ci -D target_hxcpp -D runnerCount=${{ env.CORES }}
+  #     run: npx haxe tests/tests.hxml -D std -D ci -D target_hxcpp -D runnerCount=${{ env.CORES }}
   yaegi-easy:
     timeout-minutes: 90
     needs: []
@@ -129,21 +131,25 @@ jobs:
       # go2hx setup
       - name: Set source
         run: npx haxelib dev go2hx .
-      - name: Test run
-        run: npx haxelib run go2hx ./rnd
       # clean stdgo
       - name: Clean go2hx
         run: npx haxelib run go2hx clean
       # compile stdgo
       - name: Run stdgo automatic compile
-        run: npx haxe stdgo.hxml -D runnerCount=${{ env.CORES }}
+        run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
+      - name: Test run
+        run: npx haxelib run go2hx ./rnd
+      - name: Create hxb
+        run: npx haxelib run go2hx hxb
+      - name: Test run
+        run: npx haxelib run go2hx ./rnd
       # run yaegi easy tests
       - name: clone yaegi
         run: git clone https://github.com/traefik/yaegi ./tests/yaegi
       - name: Sort tests
         run: go run ./scripts/sortTests ci
       - name: Run yaegi easy tests
-        run: npx haxe tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }}
+        run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }}
       - name: Clean go2hx
         run: npx haxelib run go2hx clean
       # git pull latest
@@ -178,21 +184,23 @@ jobs:
       # go2hx setup
       - name: Set source
         run: npx haxelib dev go2hx .
-      - name: Test run
-        run: npx haxelib run go2hx ./rnd
       # clean stdgo
       - name: Clean go2hx
         run: npx haxelib run go2hx clean
       # compile stdgo
       - name: Run stdgo automatic compile
-        run: npx haxe stdgo.hxml -D runnerCount=${{ env.CORES }}
+        run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
+      - name: Create hxb
+        run: npx haxelib run go2hx hxb
+      - name: Test run
+        run: npx haxelib run go2hx ./rnd
       - name: clone go
         run: git clone https://github.com/golang/go ./tests/go
       - name: Sort tests
         run: go run ./scripts/sortTests ci
       # run go easy tests
       - name: Run go easy tests
-        run: npx haxe tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }}
+        run: npx haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }}
       - name: Clean go2hx
         run: npx haxelib run go2hx clean
       # git pull latest

@@ -165,6 +165,8 @@ function update() {
 	if (tasks.length > 0 && runningCount < Std.parseInt(runnerCount) ) {
 		final task = tasks.pop();
 		Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount + " " + lastTaskLogs);
+		//task.args.push("--hxb-lib");
+		//task.args.push("prebuild.zip");
 		final taskString = task.command + " " + task.args.join(" ");
 		lastTaskLogs.push(taskString);
 		runningCount++;
@@ -196,11 +198,6 @@ function update() {
 			timeout = 0;
 		});
 		ls.on('close', function(code) {
-			timeout = 0;
-			timeoutTimer.stop();
-			lastTaskLogs.remove(taskString);
-			completeBool = true;
-			runningCount--;
 			if (code == 0) {
 				if (task.runtime) {
 					final wanted = outputMap[type + "_" + task.path];
@@ -242,6 +239,11 @@ function update() {
 					suite.buildError(task);
 				}
 			}
+			runningCount--;
+			timeout = 0;
+			timeoutTimer.stop();
+			lastTaskLogs.remove(taskString);
+			completeBool = true;
 		});
 	}
 }

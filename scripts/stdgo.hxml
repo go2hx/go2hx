@@ -1,11 +1,10 @@
 -main StdGo
+-cp scripts
 -cp src
 -D no-deprecation-warnings
 -D simulate_num
 -dce full
 -D nolinkstd
 -lib hxnodejs
---js stdgo.js
---cmd node stdgo.js
-#-hl stdgo.hl
-#--cmd hl stdgo.hl
+--js export/stdgo.js
+--cmd node export/stdgo.js

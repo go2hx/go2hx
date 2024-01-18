@@ -10,10 +10,8 @@ final path = Sys.getCwd();
 var libCount = 0;
 
 function main() {
-	var list:Array<String> = Json.parse(File.getContent("tests.json"));
-	final excludes:Array<String> = Json.parse(File.getContent("excludes.json"));
-	for (path in excludes)
-		list.remove(path);
+	var list:Array<String> = Json.parse(File.getContent("data/tests.json"));
+	final excludes:Array<String> = Json.parse(File.getContent("data/excludes.json"));
 	for (data in list) {
 		libs.push(data.split("-")[0]);
 	}
@@ -25,6 +23,8 @@ function main() {
 	if (defineLibs != null) {
 		libs = defineLibs.split(",");
 	}
+	for (path in excludes)
+		list.remove(path);
 	trace(libs);
 	libCount = libs.length;
 	final runnerCount = Compiler.getDefine("runnerCount") ?? "2";
@@ -101,7 +101,13 @@ final noMain = [
 	"reflect",
 	"internal/bytealg",
 	"internal/cpu",
+	"go/internal/gccgoimporter",
+	"go/internal/typeparams",
+	"go/scanner",
+	"crypto/internal/randutil",
 	"internal/types/errors",
+	"internal/saferio",
+	"crypto",
 	"internal/godebug",
 	"internal/abi",
 	"syscall",

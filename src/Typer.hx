@@ -6,10 +6,10 @@ import sys.io.File;
 import Types;
 import Ast.BasicKind;
 
-final stdgoList:Array<String> = haxe.Json.parse(File.getContent("./stdgo.json"));
-final excludesList:Array<String> = haxe.Json.parse(File.getContent("./excludes.json"));
-final exports:Array<String> = haxe.Json.parse(File.getContent("./stdgoExports.json"));
-final externs:Array<String> = haxe.Json.parse(File.getContent("./stdgoExterns.json"));
+final stdgoList:Array<String> = haxe.Json.parse(File.getContent("data/stdgo.json"));
+final excludesList:Array<String> = haxe.Json.parse(File.getContent("data/excludes.json"));
+final exports:Array<String> = haxe.Json.parse(File.getContent("data/stdgoExports.json"));
+final externs:Array<String> = haxe.Json.parse(File.getContent("data/stdgoExterns.json"));
 
 final reserved = [
 	"iterator", "keyValueIterator", "switch", "case", "break", "continue", "default", "is", "abstract", "cast", "catch", "class", "do", "function", "dynamic",

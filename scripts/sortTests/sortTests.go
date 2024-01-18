@@ -103,6 +103,9 @@ func sortImports(dir string, name string) (r Result) {
 					return nil
 				}
 				text := file.Comments[0].Text()
+				if strings.HasPrefix(text, "runoutput") {
+					return nil
+				}
 				if !strings.HasPrefix(text, "run") {
 					return nil
 				}

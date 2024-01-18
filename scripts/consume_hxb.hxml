@@ -2,4 +2,5 @@
 -cp golibs
 -m github_com.go2hx.go4hx.scripts.hxb.Hxb
 --hl hxb.hl 
+--times
 --hxb-lib prebuild.zip

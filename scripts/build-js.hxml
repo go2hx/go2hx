@@ -9,4 +9,4 @@
 -D analyzer-optimize
 #-D nolinkstd
 -D js-source-map
--js build.js
+-js export/build.js

@@ -11,11 +11,15 @@ function main() {
 
 function runCompiler() {
     Sys.println("Run Compiler");
-    Sys.command("haxelib run go2hx ./scripts/hxb --rebuild -compiler_interp");
+    Sys.command("haxelib run go2hx ./scripts/hxb -compiler_interp");
 }
 
-function allStd() {
-    var stdList:Array<String> = Json.parse(File.getContent("stdgo.json"));
+function allGenStd() {
+    var stdList:Array<String> = Json.parse(File.getContent("data/tests.json"));
+    final excludes:Array<String> = Json.parse(File.getContent("data/excludes.json"));
+    for (path in excludes) {
+        stdList.remove(path);
+    }
     return stdList;
 }
 
@@ -27,7 +31,7 @@ function passingStd() {
 
 function genGo() {
     Sys.println("Generate Go");
-    var stdList = allStd();
+    var stdList = passingStd();
      // sort alphabetically
      stdList.sort((a, b) -> {
         if (a < b)

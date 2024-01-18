@@ -4,7 +4,6 @@ hashlink
 .unittest
 *.hl
 *.data
-export
 test.go
 tests.md
 main
@@ -59,7 +58,6 @@ gen.txt
 tools
 tests/gobyexample
 tests/yaegi
-tests/*.hxml
 *.log
 check.json
 __debug_bin
@@ -69,3 +67,4 @@ runrnd
 actions-runner
 log.out
 tests/sort_*.json
+*.zip

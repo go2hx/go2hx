@@ -1,0 +1,10 @@
+-main Tests
+-cp tests
+-cp src
+-D no-deprecation-warnings
+-D nolinkstd
+-D simulate_num
+-dce full
+-lib hxnodejs
+--js export/tests.js
+--cmd node export/tests.js --max-old-space-size=4096

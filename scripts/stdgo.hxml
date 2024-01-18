@@ -7,4 +7,4 @@
 -D nolinkstd
 -lib hxnodejs
 --js export/stdgo.js
---cmd node export/stdgo.js
+--cmd node --max-old-space-size=4096 export/stdgo.js

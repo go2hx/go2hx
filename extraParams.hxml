@@ -11,9 +11,5 @@
 -D no-deprecation-warnings
 -D hl_no_opt
 -D numberlinkerror
---times
--D analyzer-times
--D filter-times
--D analyzer_user_var_fusion
 
 #-D nolinkstd

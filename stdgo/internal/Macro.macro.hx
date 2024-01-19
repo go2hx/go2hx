@@ -34,49 +34,9 @@ class Macro {
 						}
 					}
 				}
-				final hxbClassName = className + "_hxb_";
-				// trace("define cached macro GoType info");
-				final p:TypePath = {name: hxbClassName, pack: []};
-				if (Context.definedValue("hxb") == "1") {
-					cl.name = hxbClassName;
-					sys.io.File.saveContent('$hxbClassName.hx', new haxe.macro.Printer().printTypeDefinition(cl));
-					final cl2 = macro class T {
-						public function new() {
-							try {
-								names = new $p().names;
-							}catch(e) {
-								throw e.details();
-							}
-						}
-					}
-					cl.name = className;
-					cl.fields[1] = cl2.fields[0];
-					Context.defineType(cl);
-				}else{
-					try {
-						final t = Context.getType(p.name);
-						// trace(new haxe.macro.Printer().printComplexType(Context.toComplexType(t)));
-						final cl2 = macro class T {
-							public function new() {
-								try {
-									names = $e;
-									final moreNames = @:privateAccess new $p().names;
-									for (key => value in moreNames) {
-										names[key] = value;
-									}
-								}catch(e) {
-									throw e.details();
-								}
-							}
-						}
-						cl.fields[1] = cl2.fields[0];
-						// trace(new haxe.macro.Printer().printTypeDefinition(cl));
-					}catch(err) {
-						// trace("Failed to get type:", err);
-					}
-					cl.name = className + "_go2hx_";
-					Context.defineType(cl);
-				}
+				cl.name = className + "_go2hx_" + Context.definedValue("hxb");
+				trace(cl.name);
+				Context.defineType(cl);
 			});
 	}
 

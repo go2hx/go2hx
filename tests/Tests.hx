@@ -54,7 +54,7 @@ var targets = ["hl"];
 var suite = new TestSuite();
 var completeBool = false;
 var sortMode = "";
-var count = 0;
+var testCount = 0;
 var offset = 0;
 var run:String = "";
 var lastTaskLogs = [];
@@ -77,7 +77,7 @@ function main() {
 	final tinygoBool = Compiler.getDefine("tinygo") != null;
 	sortMode = Compiler.getDefine("mode") ?? (Compiler.getDefine("sort") ?? "");
 	final countStr = Compiler.getDefine("count");
-	count = countStr != null ? Std.parseInt(countStr) : 0;
+	testCount = countStr != null ? Std.parseInt(countStr) : 0;
 	final offsetStr = Compiler.getDefine("offset");
 	offset = offsetStr != null ? Std.parseInt(offsetStr) : 0;
 	run = Compiler.getDefine("run") ?? "";
@@ -118,8 +118,8 @@ function runTests() {
 	if (offset > 0) {
 		tests = tests.slice(offset > tests.length ? tests.length : offset);
 	}
-	if (count > 0) {
-		tests = tests.slice(0, tests.length < count ? tests.length : count);
+	if (testCount > 0) {
+		tests = tests.slice(0, tests.length < testCount ? tests.length : testCount);
 	}
 	if (run != "") {
 		trace(tests);
@@ -392,7 +392,7 @@ private function close() {
 		}
 	}
 	var code = 0;
-	if (count == 0 && offset == 0 && output.length > 0 && run == "") {
+	if (testCount == 0 && offset == 0 && output.length > 0 && run == "") {
 		log('         regression results: ');
 		for (obj in output)
 			log(obj);
@@ -405,10 +405,12 @@ private function close() {
 			runTests();
 			return;
 		}
-	}else if (output.length == 0){
-		input.sort((a, b) -> a > b ? 1 : -1);
-		
-		File.saveContent('tests/$testName.json', Json.stringify(input, null, " "));
+	}else {
+		trace(testCount == 0, offset == 0, output.length > 0, run == "");
+		if (output.length == 0){
+			input.sort((a, b) -> a > b ? 1 : -1);
+			File.saveContent('tests/$testName.json', Json.stringify(input, null, " "));
+		}
 	}
 	logOutput.close();
 	Main.close(code);

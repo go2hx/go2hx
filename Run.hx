@@ -66,8 +66,10 @@ function main() {
 	}
 	//if (!FileSystem.exists("prebuild.zip"))
 	// run go compiler
-	if (!FileSystem.exists("go4hx") || rebuild)
+	if (!FileSystem.exists("go4hx") || rebuild) {
+		Sys.println("build go part of the compiler");
 		Sys.command("go build .");
+	}
 
 	if (args.length <= 1) {
 		Sys.command("haxe scripts/build-interp.hxml --help");
@@ -88,7 +90,7 @@ function main() {
 		setupNodeJS(rebuild,args);
 		return;
 	}
-	code = 1;
+	/*code = 1;
 	try {
 		process = new Process("node -v");
 		code = process.exitCode();
@@ -100,7 +102,7 @@ function main() {
 	if (code == 0) {
 		setupNodeJS(rebuild,args);
 		return;
-	}
+	}*/
 	code = 1;
 	try {
 		process = new Process("hl", ["--version"]);
@@ -151,7 +153,7 @@ function deleteDirectoryRecursively(dir:String):Int {
 function setupNodeJS(rebuild:Bool,args:Array<String>) {
 	Sys.println("NodeJS compiler version");
 	// run nodejs
-	if (!FileSystem.exists("build.js") || rebuild) {
+	if (!FileSystem.exists("export/build.js") || rebuild) {
 		Sys.command("haxe scripts/build-js.hxml");
 	}
 	args.unshift("export/build.js");

@@ -70,7 +70,7 @@ function main() {
 		Sys.command("go build .");
 
 	if (args.length <= 1) {
-		Sys.command("haxe build-interp.hxml --help");
+		Sys.command("haxe scripts/build-interp.hxml --help");
 		return;
 	}
 	if ((index = args.indexOf("-compiler_hl")) != -1 || (index = args.indexOf("--compiler_hl")) != -1) {
@@ -188,10 +188,10 @@ function setupHashlink(rebuild:Bool,args:Array<String>) {
 
 function setupInterp(rebuild:Bool, args:Array<String>) {
 	Sys.println("Interp compiler version");
-	Sys.command("haxe build-interp.hxml " + args.join(" "));
+	Sys.command("haxe scripts/build-interp.hxml " + args.join(" "));
 }
 
 function setupHxb() {
-	Sys.command("haxe hxb.hxml");
-	Sys.command("haxe create_hxb.hxml");
+	Sys.command("haxe scripts/hxb.hxml");
+	Sys.command("haxe scripts/create_hxb.hxml");
 }

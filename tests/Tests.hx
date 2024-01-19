@@ -60,6 +60,12 @@ var run:String = "";
 var lastTaskLogs = [];
 var dryRun = false;
 final runnerCount = Compiler.getDefine("runnerCount") ?? "2";
+var unitBool = false;
+var stdBool = false;
+var goBool = false;
+var yaegiBool = false;
+var goByExampleBool = false;
+var tinygoBool = false;
 
 function main() {
 	if (Compiler.getDefine("target_hxcpp") != null)
@@ -69,12 +75,12 @@ function main() {
 	logOutput = File.append("test.log", false);
 	// go by example, stdlib, yaegi, go internal tests, unit regression tests
 	ciBool = Compiler.getDefine("ci") != null;
-	final unitBool = Compiler.getDefine("unit") != null;
-	final stdBool = Compiler.getDefine("std") != null;
-	final goBool = Compiler.getDefine("go") != null;
-	final yaegiBool = Compiler.getDefine("yaegi") != null;
-	final goByExampleBool = Compiler.getDefine("gobyexample") != null;
-	final tinygoBool = Compiler.getDefine("tinygo") != null;
+	unitBool = Compiler.getDefine("unit") != null;
+	stdBool = Compiler.getDefine("std") != null;
+	goBool = Compiler.getDefine("go") != null;
+	yaegiBool = Compiler.getDefine("yaegi") != null;
+	goByExampleBool = Compiler.getDefine("gobyexample") != null;
+	tinygoBool = Compiler.getDefine("tinygo") != null;
 	sortMode = Compiler.getDefine("mode") ?? (Compiler.getDefine("sort") ?? "");
 	final countStr = Compiler.getDefine("count");
 	testCount = countStr != null ? Std.parseInt(countStr) : 0;
@@ -89,18 +95,6 @@ function main() {
 		close();
 		return;
 	}
-	if (unitBool)
-		testUnit();
-	if (stdBool)
-		testStd();
-	if (goBool)
-		testGo();
-	if (yaegiBool)
-		testYaegi();
-	if (tinygoBool)
-		testTinyGo();
-	if (goByExampleBool)
-		testGoByExample();
 	runTests();
 	trace(tests);
 	trace(tests.length);
@@ -114,6 +108,18 @@ function main() {
 }
 
 function runTests() {
+	if (unitBool)
+		testUnit();
+	if (stdBool)
+		testStd();
+	if (goBool)
+		testGo();
+	if (yaegiBool)
+		testYaegi();
+	if (tinygoBool)
+		testTinyGo();
+	if (goByExampleBool)
+		testGoByExample();
 	tests.sort((a, b) -> a > b ? 1 : -1); // consistent across os targets
 	if (offset > 0) {
 		tests = tests.slice(offset > tests.length ? tests.length : offset);
@@ -406,10 +412,11 @@ private function close() {
 			return;
 		}
 	}else {
-		trace(testCount == 0, offset == 0, output.length > 0, run == "");
 		if (output.length == 0){
 			input.sort((a, b) -> a > b ? 1 : -1);
 			File.saveContent('tests/$testName.json', Json.stringify(input, null, " "));
+		}else{
+			trace(testCount == 0, offset == 0, output.length > 0, run == "");
 		}
 	}
 	logOutput.close();

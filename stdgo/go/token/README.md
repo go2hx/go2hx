@@ -4,6 +4,8 @@ stdgo/go/token/Token.hx:1261: characters 116-121 : Unknown identifier : _fset
 stdgo/encoding/gob/Gob.hx:10488: characters 27-57 : Type not found : stdgo.internal.saferio.Saferio
 stdgo/encoding/gob/Gob.hx:5554: characters 37-67 : Type not found : stdgo.internal.saferio.Saferio
 stdgo/encoding/gob/Gob.hx:11347: characters 37-67 : Type not found : stdgo.internal.saferio.Saferio
+stdgo/encoding/gob/Gob.hx:3756: characters 67-85 : stdgo.GoInt should be Null<stdgo.Pointer<stdgo.GoInt>>
+stdgo/encoding/gob/Gob.hx:3827: characters 18-26 : stdgo.encoding.gob.T1 has no field emptyMap
 stdgo/encoding/gob/Gob.hx:4140: characters 9-56 : Invalid assign
 stdgo/encoding/gob/Gob.hx:4160: characters 9-56 : Invalid assign
 stdgo/encoding/gob/Gob.hx:4263: characters 9-61 : Invalid assign

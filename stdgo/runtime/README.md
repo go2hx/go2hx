@@ -465,9 +465,9 @@ checking if the uid/gid match the effective uid/gid.
 
   - [`function runtimeError():Void`](<#typeassertionerror-function-runtimeerror>)
 
-- [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
+- [typedef Error](<#typedef-error>)
 
-- [typedef T\_error](<#typedef-t_error>)
+- [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
 
 # Constants
 
@@ -2502,6 +2502,20 @@ import stdgo.runtime.*
 ```
 
 
+## typedef Error
+
+
+```haxe
+typedef Error = {
+	public function runtimeError():Void;	//  RuntimeError is a no-op function but serves to distinguish types that are run time errors from ordinary errors: a type is a run time error if it has a RuntimeError method.
+	public function error():stdgo.GoString;
+};
+```
+
+
+
+The Error interface identifies a run time error.  
+
 ## typedef T\_\_struct\_0
 
 
@@ -2513,18 +2527,4 @@ typedef T__struct_0 = {
 };
 ```
 
-
-## typedef T\_error
-
-
-```haxe
-typedef T_error = {
-	public function runtimeError():Void;	//  RuntimeError is a no-op function but serves to distinguish types that are run time errors from ordinary errors: a type is a run time error if it has a RuntimeError method.
-	public function error():stdgo.GoString;
-};
-```
-
-
-
-The Error interface identifies a run time error.  
 

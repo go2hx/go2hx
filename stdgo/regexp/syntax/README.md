@@ -298,6 +298,12 @@ Unicode character classes are those in unicode.Categories and unicode.Scripts.
 
 - [`function testToStringEquivalentParse(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testtostringequivalentparse>)
 
+- [class Error](<#class-error>)
+
+  - [`function new(?code:Null<stdgo.regexp.syntax.ErrorCode>, ?expr:stdgo.GoString):Void`](<#error-function-new>)
+
+  - [`function error():stdgo.GoString`](<#error-function-error>)
+
 - [class Inst](<#class-inst>)
 
   - [`function new(?op:Null<stdgo.regexp.syntax.InstOp>, ?out:stdgo.GoUInt32, ?arg:stdgo.GoUInt32, ?rune:stdgo.Slice<stdgo.GoInt32>):Void`](<#inst-function-new>)
@@ -339,12 +345,6 @@ Unicode character classes are those in unicode.Categories and unicode.Scripts.
   - [`function simplify():stdgo.Ref<stdgo.regexp.syntax.Regexp>`](<#regexp-function-simplify>)
 
   - [`function string():stdgo.GoString`](<#regexp-function-string>)
-
-- [class T\_error](<#class-t_error>)
-
-  - [`function new(?code:Null<stdgo.regexp.syntax.ErrorCode>, ?expr:stdgo.GoString):Void`](<#t_error-function-new>)
-
-  - [`function error():stdgo.GoString`](<#t_error-function-error>)
 
 - [typedef EmptyOp](<#typedef-emptyop>)
 
@@ -1898,6 +1898,45 @@ import stdgo.regexp.syntax.*
 ```
 
 
+## class Error
+
+
+
+An Error describes a failure to parse a regular expression
+and gives the offending expression.  
+
+```haxe
+var code:stdgo.regexp.syntax.ErrorCode
+```
+
+
+```haxe
+var expr:stdgo.GoString
+```
+
+
+### Error function new
+
+
+```haxe
+function new(?code:Null<stdgo.regexp.syntax.ErrorCode>, ?expr:stdgo.GoString):Void
+```
+
+
+[\(view code\)](<./Syntax.hx#L1381>)
+
+
+### Error function error
+
+
+```haxe
+function error():stdgo.GoString
+```
+
+
+[\(view code\)](<./Syntax.hx#L3526>)
+
+
 ## class Inst
 
 
@@ -2249,45 +2288,6 @@ function string():stdgo.GoString
 
 
 [\(view code\)](<./Syntax.hx#L5610>)
-
-
-## class T\_error
-
-
-
-An Error describes a failure to parse a regular expression
-and gives the offending expression.  
-
-```haxe
-var code:stdgo.regexp.syntax.ErrorCode
-```
-
-
-```haxe
-var expr:stdgo.GoString
-```
-
-
-### T\_error function new
-
-
-```haxe
-function new(?code:Null<stdgo.regexp.syntax.ErrorCode>, ?expr:stdgo.GoString):Void
-```
-
-
-[\(view code\)](<./Syntax.hx#L1381>)
-
-
-### T\_error function error
-
-
-```haxe
-function error():stdgo.GoString
-```
-
-
-[\(view code\)](<./Syntax.hx#L3526>)
 
 
 # Typedefs

@@ -1,6 +1,6 @@
 # Module stdgo.go.importer has compilation errors, please do not use:
 ```
-stdgo/go/types/Types.hx:4273: characters 55-65 : Not enough type parameters for stdgo.Chan
+stdgo/go/types/Types.hx:10977: characters 88-137 : Type not found : stdgo.go.internal.typeparams.Typeparams
 
 ```
 

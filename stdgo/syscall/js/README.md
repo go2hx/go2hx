@@ -102,6 +102,100 @@ comprehensive API for users. It is exempt from the Go compatibility promise.
 
 - [`function valueOf(_x:stdgo.AnyInterface):stdgo.syscall.js.Value`](<#function-valueof>)
 
+- [class Error](<#class-error>)
+
+  - [`function _float(_p:stdgo.GoString):stdgo.GoFloat64`](<#error-function-_float>)
+
+  - [`function _isNumber():Bool`](<#error-function-_isnumber>)
+
+  - [`function bool_():Bool`](<#error-function-bool_>)
+
+  - [`function call(_m:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value`](<#error-function-call>)
+
+  - [`function delete(_p:stdgo.GoString):Void`](<#error-function-delete>)
+
+  - [`function equal(__0:stdgo.syscall.js.Value):Bool`](<#error-function-equal>)
+
+  - [`function float_():stdgo.GoFloat64`](<#error-function-float_>)
+
+  - [`function get(_p:stdgo.GoString):stdgo.syscall.js.Value`](<#error-function-get>)
+
+  - [`function index(_i:stdgo.GoInt):stdgo.syscall.js.Value`](<#error-function-index>)
+
+  - [`function instanceOf(__0:stdgo.syscall.js.Value):Bool`](<#error-function-instanceof>)
+
+  - [`function int_():stdgo.GoInt`](<#error-function-int_>)
+
+  - [`function invoke(_args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value`](<#error-function-invoke>)
+
+  - [`function isNaN():Bool`](<#error-function-isnan>)
+
+  - [`function isNull():Bool`](<#error-function-isnull>)
+
+  - [`function isUndefined():Bool`](<#error-function-isundefined>)
+
+  - [`function length_():stdgo.GoInt`](<#error-function-length_>)
+
+  - [`function new(?value:stdgo.syscall.js.Value):Void`](<#error-function-new>)
+
+  - [`function new_(_args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value`](<#error-function-new_>)
+
+  - [`function set(_p:stdgo.GoString, _x:stdgo.AnyInterface):Void`](<#error-function-set>)
+
+  - [`function setIndex(_i:stdgo.GoInt, _x:stdgo.AnyInterface):Void`](<#error-function-setindex>)
+
+  - [`function string():stdgo.GoString`](<#error-function-string>)
+
+  - [`function truthy():Bool`](<#error-function-truthy>)
+
+  - [`function type():stdgo.syscall.js.Type_`](<#error-function-type>)
+
+  - [`function _float( _p:stdgo.GoString):stdgo.GoFloat64`](<#error-function-_float>)
+
+  - [`function _isNumber():Bool`](<#error-function-_isnumber>)
+
+  - [`function bool_():Bool`](<#error-function-bool_>)
+
+  - [`function call( _m:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value`](<#error-function-call>)
+
+  - [`function delete( _p:stdgo.GoString):Void`](<#error-function-delete>)
+
+  - [`function equal( __0:stdgo.syscall.js.Value):Bool`](<#error-function-equal>)
+
+  - [`function error():stdgo.GoString`](<#error-function-error>)
+
+  - [`function float_():stdgo.GoFloat64`](<#error-function-float_>)
+
+  - [`function get( _p:stdgo.GoString):stdgo.syscall.js.Value`](<#error-function-get>)
+
+  - [`function index( _i:stdgo.GoInt):stdgo.syscall.js.Value`](<#error-function-index>)
+
+  - [`function instanceOf( __0:stdgo.syscall.js.Value):Bool`](<#error-function-instanceof>)
+
+  - [`function int_():stdgo.GoInt`](<#error-function-int_>)
+
+  - [`function invoke( _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value`](<#error-function-invoke>)
+
+  - [`function isNaN():Bool`](<#error-function-isnan>)
+
+  - [`function isNull():Bool`](<#error-function-isnull>)
+
+  - [`function isUndefined():Bool`](<#error-function-isundefined>)
+
+  - [`function length_():stdgo.GoInt`](<#error-function-length_>)
+
+  - [`function new_( _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value`](<#error-function-new_>)
+
+  - [`function set( _p:stdgo.GoString, _x:stdgo.AnyInterface):Void`](<#error-function-set>)
+
+  - [`function setIndex( _i:stdgo.GoInt, _x:stdgo.AnyInterface):Void`](<#error-function-setindex>)
+
+  - [`function string():stdgo.GoString`](<#error-function-string>)
+
+  - [`function truthy():Bool`](<#error-function-truthy>)
+
+  - [`function type():stdgo.syscall.js.Type_`](<#error-function-type>)
+
 - [class Func](<#class-func>)
 
   - [`function _float(_p:stdgo.GoString):stdgo.GoFloat64`](<#func-function-_float>)
@@ -195,100 +289,6 @@ comprehensive API for users. It is exempt from the Go compatibility promise.
   - [`function truthy():Bool`](<#func-function-truthy>)
 
   - [`function type():stdgo.syscall.js.Type_`](<#func-function-type>)
-
-- [class T\_error](<#class-t_error>)
-
-  - [`function _float(_p:stdgo.GoString):stdgo.GoFloat64`](<#t_error-function-_float>)
-
-  - [`function _isNumber():Bool`](<#t_error-function-_isnumber>)
-
-  - [`function bool_():Bool`](<#terror-function-bool>)
-
-  - [`function call(_m:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value`](<#t_error-function-call>)
-
-  - [`function delete(_p:stdgo.GoString):Void`](<#t_error-function-delete>)
-
-  - [`function equal(__0:stdgo.syscall.js.Value):Bool`](<#t_error-function-equal>)
-
-  - [`function float_():stdgo.GoFloat64`](<#terror-function-float>)
-
-  - [`function get(_p:stdgo.GoString):stdgo.syscall.js.Value`](<#t_error-function-get>)
-
-  - [`function index(_i:stdgo.GoInt):stdgo.syscall.js.Value`](<#t_error-function-index>)
-
-  - [`function instanceOf(__0:stdgo.syscall.js.Value):Bool`](<#t_error-function-instanceof>)
-
-  - [`function int_():stdgo.GoInt`](<#terror-function-int>)
-
-  - [`function invoke(_args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value`](<#t_error-function-invoke>)
-
-  - [`function isNaN():Bool`](<#t_error-function-isnan>)
-
-  - [`function isNull():Bool`](<#t_error-function-isnull>)
-
-  - [`function isUndefined():Bool`](<#t_error-function-isundefined>)
-
-  - [`function length_():stdgo.GoInt`](<#terror-function-length>)
-
-  - [`function new(?value:stdgo.syscall.js.Value):Void`](<#t_error-function-new>)
-
-  - [`function new_(_args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value`](<#terror-function-new>)
-
-  - [`function set(_p:stdgo.GoString, _x:stdgo.AnyInterface):Void`](<#t_error-function-set>)
-
-  - [`function setIndex(_i:stdgo.GoInt, _x:stdgo.AnyInterface):Void`](<#t_error-function-setindex>)
-
-  - [`function string():stdgo.GoString`](<#t_error-function-string>)
-
-  - [`function truthy():Bool`](<#t_error-function-truthy>)
-
-  - [`function type():stdgo.syscall.js.Type_`](<#t_error-function-type>)
-
-  - [`function _float( _p:stdgo.GoString):stdgo.GoFloat64`](<#t_error-function-_float>)
-
-  - [`function _isNumber():Bool`](<#t_error-function-_isnumber>)
-
-  - [`function bool_():Bool`](<#terror-function-bool>)
-
-  - [`function call( _m:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value`](<#t_error-function-call>)
-
-  - [`function delete( _p:stdgo.GoString):Void`](<#t_error-function-delete>)
-
-  - [`function equal( __0:stdgo.syscall.js.Value):Bool`](<#t_error-function-equal>)
-
-  - [`function error():stdgo.GoString`](<#t_error-function-error>)
-
-  - [`function float_():stdgo.GoFloat64`](<#terror-function-float>)
-
-  - [`function get( _p:stdgo.GoString):stdgo.syscall.js.Value`](<#t_error-function-get>)
-
-  - [`function index( _i:stdgo.GoInt):stdgo.syscall.js.Value`](<#t_error-function-index>)
-
-  - [`function instanceOf( __0:stdgo.syscall.js.Value):Bool`](<#t_error-function-instanceof>)
-
-  - [`function int_():stdgo.GoInt`](<#terror-function-int>)
-
-  - [`function invoke( _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value`](<#t_error-function-invoke>)
-
-  - [`function isNaN():Bool`](<#t_error-function-isnan>)
-
-  - [`function isNull():Bool`](<#t_error-function-isnull>)
-
-  - [`function isUndefined():Bool`](<#t_error-function-isundefined>)
-
-  - [`function length_():stdgo.GoInt`](<#terror-function-length>)
-
-  - [`function new_( _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value`](<#terror-function-new>)
-
-  - [`function set( _p:stdgo.GoString, _x:stdgo.AnyInterface):Void`](<#t_error-function-set>)
-
-  - [`function setIndex( _i:stdgo.GoInt, _x:stdgo.AnyInterface):Void`](<#t_error-function-setindex>)
-
-  - [`function string():stdgo.GoString`](<#t_error-function-string>)
-
-  - [`function truthy():Bool`](<#t_error-function-truthy>)
-
-  - [`function type():stdgo.syscall.js.Type_`](<#t_error-function-type>)
 
 - [class Value](<#class-value>)
 
@@ -992,6 +992,529 @@ import stdgo.syscall.js.*
 ```
 
 
+## class Error
+
+
+
+Error wraps a JavaScript error.  
+
+```haxe
+var value:stdgo.syscall.js.Value
+```
+
+
+
+Value is the underlying JavaScript error value.  
+
+### Error function \_float
+
+
+```haxe
+function _float(_p:stdgo.GoString):stdgo.GoFloat64
+```
+
+
+[\(view code\)](<./Js.hx#L311>)
+
+
+### Error function \_isNumber
+
+
+```haxe
+function _isNumber():Bool
+```
+
+
+[\(view code\)](<./Js.hx#L313>)
+
+
+### Error function bool\_
+
+
+```haxe
+function bool_():Bool
+```
+
+
+[\(view code\)](<./Js.hx#L271>)
+
+
+### Error function call
+
+
+```haxe
+function call(_m:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value
+```
+
+
+[\(view code\)](<./Js.hx#L273>)
+
+
+### Error function delete
+
+
+```haxe
+function delete(_p:stdgo.GoString):Void
+```
+
+
+[\(view code\)](<./Js.hx#L275>)
+
+
+### Error function equal
+
+
+```haxe
+function equal(__0:stdgo.syscall.js.Value):Bool
+```
+
+
+[\(view code\)](<./Js.hx#L277>)
+
+
+### Error function float\_
+
+
+```haxe
+function float_():stdgo.GoFloat64
+```
+
+
+[\(view code\)](<./Js.hx#L279>)
+
+
+### Error function get
+
+
+```haxe
+function get(_p:stdgo.GoString):stdgo.syscall.js.Value
+```
+
+
+[\(view code\)](<./Js.hx#L281>)
+
+
+### Error function index
+
+
+```haxe
+function index(_i:stdgo.GoInt):stdgo.syscall.js.Value
+```
+
+
+[\(view code\)](<./Js.hx#L283>)
+
+
+### Error function instanceOf
+
+
+```haxe
+function instanceOf(__0:stdgo.syscall.js.Value):Bool
+```
+
+
+[\(view code\)](<./Js.hx#L285>)
+
+
+### Error function int\_
+
+
+```haxe
+function int_():stdgo.GoInt
+```
+
+
+[\(view code\)](<./Js.hx#L287>)
+
+
+### Error function invoke
+
+
+```haxe
+function invoke(_args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value
+```
+
+
+[\(view code\)](<./Js.hx#L289>)
+
+
+### Error function isNaN
+
+
+```haxe
+function isNaN():Bool
+```
+
+
+[\(view code\)](<./Js.hx#L291>)
+
+
+### Error function isNull
+
+
+```haxe
+function isNull():Bool
+```
+
+
+[\(view code\)](<./Js.hx#L293>)
+
+
+### Error function isUndefined
+
+
+```haxe
+function isUndefined():Bool
+```
+
+
+[\(view code\)](<./Js.hx#L295>)
+
+
+### Error function length\_
+
+
+```haxe
+function length_():stdgo.GoInt
+```
+
+
+[\(view code\)](<./Js.hx#L297>)
+
+
+### Error function new
+
+
+```haxe
+function new(?value:stdgo.syscall.js.Value):Void
+```
+
+
+[\(view code\)](<./Js.hx#L266>)
+
+
+### Error function new\_
+
+
+```haxe
+function new_(_args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value
+```
+
+
+[\(view code\)](<./Js.hx#L299>)
+
+
+### Error function set
+
+
+```haxe
+function set(_p:stdgo.GoString, _x:stdgo.AnyInterface):Void
+```
+
+
+[\(view code\)](<./Js.hx#L301>)
+
+
+### Error function setIndex
+
+
+```haxe
+function setIndex(_i:stdgo.GoInt, _x:stdgo.AnyInterface):Void
+```
+
+
+[\(view code\)](<./Js.hx#L303>)
+
+
+### Error function string
+
+
+```haxe
+function string():stdgo.GoString
+```
+
+
+[\(view code\)](<./Js.hx#L305>)
+
+
+### Error function truthy
+
+
+```haxe
+function truthy():Bool
+```
+
+
+[\(view code\)](<./Js.hx#L307>)
+
+
+### Error function type
+
+
+```haxe
+function type():stdgo.syscall.js.Type_
+```
+
+
+[\(view code\)](<./Js.hx#L309>)
+
+
+### Error function \_float
+
+
+```haxe
+function _float( _p:stdgo.GoString):stdgo.GoFloat64
+```
+
+
+[\(view code\)](<./Js.hx#L932>)
+
+
+### Error function \_isNumber
+
+
+```haxe
+function _isNumber():Bool
+```
+
+
+[\(view code\)](<./Js.hx#L930>)
+
+
+### Error function bool\_
+
+
+```haxe
+function bool_():Bool
+```
+
+
+[\(view code\)](<./Js.hx#L972>)
+
+
+### Error function call
+
+
+```haxe
+function call( _m:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value
+```
+
+
+[\(view code\)](<./Js.hx#L970>)
+
+
+### Error function delete
+
+
+```haxe
+function delete( _p:stdgo.GoString):Void
+```
+
+
+[\(view code\)](<./Js.hx#L968>)
+
+
+### Error function equal
+
+
+```haxe
+function equal( __0:stdgo.syscall.js.Value):Bool
+```
+
+
+[\(view code\)](<./Js.hx#L966>)
+
+
+### Error function error
+
+
+```haxe
+function error():stdgo.GoString
+```
+
+
+
+Error implements the error interface.  
+
+[\(view code\)](<./Js.hx#L928>)
+
+
+### Error function float\_
+
+
+```haxe
+function float_():stdgo.GoFloat64
+```
+
+
+[\(view code\)](<./Js.hx#L964>)
+
+
+### Error function get
+
+
+```haxe
+function get( _p:stdgo.GoString):stdgo.syscall.js.Value
+```
+
+
+[\(view code\)](<./Js.hx#L962>)
+
+
+### Error function index
+
+
+```haxe
+function index( _i:stdgo.GoInt):stdgo.syscall.js.Value
+```
+
+
+[\(view code\)](<./Js.hx#L960>)
+
+
+### Error function instanceOf
+
+
+```haxe
+function instanceOf( __0:stdgo.syscall.js.Value):Bool
+```
+
+
+[\(view code\)](<./Js.hx#L958>)
+
+
+### Error function int\_
+
+
+```haxe
+function int_():stdgo.GoInt
+```
+
+
+[\(view code\)](<./Js.hx#L956>)
+
+
+### Error function invoke
+
+
+```haxe
+function invoke( _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value
+```
+
+
+[\(view code\)](<./Js.hx#L954>)
+
+
+### Error function isNaN
+
+
+```haxe
+function isNaN():Bool
+```
+
+
+[\(view code\)](<./Js.hx#L952>)
+
+
+### Error function isNull
+
+
+```haxe
+function isNull():Bool
+```
+
+
+[\(view code\)](<./Js.hx#L950>)
+
+
+### Error function isUndefined
+
+
+```haxe
+function isUndefined():Bool
+```
+
+
+[\(view code\)](<./Js.hx#L948>)
+
+
+### Error function length\_
+
+
+```haxe
+function length_():stdgo.GoInt
+```
+
+
+[\(view code\)](<./Js.hx#L946>)
+
+
+### Error function new\_
+
+
+```haxe
+function new_( _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value
+```
+
+
+[\(view code\)](<./Js.hx#L944>)
+
+
+### Error function set
+
+
+```haxe
+function set( _p:stdgo.GoString, _x:stdgo.AnyInterface):Void
+```
+
+
+[\(view code\)](<./Js.hx#L942>)
+
+
+### Error function setIndex
+
+
+```haxe
+function setIndex( _i:stdgo.GoInt, _x:stdgo.AnyInterface):Void
+```
+
+
+[\(view code\)](<./Js.hx#L940>)
+
+
+### Error function string
+
+
+```haxe
+function string():stdgo.GoString
+```
+
+
+[\(view code\)](<./Js.hx#L938>)
+
+
+### Error function truthy
+
+
+```haxe
+function truthy():Bool
+```
+
+
+[\(view code\)](<./Js.hx#L936>)
+
+
+### Error function type
+
+
+```haxe
+function type():stdgo.syscall.js.Type_
+```
+
+
+[\(view code\)](<./Js.hx#L934>)
+
+
 ## class Func
 
 
@@ -1517,529 +2040,6 @@ function type():stdgo.syscall.js.Type_
 
 
 [\(view code\)](<./Js.hx#L564>)
-
-
-## class T\_error
-
-
-
-Error wraps a JavaScript error.  
-
-```haxe
-var value:stdgo.syscall.js.Value
-```
-
-
-
-Value is the underlying JavaScript error value.  
-
-### T\_error function \_float
-
-
-```haxe
-function _float(_p:stdgo.GoString):stdgo.GoFloat64
-```
-
-
-[\(view code\)](<./Js.hx#L311>)
-
-
-### T\_error function \_isNumber
-
-
-```haxe
-function _isNumber():Bool
-```
-
-
-[\(view code\)](<./Js.hx#L313>)
-
-
-### T\_error function bool\_
-
-
-```haxe
-function bool_():Bool
-```
-
-
-[\(view code\)](<./Js.hx#L271>)
-
-
-### T\_error function call
-
-
-```haxe
-function call(_m:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value
-```
-
-
-[\(view code\)](<./Js.hx#L273>)
-
-
-### T\_error function delete
-
-
-```haxe
-function delete(_p:stdgo.GoString):Void
-```
-
-
-[\(view code\)](<./Js.hx#L275>)
-
-
-### T\_error function equal
-
-
-```haxe
-function equal(__0:stdgo.syscall.js.Value):Bool
-```
-
-
-[\(view code\)](<./Js.hx#L277>)
-
-
-### T\_error function float\_
-
-
-```haxe
-function float_():stdgo.GoFloat64
-```
-
-
-[\(view code\)](<./Js.hx#L279>)
-
-
-### T\_error function get
-
-
-```haxe
-function get(_p:stdgo.GoString):stdgo.syscall.js.Value
-```
-
-
-[\(view code\)](<./Js.hx#L281>)
-
-
-### T\_error function index
-
-
-```haxe
-function index(_i:stdgo.GoInt):stdgo.syscall.js.Value
-```
-
-
-[\(view code\)](<./Js.hx#L283>)
-
-
-### T\_error function instanceOf
-
-
-```haxe
-function instanceOf(__0:stdgo.syscall.js.Value):Bool
-```
-
-
-[\(view code\)](<./Js.hx#L285>)
-
-
-### T\_error function int\_
-
-
-```haxe
-function int_():stdgo.GoInt
-```
-
-
-[\(view code\)](<./Js.hx#L287>)
-
-
-### T\_error function invoke
-
-
-```haxe
-function invoke(_args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value
-```
-
-
-[\(view code\)](<./Js.hx#L289>)
-
-
-### T\_error function isNaN
-
-
-```haxe
-function isNaN():Bool
-```
-
-
-[\(view code\)](<./Js.hx#L291>)
-
-
-### T\_error function isNull
-
-
-```haxe
-function isNull():Bool
-```
-
-
-[\(view code\)](<./Js.hx#L293>)
-
-
-### T\_error function isUndefined
-
-
-```haxe
-function isUndefined():Bool
-```
-
-
-[\(view code\)](<./Js.hx#L295>)
-
-
-### T\_error function length\_
-
-
-```haxe
-function length_():stdgo.GoInt
-```
-
-
-[\(view code\)](<./Js.hx#L297>)
-
-
-### T\_error function new
-
-
-```haxe
-function new(?value:stdgo.syscall.js.Value):Void
-```
-
-
-[\(view code\)](<./Js.hx#L266>)
-
-
-### T\_error function new\_
-
-
-```haxe
-function new_(_args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value
-```
-
-
-[\(view code\)](<./Js.hx#L299>)
-
-
-### T\_error function set
-
-
-```haxe
-function set(_p:stdgo.GoString, _x:stdgo.AnyInterface):Void
-```
-
-
-[\(view code\)](<./Js.hx#L301>)
-
-
-### T\_error function setIndex
-
-
-```haxe
-function setIndex(_i:stdgo.GoInt, _x:stdgo.AnyInterface):Void
-```
-
-
-[\(view code\)](<./Js.hx#L303>)
-
-
-### T\_error function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-[\(view code\)](<./Js.hx#L305>)
-
-
-### T\_error function truthy
-
-
-```haxe
-function truthy():Bool
-```
-
-
-[\(view code\)](<./Js.hx#L307>)
-
-
-### T\_error function type
-
-
-```haxe
-function type():stdgo.syscall.js.Type_
-```
-
-
-[\(view code\)](<./Js.hx#L309>)
-
-
-### T\_error function \_float
-
-
-```haxe
-function _float( _p:stdgo.GoString):stdgo.GoFloat64
-```
-
-
-[\(view code\)](<./Js.hx#L932>)
-
-
-### T\_error function \_isNumber
-
-
-```haxe
-function _isNumber():Bool
-```
-
-
-[\(view code\)](<./Js.hx#L930>)
-
-
-### T\_error function bool\_
-
-
-```haxe
-function bool_():Bool
-```
-
-
-[\(view code\)](<./Js.hx#L972>)
-
-
-### T\_error function call
-
-
-```haxe
-function call( _m:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value
-```
-
-
-[\(view code\)](<./Js.hx#L970>)
-
-
-### T\_error function delete
-
-
-```haxe
-function delete( _p:stdgo.GoString):Void
-```
-
-
-[\(view code\)](<./Js.hx#L968>)
-
-
-### T\_error function equal
-
-
-```haxe
-function equal( __0:stdgo.syscall.js.Value):Bool
-```
-
-
-[\(view code\)](<./Js.hx#L966>)
-
-
-### T\_error function error
-
-
-```haxe
-function error():stdgo.GoString
-```
-
-
-
-Error implements the error interface.  
-
-[\(view code\)](<./Js.hx#L928>)
-
-
-### T\_error function float\_
-
-
-```haxe
-function float_():stdgo.GoFloat64
-```
-
-
-[\(view code\)](<./Js.hx#L964>)
-
-
-### T\_error function get
-
-
-```haxe
-function get( _p:stdgo.GoString):stdgo.syscall.js.Value
-```
-
-
-[\(view code\)](<./Js.hx#L962>)
-
-
-### T\_error function index
-
-
-```haxe
-function index( _i:stdgo.GoInt):stdgo.syscall.js.Value
-```
-
-
-[\(view code\)](<./Js.hx#L960>)
-
-
-### T\_error function instanceOf
-
-
-```haxe
-function instanceOf( __0:stdgo.syscall.js.Value):Bool
-```
-
-
-[\(view code\)](<./Js.hx#L958>)
-
-
-### T\_error function int\_
-
-
-```haxe
-function int_():stdgo.GoInt
-```
-
-
-[\(view code\)](<./Js.hx#L956>)
-
-
-### T\_error function invoke
-
-
-```haxe
-function invoke( _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value
-```
-
-
-[\(view code\)](<./Js.hx#L954>)
-
-
-### T\_error function isNaN
-
-
-```haxe
-function isNaN():Bool
-```
-
-
-[\(view code\)](<./Js.hx#L952>)
-
-
-### T\_error function isNull
-
-
-```haxe
-function isNull():Bool
-```
-
-
-[\(view code\)](<./Js.hx#L950>)
-
-
-### T\_error function isUndefined
-
-
-```haxe
-function isUndefined():Bool
-```
-
-
-[\(view code\)](<./Js.hx#L948>)
-
-
-### T\_error function length\_
-
-
-```haxe
-function length_():stdgo.GoInt
-```
-
-
-[\(view code\)](<./Js.hx#L946>)
-
-
-### T\_error function new\_
-
-
-```haxe
-function new_( _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value
-```
-
-
-[\(view code\)](<./Js.hx#L944>)
-
-
-### T\_error function set
-
-
-```haxe
-function set( _p:stdgo.GoString, _x:stdgo.AnyInterface):Void
-```
-
-
-[\(view code\)](<./Js.hx#L942>)
-
-
-### T\_error function setIndex
-
-
-```haxe
-function setIndex( _i:stdgo.GoInt, _x:stdgo.AnyInterface):Void
-```
-
-
-[\(view code\)](<./Js.hx#L940>)
-
-
-### T\_error function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-[\(view code\)](<./Js.hx#L938>)
-
-
-### T\_error function truthy
-
-
-```haxe
-function truthy():Bool
-```
-
-
-[\(view code\)](<./Js.hx#L936>)
-
-
-### T\_error function type
-
-
-```haxe
-function type():stdgo.syscall.js.Type_
-```
-
-
-[\(view code\)](<./Js.hx#L934>)
 
 
 ## class Value

@@ -9,6 +9,7 @@
 
 Package sort provides primitives for sorting slices and user\-defined collections.  
 
+stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_null
 
 # Index
 

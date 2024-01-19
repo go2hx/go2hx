@@ -9,6 +9,7 @@
 
 Package base64 implements base64 encoding as specified by RFC 4648.  
 
+stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_null
 
 # Index
 

@@ -1,6 +1,5 @@
-# Module stdgo.go.constant has compilation errors, please do not use:
+# Module stdgo.crypto has compilation errors, please do not use:
 ```
-stdgo/go/token/Token.hx:1261: characters 116-121 : Unknown identifier : _fset
 stdgo/encoding/gob/Gob.hx:3756: characters 67-85 : stdgo.GoInt should be Null<stdgo.Pointer<stdgo.GoInt>>
 stdgo/encoding/gob/Gob.hx:3827: characters 18-26 : stdgo.encoding.gob.T1 has no field emptyMap
 stdgo/encoding/gob/Gob.hx:4140: characters 9-56 : Invalid assign

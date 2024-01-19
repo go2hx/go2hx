@@ -9,6 +9,7 @@
 
 Package fstest implements support for testing implementations and users of file systems.  
 
+stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_null
 
 # Index
 

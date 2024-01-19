@@ -6,8 +6,11 @@
 | [stdgo.bufio](./bufio/README.md) | ❌ | yes |
 | [stdgo.bytes](./bytes/README.md) | ✅ | yes |
 | [stdgo.compress.bzip2](./compress/bzip2/README.md) | ✅ | yes |
-| [stdgo.compress.zlib](./compress/zlib/README.md) | ❌ | yes |
+| [stdgo.compress.flate](./compress/flate/README.md) | ✅ | yes |
+| [stdgo.compress.zlib](./compress/zlib/README.md) | ✅ | yes |
 | [stdgo.context](./context/README.md) | ✅ | no |
+| [stdgo.crypto](./crypto/README.md) | ❌ | no |
+| [stdgo.crypto.internal.randutil](./crypto/internal/randutil/README.md) | ✅ | no |
 | [stdgo.crypto.rand](./crypto/rand/README.md) | ❌ | yes |
 | [stdgo.crypto.sha1](./crypto/sha1/README.md) | ❌ | yes |
 | [stdgo.encoding](./encoding/README.md) | ❌ | no |
@@ -26,6 +29,8 @@
 | [stdgo.go.token](./go/token/README.md) | ❌ | yes |
 | [stdgo.go.types](./go/types/README.md) | ❌ | yes |
 | [stdgo.hash](./hash/README.md) | ❌ | yes |
+| [stdgo.hash.adler32](./hash/adler32/README.md) | ✅ | yes |
+| [stdgo.image](./image/README.md) | ❌ | yes |
 | [stdgo.image.color](./image/color/README.md) | ✅ | yes |
 | [stdgo.internal](./internal/README.md) | ✅ | no |
 | [stdgo.internal.abi](./internal/abi/README.md) | ✅ | no |
@@ -41,6 +46,7 @@
 | [stdgo.internal.race](./internal/race/README.md) | ✅ | no |
 | [stdgo.internal.reflect](./internal/reflect/README.md) | ✅ | no |
 | [stdgo.internal.reflectlite](./internal/reflectlite/README.md) | ✅ | no |
+| [stdgo.internal.saferio](./internal/saferio/README.md) | ✅ | no |
 | [stdgo.internal.testenv](./internal/testenv/README.md) | ✅ | no |
 | [stdgo.internal.types.errors](./internal/types/errors/README.md) | ✅ | no |
 | [stdgo.io](./io/README.md) | ❌ | yes |
@@ -74,6 +80,8 @@
 | [stdgo.testing.internal.testdeps](./testing/internal/testdeps/README.md) | ✅ | no |
 | [stdgo.testing.iotest](./testing/iotest/README.md) | ✅ | yes |
 | [stdgo.testing.quick](./testing/quick/README.md) | ✅ | yes |
+| [stdgo.text.scanner](./text/scanner/README.md) | ✅ | yes |
+| [stdgo.text.template](./text/template/README.md) | ❌ | yes |
 | [stdgo.time](./time/README.md) | ❌ | yes |
 | [stdgo.unicode](./unicode/README.md) | ✅ | yes |
 | [stdgo.unicode.utf16](./unicode/utf16/README.md) | ✅ | yes |

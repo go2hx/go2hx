@@ -16,6 +16,8 @@ untrustworthy attacker.
 # Index
 
 
+- [Constants](<#constants>)
+
 - [`function readData(_r:stdgo.io.Reader, _n:stdgo.GoUInt64):{
 	_1:stdgo.Error;
 	_0:stdgo.Slice<stdgo.GoByte>;
@@ -27,6 +29,26 @@ untrustworthy attacker.
 }`](<#function-readdataat>)
 
 - [`function sliceCap(_v:stdgo.AnyInterface, _c:stdgo.GoUInt64):stdgo.GoInt`](<#function-slicecap>)
+
+# Constants
+
+
+```haxe
+import stdgo.internal.saferio.Saferio
+```
+
+
+```haxe
+final _chunk:stdgo.GoUInt64 = ((10485760i64 : stdgo.GoUInt64))
+```
+
+
+
+chunk is an arbitrary limit on how much memory we are willing
+to allocate without concern.  
+
+
+10M  
 
 # Functions
 
@@ -57,7 +79,7 @@ The error is io.EOF only if no bytes were read.
 If an io.EOF happens after reading some but not all the bytes,
 ReadData returns io.ErrUnexpectedEOF.  
 
-[\(view code\)](<./Saferio.hx#L35>)
+[\(view code\)](<./Saferio.hx#L26>)
 
 
 ## function readDataAt
@@ -76,7 +98,7 @@ ReadDataAt reads n bytes from the input stream at off, but avoids
 allocating all n bytes if n is large. This avoids crashing the program
 by allocating all n bytes in cases where n is incorrect.  
 
-[\(view code\)](<./Saferio.hx#L71>)
+[\(view code\)](<./Saferio.hx#L62>)
 
 
 ## function sliceCap
@@ -102,6 +124,6 @@ This would ideally use generics, but this code is built with
 the bootstrap compiler which need not support generics.
 We use a pointer so that we can handle slices of interface type.  
 
-[\(view code\)](<./Saferio.hx#L115>)
+[\(view code\)](<./Saferio.hx#L106>)
 
 

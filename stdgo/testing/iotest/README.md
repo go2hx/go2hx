@@ -9,6 +9,7 @@
 
 Package iotest implements Readers and Writers useful mainly for testing.  
 
+stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_null
 
 # Index
 

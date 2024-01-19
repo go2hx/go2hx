@@ -1,9 +1,6 @@
 # Module stdgo.go.token has compilation errors, please do not use:
 ```
 stdgo/go/token/Token.hx:1261: characters 116-121 : Unknown identifier : _fset
-stdgo/encoding/gob/Gob.hx:10488: characters 27-57 : Type not found : stdgo.internal.saferio.Saferio
-stdgo/encoding/gob/Gob.hx:5554: characters 37-67 : Type not found : stdgo.internal.saferio.Saferio
-stdgo/encoding/gob/Gob.hx:11347: characters 37-67 : Type not found : stdgo.internal.saferio.Saferio
 stdgo/encoding/gob/Gob.hx:3756: characters 67-85 : stdgo.GoInt should be Null<stdgo.Pointer<stdgo.GoInt>>
 stdgo/encoding/gob/Gob.hx:3827: characters 18-26 : stdgo.encoding.gob.T1 has no field emptyMap
 stdgo/encoding/gob/Gob.hx:4140: characters 9-56 : Invalid assign
@@ -55,6 +52,7 @@ stdgo/Go.macro.hx:729: lines 729-738 : Void should be stdgo.Ref<stdgo.go.ast.Gen
 stdgo/go/token_test/Token_test.hx:18: characters 29-117 : ... Called from macro here
 stdgo/go/ast/Ast.hx:5621: characters 12-19 : stdgo.Ref<stdgo.go.ast.T_pkgBuilder> has no field _errors
 stdgo/go/ast/Ast.hx:2910: characters 32-34 : stdgo.go.ast.T_pkgBuilder does not have a constructor
+stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_null
 
 ```
 

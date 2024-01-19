@@ -316,17 +316,17 @@
 
   - [`function new(?_format:stdgo.GoString, ?_text:stdgo.GoString, ?_in:stdgo.AnyInterface, ?_out:stdgo.AnyInterface):Void`](<#scanftest-function-new>)
 
-- [class T\_testNilDoesNotBecomeTyped\_37\_\_\_localname\_\_\_A](<#class-t_testnildoesnotbecometyped_37localnamea>)
+- [class T\_testNilDoesNotBecomeTyped\_38\_\_\_localname\_\_\_A](<#class-t_testnildoesnotbecometyped_38localnamea>)
 
-  - [`function new():Void`](<#t_testnildoesnotbecometyped_37localnamea-function-new>)
+  - [`function new():Void`](<#t_testnildoesnotbecometyped_38localnamea-function-new>)
 
-- [class T\_testNilDoesNotBecomeTyped\_38\_\_\_localname\_\_\_B](<#class-t_testnildoesnotbecometyped_38localnameb>)
+- [class T\_testNilDoesNotBecomeTyped\_39\_\_\_localname\_\_\_B](<#class-t_testnildoesnotbecometyped_39localnameb>)
 
-  - [`function new():Void`](<#t_testnildoesnotbecometyped_38localnameb-function-new>)
+  - [`function new():Void`](<#t_testnildoesnotbecometyped_39localnameb-function-new>)
 
-- [class T\_testStructPrinter\_36\_\_\_localname\_\_\_T](<#class-t_teststructprinter_36localnamet>)
+- [class T\_testStructPrinter\_37\_\_\_localname\_\_\_T](<#class-t_teststructprinter_37localnamet>)
 
-  - [`function new(?_a:stdgo.GoString, ?_b:stdgo.GoString, ?_c:Null<stdgo.GoInt>):Void`](<#t_teststructprinter_36localnamet-function-new>)
+  - [`function new(?_a:stdgo.GoString, ?_b:stdgo.GoString, ?_c:Null<stdgo.GoInt>):Void`](<#t_teststructprinter_37localnamet-function-new>)
 
 - [typedef F](<#typedef-f>)
 
@@ -2799,10 +2799,10 @@ function new(?_format:stdgo.GoString, ?_text:stdgo.GoString, ?_in:stdgo.AnyInter
 [\(view code\)](<./Fmt_test.hx#L2093>)
 
 
-## class T\_testNilDoesNotBecomeTyped\_37\_\_\_localname\_\_\_A
+## class T\_testNilDoesNotBecomeTyped\_38\_\_\_localname\_\_\_A
 
 
-### T\_testNilDoesNotBecomeTyped\_37\_\_\_localname\_\_\_A function new
+### T\_testNilDoesNotBecomeTyped\_38\_\_\_localname\_\_\_A function new
 
 
 ```haxe
@@ -2813,10 +2813,10 @@ function new():Void
 [\(view code\)](<./Fmt_test.hx#L3361>)
 
 
-## class T\_testNilDoesNotBecomeTyped\_38\_\_\_localname\_\_\_B
+## class T\_testNilDoesNotBecomeTyped\_39\_\_\_localname\_\_\_B
 
 
-### T\_testNilDoesNotBecomeTyped\_38\_\_\_localname\_\_\_B function new
+### T\_testNilDoesNotBecomeTyped\_39\_\_\_localname\_\_\_B function new
 
 
 ```haxe
@@ -2827,7 +2827,7 @@ function new():Void
 [\(view code\)](<./Fmt_test.hx#L3373>)
 
 
-## class T\_testStructPrinter\_36\_\_\_localname\_\_\_T
+## class T\_testStructPrinter\_37\_\_\_localname\_\_\_T
 
 
 ```haxe
@@ -2845,7 +2845,7 @@ var _c:stdgo.GoInt
 ```
 
 
-### T\_testStructPrinter\_36\_\_\_localname\_\_\_T function new
+### T\_testStructPrinter\_37\_\_\_localname\_\_\_T function new
 
 
 ```haxe

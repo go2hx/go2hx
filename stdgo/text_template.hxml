@@ -1,0 +1,3 @@
+-m stdgo.text.template_test.Template
+-lib go2hx
+-cp .

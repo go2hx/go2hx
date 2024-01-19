@@ -3147,7 +3147,7 @@ function testFlagParser(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
     
     
 **/
-@:structInit class T_testStructPrinter_36___localname___T {
+@:structInit class T_testStructPrinter_37___localname___T {
     public var _a : stdgo.GoString = "";
     public var _b : stdgo.GoString = "";
     public var _c : stdgo.GoInt = 0;
@@ -3158,12 +3158,12 @@ function testFlagParser(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_testStructPrinter_36___localname___T(_a, _b, _c);
+        return new T_testStructPrinter_37___localname___T(_a, _b, _c);
     }
 }
 function testStructPrinter(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
         {};
-        var _s:T_testStructPrinter_36___localname___T = ({} : stdgo.fmt_test.Fmt_test.T_testStructPrinter_36___localname___T);
+        var _s:T_testStructPrinter_37___localname___T = ({} : stdgo.fmt_test.Fmt_test.T_testStructPrinter_37___localname___T);
         _s._a = ("abc" : stdgo.GoString);
         _s._b = ("def" : stdgo.GoString);
         _s._c = (123 : stdgo.GoInt);
@@ -3173,7 +3173,7 @@ function testStructPrinter(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {
             if (_out != (_tt._out)) {
                 _t.errorf(("Sprintf(%q, s) = %#q, want %#q" : stdgo.GoString), stdgo.Go.toInterface(_tt._fmt), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_tt._out));
             };
-            _out = sprintf(_tt._fmt?.__copy__(), stdgo.Go.toInterface((stdgo.Go.setRef(_s) : stdgo.Ref<stdgo.fmt_test.Fmt_test.T_testStructPrinter_36___localname___T>)))?.__copy__();
+            _out = sprintf(_tt._fmt?.__copy__(), stdgo.Go.toInterface((stdgo.Go.setRef(_s) : stdgo.Ref<stdgo.fmt_test.Fmt_test.T_testStructPrinter_37___localname___T>)))?.__copy__();
             if (_out != (("&" : stdgo.GoString) + _tt._out?.__copy__())) {
                 _t.errorf(("Sprintf(%q, &s) = %#q, want %#q" : stdgo.GoString), stdgo.Go.toInterface(_tt._fmt), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(("&" : stdgo.GoString) + _tt._out?.__copy__()));
             };
@@ -3357,11 +3357,11 @@ function _hideFromVet(_s:stdgo.GoString):stdgo.GoString {
     
     
 **/
-@:structInit class T_testNilDoesNotBecomeTyped_37___localname___A {
+@:structInit class T_testNilDoesNotBecomeTyped_38___localname___A {
     public function new() {}
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_testNilDoesNotBecomeTyped_37___localname___A();
+        return new T_testNilDoesNotBecomeTyped_38___localname___A();
     }
 }
 /**
@@ -3369,11 +3369,11 @@ function _hideFromVet(_s:stdgo.GoString):stdgo.GoString {
     
     
 **/
-@:structInit class T_testNilDoesNotBecomeTyped_38___localname___B {
+@:structInit class T_testNilDoesNotBecomeTyped_39___localname___B {
     public function new() {}
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_testNilDoesNotBecomeTyped_38___localname___B();
+        return new T_testNilDoesNotBecomeTyped_39___localname___B();
     }
 }
 function testNilDoesNotBecomeTyped(_t:stdgo.Ref<stdgo.testing.Testing.T_>):Void {

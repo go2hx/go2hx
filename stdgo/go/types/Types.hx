@@ -13313,7 +13313,7 @@ class Checker_asInterface {
             _pkgImports[_imp] = true;
         };
         {};
-        var _methods:stdgo.Slice<T__collectObjects_39___localname___methodInfo> = (null : stdgo.Slice<stdgo.go.types.Types.T__collectObjects_39___localname___methodInfo>);
+        var _methods:stdgo.Slice<T__collectObjects_40___localname___methodInfo> = (null : stdgo.Slice<stdgo.go.types.Types.T__collectObjects_40___localname___methodInfo>);
         var _fileScopes:stdgo.Slice<stdgo.Ref<Scope>> = (null : stdgo.Slice<stdgo.Ref<stdgo.go.types.Types.Scope>>);
         for (_fileNo => _file in _check._files) {
             _check._recordDef(_file.name, (null : stdgo.go.types.Types.Object));
@@ -13476,7 +13476,7 @@ class Checker_asInterface {
                         } else {
                             var __tmp__ = _check._unpackRecv(_d._decl.recv.list[(0 : stdgo.GoInt)].type, false), _ptr:Bool = __tmp__._0, _recv:stdgo.Ref<stdgo.go.ast.Ast.Ident> = __tmp__._1, __289:stdgo.Slice<stdgo.Ref<stdgo.go.ast.Ast.Ident>> = __tmp__._2;
                             if (((_recv != null) && ((_recv : Dynamic).__nil__ == null || !(_recv : Dynamic).__nil__)) && (_name != ("_" : stdgo.GoString))) {
-                                _methods = (_methods.__append__((new stdgo.go.types.Types.T__collectObjects_39___localname___methodInfo(_obj, _ptr, _recv) : stdgo.go.types.Types.T__collectObjects_39___localname___methodInfo)));
+                                _methods = (_methods.__append__((new stdgo.go.types.Types.T__collectObjects_40___localname___methodInfo(_obj, _ptr, _recv) : stdgo.go.types.Types.T__collectObjects_40___localname___methodInfo)));
                             };
                             _check._recordDef(_d._decl.name, stdgo.Go.asInterface(_obj));
                         };
@@ -13521,7 +13521,7 @@ class Checker_asInterface {
             cast x;
         } : stdgo.GoMap<stdgo.Ref<stdgo.go.types.Types.TypeName>, stdgo.Slice<stdgo.Ref<stdgo.go.types.Types.Func>>>);
         for (_i => _ in _methods) {
-            var _m = (stdgo.Go.setRef(_methods[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo.go.types.Types.T__collectObjects_39___localname___methodInfo>);
+            var _m = (stdgo.Go.setRef(_methods[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo.go.types.Types.T__collectObjects_40___localname___methodInfo>);
             var __tmp__ = _check._resolveBaseTypeName(_m._ptr, stdgo.Go.asInterface(_m._recv), _fileScopes), _ptr:Bool = __tmp__._0, _base:stdgo.Ref<stdgo.go.types.Types.TypeName> = __tmp__._1;
             if (_base != null && ((_base : Dynamic).__nil__ == null || !(_base : Dynamic).__nil__)) {
                 _m._obj._hasPtrRecv_ = _ptr;
@@ -21308,7 +21308,7 @@ class Checker_asInterface {
     
     
 **/
-@:structInit class T__collectObjects_39___localname___methodInfo {
+@:structInit class T__collectObjects_40___localname___methodInfo {
     public var _obj : stdgo.Ref<stdgo.go.types.Types.Func> = (null : stdgo.Ref<stdgo.go.types.Types.Func>);
     public var _ptr : Bool = false;
     public var _recv : stdgo.Ref<stdgo.go.ast.Ast.Ident> = (null : stdgo.Ref<stdgo.go.ast.Ast.Ident>);
@@ -21319,7 +21319,7 @@ class Checker_asInterface {
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T__collectObjects_39___localname___methodInfo(_obj, _ptr, _recv);
+        return new T__collectObjects_40___localname___methodInfo(_obj, _ptr, _recv);
     }
 }
 class Context_asInterface {

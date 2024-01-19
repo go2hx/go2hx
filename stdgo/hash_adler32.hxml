@@ -1,0 +1,3 @@
+-m stdgo.hash.adler32_test.Adler32
+-lib go2hx
+-cp .

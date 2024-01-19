@@ -301,7 +301,7 @@ private function testGo() { // go tests
 
 private function testStd() { // standard library package tests
 	type = "std";
-	final list:Array<String> = Json.parse(File.getContent("tests.json"));
+	final list:Array<String> = Json.parse(File.getContent("data/tests.json"));
 	Sys.println("STD TESTS: " + list.length);
 	for (name in list) {
 		switch name {

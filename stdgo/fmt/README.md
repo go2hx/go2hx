@@ -472,7 +472,7 @@ calls will not lose data.  To attach ReadRune and UnreadRune
 methods to a reader without that capability, use
 bufio.NewReader.  
 
-stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_null
+stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_hx
 
 # Index
 

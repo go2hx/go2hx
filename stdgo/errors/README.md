@@ -77,7 +77,7 @@ is preferable to
 
 because the former will succeed if err wraps an \[\*io/fs.PathError\].  
 
-stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_null
+stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_hx
 
 # Index
 

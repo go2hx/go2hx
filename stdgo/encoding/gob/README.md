@@ -20,7 +20,7 @@ stdgo/encoding/gob/Gob.hx:7547: characters 125-132 : Unknown identifier : _intMa
 stdgo/encoding/gob/Gob.hx:8464: characters 17-33 : Type not found : stdgo.net.Net
 stdgo/encoding/gob/Gob.hx:8465: characters 183-199 : Type not found : stdgo.net.Net
 stdgo/encoding/gob/Gob.hx:8465: characters 183-199 : ... For function argument '_e'
-stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_null
+stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_hx
 
 ```
 

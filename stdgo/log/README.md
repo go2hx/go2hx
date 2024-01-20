@@ -5,7 +5,7 @@ stdgo/log_test/Log_test.hx:4: characters 172-176 : ... For function argument '_o
 stdgo/log_test/Log_test.hx:9: characters 172-176 : Unknown identifier : _buf
 stdgo/log_test/Log_test.hx:9: characters 172-176 : ... For function argument '_out'
 stdgo/log_test/Log_test.hx:10: characters 13-20 : Unknown identifier : _logger
-stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_null
+stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_hx
 
 ```
 

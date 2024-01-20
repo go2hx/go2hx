@@ -29,7 +29,7 @@ and to read that data back:
     	io.Copy(os.Stdout, r)
     	r.Close()
 ```
-stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_null
+stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_hx
 
 # Index
 

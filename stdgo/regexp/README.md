@@ -89,7 +89,7 @@ before returning.
 
 \(There are a few other methods that do not match this pattern.\)  
 
-stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_null
+stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_hx
 
 # Index
 

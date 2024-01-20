@@ -14,12 +14,12 @@ function main() {
 		false;
 	}
 
-	if (args.length > 0 && args[0] == "clean") {
+	if (args.length > 0 && args.indexOf("clean") != - 1) {
 		clean();
 		return;
 	}
 
-	if (args.length > 0 && args[0] == "hxb") {
+	if (args.length > 0 && args.indexOf("hxb") != -1) {
 		setupHxb();
 		return;
 	}
@@ -194,6 +194,7 @@ function setupInterp(rebuild:Bool, args:Array<String>) {
 }
 
 function setupHxb() {
+	Sys.println("setting up Hxb");
 	Sys.command("haxe scripts/hxb.hxml");
 	Sys.command("haxe scripts/create_hxb.hxml");
 }

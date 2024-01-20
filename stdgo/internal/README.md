@@ -17,9 +17,9 @@
 
 - [`function shuffle(a:Array<shuffle.T>):Array<shuffle.T>`](<#function-shuffle>)
 
-- [class TypeInfoData\_go2hx\_null](<#class-typeinfodata_go2hx_null>)
+- [class TypeInfoData\_go2hx\_hx](<#class-typeinfodata_go2hx_hx>)
 
-  - [`function new():Void`](<#typeinfodata_go2hx_null-function-new>)
+  - [`function new():Void`](<#typeinfodata_go2hx_hx-function-new>)
 
 - [class Async](<#class-async>)
 
@@ -112,7 +112,7 @@ import stdgo.internal.*
 ```
 
 
-## class TypeInfoData\_go2hx\_null
+## class TypeInfoData\_go2hx\_hx
 
 
 ```haxe
@@ -120,7 +120,7 @@ var names:Map<String, Dynamic>
 ```
 
 
-### TypeInfoData\_go2hx\_null function new
+### TypeInfoData\_go2hx\_hx function new
 
 
 ```haxe
@@ -169,11 +169,6 @@ function stack(expr:Dynamic):Dynamic
 
 ```haxe
 var names:stdgo.internal._TypeInfo.TypeInternalMap
-```
-
-
-```haxe
-var namesHxb:stdgo.internal._TypeInfo.TypeInternalMap
 ```
 
 

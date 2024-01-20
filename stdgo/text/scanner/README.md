@@ -19,7 +19,7 @@ literals as defined by the Go language specification. It may be
 customized to recognize only a subset of those literals and to recognize
 different identifier and white space characters.  
 
-stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_null
+stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_hx
 
 # Index
 

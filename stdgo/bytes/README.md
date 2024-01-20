@@ -10,7 +10,7 @@
 Package bytes implements functions for the manipulation of byte slices.
 It is analogous to the facilities of the \[strings\] package.  
 
-stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_null
+stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_hx
 
 # Index
 

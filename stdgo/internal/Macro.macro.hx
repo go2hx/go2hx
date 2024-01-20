@@ -34,7 +34,7 @@ class Macro {
 						}
 					}
 				}
-				cl.name = className + "_go2hx_" + Context.definedValue("hxb");
+				cl.name = className + "_go2hx_" + (Context.definedValue("hxb") == "1" ? "hxb" : "hx");
 				trace(cl.name);
 				Context.defineType(cl);
 			});

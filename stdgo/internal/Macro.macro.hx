@@ -1,43 +1,55 @@
 package stdgo.internal;
 
 import haxe.macro.PositionTools;
-import haxe.macro.Compiler;
-import haxe.macro.ComplexTypeTools;
-import haxe.macro.Context;
-import haxe.macro.Expr.Field;
 import haxe.macro.Expr;
 import haxe.macro.ExprTools;
-import haxe.macro.TypeTools;
+import haxe.macro.Context;
 
 using Lambda;
 
 class Macro {
+	public static function initHxb() {
+        var run = false;
+		Context.onAfterTyping(_ -> {
+			if (run)
+				return;
+			run = true;
+			final exprs:Array<Expr> = [];
+			for (name => e in @:privateAccess Go.nameTypes) {
+				exprs.push(macro $v{name} => $e);
+			}
+			trace("hxb types:", exprs.length);
+			final e = macro $a{exprs};
+			final className = "TypeInfoData_go2hx_";
+			final cl = macro class T {
+				public var names = $e;
+				public function new() {}
+			};
+			cl.name = className;
+			sys.io.File.saveContent(cl.name + ".hx", new haxe.macro.Printer().printTypeDefinition(cl));
+			Context.defineType(cl);
+		});
+    }
 	public static function init() {
 		var run = false;
 		Context.onAfterTyping(_ -> {
-				if (run)
-					return;
-				run = true;
-				final exprs:Array<Expr> = [];
-				for (name => e in @:privateAccess Go.nameTypes) {
-					exprs.push(macro $v{name} => $e);
-				}
-				final e = macro $a{exprs};
-				final className = "TypeInfoData";
-				final cl = macro class T {
-					public var names:Map<String,Dynamic> = null;
-					public function new() {
-						try {
-							names = $e;
-						}catch(e) {
-							throw e.details();
-						}
-					}
-				}
-				cl.name = className + "_go2hx_" + (Context.definedValue("hxb") == "1" ? "hxb" : "hx");
-				trace(cl.name);
-				Context.defineType(cl);
-			});
+			if (run)
+				return;
+			run = true;
+			final exprs:Array<Expr> = [];
+			for (name => e in @:privateAccess Go.nameTypes) {
+				exprs.push(macro $v{name} => $e);
+			}
+			trace("non hxb types:", exprs.length);
+			final e = macro $a{exprs};
+			final className = "TypeInfoData_go2hx_";
+			final cl = macro class T {
+				public var names = $e;
+				public function new() {}
+			};
+			cl.name = className;
+			Context.defineType(cl);
+		});
 	}
 
 	private static function exprToString(e:Expr):String {

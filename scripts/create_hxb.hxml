@@ -1,5 +1,5 @@
--lib go2hx
 -cp golibs
+--macro stdgo.internal.Macro.initHxb()
 -m github_com.go2hx.go4hx.scripts.hxb.Hxb
 --hl hxb.hl
 -D hxb

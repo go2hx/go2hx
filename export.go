@@ -113,19 +113,19 @@ func compile(params []string, excludesData []string, index string, debug bool) [
 	localPath := args[len(args)-1]
 	var err error
 	if err != nil {
-		panic(err.Error())
+		log.Fatal(err.Error())
 		return b
 	}
 	err = os.Chdir(localPath)
 	args = args[0 : len(args)-1] //remove chdir
 	if err != nil {
-		panic(err.Error() + " = " + localPath + " args: " + strings.Join(args, ","))
+		log.Fatal(err.Error() + " = " + localPath + " args: " + strings.Join(args, ","))
 		return b
 	}
 	cfg.Tests = testBool
 	initial, err := packages.Load(cfg, &types.StdSizes{WordSize: 4, MaxAlign: 8}, args...)
 	if err != nil {
-		panic("load error: " + err.Error())
+		log.Fatal("load error: " + err.Error())
 		return []byte{}
 	}
 	//init
@@ -167,14 +167,14 @@ func compile(params []string, excludesData []string, index string, debug bool) [
 	}
 	b, err = json.Marshal(data)
 	if err != nil {
-		panic("encoding err: " + err.Error())
+		log.Fatal("encoding err: " + err.Error())
 		return b
 	}
 	var buff bytes.Buffer
 	w := zlib.NewWriter(&buff)
 	_, err = w.Write(b)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	w.Close()
 	if debug {
@@ -212,12 +212,12 @@ func main() {
 
 	err = json.Unmarshal(excludesBytes, &excludesData)
 	if err != nil {
-		panic(err.Error())
+		log.Fatal(err.Error())
 	}
 	list2 := make([]string, 0, 150)
 	err = json.Unmarshal(stdgoListBytes, &list2)
 	if err != nil {
-		panic(err.Error())
+		log.Fatal(err.Error())
 	}
 	stdgoList = make(map[string]bool, len(list2))
 	for _, s := range list2 {
@@ -228,11 +228,11 @@ func main() {
 
 	err = json.Unmarshal(stdgoExportsBytes, &exportList)
 	if err != nil {
-		panic(err.Error())
+		log.Fatal(err.Error())
 	}
 	err = json.Unmarshal(stdgoExternsBytes, &externList)
 	if err != nil {
-		panic(err.Error())
+		log.Fatal(err.Error())
 	}
 
 	stdgoExports = make(map[string]bool, len(exportList))
@@ -251,7 +251,7 @@ func main() {
 	}
 	conn, err := net.Dial("tcp", "127.0.0.1:"+port)
 	if err != nil {
-		panic("dial: " + err.Error())
+		log.Fatal("dial: " + err.Error())
 		return
 	}
 	defer conn.Close()
@@ -259,7 +259,7 @@ func main() {
 		input := make([]byte, 2056)
 		c, err := conn.Read(input)
 		if err != nil {
-			panic("read error: " + err.Error())
+			log.Fatal("read error: " + err.Error())
 			return
 		}
 		input = input[:c]
@@ -272,7 +272,7 @@ func main() {
 		binary.LittleEndian.PutUint64(buff, uint64(length))
 		_, err = conn.Write(buff)
 		if err != nil {
-			panic("write length error: " + err.Error())
+			log.Fatal("write length error: " + err.Error())
 			return
 		}
 		//fmt.Println("write data:", len(data))
@@ -280,7 +280,7 @@ func main() {
 		data = nil
 		input = nil
 		if err != nil {
-			panic("write error: " + err.Error())
+			log.Fatal("write error: " + err.Error())
 			return
 		}
 		debug.FreeOSMemory()
@@ -320,7 +320,7 @@ func randomIdentifier() *ast.Ident {
 	b := make([]byte, 8)
 	_, err := r.Read(b)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	return ast.NewIdent(fmt.Sprintf("_%x", b))
 }
@@ -342,7 +342,7 @@ func debugPkg(pkg *packages.Package) {
 			_ = os.MkdirAll(path.Dir(p), 0766)
 			rf, err := os.ReadFile(file)
 			if err != nil {
-				panic(err)
+				log.Fatal(err)
 			}
 			// fmt.Println(p)
 			os.WriteFile(p, rf, 0766)
@@ -482,7 +482,7 @@ func debugPkg(pkg *packages.Package) {
 				fset := token.NewFileSet()
 				logFileCode, err := parser.ParseFile(fset, "", s, 0)
 				if err != nil {
-					panic(err)
+					log.Fatal(err)
 				}
 				// add __debug__ function
 				newDecls = append(newDecls, logFileCode.Decls[0])
@@ -560,11 +560,11 @@ func debugPkg(pkg *packages.Package) {
 	_ = os.MkdirAll(pkgPath, 0766)
 	f, err := os.Create(pkgPath + pkg.Name + ".go")
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	err = printer.Fprint(f, pkg.Fset, file)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	// _ = printer.Fprint(os.Stdout, pkg.Fset, file)
 	file.Decls = oldDecls
@@ -591,13 +591,13 @@ func parseLocalConstants(file *ast.File, pkg *packages.Package) {
 						if kind == types.Int64 || basic.Kind() == types.Int {
 							d, ok := constant.Int64Val(constant.ToInt(value))
 							if !ok {
-								panic("could not get exact int64: " + value.String())
+								log.Fatal("could not get exact int64: " + value.String())
 							}
 							e = &ast.BasicLit{Kind: token.INT, Value: fmt.Sprint(d)}
 						} else {
 							d, ok := constant.Uint64Val(constant.ToInt(value))
 							if !ok {
-								panic("could not get exact uint64: " + value.String())
+								log.Fatal("could not get exact uint64: " + value.String())
 							}
 							e = &ast.BasicLit{Kind: token.INT, Value: fmt.Sprint(d)}
 						}
@@ -634,7 +634,7 @@ func parseLocalConstants(file *ast.File, pkg *packages.Package) {
 					}
 					e = &ast.BasicLit{Kind: token.STRING, Value: s}
 				default:
-					panic("unknown constant type: " + value.ExactString())
+					log.Fatal("unknown constant type: " + value.ExactString())
 				}
 				checker.Types[e] = typeAndValue
 				cursor.Replace(e)
@@ -1093,7 +1093,7 @@ func parseType(node interface{}, marked2 map[string]bool) map[string]interface{}
 	}
 	data["id"] = getId(node)
 	if data["id"] == "" {
-		panic("data does not have id")
+		log.Fatal("data does not have id")
 	}
 	isVar := false
 	switch data["id"] {
@@ -1229,7 +1229,7 @@ func parseType(node interface{}, marked2 map[string]bool) map[string]interface{}
 		//data["underlying"] = parseType(s.Underlying())
 		data["terms"] = terms
 	default:
-		panic("unknown parse type id: " + data["id"].(string))
+		log.Fatal("unknown parse type id: " + data["id"].(string))
 	}
 	if !isVar {
 		data["hash"] = hash
@@ -1349,7 +1349,7 @@ func parseData(node interface{}) map[string]interface{} {
 		case *ast.CommentGroup:
 			data[field.Name] = parseCommentGroup(value)
 		default:
-			panic("unknown parse data value: " + reflect.TypeOf(value).String())
+			log.Fatal("unknown parse data value: " + reflect.TypeOf(value).String())
 		}
 	}
 	switch node := node.(type) {
@@ -1538,20 +1538,20 @@ func parseBasicLit(expr *ast.BasicLit) map[string]interface{} {
 				if kind == types.Int64 {
 					d, ok := constant.Int64Val(constant.ToInt(value))
 					if !ok {
-						panic("imprecise int64")
+						log.Fatal("imprecise int64")
 					}
 					output = strconv.FormatInt(d, 10)
 				} else {
 					d, ok := constant.Uint64Val(constant.ToInt(value))
 					if !ok {
-						panic("imprecise uint64")
+						log.Fatal("imprecise uint64")
 					}
 					output = strconv.FormatUint(d, 10)
 				}
 			} else {
 				d, ok := constant.Int64Val(constant.ToInt(value))
 				if !ok {
-					panic("could not get exact int")
+					log.Fatal("could not get exact int")
 				}
 				output = strconv.FormatInt(d, 10)
 			}
@@ -1590,7 +1590,7 @@ func basicLitToken(expr *ast.BasicLit) map[string]interface{} {
 			if err2 != nil {
 				k, err3 := strconv.ParseFloat(expr.Value, 64)
 				if err3 != nil {
-					panic("parse uint/int 64 and float64 error: " + err3.Error())
+					log.Fatal("parse uint/int 64 and float64 error: " + err3.Error())
 				} else {
 					output = fmt.Sprintf("%f", k) // decimal format
 				}
@@ -1603,13 +1603,13 @@ func basicLitToken(expr *ast.BasicLit) map[string]interface{} {
 	case token.FLOAT:
 		i, err := strconv.ParseFloat(expr.Value, 64)
 		if err != nil {
-			panic("parse float 64 error: " + err.Error())
+			log.Fatal("parse float 64 error: " + err.Error())
 		}
 		output = fmt.Sprint(i)
 	case token.IMAG:
 		i, err := strconv.ParseComplex(expr.Value, 128)
 		if err != nil {
-			panic(err)
+			log.Fatal(err)
 		}
 		output = fmt.Sprint(real(i)) + "i" + fmt.Sprint(imag(i))
 	}

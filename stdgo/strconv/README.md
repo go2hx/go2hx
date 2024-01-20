@@ -75,7 +75,7 @@ return quoted Go rune literals.
 
 \[Unquote\] and \[UnquoteChar\] unquote Go string and rune literals.  
 
-stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_hx
+stdgo/internal/Macro.macro.hx:43: non hxb types:,397
 
 # Index
 

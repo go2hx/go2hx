@@ -52,7 +52,7 @@ stdgo/Go.macro.hx:729: lines 729-738 : Void should be stdgo.Ref<stdgo.go.ast.Gen
 stdgo/go/token_test/Token_test.hx:18: characters 29-117 : ... Called from macro here
 stdgo/go/ast/Ast.hx:5621: characters 12-19 : stdgo.Ref<stdgo.go.ast.T_pkgBuilder> has no field _errors
 stdgo/go/ast/Ast.hx:2910: characters 32-34 : stdgo.go.ast.T_pkgBuilder does not have a constructor
-stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_hx
+stdgo/internal/Macro.macro.hx:43: non hxb types:,609
 
 ```
 

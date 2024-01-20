@@ -9,7 +9,7 @@
 
 Package utf16 implements encoding and decoding of UTF\-16 sequences.  
 
-stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_hx
+stdgo/internal/Macro.macro.hx:43: non hxb types:,365
 
 # Index
 

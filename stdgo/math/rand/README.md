@@ -8,7 +8,7 @@ stdgo/math/rand_test/Rand_test.hx:1210: characters 62-65 : Unknown identifier : 
 stdgo/math/rand_test/Rand_test.hx:1350: characters 178-185 : Unknown identifier : _stddev
 stdgo/math/rand_test/Rand_test.hx:882: characters 22-52 : Type not found : stdgo.text.tabwriter.Tabwriter
 stdgo/math/rand_test/Rand_test.hx:885: characters 39-63 : invalid type run asInterface: TDynamic(null)
-stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_hx
+stdgo/internal/Macro.macro.hx:43: non hxb types:,381
 
 ```
 

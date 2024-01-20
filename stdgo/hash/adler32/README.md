@@ -19,7 +19,7 @@ It is defined in RFC 1950:
 	Adler-32 checksum is stored as s2*65536 + s1 in most-
 	significant-byte first (network) order.
 ```
-stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_hx
+stdgo/internal/Macro.macro.hx:43: non hxb types:,365
 
 # Index
 

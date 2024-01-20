@@ -27,7 +27,7 @@ stdgo/math/big/Big.hx:12939: characters 44-67 : Type not found : stdgo.encoding.
 stdgo/image/Image.hx:1321: characters 50-83 : Type not found : stdgo.image.color.palette.Palette
 stdgo/image/Image.hx:1321: characters 50-83 : ... For function argument 'args'
 stdgo/image/Image.hx:1327: characters 28-38 : You can't iterate on a Dynamic value, please specify KeyValueIterator or KeyValueIterable
-stdgo/Go.macro.hx:1226: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
 stdgo/Go.macro.hx:670: characters 12-33 : Called from here
 stdgo/Go.macro.hx:764: characters 16-40 : Called from here
 stdgo/image/Image.hx:1333: characters 28-80 : ... Called from macro here
@@ -37,7 +37,7 @@ stdgo/Go.macro.hx:776: characters 62-63 : ... For function argument 'type'
 stdgo/image/Image.hx:1333: characters 28-80 : ... Called from macro here
 stdgo/image/Image.hx:1334: characters 144-158 : Any has no field __underlying__
 stdgo/image/Image.hx:1334: characters 295-309 : Any has no field __underlying__
-stdgo/Go.macro.hx:1226: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
 stdgo/Go.macro.hx:670: characters 12-33 : Called from here
 stdgo/Go.macro.hx:764: characters 16-40 : Called from here
 stdgo/image/Image.hx:1339: characters 28-80 : ... Called from macro here
@@ -47,7 +47,7 @@ stdgo/Go.macro.hx:776: characters 62-63 : ... For function argument 'type'
 stdgo/image/Image.hx:1339: characters 28-80 : ... Called from macro here
 stdgo/image/Image.hx:1340: characters 144-158 : Any has no field __underlying__
 stdgo/image/Image.hx:1340: characters 295-309 : Any has no field __underlying__
-stdgo/Go.macro.hx:1226: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
 stdgo/Go.macro.hx:670: characters 12-33 : Called from here
 stdgo/Go.macro.hx:764: characters 16-40 : Called from here
 stdgo/image/Image.hx:1342: characters 28-78 : ... Called from macro here
@@ -57,7 +57,7 @@ stdgo/Go.macro.hx:776: characters 62-63 : ... For function argument 'type'
 stdgo/image/Image.hx:1342: characters 28-78 : ... Called from macro here
 stdgo/image/Image.hx:1343: characters 140-154 : Any has no field __underlying__
 stdgo/image/Image.hx:1343: characters 287-301 : Any has no field __underlying__
-stdgo/Go.macro.hx:1226: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
 stdgo/Go.macro.hx:670: characters 12-33 : Called from here
 stdgo/Go.macro.hx:764: characters 16-40 : Called from here
 stdgo/image/Image.hx:1347: characters 28-71 : ... Called from macro here
@@ -67,39 +67,39 @@ stdgo/Go.macro.hx:776: characters 62-63 : ... For function argument 'type'
 stdgo/image/Image.hx:1347: characters 28-71 : ... Called from macro here
 stdgo/image/Image.hx:1348: characters 124-138 : Any has no field __underlying__
 stdgo/image/Image.hx:1348: characters 253-267 : Any has no field __underlying__
-stdgo/Go.macro.hx:1226: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
 stdgo/Go.macro.hx:670: characters 12-33 : Called from here
 stdgo/image/Image.hx:1356: characters 46-71 : Called from here
 stdgo/image/Image.hx:1356: characters 25-87 : ... Called from macro here
-stdgo/Go.macro.hx:1226: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
 stdgo/Go.macro.hx:670: characters 12-33 : Called from here
 stdgo/image/Image.hx:1356: characters 46-71 : Called from here
-stdgo/Go.macro.hx:1226: characters 7-12 : For function argument 'v'
+stdgo/Go.macro.hx:1232: characters 7-12 : For function argument 'v'
 stdgo/image/Image.hx:1356: characters 25-87 : ... Called from macro here
 stdgo/Go.macro.hx:705: characters 13-19 : Unknown identifier : TClass
 stdgo/image/Image.hx:1356: characters 25-87 : ... Called from macro here
-stdgo/Go.macro.hx:1226: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
 stdgo/Go.macro.hx:670: characters 12-33 : Called from here
 stdgo/image/Image.hx:1356: characters 46-71 : Called from here
 stdgo/image/Image.hx:1356: characters 25-87 : ... Called from macro here
-stdgo/Go.macro.hx:1226: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
 stdgo/Go.macro.hx:670: characters 12-33 : Called from here
 stdgo/image/Image.hx:1356: characters 46-71 : Called from here
 stdgo/image/Image.hx:1356: characters 25-87 : ... Called from macro here
-stdgo/Go.macro.hx:1226: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
 stdgo/Go.macro.hx:670: characters 12-33 : Called from here
 stdgo/image/Image.hx:1356: characters 46-71 : Called from here
-stdgo/Go.macro.hx:1226: characters 7-12 : For function argument 'value'
+stdgo/Go.macro.hx:1232: characters 7-12 : For function argument 'value'
 stdgo/image/Image.hx:1356: characters 25-87 : ... Called from macro here
 stdgo/Go.macro.hx:715: lines 715-717 : Void should be stdgo.image.RGBA64Image
 stdgo/image/Image.hx:1356: characters 25-87 : ... Called from macro here
 stdgo/Go.macro.hx:717: lines 717-723 : Void should be stdgo.image.RGBA64Image
 stdgo/image/Image.hx:1356: characters 25-87 : ... Called from macro here
-stdgo/Go.macro.hx:1226: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
 stdgo/Go.macro.hx:670: characters 12-33 : Called from here
 stdgo/image/Image.hx:1356: characters 46-71 : Called from here
 stdgo/image/Image.hx:1356: characters 25-87 : ... Called from macro here
-stdgo/Go.macro.hx:1226: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
 stdgo/Go.macro.hx:670: characters 12-33 : Called from here
 stdgo/image/Image.hx:1356: characters 46-71 : Called from here
 stdgo/image/Image.hx:1356: characters 25-87 : ... Called from macro here
@@ -107,30 +107,30 @@ stdgo/Go.macro.hx:727: lines 727-729 : Void should be stdgo.image.RGBA64Image
 stdgo/image/Image.hx:1356: characters 25-87 : ... Called from macro here
 stdgo/Go.macro.hx:729: lines 729-738 : Void should be stdgo.image.RGBA64Image
 stdgo/image/Image.hx:1356: characters 25-87 : ... Called from macro here
-stdgo/Go.macro.hx:1226: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
 stdgo/Go.macro.hx:670: characters 12-33 : Called from here
 stdgo/image/Image.hx:1361: characters 74-99 : Called from here
-stdgo/Go.macro.hx:1226: characters 7-12 : For function argument 'args'
+stdgo/Go.macro.hx:1232: characters 7-12 : For function argument 'args'
 stdgo/image/Image.hx:1365: characters 31-33 : Any has no field at
-stdgo/Go.macro.hx:1226: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
 stdgo/Go.macro.hx:670: characters 12-33 : Called from here
 stdgo/image/Image.hx:1367: characters 131-156 : Called from here
-stdgo/Go.macro.hx:1226: characters 7-12 : For function argument 'args'
+stdgo/Go.macro.hx:1232: characters 7-12 : For function argument 'args'
 stdgo/encoding/json/Json.hx:593: lines 593-600 : stdgo.GoInt64Map<stdgo.GoString> should be stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString>
 stdgo/encoding/json/Json.hx:593: lines 593-600 : ... For function argument 'args'
-stdgo/Go.macro.hx:1225: TAbstract(Any,[]),#pos(stdgo/Go.macro.hx:764: characters 16-40)
-stdgo/Go.macro.hx:1225: TAbstract(Any,[]),#pos(stdgo/Go.macro.hx:764: characters 16-40)
-stdgo/Go.macro.hx:1225: TAbstract(Any,[]),#pos(stdgo/Go.macro.hx:764: characters 16-40)
-stdgo/Go.macro.hx:1225: TAbstract(Any,[]),#pos(stdgo/Go.macro.hx:764: characters 16-40)
-stdgo/Go.macro.hx:1225: TAbstract(Any,[]),#pos(stdgo/image/Image.hx:1356: characters 46-71)
-stdgo/Go.macro.hx:1225: TAbstract(Any,[]),#pos(stdgo/image/Image.hx:1356: characters 46-71)
-stdgo/Go.macro.hx:1225: TAbstract(Any,[]),#pos(stdgo/image/Image.hx:1356: characters 46-71)
-stdgo/Go.macro.hx:1225: TAbstract(Any,[]),#pos(stdgo/image/Image.hx:1356: characters 46-71)
-stdgo/Go.macro.hx:1225: TAbstract(Any,[]),#pos(stdgo/image/Image.hx:1356: characters 46-71)
-stdgo/Go.macro.hx:1225: TAbstract(Any,[]),#pos(stdgo/image/Image.hx:1356: characters 46-71)
-stdgo/Go.macro.hx:1225: TAbstract(Any,[]),#pos(stdgo/image/Image.hx:1356: characters 46-71)
-stdgo/Go.macro.hx:1225: TAbstract(Any,[]),#pos(stdgo/image/Image.hx:1361: characters 74-99)
-stdgo/Go.macro.hx:1225: TAbstract(Any,[]),#pos(stdgo/image/Image.hx:1367: characters 131-156)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/Go.macro.hx:764: characters 16-40)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/Go.macro.hx:764: characters 16-40)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/Go.macro.hx:764: characters 16-40)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/Go.macro.hx:764: characters 16-40)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/image/Image.hx:1356: characters 46-71)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/image/Image.hx:1356: characters 46-71)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/image/Image.hx:1356: characters 46-71)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/image/Image.hx:1356: characters 46-71)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/image/Image.hx:1356: characters 46-71)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/image/Image.hx:1356: characters 46-71)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/image/Image.hx:1356: characters 46-71)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/image/Image.hx:1361: characters 74-99)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/image/Image.hx:1367: characters 131-156)
 
 ```
 

@@ -12,7 +12,7 @@ Package strings implements simple functions to manipulate UTF\-8 encoded strings
 
 For information about UTF\-8 strings in Go, see https://blog.golang.org/strings.  
 
-stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_hx
+stdgo/internal/Macro.macro.hx:43: non hxb types:,376
 
 # Index
 

@@ -12,7 +12,7 @@ for maps, on behalf of the fmt and text/template packages.
 It is not guaranteed to be efficient and works only for types
 that are valid map keys.  
 
-stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_hx
+stdgo/internal/Macro.macro.hx:43: non hxb types:,364
 
 # Index
 

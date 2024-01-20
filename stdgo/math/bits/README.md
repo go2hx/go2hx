@@ -17,7 +17,7 @@ the code in this package will not be used. Which
 functions are implemented by the compiler depends on the
 architecture and the Go release.  
 
-stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_hx
+stdgo/internal/Macro.macro.hx:43: non hxb types:,363
 
 # Index
 

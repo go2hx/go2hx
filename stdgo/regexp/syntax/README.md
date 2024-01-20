@@ -166,7 +166,7 @@ ASCII character classes:
 
 Unicode character classes are those in unicode.Categories and unicode.Scripts.  
 
-stdgo/internal/Macro.macro.hx:38: TypeInfoData_go2hx_hx
+stdgo/internal/Macro.macro.hx:43: non hxb types:,362
 
 # Index
 

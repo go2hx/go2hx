@@ -68,3 +68,4 @@ actions-runner
 log.out
 tests/sort_*.json
 *.zip
+prebuild

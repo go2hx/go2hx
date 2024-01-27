@@ -1172,7 +1172,7 @@ class Go {
 					case "stdgo.Pointer":
 						final param = gtParams(params, marked)[0];
 						ret = macro stdgo.internal.reflect.Reflect.GoType.pointerType({get: () -> $param});
-					case "stdgo.UnsafePointer", "stdgo.Unsafe.UnsafePointer", "stdgo.unsafe.UnsafePointer":
+					case "stdgo._internal.UnsafePointer", "stdgo._internal.Unsafe.UnsafePointer", "stdgo._internal.unsafe.UnsafePointer":
 						return macro stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind);
 					case "stdgo.GoMap":
 						var ps = gtParams(params, marked);

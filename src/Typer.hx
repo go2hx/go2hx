@@ -449,9 +449,6 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 				final globalPath = getGlobalPath(info);
 				if (globalPath != "")
 					fieldWrapper.unshift(globalPath);
-				if (stdgoList.indexOf(toGoPath(globalPath)) != -1) { // haxe only type, otherwise the go code refrences Haxe
-					fieldWrapper.unshift("stdgo");
-				}
 				final staticExtension:TypeDefinition = {
 					name: staticExtensionName,
 					pos: null,
@@ -472,9 +469,6 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 				final globalPath = getGlobalPath(info);
 				if (globalPath != "")
 					fieldExtension.unshift(globalPath);
-				if (stdgoList.indexOf(toGoPath(globalPath)) != -1) { // haxe only type, otherwise the go code refrences Haxe
-					fieldExtension.unshift("stdgo");
-				}
 				// files check against all TypeSpecs
 				def.meta.push({name: ":using", params: [macro $p{fieldExtension}], pos: null});
 				file.defs.push(staticExtension);
@@ -4269,6 +4263,13 @@ private function getGlobalPath(info:Info):String {
 	var globalPath = info.global.path;
 	if (StringTools.endsWith(info.global.path, ".pkg"))
 		globalPath = globalPath.substr(0, globalPath.length - 4);
+	if (globalPath == "")
+		return "";
+	final globalPathOld = globalPath;
+	globalPath = "_internal." + globalPath;
+	if (stdgoList.indexOf(toGoPath(globalPathOld)) != -1) { // haxe only type, otherwise the go code refrences Haxe
+		globalPath = "stdgo." + globalPath;
+	}
 	return globalPath;
 }
 
@@ -4357,7 +4358,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 					untyped_string_kind: throw info.panic() + "untyped kind: "
 						+ kind;
 				case untyped_nil_kind: null;
-				case unsafepointer_kind: TPath({pack: ["stdgo", "unsafe", "Unsafe"], name: "UnsafePointer"});
+				case unsafepointer_kind: TPath({pack: ["stdgo", "_internal", "unsafe", "Unsafe"], name: "UnsafePointer"});
 				default:
 					throw info.panic() + "unknown kind to complexType: " + kind;
 			}
@@ -5860,9 +5861,6 @@ final genericNames = params == null ? [] : [for (i in 0...params.length) params[
 						final globalPath = getGlobalPath(info);
 						if (globalPath != "")
 							path.unshift(globalPath);
-						if (stdgoList.indexOf(toGoPath(globalPath)) != -1) { // haxe only type, otherwise the go code refrences Haxe
-							path.unshift("stdgo");
-						}
 						return TPath({
 							name: p.name,
 							pack: path,
@@ -5889,9 +5887,6 @@ final genericNames = params == null ? [] : [for (i in 0...params.length) params[
 							final globalPath = getGlobalPath(info);
 							if (globalPath != "")
 								path.unshift(globalPath);
-							if (stdgoList.indexOf(toGoPath(globalPath)) != -1) { // haxe only type, otherwise the go code refrences Haxe
-								path.unshift("stdgo");
-							}
 							p.pack = path;
 						}
 					}
@@ -5994,9 +5989,6 @@ final genericNames = params == null ? [] : [for (i in 0...params.length) params[
 							final globalPath = getGlobalPath(info);
 							if (globalPath != "")
 								path.unshift(globalPath);
-							if (stdgoList.indexOf(toGoPath(globalPath)) != -1) { // haxe only type, otherwise the go code refrences Haxe
-								path.unshift("stdgo");
-							}
 							path.push(s);
 							macro @:privateAccess $p{path};
 						default:
@@ -7207,9 +7199,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				final globalPath = getGlobalPath(info);
 				if (globalPath != "")
 					fieldWrapper.unshift(globalPath);
-				if (stdgoList.indexOf(toGoPath(globalPath)) != -1) { // haxe only type, otherwise the go code refrences Haxe
-					fieldWrapper.unshift("stdgo");
-				}
 				final staticExtension:TypeDefinition = {
 					name: staticExtensionName,
 					pos: null,
@@ -7230,9 +7219,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				final globalPath = getGlobalPath(info);
 				if (globalPath != "")
 					fieldExtension.unshift(globalPath);
-				if (stdgoList.indexOf(toGoPath(globalPath)) != -1) { // haxe only type, otherwise the go code refrences Haxe
-					fieldExtension.unshift("stdgo");
-				}
 				// embedding
 				def.meta.push({name: ":using", params: [macro $p{fieldExtension}], pos: null});
 				info.data.defs.push(staticExtension);
@@ -7397,9 +7383,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				final globalPath = getGlobalPath(info);
 				if (globalPath != "")
 					fieldWrapper.unshift(globalPath);
-				if (stdgoList.indexOf(toGoPath(globalPath)) != -1) { // haxe only type, otherwise the go code refrences Haxe
-					fieldWrapper.unshift("stdgo");
-				}
 				final staticExtension:TypeDefinition = {
 					name: staticExtensionName,
 					pos: null,

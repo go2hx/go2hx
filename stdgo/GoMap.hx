@@ -574,7 +574,7 @@ class GoAnyInterfaceMapKey {
 		#if nolinkstd
 		ais = "";
 		#else
-		ais = stdgo.fmt.Fmt.sprintf("%v", k);
+		ais = stdgo._internal.fmt.Fmt.sprintf("%v", k);
 		#end
 	}
 }

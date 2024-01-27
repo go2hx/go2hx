@@ -555,9 +555,9 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 				// trace(printer.printTypeDefinition(wrapper));
 			}
 		}
-		if (instance.externBool) {
+		/*if (instance.externBool) {
 			module.path = "stdgo." + module.path;
-		}
+		}*/
 		// for (file in module.files)
 		//	trace(file.defs.map(def -> def.name));
 		list.push(module);

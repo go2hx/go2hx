@@ -7679,6 +7679,7 @@ private function getRestrictedName(name:String, info:Info):String { // all funct
 				continue;
 			if (def.name == name) {
 				final pack = info.global.module.path.split(".");
+				pack.unshift("_internal");
 				if (stdgoList.indexOf(toGoPath(info.global.module.path)) != -1) { // haxe only type, otherwise the go code refrences Haxe
 					pack.unshift("stdgo");
 				}

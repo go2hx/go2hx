@@ -607,7 +607,7 @@ class Go {
 			switch expectedType {
 				case TAbstract(t, params):
 					switch t.toString() {
-						case "stdgo.AnyInterface", "stdgo.unsafe.UnsafePointer":
+						case "stdgo.AnyInterface", "stdgo._internal.unsafe.UnsafePointer":
 
 						case "Null":
 							error = params.length == 0;

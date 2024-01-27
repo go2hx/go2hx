@@ -2918,7 +2918,7 @@ private function typeExprType(expr:Dynamic, info:Info):ComplexType { // get the 
 	if (expr == null)
 		return null;
 	var type = switch expr.id {
-case "UnaryExpr": unaryType(expr, info);
+		case "UnaryExpr": unaryType(expr, info);
 		case "MapType": mapTypeExpr(expr, info);
 		case "ChanType": chanTypeExpr(expr, info);
 		case "InterfaceType": interfaceTypeExpr(expr, info);
@@ -4310,6 +4310,7 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 	path = normalizePath(path);
 
 	var pack = path.split("/");
+	pack.unshift("_internal");
 	final path = toGoPath(path);
 	if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code refrences Haxe
 		pack.unshift("stdgo");
@@ -7494,6 +7495,7 @@ private function typeImport(imp:Ast.ImportSpec, info:Info) {
 		blankAlias = true;
 		alias = "";
 	}
+	pack.unshift("_internal");
 	if (stdgoList.indexOf(toGoPath(path)) != -1) { // haxe only type, otherwise the go code refrences Haxe
 		pack.unshift("stdgo");
 	}

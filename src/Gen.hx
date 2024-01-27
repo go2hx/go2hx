@@ -11,10 +11,10 @@ function create(outputPath:String, module:Module, root:String) {
 	var actualPathExtern = actualPath;
 	final paths = actualPath.split("/");
 	var externDefBool = !module.isMain;
+	var testPath = actualPathExtern;
 	if (paths.length > 0 && externDefBool) {
 		actualPath = "_internal/" + actualPath;
 	}
-	var testPath = actualPathExtern;
 	if (testPath.substring(testPath.length - 5) == "_test") {
 		testPath = testPath.substring(0, testPath.length - 5);
 		externDefBool = false;
@@ -59,7 +59,7 @@ function create(outputPath:String, module:Module, root:String) {
 								final isExtern = def.isExtern;
 								def.isExtern = true;
 								hasMacroDef = true;
-								externMacroContent += Typer.printer.printTypeDefinition(externGen(def), false) + "\n";
+								externMacroContent += Typer.printer.printTypeDefinition(externGen(def, actualPath), false) + "\n";
 								macroContent += Typer.printer.printTypeDefinition(stripComments(def), false) + "\n";
 								def.isExtern = isExtern;
 								f.expr = null;
@@ -100,11 +100,11 @@ function create(outputPath:String, module:Module, root:String) {
 					isExtern: true,
 				};
 				if (externDefBool)
-					externMacroContent += Typer.printer.printTypeDefinition(externGen(td), false) + "\n";
+					externMacroContent += Typer.printer.printTypeDefinition(externGen(td, actualPath), false) + "\n";
 				macroContent += Typer.printer.printTypeDefinition(stripComments(td), false) + "\n";
 			}
 			if (externDefBool)
-				externContent += Typer.printer.printTypeDefinition(externGen(def), false) + "\n";
+				externContent += Typer.printer.printTypeDefinition(externGen(def, actualPath), false) + "\n";
 			content += Typer.printer.printTypeDefinition(stripComments(def), false) + "\n";
 		}
 		if (externDefBool) {
@@ -144,7 +144,7 @@ private function save(dir:String, name:String, content:String, extension:String 
 }
 
 
-function externGen(td:TypeDefinition):TypeDefinition {
+function externGen(td:TypeDefinition,path:String):TypeDefinition {
 	switch td.kind {
 		case TDClass(_, _, isInterface, _, isAbstract):
 			if (isInterface)
@@ -168,7 +168,7 @@ function externGen(td:TypeDefinition):TypeDefinition {
 					throw "FProp not supported";
 			}
 		case TDAlias(_):
-			return externGenAlias(td);
+			return externGenAlias(td,path);
 		default:
 	}
 	trace("No extern change made for " + td.kind);
@@ -188,21 +188,20 @@ function externGenClass(td:TypeDefinition):TypeDefinition {
 	return externInvalid(td);
 }
 
-function externGenAlias(td:TypeDefinition):TypeDefinition {
-	switch td.kind {
-		case TDAlias(t):
-			return {
+function externGenAlias(td:TypeDefinition, path:String):TypeDefinition {
+	return switch td.kind {
+		case TDAlias(_):
+			{
 				name: td.name,
 				pos: td.pos,
 				pack: td.pack,
 				fields: td.fields,
-				kind: TDAlias(TPath({name: td.name, pack: td.pack, params: td.params?.map(f -> TPType(TPath({name: f.name, pack: []})))})),
+				kind: TDAlias(TPath({name: td.name, pack: path.split("/"), params: td.params?.map(f -> TPType(TPath({name: f.name, pack: []})))})),
 				isExtern: td.isExtern,
 			};
 		default:
 			throw "TDAlias expected";
 	}
-	return td;
 }
 
 function externInvalid(td:TypeDefinition):TypeDefinition {

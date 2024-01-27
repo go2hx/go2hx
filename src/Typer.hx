@@ -4825,7 +4825,7 @@ function getTypePath(ct:ComplexType, info:Info):TypePath {
 	}
 }
 
-private function title(name:String):String {
+function title(name:String):String {
 	final name = name.charAt(0).toUpperCase() + name.substring(1);
 	if (name == "Atomic")
 		return "Atomic_";

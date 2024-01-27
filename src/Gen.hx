@@ -191,12 +191,13 @@ function externGenClass(td:TypeDefinition):TypeDefinition {
 function externGenAlias(td:TypeDefinition, path:String):TypeDefinition {
 	return switch td.kind {
 		case TDAlias(_):
+			final pack = path.split("/");
 			{
 				name: td.name,
 				pos: td.pos,
 				pack: td.pack,
 				fields: td.fields,
-				kind: TDAlias(TPath({name: td.name, pack: path.split("/"), params: td.params?.map(f -> TPType(TPath({name: f.name, pack: []})))})),
+				kind: TDAlias(TPath({sub: td.name, name: Typer.title(pack[pack.length - 1]), pack: pack, params: td.params?.map(f -> TPType(TPath({name: f.name, pack: []})))})),
 				isExtern: td.isExtern,
 			};
 		default:

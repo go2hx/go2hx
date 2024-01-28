@@ -43,6 +43,7 @@ final excludes:Map<String,Array<String>> = [
 
 final path = Sys.getCwd();
 var ciBool = false;
+var hxbBool = false;
 var logOutput:FileOutput = null;
 var startStamp = 0.0;
 var tests:Array<String> = [];
@@ -75,6 +76,7 @@ function main() {
 	logOutput = File.append("test.log", false);
 	// go by example, stdlib, yaegi, go internal tests, unit regression tests
 	ciBool = Compiler.getDefine("ci") != null;
+	hxbBool = Compiler.getDefine("hxb") != null;
 	unitBool = Compiler.getDefine("unit") != null;
 	stdBool = Compiler.getDefine("std") != null;
 	goBool = Compiler.getDefine("go") != null;
@@ -98,6 +100,7 @@ function main() {
 	runTests();
 	trace(tests);
 	trace(tests.length);
+	trace(tasks.length);
 	if (!dryRun) {
 		Main.setup(0, Std.parseInt(runnerCount)); // amount of processes to spawn
 		Main.onComplete = complete;
@@ -130,6 +133,7 @@ function runTests() {
 	if (run != "") {
 		trace(tests);
 		tests = tests.filter((v) -> v.indexOf(run) != -1);
+		tasks = tasks.filter((v) -> v.path.indexOf(run) != -1);
 	}
 }
 
@@ -269,6 +273,10 @@ private function complete(modules:Array<Typer.Module>, _) {
 			final args = [hxml].concat(outCmd);
 			if (ciBool)
 				args.unshift("haxe");
+			if (hxbBool) {
+				args.push("--hxb-lib");
+				args.push("prebuild.zip");
+			}
 			tasks.push({command: ciBool ? "npx" : "haxe", args: args, path: path, runtime: false, target: target, out: out, main: main});
 		}
 	}

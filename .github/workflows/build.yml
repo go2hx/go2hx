@@ -37,8 +37,8 @@ jobs:
       # clean stdgo
       - name: Clean go2hx
         run: npx haxelib run go2hx clean
-      - name: Build go4hx
-        run: go build .
+      - name: Build go2hx compiler
+        run: npx haxelib run go2hx build
       # compile stdgo
       - name: Run stdgo automatic compile
         run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
@@ -74,8 +74,8 @@ jobs:
   #     # go2hx setup
   #     - name: Set source
   #       run: npx haxelib dev go2hx .
-  #     - name: Build go4hx
-  #       run: go build .
+  #     - name: Build go2hx compiler
+  #       run: npx haxelib run go2hx build
   #     # run hxcpp tests
   #     - name: Run unit hxcpp tests
   #       run: npx haxe tests/tests.hxml -D unit -D ci -D target_hxcpp -D runnerCount=${{ env.CORES }}
@@ -102,8 +102,8 @@ jobs:
   #   # go2hx setup
   #   - name: Set source
   #     run: npx haxelib dev go2hx .
-  #   - name: Build go4hx
-  #     run: go build .
+  #   - name: Build go2hx compiler
+  #     run: npx haxelib run go2hx build
   #   # run hxcpp tests
   #   - name: Run unit hxcpp tests
   #     run: npx haxe tests/tests.hxml -D std -D ci -D target_hxcpp -D runnerCount=${{ env.CORES }}
@@ -134,8 +134,8 @@ jobs:
       # clean stdgo
       - name: Clean go2hx
         run: npx haxelib run go2hx clean
-      - name: Build go4hx
-        run: go build .
+      - name: Build go2hx compiler
+        run: npx haxelib run go2hx build
       # compile stdgo
       - name: Run stdgo automatic compile
         run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
@@ -186,8 +186,8 @@ jobs:
       - name: Clean go2hx
         run: npx haxelib run go2hx clean
       # compile stdgo
-      - name: Build go4hx
-        run: go build .
+      - name: Build go2hx compiler
+        run: npx haxelib run go2hx build
       - name: Run stdgo automatic compile
         run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       #- name: Create hxb

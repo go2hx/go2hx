@@ -19,21 +19,17 @@ function main() {
 		return;
 	}
 
+	if (args.length > 0 && args.indexOf("build") != -1) {
+		build(true);
+		return;
+	}
+
 	if (args.length > 0 && args.indexOf("hxb") != -1) {
 		setupHxb();
 		return;
 	}
-
-	var process = new Process("go", ["version"]);
-	var code = process.exitCode();
-	if (code != 0) {
-		Sys.println("go command not found");
-		return;
-	}
-	process.close();
-
 	var rebuild = false;
-	process = new Process('git', ['rev-parse', 'HEAD']);
+	var process = new Process('git', ['rev-parse', 'HEAD']);
 	if (process.exitCode() != 0) {
 		var message = process.stderr.readAll().toString();
 		trace("Cannot execute `git rev-arse HEAD`. " + message);
@@ -49,27 +45,13 @@ function main() {
 	} else {
 		rebuild = true; // rebuild if no version present for good measure
 	}
-	if (!FileSystem.exists("tools")) {
-		Sys.command("git clone https://github.com/go2hx/tools --depth=1");
-	} else {
-		if (rebuild) {
-			Sys.setCwd("tools");
-			Sys.command("git pull");
-			Sys.setCwd("..");
-		}
-	}
 	File.saveContent("version.txt", version);
 	if ((index = args.indexOf("-rebuild")) != -1 || (index = args.indexOf("--rebuild")) != -1) { // used to rebuild the compiler each run
 		args.remove(args[index]);
 		Sys.println("rebuilding...");
 		rebuild = true;
 	}
-	//if (!FileSystem.exists("prebuild.zip"))
-	// run go compiler
-	if (!FileSystem.exists("go4hx") || rebuild) {
-		Sys.println("build go part of the compiler");
-		Sys.command("go build .");
-	}
+	build(rebuild);
 
 	if (args.length <= 1) {
 		Sys.command("haxe scripts/build-interp.hxml --help");
@@ -103,7 +85,7 @@ function main() {
 		setupNodeJS(rebuild,args);
 		return;
 	}*/
-	code = 1;
+	var code = 1;
 	try {
 		process = new Process("hl", ["--version"]);
 		code = process.exitCode();
@@ -158,6 +140,32 @@ function deleteDirectoryRecursively(dir:String):Int {
 	#else
 	return 0;
 	#end
+}
+
+function build(rebuild:Bool) {
+	var process = new Process("go", ["version"]);
+	var code = process.exitCode();
+	if (code != 0) {
+		Sys.println("go command not found");
+		return;
+	}
+	process.close();
+
+	if (!FileSystem.exists("tools")) {
+		Sys.command("git clone https://github.com/go2hx/tools --depth=1");
+	} else {
+		if (rebuild) {
+			Sys.setCwd("tools");
+			Sys.command("git pull");
+			Sys.setCwd("..");
+		}
+	}
+	//if (!FileSystem.exists("prebuild.zip"))
+	// run go compiler
+	if (!FileSystem.exists("go4hx") || rebuild) {
+		Sys.println("build go part of the compiler");
+		Sys.command("go build .");
+	}
 }
 
 function setupNodeJS(rebuild:Bool,args:Array<String>) {

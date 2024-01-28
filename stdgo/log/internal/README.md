@@ -1,41 +1,7 @@
-# Module: `stdgo.log.internal`
-
-[(view library index)](../../stdgo.md)
-
-
-# Overview
-
-
-
-Package internal contains definitions used by both log and log/slog.  
-
-# Index
-
-
-- [`function defaultOutput(_pc:stdgo.GoUIntptr, _data:stdgo.Slice<stdgo.GoByte>):stdgo.Error`](<#function-defaultoutput>)
-
-# Functions
-
-
-```haxe
-import stdgo.log.internal.Internal
+# Module stdgo.log.internal has compilation errors, please do not use:
 ```
+stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-70 : Type not found : stdgo._internal.reflect.Reflect
+stdgo/GoMap.hx:520: characters 15-20 : Type not found : _Type
 
-
-## function defaultOutput
-
-
-```haxe
-function defaultOutput(_pc:stdgo.GoUIntptr, _data:stdgo.Slice<stdgo.GoByte>):stdgo.Error
 ```
-
-
-
-DefaultOutput holds a function which calls the default log.Logger's
-output function.
-It allows slog.defaultHandler to call into an unexported function of
-the log package.  
-
-[\(view code\)](<./Internal.hx#L14>)
-
 

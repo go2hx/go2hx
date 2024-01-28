@@ -123,13 +123,23 @@ function clean() {
 		if (!FileSystem.isDirectory('stdgo/$path'))
 			continue;
 		switch path {
-			case "unsafe":
-				continue;
-			case "internal", "testing":
+			case "_internal":
 				for (path2 in FileSystem.readDirectory('stdgo/$path')) {
 					if (FileSystem.isDirectory('stdgo/$path/$path2')) {
 						switch path2 {
-							case "reflectlite", "reflect":
+							case "unsafe":
+								break;
+							case "internal", "testing":
+								for (path2 in FileSystem.readDirectory('stdgo/$path')) {
+									if (FileSystem.isDirectory('stdgo/$path/$path2')) {
+										switch path2 {
+											case "reflectlite", "reflect":
+											default:
+												deleteDirectoryRecursively('stdgo/$path/$path2');
+										}
+									}
+								}
+								break;
 							default:
 								deleteDirectoryRecursively('stdgo/$path/$path2');
 						}

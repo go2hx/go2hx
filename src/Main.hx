@@ -591,7 +591,7 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 private function parseMain(main:String):String {
 	final index = main.indexOf("_test.");
 	if (index == -1)
-		return main;
+		return '_internal.$main';
 	var s = main.substr(0, index);
 	s = StringTools.replace(s, ".", "/");
 	if (Typer.stdgoList.indexOf(s) != -1) {

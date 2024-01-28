@@ -122,9 +122,9 @@ class Printer extends haxe.macro.Printer {
 		}
 		switch t.kind {
 			case TDAbstract(tthis, from, to):
-				return super.printTypeDefinition(t, printPackage);
+				return super.printTypeDefinition(t, printPackage) + "\n";
 			case TDField(kind, access):
-				return super.printTypeDefinition(t, printPackage);
+				return super.printTypeDefinition(t, printPackage) + "\n";
 			default:
 		}
 		var old = tabs;
@@ -164,9 +164,9 @@ class Printer extends haxe.macro.Printer {
 					}))
 					+ ";";
 				default:
-					return super.printTypeDefinition(t, printPackage);
+					return super.printTypeDefinition(t, printPackage) + "\n";
 			}
-		return str;
+		return str + "\n";
 	}
 
 	override function printStructure(fields:Array<Field>):String {

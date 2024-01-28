@@ -63,8 +63,9 @@ function create(outputPath:String, module:Module, root:String) {
 								final isExtern = def.isExtern;
 								def.isExtern = true;
 								hasMacroDef = true;
-								externMacroContent += Typer.printer.printTypeDefinition(externGen(def, actualPath), false) + "\n";
-								macroContent += Typer.printer.printTypeDefinition(stripComments(def), false) + "\n";
+								for (td in externGen(def, actualPath)) 
+									externMacroContent += Typer.printer.printTypeDefinition(td, false);
+								macroContent += Typer.printer.printTypeDefinition(stripComments(def), false);
 								def.isExtern = isExtern;
 								f.expr = null;
 							default:
@@ -103,13 +104,18 @@ function create(outputPath:String, module:Module, root:String) {
 					kind: def.kind,
 					isExtern: true,
 				};
-				if (externDefBool)
-					externMacroContent += Typer.printer.printTypeDefinition(externGen(td, actualPath), false) + "\n";
-				macroContent += Typer.printer.printTypeDefinition(stripComments(td), false) + "\n";
+				if (externDefBool) {
+					for (td in externGen(def, actualPath))
+						externMacroContent += Typer.printer.printTypeDefinition(td, false);
+				}
+				macroContent += Typer.printer.printTypeDefinition(stripComments(td), false);
 			}
-			if (externDefBool)
-				externContent += Typer.printer.printTypeDefinition(externGen(def, actualPath), false) + "\n";
-			content += Typer.printer.printTypeDefinition(stripComments(def), false) + "\n";
+			if (externDefBool) {
+				for (td in externGen(def, actualPath)) {
+					externContent += Typer.printer.printTypeDefinition(td, false);
+				}
+			}
+			content += Typer.printer.printTypeDefinition(stripComments(def), false);
 		}
 		if (externDefBool) {
 			save(outputPath + actualPathExtern + "/", file.name, externContent);
@@ -148,35 +154,40 @@ private function save(dir:String, name:String, content:String, extension:String 
 }
 
 
-function externGen(td:TypeDefinition,path:String):TypeDefinition {
+function externGen(td:TypeDefinition,path:String):Array<TypeDefinition> {
 	switch td.kind {
 		case TDClass(_, _, isInterface, _, isAbstract):
+			//if (td.name.substring(0,2) == "T_")
+			//	return null;
 			if (isInterface)
-				return externGenInterface(td);
+				return [externGenInterface(td)];
 			if (isAbstract)
-				return externGenAbstract(td);
-			return externGenClass(td);
+				return [externGenAbstract(td)];
+			return [externGenClass(td)];
 		case TDField(kind, access):
+			if (td.name != "__go2hxdoc__package" && td.name.charAt(0) == "_")
+				return [];
 			return switch kind {
 				case FVar(_, _):
 					externGenVar(td);
 				case FFun(f):
-					{
+					[{
 						name: td.name,
 						pos: td.pos,
 						pack: td.pack,
+						doc: td.doc,
 						fields: td.fields,
 						kind: TDField(FFun(externGenFun(f)), access),
-					}
+					}];
 				case FProp(_, _, _, _):
 					throw "FProp not supported";
 			}
 		case TDAlias(_):
-			return externGenAlias(td,path);
+			return [externGenAlias(td,path)];
 		default:
 	}
 	trace("No extern change made for " + td.kind);
-	return td;
+	return [td];
 }
 
 function externGenInterface(td:TypeDefinition):TypeDefinition {
@@ -235,14 +246,52 @@ function externGenStruct(td:TypeDefinition):TypeDefinition {
 	return externInvalid(td);
 }
 
-function externGenVar(td:TypeDefinition):TypeDefinition {
-	return externInvalidVar(td);
+function externGenVar(td:TypeDefinition):Array<TypeDefinition> {
+	switch td.kind {
+		case TDField(FVar(type, e), access):
+			return [{
+				name: td.name,
+				pos: td.pos,
+				pack: td.pack,
+				fields: td.fields,
+				kind: TDField(FProp("get_" + td.name, "set_" + td.name, convertComplexType(type))),
+			},{
+				name: "get_" + td.name,
+				pos: td.pos,
+				pack: td.pack,
+				fields: td.fields,
+				kind: TDField(FFun({
+					args: [],
+					ret: convertComplexType(type),
+					expr: macro return $e,
+					params: [],
+				}), access),
+			},{
+				name: "set_" + td.name,
+				pos: td.pos,
+				pack: td.pack,
+				fields: td.fields,
+				kind: TDField(FFun({
+					args: [{name: "v", type: convertComplexType(type)}],
+					ret: convertComplexType(type),
+					expr: macro return $e = v,
+					params: [],
+				}), access),
+			}];
+		default:
+			throw "FVar expected";
+	};
 }
 
 function externGenFun(f:Function):Function {
+	final args = f.args.copy();
+	for (arg in args) {
+		arg.name = arg.name.charAt(0) == arg.name.charAt(0).toLowerCase() ? arg.name.substr(1) : "_" + arg.name;
+		arg.type = convertComplexType(arg.type);
+	}
 	return  {
-		args: f.args,
-		ret: TPath({name: "Void", pack: []}),
+		args: args,
+		ret: convertComplexType(f.ret),
 		expr: macro {},
 		params: f.params,
 	};
@@ -272,4 +321,118 @@ function stripComments(td:TypeDefinition):TypeDefinition {
 		return field;
 	});
 	return td;
+}
+
+function convertTypeParams(params:Array<haxe.macro.Expr.TypeParam>):Array<haxe.macro.Expr.TypeParam> {
+	return [for (param in params) {
+		switch param {
+			case TPType(ct):
+				TPType(convertComplexType(ct));
+			default:
+				param;
+		}
+	}];
+}
+
+function convertCast(e:Expr, ct:ComplexType):Expr {
+	switch ct {
+		case TAnonymous(fields):
+			return {expr: EObjectDecl([for (field in fields) {
+				switch field.kind {
+					case FVar(type, e):
+						{
+							field: field.name,
+							expr: convertCast(e, type),
+						}
+					default:
+						throw "Field kind not supported: " + field.kind;
+				}
+			}]), pos: null};
+		case TPath({name: "Bool", pack: [], params: _}):
+			return e;
+		case TPath(p) if (p.pack != null && p.pack.length > 0 && p.pack[0] == "stdgo"):
+			switch p.name {
+				case "GoInt", "GoInt32", "GoInt16", "GoInt8", "GoByte", "GoRune":
+				case "GoUInt", "GoUInt32", "GoUInt16", "GoUInt8":
+				case "GoFloat", "GoFloat32", "GoFloat64":
+				case "GoString":
+				case "GoInt64":
+				case "GoUInt64":
+				case "Slice":
+				case "GoArray":
+				case "Ref":
+				case "Pointer":
+					switch p.params[0] {
+						case TPType(ct):
+							return convertCast(e, ct);
+						default:
+					}
+			}
+		default:
+	}
+	return e;
+}
+
+function convertComplexType(ct:ComplexType):ComplexType {
+	switch ct {
+		case TAnonymous(fields):
+			// tuple
+			if (fields.length <= 6) {
+				final types = [];
+				for (field in fields) {
+					switch field.kind {
+						case FVar(type, _):
+							types.push(TPType(convertComplexType(type)));
+						default:
+							throw "Field kind not supported: " + field.kind;
+					}
+				}
+				return TPath({name: "Tuple" + (fields.length == 2 ? "" : ("" + fields.length)), pack: ["stdgo"], params: types});
+			}else{
+				return TAnonymous([for (field in fields) {
+					switch field.kind {
+						case FVar(type, _):
+							{
+								pos: null,
+								name: field.name,
+								kind: FVar(convertComplexType(type), null),
+							}
+						default:
+							throw "Field kind not supported: " + field.kind;
+					}
+				}]);
+			}
+		case TPath({name: "Bool", pack: [], params: _}):
+			return ct;
+		case TPath(p) if (p.pack != null && p.pack.length > 0 && p.pack[0] == "stdgo"):
+			switch p.name {
+				case "GoInt", "GoInt32", "GoInt16", "GoInt8", "GoByte", "GoRune":
+					return TPath({name: "Int", pack: []});
+				case "GoUInt", "GoUInt32", "GoUInt16", "GoUInt8":
+					return TPath({name: "UInt", pack: []});
+				case "GoFloat", "GoFloat32", "GoFloat64":
+					return TPath({name: "Float", pack: []});
+				case "GoString":
+					return TPath({name: "String", pack: []});
+				case "GoInt64":
+					return TPath({name: "Int64", pack: ["haxe"]});
+				case "GoUInt64":
+					return TPath({name: "UInt64", pack: ["haxe"]});
+				case "Slice":
+					return TPath({name: "Array", pack: [], params: convertTypeParams(p.params)});
+				case "GoArray":
+					return TPath({name: "Vector", pack: ["haxe","ds"], params: convertTypeParams(p.params)});
+				case "Pointer":
+					return TPath({name: "Pointer", pack: ["stdgo"], params: convertTypeParams(p.params)});
+				case "Ref":
+					switch p.params[0] {
+						case TPType(ct):
+							return convertComplexType(ct);
+						default:
+					}
+			}
+
+		default:
+	}
+	return TPath({name: "Dynamic", pack: [], params: [TPType(ct)]});
 }

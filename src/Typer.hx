@@ -568,12 +568,12 @@ private function createWrapper(wrapperName:String, ct:ComplexType) {
 		}
 
 		public function __underlying__()
-			return new stdgo.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer
-				&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer
+				&& !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 				__type__);
 
 		var __self__:$ct;
-		var __type__:stdgo.internal.reflect.Reflect._Type;
+		var __type__:stdgo._internal.internal.reflect.Reflect._Type;
 	};
 }
 
@@ -3842,69 +3842,69 @@ private function toReflectType(t:GoType, info:Info, paths:Array<String>, equalit
 		case typeParam(name, params):
 			final name = makeString(name);
 			final params = macro [];
-			macro stdgo.internal.reflect.Reflect.GoType.typeParam($name, {get: () -> params});
+			macro stdgo._internal.internal.reflect.Reflect.GoType.typeParam($name, {get: () -> params});
 		case refType(_.get() => elem):
 			final elem = toReflectType(elem, info, paths.copy(), equalityBool);
-			macro stdgo.internal.reflect.Reflect.GoType.refType({get: () -> $elem});
+			macro stdgo._internal.internal.reflect.Reflect.GoType.refType({get: () -> $elem});
 		case mapType(_.get() => key, _.get() => value):
 			final key = toReflectType(key, info, paths.copy(), equalityBool);
 			final value = toReflectType(value, info, paths.copy(), equalityBool);
-			macro stdgo.internal.reflect.Reflect.GoType.mapType({get: () -> $key}, {get: () -> $value});
+			macro stdgo._internal.internal.reflect.Reflect.GoType.mapType({get: () -> $key}, {get: () -> $value});
 		case pointerType(_.get() => elem):
 			final elem = toReflectType(elem, info, paths.copy(), equalityBool);
-			macro stdgo.internal.reflect.Reflect.GoType.pointerType({get: () -> $elem});
+			macro stdgo._internal.internal.reflect.Reflect.GoType.pointerType({get: () -> $elem});
 		case arrayType(_.get() => elem, len):
 			final elem = toReflectType(elem, info, paths.copy(), equalityBool);
 			final len = toExpr(EConst(CInt('$len')));
-			macro stdgo.internal.reflect.Reflect.GoType.arrayType({get: () -> $elem}, $len);
+			macro stdgo._internal.internal.reflect.Reflect.GoType.arrayType({get: () -> $elem}, $len);
 		case sliceType(_.get() => elem):
 			final elem = toReflectType(elem, info, paths.copy(), equalityBool);
-			macro stdgo.internal.reflect.Reflect.GoType.sliceType({get: () -> $elem});
+			macro stdgo._internal.internal.reflect.Reflect.GoType.sliceType({get: () -> $elem});
 		case basic(kind):
 			final kind:String = kind;
-			macro stdgo.internal.reflect.Reflect.GoType.basic($i{kind});
+			macro stdgo._internal.internal.reflect.Reflect.GoType.basic($i{kind});
 		case _var(name, _.get() => type):
 			toReflectType(type, info, paths.copy(), equalityBool);
 		case chanType(dir, _.get() => elem):
 			final dir = toExpr(EConst(CInt('$dir')));
 			final elem = toReflectType(elem, info, paths.copy(), equalityBool);
-			macro stdgo.internal.reflect.Reflect.GoType.chanType($dir, {get: () -> $elem});
+			macro stdgo._internal.internal.reflect.Reflect.GoType.chanType($dir, {get: () -> $elem});
 		case interfaceType(empty, methods):
 			final empty = empty ? macro true : macro false;
 			final methodExprs:Array<Expr> = [];
 			/*for (method in methods) {
 				final name = makeString(method.name);
 				final t = toReflectType(method.type.get(), info, paths.copy(), equalityBool);
-				final recv = macro stdgo.internal.reflect.Reflect.GoType.invalidType; // toReflectType(method.recv.get(), info, paths.copy());
-				methodExprs.push(macro new stdgo.internal.reflect.Reflect.MethodType($name, {get: () -> $t}, {get: () -> $recv}));
+				final recv = macro stdgo._internal.internal.reflect.Reflect.GoType.invalidType; // toReflectType(method.recv.get(), info, paths.copy());
+				methodExprs.push(macro new stdgo._internal.internal.reflect.Reflect.MethodType($name, {get: () -> $t}, {get: () -> $recv}));
 			}*/
-			final e = macro stdgo.internal.reflect.Reflect.GoType.interfaceType($empty, ${macro $a{methodExprs}});
+			final e = macro stdgo._internal.internal.reflect.Reflect.GoType.interfaceType($empty, ${macro $a{methodExprs}});
 			e;
 		case invalidType:
-			macro stdgo.internal.reflect.Reflect.GoType.invalidType;
+			macro stdgo._internal.internal.reflect.Reflect.GoType.invalidType;
 		case named(path2, methods, type, _, _):
 			final namedPath = namedTypePath(path2, info);
 			namedPath.pack.push(namedPath.name);
 			final path = makeString(namedPath.pack.join("."));
 			final methodExprs:Array<Expr> = [];
-			var t = macro stdgo.internal.reflect.Reflect.GoType.invalidType;
+			var t = macro stdgo._internal.internal.reflect.Reflect.GoType.invalidType;
 			if (!paths.contains(path2)) {
 				paths.push(path2);
 				t = toReflectType(type, info, paths.copy(), equalityBool);
 			}
-			final e = macro stdgo.internal.reflect.Reflect.GoType.named($path, ${macro $a{methodExprs}}, $t, false, {get: () -> null});
+			final e = macro stdgo._internal.internal.reflect.Reflect.GoType.named($path, ${macro $a{methodExprs}}, $t, false, {get: () -> null});
 			e;
 		case previouslyNamed(path):
 			final path = makeString(path);
-			macro stdgo.internal.reflect.Reflect.GoType.previousNamed($path);
+			macro stdgo._internal.internal.reflect.Reflect.GoType.previousNamed($path);
 		case signature(variadic, params, results, _.get() => recv):
 			if (equalityBool)
-				return macro stdgo.internal.reflect.Reflect.GoType.signature(false, {get: () -> null}, {get: () -> null}, {get: () -> null});
+				return macro stdgo._internal.internal.reflect.Reflect.GoType.signature(false, {get: () -> null}, {get: () -> null}, {get: () -> null});
 			final variadic = variadic ? macro true : macro false;
 			final params = macro $a{params.get().map(param -> toReflectType(param, info, paths.copy(), equalityBool))};
 			final results = macro $a{results.get().map(result -> toReflectType(result, info, paths.copy(), equalityBool))};
-			final recv = macro stdgo.internal.reflect.Reflect.GoType.invalidType; // toReflectType(recv, info, paths.copy());
-			macro stdgo.internal.reflect.Reflect.GoType.signature($variadic, {get: () -> $params}, {get: () -> $results}, {get: () -> $recv});
+			final recv = macro stdgo._internal.internal.reflect.Reflect.GoType.invalidType; // toReflectType(recv, info, paths.copy());
+			macro stdgo._internal.internal.reflect.Reflect.GoType.signature($variadic, {get: () -> $params}, {get: () -> $results}, {get: () -> $recv});
 		case structType(fields):
 			var exprs:Array<Expr> = [];
 			for (field in fields) {
@@ -3921,11 +3921,11 @@ private function toReflectType(t:GoType, info:Info, paths:Array<String>, equalit
 				});
 			}
 			var expr = macro $a{exprs};
-			macro stdgo.internal.reflect.Reflect.GoType.structType($expr);
+			macro stdgo._internal.internal.reflect.Reflect.GoType.structType($expr);
 		case tuple(len, _.get() => vars):
 			final len = toExpr(EConst(CInt('$len')));
 			final vars = [for (v in vars) toReflectType(v, info, paths.copy(), equalityBool)];
-			macro stdgo.internal.reflect.Reflect.GoType.tuple($len, $a{vars});
+			macro stdgo._internal.internal.reflect.Reflect.GoType.tuple($len, $a{vars});
 	}
 }
 
@@ -5041,7 +5041,7 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 	if (isObjectMap) {
 		return macro({
 			final x = new stdgo.GoMap.GoObjectMap<$keyComplexType, $valueComplexType>();
-			x.t = new stdgo.internal.reflect.Reflect._Type($keyT);
+			x.t = new stdgo._internal.internal.reflect.Reflect._Type($keyT);
 			x.__defaultValue__ = () -> $defaultValueExpr;
 			@:mergeBlock $b{exprs};
 			cast x;

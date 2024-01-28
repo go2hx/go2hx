@@ -3,7 +3,7 @@ package stdgo;
 @:structInit
 class AnyInterfaceData {
 	public var value:Any;
-	public var type:stdgo.internal.reflect.Reflect._Type;
+	public var type:stdgo._internal.internal.reflect.Reflect._Type;
 	public var __nil__:Bool = false;
 
 	public function new(value, type) {
@@ -39,15 +39,15 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 	@:op(A == B) public static function equals(a:AnyInterface, b:AnyInterface):Bool {
 		if (a == null || b == null) // null check
 			return a == null && b == null;
-		var gt:stdgo.internal.reflect.Reflect.GoType = @:privateAccess (a.type : Dynamic)._common();
-		var gt2:stdgo.internal.reflect.Reflect.GoType = @:privateAccess (b.type : Dynamic)._common();
+		var gt:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess (a.type : Dynamic)._common();
+		var gt2:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess (b.type : Dynamic)._common();
 
 		if (gt.match(invalidType) || gt2.match(invalidType))
 			return gt.match(invalidType) && gt2.match(invalidType);
 		if (gt.match(basic(untyped_nil_kind)) || gt2.match(basic(untyped_nil_kind)))
 			return gt.match(basic(untyped_nil_kind)) && gt2.match(basic(untyped_nil_kind));
 		// set internal Type
-		if (!a.type.assignableTo(cast new stdgo.internal.reflect.Reflect._Type_asInterface(new Pointer(() -> b.type, value -> b.type = value), b.type))) {
+		if (!a.type.assignableTo(cast new stdgo._internal.internal.reflect.Reflect._Type_asInterface(new Pointer(() -> b.type, value -> b.type = value), b.type))) {
 			return false;
 		}
 		var aValue = a.value;
@@ -81,8 +81,8 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			default:
 		}
 
-		gt = stdgo.internal.reflect.Reflect.getUnderlying(gt);
-		gt2 = stdgo.internal.reflect.Reflect.getUnderlying(gt2);
+		gt = stdgo._internal.internal.reflect.Reflect.getUnderlying(gt);
+		gt2 = stdgo._internal.internal.reflect.Reflect.getUnderlying(gt2);
 		return switch gt {
 			case refType(_):
 				aValue == bValue;
@@ -128,7 +128,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 						throw "struct issue with field name1: " + name;
 					}
 
-					final type = @:privateAccess new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.unroll(gt, type));
+					final type = @:privateAccess new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.Reflect.unroll(gt, type));
 					final a = new AnyInterface(fieldValue, type);
 					final b = new AnyInterface(fieldValue2, type);
 					if (AnyInterface.notEquals(a, b))
@@ -137,14 +137,14 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 				true;
 
 			case invalidType:
-				switch @:privateAccess ((b.type : Dynamic)._common() : stdgo.internal.reflect.Reflect.GoType) {
+				switch @:privateAccess ((b.type : Dynamic)._common() : stdgo._internal.internal.reflect.Reflect.GoType) {
 					case invalidType: true;
 					default: false;
 				}
 			case sliceType(_.get() => elem):
 				var a:Slice<Any> = aValue;
 				var b:Slice<Any> = bValue;
-				var t:Dynamic = new stdgo.internal.reflect.Reflect._Type(elem);
+				var t:Dynamic = new stdgo._internal.internal.reflect.Reflect._Type(elem);
 				if (a.length != b.length)
 					return false;
 				if (a == null || b == null) {
@@ -157,7 +157,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			case arrayType(_.get() => elem, _):
 				var a:GoArray<Any> = aValue;
 				var b:GoArray<Any> = bValue;
-				var t:Dynamic = new stdgo.internal.reflect.Reflect._Type(elem);
+				var t:Dynamic = new stdgo._internal.internal.reflect.Reflect._Type(elem);
 				for (i in 0...a.length.toBasic()) {
 					if (AnyInterface.notEquals(new AnyInterface(a[i], t), new AnyInterface(b[i], t)))
 						return false;

@@ -4,7 +4,7 @@ class TypeInfo {
 }
 
 @:forward
-private abstract TypeInternalMap(Map<String,stdgo.internal.reflect.Reflect.GoType>) from Map<String,stdgo.internal.reflect.Reflect.GoType> {
+private abstract TypeInternalMap(Map<String,stdgo._internal.internal.reflect.Reflect.GoType>) from Map<String,stdgo._internal.internal.reflect.Reflect.GoType> {
     @:op([])
     private function get(s:String) {
         if (this == null)
@@ -15,7 +15,7 @@ private abstract TypeInternalMap(Map<String,stdgo.internal.reflect.Reflect.GoTyp
         return value;
     }
     @:op([])
-    private function set(s:String, value:stdgo.internal.reflect.Reflect.GoType) {
+    private function set(s:String, value:stdgo._internal.internal.reflect.Reflect.GoType) {
         if (this == null)
             throw "TypeInternalMap null";
         this[s] = value;

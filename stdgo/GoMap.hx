@@ -2,7 +2,7 @@ package stdgo;
 
 import stdgo.AnyInterface;
 import haxe.ds.ObjectMap;
-import stdgo.internal.reflect.Reflect._Type;
+import stdgo._internal.internal.reflect.Reflect._Type;
 import stdgo.Pointer;
 import haxe.Constraints.IMap;
 import haxe.ds.BalancedTree;

@@ -391,8 +391,9 @@ private function close() {
 				failedRegressionTasks.push(data.task);
 			}
 		} else {
-			input.push(fullName);
-			output.remove(fullName);
+			if (input.indexOf(fullName) == -1)
+				input.push(fullName);
+			while (output.remove(fullName)) {}
 		}
 		testData[data.path] += "\n    " + (data.passing ? "[x]" : "[ ]") + " " + data.target
 			+ (!data.build ? " build error" : "") + (data.correct ? " correct" : (data.incorrect ? " incorrect" : ""));

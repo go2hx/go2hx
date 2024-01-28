@@ -132,7 +132,7 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 			if (file.decls == null)
 				continue;
 			file.path = importClassName(normalizePath(Path.withoutExtension(file.path))); // file naming
-			info.global.filePath = "_internal." + file.path;
+info.global.filePath = file.path;
 
 			var declFuncs:Array<Ast.FuncDecl> = [];
 			var declGens:Array<Ast.GenDecl> = [];
@@ -4261,10 +4261,12 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 
 private function getGlobalPath(info:Info):String {
 	var globalPath = info.global.path;
-	if (StringTools.endsWith(info.global.path, ".pkg"))
+	if (StringTools.endsWith(info.global.path, ".pkg")) {
 		globalPath = globalPath.substr(0, globalPath.length - 4);
-	if (globalPath == "")
-		return "";
+	}
+	if (globalPath == "") {
+		return "_internal";
+	}
 	final globalPathOld = globalPath;
 	globalPath = "_internal." + globalPath;
 	if (stdgoList.indexOf(toGoPath(globalPathOld)) != -1) { // haxe only type, otherwise the go code refrences Haxe

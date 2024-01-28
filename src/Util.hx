@@ -51,7 +51,7 @@ function mainPath(modules:Array<Dynamic>):String {
 			path += ".";
 		path += name;
 	}
-	return path;
+	return "_internal." + path;
 }
 
 function kbCount(str:String):Float {

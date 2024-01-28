@@ -11,8 +11,6 @@
 
 - [Variables](<#variables>)
 
-- [`function exampleErrReader():Void`](<#function-exampleerrreader>)
-
 - [`function main():Void`](<#function-main>)
 
 # Variables
@@ -29,22 +27,22 @@ var _:Bool
 
 
 ```haxe
-var _benchmarks:stdgo.Slice<stdgo.testing.InternalBenchmark>
+var _benchmarks:stdgo.Slice<stdgo._internal.testing.InternalBenchmark>
 ```
 
 
 ```haxe
-var _examples:stdgo.Slice<stdgo.testing.InternalExample>
+var _examples:stdgo.Slice<stdgo._internal.testing.InternalExample>
 ```
 
 
 ```haxe
-var _fuzzTargets:stdgo.Slice<stdgo.testing.InternalFuzzTarget>
+var _fuzzTargets:stdgo.Slice<stdgo._internal.testing.InternalFuzzTarget>
 ```
 
 
 ```haxe
-var _tests:stdgo.Slice<stdgo.testing.InternalTest>
+var _tests:stdgo.Slice<stdgo._internal.testing.InternalTest>
 ```
 
 
@@ -56,17 +54,6 @@ import stdgo.testing.iotest_test.Iotest
 ```
 
 
-## function exampleErrReader
-
-
-```haxe
-function exampleErrReader():Void
-```
-
-
-[\(view code\)](<./Iotest.hx#L3>)
-
-
 ## function main
 
 
@@ -75,6 +62,6 @@ function main():Void
 ```
 
 
-[\(view code\)](<./Iotest.hx#L44>)
+[\(view code\)](<./Iotest.hx#L24>)
 
 

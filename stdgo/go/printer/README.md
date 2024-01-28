@@ -1,6 +1,6 @@
 # Module stdgo.go.printer has compilation errors, please do not use:
 ```
-stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-70 : Type not found : stdgo._internal.reflect.Reflect
+stdgo/go/printer/Printer.hx:55: characters 26-75 : Type not found : stdgo._internal.go.printer.Printer
 
 ```
 

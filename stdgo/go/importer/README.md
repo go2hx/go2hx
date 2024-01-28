@@ -1,6 +1,6 @@
 # Module stdgo.go.importer has compilation errors, please do not use:
 ```
-stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-70 : Type not found : stdgo._internal.reflect.Reflect
+stdgo/go/importer/Importer.hx:5: characters 18-61 : Type not found : stdgo._internal.go.importer.Importer
 
 ```
 

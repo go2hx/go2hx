@@ -1,6 +1,7 @@
 # Module stdgo.path has compilation errors, please do not use:
 ```
-stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-70 : Type not found : stdgo._internal.reflect.Reflect
+stdgo/_internal/slices/Slices.hx:447: characters 298-301 : Type not found : $E1
+stdgo/_internal/internal/Macro.macro.hx:43: non hxb types:,386
 
 ```
 

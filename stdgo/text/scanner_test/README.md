@@ -11,14 +11,6 @@
 
 - [Variables](<#variables>)
 
-- [`function example():Void`](<#function-example>)
-
-- [`function example_isIdentRune():Void`](<#function-example_isidentrune>)
-
-- [`function example_mode():Void`](<#function-example_mode>)
-
-- [`function example_whitespace():Void`](<#function-example_whitespace>)
-
 - [`function main():Void`](<#function-main>)
 
 # Variables
@@ -35,22 +27,22 @@ var _:Bool
 
 
 ```haxe
-var _benchmarks:stdgo.Slice<stdgo.testing.InternalBenchmark>
+var _benchmarks:stdgo.Slice<stdgo._internal.testing.InternalBenchmark>
 ```
 
 
 ```haxe
-var _examples:stdgo.Slice<stdgo.testing.InternalExample>
+var _examples:stdgo.Slice<stdgo._internal.testing.InternalExample>
 ```
 
 
 ```haxe
-var _fuzzTargets:stdgo.Slice<stdgo.testing.InternalFuzzTarget>
+var _fuzzTargets:stdgo.Slice<stdgo._internal.testing.InternalFuzzTarget>
 ```
 
 
 ```haxe
-var _tests:stdgo.Slice<stdgo.testing.InternalTest>
+var _tests:stdgo.Slice<stdgo._internal.testing.InternalTest>
 ```
 
 
@@ -62,50 +54,6 @@ import stdgo.text.scanner_test.Scanner
 ```
 
 
-## function example
-
-
-```haxe
-function example():Void
-```
-
-
-[\(view code\)](<./Scanner.hx#L3>)
-
-
-## function example\_isIdentRune
-
-
-```haxe
-function example_isIdentRune():Void
-```
-
-
-[\(view code\)](<./Scanner.hx#L15>)
-
-
-## function example\_mode
-
-
-```haxe
-function example_mode():Void
-```
-
-
-[\(view code\)](<./Scanner.hx#L39>)
-
-
-## function example\_whitespace
-
-
-```haxe
-function example_whitespace():Void
-```
-
-
-[\(view code\)](<./Scanner.hx#L55>)
-
-
 ## function main
 
 
@@ -114,6 +62,6 @@ function main():Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L47>)
+[\(view code\)](<./Scanner.hx#L27>)
 
 

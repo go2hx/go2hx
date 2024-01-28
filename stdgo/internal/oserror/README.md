@@ -1,7 +1,51 @@
-# Module stdgo.internal.oserror has compilation errors, please do not use:
-```
-stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-70 : Type not found : stdgo._internal.reflect.Reflect
-stdgo/GoMap.hx:520: characters 15-20 : Type not found : _Type
+# Module: `stdgo.internal.oserror`
 
+[(view library index)](../../stdgo.md)
+
+
+# Overview
+
+
+# Index
+
+
+- [Variables](<#variables>)
+
+# Variables
+
+
+```haxe
+import stdgo.internal.oserror.Oserror
 ```
+
+
+```haxe
+var __go2hxdoc__package:Dynamic
+```
+
+
+```haxe
+var errClosed:Dynamic
+```
+
+
+```haxe
+var errExist:Dynamic
+```
+
+
+```haxe
+var errInvalid:Dynamic
+```
+
+
+```haxe
+var errNotExist:Dynamic
+```
+
+
+```haxe
+var errPermission:Dynamic
+```
+
 

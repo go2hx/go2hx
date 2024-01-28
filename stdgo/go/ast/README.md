@@ -1,6 +1,6 @@
 # Module stdgo.go.ast has compilation errors, please do not use:
 ```
-stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-70 : Type not found : stdgo._internal.reflect.Reflect
+stdgo/go/ast/Ast.hx:21: characters 16-47 : Type not found : stdgo._internal.go.ast.Ast
 
 ```
 

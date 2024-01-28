@@ -12,7 +12,7 @@ function create(outputPath:String, module:Module, root:String) {
 	final paths = actualPath.split("/");
 	var externDefBool = !module.isMain;
 	var testPath = actualPathExtern;
-	if (paths.length > 0 && externDefBool) {
+	if (paths.length > 0) {
 		actualPath = "_internal/" + actualPath;
 	}
 	if (testPath.substring(testPath.length - 5) == "_test") {

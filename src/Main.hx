@@ -223,6 +223,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 	var resetCount = 0;
 	function jsProcess() {
 		final child = js.node.ChildProcess.exec('./go4hx $port', null, null);
+		//final child = js.node.ChildProcess.execFile('go4hx', ['$port'], {cwd: cwd}, null);
 		child.on('exit', code -> {
 			final code:Int = code;
 			Sys.println('child process exited: $code');
@@ -593,6 +594,7 @@ private function parseMain(main:String):String {
 		return main;
 	var s = main.substr(0, index);
 	s = StringTools.replace(s, ".", "/");
+	main = '_internal.$main';
 	if (Typer.stdgoList.indexOf(s) != -1)
 		return 'stdgo.$main';
 	return main;

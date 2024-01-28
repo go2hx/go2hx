@@ -154,8 +154,7 @@ function clean() {
 function deleteDirectoryRecursively(dir:String):Int {
 	trace(dir);
 	#if !js
-	return 0;
-	//return Sys.command('find $dir -type f ! -iname "*.MD" -delete');
+	return Sys.command('find $dir -type f ! -iname "*.MD" -delete');
 	#else
 	return 0;
 	#end

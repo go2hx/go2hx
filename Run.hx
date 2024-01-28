@@ -114,7 +114,7 @@ function clean() {
 							case "internal", "testing":
 								for (path3 in FileSystem.readDirectory('stdgo/$path/$path2')) {
 									if (FileSystem.isDirectory('stdgo/$path/$path2/$path3')) {
-										switch path2 {
+										switch path3 {
 											case "reflectlite", "reflect":
 											default:
 												deleteDirectoryRecursively('stdgo/$path/$path2/$path3');
@@ -136,6 +136,7 @@ function clean() {
 function deleteDirectoryRecursively(dir:String):Int {
 	trace(dir);
 	#if !js
+	// return 0;
 	return Sys.command('find $dir -type f ! -iname "*.MD" -delete');
 	#else
 	return 0;

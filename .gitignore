@@ -6,11 +6,11 @@ hashlink
 *.data
 test.go
 tests.md
-main
-bin
-debug
-export
-repl
+./main
+./bin
+./debug
+./export
+./repl
 examples/*/
 examples/.haxerc
 tests.txt

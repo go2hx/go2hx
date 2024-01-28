@@ -130,12 +130,12 @@ function clean() {
 							case "unsafe":
 								break;
 							case "internal", "testing":
-								for (path2 in FileSystem.readDirectory('stdgo/$path')) {
-									if (FileSystem.isDirectory('stdgo/$path/$path2')) {
+								for (path3 in FileSystem.readDirectory('stdgo/$path/$path2')) {
+									if (FileSystem.isDirectory('stdgo/$path/$path2/$path3')) {
 										switch path2 {
 											case "reflectlite", "reflect":
 											default:
-												deleteDirectoryRecursively('stdgo/$path/$path2');
+												deleteDirectoryRecursively('stdgo/$path/$path2/$path3');
 										}
 									}
 								}
@@ -154,7 +154,8 @@ function clean() {
 function deleteDirectoryRecursively(dir:String):Int {
 	trace(dir);
 	#if !js
-	return Sys.command('find $dir -type f ! -iname "*.MD" -delete');
+	return 0;
+	//return Sys.command('find $dir -type f ! -iname "*.MD" -delete');
 	#else
 	return 0;
 	#end

@@ -590,18 +590,14 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 
 private function parseMain(main:String):String {
 	final index = main.indexOf("_test.");
-	if (main != "") {
-		main = '_internal.$main';
-	}else{
-		main = "_internal";
-	}
 	if (index == -1)
 		return main;
 	var s = main.substr(0, index);
 	s = StringTools.replace(s, ".", "/");
-	if (Typer.stdgoList.indexOf(s) != -1)
-		return 'stdgo.$main';
-	return main;
+	if (Typer.stdgoList.indexOf(s) != -1) {
+		return 'stdgo._internal.$main';
+	}
+	return '_internal.$main';
 }
 
 function libTarget(target:String):String {

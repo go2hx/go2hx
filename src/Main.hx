@@ -594,7 +594,11 @@ private function parseMain(main:String):String {
 		return main;
 	var s = main.substr(0, index);
 	s = StringTools.replace(s, ".", "/");
-	main = '_internal.$main';
+	if (main != "") {
+		main = '_internal.$main';
+	}else{
+		main = "_internal";
+	}
 	if (Typer.stdgoList.indexOf(s) != -1)
 		return 'stdgo.$main';
 	return main;

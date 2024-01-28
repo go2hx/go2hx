@@ -1,4 +1,4 @@
-package stdgo.testing;
+package stdgo._internal.testing;
 
 import haxe.Rest;
 
@@ -110,13 +110,13 @@ class B {
 	public function cleanup(f:Void->Void) {}
 
 	public function error(args:Rest<AnyInterface>) {
-		stdgo.fmt.Fmt.println(...args);
+		stdgo._internal.fmt.Fmt.println(...args);
 		fail();
 	}
 
 	public function errorf(format:GoString, args:Rest<AnyInterface>) {
-		stdgo.fmt.Fmt.printf(format, ...args);
-		stdgo.fmt.Fmt.println();
+		stdgo._internal.fmt.Fmt.printf(format, ...args);
+		stdgo._internal.fmt.Fmt.println();
 		fail();
 	}
 
@@ -188,13 +188,13 @@ class F {
 	public function cleanup(f:Void->Void) {}
 
 	public function error(args:Rest<AnyInterface>) {
-		stdgo.fmt.Fmt.println(...args);
+		stdgo._internal.fmt.Fmt.println(...args);
 		fail();
 	}
 
 	public function errorf(format:GoString, args:Rest<AnyInterface>) {
-		stdgo.fmt.Fmt.printf(format, ...args);
-		stdgo.fmt.Fmt.println();
+		stdgo._internal.fmt.Fmt.printf(format, ...args);
+		stdgo._internal.fmt.Fmt.println();
 		fail();
 	}
 
@@ -296,13 +296,13 @@ class T_ {
 	public function cleanup(f:Void->Void) {}
 
 	public function error(args:Rest<AnyInterface>) {
-		stdgo.fmt.Fmt.println(...args);
+		stdgo._internal.fmt.Fmt.println(...args);
 		fail();
 	}
 
 	public function errorf(format:GoString, args:Rest<AnyInterface>) {
-		stdgo.fmt.Fmt.printf(format, ...args);
-		stdgo.fmt.Fmt.println();
+		stdgo._internal.fmt.Fmt.printf(format, ...args);
+		stdgo._internal.fmt.Fmt.println();
 		failNow(); // replace fail to failnow
 	}
 
@@ -399,13 +399,13 @@ class M {
 			final dstr = Sys.time() - stamp; // duration
 			final format = "--- %s: %s (%s)\n";
 			if (t.failed() || error) {
-				stdgo.fmt.Fmt.printf(format, Go.toInterface("FAIL"), Go.toInterface(test.name), Go.toInterface(dstr));
+				stdgo._internal.fmt.Fmt.printf(format, Go.toInterface("FAIL"), Go.toInterface(test.name), Go.toInterface(dstr));
 				Sys.exit(1);
 			} else if (chatty) {
 				if (t.skipped()) {
-					stdgo.fmt.Fmt.printf(format, Go.toInterface("SKIP"), Go.toInterface(test.name), Go.toInterface(dstr));
+					stdgo._internal.fmt.Fmt.printf(format, Go.toInterface("SKIP"), Go.toInterface(test.name), Go.toInterface(dstr));
 				} else {
-					stdgo.fmt.Fmt.printf(format, Go.toInterface("PASS"), Go.toInterface(test.name), Go.toInterface(dstr));
+					stdgo._internal.fmt.Fmt.printf(format, Go.toInterface("PASS"), Go.toInterface(test.name), Go.toInterface(dstr));
 				}
 			}
 			Sys.println(output.toString());
@@ -555,16 +555,16 @@ typedef T_testDeps = StructType & {
 	public function importPath():GoString;
 	public function matchString(_pat:GoString, _str:GoString):{var _0:Bool; var _1:Error;};
 	public function setPanicOnExit0(_0:Bool):Void;
-	public function startCPUProfile(_0:stdgo.io.Io.Writer):Error;
+	public function startCPUProfile(_0:stdgo._internal.io.Io.Writer):Error;
 	public function stopCPUProfile():Void;
-	public function startTestLog(_0:stdgo.io.Io.Writer):Void;
+	public function startTestLog(_0:stdgo._internal.io.Io.Writer):Void;
 	public function stopTestLog():Error;
-	public function writeProfileTo(_0:GoString, _1:stdgo.io.Io.Writer, _2:GoInt):Error;
+	public function writeProfileTo(_0:GoString, _1:stdgo._internal.io.Io.Writer, _2:GoInt):Error;
 	public function coordinateFuzzing(_0:Dynamic, _1:GoInt64, _2:Dynamic, _3:GoInt64, _4:GoInt, _5:Slice<T_corpusEntry>,
-		_6:Slice<stdgo.reflect.Reflect.Type_>, _7:GoString, _8:GoString):Error;
+		_6:Slice<stdgo._internal.reflect.Reflect.Type_>, _7:GoString, _8:GoString):Error;
 	public function runFuzzWorker(_0:T_corpusEntry->Error):Error;
-	public function readCorpus(_0:GoString, _1:Slice<stdgo.reflect.Reflect.Type_>):{var _0:Slice<T_corpusEntry>; var _1:Error;};
-	public function checkCorpus(_0:Slice<AnyInterface>, _1:Slice<stdgo.reflect.Reflect.Type_>):Error;
+	public function readCorpus(_0:GoString, _1:Slice<stdgo._internal.reflect.Reflect.Type_>):{var _0:Slice<T_corpusEntry>; var _1:Error;};
+	public function checkCorpus(_0:Slice<AnyInterface>, _1:Slice<stdgo._internal.reflect.Reflect.Type_>):Error;
 	public function resetCoverage():Void;
 	public function snapshotCoverage():Void;
 };

@@ -391,13 +391,13 @@ typedef T_strPtrMarshaler = stdgo._internal.encoding.json.Json.T_strPtrMarshaler
 typedef T_tagOptions = stdgo._internal.encoding.json.Json.T_tagOptions;
 function _codeInit():Void {}
 function benchmarkCodeEncoder(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-@:invalid typedef T_benchmarkCodeEncoderError_85___localname___Dummy = Dynamic;
+@:invalid typedef T_benchmarkCodeEncoderError_54___localname___Dummy = Dynamic;
 function benchmarkCodeEncoderError(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
 function benchmarkCodeMarshal(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-@:invalid typedef T_benchmarkCodeMarshalError_86___localname___Dummy = Dynamic;
+@:invalid typedef T_benchmarkCodeMarshalError_55___localname___Dummy = Dynamic;
 function benchmarkCodeMarshalError(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
 function _benchMarshalBytes(_n:stdgo.GoInt):Void {}
-@:invalid typedef T__benchMarshalBytesError_87___localname___Dummy = Dynamic;
+@:invalid typedef T__benchMarshalBytesError_56___localname___Dummy = Dynamic;
 function _benchMarshalBytesError(_n:stdgo.GoInt):Void {}
 function benchmarkMarshalBytes(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
 function benchmarkMarshalBytesError(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
@@ -414,7 +414,7 @@ function benchmarkIssue34127(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Vo
 function benchmarkUnmapped(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
 function benchmarkTypeFieldsCache(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
 function benchmarkEncodeMarshaler(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-@:invalid typedef T_benchmarkEncoderEncode_88___localname___T = Dynamic;
+@:invalid typedef T_benchmarkEncoderEncode_57___localname___T = Dynamic;
 function benchmarkEncoderEncode(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
 function benchmarkNumberIsValid(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
 function benchmarkNumberIsValidRegexp(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
@@ -437,21 +437,21 @@ function testUnmarshalPtrPtr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
 function testEscape(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testErrorMessageFromMisusedString(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function _noSpace(_c:stdgo.GoRune):Void {}
-@:invalid typedef T_testRefUnmarshal_89___localname___S = Dynamic;
+@:invalid typedef T_testRefUnmarshal_58___localname___S = Dynamic;
 function testRefUnmarshal(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testEmptyString_90___localname___T2 = Dynamic;
+@:invalid typedef T_testEmptyString_59___localname___T2 = Dynamic;
 function testEmptyString(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testNullString_91___localname___T = Dynamic;
+@:invalid typedef T_testNullString_60___localname___T = Dynamic;
 function testNullString(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function _intp(_x:stdgo.GoInt):Void {}
 function _intpp(_x:stdgo.Pointer<stdgo.GoInt>):Void {}
 function testInterfaceSet(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testUnmarshalNulls(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-typedef T_testStringKind_92___localname___stringKind = stdgo._internal.encoding.json.Json.T_testStringKind_92___localname___stringKind;
+typedef T_testStringKind_61___localname___stringKind = stdgo._internal.encoding.json.Json.T_testStringKind_61___localname___stringKind;
 function testStringKind(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-typedef T_testByteKind_93___localname___byteKind = stdgo._internal.encoding.json.Json.T_testByteKind_93___localname___byteKind;
+typedef T_testByteKind_62___localname___byteKind = stdgo._internal.encoding.json.Json.T_testByteKind_62___localname___byteKind;
 function testByteKind(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-typedef T_testSliceOfCustomByte_94___localname___Uint8 = stdgo._internal.encoding.json.Json.T_testSliceOfCustomByte_94___localname___Uint8;
+typedef T_testSliceOfCustomByte_63___localname___Uint8 = stdgo._internal.encoding.json.Json.T_testSliceOfCustomByte_63___localname___Uint8;
 function testSliceOfCustomByte(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testUnmarshalTypeError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testUnmarshalSyntax(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
@@ -462,24 +462,24 @@ function testPrefilled(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testInvalidUnmarshal(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testInvalidUnmarshalText(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testInvalidStringOption(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_95___localname___embed1 = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_96___localname___embed2 = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_97___localname___embed3 = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_98___localname___S1 = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_99___localname___S2 = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_100___localname___S3 = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_101___localname___S4 = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_102___localname___S5 = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_103___localname___S6 = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_104___localname___S7 = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_105___localname___S8 = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_106___localname___S9 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_64___localname___embed1 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_65___localname___embed2 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_66___localname___embed3 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_67___localname___S1 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_68___localname___S2 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_69___localname___S3 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_70___localname___S4 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_71___localname___S5 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_72___localname___S6 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_73___localname___S7 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_74___localname___S8 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_75___localname___S9 = Dynamic;
 function testUnmarshalEmbeddedUnexported(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testUnmarshalErrorAfterMultipleJSON(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testUnmarshalPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testUnmarshalRecursivePointer(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testUnmarshalMapWithTextUnmarshalerStringKey(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testUnmarshalRescanLiteralMangledUnquote_107___localname___T = Dynamic;
+@:invalid typedef T_testUnmarshalRescanLiteralMangledUnquote_76___localname___T = Dynamic;
 function testUnmarshalRescanLiteralMangledUnquote(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testUnmarshalMaxDepth(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function marshal(_v:stdgo.AnyInterface):Void {}
@@ -524,46 +524,46 @@ function testUnsupportedValues(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
 function testMarshalTextFloatMap(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testRefValMarshal(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testMarshalerEscaping(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testAnonymousFields_108___localname___S1 = Dynamic;
-@:invalid typedef T_testAnonymousFields_109___localname___S2 = Dynamic;
-@:invalid typedef T_testAnonymousFields_110___localname___S = Dynamic;
-@:invalid typedef T_testAnonymousFields_111___localname___S1 = Dynamic;
-@:invalid typedef T_testAnonymousFields_112___localname___S2 = Dynamic;
-@:invalid typedef T_testAnonymousFields_113___localname___S = Dynamic;
-typedef T_testAnonymousFields_114___localname___myInt = stdgo._internal.encoding.json.Json.T_testAnonymousFields_114___localname___myInt;
-@:invalid typedef T_testAnonymousFields_115___localname___S = Dynamic;
-typedef T_testAnonymousFields_116___localname___MyInt = stdgo._internal.encoding.json.Json.T_testAnonymousFields_116___localname___MyInt;
-@:invalid typedef T_testAnonymousFields_117___localname___S = Dynamic;
-typedef T_testAnonymousFields_118___localname___myInt = stdgo._internal.encoding.json.Json.T_testAnonymousFields_118___localname___myInt;
-@:invalid typedef T_testAnonymousFields_119___localname___S = Dynamic;
-typedef T_testAnonymousFields_120___localname___MyInt = stdgo._internal.encoding.json.Json.T_testAnonymousFields_120___localname___MyInt;
-@:invalid typedef T_testAnonymousFields_121___localname___S = Dynamic;
-@:invalid typedef T_testAnonymousFields_122___localname___s1 = Dynamic;
-@:invalid typedef T_testAnonymousFields_123___localname___S2 = Dynamic;
-@:invalid typedef T_testAnonymousFields_124___localname___S = Dynamic;
-@:invalid typedef T_testAnonymousFields_125___localname___s1 = Dynamic;
-@:invalid typedef T_testAnonymousFields_126___localname___S2 = Dynamic;
-@:invalid typedef T_testAnonymousFields_127___localname___S = Dynamic;
-typedef T_testAnonymousFields_128___localname___MyInt1 = stdgo._internal.encoding.json.Json.T_testAnonymousFields_128___localname___MyInt1;
-typedef T_testAnonymousFields_129___localname___MyInt2 = stdgo._internal.encoding.json.Json.T_testAnonymousFields_129___localname___MyInt2;
-typedef T_testAnonymousFields_130___localname___myInt = stdgo._internal.encoding.json.Json.T_testAnonymousFields_130___localname___myInt;
-@:invalid typedef T_testAnonymousFields_131___localname___s2 = Dynamic;
-@:invalid typedef T_testAnonymousFields_132___localname___s1 = Dynamic;
-@:invalid typedef T_testAnonymousFields_133___localname___S = Dynamic;
-@:invalid typedef T_testAnonymousFields_134___localname___S2 = Dynamic;
-@:invalid typedef T_testAnonymousFields_135___localname___S = Dynamic;
+@:invalid typedef T_testAnonymousFields_77___localname___S1 = Dynamic;
+@:invalid typedef T_testAnonymousFields_78___localname___S2 = Dynamic;
+@:invalid typedef T_testAnonymousFields_79___localname___S = Dynamic;
+@:invalid typedef T_testAnonymousFields_80___localname___S1 = Dynamic;
+@:invalid typedef T_testAnonymousFields_81___localname___S2 = Dynamic;
+@:invalid typedef T_testAnonymousFields_82___localname___S = Dynamic;
+typedef T_testAnonymousFields_83___localname___myInt = stdgo._internal.encoding.json.Json.T_testAnonymousFields_83___localname___myInt;
+@:invalid typedef T_testAnonymousFields_84___localname___S = Dynamic;
+typedef T_testAnonymousFields_85___localname___MyInt = stdgo._internal.encoding.json.Json.T_testAnonymousFields_85___localname___MyInt;
+@:invalid typedef T_testAnonymousFields_86___localname___S = Dynamic;
+typedef T_testAnonymousFields_87___localname___myInt = stdgo._internal.encoding.json.Json.T_testAnonymousFields_87___localname___myInt;
+@:invalid typedef T_testAnonymousFields_88___localname___S = Dynamic;
+typedef T_testAnonymousFields_89___localname___MyInt = stdgo._internal.encoding.json.Json.T_testAnonymousFields_89___localname___MyInt;
+@:invalid typedef T_testAnonymousFields_90___localname___S = Dynamic;
+@:invalid typedef T_testAnonymousFields_91___localname___s1 = Dynamic;
+@:invalid typedef T_testAnonymousFields_92___localname___S2 = Dynamic;
+@:invalid typedef T_testAnonymousFields_93___localname___S = Dynamic;
+@:invalid typedef T_testAnonymousFields_94___localname___s1 = Dynamic;
+@:invalid typedef T_testAnonymousFields_95___localname___S2 = Dynamic;
+@:invalid typedef T_testAnonymousFields_96___localname___S = Dynamic;
+typedef T_testAnonymousFields_97___localname___MyInt1 = stdgo._internal.encoding.json.Json.T_testAnonymousFields_97___localname___MyInt1;
+typedef T_testAnonymousFields_98___localname___MyInt2 = stdgo._internal.encoding.json.Json.T_testAnonymousFields_98___localname___MyInt2;
+typedef T_testAnonymousFields_99___localname___myInt = stdgo._internal.encoding.json.Json.T_testAnonymousFields_99___localname___myInt;
+@:invalid typedef T_testAnonymousFields_100___localname___s2 = Dynamic;
+@:invalid typedef T_testAnonymousFields_101___localname___s1 = Dynamic;
+@:invalid typedef T_testAnonymousFields_102___localname___S = Dynamic;
+@:invalid typedef T_testAnonymousFields_103___localname___S2 = Dynamic;
+@:invalid typedef T_testAnonymousFields_104___localname___S = Dynamic;
 function testAnonymousFields(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testNilMarshal(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testEmbeddedBug(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testTaggedFieldDominates(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testDuplicatedFieldDisappears(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testIssue10281_136___localname___Foo = Dynamic;
+@:invalid typedef T_testIssue10281_105___localname___Foo = Dynamic;
 function testIssue10281(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testMarshalErrorAndReuseEncodeState_137___localname___Dummy = Dynamic;
-@:invalid typedef T_testMarshalErrorAndReuseEncodeState_138___localname___Data = Dynamic;
+@:invalid typedef T_testMarshalErrorAndReuseEncodeState_106___localname___Dummy = Dynamic;
+@:invalid typedef T_testMarshalErrorAndReuseEncodeState_107___localname___Data = Dynamic;
 function testMarshalErrorAndReuseEncodeState(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testHTMLEscape(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testEncodePointerString_139___localname___stringPointer = Dynamic;
+@:invalid typedef T_testEncodePointerString_108___localname___stringPointer = Dynamic;
 function testEncodePointerString(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testEncodeString(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function _tenc(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):Void {}
@@ -571,8 +571,8 @@ function testEncodeBytekind(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
 function testTextMarshalerMapKeysAreSorted(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testNilMarshalerTextMapKey(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testMarshalFloat(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testMarshalRawMessageValue_140___localname___T1 = Dynamic;
-@:invalid typedef T_testMarshalRawMessageValue_141___localname___T2 = Dynamic;
+@:invalid typedef T_testMarshalRawMessageValue_109___localname___T1 = Dynamic;
+@:invalid typedef T_testMarshalRawMessageValue_110___localname___T2 = Dynamic;
 function testMarshalRawMessageValue(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testMarshalPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testMarshalUncommonFieldNames(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
@@ -646,8 +646,8 @@ function newDecoder(_r:stdgo._internal.io.Io.Reader):Void {}
 function _nonSpace(_b:stdgo.Slice<stdgo.GoByte>):Void {}
 function newEncoder(_w:stdgo._internal.io.Io.Writer):Void {}
 function testEncoder(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testEncoderErrorAndReuseEncodeState_142___localname___Dummy = Dynamic;
-@:invalid typedef T_testEncoderErrorAndReuseEncodeState_143___localname___Data = Dynamic;
+@:invalid typedef T_testEncoderErrorAndReuseEncodeState_111___localname___Dummy = Dynamic;
+@:invalid typedef T_testEncoderErrorAndReuseEncodeState_112___localname___Data = Dynamic;
 function testEncoderErrorAndReuseEncodeState(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testEncoderIndent(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testEncoderSetEscapeHTML(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
@@ -813,45 +813,45 @@ function testTagParsing(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 @:invalid typedef T_strPtrMarshaler_static_extension = Dynamic;
 @:invalid typedef T_tagOptions_asInterface = Dynamic;
 @:invalid typedef T_tagOptions_static_extension = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_98___localname___S1_asInterface = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_98___localname___S1_static_extension = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_99___localname___S2_asInterface = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_99___localname___S2_static_extension = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_100___localname___S3_asInterface = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_100___localname___S3_static_extension = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_101___localname___S4_asInterface = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_101___localname___S4_static_extension = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_102___localname___S5_asInterface = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_102___localname___S5_static_extension = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_103___localname___S6_asInterface = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_103___localname___S6_static_extension = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_104___localname___S7_asInterface = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_104___localname___S7_static_extension = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_105___localname___S8_asInterface = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_105___localname___S8_static_extension = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_106___localname___S9_asInterface = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_106___localname___S9_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_110___localname___S_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_110___localname___S_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_113___localname___S_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_113___localname___S_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_115___localname___S_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_115___localname___S_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_117___localname___S_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_117___localname___S_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_119___localname___S_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_119___localname___S_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_121___localname___S_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_121___localname___S_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_124___localname___S_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_124___localname___S_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_127___localname___S_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_127___localname___S_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_131___localname___s2_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_131___localname___s2_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_132___localname___s1_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_132___localname___s1_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_133___localname___S_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_133___localname___S_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_135___localname___S_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_135___localname___S_static_extension = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_67___localname___S1_asInterface = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_67___localname___S1_static_extension = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_68___localname___S2_asInterface = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_68___localname___S2_static_extension = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_69___localname___S3_asInterface = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_69___localname___S3_static_extension = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_70___localname___S4_asInterface = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_70___localname___S4_static_extension = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_71___localname___S5_asInterface = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_71___localname___S5_static_extension = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_72___localname___S6_asInterface = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_72___localname___S6_static_extension = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_73___localname___S7_asInterface = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_73___localname___S7_static_extension = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_74___localname___S8_asInterface = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_74___localname___S8_static_extension = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_75___localname___S9_asInterface = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_75___localname___S9_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_79___localname___S_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_79___localname___S_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_82___localname___S_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_82___localname___S_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_84___localname___S_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_84___localname___S_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_86___localname___S_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_86___localname___S_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_88___localname___S_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_88___localname___S_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_90___localname___S_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_90___localname___S_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_93___localname___S_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_93___localname___S_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_96___localname___S_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_96___localname___S_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_100___localname___s2_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_100___localname___s2_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_101___localname___s1_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_101___localname___s1_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_102___localname___S_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_102___localname___S_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_104___localname___S_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_104___localname___S_static_extension = Dynamic;

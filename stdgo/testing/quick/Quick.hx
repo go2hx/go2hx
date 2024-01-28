@@ -97,11 +97,11 @@ function testCheckEqual(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function _myStructProperty(_in:T_myStruct):Void {}
 function testCheckProperty(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testFailure(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testRecursive_35___localname___R = Dynamic;
+@:invalid typedef T_testRecursive_34___localname___R = Dynamic;
 function testRecursive(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testEmptyStruct(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testMutuallyRecursive(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testNonZeroSliceAndMap_36___localname___Q = Dynamic;
+@:invalid typedef T_testNonZeroSliceAndMap_35___localname___Q = Dynamic;
 function testNonZeroSliceAndMap(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 @:invalid typedef Config_asInterface = Dynamic;

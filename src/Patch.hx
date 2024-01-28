@@ -84,7 +84,7 @@ final list = [
 		#if sys
 		var ticks = Math.floor(seconds * 100);
 		while (--ticks > 0) {
-			stdgo.internal.Async.tick();
+			stdgo._internal.internal.Async.tick();
 			Sys.sleep(0.01);
 		}
 		#end

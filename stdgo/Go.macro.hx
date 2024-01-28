@@ -944,7 +944,7 @@ class Go {
 	static final nameTypes:Map<String, Expr> = [];
 
 	static function getTypeInfoData(path:String):Expr {
-		final e = macro stdgo.internal.TypeInfo.names[$v{path}];
+		final e = macro stdgo._internal.internal.TypeInfo.names[$v{path}];
 		e.pos = Context.currentPos();
 		return e;
 	}

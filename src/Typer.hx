@@ -310,7 +310,7 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 			// init system
 			// if (true) {
 			if (info.global.initBlock.length > 0) {
-				// info.global.initBlock.unshift(macro trace(stdgo.internal.type.Type.names));
+				// info.global.initBlock.unshift(macro trace(stdgo._internal.internal.type.Type.names));
 				var block = toExpr(EBlock(info.global.initBlock));
 				final pathString = makeString(info.global.path);
 				if (info.global.varTraceBool) {
@@ -877,7 +877,7 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 		while(__select__) {
 			$e;
 			@:define("!js") Sys.sleep(0.01);
-			stdgo.internal.Async.tick();
+			stdgo._internal.internal.Async.tick();
 		}
 	};
 	if (needsReturn) {
@@ -5680,7 +5680,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 
 	info.restricted = [];
 	if (info.gotoSystem) {
-		var e = macro stdgo.internal.Macro.controlFlow($block);
+		var e = macro stdgo._internal.internal.Macro.controlFlow($block);
 		if (decl.type.results != null && decl.type.results.list.length > 0) {
 			// final ret = toExpr(typeReturnStmt({results: [], returnPos: 0}, info));
 			block = macro {
@@ -6117,7 +6117,7 @@ final genericNames = params == null ? [] : [for (i in 0...params.length) params[
 		//non macro function
 		if (info.global.stackBool)
 			if (block != null) {
-				block = macro stdgo.internal.Macro.stack($block);
+				block = macro stdgo._internal.internal.Macro.stack($block);
 			}
 	}
 	/*if (name == "main" && info.data.isMain) {

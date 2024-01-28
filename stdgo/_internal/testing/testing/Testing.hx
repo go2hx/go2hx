@@ -2,7 +2,7 @@ package stdgo.testing;
 
 import haxe.Rest;
 
-import stdgo.internal.reflect.Reflect.GoType;
+import stdgo._internal.internal.reflect.Reflect.GoType;
 
 using stdgo.GoString.GoStringTools;
 
@@ -379,7 +379,7 @@ class M {
 
 	public function run():GoInt {
 		// use go version of path for passing go tests
-		stdgo.internal.reflect.Reflect.useHaxePath = false;
+		stdgo._internal.internal.reflect.Reflect.useHaxePath = false;
 		numRun++;
 		for (test in tests) {
 			var error = false;

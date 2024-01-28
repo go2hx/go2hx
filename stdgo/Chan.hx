@@ -3,7 +3,7 @@ package stdgo;
 #if (target.threaded)
 import haxe.ds.Vector;
 import stdgo.GoInt;
-import stdgo.internal.Async;
+import stdgo._internal.internal.Async;
 import sys.thread.Deque;
 import sys.thread.Lock;
 import sys.thread.Mutex;

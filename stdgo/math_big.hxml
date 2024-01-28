@@ -1,3 +1,3 @@
--m stdgo.math.big_test.Big
+-m stdgo._internal.math.big_test.Big
 -lib go2hx
 -cp .

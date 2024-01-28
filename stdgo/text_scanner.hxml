@@ -1,3 +1,3 @@
--m stdgo.text.scanner_test.Scanner
+-m stdgo._internal.text.scanner_test.Scanner
 -lib go2hx
 -cp .

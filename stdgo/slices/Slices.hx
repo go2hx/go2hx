@@ -103,17 +103,17 @@ macro function _equal<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _v1:haxe.macr
 macro function _equalNaN<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _v1:haxe.macro.Expr.ExprOf<T_>, _v2:haxe.macro.Expr.ExprOf<T_>):Void {}
 function _offByOne(_v1:stdgo.GoInt, _v2:stdgo.GoInt):Void {}
 function testEqualFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-typedef T_benchmarkEqualFunc_Large_15___localname___Large = stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_15___localname___Large;
+typedef T_benchmarkEqualFunc_Large_23___localname___Large = stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_23___localname___Large;
 function benchmarkEqualFunc_Large(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
 function testCompare(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 macro function _equalToCmp<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _eq:haxe.macro.Expr.ExprOf<($T_, $T_) -> Bool>):Void {}
 function testCompareFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testIndex(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 macro function _equalToIndex<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _f:haxe.macro.Expr.ExprOf<($T_, $T_) -> Bool>, _v1:haxe.macro.Expr.ExprOf<T_>):Void {}
-typedef T_benchmarkIndex_Large_16___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndex_Large_16___localname___Large;
+typedef T_benchmarkIndex_Large_24___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndex_Large_24___localname___Large;
 function benchmarkIndex_Large(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
 function testIndexFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-typedef T_benchmarkIndexFunc_Large_17___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_17___localname___Large;
+typedef T_benchmarkIndexFunc_Large_25___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_25___localname___Large;
 function benchmarkIndexFunc_Large(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
 function testContains(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testContainsFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
@@ -126,10 +126,10 @@ function testDeletePanics(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
 function testClone(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testCompact(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function benchmarkCompact(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-typedef T_benchmarkCompact_Large_18___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompact_Large_18___localname___Large;
+typedef T_benchmarkCompact_Large_26___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompact_Large_26___localname___Large;
 function benchmarkCompact_Large(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
 function testCompactFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-typedef T_benchmarkCompactFunc_Large_19___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_19___localname___Large;
+typedef T_benchmarkCompactFunc_Large_27___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_27___localname___Large;
 function benchmarkCompactFunc_Large(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
 function testGrow(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testClip(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
@@ -143,7 +143,7 @@ function testRotate(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testInsertGrowthRate(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testReplaceGrowthRate(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 macro function _apply<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _v:haxe.macro.Expr.ExprOf<T_>, _f:haxe.macro.Expr.ExprOf<$T_ -> Void>):Void {}
-typedef T_testInference_20___localname___S = stdgo._internal.slices.Slices.T_testInference_20___localname___S;
+typedef T_testInference_28___localname___S = stdgo._internal.slices.Slices.T_testInference_28___localname___S;
 function testInference(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 macro function sort<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _x:haxe.macro.Expr.ExprOf<S>):Void {}
 macro function sortFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _x:haxe.macro.Expr.ExprOf<S>, _cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):Void {}

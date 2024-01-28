@@ -241,26 +241,26 @@ function testScalarEncInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing.
 function _execDec(_instr:stdgo.Ref<T_decInstr>, _state:stdgo.Ref<T_decoderState>, _t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _value:stdgo._internal.reflect.Reflect.Value):Void {}
 function _newDecodeStateFromData(_data:stdgo.Slice<stdgo.GoByte>):Void {}
 function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testEndToEnd_121___localname___T2 = Dynamic;
-@:invalid typedef T_testEndToEnd_122___localname___T3 = Dynamic;
-@:invalid typedef T_testEndToEnd_123___localname___T1 = Dynamic;
+@:invalid typedef T_testEndToEnd_54___localname___T2 = Dynamic;
+@:invalid typedef T_testEndToEnd_55___localname___T3 = Dynamic;
+@:invalid typedef T_testEndToEnd_56___localname___T1 = Dynamic;
 function testEndToEnd(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testOverflow_124___localname___inputT = Dynamic;
-@:invalid typedef T_testOverflow_125___localname___outi8 = Dynamic;
-@:invalid typedef T_testOverflow_126___localname___outi16 = Dynamic;
-@:invalid typedef T_testOverflow_127___localname___outi32 = Dynamic;
-@:invalid typedef T_testOverflow_128___localname___outu8 = Dynamic;
-@:invalid typedef T_testOverflow_129___localname___outu16 = Dynamic;
-@:invalid typedef T_testOverflow_130___localname___outu32 = Dynamic;
-@:invalid typedef T_testOverflow_131___localname___outf32 = Dynamic;
-@:invalid typedef T_testOverflow_132___localname___outc64 = Dynamic;
+@:invalid typedef T_testOverflow_57___localname___inputT = Dynamic;
+@:invalid typedef T_testOverflow_58___localname___outi8 = Dynamic;
+@:invalid typedef T_testOverflow_59___localname___outi16 = Dynamic;
+@:invalid typedef T_testOverflow_60___localname___outi32 = Dynamic;
+@:invalid typedef T_testOverflow_61___localname___outu8 = Dynamic;
+@:invalid typedef T_testOverflow_62___localname___outu16 = Dynamic;
+@:invalid typedef T_testOverflow_63___localname___outu32 = Dynamic;
+@:invalid typedef T_testOverflow_64___localname___outf32 = Dynamic;
+@:invalid typedef T_testOverflow_65___localname___outc64 = Dynamic;
 function testOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testNesting_133___localname___RT = Dynamic;
+@:invalid typedef T_testNesting_66___localname___RT = Dynamic;
 function testNesting(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testAutoIndirection(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testReorderedFields(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testIgnoredFields(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-typedef T_testBadRecursiveType_134___localname___Rec = stdgo._internal.encoding.gob.Gob.T_testBadRecursiveType_134___localname___Rec;
+typedef T_testBadRecursiveType_67___localname___Rec = stdgo._internal.encoding.gob.Gob.T_testBadRecursiveType_67___localname___Rec;
 function testBadRecursiveType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testIndirectSliceMapArray(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testInterface(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
@@ -397,28 +397,28 @@ function _badTypeCheck(_e:stdgo.AnyInterface, _shouldFail:Bool, _msg:stdgo.GoStr
 function testWrongTypeDecoder(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testUnsupported(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function _encAndDec(_in:stdgo.AnyInterface, _out:stdgo.AnyInterface):Void {}
-@:invalid typedef T_testTypeToPtrType_135___localname___Type0 = Dynamic;
+@:invalid typedef T_testTypeToPtrType_68___localname___Type0 = Dynamic;
 function testTypeToPtrType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testPtrTypeToType_136___localname___Type1 = Dynamic;
+@:invalid typedef T_testPtrTypeToType_69___localname___Type1 = Dynamic;
 function testPtrTypeToType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testTypeToPtrPtrPtrPtrType_137___localname___Type2 = Dynamic;
+@:invalid typedef T_testTypeToPtrPtrPtrPtrType_70___localname___Type2 = Dynamic;
 function testTypeToPtrPtrPtrPtrType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testSlice_138___localname___Type3 = Dynamic;
+@:invalid typedef T_testSlice_71___localname___Type3 = Dynamic;
 function testSlice(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testValueError_139___localname___Type4 = Dynamic;
+@:invalid typedef T_testValueError_72___localname___Type4 = Dynamic;
 function testValueError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testArray_140___localname___Type5 = Dynamic;
-@:invalid typedef T_testArray_141___localname___Type6 = Dynamic;
+@:invalid typedef T_testArray_73___localname___Type5 = Dynamic;
+@:invalid typedef T_testArray_74___localname___Type6 = Dynamic;
 function testArray(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-typedef T_testRecursiveMapType_142___localname___recursiveMap = stdgo._internal.encoding.gob.Gob.T_testRecursiveMapType_142___localname___recursiveMap;
+typedef T_testRecursiveMapType_75___localname___recursiveMap = stdgo._internal.encoding.gob.Gob.T_testRecursiveMapType_75___localname___recursiveMap;
 function testRecursiveMapType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-typedef T_testRecursiveSliceType_143___localname___recursiveSlice = stdgo._internal.encoding.gob.Gob.T_testRecursiveSliceType_143___localname___recursiveSlice;
+typedef T_testRecursiveSliceType_76___localname___recursiveSlice = stdgo._internal.encoding.gob.Gob.T_testRecursiveSliceType_76___localname___recursiveSlice;
 function testRecursiveSliceType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testDefaultsInArray_144___localname___Type7 = Dynamic;
+@:invalid typedef T_testDefaultsInArray_77___localname___Type7 = Dynamic;
 function testDefaultsInArray(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testSingletons(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testStructNonStruct_145___localname___Struct = Dynamic;
-typedef T_testStructNonStruct_146___localname___NonStruct = stdgo._internal.encoding.gob.Gob.T_testStructNonStruct_146___localname___NonStruct;
+@:invalid typedef T_testStructNonStruct_78___localname___Struct = Dynamic;
+typedef T_testStructNonStruct_79___localname___NonStruct = stdgo._internal.encoding.gob.Gob.T_testStructNonStruct_79___localname___NonStruct;
 function testStructNonStruct(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testInterfaceIndirect(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testDecodeIntoNothing(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
@@ -442,11 +442,11 @@ function testMutipleEncodingsOfBadType(_t:stdgo.Ref<stdgo._internal.testing.Test
 function test29ElementSlice(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testErrorForHugeSlice(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testBadData(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testDecodeErrorMultipleTypes_147___localname___Test = Dynamic;
+@:invalid typedef T_testDecodeErrorMultipleTypes_80___localname___Test = Dynamic;
 function testDecodeErrorMultipleTypes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testMarshalFloatMap_148___localname___mapEntry = Dynamic;
+@:invalid typedef T_testMarshalFloatMap_81___localname___mapEntry = Dynamic;
 function testMarshalFloatMap(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testDecodePartial_149___localname___T = Dynamic;
+@:invalid typedef T_testDecodePartial_82___localname___T = Dynamic;
 function testDecodePartial(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testDecoderOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function _errorf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void {}
@@ -525,10 +525,10 @@ function testArrayType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testSliceType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testMapType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testStructType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testRegistration_150___localname___T = Dynamic;
+@:invalid typedef T_testRegistration_83___localname___T = Dynamic;
 function testRegistration(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testRegistrationNaming(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid typedef T_testStressParallel_151___localname___T2 = Dynamic;
+@:invalid typedef T_testStressParallel_84___localname___T2 = Dynamic;
 function testStressParallel(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 function testTypeRace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 @:invalid var _ : Dynamic;

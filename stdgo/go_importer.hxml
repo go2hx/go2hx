@@ -1,3 +1,3 @@
--m stdgo.go.importer_test.Importer
+-m stdgo._internal.go.importer_test.Importer
 -lib go2hx
 -cp .

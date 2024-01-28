@@ -1,3 +1,3 @@
--m stdgo.math.cmplx_test.Cmplx
+-m stdgo._internal.math.cmplx_test.Cmplx
 -lib go2hx
 -cp .

@@ -1,3 +1,3 @@
--m stdgo.errors_test.Errors
+-m stdgo._internal.errors_test.Errors
 -lib go2hx
 -cp .

@@ -37,13 +37,13 @@ jobs:
       # clean stdgo
       - name: Clean go2hx
         run: npx haxelib run go2hx clean
-      - name: Test run
-        run: npx haxelib run go2hx ./rnd
       # compile stdgo
       - name: Run stdgo automatic compile
         run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       #- name: Create hxb
       #  run: npx haxelib run go2hx hxb
+      - name: Test run
+        run: npx haxelib run go2hx ./rnd
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }}
       - name: Run std
@@ -134,8 +134,6 @@ jobs:
       # clean stdgo
       - name: Clean go2hx
         run: npx haxelib run go2hx clean
-      - name: Test run
-        run: npx haxelib run go2hx ./rnd
       # compile stdgo
       - name: Run stdgo automatic compile
         run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
@@ -187,11 +185,11 @@ jobs:
       # clean stdgo
       - name: Clean go2hx
         run: npx haxelib run go2hx clean
-      - name: Test run
-        run: npx haxelib run go2hx ./rnd
       # compile stdgo
       - name: Run stdgo automatic compile
         run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
+      - name: Test run
+        run: npx haxelib run go2hx ./rnd
       #- name: Create hxb
       #  run: npx haxelib run go2hx hxb
       - name: clone go

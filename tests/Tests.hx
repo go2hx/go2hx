@@ -408,7 +408,7 @@ private function close() {
 			tasks = failedRegressionTasks;
 			failedRegressionTasks = [];
 			dryRun = false;
-			runTests();
+			// runTests();
 			return;
 		}
 	}else {

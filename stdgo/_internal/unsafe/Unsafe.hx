@@ -1,13 +1,13 @@
 package stdgo._internal.unsafe;
 
 import stdgo.Pointer;
-
 import stdgo._internal.internal.reflect.Reflect.GoType;
+import stdgo.AnyInterface;
 using GoString.GoStringTools;
 
 @:follow typedef Pointer_ = UnsafePointer;
 
-abstract UnsafePointer(AnyInterface) from stdgo.AnyInterface to stdgo.AnyInterface {
+abstract UnsafePointer(AnyInterface) from AnyInterface to AnyInterface {
 	private function new(value) {
 		this = value;
 	}
@@ -58,26 +58,26 @@ abstract UnsafePointer(AnyInterface) from stdgo.AnyInterface to stdgo.AnyInterfa
 	}
 }
 
-function sizeof(x:stdgo.AnyInterface):stdgo.GoUIntptr {
+function sizeof(x:AnyInterface):GoUIntptr {
 	return x.type.size();
 }
 
-function offsetof_(x:stdgo.AnyInterface):stdgo.GoUIntptr {
+function offsetof_(x:AnyInterface):GoUIntptr {
 	return 0;
 }
 
-function alignof_(x:stdgo.AnyInterface):stdgo.GoUIntptr {
+function alignof_(x:AnyInterface):GoUIntptr {
 	return 0;
 }
 
-function stringData(s:stdgo.GoString):Dynamic
+function stringData(s:GoString):Dynamic
 	return null;
 
-function sliceData<T>(s:stdgo.Slice<T>):Dynamic
+function sliceData<T>(s:Slice<T>):Dynamic
 	return null;
 
-function string(s:stdgo.Pointer<stdgo.GoByte>, len:stdgo.GoInt):stdgo.GoString
+function string(s:stdgo.Pointer<stdgo.GoByte>, len:GoInt):GoString
 	return "";
 
-function slice(_ptr:stdgo.Pointer<Dynamic>,_len:stdgo.GoInt):Array<Dynamic>
+function slice(_ptr:Pointer<Dynamic>,_len:GoInt):Array<Dynamic>
 	return [];

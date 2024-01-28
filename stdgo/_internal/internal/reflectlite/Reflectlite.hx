@@ -11,7 +11,7 @@ function typeOf(_x:AnyInterface) {
 }
 
 function swapper(_x:AnyInterface):(GoInt, GoInt) -> Void {
-	var _v:stdgo._internal.reflect.Reflect.Value = (stdgo._internal.reflect.Reflect.valueOf(Go.toInterface(_x)) == null ? null : stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(_x))
+	var _v:stdgo._internal.reflect.Reflect.Value = (stdgo._internal.reflect.Reflect.valueOf(Go.toInterface(_x)) == null ? null : stdgo._internal.reflect.Reflect.valueOf(Go.toInterface(_x))
 		.__copy__());
 	var _tmp:stdgo._internal.reflect.Reflect.Value = (stdgo._internal.reflect.Reflect.new_(_v.type().elem())
 		.elem() == null ? null : stdgo._internal.reflect.Reflect.new_(_v.type().elem())

@@ -1,6 +1,7 @@
 package stdgo._internal.internal.reflect;
 
 import stdgo.Pointer;
+import stdgo.AnyInterface;
 
 
 @:follow private typedef Type = stdgo._internal.reflect.Reflect.Type_;
@@ -660,7 +661,7 @@ function asInterfaceValue(value:Dynamic, gt:GoType):Dynamic {
 						isPointer = true;
 				default:
 			}
-			return std.Type.createInstance(cl,[isPointer ? value : Go.pointer(value),new stdgo._internal.internal.reflect.Reflect._Type(gt)]);
+			return std.Type.createInstance(cl,[isPointer ? value : Go.pointer(value),new stdgo.internal.reflect.Reflect._Type(gt)]);
 			
 		default:
 	}
@@ -792,7 +793,7 @@ enum abstract BasicKind(Int) to Int {
 
 function defaultValue(typ:Type):Any {
 	final t:GoType = @:privateAccess (typ : Dynamic)._common();
-	return switch (t : stdgo._internal.internal.reflect.Reflect.GoType) {
+	return switch (t : stdgo.internal.reflect.Reflect.GoType) {
 		case basic(kind):
 			switch kind {
 				case string_kind: ("" : GoString);
@@ -841,7 +842,7 @@ function _set(value:stdgo._internal.reflect.Reflect.Value) {
 
 function defaultValueInternal(typ:_Type):Any {
 	final t:GoType = @:privateAccess typ._common();
-	return switch (t : stdgo._internal.internal.reflect.Reflect.GoType) {
+	return switch (t : stdgo.internal.reflect.Reflect.GoType) {
 		case basic(kind):
 			switch kind {
 				case string_kind: ("" : GoString);
@@ -876,7 +877,7 @@ function defaultValueInternal(typ:_Type):Any {
 // go2hx's internal impl of Type
 
 @:structInit
-@:using(stdgo._internal.internal.reflect.Reflect._Type_static_extension)
+@:using(stdgo.internal.reflect.Reflect._Type_static_extension)
 @:named
 class _Type {
 	@:local
@@ -915,7 +916,7 @@ class _Type {
 	}
 
 	static public function numField(t:_Type):GoInt {
-		var type:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess t._common();
+		var type:stdgo.internal.reflect.Reflect.GoType = @:privateAccess t._common();
 		type = getUnderlying(type);
 		switch type {
 			case structType(fields):
@@ -1428,9 +1429,9 @@ class _Type_asInterface {
 
 	public dynamic function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo._internal.reflect.Reflect.ptr
-			&& !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<_Type>;
-	var __type__:stdgo._internal.internal.reflect.Reflect._Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }

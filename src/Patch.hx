@@ -1295,7 +1295,7 @@ final list = [
 		return 0;
 	},
 	"strings.Builder:string" => macro {
-		return ((stdgo.Go.toInterface((_b._buf : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) : stdgo.unsafe.Unsafe.UnsafePointer)
+		return ((stdgo.Go.toInterface((_b._buf : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) : stdgo._internal.unsafe.Unsafe.UnsafePointer)
 			.__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({
 			get: () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(string_kind)
 		})) : stdgo.Pointer<stdgo.GoString>).value;

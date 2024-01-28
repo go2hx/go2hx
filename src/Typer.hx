@@ -132,7 +132,7 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 			if (file.decls == null)
 				continue;
 			file.path = importClassName(normalizePath(Path.withoutExtension(file.path))); // file naming
-			info.global.filePath = file.path;
+			info.global.filePath = "_internal." + file.path;
 
 			var declFuncs:Array<Ast.FuncDecl> = [];
 			var declGens:Array<Ast.GenDecl> = [];

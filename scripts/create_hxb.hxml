@@ -1,6 +1,6 @@
 -cp golibs
---macro stdgo.internal.Macro.initHxb()
+--macro stdgo._internal.internal.Macro.initHxb()
 -m github_com.go2hx.go4hx.scripts.hxb.Hxb
 --hl hxb.hl
 -D hxb
---hxb prebuild.zip
+--hxb scripts/hxb.json

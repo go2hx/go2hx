@@ -175,8 +175,10 @@ function update() {
 	if (tasks.length > 0 && runningCount < Std.parseInt(runnerCount) ) {
 		final task = tasks.pop();
 		Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount + " " + lastTaskLogs);
-		//task.args.push("--hxb-lib");
-		//task.args.push("prebuild.zip");
+		if (hxbBool) {
+			task.args.push("--hxb-lib");
+			task.args.push("go2hx.zip");
+		}
 		final taskString = task.command + " " + task.args.join(" ");
 		lastTaskLogs.push(taskString);
 		runningCount++;
@@ -273,10 +275,6 @@ private function complete(modules:Array<Typer.Module>, _) {
 			final args = [hxml].concat(outCmd);
 			if (ciBool)
 				args.unshift("haxe");
-			if (hxbBool) {
-				args.push("--hxb-lib");
-				args.push("prebuild.zip");
-			}
 			tasks.push({command: ciBool ? "npx" : "haxe", args: args, path: path, runtime: false, target: target, out: out, main: main});
 		}
 	}

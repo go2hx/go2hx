@@ -1,0 +1,13 @@
+{
+    "archivePath": "go2hx.$target.zip",
+    "targetConfig": {
+        "exclude": [
+            "stdgo._internal.internal"
+        ]
+    },
+    "macroConfig": {
+        "exclude": [
+            "stdgo._internal.Macro"
+        ]
+    }
+}

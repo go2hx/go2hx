@@ -468,5 +468,6 @@ function convertComplexType(ct:ComplexType):ComplexType {
 
 		default:
 	}
-	return TPath({name: "Dynamic", pack: [], params: [TPType(ct)]});
+	return ct;
+	//return TPath({name: "Dynamic", pack: [], params: [TPType(ct)]});
 }

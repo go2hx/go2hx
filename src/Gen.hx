@@ -165,11 +165,13 @@ function externGen(td:TypeDefinition,path:String):Array<TypeDefinition> {
 				return [externGenAbstract(td)];
 			return [externGenClass(td)];
 		case TDField(kind, access):
-			if (td.name != "__go2hxdoc__package" && td.name.charAt(0) == "_")
+			if (td.name == "__go2hxdoc__package")
+				return [td];
+			if (td.name.charAt(0) == "_")
 				return [];
 			return switch kind {
 				case FVar(_, _):
-					externGenVar(td);
+					externGenVar(td, path);
 				case FFun(f):
 					[{
 						name: td.name,
@@ -246,9 +248,21 @@ function externGenStruct(td:TypeDefinition):TypeDefinition {
 	return externInvalid(td);
 }
 
-function externGenVar(td:TypeDefinition):Array<TypeDefinition> {
+function externGenVar(td:TypeDefinition, path:String):Array<TypeDefinition> {
 	switch td.kind {
 		case TDField(FVar(type, e), access):
+			final pack = path.split("/");
+			pack.push(Typer.title(pack[pack.length - 1]));
+			final name = macro $p{pack.concat([td.name])};
+			if (access.indexOf(AFinal) != -1) {
+				return [{
+					name: td.name,
+					pos: td.pos,
+					pack: td.pack,
+					fields: td.fields,
+					kind: TDField(FVar(convertComplexType(type), name), access),
+				}];
+			}
 			return [{
 				name: td.name,
 				pos: td.pos,
@@ -263,7 +277,7 @@ function externGenVar(td:TypeDefinition):Array<TypeDefinition> {
 				kind: TDField(FFun({
 					args: [],
 					ret: convertComplexType(type),
-					expr: macro return $e,
+					expr: macro return $name,
 					params: [],
 				}), access),
 			},{
@@ -274,7 +288,7 @@ function externGenVar(td:TypeDefinition):Array<TypeDefinition> {
 				kind: TDField(FFun({
 					args: [{name: "v", type: convertComplexType(type)}],
 					ret: convertComplexType(type),
-					expr: macro return $e = v,
+					expr: macro return $name = v,
 					params: [],
 				}), access),
 			}];

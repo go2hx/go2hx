@@ -285,10 +285,10 @@ function externGenVar(td:TypeDefinition):Array<TypeDefinition> {
 
 function externGenFun(f:Function):Function {
 	final args = f.args.copy();
-	for (arg in args) {
-		arg.name = arg.name.charAt(0) == arg.name.charAt(0).toLowerCase() ? arg.name.substr(1) : "_" + arg.name;
-		arg.type = convertComplexType(arg.type);
-	}
+	final args = [for (arg in args) {
+		name: arg.name.charAt(0) == arg.name.charAt(0).toLowerCase() ? arg.name.substr(1) : "_" + arg.name,
+		type: convertComplexType(arg.type),
+	}];
 	return  {
 		args: args,
 		ret: convertComplexType(f.ret),

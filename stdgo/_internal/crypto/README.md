@@ -1,7 +1,5 @@
 # Module stdgo._internal.crypto has compilation errors, please do not use:
 ```
-stdgo/_internal/compress/flate/Flate.hx:7825: characters 34-69 : Type not found : stdgo._internal.runtime.debug.Debug
-stdgo/_internal/compress/flate/Flate.hx:7828: characters 46-81 : Type not found : stdgo._internal.runtime.debug.Debug
 stdgo/_internal/encoding/gob/Gob.hx:2491: characters 67-85 : stdgo.GoInt should be Null<stdgo.Pointer<stdgo.GoInt>>
 stdgo/_internal/encoding/gob/Gob.hx:2562: characters 18-26 : stdgo._internal.encoding.gob.T1 has no field emptyMap
 stdgo/_internal/encoding/gob/Gob.hx:2825: characters 9-56 : Invalid assign
@@ -22,8 +20,6 @@ stdgo/_internal/encoding/gob/Gob.hx:5964: characters 125-132 : Unknown identifie
 stdgo/_internal/encoding/gob/Gob.hx:6801: characters 17-43 : Type not found : stdgo._internal.net.Net
 stdgo/_internal/encoding/gob/Gob.hx:6802: characters 193-219 : Type not found : stdgo._internal.net.Net
 stdgo/_internal/encoding/gob/Gob.hx:6802: characters 193-219 : ... For function argument '_e'
-stdgo/_internal/encoding/base64/Base64.hx:950: characters 125-160 : Type not found : stdgo._internal.runtime.debug.Debug
-stdgo/_internal/encoding/base64/Base64.hx:950: characters 125-160 : ... For function argument 'args'
 stdgo/_internal/image/Image.hx:881: characters 50-93 : Type not found : stdgo._internal.image.color.palette.Palette
 stdgo/_internal/image/Image.hx:881: characters 50-93 : ... For function argument 'args'
 stdgo/_internal/image/Image.hx:887: characters 28-38 : You can't iterate on a Dynamic value, please specify KeyValueIterator or KeyValueIterable

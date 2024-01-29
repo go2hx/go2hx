@@ -1,7 +1,5 @@
 # Module stdgo.encoding.json has compilation errors, please do not use:
 ```
-stdgo/_internal/encoding/base64/Base64.hx:950: characters 125-160 : Type not found : stdgo._internal.runtime.debug.Debug
-stdgo/_internal/encoding/base64/Base64.hx:950: characters 125-160 : ... For function argument 'args'
 stdgo/_internal/encoding/gob/Gob.hx:2491: characters 67-85 : stdgo.GoInt should be Null<stdgo.Pointer<stdgo.GoInt>>
 stdgo/_internal/encoding/gob/Gob.hx:2562: characters 18-26 : stdgo._internal.encoding.gob.T1 has no field emptyMap
 stdgo/_internal/encoding/gob/Gob.hx:2825: characters 9-56 : Invalid assign

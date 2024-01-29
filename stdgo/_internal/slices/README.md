@@ -1,6 +1,6 @@
 # Module stdgo._internal.slices has compilation errors, please do not use:
 ```
-Type not found : stdgo._internal.slices_test.Slices
+stdgo/_internal/slices/Slices.hx:447: characters 298-301 : Type not found : $E1
 
 ```
 

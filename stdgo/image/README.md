@@ -92,12 +92,6 @@ stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
 stdgo/Go.macro.hx:670: characters 12-33 : Called from here
 stdgo/_internal/image/Image.hx:927: characters 131-156 : Called from here
 stdgo/Go.macro.hx:1232: characters 7-12 : For function argument 'args'
-stdgo/_internal/image_test/Image_test.hx:2: characters 8-39 : Type not found : stdgo._internal.image.jpeg.Jpeg
-stdgo/_internal/image_test/Image_test.hx:3: characters 8-37 : Type not found : stdgo._internal.image.gif.Gif
-stdgo/_internal/image_test/Image_test.hx:4: characters 8-39 : Type not found : stdgo._internal.image.jpeg.Jpeg
-stdgo/_internal/image_test/Image_test.hx:5: characters 8-37 : Type not found : stdgo._internal.image.png.Png
-stdgo/_internal/encoding/base64/Base64.hx:950: characters 125-160 : Type not found : stdgo._internal.runtime.debug.Debug
-stdgo/_internal/encoding/base64/Base64.hx:950: characters 125-160 : ... For function argument 'args'
 stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/Go.macro.hx:764: characters 16-40)
 stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/Go.macro.hx:764: characters 16-40)
 stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/Go.macro.hx:764: characters 16-40)
@@ -111,7 +105,7 @@ stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:91
 stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:916: characters 46-71)
 stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:921: characters 74-99)
 stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:927: characters 131-156)
-stdgo/_internal/internal/Macro.macro.hx:43: non hxb types:,465
+stdgo/_internal/internal/Macro.macro.hx:43: non hxb types:,354
 
 ```
 

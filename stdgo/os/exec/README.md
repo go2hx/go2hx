@@ -1,157 +1,427 @@
-# Module stdgo.os.exec has compilation errors, please do not use:
-```
-stdgo/_internal/os/exec_test/Exec_test.hx:1193: characters 25-71 : Type not found : stdgo._internal.os.exec.internal.fdtest.Fdtest
-stdgo/_internal/os/exec_test/Exec_test.hx:1245: characters 27-50 : Type not found : stdgo._internal.net.Net
-stdgo/_internal/os/exec_test/Exec_test.hx:1245: characters 123-155 : Type not found : stdgo._internal.net.Net
-stdgo/_internal/os/exec_test/Exec_test.hx:1250: characters 138-173 : Type not found : stdgo._internal.net.Net
-stdgo/_internal/os/exec_test/Exec_test.hx:1255: characters 27-50 : Type not found : stdgo._internal.net.Net
-stdgo/_internal/os/exec_test/Exec_test.hx:1255: characters 74-106 : Type not found : stdgo._internal.net.Net
-stdgo/_internal/os/exec_test/Exec_test.hx:1260: characters 23-65 : Type not found : stdgo._internal.net.http.httptest.Httptest
-stdgo/_internal/os/exec_test/Exec_test.hx:1265: characters 31-60 : Type not found : stdgo._internal.net.http.Http
-stdgo/_internal/os/exec_test/Exec_test.hx:1308: characters 34-42 : stdgo.Ref<stdgo._internal.testing.T_> has no field deadline
-stdgo/_internal/os/exec_test/Exec_test.hx:1362: characters 27-59 : Type not found : stdgo._internal.net.Net
-stdgo/_internal/os/exec_test/Exec_test.hx:1369: characters 42-74 : Type not found : stdgo._internal.net.Net
-stdgo/_internal/os/exec_test/Exec_test.hx:1390: characters 25-57 : Type not found : stdgo._internal.net.Net
-stdgo/_internal/os/exec_test/Exec_test.hx:1393: characters 25-57 : Type not found : stdgo._internal.net.Net
-stdgo/_internal/os/exec_test/Exec_test.hx:1552: characters 21-56 : Type not found : stdgo._internal.runtime.debug.Debug
-stdgo/_internal/os/exec_test/Exec_test.hx:692: characters 23-46 : Type not found : stdgo._internal.net.Net
-stdgo/_internal/os/exec_test/Exec_test.hx:692: characters 69-101 : Type not found : stdgo._internal.net.Net
-stdgo/_internal/os/exec_test/Exec_test.hx:1749: characters 13-45 : Type not found : stdgo._internal.os.signal.Signal
-stdgo/_internal/os/exec_test/Exec_test.hx:1759: characters 13-45 : Type not found : stdgo._internal.os.signal.Signal
-stdgo/_internal/os/exec_test/Exec_test.hx:1764: characters 17-49 : Type not found : stdgo._internal.os.signal.Signal
-stdgo/_internal/encoding/base64/Base64.hx:950: characters 125-160 : Type not found : stdgo._internal.runtime.debug.Debug
-stdgo/_internal/encoding/base64/Base64.hx:950: characters 125-160 : ... For function argument 'args'
-stdgo/_internal/encoding/gob/Gob.hx:2491: characters 67-85 : stdgo.GoInt should be Null<stdgo.Pointer<stdgo.GoInt>>
-stdgo/_internal/encoding/gob/Gob.hx:2562: characters 18-26 : stdgo._internal.encoding.gob.T1 has no field emptyMap
-stdgo/_internal/encoding/gob/Gob.hx:2825: characters 9-56 : Invalid assign
-stdgo/_internal/encoding/gob/Gob.hx:2845: characters 9-56 : Invalid assign
-stdgo/_internal/encoding/gob/Gob.hx:2948: characters 9-61 : Invalid assign
-stdgo/Go.macro.hx:565: lines 565-567 : stdgo._internal.encoding.gob.T__struct_0 should be stdgo.Ref<stdgo._internal.encoding.gob.T_emptyStruct>
-stdgo/Go.macro.hx:565: lines 565-567 : ... For function argument '_e'
-stdgo/_internal/encoding/gob/Gob.hx:3395: lines 3395-3401 : ... Called from macro here
-stdgo/_internal/encoding/gob/Gob.hx:3480: characters 9-101 : error: stdgo._internal.encoding.gob.T_emptyStruct should be stdgo._internal.encoding.gob.T__struct_0
-stdgo/_internal/encoding/gob/Gob.hx:3480: characters 9-101 : ... have: stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.gob.T_emptyStruct>>
-stdgo/_internal/encoding/gob/Gob.hx:3480: characters 9-101 : ... want: stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.gob.T__struct_0>>
-stdgo/Go.macro.hx:565: lines 565-567 : error: stdgo._internal.encoding.gob.T__struct_0 should be stdgo._internal.encoding.gob.T_emptyStruct
-stdgo/Go.macro.hx:565: lines 565-567 : ... have: stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.gob.T__struct_0>>
-stdgo/Go.macro.hx:565: lines 565-567 : ... want: stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.T_emptyStruct>>
-stdgo/Go.macro.hx:565: lines 565-567 : ... For function argument '_e'
-stdgo/_internal/encoding/gob/Gob.hx:5251: characters 9-66 : Invalid assign
-stdgo/_internal/encoding/gob/Gob.hx:5964: characters 125-132 : Unknown identifier : _intMap
-stdgo/_internal/encoding/gob/Gob.hx:6801: characters 17-43 : Type not found : stdgo._internal.net.Net
-stdgo/_internal/encoding/gob/Gob.hx:6802: characters 193-219 : Type not found : stdgo._internal.net.Net
-stdgo/_internal/encoding/gob/Gob.hx:6802: characters 193-219 : ... For function argument '_e'
-stdgo/_internal/math/big/Big.hx:8958: characters 31-64 : Type not found : stdgo._internal.encoding.xml.Xml_
-stdgo/_internal/math/big/Big.hx:8965: characters 44-77 : Type not found : stdgo._internal.encoding.xml.Xml_
-stdgo/_internal/math/big/Big.hx:11461: characters 31-64 : Type not found : stdgo._internal.encoding.xml.Xml_
-stdgo/_internal/math/big/Big.hx:11468: characters 44-77 : Type not found : stdgo._internal.encoding.xml.Xml_
-stdgo/_internal/image/Image.hx:881: characters 50-93 : Type not found : stdgo._internal.image.color.palette.Palette
-stdgo/_internal/image/Image.hx:881: characters 50-93 : ... For function argument 'args'
-stdgo/_internal/image/Image.hx:887: characters 28-38 : You can't iterate on a Dynamic value, please specify KeyValueIterator or KeyValueIterable
-stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
-stdgo/Go.macro.hx:670: characters 12-33 : Called from here
-stdgo/Go.macro.hx:764: characters 16-40 : Called from here
-stdgo/_internal/image/Image.hx:893: characters 28-80 : ... Called from macro here
-stdgo/Go.macro.hx:776: characters 72-73 : stdgo._internal.internal.reflect._Type should be { kind : () -> stdgo._internal.internal.reflect.KindType, assignableTo : stdgo._internal.internal.reflect._Type_asInterface -> Bool }
-stdgo/Go.macro.hx:776: characters 72-73 : ... stdgo._internal.internal.reflect._Type has no field assignableTo
-stdgo/Go.macro.hx:776: characters 72-73 : ... For function argument 'type'
-stdgo/_internal/image/Image.hx:893: characters 28-80 : ... Called from macro here
-stdgo/_internal/image/Image.hx:894: characters 164-178 : Any has no field __underlying__
-stdgo/_internal/image/Image.hx:894: characters 335-349 : Any has no field __underlying__
-stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
-stdgo/Go.macro.hx:670: characters 12-33 : Called from here
-stdgo/Go.macro.hx:764: characters 16-40 : Called from here
-stdgo/_internal/image/Image.hx:899: characters 28-80 : ... Called from macro here
-stdgo/Go.macro.hx:776: characters 72-73 : stdgo._internal.internal.reflect._Type should be { kind : () -> stdgo._internal.internal.reflect.KindType, assignableTo : stdgo._internal.internal.reflect._Type_asInterface -> Bool }
-stdgo/Go.macro.hx:776: characters 72-73 : ... stdgo._internal.internal.reflect._Type has no field assignableTo
-stdgo/Go.macro.hx:776: characters 72-73 : ... For function argument 'type'
-stdgo/_internal/image/Image.hx:899: characters 28-80 : ... Called from macro here
-stdgo/_internal/image/Image.hx:900: characters 164-178 : Any has no field __underlying__
-stdgo/_internal/image/Image.hx:900: characters 335-349 : Any has no field __underlying__
-stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
-stdgo/Go.macro.hx:670: characters 12-33 : Called from here
-stdgo/Go.macro.hx:764: characters 16-40 : Called from here
-stdgo/_internal/image/Image.hx:902: characters 28-78 : ... Called from macro here
-stdgo/Go.macro.hx:776: characters 72-73 : stdgo._internal.internal.reflect._Type should be { kind : () -> stdgo._internal.internal.reflect.KindType, assignableTo : stdgo._internal.internal.reflect._Type_asInterface -> Bool }
-stdgo/Go.macro.hx:776: characters 72-73 : ... stdgo._internal.internal.reflect._Type has no field assignableTo
-stdgo/Go.macro.hx:776: characters 72-73 : ... For function argument 'type'
-stdgo/_internal/image/Image.hx:902: characters 28-78 : ... Called from macro here
-stdgo/_internal/image/Image.hx:903: characters 160-174 : Any has no field __underlying__
-stdgo/_internal/image/Image.hx:903: characters 327-341 : Any has no field __underlying__
-stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
-stdgo/Go.macro.hx:670: characters 12-33 : Called from here
-stdgo/Go.macro.hx:764: characters 16-40 : Called from here
-stdgo/_internal/image/Image.hx:907: characters 28-71 : ... Called from macro here
-stdgo/Go.macro.hx:776: characters 72-73 : stdgo._internal.internal.reflect._Type should be { kind : () -> stdgo._internal.internal.reflect.KindType, assignableTo : stdgo._internal.internal.reflect._Type_asInterface -> Bool }
-stdgo/Go.macro.hx:776: characters 72-73 : ... stdgo._internal.internal.reflect._Type has no field assignableTo
-stdgo/Go.macro.hx:776: characters 72-73 : ... For function argument 'type'
-stdgo/_internal/image/Image.hx:907: characters 28-71 : ... Called from macro here
-stdgo/_internal/image/Image.hx:908: characters 144-158 : Any has no field __underlying__
-stdgo/_internal/image/Image.hx:908: characters 293-307 : Any has no field __underlying__
-stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
-stdgo/Go.macro.hx:670: characters 12-33 : Called from here
-stdgo/_internal/image/Image.hx:916: characters 46-71 : Called from here
-stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
-stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
-stdgo/Go.macro.hx:670: characters 12-33 : Called from here
-stdgo/_internal/image/Image.hx:916: characters 46-71 : Called from here
-stdgo/Go.macro.hx:1232: characters 7-12 : For function argument 'v'
-stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
-stdgo/Go.macro.hx:705: characters 13-19 : Unknown identifier : TClass
-stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
-stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
-stdgo/Go.macro.hx:670: characters 12-33 : Called from here
-stdgo/_internal/image/Image.hx:916: characters 46-71 : Called from here
-stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
-stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
-stdgo/Go.macro.hx:670: characters 12-33 : Called from here
-stdgo/_internal/image/Image.hx:916: characters 46-71 : Called from here
-stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
-stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
-stdgo/Go.macro.hx:670: characters 12-33 : Called from here
-stdgo/_internal/image/Image.hx:916: characters 46-71 : Called from here
-stdgo/Go.macro.hx:1232: characters 7-12 : For function argument 'value'
-stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
-stdgo/Go.macro.hx:715: lines 715-717 : Void should be stdgo._internal.image.RGBA64Image
-stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
-stdgo/Go.macro.hx:717: lines 717-723 : Void should be stdgo._internal.image.RGBA64Image
-stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
-stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
-stdgo/Go.macro.hx:670: characters 12-33 : Called from here
-stdgo/_internal/image/Image.hx:916: characters 46-71 : Called from here
-stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
-stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
-stdgo/Go.macro.hx:670: characters 12-33 : Called from here
-stdgo/_internal/image/Image.hx:916: characters 46-71 : Called from here
-stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
-stdgo/Go.macro.hx:727: lines 727-729 : Void should be stdgo._internal.image.RGBA64Image
-stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
-stdgo/Go.macro.hx:729: lines 729-738 : Void should be stdgo._internal.image.RGBA64Image
-stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
-stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
-stdgo/Go.macro.hx:670: characters 12-33 : Called from here
-stdgo/_internal/image/Image.hx:921: characters 74-99 : Called from here
-stdgo/Go.macro.hx:1232: characters 7-12 : For function argument 'args'
-stdgo/_internal/image/Image.hx:925: characters 31-33 : Any has no field at
-stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
-stdgo/Go.macro.hx:670: characters 12-33 : Called from here
-stdgo/_internal/image/Image.hx:927: characters 131-156 : Called from here
-stdgo/Go.macro.hx:1232: characters 7-12 : For function argument 'args'
-stdgo/_internal/encoding/json/Json.hx:418: lines 418-425 : stdgo.GoInt64Map<stdgo.GoString> should be stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString>
-stdgo/_internal/encoding/json/Json.hx:418: lines 418-425 : ... For function argument 'args'
-stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/Go.macro.hx:764: characters 16-40)
-stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/Go.macro.hx:764: characters 16-40)
-stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/Go.macro.hx:764: characters 16-40)
-stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/Go.macro.hx:764: characters 16-40)
-stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:916: characters 46-71)
-stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:916: characters 46-71)
-stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:916: characters 46-71)
-stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:916: characters 46-71)
-stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:916: characters 46-71)
-stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:916: characters 46-71)
-stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:916: characters 46-71)
-stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:921: characters 74-99)
-stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:927: characters 131-156)
+# Module: `stdgo.os.exec`
 
+[(view library index)](../../stdgo.md)
+
+
+# Overview
+
+
+# Index
+
+
+- [Variables](<#variables>)
+
+- [`function _addCriticalEnv(_env:stdgo.Slice<stdgo.GoString>):Void`](<#function-_addcriticalenv>)
+
+- [`function _closeDescriptors(_closers:stdgo.Slice<stdgo._internal.io.Closer>):Void`](<#function-_closedescriptors>)
+
+- [`function _dedupEnv(_env:stdgo.Slice<stdgo.GoString>):Void`](<#function-_dedupenv>)
+
+- [`function _dedupEnvCase(_caseInsensitive:Bool, _nulOK:Bool, _env:stdgo.Slice<stdgo.GoString>):Void`](<#function-_dedupenvcase>)
+
+- [`function _interfaceEqual(_a:stdgo.AnyInterface, _b:stdgo.AnyInterface):Void`](<#function-_interfaceequal>)
+
+- [`function _lookExtensions(_path:stdgo.GoString, _dir:stdgo.GoString):Void`](<#function-_lookextensions>)
+
+- [`function _minInt(_a:stdgo.GoInt, _b:stdgo.GoInt):Void`](<#function-_minint>)
+
+- [`function _skipStdinCopyError(_err:stdgo.Error):Void`](<#function-_skipstdincopyerror>)
+
+- [`function benchmarkExecHostname(_b:stdgo.Ref<stdgo._internal.testing.B>):Void`](<#function-benchmarkexechostname>)
+
+- [`function command(_name:stdgo.GoString, _arg:haxe.Rest<stdgo.GoString>):Void`](<#function-command>)
+
+- [`function commandContext(_ctx:stdgo._internal.context.Context, _name:stdgo.GoString, _arg:haxe.Rest<stdgo.GoString>):Void`](<#function-commandcontext>)
+
+- [`function lookPath(_file:stdgo.GoString):Void`](<#function-lookpath>)
+
+- [`function testDedupEnv(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testdedupenv>)
+
+- [`function testLookPathNotFound(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testlookpathnotfound>)
+
+- [`function testPrefixSuffixSaver(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testprefixsuffixsaver>)
+
+- [typedef Cmd](<#typedef-cmd>)
+
+- [typedef Cmd\_asInterface](<#typedef-cmd_asinterface>)
+
+- [typedef Cmd\_static\_extension](<#typedef-cmd_static_extension>)
+
+- [typedef Error](<#typedef-error>)
+
+- [typedef Error\_asInterface](<#typedef-error_asinterface>)
+
+- [typedef Error\_static\_extension](<#typedef-error_static_extension>)
+
+- [typedef ExitError](<#typedef-exiterror>)
+
+- [typedef ExitError\_asInterface](<#typedef-exiterror_asinterface>)
+
+- [typedef ExitError\_static\_extension](<#typedef-exiterror_static_extension>)
+
+- [typedef T\_ctxResult](<#typedef-t_ctxresult>)
+
+- [typedef T\_prefixSuffixSaver](<#typedef-t_prefixsuffixsaver>)
+
+- [typedef T\_prefixSuffixSaver\_asInterface](<#typedef-t_prefixsuffixsaver_asinterface>)
+
+- [typedef T\_prefixSuffixSaver\_static\_extension](<#typedef-t_prefixsuffixsaver_static_extension>)
+
+- [typedef T\_wrappedError](<#typedef-t_wrappederror>)
+
+- [typedef T\_wrappedError\_asInterface](<#typedef-t_wrappederror_asinterface>)
+
+- [typedef T\_wrappedError\_static\_extension](<#typedef-t_wrappederror_static_extension>)
+
+# Variables
+
+
+```haxe
+import stdgo.os.exec.Exec
 ```
+
+
+```haxe
+var __go2hxdoc__package:Dynamic
+```
+
+
+```haxe
+var _execerrdot:Dynamic
+```
+
+
+```haxe
+var _execwait:Dynamic
+```
+
+
+```haxe
+var _nonExistentPaths:Dynamic
+```
+
+
+```haxe
+var errDot:Dynamic
+```
+
+
+```haxe
+var errNotFound:Dynamic
+```
+
+
+```haxe
+var errWaitDelay:Dynamic
+```
+
+
+# Functions
+
+
+```haxe
+import stdgo.os.exec.Exec
+```
+
+
+## function \_addCriticalEnv
+
+
+```haxe
+function _addCriticalEnv(_env:stdgo.Slice<stdgo.GoString>):Void
+```
+
+
+[\(view code\)](<./Exec.hx#L25>)
+
+
+## function \_closeDescriptors
+
+
+```haxe
+function _closeDescriptors(_closers:stdgo.Slice<stdgo._internal.io.Closer>):Void
+```
+
+
+[\(view code\)](<./Exec.hx#L20>)
+
+
+## function \_dedupEnv
+
+
+```haxe
+function _dedupEnv(_env:stdgo.Slice<stdgo.GoString>):Void
+```
+
+
+[\(view code\)](<./Exec.hx#L23>)
+
+
+## function \_dedupEnvCase
+
+
+```haxe
+function _dedupEnvCase(_caseInsensitive:Bool, _nulOK:Bool, _env:stdgo.Slice<stdgo.GoString>):Void
+```
+
+
+[\(view code\)](<./Exec.hx#L24>)
+
+
+## function \_interfaceEqual
+
+
+```haxe
+function _interfaceEqual(_a:stdgo.AnyInterface, _b:stdgo.AnyInterface):Void
+```
+
+
+[\(view code\)](<./Exec.hx#L19>)
+
+
+## function \_lookExtensions
+
+
+```haxe
+function _lookExtensions(_path:stdgo.GoString, _dir:stdgo.GoString):Void
+```
+
+
+[\(view code\)](<./Exec.hx#L21>)
+
+
+## function \_minInt
+
+
+```haxe
+function _minInt(_a:stdgo.GoInt, _b:stdgo.GoInt):Void
+```
+
+
+[\(view code\)](<./Exec.hx#L22>)
+
+
+## function \_skipStdinCopyError
+
+
+```haxe
+function _skipStdinCopyError(_err:stdgo.Error):Void
+```
+
+
+[\(view code\)](<./Exec.hx#L26>)
+
+
+## function benchmarkExecHostname
+
+
+```haxe
+function benchmarkExecHostname(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
+```
+
+
+[\(view code\)](<./Exec.hx#L15>)
+
+
+## function command
+
+
+```haxe
+function command(_name:stdgo.GoString, _arg:haxe.Rest<stdgo.GoString>):Void
+```
+
+
+[\(view code\)](<./Exec.hx#L17>)
+
+
+## function commandContext
+
+
+```haxe
+function commandContext(_ctx:stdgo._internal.context.Context, _name:stdgo.GoString, _arg:haxe.Rest<stdgo.GoString>):Void
+```
+
+
+[\(view code\)](<./Exec.hx#L18>)
+
+
+## function lookPath
+
+
+```haxe
+function lookPath(_file:stdgo.GoString):Void
+```
+
+
+[\(view code\)](<./Exec.hx#L29>)
+
+
+## function testDedupEnv
+
+
+```haxe
+function testDedupEnv(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
+```
+
+
+[\(view code\)](<./Exec.hx#L16>)
+
+
+## function testLookPathNotFound
+
+
+```haxe
+function testLookPathNotFound(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
+```
+
+
+[\(view code\)](<./Exec.hx#L28>)
+
+
+## function testPrefixSuffixSaver
+
+
+```haxe
+function testPrefixSuffixSaver(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
+```
+
+
+[\(view code\)](<./Exec.hx#L27>)
+
+
+# Typedefs
+
+
+```haxe
+import stdgo.os.exec.*
+```
+
+
+## typedef Cmd
+
+
+```haxe
+typedef Cmd = Dynamic;
+```
+
+
+## typedef Cmd\_asInterface
+
+
+```haxe
+typedef Cmd_asInterface = Dynamic;
+```
+
+
+## typedef Cmd\_static\_extension
+
+
+```haxe
+typedef Cmd_static_extension = Dynamic;
+```
+
+
+## typedef Error
+
+
+```haxe
+typedef Error = Dynamic;
+```
+
+
+## typedef Error\_asInterface
+
+
+```haxe
+typedef Error_asInterface = Dynamic;
+```
+
+
+## typedef Error\_static\_extension
+
+
+```haxe
+typedef Error_static_extension = Dynamic;
+```
+
+
+## typedef ExitError
+
+
+```haxe
+typedef ExitError = Dynamic;
+```
+
+
+## typedef ExitError\_asInterface
+
+
+```haxe
+typedef ExitError_asInterface = Dynamic;
+```
+
+
+## typedef ExitError\_static\_extension
+
+
+```haxe
+typedef ExitError_static_extension = Dynamic;
+```
+
+
+## typedef T\_ctxResult
+
+
+```haxe
+typedef T_ctxResult = Dynamic;
+```
+
+
+## typedef T\_prefixSuffixSaver
+
+
+```haxe
+typedef T_prefixSuffixSaver = Dynamic;
+```
+
+
+## typedef T\_prefixSuffixSaver\_asInterface
+
+
+```haxe
+typedef T_prefixSuffixSaver_asInterface = Dynamic;
+```
+
+
+## typedef T\_prefixSuffixSaver\_static\_extension
+
+
+```haxe
+typedef T_prefixSuffixSaver_static_extension = Dynamic;
+```
+
+
+## typedef T\_wrappedError
+
+
+```haxe
+typedef T_wrappedError = Dynamic;
+```
+
+
+## typedef T\_wrappedError\_asInterface
+
+
+```haxe
+typedef T_wrappedError_asInterface = Dynamic;
+```
+
+
+## typedef T\_wrappedError\_static\_extension
+
+
+```haxe
+typedef T_wrappedError_static_extension = Dynamic;
+```
+
 

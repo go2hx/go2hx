@@ -1,14 +1,64 @@
-# Module stdgo.hash has compilation errors, please do not use:
-```
-stdgo/_internal/hash_test/Hash_test.hx:10: characters 16-48 : Type not found : stdgo._internal.hash.crc32.Crc32
-stdgo/_internal/hash_test/Hash_test.hx:13: characters 16-48 : Type not found : stdgo._internal.hash.crc64.Crc64
-stdgo/_internal/hash_test/Hash_test.hx:16: characters 16-44 : Type not found : stdgo._internal.hash.fnv.Fnv
-stdgo/_internal/hash_test/Hash_test.hx:19: characters 16-44 : Type not found : stdgo._internal.hash.fnv.Fnv
-stdgo/_internal/hash_test/Hash_test.hx:22: characters 16-44 : Type not found : stdgo._internal.hash.fnv.Fnv
-stdgo/_internal/hash_test/Hash_test.hx:25: characters 16-44 : Type not found : stdgo._internal.hash.fnv.Fnv
-stdgo/_internal/hash_test/Hash_test.hx:28: characters 16-44 : Type not found : stdgo._internal.hash.fnv.Fnv
-stdgo/_internal/hash_test/Hash_test.hx:31: characters 16-44 : Type not found : stdgo._internal.hash.fnv.Fnv
-stdgo/_internal/hash_test/Hash_test.hx:33: characters 45-75 : Type not found : stdgo._internal.crypto.md5.Md5
+# Module: `stdgo.hash`
 
+[(view library index)](../stdgo.md)
+
+
+# Overview
+
+
+# Index
+
+
+- [Variables](<#variables>)
+
+- [typedef Hash](<#typedef-hash>)
+
+- [typedef Hash32](<#typedef-hash32>)
+
+- [typedef Hash64](<#typedef-hash64>)
+
+# Variables
+
+
+```haxe
+import stdgo.hash.Hash
 ```
+
+
+```haxe
+var __go2hxdoc__package:Dynamic
+```
+
+
+# Typedefs
+
+
+```haxe
+import stdgo.hash.*
+```
+
+
+## typedef Hash
+
+
+```haxe
+typedef Hash = stdgo._internal.hash.Hash;
+```
+
+
+## typedef Hash32
+
+
+```haxe
+typedef Hash32 = stdgo._internal.hash.Hash32;
+```
+
+
+## typedef Hash64
+
+
+```haxe
+typedef Hash64 = stdgo._internal.hash.Hash64;
+```
+
 

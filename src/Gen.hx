@@ -374,6 +374,8 @@ function convertCast(e:Expr, ct:ComplexType):Expr {
 }
 
 function convertComplexType(ct:ComplexType):ComplexType {
+	if (ct == null)
+		return null;
 	switch ct {
 		case TAnonymous(fields):
 			// tuple

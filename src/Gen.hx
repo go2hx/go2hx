@@ -418,7 +418,10 @@ function convertComplexType(ct:ComplexType):ComplexType {
 							throw "Field kind not supported: " + field.kind;
 					}
 				}
-				return TPath({name: "Tuple" + (fields.length == 2 ? "" : ("" + fields.length)), pack: ["stdgo"], params: types});
+				final is2 = fields.length == 2;
+				final name = "Tuple";
+				final sub = is2 ? "" : "Tuple" + fields.length;
+				return TPath({name: name, sub: sub, pack: ["stdgo"], params: types});
 			}else{
 				return TAnonymous([for (field in fields) {
 					switch field.kind {

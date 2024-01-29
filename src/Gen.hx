@@ -160,7 +160,7 @@ function externGen(td:TypeDefinition,path:String):Array<TypeDefinition> {
 			//if (td.name.substring(0,2) == "T_")
 			//	return null;
 			if (isInterface)
-				return [externGenInterface(td)];
+				return [externGenInterface(td, path)];
 			if (isAbstract)
 				return [externGenAbstract(td)];
 			return [externGenClass(td)];
@@ -173,13 +173,16 @@ function externGen(td:TypeDefinition,path:String):Array<TypeDefinition> {
 				case FVar(_, _):
 					externGenVar(td, path);
 				case FFun(f):
+					final access = access.copy();
+					if (access.indexOf(AInline) == -1)
+						access.push(AInline);
 					[{
 						name: td.name,
 						pos: td.pos,
 						pack: td.pack,
 						doc: td.doc,
 						fields: td.fields,
-						kind: TDField(FFun(externGenFun(f)), access),
+						kind: TDField(FFun(externGenFun(f, path)), access),
 					}];
 				case FProp(_, _, _, _):
 					throw "FProp not supported";
@@ -192,8 +195,8 @@ function externGen(td:TypeDefinition,path:String):Array<TypeDefinition> {
 	return [td];
 }
 
-function externGenInterface(td:TypeDefinition):TypeDefinition {
-	td.fields = externGenFields(td.fields);
+function externGenInterface(td:TypeDefinition, path:String):TypeDefinition {
+	td.fields = externGenFields(td.fields, path);
 	return externInvalid(td);
 }
 
@@ -297,30 +300,42 @@ function externGenVar(td:TypeDefinition, path:String):Array<TypeDefinition> {
 	};
 }
 
-function externGenFun(f:Function):Function {
+function removeUnderline(name:String):String {
+	if (name.charAt(0) == "_") {
+		name = name.substring(1);
+		if (Typer.reserved.indexOf(name) != -1)
+			name = "_" + name;
+	}
+	return name;
+}
+
+function externGenFun(f:Function, path:String):Function {
 	final args = f.args.copy();
 	final args = [for (arg in args) {
-		name: arg.name.charAt(0) == arg.name.charAt(0).toLowerCase() ? arg.name.substr(1) : "_" + arg.name,
+		name: removeUnderline(arg.name),
 		type: convertComplexType(arg.type),
 	}];
 	return  {
 		args: args,
 		ret: convertComplexType(f.ret),
-		expr: macro {},
+		expr: macro throw "not implemented",
 		params: f.params,
 	};
 }
 
-function externGenFields(fields:Array<haxe.macro.Expr.Field>):Array<haxe.macro.Expr.Field> {
+function externGenFields(fields:Array<haxe.macro.Expr.Field>, path:String):Array<haxe.macro.Expr.Field> {
 	return [for (field in fields) {
 		switch field.kind {
 			case FFun(f):
+				final access = field.access.copy();
+				if (access.indexOf(AInline) == -1)
+					access.push(AInline);
 				{
 					name: field.name,
-					access: field.access,
+					access: access,
 					pos: field.pos,
 					doc: field.doc,
-					kind: FFun(externGenFun(f)),
+					kind: FFun(externGenFun(f, path)),
 				};
 			default:
 				throw "Field kind not supported: " + field.kind;

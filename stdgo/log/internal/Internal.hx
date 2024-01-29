@@ -1,3 +1,8 @@
 package stdgo.log.internal;
-@:invalid var __go2hxdoc__package : Dynamic;
-@:invalid var defaultOutput : Dynamic;
+/**
+    // Package internal contains definitions used by both log and log/slog.
+**/
+private var __go2hxdoc__package : Bool;
+var defaultOutput(get_defaultOutput, set_defaultOutput) : (_pc:stdgo.GoUIntptr, _data:stdgo.Slice<stdgo.GoByte>) -> stdgo.Error;
+function get_defaultOutput():(_pc:stdgo.GoUIntptr, _data:stdgo.Slice<stdgo.GoByte>) -> stdgo.Error return stdgo._internal.log.internal.Internal.defaultOutput;
+function set_defaultOutput(v:(_pc:stdgo.GoUIntptr, _data:stdgo.Slice<stdgo.GoByte>) -> stdgo.Error):(_pc:stdgo.GoUIntptr, _data:stdgo.Slice<stdgo.GoByte>) -> stdgo.Error return stdgo._internal.log.internal.Internal.defaultOutput = v;

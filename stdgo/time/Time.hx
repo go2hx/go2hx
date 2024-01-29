@@ -1,179 +1,207 @@
 package stdgo.time;
-@:invalid var __go2hxdoc__package : Dynamic;
-@:invalid var _std0x : Dynamic;
-@:invalid var _longDayNames : Dynamic;
-@:invalid var _shortDayNames : Dynamic;
-@:invalid var _shortMonthNames : Dynamic;
-@:invalid var _longMonthNames : Dynamic;
-@:invalid var _errAtoi : Dynamic;
-@:invalid var _errBad : Dynamic;
-@:invalid var _errLeadingInt : Dynamic;
-@:invalid var _unitMap : Dynamic;
-@:invalid var _daysBefore : Dynamic;
-@:invalid var _startNano : Dynamic;
-@:invalid var _utcLoc : Dynamic;
-@:invalid var utc : Dynamic;
-@:invalid var local : Dynamic;
-@:invalid var _errLocation : Dynamic;
-@:invalid var _platformZoneSources : Dynamic;
-@:invalid var _errBadData : Dynamic;
-@:invalid var gorootZoneSource : Dynamic;
-@:invalid var parseTimeZone : Dynamic;
-@:invalid var setMono : Dynamic;
-@:invalid var getMono : Dynamic;
-@:invalid var errLocation : Dynamic;
-@:invalid var readFile : Dynamic;
-@:invalid var loadTzinfo : Dynamic;
-@:invalid var nextStdChunk : Dynamic;
-@:invalid var tzset : Dynamic;
-@:invalid var tzsetName : Dynamic;
-@:invalid var tzsetOffset : Dynamic;
-@:invalid var stdChunkNames : Dynamic;
-@:invalid var quote : Dynamic;
-@:invalid var appendInt : Dynamic;
-@:invalid var appendFormatAny : Dynamic;
-@:invalid var appendFormatRFC3339 : Dynamic;
-@:invalid var parseAny : Dynamic;
-@:invalid var parseRFC3339 : Dynamic;
-@:invalid var _origPlatformZoneSources : Dynamic;
-@:invalid var disablePlatformSources : Dynamic;
-@:invalid var interrupt : Dynamic;
-@:invalid var daysIn : Dynamic;
-@:invalid var minMonoTime : Dynamic;
-@:invalid var maxMonoTime : Dynamic;
-@:invalid var notMonoNegativeTime : Dynamic;
-@:invalid var ruleJulian : Dynamic;
-@:invalid var ruleDOY : Dynamic;
-@:invalid var ruleMonthWeekDay : Dynamic;
-@:invalid var unixToInternal : Dynamic;
-@:invalid var layout : Dynamic;
-@:invalid var ansic : Dynamic;
-@:invalid var unixDate : Dynamic;
-@:invalid var rubyDate : Dynamic;
-@:invalid var rfc822 : Dynamic;
-@:invalid var rfc822z : Dynamic;
-@:invalid var rfc850 : Dynamic;
-@:invalid var rfc1123 : Dynamic;
-@:invalid var rfc1123z : Dynamic;
-@:invalid var rfc3339 : Dynamic;
-@:invalid var rfc3339nano : Dynamic;
-@:invalid var kitchen : Dynamic;
-@:invalid var stamp : Dynamic;
-@:invalid var stampMilli : Dynamic;
-@:invalid var stampMicro : Dynamic;
-@:invalid var stampNano : Dynamic;
-@:invalid var dateTime : Dynamic;
-@:invalid var dateOnly : Dynamic;
-@:invalid var timeOnly : Dynamic;
-@:invalid var __0 : Dynamic;
-@:invalid var _stdLongMonth : Dynamic;
-@:invalid var _stdMonth : Dynamic;
-@:invalid var _stdNumMonth : Dynamic;
-@:invalid var _stdZeroMonth : Dynamic;
-@:invalid var _stdLongWeekDay : Dynamic;
-@:invalid var _stdWeekDay : Dynamic;
-@:invalid var _stdDay : Dynamic;
-@:invalid var _stdUnderDay : Dynamic;
-@:invalid var _stdZeroDay : Dynamic;
-@:invalid var _stdUnderYearDay : Dynamic;
-@:invalid var _stdZeroYearDay : Dynamic;
-@:invalid var _stdHour : Dynamic;
-@:invalid var _stdHour12 : Dynamic;
-@:invalid var _stdZeroHour12 : Dynamic;
-@:invalid var _stdMinute : Dynamic;
-@:invalid var _stdZeroMinute : Dynamic;
-@:invalid var _stdSecond : Dynamic;
-@:invalid var _stdZeroSecond : Dynamic;
-@:invalid var _stdLongYear : Dynamic;
-@:invalid var _stdYear : Dynamic;
-@:invalid var _stdPM : Dynamic;
-@:invalid var _stdpm : Dynamic;
-@:invalid var _stdTZ : Dynamic;
-@:invalid var _stdISO8601TZ : Dynamic;
-@:invalid var _stdISO8601SecondsTZ : Dynamic;
-@:invalid var _stdISO8601ShortTZ : Dynamic;
-@:invalid var _stdISO8601ColonTZ : Dynamic;
-@:invalid var _stdISO8601ColonSecondsTZ : Dynamic;
-@:invalid var _stdNumTZ : Dynamic;
-@:invalid var _stdNumSecondsTz : Dynamic;
-@:invalid var _stdNumShortTZ : Dynamic;
-@:invalid var _stdNumColonTZ : Dynamic;
-@:invalid var _stdNumColonSecondsTZ : Dynamic;
-@:invalid var _stdFracSecond0 : Dynamic;
-@:invalid var _stdFracSecond9 : Dynamic;
-@:invalid var _stdNeedDate : Dynamic;
-@:invalid var _stdNeedClock : Dynamic;
-@:invalid var _stdArgShift : Dynamic;
-@:invalid var _stdSeparatorShift : Dynamic;
-@:invalid var _stdMask : Dynamic;
-@:invalid var _lowerhex : Dynamic;
-@:invalid var _runeSelf : Dynamic;
-@:invalid var _runeError : Dynamic;
-@:invalid var _hasMonotonic : Dynamic;
-@:invalid var _maxWall : Dynamic;
-@:invalid var _minWall : Dynamic;
-@:invalid var _nsecMask : Dynamic;
-@:invalid var _nsecShift : Dynamic;
-@:invalid var january : Dynamic;
-@:invalid var february : Dynamic;
-@:invalid var march : Dynamic;
-@:invalid var april : Dynamic;
-@:invalid var may : Dynamic;
-@:invalid var june : Dynamic;
-@:invalid var july : Dynamic;
-@:invalid var august : Dynamic;
-@:invalid var september : Dynamic;
-@:invalid var october : Dynamic;
-@:invalid var november : Dynamic;
-@:invalid var december : Dynamic;
-@:invalid var sunday : Dynamic;
-@:invalid var monday : Dynamic;
-@:invalid var tuesday : Dynamic;
-@:invalid var wednesday : Dynamic;
-@:invalid var thursday : Dynamic;
-@:invalid var friday : Dynamic;
-@:invalid var saturday : Dynamic;
-@:invalid var _absoluteZeroYear : Dynamic;
-@:invalid var _internalYear : Dynamic;
-@:invalid var _absoluteToInternal : Dynamic;
-@:invalid var _internalToAbsolute : Dynamic;
-@:invalid var _unixToInternal : Dynamic;
-@:invalid var _internalToUnix : Dynamic;
-@:invalid var _wallToInternal : Dynamic;
-@:invalid var _minDuration : Dynamic;
-@:invalid var _maxDuration : Dynamic;
-@:invalid var nanosecond : Dynamic;
-@:invalid var microsecond : Dynamic;
-@:invalid var millisecond : Dynamic;
-@:invalid var second : Dynamic;
-@:invalid var minute : Dynamic;
-@:invalid var hour : Dynamic;
-@:invalid var _secondsPerMinute : Dynamic;
-@:invalid var _secondsPerHour : Dynamic;
-@:invalid var _secondsPerDay : Dynamic;
-@:invalid var _secondsPerWeek : Dynamic;
-@:invalid var _daysPer400Years : Dynamic;
-@:invalid var _daysPer100Years : Dynamic;
-@:invalid var _daysPer4Years : Dynamic;
-@:invalid var _timeBinaryVersionV1 : Dynamic;
-@:invalid var _timeBinaryVersionV2 : Dynamic;
-@:invalid var _alpha : Dynamic;
-@:invalid var _omega : Dynamic;
-@:invalid var _localLoc : Dynamic;
-@:invalid var _localOnce : Dynamic;
-@:invalid var _unnamedFixedZones : Dynamic;
-@:invalid var _unnamedFixedZonesOnce : Dynamic;
-@:invalid var _ruleJulian : Dynamic;
-@:invalid var _ruleDOY : Dynamic;
-@:invalid var _ruleMonthWeekDay : Dynamic;
-@:invalid var _zoneinfo : Dynamic;
-@:invalid var _zoneinfoOnce : Dynamic;
-@:invalid var _loadFromEmbeddedTZData : Dynamic;
-@:invalid var _maxFileSize : Dynamic;
-@:invalid var _seekStart : Dynamic;
-@:invalid var _seekCurrent : Dynamic;
-@:invalid var _seekEnd : Dynamic;
-@:invalid var _loadTzinfoFromTzdata : Dynamic;
+/**
+    // Package time provides functionality for measuring and displaying time.
+    //
+    // The calendrical calculations always assume a Gregorian calendar, with
+    // no leap seconds.
+    //
+    // # Monotonic Clocks
+    //
+    // Operating systems provide both a “wall clock,” which is subject to
+    // changes for clock synchronization, and a “monotonic clock,” which is
+    // not. The general rule is that the wall clock is for telling time and
+    // the monotonic clock is for measuring time. Rather than split the API,
+    // in this package the Time returned by time.Now contains both a wall
+    // clock reading and a monotonic clock reading; later time-telling
+    // operations use the wall clock reading, but later time-measuring
+    // operations, specifically comparisons and subtractions, use the
+    // monotonic clock reading.
+    //
+    // For example, this code always computes a positive elapsed time of
+    // approximately 20 milliseconds, even if the wall clock is changed during
+    // the operation being timed:
+    //
+    //	start := time.Now()
+    //	... operation that takes 20 milliseconds ...
+    //	t := time.Now()
+    //	elapsed := t.Sub(start)
+    //
+    // Other idioms, such as time.Since(start), time.Until(deadline), and
+    // time.Now().Before(deadline), are similarly robust against wall clock
+    // resets.
+    //
+    // The rest of this section gives the precise details of how operations
+    // use monotonic clocks, but understanding those details is not required
+    // to use this package.
+    //
+    // The Time returned by time.Now contains a monotonic clock reading.
+    // If Time t has a monotonic clock reading, t.Add adds the same duration to
+    // both the wall clock and monotonic clock readings to compute the result.
+    // Because t.AddDate(y, m, d), t.Round(d), and t.Truncate(d) are wall time
+    // computations, they always strip any monotonic clock reading from their results.
+    // Because t.In, t.Local, and t.UTC are used for their effect on the interpretation
+    // of the wall time, they also strip any monotonic clock reading from their results.
+    // The canonical way to strip a monotonic clock reading is to use t = t.Round(0).
+    //
+    // If Times t and u both contain monotonic clock readings, the operations
+    // t.After(u), t.Before(u), t.Equal(u), t.Compare(u), and t.Sub(u) are carried out
+    // using the monotonic clock readings alone, ignoring the wall clock
+    // readings. If either t or u contains no monotonic clock reading, these
+    // operations fall back to using the wall clock readings.
+    //
+    // On some systems the monotonic clock will stop if the computer goes to sleep.
+    // On such a system, t.Sub(u) may not accurately reflect the actual
+    // time that passed between t and u.
+    //
+    // Because the monotonic clock reading has no meaning outside
+    // the current process, the serialized forms generated by t.GobEncode,
+    // t.MarshalBinary, t.MarshalJSON, and t.MarshalText omit the monotonic
+    // clock reading, and t.Format provides no format for it. Similarly, the
+    // constructors time.Date, time.Parse, time.ParseInLocation, and time.Unix,
+    // as well as the unmarshalers t.GobDecode, t.UnmarshalBinary.
+    // t.UnmarshalJSON, and t.UnmarshalText always create times with
+    // no monotonic clock reading.
+    //
+    // The monotonic clock reading exists only in Time values. It is not
+    // a part of Duration values or the Unix times returned by t.Unix and
+    // friends.
+    //
+    // Note that the Go == operator compares not just the time instant but
+    // also the Location and the monotonic clock reading. See the
+    // documentation for the Time type for a discussion of equality
+    // testing for Time values.
+    //
+    // For debugging, the result of t.String does include the monotonic
+    // clock reading if present. If t != u because of different monotonic clock readings,
+    // that difference will be visible when printing t.String() and u.String().
+**/
+private var __go2hxdoc__package : Bool;
+var utc(get_utc, set_utc) : stdgo._internal.time.Time.Location;
+function get_utc():stdgo._internal.time.Time.Location return stdgo._internal.time.Time.utc;
+function set_utc(v:stdgo._internal.time.Time.Location):stdgo._internal.time.Time.Location return stdgo._internal.time.Time.utc = v;
+var local(get_local, set_local) : stdgo._internal.time.Time.Location;
+function get_local():stdgo._internal.time.Time.Location return stdgo._internal.time.Time.local;
+function set_local(v:stdgo._internal.time.Time.Location):stdgo._internal.time.Time.Location return stdgo._internal.time.Time.local = v;
+var gorootZoneSource(get_gorootZoneSource, set_gorootZoneSource) : stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : Bool; };
+function get_gorootZoneSource():stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : Bool; } return stdgo._internal.time.Time.gorootZoneSource;
+function set_gorootZoneSource(v:stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : Bool; }):stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : Bool; } return stdgo._internal.time.Time.gorootZoneSource = v;
+var parseTimeZone(get_parseTimeZone, set_parseTimeZone) : stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : Bool; };
+function get_parseTimeZone():stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : Bool; } return stdgo._internal.time.Time.parseTimeZone;
+function set_parseTimeZone(v:stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : Bool; }):stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : Bool; } return stdgo._internal.time.Time.parseTimeZone = v;
+var setMono(get_setMono, set_setMono) : (stdgo.Ref<stdgo._internal.time.Time.Time>, stdgo.GoInt64) -> Void;
+function get_setMono():(stdgo.Ref<stdgo._internal.time.Time.Time>, stdgo.GoInt64) -> Void return stdgo._internal.time.Time.setMono;
+function set_setMono(v:(stdgo.Ref<stdgo._internal.time.Time.Time>, stdgo.GoInt64) -> Void):(stdgo.Ref<stdgo._internal.time.Time.Time>, stdgo.GoInt64) -> Void return stdgo._internal.time.Time.setMono = v;
+var getMono(get_getMono, set_getMono) : stdgo.Ref<stdgo._internal.time.Time.Time> -> stdgo.GoInt64;
+function get_getMono():stdgo.Ref<stdgo._internal.time.Time.Time> -> stdgo.GoInt64 return stdgo._internal.time.Time.getMono;
+function set_getMono(v:stdgo.Ref<stdgo._internal.time.Time.Time> -> stdgo.GoInt64):stdgo.Ref<stdgo._internal.time.Time.Time> -> stdgo.GoInt64 return stdgo._internal.time.Time.getMono = v;
+var errLocation(get_errLocation, set_errLocation) : stdgo.Error;
+function get_errLocation():stdgo.Error return stdgo._internal.time.Time.errLocation;
+function set_errLocation(v:stdgo.Error):stdgo.Error return stdgo._internal.time.Time.errLocation = v;
+var readFile(get_readFile, set_readFile) : stdgo.GoString -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; };
+function get_readFile():stdgo.GoString -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return stdgo._internal.time.Time.readFile;
+function set_readFile(v:stdgo.GoString -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }):stdgo.GoString -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return stdgo._internal.time.Time.readFile = v;
+var loadTzinfo(get_loadTzinfo, set_loadTzinfo) : (stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; };
+function get_loadTzinfo():(stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return stdgo._internal.time.Time.loadTzinfo;
+function set_loadTzinfo(v:(stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }):(stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return stdgo._internal.time.Time.loadTzinfo = v;
+var nextStdChunk(get_nextStdChunk, set_nextStdChunk) : stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoString; };
+function get_nextStdChunk():stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoString; } return stdgo._internal.time.Time.nextStdChunk;
+function set_nextStdChunk(v:stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoString; }):stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoString; } return stdgo._internal.time.Time.nextStdChunk = v;
+var tzset(get_tzset, set_tzset) : (stdgo.GoString, stdgo.GoInt64, stdgo.GoInt64) -> { var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt64; var _3 : stdgo.GoInt64; var _4 : Bool; var _5 : Bool; };
+function get_tzset():(stdgo.GoString, stdgo.GoInt64, stdgo.GoInt64) -> { var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt64; var _3 : stdgo.GoInt64; var _4 : Bool; var _5 : Bool; } return stdgo._internal.time.Time.tzset;
+function set_tzset(v:(stdgo.GoString, stdgo.GoInt64, stdgo.GoInt64) -> { var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt64; var _3 : stdgo.GoInt64; var _4 : Bool; var _5 : Bool; }):(stdgo.GoString, stdgo.GoInt64, stdgo.GoInt64) -> { var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt64; var _3 : stdgo.GoInt64; var _4 : Bool; var _5 : Bool; } return stdgo._internal.time.Time.tzset = v;
+var tzsetName(get_tzsetName, set_tzsetName) : stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; };
+function get_tzsetName():stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } return stdgo._internal.time.Time.tzsetName;
+function set_tzsetName(v:stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; }):stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } return stdgo._internal.time.Time.tzsetName = v;
+var tzsetOffset(get_tzsetOffset, set_tzsetOffset) : stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; };
+function get_tzsetOffset():stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; } return stdgo._internal.time.Time.tzsetOffset;
+function set_tzsetOffset(v:stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; }):stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; } return stdgo._internal.time.Time.tzsetOffset = v;
+var stdChunkNames(get_stdChunkNames, set_stdChunkNames) : stdgo.GoMap<stdgo.GoInt, stdgo.GoString>;
+function get_stdChunkNames():stdgo.GoMap<stdgo.GoInt, stdgo.GoString> return stdgo._internal.time.Time.stdChunkNames;
+function set_stdChunkNames(v:stdgo.GoMap<stdgo.GoInt, stdgo.GoString>):stdgo.GoMap<stdgo.GoInt, stdgo.GoString> return stdgo._internal.time.Time.stdChunkNames = v;
+var quote(get_quote, set_quote) : stdgo.GoString -> stdgo.GoString;
+function get_quote():stdgo.GoString -> stdgo.GoString return stdgo._internal.time.Time.quote;
+function set_quote(v:stdgo.GoString -> stdgo.GoString):stdgo.GoString -> stdgo.GoString return stdgo._internal.time.Time.quote = v;
+var appendInt(get_appendInt, set_appendInt) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt, stdgo.GoInt) -> stdgo.Slice<stdgo.GoUInt8>;
+function get_appendInt():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt, stdgo.GoInt) -> stdgo.Slice<stdgo.GoUInt8> return stdgo._internal.time.Time.appendInt;
+function set_appendInt(v:(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt, stdgo.GoInt) -> stdgo.Slice<stdgo.GoUInt8>):(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt, stdgo.GoInt) -> stdgo.Slice<stdgo.GoUInt8> return stdgo._internal.time.Time.appendInt = v;
+var appendFormatAny(get_appendFormatAny, set_appendFormatAny) : (stdgo._internal.time.Time.Time, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoString) -> stdgo.Slice<stdgo.GoUInt8>;
+function get_appendFormatAny():(stdgo._internal.time.Time.Time, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoString) -> stdgo.Slice<stdgo.GoUInt8> return stdgo._internal.time.Time.appendFormatAny;
+function set_appendFormatAny(v:(stdgo._internal.time.Time.Time, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoString) -> stdgo.Slice<stdgo.GoUInt8>):(stdgo._internal.time.Time.Time, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoString) -> stdgo.Slice<stdgo.GoUInt8> return stdgo._internal.time.Time.appendFormatAny = v;
+var appendFormatRFC3339(get_appendFormatRFC3339, set_appendFormatRFC3339) : (stdgo._internal.time.Time.Time, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.Slice<stdgo.GoUInt8>;
+function get_appendFormatRFC3339():(stdgo._internal.time.Time.Time, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.Slice<stdgo.GoUInt8> return stdgo._internal.time.Time.appendFormatRFC3339;
+function set_appendFormatRFC3339(v:(stdgo._internal.time.Time.Time, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.Slice<stdgo.GoUInt8>):(stdgo._internal.time.Time.Time, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.Slice<stdgo.GoUInt8> return stdgo._internal.time.Time.appendFormatRFC3339 = v;
+var parseAny(get_parseAny, set_parseAny) : (stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time.Location>, stdgo.Ref<stdgo._internal.time.Time.Location>) -> { var _0 : stdgo._internal.time.Time.Time; var _1 : stdgo.Error; };
+function get_parseAny():(stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time.Location>, stdgo.Ref<stdgo._internal.time.Time.Location>) -> { var _0 : stdgo._internal.time.Time.Time; var _1 : stdgo.Error; } return stdgo._internal.time.Time.parseAny;
+function set_parseAny(v:(stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time.Location>, stdgo.Ref<stdgo._internal.time.Time.Location>) -> { var _0 : stdgo._internal.time.Time.Time; var _1 : stdgo.Error; }):(stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time.Location>, stdgo.Ref<stdgo._internal.time.Time.Location>) -> { var _0 : stdgo._internal.time.Time.Time; var _1 : stdgo.Error; } return stdgo._internal.time.Time.parseAny = v;
+var parseRFC3339(get_parseRFC3339, set_parseRFC3339) : (stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time.Location>) -> { var _0 : stdgo._internal.time.Time.Time; var _1 : Bool; };
+function get_parseRFC3339():(stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time.Location>) -> { var _0 : stdgo._internal.time.Time.Time; var _1 : Bool; } return stdgo._internal.time.Time.parseRFC3339;
+function set_parseRFC3339(v:(stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time.Location>) -> { var _0 : stdgo._internal.time.Time.Time; var _1 : Bool; }):(stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time.Location>) -> { var _0 : stdgo._internal.time.Time.Time; var _1 : Bool; } return stdgo._internal.time.Time.parseRFC3339 = v;
+var disablePlatformSources(get_disablePlatformSources, set_disablePlatformSources) : () -> (() -> Void);
+function get_disablePlatformSources():() -> (() -> Void) return stdgo._internal.time.Time.disablePlatformSources;
+function set_disablePlatformSources(v:() -> (() -> Void)):() -> (() -> Void) return stdgo._internal.time.Time.disablePlatformSources = v;
+var interrupt(get_interrupt, set_interrupt) : () -> Void;
+function get_interrupt():() -> Void return stdgo._internal.time.Time.interrupt;
+function set_interrupt(v:() -> Void):() -> Void return stdgo._internal.time.Time.interrupt = v;
+var daysIn(get_daysIn, set_daysIn) : (stdgo._internal.time.Time.Month, stdgo.GoInt) -> stdgo.GoInt;
+function get_daysIn():(stdgo._internal.time.Time.Month, stdgo.GoInt) -> stdgo.GoInt return stdgo._internal.time.Time.daysIn;
+function set_daysIn(v:(stdgo._internal.time.Time.Month, stdgo.GoInt) -> stdgo.GoInt):(stdgo._internal.time.Time.Month, stdgo.GoInt) -> stdgo.GoInt return stdgo._internal.time.Time.daysIn = v;
+var minMonoTime(get_minMonoTime, set_minMonoTime) : stdgo._internal.time.Time.Time;
+function get_minMonoTime():stdgo._internal.time.Time.Time return stdgo._internal.time.Time.minMonoTime;
+function set_minMonoTime(v:stdgo._internal.time.Time.Time):stdgo._internal.time.Time.Time return stdgo._internal.time.Time.minMonoTime = v;
+var maxMonoTime(get_maxMonoTime, set_maxMonoTime) : stdgo._internal.time.Time.Time;
+function get_maxMonoTime():stdgo._internal.time.Time.Time return stdgo._internal.time.Time.maxMonoTime;
+function set_maxMonoTime(v:stdgo._internal.time.Time.Time):stdgo._internal.time.Time.Time return stdgo._internal.time.Time.maxMonoTime = v;
+var notMonoNegativeTime(get_notMonoNegativeTime, set_notMonoNegativeTime) : stdgo._internal.time.Time.Time;
+function get_notMonoNegativeTime():stdgo._internal.time.Time.Time return stdgo._internal.time.Time.notMonoNegativeTime;
+function set_notMonoNegativeTime(v:stdgo._internal.time.Time.Time):stdgo._internal.time.Time.Time return stdgo._internal.time.Time.notMonoNegativeTime = v;
+final ruleJulian : stdgo._internal.time.Time.RuleKind = stdgo._internal.time.Time.ruleJulian;
+final ruleDOY : stdgo._internal.time.Time.RuleKind = stdgo._internal.time.Time.ruleDOY;
+final ruleMonthWeekDay : stdgo._internal.time.Time.RuleKind = stdgo._internal.time.Time.ruleMonthWeekDay;
+final unixToInternal : haxe.Int64 = stdgo._internal.time.Time.unixToInternal;
+final layout : String = stdgo._internal.time.Time.layout;
+final ansic : String = stdgo._internal.time.Time.ansic;
+final unixDate : String = stdgo._internal.time.Time.unixDate;
+final rubyDate : String = stdgo._internal.time.Time.rubyDate;
+final rfc822 : String = stdgo._internal.time.Time.rfc822;
+final rfc822z : String = stdgo._internal.time.Time.rfc822z;
+final rfc850 : String = stdgo._internal.time.Time.rfc850;
+final rfc1123 : String = stdgo._internal.time.Time.rfc1123;
+final rfc1123z : String = stdgo._internal.time.Time.rfc1123z;
+final rfc3339 : String = stdgo._internal.time.Time.rfc3339;
+final rfc3339nano : String = stdgo._internal.time.Time.rfc3339nano;
+final kitchen : String = stdgo._internal.time.Time.kitchen;
+final stamp : String = stdgo._internal.time.Time.stamp;
+final stampMilli : String = stdgo._internal.time.Time.stampMilli;
+final stampMicro : String = stdgo._internal.time.Time.stampMicro;
+final stampNano : String = stdgo._internal.time.Time.stampNano;
+final dateTime : String = stdgo._internal.time.Time.dateTime;
+final dateOnly : String = stdgo._internal.time.Time.dateOnly;
+final timeOnly : String = stdgo._internal.time.Time.timeOnly;
+final january : stdgo._internal.time.Time.Month = stdgo._internal.time.Time.january;
+final february = stdgo._internal.time.Time.february;
+final march = stdgo._internal.time.Time.march;
+final april = stdgo._internal.time.Time.april;
+final may = stdgo._internal.time.Time.may;
+final june = stdgo._internal.time.Time.june;
+final july = stdgo._internal.time.Time.july;
+final august = stdgo._internal.time.Time.august;
+final september = stdgo._internal.time.Time.september;
+final october = stdgo._internal.time.Time.october;
+final november = stdgo._internal.time.Time.november;
+final december = stdgo._internal.time.Time.december;
+final sunday : stdgo._internal.time.Time.Weekday = stdgo._internal.time.Time.sunday;
+final monday = stdgo._internal.time.Time.monday;
+final tuesday = stdgo._internal.time.Time.tuesday;
+final wednesday = stdgo._internal.time.Time.wednesday;
+final thursday = stdgo._internal.time.Time.thursday;
+final friday = stdgo._internal.time.Time.friday;
+final saturday = stdgo._internal.time.Time.saturday;
+final nanosecond : stdgo._internal.time.Time.Duration = stdgo._internal.time.Time.nanosecond;
+final microsecond : stdgo._internal.time.Time.Duration = stdgo._internal.time.Time.microsecond;
+final millisecond : stdgo._internal.time.Time.Duration = stdgo._internal.time.Time.millisecond;
+final second : stdgo._internal.time.Time.Duration = stdgo._internal.time.Time.second;
+final minute : stdgo._internal.time.Time.Duration = stdgo._internal.time.Time.minute;
+final hour : stdgo._internal.time.Time.Duration = stdgo._internal.time.Time.hour;
 @:invalid typedef Rule = Dynamic;
 @:invalid typedef ParseError = Dynamic;
 @:invalid typedef T_runtimeTimer = Dynamic;
@@ -191,110 +219,206 @@ typedef Weekday = stdgo._internal.time.Time.Weekday;
 typedef Duration = stdgo._internal.time.Time.Duration;
 typedef T_ruleKind = stdgo._internal.time.Time.T_ruleKind;
 typedef T_fileSizeError = stdgo._internal.time.Time.T_fileSizeError;
-function resetLocalOnceForTest():Void {}
-function forceUSPacificForTesting():Void {}
-function zoneinfoForTesting():Void {}
-function resetZoneinfoForTesting():Void {}
-function loadFromEmbeddedTZData(_zone:stdgo.GoString):Void {}
-function tzsetRule(_s:stdgo.GoString):Void {}
-function _startsWithLowerCase(_str:stdgo.GoString):Void {}
-function _nextStdChunk(_layout:stdgo.GoString):Void {}
-function _match(_s1:stdgo.GoString, _s2:stdgo.GoString):Void {}
-function _lookup(_tab:stdgo.Slice<stdgo.GoString>, _val:stdgo.GoString):Void {}
-function _appendInt(_b:stdgo.Slice<stdgo.GoByte>, _x:stdgo.GoInt, _width:stdgo.GoInt):Void {}
-macro function _atoi<T_bytes>(__generic__0:haxe.macro.Expr.ExprOf<T_bytes>, _s:haxe.macro.Expr.ExprOf<T_bytes>):Void {}
-function _stdFracSecond(_code:stdgo.GoInt, _n:stdgo.GoInt, _c:stdgo.GoInt):Void {}
-function _digitsLen(_std:stdgo.GoInt):Void {}
-function _separator(_std:stdgo.GoInt):Void {}
-function _appendNano(_b:stdgo.Slice<stdgo.GoByte>, _nanosec:stdgo.GoInt, _std:stdgo.GoInt):Void {}
-function _newParseError(_layout:stdgo.GoString, _value:stdgo.GoString, _layoutElem:stdgo.GoString, _valueElem:stdgo.GoString, _message:stdgo.GoString):Void {}
-function _cloneString(_s:stdgo.GoString):Void {}
-function _quote(_s:stdgo.GoString):Void {}
-macro function _isDigit<T_bytes>(__generic__0:haxe.macro.Expr.ExprOf<T_bytes>, _s:haxe.macro.Expr.ExprOf<T_bytes>, _i:haxe.macro.Expr.ExprOf<stdgo.GoInt>):Void {}
-function _getnum(_s:stdgo.GoString, _fixed:Bool):Void {}
-function _getnum3(_s:stdgo.GoString, _fixed:Bool):Void {}
-function _cutspace(_s:stdgo.GoString):Void {}
-function _skip(_value:stdgo.GoString, _prefix:stdgo.GoString):Void {}
-function parse(_layout:stdgo.GoString, _value:stdgo.GoString):Void {}
-function parseInLocation(_layout:stdgo.GoString, _value:stdgo.GoString, _loc:stdgo.Ref<Location>):Void {}
-function _parse(_layout:stdgo.GoString, _value:stdgo.GoString, _defaultLocation:stdgo.Ref<Location>, _local:stdgo.Ref<Location>):Void {}
-function _parseTimeZone(_value:stdgo.GoString):Void {}
-function _parseGMT(_value:stdgo.GoString):Void {}
-function _parseSignedOffset(_value:stdgo.GoString):Void {}
-function _commaOrPeriod(_b:stdgo.GoByte):Void {}
-macro function _parseNanoseconds<T_bytes>(__generic__0:haxe.macro.Expr.ExprOf<T_bytes>, _value:haxe.macro.Expr.ExprOf<T_bytes>, _nbytes:haxe.macro.Expr.ExprOf<stdgo.GoInt>):Void {}
-macro function _leadingInt<T_bytes>(__generic__0:haxe.macro.Expr.ExprOf<T_bytes>, _s:haxe.macro.Expr.ExprOf<T_bytes>):Void {}
-function _leadingFraction(_s:stdgo.GoString):Void {}
-function parseDuration(_s:stdgo.GoString):Void {}
-macro function _parseRFC3339<T_bytes>(__generic__0:haxe.macro.Expr.ExprOf<T_bytes>, _s:haxe.macro.Expr.ExprOf<T_bytes>, _local:haxe.macro.Expr.ExprOf<stdgo.Ref<Location>>):Void {}
-function _parseStrictRFC3339(_b:stdgo.Slice<stdgo.GoByte>):Void {}
-function _initTestingZone():Void {}
-function _disablePlatformSources():Void {}
-function _empty(_arg:stdgo.AnyInterface, _seq:stdgo.GoUIntptr):Void {}
-function checkRuntimeTimerPeriodOverflow():Void {}
-function sleep(_d:Duration):Void {}
-function _when(_d:Duration):Void {}
-function _startTimer(_0:stdgo.Ref<T_runtimeTimer>):Void {}
-function _stopTimer(_0:stdgo.Ref<T_runtimeTimer>):Void {}
-function _resetTimer(_0:stdgo.Ref<T_runtimeTimer>, _1:stdgo.GoInt64):Void {}
-function _modTimer(_t:stdgo.Ref<T_runtimeTimer>, _when:stdgo.GoInt64, _period:stdgo.GoInt64, _f:(stdgo.AnyInterface, stdgo.GoUIntptr) -> Void, _arg:stdgo.AnyInterface, _seq:stdgo.GoUIntptr):Void {}
-function newTimer(_d:Duration):Void {}
-function _sendTime(_c:stdgo.AnyInterface, _seq:stdgo.GoUIntptr):Void {}
-function after(_d:Duration):Void {}
-function afterFunc(_d:Duration, _f:() -> Void):Void {}
-function _goFunc(_arg:stdgo.AnyInterface, _seq:stdgo.GoUIntptr):Void {}
-function _interrupt():Void {}
-function _open(_name:stdgo.GoString):Void {}
-function _read(_fd:stdgo.GoUIntptr, _buf:stdgo.Slice<stdgo.GoByte>):Void {}
-function _closefd(_fd:stdgo.GoUIntptr):Void {}
-function _preadn(_fd:stdgo.GoUIntptr, _buf:stdgo.Slice<stdgo.GoByte>, _off:stdgo.GoInt):Void {}
-function newTicker(_d:Duration):Void {}
-function tick(_d:Duration):Void {}
-function _absWeekday(_abs:stdgo.GoUInt64):Void {}
-function _absClock(_abs:stdgo.GoUInt64):Void {}
-function _fmtFrac(_buf:stdgo.Slice<stdgo.GoByte>, _v:stdgo.GoUInt64, _prec:stdgo.GoInt):Void {}
-function _fmtInt(_buf:stdgo.Slice<stdgo.GoByte>, _v:stdgo.GoUInt64):Void {}
-function _lessThanHalf(_x:Duration, _y:Duration):Void {}
-function since(_t:Time):Void {}
-function until(_t:Time):Void {}
-function _absDate(_abs:stdgo.GoUInt64, _full:Bool):Void {}
-function _daysIn(_m:Month, _year:stdgo.GoInt):Void {}
-function _daysSinceEpoch(_year:stdgo.GoInt):Void {}
-function _now():Void {}
-function _runtimeNano():Void {}
-function now():Void {}
-function _unixTime(_sec:stdgo.GoInt64, _nsec:stdgo.GoInt32):Void {}
-function unix(_sec:stdgo.GoInt64, _nsec:stdgo.GoInt64):Void {}
-function unixMilli(_msec:stdgo.GoInt64):Void {}
-function unixMicro(_usec:stdgo.GoInt64):Void {}
-function _isLeap(_year:stdgo.GoInt):Void {}
-function _norm(_hi:stdgo.GoInt, _lo:stdgo.GoInt, _base:stdgo.GoInt):Void {}
-function date(_year:stdgo.GoInt, _month:Month, _day:stdgo.GoInt, _hour:stdgo.GoInt, _min:stdgo.GoInt, _sec:stdgo.GoInt, _nsec:stdgo.GoInt, _loc:stdgo.Ref<Location>):Void {}
-function _div(_t:Time, _d:Duration):Void {}
-function fixedZone(_name:stdgo.GoString, _offset:stdgo.GoInt):Void {}
-function _fixedZone(_name:stdgo.GoString, _offset:stdgo.GoInt):Void {}
-function _tzset(_s:stdgo.GoString, _lastTxSec:stdgo.GoInt64, _sec:stdgo.GoInt64):Void {}
-function _tzsetName(_s:stdgo.GoString):Void {}
-function _tzsetOffset(_s:stdgo.GoString):Void {}
-function _tzsetRule(_s:stdgo.GoString):Void {}
-function _tzsetNum(_s:stdgo.GoString, _min:stdgo.GoInt, _max:stdgo.GoInt):Void {}
-function _tzruleTime(_year:stdgo.GoInt, _r:T_rule, _off:stdgo.GoInt):Void {}
-function loadLocation(_name:stdgo.GoString):Void {}
-function _containsDotDot(_s:stdgo.GoString):Void {}
-function _gorootZoneSource(_goroot:stdgo.GoString):Void {}
-function _initLocal():Void {}
-function _registerLoadFromEmbeddedTZData(_f:stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.Error; }):Void {}
-function _byteString(_p:stdgo.Slice<stdgo.GoByte>):Void {}
-function loadLocationFromTZData(_name:stdgo.GoString, _data:stdgo.Slice<stdgo.GoByte>):Void {}
-function _findZone(_zones:stdgo.Slice<T_zone>, _name:stdgo.GoString, _offset:stdgo.GoInt, _isDST:Bool):Void {}
-function _loadTzinfoFromDirOrZip(_dir:stdgo.GoString, _name:stdgo.GoString):Void {}
-function _get4(_b:stdgo.Slice<stdgo.GoByte>):Void {}
-function _get2(_b:stdgo.Slice<stdgo.GoByte>):Void {}
-function _loadTzinfoFromZip(_zipfile:stdgo.GoString, _name:stdgo.GoString):Void {}
-function _loadTzinfo(_name:stdgo.GoString, _source:stdgo.GoString):Void {}
-function _loadLocation(_name:stdgo.GoString, _sources:stdgo.Slice<stdgo.GoString>):Void {}
-function _readFile(_name:stdgo.GoString):Void {}
-@:invalid var _ : Dynamic;
+inline function resetLocalOnceForTest():Void throw "not implemented";
+inline function forceUSPacificForTesting():Void throw "not implemented";
+inline function zoneinfoForTesting():stdgo.Pointer<String> throw "not implemented";
+inline function resetZoneinfoForTesting():Void throw "not implemented";
+inline function loadFromEmbeddedTZData(zone:String):stdgo.Tuple.<String, stdgo.Error> throw "not implemented";
+inline function tzsetRule(s:String):stdgo.Tuple.Tuple3<Rule, String, Bool> throw "not implemented";
+/**
+    // Parse parses a formatted string and returns the time value it represents.
+    // See the documentation for the constant called Layout to see how to
+    // represent the format. The second argument must be parseable using
+    // the format string (layout) provided as the first argument.
+    //
+    // The example for Time.Format demonstrates the working of the layout string
+    // in detail and is a good reference.
+    //
+    // When parsing (only), the input may contain a fractional second
+    // field immediately after the seconds field, even if the layout does not
+    // signify its presence. In that case either a comma or a decimal point
+    // followed by a maximal series of digits is parsed as a fractional second.
+    // Fractional seconds are truncated to nanosecond precision.
+    //
+    // Elements omitted from the layout are assumed to be zero or, when
+    // zero is impossible, one, so parsing "3:04pm" returns the time
+    // corresponding to Jan 1, year 0, 15:04:00 UTC (note that because the year is
+    // 0, this time is before the zero Time).
+    // Years must be in the range 0000..9999. The day of the week is checked
+    // for syntax but it is otherwise ignored.
+    //
+    // For layouts specifying the two-digit year 06, a value NN >= 69 will be treated
+    // as 19NN and a value NN < 69 will be treated as 20NN.
+    //
+    // The remainder of this comment describes the handling of time zones.
+    //
+    // In the absence of a time zone indicator, Parse returns a time in UTC.
+    //
+    // When parsing a time with a zone offset like -0700, if the offset corresponds
+    // to a time zone used by the current location (Local), then Parse uses that
+    // location and zone in the returned time. Otherwise it records the time as
+    // being in a fabricated location with time fixed at the given zone offset.
+    //
+    // When parsing a time with a zone abbreviation like MST, if the zone abbreviation
+    // has a defined offset in the current location, then that offset is used.
+    // The zone abbreviation "UTC" is recognized as UTC regardless of location.
+    // If the zone abbreviation is unknown, Parse records the time as being
+    // in a fabricated location with the given zone abbreviation and a zero offset.
+    // This choice means that such a time can be parsed and reformatted with the
+    // same layout losslessly, but the exact instant used in the representation will
+    // differ by the actual zone offset. To avoid such problems, prefer time layouts
+    // that use a numeric zone offset, or use ParseInLocation.
+**/
+inline function parse(layout:String, value:String):stdgo.Tuple.<Time, stdgo.Error> throw "not implemented";
+/**
+    // ParseInLocation is like Parse but differs in two important ways.
+    // First, in the absence of time zone information, Parse interprets a time as UTC;
+    // ParseInLocation interprets the time as in the given location.
+    // Second, when given a zone offset or abbreviation, Parse tries to match it
+    // against the Local location; ParseInLocation uses the given location.
+**/
+inline function parseInLocation(layout:String, value:String, loc:Location):stdgo.Tuple.<Time, stdgo.Error> throw "not implemented";
+/**
+    // ParseDuration parses a duration string.
+    // A duration string is a possibly signed sequence of
+    // decimal numbers, each with optional fraction and a unit suffix,
+    // such as "300ms", "-1.5h" or "2h45m".
+    // Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h".
+**/
+inline function parseDuration(s:String):stdgo.Tuple.<Duration, stdgo.Error> throw "not implemented";
+/**
+    // Test that a runtimeTimer with a period that would overflow when on
+    // expiration does not throw or cause other timers to hang.
+    //
+    // This test has to be in internal_test.go since it fiddles with
+    // unexported data structures.
+**/
+inline function checkRuntimeTimerPeriodOverflow():Void throw "not implemented";
+/**
+    // Sleep pauses the current goroutine for at least the duration d.
+    // A negative or zero duration causes Sleep to return immediately.
+**/
+inline function sleep(d:Duration):Void throw "not implemented";
+/**
+    // NewTimer creates a new Timer that will send
+    // the current time on its channel after at least duration d.
+**/
+inline function newTimer(d:Duration):Timer throw "not implemented";
+/**
+    // After waits for the duration to elapse and then sends the current time
+    // on the returned channel.
+    // It is equivalent to NewTimer(d).C.
+    // The underlying Timer is not recovered by the garbage collector
+    // until the timer fires. If efficiency is a concern, use NewTimer
+    // instead and call Timer.Stop if the timer is no longer needed.
+**/
+inline function after(d:Duration):stdgo.Chan<Time> throw "not implemented";
+/**
+    // AfterFunc waits for the duration to elapse and then calls f
+    // in its own goroutine. It returns a Timer that can
+    // be used to cancel the call using its Stop method.
+**/
+inline function afterFunc(d:Duration, f:() -> Void):Timer throw "not implemented";
+/**
+    // NewTicker returns a new Ticker containing a channel that will send
+    // the current time on the channel after each tick. The period of the
+    // ticks is specified by the duration argument. The ticker will adjust
+    // the time interval or drop ticks to make up for slow receivers.
+    // The duration d must be greater than zero; if not, NewTicker will
+    // panic. Stop the ticker to release associated resources.
+**/
+inline function newTicker(d:Duration):Ticker throw "not implemented";
+/**
+    // Tick is a convenience wrapper for NewTicker providing access to the ticking
+    // channel only. While Tick is useful for clients that have no need to shut down
+    // the Ticker, be aware that without a way to shut it down the underlying
+    // Ticker cannot be recovered by the garbage collector; it "leaks".
+    // Unlike NewTicker, Tick will return nil if d <= 0.
+**/
+inline function tick(d:Duration):stdgo.Chan<Time> throw "not implemented";
+/**
+    // Since returns the time elapsed since t.
+    // It is shorthand for time.Now().Sub(t).
+**/
+inline function since(t:Time):Duration throw "not implemented";
+/**
+    // Until returns the duration until t.
+    // It is shorthand for t.Sub(time.Now()).
+**/
+inline function until(t:Time):Duration throw "not implemented";
+/**
+    // Now returns the current local time.
+**/
+inline function now():Time throw "not implemented";
+/**
+    // Unix returns the local Time corresponding to the given Unix time,
+    // sec seconds and nsec nanoseconds since January 1, 1970 UTC.
+    // It is valid to pass nsec outside the range [0, 999999999].
+    // Not all sec values have a corresponding time value. One such
+    // value is 1<<63-1 (the largest int64 value).
+**/
+inline function unix(sec:haxe.Int64, nsec:haxe.Int64):Time throw "not implemented";
+/**
+    // UnixMilli returns the local Time corresponding to the given Unix time,
+    // msec milliseconds since January 1, 1970 UTC.
+**/
+inline function unixMilli(msec:haxe.Int64):Time throw "not implemented";
+/**
+    // UnixMicro returns the local Time corresponding to the given Unix time,
+    // usec microseconds since January 1, 1970 UTC.
+**/
+inline function unixMicro(usec:haxe.Int64):Time throw "not implemented";
+/**
+    // Date returns the Time corresponding to
+    //
+    //	yyyy-mm-dd hh:mm:ss + nsec nanoseconds
+    //
+    // in the appropriate zone for that time in the given location.
+    //
+    // The month, day, hour, min, sec, and nsec values may be outside
+    // their usual ranges and will be normalized during the conversion.
+    // For example, October 32 converts to November 1.
+    //
+    // A daylight savings time transition skips or repeats times.
+    // For example, in the United States, March 13, 2011 2:15am never occurred,
+    // while November 6, 2011 1:15am occurred twice. In such cases, the
+    // choice of time zone, and therefore the time, is not well-defined.
+    // Date returns a time that is correct in one of the two zones involved
+    // in the transition, but it does not guarantee which.
+    //
+    // Date panics if loc is nil.
+**/
+inline function date(year:Int, month:Month, day:Int, hour:Int, min:Int, sec:Int, nsec:Int, loc:Location):Time throw "not implemented";
+/**
+    // FixedZone returns a Location that always uses
+    // the given zone name and offset (seconds east of UTC).
+**/
+inline function fixedZone(name:String, offset:Int):Location throw "not implemented";
+/**
+    // LoadLocation returns the Location with the given name.
+    //
+    // If the name is "" or "UTC", LoadLocation returns UTC.
+    // If the name is "Local", LoadLocation returns Local.
+    //
+    // Otherwise, the name is taken to be a location name corresponding to a file
+    // in the IANA Time Zone database, such as "America/New_York".
+    //
+    // LoadLocation looks for the IANA Time Zone database in the following
+    // locations in order:
+    //
+    //   - the directory or uncompressed zip file named by the ZONEINFO environment variable
+    //   - on a Unix system, the system standard installation location
+    //   - $GOROOT/lib/time/zoneinfo.zip
+    //   - the time/tzdata package, if it was imported
+**/
+inline function loadLocation(name:String):stdgo.Tuple.<Location, stdgo.Error> throw "not implemented";
+/**
+    // LoadLocationFromTZData returns a Location with the given name
+    // initialized from the IANA Time Zone database-formatted data.
+    // The data should be in the format of a standard IANA time zone file
+    // (for example, the content of /etc/localtime on Unix systems).
+**/
+inline function loadLocationFromTZData(name:String, data:Array<Int>):stdgo.Tuple.<Location, stdgo.Error> throw "not implemented";
 @:invalid typedef ParseError_asInterface = Dynamic;
 @:invalid typedef ParseError_static_extension = Dynamic;
 @:invalid typedef Timer_asInterface = Dynamic;

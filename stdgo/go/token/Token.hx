@@ -1,102 +1,95 @@
 package stdgo.go.token;
-@:invalid var __go2hxdoc__package : Dynamic;
-@:invalid var _tokens : Dynamic;
-@:invalid var _tests : Dynamic;
-@:invalid var noPos : Dynamic;
-@:invalid var illegal : Dynamic;
-@:invalid var eof : Dynamic;
-@:invalid var comment : Dynamic;
-@:invalid var _literal_beg : Dynamic;
-@:invalid var ident : Dynamic;
-@:invalid var int_ : Dynamic;
-@:invalid var float_ : Dynamic;
-@:invalid var imag : Dynamic;
-@:invalid var char : Dynamic;
-@:invalid var string : Dynamic;
-@:invalid var _literal_end : Dynamic;
-@:invalid var _operator_beg : Dynamic;
-@:invalid var add : Dynamic;
-@:invalid var sub : Dynamic;
-@:invalid var mul : Dynamic;
-@:invalid var quo : Dynamic;
-@:invalid var rem : Dynamic;
-@:invalid var and : Dynamic;
-@:invalid var or : Dynamic;
-@:invalid var xor : Dynamic;
-@:invalid var shl : Dynamic;
-@:invalid var shr : Dynamic;
-@:invalid var and_NOT : Dynamic;
-@:invalid var add_ASSIGN : Dynamic;
-@:invalid var sub_ASSIGN : Dynamic;
-@:invalid var mul_ASSIGN : Dynamic;
-@:invalid var quo_ASSIGN : Dynamic;
-@:invalid var rem_ASSIGN : Dynamic;
-@:invalid var and_ASSIGN : Dynamic;
-@:invalid var or_ASSIGN : Dynamic;
-@:invalid var xor_ASSIGN : Dynamic;
-@:invalid var shl_ASSIGN : Dynamic;
-@:invalid var shr_ASSIGN : Dynamic;
-@:invalid var and_NOT_ASSIGN : Dynamic;
-@:invalid var land : Dynamic;
-@:invalid var lor : Dynamic;
-@:invalid var arrow : Dynamic;
-@:invalid var inc : Dynamic;
-@:invalid var dec : Dynamic;
-@:invalid var eql : Dynamic;
-@:invalid var lss : Dynamic;
-@:invalid var gtr : Dynamic;
-@:invalid var assign : Dynamic;
-@:invalid var not : Dynamic;
-@:invalid var neq : Dynamic;
-@:invalid var leq : Dynamic;
-@:invalid var geq : Dynamic;
-@:invalid var define : Dynamic;
-@:invalid var ellipsis : Dynamic;
-@:invalid var lparen : Dynamic;
-@:invalid var lbrack : Dynamic;
-@:invalid var lbrace : Dynamic;
-@:invalid var comma : Dynamic;
-@:invalid var period : Dynamic;
-@:invalid var rparen : Dynamic;
-@:invalid var rbrack : Dynamic;
-@:invalid var rbrace : Dynamic;
-@:invalid var semicolon : Dynamic;
-@:invalid var colon : Dynamic;
-@:invalid var _operator_end : Dynamic;
-@:invalid var _keyword_beg : Dynamic;
-@:invalid var break_ : Dynamic;
-@:invalid var case_ : Dynamic;
-@:invalid var chan : Dynamic;
-@:invalid var const : Dynamic;
-@:invalid var continue_ : Dynamic;
-@:invalid var default_ : Dynamic;
-@:invalid var defer : Dynamic;
-@:invalid var else_ : Dynamic;
-@:invalid var fallthrough : Dynamic;
-@:invalid var for_ : Dynamic;
-@:invalid var func : Dynamic;
-@:invalid var go : Dynamic;
-@:invalid var goto : Dynamic;
-@:invalid var if_ : Dynamic;
-@:invalid var import_ : Dynamic;
-@:invalid var interface_ : Dynamic;
-@:invalid var map_ : Dynamic;
-@:invalid var package_ : Dynamic;
-@:invalid var range : Dynamic;
-@:invalid var return_ : Dynamic;
-@:invalid var select : Dynamic;
-@:invalid var struct_ : Dynamic;
-@:invalid var switch_ : Dynamic;
-@:invalid var type : Dynamic;
-@:invalid var var_ : Dynamic;
-@:invalid var _keyword_end : Dynamic;
-@:invalid var _additional_beg : Dynamic;
-@:invalid var tilde : Dynamic;
-@:invalid var _additional_end : Dynamic;
-@:invalid var lowestPrec : Dynamic;
-@:invalid var unaryPrec : Dynamic;
-@:invalid var highestPrec : Dynamic;
-@:invalid var _keywords : Dynamic;
+/**
+    // Package token defines constants representing the lexical tokens of the Go
+    // programming language and basic operations on tokens (printing, predicates).
+**/
+private var __go2hxdoc__package : Bool;
+final noPos : stdgo._internal.go.token.Token.Pos = stdgo._internal.go.token.Token.noPos;
+final illegal : stdgo._internal.go.token.Token.Token = stdgo._internal.go.token.Token.illegal;
+final eof = stdgo._internal.go.token.Token.eof;
+final comment = stdgo._internal.go.token.Token.comment;
+final ident = stdgo._internal.go.token.Token.ident;
+final int_ = stdgo._internal.go.token.Token.int_;
+final float_ = stdgo._internal.go.token.Token.float_;
+final imag = stdgo._internal.go.token.Token.imag;
+final char = stdgo._internal.go.token.Token.char;
+final string = stdgo._internal.go.token.Token.string;
+final add = stdgo._internal.go.token.Token.add;
+final sub = stdgo._internal.go.token.Token.sub;
+final mul = stdgo._internal.go.token.Token.mul;
+final quo = stdgo._internal.go.token.Token.quo;
+final rem = stdgo._internal.go.token.Token.rem;
+final and = stdgo._internal.go.token.Token.and;
+final or = stdgo._internal.go.token.Token.or;
+final xor = stdgo._internal.go.token.Token.xor;
+final shl = stdgo._internal.go.token.Token.shl;
+final shr = stdgo._internal.go.token.Token.shr;
+final and_NOT = stdgo._internal.go.token.Token.and_NOT;
+final add_ASSIGN = stdgo._internal.go.token.Token.add_ASSIGN;
+final sub_ASSIGN = stdgo._internal.go.token.Token.sub_ASSIGN;
+final mul_ASSIGN = stdgo._internal.go.token.Token.mul_ASSIGN;
+final quo_ASSIGN = stdgo._internal.go.token.Token.quo_ASSIGN;
+final rem_ASSIGN = stdgo._internal.go.token.Token.rem_ASSIGN;
+final and_ASSIGN = stdgo._internal.go.token.Token.and_ASSIGN;
+final or_ASSIGN = stdgo._internal.go.token.Token.or_ASSIGN;
+final xor_ASSIGN = stdgo._internal.go.token.Token.xor_ASSIGN;
+final shl_ASSIGN = stdgo._internal.go.token.Token.shl_ASSIGN;
+final shr_ASSIGN = stdgo._internal.go.token.Token.shr_ASSIGN;
+final and_NOT_ASSIGN = stdgo._internal.go.token.Token.and_NOT_ASSIGN;
+final land = stdgo._internal.go.token.Token.land;
+final lor = stdgo._internal.go.token.Token.lor;
+final arrow = stdgo._internal.go.token.Token.arrow;
+final inc = stdgo._internal.go.token.Token.inc;
+final dec = stdgo._internal.go.token.Token.dec;
+final eql = stdgo._internal.go.token.Token.eql;
+final lss = stdgo._internal.go.token.Token.lss;
+final gtr = stdgo._internal.go.token.Token.gtr;
+final assign = stdgo._internal.go.token.Token.assign;
+final not = stdgo._internal.go.token.Token.not;
+final neq = stdgo._internal.go.token.Token.neq;
+final leq = stdgo._internal.go.token.Token.leq;
+final geq = stdgo._internal.go.token.Token.geq;
+final define = stdgo._internal.go.token.Token.define;
+final ellipsis = stdgo._internal.go.token.Token.ellipsis;
+final lparen = stdgo._internal.go.token.Token.lparen;
+final lbrack = stdgo._internal.go.token.Token.lbrack;
+final lbrace = stdgo._internal.go.token.Token.lbrace;
+final comma = stdgo._internal.go.token.Token.comma;
+final period = stdgo._internal.go.token.Token.period;
+final rparen = stdgo._internal.go.token.Token.rparen;
+final rbrack = stdgo._internal.go.token.Token.rbrack;
+final rbrace = stdgo._internal.go.token.Token.rbrace;
+final semicolon = stdgo._internal.go.token.Token.semicolon;
+final colon = stdgo._internal.go.token.Token.colon;
+final break_ = stdgo._internal.go.token.Token.break_;
+final case_ = stdgo._internal.go.token.Token.case_;
+final chan = stdgo._internal.go.token.Token.chan;
+final const = stdgo._internal.go.token.Token.const;
+final continue_ = stdgo._internal.go.token.Token.continue_;
+final default_ = stdgo._internal.go.token.Token.default_;
+final defer = stdgo._internal.go.token.Token.defer;
+final else_ = stdgo._internal.go.token.Token.else_;
+final fallthrough = stdgo._internal.go.token.Token.fallthrough;
+final for_ = stdgo._internal.go.token.Token.for_;
+final func = stdgo._internal.go.token.Token.func;
+final go = stdgo._internal.go.token.Token.go;
+final goto = stdgo._internal.go.token.Token.goto;
+final if_ = stdgo._internal.go.token.Token.if_;
+final import_ = stdgo._internal.go.token.Token.import_;
+final interface_ = stdgo._internal.go.token.Token.interface_;
+final map_ = stdgo._internal.go.token.Token.map_;
+final package_ = stdgo._internal.go.token.Token.package_;
+final range = stdgo._internal.go.token.Token.range;
+final return_ = stdgo._internal.go.token.Token.return_;
+final select = stdgo._internal.go.token.Token.select;
+final struct_ = stdgo._internal.go.token.Token.struct_;
+final switch_ = stdgo._internal.go.token.Token.switch_;
+final type = stdgo._internal.go.token.Token.type;
+final var_ = stdgo._internal.go.token.Token.var_;
+final tilde = stdgo._internal.go.token.Token.tilde;
+final lowestPrec : haxe.UInt64 = stdgo._internal.go.token.Token.lowestPrec;
+final unaryPrec : haxe.UInt64 = stdgo._internal.go.token.Token.unaryPrec;
+final highestPrec : haxe.UInt64 = stdgo._internal.go.token.Token.highestPrec;
 @:invalid typedef Position = Dynamic;
 @:invalid typedef File = Dynamic;
 @:invalid typedef T_lineInfo = Dynamic;
@@ -114,36 +107,54 @@ typedef T__struct_1 = stdgo._internal.go.token.Token.T__struct_1;
 typedef T__struct_2 = stdgo._internal.go.token.Token.T__struct_2;
 typedef Pos = stdgo._internal.go.token.Token.Pos;
 typedef Token = stdgo._internal.go.token.Token.Token;
-function _searchLineInfos(_a:stdgo.Slice<T_lineInfo>, _x:stdgo.GoInt):Void {}
-function newFileSet():Void {}
-function _searchFiles(_a:stdgo.Slice<stdgo.Ref<File>>, _x:stdgo.GoInt):Void {}
-function _searchInts(_a:stdgo.Slice<stdgo.GoInt>, _x:stdgo.GoInt):Void {}
-function benchmarkSearchInts(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function _checkPos(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _msg:stdgo.GoString, _got:Position, _want:Position):Void {}
-function testNoPos(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _linecol(_lines:stdgo.Slice<stdgo.GoInt>, _offs:stdgo.GoInt):Void {}
-function _verifyPositions(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _fset:stdgo.Ref<FileSet>, _f:stdgo.Ref<File>, _lines:stdgo.Slice<stdgo.GoInt>):Void {}
-function _makeTestSource(_size:stdgo.GoInt, _lines:stdgo.Slice<stdgo.GoInt>):Void {}
-function testPositions(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testLineInfo(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFiles(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFileSetPastEnd(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFileSetCacheUnlikely(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFileSetRace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFileSetRace2(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testPositionFor(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testLineStart(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testRemoveFile(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFileAddLineColumnInfo(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _equal(_p:stdgo.Ref<FileSet>, _q:stdgo.Ref<FileSet>):Void {}
-function _checkSerialize(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _p:stdgo.Ref<FileSet>):Void {}
-function testSerialization(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function lookup(_ident:stdgo.GoString):Void {}
-function isExported(_name:stdgo.GoString):Void {}
-function isKeyword(_name:stdgo.GoString):Void {}
-function isIdentifier(_name:stdgo.GoString):Void {}
-function testIsIdentifier(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid var _ : Dynamic;
+/**
+    // NewFileSet creates a new file set.
+**/
+inline function newFileSet():FileSet throw "not implemented";
+inline function benchmarkSearchInts(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testNoPos(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testPositions(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testLineInfo(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFiles(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // FileSet.File should return nil if Pos is past the end of the FileSet.
+**/
+inline function testFileSetPastEnd(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFileSetCacheUnlikely(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // issue 4345. Test that concurrent use of FileSet.Pos does not trigger a
+    // race in the FileSet position cache.
+**/
+inline function testFileSetRace(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // issue 16548. Test that concurrent use of File.AddLine and FileSet.PositionFor
+    // does not trigger a race in the FileSet position cache.
+**/
+inline function testFileSetRace2(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testPositionFor(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testLineStart(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testRemoveFile(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFileAddLineColumnInfo(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testSerialization(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Lookup maps an identifier to its keyword token or IDENT (if not a keyword).
+**/
+inline function lookup(ident:String):Token throw "not implemented";
+/**
+    // IsExported reports whether name starts with an upper-case letter.
+**/
+inline function isExported(name:String):Bool throw "not implemented";
+/**
+    // IsKeyword reports whether name is a Go keyword, such as "func" or "return".
+**/
+inline function isKeyword(name:String):Bool throw "not implemented";
+/**
+    // IsIdentifier reports whether name is a Go identifier, that is, a non-empty
+    // string made up of letters, digits, and underscores, where the first character
+    // is not a digit. Keywords are not identifiers.
+**/
+inline function isIdentifier(name:String):Bool throw "not implemented";
+inline function testIsIdentifier(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef Position_asInterface = Dynamic;
 @:invalid typedef Position_static_extension = Dynamic;
 @:invalid typedef File_asInterface = Dynamic;

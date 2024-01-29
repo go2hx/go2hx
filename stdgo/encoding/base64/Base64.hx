@@ -1,18 +1,22 @@
 package stdgo.encoding.base64;
-@:invalid var __go2hxdoc__package : Dynamic;
-@:invalid var stdEncoding : Dynamic;
-@:invalid var urlencoding : Dynamic;
-@:invalid var rawStdEncoding : Dynamic;
-@:invalid var rawURLEncoding : Dynamic;
-@:invalid var _pairs : Dynamic;
-@:invalid var _funnyEncoding : Dynamic;
-@:invalid var _encodingTests : Dynamic;
-@:invalid var _bigtest : Dynamic;
-@:invalid var stdPadding : Dynamic;
-@:invalid var noPadding : Dynamic;
-@:invalid var _decodeMapInitialize : Dynamic;
-@:invalid var _encodeStd : Dynamic;
-@:invalid var _encodeURL : Dynamic;
+/**
+    // Package base64 implements base64 encoding as specified by RFC 4648.
+**/
+private var __go2hxdoc__package : Bool;
+var stdEncoding(get_stdEncoding, set_stdEncoding) : stdgo._internal.encoding.base64.Base64.Encoding;
+function get_stdEncoding():stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.stdEncoding;
+function set_stdEncoding(v:stdgo._internal.encoding.base64.Base64.Encoding):stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.stdEncoding = v;
+var urlencoding(get_urlencoding, set_urlencoding) : stdgo._internal.encoding.base64.Base64.Encoding;
+function get_urlencoding():stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.urlencoding;
+function set_urlencoding(v:stdgo._internal.encoding.base64.Base64.Encoding):stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.urlencoding = v;
+var rawStdEncoding(get_rawStdEncoding, set_rawStdEncoding) : stdgo._internal.encoding.base64.Base64.Encoding;
+function get_rawStdEncoding():stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.rawStdEncoding;
+function set_rawStdEncoding(v:stdgo._internal.encoding.base64.Base64.Encoding):stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.rawStdEncoding = v;
+var rawURLEncoding(get_rawURLEncoding, set_rawURLEncoding) : stdgo._internal.encoding.base64.Base64.Encoding;
+function get_rawURLEncoding():stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.rawURLEncoding;
+function set_rawURLEncoding(v:stdgo._internal.encoding.base64.Base64.Encoding):stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.rawURLEncoding = v;
+final stdPadding : Int = stdgo._internal.encoding.base64.Base64.stdPadding;
+final noPadding : Int = stdgo._internal.encoding.base64.Base64.noPadding;
 @:invalid typedef Encoding = Dynamic;
 @:invalid typedef T_encoder = Dynamic;
 @:invalid typedef T_decoder = Dynamic;
@@ -28,37 +32,50 @@ typedef T__struct_0 = stdgo._internal.encoding.base64.Base64.T__struct_0;
 @:invalid typedef T__struct_1_static_extension = Dynamic;
 typedef T__struct_1 = stdgo._internal.encoding.base64.Base64.T__struct_1;
 typedef CorruptInputError = stdgo._internal.encoding.base64.Base64.CorruptInputError;
-function newEncoding(_encoder:stdgo.GoString):Void {}
-function newEncoder(_enc:stdgo.Ref<Encoding>, _w:stdgo._internal.io.Io.Writer):Void {}
-function _assemble32(_n1:stdgo.GoByte, _n2:stdgo.GoByte, _n3:stdgo.GoByte, _n4:stdgo.GoByte):Void {}
-function _assemble64(_n1:stdgo.GoByte, _n2:stdgo.GoByte, _n3:stdgo.GoByte, _n4:stdgo.GoByte, _n5:stdgo.GoByte, _n6:stdgo.GoByte, _n7:stdgo.GoByte, _n8:stdgo.GoByte):Void {}
-function newDecoder(_enc:stdgo.Ref<Encoding>, _r:stdgo._internal.io.Io.Reader):Void {}
-function _stdRef(_ref:stdgo.GoString):Void {}
-function _urlRef(_ref:stdgo.GoString):Void {}
-function _rawRef(_ref:stdgo.GoString):Void {}
-function _rawURLRef(_ref:stdgo.GoString):Void {}
-function _funnyRef(_ref:stdgo.GoString):Void {}
-function _testEqual(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _msg:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void {}
-function testEncode(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testEncoder(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testEncoderBuffering(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDecode(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDecoder(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDecoderBuffering(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDecodeCorrupt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDecodeBounds(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testEncodedLen(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDecodedLen(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testBig(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testNewLineCharacters(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDecoderIssue3577(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDecoderIssue4779(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDecoderIssue7733(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDecoderIssue15656(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkEncodeToString(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkDecodeString(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkNewEncoding(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function testDecoderRaw(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
+/**
+    // NewEncoding returns a new padded Encoding defined by the given alphabet,
+    // which must be a 64-byte string that does not contain the padding character
+    // or CR / LF ('\r', '\n'). The alphabet is treated as sequence of byte values
+    // without any special treatment for multi-byte UTF-8.
+    // The resulting Encoding uses the default padding character ('='),
+    // which may be changed or disabled via WithPadding.
+**/
+inline function newEncoding(encoder:String):Encoding throw "not implemented";
+/**
+    // NewEncoder returns a new base64 stream encoder. Data written to
+    // the returned writer will be encoded using enc and then written to w.
+    // Base64 encodings operate in 4-byte blocks; when finished
+    // writing, the caller must Close the returned encoder to flush any
+    // partially written blocks.
+**/
+inline function newEncoder(enc:Encoding, w:stdgo._internal.io.Io.Writer):stdgo._internal.io.Io.WriteCloser throw "not implemented";
+/**
+    // NewDecoder constructs a new base64 stream decoder.
+**/
+inline function newDecoder(enc:Encoding, r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader throw "not implemented";
+inline function testEncode(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testEncoder(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testEncoderBuffering(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDecode(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDecoder(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDecoderBuffering(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDecodeCorrupt(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDecodeBounds(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testEncodedLen(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDecodedLen(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testBig(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testNewLineCharacters(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // tests that we don't ignore errors from our underlying reader
+**/
+inline function testDecoderIssue3577(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDecoderIssue4779(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDecoderIssue7733(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDecoderIssue15656(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkEncodeToString(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkDecodeString(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkNewEncoding(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testDecoderRaw(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef Encoding_asInterface = Dynamic;
 @:invalid typedef Encoding_static_extension = Dynamic;
 @:invalid typedef T_encoder_asInterface = Dynamic;

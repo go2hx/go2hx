@@ -1,148 +1,113 @@
 package stdgo.math.big;
-@:invalid var __go2hxdoc__package : Dynamic;
-@:invalid var __Accuracy_index : Dynamic;
-@:invalid var _pow5tab : Dynamic;
-@:invalid var _natOne : Dynamic;
-@:invalid var _intOne : Dynamic;
-@:invalid var _natTwo : Dynamic;
-@:invalid var _natFive : Dynamic;
-@:invalid var _natTen : Dynamic;
-@:invalid var _karatsubaThreshold : Dynamic;
-@:invalid var _basicSqrThreshold : Dynamic;
-@:invalid var _karatsubaSqrThreshold : Dynamic;
-@:invalid var _errNoDigits : Dynamic;
-@:invalid var _errInvalSep : Dynamic;
-@:invalid var _leafSize : Dynamic;
-@:invalid var __RoundingMode_index : Dynamic;
-@:invalid var _isRaceBuilder : Dynamic;
-@:invalid var _sumVV : Dynamic;
-@:invalid var _rnd : Dynamic;
-@:invalid var _benchSizes : Dynamic;
-@:invalid var _sumVW : Dynamic;
-@:invalid var _lshVW : Dynamic;
-@:invalid var _rshVW : Dynamic;
-@:invalid var _argshlVUIn : Dynamic;
-@:invalid var _argshlVUr0 : Dynamic;
-@:invalid var _argshlVUr1 : Dynamic;
-@:invalid var _argshlVUrWm1 : Dynamic;
-@:invalid var _argshlVU : Dynamic;
-@:invalid var _argshrVUIn : Dynamic;
-@:invalid var _argshrVUr0 : Dynamic;
-@:invalid var _argshrVUr1 : Dynamic;
-@:invalid var _argshrVUrWm1 : Dynamic;
-@:invalid var _argshrVU : Dynamic;
-@:invalid var _prodVWW : Dynamic;
-@:invalid var _mulWWTests : Dynamic;
-@:invalid var _mulAddWWWTests : Dynamic;
-@:invalid var _divWWTests : Dynamic;
-@:invalid var _calibrate : Dynamic;
-@:invalid var _precList : Dynamic;
-@:invalid var _bitsList : Dynamic;
-@:invalid var _long : Dynamic;
-@:invalid var _floatVals : Dynamic;
-@:invalid var _sumZZ : Dynamic;
-@:invalid var _prodZZ : Dynamic;
-@:invalid var _mulRangesZ : Dynamic;
-@:invalid var _divisionSignsTests : Dynamic;
-@:invalid var _quoTests : Dynamic;
-@:invalid var _bitLenTests : Dynamic;
-@:invalid var _expTests : Dynamic;
-@:invalid var _gcdTests : Dynamic;
-@:invalid var _rshTests : Dynamic;
-@:invalid var _lshTests : Dynamic;
-@:invalid var _cmpAbsTests : Dynamic;
-@:invalid var _int64Tests : Dynamic;
-@:invalid var _uint64Tests : Dynamic;
-@:invalid var _bitwiseTests : Dynamic;
-@:invalid var _bitsetTests : Dynamic;
-@:invalid var _tzbTests : Dynamic;
-@:invalid var _notTests : Dynamic;
-@:invalid var _modInverseTests : Dynamic;
-@:invalid var _stringTests : Dynamic;
-@:invalid var _formatTests : Dynamic;
-@:invalid var _scanTests : Dynamic;
-@:invalid var _encodingTests : Dynamic;
-@:invalid var _cmpTests : Dynamic;
-@:invalid var _sumNN : Dynamic;
-@:invalid var _prodNN : Dynamic;
-@:invalid var _mulRangesN : Dynamic;
-@:invalid var _mulBenchSizes : Dynamic;
-@:invalid var _leftShiftTests : Dynamic;
-@:invalid var _rightShiftTests : Dynamic;
-@:invalid var _modWTests32 : Dynamic;
-@:invalid var _modWTests64 : Dynamic;
-@:invalid var _montgomeryTests : Dynamic;
-@:invalid var _expNNTests : Dynamic;
-@:invalid var _fiboNums : Dynamic;
-@:invalid var _bitTests : Dynamic;
-@:invalid var _stickyTests : Dynamic;
-@:invalid var _sqrBenchSizes : Dynamic;
-@:invalid var _subMod2NTests : Dynamic;
-@:invalid var _strTests : Dynamic;
-@:invalid var _natScanTests : Dynamic;
-@:invalid var _pi : Dynamic;
-@:invalid var _primes : Dynamic;
-@:invalid var _composites : Dynamic;
-@:invalid var _ratCmpTests : Dynamic;
-@:invalid var _ratBinTests : Dynamic;
-@:invalid var _setFrac64Tests : Dynamic;
-@:invalid var _exponentTests : Dynamic;
-@:invalid var _setStringTests : Dynamic;
-@:invalid var _setStringTests2 : Dynamic;
-@:invalid var _floatStringTests : Dynamic;
-@:invalid var _float64inputs : Dynamic;
-@:invalid var _ratNums : Dynamic;
-@:invalid var _ratDenoms : Dynamic;
-@:invalid var __Accuracy_name : Dynamic;
-@:invalid var __S : Dynamic;
-@:invalid var __W : Dynamic;
-@:invalid var __B : Dynamic;
-@:invalid var __M : Dynamic;
-@:invalid var _issue42838Value : Dynamic;
-@:invalid var _testsNumber : Dynamic;
-@:invalid var _sqrModeMul : Dynamic;
-@:invalid var _sqrModeBasic : Dynamic;
-@:invalid var _sqrModeKaratsuba : Dynamic;
-@:invalid var _maxShift : Dynamic;
-@:invalid var _sink : Dynamic;
-@:invalid var _debugFloat : Dynamic;
-@:invalid var maxExp : Dynamic;
-@:invalid var minExp : Dynamic;
-@:invalid var maxPrec : Dynamic;
-@:invalid var _zero : Dynamic;
-@:invalid var _finite : Dynamic;
-@:invalid var _inf : Dynamic;
-@:invalid var toNearestEven : Dynamic;
-@:invalid var toNearestAway : Dynamic;
-@:invalid var toZero : Dynamic;
-@:invalid var awayFromZero : Dynamic;
-@:invalid var toNegativeInf : Dynamic;
-@:invalid var toPositiveInf : Dynamic;
-@:invalid var below : Dynamic;
-@:invalid var exact : Dynamic;
-@:invalid var above : Dynamic;
-@:invalid var __8 : Dynamic;
-@:invalid var _floatZero : Dynamic;
-@:invalid var __9 : Dynamic;
-@:invalid var _zero_ : Dynamic;
-@:invalid var _below1e23 : Dynamic;
-@:invalid var _above1e23 : Dynamic;
-@:invalid var _floatGobVersion : Dynamic;
-@:invalid var __10 : Dynamic;
-@:invalid var __11 : Dynamic;
-@:invalid var __12 : Dynamic;
-@:invalid var _intGobVersion : Dynamic;
-@:invalid var _natPool : Dynamic;
-@:invalid var _digits : Dynamic;
-@:invalid var maxBase : Dynamic;
-@:invalid var _maxBaseSmall : Dynamic;
-@:invalid var _cacheBase10 : Dynamic;
-@:invalid var _divRecursiveThreshold : Dynamic;
-@:invalid var _ratZero : Dynamic;
-@:invalid var __13 : Dynamic;
-@:invalid var _ratGobVersion : Dynamic;
-@:invalid var __RoundingMode_name : Dynamic;
-@:invalid var _threeOnce : Dynamic;
+/**
+    /|*
+    Package big implements arbitrary-precision arithmetic (big numbers).
+    The following numeric types are supported:
+    
+    	Int    signed integers
+    	Rat    rational numbers
+    	Float  floating-point numbers
+    
+    The zero value for an Int, Rat, or Float correspond to 0. Thus, new
+    values can be declared in the usual ways and denote 0 without further
+    initialization:
+    
+    	var x Int        // &x is an *Int of value 0
+    	var r = &Rat{}   // r is a *Rat of value 0
+    	y := new(Float)  // y is a *Float of value 0
+    
+    Alternatively, new values can be allocated and initialized with factory
+    functions of the form:
+    
+    	func NewT(v V) *T
+    
+    For instance, NewInt(x) returns an *Int set to the value of the int64
+    argument x, NewRat(a, b) returns a *Rat set to the fraction a/b where
+    a and b are int64 values, and NewFloat(f) returns a *Float initialized
+    to the float64 argument f. More flexibility is provided with explicit
+    setters, for instance:
+    
+    	var z1 Int
+    	z1.SetUint64(123)                 // z1 := 123
+    	z2 := new(Rat).SetFloat64(1.25)   // z2 := 5/4
+    	z3 := new(Float).SetInt(z1)       // z3 := 123.0
+    
+    Setters, numeric operations and predicates are represented as methods of
+    the form:
+    
+    	func (z *T) SetV(v V) *T          // z = v
+    	func (z *T) Unary(x *T) *T        // z = unary x
+    	func (z *T) Binary(x, y *T) *T    // z = x binary y
+    	func (x *T) Pred() P              // p = pred(x)
+    
+    with T one of Int, Rat, or Float. For unary and binary operations, the
+    result is the receiver (usually named z in that case; see below); if it
+    is one of the operands x or y it may be safely overwritten (and its memory
+    reused).
+    
+    Arithmetic expressions are typically written as a sequence of individual
+    method calls, with each call corresponding to an operation. The receiver
+    denotes the result and the method arguments are the operation's operands.
+    For instance, given three *Int values a, b and c, the invocation
+    
+    	c.Add(a, b)
+    
+    computes the sum a + b and stores the result in c, overwriting whatever
+    value was held in c before. Unless specified otherwise, operations permit
+    aliasing of parameters, so it is perfectly ok to write
+    
+    	sum.Add(sum, x)
+    
+    to accumulate values x in a sum.
+    
+    (By always passing in a result value via the receiver, memory use can be
+    much better controlled. Instead of having to allocate new memory for each
+    result, an operation can reuse the space allocated for the result value,
+    and overwrite that value with the new result in the process.)
+    
+    Notational convention: Incoming method parameters (including the receiver)
+    are named consistently in the API to clarify their use. Incoming operands
+    are usually named x, y, a, b, and so on, but never z. A parameter specifying
+    the result is named z (typically the receiver).
+    
+    For instance, the arguments for (*Int).Add are named x and y, and because
+    the receiver specifies the result destination, it is called z:
+    
+    	func (z *Int) Add(x, y *Int) *Int
+    
+    Methods of this form typically return the incoming receiver as well, to
+    enable simple call chaining.
+    
+    Methods which don't require a result value to be passed in (for instance,
+    Int.Sign), simply return the result. In this case, the receiver is typically
+    the first operand, named x:
+    
+    	func (x *Int) Sign() int
+    
+    Various methods support conversions between strings and corresponding
+    numeric values, and vice versa: *Int, *Rat, and *Float values implement
+    the Stringer interface for a (default) string representation of the value,
+    but also provide SetString methods to initialize a value from a string in
+    a variety of supported formats (see the respective SetString documentation).
+    
+    Finally, *Int, *Rat, and *Float satisfy [fmt.Scanner] for scanning
+    and (except for *Rat) the Formatter interface for formatted printing.
+    *|/
+**/
+private var __go2hxdoc__package : Bool;
+final maxExp : haxe.UInt64 = stdgo._internal.math.big.Big.maxExp;
+final minExp : haxe.UInt64 = stdgo._internal.math.big.Big.minExp;
+final maxPrec : haxe.UInt64 = stdgo._internal.math.big.Big.maxPrec;
+final toNearestEven : stdgo._internal.math.big.Big.RoundingMode = stdgo._internal.math.big.Big.toNearestEven;
+final toNearestAway = stdgo._internal.math.big.Big.toNearestAway;
+final toZero = stdgo._internal.math.big.Big.toZero;
+final awayFromZero = stdgo._internal.math.big.Big.awayFromZero;
+final toNegativeInf = stdgo._internal.math.big.Big.toNegativeInf;
+final toPositiveInf = stdgo._internal.math.big.Big.toPositiveInf;
+final below : stdgo._internal.math.big.Big.Accuracy = stdgo._internal.math.big.Big.below;
+final exact : stdgo._internal.math.big.Big.Accuracy = stdgo._internal.math.big.Big.exact;
+final above : stdgo._internal.math.big.Big.Accuracy = stdgo._internal.math.big.Big.above;
+final maxBase : Int = stdgo._internal.math.big.Big.maxBase;
 @:invalid typedef T_argVV = Dynamic;
 @:invalid typedef T_argVW = Dynamic;
 @:invalid typedef T_argVU = Dynamic;
@@ -387,412 +352,398 @@ typedef T_bitFun = stdgo._internal.math.big.Big.T_bitFun;
 typedef T_nat = stdgo._internal.math.big.Big.T_nat;
 typedef T_funNN = stdgo._internal.math.big.Big.T_funNN;
 typedef T_ratBinFun = stdgo._internal.math.big.Big.T_ratBinFun;
-function _mulWW(_x:Word, _y:Word):Void {}
-function _mulAddWWW_g(_x:Word, _y:Word, _c:Word):Void {}
-function _nlz(_x:Word):Void {}
-function _addVV_g(_z:stdgo.Slice<Word>, _x:stdgo.Slice<Word>, _y:stdgo.Slice<Word>):Void {}
-function _subVV_g(_z:stdgo.Slice<Word>, _x:stdgo.Slice<Word>, _y:stdgo.Slice<Word>):Void {}
-function _addVW_g(_z:stdgo.Slice<Word>, _x:stdgo.Slice<Word>, _y:Word):Void {}
-function _addVWlarge(_z:stdgo.Slice<Word>, _x:stdgo.Slice<Word>, _y:Word):Void {}
-function _subVW_g(_z:stdgo.Slice<Word>, _x:stdgo.Slice<Word>, _y:Word):Void {}
-function _subVWlarge(_z:stdgo.Slice<Word>, _x:stdgo.Slice<Word>, _y:Word):Void {}
-function _shlVU_g(_z:stdgo.Slice<Word>, _x:stdgo.Slice<Word>, _s:stdgo.GoUInt):Void {}
-function _shrVU_g(_z:stdgo.Slice<Word>, _x:stdgo.Slice<Word>, _s:stdgo.GoUInt):Void {}
-function _mulAddVWW_g(_z:stdgo.Slice<Word>, _x:stdgo.Slice<Word>, _y:Word, _r:Word):Void {}
-function _addMulVVW_g(_z:stdgo.Slice<Word>, _x:stdgo.Slice<Word>, _y:Word):Void {}
-function _divWW(_x1:Word, _x0:Word, _y:Word, _m:Word):Void {}
-function _reciprocalWord(_d1:Word):Void {}
-function _addVV(_z:stdgo.Slice<Word>, _x:stdgo.Slice<Word>, _y:stdgo.Slice<Word>):Void {}
-function _subVV(_z:stdgo.Slice<Word>, _x:stdgo.Slice<Word>, _y:stdgo.Slice<Word>):Void {}
-function _addVW(_z:stdgo.Slice<Word>, _x:stdgo.Slice<Word>, _y:Word):Void {}
-function _subVW(_z:stdgo.Slice<Word>, _x:stdgo.Slice<Word>, _y:Word):Void {}
-function _shlVU(_z:stdgo.Slice<Word>, _x:stdgo.Slice<Word>, _s:stdgo.GoUInt):Void {}
-function _shrVU(_z:stdgo.Slice<Word>, _x:stdgo.Slice<Word>, _s:stdgo.GoUInt):Void {}
-function _mulAddVWW(_z:stdgo.Slice<Word>, _x:stdgo.Slice<Word>, _y:Word, _r:Word):Void {}
-function _addMulVVW(_z:stdgo.Slice<Word>, _x:stdgo.Slice<Word>, _y:Word):Void {}
-function _testFunVV(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _msg:stdgo.GoString, _f:T_funVV, _a:T_argVV):Void {}
-function testFunVV(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _rndW():Void {}
-function _rndV(_n:stdgo.GoInt):Void {}
-function benchmarkAddVV(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkSubVV(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function _testFunVW(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _msg:stdgo.GoString, _f:T_funVW, _a:T_argVW):Void {}
-function _testFunVWext(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _msg:stdgo.GoString, _f:T_funVW, _f_g:T_funVW, _a:T_argVW):Void {}
-function _makeFunVW(_f:(_z:stdgo.Slice<Word>, _x:stdgo.Slice<Word>, _s:stdgo.GoUInt) -> Word):Void {}
-function testFunVW(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _makeWordVec(_e:Word, _n:stdgo.GoInt):Void {}
-function testFunVWExt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _testShiftFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _f:(_z:stdgo.Slice<Word>, _x:stdgo.Slice<Word>, _s:stdgo.GoUInt) -> Word, _a:T_argVU):Void {}
-function testShiftOverlap(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIssue31084(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIssue42838(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkAddVW(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkAddVWext(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkSubVW(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkSubVWext(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function _testFunVWW(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _msg:stdgo.GoString, _f:T_funVWW, _a:T_argVWW):Void {}
-function _testFunWVW(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _msg:stdgo.GoString, _f:T_funWVW, _a:T_argWVW):Void {}
-function testFunVWW(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testMulWW(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testMulAddWWW(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDivWW(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkMulAddVWW(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkAddMulVVW(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkDivWVW(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkNonZeroShifts(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function testMulBits(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testNormBits(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFromBits(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testCalibrate(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _karatsubaLoad(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function _measureKaratsuba(_th:stdgo.GoInt):Void {}
-function _computeKaratsubaThresholds():Void {}
-function _measureSqr(_words:stdgo.GoInt, _nruns:stdgo.GoInt, _mode:stdgo.GoString):Void {}
-function _computeSqrThreshold(_from:stdgo.GoInt, _to:stdgo.GoInt, _step:stdgo.GoInt, _nruns:stdgo.GoInt, _lower:stdgo.GoString, _upper:stdgo.GoString):Void {}
-function _shr(_x:stdgo.Ref<T_decimal>, _s:stdgo.GoUInt):Void {}
-function _appendZeros(_buf:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):Void {}
-function _shouldRoundUp(_x:stdgo.Ref<T_decimal>, _n:stdgo.GoInt):Void {}
-function _trim(_x:stdgo.Ref<T_decimal>):Void {}
-function testDecimalString(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDecimalInit(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDecimalRounding(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkDecimalConversion(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkFloatString(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function newFloat(_x:stdgo.GoFloat64):Void {}
-function _makeAcc(_above:Bool):Void {}
-function _fnorm(_m:T_nat):Void {}
-function _msb32(_x:T_nat):Void {}
-function _msb64(_x:T_nat):Void {}
-function _validateBinaryOperands(_x:stdgo.Ref<Float_>, _y:stdgo.Ref<Float_>):Void {}
-function _umax32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32):Void {}
-function testFloatZeroValue(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _makeFloat(_s:stdgo.GoString):Void {}
-function testFloatSetPrec(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatMinPrec(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatSign(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _alike(_x:stdgo.Ref<Float_>, _y:stdgo.Ref<Float_>):Void {}
-function _alike32(_x:stdgo.GoFloat32, _y:stdgo.GoFloat32):Void {}
-function _alike64(_x:stdgo.GoFloat64, _y:stdgo.GoFloat64):Void {}
-function testFloatMantExp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatMantExpAliasing(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatSetMantExp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatPredicates(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatIsInt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _fromBinary(_s:stdgo.GoString):Void {}
-function _toBinary(_x:stdgo.GoInt64):Void {}
-function _testFloatRound(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _x:stdgo.GoInt64, _r:stdgo.GoInt64, _prec:stdgo.GoUInt, _mode:RoundingMode):Void {}
-function testFloatRound(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatRound24(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatSetUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatSetInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatSetFloat64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatSetInt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatSetRat(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatSetInf(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatFloat32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatFloat64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatInt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatRat(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatAbs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatNeg(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatInc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatAdd(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatAddRoundZero(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatAdd32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatAdd64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIssue20490(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatMul(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatMul64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIssue6866(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatQuo(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatQuoSmoke(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatArithmeticSpecialValues(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatArithmeticOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatArithmeticRounding(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatCmpSpecialValues(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkFloatAdd(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkFloatSub(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function parseFloat(_s:stdgo.GoString, _base:stdgo.GoInt, _prec:stdgo.GoUInt, _mode:RoundingMode):Void {}
-function testFloatSetFloat64String(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _fdiv(_a:stdgo.GoFloat64, _b:stdgo.GoFloat64):Void {}
-function testFloat64Text(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _actualPrec(_x:stdgo.GoFloat64):Void {}
-function testFloatText(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatFormat(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkParseFloatSmallExp(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkParseFloatLargeExp(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function testFloatScan(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatGobEncoding(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatCorruptGob(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatJSONEncoding(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatGobDecodeShortBuffer(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatGobDecodeInvalid(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _roundShortest(_d:stdgo.Ref<T_decimal>, _x:stdgo.Ref<Float_>):Void {}
-function _fmtE(_buf:stdgo.Slice<stdgo.GoByte>, _fmt:stdgo.GoByte, _prec:stdgo.GoInt, _d:T_decimal):Void {}
-function _fmtF(_buf:stdgo.Slice<stdgo.GoByte>, _prec:stdgo.GoInt, _d:T_decimal):Void {}
-function _min(_x:stdgo.GoInt, _y:stdgo.GoInt):Void {}
-function _randInt(_r:stdgo.Ref<stdgo._internal.math.rand.Rand.Rand>, _size:stdgo.GoUInt):Void {}
-function _runGCD(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _aSize:stdgo.GoUInt, _bSize:stdgo.GoUInt):Void {}
-function _runGCDExt(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _aSize:stdgo.GoUInt, _bSize:stdgo.GoUInt, _calcXY:Bool):Void {}
-function benchmarkGCD10x10(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkGCD10x100(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkGCD10x1000(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkGCD10x10000(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkGCD10x100000(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkGCD100x100(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkGCD100x1000(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkGCD100x10000(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkGCD100x100000(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkGCD1000x1000(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkGCD1000x10000(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkGCD1000x100000(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkGCD10000x10000(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkGCD10000x100000(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkGCD100000x100000(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function _newMatrix(_n:stdgo.GoInt, _m:stdgo.GoInt):Void {}
-function _newUnit(_n:stdgo.GoInt):Void {}
-function _newHilbert(_n:stdgo.GoInt):Void {}
-function _newInverseHilbert(_n:stdgo.GoInt):Void {}
-function _doHilbert(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _n:stdgo.GoInt):Void {}
-function testHilbert(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkHilbert(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function newInt(_x:stdgo.GoInt64):Void {}
-function _low32(_x:T_nat):Void {}
-function _low64(_x:T_nat):Void {}
-function _lehmerSimulate(a:stdgo.Ref<Int_>, b:stdgo.Ref<Int_>):Void {}
-function _lehmerUpdate(a:stdgo.Ref<Int_>, b:stdgo.Ref<Int_>, _q:stdgo.Ref<Int_>, _r:stdgo.Ref<Int_>, _s:stdgo.Ref<Int_>, _t:stdgo.Ref<Int_>, _u0:Word, _u1:Word, _v0:Word, _v1:Word, _even:Bool):Void {}
-function _euclidUpdate(a:stdgo.Ref<Int_>, b:stdgo.Ref<Int_>, ua:stdgo.Ref<Int_>, ub:stdgo.Ref<Int_>, _q:stdgo.Ref<Int_>, _r:stdgo.Ref<Int_>, _s:stdgo.Ref<Int_>, _t:stdgo.Ref<Int_>, _extended:Bool):Void {}
-function jacobi(_x:stdgo.Ref<Int_>, _y:stdgo.Ref<Int_>):Void {}
-function _isNormalized(_x:stdgo.Ref<Int_>):Void {}
-function testSignZ(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testSetZ(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testAbsZ(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _testFunZZ(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _msg:stdgo.GoString, _f:T_funZZ, _a:T_argZZ):Void {}
-function testSumZZ(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testProdZZ(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _mulBytes(_x:stdgo.Slice<stdgo.GoByte>, _y:stdgo.Slice<stdgo.GoByte>):Void {}
-function _checkMul(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>):Void {}
-function testMul(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testMulRangeZ(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testBinomial(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkBinomial(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function testDivisionSigns(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _norm(_x:T_nat):Void {}
-function testBits(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _checkSetBytes(_b:stdgo.Slice<stdgo.GoByte>):Void {}
-function testSetBytes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _checkBytes(_b:stdgo.Slice<stdgo.GoByte>):Void {}
-function testBytes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _checkQuo(_x:stdgo.Slice<stdgo.GoByte>, _y:stdgo.Slice<stdgo.GoByte>):Void {}
-function testQuo(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testQuoStepD6(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkQuoRem(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function testBitLen(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testExp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkExp(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkExpMont(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkExp2(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function _checkGcd(_aBytes:stdgo.Slice<stdgo.GoByte>, _bBytes:stdgo.Slice<stdgo.GoByte>):Void {}
-function _euclidExtGCD(_a:stdgo.Ref<Int_>, _b:stdgo.Ref<Int_>):Void {}
-function _checkLehmerGcd(_aBytes:stdgo.Slice<stdgo.GoByte>, _bBytes:stdgo.Slice<stdgo.GoByte>):Void {}
-function _checkLehmerExtGcd(_aBytes:stdgo.Slice<stdgo.GoByte>, _bBytes:stdgo.Slice<stdgo.GoByte>):Void {}
-function _testGcd(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _d:stdgo.Ref<Int_>, _x:stdgo.Ref<Int_>, _y:stdgo.Ref<Int_>, _a:stdgo.Ref<Int_>, _b:stdgo.Ref<Int_>):Void {}
-function testGcd(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testRsh(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testRshSelf(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testLsh(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testLshSelf(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testLshRsh(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testCmpAbs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIntCmpSelf(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _testBitFun(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _msg:stdgo.GoString, _f:T_bitFun, _x:stdgo.Ref<Int_>, _y:stdgo.Ref<Int_>, _exp:stdgo.GoString):Void {}
-function _testBitFunSelf(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _msg:stdgo.GoString, _f:T_bitFun, _x:stdgo.Ref<Int_>, _y:stdgo.Ref<Int_>, _exp:stdgo.GoString):Void {}
-function _altBit(_x:stdgo.Ref<Int_>, _i:stdgo.GoInt):Void {}
-function _altSetBit(_z:stdgo.Ref<Int_>, _x:stdgo.Ref<Int_>, _i:stdgo.GoInt, _b:stdgo.GoUInt):Void {}
-function _testBitset(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _x:stdgo.Ref<Int_>):Void {}
-function testBitSet(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testTrailingZeroBits(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkBitset(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkBitsetNeg(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkBitsetOrig(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkBitsetNegOrig(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function _tri(_n:stdgo.GoUInt):Void {}
-function benchmarkModSqrt225_Tonelli(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkModSqrt225_3Mod4(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkModSqrt231_Tonelli(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkModSqrt231_5Mod8(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function testBitwise(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testNot(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testModInverse(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkModInverse(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function _testModSqrt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _elt:stdgo.Ref<Int_>, _mod:stdgo.Ref<Int_>, _sq:stdgo.Ref<Int_>, _sqrt:stdgo.Ref<Int_>):Void {}
-function testModSqrt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testJacobi(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testJacobiPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIssue2607(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testSqrt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIssue22830(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkSqrt(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function _benchmarkIntSqr(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _nwords:stdgo.GoInt):Void {}
-function benchmarkIntSqr(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function _benchmarkDiv(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _aSize:stdgo.GoInt, _bSize:stdgo.GoInt):Void {}
-function benchmarkDiv(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function testFillBytes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testNewIntMinInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testNewIntAllocs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloat64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _writeMultiple(_s:stdgo._internal.fmt.Fmt.State, _text:stdgo.GoString, _count:stdgo.GoInt):Void {}
-function _scanSign(_r:stdgo._internal.io.Io.ByteScanner):Void {}
-function testIntText(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testAppendText(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _format(_base:stdgo.GoInt):Void {}
-function testGetString(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testSetString(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFormat(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testScan(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIntGobEncoding(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testGobEncodingNilIntInSlice(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIntJSONEncoding(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIntJSONEncodingNil(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIntXMLEncoding(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testLinkerGC(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _basicMul(_z:T_nat, _x:T_nat, _y:T_nat):Void {}
-function _karatsubaAdd(_z:T_nat, _x:T_nat, _n:stdgo.GoInt):Void {}
-function _karatsubaSub(_z:T_nat, _x:T_nat, _n:stdgo.GoInt):Void {}
-function _karatsuba(_z:T_nat, _x:T_nat, _y:T_nat):Void {}
-function _alias(_x:T_nat, _y:T_nat):Void {}
-function _addAt(_z:T_nat, _x:T_nat, _i:stdgo.GoInt):Void {}
-function _max(_x:stdgo.GoInt, _y:stdgo.GoInt):Void {}
-function _karatsubaLen(_n:stdgo.GoInt, _threshold:stdgo.GoInt):Void {}
-function _basicSqr(_z:T_nat, _x:T_nat):Void {}
-function _karatsubaSqr(_z:T_nat, _x:T_nat):Void {}
-function _getNat(_n:stdgo.GoInt):Void {}
-function _putNat(_x:stdgo.Ref<T_nat>):Void {}
-function _same(_x:T_nat, _y:T_nat):Void {}
-function _bigEndianWord(_buf:stdgo.Slice<stdgo.GoByte>):Void {}
-function testCmp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _natFromString(_s:stdgo.GoString):Void {}
-function testSet(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _testFunNN(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _msg:stdgo.GoString, _f:T_funNN, _a:T_argNN):Void {}
-function testFunNN(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testMulRangeN(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _allocBytes(_f:() -> Void):Void {}
-function testMulUnbalanced(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _rndNat(_n:stdgo.GoInt):Void {}
-function _rndNat1(_n:stdgo.GoInt):Void {}
-function benchmarkMul(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function _benchmarkNatMul(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _nwords:stdgo.GoInt):Void {}
-function benchmarkNatMul(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function testNLZ(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testShiftLeft(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testShiftRight(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkZeroShifts(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function _runModWTests(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _tests:stdgo.Slice<T_modWTest>):Void {}
-function testModW(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testMontgomery(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testExpNN(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function fuzzExpMont(_f:stdgo.Ref<stdgo._internal.testing.Testing.F>):Void {}
-function benchmarkExp3Power(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function _fibo(_n:stdgo.GoInt):Void {}
-function testFibo(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkFibo(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function testBit(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testSticky(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _testSqr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _x:T_nat):Void {}
-function testSqr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _benchmarkNatSqr(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _nwords:stdgo.GoInt):Void {}
-function benchmarkNatSqr(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function testNatSubMod2N(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkNatSetBytes(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function testNatDiv(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIssue37499(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIssue42552(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _maxPow(_b:Word):Void {}
-function _pow(_x:Word, _n:stdgo.GoInt):Void {}
-function _divisors(_m:stdgo.GoInt, _b:Word, _ndigits:stdgo.GoInt, _bb:Word):Void {}
-function testMaxBase(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _log2(_x:Word):Void {}
-function _itoa(_x:T_nat, _base:stdgo.GoInt):Void {}
-function testString(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testScanBase(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testScanPi(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testScanPiParallel(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkScanPi(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkStringPiParallel(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkScan(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkString(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkLeafSize(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function leafSizeHelper(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _base:stdgo.GoInt, _size:stdgo.GoInt):Void {}
-function _resetTable(_table:stdgo.Slice<T_divisor>):Void {}
-function testStringPowers(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _divWVW(_z:stdgo.Slice<Word>, _xn:Word, _x:stdgo.Slice<Word>, _y:Word):Void {}
-function _greaterThan(_x1:Word, _x2:Word, _y1:Word, _y2:Word):Void {}
-function _cutSpace(_r:stdgo.GoRune):Void {}
-function testProbablyPrime(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkProbablyPrime(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function testMillerRabinPseudoprimes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testLucasPseudoprimes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _testPseudoprimes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _name:stdgo.GoString, _cond:T_nat -> Bool, _want:stdgo.Slice<stdgo.GoInt>):Void {}
-function newRat(_a:stdgo.GoInt64, _b:stdgo.GoInt64):Void {}
-function _quotToFloat32(_a:T_nat, _b:T_nat):Void {}
-function _quotToFloat64(_a:T_nat, _b:T_nat):Void {}
-function _mulDenom(_z:T_nat, _x:T_nat, _y:T_nat):Void {}
-function testZeroRat(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testRatSign(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testRatCmp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIsInt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testRatAbs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testRatNeg(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testRatInv(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _testRatBin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _i:stdgo.GoInt, _name:stdgo.GoString, _f:T_ratBinFun, _a:T_ratBinArg):Void {}
-function testRatBin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIssue820(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testRatSetFrac64Rat(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIssue2379(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIssue3521(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloat32Distribution(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloat64Distribution(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testSetFloat64NonFinite(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _checkNonLossyRoundtrip32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _f:stdgo.GoFloat32):Void {}
-function _checkNonLossyRoundtrip64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _f:stdgo.GoFloat64):Void {}
-function _delta(_r:stdgo.Ref<Rat>, _f:stdgo.GoFloat64):Void {}
-function _checkIsBestApprox32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _f:stdgo.GoFloat32, _r:stdgo.Ref<Rat>):Void {}
-function _checkIsBestApprox64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _f:stdgo.GoFloat64, _r:stdgo.Ref<Rat>):Void {}
-function _isEven32(_f:stdgo.GoFloat32):Void {}
-function _isEven64(_f:stdgo.GoFloat64):Void {}
-function testIsFinite(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testRatSetInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testRatSetUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkRatCmp(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function testIssue34919(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDenomRace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _ratTok(_ch:stdgo.GoRune):Void {}
-function _scanExponent(_r:stdgo._internal.io.Io.ByteScanner, _base2ok:Bool, _sepOk:Bool):Void {}
-function testScanExponent(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testRatSetString(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testRatSetStringZero(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testRatScan(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatString(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _isFinite(_f:stdgo.GoFloat64):Void {}
-function testFloat32SpecialCases(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloat64SpecialCases(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIssue31184(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIssue45910(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testRatGobEncoding(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testGobEncodingNilRatInSlice(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testRatJSONEncoding(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testRatXMLEncoding(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testRatGobDecodeShortBuffer(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _three():Void {}
-function _newFloat(_prec2:stdgo.GoUInt32):Void {}
-function testFloatSqrt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatSqrt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFloatSqrtSpecial(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkFloatSqrt(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
+inline function testFunVV(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkAddVV(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkSubVV(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testFunVW(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Extended testing to addVW and subVW using various kinds of input data.
+    // We utilize the results of addVW_g and subVW_g as golden reference to check
+    // correctness.
+**/
+inline function testFunVWExt(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testShiftOverlap(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIssue31084(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIssue42838(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkAddVW(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+/**
+    // Benchmarking addVW using vector of maximum uint to force carry flag set
+**/
+inline function benchmarkAddVWext(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkSubVW(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+/**
+    // Benchmarking subVW using vector of zero to force carry flag set
+**/
+inline function benchmarkSubVWext(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testFunVWW(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testMulWW(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testMulAddWWW(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDivWW(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkMulAddVWW(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkAddMulVVW(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkDivWVW(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkNonZeroShifts(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testMulBits(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testNormBits(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFromBits(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testCalibrate(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDecimalString(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDecimalInit(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDecimalRounding(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkDecimalConversion(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkFloatString(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+/**
+    // NewFloat allocates and returns a new Float set to x,
+    // with precision 53 and rounding mode ToNearestEven.
+    // NewFloat panics with ErrNaN if x is a NaN.
+**/
+inline function newFloat(x:Float):Float_ throw "not implemented";
+inline function testFloatZeroValue(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatSetPrec(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatMinPrec(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatSign(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatMantExp(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatMantExpAliasing(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatSetMantExp(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatPredicates(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatIsInt(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestFloatRound tests basic rounding.
+**/
+inline function testFloatRound(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestFloatRound24 tests that rounding a float64 to 24 bits
+    // matches IEEE-754 rounding to nearest when converting a
+    // float64 to a float32 (excluding denormal numbers).
+**/
+inline function testFloatRound24(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatSetUint64(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatSetInt64(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatSetFloat64(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatSetInt(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatSetRat(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatSetInf(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatUint64(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatInt64(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatFloat32(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatFloat64(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatInt(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatRat(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatAbs(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatNeg(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatInc(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestFloatAdd tests Float.Add/Sub by comparing the result of a "manual"
+    // addition/subtraction of arguments represented by Bits values with the
+    // respective Float addition/subtraction for a variety of precisions
+    // and rounding modes.
+**/
+inline function testFloatAdd(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestFloatAddRoundZero tests Float.Add/Sub rounding when the result is exactly zero.
+    // x + (-x) or x - x for non-zero x should be +0 in all cases except when
+    // the rounding mode is ToNegativeInf in which case it should be -0.
+**/
+inline function testFloatAddRoundZero(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestFloatAdd32 tests that Float.Add/Sub of numbers with
+    // 24bit mantissa behaves like float32 addition/subtraction
+    // (excluding denormal numbers).
+**/
+inline function testFloatAdd32(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestFloatAdd64 tests that Float.Add/Sub of numbers with
+    // 53bit mantissa behaves like float64 addition/subtraction.
+**/
+inline function testFloatAdd64(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIssue20490(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestFloatMul tests Float.Mul/Quo by comparing the result of a "manual"
+    // multiplication/division of arguments represented by Bits values with the
+    // respective Float multiplication/division for a variety of precisions
+    // and rounding modes.
+**/
+inline function testFloatMul(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestFloatMul64 tests that Float.Mul/Quo of numbers with
+    // 53bit mantissa behaves like float64 multiplication/division.
+**/
+inline function testFloatMul64(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIssue6866(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatQuo(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestFloatQuoSmoke tests all divisions x/y for values x, y in the range [-n, +n];
+    // it serves as a smoke test for basic correctness of division.
+**/
+inline function testFloatQuoSmoke(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestFloatArithmeticSpecialValues tests that Float operations produce the
+    // correct results for combinations of zero (±0), finite (±1 and ±2.71828),
+    // and infinite (±Inf) operands.
+**/
+inline function testFloatArithmeticSpecialValues(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatArithmeticOverflow(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // For rounding modes ToNegativeInf and ToPositiveInf, rounding is affected
+    // by the sign of the value to be rounded. Test that rounding happens after
+    // the sign of a result has been set.
+    // This test uses specific values that are known to fail if rounding is
+    // "factored" out before setting the result sign.
+**/
+inline function testFloatArithmeticRounding(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestFloatCmpSpecialValues tests that Cmp produces the correct results for
+    // combinations of zero (±0), finite (±1 and ±2.71828), and infinite (±Inf)
+    // operands.
+**/
+inline function testFloatCmpSpecialValues(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkFloatAdd(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkFloatSub(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+/**
+    // ParseFloat is like f.Parse(s, base) with f set to the given precision
+    // and rounding mode.
+**/
+inline function parseFloat(s:String, base:Int, prec:UInt, mode:RoundingMode):stdgo.Tuple.Tuple3<Float_, Int, stdgo.Error> throw "not implemented";
+inline function testFloatSetFloat64String(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloat64Text(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatText(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatFormat(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkParseFloatSmallExp(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkParseFloatLargeExp(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testFloatScan(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatGobEncoding(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatCorruptGob(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatJSONEncoding(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatGobDecodeShortBuffer(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatGobDecodeInvalid(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkGCD10x10(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkGCD10x100(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkGCD10x1000(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkGCD10x10000(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkGCD10x100000(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkGCD100x100(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkGCD100x1000(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkGCD100x10000(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkGCD100x100000(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkGCD1000x1000(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkGCD1000x10000(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkGCD1000x100000(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkGCD10000x10000(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkGCD10000x100000(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkGCD100000x100000(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testHilbert(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkHilbert(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+/**
+    // NewInt allocates and returns a new Int set to x.
+**/
+inline function newInt(x:haxe.Int64):Int_ throw "not implemented";
+/**
+    // Jacobi returns the Jacobi symbol (x/y), either +1, -1, or 0.
+    // The y argument must be an odd integer.
+**/
+inline function jacobi(x:Int_, y:Int_):Int throw "not implemented";
+inline function testSignZ(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testSetZ(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testAbsZ(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testSumZZ(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testProdZZ(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testMul(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testMulRangeZ(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testBinomial(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkBinomial(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testDivisionSigns(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testBits(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testSetBytes(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testBytes(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testQuo(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testQuoStepD6(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkQuoRem(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testBitLen(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testExp(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkExp(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkExpMont(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkExp2(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testGcd(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testRsh(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testRshSelf(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testLsh(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testLshSelf(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testLshRsh(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testCmpAbs(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIntCmpSelf(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testInt64(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testUint64(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testBitSet(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testTrailingZeroBits(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkBitset(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkBitsetNeg(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkBitsetOrig(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkBitsetNegOrig(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkModSqrt225_Tonelli(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkModSqrt225_3Mod4(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkModSqrt231_Tonelli(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkModSqrt231_5Mod8(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testBitwise(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testNot(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testModInverse(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkModInverse(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testModSqrt(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testJacobi(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testJacobiPanic(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIssue2607(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testSqrt(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // We can't test this together with the other Exp tests above because
+    // it requires a different receiver setup.
+**/
+inline function testIssue22830(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkSqrt(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkIntSqr(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkDiv(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testFillBytes(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testNewIntMinInt64(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testNewIntAllocs(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloat64(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIntText(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testAppendText(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testGetString(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testSetString(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFormat(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testScan(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIntGobEncoding(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Sending a nil Int pointer (inside a slice) on a round trip through gob should yield a zero.
+    // TODO: top-level nils.
+**/
+inline function testGobEncodingNilIntInSlice(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIntJSONEncoding(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIntJSONEncodingNil(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIntXMLEncoding(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Tests that the linker is able to remove references to Float, Rat,
+    // and Int if unused (notably, not used by init).
+**/
+inline function testLinkerGC(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testCmp(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testSet(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFunNN(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testMulRangeN(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestMulUnbalanced tests that multiplying numbers of different lengths
+    // does not cause deep recursion and in turn allocate too much memory.
+    // Test case for issue 3807.
+**/
+inline function testMulUnbalanced(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkMul(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkNatMul(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testNLZ(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testShiftLeft(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testShiftRight(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkZeroShifts(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testModW(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testMontgomery(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testExpNN(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function fuzzExpMont(f:stdgo._internal.testing.Testing.F):Void throw "not implemented";
+inline function benchmarkExp3Power(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testFibo(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkFibo(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testBit(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testSticky(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testSqr(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkNatSqr(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testNatSubMod2N(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkNatSetBytes(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testNatDiv(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestIssue37499 triggers the edge case of divBasic where
+    // the inaccurate estimate of the first word's quotient
+    // happens at the very beginning of the loop.
+**/
+inline function testIssue37499(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestIssue42552 triggers an edge case of recursive division
+    // where the first division loop is never entered, and correcting
+    // the remainder takes exactly two iterations in the final loop.
+**/
+inline function testIssue42552(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testMaxBase(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testString(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testScanBase(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Test case for BenchmarkScanPi.
+**/
+inline function testScanPi(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testScanPiParallel(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkScanPi(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkStringPiParallel(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkScan(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkString(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkLeafSize(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function leafSizeHelper(b:stdgo._internal.testing.Testing.B, base:Int, size:Int):Void throw "not implemented";
+inline function testStringPowers(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testProbablyPrime(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkProbablyPrime(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testMillerRabinPseudoprimes(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testLucasPseudoprimes(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // NewRat creates a new Rat with numerator a and denominator b.
+**/
+inline function newRat(a:haxe.Int64, b:haxe.Int64):Rat throw "not implemented";
+inline function testZeroRat(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testRatSign(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testRatCmp(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIsInt(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testRatAbs(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testRatNeg(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testRatInv(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testRatBin(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIssue820(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testRatSetFrac64Rat(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIssue2379(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIssue3521(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloat32Distribution(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloat64Distribution(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestSetFloat64NonFinite checks that SetFloat64 of a non-finite value
+    // returns nil.
+**/
+inline function testSetFloat64NonFinite(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIsFinite(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testRatSetInt64(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testRatSetUint64(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkRatCmp(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+/**
+    // TestIssue34919 verifies that a Rat's denominator is not modified
+    // when simply accessing the Rat value.
+**/
+inline function testIssue34919(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDenomRace(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testScanExponent(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testRatSetString(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testRatSetStringZero(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testRatScan(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatString(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloat32SpecialCases(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloat64SpecialCases(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIssue31184(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIssue45910(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testRatGobEncoding(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Sending a nil Rat pointer (inside a slice) on a round trip through gob should yield a zero.
+    // TODO: top-level nils.
+**/
+inline function testGobEncodingNilRatInSlice(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testRatJSONEncoding(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testRatXMLEncoding(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testRatGobDecodeShortBuffer(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestFloatSqrt64 tests that Float.Sqrt of numbers with 53bit mantissa
+    // behaves like float math.Sqrt.
+**/
+inline function testFloatSqrt64(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatSqrt(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFloatSqrtSpecial(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkFloatSqrt(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 @:invalid typedef T_decimal_asInterface = Dynamic;
 @:invalid typedef T_decimal_static_extension = Dynamic;
 @:invalid typedef Float__asInterface = Dynamic;

@@ -1,68 +1,88 @@
 package stdgo.syscall.js;
-@:invalid var __go2hxdoc__package : Dynamic;
-@:invalid var _funcs : Dynamic;
-@:invalid var _nextFuncID : Dynamic;
-@:invalid var _valueUndefined : Dynamic;
-@:invalid var _valueNaN : Dynamic;
-@:invalid var _valueZero : Dynamic;
-@:invalid var _valueNull : Dynamic;
-@:invalid var _valueTrue : Dynamic;
-@:invalid var _valueFalse : Dynamic;
-@:invalid var _valueGlobal : Dynamic;
-@:invalid var _jsGo : Dynamic;
-@:invalid var _objectConstructor : Dynamic;
-@:invalid var _arrayConstructor : Dynamic;
-@:invalid var _funcsMu : Dynamic;
-@:invalid var _nanHead : Dynamic;
-@:invalid var _typeFlagNone : Dynamic;
-@:invalid var _typeFlagObject : Dynamic;
-@:invalid var _typeFlagString : Dynamic;
-@:invalid var _typeFlagSymbol : Dynamic;
-@:invalid var _typeFlagFunction : Dynamic;
-@:invalid var typeUndefined : Dynamic;
-@:invalid var typeNull : Dynamic;
-@:invalid var typeBoolean : Dynamic;
-@:invalid var typeNumber : Dynamic;
-@:invalid var typeString : Dynamic;
-@:invalid var typeSymbol : Dynamic;
-@:invalid var typeObject : Dynamic;
-@:invalid var typeFunction : Dynamic;
+/**
+    // Package js gives access to the WebAssembly host environment when using the js/wasm architecture.
+    // Its API is based on JavaScript semantics.
+    //
+    // This package is EXPERIMENTAL. Its current scope is only to allow tests to run, but not yet to provide a
+    // comprehensive API for users. It is exempt from the Go compatibility promise.
+**/
+private var __go2hxdoc__package : Bool;
+final typeUndefined : stdgo._internal.syscall.js.Js.Type_ = stdgo._internal.syscall.js.Js.typeUndefined;
+final typeNull = stdgo._internal.syscall.js.Js.typeNull;
+final typeBoolean = stdgo._internal.syscall.js.Js.typeBoolean;
+final typeNumber = stdgo._internal.syscall.js.Js.typeNumber;
+final typeString = stdgo._internal.syscall.js.Js.typeString;
+final typeSymbol = stdgo._internal.syscall.js.Js.typeSymbol;
+final typeObject = stdgo._internal.syscall.js.Js.typeObject;
+final typeFunction = stdgo._internal.syscall.js.Js.typeFunction;
 @:invalid typedef Func = Dynamic;
 @:invalid typedef Value = Dynamic;
 @:invalid typedef Error = Dynamic;
 @:invalid typedef ValueError = Dynamic;
 typedef T_ref = stdgo._internal.syscall.js.Js.T_ref;
 typedef Type_ = stdgo._internal.syscall.js.Js.Type_;
-function funcOf(_fn:(_this:Value, _args:stdgo.Slice<Value>) -> stdgo.AnyInterface):Void {}
-function _setEventHandler(_fn:() -> Bool):Void {}
-function _handleEvent():Void {}
-function _makeValue(_r:T_ref):Void {}
-function _finalizeRef(_r:T_ref):Void {}
-function _predefValue(_id:stdgo.GoUInt32, _typeFlag:stdgo.GoByte):Void {}
-function _floatValue(_f:stdgo.GoFloat64):Void {}
-function undefined():Void {}
-function null_():Void {}
-function global():Void {}
-function valueOf(_x:stdgo.AnyInterface):Void {}
-function _stringVal(_x:stdgo.GoString):Void {}
-function _valueGet(_v:T_ref, _p:stdgo.GoString):Void {}
-function _valueSet(_v:T_ref, _p:stdgo.GoString, _x:T_ref):Void {}
-function _valueDelete(_v:T_ref, _p:stdgo.GoString):Void {}
-function _valueIndex(_v:T_ref, _i:stdgo.GoInt):Void {}
-function _valueSetIndex(_v:T_ref, _i:stdgo.GoInt, _x:T_ref):Void {}
-function _makeArgs(_args:stdgo.Slice<stdgo.AnyInterface>):Void {}
-function _valueLength(_v:T_ref):Void {}
-function _valueCall(_v:T_ref, _m:stdgo.GoString, _args:stdgo.Slice<T_ref>):Void {}
-function _valueInvoke(_v:T_ref, _args:stdgo.Slice<T_ref>):Void {}
-function _valueNew(_v:T_ref, _args:stdgo.Slice<T_ref>):Void {}
-function _jsString(_v:Value):Void {}
-function _valuePrepareString(_v:T_ref):Void {}
-function _valueLoadString(_v:T_ref, _b:stdgo.Slice<stdgo.GoByte>):Void {}
-function _valueInstanceOf(_v:T_ref, _t:T_ref):Void {}
-function copyBytesToGo(_dst:stdgo.Slice<stdgo.GoByte>, _src:Value):Void {}
-function _copyBytesToGo(_dst:stdgo.Slice<stdgo.GoByte>, _src:T_ref):Void {}
-function copyBytesToJS(_dst:Value, _src:stdgo.Slice<stdgo.GoByte>):Void {}
-function _copyBytesToJS(_dst:T_ref, _src:stdgo.Slice<stdgo.GoByte>):Void {}
+/**
+    // FuncOf returns a function to be used by JavaScript.
+    //
+    // The Go function fn is called with the value of JavaScript's "this" keyword and the
+    // arguments of the invocation. The return value of the invocation is
+    // the result of the Go function mapped back to JavaScript according to ValueOf.
+    //
+    // Invoking the wrapped Go function from JavaScript will
+    // pause the event loop and spawn a new goroutine.
+    // Other wrapped functions which are triggered during a call from Go to JavaScript
+    // get executed on the same goroutine.
+    //
+    // As a consequence, if one wrapped function blocks, JavaScript's event loop
+    // is blocked until that function returns. Hence, calling any async JavaScript
+    // API, which requires the event loop, like fetch (http.Client), will cause an
+    // immediate deadlock. Therefore a blocking function should explicitly start a
+    // new goroutine.
+    //
+    // Func.Release must be called to free up resources when the function will not be invoked any more.
+**/
+inline function funcOf(fn:(_this:Value, _args:stdgo.Slice<Value>) -> stdgo.AnyInterface):Func throw "not implemented";
+/**
+    // Undefined returns the JavaScript value "undefined".
+**/
+inline function undefined():Value throw "not implemented";
+/**
+    // Null returns the JavaScript value "null".
+**/
+inline function null_():Value throw "not implemented";
+/**
+    // Global returns the JavaScript global object, usually "window" or "global".
+**/
+inline function global():Value throw "not implemented";
+/**
+    // ValueOf returns x as a JavaScript value:
+    //
+    //	| Go                     | JavaScript             |
+    //	| ---------------------- | ---------------------- |
+    //	| js.Value               | [its value]            |
+    //	| js.Func                | function               |
+    //	| nil                    | null                   |
+    //	| bool                   | boolean                |
+    //	| integers and floats    | number                 |
+    //	| string                 | string                 |
+    //	| []interface{}          | new array              |
+    //	| map[string]interface{} | new object             |
+    //
+    // Panics if x is not one of the expected types.
+**/
+inline function valueOf(x:stdgo.AnyInterface):Value throw "not implemented";
+/**
+    // CopyBytesToGo copies bytes from src to dst.
+    // It panics if src is not a Uint8Array or Uint8ClampedArray.
+    // It returns the number of bytes copied, which will be the minimum of the lengths of src and dst.
+**/
+inline function copyBytesToGo(dst:Array<Int>, src:Value):Int throw "not implemented";
+/**
+    // CopyBytesToJS copies bytes from src to dst.
+    // It panics if dst is not a Uint8Array or Uint8ClampedArray.
+    // It returns the number of bytes copied, which will be the minimum of the lengths of src and dst.
+**/
+inline function copyBytesToJS(dst:Value, src:Array<Int>):Int throw "not implemented";
 @:invalid typedef Func_asInterface = Dynamic;
 @:invalid typedef Func_static_extension = Dynamic;
 @:invalid typedef Value_asInterface = Dynamic;

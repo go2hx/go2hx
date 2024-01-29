@@ -1,80 +1,15 @@
 package stdgo.compress.flate;
-@:invalid var __go2hxdoc__package : Dynamic;
-@:invalid var _levels : Dynamic;
-@:invalid var _errWriterClosed : Dynamic;
-@:invalid var _lengthExtraBits : Dynamic;
-@:invalid var _lengthBase : Dynamic;
-@:invalid var _offsetExtraBits : Dynamic;
-@:invalid var _offsetBase : Dynamic;
-@:invalid var _codegenOrder : Dynamic;
-@:invalid var _fixedOffsetEncoding : Dynamic;
-@:invalid var _fixedLiteralEncoding : Dynamic;
-@:invalid var _codeOrder : Dynamic;
-@:invalid var _lengthCodes : Dynamic;
-@:invalid var _offsetCodes : Dynamic;
-@:invalid var _deflateTests : Dynamic;
-@:invalid var _deflateInflateTests : Dynamic;
-@:invalid var _reverseBitsTests : Dynamic;
-@:invalid var _deflateInflateStringTests : Dynamic;
-@:invalid var _errIO : Dynamic;
-@:invalid var _update : Dynamic;
-@:invalid var _writeBlockTests : Dynamic;
-@:invalid var _suites : Dynamic;
-@:invalid var _levelTests : Dynamic;
-@:invalid var _sizes : Dynamic;
-@:invalid var noCompression : Dynamic;
-@:invalid var bestSpeed : Dynamic;
-@:invalid var bestCompression : Dynamic;
-@:invalid var defaultCompression : Dynamic;
-@:invalid var huffmanOnly : Dynamic;
-@:invalid var _logWindowSize : Dynamic;
-@:invalid var _windowSize : Dynamic;
-@:invalid var _windowMask : Dynamic;
-@:invalid var _baseMatchLength : Dynamic;
-@:invalid var _minMatchLength : Dynamic;
-@:invalid var _maxMatchLength : Dynamic;
-@:invalid var _baseMatchOffset : Dynamic;
-@:invalid var _maxMatchOffset : Dynamic;
-@:invalid var _maxFlateBlockTokens : Dynamic;
-@:invalid var _maxStoreBlockSize : Dynamic;
-@:invalid var _hashBits : Dynamic;
-@:invalid var _hashSize : Dynamic;
-@:invalid var _hashMask : Dynamic;
-@:invalid var _maxHashOffset : Dynamic;
-@:invalid var _skipNever : Dynamic;
-@:invalid var _hashmul : Dynamic;
-@:invalid var _tableBits : Dynamic;
-@:invalid var _tableSize : Dynamic;
-@:invalid var _tableMask : Dynamic;
-@:invalid var _tableShift : Dynamic;
-@:invalid var _bufferReset : Dynamic;
-@:invalid var _inputMargin : Dynamic;
-@:invalid var _minNonLiteralBlockSize : Dynamic;
-@:invalid var _offsetCodeCount : Dynamic;
-@:invalid var _endBlockMarker : Dynamic;
-@:invalid var _lengthCodesStart : Dynamic;
-@:invalid var _codegenCodeCount : Dynamic;
-@:invalid var _badCode : Dynamic;
-@:invalid var _bufferFlushSize : Dynamic;
-@:invalid var _bufferSize : Dynamic;
-@:invalid var _huffOffset : Dynamic;
-@:invalid var _ml : Dynamic;
-@:invalid var _maxBitsLimit : Dynamic;
-@:invalid var _maxCodeLen : Dynamic;
-@:invalid var _maxNumLit : Dynamic;
-@:invalid var _maxNumDist : Dynamic;
-@:invalid var _numCodes : Dynamic;
-@:invalid var _fixedOnce : Dynamic;
-@:invalid var _fixedHuffmanDecoder : Dynamic;
-@:invalid var _huffmanChunkBits : Dynamic;
-@:invalid var _huffmanNumChunks : Dynamic;
-@:invalid var _huffmanCountMask : Dynamic;
-@:invalid var _huffmanValueShift : Dynamic;
-@:invalid var _lengthShift : Dynamic;
-@:invalid var _offsetMask : Dynamic;
-@:invalid var _typeMask : Dynamic;
-@:invalid var _literalType : Dynamic;
-@:invalid var _matchType : Dynamic;
+/**
+    // Package flate implements the DEFLATE compressed data format, described in
+    // RFC 1951.  The gzip and zlib packages implement access to DEFLATE-based file
+    // formats.
+**/
+private var __go2hxdoc__package : Bool;
+final noCompression : haxe.UInt64 = stdgo._internal.compress.flate.Flate.noCompression;
+final bestSpeed : haxe.UInt64 = stdgo._internal.compress.flate.Flate.bestSpeed;
+final bestCompression : haxe.UInt64 = stdgo._internal.compress.flate.Flate.bestCompression;
+final defaultCompression : haxe.UInt64 = stdgo._internal.compress.flate.Flate.defaultCompression;
+final huffmanOnly : haxe.UInt64 = stdgo._internal.compress.flate.Flate.huffmanOnly;
 typedef Resetter = stdgo._internal.compress.flate.Flate.Resetter;
 typedef Reader = stdgo._internal.compress.flate.Flate.Reader;
 @:invalid typedef T_compressionLevel = Dynamic;
@@ -131,86 +66,145 @@ typedef T_byFreq = stdgo._internal.compress.flate.Flate.T_byFreq;
 typedef CorruptInputError = stdgo._internal.compress.flate.Flate.CorruptInputError;
 typedef InternalError = stdgo._internal.compress.flate.Flate.InternalError;
 typedef T_token = stdgo._internal.compress.flate.Flate.T_token;
-function _hash4(_b:stdgo.Slice<stdgo.GoByte>):Void {}
-function _bulkHash4(_b:stdgo.Slice<stdgo.GoByte>, _dst:stdgo.Slice<stdgo.GoUInt32>):Void {}
-function _matchLen(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>, _max:stdgo.GoInt):Void {}
-function newWriter(_w:stdgo._internal.io.Io.Writer, _level:stdgo.GoInt):Void {}
-function newWriterDict(_w:stdgo._internal.io.Io.Writer, _level:stdgo.GoInt, _dict:stdgo.Slice<stdgo.GoByte>):Void {}
-function _largeDataChunk():Void {}
-function testBulkHash4(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDeflate(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testWriterClose(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testVeryLongSparseChunk(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _newSyncBuffer():Void {}
-function _testSync(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _level:stdgo.GoInt, _input:stdgo.Slice<stdgo.GoByte>, _name:stdgo.GoString):Void {}
-function _testToFromWithLevelAndLimit(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _level:stdgo.GoInt, _input:stdgo.Slice<stdgo.GoByte>, _name:stdgo.GoString, _limit:stdgo.GoInt):Void {}
-function _testToFromWithLimit(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _input:stdgo.Slice<stdgo.GoByte>, _name:stdgo.GoString, _limit:stdgo.GoArray<stdgo.GoInt>):Void {}
-function testDeflateInflate(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testReverseBits(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDeflateInflateString(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testReaderDict(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testWriterDict(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testRegression2508(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testWriterReset(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _testResetOutput(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _level:stdgo.GoInt, _dict:stdgo.Slice<stdgo.GoByte>):Void {}
-function testBestSpeed(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testWriterPersistentWriteError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testWriterPersistentFlushError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testWriterPersistentCloseError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _checkErrors(_got:stdgo.Slice<stdgo.Error>, _want:stdgo.Error, _t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testBestSpeedMatch(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testBestSpeedMaxMatchOffset(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testBestSpeedShiftOffsets(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testMaxStackSize(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _load32(_b:stdgo.Slice<stdgo.GoByte>, _i:stdgo.GoInt32):Void {}
-function _load64(_b:stdgo.Slice<stdgo.GoByte>, _i:stdgo.GoInt32):Void {}
-function _hash(_u:stdgo.GoUInt32):Void {}
-function _newDeflateFast():Void {}
-function _emitLiteral(_dst:stdgo.Slice<T_token>, _lit:stdgo.Slice<stdgo.GoByte>):Void {}
-function testDictDecoder(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIssue5915(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIssue5962(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIssue6255(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testInvalidEncoding(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testInvalidBits(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testStreams(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testTruncatedStreams(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testReaderEarlyEOF(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _newHuffmanBitWriter(_w:stdgo._internal.io.Io.Writer):Void {}
-function _histogram(_b:stdgo.Slice<stdgo.GoByte>, _h:stdgo.Slice<stdgo.GoInt32>):Void {}
-function testBlockHuff(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _testBlockHuff(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _in:stdgo.GoString, _out:stdgo.GoString):Void {}
-function testWriteBlock(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testWriteBlockDynamic(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _testBlock(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _test:T_huffTest, _ttype:stdgo.GoString):Void {}
-function _writeToType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _ttype:stdgo.GoString, _bw:stdgo.Ref<T_huffmanBitWriter>, _tok:stdgo.Slice<T_token>, _input:stdgo.Slice<stdgo.GoByte>):Void {}
-function _testWriterEOF(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _ttype:stdgo.GoString, _test:T_huffTest, _useInput:Bool):Void {}
-function _maxNode():Void {}
-function _newHuffmanEncoder(_size:stdgo.GoInt):Void {}
-function _generateFixedLiteralEncoding():Void {}
-function _generateFixedOffsetEncoding():Void {}
-function _reverseBits(_number:stdgo.GoUInt16, _bitLength:stdgo.GoByte):Void {}
-function _noEOF(_e:stdgo.Error):Void {}
-function _fixedHuffmanDecoderInit():Void {}
-function newReader(_r:stdgo._internal.io.Io.Reader):Void {}
-function newReaderDict(_r:stdgo._internal.io.Io.Reader, _dict:stdgo.Slice<stdgo.GoByte>):Void {}
-function testReset(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testReaderTruncated(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testResetDict(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testReaderReusesReaderBuffer(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testNlitOutOfRange(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkDecode(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function _doBench(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _f:(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _buf:stdgo.Slice<stdgo.GoByte>, _level:stdgo.GoInt, _n:stdgo.GoInt) -> Void):Void {}
-function _literalToken(_literal:stdgo.GoUInt32):Void {}
-function _matchToken(_xlength:stdgo.GoUInt32, _xoffset:stdgo.GoUInt32):Void {}
-function _lengthCode(_len:stdgo.GoUInt32):Void {}
-function _offsetCode(_off:stdgo.GoUInt32):Void {}
-function benchmarkEncode(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function testWriteError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDeterministic(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _testDeterministic(_i:stdgo.GoInt, _t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDeflateFast_Reset(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid var _ : Dynamic;
+/**
+    // NewWriter returns a new Writer compressing data at the given level.
+    // Following zlib, levels range from 1 (BestSpeed) to 9 (BestCompression);
+    // higher levels typically run slower but compress more. Level 0
+    // (NoCompression) does not attempt any compression; it only adds the
+    // necessary DEFLATE framing.
+    // Level -1 (DefaultCompression) uses the default compression level.
+    // Level -2 (HuffmanOnly) will use Huffman compression only, giving
+    // a very fast compression for all types of input, but sacrificing considerable
+    // compression efficiency.
+    //
+    // If level is in the range [-2, 9] then the error returned will be nil.
+    // Otherwise the error returned will be non-nil.
+**/
+inline function newWriter(w:stdgo._internal.io.Io.Writer, level:Int):stdgo.Tuple.<Writer, stdgo.Error> throw "not implemented";
+/**
+    // NewWriterDict is like NewWriter but initializes the new
+    // Writer with a preset dictionary. The returned Writer behaves
+    // as if the dictionary had been written to it without producing
+    // any compressed output. The compressed data written to w
+    // can only be decompressed by a Reader initialized with the
+    // same dictionary.
+**/
+inline function newWriterDict(w:stdgo._internal.io.Io.Writer, level:Int, dict:Array<Int>):stdgo.Tuple.<Writer, stdgo.Error> throw "not implemented";
+inline function testBulkHash4(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDeflate(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testWriterClose(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testVeryLongSparseChunk(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDeflateInflate(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testReverseBits(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDeflateInflateString(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testReaderDict(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testWriterDict(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // See https://golang.org/issue/2508
+**/
+inline function testRegression2508(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testWriterReset(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestBestSpeed tests that round-tripping through deflate and then inflate
+    // recovers the original input. The Write sizes are near the thresholds in the
+    // compressor.encSpeed method (0, 16, 128), as well as near maxStoreBlockSize
+    // (65535).
+**/
+inline function testBestSpeed(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testWriterPersistentWriteError(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testWriterPersistentFlushError(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testWriterPersistentCloseError(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testBestSpeedMatch(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testBestSpeedMaxMatchOffset(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testBestSpeedShiftOffsets(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testMaxStackSize(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDictDecoder(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // The following test should not panic.
+**/
+inline function testIssue5915(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // The following test should not panic.
+**/
+inline function testIssue5962(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // The following test should not panic.
+**/
+inline function testIssue6255(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testInvalidEncoding(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testInvalidBits(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testStreams(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testTruncatedStreams(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Verify that flate.Reader.Read returns (n, io.EOF) instead
+    // of (n, nil) + (0, io.EOF) when possible.
+    //
+    // This helps net/http.Transport reuse HTTP/1 connections more
+    // aggressively.
+    //
+    // See https://github.com/google/go-github/pull/317 for background.
+**/
+inline function testReaderEarlyEOF(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestBlockHuff tests huffman encoding against reference files
+    // to detect possible regressions.
+    // If encoding/bit allocation changes you can regenerate these files
+    // by using the -update flag.
+**/
+inline function testBlockHuff(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestWriteBlock tests if the writeBlock encoding has changed.
+    // To update the reference files use the "-update" flag on the test.
+**/
+inline function testWriteBlock(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestWriteBlockDynamic tests if the writeBlockDynamic encoding has changed.
+    // To update the reference files use the "-update" flag on the test.
+**/
+inline function testWriteBlockDynamic(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // NewReader returns a new ReadCloser that can be used
+    // to read the uncompressed version of r.
+    // If r does not also implement io.ByteReader,
+    // the decompressor may read more data than necessary from r.
+    // The reader returns io.EOF after the final block in the DEFLATE stream has
+    // been encountered. Any trailing data after the final block is ignored.
+    //
+    // The ReadCloser returned by NewReader also implements Resetter.
+**/
+inline function newReader(r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.ReadCloser throw "not implemented";
+/**
+    // NewReaderDict is like NewReader but initializes the reader
+    // with a preset dictionary. The returned Reader behaves as if
+    // the uncompressed data stream started with the given dictionary,
+    // which has already been read. NewReaderDict is typically used
+    // to read data compressed by NewWriterDict.
+    //
+    // The ReadCloser returned by NewReader also implements Resetter.
+**/
+inline function newReaderDict(r:stdgo._internal.io.Io.Reader, dict:Array<Int>):stdgo._internal.io.Io.ReadCloser throw "not implemented";
+inline function testReset(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testReaderTruncated(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testResetDict(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testReaderReusesReaderBuffer(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testNlitOutOfRange(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkDecode(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkEncode(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+/**
+    // Test if errors from the underlying writer is passed upwards.
+**/
+inline function testWriteError(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Test if two runs produce identical results
+    // even when writing different sizes to the Writer.
+**/
+inline function testDeterministic(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestDeflateFast_Reset will test that encoding is consistent
+    // across a warparound of the table offset.
+    // See https://github.com/golang/go/issues/34121
+**/
+inline function testDeflateFast_Reset(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_compressor_asInterface = Dynamic;
 @:invalid typedef T_compressor_static_extension = Dynamic;
 @:invalid typedef T_dictWriter_asInterface = Dynamic;

@@ -1,23 +1,21 @@
 package stdgo.go.ast;
-@:invalid var __go2hxdoc__package : Dynamic;
-@:invalid var _separator : Dynamic;
-@:invalid var _indent : Dynamic;
-@:invalid var _objKindStrings : Dynamic;
-@:invalid var _comments : Dynamic;
-@:invalid var _isDirectiveTests : Dynamic;
-@:invalid var _tests : Dynamic;
-@:invalid var send : Dynamic;
-@:invalid var recv : Dynamic;
-@:invalid var filterFuncDuplicates : Dynamic;
-@:invalid var filterUnassociatedComments : Dynamic;
-@:invalid var filterImportDuplicates : Dynamic;
-@:invalid var bad : Dynamic;
-@:invalid var pkg : Dynamic;
-@:invalid var con : Dynamic;
-@:invalid var typ : Dynamic;
-@:invalid var var_ : Dynamic;
-@:invalid var fun : Dynamic;
-@:invalid var lbl : Dynamic;
+/**
+    // Package ast declares the types used to represent syntax trees for Go
+    // packages.
+**/
+private var __go2hxdoc__package : Bool;
+final send : stdgo._internal.go.ast.Ast.ChanDir = stdgo._internal.go.ast.Ast.send;
+final recv = stdgo._internal.go.ast.Ast.recv;
+final filterFuncDuplicates : stdgo._internal.go.ast.Ast.MergeMode = stdgo._internal.go.ast.Ast.filterFuncDuplicates;
+final filterUnassociatedComments = stdgo._internal.go.ast.Ast.filterUnassociatedComments;
+final filterImportDuplicates = stdgo._internal.go.ast.Ast.filterImportDuplicates;
+final bad : stdgo._internal.go.ast.Ast.ObjKind = stdgo._internal.go.ast.Ast.bad;
+final pkg = stdgo._internal.go.ast.Ast.pkg;
+final con = stdgo._internal.go.ast.Ast.con;
+final typ = stdgo._internal.go.ast.Ast.typ;
+final var_ = stdgo._internal.go.ast.Ast.var_;
+final fun = stdgo._internal.go.ast.Ast.fun;
+final lbl = stdgo._internal.go.ast.Ast.lbl;
 typedef Node = stdgo._internal.go.ast.Ast.Node;
 typedef Expr = stdgo._internal.go.ast.Ast.Expr;
 typedef Stmt = stdgo._internal.go.ast.Ast.Stmt;
@@ -120,62 +118,168 @@ typedef FieldFilter = stdgo._internal.go.ast.Ast.FieldFilter;
 typedef Importer = stdgo._internal.go.ast.Ast.Importer;
 typedef ObjKind = stdgo._internal.go.ast.Ast.ObjKind;
 typedef T_inspector = stdgo._internal.go.ast.Ast.T_inspector;
-function _isWhitespace(_ch:stdgo.GoByte):Void {}
-function _stripTrailingWhitespace(_s:stdgo.GoString):Void {}
-function _isDirective(_c:stdgo.GoString):Void {}
-function newIdent(_name:stdgo.GoString):Void {}
-function isExported(_name:stdgo.GoString):Void {}
-function isGenerated(_file:stdgo.Ref<File>):Void {}
-function _generator(_file:stdgo.Ref<File>):Void {}
-function testCommentText(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIsDirective(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _sortComments(_list:stdgo.Slice<stdgo.Ref<CommentGroup>>):Void {}
-function _nodeList(_n:Node):Void {}
-function newCommentMap(_fset:stdgo.Ref<stdgo._internal.go.token.Token.FileSet>, _node:Node, _comments:stdgo.Slice<stdgo.Ref<CommentGroup>>):Void {}
-function _summary(_list:stdgo.Slice<stdgo.Ref<CommentGroup>>):Void {}
-function _exportFilter(_name:stdgo.GoString):Void {}
-function fileExports(_src:stdgo.Ref<File>):Void {}
-function packageExports(_pkg:stdgo.Ref<Package>):Void {}
-function _filterIdentList(_list:stdgo.Slice<stdgo.Ref<Ident>>, _f:Filter):Void {}
-function _fieldName(_x:Expr):Void {}
-function _filterFieldList(_fields:stdgo.Ref<FieldList>, _filter:Filter, _export:Bool):Void {}
-function _filterCompositeLit(_lit:stdgo.Ref<CompositeLit>, _filter:Filter, _export:Bool):Void {}
-function _filterExprList(_list:stdgo.Slice<Expr>, _filter:Filter, _export:Bool):Void {}
-function _filterParamList(_fields:stdgo.Ref<FieldList>, _filter:Filter, _export:Bool):Void {}
-function _filterType(_typ:Expr, _f:Filter, _export:Bool):Void {}
-function _filterSpec(_spec:Spec, _f:Filter, _export:Bool):Void {}
-function _filterSpecList(_list:stdgo.Slice<Spec>, _f:Filter, _export:Bool):Void {}
-function filterDecl(_decl:Decl, _f:Filter):Void {}
-function _filterDecl(_decl:Decl, _f:Filter, _export:Bool):Void {}
-function filterFile(_src:stdgo.Ref<File>, _f:Filter):Void {}
-function _filterFile(_src:stdgo.Ref<File>, _f:Filter, _export:Bool):Void {}
-function filterPackage(_pkg:stdgo.Ref<Package>, _f:Filter):Void {}
-function _filterPackage(_pkg:stdgo.Ref<Package>, _f:Filter, _export:Bool):Void {}
-function _nameOf(_f:stdgo.Ref<FuncDecl>):Void {}
-function mergePackageFiles(_pkg:stdgo.Ref<Package>, _mode:MergeMode):Void {}
-function sortImports(_fset:stdgo.Ref<stdgo._internal.go.token.Token.FileSet>, _f:stdgo.Ref<File>):Void {}
-function _lineAt(_fset:stdgo.Ref<stdgo._internal.go.token.Token.FileSet>, _pos:stdgo._internal.go.token.Token.Pos):Void {}
-function _importPath(_s:Spec):Void {}
-function _importName(_s:Spec):Void {}
-function _importComment(_s:Spec):Void {}
-function _collapse(_prev:Spec, _next:Spec):Void {}
-function _sortSpecs(_fset:stdgo.Ref<stdgo._internal.go.token.Token.FileSet>, _f:stdgo.Ref<File>, _specs:stdgo.Slice<Spec>):Void {}
-function notNilFilter(__0:stdgo.GoString, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function fprint(_w:stdgo._internal.io.Io.Writer, _fset:stdgo.Ref<stdgo._internal.go.token.Token.FileSet>, _x:stdgo.AnyInterface, _f:FieldFilter):Void {}
-function _fprint(_w:stdgo._internal.io.Io.Writer, _fset:stdgo.Ref<stdgo._internal.go.token.Token.FileSet>, _x:stdgo.AnyInterface, _f:FieldFilter):Void {}
-function print(_fset:stdgo.Ref<stdgo._internal.go.token.Token.FileSet>, _x:stdgo.AnyInterface):Void {}
-function _trim(_s:stdgo.GoString):Void {}
-function testPrint(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _resolve(_scope:stdgo.Ref<Scope>, _ident:stdgo.Ref<Ident>):Void {}
-function newPackage(_fset:stdgo.Ref<stdgo._internal.go.token.Token.FileSet>, _files:stdgo.GoMap<stdgo.GoString, stdgo.Ref<File>>, _importer:Importer, _universe:stdgo.Ref<Scope>):Void {}
-function newScope(_outer:stdgo.Ref<Scope>):Void {}
-function newObj(_kind:ObjKind, _name:stdgo.GoString):Void {}
-function _walkIdentList(_v:Visitor, _list:stdgo.Slice<stdgo.Ref<Ident>>):Void {}
-function _walkExprList(_v:Visitor, _list:stdgo.Slice<Expr>):Void {}
-function _walkStmtList(_v:Visitor, _list:stdgo.Slice<Stmt>):Void {}
-function _walkDeclList(_v:Visitor, _list:stdgo.Slice<Decl>):Void {}
-function walk(_v:Visitor, _node:Node):Void {}
-function inspect(_node:Node, _f:Node -> Bool):Void {}
+/**
+    // NewIdent creates a new Ident without position.
+    // Useful for ASTs generated by code other than the Go parser.
+**/
+inline function newIdent(name:String):Ident throw "not implemented";
+/**
+    // IsExported reports whether name starts with an upper-case letter.
+**/
+inline function isExported(name:String):Bool throw "not implemented";
+/**
+    // IsGenerated reports whether the file was generated by a program,
+    // not handwritten, by detecting the special comment described
+    // at https://go.dev/s/generatedcode.
+    //
+    // The syntax tree must have been parsed with the ParseComments flag.
+    // Example:
+    //
+    //	f, err := parser.ParseFile(fset, filename, src, parser.ParseComments|parser.PackageClauseOnly)
+    //	if err != nil { ... }
+    //	gen := ast.IsGenerated(f)
+**/
+inline function isGenerated(file:File):Bool throw "not implemented";
+inline function testCommentText(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIsDirective(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // NewCommentMap creates a new comment map by associating comment groups
+    // of the comments list with the nodes of the AST specified by node.
+    //
+    // A comment group g is associated with a node n if:
+    //
+    //   - g starts on the same line as n ends
+    //   - g starts on the line immediately following n, and there is
+    //     at least one empty line after g and before the next node
+    //   - g starts before n and is not associated to the node before n
+    //     via the previous rules
+    //
+    // NewCommentMap tries to associate a comment group to the "largest"
+    // node possible: For instance, if the comment is a line comment
+    // trailing an assignment, the comment is associated with the entire
+    // assignment rather than just the last operand in the assignment.
+**/
+inline function newCommentMap(fset:stdgo._internal.go.token.Token.FileSet, node:Node, comments:Array<CommentGroup>):CommentMap throw "not implemented";
+/**
+    // FileExports trims the AST for a Go source file in place such that
+    // only exported nodes remain: all top-level identifiers which are not exported
+    // and their associated information (such as type, initial value, or function
+    // body) are removed. Non-exported fields and methods of exported types are
+    // stripped. The File.Comments list is not changed.
+    //
+    // FileExports reports whether there are exported declarations.
+**/
+inline function fileExports(src:File):Bool throw "not implemented";
+/**
+    // PackageExports trims the AST for a Go package in place such that
+    // only exported nodes remain. The pkg.Files list is not changed, so that
+    // file names and top-level package comments don't get lost.
+    //
+    // PackageExports reports whether there are exported declarations;
+    // it returns false otherwise.
+**/
+inline function packageExports(pkg:Package):Bool throw "not implemented";
+/**
+    // FilterDecl trims the AST for a Go declaration in place by removing
+    // all names (including struct field and interface method names, but
+    // not from parameter lists) that don't pass through the filter f.
+    //
+    // FilterDecl reports whether there are any declared names left after
+    // filtering.
+**/
+inline function filterDecl(decl:Decl, f:Filter):Bool throw "not implemented";
+/**
+    // FilterFile trims the AST for a Go file in place by removing all
+    // names from top-level declarations (including struct field and
+    // interface method names, but not from parameter lists) that don't
+    // pass through the filter f. If the declaration is empty afterwards,
+    // the declaration is removed from the AST. Import declarations are
+    // always removed. The File.Comments list is not changed.
+    //
+    // FilterFile reports whether there are any top-level declarations
+    // left after filtering.
+**/
+inline function filterFile(src:File, f:Filter):Bool throw "not implemented";
+/**
+    // FilterPackage trims the AST for a Go package in place by removing
+    // all names from top-level declarations (including struct field and
+    // interface method names, but not from parameter lists) that don't
+    // pass through the filter f. If the declaration is empty afterwards,
+    // the declaration is removed from the AST. The pkg.Files list is not
+    // changed, so that file names and top-level package comments don't get
+    // lost.
+    //
+    // FilterPackage reports whether there are any top-level declarations
+    // left after filtering.
+**/
+inline function filterPackage(pkg:Package, f:Filter):Bool throw "not implemented";
+/**
+    // MergePackageFiles creates a file AST by merging the ASTs of the
+    // files belonging to a package. The mode flags control merging behavior.
+**/
+inline function mergePackageFiles(pkg:Package, mode:MergeMode):File throw "not implemented";
+/**
+    // SortImports sorts runs of consecutive import lines in import blocks in f.
+    // It also removes duplicate imports when it is possible to do so without data loss.
+**/
+inline function sortImports(fset:stdgo._internal.go.token.Token.FileSet, f:File):Void throw "not implemented";
+/**
+    // NotNilFilter returns true for field values that are not nil;
+    // it returns false otherwise.
+**/
+inline function notNilFilter(_0:String, v:stdgo._internal.reflect.Reflect.Value):Bool throw "not implemented";
+/**
+    // Fprint prints the (sub-)tree starting at AST node x to w.
+    // If fset != nil, position information is interpreted relative
+    // to that file set. Otherwise positions are printed as integer
+    // values (file set specific offsets).
+    //
+    // A non-nil FieldFilter f may be provided to control the output:
+    // struct fields for which f(fieldname, fieldvalue) is true are
+    // printed; all others are filtered from the output. Unexported
+    // struct fields are never printed.
+**/
+inline function fprint(w:stdgo._internal.io.Io.Writer, fset:stdgo._internal.go.token.Token.FileSet, x:stdgo.AnyInterface, f:FieldFilter):stdgo.Error throw "not implemented";
+/**
+    // Print prints x to standard output, skipping nil fields.
+    // Print(fset, x) is the same as Fprint(os.Stdout, fset, x, NotNilFilter).
+**/
+inline function print(fset:stdgo._internal.go.token.Token.FileSet, x:stdgo.AnyInterface):stdgo.Error throw "not implemented";
+inline function testPrint(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // NewPackage creates a new Package node from a set of File nodes. It resolves
+    // unresolved identifiers across files and updates each file's Unresolved list
+    // accordingly. If a non-nil importer and universe scope are provided, they are
+    // used to resolve identifiers not declared in any of the package files. Any
+    // remaining unresolved identifiers are reported as undeclared. If the files
+    // belong to different packages, one package name is selected and files with
+    // different package names are reported and then ignored.
+    // The result is a package node and a scanner.ErrorList if there were errors.
+**/
+inline function newPackage(fset:stdgo._internal.go.token.Token.FileSet, files:stdgo.GoMap<stdgo.GoString, stdgo.Ref<File>>, importer:Importer, universe:Scope):stdgo.Tuple.<Package, stdgo.Error> throw "not implemented";
+/**
+    // NewScope creates a new scope nested in the outer scope.
+**/
+inline function newScope(outer:Scope):Scope throw "not implemented";
+/**
+    // NewObj creates a new object of a given kind and name.
+**/
+inline function newObj(kind:ObjKind, name:String):Object throw "not implemented";
+/**
+    // Walk traverses an AST in depth-first order: It starts by calling
+    // v.Visit(node); node must not be nil. If the visitor w returned by
+    // v.Visit(node) is not nil, Walk is invoked recursively with visitor
+    // w for each of the non-nil children of node, followed by a call of
+    // w.Visit(nil).
+**/
+inline function walk(v:Visitor, node:Node):Void throw "not implemented";
+/**
+    // Inspect traverses an AST in depth-first order: It starts by calling
+    // f(node); node must not be nil. If f returns true, Inspect invokes f
+    // recursively for each of the non-nil children of node, followed by a
+    // call of f(nil).
+**/
+inline function inspect(node:Node, f:Node -> Bool):Void throw "not implemented";
 @:invalid typedef Comment_asInterface = Dynamic;
 @:invalid typedef Comment_static_extension = Dynamic;
 @:invalid typedef CommentGroup_asInterface = Dynamic;

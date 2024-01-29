@@ -1,156 +1,81 @@
 package stdgo.go.types;
-@:invalid var __go2hxdoc__package : Dynamic;
-@:invalid var _cgoPrefixes : Dynamic;
-@:invalid var _errBadCgo : Dynamic;
-@:invalid var _op2str1 : Dynamic;
-@:invalid var _op2str2 : Dynamic;
-@:invalid var _gccgoArchSizes : Dynamic;
-@:invalid var _operandModeString : Dynamic;
-@:invalid var _basicSizes : Dynamic;
-@:invalid var _gcArchSizes : Dynamic;
-@:invalid var _stdSizes : Dynamic;
-@:invalid var _allTermlist : Dynamic;
-@:invalid var _topTypeSet : Dynamic;
-@:invalid var _emptyInterface : Dynamic;
-@:invalid var typ : Dynamic;
-@:invalid var _aliases : Dynamic;
-@:invalid var _predeclaredConsts : Dynamic;
-@:invalid var _predeclaredFuncs : Dynamic;
-@:invalid var _go0_0 : Dynamic;
-@:invalid var _go1_9 : Dynamic;
-@:invalid var _go1_13 : Dynamic;
-@:invalid var _go1_14 : Dynamic;
-@:invalid var _go1_17 : Dynamic;
-@:invalid var _go1_18 : Dynamic;
-@:invalid var _go1_20 : Dynamic;
-@:invalid var _go1_21 : Dynamic;
-@:invalid var _assignOps : Dynamic;
-@:invalid var _myInt : Dynamic;
-@:invalid var _testTerms : Dynamic;
-@:invalid var _parseGoVersionTests : Dynamic;
-@:invalid var invalid : Dynamic;
-@:invalid var bool_ : Dynamic;
-@:invalid var int_ : Dynamic;
-@:invalid var int8 : Dynamic;
-@:invalid var int16 : Dynamic;
-@:invalid var int32 : Dynamic;
-@:invalid var int64 : Dynamic;
-@:invalid var uint : Dynamic;
-@:invalid var uint8 : Dynamic;
-@:invalid var uint16 : Dynamic;
-@:invalid var uint32 : Dynamic;
-@:invalid var uint64 : Dynamic;
-@:invalid var uintptr : Dynamic;
-@:invalid var float32 : Dynamic;
-@:invalid var float64 : Dynamic;
-@:invalid var complex64 : Dynamic;
-@:invalid var complex128 : Dynamic;
-@:invalid var string : Dynamic;
-@:invalid var unsafePointer : Dynamic;
-@:invalid var untypedBool : Dynamic;
-@:invalid var untypedInt : Dynamic;
-@:invalid var untypedRune : Dynamic;
-@:invalid var untypedFloat : Dynamic;
-@:invalid var untypedComplex : Dynamic;
-@:invalid var untypedString : Dynamic;
-@:invalid var untypedNil : Dynamic;
-@:invalid var byte : Dynamic;
-@:invalid var rune : Dynamic;
-@:invalid var isBoolean : Dynamic;
-@:invalid var isInteger : Dynamic;
-@:invalid var isUnsigned : Dynamic;
-@:invalid var isFloat : Dynamic;
-@:invalid var isComplex : Dynamic;
-@:invalid var isString : Dynamic;
-@:invalid var isUntyped : Dynamic;
-@:invalid var isOrdered : Dynamic;
-@:invalid var isNumeric : Dynamic;
-@:invalid var isConstType : Dynamic;
-@:invalid var sendRecv : Dynamic;
-@:invalid var sendOnly : Dynamic;
-@:invalid var recvOnly : Dynamic;
-@:invalid var _nopos : Dynamic;
-@:invalid var _debug : Dynamic;
-@:invalid var _invalidArg : Dynamic;
-@:invalid var _invalidOp : Dynamic;
-@:invalid var _unaryOpPredicates : Dynamic;
-@:invalid var _binaryOpPredicates : Dynamic;
-@:invalid var _conversion : Dynamic;
-@:invalid var _expression : Dynamic;
-@:invalid var _statement : Dynamic;
-@:invalid var _enableReverseTypeInference : Dynamic;
-@:invalid var _emptyMethodSet : Dynamic;
-@:invalid var _unresolved : Dynamic;
-@:invalid var _resolved : Dynamic;
-@:invalid var _complete : Dynamic;
-@:invalid var _white : Dynamic;
-@:invalid var _black : Dynamic;
-@:invalid var _grey : Dynamic;
-@:invalid var _invalid : Dynamic;
-@:invalid var _novalue : Dynamic;
-@:invalid var _builtin : Dynamic;
-@:invalid var _typexpr : Dynamic;
-@:invalid var _constant_ : Dynamic;
-@:invalid var _variable : Dynamic;
-@:invalid var _mapindex : Dynamic;
-@:invalid var _value : Dynamic;
-@:invalid var _commaok : Dynamic;
-@:invalid var _commaerr : Dynamic;
-@:invalid var _cgofunc : Dynamic;
-@:invalid var fieldVal : Dynamic;
-@:invalid var methodVal : Dynamic;
-@:invalid var methodExpr : Dynamic;
-@:invalid var _breakOk : Dynamic;
-@:invalid var _continueOk : Dynamic;
-@:invalid var _fallthroughOk : Dynamic;
-@:invalid var _finalSwitchCase : Dynamic;
-@:invalid var _inTypeSwitch : Dynamic;
-@:invalid var _termSep : Dynamic;
-@:invalid var _lastID : Dynamic;
-@:invalid var _invalidTypeSet : Dynamic;
-@:invalid var _unificationDepthLimit : Dynamic;
-@:invalid var _panicAtUnificationDepthLimit : Dynamic;
-@:invalid var _enableCoreTypeUnification : Dynamic;
-@:invalid var _traceInference : Dynamic;
-@:invalid var _assign : Dynamic;
-@:invalid var _exact : Dynamic;
-@:invalid var _maxTermCount : Dynamic;
-@:invalid var universe : Dynamic;
-@:invalid var unsafe : Dynamic;
-@:invalid var _universeIota : Dynamic;
-@:invalid var _universeByte : Dynamic;
-@:invalid var _universeRune : Dynamic;
-@:invalid var _universeAny : Dynamic;
-@:invalid var _universeError : Dynamic;
-@:invalid var _universeComparable : Dynamic;
-@:invalid var __Append : Dynamic;
-@:invalid var __Cap : Dynamic;
-@:invalid var __Clear : Dynamic;
-@:invalid var __Close : Dynamic;
-@:invalid var __Complex : Dynamic;
-@:invalid var __Copy : Dynamic;
-@:invalid var __Delete : Dynamic;
-@:invalid var __Imag : Dynamic;
-@:invalid var __Len : Dynamic;
-@:invalid var __Make : Dynamic;
-@:invalid var __Max : Dynamic;
-@:invalid var __Min : Dynamic;
-@:invalid var __New : Dynamic;
-@:invalid var __Panic : Dynamic;
-@:invalid var __Print : Dynamic;
-@:invalid var __Println : Dynamic;
-@:invalid var __Real : Dynamic;
-@:invalid var __Recover : Dynamic;
-@:invalid var __Add : Dynamic;
-@:invalid var __Alignof : Dynamic;
-@:invalid var __Offsetof : Dynamic;
-@:invalid var __Sizeof : Dynamic;
-@:invalid var __Slice : Dynamic;
-@:invalid var __SliceData : Dynamic;
-@:invalid var __String : Dynamic;
-@:invalid var __StringData : Dynamic;
-@:invalid var __Assert : Dynamic;
-@:invalid var __Trace : Dynamic;
+/**
+    // Package types declares the data types and implements
+    // the algorithms for type-checking of Go packages. Use
+    // Config.Check to invoke the type checker for a package.
+    // Alternatively, create a new type checker with NewChecker
+    // and invoke it incrementally by calling Checker.Files.
+    //
+    // Type-checking consists of several interdependent phases:
+    //
+    // Name resolution maps each identifier (ast.Ident) in the program to the
+    // language object (Object) it denotes.
+    // Use Info.{Defs,Uses,Implicits} for the results of name resolution.
+    //
+    // Constant folding computes the exact constant value (constant.Value)
+    // for every expression (ast.Expr) that is a compile-time constant.
+    // Use Info.Types[expr].Value for the results of constant folding.
+    //
+    // Type inference computes the type (Type) of every expression (ast.Expr)
+    // and checks for compliance with the language specification.
+    // Use Info.Types[expr].Type for the results of type inference.
+    //
+    // For a tutorial, see https://golang.org/s/types-tutorial.
+**/
+private var __go2hxdoc__package : Bool;
+var typ(get_typ, set_typ) : Array<stdgo._internal.go.types.Types.Basic>;
+function get_typ():Array<stdgo._internal.go.types.Types.Basic> return stdgo._internal.go.types.Types.typ;
+function set_typ(v:Array<stdgo._internal.go.types.Types.Basic>):Array<stdgo._internal.go.types.Types.Basic> return stdgo._internal.go.types.Types.typ = v;
+final invalid : stdgo._internal.go.types.Types.BasicKind = stdgo._internal.go.types.Types.invalid;
+final bool_ = stdgo._internal.go.types.Types.bool_;
+final int_ = stdgo._internal.go.types.Types.int_;
+final int8 = stdgo._internal.go.types.Types.int8;
+final int16 = stdgo._internal.go.types.Types.int16;
+final int32 = stdgo._internal.go.types.Types.int32;
+final int64 = stdgo._internal.go.types.Types.int64;
+final uint = stdgo._internal.go.types.Types.uint;
+final uint8 = stdgo._internal.go.types.Types.uint8;
+final uint16 = stdgo._internal.go.types.Types.uint16;
+final uint32 = stdgo._internal.go.types.Types.uint32;
+final uint64 = stdgo._internal.go.types.Types.uint64;
+final uintptr = stdgo._internal.go.types.Types.uintptr;
+final float32 = stdgo._internal.go.types.Types.float32;
+final float64 = stdgo._internal.go.types.Types.float64;
+final complex64 = stdgo._internal.go.types.Types.complex64;
+final complex128 = stdgo._internal.go.types.Types.complex128;
+final string = stdgo._internal.go.types.Types.string;
+final unsafePointer = stdgo._internal.go.types.Types.unsafePointer;
+final untypedBool = stdgo._internal.go.types.Types.untypedBool;
+final untypedInt = stdgo._internal.go.types.Types.untypedInt;
+final untypedRune = stdgo._internal.go.types.Types.untypedRune;
+final untypedFloat = stdgo._internal.go.types.Types.untypedFloat;
+final untypedComplex = stdgo._internal.go.types.Types.untypedComplex;
+final untypedString = stdgo._internal.go.types.Types.untypedString;
+final untypedNil = stdgo._internal.go.types.Types.untypedNil;
+final byte : stdgo._internal.go.types.Types.BasicKind = stdgo._internal.go.types.Types.byte;
+final rune : stdgo._internal.go.types.Types.BasicKind = stdgo._internal.go.types.Types.rune;
+final isBoolean : stdgo._internal.go.types.Types.BasicInfo = stdgo._internal.go.types.Types.isBoolean;
+final isInteger = stdgo._internal.go.types.Types.isInteger;
+final isUnsigned = stdgo._internal.go.types.Types.isUnsigned;
+final isFloat = stdgo._internal.go.types.Types.isFloat;
+final isComplex = stdgo._internal.go.types.Types.isComplex;
+final isString = stdgo._internal.go.types.Types.isString;
+final isUntyped = stdgo._internal.go.types.Types.isUntyped;
+final isOrdered : stdgo._internal.go.types.Types.BasicInfo = stdgo._internal.go.types.Types.isOrdered;
+final isNumeric : stdgo._internal.go.types.Types.BasicInfo = stdgo._internal.go.types.Types.isNumeric;
+final isConstType : stdgo._internal.go.types.Types.BasicInfo = stdgo._internal.go.types.Types.isConstType;
+final sendRecv : stdgo._internal.go.types.Types.ChanDir = stdgo._internal.go.types.Types.sendRecv;
+final sendOnly = stdgo._internal.go.types.Types.sendOnly;
+final recvOnly = stdgo._internal.go.types.Types.recvOnly;
+final fieldVal : stdgo._internal.go.types.Types.SelectionKind = stdgo._internal.go.types.Types.fieldVal;
+final methodVal = stdgo._internal.go.types.Types.methodVal;
+final methodExpr = stdgo._internal.go.types.Types.methodExpr;
+var universe(get_universe, set_universe) : Scope;
+function get_universe():Scope return stdgo._internal.go.types.Types.universe;
+function set_universe(v:Scope):Scope return stdgo._internal.go.types.Types.universe = v;
+var unsafe(get_unsafe, set_unsafe) : Package;
+function get_unsafe():Package return stdgo._internal.go.types.Types.unsafe;
+function set_unsafe(v:Package):Package return stdgo._internal.go.types.Types.unsafe = v;
 typedef Importer = stdgo._internal.go.types.Types.Importer;
 typedef ImporterFrom = stdgo._internal.go.types.Types.ImporterFrom;
 typedef T_cleaner = stdgo._internal.go.types.Types.T_cleaner;
@@ -290,233 +215,436 @@ typedef T_unifyMode = stdgo._internal.go.types.Types.T_unifyMode;
 typedef T_typeParamsById = stdgo._internal.go.types.Types.T_typeParamsById;
 typedef Term = stdgo._internal.go.types.Types.Term;
 typedef T_builtinId = stdgo._internal.go.types.Types.T_builtinId;
-function _srcimporter_setUsesCgo(_conf:stdgo.Ref<Config>):Void {}
-function assertableTo(v:stdgo.Ref<Interface>, t:Type_):Void {}
-function assignableTo(v:Type_, t:Type_):Void {}
-function convertibleTo(v:Type_, t:Type_):Void {}
-function implements_(v:Type_, t:stdgo.Ref<Interface>):Void {}
-function satisfies(v:Type_, t:stdgo.Ref<Interface>):Void {}
-function identical(_x:Type_, _y:Type_):Void {}
-function identicalIgnoreTags(_x:Type_, _y:Type_):Void {}
-function newArray(_elem:Type_, _len:stdgo.GoInt64):Void {}
-function _operandTypes(_list:stdgo.Slice<stdgo.Ref<T_operand>>):Void {}
-function _varTypes(_list:stdgo.Slice<stdgo.Ref<Var>>):Void {}
-function _measure(_x:stdgo.GoInt, _unit:stdgo.GoString):Void {}
-function _hasVarSize(_t:Type_, _seen:stdgo.GoMap<stdgo.Ref<Named>, Bool>):Void {}
-function _makeSig(_res:Type_, _args:haxe.Rest<Type_>):Void {}
-function _arrayPtrDeref(_typ:Type_):Void {}
-function _unparen(_e:stdgo._internal.go.ast.Ast.Expr):Void {}
-function newChan(_dir:ChanDir, _elem:Type_):Void {}
-function newChecker(_conf:stdgo.Ref<Config>, _fset:stdgo.Ref<stdgo._internal.go.token.Token.FileSet>, _pkg:stdgo.Ref<Package>, _info:stdgo.Ref<Info>):Void {}
-function _instantiatedIdent(_expr:stdgo._internal.go.ast.Ast.Expr):Void {}
-function _representableConst(_x:stdgo._internal.go.constant.Constant.Value, _check:stdgo.Ref<Checker>, _typ:stdgo.Ref<Basic>, _rounded:stdgo.Ref<stdgo._internal.go.constant.Constant.Value>):Void {}
-function _fitsFloat32(_x:stdgo._internal.go.constant.Constant.Value):Void {}
-function _roundFloat32(_x:stdgo._internal.go.constant.Constant.Value):Void {}
-function _fitsFloat64(_x:stdgo._internal.go.constant.Constant.Value):Void {}
-function _roundFloat64(_x:stdgo._internal.go.constant.Constant.Value):Void {}
-function newContext():Void {}
-function testContextHashCollisions(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _isUintptr(_typ:Type_):Void {}
-function _isUnsafePointer(_typ:Type_):Void {}
-function _isPointer(_typ:Type_):Void {}
-function _isBytesOrRunes(_typ:Type_):Void {}
-function _pathString(_path:stdgo.Slice<Object>):Void {}
-function _firstInSrc(_path:stdgo.Slice<Object>):Void {}
-function _assert(_p:Bool):Void {}
-function _unreachable():Void {}
-function _sprintf(_fset:stdgo.Ref<stdgo._internal.go.token.Token.FileSet>, _qf:Qualifier, _tpSubscripts:Bool, _format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void {}
-function _newErrorf(_at:T_positioner, _code:Code, _format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void {}
-function _inNode(_node:stdgo._internal.go.ast.Ast.Node, _pos:stdgo._internal.go.token.Token.Pos):Void {}
-function _spanOf(_at:T_positioner):Void {}
-function _stripAnnotations(_s:stdgo.GoString):Void {}
-function testError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testStripAnnotations(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function eval(_fset:stdgo.Ref<stdgo._internal.go.token.Token.FileSet>, _pkg:stdgo.Ref<Package>, _pos:stdgo._internal.go.token.Token.Pos, _expr:stdgo.GoString):Void {}
-function checkExpr(_fset:stdgo.Ref<stdgo._internal.go.token.Token.FileSet>, _pkg:stdgo.Ref<Package>, _pos:stdgo._internal.go.token.Token.Pos, _expr:stdgo._internal.go.ast.Ast.Expr, _info:stdgo.Ref<Info>):Void {}
-function _opName(_e:stdgo._internal.go.ast.Ast.Expr):Void {}
-function _underIs(_typ:Type_, _f:Type_ -> Bool):Void {}
-function _isShift(_op:stdgo._internal.go.token.Token.Token):Void {}
-function _isComparison(_op:stdgo._internal.go.token.Token.Token):Void {}
-function _keyVal(_x:stdgo._internal.go.constant.Constant.Value):Void {}
-function exprString(_x:stdgo._internal.go.ast.Ast.Expr):Void {}
-function writeExpr(_buf:stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>, _x:stdgo._internal.go.ast.Ast.Expr):Void {}
-function _writeSigExpr(_buf:stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>, _sig:stdgo.Ref<stdgo._internal.go.ast.Ast.FuncType>):Void {}
-function _writeFieldList(_buf:stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>, _list:stdgo.Slice<stdgo.Ref<stdgo._internal.go.ast.Ast.Field>>, _sep:stdgo.GoString, _iface:Bool):Void {}
-function _writeIdentList(_buf:stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>, _list:stdgo.Slice<stdgo.Ref<stdgo._internal.go.ast.Ast.Ident>>):Void {}
-function _writeExprList(_buf:stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>, _list:stdgo.Slice<stdgo._internal.go.ast.Ast.Expr>):Void {}
-function _containsNil(_list:stdgo.Slice<Type_>):Void {}
-function _typeParamsString(_list:stdgo.Slice<stdgo.Ref<TypeParam>>):Void {}
-function _isParameterized(_tparams:stdgo.Slice<stdgo.Ref<TypeParam>>, _typ:Type_):Void {}
-function _coreTerm(_tpar:stdgo.Ref<TypeParam>):Void {}
-function _killCycles(_tparams:stdgo.Slice<stdgo.Ref<TypeParam>>, _inferred:stdgo.Slice<Type_>):Void {}
-function _tparamIndex(_list:stdgo.Slice<stdgo.Ref<TypeParam>>, _tpar:stdgo.Ref<TypeParam>):Void {}
-function _findPath(_objMap:stdgo.GoMap<Object, stdgo.Ref<T_declInfo>>, _from:Object, _to:Object, _seen:stdgo.GoMap<Object, Bool>):Void {}
-function _dependencyGraph(_objMap:stdgo.GoMap<Object, stdgo.Ref<T_declInfo>>):Void {}
-function instantiate(_ctxt:stdgo.Ref<Context>, _orig:Type_, _targs:stdgo.Slice<Type_>, _validate:Bool):Void {}
-function _mentions(t:Type_, _typ:Type_):Void {}
-function newInterface(_methods:stdgo.Slice<stdgo.Ref<Func>>, _embeddeds:stdgo.Slice<stdgo.Ref<Named>>):Void {}
-function newInterfaceType(_methods:stdgo.Slice<stdgo.Ref<Func>>, _embeddeds:stdgo.Slice<Type_>):Void {}
-function lookupFieldOrMethod(t:Type_, _addressable:Bool, _pkg:stdgo.Ref<Package>, _name:stdgo.GoString):Void {}
-function _lookupFieldOrMethodImpl(t:Type_, _addressable:Bool, _pkg:stdgo.Ref<Package>, _name:stdgo.GoString, _foldCase:Bool):Void {}
-function _consolidateMultiples(_list:stdgo.Slice<T_embeddedType>):Void {}
-function _lookupType(_m:stdgo.GoMap<Type_, stdgo.GoInt>, _typ:Type_):Void {}
-function missingMethod(v:Type_, t:stdgo.Ref<Interface>, _static:Bool):Void {}
-function _isInterfacePtr(t:Type_):Void {}
-function _deref(_typ:Type_):Void {}
-function _derefStructPtr(_typ:Type_):Void {}
-function _concat(_list:stdgo.Slice<stdgo.GoInt>, _i:stdgo.GoInt):Void {}
-function _fieldIndex(_fields:stdgo.Slice<stdgo.Ref<Var>>, _pkg:stdgo.Ref<Package>, _name:stdgo.GoString):Void {}
-function _lookupMethod(_methods:stdgo.Slice<stdgo.Ref<Func>>, _pkg:stdgo.Ref<Package>, _name:stdgo.GoString, _foldCase:Bool):Void {}
-function newMap(_key:Type_, _elem:Type_):Void {}
-function newMethodSet(t:Type_):Void {}
-function newNamed(_obj:stdgo.Ref<TypeName>, _underlying:Type_, _methods:stdgo.Slice<stdgo.Ref<Func>>):Void {}
-function _safeUnderlying(_typ:Type_):Void {}
-function _isExported(_name:stdgo.GoString):Void {}
-function id(_pkg:stdgo.Ref<Package>, _name:stdgo.GoString):Void {}
-function _colorFor(_t:Type_):Void {}
-function newPkgName(_pos:stdgo._internal.go.token.Token.Pos, _pkg:stdgo.Ref<Package>, _name:stdgo.GoString, _imported:stdgo.Ref<Package>):Void {}
-function newConst(_pos:stdgo._internal.go.token.Token.Pos, _pkg:stdgo.Ref<Package>, _name:stdgo.GoString, _typ:Type_, _val:stdgo._internal.go.constant.Constant.Value):Void {}
-function newTypeName(_pos:stdgo._internal.go.token.Token.Pos, _pkg:stdgo.Ref<Package>, _name:stdgo.GoString, _typ:Type_):Void {}
-function __NewTypeNameLazy(_pos:stdgo._internal.go.token.Token.Pos, _pkg:stdgo.Ref<Package>, _name:stdgo.GoString, _load:(_named:stdgo.Ref<Named>) -> { var _0 : stdgo.Slice<stdgo.Ref<TypeParam>>; var _1 : Type_; var _2 : stdgo.Slice<stdgo.Ref<Func>>; }):Void {}
-function newVar(_pos:stdgo._internal.go.token.Token.Pos, _pkg:stdgo.Ref<Package>, _name:stdgo.GoString, _typ:Type_):Void {}
-function newParam(_pos:stdgo._internal.go.token.Token.Pos, _pkg:stdgo.Ref<Package>, _name:stdgo.GoString, _typ:Type_):Void {}
-function newField(_pos:stdgo._internal.go.token.Token.Pos, _pkg:stdgo.Ref<Package>, _name:stdgo.GoString, _typ:Type_, _embedded:Bool):Void {}
-function newFunc(_pos:stdgo._internal.go.token.Token.Pos, _pkg:stdgo.Ref<Package>, _name:stdgo.GoString, _sig:stdgo.Ref<Signature>):Void {}
-function newLabel(_pos:stdgo._internal.go.token.Token.Pos, _pkg:stdgo.Ref<Package>, _name:stdgo.GoString):Void {}
-function _newBuiltin(_id:T_builtinId):Void {}
-function _writeObject(_buf:stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>, _obj:Object, _qf:Qualifier):Void {}
-function _packagePrefix(_pkg:stdgo.Ref<Package>, _qf:Qualifier):Void {}
-function objectString(_obj:Object, _qf:Qualifier):Void {}
-function _writeFuncName(_buf:stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>, _f:stdgo.Ref<Func>, _qf:Qualifier):Void {}
-function _operandString(_x:stdgo.Ref<T_operand>, _qf:Qualifier):Void {}
-function newPackage(_path:stdgo.GoString, _name:stdgo.GoString):Void {}
-function newPointer(_elem:Type_):Void {}
-function _isBoolean(_t:Type_):Void {}
-function _isInteger(_t:Type_):Void {}
-function _isUnsigned(_t:Type_):Void {}
-function _isFloat(_t:Type_):Void {}
-function _isComplex(_t:Type_):Void {}
-function _isNumeric(_t:Type_):Void {}
-function _isString(_t:Type_):Void {}
-function _isIntegerOrFloat(_t:Type_):Void {}
-function _isConstType(_t:Type_):Void {}
-function _isBasic(_t:Type_, _info:BasicInfo):Void {}
-function _allBoolean(_t:Type_):Void {}
-function _allInteger(_t:Type_):Void {}
-function _allUnsigned(_t:Type_):Void {}
-function _allNumeric(_t:Type_):Void {}
-function _allString(_t:Type_):Void {}
-function _allOrdered(_t:Type_):Void {}
-function _allNumericOrString(_t:Type_):Void {}
-function _allBasic(_t:Type_, _info:BasicInfo):Void {}
-function _hasName(_t:Type_):Void {}
-function _isTypeLit(_t:Type_):Void {}
-function _isTyped(_t:Type_):Void {}
-function _isUntyped(_t:Type_):Void {}
-function isInterface(_t:Type_):Void {}
-function _isNonTypeParamInterface(_t:Type_):Void {}
-function _isTypeParam(_t:Type_):Void {}
-function _hasEmptyTypeset(_t:Type_):Void {}
-function _isGeneric(_t:Type_):Void {}
-function comparable(t:Type_):Void {}
-function _comparable(t:Type_, _dynamic:Bool, _seen:stdgo.GoMap<Type_, Bool>, _reportf:(stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void):Void {}
-function _hasNil(_t:Type_):Void {}
-function _indenticalOrigin(_x:stdgo.Ref<Named>, _y:stdgo.Ref<Named>):Void {}
-function _identicalInstance(_xorig:Type_, _xargs:stdgo.Slice<Type_>, _yorig:Type_, _yargs:stdgo.Slice<Type_>):Void {}
-function default_(_t:Type_):Void {}
-function _maxType(_x:Type_, _y:Type_):Void {}
-function _validatedImportPath(_path:stdgo.GoString):Void {}
-function _dir(_path:stdgo.GoString):Void {}
-function _hasBreak(_s:stdgo._internal.go.ast.Ast.Stmt, _label:stdgo.GoString, _implicit:Bool):Void {}
-function _hasBreakList(_list:stdgo.Slice<stdgo._internal.go.ast.Ast.Stmt>, _label:stdgo.GoString, _implicit:Bool):Void {}
-function newScope(_parent:stdgo.Ref<Scope>, _pos:stdgo._internal.go.token.Token.Pos, _end:stdgo._internal.go.token.Token.Pos, _comment:stdgo.GoString):Void {}
-function _resolve(_name:stdgo.GoString, _obj:Object):Void {}
-function selectionString(_s:stdgo.Ref<Selection>, _qf:Qualifier):Void {}
-function newSignature(_recv:stdgo.Ref<Var>, _params:stdgo.Ref<Tuple>, _results:stdgo.Ref<Tuple>, _variadic:Bool):Void {}
-function newSignatureType(_recv:stdgo.Ref<Var>, _recvTypeParams:stdgo.Slice<stdgo.Ref<TypeParam>>, _typeParams:stdgo.Slice<stdgo.Ref<TypeParam>>, _params:stdgo.Ref<Tuple>, _results:stdgo.Ref<Tuple>, _variadic:Bool):Void {}
-function testSizeof(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function __IsSyncAtomicAlign64(t:Type_):Void {}
-function sizesFor(_compiler:stdgo.GoString, _arch:stdgo.GoString):Void {}
-function _align(_x:stdgo.GoInt64, _a:stdgo.GoInt64):Void {}
-function newSlice(_elem:Type_):Void {}
-function _trimTrailingEmptyStmts(_list:stdgo.Slice<stdgo._internal.go.ast.Ast.Stmt>):Void {}
-function _assignOp(_op:stdgo._internal.go.token.Token.Token):Void {}
-function _goVal(_val:stdgo._internal.go.constant.Constant.Value):Void {}
-function _rangeKeyVal(_typ:Type_):Void {}
-function newStruct(_fields:stdgo.Slice<stdgo.Ref<Var>>, _tags:stdgo.Slice<stdgo.GoString>):Void {}
-function _embeddedFieldIdent(_e:stdgo._internal.go.ast.Ast.Expr):Void {}
-function _makeSubstMap(_tpars:stdgo.Slice<stdgo.Ref<TypeParam>>, _targs:stdgo.Slice<Type_>):Void {}
-function _makeRenameMap(_from:stdgo.Slice<stdgo.Ref<TypeParam>>, _to:stdgo.Slice<stdgo.Ref<TypeParam>>):Void {}
-function _substVar(_v:stdgo.Ref<Var>, _typ:Type_):Void {}
-function _substFunc(_f:stdgo.Ref<Func>, _typ:Type_):Void {}
-function _replaceRecvType(_in:stdgo.Slice<stdgo.Ref<Func>>, _old:Type_, _new:Type_):Void {}
-function _maketl(_s:stdgo.GoString):Void {}
-function testTermlistAll(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testTermlistString(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testTermlistIsEmpty(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testTermlistIsAll(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testTermlistNorm(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testTermlistUnion(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testTermlistIntersect(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testTermlistEqual(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testTermlistIncludes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testTermlistSupersetOf(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testTermlistSubsetOf(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testZeroTok(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testAssignOp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function newTuple(_x:haxe.Rest<stdgo.Ref<Var>>):Void {}
-function _newTypeList(_list:stdgo.Slice<Type_>):Void {}
-function _bindTParams(_list:stdgo.Slice<stdgo.Ref<TypeParam>>):Void {}
-function _nextID():Void {}
-function newTypeParam(_obj:stdgo.Ref<TypeName>, _constraint:Type_):Void {}
-function _computeInterfaceTypeSet(_check:stdgo.Ref<Checker>, _pos:stdgo._internal.go.token.Token.Pos, _ityp:stdgo.Ref<Interface>):Void {}
-function _intersectTermLists(_xterms:T_termlist, _xcomp:Bool, _yterms:T_termlist, _ycomp:Bool):Void {}
-function _sortMethods(_list:stdgo.Slice<stdgo.Ref<Func>>):Void {}
-function _assertSortedMethods(_list:stdgo.Slice<stdgo.Ref<Func>>):Void {}
-function _computeUnionTypeSet(_check:stdgo.Ref<Checker>, _unionSets:stdgo.GoMap<stdgo.Ref<Union>, stdgo.Ref<T__TypeSet>>, _pos:stdgo._internal.go.token.Token.Pos, _utyp:stdgo.Ref<Union>):Void {}
-function testInvalidTypeSet(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testTypeSetString(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function relativeTo(_pkg:stdgo.Ref<Package>):Void {}
-function typeString(_typ:Type_, _qf:Qualifier):Void {}
-function writeType(_buf:stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>, _typ:Type_, _qf:Qualifier):Void {}
-function writeSignature(_buf:stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>, _sig:stdgo.Ref<Signature>, _qf:Qualifier):Void {}
-function _newTypeWriter(_buf:stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>, _qf:Qualifier):Void {}
-function _newTypeHasher(_buf:stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>, _ctxt:stdgo.Ref<Context>):Void {}
-function _subscript(_x:stdgo.GoUInt64):Void {}
-function testTermString(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _split(_s:stdgo.GoString, _n:stdgo.GoInt):Void {}
-function _testTerm(_name:stdgo.GoString):Void {}
-function testTermEqual(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testTermUnion(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testTermIntersection(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testTermIncludes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testTermSubsetOf(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testTermDisjoint(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _goTypeName(_typ:Type_):Void {}
-function _under(_t:Type_):Void {}
-function _coreType(_t:Type_):Void {}
-function _coreString(_t:Type_):Void {}
-function _match(_x:Type_, _y:Type_):Void {}
-function _newUnifier(_tparams:stdgo.Slice<stdgo.Ref<TypeParam>>, _targs:stdgo.Slice<Type_>, _enableInterfaceInference:Bool):Void {}
-function _asInterface(_x:Type_):Void {}
-function newUnion(_terms:stdgo.Slice<stdgo.Ref<Term>>):Void {}
-function newTerm(_tilde:Bool, _typ:Type_):Void {}
-function _parseUnion(_check:stdgo.Ref<Checker>, _uexpr:stdgo._internal.go.ast.Ast.Expr):Void {}
-function _parseTilde(_check:stdgo.Ref<Checker>, _tx:stdgo._internal.go.ast.Ast.Expr):Void {}
-function _overlappingTerm(_terms:stdgo.Slice<stdgo.Ref<Term>>, _y:stdgo.Ref<Term>):Void {}
-function _flattenUnion(_list:stdgo.Slice<stdgo._internal.go.ast.Ast.Expr>, _x:stdgo._internal.go.ast.Ast.Expr):Void {}
-function _defPredeclaredTypes():Void {}
-function _defPredeclaredConsts():Void {}
-function _defPredeclaredNil():Void {}
-function _defPredeclaredFuncs():Void {}
-function defPredeclaredTestFuncs():Void {}
-function _def(_obj:Object):Void {}
-function _cmpPos(_p:stdgo._internal.go.token.Token.Pos, _q:stdgo._internal.go.token.Token.Pos):Void {}
-function cmpPos(_p:stdgo._internal.go.token.Token.Pos, _q:stdgo._internal.go.token.Token.Pos):Void {}
-function _makeObjList(_tlist:stdgo.Slice<stdgo.Ref<Named>>):Void {}
-function _parseGoVersion(_s:stdgo.GoString):Void {}
-function testParseGoVersion(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid var _ : Dynamic;
+/**
+    // AssertableTo reports whether a value of type V can be asserted to have type T.
+    //
+    // The behavior of AssertableTo is unspecified in three cases:
+    //   - if T is Typ[Invalid]
+    //   - if V is a generalized interface; i.e., an interface that may only be used
+    //     as a type constraint in Go code
+    //   - if T is an uninstantiated generic type
+**/
+inline function assertableTo(v:Interface, t:Type_):Bool throw "not implemented";
+/**
+    // AssignableTo reports whether a value of type V is assignable to a variable
+    // of type T.
+    //
+    // The behavior of AssignableTo is unspecified if V or T is Typ[Invalid] or an
+    // uninstantiated generic type.
+**/
+inline function assignableTo(v:Type_, t:Type_):Bool throw "not implemented";
+/**
+    // ConvertibleTo reports whether a value of type V is convertible to a value of
+    // type T.
+    //
+    // The behavior of ConvertibleTo is unspecified if V or T is Typ[Invalid] or an
+    // uninstantiated generic type.
+**/
+inline function convertibleTo(v:Type_, t:Type_):Bool throw "not implemented";
+/**
+    // Implements reports whether type V implements interface T.
+    //
+    // The behavior of Implements is unspecified if V is Typ[Invalid] or an uninstantiated
+    // generic type.
+**/
+inline function implements_(v:Type_, t:Interface):Bool throw "not implemented";
+/**
+    // Satisfies reports whether type V satisfies the constraint T.
+    //
+    // The behavior of Satisfies is unspecified if V is Typ[Invalid] or an uninstantiated
+    // generic type.
+**/
+inline function satisfies(v:Type_, t:Interface):Bool throw "not implemented";
+/**
+    // Identical reports whether x and y are identical types.
+    // Receivers of Signature types are ignored.
+**/
+inline function identical(x:Type_, y:Type_):Bool throw "not implemented";
+/**
+    // IdenticalIgnoreTags reports whether x and y are identical types if tags are ignored.
+    // Receivers of Signature types are ignored.
+**/
+inline function identicalIgnoreTags(x:Type_, y:Type_):Bool throw "not implemented";
+/**
+    // NewArray returns a new array type for the given element type and length.
+    // A negative length indicates an unknown length.
+**/
+inline function newArray(elem:Type_, len:haxe.Int64):Array_ throw "not implemented";
+/**
+    // NewChan returns a new channel type for the given direction and element type.
+**/
+inline function newChan(dir:ChanDir, elem:Type_):Chan throw "not implemented";
+/**
+    // NewChecker returns a new Checker instance for a given package.
+    // Package files may be added incrementally via checker.Files.
+**/
+inline function newChecker(conf:Config, fset:stdgo._internal.go.token.Token.FileSet, pkg:Package, info:Info):Checker throw "not implemented";
+/**
+    // NewContext creates a new Context.
+**/
+inline function newContext():Context throw "not implemented";
+inline function testContextHashCollisions(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testError(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testStripAnnotations(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Eval returns the type and, if constant, the value for the
+    // expression expr, evaluated at position pos of package pkg,
+    // which must have been derived from type-checking an AST with
+    // complete position information relative to the provided file
+    // set.
+    //
+    // The meaning of the parameters fset, pkg, and pos is the
+    // same as in CheckExpr. An error is returned if expr cannot
+    // be parsed successfully, or the resulting expr AST cannot be
+    // type-checked.
+**/
+inline function eval(fset:stdgo._internal.go.token.Token.FileSet, pkg:Package, pos:stdgo._internal.go.token.Token.Pos, expr:String):stdgo.Tuple.<TypeAndValue, stdgo.Error> throw "not implemented";
+/**
+    // CheckExpr type checks the expression expr as if it had appeared at position
+    // pos of package pkg. Type information about the expression is recorded in
+    // info. The expression may be an identifier denoting an uninstantiated generic
+    // function or type.
+    //
+    // If pkg == nil, the Universe scope is used and the provided
+    // position pos is ignored. If pkg != nil, and pos is invalid,
+    // the package scope is used. Otherwise, pos must belong to the
+    // package.
+    //
+    // An error is returned if pos is not within the package or
+    // if the node cannot be type-checked.
+    //
+    // Note: Eval and CheckExpr should not be used instead of running Check
+    // to compute types and values, but in addition to Check, as these
+    // functions ignore the context in which an expression is used (e.g., an
+    // assignment). Thus, top-level untyped constants will return an
+    // untyped type rather than the respective context-specific type.
+**/
+inline function checkExpr(fset:stdgo._internal.go.token.Token.FileSet, pkg:Package, pos:stdgo._internal.go.token.Token.Pos, expr:stdgo._internal.go.ast.Ast.Expr, info:Info):stdgo.Error throw "not implemented";
+/**
+    // ExprString returns the (possibly shortened) string representation for x.
+    // Shortened representations are suitable for user interfaces but may not
+    // necessarily follow Go syntax.
+**/
+inline function exprString(x:stdgo._internal.go.ast.Ast.Expr):String throw "not implemented";
+/**
+    // WriteExpr writes the (possibly shortened) string representation for x to buf.
+    // Shortened representations are suitable for user interfaces but may not
+    // necessarily follow Go syntax.
+**/
+inline function writeExpr(buf:stdgo._internal.bytes.Bytes.Buffer, x:stdgo._internal.go.ast.Ast.Expr):Void throw "not implemented";
+/**
+    // Instantiate instantiates the type orig with the given type arguments targs.
+    // orig must be a *Named or a *Signature type. If there is no error, the
+    // resulting Type is an instantiated type of the same kind (either a *Named or
+    // a *Signature). Methods attached to a *Named type are also instantiated, and
+    // associated with a new *Func that has the same position as the original
+    // method, but nil function scope.
+    //
+    // If ctxt is non-nil, it may be used to de-duplicate the instance against
+    // previous instances with the same identity. As a special case, generic
+    // *Signature origin types are only considered identical if they are pointer
+    // equivalent, so that instantiating distinct (but possibly identical)
+    // signatures will yield different instances. The use of a shared context does
+    // not guarantee that identical instances are deduplicated in all cases.
+    //
+    // If validate is set, Instantiate verifies that the number of type arguments
+    // and parameters match, and that the type arguments satisfy their
+    // corresponding type constraints. If verification fails, the resulting error
+    // may wrap an *ArgumentError indicating which type argument did not satisfy
+    // its corresponding type parameter constraint, and why.
+    //
+    // If validate is not set, Instantiate does not verify the type argument count
+    // or whether the type arguments satisfy their constraints. Instantiate is
+    // guaranteed to not return an error, but may panic. Specifically, for
+    // *Signature types, Instantiate will panic immediately if the type argument
+    // count is incorrect; for *Named types, a panic may occur later inside the
+    // *Named API.
+**/
+inline function instantiate(ctxt:Context, orig:Type_, targs:Array<Type_>, validate:Bool):stdgo.Tuple.<Type_, stdgo.Error> throw "not implemented";
+/**
+    // NewInterface returns a new interface for the given methods and embedded types.
+    // NewInterface takes ownership of the provided methods and may modify their types
+    // by setting missing receivers.
+    //
+    // Deprecated: Use NewInterfaceType instead which allows arbitrary embedded types.
+**/
+inline function newInterface(methods:Array<Func>, embeddeds:Array<Named>):Interface throw "not implemented";
+/**
+    // NewInterfaceType returns a new interface for the given methods and embedded
+    // types. NewInterfaceType takes ownership of the provided methods and may
+    // modify their types by setting missing receivers.
+    //
+    // To avoid race conditions, the interface's type set should be computed before
+    // concurrent use of the interface, by explicitly calling Complete.
+**/
+inline function newInterfaceType(methods:Array<Func>, embeddeds:Array<Type_>):Interface throw "not implemented";
+/**
+    // LookupFieldOrMethod looks up a field or method with given package and name
+    // in T and returns the corresponding *Var or *Func, an index sequence, and a
+    // bool indicating if there were any pointer indirections on the path to the
+    // field or method. If addressable is set, T is the type of an addressable
+    // variable (only matters for method lookups). T must not be nil.
+    //
+    // The last index entry is the field or method index in the (possibly embedded)
+    // type where the entry was found, either:
+    //
+    //  1. the list of declared methods of a named type; or
+    //  2. the list of all methods (method set) of an interface type; or
+    //  3. the list of fields of a struct type.
+    //
+    // The earlier index entries are the indices of the embedded struct fields
+    // traversed to get to the found entry, starting at depth 0.
+    //
+    // If no entry is found, a nil object is returned. In this case, the returned
+    // index and indirect values have the following meaning:
+    //
+    //   - If index != nil, the index sequence points to an ambiguous entry
+    //     (the same name appeared more than once at the same embedding level).
+    //
+    //   - If indirect is set, a method with a pointer receiver type was found
+    //     but there was no pointer on the path from the actual receiver type to
+    //     the method's formal receiver base type, nor was the receiver addressable.
+**/
+inline function lookupFieldOrMethod(t:Type_, addressable:Bool, pkg:Package, name:String):stdgo.Tuple.Tuple3<Object, Array<Int>, Bool> throw "not implemented";
+/**
+    // MissingMethod returns (nil, false) if V implements T, otherwise it
+    // returns a missing method required by T and whether it is missing or
+    // just has the wrong type: either a pointer receiver or wrong signature.
+    //
+    // For non-interface types V, or if static is set, V implements T if all
+    // methods of T are present in V. Otherwise (V is an interface and static
+    // is not set), MissingMethod only checks that methods of T which are also
+    // present in V have matching types (e.g., for a type assertion x.(T) where
+    // x is of interface type V).
+**/
+inline function missingMethod(v:Type_, t:Interface, _static:Bool):stdgo.Tuple.<Func, Bool> throw "not implemented";
+/**
+    // NewMap returns a new map for the given key and element types.
+**/
+inline function newMap(key:Type_, elem:Type_):Map_ throw "not implemented";
+/**
+    // NewMethodSet returns the method set for the given type T.
+    // It always returns a non-nil method set, even if it is empty.
+**/
+inline function newMethodSet(t:Type_):MethodSet throw "not implemented";
+/**
+    // NewNamed returns a new named type for the given type name, underlying type, and associated methods.
+    // If the given type name obj doesn't have a type yet, its type is set to the returned named type.
+    // The underlying type must not be a *Named.
+**/
+inline function newNamed(obj:TypeName, underlying:Type_, methods:Array<Func>):Named throw "not implemented";
+/**
+    // Id returns name if it is exported, otherwise it
+    // returns the name qualified with the package path.
+**/
+inline function id(pkg:Package, name:String):String throw "not implemented";
+/**
+    // NewPkgName returns a new PkgName object representing an imported package.
+    // The remaining arguments set the attributes found with all Objects.
+**/
+inline function newPkgName(pos:stdgo._internal.go.token.Token.Pos, pkg:Package, name:String, imported:Package):PkgName throw "not implemented";
+/**
+    // NewConst returns a new constant with value val.
+    // The remaining arguments set the attributes found with all Objects.
+**/
+inline function newConst(pos:stdgo._internal.go.token.Token.Pos, pkg:Package, name:String, typ:Type_, val:stdgo._internal.go.constant.Constant.Value):Const throw "not implemented";
+/**
+    // NewTypeName returns a new type name denoting the given typ.
+    // The remaining arguments set the attributes found with all Objects.
+    //
+    // The typ argument may be a defined (Named) type or an alias type.
+    // It may also be nil such that the returned TypeName can be used as
+    // argument for NewNamed, which will set the TypeName's type as a side-
+    // effect.
+**/
+inline function newTypeName(pos:stdgo._internal.go.token.Token.Pos, pkg:Package, name:String, typ:Type_):TypeName throw "not implemented";
+/**
+    // NewVar returns a new variable.
+    // The arguments set the attributes found with all Objects.
+**/
+inline function newVar(pos:stdgo._internal.go.token.Token.Pos, pkg:Package, name:String, typ:Type_):Var throw "not implemented";
+/**
+    // NewParam returns a new variable representing a function parameter.
+**/
+inline function newParam(pos:stdgo._internal.go.token.Token.Pos, pkg:Package, name:String, typ:Type_):Var throw "not implemented";
+/**
+    // NewField returns a new variable representing a struct field.
+    // For embedded fields, the name is the unqualified type name
+    // under which the field is accessible.
+**/
+inline function newField(pos:stdgo._internal.go.token.Token.Pos, pkg:Package, name:String, typ:Type_, embedded:Bool):Var throw "not implemented";
+/**
+    // NewFunc returns a new function with the given signature, representing
+    // the function's type.
+**/
+inline function newFunc(pos:stdgo._internal.go.token.Token.Pos, pkg:Package, name:String, sig:Signature):Func throw "not implemented";
+/**
+    // NewLabel returns a new label.
+**/
+inline function newLabel(pos:stdgo._internal.go.token.Token.Pos, pkg:Package, name:String):Label throw "not implemented";
+/**
+    // ObjectString returns the string form of obj.
+    // The Qualifier controls the printing of
+    // package-level objects, and may be nil.
+**/
+inline function objectString(obj:Object, qf:Qualifier):String throw "not implemented";
+/**
+    // NewPackage returns a new Package for the given package path and name.
+    // The package is not complete and contains no explicit imports.
+**/
+inline function newPackage(path:String, name:String):Package throw "not implemented";
+/**
+    // NewPointer returns a new pointer type for the given element (base) type.
+**/
+inline function newPointer(elem:Type_):Pointer_ throw "not implemented";
+/**
+    // IsInterface reports whether t is an interface type.
+**/
+inline function isInterface(t:Type_):Bool throw "not implemented";
+/**
+    // Comparable reports whether values of type T are comparable.
+**/
+inline function comparable(t:Type_):Bool throw "not implemented";
+/**
+    // Default returns the default "typed" type for an "untyped" type;
+    // it returns the incoming type for all other types. The default type
+    // for untyped nil is untyped nil.
+**/
+inline function default_(t:Type_):Type_ throw "not implemented";
+/**
+    // NewScope returns a new, empty scope contained in the given parent
+    // scope, if any. The comment is for debugging only.
+**/
+inline function newScope(parent:Scope, pos:stdgo._internal.go.token.Token.Pos, end:stdgo._internal.go.token.Token.Pos, comment:String):Scope throw "not implemented";
+/**
+    // SelectionString returns the string form of s.
+    // The Qualifier controls the printing of
+    // package-level objects, and may be nil.
+    //
+    // Examples:
+    //
+    //	"field (T) f int"
+    //	"method (T) f(X) Y"
+    //	"method expr (T) f(X) Y"
+**/
+inline function selectionString(s:Selection, qf:Qualifier):String throw "not implemented";
+/**
+    // NewSignature returns a new function type for the given receiver, parameters,
+    // and results, either of which may be nil. If variadic is set, the function
+    // is variadic, it must have at least one parameter, and the last parameter
+    // must be of unnamed slice type.
+    //
+    // Deprecated: Use NewSignatureType instead which allows for type parameters.
+**/
+inline function newSignature(recv:Var, params:Tuple, results:Tuple, variadic:Bool):Signature throw "not implemented";
+/**
+    // NewSignatureType creates a new function type for the given receiver,
+    // receiver type parameters, type parameters, parameters, and results. If
+    // variadic is set, params must hold at least one parameter and the last
+    // parameter's core type must be of unnamed slice or bytestring type.
+    // If recv is non-nil, typeParams must be empty. If recvTypeParams is
+    // non-empty, recv must be non-nil.
+**/
+inline function newSignatureType(recv:Var, recvTypeParams:Array<TypeParam>, typeParams:Array<TypeParam>, params:Tuple, results:Tuple, variadic:Bool):Signature throw "not implemented";
+/**
+    // Signal size changes of important structures.
+**/
+inline function testSizeof(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // SizesFor returns the Sizes used by a compiler for an architecture.
+    // The result is nil if a compiler/architecture pair is not known.
+    //
+    // Supported architectures for compiler "gc":
+    // "386", "amd64", "amd64p32", "arm", "arm64", "loong64", "mips", "mipsle",
+    // "mips64", "mips64le", "ppc64", "ppc64le", "riscv64", "s390x", "sparc64", "wasm".
+**/
+inline function sizesFor(compiler:String, arch:String):Sizes throw "not implemented";
+/**
+    // NewSlice returns a new slice type for the given element type.
+**/
+inline function newSlice(elem:Type_):Slice_ throw "not implemented";
+/**
+    // NewStruct returns a new struct with the given fields and corresponding field tags.
+    // If a field with index i has a tag, tags[i] must be that tag, but len(tags) may be
+    // only as long as required to hold the tag with the largest index i. Consequently,
+    // if no field has a tag, tags may be nil.
+**/
+inline function newStruct(fields:Array<Var>, tags:Array<String>):Struct throw "not implemented";
+inline function testTermlistAll(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testTermlistString(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testTermlistIsEmpty(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testTermlistIsAll(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testTermlistNorm(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testTermlistUnion(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testTermlistIntersect(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testTermlistEqual(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testTermlistIncludes(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testTermlistSupersetOf(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testTermlistSubsetOf(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testZeroTok(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testAssignOp(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // NewTuple returns a new tuple for the given variables.
+**/
+inline function newTuple(x:haxe.Rest<stdgo.Ref<Var>>):Tuple throw "not implemented";
+/**
+    // NewTypeParam returns a new TypeParam. Type parameters may be set on a Named
+    // or Signature type by calling SetTypeParams. Setting a type parameter on more
+    // than one type will result in a panic.
+    //
+    // The constraint argument can be nil, and set later via SetConstraint. If the
+    // constraint is non-nil, it must be fully defined.
+**/
+inline function newTypeParam(obj:TypeName, constraint:Type_):TypeParam throw "not implemented";
+inline function testInvalidTypeSet(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testTypeSetString(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // RelativeTo returns a Qualifier that fully qualifies members of
+    // all packages other than pkg.
+**/
+inline function relativeTo(pkg:Package):Qualifier throw "not implemented";
+/**
+    // TypeString returns the string representation of typ.
+    // The Qualifier controls the printing of
+    // package-level objects, and may be nil.
+**/
+inline function typeString(typ:Type_, qf:Qualifier):String throw "not implemented";
+/**
+    // WriteType writes the string representation of typ to buf.
+    // The Qualifier controls the printing of
+    // package-level objects, and may be nil.
+**/
+inline function writeType(buf:stdgo._internal.bytes.Bytes.Buffer, typ:Type_, qf:Qualifier):Void throw "not implemented";
+/**
+    // WriteSignature writes the representation of the signature sig to buf,
+    // without a leading "func" keyword. The Qualifier controls the printing
+    // of package-level objects, and may be nil.
+**/
+inline function writeSignature(buf:stdgo._internal.bytes.Bytes.Buffer, sig:Signature, qf:Qualifier):Void throw "not implemented";
+inline function testTermString(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testTermEqual(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testTermUnion(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testTermIntersection(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testTermIncludes(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testTermSubsetOf(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testTermDisjoint(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // NewUnion returns a new Union type with the given terms.
+    // It is an error to create an empty union; they are syntactically not possible.
+**/
+inline function newUnion(terms:Array<Term>):Union throw "not implemented";
+/**
+    // NewTerm returns a new union term.
+**/
+inline function newTerm(tilde:Bool, typ:Type_):Term throw "not implemented";
+/**
+    // DefPredeclaredTestFuncs defines the assert and trace built-ins.
+    // These built-ins are intended for debugging and testing of this
+    // package only.
+**/
+inline function defPredeclaredTestFuncs():Void throw "not implemented";
+inline function cmpPos(p:stdgo._internal.go.token.Token.Pos, q:stdgo._internal.go.token.Token.Pos):Int throw "not implemented";
+inline function testParseGoVersion(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef Error_asInterface = Dynamic;
 @:invalid typedef Error_static_extension = Dynamic;
 @:invalid typedef ArgumentError_asInterface = Dynamic;

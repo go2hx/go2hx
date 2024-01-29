@@ -1,22 +1,53 @@
 package stdgo.image.color;
-@:invalid var __go2hxdoc__package : Dynamic;
-@:invalid var rgbamodel : Dynamic;
-@:invalid var rgba64model : Dynamic;
-@:invalid var nrgbamodel : Dynamic;
-@:invalid var nrgba64model : Dynamic;
-@:invalid var alphaModel : Dynamic;
-@:invalid var alpha16Model : Dynamic;
-@:invalid var grayModel : Dynamic;
-@:invalid var gray16Model : Dynamic;
-@:invalid var black : Dynamic;
-@:invalid var white : Dynamic;
-@:invalid var transparent : Dynamic;
-@:invalid var opaque : Dynamic;
-@:invalid var ycbCrModel : Dynamic;
-@:invalid var nycbCrAModel : Dynamic;
-@:invalid var cmykmodel : Dynamic;
-@:invalid var _sink8 : Dynamic;
-@:invalid var _sink32 : Dynamic;
+/**
+    // Package color implements a basic color library.
+**/
+private var __go2hxdoc__package : Bool;
+var rgbamodel(get_rgbamodel, set_rgbamodel) : stdgo._internal.image.color.Color.Model;
+function get_rgbamodel():stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.rgbamodel;
+function set_rgbamodel(v:stdgo._internal.image.color.Color.Model):stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.rgbamodel = v;
+var rgba64model(get_rgba64model, set_rgba64model) : stdgo._internal.image.color.Color.Model;
+function get_rgba64model():stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.rgba64model;
+function set_rgba64model(v:stdgo._internal.image.color.Color.Model):stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.rgba64model = v;
+var nrgbamodel(get_nrgbamodel, set_nrgbamodel) : stdgo._internal.image.color.Color.Model;
+function get_nrgbamodel():stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.nrgbamodel;
+function set_nrgbamodel(v:stdgo._internal.image.color.Color.Model):stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.nrgbamodel = v;
+var nrgba64model(get_nrgba64model, set_nrgba64model) : stdgo._internal.image.color.Color.Model;
+function get_nrgba64model():stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.nrgba64model;
+function set_nrgba64model(v:stdgo._internal.image.color.Color.Model):stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.nrgba64model = v;
+var alphaModel(get_alphaModel, set_alphaModel) : stdgo._internal.image.color.Color.Model;
+function get_alphaModel():stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.alphaModel;
+function set_alphaModel(v:stdgo._internal.image.color.Color.Model):stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.alphaModel = v;
+var alpha16Model(get_alpha16Model, set_alpha16Model) : stdgo._internal.image.color.Color.Model;
+function get_alpha16Model():stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.alpha16Model;
+function set_alpha16Model(v:stdgo._internal.image.color.Color.Model):stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.alpha16Model = v;
+var grayModel(get_grayModel, set_grayModel) : stdgo._internal.image.color.Color.Model;
+function get_grayModel():stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.grayModel;
+function set_grayModel(v:stdgo._internal.image.color.Color.Model):stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.grayModel = v;
+var gray16Model(get_gray16Model, set_gray16Model) : stdgo._internal.image.color.Color.Model;
+function get_gray16Model():stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.gray16Model;
+function set_gray16Model(v:stdgo._internal.image.color.Color.Model):stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.gray16Model = v;
+var black(get_black, set_black) : stdgo._internal.image.color.Color.Gray16;
+function get_black():stdgo._internal.image.color.Color.Gray16 return stdgo._internal.image.color.Color.black;
+function set_black(v:stdgo._internal.image.color.Color.Gray16):stdgo._internal.image.color.Color.Gray16 return stdgo._internal.image.color.Color.black = v;
+var white(get_white, set_white) : stdgo._internal.image.color.Color.Gray16;
+function get_white():stdgo._internal.image.color.Color.Gray16 return stdgo._internal.image.color.Color.white;
+function set_white(v:stdgo._internal.image.color.Color.Gray16):stdgo._internal.image.color.Color.Gray16 return stdgo._internal.image.color.Color.white = v;
+var transparent(get_transparent, set_transparent) : stdgo._internal.image.color.Color.Alpha16;
+function get_transparent():stdgo._internal.image.color.Color.Alpha16 return stdgo._internal.image.color.Color.transparent;
+function set_transparent(v:stdgo._internal.image.color.Color.Alpha16):stdgo._internal.image.color.Color.Alpha16 return stdgo._internal.image.color.Color.transparent = v;
+var opaque(get_opaque, set_opaque) : stdgo._internal.image.color.Color.Alpha16;
+function get_opaque():stdgo._internal.image.color.Color.Alpha16 return stdgo._internal.image.color.Color.opaque;
+function set_opaque(v:stdgo._internal.image.color.Color.Alpha16):stdgo._internal.image.color.Color.Alpha16 return stdgo._internal.image.color.Color.opaque = v;
+var ycbCrModel(get_ycbCrModel, set_ycbCrModel) : stdgo._internal.image.color.Color.Model;
+function get_ycbCrModel():stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.ycbCrModel;
+function set_ycbCrModel(v:stdgo._internal.image.color.Color.Model):stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.ycbCrModel = v;
+var nycbCrAModel(get_nycbCrAModel, set_nycbCrAModel) : stdgo._internal.image.color.Color.Model;
+function get_nycbCrAModel():stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.nycbCrAModel;
+function set_nycbCrAModel(v:stdgo._internal.image.color.Color.Model):stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.nycbCrAModel = v;
+var cmykmodel(get_cmykmodel, set_cmykmodel) : stdgo._internal.image.color.Color.Model;
+function get_cmykmodel():stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.cmykmodel;
+function set_cmykmodel(v:stdgo._internal.image.color.Color.Model):stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.cmykmodel = v;
 typedef Color = stdgo._internal.image.color.Color.Color;
 typedef Model = stdgo._internal.image.color.Color.Model;
 @:invalid typedef RGBA = Dynamic;
@@ -32,39 +63,70 @@ typedef Model = stdgo._internal.image.color.Color.Model;
 @:invalid typedef NYCbCrA = Dynamic;
 @:invalid typedef CMYK = Dynamic;
 typedef Palette = stdgo._internal.image.color.Color.Palette;
-function modelFunc(_f:Color -> Color):Void {}
-function _rgbaModel(_c:Color):Void {}
-function _rgba64Model(_c:Color):Void {}
-function _nrgbaModel(_c:Color):Void {}
-function _nrgba64Model(_c:Color):Void {}
-function _alphaModel(_c:Color):Void {}
-function _alpha16Model(_c:Color):Void {}
-function _grayModel(_c:Color):Void {}
-function _gray16Model(_c:Color):Void {}
-function _sqDiff(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32):Void {}
-function testSqDiff(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function rgbtoYCbCr(_r:stdgo.GoUInt8, _g:stdgo.GoUInt8, _b:stdgo.GoUInt8):Void {}
-function ycbCrToRGB(_y:stdgo.GoUInt8, _cb:stdgo.GoUInt8, _cr:stdgo.GoUInt8):Void {}
-function _yCbCrModel(_c:Color):Void {}
-function _nYCbCrAModel(_c:Color):Void {}
-function rgbtoCMYK(_r:stdgo.GoUInt8, _g:stdgo.GoUInt8, _b:stdgo.GoUInt8):Void {}
-function cmyktoRGB(_c:stdgo.GoUInt8, _m:stdgo.GoUInt8, _y:stdgo.GoUInt8, _k:stdgo.GoUInt8):Void {}
-function _cmykModel(_c:Color):Void {}
-function _delta(_x:stdgo.GoUInt8, _y:stdgo.GoUInt8):Void {}
-function _eq(_c0:Color, _c1:Color):Void {}
-function testYCbCrRoundtrip(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testYCbCrToRGBConsistency(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testYCbCrGray(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testNYCbCrAAlpha(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testNYCbCrAYCbCr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testCMYKRoundtrip(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testCMYKToRGBConsistency(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testCMYKGray(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testPalette(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkYCbCrToRGB(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkRGBToYCbCr(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkYCbCrToRGBA(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkNYCbCrAToRGBA(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
+/**
+    // ModelFunc returns a Model that invokes f to implement the conversion.
+**/
+inline function modelFunc(f:Color -> Color):Model throw "not implemented";
+inline function testSqDiff(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // RGBToYCbCr converts an RGB triple to a Y'CbCr triple.
+**/
+inline function rgbtoYCbCr(r:UInt, g:UInt, b:UInt):stdgo.Tuple.Tuple3<UInt, UInt, UInt> throw "not implemented";
+/**
+    // YCbCrToRGB converts a Y'CbCr triple to an RGB triple.
+**/
+inline function ycbCrToRGB(y:UInt, cb:UInt, cr:UInt):stdgo.Tuple.Tuple3<UInt, UInt, UInt> throw "not implemented";
+/**
+    // RGBToCMYK converts an RGB triple to a CMYK quadruple.
+**/
+inline function rgbtoCMYK(r:UInt, g:UInt, b:UInt):stdgo.Tuple.Tuple4<UInt, UInt, UInt, UInt> throw "not implemented";
+/**
+    // CMYKToRGB converts a CMYK quadruple to an RGB triple.
+**/
+inline function cmyktoRGB(c:UInt, m:UInt, y:UInt, k:UInt):stdgo.Tuple.Tuple3<UInt, UInt, UInt> throw "not implemented";
+/**
+    // TestYCbCrRoundtrip tests that a subset of RGB space can be converted to YCbCr
+    // and back to within 2/256 tolerance.
+**/
+inline function testYCbCrRoundtrip(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestYCbCrToRGBConsistency tests that calling the RGBA method (16 bit color)
+    // then truncating to 8 bits is equivalent to calling the YCbCrToRGB function (8
+    // bit color).
+**/
+inline function testYCbCrToRGBConsistency(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestYCbCrGray tests that YCbCr colors are a superset of Gray colors.
+**/
+inline function testYCbCrGray(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestNYCbCrAAlpha tests that NYCbCrA colors are a superset of Alpha colors.
+**/
+inline function testNYCbCrAAlpha(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestNYCbCrAYCbCr tests that NYCbCrA colors are a superset of YCbCr colors.
+**/
+inline function testNYCbCrAYCbCr(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestCMYKRoundtrip tests that a subset of RGB space can be converted to CMYK
+    // and back to within 1/256 tolerance.
+**/
+inline function testCMYKRoundtrip(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestCMYKToRGBConsistency tests that calling the RGBA method (16 bit color)
+    // then truncating to 8 bits is equivalent to calling the CMYKToRGB function (8
+    // bit color).
+**/
+inline function testCMYKToRGBConsistency(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestCMYKGray tests that CMYK colors are a superset of Gray colors.
+**/
+inline function testCMYKGray(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testPalette(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkYCbCrToRGB(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkRGBToYCbCr(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkYCbCrToRGBA(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkNYCbCrAToRGBA(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 @:invalid typedef RGBA_asInterface = Dynamic;
 @:invalid typedef RGBA_static_extension = Dynamic;
 @:invalid typedef RGBA64_asInterface = Dynamic;

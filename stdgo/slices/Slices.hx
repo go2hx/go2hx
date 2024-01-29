@@ -1,22 +1,9 @@
 package stdgo.slices;
-@:invalid var __go2hxdoc__package : Dynamic;
-@:invalid var _equalIntTests : Dynamic;
-@:invalid var _equalFloatTests : Dynamic;
-@:invalid var _compareIntTests : Dynamic;
-@:invalid var _compareFloatTests : Dynamic;
-@:invalid var _indexTests : Dynamic;
-@:invalid var _insertTests : Dynamic;
-@:invalid var _deleteTests : Dynamic;
-@:invalid var _deleteFuncTests : Dynamic;
-@:invalid var _compactTests : Dynamic;
-@:invalid var _ints : Dynamic;
-@:invalid var _float64s : Dynamic;
-@:invalid var _float64sWithNaNs : Dynamic;
-@:invalid var _strs : Dynamic;
-@:invalid var _unknownHint : Dynamic;
-@:invalid var _increasingHint : Dynamic;
-@:invalid var _decreasingHint : Dynamic;
-@:invalid var n : Dynamic;
+/**
+    // Package slices defines various functions useful with slices of any type.
+**/
+private var __go2hxdoc__package : Bool;
+final n : haxe.UInt64 = stdgo._internal.slices.Slices.n;
 @:invalid typedef T_myStruct = Dynamic;
 @:invalid typedef T_intPair = Dynamic;
 @:invalid typedef S = Dynamic;
@@ -75,162 +62,112 @@ typedef T_sortedHint = stdgo._internal.slices.Slices.T_sortedHint;
 typedef T_xorshift = stdgo._internal.slices.Slices.T_xorshift;
 typedef T_myStructs = stdgo._internal.slices.Slices.T_myStructs;
 typedef T_intPairs = stdgo._internal.slices.Slices.T_intPairs;
-macro function equal<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _s1:haxe.macro.Expr.ExprOf<S>, _s2:haxe.macro.Expr.ExprOf<S>):Void {}
-macro function equalFunc<S1, S2, E1, E2>(__generic__0:haxe.macro.Expr.ExprOf<S1>, __generic__1:haxe.macro.Expr.ExprOf<S2>, __generic__2:haxe.macro.Expr.ExprOf<E1>, __generic__3:haxe.macro.Expr.ExprOf<E2>, _s1:haxe.macro.Expr.ExprOf<S1>, _s2:haxe.macro.Expr.ExprOf<S2>, _eq:haxe.macro.Expr.ExprOf<($E1, $E2) -> Bool>):Void {}
-macro function compare<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _s1:haxe.macro.Expr.ExprOf<S>, _s2:haxe.macro.Expr.ExprOf<S>):Void {}
-macro function compareFunc<S1, S2, E1, E2>(__generic__0:haxe.macro.Expr.ExprOf<S1>, __generic__1:haxe.macro.Expr.ExprOf<S2>, __generic__2:haxe.macro.Expr.ExprOf<E1>, __generic__3:haxe.macro.Expr.ExprOf<E2>, _s1:haxe.macro.Expr.ExprOf<S1>, _s2:haxe.macro.Expr.ExprOf<S2>, _cmp:haxe.macro.Expr.ExprOf<($E1, $E2) -> stdgo.GoInt>):Void {}
-macro function index<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _s:haxe.macro.Expr.ExprOf<S>, _v:haxe.macro.Expr.ExprOf<E>):Void {}
-macro function indexFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _s:haxe.macro.Expr.ExprOf<S>, _f:haxe.macro.Expr.ExprOf<$E -> Bool>):Void {}
-macro function contains<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _s:haxe.macro.Expr.ExprOf<S>, _v:haxe.macro.Expr.ExprOf<E>):Void {}
-macro function containsFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _s:haxe.macro.Expr.ExprOf<S>, _f:haxe.macro.Expr.ExprOf<$E -> Bool>):Void {}
-macro function insert<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _s:haxe.macro.Expr.ExprOf<S>, _i:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _v:haxe.macro.Expr.ExprOf<haxe.Rest<E>>):Void {}
-macro function delete<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _s:haxe.macro.Expr.ExprOf<S>, _i:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _j:haxe.macro.Expr.ExprOf<stdgo.GoInt>):Void {}
-macro function deleteFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _s:haxe.macro.Expr.ExprOf<S>, _del:haxe.macro.Expr.ExprOf<$E -> Bool>):Void {}
-macro function replace<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _s:haxe.macro.Expr.ExprOf<S>, _i:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _j:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _v:haxe.macro.Expr.ExprOf<haxe.Rest<E>>):Void {}
-macro function clone<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _s:haxe.macro.Expr.ExprOf<S>):Void {}
-macro function compact<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _s:haxe.macro.Expr.ExprOf<S>):Void {}
-macro function compactFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _s:haxe.macro.Expr.ExprOf<S>, _eq:haxe.macro.Expr.ExprOf<($E, $E) -> Bool>):Void {}
-macro function grow<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _s:haxe.macro.Expr.ExprOf<S>, _n:haxe.macro.Expr.ExprOf<stdgo.GoInt>):Void {}
-macro function clip<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _s:haxe.macro.Expr.ExprOf<S>):Void {}
-macro function _rotateLeft<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _s:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _r:haxe.macro.Expr.ExprOf<stdgo.GoInt>):Void {}
-macro function _rotateRight<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _s:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _r:haxe.macro.Expr.ExprOf<stdgo.GoInt>):Void {}
-macro function _swap<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _x:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _y:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>):Void {}
-macro function _overlaps<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _a:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _b:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>):Void {}
-macro function _startIdx<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _haystack:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _needle:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>):Void {}
-macro function reverse<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _s:haxe.macro.Expr.ExprOf<S>):Void {}
-function testEqual(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-macro function _equal<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _v1:haxe.macro.Expr.ExprOf<T_>, _v2:haxe.macro.Expr.ExprOf<T_>):Void {}
-macro function _equalNaN<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _v1:haxe.macro.Expr.ExprOf<T_>, _v2:haxe.macro.Expr.ExprOf<T_>):Void {}
-function _offByOne(_v1:stdgo.GoInt, _v2:stdgo.GoInt):Void {}
-function testEqualFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-typedef T_benchmarkEqualFunc_Large_23___localname___Large = stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_23___localname___Large;
-function benchmarkEqualFunc_Large(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function testCompare(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-macro function _equalToCmp<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _eq:haxe.macro.Expr.ExprOf<($T_, $T_) -> Bool>):Void {}
-function testCompareFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIndex(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-macro function _equalToIndex<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _f:haxe.macro.Expr.ExprOf<($T_, $T_) -> Bool>, _v1:haxe.macro.Expr.ExprOf<T_>):Void {}
-typedef T_benchmarkIndex_Large_24___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndex_Large_24___localname___Large;
-function benchmarkIndex_Large(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function testIndexFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-typedef T_benchmarkIndexFunc_Large_25___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_25___localname___Large;
-function benchmarkIndexFunc_Large(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function testContains(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testContainsFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testInsert(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testInsertOverlap(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDelete(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDeleteFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _panics(_f:() -> Void):Void {}
-function testDeletePanics(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testClone(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testCompact(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkCompact(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-typedef T_benchmarkCompact_Large_26___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompact_Large_26___localname___Large;
-function benchmarkCompact_Large(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function testCompactFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-typedef T_benchmarkCompactFunc_Large_27___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_27___localname___Large;
-function benchmarkCompactFunc_Large(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function testGrow(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testClip(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testReverse(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-macro function _naiveReplace<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _s:haxe.macro.Expr.ExprOf<S>, _i:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _j:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _v:haxe.macro.Expr.ExprOf<haxe.Rest<E>>):Void {}
-function testReplace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testReplacePanics(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testReplaceOverlap(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkReplace(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function testRotate(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testInsertGrowthRate(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testReplaceGrowthRate(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-macro function _apply<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _v:haxe.macro.Expr.ExprOf<T_>, _f:haxe.macro.Expr.ExprOf<$T_ -> Void>):Void {}
-typedef T_testInference_28___localname___S = stdgo._internal.slices.Slices.T_testInference_28___localname___S;
-function testInference(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-macro function sort<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _x:haxe.macro.Expr.ExprOf<S>):Void {}
-macro function sortFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _x:haxe.macro.Expr.ExprOf<S>, _cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):Void {}
-macro function sortStableFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _x:haxe.macro.Expr.ExprOf<S>, _cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):Void {}
-macro function isSorted<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _x:haxe.macro.Expr.ExprOf<S>):Void {}
-macro function isSortedFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _x:haxe.macro.Expr.ExprOf<S>, _cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):Void {}
-macro function min<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _x:haxe.macro.Expr.ExprOf<S>):Void {}
-macro function minFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _x:haxe.macro.Expr.ExprOf<S>, _cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):Void {}
-macro function max<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _x:haxe.macro.Expr.ExprOf<S>):Void {}
-macro function maxFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _x:haxe.macro.Expr.ExprOf<S>, _cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):Void {}
-macro function binarySearch<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, _x:haxe.macro.Expr.ExprOf<S>, _target:haxe.macro.Expr.ExprOf<E>):Void {}
-macro function binarySearchFunc<S, E, T_>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:haxe.macro.Expr.ExprOf<E>, __generic__2:haxe.macro.Expr.ExprOf<T_>, _x:haxe.macro.Expr.ExprOf<S>, _target:haxe.macro.Expr.ExprOf<T_>, _cmp:haxe.macro.Expr.ExprOf<($E, $T_) -> stdgo.GoInt>):Void {}
-function _nextPowerOfTwo(_length:stdgo.GoInt):Void {}
-macro function _isNaN<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _x:haxe.macro.Expr.ExprOf<T_>):Void {}
-function _makeRandomInts(_n:stdgo.GoInt):Void {}
-function _makeSortedInts(_n:stdgo.GoInt):Void {}
-function _makeReversedInts(_n:stdgo.GoInt):Void {}
-function benchmarkSortInts(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function _makeSortedStrings(_n:stdgo.GoInt):Void {}
-function benchmarkSlicesSortInts(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkSlicesSortInts_Sorted(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkSlicesSortInts_Reversed(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkIntsAreSorted(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkIsSorted(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function testIntSorts(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _makeRandomStrings(_n:stdgo.GoInt):Void {}
-function testStringSorts(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkSortStrings(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkSortStrings_Sorted(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkSlicesSortStrings(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkSlicesSortStrings_Sorted(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function _makeRandomStructs(_n:stdgo.GoInt):Void {}
-function testStructSorts(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function benchmarkSortStructs(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkSortFuncStructs(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkBinarySearchFloats(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkBinarySearchFuncStruct(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function testSortIntSlice(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testSortFuncIntSlice(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testSortFloat64Slice(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testSortFloat64SliceWithNaNs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testSortStringSlice(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testSortLarge_Random(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _intPairCmp(_x:T_intPair, _y:T_intPair):Void {}
-function testStability(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _cmpS(_s1:S, _s2:S):Void {}
-function testMinMax(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testMinMaxNaNs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testMinMaxPanics(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testBinarySearch(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testBinarySearchInts(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testBinarySearchFloats(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testBinarySearchFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-macro function _insertionSortCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):Void {}
-macro function _siftDownCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _lo:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _hi:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _first:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):Void {}
-macro function _heapSortCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):Void {}
-macro function _pdqsortCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _limit:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):Void {}
-macro function _partitionCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _pivot:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):Void {}
-macro function _partitionEqualCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _pivot:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):Void {}
-macro function _partialInsertionSortCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):Void {}
-macro function _breakPatternsCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):Void {}
-macro function _choosePivotCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):Void {}
-macro function _order2CmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _swaps:haxe.macro.Expr.ExprOf<stdgo.Pointer<stdgo.GoInt>>, _cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):Void {}
-macro function _medianCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _c:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _swaps:haxe.macro.Expr.ExprOf<stdgo.Pointer<stdgo.GoInt>>, _cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):Void {}
-macro function _medianAdjacentCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _swaps:haxe.macro.Expr.ExprOf<stdgo.Pointer<stdgo.GoInt>>, _cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):Void {}
-macro function _reverseRangeCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):Void {}
-macro function _swapRangeCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _n:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):Void {}
-macro function _stableCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _n:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):Void {}
-macro function _symMergeCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _m:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):Void {}
-macro function _rotateCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _m:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):Void {}
-macro function _insertionSortOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>):Void {}
-macro function _siftDownOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _lo:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _hi:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _first:haxe.macro.Expr.ExprOf<stdgo.GoInt>):Void {}
-macro function _heapSortOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>):Void {}
-macro function _pdqsortOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _limit:haxe.macro.Expr.ExprOf<stdgo.GoInt>):Void {}
-macro function _partitionOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _pivot:haxe.macro.Expr.ExprOf<stdgo.GoInt>):Void {}
-macro function _partitionEqualOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _pivot:haxe.macro.Expr.ExprOf<stdgo.GoInt>):Void {}
-macro function _partialInsertionSortOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>):Void {}
-macro function _breakPatternsOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>):Void {}
-macro function _choosePivotOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>):Void {}
-macro function _order2Ordered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _swaps:haxe.macro.Expr.ExprOf<stdgo.Pointer<stdgo.GoInt>>):Void {}
-macro function _medianOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _c:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _swaps:haxe.macro.Expr.ExprOf<stdgo.Pointer<stdgo.GoInt>>):Void {}
-macro function _medianAdjacentOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _swaps:haxe.macro.Expr.ExprOf<stdgo.Pointer<stdgo.GoInt>>):Void {}
-macro function _reverseRangeOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>):Void {}
-macro function _swapRangeOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _n:haxe.macro.Expr.ExprOf<stdgo.GoInt>):Void {}
-macro function _stableOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _n:haxe.macro.Expr.ExprOf<stdgo.GoInt>):Void {}
-macro function _symMergeOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _m:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>):Void {}
-macro function _rotateOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:haxe.macro.Expr.ExprOf<stdgo.Slice<E>>, _a:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _m:haxe.macro.Expr.ExprOf<stdgo.GoInt>, _b:haxe.macro.Expr.ExprOf<stdgo.GoInt>):Void {}
+macro inline function equal<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, s1:haxe.macro.Expr.ExprOf<S>, s2:haxe.macro.Expr.ExprOf<S>):haxe.macro.Expr.ExprOf<Bool> throw "not implemented";
+macro inline function equalFunc<S1, S2, E1, E2>(_generic__0:haxe.macro.Expr.ExprOf<S1>, _generic__1:haxe.macro.Expr.ExprOf<S2>, _generic__2:haxe.macro.Expr.ExprOf<E1>, _generic__3:haxe.macro.Expr.ExprOf<E2>, s1:haxe.macro.Expr.ExprOf<S1>, s2:haxe.macro.Expr.ExprOf<S2>, eq:haxe.macro.Expr.ExprOf<($E1, $E2) -> Bool>):haxe.macro.Expr.ExprOf<Bool> throw "not implemented";
+macro inline function compare<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, s1:haxe.macro.Expr.ExprOf<S>, s2:haxe.macro.Expr.ExprOf<S>):haxe.macro.Expr.ExprOf<stdgo.GoInt> throw "not implemented";
+macro inline function compareFunc<S1, S2, E1, E2>(_generic__0:haxe.macro.Expr.ExprOf<S1>, _generic__1:haxe.macro.Expr.ExprOf<S2>, _generic__2:haxe.macro.Expr.ExprOf<E1>, _generic__3:haxe.macro.Expr.ExprOf<E2>, s1:haxe.macro.Expr.ExprOf<S1>, s2:haxe.macro.Expr.ExprOf<S2>, cmp:haxe.macro.Expr.ExprOf<($E1, $E2) -> stdgo.GoInt>):haxe.macro.Expr.ExprOf<stdgo.GoInt> throw "not implemented";
+macro inline function index<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, s:haxe.macro.Expr.ExprOf<S>, v:haxe.macro.Expr.ExprOf<E>):haxe.macro.Expr.ExprOf<stdgo.GoInt> throw "not implemented";
+macro inline function indexFunc<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, s:haxe.macro.Expr.ExprOf<S>, f:haxe.macro.Expr.ExprOf<$E -> Bool>):haxe.macro.Expr.ExprOf<stdgo.GoInt> throw "not implemented";
+macro inline function contains<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, s:haxe.macro.Expr.ExprOf<S>, v:haxe.macro.Expr.ExprOf<E>):haxe.macro.Expr.ExprOf<Bool> throw "not implemented";
+macro inline function containsFunc<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, s:haxe.macro.Expr.ExprOf<S>, f:haxe.macro.Expr.ExprOf<$E -> Bool>):haxe.macro.Expr.ExprOf<Bool> throw "not implemented";
+macro inline function insert<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, s:haxe.macro.Expr.ExprOf<S>, i:haxe.macro.Expr.ExprOf<stdgo.GoInt>, v:haxe.macro.Expr.ExprOf<haxe.Rest<E>>):haxe.macro.Expr.ExprOf<S> throw "not implemented";
+macro inline function delete<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, s:haxe.macro.Expr.ExprOf<S>, i:haxe.macro.Expr.ExprOf<stdgo.GoInt>, j:haxe.macro.Expr.ExprOf<stdgo.GoInt>):haxe.macro.Expr.ExprOf<S> throw "not implemented";
+macro inline function deleteFunc<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, s:haxe.macro.Expr.ExprOf<S>, del:haxe.macro.Expr.ExprOf<$E -> Bool>):haxe.macro.Expr.ExprOf<S> throw "not implemented";
+macro inline function replace<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, s:haxe.macro.Expr.ExprOf<S>, i:haxe.macro.Expr.ExprOf<stdgo.GoInt>, j:haxe.macro.Expr.ExprOf<stdgo.GoInt>, v:haxe.macro.Expr.ExprOf<haxe.Rest<E>>):haxe.macro.Expr.ExprOf<S> throw "not implemented";
+macro inline function clone<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, s:haxe.macro.Expr.ExprOf<S>):haxe.macro.Expr.ExprOf<S> throw "not implemented";
+macro inline function compact<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, s:haxe.macro.Expr.ExprOf<S>):haxe.macro.Expr.ExprOf<S> throw "not implemented";
+macro inline function compactFunc<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, s:haxe.macro.Expr.ExprOf<S>, eq:haxe.macro.Expr.ExprOf<($E, $E) -> Bool>):haxe.macro.Expr.ExprOf<S> throw "not implemented";
+macro inline function grow<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, s:haxe.macro.Expr.ExprOf<S>, n:haxe.macro.Expr.ExprOf<stdgo.GoInt>):haxe.macro.Expr.ExprOf<S> throw "not implemented";
+macro inline function clip<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, s:haxe.macro.Expr.ExprOf<S>):haxe.macro.Expr.ExprOf<S> throw "not implemented";
+macro inline function reverse<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, s:haxe.macro.Expr.ExprOf<S>):haxe.macro.Expr.ExprOf<Void> throw "not implemented";
+inline function testEqual(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testEqualFunc(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+typedef T_benchmarkEqualFunc_Large_19___localname___Large = stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_19___localname___Large;
+inline function benchmarkEqualFunc_Large(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testCompare(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testCompareFunc(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIndex(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+typedef T_benchmarkIndex_Large_20___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndex_Large_20___localname___Large;
+inline function benchmarkIndex_Large(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testIndexFunc(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+typedef T_benchmarkIndexFunc_Large_21___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_21___localname___Large;
+inline function benchmarkIndexFunc_Large(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testContains(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testContainsFunc(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testInsert(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testInsertOverlap(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDelete(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDeleteFunc(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDeletePanics(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testClone(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testCompact(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkCompact(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+typedef T_benchmarkCompact_Large_22___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompact_Large_22___localname___Large;
+inline function benchmarkCompact_Large(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testCompactFunc(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+typedef T_benchmarkCompactFunc_Large_23___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_23___localname___Large;
+inline function benchmarkCompactFunc_Large(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testGrow(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testClip(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testReverse(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testReplace(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testReplacePanics(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testReplaceOverlap(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkReplace(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testRotate(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testInsertGrowthRate(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testReplaceGrowthRate(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+typedef T_testInference_24___localname___S = stdgo._internal.slices.Slices.T_testInference_24___localname___S;
+/**
+    // Test type inference with a named slice type.
+**/
+inline function testInference(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+macro inline function sort<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, x:haxe.macro.Expr.ExprOf<S>):haxe.macro.Expr.ExprOf<Void> throw "not implemented";
+macro inline function sortFunc<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, x:haxe.macro.Expr.ExprOf<S>, cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):haxe.macro.Expr.ExprOf<Void> throw "not implemented";
+macro inline function sortStableFunc<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, x:haxe.macro.Expr.ExprOf<S>, cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):haxe.macro.Expr.ExprOf<Void> throw "not implemented";
+macro inline function isSorted<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, x:haxe.macro.Expr.ExprOf<S>):haxe.macro.Expr.ExprOf<Bool> throw "not implemented";
+macro inline function isSortedFunc<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, x:haxe.macro.Expr.ExprOf<S>, cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):haxe.macro.Expr.ExprOf<Bool> throw "not implemented";
+macro inline function min<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, x:haxe.macro.Expr.ExprOf<S>):haxe.macro.Expr.ExprOf<E> throw "not implemented";
+macro inline function minFunc<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, x:haxe.macro.Expr.ExprOf<S>, cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):haxe.macro.Expr.ExprOf<E> throw "not implemented";
+macro inline function max<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, x:haxe.macro.Expr.ExprOf<S>):haxe.macro.Expr.ExprOf<E> throw "not implemented";
+macro inline function maxFunc<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, x:haxe.macro.Expr.ExprOf<S>, cmp:haxe.macro.Expr.ExprOf<(_a:E, _b:E) -> stdgo.GoInt>):haxe.macro.Expr.ExprOf<E> throw "not implemented";
+macro inline function binarySearch<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, x:haxe.macro.Expr.ExprOf<S>, target:haxe.macro.Expr.ExprOf<E>):haxe.macro.Expr.ExprOf<{ var _0 : stdgo.GoInt; var _1 : Bool; }> throw "not implemented";
+macro inline function binarySearchFunc<S, E, T_>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, _generic__2:haxe.macro.Expr.ExprOf<T_>, x:haxe.macro.Expr.ExprOf<S>, target:haxe.macro.Expr.ExprOf<T_>, cmp:haxe.macro.Expr.ExprOf<($E, $T_) -> stdgo.GoInt>):haxe.macro.Expr.ExprOf<{ var _0 : stdgo.GoInt; var _1 : Bool; }> throw "not implemented";
+inline function benchmarkSortInts(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkSlicesSortInts(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkSlicesSortInts_Sorted(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkSlicesSortInts_Reversed(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkIntsAreSorted(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkIsSorted(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+/**
+    // Since we're benchmarking these sorts against each other, make sure that they
+    // generate similar results.
+**/
+inline function testIntSorts(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testStringSorts(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkSortStrings(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkSortStrings_Sorted(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkSlicesSortStrings(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkSlicesSortStrings_Sorted(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testStructSorts(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkSortStructs(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkSortFuncStructs(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkBinarySearchFloats(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkBinarySearchFuncStruct(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testSortIntSlice(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testSortFuncIntSlice(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testSortFloat64Slice(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testSortFloat64SliceWithNaNs(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testSortStringSlice(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testSortLarge_Random(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testStability(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testMinMax(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testMinMaxNaNs(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testMinMaxPanics(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testBinarySearch(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testBinarySearchInts(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testBinarySearchFloats(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testBinarySearchFunc(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_xorshift_asInterface = Dynamic;
 @:invalid typedef T_xorshift_static_extension = Dynamic;
 @:invalid typedef T_myStructs_asInterface = Dynamic;

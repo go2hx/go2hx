@@ -1,22 +1,25 @@
 package stdgo.sync;
-@:invalid var __go2hxdoc__package : Dynamic;
-@:invalid var _expunged : Dynamic;
-@:invalid var runtime_Semacquire : Dynamic;
-@:invalid var runtime_Semrelease : Dynamic;
-@:invalid var runtime_procPin : Dynamic;
-@:invalid var runtime_procUnpin : Dynamic;
-@:invalid var _mutexLocked : Dynamic;
-@:invalid var _mutexWoken : Dynamic;
-@:invalid var _mutexStarving : Dynamic;
-@:invalid var _mutexWaiterShift : Dynamic;
-@:invalid var _starvationThresholdNs : Dynamic;
-@:invalid var _poolRaceHash : Dynamic;
-@:invalid var _allPoolsMu : Dynamic;
-@:invalid var _allPools : Dynamic;
-@:invalid var _oldPools : Dynamic;
-@:invalid var _dequeueBits : Dynamic;
-@:invalid var _dequeueLimit : Dynamic;
-@:invalid var _rwmutexMaxReaders : Dynamic;
+/**
+    // Package sync provides basic synchronization primitives such as mutual
+    // exclusion locks. Other than the Once and WaitGroup types, most are intended
+    // for use by low-level library routines. Higher-level synchronization is
+    // better done via channels and communication.
+    //
+    // Values containing the types defined in this package should not be copied.
+**/
+private var __go2hxdoc__package : Bool;
+var runtime_Semacquire(get_runtime_Semacquire, set_runtime_Semacquire) : stdgo.Pointer<stdgo.GoUInt32> -> Void;
+function get_runtime_Semacquire():stdgo.Pointer<stdgo.GoUInt32> -> Void return stdgo._internal.sync.Sync.runtime_Semacquire;
+function set_runtime_Semacquire(v:stdgo.Pointer<stdgo.GoUInt32> -> Void):stdgo.Pointer<stdgo.GoUInt32> -> Void return stdgo._internal.sync.Sync.runtime_Semacquire = v;
+var runtime_Semrelease(get_runtime_Semrelease, set_runtime_Semrelease) : (stdgo.Pointer<stdgo.GoUInt32>, Bool, stdgo.GoInt) -> Void;
+function get_runtime_Semrelease():(stdgo.Pointer<stdgo.GoUInt32>, Bool, stdgo.GoInt) -> Void return stdgo._internal.sync.Sync.runtime_Semrelease;
+function set_runtime_Semrelease(v:(stdgo.Pointer<stdgo.GoUInt32>, Bool, stdgo.GoInt) -> Void):(stdgo.Pointer<stdgo.GoUInt32>, Bool, stdgo.GoInt) -> Void return stdgo._internal.sync.Sync.runtime_Semrelease = v;
+var runtime_procPin(get_runtime_procPin, set_runtime_procPin) : () -> stdgo.GoInt;
+function get_runtime_procPin():() -> stdgo.GoInt return stdgo._internal.sync.Sync.runtime_procPin;
+function set_runtime_procPin(v:() -> stdgo.GoInt):() -> stdgo.GoInt return stdgo._internal.sync.Sync.runtime_procPin = v;
+var runtime_procUnpin(get_runtime_procUnpin, set_runtime_procUnpin) : () -> Void;
+function get_runtime_procUnpin():() -> Void return stdgo._internal.sync.Sync.runtime_procUnpin;
+function set_runtime_procUnpin(v:() -> Void):() -> Void return stdgo._internal.sync.Sync.runtime_procUnpin = v;
 typedef PoolDequeue = stdgo._internal.sync.Sync.PoolDequeue;
 typedef Locker = stdgo._internal.sync.Sync.Locker;
 @:invalid typedef Cond = Dynamic;
@@ -42,41 +45,21 @@ typedef T__struct_0 = stdgo._internal.sync.Sync.T__struct_0;
 typedef T_copyChecker = stdgo._internal.sync.Sync.T_copyChecker;
 typedef T_dequeueNil = stdgo._internal.sync.Sync.T_dequeueNil;
 typedef T_rlocker = stdgo._internal.sync.Sync.T_rlocker;
-function newCond(_l:Locker):Void {}
-function newPoolDequeue(_n:stdgo.GoInt):Void {}
-function newPoolChain():Void {}
-function _newEntry(_i:stdgo.AnyInterface):Void {}
-function _throw(_0:stdgo.GoString):Void {}
-function _fatal(_0:stdgo.GoString):Void {}
-function onceFunc(_f:() -> Void):Void {}
-macro function onceValue<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _f:haxe.macro.Expr.ExprOf<() -> T_>):Void {}
-macro function onceValues<T1, T2>(__generic__0:haxe.macro.Expr.ExprOf<T1>, __generic__1:haxe.macro.Expr.ExprOf<T2>, _f:haxe.macro.Expr.ExprOf<() -> { var _0 : T1; var _1 : T2; }>):Void {}
-function _fastrandn(_n:stdgo.GoUInt32):Void {}
-function _poolRaceAddr(_x:stdgo.AnyInterface):Void {}
-function _poolCleanup():Void {}
-function _indexLocal(_l:stdgo._internal.unsafe.Unsafe.UnsafePointer, _i:stdgo.GoInt):Void {}
-function _runtime_registerPoolCleanup(_cleanup:() -> Void):Void {}
-function _runtime_procPin():Void {}
-function _runtime_procUnpin():Void {}
-function _runtime_LoadAcquintptr(_ptr:stdgo.Pointer<stdgo.GoUIntptr>):Void {}
-function _runtime_StoreReluintptr(_ptr:stdgo.Pointer<stdgo.GoUIntptr>, _val:stdgo.GoUIntptr):Void {}
-function _storePoolChainElt(_pp:stdgo.Ref<stdgo.Ref<T_poolChainElt>>, _v:stdgo.Ref<T_poolChainElt>):Void {}
-function _loadPoolChainElt(_pp:stdgo.Ref<stdgo.Ref<T_poolChainElt>>):Void {}
-function _runtime_Semacquire(_s:stdgo.Pointer<stdgo.GoUInt32>):Void {}
-function _runtime_SemacquireMutex(_s:stdgo.Pointer<stdgo.GoUInt32>, _lifo:Bool, _skipframes:stdgo.GoInt):Void {}
-function _runtime_SemacquireRWMutexR(_s:stdgo.Pointer<stdgo.GoUInt32>, _lifo:Bool, _skipframes:stdgo.GoInt):Void {}
-function _runtime_SemacquireRWMutex(_s:stdgo.Pointer<stdgo.GoUInt32>, _lifo:Bool, _skipframes:stdgo.GoInt):Void {}
-function _runtime_Semrelease(_s:stdgo.Pointer<stdgo.GoUInt32>, _handoff:Bool, _skipframes:stdgo.GoInt):Void {}
-function _runtime_notifyListAdd(_l:stdgo.Ref<T_notifyList>):Void {}
-function _runtime_notifyListWait(_l:stdgo.Ref<T_notifyList>, _t:stdgo.GoUInt32):Void {}
-function _runtime_notifyListNotifyAll(_l:stdgo.Ref<T_notifyList>):Void {}
-function _runtime_notifyListNotifyOne(_l:stdgo.Ref<T_notifyList>):Void {}
-function _runtime_notifyListCheck(_size:stdgo.GoUIntptr):Void {}
-function _runtime_canSpin(_i:stdgo.GoInt):Void {}
-function _runtime_doSpin():Void {}
-function _runtime_nanotime():Void {}
-function _syscall_hasWaitingReaders(_rw:stdgo.Ref<RWMutex>):Void {}
-@:invalid var _ : Dynamic;
+/**
+    // NewCond returns a new Cond with Locker l.
+**/
+inline function newCond(l:Locker):Cond throw "not implemented";
+inline function newPoolDequeue(n:Int):PoolDequeue throw "not implemented";
+inline function newPoolChain():PoolDequeue throw "not implemented";
+/**
+    // OnceFunc returns a function that invokes f only once. The returned function
+    // may be called concurrently.
+    //
+    // If f panics, the returned function will panic with the same value on every call.
+**/
+inline function onceFunc(f:() -> Void):() -> Void throw "not implemented";
+macro inline function onceValue<T_>(_generic__0:haxe.macro.Expr.ExprOf<T_>, f:haxe.macro.Expr.ExprOf<() -> T_>):haxe.macro.Expr.ExprOf<() -> T_> throw "not implemented";
+macro inline function onceValues<T1, T2>(_generic__0:haxe.macro.Expr.ExprOf<T1>, _generic__1:haxe.macro.Expr.ExprOf<T2>, f:haxe.macro.Expr.ExprOf<() -> { var _0 : T1; var _1 : T2; }>):haxe.macro.Expr.ExprOf<() -> { var _0 : T1; var _1 : T2; }> throw "not implemented";
 @:invalid typedef Cond_asInterface = Dynamic;
 @:invalid typedef Cond_static_extension = Dynamic;
 @:invalid typedef T_noCopy_asInterface = Dynamic;

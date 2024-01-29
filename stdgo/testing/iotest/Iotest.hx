@@ -1,7 +1,11 @@
 package stdgo.testing.iotest;
-@:invalid var __go2hxdoc__package : Dynamic;
-@:invalid var errTimeout : Dynamic;
-@:invalid var _truncateWriterTests : Dynamic;
+/**
+    // Package iotest implements Readers and Writers useful mainly for testing.
+**/
+private var __go2hxdoc__package : Bool;
+var errTimeout(get_errTimeout, set_errTimeout) : stdgo.Error;
+function get_errTimeout():stdgo.Error return stdgo._internal.testing.iotest.Iotest.errTimeout;
+function set_errTimeout(v:stdgo.Error):stdgo.Error return stdgo._internal.testing.iotest.Iotest.errTimeout = v;
 @:invalid typedef T_writeLogger = Dynamic;
 @:invalid typedef T_readLogger = Dynamic;
 @:invalid typedef T_errWriter = Dynamic;
@@ -15,30 +19,75 @@ package stdgo.testing.iotest;
 @:invalid typedef T__struct_0_asInterface = Dynamic;
 @:invalid typedef T__struct_0_static_extension = Dynamic;
 typedef T__struct_0 = stdgo._internal.testing.iotest.Iotest.T__struct_0;
-function newWriteLogger(_prefix:stdgo.GoString, _w:stdgo._internal.io.Io.Writer):Void {}
-function newReadLogger(_prefix:stdgo.GoString, _r:stdgo._internal.io.Io.Reader):Void {}
-function testWriteLogger(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testWriteLogger_errorOnWrite(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testReadLogger(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testReadLogger_errorOnRead(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function oneByteReader(_r:stdgo._internal.io.Io.Reader):Void {}
-function halfReader(_r:stdgo._internal.io.Io.Reader):Void {}
-function dataErrReader(_r:stdgo._internal.io.Io.Reader):Void {}
-function timeoutReader(_r:stdgo._internal.io.Io.Reader):Void {}
-function errReader(_err:stdgo.Error):Void {}
-function testReader(_r:stdgo._internal.io.Io.Reader, _content:stdgo.Slice<stdgo.GoByte>):Void {}
-function testOneByteReader_nonEmptyReader(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testOneByteReader_emptyReader(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testHalfReader_nonEmptyReader(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testHalfReader_emptyReader(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testTimeOutReader_nonEmptyReader(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testTimeOutReader_emptyReader(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDataErrReader_nonEmptyReader(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDataErrReader_emptyReader(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testErrReader(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testStringsReader(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function truncateWriter(_w:stdgo._internal.io.Io.Writer, _n:stdgo.GoInt64):Void {}
-function testTruncateWriter(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
+/**
+    // NewWriteLogger returns a writer that behaves like w except
+    // that it logs (using log.Printf) each write to standard error,
+    // printing the prefix and the hexadecimal data written.
+**/
+inline function newWriteLogger(prefix:String, w:stdgo._internal.io.Io.Writer):stdgo._internal.io.Io.Writer throw "not implemented";
+/**
+    // NewReadLogger returns a reader that behaves like r except
+    // that it logs (using log.Printf) each read to standard error,
+    // printing the prefix and the hexadecimal data read.
+**/
+inline function newReadLogger(prefix:String, r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader throw "not implemented";
+inline function testWriteLogger(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testWriteLogger_errorOnWrite(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testReadLogger(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testReadLogger_errorOnRead(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // OneByteReader returns a Reader that implements
+    // each non-empty Read by reading one byte from r.
+**/
+inline function oneByteReader(r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader throw "not implemented";
+/**
+    // HalfReader returns a Reader that implements Read
+    // by reading half as many requested bytes from r.
+**/
+inline function halfReader(r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader throw "not implemented";
+/**
+    // DataErrReader changes the way errors are handled by a Reader. Normally, a
+    // Reader returns an error (typically EOF) from the first Read call after the
+    // last piece of data is read. DataErrReader wraps a Reader and changes its
+    // behavior so the final error is returned along with the final data, instead
+    // of in the first call after the final data.
+**/
+inline function dataErrReader(r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader throw "not implemented";
+/**
+    // TimeoutReader returns ErrTimeout on the second read
+    // with no data. Subsequent calls to read succeed.
+**/
+inline function timeoutReader(r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader throw "not implemented";
+/**
+    // ErrReader returns an io.Reader that returns 0, err from all Read calls.
+**/
+inline function errReader(err:stdgo.Error):stdgo._internal.io.Io.Reader throw "not implemented";
+/**
+    // TestReader tests that reading from r returns the expected file content.
+    // It does reads of different sizes, until EOF.
+    // If r implements io.ReaderAt or io.Seeker, TestReader also checks
+    // that those operations behave as they should.
+    //
+    // If TestReader finds any misbehaviors, it returns an error reporting them.
+    // The error text may span multiple lines.
+**/
+inline function testReader(r:stdgo._internal.io.Io.Reader, content:Array<Int>):stdgo.Error throw "not implemented";
+inline function testOneByteReader_nonEmptyReader(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testOneByteReader_emptyReader(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testHalfReader_nonEmptyReader(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testHalfReader_emptyReader(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testTimeOutReader_nonEmptyReader(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testTimeOutReader_emptyReader(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDataErrReader_nonEmptyReader(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDataErrReader_emptyReader(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testErrReader(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testStringsReader(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TruncateWriter returns a Writer that writes to w
+    // but stops silently after n bytes.
+**/
+inline function truncateWriter(w:stdgo._internal.io.Io.Writer, n:haxe.Int64):stdgo._internal.io.Io.Writer throw "not implemented";
+inline function testTruncateWriter(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_writeLogger_asInterface = Dynamic;
 @:invalid typedef T_writeLogger_static_extension = Dynamic;
 @:invalid typedef T_readLogger_asInterface = Dynamic;

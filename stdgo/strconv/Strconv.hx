@@ -1,146 +1,377 @@
 package stdgo.strconv;
-@:invalid var __go2hxdoc__package : Dynamic;
-@:invalid var _optimize : Dynamic;
-@:invalid var _powtab : Dynamic;
-@:invalid var _float64pow10 : Dynamic;
-@:invalid var _float32pow10 : Dynamic;
-@:invalid var errRange : Dynamic;
-@:invalid var errSyntax : Dynamic;
-@:invalid var _leftcheats : Dynamic;
-@:invalid var _detailedPowersOfTen : Dynamic;
-@:invalid var _float32info : Dynamic;
-@:invalid var _float64info : Dynamic;
-@:invalid var _uint64pow10 : Dynamic;
-@:invalid var _isPrint16 : Dynamic;
-@:invalid var _isNotPrint16 : Dynamic;
-@:invalid var _isPrint32 : Dynamic;
-@:invalid var _isNotPrint32 : Dynamic;
-@:invalid var _isGraphic : Dynamic;
-@:invalid var bitSizeError : Dynamic;
-@:invalid var baseError : Dynamic;
-@:invalid var _fnParseComplex : Dynamic;
-@:invalid var _fnParseFloat : Dynamic;
-@:invalid var _intSize : Dynamic;
-@:invalid var intSize : Dynamic;
-@:invalid var _maxUint64 : Dynamic;
-@:invalid var _uintSize : Dynamic;
-@:invalid var _maxShift : Dynamic;
-@:invalid var _detailedPowersOfTenMinExp10 : Dynamic;
-@:invalid var _detailedPowersOfTenMaxExp10 : Dynamic;
-@:invalid var _fastSmalls : Dynamic;
-@:invalid var _nSmalls : Dynamic;
-@:invalid var _smallsString : Dynamic;
-@:invalid var _host32bit : Dynamic;
-@:invalid var _digits : Dynamic;
-@:invalid var _lowerhex : Dynamic;
-@:invalid var _upperhex : Dynamic;
+/**
+    // Package strconv implements conversions to and from string representations
+    // of basic data types.
+    //
+    // # Numeric Conversions
+    //
+    // The most common numeric conversions are Atoi (string to int) and Itoa (int to string).
+    //
+    //	i, err := strconv.Atoi("-42")
+    //	s := strconv.Itoa(-42)
+    //
+    // These assume decimal and the Go int type.
+    //
+    // [ParseBool], [ParseFloat], [ParseInt], and [ParseUint] convert strings to values:
+    //
+    //	b, err := strconv.ParseBool("true")
+    //	f, err := strconv.ParseFloat("3.1415", 64)
+    //	i, err := strconv.ParseInt("-42", 10, 64)
+    //	u, err := strconv.ParseUint("42", 10, 64)
+    //
+    // The parse functions return the widest type (float64, int64, and uint64),
+    // but if the size argument specifies a narrower width the result can be
+    // converted to that narrower type without data loss:
+    //
+    //	s := "2147483647" // biggest int32
+    //	i64, err := strconv.ParseInt(s, 10, 32)
+    //	...
+    //	i := int32(i64)
+    //
+    // [FormatBool], [FormatFloat], [FormatInt], and [FormatUint] convert values to strings:
+    //
+    //	s := strconv.FormatBool(true)
+    //	s := strconv.FormatFloat(3.1415, 'E', -1, 64)
+    //	s := strconv.FormatInt(-42, 16)
+    //	s := strconv.FormatUint(42, 16)
+    //
+    // [AppendBool], [AppendFloat], [AppendInt], and [AppendUint] are similar but
+    // append the formatted value to a destination slice.
+    //
+    // # String Conversions
+    //
+    // [Quote] and [QuoteToASCII] convert strings to quoted Go string literals.
+    // The latter guarantees that the result is an ASCII string, by escaping
+    // any non-ASCII Unicode with \u:
+    //
+    //	q := strconv.Quote("Hello, 世界")
+    //	q := strconv.QuoteToASCII("Hello, 世界")
+    //
+    // [QuoteRune] and [QuoteRuneToASCII] are similar but accept runes and
+    // return quoted Go rune literals.
+    //
+    // [Unquote] and [UnquoteChar] unquote Go string and rune literals.
+**/
+private var __go2hxdoc__package : Bool;
+var errRange(get_errRange, set_errRange) : stdgo.Error;
+function get_errRange():stdgo.Error return stdgo._internal.strconv.Strconv.errRange;
+function set_errRange(v:stdgo.Error):stdgo.Error return stdgo._internal.strconv.Strconv.errRange = v;
+var errSyntax(get_errSyntax, set_errSyntax) : stdgo.Error;
+function get_errSyntax():stdgo.Error return stdgo._internal.strconv.Strconv.errSyntax;
+function set_errSyntax(v:stdgo.Error):stdgo.Error return stdgo._internal.strconv.Strconv.errSyntax = v;
+var bitSizeError(get_bitSizeError, set_bitSizeError) : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError>;
+function get_bitSizeError():(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> return stdgo._internal.strconv.Strconv.bitSizeError;
+function set_bitSizeError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError>):(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> return stdgo._internal.strconv.Strconv.bitSizeError = v;
+var baseError(get_baseError, set_baseError) : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError>;
+function get_baseError():(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> return stdgo._internal.strconv.Strconv.baseError;
+function set_baseError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError>):(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> return stdgo._internal.strconv.Strconv.baseError = v;
+final intSize : haxe.UInt64 = stdgo._internal.strconv.Strconv.intSize;
 @:invalid typedef NumError = Dynamic;
 @:invalid typedef T_decimal = Dynamic;
 @:invalid typedef T_leftCheat = Dynamic;
 @:invalid typedef T_floatInfo = Dynamic;
 @:invalid typedef T_decimalSlice = Dynamic;
-function parseBool(_str:stdgo.GoString):Void {}
-function formatBool(_b:Bool):Void {}
-function appendBool(_dst:stdgo.Slice<stdgo.GoByte>, _b:Bool):Void {}
-function _convErr(_err:stdgo.Error, _s:stdgo.GoString):Void {}
-function parseComplex(_s:stdgo.GoString, _bitSize:stdgo.GoInt):Void {}
-function _commonPrefixLenIgnoreCase(_s:stdgo.GoString, _prefix:stdgo.GoString):Void {}
-function _special(_s:stdgo.GoString):Void {}
-function _readFloat(_s:stdgo.GoString):Void {}
-function _atof64exact(_mantissa:stdgo.GoUInt64, _exp:stdgo.GoInt, _neg:Bool):Void {}
-function _atof32exact(_mantissa:stdgo.GoUInt64, _exp:stdgo.GoInt, _neg:Bool):Void {}
-function _atofHex(_s:stdgo.GoString, _flt:stdgo.Ref<T_floatInfo>, _mantissa:stdgo.GoUInt64, _exp:stdgo.GoInt, _neg:Bool, _trunc:Bool):Void {}
-function _atof32(_s:stdgo.GoString):Void {}
-function _atof64(_s:stdgo.GoString):Void {}
-function parseFloat(_s:stdgo.GoString, _bitSize:stdgo.GoInt):Void {}
-function _parseFloatPrefix(_s:stdgo.GoString, _bitSize:stdgo.GoInt):Void {}
-function _lower(_c:stdgo.GoByte):Void {}
-function _cloneString(_x:stdgo.GoString):Void {}
-function _syntaxError(_fn:stdgo.GoString, _str:stdgo.GoString):Void {}
-function _rangeError(_fn:stdgo.GoString, _str:stdgo.GoString):Void {}
-function _baseError(_fn:stdgo.GoString, _str:stdgo.GoString, _base:stdgo.GoInt):Void {}
-function _bitSizeError(_fn:stdgo.GoString, _str:stdgo.GoString, _bitSize:stdgo.GoInt):Void {}
-function parseUint(_s:stdgo.GoString, _base:stdgo.GoInt, _bitSize:stdgo.GoInt):Void {}
-function parseInt(_s:stdgo.GoString, _base:stdgo.GoInt, _bitSize:stdgo.GoInt):Void {}
-function atoi(_s:stdgo.GoString):Void {}
-function _underscoreOK(_s:stdgo.GoString):Void {}
-function _index(_s:stdgo.GoString, _c:stdgo.GoByte):Void {}
-function formatComplex(_c:stdgo.GoComplex128, _fmt:stdgo.GoByte, _prec:stdgo.GoInt, _bitSize:stdgo.GoInt):Void {}
-function _digitZero(_dst:stdgo.Slice<stdgo.GoByte>):Void {}
-function _trim(_a:stdgo.Ref<T_decimal>):Void {}
-function _rightShift(_a:stdgo.Ref<T_decimal>, _k:stdgo.GoUInt):Void {}
-function _prefixIsLessThan(_b:stdgo.Slice<stdgo.GoByte>, _s:stdgo.GoString):Void {}
-function _leftShift(_a:stdgo.Ref<T_decimal>, _k:stdgo.GoUInt):Void {}
-function _shouldRoundUp(_a:stdgo.Ref<T_decimal>, _nd:stdgo.GoInt):Void {}
-function _eiselLemire64(_man:stdgo.GoUInt64, _exp10:stdgo.GoInt, _neg:Bool):Void {}
-function _eiselLemire32(_man:stdgo.GoUInt64, _exp10:stdgo.GoInt, _neg:Bool):Void {}
-function formatFloat(_f:stdgo.GoFloat64, _fmt:stdgo.GoByte, _prec:stdgo.GoInt, _bitSize:stdgo.GoInt):Void {}
-function appendFloat(_dst:stdgo.Slice<stdgo.GoByte>, _f:stdgo.GoFloat64, _fmt:stdgo.GoByte, _prec:stdgo.GoInt, _bitSize:stdgo.GoInt):Void {}
-function _genericFtoa(_dst:stdgo.Slice<stdgo.GoByte>, _val:stdgo.GoFloat64, _fmt:stdgo.GoByte, _prec:stdgo.GoInt, _bitSize:stdgo.GoInt):Void {}
-function _bigFtoa(_dst:stdgo.Slice<stdgo.GoByte>, _prec:stdgo.GoInt, _fmt:stdgo.GoByte, _neg:Bool, _mant:stdgo.GoUInt64, _exp:stdgo.GoInt, _flt:stdgo.Ref<T_floatInfo>):Void {}
-function _formatDigits(_dst:stdgo.Slice<stdgo.GoByte>, _shortest:Bool, _neg:Bool, _digs:T_decimalSlice, _prec:stdgo.GoInt, _fmt:stdgo.GoByte):Void {}
-function _roundShortest(_d:stdgo.Ref<T_decimal>, _mant:stdgo.GoUInt64, _exp:stdgo.GoInt, _flt:stdgo.Ref<T_floatInfo>):Void {}
-function _fmtE(_dst:stdgo.Slice<stdgo.GoByte>, _neg:Bool, _d:T_decimalSlice, _prec:stdgo.GoInt, _fmt:stdgo.GoByte):Void {}
-function _fmtF(_dst:stdgo.Slice<stdgo.GoByte>, _neg:Bool, _d:T_decimalSlice, _prec:stdgo.GoInt):Void {}
-function _fmtB(_dst:stdgo.Slice<stdgo.GoByte>, _neg:Bool, _mant:stdgo.GoUInt64, _exp:stdgo.GoInt, _flt:stdgo.Ref<T_floatInfo>):Void {}
-function _fmtX(_dst:stdgo.Slice<stdgo.GoByte>, _prec:stdgo.GoInt, _fmt:stdgo.GoByte, _neg:Bool, _mant:stdgo.GoUInt64, _exp:stdgo.GoInt, _flt:stdgo.Ref<T_floatInfo>):Void {}
-function _min(_a:stdgo.GoInt, _b:stdgo.GoInt):Void {}
-function _max(_a:stdgo.GoInt, _b:stdgo.GoInt):Void {}
-function _ryuFtoaFixed32(_d:stdgo.Ref<T_decimalSlice>, _mant:stdgo.GoUInt32, _exp:stdgo.GoInt, _prec:stdgo.GoInt):Void {}
-function _ryuFtoaFixed64(_d:stdgo.Ref<T_decimalSlice>, _mant:stdgo.GoUInt64, _exp:stdgo.GoInt, _prec:stdgo.GoInt):Void {}
-function _formatDecimal(_d:stdgo.Ref<T_decimalSlice>, _m:stdgo.GoUInt64, _trunc:Bool, _roundUp:Bool, _prec:stdgo.GoInt):Void {}
-function _ryuFtoaShortest(_d:stdgo.Ref<T_decimalSlice>, _mant:stdgo.GoUInt64, _exp:stdgo.GoInt, _flt:stdgo.Ref<T_floatInfo>):Void {}
-function _mulByLog2Log10(_x:stdgo.GoInt):Void {}
-function _mulByLog10Log2(_x:stdgo.GoInt):Void {}
-function _computeBounds(_mant:stdgo.GoUInt64, _exp:stdgo.GoInt, _flt:stdgo.Ref<T_floatInfo>):Void {}
-function _ryuDigits(_d:stdgo.Ref<T_decimalSlice>, _lower:stdgo.GoUInt64, _central:stdgo.GoUInt64, _upper:stdgo.GoUInt64, _c0:Bool, _cup:Bool):Void {}
-function _ryuDigits32(_d:stdgo.Ref<T_decimalSlice>, _lower:stdgo.GoUInt32, _central:stdgo.GoUInt32, _upper:stdgo.GoUInt32, _c0:Bool, _cup:Bool, _endindex:stdgo.GoInt):Void {}
-function _mult64bitPow10(_m:stdgo.GoUInt32, _e2:stdgo.GoInt, _q:stdgo.GoInt):Void {}
-function _mult128bitPow10(_m:stdgo.GoUInt64, _e2:stdgo.GoInt, _q:stdgo.GoInt):Void {}
-function _divisibleByPower5(_m:stdgo.GoUInt64, _k:stdgo.GoInt):Void {}
-function _divmod1e9(_x:stdgo.GoUInt64):Void {}
-function newDecimal(_i:stdgo.GoUInt64):Void {}
-function setOptimize(_b:Bool):Void {}
-function parseFloatPrefix(_s:stdgo.GoString, _bitSize:stdgo.GoInt):Void {}
-function mulByLog2Log10(_x:stdgo.GoInt):Void {}
-function mulByLog10Log2(_x:stdgo.GoInt):Void {}
-function formatUint(_i:stdgo.GoUInt64, _base:stdgo.GoInt):Void {}
-function formatInt(_i:stdgo.GoInt64, _base:stdgo.GoInt):Void {}
-function itoa(_i:stdgo.GoInt):Void {}
-function appendInt(_dst:stdgo.Slice<stdgo.GoByte>, _i:stdgo.GoInt64, _base:stdgo.GoInt):Void {}
-function appendUint(_dst:stdgo.Slice<stdgo.GoByte>, _i:stdgo.GoUInt64, _base:stdgo.GoInt):Void {}
-function _small(_i:stdgo.GoInt):Void {}
-function _formatBits(_dst:stdgo.Slice<stdgo.GoByte>, _u:stdgo.GoUInt64, _base:stdgo.GoInt, _neg:Bool, _append_:Bool):Void {}
-function _isPowerOfTwo(_x:stdgo.GoInt):Void {}
-function _contains(_s:stdgo.GoString, _c:stdgo.GoByte):Void {}
-function _quoteWith(_s:stdgo.GoString, _quote:stdgo.GoByte, asciionly:Bool, _graphicOnly:Bool):Void {}
-function _quoteRuneWith(_r:stdgo.GoRune, _quote:stdgo.GoByte, asciionly:Bool, _graphicOnly:Bool):Void {}
-function _appendQuotedWith(_buf:stdgo.Slice<stdgo.GoByte>, _s:stdgo.GoString, _quote:stdgo.GoByte, asciionly:Bool, _graphicOnly:Bool):Void {}
-function _appendQuotedRuneWith(_buf:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune, _quote:stdgo.GoByte, asciionly:Bool, _graphicOnly:Bool):Void {}
-function _appendEscapedRune(_buf:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune, _quote:stdgo.GoByte, asciionly:Bool, _graphicOnly:Bool):Void {}
-function quote(_s:stdgo.GoString):Void {}
-function appendQuote(_dst:stdgo.Slice<stdgo.GoByte>, _s:stdgo.GoString):Void {}
-function quoteToASCII(_s:stdgo.GoString):Void {}
-function appendQuoteToASCII(_dst:stdgo.Slice<stdgo.GoByte>, _s:stdgo.GoString):Void {}
-function quoteToGraphic(_s:stdgo.GoString):Void {}
-function appendQuoteToGraphic(_dst:stdgo.Slice<stdgo.GoByte>, _s:stdgo.GoString):Void {}
-function quoteRune(_r:stdgo.GoRune):Void {}
-function appendQuoteRune(_dst:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune):Void {}
-function quoteRuneToASCII(_r:stdgo.GoRune):Void {}
-function appendQuoteRuneToASCII(_dst:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune):Void {}
-function quoteRuneToGraphic(_r:stdgo.GoRune):Void {}
-function appendQuoteRuneToGraphic(_dst:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune):Void {}
-function canBackquote(_s:stdgo.GoString):Void {}
-function _unhex(_b:stdgo.GoByte):Void {}
-function unquoteChar(_s:stdgo.GoString, _quote:stdgo.GoByte):Void {}
-function quotedPrefix(_s:stdgo.GoString):Void {}
-function unquote(_s:stdgo.GoString):Void {}
-function _unquote(_in:stdgo.GoString, _unescape:Bool):Void {}
-function _bsearch16(_a:stdgo.Slice<stdgo.GoUInt16>, _x:stdgo.GoUInt16):Void {}
-function _bsearch32(_a:stdgo.Slice<stdgo.GoUInt32>, _x:stdgo.GoUInt32):Void {}
-function isPrint(_r:stdgo.GoRune):Void {}
-function isGraphic(_r:stdgo.GoRune):Void {}
-function _isInGraphicList(_r:stdgo.GoRune):Void {}
+/**
+    // ParseBool returns the boolean value represented by the string.
+    // It accepts 1, t, T, TRUE, true, True, 0, f, F, FALSE, false, False.
+    // Any other value returns an error.
+**/
+inline function parseBool(str:String):stdgo.Tuple.<Bool, stdgo.Error> throw "not implemented";
+/**
+    // FormatBool returns "true" or "false" according to the value of b.
+**/
+inline function formatBool(b:Bool):String throw "not implemented";
+/**
+    // AppendBool appends "true" or "false", according to the value of b,
+    // to dst and returns the extended buffer.
+**/
+inline function appendBool(dst:Array<Int>, b:Bool):Array<Int> throw "not implemented";
+/**
+    // ParseComplex converts the string s to a complex number
+    // with the precision specified by bitSize: 64 for complex64, or 128 for complex128.
+    // When bitSize=64, the result still has type complex128, but it will be
+    // convertible to complex64 without changing its value.
+    //
+    // The number represented by s must be of the form N, Ni, or N±Ni, where N stands
+    // for a floating-point number as recognized by ParseFloat, and i is the imaginary
+    // component. If the second N is unsigned, a + sign is required between the two components
+    // as indicated by the ±. If the second N is NaN, only a + sign is accepted.
+    // The form may be parenthesized and cannot contain any spaces.
+    // The resulting complex number consists of the two components converted by ParseFloat.
+    //
+    // The errors that ParseComplex returns have concrete type *NumError
+    // and include err.Num = s.
+    //
+    // If s is not syntactically well-formed, ParseComplex returns err.Err = ErrSyntax.
+    //
+    // If s is syntactically well-formed but either component is more than 1/2 ULP
+    // away from the largest floating point number of the given component's size,
+    // ParseComplex returns err.Err = ErrRange and c = ±Inf for the respective component.
+**/
+inline function parseComplex(s:String, bitSize:Int):stdgo.Tuple.<stdgo.GoComplex128, stdgo.Error> throw "not implemented";
+/**
+    // ParseFloat converts the string s to a floating-point number
+    // with the precision specified by bitSize: 32 for float32, or 64 for float64.
+    // When bitSize=32, the result still has type float64, but it will be
+    // convertible to float32 without changing its value.
+    //
+    // ParseFloat accepts decimal and hexadecimal floating-point numbers
+    // as defined by the Go syntax for [floating-point literals].
+    // If s is well-formed and near a valid floating-point number,
+    // ParseFloat returns the nearest floating-point number rounded
+    // using IEEE754 unbiased rounding.
+    // (Parsing a hexadecimal floating-point value only rounds when
+    // there are more bits in the hexadecimal representation than
+    // will fit in the mantissa.)
+    //
+    // The errors that ParseFloat returns have concrete type *NumError
+    // and include err.Num = s.
+    //
+    // If s is not syntactically well-formed, ParseFloat returns err.Err = ErrSyntax.
+    //
+    // If s is syntactically well-formed but is more than 1/2 ULP
+    // away from the largest floating point number of the given size,
+    // ParseFloat returns f = ±Inf, err.Err = ErrRange.
+    //
+    // ParseFloat recognizes the string "NaN", and the (possibly signed) strings "Inf" and "Infinity"
+    // as their respective special floating point values. It ignores case when matching.
+    //
+    // [floating-point literals]: https://go.dev/ref/spec#Floating-point_literals
+**/
+inline function parseFloat(s:String, bitSize:Int):stdgo.Tuple.<Float, stdgo.Error> throw "not implemented";
+/**
+    // ParseUint is like ParseInt but for unsigned numbers.
+    //
+    // A sign prefix is not permitted.
+**/
+inline function parseUint(s:String, base:Int, bitSize:Int):stdgo.Tuple.<haxe.UInt64, stdgo.Error> throw "not implemented";
+/**
+    // ParseInt interprets a string s in the given base (0, 2 to 36) and
+    // bit size (0 to 64) and returns the corresponding value i.
+    //
+    // The string may begin with a leading sign: "+" or "-".
+    //
+    // If the base argument is 0, the true base is implied by the string's
+    // prefix following the sign (if present): 2 for "0b", 8 for "0" or "0o",
+    // 16 for "0x", and 10 otherwise. Also, for argument base 0 only,
+    // underscore characters are permitted as defined by the Go syntax for
+    // [integer literals].
+    //
+    // The bitSize argument specifies the integer type
+    // that the result must fit into. Bit sizes 0, 8, 16, 32, and 64
+    // correspond to int, int8, int16, int32, and int64.
+    // If bitSize is below 0 or above 64, an error is returned.
+    //
+    // The errors that ParseInt returns have concrete type *NumError
+    // and include err.Num = s. If s is empty or contains invalid
+    // digits, err.Err = ErrSyntax and the returned value is 0;
+    // if the value corresponding to s cannot be represented by a
+    // signed integer of the given size, err.Err = ErrRange and the
+    // returned value is the maximum magnitude integer of the
+    // appropriate bitSize and sign.
+    //
+    // [integer literals]: https://go.dev/ref/spec#Integer_literals
+**/
+inline function parseInt(s:String, base:Int, bitSize:Int):stdgo.Tuple.<haxe.Int64, stdgo.Error> throw "not implemented";
+/**
+    // Atoi is equivalent to ParseInt(s, 10, 0), converted to type int.
+**/
+inline function atoi(s:String):stdgo.Tuple.<Int, stdgo.Error> throw "not implemented";
+/**
+    // FormatComplex converts the complex number c to a string of the
+    // form (a+bi) where a and b are the real and imaginary parts,
+    // formatted according to the format fmt and precision prec.
+    //
+    // The format fmt and precision prec have the same meaning as in FormatFloat.
+    // It rounds the result assuming that the original was obtained from a complex
+    // value of bitSize bits, which must be 64 for complex64 and 128 for complex128.
+**/
+inline function formatComplex(c:stdgo.GoComplex128, fmt:Int, prec:Int, bitSize:Int):String throw "not implemented";
+/**
+    // FormatFloat converts the floating-point number f to a string,
+    // according to the format fmt and precision prec. It rounds the
+    // result assuming that the original was obtained from a floating-point
+    // value of bitSize bits (32 for float32, 64 for float64).
+    //
+    // The format fmt is one of
+    // 'b' (-ddddp±ddd, a binary exponent),
+    // 'e' (-d.dddde±dd, a decimal exponent),
+    // 'E' (-d.ddddE±dd, a decimal exponent),
+    // 'f' (-ddd.dddd, no exponent),
+    // 'g' ('e' for large exponents, 'f' otherwise),
+    // 'G' ('E' for large exponents, 'f' otherwise),
+    // 'x' (-0xd.ddddp±ddd, a hexadecimal fraction and binary exponent), or
+    // 'X' (-0Xd.ddddP±ddd, a hexadecimal fraction and binary exponent).
+    //
+    // The precision prec controls the number of digits (excluding the exponent)
+    // printed by the 'e', 'E', 'f', 'g', 'G', 'x', and 'X' formats.
+    // For 'e', 'E', 'f', 'x', and 'X', it is the number of digits after the decimal point.
+    // For 'g' and 'G' it is the maximum number of significant digits (trailing
+    // zeros are removed).
+    // The special precision -1 uses the smallest number of digits
+    // necessary such that ParseFloat will return f exactly.
+**/
+inline function formatFloat(f:Float, fmt:Int, prec:Int, bitSize:Int):String throw "not implemented";
+/**
+    // AppendFloat appends the string form of the floating-point number f,
+    // as generated by FormatFloat, to dst and returns the extended buffer.
+**/
+inline function appendFloat(dst:Array<Int>, f:Float, fmt:Int, prec:Int, bitSize:Int):Array<Int> throw "not implemented";
+inline function newDecimal(i:haxe.UInt64):T_decimal throw "not implemented";
+inline function setOptimize(b:Bool):Bool throw "not implemented";
+inline function parseFloatPrefix(s:String, bitSize:Int):stdgo.Tuple.Tuple3<Float, Int, stdgo.Error> throw "not implemented";
+inline function mulByLog2Log10(x:Int):Int throw "not implemented";
+inline function mulByLog10Log2(x:Int):Int throw "not implemented";
+/**
+    // FormatUint returns the string representation of i in the given base,
+    // for 2 <= base <= 36. The result uses the lower-case letters 'a' to 'z'
+    // for digit values >= 10.
+**/
+inline function formatUint(i:haxe.UInt64, base:Int):String throw "not implemented";
+/**
+    // FormatInt returns the string representation of i in the given base,
+    // for 2 <= base <= 36. The result uses the lower-case letters 'a' to 'z'
+    // for digit values >= 10.
+**/
+inline function formatInt(i:haxe.Int64, base:Int):String throw "not implemented";
+/**
+    // Itoa is equivalent to FormatInt(int64(i), 10).
+**/
+inline function itoa(i:Int):String throw "not implemented";
+/**
+    // AppendInt appends the string form of the integer i,
+    // as generated by FormatInt, to dst and returns the extended buffer.
+**/
+inline function appendInt(dst:Array<Int>, i:haxe.Int64, base:Int):Array<Int> throw "not implemented";
+/**
+    // AppendUint appends the string form of the unsigned integer i,
+    // as generated by FormatUint, to dst and returns the extended buffer.
+**/
+inline function appendUint(dst:Array<Int>, i:haxe.UInt64, base:Int):Array<Int> throw "not implemented";
+/**
+    // Quote returns a double-quoted Go string literal representing s. The
+    // returned string uses Go escape sequences (\t, \n, \xFF, \u0100) for
+    // control characters and non-printable characters as defined by
+    // IsPrint.
+**/
+inline function quote(s:String):String throw "not implemented";
+/**
+    // AppendQuote appends a double-quoted Go string literal representing s,
+    // as generated by Quote, to dst and returns the extended buffer.
+**/
+inline function appendQuote(dst:Array<Int>, s:String):Array<Int> throw "not implemented";
+/**
+    // QuoteToASCII returns a double-quoted Go string literal representing s.
+    // The returned string uses Go escape sequences (\t, \n, \xFF, \u0100) for
+    // non-ASCII characters and non-printable characters as defined by IsPrint.
+**/
+inline function quoteToASCII(s:String):String throw "not implemented";
+/**
+    // AppendQuoteToASCII appends a double-quoted Go string literal representing s,
+    // as generated by QuoteToASCII, to dst and returns the extended buffer.
+**/
+inline function appendQuoteToASCII(dst:Array<Int>, s:String):Array<Int> throw "not implemented";
+/**
+    // QuoteToGraphic returns a double-quoted Go string literal representing s.
+    // The returned string leaves Unicode graphic characters, as defined by
+    // IsGraphic, unchanged and uses Go escape sequences (\t, \n, \xFF, \u0100)
+    // for non-graphic characters.
+**/
+inline function quoteToGraphic(s:String):String throw "not implemented";
+/**
+    // AppendQuoteToGraphic appends a double-quoted Go string literal representing s,
+    // as generated by QuoteToGraphic, to dst and returns the extended buffer.
+**/
+inline function appendQuoteToGraphic(dst:Array<Int>, s:String):Array<Int> throw "not implemented";
+/**
+    // QuoteRune returns a single-quoted Go character literal representing the
+    // rune. The returned string uses Go escape sequences (\t, \n, \xFF, \u0100)
+    // for control characters and non-printable characters as defined by IsPrint.
+    // If r is not a valid Unicode code point, it is interpreted as the Unicode
+    // replacement character U+FFFD.
+**/
+inline function quoteRune(r:Int):String throw "not implemented";
+/**
+    // AppendQuoteRune appends a single-quoted Go character literal representing the rune,
+    // as generated by QuoteRune, to dst and returns the extended buffer.
+**/
+inline function appendQuoteRune(dst:Array<Int>, r:Int):Array<Int> throw "not implemented";
+/**
+    // QuoteRuneToASCII returns a single-quoted Go character literal representing
+    // the rune. The returned string uses Go escape sequences (\t, \n, \xFF,
+    // \u0100) for non-ASCII characters and non-printable characters as defined
+    // by IsPrint.
+    // If r is not a valid Unicode code point, it is interpreted as the Unicode
+    // replacement character U+FFFD.
+**/
+inline function quoteRuneToASCII(r:Int):String throw "not implemented";
+/**
+    // AppendQuoteRuneToASCII appends a single-quoted Go character literal representing the rune,
+    // as generated by QuoteRuneToASCII, to dst and returns the extended buffer.
+**/
+inline function appendQuoteRuneToASCII(dst:Array<Int>, r:Int):Array<Int> throw "not implemented";
+/**
+    // QuoteRuneToGraphic returns a single-quoted Go character literal representing
+    // the rune. If the rune is not a Unicode graphic character,
+    // as defined by IsGraphic, the returned string will use a Go escape sequence
+    // (\t, \n, \xFF, \u0100).
+    // If r is not a valid Unicode code point, it is interpreted as the Unicode
+    // replacement character U+FFFD.
+**/
+inline function quoteRuneToGraphic(r:Int):String throw "not implemented";
+/**
+    // AppendQuoteRuneToGraphic appends a single-quoted Go character literal representing the rune,
+    // as generated by QuoteRuneToGraphic, to dst and returns the extended buffer.
+**/
+inline function appendQuoteRuneToGraphic(dst:Array<Int>, r:Int):Array<Int> throw "not implemented";
+/**
+    // CanBackquote reports whether the string s can be represented
+    // unchanged as a single-line backquoted string without control
+    // characters other than tab.
+**/
+inline function canBackquote(s:String):Bool throw "not implemented";
+/**
+    // UnquoteChar decodes the first character or byte in the escaped string
+    // or character literal represented by the string s.
+    // It returns four values:
+    //
+    //  1. value, the decoded Unicode code point or byte value;
+    //  2. multibyte, a boolean indicating whether the decoded character requires a multibyte UTF-8 representation;
+    //  3. tail, the remainder of the string after the character; and
+    //  4. an error that will be nil if the character is syntactically valid.
+    //
+    // The second argument, quote, specifies the type of literal being parsed
+    // and therefore which escaped quote character is permitted.
+    // If set to a single quote, it permits the sequence \' and disallows unescaped '.
+    // If set to a double quote, it permits \" and disallows unescaped ".
+    // If set to zero, it does not permit either escape and allows both quote characters to appear unescaped.
+**/
+inline function unquoteChar(s:String, quote:Int):stdgo.Tuple.Tuple4<Int, Bool, String, stdgo.Error> throw "not implemented";
+/**
+    // QuotedPrefix returns the quoted string (as understood by Unquote) at the prefix of s.
+    // If s does not start with a valid quoted string, QuotedPrefix returns an error.
+**/
+inline function quotedPrefix(s:String):stdgo.Tuple.<String, stdgo.Error> throw "not implemented";
+/**
+    // Unquote interprets s as a single-quoted, double-quoted,
+    // or backquoted Go string literal, returning the string value
+    // that s quotes.  (If s is single-quoted, it would be a Go
+    // character literal; Unquote returns the corresponding
+    // one-character string.)
+**/
+inline function unquote(s:String):stdgo.Tuple.<String, stdgo.Error> throw "not implemented";
+/**
+    // IsPrint reports whether the rune is defined as printable by Go, with
+    // the same definition as unicode.IsPrint: letters, numbers, punctuation,
+    // symbols and ASCII space.
+**/
+inline function isPrint(r:Int):Bool throw "not implemented";
+/**
+    // IsGraphic reports whether the rune is defined as a Graphic by Unicode. Such
+    // characters include letters, marks, numbers, punctuation, symbols, and
+    // spaces, from categories L, M, N, P, S, and Zs.
+**/
+inline function isGraphic(r:Int):Bool throw "not implemented";
 @:invalid typedef NumError_asInterface = Dynamic;
 @:invalid typedef NumError_static_extension = Dynamic;
 @:invalid typedef T_decimal_asInterface = Dynamic;

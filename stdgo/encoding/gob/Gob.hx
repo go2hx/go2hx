@@ -1,85 +1,290 @@
 package stdgo.encoding.gob;
-@:invalid var __go2hxdoc__package : Dynamic;
-@:invalid var _errBadUint : Dynamic;
-@:invalid var _errBadType : Dynamic;
-@:invalid var _errRange : Dynamic;
-@:invalid var _maxIgnoreNestingDepth : Dynamic;
-@:invalid var _emptyStructType : Dynamic;
-@:invalid var _errBadCount : Dynamic;
-@:invalid var _decArrayHelper : Dynamic;
-@:invalid var _decSliceHelper : Dynamic;
-@:invalid var _decOpTable : Dynamic;
-@:invalid var _encArrayHelper : Dynamic;
-@:invalid var _encSliceHelper : Dynamic;
-@:invalid var _encBufferPool : Dynamic;
-@:invalid var _encOpTable : Dynamic;
-@:invalid var _spaceForLength : Dynamic;
-@:invalid var _gobEncoderInterfaceType : Dynamic;
-@:invalid var _gobDecoderInterfaceType : Dynamic;
-@:invalid var _binaryMarshalerInterfaceType : Dynamic;
-@:invalid var _binaryUnmarshalerInterfaceType : Dynamic;
-@:invalid var _textMarshalerInterfaceType : Dynamic;
-@:invalid var _textUnmarshalerInterfaceType : Dynamic;
-@:invalid var _wireTypeType : Dynamic;
-@:invalid var _types : Dynamic;
-@:invalid var _idToTypeSlice : Dynamic;
-@:invalid var _tBool : Dynamic;
-@:invalid var _tInt : Dynamic;
-@:invalid var _tUint : Dynamic;
-@:invalid var _tFloat : Dynamic;
-@:invalid var _tBytes : Dynamic;
-@:invalid var _tString : Dynamic;
-@:invalid var _tComplex : Dynamic;
-@:invalid var _decIgnoreOpMap : Dynamic;
-@:invalid var _tInterface : Dynamic;
-@:invalid var _tReserved7 : Dynamic;
-@:invalid var _tReserved6 : Dynamic;
-@:invalid var _tReserved5 : Dynamic;
-@:invalid var _tReserved4 : Dynamic;
-@:invalid var _tReserved3 : Dynamic;
-@:invalid var _tReserved2 : Dynamic;
-@:invalid var _tReserved1 : Dynamic;
-@:invalid var _typeInfoMapInit : Dynamic;
-@:invalid var _tWireType : Dynamic;
-@:invalid var _doFuzzTests : Dynamic;
-@:invalid var _encodeT : Dynamic;
-@:invalid var _boolResult : Dynamic;
-@:invalid var _signedResult : Dynamic;
-@:invalid var _unsignedResult : Dynamic;
-@:invalid var _floatResult : Dynamic;
-@:invalid var _complexResult : Dynamic;
-@:invalid var _bytesResult : Dynamic;
-@:invalid var _singletons : Dynamic;
-@:invalid var _unsupportedValues : Dynamic;
-@:invalid var _singleTests : Dynamic;
-@:invalid var _ignoreTests : Dynamic;
-@:invalid var _badDataTests : Dynamic;
-@:invalid var _basicTypes : Dynamic;
-@:invalid var _noValue : Dynamic;
-@:invalid var _intBits : Dynamic;
-@:invalid var _uintptrBits : Dynamic;
-@:invalid var _tooBig : Dynamic;
-@:invalid var _debugFunc : Dynamic;
-@:invalid var _uint64Size : Dynamic;
-@:invalid var _singletonField : Dynamic;
-@:invalid var _maxLength : Dynamic;
-@:invalid var _testInt : Dynamic;
-@:invalid var _testFloat32 : Dynamic;
-@:invalid var _testString : Dynamic;
-@:invalid var _testSlice : Dynamic;
-@:invalid var _testMap : Dynamic;
-@:invalid var _testArray : Dynamic;
-@:invalid var _xGob : Dynamic;
-@:invalid var _xBinary : Dynamic;
-@:invalid var _xText : Dynamic;
-@:invalid var _userTypeCache : Dynamic;
-@:invalid var _typeLock : Dynamic;
-@:invalid var _firstUserId : Dynamic;
-@:invalid var _builtinIdToTypeSlice : Dynamic;
-@:invalid var _wireTypeUserInfo : Dynamic;
-@:invalid var _typeInfoMap : Dynamic;
-@:invalid var _nameToConcreteType : Dynamic;
-@:invalid var _concreteTypeToName : Dynamic;
+/**
+    /|*
+    Package gob manages streams of gobs - binary values exchanged between an
+    Encoder (transmitter) and a Decoder (receiver). A typical use is transporting
+    arguments and results of remote procedure calls (RPCs) such as those provided by
+    [net/rpc].
+    
+    The implementation compiles a custom codec for each data type in the stream and
+    is most efficient when a single Encoder is used to transmit a stream of values,
+    amortizing the cost of compilation.
+    
+    # Basics
+    
+    A stream of gobs is self-describing. Each data item in the stream is preceded by
+    a specification of its type, expressed in terms of a small set of predefined
+    types. Pointers are not transmitted, but the things they point to are
+    transmitted; that is, the values are flattened. Nil pointers are not permitted,
+    as they have no value. Recursive types work fine, but
+    recursive values (data with cycles) are problematic. This may change.
+    
+    To use gobs, create an Encoder and present it with a series of data items as
+    values or addresses that can be dereferenced to values. The Encoder makes sure
+    all type information is sent before it is needed. At the receive side, a
+    Decoder retrieves values from the encoded stream and unpacks them into local
+    variables.
+    
+    # Types and Values
+    
+    The source and destination values/types need not correspond exactly. For structs,
+    fields (identified by name) that are in the source but absent from the receiving
+    variable will be ignored. Fields that are in the receiving variable but missing
+    from the transmitted type or value will be ignored in the destination. If a field
+    with the same name is present in both, their types must be compatible. Both the
+    receiver and transmitter will do all necessary indirection and dereferencing to
+    convert between gobs and actual Go values. For instance, a gob type that is
+    schematically,
+    
+    	struct { A, B int }
+    
+    can be sent from or received into any of these Go types:
+    
+    	struct { A, B int }	// the same
+    	*struct { A, B int }	// extra indirection of the struct
+    	struct { *A, **B int }	// extra indirection of the fields
+    	struct { A, B int64 }	// different concrete value type; see below
+    
+    It may also be received into any of these:
+    
+    	struct { A, B int }	// the same
+    	struct { B, A int }	// ordering doesn't matter; matching is by name
+    	struct { A, B, C int }	// extra field (C) ignored
+    	struct { B int }	// missing field (A) ignored; data will be dropped
+    	struct { B, C int }	// missing field (A) ignored; extra field (C) ignored.
+    
+    Attempting to receive into these types will draw a decode error:
+    
+    	struct { A int; B uint }	// change of signedness for B
+    	struct { A int; B float }	// change of type for B
+    	struct { }			// no field names in common
+    	struct { C, D int }		// no field names in common
+    
+    Integers are transmitted two ways: arbitrary precision signed integers or
+    arbitrary precision unsigned integers. There is no int8, int16 etc.
+    discrimination in the gob format; there are only signed and unsigned integers. As
+    described below, the transmitter sends the value in a variable-length encoding;
+    the receiver accepts the value and stores it in the destination variable.
+    Floating-point numbers are always sent using IEEE-754 64-bit precision (see
+    below).
+    
+    Signed integers may be received into any signed integer variable: int, int16, etc.;
+    unsigned integers may be received into any unsigned integer variable; and floating
+    point values may be received into any floating point variable. However,
+    the destination variable must be able to represent the value or the decode
+    operation will fail.
+    
+    Structs, arrays and slices are also supported. Structs encode and decode only
+    exported fields. Strings and arrays of bytes are supported with a special,
+    efficient representation (see below). When a slice is decoded, if the existing
+    slice has capacity the slice will be extended in place; if not, a new array is
+    allocated. Regardless, the length of the resulting slice reports the number of
+    elements decoded.
+    
+    In general, if allocation is required, the decoder will allocate memory. If not,
+    it will update the destination variables with values read from the stream. It does
+    not initialize them first, so if the destination is a compound value such as a
+    map, struct, or slice, the decoded values will be merged elementwise into the
+    existing variables.
+    
+    Functions and channels will not be sent in a gob. Attempting to encode such a value
+    at the top level will fail. A struct field of chan or func type is treated exactly
+    like an unexported field and is ignored.
+    
+    Gob can encode a value of any type implementing the GobEncoder or
+    encoding.BinaryMarshaler interfaces by calling the corresponding method,
+    in that order of preference.
+    
+    Gob can decode a value of any type implementing the GobDecoder or
+    encoding.BinaryUnmarshaler interfaces by calling the corresponding method,
+    again in that order of preference.
+    
+    # Encoding Details
+    
+    This section documents the encoding, details that are not important for most
+    users. Details are presented bottom-up.
+    
+    An unsigned integer is sent one of two ways. If it is less than 128, it is sent
+    as a byte with that value. Otherwise it is sent as a minimal-length big-endian
+    (high byte first) byte stream holding the value, preceded by one byte holding the
+    byte count, negated. Thus 0 is transmitted as (00), 7 is transmitted as (07) and
+    256 is transmitted as (FE 01 00).
+    
+    A boolean is encoded within an unsigned integer: 0 for false, 1 for true.
+    
+    A signed integer, i, is encoded within an unsigned integer, u. Within u, bits 1
+    upward contain the value; bit 0 says whether they should be complemented upon
+    receipt. The encode algorithm looks like this:
+    
+    	var u uint
+    	if i < 0 {
+    		u = (^uint(i) << 1) | 1 // complement i, bit 0 is 1
+    	} else {
+    		u = (uint(i) << 1) // do not complement i, bit 0 is 0
+    	}
+    	encodeUnsigned(u)
+    
+    The low bit is therefore analogous to a sign bit, but making it the complement bit
+    instead guarantees that the largest negative integer is not a special case. For
+    example, -129=^128=(^256>>1) encodes as (FE 01 01).
+    
+    Floating-point numbers are always sent as a representation of a float64 value.
+    That value is converted to a uint64 using math.Float64bits. The uint64 is then
+    byte-reversed and sent as a regular unsigned integer. The byte-reversal means the
+    exponent and high-precision part of the mantissa go first. Since the low bits are
+    often zero, this can save encoding bytes. For instance, 17.0 is encoded in only
+    three bytes (FE 31 40).
+    
+    Strings and slices of bytes are sent as an unsigned count followed by that many
+    uninterpreted bytes of the value.
+    
+    All other slices and arrays are sent as an unsigned count followed by that many
+    elements using the standard gob encoding for their type, recursively.
+    
+    Maps are sent as an unsigned count followed by that many key, element
+    pairs. Empty but non-nil maps are sent, so if the receiver has not allocated
+    one already, one will always be allocated on receipt unless the transmitted map
+    is nil and not at the top level.
+    
+    In slices and arrays, as well as maps, all elements, even zero-valued elements,
+    are transmitted, even if all the elements are zero.
+    
+    Structs are sent as a sequence of (field number, field value) pairs. The field
+    value is sent using the standard gob encoding for its type, recursively. If a
+    field has the zero value for its type (except for arrays; see above), it is omitted
+    from the transmission. The field number is defined by the type of the encoded
+    struct: the first field of the encoded type is field 0, the second is field 1,
+    etc. When encoding a value, the field numbers are delta encoded for efficiency
+    and the fields are always sent in order of increasing field number; the deltas are
+    therefore unsigned. The initialization for the delta encoding sets the field
+    number to -1, so an unsigned integer field 0 with value 7 is transmitted as unsigned
+    delta = 1, unsigned value = 7 or (01 07). Finally, after all the fields have been
+    sent a terminating mark denotes the end of the struct. That mark is a delta=0
+    value, which has representation (00).
+    
+    Interface types are not checked for compatibility; all interface types are
+    treated, for transmission, as members of a single "interface" type, analogous to
+    int or []byte - in effect they're all treated as interface{}. Interface values
+    are transmitted as a string identifying the concrete type being sent (a name
+    that must be pre-defined by calling Register), followed by a byte count of the
+    length of the following data (so the value can be skipped if it cannot be
+    stored), followed by the usual encoding of concrete (dynamic) value stored in
+    the interface value. (A nil interface value is identified by the empty string
+    and transmits no value.) Upon receipt, the decoder verifies that the unpacked
+    concrete item satisfies the interface of the receiving variable.
+    
+    If a value is passed to Encode and the type is not a struct (or pointer to struct,
+    etc.), for simplicity of processing it is represented as a struct of one field.
+    The only visible effect of this is to encode a zero byte after the value, just as
+    after the last field of an encoded struct, so that the decode algorithm knows when
+    the top-level value is complete.
+    
+    The representation of types is described below. When a type is defined on a given
+    connection between an Encoder and Decoder, it is assigned a signed integer type
+    id. When Encoder.Encode(v) is called, it makes sure there is an id assigned for
+    the type of v and all its elements and then it sends the pair (typeid, encoded-v)
+    where typeid is the type id of the encoded type of v and encoded-v is the gob
+    encoding of the value v.
+    
+    To define a type, the encoder chooses an unused, positive type id and sends the
+    pair (-type id, encoded-type) where encoded-type is the gob encoding of a wireType
+    description, constructed from these types:
+    
+    	type wireType struct {
+    		ArrayT           *ArrayType
+    		SliceT           *SliceType
+    		StructT          *StructType
+    		MapT             *MapType
+    		GobEncoderT      *gobEncoderType
+    		BinaryMarshalerT *gobEncoderType
+    		TextMarshalerT   *gobEncoderType
+    
+    	}
+    	type arrayType struct {
+    		CommonType
+    		Elem typeId
+    		Len  int
+    	}
+    	type CommonType struct {
+    		Name string // the name of the struct type
+    		Id  int    // the id of the type, repeated so it's inside the type
+    	}
+    	type sliceType struct {
+    		CommonType
+    		Elem typeId
+    	}
+    	type structType struct {
+    		CommonType
+    		Field []*fieldType // the fields of the struct.
+    	}
+    	type fieldType struct {
+    		Name string // the name of the field.
+    		Id   int    // the type id of the field, which must be already defined
+    	}
+    	type mapType struct {
+    		CommonType
+    		Key  typeId
+    		Elem typeId
+    	}
+    	type gobEncoderType struct {
+    		CommonType
+    	}
+    
+    If there are nested type ids, the types for all inner type ids must be defined
+    before the top-level type id is used to describe an encoded-v.
+    
+    For simplicity in setup, the connection is defined to understand these types a
+    priori, as well as the basic gob types int, uint, etc. Their ids are:
+    
+    	bool        1
+    	int         2
+    	uint        3
+    	float       4
+    	[]byte      5
+    	string      6
+    	complex     7
+    	interface   8
+    	// gap for reserved ids.
+    	WireType    16
+    	ArrayType   17
+    	CommonType  18
+    	SliceType   19
+    	StructType  20
+    	FieldType   21
+    	// 22 is slice of fieldType.
+    	MapType     23
+    
+    Finally, each message created by a call to Encode is preceded by an encoded
+    unsigned integer count of the number of bytes remaining in the message. After
+    the initial type name, interface values are wrapped the same way; in effect, the
+    interface value acts like a recursive invocation of Encode.
+    
+    In summary, a gob stream looks like
+    
+    	(byteCount (-type id, encoding of a wireType)* (type id, encoding of a value))*
+    
+    where * signifies zero or more repetitions and the type id of a value must
+    be predefined or be defined before the value in the stream.
+    
+    Compatibility: Any future changes to the package will endeavor to maintain
+    compatibility with streams encoded using previous versions. That is, any released
+    version of this package should be able to decode data written with any previously
+    released version, subject to issues such as security fixes. See the Go compatibility
+    document for background: https://golang.org/doc/go1compat
+    
+    See "Gobs of data" for a design discussion of the gob wire format:
+    https://blog.golang.org/gobs-of-data
+    
+    # Security
+    
+    This package is not designed to be hardened against adversarial inputs, and is
+    outside the scope of https://go.dev/security/policy. In particular, the Decoder
+    does only basic sanity checking on decoded input sizes, and its limits are not
+    configurable. Care should be taken when decoding gob data from untrusted
+    sources, which may consume significant resources.
+    *|/
+**/
+private var __go2hxdoc__package : Bool;
 typedef Squarer = stdgo._internal.encoding.gob.Gob.Squarer;
 typedef T_interfaceIndirectTestI = stdgo._internal.encoding.gob.Gob.T_interfaceIndirectTestI;
 typedef T_gobType = stdgo._internal.encoding.gob.Gob.T_gobType;
@@ -230,21 +435,28 @@ typedef TextGobber = stdgo._internal.encoding.gob.Gob.TextGobber;
 typedef TextValueGobber = stdgo._internal.encoding.gob.Gob.TextValueGobber;
 typedef T_isZeroBugArray = stdgo._internal.encoding.gob.Gob.T_isZeroBugArray;
 typedef T_typeId = stdgo._internal.encoding.gob.Gob.T_typeId;
-function _testError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _newDecBuffer(_data:stdgo.Slice<stdgo.GoByte>):Void {}
-function testUintCodec(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _verifyInt(_i:stdgo.GoInt64, _t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIntCodec(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _newDecodeState(_buf:stdgo.Ref<T_decBuffer>):Void {}
-function _newEncoderState(_b:stdgo.Ref<T_encBuffer>):Void {}
-function testScalarEncInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _execDec(_instr:stdgo.Ref<T_decInstr>, _state:stdgo.Ref<T_decoderState>, _t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _value:stdgo._internal.reflect.Reflect.Value):Void {}
-function _newDecodeStateFromData(_data:stdgo.Slice<stdgo.GoByte>):Void {}
-function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
+/**
+    // Test basic encode/decode routines for unsigned integers
+**/
+inline function testUintCodec(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Test basic encode/decode routines for signed integers
+**/
+inline function testIntCodec(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Test instruction execution for encoding.
+    // Do not run the machine yet; instead do individual instructions crafted by hand.
+**/
+inline function testScalarEncInstructions(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Test instruction execution for decoding.
+    // Do not run the machine yet; instead do individual instructions crafted by hand.
+**/
+inline function testScalarDecInstructions(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testEndToEnd_54___localname___T2 = Dynamic;
 @:invalid typedef T_testEndToEnd_55___localname___T3 = Dynamic;
 @:invalid typedef T_testEndToEnd_56___localname___T1 = Dynamic;
-function testEndToEnd(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
+inline function testEndToEnd(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testOverflow_57___localname___inputT = Dynamic;
 @:invalid typedef T_testOverflow_58___localname___outi8 = Dynamic;
 @:invalid typedef T_testOverflow_59___localname___outi16 = Dynamic;
@@ -254,284 +466,276 @@ function testEndToEnd(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
 @:invalid typedef T_testOverflow_63___localname___outu32 = Dynamic;
 @:invalid typedef T_testOverflow_64___localname___outf32 = Dynamic;
 @:invalid typedef T_testOverflow_65___localname___outc64 = Dynamic;
-function testOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
+inline function testOverflow(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testNesting_66___localname___RT = Dynamic;
-function testNesting(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testAutoIndirection(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testReorderedFields(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIgnoredFields(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
+inline function testNesting(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testAutoIndirection(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testReorderedFields(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIgnoredFields(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 typedef T_testBadRecursiveType_67___localname___Rec = stdgo._internal.encoding.gob.Gob.T_testBadRecursiveType_67___localname___Rec;
-function testBadRecursiveType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIndirectSliceMapArray(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testInterface(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testInterfaceBasic(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testInterfacePointer(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIgnoreInterface(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testUnexportedFields(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDebugSingleton(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _newDT():Void {}
-function testDebugStruct(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _encFuzzDec(_rng:stdgo.Ref<stdgo._internal.math.rand.Rand.Rand>, _in:stdgo.AnyInterface):Void {}
-function testFuzz(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testFuzzRegressions(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _testFuzz(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _seed:stdgo.GoInt64, _n:stdgo.GoInt, _input:haxe.Rest<stdgo.AnyInterface>):Void {}
-function testFuzzOneByte(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testErrorInvalidTypeId(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _testEncodeDecode(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _in:stdgo.AnyInterface, _out:stdgo.AnyInterface):Void {}
-function testLargeSlice(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testLocalRemoteTypesMismatch(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _decBoolArray(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decBoolSlice(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decComplex64Array(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decComplex64Slice(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decComplex128Array(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decComplex128Slice(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decFloat32Array(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decFloat32Slice(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decFloat64Array(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decFloat64Slice(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decIntArray(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decIntSlice(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decInt16Array(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decInt16Slice(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decInt32Array(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decInt32Slice(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decInt64Array(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decInt64Slice(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decInt8Array(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decInt8Slice(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decStringArray(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decStringSlice(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decUintArray(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decUintSlice(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decUint16Array(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decUint16Slice(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decUint32Array(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decUint32Slice(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decUint64Array(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decUint64Slice(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decUintptrArray(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-function _decUintptrSlice(_state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value, _length:stdgo.GoInt, _ovfl:stdgo.Error):Void {}
-macro function _growSlice<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _v:haxe.macro.Expr.ExprOf<stdgo._internal.reflect.Reflect.Value>, _ps:haxe.macro.Expr.ExprOf<stdgo.Ref<stdgo.Slice<E>>>, _length:haxe.macro.Expr.ExprOf<stdgo.GoInt>):Void {}
-function _overflow(_name:stdgo.GoString):Void {}
-function _decodeUintReader(_r:stdgo._internal.io.Io.Reader, _buf:stdgo.Slice<stdgo.GoByte>):Void {}
-function _ignoreUint(_i:stdgo.Ref<T_decInstr>, _state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _ignoreTwoUints(_i:stdgo.Ref<T_decInstr>, _state:stdgo.Ref<T_decoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _decAlloc(_v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _decBool(_i:stdgo.Ref<T_decInstr>, _state:stdgo.Ref<T_decoderState>, _value:stdgo._internal.reflect.Reflect.Value):Void {}
-function _decInt8(_i:stdgo.Ref<T_decInstr>, _state:stdgo.Ref<T_decoderState>, _value:stdgo._internal.reflect.Reflect.Value):Void {}
-function _decUint8(_i:stdgo.Ref<T_decInstr>, _state:stdgo.Ref<T_decoderState>, _value:stdgo._internal.reflect.Reflect.Value):Void {}
-function _decInt16(_i:stdgo.Ref<T_decInstr>, _state:stdgo.Ref<T_decoderState>, _value:stdgo._internal.reflect.Reflect.Value):Void {}
-function _decUint16(_i:stdgo.Ref<T_decInstr>, _state:stdgo.Ref<T_decoderState>, _value:stdgo._internal.reflect.Reflect.Value):Void {}
-function _decInt32(_i:stdgo.Ref<T_decInstr>, _state:stdgo.Ref<T_decoderState>, _value:stdgo._internal.reflect.Reflect.Value):Void {}
-function _decUint32(_i:stdgo.Ref<T_decInstr>, _state:stdgo.Ref<T_decoderState>, _value:stdgo._internal.reflect.Reflect.Value):Void {}
-function _decInt64(_i:stdgo.Ref<T_decInstr>, _state:stdgo.Ref<T_decoderState>, _value:stdgo._internal.reflect.Reflect.Value):Void {}
-function _decUint64(_i:stdgo.Ref<T_decInstr>, _state:stdgo.Ref<T_decoderState>, _value:stdgo._internal.reflect.Reflect.Value):Void {}
-function _float64FromBits(_u:stdgo.GoUInt64):Void {}
-function _float32FromBits(_u:stdgo.GoUInt64, _ovfl:stdgo.Error):Void {}
-function _decFloat32(_i:stdgo.Ref<T_decInstr>, _state:stdgo.Ref<T_decoderState>, _value:stdgo._internal.reflect.Reflect.Value):Void {}
-function _decFloat64(_i:stdgo.Ref<T_decInstr>, _state:stdgo.Ref<T_decoderState>, _value:stdgo._internal.reflect.Reflect.Value):Void {}
-function _decComplex64(_i:stdgo.Ref<T_decInstr>, _state:stdgo.Ref<T_decoderState>, _value:stdgo._internal.reflect.Reflect.Value):Void {}
-function _decComplex128(_i:stdgo.Ref<T_decInstr>, _state:stdgo.Ref<T_decoderState>, _value:stdgo._internal.reflect.Reflect.Value):Void {}
-function _decUint8Slice(_i:stdgo.Ref<T_decInstr>, _state:stdgo.Ref<T_decoderState>, _value:stdgo._internal.reflect.Reflect.Value):Void {}
-function _decString(_i:stdgo.Ref<T_decInstr>, _state:stdgo.Ref<T_decoderState>, _value:stdgo._internal.reflect.Reflect.Value):Void {}
-function _ignoreUint8Array(_i:stdgo.Ref<T_decInstr>, _state:stdgo.Ref<T_decoderState>, _value:stdgo._internal.reflect.Reflect.Value):Void {}
-function _decodeIntoValue(_state:stdgo.Ref<T_decoderState>, _op:T_decOp, _isPtr:Bool, _value:stdgo._internal.reflect.Reflect.Value, _instr:stdgo.Ref<T_decInstr>):Void {}
-function _allocValue(_t:stdgo._internal.reflect.Reflect.Type_):Void {}
-function newDecoder(_r:stdgo._internal.io.Io.Reader):Void {}
-function _toInt(_x:stdgo.GoUInt64):Void {}
-function _encBoolArray(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encBoolSlice(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encComplex64Array(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encComplex64Slice(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encComplex128Array(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encComplex128Slice(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encFloat32Array(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encFloat32Slice(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encFloat64Array(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encFloat64Slice(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encIntArray(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encIntSlice(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encInt16Array(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encInt16Slice(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encInt32Array(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encInt32Slice(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encInt64Array(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encInt64Slice(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encInt8Array(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encInt8Slice(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encStringArray(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encStringSlice(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encUintArray(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encUintSlice(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encUint16Array(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encUint16Slice(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encUint32Array(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encUint32Slice(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encUint64Array(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encUint64Slice(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encUintptrArray(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encUintptrSlice(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encIndirect(_pv:stdgo._internal.reflect.Reflect.Value, _indir:stdgo.GoInt):Void {}
-function _encBool(_i:stdgo.Ref<T_encInstr>, _state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encInt(_i:stdgo.Ref<T_encInstr>, _state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encUint(_i:stdgo.Ref<T_encInstr>, _state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _floatBits(_f:stdgo.GoFloat64):Void {}
-function _encFloat(_i:stdgo.Ref<T_encInstr>, _state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encComplex(_i:stdgo.Ref<T_encInstr>, _state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encUint8Array(_i:stdgo.Ref<T_encInstr>, _state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encString(_i:stdgo.Ref<T_encInstr>, _state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encStructTerminator(_i:stdgo.Ref<T_encInstr>, _state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _valid(_v:stdgo._internal.reflect.Reflect.Value):Void {}
-function _encodeReflectValue(_state:stdgo.Ref<T_encoderState>, _v:stdgo._internal.reflect.Reflect.Value, _op:T_encOp, _indir:stdgo.GoInt):Void {}
-function _encOpFor(_rt:stdgo._internal.reflect.Reflect.Type_, _inProgress:stdgo.GoMap<stdgo._internal.reflect.Reflect.Type_, stdgo.Ref<T_encOp>>, _building:stdgo.GoMap<stdgo.Ref<T_typeInfo>, Bool>):Void {}
-function _gobEncodeOpFor(_ut:stdgo.Ref<T_userTypeInfo>):Void {}
-function _compileEnc(_ut:stdgo.Ref<T_userTypeInfo>, _building:stdgo.GoMap<stdgo.Ref<T_typeInfo>, Bool>):Void {}
-function _getEncEngine(_ut:stdgo.Ref<T_userTypeInfo>, _building:stdgo.GoMap<stdgo.Ref<T_typeInfo>, Bool>):Void {}
-function _buildEncEngine(_info:stdgo.Ref<T_typeInfo>, _ut:stdgo.Ref<T_userTypeInfo>, _building:stdgo.GoMap<stdgo.Ref<T_typeInfo>, Bool>):Void {}
-function newEncoder(_w:stdgo._internal.io.Io.Writer):Void {}
-function testBasicEncoderDecoder(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testEncodeIntSlice(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testEncoderDecoder(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _badTypeCheck(_e:stdgo.AnyInterface, _shouldFail:Bool, _msg:stdgo.GoString, _t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testWrongTypeDecoder(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testUnsupported(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _encAndDec(_in:stdgo.AnyInterface, _out:stdgo.AnyInterface):Void {}
+inline function testBadRecursiveType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIndirectSliceMapArray(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testInterface(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testInterfaceBasic(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // We'll send pointers; should receive values.
+    // Also check that we can register T but send *T.
+**/
+inline function testInterfacePointer(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIgnoreInterface(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testUnexportedFields(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDebugSingleton(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDebugStruct(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // This does some "fuzz testing" by attempting to decode a sequence of random bytes.
+**/
+inline function testFuzz(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testFuzzRegressions(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestFuzzOneByte tries to decode corrupted input sequences
+    // and checks that no panic occurs.
+**/
+inline function testFuzzOneByte(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Don't crash, just give error with invalid type id.
+    // Issue 9649.
+**/
+inline function testErrorInvalidTypeId(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testLargeSlice(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testLocalRemoteTypesMismatch(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // NewDecoder returns a new decoder that reads from the io.Reader.
+    // If r does not also implement io.ByteReader, it will be wrapped in a
+    // bufio.Reader.
+**/
+inline function newDecoder(r:stdgo._internal.io.Io.Reader):Decoder throw "not implemented";
+/**
+    // NewEncoder returns a new encoder that will transmit on the io.Writer.
+**/
+inline function newEncoder(w:stdgo._internal.io.Io.Writer):Encoder throw "not implemented";
+/**
+    // Test basic operations in a safe manner.
+**/
+inline function testBasicEncoderDecoder(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testEncodeIntSlice(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testEncoderDecoder(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Test that we recognize a bad type the first time.
+**/
+inline function testWrongTypeDecoder(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testUnsupported(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testTypeToPtrType_68___localname___Type0 = Dynamic;
-function testTypeToPtrType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
+inline function testTypeToPtrType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testPtrTypeToType_69___localname___Type1 = Dynamic;
-function testPtrTypeToType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
+inline function testPtrTypeToType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testTypeToPtrPtrPtrPtrType_70___localname___Type2 = Dynamic;
-function testTypeToPtrPtrPtrPtrType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
+inline function testTypeToPtrPtrPtrPtrType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testSlice_71___localname___Type3 = Dynamic;
-function testSlice(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
+inline function testSlice(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testValueError_72___localname___Type4 = Dynamic;
-function testValueError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
+inline function testValueError(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testArray_73___localname___Type5 = Dynamic;
 @:invalid typedef T_testArray_74___localname___Type6 = Dynamic;
-function testArray(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
+inline function testArray(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 typedef T_testRecursiveMapType_75___localname___recursiveMap = stdgo._internal.encoding.gob.Gob.T_testRecursiveMapType_75___localname___recursiveMap;
-function testRecursiveMapType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
+inline function testRecursiveMapType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 typedef T_testRecursiveSliceType_76___localname___recursiveSlice = stdgo._internal.encoding.gob.Gob.T_testRecursiveSliceType_76___localname___recursiveSlice;
-function testRecursiveSliceType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
+inline function testRecursiveSliceType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testDefaultsInArray_77___localname___Type7 = Dynamic;
-function testDefaultsInArray(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testSingletons(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
+/**
+    // Regression test for bug: must send zero values inside arrays
+**/
+inline function testDefaultsInArray(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testSingletons(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testStructNonStruct_78___localname___Struct = Dynamic;
 typedef T_testStructNonStruct_79___localname___NonStruct = stdgo._internal.encoding.gob.Gob.T_testStructNonStruct_79___localname___NonStruct;
-function testStructNonStruct(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testInterfaceIndirect(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDecodeIntoNothing(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIgnoreRecursiveType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testNestedInterfaces(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testMapBug1(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testGobMapInterfaceEncode(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testSliceReusesMemory(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testBadCount(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testSequentialDecoder(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testChanFuncIgnored(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testSliceIncompatibility(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testGobPtrSlices(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testPtrToMapOfMap(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testCatchInvalidNilValue(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testTopLevelNilPointer(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _encodeAndRecover(_value:stdgo.AnyInterface):Void {}
-function testNilPointerPanics(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testNilPointerInsideInterface(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testMutipleEncodingsOfBadType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function test29ElementSlice(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testErrorForHugeSlice(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testBadData(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
+inline function testStructNonStruct(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // A version of a bug reported on golang-nuts. Also tests top-level
+    // slice of interfaces. The issue was registering *T caused T to be
+    // stored as the concrete type.
+**/
+inline function testInterfaceIndirect(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDecodeIntoNothing(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIgnoreRecursiveType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testNestedInterfaces(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testMapBug1(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testGobMapInterfaceEncode(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testSliceReusesMemory(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Used to crash: negative count in recvMessage.
+**/
+inline function testBadCount(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Verify that sequential Decoders built on a single input will
+    // succeed if the input implements ReadByte and there is no
+    // type information in the stream.
+**/
+inline function testSequentialDecoder(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testChanFuncIgnored(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testSliceIncompatibility(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testGobPtrSlices(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // getDecEnginePtr cached engine for ut.base instead of ut.user so we passed
+    // a *map and then tried to reuse its engine to decode the inner map.
+**/
+inline function testPtrToMapOfMap(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Test that untyped nils generate an error, not a panic.
+    // See Issue 16204.
+**/
+inline function testCatchInvalidNilValue(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // A top-level nil pointer generates a panic with a helpful string-valued message.
+**/
+inline function testTopLevelNilPointer(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testNilPointerPanics(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testNilPointerInsideInterface(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Test that a failed compilation doesn't leave around an executable encoder.
+    // Issue 3723.
+**/
+inline function testMutipleEncodingsOfBadType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function test29ElementSlice(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Don't crash, just give error when allocating a huge slice.
+    // Issue 8084.
+**/
+inline function testErrorForHugeSlice(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // TestBadData tests that various problems caused by malformed input
+    // are caught as errors and do not cause panics.
+**/
+inline function testBadData(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testDecodeErrorMultipleTypes_80___localname___Test = Dynamic;
-function testDecodeErrorMultipleTypes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
+inline function testDecodeErrorMultipleTypes(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testMarshalFloatMap_81___localname___mapEntry = Dynamic;
-function testMarshalFloatMap(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
+/**
+    // Issue 24075
+**/
+inline function testMarshalFloatMap(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testDecodePartial_82___localname___T = Dynamic;
-function testDecodePartial(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testDecoderOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _errorf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void {}
-function _error_(_err:stdgo.Error):Void {}
-function _catchError(_err:stdgo.Ref<stdgo.Error>):Void {}
-function testGobEncoderField(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testGobEncoderValueField(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testGobEncoderIndirectField(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testGobEncoderArrayField(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testGobEncoderIndirectArrayField(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testGobEncoderFieldsOfDifferentType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testGobEncoderValueEncoder(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testGobEncoderValueThenPointer(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testGobEncoderPointerThenValue(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testGobEncoderFieldTypeError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testGobEncoderStructSingleton(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testGobEncoderNonStructSingleton(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testGobEncoderIgnoreStructField(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testGobEncoderIgnoreNonStructField(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testGobEncoderIgnoreNilEncoder(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testGobEncoderExtraIndirect(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testGobEncodeIsZero(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testGobEncodePtrError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testNetIP(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testIgnoreDepthLimit(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _benchmarkEndToEnd(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _ctor:() -> stdgo.AnyInterface, _pipe:() -> { var _0 : stdgo._internal.io.Io.Reader; var _1 : stdgo._internal.io.Io.Writer; var _2 : stdgo.Error; }):Void {}
-function benchmarkEndToEndPipe(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkEndToEndByteBuffer(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkEndToEndSliceByteBuffer(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function testCountEncodeMallocs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testCountDecodeMallocs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function _benchmarkEncodeSlice(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _a:stdgo.AnyInterface):Void {}
-function benchmarkEncodeComplex128Slice(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkEncodeFloat64Slice(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkEncodeInt32Slice(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkEncodeStringSlice(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkEncodeInterfaceSlice(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function _benchmarkDecodeSlice(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _a:stdgo.AnyInterface):Void {}
-function benchmarkDecodeComplex128Slice(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkDecodeFloat64Slice(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkDecodeInt32Slice(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkDecodeStringSlice(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkDecodeStringsSlice(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkDecodeBytesSlice(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkDecodeInterfaceSlice(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function benchmarkDecodeMap(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {}
-function _validUserType(_rt:stdgo._internal.reflect.Reflect.Type_):Void {}
-function _implementsInterface(_typ:stdgo._internal.reflect.Reflect.Type_, _gobEncDecType:stdgo._internal.reflect.Reflect.Type_):Void {}
-function _userType(_rt:stdgo._internal.reflect.Reflect.Type_):Void {}
-function _idToType(_id:T_typeId):Void {}
-function _builtinIdToType(_id:T_typeId):Void {}
-function _setTypeId(_typ:T_gobType):Void {}
-function _newArrayType(_name:stdgo.GoString):Void {}
-function _newGobEncoderType(_name:stdgo.GoString):Void {}
-function _newMapType(_name:stdgo.GoString):Void {}
-function _newSliceType(_name:stdgo.GoString):Void {}
-function _newStructType(_name:stdgo.GoString):Void {}
-function _newTypeObject(_name:stdgo.GoString, _ut:stdgo.Ref<T_userTypeInfo>, _rt:stdgo._internal.reflect.Reflect.Type_):Void {}
-function _isExported(_name:stdgo.GoString):Void {}
-function _isSent(_field:stdgo.Ref<stdgo._internal.reflect.Reflect.StructField>):Void {}
-function _getBaseType(_name:stdgo.GoString, _rt:stdgo._internal.reflect.Reflect.Type_):Void {}
-function _getType(_name:stdgo.GoString, _ut:stdgo.Ref<T_userTypeInfo>, _rt:stdgo._internal.reflect.Reflect.Type_):Void {}
-function _checkId(_want:T_typeId, _got:T_typeId):Void {}
-function _bootstrapType(_name:stdgo.GoString, _e:stdgo.AnyInterface):Void {}
-function _lookupTypeInfo(_rt:stdgo._internal.reflect.Reflect.Type_):Void {}
-function _getTypeInfo(_ut:stdgo.Ref<T_userTypeInfo>):Void {}
-function _buildTypeInfo(_ut:stdgo.Ref<T_userTypeInfo>, _rt:stdgo._internal.reflect.Reflect.Type_):Void {}
-function _mustGetTypeInfo(_rt:stdgo._internal.reflect.Reflect.Type_):Void {}
-function registerName(_name:stdgo.GoString, _value:stdgo.AnyInterface):Void {}
-function register(_value:stdgo.AnyInterface):Void {}
-function _registerBasics():Void {}
-function _getTypeUnlocked(_name:stdgo.GoString, _rt:stdgo._internal.reflect.Reflect.Type_):Void {}
-function testBasic(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testReregistration(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testArrayType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testSliceType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testMapType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testStructType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
+inline function testDecodePartial(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testDecoderOverflow(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testGobEncoderField(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Even though the field is a value, we can still take its address
+    // and should be able to call the methods.
+**/
+inline function testGobEncoderValueField(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // GobEncode/Decode should work even if the value is
+    // more indirect than the receiver.
+**/
+inline function testGobEncoderIndirectField(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Test with a large field with methods.
+**/
+inline function testGobEncoderArrayField(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Test an indirection to a large field with methods.
+**/
+inline function testGobEncoderIndirectArrayField(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // As long as the fields have the same name and implement the
+    // interface, we can cross-connect them. Not sure it's useful
+    // and may even be bad but it works and it's hard to prevent
+    // without exposing the contents of the object, which would
+    // defeat the purpose.
+**/
+inline function testGobEncoderFieldsOfDifferentType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Test that we can encode a value and decode into a pointer.
+**/
+inline function testGobEncoderValueEncoder(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Test that we can use a value then a pointer type of a GobEncoder
+    // in the same encoded value. Bug 4647.
+**/
+inline function testGobEncoderValueThenPointer(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Test that we can use a pointer then a value type of a GobEncoder
+    // in the same encoded value.
+**/
+inline function testGobEncoderPointerThenValue(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testGobEncoderFieldTypeError(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Even though ByteStruct is a struct, it's treated as a singleton at the top level.
+**/
+inline function testGobEncoderStructSingleton(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testGobEncoderNonStructSingleton(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testGobEncoderIgnoreStructField(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testGobEncoderIgnoreNonStructField(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testGobEncoderIgnoreNilEncoder(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // This was a bug: the receiver has a different indirection level
+    // than the variable.
+**/
+inline function testGobEncoderExtraIndirect(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testGobEncodeIsZero(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testGobEncodePtrError(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testNetIP(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testIgnoreDepthLimit(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkEndToEndPipe(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkEndToEndByteBuffer(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkEndToEndSliceByteBuffer(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function testCountEncodeMallocs(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testCountDecodeMallocs(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function benchmarkEncodeComplex128Slice(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkEncodeFloat64Slice(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkEncodeInt32Slice(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkEncodeStringSlice(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkEncodeInterfaceSlice(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkDecodeComplex128Slice(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkDecodeFloat64Slice(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkDecodeInt32Slice(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkDecodeStringSlice(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkDecodeStringsSlice(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkDecodeBytesSlice(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkDecodeInterfaceSlice(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+inline function benchmarkDecodeMap(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
+/**
+    // RegisterName is like Register but uses the provided name rather than the
+    // type's default.
+**/
+inline function registerName(name:String, value:stdgo.AnyInterface):Void throw "not implemented";
+/**
+    // Register records a type, identified by a value for that type, under its
+    // internal type name. That name will identify the concrete type of a value
+    // sent or received as an interface variable. Only types that will be
+    // transferred as implementations of interface values need to be registered.
+    // Expecting to be used only during initialization, it panics if the mapping
+    // between types and names is not a bijection.
+**/
+inline function register(value:stdgo.AnyInterface):Void throw "not implemented";
+/**
+    // Sanity checks
+**/
+inline function testBasic(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Reregister some basic types to check registration is idempotent.
+**/
+inline function testReregistration(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testArrayType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testSliceType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testMapType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+inline function testStructType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testRegistration_83___localname___T = Dynamic;
-function testRegistration(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testRegistrationNaming(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
+/**
+    // Should be OK to register the same type multiple times, as long as they're
+    // at the same level of indirection.
+**/
+inline function testRegistration(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // See comment in type.go/Register.
+**/
+inline function testRegistrationNaming(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testStressParallel_84___localname___T2 = Dynamic;
-function testStressParallel(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-function testTypeRace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {}
-@:invalid var _ : Dynamic;
+inline function testStressParallel(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
+/**
+    // Issue 23328. Note that this test name is known to cmd/dist/test.go.
+**/
+inline function testTypeRace(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef Point_asInterface = Dynamic;
 @:invalid typedef Point_static_extension = Dynamic;
 @:invalid typedef T_decoderState_asInterface = Dynamic;

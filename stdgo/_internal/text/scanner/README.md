@@ -6,7 +6,7 @@
 # Overview
 
 
-stdgo/_internal/internal/Macro.macro.hx:43: non hxb types:,368
+stdgo/_internal/internal/Macro.macro.hx:44: non hxb types:,368
 
 # Index
 

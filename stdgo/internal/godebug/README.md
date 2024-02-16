@@ -6,28 +6,41 @@
 # Overview
 
 
+
+Package godebug makes the settings in the $GODEBUG environment variable
+available to other packages. These settings are often used for compatibility
+tweaks, when we need to change a default behavior but want to let users
+opt back in to the original. For example GODEBUG=http2server=0 disables
+HTTP/2 support in the net/http server.  
+
+
+In typical usage, code should declare a Setting as a global
+and then call Value each time the current setting value is needed:  
+
+```
+	var http2server = godebug.New("http2server")
+```
+```
+	func ServeConn(c net.Conn) {
+		if http2server.Value() == "0" {
+			disallow HTTP/2
+			...
+		}
+		...
+	}
+```
+
+Each time a non\-default setting causes a change in program behavior,
+code should call \[Setting.IncNonDefault\] to increment a counter that can
+be reported by \[runtime/metrics.Read\].
+Note that counters used with IncNonDefault must be added to
+various tables in other packages. See the \[Setting.IncNonDefault\]
+documentation for details.  
+
 # Index
 
 
-- [Variables](<#variables>)
-
-- [`function _lookup(_name:stdgo.GoString):Void`](<#function-_lookup>)
-
-- [`function _newIncNonDefault(_name:stdgo.GoString):Void`](<#function-_newincnondefault>)
-
-- [`function _parse(_did:stdgo.GoMap<stdgo.GoString, Bool>, _s:stdgo.GoString):Void`](<#function-_parse>)
-
-- [`function _registerMetric(_name:stdgo.GoString, _read:():stdgo.GoUInt64):Void`](<#function-_registermetric>)
-
-- [`function _setNewIncNonDefault(_newIncNonDefault:()):Void`](<#function-_setnewincnondefault>)
-
-- [`function _setUpdate(_update:(:stdgo.GoString, :stdgo.GoString):Void):Void`](<#function-_setupdate>)
-
-- [`function _update(_def:stdgo.GoString, _env:stdgo.GoString):Void`](<#function-_update>)
-
-- [`function _write(_fd:stdgo.GoUIntptr, _p:stdgo._internal.unsafe.UnsafePointer, _n:stdgo.GoInt32):Void`](<#function-_write>)
-
-- [`function new_(_name:stdgo.GoString):Void`](<#function-new_>)
+- [`function new_(name:String):stdgo.internal.godebug.Setting`](<#function-new_>)
 
 - [typedef Setting](<#typedef-setting>)
 
@@ -45,39 +58,6 @@
 
 - [typedef T\_value](<#typedef-t_value>)
 
-# Variables
-
-
-```haxe
-import stdgo.internal.godebug.Godebug
-```
-
-
-```haxe
-var __go2hxdoc__package:Dynamic
-```
-
-
-```haxe
-var _cache:Dynamic
-```
-
-
-```haxe
-var _empty:Dynamic
-```
-
-
-```haxe
-var _stderr:Dynamic
-```
-
-
-```haxe
-var _updateMu:Dynamic
-```
-
-
 # Functions
 
 
@@ -86,103 +66,27 @@ import stdgo.internal.godebug.Godebug
 ```
 
 
-## function \_lookup
-
-
-```haxe
-function _lookup(_name:stdgo.GoString):Void
-```
-
-
-[\(view code\)](<./Godebug.hx#L12>)
-
-
-## function \_newIncNonDefault
-
-
-```haxe
-function _newIncNonDefault(_name:stdgo.GoString):Void
-```
-
-
-[\(view code\)](<./Godebug.hx#L16>)
-
-
-## function \_parse
-
-
-```haxe
-function _parse(_did:stdgo.GoMap<stdgo.GoString, Bool>, _s:stdgo.GoString):Void
-```
-
-
-[\(view code\)](<./Godebug.hx#L18>)
-
-
-## function \_registerMetric
-
-
-```haxe
-function _registerMetric(_name:stdgo.GoString, _read:():stdgo.GoUInt64):Void
-```
-
-
-[\(view code\)](<./Godebug.hx#L14>)
-
-
-## function \_setNewIncNonDefault
-
-
-```haxe
-function _setNewIncNonDefault(_newIncNonDefault:()):Void
-```
-
-
-[\(view code\)](<./Godebug.hx#L15>)
-
-
-## function \_setUpdate
-
-
-```haxe
-function _setUpdate(_update:(:stdgo.GoString, :stdgo.GoString):Void):Void
-```
-
-
-[\(view code\)](<./Godebug.hx#L13>)
-
-
-## function \_update
-
-
-```haxe
-function _update(_def:stdgo.GoString, _env:stdgo.GoString):Void
-```
-
-
-[\(view code\)](<./Godebug.hx#L17>)
-
-
-## function \_write
-
-
-```haxe
-function _write(_fd:stdgo.GoUIntptr, _p:stdgo._internal.unsafe.UnsafePointer, _n:stdgo.GoInt32):Void
-```
-
-
-[\(view code\)](<./Godebug.hx#L19>)
-
-
 ## function new\_
 
 
 ```haxe
-function new_(_name:stdgo.GoString):Void
+function new_(name:String):stdgo.internal.godebug.Setting
 ```
 
 
-[\(view code\)](<./Godebug.hx#L11>)
+
+New returns a new Setting for the $GODEBUG setting with the given name.  
+
+
+GODEBUGs meant for use by end users must be listed in ../godebugs/table.go,
+which is used for generating and checking various documentation.
+If the name is not listed in that table, New will succeed but calling Value
+on the returned Setting will panic.
+To disable that panic for access to an undocumented setting,
+prefix the name with a \#, as in godebug.New\("\#gofsystrace"\).
+The \# is a signal to New but not part of the key used in $GODEBUG.  
+
+[\(view code\)](<./Godebug.hx#L45>)
 
 
 # Typedefs

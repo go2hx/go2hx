@@ -6,74 +6,119 @@
 # Overview
 
 
+
+Package atomic provides low\-level atomic memory primitives
+useful for implementing synchronization algorithms.  
+
+
+These functions require great care to be used correctly.
+Except for special, low\-level applications, synchronization is better
+done with channels or the facilities of the \[sync\] package.
+Share memory by communicating;
+don't communicate by sharing memory.  
+
+
+The swap operation, implemented by the SwapT functions, is the atomic
+equivalent of:  
+
+```
+	old = *addr
+	*addr = new
+	return old
+```
+
+The compare\-and\-swap operation, implemented by the CompareAndSwapT
+functions, is the atomic equivalent of:  
+
+```
+	if *addr == old {
+		*addr = new
+		return true
+	}
+	return false
+```
+
+The add operation, implemented by the AddT functions, is the atomic
+equivalent of:  
+
+```
+	*addr += delta
+	return *addr
+```
+
+The load and store operations, implemented by the LoadT and StoreT
+functions, are the atomic equivalents of "return \*addr" and
+"\*addr = val".  
+
+
+In the terminology of the Go memory model, if the effect of
+an atomic operation A is observed by atomic operation B,
+then A “synchronizes before” B.
+Additionally, all the atomic operations executed in a program
+behave as though executed in some sequentially consistent order.
+This definition provides the same semantics as
+C\+\+'s sequentially consistent atomics and Java's volatile variables.  
+
 # Index
 
 
-- [Variables](<#variables>)
+- [`function addInt32(addr:stdgo.Pointer<Int>, delta:Int):Int`](<#function-addint32>)
 
-- [`function _b32(_b:Bool):Void`](<#function-_b32>)
+- [`function addInt64(addr:stdgo.Pointer<haxe.Int64>, delta:haxe.Int64):haxe.Int64`](<#function-addint64>)
 
-- [`function _runtime_procPin():Void`](<#function-_runtime_procpin>)
+- [`function addUint32(addr:stdgo.Pointer<UInt>, delta:UInt):UInt`](<#function-adduint32>)
 
-- [`function _runtime_procUnpin():Void`](<#function-_runtime_procunpin>)
+- [`function addUint64(addr:stdgo.Pointer<haxe.UInt64>, delta:haxe.UInt64):haxe.UInt64`](<#function-adduint64>)
 
-- [`function addInt32(_addr:stdgo.Pointer<stdgo.GoInt32>, _delta:stdgo.GoInt32):Void`](<#function-addint32>)
+- [`function addUintptr(addr:stdgo.Pointer<stdgo.GoUIntptr>, delta:stdgo.GoUIntptr):stdgo.GoUIntptr`](<#function-adduintptr>)
 
-- [`function addInt64(_addr:stdgo.Pointer<stdgo.GoInt64>, _delta:stdgo.GoInt64):Void`](<#function-addint64>)
+- [`function compareAndSwapInt32(addr:stdgo.Pointer<Int>, old:Int, _new:Int):Bool`](<#function-compareandswapint32>)
 
-- [`function addUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _delta:stdgo.GoUInt32):Void`](<#function-adduint32>)
+- [`function compareAndSwapInt64(addr:stdgo.Pointer<haxe.Int64>, old:haxe.Int64, _new:haxe.Int64):Bool`](<#function-compareandswapint64>)
 
-- [`function addUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _delta:stdgo.GoUInt64):Void`](<#function-adduint64>)
+- [`function compareAndSwapPointer(addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>, old:stdgo._internal.unsafe.UnsafePointer, _new:stdgo._internal.unsafe.UnsafePointer):Bool`](<#function-compareandswappointer>)
 
-- [`function addUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _delta:stdgo.GoUIntptr):Void`](<#function-adduintptr>)
+- [`function compareAndSwapUint32(addr:stdgo.Pointer<UInt>, old:UInt, _new:UInt):Bool`](<#function-compareandswapuint32>)
 
-- [`function compareAndSwapInt32(_addr:stdgo.Pointer<stdgo.GoInt32>, _old:stdgo.GoInt32, _new:stdgo.GoInt32):Void`](<#function-compareandswapint32>)
+- [`function compareAndSwapUint64(addr:stdgo.Pointer<haxe.UInt64>, old:haxe.UInt64, _new:haxe.UInt64):Bool`](<#function-compareandswapuint64>)
 
-- [`function compareAndSwapInt64(_addr:stdgo.Pointer<stdgo.GoInt64>, _old:stdgo.GoInt64, _new:stdgo.GoInt64):Void`](<#function-compareandswapint64>)
+- [`function compareAndSwapUintptr(addr:stdgo.Pointer<stdgo.GoUIntptr>, old:stdgo.GoUIntptr, _new:stdgo.GoUIntptr):Bool`](<#function-compareandswapuintptr>)
 
-- [`function compareAndSwapPointer(_addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>, _old:stdgo._internal.unsafe.UnsafePointer, _new:stdgo._internal.unsafe.UnsafePointer):Void`](<#function-compareandswappointer>)
+- [`function loadInt32(addr:stdgo.Pointer<Int>):Int`](<#function-loadint32>)
 
-- [`function compareAndSwapUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _old:stdgo.GoUInt32, _new:stdgo.GoUInt32):Void`](<#function-compareandswapuint32>)
+- [`function loadInt64(addr:stdgo.Pointer<haxe.Int64>):haxe.Int64`](<#function-loadint64>)
 
-- [`function compareAndSwapUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _old:stdgo.GoUInt64, _new:stdgo.GoUInt64):Void`](<#function-compareandswapuint64>)
+- [`function loadPointer(addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>):stdgo._internal.unsafe.UnsafePointer`](<#function-loadpointer>)
 
-- [`function compareAndSwapUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _old:stdgo.GoUIntptr, _new:stdgo.GoUIntptr):Void`](<#function-compareandswapuintptr>)
+- [`function loadUint32(addr:stdgo.Pointer<UInt>):UInt`](<#function-loaduint32>)
 
-- [`function loadInt32(_addr:stdgo.Pointer<stdgo.GoInt32>):Void`](<#function-loadint32>)
+- [`function loadUint64(addr:stdgo.Pointer<haxe.UInt64>):haxe.UInt64`](<#function-loaduint64>)
 
-- [`function loadInt64(_addr:stdgo.Pointer<stdgo.GoInt64>):Void`](<#function-loadint64>)
+- [`function loadUintptr(addr:stdgo.Pointer<stdgo.GoUIntptr>):stdgo.GoUIntptr`](<#function-loaduintptr>)
 
-- [`function loadPointer(_addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>):Void`](<#function-loadpointer>)
+- [`function storeInt32(addr:stdgo.Pointer<Int>, val:Int):Void`](<#function-storeint32>)
 
-- [`function loadUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>):Void`](<#function-loaduint32>)
+- [`function storeInt64(addr:stdgo.Pointer<haxe.Int64>, val:haxe.Int64):Void`](<#function-storeint64>)
 
-- [`function loadUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>):Void`](<#function-loaduint64>)
+- [`function storePointer(addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>, val:stdgo._internal.unsafe.UnsafePointer):Void`](<#function-storepointer>)
 
-- [`function loadUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>):Void`](<#function-loaduintptr>)
+- [`function storeUint32(addr:stdgo.Pointer<UInt>, val:UInt):Void`](<#function-storeuint32>)
 
-- [`function storeInt32(_addr:stdgo.Pointer<stdgo.GoInt32>, _val:stdgo.GoInt32):Void`](<#function-storeint32>)
+- [`function storeUint64(addr:stdgo.Pointer<haxe.UInt64>, val:haxe.UInt64):Void`](<#function-storeuint64>)
 
-- [`function storeInt64(_addr:stdgo.Pointer<stdgo.GoInt64>, _val:stdgo.GoInt64):Void`](<#function-storeint64>)
+- [`function storeUintptr(addr:stdgo.Pointer<stdgo.GoUIntptr>, val:stdgo.GoUIntptr):Void`](<#function-storeuintptr>)
 
-- [`function storePointer(_addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>, _val:stdgo._internal.unsafe.UnsafePointer):Void`](<#function-storepointer>)
+- [`function swapInt32(addr:stdgo.Pointer<Int>, _new:Int):Int`](<#function-swapint32>)
 
-- [`function storeUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _val:stdgo.GoUInt32):Void`](<#function-storeuint32>)
+- [`function swapInt64(addr:stdgo.Pointer<haxe.Int64>, _new:haxe.Int64):haxe.Int64`](<#function-swapint64>)
 
-- [`function storeUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _val:stdgo.GoUInt64):Void`](<#function-storeuint64>)
+- [`function swapPointer(addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>, _new:stdgo._internal.unsafe.UnsafePointer):stdgo._internal.unsafe.UnsafePointer`](<#function-swappointer>)
 
-- [`function storeUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _val:stdgo.GoUIntptr):Void`](<#function-storeuintptr>)
+- [`function swapUint32(addr:stdgo.Pointer<UInt>, _new:UInt):UInt`](<#function-swapuint32>)
 
-- [`function swapInt32(_addr:stdgo.Pointer<stdgo.GoInt32>, _new:stdgo.GoInt32):Void`](<#function-swapint32>)
+- [`function swapUint64(addr:stdgo.Pointer<haxe.UInt64>, _new:haxe.UInt64):haxe.UInt64`](<#function-swapuint64>)
 
-- [`function swapInt64(_addr:stdgo.Pointer<stdgo.GoInt64>, _new:stdgo.GoInt64):Void`](<#function-swapint64>)
-
-- [`function swapPointer(_addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>, _new:stdgo._internal.unsafe.UnsafePointer):Void`](<#function-swappointer>)
-
-- [`function swapUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _new:stdgo.GoUInt32):Void`](<#function-swapuint32>)
-
-- [`function swapUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _new:stdgo.GoUInt64):Void`](<#function-swapuint64>)
-
-- [`function swapUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _new:stdgo.GoUIntptr):Void`](<#function-swapuintptr>)
+- [`function swapUintptr(addr:stdgo.Pointer<stdgo.GoUIntptr>, _new:stdgo.GoUIntptr):stdgo.GoUIntptr`](<#function-swapuintptr>)
 
 - [typedef Bool\_](<#typedef-bool_>)
 
@@ -133,29 +178,6 @@
 
 - [typedef Value\_static\_extension](<#typedef-value_static_extension>)
 
-# Variables
-
-
-```haxe
-import stdgo.sync.atomic_.Atomic_
-```
-
-
-```haxe
-var __24:Dynamic
-```
-
-
-```haxe
-var __go2hxdoc__package:Dynamic
-```
-
-
-```haxe
-var _firstStoreInProgress:Dynamic
-```
-
-
 # Functions
 
 
@@ -164,356 +186,453 @@ import stdgo.sync.atomic_.Atomic_
 ```
 
 
-## function \_b32
-
-
-```haxe
-function _b32(_b:Bool):Void
-```
-
-
-[\(view code\)](<./Atomic_.hx#L45>)
-
-
-## function \_runtime\_procPin
-
-
-```haxe
-function _runtime_procPin():Void
-```
-
-
-[\(view code\)](<./Atomic_.hx#L46>)
-
-
-## function \_runtime\_procUnpin
-
-
-```haxe
-function _runtime_procUnpin():Void
-```
-
-
-[\(view code\)](<./Atomic_.hx#L47>)
-
-
 ## function addInt32
 
 
 ```haxe
-function addInt32(_addr:stdgo.Pointer<stdgo.GoInt32>, _delta:stdgo.GoInt32):Void
+function addInt32(addr:stdgo.Pointer<Int>, delta:Int):Int
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L28>)
+
+AddInt32 atomically adds delta to \*addr and returns the new value.
+Consider using the more ergonomic and less error\-prone \[Int32.Add\] instead.  
+
+[\(view code\)](<./Atomic_.hx#L126>)
 
 
 ## function addInt64
 
 
 ```haxe
-function addInt64(_addr:stdgo.Pointer<stdgo.GoInt64>, _delta:stdgo.GoInt64):Void
+function addInt64(addr:stdgo.Pointer<haxe.Int64>, delta:haxe.Int64):haxe.Int64
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L30>)
+
+AddInt64 atomically adds delta to \*addr and returns the new value.
+Consider using the more ergonomic and less error\-prone \[Int64.Add\] instead
+\(particularly if you target 32\-bit platforms; see the bugs section\).  
+
+[\(view code\)](<./Atomic_.hx#L139>)
 
 
 ## function addUint32
 
 
 ```haxe
-function addUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _delta:stdgo.GoUInt32):Void
+function addUint32(addr:stdgo.Pointer<UInt>, delta:UInt):UInt
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L29>)
+
+AddUint32 atomically adds delta to \*addr and returns the new value.
+To subtract a signed positive constant value c from x, do AddUint32\(&x, ^uint32\(c\-1\)\).
+In particular, to decrement x, do AddUint32\(&x, ^uint32\(0\)\).
+Consider using the more ergonomic and less error\-prone \[Uint32.Add\] instead.  
+
+[\(view code\)](<./Atomic_.hx#L133>)
 
 
 ## function addUint64
 
 
 ```haxe
-function addUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _delta:stdgo.GoUInt64):Void
+function addUint64(addr:stdgo.Pointer<haxe.UInt64>, delta:haxe.UInt64):haxe.UInt64
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L31>)
+
+AddUint64 atomically adds delta to \*addr and returns the new value.
+To subtract a signed positive constant value c from x, do AddUint64\(&x, ^uint64\(c\-1\)\).
+In particular, to decrement x, do AddUint64\(&x, ^uint64\(0\)\).
+Consider using the more ergonomic and less error\-prone \[Uint64.Add\] instead
+\(particularly if you target 32\-bit platforms; see the bugs section\).  
+
+[\(view code\)](<./Atomic_.hx#L147>)
 
 
 ## function addUintptr
 
 
 ```haxe
-function addUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _delta:stdgo.GoUIntptr):Void
+function addUintptr(addr:stdgo.Pointer<stdgo.GoUIntptr>, delta:stdgo.GoUIntptr):stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L32>)
+
+AddUintptr atomically adds delta to \*addr and returns the new value.
+Consider using the more ergonomic and less error\-prone \[Uintptr.Add\] instead.  
+
+[\(view code\)](<./Atomic_.hx#L152>)
 
 
 ## function compareAndSwapInt32
 
 
 ```haxe
-function compareAndSwapInt32(_addr:stdgo.Pointer<stdgo.GoInt32>, _old:stdgo.GoInt32, _new:stdgo.GoInt32):Void
+function compareAndSwapInt32(addr:stdgo.Pointer<Int>, old:Int, _new:Int):Bool
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L22>)
+
+CompareAndSwapInt32 executes the compare\-and\-swap operation for an int32 value.
+Consider using the more ergonomic and less error\-prone \[Int32.CompareAndSwap\] instead.  
+
+[\(view code\)](<./Atomic_.hx#L94>)
 
 
 ## function compareAndSwapInt64
 
 
 ```haxe
-function compareAndSwapInt64(_addr:stdgo.Pointer<stdgo.GoInt64>, _old:stdgo.GoInt64, _new:stdgo.GoInt64):Void
+function compareAndSwapInt64(addr:stdgo.Pointer<haxe.Int64>, old:haxe.Int64, _new:haxe.Int64):Bool
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L23>)
+
+CompareAndSwapInt64 executes the compare\-and\-swap operation for an int64 value.
+Consider using the more ergonomic and less error\-prone \[Int64.CompareAndSwap\] instead
+\(particularly if you target 32\-bit platforms; see the bugs section\).  
+
+[\(view code\)](<./Atomic_.hx#L100>)
 
 
 ## function compareAndSwapPointer
 
 
 ```haxe
-function compareAndSwapPointer(_addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>, _old:stdgo._internal.unsafe.UnsafePointer, _new:stdgo._internal.unsafe.UnsafePointer):Void
+function compareAndSwapPointer(addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>, old:stdgo._internal.unsafe.UnsafePointer, _new:stdgo._internal.unsafe.UnsafePointer):Bool
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L27>)
+
+CompareAndSwapPointer executes the compare\-and\-swap operation for a unsafe.Pointer value.
+Consider using the more ergonomic and less error\-prone \[Pointer.CompareAndSwap\] instead.  
+
+[\(view code\)](<./Atomic_.hx#L121>)
 
 
 ## function compareAndSwapUint32
 
 
 ```haxe
-function compareAndSwapUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _old:stdgo.GoUInt32, _new:stdgo.GoUInt32):Void
+function compareAndSwapUint32(addr:stdgo.Pointer<UInt>, old:UInt, _new:UInt):Bool
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L24>)
+
+CompareAndSwapUint32 executes the compare\-and\-swap operation for a uint32 value.
+Consider using the more ergonomic and less error\-prone \[Uint32.CompareAndSwap\] instead.  
+
+[\(view code\)](<./Atomic_.hx#L105>)
 
 
 ## function compareAndSwapUint64
 
 
 ```haxe
-function compareAndSwapUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _old:stdgo.GoUInt64, _new:stdgo.GoUInt64):Void
+function compareAndSwapUint64(addr:stdgo.Pointer<haxe.UInt64>, old:haxe.UInt64, _new:haxe.UInt64):Bool
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L25>)
+
+CompareAndSwapUint64 executes the compare\-and\-swap operation for a uint64 value.
+Consider using the more ergonomic and less error\-prone \[Uint64.CompareAndSwap\] instead
+\(particularly if you target 32\-bit platforms; see the bugs section\).  
+
+[\(view code\)](<./Atomic_.hx#L111>)
 
 
 ## function compareAndSwapUintptr
 
 
 ```haxe
-function compareAndSwapUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _old:stdgo.GoUIntptr, _new:stdgo.GoUIntptr):Void
+function compareAndSwapUintptr(addr:stdgo.Pointer<stdgo.GoUIntptr>, old:stdgo.GoUIntptr, _new:stdgo.GoUIntptr):Bool
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L26>)
+
+CompareAndSwapUintptr executes the compare\-and\-swap operation for a uintptr value.
+Consider using the more ergonomic and less error\-prone \[Uintptr.CompareAndSwap\] instead.  
+
+[\(view code\)](<./Atomic_.hx#L116>)
 
 
 ## function loadInt32
 
 
 ```haxe
-function loadInt32(_addr:stdgo.Pointer<stdgo.GoInt32>):Void
+function loadInt32(addr:stdgo.Pointer<Int>):Int
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L33>)
+
+LoadInt32 atomically loads \*addr.
+Consider using the more ergonomic and less error\-prone \[Int32.Load\] instead.  
+
+[\(view code\)](<./Atomic_.hx#L157>)
 
 
 ## function loadInt64
 
 
 ```haxe
-function loadInt64(_addr:stdgo.Pointer<stdgo.GoInt64>):Void
+function loadInt64(addr:stdgo.Pointer<haxe.Int64>):haxe.Int64
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L34>)
+
+LoadInt64 atomically loads \*addr.
+Consider using the more ergonomic and less error\-prone \[Int64.Load\] instead
+\(particularly if you target 32\-bit platforms; see the bugs section\).  
+
+[\(view code\)](<./Atomic_.hx#L163>)
 
 
 ## function loadPointer
 
 
 ```haxe
-function loadPointer(_addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>):Void
+function loadPointer(addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>):stdgo._internal.unsafe.UnsafePointer
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L38>)
+
+LoadPointer atomically loads \*addr.
+Consider using the more ergonomic and less error\-prone \[Pointer.Load\] instead.  
+
+[\(view code\)](<./Atomic_.hx#L184>)
 
 
 ## function loadUint32
 
 
 ```haxe
-function loadUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>):Void
+function loadUint32(addr:stdgo.Pointer<UInt>):UInt
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L35>)
+
+LoadUint32 atomically loads \*addr.
+Consider using the more ergonomic and less error\-prone \[Uint32.Load\] instead.  
+
+[\(view code\)](<./Atomic_.hx#L168>)
 
 
 ## function loadUint64
 
 
 ```haxe
-function loadUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>):Void
+function loadUint64(addr:stdgo.Pointer<haxe.UInt64>):haxe.UInt64
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L36>)
+
+LoadUint64 atomically loads \*addr.
+Consider using the more ergonomic and less error\-prone \[Uint64.Load\] instead
+\(particularly if you target 32\-bit platforms; see the bugs section\).  
+
+[\(view code\)](<./Atomic_.hx#L174>)
 
 
 ## function loadUintptr
 
 
 ```haxe
-function loadUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>):Void
+function loadUintptr(addr:stdgo.Pointer<stdgo.GoUIntptr>):stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L37>)
+
+LoadUintptr atomically loads \*addr.
+Consider using the more ergonomic and less error\-prone \[Uintptr.Load\] instead.  
+
+[\(view code\)](<./Atomic_.hx#L179>)
 
 
 ## function storeInt32
 
 
 ```haxe
-function storeInt32(_addr:stdgo.Pointer<stdgo.GoInt32>, _val:stdgo.GoInt32):Void
+function storeInt32(addr:stdgo.Pointer<Int>, val:Int):Void
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L39>)
+
+StoreInt32 atomically stores val into \*addr.
+Consider using the more ergonomic and less error\-prone \[Int32.Store\] instead.  
+
+[\(view code\)](<./Atomic_.hx#L189>)
 
 
 ## function storeInt64
 
 
 ```haxe
-function storeInt64(_addr:stdgo.Pointer<stdgo.GoInt64>, _val:stdgo.GoInt64):Void
+function storeInt64(addr:stdgo.Pointer<haxe.Int64>, val:haxe.Int64):Void
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L40>)
+
+StoreInt64 atomically stores val into \*addr.
+Consider using the more ergonomic and less error\-prone \[Int64.Store\] instead
+\(particularly if you target 32\-bit platforms; see the bugs section\).  
+
+[\(view code\)](<./Atomic_.hx#L195>)
 
 
 ## function storePointer
 
 
 ```haxe
-function storePointer(_addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>, _val:stdgo._internal.unsafe.UnsafePointer):Void
+function storePointer(addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>, val:stdgo._internal.unsafe.UnsafePointer):Void
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L44>)
+
+StorePointer atomically stores val into \*addr.
+Consider using the more ergonomic and less error\-prone \[Pointer.Store\] instead.  
+
+[\(view code\)](<./Atomic_.hx#L216>)
 
 
 ## function storeUint32
 
 
 ```haxe
-function storeUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _val:stdgo.GoUInt32):Void
+function storeUint32(addr:stdgo.Pointer<UInt>, val:UInt):Void
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L41>)
+
+StoreUint32 atomically stores val into \*addr.
+Consider using the more ergonomic and less error\-prone \[Uint32.Store\] instead.  
+
+[\(view code\)](<./Atomic_.hx#L200>)
 
 
 ## function storeUint64
 
 
 ```haxe
-function storeUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _val:stdgo.GoUInt64):Void
+function storeUint64(addr:stdgo.Pointer<haxe.UInt64>, val:haxe.UInt64):Void
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L42>)
+
+StoreUint64 atomically stores val into \*addr.
+Consider using the more ergonomic and less error\-prone \[Uint64.Store\] instead
+\(particularly if you target 32\-bit platforms; see the bugs section\).  
+
+[\(view code\)](<./Atomic_.hx#L206>)
 
 
 ## function storeUintptr
 
 
 ```haxe
-function storeUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _val:stdgo.GoUIntptr):Void
+function storeUintptr(addr:stdgo.Pointer<stdgo.GoUIntptr>, val:stdgo.GoUIntptr):Void
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L43>)
+
+StoreUintptr atomically stores val into \*addr.
+Consider using the more ergonomic and less error\-prone \[Uintptr.Store\] instead.  
+
+[\(view code\)](<./Atomic_.hx#L211>)
 
 
 ## function swapInt32
 
 
 ```haxe
-function swapInt32(_addr:stdgo.Pointer<stdgo.GoInt32>, _new:stdgo.GoInt32):Void
+function swapInt32(addr:stdgo.Pointer<Int>, _new:Int):Int
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L16>)
+
+SwapInt32 atomically stores new into \*addr and returns the previous \*addr value.
+Consider using the more ergonomic and less error\-prone \[Int32.Swap\] instead.  
+
+[\(view code\)](<./Atomic_.hx#L62>)
 
 
 ## function swapInt64
 
 
 ```haxe
-function swapInt64(_addr:stdgo.Pointer<stdgo.GoInt64>, _new:stdgo.GoInt64):Void
+function swapInt64(addr:stdgo.Pointer<haxe.Int64>, _new:haxe.Int64):haxe.Int64
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L17>)
+
+SwapInt64 atomically stores new into \*addr and returns the previous \*addr value.
+Consider using the more ergonomic and less error\-prone \[Int64.Swap\] instead
+\(particularly if you target 32\-bit platforms; see the bugs section\).  
+
+[\(view code\)](<./Atomic_.hx#L68>)
 
 
 ## function swapPointer
 
 
 ```haxe
-function swapPointer(_addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>, _new:stdgo._internal.unsafe.UnsafePointer):Void
+function swapPointer(addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>, _new:stdgo._internal.unsafe.UnsafePointer):stdgo._internal.unsafe.UnsafePointer
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L21>)
+
+SwapPointer atomically stores new into \*addr and returns the previous \*addr value.
+Consider using the more ergonomic and less error\-prone \[Pointer.Swap\] instead.  
+
+[\(view code\)](<./Atomic_.hx#L89>)
 
 
 ## function swapUint32
 
 
 ```haxe
-function swapUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _new:stdgo.GoUInt32):Void
+function swapUint32(addr:stdgo.Pointer<UInt>, _new:UInt):UInt
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L18>)
+
+SwapUint32 atomically stores new into \*addr and returns the previous \*addr value.
+Consider using the more ergonomic and less error\-prone \[Uint32.Swap\] instead.  
+
+[\(view code\)](<./Atomic_.hx#L73>)
 
 
 ## function swapUint64
 
 
 ```haxe
-function swapUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _new:stdgo.GoUInt64):Void
+function swapUint64(addr:stdgo.Pointer<haxe.UInt64>, _new:haxe.UInt64):haxe.UInt64
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L19>)
+
+SwapUint64 atomically stores new into \*addr and returns the previous \*addr value.
+Consider using the more ergonomic and less error\-prone \[Uint64.Swap\] instead
+\(particularly if you target 32\-bit platforms; see the bugs section\).  
+
+[\(view code\)](<./Atomic_.hx#L79>)
 
 
 ## function swapUintptr
 
 
 ```haxe
-function swapUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _new:stdgo.GoUIntptr):Void
+function swapUintptr(addr:stdgo.Pointer<stdgo.GoUIntptr>, _new:stdgo.GoUIntptr):stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L20>)
+
+SwapUintptr atomically stores new into \*addr and returns the previous \*addr value.
+Consider using the more ergonomic and less error\-prone \[Uintptr.Swap\] instead.  
+
+[\(view code\)](<./Atomic_.hx#L84>)
 
 
 # Typedefs

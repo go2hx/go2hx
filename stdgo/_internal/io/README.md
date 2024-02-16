@@ -1,6 +1,8 @@
 # Module stdgo._internal.io has compilation errors, please do not use:
 ```
 stdgo/_internal/io/fs_test/Fs_test.hx:230: characters 9-11 : Unknown identifier : fs
+stdgo/_internal/io_test/Io_test.hx:1731: characters 32-38 : Unknown identifier : reader
+stdgo/_internal/io_test/Io_test.hx:1771: characters 32-38 : Unknown identifier : writer
 stdgo/_internal/encoding/gob/Gob.hx:2491: characters 67-85 : stdgo.GoInt should be Null<stdgo.Pointer<stdgo.GoInt>>
 stdgo/_internal/encoding/gob/Gob.hx:2562: characters 18-26 : stdgo._internal.encoding.gob.T1 has no field emptyMap
 stdgo/_internal/encoding/gob/Gob.hx:2825: characters 9-56 : Invalid assign

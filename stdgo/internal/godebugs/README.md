@@ -1,70 +1,10 @@
-# Module: `stdgo.internal.godebugs`
-
-[(view library index)](../../stdgo.md)
-
-
-# Overview
-
-
-# Index
-
-
-- [Variables](<#variables>)
-
-- [`function lookup(_name:stdgo.GoString):Void`](<#function-lookup>)
-
-- [typedef Info](<#typedef-info>)
-
-# Variables
-
-
-```haxe
-import stdgo.internal.godebugs.Godebugs
+# Module stdgo.internal.godebugs has compilation errors, please do not use:
 ```
+stdgo/internal/godebugs/Godebugs.hx:8: characters 9-16 : all: Custom property accessor is no longer supported, please use `get`
+stdgo/internal/godebugs/Godebugs.hx:8: characters 18-25 : all: Custom property accessor is no longer supported, please use `set`
+stdgo/internal/godebugs/Godebugs.hx:9: characters 75-128 : stdgo.Slice<stdgo._internal.internal.godebugs.Info> should be Array<stdgo._internal.internal.godebugs.Info>
+stdgo/internal/godebugs/Godebugs.hx:10: characters 131-188 : stdgo.Slice<stdgo._internal.internal.godebugs.Info> should be Array<stdgo._internal.internal.godebugs.Info>
+stdgo/_internal/internal/Macro.macro.hx:44: non hxb types:,225
 
-
-```haxe
-var __go2hxdoc__package:Dynamic
 ```
-
-
-```haxe
-var all:Dynamic
-```
-
-
-# Functions
-
-
-```haxe
-import stdgo.internal.godebugs.Godebugs
-```
-
-
-## function lookup
-
-
-```haxe
-function lookup(_name:stdgo.GoString):Void
-```
-
-
-[\(view code\)](<./Godebugs.hx#L5>)
-
-
-# Typedefs
-
-
-```haxe
-import stdgo.internal.godebugs.*
-```
-
-
-## typedef Info
-
-
-```haxe
-typedef Info = Dynamic;
-```
-
 

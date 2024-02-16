@@ -6,48 +6,27 @@
 # Overview
 
 
+
+Package bzip2 implements bzip2 decompression.  
+
 # Index
 
 
-- [Variables](<#variables>)
+- [`function benchmarkDecodeDigits(b:stdgo._internal.testing.B):Void`](<#function-benchmarkdecodedigits>)
 
-- [`function _benchmarkDecode(_b:stdgo.Ref<stdgo._internal.testing.B>, _compressed:stdgo.Slice<stdgo.GoByte>):Void`](<#function-_benchmarkdecode>)
+- [`function benchmarkDecodeNewton(b:stdgo._internal.testing.B):Void`](<#function-benchmarkdecodenewton>)
 
-- [`function _buildHuffmanNode(_t:stdgo.Ref<stdgo.compress.bzip2.T_huffmanTree>, _codes:stdgo.Slice<stdgo.compress.bzip2.T_huffmanCode>, _level:stdgo.GoUInt32):Void`](<#function-_buildhuffmannode>)
+- [`function benchmarkDecodeRand(b:stdgo._internal.testing.B):Void`](<#function-benchmarkdecoderand>)
 
-- [`function _inverseBWT(_tt:stdgo.Slice<stdgo.GoUInt32>, _origPtr:stdgo.GoUInt, _c:stdgo.Slice<stdgo.GoUInt>):Void`](<#function-_inversebwt>)
+- [`function newReader(r:stdgo._internal.io.Reader):stdgo._internal.io.Reader`](<#function-newreader>)
 
-- [`function _mustDecodeHex(_s:stdgo.GoString):Void`](<#function-_mustdecodehex>)
+- [`function testBitReader(t:stdgo._internal.testing.T_):Void`](<#function-testbitreader>)
 
-- [`function _mustLoadFile(_f:stdgo.GoString):Void`](<#function-_mustloadfile>)
+- [`function testMTF(t:stdgo._internal.testing.T_):Void`](<#function-testmtf>)
 
-- [`function _newBitReader(_r:stdgo._internal.io.Reader):Void`](<#function-_newbitreader>)
+- [`function testReader(t:stdgo._internal.testing.T_):Void`](<#function-testreader>)
 
-- [`function _newHuffmanTree(_lengths:stdgo.Slice<stdgo.GoUInt8>):Void`](<#function-_newhuffmantree>)
-
-- [`function _newMTFDecoder(_symbols:stdgo.Slice<stdgo.GoByte>):Void`](<#function-_newmtfdecoder>)
-
-- [`function _newMTFDecoderWithRange(_n:stdgo.GoInt):Void`](<#function-_newmtfdecoderwithrange>)
-
-- [`function _trim(_b:stdgo.Slice<stdgo.GoByte>):Void`](<#function-_trim>)
-
-- [`function _updateCRC(_val:stdgo.GoUInt32, _b:stdgo.Slice<stdgo.GoByte>):Void`](<#function-_updatecrc>)
-
-- [`function benchmarkDecodeDigits(_b:stdgo.Ref<stdgo._internal.testing.B>):Void`](<#function-benchmarkdecodedigits>)
-
-- [`function benchmarkDecodeNewton(_b:stdgo.Ref<stdgo._internal.testing.B>):Void`](<#function-benchmarkdecodenewton>)
-
-- [`function benchmarkDecodeRand(_b:stdgo.Ref<stdgo._internal.testing.B>):Void`](<#function-benchmarkdecoderand>)
-
-- [`function newReader(_r:stdgo._internal.io.Reader):Void`](<#function-newreader>)
-
-- [`function testBitReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testbitreader>)
-
-- [`function testMTF(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testmtf>)
-
-- [`function testReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testreader>)
-
-- [`function testZeroRead(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testzeroread>)
+- [`function testZeroRead(t:stdgo._internal.testing.T_):Void`](<#function-testzeroread>)
 
 - [typedef StructuralError](<#typedef-structuralerror>)
 
@@ -103,64 +82,6 @@
 
 - [typedef T\_reader\_static\_extension](<#typedef-t_reader_static_extension>)
 
-# Variables
-
-
-```haxe
-import stdgo.compress.bzip2.Bzip2
-```
-
-
-```haxe
-var _:Dynamic
-```
-
-
-```haxe
-var __go2hxdoc__package:Dynamic
-```
-
-
-```haxe
-var _bzip2BlockMagic:Dynamic
-```
-
-
-```haxe
-var _bzip2FileMagic:Dynamic
-```
-
-
-```haxe
-var _bzip2FinalMagic:Dynamic
-```
-
-
-```haxe
-var _crctab:Dynamic
-```
-
-
-```haxe
-var _digits:Dynamic
-```
-
-
-```haxe
-var _invalidNodeValue:Dynamic
-```
-
-
-```haxe
-var _newton:Dynamic
-```
-
-
-```haxe
-var _random:Dynamic
-```
-
-
 # Functions
 
 
@@ -169,213 +90,97 @@ import stdgo.compress.bzip2.Bzip2
 ```
 
 
-## function \_benchmarkDecode
+## function benchmarkDecodeDigits
 
 
 ```haxe
-function _benchmarkDecode(_b:stdgo.Ref<stdgo._internal.testing.B>, _compressed:stdgo.Slice<stdgo.GoByte>):Void
-```
-
-
-[\(view code\)](<./Bzip2.hx#L39>)
-
-
-## function \_buildHuffmanNode
-
-
-```haxe
-function _buildHuffmanNode(_t:stdgo.Ref<stdgo.compress.bzip2.T_huffmanTree>, _codes:stdgo.Slice<stdgo.compress.bzip2.T_huffmanCode>, _level:stdgo.GoUInt32):Void
-```
-
-
-[\(view code\)](<./Bzip2.hx#L44>)
-
-
-## function \_inverseBWT
-
-
-```haxe
-function _inverseBWT(_tt:stdgo.Slice<stdgo.GoUInt32>, _origPtr:stdgo.GoUInt, _c:stdgo.Slice<stdgo.GoUInt>):Void
-```
-
-
-[\(view code\)](<./Bzip2.hx#L30>)
-
-
-## function \_mustDecodeHex
-
-
-```haxe
-function _mustDecodeHex(_s:stdgo.GoString):Void
-```
-
-
-[\(view code\)](<./Bzip2.hx#L32>)
-
-
-## function \_mustLoadFile
-
-
-```haxe
-function _mustLoadFile(_f:stdgo.GoString):Void
+function benchmarkDecodeDigits(b:stdgo._internal.testing.B):Void
 ```
 
 
 [\(view code\)](<./Bzip2.hx#L33>)
 
 
-## function \_newBitReader
+## function benchmarkDecodeNewton
 
 
 ```haxe
-function _newBitReader(_r:stdgo._internal.io.Reader):Void
-```
-
-
-[\(view code\)](<./Bzip2.hx#L28>)
-
-
-## function \_newHuffmanTree
-
-
-```haxe
-function _newHuffmanTree(_lengths:stdgo.Slice<stdgo.GoUInt8>):Void
-```
-
-
-[\(view code\)](<./Bzip2.hx#L43>)
-
-
-## function \_newMTFDecoder
-
-
-```haxe
-function _newMTFDecoder(_symbols:stdgo.Slice<stdgo.GoByte>):Void
-```
-
-
-[\(view code\)](<./Bzip2.hx#L45>)
-
-
-## function \_newMTFDecoderWithRange
-
-
-```haxe
-function _newMTFDecoderWithRange(_n:stdgo.GoInt):Void
-```
-
-
-[\(view code\)](<./Bzip2.hx#L46>)
-
-
-## function \_trim
-
-
-```haxe
-function _trim(_b:stdgo.Slice<stdgo.GoByte>):Void
+function benchmarkDecodeNewton(b:stdgo._internal.testing.B):Void
 ```
 
 
 [\(view code\)](<./Bzip2.hx#L34>)
 
 
-## function \_updateCRC
-
-
-```haxe
-function _updateCRC(_val:stdgo.GoUInt32, _b:stdgo.Slice<stdgo.GoByte>):Void
-```
-
-
-[\(view code\)](<./Bzip2.hx#L31>)
-
-
-## function benchmarkDecodeDigits
-
-
-```haxe
-function benchmarkDecodeDigits(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
-```
-
-
-[\(view code\)](<./Bzip2.hx#L40>)
-
-
-## function benchmarkDecodeNewton
-
-
-```haxe
-function benchmarkDecodeNewton(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
-```
-
-
-[\(view code\)](<./Bzip2.hx#L41>)
-
-
 ## function benchmarkDecodeRand
 
 
 ```haxe
-function benchmarkDecodeRand(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
-```
-
-
-[\(view code\)](<./Bzip2.hx#L42>)
-
-
-## function newReader
-
-
-```haxe
-function newReader(_r:stdgo._internal.io.Reader):Void
-```
-
-
-[\(view code\)](<./Bzip2.hx#L29>)
-
-
-## function testBitReader
-
-
-```haxe
-function testBitReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Bzip2.hx#L36>)
-
-
-## function testMTF
-
-
-```haxe
-function testMTF(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Bzip2.hx#L37>)
-
-
-## function testReader
-
-
-```haxe
-function testReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
+function benchmarkDecodeRand(b:stdgo._internal.testing.B):Void
 ```
 
 
 [\(view code\)](<./Bzip2.hx#L35>)
 
 
+## function newReader
+
+
+```haxe
+function newReader(r:stdgo._internal.io.Reader):stdgo._internal.io.Reader
+```
+
+
+
+NewReader returns an io.Reader which decompresses bzip2 data from r.
+If r does not also implement io.ByteReader,
+the decompressor may read more data than necessary from r.  
+
+[\(view code\)](<./Bzip2.hx#L28>)
+
+
+## function testBitReader
+
+
+```haxe
+function testBitReader(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Bzip2.hx#L30>)
+
+
+## function testMTF
+
+
+```haxe
+function testMTF(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Bzip2.hx#L31>)
+
+
+## function testReader
+
+
+```haxe
+function testReader(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Bzip2.hx#L29>)
+
+
 ## function testZeroRead
 
 
 ```haxe
-function testZeroRead(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
+function testZeroRead(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Bzip2.hx#L38>)
+[\(view code\)](<./Bzip2.hx#L32>)
 
 
 # Typedefs

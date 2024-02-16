@@ -6,41 +6,24 @@
 # Overview
 
 
+
+Package fmtsort provides a general stable ordering mechanism
+for maps, on behalf of the fmt and text/template packages.
+It is not guaranteed to be efficient and works only for types
+that are valid map keys.  
+
 # Index
 
 
-- [Variables](<#variables>)
+- [`function compare(a:stdgo._internal.reflect.Value, b:stdgo._internal.reflect.Value):Int`](<#function-compare>)
 
-- [`function _compare(_aVal:stdgo._internal.reflect.Value, _bVal:stdgo._internal.reflect.Value):Void`](<#function-_compare>)
-
-- [`function _floatCompare(_a:stdgo.GoFloat64, _b:stdgo.GoFloat64):Void`](<#function-_floatcompare>)
-
-- [`function _isNaN(_a:stdgo.GoFloat64):Void`](<#function-_isnan>)
-
-- [`function _nilCompare(_aVal:stdgo._internal.reflect.Value, _bVal:stdgo._internal.reflect.Value):Void`](<#function-_nilcompare>)
-
-- [`function compare(_a:stdgo._internal.reflect.Value, _b:stdgo._internal.reflect.Value):Void`](<#function-compare>)
-
-- [`function sort(_mapValue:stdgo._internal.reflect.Value):Void`](<#function-sort>)
+- [`function sort(mapValue:stdgo._internal.reflect.Value):stdgo.internal.fmtsort.SortedMap`](<#function-sort>)
 
 - [typedef SortedMap](<#typedef-sortedmap>)
 
 - [typedef SortedMap\_asInterface](<#typedef-sortedmap_asinterface>)
 
 - [typedef SortedMap\_static\_extension](<#typedef-sortedmap_static_extension>)
-
-# Variables
-
-
-```haxe
-import stdgo.internal.fmtsort.Fmtsort
-```
-
-
-```haxe
-var __go2hxdoc__package:Dynamic
-```
-
 
 # Functions
 
@@ -50,70 +33,48 @@ import stdgo.internal.fmtsort.Fmtsort
 ```
 
 
-## function \_compare
-
-
-```haxe
-function _compare(_aVal:stdgo._internal.reflect.Value, _bVal:stdgo._internal.reflect.Value):Void
-```
-
-
-[\(view code\)](<./Fmtsort.hx#L6>)
-
-
-## function \_floatCompare
-
-
-```haxe
-function _floatCompare(_a:stdgo.GoFloat64, _b:stdgo.GoFloat64):Void
-```
-
-
-[\(view code\)](<./Fmtsort.hx#L8>)
-
-
-## function \_isNaN
-
-
-```haxe
-function _isNaN(_a:stdgo.GoFloat64):Void
-```
-
-
-[\(view code\)](<./Fmtsort.hx#L9>)
-
-
-## function \_nilCompare
-
-
-```haxe
-function _nilCompare(_aVal:stdgo._internal.reflect.Value, _bVal:stdgo._internal.reflect.Value):Void
-```
-
-
-[\(view code\)](<./Fmtsort.hx#L7>)
-
-
 ## function compare
 
 
 ```haxe
-function compare(_a:stdgo._internal.reflect.Value, _b:stdgo._internal.reflect.Value):Void
+function compare(a:stdgo._internal.reflect.Value, b:stdgo._internal.reflect.Value):Int
 ```
 
 
-[\(view code\)](<./Fmtsort.hx#L4>)
+[\(view code\)](<./Fmtsort.hx#L10>)
 
 
 ## function sort
 
 
 ```haxe
-function sort(_mapValue:stdgo._internal.reflect.Value):Void
+function sort(mapValue:stdgo._internal.reflect.Value):stdgo.internal.fmtsort.SortedMap
 ```
 
 
-[\(view code\)](<./Fmtsort.hx#L5>)
+
+Sort accepts a map and returns a SortedMap that has the same keys and
+values but in a stable sorted order according to the keys, modulo issues
+raised by unorderable key values such as NaNs.  
+
+
+The ordering rules are more general than with Go's \< operator:  
+
+```
+   - when applicable, nil compares low
+   - ints, floats, and strings order by <
+   - NaN compares less than non-NaN floats
+   - bool compares false before true
+   - complex compares real, then imag
+   - pointers compare by machine address
+   - channel values compare by machine address
+   - structs compare each field in turn
+   - arrays compare each element in turn.
+     Otherwise identical arrays compare by length.
+   - interface values compare first by reflect.Type describing the concrete type
+     and then by concrete value as described in the previous rules.
+```
+[\(view code\)](<./Fmtsort.hx#L31>)
 
 
 # Typedefs

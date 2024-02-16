@@ -25,6 +25,10 @@
 
   - [`function tick():Void`](<#async-function-tick>)
 
+- [class HxbTypeInfoData](<#class-hxbtypeinfodata>)
+
+  - [`function new():Void`](<#hxbtypeinfodata-function-new>)
+
 - [class Macro](<#class-macro>)
 
   - [`function controlFlow(expr:Dynamic):Dynamic`](<#macro-function-controlflow>)
@@ -128,7 +132,7 @@ function new():Void
 ```
 
 
-[\(view code\)](<./Macro.macro.hx#L48>)
+[\(view code\)](<./Macro.macro.hx#L49>)
 
 
 ## class Async
@@ -143,6 +147,25 @@ function tick():Void
 
 
 [\(view code\)](<./Async.hx#L4>)
+
+
+## class HxbTypeInfoData
+
+
+```haxe
+var names:haxe.ds.Map<String, stdgo._internal.internal.reflect.GoType>
+```
+
+
+### HxbTypeInfoData function new
+
+
+```haxe
+function new():Void
+```
+
+
+[\(view code\)](<./HxbTypeInfoData.hx#L4>)
 
 
 ## class Macro

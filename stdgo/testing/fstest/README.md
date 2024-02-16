@@ -6,30 +6,23 @@
 # Overview
 
 
+
+Package fstest implements support for testing implementations and users of file systems.  
+
 # Index
 
 
-- [Variables](<#variables>)
+- [`function testDash(t:stdgo._internal.testing.T_):Void`](<#function-testdash>)
 
-- [`function _formatEntry(_entry:stdgo._internal.io.fs.DirEntry):Void`](<#function-_formatentry>)
+- [`function testFS(fsys:stdgo._internal.io.fs.FS, expected:haxe.Rest<stdgo.GoString>):stdgo.Error`](<#function-testfs>)
 
-- [`function _formatInfo(_info:stdgo._internal.io.fs.FileInfo):Void`](<#function-_formatinfo>)
+- [`function testMapFS(t:stdgo._internal.testing.T_):Void`](<#function-testmapfs>)
 
-- [`function _formatInfoEntry(_info:stdgo._internal.io.fs.FileInfo):Void`](<#function-_formatinfoentry>)
+- [`function testMapFSChmodDot(t:stdgo._internal.testing.T_):Void`](<#function-testmapfschmoddot>)
 
-- [`function _testFS(_fsys:stdgo._internal.io.fs.FS, _expected:haxe.Rest<stdgo.GoString>):Void`](<#function-_testfs>)
+- [`function testShuffledFS(t:stdgo._internal.testing.T_):Void`](<#function-testshuffledfs>)
 
-- [`function testDash(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testdash>)
-
-- [`function testFS(_fsys:stdgo._internal.io.fs.FS, _expected:haxe.Rest<stdgo.GoString>):Void`](<#function-testfs>)
-
-- [`function testMapFS(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testmapfs>)
-
-- [`function testMapFSChmodDot(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testmapfschmoddot>)
-
-- [`function testShuffledFS(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testshuffledfs>)
-
-- [`function testSymlink(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testsymlink>)
+- [`function testSymlink(t:stdgo._internal.testing.T_):Void`](<#function-testsymlink>)
 
 - [typedef MapFS](<#typedef-mapfs>)
 
@@ -87,29 +80,6 @@
 
 - [typedef T\_shuffledFile\_static\_extension](<#typedef-t_shuffledfile_static_extension>)
 
-# Variables
-
-
-```haxe
-import stdgo.testing.fstest.Fstest
-```
-
-
-```haxe
-var __2:Dynamic
-```
-
-
-```haxe
-var __3:Dynamic
-```
-
-
-```haxe
-var __go2hxdoc__package:Dynamic
-```
-
-
 # Functions
 
 
@@ -118,114 +88,91 @@ import stdgo.testing.fstest.Fstest
 ```
 
 
-## function \_formatEntry
-
-
-```haxe
-function _formatEntry(_entry:stdgo._internal.io.fs.DirEntry):Void
-```
-
-
-[\(view code\)](<./Fstest.hx#L19>)
-
-
-## function \_formatInfo
-
-
-```haxe
-function _formatInfo(_info:stdgo._internal.io.fs.FileInfo):Void
-```
-
-
-[\(view code\)](<./Fstest.hx#L21>)
-
-
-## function \_formatInfoEntry
-
-
-```haxe
-function _formatInfoEntry(_info:stdgo._internal.io.fs.FileInfo):Void
-```
-
-
-[\(view code\)](<./Fstest.hx#L20>)
-
-
-## function \_testFS
-
-
-```haxe
-function _testFS(_fsys:stdgo._internal.io.fs.FS, _expected:haxe.Rest<stdgo.GoString>):Void
-```
-
-
-[\(view code\)](<./Fstest.hx#L18>)
-
-
 ## function testDash
 
 
 ```haxe
-function testDash(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
+function testDash(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Fstest.hx#L23>)
+[\(view code\)](<./Fstest.hx#L38>)
 
 
 ## function testFS
 
 
 ```haxe
-function testFS(_fsys:stdgo._internal.io.fs.FS, _expected:haxe.Rest<stdgo.GoString>):Void
+function testFS(fsys:stdgo._internal.io.fs.FS, expected:haxe.Rest<stdgo.GoString>):stdgo.Error
 ```
 
 
-[\(view code\)](<./Fstest.hx#L17>)
+
+TestFS tests a file system implementation.
+It walks the entire tree of files in fsys,
+opening and checking that each file behaves correctly.
+It also checks that the file system contains at least the expected files.
+As a special case, if no expected files are listed, fsys must be empty.
+Otherwise, fsys must contain at least the listed files; it can also contain others.
+The contents of fsys must not change concurrently with TestFS.  
+
+
+If TestFS finds any misbehaviors, it returns an error reporting all of them.
+The error text spans multiple lines, one per detected misbehavior.  
+
+
+Typical usage inside a test is:  
+
+```
+	if err := fstest.TestFS(myFS, "file/that/should/be/present"); err != nil {
+		t.Fatal(err)
+	}
+```
+[\(view code\)](<./Fstest.hx#L36>)
 
 
 ## function testMapFS
 
 
 ```haxe
-function testMapFS(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Fstest.hx#L15>)
-
-
-## function testMapFSChmodDot
-
-
-```haxe
-function testMapFSChmodDot(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
+function testMapFS(t:stdgo._internal.testing.T_):Void
 ```
 
 
 [\(view code\)](<./Fstest.hx#L16>)
 
 
+## function testMapFSChmodDot
+
+
+```haxe
+function testMapFSChmodDot(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Fstest.hx#L17>)
+
+
 ## function testShuffledFS
 
 
 ```haxe
-function testShuffledFS(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
+function testShuffledFS(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Fstest.hx#L24>)
+[\(view code\)](<./Fstest.hx#L39>)
 
 
 ## function testSymlink
 
 
 ```haxe
-function testSymlink(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
+function testSymlink(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Fstest.hx#L22>)
+[\(view code\)](<./Fstest.hx#L37>)
 
 
 # Typedefs

@@ -6,62 +6,77 @@
 # Overview
 
 
+
+Package reflect implements run\-time reflection, allowing a program to
+manipulate objects with arbitrary types. The typical use is to take a value
+with static type interface\{\} and extract its dynamic type information by
+calling TypeOf, which returns a Type.  
+
+
+A call to ValueOf returns a Value representing the run\-time data.
+Zero takes a Type and returns a Value representing a zero value
+for that type.  
+
+
+See "The Laws of Reflection" for an introduction to reflection in Go:
+https://golang.org/doc/articles/laws_of_reflection.html  
+
 # Index
 
 
-- [Variables](<#variables>)
+- [Constants](<#constants>)
 
-- [`function append(_s:stdgo.reflect.Value, _x:haxe.Rest<stdgo.reflect.Value>):Void`](<#function-append>)
+- [`function append(s:stdgo.reflect.Value, x:haxe.Rest<stdgo.reflect.Value>):stdgo.reflect.Value`](<#function-append>)
 
-- [`function appendSlice(_s:stdgo.reflect.Value, _t:stdgo.reflect.Value):Void`](<#function-appendslice>)
+- [`function appendSlice(s:stdgo.reflect.Value, t:stdgo.reflect.Value):stdgo.reflect.Value`](<#function-appendslice>)
 
-- [`function arrayOf(_length:stdgo.GoInt, _elem:stdgo.reflect.Type_):Void`](<#function-arrayof>)
+- [`function arrayOf(_length:Int, elem:stdgo.reflect.Type_):stdgo.reflect.Type_`](<#function-arrayof>)
 
-- [`function chanOf(_dir:stdgo.reflect.ChanDir, _t:stdgo.reflect.Type_):Void`](<#function-chanof>)
+- [`function chanOf(dir:stdgo.reflect.ChanDir, t:stdgo.reflect.Type_):stdgo.reflect.Type_`](<#function-chanof>)
 
-- [`function copy(_dst:stdgo.reflect.Value, _src:stdgo.reflect.Value):Void`](<#function-copy>)
+- [`function copy(dst:stdgo.reflect.Value, src:stdgo.reflect.Value):Int`](<#function-copy>)
 
-- [`function deepEqual(_x:stdgo.AnyInterface, _y:stdgo.AnyInterface):Void`](<#function-deepequal>)
+- [`function deepEqual(x:stdgo.AnyInterface, y:stdgo.AnyInterface):Bool`](<#function-deepequal>)
 
-- [`function funcOf(_in:stdgo.Slice<stdgo.reflect.Type_>, _out:stdgo.Slice<stdgo.reflect.Type_>, _variadic:Bool):Void`](<#function-funcof>)
+- [`function funcOf(_in:Array<stdgo.reflect.Type_>, out:Array<stdgo.reflect.Type_>, variadic:Bool):stdgo.reflect.Type_`](<#function-funcof>)
 
-- [`function indirect(_v:stdgo.reflect.Value):Void`](<#function-indirect>)
+- [`function indirect(v:stdgo.reflect.Value):stdgo.reflect.Value`](<#function-indirect>)
 
-- [`function makeChan(_typ:stdgo.reflect.Type_, _buffer:stdgo.GoInt):Void`](<#function-makechan>)
+- [`function makeChan(typ:stdgo.reflect.Type_, buffer:Int):stdgo.reflect.Value`](<#function-makechan>)
 
-- [`function makeFunc(_typ:stdgo.reflect.Type_, _fn:(_args:stdgo.Slice<stdgo.reflect.Value>):stdgo.Slice<stdgo.reflect.Value>):Void`](<#function-makefunc>)
+- [`function makeFunc(typ:stdgo.reflect.Type_, fn:(_args:stdgo.Slice<stdgo.reflect.Value>):stdgo.Slice<stdgo.reflect.Value>):stdgo.reflect.Value`](<#function-makefunc>)
 
-- [`function makeMap(_typ:stdgo.reflect.Type_):Void`](<#function-makemap>)
+- [`function makeMap(typ:stdgo.reflect.Type_):stdgo.reflect.Value`](<#function-makemap>)
 
-- [`function makeMapWithSize(_typ:stdgo.reflect.Type_, _n:stdgo.GoInt):Void`](<#function-makemapwithsize>)
+- [`function makeMapWithSize(typ:stdgo.reflect.Type_, n:Int):stdgo.reflect.Value`](<#function-makemapwithsize>)
 
-- [`function makeSlice(_typ:stdgo.reflect.Type_, _len:stdgo.GoInt, _cap:stdgo.GoInt):Void`](<#function-makeslice>)
+- [`function makeSlice(typ:stdgo.reflect.Type_, len:Int, cap:Int):stdgo.reflect.Value`](<#function-makeslice>)
 
-- [`function mapOf(_key:stdgo.reflect.Type_, _elem:stdgo.reflect.Type_):Void`](<#function-mapof>)
+- [`function mapOf(key:stdgo.reflect.Type_, elem:stdgo.reflect.Type_):stdgo.reflect.Type_`](<#function-mapof>)
 
-- [`function newAt(_typ:stdgo.reflect.Type_, _p:stdgo._internal.unsafe.UnsafePointer):Void`](<#function-newat>)
+- [`function newAt(typ:stdgo.reflect.Type_, p:stdgo._internal.unsafe.UnsafePointer):stdgo.reflect.Value`](<#function-newat>)
 
-- [`function new_(_typ:stdgo.reflect.Type_):Void`](<#function-new_>)
+- [`function new_(typ:stdgo.reflect.Type_):stdgo.reflect.Value`](<#function-new_>)
 
-- [`function pointerTo(_t:stdgo.reflect.Type_):Void`](<#function-pointerto>)
+- [`function pointerTo(t:stdgo.reflect.Type_):stdgo.reflect.Type_`](<#function-pointerto>)
 
-- [`function ptrTo(_t:stdgo.reflect.Type_):Void`](<#function-ptrto>)
+- [`function ptrTo(t:stdgo.reflect.Type_):stdgo.reflect.Type_`](<#function-ptrto>)
 
-- [`function select(_cases:stdgo.Slice<stdgo.reflect.SelectCase>):Void`](<#function-select>)
+- [`function select(cases:Array<stdgo.reflect.SelectCase>):stdgo.Tuple3<Int, stdgo.reflect.Value, Bool>`](<#function-select>)
 
-- [`function sliceOf(_t:stdgo.reflect.Type_):Void`](<#function-sliceof>)
+- [`function sliceOf(t:stdgo.reflect.Type_):stdgo.reflect.Type_`](<#function-sliceof>)
 
-- [`function structOf(_fields:stdgo.Slice<stdgo.reflect.StructField>):Void`](<#function-structof>)
+- [`function structOf(fields:Array<stdgo.reflect.StructField>):stdgo.reflect.Type_`](<#function-structof>)
 
-- [`function swapper(_slice:stdgo.AnyInterface):Void`](<#function-swapper>)
+- [`function swapper(slice:stdgo.AnyInterface):(_i:stdgo.GoInt, _j:stdgo.GoInt):Void`](<#function-swapper>)
 
-- [`function typeOf(_i:stdgo.AnyInterface):Void`](<#function-typeof>)
+- [`function typeOf(i:stdgo.AnyInterface):stdgo.reflect.Type_`](<#function-typeof>)
 
-- [`function valueOf(_i:stdgo.AnyInterface):Void`](<#function-valueof>)
+- [`function valueOf(i:stdgo.AnyInterface):stdgo.reflect.Value`](<#function-valueof>)
 
-- [`function visibleFields(_t:stdgo.reflect.Type_):Void`](<#function-visiblefields>)
+- [`function visibleFields(t:stdgo.reflect.Type_):Array<stdgo.reflect.StructField>`](<#function-visiblefields>)
 
-- [`function zero(_typ:stdgo.reflect.Type_):Void`](<#function-zero>)
+- [`function zero(typ:stdgo.reflect.Type_):stdgo.reflect.Value`](<#function-zero>)
 
 - [typedef ChanDir](<#typedef-chandir>)
 
@@ -121,7 +136,7 @@
 
 - [typedef Value\_static\_extension](<#typedef-value_static_extension>)
 
-# Variables
+# Constants
 
 
 ```haxe
@@ -130,177 +145,172 @@ import stdgo.reflect.Reflect
 
 
 ```haxe
-var __go2hxdoc__package:Dynamic
+final array:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.array
 ```
 
 
 ```haxe
-var array:Dynamic
+final bool_:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.bool_
 ```
 
 
 ```haxe
-var bool_:Dynamic
+final bothDir:stdgo._internal.reflect.ChanDir = stdgo._internal.reflect.Reflect.bothDir
 ```
 
 
 ```haxe
-var bothDir:Dynamic
+final chan:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.chan
 ```
 
 
 ```haxe
-var chan:Dynamic
+final complex128:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.complex128
 ```
 
 
 ```haxe
-var complex128:Dynamic
+final complex64:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.complex64
 ```
 
 
 ```haxe
-var complex64:Dynamic
+final float32:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.float32
 ```
 
 
 ```haxe
-var float32:Dynamic
+final float64:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.float64
 ```
 
 
 ```haxe
-var float64:Dynamic
+final func:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.func
 ```
 
 
 ```haxe
-var func:Dynamic
+final int16:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.int16
 ```
 
 
 ```haxe
-var int16:Dynamic
+final int32:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.int32
 ```
 
 
 ```haxe
-var int32:Dynamic
+final int64:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.int64
 ```
 
 
 ```haxe
-var int64:Dynamic
+final int8:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.int8
 ```
 
 
 ```haxe
-var int8:Dynamic
+final int_:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.int_
 ```
 
 
 ```haxe
-var int_:Dynamic
+final interface_:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.interface_
 ```
 
 
 ```haxe
-var interface_:Dynamic
+final invalid:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.invalid
 ```
 
 
 ```haxe
-var invalid:Dynamic
+final map_:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.map_
 ```
 
 
 ```haxe
-var map_:Dynamic
+final pointer:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.pointer
 ```
 
 
 ```haxe
-var pointer:Dynamic
+final ptr:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.ptr
 ```
 
 
 ```haxe
-var ptr:Dynamic
+final recvDir:stdgo._internal.reflect.ChanDir = stdgo._internal.reflect.Reflect.recvDir
 ```
 
 
 ```haxe
-var recvDir:Dynamic
+final selectDefault:Null<Dynamic> = stdgo._internal.reflect.Reflect.selectDefault
 ```
 
 
 ```haxe
-var selectDefault:Dynamic
+final selectRecv:Null<Dynamic> = stdgo._internal.reflect.Reflect.selectRecv
 ```
 
 
 ```haxe
-var selectRecv:Dynamic
+final selectSend:Null<Dynamic> = stdgo._internal.reflect.Reflect.selectSend
 ```
 
 
 ```haxe
-var selectSend:Dynamic
+final sendDir:stdgo._internal.reflect.ChanDir = stdgo._internal.reflect.Reflect.sendDir
 ```
 
 
 ```haxe
-var sendDir:Dynamic
+final slice:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.slice
 ```
 
 
 ```haxe
-var slice:Dynamic
+final string:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.string
 ```
 
 
 ```haxe
-var string:Dynamic
+final struct_:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.struct_
 ```
 
 
 ```haxe
-var struct_:Dynamic
+final uint:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.uint
 ```
 
 
 ```haxe
-var uint:Dynamic
+final uint16:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.uint16
 ```
 
 
 ```haxe
-var uint16:Dynamic
+final uint32:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.uint32
 ```
 
 
 ```haxe
-var uint32:Dynamic
+final uint64:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.uint64
 ```
 
 
 ```haxe
-var uint64:Dynamic
+final uint8:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.uint8
 ```
 
 
 ```haxe
-var uint8:Dynamic
+final uintptr:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.uintptr
 ```
 
 
 ```haxe
-var uintptr:Dynamic
-```
-
-
-```haxe
-var unsafePointer:Dynamic
+final unsafePointer:stdgo._internal.reflect.Kind = stdgo._internal.reflect.Reflect.unsafePointer
 ```
 
 
@@ -316,286 +326,526 @@ import stdgo.reflect.Reflect
 
 
 ```haxe
-function append(_s:stdgo.reflect.Value, _x:haxe.Rest<stdgo.reflect.Value>):Void
+function append(s:stdgo.reflect.Value, x:haxe.Rest<stdgo.reflect.Value>):stdgo.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L62>)
+
+Append appends the values x to a slice s and returns the resulting slice.
+As in Go, each x's value must be assignable to the slice's element type.  
+
+[\(view code\)](<./Reflect.hx#L220>)
 
 
 ## function appendSlice
 
 
 ```haxe
-function appendSlice(_s:stdgo.reflect.Value, _t:stdgo.reflect.Value):Void
+function appendSlice(s:stdgo.reflect.Value, t:stdgo.reflect.Value):stdgo.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L63>)
+
+AppendSlice appends a slice t to a slice s and returns the resulting slice.
+The slices s and t must have the same element type.  
+
+[\(view code\)](<./Reflect.hx#L225>)
 
 
 ## function arrayOf
 
 
 ```haxe
-function arrayOf(_length:stdgo.GoInt, _elem:stdgo.reflect.Type_):Void
+function arrayOf(_length:Int, elem:stdgo.reflect.Type_):stdgo.reflect.Type_
 ```
 
 
-[\(view code\)](<./Reflect.hx#L61>)
+
+ArrayOf returns the array type with the given length and element type.
+For example, if t represents int, ArrayOf\(5, t\) represents \[5\]int.  
+
+
+If the resulting type would be larger than the available address space,
+ArrayOf panics.  
+
+[\(view code\)](<./Reflect.hx#L215>)
 
 
 ## function chanOf
 
 
 ```haxe
-function chanOf(_dir:stdgo.reflect.ChanDir, _t:stdgo.reflect.Type_):Void
+function chanOf(dir:stdgo.reflect.ChanDir, t:stdgo.reflect.Type_):stdgo.reflect.Type_
 ```
 
 
-[\(view code\)](<./Reflect.hx#L56>)
+
+ChanOf returns the channel type with the given direction and element type.
+For example, if t represents int, ChanOf\(RecvDir, t\) represents \<\-chan int.  
+
+
+The gc runtime imposes a limit of 64 kB on channel element types.
+If t's size is equal to or exceeds this limit, ChanOf panics.  
+
+[\(view code\)](<./Reflect.hx#L173>)
 
 
 ## function copy
 
 
 ```haxe
-function copy(_dst:stdgo.reflect.Value, _src:stdgo.reflect.Value):Void
+function copy(dst:stdgo.reflect.Value, src:stdgo.reflect.Value):Int
 ```
 
 
-[\(view code\)](<./Reflect.hx#L64>)
+
+Copy copies the contents of src into dst until either
+dst has been filled or src has been exhausted.
+It returns the number of elements copied.
+Dst and src each must have kind Slice or Array, and
+dst and src must have the same element type.  
+
+
+As a special case, src can have kind String if the element type of dst is kind Uint8.  
+
+[\(view code\)](<./Reflect.hx#L235>)
 
 
 ## function deepEqual
 
 
 ```haxe
-function deepEqual(_x:stdgo.AnyInterface, _y:stdgo.AnyInterface):Void
+function deepEqual(x:stdgo.AnyInterface, y:stdgo.AnyInterface):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L50>)
+
+DeepEqual reports whether x and y are “deeply equal,” defined as follows.
+Two values of identical type are deeply equal if one of the following cases applies.
+Values of distinct types are never deeply equal.  
+
+
+Array values are deeply equal when their corresponding elements are deeply equal.  
+
+
+Struct values are deeply equal if their corresponding fields,
+both exported and unexported, are deeply equal.  
+
+
+Func values are deeply equal if both are nil; otherwise they are not deeply equal.  
+
+
+Interface values are deeply equal if they hold deeply equal concrete values.  
+
+
+Map values are deeply equal when all of the following are true:
+they are both nil or both non\-nil, they have the same length,
+and either they are the same map object or their corresponding keys
+\(matched using Go equality\) map to deeply equal values.  
+
+
+Pointer values are deeply equal if they are equal using Go's == operator
+or if they point to deeply equal values.  
+
+
+Slice values are deeply equal when all of the following are true:
+they are both nil or both non\-nil, they have the same length,
+and either they point to the same initial entry of the same underlying array
+\(that is, &x\[0\] == &y\[0\]\) or their corresponding elements \(up to length\) are deeply equal.
+Note that a non\-nil empty slice and a nil slice \(for example, \[\]byte\{\} and \[\]byte\(nil\)\)
+are not deeply equal.  
+
+
+Other values \- numbers, bools, strings, and channels \- are deeply equal
+if they are equal using Go's == operator.  
+
+
+In general DeepEqual is a recursive relaxation of Go's == operator.
+However, this idea is impossible to implement without some inconsistency.
+Specifically, it is possible for a value to be unequal to itself,
+either because it is of func type \(uncomparable in general\)
+or because it is a floating\-point NaN value \(not equal to itself in floating\-point comparison\),
+or because it is an array, struct, or interface containing
+such a value.
+On the other hand, pointer values are always equal to themselves,
+even if they point at or contain such problematic values,
+because they compare equal using Go's == operator, and that
+is a sufficient condition to be deeply equal, regardless of content.
+DeepEqual has been defined so that the same short\-cut applies
+to slices and maps: if x and y are the same slice or the same map,
+they are deeply equal regardless of content.  
+
+
+As DeepEqual traverses the data values it may find a cycle. The
+second and subsequent times that DeepEqual compares two pointer
+values that have been compared before, it treats the values as
+equal rather than examining the values to which they point.
+This ensures that DeepEqual terminates.  
+
+[\(view code\)](<./Reflect.hx#L116>)
 
 
 ## function funcOf
 
 
 ```haxe
-function funcOf(_in:stdgo.Slice<stdgo.reflect.Type_>, _out:stdgo.Slice<stdgo.reflect.Type_>, _variadic:Bool):Void
+function funcOf(_in:Array<stdgo.reflect.Type_>, out:Array<stdgo.reflect.Type_>, variadic:Bool):stdgo.reflect.Type_
 ```
 
 
-[\(view code\)](<./Reflect.hx#L58>)
+
+FuncOf returns the function type with the given argument and result types.
+For example if k represents int and e represents string,
+FuncOf\(\[\]Type\{k\}, \[\]Type\{e\}, false\) represents func\(int\) string.  
+
+
+The variadic argument controls whether the function is variadic. FuncOf
+panics if the in\[len\(in\)\-1\] does not represent a slice and variadic is
+true.  
+
+[\(view code\)](<./Reflect.hx#L192>)
 
 
 ## function indirect
 
 
 ```haxe
-function indirect(_v:stdgo.reflect.Value):Void
+function indirect(v:stdgo.reflect.Value):stdgo.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L70>)
+
+Indirect returns the value that v points to.
+If v is a nil pointer, Indirect returns a zero Value.
+If v is not a pointer, Indirect returns v.  
+
+[\(view code\)](<./Reflect.hx#L270>)
 
 
 ## function makeChan
 
 
 ```haxe
-function makeChan(_typ:stdgo.reflect.Type_, _buffer:stdgo.GoInt):Void
+function makeChan(typ:stdgo.reflect.Type_, buffer:Int):stdgo.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L67>)
+
+MakeChan creates a new channel with the specified type and buffer size.  
+
+[\(view code\)](<./Reflect.hx#L255>)
 
 
 ## function makeFunc
 
 
 ```haxe
-function makeFunc(_typ:stdgo.reflect.Type_, _fn:(_args:stdgo.Slice<stdgo.reflect.Value>):stdgo.Slice<stdgo.reflect.Value>):Void
+function makeFunc(typ:stdgo.reflect.Type_, fn:(_args:stdgo.Slice<stdgo.reflect.Value>):stdgo.Slice<stdgo.reflect.Value>):stdgo.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L51>)
+
+MakeFunc returns a new function of the given Type
+that wraps the function fn. When called, that new function
+does the following:  
+
+```
+   - converts its arguments to a slice of Values.
+   - runs results := fn(args).
+   - returns the results as a slice of Values, one per formal result.
+```
+
+The implementation fn can assume that the argument Value slice
+has the number and type of arguments given by typ.
+If typ describes a variadic function, the final Value is itself
+a slice representing the variadic arguments, as in the
+body of a variadic function. The result Value slice returned by fn
+must have the number and type of results given by typ.  
+
+
+The Value.Call method allows the caller to invoke a typed function
+in terms of Values; in contrast, MakeFunc allows the caller to implement
+a typed function in terms of Values.  
+
+
+The Examples section of the documentation includes an illustration
+of how to use MakeFunc to build a swap function for different types.  
+
+[\(view code\)](<./Reflect.hx#L140>)
 
 
 ## function makeMap
 
 
 ```haxe
-function makeMap(_typ:stdgo.reflect.Type_):Void
+function makeMap(typ:stdgo.reflect.Type_):stdgo.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L68>)
+
+MakeMap creates a new map with the specified type.  
+
+[\(view code\)](<./Reflect.hx#L259>)
 
 
 ## function makeMapWithSize
 
 
 ```haxe
-function makeMapWithSize(_typ:stdgo.reflect.Type_, _n:stdgo.GoInt):Void
+function makeMapWithSize(typ:stdgo.reflect.Type_, n:Int):stdgo.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L69>)
+
+MakeMapWithSize creates a new map with the specified type
+and initial space for approximately n elements.  
+
+[\(view code\)](<./Reflect.hx#L264>)
 
 
 ## function makeSlice
 
 
 ```haxe
-function makeSlice(_typ:stdgo.reflect.Type_, _len:stdgo.GoInt, _cap:stdgo.GoInt):Void
+function makeSlice(typ:stdgo.reflect.Type_, len:Int, cap:Int):stdgo.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L66>)
+
+MakeSlice creates a new zero\-initialized slice value
+for the specified slice type, length, and capacity.  
+
+[\(view code\)](<./Reflect.hx#L251>)
 
 
 ## function mapOf
 
 
 ```haxe
-function mapOf(_key:stdgo.reflect.Type_, _elem:stdgo.reflect.Type_):Void
+function mapOf(key:stdgo.reflect.Type_, elem:stdgo.reflect.Type_):stdgo.reflect.Type_
 ```
 
 
-[\(view code\)](<./Reflect.hx#L57>)
+
+MapOf returns the map type with the given key and element types.
+For example, if k represents int and e represents string,
+MapOf\(k, e\) represents map\[int\]string.  
+
+
+If the key type is not a valid map key type \(that is, if it does
+not implement Go's == operator\), MapOf panics.  
+
+[\(view code\)](<./Reflect.hx#L182>)
 
 
 ## function newAt
 
 
 ```haxe
-function newAt(_typ:stdgo.reflect.Type_, _p:stdgo._internal.unsafe.UnsafePointer):Void
+function newAt(typ:stdgo.reflect.Type_, p:stdgo._internal.unsafe.UnsafePointer):stdgo.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L74>)
+
+NewAt returns a Value representing a pointer to a value of the
+specified type, using p as that pointer.  
+
+[\(view code\)](<./Reflect.hx#L293>)
 
 
 ## function new\_
 
 
 ```haxe
-function new_(_typ:stdgo.reflect.Type_):Void
+function new_(typ:stdgo.reflect.Type_):stdgo.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L73>)
+
+New returns a Value representing a pointer to a new zero value
+for the specified type. That is, the returned Value's Type is PointerTo\(typ\).  
+
+[\(view code\)](<./Reflect.hx#L288>)
 
 
 ## function pointerTo
 
 
 ```haxe
-function pointerTo(_t:stdgo.reflect.Type_):Void
+function pointerTo(t:stdgo.reflect.Type_):stdgo.reflect.Type_
 ```
 
 
-[\(view code\)](<./Reflect.hx#L55>)
+
+PointerTo returns the pointer type with element t.
+For example, if t represents type Foo, PointerTo\(t\) represents \*Foo.  
+
+[\(view code\)](<./Reflect.hx#L165>)
 
 
 ## function ptrTo
 
 
 ```haxe
-function ptrTo(_t:stdgo.reflect.Type_):Void
+function ptrTo(t:stdgo.reflect.Type_):stdgo.reflect.Type_
 ```
 
 
-[\(view code\)](<./Reflect.hx#L54>)
+
+PtrTo returns the pointer type with element t.
+For example, if t represents type Foo, PtrTo\(t\) represents \*Foo.  
+
+
+PtrTo is the old spelling of PointerTo.
+The two functions behave identically.  
+
+[\(view code\)](<./Reflect.hx#L160>)
 
 
 ## function select
 
 
 ```haxe
-function select(_cases:stdgo.Slice<stdgo.reflect.SelectCase>):Void
+function select(cases:Array<stdgo.reflect.SelectCase>):stdgo.Tuple3<Int, stdgo.reflect.Value, Bool>
 ```
 
 
-[\(view code\)](<./Reflect.hx#L65>)
+
+Select executes a select operation described by the list of cases.
+Like the Go select statement, it blocks until at least one of the cases
+can proceed, makes a uniform pseudo\-random choice,
+and then executes that case. It returns the index of the chosen case
+and, if that case was a receive operation, the value received and a
+boolean indicating whether the value corresponds to a send on the channel
+\(as opposed to a zero value received because the channel is closed\).
+Select supports a maximum of 65536 cases.  
+
+[\(view code\)](<./Reflect.hx#L246>)
 
 
 ## function sliceOf
 
 
 ```haxe
-function sliceOf(_t:stdgo.reflect.Type_):Void
+function sliceOf(t:stdgo.reflect.Type_):stdgo.reflect.Type_
 ```
 
 
-[\(view code\)](<./Reflect.hx#L59>)
+
+SliceOf returns the slice type with element type t.
+For example, if t represents int, SliceOf\(t\) represents \[\]int.  
+
+[\(view code\)](<./Reflect.hx#L197>)
 
 
 ## function structOf
 
 
 ```haxe
-function structOf(_fields:stdgo.Slice<stdgo.reflect.StructField>):Void
+function structOf(fields:Array<stdgo.reflect.StructField>):stdgo.reflect.Type_
 ```
 
 
-[\(view code\)](<./Reflect.hx#L60>)
+
+StructOf returns the struct type containing fields.
+The Offset and Index fields are ignored and computed as they would be
+by the compiler.  
+
+
+StructOf currently does not generate wrapper methods for embedded
+fields and panics if passed unexported StructFields.
+These limitations may be lifted in a future version.  
+
+[\(view code\)](<./Reflect.hx#L207>)
 
 
 ## function swapper
 
 
 ```haxe
-function swapper(_slice:stdgo.AnyInterface):Void
+function swapper(slice:stdgo.AnyInterface):(_i:stdgo.GoInt, _j:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Reflect.hx#L52>)
+
+Swapper returns a function that swaps the elements in the provided
+slice.  
+
+
+Swapper panics if the provided interface is not a slice.  
+
+[\(view code\)](<./Reflect.hx#L147>)
 
 
 ## function typeOf
 
 
 ```haxe
-function typeOf(_i:stdgo.AnyInterface):Void
+function typeOf(i:stdgo.AnyInterface):stdgo.reflect.Type_
 ```
 
 
-[\(view code\)](<./Reflect.hx#L53>)
+
+TypeOf returns the reflection Type that represents the dynamic type of i.
+If i is a nil interface value, TypeOf returns nil.  
+
+[\(view code\)](<./Reflect.hx#L152>)
 
 
 ## function valueOf
 
 
 ```haxe
-function valueOf(_i:stdgo.AnyInterface):Void
+function valueOf(i:stdgo.AnyInterface):stdgo.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L71>)
+
+ValueOf returns a new Value initialized to the concrete value
+stored in the interface i. ValueOf\(nil\) returns the zero Value.  
+
+[\(view code\)](<./Reflect.hx#L275>)
 
 
 ## function visibleFields
 
 
 ```haxe
-function visibleFields(_t:stdgo.reflect.Type_):Void
+function visibleFields(t:stdgo.reflect.Type_):Array<stdgo.reflect.StructField>
 ```
 
 
-[\(view code\)](<./Reflect.hx#L75>)
+
+VisibleFields returns all the visible fields in t, which must be a
+struct type. A field is defined as visible if it's accessible
+directly with a FieldByName call. The returned fields include fields
+inside anonymous struct members and unexported fields. They follow
+the same order found in the struct, with anonymous fields followed
+immediately by their promoted fields.  
+
+
+For each element e of the returned slice, the corresponding field
+can be retrieved from a value v of type t by calling v.FieldByIndex\(e.Index\).  
+
+[\(view code\)](<./Reflect.hx#L305>)
 
 
 ## function zero
 
 
 ```haxe
-function zero(_typ:stdgo.reflect.Type_):Void
+function zero(typ:stdgo.reflect.Type_):stdgo.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L72>)
+
+Zero returns a Value representing the zero value for the specified type.
+The result is different from the zero value of the Value struct,
+which represents no value at all.
+For example, Zero\(TypeOf\(42\)\) returns a Value with Kind Int and value 0.
+The returned value is neither addressable nor settable.  
+
+[\(view code\)](<./Reflect.hx#L283>)
 
 
 # Typedefs

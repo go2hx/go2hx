@@ -9,7 +9,7 @@
 # Index
 
 
-- [Variables](<#variables>)
+- [Constants](<#constants>)
 
 - [typedef Code](<#typedef-code>)
 
@@ -23,7 +23,7 @@
 
 - [typedef T\_\_struct\_0\_static\_extension](<#typedef-t__struct_0_static_extension>)
 
-# Variables
+# Constants
 
 
 ```haxe
@@ -32,817 +32,737 @@ import stdgo.internal.types.errors.Errors
 
 
 ```haxe
-var __1:Dynamic
+final ambiguousSelector:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.ambiguousSelector
 ```
 
 
 ```haxe
-var __2:Dynamic
+final badDecl:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.badDecl
 ```
 
 
 ```haxe
-var __3:Dynamic
+final badDotDotDotSyntax:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.badDotDotDotSyntax
 ```
 
 
 ```haxe
-var __4:Dynamic
+final badImportPath:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.badImportPath
 ```
 
 
 ```haxe
-var __5:Dynamic
+final badOffsetofSyntax:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.badOffsetofSyntax
 ```
 
 
 ```haxe
-var __Code_index_1:Dynamic
+final badRecv:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.badRecv
 ```
 
 
 ```haxe
-var __Code_index_2:Dynamic
+final badTypeKeyword:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.badTypeKeyword
 ```
 
 
 ```haxe
-var __Code_index_3:Dynamic
+final blankIfaceMethod:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.blankIfaceMethod
 ```
 
 
 ```haxe
-var __Code_index_4:Dynamic
+final blankPkgName:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.blankPkgName
 ```
 
 
 ```haxe
-var __Code_index_5:Dynamic
+final brokenImport:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.brokenImport
 ```
 
 
 ```haxe
-var __Code_name_0:Dynamic
+final cannotInferTypeArgs:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.cannotInferTypeArgs
 ```
 
 
 ```haxe
-var __Code_name_1:Dynamic
+final divByZero:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.divByZero
 ```
 
 
 ```haxe
-var __Code_name_2:Dynamic
+final duplicateCase:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.duplicateCase
 ```
 
 
 ```haxe
-var __Code_name_3:Dynamic
+final duplicateDecl:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.duplicateDecl
 ```
 
 
 ```haxe
-var __Code_name_4:Dynamic
+final duplicateDefault:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.duplicateDefault
 ```
 
 
 ```haxe
-var __Code_name_5:Dynamic
+final duplicateFieldAndMethod:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.duplicateFieldAndMethod
 ```
 
 
 ```haxe
-var ambiguousSelector:Dynamic
+final duplicateLabel:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.duplicateLabel
 ```
 
 
 ```haxe
-var badDecl:Dynamic
+final duplicateLitField:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.duplicateLitField
 ```
 
 
 ```haxe
-var badDotDotDotSyntax:Dynamic
+final duplicateLitKey:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.duplicateLitKey
 ```
 
 
 ```haxe
-var badImportPath:Dynamic
+final duplicateMethod:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.duplicateMethod
 ```
 
 
 ```haxe
-var badOffsetofSyntax:Dynamic
+final importCRenamed:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.importCRenamed
 ```
 
 
 ```haxe
-var badRecv:Dynamic
+final impossibleAssert:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.impossibleAssert
 ```
 
 
 ```haxe
-var badTypeKeyword:Dynamic
+final incomparableMapKey:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.incomparableMapKey
 ```
 
 
 ```haxe
-var blankIfaceMethod:Dynamic
+final incompatibleAssign:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.incompatibleAssign
 ```
 
 
 ```haxe
-var blankPkgName:Dynamic
+final invalidAppend:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidAppend
 ```
 
 
 ```haxe
-var brokenImport:Dynamic
+final invalidArrayLen:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidArrayLen
 ```
 
 
 ```haxe
-var cannotInferTypeArgs:Dynamic
+final invalidAssert:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidAssert
 ```
 
 
 ```haxe
-var divByZero:Dynamic
+final invalidBlank:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidBlank
 ```
 
 
 ```haxe
-var duplicateCase:Dynamic
+final invalidCall:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidCall
 ```
 
 
 ```haxe
-var duplicateDecl:Dynamic
+final invalidCap:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidCap
 ```
 
 
 ```haxe
-var duplicateDefault:Dynamic
+final invalidChanAssign:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidChanAssign
 ```
 
 
 ```haxe
-var duplicateFieldAndMethod:Dynamic
+final invalidClear:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidClear
 ```
 
 
 ```haxe
-var duplicateLabel:Dynamic
+final invalidClose:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidClose
 ```
 
 
 ```haxe
-var duplicateLitField:Dynamic
+final invalidComplex:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidComplex
 ```
 
 
 ```haxe
-var duplicateLitKey:Dynamic
+final invalidCond:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidCond
 ```
 
 
 ```haxe
-var duplicateMethod:Dynamic
+final invalidConstInit:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidConstInit
 ```
 
 
 ```haxe
-var importCRenamed:Dynamic
+final invalidConstType:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidConstType
 ```
 
 
 ```haxe
-var impossibleAssert:Dynamic
+final invalidConstVal:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidConstVal
 ```
 
 
 ```haxe
-var incomparableMapKey:Dynamic
+final invalidConversion:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidConversion
 ```
 
 
 ```haxe
-var incompatibleAssign:Dynamic
+final invalidCopy:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidCopy
 ```
 
 
 ```haxe
-var invalidAppend:Dynamic
+final invalidDeclCycle:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidDeclCycle
 ```
 
 
 ```haxe
-var invalidArrayLen:Dynamic
+final invalidDefer:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidDefer
 ```
 
 
 ```haxe
-var invalidAssert:Dynamic
+final invalidDelete:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidDelete
 ```
 
 
 ```haxe
-var invalidBlank:Dynamic
+final invalidDotDotDot:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidDotDotDot
 ```
 
 
 ```haxe
-var invalidCall:Dynamic
+final invalidExprSwitch:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidExprSwitch
 ```
 
 
 ```haxe
-var invalidCap:Dynamic
+final invalidGo:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidGo
 ```
 
 
 ```haxe
-var invalidChanAssign:Dynamic
+final invalidIfaceAssign:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidIfaceAssign
 ```
 
 
 ```haxe
-var invalidClear:Dynamic
+final invalidImag:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidImag
 ```
 
 
 ```haxe
-var invalidClose:Dynamic
+final invalidIndex:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidIndex
 ```
 
 
 ```haxe
-var invalidComplex:Dynamic
+final invalidIndirection:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidIndirection
 ```
 
 
 ```haxe
-var invalidCond:Dynamic
+final invalidInitCycle:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidInitCycle
 ```
 
 
 ```haxe
-var invalidConstInit:Dynamic
+final invalidInitDecl:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidInitDecl
 ```
 
 
 ```haxe
-var invalidConstType:Dynamic
+final invalidInitSig:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidInitSig
 ```
 
 
 ```haxe
-var invalidConstVal:Dynamic
+final invalidInstanceCycle:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidInstanceCycle
 ```
 
 
 ```haxe
-var invalidConversion:Dynamic
+final invalidIota:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidIota
 ```
 
 
 ```haxe
-var invalidCopy:Dynamic
+final invalidIterVar:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidIterVar
 ```
 
 
 ```haxe
-var invalidDeclCycle:Dynamic
+final invalidLen:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidLen
 ```
 
 
 ```haxe
-var invalidDefer:Dynamic
+final invalidLit:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidLit
 ```
 
 
 ```haxe
-var invalidDelete:Dynamic
+final invalidLitField:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidLitField
 ```
 
 
 ```haxe
-var invalidDotDotDot:Dynamic
+final invalidLitIndex:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidLitIndex
 ```
 
 
 ```haxe
-var invalidExprSwitch:Dynamic
+final invalidMainDecl:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidMainDecl
 ```
 
 
 ```haxe
-var invalidGo:Dynamic
+final invalidMake:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidMake
 ```
 
 
 ```haxe
-var invalidIfaceAssign:Dynamic
+final invalidMethodExpr:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidMethodExpr
 ```
 
 
 ```haxe
-var invalidImag:Dynamic
+final invalidMethodTypeParams:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidMethodTypeParams
 ```
 
 
 ```haxe
-var invalidIndex:Dynamic
+final invalidMinMaxOperand:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidMinMaxOperand
 ```
 
 
 ```haxe
-var invalidIndirection:Dynamic
+final invalidOffsetof:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidOffsetof
 ```
 
 
 ```haxe
-var invalidInitCycle:Dynamic
+final invalidPkgUse:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidPkgUse
 ```
 
 
 ```haxe
-var invalidInitDecl:Dynamic
+final invalidPostDecl:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidPostDecl
 ```
 
 
 ```haxe
-var invalidInitSig:Dynamic
+final invalidPtrEmbed:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidPtrEmbed
 ```
 
 
 ```haxe
-var invalidInstanceCycle:Dynamic
+final invalidRangeExpr:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidRangeExpr
 ```
 
 
 ```haxe
-var invalidIota:Dynamic
+final invalidReal:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidReal
 ```
 
 
 ```haxe
-var invalidIterVar:Dynamic
+final invalidReceive:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidReceive
 ```
 
 
 ```haxe
-var invalidLen:Dynamic
+final invalidRecv:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidRecv
 ```
 
 
 ```haxe
-var invalidLit:Dynamic
+final invalidSelectCase:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidSelectCase
 ```
 
 
 ```haxe
-var invalidLitField:Dynamic
+final invalidSend:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidSend
 ```
 
 
 ```haxe
-var invalidLitIndex:Dynamic
+final invalidShiftCount:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidShiftCount
 ```
 
 
 ```haxe
-var invalidMainDecl:Dynamic
+final invalidShiftOperand:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidShiftOperand
 ```
 
 
 ```haxe
-var invalidMake:Dynamic
+final invalidSliceExpr:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidSliceExpr
 ```
 
 
 ```haxe
-var invalidMethodExpr:Dynamic
+final invalidStructLit:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidStructLit
 ```
 
 
 ```haxe
-var invalidMethodTypeParams:Dynamic
+final invalidSyntaxTree:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidSyntaxTree
 ```
 
 
 ```haxe
-var invalidMinMaxOperand:Dynamic
+final invalidTypeArg:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidTypeArg
 ```
 
 
 ```haxe
-var invalidOffsetof:Dynamic
+final invalidTypeCycle:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidTypeCycle
 ```
 
 
 ```haxe
-var invalidPkgUse:Dynamic
+final invalidTypeSwitch:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidTypeSwitch
 ```
 
 
 ```haxe
-var invalidPostDecl:Dynamic
+final invalidUnion:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidUnion
 ```
 
 
 ```haxe
-var invalidPtrEmbed:Dynamic
+final invalidUnsafeAdd:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidUnsafeAdd
 ```
 
 
 ```haxe
-var invalidRangeExpr:Dynamic
+final invalidUnsafeSlice:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidUnsafeSlice
 ```
 
 
 ```haxe
-var invalidReal:Dynamic
+final invalidUnsafeSliceData:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidUnsafeSliceData
 ```
 
 
 ```haxe
-var invalidReceive:Dynamic
+final invalidUnsafeString:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidUnsafeString
 ```
 
 
 ```haxe
-var invalidRecv:Dynamic
+final invalidUntypedConversion:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidUntypedConversion
 ```
 
 
 ```haxe
-var invalidSelectCase:Dynamic
+final jumpIntoBlock:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.jumpIntoBlock
 ```
 
 
 ```haxe
-var invalidSend:Dynamic
+final jumpOverDecl:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.jumpOverDecl
 ```
 
 
 ```haxe
-var invalidShiftCount:Dynamic
+final mismatchedPkgName:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.mismatchedPkgName
 ```
 
 
 ```haxe
-var invalidShiftOperand:Dynamic
+final mismatchedTypes:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.mismatchedTypes
 ```
 
 
 ```haxe
-var invalidSliceExpr:Dynamic
+final misplacedBreak:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.misplacedBreak
 ```
 
 
 ```haxe
-var invalidStructLit:Dynamic
+final misplacedConstraintIface:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.misplacedConstraintIface
 ```
 
 
 ```haxe
-var invalidSyntaxTree:Dynamic
+final misplacedContinue:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.misplacedContinue
 ```
 
 
 ```haxe
-var invalidTypeArg:Dynamic
+final misplacedDotDotDot:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.misplacedDotDotDot
 ```
 
 
 ```haxe
-var invalidTypeCycle:Dynamic
+final misplacedFallthrough:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.misplacedFallthrough
 ```
 
 
 ```haxe
-var invalidTypeSwitch:Dynamic
+final misplacedLabel:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.misplacedLabel
 ```
 
 
 ```haxe
-var invalidUnion:Dynamic
+final misplacedTypeParam:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.misplacedTypeParam
 ```
 
 
 ```haxe
-var invalidUnsafeAdd:Dynamic
+final missingFieldOrMethod:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.missingFieldOrMethod
 ```
 
 
 ```haxe
-var invalidUnsafeSlice:Dynamic
+final missingInitBody:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.missingInitBody
 ```
 
 
 ```haxe
-var invalidUnsafeSliceData:Dynamic
+final missingLitField:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.missingLitField
 ```
 
 
 ```haxe
-var invalidUnsafeString:Dynamic
+final missingLitKey:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.missingLitKey
 ```
 
 
 ```haxe
-var invalidUntypedConversion:Dynamic
+final missingReturn:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.missingReturn
 ```
 
 
 ```haxe
-var jumpIntoBlock:Dynamic
+final mixedStructLit:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.mixedStructLit
 ```
 
 
 ```haxe
-var jumpOverDecl:Dynamic
+final multiValAssignOp:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.multiValAssignOp
 ```
 
 
 ```haxe
-var mismatchedPkgName:Dynamic
+final noNewVar:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.noNewVar
 ```
 
 
 ```haxe
-var mismatchedTypes:Dynamic
+final nonIndexableOperand:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.nonIndexableOperand
 ```
 
 
 ```haxe
-var misplacedBreak:Dynamic
+final nonNumericIncDec:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.nonNumericIncDec
 ```
 
 
 ```haxe
-var misplacedConstraintIface:Dynamic
+final nonSliceableOperand:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.nonSliceableOperand
 ```
 
 
 ```haxe
-var misplacedContinue:Dynamic
+final nonVariadicDotDotDot:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.nonVariadicDotDotDot
 ```
 
 
 ```haxe
-var misplacedDotDotDot:Dynamic
+final notAGenericType:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.notAGenericType
 ```
 
 
 ```haxe
-var misplacedFallthrough:Dynamic
+final notAType:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.notAType
 ```
 
 
 ```haxe
-var misplacedLabel:Dynamic
+final notAnExpr:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.notAnExpr
 ```
 
 
 ```haxe
-var misplacedTypeParam:Dynamic
+final numericOverflow:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.numericOverflow
 ```
 
 
 ```haxe
-var missingFieldOrMethod:Dynamic
+final outOfScopeResult:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.outOfScopeResult
 ```
 
 
 ```haxe
-var missingInitBody:Dynamic
+final oversizeArrayLit:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.oversizeArrayLit
 ```
 
 
 ```haxe
-var missingLitField:Dynamic
+final repeatedDecl:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.repeatedDecl
 ```
 
 
 ```haxe
-var missingLitKey:Dynamic
+final swappedMakeArgs:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.swappedMakeArgs
 ```
 
 
 ```haxe
-var missingReturn:Dynamic
+final swappedSliceIndices:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.swappedSliceIndices
 ```
 
 
 ```haxe
-var mixedStructLit:Dynamic
+final test:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.test
 ```
 
 
 ```haxe
-var multiValAssignOp:Dynamic
+final tooManyValues:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.tooManyValues
 ```
 
 
 ```haxe
-var noNewVar:Dynamic
+final truncatedFloat:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.truncatedFloat
 ```
 
 
 ```haxe
-var nonIndexableOperand:Dynamic
+final typeTooLarge:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.typeTooLarge
 ```
 
 
 ```haxe
-var nonNumericIncDec:Dynamic
+final unaddressableFieldAssign:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.unaddressableFieldAssign
 ```
 
 
 ```haxe
-var nonSliceableOperand:Dynamic
+final unaddressableOperand:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.unaddressableOperand
 ```
 
 
 ```haxe
-var nonVariadicDotDotDot:Dynamic
+final unassignableOperand:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.unassignableOperand
 ```
 
 
 ```haxe
-var notAGenericType:Dynamic
+final uncalledBuiltin:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.uncalledBuiltin
 ```
 
 
 ```haxe
-var notAType:Dynamic
+final undeclaredImportedName:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.undeclaredImportedName
 ```
 
 
 ```haxe
-var notAnExpr:Dynamic
+final undeclaredLabel:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.undeclaredLabel
 ```
 
 
 ```haxe
-var numericOverflow:Dynamic
+final undeclaredName:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.undeclaredName
 ```
 
 
 ```haxe
-var outOfScopeResult:Dynamic
+final undefinedOp:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.undefinedOp
 ```
 
 
 ```haxe
-var oversizeArrayLit:Dynamic
+final unexportedLitField:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.unexportedLitField
 ```
 
 
 ```haxe
-var repeatedDecl:Dynamic
+final unexportedName:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.unexportedName
 ```
 
 
 ```haxe
-var swappedMakeArgs:Dynamic
+final unsupportedFeature:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.unsupportedFeature
 ```
 
 
 ```haxe
-var swappedSliceIndices:Dynamic
+final untypedLit:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.untypedLit
 ```
 
 
 ```haxe
-var test:Dynamic
+final untypedNilUse:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.untypedNilUse
 ```
 
 
 ```haxe
-var tooManyValues:Dynamic
+final unusedExpr:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.unusedExpr
 ```
 
 
 ```haxe
-var truncatedFloat:Dynamic
+final unusedImport:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.unusedImport
 ```
 
 
 ```haxe
-var typeTooLarge:Dynamic
+final unusedLabel:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.unusedLabel
 ```
 
 
 ```haxe
-var unaddressableFieldAssign:Dynamic
+final unusedResults:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.unusedResults
 ```
 
 
 ```haxe
-var unaddressableOperand:Dynamic
+final unusedVar:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.unusedVar
 ```
 
 
 ```haxe
-var unassignableOperand:Dynamic
+final wrongArgCount:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.wrongArgCount
 ```
 
 
 ```haxe
-var uncalledBuiltin:Dynamic
+final wrongAssignCount:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.wrongAssignCount
 ```
 
 
 ```haxe
-var undeclaredImportedName:Dynamic
+final wrongResultCount:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.wrongResultCount
 ```
 
 
 ```haxe
-var undeclaredLabel:Dynamic
-```
-
-
-```haxe
-var undeclaredName:Dynamic
-```
-
-
-```haxe
-var undefinedOp:Dynamic
-```
-
-
-```haxe
-var unexportedLitField:Dynamic
-```
-
-
-```haxe
-var unexportedName:Dynamic
-```
-
-
-```haxe
-var unsupportedFeature:Dynamic
-```
-
-
-```haxe
-var untypedLit:Dynamic
-```
-
-
-```haxe
-var untypedNilUse:Dynamic
-```
-
-
-```haxe
-var unusedExpr:Dynamic
-```
-
-
-```haxe
-var unusedImport:Dynamic
-```
-
-
-```haxe
-var unusedLabel:Dynamic
-```
-
-
-```haxe
-var unusedResults:Dynamic
-```
-
-
-```haxe
-var unusedVar:Dynamic
-```
-
-
-```haxe
-var wrongArgCount:Dynamic
-```
-
-
-```haxe
-var wrongAssignCount:Dynamic
-```
-
-
-```haxe
-var wrongResultCount:Dynamic
-```
-
-
-```haxe
-var wrongTypeArgCount:Dynamic
+final wrongTypeArgCount:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.wrongTypeArgCount
 ```
 
 

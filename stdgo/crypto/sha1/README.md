@@ -1,478 +1,133 @@
-# Module: `stdgo.crypto.sha1`
-
-[(view library index)](../../stdgo.md)
-
-
-# Overview
-
-
-# Index
-
-
-- [Variables](<#variables>)
-
-- [`function _benchmarkSize(_b:stdgo.Ref<stdgo._internal.testing.B>, _size:stdgo.GoInt):Void`](<#function-_benchmarksize>)
-
-- [`function _block(_dig:stdgo.Ref<stdgo.crypto.sha1.T_digest>, _p:stdgo.Slice<stdgo.GoByte>):Void`](<#function-_block>)
-
-- [`function _blockGeneric(_dig:stdgo.Ref<stdgo.crypto.sha1.T_digest>, _p:stdgo.Slice<stdgo.GoByte>):Void`](<#function-_blockgeneric>)
-
-- [`function _boringNewSHA1():Void`](<#function-_boringnewsha1>)
-
-- [`function _boringSHA1(_0:stdgo.Slice<stdgo.GoByte>):Void`](<#function-_boringsha1>)
-
-- [`function _boringUnreachable():Void`](<#function-_boringunreachable>)
-
-- [`function _consumeUint32(_b:stdgo.Slice<stdgo.GoByte>):Void`](<#function-_consumeuint32>)
-
-- [`function _consumeUint64(_b:stdgo.Slice<stdgo.GoByte>):Void`](<#function-_consumeuint64>)
-
-- [`function _safeSum(_h:stdgo._internal.hash.Hash):Void`](<#function-_safesum>)
-
-- [`function benchmarkHash1K(_b:stdgo.Ref<stdgo._internal.testing.B>):Void`](<#function-benchmarkhash1k>)
-
-- [`function benchmarkHash320Bytes(_b:stdgo.Ref<stdgo._internal.testing.B>):Void`](<#function-benchmarkhash320bytes>)
-
-- [`function benchmarkHash8Bytes(_b:stdgo.Ref<stdgo._internal.testing.B>):Void`](<#function-benchmarkhash8bytes>)
-
-- [`function benchmarkHash8K(_b:stdgo.Ref<stdgo._internal.testing.B>):Void`](<#function-benchmarkhash8k>)
-
-- [`function new_():Void`](<#function-new_>)
-
-- [`function sum(_data:stdgo.Slice<stdgo.GoByte>):Void`](<#function-sum>)
-
-- [`function testAllocations(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testallocations>)
-
-- [`function testBlockGeneric(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testblockgeneric>)
-
-- [`function testBlockSize(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testblocksize>)
-
-- [`function testGolden(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testgolden>)
-
-- [`function testGoldenMarshal(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testgoldenmarshal>)
-
-- [`function testLargeHashes(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testlargehashes>)
-
-- [`function testSize(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testsize>)
-
-- [typedef T\_digest](<#typedef-t_digest>)
-
-- [typedef T\_digest\_asInterface](<#typedef-t_digest_asinterface>)
-
-- [typedef T\_digest\_static\_extension](<#typedef-t_digest_static_extension>)
-
-- [typedef T\_sha1Test](<#typedef-t_sha1test>)
-
-- [typedef T\_unmarshalTest](<#typedef-t_unmarshaltest>)
-
-# Variables
-
-
-```haxe
-import stdgo.crypto.sha1.Sha1
+# Module stdgo.crypto.sha1 has compilation errors, please do not use:
 ```
+stdgo/crypto/sha1/Sha1.hx:9: characters 1-66 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/_internal/encoding/gob/Gob.hx:2491: characters 67-85 : stdgo.GoInt should be Null<stdgo.Pointer<stdgo.GoInt>>
+stdgo/_internal/encoding/gob/Gob.hx:2562: characters 18-26 : stdgo._internal.encoding.gob.T1 has no field emptyMap
+stdgo/_internal/encoding/gob/Gob.hx:2825: characters 9-56 : Invalid assign
+stdgo/_internal/encoding/gob/Gob.hx:2845: characters 9-56 : Invalid assign
+stdgo/_internal/encoding/gob/Gob.hx:2948: characters 9-61 : Invalid assign
+stdgo/Go.macro.hx:565: lines 565-567 : stdgo._internal.encoding.gob.T__struct_0 should be stdgo.Ref<stdgo._internal.encoding.gob.T_emptyStruct>
+stdgo/Go.macro.hx:565: lines 565-567 : ... For function argument '_e'
+stdgo/_internal/encoding/gob/Gob.hx:3395: lines 3395-3401 : ... Called from macro here
+stdgo/_internal/encoding/gob/Gob.hx:3480: characters 9-101 : error: stdgo._internal.encoding.gob.T_emptyStruct should be stdgo._internal.encoding.gob.T__struct_0
+stdgo/_internal/encoding/gob/Gob.hx:3480: characters 9-101 : ... have: stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.gob.T_emptyStruct>>
+stdgo/_internal/encoding/gob/Gob.hx:3480: characters 9-101 : ... want: stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.gob.T__struct_0>>
+stdgo/Go.macro.hx:565: lines 565-567 : error: stdgo._internal.encoding.gob.T__struct_0 should be stdgo._internal.encoding.gob.T_emptyStruct
+stdgo/Go.macro.hx:565: lines 565-567 : ... have: stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.gob.T__struct_0>>
+stdgo/Go.macro.hx:565: lines 565-567 : ... want: stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.T_emptyStruct>>
+stdgo/Go.macro.hx:565: lines 565-567 : ... For function argument '_e'
+stdgo/_internal/encoding/gob/Gob.hx:5251: characters 9-66 : Invalid assign
+stdgo/_internal/encoding/gob/Gob.hx:5964: characters 125-132 : Unknown identifier : _intMap
+stdgo/_internal/encoding/gob/Gob.hx:6801: characters 17-43 : Type not found : stdgo._internal.net.Net
+stdgo/_internal/encoding/gob/Gob.hx:6802: characters 193-219 : Type not found : stdgo._internal.net.Net
+stdgo/_internal/encoding/gob/Gob.hx:6802: characters 193-219 : ... For function argument '_e'
+stdgo/_internal/image/Image.hx:881: characters 50-93 : Type not found : stdgo._internal.image.color.palette.Palette
+stdgo/_internal/image/Image.hx:881: characters 50-93 : ... For function argument 'args'
+stdgo/_internal/image/Image.hx:887: characters 28-38 : You can't iterate on a Dynamic value, please specify KeyValueIterator or KeyValueIterable
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:670: characters 12-33 : Called from here
+stdgo/Go.macro.hx:764: characters 16-40 : Called from here
+stdgo/_internal/image/Image.hx:893: characters 28-80 : ... Called from macro here
+stdgo/Go.macro.hx:776: characters 72-73 : stdgo._internal.internal.reflect._Type should be { kind : () -> stdgo._internal.internal.reflect.KindType, assignableTo : stdgo._internal.internal.reflect._Type_asInterface -> Bool }
+stdgo/Go.macro.hx:776: characters 72-73 : ... stdgo._internal.internal.reflect._Type has no field assignableTo
+stdgo/Go.macro.hx:776: characters 72-73 : ... For function argument 'type'
+stdgo/_internal/image/Image.hx:893: characters 28-80 : ... Called from macro here
+stdgo/_internal/image/Image.hx:894: characters 164-178 : Any has no field __underlying__
+stdgo/_internal/image/Image.hx:894: characters 335-349 : Any has no field __underlying__
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:670: characters 12-33 : Called from here
+stdgo/Go.macro.hx:764: characters 16-40 : Called from here
+stdgo/_internal/image/Image.hx:899: characters 28-80 : ... Called from macro here
+stdgo/Go.macro.hx:776: characters 72-73 : stdgo._internal.internal.reflect._Type should be { kind : () -> stdgo._internal.internal.reflect.KindType, assignableTo : stdgo._internal.internal.reflect._Type_asInterface -> Bool }
+stdgo/Go.macro.hx:776: characters 72-73 : ... stdgo._internal.internal.reflect._Type has no field assignableTo
+stdgo/Go.macro.hx:776: characters 72-73 : ... For function argument 'type'
+stdgo/_internal/image/Image.hx:899: characters 28-80 : ... Called from macro here
+stdgo/_internal/image/Image.hx:900: characters 164-178 : Any has no field __underlying__
+stdgo/_internal/image/Image.hx:900: characters 335-349 : Any has no field __underlying__
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:670: characters 12-33 : Called from here
+stdgo/Go.macro.hx:764: characters 16-40 : Called from here
+stdgo/_internal/image/Image.hx:902: characters 28-78 : ... Called from macro here
+stdgo/Go.macro.hx:776: characters 72-73 : stdgo._internal.internal.reflect._Type should be { kind : () -> stdgo._internal.internal.reflect.KindType, assignableTo : stdgo._internal.internal.reflect._Type_asInterface -> Bool }
+stdgo/Go.macro.hx:776: characters 72-73 : ... stdgo._internal.internal.reflect._Type has no field assignableTo
+stdgo/Go.macro.hx:776: characters 72-73 : ... For function argument 'type'
+stdgo/_internal/image/Image.hx:902: characters 28-78 : ... Called from macro here
+stdgo/_internal/image/Image.hx:903: characters 160-174 : Any has no field __underlying__
+stdgo/_internal/image/Image.hx:903: characters 327-341 : Any has no field __underlying__
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:670: characters 12-33 : Called from here
+stdgo/Go.macro.hx:764: characters 16-40 : Called from here
+stdgo/_internal/image/Image.hx:907: characters 28-71 : ... Called from macro here
+stdgo/Go.macro.hx:776: characters 72-73 : stdgo._internal.internal.reflect._Type should be { kind : () -> stdgo._internal.internal.reflect.KindType, assignableTo : stdgo._internal.internal.reflect._Type_asInterface -> Bool }
+stdgo/Go.macro.hx:776: characters 72-73 : ... stdgo._internal.internal.reflect._Type has no field assignableTo
+stdgo/Go.macro.hx:776: characters 72-73 : ... For function argument 'type'
+stdgo/_internal/image/Image.hx:907: characters 28-71 : ... Called from macro here
+stdgo/_internal/image/Image.hx:908: characters 144-158 : Any has no field __underlying__
+stdgo/_internal/image/Image.hx:908: characters 293-307 : Any has no field __underlying__
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:670: characters 12-33 : Called from here
+stdgo/_internal/image/Image.hx:916: characters 46-71 : Called from here
+stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:670: characters 12-33 : Called from here
+stdgo/_internal/image/Image.hx:916: characters 46-71 : Called from here
+stdgo/Go.macro.hx:1232: characters 7-12 : For function argument 'v'
+stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
+stdgo/Go.macro.hx:705: characters 13-19 : Unknown identifier : TClass
+stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:670: characters 12-33 : Called from here
+stdgo/_internal/image/Image.hx:916: characters 46-71 : Called from here
+stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:670: characters 12-33 : Called from here
+stdgo/_internal/image/Image.hx:916: characters 46-71 : Called from here
+stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:670: characters 12-33 : Called from here
+stdgo/_internal/image/Image.hx:916: characters 46-71 : Called from here
+stdgo/Go.macro.hx:1232: characters 7-12 : For function argument 'value'
+stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
+stdgo/Go.macro.hx:715: lines 715-717 : Void should be stdgo._internal.image.RGBA64Image
+stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
+stdgo/Go.macro.hx:717: lines 717-723 : Void should be stdgo._internal.image.RGBA64Image
+stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:670: characters 12-33 : Called from here
+stdgo/_internal/image/Image.hx:916: characters 46-71 : Called from here
+stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:670: characters 12-33 : Called from here
+stdgo/_internal/image/Image.hx:916: characters 46-71 : Called from here
+stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
+stdgo/Go.macro.hx:727: lines 727-729 : Void should be stdgo._internal.image.RGBA64Image
+stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
+stdgo/Go.macro.hx:729: lines 729-738 : Void should be stdgo._internal.image.RGBA64Image
+stdgo/_internal/image/Image.hx:916: characters 25-87 : ... Called from macro here
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:670: characters 12-33 : Called from here
+stdgo/_internal/image/Image.hx:921: characters 74-99 : Called from here
+stdgo/Go.macro.hx:1232: characters 7-12 : For function argument 'args'
+stdgo/_internal/image/Image.hx:925: characters 31-33 : Any has no field at
+stdgo/Go.macro.hx:1232: characters 7-12 : Uncaught exception issue
+stdgo/Go.macro.hx:670: characters 12-33 : Called from here
+stdgo/_internal/image/Image.hx:927: characters 131-156 : Called from here
+stdgo/Go.macro.hx:1232: characters 7-12 : For function argument 'args'
+stdgo/_internal/encoding/json/Json.hx:418: lines 418-425 : stdgo.GoInt64Map<stdgo.GoString> should be stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString>
+stdgo/_internal/encoding/json/Json.hx:418: lines 418-425 : ... For function argument 'args'
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/Go.macro.hx:764: characters 16-40)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/Go.macro.hx:764: characters 16-40)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/Go.macro.hx:764: characters 16-40)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/Go.macro.hx:764: characters 16-40)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:916: characters 46-71)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:916: characters 46-71)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:916: characters 46-71)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:916: characters 46-71)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:916: characters 46-71)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:916: characters 46-71)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:916: characters 46-71)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:921: characters 74-99)
+stdgo/Go.macro.hx:1231: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:927: characters 131-156)
 
-
-```haxe
-var _:Dynamic
 ```
-
-
-```haxe
-var __K0:Dynamic
-```
-
-
-```haxe
-var __K1:Dynamic
-```
-
-
-```haxe
-var __K2:Dynamic
-```
-
-
-```haxe
-var __K3:Dynamic
-```
-
-
-```haxe
-var __go2hxdoc__package:Dynamic
-```
-
-
-```haxe
-var _bench:Dynamic
-```
-
-
-```haxe
-var _boringEnabled:Dynamic
-```
-
-
-```haxe
-var _buf:Dynamic
-```
-
-
-```haxe
-var _chunk:Dynamic
-```
-
-
-```haxe
-var _golden:Dynamic
-```
-
-
-```haxe
-var _init0:Dynamic
-```
-
-
-```haxe
-var _init1:Dynamic
-```
-
-
-```haxe
-var _init2:Dynamic
-```
-
-
-```haxe
-var _init3:Dynamic
-```
-
-
-```haxe
-var _init4:Dynamic
-```
-
-
-```haxe
-var _largeUnmarshalTests:Dynamic
-```
-
-
-```haxe
-var _magic:Dynamic
-```
-
-
-```haxe
-var _marshaledSize:Dynamic
-```
-
-
-```haxe
-var blockSize:Dynamic
-```
-
-
-```haxe
-var size:Dynamic
-```
-
-
-# Functions
-
-
-```haxe
-import stdgo.crypto.sha1.Sha1
-```
-
-
-## function \_benchmarkSize
-
-
-```haxe
-function _benchmarkSize(_b:stdgo.Ref<stdgo._internal.testing.B>, _size:stdgo.GoInt):Void
-```
-
-
-[\(view code\)](<./Sha1.hx#L40>)
-
-
-## function \_block
-
-
-```haxe
-function _block(_dig:stdgo.Ref<stdgo.crypto.sha1.T_digest>, _p:stdgo.Slice<stdgo.GoByte>):Void
-```
-
-
-[\(view code\)](<./Sha1.hx#L46>)
-
-
-## function \_blockGeneric
-
-
-```haxe
-function _blockGeneric(_dig:stdgo.Ref<stdgo.crypto.sha1.T_digest>, _p:stdgo.Slice<stdgo.GoByte>):Void
-```
-
-
-[\(view code\)](<./Sha1.hx#L45>)
-
-
-## function \_boringNewSHA1
-
-
-```haxe
-function _boringNewSHA1():Void
-```
-
-
-[\(view code\)](<./Sha1.hx#L25>)
-
-
-## function \_boringSHA1
-
-
-```haxe
-function _boringSHA1(_0:stdgo.Slice<stdgo.GoByte>):Void
-```
-
-
-[\(view code\)](<./Sha1.hx#L27>)
-
-
-## function \_boringUnreachable
-
-
-```haxe
-function _boringUnreachable():Void
-```
-
-
-[\(view code\)](<./Sha1.hx#L26>)
-
-
-## function \_consumeUint32
-
-
-```haxe
-function _consumeUint32(_b:stdgo.Slice<stdgo.GoByte>):Void
-```
-
-
-[\(view code\)](<./Sha1.hx#L29>)
-
-
-## function \_consumeUint64
-
-
-```haxe
-function _consumeUint64(_b:stdgo.Slice<stdgo.GoByte>):Void
-```
-
-
-[\(view code\)](<./Sha1.hx#L28>)
-
-
-## function \_safeSum
-
-
-```haxe
-function _safeSum(_h:stdgo._internal.hash.Hash):Void
-```
-
-
-[\(view code\)](<./Sha1.hx#L37>)
-
-
-## function benchmarkHash1K
-
-
-```haxe
-function benchmarkHash1K(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
-```
-
-
-[\(view code\)](<./Sha1.hx#L43>)
-
-
-## function benchmarkHash320Bytes
-
-
-```haxe
-function benchmarkHash320Bytes(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
-```
-
-
-[\(view code\)](<./Sha1.hx#L42>)
-
-
-## function benchmarkHash8Bytes
-
-
-```haxe
-function benchmarkHash8Bytes(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
-```
-
-
-[\(view code\)](<./Sha1.hx#L41>)
-
-
-## function benchmarkHash8K
-
-
-```haxe
-function benchmarkHash8K(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
-```
-
-
-[\(view code\)](<./Sha1.hx#L44>)
-
-
-## function new\_
-
-
-```haxe
-function new_():Void
-```
-
-
-[\(view code\)](<./Sha1.hx#L30>)
-
-
-## function sum
-
-
-```haxe
-function sum(_data:stdgo.Slice<stdgo.GoByte>):Void
-```
-
-
-[\(view code\)](<./Sha1.hx#L31>)
-
-
-## function testAllocations
-
-
-```haxe
-function testAllocations(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Sha1.hx#L39>)
-
-
-## function testBlockGeneric
-
-
-```haxe
-function testBlockGeneric(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Sha1.hx#L36>)
-
-
-## function testBlockSize
-
-
-```haxe
-function testBlockSize(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Sha1.hx#L35>)
-
-
-## function testGolden
-
-
-```haxe
-function testGolden(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Sha1.hx#L32>)
-
-
-## function testGoldenMarshal
-
-
-```haxe
-function testGoldenMarshal(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Sha1.hx#L33>)
-
-
-## function testLargeHashes
-
-
-```haxe
-function testLargeHashes(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Sha1.hx#L38>)
-
-
-## function testSize
-
-
-```haxe
-function testSize(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Sha1.hx#L34>)
-
-
-# Typedefs
-
-
-```haxe
-import stdgo.crypto.sha1.*
-```
-
-
-## typedef T\_digest
-
-
-```haxe
-typedef T_digest = Dynamic;
-```
-
-
-## typedef T\_digest\_asInterface
-
-
-```haxe
-typedef T_digest_asInterface = Dynamic;
-```
-
-
-## typedef T\_digest\_static\_extension
-
-
-```haxe
-typedef T_digest_static_extension = Dynamic;
-```
-
-
-## typedef T\_sha1Test
-
-
-```haxe
-typedef T_sha1Test = Dynamic;
-```
-
-
-## typedef T\_unmarshalTest
-
-
-```haxe
-typedef T_unmarshalTest = Dynamic;
-```
-
 

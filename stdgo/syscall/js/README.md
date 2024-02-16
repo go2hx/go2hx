@@ -6,70 +6,32 @@
 # Overview
 
 
+
+Package js gives access to the WebAssembly host environment when using the js/wasm architecture.
+Its API is based on JavaScript semantics.  
+
+
+This package is EXPERIMENTAL. Its current scope is only to allow tests to run, but not yet to provide a
+comprehensive API for users. It is exempt from the Go compatibility promise.  
+
 # Index
 
 
-- [Variables](<#variables>)
+- [Constants](<#constants>)
 
-- [`function _copyBytesToGo(_dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.syscall.js.T_ref):Void`](<#function-_copybytestogo>)
+- [`function copyBytesToGo(dst:Array<Int>, src:stdgo.syscall.js.Value):Int`](<#function-copybytestogo>)
 
-- [`function _copyBytesToJS(_dst:stdgo.syscall.js.T_ref, _src:stdgo.Slice<stdgo.GoByte>):Void`](<#function-_copybytestojs>)
+- [`function copyBytesToJS(dst:stdgo.syscall.js.Value, src:Array<Int>):Int`](<#function-copybytestojs>)
 
-- [`function _finalizeRef(_r:stdgo.syscall.js.T_ref):Void`](<#function-_finalizeref>)
+- [`function funcOf(fn:(_this:stdgo.syscall.js.Value, _args:stdgo.Slice<stdgo.syscall.js.Value>):stdgo.AnyInterface):stdgo.syscall.js.Func`](<#function-funcof>)
 
-- [`function _floatValue(_f:stdgo.GoFloat64):Void`](<#function-_floatvalue>)
+- [`function global():stdgo.syscall.js.Value`](<#function-global>)
 
-- [`function _handleEvent():Void`](<#function-_handleevent>)
+- [`function null_():stdgo.syscall.js.Value`](<#function-null_>)
 
-- [`function _jsString(_v:stdgo.syscall.js.Value):Void`](<#function-_jsstring>)
+- [`function undefined():stdgo.syscall.js.Value`](<#function-undefined>)
 
-- [`function _makeArgs(_args:stdgo.Slice<stdgo.AnyInterface>):Void`](<#function-_makeargs>)
-
-- [`function _makeValue(_r:stdgo.syscall.js.T_ref):Void`](<#function-_makevalue>)
-
-- [`function _predefValue(_id:stdgo.GoUInt32, _typeFlag:stdgo.GoByte):Void`](<#function-_predefvalue>)
-
-- [`function _setEventHandler(_fn:():Bool):Void`](<#function-_seteventhandler>)
-
-- [`function _stringVal(_x:stdgo.GoString):Void`](<#function-_stringval>)
-
-- [`function _valueCall(_v:stdgo.syscall.js.T_ref, _m:stdgo.GoString, _args:stdgo.Slice<stdgo.syscall.js.T_ref>):Void`](<#function-_valuecall>)
-
-- [`function _valueDelete(_v:stdgo.syscall.js.T_ref, _p:stdgo.GoString):Void`](<#function-_valuedelete>)
-
-- [`function _valueGet(_v:stdgo.syscall.js.T_ref, _p:stdgo.GoString):Void`](<#function-_valueget>)
-
-- [`function _valueIndex(_v:stdgo.syscall.js.T_ref, _i:stdgo.GoInt):Void`](<#function-_valueindex>)
-
-- [`function _valueInstanceOf(_v:stdgo.syscall.js.T_ref, _t:stdgo.syscall.js.T_ref):Void`](<#function-_valueinstanceof>)
-
-- [`function _valueInvoke(_v:stdgo.syscall.js.T_ref, _args:stdgo.Slice<stdgo.syscall.js.T_ref>):Void`](<#function-_valueinvoke>)
-
-- [`function _valueLength(_v:stdgo.syscall.js.T_ref):Void`](<#function-_valuelength>)
-
-- [`function _valueLoadString(_v:stdgo.syscall.js.T_ref, _b:stdgo.Slice<stdgo.GoByte>):Void`](<#function-_valueloadstring>)
-
-- [`function _valueNew(_v:stdgo.syscall.js.T_ref, _args:stdgo.Slice<stdgo.syscall.js.T_ref>):Void`](<#function-_valuenew>)
-
-- [`function _valuePrepareString(_v:stdgo.syscall.js.T_ref):Void`](<#function-_valuepreparestring>)
-
-- [`function _valueSet(_v:stdgo.syscall.js.T_ref, _p:stdgo.GoString, _x:stdgo.syscall.js.T_ref):Void`](<#function-_valueset>)
-
-- [`function _valueSetIndex(_v:stdgo.syscall.js.T_ref, _i:stdgo.GoInt, _x:stdgo.syscall.js.T_ref):Void`](<#function-_valuesetindex>)
-
-- [`function copyBytesToGo(_dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.syscall.js.Value):Void`](<#function-copybytestogo>)
-
-- [`function copyBytesToJS(_dst:stdgo.syscall.js.Value, _src:stdgo.Slice<stdgo.GoByte>):Void`](<#function-copybytestojs>)
-
-- [`function funcOf(_fn:(_this:stdgo.syscall.js.Value, _args:stdgo.Slice<stdgo.syscall.js.Value>):stdgo.AnyInterface):Void`](<#function-funcof>)
-
-- [`function global():Void`](<#function-global>)
-
-- [`function null_():Void`](<#function-null_>)
-
-- [`function undefined():Void`](<#function-undefined>)
-
-- [`function valueOf(_x:stdgo.AnyInterface):Void`](<#function-valueof>)
+- [`function valueOf(x:stdgo.AnyInterface):stdgo.syscall.js.Value`](<#function-valueof>)
 
 - [typedef Error](<#typedef-error>)
 
@@ -103,7 +65,7 @@
 
 - [typedef Value\_static\_extension](<#typedef-value_static_extension>)
 
-# Variables
+# Constants
 
 
 ```haxe
@@ -112,142 +74,42 @@ import stdgo.syscall.js.Js
 
 
 ```haxe
-var __go2hxdoc__package:Dynamic
+final typeBoolean:stdgo._internal.syscall.js.Type_ = stdgo._internal.syscall.js.Js.typeBoolean
 ```
 
 
 ```haxe
-var _arrayConstructor:Dynamic
+final typeFunction:stdgo._internal.syscall.js.Type_ = stdgo._internal.syscall.js.Js.typeFunction
 ```
 
 
 ```haxe
-var _funcs:Dynamic
+final typeNull:stdgo._internal.syscall.js.Type_ = stdgo._internal.syscall.js.Js.typeNull
 ```
 
 
 ```haxe
-var _funcsMu:Dynamic
+final typeNumber:stdgo._internal.syscall.js.Type_ = stdgo._internal.syscall.js.Js.typeNumber
 ```
 
 
 ```haxe
-var _jsGo:Dynamic
+final typeObject:stdgo._internal.syscall.js.Type_ = stdgo._internal.syscall.js.Js.typeObject
 ```
 
 
 ```haxe
-var _nanHead:Dynamic
+final typeString:stdgo._internal.syscall.js.Type_ = stdgo._internal.syscall.js.Js.typeString
 ```
 
 
 ```haxe
-var _nextFuncID:Dynamic
+final typeSymbol:stdgo._internal.syscall.js.Type_ = stdgo._internal.syscall.js.Js.typeSymbol
 ```
 
 
 ```haxe
-var _objectConstructor:Dynamic
-```
-
-
-```haxe
-var _typeFlagFunction:Dynamic
-```
-
-
-```haxe
-var _typeFlagNone:Dynamic
-```
-
-
-```haxe
-var _typeFlagObject:Dynamic
-```
-
-
-```haxe
-var _typeFlagString:Dynamic
-```
-
-
-```haxe
-var _typeFlagSymbol:Dynamic
-```
-
-
-```haxe
-var _valueFalse:Dynamic
-```
-
-
-```haxe
-var _valueGlobal:Dynamic
-```
-
-
-```haxe
-var _valueNaN:Dynamic
-```
-
-
-```haxe
-var _valueNull:Dynamic
-```
-
-
-```haxe
-var _valueTrue:Dynamic
-```
-
-
-```haxe
-var _valueUndefined:Dynamic
-```
-
-
-```haxe
-var _valueZero:Dynamic
-```
-
-
-```haxe
-var typeBoolean:Dynamic
-```
-
-
-```haxe
-var typeFunction:Dynamic
-```
-
-
-```haxe
-var typeNull:Dynamic
-```
-
-
-```haxe
-var typeNumber:Dynamic
-```
-
-
-```haxe
-var typeObject:Dynamic
-```
-
-
-```haxe
-var typeString:Dynamic
-```
-
-
-```haxe
-var typeSymbol:Dynamic
-```
-
-
-```haxe
-var typeUndefined:Dynamic
+final typeUndefined:stdgo._internal.syscall.js.Type_ = stdgo._internal.syscall.js.Js.typeUndefined
 ```
 
 
@@ -259,334 +121,142 @@ import stdgo.syscall.js.Js
 ```
 
 
-## function \_copyBytesToGo
-
-
-```haxe
-function _copyBytesToGo(_dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.syscall.js.T_ref):Void
-```
-
-
-[\(view code\)](<./Js.hx#L63>)
-
-
-## function \_copyBytesToJS
-
-
-```haxe
-function _copyBytesToJS(_dst:stdgo.syscall.js.T_ref, _src:stdgo.Slice<stdgo.GoByte>):Void
-```
-
-
-[\(view code\)](<./Js.hx#L65>)
-
-
-## function \_finalizeRef
-
-
-```haxe
-function _finalizeRef(_r:stdgo.syscall.js.T_ref):Void
-```
-
-
-[\(view code\)](<./Js.hx#L40>)
-
-
-## function \_floatValue
-
-
-```haxe
-function _floatValue(_f:stdgo.GoFloat64):Void
-```
-
-
-[\(view code\)](<./Js.hx#L42>)
-
-
-## function \_handleEvent
-
-
-```haxe
-function _handleEvent():Void
-```
-
-
-[\(view code\)](<./Js.hx#L38>)
-
-
-## function \_jsString
-
-
-```haxe
-function _jsString(_v:stdgo.syscall.js.Value):Void
-```
-
-
-[\(view code\)](<./Js.hx#L58>)
-
-
-## function \_makeArgs
-
-
-```haxe
-function _makeArgs(_args:stdgo.Slice<stdgo.AnyInterface>):Void
-```
-
-
-[\(view code\)](<./Js.hx#L53>)
-
-
-## function \_makeValue
-
-
-```haxe
-function _makeValue(_r:stdgo.syscall.js.T_ref):Void
-```
-
-
-[\(view code\)](<./Js.hx#L39>)
-
-
-## function \_predefValue
-
-
-```haxe
-function _predefValue(_id:stdgo.GoUInt32, _typeFlag:stdgo.GoByte):Void
-```
-
-
-[\(view code\)](<./Js.hx#L41>)
-
-
-## function \_setEventHandler
-
-
-```haxe
-function _setEventHandler(_fn:():Bool):Void
-```
-
-
-[\(view code\)](<./Js.hx#L37>)
-
-
-## function \_stringVal
-
-
-```haxe
-function _stringVal(_x:stdgo.GoString):Void
-```
-
-
-[\(view code\)](<./Js.hx#L47>)
-
-
-## function \_valueCall
-
-
-```haxe
-function _valueCall(_v:stdgo.syscall.js.T_ref, _m:stdgo.GoString, _args:stdgo.Slice<stdgo.syscall.js.T_ref>):Void
-```
-
-
-[\(view code\)](<./Js.hx#L55>)
-
-
-## function \_valueDelete
-
-
-```haxe
-function _valueDelete(_v:stdgo.syscall.js.T_ref, _p:stdgo.GoString):Void
-```
-
-
-[\(view code\)](<./Js.hx#L50>)
-
-
-## function \_valueGet
-
-
-```haxe
-function _valueGet(_v:stdgo.syscall.js.T_ref, _p:stdgo.GoString):Void
-```
-
-
-[\(view code\)](<./Js.hx#L48>)
-
-
-## function \_valueIndex
-
-
-```haxe
-function _valueIndex(_v:stdgo.syscall.js.T_ref, _i:stdgo.GoInt):Void
-```
-
-
-[\(view code\)](<./Js.hx#L51>)
-
-
-## function \_valueInstanceOf
-
-
-```haxe
-function _valueInstanceOf(_v:stdgo.syscall.js.T_ref, _t:stdgo.syscall.js.T_ref):Void
-```
-
-
-[\(view code\)](<./Js.hx#L61>)
-
-
-## function \_valueInvoke
-
-
-```haxe
-function _valueInvoke(_v:stdgo.syscall.js.T_ref, _args:stdgo.Slice<stdgo.syscall.js.T_ref>):Void
-```
-
-
-[\(view code\)](<./Js.hx#L56>)
-
-
-## function \_valueLength
-
-
-```haxe
-function _valueLength(_v:stdgo.syscall.js.T_ref):Void
-```
-
-
-[\(view code\)](<./Js.hx#L54>)
-
-
-## function \_valueLoadString
-
-
-```haxe
-function _valueLoadString(_v:stdgo.syscall.js.T_ref, _b:stdgo.Slice<stdgo.GoByte>):Void
-```
-
-
-[\(view code\)](<./Js.hx#L60>)
-
-
-## function \_valueNew
-
-
-```haxe
-function _valueNew(_v:stdgo.syscall.js.T_ref, _args:stdgo.Slice<stdgo.syscall.js.T_ref>):Void
-```
-
-
-[\(view code\)](<./Js.hx#L57>)
-
-
-## function \_valuePrepareString
-
-
-```haxe
-function _valuePrepareString(_v:stdgo.syscall.js.T_ref):Void
-```
-
-
-[\(view code\)](<./Js.hx#L59>)
-
-
-## function \_valueSet
-
-
-```haxe
-function _valueSet(_v:stdgo.syscall.js.T_ref, _p:stdgo.GoString, _x:stdgo.syscall.js.T_ref):Void
-```
-
-
-[\(view code\)](<./Js.hx#L49>)
-
-
-## function \_valueSetIndex
-
-
-```haxe
-function _valueSetIndex(_v:stdgo.syscall.js.T_ref, _i:stdgo.GoInt, _x:stdgo.syscall.js.T_ref):Void
-```
-
-
-[\(view code\)](<./Js.hx#L52>)
-
-
 ## function copyBytesToGo
 
 
 ```haxe
-function copyBytesToGo(_dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.syscall.js.Value):Void
+function copyBytesToGo(dst:Array<Int>, src:stdgo.syscall.js.Value):Int
 ```
 
 
-[\(view code\)](<./Js.hx#L62>)
+
+CopyBytesToGo copies bytes from src to dst.
+It panics if src is not a Uint8Array or Uint8ClampedArray.
+It returns the number of bytes copied, which will be the minimum of the lengths of src and dst.  
+
+[\(view code\)](<./Js.hx#L79>)
 
 
 ## function copyBytesToJS
 
 
 ```haxe
-function copyBytesToJS(_dst:stdgo.syscall.js.Value, _src:stdgo.Slice<stdgo.GoByte>):Void
+function copyBytesToJS(dst:stdgo.syscall.js.Value, src:Array<Int>):Int
 ```
 
 
-[\(view code\)](<./Js.hx#L64>)
+
+CopyBytesToJS copies bytes from src to dst.
+It panics if dst is not a Uint8Array or Uint8ClampedArray.
+It returns the number of bytes copied, which will be the minimum of the lengths of src and dst.  
+
+[\(view code\)](<./Js.hx#L85>)
 
 
 ## function funcOf
 
 
 ```haxe
-function funcOf(_fn:(_this:stdgo.syscall.js.Value, _args:stdgo.Slice<stdgo.syscall.js.Value>):stdgo.AnyInterface):Void
+function funcOf(fn:(_this:stdgo.syscall.js.Value, _args:stdgo.Slice<stdgo.syscall.js.Value>):stdgo.AnyInterface):stdgo.syscall.js.Func
 ```
 
 
-[\(view code\)](<./Js.hx#L36>)
+
+FuncOf returns a function to be used by JavaScript.  
+
+
+The Go function fn is called with the value of JavaScript's "this" keyword and the
+arguments of the invocation. The return value of the invocation is
+the result of the Go function mapped back to JavaScript according to ValueOf.  
+
+
+Invoking the wrapped Go function from JavaScript will
+pause the event loop and spawn a new goroutine.
+Other wrapped functions which are triggered during a call from Go to JavaScript
+get executed on the same goroutine.  
+
+
+As a consequence, if one wrapped function blocks, JavaScript's event loop
+is blocked until that function returns. Hence, calling any async JavaScript
+API, which requires the event loop, like fetch \(http.Client\), will cause an
+immediate deadlock. Therefore a blocking function should explicitly start a
+new goroutine.  
+
+
+Func.Release must be called to free up resources when the function will not be invoked any more.  
+
+[\(view code\)](<./Js.hx#L44>)
 
 
 ## function global
 
 
 ```haxe
-function global():Void
+function global():stdgo.syscall.js.Value
 ```
 
 
-[\(view code\)](<./Js.hx#L45>)
+
+Global returns the JavaScript global object, usually "window" or "global".  
+
+[\(view code\)](<./Js.hx#L56>)
 
 
 ## function null\_
 
 
 ```haxe
-function null_():Void
+function null_():stdgo.syscall.js.Value
 ```
 
 
-[\(view code\)](<./Js.hx#L44>)
+
+Null returns the JavaScript value "null".  
+
+[\(view code\)](<./Js.hx#L52>)
 
 
 ## function undefined
 
 
 ```haxe
-function undefined():Void
+function undefined():stdgo.syscall.js.Value
 ```
 
 
-[\(view code\)](<./Js.hx#L43>)
+
+Undefined returns the JavaScript value "undefined".  
+
+[\(view code\)](<./Js.hx#L48>)
 
 
 ## function valueOf
 
 
 ```haxe
-function valueOf(_x:stdgo.AnyInterface):Void
+function valueOf(x:stdgo.AnyInterface):stdgo.syscall.js.Value
 ```
 
 
-[\(view code\)](<./Js.hx#L46>)
+
+ValueOf returns x as a JavaScript value:  
+
+```
+	| Go                     | JavaScript             |
+	| ---------------------- | ---------------------- |
+	| js.Value               | [its value]            |
+	| js.Func                | function               |
+	| nil                    | null                   |
+	| bool                   | boolean                |
+	| integers and floats    | number                 |
+	| string                 | string                 |
+	| []interface{}          | new array              |
+	| map[string]interface{} | new object             |
+```
+
+Panics if x is not one of the expected types.  
+
+[\(view code\)](<./Js.hx#L73>)
 
 
 # Typedefs

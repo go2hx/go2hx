@@ -43,7 +43,7 @@ class Macro {
 			}
 			trace("non hxb types:", exprs.length);
 			final e = macro $a{exprs};
-			final className = "TypeInfoData";
+			final className = "TypeInfoData_go2hx_";
 			final cl = macro class T {
 				public var names = $e;
 				public function new() {}

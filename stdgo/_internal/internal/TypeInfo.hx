@@ -1,10 +1,28 @@
 package stdgo._internal.internal;
 class TypeInfo {
-    public static var names:TypeInternalMap = std.Type.createInstance(std.Type.resolveClass('TypeInfoData_go2hx_'),[]).names;
+    public static var names:TypeInternalMap = {
+        #if hxb
+        std.Type.createInstance(std.Type.resolveClass('TypeInfoData'),[]).names;
+        #else
+        final names:TypeInternalMap = new TypeInternalMap();//std.Type.createInstance(std.Type.resolveClass('TypeInfoData_go2hx_'),[]).names;
+        try {
+            final hxb:TypeInternalMap = std.Type.createInstance(stdgo._internal.internal.HxbTypeInfoData,[]).names;
+            for (key => value in hxb) {
+                names[key] = value;
+            }
+        }catch(e) {
+            trace(e);
+        }
+        names;
+        #end
+    };
 }
 
 @:forward
 private abstract TypeInternalMap(Map<String,stdgo._internal.internal.reflect.Reflect.GoType>) from Map<String,stdgo._internal.internal.reflect.Reflect.GoType> {
+    public function new() {
+        this = new Map();
+    }
     @:op([])
     private function get(s:String) {
         if (this == null)

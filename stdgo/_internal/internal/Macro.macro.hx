@@ -20,13 +20,14 @@ class Macro {
 			}
 			trace("hxb types:", exprs.length);
 			final e = macro $a{exprs};
-			final className = "TypeInfoData_go2hx_";
+			final className = "HxbTypeInfoData";
 			final cl = macro class T {
 				public var names = $e;
 				public function new() {}
 			};
+			cl.pack = ["stdgo", "_internal", "internal"];
 			cl.name = className;
-			sys.io.File.saveContent(cl.name + ".hx", new haxe.macro.Printer().printTypeDefinition(cl));
+			sys.io.File.saveContent(haxe.io.Path.join(cl.pack.concat([cl.name + ".hx"])), new haxe.macro.Printer().printTypeDefinition(cl, true));
 			Context.defineType(cl);
 		});
     }
@@ -42,7 +43,7 @@ class Macro {
 			}
 			trace("non hxb types:", exprs.length);
 			final e = macro $a{exprs};
-			final className = "TypeInfoData_go2hx_";
+			final className = "TypeInfoData";
 			final cl = macro class T {
 				public var names = $e;
 				public function new() {}

@@ -88,13 +88,13 @@ package stdgo.os.exec;
     // See https://go.dev/blog/path-security for more information.
 **/
 private var __go2hxdoc__package : Bool;
-var errWaitDelay(get_errWaitDelay, set_errWaitDelay) : stdgo.Error;
+var errWaitDelay(get, set) : stdgo.Error;
 function get_errWaitDelay():stdgo.Error return stdgo._internal.os.exec.Exec.errWaitDelay;
 function set_errWaitDelay(v:stdgo.Error):stdgo.Error return stdgo._internal.os.exec.Exec.errWaitDelay = v;
-var errDot(get_errDot, set_errDot) : stdgo.Error;
+var errDot(get, set) : stdgo.Error;
 function get_errDot():stdgo.Error return stdgo._internal.os.exec.Exec.errDot;
 function set_errDot(v:stdgo.Error):stdgo.Error return stdgo._internal.os.exec.Exec.errDot = v;
-var errNotFound(get_errNotFound, set_errNotFound) : stdgo.Error;
+var errNotFound(get, set) : stdgo.Error;
 function get_errNotFound():stdgo.Error return stdgo._internal.os.exec.Exec.errNotFound;
 function set_errNotFound(v:stdgo.Error):stdgo.Error return stdgo._internal.os.exec.Exec.errNotFound = v;
 @:invalid typedef Error = Dynamic;

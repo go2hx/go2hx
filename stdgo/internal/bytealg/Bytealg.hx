@@ -1,5 +1,5 @@
 package stdgo.internal.bytealg;
-var maxLen(get_maxLen, set_maxLen) : Int;
+var maxLen(get, set) : Int;
 function get_maxLen():Int return stdgo._internal.internal.bytealg.Bytealg.maxLen;
 function set_maxLen(v:Int):Int return stdgo._internal.internal.bytealg.Bytealg.maxLen = v;
 final primeRK : haxe.UInt64 = stdgo._internal.internal.bytealg.Bytealg.primeRK;

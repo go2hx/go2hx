@@ -5,7 +5,7 @@ package stdgo.internal.godebugs;
     // runtime, runtime/metrics, and cmd/go/internal/load.
 **/
 private var __go2hxdoc__package : Bool;
-var all(get_all, set_all) : Array<stdgo._internal.internal.godebugs.Godebugs.Info>;
+var all(get, set) : Array<stdgo._internal.internal.godebugs.Godebugs.Info>;
 function get_all():Array<stdgo._internal.internal.godebugs.Godebugs.Info> return stdgo._internal.internal.godebugs.Godebugs.all;
 function set_all(v:Array<stdgo._internal.internal.godebugs.Godebugs.Info>):Array<stdgo._internal.internal.godebugs.Godebugs.Info> return stdgo._internal.internal.godebugs.Godebugs.all = v;
 @:invalid typedef Info = Dynamic;

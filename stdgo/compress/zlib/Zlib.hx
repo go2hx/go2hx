@@ -21,13 +21,13 @@ package stdgo.compress.zlib;
     *|/
 **/
 private var __go2hxdoc__package : Bool;
-var errChecksum(get_errChecksum, set_errChecksum) : stdgo.Error;
+var errChecksum(get, set) : stdgo.Error;
 function get_errChecksum():stdgo.Error return stdgo._internal.compress.zlib.Zlib.errChecksum;
 function set_errChecksum(v:stdgo.Error):stdgo.Error return stdgo._internal.compress.zlib.Zlib.errChecksum = v;
-var errDictionary(get_errDictionary, set_errDictionary) : stdgo.Error;
+var errDictionary(get, set) : stdgo.Error;
 function get_errDictionary():stdgo.Error return stdgo._internal.compress.zlib.Zlib.errDictionary;
 function set_errDictionary(v:stdgo.Error):stdgo.Error return stdgo._internal.compress.zlib.Zlib.errDictionary = v;
-var errHeader(get_errHeader, set_errHeader) : stdgo.Error;
+var errHeader(get, set) : stdgo.Error;
 function get_errHeader():stdgo.Error return stdgo._internal.compress.zlib.Zlib.errHeader;
 function set_errHeader(v:stdgo.Error):stdgo.Error return stdgo._internal.compress.zlib.Zlib.errHeader = v;
 final noCompression : haxe.UInt64 = stdgo._internal.compress.zlib.Zlib.noCompression;

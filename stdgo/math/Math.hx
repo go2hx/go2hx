@@ -5,19 +5,19 @@ package stdgo.math;
     // This package does not guarantee bit-identical results across architectures.
 **/
 private var __go2hxdoc__package : Bool;
-var expGo(get_expGo, set_expGo) : stdgo.GoFloat64 -> stdgo.GoFloat64;
+var expGo(get, set) : stdgo.GoFloat64 -> stdgo.GoFloat64;
 function get_expGo():stdgo.GoFloat64 -> stdgo.GoFloat64 return stdgo._internal.math.Math.expGo;
 function set_expGo(v:stdgo.GoFloat64 -> stdgo.GoFloat64):stdgo.GoFloat64 -> stdgo.GoFloat64 return stdgo._internal.math.Math.expGo = v;
-var exp2Go(get_exp2Go, set_exp2Go) : stdgo.GoFloat64 -> stdgo.GoFloat64;
+var exp2Go(get, set) : stdgo.GoFloat64 -> stdgo.GoFloat64;
 function get_exp2Go():stdgo.GoFloat64 -> stdgo.GoFloat64 return stdgo._internal.math.Math.exp2Go;
 function set_exp2Go(v:stdgo.GoFloat64 -> stdgo.GoFloat64):stdgo.GoFloat64 -> stdgo.GoFloat64 return stdgo._internal.math.Math.exp2Go = v;
-var hypotGo(get_hypotGo, set_hypotGo) : (stdgo.GoFloat64, stdgo.GoFloat64) -> stdgo.GoFloat64;
+var hypotGo(get, set) : (stdgo.GoFloat64, stdgo.GoFloat64) -> stdgo.GoFloat64;
 function get_hypotGo():(stdgo.GoFloat64, stdgo.GoFloat64) -> stdgo.GoFloat64 return stdgo._internal.math.Math.hypotGo;
 function set_hypotGo(v:(stdgo.GoFloat64, stdgo.GoFloat64) -> stdgo.GoFloat64):(stdgo.GoFloat64, stdgo.GoFloat64) -> stdgo.GoFloat64 return stdgo._internal.math.Math.hypotGo = v;
-var sqrtGo(get_sqrtGo, set_sqrtGo) : stdgo.GoFloat64 -> stdgo.GoFloat64;
+var sqrtGo(get, set) : stdgo.GoFloat64 -> stdgo.GoFloat64;
 function get_sqrtGo():stdgo.GoFloat64 -> stdgo.GoFloat64 return stdgo._internal.math.Math.sqrtGo;
 function set_sqrtGo(v:stdgo.GoFloat64 -> stdgo.GoFloat64):stdgo.GoFloat64 -> stdgo.GoFloat64 return stdgo._internal.math.Math.sqrtGo = v;
-var trigReduce(get_trigReduce, set_trigReduce) : stdgo.GoFloat64 -> { var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; };
+var trigReduce(get, set) : stdgo.GoFloat64 -> { var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; };
 function get_trigReduce():stdgo.GoFloat64 -> { var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; } return stdgo._internal.math.Math.trigReduce;
 function set_trigReduce(v:stdgo.GoFloat64 -> { var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; }):stdgo.GoFloat64 -> { var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; } return stdgo._internal.math.Math.trigReduce = v;
 final e : Float = stdgo._internal.math.Math.e;

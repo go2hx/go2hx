@@ -51,10 +51,10 @@ package stdgo.context;
     // Contexts.
 **/
 private var __go2hxdoc__package : Bool;
-var canceled(get_canceled, set_canceled) : stdgo.Error;
+var canceled(get, set) : stdgo.Error;
 function get_canceled():stdgo.Error return stdgo._internal.context.Context.canceled;
 function set_canceled(v:stdgo.Error):stdgo.Error return stdgo._internal.context.Context.canceled = v;
-var deadlineExceeded(get_deadlineExceeded, set_deadlineExceeded) : stdgo.Error;
+var deadlineExceeded(get, set) : stdgo.Error;
 function get_deadlineExceeded():stdgo.Error return stdgo._internal.context.Context.deadlineExceeded;
 function set_deadlineExceeded(v:stdgo.Error):stdgo.Error return stdgo._internal.context.Context.deadlineExceeded = v;
 typedef Context = stdgo._internal.context.Context.Context;

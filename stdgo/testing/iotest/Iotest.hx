@@ -3,7 +3,7 @@ package stdgo.testing.iotest;
     // Package iotest implements Readers and Writers useful mainly for testing.
 **/
 private var __go2hxdoc__package : Bool;
-var errTimeout(get_errTimeout, set_errTimeout) : stdgo.Error;
+var errTimeout(get, set) : stdgo.Error;
 function get_errTimeout():stdgo.Error return stdgo._internal.testing.iotest.Iotest.errTimeout;
 function set_errTimeout(v:stdgo.Error):stdgo.Error return stdgo._internal.testing.iotest.Iotest.errTimeout = v;
 @:invalid typedef T_writeLogger = Dynamic;

@@ -3,16 +3,16 @@ package stdgo.encoding.base64;
     // Package base64 implements base64 encoding as specified by RFC 4648.
 **/
 private var __go2hxdoc__package : Bool;
-var stdEncoding(get_stdEncoding, set_stdEncoding) : stdgo._internal.encoding.base64.Base64.Encoding;
+var stdEncoding(get, set) : stdgo._internal.encoding.base64.Base64.Encoding;
 function get_stdEncoding():stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.stdEncoding;
 function set_stdEncoding(v:stdgo._internal.encoding.base64.Base64.Encoding):stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.stdEncoding = v;
-var urlencoding(get_urlencoding, set_urlencoding) : stdgo._internal.encoding.base64.Base64.Encoding;
+var urlencoding(get, set) : stdgo._internal.encoding.base64.Base64.Encoding;
 function get_urlencoding():stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.urlencoding;
 function set_urlencoding(v:stdgo._internal.encoding.base64.Base64.Encoding):stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.urlencoding = v;
-var rawStdEncoding(get_rawStdEncoding, set_rawStdEncoding) : stdgo._internal.encoding.base64.Base64.Encoding;
+var rawStdEncoding(get, set) : stdgo._internal.encoding.base64.Base64.Encoding;
 function get_rawStdEncoding():stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.rawStdEncoding;
 function set_rawStdEncoding(v:stdgo._internal.encoding.base64.Base64.Encoding):stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.rawStdEncoding = v;
-var rawURLEncoding(get_rawURLEncoding, set_rawURLEncoding) : stdgo._internal.encoding.base64.Base64.Encoding;
+var rawURLEncoding(get, set) : stdgo._internal.encoding.base64.Base64.Encoding;
 function get_rawURLEncoding():stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.rawURLEncoding;
 function set_rawURLEncoding(v:stdgo._internal.encoding.base64.Base64.Encoding):stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.rawURLEncoding = v;
 final stdPadding : Int = stdgo._internal.encoding.base64.Base64.stdPadding;

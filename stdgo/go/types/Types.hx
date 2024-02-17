@@ -23,7 +23,7 @@ package stdgo.go.types;
     // For a tutorial, see https://golang.org/s/types-tutorial.
 **/
 private var __go2hxdoc__package : Bool;
-var typ(get_typ, set_typ) : Array<stdgo._internal.go.types.Types.Basic>;
+var typ(get, set) : Array<stdgo._internal.go.types.Types.Basic>;
 function get_typ():Array<stdgo._internal.go.types.Types.Basic> return stdgo._internal.go.types.Types.typ;
 function set_typ(v:Array<stdgo._internal.go.types.Types.Basic>):Array<stdgo._internal.go.types.Types.Basic> return stdgo._internal.go.types.Types.typ = v;
 final invalid : stdgo._internal.go.types.Types.BasicKind = stdgo._internal.go.types.Types.invalid;
@@ -70,10 +70,10 @@ final recvOnly = stdgo._internal.go.types.Types.recvOnly;
 final fieldVal : stdgo._internal.go.types.Types.SelectionKind = stdgo._internal.go.types.Types.fieldVal;
 final methodVal = stdgo._internal.go.types.Types.methodVal;
 final methodExpr = stdgo._internal.go.types.Types.methodExpr;
-var universe(get_universe, set_universe) : Scope;
+var universe(get, set) : Scope;
 function get_universe():Scope return stdgo._internal.go.types.Types.universe;
 function set_universe(v:Scope):Scope return stdgo._internal.go.types.Types.universe = v;
-var unsafe(get_unsafe, set_unsafe) : Package;
+var unsafe(get, set) : Package;
 function get_unsafe():Package return stdgo._internal.go.types.Types.unsafe;
 function set_unsafe(v:Package):Package return stdgo._internal.go.types.Types.unsafe = v;
 typedef Importer = stdgo._internal.go.types.Types.Importer;

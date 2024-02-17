@@ -9,7 +9,7 @@ package stdgo.path;
     // operating system paths, use the path/filepath package.
 **/
 private var __go2hxdoc__package : Bool;
-var errBadPattern(get_errBadPattern, set_errBadPattern) : stdgo.Error;
+var errBadPattern(get, set) : stdgo.Error;
 function get_errBadPattern():stdgo.Error return stdgo._internal.path.Path.errBadPattern;
 function set_errBadPattern(v:stdgo.Error):stdgo.Error return stdgo._internal.path.Path.errBadPattern = v;
 @:invalid typedef T_lazybuf = Dynamic;

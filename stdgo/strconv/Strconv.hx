@@ -53,16 +53,16 @@ package stdgo.strconv;
     // [Unquote] and [UnquoteChar] unquote Go string and rune literals.
 **/
 private var __go2hxdoc__package : Bool;
-var errRange(get_errRange, set_errRange) : stdgo.Error;
+var errRange(get, set) : stdgo.Error;
 function get_errRange():stdgo.Error return stdgo._internal.strconv.Strconv.errRange;
 function set_errRange(v:stdgo.Error):stdgo.Error return stdgo._internal.strconv.Strconv.errRange = v;
-var errSyntax(get_errSyntax, set_errSyntax) : stdgo.Error;
+var errSyntax(get, set) : stdgo.Error;
 function get_errSyntax():stdgo.Error return stdgo._internal.strconv.Strconv.errSyntax;
 function set_errSyntax(v:stdgo.Error):stdgo.Error return stdgo._internal.strconv.Strconv.errSyntax = v;
-var bitSizeError(get_bitSizeError, set_bitSizeError) : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError>;
+var bitSizeError(get, set) : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError>;
 function get_bitSizeError():(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> return stdgo._internal.strconv.Strconv.bitSizeError;
 function set_bitSizeError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError>):(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> return stdgo._internal.strconv.Strconv.bitSizeError = v;
-var baseError(get_baseError, set_baseError) : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError>;
+var baseError(get, set) : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError>;
 function get_baseError():(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> return stdgo._internal.strconv.Strconv.baseError;
 function set_baseError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError>):(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> return stdgo._internal.strconv.Strconv.baseError = v;
 final intSize : haxe.UInt64 = stdgo._internal.strconv.Strconv.intSize;

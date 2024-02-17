@@ -80,16 +80,16 @@ package stdgo.flag;
     *|/
 **/
 private var __go2hxdoc__package : Bool;
-var errHelp(get_errHelp, set_errHelp) : stdgo.Error;
+var errHelp(get, set) : stdgo.Error;
 function get_errHelp():stdgo.Error return stdgo._internal.flag.Flag.errHelp;
 function set_errHelp(v:stdgo.Error):stdgo.Error return stdgo._internal.flag.Flag.errHelp = v;
-var commandLine(get_commandLine, set_commandLine) : stdgo._internal.flag.Flag.FlagSet;
+var commandLine(get, set) : stdgo._internal.flag.Flag.FlagSet;
 function get_commandLine():stdgo._internal.flag.Flag.FlagSet return stdgo._internal.flag.Flag.commandLine;
 function set_commandLine(v:stdgo._internal.flag.Flag.FlagSet):stdgo._internal.flag.Flag.FlagSet return stdgo._internal.flag.Flag.commandLine = v;
-var usage(get_usage, set_usage) : () -> Void;
+var usage(get, set) : () -> Void;
 function get_usage():() -> Void return stdgo._internal.flag.Flag.usage;
 function set_usage(v:() -> Void):() -> Void return stdgo._internal.flag.Flag.usage = v;
-var defaultUsage(get_defaultUsage, set_defaultUsage) : () -> Void;
+var defaultUsage(get, set) : () -> Void;
 function get_defaultUsage():() -> Void return stdgo._internal.flag.Flag.defaultUsage;
 function set_defaultUsage(v:() -> Void):() -> Void return stdgo._internal.flag.Flag.defaultUsage = v;
 final continueOnError : stdgo._internal.flag.Flag.ErrorHandling = stdgo._internal.flag.Flag.continueOnError;

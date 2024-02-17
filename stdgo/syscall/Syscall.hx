@@ -114,7 +114,7 @@ final s_IRWXO : haxe.UInt64 = stdgo._internal.syscall.Syscall.s_IRWXO;
 final s_IROTH : haxe.UInt64 = stdgo._internal.syscall.Syscall.s_IROTH;
 final s_IWOTH : haxe.UInt64 = stdgo._internal.syscall.Syscall.s_IWOTH;
 final s_IXOTH : haxe.UInt64 = stdgo._internal.syscall.Syscall.s_IXOTH;
-var forkLock(get_forkLock, set_forkLock) : stdgo._internal.sync.Sync.RWMutex;
+var forkLock(get, set) : stdgo._internal.sync.Sync.RWMutex;
 function get_forkLock():stdgo._internal.sync.Sync.RWMutex return stdgo._internal.syscall.Syscall.forkLock;
 function set_forkLock(v:stdgo._internal.sync.Sync.RWMutex):stdgo._internal.sync.Sync.RWMutex return stdgo._internal.syscall.Syscall.forkLock = v;
 final implementsGetwd : Bool = stdgo._internal.syscall.Syscall.implementsGetwd;

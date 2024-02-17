@@ -8,7 +8,7 @@ package stdgo.testing.internal.testdeps;
     // Direct dependencies of package testing are harder to write tests for.
 **/
 private var __go2hxdoc__package : Bool;
-var importPath(get_importPath, set_importPath) : String;
+var importPath(get, set) : String;
 function get_importPath():String return stdgo._internal.testing.internal.testdeps.Testdeps.importPath;
 function set_importPath(v:String):String return stdgo._internal.testing.internal.testdeps.Testdeps.importPath = v;
 @:invalid typedef TestDeps = Dynamic;

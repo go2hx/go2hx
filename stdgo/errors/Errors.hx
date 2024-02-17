@@ -54,7 +54,7 @@ package stdgo.errors;
     // because the former will succeed if err wraps an [*io/fs.PathError].
 **/
 private var __go2hxdoc__package : Bool;
-var errUnsupported(get_errUnsupported, set_errUnsupported) : stdgo.Error;
+var errUnsupported(get, set) : stdgo.Error;
 function get_errUnsupported():stdgo.Error return stdgo._internal.errors.Errors.errUnsupported;
 function set_errUnsupported(v:stdgo.Error):stdgo.Error return stdgo._internal.errors.Errors.errUnsupported = v;
 typedef T__interface_0 = stdgo._internal.errors.Errors.T__interface_0;

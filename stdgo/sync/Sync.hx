@@ -8,16 +8,16 @@ package stdgo.sync;
     // Values containing the types defined in this package should not be copied.
 **/
 private var __go2hxdoc__package : Bool;
-var runtime_Semacquire(get_runtime_Semacquire, set_runtime_Semacquire) : stdgo.Pointer<stdgo.GoUInt32> -> Void;
+var runtime_Semacquire(get, set) : stdgo.Pointer<stdgo.GoUInt32> -> Void;
 function get_runtime_Semacquire():stdgo.Pointer<stdgo.GoUInt32> -> Void return stdgo._internal.sync.Sync.runtime_Semacquire;
 function set_runtime_Semacquire(v:stdgo.Pointer<stdgo.GoUInt32> -> Void):stdgo.Pointer<stdgo.GoUInt32> -> Void return stdgo._internal.sync.Sync.runtime_Semacquire = v;
-var runtime_Semrelease(get_runtime_Semrelease, set_runtime_Semrelease) : (stdgo.Pointer<stdgo.GoUInt32>, Bool, stdgo.GoInt) -> Void;
+var runtime_Semrelease(get, set) : (stdgo.Pointer<stdgo.GoUInt32>, Bool, stdgo.GoInt) -> Void;
 function get_runtime_Semrelease():(stdgo.Pointer<stdgo.GoUInt32>, Bool, stdgo.GoInt) -> Void return stdgo._internal.sync.Sync.runtime_Semrelease;
 function set_runtime_Semrelease(v:(stdgo.Pointer<stdgo.GoUInt32>, Bool, stdgo.GoInt) -> Void):(stdgo.Pointer<stdgo.GoUInt32>, Bool, stdgo.GoInt) -> Void return stdgo._internal.sync.Sync.runtime_Semrelease = v;
-var runtime_procPin(get_runtime_procPin, set_runtime_procPin) : () -> stdgo.GoInt;
+var runtime_procPin(get, set) : () -> stdgo.GoInt;
 function get_runtime_procPin():() -> stdgo.GoInt return stdgo._internal.sync.Sync.runtime_procPin;
 function set_runtime_procPin(v:() -> stdgo.GoInt):() -> stdgo.GoInt return stdgo._internal.sync.Sync.runtime_procPin = v;
-var runtime_procUnpin(get_runtime_procUnpin, set_runtime_procUnpin) : () -> Void;
+var runtime_procUnpin(get, set) : () -> Void;
 function get_runtime_procUnpin():() -> Void return stdgo._internal.sync.Sync.runtime_procUnpin;
 function set_runtime_procUnpin(v:() -> Void):() -> Void return stdgo._internal.sync.Sync.runtime_procUnpin = v;
 typedef PoolDequeue = stdgo._internal.sync.Sync.PoolDequeue;

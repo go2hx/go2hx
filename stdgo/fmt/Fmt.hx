@@ -380,10 +380,10 @@ package stdgo.fmt;
     *|/
 **/
 private var __go2hxdoc__package : Bool;
-var isSpace(get_isSpace, set_isSpace) : stdgo.GoInt32 -> Bool;
+var isSpace(get, set) : stdgo.GoInt32 -> Bool;
 function get_isSpace():stdgo.GoInt32 -> Bool return stdgo._internal.fmt.Fmt.isSpace;
 function set_isSpace(v:stdgo.GoInt32 -> Bool):stdgo.GoInt32 -> Bool return stdgo._internal.fmt.Fmt.isSpace = v;
-var parsenum(get_parsenum, set_parsenum) : (stdgo.GoString, stdgo.GoInt, stdgo.GoInt) -> { var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoInt; };
+var parsenum(get, set) : (stdgo.GoString, stdgo.GoInt, stdgo.GoInt) -> { var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoInt; };
 function get_parsenum():(stdgo.GoString, stdgo.GoInt, stdgo.GoInt) -> { var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoInt; } return stdgo._internal.fmt.Fmt.parsenum;
 function set_parsenum(v:(stdgo.GoString, stdgo.GoInt, stdgo.GoInt) -> { var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoInt; }):(stdgo.GoString, stdgo.GoInt, stdgo.GoInt) -> { var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoInt; } return stdgo._internal.fmt.Fmt.parsenum = v;
 typedef State = stdgo._internal.fmt.Fmt.State;

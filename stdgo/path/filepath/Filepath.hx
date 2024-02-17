@@ -9,16 +9,16 @@ package stdgo.path.filepath;
     // system, see the [path] package.
 **/
 private var __go2hxdoc__package : Bool;
-var errBadPattern(get_errBadPattern, set_errBadPattern) : stdgo.Error;
+var errBadPattern(get, set) : stdgo.Error;
 function get_errBadPattern():stdgo.Error return stdgo._internal.path.filepath.Filepath.errBadPattern;
 function set_errBadPattern(v:stdgo.Error):stdgo.Error return stdgo._internal.path.filepath.Filepath.errBadPattern = v;
-var skipDir(get_skipDir, set_skipDir) : stdgo.Error;
+var skipDir(get, set) : stdgo.Error;
 function get_skipDir():stdgo.Error return stdgo._internal.path.filepath.Filepath.skipDir;
 function set_skipDir(v:stdgo.Error):stdgo.Error return stdgo._internal.path.filepath.Filepath.skipDir = v;
-var skipAll(get_skipAll, set_skipAll) : stdgo.Error;
+var skipAll(get, set) : stdgo.Error;
 function get_skipAll():stdgo.Error return stdgo._internal.path.filepath.Filepath.skipAll;
 function set_skipAll(v:stdgo.Error):stdgo.Error return stdgo._internal.path.filepath.Filepath.skipAll = v;
-var lstatP(get_lstatP, set_lstatP) : stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; };
+var lstatP(get, set) : stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; };
 function get_lstatP():stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return stdgo._internal.path.filepath.Filepath.lstatP;
 function set_lstatP(v:stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; }):stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return stdgo._internal.path.filepath.Filepath.lstatP = v;
 final separator : Int = stdgo._internal.path.filepath.Filepath.separator;

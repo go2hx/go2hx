@@ -4,7 +4,7 @@ package stdgo.crypto.rand;
     // random number generator.
 **/
 private var __go2hxdoc__package : Bool;
-var reader(get_reader, set_reader) : stdgo._internal.io.Io.Reader;
+var reader(get, set) : stdgo._internal.io.Io.Reader;
 function get_reader():stdgo._internal.io.Io.Reader return stdgo._internal.crypto.rand.Rand.reader;
 function set_reader(v:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader return stdgo._internal.crypto.rand.Rand.reader = v;
 @:invalid typedef T_reader = Dynamic;

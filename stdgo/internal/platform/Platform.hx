@@ -1,5 +1,5 @@
 package stdgo.internal.platform;
-var list(get_list, set_list) : Array<stdgo._internal.internal.platform.Platform.OSArch>;
+var list(get, set) : Array<stdgo._internal.internal.platform.Platform.OSArch>;
 function get_list():Array<stdgo._internal.internal.platform.Platform.OSArch> return stdgo._internal.internal.platform.Platform.list;
 function set_list(v:Array<stdgo._internal.internal.platform.Platform.OSArch>):Array<stdgo._internal.internal.platform.Platform.OSArch> return stdgo._internal.internal.platform.Platform.list = v;
 @:invalid typedef OSArch = Dynamic;

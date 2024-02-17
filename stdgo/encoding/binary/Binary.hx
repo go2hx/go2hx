@@ -19,13 +19,13 @@ package stdgo.encoding.binary;
     // package or protocol buffers.
 **/
 private var __go2hxdoc__package : Bool;
-var littleEndian(get_littleEndian, set_littleEndian) : T_littleEndian;
+var littleEndian(get, set) : T_littleEndian;
 function get_littleEndian():T_littleEndian return stdgo._internal.encoding.binary.Binary.littleEndian;
 function set_littleEndian(v:T_littleEndian):T_littleEndian return stdgo._internal.encoding.binary.Binary.littleEndian = v;
-var bigEndian(get_bigEndian, set_bigEndian) : T_bigEndian;
+var bigEndian(get, set) : T_bigEndian;
 function get_bigEndian():T_bigEndian return stdgo._internal.encoding.binary.Binary.bigEndian;
 function set_bigEndian(v:T_bigEndian):T_bigEndian return stdgo._internal.encoding.binary.Binary.bigEndian = v;
-var nativeEndian(get_nativeEndian, set_nativeEndian) : T_nativeEndian;
+var nativeEndian(get, set) : T_nativeEndian;
 function get_nativeEndian():T_nativeEndian return stdgo._internal.encoding.binary.Binary.nativeEndian;
 function set_nativeEndian(v:T_nativeEndian):T_nativeEndian return stdgo._internal.encoding.binary.Binary.nativeEndian = v;
 final maxVarintLen16 : haxe.UInt64 = stdgo._internal.encoding.binary.Binary.maxVarintLen16;

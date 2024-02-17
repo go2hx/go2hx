@@ -3,7 +3,7 @@ package stdgo.encoding.hex;
     // Package hex implements hexadecimal encoding and decoding.
 **/
 private var __go2hxdoc__package : Bool;
-var errLength(get_errLength, set_errLength) : stdgo.Error;
+var errLength(get, set) : stdgo.Error;
 function get_errLength():stdgo.Error return stdgo._internal.encoding.hex.Hex.errLength;
 function set_errLength(v:stdgo.Error):stdgo.Error return stdgo._internal.encoding.hex.Hex.errLength = v;
 @:invalid typedef T_encoder = Dynamic;

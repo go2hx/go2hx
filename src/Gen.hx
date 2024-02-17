@@ -271,7 +271,7 @@ function externGenVar(td:TypeDefinition, path:String):Array<TypeDefinition> {
 				pos: td.pos,
 				pack: td.pack,
 				fields: td.fields,
-				kind: TDField(FProp("get_" + td.name, "set_" + td.name, convertComplexType(type))),
+				kind: TDField(FProp("get", "set", convertComplexType(type))),
 			},{
 				name: "get_" + td.name,
 				pos: td.pos,

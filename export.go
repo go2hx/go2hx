@@ -100,7 +100,7 @@ func compile(params []string, excludesData []string, index string, debug bool) [
 		switch param {
 		case "-test", "--test":
 			testBool = true
-		case "-nodeps", "--nodeps":
+		case "-nodeps", "--nodeps", "-nodep", "--nodep":
 			noDepsBool = true
 		case "-debug", "--debug":
 			debugBool = true
@@ -138,11 +138,10 @@ func compile(params []string, excludesData []string, index string, debug bool) [
 		excludes[exclude] = true
 	}
 	if len(initial) > 0 {
-		if !noDepsBool {
-			for exclude := range stdgoList {
-				excludes[exclude] = true
-			}
+		for exclude := range stdgoList {
+			excludes[exclude] = true
 		}
+
 		for _, pkg := range initial { //remove initial packages from exclude list
 			delete(excludes, pkg.PkgPath)
 		}

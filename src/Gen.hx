@@ -420,7 +420,7 @@ function convertComplexType(ct:ComplexType):ComplexType {
 				}
 				final is2 = fields.length == 2;
 				final name = "Tuple";
-				final sub = is2 ? "" : "Tuple" + fields.length;
+				final sub = is2 ? null : "Tuple" + fields.length;
 				return TPath({name: name, sub: sub, pack: ["stdgo"], params: types});
 			}else{
 				return TAnonymous([for (field in fields) {

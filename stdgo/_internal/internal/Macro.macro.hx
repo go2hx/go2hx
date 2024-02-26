@@ -28,7 +28,7 @@ class Macro {
 			cl.pack = ["stdgo", "_internal", "internal"];
 			cl.name = className;
 			sys.io.File.saveContent(haxe.io.Path.join(cl.pack.concat([cl.name + ".hx"])), new haxe.macro.Printer().printTypeDefinition(cl, true));
-			Context.defineType(cl);
+			//Context.defineType(cl);
 		});
     }
 	public static function init() {

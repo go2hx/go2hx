@@ -3,7 +3,7 @@
 go2hx
 ==========
 > [!WARNING]  
-> experimental version, not able to convert most Go code correctly.
+> experimental version, not able to compile most Go code correctly.
 
 Compile [Go](https://go.dev) to [Haxe](https://haxe.org).
 

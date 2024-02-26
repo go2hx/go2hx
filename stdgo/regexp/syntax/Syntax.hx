@@ -230,13 +230,13 @@ typedef Op = stdgo._internal.regexp.syntax.Syntax.Op;
     // Compile compiles the regexp into a program to be executed.
     // The regexp should have been simplified already (returned from re.Simplify).
 **/
-inline function compile(re:Regexp):stdgo.Tuple.<Prog, stdgo.Error> throw "not implemented";
+inline function compile(re:Regexp):stdgo.Tuple<Prog, stdgo.Error> throw "not implemented";
 /**
     // Parse parses a regular expression string s, controlled by the specified
     // Flags, and returns a regular expression parse tree. The syntax is
     // described in the top-level comment.
 **/
-inline function parse(s:String, flags:Flags):stdgo.Tuple.<Regexp, stdgo.Error> throw "not implemented";
+inline function parse(s:String, flags:Flags):stdgo.Tuple<Regexp, stdgo.Error> throw "not implemented";
 inline function testParseSimple(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testParseFoldCase(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testParseLiteral(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";

@@ -106,7 +106,7 @@ inline function validPath(name:String):Bool throw "not implemented";
     // Otherwise, Glob uses ReadDir to traverse the directory tree
     // and look for matches for the pattern.
 **/
-inline function glob(fsys:FS, pattern:String):stdgo.Tuple.<Array<String>, stdgo.Error> throw "not implemented";
+inline function glob(fsys:FS, pattern:String):stdgo.Tuple<Array<String>, stdgo.Error> throw "not implemented";
 /**
     // ReadDir reads the named directory
     // and returns a list of directory entries sorted by filename.
@@ -115,7 +115,7 @@ inline function glob(fsys:FS, pattern:String):stdgo.Tuple.<Array<String>, stdgo.
     // Otherwise ReadDir calls fs.Open and uses ReadDir and Close
     // on the returned file.
 **/
-inline function readDir(fsys:FS, name:String):stdgo.Tuple.<Array<DirEntry>, stdgo.Error> throw "not implemented";
+inline function readDir(fsys:FS, name:String):stdgo.Tuple<Array<DirEntry>, stdgo.Error> throw "not implemented";
 /**
     // FileInfoToDirEntry returns a DirEntry that returns information from info.
     // If info is nil, FileInfoToDirEntry returns nil.
@@ -131,14 +131,14 @@ inline function fileInfoToDirEntry(info:FileInfo):DirEntry throw "not implemente
     // Otherwise ReadFile calls fs.Open and uses Read and Close
     // on the returned file.
 **/
-inline function readFile(fsys:FS, name:String):stdgo.Tuple.<Array<Int>, stdgo.Error> throw "not implemented";
+inline function readFile(fsys:FS, name:String):stdgo.Tuple<Array<Int>, stdgo.Error> throw "not implemented";
 /**
     // Stat returns a FileInfo describing the named file from the file system.
     //
     // If fs implements StatFS, Stat calls fs.Stat.
     // Otherwise, Stat opens the file to stat it.
 **/
-inline function stat(fsys:FS, name:String):stdgo.Tuple.<FileInfo, stdgo.Error> throw "not implemented";
+inline function stat(fsys:FS, name:String):stdgo.Tuple<FileInfo, stdgo.Error> throw "not implemented";
 /**
     // Sub returns an FS corresponding to the subtree rooted at fsys's dir.
     //
@@ -155,7 +155,7 @@ inline function stat(fsys:FS, name:String):stdgo.Tuple.<FileInfo, stdgo.Error> t
     // other directories. That is, os.DirFS is not a general substitute for a
     // chroot-style security mechanism, and Sub does not change that fact.
 **/
-inline function sub(fsys:FS, dir:String):stdgo.Tuple.<FS, stdgo.Error> throw "not implemented";
+inline function sub(fsys:FS, dir:String):stdgo.Tuple<FS, stdgo.Error> throw "not implemented";
 /**
     // WalkDir walks the file tree rooted at root, calling fn for each file or
     // directory in the tree, including root.

@@ -521,7 +521,7 @@ inline function setMutexProfileFraction(rate:Int):Int throw "not implemented";
     // the testing package's -test.memprofile flag instead
     // of calling MemProfile directly.
 **/
-inline function memProfile(p:Array<MemProfileRecord>, inuseZero:Bool):stdgo.Tuple.<Int, Bool> throw "not implemented";
+inline function memProfile(p:Array<MemProfileRecord>, inuseZero:Bool):stdgo.Tuple<Int, Bool> throw "not implemented";
 /**
     // BlockProfile returns n, the number of records in the current blocking profile.
     // If len(p) >= n, BlockProfile copies the profile into p and returns n, true.
@@ -531,7 +531,7 @@ inline function memProfile(p:Array<MemProfileRecord>, inuseZero:Bool):stdgo.Tupl
     // the testing package's -test.blockprofile flag instead
     // of calling BlockProfile directly.
 **/
-inline function blockProfile(p:Array<BlockProfileRecord>):stdgo.Tuple.<Int, Bool> throw "not implemented";
+inline function blockProfile(p:Array<BlockProfileRecord>):stdgo.Tuple<Int, Bool> throw "not implemented";
 /**
     // MutexProfile returns n, the number of records in the current mutex profile.
     // If len(p) >= n, MutexProfile copies the profile into p and returns n, true.
@@ -540,7 +540,7 @@ inline function blockProfile(p:Array<BlockProfileRecord>):stdgo.Tuple.<Int, Bool
     // Most clients should use the runtime/pprof package
     // instead of calling MutexProfile directly.
 **/
-inline function mutexProfile(p:Array<BlockProfileRecord>):stdgo.Tuple.<Int, Bool> throw "not implemented";
+inline function mutexProfile(p:Array<BlockProfileRecord>):stdgo.Tuple<Int, Bool> throw "not implemented";
 /**
     // ThreadCreateProfile returns n, the number of records in the thread creation profile.
     // If len(p) >= n, ThreadCreateProfile copies the profile into p and returns n, true.
@@ -549,7 +549,7 @@ inline function mutexProfile(p:Array<BlockProfileRecord>):stdgo.Tuple.<Int, Bool
     // Most clients should use the runtime/pprof package instead
     // of calling ThreadCreateProfile directly.
 **/
-inline function threadCreateProfile(p:Array<StackRecord>):stdgo.Tuple.<Int, Bool> throw "not implemented";
+inline function threadCreateProfile(p:Array<StackRecord>):stdgo.Tuple<Int, Bool> throw "not implemented";
 /**
     // GoroutineProfile returns n, the number of records in the active goroutine stack profile.
     // If len(p) >= n, GoroutineProfile copies the profile into p and returns n, true.
@@ -558,7 +558,7 @@ inline function threadCreateProfile(p:Array<StackRecord>):stdgo.Tuple.<Int, Bool
     // Most clients should use the runtime/pprof package instead
     // of calling GoroutineProfile directly.
 **/
-inline function goroutineProfile(p:Array<StackRecord>):stdgo.Tuple.<Int, Bool> throw "not implemented";
+inline function goroutineProfile(p:Array<StackRecord>):stdgo.Tuple<Int, Bool> throw "not implemented";
 /**
     // Stack formats a stack trace of the calling goroutine into buf
     // and returns the number of bytes written to buf.

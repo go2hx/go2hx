@@ -126,7 +126,7 @@ inline function shuffle(n:Int, swap:(_i:stdgo.GoInt, _j:stdgo.GoInt) -> Void):Vo
     //
     // Deprecated: For almost all use cases, crypto/rand.Read is more appropriate.
 **/
-inline function read(p:Array<Int>):stdgo.Tuple.<Int, stdgo.Error> throw "not implemented";
+inline function read(p:Array<Int>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 /**
     // NormFloat64 returns a normally distributed float64 in the range
     // [-math.MaxFloat64, +math.MaxFloat64] with

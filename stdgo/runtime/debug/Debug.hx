@@ -176,8 +176,8 @@ inline function setMemoryLimit(limit:haxe.Int64):haxe.Int64 throw "not implement
     // in the running binary. The information is available only
     // in binaries built with module support.
 **/
-inline function readBuildInfo():stdgo.Tuple.<BuildInfo, Bool> throw "not implemented";
-inline function parseBuildInfo(data:String):stdgo.Tuple.<BuildInfo, stdgo.Error> throw "not implemented";
+inline function readBuildInfo():stdgo.Tuple<BuildInfo, Bool> throw "not implemented";
+inline function parseBuildInfo(data:String):stdgo.Tuple<BuildInfo, stdgo.Error> throw "not implemented";
 /**
     // PrintStack prints to standard error the stack trace returned by runtime.Stack.
 **/

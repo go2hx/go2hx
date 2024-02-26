@@ -190,7 +190,7 @@ typedef Writer = stdgo._internal.internal.bisect.Bisect.Writer;
     // [Hash], [Matcher.ShouldEnable], and [Matcher.ShouldPrint] entirely
     // when they recognize the nil Matcher.
 **/
-inline function new_(pattern:String):stdgo.Tuple.<Matcher, stdgo.Error> throw "not implemented";
+inline function new_(pattern:String):stdgo.Tuple<Matcher, stdgo.Error> throw "not implemented";
 /**
     // PrintMarker prints to w a one-line report containing only the marker for h.
     // It is appropriate to use when [Matcher.ShouldPrint] and [Matcher.MarkerOnly] both return true.

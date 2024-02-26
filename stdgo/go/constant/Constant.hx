@@ -84,17 +84,17 @@ inline function stringVal(x:Value):String throw "not implemented";
     // x must be an Int or an Unknown. If the result is not exact, its value is undefined.
     // If x is Unknown, the result is (0, false).
 **/
-inline function int64Val(x:Value):stdgo.Tuple.<haxe.Int64, Bool> throw "not implemented";
+inline function int64Val(x:Value):stdgo.Tuple<haxe.Int64, Bool> throw "not implemented";
 /**
     // Uint64Val returns the Go uint64 value of x and whether the result is exact;
     // x must be an Int or an Unknown. If the result is not exact, its value is undefined.
     // If x is Unknown, the result is (0, false).
 **/
-inline function uint64Val(x:Value):stdgo.Tuple.<haxe.UInt64, Bool> throw "not implemented";
+inline function uint64Val(x:Value):stdgo.Tuple<haxe.UInt64, Bool> throw "not implemented";
 /**
     // Float32Val is like Float64Val but for float32 instead of float64.
 **/
-inline function float32Val(x:Value):stdgo.Tuple.<Float, Bool> throw "not implemented";
+inline function float32Val(x:Value):stdgo.Tuple<Float, Bool> throw "not implemented";
 /**
     // Float64Val returns the nearest Go float64 value of x and whether the result is exact;
     // x must be numeric or an Unknown, but not Complex. For values too small (too close to 0)
@@ -102,7 +102,7 @@ inline function float32Val(x:Value):stdgo.Tuple.<Float, Bool> throw "not impleme
     // matches the sign of x, even for 0.
     // If x is Unknown, the result is (0, false).
 **/
-inline function float64Val(x:Value):stdgo.Tuple.<Float, Bool> throw "not implemented";
+inline function float64Val(x:Value):stdgo.Tuple<Float, Bool> throw "not implemented";
 /**
     // Val returns the underlying value for a given constant. Since it returns an
     // interface, it is up to the caller to type assert the result to the expected

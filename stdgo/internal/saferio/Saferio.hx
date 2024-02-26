@@ -16,13 +16,13 @@ private var __go2hxdoc__package : Bool;
     // If an io.EOF happens after reading some but not all the bytes,
     // ReadData returns io.ErrUnexpectedEOF.
 **/
-inline function readData(r:stdgo._internal.io.Io.Reader, n:haxe.UInt64):stdgo.Tuple.<Array<Int>, stdgo.Error> throw "not implemented";
+inline function readData(r:stdgo._internal.io.Io.Reader, n:haxe.UInt64):stdgo.Tuple<Array<Int>, stdgo.Error> throw "not implemented";
 /**
     // ReadDataAt reads n bytes from the input stream at off, but avoids
     // allocating all n bytes if n is large. This avoids crashing the program
     // by allocating all n bytes in cases where n is incorrect.
 **/
-inline function readDataAt(r:stdgo._internal.io.Io.ReaderAt, n:haxe.UInt64, off:haxe.Int64):stdgo.Tuple.<Array<Int>, stdgo.Error> throw "not implemented";
+inline function readDataAt(r:stdgo._internal.io.Io.ReaderAt, n:haxe.UInt64, off:haxe.Int64):stdgo.Tuple<Array<Int>, stdgo.Error> throw "not implemented";
 /**
     // SliceCap returns the capacity to use when allocating a slice.
     // After the slice is allocated with the capacity, it should be

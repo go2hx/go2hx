@@ -41,7 +41,7 @@ inline function clone(s:String):String throw "not implemented";
 **/
 inline function compare(a:String, b:String):Int throw "not implemented";
 inline function stringFind(pattern:String, text:String):Int throw "not implemented";
-inline function dumpTables(pattern:String):stdgo.Tuple.<Array<Int>, Array<Int>> throw "not implemented";
+inline function dumpTables(pattern:String):stdgo.Tuple<Array<Int>, Array<Int>> throw "not implemented";
 /**
     // NewReader returns a new Reader reading from s.
     // It is similar to bytes.NewBufferString but more efficient and non-writable.
@@ -347,14 +347,14 @@ inline function cut(s:String, sep:String):stdgo.Tuple.Tuple3<String, String, Boo
     // If s doesn't start with prefix, CutPrefix returns s, false.
     // If prefix is the empty string, CutPrefix returns s, true.
 **/
-inline function cutPrefix(s:String, prefix:String):stdgo.Tuple.<String, Bool> throw "not implemented";
+inline function cutPrefix(s:String, prefix:String):stdgo.Tuple<String, Bool> throw "not implemented";
 /**
     // CutSuffix returns s without the provided ending suffix string
     // and reports whether it found the suffix.
     // If s doesn't end with suffix, CutSuffix returns s, false.
     // If suffix is the empty string, CutSuffix returns s, true.
 **/
-inline function cutSuffix(s:String, suffix:String):stdgo.Tuple.<String, Bool> throw "not implemented";
+inline function cutSuffix(s:String, suffix:String):stdgo.Tuple<String, Bool> throw "not implemented";
 @:invalid typedef Builder_asInterface = Dynamic;
 @:invalid typedef Builder_static_extension = Dynamic;
 @:invalid typedef Reader_asInterface = Dynamic;

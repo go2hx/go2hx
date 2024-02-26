@@ -355,7 +355,7 @@ inline function fma(x:Float, y:Float, z:Float):Float throw "not implemented";
     //	Frexp(±Inf) = ±Inf, 0
     //	Frexp(NaN) = NaN, 0
 **/
-inline function frexp(f:Float):stdgo.Tuple.<Float, Int> throw "not implemented";
+inline function frexp(f:Float):stdgo.Tuple<Float, Int> throw "not implemented";
 /**
     // Gamma returns the Gamma function of x.
     //
@@ -465,7 +465,7 @@ inline function ldexp(frac:Float, exp:Int):Float throw "not implemented";
     //	Lgamma(-Inf) = -Inf
     //	Lgamma(NaN) = NaN
 **/
-inline function lgamma(x:Float):stdgo.Tuple.<Float, Int> throw "not implemented";
+inline function lgamma(x:Float):stdgo.Tuple<Float, Int> throw "not implemented";
 /**
     // Log returns the natural logarithm of x.
     //
@@ -543,7 +543,7 @@ inline function mod(x:Float, y:Float):Float throw "not implemented";
     //	Modf(±Inf) = ±Inf, NaN
     //	Modf(NaN) = NaN, NaN
 **/
-inline function modf(f:Float):stdgo.Tuple.<Float, Float> throw "not implemented";
+inline function modf(f:Float):stdgo.Tuple<Float, Float> throw "not implemented";
 /**
     // Nextafter32 returns the next representable float32 value after x towards y.
     //
@@ -644,7 +644,7 @@ inline function sin(x:Float):Float throw "not implemented";
     //	Sincos(±Inf) = NaN, NaN
     //	Sincos(NaN) = NaN, NaN
 **/
-inline function sincos(x:Float):stdgo.Tuple.<Float, Float> throw "not implemented";
+inline function sincos(x:Float):stdgo.Tuple<Float, Float> throw "not implemented";
 /**
     // Sinh returns the hyperbolic sine of x.
     //

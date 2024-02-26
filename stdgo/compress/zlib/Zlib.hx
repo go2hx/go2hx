@@ -48,7 +48,7 @@ typedef Resetter = stdgo._internal.compress.zlib.Zlib.Resetter;
     //
     // The ReadCloser returned by NewReader also implements Resetter.
 **/
-inline function newReader(r:stdgo._internal.io.Io.Reader):stdgo.Tuple.<stdgo._internal.io.Io.ReadCloser, stdgo.Error> throw "not implemented";
+inline function newReader(r:stdgo._internal.io.Io.Reader):stdgo.Tuple<stdgo._internal.io.Io.ReadCloser, stdgo.Error> throw "not implemented";
 /**
     // NewReaderDict is like NewReader but uses a preset dictionary.
     // NewReaderDict ignores the dictionary if the compressed data does not refer to it.
@@ -56,7 +56,7 @@ inline function newReader(r:stdgo._internal.io.Io.Reader):stdgo.Tuple.<stdgo._in
     //
     // The ReadCloser returned by NewReaderDict also implements Resetter.
 **/
-inline function newReaderDict(r:stdgo._internal.io.Io.Reader, dict:Array<Int>):stdgo.Tuple.<stdgo._internal.io.Io.ReadCloser, stdgo.Error> throw "not implemented";
+inline function newReaderDict(r:stdgo._internal.io.Io.Reader, dict:Array<Int>):stdgo.Tuple<stdgo._internal.io.Io.ReadCloser, stdgo.Error> throw "not implemented";
 inline function testDecompressor(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
     // NewWriter creates a new Writer.
@@ -74,7 +74,7 @@ inline function newWriter(w:stdgo._internal.io.Io.Writer):Writer throw "not impl
     // or any integer value between BestSpeed and BestCompression inclusive.
     // The error returned will be nil if the level is valid.
 **/
-inline function newWriterLevel(w:stdgo._internal.io.Io.Writer, level:Int):stdgo.Tuple.<Writer, stdgo.Error> throw "not implemented";
+inline function newWriterLevel(w:stdgo._internal.io.Io.Writer, level:Int):stdgo.Tuple<Writer, stdgo.Error> throw "not implemented";
 /**
     // NewWriterLevelDict is like NewWriterLevel but specifies a dictionary to
     // compress with.
@@ -82,7 +82,7 @@ inline function newWriterLevel(w:stdgo._internal.io.Io.Writer, level:Int):stdgo.
     // The dictionary may be nil. If not, its contents should not be modified until
     // the Writer is closed.
 **/
-inline function newWriterLevelDict(w:stdgo._internal.io.Io.Writer, level:Int, dict:Array<Int>):stdgo.Tuple.<Writer, stdgo.Error> throw "not implemented";
+inline function newWriterLevelDict(w:stdgo._internal.io.Io.Writer, level:Int, dict:Array<Int>):stdgo.Tuple<Writer, stdgo.Error> throw "not implemented";
 inline function testWriter(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testWriterBig(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testWriterDict(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";

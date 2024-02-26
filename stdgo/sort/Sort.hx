@@ -91,7 +91,7 @@ inline function search(n:Int, f:stdgo.GoInt -> Bool):Int throw "not implemented"
     //	    fmt.Printf("%s not found, would insert at %d", target, i)
     //	}
 **/
-inline function find(n:Int, cmp:stdgo.GoInt -> stdgo.GoInt):stdgo.Tuple.<Int, Bool> throw "not implemented";
+inline function find(n:Int, cmp:stdgo.GoInt -> stdgo.GoInt):stdgo.Tuple<Int, Bool> throw "not implemented";
 /**
     // SearchInts searches for x in a sorted slice of ints and returns the index
     // as specified by Search. The return value is the index to insert x if x is

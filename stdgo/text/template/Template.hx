@@ -516,7 +516,7 @@ typedef T_missingKeyAction = stdgo._internal.text.template.Template.T_missingKey
     // and whether the value has a meaningful truth value. This is the definition of
     // truth used by if and other such actions.
 **/
-inline function isTrue(val:stdgo.AnyInterface):stdgo.Tuple.<Bool, Bool> throw "not implemented";
+inline function isTrue(val:stdgo.AnyInterface):stdgo.Tuple<Bool, Bool> throw "not implemented";
 inline function testExecute(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testDelims(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
@@ -624,7 +624,7 @@ inline function must(t:Template, err:stdgo.Error):Template throw "not implemente
     // For instance, ParseFiles("a/foo", "b/foo") stores "b/foo" as the template
     // named "foo", while "a/foo" is unavailable.
 **/
-inline function parseFiles(filenames:haxe.Rest<stdgo.GoString>):stdgo.Tuple.<Template, stdgo.Error> throw "not implemented";
+inline function parseFiles(filenames:haxe.Rest<stdgo.GoString>):stdgo.Tuple<Template, stdgo.Error> throw "not implemented";
 /**
     // ParseGlob creates a new Template and parses the template definitions from
     // the files identified by the pattern. The files are matched according to the
@@ -636,14 +636,14 @@ inline function parseFiles(filenames:haxe.Rest<stdgo.GoString>):stdgo.Tuple.<Tem
     // When parsing multiple files with the same name in different directories,
     // the last one mentioned will be the one that results.
 **/
-inline function parseGlob(pattern:String):stdgo.Tuple.<Template, stdgo.Error> throw "not implemented";
+inline function parseGlob(pattern:String):stdgo.Tuple<Template, stdgo.Error> throw "not implemented";
 /**
     // ParseFS is like ParseFiles or ParseGlob but reads from the file system fsys
     // instead of the host operating system's file system.
     // It accepts a list of glob patterns.
     // (Note that most file names serve as glob patterns matching only themselves.)
 **/
-inline function parseFS(fsys:stdgo._internal.io.fs.Fs.FS, patterns:haxe.Rest<stdgo.GoString>):stdgo.Tuple.<Template, stdgo.Error> throw "not implemented";
+inline function parseFS(fsys:stdgo._internal.io.fs.Fs.FS, patterns:haxe.Rest<stdgo.GoString>):stdgo.Tuple<Template, stdgo.Error> throw "not implemented";
 inline function testMultiParse(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testMultiExecute(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testParseFiles(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";

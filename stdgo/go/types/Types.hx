@@ -298,7 +298,7 @@ inline function testStripAnnotations(t:stdgo._internal.testing.Testing.T_):Void 
     // be parsed successfully, or the resulting expr AST cannot be
     // type-checked.
 **/
-inline function eval(fset:stdgo._internal.go.token.Token.FileSet, pkg:Package, pos:stdgo._internal.go.token.Token.Pos, expr:String):stdgo.Tuple.<TypeAndValue, stdgo.Error> throw "not implemented";
+inline function eval(fset:stdgo._internal.go.token.Token.FileSet, pkg:Package, pos:stdgo._internal.go.token.Token.Pos, expr:String):stdgo.Tuple<TypeAndValue, stdgo.Error> throw "not implemented";
 /**
     // CheckExpr type checks the expression expr as if it had appeared at position
     // pos of package pkg. Type information about the expression is recorded in
@@ -360,7 +360,7 @@ inline function writeExpr(buf:stdgo._internal.bytes.Bytes.Buffer, x:stdgo._inter
     // count is incorrect; for *Named types, a panic may occur later inside the
     // *Named API.
 **/
-inline function instantiate(ctxt:Context, orig:Type_, targs:Array<Type_>, validate:Bool):stdgo.Tuple.<Type_, stdgo.Error> throw "not implemented";
+inline function instantiate(ctxt:Context, orig:Type_, targs:Array<Type_>, validate:Bool):stdgo.Tuple<Type_, stdgo.Error> throw "not implemented";
 /**
     // NewInterface returns a new interface for the given methods and embedded types.
     // NewInterface takes ownership of the provided methods and may modify their types
@@ -417,7 +417,7 @@ inline function lookupFieldOrMethod(t:Type_, addressable:Bool, pkg:Package, name
     // present in V have matching types (e.g., for a type assertion x.(T) where
     // x is of interface type V).
 **/
-inline function missingMethod(v:Type_, t:Interface, _static:Bool):stdgo.Tuple.<Func, Bool> throw "not implemented";
+inline function missingMethod(v:Type_, t:Interface, _static:Bool):stdgo.Tuple<Func, Bool> throw "not implemented";
 /**
     // NewMap returns a new map for the given key and element types.
 **/

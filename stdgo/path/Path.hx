@@ -36,7 +36,7 @@ function set_errBadPattern(v:stdgo.Error):stdgo.Error return stdgo._internal.pat
     // The only possible returned error is ErrBadPattern, when pattern
     // is malformed.
 **/
-inline function match(pattern:String, name:String):stdgo.Tuple.<Bool, stdgo.Error> throw "not implemented";
+inline function match(pattern:String, name:String):stdgo.Tuple<Bool, stdgo.Error> throw "not implemented";
 /**
     // Clean returns the shortest path name equivalent to path
     // by purely lexical processing. It applies the following rules
@@ -66,7 +66,7 @@ inline function clean(path:String):String throw "not implemented";
     // file set to path.
     // The returned values have the property that path = dir+file.
 **/
-inline function split(path:String):stdgo.Tuple.<String, String> throw "not implemented";
+inline function split(path:String):stdgo.Tuple<String, String> throw "not implemented";
 /**
     // Join joins any number of path elements into a single path,
     // separating them with slashes. Empty elements are ignored.

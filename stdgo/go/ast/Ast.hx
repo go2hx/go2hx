@@ -256,7 +256,7 @@ inline function testPrint(t:stdgo._internal.testing.Testing.T_):Void throw "not 
     // different package names are reported and then ignored.
     // The result is a package node and a scanner.ErrorList if there were errors.
 **/
-inline function newPackage(fset:stdgo._internal.go.token.Token.FileSet, files:stdgo.GoMap<stdgo.GoString, stdgo.Ref<File>>, importer:Importer, universe:Scope):stdgo.Tuple.<Package, stdgo.Error> throw "not implemented";
+inline function newPackage(fset:stdgo._internal.go.token.Token.FileSet, files:stdgo.GoMap<stdgo.GoString, stdgo.Ref<File>>, importer:Importer, universe:Scope):stdgo.Tuple<Package, stdgo.Error> throw "not implemented";
 /**
     // NewScope creates a new scope nested in the outer scope.
 **/

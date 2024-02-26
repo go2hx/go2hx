@@ -150,7 +150,7 @@ inline function testLookPathNotFound(t:stdgo._internal.testing.Testing.T_):Void 
     // If file contains a slash, it is tried directly and the PATH is not consulted.
     // The result may be an absolute path or a path relative to the current directory.
 **/
-inline function lookPath(file:String):stdgo.Tuple.<String, stdgo.Error> throw "not implemented";
+inline function lookPath(file:String):stdgo.Tuple<String, stdgo.Error> throw "not implemented";
 @:invalid typedef Error_asInterface = Dynamic;
 @:invalid typedef Error_static_extension = Dynamic;
 @:invalid typedef T_wrappedError_asInterface = Dynamic;

@@ -117,7 +117,7 @@ inline function goroot(t:stdgo._internal.testing.Testing.TB):String throw "not i
 /**
     // GoTool reports the path to the Go tool.
 **/
-inline function goTool():stdgo.Tuple.<String, stdgo.Error> throw "not implemented";
+inline function goTool():stdgo.Tuple<String, stdgo.Error> throw "not implemented";
 /**
     // HasSrc reports whether the entire source tree is available under GOROOT.
 **/

@@ -46,7 +46,7 @@ inline function decodedLen(x:Int):Int throw "not implemented";
     // If the input is malformed, Decode returns the number
     // of bytes decoded before the error.
 **/
-inline function decode(dst:Array<Int>, src:Array<Int>):stdgo.Tuple.<Int, stdgo.Error> throw "not implemented";
+inline function decode(dst:Array<Int>, src:Array<Int>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 /**
     // EncodeToString returns the hexadecimal encoding of src.
 **/
@@ -59,7 +59,7 @@ inline function encodeToString(src:Array<Int>):String throw "not implemented";
     // If the input is malformed, DecodeString returns
     // the bytes decoded before the error.
 **/
-inline function decodeString(s:String):stdgo.Tuple.<Array<Int>, stdgo.Error> throw "not implemented";
+inline function decodeString(s:String):stdgo.Tuple<Array<Int>, stdgo.Error> throw "not implemented";
 /**
     // Dump returns a string that contains a hex dump of the given data. The format
     // of the hex dump matches the output of `hexdump -C` on the command line.

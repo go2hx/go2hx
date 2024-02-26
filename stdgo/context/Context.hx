@@ -98,7 +98,7 @@ inline function todo():Context throw "not implemented";
     // Canceling this context releases resources associated with it, so code should
     // call cancel as soon as the operations running in this Context complete.
 **/
-inline function withCancel(parent:Context):stdgo.Tuple.<Context, CancelFunc> throw "not implemented";
+inline function withCancel(parent:Context):stdgo.Tuple<Context, CancelFunc> throw "not implemented";
 /**
     // WithCancelCause behaves like [WithCancel] but returns a [CancelCauseFunc] instead of a [CancelFunc].
     // Calling cancel with a non-nil error (the "cause") records that error in ctx;
@@ -112,7 +112,7 @@ inline function withCancel(parent:Context):stdgo.Tuple.<Context, CancelFunc> thr
     //	ctx.Err() // returns context.Canceled
     //	context.Cause(ctx) // returns myError
 **/
-inline function withCancelCause(parent:Context):stdgo.Tuple.<Context, CancelCauseFunc> throw "not implemented";
+inline function withCancelCause(parent:Context):stdgo.Tuple<Context, CancelCauseFunc> throw "not implemented";
 /**
     // Cause returns a non-nil error explaining why c was canceled.
     // The first cancellation of c or one of its parents sets the cause.
@@ -160,13 +160,13 @@ inline function withoutCancel(parent:Context):Context throw "not implemented";
     // Canceling this context releases resources associated with it, so code should
     // call cancel as soon as the operations running in this [Context] complete.
 **/
-inline function withDeadline(parent:Context, d:stdgo._internal.time.Time.Time):stdgo.Tuple.<Context, CancelFunc> throw "not implemented";
+inline function withDeadline(parent:Context, d:stdgo._internal.time.Time.Time):stdgo.Tuple<Context, CancelFunc> throw "not implemented";
 /**
     // WithDeadlineCause behaves like [WithDeadline] but also sets the cause of the
     // returned Context when the deadline is exceeded. The returned [CancelFunc] does
     // not set the cause.
 **/
-inline function withDeadlineCause(parent:Context, d:stdgo._internal.time.Time.Time, cause:stdgo.Error):stdgo.Tuple.<Context, CancelFunc> throw "not implemented";
+inline function withDeadlineCause(parent:Context, d:stdgo._internal.time.Time.Time, cause:stdgo.Error):stdgo.Tuple<Context, CancelFunc> throw "not implemented";
 /**
     // WithTimeout returns WithDeadline(parent, time.Now().Add(timeout)).
     //
@@ -179,13 +179,13 @@ inline function withDeadlineCause(parent:Context, d:stdgo._internal.time.Time.Ti
     //		return slowOperation(ctx)
     //	}
 **/
-inline function withTimeout(parent:Context, timeout:stdgo._internal.time.Time.Duration):stdgo.Tuple.<Context, CancelFunc> throw "not implemented";
+inline function withTimeout(parent:Context, timeout:stdgo._internal.time.Time.Duration):stdgo.Tuple<Context, CancelFunc> throw "not implemented";
 /**
     // WithTimeoutCause behaves like [WithTimeout] but also sets the cause of the
     // returned Context when the timeout expires. The returned [CancelFunc] does
     // not set the cause.
 **/
-inline function withTimeoutCause(parent:Context, timeout:stdgo._internal.time.Time.Duration, cause:stdgo.Error):stdgo.Tuple.<Context, CancelFunc> throw "not implemented";
+inline function withTimeoutCause(parent:Context, timeout:stdgo._internal.time.Time.Duration, cause:stdgo.Error):stdgo.Tuple<Context, CancelFunc> throw "not implemented";
 /**
     // WithValue returns a copy of parent in which the value associated with key is
     // val.

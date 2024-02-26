@@ -29,7 +29,7 @@ inline function fullRuneInString(s:String):Bool throw "not implemented";
     // out of range, or is not the shortest possible UTF-8 encoding for the
     // value. No other validation is performed.
 **/
-inline function decodeRune(p:Array<Int>):stdgo.Tuple.<Int, Int> throw "not implemented";
+inline function decodeRune(p:Array<Int>):stdgo.Tuple<Int, Int> throw "not implemented";
 /**
     // DecodeRuneInString is like DecodeRune but its input is a string. If s is
     // empty it returns (RuneError, 0). Otherwise, if the encoding is invalid, it
@@ -40,7 +40,7 @@ inline function decodeRune(p:Array<Int>):stdgo.Tuple.<Int, Int> throw "not imple
     // out of range, or is not the shortest possible UTF-8 encoding for the
     // value. No other validation is performed.
 **/
-inline function decodeRuneInString(s:String):stdgo.Tuple.<Int, Int> throw "not implemented";
+inline function decodeRuneInString(s:String):stdgo.Tuple<Int, Int> throw "not implemented";
 /**
     // DecodeLastRune unpacks the last UTF-8 encoding in p and returns the rune and
     // its width in bytes. If p is empty it returns (RuneError, 0). Otherwise, if
@@ -51,7 +51,7 @@ inline function decodeRuneInString(s:String):stdgo.Tuple.<Int, Int> throw "not i
     // out of range, or is not the shortest possible UTF-8 encoding for the
     // value. No other validation is performed.
 **/
-inline function decodeLastRune(p:Array<Int>):stdgo.Tuple.<Int, Int> throw "not implemented";
+inline function decodeLastRune(p:Array<Int>):stdgo.Tuple<Int, Int> throw "not implemented";
 /**
     // DecodeLastRuneInString is like DecodeLastRune but its input is a string. If
     // s is empty it returns (RuneError, 0). Otherwise, if the encoding is invalid,
@@ -62,7 +62,7 @@ inline function decodeLastRune(p:Array<Int>):stdgo.Tuple.<Int, Int> throw "not i
     // out of range, or is not the shortest possible UTF-8 encoding for the
     // value. No other validation is performed.
 **/
-inline function decodeLastRuneInString(s:String):stdgo.Tuple.<Int, Int> throw "not implemented";
+inline function decodeLastRuneInString(s:String):stdgo.Tuple<Int, Int> throw "not implemented";
 /**
     // RuneLen returns the number of bytes required to encode the rune.
     // It returns -1 if the rune is not a valid value to encode in UTF-8.

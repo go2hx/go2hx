@@ -267,7 +267,7 @@ inline function testRunOnePass(t:stdgo._internal.testing.Testing.T_):Void throw 
     // package implements it without the expense of backtracking.
     // For POSIX leftmost-longest matching, see CompilePOSIX.
 **/
-inline function compile(expr:String):stdgo.Tuple.<Regexp, stdgo.Error> throw "not implemented";
+inline function compile(expr:String):stdgo.Tuple<Regexp, stdgo.Error> throw "not implemented";
 /**
     // CompilePOSIX is like Compile but restricts the regular expression
     // to POSIX ERE (egrep) syntax and changes the match semantics to
@@ -289,7 +289,7 @@ inline function compile(expr:String):stdgo.Tuple.<Regexp, stdgo.Error> throw "no
     // The POSIX rule is computationally prohibitive and not even well-defined.
     // See https://swtch.com/~rsc/regexp/regexp2.html#posix for details.
 **/
-inline function compilePOSIX(expr:String):stdgo.Tuple.<Regexp, stdgo.Error> throw "not implemented";
+inline function compilePOSIX(expr:String):stdgo.Tuple<Regexp, stdgo.Error> throw "not implemented";
 /**
     // MustCompile is like Compile but panics if the expression cannot be parsed.
     // It simplifies safe initialization of global variables holding compiled regular
@@ -307,19 +307,19 @@ inline function mustCompilePOSIX(str:String):Regexp throw "not implemented";
     // contains any match of the regular expression pattern.
     // More complicated queries need to use Compile and the full Regexp interface.
 **/
-inline function matchReader(pattern:String, r:stdgo._internal.io.Io.RuneReader):stdgo.Tuple.<Bool, stdgo.Error> throw "not implemented";
+inline function matchReader(pattern:String, r:stdgo._internal.io.Io.RuneReader):stdgo.Tuple<Bool, stdgo.Error> throw "not implemented";
 /**
     // MatchString reports whether the string s
     // contains any match of the regular expression pattern.
     // More complicated queries need to use Compile and the full Regexp interface.
 **/
-inline function matchString(pattern:String, s:String):stdgo.Tuple.<Bool, stdgo.Error> throw "not implemented";
+inline function matchString(pattern:String, s:String):stdgo.Tuple<Bool, stdgo.Error> throw "not implemented";
 /**
     // Match reports whether the byte slice b
     // contains any match of the regular expression pattern.
     // More complicated queries need to use Compile and the full Regexp interface.
 **/
-inline function match(pattern:String, b:Array<Int>):stdgo.Tuple.<Bool, stdgo.Error> throw "not implemented";
+inline function match(pattern:String, b:Array<Int>):stdgo.Tuple<Bool, stdgo.Error> throw "not implemented";
 /**
     // QuoteMeta returns a string that escapes all regular expression metacharacters
     // inside the argument text; the returned string is a regular expression matching

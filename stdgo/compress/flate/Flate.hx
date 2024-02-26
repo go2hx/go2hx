@@ -80,7 +80,7 @@ typedef T_token = stdgo._internal.compress.flate.Flate.T_token;
     // If level is in the range [-2, 9] then the error returned will be nil.
     // Otherwise the error returned will be non-nil.
 **/
-inline function newWriter(w:stdgo._internal.io.Io.Writer, level:Int):stdgo.Tuple.<Writer, stdgo.Error> throw "not implemented";
+inline function newWriter(w:stdgo._internal.io.Io.Writer, level:Int):stdgo.Tuple<Writer, stdgo.Error> throw "not implemented";
 /**
     // NewWriterDict is like NewWriter but initializes the new
     // Writer with a preset dictionary. The returned Writer behaves
@@ -89,7 +89,7 @@ inline function newWriter(w:stdgo._internal.io.Io.Writer, level:Int):stdgo.Tuple
     // can only be decompressed by a Reader initialized with the
     // same dictionary.
 **/
-inline function newWriterDict(w:stdgo._internal.io.Io.Writer, level:Int, dict:Array<Int>):stdgo.Tuple.<Writer, stdgo.Error> throw "not implemented";
+inline function newWriterDict(w:stdgo._internal.io.Io.Writer, level:Int, dict:Array<Int>):stdgo.Tuple<Writer, stdgo.Error> throw "not implemented";
 inline function testBulkHash4(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testDeflate(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testWriterClose(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";

@@ -76,7 +76,7 @@ final intSize : haxe.UInt64 = stdgo._internal.strconv.Strconv.intSize;
     // It accepts 1, t, T, TRUE, true, True, 0, f, F, FALSE, false, False.
     // Any other value returns an error.
 **/
-inline function parseBool(str:String):stdgo.Tuple.<Bool, stdgo.Error> throw "not implemented";
+inline function parseBool(str:String):stdgo.Tuple<Bool, stdgo.Error> throw "not implemented";
 /**
     // FormatBool returns "true" or "false" according to the value of b.
 **/
@@ -108,7 +108,7 @@ inline function appendBool(dst:Array<Int>, b:Bool):Array<Int> throw "not impleme
     // away from the largest floating point number of the given component's size,
     // ParseComplex returns err.Err = ErrRange and c = ±Inf for the respective component.
 **/
-inline function parseComplex(s:String, bitSize:Int):stdgo.Tuple.<stdgo.GoComplex128, stdgo.Error> throw "not implemented";
+inline function parseComplex(s:String, bitSize:Int):stdgo.Tuple<stdgo.GoComplex128, stdgo.Error> throw "not implemented";
 /**
     // ParseFloat converts the string s to a floating-point number
     // with the precision specified by bitSize: 32 for float32, or 64 for float64.
@@ -138,13 +138,13 @@ inline function parseComplex(s:String, bitSize:Int):stdgo.Tuple.<stdgo.GoComplex
     //
     // [floating-point literals]: https://go.dev/ref/spec#Floating-point_literals
 **/
-inline function parseFloat(s:String, bitSize:Int):stdgo.Tuple.<Float, stdgo.Error> throw "not implemented";
+inline function parseFloat(s:String, bitSize:Int):stdgo.Tuple<Float, stdgo.Error> throw "not implemented";
 /**
     // ParseUint is like ParseInt but for unsigned numbers.
     //
     // A sign prefix is not permitted.
 **/
-inline function parseUint(s:String, base:Int, bitSize:Int):stdgo.Tuple.<haxe.UInt64, stdgo.Error> throw "not implemented";
+inline function parseUint(s:String, base:Int, bitSize:Int):stdgo.Tuple<haxe.UInt64, stdgo.Error> throw "not implemented";
 /**
     // ParseInt interprets a string s in the given base (0, 2 to 36) and
     // bit size (0 to 64) and returns the corresponding value i.
@@ -172,11 +172,11 @@ inline function parseUint(s:String, base:Int, bitSize:Int):stdgo.Tuple.<haxe.UIn
     //
     // [integer literals]: https://go.dev/ref/spec#Integer_literals
 **/
-inline function parseInt(s:String, base:Int, bitSize:Int):stdgo.Tuple.<haxe.Int64, stdgo.Error> throw "not implemented";
+inline function parseInt(s:String, base:Int, bitSize:Int):stdgo.Tuple<haxe.Int64, stdgo.Error> throw "not implemented";
 /**
     // Atoi is equivalent to ParseInt(s, 10, 0), converted to type int.
 **/
-inline function atoi(s:String):stdgo.Tuple.<Int, stdgo.Error> throw "not implemented";
+inline function atoi(s:String):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 /**
     // FormatComplex converts the complex number c to a string of the
     // form (a+bi) where a and b are the real and imaginary parts,
@@ -351,7 +351,7 @@ inline function unquoteChar(s:String, quote:Int):stdgo.Tuple.Tuple4<Int, Bool, S
     // QuotedPrefix returns the quoted string (as understood by Unquote) at the prefix of s.
     // If s does not start with a valid quoted string, QuotedPrefix returns an error.
 **/
-inline function quotedPrefix(s:String):stdgo.Tuple.<String, stdgo.Error> throw "not implemented";
+inline function quotedPrefix(s:String):stdgo.Tuple<String, stdgo.Error> throw "not implemented";
 /**
     // Unquote interprets s as a single-quoted, double-quoted,
     // or backquoted Go string literal, returning the string value
@@ -359,7 +359,7 @@ inline function quotedPrefix(s:String):stdgo.Tuple.<String, stdgo.Error> throw "
     // character literal; Unquote returns the corresponding
     // one-character string.)
 **/
-inline function unquote(s:String):stdgo.Tuple.<String, stdgo.Error> throw "not implemented";
+inline function unquote(s:String):stdgo.Tuple<String, stdgo.Error> throw "not implemented";
 /**
     // IsPrint reports whether the rune is defined as printable by Go, with
     // the same definition as unicode.IsPrint: letters, numbers, punctuation,

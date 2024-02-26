@@ -266,15 +266,15 @@ typedef WaitStatus = stdgo._internal.syscall.Syscall.WaitStatus;
 **/
 inline function parseDirent(buf:Array<Int>, max:Int, names:Array<String>):stdgo.Tuple.Tuple3<Int, Int, Array<String>> throw "not implemented";
 inline function unsetenv(key:String):stdgo.Error throw "not implemented";
-inline function getenv(key:String):stdgo.Tuple.<String, Bool> throw "not implemented";
+inline function getenv(key:String):stdgo.Tuple<String, Bool> throw "not implemented";
 inline function setenv(key:String, value:String):stdgo.Error throw "not implemented";
 inline function clearenv():Void throw "not implemented";
 inline function environ():Array<String> throw "not implemented";
-inline function open(path:String, openmode:Int, perm:UInt):stdgo.Tuple.<Int, stdgo.Error> throw "not implemented";
+inline function open(path:String, openmode:Int, perm:UInt):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 inline function close(fd:Int):stdgo.Error throw "not implemented";
 inline function closeOnExec(fd:Int):Void throw "not implemented";
 inline function mkdir(path:String, perm:UInt):stdgo.Error throw "not implemented";
-inline function readDirent(fd:Int, buf:Array<Int>):stdgo.Tuple.<Int, stdgo.Error> throw "not implemented";
+inline function readDirent(fd:Int, buf:Array<Int>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 inline function stat(path:String, st:Stat_t):stdgo.Error throw "not implemented";
 inline function lstat(path:String, st:Stat_t):stdgo.Error throw "not implemented";
 inline function fstat(fd:Int, st:Stat_t):stdgo.Error throw "not implemented";
@@ -289,22 +289,22 @@ inline function utimesNano(path:String, ts:Array<Timespec>):stdgo.Error throw "n
 inline function rename(from:String, to:String):stdgo.Error throw "not implemented";
 inline function truncate(path:String, _length:haxe.Int64):stdgo.Error throw "not implemented";
 inline function ftruncate(fd:Int, _length:haxe.Int64):stdgo.Error throw "not implemented";
-inline function getcwd(buf:Array<Int>):stdgo.Tuple.<Int, stdgo.Error> throw "not implemented";
+inline function getcwd(buf:Array<Int>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 inline function chdir(path:String):stdgo.Error throw "not implemented";
 inline function fchdir(fd:Int):stdgo.Error throw "not implemented";
-inline function readlink(path:String, buf:Array<Int>):stdgo.Tuple.<Int, stdgo.Error> throw "not implemented";
+inline function readlink(path:String, buf:Array<Int>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 inline function link(path:String, link:String):stdgo.Error throw "not implemented";
 inline function symlink(path:String, link:String):stdgo.Error throw "not implemented";
 inline function fsync(fd:Int):stdgo.Error throw "not implemented";
-inline function read(fd:Int, b:Array<Int>):stdgo.Tuple.<Int, stdgo.Error> throw "not implemented";
-inline function write(fd:Int, b:Array<Int>):stdgo.Tuple.<Int, stdgo.Error> throw "not implemented";
-inline function pread(fd:Int, b:Array<Int>, offset:haxe.Int64):stdgo.Tuple.<Int, stdgo.Error> throw "not implemented";
-inline function pwrite(fd:Int, b:Array<Int>, offset:haxe.Int64):stdgo.Tuple.<Int, stdgo.Error> throw "not implemented";
-inline function seek(fd:Int, offset:haxe.Int64, whence:Int):stdgo.Tuple.<haxe.Int64, stdgo.Error> throw "not implemented";
-inline function dup(fd:Int):stdgo.Tuple.<Int, stdgo.Error> throw "not implemented";
+inline function read(fd:Int, b:Array<Int>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
+inline function write(fd:Int, b:Array<Int>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
+inline function pread(fd:Int, b:Array<Int>, offset:haxe.Int64):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
+inline function pwrite(fd:Int, b:Array<Int>, offset:haxe.Int64):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
+inline function seek(fd:Int, offset:haxe.Int64, whence:Int):stdgo.Tuple<haxe.Int64, stdgo.Error> throw "not implemented";
+inline function dup(fd:Int):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 inline function dup2(fd:Int, newfd:Int):stdgo.Error throw "not implemented";
 inline function pipe(fd:Array<Int>):stdgo.Error throw "not implemented";
-inline function socket(proto:Int, sotype:Int, unused:Int):stdgo.Tuple.<Int, stdgo.Error> throw "not implemented";
+inline function socket(proto:Int, sotype:Int, unused:Int):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 inline function bind(fd:Int, sa:Sockaddr):stdgo.Error throw "not implemented";
 inline function stopIO(fd:Int):stdgo.Error throw "not implemented";
 inline function listen(fd:Int, backlog:Int):stdgo.Error throw "not implemented";
@@ -313,8 +313,8 @@ inline function connect(fd:Int, sa:Sockaddr):stdgo.Error throw "not implemented"
 inline function recvfrom(fd:Int, p:Array<Int>, flags:Int):stdgo.Tuple.Tuple3<Int, Sockaddr, stdgo.Error> throw "not implemented";
 inline function sendto(fd:Int, p:Array<Int>, flags:Int, to:Sockaddr):stdgo.Error throw "not implemented";
 inline function recvmsg(fd:Int, p:Array<Int>, oob:Array<Int>, flags:Int):stdgo.Tuple.Tuple5<Int, Int, Int, Sockaddr, stdgo.Error> throw "not implemented";
-inline function sendmsgN(fd:Int, p:Array<Int>, oob:Array<Int>, to:Sockaddr, flags:Int):stdgo.Tuple.<Int, stdgo.Error> throw "not implemented";
-inline function getsockoptInt(fd:Int, level:Int, opt:Int):stdgo.Tuple.<Int, stdgo.Error> throw "not implemented";
+inline function sendmsgN(fd:Int, p:Array<Int>, oob:Array<Int>, to:Sockaddr, flags:Int):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
+inline function getsockoptInt(fd:Int, level:Int, opt:Int):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 inline function setsockoptInt(fd:Int, level:Int, opt:Int, value:Int):stdgo.Error throw "not implemented";
 inline function setReadDeadline(fd:Int, t:haxe.Int64):stdgo.Error throw "not implemented";
 inline function setWriteDeadline(fd:Int, t:haxe.Int64):stdgo.Error throw "not implemented";
@@ -333,7 +333,7 @@ inline function stringByteSlice(s:String):Array<Int> throw "not implemented";
     // containing the text of s. If s contains a NUL byte at any
     // location, it returns (nil, EINVAL).
 **/
-inline function byteSliceFromString(s:String):stdgo.Tuple.<Array<Int>, stdgo.Error> throw "not implemented";
+inline function byteSliceFromString(s:String):stdgo.Tuple<Array<Int>, stdgo.Error> throw "not implemented";
 /**
     // StringBytePtr returns a pointer to a NUL-terminated array of bytes.
     // If s contains a NUL byte this function panics instead of returning
@@ -347,28 +347,28 @@ inline function stringBytePtr(s:String):stdgo.Pointer<Int> throw "not implemente
     // bytes containing the text of s. If s contains a NUL byte at any
     // location, it returns (nil, EINVAL).
 **/
-inline function bytePtrFromString(s:String):stdgo.Tuple.<stdgo.Pointer<Int>, stdgo.Error> throw "not implemented";
+inline function bytePtrFromString(s:String):stdgo.Tuple<stdgo.Pointer<Int>, stdgo.Error> throw "not implemented";
 inline function getpagesize():Int throw "not implemented";
 inline function exit(code:Int):Void throw "not implemented";
 inline function syscall(trap:stdgo.GoUIntptr, a1:stdgo.GoUIntptr, a2:stdgo.GoUIntptr, a3:stdgo.GoUIntptr):stdgo.Tuple.Tuple3<stdgo.GoUIntptr, stdgo.GoUIntptr, Errno> throw "not implemented";
 inline function syscall6(trap:stdgo.GoUIntptr, a1:stdgo.GoUIntptr, a2:stdgo.GoUIntptr, a3:stdgo.GoUIntptr, a4:stdgo.GoUIntptr, a5:stdgo.GoUIntptr, a6:stdgo.GoUIntptr):stdgo.Tuple.Tuple3<stdgo.GoUIntptr, stdgo.GoUIntptr, Errno> throw "not implemented";
 inline function rawSyscall(trap:stdgo.GoUIntptr, a1:stdgo.GoUIntptr, a2:stdgo.GoUIntptr, a3:stdgo.GoUIntptr):stdgo.Tuple.Tuple3<stdgo.GoUIntptr, stdgo.GoUIntptr, Errno> throw "not implemented";
 inline function rawSyscall6(trap:stdgo.GoUIntptr, a1:stdgo.GoUIntptr, a2:stdgo.GoUIntptr, a3:stdgo.GoUIntptr, a4:stdgo.GoUIntptr, a5:stdgo.GoUIntptr, a6:stdgo.GoUIntptr):stdgo.Tuple.Tuple3<stdgo.GoUIntptr, stdgo.GoUIntptr, Errno> throw "not implemented";
-inline function sysctl(key:String):stdgo.Tuple.<String, stdgo.Error> throw "not implemented";
-inline function getwd():stdgo.Tuple.<String, stdgo.Error> throw "not implemented";
+inline function sysctl(key:String):stdgo.Tuple<String, stdgo.Error> throw "not implemented";
+inline function getwd():stdgo.Tuple<String, stdgo.Error> throw "not implemented";
 inline function getuid():Int throw "not implemented";
 inline function getgid():Int throw "not implemented";
 inline function geteuid():Int throw "not implemented";
 inline function getegid():Int throw "not implemented";
-inline function getgroups():stdgo.Tuple.<Array<Int>, stdgo.Error> throw "not implemented";
+inline function getgroups():stdgo.Tuple<Array<Int>, stdgo.Error> throw "not implemented";
 inline function getpid():Int throw "not implemented";
 inline function getppid():Int throw "not implemented";
 inline function umask(mask:Int):Int throw "not implemented";
 inline function gettimeofday(tv:Timeval):stdgo.Error throw "not implemented";
 inline function kill(pid:Int, signum:Signal):stdgo.Error throw "not implemented";
-inline function sendfile(outfd:Int, infd:Int, offset:stdgo.Pointer<haxe.Int64>, count:Int):stdgo.Tuple.<Int, stdgo.Error> throw "not implemented";
+inline function sendfile(outfd:Int, infd:Int, offset:stdgo.Pointer<haxe.Int64>, count:Int):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 inline function startProcess(argv0:String, argv:Array<String>, attr:ProcAttr):stdgo.Tuple.Tuple3<Int, stdgo.GoUIntptr, stdgo.Error> throw "not implemented";
-inline function wait4(pid:Int, wstatus:stdgo.Pointer<WaitStatus>, options:Int, rusage:Rusage):stdgo.Tuple.<Int, stdgo.Error> throw "not implemented";
+inline function wait4(pid:Int, wstatus:stdgo.Pointer<WaitStatus>, options:Int, rusage:Rusage):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 /**
     // TimespecToNsec returns the time stored in ts as nanoseconds.
 **/

@@ -158,7 +158,7 @@ typedef FileMode = stdgo._internal.os.Os.FileMode;
     // ReadDir returns the entries it was able to read before the error,
     // along with the error.
 **/
-inline function readDir(name:String):stdgo.Tuple.<Array<DirEntry>, stdgo.Error> throw "not implemented";
+inline function readDir(name:String):stdgo.Tuple<Array<DirEntry>, stdgo.Error> throw "not implemented";
 /**
     // Expand replaces ${var} or $var in the string based on the mapping function.
     // For example, os.ExpandEnv(s) is equivalent to os.Expand(s, os.Getenv).
@@ -183,7 +183,7 @@ inline function getenv(key:String):String throw "not implemented";
     // Otherwise the returned value will be empty and the boolean will
     // be false.
 **/
-inline function lookupEnv(key:String):stdgo.Tuple.<String, Bool> throw "not implemented";
+inline function lookupEnv(key:String):stdgo.Tuple<String, Bool> throw "not implemented";
 /**
     // Setenv sets the value of the environment variable named by the key.
     // It returns an error, if any.
@@ -265,7 +265,7 @@ inline function getppid():Int throw "not implemented";
     // the process actually exists, see whether p.Signal(syscall.Signal(0)) reports
     // an error.
 **/
-inline function findProcess(pid:Int):stdgo.Tuple.<Process, stdgo.Error> throw "not implemented";
+inline function findProcess(pid:Int):stdgo.Tuple<Process, stdgo.Error> throw "not implemented";
 /**
     // StartProcess starts a new process with the program, arguments and attributes
     // specified by name, argv and attr. The argv slice will become os.Args in the
@@ -281,7 +281,7 @@ inline function findProcess(pid:Int):stdgo.Tuple.<Process, stdgo.Error> throw "n
     //
     // If there is an error, it will be of type *PathError.
 **/
-inline function startProcess(name:String, argv:Array<String>, attr:ProcAttr):stdgo.Tuple.<Process, stdgo.Error> throw "not implemented";
+inline function startProcess(name:String, argv:Array<String>, attr:ProcAttr):stdgo.Tuple<Process, stdgo.Error> throw "not implemented";
 /**
     // Executable returns the path name for the executable that started
     // the current process. There is no guarantee that the path is still
@@ -295,7 +295,7 @@ inline function startProcess(name:String, argv:Array<String>, attr:ProcAttr):std
     // The main use case is finding resources located relative to an
     // executable.
 **/
-inline function executable():stdgo.Tuple.<String, stdgo.Error> throw "not implemented";
+inline function executable():stdgo.Tuple<String, stdgo.Error> throw "not implemented";
 /**
     // Mkdir creates a new directory with the specified name and permission
     // bits (before umask).
@@ -313,7 +313,7 @@ inline function chdir(dir:String):stdgo.Error throw "not implemented";
     // descriptor has mode O_RDONLY.
     // If there is an error, it will be of type *PathError.
 **/
-inline function open(name:String):stdgo.Tuple.<File, stdgo.Error> throw "not implemented";
+inline function open(name:String):stdgo.Tuple<File, stdgo.Error> throw "not implemented";
 /**
     // Create creates or truncates the named file. If the file already exists,
     // it is truncated. If the file does not exist, it is created with mode 0666
@@ -321,7 +321,7 @@ inline function open(name:String):stdgo.Tuple.<File, stdgo.Error> throw "not imp
     // be used for I/O; the associated file descriptor has mode O_RDWR.
     // If there is an error, it will be of type *PathError.
 **/
-inline function create(name:String):stdgo.Tuple.<File, stdgo.Error> throw "not implemented";
+inline function create(name:String):stdgo.Tuple<File, stdgo.Error> throw "not implemented";
 /**
     // OpenFile is the generalized open call; most users will use Open
     // or Create instead. It opens the named file with specified flag
@@ -330,7 +330,7 @@ inline function create(name:String):stdgo.Tuple.<File, stdgo.Error> throw "not i
     // methods on the returned File can be used for I/O.
     // If there is an error, it will be of type *PathError.
 **/
-inline function openFile(name:String, flag:Int, perm:FileMode):stdgo.Tuple.<File, stdgo.Error> throw "not implemented";
+inline function openFile(name:String, flag:Int, perm:FileMode):stdgo.Tuple<File, stdgo.Error> throw "not implemented";
 /**
     // Rename renames (moves) oldpath to newpath.
     // If newpath already exists and is not a directory, Rename replaces it.
@@ -366,7 +366,7 @@ inline function tempDir():String throw "not implemented";
     // If the location cannot be determined (for example, $HOME is not defined),
     // then it will return an error.
 **/
-inline function userCacheDir():stdgo.Tuple.<String, stdgo.Error> throw "not implemented";
+inline function userCacheDir():stdgo.Tuple<String, stdgo.Error> throw "not implemented";
 /**
     // UserConfigDir returns the default root directory to use for user-specific
     // configuration data. Users should create their own application-specific
@@ -382,7 +382,7 @@ inline function userCacheDir():stdgo.Tuple.<String, stdgo.Error> throw "not impl
     // If the location cannot be determined (for example, $HOME is not defined),
     // then it will return an error.
 **/
-inline function userConfigDir():stdgo.Tuple.<String, stdgo.Error> throw "not implemented";
+inline function userConfigDir():stdgo.Tuple<String, stdgo.Error> throw "not implemented";
 /**
     // UserHomeDir returns the current user's home directory.
     //
@@ -393,7 +393,7 @@ inline function userConfigDir():stdgo.Tuple.<String, stdgo.Error> throw "not imp
     // If the expected variable is not set in the environment, UserHomeDir
     // returns either a platform-specific default value or a non-nil error.
 **/
-inline function userHomeDir():stdgo.Tuple.<String, stdgo.Error> throw "not implemented";
+inline function userHomeDir():stdgo.Tuple<String, stdgo.Error> throw "not implemented";
 /**
     // Chmod changes the mode of the named file to mode.
     // If the file is a symbolic link, it changes the mode of the link's target.
@@ -439,7 +439,7 @@ inline function dirFS(dir:String):stdgo._internal.io.fs.Fs.FS throw "not impleme
     // Because ReadFile reads the whole file, it does not treat an EOF from Read
     // as an error to be reported.
 **/
-inline function readFile(name:String):stdgo.Tuple.<Array<Int>, stdgo.Error> throw "not implemented";
+inline function readFile(name:String):stdgo.Tuple<Array<Int>, stdgo.Error> throw "not implemented";
 /**
     // WriteFile writes data to the named file, creating it if necessary.
     // If the file does not exist, WriteFile creates it with permissions perm (before umask);
@@ -516,14 +516,14 @@ inline function symlink(oldname:String, newname:String):stdgo.Error throw "not i
     // Readlink returns the destination of the named symbolic link.
     // If there is an error, it will be of type *PathError.
 **/
-inline function readlink(name:String):stdgo.Tuple.<String, stdgo.Error> throw "not implemented";
+inline function readlink(name:String):stdgo.Tuple<String, stdgo.Error> throw "not implemented";
 /**
     // Getwd returns a rooted path name corresponding to the
     // current directory. If the current directory can be
     // reached via multiple paths (due to symbolic links),
     // Getwd may return any one of them.
 **/
-inline function getwd():stdgo.Tuple.<String, stdgo.Error> throw "not implemented";
+inline function getwd():stdgo.Tuple<String, stdgo.Error> throw "not implemented";
 /**
     // MkdirAll creates a directory named path,
     // along with any necessary parents, and returns nil,
@@ -581,7 +581,7 @@ inline function getegid():Int throw "not implemented";
     // On Windows, it returns syscall.EWINDOWS. See the os/user package
     // for a possible alternative.
 **/
-inline function getgroups():stdgo.Tuple.<Array<Int>, stdgo.Error> throw "not implemented";
+inline function getgroups():stdgo.Tuple<Array<Int>, stdgo.Error> throw "not implemented";
 /**
     // Exit causes the current program to exit with the given status code.
     // Conventionally, code zero indicates success, non-zero an error.
@@ -594,18 +594,18 @@ inline function exit(code:Int):Void throw "not implemented";
     // Stat returns a FileInfo describing the named file.
     // If there is an error, it will be of type *PathError.
 **/
-inline function stat(name:String):stdgo.Tuple.<FileInfo, stdgo.Error> throw "not implemented";
+inline function stat(name:String):stdgo.Tuple<FileInfo, stdgo.Error> throw "not implemented";
 /**
     // Lstat returns a FileInfo describing the named file.
     // If the file is a symbolic link, the returned FileInfo
     // describes the symbolic link. Lstat makes no attempt to follow the link.
     // If there is an error, it will be of type *PathError.
 **/
-inline function lstat(name:String):stdgo.Tuple.<FileInfo, stdgo.Error> throw "not implemented";
+inline function lstat(name:String):stdgo.Tuple<FileInfo, stdgo.Error> throw "not implemented";
 /**
     // Hostname returns the host name reported by the kernel.
 **/
-inline function hostname():stdgo.Tuple.<String, stdgo.Error> throw "not implemented";
+inline function hostname():stdgo.Tuple<String, stdgo.Error> throw "not implemented";
 /**
     // CreateTemp creates a new temporary file in the directory dir,
     // opens the file for reading and writing, and returns the resulting file.
@@ -616,7 +616,7 @@ inline function hostname():stdgo.Tuple.<String, stdgo.Error> throw "not implemen
     // The caller can use the file's Name method to find the pathname of the file.
     // It is the caller's responsibility to remove the file when it is no longer needed.
 **/
-inline function createTemp(dir:String, pattern:String):stdgo.Tuple.<File, stdgo.Error> throw "not implemented";
+inline function createTemp(dir:String, pattern:String):stdgo.Tuple<File, stdgo.Error> throw "not implemented";
 /**
     // MkdirTemp creates a new temporary directory in the directory dir
     // and returns the pathname of the new directory.
@@ -626,7 +626,7 @@ inline function createTemp(dir:String, pattern:String):stdgo.Tuple.<File, stdgo.
     // Multiple programs or goroutines calling MkdirTemp simultaneously will not choose the same directory.
     // It is the caller's responsibility to remove the directory when it is no longer needed.
 **/
-inline function mkdirTemp(dir:String, pattern:String):stdgo.Tuple.<String, stdgo.Error> throw "not implemented";
+inline function mkdirTemp(dir:String, pattern:String):stdgo.Tuple<String, stdgo.Error> throw "not implemented";
 /**
     // Getpagesize returns the underlying system's memory page size.
 **/

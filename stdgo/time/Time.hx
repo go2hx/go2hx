@@ -223,7 +223,7 @@ inline function resetLocalOnceForTest():Void throw "not implemented";
 inline function forceUSPacificForTesting():Void throw "not implemented";
 inline function zoneinfoForTesting():stdgo.Pointer<String> throw "not implemented";
 inline function resetZoneinfoForTesting():Void throw "not implemented";
-inline function loadFromEmbeddedTZData(zone:String):stdgo.Tuple.<String, stdgo.Error> throw "not implemented";
+inline function loadFromEmbeddedTZData(zone:String):stdgo.Tuple<String, stdgo.Error> throw "not implemented";
 inline function tzsetRule(s:String):stdgo.Tuple.Tuple3<Rule, String, Bool> throw "not implemented";
 /**
     // Parse parses a formatted string and returns the time value it represents.
@@ -269,7 +269,7 @@ inline function tzsetRule(s:String):stdgo.Tuple.Tuple3<Rule, String, Bool> throw
     // differ by the actual zone offset. To avoid such problems, prefer time layouts
     // that use a numeric zone offset, or use ParseInLocation.
 **/
-inline function parse(layout:String, value:String):stdgo.Tuple.<Time, stdgo.Error> throw "not implemented";
+inline function parse(layout:String, value:String):stdgo.Tuple<Time, stdgo.Error> throw "not implemented";
 /**
     // ParseInLocation is like Parse but differs in two important ways.
     // First, in the absence of time zone information, Parse interprets a time as UTC;
@@ -277,7 +277,7 @@ inline function parse(layout:String, value:String):stdgo.Tuple.<Time, stdgo.Erro
     // Second, when given a zone offset or abbreviation, Parse tries to match it
     // against the Local location; ParseInLocation uses the given location.
 **/
-inline function parseInLocation(layout:String, value:String, loc:Location):stdgo.Tuple.<Time, stdgo.Error> throw "not implemented";
+inline function parseInLocation(layout:String, value:String, loc:Location):stdgo.Tuple<Time, stdgo.Error> throw "not implemented";
 /**
     // ParseDuration parses a duration string.
     // A duration string is a possibly signed sequence of
@@ -285,7 +285,7 @@ inline function parseInLocation(layout:String, value:String, loc:Location):stdgo
     // such as "300ms", "-1.5h" or "2h45m".
     // Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h".
 **/
-inline function parseDuration(s:String):stdgo.Tuple.<Duration, stdgo.Error> throw "not implemented";
+inline function parseDuration(s:String):stdgo.Tuple<Duration, stdgo.Error> throw "not implemented";
 /**
     // Test that a runtimeTimer with a period that would overflow when on
     // expiration does not throw or cause other timers to hang.
@@ -411,14 +411,14 @@ inline function fixedZone(name:String, offset:Int):Location throw "not implement
     //   - $GOROOT/lib/time/zoneinfo.zip
     //   - the time/tzdata package, if it was imported
 **/
-inline function loadLocation(name:String):stdgo.Tuple.<Location, stdgo.Error> throw "not implemented";
+inline function loadLocation(name:String):stdgo.Tuple<Location, stdgo.Error> throw "not implemented";
 /**
     // LoadLocationFromTZData returns a Location with the given name
     // initialized from the IANA Time Zone database-formatted data.
     // The data should be in the format of a standard IANA time zone file
     // (for example, the content of /etc/localtime on Unix systems).
 **/
-inline function loadLocationFromTZData(name:String, data:Array<Int>):stdgo.Tuple.<Location, stdgo.Error> throw "not implemented";
+inline function loadLocationFromTZData(name:String, data:Array<Int>):stdgo.Tuple<Location, stdgo.Error> throw "not implemented";
 @:invalid typedef ParseError_asInterface = Dynamic;
 @:invalid typedef ParseError_static_extension = Dynamic;
 @:invalid typedef Timer_asInterface = Dynamic;

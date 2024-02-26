@@ -129,7 +129,7 @@ inline function phase(x:stdgo.GoComplex128):Float throw "not implemented";
     // such that x = r * e**θi.
     // The phase is in the range [-Pi, Pi].
 **/
-inline function polar(x:stdgo.GoComplex128):stdgo.Tuple.<Float, Float> throw "not implemented";
+inline function polar(x:stdgo.GoComplex128):stdgo.Tuple<Float, Float> throw "not implemented";
 /**
     // Pow returns x**y, the base-x exponential of y.
     // For generalized compatibility with math.Pow:

@@ -52,7 +52,7 @@ typedef WalkFunc = stdgo._internal.path.filepath.Filepath.WalkFunc;
     // On Windows, escaping is disabled. Instead, '\\' is treated as
     // path separator.
 **/
-inline function match(pattern:String, name:String):stdgo.Tuple.<Bool, stdgo.Error> throw "not implemented";
+inline function match(pattern:String, name:String):stdgo.Tuple<Bool, stdgo.Error> throw "not implemented";
 /**
     // Glob returns the names of all files matching pattern or nil
     // if there is no matching file. The syntax of patterns is the same
@@ -63,7 +63,7 @@ inline function match(pattern:String, name:String):stdgo.Tuple.<Bool, stdgo.Erro
     // The only possible returned error is ErrBadPattern, when pattern
     // is malformed.
 **/
-inline function glob(pattern:String):stdgo.Tuple.<Array<String>, stdgo.Error> throw "not implemented";
+inline function glob(pattern:String):stdgo.Tuple<Array<String>, stdgo.Error> throw "not implemented";
 /**
     // Clean returns the shortest path name equivalent to path
     // by purely lexical processing. It applies the following rules
@@ -137,7 +137,7 @@ inline function splitList(path:String):Array<String> throw "not implemented";
     // and file set to path.
     // The returned values have the property that path = dir+file.
 **/
-inline function split(path:String):stdgo.Tuple.<String, String> throw "not implemented";
+inline function split(path:String):stdgo.Tuple<String, String> throw "not implemented";
 /**
     // Join joins any number of path elements into a single path,
     // separating them with an OS specific Separator. Empty elements
@@ -162,7 +162,7 @@ inline function ext(path:String):String throw "not implemented";
     // unless one of the components is an absolute symbolic link.
     // EvalSymlinks calls Clean on the result.
 **/
-inline function evalSymlinks(path:String):stdgo.Tuple.<String, stdgo.Error> throw "not implemented";
+inline function evalSymlinks(path:String):stdgo.Tuple<String, stdgo.Error> throw "not implemented";
 /**
     // Abs returns an absolute representation of path.
     // If the path is not absolute it will be joined with the current
@@ -170,7 +170,7 @@ inline function evalSymlinks(path:String):stdgo.Tuple.<String, stdgo.Error> thro
     // path name for a given file is not guaranteed to be unique.
     // Abs calls Clean on the result.
 **/
-inline function abs(path:String):stdgo.Tuple.<String, stdgo.Error> throw "not implemented";
+inline function abs(path:String):stdgo.Tuple<String, stdgo.Error> throw "not implemented";
 /**
     // Rel returns a relative path that is lexically equivalent to targpath when
     // joined to basepath with an intervening separator. That is,
@@ -181,7 +181,7 @@ inline function abs(path:String):stdgo.Tuple.<String, stdgo.Error> throw "not im
     // knowing the current working directory would be necessary to compute it.
     // Rel calls Clean on the result.
 **/
-inline function rel(basepath:String, targpath:String):stdgo.Tuple.<String, stdgo.Error> throw "not implemented";
+inline function rel(basepath:String, targpath:String):stdgo.Tuple<String, stdgo.Error> throw "not implemented";
 /**
     // WalkDir walks the file tree rooted at root, calling fn for each file or
     // directory in the tree, including root.

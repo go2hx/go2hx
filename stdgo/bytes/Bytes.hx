@@ -342,7 +342,7 @@ inline function clone(b:Array<Int>):Array<Int> throw "not implemented";
     //
     // CutPrefix returns slices of the original slice s, not copies.
 **/
-inline function cutPrefix(s:Array<Int>, prefix:Array<Int>):stdgo.Tuple.<Array<Int>, Bool> throw "not implemented";
+inline function cutPrefix(s:Array<Int>, prefix:Array<Int>):stdgo.Tuple<Array<Int>, Bool> throw "not implemented";
 /**
     // CutSuffix returns s without the provided ending suffix byte slice
     // and reports whether it found the suffix.
@@ -351,7 +351,7 @@ inline function cutPrefix(s:Array<Int>, prefix:Array<Int>):stdgo.Tuple.<Array<In
     //
     // CutSuffix returns slices of the original slice s, not copies.
 **/
-inline function cutSuffix(s:Array<Int>, suffix:Array<Int>):stdgo.Tuple.<Array<Int>, Bool> throw "not implemented";
+inline function cutSuffix(s:Array<Int>, suffix:Array<Int>):stdgo.Tuple<Array<Int>, Bool> throw "not implemented";
 /**
     // NewReader returns a new Reader reading from b.
 **/

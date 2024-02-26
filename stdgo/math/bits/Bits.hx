@@ -178,7 +178,7 @@ inline function len64(x:haxe.UInt64):Int throw "not implemented";
     //
     // This function's execution time does not depend on the inputs.
 **/
-inline function add(x:UInt, y:UInt, carry:UInt):stdgo.Tuple.<UInt, UInt> throw "not implemented";
+inline function add(x:UInt, y:UInt, carry:UInt):stdgo.Tuple<UInt, UInt> throw "not implemented";
 /**
     // Add32 returns the sum with carry of x, y and carry: sum = x + y + carry.
     // The carry input must be 0 or 1; otherwise the behavior is undefined.
@@ -186,7 +186,7 @@ inline function add(x:UInt, y:UInt, carry:UInt):stdgo.Tuple.<UInt, UInt> throw "
     //
     // This function's execution time does not depend on the inputs.
 **/
-inline function add32(x:UInt, y:UInt, carry:UInt):stdgo.Tuple.<UInt, UInt> throw "not implemented";
+inline function add32(x:UInt, y:UInt, carry:UInt):stdgo.Tuple<UInt, UInt> throw "not implemented";
 /**
     // Add64 returns the sum with carry of x, y and carry: sum = x + y + carry.
     // The carry input must be 0 or 1; otherwise the behavior is undefined.
@@ -194,7 +194,7 @@ inline function add32(x:UInt, y:UInt, carry:UInt):stdgo.Tuple.<UInt, UInt> throw
     //
     // This function's execution time does not depend on the inputs.
 **/
-inline function add64(x:haxe.UInt64, y:haxe.UInt64, carry:haxe.UInt64):stdgo.Tuple.<haxe.UInt64, haxe.UInt64> throw "not implemented";
+inline function add64(x:haxe.UInt64, y:haxe.UInt64, carry:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64> throw "not implemented";
 /**
     // Sub returns the difference of x, y and borrow: diff = x - y - borrow.
     // The borrow input must be 0 or 1; otherwise the behavior is undefined.
@@ -202,7 +202,7 @@ inline function add64(x:haxe.UInt64, y:haxe.UInt64, carry:haxe.UInt64):stdgo.Tup
     //
     // This function's execution time does not depend on the inputs.
 **/
-inline function sub(x:UInt, y:UInt, borrow:UInt):stdgo.Tuple.<UInt, UInt> throw "not implemented";
+inline function sub(x:UInt, y:UInt, borrow:UInt):stdgo.Tuple<UInt, UInt> throw "not implemented";
 /**
     // Sub32 returns the difference of x, y and borrow, diff = x - y - borrow.
     // The borrow input must be 0 or 1; otherwise the behavior is undefined.
@@ -210,7 +210,7 @@ inline function sub(x:UInt, y:UInt, borrow:UInt):stdgo.Tuple.<UInt, UInt> throw 
     //
     // This function's execution time does not depend on the inputs.
 **/
-inline function sub32(x:UInt, y:UInt, borrow:UInt):stdgo.Tuple.<UInt, UInt> throw "not implemented";
+inline function sub32(x:UInt, y:UInt, borrow:UInt):stdgo.Tuple<UInt, UInt> throw "not implemented";
 /**
     // Sub64 returns the difference of x, y and borrow: diff = x - y - borrow.
     // The borrow input must be 0 or 1; otherwise the behavior is undefined.
@@ -218,7 +218,7 @@ inline function sub32(x:UInt, y:UInt, borrow:UInt):stdgo.Tuple.<UInt, UInt> thro
     //
     // This function's execution time does not depend on the inputs.
 **/
-inline function sub64(x:haxe.UInt64, y:haxe.UInt64, borrow:haxe.UInt64):stdgo.Tuple.<haxe.UInt64, haxe.UInt64> throw "not implemented";
+inline function sub64(x:haxe.UInt64, y:haxe.UInt64, borrow:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64> throw "not implemented";
 /**
     // Mul returns the full-width product of x and y: (hi, lo) = x * y
     // with the product bits' upper half returned in hi and the lower
@@ -226,7 +226,7 @@ inline function sub64(x:haxe.UInt64, y:haxe.UInt64, borrow:haxe.UInt64):stdgo.Tu
     //
     // This function's execution time does not depend on the inputs.
 **/
-inline function mul(x:UInt, y:UInt):stdgo.Tuple.<UInt, UInt> throw "not implemented";
+inline function mul(x:UInt, y:UInt):stdgo.Tuple<UInt, UInt> throw "not implemented";
 /**
     // Mul32 returns the 64-bit product of x and y: (hi, lo) = x * y
     // with the product bits' upper half returned in hi and the lower
@@ -234,7 +234,7 @@ inline function mul(x:UInt, y:UInt):stdgo.Tuple.<UInt, UInt> throw "not implemen
     //
     // This function's execution time does not depend on the inputs.
 **/
-inline function mul32(x:UInt, y:UInt):stdgo.Tuple.<UInt, UInt> throw "not implemented";
+inline function mul32(x:UInt, y:UInt):stdgo.Tuple<UInt, UInt> throw "not implemented";
 /**
     // Mul64 returns the 128-bit product of x and y: (hi, lo) = x * y
     // with the product bits' upper half returned in hi and the lower
@@ -242,28 +242,28 @@ inline function mul32(x:UInt, y:UInt):stdgo.Tuple.<UInt, UInt> throw "not implem
     //
     // This function's execution time does not depend on the inputs.
 **/
-inline function mul64(x:haxe.UInt64, y:haxe.UInt64):stdgo.Tuple.<haxe.UInt64, haxe.UInt64> throw "not implemented";
+inline function mul64(x:haxe.UInt64, y:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64> throw "not implemented";
 /**
     // Div returns the quotient and remainder of (hi, lo) divided by y:
     // quo = (hi, lo)/y, rem = (hi, lo)%y with the dividend bits' upper
     // half in parameter hi and the lower half in parameter lo.
     // Div panics for y == 0 (division by zero) or y <= hi (quotient overflow).
 **/
-inline function div(hi:UInt, lo:UInt, y:UInt):stdgo.Tuple.<UInt, UInt> throw "not implemented";
+inline function div(hi:UInt, lo:UInt, y:UInt):stdgo.Tuple<UInt, UInt> throw "not implemented";
 /**
     // Div32 returns the quotient and remainder of (hi, lo) divided by y:
     // quo = (hi, lo)/y, rem = (hi, lo)%y with the dividend bits' upper
     // half in parameter hi and the lower half in parameter lo.
     // Div32 panics for y == 0 (division by zero) or y <= hi (quotient overflow).
 **/
-inline function div32(hi:UInt, lo:UInt, y:UInt):stdgo.Tuple.<UInt, UInt> throw "not implemented";
+inline function div32(hi:UInt, lo:UInt, y:UInt):stdgo.Tuple<UInt, UInt> throw "not implemented";
 /**
     // Div64 returns the quotient and remainder of (hi, lo) divided by y:
     // quo = (hi, lo)/y, rem = (hi, lo)%y with the dividend bits' upper
     // half in parameter hi and the lower half in parameter lo.
     // Div64 panics for y == 0 (division by zero) or y <= hi (quotient overflow).
 **/
-inline function div64(hi:haxe.UInt64, lo:haxe.UInt64, y:haxe.UInt64):stdgo.Tuple.<haxe.UInt64, haxe.UInt64> throw "not implemented";
+inline function div64(hi:haxe.UInt64, lo:haxe.UInt64, y:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64> throw "not implemented";
 /**
     // Rem returns the remainder of (hi, lo) divided by y. Rem panics for
     // y == 0 (division by zero) but, unlike Div, it doesn't panic on a

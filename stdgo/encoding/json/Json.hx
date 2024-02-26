@@ -301,12 +301,12 @@ typedef T_strMarshaler = stdgo._internal.encoding.json.Json.T_strMarshaler;
 typedef T_strPtrMarshaler = stdgo._internal.encoding.json.Json.T_strPtrMarshaler;
 typedef T_tagOptions = stdgo._internal.encoding.json.Json.T_tagOptions;
 inline function benchmarkCodeEncoder(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
-@:invalid typedef T_benchmarkCodeEncoderError_85___localname___Dummy = Dynamic;
+@:invalid typedef T_benchmarkCodeEncoderError_54___localname___Dummy = Dynamic;
 inline function benchmarkCodeEncoderError(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 inline function benchmarkCodeMarshal(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
-@:invalid typedef T_benchmarkCodeMarshalError_86___localname___Dummy = Dynamic;
+@:invalid typedef T_benchmarkCodeMarshalError_55___localname___Dummy = Dynamic;
 inline function benchmarkCodeMarshalError(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
-@:invalid typedef T__benchMarshalBytesError_87___localname___Dummy = Dynamic;
+@:invalid typedef T__benchMarshalBytesError_56___localname___Dummy = Dynamic;
 inline function benchmarkMarshalBytes(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 inline function benchmarkMarshalBytesError(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 inline function benchmarkCodeDecoder(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
@@ -322,7 +322,7 @@ inline function benchmarkIssue34127(b:stdgo._internal.testing.Testing.B):Void th
 inline function benchmarkUnmapped(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 inline function benchmarkTypeFieldsCache(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 inline function benchmarkEncodeMarshaler(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
-@:invalid typedef T_benchmarkEncoderEncode_88___localname___T = Dynamic;
+@:invalid typedef T_benchmarkEncoderEncode_57___localname___T = Dynamic;
 inline function benchmarkEncoderEncode(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 inline function benchmarkNumberIsValid(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 inline function benchmarkNumberIsValidRegexp(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
@@ -423,15 +423,15 @@ inline function testEscape(t:stdgo._internal.testing.Testing.T_):Void throw "not
     // helpful, telling the user that they're doing it wrong.
 **/
 inline function testErrorMessageFromMisusedString(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testRefUnmarshal_89___localname___S = Dynamic;
+@:invalid typedef T_testRefUnmarshal_58___localname___S = Dynamic;
 inline function testRefUnmarshal(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testEmptyString_90___localname___T2 = Dynamic;
+@:invalid typedef T_testEmptyString_59___localname___T2 = Dynamic;
 /**
     // Test that the empty string doesn't panic decoding when ,string is specified
     // Issue 3450
 **/
 inline function testEmptyString(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testNullString_91___localname___T = Dynamic;
+@:invalid typedef T_testNullString_60___localname___T = Dynamic;
 /**
     // Test that a null for ,string is not replaced with the previous quoted string (issue 7046).
     // It should also not be an error (issue 2540, issue 8587).
@@ -443,16 +443,16 @@ inline function testInterfaceSet(t:stdgo._internal.testing.Testing.T_):Void thro
     // Issue 2540
 **/
 inline function testUnmarshalNulls(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-typedef T_testStringKind_92___localname___stringKind = stdgo._internal.encoding.json.Json.T_testStringKind_92___localname___stringKind;
+typedef T_testStringKind_61___localname___stringKind = stdgo._internal.encoding.json.Json.T_testStringKind_61___localname___stringKind;
 inline function testStringKind(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-typedef T_testByteKind_93___localname___byteKind = stdgo._internal.encoding.json.Json.T_testByteKind_93___localname___byteKind;
+typedef T_testByteKind_62___localname___byteKind = stdgo._internal.encoding.json.Json.T_testByteKind_62___localname___byteKind;
 /**
     // Custom types with []byte as underlying type could not be marshaled
     // and then unmarshaled.
     // Issue 8962.
 **/
 inline function testByteKind(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-typedef T_testSliceOfCustomByte_94___localname___Uint8 = stdgo._internal.encoding.json.Json.T_testSliceOfCustomByte_94___localname___Uint8;
+typedef T_testSliceOfCustomByte_63___localname___Uint8 = stdgo._internal.encoding.json.Json.T_testSliceOfCustomByte_63___localname___Uint8;
 /**
     // The fix for issue 8962 introduced a regression.
     // Issue 12921.
@@ -481,18 +481,18 @@ inline function testInvalidUnmarshalText(t:stdgo._internal.testing.Testing.T_):V
     // Issue 9812.
 **/
 inline function testInvalidStringOption(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_95___localname___embed1 = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_96___localname___embed2 = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_97___localname___embed3 = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_98___localname___S1 = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_99___localname___S2 = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_100___localname___S3 = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_101___localname___S4 = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_102___localname___S5 = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_103___localname___S6 = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_104___localname___S7 = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_105___localname___S8 = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_106___localname___S9 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_64___localname___embed1 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_65___localname___embed2 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_66___localname___embed3 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_67___localname___S1 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_68___localname___S2 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_69___localname___S3 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_70___localname___S4 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_71___localname___S5 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_72___localname___S6 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_73___localname___S7 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_74___localname___S8 = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_75___localname___S9 = Dynamic;
 /**
     // Test unmarshal behavior with regards to embedded unexported structs.
     //
@@ -518,7 +518,7 @@ inline function testUnmarshalRecursivePointer(t:stdgo._internal.testing.Testing.
     // See golang.org/issues/34437.
 **/
 inline function testUnmarshalMapWithTextUnmarshalerStringKey(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testUnmarshalRescanLiteralMangledUnquote_107___localname___T = Dynamic;
+@:invalid typedef T_testUnmarshalRescanLiteralMangledUnquote_76___localname___T = Dynamic;
 inline function testUnmarshalRescanLiteralMangledUnquote(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testUnmarshalMaxDepth(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
@@ -653,13 +653,13 @@ inline function testUnmarshalMaxDepth(t:stdgo._internal.testing.Testing.T_):Void
     // handle them. Passing cyclic structures to Marshal will result in
     // an error.
 **/
-inline function marshal(v:stdgo.AnyInterface):stdgo.Tuple.<Array<Int>, stdgo.Error> throw "not implemented";
+inline function marshal(v:stdgo.AnyInterface):stdgo.Tuple<Array<Int>, stdgo.Error> throw "not implemented";
 /**
     // MarshalIndent is like Marshal but applies Indent to format the output.
     // Each JSON element in the output will begin on a new line beginning with prefix
     // followed by one or more copies of indent according to the indentation nesting.
 **/
-inline function marshalIndent(v:stdgo.AnyInterface, prefix:String, indent:String):stdgo.Tuple.<Array<Int>, stdgo.Error> throw "not implemented";
+inline function marshalIndent(v:stdgo.AnyInterface, prefix:String, indent:String):stdgo.Tuple<Array<Int>, stdgo.Error> throw "not implemented";
 inline function testOmitEmpty(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testRoundtripStringTag(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testEncodeRenamedByteSlice(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -672,34 +672,34 @@ inline function testUnsupportedValues(t:stdgo._internal.testing.Testing.T_):Void
 inline function testMarshalTextFloatMap(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testRefValMarshal(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testMarshalerEscaping(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testAnonymousFields_108___localname___S1 = Dynamic;
-@:invalid typedef T_testAnonymousFields_109___localname___S2 = Dynamic;
-@:invalid typedef T_testAnonymousFields_110___localname___S = Dynamic;
-@:invalid typedef T_testAnonymousFields_111___localname___S1 = Dynamic;
-@:invalid typedef T_testAnonymousFields_112___localname___S2 = Dynamic;
-@:invalid typedef T_testAnonymousFields_113___localname___S = Dynamic;
-typedef T_testAnonymousFields_114___localname___myInt = stdgo._internal.encoding.json.Json.T_testAnonymousFields_114___localname___myInt;
-@:invalid typedef T_testAnonymousFields_115___localname___S = Dynamic;
-typedef T_testAnonymousFields_116___localname___MyInt = stdgo._internal.encoding.json.Json.T_testAnonymousFields_116___localname___MyInt;
-@:invalid typedef T_testAnonymousFields_117___localname___S = Dynamic;
-typedef T_testAnonymousFields_118___localname___myInt = stdgo._internal.encoding.json.Json.T_testAnonymousFields_118___localname___myInt;
-@:invalid typedef T_testAnonymousFields_119___localname___S = Dynamic;
-typedef T_testAnonymousFields_120___localname___MyInt = stdgo._internal.encoding.json.Json.T_testAnonymousFields_120___localname___MyInt;
-@:invalid typedef T_testAnonymousFields_121___localname___S = Dynamic;
-@:invalid typedef T_testAnonymousFields_122___localname___s1 = Dynamic;
-@:invalid typedef T_testAnonymousFields_123___localname___S2 = Dynamic;
-@:invalid typedef T_testAnonymousFields_124___localname___S = Dynamic;
-@:invalid typedef T_testAnonymousFields_125___localname___s1 = Dynamic;
-@:invalid typedef T_testAnonymousFields_126___localname___S2 = Dynamic;
-@:invalid typedef T_testAnonymousFields_127___localname___S = Dynamic;
-typedef T_testAnonymousFields_128___localname___MyInt1 = stdgo._internal.encoding.json.Json.T_testAnonymousFields_128___localname___MyInt1;
-typedef T_testAnonymousFields_129___localname___MyInt2 = stdgo._internal.encoding.json.Json.T_testAnonymousFields_129___localname___MyInt2;
-typedef T_testAnonymousFields_130___localname___myInt = stdgo._internal.encoding.json.Json.T_testAnonymousFields_130___localname___myInt;
-@:invalid typedef T_testAnonymousFields_131___localname___s2 = Dynamic;
-@:invalid typedef T_testAnonymousFields_132___localname___s1 = Dynamic;
-@:invalid typedef T_testAnonymousFields_133___localname___S = Dynamic;
-@:invalid typedef T_testAnonymousFields_134___localname___S2 = Dynamic;
-@:invalid typedef T_testAnonymousFields_135___localname___S = Dynamic;
+@:invalid typedef T_testAnonymousFields_77___localname___S1 = Dynamic;
+@:invalid typedef T_testAnonymousFields_78___localname___S2 = Dynamic;
+@:invalid typedef T_testAnonymousFields_79___localname___S = Dynamic;
+@:invalid typedef T_testAnonymousFields_80___localname___S1 = Dynamic;
+@:invalid typedef T_testAnonymousFields_81___localname___S2 = Dynamic;
+@:invalid typedef T_testAnonymousFields_82___localname___S = Dynamic;
+typedef T_testAnonymousFields_83___localname___myInt = stdgo._internal.encoding.json.Json.T_testAnonymousFields_83___localname___myInt;
+@:invalid typedef T_testAnonymousFields_84___localname___S = Dynamic;
+typedef T_testAnonymousFields_85___localname___MyInt = stdgo._internal.encoding.json.Json.T_testAnonymousFields_85___localname___MyInt;
+@:invalid typedef T_testAnonymousFields_86___localname___S = Dynamic;
+typedef T_testAnonymousFields_87___localname___myInt = stdgo._internal.encoding.json.Json.T_testAnonymousFields_87___localname___myInt;
+@:invalid typedef T_testAnonymousFields_88___localname___S = Dynamic;
+typedef T_testAnonymousFields_89___localname___MyInt = stdgo._internal.encoding.json.Json.T_testAnonymousFields_89___localname___MyInt;
+@:invalid typedef T_testAnonymousFields_90___localname___S = Dynamic;
+@:invalid typedef T_testAnonymousFields_91___localname___s1 = Dynamic;
+@:invalid typedef T_testAnonymousFields_92___localname___S2 = Dynamic;
+@:invalid typedef T_testAnonymousFields_93___localname___S = Dynamic;
+@:invalid typedef T_testAnonymousFields_94___localname___s1 = Dynamic;
+@:invalid typedef T_testAnonymousFields_95___localname___S2 = Dynamic;
+@:invalid typedef T_testAnonymousFields_96___localname___S = Dynamic;
+typedef T_testAnonymousFields_97___localname___MyInt1 = stdgo._internal.encoding.json.Json.T_testAnonymousFields_97___localname___MyInt1;
+typedef T_testAnonymousFields_98___localname___MyInt2 = stdgo._internal.encoding.json.Json.T_testAnonymousFields_98___localname___MyInt2;
+typedef T_testAnonymousFields_99___localname___myInt = stdgo._internal.encoding.json.Json.T_testAnonymousFields_99___localname___myInt;
+@:invalid typedef T_testAnonymousFields_100___localname___s2 = Dynamic;
+@:invalid typedef T_testAnonymousFields_101___localname___s1 = Dynamic;
+@:invalid typedef T_testAnonymousFields_102___localname___S = Dynamic;
+@:invalid typedef T_testAnonymousFields_103___localname___S2 = Dynamic;
+@:invalid typedef T_testAnonymousFields_104___localname___S = Dynamic;
 inline function testAnonymousFields(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
     // See golang.org/issue/16042 and golang.org/issue/34235.
@@ -714,13 +714,13 @@ inline function testEmbeddedBug(t:stdgo._internal.testing.Testing.T_):Void throw
 **/
 inline function testTaggedFieldDominates(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testDuplicatedFieldDisappears(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testIssue10281_136___localname___Foo = Dynamic;
+@:invalid typedef T_testIssue10281_105___localname___Foo = Dynamic;
 inline function testIssue10281(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testMarshalErrorAndReuseEncodeState_137___localname___Dummy = Dynamic;
-@:invalid typedef T_testMarshalErrorAndReuseEncodeState_138___localname___Data = Dynamic;
+@:invalid typedef T_testMarshalErrorAndReuseEncodeState_106___localname___Dummy = Dynamic;
+@:invalid typedef T_testMarshalErrorAndReuseEncodeState_107___localname___Data = Dynamic;
 inline function testMarshalErrorAndReuseEncodeState(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testHTMLEscape(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testEncodePointerString_139___localname___stringPointer = Dynamic;
+@:invalid typedef T_testEncodePointerString_108___localname___stringPointer = Dynamic;
 /**
     // golang.org/issue/8582
 **/
@@ -736,8 +736,8 @@ inline function testTextMarshalerMapKeysAreSorted(t:stdgo._internal.testing.Test
 **/
 inline function testNilMarshalerTextMapKey(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testMarshalFloat(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testMarshalRawMessageValue_140___localname___T1 = Dynamic;
-@:invalid typedef T_testMarshalRawMessageValue_141___localname___T2 = Dynamic;
+@:invalid typedef T_testMarshalRawMessageValue_109___localname___T1 = Dynamic;
+@:invalid typedef T_testMarshalRawMessageValue_110___localname___T2 = Dynamic;
 inline function testMarshalRawMessageValue(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testMarshalPanic(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testMarshalUncommonFieldNames(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -796,8 +796,8 @@ inline function newDecoder(r:stdgo._internal.io.Io.Reader):Decoder throw "not im
 **/
 inline function newEncoder(w:stdgo._internal.io.Io.Writer):Encoder throw "not implemented";
 inline function testEncoder(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testEncoderErrorAndReuseEncodeState_142___localname___Dummy = Dynamic;
-@:invalid typedef T_testEncoderErrorAndReuseEncodeState_143___localname___Data = Dynamic;
+@:invalid typedef T_testEncoderErrorAndReuseEncodeState_111___localname___Dummy = Dynamic;
+@:invalid typedef T_testEncoderErrorAndReuseEncodeState_112___localname___Data = Dynamic;
 inline function testEncoderErrorAndReuseEncodeState(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testEncoderIndent(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testEncoderSetEscapeHTML(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -963,45 +963,45 @@ inline function testTagParsing(t:stdgo._internal.testing.Testing.T_):Void throw 
 @:invalid typedef T_strPtrMarshaler_static_extension = Dynamic;
 @:invalid typedef T_tagOptions_asInterface = Dynamic;
 @:invalid typedef T_tagOptions_static_extension = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_98___localname___S1_asInterface = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_98___localname___S1_static_extension = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_99___localname___S2_asInterface = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_99___localname___S2_static_extension = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_100___localname___S3_asInterface = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_100___localname___S3_static_extension = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_101___localname___S4_asInterface = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_101___localname___S4_static_extension = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_102___localname___S5_asInterface = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_102___localname___S5_static_extension = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_103___localname___S6_asInterface = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_103___localname___S6_static_extension = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_104___localname___S7_asInterface = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_104___localname___S7_static_extension = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_105___localname___S8_asInterface = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_105___localname___S8_static_extension = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_106___localname___S9_asInterface = Dynamic;
-@:invalid typedef T_testUnmarshalEmbeddedUnexported_106___localname___S9_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_110___localname___S_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_110___localname___S_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_113___localname___S_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_113___localname___S_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_115___localname___S_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_115___localname___S_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_117___localname___S_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_117___localname___S_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_119___localname___S_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_119___localname___S_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_121___localname___S_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_121___localname___S_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_124___localname___S_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_124___localname___S_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_127___localname___S_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_127___localname___S_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_131___localname___s2_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_131___localname___s2_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_132___localname___s1_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_132___localname___s1_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_133___localname___S_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_133___localname___S_static_extension = Dynamic;
-@:invalid typedef T_testAnonymousFields_135___localname___S_asInterface = Dynamic;
-@:invalid typedef T_testAnonymousFields_135___localname___S_static_extension = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_67___localname___S1_asInterface = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_67___localname___S1_static_extension = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_68___localname___S2_asInterface = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_68___localname___S2_static_extension = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_69___localname___S3_asInterface = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_69___localname___S3_static_extension = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_70___localname___S4_asInterface = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_70___localname___S4_static_extension = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_71___localname___S5_asInterface = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_71___localname___S5_static_extension = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_72___localname___S6_asInterface = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_72___localname___S6_static_extension = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_73___localname___S7_asInterface = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_73___localname___S7_static_extension = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_74___localname___S8_asInterface = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_74___localname___S8_static_extension = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_75___localname___S9_asInterface = Dynamic;
+@:invalid typedef T_testUnmarshalEmbeddedUnexported_75___localname___S9_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_79___localname___S_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_79___localname___S_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_82___localname___S_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_82___localname___S_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_84___localname___S_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_84___localname___S_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_86___localname___S_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_86___localname___S_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_88___localname___S_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_88___localname___S_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_90___localname___S_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_90___localname___S_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_93___localname___S_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_93___localname___S_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_96___localname___S_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_96___localname___S_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_100___localname___s2_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_100___localname___s2_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_101___localname___s1_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_101___localname___s1_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_102___localname___S_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_102___localname___S_static_extension = Dynamic;
+@:invalid typedef T_testAnonymousFields_104___localname___S_asInterface = Dynamic;
+@:invalid typedef T_testAnonymousFields_104___localname___S_static_extension = Dynamic;

@@ -8,22 +8,22 @@ final maxBruteForce : haxe.UInt64 = stdgo._internal.internal.bytealg.Bytealg.max
     // HashStrBytes returns the hash and the appropriate multiplicative
     // factor for use in Rabin-Karp algorithm.
 **/
-inline function hashStrBytes(sep:Array<Int>):stdgo.Tuple.<UInt, UInt> throw "not implemented";
+inline function hashStrBytes(sep:Array<Int>):stdgo.Tuple<UInt, UInt> throw "not implemented";
 /**
     // HashStr returns the hash and the appropriate multiplicative
     // factor for use in Rabin-Karp algorithm.
 **/
-inline function hashStr(sep:String):stdgo.Tuple.<UInt, UInt> throw "not implemented";
+inline function hashStr(sep:String):stdgo.Tuple<UInt, UInt> throw "not implemented";
 /**
     // HashStrRevBytes returns the hash of the reverse of sep and the
     // appropriate multiplicative factor for use in Rabin-Karp algorithm.
 **/
-inline function hashStrRevBytes(sep:Array<Int>):stdgo.Tuple.<UInt, UInt> throw "not implemented";
+inline function hashStrRevBytes(sep:Array<Int>):stdgo.Tuple<UInt, UInt> throw "not implemented";
 /**
     // HashStrRev returns the hash of the reverse of sep and the
     // appropriate multiplicative factor for use in Rabin-Karp algorithm.
 **/
-inline function hashStrRev(sep:String):stdgo.Tuple.<UInt, UInt> throw "not implemented";
+inline function hashStrRev(sep:String):stdgo.Tuple<UInt, UInt> throw "not implemented";
 /**
     // IndexRabinKarpBytes uses the Rabin-Karp search algorithm to return the index of the
     // first occurrence of substr in s, or -1 if not present.

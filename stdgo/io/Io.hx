@@ -87,7 +87,7 @@ typedef T__struct_0 = stdgo._internal.io.Io.T__struct_0;
     // If w implements StringWriter, its WriteString method is invoked directly.
     // Otherwise, w.Write is called exactly once.
 **/
-inline function writeString(w:Writer, s:String):stdgo.Tuple.<Int, stdgo.Error> throw "not implemented";
+inline function writeString(w:Writer, s:String):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 /**
     // ReadAtLeast reads from r into buf until it has read at least min bytes.
     // It returns the number of bytes copied and an error if fewer bytes were read.
@@ -98,7 +98,7 @@ inline function writeString(w:Writer, s:String):stdgo.Tuple.<Int, stdgo.Error> t
     // On return, n >= min if and only if err == nil.
     // If r returns an error having read at least min bytes, the error is dropped.
 **/
-inline function readAtLeast(r:Reader, buf:Array<Int>, min:Int):stdgo.Tuple.<Int, stdgo.Error> throw "not implemented";
+inline function readAtLeast(r:Reader, buf:Array<Int>, min:Int):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 /**
     // ReadFull reads exactly len(buf) bytes from r into buf.
     // It returns the number of bytes copied and an error if fewer bytes were read.
@@ -108,7 +108,7 @@ inline function readAtLeast(r:Reader, buf:Array<Int>, min:Int):stdgo.Tuple.<Int,
     // On return, n == len(buf) if and only if err == nil.
     // If r returns an error having read at least len(buf) bytes, the error is dropped.
 **/
-inline function readFull(r:Reader, buf:Array<Int>):stdgo.Tuple.<Int, stdgo.Error> throw "not implemented";
+inline function readFull(r:Reader, buf:Array<Int>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 /**
     // CopyN copies n bytes (or until an error) from src to dst.
     // It returns the number of bytes copied and the earliest
@@ -118,7 +118,7 @@ inline function readFull(r:Reader, buf:Array<Int>):stdgo.Tuple.<Int, stdgo.Error
     // If dst implements the ReaderFrom interface,
     // the copy is implemented using it.
 **/
-inline function copyN(dst:Writer, src:Reader, n:haxe.Int64):stdgo.Tuple.<haxe.Int64, stdgo.Error> throw "not implemented";
+inline function copyN(dst:Writer, src:Reader, n:haxe.Int64):stdgo.Tuple<haxe.Int64, stdgo.Error> throw "not implemented";
 /**
     // Copy copies from src to dst until either EOF is reached
     // on src or an error occurs. It returns the number of bytes
@@ -133,7 +133,7 @@ inline function copyN(dst:Writer, src:Reader, n:haxe.Int64):stdgo.Tuple.<haxe.In
     // Otherwise, if dst implements the ReaderFrom interface,
     // the copy is implemented by calling dst.ReadFrom(src).
 **/
-inline function copy(dst:Writer, src:Reader):stdgo.Tuple.<haxe.Int64, stdgo.Error> throw "not implemented";
+inline function copy(dst:Writer, src:Reader):stdgo.Tuple<haxe.Int64, stdgo.Error> throw "not implemented";
 /**
     // CopyBuffer is identical to Copy except that it stages through the
     // provided buffer (if one is required) rather than allocating a
@@ -143,7 +143,7 @@ inline function copy(dst:Writer, src:Reader):stdgo.Tuple.<haxe.Int64, stdgo.Erro
     // If either src implements WriterTo or dst implements ReaderFrom,
     // buf will not be used to perform the copy.
 **/
-inline function copyBuffer(dst:Writer, src:Reader, buf:Array<Int>):stdgo.Tuple.<haxe.Int64, stdgo.Error> throw "not implemented";
+inline function copyBuffer(dst:Writer, src:Reader, buf:Array<Int>):stdgo.Tuple<haxe.Int64, stdgo.Error> throw "not implemented";
 /**
     // LimitReader returns a Reader that reads from r
     // but stops with EOF after n bytes.
@@ -181,7 +181,7 @@ inline function nopCloser(r:Reader):ReadCloser throw "not implemented";
     // defined to read from src until EOF, it does not treat an EOF from Read
     // as an error to be reported.
 **/
-inline function readAll(r:Reader):stdgo.Tuple.<Array<Int>, stdgo.Error> throw "not implemented";
+inline function readAll(r:Reader):stdgo.Tuple<Array<Int>, stdgo.Error> throw "not implemented";
 /**
     // MultiReader returns a Reader that's the logical concatenation of
     // the provided input readers. They're read sequentially. Once all
@@ -215,7 +215,7 @@ inline function multiWriter(writers:haxe.Rest<Writer>):Writer throw "not impleme
     // Parallel calls to Read and parallel calls to Write are also safe:
     // the individual calls will be gated sequentially.
 **/
-inline function pipe():stdgo.Tuple.<PipeReader, PipeWriter> throw "not implemented";
+inline function pipe():stdgo.Tuple<PipeReader, PipeWriter> throw "not implemented";
 @:invalid typedef LimitedReader_asInterface = Dynamic;
 @:invalid typedef LimitedReader_static_extension = Dynamic;
 @:invalid typedef SectionReader_asInterface = Dynamic;

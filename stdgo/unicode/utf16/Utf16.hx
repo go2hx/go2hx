@@ -21,7 +21,7 @@ inline function decodeRune(r1:Int, r2:Int):Int throw "not implemented";
     // If the rune is not a valid Unicode code point or does not need encoding,
     // EncodeRune returns U+FFFD, U+FFFD.
 **/
-inline function encodeRune(r:Int):stdgo.Tuple.<Int, Int> throw "not implemented";
+inline function encodeRune(r:Int):stdgo.Tuple<Int, Int> throw "not implemented";
 /**
     // Encode returns the UTF-16 encoding of the Unicode code point sequence s.
 **/

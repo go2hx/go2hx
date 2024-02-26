@@ -144,7 +144,7 @@ inline function set(name:String, value:String):stdgo.Error throw "not implemente
     // If there are no back quotes, the name is an educated guess of the
     // type of the flag's value, or the empty string if the flag is boolean.
 **/
-inline function unquoteUsage(flag:Flag):stdgo.Tuple.<String, String> throw "not implemented";
+inline function unquoteUsage(flag:Flag):stdgo.Tuple<String, String> throw "not implemented";
 /**
     // PrintDefaults prints, to standard error unless configured otherwise,
     // a usage message showing the default settings of all defined

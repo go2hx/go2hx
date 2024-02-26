@@ -44,7 +44,7 @@ typedef TestUintptrAlias = stdgo._internal.testing.quick.Quick.TestUintptrAlias;
     // If the type implements the Generator interface, that will be used.
     // Note: To create arbitrary values for structs, all the fields must be exported.
 **/
-inline function value(t:stdgo._internal.reflect.Reflect.Type_, rand:stdgo._internal.math.rand.Rand.Rand):stdgo.Tuple.<stdgo._internal.reflect.Reflect.Value, Bool> throw "not implemented";
+inline function value(t:stdgo._internal.reflect.Reflect.Type_, rand:stdgo._internal.math.rand.Rand.Rand):stdgo.Tuple<stdgo._internal.reflect.Reflect.Value, Bool> throw "not implemented";
 /**
     // Check looks for an input to f, any function that returns bool,
     // such that f returns false. It calls f repeatedly, with arbitrary

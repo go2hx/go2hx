@@ -44,6 +44,9 @@ final excludes:Map<String,Array<String>> = [
 final path = Sys.getCwd();
 var ciBool = false;
 var hxbBool = false;
+var noDepsBool = false;
+var testBool = false;
+var globalPath = "";
 var logOutput:FileOutput = null;
 var startStamp = 0.0;
 var tests:Array<String> = [];
@@ -64,14 +67,17 @@ final runnerCount = Compiler.getDefine("runnerCount") ?? "2";
 var unitBool = false;
 var stdBool = false;
 var goBool = false;
+var libsBool = false;
 var yaegiBool = false;
 var goByExampleBool = false;
 var tinygoBool = false;
 
 function main() {
+	final targetsDefine = Compiler.getDefine("targets");
+	if (targetsDefine != null)
+		targets = targetsDefine.split(",");
 	if (Compiler.getDefine("target_hxcpp") != null)
 		targets = ["cpp"];
-
 	File.saveContent("test.log", "");
 	logOutput = File.append("test.log", false);
 	// go by example, stdlib, yaegi, go internal tests, unit regression tests
@@ -80,6 +86,8 @@ function main() {
 	unitBool = Compiler.getDefine("unit") != null;
 	stdBool = Compiler.getDefine("std") != null;
 	goBool = Compiler.getDefine("go") != null;
+	libsBool = Compiler.getDefine("libs") != null;
+	globalPath = Compiler.getDefine("path") ?? "";
 	yaegiBool = Compiler.getDefine("yaegi") != null;
 	goByExampleBool = Compiler.getDefine("gobyexample") != null;
 	tinygoBool = Compiler.getDefine("tinygo") != null;
@@ -92,7 +100,7 @@ function main() {
 	dryRun = Compiler.getDefine("dryRun") != null;
 	var startStamp = 0.0;
 
-	if (!unitBool && !stdBool && !goBool && !yaegiBool && !goByExampleBool) {
+	if (!unitBool && !stdBool && !goBool && !yaegiBool && !goByExampleBool && !libsBool) {
 		trace("no tests specified");
 		close();
 		return;
@@ -117,6 +125,8 @@ function runTests() {
 		testStd();
 	if (goBool)
 		testGo();
+	if (libsBool)
+		testLibs();
 	if (yaegiBool)
 		testYaegi();
 	if (tinygoBool)
@@ -163,8 +173,17 @@ function update() {
 		final hxmlName = sanatize(Path.withoutExtension(test));
 		final hxml = "golibs/" + type + "_" + hxmlName;
 		final args = [test, '--norun', '--hxml', hxml];
-		args.push(path);
+		if (testBool)
+			args.push("--test");
+		if (noDepsBool)
+			args.push("-nodeps");
+		if (globalPath == "") {
+			args.push(path);
+		}else{
+			args.push(globalPath);
+		}
 		instance = Main.compileArgs(args);
+
 		final compiled = Main.compile(instance);
 		timeout = 0;
 		if (!compiled) {
@@ -296,6 +315,11 @@ private function createTargetOutput(target:String, type:String, name:String):Str
 }
 
 private function sanatize(s:String):String {
+	final testStr = "_test.";
+	final index = s.indexOf(testStr);
+	if (index != -1) {
+		s = s.substr(index + testStr.length);
+	}
 	s = Typer.normalizePath(s);
 	s = Path.withoutDirectory(s);
 	s = Path.withoutExtension(s);
@@ -304,6 +328,31 @@ private function sanatize(s:String):String {
 		s += "_";
 	}
 	return s;
+}
+
+private function testLibs() {
+	type = "libs";
+	noDepsBool = true;
+	testBool = true;
+	// all the targets
+	targets = ["python"];
+	//targets = ["hl", "interp", "python", "js", "cpp", "jvm", "php"];
+	var libLines:Array<String> = Json.parse(File.getContent("tests/std.json"));
+	//libLines = libLines.concat(File.getContent("tests/libs.conf").split("\n"));
+    libLines = libLines.slice(0,1);
+    tests = [];
+    for (lib in libLines) {
+        lib = StringTools.trim(lib);
+		final index = lib.indexOf("|");
+		if (index != -1)
+			lib = lib.substr(index + 1);
+        if (lib.indexOf("#") == 0) {
+            continue;
+        }
+		if (!tests.contains(lib)) {
+			tests.push(lib);
+		}
+	}
 }
 
 private function testGo() { // go tests

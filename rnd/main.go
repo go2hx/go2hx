@@ -1,7 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"unicode"
+)
 
 func main() {
-	fmt.Println("hello world")
+	fmt.Println(unicode.IsDigit(42528))
 }

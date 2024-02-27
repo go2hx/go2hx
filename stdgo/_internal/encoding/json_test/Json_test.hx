@@ -42,7 +42,7 @@ function example_customMarshalJSON():Void {
             x;
         } : stdgo.GoMap<stdgo._internal.encoding.json_test.Json_test.Animal, stdgo.GoInt>);
         for (__0 => _animal in _zoo) {
-            _census[_animal] = (_census[_animal] ?? (0 : stdgo.GoInt)) + ((1 : stdgo.GoInt));
+            _census[_animal] = ((_census[_animal] ?? (0 : stdgo.GoInt)) + ((1 : stdgo.GoInt)) : stdgo.GoInt);
         };
         stdgo._internal.fmt.Fmt.printf(("Zoo Census:\n* Gophers: %d\n* Zebras:  %d\n* Unknown: %d\n" : stdgo.GoString), stdgo.Go.toInterface((_census[(1 : stdgo._internal.encoding.json_test.Json_test.Animal)] ?? (0 : stdgo.GoInt))), stdgo.Go.toInterface((_census[(2 : stdgo._internal.encoding.json_test.Json_test.Animal)] ?? (0 : stdgo.GoInt))), stdgo.Go.toInterface((_census[(0 : stdgo._internal.encoding.json_test.Json_test.Animal)] ?? (0 : stdgo.GoInt))));
     }
@@ -318,7 +318,7 @@ function example_textMarshalJSON():Void {
             x;
         } : stdgo.GoMap<stdgo._internal.encoding.json_test.Json_test.Size, stdgo.GoInt>);
         for (__0 => _size in _inventory) {
-            _counts[_size] = (_counts[_size] ?? (0 : stdgo.GoInt)) + ((1 : stdgo.GoInt));
+            _counts[_size] = ((_counts[_size] ?? (0 : stdgo.GoInt)) + ((1 : stdgo.GoInt)) : stdgo.GoInt);
         };
         stdgo._internal.fmt.Fmt.printf(("Inventory Counts:\n* Small:        %d\n* Large:        %d\n* Unrecognized: %d\n" : stdgo.GoString), stdgo.Go.toInterface((_counts[(1 : stdgo._internal.encoding.json_test.Json_test.Size)] ?? (0 : stdgo.GoInt))), stdgo.Go.toInterface((_counts[(2 : stdgo._internal.encoding.json_test.Json_test.Size)] ?? (0 : stdgo.GoInt))), stdgo.Go.toInterface((_counts[(0 : stdgo._internal.encoding.json_test.Json_test.Size)] ?? (0 : stdgo.GoInt))));
     }

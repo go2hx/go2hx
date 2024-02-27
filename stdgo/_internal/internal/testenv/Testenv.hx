@@ -106,20 +106,20 @@ function commandContext(_t:stdgo._internal.testing.Testing.TB, _ctx:stdgo._inter
                                 if (_err != null) {
                                     _t.fatalf(("invalid GO_TEST_TIMEOUT_SCALE: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                                 };
-                                _gracePeriod = _gracePeriod * ((_scale : stdgo._internal.time.Time.Duration));
+                                _gracePeriod = (_gracePeriod * ((_scale : stdgo._internal.time.Time.Duration)) : stdgo._internal.time.Time.Duration);
                             };
                         };
                         var _testTimeout:stdgo._internal.time.Time.Duration = stdgo._internal.time.Time.until(_td?.__copy__());
                         {
-                            var _gp:stdgo._internal.time.Time.Duration = _testTimeout / (20i64 : stdgo._internal.time.Time.Duration);
-                            if (_gp > _gracePeriod) {
+                            var _gp:stdgo._internal.time.Time.Duration = (_testTimeout / (20i64 : stdgo._internal.time.Time.Duration) : stdgo._internal.time.Time.Duration);
+                            if ((_gp > _gracePeriod : Bool)) {
                                 _gracePeriod = _gp;
                             };
                         };
-                        var _cmdTimeout:stdgo._internal.time.Time.Duration = _testTimeout - ((2i64 : stdgo._internal.time.Time.Duration) * _gracePeriod);
+                        var _cmdTimeout:stdgo._internal.time.Time.Duration = (_testTimeout - ((2i64 : stdgo._internal.time.Time.Duration) * _gracePeriod : stdgo._internal.time.Time.Duration) : stdgo._internal.time.Time.Duration);
                         {
                             var __tmp__ = _ctx.deadline(), _cd:stdgo._internal.time.Time.Time = __tmp__._0, _ok:Bool = __tmp__._1;
-                            if (!_ok || (stdgo._internal.time.Time.until(_cd?.__copy__()) > _cmdTimeout)) {
+                            if ((!_ok || (stdgo._internal.time.Time.until(_cd?.__copy__()) > _cmdTimeout : Bool) : Bool)) {
                                 {
                                     var __tmp__ = stdgo._internal.context.Context.withTimeout(_ctx, _cmdTimeout);
                                     _ctx = __tmp__._0;
@@ -133,7 +133,7 @@ function commandContext(_t:stdgo._internal.testing.Testing.TB, _ctx:stdgo._inter
         };
         var _cmd = stdgo._internal.os.exec.Exec.commandContext(_ctx, _name?.__copy__(), ..._args.__toArray__());
         _cmd.cancel = function():stdgo.Error {
-            if ((_cancelCtx != null) && (stdgo.Go.toInterface(_ctx.err()) == stdgo.Go.toInterface(stdgo._internal.context.Context.deadlineExceeded))) {
+            if (((_cancelCtx != null) && (stdgo.Go.toInterface(_ctx.err()) == stdgo.Go.toInterface(stdgo._internal.context.Context.deadlineExceeded)) : Bool)) {
                 _t.errorf(("test timed out while running command: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)));
             } else {
                 _t.logf(("%v: terminating command: %v" : stdgo.GoString), stdgo.Go.toInterface(_ctx.err()), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)));
@@ -145,7 +145,7 @@ function commandContext(_t:stdgo._internal.testing.Testing.TB, _ctx:stdgo._inter
             if (_cancelCtx != null) {
                 _cancelCtx();
             };
-            if (((_cmd.process != null) && ((_cmd.process : Dynamic).__nil__ == null || !(_cmd.process : Dynamic).__nil__)) && (_cmd.processState == null) || (_cmd.processState : Dynamic).__nil__) {
+            if ((((_cmd.process != null) && ((_cmd.process : Dynamic).__nil__ == null || !(_cmd.process : Dynamic).__nil__)) && (_cmd.processState == null) || (_cmd.processState : Dynamic).__nil__ : Bool)) {
                 _t.errorf(("command was started, but test did not wait for it to complete: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)));
             };
         });
@@ -237,7 +237,7 @@ function _findGOROOT():{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
                         _goMod = __tmp__._1?.__copy__();
                     };
                     var _fields = stdgo._internal.strings.Strings.fields(_line?.__copy__());
-                    if (((_fields.length >= (2 : stdgo.GoInt)) && (_fields[(0 : stdgo.GoInt)] == ("module" : stdgo.GoString))) && (_fields[(1 : stdgo.GoInt)] == ("std" : stdgo.GoString))) {
+                    if (((((_fields.length) >= (2 : stdgo.GoInt) : Bool) && _fields[(0 : stdgo.GoInt)] == (("module" : stdgo.GoString)) : Bool) && (_fields[(1 : stdgo.GoInt)] == ("std" : stdgo.GoString)) : Bool)) {
                         _gorootPath = _parent?.__copy__();
                         return;
                     };
@@ -280,7 +280,7 @@ function hasSrc():Bool {
         return true;
     }
 function hasExternalNetwork():Bool {
-        return (!stdgo._internal.testing.Testing.short() && false) && true;
+        return ((!stdgo._internal.testing.Testing.short() && false : Bool) && true : Bool);
     }
 function mustHaveExternalNetwork(_t:stdgo._internal.testing.Testing.TB):Void {
         if (true) {
@@ -323,7 +323,7 @@ function mustHaveCGO(_t:stdgo._internal.testing.Testing.TB):Void {
 function canInternalLink(_withCgo:Bool):Bool return false;
 function mustInternalLink(_t:stdgo._internal.testing.Testing.TB, _withCgo:Bool):Void {
         if (!canInternalLink(_withCgo)) {
-            if (_withCgo && canInternalLink(false)) {
+            if ((_withCgo && canInternalLink(false) : Bool)) {
                 _t.skipf(("skipping test: internal linking on %s/%s is not supported with cgo" : stdgo.GoString), stdgo.Go.toInterface(("js" : stdgo.GoString)), stdgo.Go.toInterface(("wasm" : stdgo.GoString)));
             };
             _t.skipf(("skipping test: internal linking on %s/%s is not supported" : stdgo.GoString), stdgo.Go.toInterface(("js" : stdgo.GoString)), stdgo.Go.toInterface(("wasm" : stdgo.GoString)));
@@ -377,7 +377,7 @@ function cpuisSlow():Bool {
         return false;
     }
 function skipIfShortAndSlow(_t:stdgo._internal.testing.Testing.TB):Void {
-        if (stdgo._internal.testing.Testing.short() && cpuisSlow()) {
+        if ((stdgo._internal.testing.Testing.short() && cpuisSlow() : Bool)) {
             _t.helper();
             _t.skipf(("skipping test in -short mode on %s" : stdgo.GoString), stdgo.Go.toInterface(("wasm" : stdgo.GoString)));
         };
@@ -396,7 +396,7 @@ function writeImportcfg(_t:stdgo._internal.testing.Testing.TB, _dstPath:stdgo.Go
         for (_k => _v in _packageFiles) {
             stdgo._internal.fmt.Fmt.fprintf(stdgo.Go.asInterface(_icfg), ("packagefile %s=%s\n" : stdgo.GoString), stdgo.Go.toInterface(_k), stdgo.Go.toInterface(_v));
         };
-        if ((_pkgs.length) > (0 : stdgo.GoInt)) {
+        if (((_pkgs.length) > (0 : stdgo.GoInt) : Bool)) {
             var _cmd = command(_t, goToolPath(_t)?.__copy__(), ("list" : stdgo.GoString), ("-export" : stdgo.GoString), ("-deps" : stdgo.GoString), ("-f" : stdgo.GoString), ("{{if ne .ImportPath \"command-line-arguments\"}}{{if .Export}}{{.ImportPath}}={{.Export}}{{end}}{{end}}" : stdgo.GoString));
             _cmd.args = (_cmd.args.__append__(..._pkgs.__toArray__()));
             _cmd.stderr = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.strings.Strings.Builder)) : stdgo.Ref<stdgo._internal.strings.Strings.Builder>));
@@ -428,7 +428,7 @@ function syscallIsNotSupported(_err:stdgo.Error):Bool {
         return _syscallIsNotSupported(_err);
     }
 function _syscallIsNotSupported(_err:stdgo.Error):Bool {
-        return stdgo._internal.errors.Errors.is_(_err, stdgo._internal.io.fs.Fs.errPermission) || stdgo._internal.errors.Errors.is_(_err, stdgo._internal.errors.Errors.errUnsupported);
+        return (stdgo._internal.errors.Errors.is_(_err, stdgo._internal.io.fs.Fs.errPermission) || stdgo._internal.errors.Errors.is_(_err, stdgo._internal.errors.Errors.errUnsupported) : Bool);
     }
 function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
         var __deferstack__:Array<Void -> Void> = [];

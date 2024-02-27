@@ -85,14 +85,14 @@ function example_interface():Void {
         var _enc = stdgo._internal.encoding.gob.Gob.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_network) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>)));
         {
             var _i:stdgo.GoInt = (1 : stdgo.GoInt);
-            stdgo.Go.cfor(_i <= (3 : stdgo.GoInt), _i++, {
-                _interfaceEncode(_enc, stdgo.Go.asInterface((new stdgo._internal.encoding.gob_test.Gob_test.Point((3 : stdgo.GoInt) * _i, (4 : stdgo.GoInt) * _i) : stdgo._internal.encoding.gob_test.Gob_test.Point)));
+            stdgo.Go.cfor((_i <= (3 : stdgo.GoInt) : Bool), _i++, {
+                _interfaceEncode(_enc, stdgo.Go.asInterface((new stdgo._internal.encoding.gob_test.Gob_test.Point(((3 : stdgo.GoInt) * _i : stdgo.GoInt), ((4 : stdgo.GoInt) * _i : stdgo.GoInt)) : stdgo._internal.encoding.gob_test.Gob_test.Point)));
             });
         };
         var _dec = stdgo._internal.encoding.gob.Gob.newDecoder(stdgo.Go.asInterface((stdgo.Go.setRef(_network) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>)));
         {
             var _i:stdgo.GoInt = (1 : stdgo.GoInt);
-            stdgo.Go.cfor(_i <= (3 : stdgo.GoInt), _i++, {
+            stdgo.Go.cfor((_i <= (3 : stdgo.GoInt) : Bool), _i++, {
                 var _result:stdgo._internal.encoding.gob_test.Gob_test.Pythagoras = _interfaceDecode(_dec);
                 stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_result.hypotenuse()));
             });

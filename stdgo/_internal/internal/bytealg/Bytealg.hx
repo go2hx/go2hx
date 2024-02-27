@@ -12,18 +12,18 @@ function hashStrBytes(_sep:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoUInt32;
         var _hash:stdgo.GoUInt32 = (0u32 : stdgo.GoUInt32);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_sep.length), _i++, {
-                _hash = (_hash * (16777619u32 : stdgo.GoUInt32)) + (_sep[(_i : stdgo.GoInt)] : stdgo.GoUInt32);
+            stdgo.Go.cfor((_i < (_sep.length) : Bool), _i++, {
+                _hash = ((_hash * (16777619u32 : stdgo.GoUInt32) : stdgo.GoUInt32) + (_sep[(_i : stdgo.GoInt)] : stdgo.GoUInt32) : stdgo.GoUInt32);
             });
         };
         var __0:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (16777619u32 : stdgo.GoUInt32), _sq:stdgo.GoUInt32 = __1, _pow:stdgo.GoUInt32 = __0;
         {
             var _i:stdgo.GoInt = (_sep.length);
-            stdgo.Go.cfor(_i > (0 : stdgo.GoInt), _i = _i >> ((1i64 : stdgo.GoUInt64)), {
-                if (_i & (1 : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
-                    _pow = _pow * (_sq);
+            stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i = (_i >> ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt), {
+                if ((_i & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
+                    _pow = (_pow * (_sq) : stdgo.GoUInt32);
                 };
-                _sq = _sq * (_sq);
+                _sq = (_sq * (_sq) : stdgo.GoUInt32);
             });
         };
         return { _0 : _hash, _1 : _pow };
@@ -32,18 +32,18 @@ function hashStr(_sep:stdgo.GoString):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.
         var _hash:stdgo.GoUInt32 = (0u32 : stdgo.GoUInt32);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_sep.length), _i++, {
-                _hash = (_hash * (16777619u32 : stdgo.GoUInt32)) + (_sep[(_i : stdgo.GoInt)] : stdgo.GoUInt32);
+            stdgo.Go.cfor((_i < (_sep.length) : Bool), _i++, {
+                _hash = ((_hash * (16777619u32 : stdgo.GoUInt32) : stdgo.GoUInt32) + (_sep[(_i : stdgo.GoInt)] : stdgo.GoUInt32) : stdgo.GoUInt32);
             });
         };
         var __0:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (16777619u32 : stdgo.GoUInt32), _sq:stdgo.GoUInt32 = __1, _pow:stdgo.GoUInt32 = __0;
         {
             var _i:stdgo.GoInt = (_sep.length);
-            stdgo.Go.cfor(_i > (0 : stdgo.GoInt), _i = _i >> ((1i64 : stdgo.GoUInt64)), {
-                if (_i & (1 : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
-                    _pow = _pow * (_sq);
+            stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i = (_i >> ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt), {
+                if ((_i & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
+                    _pow = (_pow * (_sq) : stdgo.GoUInt32);
                 };
-                _sq = _sq * (_sq);
+                _sq = (_sq * (_sq) : stdgo.GoUInt32);
             });
         };
         return { _0 : _hash, _1 : _pow };
@@ -51,19 +51,19 @@ function hashStr(_sep:stdgo.GoString):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.
 function hashStrRevBytes(_sep:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
         var _hash:stdgo.GoUInt32 = (0u32 : stdgo.GoUInt32);
         {
-            var _i:stdgo.GoInt = (_sep.length) - (1 : stdgo.GoInt);
-            stdgo.Go.cfor(_i >= (0 : stdgo.GoInt), _i--, {
-                _hash = (_hash * (16777619u32 : stdgo.GoUInt32)) + (_sep[(_i : stdgo.GoInt)] : stdgo.GoUInt32);
+            var _i:stdgo.GoInt = ((_sep.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
+            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+                _hash = ((_hash * (16777619u32 : stdgo.GoUInt32) : stdgo.GoUInt32) + (_sep[(_i : stdgo.GoInt)] : stdgo.GoUInt32) : stdgo.GoUInt32);
             });
         };
         var __0:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (16777619u32 : stdgo.GoUInt32), _sq:stdgo.GoUInt32 = __1, _pow:stdgo.GoUInt32 = __0;
         {
             var _i:stdgo.GoInt = (_sep.length);
-            stdgo.Go.cfor(_i > (0 : stdgo.GoInt), _i = _i >> ((1i64 : stdgo.GoUInt64)), {
-                if (_i & (1 : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
-                    _pow = _pow * (_sq);
+            stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i = (_i >> ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt), {
+                if ((_i & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
+                    _pow = (_pow * (_sq) : stdgo.GoUInt32);
                 };
-                _sq = _sq * (_sq);
+                _sq = (_sq * (_sq) : stdgo.GoUInt32);
             });
         };
         return { _0 : _hash, _1 : _pow };
@@ -71,19 +71,19 @@ function hashStrRevBytes(_sep:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoUInt
 function hashStrRev(_sep:stdgo.GoString):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
         var _hash:stdgo.GoUInt32 = (0u32 : stdgo.GoUInt32);
         {
-            var _i:stdgo.GoInt = (_sep.length) - (1 : stdgo.GoInt);
-            stdgo.Go.cfor(_i >= (0 : stdgo.GoInt), _i--, {
-                _hash = (_hash * (16777619u32 : stdgo.GoUInt32)) + (_sep[(_i : stdgo.GoInt)] : stdgo.GoUInt32);
+            var _i:stdgo.GoInt = ((_sep.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
+            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+                _hash = ((_hash * (16777619u32 : stdgo.GoUInt32) : stdgo.GoUInt32) + (_sep[(_i : stdgo.GoInt)] : stdgo.GoUInt32) : stdgo.GoUInt32);
             });
         };
         var __0:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (16777619u32 : stdgo.GoUInt32), _sq:stdgo.GoUInt32 = __1, _pow:stdgo.GoUInt32 = __0;
         {
             var _i:stdgo.GoInt = (_sep.length);
-            stdgo.Go.cfor(_i > (0 : stdgo.GoInt), _i = _i >> ((1i64 : stdgo.GoUInt64)), {
-                if (_i & (1 : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
-                    _pow = _pow * (_sq);
+            stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i = (_i >> ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt), {
+                if ((_i & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
+                    _pow = (_pow * (_sq) : stdgo.GoUInt32);
                 };
-                _sq = _sq * (_sq);
+                _sq = (_sq * (_sq) : stdgo.GoUInt32);
             });
         };
         return { _0 : _hash, _1 : _pow };
@@ -94,22 +94,22 @@ function indexRabinKarpBytes(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdg
         var _h:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _n, _i++, {
-                _h = (_h * (16777619u32 : stdgo.GoUInt32)) + (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt32);
+            stdgo.Go.cfor((_i < _n : Bool), _i++, {
+                _h = ((_h * (16777619u32 : stdgo.GoUInt32) : stdgo.GoUInt32) + (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt32) : stdgo.GoUInt32);
             });
         };
-        if ((_h == _hashsep) && equal((_s.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>), _sep)) {
+        if (((_h == _hashsep) && equal((_s.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>), _sep) : Bool)) {
             return (0 : stdgo.GoInt);
         };
         {
             var _i:stdgo.GoInt = _n;
-            while (_i < (_s.length)) {
-                _h = _h * ((16777619u32 : stdgo.GoUInt32));
-                _h = _h + ((_s[(_i : stdgo.GoInt)] : stdgo.GoUInt32));
-                _h = _h - (_pow * (_s[(_i - _n : stdgo.GoInt)] : stdgo.GoUInt32));
+            while ((_i < (_s.length) : Bool)) {
+                _h = (_h * ((16777619u32 : stdgo.GoUInt32)) : stdgo.GoUInt32);
+                _h = (_h + ((_s[(_i : stdgo.GoInt)] : stdgo.GoUInt32)) : stdgo.GoUInt32);
+                _h = (_h - ((_pow * (_s[(_i - _n : stdgo.GoInt)] : stdgo.GoUInt32) : stdgo.GoUInt32)) : stdgo.GoUInt32);
                 _i++;
-                if ((_h == _hashsep) && equal((_s.__slice__(_i - _n, _i) : stdgo.Slice<stdgo.GoUInt8>), _sep)) {
-                    return _i - _n;
+                if (((_h == _hashsep) && equal((_s.__slice__((_i - _n : stdgo.GoInt), _i) : stdgo.Slice<stdgo.GoUInt8>), _sep) : Bool)) {
+                    return (_i - _n : stdgo.GoInt);
                 };
             };
         };
@@ -121,22 +121,22 @@ function indexRabinKarp(_s:stdgo.GoString, _substr:stdgo.GoString):stdgo.GoInt {
         var _h:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _n, _i++, {
-                _h = (_h * (16777619u32 : stdgo.GoUInt32)) + (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt32);
+            stdgo.Go.cfor((_i < _n : Bool), _i++, {
+                _h = ((_h * (16777619u32 : stdgo.GoUInt32) : stdgo.GoUInt32) + (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt32) : stdgo.GoUInt32);
             });
         };
-        if ((_h == _hashss) && ((_s.__slice__(0, _n) : stdgo.GoString) == _substr)) {
+        if (((_h == _hashss) && ((_s.__slice__(0, _n) : stdgo.GoString) == _substr) : Bool)) {
             return (0 : stdgo.GoInt);
         };
         {
             var _i:stdgo.GoInt = _n;
-            while (_i < (_s.length)) {
-                _h = _h * ((16777619u32 : stdgo.GoUInt32));
-                _h = _h + ((_s[(_i : stdgo.GoInt)] : stdgo.GoUInt32));
-                _h = _h - (_pow * (_s[(_i - _n : stdgo.GoInt)] : stdgo.GoUInt32));
+            while ((_i < (_s.length) : Bool)) {
+                _h = (_h * ((16777619u32 : stdgo.GoUInt32)) : stdgo.GoUInt32);
+                _h = (_h + ((_s[(_i : stdgo.GoInt)] : stdgo.GoUInt32)) : stdgo.GoUInt32);
+                _h = (_h - ((_pow * (_s[(_i - _n : stdgo.GoInt)] : stdgo.GoUInt32) : stdgo.GoUInt32)) : stdgo.GoUInt32);
                 _i++;
-                if ((_h == _hashss) && ((_s.__slice__(_i - _n, _i) : stdgo.GoString) == _substr)) {
-                    return _i - _n;
+                if (((_h == _hashss) && ((_s.__slice__((_i - _n : stdgo.GoInt), _i) : stdgo.GoString) == _substr) : Bool)) {
+                    return (_i - _n : stdgo.GoInt);
                 };
             };
         };

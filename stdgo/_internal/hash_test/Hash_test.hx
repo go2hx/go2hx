@@ -113,8 +113,8 @@ function testMarshalHash(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
                 {};
                 {
                     var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor(_i < (249 : stdgo.GoInt), _i++, {
-                        _h2.write((_buf.__slice__(_i, _i + (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+                    stdgo.Go.cfor((_i < (249 : stdgo.GoInt) : Bool), _i++, {
+                        _h2.write((_buf.__slice__(_i, (_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
                     });
                 };
                 var __tmp__ = try {

@@ -81,7 +81,7 @@ macro function compare<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__
             } catch(_) {
                 final f = macro function f(__generic__0:$S, __generic__1:$E, _s1:$S, _s2:$S) {
                     for (_i => _v1 in _s1) {
-                        if (_i >= (_s2.length)) {
+                        if ((_i >= (_s2.length) : Bool)) {
                             return (1 : stdgo.GoInt);
                         };
                         var _v2:$E = _s2[@:param_index _i];
@@ -92,7 +92,7 @@ macro function compare<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__
                             };
                         };
                     };
-                    if ((_s1.length) < (_s2.length)) {
+                    if (((_s1.length) < (_s2.length) : Bool)) {
                         return (-1 : stdgo.GoInt);
                     };
                     return (0 : stdgo.GoInt);
@@ -123,7 +123,7 @@ macro function compareFunc<S1, S2, E1, E2>(__generic__0:haxe.macro.Expr.ExprOf<S
             } catch(_) {
                 final f = macro function f(__generic__0:$S1, __generic__1:$S2, __generic__2:$E1, __generic__3:$E2, _s1:$S1, _s2:$S2, _cmp:($E1, $E2) -> stdgo.GoInt) {
                     for (_i => _v1 in _s1) {
-                        if (_i >= (_s2.length)) {
+                        if ((_i >= (_s2.length) : Bool)) {
                             return (1 : stdgo.GoInt);
                         };
                         var _v2:$E2 = _s2[@:param_index _i];
@@ -134,7 +134,7 @@ macro function compareFunc<S1, S2, E1, E2>(__generic__0:haxe.macro.Expr.ExprOf<S
                             };
                         };
                     };
-                    if ((_s1.length) < (_s2.length)) {
+                    if (((_s1.length) < (_s2.length) : Bool)) {
                         return (-1 : stdgo.GoInt);
                     };
                     return (0 : stdgo.GoInt);
@@ -222,7 +222,7 @@ macro function contains<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic_
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$S, __generic__1:$E, _s:$S, _v:$E) {
-                    return @:privateAccess stdgo._internal.slices.Slices.index(stdgo.Go.defaultValue((cast (null) : $S)), stdgo.Go.defaultValue((cast (null) : $E)), _s, _v) >= (0 : stdgo.GoInt);
+                    return (@:privateAccess stdgo._internal.slices.Slices.index(stdgo.Go.defaultValue((cast (null) : $S)), stdgo.Go.defaultValue((cast (null) : $E)), _s, _v) >= (0 : stdgo.GoInt) : Bool);
                 };
                 switch f.expr {
                     case EFunction(_, f):
@@ -247,7 +247,7 @@ macro function containsFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __gene
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$S, __generic__1:$E, _s:$S, _f:$E -> Bool) {
-                    return @:privateAccess stdgo._internal.slices.Slices.indexFunc(stdgo.Go.defaultValue((cast (null) : $S)), stdgo.Go.defaultValue((cast (null) : $E)), _s, _f) >= (0 : stdgo.GoInt);
+                    return (@:privateAccess stdgo._internal.slices.Slices.indexFunc(stdgo.Go.defaultValue((cast (null) : $S)), stdgo.Go.defaultValue((cast (null) : $E)), _s, _f) >= (0 : stdgo.GoInt) : Bool);
                 };
                 switch f.expr {
                     case EFunction(_, f):
@@ -281,15 +281,15 @@ macro function insert<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1
                     if (_i == (_n)) {
                         return (_s.__append__(..._v.__toArray__()));
                     };
-                    if ((_n + _m) > _s.capacity) {
-                        var _s2:$S = ((_s.__slice__(0, _i) : $S).__append__(...new stdgo.Slice<$E>(((_n + _m) - _i : stdgo.GoInt).toBasic(), 0).__toArray__()));
+                    if (((_n + _m : stdgo.GoInt) > _s.capacity : Bool)) {
+                        var _s2:$S = ((_s.__slice__(0, _i) : $S).__append__(...new stdgo.Slice<$E>(((_n + _m : stdgo.GoInt) - _i : stdgo.GoInt).toBasic(), 0).__toArray__()));
                         stdgo.Go.copySlice((_s2.__slice__(_i) : $S), _v);
-                        stdgo.Go.copySlice((_s2.__slice__(_i + _m) : $S), (_s.__slice__(_i) : $S));
+                        stdgo.Go.copySlice((_s2.__slice__((_i + _m : stdgo.GoInt)) : $S), (_s.__slice__(_i) : $S));
                         return _s2;
                     };
-                    _s = (_s.__slice__(0, _n + _m) : $S);
-                    if (!@:privateAccess stdgo._internal.slices.Slices._overlaps(stdgo.Go.defaultValue((cast (null) : $E)), _v, (_s.__slice__(_i + _m) : $S))) {
-                        stdgo.Go.copySlice((_s.__slice__(_i + _m) : $S), (_s.__slice__(_i) : $S));
+                    _s = (_s.__slice__(0, (_n + _m : stdgo.GoInt)) : $S);
+                    if (!@:privateAccess stdgo._internal.slices.Slices._overlaps(stdgo.Go.defaultValue((cast (null) : $E)), _v, (_s.__slice__((_i + _m : stdgo.GoInt)) : $S))) {
+                        stdgo.Go.copySlice((_s.__slice__((_i + _m : stdgo.GoInt)) : $S), (_s.__slice__(_i) : $S));
                         stdgo.Go.copySlice((_s.__slice__(_i) : $S), _v);
                         return _s;
                     };
@@ -351,7 +351,7 @@ macro function deleteFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generi
                             var _j:stdgo.GoInt = _i;
                             {
                                 _i++;
-                                stdgo.Go.cfor(_i < (_s.length), _i++, {
+                                stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
                                     _v = _s[@:param_index _i];
                                     if (!_del(_v)) {
                                         _s[@:param_index _j] = _v;
@@ -395,27 +395,27 @@ macro function replace<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__
                     if (_j == ((_s.length))) {
                         return ((_s.__slice__(0, _i) : $S).__append__(..._v.__toArray__()));
                     };
-                    var _tot:stdgo.GoInt = ((_s.__slice__(0, _i) : $S).length + _v.length) + ((_s.__slice__(_j) : $S).length);
-                    if (_tot > _s.capacity) {
+                    var _tot:stdgo.GoInt = ((((_s.__slice__(0, _i) : $S).length) + (_v.length) : stdgo.GoInt) + ((_s.__slice__(_j) : $S).length) : stdgo.GoInt);
+                    if ((_tot > _s.capacity : Bool)) {
                         var _s2:$S = ((_s.__slice__(0, _i) : $S).__append__(...new stdgo.Slice<$E>((_tot - _i : stdgo.GoInt).toBasic(), 0).__toArray__()));
                         stdgo.Go.copySlice((_s2.__slice__(_i) : $S), _v);
-                        stdgo.Go.copySlice((_s2.__slice__(_i + (_v.length)) : $S), (_s.__slice__(_j) : $S));
+                        stdgo.Go.copySlice((_s2.__slice__((_i + (_v.length) : stdgo.GoInt)) : $S), (_s.__slice__(_j) : $S));
                         return _s2;
                     };
                     var _r:$S = (_s.__slice__(0, _tot) : $S);
-                    if ((_i + _v.length) <= _j) {
+                    if (((_i + (_v.length) : stdgo.GoInt) <= _j : Bool)) {
                         stdgo.Go.copySlice((_r.__slice__(_i) : $S), _v);
-                        if (_i + (_v.length) != (_j)) {
-                            stdgo.Go.copySlice((_r.__slice__(_i + (_v.length)) : $S), (_s.__slice__(_j) : $S));
+                        if ((_i + (_v.length) : stdgo.GoInt) != (_j)) {
+                            stdgo.Go.copySlice((_r.__slice__((_i + (_v.length) : stdgo.GoInt)) : $S), (_s.__slice__(_j) : $S));
                         };
                         return _r;
                     };
-                    if (!@:privateAccess stdgo._internal.slices.Slices._overlaps(stdgo.Go.defaultValue((cast (null) : $E)), (_r.__slice__(_i + (_v.length)) : $S), _v)) {
-                        stdgo.Go.copySlice((_r.__slice__(_i + (_v.length)) : $S), (_s.__slice__(_j) : $S));
+                    if (!@:privateAccess stdgo._internal.slices.Slices._overlaps(stdgo.Go.defaultValue((cast (null) : $E)), (_r.__slice__((_i + (_v.length) : stdgo.GoInt)) : $S), _v)) {
+                        stdgo.Go.copySlice((_r.__slice__((_i + (_v.length) : stdgo.GoInt)) : $S), (_s.__slice__(_j) : $S));
                         stdgo.Go.copySlice((_r.__slice__(_i) : $S), _v);
                         return _r;
                     };
-                    var _y:stdgo.GoInt = (_v.length) - (_j - _i);
+                    var _y:stdgo.GoInt = ((_v.length) - ((_j - _i : stdgo.GoInt)) : stdgo.GoInt);
                     if (!@:privateAccess stdgo._internal.slices.Slices._overlaps(stdgo.Go.defaultValue((cast (null) : $E)), (_r.__slice__(_i, _j) : $S), _v)) {
                         stdgo.Go.copySlice((_r.__slice__(_i, _j) : $S), (_v.__slice__(_y) : stdgo.Slice<$E>));
                         stdgo.Go.copySlice((_r.__slice__((_s.length)) : $S), (_v.__slice__(0, _y) : stdgo.Slice<$E>));
@@ -430,7 +430,7 @@ macro function replace<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__
                     };
                     var _k:stdgo.GoInt = @:privateAccess stdgo._internal.slices.Slices._startIdx(stdgo.Go.defaultValue((cast (null) : $E)), _v, (_s.__slice__(_j) : $S));
                     stdgo.Go.copySlice((_r.__slice__(_i) : $S), _v);
-                    stdgo.Go.copySlice((_r.__slice__(_i + (_v.length)) : $S), (_r.__slice__(_i + _k) : $S));
+                    stdgo.Go.copySlice((_r.__slice__((_i + (_v.length) : stdgo.GoInt)) : $S), (_r.__slice__((_i + _k : stdgo.GoInt)) : $S));
                     return _r;
                 };
                 switch f.expr {
@@ -484,14 +484,14 @@ macro function compact<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$S, __generic__1:$E, _s:$S) {
-                    if ((_s.length) < (2 : stdgo.GoInt)) {
+                    if (((_s.length) < (2 : stdgo.GoInt) : Bool)) {
                         return _s;
                     };
                     var _i:stdgo.GoInt = (1 : stdgo.GoInt);
                     {
                         var _k:stdgo.GoInt = (1 : stdgo.GoInt);
-                        stdgo.Go.cfor(_k < (_s.length), _k++, {
-                            if (_s[@:param_index _k] != (_s[@:param_index _k - (1 : stdgo.GoInt)])) {
+                        stdgo.Go.cfor((_k < (_s.length) : Bool), _k++, {
+                            if (_s[@:param_index _k] != (_s[@:param_index (_k - (1 : stdgo.GoInt) : stdgo.GoInt)])) {
                                 if (_i != (_k)) {
                                     _s[@:param_index _i] = _s[@:param_index _k];
                                 };
@@ -524,14 +524,14 @@ macro function compactFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __gener
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$S, __generic__1:$E, _s:$S, _eq:($E, $E) -> Bool) {
-                    if ((_s.length) < (2 : stdgo.GoInt)) {
+                    if (((_s.length) < (2 : stdgo.GoInt) : Bool)) {
                         return _s;
                     };
                     var _i:stdgo.GoInt = (1 : stdgo.GoInt);
                     {
                         var _k:stdgo.GoInt = (1 : stdgo.GoInt);
-                        stdgo.Go.cfor(_k < (_s.length), _k++, {
-                            if (!_eq(_s[@:param_index _k], _s[@:param_index _k - (1 : stdgo.GoInt)])) {
+                        stdgo.Go.cfor((_k < (_s.length) : Bool), _k++, {
+                            if (!_eq(_s[@:param_index _k], _s[@:param_index (_k - (1 : stdgo.GoInt) : stdgo.GoInt)])) {
                                 if (_i != (_k)) {
                                     _s[@:param_index _i] = _s[@:param_index _k];
                                 };
@@ -564,12 +564,12 @@ macro function grow<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:h
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$S, __generic__1:$E, _s:$S, _n:stdgo.GoInt) {
-                    if (_n < (0 : stdgo.GoInt)) {
+                    if ((_n < (0 : stdgo.GoInt) : Bool)) {
                         throw stdgo.Go.toInterface(("cannot be negative" : stdgo.GoString));
                     };
                     {
-                        _n = _n - (_s.capacity - _s.length);
-                        if (_n > (0 : stdgo.GoInt)) {
+                        _n = (_n - ((_s.capacity - (_s.length) : stdgo.GoInt)) : stdgo.GoInt);
+                        if ((_n > (0 : stdgo.GoInt) : Bool)) {
                             _s = (((_s.__slice__(0, _s.capacity) : $S).__append__(...new stdgo.Slice<$E>((_n : stdgo.GoInt).toBasic(), 0).__toArray__())).__slice__(0, (_s.length)) : $S);
                         };
                     };
@@ -622,15 +622,15 @@ macro function _rotateLeft<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _s:haxe.ma
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$E, _s:stdgo.Slice<$E>, _r:stdgo.GoInt) {
-                    while ((_r != (0 : stdgo.GoInt)) && (_r != (_s.length))) {
-                        if ((_r * (2 : stdgo.GoInt)) <= (_s.length)) {
-                            @:privateAccess stdgo._internal.slices.Slices._swap(stdgo.Go.defaultValue((cast (null) : $E)), (_s.__slice__(0, _r) : stdgo.Slice<$E>), (_s.__slice__((_s.length) - _r) : stdgo.Slice<$E>));
-                            _s = (_s.__slice__(0, (_s.length) - _r) : stdgo.Slice<$E>);
+                    while (((_r != (0 : stdgo.GoInt)) && (_r != (_s.length)) : Bool)) {
+                        if (((_r * (2 : stdgo.GoInt) : stdgo.GoInt) <= (_s.length) : Bool)) {
+                            @:privateAccess stdgo._internal.slices.Slices._swap(stdgo.Go.defaultValue((cast (null) : $E)), (_s.__slice__(0, _r) : stdgo.Slice<$E>), (_s.__slice__(((_s.length) - _r : stdgo.GoInt)) : stdgo.Slice<$E>));
+                            _s = (_s.__slice__(0, ((_s.length) - _r : stdgo.GoInt)) : stdgo.Slice<$E>);
                         } else {
-                            @:privateAccess stdgo._internal.slices.Slices._swap(stdgo.Go.defaultValue((cast (null) : $E)), (_s.__slice__(0, (_s.length) - _r) : stdgo.Slice<$E>), (_s.__slice__(_r) : stdgo.Slice<$E>));
+                            @:privateAccess stdgo._internal.slices.Slices._swap(stdgo.Go.defaultValue((cast (null) : $E)), (_s.__slice__(0, ((_s.length) - _r : stdgo.GoInt)) : stdgo.Slice<$E>), (_s.__slice__(_r) : stdgo.Slice<$E>));
                             {
-                                final __tmp__0 = (_s.__slice__((_s.length) - _r) : stdgo.Slice<$E>);
-                                final __tmp__1 = (_r * (2 : stdgo.GoInt)) - (_s.length);
+                                final __tmp__0 = (_s.__slice__(((_s.length) - _r : stdgo.GoInt)) : stdgo.Slice<$E>);
+                                final __tmp__1 = ((_r * (2 : stdgo.GoInt) : stdgo.GoInt) - (_s.length) : stdgo.GoInt);
                                 _s = __tmp__0;
                                 _r = __tmp__1;
                             };
@@ -659,7 +659,7 @@ macro function _rotateRight<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _s:haxe.m
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$E, _s:stdgo.Slice<$E>, _r:stdgo.GoInt) {
-                    @:privateAccess stdgo._internal.slices.Slices._rotateLeft(stdgo.Go.defaultValue((cast (null) : $E)), _s, (_s.length) - _r);
+                    @:privateAccess stdgo._internal.slices.Slices._rotateLeft(stdgo.Go.defaultValue((cast (null) : $E)), _s, ((_s.length) - _r : stdgo.GoInt));
                 };
                 switch f.expr {
                     case EFunction(_, f):
@@ -685,7 +685,7 @@ macro function _swap<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _x:haxe.macro.Ex
                 final f = macro function f(__generic__0:$E, _x:stdgo.Slice<$E>, _y:stdgo.Slice<$E>) {
                     {
                         var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor(_i < (_x.length), _i++, {
+                        stdgo.Go.cfor((_i < (_x.length) : Bool), _i++, {
                             {
                                 final __tmp__0 = _y[(_i : stdgo.GoInt)];
                                 final __tmp__1 = _x[(_i : stdgo.GoInt)];
@@ -717,14 +717,14 @@ macro function _overlaps<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _a:haxe.macr
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$E, _a:stdgo.Slice<$E>, _b:stdgo.Slice<$E>) {
-                    if ((_a.length == (0 : stdgo.GoInt)) || (_b.length == (0 : stdgo.GoInt))) {
+                    if (((_a.length == (0 : stdgo.GoInt)) || (_b.length == (0 : stdgo.GoInt)) : Bool)) {
                         return false;
                     };
                     var _elemSize:stdgo.GoUIntptr = stdgo._internal.unsafe.Unsafe.sizeof(_a[(0 : stdgo.GoInt)]);
                     if (_elemSize == ((0 : stdgo.GoUIntptr))) {
                         return false;
                     };
-                    return (((stdgo.Go.toInterface((stdgo.Go.setRef(_a[(0 : stdgo.GoInt)]) : stdgo.Ref<$E>)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(@:privateAccess stdgo._internal.slices.Slices.uintptr_kind)) : stdgo.GoUIntptr) <= (((stdgo.Go.toInterface((stdgo.Go.setRef(_b[((_b.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.Ref<$E>)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(@:privateAccess stdgo._internal.slices.Slices.uintptr_kind)) : stdgo.GoUIntptr) + (_elemSize - (1 : stdgo.GoUIntptr)))) && (((stdgo.Go.toInterface((stdgo.Go.setRef(_b[(0 : stdgo.GoInt)]) : stdgo.Ref<$E>)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(@:privateAccess stdgo._internal.slices.Slices.uintptr_kind)) : stdgo.GoUIntptr) <= (((stdgo.Go.toInterface((stdgo.Go.setRef(_a[((_a.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.Ref<$E>)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(@:privateAccess stdgo._internal.slices.Slices.uintptr_kind)) : stdgo.GoUIntptr) + (_elemSize - (1 : stdgo.GoUIntptr))));
+                    return ((((stdgo.Go.toInterface((stdgo.Go.setRef(_a[(0 : stdgo.GoInt)]) : stdgo.Ref<$E>)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(@:privateAccess stdgo._internal.slices.Slices.uintptr_kind)) : stdgo.GoUIntptr) <= (((stdgo.Go.toInterface((stdgo.Go.setRef(_b[((_b.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.Ref<$E>)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(@:privateAccess stdgo._internal.slices.Slices.uintptr_kind)) : stdgo.GoUIntptr) + ((_elemSize - (1 : stdgo.GoUIntptr) : stdgo.GoUIntptr)) : stdgo.GoUIntptr) : Bool) && (((stdgo.Go.toInterface((stdgo.Go.setRef(_b[(0 : stdgo.GoInt)]) : stdgo.Ref<$E>)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(@:privateAccess stdgo._internal.slices.Slices.uintptr_kind)) : stdgo.GoUIntptr) <= (((stdgo.Go.toInterface((stdgo.Go.setRef(_a[((_a.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.Ref<$E>)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(@:privateAccess stdgo._internal.slices.Slices.uintptr_kind)) : stdgo.GoUIntptr) + ((_elemSize - (1 : stdgo.GoUIntptr) : stdgo.GoUIntptr)) : stdgo.GoUIntptr) : Bool) : Bool);
                 };
                 switch f.expr {
                     case EFunction(_, f):
@@ -780,10 +780,10 @@ macro function reverse<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__
             } catch(_) {
                 final f = macro function f(__generic__0:$S, __generic__1:$E, _s:$S) {
                     {
-                        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (_s.length) - (1 : stdgo.GoInt), _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
-                        stdgo.Go.cfor(_i < _j, {
-                            final __tmp__0 = _i + (1 : stdgo.GoInt);
-                            final __tmp__1 = _j - (1 : stdgo.GoInt);
+                        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = ((_s.length) - (1 : stdgo.GoInt) : stdgo.GoInt), _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
+                        stdgo.Go.cfor((_i < _j : Bool), {
+                            final __tmp__0 = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
+                            final __tmp__1 = (_j - (1 : stdgo.GoInt) : stdgo.GoInt);
                             _i = __tmp__0;
                             _j = __tmp__1;
                         }, {
@@ -845,7 +845,7 @@ macro function _equalNaN<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _v1:haxe.m
                     var _isNaN:$T_ -> Bool = function(_f:$T_):Bool {
                         return _f != (_f);
                     };
-                    return (_v1 == _v2) || (_isNaN(_v1) && _isNaN(_v2));
+                    return ((_v1 == _v2) || ((_isNaN(_v1) && _isNaN(_v2) : Bool)) : Bool);
                 };
                 switch f.expr {
                     case EFunction(_, f):
@@ -1055,9 +1055,9 @@ macro function isSorted<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic_
             } catch(_) {
                 final f = macro function f(__generic__0:$S, __generic__1:$E, _x:$S) {
                     {
-                        var _i:stdgo.GoInt = (_x.length) - (1 : stdgo.GoInt);
-                        stdgo.Go.cfor(_i > (0 : stdgo.GoInt), _i--, {
-                            if (stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _x[@:param_index _i], _x[@:param_index _i - (1 : stdgo.GoInt)])) {
+                        var _i:stdgo.GoInt = ((_x.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
+                        stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i--, {
+                            if (stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _x[@:param_index _i], _x[@:param_index (_i - (1 : stdgo.GoInt) : stdgo.GoInt)])) {
                                 return false;
                             };
                         });
@@ -1088,9 +1088,9 @@ macro function isSortedFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __gene
             } catch(_) {
                 final f = macro function f(__generic__0:$S, __generic__1:$E, _x:$S, _cmp:(_a:E, _b:E) -> stdgo.GoInt) {
                     {
-                        var _i:stdgo.GoInt = (_x.length) - (1 : stdgo.GoInt);
-                        stdgo.Go.cfor(_i > (0 : stdgo.GoInt), _i--, {
-                            if (_cmp(_x[@:param_index _i], _x[@:param_index _i - (1 : stdgo.GoInt)]) < (0 : stdgo.GoInt)) {
+                        var _i:stdgo.GoInt = ((_x.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
+                        stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i--, {
+                            if ((_cmp(_x[@:param_index _i], _x[@:param_index (_i - (1 : stdgo.GoInt) : stdgo.GoInt)]) < (0 : stdgo.GoInt) : Bool)) {
                                 return false;
                             };
                         });
@@ -1120,13 +1120,13 @@ macro function min<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:ha
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$S, __generic__1:$E, _x:$S) {
-                    if ((_x.length) < (1 : stdgo.GoInt)) {
+                    if (((_x.length) < (1 : stdgo.GoInt) : Bool)) {
                         throw stdgo.Go.toInterface(("slices.Min: empty list" : stdgo.GoString));
                     };
                     var _m:$E = _x[@:param_index (0 : stdgo.GoInt)];
                     {
                         var _i:stdgo.GoInt = (1 : stdgo.GoInt);
-                        stdgo.Go.cfor(_i < (_x.length), _i++, {
+                        stdgo.Go.cfor((_i < (_x.length) : Bool), _i++, {
                             _m = @:privateAccess stdgo._internal.slices.Slices._min(_m, _x[@:param_index _i]);
                         });
                     };
@@ -1155,14 +1155,14 @@ macro function minFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$S, __generic__1:$E, _x:$S, _cmp:(_a:E, _b:E) -> stdgo.GoInt) {
-                    if ((_x.length) < (1 : stdgo.GoInt)) {
+                    if (((_x.length) < (1 : stdgo.GoInt) : Bool)) {
                         throw stdgo.Go.toInterface(("slices.MinFunc: empty list" : stdgo.GoString));
                     };
                     var _m:$E = _x[@:param_index (0 : stdgo.GoInt)];
                     {
                         var _i:stdgo.GoInt = (1 : stdgo.GoInt);
-                        stdgo.Go.cfor(_i < (_x.length), _i++, {
-                            if (_cmp(_x[@:param_index _i], _m) < (0 : stdgo.GoInt)) {
+                        stdgo.Go.cfor((_i < (_x.length) : Bool), _i++, {
+                            if ((_cmp(_x[@:param_index _i], _m) < (0 : stdgo.GoInt) : Bool)) {
                                 _m = _x[@:param_index _i];
                             };
                         });
@@ -1192,13 +1192,13 @@ macro function max<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:ha
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$S, __generic__1:$E, _x:$S) {
-                    if ((_x.length) < (1 : stdgo.GoInt)) {
+                    if (((_x.length) < (1 : stdgo.GoInt) : Bool)) {
                         throw stdgo.Go.toInterface(("slices.Max: empty list" : stdgo.GoString));
                     };
                     var _m:$E = _x[@:param_index (0 : stdgo.GoInt)];
                     {
                         var _i:stdgo.GoInt = (1 : stdgo.GoInt);
-                        stdgo.Go.cfor(_i < (_x.length), _i++, {
+                        stdgo.Go.cfor((_i < (_x.length) : Bool), _i++, {
                             _m = @:privateAccess stdgo._internal.slices.Slices._max(_m, _x[@:param_index _i]);
                         });
                     };
@@ -1227,14 +1227,14 @@ macro function maxFunc<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$S, __generic__1:$E, _x:$S, _cmp:(_a:E, _b:E) -> stdgo.GoInt) {
-                    if ((_x.length) < (1 : stdgo.GoInt)) {
+                    if (((_x.length) < (1 : stdgo.GoInt) : Bool)) {
                         throw stdgo.Go.toInterface(("slices.MaxFunc: empty list" : stdgo.GoString));
                     };
                     var _m:$E = _x[@:param_index (0 : stdgo.GoInt)];
                     {
                         var _i:stdgo.GoInt = (1 : stdgo.GoInt);
-                        stdgo.Go.cfor(_i < (_x.length), _i++, {
-                            if (_cmp(_x[@:param_index _i], _m) > (0 : stdgo.GoInt)) {
+                        stdgo.Go.cfor((_i < (_x.length) : Bool), _i++, {
+                            if ((_cmp(_x[@:param_index _i], _m) > (0 : stdgo.GoInt) : Bool)) {
                                 _m = _x[@:param_index _i];
                             };
                         });
@@ -1266,15 +1266,15 @@ macro function binarySearch<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __gene
                 final f = macro function f(__generic__0:$S, __generic__1:$E, _x:$S, _target:$E) {
                     var _n:stdgo.GoInt = (_x.length);
                     var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = _n, _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
-                    while (_i < _j) {
-                        var _h:stdgo.GoInt = ((_i + _j : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt);
+                    while ((_i < _j : Bool)) {
+                        var _h:stdgo.GoInt = ((((_i + _j : stdgo.GoInt) : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoInt);
                         if (stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _x[@:param_index _h], _target)) {
-                            _i = _h + (1 : stdgo.GoInt);
+                            _i = (_h + (1 : stdgo.GoInt) : stdgo.GoInt);
                         } else {
                             _j = _h;
                         };
                     };
-                    return { _0 : _i, _1 : (_i < _n) && ((_x[@:param_index _i] == _target) || (@:privateAccess stdgo._internal.slices.Slices._isNaN(stdgo.Go.defaultValue((cast (null) : $E)), _x[@:param_index _i]) && @:privateAccess stdgo._internal.slices.Slices._isNaN(stdgo.Go.defaultValue((cast (null) : $E)), _target))) };
+                    return { _0 : _i, _1 : ((_i < _n : Bool) && (((_x[@:param_index _i] == _target) || ((@:privateAccess stdgo._internal.slices.Slices._isNaN(stdgo.Go.defaultValue((cast (null) : $E)), _x[@:param_index _i]) && @:privateAccess stdgo._internal.slices.Slices._isNaN(stdgo.Go.defaultValue((cast (null) : $E)), _target) : Bool)) : Bool)) : Bool) };
                 };
                 switch f.expr {
                     case EFunction(_, f):
@@ -1302,15 +1302,15 @@ macro function binarySearchFunc<S, E, T_>(__generic__0:haxe.macro.Expr.ExprOf<S>
                 final f = macro function f(__generic__0:$S, __generic__1:$E, __generic__2:$T_, _x:$S, _target:$T_, _cmp:($E, $T_) -> stdgo.GoInt) {
                     var _n:stdgo.GoInt = (_x.length);
                     var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = _n, _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
-                    while (_i < _j) {
-                        var _h:stdgo.GoInt = ((_i + _j : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt);
-                        if (_cmp(_x[@:param_index _h], _target) < (0 : stdgo.GoInt)) {
-                            _i = _h + (1 : stdgo.GoInt);
+                    while ((_i < _j : Bool)) {
+                        var _h:stdgo.GoInt = ((((_i + _j : stdgo.GoInt) : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoInt);
+                        if ((_cmp(_x[@:param_index _h], _target) < (0 : stdgo.GoInt) : Bool)) {
+                            _i = (_h + (1 : stdgo.GoInt) : stdgo.GoInt);
                         } else {
                             _j = _h;
                         };
                     };
-                    return { _0 : _i, _1 : (_i < _n) && (_cmp(_x[@:param_index _i], _target) == (0 : stdgo.GoInt)) };
+                    return { _0 : _i, _1 : ((_i < _n : Bool) && (_cmp(_x[@:param_index _i], _target) == (0 : stdgo.GoInt)) : Bool) };
                 };
                 switch f.expr {
                     case EFunction(_, f):
@@ -1359,11 +1359,11 @@ macro function _insertionSortCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, 
             } catch(_) {
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _a:stdgo.GoInt, _b:stdgo.GoInt, _cmp:(_a:E, _b:E) -> stdgo.GoInt) {
                     {
-                        var _i:stdgo.GoInt = _a + (1 : stdgo.GoInt);
-                        stdgo.Go.cfor(_i < _b, _i++, {
+                        var _i:stdgo.GoInt = (_a + (1 : stdgo.GoInt) : stdgo.GoInt);
+                        stdgo.Go.cfor((_i < _b : Bool), _i++, {
                             {
                                 var _j:stdgo.GoInt = _i;
-                                stdgo.Go.cfor((_j > _a) && (_cmp(_data[(_j : stdgo.GoInt)], _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)]) < (0 : stdgo.GoInt)), _j--, {
+                                stdgo.Go.cfor(((_j > _a : Bool) && ((_cmp(_data[(_j : stdgo.GoInt)], _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)]) < (0 : stdgo.GoInt) : Bool)) : Bool), _j--, {
                                     {
                                         final __tmp__0 = _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)];
                                         final __tmp__1 = _data[(_j : stdgo.GoInt)];
@@ -1399,14 +1399,14 @@ macro function _siftDownCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _lo:stdgo.GoInt, _hi:stdgo.GoInt, _first:stdgo.GoInt, _cmp:(_a:E, _b:E) -> stdgo.GoInt) {
                     var _root:stdgo.GoInt = _lo;
                     while (true) {
-                        var _child:stdgo.GoInt = ((2 : stdgo.GoInt) * _root) + (1 : stdgo.GoInt);
-                        if (_child >= _hi) {
+                        var _child:stdgo.GoInt = (((2 : stdgo.GoInt) * _root : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt);
+                        if ((_child >= _hi : Bool)) {
                             break;
                         };
-                        if (((_child + (1 : stdgo.GoInt)) < _hi) && (_cmp(_data[(_first + _child : stdgo.GoInt)], _data[((_first + _child) + (1 : stdgo.GoInt) : stdgo.GoInt)]) < (0 : stdgo.GoInt))) {
+                        if ((((_child + (1 : stdgo.GoInt) : stdgo.GoInt) < _hi : Bool) && ((_cmp(_data[(_first + _child : stdgo.GoInt)], _data[((_first + _child : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)]) < (0 : stdgo.GoInt) : Bool)) : Bool)) {
                             _child++;
                         };
-                        if (!(_cmp(_data[(_first + _root : stdgo.GoInt)], _data[(_first + _child : stdgo.GoInt)]) < (0 : stdgo.GoInt))) {
+                        if (!((_cmp(_data[(_first + _root : stdgo.GoInt)], _data[(_first + _child : stdgo.GoInt)]) < (0 : stdgo.GoInt) : Bool))) {
                             return;
                         };
                         {
@@ -1442,16 +1442,16 @@ macro function _heapSortCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _a:stdgo.GoInt, _b:stdgo.GoInt, _cmp:(_a:E, _b:E) -> stdgo.GoInt) {
                     var _first:stdgo.GoInt = _a;
                     var _lo:stdgo.GoInt = (0 : stdgo.GoInt);
-                    var _hi:stdgo.GoInt = _b - _a;
+                    var _hi:stdgo.GoInt = (_b - _a : stdgo.GoInt);
                     {
-                        var _i:stdgo.GoInt = (_hi - (1 : stdgo.GoInt)) / (2 : stdgo.GoInt);
-                        stdgo.Go.cfor(_i >= (0 : stdgo.GoInt), _i--, {
+                        var _i:stdgo.GoInt = (((_hi - (1 : stdgo.GoInt) : stdgo.GoInt)) / (2 : stdgo.GoInt) : stdgo.GoInt);
+                        stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
                             @:privateAccess stdgo._internal.slices.Slices._siftDownCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _i, _hi, _first, _cmp);
                         });
                     };
                     {
-                        var _i:stdgo.GoInt = _hi - (1 : stdgo.GoInt);
-                        stdgo.Go.cfor(_i >= (0 : stdgo.GoInt), _i--, {
+                        var _i:stdgo.GoInt = (_hi - (1 : stdgo.GoInt) : stdgo.GoInt);
+                        stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
                             {
                                 final __tmp__0 = _data[(_first + _i : stdgo.GoInt)];
                                 final __tmp__1 = _data[(_first : stdgo.GoInt)];
@@ -1487,8 +1487,8 @@ macro function _pdqsortCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:
                     {};
                     var __0:Bool = true, __1:Bool = true, _wasPartitioned:Bool = __1, _wasBalanced:Bool = __0;
                     while (true) {
-                        var _length:stdgo.GoInt = _b - _a;
-                        if (_length <= (12 : stdgo.GoInt)) {
+                        var _length:stdgo.GoInt = (_b - _a : stdgo.GoInt);
+                        if ((_length <= (12 : stdgo.GoInt) : Bool)) {
                             @:privateAccess stdgo._internal.slices.Slices._insertionSortCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _b, _cmp);
                             return;
                         };
@@ -1503,30 +1503,30 @@ macro function _pdqsortCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:
                         var __tmp__ = @:privateAccess stdgo._internal.slices.Slices._choosePivotCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _b, _cmp), _pivot:stdgo.GoInt = __tmp__._0, _hint:stdgo._internal.slices.Slices.T_sortedHint = __tmp__._1;
                         if (_hint == ((2 : stdgo._internal.slices.Slices.T_sortedHint))) {
                             @:privateAccess stdgo._internal.slices.Slices._reverseRangeCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _b, _cmp);
-                            _pivot = (_b - (1 : stdgo.GoInt)) - (_pivot - _a);
+                            _pivot = (((_b - (1 : stdgo.GoInt) : stdgo.GoInt)) - ((_pivot - _a : stdgo.GoInt)) : stdgo.GoInt);
                             _hint = (1 : stdgo._internal.slices.Slices.T_sortedHint);
                         };
-                        if ((_wasBalanced && _wasPartitioned) && (_hint == (1 : stdgo._internal.slices.Slices.T_sortedHint))) {
+                        if (((_wasBalanced && _wasPartitioned : Bool) && (_hint == (1 : stdgo._internal.slices.Slices.T_sortedHint)) : Bool)) {
                             if (@:privateAccess stdgo._internal.slices.Slices._partialInsertionSortCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _b, _cmp)) {
                                 return;
                             };
                         };
-                        if ((_a > (0 : stdgo.GoInt)) && !(_cmp(_data[(_a - (1 : stdgo.GoInt) : stdgo.GoInt)], _data[(_pivot : stdgo.GoInt)]) < (0 : stdgo.GoInt))) {
+                        if (((_a > (0 : stdgo.GoInt) : Bool) && !((_cmp(_data[(_a - (1 : stdgo.GoInt) : stdgo.GoInt)], _data[(_pivot : stdgo.GoInt)]) < (0 : stdgo.GoInt) : Bool)) : Bool)) {
                             var _mid:stdgo.GoInt = @:privateAccess stdgo._internal.slices.Slices._partitionEqualCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _b, _pivot, _cmp);
                             _a = _mid;
                             continue;
                         };
                         var __tmp__ = @:privateAccess stdgo._internal.slices.Slices._partitionCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _b, _pivot, _cmp), _mid:stdgo.GoInt = __tmp__._0, _alreadyPartitioned:Bool = __tmp__._1;
                         _wasPartitioned = _alreadyPartitioned;
-                        var __0:stdgo.GoInt = _mid - _a, __1:stdgo.GoInt = _b - _mid, _rightLen:stdgo.GoInt = __1, _leftLen:stdgo.GoInt = __0;
-                        var _balanceThreshold:stdgo.GoInt = _length / (8 : stdgo.GoInt);
-                        if (_leftLen < _rightLen) {
-                            _wasBalanced = _leftLen >= _balanceThreshold;
+                        var __0:stdgo.GoInt = (_mid - _a : stdgo.GoInt), __1:stdgo.GoInt = (_b - _mid : stdgo.GoInt), _rightLen:stdgo.GoInt = __1, _leftLen:stdgo.GoInt = __0;
+                        var _balanceThreshold:stdgo.GoInt = (_length / (8 : stdgo.GoInt) : stdgo.GoInt);
+                        if ((_leftLen < _rightLen : Bool)) {
+                            _wasBalanced = (_leftLen >= _balanceThreshold : Bool);
                             @:privateAccess stdgo._internal.slices.Slices._pdqsortCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _mid, _limit, _cmp);
-                            _a = _mid + (1 : stdgo.GoInt);
+                            _a = (_mid + (1 : stdgo.GoInt) : stdgo.GoInt);
                         } else {
-                            _wasBalanced = _rightLen >= _balanceThreshold;
-                            @:privateAccess stdgo._internal.slices.Slices._pdqsortCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _mid + (1 : stdgo.GoInt), _b, _limit, _cmp);
+                            _wasBalanced = (_rightLen >= _balanceThreshold : Bool);
+                            @:privateAccess stdgo._internal.slices.Slices._pdqsortCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, (_mid + (1 : stdgo.GoInt) : stdgo.GoInt), _b, _limit, _cmp);
                             _b = _mid;
                         };
                     };
@@ -1560,14 +1560,14 @@ macro function _partitionCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _dat
                         _data[(_a : stdgo.GoInt)] = __tmp__0;
                         _data[(_pivot : stdgo.GoInt)] = __tmp__1;
                     };
-                    var __0:stdgo.GoInt = _a + (1 : stdgo.GoInt), __1:stdgo.GoInt = _b - (1 : stdgo.GoInt), _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
-                    while ((_i <= _j) && (_cmp(_data[(_i : stdgo.GoInt)], _data[(_a : stdgo.GoInt)]) < (0 : stdgo.GoInt))) {
+                    var __0:stdgo.GoInt = (_a + (1 : stdgo.GoInt) : stdgo.GoInt), __1:stdgo.GoInt = (_b - (1 : stdgo.GoInt) : stdgo.GoInt), _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
+                    while (((_i <= _j : Bool) && ((_cmp(_data[(_i : stdgo.GoInt)], _data[(_a : stdgo.GoInt)]) < (0 : stdgo.GoInt) : Bool)) : Bool)) {
                         _i++;
                     };
-                    while ((_i <= _j) && !(_cmp(_data[(_j : stdgo.GoInt)], _data[(_a : stdgo.GoInt)]) < (0 : stdgo.GoInt))) {
+                    while (((_i <= _j : Bool) && !((_cmp(_data[(_j : stdgo.GoInt)], _data[(_a : stdgo.GoInt)]) < (0 : stdgo.GoInt) : Bool)) : Bool)) {
                         _j--;
                     };
-                    if (_i > _j) {
+                    if ((_i > _j : Bool)) {
                         {
                             final __tmp__0 = _data[(_a : stdgo.GoInt)];
                             final __tmp__1 = _data[(_j : stdgo.GoInt)];
@@ -1585,13 +1585,13 @@ macro function _partitionCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _dat
                     _i++;
                     _j--;
                     while (true) {
-                        while ((_i <= _j) && (_cmp(_data[(_i : stdgo.GoInt)], _data[(_a : stdgo.GoInt)]) < (0 : stdgo.GoInt))) {
+                        while (((_i <= _j : Bool) && ((_cmp(_data[(_i : stdgo.GoInt)], _data[(_a : stdgo.GoInt)]) < (0 : stdgo.GoInt) : Bool)) : Bool)) {
                             _i++;
                         };
-                        while ((_i <= _j) && !(_cmp(_data[(_j : stdgo.GoInt)], _data[(_a : stdgo.GoInt)]) < (0 : stdgo.GoInt))) {
+                        while (((_i <= _j : Bool) && !((_cmp(_data[(_j : stdgo.GoInt)], _data[(_a : stdgo.GoInt)]) < (0 : stdgo.GoInt) : Bool)) : Bool)) {
                             _j--;
                         };
-                        if (_i > _j) {
+                        if ((_i > _j : Bool)) {
                             break;
                         };
                         {
@@ -1640,15 +1640,15 @@ macro function _partitionEqualCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>,
                         _data[(_a : stdgo.GoInt)] = __tmp__0;
                         _data[(_pivot : stdgo.GoInt)] = __tmp__1;
                     };
-                    var __0:stdgo.GoInt = _a + (1 : stdgo.GoInt), __1:stdgo.GoInt = _b - (1 : stdgo.GoInt), _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
+                    var __0:stdgo.GoInt = (_a + (1 : stdgo.GoInt) : stdgo.GoInt), __1:stdgo.GoInt = (_b - (1 : stdgo.GoInt) : stdgo.GoInt), _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
                     while (true) {
-                        while ((_i <= _j) && !(_cmp(_data[(_a : stdgo.GoInt)], _data[(_i : stdgo.GoInt)]) < (0 : stdgo.GoInt))) {
+                        while (((_i <= _j : Bool) && !((_cmp(_data[(_a : stdgo.GoInt)], _data[(_i : stdgo.GoInt)]) < (0 : stdgo.GoInt) : Bool)) : Bool)) {
                             _i++;
                         };
-                        while ((_i <= _j) && (_cmp(_data[(_a : stdgo.GoInt)], _data[(_j : stdgo.GoInt)]) < (0 : stdgo.GoInt))) {
+                        while (((_i <= _j : Bool) && ((_cmp(_data[(_a : stdgo.GoInt)], _data[(_j : stdgo.GoInt)]) < (0 : stdgo.GoInt) : Bool)) : Bool)) {
                             _j--;
                         };
-                        if (_i > _j) {
+                        if ((_i > _j : Bool)) {
                             break;
                         };
                         {
@@ -1685,17 +1685,17 @@ macro function _partialInsertionSortCmpFunc<E>(__generic__0:haxe.macro.Expr.Expr
             } catch(_) {
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _a:stdgo.GoInt, _b:stdgo.GoInt, _cmp:(_a:E, _b:E) -> stdgo.GoInt) {
                     {};
-                    var _i:stdgo.GoInt = _a + (1 : stdgo.GoInt);
+                    var _i:stdgo.GoInt = (_a + (1 : stdgo.GoInt) : stdgo.GoInt);
                     {
                         var _j:stdgo.GoInt = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor(_j < (5 : stdgo.GoInt), _j++, {
-                            while ((_i < _b) && !(_cmp(_data[(_i : stdgo.GoInt)], _data[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)]) < (0 : stdgo.GoInt))) {
+                        stdgo.Go.cfor((_j < (5 : stdgo.GoInt) : Bool), _j++, {
+                            while (((_i < _b : Bool) && !((_cmp(_data[(_i : stdgo.GoInt)], _data[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)]) < (0 : stdgo.GoInt) : Bool)) : Bool)) {
                                 _i++;
                             };
                             if (_i == (_b)) {
                                 return true;
                             };
-                            if ((_b - _a) < (50 : stdgo.GoInt)) {
+                            if (((_b - _a : stdgo.GoInt) < (50 : stdgo.GoInt) : Bool)) {
                                 return false;
                             };
                             {
@@ -1704,11 +1704,11 @@ macro function _partialInsertionSortCmpFunc<E>(__generic__0:haxe.macro.Expr.Expr
                                 _data[(_i : stdgo.GoInt)] = __tmp__0;
                                 _data[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)] = __tmp__1;
                             };
-                            if ((_i - _a) >= (2 : stdgo.GoInt)) {
+                            if (((_i - _a : stdgo.GoInt) >= (2 : stdgo.GoInt) : Bool)) {
                                 {
-                                    var _j:stdgo.GoInt = _i - (1 : stdgo.GoInt);
-                                    stdgo.Go.cfor(_j >= (1 : stdgo.GoInt), _j--, {
-                                        if (!(_cmp(_data[(_j : stdgo.GoInt)], _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)]) < (0 : stdgo.GoInt))) {
+                                    var _j:stdgo.GoInt = (_i - (1 : stdgo.GoInt) : stdgo.GoInt);
+                                    stdgo.Go.cfor((_j >= (1 : stdgo.GoInt) : Bool), _j--, {
+                                        if (!((_cmp(_data[(_j : stdgo.GoInt)], _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)]) < (0 : stdgo.GoInt) : Bool))) {
                                             break;
                                         };
                                         {
@@ -1720,11 +1720,11 @@ macro function _partialInsertionSortCmpFunc<E>(__generic__0:haxe.macro.Expr.Expr
                                     });
                                 };
                             };
-                            if ((_b - _i) >= (2 : stdgo.GoInt)) {
+                            if (((_b - _i : stdgo.GoInt) >= (2 : stdgo.GoInt) : Bool)) {
                                 {
-                                    var _j:stdgo.GoInt = _i + (1 : stdgo.GoInt);
-                                    stdgo.Go.cfor(_j < _b, _j++, {
-                                        if (!(_cmp(_data[(_j : stdgo.GoInt)], _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)]) < (0 : stdgo.GoInt))) {
+                                    var _j:stdgo.GoInt = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
+                                    stdgo.Go.cfor((_j < _b : Bool), _j++, {
+                                        if (!((_cmp(_data[(_j : stdgo.GoInt)], _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)]) < (0 : stdgo.GoInt) : Bool))) {
                                             break;
                                         };
                                         {
@@ -1762,16 +1762,16 @@ macro function _breakPatternsCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, 
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _a:stdgo.GoInt, _b:stdgo.GoInt, _cmp:(_a:E, _b:E) -> stdgo.GoInt) {
-                    var _length:stdgo.GoInt = _b - _a;
-                    if (_length >= (8 : stdgo.GoInt)) {
+                    var _length:stdgo.GoInt = (_b - _a : stdgo.GoInt);
+                    if ((_length >= (8 : stdgo.GoInt) : Bool)) {
                         var _random:stdgo._internal.slices.Slices.T_xorshift = (_length : stdgo._internal.slices.Slices.T_xorshift);
                         var _modulus:stdgo.GoUInt = @:privateAccess stdgo._internal.slices.Slices._nextPowerOfTwo(_length);
                         {
-                            var _idx:stdgo.GoInt = (_a + ((_length / (4 : stdgo.GoInt)) * (2 : stdgo.GoInt))) - (1 : stdgo.GoInt);
-                            stdgo.Go.cfor(_idx <= ((_a + ((_length / (4 : stdgo.GoInt)) * (2 : stdgo.GoInt))) + (1 : stdgo.GoInt)), _idx++, {
-                                var _other:stdgo.GoInt = ((_random.next(stdgo.Go.pointer(_random)) : stdgo.GoUInt) & (_modulus - (1u32 : stdgo.GoUInt)) : stdgo.GoInt);
-                                if (_other >= _length) {
-                                    _other = _other - (_length);
+                            var _idx:stdgo.GoInt = ((_a + (((_length / (4 : stdgo.GoInt) : stdgo.GoInt)) * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt);
+                            stdgo.Go.cfor((_idx <= ((_a + (((_length / (4 : stdgo.GoInt) : stdgo.GoInt)) * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt) : Bool), _idx++, {
+                                var _other:stdgo.GoInt = (((_random.next(stdgo.Go.pointer(_random)) : stdgo.GoUInt) & ((_modulus - (1u32 : stdgo.GoUInt) : stdgo.GoUInt)) : stdgo.GoUInt) : stdgo.GoInt);
+                                if ((_other >= _length : Bool)) {
+                                    _other = (_other - (_length) : stdgo.GoInt);
                                 };
                                 {
                                     final __tmp__0 = _data[(_a + _other : stdgo.GoInt)];
@@ -1807,10 +1807,10 @@ macro function _choosePivotCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _d
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _a:stdgo.GoInt, _b:stdgo.GoInt, _cmp:(_a:E, _b:E) -> stdgo.GoInt) {
                     var _pivot:stdgo.GoInt = (0 : stdgo.GoInt), _hint:stdgo._internal.slices.Slices.T_sortedHint = ((0 : stdgo.GoInt) : stdgo._internal.slices.Slices.T_sortedHint);
                     {};
-                    var _l:stdgo.GoInt = _b - _a;
-                    var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = _a + ((_l / (4 : stdgo.GoInt)) * (1 : stdgo.GoInt)), __2:stdgo.GoInt = _a + ((_l / (4 : stdgo.GoInt)) * (2 : stdgo.GoInt)), __3:stdgo.GoInt = _a + ((_l / (4 : stdgo.GoInt)) * (3 : stdgo.GoInt)), _k:stdgo.GoInt = __3, _j:stdgo.GoInt = __2, _i:stdgo.GoInt = __1, _swaps:stdgo.GoInt = __0;
-                    if (_l >= (8 : stdgo.GoInt)) {
-                        if (_l >= (50 : stdgo.GoInt)) {
+                    var _l:stdgo.GoInt = (_b - _a : stdgo.GoInt);
+                    var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (_a + ((_l / (4 : stdgo.GoInt) : stdgo.GoInt) * (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt), __2:stdgo.GoInt = (_a + ((_l / (4 : stdgo.GoInt) : stdgo.GoInt) * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt), __3:stdgo.GoInt = (_a + ((_l / (4 : stdgo.GoInt) : stdgo.GoInt) * (3 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt), _k:stdgo.GoInt = __3, _j:stdgo.GoInt = __2, _i:stdgo.GoInt = __1, _swaps:stdgo.GoInt = __0;
+                    if ((_l >= (8 : stdgo.GoInt) : Bool)) {
+                        if ((_l >= (50 : stdgo.GoInt) : Bool)) {
                             _i = @:privateAccess stdgo._internal.slices.Slices._medianAdjacentCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _i, stdgo.Go.pointer(_swaps), _cmp);
                             _j = @:privateAccess stdgo._internal.slices.Slices._medianAdjacentCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _j, stdgo.Go.pointer(_swaps), _cmp);
                             _k = @:privateAccess stdgo._internal.slices.Slices._medianAdjacentCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _k, stdgo.Go.pointer(_swaps), _cmp);
@@ -1850,7 +1850,7 @@ macro function _order2CmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:h
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _a:stdgo.GoInt, _b:stdgo.GoInt, _swaps:stdgo.Pointer<stdgo.GoInt>, _cmp:(_a:E, _b:E) -> stdgo.GoInt) {
-                    if (_cmp(_data[(_b : stdgo.GoInt)], _data[(_a : stdgo.GoInt)]) < (0 : stdgo.GoInt)) {
+                    if ((_cmp(_data[(_b : stdgo.GoInt)], _data[(_a : stdgo.GoInt)]) < (0 : stdgo.GoInt) : Bool)) {
                         _swaps.value++;
                         return { _0 : _b, _1 : _a };
                     };
@@ -1917,7 +1917,7 @@ macro function _medianAdjacentCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>,
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _a:stdgo.GoInt, _swaps:stdgo.Pointer<stdgo.GoInt>, _cmp:(_a:E, _b:E) -> stdgo.GoInt) {
-                    return @:privateAccess stdgo._internal.slices.Slices._medianCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a - (1 : stdgo.GoInt), _a, _a + (1 : stdgo.GoInt), _swaps, _cmp);
+                    return @:privateAccess stdgo._internal.slices.Slices._medianCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, (_a - (1 : stdgo.GoInt) : stdgo.GoInt), _a, (_a + (1 : stdgo.GoInt) : stdgo.GoInt), _swaps, _cmp);
                 };
                 switch f.expr {
                     case EFunction(_, f):
@@ -1942,8 +1942,8 @@ macro function _reverseRangeCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _
             } catch(_) {
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _a:stdgo.GoInt, _b:stdgo.GoInt, _cmp:(_a:E, _b:E) -> stdgo.GoInt) {
                     var _i:stdgo.GoInt = _a;
-                    var _j:stdgo.GoInt = _b - (1 : stdgo.GoInt);
-                    while (_i < _j) {
+                    var _j:stdgo.GoInt = (_b - (1 : stdgo.GoInt) : stdgo.GoInt);
+                    while ((_i < _j : Bool)) {
                         {
                             final __tmp__0 = _data[(_j : stdgo.GoInt)];
                             final __tmp__1 = _data[(_i : stdgo.GoInt)];
@@ -1978,7 +1978,7 @@ macro function _swapRangeCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _dat
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _a:stdgo.GoInt, _b:stdgo.GoInt, _n:stdgo.GoInt, _cmp:(_a:E, _b:E) -> stdgo.GoInt) {
                     {
                         var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor(_i < _n, _i++, {
+                        stdgo.Go.cfor((_i < _n : Bool), _i++, {
                             {
                                 final __tmp__0 = _data[(_b + _i : stdgo.GoInt)];
                                 final __tmp__1 = _data[(_a + _i : stdgo.GoInt)];
@@ -2012,31 +2012,31 @@ macro function _stableCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:h
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _n:stdgo.GoInt, _cmp:(_a:E, _b:E) -> stdgo.GoInt) {
                     var _blockSize:stdgo.GoInt = (20 : stdgo.GoInt);
                     var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = _blockSize, _b:stdgo.GoInt = __1, _a:stdgo.GoInt = __0;
-                    while (_b <= _n) {
+                    while ((_b <= _n : Bool)) {
                         @:privateAccess stdgo._internal.slices.Slices._insertionSortCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _b, _cmp);
                         _a = _b;
-                        _b = _b + (_blockSize);
+                        _b = (_b + (_blockSize) : stdgo.GoInt);
                     };
                     @:privateAccess stdgo._internal.slices.Slices._insertionSortCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _n, _cmp);
-                    while (_blockSize < _n) {
+                    while ((_blockSize < _n : Bool)) {
                         {
                             final __tmp__0 = (0 : stdgo.GoInt);
-                            final __tmp__1 = (2 : stdgo.GoInt) * _blockSize;
+                            final __tmp__1 = ((2 : stdgo.GoInt) * _blockSize : stdgo.GoInt);
                             _a = __tmp__0;
                             _b = __tmp__1;
                         };
-                        while (_b <= _n) {
-                            @:privateAccess stdgo._internal.slices.Slices._symMergeCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _a + _blockSize, _b, _cmp);
+                        while ((_b <= _n : Bool)) {
+                            @:privateAccess stdgo._internal.slices.Slices._symMergeCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, (_a + _blockSize : stdgo.GoInt), _b, _cmp);
                             _a = _b;
-                            _b = _b + ((2 : stdgo.GoInt) * _blockSize);
+                            _b = (_b + (((2 : stdgo.GoInt) * _blockSize : stdgo.GoInt)) : stdgo.GoInt);
                         };
                         {
-                            var _m:stdgo.GoInt = _a + _blockSize;
-                            if (_m < _n) {
+                            var _m:stdgo.GoInt = (_a + _blockSize : stdgo.GoInt);
+                            if ((_m < _n : Bool)) {
                                 @:privateAccess stdgo._internal.slices.Slices._symMergeCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _m, _n, _cmp);
                             };
                         };
-                        _blockSize = _blockSize * ((2 : stdgo.GoInt));
+                        _blockSize = (_blockSize * ((2 : stdgo.GoInt)) : stdgo.GoInt);
                     };
                 };
                 switch f.expr {
@@ -2061,20 +2061,20 @@ macro function _symMergeCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt, _cmp:(_a:E, _b:E) -> stdgo.GoInt) {
-                    if (_m - _a == ((1 : stdgo.GoInt))) {
+                    if ((_m - _a : stdgo.GoInt) == ((1 : stdgo.GoInt))) {
                         var _i:stdgo.GoInt = _m;
                         var _j:stdgo.GoInt = _b;
-                        while (_i < _j) {
-                            var _h:stdgo.GoInt = ((_i + _j : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt);
-                            if (_cmp(_data[(_h : stdgo.GoInt)], _data[(_a : stdgo.GoInt)]) < (0 : stdgo.GoInt)) {
-                                _i = _h + (1 : stdgo.GoInt);
+                        while ((_i < _j : Bool)) {
+                            var _h:stdgo.GoInt = ((((_i + _j : stdgo.GoInt) : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoInt);
+                            if ((_cmp(_data[(_h : stdgo.GoInt)], _data[(_a : stdgo.GoInt)]) < (0 : stdgo.GoInt) : Bool)) {
+                                _i = (_h + (1 : stdgo.GoInt) : stdgo.GoInt);
                             } else {
                                 _j = _h;
                             };
                         };
                         {
                             var _k:stdgo.GoInt = _a;
-                            stdgo.Go.cfor(_k < (_i - (1 : stdgo.GoInt)), _k++, {
+                            stdgo.Go.cfor((_k < (_i - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool), _k++, {
                                 {
                                     final __tmp__0 = _data[(_k + (1 : stdgo.GoInt) : stdgo.GoInt)];
                                     final __tmp__1 = _data[(_k : stdgo.GoInt)];
@@ -2085,20 +2085,20 @@ macro function _symMergeCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                         };
                         return;
                     };
-                    if (_b - _m == ((1 : stdgo.GoInt))) {
+                    if ((_b - _m : stdgo.GoInt) == ((1 : stdgo.GoInt))) {
                         var _i:stdgo.GoInt = _a;
                         var _j:stdgo.GoInt = _m;
-                        while (_i < _j) {
-                            var _h:stdgo.GoInt = ((_i + _j : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt);
-                            if (!(_cmp(_data[(_m : stdgo.GoInt)], _data[(_h : stdgo.GoInt)]) < (0 : stdgo.GoInt))) {
-                                _i = _h + (1 : stdgo.GoInt);
+                        while ((_i < _j : Bool)) {
+                            var _h:stdgo.GoInt = ((((_i + _j : stdgo.GoInt) : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoInt);
+                            if (!((_cmp(_data[(_m : stdgo.GoInt)], _data[(_h : stdgo.GoInt)]) < (0 : stdgo.GoInt) : Bool))) {
+                                _i = (_h + (1 : stdgo.GoInt) : stdgo.GoInt);
                             } else {
                                 _j = _h;
                             };
                         };
                         {
                             var _k:stdgo.GoInt = _m;
-                            stdgo.Go.cfor(_k > _i, _k--, {
+                            stdgo.Go.cfor((_k > _i : Bool), _k--, {
                                 {
                                     final __tmp__0 = _data[(_k - (1 : stdgo.GoInt) : stdgo.GoInt)];
                                     final __tmp__1 = _data[(_k : stdgo.GoInt)];
@@ -2109,33 +2109,33 @@ macro function _symMergeCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                         };
                         return;
                     };
-                    var _mid:stdgo.GoInt = ((_a + _b : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt);
-                    var _n:stdgo.GoInt = _mid + _m;
+                    var _mid:stdgo.GoInt = ((((_a + _b : stdgo.GoInt) : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoInt);
+                    var _n:stdgo.GoInt = (_mid + _m : stdgo.GoInt);
                     var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), _r:stdgo.GoInt = __1, _start:stdgo.GoInt = __0;
-                    if (_m > _mid) {
-                        _start = _n - _b;
+                    if ((_m > _mid : Bool)) {
+                        _start = (_n - _b : stdgo.GoInt);
                         _r = _mid;
                     } else {
                         _start = _a;
                         _r = _m;
                     };
-                    var _p:stdgo.GoInt = _n - (1 : stdgo.GoInt);
-                    while (_start < _r) {
-                        var _c:stdgo.GoInt = ((_start + _r : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt);
-                        if (!(_cmp(_data[(_p - _c : stdgo.GoInt)], _data[(_c : stdgo.GoInt)]) < (0 : stdgo.GoInt))) {
-                            _start = _c + (1 : stdgo.GoInt);
+                    var _p:stdgo.GoInt = (_n - (1 : stdgo.GoInt) : stdgo.GoInt);
+                    while ((_start < _r : Bool)) {
+                        var _c:stdgo.GoInt = ((((_start + _r : stdgo.GoInt) : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoInt);
+                        if (!((_cmp(_data[(_p - _c : stdgo.GoInt)], _data[(_c : stdgo.GoInt)]) < (0 : stdgo.GoInt) : Bool))) {
+                            _start = (_c + (1 : stdgo.GoInt) : stdgo.GoInt);
                         } else {
                             _r = _c;
                         };
                     };
-                    var _end:stdgo.GoInt = _n - _start;
-                    if ((_start < _m) && (_m < _end)) {
+                    var _end:stdgo.GoInt = (_n - _start : stdgo.GoInt);
+                    if (((_start < _m : Bool) && (_m < _end : Bool) : Bool)) {
                         @:privateAccess stdgo._internal.slices.Slices._rotateCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _start, _m, _end, _cmp);
                     };
-                    if ((_a < _start) && (_start < _mid)) {
+                    if (((_a < _start : Bool) && (_start < _mid : Bool) : Bool)) {
                         @:privateAccess stdgo._internal.slices.Slices._symMergeCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _start, _mid, _cmp);
                     };
-                    if ((_mid < _end) && (_end < _b)) {
+                    if (((_mid < _end : Bool) && (_end < _b : Bool) : Bool)) {
                         @:privateAccess stdgo._internal.slices.Slices._symMergeCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _mid, _end, _b, _cmp);
                     };
                 };
@@ -2161,18 +2161,18 @@ macro function _rotateCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:h
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt, _cmp:(_a:E, _b:E) -> stdgo.GoInt) {
-                    var _i:stdgo.GoInt = _m - _a;
-                    var _j:stdgo.GoInt = _b - _m;
+                    var _i:stdgo.GoInt = (_m - _a : stdgo.GoInt);
+                    var _j:stdgo.GoInt = (_b - _m : stdgo.GoInt);
                     while (_i != (_j)) {
-                        if (_i > _j) {
-                            @:privateAccess stdgo._internal.slices.Slices._swapRangeCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _m - _i, _m, _j, _cmp);
-                            _i = _i - (_j);
+                        if ((_i > _j : Bool)) {
+                            @:privateAccess stdgo._internal.slices.Slices._swapRangeCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, (_m - _i : stdgo.GoInt), _m, _j, _cmp);
+                            _i = (_i - (_j) : stdgo.GoInt);
                         } else {
-                            @:privateAccess stdgo._internal.slices.Slices._swapRangeCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _m - _i, (_m + _j) - _i, _i, _cmp);
-                            _j = _j - (_i);
+                            @:privateAccess stdgo._internal.slices.Slices._swapRangeCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, (_m - _i : stdgo.GoInt), ((_m + _j : stdgo.GoInt) - _i : stdgo.GoInt), _i, _cmp);
+                            _j = (_j - (_i) : stdgo.GoInt);
                         };
                     };
-                    @:privateAccess stdgo._internal.slices.Slices._swapRangeCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _m - _i, _m, _i, _cmp);
+                    @:privateAccess stdgo._internal.slices.Slices._swapRangeCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, (_m - _i : stdgo.GoInt), _m, _i, _cmp);
                 };
                 switch f.expr {
                     case EFunction(_, f):
@@ -2197,11 +2197,11 @@ macro function _insertionSortOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, 
             } catch(_) {
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _a:stdgo.GoInt, _b:stdgo.GoInt) {
                     {
-                        var _i:stdgo.GoInt = _a + (1 : stdgo.GoInt);
-                        stdgo.Go.cfor(_i < _b, _i++, {
+                        var _i:stdgo.GoInt = (_a + (1 : stdgo.GoInt) : stdgo.GoInt);
+                        stdgo.Go.cfor((_i < _b : Bool), _i++, {
                             {
                                 var _j:stdgo.GoInt = _i;
-                                stdgo.Go.cfor((_j > _a) && stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_j : stdgo.GoInt)], _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)]), _j--, {
+                                stdgo.Go.cfor(((_j > _a : Bool) && stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_j : stdgo.GoInt)], _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)]) : Bool), _j--, {
                                     {
                                         final __tmp__0 = _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)];
                                         final __tmp__1 = _data[(_j : stdgo.GoInt)];
@@ -2237,11 +2237,11 @@ macro function _siftDownOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _lo:stdgo.GoInt, _hi:stdgo.GoInt, _first:stdgo.GoInt) {
                     var _root:stdgo.GoInt = _lo;
                     while (true) {
-                        var _child:stdgo.GoInt = ((2 : stdgo.GoInt) * _root) + (1 : stdgo.GoInt);
-                        if (_child >= _hi) {
+                        var _child:stdgo.GoInt = (((2 : stdgo.GoInt) * _root : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt);
+                        if ((_child >= _hi : Bool)) {
                             break;
                         };
-                        if (((_child + (1 : stdgo.GoInt)) < _hi) && stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_first + _child : stdgo.GoInt)], _data[((_first + _child) + (1 : stdgo.GoInt) : stdgo.GoInt)])) {
+                        if ((((_child + (1 : stdgo.GoInt) : stdgo.GoInt) < _hi : Bool) && stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_first + _child : stdgo.GoInt)], _data[((_first + _child : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)]) : Bool)) {
                             _child++;
                         };
                         if (!stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_first + _root : stdgo.GoInt)], _data[(_first + _child : stdgo.GoInt)])) {
@@ -2280,16 +2280,16 @@ macro function _heapSortOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _a:stdgo.GoInt, _b:stdgo.GoInt) {
                     var _first:stdgo.GoInt = _a;
                     var _lo:stdgo.GoInt = (0 : stdgo.GoInt);
-                    var _hi:stdgo.GoInt = _b - _a;
+                    var _hi:stdgo.GoInt = (_b - _a : stdgo.GoInt);
                     {
-                        var _i:stdgo.GoInt = (_hi - (1 : stdgo.GoInt)) / (2 : stdgo.GoInt);
-                        stdgo.Go.cfor(_i >= (0 : stdgo.GoInt), _i--, {
+                        var _i:stdgo.GoInt = (((_hi - (1 : stdgo.GoInt) : stdgo.GoInt)) / (2 : stdgo.GoInt) : stdgo.GoInt);
+                        stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
                             @:privateAccess stdgo._internal.slices.Slices._siftDownOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _i, _hi, _first);
                         });
                     };
                     {
-                        var _i:stdgo.GoInt = _hi - (1 : stdgo.GoInt);
-                        stdgo.Go.cfor(_i >= (0 : stdgo.GoInt), _i--, {
+                        var _i:stdgo.GoInt = (_hi - (1 : stdgo.GoInt) : stdgo.GoInt);
+                        stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
                             {
                                 final __tmp__0 = _data[(_first + _i : stdgo.GoInt)];
                                 final __tmp__1 = _data[(_first : stdgo.GoInt)];
@@ -2325,8 +2325,8 @@ macro function _pdqsortOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:
                     {};
                     var __0:Bool = true, __1:Bool = true, _wasPartitioned:Bool = __1, _wasBalanced:Bool = __0;
                     while (true) {
-                        var _length:stdgo.GoInt = _b - _a;
-                        if (_length <= (12 : stdgo.GoInt)) {
+                        var _length:stdgo.GoInt = (_b - _a : stdgo.GoInt);
+                        if ((_length <= (12 : stdgo.GoInt) : Bool)) {
                             @:privateAccess stdgo._internal.slices.Slices._insertionSortOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _b);
                             return;
                         };
@@ -2341,30 +2341,30 @@ macro function _pdqsortOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:
                         var __tmp__ = @:privateAccess stdgo._internal.slices.Slices._choosePivotOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _b), _pivot:stdgo.GoInt = __tmp__._0, _hint:stdgo._internal.slices.Slices.T_sortedHint = __tmp__._1;
                         if (_hint == ((2 : stdgo._internal.slices.Slices.T_sortedHint))) {
                             @:privateAccess stdgo._internal.slices.Slices._reverseRangeOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _b);
-                            _pivot = (_b - (1 : stdgo.GoInt)) - (_pivot - _a);
+                            _pivot = (((_b - (1 : stdgo.GoInt) : stdgo.GoInt)) - ((_pivot - _a : stdgo.GoInt)) : stdgo.GoInt);
                             _hint = (1 : stdgo._internal.slices.Slices.T_sortedHint);
                         };
-                        if ((_wasBalanced && _wasPartitioned) && (_hint == (1 : stdgo._internal.slices.Slices.T_sortedHint))) {
+                        if (((_wasBalanced && _wasPartitioned : Bool) && (_hint == (1 : stdgo._internal.slices.Slices.T_sortedHint)) : Bool)) {
                             if (@:privateAccess stdgo._internal.slices.Slices._partialInsertionSortOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _b)) {
                                 return;
                             };
                         };
-                        if ((_a > (0 : stdgo.GoInt)) && !stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_a - (1 : stdgo.GoInt) : stdgo.GoInt)], _data[(_pivot : stdgo.GoInt)])) {
+                        if (((_a > (0 : stdgo.GoInt) : Bool) && !stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_a - (1 : stdgo.GoInt) : stdgo.GoInt)], _data[(_pivot : stdgo.GoInt)]) : Bool)) {
                             var _mid:stdgo.GoInt = @:privateAccess stdgo._internal.slices.Slices._partitionEqualOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _b, _pivot);
                             _a = _mid;
                             continue;
                         };
                         var __tmp__ = @:privateAccess stdgo._internal.slices.Slices._partitionOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _b, _pivot), _mid:stdgo.GoInt = __tmp__._0, _alreadyPartitioned:Bool = __tmp__._1;
                         _wasPartitioned = _alreadyPartitioned;
-                        var __0:stdgo.GoInt = _mid - _a, __1:stdgo.GoInt = _b - _mid, _rightLen:stdgo.GoInt = __1, _leftLen:stdgo.GoInt = __0;
-                        var _balanceThreshold:stdgo.GoInt = _length / (8 : stdgo.GoInt);
-                        if (_leftLen < _rightLen) {
-                            _wasBalanced = _leftLen >= _balanceThreshold;
+                        var __0:stdgo.GoInt = (_mid - _a : stdgo.GoInt), __1:stdgo.GoInt = (_b - _mid : stdgo.GoInt), _rightLen:stdgo.GoInt = __1, _leftLen:stdgo.GoInt = __0;
+                        var _balanceThreshold:stdgo.GoInt = (_length / (8 : stdgo.GoInt) : stdgo.GoInt);
+                        if ((_leftLen < _rightLen : Bool)) {
+                            _wasBalanced = (_leftLen >= _balanceThreshold : Bool);
                             @:privateAccess stdgo._internal.slices.Slices._pdqsortOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _mid, _limit);
-                            _a = _mid + (1 : stdgo.GoInt);
+                            _a = (_mid + (1 : stdgo.GoInt) : stdgo.GoInt);
                         } else {
-                            _wasBalanced = _rightLen >= _balanceThreshold;
-                            @:privateAccess stdgo._internal.slices.Slices._pdqsortOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _mid + (1 : stdgo.GoInt), _b, _limit);
+                            _wasBalanced = (_rightLen >= _balanceThreshold : Bool);
+                            @:privateAccess stdgo._internal.slices.Slices._pdqsortOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, (_mid + (1 : stdgo.GoInt) : stdgo.GoInt), _b, _limit);
                             _b = _mid;
                         };
                     };
@@ -2398,14 +2398,14 @@ macro function _partitionOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _dat
                         _data[(_a : stdgo.GoInt)] = __tmp__0;
                         _data[(_pivot : stdgo.GoInt)] = __tmp__1;
                     };
-                    var __0:stdgo.GoInt = _a + (1 : stdgo.GoInt), __1:stdgo.GoInt = _b - (1 : stdgo.GoInt), _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
-                    while ((_i <= _j) && stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_i : stdgo.GoInt)], _data[(_a : stdgo.GoInt)])) {
+                    var __0:stdgo.GoInt = (_a + (1 : stdgo.GoInt) : stdgo.GoInt), __1:stdgo.GoInt = (_b - (1 : stdgo.GoInt) : stdgo.GoInt), _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
+                    while (((_i <= _j : Bool) && stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_i : stdgo.GoInt)], _data[(_a : stdgo.GoInt)]) : Bool)) {
                         _i++;
                     };
-                    while ((_i <= _j) && !stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_j : stdgo.GoInt)], _data[(_a : stdgo.GoInt)])) {
+                    while (((_i <= _j : Bool) && !stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_j : stdgo.GoInt)], _data[(_a : stdgo.GoInt)]) : Bool)) {
                         _j--;
                     };
-                    if (_i > _j) {
+                    if ((_i > _j : Bool)) {
                         {
                             final __tmp__0 = _data[(_a : stdgo.GoInt)];
                             final __tmp__1 = _data[(_j : stdgo.GoInt)];
@@ -2423,13 +2423,13 @@ macro function _partitionOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _dat
                     _i++;
                     _j--;
                     while (true) {
-                        while ((_i <= _j) && stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_i : stdgo.GoInt)], _data[(_a : stdgo.GoInt)])) {
+                        while (((_i <= _j : Bool) && stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_i : stdgo.GoInt)], _data[(_a : stdgo.GoInt)]) : Bool)) {
                             _i++;
                         };
-                        while ((_i <= _j) && !stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_j : stdgo.GoInt)], _data[(_a : stdgo.GoInt)])) {
+                        while (((_i <= _j : Bool) && !stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_j : stdgo.GoInt)], _data[(_a : stdgo.GoInt)]) : Bool)) {
                             _j--;
                         };
-                        if (_i > _j) {
+                        if ((_i > _j : Bool)) {
                             break;
                         };
                         {
@@ -2478,15 +2478,15 @@ macro function _partitionEqualOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>,
                         _data[(_a : stdgo.GoInt)] = __tmp__0;
                         _data[(_pivot : stdgo.GoInt)] = __tmp__1;
                     };
-                    var __0:stdgo.GoInt = _a + (1 : stdgo.GoInt), __1:stdgo.GoInt = _b - (1 : stdgo.GoInt), _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
+                    var __0:stdgo.GoInt = (_a + (1 : stdgo.GoInt) : stdgo.GoInt), __1:stdgo.GoInt = (_b - (1 : stdgo.GoInt) : stdgo.GoInt), _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
                     while (true) {
-                        while ((_i <= _j) && !stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_a : stdgo.GoInt)], _data[(_i : stdgo.GoInt)])) {
+                        while (((_i <= _j : Bool) && !stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_a : stdgo.GoInt)], _data[(_i : stdgo.GoInt)]) : Bool)) {
                             _i++;
                         };
-                        while ((_i <= _j) && stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_a : stdgo.GoInt)], _data[(_j : stdgo.GoInt)])) {
+                        while (((_i <= _j : Bool) && stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_a : stdgo.GoInt)], _data[(_j : stdgo.GoInt)]) : Bool)) {
                             _j--;
                         };
-                        if (_i > _j) {
+                        if ((_i > _j : Bool)) {
                             break;
                         };
                         {
@@ -2523,17 +2523,17 @@ macro function _partialInsertionSortOrdered<E>(__generic__0:haxe.macro.Expr.Expr
             } catch(_) {
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _a:stdgo.GoInt, _b:stdgo.GoInt) {
                     {};
-                    var _i:stdgo.GoInt = _a + (1 : stdgo.GoInt);
+                    var _i:stdgo.GoInt = (_a + (1 : stdgo.GoInt) : stdgo.GoInt);
                     {
                         var _j:stdgo.GoInt = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor(_j < (5 : stdgo.GoInt), _j++, {
-                            while ((_i < _b) && !stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_i : stdgo.GoInt)], _data[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)])) {
+                        stdgo.Go.cfor((_j < (5 : stdgo.GoInt) : Bool), _j++, {
+                            while (((_i < _b : Bool) && !stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_i : stdgo.GoInt)], _data[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)]) : Bool)) {
                                 _i++;
                             };
                             if (_i == (_b)) {
                                 return true;
                             };
-                            if ((_b - _a) < (50 : stdgo.GoInt)) {
+                            if (((_b - _a : stdgo.GoInt) < (50 : stdgo.GoInt) : Bool)) {
                                 return false;
                             };
                             {
@@ -2542,10 +2542,10 @@ macro function _partialInsertionSortOrdered<E>(__generic__0:haxe.macro.Expr.Expr
                                 _data[(_i : stdgo.GoInt)] = __tmp__0;
                                 _data[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)] = __tmp__1;
                             };
-                            if ((_i - _a) >= (2 : stdgo.GoInt)) {
+                            if (((_i - _a : stdgo.GoInt) >= (2 : stdgo.GoInt) : Bool)) {
                                 {
-                                    var _j:stdgo.GoInt = _i - (1 : stdgo.GoInt);
-                                    stdgo.Go.cfor(_j >= (1 : stdgo.GoInt), _j--, {
+                                    var _j:stdgo.GoInt = (_i - (1 : stdgo.GoInt) : stdgo.GoInt);
+                                    stdgo.Go.cfor((_j >= (1 : stdgo.GoInt) : Bool), _j--, {
                                         if (!stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_j : stdgo.GoInt)], _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)])) {
                                             break;
                                         };
@@ -2558,10 +2558,10 @@ macro function _partialInsertionSortOrdered<E>(__generic__0:haxe.macro.Expr.Expr
                                     });
                                 };
                             };
-                            if ((_b - _i) >= (2 : stdgo.GoInt)) {
+                            if (((_b - _i : stdgo.GoInt) >= (2 : stdgo.GoInt) : Bool)) {
                                 {
-                                    var _j:stdgo.GoInt = _i + (1 : stdgo.GoInt);
-                                    stdgo.Go.cfor(_j < _b, _j++, {
+                                    var _j:stdgo.GoInt = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
+                                    stdgo.Go.cfor((_j < _b : Bool), _j++, {
                                         if (!stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_j : stdgo.GoInt)], _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)])) {
                                             break;
                                         };
@@ -2600,16 +2600,16 @@ macro function _breakPatternsOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, 
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _a:stdgo.GoInt, _b:stdgo.GoInt) {
-                    var _length:stdgo.GoInt = _b - _a;
-                    if (_length >= (8 : stdgo.GoInt)) {
+                    var _length:stdgo.GoInt = (_b - _a : stdgo.GoInt);
+                    if ((_length >= (8 : stdgo.GoInt) : Bool)) {
                         var _random:stdgo._internal.slices.Slices.T_xorshift = (_length : stdgo._internal.slices.Slices.T_xorshift);
                         var _modulus:stdgo.GoUInt = @:privateAccess stdgo._internal.slices.Slices._nextPowerOfTwo(_length);
                         {
-                            var _idx:stdgo.GoInt = (_a + ((_length / (4 : stdgo.GoInt)) * (2 : stdgo.GoInt))) - (1 : stdgo.GoInt);
-                            stdgo.Go.cfor(_idx <= ((_a + ((_length / (4 : stdgo.GoInt)) * (2 : stdgo.GoInt))) + (1 : stdgo.GoInt)), _idx++, {
-                                var _other:stdgo.GoInt = ((_random.next(stdgo.Go.pointer(_random)) : stdgo.GoUInt) & (_modulus - (1u32 : stdgo.GoUInt)) : stdgo.GoInt);
-                                if (_other >= _length) {
-                                    _other = _other - (_length);
+                            var _idx:stdgo.GoInt = ((_a + (((_length / (4 : stdgo.GoInt) : stdgo.GoInt)) * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt);
+                            stdgo.Go.cfor((_idx <= ((_a + (((_length / (4 : stdgo.GoInt) : stdgo.GoInt)) * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt) : Bool), _idx++, {
+                                var _other:stdgo.GoInt = (((_random.next(stdgo.Go.pointer(_random)) : stdgo.GoUInt) & ((_modulus - (1u32 : stdgo.GoUInt) : stdgo.GoUInt)) : stdgo.GoUInt) : stdgo.GoInt);
+                                if ((_other >= _length : Bool)) {
+                                    _other = (_other - (_length) : stdgo.GoInt);
                                 };
                                 {
                                     final __tmp__0 = _data[(_a + _other : stdgo.GoInt)];
@@ -2645,10 +2645,10 @@ macro function _choosePivotOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _d
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _a:stdgo.GoInt, _b:stdgo.GoInt) {
                     var _pivot:stdgo.GoInt = (0 : stdgo.GoInt), _hint:stdgo._internal.slices.Slices.T_sortedHint = ((0 : stdgo.GoInt) : stdgo._internal.slices.Slices.T_sortedHint);
                     {};
-                    var _l:stdgo.GoInt = _b - _a;
-                    var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = _a + ((_l / (4 : stdgo.GoInt)) * (1 : stdgo.GoInt)), __2:stdgo.GoInt = _a + ((_l / (4 : stdgo.GoInt)) * (2 : stdgo.GoInt)), __3:stdgo.GoInt = _a + ((_l / (4 : stdgo.GoInt)) * (3 : stdgo.GoInt)), _k:stdgo.GoInt = __3, _j:stdgo.GoInt = __2, _i:stdgo.GoInt = __1, _swaps:stdgo.GoInt = __0;
-                    if (_l >= (8 : stdgo.GoInt)) {
-                        if (_l >= (50 : stdgo.GoInt)) {
+                    var _l:stdgo.GoInt = (_b - _a : stdgo.GoInt);
+                    var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (_a + ((_l / (4 : stdgo.GoInt) : stdgo.GoInt) * (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt), __2:stdgo.GoInt = (_a + ((_l / (4 : stdgo.GoInt) : stdgo.GoInt) * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt), __3:stdgo.GoInt = (_a + ((_l / (4 : stdgo.GoInt) : stdgo.GoInt) * (3 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt), _k:stdgo.GoInt = __3, _j:stdgo.GoInt = __2, _i:stdgo.GoInt = __1, _swaps:stdgo.GoInt = __0;
+                    if ((_l >= (8 : stdgo.GoInt) : Bool)) {
+                        if ((_l >= (50 : stdgo.GoInt) : Bool)) {
                             _i = @:privateAccess stdgo._internal.slices.Slices._medianAdjacentOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _i, stdgo.Go.pointer(_swaps));
                             _j = @:privateAccess stdgo._internal.slices.Slices._medianAdjacentOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _j, stdgo.Go.pointer(_swaps));
                             _k = @:privateAccess stdgo._internal.slices.Slices._medianAdjacentOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _k, stdgo.Go.pointer(_swaps));
@@ -2755,7 +2755,7 @@ macro function _medianAdjacentOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>,
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _a:stdgo.GoInt, _swaps:stdgo.Pointer<stdgo.GoInt>) {
-                    return @:privateAccess stdgo._internal.slices.Slices._medianOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a - (1 : stdgo.GoInt), _a, _a + (1 : stdgo.GoInt), _swaps);
+                    return @:privateAccess stdgo._internal.slices.Slices._medianOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, (_a - (1 : stdgo.GoInt) : stdgo.GoInt), _a, (_a + (1 : stdgo.GoInt) : stdgo.GoInt), _swaps);
                 };
                 switch f.expr {
                     case EFunction(_, f):
@@ -2780,8 +2780,8 @@ macro function _reverseRangeOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _
             } catch(_) {
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _a:stdgo.GoInt, _b:stdgo.GoInt) {
                     var _i:stdgo.GoInt = _a;
-                    var _j:stdgo.GoInt = _b - (1 : stdgo.GoInt);
-                    while (_i < _j) {
+                    var _j:stdgo.GoInt = (_b - (1 : stdgo.GoInt) : stdgo.GoInt);
+                    while ((_i < _j : Bool)) {
                         {
                             final __tmp__0 = _data[(_j : stdgo.GoInt)];
                             final __tmp__1 = _data[(_i : stdgo.GoInt)];
@@ -2816,7 +2816,7 @@ macro function _swapRangeOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _dat
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _a:stdgo.GoInt, _b:stdgo.GoInt, _n:stdgo.GoInt) {
                     {
                         var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor(_i < _n, _i++, {
+                        stdgo.Go.cfor((_i < _n : Bool), _i++, {
                             {
                                 final __tmp__0 = _data[(_b + _i : stdgo.GoInt)];
                                 final __tmp__1 = _data[(_a + _i : stdgo.GoInt)];
@@ -2850,31 +2850,31 @@ macro function _stableOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:h
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _n:stdgo.GoInt) {
                     var _blockSize:stdgo.GoInt = (20 : stdgo.GoInt);
                     var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = _blockSize, _b:stdgo.GoInt = __1, _a:stdgo.GoInt = __0;
-                    while (_b <= _n) {
+                    while ((_b <= _n : Bool)) {
                         @:privateAccess stdgo._internal.slices.Slices._insertionSortOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _b);
                         _a = _b;
-                        _b = _b + (_blockSize);
+                        _b = (_b + (_blockSize) : stdgo.GoInt);
                     };
                     @:privateAccess stdgo._internal.slices.Slices._insertionSortOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _n);
-                    while (_blockSize < _n) {
+                    while ((_blockSize < _n : Bool)) {
                         {
                             final __tmp__0 = (0 : stdgo.GoInt);
-                            final __tmp__1 = (2 : stdgo.GoInt) * _blockSize;
+                            final __tmp__1 = ((2 : stdgo.GoInt) * _blockSize : stdgo.GoInt);
                             _a = __tmp__0;
                             _b = __tmp__1;
                         };
-                        while (_b <= _n) {
-                            @:privateAccess stdgo._internal.slices.Slices._symMergeOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _a + _blockSize, _b);
+                        while ((_b <= _n : Bool)) {
+                            @:privateAccess stdgo._internal.slices.Slices._symMergeOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, (_a + _blockSize : stdgo.GoInt), _b);
                             _a = _b;
-                            _b = _b + ((2 : stdgo.GoInt) * _blockSize);
+                            _b = (_b + (((2 : stdgo.GoInt) * _blockSize : stdgo.GoInt)) : stdgo.GoInt);
                         };
                         {
-                            var _m:stdgo.GoInt = _a + _blockSize;
-                            if (_m < _n) {
+                            var _m:stdgo.GoInt = (_a + _blockSize : stdgo.GoInt);
+                            if ((_m < _n : Bool)) {
                                 @:privateAccess stdgo._internal.slices.Slices._symMergeOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _m, _n);
                             };
                         };
-                        _blockSize = _blockSize * ((2 : stdgo.GoInt));
+                        _blockSize = (_blockSize * ((2 : stdgo.GoInt)) : stdgo.GoInt);
                     };
                 };
                 switch f.expr {
@@ -2899,20 +2899,20 @@ macro function _symMergeOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt) {
-                    if (_m - _a == ((1 : stdgo.GoInt))) {
+                    if ((_m - _a : stdgo.GoInt) == ((1 : stdgo.GoInt))) {
                         var _i:stdgo.GoInt = _m;
                         var _j:stdgo.GoInt = _b;
-                        while (_i < _j) {
-                            var _h:stdgo.GoInt = ((_i + _j : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt);
+                        while ((_i < _j : Bool)) {
+                            var _h:stdgo.GoInt = ((((_i + _j : stdgo.GoInt) : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoInt);
                             if (stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_h : stdgo.GoInt)], _data[(_a : stdgo.GoInt)])) {
-                                _i = _h + (1 : stdgo.GoInt);
+                                _i = (_h + (1 : stdgo.GoInt) : stdgo.GoInt);
                             } else {
                                 _j = _h;
                             };
                         };
                         {
                             var _k:stdgo.GoInt = _a;
-                            stdgo.Go.cfor(_k < (_i - (1 : stdgo.GoInt)), _k++, {
+                            stdgo.Go.cfor((_k < (_i - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool), _k++, {
                                 {
                                     final __tmp__0 = _data[(_k + (1 : stdgo.GoInt) : stdgo.GoInt)];
                                     final __tmp__1 = _data[(_k : stdgo.GoInt)];
@@ -2923,20 +2923,20 @@ macro function _symMergeOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                         };
                         return;
                     };
-                    if (_b - _m == ((1 : stdgo.GoInt))) {
+                    if ((_b - _m : stdgo.GoInt) == ((1 : stdgo.GoInt))) {
                         var _i:stdgo.GoInt = _a;
                         var _j:stdgo.GoInt = _m;
-                        while (_i < _j) {
-                            var _h:stdgo.GoInt = ((_i + _j : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt);
+                        while ((_i < _j : Bool)) {
+                            var _h:stdgo.GoInt = ((((_i + _j : stdgo.GoInt) : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoInt);
                             if (!stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_m : stdgo.GoInt)], _data[(_h : stdgo.GoInt)])) {
-                                _i = _h + (1 : stdgo.GoInt);
+                                _i = (_h + (1 : stdgo.GoInt) : stdgo.GoInt);
                             } else {
                                 _j = _h;
                             };
                         };
                         {
                             var _k:stdgo.GoInt = _m;
-                            stdgo.Go.cfor(_k > _i, _k--, {
+                            stdgo.Go.cfor((_k > _i : Bool), _k--, {
                                 {
                                     final __tmp__0 = _data[(_k - (1 : stdgo.GoInt) : stdgo.GoInt)];
                                     final __tmp__1 = _data[(_k : stdgo.GoInt)];
@@ -2947,33 +2947,33 @@ macro function _symMergeOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                         };
                         return;
                     };
-                    var _mid:stdgo.GoInt = ((_a + _b : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt);
-                    var _n:stdgo.GoInt = _mid + _m;
+                    var _mid:stdgo.GoInt = ((((_a + _b : stdgo.GoInt) : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoInt);
+                    var _n:stdgo.GoInt = (_mid + _m : stdgo.GoInt);
                     var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), _r:stdgo.GoInt = __1, _start:stdgo.GoInt = __0;
-                    if (_m > _mid) {
-                        _start = _n - _b;
+                    if ((_m > _mid : Bool)) {
+                        _start = (_n - _b : stdgo.GoInt);
                         _r = _mid;
                     } else {
                         _start = _a;
                         _r = _m;
                     };
-                    var _p:stdgo.GoInt = _n - (1 : stdgo.GoInt);
-                    while (_start < _r) {
-                        var _c:stdgo.GoInt = ((_start + _r : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt);
+                    var _p:stdgo.GoInt = (_n - (1 : stdgo.GoInt) : stdgo.GoInt);
+                    while ((_start < _r : Bool)) {
+                        var _c:stdgo.GoInt = ((((_start + _r : stdgo.GoInt) : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoInt);
                         if (!stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_p - _c : stdgo.GoInt)], _data[(_c : stdgo.GoInt)])) {
-                            _start = _c + (1 : stdgo.GoInt);
+                            _start = (_c + (1 : stdgo.GoInt) : stdgo.GoInt);
                         } else {
                             _r = _c;
                         };
                     };
-                    var _end:stdgo.GoInt = _n - _start;
-                    if ((_start < _m) && (_m < _end)) {
+                    var _end:stdgo.GoInt = (_n - _start : stdgo.GoInt);
+                    if (((_start < _m : Bool) && (_m < _end : Bool) : Bool)) {
                         @:privateAccess stdgo._internal.slices.Slices._rotateOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _start, _m, _end);
                     };
-                    if ((_a < _start) && (_start < _mid)) {
+                    if (((_a < _start : Bool) && (_start < _mid : Bool) : Bool)) {
                         @:privateAccess stdgo._internal.slices.Slices._symMergeOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _a, _start, _mid);
                     };
-                    if ((_mid < _end) && (_end < _b)) {
+                    if (((_mid < _end : Bool) && (_end < _b : Bool) : Bool)) {
                         @:privateAccess stdgo._internal.slices.Slices._symMergeOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _mid, _end, _b);
                     };
                 };
@@ -2999,18 +2999,18 @@ macro function _rotateOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data:h
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$E, _data:stdgo.Slice<$E>, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt) {
-                    var _i:stdgo.GoInt = _m - _a;
-                    var _j:stdgo.GoInt = _b - _m;
+                    var _i:stdgo.GoInt = (_m - _a : stdgo.GoInt);
+                    var _j:stdgo.GoInt = (_b - _m : stdgo.GoInt);
                     while (_i != (_j)) {
-                        if (_i > _j) {
-                            @:privateAccess stdgo._internal.slices.Slices._swapRangeOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _m - _i, _m, _j);
-                            _i = _i - (_j);
+                        if ((_i > _j : Bool)) {
+                            @:privateAccess stdgo._internal.slices.Slices._swapRangeOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, (_m - _i : stdgo.GoInt), _m, _j);
+                            _i = (_i - (_j) : stdgo.GoInt);
                         } else {
-                            @:privateAccess stdgo._internal.slices.Slices._swapRangeOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _m - _i, (_m + _j) - _i, _i);
-                            _j = _j - (_i);
+                            @:privateAccess stdgo._internal.slices.Slices._swapRangeOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, (_m - _i : stdgo.GoInt), ((_m + _j : stdgo.GoInt) - _i : stdgo.GoInt), _i);
+                            _j = (_j - (_i) : stdgo.GoInt);
                         };
                     };
-                    @:privateAccess stdgo._internal.slices.Slices._swapRangeOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _m - _i, _m, _i);
+                    @:privateAccess stdgo._internal.slices.Slices._swapRangeOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, (_m - _i : stdgo.GoInt), _m, _i);
                 };
                 switch f.expr {
                     case EFunction(_, f):

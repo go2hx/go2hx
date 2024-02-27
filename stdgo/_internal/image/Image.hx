@@ -439,7 +439,7 @@ function _match(_magic:stdgo.GoString, _b:stdgo.Slice<stdgo.GoByte>):Bool {
             return false;
         };
         for (_i => _c in _b) {
-            if ((_magic[(_i : stdgo.GoInt)] != _c) && (_magic[(_i : stdgo.GoInt)] != (63 : stdgo.GoUInt8))) {
+            if (((_magic[(_i : stdgo.GoInt)] != _c) && (_magic[(_i : stdgo.GoInt)] != (63 : stdgo.GoUInt8)) : Bool)) {
                 return false;
             };
         };
@@ -453,7 +453,7 @@ function _sniff(_r:T_reader):T_format {
         }, _formats = __tmp__._0, __0 = __tmp__._1;
         for (__1 => _f in _formats) {
             var __tmp__ = _r.peek((_f._magic.length)), _b:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-            if ((_err == null) && _match(_f._magic?.__copy__(), _b)) {
+            if (((_err == null) && _match(_f._magic?.__copy__(), _b) : Bool)) {
                 return _f?.__copy__();
             };
         };
@@ -481,7 +481,7 @@ function pt(x:stdgo.GoInt, y:stdgo.GoInt):Point {
         return (new stdgo._internal.image.Image.Point(x, y) : stdgo._internal.image.Image.Point);
     }
 function rect(_x0:stdgo.GoInt, _y0:stdgo.GoInt, _x1:stdgo.GoInt, _y1:stdgo.GoInt):Rectangle {
-        if (_x0 > _x1) {
+        if ((_x0 > _x1 : Bool)) {
             {
                 final __tmp__0 = _x1;
                 final __tmp__1 = _x0;
@@ -489,7 +489,7 @@ function rect(_x0:stdgo.GoInt, _y0:stdgo.GoInt, _x1:stdgo.GoInt, _y1:stdgo.GoInt
                 _x1 = __tmp__1;
             };
         };
-        if (_y0 > _y1) {
+        if ((_y0 > _y1 : Bool)) {
             {
                 final __tmp__0 = _y1;
                 final __tmp__1 = _y0;
@@ -500,7 +500,7 @@ function rect(_x0:stdgo.GoInt, _y0:stdgo.GoInt, _x1:stdgo.GoInt, _y1:stdgo.GoInt
         return (new stdgo._internal.image.Image.Rectangle((new stdgo._internal.image.Image.Point(_x0, _y0) : stdgo._internal.image.Image.Point), (new stdgo._internal.image.Image.Point(_x1, _y1) : stdgo._internal.image.Image.Point)) : stdgo._internal.image.Image.Rectangle);
     }
 function _mul3NonNeg(_x:stdgo.GoInt, _y:stdgo.GoInt, _z:stdgo.GoInt):stdgo.GoInt {
-        if (((_x < (0 : stdgo.GoInt)) || (_y < (0 : stdgo.GoInt))) || (_z < (0 : stdgo.GoInt))) {
+        if (((((_x < (0 : stdgo.GoInt) : Bool)) || ((_y < (0 : stdgo.GoInt) : Bool)) : Bool) || ((_z < (0 : stdgo.GoInt) : Bool)) : Bool)) {
             return (-1 : stdgo.GoInt);
         };
         var __tmp__ = stdgo._internal.math.bits.Bits.mul64((_x : stdgo.GoUInt64), (_y : stdgo.GoUInt64)), _hi:stdgo.GoUInt64 = __tmp__._0, _lo:stdgo.GoUInt64 = __tmp__._1;
@@ -516,17 +516,17 @@ function _mul3NonNeg(_x:stdgo.GoInt, _y:stdgo.GoInt, _z:stdgo.GoInt):stdgo.GoInt
             return (-1 : stdgo.GoInt);
         };
         var _a:stdgo.GoInt = (_lo : stdgo.GoInt);
-        if ((_a < (0 : stdgo.GoInt)) || ((_a : stdgo.GoUInt64) != _lo)) {
+        if ((((_a < (0 : stdgo.GoInt) : Bool)) || ((_a : stdgo.GoUInt64) != _lo) : Bool)) {
             return (-1 : stdgo.GoInt);
         };
         return _a;
     }
 function _add2NonNeg(_x:stdgo.GoInt, _y:stdgo.GoInt):stdgo.GoInt {
-        if ((_x < (0 : stdgo.GoInt)) || (_y < (0 : stdgo.GoInt))) {
+        if ((((_x < (0 : stdgo.GoInt) : Bool)) || ((_y < (0 : stdgo.GoInt) : Bool)) : Bool)) {
             return (-1 : stdgo.GoInt);
         };
-        var _a:stdgo.GoInt = _x + _y;
-        if (_a < (0 : stdgo.GoInt)) {
+        var _a:stdgo.GoInt = (_x + _y : stdgo.GoInt);
+        if ((_a < (0 : stdgo.GoInt) : Bool)) {
             return (-1 : stdgo.GoInt);
         };
         return _a;
@@ -538,10 +538,10 @@ function testRectangle(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             };
             {
                 var _y:stdgo.GoInt = _f.min.y;
-                stdgo.Go.cfor(_y < _f.max.y, _y++, {
+                stdgo.Go.cfor((_y < _f.max.y : Bool), _y++, {
                     {
                         var _x:stdgo.GoInt = _f.min.x;
-                        stdgo.Go.cfor(_x < _f.max.x, _x++, {
+                        stdgo.Go.cfor((_x < _f.max.x : Bool), _x++, {
                             var _p:stdgo._internal.image.Image.Point = (new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point);
                             if (!_p.in_(_g?.__copy__())) {
                                 return stdgo._internal.fmt.Fmt.errorf(("p=%s, p.In(%s): got false, want true" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_p)), stdgo.Go.toInterface(stdgo.Go.asInterface(_g)));
@@ -569,7 +569,7 @@ rect((6 : stdgo.GoInt), (5 : stdgo.GoInt), (4 : stdgo.GoInt), (3 : stdgo.GoInt))
         for (__0 => _r in _rects) {
             for (__1 => _s in _rects) {
                 var _got:Bool = _r.eq(_s?.__copy__());
-                var _want:Bool = (_in(_r?.__copy__(), _s?.__copy__()) == null) && (_in(_s?.__copy__(), _r?.__copy__()) == null);
+                var _want:Bool = ((_in(_r?.__copy__(), _s?.__copy__()) == null) && (_in(_s?.__copy__(), _r?.__copy__()) == null) : Bool);
                 if (_got != (_want)) {
                     _t.errorf(("Eq: r=%s, s=%s: got %t, want %t" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                 };
@@ -605,7 +605,7 @@ rect((6 : stdgo.GoInt), (5 : stdgo.GoInt), (4 : stdgo.GoInt), (3 : stdgo.GoInt))
                     if (_b.empty()) {
                         continue;
                     };
-                    if ((_in(_b?.__copy__(), _r?.__copy__()) == null) && (_in(_b?.__copy__(), _s?.__copy__()) == null)) {
+                    if (((_in(_b?.__copy__(), _r?.__copy__()) == null) && (_in(_b?.__copy__(), _s?.__copy__()) == null) : Bool)) {
                         _t.errorf(("Intersect: r=%s, s=%s, a=%s, b=%s, i=%d: intersection could be larger" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(stdgo.Go.asInterface(_b)), stdgo.Go.toInterface(_i));
                     };
                 };
@@ -635,7 +635,7 @@ rect((6 : stdgo.GoInt), (5 : stdgo.GoInt), (4 : stdgo.GoInt), (3 : stdgo.GoInt))
                 _smallerThanA[(2 : stdgo.GoInt)].max.x--;
                 _smallerThanA[(3 : stdgo.GoInt)].max.y--;
                 for (_i => _b in _smallerThanA) {
-                    if ((_in(_r?.__copy__(), _b?.__copy__()) == null) && (_in(_s?.__copy__(), _b?.__copy__()) == null)) {
+                    if (((_in(_r?.__copy__(), _b?.__copy__()) == null) && (_in(_s?.__copy__(), _b?.__copy__()) == null) : Bool)) {
                         _t.errorf(("Union: r=%s, s=%s, a=%s, b=%s, i=%d: union could be smaller" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(stdgo.Go.asInterface(_b)), stdgo.Go.toInterface(_i));
                     };
                 };
@@ -644,45 +644,45 @@ rect((6 : stdgo.GoInt), (5 : stdgo.GoInt), (4 : stdgo.GoInt), (3 : stdgo.GoInt))
     }
 function _pixelBufferLength(_bytesPerPixel:stdgo.GoInt, _r:Rectangle, _imageTypeName:stdgo.GoString):stdgo.GoInt {
         var _totalLength:stdgo.GoInt = _mul3NonNeg(_bytesPerPixel, _r.dx(), _r.dy());
-        if (_totalLength < (0 : stdgo.GoInt)) {
-            throw stdgo.Go.toInterface(("image: New" : stdgo.GoString) + _imageTypeName?.__copy__() + (" Rectangle has huge or negative dimensions" : stdgo.GoString)?.__copy__());
+        if ((_totalLength < (0 : stdgo.GoInt) : Bool)) {
+            throw stdgo.Go.toInterface(((("image: New" : stdgo.GoString) + _imageTypeName?.__copy__() : stdgo.GoString) + (" Rectangle has huge or negative dimensions" : stdgo.GoString)?.__copy__() : stdgo.GoString));
         };
         return _totalLength;
     }
 function newRGBA(_r:Rectangle):stdgo.Ref<RGBA> {
-        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((4 : stdgo.GoInt), _r?.__copy__(), ("RGBA" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : (4 : stdgo.GoInt) * _r.dx(), rect : _r?.__copy__() } : stdgo._internal.image.Image.RGBA)) : stdgo.Ref<stdgo._internal.image.Image.RGBA>);
+        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((4 : stdgo.GoInt), _r?.__copy__(), ("RGBA" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : ((4 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.RGBA)) : stdgo.Ref<stdgo._internal.image.Image.RGBA>);
     }
 function newRGBA64(_r:Rectangle):stdgo.Ref<RGBA64> {
-        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((8 : stdgo.GoInt), _r?.__copy__(), ("RGBA64" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : (8 : stdgo.GoInt) * _r.dx(), rect : _r?.__copy__() } : stdgo._internal.image.Image.RGBA64)) : stdgo.Ref<stdgo._internal.image.Image.RGBA64>);
+        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((8 : stdgo.GoInt), _r?.__copy__(), ("RGBA64" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : ((8 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.RGBA64)) : stdgo.Ref<stdgo._internal.image.Image.RGBA64>);
     }
 function newNRGBA(_r:Rectangle):stdgo.Ref<NRGBA> {
-        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((4 : stdgo.GoInt), _r?.__copy__(), ("NRGBA" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : (4 : stdgo.GoInt) * _r.dx(), rect : _r?.__copy__() } : stdgo._internal.image.Image.NRGBA)) : stdgo.Ref<stdgo._internal.image.Image.NRGBA>);
+        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((4 : stdgo.GoInt), _r?.__copy__(), ("NRGBA" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : ((4 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.NRGBA)) : stdgo.Ref<stdgo._internal.image.Image.NRGBA>);
     }
 function newNRGBA64(_r:Rectangle):stdgo.Ref<NRGBA64> {
-        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((8 : stdgo.GoInt), _r?.__copy__(), ("NRGBA64" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : (8 : stdgo.GoInt) * _r.dx(), rect : _r?.__copy__() } : stdgo._internal.image.Image.NRGBA64)) : stdgo.Ref<stdgo._internal.image.Image.NRGBA64>);
+        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((8 : stdgo.GoInt), _r?.__copy__(), ("NRGBA64" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : ((8 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.NRGBA64)) : stdgo.Ref<stdgo._internal.image.Image.NRGBA64>);
     }
 function newAlpha(_r:Rectangle):stdgo.Ref<Alpha> {
-        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((1 : stdgo.GoInt), _r?.__copy__(), ("Alpha" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : (1 : stdgo.GoInt) * _r.dx(), rect : _r?.__copy__() } : stdgo._internal.image.Image.Alpha)) : stdgo.Ref<stdgo._internal.image.Image.Alpha>);
+        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((1 : stdgo.GoInt), _r?.__copy__(), ("Alpha" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : ((1 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.Alpha)) : stdgo.Ref<stdgo._internal.image.Image.Alpha>);
     }
 function newAlpha16(_r:Rectangle):stdgo.Ref<Alpha16> {
-        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((2 : stdgo.GoInt), _r?.__copy__(), ("Alpha16" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : (2 : stdgo.GoInt) * _r.dx(), rect : _r?.__copy__() } : stdgo._internal.image.Image.Alpha16)) : stdgo.Ref<stdgo._internal.image.Image.Alpha16>);
+        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((2 : stdgo.GoInt), _r?.__copy__(), ("Alpha16" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : ((2 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.Alpha16)) : stdgo.Ref<stdgo._internal.image.Image.Alpha16>);
     }
 function newGray(_r:Rectangle):stdgo.Ref<Gray> {
-        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((1 : stdgo.GoInt), _r?.__copy__(), ("Gray" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : (1 : stdgo.GoInt) * _r.dx(), rect : _r?.__copy__() } : stdgo._internal.image.Image.Gray)) : stdgo.Ref<stdgo._internal.image.Image.Gray>);
+        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((1 : stdgo.GoInt), _r?.__copy__(), ("Gray" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : ((1 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.Gray)) : stdgo.Ref<stdgo._internal.image.Image.Gray>);
     }
 function newGray16(_r:Rectangle):stdgo.Ref<Gray16> {
-        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((2 : stdgo.GoInt), _r?.__copy__(), ("Gray16" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : (2 : stdgo.GoInt) * _r.dx(), rect : _r?.__copy__() } : stdgo._internal.image.Image.Gray16)) : stdgo.Ref<stdgo._internal.image.Image.Gray16>);
+        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((2 : stdgo.GoInt), _r?.__copy__(), ("Gray16" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : ((2 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.Gray16)) : stdgo.Ref<stdgo._internal.image.Image.Gray16>);
     }
 function newCMYK(_r:Rectangle):stdgo.Ref<CMYK> {
-        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((4 : stdgo.GoInt), _r?.__copy__(), ("CMYK" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : (4 : stdgo.GoInt) * _r.dx(), rect : _r?.__copy__() } : stdgo._internal.image.Image.CMYK)) : stdgo.Ref<stdgo._internal.image.Image.CMYK>);
+        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((4 : stdgo.GoInt), _r?.__copy__(), ("CMYK" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : ((4 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.CMYK)) : stdgo.Ref<stdgo._internal.image.Image.CMYK>);
     }
 function newPaletted(_r:Rectangle, _p:stdgo._internal.image.color.Color.Palette):stdgo.Ref<Paletted> {
-        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((1 : stdgo.GoInt), _r?.__copy__(), ("Paletted" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : (1 : stdgo.GoInt) * _r.dx(), rect : _r?.__copy__(), palette : _p } : stdgo._internal.image.Image.Paletted)) : stdgo.Ref<stdgo._internal.image.Image.Paletted>);
+        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((1 : stdgo.GoInt), _r?.__copy__(), ("Paletted" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : ((1 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__(), palette : _p } : stdgo._internal.image.Image.Paletted)) : stdgo.Ref<stdgo._internal.image.Image.Paletted>);
     }
 function _cmp(_cm:stdgo._internal.image.color.Color.Model, _c0:stdgo._internal.image.color.Color.Color, _c1:stdgo._internal.image.color.Color.Color):Bool {
         var __tmp__ = _cm.convert(_c0).rgba(), _r0:stdgo.GoUInt32 = __tmp__._0, _g0:stdgo.GoUInt32 = __tmp__._1, _b0:stdgo.GoUInt32 = __tmp__._2, _a0:stdgo.GoUInt32 = __tmp__._3;
         var __tmp__ = _cm.convert(_c1).rgba(), _r1:stdgo.GoUInt32 = __tmp__._0, _g1:stdgo.GoUInt32 = __tmp__._1, _b1:stdgo.GoUInt32 = __tmp__._2, _a1:stdgo.GoUInt32 = __tmp__._3;
-        return (((_r0 == _r1) && (_g0 == _g1)) && (_b0 == _b1)) && (_a0 == _a1);
+        return (((_r0 == (_r1) && _g0 == (_g1) : Bool) && _b0 == (_b1) : Bool) && (_a0 == _a1) : Bool);
     }
 function testImage(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _tc in _testImages) {
@@ -823,7 +823,7 @@ function testNewXxxBadRectangle(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>
                         _r.max.y = (27 : stdgo.GoInt);
                     };
                     var _got:Bool = _call(_tc._f, _r?.__copy__());
-                    var _want:Bool = !_negDx && !_negDy;
+                    var _want:Bool = (!_negDx && !_negDy : Bool);
                     if (_got != (_want)) {
                         _t.errorf(("New%s: negDx=%t, negDy=%t: got %t, want %t" : stdgo.GoString), stdgo.Go.toInterface(_tc._name), stdgo.Go.toInterface(_negDx), stdgo.Go.toInterface(_negDy), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                     };
@@ -831,8 +831,8 @@ function testNewXxxBadRectangle(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>
             };
             {
                 var _zeroAsUint:stdgo.GoUInt = (0u32 : stdgo.GoUInt);
-                var _maxUint:stdgo.GoUInt = _zeroAsUint - (1u32 : stdgo.GoUInt);
-                var _maxInt:stdgo.GoInt = (_maxUint / (2u32 : stdgo.GoUInt) : stdgo.GoInt);
+                var _maxUint:stdgo.GoUInt = (_zeroAsUint - (1u32 : stdgo.GoUInt) : stdgo.GoUInt);
+                var _maxInt:stdgo.GoInt = ((_maxUint / (2u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt);
                 var _got:Bool = _call(_tc._f, ({ min : (new stdgo._internal.image.Image.Point((0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.image.Image.Point), max : (new stdgo._internal.image.Image.Point(_maxInt, _maxInt) : stdgo._internal.image.Image.Point) } : stdgo._internal.image.Image.Rectangle));
                 if (_got) {
                     _t.errorf(("New%s: overflow: got ok, want !ok" : stdgo.GoString), stdgo.Go.toInterface(_tc._name));
@@ -923,7 +923,7 @@ stdgo.Go.asInterface(_r)) : stdgo.Slice<stdgo._internal.image.Image.Image>);
             };
             var _got:stdgo._internal.image.color.Color.RGBA64 = _rgba64Image.rgba64at((1 : stdgo.GoInt), (1 : stdgo.GoInt))?.__copy__();
             var __tmp__ = _tc.at((1 : stdgo.GoInt), (1 : stdgo.GoInt)).rgba(), _wantR:stdgo.GoUInt32 = __tmp__._0, _wantG:stdgo.GoUInt32 = __tmp__._1, _wantB:stdgo.GoUInt32 = __tmp__._2, _wantA:stdgo.GoUInt32 = __tmp__._3;
-            if (((((_got.r : stdgo.GoUInt32) != _wantR) || ((_got.g : stdgo.GoUInt32) != _wantG)) || ((_got.b : stdgo.GoUInt32) != _wantB)) || ((_got.a : stdgo.GoUInt32) != _wantA)) {
+            if ((((((_got.r : stdgo.GoUInt32) != _wantR) || ((_got.g : stdgo.GoUInt32) != _wantG) : Bool) || ((_got.b : stdgo.GoUInt32) != _wantB) : Bool) || ((_got.a : stdgo.GoUInt32) != _wantA) : Bool)) {
                 _t.errorf(("%T:\ngot  (0x%04X, 0x%04X, 0x%04X, 0x%04X)\nwant (0x%04X, 0x%04X, 0x%04X, 0x%04X)" : stdgo.GoString), stdgo.Go.toInterface(_tc), stdgo.Go.toInterface(_got.r), stdgo.Go.toInterface(_got.g), stdgo.Go.toInterface(_got.b), stdgo.Go.toInterface(_got.a), stdgo.Go.toInterface(_wantR), stdgo.Go.toInterface(_wantG), stdgo.Go.toInterface(_wantB), stdgo.Go.toInterface(_wantA));
                 continue;
             };
@@ -937,7 +937,7 @@ function benchmarkAt(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
                 _b.resetTimer();
                 {
                     var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor(_i < _b.n, _i++, {
+                    stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                         _m.at((4 : stdgo.GoInt), (5 : stdgo.GoInt));
                     });
                 };
@@ -953,7 +953,7 @@ function benchmarkSet(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
                 _b.resetTimer();
                 {
                     var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor(_i < _b.n, _i++, {
+                    stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                         _m.set((4 : stdgo.GoInt), (5 : stdgo.GoInt), stdgo.Go.asInterface(_c));
                     });
                 };
@@ -965,7 +965,7 @@ function benchmarkRGBAAt(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         _b.resetTimer();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _m.rgbaat((4 : stdgo.GoInt), (5 : stdgo.GoInt));
             });
         };
@@ -976,7 +976,7 @@ function benchmarkRGBASetRGBA(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):V
         _b.resetTimer();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _m.setRGBA((4 : stdgo.GoInt), (5 : stdgo.GoInt), _c?.__copy__());
             });
         };
@@ -986,7 +986,7 @@ function benchmarkRGBA64At(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void
         _b.resetTimer();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _m.rgba64at((4 : stdgo.GoInt), (5 : stdgo.GoInt));
             });
         };
@@ -997,7 +997,7 @@ function benchmarkRGBA64SetRGBA64(_b:stdgo.Ref<stdgo._internal.testing.Testing.B
         _b.resetTimer();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _m.setRGBA64((4 : stdgo.GoInt), (5 : stdgo.GoInt), _c?.__copy__());
             });
         };
@@ -1007,7 +1007,7 @@ function benchmarkNRGBAAt(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void 
         _b.resetTimer();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _m.nrgbaat((4 : stdgo.GoInt), (5 : stdgo.GoInt));
             });
         };
@@ -1018,7 +1018,7 @@ function benchmarkNRGBASetNRGBA(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>)
         _b.resetTimer();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _m.setNRGBA((4 : stdgo.GoInt), (5 : stdgo.GoInt), _c?.__copy__());
             });
         };
@@ -1028,7 +1028,7 @@ function benchmarkNRGBA64At(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Voi
         _b.resetTimer();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _m.nrgba64at((4 : stdgo.GoInt), (5 : stdgo.GoInt));
             });
         };
@@ -1039,7 +1039,7 @@ function benchmarkNRGBA64SetNRGBA64(_b:stdgo.Ref<stdgo._internal.testing.Testing
         _b.resetTimer();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _m.setNRGBA64((4 : stdgo.GoInt), (5 : stdgo.GoInt), _c?.__copy__());
             });
         };
@@ -1049,7 +1049,7 @@ function benchmarkAlphaAt(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void 
         _b.resetTimer();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _m.alphaAt((4 : stdgo.GoInt), (5 : stdgo.GoInt));
             });
         };
@@ -1060,7 +1060,7 @@ function benchmarkAlphaSetAlpha(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>)
         _b.resetTimer();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _m.setAlpha((4 : stdgo.GoInt), (5 : stdgo.GoInt), _c?.__copy__());
             });
         };
@@ -1070,7 +1070,7 @@ function benchmarkAlpha16At(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Voi
         _b.resetTimer();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _m.alpha16At((4 : stdgo.GoInt), (5 : stdgo.GoInt));
             });
         };
@@ -1081,7 +1081,7 @@ function benchmarkAlphaSetAlpha16(_b:stdgo.Ref<stdgo._internal.testing.Testing.B
         _b.resetTimer();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _m.setAlpha16((4 : stdgo.GoInt), (5 : stdgo.GoInt), _c?.__copy__());
             });
         };
@@ -1091,7 +1091,7 @@ function benchmarkGrayAt(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         _b.resetTimer();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _m.grayAt((4 : stdgo.GoInt), (5 : stdgo.GoInt));
             });
         };
@@ -1102,7 +1102,7 @@ function benchmarkGraySetGray(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):V
         _b.resetTimer();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _m.setGray((4 : stdgo.GoInt), (5 : stdgo.GoInt), _c?.__copy__());
             });
         };
@@ -1112,7 +1112,7 @@ function benchmarkGray16At(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void
         _b.resetTimer();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _m.gray16At((4 : stdgo.GoInt), (5 : stdgo.GoInt));
             });
         };
@@ -1123,7 +1123,7 @@ function benchmarkGraySetGray16(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>)
         _b.resetTimer();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _m.setGray16((4 : stdgo.GoInt), (5 : stdgo.GoInt), _c?.__copy__());
             });
         };
@@ -1142,20 +1142,20 @@ function _yCbCrSize(_r:Rectangle, _subsampleRatio:YCbCrSubsampleRatio):{ var _0 
         {
             final __value__ = _subsampleRatio;
             if (__value__ == ((1 : stdgo._internal.image.Image.YCbCrSubsampleRatio))) {
-                _cw = ((_r.max.x + (1 : stdgo.GoInt)) / (2 : stdgo.GoInt)) - (_r.min.x / (2 : stdgo.GoInt));
+                _cw = ((((_r.max.x + (1 : stdgo.GoInt) : stdgo.GoInt)) / (2 : stdgo.GoInt) : stdgo.GoInt) - (_r.min.x / (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
                 _ch = _h;
             } else if (__value__ == ((2 : stdgo._internal.image.Image.YCbCrSubsampleRatio))) {
-                _cw = ((_r.max.x + (1 : stdgo.GoInt)) / (2 : stdgo.GoInt)) - (_r.min.x / (2 : stdgo.GoInt));
-                _ch = ((_r.max.y + (1 : stdgo.GoInt)) / (2 : stdgo.GoInt)) - (_r.min.y / (2 : stdgo.GoInt));
+                _cw = ((((_r.max.x + (1 : stdgo.GoInt) : stdgo.GoInt)) / (2 : stdgo.GoInt) : stdgo.GoInt) - (_r.min.x / (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
+                _ch = ((((_r.max.y + (1 : stdgo.GoInt) : stdgo.GoInt)) / (2 : stdgo.GoInt) : stdgo.GoInt) - (_r.min.y / (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
             } else if (__value__ == ((3 : stdgo._internal.image.Image.YCbCrSubsampleRatio))) {
                 _cw = _w;
-                _ch = ((_r.max.y + (1 : stdgo.GoInt)) / (2 : stdgo.GoInt)) - (_r.min.y / (2 : stdgo.GoInt));
+                _ch = ((((_r.max.y + (1 : stdgo.GoInt) : stdgo.GoInt)) / (2 : stdgo.GoInt) : stdgo.GoInt) - (_r.min.y / (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
             } else if (__value__ == ((4 : stdgo._internal.image.Image.YCbCrSubsampleRatio))) {
-                _cw = ((_r.max.x + (3 : stdgo.GoInt)) / (4 : stdgo.GoInt)) - (_r.min.x / (4 : stdgo.GoInt));
+                _cw = ((((_r.max.x + (3 : stdgo.GoInt) : stdgo.GoInt)) / (4 : stdgo.GoInt) : stdgo.GoInt) - (_r.min.x / (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
                 _ch = _h;
             } else if (__value__ == ((5 : stdgo._internal.image.Image.YCbCrSubsampleRatio))) {
-                _cw = ((_r.max.x + (3 : stdgo.GoInt)) / (4 : stdgo.GoInt)) - (_r.min.x / (4 : stdgo.GoInt));
-                _ch = ((_r.max.y + (1 : stdgo.GoInt)) / (2 : stdgo.GoInt)) - (_r.min.y / (2 : stdgo.GoInt));
+                _cw = ((((_r.max.x + (3 : stdgo.GoInt) : stdgo.GoInt)) / (4 : stdgo.GoInt) : stdgo.GoInt) - (_r.min.x / (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
+                _ch = ((((_r.max.y + (1 : stdgo.GoInt) : stdgo.GoInt)) / (2 : stdgo.GoInt) : stdgo.GoInt) - (_r.min.y / (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
             } else {
                 _cw = _w;
                 _ch = _h;
@@ -1166,25 +1166,25 @@ function _yCbCrSize(_r:Rectangle, _subsampleRatio:YCbCrSubsampleRatio):{ var _0 
 function newYCbCr(_r:Rectangle, _subsampleRatio:YCbCrSubsampleRatio):stdgo.Ref<YCbCr> {
         var __tmp__ = _yCbCrSize(_r?.__copy__(), _subsampleRatio), _w:stdgo.GoInt = __tmp__._0, _h:stdgo.GoInt = __tmp__._1, _cw:stdgo.GoInt = __tmp__._2, _ch:stdgo.GoInt = __tmp__._3;
         var _totalLength:stdgo.GoInt = _add2NonNeg(_mul3NonNeg((1 : stdgo.GoInt), _w, _h), _mul3NonNeg((2 : stdgo.GoInt), _cw, _ch));
-        if (_totalLength < (0 : stdgo.GoInt)) {
+        if ((_totalLength < (0 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(("image: NewYCbCr Rectangle has huge or negative dimensions" : stdgo.GoString));
         };
-        var _i0:stdgo.GoInt = (_w * _h) + (((0 : stdgo.GoInt) * _cw) * _ch);
-        var _i1:stdgo.GoInt = (_w * _h) + (((1 : stdgo.GoInt) * _cw) * _ch);
-        var _i2:stdgo.GoInt = (_w * _h) + (((2 : stdgo.GoInt) * _cw) * _ch);
+        var _i0:stdgo.GoInt = ((_w * _h : stdgo.GoInt) + (((0 : stdgo.GoInt) * _cw : stdgo.GoInt) * _ch : stdgo.GoInt) : stdgo.GoInt);
+        var _i1:stdgo.GoInt = ((_w * _h : stdgo.GoInt) + (((1 : stdgo.GoInt) * _cw : stdgo.GoInt) * _ch : stdgo.GoInt) : stdgo.GoInt);
+        var _i2:stdgo.GoInt = ((_w * _h : stdgo.GoInt) + (((2 : stdgo.GoInt) * _cw : stdgo.GoInt) * _ch : stdgo.GoInt) : stdgo.GoInt);
         var _b = new stdgo.Slice<stdgo.GoUInt8>((_i2 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
         return (stdgo.Go.setRef(({ y : (_b.__slice__(0, _i0, _i0) : stdgo.Slice<stdgo.GoUInt8>), cb : (_b.__slice__(_i0, _i1, _i1) : stdgo.Slice<stdgo.GoUInt8>), cr : (_b.__slice__(_i1, _i2, _i2) : stdgo.Slice<stdgo.GoUInt8>), ystride : _w, cstride : _cw, subsampleRatio : _subsampleRatio, rect : _r?.__copy__() } : stdgo._internal.image.Image.YCbCr)) : stdgo.Ref<stdgo._internal.image.Image.YCbCr>);
     }
 function newNYCbCrA(_r:Rectangle, _subsampleRatio:YCbCrSubsampleRatio):stdgo.Ref<NYCbCrA> {
         var __tmp__ = _yCbCrSize(_r?.__copy__(), _subsampleRatio), _w:stdgo.GoInt = __tmp__._0, _h:stdgo.GoInt = __tmp__._1, _cw:stdgo.GoInt = __tmp__._2, _ch:stdgo.GoInt = __tmp__._3;
         var _totalLength:stdgo.GoInt = _add2NonNeg(_mul3NonNeg((2 : stdgo.GoInt), _w, _h), _mul3NonNeg((2 : stdgo.GoInt), _cw, _ch));
-        if (_totalLength < (0 : stdgo.GoInt)) {
+        if ((_totalLength < (0 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(("image: NewNYCbCrA Rectangle has huge or negative dimension" : stdgo.GoString));
         };
-        var _i0:stdgo.GoInt = (((1 : stdgo.GoInt) * _w) * _h) + (((0 : stdgo.GoInt) * _cw) * _ch);
-        var _i1:stdgo.GoInt = (((1 : stdgo.GoInt) * _w) * _h) + (((1 : stdgo.GoInt) * _cw) * _ch);
-        var _i2:stdgo.GoInt = (((1 : stdgo.GoInt) * _w) * _h) + (((2 : stdgo.GoInt) * _cw) * _ch);
-        var _i3:stdgo.GoInt = (((2 : stdgo.GoInt) * _w) * _h) + (((2 : stdgo.GoInt) * _cw) * _ch);
+        var _i0:stdgo.GoInt = ((((1 : stdgo.GoInt) * _w : stdgo.GoInt) * _h : stdgo.GoInt) + (((0 : stdgo.GoInt) * _cw : stdgo.GoInt) * _ch : stdgo.GoInt) : stdgo.GoInt);
+        var _i1:stdgo.GoInt = ((((1 : stdgo.GoInt) * _w : stdgo.GoInt) * _h : stdgo.GoInt) + (((1 : stdgo.GoInt) * _cw : stdgo.GoInt) * _ch : stdgo.GoInt) : stdgo.GoInt);
+        var _i2:stdgo.GoInt = ((((1 : stdgo.GoInt) * _w : stdgo.GoInt) * _h : stdgo.GoInt) + (((2 : stdgo.GoInt) * _cw : stdgo.GoInt) * _ch : stdgo.GoInt) : stdgo.GoInt);
+        var _i3:stdgo.GoInt = ((((2 : stdgo.GoInt) * _w : stdgo.GoInt) * _h : stdgo.GoInt) + (((2 : stdgo.GoInt) * _cw : stdgo.GoInt) * _ch : stdgo.GoInt) : stdgo.GoInt);
         var _b = new stdgo.Slice<stdgo.GoUInt8>((_i3 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
         return (stdgo.Go.setRef(({ ycbCr : ({ y : (_b.__slice__(0, _i0, _i0) : stdgo.Slice<stdgo.GoUInt8>), cb : (_b.__slice__(_i0, _i1, _i1) : stdgo.Slice<stdgo.GoUInt8>), cr : (_b.__slice__(_i1, _i2, _i2) : stdgo.Slice<stdgo.GoUInt8>), ystride : _w, cstride : _cw, subsampleRatio : _subsampleRatio, rect : _r?.__copy__() } : stdgo._internal.image.Image.YCbCr), a : (_b.__slice__(_i2) : stdgo.Slice<stdgo.GoUInt8>), astride : _w } : stdgo._internal.image.Image.NYCbCrA)) : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>);
     }
@@ -1228,45 +1228,45 @@ rect((10 : stdgo.GoInt), (10 : stdgo.GoInt), (17 : stdgo.GoInt), (17 : stdgo.GoI
 function _testYCbCr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _r:Rectangle, _subsampleRatio:YCbCrSubsampleRatio, _delta:Point):Void {
         var _r1:stdgo._internal.image.Image.Rectangle = _r.add(_delta?.__copy__())?.__copy__();
         var _m = newYCbCr(_r1?.__copy__(), _subsampleRatio);
-        if ((_m.y.length) > (10000 : stdgo.GoInt)) {
+        if (((_m.y.length) > (10000 : stdgo.GoInt) : Bool)) {
             _t.errorf(("r=%v, subsampleRatio=%v, delta=%v: image buffer is too large" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_subsampleRatio)), stdgo.Go.toInterface(stdgo.Go.asInterface(_delta)));
             return;
         };
         {
             var _y:stdgo.GoInt = _r1.min.y;
-            stdgo.Go.cfor(_y < _r1.max.y, _y++, {
+            stdgo.Go.cfor((_y < _r1.max.y : Bool), _y++, {
                 {
                     var _x:stdgo.GoInt = _r1.min.x;
-                    stdgo.Go.cfor(_x < _r1.max.x, _x++, {
+                    stdgo.Go.cfor((_x < _r1.max.x : Bool), _x++, {
                         var _yi:stdgo.GoInt = _m.yoffset(_x, _y);
                         var _ci:stdgo.GoInt = _m.coffset(_x, _y);
-                        _m.y[(_yi : stdgo.GoInt)] = (((16 : stdgo.GoInt) * _y) + _x : stdgo.GoUInt8);
-                        _m.cb[(_ci : stdgo.GoInt)] = (_y + ((16 : stdgo.GoInt) * _x) : stdgo.GoUInt8);
-                        _m.cr[(_ci : stdgo.GoInt)] = (_y + ((16 : stdgo.GoInt) * _x) : stdgo.GoUInt8);
+                        _m.y[(_yi : stdgo.GoInt)] = ((((16 : stdgo.GoInt) * _y : stdgo.GoInt) + _x : stdgo.GoInt) : stdgo.GoUInt8);
+                        _m.cb[(_ci : stdgo.GoInt)] = ((_y + ((16 : stdgo.GoInt) * _x : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt8);
+                        _m.cr[(_ci : stdgo.GoInt)] = ((_y + ((16 : stdgo.GoInt) * _x : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt8);
                     });
                 };
             });
         };
         {
-            var _y0:stdgo.GoInt = _delta.y + (3 : stdgo.GoInt);
-            stdgo.Go.cfor(_y0 < (_delta.y + (7 : stdgo.GoInt)), _y0++, {
+            var _y0:stdgo.GoInt = (_delta.y + (3 : stdgo.GoInt) : stdgo.GoInt);
+            stdgo.Go.cfor((_y0 < (_delta.y + (7 : stdgo.GoInt) : stdgo.GoInt) : Bool), _y0++, {
                 {
-                    var _y1:stdgo.GoInt = _delta.y + (8 : stdgo.GoInt);
-                    stdgo.Go.cfor(_y1 < (_delta.y + (13 : stdgo.GoInt)), _y1++, {
+                    var _y1:stdgo.GoInt = (_delta.y + (8 : stdgo.GoInt) : stdgo.GoInt);
+                    stdgo.Go.cfor((_y1 < (_delta.y + (13 : stdgo.GoInt) : stdgo.GoInt) : Bool), _y1++, {
                         {
-                            var _x0:stdgo.GoInt = _delta.x + (3 : stdgo.GoInt);
-                            stdgo.Go.cfor(_x0 < (_delta.x + (7 : stdgo.GoInt)), _x0++, {
+                            var _x0:stdgo.GoInt = (_delta.x + (3 : stdgo.GoInt) : stdgo.GoInt);
+                            stdgo.Go.cfor((_x0 < (_delta.x + (7 : stdgo.GoInt) : stdgo.GoInt) : Bool), _x0++, {
                                 {
-                                    var _x1:stdgo.GoInt = _delta.x + (8 : stdgo.GoInt);
-                                    stdgo.Go.cfor(_x1 < (_delta.x + (13 : stdgo.GoInt)), _x1++, {
+                                    var _x1:stdgo.GoInt = (_delta.x + (8 : stdgo.GoInt) : stdgo.GoInt);
+                                    stdgo.Go.cfor((_x1 < (_delta.x + (13 : stdgo.GoInt) : stdgo.GoInt) : Bool), _x1++, {
                                         var _subRect:stdgo._internal.image.Image.Rectangle = rect(_x0, _y0, _x1, _y1)?.__copy__();
                                         var _sub = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m.subImage(_subRect?.__copy__())) : stdgo.Ref<YCbCr>)) : stdgo.Ref<YCbCr>);
                                         {
                                             var _y:stdgo.GoInt = _sub.rect.min.y;
-                                            stdgo.Go.cfor(_y < _sub.rect.max.y, _y++, {
+                                            stdgo.Go.cfor((_y < _sub.rect.max.y : Bool), _y++, {
                                                 {
                                                     var _x:stdgo.GoInt = _sub.rect.min.x;
-                                                    stdgo.Go.cfor(_x < _sub.rect.max.x, _x++, {
+                                                    stdgo.Go.cfor((_x < _sub.rect.max.x : Bool), _x++, {
                                                         var _color0:stdgo._internal.image.color.Color.YCbCr = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m.at(_x, _y)) : stdgo._internal.image.color.Color.YCbCr)) : stdgo._internal.image.color.Color.YCbCr)?.__copy__();
                                                         var _color1:stdgo._internal.image.color.Color.YCbCr = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_sub.at(_x, _y)) : stdgo._internal.image.color.Color.YCbCr)) : stdgo._internal.image.color.Color.YCbCr)?.__copy__();
                                                         if (stdgo.Go.toInterface(_color0) != stdgo.Go.toInterface(_color1)) {
@@ -1291,13 +1291,13 @@ function testYCbCrSlicesDontOverlap(_t:stdgo.Ref<stdgo._internal.testing.Testing
         var _names = (new stdgo.Slice<stdgo.GoString>(3, 3, ("Y" : stdgo.GoString), ("Cb" : stdgo.GoString), ("Cr" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
         var _slices = (new stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>(3, 3, (_m.y.__slice__(0, _m.y.capacity) : stdgo.Slice<stdgo.GoUInt8>), (_m.cb.__slice__(0, _m.cb.capacity) : stdgo.Slice<stdgo.GoUInt8>), (_m.cr.__slice__(0, _m.cr.capacity) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
         for (_i => _slice in _slices) {
-            var _want:stdgo.GoUInt8 = ((10 : stdgo.GoInt) + _i : stdgo.GoUInt8);
+            var _want:stdgo.GoUInt8 = (((10 : stdgo.GoInt) + _i : stdgo.GoInt) : stdgo.GoUInt8);
             for (_j => _ in _slice) {
                 _slice[(_j : stdgo.GoInt)] = _want;
             };
         };
         for (_i => _slice in _slices) {
-            var _want:stdgo.GoUInt8 = ((10 : stdgo.GoInt) + _i : stdgo.GoUInt8);
+            var _want:stdgo.GoUInt8 = (((10 : stdgo.GoInt) + _i : stdgo.GoInt) : stdgo.GoUInt8);
             for (_j => _got in _slice) {
                 if (_got != (_want)) {
                     _t.fatalf(("m.%s[%d]: got %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_names[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
@@ -1341,45 +1341,45 @@ class Point_asInterface {
         @:recv var _p:Point = _p?.__copy__();
         var __0:stdgo.GoInt = _r.dx(), __1:stdgo.GoInt = _r.dy(), _h:stdgo.GoInt = __1, _w:stdgo.GoInt = __0;
         _p = _p.sub(_r.min?.__copy__())?.__copy__();
-        _p.x = _p.x % _w;
-        if (_p.x < (0 : stdgo.GoInt)) {
-            _p.x = _p.x + (_w);
+        _p.x = (_p.x % _w : stdgo.GoInt);
+        if ((_p.x < (0 : stdgo.GoInt) : Bool)) {
+            _p.x = (_p.x + (_w) : stdgo.GoInt);
         };
-        _p.y = _p.y % _h;
-        if (_p.y < (0 : stdgo.GoInt)) {
-            _p.y = _p.y + (_h);
+        _p.y = (_p.y % _h : stdgo.GoInt);
+        if ((_p.y < (0 : stdgo.GoInt) : Bool)) {
+            _p.y = (_p.y + (_h) : stdgo.GoInt);
         };
         return _p.add(_r.min?.__copy__())?.__copy__();
     }
     @:keep
     static public function in_( _p:Point, _r:Rectangle):Bool {
         @:recv var _p:Point = _p?.__copy__();
-        return (((_r.min.x <= _p.x) && (_p.x < _r.max.x)) && (_r.min.y <= _p.y)) && (_p.y < _r.max.y);
+        return ((((_r.min.x <= _p.x : Bool) && (_p.x < _r.max.x : Bool) : Bool) && (_r.min.y <= _p.y : Bool) : Bool) && (_p.y < _r.max.y : Bool) : Bool);
     }
     @:keep
     static public function div( _p:Point, _k:stdgo.GoInt):Point {
         @:recv var _p:Point = _p?.__copy__();
-        return (new stdgo._internal.image.Image.Point(_p.x / _k, _p.y / _k) : stdgo._internal.image.Image.Point);
+        return (new stdgo._internal.image.Image.Point((_p.x / _k : stdgo.GoInt), (_p.y / _k : stdgo.GoInt)) : stdgo._internal.image.Image.Point);
     }
     @:keep
     static public function mul( _p:Point, _k:stdgo.GoInt):Point {
         @:recv var _p:Point = _p?.__copy__();
-        return (new stdgo._internal.image.Image.Point(_p.x * _k, _p.y * _k) : stdgo._internal.image.Image.Point);
+        return (new stdgo._internal.image.Image.Point((_p.x * _k : stdgo.GoInt), (_p.y * _k : stdgo.GoInt)) : stdgo._internal.image.Image.Point);
     }
     @:keep
     static public function sub( _p:Point, _q:Point):Point {
         @:recv var _p:Point = _p?.__copy__();
-        return (new stdgo._internal.image.Image.Point(_p.x - _q.x, _p.y - _q.y) : stdgo._internal.image.Image.Point);
+        return (new stdgo._internal.image.Image.Point((_p.x - _q.x : stdgo.GoInt), (_p.y - _q.y : stdgo.GoInt)) : stdgo._internal.image.Image.Point);
     }
     @:keep
     static public function add( _p:Point, _q:Point):Point {
         @:recv var _p:Point = _p?.__copy__();
-        return (new stdgo._internal.image.Image.Point(_p.x + _q.x, _p.y + _q.y) : stdgo._internal.image.Image.Point);
+        return (new stdgo._internal.image.Image.Point((_p.x + _q.x : stdgo.GoInt), (_p.y + _q.y : stdgo.GoInt)) : stdgo._internal.image.Image.Point);
     }
     @:keep
     static public function string( _p:Point):stdgo.GoString {
         @:recv var _p:Point = _p?.__copy__();
-        return ("(" : stdgo.GoString) + stdgo._internal.strconv.Strconv.itoa(_p.x)?.__copy__() + ("," : stdgo.GoString)?.__copy__() + stdgo._internal.strconv.Strconv.itoa(_p.y)?.__copy__() + (")" : stdgo.GoString)?.__copy__()?.__copy__();
+        return ((((("(" : stdgo.GoString) + stdgo._internal.strconv.Strconv.itoa(_p.x)?.__copy__() : stdgo.GoString) + ("," : stdgo.GoString)?.__copy__() : stdgo.GoString) + stdgo._internal.strconv.Strconv.itoa(_p.y)?.__copy__() : stdgo.GoString) + (")" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
     }
 }
 class Rectangle_asInterface {
@@ -1457,7 +1457,7 @@ class Rectangle_asInterface {
     @:keep
     static public function canon( _r:Rectangle):Rectangle {
         @:recv var _r:Rectangle = _r?.__copy__();
-        if (_r.max.x < _r.min.x) {
+        if ((_r.max.x < _r.min.x : Bool)) {
             {
                 final __tmp__0 = _r.max.x;
                 final __tmp__1 = _r.min.x;
@@ -1465,7 +1465,7 @@ class Rectangle_asInterface {
                 _r.max.x = __tmp__1;
             };
         };
-        if (_r.max.y < _r.min.y) {
+        if ((_r.max.y < _r.min.y : Bool)) {
             {
                 final __tmp__0 = _r.max.y;
                 final __tmp__1 = _r.min.y;
@@ -1481,22 +1481,22 @@ class Rectangle_asInterface {
         if (_r.empty()) {
             return true;
         };
-        return (((_s.min.x <= _r.min.x) && (_r.max.x <= _s.max.x)) && (_s.min.y <= _r.min.y)) && (_r.max.y <= _s.max.y);
+        return ((((_s.min.x <= _r.min.x : Bool) && (_r.max.x <= _s.max.x : Bool) : Bool) && (_s.min.y <= _r.min.y : Bool) : Bool) && (_r.max.y <= _s.max.y : Bool) : Bool);
     }
     @:keep
     static public function overlaps( _r:Rectangle, _s:Rectangle):Bool {
         @:recv var _r:Rectangle = _r?.__copy__();
-        return ((((!_r.empty() && !_s.empty()) && (_r.min.x < _s.max.x)) && (_s.min.x < _r.max.x)) && (_r.min.y < _s.max.y)) && (_s.min.y < _r.max.y);
+        return (((((!_r.empty() && !_s.empty() : Bool) && (_r.min.x < _s.max.x : Bool) : Bool) && (_s.min.x < _r.max.x : Bool) : Bool) && (_r.min.y < _s.max.y : Bool) : Bool) && (_s.min.y < _r.max.y : Bool) : Bool);
     }
     @:keep
     static public function eq( _r:Rectangle, _s:Rectangle):Bool {
         @:recv var _r:Rectangle = _r?.__copy__();
-        return (stdgo.Go.toInterface(_r) == stdgo.Go.toInterface(_s)) || (_r.empty() && _s.empty());
+        return ((stdgo.Go.toInterface(_r) == stdgo.Go.toInterface(_s)) || (_r.empty() && _s.empty() : Bool) : Bool);
     }
     @:keep
     static public function empty( _r:Rectangle):Bool {
         @:recv var _r:Rectangle = _r?.__copy__();
-        return (_r.min.x >= _r.max.x) || (_r.min.y >= _r.max.y);
+        return ((_r.min.x >= _r.max.x : Bool) || (_r.min.y >= _r.max.y : Bool) : Bool);
     }
     @:keep
     static public function union( _r:Rectangle, _s:Rectangle):Rectangle {
@@ -1507,16 +1507,16 @@ class Rectangle_asInterface {
         if (_s.empty()) {
             return _r?.__copy__();
         };
-        if (_r.min.x > _s.min.x) {
+        if ((_r.min.x > _s.min.x : Bool)) {
             _r.min.x = _s.min.x;
         };
-        if (_r.min.y > _s.min.y) {
+        if ((_r.min.y > _s.min.y : Bool)) {
             _r.min.y = _s.min.y;
         };
-        if (_r.max.x < _s.max.x) {
+        if ((_r.max.x < _s.max.x : Bool)) {
             _r.max.x = _s.max.x;
         };
-        if (_r.max.y < _s.max.y) {
+        if ((_r.max.y < _s.max.y : Bool)) {
             _r.max.y = _s.max.y;
         };
         return _r?.__copy__();
@@ -1524,16 +1524,16 @@ class Rectangle_asInterface {
     @:keep
     static public function intersect( _r:Rectangle, _s:Rectangle):Rectangle {
         @:recv var _r:Rectangle = _r?.__copy__();
-        if (_r.min.x < _s.min.x) {
+        if ((_r.min.x < _s.min.x : Bool)) {
             _r.min.x = _s.min.x;
         };
-        if (_r.min.y < _s.min.y) {
+        if ((_r.min.y < _s.min.y : Bool)) {
             _r.min.y = _s.min.y;
         };
-        if (_r.max.x > _s.max.x) {
+        if ((_r.max.x > _s.max.x : Bool)) {
             _r.max.x = _s.max.x;
         };
-        if (_r.max.y > _s.max.y) {
+        if ((_r.max.y > _s.max.y : Bool)) {
             _r.max.y = _s.max.y;
         };
         if (_r.empty()) {
@@ -1544,51 +1544,51 @@ class Rectangle_asInterface {
     @:keep
     static public function inset( _r:Rectangle, _n:stdgo.GoInt):Rectangle {
         @:recv var _r:Rectangle = _r?.__copy__();
-        if (_r.dx() < ((2 : stdgo.GoInt) * _n)) {
-            _r.min.x = (_r.min.x + _r.max.x) / (2 : stdgo.GoInt);
+        if ((_r.dx() < ((2 : stdgo.GoInt) * _n : stdgo.GoInt) : Bool)) {
+            _r.min.x = (((_r.min.x + _r.max.x : stdgo.GoInt)) / (2 : stdgo.GoInt) : stdgo.GoInt);
             _r.max.x = _r.min.x;
         } else {
-            _r.min.x = _r.min.x + (_n);
-            _r.max.x = _r.max.x - (_n);
+            _r.min.x = (_r.min.x + (_n) : stdgo.GoInt);
+            _r.max.x = (_r.max.x - (_n) : stdgo.GoInt);
         };
-        if (_r.dy() < ((2 : stdgo.GoInt) * _n)) {
-            _r.min.y = (_r.min.y + _r.max.y) / (2 : stdgo.GoInt);
+        if ((_r.dy() < ((2 : stdgo.GoInt) * _n : stdgo.GoInt) : Bool)) {
+            _r.min.y = (((_r.min.y + _r.max.y : stdgo.GoInt)) / (2 : stdgo.GoInt) : stdgo.GoInt);
             _r.max.y = _r.min.y;
         } else {
-            _r.min.y = _r.min.y + (_n);
-            _r.max.y = _r.max.y - (_n);
+            _r.min.y = (_r.min.y + (_n) : stdgo.GoInt);
+            _r.max.y = (_r.max.y - (_n) : stdgo.GoInt);
         };
         return _r?.__copy__();
     }
     @:keep
     static public function sub( _r:Rectangle, _p:Point):Rectangle {
         @:recv var _r:Rectangle = _r?.__copy__();
-        return (new stdgo._internal.image.Image.Rectangle((new stdgo._internal.image.Image.Point(_r.min.x - _p.x, _r.min.y - _p.y) : stdgo._internal.image.Image.Point), (new stdgo._internal.image.Image.Point(_r.max.x - _p.x, _r.max.y - _p.y) : stdgo._internal.image.Image.Point)) : stdgo._internal.image.Image.Rectangle);
+        return (new stdgo._internal.image.Image.Rectangle((new stdgo._internal.image.Image.Point((_r.min.x - _p.x : stdgo.GoInt), (_r.min.y - _p.y : stdgo.GoInt)) : stdgo._internal.image.Image.Point), (new stdgo._internal.image.Image.Point((_r.max.x - _p.x : stdgo.GoInt), (_r.max.y - _p.y : stdgo.GoInt)) : stdgo._internal.image.Image.Point)) : stdgo._internal.image.Image.Rectangle);
     }
     @:keep
     static public function add( _r:Rectangle, _p:Point):Rectangle {
         @:recv var _r:Rectangle = _r?.__copy__();
-        return (new stdgo._internal.image.Image.Rectangle((new stdgo._internal.image.Image.Point(_r.min.x + _p.x, _r.min.y + _p.y) : stdgo._internal.image.Image.Point), (new stdgo._internal.image.Image.Point(_r.max.x + _p.x, _r.max.y + _p.y) : stdgo._internal.image.Image.Point)) : stdgo._internal.image.Image.Rectangle);
+        return (new stdgo._internal.image.Image.Rectangle((new stdgo._internal.image.Image.Point((_r.min.x + _p.x : stdgo.GoInt), (_r.min.y + _p.y : stdgo.GoInt)) : stdgo._internal.image.Image.Point), (new stdgo._internal.image.Image.Point((_r.max.x + _p.x : stdgo.GoInt), (_r.max.y + _p.y : stdgo.GoInt)) : stdgo._internal.image.Image.Point)) : stdgo._internal.image.Image.Rectangle);
     }
     @:keep
     static public function size( _r:Rectangle):Point {
         @:recv var _r:Rectangle = _r?.__copy__();
-        return (new stdgo._internal.image.Image.Point(_r.max.x - _r.min.x, _r.max.y - _r.min.y) : stdgo._internal.image.Image.Point);
+        return (new stdgo._internal.image.Image.Point((_r.max.x - _r.min.x : stdgo.GoInt), (_r.max.y - _r.min.y : stdgo.GoInt)) : stdgo._internal.image.Image.Point);
     }
     @:keep
     static public function dy( _r:Rectangle):stdgo.GoInt {
         @:recv var _r:Rectangle = _r?.__copy__();
-        return _r.max.y - _r.min.y;
+        return (_r.max.y - _r.min.y : stdgo.GoInt);
     }
     @:keep
     static public function dx( _r:Rectangle):stdgo.GoInt {
         @:recv var _r:Rectangle = _r?.__copy__();
-        return _r.max.x - _r.min.x;
+        return (_r.max.x - _r.min.x : stdgo.GoInt);
     }
     @:keep
     static public function string( _r:Rectangle):stdgo.GoString {
         @:recv var _r:Rectangle = _r?.__copy__();
-        return (_r.min.string() : stdgo.GoString) + ("-" : stdgo.GoString)?.__copy__() + (_r.max.string() : stdgo.GoString)?.__copy__()?.__copy__();
+        return (((_r.min.string() : stdgo.GoString) + ("-" : stdgo.GoString)?.__copy__() : stdgo.GoString) + (_r.max.string() : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
     }
 }
 class RGBA_asInterface {
@@ -1629,20 +1629,20 @@ class RGBA_asInterface {
         if (_p.rect.empty()) {
             return true;
         };
-        var __0:stdgo.GoInt = (3 : stdgo.GoInt), __1:stdgo.GoInt = _p.rect.dx() * (4 : stdgo.GoInt), _i1:stdgo.GoInt = __1, _i0:stdgo.GoInt = __0;
+        var __0:stdgo.GoInt = (3 : stdgo.GoInt), __1:stdgo.GoInt = (_p.rect.dx() * (4 : stdgo.GoInt) : stdgo.GoInt), _i1:stdgo.GoInt = __1, _i0:stdgo.GoInt = __0;
         {
             var _y:stdgo.GoInt = _p.rect.min.y;
-            stdgo.Go.cfor(_y < _p.rect.max.y, _y++, {
+            stdgo.Go.cfor((_y < _p.rect.max.y : Bool), _y++, {
                 {
                     var _i:stdgo.GoInt = _i0;
-                    stdgo.Go.cfor(_i < _i1, _i = _i + ((4 : stdgo.GoInt)), {
+                    stdgo.Go.cfor((_i < _i1 : Bool), _i = (_i + ((4 : stdgo.GoInt)) : stdgo.GoInt), {
                         if (_p.pix[(_i : stdgo.GoInt)] != ((255 : stdgo.GoUInt8))) {
                             return false;
                         };
                     });
                 };
-                _i0 = _i0 + (_p.stride);
-                _i1 = _i1 + (_p.stride);
+                _i0 = (_i0 + (_p.stride) : stdgo.GoInt);
+                _i1 = (_i1 + (_p.stride) : stdgo.GoInt);
             });
         };
         return true;
@@ -1664,7 +1664,7 @@ class RGBA_asInterface {
             return;
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
-        var _s = (_p.pix.__slice__(_i, _i + (4 : stdgo.GoInt), _i + (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _s[(0 : stdgo.GoInt)] = _c.r;
         _s[(1 : stdgo.GoInt)] = _c.g;
         _s[(2 : stdgo.GoInt)] = _c.b;
@@ -1677,11 +1677,11 @@ class RGBA_asInterface {
             return;
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
-        var _s = (_p.pix.__slice__(_i, _i + (4 : stdgo.GoInt), _i + (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        _s[(0 : stdgo.GoInt)] = (_c.r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
-        _s[(1 : stdgo.GoInt)] = (_c.g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
-        _s[(2 : stdgo.GoInt)] = (_c.b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
-        _s[(3 : stdgo.GoInt)] = (_c.a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        _s[(0 : stdgo.GoInt)] = ((_c.r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
+        _s[(1 : stdgo.GoInt)] = ((_c.g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
+        _s[(2 : stdgo.GoInt)] = ((_c.b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
+        _s[(3 : stdgo.GoInt)] = ((_c.a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
     }
     @:keep
     static public function set( _p:stdgo.Ref<RGBA>, _x:stdgo.GoInt, _y:stdgo.GoInt, _c:stdgo._internal.image.color.Color.Color):Void {
@@ -1691,7 +1691,7 @@ class RGBA_asInterface {
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
         var _c1:stdgo._internal.image.color.Color.RGBA = (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.image.color.Color.rgbamodel.convert(_c)) : stdgo._internal.image.color.Color.RGBA)) : stdgo._internal.image.color.Color.RGBA)?.__copy__();
-        var _s = (_p.pix.__slice__(_i, _i + (4 : stdgo.GoInt), _i + (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _s[(0 : stdgo.GoInt)] = _c1.r;
         _s[(1 : stdgo.GoInt)] = _c1.g;
         _s[(2 : stdgo.GoInt)] = _c1.b;
@@ -1700,7 +1700,7 @@ class RGBA_asInterface {
     @:keep
     static public function pixOffset( _p:stdgo.Ref<RGBA>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo.GoInt {
         @:recv var _p:stdgo.Ref<RGBA> = _p;
-        return ((_y - _p.rect.min.y) * _p.stride) + ((_x - _p.rect.min.x) * (4 : stdgo.GoInt));
+        return ((((_y - _p.rect.min.y : stdgo.GoInt)) * _p.stride : stdgo.GoInt) + (((_x - _p.rect.min.x : stdgo.GoInt)) * (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
     }
     @:keep
     static public function rgbaat( _p:stdgo.Ref<RGBA>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.RGBA {
@@ -1709,7 +1709,7 @@ class RGBA_asInterface {
             return (new stdgo._internal.image.color.Color.RGBA() : stdgo._internal.image.color.Color.RGBA);
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
-        var _s = (_p.pix.__slice__(_i, _i + (4 : stdgo.GoInt), _i + (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         return (new stdgo._internal.image.color.Color.RGBA(_s[(0 : stdgo.GoInt)], _s[(1 : stdgo.GoInt)], _s[(2 : stdgo.GoInt)], _s[(3 : stdgo.GoInt)]) : stdgo._internal.image.color.Color.RGBA);
     }
     @:keep
@@ -1719,12 +1719,12 @@ class RGBA_asInterface {
             return (new stdgo._internal.image.color.Color.RGBA64() : stdgo._internal.image.color.Color.RGBA64);
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
-        var _s = (_p.pix.__slice__(_i, _i + (4 : stdgo.GoInt), _i + (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         var _r:stdgo.GoUInt16 = (_s[(0 : stdgo.GoInt)] : stdgo.GoUInt16);
         var _g:stdgo.GoUInt16 = (_s[(1 : stdgo.GoInt)] : stdgo.GoUInt16);
         var _b:stdgo.GoUInt16 = (_s[(2 : stdgo.GoInt)] : stdgo.GoUInt16);
         var _a:stdgo.GoUInt16 = (_s[(3 : stdgo.GoInt)] : stdgo.GoUInt16);
-        return (new stdgo._internal.image.color.Color.RGBA64((_r << (8i64 : stdgo.GoUInt64)) | _r, (_g << (8i64 : stdgo.GoUInt64)) | _g, (_b << (8i64 : stdgo.GoUInt64)) | _b, (_a << (8i64 : stdgo.GoUInt64)) | _a) : stdgo._internal.image.color.Color.RGBA64);
+        return (new stdgo._internal.image.color.Color.RGBA64((((_r << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16)) | _r : stdgo.GoUInt16), (((_g << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16)) | _g : stdgo.GoUInt16), (((_b << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16)) | _b : stdgo.GoUInt16), (((_a << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16)) | _a : stdgo.GoUInt16)) : stdgo._internal.image.color.Color.RGBA64);
     }
     @:keep
     static public function at( _p:stdgo.Ref<RGBA>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.Color {
@@ -1776,20 +1776,20 @@ class RGBA64_asInterface {
         if (_p.rect.empty()) {
             return true;
         };
-        var __0:stdgo.GoInt = (6 : stdgo.GoInt), __1:stdgo.GoInt = _p.rect.dx() * (8 : stdgo.GoInt), _i1:stdgo.GoInt = __1, _i0:stdgo.GoInt = __0;
+        var __0:stdgo.GoInt = (6 : stdgo.GoInt), __1:stdgo.GoInt = (_p.rect.dx() * (8 : stdgo.GoInt) : stdgo.GoInt), _i1:stdgo.GoInt = __1, _i0:stdgo.GoInt = __0;
         {
             var _y:stdgo.GoInt = _p.rect.min.y;
-            stdgo.Go.cfor(_y < _p.rect.max.y, _y++, {
+            stdgo.Go.cfor((_y < _p.rect.max.y : Bool), _y++, {
                 {
                     var _i:stdgo.GoInt = _i0;
-                    stdgo.Go.cfor(_i < _i1, _i = _i + ((8 : stdgo.GoInt)), {
-                        if ((_p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] != (255 : stdgo.GoUInt8)) || (_p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] != (255 : stdgo.GoUInt8))) {
+                    stdgo.Go.cfor((_i < _i1 : Bool), _i = (_i + ((8 : stdgo.GoInt)) : stdgo.GoInt), {
+                        if (((_p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] != (255 : stdgo.GoUInt8)) || (_p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] != (255 : stdgo.GoUInt8)) : Bool)) {
                             return false;
                         };
                     });
                 };
-                _i0 = _i0 + (_p.stride);
-                _i1 = _i1 + (_p.stride);
+                _i0 = (_i0 + (_p.stride) : stdgo.GoInt);
+                _i1 = (_i1 + (_p.stride) : stdgo.GoInt);
             });
         };
         return true;
@@ -1811,14 +1811,14 @@ class RGBA64_asInterface {
             return;
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
-        var _s = (_p.pix.__slice__(_i, _i + (8 : stdgo.GoInt), _i + (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        _s[(0 : stdgo.GoInt)] = (_c.r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        var _s = (_p.pix.__slice__(_i, (_i + (8 : stdgo.GoInt) : stdgo.GoInt), (_i + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        _s[(0 : stdgo.GoInt)] = ((_c.r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _s[(1 : stdgo.GoInt)] = (_c.r : stdgo.GoUInt8);
-        _s[(2 : stdgo.GoInt)] = (_c.g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        _s[(2 : stdgo.GoInt)] = ((_c.g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _s[(3 : stdgo.GoInt)] = (_c.g : stdgo.GoUInt8);
-        _s[(4 : stdgo.GoInt)] = (_c.b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        _s[(4 : stdgo.GoInt)] = ((_c.b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _s[(5 : stdgo.GoInt)] = (_c.b : stdgo.GoUInt8);
-        _s[(6 : stdgo.GoInt)] = (_c.a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        _s[(6 : stdgo.GoInt)] = ((_c.a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _s[(7 : stdgo.GoInt)] = (_c.a : stdgo.GoUInt8);
     }
     @:keep
@@ -1829,20 +1829,20 @@ class RGBA64_asInterface {
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
         var _c1:stdgo._internal.image.color.Color.RGBA64 = (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.image.color.Color.rgba64model.convert(_c)) : stdgo._internal.image.color.Color.RGBA64)) : stdgo._internal.image.color.Color.RGBA64)?.__copy__();
-        var _s = (_p.pix.__slice__(_i, _i + (8 : stdgo.GoInt), _i + (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        _s[(0 : stdgo.GoInt)] = (_c1.r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        var _s = (_p.pix.__slice__(_i, (_i + (8 : stdgo.GoInt) : stdgo.GoInt), (_i + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        _s[(0 : stdgo.GoInt)] = ((_c1.r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _s[(1 : stdgo.GoInt)] = (_c1.r : stdgo.GoUInt8);
-        _s[(2 : stdgo.GoInt)] = (_c1.g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        _s[(2 : stdgo.GoInt)] = ((_c1.g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _s[(3 : stdgo.GoInt)] = (_c1.g : stdgo.GoUInt8);
-        _s[(4 : stdgo.GoInt)] = (_c1.b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        _s[(4 : stdgo.GoInt)] = ((_c1.b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _s[(5 : stdgo.GoInt)] = (_c1.b : stdgo.GoUInt8);
-        _s[(6 : stdgo.GoInt)] = (_c1.a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        _s[(6 : stdgo.GoInt)] = ((_c1.a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _s[(7 : stdgo.GoInt)] = (_c1.a : stdgo.GoUInt8);
     }
     @:keep
     static public function pixOffset( _p:stdgo.Ref<RGBA64>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo.GoInt {
         @:recv var _p:stdgo.Ref<RGBA64> = _p;
-        return ((_y - _p.rect.min.y) * _p.stride) + ((_x - _p.rect.min.x) * (8 : stdgo.GoInt));
+        return ((((_y - _p.rect.min.y : stdgo.GoInt)) * _p.stride : stdgo.GoInt) + (((_x - _p.rect.min.x : stdgo.GoInt)) * (8 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
     }
     @:keep
     static public function rgba64at( _p:stdgo.Ref<RGBA64>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.RGBA64 {
@@ -1851,8 +1851,8 @@ class RGBA64_asInterface {
             return (new stdgo._internal.image.color.Color.RGBA64() : stdgo._internal.image.color.Color.RGBA64);
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
-        var _s = (_p.pix.__slice__(_i, _i + (8 : stdgo.GoInt), _i + (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        return (new stdgo._internal.image.color.Color.RGBA64(((_s[(0 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64)) | (_s[(1 : stdgo.GoInt)] : stdgo.GoUInt16), ((_s[(2 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64)) | (_s[(3 : stdgo.GoInt)] : stdgo.GoUInt16), ((_s[(4 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64)) | (_s[(5 : stdgo.GoInt)] : stdgo.GoUInt16), ((_s[(6 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64)) | (_s[(7 : stdgo.GoInt)] : stdgo.GoUInt16)) : stdgo._internal.image.color.Color.RGBA64);
+        var _s = (_p.pix.__slice__(_i, (_i + (8 : stdgo.GoInt) : stdgo.GoInt), (_i + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        return (new stdgo._internal.image.color.Color.RGBA64((((_s[(0 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) | (_s[(1 : stdgo.GoInt)] : stdgo.GoUInt16) : stdgo.GoUInt16), (((_s[(2 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) | (_s[(3 : stdgo.GoInt)] : stdgo.GoUInt16) : stdgo.GoUInt16), (((_s[(4 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) | (_s[(5 : stdgo.GoInt)] : stdgo.GoUInt16) : stdgo.GoUInt16), (((_s[(6 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) | (_s[(7 : stdgo.GoInt)] : stdgo.GoUInt16) : stdgo.GoUInt16)) : stdgo._internal.image.color.Color.RGBA64);
     }
     @:keep
     static public function at( _p:stdgo.Ref<RGBA64>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.Color {
@@ -1908,20 +1908,20 @@ class NRGBA_asInterface {
         if (_p.rect.empty()) {
             return true;
         };
-        var __0:stdgo.GoInt = (3 : stdgo.GoInt), __1:stdgo.GoInt = _p.rect.dx() * (4 : stdgo.GoInt), _i1:stdgo.GoInt = __1, _i0:stdgo.GoInt = __0;
+        var __0:stdgo.GoInt = (3 : stdgo.GoInt), __1:stdgo.GoInt = (_p.rect.dx() * (4 : stdgo.GoInt) : stdgo.GoInt), _i1:stdgo.GoInt = __1, _i0:stdgo.GoInt = __0;
         {
             var _y:stdgo.GoInt = _p.rect.min.y;
-            stdgo.Go.cfor(_y < _p.rect.max.y, _y++, {
+            stdgo.Go.cfor((_y < _p.rect.max.y : Bool), _y++, {
                 {
                     var _i:stdgo.GoInt = _i0;
-                    stdgo.Go.cfor(_i < _i1, _i = _i + ((4 : stdgo.GoInt)), {
+                    stdgo.Go.cfor((_i < _i1 : Bool), _i = (_i + ((4 : stdgo.GoInt)) : stdgo.GoInt), {
                         if (_p.pix[(_i : stdgo.GoInt)] != ((255 : stdgo.GoUInt8))) {
                             return false;
                         };
                     });
                 };
-                _i0 = _i0 + (_p.stride);
-                _i1 = _i1 + (_p.stride);
+                _i0 = (_i0 + (_p.stride) : stdgo.GoInt);
+                _i1 = (_i1 + (_p.stride) : stdgo.GoInt);
             });
         };
         return true;
@@ -1943,7 +1943,7 @@ class NRGBA_asInterface {
             return;
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
-        var _s = (_p.pix.__slice__(_i, _i + (4 : stdgo.GoInt), _i + (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _s[(0 : stdgo.GoInt)] = _c.r;
         _s[(1 : stdgo.GoInt)] = _c.g;
         _s[(2 : stdgo.GoInt)] = _c.b;
@@ -1956,17 +1956,17 @@ class NRGBA_asInterface {
             return;
         };
         var __0:stdgo.GoUInt32 = (_c.r : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (_c.g : stdgo.GoUInt32), __2:stdgo.GoUInt32 = (_c.b : stdgo.GoUInt32), __3:stdgo.GoUInt32 = (_c.a : stdgo.GoUInt32), _a:stdgo.GoUInt32 = __3, _b:stdgo.GoUInt32 = __2, _g:stdgo.GoUInt32 = __1, _r:stdgo.GoUInt32 = __0;
-        if ((_a != (0u32 : stdgo.GoUInt32)) && (_a != (65535u32 : stdgo.GoUInt32))) {
-            _r = (_r * (65535u32 : stdgo.GoUInt32)) / _a;
-            _g = (_g * (65535u32 : stdgo.GoUInt32)) / _a;
-            _b = (_b * (65535u32 : stdgo.GoUInt32)) / _a;
+        if (((_a != (0u32 : stdgo.GoUInt32)) && (_a != (65535u32 : stdgo.GoUInt32)) : Bool)) {
+            _r = (((_r * (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) / _a : stdgo.GoUInt32);
+            _g = (((_g * (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) / _a : stdgo.GoUInt32);
+            _b = (((_b * (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) / _a : stdgo.GoUInt32);
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
-        var _s = (_p.pix.__slice__(_i, _i + (4 : stdgo.GoInt), _i + (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        _s[(0 : stdgo.GoInt)] = (_r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
-        _s[(1 : stdgo.GoInt)] = (_g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
-        _s[(2 : stdgo.GoInt)] = (_b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
-        _s[(3 : stdgo.GoInt)] = (_a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        _s[(0 : stdgo.GoInt)] = ((_r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
+        _s[(1 : stdgo.GoInt)] = ((_g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
+        _s[(2 : stdgo.GoInt)] = ((_b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
+        _s[(3 : stdgo.GoInt)] = ((_a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
     }
     @:keep
     static public function set( _p:stdgo.Ref<NRGBA>, _x:stdgo.GoInt, _y:stdgo.GoInt, _c:stdgo._internal.image.color.Color.Color):Void {
@@ -1976,7 +1976,7 @@ class NRGBA_asInterface {
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
         var _c1:stdgo._internal.image.color.Color.NRGBA = (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.image.color.Color.nrgbamodel.convert(_c)) : stdgo._internal.image.color.Color.NRGBA)) : stdgo._internal.image.color.Color.NRGBA)?.__copy__();
-        var _s = (_p.pix.__slice__(_i, _i + (4 : stdgo.GoInt), _i + (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _s[(0 : stdgo.GoInt)] = _c1.r;
         _s[(1 : stdgo.GoInt)] = _c1.g;
         _s[(2 : stdgo.GoInt)] = _c1.b;
@@ -1985,7 +1985,7 @@ class NRGBA_asInterface {
     @:keep
     static public function pixOffset( _p:stdgo.Ref<NRGBA>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo.GoInt {
         @:recv var _p:stdgo.Ref<NRGBA> = _p;
-        return ((_y - _p.rect.min.y) * _p.stride) + ((_x - _p.rect.min.x) * (4 : stdgo.GoInt));
+        return ((((_y - _p.rect.min.y : stdgo.GoInt)) * _p.stride : stdgo.GoInt) + (((_x - _p.rect.min.x : stdgo.GoInt)) * (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
     }
     @:keep
     static public function nrgbaat( _p:stdgo.Ref<NRGBA>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.NRGBA {
@@ -1994,7 +1994,7 @@ class NRGBA_asInterface {
             return (new stdgo._internal.image.color.Color.NRGBA() : stdgo._internal.image.color.Color.NRGBA);
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
-        var _s = (_p.pix.__slice__(_i, _i + (4 : stdgo.GoInt), _i + (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         return (new stdgo._internal.image.color.Color.NRGBA(_s[(0 : stdgo.GoInt)], _s[(1 : stdgo.GoInt)], _s[(2 : stdgo.GoInt)], _s[(3 : stdgo.GoInt)]) : stdgo._internal.image.color.Color.NRGBA);
     }
     @:keep
@@ -2057,20 +2057,20 @@ class NRGBA64_asInterface {
         if (_p.rect.empty()) {
             return true;
         };
-        var __0:stdgo.GoInt = (6 : stdgo.GoInt), __1:stdgo.GoInt = _p.rect.dx() * (8 : stdgo.GoInt), _i1:stdgo.GoInt = __1, _i0:stdgo.GoInt = __0;
+        var __0:stdgo.GoInt = (6 : stdgo.GoInt), __1:stdgo.GoInt = (_p.rect.dx() * (8 : stdgo.GoInt) : stdgo.GoInt), _i1:stdgo.GoInt = __1, _i0:stdgo.GoInt = __0;
         {
             var _y:stdgo.GoInt = _p.rect.min.y;
-            stdgo.Go.cfor(_y < _p.rect.max.y, _y++, {
+            stdgo.Go.cfor((_y < _p.rect.max.y : Bool), _y++, {
                 {
                     var _i:stdgo.GoInt = _i0;
-                    stdgo.Go.cfor(_i < _i1, _i = _i + ((8 : stdgo.GoInt)), {
-                        if ((_p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] != (255 : stdgo.GoUInt8)) || (_p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] != (255 : stdgo.GoUInt8))) {
+                    stdgo.Go.cfor((_i < _i1 : Bool), _i = (_i + ((8 : stdgo.GoInt)) : stdgo.GoInt), {
+                        if (((_p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] != (255 : stdgo.GoUInt8)) || (_p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] != (255 : stdgo.GoUInt8)) : Bool)) {
                             return false;
                         };
                     });
                 };
-                _i0 = _i0 + (_p.stride);
-                _i1 = _i1 + (_p.stride);
+                _i0 = (_i0 + (_p.stride) : stdgo.GoInt);
+                _i1 = (_i1 + (_p.stride) : stdgo.GoInt);
             });
         };
         return true;
@@ -2092,14 +2092,14 @@ class NRGBA64_asInterface {
             return;
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
-        var _s = (_p.pix.__slice__(_i, _i + (8 : stdgo.GoInt), _i + (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        _s[(0 : stdgo.GoInt)] = (_c.r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        var _s = (_p.pix.__slice__(_i, (_i + (8 : stdgo.GoInt) : stdgo.GoInt), (_i + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        _s[(0 : stdgo.GoInt)] = ((_c.r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _s[(1 : stdgo.GoInt)] = (_c.r : stdgo.GoUInt8);
-        _s[(2 : stdgo.GoInt)] = (_c.g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        _s[(2 : stdgo.GoInt)] = ((_c.g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _s[(3 : stdgo.GoInt)] = (_c.g : stdgo.GoUInt8);
-        _s[(4 : stdgo.GoInt)] = (_c.b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        _s[(4 : stdgo.GoInt)] = ((_c.b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _s[(5 : stdgo.GoInt)] = (_c.b : stdgo.GoUInt8);
-        _s[(6 : stdgo.GoInt)] = (_c.a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        _s[(6 : stdgo.GoInt)] = ((_c.a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _s[(7 : stdgo.GoInt)] = (_c.a : stdgo.GoUInt8);
     }
     @:keep
@@ -2109,20 +2109,20 @@ class NRGBA64_asInterface {
             return;
         };
         var __0:stdgo.GoUInt32 = (_c.r : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (_c.g : stdgo.GoUInt32), __2:stdgo.GoUInt32 = (_c.b : stdgo.GoUInt32), __3:stdgo.GoUInt32 = (_c.a : stdgo.GoUInt32), _a:stdgo.GoUInt32 = __3, _b:stdgo.GoUInt32 = __2, _g:stdgo.GoUInt32 = __1, _r:stdgo.GoUInt32 = __0;
-        if ((_a != (0u32 : stdgo.GoUInt32)) && (_a != (65535u32 : stdgo.GoUInt32))) {
-            _r = (_r * (65535u32 : stdgo.GoUInt32)) / _a;
-            _g = (_g * (65535u32 : stdgo.GoUInt32)) / _a;
-            _b = (_b * (65535u32 : stdgo.GoUInt32)) / _a;
+        if (((_a != (0u32 : stdgo.GoUInt32)) && (_a != (65535u32 : stdgo.GoUInt32)) : Bool)) {
+            _r = (((_r * (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) / _a : stdgo.GoUInt32);
+            _g = (((_g * (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) / _a : stdgo.GoUInt32);
+            _b = (((_b * (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) / _a : stdgo.GoUInt32);
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
-        var _s = (_p.pix.__slice__(_i, _i + (8 : stdgo.GoInt), _i + (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        _s[(0 : stdgo.GoInt)] = (_r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        var _s = (_p.pix.__slice__(_i, (_i + (8 : stdgo.GoInt) : stdgo.GoInt), (_i + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        _s[(0 : stdgo.GoInt)] = ((_r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
         _s[(1 : stdgo.GoInt)] = (_r : stdgo.GoUInt8);
-        _s[(2 : stdgo.GoInt)] = (_g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        _s[(2 : stdgo.GoInt)] = ((_g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
         _s[(3 : stdgo.GoInt)] = (_g : stdgo.GoUInt8);
-        _s[(4 : stdgo.GoInt)] = (_b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        _s[(4 : stdgo.GoInt)] = ((_b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
         _s[(5 : stdgo.GoInt)] = (_b : stdgo.GoUInt8);
-        _s[(6 : stdgo.GoInt)] = (_a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        _s[(6 : stdgo.GoInt)] = ((_a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
         _s[(7 : stdgo.GoInt)] = (_a : stdgo.GoUInt8);
     }
     @:keep
@@ -2133,20 +2133,20 @@ class NRGBA64_asInterface {
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
         var _c1:stdgo._internal.image.color.Color.NRGBA64 = (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.image.color.Color.nrgba64model.convert(_c)) : stdgo._internal.image.color.Color.NRGBA64)) : stdgo._internal.image.color.Color.NRGBA64)?.__copy__();
-        var _s = (_p.pix.__slice__(_i, _i + (8 : stdgo.GoInt), _i + (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        _s[(0 : stdgo.GoInt)] = (_c1.r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        var _s = (_p.pix.__slice__(_i, (_i + (8 : stdgo.GoInt) : stdgo.GoInt), (_i + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        _s[(0 : stdgo.GoInt)] = ((_c1.r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _s[(1 : stdgo.GoInt)] = (_c1.r : stdgo.GoUInt8);
-        _s[(2 : stdgo.GoInt)] = (_c1.g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        _s[(2 : stdgo.GoInt)] = ((_c1.g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _s[(3 : stdgo.GoInt)] = (_c1.g : stdgo.GoUInt8);
-        _s[(4 : stdgo.GoInt)] = (_c1.b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        _s[(4 : stdgo.GoInt)] = ((_c1.b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _s[(5 : stdgo.GoInt)] = (_c1.b : stdgo.GoUInt8);
-        _s[(6 : stdgo.GoInt)] = (_c1.a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        _s[(6 : stdgo.GoInt)] = ((_c1.a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _s[(7 : stdgo.GoInt)] = (_c1.a : stdgo.GoUInt8);
     }
     @:keep
     static public function pixOffset( _p:stdgo.Ref<NRGBA64>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo.GoInt {
         @:recv var _p:stdgo.Ref<NRGBA64> = _p;
-        return ((_y - _p.rect.min.y) * _p.stride) + ((_x - _p.rect.min.x) * (8 : stdgo.GoInt));
+        return ((((_y - _p.rect.min.y : stdgo.GoInt)) * _p.stride : stdgo.GoInt) + (((_x - _p.rect.min.x : stdgo.GoInt)) * (8 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
     }
     @:keep
     static public function nrgba64at( _p:stdgo.Ref<NRGBA64>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.NRGBA64 {
@@ -2155,8 +2155,8 @@ class NRGBA64_asInterface {
             return (new stdgo._internal.image.color.Color.NRGBA64() : stdgo._internal.image.color.Color.NRGBA64);
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
-        var _s = (_p.pix.__slice__(_i, _i + (8 : stdgo.GoInt), _i + (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        return (new stdgo._internal.image.color.Color.NRGBA64(((_s[(0 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64)) | (_s[(1 : stdgo.GoInt)] : stdgo.GoUInt16), ((_s[(2 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64)) | (_s[(3 : stdgo.GoInt)] : stdgo.GoUInt16), ((_s[(4 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64)) | (_s[(5 : stdgo.GoInt)] : stdgo.GoUInt16), ((_s[(6 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64)) | (_s[(7 : stdgo.GoInt)] : stdgo.GoUInt16)) : stdgo._internal.image.color.Color.NRGBA64);
+        var _s = (_p.pix.__slice__(_i, (_i + (8 : stdgo.GoInt) : stdgo.GoInt), (_i + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        return (new stdgo._internal.image.color.Color.NRGBA64((((_s[(0 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) | (_s[(1 : stdgo.GoInt)] : stdgo.GoUInt16) : stdgo.GoUInt16), (((_s[(2 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) | (_s[(3 : stdgo.GoInt)] : stdgo.GoUInt16) : stdgo.GoUInt16), (((_s[(4 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) | (_s[(5 : stdgo.GoInt)] : stdgo.GoUInt16) : stdgo.GoUInt16), (((_s[(6 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) | (_s[(7 : stdgo.GoInt)] : stdgo.GoUInt16) : stdgo.GoUInt16)) : stdgo._internal.image.color.Color.NRGBA64);
     }
     @:keep
     static public function rgba64at( _p:stdgo.Ref<NRGBA64>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.RGBA64 {
@@ -2221,17 +2221,17 @@ class Alpha_asInterface {
         var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = _p.rect.dx(), _i1:stdgo.GoInt = __1, _i0:stdgo.GoInt = __0;
         {
             var _y:stdgo.GoInt = _p.rect.min.y;
-            stdgo.Go.cfor(_y < _p.rect.max.y, _y++, {
+            stdgo.Go.cfor((_y < _p.rect.max.y : Bool), _y++, {
                 {
                     var _i:stdgo.GoInt = _i0;
-                    stdgo.Go.cfor(_i < _i1, _i++, {
+                    stdgo.Go.cfor((_i < _i1 : Bool), _i++, {
                         if (_p.pix[(_i : stdgo.GoInt)] != ((255 : stdgo.GoUInt8))) {
                             return false;
                         };
                     });
                 };
-                _i0 = _i0 + (_p.stride);
-                _i1 = _i1 + (_p.stride);
+                _i0 = (_i0 + (_p.stride) : stdgo.GoInt);
+                _i1 = (_i1 + (_p.stride) : stdgo.GoInt);
             });
         };
         return true;
@@ -2262,7 +2262,7 @@ class Alpha_asInterface {
             return;
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
-        _p.pix[(_i : stdgo.GoInt)] = (_c.a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        _p.pix[(_i : stdgo.GoInt)] = ((_c.a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
     }
     @:keep
     static public function set( _p:stdgo.Ref<Alpha>, _x:stdgo.GoInt, _y:stdgo.GoInt, _c:stdgo._internal.image.color.Color.Color):Void {
@@ -2276,7 +2276,7 @@ class Alpha_asInterface {
     @:keep
     static public function pixOffset( _p:stdgo.Ref<Alpha>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo.GoInt {
         @:recv var _p:stdgo.Ref<Alpha> = _p;
-        return ((_y - _p.rect.min.y) * _p.stride) + ((_x - _p.rect.min.x) * (1 : stdgo.GoInt));
+        return ((((_y - _p.rect.min.y : stdgo.GoInt)) * _p.stride : stdgo.GoInt) + (((_x - _p.rect.min.x : stdgo.GoInt)) * (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
     }
     @:keep
     static public function alphaAt( _p:stdgo.Ref<Alpha>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.Alpha {
@@ -2291,7 +2291,7 @@ class Alpha_asInterface {
     static public function rgba64at( _p:stdgo.Ref<Alpha>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.RGBA64 {
         @:recv var _p:stdgo.Ref<Alpha> = _p;
         var _a:stdgo.GoUInt16 = (_p.alphaAt(_x, _y).a : stdgo.GoUInt16);
-        _a = _a | (_a << (8i64 : stdgo.GoUInt64));
+        _a = (_a | ((_a << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16)) : stdgo.GoUInt16);
         return (new stdgo._internal.image.color.Color.RGBA64(_a, _a, _a, _a) : stdgo._internal.image.color.Color.RGBA64);
     }
     @:keep
@@ -2348,20 +2348,20 @@ class Alpha16_asInterface {
         if (_p.rect.empty()) {
             return true;
         };
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = _p.rect.dx() * (2 : stdgo.GoInt), _i1:stdgo.GoInt = __1, _i0:stdgo.GoInt = __0;
+        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (_p.rect.dx() * (2 : stdgo.GoInt) : stdgo.GoInt), _i1:stdgo.GoInt = __1, _i0:stdgo.GoInt = __0;
         {
             var _y:stdgo.GoInt = _p.rect.min.y;
-            stdgo.Go.cfor(_y < _p.rect.max.y, _y++, {
+            stdgo.Go.cfor((_y < _p.rect.max.y : Bool), _y++, {
                 {
                     var _i:stdgo.GoInt = _i0;
-                    stdgo.Go.cfor(_i < _i1, _i = _i + ((2 : stdgo.GoInt)), {
-                        if ((_p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] != (255 : stdgo.GoUInt8)) || (_p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] != (255 : stdgo.GoUInt8))) {
+                    stdgo.Go.cfor((_i < _i1 : Bool), _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt), {
+                        if (((_p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] != (255 : stdgo.GoUInt8)) || (_p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] != (255 : stdgo.GoUInt8)) : Bool)) {
                             return false;
                         };
                     });
                 };
-                _i0 = _i0 + (_p.stride);
-                _i1 = _i1 + (_p.stride);
+                _i0 = (_i0 + (_p.stride) : stdgo.GoInt);
+                _i1 = (_i1 + (_p.stride) : stdgo.GoInt);
             });
         };
         return true;
@@ -2383,7 +2383,7 @@ class Alpha16_asInterface {
             return;
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
-        _p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] = (_c.a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        _p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] = ((_c.a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_c.a : stdgo.GoUInt8);
     }
     @:keep
@@ -2393,7 +2393,7 @@ class Alpha16_asInterface {
             return;
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
-        _p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] = (_c.a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        _p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] = ((_c.a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_c.a : stdgo.GoUInt8);
     }
     @:keep
@@ -2404,13 +2404,13 @@ class Alpha16_asInterface {
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
         var _c1:stdgo._internal.image.color.Color.Alpha16 = (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.image.color.Color.alpha16Model.convert(_c)) : stdgo._internal.image.color.Color.Alpha16)) : stdgo._internal.image.color.Color.Alpha16)?.__copy__();
-        _p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] = (_c1.a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        _p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] = ((_c1.a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_c1.a : stdgo.GoUInt8);
     }
     @:keep
     static public function pixOffset( _p:stdgo.Ref<Alpha16>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo.GoInt {
         @:recv var _p:stdgo.Ref<Alpha16> = _p;
-        return ((_y - _p.rect.min.y) * _p.stride) + ((_x - _p.rect.min.x) * (2 : stdgo.GoInt));
+        return ((((_y - _p.rect.min.y : stdgo.GoInt)) * _p.stride : stdgo.GoInt) + (((_x - _p.rect.min.x : stdgo.GoInt)) * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
     }
     @:keep
     static public function alpha16At( _p:stdgo.Ref<Alpha16>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.Alpha16 {
@@ -2419,7 +2419,7 @@ class Alpha16_asInterface {
             return (new stdgo._internal.image.color.Color.Alpha16() : stdgo._internal.image.color.Color.Alpha16);
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
-        return (new stdgo._internal.image.color.Color.Alpha16(((_p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64)) | (_p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt16)) : stdgo._internal.image.color.Color.Alpha16);
+        return (new stdgo._internal.image.color.Color.Alpha16((((_p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) | (_p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt16) : stdgo.GoUInt16)) : stdgo._internal.image.color.Color.Alpha16);
     }
     @:keep
     static public function rgba64at( _p:stdgo.Ref<Alpha16>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.RGBA64 {
@@ -2505,7 +2505,7 @@ class Gray_asInterface {
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _gray:stdgo.GoUInt32 = (((((19595u32 : stdgo.GoUInt32) * (_c.r : stdgo.GoUInt32)) + ((38470u32 : stdgo.GoUInt32) * (_c.g : stdgo.GoUInt32))) + ((7471u32 : stdgo.GoUInt32) * (_c.b : stdgo.GoUInt32))) + (32768u32 : stdgo.GoUInt32)) >> (24i64 : stdgo.GoUInt64);
+        var _gray:stdgo.GoUInt32 = (((((((19595u32 : stdgo.GoUInt32) * (_c.r : stdgo.GoUInt32) : stdgo.GoUInt32) + ((38470u32 : stdgo.GoUInt32) * (_c.g : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt32) + ((7471u32 : stdgo.GoUInt32) * (_c.b : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt32) + (32768u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
         _p.pix[(_i : stdgo.GoInt)] = (_gray : stdgo.GoUInt8);
     }
@@ -2521,7 +2521,7 @@ class Gray_asInterface {
     @:keep
     static public function pixOffset( _p:stdgo.Ref<Gray>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo.GoInt {
         @:recv var _p:stdgo.Ref<Gray> = _p;
-        return ((_y - _p.rect.min.y) * _p.stride) + ((_x - _p.rect.min.x) * (1 : stdgo.GoInt));
+        return ((((_y - _p.rect.min.y : stdgo.GoInt)) * _p.stride : stdgo.GoInt) + (((_x - _p.rect.min.x : stdgo.GoInt)) * (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
     }
     @:keep
     static public function grayAt( _p:stdgo.Ref<Gray>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.Gray {
@@ -2536,7 +2536,7 @@ class Gray_asInterface {
     static public function rgba64at( _p:stdgo.Ref<Gray>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.RGBA64 {
         @:recv var _p:stdgo.Ref<Gray> = _p;
         var _gray:stdgo.GoUInt16 = (_p.grayAt(_x, _y).y : stdgo.GoUInt16);
-        _gray = _gray | (_gray << (8i64 : stdgo.GoUInt64));
+        _gray = (_gray | ((_gray << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16)) : stdgo.GoUInt16);
         return (new stdgo._internal.image.color.Color.RGBA64(_gray, _gray, _gray, (65535 : stdgo.GoUInt16)) : stdgo._internal.image.color.Color.RGBA64);
     }
     @:keep
@@ -2609,7 +2609,7 @@ class Gray16_asInterface {
             return;
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
-        _p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] = (_c.y >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        _p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] = ((_c.y >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_c.y : stdgo.GoUInt8);
     }
     @:keep
@@ -2618,9 +2618,9 @@ class Gray16_asInterface {
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _gray:stdgo.GoUInt32 = (((((19595u32 : stdgo.GoUInt32) * (_c.r : stdgo.GoUInt32)) + ((38470u32 : stdgo.GoUInt32) * (_c.g : stdgo.GoUInt32))) + ((7471u32 : stdgo.GoUInt32) * (_c.b : stdgo.GoUInt32))) + (32768u32 : stdgo.GoUInt32)) >> (16i64 : stdgo.GoUInt64);
+        var _gray:stdgo.GoUInt32 = (((((((19595u32 : stdgo.GoUInt32) * (_c.r : stdgo.GoUInt32) : stdgo.GoUInt32) + ((38470u32 : stdgo.GoUInt32) * (_c.g : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt32) + ((7471u32 : stdgo.GoUInt32) * (_c.b : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt32) + (32768u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
-        _p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] = (_gray >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        _p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] = ((_gray >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
         _p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_gray : stdgo.GoUInt8);
     }
     @:keep
@@ -2631,13 +2631,13 @@ class Gray16_asInterface {
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
         var _c1:stdgo._internal.image.color.Color.Gray16 = (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.image.color.Color.gray16Model.convert(_c)) : stdgo._internal.image.color.Color.Gray16)) : stdgo._internal.image.color.Color.Gray16)?.__copy__();
-        _p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] = (_c1.y >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+        _p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] = ((_c1.y >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_c1.y : stdgo.GoUInt8);
     }
     @:keep
     static public function pixOffset( _p:stdgo.Ref<Gray16>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo.GoInt {
         @:recv var _p:stdgo.Ref<Gray16> = _p;
-        return ((_y - _p.rect.min.y) * _p.stride) + ((_x - _p.rect.min.x) * (2 : stdgo.GoInt));
+        return ((((_y - _p.rect.min.y : stdgo.GoInt)) * _p.stride : stdgo.GoInt) + (((_x - _p.rect.min.x : stdgo.GoInt)) * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
     }
     @:keep
     static public function gray16At( _p:stdgo.Ref<Gray16>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.Gray16 {
@@ -2646,7 +2646,7 @@ class Gray16_asInterface {
             return (new stdgo._internal.image.color.Color.Gray16() : stdgo._internal.image.color.Color.Gray16);
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
-        return (new stdgo._internal.image.color.Color.Gray16(((_p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64)) | (_p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt16)) : stdgo._internal.image.color.Color.Gray16);
+        return (new stdgo._internal.image.color.Color.Gray16((((_p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) | (_p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt16) : stdgo.GoUInt16)) : stdgo._internal.image.color.Color.Gray16);
     }
     @:keep
     static public function rgba64at( _p:stdgo.Ref<Gray16>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.RGBA64 {
@@ -2724,7 +2724,7 @@ class CMYK_asInterface {
             return;
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
-        var _s = (_p.pix.__slice__(_i, _i + (4 : stdgo.GoInt), _i + (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _s[(0 : stdgo.GoInt)] = _c.c;
         _s[(1 : stdgo.GoInt)] = _c.m;
         _s[(2 : stdgo.GoInt)] = _c.y;
@@ -2736,9 +2736,9 @@ class CMYK_asInterface {
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var __tmp__ = stdgo._internal.image.color.Color.rgbtoCMYK((_c.r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), (_c.g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), (_c.b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8)), _cc:stdgo.GoUInt8 = __tmp__._0, _mm:stdgo.GoUInt8 = __tmp__._1, _yy:stdgo.GoUInt8 = __tmp__._2, _kk:stdgo.GoUInt8 = __tmp__._3;
+        var __tmp__ = stdgo._internal.image.color.Color.rgbtoCMYK(((_c.r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8), ((_c.g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8), ((_c.b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8)), _cc:stdgo.GoUInt8 = __tmp__._0, _mm:stdgo.GoUInt8 = __tmp__._1, _yy:stdgo.GoUInt8 = __tmp__._2, _kk:stdgo.GoUInt8 = __tmp__._3;
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
-        var _s = (_p.pix.__slice__(_i, _i + (4 : stdgo.GoInt), _i + (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _s[(0 : stdgo.GoInt)] = _cc;
         _s[(1 : stdgo.GoInt)] = _mm;
         _s[(2 : stdgo.GoInt)] = _yy;
@@ -2752,7 +2752,7 @@ class CMYK_asInterface {
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
         var _c1:stdgo._internal.image.color.Color.CMYK = (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.image.color.Color.cmykmodel.convert(_c)) : stdgo._internal.image.color.Color.CMYK)) : stdgo._internal.image.color.Color.CMYK)?.__copy__();
-        var _s = (_p.pix.__slice__(_i, _i + (4 : stdgo.GoInt), _i + (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _s[(0 : stdgo.GoInt)] = _c1.c;
         _s[(1 : stdgo.GoInt)] = _c1.m;
         _s[(2 : stdgo.GoInt)] = _c1.y;
@@ -2761,7 +2761,7 @@ class CMYK_asInterface {
     @:keep
     static public function pixOffset( _p:stdgo.Ref<CMYK>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo.GoInt {
         @:recv var _p:stdgo.Ref<CMYK> = _p;
-        return ((_y - _p.rect.min.y) * _p.stride) + ((_x - _p.rect.min.x) * (4 : stdgo.GoInt));
+        return ((((_y - _p.rect.min.y : stdgo.GoInt)) * _p.stride : stdgo.GoInt) + (((_x - _p.rect.min.x : stdgo.GoInt)) * (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
     }
     @:keep
     static public function cmykat( _p:stdgo.Ref<CMYK>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.CMYK {
@@ -2770,7 +2770,7 @@ class CMYK_asInterface {
             return (new stdgo._internal.image.color.Color.CMYK() : stdgo._internal.image.color.Color.CMYK);
         };
         var _i:stdgo.GoInt = _p.pixOffset(_x, _y);
-        var _s = (_p.pix.__slice__(_i, _i + (4 : stdgo.GoInt), _i + (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         return (new stdgo._internal.image.color.Color.CMYK(_s[(0 : stdgo.GoInt)], _s[(1 : stdgo.GoInt)], _s[(2 : stdgo.GoInt)], _s[(3 : stdgo.GoInt)]) : stdgo._internal.image.color.Color.CMYK);
     }
     @:keep
@@ -2834,12 +2834,12 @@ class Paletted_asInterface {
         var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = _p.rect.dx(), _i1:stdgo.GoInt = __1, _i0:stdgo.GoInt = __0;
         {
             var _y:stdgo.GoInt = _p.rect.min.y;
-            stdgo.Go.cfor(_y < _p.rect.max.y, _y++, {
+            stdgo.Go.cfor((_y < _p.rect.max.y : Bool), _y++, {
                 for (__0 => _c in (_p.pix.__slice__(_i0, _i1) : stdgo.Slice<stdgo.GoUInt8>)) {
                     _present[(_c : stdgo.GoInt)] = true;
                 };
-                _i0 = _i0 + (_p.stride);
-                _i1 = _i1 + (_p.stride);
+                _i0 = (_i0 + (_p.stride) : stdgo.GoInt);
+                _i1 = (_i1 + (_p.stride) : stdgo.GoInt);
             });
         };
         for (_i => _c in _p.palette) {
@@ -2902,7 +2902,7 @@ class Paletted_asInterface {
     @:keep
     static public function pixOffset( _p:stdgo.Ref<Paletted>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo.GoInt {
         @:recv var _p:stdgo.Ref<Paletted> = _p;
-        return ((_y - _p.rect.min.y) * _p.stride) + ((_x - _p.rect.min.x) * (1 : stdgo.GoInt));
+        return ((((_y - _p.rect.min.y : stdgo.GoInt)) * _p.stride : stdgo.GoInt) + (((_x - _p.rect.min.x : stdgo.GoInt)) * (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
     }
     @:keep
     static public function rgba64at( _p:stdgo.Ref<Paletted>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.RGBA64 {
@@ -3056,23 +3056,23 @@ class YCbCr_asInterface {
         {
             final __value__ = _p.subsampleRatio;
             if (__value__ == ((1 : stdgo._internal.image.Image.YCbCrSubsampleRatio))) {
-                return ((_y - _p.rect.min.y) * _p.cstride) + ((_x / (2 : stdgo.GoInt)) - (_p.rect.min.x / (2 : stdgo.GoInt)));
+                return ((((_y - _p.rect.min.y : stdgo.GoInt)) * _p.cstride : stdgo.GoInt) + (((_x / (2 : stdgo.GoInt) : stdgo.GoInt) - (_p.rect.min.x / (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
             } else if (__value__ == ((2 : stdgo._internal.image.Image.YCbCrSubsampleRatio))) {
-                return (((_y / (2 : stdgo.GoInt)) - (_p.rect.min.y / (2 : stdgo.GoInt))) * _p.cstride) + ((_x / (2 : stdgo.GoInt)) - (_p.rect.min.x / (2 : stdgo.GoInt)));
+                return (((((_y / (2 : stdgo.GoInt) : stdgo.GoInt) - (_p.rect.min.y / (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt)) * _p.cstride : stdgo.GoInt) + (((_x / (2 : stdgo.GoInt) : stdgo.GoInt) - (_p.rect.min.x / (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
             } else if (__value__ == ((3 : stdgo._internal.image.Image.YCbCrSubsampleRatio))) {
-                return (((_y / (2 : stdgo.GoInt)) - (_p.rect.min.y / (2 : stdgo.GoInt))) * _p.cstride) + (_x - _p.rect.min.x);
+                return (((((_y / (2 : stdgo.GoInt) : stdgo.GoInt) - (_p.rect.min.y / (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt)) * _p.cstride : stdgo.GoInt) + ((_x - _p.rect.min.x : stdgo.GoInt)) : stdgo.GoInt);
             } else if (__value__ == ((4 : stdgo._internal.image.Image.YCbCrSubsampleRatio))) {
-                return ((_y - _p.rect.min.y) * _p.cstride) + ((_x / (4 : stdgo.GoInt)) - (_p.rect.min.x / (4 : stdgo.GoInt)));
+                return ((((_y - _p.rect.min.y : stdgo.GoInt)) * _p.cstride : stdgo.GoInt) + (((_x / (4 : stdgo.GoInt) : stdgo.GoInt) - (_p.rect.min.x / (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
             } else if (__value__ == ((5 : stdgo._internal.image.Image.YCbCrSubsampleRatio))) {
-                return (((_y / (2 : stdgo.GoInt)) - (_p.rect.min.y / (2 : stdgo.GoInt))) * _p.cstride) + ((_x / (4 : stdgo.GoInt)) - (_p.rect.min.x / (4 : stdgo.GoInt)));
+                return (((((_y / (2 : stdgo.GoInt) : stdgo.GoInt) - (_p.rect.min.y / (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt)) * _p.cstride : stdgo.GoInt) + (((_x / (4 : stdgo.GoInt) : stdgo.GoInt) - (_p.rect.min.x / (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
             };
         };
-        return ((_y - _p.rect.min.y) * _p.cstride) + (_x - _p.rect.min.x);
+        return ((((_y - _p.rect.min.y : stdgo.GoInt)) * _p.cstride : stdgo.GoInt) + ((_x - _p.rect.min.x : stdgo.GoInt)) : stdgo.GoInt);
     }
     @:keep
     static public function yoffset( _p:stdgo.Ref<YCbCr>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo.GoInt {
         @:recv var _p:stdgo.Ref<YCbCr> = _p;
-        return ((_y - _p.rect.min.y) * _p.ystride) + (_x - _p.rect.min.x);
+        return ((((_y - _p.rect.min.y : stdgo.GoInt)) * _p.ystride : stdgo.GoInt) + ((_x - _p.rect.min.x : stdgo.GoInt)) : stdgo.GoInt);
     }
     @:keep
     static public function ycbCrAt( _p:stdgo.Ref<YCbCr>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.YCbCr {
@@ -3147,14 +3147,14 @@ class NYCbCrA_asInterface {
         var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = _p.ycbCr.rect.dx(), _i1:stdgo.GoInt = __1, _i0:stdgo.GoInt = __0;
         {
             var _y:stdgo.GoInt = _p.ycbCr.rect.min.y;
-            stdgo.Go.cfor(_y < _p.ycbCr.rect.max.y, _y++, {
+            stdgo.Go.cfor((_y < _p.ycbCr.rect.max.y : Bool), _y++, {
                 for (__0 => _a in (_p.a.__slice__(_i0, _i1) : stdgo.Slice<stdgo.GoUInt8>)) {
                     if (_a != ((255 : stdgo.GoUInt8))) {
                         return false;
                     };
                 };
-                _i0 = _i0 + (_p.astride);
-                _i1 = _i1 + (_p.astride);
+                _i0 = (_i0 + (_p.astride) : stdgo.GoInt);
+                _i1 = (_i1 + (_p.astride) : stdgo.GoInt);
             });
         };
         return true;
@@ -3174,7 +3174,7 @@ class NYCbCrA_asInterface {
     @:keep
     static public function aoffset( _p:stdgo.Ref<NYCbCrA>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo.GoInt {
         @:recv var _p:stdgo.Ref<NYCbCrA> = _p;
-        return ((_y - _p.ycbCr.rect.min.y) * _p.astride) + (_x - _p.ycbCr.rect.min.x);
+        return ((((_y - _p.ycbCr.rect.min.y : stdgo.GoInt)) * _p.astride : stdgo.GoInt) + ((_x - _p.ycbCr.rect.min.x : stdgo.GoInt)) : stdgo.GoInt);
     }
     @:keep
     static public function nycbCrAAt( _p:stdgo.Ref<NYCbCrA>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.NYCbCrA {

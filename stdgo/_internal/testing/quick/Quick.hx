@@ -134,15 +134,15 @@ class T__struct_0_asInterface {
 @:named typedef TestUintAlias = stdgo.GoUInt;
 @:named typedef TestUintptrAlias = stdgo.GoUIntptr;
 function _randFloat32(_rand:stdgo.Ref<stdgo._internal.math.rand.Rand.Rand>):stdgo.GoFloat32 {
-        var _f:stdgo.GoFloat64 = _rand.float64() * (3.4028234663852886e+38 : stdgo.GoFloat64);
-        if (_rand.int_() & (1 : stdgo.GoInt) == ((1 : stdgo.GoInt))) {
+        var _f:stdgo.GoFloat64 = (_rand.float64() * (3.4028234663852886e+38 : stdgo.GoFloat64) : stdgo.GoFloat64);
+        if ((_rand.int_() & (1 : stdgo.GoInt) : stdgo.GoInt) == ((1 : stdgo.GoInt))) {
             _f = -_f;
         };
         return (_f : stdgo.GoFloat32);
     }
 function _randFloat64(_rand:stdgo.Ref<stdgo._internal.math.rand.Rand.Rand>):stdgo.GoFloat64 {
-        var _f:stdgo.GoFloat64 = _rand.float64() * (1.7976931348623157e+308 : stdgo.GoFloat64);
-        if (_rand.int_() & (1 : stdgo.GoInt) == ((1 : stdgo.GoInt))) {
+        var _f:stdgo.GoFloat64 = (_rand.float64() * (1.7976931348623157e+308 : stdgo.GoFloat64) : stdgo.GoFloat64);
+        if ((_rand.int_() & (1 : stdgo.GoInt) : stdgo.GoInt) == ((1 : stdgo.GoInt))) {
             _f = -_f;
         };
         return _f;
@@ -172,7 +172,7 @@ function _sizedValue(_t:stdgo._internal.reflect.Reflect.Type_, _rand:stdgo.Ref<s
             {
                 final __value__ = _concrete.kind();
                 if (__value__ == ((1u32 : stdgo._internal.reflect.Reflect.Kind))) {
-                    _v.setBool(_rand.int_() & (1 : stdgo.GoInt) == ((0 : stdgo.GoInt)));
+                    _v.setBool((_rand.int_() & (1 : stdgo.GoInt) : stdgo.GoInt) == ((0 : stdgo.GoInt)));
                 } else if (__value__ == ((13u32 : stdgo._internal.reflect.Reflect.Kind))) {
                     _v.setFloat((_randFloat32(_rand) : stdgo.GoFloat64));
                 } else if (__value__ == ((14u32 : stdgo._internal.reflect.Reflect.Kind))) {
@@ -208,10 +208,10 @@ function _sizedValue(_t:stdgo._internal.reflect.Reflect.Type_, _rand:stdgo.Ref<s
                     _v.set(stdgo._internal.reflect.Reflect.makeMap(_concrete)?.__copy__());
                     {
                         var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor(_i < _numElems, _i++, {
+                        stdgo.Go.cfor((_i < _numElems : Bool), _i++, {
                             var __tmp__ = _sizedValue(_concrete.key(), _rand, _size), _key:stdgo._internal.reflect.Reflect.Value = __tmp__._0, _ok1:Bool = __tmp__._1;
                             var __tmp__ = _sizedValue(_concrete.elem(), _rand, _size), _value:stdgo._internal.reflect.Reflect.Value = __tmp__._0, _ok2:Bool = __tmp__._1;
-                            if (!_ok1 || !_ok2) {
+                            if ((!_ok1 || !_ok2 : Bool)) {
                                 return { _0 : (new stdgo._internal.reflect.Reflect.Value() : stdgo._internal.reflect.Reflect.Value), _1 : false };
                             };
                             _v.setMapIndex(_key?.__copy__(), _value?.__copy__());
@@ -230,11 +230,11 @@ function _sizedValue(_t:stdgo._internal.reflect.Reflect.Type_, _rand:stdgo.Ref<s
                     };
                 } else if (__value__ == ((23u32 : stdgo._internal.reflect.Reflect.Kind))) {
                     var _numElems:stdgo.GoInt = _rand.intn(_size);
-                    var _sizeLeft:stdgo.GoInt = _size - _numElems;
+                    var _sizeLeft:stdgo.GoInt = (_size - _numElems : stdgo.GoInt);
                     _v.set(stdgo._internal.reflect.Reflect.makeSlice(_concrete, _numElems, _numElems)?.__copy__());
                     {
                         var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor(_i < _numElems, _i++, {
+                        stdgo.Go.cfor((_i < _numElems : Bool), _i++, {
                             var __tmp__ = _sizedValue(_concrete.elem(), _rand, _sizeLeft), _elem:stdgo._internal.reflect.Reflect.Value = __tmp__._0, _ok:Bool = __tmp__._1;
                             if (!_ok) {
                                 return { _0 : (new stdgo._internal.reflect.Reflect.Value() : stdgo._internal.reflect.Reflect.Value), _1 : false };
@@ -245,7 +245,7 @@ function _sizedValue(_t:stdgo._internal.reflect.Reflect.Type_, _rand:stdgo.Ref<s
                 } else if (__value__ == ((17u32 : stdgo._internal.reflect.Reflect.Kind))) {
                     {
                         var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor(_i < _v.len(), _i++, {
+                        stdgo.Go.cfor((_i < _v.len() : Bool), _i++, {
                             var __tmp__ = _sizedValue(_concrete.elem(), _rand, _size), _elem:stdgo._internal.reflect.Reflect.Value = __tmp__._0, _ok:Bool = __tmp__._1;
                             if (!_ok) {
                                 return { _0 : (new stdgo._internal.reflect.Reflect.Value() : stdgo._internal.reflect.Reflect.Value), _1 : false };
@@ -258,7 +258,7 @@ function _sizedValue(_t:stdgo._internal.reflect.Reflect.Type_, _rand:stdgo.Ref<s
                     var _codePoints = new stdgo.Slice<stdgo.GoInt32>((_numChars : stdgo.GoInt).toBasic(), 0).__setNumber32__();
                     {
                         var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor(_i < _numChars, _i++, {
+                        stdgo.Go.cfor((_i < _numChars : Bool), _i++, {
                             _codePoints[(_i : stdgo.GoInt)] = (_rand.intn((1114111 : stdgo.GoInt)) : stdgo.GoRune);
                         });
                     };
@@ -266,14 +266,14 @@ function _sizedValue(_t:stdgo._internal.reflect.Reflect.Type_, _rand:stdgo.Ref<s
                 } else if (__value__ == ((25u32 : stdgo._internal.reflect.Reflect.Kind))) {
                     var _n:stdgo.GoInt = _v.numField();
                     var _sizeLeft:stdgo.GoInt = _size;
-                    if (_n > _sizeLeft) {
+                    if ((_n > _sizeLeft : Bool)) {
                         _sizeLeft = (1 : stdgo.GoInt);
-                    } else if (_n > (0 : stdgo.GoInt)) {
-                        _sizeLeft = _sizeLeft / (_n);
+                    } else if ((_n > (0 : stdgo.GoInt) : Bool)) {
+                        _sizeLeft = (_sizeLeft / (_n) : stdgo.GoInt);
                     };
                     {
                         var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor(_i < _n, _i++, {
+                        stdgo.Go.cfor((_i < _n : Bool), _i++, {
                             var __tmp__ = _sizedValue(_concrete.field(_i).type, _rand, _sizeLeft), _elem:stdgo._internal.reflect.Reflect.Value = __tmp__._0, _ok:Bool = __tmp__._1;
                             if (!_ok) {
                                 return { _0 : (new stdgo._internal.reflect.Reflect.Value() : stdgo._internal.reflect.Reflect.Value), _1 : false };
@@ -307,13 +307,13 @@ function check(_f:stdgo.AnyInterface, _config:stdgo.Ref<Config>):stdgo.Error {
         var _maxCount:stdgo.GoInt = _config._getMaxCount();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _maxCount, _i++, {
+            stdgo.Go.cfor((_i < _maxCount : Bool), _i++, {
                 var _err:stdgo.Error = _arbitraryValues(_arguments, _fType, _config, _rand);
                 if (_err != null) {
                     return _err;
                 };
                 if (!_fVal.call(_arguments)[(0 : stdgo.GoInt)].bool_()) {
-                    return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.testing.quick.Quick.CheckError(_i + (1 : stdgo.GoInt), _toInterfaces(_arguments)) : stdgo._internal.testing.quick.Quick.CheckError)) : stdgo.Ref<stdgo._internal.testing.quick.Quick.CheckError>));
+                    return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.testing.quick.Quick.CheckError((_i + (1 : stdgo.GoInt) : stdgo.GoInt), _toInterfaces(_arguments)) : stdgo._internal.testing.quick.Quick.CheckError)) : stdgo.Ref<stdgo._internal.testing.quick.Quick.CheckError>));
                 };
             });
         };
@@ -339,7 +339,7 @@ function checkEqual(_f:stdgo.AnyInterface, _g:stdgo.AnyInterface, _config:stdgo.
         var _maxCount:stdgo.GoInt = _config._getMaxCount();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _maxCount, _i++, {
+            stdgo.Go.cfor((_i < _maxCount : Bool), _i++, {
                 var _err:stdgo.Error = _arbitraryValues(_arguments, _xType, _config, _rand);
                 if (_err != null) {
                     return _err;
@@ -347,7 +347,7 @@ function checkEqual(_f:stdgo.AnyInterface, _g:stdgo.AnyInterface, _config:stdgo.
                 var _xOut = _toInterfaces(_x.call(_arguments));
                 var _yOut = _toInterfaces(_y.call(_arguments));
                 if (!stdgo._internal.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_xOut), stdgo.Go.toInterface(_yOut))) {
-                    return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.testing.quick.Quick.CheckEqualError((new stdgo._internal.testing.quick.Quick.CheckError(_i + (1 : stdgo.GoInt), _toInterfaces(_arguments)) : stdgo._internal.testing.quick.Quick.CheckError), _xOut, _yOut) : stdgo._internal.testing.quick.Quick.CheckEqualError)) : stdgo.Ref<stdgo._internal.testing.quick.Quick.CheckEqualError>));
+                    return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.testing.quick.Quick.CheckEqualError((new stdgo._internal.testing.quick.Quick.CheckError((_i + (1 : stdgo.GoInt) : stdgo.GoInt), _toInterfaces(_arguments)) : stdgo._internal.testing.quick.Quick.CheckError), _xOut, _yOut) : stdgo._internal.testing.quick.Quick.CheckEqualError)) : stdgo.Ref<stdgo._internal.testing.quick.Quick.CheckEqualError>));
                 };
             });
         };
@@ -361,7 +361,7 @@ function _arbitraryValues(_args:stdgo.Slice<stdgo._internal.reflect.Reflect.Valu
         };
         {
             var _j:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_j < (_args.length), _j++, {
+            stdgo.Go.cfor((_j < (_args.length) : Bool), _j++, {
                 var _ok:Bool = false;
                 {
                     var __tmp__ = value(_f.in_(_j), _rand);
@@ -716,7 +716,7 @@ function testMutuallyRecursive(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
 function testNonZeroSliceAndMap(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
         var _f:stdgo._internal.testing.quick.Quick.T_testNonZeroSliceAndMap_36___localname___Q -> Bool = function(_q:T_testNonZeroSliceAndMap_36___localname___Q):Bool {
-            return (_q.m != null) && (_q.s != null);
+            return ((_q.m != null) && (_q.s != null) : Bool);
         };
         var _err:stdgo.Error = check(stdgo.Go.toInterface(_f), null);
         if (_err != null) {
@@ -726,17 +726,17 @@ function testNonZeroSliceAndMap(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>
 function testInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var __0:stdgo.GoInt64 = (0 : stdgo.GoInt64), __1:stdgo.GoInt64 = (0 : stdgo.GoInt64), _hi:stdgo.GoInt64 = __1, _lo:stdgo.GoInt64 = __0;
         var _f:stdgo.GoInt64 -> Bool = function(_x:stdgo.GoInt64):Bool {
-            if (_x < _lo) {
+            if ((_x < _lo : Bool)) {
                 _lo = _x;
             };
-            if (_x > _hi) {
+            if ((_x > _hi : Bool)) {
                 _hi = _x;
             };
             return true;
         };
         var _cfg = (stdgo.Go.setRef(({ maxCount : (10000 : stdgo.GoInt) } : stdgo._internal.testing.quick.Quick.Config)) : stdgo.Ref<stdgo._internal.testing.quick.Quick.Config>);
         check(stdgo.Go.toInterface(_f), _cfg);
-        if ((((_lo : stdgo.GoUInt64) >> (62i64 : stdgo.GoUInt64)) == (0i64 : stdgo.GoUInt64)) || (((_hi : stdgo.GoUInt64) >> (62i64 : stdgo.GoUInt64)) == (0i64 : stdgo.GoUInt64))) {
+        if (((((_lo : stdgo.GoUInt64) >> (62i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == (0i64 : stdgo.GoUInt64)) || (((_hi : stdgo.GoUInt64) >> (62i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == (0i64 : stdgo.GoUInt64)) : Bool)) {
             _t.errorf(("int64 returned range %#016x,%#016x; does not look like full range" : stdgo.GoString), stdgo.Go.toInterface(_lo), stdgo.Go.toInterface(_hi));
         };
     }
@@ -761,7 +761,7 @@ class Config_asInterface {
         _maxCount = _c.maxCount;
         if (_maxCount == ((0 : stdgo.GoInt))) {
             if (_c.maxCountScale != (0 : stdgo.GoFloat64)) {
-                _maxCount = (_c.maxCountScale * (_defaultMaxCount.value : stdgo.GoFloat64) : stdgo.GoInt);
+                _maxCount = ((_c.maxCountScale * (_defaultMaxCount.value : stdgo.GoFloat64) : stdgo.GoFloat64) : stdgo.GoInt);
             } else {
                 _maxCount = _defaultMaxCount.value;
             };

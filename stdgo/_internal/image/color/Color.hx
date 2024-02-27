@@ -212,7 +212,7 @@ function _rgbaModel(_c:Color):Color {
             };
         };
         var __tmp__ = _c.rgba(), _r:stdgo.GoUInt32 = __tmp__._0, _g:stdgo.GoUInt32 = __tmp__._1, _b:stdgo.GoUInt32 = __tmp__._2, _a:stdgo.GoUInt32 = __tmp__._3;
-        return stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA((_r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), (_g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), (_b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), (_a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.RGBA));
+        return stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA(((_r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.RGBA));
     }
 function _rgba64Model(_c:Color):Color {
         {
@@ -241,15 +241,15 @@ function _nrgbaModel(_c:Color):Color {
         };
         var __tmp__ = _c.rgba(), _r:stdgo.GoUInt32 = __tmp__._0, _g:stdgo.GoUInt32 = __tmp__._1, _b:stdgo.GoUInt32 = __tmp__._2, _a:stdgo.GoUInt32 = __tmp__._3;
         if (_a == ((65535u32 : stdgo.GoUInt32))) {
-            return stdgo.Go.asInterface((new stdgo._internal.image.color.Color.NRGBA((_r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), (_g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), (_b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), (255 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.NRGBA));
+            return stdgo.Go.asInterface((new stdgo._internal.image.color.Color.NRGBA(((_r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), (255 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.NRGBA));
         };
         if (_a == ((0u32 : stdgo.GoUInt32))) {
             return stdgo.Go.asInterface((new stdgo._internal.image.color.Color.NRGBA((0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.NRGBA));
         };
-        _r = (_r * (65535u32 : stdgo.GoUInt32)) / _a;
-        _g = (_g * (65535u32 : stdgo.GoUInt32)) / _a;
-        _b = (_b * (65535u32 : stdgo.GoUInt32)) / _a;
-        return stdgo.Go.asInterface((new stdgo._internal.image.color.Color.NRGBA((_r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), (_g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), (_b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), (_a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.NRGBA));
+        _r = (((_r * (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) / _a : stdgo.GoUInt32);
+        _g = (((_g * (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) / _a : stdgo.GoUInt32);
+        _b = (((_b * (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) / _a : stdgo.GoUInt32);
+        return stdgo.Go.asInterface((new stdgo._internal.image.color.Color.NRGBA(((_r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.NRGBA));
     }
 function _nrgba64Model(_c:Color):Color {
         {
@@ -269,9 +269,9 @@ function _nrgba64Model(_c:Color):Color {
         if (_a == ((0u32 : stdgo.GoUInt32))) {
             return stdgo.Go.asInterface((new stdgo._internal.image.color.Color.NRGBA64((0 : stdgo.GoUInt16), (0 : stdgo.GoUInt16), (0 : stdgo.GoUInt16), (0 : stdgo.GoUInt16)) : stdgo._internal.image.color.Color.NRGBA64));
         };
-        _r = (_r * (65535u32 : stdgo.GoUInt32)) / _a;
-        _g = (_g * (65535u32 : stdgo.GoUInt32)) / _a;
-        _b = (_b * (65535u32 : stdgo.GoUInt32)) / _a;
+        _r = (((_r * (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) / _a : stdgo.GoUInt32);
+        _g = (((_g * (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) / _a : stdgo.GoUInt32);
+        _b = (((_b * (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) / _a : stdgo.GoUInt32);
         return stdgo.Go.asInterface((new stdgo._internal.image.color.Color.NRGBA64((_r : stdgo.GoUInt16), (_g : stdgo.GoUInt16), (_b : stdgo.GoUInt16), (_a : stdgo.GoUInt16)) : stdgo._internal.image.color.Color.NRGBA64));
     }
 function _alphaModel(_c:Color):Color {
@@ -286,7 +286,7 @@ function _alphaModel(_c:Color):Color {
             };
         };
         var __tmp__ = _c.rgba(), __1:stdgo.GoUInt32 = __tmp__._0, __2:stdgo.GoUInt32 = __tmp__._1, __3:stdgo.GoUInt32 = __tmp__._2, _a:stdgo.GoUInt32 = __tmp__._3;
-        return stdgo.Go.asInterface((new stdgo._internal.image.color.Color.Alpha((_a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.Alpha));
+        return stdgo.Go.asInterface((new stdgo._internal.image.color.Color.Alpha(((_a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.Alpha));
     }
 function _alpha16Model(_c:Color):Color {
         {
@@ -314,7 +314,7 @@ function _grayModel(_c:Color):Color {
             };
         };
         var __tmp__ = _c.rgba(), _r:stdgo.GoUInt32 = __tmp__._0, _g:stdgo.GoUInt32 = __tmp__._1, _b:stdgo.GoUInt32 = __tmp__._2, __1:stdgo.GoUInt32 = __tmp__._3;
-        var _y:stdgo.GoUInt32 = (((((19595u32 : stdgo.GoUInt32) * _r) + ((38470u32 : stdgo.GoUInt32) * _g)) + ((7471u32 : stdgo.GoUInt32) * _b)) + (32768u32 : stdgo.GoUInt32)) >> (24i64 : stdgo.GoUInt64);
+        var _y:stdgo.GoUInt32 = (((((((19595u32 : stdgo.GoUInt32) * _r : stdgo.GoUInt32) + ((38470u32 : stdgo.GoUInt32) * _g : stdgo.GoUInt32) : stdgo.GoUInt32) + ((7471u32 : stdgo.GoUInt32) * _b : stdgo.GoUInt32) : stdgo.GoUInt32) + (32768u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
         return stdgo.Go.asInterface((new stdgo._internal.image.color.Color.Gray((_y : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.Gray));
     }
 function _gray16Model(_c:Color):Color {
@@ -329,22 +329,22 @@ function _gray16Model(_c:Color):Color {
             };
         };
         var __tmp__ = _c.rgba(), _r:stdgo.GoUInt32 = __tmp__._0, _g:stdgo.GoUInt32 = __tmp__._1, _b:stdgo.GoUInt32 = __tmp__._2, __1:stdgo.GoUInt32 = __tmp__._3;
-        var _y:stdgo.GoUInt32 = (((((19595u32 : stdgo.GoUInt32) * _r) + ((38470u32 : stdgo.GoUInt32) * _g)) + ((7471u32 : stdgo.GoUInt32) * _b)) + (32768u32 : stdgo.GoUInt32)) >> (16i64 : stdgo.GoUInt64);
+        var _y:stdgo.GoUInt32 = (((((((19595u32 : stdgo.GoUInt32) * _r : stdgo.GoUInt32) + ((38470u32 : stdgo.GoUInt32) * _g : stdgo.GoUInt32) : stdgo.GoUInt32) + ((7471u32 : stdgo.GoUInt32) * _b : stdgo.GoUInt32) : stdgo.GoUInt32) + (32768u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
         return stdgo.Go.asInterface((new stdgo._internal.image.color.Color.Gray16((_y : stdgo.GoUInt16)) : stdgo._internal.image.color.Color.Gray16));
     }
 function _sqDiff(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32):stdgo.GoUInt32 {
-        var _d:stdgo.GoUInt32 = _x - _y;
-        return (_d * _d) >> (2i64 : stdgo.GoUInt64);
+        var _d:stdgo.GoUInt32 = (_x - _y : stdgo.GoUInt32);
+        return (((_d * _d : stdgo.GoUInt32)) >> (2i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
     }
 function testSqDiff(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _orig:(stdgo.GoUInt32, stdgo.GoUInt32) -> stdgo.GoUInt32 = function(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32):stdgo.GoUInt32 {
             var _d:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-            if (_x > _y) {
+            if ((_x > _y : Bool)) {
                 _d = (_x - _y : stdgo.GoUInt32);
             } else {
                 _d = (_y - _x : stdgo.GoUInt32);
             };
-            return (_d * _d) >> (2i64 : stdgo.GoUInt64);
+            return (((_d * _d : stdgo.GoUInt32)) >> (2i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
         };
         var _testCases = (new stdgo.Slice<stdgo.GoUInt32>(
 12,
@@ -382,42 +382,42 @@ function rgbtoYCbCr(_r:stdgo.GoUInt8, _g:stdgo.GoUInt8, _b:stdgo.GoUInt8):{ var 
         var _r1:stdgo.GoInt32 = (_r : stdgo.GoInt32);
         var _g1:stdgo.GoInt32 = (_g : stdgo.GoInt32);
         var _b1:stdgo.GoInt32 = (_b : stdgo.GoInt32);
-        var _yy:stdgo.GoInt32 = (((((19595 : stdgo.GoInt32) * _r1) + ((38470 : stdgo.GoInt32) * _g1)) + ((7471 : stdgo.GoInt32) * _b1)) + (32768 : stdgo.GoInt32)) >> (16i64 : stdgo.GoUInt64);
-        var _cb:stdgo.GoInt32 = ((((-11056 : stdgo.GoInt32) * _r1) - ((21712 : stdgo.GoInt32) * _g1)) + ((32768 : stdgo.GoInt32) * _b1)) + (8421376 : stdgo.GoInt32);
-        if ((_cb : stdgo.GoUInt32) & (-16777216u32 : stdgo.GoUInt32) == ((0u32 : stdgo.GoUInt32))) {
-            _cb = _cb >> ((16i64 : stdgo.GoUInt64));
+        var _yy:stdgo.GoInt32 = (((((((19595 : stdgo.GoInt32) * _r1 : stdgo.GoInt32) + ((38470 : stdgo.GoInt32) * _g1 : stdgo.GoInt32) : stdgo.GoInt32) + ((7471 : stdgo.GoInt32) * _b1 : stdgo.GoInt32) : stdgo.GoInt32) + (32768 : stdgo.GoInt32) : stdgo.GoInt32)) >> (16i64 : stdgo.GoUInt64) : stdgo.GoInt32);
+        var _cb:stdgo.GoInt32 = (((((-11056 : stdgo.GoInt32) * _r1 : stdgo.GoInt32) - ((21712 : stdgo.GoInt32) * _g1 : stdgo.GoInt32) : stdgo.GoInt32) + ((32768 : stdgo.GoInt32) * _b1 : stdgo.GoInt32) : stdgo.GoInt32) + (8421376 : stdgo.GoInt32) : stdgo.GoInt32);
+        if (((_cb : stdgo.GoUInt32) & (-16777216u32 : stdgo.GoUInt32) : stdgo.GoUInt32) == ((0u32 : stdgo.GoUInt32))) {
+            _cb = (_cb >> ((16i64 : stdgo.GoUInt64)) : stdgo.GoInt32);
         } else {
-            _cb = (-1 ^ (_cb >> (31i64 : stdgo.GoUInt64)));
+            _cb = (-1 ^ (_cb >> (31i64 : stdgo.GoUInt64) : stdgo.GoInt32));
         };
-        var _cr:stdgo.GoInt32 = ((((32768 : stdgo.GoInt32) * _r1) - ((27440 : stdgo.GoInt32) * _g1)) - ((5328 : stdgo.GoInt32) * _b1)) + (8421376 : stdgo.GoInt32);
-        if ((_cr : stdgo.GoUInt32) & (-16777216u32 : stdgo.GoUInt32) == ((0u32 : stdgo.GoUInt32))) {
-            _cr = _cr >> ((16i64 : stdgo.GoUInt64));
+        var _cr:stdgo.GoInt32 = (((((32768 : stdgo.GoInt32) * _r1 : stdgo.GoInt32) - ((27440 : stdgo.GoInt32) * _g1 : stdgo.GoInt32) : stdgo.GoInt32) - ((5328 : stdgo.GoInt32) * _b1 : stdgo.GoInt32) : stdgo.GoInt32) + (8421376 : stdgo.GoInt32) : stdgo.GoInt32);
+        if (((_cr : stdgo.GoUInt32) & (-16777216u32 : stdgo.GoUInt32) : stdgo.GoUInt32) == ((0u32 : stdgo.GoUInt32))) {
+            _cr = (_cr >> ((16i64 : stdgo.GoUInt64)) : stdgo.GoInt32);
         } else {
-            _cr = (-1 ^ (_cr >> (31i64 : stdgo.GoUInt64)));
+            _cr = (-1 ^ (_cr >> (31i64 : stdgo.GoUInt64) : stdgo.GoInt32));
         };
         return { _0 : (_yy : stdgo.GoUInt8), _1 : (_cb : stdgo.GoUInt8), _2 : (_cr : stdgo.GoUInt8) };
     }
 function ycbCrToRGB(_y:stdgo.GoUInt8, _cb:stdgo.GoUInt8, _cr:stdgo.GoUInt8):{ var _0 : stdgo.GoUInt8; var _1 : stdgo.GoUInt8; var _2 : stdgo.GoUInt8; } {
-        var _yy1:stdgo.GoInt32 = (_y : stdgo.GoInt32) * (65793 : stdgo.GoInt32);
-        var _cb1:stdgo.GoInt32 = (_cb : stdgo.GoInt32) - (128 : stdgo.GoInt32);
-        var _cr1:stdgo.GoInt32 = (_cr : stdgo.GoInt32) - (128 : stdgo.GoInt32);
-        var _r:stdgo.GoInt32 = _yy1 + ((91881 : stdgo.GoInt32) * _cr1);
-        if ((_r : stdgo.GoUInt32) & (-16777216u32 : stdgo.GoUInt32) == ((0u32 : stdgo.GoUInt32))) {
-            _r = _r >> ((16i64 : stdgo.GoUInt64));
+        var _yy1:stdgo.GoInt32 = ((_y : stdgo.GoInt32) * (65793 : stdgo.GoInt32) : stdgo.GoInt32);
+        var _cb1:stdgo.GoInt32 = ((_cb : stdgo.GoInt32) - (128 : stdgo.GoInt32) : stdgo.GoInt32);
+        var _cr1:stdgo.GoInt32 = ((_cr : stdgo.GoInt32) - (128 : stdgo.GoInt32) : stdgo.GoInt32);
+        var _r:stdgo.GoInt32 = (_yy1 + ((91881 : stdgo.GoInt32) * _cr1 : stdgo.GoInt32) : stdgo.GoInt32);
+        if (((_r : stdgo.GoUInt32) & (-16777216u32 : stdgo.GoUInt32) : stdgo.GoUInt32) == ((0u32 : stdgo.GoUInt32))) {
+            _r = (_r >> ((16i64 : stdgo.GoUInt64)) : stdgo.GoInt32);
         } else {
-            _r = (-1 ^ (_r >> (31i64 : stdgo.GoUInt64)));
+            _r = (-1 ^ (_r >> (31i64 : stdgo.GoUInt64) : stdgo.GoInt32));
         };
-        var _g:stdgo.GoInt32 = (_yy1 - ((22554 : stdgo.GoInt32) * _cb1)) - ((46802 : stdgo.GoInt32) * _cr1);
-        if ((_g : stdgo.GoUInt32) & (-16777216u32 : stdgo.GoUInt32) == ((0u32 : stdgo.GoUInt32))) {
-            _g = _g >> ((16i64 : stdgo.GoUInt64));
+        var _g:stdgo.GoInt32 = ((_yy1 - ((22554 : stdgo.GoInt32) * _cb1 : stdgo.GoInt32) : stdgo.GoInt32) - ((46802 : stdgo.GoInt32) * _cr1 : stdgo.GoInt32) : stdgo.GoInt32);
+        if (((_g : stdgo.GoUInt32) & (-16777216u32 : stdgo.GoUInt32) : stdgo.GoUInt32) == ((0u32 : stdgo.GoUInt32))) {
+            _g = (_g >> ((16i64 : stdgo.GoUInt64)) : stdgo.GoInt32);
         } else {
-            _g = (-1 ^ (_g >> (31i64 : stdgo.GoUInt64)));
+            _g = (-1 ^ (_g >> (31i64 : stdgo.GoUInt64) : stdgo.GoInt32));
         };
-        var _b:stdgo.GoInt32 = _yy1 + ((116130 : stdgo.GoInt32) * _cb1);
-        if ((_b : stdgo.GoUInt32) & (-16777216u32 : stdgo.GoUInt32) == ((0u32 : stdgo.GoUInt32))) {
-            _b = _b >> ((16i64 : stdgo.GoUInt64));
+        var _b:stdgo.GoInt32 = (_yy1 + ((116130 : stdgo.GoInt32) * _cb1 : stdgo.GoInt32) : stdgo.GoInt32);
+        if (((_b : stdgo.GoUInt32) & (-16777216u32 : stdgo.GoUInt32) : stdgo.GoUInt32) == ((0u32 : stdgo.GoUInt32))) {
+            _b = (_b >> ((16i64 : stdgo.GoUInt64)) : stdgo.GoInt32);
         } else {
-            _b = (-1 ^ (_b >> (31i64 : stdgo.GoUInt64)));
+            _b = (-1 ^ (_b >> (31i64 : stdgo.GoUInt64) : stdgo.GoInt32));
         };
         return { _0 : (_r : stdgo.GoUInt8), _1 : (_g : stdgo.GoUInt8), _2 : (_b : stdgo.GoUInt8) };
     }
@@ -433,7 +433,7 @@ function _yCbCrModel(_c:Color):Color {
             };
         };
         var __tmp__ = _c.rgba(), _r:stdgo.GoUInt32 = __tmp__._0, _g:stdgo.GoUInt32 = __tmp__._1, _b:stdgo.GoUInt32 = __tmp__._2, __1:stdgo.GoUInt32 = __tmp__._3;
-        var __tmp__ = rgbtoYCbCr((_r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), (_g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), (_b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8)), _y:stdgo.GoUInt8 = __tmp__._0, _u:stdgo.GoUInt8 = __tmp__._1, _v:stdgo.GoUInt8 = __tmp__._2;
+        var __tmp__ = rgbtoYCbCr(((_r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8)), _y:stdgo.GoUInt8 = __tmp__._0, _u:stdgo.GoUInt8 = __tmp__._1, _v:stdgo.GoUInt8 = __tmp__._2;
         return stdgo.Go.asInterface((new stdgo._internal.image.color.Color.YCbCr(_y, _u, _v) : stdgo._internal.image.color.Color.YCbCr));
     }
 function _nYCbCrAModel(_c:Color):Color {
@@ -449,38 +449,38 @@ function _nYCbCrAModel(_c:Color):Color {
         };
         var __tmp__ = _c.rgba(), _r:stdgo.GoUInt32 = __tmp__._0, _g:stdgo.GoUInt32 = __tmp__._1, _b:stdgo.GoUInt32 = __tmp__._2, _a:stdgo.GoUInt32 = __tmp__._3;
         if (_a != ((0u32 : stdgo.GoUInt32))) {
-            _r = (_r * (65535u32 : stdgo.GoUInt32)) / _a;
-            _g = (_g * (65535u32 : stdgo.GoUInt32)) / _a;
-            _b = (_b * (65535u32 : stdgo.GoUInt32)) / _a;
+            _r = (((_r * (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) / _a : stdgo.GoUInt32);
+            _g = (((_g * (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) / _a : stdgo.GoUInt32);
+            _b = (((_b * (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) / _a : stdgo.GoUInt32);
         };
-        var __tmp__ = rgbtoYCbCr((_r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), (_g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), (_b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8)), _y:stdgo.GoUInt8 = __tmp__._0, _u:stdgo.GoUInt8 = __tmp__._1, _v:stdgo.GoUInt8 = __tmp__._2;
-        return stdgo.Go.asInterface((new stdgo._internal.image.color.Color.NYCbCrA(({ y : _y, cb : _u, cr : _v } : stdgo._internal.image.color.Color.YCbCr), (_a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.NYCbCrA));
+        var __tmp__ = rgbtoYCbCr(((_r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8)), _y:stdgo.GoUInt8 = __tmp__._0, _u:stdgo.GoUInt8 = __tmp__._1, _v:stdgo.GoUInt8 = __tmp__._2;
+        return stdgo.Go.asInterface((new stdgo._internal.image.color.Color.NYCbCrA(({ y : _y, cb : _u, cr : _v } : stdgo._internal.image.color.Color.YCbCr), ((_a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.NYCbCrA));
     }
 function rgbtoCMYK(_r:stdgo.GoUInt8, _g:stdgo.GoUInt8, _b:stdgo.GoUInt8):{ var _0 : stdgo.GoUInt8; var _1 : stdgo.GoUInt8; var _2 : stdgo.GoUInt8; var _3 : stdgo.GoUInt8; } {
         var _rr:stdgo.GoUInt32 = (_r : stdgo.GoUInt32);
         var _gg:stdgo.GoUInt32 = (_g : stdgo.GoUInt32);
         var _bb:stdgo.GoUInt32 = (_b : stdgo.GoUInt32);
         var _w:stdgo.GoUInt32 = _rr;
-        if (_w < _gg) {
+        if ((_w < _gg : Bool)) {
             _w = _gg;
         };
-        if (_w < _bb) {
+        if ((_w < _bb : Bool)) {
             _w = _bb;
         };
         if (_w == ((0u32 : stdgo.GoUInt32))) {
             return { _0 : (0 : stdgo.GoUInt8), _1 : (0 : stdgo.GoUInt8), _2 : (0 : stdgo.GoUInt8), _3 : (255 : stdgo.GoUInt8) };
         };
-        var _c:stdgo.GoUInt32 = ((_w - _rr) * (255u32 : stdgo.GoUInt32)) / _w;
-        var _m:stdgo.GoUInt32 = ((_w - _gg) * (255u32 : stdgo.GoUInt32)) / _w;
-        var _y:stdgo.GoUInt32 = ((_w - _bb) * (255u32 : stdgo.GoUInt32)) / _w;
-        return { _0 : (_c : stdgo.GoUInt8), _1 : (_m : stdgo.GoUInt8), _2 : (_y : stdgo.GoUInt8), _3 : ((255u32 : stdgo.GoUInt32) - _w : stdgo.GoUInt8) };
+        var _c:stdgo.GoUInt32 = ((((_w - _rr : stdgo.GoUInt32)) * (255u32 : stdgo.GoUInt32) : stdgo.GoUInt32) / _w : stdgo.GoUInt32);
+        var _m:stdgo.GoUInt32 = ((((_w - _gg : stdgo.GoUInt32)) * (255u32 : stdgo.GoUInt32) : stdgo.GoUInt32) / _w : stdgo.GoUInt32);
+        var _y:stdgo.GoUInt32 = ((((_w - _bb : stdgo.GoUInt32)) * (255u32 : stdgo.GoUInt32) : stdgo.GoUInt32) / _w : stdgo.GoUInt32);
+        return { _0 : (_c : stdgo.GoUInt8), _1 : (_m : stdgo.GoUInt8), _2 : (_y : stdgo.GoUInt8), _3 : (((255u32 : stdgo.GoUInt32) - _w : stdgo.GoUInt32) : stdgo.GoUInt8) };
     }
 function cmyktoRGB(_c:stdgo.GoUInt8, _m:stdgo.GoUInt8, _y:stdgo.GoUInt8, _k:stdgo.GoUInt8):{ var _0 : stdgo.GoUInt8; var _1 : stdgo.GoUInt8; var _2 : stdgo.GoUInt8; } {
-        var _w:stdgo.GoUInt32 = (65535u32 : stdgo.GoUInt32) - ((_k : stdgo.GoUInt32) * (257u32 : stdgo.GoUInt32));
-        var _r:stdgo.GoUInt32 = (((65535u32 : stdgo.GoUInt32) - ((_c : stdgo.GoUInt32) * (257u32 : stdgo.GoUInt32))) * _w) / (65535u32 : stdgo.GoUInt32);
-        var _g:stdgo.GoUInt32 = (((65535u32 : stdgo.GoUInt32) - ((_m : stdgo.GoUInt32) * (257u32 : stdgo.GoUInt32))) * _w) / (65535u32 : stdgo.GoUInt32);
-        var _b:stdgo.GoUInt32 = (((65535u32 : stdgo.GoUInt32) - ((_y : stdgo.GoUInt32) * (257u32 : stdgo.GoUInt32))) * _w) / (65535u32 : stdgo.GoUInt32);
-        return { _0 : (_r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), _1 : (_g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), _2 : (_b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8) };
+        var _w:stdgo.GoUInt32 = ((65535u32 : stdgo.GoUInt32) - ((_k : stdgo.GoUInt32) * (257u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt32);
+        var _r:stdgo.GoUInt32 = (((((65535u32 : stdgo.GoUInt32) - ((_c : stdgo.GoUInt32) * (257u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt32)) * _w : stdgo.GoUInt32) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
+        var _g:stdgo.GoUInt32 = (((((65535u32 : stdgo.GoUInt32) - ((_m : stdgo.GoUInt32) * (257u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt32)) * _w : stdgo.GoUInt32) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
+        var _b:stdgo.GoUInt32 = (((((65535u32 : stdgo.GoUInt32) - ((_y : stdgo.GoUInt32) * (257u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt32)) * _w : stdgo.GoUInt32) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
+        return { _0 : ((_r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), _1 : ((_g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), _2 : ((_b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8) };
     }
 function _cmykModel(_c:Color):Color {
         {
@@ -494,19 +494,19 @@ function _cmykModel(_c:Color):Color {
             };
         };
         var __tmp__ = _c.rgba(), _r:stdgo.GoUInt32 = __tmp__._0, _g:stdgo.GoUInt32 = __tmp__._1, _b:stdgo.GoUInt32 = __tmp__._2, __1:stdgo.GoUInt32 = __tmp__._3;
-        var __tmp__ = rgbtoCMYK((_r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), (_g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), (_b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8)), _cc:stdgo.GoUInt8 = __tmp__._0, _mm:stdgo.GoUInt8 = __tmp__._1, _yy:stdgo.GoUInt8 = __tmp__._2, _kk:stdgo.GoUInt8 = __tmp__._3;
+        var __tmp__ = rgbtoCMYK(((_r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8)), _cc:stdgo.GoUInt8 = __tmp__._0, _mm:stdgo.GoUInt8 = __tmp__._1, _yy:stdgo.GoUInt8 = __tmp__._2, _kk:stdgo.GoUInt8 = __tmp__._3;
         return stdgo.Go.asInterface((new stdgo._internal.image.color.Color.CMYK(_cc, _mm, _yy, _kk) : stdgo._internal.image.color.Color.CMYK));
     }
 function _delta(_x:stdgo.GoUInt8, _y:stdgo.GoUInt8):stdgo.GoUInt8 {
-        if (_x >= _y) {
-            return _x - _y;
+        if ((_x >= _y : Bool)) {
+            return (_x - _y : stdgo.GoUInt8);
         };
-        return _y - _x;
+        return (_y - _x : stdgo.GoUInt8);
     }
 function _eq(_c0:Color, _c1:Color):stdgo.Error {
         var __tmp__ = _c0.rgba(), _r0:stdgo.GoUInt32 = __tmp__._0, _g0:stdgo.GoUInt32 = __tmp__._1, _b0:stdgo.GoUInt32 = __tmp__._2, _a0:stdgo.GoUInt32 = __tmp__._3;
         var __tmp__ = _c1.rgba(), _r1:stdgo.GoUInt32 = __tmp__._0, _g1:stdgo.GoUInt32 = __tmp__._1, _b1:stdgo.GoUInt32 = __tmp__._2, _a1:stdgo.GoUInt32 = __tmp__._3;
-        if ((((_r0 != _r1) || (_g0 != _g1)) || (_b0 != _b1)) || (_a0 != _a1)) {
+        if ((((_r0 != (_r1) || _g0 != (_g1) : Bool) || _b0 != (_b1) : Bool) || (_a0 != _a1) : Bool)) {
             return stdgo._internal.fmt.Fmt.errorf(("got  0x%04x 0x%04x 0x%04x 0x%04x\nwant 0x%04x 0x%04x 0x%04x 0x%04x" : stdgo.GoString), stdgo.Go.toInterface(_r0), stdgo.Go.toInterface(_g0), stdgo.Go.toInterface(_b0), stdgo.Go.toInterface(_a0), stdgo.Go.toInterface(_r1), stdgo.Go.toInterface(_g1), stdgo.Go.toInterface(_b1), stdgo.Go.toInterface(_a1));
         };
         return (null : stdgo.Error);
@@ -514,17 +514,17 @@ function _eq(_c0:Color, _c1:Color):stdgo.Error {
 function testYCbCrRoundtrip(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _r:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_r < (256 : stdgo.GoInt), _r = _r + ((7 : stdgo.GoInt)), {
+            stdgo.Go.cfor((_r < (256 : stdgo.GoInt) : Bool), _r = (_r + ((7 : stdgo.GoInt)) : stdgo.GoInt), {
                 {
                     var _g:stdgo.GoInt = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor(_g < (256 : stdgo.GoInt), _g = _g + ((5 : stdgo.GoInt)), {
+                    stdgo.Go.cfor((_g < (256 : stdgo.GoInt) : Bool), _g = (_g + ((5 : stdgo.GoInt)) : stdgo.GoInt), {
                         {
                             var _b:stdgo.GoInt = (0 : stdgo.GoInt);
-                            stdgo.Go.cfor(_b < (256 : stdgo.GoInt), _b = _b + ((3 : stdgo.GoInt)), {
+                            stdgo.Go.cfor((_b < (256 : stdgo.GoInt) : Bool), _b = (_b + ((3 : stdgo.GoInt)) : stdgo.GoInt), {
                                 var __0:stdgo.GoUInt8 = (_r : stdgo.GoUInt8), __1:stdgo.GoUInt8 = (_g : stdgo.GoUInt8), __2:stdgo.GoUInt8 = (_b : stdgo.GoUInt8), _b0:stdgo.GoUInt8 = __2, _g0:stdgo.GoUInt8 = __1, _r0:stdgo.GoUInt8 = __0;
                                 var __tmp__ = rgbtoYCbCr(_r0, _g0, _b0), _y:stdgo.GoUInt8 = __tmp__._0, _cb:stdgo.GoUInt8 = __tmp__._1, _cr:stdgo.GoUInt8 = __tmp__._2;
                                 var __tmp__ = ycbCrToRGB(_y, _cb, _cr), _r1:stdgo.GoUInt8 = __tmp__._0, _g1:stdgo.GoUInt8 = __tmp__._1, _b1:stdgo.GoUInt8 = __tmp__._2;
-                                if (((_delta(_r0, _r1) > (2 : stdgo.GoUInt8)) || (_delta(_g0, _g1) > (2 : stdgo.GoUInt8))) || (_delta(_b0, _b1) > (2 : stdgo.GoUInt8))) {
+                                if ((((_delta(_r0, _r1) > (2 : stdgo.GoUInt8) : Bool) || (_delta(_g0, _g1) > (2 : stdgo.GoUInt8) : Bool) : Bool) || (_delta(_b0, _b1) > (2 : stdgo.GoUInt8) : Bool) : Bool)) {
                                     _t.fatalf(("\nr0, g0, b0 = %d, %d, %d\ny,  cb, cr = %d, %d, %d\nr1, g1, b1 = %d, %d, %d" : stdgo.GoString), stdgo.Go.toInterface(_r0), stdgo.Go.toInterface(_g0), stdgo.Go.toInterface(_b0), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(_cb), stdgo.Go.toInterface(_cr), stdgo.Go.toInterface(_r1), stdgo.Go.toInterface(_g1), stdgo.Go.toInterface(_b1));
                                 };
                             });
@@ -537,18 +537,18 @@ function testYCbCrRoundtrip(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
 function testYCbCrToRGBConsistency(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _y:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_y < (256 : stdgo.GoInt), _y = _y + ((7 : stdgo.GoInt)), {
+            stdgo.Go.cfor((_y < (256 : stdgo.GoInt) : Bool), _y = (_y + ((7 : stdgo.GoInt)) : stdgo.GoInt), {
                 {
                     var _cb:stdgo.GoInt = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor(_cb < (256 : stdgo.GoInt), _cb = _cb + ((5 : stdgo.GoInt)), {
+                    stdgo.Go.cfor((_cb < (256 : stdgo.GoInt) : Bool), _cb = (_cb + ((5 : stdgo.GoInt)) : stdgo.GoInt), {
                         {
                             var _cr:stdgo.GoInt = (0 : stdgo.GoInt);
-                            stdgo.Go.cfor(_cr < (256 : stdgo.GoInt), _cr = _cr + ((3 : stdgo.GoInt)), {
+                            stdgo.Go.cfor((_cr < (256 : stdgo.GoInt) : Bool), _cr = (_cr + ((3 : stdgo.GoInt)) : stdgo.GoInt), {
                                 var _x:stdgo._internal.image.color.Color.YCbCr = (new stdgo._internal.image.color.Color.YCbCr((_y : stdgo.GoUInt8), (_cb : stdgo.GoUInt8), (_cr : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.YCbCr);
                                 var __tmp__ = _x.rgba(), _r0:stdgo.GoUInt32 = __tmp__._0, _g0:stdgo.GoUInt32 = __tmp__._1, _b0:stdgo.GoUInt32 = __tmp__._2, __0:stdgo.GoUInt32 = __tmp__._3;
-                                var __0:stdgo.GoUInt8 = (_r0 >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), __1:stdgo.GoUInt8 = (_g0 >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), __2:stdgo.GoUInt8 = (_b0 >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), _b1:stdgo.GoUInt8 = __2, _g1:stdgo.GoUInt8 = __1, _r1:stdgo.GoUInt8 = __0;
+                                var __0:stdgo.GoUInt8 = ((_r0 >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), __1:stdgo.GoUInt8 = ((_g0 >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), __2:stdgo.GoUInt8 = ((_b0 >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), _b1:stdgo.GoUInt8 = __2, _g1:stdgo.GoUInt8 = __1, _r1:stdgo.GoUInt8 = __0;
                                 var __tmp__ = ycbCrToRGB(_x.y, _x.cb, _x.cr), _r2:stdgo.GoUInt8 = __tmp__._0, _g2:stdgo.GoUInt8 = __tmp__._1, _b2:stdgo.GoUInt8 = __tmp__._2;
-                                if (((_r1 != _r2) || (_g1 != _g2)) || (_b1 != _b2)) {
+                                if (((_r1 != (_r2) || _g1 != (_g2) : Bool) || (_b1 != _b2) : Bool)) {
                                     _t.fatalf(("y, cb, cr = %d, %d, %d\nr1, g1, b1 = %d, %d, %d\nr2, g2, b2 = %d, %d, %d" : stdgo.GoString), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(_cb), stdgo.Go.toInterface(_cr), stdgo.Go.toInterface(_r1), stdgo.Go.toInterface(_g1), stdgo.Go.toInterface(_b1), stdgo.Go.toInterface(_r2), stdgo.Go.toInterface(_g2), stdgo.Go.toInterface(_b2));
                                 };
                             });
@@ -561,7 +561,7 @@ function testYCbCrToRGBConsistency(_t:stdgo.Ref<stdgo._internal.testing.Testing.
 function testYCbCrGray(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (256 : stdgo.GoInt), _i++, {
+            stdgo.Go.cfor((_i < (256 : stdgo.GoInt) : Bool), _i++, {
                 var _c0:stdgo._internal.image.color.Color.YCbCr = (new stdgo._internal.image.color.Color.YCbCr((_i : stdgo.GoUInt8), (128 : stdgo.GoUInt8), (128 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.YCbCr);
                 var _c1:stdgo._internal.image.color.Color.Gray = (new stdgo._internal.image.color.Color.Gray((_i : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.Gray);
                 {
@@ -576,7 +576,7 @@ function testYCbCrGray(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testNYCbCrAAlpha(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (256 : stdgo.GoInt), _i++, {
+            stdgo.Go.cfor((_i < (256 : stdgo.GoInt) : Bool), _i++, {
                 var _c0:stdgo._internal.image.color.Color.NYCbCrA = (new stdgo._internal.image.color.Color.NYCbCrA((new stdgo._internal.image.color.Color.YCbCr((255 : stdgo.GoUInt8), (128 : stdgo.GoUInt8), (128 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.YCbCr), (_i : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.NYCbCrA);
                 var _c1:stdgo._internal.image.color.Color.Alpha = (new stdgo._internal.image.color.Color.Alpha((_i : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.Alpha);
                 {
@@ -591,7 +591,7 @@ function testNYCbCrAAlpha(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
 function testNYCbCrAYCbCr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (256 : stdgo.GoInt), _i++, {
+            stdgo.Go.cfor((_i < (256 : stdgo.GoInt) : Bool), _i++, {
                 var _c0:stdgo._internal.image.color.Color.NYCbCrA = (new stdgo._internal.image.color.Color.NYCbCrA((new stdgo._internal.image.color.Color.YCbCr((_i : stdgo.GoUInt8), (64 : stdgo.GoUInt8), (192 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.YCbCr), (255 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.NYCbCrA);
                 var _c1:stdgo._internal.image.color.Color.YCbCr = (new stdgo._internal.image.color.Color.YCbCr((_i : stdgo.GoUInt8), (64 : stdgo.GoUInt8), (192 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.YCbCr);
                 {
@@ -606,17 +606,17 @@ function testNYCbCrAYCbCr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
 function testCMYKRoundtrip(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _r:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_r < (256 : stdgo.GoInt), _r = _r + ((7 : stdgo.GoInt)), {
+            stdgo.Go.cfor((_r < (256 : stdgo.GoInt) : Bool), _r = (_r + ((7 : stdgo.GoInt)) : stdgo.GoInt), {
                 {
                     var _g:stdgo.GoInt = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor(_g < (256 : stdgo.GoInt), _g = _g + ((5 : stdgo.GoInt)), {
+                    stdgo.Go.cfor((_g < (256 : stdgo.GoInt) : Bool), _g = (_g + ((5 : stdgo.GoInt)) : stdgo.GoInt), {
                         {
                             var _b:stdgo.GoInt = (0 : stdgo.GoInt);
-                            stdgo.Go.cfor(_b < (256 : stdgo.GoInt), _b = _b + ((3 : stdgo.GoInt)), {
+                            stdgo.Go.cfor((_b < (256 : stdgo.GoInt) : Bool), _b = (_b + ((3 : stdgo.GoInt)) : stdgo.GoInt), {
                                 var __0:stdgo.GoUInt8 = (_r : stdgo.GoUInt8), __1:stdgo.GoUInt8 = (_g : stdgo.GoUInt8), __2:stdgo.GoUInt8 = (_b : stdgo.GoUInt8), _b0:stdgo.GoUInt8 = __2, _g0:stdgo.GoUInt8 = __1, _r0:stdgo.GoUInt8 = __0;
                                 var __tmp__ = rgbtoCMYK(_r0, _g0, _b0), _c:stdgo.GoUInt8 = __tmp__._0, _m:stdgo.GoUInt8 = __tmp__._1, _y:stdgo.GoUInt8 = __tmp__._2, _k:stdgo.GoUInt8 = __tmp__._3;
                                 var __tmp__ = cmyktoRGB(_c, _m, _y, _k), _r1:stdgo.GoUInt8 = __tmp__._0, _g1:stdgo.GoUInt8 = __tmp__._1, _b1:stdgo.GoUInt8 = __tmp__._2;
-                                if (((_delta(_r0, _r1) > (1 : stdgo.GoUInt8)) || (_delta(_g0, _g1) > (1 : stdgo.GoUInt8))) || (_delta(_b0, _b1) > (1 : stdgo.GoUInt8))) {
+                                if ((((_delta(_r0, _r1) > (1 : stdgo.GoUInt8) : Bool) || (_delta(_g0, _g1) > (1 : stdgo.GoUInt8) : Bool) : Bool) || (_delta(_b0, _b1) > (1 : stdgo.GoUInt8) : Bool) : Bool)) {
                                     _t.fatalf(("\nr0, g0, b0 = %d, %d, %d\nc, m, y, k = %d, %d, %d, %d\nr1, g1, b1 = %d, %d, %d" : stdgo.GoString),
 stdgo.Go.toInterface(_r0),
 stdgo.Go.toInterface(_g0),
@@ -639,21 +639,21 @@ stdgo.Go.toInterface(_b1));
 function testCMYKToRGBConsistency(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _c:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_c < (256 : stdgo.GoInt), _c = _c + ((7 : stdgo.GoInt)), {
+            stdgo.Go.cfor((_c < (256 : stdgo.GoInt) : Bool), _c = (_c + ((7 : stdgo.GoInt)) : stdgo.GoInt), {
                 {
                     var _m:stdgo.GoInt = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor(_m < (256 : stdgo.GoInt), _m = _m + ((5 : stdgo.GoInt)), {
+                    stdgo.Go.cfor((_m < (256 : stdgo.GoInt) : Bool), _m = (_m + ((5 : stdgo.GoInt)) : stdgo.GoInt), {
                         {
                             var _y:stdgo.GoInt = (0 : stdgo.GoInt);
-                            stdgo.Go.cfor(_y < (256 : stdgo.GoInt), _y = _y + ((3 : stdgo.GoInt)), {
+                            stdgo.Go.cfor((_y < (256 : stdgo.GoInt) : Bool), _y = (_y + ((3 : stdgo.GoInt)) : stdgo.GoInt), {
                                 {
                                     var _k:stdgo.GoInt = (0 : stdgo.GoInt);
-                                    stdgo.Go.cfor(_k < (256 : stdgo.GoInt), _k = _k + ((11 : stdgo.GoInt)), {
+                                    stdgo.Go.cfor((_k < (256 : stdgo.GoInt) : Bool), _k = (_k + ((11 : stdgo.GoInt)) : stdgo.GoInt), {
                                         var _x:stdgo._internal.image.color.Color.CMYK = (new stdgo._internal.image.color.Color.CMYK((_c : stdgo.GoUInt8), (_m : stdgo.GoUInt8), (_y : stdgo.GoUInt8), (_k : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.CMYK);
                                         var __tmp__ = _x.rgba(), _r0:stdgo.GoUInt32 = __tmp__._0, _g0:stdgo.GoUInt32 = __tmp__._1, _b0:stdgo.GoUInt32 = __tmp__._2, __0:stdgo.GoUInt32 = __tmp__._3;
-                                        var __0:stdgo.GoUInt8 = (_r0 >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), __1:stdgo.GoUInt8 = (_g0 >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), __2:stdgo.GoUInt8 = (_b0 >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt8), _b1:stdgo.GoUInt8 = __2, _g1:stdgo.GoUInt8 = __1, _r1:stdgo.GoUInt8 = __0;
+                                        var __0:stdgo.GoUInt8 = ((_r0 >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), __1:stdgo.GoUInt8 = ((_g0 >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), __2:stdgo.GoUInt8 = ((_b0 >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), _b1:stdgo.GoUInt8 = __2, _g1:stdgo.GoUInt8 = __1, _r1:stdgo.GoUInt8 = __0;
                                         var __tmp__ = cmyktoRGB(_x.c, _x.m, _x.y, _x.k), _r2:stdgo.GoUInt8 = __tmp__._0, _g2:stdgo.GoUInt8 = __tmp__._1, _b2:stdgo.GoUInt8 = __tmp__._2;
-                                        if (((_r1 != _r2) || (_g1 != _g2)) || (_b1 != _b2)) {
+                                        if (((_r1 != (_r2) || _g1 != (_g2) : Bool) || (_b1 != _b2) : Bool)) {
                                             _t.fatalf(("c, m, y, k = %d, %d, %d, %d\nr1, g1, b1 = %d, %d, %d\nr2, g2, b2 = %d, %d, %d" : stdgo.GoString),
 stdgo.Go.toInterface(_c),
 stdgo.Go.toInterface(_m),
@@ -678,9 +678,9 @@ stdgo.Go.toInterface(_b2));
 function testCMYKGray(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (256 : stdgo.GoInt), _i++, {
+            stdgo.Go.cfor((_i < (256 : stdgo.GoInt) : Bool), _i++, {
                 {
-                    var _err:stdgo.Error = _eq(stdgo.Go.asInterface((new stdgo._internal.image.color.Color.CMYK((0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), ((255 : stdgo.GoInt) - _i : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.CMYK)), stdgo.Go.asInterface((new stdgo._internal.image.color.Color.Gray((_i : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.Gray)));
+                    var _err:stdgo.Error = _eq(stdgo.Go.asInterface((new stdgo._internal.image.color.Color.CMYK((0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (((255 : stdgo.GoInt) - _i : stdgo.GoInt) : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.CMYK)), stdgo.Go.asInterface((new stdgo._internal.image.color.Color.Gray((_i : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.Gray)));
                     if (_err != null) {
                         _t.errorf(("i=0x%02x:\n%v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
                     };
@@ -706,7 +706,7 @@ function benchmarkYCbCrToRGB(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Vo
         _b.run(("0" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                stdgo.Go.cfor(_i < _b.n, _i++, {
+                stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                     {
                         var __tmp__ = ycbCrToRGB((0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8));
                         _sink8 = __tmp__._0;
@@ -719,7 +719,7 @@ function benchmarkYCbCrToRGB(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Vo
         _b.run(("128" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                stdgo.Go.cfor(_i < _b.n, _i++, {
+                stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                     {
                         var __tmp__ = ycbCrToRGB((128 : stdgo.GoUInt8), (128 : stdgo.GoUInt8), (128 : stdgo.GoUInt8));
                         _sink8 = __tmp__._0;
@@ -732,7 +732,7 @@ function benchmarkYCbCrToRGB(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Vo
         _b.run(("255" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                stdgo.Go.cfor(_i < _b.n, _i++, {
+                stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                     {
                         var __tmp__ = ycbCrToRGB((255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8));
                         _sink8 = __tmp__._0;
@@ -747,7 +747,7 @@ function benchmarkRGBToYCbCr(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Vo
         _b.run(("0" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                stdgo.Go.cfor(_i < _b.n, _i++, {
+                stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                     {
                         var __tmp__ = rgbtoYCbCr((0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8));
                         _sink8 = __tmp__._0;
@@ -760,7 +760,7 @@ function benchmarkRGBToYCbCr(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Vo
         _b.run(("Cb" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                stdgo.Go.cfor(_i < _b.n, _i++, {
+                stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                     {
                         var __tmp__ = rgbtoYCbCr((0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (255 : stdgo.GoUInt8));
                         _sink8 = __tmp__._0;
@@ -773,7 +773,7 @@ function benchmarkRGBToYCbCr(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Vo
         _b.run(("Cr" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                stdgo.Go.cfor(_i < _b.n, _i++, {
+                stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                     {
                         var __tmp__ = rgbtoYCbCr((255 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8));
                         _sink8 = __tmp__._0;
@@ -789,7 +789,7 @@ function benchmarkYCbCrToRGBA(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):V
             var _c:stdgo._internal.image.color.Color.YCbCr = (new stdgo._internal.image.color.Color.YCbCr((0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.YCbCr);
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                stdgo.Go.cfor(_i < _b.n, _i++, {
+                stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                     {
                         var __tmp__ = _c.rgba();
                         _sink32 = __tmp__._0;
@@ -804,7 +804,7 @@ function benchmarkYCbCrToRGBA(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):V
             var _c:stdgo._internal.image.color.Color.YCbCr = (new stdgo._internal.image.color.Color.YCbCr((128 : stdgo.GoUInt8), (128 : stdgo.GoUInt8), (128 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.YCbCr);
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                stdgo.Go.cfor(_i < _b.n, _i++, {
+                stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                     {
                         var __tmp__ = _c.rgba();
                         _sink32 = __tmp__._0;
@@ -819,7 +819,7 @@ function benchmarkYCbCrToRGBA(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):V
             var _c:stdgo._internal.image.color.Color.YCbCr = (new stdgo._internal.image.color.Color.YCbCr((255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.YCbCr);
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                stdgo.Go.cfor(_i < _b.n, _i++, {
+                stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                     {
                         var __tmp__ = _c.rgba();
                         _sink32 = __tmp__._0;
@@ -836,7 +836,7 @@ function benchmarkNYCbCrAToRGBA(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>)
             var _c:stdgo._internal.image.color.Color.NYCbCrA = (new stdgo._internal.image.color.Color.NYCbCrA((new stdgo._internal.image.color.Color.YCbCr((0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.YCbCr), (255 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.NYCbCrA);
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                stdgo.Go.cfor(_i < _b.n, _i++, {
+                stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                     {
                         var __tmp__ = _c.rgba();
                         _sink32 = __tmp__._0;
@@ -851,7 +851,7 @@ function benchmarkNYCbCrAToRGBA(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>)
             var _c:stdgo._internal.image.color.Color.NYCbCrA = (new stdgo._internal.image.color.Color.NYCbCrA((new stdgo._internal.image.color.Color.YCbCr((128 : stdgo.GoUInt8), (128 : stdgo.GoUInt8), (128 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.YCbCr), (255 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.NYCbCrA);
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                stdgo.Go.cfor(_i < _b.n, _i++, {
+                stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                     {
                         var __tmp__ = _c.rgba();
                         _sink32 = __tmp__._0;
@@ -866,7 +866,7 @@ function benchmarkNYCbCrAToRGBA(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>)
             var _c:stdgo._internal.image.color.Color.NYCbCrA = (new stdgo._internal.image.color.Color.NYCbCrA((new stdgo._internal.image.color.Color.YCbCr((255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.YCbCr), (255 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.NYCbCrA);
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                stdgo.Go.cfor(_i < _b.n, _i++, {
+                stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                     {
                         var __tmp__ = _c.rgba();
                         _sink32 = __tmp__._0;
@@ -895,13 +895,13 @@ class RGBA_asInterface {
         @:recv var _c:RGBA = _c?.__copy__();
         var _r:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _g:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _b:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _a:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         _r = (_c.r : stdgo.GoUInt32);
-        _r = _r | (_r << (8i64 : stdgo.GoUInt64));
+        _r = (_r | ((_r << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
         _g = (_c.g : stdgo.GoUInt32);
-        _g = _g | (_g << (8i64 : stdgo.GoUInt64));
+        _g = (_g | ((_g << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
         _b = (_c.b : stdgo.GoUInt32);
-        _b = _b | (_b << (8i64 : stdgo.GoUInt64));
+        _b = (_b | ((_b << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
         _a = (_c.a : stdgo.GoUInt32);
-        _a = _a | (_a << (8i64 : stdgo.GoUInt64));
+        _a = (_a | ((_a << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
         return { _0 : _r, _1 : _g, _2 : _b, _3 : _a };
     }
 }
@@ -941,19 +941,19 @@ class NRGBA_asInterface {
         @:recv var _c:NRGBA = _c?.__copy__();
         var _r:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _g:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _b:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _a:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         _r = (_c.r : stdgo.GoUInt32);
-        _r = _r | (_r << (8i64 : stdgo.GoUInt64));
-        _r = _r * ((_c.a : stdgo.GoUInt32));
-        _r = _r / ((255u32 : stdgo.GoUInt32));
+        _r = (_r | ((_r << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
+        _r = (_r * ((_c.a : stdgo.GoUInt32)) : stdgo.GoUInt32);
+        _r = (_r / ((255u32 : stdgo.GoUInt32)) : stdgo.GoUInt32);
         _g = (_c.g : stdgo.GoUInt32);
-        _g = _g | (_g << (8i64 : stdgo.GoUInt64));
-        _g = _g * ((_c.a : stdgo.GoUInt32));
-        _g = _g / ((255u32 : stdgo.GoUInt32));
+        _g = (_g | ((_g << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
+        _g = (_g * ((_c.a : stdgo.GoUInt32)) : stdgo.GoUInt32);
+        _g = (_g / ((255u32 : stdgo.GoUInt32)) : stdgo.GoUInt32);
         _b = (_c.b : stdgo.GoUInt32);
-        _b = _b | (_b << (8i64 : stdgo.GoUInt64));
-        _b = _b * ((_c.a : stdgo.GoUInt32));
-        _b = _b / ((255u32 : stdgo.GoUInt32));
+        _b = (_b | ((_b << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
+        _b = (_b * ((_c.a : stdgo.GoUInt32)) : stdgo.GoUInt32);
+        _b = (_b / ((255u32 : stdgo.GoUInt32)) : stdgo.GoUInt32);
         _a = (_c.a : stdgo.GoUInt32);
-        _a = _a | (_a << (8i64 : stdgo.GoUInt64));
+        _a = (_a | ((_a << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
         return { _0 : _r, _1 : _g, _2 : _b, _3 : _a };
     }
 }
@@ -974,14 +974,14 @@ class NRGBA64_asInterface {
         @:recv var _c:NRGBA64 = _c?.__copy__();
         var _r:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _g:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _b:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _a:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         _r = (_c.r : stdgo.GoUInt32);
-        _r = _r * ((_c.a : stdgo.GoUInt32));
-        _r = _r / ((65535u32 : stdgo.GoUInt32));
+        _r = (_r * ((_c.a : stdgo.GoUInt32)) : stdgo.GoUInt32);
+        _r = (_r / ((65535u32 : stdgo.GoUInt32)) : stdgo.GoUInt32);
         _g = (_c.g : stdgo.GoUInt32);
-        _g = _g * ((_c.a : stdgo.GoUInt32));
-        _g = _g / ((65535u32 : stdgo.GoUInt32));
+        _g = (_g * ((_c.a : stdgo.GoUInt32)) : stdgo.GoUInt32);
+        _g = (_g / ((65535u32 : stdgo.GoUInt32)) : stdgo.GoUInt32);
         _b = (_c.b : stdgo.GoUInt32);
-        _b = _b * ((_c.a : stdgo.GoUInt32));
-        _b = _b / ((65535u32 : stdgo.GoUInt32));
+        _b = (_b * ((_c.a : stdgo.GoUInt32)) : stdgo.GoUInt32);
+        _b = (_b / ((65535u32 : stdgo.GoUInt32)) : stdgo.GoUInt32);
         _a = (_c.a : stdgo.GoUInt32);
         return { _0 : _r, _1 : _g, _2 : _b, _3 : _a };
     }
@@ -1003,7 +1003,7 @@ class Alpha_asInterface {
         @:recv var _c:Alpha = _c?.__copy__();
         var _r:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _g:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _b:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _a:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         _a = (_c.a : stdgo.GoUInt32);
-        _a = _a | (_a << (8i64 : stdgo.GoUInt64));
+        _a = (_a | ((_a << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
         return { _0 : _a, _1 : _a, _2 : _a, _3 : _a };
     }
 }
@@ -1044,7 +1044,7 @@ class Gray_asInterface {
         @:recv var _c:Gray = _c?.__copy__();
         var _r:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _g:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _b:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _a:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _y:stdgo.GoUInt32 = (_c.y : stdgo.GoUInt32);
-        _y = _y | (_y << (8i64 : stdgo.GoUInt64));
+        _y = (_y | ((_y << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
         return { _0 : _y, _1 : _y, _2 : _y, _3 : (65535u32 : stdgo.GoUInt32) };
     }
 }
@@ -1101,26 +1101,26 @@ class YCbCr_asInterface {
     @:keep
     static public function rgba( _c:YCbCr):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
         @:recv var _c:YCbCr = _c?.__copy__();
-        var _yy1:stdgo.GoInt32 = (_c.y : stdgo.GoInt32) * (65793 : stdgo.GoInt32);
-        var _cb1:stdgo.GoInt32 = (_c.cb : stdgo.GoInt32) - (128 : stdgo.GoInt32);
-        var _cr1:stdgo.GoInt32 = (_c.cr : stdgo.GoInt32) - (128 : stdgo.GoInt32);
-        var _r:stdgo.GoInt32 = _yy1 + ((91881 : stdgo.GoInt32) * _cr1);
-        if ((_r : stdgo.GoUInt32) & (-16777216u32 : stdgo.GoUInt32) == ((0u32 : stdgo.GoUInt32))) {
-            _r = _r >> ((8i64 : stdgo.GoUInt64));
+        var _yy1:stdgo.GoInt32 = ((_c.y : stdgo.GoInt32) * (65793 : stdgo.GoInt32) : stdgo.GoInt32);
+        var _cb1:stdgo.GoInt32 = ((_c.cb : stdgo.GoInt32) - (128 : stdgo.GoInt32) : stdgo.GoInt32);
+        var _cr1:stdgo.GoInt32 = ((_c.cr : stdgo.GoInt32) - (128 : stdgo.GoInt32) : stdgo.GoInt32);
+        var _r:stdgo.GoInt32 = (_yy1 + ((91881 : stdgo.GoInt32) * _cr1 : stdgo.GoInt32) : stdgo.GoInt32);
+        if (((_r : stdgo.GoUInt32) & (-16777216u32 : stdgo.GoUInt32) : stdgo.GoUInt32) == ((0u32 : stdgo.GoUInt32))) {
+            _r = (_r >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoInt32);
         } else {
-            _r = (-1 ^ (_r >> (31i64 : stdgo.GoUInt64))) & (65535 : stdgo.GoInt32);
+            _r = ((-1 ^ (_r >> (31i64 : stdgo.GoUInt64) : stdgo.GoInt32)) & (65535 : stdgo.GoInt32) : stdgo.GoInt32);
         };
-        var _g:stdgo.GoInt32 = (_yy1 - ((22554 : stdgo.GoInt32) * _cb1)) - ((46802 : stdgo.GoInt32) * _cr1);
-        if ((_g : stdgo.GoUInt32) & (-16777216u32 : stdgo.GoUInt32) == ((0u32 : stdgo.GoUInt32))) {
-            _g = _g >> ((8i64 : stdgo.GoUInt64));
+        var _g:stdgo.GoInt32 = ((_yy1 - ((22554 : stdgo.GoInt32) * _cb1 : stdgo.GoInt32) : stdgo.GoInt32) - ((46802 : stdgo.GoInt32) * _cr1 : stdgo.GoInt32) : stdgo.GoInt32);
+        if (((_g : stdgo.GoUInt32) & (-16777216u32 : stdgo.GoUInt32) : stdgo.GoUInt32) == ((0u32 : stdgo.GoUInt32))) {
+            _g = (_g >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoInt32);
         } else {
-            _g = (-1 ^ (_g >> (31i64 : stdgo.GoUInt64))) & (65535 : stdgo.GoInt32);
+            _g = ((-1 ^ (_g >> (31i64 : stdgo.GoUInt64) : stdgo.GoInt32)) & (65535 : stdgo.GoInt32) : stdgo.GoInt32);
         };
-        var _b:stdgo.GoInt32 = _yy1 + ((116130 : stdgo.GoInt32) * _cb1);
-        if ((_b : stdgo.GoUInt32) & (-16777216u32 : stdgo.GoUInt32) == ((0u32 : stdgo.GoUInt32))) {
-            _b = _b >> ((8i64 : stdgo.GoUInt64));
+        var _b:stdgo.GoInt32 = (_yy1 + ((116130 : stdgo.GoInt32) * _cb1 : stdgo.GoInt32) : stdgo.GoInt32);
+        if (((_b : stdgo.GoUInt32) & (-16777216u32 : stdgo.GoUInt32) : stdgo.GoUInt32) == ((0u32 : stdgo.GoUInt32))) {
+            _b = (_b >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoInt32);
         } else {
-            _b = (-1 ^ (_b >> (31i64 : stdgo.GoUInt64))) & (65535 : stdgo.GoInt32);
+            _b = ((-1 ^ (_b >> (31i64 : stdgo.GoUInt64) : stdgo.GoInt32)) & (65535 : stdgo.GoInt32) : stdgo.GoInt32);
         };
         return { _0 : (_r : stdgo.GoUInt32), _1 : (_g : stdgo.GoUInt32), _2 : (_b : stdgo.GoUInt32), _3 : (65535u32 : stdgo.GoUInt32) };
     }
@@ -1140,29 +1140,29 @@ class NYCbCrA_asInterface {
     @:keep
     static public function rgba( _c:NYCbCrA):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
         @:recv var _c:NYCbCrA = _c?.__copy__();
-        var _yy1:stdgo.GoInt32 = (_c.ycbCr.y : stdgo.GoInt32) * (65793 : stdgo.GoInt32);
-        var _cb1:stdgo.GoInt32 = (_c.ycbCr.cb : stdgo.GoInt32) - (128 : stdgo.GoInt32);
-        var _cr1:stdgo.GoInt32 = (_c.ycbCr.cr : stdgo.GoInt32) - (128 : stdgo.GoInt32);
-        var _r:stdgo.GoInt32 = _yy1 + ((91881 : stdgo.GoInt32) * _cr1);
-        if ((_r : stdgo.GoUInt32) & (-16777216u32 : stdgo.GoUInt32) == ((0u32 : stdgo.GoUInt32))) {
-            _r = _r >> ((8i64 : stdgo.GoUInt64));
+        var _yy1:stdgo.GoInt32 = ((_c.ycbCr.y : stdgo.GoInt32) * (65793 : stdgo.GoInt32) : stdgo.GoInt32);
+        var _cb1:stdgo.GoInt32 = ((_c.ycbCr.cb : stdgo.GoInt32) - (128 : stdgo.GoInt32) : stdgo.GoInt32);
+        var _cr1:stdgo.GoInt32 = ((_c.ycbCr.cr : stdgo.GoInt32) - (128 : stdgo.GoInt32) : stdgo.GoInt32);
+        var _r:stdgo.GoInt32 = (_yy1 + ((91881 : stdgo.GoInt32) * _cr1 : stdgo.GoInt32) : stdgo.GoInt32);
+        if (((_r : stdgo.GoUInt32) & (-16777216u32 : stdgo.GoUInt32) : stdgo.GoUInt32) == ((0u32 : stdgo.GoUInt32))) {
+            _r = (_r >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoInt32);
         } else {
-            _r = (-1 ^ (_r >> (31i64 : stdgo.GoUInt64))) & (65535 : stdgo.GoInt32);
+            _r = ((-1 ^ (_r >> (31i64 : stdgo.GoUInt64) : stdgo.GoInt32)) & (65535 : stdgo.GoInt32) : stdgo.GoInt32);
         };
-        var _g:stdgo.GoInt32 = (_yy1 - ((22554 : stdgo.GoInt32) * _cb1)) - ((46802 : stdgo.GoInt32) * _cr1);
-        if ((_g : stdgo.GoUInt32) & (-16777216u32 : stdgo.GoUInt32) == ((0u32 : stdgo.GoUInt32))) {
-            _g = _g >> ((8i64 : stdgo.GoUInt64));
+        var _g:stdgo.GoInt32 = ((_yy1 - ((22554 : stdgo.GoInt32) * _cb1 : stdgo.GoInt32) : stdgo.GoInt32) - ((46802 : stdgo.GoInt32) * _cr1 : stdgo.GoInt32) : stdgo.GoInt32);
+        if (((_g : stdgo.GoUInt32) & (-16777216u32 : stdgo.GoUInt32) : stdgo.GoUInt32) == ((0u32 : stdgo.GoUInt32))) {
+            _g = (_g >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoInt32);
         } else {
-            _g = (-1 ^ (_g >> (31i64 : stdgo.GoUInt64))) & (65535 : stdgo.GoInt32);
+            _g = ((-1 ^ (_g >> (31i64 : stdgo.GoUInt64) : stdgo.GoInt32)) & (65535 : stdgo.GoInt32) : stdgo.GoInt32);
         };
-        var _b:stdgo.GoInt32 = _yy1 + ((116130 : stdgo.GoInt32) * _cb1);
-        if ((_b : stdgo.GoUInt32) & (-16777216u32 : stdgo.GoUInt32) == ((0u32 : stdgo.GoUInt32))) {
-            _b = _b >> ((8i64 : stdgo.GoUInt64));
+        var _b:stdgo.GoInt32 = (_yy1 + ((116130 : stdgo.GoInt32) * _cb1 : stdgo.GoInt32) : stdgo.GoInt32);
+        if (((_b : stdgo.GoUInt32) & (-16777216u32 : stdgo.GoUInt32) : stdgo.GoUInt32) == ((0u32 : stdgo.GoUInt32))) {
+            _b = (_b >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoInt32);
         } else {
-            _b = (-1 ^ (_b >> (31i64 : stdgo.GoUInt64))) & (65535 : stdgo.GoInt32);
+            _b = ((-1 ^ (_b >> (31i64 : stdgo.GoUInt64) : stdgo.GoInt32)) & (65535 : stdgo.GoInt32) : stdgo.GoInt32);
         };
-        var _a:stdgo.GoUInt32 = (_c.a : stdgo.GoUInt32) * (257u32 : stdgo.GoUInt32);
-        return { _0 : ((_r : stdgo.GoUInt32) * _a) / (65535u32 : stdgo.GoUInt32), _1 : ((_g : stdgo.GoUInt32) * _a) / (65535u32 : stdgo.GoUInt32), _2 : ((_b : stdgo.GoUInt32) * _a) / (65535u32 : stdgo.GoUInt32), _3 : _a };
+        var _a:stdgo.GoUInt32 = ((_c.a : stdgo.GoUInt32) * (257u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
+        return { _0 : (((_r : stdgo.GoUInt32) * _a : stdgo.GoUInt32) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32), _1 : (((_g : stdgo.GoUInt32) * _a : stdgo.GoUInt32) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32), _2 : (((_b : stdgo.GoUInt32) * _a : stdgo.GoUInt32) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32), _3 : _a };
     }
 }
 class CMYK_asInterface {
@@ -1180,10 +1180,10 @@ class CMYK_asInterface {
     @:keep
     static public function rgba( _c:CMYK):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
         @:recv var _c:CMYK = _c?.__copy__();
-        var _w:stdgo.GoUInt32 = (65535u32 : stdgo.GoUInt32) - ((_c.k : stdgo.GoUInt32) * (257u32 : stdgo.GoUInt32));
-        var _r:stdgo.GoUInt32 = (((65535u32 : stdgo.GoUInt32) - ((_c.c : stdgo.GoUInt32) * (257u32 : stdgo.GoUInt32))) * _w) / (65535u32 : stdgo.GoUInt32);
-        var _g:stdgo.GoUInt32 = (((65535u32 : stdgo.GoUInt32) - ((_c.m : stdgo.GoUInt32) * (257u32 : stdgo.GoUInt32))) * _w) / (65535u32 : stdgo.GoUInt32);
-        var _b:stdgo.GoUInt32 = (((65535u32 : stdgo.GoUInt32) - ((_c.y : stdgo.GoUInt32) * (257u32 : stdgo.GoUInt32))) * _w) / (65535u32 : stdgo.GoUInt32);
+        var _w:stdgo.GoUInt32 = ((65535u32 : stdgo.GoUInt32) - ((_c.k : stdgo.GoUInt32) * (257u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt32);
+        var _r:stdgo.GoUInt32 = (((((65535u32 : stdgo.GoUInt32) - ((_c.c : stdgo.GoUInt32) * (257u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt32)) * _w : stdgo.GoUInt32) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
+        var _g:stdgo.GoUInt32 = (((((65535u32 : stdgo.GoUInt32) - ((_c.m : stdgo.GoUInt32) * (257u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt32)) * _w : stdgo.GoUInt32) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
+        var _b:stdgo.GoUInt32 = (((((65535u32 : stdgo.GoUInt32) - ((_c.y : stdgo.GoUInt32) * (257u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt32)) * _w : stdgo.GoUInt32) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
         return { _0 : _r, _1 : _g, _2 : _b, _3 : (65535u32 : stdgo.GoUInt32) };
     }
 }
@@ -1208,8 +1208,8 @@ class Palette_asInterface {
         var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoUInt32 = (-1u32 : stdgo.GoUInt32), _bestSum:stdgo.GoUInt32 = __1, _ret:stdgo.GoInt = __0;
         for (_i => _v in _p) {
             var __tmp__ = _v.rgba(), _vr:stdgo.GoUInt32 = __tmp__._0, _vg:stdgo.GoUInt32 = __tmp__._1, _vb:stdgo.GoUInt32 = __tmp__._2, _va:stdgo.GoUInt32 = __tmp__._3;
-            var _sum:stdgo.GoUInt32 = ((_sqDiff(_cr, _vr) + _sqDiff(_cg, _vg)) + _sqDiff(_cb, _vb)) + _sqDiff(_ca, _va);
-            if (_sum < _bestSum) {
+            var _sum:stdgo.GoUInt32 = (((_sqDiff(_cr, _vr) + _sqDiff(_cg, _vg) : stdgo.GoUInt32) + _sqDiff(_cb, _vb) : stdgo.GoUInt32) + _sqDiff(_ca, _va) : stdgo.GoUInt32);
+            if ((_sum < _bestSum : Bool)) {
                 if (_sum == ((0u32 : stdgo.GoUInt32))) {
                     return _i;
                 };

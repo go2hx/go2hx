@@ -291,7 +291,7 @@ function testGlobError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testCVE202230630(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var __tmp__ = glob(stdgo._internal.os.Os.dirFS(("." : stdgo.GoString)), ("/*" : stdgo.GoString) + stdgo._internal.strings.Strings.repeat(("/" : stdgo.GoString), (10001 : stdgo.GoInt))?.__copy__()?.__copy__()), __0:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = glob(stdgo._internal.os.Os.dirFS(("." : stdgo.GoString)), (("/*" : stdgo.GoString) + stdgo._internal.strings.Strings.repeat(("/" : stdgo.GoString), (10001 : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__()), __0:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo._internal.path.Path.errBadPattern))) {
             _t.fatalf(("Glob returned err=%v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(stdgo._internal.path.Path.errBadPattern));
         };
@@ -307,7 +307,7 @@ function _contains(_vector:stdgo.Slice<stdgo.GoString>, _s:stdgo.GoString):Bool 
 function testGlobMethod(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _check = function(_desc:stdgo.GoString, _names:stdgo.Slice<stdgo.GoString>, _err:stdgo.Error):Void {
             _t.helper();
-            if (((_err != null) || (_names.length != (1 : stdgo.GoInt))) || (_names[(0 : stdgo.GoInt)] != ("hello.txt" : stdgo.GoString))) {
+            if (((_err != null || (_names.length) != ((1 : stdgo.GoInt)) : Bool) || (_names[(0 : stdgo.GoInt)] != ("hello.txt" : stdgo.GoString)) : Bool)) {
                 _t.errorf(("Glob(%s) = %v, %v, want %v, nil" : stdgo.GoString), stdgo.Go.toInterface(_desc), stdgo.Go.toInterface(_names), stdgo.Go.toInterface(_err), stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ("hello.txt" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)));
             };
         };
@@ -323,7 +323,7 @@ function testGlobMethod(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testReadDir(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _check = function(_desc:stdgo.GoString, _dirs:stdgo.Slice<DirEntry>, _err:stdgo.Error):Void {
             _t.helper();
-            if ((((_err != null) || (_dirs.length != (2 : stdgo.GoInt))) || (_dirs[(0 : stdgo.GoInt)].name() != ("hello.txt" : stdgo.GoString))) || (_dirs[(1 : stdgo.GoInt)].name() != ("sub" : stdgo.GoString))) {
+            if ((((_err != null || (_dirs.length) != ((2 : stdgo.GoInt)) : Bool) || _dirs[(0 : stdgo.GoInt)].name() != (("hello.txt" : stdgo.GoString)) : Bool) || (_dirs[(1 : stdgo.GoInt)].name() != ("sub" : stdgo.GoString)) : Bool)) {
                 var _names:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
                 for (__8 => _d in _dirs) {
                     _names = (_names.__append__(_d.name()?.__copy__()));
@@ -395,7 +395,7 @@ function testFileInfoToDirEntry(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>
     }
 function testReadFile(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var __tmp__ = readFile(stdgo.Go.asInterface((new stdgo._internal.io.fs_test.Fs_test.T_readFileOnly(stdgo.Go.asInterface(_testFsys)) : stdgo._internal.io.fs_test.Fs_test.T_readFileOnly)), ("hello.txt" : stdgo.GoString)), _data:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        if (((_data : stdgo.GoString) != ("hello, world" : stdgo.GoString)) || (_err != null)) {
+        if ((((_data : stdgo.GoString) != ("hello, world" : stdgo.GoString)) || (_err != null) : Bool)) {
             _t.fatalf(("ReadFile(readFileOnly, \"hello.txt\") = %q, %v, want %q, nil" : stdgo.GoString), stdgo.Go.toInterface(_data), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(("hello, world" : stdgo.GoString)));
         };
         {
@@ -403,7 +403,7 @@ function testReadFile(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             _data = __tmp__._0;
             _err = __tmp__._1;
         };
-        if (((_data : stdgo.GoString) != ("hello, world" : stdgo.GoString)) || (_err != null)) {
+        if ((((_data : stdgo.GoString) != ("hello, world" : stdgo.GoString)) || (_err != null) : Bool)) {
             _t.fatalf(("ReadFile(openOnly, \"hello.txt\") = %q, %v, want %q, nil" : stdgo.GoString), stdgo.Go.toInterface(_data), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(("hello, world" : stdgo.GoString)));
         };
         var __tmp__ = sub(stdgo.Go.asInterface(_testFsys), ("." : stdgo.GoString)), _sub:stdgo._internal.io.fs.Fs.FS = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -415,14 +415,14 @@ function testReadFile(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             _data = __tmp__._0;
             _err = __tmp__._1;
         };
-        if (((_data : stdgo.GoString) != ("hello, world" : stdgo.GoString)) || (_err != null)) {
+        if ((((_data : stdgo.GoString) != ("hello, world" : stdgo.GoString)) || (_err != null) : Bool)) {
             _t.fatalf(("ReadFile(sub(.), \"hello.txt\") = %q, %v, want %q, nil" : stdgo.GoString), stdgo.Go.toInterface(_data), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(("hello, world" : stdgo.GoString)));
         };
     }
 function testStat(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _check:(stdgo.GoString, stdgo._internal.io.fs.Fs.FileInfo, stdgo.Error) -> Void = function(_desc:stdgo.GoString, _info:FileInfo, _err:stdgo.Error):Void {
             _t.helper();
-            if (((_err != null) || (_info == null)) || (_info.mode() != (302u32 : stdgo._internal.io.fs.Fs.FileMode))) {
+            if (((_err != null || _info == null : Bool) || (_info.mode() != (302u32 : stdgo._internal.io.fs.Fs.FileMode)) : Bool)) {
                 var _infoStr:stdgo.GoString = ("<nil>" : stdgo.GoString);
                 if (_info != null) {
                     _infoStr = stdgo._internal.fmt.Fmt.sprintf(("FileInfo(Mode: %#o)" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_info.mode())))?.__copy__();
@@ -447,11 +447,11 @@ function testSub(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 return;
             };
             var __tmp__ = readFile(_sub, ("goodbye.txt" : stdgo.GoString)), _data:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-            if (((_data : stdgo.GoString) != ("goodbye, world" : stdgo.GoString)) || (_err != null)) {
+            if ((((_data : stdgo.GoString) != ("goodbye, world" : stdgo.GoString)) || (_err != null) : Bool)) {
                 _t.errorf(("ReadFile(%s, \"goodbye.txt\" = %q, %v, want %q, nil" : stdgo.GoString), stdgo.Go.toInterface(_desc), stdgo.Go.toInterface((_data : stdgo.GoString)), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(("goodbye, world" : stdgo.GoString)));
             };
             var __tmp__ = readDir(_sub, ("." : stdgo.GoString)), _dirs:stdgo.Slice<stdgo._internal.io.fs.Fs.DirEntry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-            if (((_err != null) || (_dirs.length != (1 : stdgo.GoInt))) || (_dirs[(0 : stdgo.GoInt)].name() != ("goodbye.txt" : stdgo.GoString))) {
+            if (((_err != null || (_dirs.length) != ((1 : stdgo.GoInt)) : Bool) || (_dirs[(0 : stdgo.GoInt)].name() != ("goodbye.txt" : stdgo.GoString)) : Bool)) {
                 var _names:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
                 for (__24 => _d in _dirs) {
                     _names = (_names.__append__(_d.name()?.__copy__()));

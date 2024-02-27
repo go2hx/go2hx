@@ -796,10 +796,10 @@ ptrToThis);
 @:named typedef TextOff = stdgo.GoInt32;
 @:named typedef ChanDir = stdgo.GoInt;
 function commonSize(_ptrSize:stdgo.GoInt):stdgo.GoInt {
-        return (((4 : stdgo.GoInt) * _ptrSize) + (8 : stdgo.GoInt)) + (8 : stdgo.GoInt);
+        return ((((4 : stdgo.GoInt) * _ptrSize : stdgo.GoInt) + (8 : stdgo.GoInt) : stdgo.GoInt) + (8 : stdgo.GoInt) : stdgo.GoInt);
     }
 function structFieldSize(_ptrSize:stdgo.GoInt):stdgo.GoInt {
-        return (3 : stdgo.GoInt) * _ptrSize;
+        return ((3 : stdgo.GoInt) * _ptrSize : stdgo.GoInt);
     }
 function uncommonSize():stdgo.GoUInt64 {
         return (16i64 : stdgo.GoUInt64);
@@ -808,7 +808,7 @@ function imethodSize(_ptrSize:stdgo.GoInt):stdgo.GoInt {
         return (8 : stdgo.GoInt);
     }
 function kindOff(_ptrSize:stdgo.GoInt):stdgo.GoInt {
-        return ((2 : stdgo.GoInt) * _ptrSize) + (7 : stdgo.GoInt);
+        return (((2 : stdgo.GoInt) * _ptrSize : stdgo.GoInt) + (7 : stdgo.GoInt) : stdgo.GoInt);
     }
 function sizeOff(_ptrSize:stdgo.GoInt):stdgo.GoInt {
         return (0 : stdgo.GoInt);
@@ -817,11 +817,11 @@ function ptrBytesOff(_ptrSize:stdgo.GoInt):stdgo.GoInt {
         return _ptrSize;
     }
 function tflagOff(_ptrSize:stdgo.GoInt):stdgo.GoInt {
-        return ((2 : stdgo.GoInt) * _ptrSize) + (4 : stdgo.GoInt);
+        return (((2 : stdgo.GoInt) * _ptrSize : stdgo.GoInt) + (4 : stdgo.GoInt) : stdgo.GoInt);
     }
 function newOffset(_ptrSize:stdgo.GoUInt8, _twoWordAlignSlices:Bool):Offset {
         if (_twoWordAlignSlices) {
-            return ({ _off : (0i64 : stdgo.GoUInt64), _align : (1 : stdgo.GoUInt8), _ptrSize : _ptrSize, _sliceAlign : (2 : stdgo.GoUInt8) * _ptrSize } : stdgo._internal.internal.abi.Abi.Offset);
+            return ({ _off : (0i64 : stdgo.GoUInt64), _align : (1 : stdgo.GoUInt8), _ptrSize : _ptrSize, _sliceAlign : ((2 : stdgo.GoUInt8) * _ptrSize : stdgo.GoUInt8) } : stdgo._internal.internal.abi.Abi.Offset);
         };
         return ({ _off : (0i64 : stdgo.GoUInt64), _align : (1 : stdgo.GoUInt8), _ptrSize : _ptrSize, _sliceAlign : _ptrSize } : stdgo._internal.internal.abi.Abi.Offset);
     }
@@ -829,7 +829,7 @@ function _assertIsAPowerOfTwo(_x:stdgo.GoUInt8):Void {
         if (_x == ((0 : stdgo.GoUInt8))) {
             throw stdgo.Go.toInterface(("Zero is not a power of two" : stdgo.GoString));
         };
-        if (_x & -_x == (_x)) {
+        if ((_x & -_x : stdgo.GoUInt8) == (_x)) {
             return;
         };
         throw stdgo.Go.toInterface(("Not a power of two" : stdgo.GoString));
@@ -853,51 +853,51 @@ function funcPCABIInternal(_f:stdgo.AnyInterface):stdgo.GoUIntptr {
         throw "not implemented: funcPCABIInternal";
     }
 function _addChecked(_p:stdgo._internal.unsafe.Unsafe.UnsafePointer, _x:stdgo.GoUIntptr, _whySafe:stdgo.GoString):stdgo._internal.unsafe.Unsafe.UnsafePointer {
-        return (stdgo.Go.toInterface(((_p.__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) + _x)) : stdgo._internal.unsafe.Unsafe.UnsafePointer);
+        return (stdgo.Go.toInterface(((_p.__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) + _x : stdgo.GoUIntptr)) : stdgo._internal.unsafe.Unsafe.UnsafePointer);
     }
 function _writeVarint(_buf:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):stdgo.GoInt {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor(true, _i++, {
-                var _b:stdgo.GoUInt8 = (_n & (127 : stdgo.GoInt) : stdgo.GoByte);
-                _n = _n >> ((7i64 : stdgo.GoUInt64));
+                var _b:stdgo.GoUInt8 = ((_n & (127 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoByte);
+                _n = (_n >> ((7i64 : stdgo.GoUInt64)) : stdgo.GoInt);
                 if (_n == ((0 : stdgo.GoInt))) {
                     _buf[(_i : stdgo.GoInt)] = _b;
-                    return _i + (1 : stdgo.GoInt);
+                    return (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
                 };
-                _buf[(_i : stdgo.GoInt)] = _b | (128 : stdgo.GoUInt8);
+                _buf[(_i : stdgo.GoInt)] = (_b | (128 : stdgo.GoUInt8) : stdgo.GoUInt8);
             });
         };
     }
 function newName(_n:stdgo.GoString, _tag:stdgo.GoString, _exported:Bool, _embedded:Bool):Name {
-        if ((_n.length) >= (536870912 : stdgo.GoInt)) {
-            throw stdgo.Go.toInterface(("abi.NewName: name too long: " : stdgo.GoString) + (_n.__slice__(0, (1024 : stdgo.GoInt)) : stdgo.GoString)?.__copy__() + ("..." : stdgo.GoString)?.__copy__());
+        if (((_n.length) >= (536870912 : stdgo.GoInt) : Bool)) {
+            throw stdgo.Go.toInterface(((("abi.NewName: name too long: " : stdgo.GoString) + (_n.__slice__(0, (1024 : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString) + ("..." : stdgo.GoString)?.__copy__() : stdgo.GoString));
         };
-        if ((_tag.length) >= (536870912 : stdgo.GoInt)) {
-            throw stdgo.Go.toInterface(("abi.NewName: tag too long: " : stdgo.GoString) + (_tag.__slice__(0, (1024 : stdgo.GoInt)) : stdgo.GoString)?.__copy__() + ("..." : stdgo.GoString)?.__copy__());
+        if (((_tag.length) >= (536870912 : stdgo.GoInt) : Bool)) {
+            throw stdgo.Go.toInterface(((("abi.NewName: tag too long: " : stdgo.GoString) + (_tag.__slice__(0, (1024 : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString) + ("..." : stdgo.GoString)?.__copy__() : stdgo.GoString));
         };
         var _nameLen:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 10) (0 : stdgo.GoUInt8)]);
         var _tagLen:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 10) (0 : stdgo.GoUInt8)]);
         var _nameLenLen:stdgo.GoInt = _writeVarint((_nameLen.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_n.length));
         var _tagLenLen:stdgo.GoInt = _writeVarint((_tagLen.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_tag.length));
         var _bits:stdgo.GoByte = (0 : stdgo.GoUInt8);
-        var _l:stdgo.GoInt = ((1 : stdgo.GoInt) + _nameLenLen) + (_n.length);
+        var _l:stdgo.GoInt = (((1 : stdgo.GoInt) + _nameLenLen : stdgo.GoInt) + (_n.length) : stdgo.GoInt);
         if (_exported) {
-            _bits = _bits | ((1 : stdgo.GoUInt8));
+            _bits = (_bits | ((1 : stdgo.GoUInt8)) : stdgo.GoUInt8);
         };
-        if ((_tag.length) > (0 : stdgo.GoInt)) {
-            _l = _l + (_tagLenLen + _tag.length);
-            _bits = _bits | ((2 : stdgo.GoUInt8));
+        if (((_tag.length) > (0 : stdgo.GoInt) : Bool)) {
+            _l = (_l + ((_tagLenLen + (_tag.length) : stdgo.GoInt)) : stdgo.GoInt);
+            _bits = (_bits | ((2 : stdgo.GoUInt8)) : stdgo.GoUInt8);
         };
         if (_embedded) {
-            _bits = _bits | ((8 : stdgo.GoUInt8));
+            _bits = (_bits | ((8 : stdgo.GoUInt8)) : stdgo.GoUInt8);
         };
         var _b = new stdgo.Slice<stdgo.GoUInt8>((_l : stdgo.GoInt).toBasic(), 0).__setNumber32__();
         _b[(0 : stdgo.GoInt)] = _bits;
         stdgo.Go.copySlice((_b.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_nameLen.__slice__(0, _nameLenLen) : stdgo.Slice<stdgo.GoUInt8>));
-        stdgo.Go.copySlice((_b.__slice__((1 : stdgo.GoInt) + _nameLenLen) : stdgo.Slice<stdgo.GoUInt8>), _n);
-        if ((_tag.length) > (0 : stdgo.GoInt)) {
-            var _tb = (_b.__slice__(((1 : stdgo.GoInt) + _nameLenLen) + (_n.length)) : stdgo.Slice<stdgo.GoUInt8>);
+        stdgo.Go.copySlice((_b.__slice__(((1 : stdgo.GoInt) + _nameLenLen : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _n);
+        if (((_tag.length) > (0 : stdgo.GoInt) : Bool)) {
+            var _tb = (_b.__slice__((((1 : stdgo.GoInt) + _nameLenLen : stdgo.GoInt) + (_n.length) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
             stdgo.Go.copySlice(_tb, (_tagLen.__slice__(0, _tagLenLen) : stdgo.Slice<stdgo.GoUInt8>));
             stdgo.Go.copySlice((_tb.__slice__(_tagLenLen) : stdgo.Slice<stdgo.GoUInt8>), _tag);
         };
@@ -926,14 +926,14 @@ class RegArgs_asInterface {
     @:keep
     static public function intRegArgAddr( _r:stdgo.Ref<RegArgs>, _reg:stdgo.GoInt, _argSize:stdgo.GoUIntptr):stdgo._internal.unsafe.Unsafe.UnsafePointer {
         @:recv var _r:stdgo.Ref<RegArgs> = _r;
-        if (((_argSize > (4 : stdgo.GoUIntptr)) || (_argSize == (0 : stdgo.GoUIntptr))) || ((_argSize & (_argSize - (1 : stdgo.GoUIntptr))) != (0 : stdgo.GoUIntptr))) {
+        if ((((_argSize > (4 : stdgo.GoUIntptr) : Bool) || _argSize == ((0 : stdgo.GoUIntptr)) : Bool) || ((_argSize & ((_argSize - (1 : stdgo.GoUIntptr) : stdgo.GoUIntptr)) : stdgo.GoUIntptr) != (0 : stdgo.GoUIntptr)) : Bool)) {
             throw stdgo.Go.toInterface(("invalid argSize" : stdgo.GoString));
         };
         var _offset:stdgo.GoUIntptr = (0 : stdgo.GoUIntptr);
         if (false) {
-            _offset = (4 : stdgo.GoUIntptr) - _argSize;
+            _offset = ((4 : stdgo.GoUIntptr) - _argSize : stdgo.GoUIntptr);
         };
-        return (stdgo.Go.toInterface((((stdgo.Go.toInterface(stdgo.Go.pointer(_r.ints[(_reg : stdgo.GoInt)])) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) + _offset)) : stdgo._internal.unsafe.Unsafe.UnsafePointer);
+        return (stdgo.Go.toInterface((((stdgo.Go.toInterface(stdgo.Go.pointer(_r.ints[(_reg : stdgo.GoInt)])) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) + _offset : stdgo.GoUIntptr)) : stdgo._internal.unsafe.Unsafe.UnsafePointer);
     }
     @:keep
     static public function dump( _r:stdgo.Ref<RegArgs>):Void {
@@ -994,7 +994,7 @@ class Offset_asInterface {
     @:keep
     static public function plusUncommon( _o:Offset):Offset {
         @:recv var _o:Offset = _o?.__copy__();
-        _o._off = _o._off + (uncommonSize());
+        _o._off = (_o._off + (uncommonSize()) : stdgo.GoUInt64);
         return _o?.__copy__();
     }
     @:keep
@@ -1006,21 +1006,21 @@ class Offset_asInterface {
     static public function interface_( _o:Offset):Offset {
         @:recv var _o:Offset = _o?.__copy__();
         _o = _o._align_(_o._sliceAlign)?.__copy__();
-        _o._off = _o._off + ((2i64 : stdgo.GoUInt64) * (_o._ptrSize : stdgo.GoUInt64));
+        _o._off = (_o._off + (((2i64 : stdgo.GoUInt64) * (_o._ptrSize : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
         return _o?.__copy__();
     }
     @:keep
     static public function string( _o:Offset):Offset {
         @:recv var _o:Offset = _o?.__copy__();
         _o = _o._align_(_o._sliceAlign)?.__copy__();
-        _o._off = _o._off + ((2i64 : stdgo.GoUInt64) * (_o._ptrSize : stdgo.GoUInt64));
+        _o._off = (_o._off + (((2i64 : stdgo.GoUInt64) * (_o._ptrSize : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
         return _o?.__copy__();
     }
     @:keep
     static public function slice( _o:Offset):Offset {
         @:recv var _o:Offset = _o?.__copy__();
         _o = _o._align_(_o._sliceAlign)?.__copy__();
-        _o._off = _o._off + ((3i64 : stdgo.GoUInt64) * (_o._ptrSize : stdgo.GoUInt64));
+        _o._off = (_o._off + (((3i64 : stdgo.GoUInt64) * (_o._ptrSize : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
         return _o.align(_o._sliceAlign)?.__copy__();
     }
     @:keep
@@ -1055,7 +1055,7 @@ class Offset_asInterface {
     static public function _plus( _o:Offset, _x:stdgo.GoUInt64):Offset {
         @:recv var _o:Offset = _o?.__copy__();
         _o = _o._align_((_x : stdgo.GoUInt8))?.__copy__();
-        _o._off = _o._off + (_x);
+        _o._off = (_o._off + (_x) : stdgo.GoUInt64);
         return _o?.__copy__();
     }
     @:keep
@@ -1067,8 +1067,8 @@ class Offset_asInterface {
     @:keep
     static public function _align_( _o:Offset, _a:stdgo.GoUInt8):Offset {
         @:recv var _o:Offset = _o?.__copy__();
-        _o._off = ((_o._off + (_a : stdgo.GoUInt64)) - (1i64 : stdgo.GoUInt64)) & (-1 ^ ((_a : stdgo.GoUInt64) - (1i64 : stdgo.GoUInt64)));
-        if (_o._align < _a) {
+        _o._off = ((((_o._off + (_a : stdgo.GoUInt64) : stdgo.GoUInt64) - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) & (-1 ^ ((_a : stdgo.GoUInt64) - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
+        if ((_o._align < _a : Bool)) {
             _o._align = _a;
         };
         return _o?.__copy__();
@@ -1555,7 +1555,7 @@ class Type__asInterface {
     @:keep
     static public function uncommon( _t:stdgo.Ref<Type_>):stdgo.Ref<UncommonType> {
         @:recv var _t:stdgo.Ref<Type_> = _t;
-        if (_t.tflag & (1 : stdgo._internal.internal.abi.Abi.TFlag) == ((0 : stdgo._internal.internal.abi.Abi.TFlag))) {
+        if ((_t.tflag & (1 : stdgo._internal.internal.abi.Abi.TFlag) : stdgo._internal.internal.abi.Abi.TFlag) == ((0 : stdgo._internal.internal.abi.Abi.TFlag))) {
             return null;
         };
         {
@@ -1872,12 +1872,12 @@ class Type__asInterface {
     @:keep
     static public function isDirectIface( _t:stdgo.Ref<Type_>):Bool {
         @:recv var _t:stdgo.Ref<Type_> = _t;
-        return _t.kind_ & (32 : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
+        return (_t.kind_ & (32 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
     }
     @:keep
     static public function ifaceIndir( _t:stdgo.Ref<Type_>):Bool {
         @:recv var _t:stdgo.Ref<Type_> = _t;
-        return _t.kind_ & (32 : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8));
+        return (_t.kind_ & (32 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8));
     }
     @:keep
     static public function pointers( _t:stdgo.Ref<Type_>):Bool {
@@ -1887,12 +1887,12 @@ class Type__asInterface {
     @:keep
     static public function hasName( _t:stdgo.Ref<Type_>):Bool {
         @:recv var _t:stdgo.Ref<Type_> = _t;
-        return _t.tflag & (4 : stdgo._internal.internal.abi.Abi.TFlag) != ((0 : stdgo._internal.internal.abi.Abi.TFlag));
+        return (_t.tflag & (4 : stdgo._internal.internal.abi.Abi.TFlag) : stdgo._internal.internal.abi.Abi.TFlag) != ((0 : stdgo._internal.internal.abi.Abi.TFlag));
     }
     @:keep
     static public function kind( _t:stdgo.Ref<Type_>):Kind {
         @:recv var _t:stdgo.Ref<Type_> = _t;
-        return (_t.kind_ & (31 : stdgo.GoUInt8) : Kind);
+        return ((_t.kind_ & (31 : stdgo.GoUInt8) : stdgo.GoUInt8) : Kind);
     }
 }
 @:structInit class T_uncommon_43___localname___u {
@@ -2830,27 +2830,27 @@ class MapType_asInterface {
     @:keep
     static public function hashMightPanic( _mt:stdgo.Ref<MapType>):Bool {
         @:recv var _mt:stdgo.Ref<MapType> = _mt;
-        return _mt.flags & (16u32 : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32));
+        return (_mt.flags & (16u32 : stdgo.GoUInt32) : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32));
     }
     @:keep
     static public function needKeyUpdate( _mt:stdgo.Ref<MapType>):Bool {
         @:recv var _mt:stdgo.Ref<MapType> = _mt;
-        return _mt.flags & (8u32 : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32));
+        return (_mt.flags & (8u32 : stdgo.GoUInt32) : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32));
     }
     @:keep
     static public function reflexiveKey( _mt:stdgo.Ref<MapType>):Bool {
         @:recv var _mt:stdgo.Ref<MapType> = _mt;
-        return _mt.flags & (4u32 : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32));
+        return (_mt.flags & (4u32 : stdgo.GoUInt32) : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32));
     }
     @:keep
     static public function indirectElem( _mt:stdgo.Ref<MapType>):Bool {
         @:recv var _mt:stdgo.Ref<MapType> = _mt;
-        return _mt.flags & (2u32 : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32));
+        return (_mt.flags & (2u32 : stdgo.GoUInt32) : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32));
     }
     @:keep
     static public function indirectKey( _mt:stdgo.Ref<MapType>):Bool {
         @:recv var _mt:stdgo.Ref<MapType> = _mt;
-        return _mt.flags & (1u32 : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32));
+        return (_mt.flags & (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32));
     }
     @:embedded
     public static function uncommon( __self__:MapType):stdgo.Ref<stdgo._internal.internal.abi.Abi.UncommonType> return __self__.uncommon();
@@ -3059,7 +3059,7 @@ class FuncType_asInterface {
     @:keep
     static public function isVariadic( _t:stdgo.Ref<FuncType>):Bool {
         @:recv var _t:stdgo.Ref<FuncType> = _t;
-        return _t.outCount & (32768 : stdgo.GoUInt16) != ((0 : stdgo.GoUInt16));
+        return (_t.outCount & (32768 : stdgo.GoUInt16) : stdgo.GoUInt16) != ((0 : stdgo.GoUInt16));
     }
     @:keep
     static public function outSlice( _t:stdgo.Ref<FuncType>):stdgo.Slice<stdgo.Ref<Type_>> {
@@ -3069,8 +3069,8 @@ class FuncType_asInterface {
             return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.abi.Abi.Type_>>);
         };
         var _uadd:stdgo.GoUIntptr = stdgo._internal.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((_t : stdgo._internal.internal.abi.Abi.FuncType)));
-        if (_t.type.tflag & (1 : stdgo._internal.internal.abi.Abi.TFlag) != ((0 : stdgo._internal.internal.abi.Abi.TFlag))) {
-            _uadd = _uadd + (stdgo._internal.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((new stdgo._internal.internal.abi.Abi.UncommonType() : stdgo._internal.internal.abi.Abi.UncommonType))));
+        if ((_t.type.tflag & (1 : stdgo._internal.internal.abi.Abi.TFlag) : stdgo._internal.internal.abi.Abi.TFlag) != ((0 : stdgo._internal.internal.abi.Abi.TFlag))) {
+            _uadd = (_uadd + (stdgo._internal.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((new stdgo._internal.internal.abi.Abi.UncommonType() : stdgo._internal.internal.abi.Abi.UncommonType)))) : stdgo.GoUIntptr);
         };
         return ((_addChecked((stdgo.Go.toInterface(_t) : stdgo._internal.unsafe.Unsafe.UnsafePointer), _uadd, ("outCount > 0" : stdgo.GoString)).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.internal.abi.Abi.Type_", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
@@ -3083,14 +3083,14 @@ class FuncType_asInterface {
 { name : "equal", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.signature(false, { get : () -> [stdgo._internal.internal.reflect.Reflect.GoType.basic(unsafepointer_kind), stdgo._internal.internal.reflect.Reflect.GoType.basic(unsafepointer_kind)] }, { get : () -> [stdgo._internal.internal.reflect.Reflect.GoType.basic(bool_kind)] }, { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.invalidType }) }, optional : false },
 { name : "gcdata", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false },
 { name : "str", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.internal.abi.Abi.NameOff", [], stdgo._internal.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false },
-{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.internal.abi.Abi.TypeOff", [], stdgo._internal.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, 131072) })) : stdgo.Ref<stdgo.GoArray<stdgo.Ref<Type_>>>).__slice__(_t.inCount, _t.inCount + _outCount, _t.inCount + _outCount) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.abi.Abi.Type_>>);
+{ name : "ptrToThis", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.internal.abi.Abi.TypeOff", [], stdgo._internal.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, 131072) })) : stdgo.Ref<stdgo.GoArray<stdgo.Ref<Type_>>>).__slice__(_t.inCount, (_t.inCount + _outCount : stdgo.GoUInt16), (_t.inCount + _outCount : stdgo.GoUInt16)) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.abi.Abi.Type_>>);
     }
     @:keep
     static public function inSlice( _t:stdgo.Ref<FuncType>):stdgo.Slice<stdgo.Ref<Type_>> {
         @:recv var _t:stdgo.Ref<FuncType> = _t;
         var _uadd:stdgo.GoUIntptr = stdgo._internal.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((_t : stdgo._internal.internal.abi.Abi.FuncType)));
-        if (_t.type.tflag & (1 : stdgo._internal.internal.abi.Abi.TFlag) != ((0 : stdgo._internal.internal.abi.Abi.TFlag))) {
-            _uadd = _uadd + (stdgo._internal.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((new stdgo._internal.internal.abi.Abi.UncommonType() : stdgo._internal.internal.abi.Abi.UncommonType))));
+        if ((_t.type.tflag & (1 : stdgo._internal.internal.abi.Abi.TFlag) : stdgo._internal.internal.abi.Abi.TFlag) != ((0 : stdgo._internal.internal.abi.Abi.TFlag))) {
+            _uadd = (_uadd + (stdgo._internal.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((new stdgo._internal.internal.abi.Abi.UncommonType() : stdgo._internal.internal.abi.Abi.UncommonType)))) : stdgo.GoUIntptr);
         };
         if (_t.inCount == ((0 : stdgo.GoUInt16))) {
             return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.abi.Abi.Type_>>);
@@ -3116,7 +3116,7 @@ class FuncType_asInterface {
     @:keep
     static public function numOut( _t:stdgo.Ref<FuncType>):stdgo.GoInt {
         @:recv var _t:stdgo.Ref<FuncType> = _t;
-        return (_t.outCount & (32767 : stdgo.GoUInt16) : stdgo.GoInt);
+        return ((_t.outCount & (32767 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdgo.GoInt);
     }
     @:keep
     static public function numIn( _t:stdgo.Ref<FuncType>):stdgo.GoInt {
@@ -3420,8 +3420,8 @@ class Name_asInterface {
             return stdgo.Go.str()?.__copy__();
         };
         var __tmp__ = _n.readVarint((1 : stdgo.GoInt)), _i:stdgo.GoInt = __tmp__._0, _l:stdgo.GoInt = __tmp__._1;
-        var __tmp__ = _n.readVarint(((1 : stdgo.GoInt) + _i) + _l), _i2:stdgo.GoInt = __tmp__._0, _l2:stdgo.GoInt = __tmp__._1;
-        return _unsafeStringFor(_n.dataChecked((((1 : stdgo.GoInt) + _i) + _l) + _i2, ("non-empty string" : stdgo.GoString)), _l2)?.__copy__();
+        var __tmp__ = _n.readVarint((((1 : stdgo.GoInt) + _i : stdgo.GoInt) + _l : stdgo.GoInt)), _i2:stdgo.GoInt = __tmp__._0, _l2:stdgo.GoInt = __tmp__._1;
+        return _unsafeStringFor(_n.dataChecked(((((1 : stdgo.GoInt) + _i : stdgo.GoInt) + _l : stdgo.GoInt) + _i2 : stdgo.GoInt), ("non-empty string" : stdgo.GoString)), _l2)?.__copy__();
     }
     @:keep
     static public function name( _n:Name):stdgo.GoString {
@@ -3430,7 +3430,7 @@ class Name_asInterface {
             return stdgo.Go.str()?.__copy__();
         };
         var __tmp__ = _n.readVarint((1 : stdgo.GoInt)), _i:stdgo.GoInt = __tmp__._0, _l:stdgo.GoInt = __tmp__._1;
-        return _unsafeStringFor(_n.dataChecked((1 : stdgo.GoInt) + _i, ("non-empty string" : stdgo.GoString)), _l)?.__copy__();
+        return _unsafeStringFor(_n.dataChecked(((1 : stdgo.GoInt) + _i : stdgo.GoInt), ("non-empty string" : stdgo.GoString)), _l)?.__copy__();
     }
     @:keep
     static public function isBlank( _n:Name):Bool {
@@ -3439,7 +3439,7 @@ class Name_asInterface {
             return false;
         };
         var __tmp__ = _n.readVarint((1 : stdgo.GoInt)), __231:stdgo.GoInt = __tmp__._0, _l:stdgo.GoInt = __tmp__._1;
-        return (_l == (1 : stdgo.GoInt)) && (_n.data((2 : stdgo.GoInt)).value == (95 : stdgo.GoUInt8));
+        return ((_l == (1 : stdgo.GoInt)) && (_n.data((2 : stdgo.GoInt)).value == (95 : stdgo.GoUInt8)) : Bool);
     }
     @:keep
     static public function readVarint( _n:Name, _off:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } {
@@ -3448,10 +3448,10 @@ class Name_asInterface {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor(true, _i++, {
-                var _x:stdgo.GoUInt8 = _n.dataChecked(_off + _i, ("read varint" : stdgo.GoString)).value;
-                _v = _v + ((_x & (127 : stdgo.GoUInt8) : stdgo.GoInt) << ((7 : stdgo.GoInt) * _i));
-                if (_x & (128 : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
-                    return { _0 : _i + (1 : stdgo.GoInt), _1 : _v };
+                var _x:stdgo.GoUInt8 = _n.dataChecked((_off + _i : stdgo.GoInt), ("read varint" : stdgo.GoString)).value;
+                _v = (_v + ((((_x & (127 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt) << (((7 : stdgo.GoInt) * _i : stdgo.GoInt)) : stdgo.GoInt)) : stdgo.GoInt);
+                if ((_x & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
+                    return { _0 : (_i + (1 : stdgo.GoInt) : stdgo.GoInt), _1 : _v };
                 };
             });
         };
@@ -3459,17 +3459,17 @@ class Name_asInterface {
     @:keep
     static public function isEmbedded( _n:Name):Bool {
         @:recv var _n:Name = _n?.__copy__();
-        return (_n.bytes.value) & (8 : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
+        return ((_n.bytes.value) & (8 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
     }
     @:keep
     static public function hasTag( _n:Name):Bool {
         @:recv var _n:Name = _n?.__copy__();
-        return (_n.bytes.value) & (2 : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
+        return ((_n.bytes.value) & (2 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
     }
     @:keep
     static public function isExported( _n:Name):Bool {
         @:recv var _n:Name = _n?.__copy__();
-        return (_n.bytes.value) & (1 : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
+        return ((_n.bytes.value) & (1 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
     }
     @:keep
     static public function data( _n:Name, _off:stdgo.GoInt):stdgo.Pointer<stdgo.GoByte> {
@@ -3499,12 +3499,12 @@ class IntArgRegBitmap_asInterface {
     @:keep
     static public function get( _b:stdgo.Ref<IntArgRegBitmap>, _i:stdgo.GoInt):Bool {
         @:recv var _b:stdgo.Ref<IntArgRegBitmap> = _b;
-        return _b[(_i / (8 : stdgo.GoInt) : stdgo.GoInt)] & (((1 : stdgo.GoUInt8) : stdgo.GoUInt8) << (_i % (8 : stdgo.GoInt))) != ((0 : stdgo.GoUInt8));
+        return (_b[(_i / (8 : stdgo.GoInt) : stdgo.GoInt)] & (((1 : stdgo.GoUInt8) << ((_i % (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoUInt8)) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
     }
     @:keep
     static public function set( _b:stdgo.Ref<IntArgRegBitmap>, _i:stdgo.GoInt):Void {
         @:recv var _b:stdgo.Ref<IntArgRegBitmap> = _b;
-        _b[(_i / (8 : stdgo.GoInt) : stdgo.GoInt)] = _b[(_i / (8 : stdgo.GoInt) : stdgo.GoInt)] | (((1 : stdgo.GoUInt8) : stdgo.GoUInt8) << (_i % (8 : stdgo.GoInt)));
+        _b[(_i / (8 : stdgo.GoInt) : stdgo.GoInt)] = (_b[(_i / (8 : stdgo.GoInt) : stdgo.GoInt)] | (((1 : stdgo.GoUInt8) << ((_i % (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoUInt8)) : stdgo.GoUInt8);
     }
 }
 class Kind_asInterface {
@@ -3522,7 +3522,7 @@ class Kind_asInterface {
     @:keep
     static public function string( _k:Kind):stdgo.GoString {
         @:recv var _k:Kind = _k;
-        if ((_k : stdgo.GoInt) < (_kindNames.length)) {
+        if (((_k : stdgo.GoInt) < (_kindNames.length) : Bool)) {
             return _kindNames[(_k : stdgo.GoInt)]?.__copy__();
         };
         return _kindNames[(0 : stdgo.GoInt)]?.__copy__();

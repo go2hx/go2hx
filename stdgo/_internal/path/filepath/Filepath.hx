@@ -39,7 +39,7 @@ final listSeparator : stdgo.GoInt32 = (58 : stdgo.GoInt32);
 function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.Error; } {
         stdgo._internal.internal.Macro.controlFlow({
             var _matched:Bool = false, _err:stdgo.Error = (null : stdgo.Error);
-            @:label("Pattern") while ((_pattern.length) > (0 : stdgo.GoInt)) {
+            @:label("Pattern") while (((_pattern.length) > (0 : stdgo.GoInt) : Bool)) {
                 var _star:Bool = false;
                 var _chunk:stdgo.GoString = ("" : stdgo.GoString);
                 {
@@ -48,11 +48,11 @@ function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{ var _0 : Bool; v
                     _chunk = __tmp__._1?.__copy__();
                     _pattern = __tmp__._2?.__copy__();
                 };
-                if (_star && (_chunk == stdgo.Go.str())) {
+                if ((_star && (_chunk == stdgo.Go.str()) : Bool)) {
                     return { _0 : !stdgo._internal.strings.Strings.contains(_name?.__copy__(), ((47 : stdgo.GoInt32) : stdgo.GoString)), _1 : (null : stdgo.Error) };
                 };
                 var __tmp__ = _matchChunk(_chunk?.__copy__(), _name?.__copy__()), _t:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
-                if (_ok && ((_t.length == (0 : stdgo.GoInt)) || (_pattern.length > (0 : stdgo.GoInt)))) {
+                if ((_ok && (((_t.length == (0 : stdgo.GoInt)) || ((_pattern.length) > (0 : stdgo.GoInt) : Bool) : Bool)) : Bool)) {
                     _name = _t?.__copy__();
                     continue;
                 };
@@ -62,10 +62,10 @@ function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{ var _0 : Bool; v
                 if (_star) {
                     {
                         var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor((_i < _name.length) && (_name[(_i : stdgo.GoInt)] != (47 : stdgo.GoUInt8)), _i++, {
-                            var __tmp__ = _matchChunk(_chunk?.__copy__(), (_name.__slice__(_i + (1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__()), _t:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+                        stdgo.Go.cfor(((_i < (_name.length) : Bool) && (_name[(_i : stdgo.GoInt)] != (47 : stdgo.GoUInt8)) : Bool), _i++, {
+                            var __tmp__ = _matchChunk(_chunk?.__copy__(), (_name.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__()), _t:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                             if (_ok) {
-                                if ((_pattern.length == (0 : stdgo.GoInt)) && (_t.length > (0 : stdgo.GoInt))) {
+                                if (((_pattern.length == (0 : stdgo.GoInt)) && ((_t.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
                                     continue;
                                 };
                                 _name = _t?.__copy__();
@@ -86,7 +86,7 @@ function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{ var _0 : Bool; v
 function _scanChunk(_pattern:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.GoString; var _2 : stdgo.GoString; } {
         stdgo._internal.internal.Macro.controlFlow({
             var _star:Bool = false, _chunk:stdgo.GoString = ("" : stdgo.GoString), _rest:stdgo.GoString = ("" : stdgo.GoString);
-            while ((_pattern.length > (0 : stdgo.GoInt)) && (_pattern[(0 : stdgo.GoInt)] == (42 : stdgo.GoUInt8))) {
+            while ((((_pattern.length) > (0 : stdgo.GoInt) : Bool) && (_pattern[(0 : stdgo.GoInt)] == (42 : stdgo.GoUInt8)) : Bool)) {
                 _pattern = (_pattern.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                 _star = true;
             };
@@ -94,7 +94,7 @@ function _scanChunk(_pattern:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.GoS
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             @:label("Scan") {
                 _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor(_i < (_pattern.length), _i++, {
+                stdgo.Go.cfor((_i < (_pattern.length) : Bool), _i++, {
                     {
                         var __switchIndex__ = -1;
                         var __run__ = true;
@@ -104,7 +104,7 @@ function _scanChunk(_pattern:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.GoS
                                 final __value__ = _pattern[(_i : stdgo.GoInt)];
                                 if (__value__ == ((92 : stdgo.GoUInt8))) {
                                     if (true) {
-                                        if ((_i + (1 : stdgo.GoInt)) < (_pattern.length)) {
+                                        if (((_i + (1 : stdgo.GoInt) : stdgo.GoInt) < (_pattern.length) : Bool)) {
                                             _i++;
                                         };
                                     };
@@ -134,8 +134,8 @@ function _scanChunk(_pattern:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.GoS
 function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } {
         var _rest:stdgo.GoString = ("" : stdgo.GoString), _ok:Bool = false, _err:stdgo.Error = (null : stdgo.Error);
         var _failed:Bool = false;
-        while ((_chunk.length) > (0 : stdgo.GoInt)) {
-            if (!_failed && (_s.length == (0 : stdgo.GoInt))) {
+        while (((_chunk.length) > (0 : stdgo.GoInt) : Bool)) {
+            if ((!_failed && (_s.length == (0 : stdgo.GoInt)) : Bool)) {
                 _failed = true;
             };
             {
@@ -158,14 +158,14 @@ function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{ var _0 : stdgo.
                             };
                             _chunk = (_chunk.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                             var _negated:Bool = false;
-                            if ((_chunk.length > (0 : stdgo.GoInt)) && (_chunk[(0 : stdgo.GoInt)] == (94 : stdgo.GoUInt8))) {
+                            if ((((_chunk.length) > (0 : stdgo.GoInt) : Bool) && (_chunk[(0 : stdgo.GoInt)] == (94 : stdgo.GoUInt8)) : Bool)) {
                                 _negated = true;
                                 _chunk = (_chunk.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                             };
                             var _match:Bool = false;
                             var _nrange:stdgo.GoInt = (0 : stdgo.GoInt);
                             while (true) {
-                                if (((_chunk.length > (0 : stdgo.GoInt)) && (_chunk[(0 : stdgo.GoInt)] == (93 : stdgo.GoUInt8))) && (_nrange > (0 : stdgo.GoInt))) {
+                                if (((((_chunk.length) > (0 : stdgo.GoInt) : Bool) && _chunk[(0 : stdgo.GoInt)] == ((93 : stdgo.GoUInt8)) : Bool) && (_nrange > (0 : stdgo.GoInt) : Bool) : Bool)) {
                                     _chunk = (_chunk.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                                     break;
                                 };
@@ -195,7 +195,7 @@ function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{ var _0 : stdgo.
                                         };
                                     };
                                 };
-                                if ((_lo <= _r) && (_r <= _hi)) {
+                                if (((_lo <= _r : Bool) && (_r <= _hi : Bool) : Bool)) {
                                     _match = true;
                                 };
                                 _nrange++;
@@ -251,11 +251,11 @@ function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{ var _0 : stdgo.
     }
 function _getEsc(_chunk:stdgo.GoString):{ var _0 : stdgo.GoRune; var _1 : stdgo.GoString; var _2 : stdgo.Error; } {
         var _r:stdgo.GoRune = (0 : stdgo.GoInt32), _nchunk:stdgo.GoString = ("" : stdgo.GoString), _err:stdgo.Error = (null : stdgo.Error);
-        if (((_chunk.length == (0 : stdgo.GoInt)) || (_chunk[(0 : stdgo.GoInt)] == (45 : stdgo.GoUInt8))) || (_chunk[(0 : stdgo.GoInt)] == (93 : stdgo.GoUInt8))) {
+        if ((((_chunk.length) == ((0 : stdgo.GoInt)) || _chunk[(0 : stdgo.GoInt)] == ((45 : stdgo.GoUInt8)) : Bool) || (_chunk[(0 : stdgo.GoInt)] == (93 : stdgo.GoUInt8)) : Bool)) {
             _err = errBadPattern;
             return { _0 : _r, _1 : _nchunk, _2 : _err };
         };
-        if ((_chunk[(0 : stdgo.GoInt)] == (92 : stdgo.GoUInt8)) && true) {
+        if (((_chunk[(0 : stdgo.GoInt)] == (92 : stdgo.GoUInt8)) && true : Bool)) {
             _chunk = (_chunk.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
             if ((_chunk.length) == ((0 : stdgo.GoInt))) {
                 _err = errBadPattern;
@@ -263,7 +263,7 @@ function _getEsc(_chunk:stdgo.GoString):{ var _0 : stdgo.GoRune; var _1 : stdgo.
             };
         };
         var __tmp__ = stdgo._internal.unicode.utf8.Utf8.decodeRuneInString(_chunk?.__copy__()), _r:stdgo.GoInt32 = __tmp__._0, _n:stdgo.GoInt = __tmp__._1;
-        if ((_r == (65533 : stdgo.GoInt32)) && (_n == (1 : stdgo.GoInt))) {
+        if (((_r == (65533 : stdgo.GoInt32)) && (_n == (1 : stdgo.GoInt)) : Bool)) {
             _err = errBadPattern;
         };
         _nchunk = (_chunk.__slice__(_n) : stdgo.GoString)?.__copy__();
@@ -319,7 +319,7 @@ function _globWithLimit(_pattern:stdgo.GoString, _depth:stdgo.GoInt):{ var _0 : 
         };
         var _m:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
         {
-            var __tmp__ = _globWithLimit(_dir?.__copy__(), _depth + (1 : stdgo.GoInt));
+            var __tmp__ = _globWithLimit(_dir?.__copy__(), (_depth + (1 : stdgo.GoInt) : stdgo.GoInt));
             _m = __tmp__._0;
             _err = __tmp__._1;
         };
@@ -346,7 +346,7 @@ function _cleanGlobPath(_path:stdgo.GoString):stdgo.GoString {
             } else if (__value__ == (((47 : stdgo.GoInt32) : stdgo.GoString))) {
                 return _path?.__copy__();
             } else {
-                return (_path.__slice__((0 : stdgo.GoInt), (_path.length) - (1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+                return (_path.__slice__((0 : stdgo.GoInt), ((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
             };
         };
     }
@@ -355,15 +355,15 @@ function _cleanGlobPathWindows(_path:stdgo.GoString):{ var _0 : stdgo.GoInt; var
         var _vollen:stdgo.GoInt = _volumeNameLen(_path?.__copy__());
         if (_path == (stdgo.Go.str())) {
             return { _0 : (0 : stdgo.GoInt), _1 : ("." : stdgo.GoString) };
-        } else if (((_vollen + (1 : stdgo.GoInt)) == (_path.length)) && stdgo._internal.os.Os.isPathSeparator(_path[((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt)])) {
-            return { _0 : _vollen + (1 : stdgo.GoInt), _1 : _path?.__copy__() };
-        } else if ((_vollen == (_path.length)) && (_path.length == (2 : stdgo.GoInt))) {
-            return { _0 : _vollen, _1 : _path + ("." : stdgo.GoString)?.__copy__()?.__copy__() };
+        } else if ((((_vollen + (1 : stdgo.GoInt) : stdgo.GoInt) == (_path.length)) && stdgo._internal.os.Os.isPathSeparator(_path[((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]) : Bool)) {
+            return { _0 : (_vollen + (1 : stdgo.GoInt) : stdgo.GoInt), _1 : _path?.__copy__() };
+        } else if (((_vollen == (_path.length)) && (_path.length == (2 : stdgo.GoInt)) : Bool)) {
+            return { _0 : _vollen, _1 : (_path + ("." : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__() };
         } else {
-            if (_vollen >= (_path.length)) {
-                _vollen = (_path.length) - (1 : stdgo.GoInt);
+            if ((_vollen >= (_path.length) : Bool)) {
+                _vollen = ((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
             };
-            return { _0 : _vollen, _1 : (_path.__slice__((0 : stdgo.GoInt), (_path.length) - (1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__() };
+            return { _0 : _vollen, _1 : (_path.__slice__((0 : stdgo.GoInt), ((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__() };
         };
     }
 function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slice<stdgo.GoString>):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
@@ -438,10 +438,10 @@ function clean(_path:stdgo.GoString):stdgo.GoString {
         var _volLen:stdgo.GoInt = _volumeNameLen(_path?.__copy__());
         _path = (_path.__slice__(_volLen) : stdgo.GoString)?.__copy__();
         if (_path == (stdgo.Go.str())) {
-            if (((_volLen > (1 : stdgo.GoInt)) && stdgo._internal.os.Os.isPathSeparator(_originalPath[(0 : stdgo.GoInt)])) && stdgo._internal.os.Os.isPathSeparator(_originalPath[(1 : stdgo.GoInt)])) {
+            if ((((_volLen > (1 : stdgo.GoInt) : Bool) && stdgo._internal.os.Os.isPathSeparator(_originalPath[(0 : stdgo.GoInt)]) : Bool) && stdgo._internal.os.Os.isPathSeparator(_originalPath[(1 : stdgo.GoInt)]) : Bool)) {
                 return fromSlash(_originalPath?.__copy__())?.__copy__();
             };
-            return _originalPath + ("." : stdgo.GoString)?.__copy__()?.__copy__();
+            return (_originalPath + ("." : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
         };
         var _rooted:Bool = stdgo._internal.os.Os.isPathSeparator(_path[(0 : stdgo.GoInt)]);
         var _n:stdgo.GoInt = (_path.length);
@@ -456,20 +456,20 @@ function clean(_path:stdgo.GoString):stdgo.GoString {
                 _dotdot = __tmp__1;
             };
         };
-        while (_r < _n) {
+        while ((_r < _n : Bool)) {
             if (stdgo._internal.os.Os.isPathSeparator(_path[(_r : stdgo.GoInt)])) {
                 _r++;
-            } else if ((_path[(_r : stdgo.GoInt)] == (46 : stdgo.GoUInt8)) && (((_r + (1 : stdgo.GoInt)) == _n) || stdgo._internal.os.Os.isPathSeparator(_path[(_r + (1 : stdgo.GoInt) : stdgo.GoInt)]))) {
+            } else if (((_path[(_r : stdgo.GoInt)] == (46 : stdgo.GoUInt8)) && ((((_r + (1 : stdgo.GoInt) : stdgo.GoInt) == _n) || stdgo._internal.os.Os.isPathSeparator(_path[(_r + (1 : stdgo.GoInt) : stdgo.GoInt)]) : Bool)) : Bool)) {
                 _r++;
-            } else if (((_path[(_r : stdgo.GoInt)] == (46 : stdgo.GoUInt8)) && (_path[(_r + (1 : stdgo.GoInt) : stdgo.GoInt)] == (46 : stdgo.GoUInt8))) && (((_r + (2 : stdgo.GoInt)) == _n) || stdgo._internal.os.Os.isPathSeparator(_path[(_r + (2 : stdgo.GoInt) : stdgo.GoInt)]))) {
-                _r = _r + ((2 : stdgo.GoInt));
-                if (_out._w > _dotdot) {
+            } else if (((_path[(_r : stdgo.GoInt)] == ((46 : stdgo.GoUInt8)) && _path[(_r + (1 : stdgo.GoInt) : stdgo.GoInt)] == ((46 : stdgo.GoUInt8)) : Bool) && ((((_r + (2 : stdgo.GoInt) : stdgo.GoInt) == _n) || stdgo._internal.os.Os.isPathSeparator(_path[(_r + (2 : stdgo.GoInt) : stdgo.GoInt)]) : Bool)) : Bool)) {
+                _r = (_r + ((2 : stdgo.GoInt)) : stdgo.GoInt);
+                if ((_out._w > _dotdot : Bool)) {
                     _out._w--;
-                    while ((_out._w > _dotdot) && !stdgo._internal.os.Os.isPathSeparator(_out._index(_out._w))) {
+                    while (((_out._w > _dotdot : Bool) && !stdgo._internal.os.Os.isPathSeparator(_out._index(_out._w)) : Bool)) {
                         _out._w--;
                     };
                 } else if (!_rooted) {
-                    if (_out._w > (0 : stdgo.GoInt)) {
+                    if ((_out._w > (0 : stdgo.GoInt) : Bool)) {
                         _out._append((47 : stdgo.GoUInt8));
                     };
                     _out._append((46 : stdgo.GoUInt8));
@@ -477,10 +477,10 @@ function clean(_path:stdgo.GoString):stdgo.GoString {
                     _dotdot = _out._w;
                 };
             } else {
-                if ((_rooted && (_out._w != (1 : stdgo.GoInt))) || (!_rooted && (_out._w != (0 : stdgo.GoInt)))) {
+                if (((_rooted && _out._w != ((1 : stdgo.GoInt)) : Bool) || (!_rooted && _out._w != ((0 : stdgo.GoInt)) : Bool) : Bool)) {
                     _out._append((47 : stdgo.GoUInt8));
                 };
-                stdgo.Go.cfor((_r < _n) && !stdgo._internal.os.Os.isPathSeparator(_path[(_r : stdgo.GoInt)]), _r++, {
+                stdgo.Go.cfor(((_r < _n : Bool) && !stdgo._internal.os.Os.isPathSeparator(_path[(_r : stdgo.GoInt)]) : Bool), _r++, {
                     _out._append(_path[(_r : stdgo.GoInt)]);
                 });
             };
@@ -488,7 +488,7 @@ function clean(_path:stdgo.GoString):stdgo.GoString {
         if (_out._w == ((0 : stdgo.GoInt))) {
             _out._append((46 : stdgo.GoUInt8));
         };
-        if ((false && (_out._volLen == (0 : stdgo.GoInt))) && (_out._buf != null)) {
+        if (((false && _out._volLen == ((0 : stdgo.GoInt)) : Bool) && (_out._buf != null) : Bool)) {
             for (__0 => _c in _out._buf) {
                 if (stdgo._internal.os.Os.isPathSeparator(_c)) {
                     break;
@@ -505,7 +505,7 @@ function isLocal(_path:stdgo.GoString):Bool {
         return _isLocal(_path?.__copy__());
     }
 function _unixIsLocal(_path:stdgo.GoString):Bool {
-        if (isAbs(_path?.__copy__()) || (_path == stdgo.Go.str())) {
+        if ((isAbs(_path?.__copy__()) || (_path == stdgo.Go.str()) : Bool)) {
             return false;
         };
         var _hasDots:Bool = false;
@@ -518,7 +518,7 @@ function _unixIsLocal(_path:stdgo.GoString):Bool {
                     _part = __tmp__._0?.__copy__();
                     _p = __tmp__._1?.__copy__();
                 };
-                if ((_part == ("." : stdgo.GoString)) || (_part == (".." : stdgo.GoString))) {
+                if (((_part == ("." : stdgo.GoString)) || (_part == (".." : stdgo.GoString)) : Bool)) {
                     _hasDots = true;
                     break;
                 };
@@ -527,7 +527,7 @@ function _unixIsLocal(_path:stdgo.GoString):Bool {
         if (_hasDots) {
             _path = clean(_path?.__copy__())?.__copy__();
         };
-        if ((_path == (".." : stdgo.GoString)) || stdgo._internal.strings.Strings.hasPrefix(_path?.__copy__(), ("../" : stdgo.GoString))) {
+        if (((_path == (".." : stdgo.GoString)) || stdgo._internal.strings.Strings.hasPrefix(_path?.__copy__(), ("../" : stdgo.GoString)) : Bool)) {
             return false;
         };
         return true;
@@ -550,11 +550,11 @@ function splitList(_path:stdgo.GoString):stdgo.Slice<stdgo.GoString> {
 function split(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } {
         var _dir:stdgo.GoString = ("" : stdgo.GoString), _file:stdgo.GoString = ("" : stdgo.GoString);
         var _vol:stdgo.GoString = volumeName(_path?.__copy__())?.__copy__();
-        var _i:stdgo.GoInt = (_path.length) - (1 : stdgo.GoInt);
-        while ((_i >= _vol.length) && !stdgo._internal.os.Os.isPathSeparator(_path[(_i : stdgo.GoInt)])) {
+        var _i:stdgo.GoInt = ((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
+        while (((_i >= (_vol.length) : Bool) && !stdgo._internal.os.Os.isPathSeparator(_path[(_i : stdgo.GoInt)]) : Bool)) {
             _i--;
         };
-        return { _0 : (_path.__slice__(0, _i + (1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _1 : (_path.__slice__(_i + (1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__() };
+        return { _0 : (_path.__slice__(0, (_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _1 : (_path.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__() };
     }
 function join(_elem:haxe.Rest<stdgo.GoString>):stdgo.GoString {
         var _elem = new stdgo.Slice<stdgo.GoString>(_elem.length, 0, ..._elem);
@@ -562,8 +562,8 @@ function join(_elem:haxe.Rest<stdgo.GoString>):stdgo.GoString {
     }
 function ext(_path:stdgo.GoString):stdgo.GoString {
         {
-            var _i:stdgo.GoInt = (_path.length) - (1 : stdgo.GoInt);
-            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt)) && !stdgo._internal.os.Os.isPathSeparator(_path[(_i : stdgo.GoInt)]), _i--, {
+            var _i:stdgo.GoInt = ((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
+            stdgo.Go.cfor(((_i >= (0 : stdgo.GoInt) : Bool) && !stdgo._internal.os.Os.isPathSeparator(_path[(_i : stdgo.GoInt)]) : Bool), _i--, {
                 if (_path[(_i : stdgo.GoInt)] == ((46 : stdgo.GoUInt8))) {
                     return (_path.__slice__(_i) : stdgo.GoString)?.__copy__();
                 };
@@ -599,58 +599,58 @@ function rel(_basepath:stdgo.GoString, _targpath:stdgo.GoString):{ var _0 : stdg
         _targ = (_targ.__slice__((_targVol.length)) : stdgo.GoString)?.__copy__();
         if (_base == (("." : stdgo.GoString))) {
             _base = stdgo.Go.str()?.__copy__();
-        } else if ((_base == stdgo.Go.str()) && (_volumeNameLen(_baseVol?.__copy__()) > (2 : stdgo.GoInt))) {
+        } else if (((_base == stdgo.Go.str()) && (_volumeNameLen(_baseVol?.__copy__()) > (2 : stdgo.GoInt) : Bool) : Bool)) {
             _base = ((47 : stdgo.GoInt32) : stdgo.GoString);
         };
-        var _baseSlashed:Bool = (_base.length > (0 : stdgo.GoInt)) && (_base[(0 : stdgo.GoInt)] == (47 : stdgo.GoUInt8));
-        var _targSlashed:Bool = (_targ.length > (0 : stdgo.GoInt)) && (_targ[(0 : stdgo.GoInt)] == (47 : stdgo.GoUInt8));
-        if ((_baseSlashed != _targSlashed) || !_sameWord(_baseVol?.__copy__(), _targVol?.__copy__())) {
-            return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors.new_(("Rel: can\'t make " : stdgo.GoString) + _targpath?.__copy__() + (" relative to " : stdgo.GoString)?.__copy__() + _basepath?.__copy__()?.__copy__()) };
+        var _baseSlashed:Bool = (((_base.length) > (0 : stdgo.GoInt) : Bool) && (_base[(0 : stdgo.GoInt)] == (47 : stdgo.GoUInt8)) : Bool);
+        var _targSlashed:Bool = (((_targ.length) > (0 : stdgo.GoInt) : Bool) && (_targ[(0 : stdgo.GoInt)] == (47 : stdgo.GoUInt8)) : Bool);
+        if (((_baseSlashed != _targSlashed) || !_sameWord(_baseVol?.__copy__(), _targVol?.__copy__()) : Bool)) {
+            return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors.new_((((("Rel: can\'t make " : stdgo.GoString) + _targpath?.__copy__() : stdgo.GoString) + (" relative to " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _basepath?.__copy__() : stdgo.GoString)?.__copy__()) };
         };
         var _bl:stdgo.GoInt = (_base.length);
         var _tl:stdgo.GoInt = (_targ.length);
         var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), __2:stdgo.GoInt = (0 : stdgo.GoInt), __3:stdgo.GoInt = (0 : stdgo.GoInt), _ti:stdgo.GoInt = __3, _t0:stdgo.GoInt = __2, _bi:stdgo.GoInt = __1, _b0:stdgo.GoInt = __0;
         while (true) {
-            while ((_bi < _bl) && (_base[(_bi : stdgo.GoInt)] != (47 : stdgo.GoUInt8))) {
+            while (((_bi < _bl : Bool) && (_base[(_bi : stdgo.GoInt)] != (47 : stdgo.GoUInt8)) : Bool)) {
                 _bi++;
             };
-            while ((_ti < _tl) && (_targ[(_ti : stdgo.GoInt)] != (47 : stdgo.GoUInt8))) {
+            while (((_ti < _tl : Bool) && (_targ[(_ti : stdgo.GoInt)] != (47 : stdgo.GoUInt8)) : Bool)) {
                 _ti++;
             };
             if (!_sameWord((_targ.__slice__(_t0, _ti) : stdgo.GoString)?.__copy__(), (_base.__slice__(_b0, _bi) : stdgo.GoString)?.__copy__())) {
                 break;
             };
-            if (_bi < _bl) {
+            if ((_bi < _bl : Bool)) {
                 _bi++;
             };
-            if (_ti < _tl) {
+            if ((_ti < _tl : Bool)) {
                 _ti++;
             };
             _b0 = _bi;
             _t0 = _ti;
         };
         if ((_base.__slice__(_b0, _bi) : stdgo.GoString) == ((".." : stdgo.GoString))) {
-            return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors.new_(("Rel: can\'t make " : stdgo.GoString) + _targpath?.__copy__() + (" relative to " : stdgo.GoString)?.__copy__() + _basepath?.__copy__()?.__copy__()) };
+            return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors.new_((((("Rel: can\'t make " : stdgo.GoString) + _targpath?.__copy__() : stdgo.GoString) + (" relative to " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _basepath?.__copy__() : stdgo.GoString)?.__copy__()) };
         };
         if (_b0 != (_bl)) {
             var _seps:stdgo.GoInt = stdgo._internal.strings.Strings.count((_base.__slice__(_b0, _bl) : stdgo.GoString)?.__copy__(), ((47 : stdgo.GoInt32) : stdgo.GoString));
-            var _size:stdgo.GoInt = (2 : stdgo.GoInt) + (_seps * (3 : stdgo.GoInt));
+            var _size:stdgo.GoInt = ((2 : stdgo.GoInt) + (_seps * (3 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
             if (_tl != (_t0)) {
-                _size = _size + (((1 : stdgo.GoInt) + _tl) - _t0);
+                _size = (_size + ((((1 : stdgo.GoInt) + _tl : stdgo.GoInt) - _t0 : stdgo.GoInt)) : stdgo.GoInt);
             };
             var _buf = new stdgo.Slice<stdgo.GoUInt8>((_size : stdgo.GoInt).toBasic(), 0).__setNumber32__();
             var _n:stdgo.GoInt = stdgo.Go.copySlice(_buf, (".." : stdgo.GoString));
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                stdgo.Go.cfor(_i < _seps, _i++, {
+                stdgo.Go.cfor((_i < _seps : Bool), _i++, {
                     _buf[(_n : stdgo.GoInt)] = (47 : stdgo.GoUInt8);
-                    stdgo.Go.copySlice((_buf.__slice__(_n + (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (".." : stdgo.GoString));
-                    _n = _n + ((3 : stdgo.GoInt));
+                    stdgo.Go.copySlice((_buf.__slice__((_n + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (".." : stdgo.GoString));
+                    _n = (_n + ((3 : stdgo.GoInt)) : stdgo.GoInt);
                 });
             };
             if (_t0 != (_tl)) {
                 _buf[(_n : stdgo.GoInt)] = (47 : stdgo.GoUInt8);
-                stdgo.Go.copySlice((_buf.__slice__(_n + (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_targ.__slice__(_t0) : stdgo.GoString));
+                stdgo.Go.copySlice((_buf.__slice__((_n + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_targ.__slice__(_t0) : stdgo.GoString));
             };
             return { _0 : (_buf : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Error) };
         };
@@ -659,8 +659,8 @@ function rel(_basepath:stdgo.GoString, _targpath:stdgo.GoString):{ var _0 : stdg
 function _walkDir(_path:stdgo.GoString, _d:stdgo._internal.io.fs.Fs.DirEntry, _walkDirFn:stdgo._internal.io.fs.Fs.WalkDirFunc):stdgo.Error {
         {
             var _err:stdgo.Error = _walkDirFn(_path?.__copy__(), _d, (null : stdgo.Error));
-            if ((_err != null) || !_d.isDir()) {
-                if ((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(skipDir)) && _d.isDir()) {
+            if (((_err != null) || !_d.isDir() : Bool)) {
+                if (((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(skipDir)) && _d.isDir() : Bool)) {
                     _err = (null : stdgo.Error);
                 };
                 return _err;
@@ -670,7 +670,7 @@ function _walkDir(_path:stdgo.GoString, _d:stdgo._internal.io.fs.Fs.DirEntry, _w
         if (_err != null) {
             _err = _walkDirFn(_path?.__copy__(), _d, _err);
             if (_err != null) {
-                if ((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(skipDir)) && _d.isDir()) {
+                if (((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(skipDir)) && _d.isDir() : Bool)) {
                     _err = (null : stdgo.Error);
                 };
                 return _err;
@@ -696,7 +696,7 @@ function _walk(_path:stdgo.GoString, _info:stdgo._internal.io.fs.Fs.FileInfo, _w
         };
         var __tmp__ = _readDirNames(_path?.__copy__()), _names:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         var _err1:stdgo.Error = _walkFn(_path?.__copy__(), _info, _err);
-        if ((_err != null) || (_err1 != null)) {
+        if (((_err != null) || (_err1 != null) : Bool)) {
             return _err1;
         };
         for (__0 => _name in _names) {
@@ -705,14 +705,14 @@ function _walk(_path:stdgo.GoString, _info:stdgo._internal.io.fs.Fs.FileInfo, _w
             if (_err != null) {
                 {
                     var _err:stdgo.Error = _walkFn(_filename?.__copy__(), _fileInfo, _err);
-                    if ((_err != null) && (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(skipDir))) {
+                    if (((_err != null) && (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(skipDir)) : Bool)) {
                         return _err;
                     };
                 };
             } else {
                 _err = _walk(_filename?.__copy__(), _fileInfo, _walkFn);
                 if (_err != null) {
-                    if (!_fileInfo.isDir() || (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(skipDir))) {
+                    if ((!_fileInfo.isDir() || (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(skipDir)) : Bool)) {
                         return _err;
                     };
                 };
@@ -727,7 +727,7 @@ function walkDir(_root:stdgo.GoString, _fn:stdgo._internal.io.fs.Fs.WalkDirFunc)
         } else {
             _err = _walkDir(_root?.__copy__(), stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.path.filepath.Filepath.T_statDirEntry(_info) : stdgo._internal.path.filepath.Filepath.T_statDirEntry)) : stdgo.Ref<stdgo._internal.path.filepath.Filepath.T_statDirEntry>)), _fn);
         };
-        if ((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(skipDir)) || (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(skipAll))) {
+        if (((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(skipDir)) || (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(skipAll)) : Bool)) {
             return (null : stdgo.Error);
         };
         return _err;
@@ -739,7 +739,7 @@ function walk(_root:stdgo.GoString, _fn:WalkFunc):stdgo.Error {
         } else {
             _err = _walk(_root?.__copy__(), _info, _fn);
         };
-        if ((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(skipDir)) || (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(skipAll))) {
+        if (((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(skipDir)) || (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(skipAll)) : Bool)) {
             return (null : stdgo.Error);
         };
         return _err;
@@ -755,7 +755,7 @@ function _readDir(_dirname:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo._interna
             return { _0 : (null : stdgo.Slice<stdgo._internal.io.fs.Fs.DirEntry>), _1 : _err };
         };
         stdgo._internal.sort.Sort.slice(stdgo.Go.toInterface(_dirs), function(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
-            return _dirs[(_i : stdgo.GoInt)].name() < _dirs[(_j : stdgo.GoInt)].name();
+            return (_dirs[(_i : stdgo.GoInt)].name() < _dirs[(_j : stdgo.GoInt)].name() : Bool);
         });
         return { _0 : _dirs, _1 : (null : stdgo.Error) };
     }
@@ -776,16 +776,16 @@ function base(_path:stdgo.GoString):stdgo.GoString {
         if (_path == (stdgo.Go.str())) {
             return ("." : stdgo.GoString);
         };
-        while ((_path.length > (0 : stdgo.GoInt)) && stdgo._internal.os.Os.isPathSeparator(_path[((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt)])) {
-            _path = (_path.__slice__((0 : stdgo.GoInt), (_path.length) - (1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+        while ((((_path.length) > (0 : stdgo.GoInt) : Bool) && stdgo._internal.os.Os.isPathSeparator(_path[((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]) : Bool)) {
+            _path = (_path.__slice__((0 : stdgo.GoInt), ((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
         };
         _path = (_path.__slice__((volumeName(_path?.__copy__()).length)) : stdgo.GoString)?.__copy__();
-        var _i:stdgo.GoInt = (_path.length) - (1 : stdgo.GoInt);
-        while ((_i >= (0 : stdgo.GoInt)) && !stdgo._internal.os.Os.isPathSeparator(_path[(_i : stdgo.GoInt)])) {
+        var _i:stdgo.GoInt = ((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
+        while (((_i >= (0 : stdgo.GoInt) : Bool) && !stdgo._internal.os.Os.isPathSeparator(_path[(_i : stdgo.GoInt)]) : Bool)) {
             _i--;
         };
-        if (_i >= (0 : stdgo.GoInt)) {
-            _path = (_path.__slice__(_i + (1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+        if ((_i >= (0 : stdgo.GoInt) : Bool)) {
+            _path = (_path.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
         };
         if (_path == (stdgo.Go.str())) {
             return ((47 : stdgo.GoInt32) : stdgo.GoString);
@@ -794,15 +794,15 @@ function base(_path:stdgo.GoString):stdgo.GoString {
     }
 function dir(_path:stdgo.GoString):stdgo.GoString {
         var _vol:stdgo.GoString = volumeName(_path?.__copy__())?.__copy__();
-        var _i:stdgo.GoInt = (_path.length) - (1 : stdgo.GoInt);
-        while ((_i >= _vol.length) && !stdgo._internal.os.Os.isPathSeparator(_path[(_i : stdgo.GoInt)])) {
+        var _i:stdgo.GoInt = ((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
+        while (((_i >= (_vol.length) : Bool) && !stdgo._internal.os.Os.isPathSeparator(_path[(_i : stdgo.GoInt)]) : Bool)) {
             _i--;
         };
-        var _dir:stdgo.GoString = clean((_path.__slice__((_vol.length), _i + (1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__())?.__copy__();
-        if ((_dir == ("." : stdgo.GoString)) && (_vol.length > (2 : stdgo.GoInt))) {
+        var _dir:stdgo.GoString = clean((_path.__slice__((_vol.length), (_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__())?.__copy__();
+        if (((_dir == ("." : stdgo.GoString)) && ((_vol.length) > (2 : stdgo.GoInt) : Bool) : Bool)) {
             return _vol?.__copy__();
         };
-        return _vol + _dir?.__copy__()?.__copy__();
+        return (_vol + _dir?.__copy__() : stdgo.GoString)?.__copy__();
     }
 function volumeName(_path:stdgo.GoString):stdgo.GoString {
         return fromSlash((_path.__slice__(0, _volumeNameLen(_path?.__copy__())) : stdgo.GoString)?.__copy__())?.__copy__();
@@ -842,7 +842,7 @@ function _sameWord(_a:stdgo.GoString, _b:stdgo.GoString):Bool {
 function _walkSymlinks(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         var _volLen:stdgo.GoInt = _volumeNameLen(_path?.__copy__());
         var _pathSeparator:stdgo.GoString = ((47 : stdgo.GoInt32) : stdgo.GoString);
-        if ((_volLen < _path.length) && stdgo._internal.os.Os.isPathSeparator(_path[(_volLen : stdgo.GoInt)])) {
+        if (((_volLen < (_path.length) : Bool) && stdgo._internal.os.Os.isPathSeparator(_path[(_volLen : stdgo.GoInt)]) : Bool)) {
             _volLen++;
         };
         var _vol:stdgo.GoString = (_path.__slice__(0, _volLen) : stdgo.GoString)?.__copy__();
@@ -850,74 +850,74 @@ function _walkSymlinks(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 :
         var _linksWalked:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var __0:stdgo.GoInt = _volLen, __1:stdgo.GoInt = _volLen, _end:stdgo.GoInt = __1, _start:stdgo.GoInt = __0;
-            stdgo.Go.cfor(_start < (_path.length), _start = _end, {
-                while ((_start < _path.length) && stdgo._internal.os.Os.isPathSeparator(_path[(_start : stdgo.GoInt)])) {
+            stdgo.Go.cfor((_start < (_path.length) : Bool), _start = _end, {
+                while (((_start < (_path.length) : Bool) && stdgo._internal.os.Os.isPathSeparator(_path[(_start : stdgo.GoInt)]) : Bool)) {
                     _start++;
                 };
                 _end = _start;
-                while ((_end < _path.length) && !stdgo._internal.os.Os.isPathSeparator(_path[(_end : stdgo.GoInt)])) {
+                while (((_end < (_path.length) : Bool) && !stdgo._internal.os.Os.isPathSeparator(_path[(_end : stdgo.GoInt)]) : Bool)) {
                     _end++;
                 };
-                var _isWindowsDot:Bool = false && ((_path.__slice__(_volumeNameLen(_path?.__copy__())) : stdgo.GoString) == ("." : stdgo.GoString));
+                var _isWindowsDot:Bool = (false && ((_path.__slice__(_volumeNameLen(_path?.__copy__())) : stdgo.GoString) == ("." : stdgo.GoString)) : Bool);
                 if (_end == (_start)) {
                     break;
-                } else if (((_path.__slice__(_start, _end) : stdgo.GoString) == ("." : stdgo.GoString)) && !_isWindowsDot) {
+                } else if ((((_path.__slice__(_start, _end) : stdgo.GoString) == ("." : stdgo.GoString)) && !_isWindowsDot : Bool)) {
                     continue;
                 } else if ((_path.__slice__(_start, _end) : stdgo.GoString) == ((".." : stdgo.GoString))) {
                     var _r:stdgo.GoInt = (0 : stdgo.GoInt);
                     {
-                        _r = (_dest.length) - (1 : stdgo.GoInt);
-                        stdgo.Go.cfor(_r >= _volLen, _r--, {
+                        _r = ((_dest.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
+                        stdgo.Go.cfor((_r >= _volLen : Bool), _r--, {
                             if (stdgo._internal.os.Os.isPathSeparator(_dest[(_r : stdgo.GoInt)])) {
                                 break;
                             };
                         });
                     };
-                    if ((_r < _volLen) || ((_dest.__slice__(_r + (1 : stdgo.GoInt)) : stdgo.GoString) == (".." : stdgo.GoString))) {
-                        if ((_dest.length) > _volLen) {
-                            _dest = _dest + (_pathSeparator)?.__copy__();
+                    if (((_r < _volLen : Bool) || ((_dest.__slice__((_r + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString) == (".." : stdgo.GoString)) : Bool)) {
+                        if (((_dest.length) > _volLen : Bool)) {
+                            _dest = (_dest + (_pathSeparator)?.__copy__() : stdgo.GoString);
                         };
-                        _dest = _dest + ((".." : stdgo.GoString))?.__copy__();
+                        _dest = (_dest + ((".." : stdgo.GoString))?.__copy__() : stdgo.GoString);
                     } else {
                         _dest = (_dest.__slice__(0, _r) : stdgo.GoString)?.__copy__();
                     };
                     continue;
                 };
-                if ((_dest.length > _volumeNameLen(_dest?.__copy__())) && !stdgo._internal.os.Os.isPathSeparator(_dest[((_dest.length) - (1 : stdgo.GoInt) : stdgo.GoInt)])) {
-                    _dest = _dest + (_pathSeparator)?.__copy__();
+                if ((((_dest.length) > _volumeNameLen(_dest?.__copy__()) : Bool) && !stdgo._internal.os.Os.isPathSeparator(_dest[((_dest.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]) : Bool)) {
+                    _dest = (_dest + (_pathSeparator)?.__copy__() : stdgo.GoString);
                 };
-                _dest = _dest + ((_path.__slice__(_start, _end) : stdgo.GoString))?.__copy__();
+                _dest = (_dest + ((_path.__slice__(_start, _end) : stdgo.GoString))?.__copy__() : stdgo.GoString);
                 var __tmp__ = stdgo._internal.os.Os.lstat(_dest?.__copy__()), _fi:stdgo._internal.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
                 };
-                if (_fi.mode() & (134217728u32 : stdgo._internal.io.fs.Fs.FileMode) == ((0u32 : stdgo._internal.io.fs.Fs.FileMode))) {
-                    if (!_fi.mode().isDir() && (_end < _path.length)) {
+                if ((_fi.mode() & (134217728u32 : stdgo._internal.io.fs.Fs.FileMode) : stdgo._internal.io.fs.Fs.FileMode) == ((0u32 : stdgo._internal.io.fs.Fs.FileMode))) {
+                    if ((!_fi.mode().isDir() && (_end < (_path.length) : Bool) : Bool)) {
                         return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.Go.asInterface((20 : stdgo._internal.syscall.Syscall.Errno)) };
                     };
                     continue;
                 };
                 _linksWalked++;
-                if (_linksWalked > (255 : stdgo.GoInt)) {
+                if ((_linksWalked > (255 : stdgo.GoInt) : Bool)) {
                     return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors.new_(("EvalSymlinks: too many links" : stdgo.GoString)) };
                 };
                 var __tmp__ = stdgo._internal.os.Os.readlink(_dest?.__copy__()), _link:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
                 };
-                if (_isWindowsDot && !isAbs(_link?.__copy__())) {
+                if ((_isWindowsDot && !isAbs(_link?.__copy__()) : Bool)) {
                     break;
                 };
-                _path = _link + (_path.__slice__(_end) : stdgo.GoString)?.__copy__()?.__copy__();
+                _path = (_link + (_path.__slice__(_end) : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
                 var _v:stdgo.GoInt = _volumeNameLen(_link?.__copy__());
-                if (_v > (0 : stdgo.GoInt)) {
-                    if ((_v < _link.length) && stdgo._internal.os.Os.isPathSeparator(_link[(_v : stdgo.GoInt)])) {
+                if ((_v > (0 : stdgo.GoInt) : Bool)) {
+                    if (((_v < (_link.length) : Bool) && stdgo._internal.os.Os.isPathSeparator(_link[(_v : stdgo.GoInt)]) : Bool)) {
                         _v++;
                     };
                     _vol = (_link.__slice__(0, _v) : stdgo.GoString)?.__copy__();
                     _dest = _vol?.__copy__();
                     _end = (_vol.length);
-                } else if ((_link.length > (0 : stdgo.GoInt)) && stdgo._internal.os.Os.isPathSeparator(_link[(0 : stdgo.GoInt)])) {
+                } else if ((((_link.length) > (0 : stdgo.GoInt) : Bool) && stdgo._internal.os.Os.isPathSeparator(_link[(0 : stdgo.GoInt)]) : Bool)) {
                     _dest = (_link.__slice__(0, (1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                     _end = (1 : stdgo.GoInt);
                     _vol = (_link.__slice__(0, (1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
@@ -925,14 +925,14 @@ function _walkSymlinks(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 :
                 } else {
                     var _r:stdgo.GoInt = (0 : stdgo.GoInt);
                     {
-                        _r = (_dest.length) - (1 : stdgo.GoInt);
-                        stdgo.Go.cfor(_r >= _volLen, _r--, {
+                        _r = ((_dest.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
+                        stdgo.Go.cfor((_r >= _volLen : Bool), _r--, {
                             if (stdgo._internal.os.Os.isPathSeparator(_dest[(_r : stdgo.GoInt)])) {
                                 break;
                             };
                         });
                     };
-                    if (_r < _volLen) {
+                    if ((_r < _volLen : Bool)) {
                         _dest = _vol?.__copy__();
                     } else {
                         _dest = (_dest.__slice__(0, _r) : stdgo.GoString)?.__copy__();
@@ -968,22 +968,22 @@ class T_lazybuf_asInterface {
     static public function _string( _b:stdgo.Ref<T_lazybuf>):stdgo.GoString {
         @:recv var _b:stdgo.Ref<T_lazybuf> = _b;
         if (_b._buf == null) {
-            return (_b._volAndPath.__slice__(0, _b._volLen + _b._w) : stdgo.GoString)?.__copy__();
+            return (_b._volAndPath.__slice__(0, (_b._volLen + _b._w : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
         };
-        return (_b._volAndPath.__slice__(0, _b._volLen) : stdgo.GoString) + ((_b._buf.__slice__(0, _b._w) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__()?.__copy__();
+        return ((_b._volAndPath.__slice__(0, _b._volLen) : stdgo.GoString) + ((_b._buf.__slice__(0, _b._w) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
     }
     @:keep
     static public function _prepend( _b:stdgo.Ref<T_lazybuf>, _prefix:haxe.Rest<stdgo.GoByte>):Void {
         var _prefix = new stdgo.Slice<stdgo.GoByte>(_prefix.length, 0, ..._prefix);
         @:recv var _b:stdgo.Ref<T_lazybuf> = _b;
         _b._buf = (_prefix.__append__(..._b._buf.__toArray__()));
-        _b._w = _b._w + ((_prefix.length));
+        _b._w = (_b._w + ((_prefix.length)) : stdgo.GoInt);
     }
     @:keep
     static public function _append( _b:stdgo.Ref<T_lazybuf>, _c:stdgo.GoByte):Void {
         @:recv var _b:stdgo.Ref<T_lazybuf> = _b;
         if (_b._buf == null) {
-            if ((_b._w < _b._path.length) && (_b._path[(_b._w : stdgo.GoInt)] == _c)) {
+            if (((_b._w < (_b._path.length) : Bool) && (_b._path[(_b._w : stdgo.GoInt)] == _c) : Bool)) {
                 _b._w++;
                 return;
             };

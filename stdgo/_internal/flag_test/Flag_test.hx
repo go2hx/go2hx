@@ -164,18 +164,18 @@ function testEverything(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag.Flag>>);
         var _desired:stdgo.GoString = ("0" : stdgo.GoString);
         var _visitor = function(_f:stdgo.Ref<Flag>):Void {
-            if ((_f.name.length > (5 : stdgo.GoInt)) && ((_f.name.__slice__((0 : stdgo.GoInt), (5 : stdgo.GoInt)) : stdgo.GoString) == ("test_" : stdgo.GoString))) {
+            if ((((_f.name.length) > (5 : stdgo.GoInt) : Bool) && ((_f.name.__slice__((0 : stdgo.GoInt), (5 : stdgo.GoInt)) : stdgo.GoString) == ("test_" : stdgo.GoString)) : Bool)) {
                 _m[_f.name] = _f;
                 var _ok:Bool = false;
                 if ((_f.value.string() : stdgo.GoString) == (_desired)) {
                     _ok = true;
-                } else if ((_f.name == ("test_bool" : stdgo.GoString)) && ((_f.value.string() : stdgo.GoString) == _boolString(_desired?.__copy__()))) {
+                } else if (((_f.name == ("test_bool" : stdgo.GoString)) && ((_f.value.string() : stdgo.GoString) == _boolString(_desired?.__copy__())) : Bool)) {
                     _ok = true;
-                } else if ((_f.name == ("test_duration" : stdgo.GoString)) && ((_f.value.string() : stdgo.GoString) == _desired + ("s" : stdgo.GoString)?.__copy__())) {
+                } else if (((_f.name == ("test_duration" : stdgo.GoString)) && ((_f.value.string() : stdgo.GoString) == (_desired + ("s" : stdgo.GoString)?.__copy__() : stdgo.GoString)) : Bool)) {
                     _ok = true;
-                } else if ((_f.name == ("test_func" : stdgo.GoString)) && ((_f.value.string() : stdgo.GoString) == stdgo.Go.str())) {
+                } else if (((_f.name == ("test_func" : stdgo.GoString)) && ((_f.value.string() : stdgo.GoString) == stdgo.Go.str()) : Bool)) {
                     _ok = true;
-                } else if ((_f.name == ("test_boolfunc" : stdgo.GoString)) && ((_f.value.string() : stdgo.GoString) == stdgo.Go.str())) {
+                } else if (((_f.name == ("test_boolfunc" : stdgo.GoString)) && ((_f.value.string() : stdgo.GoString) == stdgo.Go.str()) : Bool)) {
                     _ok = true;
                 };
                 if (!_ok) {
@@ -240,7 +240,7 @@ function testGet(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         float64(("test_float64" : stdgo.GoString), (6 : stdgo.GoFloat64), ("float64 value" : stdgo.GoString));
         duration(("test_duration" : stdgo.GoString), (7i64 : stdgo._internal.time.Time.Duration), ("time.Duration value" : stdgo.GoString));
         var _visitor = function(_f:stdgo.Ref<Flag>):Void {
-            if ((_f.name.length > (5 : stdgo.GoInt)) && ((_f.name.__slice__((0 : stdgo.GoInt), (5 : stdgo.GoInt)) : stdgo.GoString) == ("test_" : stdgo.GoString))) {
+            if ((((_f.name.length) > (5 : stdgo.GoInt) : Bool) && ((_f.name.__slice__((0 : stdgo.GoInt), (5 : stdgo.GoInt)) : stdgo.GoString) == ("test_" : stdgo.GoString)) : Bool)) {
                 var __tmp__ = try {
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_f.value) : Getter)) : Getter), _1 : true };
                 } catch(_) {
@@ -471,7 +471,7 @@ function testUserDefinedBool(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
         {
             _err = _flags.parse((new stdgo.Slice<stdgo.GoString>(8, 8, ("-b" : stdgo.GoString), ("-b" : stdgo.GoString), ("-b" : stdgo.GoString), ("-b=true" : stdgo.GoString), ("-b=false" : stdgo.GoString), ("-b" : stdgo.GoString), ("barg" : stdgo.GoString), ("-b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>));
             if (_err != null) {
-                if (_b._count < (4 : stdgo.GoInt)) {
+                if ((_b._count < (4 : stdgo.GoInt) : Bool)) {
                     _t.error(stdgo.Go.toInterface(_err));
                 };
             };
@@ -544,7 +544,7 @@ function testChangingArgs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
             var _after = bool_(("after" : stdgo.GoString), false, stdgo.Go.str()?.__copy__());
             parse();
             var _args = args();
-            if ((((!_before.value || (_cmd != ("subcmd" : stdgo.GoString))) || !_after.value) || (_args.length != (1 : stdgo.GoInt))) || (_args[(0 : stdgo.GoInt)] != ("args" : stdgo.GoString))) {
+            if (((((!_before.value || _cmd != (("subcmd" : stdgo.GoString)) : Bool) || !_after.value : Bool) || (_args.length) != ((1 : stdgo.GoInt)) : Bool) || (_args[(0 : stdgo.GoInt)] != ("args" : stdgo.GoString)) : Bool)) {
                 _t.fatalf(("expected true subcmd true [args] got %v %v %v %v" : stdgo.GoString), stdgo.Go.toInterface(_before.value), stdgo.Go.toInterface(_cmd), stdgo.Go.toInterface(_after.value), stdgo.Go.toInterface(_args));
             };
             {
@@ -738,13 +738,13 @@ function testParseError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             _fs.uint64(("uint64" : stdgo.GoString), (0i64 : stdgo.GoUInt64), stdgo.Go.str()?.__copy__());
             _fs.float64(("float64" : stdgo.GoString), (0 : stdgo.GoFloat64), stdgo.Go.str()?.__copy__());
             _fs.duration(("duration" : stdgo.GoString), (0i64 : stdgo._internal.time.Time.Duration), stdgo.Go.str()?.__copy__());
-            var _args = (new stdgo.Slice<stdgo.GoString>(1, 1, ("-" : stdgo.GoString) + _typ?.__copy__() + ("=x" : stdgo.GoString)?.__copy__()?.__copy__()) : stdgo.Slice<stdgo.GoString>);
+            var _args = (new stdgo.Slice<stdgo.GoString>(1, 1, ((("-" : stdgo.GoString) + _typ?.__copy__() : stdgo.GoString) + ("=x" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             var _err:stdgo.Error = _fs.parse(_args);
             if (_err == null) {
                 _t.errorf(("Parse(%q)=%v; expected parse error" : stdgo.GoString), stdgo.Go.toInterface(_args), stdgo.Go.toInterface(_err));
                 continue;
             };
-            if (!stdgo._internal.strings.Strings.contains(_err.error()?.__copy__(), ("invalid" : stdgo.GoString)) || !stdgo._internal.strings.Strings.contains(_err.error()?.__copy__(), ("parse error" : stdgo.GoString))) {
+            if ((!stdgo._internal.strings.Strings.contains(_err.error()?.__copy__(), ("invalid" : stdgo.GoString)) || !stdgo._internal.strings.Strings.contains(_err.error()?.__copy__(), ("parse error" : stdgo.GoString)) : Bool)) {
                 _t.errorf(("Parse(%q)=%v; expected parse error" : stdgo.GoString), stdgo.Go.toInterface(_args), stdgo.Go.toInterface(_err));
             };
         };
@@ -764,7 +764,7 @@ function testRangeError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 _t.errorf(("Parse(%q)=%v; expected range error" : stdgo.GoString), stdgo.Go.toInterface(_arg), stdgo.Go.toInterface(_err));
                 continue;
             };
-            if (!stdgo._internal.strings.Strings.contains(_err.error()?.__copy__(), ("invalid" : stdgo.GoString)) || !stdgo._internal.strings.Strings.contains(_err.error()?.__copy__(), ("value out of range" : stdgo.GoString))) {
+            if ((!stdgo._internal.strings.Strings.contains(_err.error()?.__copy__(), ("invalid" : stdgo.GoString)) || !stdgo._internal.strings.Strings.contains(_err.error()?.__copy__(), ("value out of range" : stdgo.GoString)) : Bool)) {
                 _t.errorf(("Parse(%q)=%v; expected range error" : stdgo.GoString), stdgo.Go.toInterface(_arg), stdgo.Go.toInterface(_err));
             };
         };
@@ -784,10 +784,10 @@ function testExitCode(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _tests = (new stdgo.Slice<T__struct_0>(5, 5, ({ _flag : ("-h" : stdgo.GoString), _flagHandle : ("" : stdgo.GoString), _expectExit : (0 : stdgo.GoInt) } : T__struct_0), ({ _flag : ("-help" : stdgo.GoString), _flagHandle : ("" : stdgo.GoString), _expectExit : (0 : stdgo.GoInt) } : T__struct_0), ({ _flag : ("-undefined" : stdgo.GoString), _flagHandle : ("" : stdgo.GoString), _expectExit : (2 : stdgo.GoInt) } : T__struct_0), ({ _flag : ("-h" : stdgo.GoString), _flagHandle : ("h" : stdgo.GoString), _expectExit : _magic } : T__struct_0), ({ _flag : ("-help" : stdgo.GoString), _flagHandle : ("help" : stdgo.GoString), _expectExit : _magic } : T__struct_0)) : stdgo.Slice<T__struct_0>);
         for (__0 => _test in _tests) {
             var _cmd = stdgo._internal.os.exec.Exec.command(stdgo._internal.os.Os.args[(0 : stdgo.GoInt)]?.__copy__(), ("-test.run=TestExitCode" : stdgo.GoString));
-            _cmd.env = (stdgo._internal.os.Os.environ().__append__(("GO_CHILD_FLAG=" : stdgo.GoString) + _test._flag?.__copy__()?.__copy__(), ("GO_CHILD_FLAG_HANDLE=" : stdgo.GoString) + _test._flagHandle?.__copy__()?.__copy__()));
+            _cmd.env = (stdgo._internal.os.Os.environ().__append__((("GO_CHILD_FLAG=" : stdgo.GoString) + _test._flag?.__copy__() : stdgo.GoString)?.__copy__(), (("GO_CHILD_FLAG_HANDLE=" : stdgo.GoString) + _test._flagHandle?.__copy__() : stdgo.GoString)?.__copy__()));
             _cmd.run();
             var _got:stdgo.GoInt = _cmd.processState.exitCode();
-            if (false && (_test._expectExit != (0 : stdgo.GoInt))) {
+            if ((false && (_test._expectExit != (0 : stdgo.GoInt)) : Bool)) {
                 _test._expectExit = (1 : stdgo.GoInt);
             };
             if (_got != (_test._expectExit)) {
@@ -860,7 +860,7 @@ function testInvalidFlags(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
                 _fs.var_(stdgo.Go.asInterface((stdgo.Go.setRef(_v) : stdgo.Ref<stdgo._internal.flag_test.Flag_test.T_flagVar>)), _test._flag?.__copy__(), stdgo.Go.str()?.__copy__());
             });
             {
-                var _msg:stdgo.GoString = _test._errorMsg + ("\n" : stdgo.GoString)?.__copy__()?.__copy__();
+                var _msg:stdgo.GoString = (_test._errorMsg + ("\n" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
                 if (_msg != ((_buf.string() : stdgo.GoString))) {
                     _t.errorf(("%s\n: unexpected output: expected %q, bug got %q" : stdgo.GoString), stdgo.Go.toInterface(_testName), stdgo.Go.toInterface(_msg), stdgo.Go.toInterface(stdgo.Go.asInterface(_buf)));
                 };
@@ -880,7 +880,7 @@ function testRedefinedFlags(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
                 _fs.var_(stdgo.Go.asInterface((stdgo.Go.setRef(_v) : stdgo.Ref<stdgo._internal.flag_test.Flag_test.T_flagVar>)), ("foo" : stdgo.GoString), stdgo.Go.str()?.__copy__());
             });
             {
-                var _msg:stdgo.GoString = _test._errorMsg + ("\n" : stdgo.GoString)?.__copy__()?.__copy__();
+                var _msg:stdgo.GoString = (_test._errorMsg + ("\n" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
                 if (_msg != ((_buf.string() : stdgo.GoString))) {
                     _t.errorf(("%s\n: unexpected output: expected %q, bug got %q" : stdgo.GoString), stdgo.Go.toInterface(_testName), stdgo.Go.toInterface(_msg), stdgo.Go.toInterface(stdgo.Go.asInterface(_buf)));
                 };
@@ -1027,7 +1027,7 @@ class T_boolFlagVar_asInterface {
     @:keep
     static public function isBoolFlag( _b:stdgo.Ref<T_boolFlagVar>):Bool {
         @:recv var _b:stdgo.Ref<T_boolFlagVar> = _b;
-        return _b._count < (4 : stdgo.GoInt);
+        return (_b._count < (4 : stdgo.GoInt) : Bool);
     }
     @:keep
     static public function set( _b:stdgo.Ref<T_boolFlagVar>, _value:stdgo.GoString):stdgo.Error {
@@ -1089,7 +1089,7 @@ class T_interval_asInterface {
     @:keep
     static public function set( _i:stdgo.Ref<T_interval>, _value:stdgo.GoString):stdgo.Error {
         @:recv var _i:stdgo.Ref<T_interval> = _i;
-        if (((_i : stdgo._internal.flag_test.Flag_test.T_interval).length) > (0 : stdgo.GoInt)) {
+        if ((((_i : stdgo._internal.flag_test.Flag_test.T_interval).length) > (0 : stdgo.GoInt) : Bool)) {
             return stdgo._internal.errors.Errors.new_(("interval flag already set" : stdgo.GoString));
         };
         for (__0 => _dt in stdgo._internal.strings.Strings.split(_value?.__copy__(), ("," : stdgo.GoString))) {

@@ -287,7 +287,7 @@ function exampleSplit():Void {
 function testMatch(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _tt in _matchTests) {
             var __tmp__ = match(_tt._pattern?.__copy__(), _tt._s?.__copy__()), _ok:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-            if ((_ok != _tt._match) || (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(_tt._err))) {
+            if (((_ok != _tt._match) || (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(_tt._err)) : Bool)) {
                 _t.errorf(("Match(%#q, %#q) = %v, %v want %v, %v" : stdgo.GoString), stdgo.Go.toInterface(_tt._pattern), stdgo.Go.toInterface(_tt._s), stdgo.Go.toInterface(_ok), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_tt._match), stdgo.Go.toInterface(_tt._err));
             };
         };
@@ -312,7 +312,7 @@ function testCleanMallocs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
         if (stdgo._internal.testing.Testing.short()) {
             _t.skip(stdgo.Go.toInterface(("skipping malloc count in short mode" : stdgo.GoString)));
         };
-        if (stdgo._internal.runtime.Runtime.gomaxprocs((0 : stdgo.GoInt)) > (1 : stdgo.GoInt)) {
+        if ((stdgo._internal.runtime.Runtime.gomaxprocs((0 : stdgo.GoInt)) > (1 : stdgo.GoInt) : Bool)) {
             _t.log(stdgo.Go.toInterface(("skipping AllocsPerRun checks; GOMAXPROCS>1" : stdgo.GoString)));
             return;
         };
@@ -320,7 +320,7 @@ function testCleanMallocs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
             var _allocs:stdgo.GoFloat64 = stdgo._internal.testing.Testing.allocsPerRun((100 : stdgo.GoInt), function():Void {
                 clean(_test._result?.__copy__());
             });
-            if (_allocs > (0 : stdgo.GoFloat64)) {
+            if ((_allocs > (0 : stdgo.GoFloat64) : Bool)) {
                 _t.errorf(("Clean(%q): %v allocs, want zero" : stdgo.GoString), stdgo.Go.toInterface(_test._result), stdgo.Go.toInterface(_allocs));
             };
         };
@@ -329,7 +329,7 @@ function testSplit(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _test in _splittests) {
             {
                 var __tmp__ = split(_test._path?.__copy__()), _d:stdgo.GoString = __tmp__._0, _f:stdgo.GoString = __tmp__._1;
-                if ((_d != _test._dir) || (_f != _test._file)) {
+                if (((_d != _test._dir) || (_f != _test._file) : Bool)) {
                     _t.errorf(("Split(%q) = %q, %q, want %q, %q" : stdgo.GoString), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_test._dir), stdgo.Go.toInterface(_test._file));
                 };
             };

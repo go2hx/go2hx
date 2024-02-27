@@ -120,7 +120,7 @@ function example_synchronization():Void {
                         for (__12 => _m in stdgo._internal.strings.Strings.fields(("A long time ago in a galaxy far, far away..." : stdgo.GoString))) {
                             _b[(0 : stdgo.GoInt)] = (stdgo.Go.copySlice((_b.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _m) : stdgo.GoUInt8);
                             {
-                                var __tmp__ = _zw.write((_b.__slice__(0, (1 : stdgo.GoInt) + (_m.length)) : stdgo.Slice<stdgo.GoUInt8>)), __13:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                                var __tmp__ = _zw.write((_b.__slice__(0, ((1 : stdgo.GoInt) + (_m.length) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), __13:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                 if (_err != null) {
                                     stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(_err));
                                 };

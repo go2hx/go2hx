@@ -185,7 +185,7 @@ function _sortFlags(_flags:stdgo.GoMap<stdgo.GoString, stdgo.Ref<Flag>>):stdgo.S
             _i++;
         };
         stdgo._internal.sort.Sort.slice(stdgo.Go.toInterface(_result), function(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
-            return _result[(_i : stdgo.GoInt)].name < _result[(_j : stdgo.GoInt)].name;
+            return (_result[(_i : stdgo.GoInt)].name < _result[(_j : stdgo.GoInt)].name : Bool);
         });
         return _result;
     }
@@ -262,14 +262,14 @@ function unquoteUsage(_flag:stdgo.Ref<Flag>):{ var _0 : stdgo.GoString; var _1 :
         _usage = _flag.usage?.__copy__();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_usage.length), _i++, {
+            stdgo.Go.cfor((_i < (_usage.length) : Bool), _i++, {
                 if (_usage[(_i : stdgo.GoInt)] == ((96 : stdgo.GoUInt8))) {
                     {
-                        var _j:stdgo.GoInt = _i + (1 : stdgo.GoInt);
-                        stdgo.Go.cfor(_j < (_usage.length), _j++, {
+                        var _j:stdgo.GoInt = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
+                        stdgo.Go.cfor((_j < (_usage.length) : Bool), _j++, {
                             if (_usage[(_j : stdgo.GoInt)] == ((96 : stdgo.GoUInt8))) {
-                                _name = (_usage.__slice__(_i + (1 : stdgo.GoInt), _j) : stdgo.GoString)?.__copy__();
-                                _usage = (_usage.__slice__(0, _i) : stdgo.GoString) + _name?.__copy__() + (_usage.__slice__(_j + (1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__()?.__copy__();
+                                _name = (_usage.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt), _j) : stdgo.GoString)?.__copy__();
+                                _usage = (((_usage.__slice__(0, _i) : stdgo.GoString) + _name?.__copy__() : stdgo.GoString) + (_usage.__slice__((_j + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
                                 return { _0 : _name?.__copy__(), _1 : _usage?.__copy__() };
                             };
                         });
@@ -588,7 +588,7 @@ class FlagSet_asInterface {
             return { _0 : false, _1 : (null : stdgo.Error) };
         };
         var _s:stdgo.GoString = _f._args[(0 : stdgo.GoInt)]?.__copy__();
-        if ((_s.length < (2 : stdgo.GoInt)) || (_s[(0 : stdgo.GoInt)] != (45 : stdgo.GoUInt8))) {
+        if ((((_s.length) < (2 : stdgo.GoInt) : Bool) || (_s[(0 : stdgo.GoInt)] != (45 : stdgo.GoUInt8)) : Bool)) {
             return { _0 : false, _1 : (null : stdgo.Error) };
         };
         var _numMinuses:stdgo.GoInt = (1 : stdgo.GoInt);
@@ -600,7 +600,7 @@ class FlagSet_asInterface {
             };
         };
         var _name:stdgo.GoString = (_s.__slice__(_numMinuses) : stdgo.GoString)?.__copy__();
-        if (((_name.length == (0 : stdgo.GoInt)) || (_name[(0 : stdgo.GoInt)] == (45 : stdgo.GoUInt8))) || (_name[(0 : stdgo.GoInt)] == (61 : stdgo.GoUInt8))) {
+        if ((((_name.length) == ((0 : stdgo.GoInt)) || _name[(0 : stdgo.GoInt)] == ((45 : stdgo.GoUInt8)) : Bool) || (_name[(0 : stdgo.GoInt)] == (61 : stdgo.GoUInt8)) : Bool)) {
             return { _0 : false, _1 : _f._failf(("bad flag syntax: %s" : stdgo.GoString), stdgo.Go.toInterface(_s)) };
         };
         _f._args = (_f._args.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>);
@@ -608,9 +608,9 @@ class FlagSet_asInterface {
         var _value:stdgo.GoString = stdgo.Go.str()?.__copy__();
         {
             var _i:stdgo.GoInt = (1 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_name.length), _i++, {
+            stdgo.Go.cfor((_i < (_name.length) : Bool), _i++, {
                 if (_name[(_i : stdgo.GoInt)] == ((61 : stdgo.GoUInt8))) {
-                    _value = (_name.__slice__(_i + (1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+                    _value = (_name.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                     _hasValue = true;
                     _name = (_name.__slice__((0 : stdgo.GoInt), _i) : stdgo.GoString)?.__copy__();
                     break;
@@ -619,7 +619,7 @@ class FlagSet_asInterface {
         };
         var __tmp__ = (_f._formal != null && _f._formal.exists(_name?.__copy__()) ? { _0 : _f._formal[_name?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.flag.Flag.Flag>), _1 : false }), _flag:stdgo.Ref<stdgo._internal.flag.Flag.Flag> = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
-            if ((_name == ("help" : stdgo.GoString)) || (_name == ("h" : stdgo.GoString))) {
+            if (((_name == ("help" : stdgo.GoString)) || (_name == ("h" : stdgo.GoString)) : Bool)) {
                 _f._usage();
                 return { _0 : false, _1 : errHelp };
             };
@@ -631,7 +631,7 @@ class FlagSet_asInterface {
             } catch(_) {
                 { _0 : (null : stdgo._internal.flag.Flag.T_boolFlag), _1 : false };
             }, _fv = __tmp__._0, _ok = __tmp__._1;
-            if (_ok && _fv.isBoolFlag()) {
+            if ((_ok && _fv.isBoolFlag() : Bool)) {
                 if (_hasValue) {
                     {
                         var _err:stdgo.Error = _fv.set(_value?.__copy__());
@@ -648,7 +648,7 @@ class FlagSet_asInterface {
                     };
                 };
             } else {
-                if (!_hasValue && (_f._args.length > (0 : stdgo.GoInt))) {
+                if ((!_hasValue && ((_f._args.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
                     _hasValue = true;
                     {
                         final __tmp__0 = _f._args[(0 : stdgo.GoInt)]?.__copy__();
@@ -863,7 +863,7 @@ class FlagSet_asInterface {
     @:keep
     static public function arg( _f:stdgo.Ref<FlagSet>, _i:stdgo.GoInt):stdgo.GoString {
         @:recv var _f:stdgo.Ref<FlagSet> = _f;
-        if ((_i < (0 : stdgo.GoInt)) || (_i >= _f._args.length)) {
+        if (((_i < (0 : stdgo.GoInt) : Bool) || (_i >= (_f._args.length) : Bool) : Bool)) {
             return stdgo.Go.str()?.__copy__();
         };
         return _f._args[(_i : stdgo.GoInt)]?.__copy__();
@@ -891,11 +891,11 @@ class FlagSet_asInterface {
             var _b:stdgo._internal.strings.Strings.Builder = ({} : stdgo._internal.strings.Strings.Builder);
             stdgo._internal.fmt.Fmt.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings.Builder>)), ("  -%s" : stdgo.GoString), stdgo.Go.toInterface(_flag.name));
             var __tmp__ = unquoteUsage(_flag), _name:stdgo.GoString = __tmp__._0, _usage:stdgo.GoString = __tmp__._1;
-            if ((_name.length) > (0 : stdgo.GoInt)) {
+            if (((_name.length) > (0 : stdgo.GoInt) : Bool)) {
                 _b.writeString((" " : stdgo.GoString));
                 _b.writeString(_name?.__copy__());
             };
-            if (_b.len() <= (4 : stdgo.GoInt)) {
+            if ((_b.len() <= (4 : stdgo.GoInt) : Bool)) {
                 _b.writeString(("\t" : stdgo.GoString));
             } else {
                 _b.writeString(("\n    \t" : stdgo.GoString));
@@ -924,7 +924,7 @@ class FlagSet_asInterface {
         });
         {
             var _errs = _isZeroValueErrs;
-            if ((_errs.length) > (0 : stdgo.GoInt)) {
+            if (((_errs.length) > (0 : stdgo.GoInt) : Bool)) {
                 stdgo._internal.fmt.Fmt.fprintln(_f.output());
                 for (__0 => _err in _errs) {
                     stdgo._internal.fmt.Fmt.fprintln(_f.output(), stdgo.Go.toInterface(_err));

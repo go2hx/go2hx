@@ -209,7 +209,7 @@ function _processOptions(_env:stdgo.GoString):Void {
             @:label("field") while (_env != (stdgo.Go.str())) {
                 var _field:stdgo.GoString = stdgo.Go.str()?.__copy__();
                 var _i:stdgo.GoInt = _indexByte(_env?.__copy__(), (44 : stdgo.GoUInt8));
-                if (_i < (0 : stdgo.GoInt)) {
+                if ((_i < (0 : stdgo.GoInt) : Bool)) {
                     {
                         final __tmp__0 = _env?.__copy__();
                         final __tmp__1 = stdgo.Go.str()?.__copy__();
@@ -219,20 +219,20 @@ function _processOptions(_env:stdgo.GoString):Void {
                 } else {
                     {
                         final __tmp__0 = (_env.__slice__(0, _i) : stdgo.GoString)?.__copy__();
-                        final __tmp__1 = (_env.__slice__(_i + (1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+                        final __tmp__1 = (_env.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                         _field = __tmp__0;
                         _env = __tmp__1;
                     };
                 };
-                if ((_field.length < (4 : stdgo.GoInt)) || ((_field.__slice__(0, (4 : stdgo.GoInt)) : stdgo.GoString) != ("cpu." : stdgo.GoString))) {
+                if ((((_field.length) < (4 : stdgo.GoInt) : Bool) || ((_field.__slice__(0, (4 : stdgo.GoInt)) : stdgo.GoString) != ("cpu." : stdgo.GoString)) : Bool)) {
                     continue;
                 };
                 _i = _indexByte(_field?.__copy__(), (61 : stdgo.GoUInt8));
-                if (_i < (0 : stdgo.GoInt)) {
+                if ((_i < (0 : stdgo.GoInt) : Bool)) {
                     stdgo.Go.print(("GODEBUG: no value specified for \"" : stdgo.GoString), _field, ("\"\n" : stdgo.GoString));
                     continue;
                 };
-                var __0:stdgo.GoString = (_field.__slice__((4 : stdgo.GoInt), _i) : stdgo.GoString)?.__copy__(), __1:stdgo.GoString = (_field.__slice__(_i + (1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _value:stdgo.GoString = __1, _key:stdgo.GoString = __0;
+                var __0:stdgo.GoString = (_field.__slice__((4 : stdgo.GoInt), _i) : stdgo.GoString)?.__copy__(), __1:stdgo.GoString = (_field.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _value:stdgo.GoString = __1, _key:stdgo.GoString = __0;
                 var _enable:Bool = false;
                 {
                     final __value__ = _value;
@@ -265,7 +265,7 @@ function _processOptions(_env:stdgo.GoString):Void {
                 if (!_o.specified) {
                     continue;
                 };
-                if (_o.enable && !_o.feature.value) {
+                if ((_o.enable && !_o.feature.value : Bool)) {
                     stdgo.Go.print(("GODEBUG: can not enable \"" : stdgo.GoString), _o.name, ("\", missing CPU support\n" : stdgo.GoString));
                     continue;
                 };
@@ -276,7 +276,7 @@ function _processOptions(_env:stdgo.GoString):Void {
 function _indexByte(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoInt {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_s.length), _i++, {
+            stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
                 if (_s[(_i : stdgo.GoInt)] == (_c)) {
                     return _i;
                 };

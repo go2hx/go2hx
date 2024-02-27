@@ -204,22 +204,22 @@ function _inverseBWT(_tt:stdgo.Slice<stdgo.GoUInt32>, _origPtr:stdgo.GoUInt, _c:
         var _sum:stdgo.GoUInt = (0u32 : stdgo.GoUInt);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (256 : stdgo.GoInt), _i++, {
-                _sum = _sum + (_c[(_i : stdgo.GoInt)]);
-                _c[(_i : stdgo.GoInt)] = _sum - _c[(_i : stdgo.GoInt)];
+            stdgo.Go.cfor((_i < (256 : stdgo.GoInt) : Bool), _i++, {
+                _sum = (_sum + (_c[(_i : stdgo.GoInt)]) : stdgo.GoUInt);
+                _c[(_i : stdgo.GoInt)] = (_sum - _c[(_i : stdgo.GoInt)] : stdgo.GoUInt);
             });
         };
         for (_i => _ in _tt) {
-            var _b:stdgo.GoUInt32 = _tt[(_i : stdgo.GoInt)] & (255u32 : stdgo.GoUInt32);
-            _tt[(_c[(_b : stdgo.GoInt)] : stdgo.GoInt)] = _tt[(_c[(_b : stdgo.GoInt)] : stdgo.GoInt)] | ((_i : stdgo.GoUInt32) << (8i64 : stdgo.GoUInt64));
+            var _b:stdgo.GoUInt32 = (_tt[(_i : stdgo.GoInt)] & (255u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
+            _tt[(_c[(_b : stdgo.GoInt)] : stdgo.GoInt)] = (_tt[(_c[(_b : stdgo.GoInt)] : stdgo.GoInt)] | (((_i : stdgo.GoUInt32) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
             _c[(_b : stdgo.GoInt)]++;
         };
-        return _tt[(_origPtr : stdgo.GoInt)] >> (8i64 : stdgo.GoUInt64);
+        return (_tt[(_origPtr : stdgo.GoInt)] >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
     }
 function _updateCRC(_val:stdgo.GoUInt32, _b:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32 {
         var _crc:stdgo.GoUInt32 = (-1 ^ _val);
         for (__0 => _v in _b) {
-            _crc = _crctab[((_crc >> (24i64 : stdgo.GoUInt64) : stdgo.GoByte) ^ _v : stdgo.GoInt)] ^ (_crc << (8i64 : stdgo.GoUInt64));
+            _crc = (_crctab[((((_crc >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoByte) ^ _v : stdgo.GoUInt8) : stdgo.GoInt)] ^ ((_crc << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
         };
         return (-1 ^ _crc);
     }
@@ -235,7 +235,7 @@ function _mustLoadFile(_f:stdgo.GoString):stdgo.Slice<stdgo.GoByte> {
     }
 function _trim(_b:stdgo.Slice<stdgo.GoByte>):stdgo.GoString {
         {};
-        if ((_b.length) < (1024 : stdgo.GoInt)) {
+        if (((_b.length) < (1024 : stdgo.GoInt) : Bool)) {
             return stdgo._internal.fmt.Fmt.sprintf(("%q" : stdgo.GoString), stdgo.Go.toInterface(_b))?.__copy__();
         };
         return stdgo._internal.fmt.Fmt.sprintf(("%q..." : stdgo.GoString), stdgo.Go.toInterface((_b.__slice__(0, (1024 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)))?.__copy__();
@@ -278,7 +278,7 @@ function testReader(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                     };
                 };
             };
-            if (!_v._fail && !stdgo._internal.bytes.Bytes.equal(_buf, _v._output)) {
+            if ((!_v._fail && !stdgo._internal.bytes.Bytes.equal(_buf, _v._output) : Bool)) {
                 _t.errorf(("test %d (%s), output mismatch:\ngot  %s\nwant %s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._desc), stdgo.Go.toInterface(_trim(_buf)), stdgo.Go.toInterface(_trim(_v._output)));
             };
         };
@@ -310,7 +310,7 @@ function testBitReader(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                     };
                 };
             };
-            if (!_v._fail && (_val != _v._value)) {
+            if ((!_v._fail && (_val != _v._value) : Bool)) {
                 _t.errorf(("test %d, mismatching value: ReadBits(%d) = %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._nbits), stdgo.Go.toInterface(_val), stdgo.Go.toInterface(_v._value));
             };
         };
@@ -331,7 +331,7 @@ function testZeroRead(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _r:stdgo._internal.io.Io.Reader = newReader(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes.newReader(_b)));
         {
             var __tmp__ = _r.read((null : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-            if ((_n != (0 : stdgo.GoInt)) || (_err != null)) {
+            if (((_n != (0 : stdgo.GoInt)) || (_err != null) : Bool)) {
                 _t.errorf(("Read(nil) = (%d, %v), want (0, nil)" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
             };
         };
@@ -346,7 +346,7 @@ function _benchmarkDecode(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _comp
         _b.resetTimer();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 var _r = stdgo._internal.bytes.Bytes.newReader(_compressed);
                 stdgo._internal.io.Io.copy(stdgo._internal.io.Io.discard, newReader(stdgo.Go.asInterface(_r)));
             });
@@ -362,7 +362,7 @@ function benchmarkDecodeRand(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Vo
         _benchmarkDecode(_b, _random);
     }
 function _newHuffmanTree(_lengths:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : T_huffmanTree; var _1 : stdgo.Error; } {
-        if ((_lengths.length) < (2 : stdgo.GoInt)) {
+        if (((_lengths.length) < (2 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(("newHuffmanTree: too few symbols" : stdgo.GoString));
         };
         var _t:T_huffmanTree = ({} : stdgo._internal.compress.bzip2.Bzip2.T_huffmanTree);
@@ -372,13 +372,13 @@ function _newHuffmanTree(_lengths:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : T_huffm
             _pairs[(_i : stdgo.GoInt)]._length = _length;
         };
         stdgo._internal.sort.Sort.slice(stdgo.Go.toInterface(_pairs), function(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
-            if (_pairs[(_i : stdgo.GoInt)]._length < _pairs[(_j : stdgo.GoInt)]._length) {
+            if ((_pairs[(_i : stdgo.GoInt)]._length < _pairs[(_j : stdgo.GoInt)]._length : Bool)) {
                 return true;
             };
-            if (_pairs[(_i : stdgo.GoInt)]._length > _pairs[(_j : stdgo.GoInt)]._length) {
+            if ((_pairs[(_i : stdgo.GoInt)]._length > _pairs[(_j : stdgo.GoInt)]._length : Bool)) {
                 return false;
             };
-            if (_pairs[(_i : stdgo.GoInt)]._value < _pairs[(_j : stdgo.GoInt)]._value) {
+            if ((_pairs[(_i : stdgo.GoInt)]._value < _pairs[(_j : stdgo.GoInt)]._value : Bool)) {
                 return true;
             };
             return false;
@@ -387,19 +387,19 @@ function _newHuffmanTree(_lengths:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : T_huffm
         var _length:stdgo.GoUInt8 = (32 : stdgo.GoUInt8);
         var _codes = new stdgo.Slice<stdgo._internal.compress.bzip2.Bzip2.T_huffmanCode>((_lengths.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_lengths.length : stdgo.GoInt).toBasic() > 0 ? (_lengths.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.compress.bzip2.Bzip2.T_huffmanCode)]);
         {
-            var _i:stdgo.GoInt = (_pairs.length) - (1 : stdgo.GoInt);
-            stdgo.Go.cfor(_i >= (0 : stdgo.GoInt), _i--, {
-                if (_length > _pairs[(_i : stdgo.GoInt)]._length) {
+            var _i:stdgo.GoInt = ((_pairs.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
+            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+                if ((_length > _pairs[(_i : stdgo.GoInt)]._length : Bool)) {
                     _length = _pairs[(_i : stdgo.GoInt)]._length;
                 };
                 _codes[(_i : stdgo.GoInt)]._code = _code;
                 _codes[(_i : stdgo.GoInt)]._codeLen = _length;
                 _codes[(_i : stdgo.GoInt)]._value = _pairs[(_i : stdgo.GoInt)]._value;
-                _code = _code + ((1u32 : stdgo.GoUInt32) << ((32 : stdgo.GoUInt8) - _length));
+                _code = (_code + (((1u32 : stdgo.GoUInt32) << (((32 : stdgo.GoUInt8) - _length : stdgo.GoUInt8)) : stdgo.GoUInt32)) : stdgo.GoUInt32);
             });
         };
         stdgo._internal.sort.Sort.slice(stdgo.Go.toInterface(_codes), function(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
-            return _codes[(_i : stdgo.GoInt)]._code < _codes[(_j : stdgo.GoInt)]._code;
+            return (_codes[(_i : stdgo.GoInt)]._code < _codes[(_j : stdgo.GoInt)]._code : Bool);
         });
         _t._nodes = new stdgo.Slice<stdgo._internal.compress.bzip2.Bzip2.T_huffmanNode>((_codes.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_codes.length : stdgo.GoInt).toBasic() > 0 ? (_codes.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.compress.bzip2.Bzip2.T_huffmanNode)]);
         var __tmp__ = _buildHuffmanNode((stdgo.Go.setRef(_t) : stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2.T_huffmanTree>), _codes, (0u32 : stdgo.GoUInt32)), __0:stdgo.GoUInt16 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -407,27 +407,27 @@ function _newHuffmanTree(_lengths:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : T_huffm
     }
 function _buildHuffmanNode(_t:stdgo.Ref<T_huffmanTree>, _codes:stdgo.Slice<T_huffmanCode>, _level:stdgo.GoUInt32):{ var _0 : stdgo.GoUInt16; var _1 : stdgo.Error; } {
         var _nodeIndex:stdgo.GoUInt16 = (0 : stdgo.GoUInt16), _err:stdgo.Error = (null : stdgo.Error);
-        var _test:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32) << ((31u32 : stdgo.GoUInt32) - _level);
+        var _test:stdgo.GoUInt32 = ((1u32 : stdgo.GoUInt32) << (((31u32 : stdgo.GoUInt32) - _level : stdgo.GoUInt32)) : stdgo.GoUInt32);
         var _firstRightIndex:stdgo.GoInt = (_codes.length);
         for (_i => _code in _codes) {
-            if (_code._code & _test != ((0u32 : stdgo.GoUInt32))) {
+            if ((_code._code & _test : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32))) {
                 _firstRightIndex = _i;
                 break;
             };
         };
         var _left = (_codes.__slice__(0, _firstRightIndex) : stdgo.Slice<stdgo._internal.compress.bzip2.Bzip2.T_huffmanCode>);
         var _right = (_codes.__slice__(_firstRightIndex) : stdgo.Slice<stdgo._internal.compress.bzip2.Bzip2.T_huffmanCode>);
-        if ((_left.length == (0 : stdgo.GoInt)) || (_right.length == (0 : stdgo.GoInt))) {
-            if ((_codes.length) < (2 : stdgo.GoInt)) {
+        if (((_left.length == (0 : stdgo.GoInt)) || (_right.length == (0 : stdgo.GoInt)) : Bool)) {
+            if (((_codes.length) < (2 : stdgo.GoInt) : Bool)) {
                 return { _0 : (0 : stdgo.GoUInt16), _1 : stdgo.Go.asInterface(((("empty Huffman tree" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2.StructuralError) : StructuralError)) };
             };
             if (_level == ((31u32 : stdgo.GoUInt32))) {
                 return { _0 : (0 : stdgo.GoUInt16), _1 : stdgo.Go.asInterface(((("equal symbols in Huffman tree" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2.StructuralError) : StructuralError)) };
             };
             if ((_left.length) == ((0 : stdgo.GoInt))) {
-                return _buildHuffmanNode(_t, _right, _level + (1u32 : stdgo.GoUInt32));
+                return _buildHuffmanNode(_t, _right, (_level + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32));
             };
-            return _buildHuffmanNode(_t, _left, _level + (1u32 : stdgo.GoUInt32));
+            return _buildHuffmanNode(_t, _left, (_level + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32));
         };
         _nodeIndex = (_t._nextNode : stdgo.GoUInt16);
         var _node = (stdgo.Go.setRef(_t._nodes[(_t._nextNode : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2.T_huffmanNode>);
@@ -437,7 +437,7 @@ function _buildHuffmanNode(_t:stdgo.Ref<T_huffmanTree>, _codes:stdgo.Slice<T_huf
             _node._leftValue = _left[(0 : stdgo.GoInt)]._value;
         } else {
             {
-                var __tmp__ = _buildHuffmanNode(_t, _left, _level + (1u32 : stdgo.GoUInt32));
+                var __tmp__ = _buildHuffmanNode(_t, _left, (_level + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32));
                 _node._left = __tmp__._0;
                 _err = __tmp__._1;
             };
@@ -450,7 +450,7 @@ function _buildHuffmanNode(_t:stdgo.Ref<T_huffmanTree>, _codes:stdgo.Slice<T_huf
             _node._rightValue = _right[(0 : stdgo.GoInt)]._value;
         } else {
             {
-                var __tmp__ = _buildHuffmanNode(_t, _right, _level + (1u32 : stdgo.GoUInt32));
+                var __tmp__ = _buildHuffmanNode(_t, _right, (_level + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32));
                 _node._right = __tmp__._0;
                 _err = __tmp__._1;
             };
@@ -458,19 +458,19 @@ function _buildHuffmanNode(_t:stdgo.Ref<T_huffmanTree>, _codes:stdgo.Slice<T_huf
         return { _0 : _nodeIndex, _1 : _err };
     }
 function _newMTFDecoder(_symbols:stdgo.Slice<stdgo.GoByte>):T_moveToFrontDecoder {
-        if ((_symbols.length) > (256 : stdgo.GoInt)) {
+        if (((_symbols.length) > (256 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(("too many symbols" : stdgo.GoString));
         };
         return (_symbols : T_moveToFrontDecoder);
     }
 function _newMTFDecoderWithRange(_n:stdgo.GoInt):T_moveToFrontDecoder {
-        if (_n > (256 : stdgo.GoInt)) {
+        if ((_n > (256 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(("newMTFDecoderWithRange: cannot have > 256 symbols" : stdgo.GoString));
         };
         var _m = new stdgo.Slice<stdgo.GoUInt8>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _n, _i++, {
+            stdgo.Go.cfor((_i < _n : Bool), _i++, {
                 _m[(_i : stdgo.GoInt)] = (_i : stdgo.GoByte);
             });
         };
@@ -480,14 +480,14 @@ function _newMTFDecoderWithRange(_n:stdgo.GoInt):T_moveToFrontDecoder {
         try {
             {};
             for (_i => _ in _crctab) {
-                var _crc:stdgo.GoUInt32 = (_i : stdgo.GoUInt32) << (24i64 : stdgo.GoUInt64);
+                var _crc:stdgo.GoUInt32 = ((_i : stdgo.GoUInt32) << (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
                 {
                     var _j:stdgo.GoInt = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor(_j < (8 : stdgo.GoInt), _j++, {
-                        if (_crc & (-2147483648u32 : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32))) {
-                            _crc = (_crc << (1i64 : stdgo.GoUInt64)) ^ (79764919u32 : stdgo.GoUInt32);
+                    stdgo.Go.cfor((_j < (8 : stdgo.GoInt) : Bool), _j++, {
+                        if ((_crc & (-2147483648u32 : stdgo.GoUInt32) : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32))) {
+                            _crc = (((_crc << (1i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) ^ (79764919u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
                         } else {
-                            _crc = _crc << ((1i64 : stdgo.GoUInt64));
+                            _crc = (_crc << ((1i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
                         };
                     });
                 };
@@ -536,7 +536,7 @@ class T_bitReader_asInterface {
     static public function readBits64( _br:stdgo.Ref<T_bitReader>, _bits:stdgo.GoUInt):stdgo.GoUInt64 {
         @:recv var _br:stdgo.Ref<T_bitReader> = _br;
         var _n:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        while (_bits > _br._bits) {
+        while ((_bits > _br._bits : Bool)) {
             var __tmp__ = _br._r.readByte(), _b:stdgo.GoUInt8 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io.eof))) {
                 _err = stdgo._internal.io.Io.errUnexpectedEOF;
@@ -545,12 +545,12 @@ class T_bitReader_asInterface {
                 _br._err = _err;
                 return (0i64 : stdgo.GoUInt64);
             };
-            _br._n = _br._n << ((8i64 : stdgo.GoUInt64));
-            _br._n = _br._n | ((_b : stdgo.GoUInt64));
-            _br._bits = _br._bits + ((8u32 : stdgo.GoUInt));
+            _br._n = (_br._n << ((8i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
+            _br._n = (_br._n | ((_b : stdgo.GoUInt64)) : stdgo.GoUInt64);
+            _br._bits = (_br._bits + ((8u32 : stdgo.GoUInt)) : stdgo.GoUInt);
         };
-        _n = (_br._n >> (_br._bits - _bits)) & (((1i64 : stdgo.GoUInt64) << _bits) - (1i64 : stdgo.GoUInt64));
-        _br._bits = _br._bits - (_bits);
+        _n = (((_br._n >> ((_br._bits - _bits : stdgo.GoUInt)) : stdgo.GoUInt64)) & (((((1i64 : stdgo.GoUInt64) << _bits : stdgo.GoUInt64)) - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
+        _br._bits = (_br._bits - (_bits) : stdgo.GoUInt);
         return _n;
     }
 }
@@ -581,7 +581,7 @@ class T_reader_asInterface {
         var _br = (stdgo.Go.setRef(_bz2._br) : stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2.T_bitReader>);
         _bz2._wantBlockCRC = (_br.readBits64((32u32 : stdgo.GoUInt)) : stdgo.GoUInt32);
         _bz2._blockCRC = (0u32 : stdgo.GoUInt32);
-        _bz2._fileCRC = ((_bz2._fileCRC << (1i64 : stdgo.GoUInt64)) | (_bz2._fileCRC >> (31i64 : stdgo.GoUInt64))) ^ _bz2._wantBlockCRC;
+        _bz2._fileCRC = ((((_bz2._fileCRC << (1i64 : stdgo.GoUInt64) : stdgo.GoUInt32) | (_bz2._fileCRC >> (31i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32)) ^ _bz2._wantBlockCRC : stdgo.GoUInt32);
         var _randomized:stdgo.GoInt = _br.readBits((1u32 : stdgo.GoUInt));
         if (_randomized != ((0 : stdgo.GoInt))) {
             return stdgo.Go.asInterface(((("deprecated randomized files" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2.StructuralError) : StructuralError));
@@ -592,14 +592,14 @@ class T_reader_asInterface {
         var _numSymbols:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var _symRange:stdgo.GoUInt = (0u32 : stdgo.GoUInt);
-            stdgo.Go.cfor(_symRange < (16u32 : stdgo.GoUInt), _symRange++, {
-                if (_symbolRangeUsedBitmap & ((1 : stdgo.GoInt) << ((15u32 : stdgo.GoUInt) - _symRange)) != ((0 : stdgo.GoInt))) {
+            stdgo.Go.cfor((_symRange < (16u32 : stdgo.GoUInt) : Bool), _symRange++, {
+                if ((_symbolRangeUsedBitmap & (((1 : stdgo.GoInt) << (((15u32 : stdgo.GoUInt) - _symRange : stdgo.GoUInt)) : stdgo.GoInt)) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                     var _bits:stdgo.GoInt = _br.readBits((16u32 : stdgo.GoUInt));
                     {
                         var _symbol:stdgo.GoUInt = (0u32 : stdgo.GoUInt);
-                        stdgo.Go.cfor(_symbol < (16u32 : stdgo.GoUInt), _symbol++, {
-                            if (_bits & ((1 : stdgo.GoInt) << ((15u32 : stdgo.GoUInt) - _symbol)) != ((0 : stdgo.GoInt))) {
-                                _symbolPresent[(((16u32 : stdgo.GoUInt) * _symRange) + _symbol : stdgo.GoInt)] = true;
+                        stdgo.Go.cfor((_symbol < (16u32 : stdgo.GoUInt) : Bool), _symbol++, {
+                            if ((_bits & (((1 : stdgo.GoInt) << (((15u32 : stdgo.GoUInt) - _symbol : stdgo.GoUInt)) : stdgo.GoInt)) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
+                                _symbolPresent[((((16u32 : stdgo.GoUInt) * _symRange : stdgo.GoUInt) + _symbol : stdgo.GoUInt) : stdgo.GoInt)] = true;
                                 _numSymbols++;
                             };
                         });
@@ -611,7 +611,7 @@ class T_reader_asInterface {
             return stdgo.Go.asInterface(((("no symbols in input" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2.StructuralError) : StructuralError));
         };
         var _numHuffmanTrees:stdgo.GoInt = _br.readBits((3u32 : stdgo.GoUInt));
-        if ((_numHuffmanTrees < (2 : stdgo.GoInt)) || (_numHuffmanTrees > (6 : stdgo.GoInt))) {
+        if (((_numHuffmanTrees < (2 : stdgo.GoInt) : Bool) || (_numHuffmanTrees > (6 : stdgo.GoInt) : Bool) : Bool)) {
             return stdgo.Go.asInterface(((("invalid number of Huffman trees" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2.StructuralError) : StructuralError));
         };
         var _numSelectors:stdgo.GoInt = _br.readBits((15u32 : stdgo.GoUInt));
@@ -626,7 +626,7 @@ class T_reader_asInterface {
                 };
                 _c++;
             };
-            if (_c >= _numHuffmanTrees) {
+            if ((_c >= _numHuffmanTrees : Bool)) {
                 return stdgo.Go.asInterface(((("tree index too large" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2.StructuralError) : StructuralError));
             };
             _treeIndexes[(_i : stdgo.GoInt)] = _mtfTreeDecoder.decode(_c);
@@ -635,7 +635,7 @@ class T_reader_asInterface {
         var _nextSymbol:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (256 : stdgo.GoInt), _i++, {
+            stdgo.Go.cfor((_i < (256 : stdgo.GoInt) : Bool), _i++, {
                 if (_symbolPresent[(_i : stdgo.GoInt)]) {
                     _symbols[(_nextSymbol : stdgo.GoInt)] = (_i : stdgo.GoByte);
                     _nextSymbol++;
@@ -643,14 +643,14 @@ class T_reader_asInterface {
             });
         };
         var _mtf:stdgo._internal.compress.bzip2.Bzip2.T_moveToFrontDecoder = _newMTFDecoder(_symbols);
-        _numSymbols = _numSymbols + ((2 : stdgo.GoInt));
+        _numSymbols = (_numSymbols + ((2 : stdgo.GoInt)) : stdgo.GoInt);
         var _huffmanTrees = new stdgo.Slice<stdgo._internal.compress.bzip2.Bzip2.T_huffmanTree>((_numHuffmanTrees : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_numHuffmanTrees : stdgo.GoInt).toBasic() > 0 ? (_numHuffmanTrees : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.compress.bzip2.Bzip2.T_huffmanTree)]);
         var _lengths = new stdgo.Slice<stdgo.GoUInt8>((_numSymbols : stdgo.GoInt).toBasic(), 0).__setNumber32__();
         for (_i => _ in _huffmanTrees) {
             var _length:stdgo.GoInt = _br.readBits((5u32 : stdgo.GoUInt));
             for (_j => _ in _lengths) {
                 while (true) {
-                    if ((_length < (1 : stdgo.GoInt)) || (_length > (20 : stdgo.GoInt))) {
+                    if (((_length < (1 : stdgo.GoInt) : Bool) || (_length > (20 : stdgo.GoInt) : Bool) : Bool)) {
                         return stdgo.Go.asInterface(((("Huffman length out of range" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2.StructuralError) : StructuralError));
                     };
                     if (!_br.readBit()) {
@@ -677,7 +677,7 @@ class T_reader_asInterface {
         if ((_treeIndexes.length) == ((0 : stdgo.GoInt))) {
             return stdgo.Go.asInterface(((("no tree selectors given" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2.StructuralError) : StructuralError));
         };
-        if ((_treeIndexes[(0 : stdgo.GoInt)] : stdgo.GoInt) >= (_huffmanTrees.length)) {
+        if (((_treeIndexes[(0 : stdgo.GoInt)] : stdgo.GoInt) >= (_huffmanTrees.length) : Bool)) {
             return stdgo.Go.asInterface(((("tree selector out of range" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2.StructuralError) : StructuralError));
         };
         var _currentHuffmanTree:stdgo._internal.compress.bzip2.Bzip2.T_huffmanTree = _huffmanTrees[(_treeIndexes[(0 : stdgo.GoInt)] : stdgo.GoInt)];
@@ -690,10 +690,10 @@ class T_reader_asInterface {
         var _decoded:stdgo.GoInt = (0 : stdgo.GoInt);
         while (true) {
             if (_decoded == ((50 : stdgo.GoInt))) {
-                if (_selectorIndex >= _numSelectors) {
+                if ((_selectorIndex >= _numSelectors : Bool)) {
                     return stdgo.Go.asInterface(((("insufficient selector indices for number of symbols" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2.StructuralError) : StructuralError));
                 };
-                if ((_treeIndexes[(_selectorIndex : stdgo.GoInt)] : stdgo.GoInt) >= (_huffmanTrees.length)) {
+                if (((_treeIndexes[(_selectorIndex : stdgo.GoInt)] : stdgo.GoInt) >= (_huffmanTrees.length) : Bool)) {
                     return stdgo.Go.asInterface(((("tree selector out of range" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2.StructuralError) : StructuralError));
                 };
                 _currentHuffmanTree = _huffmanTrees[(_treeIndexes[(_selectorIndex : stdgo.GoInt)] : stdgo.GoInt)];
@@ -702,24 +702,24 @@ class T_reader_asInterface {
             };
             var _v:stdgo.GoUInt16 = _currentHuffmanTree.decode(_br);
             _decoded++;
-            if (_v < (2 : stdgo.GoUInt16)) {
+            if ((_v < (2 : stdgo.GoUInt16) : Bool)) {
                 if (_repeat == ((0 : stdgo.GoInt))) {
                     _repeatPower = (1 : stdgo.GoInt);
                 };
-                _repeat = _repeat + (_repeatPower << _v);
-                _repeatPower = _repeatPower << ((1i64 : stdgo.GoUInt64));
-                if (_repeat > (2097152 : stdgo.GoInt)) {
+                _repeat = (_repeat + ((_repeatPower << _v : stdgo.GoInt)) : stdgo.GoInt);
+                _repeatPower = (_repeatPower << ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt);
+                if ((_repeat > (2097152 : stdgo.GoInt) : Bool)) {
                     return stdgo.Go.asInterface(((("repeat count too large" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2.StructuralError) : StructuralError));
                 };
                 continue;
             };
-            if (_repeat > (0 : stdgo.GoInt)) {
-                if (_repeat > (_bz2._blockSize - _bufIndex)) {
+            if ((_repeat > (0 : stdgo.GoInt) : Bool)) {
+                if ((_repeat > (_bz2._blockSize - _bufIndex : stdgo.GoInt) : Bool)) {
                     return stdgo.Go.asInterface(((("repeats past end of block" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2.StructuralError) : StructuralError));
                 };
                 {
                     var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor(_i < _repeat, _i++, {
+                    stdgo.Go.cfor((_i < _repeat : Bool), _i++, {
                         var _b:stdgo.GoUInt8 = _mtf.first();
                         _bz2._tt[(_bufIndex : stdgo.GoInt)] = (_b : stdgo.GoUInt32);
                         _bz2._c[(_b : stdgo.GoInt)]++;
@@ -728,18 +728,18 @@ class T_reader_asInterface {
                 };
                 _repeat = (0 : stdgo.GoInt);
             };
-            if ((_v : stdgo.GoInt) == (_numSymbols - (1 : stdgo.GoInt))) {
+            if ((_v : stdgo.GoInt) == ((_numSymbols - (1 : stdgo.GoInt) : stdgo.GoInt))) {
                 break;
             };
-            var _b:stdgo.GoUInt8 = _mtf.decode((_v - (1 : stdgo.GoUInt16) : stdgo.GoInt));
-            if (_bufIndex >= _bz2._blockSize) {
+            var _b:stdgo.GoUInt8 = _mtf.decode(((_v - (1 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdgo.GoInt));
+            if ((_bufIndex >= _bz2._blockSize : Bool)) {
                 return stdgo.Go.asInterface(((("data exceeds block size" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2.StructuralError) : StructuralError));
             };
             _bz2._tt[(_bufIndex : stdgo.GoInt)] = (_b : stdgo.GoUInt32);
             _bz2._c[(_b : stdgo.GoInt)]++;
             _bufIndex++;
         };
-        if (_origPtr >= (_bufIndex : stdgo.GoUInt)) {
+        if ((_origPtr >= (_bufIndex : stdgo.GoUInt) : Bool)) {
             return stdgo.Go.asInterface(((("origPtr out of bounds" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2.StructuralError) : StructuralError));
         };
         _bz2._preRLE = (_bz2._tt.__slice__(0, _bufIndex) : stdgo.Slice<stdgo.GoUInt32>);
@@ -755,7 +755,7 @@ class T_reader_asInterface {
         @:recv var _bz2:stdgo.Ref<T_reader> = _bz2;
         while (true) {
             var _n:stdgo.GoInt = _bz2._readFromBlock(_buf);
-            if ((_n > (0 : stdgo.GoInt)) || (_buf.length == (0 : stdgo.GoInt))) {
+            if (((_n > (0 : stdgo.GoInt) : Bool) || (_buf.length == (0 : stdgo.GoInt)) : Bool)) {
                 _bz2._blockCRC = _updateCRC(_bz2._blockCRC, (_buf.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>));
                 return { _0 : _n, _1 : (null : stdgo.Error) };
             };
@@ -780,8 +780,8 @@ class T_reader_asInterface {
                         _br._err = stdgo.Go.asInterface(((("file checksum mismatch" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2.StructuralError) : StructuralError));
                         return { _0 : (0 : stdgo.GoInt), _1 : _br._err };
                     };
-                    if (_br._bits % (8u32 : stdgo.GoUInt) != ((0u32 : stdgo.GoUInt))) {
-                        _br.readBits(_br._bits % (8u32 : stdgo.GoUInt));
+                    if ((_br._bits % (8u32 : stdgo.GoUInt) : stdgo.GoUInt) != ((0u32 : stdgo.GoUInt))) {
+                        _br.readBits((_br._bits % (8u32 : stdgo.GoUInt) : stdgo.GoUInt));
                     };
                     var __tmp__ = _br._r.readByte(), _b:stdgo.GoUInt8 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io.eof))) {
@@ -801,7 +801,7 @@ class T_reader_asInterface {
                         _br._err = _err;
                         return { _0 : (0 : stdgo.GoInt), _1 : _err };
                     };
-                    if ((_b != (66 : stdgo.GoUInt8)) || (_z != (90 : stdgo.GoUInt8))) {
+                    if (((_b != (66 : stdgo.GoUInt8)) || (_z != (90 : stdgo.GoUInt8)) : Bool)) {
                         return { _0 : (0 : stdgo.GoInt), _1 : stdgo.Go.asInterface(((("bad magic value in continuation file" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2.StructuralError) : StructuralError)) };
                     };
                     {
@@ -820,8 +820,8 @@ class T_reader_asInterface {
     static public function _readFromBlock( _bz2:stdgo.Ref<T_reader>, _buf:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt {
         @:recv var _bz2:stdgo.Ref<T_reader> = _bz2;
         var _n:stdgo.GoInt = (0 : stdgo.GoInt);
-        while (((_bz2._repeats > (0u32 : stdgo.GoUInt)) || (_bz2._preRLEUsed < _bz2._preRLE.length)) && (_n < _buf.length)) {
-            if (_bz2._repeats > (0u32 : stdgo.GoUInt)) {
+        while (((((_bz2._repeats > (0u32 : stdgo.GoUInt) : Bool) || (_bz2._preRLEUsed < (_bz2._preRLE.length) : Bool) : Bool)) && (_n < (_buf.length) : Bool) : Bool)) {
+            if ((_bz2._repeats > (0u32 : stdgo.GoUInt) : Bool)) {
                 _buf[(_n : stdgo.GoInt)] = (_bz2._lastByte : stdgo.GoByte);
                 _n++;
                 _bz2._repeats--;
@@ -832,7 +832,7 @@ class T_reader_asInterface {
             };
             _bz2._tPos = _bz2._preRLE[(_bz2._tPos : stdgo.GoInt)];
             var _b:stdgo.GoUInt8 = (_bz2._tPos : stdgo.GoByte);
-            _bz2._tPos = _bz2._tPos >> ((8i64 : stdgo.GoUInt64));
+            _bz2._tPos = (_bz2._tPos >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
             _bz2._preRLEUsed++;
             if (_bz2._byteRepeats == ((3u32 : stdgo.GoUInt))) {
                 _bz2._repeats = (_b : stdgo.GoUInt);
@@ -894,12 +894,12 @@ class T_reader_asInterface {
             return stdgo.Go.asInterface(((("non-Huffman entropy encoding" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2.StructuralError) : StructuralError));
         };
         var _level:stdgo.GoInt = _br.readBits((8u32 : stdgo.GoUInt));
-        if ((_level < (49 : stdgo.GoInt)) || (_level > (57 : stdgo.GoInt))) {
+        if (((_level < (49 : stdgo.GoInt) : Bool) || (_level > (57 : stdgo.GoInt) : Bool) : Bool)) {
             return stdgo.Go.asInterface(((("invalid compression level" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2.StructuralError) : StructuralError));
         };
         _bz2._fileCRC = (0u32 : stdgo.GoUInt32);
-        _bz2._blockSize = (100000 : stdgo.GoInt) * (_level - (48 : stdgo.GoInt));
-        if (_bz2._blockSize > (_bz2._tt.length)) {
+        _bz2._blockSize = ((100000 : stdgo.GoInt) * ((_level - (48 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
+        if ((_bz2._blockSize > (_bz2._tt.length) : Bool)) {
             _bz2._tt = new stdgo.Slice<stdgo.GoUInt32>((_bz2._blockSize : stdgo.GoInt).toBasic(), 0).__setNumber32__();
         };
         return (null : stdgo.Error);
@@ -925,9 +925,9 @@ class T_huffmanTree_asInterface {
         while (true) {
             var _node = (stdgo.Go.setRef(_t._nodes[(_nodeIndex : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2.T_huffmanNode>);
             var _bit:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
-            if (_br._bits > (0u32 : stdgo.GoUInt)) {
+            if ((_br._bits > (0u32 : stdgo.GoUInt) : Bool)) {
                 _br._bits--;
-                _bit = (_br._n >> (_br._bits & (63u32 : stdgo.GoUInt)) : stdgo.GoUInt16) & (1 : stdgo.GoUInt16);
+                _bit = (((_br._n >> ((_br._bits & (63u32 : stdgo.GoUInt) : stdgo.GoUInt)) : stdgo.GoUInt64) : stdgo.GoUInt16) & (1 : stdgo.GoUInt16) : stdgo.GoUInt16);
             } else {
                 _bit = (_br.readBits((1u32 : stdgo.GoUInt)) : stdgo.GoUInt16);
             };
@@ -964,7 +964,7 @@ class StructuralError_asInterface {
     @:keep
     static public function error( _s:StructuralError):stdgo.GoString {
         @:recv var _s:StructuralError = _s;
-        return ("bzip2 data invalid: " : stdgo.GoString) + (_s : stdgo.GoString)?.__copy__()?.__copy__();
+        return (("bzip2 data invalid: " : stdgo.GoString) + (_s : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
     }
 }
 class T_moveToFrontDecoder_asInterface {

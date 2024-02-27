@@ -53,22 +53,22 @@ function example():Void {
         var _histogram:stdgo.GoArray<stdgo.GoArray<stdgo.GoInt>> = new stdgo.GoArray<stdgo.GoArray<stdgo.GoInt>>(...[for (i in 0 ... 16) new stdgo.GoArray<stdgo.GoInt>(...[for (i in 0 ... 4) (0 : stdgo.GoInt)])]);
         {
             var _y:stdgo.GoInt = _bounds.min.y;
-            stdgo.Go.cfor(_y < _bounds.max.y, _y++, {
+            stdgo.Go.cfor((_y < _bounds.max.y : Bool), _y++, {
                 {
                     var _x:stdgo.GoInt = _bounds.min.x;
-                    stdgo.Go.cfor(_x < _bounds.max.x, _x++, {
+                    stdgo.Go.cfor((_x < _bounds.max.x : Bool), _x++, {
                         var __tmp__ = _m.at(_x, _y).rgba(), _r:stdgo.GoUInt32 = __tmp__._0, _g:stdgo.GoUInt32 = __tmp__._1, _b:stdgo.GoUInt32 = __tmp__._2, _a:stdgo.GoUInt32 = __tmp__._3;
-                        _histogram[(_r >> (12i64 : stdgo.GoUInt64) : stdgo.GoInt)][(0 : stdgo.GoInt)]++;
-                        _histogram[(_g >> (12i64 : stdgo.GoUInt64) : stdgo.GoInt)][(1 : stdgo.GoInt)]++;
-                        _histogram[(_b >> (12i64 : stdgo.GoUInt64) : stdgo.GoInt)][(2 : stdgo.GoInt)]++;
-                        _histogram[(_a >> (12i64 : stdgo.GoUInt64) : stdgo.GoInt)][(3 : stdgo.GoInt)]++;
+                        _histogram[((_r >> (12i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoInt)][(0 : stdgo.GoInt)]++;
+                        _histogram[((_g >> (12i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoInt)][(1 : stdgo.GoInt)]++;
+                        _histogram[((_b >> (12i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoInt)][(2 : stdgo.GoInt)]++;
+                        _histogram[((_a >> (12i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoInt)][(3 : stdgo.GoInt)]++;
                     });
                 };
             });
         };
         stdgo._internal.fmt.Fmt.printf(("%-14s %6s %6s %6s %6s\n" : stdgo.GoString), stdgo.Go.toInterface(("bin" : stdgo.GoString)), stdgo.Go.toInterface(("red" : stdgo.GoString)), stdgo.Go.toInterface(("green" : stdgo.GoString)), stdgo.Go.toInterface(("blue" : stdgo.GoString)), stdgo.Go.toInterface(("alpha" : stdgo.GoString)));
         for (_i => _x in _histogram) {
-            stdgo._internal.fmt.Fmt.printf(("0x%04x-0x%04x: %6d %6d %6d %6d\n" : stdgo.GoString), stdgo.Go.toInterface(_i << (12i64 : stdgo.GoUInt64)), stdgo.Go.toInterface(((_i + (1 : stdgo.GoInt)) << (12i64 : stdgo.GoUInt64)) - (1 : stdgo.GoInt)), stdgo.Go.toInterface(_x[(0 : stdgo.GoInt)]), stdgo.Go.toInterface(_x[(1 : stdgo.GoInt)]), stdgo.Go.toInterface(_x[(2 : stdgo.GoInt)]), stdgo.Go.toInterface(_x[(3 : stdgo.GoInt)]));
+            stdgo._internal.fmt.Fmt.printf(("0x%04x-0x%04x: %6d %6d %6d %6d\n" : stdgo.GoString), stdgo.Go.toInterface((_i << (12i64 : stdgo.GoUInt64) : stdgo.GoInt)), stdgo.Go.toInterface(((((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) << (12i64 : stdgo.GoUInt64) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)), stdgo.Go.toInterface(_x[(0 : stdgo.GoInt)]), stdgo.Go.toInterface(_x[(1 : stdgo.GoInt)]), stdgo.Go.toInterface(_x[(2 : stdgo.GoInt)]), stdgo.Go.toInterface(_x[(3 : stdgo.GoInt)]));
         };
     }
 function _decode(_filename:stdgo.GoString):{ var _0 : stdgo._internal.image.Image.Image; var _1 : stdgo.GoString; var _2 : stdgo.Error; } {
@@ -142,8 +142,8 @@ function _decodeConfig(_filename:stdgo.GoString):{ var _0 : stdgo._internal.imag
         };
     }
 function _delta(_u0:stdgo.GoUInt32, _u1:stdgo.GoUInt32):stdgo.GoInt {
-        var _d:stdgo.GoInt = (_u0 : stdgo.GoInt) - (_u1 : stdgo.GoInt);
-        if (_d < (0 : stdgo.GoInt)) {
+        var _d:stdgo.GoInt = ((_u0 : stdgo.GoInt) - (_u1 : stdgo.GoInt) : stdgo.GoInt);
+        if ((_d < (0 : stdgo.GoInt) : Bool)) {
             return -_d;
         };
         return _d;
@@ -155,7 +155,7 @@ function _withinTolerance(_c0:stdgo._internal.image.color.Color.Color, _c1:stdgo
         var _g:stdgo.GoInt = _delta(_g0, _g1);
         var _b:stdgo.GoInt = _delta(_b0, _b1);
         var _a:stdgo.GoInt = _delta(_a0, _a1);
-        return (((_r <= _tolerance) && (_g <= _tolerance)) && (_b <= _tolerance)) && (_a <= _tolerance);
+        return ((((_r <= _tolerance : Bool) && (_g <= _tolerance : Bool) : Bool) && (_b <= _tolerance : Bool) : Bool) && (_a <= _tolerance : Bool) : Bool);
     }
 function testDecode(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         stdgo._internal.internal.Macro.controlFlow({
@@ -196,10 +196,10 @@ function testDecode(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 };
                 {
                     var _y:stdgo.GoInt = _b.min.y;
-                    stdgo.Go.cfor(_y < _b.max.y, _y++, {
+                    stdgo.Go.cfor((_y < _b.max.y : Bool), _y++, {
                         {
                             var _x:stdgo.GoInt = _b.min.x;
-                            stdgo.Go.cfor(_x < _b.max.x, _x++, {
+                            stdgo.Go.cfor((_x < _b.max.x : Bool), _x++, {
                                 if (!_withinTolerance(_g.at(_x, _y), _m.at(_x, _y), _it._tolerance)) {
                                     _t.errorf(("%s: at (%d, %d):\ngot  %v\nwant %v" : stdgo.GoString), stdgo.Go.toInterface(_it._filename), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(_rgba(_m.at(_x, _y))), stdgo.Go.toInterface(_rgba(_g.at(_x, _y))));
                                     @:jump("loop") continue;

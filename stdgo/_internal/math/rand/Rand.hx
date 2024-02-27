@@ -1887,7 +1887,7 @@ function getExponentialDistributionParameters():{ var _0 : stdgo.GoFloat64; var 
         return { _0 : (7.69711747013105 : stdgo.GoFloat64), _1 : _ke?.__copy__(), _2 : _we?.__copy__(), _3 : _fe?.__copy__() };
     }
 function _absInt32(_i:stdgo.GoInt32):stdgo.GoUInt32 {
-        if (_i < (0 : stdgo.GoInt32)) {
+        if ((_i < (0 : stdgo.GoInt32) : Bool)) {
             return (-_i : stdgo.GoUInt32);
         };
         return (_i : stdgo.GoUInt32);
@@ -1919,7 +1919,7 @@ function _read(_p:stdgo.Slice<stdgo.GoByte>, _src:Source, _readVal:stdgo.Pointer
         }, _rng = __tmp__._0, __6 = __tmp__._1;
         {
             _n = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_n < (_p.length), _n++, {
+            stdgo.Go.cfor((_n < (_p.length) : Bool), _n++, {
                 if (_pos == ((0 : stdgo.GoInt8))) {
                     if (_rng != null && ((_rng : Dynamic).__nil__ == null || !(_rng : Dynamic).__nil__)) {
                         _val = _rng.int63();
@@ -1929,7 +1929,7 @@ function _read(_p:stdgo.Slice<stdgo.GoByte>, _src:Source, _readVal:stdgo.Pointer
                     _pos = (7 : stdgo.GoInt8);
                 };
                 _p[(_n : stdgo.GoInt)] = (_val : stdgo.GoByte);
-                _val = _val >> ((8i64 : stdgo.GoUInt64));
+                _val = (_val >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoInt64);
                 _pos--;
             });
         };
@@ -2025,28 +2025,28 @@ function expFloat64():stdgo.GoFloat64 {
     }
 function _seedrand(_x:stdgo.GoInt32):stdgo.GoInt32 {
         {};
-        var _hi:stdgo.GoInt32 = _x / (44488 : stdgo.GoInt32);
-        var _lo:stdgo.GoInt32 = _x % (44488 : stdgo.GoInt32);
-        _x = ((48271 : stdgo.GoInt32) * _lo) - ((3399 : stdgo.GoInt32) * _hi);
-        if (_x < (0 : stdgo.GoInt32)) {
-            _x = _x + ((2147483647 : stdgo.GoInt32));
+        var _hi:stdgo.GoInt32 = (_x / (44488 : stdgo.GoInt32) : stdgo.GoInt32);
+        var _lo:stdgo.GoInt32 = (_x % (44488 : stdgo.GoInt32) : stdgo.GoInt32);
+        _x = (((48271 : stdgo.GoInt32) * _lo : stdgo.GoInt32) - ((3399 : stdgo.GoInt32) * _hi : stdgo.GoInt32) : stdgo.GoInt32);
+        if ((_x < (0 : stdgo.GoInt32) : Bool)) {
+            _x = (_x + ((2147483647 : stdgo.GoInt32)) : stdgo.GoInt32);
         };
         return _x;
     }
 function newZipf(_r:stdgo.Ref<Rand>, _s:stdgo.GoFloat64, _v:stdgo.GoFloat64, _imax:stdgo.GoUInt64):stdgo.Ref<Zipf> {
         var _z = (stdgo.Go.setRef(({} : stdgo._internal.math.rand.Rand.Zipf)) : stdgo.Ref<stdgo._internal.math.rand.Rand.Zipf>);
-        if ((_s <= (1 : stdgo.GoFloat64)) || (_v < (1 : stdgo.GoFloat64))) {
+        if (((_s <= (1 : stdgo.GoFloat64) : Bool) || (_v < (1 : stdgo.GoFloat64) : Bool) : Bool)) {
             return null;
         };
         _z._r = _r;
         _z._imax = (_imax : stdgo.GoFloat64);
         _z._v = _v;
         _z._q = _s;
-        _z._oneminusQ = (1 : stdgo.GoFloat64) - _z._q;
-        _z._oneminusQinv = (1 : stdgo.GoFloat64) / _z._oneminusQ;
-        _z._hxm = _z._h(_z._imax + (0.5 : stdgo.GoFloat64));
-        _z._hx0minusHxm = (_z._h((0.5 : stdgo.GoFloat64)) - stdgo._internal.math.Math.exp(stdgo._internal.math.Math.log(_z._v) * (-_z._q))) - _z._hxm;
-        _z._s = (1 : stdgo.GoFloat64) - _z._hinv(_z._h((1.5 : stdgo.GoFloat64)) - stdgo._internal.math.Math.exp(-_z._q * stdgo._internal.math.Math.log(_z._v + (1 : stdgo.GoFloat64))));
+        _z._oneminusQ = ((1 : stdgo.GoFloat64) - _z._q : stdgo.GoFloat64);
+        _z._oneminusQinv = ((1 : stdgo.GoFloat64) / _z._oneminusQ : stdgo.GoFloat64);
+        _z._hxm = _z._h((_z._imax + (0.5 : stdgo.GoFloat64) : stdgo.GoFloat64));
+        _z._hx0minusHxm = ((_z._h((0.5 : stdgo.GoFloat64)) - stdgo._internal.math.Math.exp((stdgo._internal.math.Math.log(_z._v) * (-_z._q) : stdgo.GoFloat64)) : stdgo.GoFloat64) - _z._hxm : stdgo.GoFloat64);
+        _z._s = ((1 : stdgo.GoFloat64) - _z._hinv((_z._h((1.5 : stdgo.GoFloat64)) - stdgo._internal.math.Math.exp((-_z._q * stdgo._internal.math.Math.log((_z._v + (1 : stdgo.GoFloat64) : stdgo.GoFloat64)) : stdgo.GoFloat64)) : stdgo.GoFloat64)) : stdgo.GoFloat64);
         return _z;
     }
 class Rand_asInterface {
@@ -2112,16 +2112,16 @@ class Rand_asInterface {
     @:keep
     static public function shuffle( _r:stdgo.Ref<Rand>, _n:stdgo.GoInt, _swap:(_i:stdgo.GoInt, _j:stdgo.GoInt) -> Void):Void {
         @:recv var _r:stdgo.Ref<Rand> = _r;
-        if (_n < (0 : stdgo.GoInt)) {
+        if ((_n < (0 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(("invalid argument to Shuffle" : stdgo.GoString));
         };
-        var _i:stdgo.GoInt = _n - (1 : stdgo.GoInt);
-        stdgo.Go.cfor(_i > (2147483646 : stdgo.GoInt), _i--, {
-            var _j:stdgo.GoInt = (_r.int63n((_i + (1 : stdgo.GoInt) : stdgo.GoInt64)) : stdgo.GoInt);
+        var _i:stdgo.GoInt = (_n - (1 : stdgo.GoInt) : stdgo.GoInt);
+        stdgo.Go.cfor((_i > (2147483646 : stdgo.GoInt) : Bool), _i--, {
+            var _j:stdgo.GoInt = (_r.int63n(((_i + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64)) : stdgo.GoInt);
             _swap(_i, _j);
         });
-        stdgo.Go.cfor(_i > (0 : stdgo.GoInt), _i--, {
-            var _j:stdgo.GoInt = (_r._int31n((_i + (1 : stdgo.GoInt) : stdgo.GoInt32)) : stdgo.GoInt);
+        stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i--, {
+            var _j:stdgo.GoInt = (_r._int31n(((_i + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt32)) : stdgo.GoInt);
             _swap(_i, _j);
         });
     }
@@ -2131,8 +2131,8 @@ class Rand_asInterface {
         var _m = new stdgo.Slice<stdgo.GoInt>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _n, _i++, {
-                var _j:stdgo.GoInt = _r.intn(_i + (1 : stdgo.GoInt));
+            stdgo.Go.cfor((_i < _n : Bool), _i++, {
+                var _j:stdgo.GoInt = _r.intn((_i + (1 : stdgo.GoInt) : stdgo.GoInt));
                 _m[(_i : stdgo.GoInt)] = _m[(_j : stdgo.GoInt)];
                 _m[(_j : stdgo.GoInt)] = _i;
             });
@@ -2155,7 +2155,7 @@ class Rand_asInterface {
     static public function float64( _r:stdgo.Ref<Rand>):stdgo.GoFloat64 {
         stdgo._internal.internal.Macro.controlFlow({
             @:recv var _r:stdgo.Ref<Rand> = _r;
-            @:label("again") var _f:stdgo.GoFloat64 = (_r.int63() : stdgo.GoFloat64) / (9.223372036854776e+18 : stdgo.GoFloat64);
+            @:label("again") var _f:stdgo.GoFloat64 = ((_r.int63() : stdgo.GoFloat64) / (9.223372036854776e+18 : stdgo.GoFloat64) : stdgo.GoFloat64);
             if (_f == (1 : stdgo.GoFloat64)) {
                 @:goto "again";
             };
@@ -2166,10 +2166,10 @@ class Rand_asInterface {
     @:keep
     static public function intn( _r:stdgo.Ref<Rand>, _n:stdgo.GoInt):stdgo.GoInt {
         @:recv var _r:stdgo.Ref<Rand> = _r;
-        if (_n <= (0 : stdgo.GoInt)) {
+        if ((_n <= (0 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(("invalid argument to Intn" : stdgo.GoString));
         };
-        if (_n <= (2147483647 : stdgo.GoInt)) {
+        if ((_n <= (2147483647 : stdgo.GoInt) : Bool)) {
             return (_r.int31n((_n : stdgo.GoInt32)) : stdgo.GoInt);
         };
         return (_r.int63n((_n : stdgo.GoInt64)) : stdgo.GoInt);
@@ -2178,60 +2178,60 @@ class Rand_asInterface {
     static public function _int31n( _r:stdgo.Ref<Rand>, _n:stdgo.GoInt32):stdgo.GoInt32 {
         @:recv var _r:stdgo.Ref<Rand> = _r;
         var _v:stdgo.GoUInt32 = _r.uint32();
-        var _prod:stdgo.GoUInt64 = (_v : stdgo.GoUInt64) * (_n : stdgo.GoUInt64);
+        var _prod:stdgo.GoUInt64 = ((_v : stdgo.GoUInt64) * (_n : stdgo.GoUInt64) : stdgo.GoUInt64);
         var _low:stdgo.GoUInt32 = (_prod : stdgo.GoUInt32);
-        if (_low < (_n : stdgo.GoUInt32)) {
-            var _thresh:stdgo.GoUInt32 = (-_n : stdgo.GoUInt32) % (_n : stdgo.GoUInt32);
-            while (_low < _thresh) {
+        if ((_low < (_n : stdgo.GoUInt32) : Bool)) {
+            var _thresh:stdgo.GoUInt32 = ((-_n : stdgo.GoUInt32) % (_n : stdgo.GoUInt32) : stdgo.GoUInt32);
+            while ((_low < _thresh : Bool)) {
                 _v = _r.uint32();
-                _prod = (_v : stdgo.GoUInt64) * (_n : stdgo.GoUInt64);
+                _prod = ((_v : stdgo.GoUInt64) * (_n : stdgo.GoUInt64) : stdgo.GoUInt64);
                 _low = (_prod : stdgo.GoUInt32);
             };
         };
-        return (_prod >> (32i64 : stdgo.GoUInt64) : stdgo.GoInt32);
+        return ((_prod >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt32);
     }
     @:keep
     static public function int31n( _r:stdgo.Ref<Rand>, _n:stdgo.GoInt32):stdgo.GoInt32 {
         @:recv var _r:stdgo.Ref<Rand> = _r;
-        if (_n <= (0 : stdgo.GoInt32)) {
+        if ((_n <= (0 : stdgo.GoInt32) : Bool)) {
             throw stdgo.Go.toInterface(("invalid argument to Int31n" : stdgo.GoString));
         };
-        if (_n & (_n - (1 : stdgo.GoInt32)) == ((0 : stdgo.GoInt32))) {
-            return _r.int31() & (_n - (1 : stdgo.GoInt32));
+        if ((_n & ((_n - (1 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32) == ((0 : stdgo.GoInt32))) {
+            return (_r.int31() & ((_n - (1 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
         };
-        var _max:stdgo.GoInt32 = ((2147483647u32 : stdgo.GoUInt32) - ((-2147483648u32 : stdgo.GoUInt32) % (_n : stdgo.GoUInt32)) : stdgo.GoInt32);
+        var _max:stdgo.GoInt32 = (((2147483647u32 : stdgo.GoUInt32) - ((-2147483648u32 : stdgo.GoUInt32) % (_n : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt32);
         var _v:stdgo.GoInt32 = _r.int31();
-        while (_v > _max) {
+        while ((_v > _max : Bool)) {
             _v = _r.int31();
         };
-        return _v % _n;
+        return (_v % _n : stdgo.GoInt32);
     }
     @:keep
     static public function int63n( _r:stdgo.Ref<Rand>, _n:stdgo.GoInt64):stdgo.GoInt64 {
         @:recv var _r:stdgo.Ref<Rand> = _r;
-        if (_n <= (0i64 : stdgo.GoInt64)) {
+        if ((_n <= (0i64 : stdgo.GoInt64) : Bool)) {
             throw stdgo.Go.toInterface(("invalid argument to Int63n" : stdgo.GoString));
         };
-        if (_n & (_n - (1i64 : stdgo.GoInt64)) == ((0i64 : stdgo.GoInt64))) {
-            return _r.int63() & (_n - (1i64 : stdgo.GoInt64));
+        if ((_n & ((_n - (1i64 : stdgo.GoInt64) : stdgo.GoInt64)) : stdgo.GoInt64) == ((0i64 : stdgo.GoInt64))) {
+            return (_r.int63() & ((_n - (1i64 : stdgo.GoInt64) : stdgo.GoInt64)) : stdgo.GoInt64);
         };
-        var _max:stdgo.GoInt64 = ((9223372036854775807i64 : stdgo.GoUInt64) - ((-9223372036854775808i64 : stdgo.GoUInt64) % (_n : stdgo.GoUInt64)) : stdgo.GoInt64);
+        var _max:stdgo.GoInt64 = (((9223372036854775807i64 : stdgo.GoUInt64) - ((-9223372036854775808i64 : stdgo.GoUInt64) % (_n : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt64);
         var _v:stdgo.GoInt64 = _r.int63();
-        while (_v > _max) {
+        while ((_v > _max : Bool)) {
             _v = _r.int63();
         };
-        return _v % _n;
+        return (_v % _n : stdgo.GoInt64);
     }
     @:keep
     static public function int_( _r:stdgo.Ref<Rand>):stdgo.GoInt {
         @:recv var _r:stdgo.Ref<Rand> = _r;
         var _u:stdgo.GoUInt = (_r.int63() : stdgo.GoUInt);
-        return ((_u << (1i64 : stdgo.GoUInt64)) >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt);
+        return (((_u << (1i64 : stdgo.GoUInt64) : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoInt);
     }
     @:keep
     static public function int31( _r:stdgo.Ref<Rand>):stdgo.GoInt32 {
         @:recv var _r:stdgo.Ref<Rand> = _r;
-        return (_r.int63() >> (32i64 : stdgo.GoUInt64) : stdgo.GoInt32);
+        return ((_r.int63() >> (32i64 : stdgo.GoUInt64) : stdgo.GoInt64) : stdgo.GoInt32);
     }
     @:keep
     static public function uint64( _r:stdgo.Ref<Rand>):stdgo.GoUInt64 {
@@ -2239,12 +2239,12 @@ class Rand_asInterface {
         if (_r._s64 != null) {
             return _r._s64.uint64();
         };
-        return ((_r.int63() : stdgo.GoUInt64) >> (31i64 : stdgo.GoUInt64)) | ((_r.int63() : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64));
+        return (((_r.int63() : stdgo.GoUInt64) >> (31i64 : stdgo.GoUInt64) : stdgo.GoUInt64) | ((_r.int63() : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);
     }
     @:keep
     static public function uint32( _r:stdgo.Ref<Rand>):stdgo.GoUInt32 {
         @:recv var _r:stdgo.Ref<Rand> = _r;
-        return (_r.int63() >> (31i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
+        return ((_r.int63() >> (31i64 : stdgo.GoUInt64) : stdgo.GoInt64) : stdgo.GoUInt32);
     }
     @:keep
     static public function int63( _r:stdgo.Ref<Rand>):stdgo.GoInt64 {
@@ -2273,25 +2273,25 @@ class Rand_asInterface {
         @:recv var _r:stdgo.Ref<Rand> = _r;
         while (true) {
             var _j:stdgo.GoInt32 = (_r.uint32() : stdgo.GoInt32);
-            var _i:stdgo.GoInt32 = _j & (127 : stdgo.GoInt32);
-            var _x:stdgo.GoFloat64 = (_j : stdgo.GoFloat64) * (_wn[(_i : stdgo.GoInt)] : stdgo.GoFloat64);
-            if (_absInt32(_j) < _kn[(_i : stdgo.GoInt)]) {
+            var _i:stdgo.GoInt32 = (_j & (127 : stdgo.GoInt32) : stdgo.GoInt32);
+            var _x:stdgo.GoFloat64 = ((_j : stdgo.GoFloat64) * (_wn[(_i : stdgo.GoInt)] : stdgo.GoFloat64) : stdgo.GoFloat64);
+            if ((_absInt32(_j) < _kn[(_i : stdgo.GoInt)] : Bool)) {
                 return _x;
             };
             if (_i == ((0 : stdgo.GoInt32))) {
                 while (true) {
-                    _x = -stdgo._internal.math.Math.log(_r.float64()) * (0.29047645161474317 : stdgo.GoFloat64);
+                    _x = (-stdgo._internal.math.Math.log(_r.float64()) * (0.29047645161474317 : stdgo.GoFloat64) : stdgo.GoFloat64);
                     var _y:stdgo.GoFloat64 = -stdgo._internal.math.Math.log(_r.float64());
-                    if ((_y + _y) >= (_x * _x)) {
+                    if (((_y + _y : stdgo.GoFloat64) >= (_x * _x : stdgo.GoFloat64) : Bool)) {
                         break;
                     };
                 };
-                if (_j > (0 : stdgo.GoInt32)) {
-                    return (3.442619855899 : stdgo.GoFloat64) + _x;
+                if ((_j > (0 : stdgo.GoInt32) : Bool)) {
+                    return ((3.442619855899 : stdgo.GoFloat64) + _x : stdgo.GoFloat64);
                 };
-                return (-3.442619855899 : stdgo.GoFloat64) - _x;
+                return ((-3.442619855899 : stdgo.GoFloat64) - _x : stdgo.GoFloat64);
             };
-            if ((_fn[(_i : stdgo.GoInt)] + ((_r.float64() : stdgo.GoFloat32) * (_fn[(_i - (1 : stdgo.GoInt32) : stdgo.GoInt)] - _fn[(_i : stdgo.GoInt)]))) < (stdgo._internal.math.Math.exp(((-0.5 : stdgo.GoFloat64) * _x) * _x) : stdgo.GoFloat32)) {
+            if (((_fn[(_i : stdgo.GoInt)] + ((_r.float64() : stdgo.GoFloat32) * ((_fn[((_i - (1 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoInt)] - _fn[(_i : stdgo.GoInt)] : stdgo.GoFloat32)) : stdgo.GoFloat32) : stdgo.GoFloat32) < (stdgo._internal.math.Math.exp((((-0.5 : stdgo.GoFloat64) * _x : stdgo.GoFloat64) * _x : stdgo.GoFloat64)) : stdgo.GoFloat32) : Bool)) {
                 return _x;
             };
         };
@@ -2301,15 +2301,15 @@ class Rand_asInterface {
         @:recv var _r:stdgo.Ref<Rand> = _r;
         while (true) {
             var _j:stdgo.GoUInt32 = _r.uint32();
-            var _i:stdgo.GoUInt32 = _j & (255u32 : stdgo.GoUInt32);
-            var _x:stdgo.GoFloat64 = (_j : stdgo.GoFloat64) * (_we[(_i : stdgo.GoInt)] : stdgo.GoFloat64);
-            if (_j < _ke[(_i : stdgo.GoInt)]) {
+            var _i:stdgo.GoUInt32 = (_j & (255u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
+            var _x:stdgo.GoFloat64 = ((_j : stdgo.GoFloat64) * (_we[(_i : stdgo.GoInt)] : stdgo.GoFloat64) : stdgo.GoFloat64);
+            if ((_j < _ke[(_i : stdgo.GoInt)] : Bool)) {
                 return _x;
             };
             if (_i == ((0u32 : stdgo.GoUInt32))) {
-                return (7.69711747013105 : stdgo.GoFloat64) - stdgo._internal.math.Math.log(_r.float64());
+                return ((7.69711747013105 : stdgo.GoFloat64) - stdgo._internal.math.Math.log(_r.float64()) : stdgo.GoFloat64);
             };
-            if ((_fe[(_i : stdgo.GoInt)] + ((_r.float64() : stdgo.GoFloat32) * (_fe[(_i - (1u32 : stdgo.GoUInt32) : stdgo.GoInt)] - _fe[(_i : stdgo.GoInt)]))) < (stdgo._internal.math.Math.exp(-_x) : stdgo.GoFloat32)) {
+            if (((_fe[(_i : stdgo.GoInt)] + ((_r.float64() : stdgo.GoFloat32) * ((_fe[((_i - (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] - _fe[(_i : stdgo.GoInt)] : stdgo.GoFloat32)) : stdgo.GoFloat32) : stdgo.GoFloat32) < (stdgo._internal.math.Math.exp(-_x) : stdgo.GoFloat32) : Bool)) {
                 return _x;
             };
         };
@@ -2359,7 +2359,7 @@ class T_fastSource_asInterface {
     @:keep
     static public function int63( _:stdgo.Ref<T_fastSource>):stdgo.GoInt64 {
         @:recv var _:stdgo.Ref<T_fastSource> = _;
-        return (_fastrand64() & (9223372036854775807i64 : stdgo.GoUInt64) : stdgo.GoInt64);
+        return ((_fastrand64() & (9223372036854775807i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt64);
     }
 }
 class T_lockedSource_asInterface {
@@ -2460,30 +2460,30 @@ class T_rngSource_asInterface {
     static public function uint64( _rng:stdgo.Ref<T_rngSource>):stdgo.GoUInt64 {
         @:recv var _rng:stdgo.Ref<T_rngSource> = _rng;
         _rng._tap--;
-        if (_rng._tap < (0 : stdgo.GoInt)) {
-            _rng._tap = _rng._tap + ((607 : stdgo.GoInt));
+        if ((_rng._tap < (0 : stdgo.GoInt) : Bool)) {
+            _rng._tap = (_rng._tap + ((607 : stdgo.GoInt)) : stdgo.GoInt);
         };
         _rng._feed--;
-        if (_rng._feed < (0 : stdgo.GoInt)) {
-            _rng._feed = _rng._feed + ((607 : stdgo.GoInt));
+        if ((_rng._feed < (0 : stdgo.GoInt) : Bool)) {
+            _rng._feed = (_rng._feed + ((607 : stdgo.GoInt)) : stdgo.GoInt);
         };
-        var _x:stdgo.GoInt64 = _rng._vec[(_rng._feed : stdgo.GoInt)] + _rng._vec[(_rng._tap : stdgo.GoInt)];
+        var _x:stdgo.GoInt64 = (_rng._vec[(_rng._feed : stdgo.GoInt)] + _rng._vec[(_rng._tap : stdgo.GoInt)] : stdgo.GoInt64);
         _rng._vec[(_rng._feed : stdgo.GoInt)] = _x;
         return (_x : stdgo.GoUInt64);
     }
     @:keep
     static public function int63( _rng:stdgo.Ref<T_rngSource>):stdgo.GoInt64 {
         @:recv var _rng:stdgo.Ref<T_rngSource> = _rng;
-        return (_rng.uint64() & (9223372036854775807i64 : stdgo.GoUInt64) : stdgo.GoInt64);
+        return ((_rng.uint64() & (9223372036854775807i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt64);
     }
     @:keep
     static public function seed( _rng:stdgo.Ref<T_rngSource>, _seed:stdgo.GoInt64):Void {
         @:recv var _rng:stdgo.Ref<T_rngSource> = _rng;
         _rng._tap = (0 : stdgo.GoInt);
         _rng._feed = (334 : stdgo.GoInt);
-        _seed = _seed % (2147483647i64 : stdgo.GoInt64);
-        if (_seed < (0i64 : stdgo.GoInt64)) {
-            _seed = _seed + ((2147483647i64 : stdgo.GoInt64));
+        _seed = (_seed % (2147483647i64 : stdgo.GoInt64) : stdgo.GoInt64);
+        if ((_seed < (0i64 : stdgo.GoInt64) : Bool)) {
+            _seed = (_seed + ((2147483647i64 : stdgo.GoInt64)) : stdgo.GoInt64);
         };
         if (_seed == ((0i64 : stdgo.GoInt64))) {
             _seed = (89482311i64 : stdgo.GoInt64);
@@ -2491,16 +2491,16 @@ class T_rngSource_asInterface {
         var _x:stdgo.GoInt32 = (_seed : stdgo.GoInt32);
         {
             var _i:stdgo.GoInt = (-20 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (607 : stdgo.GoInt), _i++, {
+            stdgo.Go.cfor((_i < (607 : stdgo.GoInt) : Bool), _i++, {
                 _x = _seedrand(_x);
-                if (_i >= (0 : stdgo.GoInt)) {
+                if ((_i >= (0 : stdgo.GoInt) : Bool)) {
                     var _u:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-                    _u = (_x : stdgo.GoInt64) << (40i64 : stdgo.GoUInt64);
+                    _u = ((_x : stdgo.GoInt64) << (40i64 : stdgo.GoUInt64) : stdgo.GoInt64);
                     _x = _seedrand(_x);
-                    _u = _u ^ ((_x : stdgo.GoInt64) << (20i64 : stdgo.GoUInt64));
+                    _u = (_u ^ (((_x : stdgo.GoInt64) << (20i64 : stdgo.GoUInt64) : stdgo.GoInt64)) : stdgo.GoInt64);
                     _x = _seedrand(_x);
-                    _u = _u ^ ((_x : stdgo.GoInt64));
-                    _u = _u ^ (_rngCooked[(_i : stdgo.GoInt)]);
+                    _u = (_u ^ ((_x : stdgo.GoInt64)) : stdgo.GoInt64);
+                    _u = (_u ^ (_rngCooked[(_i : stdgo.GoInt)]) : stdgo.GoInt64);
                     _rng._vec[(_i : stdgo.GoInt)] = _u;
                 };
             });
@@ -2532,13 +2532,13 @@ class Zipf_asInterface {
         var _k:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         while (true) {
             var _r:stdgo.GoFloat64 = _z._r.float64();
-            var _ur:stdgo.GoFloat64 = _z._hxm + (_r * _z._hx0minusHxm);
+            var _ur:stdgo.GoFloat64 = (_z._hxm + (_r * _z._hx0minusHxm : stdgo.GoFloat64) : stdgo.GoFloat64);
             var _x:stdgo.GoFloat64 = _z._hinv(_ur);
-            _k = stdgo._internal.math.Math.floor(_x + (0.5 : stdgo.GoFloat64));
-            if ((_k - _x) <= _z._s) {
+            _k = stdgo._internal.math.Math.floor((_x + (0.5 : stdgo.GoFloat64) : stdgo.GoFloat64));
+            if (((_k - _x : stdgo.GoFloat64) <= _z._s : Bool)) {
                 break;
             };
-            if (_ur >= (_z._h(_k + (0.5 : stdgo.GoFloat64)) - stdgo._internal.math.Math.exp(-stdgo._internal.math.Math.log(_k + _z._v) * _z._q))) {
+            if ((_ur >= (_z._h((_k + (0.5 : stdgo.GoFloat64) : stdgo.GoFloat64)) - stdgo._internal.math.Math.exp((-stdgo._internal.math.Math.log((_k + _z._v : stdgo.GoFloat64)) * _z._q : stdgo.GoFloat64)) : stdgo.GoFloat64) : Bool)) {
                 break;
             };
         };
@@ -2547,11 +2547,11 @@ class Zipf_asInterface {
     @:keep
     static public function _hinv( _z:stdgo.Ref<Zipf>, _x:stdgo.GoFloat64):stdgo.GoFloat64 {
         @:recv var _z:stdgo.Ref<Zipf> = _z;
-        return stdgo._internal.math.Math.exp(_z._oneminusQinv * stdgo._internal.math.Math.log(_z._oneminusQ * _x)) - _z._v;
+        return (stdgo._internal.math.Math.exp((_z._oneminusQinv * stdgo._internal.math.Math.log((_z._oneminusQ * _x : stdgo.GoFloat64)) : stdgo.GoFloat64)) - _z._v : stdgo.GoFloat64);
     }
     @:keep
     static public function _h( _z:stdgo.Ref<Zipf>, _x:stdgo.GoFloat64):stdgo.GoFloat64 {
         @:recv var _z:stdgo.Ref<Zipf> = _z;
-        return stdgo._internal.math.Math.exp(_z._oneminusQ * stdgo._internal.math.Math.log(_z._v + _x)) * _z._oneminusQinv;
+        return (stdgo._internal.math.Math.exp((_z._oneminusQ * stdgo._internal.math.Math.log((_z._v + _x : stdgo.GoFloat64)) : stdgo.GoFloat64)) * _z._oneminusQinv : stdgo.GoFloat64);
     }
 }

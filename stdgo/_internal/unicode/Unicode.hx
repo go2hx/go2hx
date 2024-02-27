@@ -6792,20 +6792,20 @@ final version : stdgo.GoString = ("15.0.0" : stdgo.GoString);
 @:named @:using(stdgo._internal.unicode.Unicode.SpecialCase_static_extension) typedef SpecialCase = stdgo.Slice<stdgo._internal.unicode.Unicode.CaseRange>;
 @:named typedef T_d = stdgo.GoArray<stdgo.GoInt32>;
 function isDigit(_r:stdgo.GoRune):Bool {
-        if (_r <= (255 : stdgo.GoInt32)) {
-            return ((48 : stdgo.GoInt32) <= _r) && (_r <= (57 : stdgo.GoInt32));
+        if ((_r <= (255 : stdgo.GoInt32) : Bool)) {
+            return (((48 : stdgo.GoInt32) <= _r : Bool) && (_r <= (57 : stdgo.GoInt32) : Bool) : Bool);
         };
         return _isExcludingLatin(digit, _r);
     }
 function isGraphic(_r:stdgo.GoRune):Bool {
-        if ((_r : stdgo.GoUInt32) <= (255u32 : stdgo.GoUInt32)) {
-            return _properties[((_r : stdgo.GoUInt8) : stdgo.GoInt)] & (144 : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
+        if (((_r : stdgo.GoUInt32) <= (255u32 : stdgo.GoUInt32) : Bool)) {
+            return (_properties[((_r : stdgo.GoUInt8) : stdgo.GoInt)] & (144 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
         };
         return in_(_r, ...graphicRanges.__toArray__());
     }
 function isPrint(_r:stdgo.GoRune):Bool {
-        if ((_r : stdgo.GoUInt32) <= (255u32 : stdgo.GoUInt32)) {
-            return _properties[((_r : stdgo.GoUInt8) : stdgo.GoInt)] & (128 : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
+        if (((_r : stdgo.GoUInt32) <= (255u32 : stdgo.GoUInt32) : Bool)) {
+            return (_properties[((_r : stdgo.GoUInt8) : stdgo.GoInt)] & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
         };
         return in_(_r, ...printRanges.__toArray__());
     }
@@ -6827,14 +6827,14 @@ function in_(_r:stdgo.GoRune, _ranges:haxe.Rest<stdgo.Ref<RangeTable>>):Bool {
         return false;
     }
 function isControl(_r:stdgo.GoRune):Bool {
-        if ((_r : stdgo.GoUInt32) <= (255u32 : stdgo.GoUInt32)) {
-            return _properties[((_r : stdgo.GoUInt8) : stdgo.GoInt)] & (1 : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
+        if (((_r : stdgo.GoUInt32) <= (255u32 : stdgo.GoUInt32) : Bool)) {
+            return (_properties[((_r : stdgo.GoUInt8) : stdgo.GoInt)] & (1 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
         };
         return false;
     }
 function isLetter(_r:stdgo.GoRune):Bool {
-        if ((_r : stdgo.GoUInt32) <= (255u32 : stdgo.GoUInt32)) {
-            return _properties[((_r : stdgo.GoUInt8) : stdgo.GoInt)] & (96 : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
+        if (((_r : stdgo.GoUInt32) <= (255u32 : stdgo.GoUInt32) : Bool)) {
+            return (_properties[((_r : stdgo.GoUInt8) : stdgo.GoInt)] & (96 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
         };
         return _isExcludingLatin(letter, _r);
     }
@@ -6842,19 +6842,19 @@ function isMark(_r:stdgo.GoRune):Bool {
         return _isExcludingLatin(mark, _r);
     }
 function isNumber(_r:stdgo.GoRune):Bool {
-        if ((_r : stdgo.GoUInt32) <= (255u32 : stdgo.GoUInt32)) {
-            return _properties[((_r : stdgo.GoUInt8) : stdgo.GoInt)] & (4 : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
+        if (((_r : stdgo.GoUInt32) <= (255u32 : stdgo.GoUInt32) : Bool)) {
+            return (_properties[((_r : stdgo.GoUInt8) : stdgo.GoInt)] & (4 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
         };
         return _isExcludingLatin(number, _r);
     }
 function isPunct(_r:stdgo.GoRune):Bool {
-        if ((_r : stdgo.GoUInt32) <= (255u32 : stdgo.GoUInt32)) {
-            return _properties[((_r : stdgo.GoUInt8) : stdgo.GoInt)] & (2 : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
+        if (((_r : stdgo.GoUInt32) <= (255u32 : stdgo.GoUInt32) : Bool)) {
+            return (_properties[((_r : stdgo.GoUInt8) : stdgo.GoInt)] & (2 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
         };
         return is_(punct, _r);
     }
 function isSpace(_r:stdgo.GoRune):Bool {
-        if ((_r : stdgo.GoUInt32) <= (255u32 : stdgo.GoUInt32)) {
+        if (((_r : stdgo.GoUInt32) <= (255u32 : stdgo.GoUInt32) : Bool)) {
             {
                 final __value__ = _r;
                 if (__value__ == ((9 : stdgo.GoInt32)) || __value__ == ((10 : stdgo.GoInt32)) || __value__ == ((11 : stdgo.GoInt32)) || __value__ == ((12 : stdgo.GoInt32)) || __value__ == ((13 : stdgo.GoInt32)) || __value__ == ((32 : stdgo.GoInt32)) || __value__ == ((133 : stdgo.GoInt32)) || __value__ == ((160 : stdgo.GoInt32))) {
@@ -6866,76 +6866,76 @@ function isSpace(_r:stdgo.GoRune):Bool {
         return _isExcludingLatin(white_Space, _r);
     }
 function isSymbol(_r:stdgo.GoRune):Bool {
-        if ((_r : stdgo.GoUInt32) <= (255u32 : stdgo.GoUInt32)) {
-            return _properties[((_r : stdgo.GoUInt8) : stdgo.GoInt)] & (8 : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
+        if (((_r : stdgo.GoUInt32) <= (255u32 : stdgo.GoUInt32) : Bool)) {
+            return (_properties[((_r : stdgo.GoUInt8) : stdgo.GoInt)] & (8 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
         };
         return _isExcludingLatin(symbol, _r);
     }
 function _is16(_ranges:stdgo.Slice<Range16>, _r:stdgo.GoUInt16):Bool {
-        if ((_ranges.length <= (18 : stdgo.GoInt)) || (_r <= (255 : stdgo.GoUInt16))) {
+        if ((((_ranges.length) <= (18 : stdgo.GoInt) : Bool) || (_r <= (255 : stdgo.GoUInt16) : Bool) : Bool)) {
             for (_i => _ in _ranges) {
                 var _range_ = (stdgo.Go.setRef(_ranges[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.unicode.Unicode.Range16>);
-                if (_r < _range_.lo) {
+                if ((_r < _range_.lo : Bool)) {
                     return false;
                 };
-                if (_r <= _range_.hi) {
-                    return (_range_.stride == (1 : stdgo.GoUInt16)) || (((_r - _range_.lo) % _range_.stride) == (0 : stdgo.GoUInt16));
+                if ((_r <= _range_.hi : Bool)) {
+                    return ((_range_.stride == (1 : stdgo.GoUInt16)) || ((((_r - _range_.lo : stdgo.GoUInt16)) % _range_.stride : stdgo.GoUInt16) == (0 : stdgo.GoUInt16)) : Bool);
                 };
             };
             return false;
         };
         var _lo:stdgo.GoInt = (0 : stdgo.GoInt);
         var _hi:stdgo.GoInt = (_ranges.length);
-        while (_lo < _hi) {
-            var _m:stdgo.GoInt = _lo + ((_hi - _lo) / (2 : stdgo.GoInt));
+        while ((_lo < _hi : Bool)) {
+            var _m:stdgo.GoInt = (_lo + (((_hi - _lo : stdgo.GoInt)) / (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
             var _range_ = (stdgo.Go.setRef(_ranges[(_m : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.unicode.Unicode.Range16>);
-            if ((_range_.lo <= _r) && (_r <= _range_.hi)) {
-                return (_range_.stride == (1 : stdgo.GoUInt16)) || (((_r - _range_.lo) % _range_.stride) == (0 : stdgo.GoUInt16));
+            if (((_range_.lo <= _r : Bool) && (_r <= _range_.hi : Bool) : Bool)) {
+                return ((_range_.stride == (1 : stdgo.GoUInt16)) || ((((_r - _range_.lo : stdgo.GoUInt16)) % _range_.stride : stdgo.GoUInt16) == (0 : stdgo.GoUInt16)) : Bool);
             };
-            if (_r < _range_.lo) {
+            if ((_r < _range_.lo : Bool)) {
                 _hi = _m;
             } else {
-                _lo = _m + (1 : stdgo.GoInt);
+                _lo = (_m + (1 : stdgo.GoInt) : stdgo.GoInt);
             };
         };
         return false;
     }
 function _is32(_ranges:stdgo.Slice<Range32>, _r:stdgo.GoUInt32):Bool {
-        if ((_ranges.length) <= (18 : stdgo.GoInt)) {
+        if (((_ranges.length) <= (18 : stdgo.GoInt) : Bool)) {
             for (_i => _ in _ranges) {
                 var _range_ = (stdgo.Go.setRef(_ranges[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.unicode.Unicode.Range32>);
-                if (_r < _range_.lo) {
+                if ((_r < _range_.lo : Bool)) {
                     return false;
                 };
-                if (_r <= _range_.hi) {
-                    return (_range_.stride == (1u32 : stdgo.GoUInt32)) || (((_r - _range_.lo) % _range_.stride) == (0u32 : stdgo.GoUInt32));
+                if ((_r <= _range_.hi : Bool)) {
+                    return ((_range_.stride == (1u32 : stdgo.GoUInt32)) || ((((_r - _range_.lo : stdgo.GoUInt32)) % _range_.stride : stdgo.GoUInt32) == (0u32 : stdgo.GoUInt32)) : Bool);
                 };
             };
             return false;
         };
         var _lo:stdgo.GoInt = (0 : stdgo.GoInt);
         var _hi:stdgo.GoInt = (_ranges.length);
-        while (_lo < _hi) {
-            var _m:stdgo.GoInt = _lo + ((_hi - _lo) / (2 : stdgo.GoInt));
+        while ((_lo < _hi : Bool)) {
+            var _m:stdgo.GoInt = (_lo + (((_hi - _lo : stdgo.GoInt)) / (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
             var _range_:stdgo._internal.unicode.Unicode.Range32 = _ranges[(_m : stdgo.GoInt)];
-            if ((_range_.lo <= _r) && (_r <= _range_.hi)) {
-                return (_range_.stride == (1u32 : stdgo.GoUInt32)) || (((_r - _range_.lo) % _range_.stride) == (0u32 : stdgo.GoUInt32));
+            if (((_range_.lo <= _r : Bool) && (_r <= _range_.hi : Bool) : Bool)) {
+                return ((_range_.stride == (1u32 : stdgo.GoUInt32)) || ((((_r - _range_.lo : stdgo.GoUInt32)) % _range_.stride : stdgo.GoUInt32) == (0u32 : stdgo.GoUInt32)) : Bool);
             };
-            if (_r < _range_.lo) {
+            if ((_r < _range_.lo : Bool)) {
                 _hi = _m;
             } else {
-                _lo = _m + (1 : stdgo.GoInt);
+                _lo = (_m + (1 : stdgo.GoInt) : stdgo.GoInt);
             };
         };
         return false;
     }
 function is_(_rangeTab:stdgo.Ref<RangeTable>, _r:stdgo.GoRune):Bool {
         var _r16 = _rangeTab.r16;
-        if ((_r16.length > (0 : stdgo.GoInt)) && ((_r : stdgo.GoUInt32) <= (_r16[((_r16.length) - (1 : stdgo.GoInt) : stdgo.GoInt)].hi : stdgo.GoUInt32))) {
+        if ((((_r16.length) > (0 : stdgo.GoInt) : Bool) && ((_r : stdgo.GoUInt32) <= (_r16[((_r16.length) - (1 : stdgo.GoInt) : stdgo.GoInt)].hi : stdgo.GoUInt32) : Bool) : Bool)) {
             return _is16(_r16, (_r : stdgo.GoUInt16));
         };
         var _r32 = _rangeTab.r32;
-        if ((_r32.length > (0 : stdgo.GoInt)) && (_r >= (_r32[(0 : stdgo.GoInt)].lo : stdgo.GoRune))) {
+        if ((((_r32.length) > (0 : stdgo.GoInt) : Bool) && (_r >= (_r32[(0 : stdgo.GoInt)].lo : stdgo.GoRune) : Bool) : Bool)) {
             return _is32(_r32, (_r : stdgo.GoUInt32));
         };
         return false;
@@ -6944,55 +6944,55 @@ function _isExcludingLatin(_rangeTab:stdgo.Ref<RangeTable>, _r:stdgo.GoRune):Boo
         var _r16 = _rangeTab.r16;
         {
             var _off:stdgo.GoInt = _rangeTab.latinOffset;
-            if ((_r16.length > _off) && ((_r : stdgo.GoUInt32) <= (_r16[((_r16.length) - (1 : stdgo.GoInt) : stdgo.GoInt)].hi : stdgo.GoUInt32))) {
+            if ((((_r16.length) > _off : Bool) && ((_r : stdgo.GoUInt32) <= (_r16[((_r16.length) - (1 : stdgo.GoInt) : stdgo.GoInt)].hi : stdgo.GoUInt32) : Bool) : Bool)) {
                 return _is16((_r16.__slice__(_off) : stdgo.Slice<stdgo._internal.unicode.Unicode.Range16>), (_r : stdgo.GoUInt16));
             };
         };
         var _r32 = _rangeTab.r32;
-        if ((_r32.length > (0 : stdgo.GoInt)) && (_r >= (_r32[(0 : stdgo.GoInt)].lo : stdgo.GoRune))) {
+        if ((((_r32.length) > (0 : stdgo.GoInt) : Bool) && (_r >= (_r32[(0 : stdgo.GoInt)].lo : stdgo.GoRune) : Bool) : Bool)) {
             return _is32(_r32, (_r : stdgo.GoUInt32));
         };
         return false;
     }
 function isUpper(_r:stdgo.GoRune):Bool {
-        if ((_r : stdgo.GoUInt32) <= (255u32 : stdgo.GoUInt32)) {
-            return _properties[((_r : stdgo.GoUInt8) : stdgo.GoInt)] & (96 : stdgo.GoUInt8) == ((32 : stdgo.GoUInt8));
+        if (((_r : stdgo.GoUInt32) <= (255u32 : stdgo.GoUInt32) : Bool)) {
+            return (_properties[((_r : stdgo.GoUInt8) : stdgo.GoInt)] & (96 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((32 : stdgo.GoUInt8));
         };
         return _isExcludingLatin(upper, _r);
     }
 function isLower(_r:stdgo.GoRune):Bool {
-        if ((_r : stdgo.GoUInt32) <= (255u32 : stdgo.GoUInt32)) {
-            return _properties[((_r : stdgo.GoUInt8) : stdgo.GoInt)] & (96 : stdgo.GoUInt8) == ((64 : stdgo.GoUInt8));
+        if (((_r : stdgo.GoUInt32) <= (255u32 : stdgo.GoUInt32) : Bool)) {
+            return (_properties[((_r : stdgo.GoUInt8) : stdgo.GoInt)] & (96 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((64 : stdgo.GoUInt8));
         };
         return _isExcludingLatin(lower, _r);
     }
 function isTitle(_r:stdgo.GoRune):Bool {
-        if (_r <= (255 : stdgo.GoInt32)) {
+        if ((_r <= (255 : stdgo.GoInt32) : Bool)) {
             return false;
         };
         return _isExcludingLatin(title, _r);
     }
 function _to(__case:stdgo.GoInt, _r:stdgo.GoRune, _caseRange:stdgo.Slice<CaseRange>):{ var _0 : stdgo.GoRune; var _1 : Bool; } {
         var _mappedRune:stdgo.GoRune = (0 : stdgo.GoInt32), _foundMapping:Bool = false;
-        if ((__case < (0 : stdgo.GoInt)) || ((3 : stdgo.GoInt) <= __case)) {
+        if (((__case < (0 : stdgo.GoInt) : Bool) || ((3 : stdgo.GoInt) <= __case : Bool) : Bool)) {
             return { _0 : (65533 : stdgo.GoInt32), _1 : false };
         };
         var _lo:stdgo.GoInt = (0 : stdgo.GoInt);
         var _hi:stdgo.GoInt = (_caseRange.length);
-        while (_lo < _hi) {
-            var _m:stdgo.GoInt = _lo + ((_hi - _lo) / (2 : stdgo.GoInt));
+        while ((_lo < _hi : Bool)) {
+            var _m:stdgo.GoInt = (_lo + (((_hi - _lo : stdgo.GoInt)) / (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
             var _cr:stdgo._internal.unicode.Unicode.CaseRange = _caseRange[(_m : stdgo.GoInt)];
-            if (((_cr.lo : stdgo.GoRune) <= _r) && (_r <= (_cr.hi : stdgo.GoRune))) {
+            if ((((_cr.lo : stdgo.GoRune) <= _r : Bool) && (_r <= (_cr.hi : stdgo.GoRune) : Bool) : Bool)) {
                 var _delta:stdgo.GoInt32 = _cr.delta[(__case : stdgo.GoInt)];
-                if (_delta > (1114111 : stdgo.GoInt32)) {
-                    return { _0 : (_cr.lo : stdgo.GoRune) + (((_r - (_cr.lo : stdgo.GoRune)) & ((1 : stdgo.GoInt32) ^ (-1i32 : stdgo.GoInt))) | (__case & (1 : stdgo.GoInt) : stdgo.GoRune)), _1 : true };
+                if ((_delta > (1114111 : stdgo.GoInt32) : Bool)) {
+                    return { _0 : ((_cr.lo : stdgo.GoRune) + (((((_r - (_cr.lo : stdgo.GoRune) : stdgo.GoInt32)) & (((1 : stdgo.GoInt32) ^ (-1i32 : stdgo.GoInt) : stdgo.GoInt32)) : stdgo.GoInt32) | ((__case & (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoRune) : stdgo.GoInt32)) : stdgo.GoInt32), _1 : true };
                 };
-                return { _0 : _r + _delta, _1 : true };
+                return { _0 : (_r + _delta : stdgo.GoInt32), _1 : true };
             };
-            if (_r < (_cr.lo : stdgo.GoRune)) {
+            if ((_r < (_cr.lo : stdgo.GoRune) : Bool)) {
                 _hi = _m;
             } else {
-                _lo = _m + (1 : stdgo.GoInt);
+                _lo = (_m + (1 : stdgo.GoInt) : stdgo.GoInt);
             };
         };
         return { _0 : _r, _1 : false };
@@ -7005,50 +7005,50 @@ function to(__case:stdgo.GoInt, _r:stdgo.GoRune):stdgo.GoRune {
         return _r;
     }
 function toUpper(_r:stdgo.GoRune):stdgo.GoRune {
-        if (_r <= (127 : stdgo.GoInt32)) {
-            if (((97 : stdgo.GoInt32) <= _r) && (_r <= (122 : stdgo.GoInt32))) {
-                _r = _r - ((32 : stdgo.GoInt32));
+        if ((_r <= (127 : stdgo.GoInt32) : Bool)) {
+            if ((((97 : stdgo.GoInt32) <= _r : Bool) && (_r <= (122 : stdgo.GoInt32) : Bool) : Bool)) {
+                _r = (_r - ((32 : stdgo.GoInt32)) : stdgo.GoInt32);
             };
             return _r;
         };
         return to((0 : stdgo.GoInt), _r);
     }
 function toLower(_r:stdgo.GoRune):stdgo.GoRune {
-        if (_r <= (127 : stdgo.GoInt32)) {
-            if (((65 : stdgo.GoInt32) <= _r) && (_r <= (90 : stdgo.GoInt32))) {
-                _r = _r + ((32 : stdgo.GoInt32));
+        if ((_r <= (127 : stdgo.GoInt32) : Bool)) {
+            if ((((65 : stdgo.GoInt32) <= _r : Bool) && (_r <= (90 : stdgo.GoInt32) : Bool) : Bool)) {
+                _r = (_r + ((32 : stdgo.GoInt32)) : stdgo.GoInt32);
             };
             return _r;
         };
         return to((1 : stdgo.GoInt), _r);
     }
 function toTitle(_r:stdgo.GoRune):stdgo.GoRune {
-        if (_r <= (127 : stdgo.GoInt32)) {
-            if (((97 : stdgo.GoInt32) <= _r) && (_r <= (122 : stdgo.GoInt32))) {
-                _r = _r - ((32 : stdgo.GoInt32));
+        if ((_r <= (127 : stdgo.GoInt32) : Bool)) {
+            if ((((97 : stdgo.GoInt32) <= _r : Bool) && (_r <= (122 : stdgo.GoInt32) : Bool) : Bool)) {
+                _r = (_r - ((32 : stdgo.GoInt32)) : stdgo.GoInt32);
             };
             return _r;
         };
         return to((2 : stdgo.GoInt), _r);
     }
 function simpleFold(_r:stdgo.GoRune):stdgo.GoRune {
-        if ((_r < (0 : stdgo.GoInt32)) || (_r > (1114111 : stdgo.GoInt32))) {
+        if (((_r < (0 : stdgo.GoInt32) : Bool) || (_r > (1114111 : stdgo.GoInt32) : Bool) : Bool)) {
             return _r;
         };
-        if ((_r : stdgo.GoInt) < (_asciiFold.length)) {
+        if (((_r : stdgo.GoInt) < (_asciiFold.length) : Bool)) {
             return (_asciiFold[(_r : stdgo.GoInt)] : stdgo.GoRune);
         };
         var _lo:stdgo.GoInt = (0 : stdgo.GoInt);
         var _hi:stdgo.GoInt = (_caseOrbit.length);
-        while (_lo < _hi) {
-            var _m:stdgo.GoInt = _lo + ((_hi - _lo) / (2 : stdgo.GoInt));
-            if ((_caseOrbit[(_m : stdgo.GoInt)].from : stdgo.GoRune) < _r) {
-                _lo = _m + (1 : stdgo.GoInt);
+        while ((_lo < _hi : Bool)) {
+            var _m:stdgo.GoInt = (_lo + (((_hi - _lo : stdgo.GoInt)) / (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
+            if (((_caseOrbit[(_m : stdgo.GoInt)].from : stdgo.GoRune) < _r : Bool)) {
+                _lo = (_m + (1 : stdgo.GoInt) : stdgo.GoInt);
             } else {
                 _hi = _m;
             };
         };
-        if ((_lo < _caseOrbit.length) && ((_caseOrbit[(_lo : stdgo.GoInt)].from : stdgo.GoRune) == _r)) {
+        if (((_lo < (_caseOrbit.length) : Bool) && ((_caseOrbit[(_lo : stdgo.GoInt)].from : stdgo.GoRune) == _r) : Bool)) {
             return (_caseOrbit[(_lo : stdgo.GoInt)].to : stdgo.GoRune);
         };
         {
@@ -7079,7 +7079,7 @@ class SpecialCase_asInterface {
     static public function toLower( _special:SpecialCase, _r:stdgo.GoRune):stdgo.GoRune {
         @:recv var _special:SpecialCase = _special;
         var __tmp__ = _to((1 : stdgo.GoInt), _r, (_special : stdgo.Slice<CaseRange>)), _r1:stdgo.GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
-        if ((_r1 == _r) && !_hadMapping) {
+        if (((_r1 == _r) && !_hadMapping : Bool)) {
             _r1 = stdgo._internal.unicode.Unicode.toLower(_r);
         };
         return _r1;
@@ -7088,7 +7088,7 @@ class SpecialCase_asInterface {
     static public function toTitle( _special:SpecialCase, _r:stdgo.GoRune):stdgo.GoRune {
         @:recv var _special:SpecialCase = _special;
         var __tmp__ = _to((2 : stdgo.GoInt), _r, (_special : stdgo.Slice<CaseRange>)), _r1:stdgo.GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
-        if ((_r1 == _r) && !_hadMapping) {
+        if (((_r1 == _r) && !_hadMapping : Bool)) {
             _r1 = stdgo._internal.unicode.Unicode.toTitle(_r);
         };
         return _r1;
@@ -7097,7 +7097,7 @@ class SpecialCase_asInterface {
     static public function toUpper( _special:SpecialCase, _r:stdgo.GoRune):stdgo.GoRune {
         @:recv var _special:SpecialCase = _special;
         var __tmp__ = _to((0 : stdgo.GoInt), _r, (_special : stdgo.Slice<CaseRange>)), _r1:stdgo.GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
-        if ((_r1 == _r) && !_hadMapping) {
+        if (((_r1 == _r) && !_hadMapping : Bool)) {
             _r1 = stdgo._internal.unicode.Unicode.toUpper(_r);
         };
         return _r1;

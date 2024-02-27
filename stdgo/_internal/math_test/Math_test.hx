@@ -1729,17 +1729,17 @@ function _tolerance(_a:stdgo.GoFloat64, _b:stdgo.GoFloat64, _e:stdgo.GoFloat64):
         if (_a == (_b)) {
             return true;
         };
-        var _d:stdgo.GoFloat64 = _a - _b;
-        if (_d < (0 : stdgo.GoFloat64)) {
+        var _d:stdgo.GoFloat64 = (_a - _b : stdgo.GoFloat64);
+        if ((_d < (0 : stdgo.GoFloat64) : Bool)) {
             _d = -_d;
         };
         if (_b != (0 : stdgo.GoFloat64)) {
-            _e = _e * _b;
-            if (_e < (0 : stdgo.GoFloat64)) {
+            _e = (_e * _b : stdgo.GoFloat64);
+            if ((_e < (0 : stdgo.GoFloat64) : Bool)) {
                 _e = -_e;
             };
         };
-        return _d < _e;
+        return (_d < _e : Bool);
     }
 function _close(_a:stdgo.GoFloat64, _b:stdgo.GoFloat64):Bool {
         return _tolerance(_a, _b, (1e-14 : stdgo.GoFloat64));
@@ -1751,7 +1751,7 @@ function _soclose(_a:stdgo.GoFloat64, _b:stdgo.GoFloat64, _e:stdgo.GoFloat64):Bo
         return _tolerance(_a, _b, _e);
     }
 function _alike(_a:stdgo.GoFloat64, _b:stdgo.GoFloat64):Bool {
-        if (isNaN(_a) && isNaN(_b)) {
+        if ((isNaN(_a) && isNaN(_b) : Bool)) {
             return true;
         } else if (_a == (_b)) {
             return signbit(_a) == (signbit(_b));
@@ -1771,8 +1771,8 @@ function testNaN(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testAcos(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
-                var _a:stdgo.GoFloat64 = _vf[(_i : stdgo.GoInt)] / (10 : stdgo.GoFloat64);
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
+                var _a:stdgo.GoFloat64 = (_vf[(_i : stdgo.GoInt)] / (10 : stdgo.GoFloat64) : stdgo.GoFloat64);
                 {
                     var _f:stdgo.GoFloat64 = acos(_a);
                     if (!_close(_acos[(_i : stdgo.GoInt)], _f)) {
@@ -1783,7 +1783,7 @@ function testAcos(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfacosSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfacosSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = acos(_vfacosSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_acosSC[(_i : stdgo.GoInt)], _f)) {
@@ -1796,8 +1796,8 @@ function testAcos(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testAcosh(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
-                var _a:stdgo.GoFloat64 = (1 : stdgo.GoFloat64) + abs(_vf[(_i : stdgo.GoInt)]);
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
+                var _a:stdgo.GoFloat64 = ((1 : stdgo.GoFloat64) + abs(_vf[(_i : stdgo.GoInt)]) : stdgo.GoFloat64);
                 {
                     var _f:stdgo.GoFloat64 = acosh(_a);
                     if (!_veryclose(_acosh[(_i : stdgo.GoInt)], _f)) {
@@ -1808,7 +1808,7 @@ function testAcosh(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfacoshSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfacoshSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = acosh(_vfacoshSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_acoshSC[(_i : stdgo.GoInt)], _f)) {
@@ -1821,8 +1821,8 @@ function testAcosh(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testAsin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
-                var _a:stdgo.GoFloat64 = _vf[(_i : stdgo.GoInt)] / (10 : stdgo.GoFloat64);
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
+                var _a:stdgo.GoFloat64 = (_vf[(_i : stdgo.GoInt)] / (10 : stdgo.GoFloat64) : stdgo.GoFloat64);
                 {
                     var _f:stdgo.GoFloat64 = asin(_a);
                     if (!_veryclose(_asin[(_i : stdgo.GoInt)], _f)) {
@@ -1833,7 +1833,7 @@ function testAsin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfasinSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfasinSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = asin(_vfasinSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_asinSC[(_i : stdgo.GoInt)], _f)) {
@@ -1846,7 +1846,7 @@ function testAsin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testAsinh(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = asinh(_vf[(_i : stdgo.GoInt)]);
                     if (!_veryclose(_asinh[(_i : stdgo.GoInt)], _f)) {
@@ -1857,7 +1857,7 @@ function testAsinh(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfasinhSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfasinhSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = asinh(_vfasinhSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_asinhSC[(_i : stdgo.GoInt)], _f)) {
@@ -1870,7 +1870,7 @@ function testAsinh(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testAtan(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = atan(_vf[(_i : stdgo.GoInt)]);
                     if (!_veryclose(_atan[(_i : stdgo.GoInt)], _f)) {
@@ -1881,7 +1881,7 @@ function testAtan(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfatanSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfatanSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = atan(_vfatanSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_atanSC[(_i : stdgo.GoInt)], _f)) {
@@ -1894,8 +1894,8 @@ function testAtan(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testAtanh(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
-                var _a:stdgo.GoFloat64 = _vf[(_i : stdgo.GoInt)] / (10 : stdgo.GoFloat64);
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
+                var _a:stdgo.GoFloat64 = (_vf[(_i : stdgo.GoInt)] / (10 : stdgo.GoFloat64) : stdgo.GoFloat64);
                 {
                     var _f:stdgo.GoFloat64 = atanh(_a);
                     if (!_veryclose(_atanh[(_i : stdgo.GoInt)], _f)) {
@@ -1906,7 +1906,7 @@ function testAtanh(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfatanhSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfatanhSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = atanh(_vfatanhSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_atanhSC[(_i : stdgo.GoInt)], _f)) {
@@ -1919,7 +1919,7 @@ function testAtanh(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testAtan2(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = atan2((10 : stdgo.GoFloat64), _vf[(_i : stdgo.GoInt)]);
                     if (!_veryclose(_atan2[(_i : stdgo.GoInt)], _f)) {
@@ -1930,7 +1930,7 @@ function testAtan2(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfatan2SC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfatan2SC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = atan2(_vfatan2SC[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)], _vfatan2SC[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)]);
                     if (!_alike(_atan2SC[(_i : stdgo.GoInt)], _f)) {
@@ -1943,7 +1943,7 @@ function testAtan2(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testCbrt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = cbrt(_vf[(_i : stdgo.GoInt)]);
                     if (!_veryclose(_cbrt[(_i : stdgo.GoInt)], _f)) {
@@ -1954,7 +1954,7 @@ function testCbrt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfcbrtSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfcbrtSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = cbrt(_vfcbrtSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_cbrtSC[(_i : stdgo.GoInt)], _f)) {
@@ -1967,7 +1967,7 @@ function testCbrt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testCeil(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = ceil(_vf[(_i : stdgo.GoInt)]);
                     if (!_alike(_ceil[(_i : stdgo.GoInt)], _f)) {
@@ -1978,7 +1978,7 @@ function testCeil(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfceilSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfceilSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = ceil(_vfceilSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_ceilSC[(_i : stdgo.GoInt)], _f)) {
@@ -1991,7 +1991,7 @@ function testCeil(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testCopysign(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = copysign(_vf[(_i : stdgo.GoInt)], (-1 : stdgo.GoFloat64));
                     if (_copysign[(_i : stdgo.GoInt)] != (_f)) {
@@ -2002,7 +2002,7 @@ function testCopysign(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = copysign(_vf[(_i : stdgo.GoInt)], (1 : stdgo.GoFloat64));
                     if (-_copysign[(_i : stdgo.GoInt)] != (_f)) {
@@ -2013,7 +2013,7 @@ function testCopysign(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfcopysignSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfcopysignSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = copysign(_vfcopysignSC[(_i : stdgo.GoInt)], (-1 : stdgo.GoFloat64));
                     if (!_alike(_copysignSC[(_i : stdgo.GoInt)], _f)) {
@@ -2026,7 +2026,7 @@ function testCopysign(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testCos(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = cos(_vf[(_i : stdgo.GoInt)]);
                     if (!_veryclose(_cos[(_i : stdgo.GoInt)], _f)) {
@@ -2037,7 +2037,7 @@ function testCos(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfcosSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfcosSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = cos(_vfcosSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_cosSC[(_i : stdgo.GoInt)], _f)) {
@@ -2050,7 +2050,7 @@ function testCos(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testCosh(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = cosh(_vf[(_i : stdgo.GoInt)]);
                     if (!_close(_cosh[(_i : stdgo.GoInt)], _f)) {
@@ -2061,7 +2061,7 @@ function testCosh(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfcoshSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfcoshSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = cosh(_vfcoshSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_coshSC[(_i : stdgo.GoInt)], _f)) {
@@ -2074,8 +2074,8 @@ function testCosh(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testErf(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
-                var _a:stdgo.GoFloat64 = _vf[(_i : stdgo.GoInt)] / (10 : stdgo.GoFloat64);
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
+                var _a:stdgo.GoFloat64 = (_vf[(_i : stdgo.GoInt)] / (10 : stdgo.GoFloat64) : stdgo.GoFloat64);
                 {
                     var _f:stdgo.GoFloat64 = erf(_a);
                     if (!_veryclose(_erf[(_i : stdgo.GoInt)], _f)) {
@@ -2086,7 +2086,7 @@ function testErf(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vferfSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vferfSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = erf(_vferfSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_erfSC[(_i : stdgo.GoInt)], _f)) {
@@ -2099,8 +2099,8 @@ function testErf(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testErfc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
-                var _a:stdgo.GoFloat64 = _vf[(_i : stdgo.GoInt)] / (10 : stdgo.GoFloat64);
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
+                var _a:stdgo.GoFloat64 = (_vf[(_i : stdgo.GoInt)] / (10 : stdgo.GoFloat64) : stdgo.GoFloat64);
                 {
                     var _f:stdgo.GoFloat64 = erfc(_a);
                     if (!_veryclose(_erfc[(_i : stdgo.GoInt)], _f)) {
@@ -2111,7 +2111,7 @@ function testErfc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vferfcSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vferfcSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = erfc(_vferfcSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_erfcSC[(_i : stdgo.GoInt)], _f)) {
@@ -2124,8 +2124,8 @@ function testErfc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testErfinv(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
-                var _a:stdgo.GoFloat64 = _vf[(_i : stdgo.GoInt)] / (10 : stdgo.GoFloat64);
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
+                var _a:stdgo.GoFloat64 = (_vf[(_i : stdgo.GoInt)] / (10 : stdgo.GoFloat64) : stdgo.GoFloat64);
                 {
                     var _f:stdgo.GoFloat64 = erfinv(_a);
                     if (!_veryclose(_erfinv[(_i : stdgo.GoInt)], _f)) {
@@ -2136,7 +2136,7 @@ function testErfinv(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vferfinvSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vferfinvSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = erfinv(_vferfinvSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_erfinvSC[(_i : stdgo.GoInt)], _f)) {
@@ -2147,7 +2147,7 @@ function testErfinv(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _x:stdgo.GoFloat64 = (-0.9 : stdgo.GoFloat64);
-            stdgo.Go.cfor(_x <= (0.9 : stdgo.GoFloat64), _x = _x + (0.01 : stdgo.GoFloat64), {
+            stdgo.Go.cfor((_x <= (0.9 : stdgo.GoFloat64) : Bool), _x = (_x + (0.01 : stdgo.GoFloat64) : stdgo.GoFloat64), {
                 {
                     var _f:stdgo.GoFloat64 = erf(erfinv(_x));
                     if (!_close(_x, _f)) {
@@ -2158,7 +2158,7 @@ function testErfinv(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _x:stdgo.GoFloat64 = (-0.9 : stdgo.GoFloat64);
-            stdgo.Go.cfor(_x <= (0.9 : stdgo.GoFloat64), _x = _x + (0.01 : stdgo.GoFloat64), {
+            stdgo.Go.cfor((_x <= (0.9 : stdgo.GoFloat64) : Bool), _x = (_x + (0.01 : stdgo.GoFloat64) : stdgo.GoFloat64), {
                 {
                     var _f:stdgo.GoFloat64 = erfinv(erf(_x));
                     if (!_close(_x, _f)) {
@@ -2171,8 +2171,8 @@ function testErfinv(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testErfcinv(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
-                var _a:stdgo.GoFloat64 = (1 : stdgo.GoFloat64) - (_vf[(_i : stdgo.GoInt)] / (10 : stdgo.GoFloat64));
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
+                var _a:stdgo.GoFloat64 = ((1 : stdgo.GoFloat64) - ((_vf[(_i : stdgo.GoInt)] / (10 : stdgo.GoFloat64) : stdgo.GoFloat64)) : stdgo.GoFloat64);
                 {
                     var _f:stdgo.GoFloat64 = erfcinv(_a);
                     if (!_veryclose(_erfinv[(_i : stdgo.GoInt)], _f)) {
@@ -2183,7 +2183,7 @@ function testErfcinv(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vferfcinvSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vferfcinvSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = erfcinv(_vferfcinvSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_erfcinvSC[(_i : stdgo.GoInt)], _f)) {
@@ -2194,7 +2194,7 @@ function testErfcinv(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _x:stdgo.GoFloat64 = (0.1 : stdgo.GoFloat64);
-            stdgo.Go.cfor(_x <= (1.9 : stdgo.GoFloat64), _x = _x + (0.01 : stdgo.GoFloat64), {
+            stdgo.Go.cfor((_x <= (1.9 : stdgo.GoFloat64) : Bool), _x = (_x + (0.01 : stdgo.GoFloat64) : stdgo.GoFloat64), {
                 {
                     var _f:stdgo.GoFloat64 = erfc(erfcinv(_x));
                     if (!_close(_x, _f)) {
@@ -2205,7 +2205,7 @@ function testErfcinv(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _x:stdgo.GoFloat64 = (0.1 : stdgo.GoFloat64);
-            stdgo.Go.cfor(_x <= (1.9 : stdgo.GoFloat64), _x = _x + (0.01 : stdgo.GoFloat64), {
+            stdgo.Go.cfor((_x <= (1.9 : stdgo.GoFloat64) : Bool), _x = (_x + (0.01 : stdgo.GoFloat64) : stdgo.GoFloat64), {
                 {
                     var _f:stdgo.GoFloat64 = erfcinv(erfc(_x));
                     if (!_close(_x, _f)) {
@@ -2222,7 +2222,7 @@ function testExp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function _testExp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, exp:stdgo.GoFloat64 -> stdgo.GoFloat64, _name:stdgo.GoString):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = exp(_vf[(_i : stdgo.GoInt)]);
                     if (!_veryclose(_exp[(_i : stdgo.GoInt)], _f)) {
@@ -2233,7 +2233,7 @@ function _testExp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, exp:stdgo.Go
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfexpSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfexpSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = exp(_vfexpSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_expSC[(_i : stdgo.GoInt)], _f)) {
@@ -2246,8 +2246,8 @@ function _testExp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, exp:stdgo.Go
 function testExpm1(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
-                var _a:stdgo.GoFloat64 = _vf[(_i : stdgo.GoInt)] / (100 : stdgo.GoFloat64);
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
+                var _a:stdgo.GoFloat64 = (_vf[(_i : stdgo.GoInt)] / (100 : stdgo.GoFloat64) : stdgo.GoFloat64);
                 {
                     var _f:stdgo.GoFloat64 = expm1(_a);
                     if (!_veryclose(_expm1[(_i : stdgo.GoInt)], _f)) {
@@ -2258,8 +2258,8 @@ function testExpm1(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
-                var _a:stdgo.GoFloat64 = _vf[(_i : stdgo.GoInt)] * (10 : stdgo.GoFloat64);
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
+                var _a:stdgo.GoFloat64 = (_vf[(_i : stdgo.GoInt)] * (10 : stdgo.GoFloat64) : stdgo.GoFloat64);
                 {
                     var _f:stdgo.GoFloat64 = expm1(_a);
                     if (!_close(_expm1Large[(_i : stdgo.GoInt)], _f)) {
@@ -2270,7 +2270,7 @@ function testExpm1(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfexpm1SC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfexpm1SC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = expm1(_vfexpm1SC[(_i : stdgo.GoInt)]);
                     if (!_alike(_expm1SC[(_i : stdgo.GoInt)], _f)) {
@@ -2287,7 +2287,7 @@ function testExp2(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function _testExp2(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, exp2:stdgo.GoFloat64 -> stdgo.GoFloat64, _name:stdgo.GoString):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = exp2(_vf[(_i : stdgo.GoInt)]);
                     if (!_close(_exp2[(_i : stdgo.GoInt)], _f)) {
@@ -2298,7 +2298,7 @@ function _testExp2(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, exp2:stdgo.
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfexp2SC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfexp2SC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = exp2(_vfexp2SC[(_i : stdgo.GoInt)]);
                     if (!_alike(_exp2SC[(_i : stdgo.GoInt)], _f)) {
@@ -2309,7 +2309,7 @@ function _testExp2(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, exp2:stdgo.
         };
         {
             var _n:stdgo.GoInt = (-1074 : stdgo.GoInt);
-            stdgo.Go.cfor(_n < (1024 : stdgo.GoInt), _n++, {
+            stdgo.Go.cfor((_n < (1024 : stdgo.GoInt) : Bool), _n++, {
                 var _f:stdgo.GoFloat64 = exp2((_n : stdgo.GoFloat64));
                 var _vf:stdgo.GoFloat64 = ldexp((1 : stdgo.GoFloat64), _n);
                 if (_f != (_vf)) {
@@ -2321,7 +2321,7 @@ function _testExp2(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, exp2:stdgo.
 function testAbs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = abs(_vf[(_i : stdgo.GoInt)]);
                     if (_fabs[(_i : stdgo.GoInt)] != (_f)) {
@@ -2332,7 +2332,7 @@ function testAbs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vffabsSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vffabsSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = abs(_vffabsSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_fabsSC[(_i : stdgo.GoInt)], _f)) {
@@ -2345,7 +2345,7 @@ function testAbs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testDim(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = dim(_vf[(_i : stdgo.GoInt)], (0 : stdgo.GoFloat64));
                     if (_fdim[(_i : stdgo.GoInt)] != (_f)) {
@@ -2356,7 +2356,7 @@ function testDim(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vffdimSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vffdimSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = dim(_vffdimSC[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)], _vffdimSC[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)]);
                     if (!_alike(_fdimSC[(_i : stdgo.GoInt)], _f)) {
@@ -2367,7 +2367,7 @@ function testDim(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vffdim2SC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vffdim2SC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = dim(_vffdim2SC[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)], _vffdim2SC[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)]);
                     if (!_alike(_fdimSC[(_i : stdgo.GoInt)], _f)) {
@@ -2380,7 +2380,7 @@ function testDim(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testFloor(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = floor(_vf[(_i : stdgo.GoInt)]);
                     if (!_alike(_floor[(_i : stdgo.GoInt)], _f)) {
@@ -2391,7 +2391,7 @@ function testFloor(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfceilSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfceilSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = floor(_vfceilSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_ceilSC[(_i : stdgo.GoInt)], _f)) {
@@ -2404,7 +2404,7 @@ function testFloor(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testMax(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = max(_vf[(_i : stdgo.GoInt)], _ceil[(_i : stdgo.GoInt)]);
                     if (_ceil[(_i : stdgo.GoInt)] != (_f)) {
@@ -2415,7 +2415,7 @@ function testMax(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vffdimSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vffdimSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = max(_vffdimSC[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)], _vffdimSC[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)]);
                     if (!_alike(_fmaxSC[(_i : stdgo.GoInt)], _f)) {
@@ -2426,7 +2426,7 @@ function testMax(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vffdim2SC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vffdim2SC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = max(_vffdim2SC[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)], _vffdim2SC[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)]);
                     if (!_alike(_fmaxSC[(_i : stdgo.GoInt)], _f)) {
@@ -2439,7 +2439,7 @@ function testMax(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testMin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = min(_vf[(_i : stdgo.GoInt)], _floor[(_i : stdgo.GoInt)]);
                     if (_floor[(_i : stdgo.GoInt)] != (_f)) {
@@ -2450,7 +2450,7 @@ function testMin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vffdimSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vffdimSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = min(_vffdimSC[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)], _vffdimSC[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)]);
                     if (!_alike(_fminSC[(_i : stdgo.GoInt)], _f)) {
@@ -2461,7 +2461,7 @@ function testMin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vffdim2SC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vffdim2SC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = min(_vffdim2SC[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)], _vffdim2SC[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)]);
                     if (!_alike(_fminSC[(_i : stdgo.GoInt)], _f)) {
@@ -2474,7 +2474,7 @@ function testMin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testMod(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = mod((10 : stdgo.GoFloat64), _vf[(_i : stdgo.GoInt)]);
                     if (_fmod[(_i : stdgo.GoInt)] != (_f)) {
@@ -2485,7 +2485,7 @@ function testMod(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vffmodSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vffmodSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = mod(_vffmodSC[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)], _vffmodSC[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)]);
                     if (!_alike(_fmodSC[(_i : stdgo.GoInt)], _f)) {
@@ -2504,10 +2504,10 @@ function testMod(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testFrexp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var __tmp__ = frexp(_vf[(_i : stdgo.GoInt)]), _f:stdgo.GoFloat64 = __tmp__._0, _j:stdgo.GoInt = __tmp__._1;
-                    if (!_veryclose(_frexp[(_i : stdgo.GoInt)]._f, _f) || (_frexp[(_i : stdgo.GoInt)]._i != _j)) {
+                    if ((!_veryclose(_frexp[(_i : stdgo.GoInt)]._f, _f) || (_frexp[(_i : stdgo.GoInt)]._i != _j) : Bool)) {
                         _t.errorf(("Frexp(%g) = %g, %d, want %g, %d" : stdgo.GoString), stdgo.Go.toInterface(_vf[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_frexp[(_i : stdgo.GoInt)]._f), stdgo.Go.toInterface(_frexp[(_i : stdgo.GoInt)]._i));
                     };
                 };
@@ -2515,10 +2515,10 @@ function testFrexp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vffrexpSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vffrexpSC.length) : Bool), _i++, {
                 {
                     var __tmp__ = frexp(_vffrexpSC[(_i : stdgo.GoInt)]), _f:stdgo.GoFloat64 = __tmp__._0, _j:stdgo.GoInt = __tmp__._1;
-                    if (!_alike(_frexpSC[(_i : stdgo.GoInt)]._f, _f) || (_frexpSC[(_i : stdgo.GoInt)]._i != _j)) {
+                    if ((!_alike(_frexpSC[(_i : stdgo.GoInt)]._f, _f) || (_frexpSC[(_i : stdgo.GoInt)]._i != _j) : Bool)) {
                         _t.errorf(("Frexp(%g) = %g, %d, want %g, %d" : stdgo.GoString), stdgo.Go.toInterface(_vffrexpSC[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_frexpSC[(_i : stdgo.GoInt)]._f), stdgo.Go.toInterface(_frexpSC[(_i : stdgo.GoInt)]._i));
                     };
                 };
@@ -2526,10 +2526,10 @@ function testFrexp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vffrexpBC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vffrexpBC.length) : Bool), _i++, {
                 {
                     var __tmp__ = frexp(_vffrexpBC[(_i : stdgo.GoInt)]), _f:stdgo.GoFloat64 = __tmp__._0, _j:stdgo.GoInt = __tmp__._1;
-                    if (!_alike(_frexpBC[(_i : stdgo.GoInt)]._f, _f) || (_frexpBC[(_i : stdgo.GoInt)]._i != _j)) {
+                    if ((!_alike(_frexpBC[(_i : stdgo.GoInt)]._f, _f) || (_frexpBC[(_i : stdgo.GoInt)]._i != _j) : Bool)) {
                         _t.errorf(("Frexp(%g) = %g, %d, want %g, %d" : stdgo.GoString), stdgo.Go.toInterface(_vffrexpBC[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_frexpBC[(_i : stdgo.GoInt)]._f), stdgo.Go.toInterface(_frexpBC[(_i : stdgo.GoInt)]._i));
                     };
                 };
@@ -2543,7 +2543,7 @@ function testGamma(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         } #else null #end;
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = gamma(_vf[(_i : stdgo.GoInt)]);
                     if (!_close(_gamma[(_i : stdgo.GoInt)], _f)) {
@@ -2555,9 +2555,9 @@ function testGamma(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__8 => _g in _vfgamma) {
             var _f:stdgo.GoFloat64 = gamma(_g[(0 : stdgo.GoInt)]);
             var _ok:Bool = false;
-            if (((isNaN(_g[(1 : stdgo.GoInt)]) || isInf(_g[(1 : stdgo.GoInt)], (0 : stdgo.GoInt))) || (_g[(1 : stdgo.GoInt)] == (0 : stdgo.GoFloat64))) || (_f == (0 : stdgo.GoFloat64))) {
+            if ((((isNaN(_g[(1 : stdgo.GoInt)]) || isInf(_g[(1 : stdgo.GoInt)], (0 : stdgo.GoInt)) : Bool) || _g[(1 : stdgo.GoInt)] == (0 : stdgo.GoFloat64) : Bool) || (_f == (0 : stdgo.GoFloat64)) : Bool)) {
                 _ok = _alike(_g[(1 : stdgo.GoInt)], _f);
-            } else if ((_g[(0 : stdgo.GoInt)] > (-50 : stdgo.GoFloat64)) && (_g[(0 : stdgo.GoInt)] <= (171 : stdgo.GoFloat64))) {
+            } else if (((_g[(0 : stdgo.GoInt)] > (-50 : stdgo.GoFloat64) : Bool) && (_g[(0 : stdgo.GoInt)] <= (171 : stdgo.GoFloat64) : Bool) : Bool)) {
                 _ok = _veryclose(_g[(1 : stdgo.GoInt)], _f);
             } else {
                 _ok = _close(_g[(1 : stdgo.GoInt)], _f);
@@ -2570,19 +2570,19 @@ function testGamma(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testHypot(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
-                var _a:stdgo.GoFloat64 = abs(((1e+200 : stdgo.GoFloat64) * _tanh[(_i : stdgo.GoInt)]) * sqrt((2 : stdgo.GoFloat64)));
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
+                var _a:stdgo.GoFloat64 = abs((((1e+200 : stdgo.GoFloat64) * _tanh[(_i : stdgo.GoInt)] : stdgo.GoFloat64) * sqrt((2 : stdgo.GoFloat64)) : stdgo.GoFloat64));
                 {
-                    var _f:stdgo.GoFloat64 = hypot((1e+200 : stdgo.GoFloat64) * _tanh[(_i : stdgo.GoInt)], (1e+200 : stdgo.GoFloat64) * _tanh[(_i : stdgo.GoInt)]);
+                    var _f:stdgo.GoFloat64 = hypot(((1e+200 : stdgo.GoFloat64) * _tanh[(_i : stdgo.GoInt)] : stdgo.GoFloat64), ((1e+200 : stdgo.GoFloat64) * _tanh[(_i : stdgo.GoInt)] : stdgo.GoFloat64));
                     if (!_veryclose(_a, _f)) {
-                        _t.errorf(("Hypot(%g, %g) = %g, want %g" : stdgo.GoString), stdgo.Go.toInterface((1e+200 : stdgo.GoFloat64) * _tanh[(_i : stdgo.GoInt)]), stdgo.Go.toInterface((1e+200 : stdgo.GoFloat64) * _tanh[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_a));
+                        _t.errorf(("Hypot(%g, %g) = %g, want %g" : stdgo.GoString), stdgo.Go.toInterface(((1e+200 : stdgo.GoFloat64) * _tanh[(_i : stdgo.GoInt)] : stdgo.GoFloat64)), stdgo.Go.toInterface(((1e+200 : stdgo.GoFloat64) * _tanh[(_i : stdgo.GoInt)] : stdgo.GoFloat64)), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_a));
                     };
                 };
             });
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfhypotSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfhypotSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = hypot(_vfhypotSC[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)], _vfhypotSC[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)]);
                     if (!_alike(_hypotSC[(_i : stdgo.GoInt)], _f)) {
@@ -2595,19 +2595,19 @@ function testHypot(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testHypotGo(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
-                var _a:stdgo.GoFloat64 = abs(((1e+200 : stdgo.GoFloat64) * _tanh[(_i : stdgo.GoInt)]) * sqrt((2 : stdgo.GoFloat64)));
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
+                var _a:stdgo.GoFloat64 = abs((((1e+200 : stdgo.GoFloat64) * _tanh[(_i : stdgo.GoInt)] : stdgo.GoFloat64) * sqrt((2 : stdgo.GoFloat64)) : stdgo.GoFloat64));
                 {
-                    var _f:stdgo.GoFloat64 = hypotGo((1e+200 : stdgo.GoFloat64) * _tanh[(_i : stdgo.GoInt)], (1e+200 : stdgo.GoFloat64) * _tanh[(_i : stdgo.GoInt)]);
+                    var _f:stdgo.GoFloat64 = hypotGo(((1e+200 : stdgo.GoFloat64) * _tanh[(_i : stdgo.GoInt)] : stdgo.GoFloat64), ((1e+200 : stdgo.GoFloat64) * _tanh[(_i : stdgo.GoInt)] : stdgo.GoFloat64));
                     if (!_veryclose(_a, _f)) {
-                        _t.errorf(("HypotGo(%g, %g) = %g, want %g" : stdgo.GoString), stdgo.Go.toInterface((1e+200 : stdgo.GoFloat64) * _tanh[(_i : stdgo.GoInt)]), stdgo.Go.toInterface((1e+200 : stdgo.GoFloat64) * _tanh[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_a));
+                        _t.errorf(("HypotGo(%g, %g) = %g, want %g" : stdgo.GoString), stdgo.Go.toInterface(((1e+200 : stdgo.GoFloat64) * _tanh[(_i : stdgo.GoInt)] : stdgo.GoFloat64)), stdgo.Go.toInterface(((1e+200 : stdgo.GoFloat64) * _tanh[(_i : stdgo.GoInt)] : stdgo.GoFloat64)), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_a));
                     };
                 };
             });
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfhypotSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfhypotSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = hypotGo(_vfhypotSC[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)], _vfhypotSC[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)]);
                     if (!_alike(_hypotSC[(_i : stdgo.GoInt)], _f)) {
@@ -2620,8 +2620,8 @@ function testHypotGo(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testIlogb(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
-                var _a:stdgo.GoInt = _frexp[(_i : stdgo.GoInt)]._i - (1 : stdgo.GoInt);
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
+                var _a:stdgo.GoInt = (_frexp[(_i : stdgo.GoInt)]._i - (1 : stdgo.GoInt) : stdgo.GoInt);
                 {
                     var _e:stdgo.GoInt = ilogb(_vf[(_i : stdgo.GoInt)]);
                     if (_a != (_e)) {
@@ -2632,7 +2632,7 @@ function testIlogb(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vflogbSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vflogbSC.length) : Bool), _i++, {
                 {
                     var _e:stdgo.GoInt = ilogb(_vflogbSC[(_i : stdgo.GoInt)]);
                     if (_ilogbSC[(_i : stdgo.GoInt)] != (_e)) {
@@ -2643,7 +2643,7 @@ function testIlogb(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vffrexpBC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vffrexpBC.length) : Bool), _i++, {
                 {
                     var _e:stdgo.GoInt = ilogb(_vffrexpBC[(_i : stdgo.GoInt)]);
                     if ((_logbBC[(_i : stdgo.GoInt)] : stdgo.GoInt) != (_e)) {
@@ -2656,7 +2656,7 @@ function testIlogb(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testJ0(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = j0(_vf[(_i : stdgo.GoInt)]);
                     if (!_soclose(_j0[(_i : stdgo.GoInt)], _f, (4e-14 : stdgo.GoFloat64))) {
@@ -2667,7 +2667,7 @@ function testJ0(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfj0SC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfj0SC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = j0(_vfj0SC[(_i : stdgo.GoInt)]);
                     if (!_alike(_j0SC[(_i : stdgo.GoInt)], _f)) {
@@ -2680,7 +2680,7 @@ function testJ0(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testJ1(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = j1(_vf[(_i : stdgo.GoInt)]);
                     if (!_close(_j1[(_i : stdgo.GoInt)], _f)) {
@@ -2691,7 +2691,7 @@ function testJ1(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfj0SC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfj0SC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = j1(_vfj0SC[(_i : stdgo.GoInt)]);
                     if (!_alike(_j1SC[(_i : stdgo.GoInt)], _f)) {
@@ -2704,7 +2704,7 @@ function testJ1(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testJn(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = jn((2 : stdgo.GoInt), _vf[(_i : stdgo.GoInt)]);
                     if (!_close(_j2[(_i : stdgo.GoInt)], _f)) {
@@ -2721,7 +2721,7 @@ function testJn(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfj0SC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfj0SC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = jn((2 : stdgo.GoInt), _vfj0SC[(_i : stdgo.GoInt)]);
                     if (!_alike(_j2SC[(_i : stdgo.GoInt)], _f)) {
@@ -2740,7 +2740,7 @@ function testJn(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testLdexp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = ldexp(_frexp[(_i : stdgo.GoInt)]._f, _frexp[(_i : stdgo.GoInt)]._i);
                     if (!_veryclose(_vf[(_i : stdgo.GoInt)], _f)) {
@@ -2751,7 +2751,7 @@ function testLdexp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vffrexpSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vffrexpSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = ldexp(_frexpSC[(_i : stdgo.GoInt)]._f, _frexpSC[(_i : stdgo.GoInt)]._i);
                     if (!_alike(_vffrexpSC[(_i : stdgo.GoInt)], _f)) {
@@ -2762,7 +2762,7 @@ function testLdexp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfldexpSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfldexpSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = ldexp(_vfldexpSC[(_i : stdgo.GoInt)]._f, _vfldexpSC[(_i : stdgo.GoInt)]._i);
                     if (!_alike(_ldexpSC[(_i : stdgo.GoInt)], _f)) {
@@ -2773,7 +2773,7 @@ function testLdexp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vffrexpBC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vffrexpBC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = ldexp(_frexpBC[(_i : stdgo.GoInt)]._f, _frexpBC[(_i : stdgo.GoInt)]._i);
                     if (!_alike(_vffrexpBC[(_i : stdgo.GoInt)], _f)) {
@@ -2784,7 +2784,7 @@ function testLdexp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfldexpBC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfldexpBC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = ldexp(_vfldexpBC[(_i : stdgo.GoInt)]._f, _vfldexpBC[(_i : stdgo.GoInt)]._i);
                     if (!_alike(_ldexpBC[(_i : stdgo.GoInt)], _f)) {
@@ -2797,10 +2797,10 @@ function testLdexp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testLgamma(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var __tmp__ = lgamma(_vf[(_i : stdgo.GoInt)]), _f:stdgo.GoFloat64 = __tmp__._0, _s:stdgo.GoInt = __tmp__._1;
-                    if (!_close(_lgamma[(_i : stdgo.GoInt)]._f, _f) || (_lgamma[(_i : stdgo.GoInt)]._i != _s)) {
+                    if ((!_close(_lgamma[(_i : stdgo.GoInt)]._f, _f) || (_lgamma[(_i : stdgo.GoInt)]._i != _s) : Bool)) {
                         _t.errorf(("Lgamma(%g) = %g, %d, want %g, %d" : stdgo.GoString), stdgo.Go.toInterface(_vf[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_lgamma[(_i : stdgo.GoInt)]._f), stdgo.Go.toInterface(_lgamma[(_i : stdgo.GoInt)]._i));
                     };
                 };
@@ -2808,10 +2808,10 @@ function testLgamma(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vflgammaSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vflgammaSC.length) : Bool), _i++, {
                 {
                     var __tmp__ = lgamma(_vflgammaSC[(_i : stdgo.GoInt)]), _f:stdgo.GoFloat64 = __tmp__._0, _s:stdgo.GoInt = __tmp__._1;
-                    if (!_alike(_lgammaSC[(_i : stdgo.GoInt)]._f, _f) || (_lgammaSC[(_i : stdgo.GoInt)]._i != _s)) {
+                    if ((!_alike(_lgammaSC[(_i : stdgo.GoInt)]._f, _f) || (_lgammaSC[(_i : stdgo.GoInt)]._i != _s) : Bool)) {
                         _t.errorf(("Lgamma(%g) = %g, %d, want %g, %d" : stdgo.GoString), stdgo.Go.toInterface(_vflgammaSC[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_lgammaSC[(_i : stdgo.GoInt)]._f), stdgo.Go.toInterface(_lgammaSC[(_i : stdgo.GoInt)]._i));
                     };
                 };
@@ -2821,7 +2821,7 @@ function testLgamma(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testLog(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 var _a:stdgo.GoFloat64 = abs(_vf[(_i : stdgo.GoInt)]);
                 {
                     var _f:stdgo.GoFloat64 = log(_a);
@@ -2839,7 +2839,7 @@ function testLog(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vflogSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vflogSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = log(_vflogSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_logSC[(_i : stdgo.GoInt)], _f)) {
@@ -2852,7 +2852,7 @@ function testLog(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testLogb(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = logb(_vf[(_i : stdgo.GoInt)]);
                     if (_logb[(_i : stdgo.GoInt)] != (_f)) {
@@ -2863,7 +2863,7 @@ function testLogb(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vflogbSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vflogbSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = logb(_vflogbSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_logbSC[(_i : stdgo.GoInt)], _f)) {
@@ -2874,7 +2874,7 @@ function testLogb(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vffrexpBC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vffrexpBC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = logb(_vffrexpBC[(_i : stdgo.GoInt)]);
                     if (!_alike(_logbBC[(_i : stdgo.GoInt)], _f)) {
@@ -2887,7 +2887,7 @@ function testLogb(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testLog10(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 var _a:stdgo.GoFloat64 = abs(_vf[(_i : stdgo.GoInt)]);
                 {
                     var _f:stdgo.GoFloat64 = log10(_a);
@@ -2905,7 +2905,7 @@ function testLog10(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vflogSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vflogSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = log10(_vflogSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_logSC[(_i : stdgo.GoInt)], _f)) {
@@ -2918,8 +2918,8 @@ function testLog10(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testLog1p(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
-                var _a:stdgo.GoFloat64 = _vf[(_i : stdgo.GoInt)] / (100 : stdgo.GoFloat64);
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
+                var _a:stdgo.GoFloat64 = (_vf[(_i : stdgo.GoInt)] / (100 : stdgo.GoFloat64) : stdgo.GoFloat64);
                 {
                     var _f:stdgo.GoFloat64 = log1p(_a);
                     if (!_veryclose(_log1p[(_i : stdgo.GoInt)], _f)) {
@@ -2937,7 +2937,7 @@ function testLog1p(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vflogSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vflogSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = log1p(_vflog1pSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_log1pSC[(_i : stdgo.GoInt)], _f)) {
@@ -2950,7 +2950,7 @@ function testLog1p(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testLog2(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 var _a:stdgo.GoFloat64 = abs(_vf[(_i : stdgo.GoInt)]);
                 {
                     var _f:stdgo.GoFloat64 = log2(_a);
@@ -2968,7 +2968,7 @@ function testLog2(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vflogSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vflogSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = log2(_vflogSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_logSC[(_i : stdgo.GoInt)], _f)) {
@@ -2979,7 +2979,7 @@ function testLog2(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (-1074 : stdgo.GoInt);
-            stdgo.Go.cfor(_i <= (1023 : stdgo.GoInt), _i++, {
+            stdgo.Go.cfor((_i <= (1023 : stdgo.GoInt) : Bool), _i++, {
                 var _f:stdgo.GoFloat64 = ldexp((1 : stdgo.GoFloat64), _i);
                 var _l:stdgo.GoFloat64 = log2(_f);
                 if (_l != ((_i : stdgo.GoFloat64))) {
@@ -2991,10 +2991,10 @@ function testLog2(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testModf(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var __tmp__ = modf(_vf[(_i : stdgo.GoInt)]), _f:stdgo.GoFloat64 = __tmp__._0, _g:stdgo.GoFloat64 = __tmp__._1;
-                    if (!_veryclose(_modf[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)], _f) || !_veryclose(_modf[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)], _g)) {
+                    if ((!_veryclose(_modf[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)], _f) || !_veryclose(_modf[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)], _g) : Bool)) {
                         _t.errorf(("Modf(%g) = %g, %g, want %g, %g" : stdgo.GoString), stdgo.Go.toInterface(_vf[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_g), stdgo.Go.toInterface(_modf[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)]), stdgo.Go.toInterface(_modf[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)]));
                     };
                 };
@@ -3002,10 +3002,10 @@ function testModf(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfmodfSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfmodfSC.length) : Bool), _i++, {
                 {
                     var __tmp__ = modf(_vfmodfSC[(_i : stdgo.GoInt)]), _f:stdgo.GoFloat64 = __tmp__._0, _g:stdgo.GoFloat64 = __tmp__._1;
-                    if (!_alike(_modfSC[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)], _f) || !_alike(_modfSC[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)], _g)) {
+                    if ((!_alike(_modfSC[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)], _f) || !_alike(_modfSC[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)], _g) : Bool)) {
                         _t.errorf(("Modf(%g) = %g, %g, want %g, %g" : stdgo.GoString), stdgo.Go.toInterface(_vfmodfSC[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_g), stdgo.Go.toInterface(_modfSC[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)]), stdgo.Go.toInterface(_modfSC[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)]));
                     };
                 };
@@ -3019,7 +3019,7 @@ function testNextafter32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
         } #else null #end;
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 var _vfi:stdgo.GoFloat32 = (_vf[(_i : stdgo.GoInt)] : stdgo.GoFloat32);
                 {
                     var _f:stdgo.GoFloat32 = nextafter32(_vfi, (10 : stdgo.GoFloat64));
@@ -3031,7 +3031,7 @@ function testNextafter32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfnextafter32SC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfnextafter32SC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat32 = nextafter32(_vfnextafter32SC[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)], _vfnextafter32SC[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)]);
                     if (!_alike((_nextafter32SC[(_i : stdgo.GoInt)] : stdgo.GoFloat64), (_f : stdgo.GoFloat64))) {
@@ -3044,7 +3044,7 @@ function testNextafter32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
 function testNextafter64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = nextafter(_vf[(_i : stdgo.GoInt)], (10 : stdgo.GoFloat64));
                     if (_nextafter64[(_i : stdgo.GoInt)] != (_f)) {
@@ -3055,7 +3055,7 @@ function testNextafter64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfnextafter64SC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfnextafter64SC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = nextafter(_vfnextafter64SC[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)], _vfnextafter64SC[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)]);
                     if (!_alike(_nextafter64SC[(_i : stdgo.GoInt)], _f)) {
@@ -3068,7 +3068,7 @@ function testNextafter64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
 function testPow(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = pow((10 : stdgo.GoFloat64), _vf[(_i : stdgo.GoInt)]);
                     if (!_close(_pow[(_i : stdgo.GoInt)], _f)) {
@@ -3079,7 +3079,7 @@ function testPow(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfpowSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfpowSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = pow(_vfpowSC[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)], _vfpowSC[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)]);
                     if (!_alike(_powSC[(_i : stdgo.GoInt)], _f)) {
@@ -3092,7 +3092,7 @@ function testPow(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testPow10(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfpow10SC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfpow10SC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = pow10(_vfpow10SC[(_i : stdgo.GoInt)]);
                     if (!_alike(_pow10SC[(_i : stdgo.GoInt)], _f)) {
@@ -3105,7 +3105,7 @@ function testPow10(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testRemainder(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = remainder((10 : stdgo.GoFloat64), _vf[(_i : stdgo.GoInt)]);
                     if (_remainder[(_i : stdgo.GoInt)] != (_f)) {
@@ -3116,7 +3116,7 @@ function testRemainder(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vffmodSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vffmodSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = remainder(_vffmodSC[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)], _vffmodSC[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)]);
                     if (!_alike(_fmodSC[(_i : stdgo.GoInt)], _f)) {
@@ -3134,17 +3134,17 @@ function testRemainder(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _test:(stdgo.GoFloat64, stdgo.GoFloat64) -> Void = function(_x:stdgo.GoFloat64, _y:stdgo.GoFloat64):Void {
             {
                 var _r:stdgo.GoFloat64 = remainder(_x, _y);
-                if ((_r == (0 : stdgo.GoFloat64)) && (signbit(_r) != signbit(_x))) {
+                if (((_r == (0 : stdgo.GoFloat64)) && (signbit(_r) != signbit(_x)) : Bool)) {
                     _t.errorf(("Remainder(x=%f, y=%f) = %f, sign of (zero) result should agree with sign of x" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(_r));
                 };
             };
         };
         {
             var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
-            stdgo.Go.cfor(_x <= (3 : stdgo.GoFloat64), _x = _x + (1 : stdgo.GoFloat64), {
+            stdgo.Go.cfor((_x <= (3 : stdgo.GoFloat64) : Bool), _x = (_x + (1 : stdgo.GoFloat64) : stdgo.GoFloat64), {
                 {
                     var _y:stdgo.GoFloat64 = (1 : stdgo.GoFloat64);
-                    stdgo.Go.cfor(_y <= (3 : stdgo.GoFloat64), _y = _y + (1 : stdgo.GoFloat64), {
+                    stdgo.Go.cfor((_y <= (3 : stdgo.GoFloat64) : Bool), _y = (_y + (1 : stdgo.GoFloat64) : stdgo.GoFloat64), {
                         _test(_x, _y);
                         _test(_x, -_y);
                         _test(-_x, _y);
@@ -3157,7 +3157,7 @@ function testRemainder(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testRound(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = round(_vf[(_i : stdgo.GoInt)]);
                     if (!_alike(_round[(_i : stdgo.GoInt)], _f)) {
@@ -3168,7 +3168,7 @@ function testRound(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfroundSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfroundSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = round(_vfroundSC[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)]);
                     if (!_alike(_vfroundSC[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)], _f)) {
@@ -3181,7 +3181,7 @@ function testRound(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testRoundToEven(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = roundToEven(_vf[(_i : stdgo.GoInt)]);
                     if (!_alike(_round[(_i : stdgo.GoInt)], _f)) {
@@ -3192,7 +3192,7 @@ function testRoundToEven(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfroundEvenSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfroundEvenSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = roundToEven(_vfroundEvenSC[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)]);
                     if (!_alike(_vfroundEvenSC[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)], _f)) {
@@ -3205,7 +3205,7 @@ function testRoundToEven(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
 function testSignbit(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:Bool = signbit(_vf[(_i : stdgo.GoInt)]);
                     if (_signbit[(_i : stdgo.GoInt)] != (_f)) {
@@ -3216,7 +3216,7 @@ function testSignbit(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfsignbitSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfsignbitSC.length) : Bool), _i++, {
                 {
                     var _f:Bool = signbit(_vfsignbitSC[(_i : stdgo.GoInt)]);
                     if (_signbitSC[(_i : stdgo.GoInt)] != (_f)) {
@@ -3229,7 +3229,7 @@ function testSignbit(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testSin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = sin(_vf[(_i : stdgo.GoInt)]);
                     if (!_veryclose(_sin[(_i : stdgo.GoInt)], _f)) {
@@ -3240,7 +3240,7 @@ function testSin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfsinSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfsinSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = sin(_vfsinSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_sinSC[(_i : stdgo.GoInt)], _f)) {
@@ -3253,10 +3253,10 @@ function testSin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testSincos(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var __tmp__ = sincos(_vf[(_i : stdgo.GoInt)]), _s:stdgo.GoFloat64 = __tmp__._0, _c:stdgo.GoFloat64 = __tmp__._1;
-                    if (!_veryclose(_sin[(_i : stdgo.GoInt)], _s) || !_veryclose(_cos[(_i : stdgo.GoInt)], _c)) {
+                    if ((!_veryclose(_sin[(_i : stdgo.GoInt)], _s) || !_veryclose(_cos[(_i : stdgo.GoInt)], _c) : Bool)) {
                         _t.errorf(("Sincos(%g) = %g, %g want %g, %g" : stdgo.GoString), stdgo.Go.toInterface(_vf[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_c), stdgo.Go.toInterface(_sin[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_cos[(_i : stdgo.GoInt)]));
                     };
                 };
@@ -3266,7 +3266,7 @@ function testSincos(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testSinh(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = sinh(_vf[(_i : stdgo.GoInt)]);
                     if (!_close(_sinh[(_i : stdgo.GoInt)], _f)) {
@@ -3277,7 +3277,7 @@ function testSinh(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfsinhSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfsinhSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = sinh(_vfsinhSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_sinhSC[(_i : stdgo.GoInt)], _f)) {
@@ -3290,7 +3290,7 @@ function testSinh(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testSqrt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 var _a:stdgo.GoFloat64 = abs(_vf[(_i : stdgo.GoInt)]);
                 {
                     var _f:stdgo.GoFloat64 = sqrtGo(_a);
@@ -3309,7 +3309,7 @@ function testSqrt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfsqrtSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfsqrtSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = sqrtGo(_vfsqrtSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_sqrtSC[(_i : stdgo.GoInt)], _f)) {
@@ -3328,7 +3328,7 @@ function testSqrt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testTan(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = tan(_vf[(_i : stdgo.GoInt)]);
                     if (!_veryclose(_tan[(_i : stdgo.GoInt)], _f)) {
@@ -3339,7 +3339,7 @@ function testTan(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfsinSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfsinSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = tan(_vfsinSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_sinSC[(_i : stdgo.GoInt)], _f)) {
@@ -3352,7 +3352,7 @@ function testTan(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testTanh(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = tanh(_vf[(_i : stdgo.GoInt)]);
                     if (!_veryclose(_tanh[(_i : stdgo.GoInt)], _f)) {
@@ -3363,7 +3363,7 @@ function testTanh(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vftanhSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vftanhSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = tanh(_vftanhSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_tanhSC[(_i : stdgo.GoInt)], _f)) {
@@ -3376,7 +3376,7 @@ function testTanh(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testTrunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = trunc(_vf[(_i : stdgo.GoInt)]);
                     if (!_alike(_trunc[(_i : stdgo.GoInt)], _f)) {
@@ -3387,7 +3387,7 @@ function testTrunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfceilSC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfceilSC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = trunc(_vfceilSC[(_i : stdgo.GoInt)]);
                     if (!_alike(_ceilSC[(_i : stdgo.GoInt)], _f)) {
@@ -3400,7 +3400,7 @@ function testTrunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testY0(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 var _a:stdgo.GoFloat64 = abs(_vf[(_i : stdgo.GoInt)]);
                 {
                     var _f:stdgo.GoFloat64 = y0(_a);
@@ -3412,7 +3412,7 @@ function testY0(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfy0SC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfy0SC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = y0(_vfy0SC[(_i : stdgo.GoInt)]);
                     if (!_alike(_y0SC[(_i : stdgo.GoInt)], _f)) {
@@ -3425,7 +3425,7 @@ function testY0(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testY1(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 var _a:stdgo.GoFloat64 = abs(_vf[(_i : stdgo.GoInt)]);
                 {
                     var _f:stdgo.GoFloat64 = y1(_a);
@@ -3437,7 +3437,7 @@ function testY1(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfy0SC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfy0SC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = y1(_vfy0SC[(_i : stdgo.GoInt)]);
                     if (!_alike(_y1SC[(_i : stdgo.GoInt)], _f)) {
@@ -3450,7 +3450,7 @@ function testY1(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testYn(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 var _a:stdgo.GoFloat64 = abs(_vf[(_i : stdgo.GoInt)]);
                 {
                     var _f:stdgo.GoFloat64 = yn((2 : stdgo.GoInt), _a);
@@ -3468,7 +3468,7 @@ function testYn(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vfy0SC.length), _i++, {
+            stdgo.Go.cfor((_i < (_vfy0SC.length) : Bool), _i++, {
                 {
                     var _f:stdgo.GoFloat64 = yn((2 : stdgo.GoInt), _vfy0SC[(_i : stdgo.GoInt)]);
                     if (!_alike(_y2SC[(_i : stdgo.GoInt)], _f)) {
@@ -3534,11 +3534,11 @@ function testLargeCos(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _large:stdgo.GoFloat64 = (314159.26535897935 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 var _f1:stdgo.GoFloat64 = _cosLarge[(_i : stdgo.GoInt)];
-                var _f2:stdgo.GoFloat64 = cos(_vf[(_i : stdgo.GoInt)] + _large);
+                var _f2:stdgo.GoFloat64 = cos((_vf[(_i : stdgo.GoInt)] + _large : stdgo.GoFloat64));
                 if (!_close(_f1, _f2)) {
-                    _t.errorf(("Cos(%g) = %g, want %g" : stdgo.GoString), stdgo.Go.toInterface(_vf[(_i : stdgo.GoInt)] + _large), stdgo.Go.toInterface(_f2), stdgo.Go.toInterface(_f1));
+                    _t.errorf(("Cos(%g) = %g, want %g" : stdgo.GoString), stdgo.Go.toInterface((_vf[(_i : stdgo.GoInt)] + _large : stdgo.GoFloat64)), stdgo.Go.toInterface(_f2), stdgo.Go.toInterface(_f1));
                 };
             });
         };
@@ -3547,11 +3547,11 @@ function testLargeSin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _large:stdgo.GoFloat64 = (314159.26535897935 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 var _f1:stdgo.GoFloat64 = _sinLarge[(_i : stdgo.GoInt)];
-                var _f2:stdgo.GoFloat64 = sin(_vf[(_i : stdgo.GoInt)] + _large);
+                var _f2:stdgo.GoFloat64 = sin((_vf[(_i : stdgo.GoInt)] + _large : stdgo.GoFloat64));
                 if (!_close(_f1, _f2)) {
-                    _t.errorf(("Sin(%g) = %g, want %g" : stdgo.GoString), stdgo.Go.toInterface(_vf[(_i : stdgo.GoInt)] + _large), stdgo.Go.toInterface(_f2), stdgo.Go.toInterface(_f1));
+                    _t.errorf(("Sin(%g) = %g, want %g" : stdgo.GoString), stdgo.Go.toInterface((_vf[(_i : stdgo.GoInt)] + _large : stdgo.GoFloat64)), stdgo.Go.toInterface(_f2), stdgo.Go.toInterface(_f1));
                 };
             });
         };
@@ -3560,11 +3560,11 @@ function testLargeSincos(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
         var _large:stdgo.GoFloat64 = (314159.26535897935 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 var __0:stdgo.GoFloat64 = _sinLarge[(_i : stdgo.GoInt)], __1:stdgo.GoFloat64 = _cosLarge[(_i : stdgo.GoInt)], _g1:stdgo.GoFloat64 = __1, _f1:stdgo.GoFloat64 = __0;
-                var __tmp__ = sincos(_vf[(_i : stdgo.GoInt)] + _large), _f2:stdgo.GoFloat64 = __tmp__._0, _g2:stdgo.GoFloat64 = __tmp__._1;
-                if (!_close(_f1, _f2) || !_close(_g1, _g2)) {
-                    _t.errorf(("Sincos(%g) = %g, %g, want %g, %g" : stdgo.GoString), stdgo.Go.toInterface(_vf[(_i : stdgo.GoInt)] + _large), stdgo.Go.toInterface(_f2), stdgo.Go.toInterface(_g2), stdgo.Go.toInterface(_f1), stdgo.Go.toInterface(_g1));
+                var __tmp__ = sincos((_vf[(_i : stdgo.GoInt)] + _large : stdgo.GoFloat64)), _f2:stdgo.GoFloat64 = __tmp__._0, _g2:stdgo.GoFloat64 = __tmp__._1;
+                if ((!_close(_f1, _f2) || !_close(_g1, _g2) : Bool)) {
+                    _t.errorf(("Sincos(%g) = %g, %g, want %g, %g" : stdgo.GoString), stdgo.Go.toInterface((_vf[(_i : stdgo.GoInt)] + _large : stdgo.GoFloat64)), stdgo.Go.toInterface(_f2), stdgo.Go.toInterface(_g2), stdgo.Go.toInterface(_f1), stdgo.Go.toInterface(_g1));
                 };
             });
         };
@@ -3573,11 +3573,11 @@ function testLargeTan(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _large:stdgo.GoFloat64 = (314159.26535897935 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_vf.length), _i++, {
+            stdgo.Go.cfor((_i < (_vf.length) : Bool), _i++, {
                 var _f1:stdgo.GoFloat64 = _tanLarge[(_i : stdgo.GoInt)];
-                var _f2:stdgo.GoFloat64 = tan(_vf[(_i : stdgo.GoInt)] + _large);
+                var _f2:stdgo.GoFloat64 = tan((_vf[(_i : stdgo.GoInt)] + _large : stdgo.GoFloat64));
                 if (!_close(_f1, _f2)) {
-                    _t.errorf(("Tan(%g) = %g, want %g" : stdgo.GoString), stdgo.Go.toInterface(_vf[(_i : stdgo.GoInt)] + _large), stdgo.Go.toInterface(_f2), stdgo.Go.toInterface(_f1));
+                    _t.errorf(("Tan(%g) = %g, want %g" : stdgo.GoString), stdgo.Go.toInterface((_vf[(_i : stdgo.GoInt)] + _large : stdgo.GoFloat64)), stdgo.Go.toInterface(_f2), stdgo.Go.toInterface(_f1));
                 };
             });
         };
@@ -3587,12 +3587,12 @@ function testTrigReduce(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         stdgo.Go.copySlice(_inputs, _vf);
         var _large:stdgo.GoFloat64 = (314159.26535897935 : stdgo.GoFloat64);
         for (__0 => _v in _vf) {
-            _inputs = (_inputs.__append__(_v + _large));
+            _inputs = (_inputs.__append__((_v + _large : stdgo.GoFloat64)));
         };
         _inputs = (_inputs.__append__((3.141592653589793 : stdgo.GoFloat64), nextafter((5.36870912e+08 : stdgo.GoFloat64), (0 : stdgo.GoFloat64))));
         for (__1 => _x in _inputs) {
             var __tmp__ = trigReduce(_x), _j:stdgo.GoUInt64 = __tmp__._0, _z:stdgo.GoFloat64 = __tmp__._1;
-            var _xred:stdgo.GoFloat64 = ((_j : stdgo.GoFloat64) * (0.7853981633974483 : stdgo.GoFloat64)) + _z;
+            var _xred:stdgo.GoFloat64 = (((_j : stdgo.GoFloat64) * (0.7853981633974483 : stdgo.GoFloat64) : stdgo.GoFloat64) + _z : stdgo.GoFloat64);
             {
                 var __0:stdgo.GoFloat64 = sin(_x), __1:stdgo.GoFloat64 = sin(_xred), _fred:stdgo.GoFloat64 = __1, _f:stdgo.GoFloat64 = __0;
                 if (!_close(_f, _fred)) {
@@ -3613,7 +3613,7 @@ function testTrigReduce(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             };
             var __tmp__ = sincos(_x), _f:stdgo.GoFloat64 = __tmp__._0, _g:stdgo.GoFloat64 = __tmp__._1;
             var __tmp__ = sincos(_xred), _fred:stdgo.GoFloat64 = __tmp__._0, _gred:stdgo.GoFloat64 = __tmp__._1;
-            if (!_close(_f, _fred) || !_close(_g, _gred)) {
+            if ((!_close(_f, _fred) || !_close(_g, _gred) : Bool)) {
                 _t.errorf((" Sincos(trigReduce(%g)) != Sincos(%g), got %g, %g, want %g, %g" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_fred), stdgo.Go.toInterface(_gred), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_g));
             };
         };
@@ -3656,7 +3656,7 @@ function benchmarkAcos(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = acos((0.5 : stdgo.GoFloat64));
             });
         };
@@ -3666,7 +3666,7 @@ function benchmarkAcosh(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = acosh((1.5 : stdgo.GoFloat64));
             });
         };
@@ -3676,7 +3676,7 @@ function benchmarkAsin(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = asin((0.5 : stdgo.GoFloat64));
             });
         };
@@ -3686,7 +3686,7 @@ function benchmarkAsinh(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = asinh((0.5 : stdgo.GoFloat64));
             });
         };
@@ -3696,7 +3696,7 @@ function benchmarkAtan(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = atan((0.5 : stdgo.GoFloat64));
             });
         };
@@ -3706,7 +3706,7 @@ function benchmarkAtanh(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = atanh((0.5 : stdgo.GoFloat64));
             });
         };
@@ -3716,7 +3716,7 @@ function benchmarkAtan2(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = atan2((0.5 : stdgo.GoFloat64), (1 : stdgo.GoFloat64));
             });
         };
@@ -3726,7 +3726,7 @@ function benchmarkCbrt(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = cbrt((10 : stdgo.GoFloat64));
             });
         };
@@ -3736,7 +3736,7 @@ function benchmarkCeil(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = ceil((0.5 : stdgo.GoFloat64));
             });
         };
@@ -3746,7 +3746,7 @@ function benchmarkCopysign(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = copysign((0.5 : stdgo.GoFloat64), _copysignNeg);
             });
         };
@@ -3756,7 +3756,7 @@ function benchmarkCos(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = cos((0.5 : stdgo.GoFloat64));
             });
         };
@@ -3766,7 +3766,7 @@ function benchmarkCosh(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = cosh((2.5 : stdgo.GoFloat64));
             });
         };
@@ -3776,7 +3776,7 @@ function benchmarkErf(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = erf((0.5 : stdgo.GoFloat64));
             });
         };
@@ -3786,7 +3786,7 @@ function benchmarkErfc(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = erfc((0.5 : stdgo.GoFloat64));
             });
         };
@@ -3796,7 +3796,7 @@ function benchmarkErfinv(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = erfinv((0.5 : stdgo.GoFloat64));
             });
         };
@@ -3806,7 +3806,7 @@ function benchmarkErfcinv(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void 
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = erfcinv((0.5 : stdgo.GoFloat64));
             });
         };
@@ -3816,7 +3816,7 @@ function benchmarkExp(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = exp((0.5 : stdgo.GoFloat64));
             });
         };
@@ -3826,7 +3826,7 @@ function benchmarkExpGo(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = expGo((0.5 : stdgo.GoFloat64));
             });
         };
@@ -3836,7 +3836,7 @@ function benchmarkExpm1(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = expm1((0.5 : stdgo.GoFloat64));
             });
         };
@@ -3846,7 +3846,7 @@ function benchmarkExp2(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = exp2((0.5 : stdgo.GoFloat64));
             });
         };
@@ -3856,7 +3856,7 @@ function benchmarkExp2Go(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = exp2Go((0.5 : stdgo.GoFloat64));
             });
         };
@@ -3866,7 +3866,7 @@ function benchmarkAbs(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = abs(_absPos);
             });
         };
@@ -3876,7 +3876,7 @@ function benchmarkDim(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = dim(globalF, _x);
             });
         };
@@ -3886,7 +3886,7 @@ function benchmarkFloor(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = floor((0.5 : stdgo.GoFloat64));
             });
         };
@@ -3896,7 +3896,7 @@ function benchmarkMax(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = max((10 : stdgo.GoFloat64), (3 : stdgo.GoFloat64));
             });
         };
@@ -3906,7 +3906,7 @@ function benchmarkMin(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = min((10 : stdgo.GoFloat64), (3 : stdgo.GoFloat64));
             });
         };
@@ -3916,7 +3916,7 @@ function benchmarkMod(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = mod((10 : stdgo.GoFloat64), (3 : stdgo.GoFloat64));
             });
         };
@@ -3927,7 +3927,7 @@ function benchmarkFrexp(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _y:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 {
                     var __tmp__ = frexp((8 : stdgo.GoFloat64));
                     _x = __tmp__._0;
@@ -3942,7 +3942,7 @@ function benchmarkGamma(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = gamma((2.5 : stdgo.GoFloat64));
             });
         };
@@ -3952,7 +3952,7 @@ function benchmarkHypot(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = hypot((3 : stdgo.GoFloat64), (4 : stdgo.GoFloat64));
             });
         };
@@ -3962,7 +3962,7 @@ function benchmarkHypotGo(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void 
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = hypotGo((3 : stdgo.GoFloat64), (4 : stdgo.GoFloat64));
             });
         };
@@ -3972,7 +3972,7 @@ function benchmarkIlogb(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = ilogb((0.5 : stdgo.GoFloat64));
             });
         };
@@ -3982,7 +3982,7 @@ function benchmarkJ0(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = j0((2.5 : stdgo.GoFloat64));
             });
         };
@@ -3992,7 +3992,7 @@ function benchmarkJ1(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = j1((2.5 : stdgo.GoFloat64));
             });
         };
@@ -4002,7 +4002,7 @@ function benchmarkJn(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = jn((2 : stdgo.GoInt), (2.5 : stdgo.GoFloat64));
             });
         };
@@ -4012,7 +4012,7 @@ function benchmarkLdexp(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = ldexp((0.5 : stdgo.GoFloat64), (2 : stdgo.GoInt));
             });
         };
@@ -4023,7 +4023,7 @@ function benchmarkLgamma(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _y:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 {
                     var __tmp__ = lgamma((2.5 : stdgo.GoFloat64));
                     _x = __tmp__._0;
@@ -4038,7 +4038,7 @@ function benchmarkLog(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = log((0.5 : stdgo.GoFloat64));
             });
         };
@@ -4048,7 +4048,7 @@ function benchmarkLogb(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = logb((0.5 : stdgo.GoFloat64));
             });
         };
@@ -4058,7 +4058,7 @@ function benchmarkLog1p(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = log1p((0.5 : stdgo.GoFloat64));
             });
         };
@@ -4068,7 +4068,7 @@ function benchmarkLog10(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = log10((0.5 : stdgo.GoFloat64));
             });
         };
@@ -4078,18 +4078,18 @@ function benchmarkLog2(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = log2((0.5 : stdgo.GoFloat64));
             });
         };
-        globalF = globalF + (_x);
+        globalF = (globalF + (_x) : stdgo.GoFloat64);
     }
 function benchmarkModf(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         var _y:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 {
                     var __tmp__ = modf((1.5 : stdgo.GoFloat64));
                     _x = __tmp__._0;
@@ -4097,14 +4097,14 @@ function benchmarkModf(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
                 };
             });
         };
-        globalF = globalF + (_x);
-        globalF = globalF + (_y);
+        globalF = (globalF + (_x) : stdgo.GoFloat64);
+        globalF = (globalF + (_y) : stdgo.GoFloat64);
     }
 function benchmarkNextafter32(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat32 = ((0 : stdgo.GoFloat64) : stdgo.GoFloat32);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = nextafter32((0.5 : stdgo.GoFloat64), (1 : stdgo.GoFloat64));
             });
         };
@@ -4114,7 +4114,7 @@ function benchmarkNextafter64(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):V
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = nextafter((0.5 : stdgo.GoFloat64), (1 : stdgo.GoFloat64));
             });
         };
@@ -4124,7 +4124,7 @@ function benchmarkPowInt(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = pow((2 : stdgo.GoFloat64), (2 : stdgo.GoFloat64));
             });
         };
@@ -4134,7 +4134,7 @@ function benchmarkPowFrac(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void 
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = pow((2.5 : stdgo.GoFloat64), (1.5 : stdgo.GoFloat64));
             });
         };
@@ -4144,7 +4144,7 @@ function benchmarkPow10Pos(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = pow10(_pow10pos);
             });
         };
@@ -4154,7 +4154,7 @@ function benchmarkPow10Neg(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = pow10(_pow10neg);
             });
         };
@@ -4164,7 +4164,7 @@ function benchmarkRound(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = round(_roundNeg);
             });
         };
@@ -4174,7 +4174,7 @@ function benchmarkRoundToEven(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):V
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = roundToEven(_roundNeg);
             });
         };
@@ -4184,7 +4184,7 @@ function benchmarkRemainder(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Voi
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = remainder((10 : stdgo.GoFloat64), (3 : stdgo.GoFloat64));
             });
         };
@@ -4194,7 +4194,7 @@ function benchmarkSignbit(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void 
         var _x:Bool = false;
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = signbit(_signbitPos);
             });
         };
@@ -4204,7 +4204,7 @@ function benchmarkSin(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = sin((0.5 : stdgo.GoFloat64));
             });
         };
@@ -4215,7 +4215,7 @@ function benchmarkSincos(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _y:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 {
                     var __tmp__ = sincos((0.5 : stdgo.GoFloat64));
                     _x = __tmp__._0;
@@ -4223,14 +4223,14 @@ function benchmarkSincos(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
                 };
             });
         };
-        globalF = globalF + (_x);
-        globalF = globalF + (_y);
+        globalF = (globalF + (_x) : stdgo.GoFloat64);
+        globalF = (globalF + (_y) : stdgo.GoFloat64);
     }
 function benchmarkSinh(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = sinh((2.5 : stdgo.GoFloat64));
             });
         };
@@ -4241,8 +4241,8 @@ function benchmarkSqrtIndirect(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):
         var _f:stdgo.GoFloat64 -> stdgo.GoFloat64 = sqrt;
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
-                _x = _x + (_f(_y));
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+                _x = (_x + (_f(_y)) : stdgo.GoFloat64);
             });
         };
         globalF = _x;
@@ -4251,7 +4251,7 @@ function benchmarkSqrtLatency(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):V
         var _x:stdgo.GoFloat64 = (10 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = sqrt(_x);
             });
         };
@@ -4262,7 +4262,7 @@ function benchmarkSqrtIndirectLatency(_b:stdgo.Ref<stdgo._internal.testing.Testi
         var _f:stdgo.GoFloat64 -> stdgo.GoFloat64 = sqrt;
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = _f(_x);
             });
         };
@@ -4272,7 +4272,7 @@ function benchmarkSqrtGoLatency(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>)
         var _x:stdgo.GoFloat64 = (10 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = sqrtGo(_x);
             });
         };
@@ -4281,8 +4281,8 @@ function benchmarkSqrtGoLatency(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>)
 function _isPrime(_i:stdgo.GoInt):Bool {
         {
             var _j:stdgo.GoInt = (2 : stdgo.GoInt);
-            stdgo.Go.cfor((_j : stdgo.GoFloat64) <= sqrt((_i : stdgo.GoFloat64)), _j++, {
-                if (_i % _j == ((0 : stdgo.GoInt))) {
+            stdgo.Go.cfor(((_j : stdgo.GoFloat64) <= sqrt((_i : stdgo.GoFloat64)) : Bool), _j++, {
+                if ((_i % _j : stdgo.GoInt) == ((0 : stdgo.GoInt))) {
                     return false;
                 };
             });
@@ -4293,7 +4293,7 @@ function benchmarkSqrtPrime(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Voi
         var _x:Bool = false;
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = _isPrime((100003 : stdgo.GoInt));
             });
         };
@@ -4303,7 +4303,7 @@ function benchmarkTan(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = tan((0.5 : stdgo.GoFloat64));
             });
         };
@@ -4313,7 +4313,7 @@ function benchmarkTanh(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = tanh((2.5 : stdgo.GoFloat64));
             });
         };
@@ -4323,7 +4323,7 @@ function benchmarkTrunc(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = trunc((0.5 : stdgo.GoFloat64));
             });
         };
@@ -4333,7 +4333,7 @@ function benchmarkY0(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = y0((2.5 : stdgo.GoFloat64));
             });
         };
@@ -4343,7 +4343,7 @@ function benchmarkY1(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = y1((2.5 : stdgo.GoFloat64));
             });
         };
@@ -4353,7 +4353,7 @@ function benchmarkYn(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = yn((2 : stdgo.GoInt), (2.5 : stdgo.GoFloat64));
             });
         };
@@ -4363,7 +4363,7 @@ function benchmarkFloat64bits(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):V
         var _y:stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _y = float64bits(_roundNeg);
             });
         };
@@ -4373,7 +4373,7 @@ function benchmarkFloat64frombits(_b:stdgo.Ref<stdgo._internal.testing.Testing.B
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = float64frombits(_roundUint64);
             });
         };
@@ -4383,7 +4383,7 @@ function benchmarkFloat32bits(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):V
         var _y:stdgo.GoUInt32 = (0u32 : stdgo.GoUInt32);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _y = float32bits(_roundFloat32);
             });
         };
@@ -4393,7 +4393,7 @@ function benchmarkFloat32frombits(_b:stdgo.Ref<stdgo._internal.testing.Testing.B
         var _x:stdgo.GoFloat32 = ((0 : stdgo.GoFloat64) : stdgo.GoFloat32);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = float32frombits(_roundUint32);
             });
         };
@@ -4403,7 +4403,7 @@ function benchmarkFMA(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _x = fma((2.718281828459045 : stdgo.GoFloat64), (3.141592653589793 : stdgo.GoFloat64), _x);
             });
         };
@@ -4412,64 +4412,64 @@ function benchmarkFMA(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
 function testMaxUint(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _v:stdgo.GoUInt = (-1u32 : stdgo.GoUInt);
-            if (_v + (1u32 : stdgo.GoUInt) != ((0u32 : stdgo.GoUInt))) {
-                _t.errorf(("MaxUint should wrap around to zero: %d" : stdgo.GoString), stdgo.Go.toInterface(_v + (1u32 : stdgo.GoUInt)));
+            if ((_v + (1u32 : stdgo.GoUInt) : stdgo.GoUInt) != ((0u32 : stdgo.GoUInt))) {
+                _t.errorf(("MaxUint should wrap around to zero: %d" : stdgo.GoString), stdgo.Go.toInterface((_v + (1u32 : stdgo.GoUInt) : stdgo.GoUInt)));
             };
         };
         {
             var _v:stdgo.GoUInt8 = (255 : stdgo.GoUInt8);
-            if (_v + (1 : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8))) {
-                _t.errorf(("MaxUint8 should wrap around to zero: %d" : stdgo.GoString), stdgo.Go.toInterface(_v + (1 : stdgo.GoUInt8)));
+            if ((_v + (1 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8))) {
+                _t.errorf(("MaxUint8 should wrap around to zero: %d" : stdgo.GoString), stdgo.Go.toInterface((_v + (1 : stdgo.GoUInt8) : stdgo.GoUInt8)));
             };
         };
         {
             var _v:stdgo.GoUInt16 = (65535 : stdgo.GoUInt16);
-            if (_v + (1 : stdgo.GoUInt16) != ((0 : stdgo.GoUInt16))) {
-                _t.errorf(("MaxUint16 should wrap around to zero: %d" : stdgo.GoString), stdgo.Go.toInterface(_v + (1 : stdgo.GoUInt16)));
+            if ((_v + (1 : stdgo.GoUInt16) : stdgo.GoUInt16) != ((0 : stdgo.GoUInt16))) {
+                _t.errorf(("MaxUint16 should wrap around to zero: %d" : stdgo.GoString), stdgo.Go.toInterface((_v + (1 : stdgo.GoUInt16) : stdgo.GoUInt16)));
             };
         };
         {
             var _v:stdgo.GoUInt32 = (-1u32 : stdgo.GoUInt32);
-            if (_v + (1u32 : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32))) {
-                _t.errorf(("MaxUint32 should wrap around to zero: %d" : stdgo.GoString), stdgo.Go.toInterface(_v + (1u32 : stdgo.GoUInt32)));
+            if ((_v + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32))) {
+                _t.errorf(("MaxUint32 should wrap around to zero: %d" : stdgo.GoString), stdgo.Go.toInterface((_v + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32)));
             };
         };
         {
             var _v:stdgo.GoUInt64 = (-1i64 : stdgo.GoUInt64);
-            if (_v + (1i64 : stdgo.GoUInt64) != ((0i64 : stdgo.GoUInt64))) {
-                _t.errorf(("MaxUint64 should wrap around to zero: %d" : stdgo.GoString), stdgo.Go.toInterface(_v + (1i64 : stdgo.GoUInt64)));
+            if ((_v + (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64) != ((0i64 : stdgo.GoUInt64))) {
+                _t.errorf(("MaxUint64 should wrap around to zero: %d" : stdgo.GoString), stdgo.Go.toInterface((_v + (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64)));
             };
         };
     }
 function testMaxInt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _v:stdgo.GoInt = (2147483647 : stdgo.GoInt);
-            if (_v + (1 : stdgo.GoInt) != ((-2147483648 : stdgo.GoInt))) {
-                _t.errorf(("MaxInt should wrap around to MinInt: %d" : stdgo.GoString), stdgo.Go.toInterface(_v + (1 : stdgo.GoInt)));
+            if ((_v + (1 : stdgo.GoInt) : stdgo.GoInt) != ((-2147483648 : stdgo.GoInt))) {
+                _t.errorf(("MaxInt should wrap around to MinInt: %d" : stdgo.GoString), stdgo.Go.toInterface((_v + (1 : stdgo.GoInt) : stdgo.GoInt)));
             };
         };
         {
             var _v:stdgo.GoInt8 = (127 : stdgo.GoInt8);
-            if (_v + (1 : stdgo.GoInt8) != ((-128 : stdgo.GoInt8))) {
-                _t.errorf(("MaxInt8 should wrap around to MinInt8: %d" : stdgo.GoString), stdgo.Go.toInterface(_v + (1 : stdgo.GoInt8)));
+            if ((_v + (1 : stdgo.GoInt8) : stdgo.GoInt8) != ((-128 : stdgo.GoInt8))) {
+                _t.errorf(("MaxInt8 should wrap around to MinInt8: %d" : stdgo.GoString), stdgo.Go.toInterface((_v + (1 : stdgo.GoInt8) : stdgo.GoInt8)));
             };
         };
         {
             var _v:stdgo.GoInt16 = (32767 : stdgo.GoInt16);
-            if (_v + (1 : stdgo.GoInt16) != ((-32768 : stdgo.GoInt16))) {
-                _t.errorf(("MaxInt16 should wrap around to MinInt16: %d" : stdgo.GoString), stdgo.Go.toInterface(_v + (1 : stdgo.GoInt16)));
+            if ((_v + (1 : stdgo.GoInt16) : stdgo.GoInt16) != ((-32768 : stdgo.GoInt16))) {
+                _t.errorf(("MaxInt16 should wrap around to MinInt16: %d" : stdgo.GoString), stdgo.Go.toInterface((_v + (1 : stdgo.GoInt16) : stdgo.GoInt16)));
             };
         };
         {
             var _v:stdgo.GoInt32 = (2147483647 : stdgo.GoInt32);
-            if (_v + (1 : stdgo.GoInt32) != ((-2147483648 : stdgo.GoInt32))) {
-                _t.errorf(("MaxInt32 should wrap around to MinInt32: %d" : stdgo.GoString), stdgo.Go.toInterface(_v + (1 : stdgo.GoInt32)));
+            if ((_v + (1 : stdgo.GoInt32) : stdgo.GoInt32) != ((-2147483648 : stdgo.GoInt32))) {
+                _t.errorf(("MaxInt32 should wrap around to MinInt32: %d" : stdgo.GoString), stdgo.Go.toInterface((_v + (1 : stdgo.GoInt32) : stdgo.GoInt32)));
             };
         };
         {
             var _v:stdgo.GoInt64 = (9223372036854775807i64 : stdgo.GoInt64);
-            if (_v + (1i64 : stdgo.GoInt64) != ((-9223372036854775808i64 : stdgo.GoInt64))) {
-                _t.errorf(("MaxInt64 should wrap around to MinInt64: %d" : stdgo.GoString), stdgo.Go.toInterface(_v + (1i64 : stdgo.GoInt64)));
+            if ((_v + (1i64 : stdgo.GoInt64) : stdgo.GoInt64) != ((-9223372036854775808i64 : stdgo.GoInt64))) {
+                _t.errorf(("MaxInt64 should wrap around to MinInt64: %d" : stdgo.GoString), stdgo.Go.toInterface((_v + (1i64 : stdgo.GoInt64) : stdgo.GoInt64)));
             };
         };
     }
@@ -4615,7 +4615,7 @@ function exampleModf():Void {
 function testHugeCos(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_trigHuge.length), _i++, {
+            stdgo.Go.cfor((_i < (_trigHuge.length) : Bool), _i++, {
                 var _f1:stdgo.GoFloat64 = _cosHuge[(_i : stdgo.GoInt)];
                 var _f2:stdgo.GoFloat64 = cos(_trigHuge[(_i : stdgo.GoInt)]);
                 if (!_close(_f1, _f2)) {
@@ -4631,7 +4631,7 @@ function testHugeCos(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testHugeSin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_trigHuge.length), _i++, {
+            stdgo.Go.cfor((_i < (_trigHuge.length) : Bool), _i++, {
                 var _f1:stdgo.GoFloat64 = _sinHuge[(_i : stdgo.GoInt)];
                 var _f2:stdgo.GoFloat64 = sin(_trigHuge[(_i : stdgo.GoInt)]);
                 if (!_close(_f1, _f2)) {
@@ -4647,14 +4647,14 @@ function testHugeSin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testHugeSinCos(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_trigHuge.length), _i++, {
+            stdgo.Go.cfor((_i < (_trigHuge.length) : Bool), _i++, {
                 var __0:stdgo.GoFloat64 = _sinHuge[(_i : stdgo.GoInt)], __1:stdgo.GoFloat64 = _cosHuge[(_i : stdgo.GoInt)], _g1:stdgo.GoFloat64 = __1, _f1:stdgo.GoFloat64 = __0;
                 var __tmp__ = sincos(_trigHuge[(_i : stdgo.GoInt)]), _f2:stdgo.GoFloat64 = __tmp__._0, _g2:stdgo.GoFloat64 = __tmp__._1;
-                if (!_close(_f1, _f2) || !_close(_g1, _g2)) {
+                if ((!_close(_f1, _f2) || !_close(_g1, _g2) : Bool)) {
                     _t.errorf(("Sincos(%g) = %g, %g, want %g, %g" : stdgo.GoString), stdgo.Go.toInterface(_trigHuge[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_f2), stdgo.Go.toInterface(_g2), stdgo.Go.toInterface(_f1), stdgo.Go.toInterface(_g1));
                 };
                 var __tmp__ = sincos(-_trigHuge[(_i : stdgo.GoInt)]), _f3:stdgo.GoFloat64 = __tmp__._0, _g3:stdgo.GoFloat64 = __tmp__._1;
-                if (!_close(-_f1, _f3) || !_close(_g1, _g3)) {
+                if ((!_close(-_f1, _f3) || !_close(_g1, _g3) : Bool)) {
                     _t.errorf(("Sincos(%g) = %g, %g, want %g, %g" : stdgo.GoString), stdgo.Go.toInterface(-_trigHuge[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_f3), stdgo.Go.toInterface(_g3), stdgo.Go.toInterface(-_f1), stdgo.Go.toInterface(_g1));
                 };
             });
@@ -4663,7 +4663,7 @@ function testHugeSinCos(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testHugeTan(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < (_trigHuge.length), _i++, {
+            stdgo.Go.cfor((_i < (_trigHuge.length) : Bool), _i++, {
                 var _f1:stdgo.GoFloat64 = _tanHuge[(_i : stdgo.GoInt)];
                 var _f2:stdgo.GoFloat64 = tan(_trigHuge[(_i : stdgo.GoInt)]);
                 if (!_close(_f1, _f2)) {

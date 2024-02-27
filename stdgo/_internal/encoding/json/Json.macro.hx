@@ -14,11 +14,11 @@ macro function _appendString<Bytes>(__generic__0:haxe.macro.Expr.ExprOf<Bytes>, 
                     var _start:stdgo.GoInt = (0 : stdgo.GoInt);
                     {
                         var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                        while (_i < (_src.length)) {
+                        while ((_i < (_src.length) : Bool)) {
                             {
                                 var _b:stdgo.GoUInt8 = _src[@:param_index _i];
-                                if (_b < (128 : stdgo.GoUInt8)) {
-                                    if (@:privateAccess stdgo._internal.encoding.json.Json._htmlSafeSet[(_b : stdgo.GoInt)] || (!_escapeHTML && @:privateAccess stdgo._internal.encoding.json.Json._safeSet[(_b : stdgo.GoInt)])) {
+                                if ((_b < (128 : stdgo.GoUInt8) : Bool)) {
+                                    if ((@:privateAccess stdgo._internal.encoding.json.Json._htmlSafeSet[(_b : stdgo.GoInt)] || ((!_escapeHTML && @:privateAccess stdgo._internal.encoding.json.Json._safeSet[(_b : stdgo.GoInt)] : Bool)) : Bool)) {
                                         _i++;
                                         continue;
                                     };
@@ -34,7 +34,7 @@ macro function _appendString<Bytes>(__generic__0:haxe.macro.Expr.ExprOf<Bytes>, 
                                         } else if (__value__ == ((9 : stdgo.GoUInt8))) {
                                             _dst = (_dst.__append__((92 : stdgo.GoUInt8), (116 : stdgo.GoUInt8)));
                                         } else {
-                                            _dst = (_dst.__append__((92 : stdgo.GoUInt8), (117 : stdgo.GoUInt8), (48 : stdgo.GoUInt8), (48 : stdgo.GoUInt8), @:privateAccess stdgo._internal.encoding.json.Json._hex[(_b >> (4i64 : stdgo.GoUInt64) : stdgo.GoInt)], @:privateAccess stdgo._internal.encoding.json.Json._hex[(_b & (15 : stdgo.GoUInt8) : stdgo.GoInt)]));
+                                            _dst = (_dst.__append__((92 : stdgo.GoUInt8), (117 : stdgo.GoUInt8), (48 : stdgo.GoUInt8), (48 : stdgo.GoUInt8), @:privateAccess stdgo._internal.encoding.json.Json._hex[((_b >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) : stdgo.GoInt)], @:privateAccess stdgo._internal.encoding.json.Json._hex[((_b & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]));
                                         };
                                     };
                                     _i++;
@@ -42,26 +42,26 @@ macro function _appendString<Bytes>(__generic__0:haxe.macro.Expr.ExprOf<Bytes>, 
                                     continue;
                                 };
                             };
-                            var _n:stdgo.GoInt = (_src.length) - _i;
-                            if (_n > (4 : stdgo.GoInt)) {
+                            var _n:stdgo.GoInt = ((_src.length) - _i : stdgo.GoInt);
+                            if ((_n > (4 : stdgo.GoInt) : Bool)) {
                                 _n = (4 : stdgo.GoInt);
                             };
-                            var __tmp__ = stdgo._internal.unicode.utf8.Utf8.decodeRuneInString(((_src.__slice__(_i, _i + _n) : $Bytes) : stdgo.GoString).__copy__()), _c:stdgo.GoInt32 = __tmp__._0, _size:stdgo.GoInt = __tmp__._1;
-                            if ((_c == (65533 : stdgo.GoInt32)) && (_size == (1 : stdgo.GoInt))) {
+                            var __tmp__ = stdgo._internal.unicode.utf8.Utf8.decodeRuneInString(((_src.__slice__(_i, (_i + _n : stdgo.GoInt)) : $Bytes) : stdgo.GoString).__copy__()), _c:stdgo.GoInt32 = __tmp__._0, _size:stdgo.GoInt = __tmp__._1;
+                            if (((_c == (65533 : stdgo.GoInt32)) && (_size == (1 : stdgo.GoInt)) : Bool)) {
                                 _dst = (_dst.__append__(...(_src.__slice__(_start, _i) : $Bytes).__toArray__()));
                                 _dst = (_dst.__append__(...("\\ufffd" : stdgo.GoString).__toArray__()));
-                                _i = _i + (_size);
+                                _i = (_i + (_size) : stdgo.GoInt);
                                 _start = _i;
                                 continue;
                             };
-                            if ((_c == (8232 : stdgo.GoInt32)) || (_c == (8233 : stdgo.GoInt32))) {
+                            if (((_c == (8232 : stdgo.GoInt32)) || (_c == (8233 : stdgo.GoInt32)) : Bool)) {
                                 _dst = (_dst.__append__(...(_src.__slice__(_start, _i) : $Bytes).__toArray__()));
-                                _dst = (_dst.__append__((92 : stdgo.GoUInt8), (117 : stdgo.GoUInt8), (50 : stdgo.GoUInt8), (48 : stdgo.GoUInt8), (50 : stdgo.GoUInt8), @:privateAccess stdgo._internal.encoding.json.Json._hex[(_c & (15 : stdgo.GoInt32) : stdgo.GoInt)]));
-                                _i = _i + (_size);
+                                _dst = (_dst.__append__((92 : stdgo.GoUInt8), (117 : stdgo.GoUInt8), (50 : stdgo.GoUInt8), (48 : stdgo.GoUInt8), (50 : stdgo.GoUInt8), @:privateAccess stdgo._internal.encoding.json.Json._hex[((_c & (15 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoInt)]));
+                                _i = (_i + (_size) : stdgo.GoInt);
                                 _start = _i;
                                 continue;
                             };
-                            _i = _i + (_size);
+                            _i = (_i + (_size) : stdgo.GoInt);
                         };
                     };
                     _dst = (_dst.__append__(...(_src.__slice__(_start) : $Bytes).__toArray__()));

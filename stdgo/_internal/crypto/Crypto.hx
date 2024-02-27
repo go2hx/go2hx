@@ -103,7 +103,7 @@ typedef Decrypter = stdgo.StructType & {
 @:follow typedef PrivateKey = stdgo.AnyInterface;
 @:follow typedef DecrypterOpts = stdgo.AnyInterface;
 function registerHash(_h:Hash, _f:() -> stdgo._internal.hash.Hash.Hash):Void {
-        if (_h >= (20u32 : stdgo._internal.crypto.Crypto.Hash)) {
+        if ((_h >= (20u32 : stdgo._internal.crypto.Crypto.Hash) : Bool)) {
             throw stdgo.Go.toInterface(("crypto: RegisterHash of unknown hash function" : stdgo.GoString));
         };
         _hashes[(_h : stdgo.GoInt)] = _f;
@@ -131,23 +131,23 @@ class Hash_asInterface {
     @:keep
     static public function available( _h:Hash):Bool {
         @:recv var _h:Hash = _h;
-        return (_h < (20u32 : stdgo._internal.crypto.Crypto.Hash)) && (_hashes[(_h : stdgo.GoInt)] != null);
+        return ((_h < (20u32 : stdgo._internal.crypto.Crypto.Hash) : Bool) && (_hashes[(_h : stdgo.GoInt)] != null) : Bool);
     }
     @:keep
     static public function new_( _h:Hash):stdgo._internal.hash.Hash.Hash {
         @:recv var _h:Hash = _h;
-        if ((_h > (0u32 : stdgo._internal.crypto.Crypto.Hash)) && (_h < (20u32 : stdgo._internal.crypto.Crypto.Hash))) {
+        if (((_h > (0u32 : stdgo._internal.crypto.Crypto.Hash) : Bool) && (_h < (20u32 : stdgo._internal.crypto.Crypto.Hash) : Bool) : Bool)) {
             var _f:() -> stdgo._internal.hash.Hash.Hash = _hashes[(_h : stdgo.GoInt)];
             if (_f != null) {
                 return _f();
             };
         };
-        throw stdgo.Go.toInterface(("crypto: requested hash function #" : stdgo.GoString) + stdgo._internal.strconv.Strconv.itoa((_h : stdgo.GoInt))?.__copy__() + (" is unavailable" : stdgo.GoString)?.__copy__());
+        throw stdgo.Go.toInterface(((("crypto: requested hash function #" : stdgo.GoString) + stdgo._internal.strconv.Strconv.itoa((_h : stdgo.GoInt))?.__copy__() : stdgo.GoString) + (" is unavailable" : stdgo.GoString)?.__copy__() : stdgo.GoString));
     }
     @:keep
     static public function size( _h:Hash):stdgo.GoInt {
         @:recv var _h:Hash = _h;
-        if ((_h > (0u32 : stdgo._internal.crypto.Crypto.Hash)) && (_h < (20u32 : stdgo._internal.crypto.Crypto.Hash))) {
+        if (((_h > (0u32 : stdgo._internal.crypto.Crypto.Hash) : Bool) && (_h < (20u32 : stdgo._internal.crypto.Crypto.Hash) : Bool) : Bool)) {
             return (_digestSizes[(_h : stdgo.GoInt)] : stdgo.GoInt);
         };
         throw stdgo.Go.toInterface(("crypto: Size of unknown hash function" : stdgo.GoString));
@@ -196,7 +196,7 @@ class Hash_asInterface {
             } else if (__value__ == ((19u32 : stdgo._internal.crypto.Crypto.Hash))) {
                 return ("BLAKE2b-512" : stdgo.GoString);
             } else {
-                return ("unknown hash value " : stdgo.GoString) + stdgo._internal.strconv.Strconv.itoa((_h : stdgo.GoInt))?.__copy__()?.__copy__();
+                return (("unknown hash value " : stdgo.GoString) + stdgo._internal.strconv.Strconv.itoa((_h : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__();
             };
         };
     }

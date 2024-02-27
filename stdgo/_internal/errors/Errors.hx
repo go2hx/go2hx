@@ -93,7 +93,7 @@ function is_(_err:stdgo.Error, _target:stdgo.Error):Bool {
         };
         var _isComparable:Bool = stdgo._internal.internal.reflectlite.Reflectlite.typeOf(stdgo.Go.toInterface(_target)).comparable();
         while (true) {
-            if (_isComparable && (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(_target))) {
+            if ((_isComparable && (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(_target)) : Bool)) {
                 return true;
             };
             {
@@ -102,7 +102,7 @@ function is_(_err:stdgo.Error, _target:stdgo.Error):Bool {
                 } catch(_) {
                     { _0 : (null : stdgo._internal.errors.Errors.T__interface_1), _1 : false };
                 }, _x = __tmp__._0, _ok = __tmp__._1;
-                if (_ok && _x.is_(_target)) {
+                if ((_ok && _x.is_(_target) : Bool)) {
                     return true;
                 };
             };
@@ -138,11 +138,11 @@ function as(_err:stdgo.Error, _target:stdgo.AnyInterface):Bool {
         };
         var _val:stdgo._internal.internal.reflectlite.Reflectlite.Value = stdgo._internal.internal.reflectlite.Reflectlite.valueOf(_target)?.__copy__();
         var _typ:stdgo._internal.internal.reflectlite.Reflectlite.Type_ = _val.type();
-        if ((_typ.kind() != (22u32 : stdgo._internal.internal.abi.Abi.Kind)) || _val.isNil()) {
+        if (((_typ.kind() != (22u32 : stdgo._internal.internal.abi.Abi.Kind)) || _val.isNil() : Bool)) {
             throw stdgo.Go.toInterface(("errors: target must be a non-nil pointer" : stdgo.GoString));
         };
         var _targetType:stdgo._internal.internal.reflectlite.Reflectlite.Type_ = _typ.elem();
-        if ((_targetType.kind() != (20u32 : stdgo._internal.internal.abi.Abi.Kind)) && !_targetType.implements_(_errorType)) {
+        if (((_targetType.kind() != (20u32 : stdgo._internal.internal.abi.Abi.Kind)) && !_targetType.implements_(_errorType) : Bool)) {
             throw stdgo.Go.toInterface(("errors: *target must be interface or implement error" : stdgo.GoString));
         };
         while (true) {
@@ -156,7 +156,7 @@ function as(_err:stdgo.Error, _target:stdgo.AnyInterface):Bool {
                 } catch(_) {
                     { _0 : (null : stdgo._internal.errors.Errors.T__interface_3), _1 : false };
                 }, _x = __tmp__._0, _ok = __tmp__._1;
-                if (_ok && _x.as(_target)) {
+                if ((_ok && _x.as(_target) : Bool)) {
                     return true;
                 };
             };
@@ -225,7 +225,7 @@ class T_joinError_asInterface {
         @:recv var _e:stdgo.Ref<T_joinError> = _e;
         var _b:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
         for (_i => _err in _e._errs) {
-            if (_i > (0 : stdgo.GoInt)) {
+            if ((_i > (0 : stdgo.GoInt) : Bool)) {
                 _b = (_b.__append__((10 : stdgo.GoUInt8)));
             };
             _b = (_b.__append__(..._err.error().__toArray__()));

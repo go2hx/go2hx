@@ -77,10 +77,10 @@ function reverseRange(_data:Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void {
     }
 function search(_n:stdgo.GoInt, _f:stdgo.GoInt -> Bool):stdgo.GoInt {
         var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = _n, _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
-        while (_i < _j) {
-            var _h:stdgo.GoInt = ((_i + _j : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt);
+        while ((_i < _j : Bool)) {
+            var _h:stdgo.GoInt = ((((_i + _j : stdgo.GoInt) : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoInt);
             if (!_f(_h)) {
-                _i = _h + (1 : stdgo.GoInt);
+                _i = (_h + (1 : stdgo.GoInt) : stdgo.GoInt);
             } else {
                 _j = _h;
             };
@@ -90,29 +90,29 @@ function search(_n:stdgo.GoInt, _f:stdgo.GoInt -> Bool):stdgo.GoInt {
 function find(_n:stdgo.GoInt, _cmp:stdgo.GoInt -> stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : Bool; } {
         var _i:stdgo.GoInt = (0 : stdgo.GoInt), _found:Bool = false;
         var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = _n, _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
-        while (_i < _j) {
-            var _h:stdgo.GoInt = ((_i + _j : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt);
-            if (_cmp(_h) > (0 : stdgo.GoInt)) {
-                _i = _h + (1 : stdgo.GoInt);
+        while ((_i < _j : Bool)) {
+            var _h:stdgo.GoInt = ((((_i + _j : stdgo.GoInt) : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoInt);
+            if ((_cmp(_h) > (0 : stdgo.GoInt) : Bool)) {
+                _i = (_h + (1 : stdgo.GoInt) : stdgo.GoInt);
             } else {
                 _j = _h;
             };
         };
-        return { _0 : _i, _1 : (_i < _n) && (_cmp(_i) == (0 : stdgo.GoInt)) };
+        return { _0 : _i, _1 : ((_i < _n : Bool) && (_cmp(_i) == (0 : stdgo.GoInt)) : Bool) };
     }
 function searchInts(_a:stdgo.Slice<stdgo.GoInt>, _x:stdgo.GoInt):stdgo.GoInt {
         return search((_a.length), function(_i:stdgo.GoInt):Bool {
-            return _a[(_i : stdgo.GoInt)] >= _x;
+            return (_a[(_i : stdgo.GoInt)] >= _x : Bool);
         });
     }
 function searchFloat64s(_a:stdgo.Slice<stdgo.GoFloat64>, _x:stdgo.GoFloat64):stdgo.GoInt {
         return search((_a.length), function(_i:stdgo.GoInt):Bool {
-            return _a[(_i : stdgo.GoInt)] >= _x;
+            return (_a[(_i : stdgo.GoInt)] >= _x : Bool);
         });
     }
 function searchStrings(_a:stdgo.Slice<stdgo.GoString>, _x:stdgo.GoString):stdgo.GoInt {
         return search((_a.length), function(_i:stdgo.GoInt):Bool {
-            return _a[(_i : stdgo.GoInt)] >= _x;
+            return (_a[(_i : stdgo.GoInt)] >= _x : Bool);
         });
     }
 function slice(_x:stdgo.AnyInterface, _less:(_i:stdgo.GoInt, _j:stdgo.GoInt) -> Bool):Void {
@@ -131,9 +131,9 @@ function sliceIsSorted(_x:stdgo.AnyInterface, _less:(_i:stdgo.GoInt, _j:stdgo.Go
         var _rv:stdgo._internal.internal.reflectlite.Reflectlite.Value = stdgo._internal.internal.reflectlite.Reflectlite.valueOf(_x)?.__copy__();
         var _n:stdgo.GoInt = _rv.len();
         {
-            var _i:stdgo.GoInt = _n - (1 : stdgo.GoInt);
-            stdgo.Go.cfor(_i > (0 : stdgo.GoInt), _i--, {
-                if (_less(_i, _i - (1 : stdgo.GoInt))) {
+            var _i:stdgo.GoInt = (_n - (1 : stdgo.GoInt) : stdgo.GoInt);
+            stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i--, {
+                if (_less(_i, (_i - (1 : stdgo.GoInt) : stdgo.GoInt))) {
                     return false;
                 };
             });
@@ -142,7 +142,7 @@ function sliceIsSorted(_x:stdgo.AnyInterface, _less:(_i:stdgo.GoInt, _j:stdgo.Go
     }
 function sort(_data:Interface):Void {
         var _n:stdgo.GoInt = _data.len();
-        if (_n <= (1 : stdgo.GoInt)) {
+        if ((_n <= (1 : stdgo.GoInt) : Bool)) {
             return;
         };
         var _limit:stdgo.GoInt = stdgo._internal.math.bits.Bits.len((_n : stdgo.GoUInt));
@@ -158,9 +158,9 @@ function reverse(_data:Interface):Interface {
 function isSorted(_data:Interface):Bool {
         var _n:stdgo.GoInt = _data.len();
         {
-            var _i:stdgo.GoInt = _n - (1 : stdgo.GoInt);
-            stdgo.Go.cfor(_i > (0 : stdgo.GoInt), _i--, {
-                if (_data.less(_i, _i - (1 : stdgo.GoInt))) {
+            var _i:stdgo.GoInt = (_n - (1 : stdgo.GoInt) : stdgo.GoInt);
+            stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i--, {
+                if (_data.less(_i, (_i - (1 : stdgo.GoInt) : stdgo.GoInt))) {
                     return false;
                 };
             });
@@ -193,12 +193,12 @@ function stable(_data:Interface):Void {
     }
 function _insertionSort_func(_data:T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Void {
         {
-            var _i:stdgo.GoInt = _a + (1 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b, _i++, {
+            var _i:stdgo.GoInt = (_a + (1 : stdgo.GoInt) : stdgo.GoInt);
+            stdgo.Go.cfor((_i < _b : Bool), _i++, {
                 {
                     var _j:stdgo.GoInt = _i;
-                    stdgo.Go.cfor((_j > _a) && _data.less(_j, _j - (1 : stdgo.GoInt)), _j--, {
-                        _data.swap(_j, _j - (1 : stdgo.GoInt));
+                    stdgo.Go.cfor(((_j > _a : Bool) && _data.less(_j, (_j - (1 : stdgo.GoInt) : stdgo.GoInt)) : Bool), _j--, {
+                        _data.swap(_j, (_j - (1 : stdgo.GoInt) : stdgo.GoInt));
                     });
                 };
             });
@@ -207,34 +207,34 @@ function _insertionSort_func(_data:T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):V
 function _siftDown_func(_data:T_lessSwap, _lo:stdgo.GoInt, _hi:stdgo.GoInt, _first:stdgo.GoInt):Void {
         var _root:stdgo.GoInt = _lo;
         while (true) {
-            var _child:stdgo.GoInt = ((2 : stdgo.GoInt) * _root) + (1 : stdgo.GoInt);
-            if (_child >= _hi) {
+            var _child:stdgo.GoInt = (((2 : stdgo.GoInt) * _root : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt);
+            if ((_child >= _hi : Bool)) {
                 break;
             };
-            if (((_child + (1 : stdgo.GoInt)) < _hi) && _data.less(_first + _child, (_first + _child) + (1 : stdgo.GoInt))) {
+            if ((((_child + (1 : stdgo.GoInt) : stdgo.GoInt) < _hi : Bool) && _data.less((_first + _child : stdgo.GoInt), ((_first + _child : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)) : Bool)) {
                 _child++;
             };
-            if (!_data.less(_first + _root, _first + _child)) {
+            if (!_data.less((_first + _root : stdgo.GoInt), (_first + _child : stdgo.GoInt))) {
                 return;
             };
-            _data.swap(_first + _root, _first + _child);
+            _data.swap((_first + _root : stdgo.GoInt), (_first + _child : stdgo.GoInt));
             _root = _child;
         };
     }
 function _heapSort_func(_data:T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Void {
         var _first:stdgo.GoInt = _a;
         var _lo:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _hi:stdgo.GoInt = _b - _a;
+        var _hi:stdgo.GoInt = (_b - _a : stdgo.GoInt);
         {
-            var _i:stdgo.GoInt = (_hi - (1 : stdgo.GoInt)) / (2 : stdgo.GoInt);
-            stdgo.Go.cfor(_i >= (0 : stdgo.GoInt), _i--, {
+            var _i:stdgo.GoInt = (((_hi - (1 : stdgo.GoInt) : stdgo.GoInt)) / (2 : stdgo.GoInt) : stdgo.GoInt);
+            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
                 _siftDown_func(_data?.__copy__(), _i, _hi, _first);
             });
         };
         {
-            var _i:stdgo.GoInt = _hi - (1 : stdgo.GoInt);
-            stdgo.Go.cfor(_i >= (0 : stdgo.GoInt), _i--, {
-                _data.swap(_first, _first + _i);
+            var _i:stdgo.GoInt = (_hi - (1 : stdgo.GoInt) : stdgo.GoInt);
+            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+                _data.swap(_first, (_first + _i : stdgo.GoInt));
                 _siftDown_func(_data?.__copy__(), _lo, _i, _first);
             });
         };
@@ -243,8 +243,8 @@ function _pdqsort_func(_data:T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _limit:
         {};
         var __0:Bool = true, __1:Bool = true, _wasPartitioned:Bool = __1, _wasBalanced:Bool = __0;
         while (true) {
-            var _length:stdgo.GoInt = _b - _a;
-            if (_length <= (12 : stdgo.GoInt)) {
+            var _length:stdgo.GoInt = (_b - _a : stdgo.GoInt);
+            if ((_length <= (12 : stdgo.GoInt) : Bool)) {
                 _insertionSort_func(_data?.__copy__(), _a, _b);
                 return;
             };
@@ -259,30 +259,30 @@ function _pdqsort_func(_data:T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _limit:
             var __tmp__ = _choosePivot_func(_data?.__copy__(), _a, _b), _pivot:stdgo.GoInt = __tmp__._0, _hint:stdgo._internal.sort.Sort.T_sortedHint = __tmp__._1;
             if (_hint == ((2 : stdgo._internal.sort.Sort.T_sortedHint))) {
                 _reverseRange_func(_data?.__copy__(), _a, _b);
-                _pivot = (_b - (1 : stdgo.GoInt)) - (_pivot - _a);
+                _pivot = (((_b - (1 : stdgo.GoInt) : stdgo.GoInt)) - ((_pivot - _a : stdgo.GoInt)) : stdgo.GoInt);
                 _hint = (1 : stdgo._internal.sort.Sort.T_sortedHint);
             };
-            if ((_wasBalanced && _wasPartitioned) && (_hint == (1 : stdgo._internal.sort.Sort.T_sortedHint))) {
+            if (((_wasBalanced && _wasPartitioned : Bool) && (_hint == (1 : stdgo._internal.sort.Sort.T_sortedHint)) : Bool)) {
                 if (_partialInsertionSort_func(_data?.__copy__(), _a, _b)) {
                     return;
                 };
             };
-            if ((_a > (0 : stdgo.GoInt)) && !_data.less(_a - (1 : stdgo.GoInt), _pivot)) {
+            if (((_a > (0 : stdgo.GoInt) : Bool) && !_data.less((_a - (1 : stdgo.GoInt) : stdgo.GoInt), _pivot) : Bool)) {
                 var _mid:stdgo.GoInt = _partitionEqual_func(_data?.__copy__(), _a, _b, _pivot);
                 _a = _mid;
                 continue;
             };
             var __tmp__ = _partition_func(_data?.__copy__(), _a, _b, _pivot), _mid:stdgo.GoInt = __tmp__._0, _alreadyPartitioned:Bool = __tmp__._1;
             _wasPartitioned = _alreadyPartitioned;
-            var __0:stdgo.GoInt = _mid - _a, __1:stdgo.GoInt = _b - _mid, _rightLen:stdgo.GoInt = __1, _leftLen:stdgo.GoInt = __0;
-            var _balanceThreshold:stdgo.GoInt = _length / (8 : stdgo.GoInt);
-            if (_leftLen < _rightLen) {
-                _wasBalanced = _leftLen >= _balanceThreshold;
+            var __0:stdgo.GoInt = (_mid - _a : stdgo.GoInt), __1:stdgo.GoInt = (_b - _mid : stdgo.GoInt), _rightLen:stdgo.GoInt = __1, _leftLen:stdgo.GoInt = __0;
+            var _balanceThreshold:stdgo.GoInt = (_length / (8 : stdgo.GoInt) : stdgo.GoInt);
+            if ((_leftLen < _rightLen : Bool)) {
+                _wasBalanced = (_leftLen >= _balanceThreshold : Bool);
                 _pdqsort_func(_data?.__copy__(), _a, _mid, _limit);
-                _a = _mid + (1 : stdgo.GoInt);
+                _a = (_mid + (1 : stdgo.GoInt) : stdgo.GoInt);
             } else {
-                _wasBalanced = _rightLen >= _balanceThreshold;
-                _pdqsort_func(_data?.__copy__(), _mid + (1 : stdgo.GoInt), _b, _limit);
+                _wasBalanced = (_rightLen >= _balanceThreshold : Bool);
+                _pdqsort_func(_data?.__copy__(), (_mid + (1 : stdgo.GoInt) : stdgo.GoInt), _b, _limit);
                 _b = _mid;
             };
         };
@@ -290,14 +290,14 @@ function _pdqsort_func(_data:T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _limit:
 function _partition_func(_data:T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : Bool; } {
         var _newpivot:stdgo.GoInt = (0 : stdgo.GoInt), _alreadyPartitioned:Bool = false;
         _data.swap(_a, _pivot);
-        var __0:stdgo.GoInt = _a + (1 : stdgo.GoInt), __1:stdgo.GoInt = _b - (1 : stdgo.GoInt), _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
-        while ((_i <= _j) && _data.less(_i, _a)) {
+        var __0:stdgo.GoInt = (_a + (1 : stdgo.GoInt) : stdgo.GoInt), __1:stdgo.GoInt = (_b - (1 : stdgo.GoInt) : stdgo.GoInt), _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
+        while (((_i <= _j : Bool) && _data.less(_i, _a) : Bool)) {
             _i++;
         };
-        while ((_i <= _j) && !_data.less(_j, _a)) {
+        while (((_i <= _j : Bool) && !_data.less(_j, _a) : Bool)) {
             _j--;
         };
-        if (_i > _j) {
+        if ((_i > _j : Bool)) {
             _data.swap(_j, _a);
             return { _0 : _j, _1 : true };
         };
@@ -305,13 +305,13 @@ function _partition_func(_data:T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivo
         _i++;
         _j--;
         while (true) {
-            while ((_i <= _j) && _data.less(_i, _a)) {
+            while (((_i <= _j : Bool) && _data.less(_i, _a) : Bool)) {
                 _i++;
             };
-            while ((_i <= _j) && !_data.less(_j, _a)) {
+            while (((_i <= _j : Bool) && !_data.less(_j, _a) : Bool)) {
                 _j--;
             };
-            if (_i > _j) {
+            if ((_i > _j : Bool)) {
                 break;
             };
             _data.swap(_i, _j);
@@ -324,15 +324,15 @@ function _partition_func(_data:T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivo
 function _partitionEqual_func(_data:T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot:stdgo.GoInt):stdgo.GoInt {
         var _newpivot:stdgo.GoInt = (0 : stdgo.GoInt);
         _data.swap(_a, _pivot);
-        var __0:stdgo.GoInt = _a + (1 : stdgo.GoInt), __1:stdgo.GoInt = _b - (1 : stdgo.GoInt), _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
+        var __0:stdgo.GoInt = (_a + (1 : stdgo.GoInt) : stdgo.GoInt), __1:stdgo.GoInt = (_b - (1 : stdgo.GoInt) : stdgo.GoInt), _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
         while (true) {
-            while ((_i <= _j) && !_data.less(_a, _i)) {
+            while (((_i <= _j : Bool) && !_data.less(_a, _i) : Bool)) {
                 _i++;
             };
-            while ((_i <= _j) && _data.less(_a, _j)) {
+            while (((_i <= _j : Bool) && _data.less(_a, _j) : Bool)) {
                 _j--;
             };
-            if (_i > _j) {
+            if ((_i > _j : Bool)) {
                 break;
             };
             _data.swap(_i, _j);
@@ -343,39 +343,39 @@ function _partitionEqual_func(_data:T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, 
     }
 function _partialInsertionSort_func(_data:T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Bool {
         {};
-        var _i:stdgo.GoInt = _a + (1 : stdgo.GoInt);
+        var _i:stdgo.GoInt = (_a + (1 : stdgo.GoInt) : stdgo.GoInt);
         {
             var _j:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_j < (5 : stdgo.GoInt), _j++, {
-                while ((_i < _b) && !_data.less(_i, _i - (1 : stdgo.GoInt))) {
+            stdgo.Go.cfor((_j < (5 : stdgo.GoInt) : Bool), _j++, {
+                while (((_i < _b : Bool) && !_data.less(_i, (_i - (1 : stdgo.GoInt) : stdgo.GoInt)) : Bool)) {
                     _i++;
                 };
                 if (_i == (_b)) {
                     return true;
                 };
-                if ((_b - _a) < (50 : stdgo.GoInt)) {
+                if (((_b - _a : stdgo.GoInt) < (50 : stdgo.GoInt) : Bool)) {
                     return false;
                 };
-                _data.swap(_i, _i - (1 : stdgo.GoInt));
-                if ((_i - _a) >= (2 : stdgo.GoInt)) {
+                _data.swap(_i, (_i - (1 : stdgo.GoInt) : stdgo.GoInt));
+                if (((_i - _a : stdgo.GoInt) >= (2 : stdgo.GoInt) : Bool)) {
                     {
-                        var _j:stdgo.GoInt = _i - (1 : stdgo.GoInt);
-                        stdgo.Go.cfor(_j >= (1 : stdgo.GoInt), _j--, {
-                            if (!_data.less(_j, _j - (1 : stdgo.GoInt))) {
+                        var _j:stdgo.GoInt = (_i - (1 : stdgo.GoInt) : stdgo.GoInt);
+                        stdgo.Go.cfor((_j >= (1 : stdgo.GoInt) : Bool), _j--, {
+                            if (!_data.less(_j, (_j - (1 : stdgo.GoInt) : stdgo.GoInt))) {
                                 break;
                             };
-                            _data.swap(_j, _j - (1 : stdgo.GoInt));
+                            _data.swap(_j, (_j - (1 : stdgo.GoInt) : stdgo.GoInt));
                         });
                     };
                 };
-                if ((_b - _i) >= (2 : stdgo.GoInt)) {
+                if (((_b - _i : stdgo.GoInt) >= (2 : stdgo.GoInt) : Bool)) {
                     {
-                        var _j:stdgo.GoInt = _i + (1 : stdgo.GoInt);
-                        stdgo.Go.cfor(_j < _b, _j++, {
-                            if (!_data.less(_j, _j - (1 : stdgo.GoInt))) {
+                        var _j:stdgo.GoInt = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
+                        stdgo.Go.cfor((_j < _b : Bool), _j++, {
+                            if (!_data.less(_j, (_j - (1 : stdgo.GoInt) : stdgo.GoInt))) {
                                 break;
                             };
-                            _data.swap(_j, _j - (1 : stdgo.GoInt));
+                            _data.swap(_j, (_j - (1 : stdgo.GoInt) : stdgo.GoInt));
                         });
                     };
                 };
@@ -384,18 +384,18 @@ function _partialInsertionSort_func(_data:T_lessSwap, _a:stdgo.GoInt, _b:stdgo.G
         return false;
     }
 function _breakPatterns_func(_data:T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Void {
-        var _length:stdgo.GoInt = _b - _a;
-        if (_length >= (8 : stdgo.GoInt)) {
+        var _length:stdgo.GoInt = (_b - _a : stdgo.GoInt);
+        if ((_length >= (8 : stdgo.GoInt) : Bool)) {
             var _random:stdgo._internal.sort.Sort.T_xorshift = (_length : T_xorshift);
             var _modulus:stdgo.GoUInt = _nextPowerOfTwo(_length);
             {
-                var _idx:stdgo.GoInt = (_a + ((_length / (4 : stdgo.GoInt)) * (2 : stdgo.GoInt))) - (1 : stdgo.GoInt);
-                stdgo.Go.cfor(_idx <= ((_a + ((_length / (4 : stdgo.GoInt)) * (2 : stdgo.GoInt))) + (1 : stdgo.GoInt)), _idx++, {
-                    var _other:stdgo.GoInt = ((_random.next(stdgo.Go.pointer(_random)) : stdgo.GoUInt) & (_modulus - (1u32 : stdgo.GoUInt)) : stdgo.GoInt);
-                    if (_other >= _length) {
-                        _other = _other - (_length);
+                var _idx:stdgo.GoInt = ((_a + (((_length / (4 : stdgo.GoInt) : stdgo.GoInt)) * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt);
+                stdgo.Go.cfor((_idx <= ((_a + (((_length / (4 : stdgo.GoInt) : stdgo.GoInt)) * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt) : Bool), _idx++, {
+                    var _other:stdgo.GoInt = (((_random.next(stdgo.Go.pointer(_random)) : stdgo.GoUInt) & ((_modulus - (1u32 : stdgo.GoUInt) : stdgo.GoUInt)) : stdgo.GoUInt) : stdgo.GoInt);
+                    if ((_other >= _length : Bool)) {
+                        _other = (_other - (_length) : stdgo.GoInt);
                     };
-                    _data.swap(_idx, _a + _other);
+                    _data.swap(_idx, (_a + _other : stdgo.GoInt));
                 });
             };
         };
@@ -403,10 +403,10 @@ function _breakPatterns_func(_data:T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):V
 function _choosePivot_func(_data:T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : T_sortedHint; } {
         var _pivot:stdgo.GoInt = (0 : stdgo.GoInt), _hint:T_sortedHint = ((0 : stdgo.GoInt) : stdgo._internal.sort.Sort.T_sortedHint);
         {};
-        var _l:stdgo.GoInt = _b - _a;
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = _a + ((_l / (4 : stdgo.GoInt)) * (1 : stdgo.GoInt)), __2:stdgo.GoInt = _a + ((_l / (4 : stdgo.GoInt)) * (2 : stdgo.GoInt)), __3:stdgo.GoInt = _a + ((_l / (4 : stdgo.GoInt)) * (3 : stdgo.GoInt)), _k:stdgo.GoInt = __3, _j:stdgo.GoInt = __2, _i:stdgo.GoInt = __1, _swaps:stdgo.GoInt = __0;
-        if (_l >= (8 : stdgo.GoInt)) {
-            if (_l >= (50 : stdgo.GoInt)) {
+        var _l:stdgo.GoInt = (_b - _a : stdgo.GoInt);
+        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (_a + ((_l / (4 : stdgo.GoInt) : stdgo.GoInt) * (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt), __2:stdgo.GoInt = (_a + ((_l / (4 : stdgo.GoInt) : stdgo.GoInt) * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt), __3:stdgo.GoInt = (_a + ((_l / (4 : stdgo.GoInt) : stdgo.GoInt) * (3 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt), _k:stdgo.GoInt = __3, _j:stdgo.GoInt = __2, _i:stdgo.GoInt = __1, _swaps:stdgo.GoInt = __0;
+        if ((_l >= (8 : stdgo.GoInt) : Bool)) {
+            if ((_l >= (50 : stdgo.GoInt) : Bool)) {
                 _i = _medianAdjacent_func(_data?.__copy__(), _i, stdgo.Go.pointer(_swaps));
                 _j = _medianAdjacent_func(_data?.__copy__(), _j, stdgo.Go.pointer(_swaps));
                 _k = _medianAdjacent_func(_data?.__copy__(), _k, stdgo.Go.pointer(_swaps));
@@ -450,12 +450,12 @@ function _median_func(_data:T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _c:stdgo
         return _b;
     }
 function _medianAdjacent_func(_data:T_lessSwap, _a:stdgo.GoInt, _swaps:stdgo.Pointer<stdgo.GoInt>):stdgo.GoInt {
-        return _median_func(_data?.__copy__(), _a - (1 : stdgo.GoInt), _a, _a + (1 : stdgo.GoInt), _swaps);
+        return _median_func(_data?.__copy__(), (_a - (1 : stdgo.GoInt) : stdgo.GoInt), _a, (_a + (1 : stdgo.GoInt) : stdgo.GoInt), _swaps);
     }
 function _reverseRange_func(_data:T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Void {
         var _i:stdgo.GoInt = _a;
-        var _j:stdgo.GoInt = _b - (1 : stdgo.GoInt);
-        while (_i < _j) {
+        var _j:stdgo.GoInt = (_b - (1 : stdgo.GoInt) : stdgo.GoInt);
+        while ((_i < _j : Bool)) {
             _data.swap(_i, _j);
             _i++;
             _j--;
@@ -464,132 +464,132 @@ function _reverseRange_func(_data:T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Vo
 function _swapRange_func(_data:T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _n:stdgo.GoInt):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _n, _i++, {
-                _data.swap(_a + _i, _b + _i);
+            stdgo.Go.cfor((_i < _n : Bool), _i++, {
+                _data.swap((_a + _i : stdgo.GoInt), (_b + _i : stdgo.GoInt));
             });
         };
     }
 function _stable_func(_data:T_lessSwap, _n:stdgo.GoInt):Void {
         var _blockSize:stdgo.GoInt = (20 : stdgo.GoInt);
         var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = _blockSize, _b:stdgo.GoInt = __1, _a:stdgo.GoInt = __0;
-        while (_b <= _n) {
+        while ((_b <= _n : Bool)) {
             _insertionSort_func(_data?.__copy__(), _a, _b);
             _a = _b;
-            _b = _b + (_blockSize);
+            _b = (_b + (_blockSize) : stdgo.GoInt);
         };
         _insertionSort_func(_data?.__copy__(), _a, _n);
-        while (_blockSize < _n) {
+        while ((_blockSize < _n : Bool)) {
             {
                 final __tmp__0 = (0 : stdgo.GoInt);
-                final __tmp__1 = (2 : stdgo.GoInt) * _blockSize;
+                final __tmp__1 = ((2 : stdgo.GoInt) * _blockSize : stdgo.GoInt);
                 _a = __tmp__0;
                 _b = __tmp__1;
             };
-            while (_b <= _n) {
-                _symMerge_func(_data?.__copy__(), _a, _a + _blockSize, _b);
+            while ((_b <= _n : Bool)) {
+                _symMerge_func(_data?.__copy__(), _a, (_a + _blockSize : stdgo.GoInt), _b);
                 _a = _b;
-                _b = _b + ((2 : stdgo.GoInt) * _blockSize);
+                _b = (_b + (((2 : stdgo.GoInt) * _blockSize : stdgo.GoInt)) : stdgo.GoInt);
             };
             {
-                var _m:stdgo.GoInt = _a + _blockSize;
-                if (_m < _n) {
+                var _m:stdgo.GoInt = (_a + _blockSize : stdgo.GoInt);
+                if ((_m < _n : Bool)) {
                     _symMerge_func(_data?.__copy__(), _a, _m, _n);
                 };
             };
-            _blockSize = _blockSize * ((2 : stdgo.GoInt));
+            _blockSize = (_blockSize * ((2 : stdgo.GoInt)) : stdgo.GoInt);
         };
     }
 function _symMerge_func(_data:T_lessSwap, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt):Void {
-        if (_m - _a == ((1 : stdgo.GoInt))) {
+        if ((_m - _a : stdgo.GoInt) == ((1 : stdgo.GoInt))) {
             var _i:stdgo.GoInt = _m;
             var _j:stdgo.GoInt = _b;
-            while (_i < _j) {
-                var _h:stdgo.GoInt = ((_i + _j : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt);
+            while ((_i < _j : Bool)) {
+                var _h:stdgo.GoInt = ((((_i + _j : stdgo.GoInt) : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoInt);
                 if (_data.less(_h, _a)) {
-                    _i = _h + (1 : stdgo.GoInt);
+                    _i = (_h + (1 : stdgo.GoInt) : stdgo.GoInt);
                 } else {
                     _j = _h;
                 };
             };
             {
                 var _k:stdgo.GoInt = _a;
-                stdgo.Go.cfor(_k < (_i - (1 : stdgo.GoInt)), _k++, {
-                    _data.swap(_k, _k + (1 : stdgo.GoInt));
+                stdgo.Go.cfor((_k < (_i - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool), _k++, {
+                    _data.swap(_k, (_k + (1 : stdgo.GoInt) : stdgo.GoInt));
                 });
             };
             return;
         };
-        if (_b - _m == ((1 : stdgo.GoInt))) {
+        if ((_b - _m : stdgo.GoInt) == ((1 : stdgo.GoInt))) {
             var _i:stdgo.GoInt = _a;
             var _j:stdgo.GoInt = _m;
-            while (_i < _j) {
-                var _h:stdgo.GoInt = ((_i + _j : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt);
+            while ((_i < _j : Bool)) {
+                var _h:stdgo.GoInt = ((((_i + _j : stdgo.GoInt) : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoInt);
                 if (!_data.less(_m, _h)) {
-                    _i = _h + (1 : stdgo.GoInt);
+                    _i = (_h + (1 : stdgo.GoInt) : stdgo.GoInt);
                 } else {
                     _j = _h;
                 };
             };
             {
                 var _k:stdgo.GoInt = _m;
-                stdgo.Go.cfor(_k > _i, _k--, {
-                    _data.swap(_k, _k - (1 : stdgo.GoInt));
+                stdgo.Go.cfor((_k > _i : Bool), _k--, {
+                    _data.swap(_k, (_k - (1 : stdgo.GoInt) : stdgo.GoInt));
                 });
             };
             return;
         };
-        var _mid:stdgo.GoInt = ((_a + _b : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt);
-        var _n:stdgo.GoInt = _mid + _m;
+        var _mid:stdgo.GoInt = ((((_a + _b : stdgo.GoInt) : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoInt);
+        var _n:stdgo.GoInt = (_mid + _m : stdgo.GoInt);
         var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), _r:stdgo.GoInt = __1, _start:stdgo.GoInt = __0;
-        if (_m > _mid) {
-            _start = _n - _b;
+        if ((_m > _mid : Bool)) {
+            _start = (_n - _b : stdgo.GoInt);
             _r = _mid;
         } else {
             _start = _a;
             _r = _m;
         };
-        var _p:stdgo.GoInt = _n - (1 : stdgo.GoInt);
-        while (_start < _r) {
-            var _c:stdgo.GoInt = ((_start + _r : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt);
-            if (!_data.less(_p - _c, _c)) {
-                _start = _c + (1 : stdgo.GoInt);
+        var _p:stdgo.GoInt = (_n - (1 : stdgo.GoInt) : stdgo.GoInt);
+        while ((_start < _r : Bool)) {
+            var _c:stdgo.GoInt = ((((_start + _r : stdgo.GoInt) : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoInt);
+            if (!_data.less((_p - _c : stdgo.GoInt), _c)) {
+                _start = (_c + (1 : stdgo.GoInt) : stdgo.GoInt);
             } else {
                 _r = _c;
             };
         };
-        var _end:stdgo.GoInt = _n - _start;
-        if ((_start < _m) && (_m < _end)) {
+        var _end:stdgo.GoInt = (_n - _start : stdgo.GoInt);
+        if (((_start < _m : Bool) && (_m < _end : Bool) : Bool)) {
             _rotate_func(_data?.__copy__(), _start, _m, _end);
         };
-        if ((_a < _start) && (_start < _mid)) {
+        if (((_a < _start : Bool) && (_start < _mid : Bool) : Bool)) {
             _symMerge_func(_data?.__copy__(), _a, _start, _mid);
         };
-        if ((_mid < _end) && (_end < _b)) {
+        if (((_mid < _end : Bool) && (_end < _b : Bool) : Bool)) {
             _symMerge_func(_data?.__copy__(), _mid, _end, _b);
         };
     }
 function _rotate_func(_data:T_lessSwap, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt):Void {
-        var _i:stdgo.GoInt = _m - _a;
-        var _j:stdgo.GoInt = _b - _m;
+        var _i:stdgo.GoInt = (_m - _a : stdgo.GoInt);
+        var _j:stdgo.GoInt = (_b - _m : stdgo.GoInt);
         while (_i != (_j)) {
-            if (_i > _j) {
-                _swapRange_func(_data?.__copy__(), _m - _i, _m, _j);
-                _i = _i - (_j);
+            if ((_i > _j : Bool)) {
+                _swapRange_func(_data?.__copy__(), (_m - _i : stdgo.GoInt), _m, _j);
+                _i = (_i - (_j) : stdgo.GoInt);
             } else {
-                _swapRange_func(_data?.__copy__(), _m - _i, (_m + _j) - _i, _i);
-                _j = _j - (_i);
+                _swapRange_func(_data?.__copy__(), (_m - _i : stdgo.GoInt), ((_m + _j : stdgo.GoInt) - _i : stdgo.GoInt), _i);
+                _j = (_j - (_i) : stdgo.GoInt);
             };
         };
-        _swapRange_func(_data?.__copy__(), _m - _i, _m, _i);
+        _swapRange_func(_data?.__copy__(), (_m - _i : stdgo.GoInt), _m, _i);
     }
 function _insertionSort(_data:Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void {
         {
-            var _i:stdgo.GoInt = _a + (1 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b, _i++, {
+            var _i:stdgo.GoInt = (_a + (1 : stdgo.GoInt) : stdgo.GoInt);
+            stdgo.Go.cfor((_i < _b : Bool), _i++, {
                 {
                     var _j:stdgo.GoInt = _i;
-                    stdgo.Go.cfor((_j > _a) && _data.less(_j, _j - (1 : stdgo.GoInt)), _j--, {
-                        _data.swap(_j, _j - (1 : stdgo.GoInt));
+                    stdgo.Go.cfor(((_j > _a : Bool) && _data.less(_j, (_j - (1 : stdgo.GoInt) : stdgo.GoInt)) : Bool), _j--, {
+                        _data.swap(_j, (_j - (1 : stdgo.GoInt) : stdgo.GoInt));
                     });
                 };
             });
@@ -598,34 +598,34 @@ function _insertionSort(_data:Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void {
 function _siftDown(_data:Interface, _lo:stdgo.GoInt, _hi:stdgo.GoInt, _first:stdgo.GoInt):Void {
         var _root:stdgo.GoInt = _lo;
         while (true) {
-            var _child:stdgo.GoInt = ((2 : stdgo.GoInt) * _root) + (1 : stdgo.GoInt);
-            if (_child >= _hi) {
+            var _child:stdgo.GoInt = (((2 : stdgo.GoInt) * _root : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt);
+            if ((_child >= _hi : Bool)) {
                 break;
             };
-            if (((_child + (1 : stdgo.GoInt)) < _hi) && _data.less(_first + _child, (_first + _child) + (1 : stdgo.GoInt))) {
+            if ((((_child + (1 : stdgo.GoInt) : stdgo.GoInt) < _hi : Bool) && _data.less((_first + _child : stdgo.GoInt), ((_first + _child : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)) : Bool)) {
                 _child++;
             };
-            if (!_data.less(_first + _root, _first + _child)) {
+            if (!_data.less((_first + _root : stdgo.GoInt), (_first + _child : stdgo.GoInt))) {
                 return;
             };
-            _data.swap(_first + _root, _first + _child);
+            _data.swap((_first + _root : stdgo.GoInt), (_first + _child : stdgo.GoInt));
             _root = _child;
         };
     }
 function _heapSort(_data:Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void {
         var _first:stdgo.GoInt = _a;
         var _lo:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _hi:stdgo.GoInt = _b - _a;
+        var _hi:stdgo.GoInt = (_b - _a : stdgo.GoInt);
         {
-            var _i:stdgo.GoInt = (_hi - (1 : stdgo.GoInt)) / (2 : stdgo.GoInt);
-            stdgo.Go.cfor(_i >= (0 : stdgo.GoInt), _i--, {
+            var _i:stdgo.GoInt = (((_hi - (1 : stdgo.GoInt) : stdgo.GoInt)) / (2 : stdgo.GoInt) : stdgo.GoInt);
+            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
                 _siftDown(_data, _i, _hi, _first);
             });
         };
         {
-            var _i:stdgo.GoInt = _hi - (1 : stdgo.GoInt);
-            stdgo.Go.cfor(_i >= (0 : stdgo.GoInt), _i--, {
-                _data.swap(_first, _first + _i);
+            var _i:stdgo.GoInt = (_hi - (1 : stdgo.GoInt) : stdgo.GoInt);
+            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+                _data.swap(_first, (_first + _i : stdgo.GoInt));
                 _siftDown(_data, _lo, _i, _first);
             });
         };
@@ -634,8 +634,8 @@ function _pdqsort(_data:Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _limit:stdgo.
         {};
         var __0:Bool = true, __1:Bool = true, _wasPartitioned:Bool = __1, _wasBalanced:Bool = __0;
         while (true) {
-            var _length:stdgo.GoInt = _b - _a;
-            if (_length <= (12 : stdgo.GoInt)) {
+            var _length:stdgo.GoInt = (_b - _a : stdgo.GoInt);
+            if ((_length <= (12 : stdgo.GoInt) : Bool)) {
                 _insertionSort(_data, _a, _b);
                 return;
             };
@@ -650,30 +650,30 @@ function _pdqsort(_data:Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _limit:stdgo.
             var __tmp__ = _choosePivot(_data, _a, _b), _pivot:stdgo.GoInt = __tmp__._0, _hint:stdgo._internal.sort.Sort.T_sortedHint = __tmp__._1;
             if (_hint == ((2 : stdgo._internal.sort.Sort.T_sortedHint))) {
                 _reverseRange(_data, _a, _b);
-                _pivot = (_b - (1 : stdgo.GoInt)) - (_pivot - _a);
+                _pivot = (((_b - (1 : stdgo.GoInt) : stdgo.GoInt)) - ((_pivot - _a : stdgo.GoInt)) : stdgo.GoInt);
                 _hint = (1 : stdgo._internal.sort.Sort.T_sortedHint);
             };
-            if ((_wasBalanced && _wasPartitioned) && (_hint == (1 : stdgo._internal.sort.Sort.T_sortedHint))) {
+            if (((_wasBalanced && _wasPartitioned : Bool) && (_hint == (1 : stdgo._internal.sort.Sort.T_sortedHint)) : Bool)) {
                 if (_partialInsertionSort(_data, _a, _b)) {
                     return;
                 };
             };
-            if ((_a > (0 : stdgo.GoInt)) && !_data.less(_a - (1 : stdgo.GoInt), _pivot)) {
+            if (((_a > (0 : stdgo.GoInt) : Bool) && !_data.less((_a - (1 : stdgo.GoInt) : stdgo.GoInt), _pivot) : Bool)) {
                 var _mid:stdgo.GoInt = _partitionEqual(_data, _a, _b, _pivot);
                 _a = _mid;
                 continue;
             };
             var __tmp__ = _partition(_data, _a, _b, _pivot), _mid:stdgo.GoInt = __tmp__._0, _alreadyPartitioned:Bool = __tmp__._1;
             _wasPartitioned = _alreadyPartitioned;
-            var __0:stdgo.GoInt = _mid - _a, __1:stdgo.GoInt = _b - _mid, _rightLen:stdgo.GoInt = __1, _leftLen:stdgo.GoInt = __0;
-            var _balanceThreshold:stdgo.GoInt = _length / (8 : stdgo.GoInt);
-            if (_leftLen < _rightLen) {
-                _wasBalanced = _leftLen >= _balanceThreshold;
+            var __0:stdgo.GoInt = (_mid - _a : stdgo.GoInt), __1:stdgo.GoInt = (_b - _mid : stdgo.GoInt), _rightLen:stdgo.GoInt = __1, _leftLen:stdgo.GoInt = __0;
+            var _balanceThreshold:stdgo.GoInt = (_length / (8 : stdgo.GoInt) : stdgo.GoInt);
+            if ((_leftLen < _rightLen : Bool)) {
+                _wasBalanced = (_leftLen >= _balanceThreshold : Bool);
                 _pdqsort(_data, _a, _mid, _limit);
-                _a = _mid + (1 : stdgo.GoInt);
+                _a = (_mid + (1 : stdgo.GoInt) : stdgo.GoInt);
             } else {
-                _wasBalanced = _rightLen >= _balanceThreshold;
-                _pdqsort(_data, _mid + (1 : stdgo.GoInt), _b, _limit);
+                _wasBalanced = (_rightLen >= _balanceThreshold : Bool);
+                _pdqsort(_data, (_mid + (1 : stdgo.GoInt) : stdgo.GoInt), _b, _limit);
                 _b = _mid;
             };
         };
@@ -681,14 +681,14 @@ function _pdqsort(_data:Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _limit:stdgo.
 function _partition(_data:Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : Bool; } {
         var _newpivot:stdgo.GoInt = (0 : stdgo.GoInt), _alreadyPartitioned:Bool = false;
         _data.swap(_a, _pivot);
-        var __0:stdgo.GoInt = _a + (1 : stdgo.GoInt), __1:stdgo.GoInt = _b - (1 : stdgo.GoInt), _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
-        while ((_i <= _j) && _data.less(_i, _a)) {
+        var __0:stdgo.GoInt = (_a + (1 : stdgo.GoInt) : stdgo.GoInt), __1:stdgo.GoInt = (_b - (1 : stdgo.GoInt) : stdgo.GoInt), _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
+        while (((_i <= _j : Bool) && _data.less(_i, _a) : Bool)) {
             _i++;
         };
-        while ((_i <= _j) && !_data.less(_j, _a)) {
+        while (((_i <= _j : Bool) && !_data.less(_j, _a) : Bool)) {
             _j--;
         };
-        if (_i > _j) {
+        if ((_i > _j : Bool)) {
             _data.swap(_j, _a);
             return { _0 : _j, _1 : true };
         };
@@ -696,13 +696,13 @@ function _partition(_data:Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot:stdg
         _i++;
         _j--;
         while (true) {
-            while ((_i <= _j) && _data.less(_i, _a)) {
+            while (((_i <= _j : Bool) && _data.less(_i, _a) : Bool)) {
                 _i++;
             };
-            while ((_i <= _j) && !_data.less(_j, _a)) {
+            while (((_i <= _j : Bool) && !_data.less(_j, _a) : Bool)) {
                 _j--;
             };
-            if (_i > _j) {
+            if ((_i > _j : Bool)) {
                 break;
             };
             _data.swap(_i, _j);
@@ -715,15 +715,15 @@ function _partition(_data:Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot:stdg
 function _partitionEqual(_data:Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot:stdgo.GoInt):stdgo.GoInt {
         var _newpivot:stdgo.GoInt = (0 : stdgo.GoInt);
         _data.swap(_a, _pivot);
-        var __0:stdgo.GoInt = _a + (1 : stdgo.GoInt), __1:stdgo.GoInt = _b - (1 : stdgo.GoInt), _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
+        var __0:stdgo.GoInt = (_a + (1 : stdgo.GoInt) : stdgo.GoInt), __1:stdgo.GoInt = (_b - (1 : stdgo.GoInt) : stdgo.GoInt), _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
         while (true) {
-            while ((_i <= _j) && !_data.less(_a, _i)) {
+            while (((_i <= _j : Bool) && !_data.less(_a, _i) : Bool)) {
                 _i++;
             };
-            while ((_i <= _j) && _data.less(_a, _j)) {
+            while (((_i <= _j : Bool) && _data.less(_a, _j) : Bool)) {
                 _j--;
             };
-            if (_i > _j) {
+            if ((_i > _j : Bool)) {
                 break;
             };
             _data.swap(_i, _j);
@@ -734,39 +734,39 @@ function _partitionEqual(_data:Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot
     }
 function _partialInsertionSort(_data:Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Bool {
         {};
-        var _i:stdgo.GoInt = _a + (1 : stdgo.GoInt);
+        var _i:stdgo.GoInt = (_a + (1 : stdgo.GoInt) : stdgo.GoInt);
         {
             var _j:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_j < (5 : stdgo.GoInt), _j++, {
-                while ((_i < _b) && !_data.less(_i, _i - (1 : stdgo.GoInt))) {
+            stdgo.Go.cfor((_j < (5 : stdgo.GoInt) : Bool), _j++, {
+                while (((_i < _b : Bool) && !_data.less(_i, (_i - (1 : stdgo.GoInt) : stdgo.GoInt)) : Bool)) {
                     _i++;
                 };
                 if (_i == (_b)) {
                     return true;
                 };
-                if ((_b - _a) < (50 : stdgo.GoInt)) {
+                if (((_b - _a : stdgo.GoInt) < (50 : stdgo.GoInt) : Bool)) {
                     return false;
                 };
-                _data.swap(_i, _i - (1 : stdgo.GoInt));
-                if ((_i - _a) >= (2 : stdgo.GoInt)) {
+                _data.swap(_i, (_i - (1 : stdgo.GoInt) : stdgo.GoInt));
+                if (((_i - _a : stdgo.GoInt) >= (2 : stdgo.GoInt) : Bool)) {
                     {
-                        var _j:stdgo.GoInt = _i - (1 : stdgo.GoInt);
-                        stdgo.Go.cfor(_j >= (1 : stdgo.GoInt), _j--, {
-                            if (!_data.less(_j, _j - (1 : stdgo.GoInt))) {
+                        var _j:stdgo.GoInt = (_i - (1 : stdgo.GoInt) : stdgo.GoInt);
+                        stdgo.Go.cfor((_j >= (1 : stdgo.GoInt) : Bool), _j--, {
+                            if (!_data.less(_j, (_j - (1 : stdgo.GoInt) : stdgo.GoInt))) {
                                 break;
                             };
-                            _data.swap(_j, _j - (1 : stdgo.GoInt));
+                            _data.swap(_j, (_j - (1 : stdgo.GoInt) : stdgo.GoInt));
                         });
                     };
                 };
-                if ((_b - _i) >= (2 : stdgo.GoInt)) {
+                if (((_b - _i : stdgo.GoInt) >= (2 : stdgo.GoInt) : Bool)) {
                     {
-                        var _j:stdgo.GoInt = _i + (1 : stdgo.GoInt);
-                        stdgo.Go.cfor(_j < _b, _j++, {
-                            if (!_data.less(_j, _j - (1 : stdgo.GoInt))) {
+                        var _j:stdgo.GoInt = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
+                        stdgo.Go.cfor((_j < _b : Bool), _j++, {
+                            if (!_data.less(_j, (_j - (1 : stdgo.GoInt) : stdgo.GoInt))) {
                                 break;
                             };
-                            _data.swap(_j, _j - (1 : stdgo.GoInt));
+                            _data.swap(_j, (_j - (1 : stdgo.GoInt) : stdgo.GoInt));
                         });
                     };
                 };
@@ -775,18 +775,18 @@ function _partialInsertionSort(_data:Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):
         return false;
     }
 function _breakPatterns(_data:Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void {
-        var _length:stdgo.GoInt = _b - _a;
-        if (_length >= (8 : stdgo.GoInt)) {
+        var _length:stdgo.GoInt = (_b - _a : stdgo.GoInt);
+        if ((_length >= (8 : stdgo.GoInt) : Bool)) {
             var _random:stdgo._internal.sort.Sort.T_xorshift = (_length : T_xorshift);
             var _modulus:stdgo.GoUInt = _nextPowerOfTwo(_length);
             {
-                var _idx:stdgo.GoInt = (_a + ((_length / (4 : stdgo.GoInt)) * (2 : stdgo.GoInt))) - (1 : stdgo.GoInt);
-                stdgo.Go.cfor(_idx <= ((_a + ((_length / (4 : stdgo.GoInt)) * (2 : stdgo.GoInt))) + (1 : stdgo.GoInt)), _idx++, {
-                    var _other:stdgo.GoInt = ((_random.next(stdgo.Go.pointer(_random)) : stdgo.GoUInt) & (_modulus - (1u32 : stdgo.GoUInt)) : stdgo.GoInt);
-                    if (_other >= _length) {
-                        _other = _other - (_length);
+                var _idx:stdgo.GoInt = ((_a + (((_length / (4 : stdgo.GoInt) : stdgo.GoInt)) * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt);
+                stdgo.Go.cfor((_idx <= ((_a + (((_length / (4 : stdgo.GoInt) : stdgo.GoInt)) * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt) : Bool), _idx++, {
+                    var _other:stdgo.GoInt = (((_random.next(stdgo.Go.pointer(_random)) : stdgo.GoUInt) & ((_modulus - (1u32 : stdgo.GoUInt) : stdgo.GoUInt)) : stdgo.GoUInt) : stdgo.GoInt);
+                    if ((_other >= _length : Bool)) {
+                        _other = (_other - (_length) : stdgo.GoInt);
                     };
-                    _data.swap(_idx, _a + _other);
+                    _data.swap(_idx, (_a + _other : stdgo.GoInt));
                 });
             };
         };
@@ -794,10 +794,10 @@ function _breakPatterns(_data:Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void {
 function _choosePivot(_data:Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : T_sortedHint; } {
         var _pivot:stdgo.GoInt = (0 : stdgo.GoInt), _hint:T_sortedHint = ((0 : stdgo.GoInt) : stdgo._internal.sort.Sort.T_sortedHint);
         {};
-        var _l:stdgo.GoInt = _b - _a;
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = _a + ((_l / (4 : stdgo.GoInt)) * (1 : stdgo.GoInt)), __2:stdgo.GoInt = _a + ((_l / (4 : stdgo.GoInt)) * (2 : stdgo.GoInt)), __3:stdgo.GoInt = _a + ((_l / (4 : stdgo.GoInt)) * (3 : stdgo.GoInt)), _k:stdgo.GoInt = __3, _j:stdgo.GoInt = __2, _i:stdgo.GoInt = __1, _swaps:stdgo.GoInt = __0;
-        if (_l >= (8 : stdgo.GoInt)) {
-            if (_l >= (50 : stdgo.GoInt)) {
+        var _l:stdgo.GoInt = (_b - _a : stdgo.GoInt);
+        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (_a + ((_l / (4 : stdgo.GoInt) : stdgo.GoInt) * (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt), __2:stdgo.GoInt = (_a + ((_l / (4 : stdgo.GoInt) : stdgo.GoInt) * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt), __3:stdgo.GoInt = (_a + ((_l / (4 : stdgo.GoInt) : stdgo.GoInt) * (3 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt), _k:stdgo.GoInt = __3, _j:stdgo.GoInt = __2, _i:stdgo.GoInt = __1, _swaps:stdgo.GoInt = __0;
+        if ((_l >= (8 : stdgo.GoInt) : Bool)) {
+            if ((_l >= (50 : stdgo.GoInt) : Bool)) {
                 _i = _medianAdjacent(_data, _i, stdgo.Go.pointer(_swaps));
                 _j = _medianAdjacent(_data, _j, stdgo.Go.pointer(_swaps));
                 _k = _medianAdjacent(_data, _k, stdgo.Go.pointer(_swaps));
@@ -841,12 +841,12 @@ function _median(_data:Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _c:stdgo.GoInt
         return _b;
     }
 function _medianAdjacent(_data:Interface, _a:stdgo.GoInt, _swaps:stdgo.Pointer<stdgo.GoInt>):stdgo.GoInt {
-        return _median(_data, _a - (1 : stdgo.GoInt), _a, _a + (1 : stdgo.GoInt), _swaps);
+        return _median(_data, (_a - (1 : stdgo.GoInt) : stdgo.GoInt), _a, (_a + (1 : stdgo.GoInt) : stdgo.GoInt), _swaps);
     }
 function _reverseRange(_data:Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void {
         var _i:stdgo.GoInt = _a;
-        var _j:stdgo.GoInt = _b - (1 : stdgo.GoInt);
-        while (_i < _j) {
+        var _j:stdgo.GoInt = (_b - (1 : stdgo.GoInt) : stdgo.GoInt);
+        while ((_i < _j : Bool)) {
             _data.swap(_i, _j);
             _i++;
             _j--;
@@ -855,123 +855,123 @@ function _reverseRange(_data:Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void {
 function _swapRange(_data:Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _n:stdgo.GoInt):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _n, _i++, {
-                _data.swap(_a + _i, _b + _i);
+            stdgo.Go.cfor((_i < _n : Bool), _i++, {
+                _data.swap((_a + _i : stdgo.GoInt), (_b + _i : stdgo.GoInt));
             });
         };
     }
 function _stable(_data:Interface, _n:stdgo.GoInt):Void {
         var _blockSize:stdgo.GoInt = (20 : stdgo.GoInt);
         var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = _blockSize, _b:stdgo.GoInt = __1, _a:stdgo.GoInt = __0;
-        while (_b <= _n) {
+        while ((_b <= _n : Bool)) {
             _insertionSort(_data, _a, _b);
             _a = _b;
-            _b = _b + (_blockSize);
+            _b = (_b + (_blockSize) : stdgo.GoInt);
         };
         _insertionSort(_data, _a, _n);
-        while (_blockSize < _n) {
+        while ((_blockSize < _n : Bool)) {
             {
                 final __tmp__0 = (0 : stdgo.GoInt);
-                final __tmp__1 = (2 : stdgo.GoInt) * _blockSize;
+                final __tmp__1 = ((2 : stdgo.GoInt) * _blockSize : stdgo.GoInt);
                 _a = __tmp__0;
                 _b = __tmp__1;
             };
-            while (_b <= _n) {
-                _symMerge(_data, _a, _a + _blockSize, _b);
+            while ((_b <= _n : Bool)) {
+                _symMerge(_data, _a, (_a + _blockSize : stdgo.GoInt), _b);
                 _a = _b;
-                _b = _b + ((2 : stdgo.GoInt) * _blockSize);
+                _b = (_b + (((2 : stdgo.GoInt) * _blockSize : stdgo.GoInt)) : stdgo.GoInt);
             };
             {
-                var _m:stdgo.GoInt = _a + _blockSize;
-                if (_m < _n) {
+                var _m:stdgo.GoInt = (_a + _blockSize : stdgo.GoInt);
+                if ((_m < _n : Bool)) {
                     _symMerge(_data, _a, _m, _n);
                 };
             };
-            _blockSize = _blockSize * ((2 : stdgo.GoInt));
+            _blockSize = (_blockSize * ((2 : stdgo.GoInt)) : stdgo.GoInt);
         };
     }
 function _symMerge(_data:Interface, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt):Void {
-        if (_m - _a == ((1 : stdgo.GoInt))) {
+        if ((_m - _a : stdgo.GoInt) == ((1 : stdgo.GoInt))) {
             var _i:stdgo.GoInt = _m;
             var _j:stdgo.GoInt = _b;
-            while (_i < _j) {
-                var _h:stdgo.GoInt = ((_i + _j : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt);
+            while ((_i < _j : Bool)) {
+                var _h:stdgo.GoInt = ((((_i + _j : stdgo.GoInt) : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoInt);
                 if (_data.less(_h, _a)) {
-                    _i = _h + (1 : stdgo.GoInt);
+                    _i = (_h + (1 : stdgo.GoInt) : stdgo.GoInt);
                 } else {
                     _j = _h;
                 };
             };
             {
                 var _k:stdgo.GoInt = _a;
-                stdgo.Go.cfor(_k < (_i - (1 : stdgo.GoInt)), _k++, {
-                    _data.swap(_k, _k + (1 : stdgo.GoInt));
+                stdgo.Go.cfor((_k < (_i - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool), _k++, {
+                    _data.swap(_k, (_k + (1 : stdgo.GoInt) : stdgo.GoInt));
                 });
             };
             return;
         };
-        if (_b - _m == ((1 : stdgo.GoInt))) {
+        if ((_b - _m : stdgo.GoInt) == ((1 : stdgo.GoInt))) {
             var _i:stdgo.GoInt = _a;
             var _j:stdgo.GoInt = _m;
-            while (_i < _j) {
-                var _h:stdgo.GoInt = ((_i + _j : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt);
+            while ((_i < _j : Bool)) {
+                var _h:stdgo.GoInt = ((((_i + _j : stdgo.GoInt) : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoInt);
                 if (!_data.less(_m, _h)) {
-                    _i = _h + (1 : stdgo.GoInt);
+                    _i = (_h + (1 : stdgo.GoInt) : stdgo.GoInt);
                 } else {
                     _j = _h;
                 };
             };
             {
                 var _k:stdgo.GoInt = _m;
-                stdgo.Go.cfor(_k > _i, _k--, {
-                    _data.swap(_k, _k - (1 : stdgo.GoInt));
+                stdgo.Go.cfor((_k > _i : Bool), _k--, {
+                    _data.swap(_k, (_k - (1 : stdgo.GoInt) : stdgo.GoInt));
                 });
             };
             return;
         };
-        var _mid:stdgo.GoInt = ((_a + _b : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt);
-        var _n:stdgo.GoInt = _mid + _m;
+        var _mid:stdgo.GoInt = ((((_a + _b : stdgo.GoInt) : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoInt);
+        var _n:stdgo.GoInt = (_mid + _m : stdgo.GoInt);
         var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), _r:stdgo.GoInt = __1, _start:stdgo.GoInt = __0;
-        if (_m > _mid) {
-            _start = _n - _b;
+        if ((_m > _mid : Bool)) {
+            _start = (_n - _b : stdgo.GoInt);
             _r = _mid;
         } else {
             _start = _a;
             _r = _m;
         };
-        var _p:stdgo.GoInt = _n - (1 : stdgo.GoInt);
-        while (_start < _r) {
-            var _c:stdgo.GoInt = ((_start + _r : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt);
-            if (!_data.less(_p - _c, _c)) {
-                _start = _c + (1 : stdgo.GoInt);
+        var _p:stdgo.GoInt = (_n - (1 : stdgo.GoInt) : stdgo.GoInt);
+        while ((_start < _r : Bool)) {
+            var _c:stdgo.GoInt = ((((_start + _r : stdgo.GoInt) : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoInt);
+            if (!_data.less((_p - _c : stdgo.GoInt), _c)) {
+                _start = (_c + (1 : stdgo.GoInt) : stdgo.GoInt);
             } else {
                 _r = _c;
             };
         };
-        var _end:stdgo.GoInt = _n - _start;
-        if ((_start < _m) && (_m < _end)) {
+        var _end:stdgo.GoInt = (_n - _start : stdgo.GoInt);
+        if (((_start < _m : Bool) && (_m < _end : Bool) : Bool)) {
             _rotate(_data, _start, _m, _end);
         };
-        if ((_a < _start) && (_start < _mid)) {
+        if (((_a < _start : Bool) && (_start < _mid : Bool) : Bool)) {
             _symMerge(_data, _a, _start, _mid);
         };
-        if ((_mid < _end) && (_end < _b)) {
+        if (((_mid < _end : Bool) && (_end < _b : Bool) : Bool)) {
             _symMerge(_data, _mid, _end, _b);
         };
     }
 function _rotate(_data:Interface, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt):Void {
-        var _i:stdgo.GoInt = _m - _a;
-        var _j:stdgo.GoInt = _b - _m;
+        var _i:stdgo.GoInt = (_m - _a : stdgo.GoInt);
+        var _j:stdgo.GoInt = (_b - _m : stdgo.GoInt);
         while (_i != (_j)) {
-            if (_i > _j) {
-                _swapRange(_data, _m - _i, _m, _j);
-                _i = _i - (_j);
+            if ((_i > _j : Bool)) {
+                _swapRange(_data, (_m - _i : stdgo.GoInt), _m, _j);
+                _i = (_i - (_j) : stdgo.GoInt);
             } else {
-                _swapRange(_data, _m - _i, (_m + _j) - _i, _i);
-                _j = _j - (_i);
+                _swapRange(_data, (_m - _i : stdgo.GoInt), ((_m + _j : stdgo.GoInt) - _i : stdgo.GoInt), _i);
+                _j = (_j - (_i) : stdgo.GoInt);
             };
         };
-        _swapRange(_data, _m - _i, _m, _i);
+        _swapRange(_data, (_m - _i : stdgo.GoInt), _m, _i);
     }
 class T_reverse_asInterface {
     @:keep
@@ -1015,9 +1015,9 @@ class T_xorshift_asInterface {
     @:keep
     @:pointer
     static public function next(____:T_xorshift,  _r:stdgo.Pointer<T_xorshift>):stdgo.GoUInt64 {
-        _r.value = _r.value ^ (_r.value << (13i64 : stdgo.GoUInt64));
-        _r.value = _r.value ^ (_r.value >> (17i64 : stdgo.GoUInt64));
-        _r.value = _r.value ^ (_r.value << (5i64 : stdgo.GoUInt64));
+        _r.value = (_r.value ^ ((_r.value << (13i64 : stdgo.GoUInt64) : stdgo._internal.sort.Sort.T_xorshift)) : stdgo._internal.sort.Sort.T_xorshift);
+        _r.value = (_r.value ^ ((_r.value >> (17i64 : stdgo.GoUInt64) : stdgo._internal.sort.Sort.T_xorshift)) : stdgo._internal.sort.Sort.T_xorshift);
+        _r.value = (_r.value ^ ((_r.value << (5i64 : stdgo.GoUInt64) : stdgo._internal.sort.Sort.T_xorshift)) : stdgo._internal.sort.Sort.T_xorshift);
         return (_r.value : stdgo.GoUInt64);
     }
 }
@@ -1059,7 +1059,7 @@ class IntSlice_asInterface {
     @:keep
     static public function less( _x:IntSlice, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _x:IntSlice = _x;
-        return _x[(_i : stdgo.GoInt)] < _x[(_j : stdgo.GoInt)];
+        return (_x[(_i : stdgo.GoInt)] < _x[(_j : stdgo.GoInt)] : Bool);
     }
     @:keep
     static public function len( _x:IntSlice):stdgo.GoInt {
@@ -1110,7 +1110,7 @@ class Float64Slice_asInterface {
     @:keep
     static public function less( _x:Float64Slice, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _x:Float64Slice = _x;
-        return (_x[(_i : stdgo.GoInt)] < _x[(_j : stdgo.GoInt)]) || (_isNaN(_x[(_i : stdgo.GoInt)]) && !_isNaN(_x[(_j : stdgo.GoInt)]));
+        return ((_x[(_i : stdgo.GoInt)] < _x[(_j : stdgo.GoInt)] : Bool) || ((_isNaN(_x[(_i : stdgo.GoInt)]) && !_isNaN(_x[(_j : stdgo.GoInt)]) : Bool)) : Bool);
     }
     @:keep
     static public function len( _x:Float64Slice):stdgo.GoInt {
@@ -1161,7 +1161,7 @@ class StringSlice_asInterface {
     @:keep
     static public function less( _x:StringSlice, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _x:StringSlice = _x;
-        return _x[(_i : stdgo.GoInt)] < _x[(_j : stdgo.GoInt)];
+        return (_x[(_i : stdgo.GoInt)] < _x[(_j : stdgo.GoInt)] : Bool);
     }
     @:keep
     static public function len( _x:StringSlice):stdgo.GoInt {

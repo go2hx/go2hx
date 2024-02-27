@@ -270,7 +270,7 @@ function testDecompressor(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
                 };
                 {
                     var __tmp__ = _zr.read((new stdgo.Slice<stdgo.GoUInt8>(1, 1, (0 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                    if ((_n != (0 : stdgo.GoInt)) || (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo._internal.io.Io.eof))) {
+                    if (((_n != (0 : stdgo.GoInt)) || (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo._internal.io.Io.eof)) : Bool)) {
                         _t.errorf(("%s: Read() = (%d, %v), want (0, io.EOF)" : stdgo.GoString), stdgo.Go.toInterface(_tt._desc), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
                     };
                 };
@@ -310,7 +310,7 @@ function newWriterLevel(_w:stdgo._internal.io.Io.Writer, _level:stdgo.GoInt):{ v
         return newWriterLevelDict(_w, _level, (null : stdgo.Slice<stdgo.GoUInt8>));
     }
 function newWriterLevelDict(_w:stdgo._internal.io.Io.Writer, _level:stdgo.GoInt, _dict:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.Ref<Writer>; var _1 : stdgo.Error; } {
-        if ((_level < (-2 : stdgo.GoInt)) || (_level > (9 : stdgo.GoInt))) {
+        if (((_level < (-2 : stdgo.GoInt) : Bool) || (_level > (9 : stdgo.GoInt) : Bool) : Bool)) {
             return { _0 : null, _1 : stdgo._internal.fmt.Fmt.errorf(("zlib: invalid compression level: %d" : stdgo.GoString), stdgo.Go.toInterface(_level)) };
         };
         return { _0 : (stdgo.Go.setRef(({ _w : _w, _level : _level, _dict : _dict } : stdgo._internal.compress.zlib.Zlib.Writer)) : stdgo.Ref<stdgo._internal.compress.zlib.Zlib.Writer>), _1 : (null : stdgo.Error) };
@@ -449,7 +449,7 @@ function _testLevelDict(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _fn:st
             };
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-                stdgo.Go.cfor(_i < (_b0.length), _i++, {
+                stdgo.Go.cfor((_i < (_b0.length) : Bool), _i++, {
                     if (_b0[(_i : stdgo.GoInt)] != (_b1[(_i : stdgo.GoInt)])) {
                         _t.errorf(("%s (level=%d, dict=%q): mismatch at %d, 0x%02x versus 0x%02x\n" : stdgo.GoString), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_b0[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_b1[(_i : stdgo.GoInt)]));
                         {
@@ -552,7 +552,7 @@ function testWriter(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             _testLevelDict(_t, _tag?.__copy__(), _b, (-2 : stdgo.GoInt), stdgo.Go.str()?.__copy__());
             {
                 var _level:stdgo.GoInt = (1 : stdgo.GoInt);
-                stdgo.Go.cfor(_level <= (9 : stdgo.GoInt), _level++, {
+                stdgo.Go.cfor((_level <= (9 : stdgo.GoInt) : Bool), _level++, {
                     _testLevelDict(_t, _tag?.__copy__(), _b, _level, stdgo.Go.str()?.__copy__());
                 });
             };
@@ -565,14 +565,14 @@ function testWriterBig(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             _testFileLevelDict(_t, _fn?.__copy__(), (-2 : stdgo.GoInt), stdgo.Go.str()?.__copy__());
             {
                 var _level:stdgo.GoInt = (1 : stdgo.GoInt);
-                stdgo.Go.cfor(_level <= (9 : stdgo.GoInt), _level++, {
+                stdgo.Go.cfor((_level <= (9 : stdgo.GoInt) : Bool), _level++, {
                     _testFileLevelDict(_t, _fn?.__copy__(), _level, stdgo.Go.str()?.__copy__());
-                    if (((_level >= (1 : stdgo.GoInt)) && stdgo._internal.testing.Testing.short()) && (stdgo._internal.internal.testenv.Testenv.builder() == stdgo.Go.str())) {
+                    if ((((_level >= (1 : stdgo.GoInt) : Bool) && stdgo._internal.testing.Testing.short() : Bool) && (stdgo._internal.internal.testenv.Testenv.builder() == stdgo.Go.str()) : Bool)) {
                         break;
                     };
                 });
             };
-            if (((_i == (0 : stdgo.GoInt)) && stdgo._internal.testing.Testing.short()) && (stdgo._internal.internal.testenv.Testenv.builder() == stdgo.Go.str())) {
+            if (((_i == ((0 : stdgo.GoInt)) && stdgo._internal.testing.Testing.short() : Bool) && (stdgo._internal.internal.testenv.Testenv.builder() == stdgo.Go.str()) : Bool)) {
                 break;
             };
         };
@@ -585,14 +585,14 @@ function testWriterDict(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             _testFileLevelDict(_t, _fn?.__copy__(), (-2 : stdgo.GoInt), ("0123456789." : stdgo.GoString));
             {
                 var _level:stdgo.GoInt = (1 : stdgo.GoInt);
-                stdgo.Go.cfor(_level <= (9 : stdgo.GoInt), _level++, {
+                stdgo.Go.cfor((_level <= (9 : stdgo.GoInt) : Bool), _level++, {
                     _testFileLevelDict(_t, _fn?.__copy__(), _level, ("0123456789." : stdgo.GoString));
-                    if (((_level >= (1 : stdgo.GoInt)) && stdgo._internal.testing.Testing.short()) && (stdgo._internal.internal.testenv.Testenv.builder() == stdgo.Go.str())) {
+                    if ((((_level >= (1 : stdgo.GoInt) : Bool) && stdgo._internal.testing.Testing.short() : Bool) && (stdgo._internal.internal.testenv.Testenv.builder() == stdgo.Go.str()) : Bool)) {
                         break;
                     };
                 });
             };
-            if (((_i == (0 : stdgo.GoInt)) && stdgo._internal.testing.Testing.short()) && (stdgo._internal.internal.testenv.Testenv.builder() == stdgo.Go.str())) {
+            if (((_i == ((0 : stdgo.GoInt)) && stdgo._internal.testing.Testing.short() : Bool) && (stdgo._internal.internal.testenv.Testenv.builder() == stdgo.Go.str()) : Bool)) {
                 break;
             };
         };
@@ -611,7 +611,7 @@ function testWriterReset(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
             };
             {
                 var _level:stdgo.GoInt = (1 : stdgo.GoInt);
-                stdgo.Go.cfor(_level <= (9 : stdgo.GoInt), _level++, {
+                stdgo.Go.cfor((_level <= (9 : stdgo.GoInt) : Bool), _level++, {
                     _testFileLevelDictReset(_t, _fn?.__copy__(), _level, (null : stdgo.Slice<stdgo.GoUInt8>));
                 });
             };
@@ -629,7 +629,7 @@ function testWriterDictIsUsed(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
         _compressor.close();
         {};
         var _output = _buf.bytes();
-        if ((_output.length) > (25 : stdgo.GoInt)) {
+        if (((_output.length) > (25 : stdgo.GoInt) : Bool)) {
             _t.errorf(("result too large (got %d, want <= %d bytes). Is the dictionary being used?" : stdgo.GoString), stdgo.Go.toInterface((_output.length)), stdgo.Go.toInterface((25 : stdgo.GoInt)));
         };
     }
@@ -683,11 +683,11 @@ class T_reader_asInterface {
             return _z._err;
         };
         var _h:stdgo.GoUInt16 = stdgo._internal.encoding.binary.Binary.bigEndian.uint16((_z._scratch.__slice__(0, (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-        if (((_z._scratch[(0 : stdgo.GoInt)] & (15 : stdgo.GoUInt8) != (8 : stdgo.GoUInt8)) || ((_z._scratch[(0 : stdgo.GoInt)] >> (4i64 : stdgo.GoUInt64)) > (7 : stdgo.GoUInt8))) || (_h % (31 : stdgo.GoUInt16) != (0 : stdgo.GoUInt16))) {
+        if (((((_z._scratch[(0 : stdgo.GoInt)] & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) != (8 : stdgo.GoUInt8)) || (((_z._scratch[(0 : stdgo.GoInt)] >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) > (7 : stdgo.GoUInt8) : Bool)) : Bool) || ((_h % (31 : stdgo.GoUInt16) : stdgo.GoUInt16) != (0 : stdgo.GoUInt16)) : Bool)) {
             _z._err = errHeader;
             return _z._err;
         };
-        var _haveDict:Bool = _z._scratch[(1 : stdgo.GoInt)] & (32 : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
+        var _haveDict:Bool = (_z._scratch[(1 : stdgo.GoInt)] & (32 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
         if (_haveDict) {
             {
                 var __tmp__ = stdgo._internal.io.Io.readFull(_z._r, (_z._scratch.__slice__((0 : stdgo.GoInt), (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
@@ -720,7 +720,7 @@ class T_reader_asInterface {
     @:keep
     static public function close( _z:stdgo.Ref<T_reader>):stdgo.Error {
         @:recv var _z:stdgo.Ref<T_reader> = _z;
-        if ((_z._err != null) && (stdgo.Go.toInterface(_z._err) != stdgo.Go.toInterface(stdgo._internal.io.Io.eof))) {
+        if (((_z._err != null) && (stdgo.Go.toInterface(_z._err) != stdgo.Go.toInterface(stdgo._internal.io.Io.eof)) : Bool)) {
             return _z._err;
         };
         _z._err = _z._decompressor.close();
@@ -859,9 +859,9 @@ class Writer_asInterface {
             };
         };
         if (_z._dict != null) {
-            _z._scratch[(1 : stdgo.GoInt)] = _z._scratch[(1 : stdgo.GoInt)] | ((32 : stdgo.GoUInt8));
+            _z._scratch[(1 : stdgo.GoInt)] = (_z._scratch[(1 : stdgo.GoInt)] | ((32 : stdgo.GoUInt8)) : stdgo.GoUInt8);
         };
-        _z._scratch[(1 : stdgo.GoInt)] = _z._scratch[(1 : stdgo.GoInt)] + (((31 : stdgo.GoUInt16) - (stdgo._internal.encoding.binary.Binary.bigEndian.uint16((_z._scratch.__slice__(0, (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) % (31 : stdgo.GoUInt16)) : stdgo.GoUInt8));
+        _z._scratch[(1 : stdgo.GoInt)] = (_z._scratch[(1 : stdgo.GoInt)] + ((((31 : stdgo.GoUInt16) - (stdgo._internal.encoding.binary.Binary.bigEndian.uint16((_z._scratch.__slice__(0, (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) % (31 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdgo.GoUInt16) : stdgo.GoUInt8)) : stdgo.GoUInt8);
         {
             {
                 var __tmp__ = _z._w.write((_z._scratch.__slice__((0 : stdgo.GoInt), (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));

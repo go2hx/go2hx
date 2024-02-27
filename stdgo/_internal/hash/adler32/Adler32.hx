@@ -35,14 +35,14 @@ var _golden : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(
 ({ _out : (-1847775153u32 : stdgo.GoUInt32), _in : ("The fugacity of a constituent in a mixture of gases at a given temperature is proportional to its mole fraction.  Lewis-Randall Rule" : stdgo.GoString), _halfState : stdgo.Go.str("adl", 1, "#", 216, 23, 215)?.__copy__() } : T__struct_0),
 ({ _out : (777851670u32 : stdgo.GoUInt32), _in : ("How can you write a big system without C++?  -Paul Glick" : stdgo.GoString), _halfState : stdgo.Go.str("adl", 1, 143, "U\n", 15)?.__copy__() } : T__struct_0),
 ({ _out : (-803201546u32 : stdgo.GoUInt32), _in : ("\'Invariant assertions\' is the most elegant programming technique!  -Tom Szymanski" : stdgo.GoString), _halfState : stdgo.Go.str("adl", 1, "/", 152, 14, 196)?.__copy__() } : T__struct_0),
-({ _out : (554866632u32 : stdgo.GoUInt32), _in : stdgo._internal.strings.Strings.repeat(stdgo.Go.str(255)?.__copy__(), (5548 : stdgo.GoInt)) + ("8" : stdgo.GoString)?.__copy__()?.__copy__(), _halfState : stdgo.Go.str("adl", 1, 154, 166, 203, 193)?.__copy__() } : T__struct_0),
-({ _out : (-1163814712u32 : stdgo.GoUInt32), _in : stdgo._internal.strings.Strings.repeat(stdgo.Go.str(255)?.__copy__(), (5549 : stdgo.GoInt)) + ("9" : stdgo.GoString)?.__copy__()?.__copy__(), _halfState : stdgo.Go.str("adl", 1, "gu", 204, 192)?.__copy__() } : T__struct_0),
-({ _out : (1429510590u32 : stdgo.GoUInt32), _in : stdgo._internal.strings.Strings.repeat(stdgo.Go.str(255)?.__copy__(), (5550 : stdgo.GoInt)) + ("0" : stdgo.GoString)?.__copy__()?.__copy__(), _halfState : stdgo.Go.str("adl", 1, "gu", 204, 192)?.__copy__() } : T__struct_0),
-({ _out : (-255747394u32 : stdgo.GoUInt32), _in : stdgo._internal.strings.Strings.repeat(stdgo.Go.str(255)?.__copy__(), (5551 : stdgo.GoInt)) + ("1" : stdgo.GoString)?.__copy__()?.__copy__(), _halfState : stdgo.Go.str("adl", 1, "5CͿ")?.__copy__() } : T__struct_0),
-({ _out : (-1923310658u32 : stdgo.GoUInt32), _in : stdgo._internal.strings.Strings.repeat(stdgo.Go.str(255)?.__copy__(), (5552 : stdgo.GoInt)) + ("2" : stdgo.GoString)?.__copy__()?.__copy__(), _halfState : stdgo.Go.str("adl", 1, "5CͿ")?.__copy__() } : T__struct_0),
-({ _out : (720805054u32 : stdgo.GoUInt32), _in : stdgo._internal.strings.Strings.repeat(stdgo.Go.str(255)?.__copy__(), (5553 : stdgo.GoInt)) + ("3" : stdgo.GoString)?.__copy__()?.__copy__(), _halfState : stdgo.Go.str("adl", 1, 4, 16, "ξ")?.__copy__() } : T__struct_0),
-({ _out : (-914317890u32 : stdgo.GoUInt32), _in : stdgo._internal.strings.Strings.repeat(stdgo.Go.str(255)?.__copy__(), (5554 : stdgo.GoInt)) + ("4" : stdgo.GoString)?.__copy__()?.__copy__(), _halfState : stdgo.Go.str("adl", 1, 4, 16, "ξ")?.__copy__() } : T__struct_0),
-({ _out : (1763221182u32 : stdgo.GoUInt32), _in : stdgo._internal.strings.Strings.repeat(stdgo.Go.str(255)?.__copy__(), (5555 : stdgo.GoInt)) + ("5" : stdgo.GoString)?.__copy__()?.__copy__(), _halfState : stdgo.Go.str("adl", 1, 211, 205, "Ͻ")?.__copy__() } : T__struct_0),
+({ _out : (554866632u32 : stdgo.GoUInt32), _in : (stdgo._internal.strings.Strings.repeat(stdgo.Go.str(255)?.__copy__(), (5548 : stdgo.GoInt)) + ("8" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), _halfState : stdgo.Go.str("adl", 1, 154, 166, 203, 193)?.__copy__() } : T__struct_0),
+({ _out : (-1163814712u32 : stdgo.GoUInt32), _in : (stdgo._internal.strings.Strings.repeat(stdgo.Go.str(255)?.__copy__(), (5549 : stdgo.GoInt)) + ("9" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), _halfState : stdgo.Go.str("adl", 1, "gu", 204, 192)?.__copy__() } : T__struct_0),
+({ _out : (1429510590u32 : stdgo.GoUInt32), _in : (stdgo._internal.strings.Strings.repeat(stdgo.Go.str(255)?.__copy__(), (5550 : stdgo.GoInt)) + ("0" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), _halfState : stdgo.Go.str("adl", 1, "gu", 204, 192)?.__copy__() } : T__struct_0),
+({ _out : (-255747394u32 : stdgo.GoUInt32), _in : (stdgo._internal.strings.Strings.repeat(stdgo.Go.str(255)?.__copy__(), (5551 : stdgo.GoInt)) + ("1" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), _halfState : stdgo.Go.str("adl", 1, "5CͿ")?.__copy__() } : T__struct_0),
+({ _out : (-1923310658u32 : stdgo.GoUInt32), _in : (stdgo._internal.strings.Strings.repeat(stdgo.Go.str(255)?.__copy__(), (5552 : stdgo.GoInt)) + ("2" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), _halfState : stdgo.Go.str("adl", 1, "5CͿ")?.__copy__() } : T__struct_0),
+({ _out : (720805054u32 : stdgo.GoUInt32), _in : (stdgo._internal.strings.Strings.repeat(stdgo.Go.str(255)?.__copy__(), (5553 : stdgo.GoInt)) + ("3" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), _halfState : stdgo.Go.str("adl", 1, 4, 16, "ξ")?.__copy__() } : T__struct_0),
+({ _out : (-914317890u32 : stdgo.GoUInt32), _in : (stdgo._internal.strings.Strings.repeat(stdgo.Go.str(255)?.__copy__(), (5554 : stdgo.GoInt)) + ("4" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), _halfState : stdgo.Go.str("adl", 1, 4, 16, "ξ")?.__copy__() } : T__struct_0),
+({ _out : (1763221182u32 : stdgo.GoUInt32), _in : (stdgo._internal.strings.Strings.repeat(stdgo.Go.str(255)?.__copy__(), (5555 : stdgo.GoInt)) + ("5" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), _halfState : stdgo.Go.str("adl", 1, 211, 205, "Ͻ")?.__copy__() } : T__struct_0),
 ({ _out : (-2035351551u32 : stdgo.GoUInt32), _in : stdgo._internal.strings.Strings.repeat(stdgo.Go.str(0)?.__copy__(), (100000 : stdgo.GoInt))?.__copy__(), _halfState : stdgo.Go.str("adl", 1, 195, "P", 0, 1)?.__copy__() } : T__struct_0),
 ({ _out : (2036730701u32 : stdgo.GoUInt32), _in : stdgo._internal.strings.Strings.repeat(("a" : stdgo.GoString), (100000 : stdgo.GoInt))?.__copy__(), _halfState : stdgo.Go.str("adl", 1, 129, "k", 5, 167)?.__copy__() } : T__struct_0),
 ({ _out : (285575406u32 : stdgo.GoUInt32), _in : stdgo._internal.strings.Strings.repeat(("ABCDEFGHIJKLMNOPQRSTUVWXYZ" : stdgo.GoString), (10000 : stdgo.GoInt))?.__copy__(), _halfState : stdgo.Go.str("adl", 1, "e", 210, 196, "p")?.__copy__() } : T__struct_0)) : stdgo.Slice<T__struct_0>);
@@ -75,18 +75,18 @@ function new_():stdgo._internal.hash.Hash.Hash32 {
         return stdgo.Go.asInterface(_d);
     }
 function _appendUint32(_b:stdgo.Slice<stdgo.GoByte>, _x:stdgo.GoUInt32):stdgo.Slice<stdgo.GoByte> {
-        var _a = (new stdgo.GoArray<stdgo.GoUInt8>((_x >> (24i64 : stdgo.GoUInt64) : stdgo.GoByte), (_x >> (16i64 : stdgo.GoUInt64) : stdgo.GoByte), (_x >> (8i64 : stdgo.GoUInt64) : stdgo.GoByte), (_x : stdgo.GoByte)) : stdgo.GoArray<stdgo.GoUInt8>);
+        var _a = (new stdgo.GoArray<stdgo.GoUInt8>(((_x >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoByte), ((_x >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoByte), ((_x >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoByte), (_x : stdgo.GoByte)) : stdgo.GoArray<stdgo.GoUInt8>);
         return (_b.__append__(...(_a.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
     }
 function _readUint32(_b:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32 {
         _b[(3 : stdgo.GoInt)];
-        return (((_b[(3 : stdgo.GoInt)] : stdgo.GoUInt32) | ((_b[(2 : stdgo.GoInt)] : stdgo.GoUInt32) << (8i64 : stdgo.GoUInt64))) | ((_b[(1 : stdgo.GoInt)] : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64))) | ((_b[(0 : stdgo.GoInt)] : stdgo.GoUInt32) << (24i64 : stdgo.GoUInt64));
+        return ((((_b[(3 : stdgo.GoInt)] : stdgo.GoUInt32) | ((_b[(2 : stdgo.GoInt)] : stdgo.GoUInt32) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32) | ((_b[(1 : stdgo.GoInt)] : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32) | ((_b[(0 : stdgo.GoInt)] : stdgo.GoUInt32) << (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32);
     }
 function _update(_d:T_digest, _p:stdgo.Slice<stdgo.GoByte>):T_digest {
-        var __0:stdgo.GoUInt32 = (_d & (65535u32 : stdgo._internal.hash.adler32.Adler32.T_digest) : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (_d >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32), _s2:stdgo.GoUInt32 = __1, _s1:stdgo.GoUInt32 = __0;
-        while ((_p.length) > (0 : stdgo.GoInt)) {
+        var __0:stdgo.GoUInt32 = ((_d & (65535u32 : stdgo._internal.hash.adler32.Adler32.T_digest) : stdgo._internal.hash.adler32.Adler32.T_digest) : stdgo.GoUInt32), __1:stdgo.GoUInt32 = ((_d >> (16i64 : stdgo.GoUInt64) : stdgo._internal.hash.adler32.Adler32.T_digest) : stdgo.GoUInt32), _s2:stdgo.GoUInt32 = __1, _s1:stdgo.GoUInt32 = __0;
+        while (((_p.length) > (0 : stdgo.GoInt) : Bool)) {
             var _q:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
-            if ((_p.length) > (5552 : stdgo.GoInt)) {
+            if (((_p.length) > (5552 : stdgo.GoInt) : Bool)) {
                 {
                     final __tmp__0 = (_p.__slice__(0, (5552 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                     final __tmp__1 = (_p.__slice__((5552 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
@@ -94,26 +94,26 @@ function _update(_d:T_digest, _p:stdgo.Slice<stdgo.GoByte>):T_digest {
                     _q = __tmp__1;
                 };
             };
-            while ((_p.length) >= (4 : stdgo.GoInt)) {
-                _s1 = _s1 + ((_p[(0 : stdgo.GoInt)] : stdgo.GoUInt32));
-                _s2 = _s2 + (_s1);
-                _s1 = _s1 + ((_p[(1 : stdgo.GoInt)] : stdgo.GoUInt32));
-                _s2 = _s2 + (_s1);
-                _s1 = _s1 + ((_p[(2 : stdgo.GoInt)] : stdgo.GoUInt32));
-                _s2 = _s2 + (_s1);
-                _s1 = _s1 + ((_p[(3 : stdgo.GoInt)] : stdgo.GoUInt32));
-                _s2 = _s2 + (_s1);
+            while (((_p.length) >= (4 : stdgo.GoInt) : Bool)) {
+                _s1 = (_s1 + ((_p[(0 : stdgo.GoInt)] : stdgo.GoUInt32)) : stdgo.GoUInt32);
+                _s2 = (_s2 + (_s1) : stdgo.GoUInt32);
+                _s1 = (_s1 + ((_p[(1 : stdgo.GoInt)] : stdgo.GoUInt32)) : stdgo.GoUInt32);
+                _s2 = (_s2 + (_s1) : stdgo.GoUInt32);
+                _s1 = (_s1 + ((_p[(2 : stdgo.GoInt)] : stdgo.GoUInt32)) : stdgo.GoUInt32);
+                _s2 = (_s2 + (_s1) : stdgo.GoUInt32);
+                _s1 = (_s1 + ((_p[(3 : stdgo.GoInt)] : stdgo.GoUInt32)) : stdgo.GoUInt32);
+                _s2 = (_s2 + (_s1) : stdgo.GoUInt32);
                 _p = (_p.__slice__((4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
             };
             for (__0 => _x in _p) {
-                _s1 = _s1 + ((_x : stdgo.GoUInt32));
-                _s2 = _s2 + (_s1);
+                _s1 = (_s1 + ((_x : stdgo.GoUInt32)) : stdgo.GoUInt32);
+                _s2 = (_s2 + (_s1) : stdgo.GoUInt32);
             };
-            _s1 = _s1 % ((65521u32 : stdgo.GoUInt32));
-            _s2 = _s2 % ((65521u32 : stdgo.GoUInt32));
+            _s1 = (_s1 % ((65521u32 : stdgo.GoUInt32)) : stdgo.GoUInt32);
+            _s2 = (_s2 % ((65521u32 : stdgo.GoUInt32)) : stdgo.GoUInt32);
             _p = _q;
         };
-        return ((_s2 << (16i64 : stdgo.GoUInt64)) | _s1 : T_digest);
+        return (((_s2 << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) | _s1 : stdgo.GoUInt32) : T_digest);
     }
 function checksum(_data:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32 {
         return (_update((1u32 : stdgo._internal.hash.adler32.Adler32.T_digest), _data) : stdgo.GoUInt32);
@@ -121,16 +121,16 @@ function checksum(_data:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32 {
 function _checksum(_p:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32 {
         var __0:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (0u32 : stdgo.GoUInt32), _s2:stdgo.GoUInt32 = __1, _s1:stdgo.GoUInt32 = __0;
         for (__0 => _x in _p) {
-            _s1 = (_s1 + (_x : stdgo.GoUInt32)) % (65521u32 : stdgo.GoUInt32);
-            _s2 = (_s2 + _s1) % (65521u32 : stdgo.GoUInt32);
+            _s1 = (((_s1 + (_x : stdgo.GoUInt32) : stdgo.GoUInt32)) % (65521u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
+            _s2 = (((_s2 + _s1 : stdgo.GoUInt32)) % (65521u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
         };
-        return (_s2 << (16i64 : stdgo.GoUInt64)) | _s1;
+        return ((_s2 << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) | _s1 : stdgo.GoUInt32);
     }
 function testGolden(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _g in _golden) {
             var _in:stdgo.GoString = _g._in?.__copy__();
-            if ((_in.length) > (220 : stdgo.GoInt)) {
-                _in = (_in.__slice__(0, (100 : stdgo.GoInt)) : stdgo.GoString) + ("..." : stdgo.GoString)?.__copy__() + (_in.__slice__((_in.length) - (100 : stdgo.GoInt)) : stdgo.GoString)?.__copy__()?.__copy__();
+            if (((_in.length) > (220 : stdgo.GoInt) : Bool)) {
+                _in = (((_in.__slice__(0, (100 : stdgo.GoInt)) : stdgo.GoString) + ("..." : stdgo.GoString)?.__copy__() : stdgo.GoString) + (_in.__slice__(((_in.length) - (100 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
             };
             var _p = (_g._in : stdgo.Slice<stdgo.GoByte>);
             {
@@ -153,7 +153,7 @@ function testGoldenMarshal(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
         for (__0 => _g in _golden) {
             var _h:stdgo._internal.hash.Hash.Hash32 = new_();
             var _h2:stdgo._internal.hash.Hash.Hash32 = new_();
-            stdgo._internal.io.Io.writeString(_h, (_g._in.__slice__(0, (_g._in.length) / (2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__());
+            stdgo._internal.io.Io.writeString(_h, (_g._in.__slice__(0, ((_g._in.length) / (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__());
             var __tmp__ = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_h) : stdgo._internal.encoding.Encoding.BinaryMarshaler)) : stdgo._internal.encoding.Encoding.BinaryMarshaler).marshalBinary(), _state:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.errorf(("could not marshal: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
@@ -170,8 +170,8 @@ function testGoldenMarshal(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
                     continue;
                 };
             };
-            stdgo._internal.io.Io.writeString(_h, (_g._in.__slice__((_g._in.length) / (2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__());
-            stdgo._internal.io.Io.writeString(_h2, (_g._in.__slice__((_g._in.length) / (2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__());
+            stdgo._internal.io.Io.writeString(_h, (_g._in.__slice__(((_g._in.length) / (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__());
+            stdgo._internal.io.Io.writeString(_h2, (_g._in.__slice__(((_g._in.length) / (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__());
             if (_h.sum32() != (_h2.sum32())) {
                 _t.errorf(("checksum(%q) = 0x%x != marshaled (0x%x)" : stdgo.GoString), stdgo.Go.toInterface(_g._in), stdgo.Go.toInterface(_h.sum32()), stdgo.Go.toInterface(_h2.sum32()));
             };
@@ -188,7 +188,7 @@ function benchmarkAdler32KB(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Voi
         _b.resetTimer();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i < _b.n, _i++, {
+            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 _h.reset();
                 _h.write(_data);
                 _h.sum(_in);
@@ -233,7 +233,7 @@ class T_digest_asInterface {
     @:pointer
     static public function sum(____:T_digest,  _d:stdgo.Pointer<T_digest>, _in:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> {
         var _s:stdgo.GoUInt32 = (_d.value : stdgo.GoUInt32);
-        return (_in.__append__((_s >> (24i64 : stdgo.GoUInt64) : stdgo.GoByte), (_s >> (16i64 : stdgo.GoUInt64) : stdgo.GoByte), (_s >> (8i64 : stdgo.GoUInt64) : stdgo.GoByte), (_s : stdgo.GoByte)));
+        return (_in.__append__(((_s >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoByte), ((_s >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoByte), ((_s >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoByte), (_s : stdgo.GoByte)));
     }
     @:keep
     @:pointer
@@ -250,7 +250,7 @@ class T_digest_asInterface {
     @:keep
     @:pointer
     static public function unmarshalBinary(____:T_digest,  _d:stdgo.Pointer<T_digest>, _b:stdgo.Slice<stdgo.GoByte>):stdgo.Error {
-        if ((_b.length < stdgo.Go.str("adl", 1).length) || (((_b.__slice__(0, (stdgo.Go.str("adl", 1).length)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) != stdgo.Go.str("adl", 1))) {
+        if ((((_b.length) < (stdgo.Go.str("adl", 1).length) : Bool) || (((_b.__slice__(0, (stdgo.Go.str("adl", 1).length)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) != stdgo.Go.str("adl", 1)) : Bool)) {
             return stdgo._internal.errors.Errors.new_(("hash/adler32: invalid hash state identifier" : stdgo.GoString));
         };
         if ((_b.length) != ((8 : stdgo.GoInt))) {

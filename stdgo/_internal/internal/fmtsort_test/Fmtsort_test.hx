@@ -180,13 +180,13 @@ function testCompare(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                         _expect = (0 : stdgo.GoInt);
                         {
                             var _typ:stdgo._internal.reflect.Reflect.Type_ = _v0.type();
-                            if (((_typ.kind() == (13u32 : stdgo._internal.reflect.Reflect.Kind)) || (_typ.kind() == (14u32 : stdgo._internal.reflect.Reflect.Kind))) && stdgo._internal.math.Math.isNaN(_v0.float_())) {
+                            if (((((_typ.kind() == (13u32 : stdgo._internal.reflect.Reflect.Kind)) || (_typ.kind() == (14u32 : stdgo._internal.reflect.Reflect.Kind)) : Bool)) && stdgo._internal.math.Math.isNaN(_v0.float_()) : Bool)) {
                                 _expect = (-1 : stdgo.GoInt);
                             };
                         };
-                    } else if (_i < _j) {
+                    } else if ((_i < _j : Bool)) {
                         _expect = (-1 : stdgo.GoInt);
-                    } else if (_i > _j) {
+                    } else if ((_i > _j : Bool)) {
                         _expect = (1 : stdgo.GoInt);
                     };
                     if (_c != (_expect)) {
@@ -203,7 +203,7 @@ function _sprint(_data:stdgo.AnyInterface):stdgo.GoString {
         };
         var _b = (stdgo.Go.setRef(({} : stdgo._internal.strings.Strings.Builder)) : stdgo.Ref<stdgo._internal.strings.Strings.Builder>);
         for (_i => _key in _om.key) {
-            if (_i > (0 : stdgo.GoInt)) {
+            if ((_i > (0 : stdgo.GoInt) : Bool)) {
                 _b.writeRune((32 : stdgo.GoInt32));
             };
             _b.writeString(_sprintKey(_key?.__copy__())?.__copy__());
@@ -250,7 +250,7 @@ function _sprintKey(_key:stdgo._internal.reflect.Reflect.Value):stdgo.GoString {
 function _makeChans():stdgo.Slice<stdgo.Chan<stdgo.GoInt>> {
         var _cs = (new stdgo.Slice<stdgo.Chan<stdgo.GoInt>>(3, 3, new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)), new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)), new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt))) : stdgo.Slice<stdgo.Chan<stdgo.GoInt>>);
         stdgo._internal.sort.Sort.slice(stdgo.Go.toInterface(_cs), function(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
-            return (stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(_cs[(_i : stdgo.GoInt)])).unsafePointer().__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) < (stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(_cs[(_j : stdgo.GoInt)])).unsafePointer().__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr);
+            return ((stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(_cs[(_i : stdgo.GoInt)])).unsafePointer().__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) < (stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(_cs[(_j : stdgo.GoInt)])).unsafePointer().__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : Bool);
         });
         return _cs;
     }
@@ -262,7 +262,7 @@ function _pointerMap():stdgo.GoMap<stdgo.Pointer<stdgo.GoInt>, stdgo.GoString> {
         } : stdgo.GoMap<stdgo.Pointer<stdgo.GoInt>, stdgo.GoString>);
         {
             var _i:stdgo.GoInt = (2 : stdgo.GoInt);
-            stdgo.Go.cfor(_i >= (0 : stdgo.GoInt), _i--, {
+            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
                 _m[stdgo.Go.pointer(_ints[(_i : stdgo.GoInt)])] = stdgo._internal.fmt.Fmt.sprint(stdgo.Go.toInterface(_i))?.__copy__();
             });
         };
@@ -278,7 +278,7 @@ function _unsafePointerMap():stdgo.GoMap<stdgo._internal.unsafe.Unsafe.UnsafePoi
         } : stdgo.GoMap<stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoString>);
         {
             var _i:stdgo.GoInt = (2 : stdgo.GoInt);
-            stdgo.Go.cfor(_i >= (0 : stdgo.GoInt), _i--, {
+            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
                 _m[(stdgo.Go.toInterface(stdgo.Go.pointer(_ints[(_i : stdgo.GoInt)])) : stdgo._internal.unsafe.Unsafe.UnsafePointer)] = stdgo._internal.fmt.Fmt.sprint(stdgo.Go.toInterface(_i))?.__copy__();
             });
         };
@@ -292,7 +292,7 @@ function _chanMap():stdgo.GoMap<stdgo.Chan<stdgo.GoInt>, stdgo.GoString> {
         } : stdgo.GoMap<stdgo.Chan<stdgo.GoInt>, stdgo.GoString>);
         {
             var _i:stdgo.GoInt = (2 : stdgo.GoInt);
-            stdgo.Go.cfor(_i >= (0 : stdgo.GoInt), _i--, {
+            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
                 _m[_chans[(_i : stdgo.GoInt)]] = stdgo._internal.fmt.Fmt.sprint(stdgo.Go.toInterface(_i))?.__copy__();
             });
         };

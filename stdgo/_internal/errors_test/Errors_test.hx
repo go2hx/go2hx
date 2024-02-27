@@ -291,7 +291,7 @@ function testIs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _errb:stdgo._internal.errors_test.Errors_test.T_wrapped = (new stdgo._internal.errors_test.Errors_test.T_wrapped(("wrap 3" : stdgo.GoString), stdgo.Go.asInterface(_erra)) : stdgo._internal.errors_test.Errors_test.T_wrapped);
         var _err3:stdgo.Error = stdgo._internal.errors.Errors.new_(("3" : stdgo.GoString));
         var _poser = (stdgo.Go.setRef((new stdgo._internal.errors_test.Errors_test.T_poser(("either 1 or 3" : stdgo.GoString), function(_err:stdgo.Error):Bool {
-            return (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(_err1)) || (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(_err3));
+            return ((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(_err1)) || (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(_err3)) : Bool);
         }) : stdgo._internal.errors_test.Errors_test.T_poser)) : stdgo.Ref<stdgo._internal.errors_test.Errors_test.T_poser>);
         var _testCases = (new stdgo.Slice<T__struct_2>(
 29,

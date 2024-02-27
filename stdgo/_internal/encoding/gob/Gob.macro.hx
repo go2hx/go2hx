@@ -14,7 +14,7 @@ macro function _growSlice<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _v:haxe.mac
                     var _s = (_ps : stdgo.Slice<$E>);
                     _s = (_s.__append__(_zero));
                     var _cp:stdgo.GoInt = _s.capacity;
-                    if (_cp > _length) {
+                    if ((_cp > _length : Bool)) {
                         _cp = _length;
                     };
                     _s = (_s.__slice__(0, _cp) : stdgo.Slice<$E>);

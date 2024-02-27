@@ -615,7 +615,7 @@ function _equal(_z:stdgo.Ref<stdgo._internal.math.big.Big.Int_>, _x:stdgo.Ref<st
     }
 function _generatePositiveInt(_rand:stdgo.Ref<stdgo._internal.math.rand.Rand.Rand>, _size:stdgo.GoInt):stdgo.Ref<stdgo._internal.math.big.Big.Int_> {
         var _n = stdgo._internal.math.big.Big.newInt((1i64 : stdgo.GoInt64));
-        _n.lsh(_n, (_rand.intn(_size * (8 : stdgo.GoInt)) : stdgo.GoUInt));
+        _n.lsh(_n, (_rand.intn((_size * (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoUInt));
         _n.rand(_rand, _n);
         return _n;
     }
@@ -629,7 +629,7 @@ function _checkAliasingOneArg(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, 
         };
         {
             var _out = _f(_v1, _v1);
-            if ((_out != _v1) || !_equal(_v1, _v)) {
+            if (((_out != _v1) || !_equal(_v1, _v) : Bool)) {
                 _t.logf(("f(v, x) != f(x, x)" : stdgo.GoString));
                 return false;
             };
@@ -641,7 +641,7 @@ function _checkAliasingTwoArgs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>,
         {
             var _out = _f(_v, _x, _y);
             if (_out == null || (_out : Dynamic).__nil__) {
-                return (_equal(_x, _x1) && _equal(_y, _y1)) && _equal(_v, _v1);
+                return ((_equal(_x, _x1) && _equal(_y, _y1) : Bool) && _equal(_v, _v1) : Bool);
             } else if (_out != (_v)) {
                 return false;
             };
@@ -649,7 +649,7 @@ function _checkAliasingTwoArgs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>,
         _v1.set(_x);
         {
             var _out = _f(_v1, _v1, _y);
-            if ((_out != _v1) || !_equal(_v1, _v)) {
+            if (((_out != _v1) || !_equal(_v1, _v) : Bool)) {
                 _t.logf(("f(v, x, y) != f(x, x, y)" : stdgo.GoString));
                 return false;
             };
@@ -657,7 +657,7 @@ function _checkAliasingTwoArgs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>,
         _v1.set(_y);
         {
             var _out = _f(_v1, _x, _v1);
-            if ((_out != _v1) || !_equal(_v1, _v)) {
+            if (((_out != _v1) || !_equal(_v1, _v) : Bool)) {
                 _t.logf(("f(v, x, y) != f(y, x, y)" : stdgo.GoString));
                 return false;
             };
@@ -667,14 +667,14 @@ function _checkAliasingTwoArgs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>,
         {
             var _out = _f(_v, _y, _y2);
             if (_out == null || (_out : Dynamic).__nil__) {
-                return (_equal(_y, _y1) && _equal(_y2, _y1)) && _equal(_v, _v1);
+                return ((_equal(_y, _y1) && _equal(_y2, _y1) : Bool) && _equal(_v, _v1) : Bool);
             } else if (_out != (_v)) {
                 return false;
             };
         };
         {
             var _out = _f(_v1, _y, _y);
-            if ((_out != _v1) || !_equal(_v1, _v)) {
+            if (((_out != _v1) || !_equal(_v1, _v) : Bool)) {
                 _t.logf(("f(v, y1, y2) != f(v, y, y)" : stdgo.GoString));
                 return false;
             };
@@ -682,12 +682,12 @@ function _checkAliasingTwoArgs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>,
         _v1.set(_y);
         {
             var _out = _f(_v1, _v1, _v1);
-            if ((_out != _v1) || !_equal(_v1, _v)) {
+            if (((_out != _v1) || !_equal(_v1, _v) : Bool)) {
                 _t.logf(("f(v, y1, y2) != f(y, y, y)" : stdgo.GoString));
                 return false;
             };
         };
-        return _equal(_x, _x1) && _equal(_y, _y1);
+        return (_equal(_x, _x1) && _equal(_y, _y1) : Bool);
     }
 function testAliasing(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (_name => _f in ({
@@ -811,13 +811,13 @@ function testAliasing(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 {
                     final __value__ = _name;
                     if (__value__ == (("ModInverse" : stdgo.GoString)) || __value__ == (("GCD-Y" : stdgo.GoString)) || __value__ == (("GCD-X" : stdgo.GoString))) {
-                        _scale = _scale / (5 : stdgo.GoFloat64);
+                        _scale = (_scale / (5 : stdgo.GoFloat64) : stdgo.GoFloat64);
                     } else if (__value__ == (("Rand" : stdgo.GoString))) {
-                        _scale = _scale / (10 : stdgo.GoFloat64);
+                        _scale = (_scale / (10 : stdgo.GoFloat64) : stdgo.GoFloat64);
                     } else if (__value__ == (("Exp-XZ" : stdgo.GoString)) || __value__ == (("Exp-XY" : stdgo.GoString)) || __value__ == (("Exp-YZ" : stdgo.GoString))) {
-                        _scale = _scale / (50 : stdgo.GoFloat64);
+                        _scale = (_scale / (50 : stdgo.GoFloat64) : stdgo.GoFloat64);
                     } else if (__value__ == (("ModSqrt" : stdgo.GoString))) {
-                        _scale = _scale / (500 : stdgo.GoFloat64);
+                        _scale = (_scale / (500 : stdgo.GoFloat64) : stdgo.GoFloat64);
                     };
                 };
                 {
@@ -831,21 +831,21 @@ function testAliasing(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function _recur(_n:stdgo.GoInt64, _lim:stdgo.GoInt64):stdgo.Ref<stdgo._internal.math.big.Big.Rat> {
         var _term = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big.Rat>);
-        if (_n % (3i64 : stdgo.GoInt64) != ((1i64 : stdgo.GoInt64))) {
+        if ((_n % (3i64 : stdgo.GoInt64) : stdgo.GoInt64) != ((1i64 : stdgo.GoInt64))) {
             _term.setInt64((1i64 : stdgo.GoInt64));
         } else {
-            _term.setInt64(((_n - (1i64 : stdgo.GoInt64)) / (3i64 : stdgo.GoInt64)) * (2i64 : stdgo.GoInt64));
+            _term.setInt64(((((_n - (1i64 : stdgo.GoInt64) : stdgo.GoInt64)) / (3i64 : stdgo.GoInt64) : stdgo.GoInt64) * (2i64 : stdgo.GoInt64) : stdgo.GoInt64));
         };
-        if (_n > _lim) {
+        if ((_n > _lim : Bool)) {
             return _term;
         };
-        var _frac = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big.Rat>).inv(_recur(_n + (1i64 : stdgo.GoInt64), _lim));
+        var _frac = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big.Rat>).inv(_recur((_n + (1i64 : stdgo.GoInt64) : stdgo.GoInt64), _lim));
         return _term.add(_term, _frac);
     }
 function example_eConvergents():Void {
         {
             var _i:stdgo.GoInt = (1 : stdgo.GoInt);
-            stdgo.Go.cfor(_i <= (15 : stdgo.GoInt), _i++, {
+            stdgo.Go.cfor((_i <= (15 : stdgo.GoInt) : Bool), _i++, {
                 var _r = _recur((0i64 : stdgo.GoInt64), (_i : stdgo.GoInt64));
                 stdgo._internal.fmt.Fmt.printf(("%-13s = %s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(_r.floatString((8 : stdgo.GoInt))));
             });
@@ -898,7 +898,7 @@ function example_fibonacci():Void {
         var _b = stdgo._internal.math.big.Big.newInt((1i64 : stdgo.GoInt64));
         var _limit:stdgo._internal.math.big.Big.Int_ = ({} : stdgo._internal.math.big.Big.Int_);
         _limit.exp(stdgo._internal.math.big.Big.newInt((10i64 : stdgo.GoInt64)), stdgo._internal.math.big.Big.newInt((99i64 : stdgo.GoInt64)), null);
-        while (_a.cmp((stdgo.Go.setRef(_limit) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>)) < (0 : stdgo.GoInt)) {
+        while ((_a.cmp((stdgo.Go.setRef(_limit) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>)) < (0 : stdgo.GoInt) : Bool)) {
             _a.add(_a, _b);
             {
                 final __tmp__0 = _b;
@@ -919,7 +919,7 @@ function example_sqrt2():Void {
         var _t = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_i <= _steps, _i++, {
+            stdgo.Go.cfor((_i <= _steps : Bool), _i++, {
                 _t.quo(_two, _x);
                 _t.add(_x, _t);
                 _x.mul(_half, _t);
@@ -942,9 +942,9 @@ function exampleFloat_Add():Void {
 function exampleFloat_shift():Void {
         {
             var _s:stdgo.GoInt = (-5 : stdgo.GoInt);
-            stdgo.Go.cfor(_s <= (5 : stdgo.GoInt), _s++, {
+            stdgo.Go.cfor((_s <= (5 : stdgo.GoInt) : Bool), _s++, {
                 var _x = stdgo._internal.math.big.Big.newFloat((0.5 : stdgo.GoFloat64));
-                _x.setMantExp(_x, _x.mantExp(null) + _s);
+                _x.setMantExp(_x, (_x.mantExp(null) + _s : stdgo.GoInt));
                 stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.Go.asInterface(_x)));
             });
         };
@@ -969,7 +969,7 @@ function exampleRoundingMode():Void {
         stdgo._internal.fmt.Fmt.print(stdgo.Go.toInterface(("   x" : stdgo.GoString)));
         {
             var _mode:stdgo._internal.math.big.Big.RoundingMode = (0 : stdgo._internal.math.big.Big.RoundingMode);
-            stdgo.Go.cfor(_mode <= (5 : stdgo._internal.math.big.Big.RoundingMode), _mode++, {
+            stdgo.Go.cfor((_mode <= (5 : stdgo._internal.math.big.Big.RoundingMode) : Bool), _mode++, {
                 stdgo._internal.fmt.Fmt.printf(("  %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_mode)));
             });
         };
@@ -978,7 +978,7 @@ function exampleRoundingMode():Void {
             stdgo._internal.fmt.Fmt.printf(("%4g" : stdgo.GoString), stdgo.Go.toInterface(_f64));
             {
                 var _mode:stdgo._internal.math.big.Big.RoundingMode = (0 : stdgo._internal.math.big.Big.RoundingMode);
-                stdgo.Go.cfor(_mode <= (5 : stdgo._internal.math.big.Big.RoundingMode), _mode++, {
+                stdgo.Go.cfor((_mode <= (5 : stdgo._internal.math.big.Big.RoundingMode) : Bool), _mode++, {
                     var _f = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>).setPrec((2u32 : stdgo.GoUInt)).setMode(_mode).setFloat64(_f64);
                     stdgo._internal.fmt.Fmt.printf(("  %*g" : stdgo.GoString), stdgo.Go.toInterface(((_mode.string() : stdgo.GoString).length)), stdgo.Go.toInterface(stdgo.Go.asInterface(_f)));
                 });
@@ -2019,7 +2019,7 @@ class T_prime_asInterface {
     @:keep
     static public function generate( _:T_prime, _r:stdgo.Ref<stdgo._internal.math.rand.Rand.Rand>, _size:stdgo.GoInt):stdgo._internal.reflect.Reflect.Value {
         @:recv var _:T_prime = _?.__copy__();
-        var __tmp__ = stdgo._internal.crypto.rand.Rand.prime(stdgo.Go.asInterface(_r), _r.intn((_size * (8 : stdgo.GoInt)) - (2 : stdgo.GoInt)) + (2 : stdgo.GoInt)), _n:stdgo.Ref<stdgo._internal.math.big.Big.Int_> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo._internal.crypto.rand.Rand.prime(stdgo.Go.asInterface(_r), (_r.intn(((_size * (8 : stdgo.GoInt) : stdgo.GoInt) - (2 : stdgo.GoInt) : stdgo.GoInt)) + (2 : stdgo.GoInt) : stdgo.GoInt)), _n:stdgo.Ref<stdgo._internal.math.big.Big.Int_> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             throw stdgo.Go.toInterface(_err);
         };

@@ -5280,7 +5280,8 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info, walk:Bool = true
 	if (walk)
 		e = walkBinary(e);
 	final ct = toComplexType(typeof(expr.type, info, false), info);
-	e = macro($e : $ct);
+	if (ct != null)
+		e = macro($e : $ct);
 	return e.expr;
 } // (A op2 B) op C
 

@@ -2543,7 +2543,8 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 			if (blankBool) {
 				var exprs:Array<Expr> = [];
 				for (rhs in stmt.rhs) {
-					exprs.push(typeExpr(rhs, info));
+					final e = typeExpr(rhs, info);
+					exprs.push(macro var __blank__ = $e);
 				}
 				if (exprs.length == 1)
 					return exprs[0].expr;

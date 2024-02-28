@@ -1156,28 +1156,28 @@ function testBlankFields(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
             _t.errorf(("%#v != %#v" : stdgo.GoString), stdgo.Go.toInterface(_b1), stdgo.Go.toInterface(_b2));
         };
     }
-@:structInit class T_testSizeStructCache_11___localname___foo {
+@:structInit class T_testSizeStructCache_22___localname___foo {
     public var a : stdgo.GoUInt32 = 0;
     public function new(?a:stdgo.GoUInt32) {
         if (a != null) this.a = a;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_testSizeStructCache_11___localname___foo(a);
+        return new T_testSizeStructCache_22___localname___foo(a);
     }
 }
-@:structInit class T_testSizeStructCache_12___localname___bar {
+@:structInit class T_testSizeStructCache_23___localname___bar {
     public var a : stdgo._internal.encoding.binary.Binary.Struct = ({} : stdgo._internal.encoding.binary.Binary.Struct);
-    public var b : stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo = ({} : stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo);
+    public var b : stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_22___localname___foo = ({} : stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_22___localname___foo);
     public var c : stdgo._internal.encoding.binary.Binary.Struct = ({} : stdgo._internal.encoding.binary.Binary.Struct);
-    public function new(?a:stdgo._internal.encoding.binary.Binary.Struct, ?b:stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo, ?c:stdgo._internal.encoding.binary.Binary.Struct) {
+    public function new(?a:stdgo._internal.encoding.binary.Binary.Struct, ?b:stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_22___localname___foo, ?c:stdgo._internal.encoding.binary.Binary.Struct) {
         if (a != null) this.a = a;
         if (b != null) this.b = b;
         if (c != null) this.c = c;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_testSizeStructCache_12___localname___bar(a, b, c);
+        return new T_testSizeStructCache_23___localname___bar(a, b, c);
     }
 }
 function testSizeStructCache(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
@@ -1198,7 +1198,7 @@ function testSizeStructCache(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
         };
         {};
         {};
-        var _testcases = (new stdgo.Slice<T__struct_2>(5, 5, ({ _val : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo)) : stdgo.Ref<stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo>)), _want : (1 : stdgo.GoInt) } : T__struct_2), ({ _val : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_12___localname___bar)) : stdgo.Ref<stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_12___localname___bar>)), _want : (1 : stdgo.GoInt) } : T__struct_2), ({ _val : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_12___localname___bar)) : stdgo.Ref<stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_12___localname___bar>)), _want : (0 : stdgo.GoInt) } : T__struct_2), ({ _val : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(({ a : ({} : stdgo._internal.encoding.binary.Binary.Struct) } : T__struct_3)) : stdgo.Ref<T__struct_3>))), _want : (1 : stdgo.GoInt) } : T__struct_2), ({ _val : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(({ a : ({} : stdgo._internal.encoding.binary.Binary.Struct) } : T__struct_3)) : stdgo.Ref<T__struct_3>))), _want : (0 : stdgo.GoInt) } : T__struct_2)) : stdgo.Slice<T__struct_2>);
+        var _testcases = (new stdgo.Slice<T__struct_2>(5, 5, ({ _val : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_22___localname___foo)) : stdgo.Ref<stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_22___localname___foo>)), _want : (1 : stdgo.GoInt) } : T__struct_2), ({ _val : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_23___localname___bar)) : stdgo.Ref<stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_23___localname___bar>)), _want : (1 : stdgo.GoInt) } : T__struct_2), ({ _val : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_23___localname___bar)) : stdgo.Ref<stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_23___localname___bar>)), _want : (0 : stdgo.GoInt) } : T__struct_2), ({ _val : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(({ a : ({} : stdgo._internal.encoding.binary.Binary.Struct) } : T__struct_3)) : stdgo.Ref<T__struct_3>))), _want : (1 : stdgo.GoInt) } : T__struct_2), ({ _val : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(({ a : ({} : stdgo._internal.encoding.binary.Binary.Struct) } : T__struct_3)) : stdgo.Ref<T__struct_3>))), _want : (0 : stdgo.GoInt) } : T__struct_2)) : stdgo.Slice<T__struct_2>);
         for (__8 => _tc in _testcases) {
             if (size(_tc._val) == ((-1 : stdgo.GoInt))) {
                 _t.fatalf(("Can\'t get the size of %T" : stdgo.GoString), _tc._val);
@@ -1421,14 +1421,14 @@ function _testPutUint64SmallSliceLengthPanics():Bool {
             return _panicked;
         };
     }
-typedef T_testByteOrder_13___localname___byteOrder = stdgo.StructType & {
+typedef T_testByteOrder_24___localname___byteOrder = stdgo.StructType & {
     > ByteOrder,
     > AppendByteOrder,
 };
 function testByteOrder(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
         var _buf = new stdgo.Slice<stdgo.GoUInt8>((8 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        for (__8 => _order in (new stdgo.Slice<stdgo._internal.encoding.binary.Binary.T_testByteOrder_13___localname___byteOrder>(2, 2, stdgo.Go.asInterface(littleEndian), stdgo.Go.asInterface(bigEndian)) : stdgo.Slice<stdgo._internal.encoding.binary.Binary.T_testByteOrder_13___localname___byteOrder>)) {
+        for (__8 => _order in (new stdgo.Slice<stdgo._internal.encoding.binary.Binary.T_testByteOrder_24___localname___byteOrder>(2, 2, stdgo.Go.asInterface(littleEndian), stdgo.Go.asInterface(bigEndian)) : stdgo.Slice<stdgo._internal.encoding.binary.Binary.T_testByteOrder_24___localname___byteOrder>)) {
             {};
             for (__9 => _value in (new stdgo.Slice<stdgo.GoUInt64>(7, 7, (0i64 : stdgo.GoUInt64), (81985529216486895i64 : stdgo.GoUInt64), (-81985529216486896i64 : stdgo.GoUInt64), (-1i64 : stdgo.GoUInt64), (-6148914691236517206i64 : stdgo.GoUInt64), stdgo._internal.math.Math.float64bits((3.141592653589793 : stdgo.GoFloat64)), stdgo._internal.math.Math.float64bits((2.718281828459045 : stdgo.GoFloat64))) : stdgo.Slice<stdgo.GoUInt64>)) {
                 var _want16:stdgo.GoUInt16 = (_value : stdgo.GoUInt16);
@@ -1521,7 +1521,7 @@ stdgo.Go.toInterface((false : Bool))) : stdgo.Slice<stdgo.AnyInterface>);
             };
         };
     }
-@:structInit class T_testNoFixedSize_14___localname___Person {
+@:structInit class T_testNoFixedSize_25___localname___Person {
     public var age : stdgo.GoInt = 0;
     public var weight : stdgo.GoFloat64 = 0;
     public var height : stdgo.GoFloat64 = 0;
@@ -1532,14 +1532,14 @@ stdgo.Go.toInterface((false : Bool))) : stdgo.Slice<stdgo.AnyInterface>);
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_testNoFixedSize_14___localname___Person(age, weight, height);
+        return new T_testNoFixedSize_25___localname___Person(age, weight, height);
     }
 }
 function testNoFixedSize(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
-        var _person:stdgo._internal.encoding.binary.Binary.T_testNoFixedSize_14___localname___Person = ({ age : (27 : stdgo.GoInt), weight : (67.3 : stdgo.GoFloat64), height : (177.8 : stdgo.GoFloat64) } : stdgo._internal.encoding.binary.Binary.T_testNoFixedSize_14___localname___Person);
+        var _person:stdgo._internal.encoding.binary.Binary.T_testNoFixedSize_25___localname___Person = ({ age : (27 : stdgo.GoInt), weight : (67.3 : stdgo.GoFloat64), height : (177.8 : stdgo.GoFloat64) } : stdgo._internal.encoding.binary.Binary.T_testNoFixedSize_25___localname___Person);
         var _buf = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>);
-        var _err:stdgo.Error = write(stdgo.Go.asInterface(_buf), stdgo.Go.asInterface(littleEndian), stdgo.Go.toInterface((stdgo.Go.setRef(_person) : stdgo.Ref<stdgo._internal.encoding.binary.Binary.T_testNoFixedSize_14___localname___Person>)));
+        var _err:stdgo.Error = write(stdgo.Go.asInterface(_buf), stdgo.Go.asInterface(littleEndian), stdgo.Go.toInterface((stdgo.Go.setRef(_person) : stdgo.Ref<stdgo._internal.encoding.binary.Binary.T_testNoFixedSize_25___localname___Person>)));
         if (_err == null) {
             _t.fatal(stdgo.Go.toInterface(("binary.Write: unexpected success as size of type *binary.Person is not fixed" : stdgo.GoString)));
         };
@@ -2306,7 +2306,7 @@ class T_littleEndian_asInterface {
     @:keep
     static public function putUint64( _:T_littleEndian, _b:stdgo.Slice<stdgo.GoByte>, _v:stdgo.GoUInt64):Void {
         @:recv var _:T_littleEndian = _?.__copy__();
-        _b[(7 : stdgo.GoInt)];
+        var __blank__ = _b[(7 : stdgo.GoInt)];
         _b[(0 : stdgo.GoInt)] = (_v : stdgo.GoByte);
         _b[(1 : stdgo.GoInt)] = ((_v >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoByte);
         _b[(2 : stdgo.GoInt)] = ((_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoByte);
@@ -2319,7 +2319,7 @@ class T_littleEndian_asInterface {
     @:keep
     static public function uint64( _:T_littleEndian, _b:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt64 {
         @:recv var _:T_littleEndian = _?.__copy__();
-        _b[(7 : stdgo.GoInt)];
+        var __blank__ = _b[(7 : stdgo.GoInt)];
         return ((((((((_b[(0 : stdgo.GoInt)] : stdgo.GoUInt64) | ((_b[(1 : stdgo.GoInt)] : stdgo.GoUInt64) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) | ((_b[(2 : stdgo.GoInt)] : stdgo.GoUInt64) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) | ((_b[(3 : stdgo.GoInt)] : stdgo.GoUInt64) << (24i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) | ((_b[(4 : stdgo.GoInt)] : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) | ((_b[(5 : stdgo.GoInt)] : stdgo.GoUInt64) << (40i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) | ((_b[(6 : stdgo.GoInt)] : stdgo.GoUInt64) << (48i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) | ((_b[(7 : stdgo.GoInt)] : stdgo.GoUInt64) << (56i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);
     }
     @:keep
@@ -2330,7 +2330,7 @@ class T_littleEndian_asInterface {
     @:keep
     static public function putUint32( _:T_littleEndian, _b:stdgo.Slice<stdgo.GoByte>, _v:stdgo.GoUInt32):Void {
         @:recv var _:T_littleEndian = _?.__copy__();
-        _b[(3 : stdgo.GoInt)];
+        var __blank__ = _b[(3 : stdgo.GoInt)];
         _b[(0 : stdgo.GoInt)] = (_v : stdgo.GoByte);
         _b[(1 : stdgo.GoInt)] = ((_v >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoByte);
         _b[(2 : stdgo.GoInt)] = ((_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoByte);
@@ -2339,7 +2339,7 @@ class T_littleEndian_asInterface {
     @:keep
     static public function uint32( _:T_littleEndian, _b:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32 {
         @:recv var _:T_littleEndian = _?.__copy__();
-        _b[(3 : stdgo.GoInt)];
+        var __blank__ = _b[(3 : stdgo.GoInt)];
         return ((((_b[(0 : stdgo.GoInt)] : stdgo.GoUInt32) | ((_b[(1 : stdgo.GoInt)] : stdgo.GoUInt32) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32) | ((_b[(2 : stdgo.GoInt)] : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32) | ((_b[(3 : stdgo.GoInt)] : stdgo.GoUInt32) << (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32);
     }
     @:keep
@@ -2350,14 +2350,14 @@ class T_littleEndian_asInterface {
     @:keep
     static public function putUint16( _:T_littleEndian, _b:stdgo.Slice<stdgo.GoByte>, _v:stdgo.GoUInt16):Void {
         @:recv var _:T_littleEndian = _?.__copy__();
-        _b[(1 : stdgo.GoInt)];
+        var __blank__ = _b[(1 : stdgo.GoInt)];
         _b[(0 : stdgo.GoInt)] = (_v : stdgo.GoByte);
         _b[(1 : stdgo.GoInt)] = ((_v >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoByte);
     }
     @:keep
     static public function uint16( _:T_littleEndian, _b:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt16 {
         @:recv var _:T_littleEndian = _?.__copy__();
-        _b[(1 : stdgo.GoInt)];
+        var __blank__ = _b[(1 : stdgo.GoInt)];
         return ((_b[(0 : stdgo.GoInt)] : stdgo.GoUInt16) | ((_b[(1 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt16);
     }
 }
@@ -2411,7 +2411,7 @@ class T_bigEndian_asInterface {
     @:keep
     static public function putUint64( _:T_bigEndian, _b:stdgo.Slice<stdgo.GoByte>, _v:stdgo.GoUInt64):Void {
         @:recv var _:T_bigEndian = _?.__copy__();
-        _b[(7 : stdgo.GoInt)];
+        var __blank__ = _b[(7 : stdgo.GoInt)];
         _b[(0 : stdgo.GoInt)] = ((_v >> (56i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoByte);
         _b[(1 : stdgo.GoInt)] = ((_v >> (48i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoByte);
         _b[(2 : stdgo.GoInt)] = ((_v >> (40i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoByte);
@@ -2424,7 +2424,7 @@ class T_bigEndian_asInterface {
     @:keep
     static public function uint64( _:T_bigEndian, _b:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt64 {
         @:recv var _:T_bigEndian = _?.__copy__();
-        _b[(7 : stdgo.GoInt)];
+        var __blank__ = _b[(7 : stdgo.GoInt)];
         return ((((((((_b[(7 : stdgo.GoInt)] : stdgo.GoUInt64) | ((_b[(6 : stdgo.GoInt)] : stdgo.GoUInt64) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) | ((_b[(5 : stdgo.GoInt)] : stdgo.GoUInt64) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) | ((_b[(4 : stdgo.GoInt)] : stdgo.GoUInt64) << (24i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) | ((_b[(3 : stdgo.GoInt)] : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) | ((_b[(2 : stdgo.GoInt)] : stdgo.GoUInt64) << (40i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) | ((_b[(1 : stdgo.GoInt)] : stdgo.GoUInt64) << (48i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) | ((_b[(0 : stdgo.GoInt)] : stdgo.GoUInt64) << (56i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);
     }
     @:keep
@@ -2435,7 +2435,7 @@ class T_bigEndian_asInterface {
     @:keep
     static public function putUint32( _:T_bigEndian, _b:stdgo.Slice<stdgo.GoByte>, _v:stdgo.GoUInt32):Void {
         @:recv var _:T_bigEndian = _?.__copy__();
-        _b[(3 : stdgo.GoInt)];
+        var __blank__ = _b[(3 : stdgo.GoInt)];
         _b[(0 : stdgo.GoInt)] = ((_v >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoByte);
         _b[(1 : stdgo.GoInt)] = ((_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoByte);
         _b[(2 : stdgo.GoInt)] = ((_v >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoByte);
@@ -2444,7 +2444,7 @@ class T_bigEndian_asInterface {
     @:keep
     static public function uint32( _:T_bigEndian, _b:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32 {
         @:recv var _:T_bigEndian = _?.__copy__();
-        _b[(3 : stdgo.GoInt)];
+        var __blank__ = _b[(3 : stdgo.GoInt)];
         return ((((_b[(3 : stdgo.GoInt)] : stdgo.GoUInt32) | ((_b[(2 : stdgo.GoInt)] : stdgo.GoUInt32) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32) | ((_b[(1 : stdgo.GoInt)] : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32) | ((_b[(0 : stdgo.GoInt)] : stdgo.GoUInt32) << (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32);
     }
     @:keep
@@ -2455,14 +2455,14 @@ class T_bigEndian_asInterface {
     @:keep
     static public function putUint16( _:T_bigEndian, _b:stdgo.Slice<stdgo.GoByte>, _v:stdgo.GoUInt16):Void {
         @:recv var _:T_bigEndian = _?.__copy__();
-        _b[(1 : stdgo.GoInt)];
+        var __blank__ = _b[(1 : stdgo.GoInt)];
         _b[(0 : stdgo.GoInt)] = ((_v >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoByte);
         _b[(1 : stdgo.GoInt)] = (_v : stdgo.GoByte);
     }
     @:keep
     static public function uint16( _:T_bigEndian, _b:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt16 {
         @:recv var _:T_bigEndian = _?.__copy__();
-        _b[(1 : stdgo.GoInt)];
+        var __blank__ = _b[(1 : stdgo.GoInt)];
         return ((_b[(1 : stdgo.GoInt)] : stdgo.GoUInt16) | ((_b[(0 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt16);
     }
 }

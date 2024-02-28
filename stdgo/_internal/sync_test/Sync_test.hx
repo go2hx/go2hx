@@ -1756,7 +1756,7 @@ function _benchmarkMutex(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _slack
                     };
                 };
             };
-            _foo;
+            var __blank__ = _foo;
         });
     }
 function benchmarkMutex(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
@@ -2715,7 +2715,7 @@ function benchmarkPoolExpensiveNew(_b:stdgo.Ref<stdgo._internal.testing.Testing.
                         _items[(_i : stdgo.GoInt)] = (null : stdgo.AnyInterface);
                     };
                 };
-                _sink;
+                var __blank__ = _sink;
             });
             stdgo._internal.runtime.Runtime.readMemStats((stdgo.Go.setRef(_mstats2) : stdgo.Ref<stdgo._internal.runtime.Runtime.MemStats>));
             _b.reportMetric((((_mstats2.numGC - _mstats1.numGC : stdgo.GoUInt32) : stdgo.GoFloat64) / (_b.n : stdgo.GoFloat64) : stdgo.GoFloat64), ("GCs/op" : stdgo.GoString));
@@ -2806,7 +2806,7 @@ function _benchmarkSema(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _block:
                     };
                     runtime_Semacquire(stdgo.Go.pointer(_sem));
                 };
-                _foo;
+                var __blank__ = _foo;
                 runtime_Semrelease(stdgo.Go.pointer(_sem), false, (0 : stdgo.GoInt));
             });
             {
@@ -3176,7 +3176,7 @@ function _benchmarkRWMutex(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _loc
                     _rwm.runlock();
                 };
             };
-            _foo;
+            var __blank__ = _foo;
         });
     }
 function benchmarkRWMutexWrite100(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
@@ -3392,7 +3392,7 @@ function _benchmarkWaitGroupAddDone(_b:stdgo.Ref<stdgo._internal.testing.Testing
                 };
                 _wg.done();
             };
-            _foo;
+            var __blank__ = _foo;
         });
     }
 function benchmarkWaitGroupAddDone(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
@@ -3415,7 +3415,7 @@ function _benchmarkWaitGroupWait(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>
                     });
                 };
             };
-            _foo;
+            var __blank__ = _foo;
         });
     }
 function benchmarkWaitGroupWait(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {

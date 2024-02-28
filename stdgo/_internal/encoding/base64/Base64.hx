@@ -1209,7 +1209,7 @@ function benchmarkNewEncoding(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):V
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 var _e = newEncoding(("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/" : stdgo.GoString));
                 for (__16 => _v in _e._decodeMap) {
-                    _v;
+                    var __blank__ = _v;
                 };
             });
         };
@@ -1275,7 +1275,7 @@ class Encoding_asInterface {
         if ((_src.length) == ((0 : stdgo.GoInt))) {
             return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
         };
-        _enc._decodeMap;
+        var __blank__ = _enc._decodeMap;
         var _si:stdgo.GoInt = (0 : stdgo.GoInt);
         while (((false && (((_src.length) - _si : stdgo.GoInt) >= (8 : stdgo.GoInt) : Bool) : Bool) && (((_dst.length) - _n : stdgo.GoInt) >= (8 : stdgo.GoInt) : Bool) : Bool)) {
             var _src2 = (_src.__slice__(_si, (_si + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
@@ -1351,7 +1351,7 @@ class Encoding_asInterface {
         var _nsi:stdgo.GoInt = (0 : stdgo.GoInt), _n:stdgo.GoInt = (0 : stdgo.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         var _dbuf:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 4) (0 : stdgo.GoUInt8)]);
         var _dlen:stdgo.GoInt = (4 : stdgo.GoInt);
-        _enc._decodeMap;
+        var __blank__ = _enc._decodeMap;
         {
             var _j:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_j < (_dbuf.length) : Bool), _j++, {
@@ -1477,7 +1477,7 @@ class Encoding_asInterface {
         if ((_src.length) == ((0 : stdgo.GoInt))) {
             return;
         };
-        _enc._encode;
+        var __blank__ = _enc._encode;
         var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), _si:stdgo.GoInt = __1, _di:stdgo.GoInt = __0;
         var _n:stdgo.GoInt = ((((_src.length) / (3 : stdgo.GoInt) : stdgo.GoInt)) * (3 : stdgo.GoInt) : stdgo.GoInt);
         while ((_si < _n : Bool)) {

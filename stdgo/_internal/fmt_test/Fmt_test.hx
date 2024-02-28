@@ -864,28 +864,28 @@ var _mallocTest : stdgo.Slice<T__struct_4> = (new stdgo.Slice<T__struct_4>(
 13,
 13,
 ({ _count : (0 : stdgo.GoInt), _desc : ("Sprintf(\"\")" : stdgo.GoString), _fn : function():Void {
-        sprintf(stdgo.Go.str()?.__copy__());
+        var __blank__ = sprintf(stdgo.Go.str()?.__copy__());
     } } : T__struct_4),
 ({ _count : (1 : stdgo.GoInt), _desc : ("Sprintf(\"xxx\")" : stdgo.GoString), _fn : function():Void {
-        sprintf(("xxx" : stdgo.GoString));
+        var __blank__ = sprintf(("xxx" : stdgo.GoString));
     } } : T__struct_4),
 ({ _count : (0 : stdgo.GoInt), _desc : ("Sprintf(\"%x\")" : stdgo.GoString), _fn : function():Void {
-        sprintf(("%x" : stdgo.GoString), stdgo.Go.toInterface((7 : stdgo.GoInt)));
+        var __blank__ = sprintf(("%x" : stdgo.GoString), stdgo.Go.toInterface((7 : stdgo.GoInt)));
     } } : T__struct_4),
 ({ _count : (1 : stdgo.GoInt), _desc : ("Sprintf(\"%x\")" : stdgo.GoString), _fn : function():Void {
-        sprintf(("%x" : stdgo.GoString), stdgo.Go.toInterface((65536 : stdgo.GoInt)));
+        var __blank__ = sprintf(("%x" : stdgo.GoString), stdgo.Go.toInterface((65536 : stdgo.GoInt)));
     } } : T__struct_4),
 ({ _count : (3 : stdgo.GoInt), _desc : ("Sprintf(\"%80000s\")" : stdgo.GoString), _fn : function():Void {
-        sprintf(("%80000s" : stdgo.GoString), stdgo.Go.toInterface(("hello" : stdgo.GoString)));
+        var __blank__ = sprintf(("%80000s" : stdgo.GoString), stdgo.Go.toInterface(("hello" : stdgo.GoString)));
     } } : T__struct_4),
 ({ _count : (1 : stdgo.GoInt), _desc : ("Sprintf(\"%s\")" : stdgo.GoString), _fn : function():Void {
-        sprintf(("%s" : stdgo.GoString), stdgo.Go.toInterface(("hello" : stdgo.GoString)));
+        var __blank__ = sprintf(("%s" : stdgo.GoString), stdgo.Go.toInterface(("hello" : stdgo.GoString)));
     } } : T__struct_4),
 ({ _count : (1 : stdgo.GoInt), _desc : ("Sprintf(\"%x %x\")" : stdgo.GoString), _fn : function():Void {
-        sprintf(("%x %x" : stdgo.GoString), stdgo.Go.toInterface((7 : stdgo.GoInt)), stdgo.Go.toInterface((112 : stdgo.GoInt)));
+        var __blank__ = sprintf(("%x %x" : stdgo.GoString), stdgo.Go.toInterface((7 : stdgo.GoInt)), stdgo.Go.toInterface((112 : stdgo.GoInt)));
     } } : T__struct_4),
 ({ _count : (1 : stdgo.GoInt), _desc : ("Sprintf(\"%g\")" : stdgo.GoString), _fn : function():Void {
-        sprintf(("%g" : stdgo.GoString), stdgo.Go.toInterface(((3.14159 : stdgo.GoFloat64) : stdgo.GoFloat32)));
+        var __blank__ = sprintf(("%g" : stdgo.GoString), stdgo.Go.toInterface(((3.14159 : stdgo.GoFloat64) : stdgo.GoFloat32)));
     } } : T__struct_4),
 ({ _count : (0 : stdgo.GoInt), _desc : ("Fprintf(buf, \"%s\")" : stdgo.GoString), _fn : function():Void {
         _mallocBuf.reset();
@@ -2348,28 +2348,28 @@ function testReorder(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function benchmarkSprintfPadding(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing.PB>):Void {
             while (_pb.next()) {
-                sprintf(("%16f" : stdgo.GoString), stdgo.Go.toInterface((1 : stdgo.GoFloat64)));
+                var __blank__ = sprintf(("%16f" : stdgo.GoString), stdgo.Go.toInterface((1 : stdgo.GoFloat64)));
             };
         });
     }
 function benchmarkSprintfEmpty(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing.PB>):Void {
             while (_pb.next()) {
-                sprintf(stdgo.Go.str()?.__copy__());
+                var __blank__ = sprintf(stdgo.Go.str()?.__copy__());
             };
         });
     }
 function benchmarkSprintfString(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing.PB>):Void {
             while (_pb.next()) {
-                sprintf(("%s" : stdgo.GoString), stdgo.Go.toInterface(("hello" : stdgo.GoString)));
+                var __blank__ = sprintf(("%s" : stdgo.GoString), stdgo.Go.toInterface(("hello" : stdgo.GoString)));
             };
         });
     }
 function benchmarkSprintfTruncateString(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing.PB>):Void {
             while (_pb.next()) {
-                sprintf(("%.3s" : stdgo.GoString), stdgo.Go.toInterface(("日本語日本語日本語日本語" : stdgo.GoString)));
+                var __blank__ = sprintf(("%.3s" : stdgo.GoString), stdgo.Go.toInterface(("日本語日本語日本語日本語" : stdgo.GoString)));
             };
         });
     }
@@ -2377,70 +2377,70 @@ function benchmarkSprintfTruncateBytes(_b:stdgo.Ref<stdgo._internal.testing.Test
         var _bytes:stdgo.AnyInterface = stdgo.Go.toInterface((("日本語日本語日本語日本語" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>));
         _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing.PB>):Void {
             while (_pb.next()) {
-                sprintf(("%.3s" : stdgo.GoString), _bytes);
+                var __blank__ = sprintf(("%.3s" : stdgo.GoString), _bytes);
             };
         });
     }
 function benchmarkSprintfSlowParsingPath(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing.PB>):Void {
             while (_pb.next()) {
-                sprintf(("%.v" : stdgo.GoString), (null : stdgo.AnyInterface));
+                var __blank__ = sprintf(("%.v" : stdgo.GoString), (null : stdgo.AnyInterface));
             };
         });
     }
 function benchmarkSprintfQuoteString(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing.PB>):Void {
             while (_pb.next()) {
-                sprintf(("%q" : stdgo.GoString), stdgo.Go.toInterface(("日本語日本語日本語" : stdgo.GoString)));
+                var __blank__ = sprintf(("%q" : stdgo.GoString), stdgo.Go.toInterface(("日本語日本語日本語" : stdgo.GoString)));
             };
         });
     }
 function benchmarkSprintfInt(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing.PB>):Void {
             while (_pb.next()) {
-                sprintf(("%d" : stdgo.GoString), stdgo.Go.toInterface((5 : stdgo.GoInt)));
+                var __blank__ = sprintf(("%d" : stdgo.GoString), stdgo.Go.toInterface((5 : stdgo.GoInt)));
             };
         });
     }
 function benchmarkSprintfIntInt(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing.PB>):Void {
             while (_pb.next()) {
-                sprintf(("%d %d" : stdgo.GoString), stdgo.Go.toInterface((5 : stdgo.GoInt)), stdgo.Go.toInterface((6 : stdgo.GoInt)));
+                var __blank__ = sprintf(("%d %d" : stdgo.GoString), stdgo.Go.toInterface((5 : stdgo.GoInt)), stdgo.Go.toInterface((6 : stdgo.GoInt)));
             };
         });
     }
 function benchmarkSprintfPrefixedInt(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing.PB>):Void {
             while (_pb.next()) {
-                sprintf(("This is some meaningless prefix text that needs to be scanned %d" : stdgo.GoString), stdgo.Go.toInterface((6 : stdgo.GoInt)));
+                var __blank__ = sprintf(("This is some meaningless prefix text that needs to be scanned %d" : stdgo.GoString), stdgo.Go.toInterface((6 : stdgo.GoInt)));
             };
         });
     }
 function benchmarkSprintfFloat(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing.PB>):Void {
             while (_pb.next()) {
-                sprintf(("%g" : stdgo.GoString), stdgo.Go.toInterface((5.23184 : stdgo.GoFloat64)));
+                var __blank__ = sprintf(("%g" : stdgo.GoString), stdgo.Go.toInterface((5.23184 : stdgo.GoFloat64)));
             };
         });
     }
 function benchmarkSprintfComplex(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing.PB>):Void {
             while (_pb.next()) {
-                sprintf(("%f" : stdgo.GoString), stdgo.Go.toInterface(((5.23184f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 5.23184f64))));
+                var __blank__ = sprintf(("%f" : stdgo.GoString), stdgo.Go.toInterface(((5.23184f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 5.23184f64))));
             };
         });
     }
 function benchmarkSprintfBoolean(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing.PB>):Void {
             while (_pb.next()) {
-                sprintf(("%t" : stdgo.GoString), stdgo.Go.toInterface(true));
+                var __blank__ = sprintf(("%t" : stdgo.GoString), stdgo.Go.toInterface(true));
             };
         });
     }
 function benchmarkSprintfHexString(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing.PB>):Void {
             while (_pb.next()) {
-                sprintf(("% #x" : stdgo.GoString), stdgo.Go.toInterface(("0123456789abcdef" : stdgo.GoString)));
+                var __blank__ = sprintf(("% #x" : stdgo.GoString), stdgo.Go.toInterface(("0123456789abcdef" : stdgo.GoString)));
             };
         });
     }
@@ -2448,7 +2448,7 @@ function benchmarkSprintfHexBytes(_b:stdgo.Ref<stdgo._internal.testing.Testing.B
         var _data = (("0123456789abcdef" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
         _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing.PB>):Void {
             while (_pb.next()) {
-                sprintf(("% #x" : stdgo.GoString), stdgo.Go.toInterface(_data));
+                var __blank__ = sprintf(("% #x" : stdgo.GoString), stdgo.Go.toInterface(_data));
             };
         });
     }
@@ -2456,7 +2456,7 @@ function benchmarkSprintfBytes(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):
         var _data = (("0123456789abcdef" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
         _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing.PB>):Void {
             while (_pb.next()) {
-                sprintf(("%v" : stdgo.GoString), stdgo.Go.toInterface(_data));
+                var __blank__ = sprintf(("%v" : stdgo.GoString), stdgo.Go.toInterface(_data));
             };
         });
     }
@@ -2464,7 +2464,7 @@ function benchmarkSprintfStringer(_b:stdgo.Ref<stdgo._internal.testing.Testing.B
         var _stringer:stdgo._internal.fmt_test.Fmt_test.I = ((12345 : stdgo._internal.fmt_test.Fmt_test.I) : I);
         _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing.PB>):Void {
             while (_pb.next()) {
-                sprintf(("%v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_stringer)));
+                var __blank__ = sprintf(("%v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_stringer)));
             };
         });
     }
@@ -2479,7 +2479,7 @@ function benchmarkSprintfStructure(_b:stdgo.Ref<stdgo._internal.testing.Testing.
         } : stdgo.GoMap<stdgo.GoInt, stdgo.GoString>))) : stdgo.Slice<stdgo.AnyInterface>)) : stdgo.Ref<stdgo.Slice<stdgo.AnyInterface>>);
         _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing.PB>):Void {
             while (_pb.next()) {
-                sprintf(("%#v" : stdgo.GoString), stdgo.Go.toInterface(_s));
+                var __blank__ = sprintf(("%#v" : stdgo.GoString), stdgo.Go.toInterface(_s));
             };
         });
     }
@@ -2717,13 +2717,13 @@ function testPanics(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testBadVerbRecursion(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _failed:Bool = false;
         var _r = (stdgo.Go.setRef((new stdgo._internal.fmt_test.Fmt_test.Recur((3 : stdgo.GoInt), stdgo.Go.pointer(_failed)) : stdgo._internal.fmt_test.Fmt_test.Recur)) : stdgo.Ref<stdgo._internal.fmt_test.Fmt_test.Recur>);
-        sprintf(("recur@%p value: %d\n" : stdgo.GoString), stdgo.Go.toInterface((stdgo.Go.setRef(_r) : stdgo.Ref<stdgo.Ref<stdgo._internal.fmt_test.Fmt_test.Recur>>)), stdgo.Go.toInterface(_r._i));
+        var __blank__ = sprintf(("recur@%p value: %d\n" : stdgo.GoString), stdgo.Go.toInterface((stdgo.Go.setRef(_r) : stdgo.Ref<stdgo.Ref<stdgo._internal.fmt_test.Fmt_test.Recur>>)), stdgo.Go.toInterface(_r._i));
         if (_failed) {
             _t.error(stdgo.Go.toInterface(("fail with pointer" : stdgo.GoString)));
         };
         _failed = false;
         _r = (stdgo.Go.setRef((new stdgo._internal.fmt_test.Fmt_test.Recur((4 : stdgo.GoInt), stdgo.Go.pointer(_failed)) : stdgo._internal.fmt_test.Fmt_test.Recur)) : stdgo.Ref<stdgo._internal.fmt_test.Fmt_test.Recur>);
-        sprintf(("recur@%p, value: %d\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(_r._i));
+        var __blank__ = sprintf(("recur@%p, value: %d\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(_r._i));
         if (_failed) {
             _t.error(stdgo.Go.toInterface(("fail with value" : stdgo.GoString)));
         };

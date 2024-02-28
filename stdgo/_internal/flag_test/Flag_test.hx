@@ -731,13 +731,13 @@ function testParseError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _typ in (new stdgo.Slice<stdgo.GoString>(7, 7, ("bool" : stdgo.GoString), ("int" : stdgo.GoString), ("int64" : stdgo.GoString), ("uint" : stdgo.GoString), ("uint64" : stdgo.GoString), ("float64" : stdgo.GoString), ("duration" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
             var _fs = newFlagSet(("parse error test" : stdgo.GoString), (0 : stdgo._internal.flag.Flag.ErrorHandling));
             _fs.setOutput(stdgo._internal.io.Io.discard);
-            _fs.bool_(("bool" : stdgo.GoString), false, stdgo.Go.str()?.__copy__());
-            _fs.int_(("int" : stdgo.GoString), (0 : stdgo.GoInt), stdgo.Go.str()?.__copy__());
-            _fs.int64(("int64" : stdgo.GoString), (0i64 : stdgo.GoInt64), stdgo.Go.str()?.__copy__());
-            _fs.uint(("uint" : stdgo.GoString), (0u32 : stdgo.GoUInt), stdgo.Go.str()?.__copy__());
-            _fs.uint64(("uint64" : stdgo.GoString), (0i64 : stdgo.GoUInt64), stdgo.Go.str()?.__copy__());
-            _fs.float64(("float64" : stdgo.GoString), (0 : stdgo.GoFloat64), stdgo.Go.str()?.__copy__());
-            _fs.duration(("duration" : stdgo.GoString), (0i64 : stdgo._internal.time.Time.Duration), stdgo.Go.str()?.__copy__());
+            var __blank__ = _fs.bool_(("bool" : stdgo.GoString), false, stdgo.Go.str()?.__copy__());
+            var __blank__ = _fs.int_(("int" : stdgo.GoString), (0 : stdgo.GoInt), stdgo.Go.str()?.__copy__());
+            var __blank__ = _fs.int64(("int64" : stdgo.GoString), (0i64 : stdgo.GoInt64), stdgo.Go.str()?.__copy__());
+            var __blank__ = _fs.uint(("uint" : stdgo.GoString), (0u32 : stdgo.GoUInt), stdgo.Go.str()?.__copy__());
+            var __blank__ = _fs.uint64(("uint64" : stdgo.GoString), (0i64 : stdgo.GoUInt64), stdgo.Go.str()?.__copy__());
+            var __blank__ = _fs.float64(("float64" : stdgo.GoString), (0 : stdgo.GoFloat64), stdgo.Go.str()?.__copy__());
+            var __blank__ = _fs.duration(("duration" : stdgo.GoString), (0i64 : stdgo._internal.time.Time.Duration), stdgo.Go.str()?.__copy__());
             var _args = (new stdgo.Slice<stdgo.GoString>(1, 1, ((("-" : stdgo.GoString) + _typ?.__copy__() : stdgo.GoString) + ("=x" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             var _err:stdgo.Error = _fs.parse(_args);
             if (_err == null) {
@@ -754,11 +754,11 @@ function testRangeError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _arg in _bad) {
             var _fs = newFlagSet(("parse error test" : stdgo.GoString), (0 : stdgo._internal.flag.Flag.ErrorHandling));
             _fs.setOutput(stdgo._internal.io.Io.discard);
-            _fs.int_(("int" : stdgo.GoString), (0 : stdgo.GoInt), stdgo.Go.str()?.__copy__());
-            _fs.int64(("int64" : stdgo.GoString), (0i64 : stdgo.GoInt64), stdgo.Go.str()?.__copy__());
-            _fs.uint(("uint" : stdgo.GoString), (0u32 : stdgo.GoUInt), stdgo.Go.str()?.__copy__());
-            _fs.uint64(("uint64" : stdgo.GoString), (0i64 : stdgo.GoUInt64), stdgo.Go.str()?.__copy__());
-            _fs.float64(("float64" : stdgo.GoString), (0 : stdgo.GoFloat64), stdgo.Go.str()?.__copy__());
+            var __blank__ = _fs.int_(("int" : stdgo.GoString), (0 : stdgo.GoInt), stdgo.Go.str()?.__copy__());
+            var __blank__ = _fs.int64(("int64" : stdgo.GoString), (0i64 : stdgo.GoInt64), stdgo.Go.str()?.__copy__());
+            var __blank__ = _fs.uint(("uint" : stdgo.GoString), (0u32 : stdgo.GoUInt), stdgo.Go.str()?.__copy__());
+            var __blank__ = _fs.uint64(("uint64" : stdgo.GoString), (0i64 : stdgo.GoUInt64), stdgo.Go.str()?.__copy__());
+            var __blank__ = _fs.float64(("float64" : stdgo.GoString), (0 : stdgo.GoFloat64), stdgo.Go.str()?.__copy__());
             var _err:stdgo.Error = _fs.parse((new stdgo.Slice<stdgo.GoString>(1, 1, _arg?.__copy__()) : stdgo.Slice<stdgo.GoString>));
             if (_err == null) {
                 _t.errorf(("Parse(%q)=%v; expected range error" : stdgo.GoString), stdgo.Go.toInterface(_arg), stdgo.Go.toInterface(_err));
@@ -947,7 +947,7 @@ function testDefineAfterSet(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
         var _flags = newFlagSet(("test" : stdgo.GoString), (0 : stdgo._internal.flag.Flag.ErrorHandling));
         _flags.set(("myFlag" : stdgo.GoString), ("value" : stdgo.GoString));
         _mustPanic(_t, ("DefineAfterSet" : stdgo.GoString), ("flag myFlag set at .*/flag_test.go:.* before being defined" : stdgo.GoString), function():Void {
-            _flags.string(("myFlag" : stdgo.GoString), ("default" : stdgo.GoString), ("usage" : stdgo.GoString));
+            var __blank__ = _flags.string(("myFlag" : stdgo.GoString), ("default" : stdgo.GoString), ("usage" : stdgo.GoString));
         });
     }
 @:keep var _ = {

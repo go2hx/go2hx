@@ -2346,7 +2346,7 @@ function testFormatComplexInvalidBitSize(_t:stdgo.Ref<stdgo._internal.testing.Te
                 };
                 a();
             });
-            formatComplex(((1f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 2f64)), (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (100 : stdgo.GoInt));
+            var __blank__ = formatComplex(((1f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 2f64)), (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (100 : stdgo.GoInt));
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -3000,7 +3000,7 @@ function testFormatFloatInvalidBitSize(_t:stdgo.Ref<stdgo._internal.testing.Test
                 };
                 a();
             });
-            formatFloat((3.14 : stdgo.GoFloat64), (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (100 : stdgo.GoInt));
+            var __blank__ = formatFloat((3.14 : stdgo.GoFloat64), (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (100 : stdgo.GoInt));
             {
                 for (defer in __deferstack__) {
                     defer();

@@ -853,7 +853,7 @@ class Map__asInterface {
     @:keep
     static public function store( _m:stdgo.Ref<Map_>, _key:stdgo.AnyInterface, _value:stdgo.AnyInterface):Void {
         @:recv var _m:stdgo.Ref<Map_> = _m;
-        _m.swap(_key, _value);
+        var __blank__ = _m.swap(_key, _value);
     }
     @:keep
     static public function load( _m:stdgo.Ref<Map_>, _key:stdgo.AnyInterface):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } {
@@ -1616,7 +1616,7 @@ class RWMutex_asInterface {
     static public function unlock( _rw:stdgo.Ref<RWMutex>):Void {
         @:recv var _rw:stdgo.Ref<RWMutex> = _rw;
         if (false) {
-            _rw._w._state;
+            var __blank__ = _rw._w._state;
             stdgo._internal.internal.race.Race.release((stdgo.Go.toInterface(stdgo.Go.pointer(_rw._readerSem)) : stdgo._internal.unsafe.Unsafe.UnsafePointer));
             stdgo._internal.internal.race.Race.disable();
         };
@@ -1640,7 +1640,7 @@ class RWMutex_asInterface {
     static public function tryLock( _rw:stdgo.Ref<RWMutex>):Bool {
         @:recv var _rw:stdgo.Ref<RWMutex> = _rw;
         if (false) {
-            _rw._w._state;
+            var __blank__ = _rw._w._state;
             stdgo._internal.internal.race.Race.disable();
         };
         if (!_rw._w.tryLock()) {
@@ -1667,7 +1667,7 @@ class RWMutex_asInterface {
     static public function lock( _rw:stdgo.Ref<RWMutex>):Void {
         @:recv var _rw:stdgo.Ref<RWMutex> = _rw;
         if (false) {
-            _rw._w._state;
+            var __blank__ = _rw._w._state;
             stdgo._internal.internal.race.Race.disable();
         };
         _rw._w.lock();
@@ -1696,7 +1696,7 @@ class RWMutex_asInterface {
     static public function runlock( _rw:stdgo.Ref<RWMutex>):Void {
         @:recv var _rw:stdgo.Ref<RWMutex> = _rw;
         if (false) {
-            _rw._w._state;
+            var __blank__ = _rw._w._state;
             stdgo._internal.internal.race.Race.releaseMerge((stdgo.Go.toInterface(stdgo.Go.pointer(_rw._writerSem)) : stdgo._internal.unsafe.Unsafe.UnsafePointer));
             stdgo._internal.internal.race.Race.disable();
         };
@@ -1714,7 +1714,7 @@ class RWMutex_asInterface {
     static public function tryRLock( _rw:stdgo.Ref<RWMutex>):Bool {
         @:recv var _rw:stdgo.Ref<RWMutex> = _rw;
         if (false) {
-            _rw._w._state;
+            var __blank__ = _rw._w._state;
             stdgo._internal.internal.race.Race.disable();
         };
         while (true) {
@@ -1738,7 +1738,7 @@ class RWMutex_asInterface {
     static public function rlock( _rw:stdgo.Ref<RWMutex>):Void {
         @:recv var _rw:stdgo.Ref<RWMutex> = _rw;
         if (false) {
-            _rw._w._state;
+            var __blank__ = _rw._w._state;
             stdgo._internal.internal.race.Race.disable();
         };
         if ((_rw._readerCount.add((1 : stdgo.GoInt32)) < (0 : stdgo.GoInt32) : Bool)) {

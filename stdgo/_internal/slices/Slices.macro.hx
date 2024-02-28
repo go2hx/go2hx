@@ -320,7 +320,7 @@ macro function delete<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f(__generic__0:$S, __generic__1:$E, _s:$S, _i:stdgo.GoInt, _j:stdgo.GoInt) {
-                    (_s.__slice__(_i, _j) : $S);
+                    var __blank__ = (_s.__slice__(_i, _j) : $S);
                     return ((_s.__slice__(0, _i) : $S).__append__(...(_s.__slice__(_j) : $S).__toArray__()));
                 };
                 switch f.expr {
@@ -388,7 +388,7 @@ macro function replace<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__
             } catch(_) {
                 final f = macro function f(__generic__0:$S, __generic__1:$E, _s:$S, _i:stdgo.GoInt, _j:stdgo.GoInt, _v:haxe.Rest<$E>) {
                     var _v = new stdgo.Slice<$E>(_v.length, 0, ..._v);
-                    (_s.__slice__(_i, _j) : $S);
+                    var __blank__ = (_s.__slice__(_i, _j) : $S);
                     if (_i == (_j)) {
                         return @:privateAccess stdgo._internal.slices.Slices.insert(stdgo.Go.defaultValue((cast (null) : $S)), stdgo.Go.defaultValue((cast (null) : $E)), _s, _i, ..._v.__toArray__());
                     };

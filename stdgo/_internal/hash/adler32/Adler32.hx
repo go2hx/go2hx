@@ -79,7 +79,7 @@ function _appendUint32(_b:stdgo.Slice<stdgo.GoByte>, _x:stdgo.GoUInt32):stdgo.Sl
         return (_b.__append__(...(_a.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
     }
 function _readUint32(_b:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32 {
-        _b[(3 : stdgo.GoInt)];
+        var __blank__ = _b[(3 : stdgo.GoInt)];
         return ((((_b[(3 : stdgo.GoInt)] : stdgo.GoUInt32) | ((_b[(2 : stdgo.GoInt)] : stdgo.GoUInt32) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32) | ((_b[(1 : stdgo.GoInt)] : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32) | ((_b[(0 : stdgo.GoInt)] : stdgo.GoUInt32) << (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32);
     }
 function _update(_d:T_digest, _p:stdgo.Slice<stdgo.GoByte>):T_digest {

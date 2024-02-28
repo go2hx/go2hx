@@ -1884,7 +1884,7 @@ function exampleTime_Truncate():Void {
             stdgo._internal.fmt.Fmt.printf(("t.Truncate(%5s) = %s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_d)), stdgo.Go.toInterface(_t.truncate(_d).format(("15:04:05.999999999" : stdgo.GoString))));
         };
         var _midnight:stdgo._internal.time.Time.Time = stdgo._internal.time.Time.date(_t.year(), _t.month(), _t.day(), (0 : stdgo.GoInt), (0 : stdgo.GoInt), (0 : stdgo.GoInt), (0 : stdgo.GoInt), stdgo._internal.time.Time.local)?.__copy__();
-        _midnight;
+        var __blank__ = _midnight;
     }
 function exampleLoadLocation():Void {
         var __tmp__ = stdgo._internal.time.Time.loadLocation(("America/Los_Angeles" : stdgo.GoString)), _location:stdgo.Ref<stdgo._internal.time.Time.Location> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -4661,7 +4661,7 @@ function testLocationRace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
             };
             a();
         });
-        (now().string() : stdgo.GoString);
+        var __blank__ = (now().string() : stdgo.GoString);
         _c.__get__();
         sleep((100000000i64 : stdgo._internal.time.Time.Duration));
         forceUSPacificForTesting();
@@ -4937,7 +4937,7 @@ function benchmarkHour(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                _t.hour();
+                var __blank__ = _t.hour();
             });
         };
     }
@@ -4946,7 +4946,7 @@ function benchmarkSecond(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                _t.second();
+                var __blank__ = _t.second();
             });
         };
     }
@@ -4955,7 +4955,7 @@ function benchmarkYear(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                _t.year();
+                var __blank__ = _t.year();
             });
         };
     }
@@ -4964,7 +4964,7 @@ function benchmarkDay(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                _t.day();
+                var __blank__ = _t.day();
             });
         };
     }
@@ -4973,7 +4973,7 @@ function benchmarkISOWeek(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void 
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                _t.isoweek();
+                var __blank__ = _t.isoweek();
             });
         };
     }
@@ -4982,7 +4982,7 @@ function benchmarkGoString(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                _t.goString();
+                var __blank__ = _t.goString();
             });
         };
     }

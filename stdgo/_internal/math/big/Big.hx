@@ -3749,7 +3749,7 @@ function benchmarkNonZeroShifts(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>)
                     {
                         var _i:stdgo.GoInt = (0 : stdgo.GoInt);
                         stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                            _shrVU(_z, _x, _s);
+                            var __blank__ = _shrVU(_z, _x, _s);
                         });
                     };
                 });
@@ -3757,7 +3757,7 @@ function benchmarkNonZeroShifts(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>)
                     {
                         var _i:stdgo.GoInt = (0 : stdgo.GoInt);
                         stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                            _shlVU(_z, _x, _s);
+                            var __blank__ = _shlVU(_z, _x, _s);
                         });
                     };
                 });
@@ -5602,7 +5602,7 @@ function testFloatArithmeticSpecialValues(_t:stdgo.Ref<stdgo._internal.testing.T
                                                     r;
                                                 });
                                                 if (_p != null) {
-                                                    (stdgo.Go.typeAssert((_p : ErrNaN)) : ErrNaN);
+                                                    var __blank__ = (stdgo.Go.typeAssert((_p : ErrNaN)) : ErrNaN);
                                                     _errnan = true;
                                                 };
                                             };
@@ -10067,7 +10067,7 @@ function benchmarkString(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
                     {
                         var _i:stdgo.GoInt = (0 : stdgo.GoInt);
                         stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                            _z._utoa(_base);
+                            var __blank__ = _z._utoa(_base);
                         });
                     };
                 });
@@ -10101,12 +10101,12 @@ function leafSizeHelper(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _base:s
                 _b.stopTimer();
                 var _z:T_nat = new stdgo._internal.math.big.Big.T_nat(0, 0);
                 _z = _z._expWW((_base : Word), (_d : Word));
-                _z._utoa(_base);
+                var __blank__ = _z._utoa(_base);
                 _b.startTimer();
                 {
                     var _i:stdgo.GoInt = (0 : stdgo.GoInt);
                     stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                        _z._utoa(_base);
+                        var __blank__ = _z._utoa(_base);
                     });
                 };
             });
@@ -16127,7 +16127,7 @@ class T_nat_asInterface {
             _t1 = _t1._sub(_t1, _t2);
             var _t3:stdgo._internal.math.big.Big.T_nat = _vk1;
             _vk1 = null;
-            _vk1;
+            var __blank__ = _vk1;
             {
                 var __tmp__ = _t2._div(_t3, _t1, _n);
                 _t2 = __tmp__._0;

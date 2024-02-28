@@ -445,7 +445,7 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                     };
                     __deferstack__.unshift(() -> {
                         var a = function():Void {
-                            stdgo._internal.os.Os.removeAll(_dir?.__copy__());
+                            var __blank__ = stdgo._internal.os.Os.removeAll(_dir?.__copy__());
                         };
                         a();
                     });

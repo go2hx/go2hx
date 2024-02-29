@@ -122,6 +122,8 @@ func sortImports(dir string, name string) (r Result) {
 				if chanBool {
 					return nil
 				}
+				// half of easy
+				r.Easy = r.Easy[:len(r.Easy)/2]
 			case "tinygo":
 				b, err := os.ReadFile(path[:len(path)-2] + "txt")
 				if err == nil {
@@ -154,8 +156,6 @@ func sortImports(dir string, name string) (r Result) {
 	if err != nil {
 		fmt.Println(err)
 	}
-	// half of easy
-	r.Easy = r.Easy[:len(r.Easy)/2]
 	return
 }
 

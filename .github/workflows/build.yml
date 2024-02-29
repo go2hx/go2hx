@@ -148,8 +148,8 @@ jobs:
         run: go run ./scripts/sortTests ci
       - name: Run yaegi easy tests
         run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D hxb
-      - name: Clean go2hx
-        run: npx haxelib run go2hx clean
+      - name: Remove stdgo folder
+        run: rm -r -d stdgo
       # git pull latest
       - name: Pull latest
         run: git pull
@@ -199,8 +199,8 @@ jobs:
       # run go easy tests
       - name: Run go easy tests
         run: npx haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D hxb
-      - name: Clean go2hx
-        run: npx haxelib run go2hx clean
+      - name: Remove stdgo folder
+        run: rm -r -d stdgo
       # git pull latest
       - name: Pull latest
         run: git pull

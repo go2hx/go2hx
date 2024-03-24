@@ -71,6 +71,15 @@ function deleteDirectoryRecursively(dir:String):Int {
 	}
 }
 
+function copyDirectoryRecursively(from:String, to:String):Int {
+	return switch (systemName) {
+		case "Windows":
+			#if !js Sys.command("xcopy /E /I " + from + " " + to); #else 0; #end
+		default:
+			#if !js Sys.command("cp -r " + from + " " + to); #else 0; #end
+	}
+}
+
 function getHaxelibPath(libName:String) {
 	#if !js
 	var proc = new sys.io.Process("haxelib", ["path", libName]);

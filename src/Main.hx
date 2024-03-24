@@ -143,7 +143,7 @@ function compileArgs(args:Array<String>):InstanceData {
 		["-timeout", "--timeout"] => d -> instance.defines.push('timeoutTest $d'),
 		@doc("Verbose output: log all tests as they are run. Also print all text from Log and Logf calls even if the test succeeds.")
 		["-v", "--v"] => () -> instance.defines.push("verboseTest"),
-		["-nodeps", "--nodeps"] => () -> instance.noDeps = true,
+		["-nodeps", "--nodeps", "-nodep", "--nodep"] => () -> instance.noDeps = true,
 	]);
 	argHandler.parse(args);
 	for (i in 0...args.length) {
@@ -333,7 +333,9 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 						final name = module.name;
 						final libPath = "libs/" + name + "/";
 						Gen.create(libPath, module, instance.root);
-						Sys.command('haxelib dev $name $libPath');
+						final cmd = 'haxelib dev $name $libPath';
+						Sys.println(cmd);
+						Sys.command(cmd);
 						if (libs.indexOf(name) == -1)
 							libs.push(name);
 					} else {
@@ -367,64 +369,16 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 }
 
 private function createBasePkgs(outputPath:String, modules:Array<Typer.Module>, cwd:String) {
-	final pkgs = [
-		"reflect/Reflect",
-		"Error",
-		"internal/reflect/Reflect",
-		"internal/reflectlite/Reflectlite",
-		"GoString",
-		"Slice",
-		"Pointer",
-		"internal/Async",
-		"StdGoTypes",
-		"Go",
-		"Go.macro",
-		"Chan",
-		"GoMap",
-		"Chan",
-		"GoArray",
-		"unsafe/Unsafe",
-		"testing/Testing",
-		"internal/Macro",
-		"internal/Macro.macro",
-		"internal/TypeInfo"
-	];
-	final requires = [
-		"strings", "internal/oserror", "path", "internal/poll", "syscall", "syscall/js", "time", "io/fs", "fmt", "errors", "internal/fmtsort", "io", "math",
-		"os", "reflect", "sort", "strconv", "sync", "sync/atomic", "unicode/utf8", "math/bits", "internal/bytealg", "internal/cpu", "runtime",
-	];
-	for (module in modules) {
-		final path = StringTools.replace(module.name, "/", ".");
-		if (requires.indexOf(path) != -1)
-			requires.remove(module.name);
-	}
-	for (require in requires) {
-		if (require == "time")
-			pkgs.push("time/Time.macro");
-		final index = require.lastIndexOf("/");
-		if (index != -1) {
-			require = require + "/" + require.charAt(index + 1).toUpperCase() + require.substring(index + 2);
-		} else {
-			require = require + "/" + require.charAt(0).toUpperCase() + require.substring(1);
+	if (FileSystem.exists(outputPath + "/stdgo/_internal/unicode") && FileSystem.exists(outputPath + "/stdgo/Go.hx"))
+		return;
+	src.Util.copyDirectoryRecursively(cwd + "/haxe", outputPath + "/haxe");
+	src.Util.copyDirectoryRecursively(cwd + "/stdgo/_internal/", outputPath + "/stdgo/_internal/");
+	for (file in FileSystem.readDirectory(cwd + "/stdgo/_internal")) {
+		if (Path.extension(file) == "hx") {
+			final content = File.getContent(cwd + "/stdgo/_internal/" + file);
+			File.saveContent(outputPath + "/stdgo/_internal/" + file, content);
 		}
-		pkgs.push(require);
 	}
-	for (pkg in pkgs) {
-		pkg = "stdgo/" + pkg;
-		final path = pkg;
-		final dir = Path.directory(outputPath + path);
-		if (!FileSystem.exists(dir))
-			FileSystem.createDirectory(dir);
-		if (FileSystem.exists(cwd + path + ".macro.hx") && !FileSystem.exists(outputPath + path + ".macro.hx")) {
-			File.saveBytes(outputPath + path + ".macro.hx", File.getBytes(cwd + path + ".macro.hx"));
-		}
-		if (!FileSystem.exists(outputPath + path + ".hx"))
-			File.saveBytes(outputPath + path + ".hx", File.getBytes(cwd + path + ".hx"));
-	}
-	if (!FileSystem.exists(outputPath + "haxe"))
-		FileSystem.createDirectory(outputPath + "haxe");
-	File.saveBytes(outputPath + "haxe/UInt64.hx", File.getBytes(cwd + "haxe/UInt64.hx"));
-	File.saveBytes(outputPath + "haxe/UInt64Helper.hx", File.getBytes(cwd + "haxe/UInt64Helper.hx"));
 }
 
 function targetLibs(target:String):String {
@@ -488,7 +442,7 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 		commands.push("-lib");
 		commands.push("go2hx");
 	} else {
-		final lines = File.getContent(cwd + "extraParams.hxml").split("\n");
+		final lines = File.getContent(cwd + "/extraParams.hxml").split("\n");
 		for (line in lines) {
 			if (line != "") {
 				final parts = line.split(" ");

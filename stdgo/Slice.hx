@@ -26,6 +26,8 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 		return this.__append__(...args);
 	}
 
+
+
 	public inline function __toBasic__()
 		return this;
 
@@ -152,8 +154,8 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	public function __getOffset__():Int {
 		return this.offset;
 	}
-
-	public function __toArray__() {
+	@:to
+	public function __toArray__():Array<T> {
 		return this == null ? [] : this.toArray();
 	}
 

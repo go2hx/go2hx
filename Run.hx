@@ -19,6 +19,16 @@ function main() {
 		return;
 	}
 
+	if (args.length > 0 && args.indexOf("extraParams") != -1) {
+		createExtraParams();
+		return;
+	}
+
+	if (args.length > 0 && args.indexOf("libs") != -1) {
+		testLibs();
+		return;
+	}
+
 	if (args.length > 0 && args.indexOf("build") != -1) {
 		build(true);
 		return;
@@ -161,7 +171,6 @@ function build(rebuild:Bool) {
 			Sys.setCwd("..");
 		}
 	}
-	//if (!FileSystem.exists("prebuild.zip"))
 	// run go compiler
 	if (!FileSystem.exists("go4hx") || rebuild) {
 		Sys.println("build go part of the compiler");
@@ -216,4 +225,17 @@ function setupHxb() {
 	Sys.println("setting up Hxb");
 	Sys.command("haxe scripts/hxb.hxml");
 	Sys.command("haxe scripts/create_hxb.hxml");
+	Sys.command("haxe scripts/consume_hxb.hxml");
+}
+
+function testLibs() {
+	final args = Sys.args();
+	Sys.command('haxe tests/tests.hxml -D ci -D libs -D path=${args[args.length - 1]}');
+}
+
+function createExtraParams() {
+	final args = Sys.args();
+	final localPath = args[args.length - 1];
+	final cwd = Sys.getCwd();
+	File.copy(cwd + "/extraParams.hxml", localPath + "/extraParams.hxml");
 }

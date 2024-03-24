@@ -66,6 +66,17 @@ function isTitle(string:String):Bool {
 	return string.charAt(0) == "_" ? false : string.charAt(0) == string.charAt(0).toUpperCase();
 }
 
+function removeTypeParam(t:GoType) {
+	if (t == null)
+		return t;
+	return switch t {
+		case typeParam(_, _[0] => t):
+			t;
+		default:
+			t;
+	}
+}
+
 function isStruct(type:GoType):Bool {
 	if (type == null)
 		return false;

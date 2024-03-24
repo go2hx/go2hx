@@ -15,7 +15,7 @@ final reserved = [
 	"iterator", "keyValueIterator", "switch", "case", "break", "continue", "default", "is", "abstract", "cast", "catch", "class", "do", "function", "dynamic",
 	"else", "enum", "extends", "extern", "final", "for", "function", "if", "interface", "implements", "import", "in", "inline", "macro", "new", "operator",
 	"overload", "override", "package", "private", "public", "return", "static", "this", "throw", "try", "typedef", "untyped", "using", "var", "while",
-	"construct", "null", "in", "wait", "length", "capacity", "bool", "float", "int", "struct", "offsetof", "alignof", "atomic", "map",
+	"construct", "null", "in", "wait", "length", "capacity", "bool", "float", "int", "struct", "offsetof", "alignof", "atomic", "map", "comparable",
 ];
 
 final reservedClassNames = [
@@ -74,6 +74,7 @@ final basicTypes = [
 	"byte", // alias for uint8
 	"rune", // alias for int32
 	"uintptr",
+	"comparable",
 ];
 
 var printer = new Printer();
@@ -1084,13 +1085,6 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef { // for s
 	if (value == null)
 		value = stmt.value == null ? macro _ : typeExpr(stmt.value, info); // value of x[key]
 	var body = {expr: typeBlockStmt(stmt.body, info, false), pos: null};
-	if (stmt.value == null && assign) {
-		switch xType {
-			case arrayType(_, _), sliceType(_):
-				return (macro for ($key in 0...$x.length.toBasic()) $body).expr;
-			default:
-		}
-	}
 	// both key and value
 	if (assign) { // non var
 		switch body.expr {
@@ -3074,12 +3068,6 @@ private function starType(expr:Ast.StarExpr, info:Info):ComplexType { // pointer
 private function identType(expr:Ast.Ident, info:Info):ComplexType {
 	var name = className(expr.name, info);
 	if (!info.renameClasses.exists(expr.name) && !info.global.renameClasses.exists(name)) { 
-		if (name == "T_comparable") {
-			return TPath({
-				pack: ["stdgo"],
-				name: "GoComparable",
-			});
-		}
 		for (t in basicTypes) {
 			if (name == "T_" + t) {
 				name = "Go" + title(name.substr(2));
@@ -3272,7 +3260,7 @@ private function typeMapType(expr:Ast.MapType, info:Info):ExprDef {
 private function typeEllipsis(expr:Ast.Ellipsis, info:Info):ExprDef {
 	var e = typeExpr(expr.elt, info);
 	var t = typeof(expr.elt, info, false);
-	var rest = typeRest(e);
+	var rest = typeRest(e, t, info);
 	return rest != null ? rest.expr : null;
 }
 
@@ -3371,7 +3359,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		}else if (expr.ellipsis != 0) {
 			var last = args.pop();
 			var t = typeof(exprArgs[exprArgs.length - 1], info, false);
-			last = typeRest(last);
+			last = typeRest(last, t, info);
 			args.push(last);
 		}
 		var type = typeof(expr.fun, info, false);
@@ -3561,10 +3549,15 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						var key = typeExpr(expr.args[1], info);
 						var t = typeof(expr.args[0], info, false);
 						t = getUnderlying(t);
-						switch t {
+						switch removeTypeParam(t) {
 							case mapType(_.get() => var keyType, _):
 								key = assignTranslate(typeof(expr.args[1], info, false), keyType, key, info, false);
 							case invalidType:
+							case tuple(_, _.get() => vars):
+								return (macro {
+									final e = $e;
+									e._0.remove(e._1);
+								}).expr;
 							default:
 								throw info.panic() + "first arg of delete builtin function not of type map: " + t;
 						}
@@ -4370,6 +4363,8 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 				return anyInterfaceType();
 			throw info.panic() + "non empty interface";
 		case named(path, _, underlying, _, _.get() => params):
+			if (path == "comparable")
+				return null;
 			if (path == null) {
 				trace("underlying null path: " + printer.printComplexType(toComplexType(underlying, info)));
 				throw info.panic() + path;
@@ -4478,9 +4473,11 @@ private function toGoType(expr:Expr):Expr {
 	return expr;
 }
 
-private function typeRest(expr:Expr):Expr {
+private function typeRest(expr:Expr, t:GoType, info:Info):Expr {
 	expr = toGoType(expr);
-	return macro...$expr.__toArray__();
+	t = getElem(t);
+	final ct = toComplexType(t, info);
+	return macro...($expr : Array<$ct>);
 }
 
 private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
@@ -4842,7 +4839,7 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 	if (isInvalid(underlying)) {
 		return (macro @:invalid_compositelit null).expr;
 	}
-	switch underlying {
+	switch removeTypeParam(underlying) {
 		case interfaceType(_, _):
 			//trace(underlying);
 			//trace(type);
@@ -5855,7 +5852,7 @@ final genericNames = params == null ? [] : [for (i in 0...params.length) params[
 							params: params,
 						});
 					}else{
-						if (p.name == "Bool" || p.pack.length != 0) {
+						if (p.name == "Bool" || p.pack.length != 0 || p.name.charAt(0) == "$") {
 							return TPath({
 								name: p.name,
 								sub: p.sub,
@@ -6363,13 +6360,18 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			final ct = toComplexType(elem, info);
 			macro(null : stdgo.Ref<$ct>); // pointer can be nil
 		case named(path, _, underlying, alias, _):
+			
 			switch getUnderlying(underlying) {
 				case chanType(_, _):
 					final ct = ct();
 					macro(null : $ct);
 				case pointerType(_), interfaceType(_), mapType(_, _), signature(_, _):
 					final ct = ct();
-					macro(null : $ct);
+					if (ct != null) {
+						macro(null : $ct);
+					}else{
+						macro null;
+					}
 				case basic(_):
 					final ct = ct();
 					final e = defaultValue(underlying, info);
@@ -6766,7 +6768,6 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			final superClass = path;
 			final argExprs:Array<Expr> = [];
 			final args:Array<FunctionArg> = [];
-			final p:TypePath = {name: name, pack: []};
 			for (field in fs) {
 				final name = field.name;
 				argExprs.push(macro $i{name});
@@ -6774,6 +6775,9 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			}
 			final meta:Metadata = [{name: ":structInit", pos: null}, {name: ":named", pos: null}];
 			final params = getParams(spec.params, info, true); // named struct
+			final p:TypePath = {name: name, pack: []};
+			if (params != null && params.length > 0)
+				p.params = typeParamDeclsToTypeParams(params);
 			final td = macro class $name {
 				public function new() {}
 
@@ -6843,6 +6847,10 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 		meta: meta,
 		kind: TDAlias(uct),
 	}
+}
+
+private function typeParamDeclsToTypeParams(list:Array<TypeParamDecl>):Array<TypeParam> {
+	return list.map(p -> TPType(TPath({name: p.name, pack: []})));
 }
 
 private function refToPointerWrapper(t:GoType):GoType {
@@ -7043,7 +7051,10 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 					})
 				});
 			}
+			final params = getParams(spec.params, info, true);
 			var p:TypePath = {name: name, pack: []};
+			if (params != null && params.length > 0)
+				p.params = typeParamDeclsToTypeParams(params);
 			var args:Array<Expr> = [];
 			var sets:Array<Expr> = [];
 			for (field in fields) {
@@ -7167,7 +7178,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				}
 				info.restricted = [];
 			}
-			final params = getParams(spec.params, info, true);
 			if (local) {
 				final def:TypeDefinition = {
 					name: name,

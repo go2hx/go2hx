@@ -512,7 +512,7 @@ private function sortDataToTests(sortData:SortData) {
 		switch name {
 			case "issue32288": // inf loop
 				continue;
-			case "index0": // no main func
+			case "index0", "issue47227": // no main func
 				continue;
 			case "zerosize": // uses obsecure &runtime.zerobase
 				continue;

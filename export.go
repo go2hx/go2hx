@@ -788,8 +788,16 @@ func parseLocalTypes(file *ast.File, pkg *packages.Package) {
 				file.Decls = append(file.Decls, &gen)
 
 				var pos token.Pos = 0
-				namedType := types.NewNamed(types.NewTypeName(pos, pkg.Types, name.Name, nil), t, nil)
+				methods := []*types.Func{}
+				switch t := t.(type) {
+				case *types.Interface:
+					for i := 0; i < t.NumMethods(); i++ {
+						methods = append(methods, t.Method(i))
+					}
+				}
+				namedType := types.NewNamed(types.NewTypeName(pos, pkg.Types, name.Name, nil), t, methods)
 				tv := types.TypeAndValue{}
+
 				tv.Type = t
 				// add
 				checker.Defs[name] = namedType.Obj()
@@ -806,6 +814,10 @@ func parseLocalTypes(file *ast.File, pkg *packages.Package) {
 		return true
 	}
 	file = astutil.Apply(file, apply, nil).(*ast.File)
+}
+
+func typeParamsFromType(t *types.Type) []string {
+	return nil
 }
 
 // takes all of the Syntax from input and merges it and then puts a single *ast.File syntax into output

@@ -4,12 +4,16 @@ import (
 	"encoding/json"
 	"fmt"
 	"go/ast"
+	"go/importer"
 	"go/parser"
 	"go/token"
+	"go/types"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
+
+	"golang.org/x/tools/go/packages"
 )
 
 var std = map[string]bool{}
@@ -71,10 +75,19 @@ func sortImports(dir string, name string) (r Result) {
 	r.Medium = make([]string, 0)
 	r.Hard = make([]string, 0)
 
+	var cfg = &packages.Config{
+		Mode: packages.NeedName |
+			packages.NeedSyntax |
+			packages.NeedFiles | packages.NeedTypes | packages.NeedTypesInfo | packages.NeedTypesSizes,
+		BuildFlags: []string{"-tags", "netgo,purego,math_big_pure_go"}, // build tags
+	}
+	var conf = types.Config{Importer: importer.Default(), FakeImportC: true}
+	_, _ = cfg, conf
+	i := 0
 	// Walk through the directory and its subdirectories
 	err := filepath.Walk(dir, func(path string, info os.FileInfo, err error) error {
 		// Check if the file is a Go file
-		if filepath.Ext(path) == ".go" && !strings.HasSuffix(path, "_test.go") {
+		if filepath.Ext(path) == ".go" && !strings.HasSuffix(path, "_test.go") && !strings.Contains(path, "typeparam") {
 			// Parse the Go file
 			fset := token.NewFileSet()
 			file, err := parser.ParseFile(fset, path, nil, parser.ImportsOnly)
@@ -94,6 +107,7 @@ func sortImports(dir string, name string) (r Result) {
 				}
 				wanted = res
 			case "go":
+				i++
 				// check if the first comment is // errorcheck
 				file, err := parser.ParseFile(fset, path, nil, parser.ParseComments)
 				if err != nil {
@@ -109,19 +123,35 @@ func sortImports(dir string, name string) (r Result) {
 				if !strings.HasPrefix(text, "run") {
 					return nil
 				}
+
 				// make sure the file does not use channels
 				chanBool := false
+				typeParams := false
 				ast.Inspect(file, func(n ast.Node) bool {
 					switch n.(type) {
 					case *ast.ChanType:
 						chanBool = true
 						return false
+					case *ast.IndexListExpr:
+						typeParams = true
+						return false
 					}
 					return true
 				})
-				if chanBool {
+
+				if chanBool || typeParams {
 					return nil
 				}
+				/*initial, err := packages.Load(cfg, &types.StdSizes{WordSize: 4, MaxAlign: 8}, path)
+				checker := types.NewChecker(&conf, fset, initial[0].Types, initial[0].TypesInfo)
+				for _, obj := range checker.Types {
+					switch obj.Type.(type) {
+					case *types.TypeParam:
+						fmt.Println("RID OF:", path)
+						return nil
+					}
+				}*/
+				fmt.Println(i, path)
 			case "tinygo":
 				b, err := os.ReadFile(path[:len(path)-2] + "txt")
 				if err == nil {

@@ -2,4 +2,6 @@
 -cp src
 extraParams.hxml
 -D nolinkstd
---interp
+-lib hxnodejs
+--js main.js
+#--interp

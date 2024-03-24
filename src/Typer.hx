@@ -2329,7 +2329,7 @@ private function goTypesEqual(a:GoType, b:GoType, depth:Int) {
 }
 // explicit conversion
 private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):Expr {
-	// trace(fromType,toType);
+	//trace(fromType,toType);
 	if (goTypesEqual(fromType, toType, 0)) {
 		if (passCopy)
 			return passByCopy(toType, expr, info);
@@ -3332,7 +3332,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		}*/
 		return e;
 	}
-	function genArgs(translateType:Bool, pos:Int = 0) {
+	function genArgs(translateType:Bool, pos:Int = 0, ?elem:GoType) {
 		final exprArgs = expr.args.slice(pos);
 		args = [for (arg in exprArgs) typeExpr(arg, info)];
 		if (args.length == 1) {
@@ -3353,16 +3353,18 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				}
 			}
 		}
+		var type = typeof(expr.fun, info, false);
 		// ellipsis
 		if (expr.ellipsis == -1) {
 			debugBool = true;
 		}else if (expr.ellipsis != 0) {
 			var last = args.pop();
 			var t = typeof(exprArgs[exprArgs.length - 1], info, false);
+			if (elem != null)
+				t = elem;
 			last = typeRest(last, t, info);
 			args.push(last);
 		}
-		var type = typeof(expr.fun, info, false);
 		if (translateType && type != null) {
 			if (isInvalid(type)) { // set standard library expected call arguments
 				if (expr.fun.id == "SelectorExpr") {
@@ -3526,13 +3528,14 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							r;
 						})).expr;
 					case "append":
-						genArgs(false);
+						final t = typeof(expr.args[0], info, false);
+						var eType = getElem(t);
+						genArgs(false, eType);
 						var e = args.shift();
 						if (args.length == 0)
 							return returnExpr(e).expr;
-						final t = typeof(expr.args[0], info, false);
-						var eType = getElem(t);
-						for (i in 0...args.length - (expr.ellipsis != 0 ? 1 : 0)) {
+
+						for (i in 0...args.length - (expr.ellipsis != 0 ? 0 : 0)) {
 							final aType = typeof(expr.args[i + 1], info, false);
 							args[i] = assignTranslate(aType, eType, args[i], info);
 						}

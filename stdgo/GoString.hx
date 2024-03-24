@@ -152,9 +152,11 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 		#end
 	}
 
+	@:to
 	public function __toArray__():Array<GoByte>
 		return [for (code in __toSliceByte__()) code];
 
+	
 	public function iterator()
 		return new GoStringIterator(this);
 

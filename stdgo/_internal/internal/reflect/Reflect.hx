@@ -1379,7 +1379,7 @@ class _Type_asInterface {
 	public dynamic function bits():GoInt
 		return __self__.value.bits();
 
-	public dynamic function comparable():Bool
+	public dynamic function comparable_():Bool
 		return __self__.value.comparable();
 
 	public dynamic function convertibleTo(_u:Type):Bool

@@ -2106,7 +2106,7 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 					default:
 				}
 				// trace(printer.printExpr(y), type);
-				if (!isInterface(type) && !isAnyInterface(type)) {
+				if (!isInterface(type) && !isAnyInterface(type) && !isPointer(type) && !isRef(type)) {
 					switch y.expr {
 						case EArray(_):
 						default:

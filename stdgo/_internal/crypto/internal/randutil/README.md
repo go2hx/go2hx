@@ -1,17 +1,71 @@
-# Module stdgo._internal.crypto.internal.randutil has compilation errors, please do not use:
-```
-stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
-stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
-stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... For function argument 't'
-stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
-stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
-stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : ... For function argument 'v'
-stdgo/_internal/reflect/Reflect.hx:779: characters 13-122 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
-stdgo/_internal/reflect/Reflect.hx:779: characters 13-122 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
-stdgo/_internal/reflect/Reflect.hx:781: characters 9-142 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
-stdgo/_internal/reflect/Reflect.hx:781: characters 9-142 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
-stdgo/_internal/internal/reflect/Reflect.hx:978: characters 13-51 : stdgo._internal.internal.reflect._Type_asInterface should be Null<stdgo._internal.reflect.Type_>
-stdgo/_internal/internal/reflect/Reflect.hx:978: characters 13-51 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+# Module: `stdgo._internal.crypto.internal.randutil`
 
+[(view library index)](../../../../stdgo.md)
+
+
+# Overview
+
+
+# Index
+
+
+- [Variables](<#variables>)
+
+- [`function maybeReadByte(_r:stdgo._internal.io.Reader):Void`](<#function-maybereadbyte>)
+
+- [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
+
+# Variables
+
+
+```haxe
+import stdgo._internal.crypto.internal.randutil.Randutil
 ```
+
+
+```haxe
+var _closedChan:stdgo.Chan<stdgo._internal.crypto.internal.randutil.T__struct_0>
+```
+
+
+```haxe
+var _closedChanOnce:stdgo._internal.sync.Once
+```
+
+
+# Functions
+
+
+```haxe
+import stdgo._internal.crypto.internal.randutil.Randutil
+```
+
+
+## function maybeReadByte
+
+
+```haxe
+function maybeReadByte(_r:stdgo._internal.io.Reader):Void
+```
+
+
+[\(view code\)](<./Randutil.hx#L18>)
+
+
+# Typedefs
+
+
+```haxe
+import stdgo._internal.crypto.internal.randutil.*
+```
+
+
+## typedef T\_\_struct\_0
+
+
+```haxe
+typedef T__struct_0 = {
+};
+```
+
 

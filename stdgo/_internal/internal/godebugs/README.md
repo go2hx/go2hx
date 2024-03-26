@@ -1,17 +1,98 @@
-# Module stdgo._internal.internal.godebugs has compilation errors, please do not use:
-```
-stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
-stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
-stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... For function argument 't'
-stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
-stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
-stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : ... For function argument 'v'
-stdgo/_internal/reflect/Reflect.hx:779: characters 13-122 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
-stdgo/_internal/reflect/Reflect.hx:779: characters 13-122 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
-stdgo/_internal/reflect/Reflect.hx:781: characters 9-142 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
-stdgo/_internal/reflect/Reflect.hx:781: characters 9-142 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
-stdgo/_internal/internal/reflect/Reflect.hx:978: characters 13-51 : stdgo._internal.internal.reflect._Type_asInterface should be Null<stdgo._internal.reflect.Type_>
-stdgo/_internal/internal/reflect/Reflect.hx:978: characters 13-51 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+# Module: `stdgo._internal.internal.godebugs`
 
+[(view library index)](../../../stdgo.md)
+
+
+# Overview
+
+
+# Index
+
+
+- [Variables](<#variables>)
+
+- [`function lookup(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.internal.godebugs.Info>`](<#function-lookup>)
+
+- [class Info](<#class-info>)
+
+  - [`function new(?name:stdgo.GoString, ?package_:stdgo.GoString, ?changed:stdgo.GoInt, ?old:stdgo.GoString, ?opaque:Bool):Void`](<#info-function-new>)
+
+# Variables
+
+
+```haxe
+import stdgo._internal.internal.godebugs.Godebugs
 ```
+
+
+```haxe
+var all:stdgo.Slice<stdgo._internal.internal.godebugs.Info>
+```
+
+
+# Functions
+
+
+```haxe
+import stdgo._internal.internal.godebugs.Godebugs
+```
+
+
+## function lookup
+
+
+```haxe
+function lookup(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.internal.godebugs.Info>
+```
+
+
+[\(view code\)](<./Godebugs.hx#L22>)
+
+
+# Classes
+
+
+```haxe
+import stdgo._internal.internal.godebugs.*
+```
+
+
+## class Info
+
+
+```haxe
+var changed:stdgo.GoInt
+```
+
+
+```haxe
+var name:stdgo.GoString
+```
+
+
+```haxe
+var old:stdgo.GoString
+```
+
+
+```haxe
+var opaque:Bool
+```
+
+
+```haxe
+var package_:stdgo.GoString
+```
+
+
+### Info function new
+
+
+```haxe
+function new(?name:stdgo.GoString, ?package_:stdgo.GoString, ?changed:stdgo.GoInt, ?old:stdgo.GoString, ?opaque:Bool):Void
+```
+
+
+[\(view code\)](<./Godebugs.hx#L10>)
+
 

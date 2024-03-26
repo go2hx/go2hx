@@ -1,17 +1,81 @@
 # Module stdgo.syscall has compilation errors, please do not use:
 ```
-stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
-stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
-stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... For function argument 't'
-stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
-stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
-stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : ... For function argument 'v'
-stdgo/_internal/reflect/Reflect.hx:779: characters 13-122 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
-stdgo/_internal/reflect/Reflect.hx:779: characters 13-122 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
-stdgo/_internal/reflect/Reflect.hx:781: characters 9-142 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
-stdgo/_internal/reflect/Reflect.hx:781: characters 9-142 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
-stdgo/_internal/internal/reflect/Reflect.hx:978: characters 13-51 : stdgo._internal.internal.reflect._Type_asInterface should be Null<stdgo._internal.reflect.Type_>
-stdgo/_internal/internal/reflect/Reflect.hx:978: characters 13-51 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/syscall/Syscall.hx:26: characters 1-75 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:30: characters 1-79 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:34: characters 1-77 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:35: characters 1-81 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:36: characters 1-81 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:37: characters 1-79 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:38: characters 1-79 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:43: characters 1-75 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:44: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:51: characters 1-67 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:52: characters 1-69 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:53: characters 1-69 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:54: characters 1-73 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:55: characters 1-73 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:56: characters 1-69 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:57: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:58: characters 1-73 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:59: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:60: characters 1-73 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:61: characters 1-69 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:62: characters 1-69 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:63: characters 1-75 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:64: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:65: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:66: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:67: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:68: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:69: characters 1-73 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:70: characters 1-73 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:71: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:72: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:73: characters 1-73 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:74: characters 1-73 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:75: characters 1-73 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:76: characters 1-69 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:77: characters 1-75 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:78: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:79: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:80: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:81: characters 1-75 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:82: characters 1-69 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:83: characters 1-81 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:84: characters 1-73 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:85: characters 1-73 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:86: characters 1-75 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:87: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:88: characters 1-83 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:89: characters 1-81 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:90: characters 1-75 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:91: characters 1-73 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:92: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:93: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:94: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:95: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:96: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:97: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:98: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:99: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:100: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:101: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:102: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:103: characters 1-73 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:104: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:105: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:106: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:107: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:108: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:109: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:110: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:111: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:112: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:113: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:114: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:115: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/syscall/Syscall.hx:116: characters 1-71 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/_internal/internal/Macro.macro.hx:44: non hxb types:,224
 
 ```
 

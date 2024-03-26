@@ -1,17 +1,96 @@
-# Module stdgo._internal.internal.reflectlite has compilation errors, please do not use:
-```
-stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
-stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
-stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... For function argument 't'
-stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
-stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
-stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : ... For function argument 'v'
-stdgo/_internal/reflect/Reflect.hx:779: characters 13-122 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
-stdgo/_internal/reflect/Reflect.hx:779: characters 13-122 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
-stdgo/_internal/reflect/Reflect.hx:781: characters 9-142 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
-stdgo/_internal/reflect/Reflect.hx:781: characters 9-142 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
-stdgo/_internal/internal/reflect/Reflect.hx:978: characters 13-51 : stdgo._internal.internal.reflect._Type_asInterface should be Null<stdgo._internal.reflect.Type_>
-stdgo/_internal/internal/reflect/Reflect.hx:978: characters 13-51 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+# Module: `stdgo._internal.internal.reflectlite`
 
+[(view library index)](../../../stdgo.md)
+
+
+# Overview
+
+
+# Index
+
+
+- [`function swapper(_x:stdgo.AnyInterface):(:stdgo.GoInt, :stdgo.GoInt):Void`](<#function-swapper>)
+
+- [`function typeOf(_x:stdgo.AnyInterface):stdgo._internal.reflect.Type_`](<#function-typeof>)
+
+- [`function valueOf(_0:stdgo.AnyInterface):stdgo._internal.internal.reflectlite.Value`](<#function-valueof>)
+
+- [typedef Kind](<#typedef-kind>)
+
+- [typedef Type\_](<#typedef-type_>)
+
+- [typedef Value](<#typedef-value>)
+
+# Functions
+
+
+```haxe
+import stdgo._internal.internal.reflectlite.Reflectlite
 ```
+
+
+## function swapper
+
+
+```haxe
+function swapper(_x:stdgo.AnyInterface):(:stdgo.GoInt, :stdgo.GoInt):Void
+```
+
+
+[\(view code\)](<./Reflectlite.hx#L13>)
+
+
+## function typeOf
+
+
+```haxe
+function typeOf(_x:stdgo.AnyInterface):stdgo._internal.reflect.Type_
+```
+
+
+[\(view code\)](<./Reflectlite.hx#L9>)
+
+
+## function valueOf
+
+
+```haxe
+function valueOf(_0:stdgo.AnyInterface):stdgo._internal.internal.reflectlite.Value
+```
+
+
+[\(view code\)](<./Reflectlite.hx#L30>)
+
+
+# Typedefs
+
+
+```haxe
+import stdgo._internal.internal.reflectlite.*
+```
+
+
+## typedef Kind
+
+
+```haxe
+typedef Kind = stdgo._internal.reflect.Kind;
+```
+
+
+## typedef Type\_
+
+
+```haxe
+typedef Type_ = stdgo._internal.reflect.Type_;
+```
+
+
+## typedef Value
+
+
+```haxe
+typedef Value = stdgo._internal.reflect.Value;
+```
+
 

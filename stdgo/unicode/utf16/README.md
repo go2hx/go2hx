@@ -1,17 +1,146 @@
-# Module stdgo.unicode.utf16 has compilation errors, please do not use:
-```
-stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
-stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
-stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... For function argument 't'
-stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
-stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
-stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : ... For function argument 'v'
-stdgo/_internal/reflect/Reflect.hx:779: characters 13-122 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
-stdgo/_internal/reflect/Reflect.hx:779: characters 13-122 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
-stdgo/_internal/reflect/Reflect.hx:781: characters 9-142 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
-stdgo/_internal/reflect/Reflect.hx:781: characters 9-142 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
-stdgo/_internal/internal/reflect/Reflect.hx:978: characters 13-51 : stdgo._internal.internal.reflect._Type_asInterface should be Null<stdgo._internal.reflect.Type_>
-stdgo/_internal/internal/reflect/Reflect.hx:978: characters 13-51 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+# Module: `stdgo.unicode.utf16`
 
+[(view library index)](../../stdgo.md)
+
+
+# Overview
+
+
+
+Package utf16 implements encoding and decoding of UTF\-16 sequences.  
+
+# Index
+
+
+- [Constants](<#constants>)
+
+- [`function appendRune(a:Array<UInt>, r:Int):Array<UInt>`](<#function-appendrune>)
+
+- [`function decode(s:Array<UInt>):Array<Int>`](<#function-decode>)
+
+- [`function decodeRune(r1:Int, r2:Int):Int`](<#function-decoderune>)
+
+- [`function encode(s:Array<Int>):Array<UInt>`](<#function-encode>)
+
+- [`function encodeRune(r:Int):stdgo.Tuple<Int, Int>`](<#function-encoderune>)
+
+- [`function isSurrogate(r:Int):Bool`](<#function-issurrogate>)
+
+# Constants
+
+
+```haxe
+import stdgo.unicode.utf16.Utf16
 ```
+
+
+```haxe
+final maxRune:Int = stdgo._internal.unicode.utf16.Utf16.maxRune
+```
+
+
+```haxe
+final replacementChar:Int = stdgo._internal.unicode.utf16.Utf16.replacementChar
+```
+
+
+# Functions
+
+
+```haxe
+import stdgo.unicode.utf16.Utf16
+```
+
+
+## function appendRune
+
+
+```haxe
+function appendRune(a:Array<UInt>, r:Int):Array<UInt>
+```
+
+
+
+AppendRune appends the UTF\-16 encoding of the Unicode code point r
+to the end of p and returns the extended buffer. If the rune is not
+a valid Unicode code point, it appends the encoding of U\+FFFD.  
+
+[\(view code\)](<./Utf16.hx#L34>)
+
+
+## function decode
+
+
+```haxe
+function decode(s:Array<UInt>):Array<Int>
+```
+
+
+
+Decode returns the Unicode code point sequence represented
+by the UTF\-16 encoding s.  
+
+[\(view code\)](<./Utf16.hx#L39>)
+
+
+## function decodeRune
+
+
+```haxe
+function decodeRune(r1:Int, r2:Int):Int
+```
+
+
+
+DecodeRune returns the UTF\-16 decoding of a surrogate pair.
+If the pair is not a valid UTF\-16 surrogate pair, DecodeRune returns
+the Unicode replacement code point U\+FFFD.  
+
+[\(view code\)](<./Utf16.hx#L18>)
+
+
+## function encode
+
+
+```haxe
+function encode(s:Array<Int>):Array<UInt>
+```
+
+
+
+Encode returns the UTF\-16 encoding of the Unicode code point sequence s.  
+
+[\(view code\)](<./Utf16.hx#L28>)
+
+
+## function encodeRune
+
+
+```haxe
+function encodeRune(r:Int):stdgo.Tuple<Int, Int>
+```
+
+
+
+EncodeRune returns the UTF\-16 surrogate pair r1, r2 for the given rune.
+If the rune is not a valid Unicode code point or does not need encoding,
+EncodeRune returns U\+FFFD, U\+FFFD.  
+
+[\(view code\)](<./Utf16.hx#L24>)
+
+
+## function isSurrogate
+
+
+```haxe
+function isSurrogate(r:Int):Bool
+```
+
+
+
+IsSurrogate reports whether the specified Unicode code point
+can appear in a surrogate pair.  
+
+[\(view code\)](<./Utf16.hx#L12>)
+
 

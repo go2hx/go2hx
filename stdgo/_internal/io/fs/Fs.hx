@@ -267,7 +267,7 @@ typedef T__interface_0 = stdgo.StructType & {
 function formatFileInfo(_info:FileInfo):stdgo.GoString {
         var _name:stdgo.GoString = _info.name()?.__copy__();
         var _b = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), ((40 : stdgo.GoInt) + (_name.length) : stdgo.GoInt)).__setNumber32__();
-        _b = (_b.__append__(...(_info.mode().string() : stdgo.GoString).__toArray__()));
+        _b = (_b.__append__(...((_info.mode().string() : stdgo.GoString) : Array<stdgo.GoUInt8>)));
         _b = (_b.__append__((32 : stdgo.GoUInt8)));
         var _size:stdgo.GoInt64 = _info.size();
         var _usize:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
@@ -286,11 +286,11 @@ function formatFileInfo(_info:FileInfo):stdgo.GoString {
             _usize = _q;
         };
         _buf[(_i : stdgo.GoInt)] = (((48i64 : stdgo.GoUInt64) + _usize : stdgo.GoUInt64) : stdgo.GoByte);
-        _b = (_b.__append__(...(_buf.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+        _b = (_b.__append__(...((_buf.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
         _b = (_b.__append__((32 : stdgo.GoUInt8)));
-        _b = (_b.__append__(..._info.modTime().format(("2006-01-02 15:04:05" : stdgo.GoString)).__toArray__()));
+        _b = (_b.__append__(...(_info.modTime().format(("2006-01-02 15:04:05" : stdgo.GoString)) : Array<stdgo.GoUInt8>)));
         _b = (_b.__append__((32 : stdgo.GoUInt8)));
-        _b = (_b.__append__(..._name.__toArray__()));
+        _b = (_b.__append__(...(_name : Array<stdgo.GoUInt8>)));
         if (_info.isDir()) {
             _b = (_b.__append__((47 : stdgo.GoUInt8)));
         };
@@ -301,9 +301,9 @@ function formatDirEntry(_dir:DirEntry):stdgo.GoString {
         var _b = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), ((5 : stdgo.GoInt) + (_name.length) : stdgo.GoInt)).__setNumber32__();
         var _mode:stdgo.GoString = (_dir.type().string() : stdgo.GoString)?.__copy__();
         _mode = (_mode.__slice__(0, ((_mode.length) - (9 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-        _b = (_b.__append__(..._mode.__toArray__()));
+        _b = (_b.__append__(...(_mode : Array<stdgo.GoUInt8>)));
         _b = (_b.__append__((32 : stdgo.GoUInt8)));
-        _b = (_b.__append__(..._name.__toArray__()));
+        _b = (_b.__append__(...(_name : Array<stdgo.GoUInt8>)));
         if (_dir.isDir()) {
             _b = (_b.__append__((47 : stdgo.GoUInt8)));
         };
@@ -437,7 +437,7 @@ function _glob(_fs:FS, _dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:st
                 return { _0 : _m, _1 : _err };
             };
             if (_matched) {
-                _m = (_m.__append__(stdgo._internal.path.Path.join(_dir?.__copy__(), _n?.__copy__())?.__copy__()));
+                _m = (_m.__append__(stdgo._internal.path.Path.join(_dir?.__copy__(), _n?.__copy__())));
             };
         };
         return { _0 : _m, _1 : _e };

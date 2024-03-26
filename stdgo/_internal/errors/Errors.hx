@@ -91,7 +91,7 @@ function is_(_err:stdgo.Error, _target:stdgo.Error):Bool {
         if (_target == null) {
             return stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(_target));
         };
-        var _isComparable:Bool = stdgo._internal.internal.reflectlite.Reflectlite.typeOf(stdgo.Go.toInterface(_target)).comparable();
+        var _isComparable:Bool = stdgo._internal.internal.reflectlite.Reflectlite.typeOf(stdgo.Go.toInterface(_target)).comparable_();
         while (true) {
             if ((_isComparable && (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(_target)) : Bool)) {
                 return true;
@@ -228,7 +228,7 @@ class T_joinError_asInterface {
             if ((_i > (0 : stdgo.GoInt) : Bool)) {
                 _b = (_b.__append__((10 : stdgo.GoUInt8)));
             };
-            _b = (_b.__append__(..._err.error().__toArray__()));
+            _b = (_b.__append__(...(_err.error() : Array<stdgo.GoUInt8>)));
         };
         return (_b : stdgo.GoString)?.__copy__();
     }

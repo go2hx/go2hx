@@ -604,7 +604,7 @@ function testIsPrintLatin1(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
             var _i:stdgo.GoInt32 = ((0 : stdgo.GoInt32) : stdgo.GoRune);
             stdgo.Go.cfor((_i <= (255 : stdgo.GoInt32) : Bool), _i++, {
                 var _got:Bool = isPrint(_i);
-                var _want:Bool = in_(_i, ...printRanges.__toArray__());
+                var _want:Bool = in_(_i, ...(printRanges : Array<stdgo.Ref<stdgo._internal.unicode.Unicode.RangeTable>>));
                 if (_i == ((32 : stdgo.GoInt32))) {
                     _want = true;
                 };
@@ -619,7 +619,7 @@ function testIsGraphicLatin1(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
             var _i:stdgo.GoInt32 = ((0 : stdgo.GoInt32) : stdgo.GoRune);
             stdgo.Go.cfor((_i <= (255 : stdgo.GoInt32) : Bool), _i++, {
                 var _got:Bool = isGraphic(_i);
-                var _want:Bool = in_(_i, ...graphicRanges.__toArray__());
+                var _want:Bool = in_(_i, ...(graphicRanges : Array<stdgo.Ref<stdgo._internal.unicode.Unicode.RangeTable>>));
                 if (_got != (_want)) {
                     _t.errorf(("%U incorrect: got %t; want %t" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                 };

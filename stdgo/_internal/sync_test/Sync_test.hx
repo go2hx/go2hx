@@ -3544,7 +3544,7 @@ class RWMutexMap_asInterface {
         _m._mu.rlock();
         var _keys = new stdgo.Slice<stdgo.AnyInterface>((0 : stdgo.GoInt).toBasic(), (_m._dirty.length));
         for (_k => _ in _m._dirty) {
-            _keys = (_keys.__append__(_k));
+            _keys = (_keys.__append__((_k.value : stdgo.Slice<stdgo.AnyInterface>)));
         };
         _m._mu.runlock();
         for (__28 => _k in _keys) {

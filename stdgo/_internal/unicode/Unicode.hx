@@ -6801,13 +6801,13 @@ function isGraphic(_r:stdgo.GoRune):Bool {
         if (((_r : stdgo.GoUInt32) <= (255u32 : stdgo.GoUInt32) : Bool)) {
             return (_properties[((_r : stdgo.GoUInt8) : stdgo.GoInt)] & (144 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
         };
-        return in_(_r, ...graphicRanges.__toArray__());
+        return in_(_r, ...(graphicRanges : Array<stdgo.Ref<stdgo._internal.unicode.Unicode.RangeTable>>));
     }
 function isPrint(_r:stdgo.GoRune):Bool {
         if (((_r : stdgo.GoUInt32) <= (255u32 : stdgo.GoUInt32) : Bool)) {
             return (_properties[((_r : stdgo.GoUInt8) : stdgo.GoInt)] & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
         };
-        return in_(_r, ...printRanges.__toArray__());
+        return in_(_r, ...(printRanges : Array<stdgo.Ref<stdgo._internal.unicode.Unicode.RangeTable>>));
     }
 function isOneOf(_ranges:stdgo.Slice<stdgo.Ref<RangeTable>>, _r:stdgo.GoRune):Bool {
         for (__0 => _inside in _ranges) {

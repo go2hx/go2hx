@@ -72,7 +72,7 @@ function _growSlice(_b:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):stdgo.Slice<st
             if ((_c < ((2 : stdgo.GoInt) * _b.capacity : stdgo.GoInt) : Bool)) {
                 _c = ((2 : stdgo.GoInt) * _b.capacity : stdgo.GoInt);
             };
-            var _b2 = (((null : stdgo.Slice<stdgo.GoUInt8>) : stdgo.Slice<stdgo.GoByte>).__append__(...new stdgo.Slice<stdgo.GoUInt8>((_c : stdgo.GoInt).toBasic(), 0).__setNumber32__().__toArray__()));
+            var _b2 = (((null : stdgo.Slice<stdgo.GoUInt8>) : stdgo.Slice<stdgo.GoByte>).__append__(...(new stdgo.Slice<stdgo.GoUInt8>((_c : stdgo.GoInt).toBasic(), 0).__setNumber32__() : Array<stdgo.GoUInt8>)));
             stdgo.Go.copySlice(_b2, _b);
             {
                 for (defer in __deferstack__) {
@@ -556,7 +556,7 @@ function join(_s:stdgo.Slice<stdgo.Slice<stdgo.GoByte>>, _sep:stdgo.Slice<stdgo.
             return (new stdgo.Slice<stdgo.GoUInt8>(0, 0) : stdgo.Slice<stdgo.GoUInt8>);
         };
         if ((_s.length) == ((1 : stdgo.GoInt))) {
-            return (((null : stdgo.Slice<stdgo.GoUInt8>) : stdgo.Slice<stdgo.GoByte>).__append__(..._s[(0 : stdgo.GoInt)].__toArray__()));
+            return (((null : stdgo.Slice<stdgo.GoUInt8>) : stdgo.Slice<stdgo.GoByte>).__append__(...(_s[(0 : stdgo.GoInt)] : Array<stdgo.GoUInt8>)));
         };
         var _n:stdgo.GoInt = (0 : stdgo.GoInt);
         if (((_sep.length) > (0 : stdgo.GoInt) : Bool)) {
@@ -656,7 +656,7 @@ function toUpper(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> {
         };
         if (_isASCII) {
             if (!_hasLower) {
-                return ((stdgo.Go.str() : stdgo.Slice<stdgo.GoByte>).__append__(..._s.__toArray__()));
+                return ((stdgo.Go.str() : stdgo.Slice<stdgo.GoByte>).__append__(...(_s : Array<stdgo.GoUInt8>)));
             };
             var _b = stdgo._internal.internal.bytealg.Bytealg.makeNoZero((_s.length));
             {
@@ -688,7 +688,7 @@ function toLower(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> {
         };
         if (_isASCII) {
             if (!_hasUpper) {
-                return ((stdgo.Go.str() : stdgo.Slice<stdgo.GoByte>).__append__(..._s.__toArray__()));
+                return ((stdgo.Go.str() : stdgo.Slice<stdgo.GoByte>).__append__(...(_s : Array<stdgo.GoUInt8>)));
             };
             var _b = stdgo._internal.internal.bytealg.Bytealg.makeNoZero((_s.length));
             {
@@ -735,12 +735,12 @@ function toValidUTF8(_s:stdgo.Slice<stdgo.GoByte>, _replacement:stdgo.Slice<stdg
                     _i++;
                     if (!_invalid) {
                         _invalid = true;
-                        _b = (_b.__append__(..._replacement.__toArray__()));
+                        _b = (_b.__append__(...(_replacement : Array<stdgo.GoUInt8>)));
                     };
                     continue;
                 };
                 _invalid = false;
-                _b = (_b.__append__(...(_s.__slice__(_i, (_i + _wid : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+                _b = (_b.__append__(...((_s.__slice__(_i, (_i + _wid : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
                 _i = (_i + (_wid) : stdgo.GoInt);
             };
         };
@@ -1041,7 +1041,7 @@ function replace(_s:stdgo.Slice<stdgo.GoByte>, _old:stdgo.Slice<stdgo.GoByte>, _
             _m = count(_s, _old);
         };
         if (_m == ((0 : stdgo.GoInt))) {
-            return (((null : stdgo.Slice<stdgo.GoUInt8>) : stdgo.Slice<stdgo.GoByte>).__append__(..._s.__toArray__()));
+            return (((null : stdgo.Slice<stdgo.GoUInt8>) : stdgo.Slice<stdgo.GoByte>).__append__(...(_s : Array<stdgo.GoUInt8>)));
         };
         if (((_n < (0 : stdgo.GoInt) : Bool) || (_m < _n : Bool) : Bool)) {
             _n = _m;
@@ -1251,7 +1251,7 @@ function clone(_b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> {
         if (_b == null) {
             return (null : stdgo.Slice<stdgo.GoUInt8>);
         };
-        return ((new stdgo.Slice<stdgo.GoUInt8>(0, 0) : stdgo.Slice<stdgo.GoUInt8>).__append__(..._b.__toArray__()));
+        return ((new stdgo.Slice<stdgo.GoUInt8>(0, 0) : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_b : Array<stdgo.GoUInt8>)));
     }
 function cutPrefix(_s:stdgo.Slice<stdgo.GoByte>, _prefix:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : Bool; } {
         var _after:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>), _found:Bool = false;
@@ -1361,7 +1361,7 @@ class Buffer_asInterface {
         @:recv var _b:stdgo.Ref<Buffer> = _b;
         var _line:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>), _err:stdgo.Error = (null : stdgo.Error);
         var __tmp__ = _b._readSlice(_delim), _slice:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        _line = (_line.__append__(..._slice.__toArray__()));
+        _line = (_line.__append__(...(_slice : Array<stdgo.GoUInt8>)));
         return { _0 : _line, _1 : _err };
     }
     @:keep

@@ -840,7 +840,7 @@ function _cleanAlt(_re:stdgo.Ref<Regexp>):Void {
                     return;
                 };
                 if (((_re.rune.capacity - (_re.rune.length) : stdgo.GoInt) > (100 : stdgo.GoInt) : Bool)) {
-                    _re.rune = ((_re.rune0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>).__append__(..._re.rune.__toArray__()));
+                    _re.rune = ((_re.rune0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>).__append__(...(_re.rune : Array<stdgo.GoInt32>)));
                 };
             };
         };
@@ -3401,7 +3401,7 @@ class T_parser_asInterface {
                 } else {
                     var _prefix = _p._newRegexp((3 : stdgo._internal.regexp.syntax.Syntax.Op));
                     _prefix.flags = _strflags;
-                    _prefix.rune = ((_prefix.rune.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>).__append__(..._str.__toArray__()));
+                    _prefix.rune = ((_prefix.rune.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>).__append__(...(_str : Array<stdgo.GoInt32>)));
                     {
                         var _j:stdgo.GoInt = _start;
                         stdgo.Go.cfor((_j < _i : Bool), _j++, {
@@ -3519,7 +3519,7 @@ class T_parser_asInterface {
         _re.sub = (_re.sub0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Regexp>>);
         for (__1 => _sub in _subs) {
             if (_sub.op == (_op)) {
-                _re.sub = (_re.sub.__append__(..._sub.sub.__toArray__()));
+                _re.sub = (_re.sub.__append__(...(_sub.sub : Array<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Regexp>>)));
                 _p._reuse(_sub);
             } else {
                 _re.sub = (_re.sub.__append__(_sub));
@@ -3632,7 +3632,7 @@ class T_parser_asInterface {
         if (((_re1.op != ((3 : stdgo._internal.regexp.syntax.Syntax.Op)) || _re2.op != ((3 : stdgo._internal.regexp.syntax.Syntax.Op)) : Bool) || ((_re1.flags & (1 : stdgo._internal.regexp.syntax.Syntax.Flags) : stdgo._internal.regexp.syntax.Syntax.Flags) != (_re2.flags & (1 : stdgo._internal.regexp.syntax.Syntax.Flags) : stdgo._internal.regexp.syntax.Syntax.Flags)) : Bool)) {
             return false;
         };
-        _re2.rune = (_re2.rune.__append__(..._re1.rune.__toArray__()));
+        _re2.rune = (_re2.rune.__append__(...(_re1.rune : Array<stdgo.GoInt32>)));
         if ((_r >= (0 : stdgo.GoInt32) : Bool)) {
             _re1.rune = (_re1.rune0.__slice__(0, (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>);
             _re1.rune[(0 : stdgo.GoInt)] = _r;
@@ -4167,7 +4167,7 @@ class Regexp_asInterface {
                             _nre.name = __tmp__.name;
                         };
                         _nre.rune = (null : stdgo.Slice<stdgo.GoInt32>);
-                        _nre.sub = ((_nre.sub0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Regexp>>).__append__(...(_re.sub.__slice__(0, _i) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Regexp>>).__toArray__()));
+                        _nre.sub = ((_nre.sub0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Regexp>>).__append__(...((_re.sub.__slice__(0, _i) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Regexp>>) : Array<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Regexp>>)));
                     };
                     if (_nre != (_re)) {
                         _nre.sub = (_nre.sub.__append__(_nsub));

@@ -22,7 +22,7 @@ macro function _appendString<Bytes>(__generic__0:haxe.macro.Expr.ExprOf<Bytes>, 
                                         _i++;
                                         continue;
                                     };
-                                    _dst = (_dst.__append__(...(_src.__slice__(_start, _i) : $Bytes).__toArray__()));
+                                    _dst = (_dst.__append__(...((_src.__slice__(_start, _i) : $Bytes) : stdgo._internal.encoding.json.Json.Array<stdgo.GoUInt8>)));
                                     {
                                         final __value__ = _b;
                                         if (__value__ == ((92 : stdgo.GoUInt8)) || __value__ == ((34 : stdgo.GoUInt8))) {
@@ -48,14 +48,14 @@ macro function _appendString<Bytes>(__generic__0:haxe.macro.Expr.ExprOf<Bytes>, 
                             };
                             var __tmp__ = stdgo._internal.unicode.utf8.Utf8.decodeRuneInString(((_src.__slice__(_i, (_i + _n : stdgo.GoInt)) : $Bytes) : stdgo.GoString).__copy__()), _c:stdgo.GoInt32 = __tmp__._0, _size:stdgo.GoInt = __tmp__._1;
                             if (((_c == (65533 : stdgo.GoInt32)) && (_size == (1 : stdgo.GoInt)) : Bool)) {
-                                _dst = (_dst.__append__(...(_src.__slice__(_start, _i) : $Bytes).__toArray__()));
-                                _dst = (_dst.__append__(...("\\ufffd" : stdgo.GoString).__toArray__()));
+                                _dst = (_dst.__append__(...((_src.__slice__(_start, _i) : $Bytes) : stdgo._internal.encoding.json.Json.Array<stdgo.GoUInt8>)));
+                                _dst = (_dst.__append__(...(("\\ufffd" : stdgo.GoString) : stdgo._internal.encoding.json.Json.Array<stdgo.GoUInt8>)));
                                 _i = (_i + (_size) : stdgo.GoInt);
                                 _start = _i;
                                 continue;
                             };
                             if (((_c == (8232 : stdgo.GoInt32)) || (_c == (8233 : stdgo.GoInt32)) : Bool)) {
-                                _dst = (_dst.__append__(...(_src.__slice__(_start, _i) : $Bytes).__toArray__()));
+                                _dst = (_dst.__append__(...((_src.__slice__(_start, _i) : $Bytes) : stdgo._internal.encoding.json.Json.Array<stdgo.GoUInt8>)));
                                 _dst = (_dst.__append__((92 : stdgo.GoUInt8), (117 : stdgo.GoUInt8), (50 : stdgo.GoUInt8), (48 : stdgo.GoUInt8), (50 : stdgo.GoUInt8), @:privateAccess stdgo._internal.encoding.json.Json._hex[((_c & (15 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoInt)]));
                                 _i = (_i + (_size) : stdgo.GoInt);
                                 _start = _i;
@@ -64,7 +64,7 @@ macro function _appendString<Bytes>(__generic__0:haxe.macro.Expr.ExprOf<Bytes>, 
                             _i = (_i + (_size) : stdgo.GoInt);
                         };
                     };
-                    _dst = (_dst.__append__(...(_src.__slice__(_start) : $Bytes).__toArray__()));
+                    _dst = (_dst.__append__(...((_src.__slice__(_start) : $Bytes) : stdgo._internal.encoding.json.Json.Array<stdgo.GoUInt8>)));
                     _dst = (_dst.__append__((34 : stdgo.GoUInt8)));
                     return _dst;
                 };

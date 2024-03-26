@@ -338,7 +338,7 @@ function testSplit(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testJoin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _test in _jointests) {
             {
-                var _p:stdgo.GoString = join(..._test._elem.__toArray__())?.__copy__();
+                var _p:stdgo.GoString = join(...(_test._elem : Array<stdgo.GoString>))?.__copy__();
                 if (_p != (_test._path)) {
                     _t.errorf(("Join(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._elem), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_test._path));
                 };

@@ -580,7 +580,7 @@ function testDefaultRace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
                     };
                     var _cmd = stdgo._internal.internal.testenv.Testenv.command(stdgo.Go.asInterface(_t), _exe?.__copy__(), ("-test.run=TestDefaultRace" : stdgo.GoString));
                     _cmd = stdgo._internal.internal.testenv.Testenv.cleanCmdEnv(_cmd);
-                    _cmd.env = (_cmd.env.__append__(stdgo._internal.fmt.Fmt.sprintf(("GO_RAND_TEST_HELPER_CODE=%d" : stdgo.GoString), stdgo.Go.toInterface((_i / (2 : stdgo.GoInt) : stdgo.GoInt)))?.__copy__()));
+                    _cmd.env = (_cmd.env.__append__(stdgo._internal.fmt.Fmt.sprintf(("GO_RAND_TEST_HELPER_CODE=%d" : stdgo.GoString), stdgo.Go.toInterface((_i / (2 : stdgo.GoInt) : stdgo.GoInt)))));
                     if ((_i % (2 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                         _cmd.env = (_cmd.env.__append__(("GODEBUG=randautoseed=0" : stdgo.GoString)));
                     };
@@ -1769,7 +1769,7 @@ function testRegress(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                                 if (__continue__) continue;
                             };
                             _argstr = stdgo._internal.fmt.Fmt.sprint(_x)?.__copy__();
-                            _args = (_args.__append__(stdgo._internal.reflect.Reflect.valueOf(_x)?.__copy__()));
+                            _args = (_args.__append__(stdgo._internal.reflect.Reflect.valueOf(_x)));
                         };
                         var _out:stdgo.AnyInterface = (null : stdgo.AnyInterface);
                         _out = _mv.call(_args)[(0 : stdgo.GoInt)].interface_();

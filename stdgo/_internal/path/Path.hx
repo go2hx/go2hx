@@ -338,7 +338,7 @@ function join(_elem:haxe.Rest<stdgo.GoString>):stdgo.GoString {
                 if (((_buf.length) > (0 : stdgo.GoInt) : Bool)) {
                     _buf = (_buf.__append__((47 : stdgo.GoUInt8)));
                 };
-                _buf = (_buf.__append__(..._e.__toArray__()));
+                _buf = (_buf.__append__(...(_e : Array<stdgo.GoUInt8>)));
             };
         };
         return clean((_buf : stdgo.GoString)?.__copy__())?.__copy__();

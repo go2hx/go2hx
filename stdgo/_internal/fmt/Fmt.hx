@@ -426,7 +426,7 @@ function fprintf(_w:stdgo._internal.io.Io.Writer, _format:stdgo.GoString, _a:hax
 function printf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         var _a = new stdgo.Slice<stdgo.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.GoInt = (0 : stdgo.GoInt), _err:stdgo.Error = (null : stdgo.Error);
-        return fprintf(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout), _format?.__copy__(), ..._a.__toArray__());
+        return fprintf(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout), _format?.__copy__(), ...(_a : Array<stdgo.AnyInterface>));
     }
 function sprintf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.GoString {
         var _a = new stdgo.Slice<stdgo.AnyInterface>(_a.length, 0, ..._a);
@@ -440,7 +440,7 @@ function appendf(_b:stdgo.Slice<stdgo.GoByte>, _format:stdgo.GoString, _a:haxe.R
         var _a = new stdgo.Slice<stdgo.AnyInterface>(_a.length, 0, ..._a);
         var _p = _newPrinter();
         _p._doPrintf(_format?.__copy__(), _a);
-        _b = (_b.__append__(..._p._buf.__toArray__()));
+        _b = (_b.__append__(...(_p._buf : Array<stdgo.GoUInt8>)));
         _p._free();
         return _b;
     }
@@ -460,7 +460,7 @@ function fprint(_w:stdgo._internal.io.Io.Writer, _a:haxe.Rest<stdgo.AnyInterface
 function print(_a:haxe.Rest<stdgo.AnyInterface>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         var _a = new stdgo.Slice<stdgo.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.GoInt = (0 : stdgo.GoInt), _err:stdgo.Error = (null : stdgo.Error);
-        return fprint(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout), ..._a.__toArray__());
+        return fprint(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout), ...(_a : Array<stdgo.AnyInterface>));
     }
 function sprint(_a:haxe.Rest<stdgo.AnyInterface>):stdgo.GoString {
         var _a = new stdgo.Slice<stdgo.AnyInterface>(_a.length, 0, ..._a);
@@ -474,7 +474,7 @@ function append(_b:stdgo.Slice<stdgo.GoByte>, _a:haxe.Rest<stdgo.AnyInterface>):
         var _a = new stdgo.Slice<stdgo.AnyInterface>(_a.length, 0, ..._a);
         var _p = _newPrinter();
         _p._doPrint(_a);
-        _b = (_b.__append__(..._p._buf.__toArray__()));
+        _b = (_b.__append__(...(_p._buf : Array<stdgo.GoUInt8>)));
         _p._free();
         return _b;
     }
@@ -494,7 +494,7 @@ function fprintln(_w:stdgo._internal.io.Io.Writer, _a:haxe.Rest<stdgo.AnyInterfa
 function println(_a:haxe.Rest<stdgo.AnyInterface>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         var _a = new stdgo.Slice<stdgo.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.GoInt = (0 : stdgo.GoInt), _err:stdgo.Error = (null : stdgo.Error);
-        return fprintln(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout), ..._a.__toArray__());
+        return fprintln(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout), ...(_a : Array<stdgo.AnyInterface>));
     }
 function sprintln(_a:haxe.Rest<stdgo.AnyInterface>):stdgo.GoString {
         var _a = new stdgo.Slice<stdgo.AnyInterface>(_a.length, 0, ..._a);
@@ -508,7 +508,7 @@ function appendln(_b:stdgo.Slice<stdgo.GoByte>, _a:haxe.Rest<stdgo.AnyInterface>
         var _a = new stdgo.Slice<stdgo.AnyInterface>(_a.length, 0, ..._a);
         var _p = _newPrinter();
         _p._doPrintln(_a);
-        _b = (_b.__append__(..._p._buf.__toArray__()));
+        _b = (_b.__append__(...(_p._buf : Array<stdgo.GoUInt8>)));
         _p._free();
         return _b;
     }
@@ -604,32 +604,32 @@ function _parseArgNumber(_format:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 
 function scan(_a:haxe.Rest<stdgo.AnyInterface>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         var _a = new stdgo.Slice<stdgo.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.GoInt = (0 : stdgo.GoInt), _err:stdgo.Error = (null : stdgo.Error);
-        return fscan(stdgo.Go.asInterface(stdgo._internal.os.Os.stdin), ..._a.__toArray__());
+        return fscan(stdgo.Go.asInterface(stdgo._internal.os.Os.stdin), ...(_a : Array<stdgo.AnyInterface>));
     }
 function scanln(_a:haxe.Rest<stdgo.AnyInterface>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         var _a = new stdgo.Slice<stdgo.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.GoInt = (0 : stdgo.GoInt), _err:stdgo.Error = (null : stdgo.Error);
-        return fscanln(stdgo.Go.asInterface(stdgo._internal.os.Os.stdin), ..._a.__toArray__());
+        return fscanln(stdgo.Go.asInterface(stdgo._internal.os.Os.stdin), ...(_a : Array<stdgo.AnyInterface>));
     }
 function scanf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         var _a = new stdgo.Slice<stdgo.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.GoInt = (0 : stdgo.GoInt), _err:stdgo.Error = (null : stdgo.Error);
-        return fscanf(stdgo.Go.asInterface(stdgo._internal.os.Os.stdin), _format?.__copy__(), ..._a.__toArray__());
+        return fscanf(stdgo.Go.asInterface(stdgo._internal.os.Os.stdin), _format?.__copy__(), ...(_a : Array<stdgo.AnyInterface>));
     }
 function sscan(_str:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         var _a = new stdgo.Slice<stdgo.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.GoInt = (0 : stdgo.GoInt), _err:stdgo.Error = (null : stdgo.Error);
-        return fscan(stdgo.Go.asInterface(new stdgo.Pointer<stdgo._internal.fmt.Fmt.T_stringReader>(() -> (stdgo.Go.pointer(_str).value : stdgo._internal.fmt.Fmt.T_stringReader), v -> (stdgo.Go.pointer(_str).value = (v : stdgo.GoString) : stdgo._internal.fmt.Fmt.T_stringReader))), ..._a.__toArray__());
+        return fscan(stdgo.Go.asInterface(new stdgo.Pointer<stdgo._internal.fmt.Fmt.T_stringReader>(() -> (stdgo.Go.pointer(_str).value : stdgo._internal.fmt.Fmt.T_stringReader), v -> (stdgo.Go.pointer(_str).value = (v : stdgo.GoString) : stdgo._internal.fmt.Fmt.T_stringReader))), ...(_a : Array<stdgo.AnyInterface>));
     }
 function sscanln(_str:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         var _a = new stdgo.Slice<stdgo.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.GoInt = (0 : stdgo.GoInt), _err:stdgo.Error = (null : stdgo.Error);
-        return fscanln(stdgo.Go.asInterface(new stdgo.Pointer<stdgo._internal.fmt.Fmt.T_stringReader>(() -> (stdgo.Go.pointer(_str).value : stdgo._internal.fmt.Fmt.T_stringReader), v -> (stdgo.Go.pointer(_str).value = (v : stdgo.GoString) : stdgo._internal.fmt.Fmt.T_stringReader))), ..._a.__toArray__());
+        return fscanln(stdgo.Go.asInterface(new stdgo.Pointer<stdgo._internal.fmt.Fmt.T_stringReader>(() -> (stdgo.Go.pointer(_str).value : stdgo._internal.fmt.Fmt.T_stringReader), v -> (stdgo.Go.pointer(_str).value = (v : stdgo.GoString) : stdgo._internal.fmt.Fmt.T_stringReader))), ...(_a : Array<stdgo.AnyInterface>));
     }
 function sscanf(_str:stdgo.GoString, _format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         var _a = new stdgo.Slice<stdgo.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.GoInt = (0 : stdgo.GoInt), _err:stdgo.Error = (null : stdgo.Error);
-        return fscanf(stdgo.Go.asInterface(new stdgo.Pointer<stdgo._internal.fmt.Fmt.T_stringReader>(() -> (stdgo.Go.pointer(_str).value : stdgo._internal.fmt.Fmt.T_stringReader), v -> (stdgo.Go.pointer(_str).value = (v : stdgo.GoString) : stdgo._internal.fmt.Fmt.T_stringReader))), _format?.__copy__(), ..._a.__toArray__());
+        return fscanf(stdgo.Go.asInterface(new stdgo.Pointer<stdgo._internal.fmt.Fmt.T_stringReader>(() -> (stdgo.Go.pointer(_str).value : stdgo._internal.fmt.Fmt.T_stringReader), v -> (stdgo.Go.pointer(_str).value = (v : stdgo.GoString) : stdgo._internal.fmt.Fmt.T_stringReader))), _format?.__copy__(), ...(_a : Array<stdgo.AnyInterface>));
     }
 function fscan(_r:stdgo._internal.io.Io.Reader, _a:haxe.Rest<stdgo.AnyInterface>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         var _a = new stdgo.Slice<stdgo.AnyInterface>(_a.length, 0, ..._a);
@@ -934,13 +934,13 @@ class T_fmt_asInterface {
                                     break;
                                     break;
                                 } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (__value__ == ((112 : stdgo.GoUInt8)) || __value__ == ((80 : stdgo.GoUInt8))))) {
-                                    _tail = (_tail.__append__(...(_num.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+                                    _tail = (_tail.__append__(...((_num.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
                                     _num = (_num.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>);
                                     break;
                                     break;
                                 } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (__value__ == ((101 : stdgo.GoUInt8)) || __value__ == ((69 : stdgo.GoUInt8))))) {
                                     if (((_verb != (120 : stdgo.GoInt32)) && (_verb != (88 : stdgo.GoInt32)) : Bool)) {
-                                        _tail = (_tail.__append__(...(_num.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+                                        _tail = (_tail.__append__(...((_num.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
                                         _num = (_num.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>);
                                         break;
                                     };
@@ -975,7 +975,7 @@ class T_fmt_asInterface {
                 _num = (_num.__append__((48 : stdgo.GoUInt8)));
                 _digits--;
             };
-            _num = (_num.__append__(..._tail.__toArray__()));
+            _num = (_num.__append__(...(_tail : Array<stdgo.GoUInt8>)));
         };
         if ((_f._fmtFlags._plus || (_num[(0 : stdgo.GoInt)] != (43 : stdgo.GoUInt8)) : Bool)) {
             if (((_f._fmtFlags._zero && _f._fmtFlags._widPresent : Bool) && (_f._wid > (_num.length) : Bool) : Bool)) {
@@ -3737,12 +3737,12 @@ class T_buffer_asInterface {
     @:keep
     static public function _writeString( _b:stdgo.Ref<T_buffer>, _s:stdgo.GoString):Void {
         @:recv var _b:stdgo.Ref<T_buffer> = _b;
-        _b.__setData__(((_b : stdgo._internal.fmt.Fmt.T_buffer).__append__(..._s.__toArray__())));
+        _b.__setData__(((_b : stdgo._internal.fmt.Fmt.T_buffer).__append__(...(_s : Array<stdgo.GoUInt8>))));
     }
     @:keep
     static public function _write( _b:stdgo.Ref<T_buffer>, _p:stdgo.Slice<stdgo.GoByte>):Void {
         @:recv var _b:stdgo.Ref<T_buffer> = _b;
-        _b.__setData__(((_b : stdgo._internal.fmt.Fmt.T_buffer).__append__(..._p.__toArray__())));
+        _b.__setData__(((_b : stdgo._internal.fmt.Fmt.T_buffer).__append__(...(_p : Array<stdgo.GoUInt8>))));
     }
 }
 class T_stringReader_asInterface {

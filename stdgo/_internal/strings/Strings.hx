@@ -178,7 +178,7 @@ function newReplacer(_oldnew:haxe.Rest<stdgo.GoString>):stdgo.Ref<Replacer> {
         if (((_oldnew.length) % (2 : stdgo.GoInt) : stdgo.GoInt) == ((1 : stdgo.GoInt))) {
             throw stdgo.Go.toInterface(("strings.NewReplacer: odd argument count" : stdgo.GoString));
         };
-        return (stdgo.Go.setRef(({ _oldnew : ((null : stdgo.Slice<stdgo.GoString>).__append__(..._oldnew.__toArray__())) } : stdgo._internal.strings.Strings.Replacer)) : stdgo.Ref<stdgo._internal.strings.Strings.Replacer>);
+        return (stdgo.Go.setRef(({ _oldnew : ((null : stdgo.Slice<stdgo.GoString>).__append__(...(_oldnew : Array<stdgo.GoString>))) } : stdgo._internal.strings.Strings.Replacer)) : stdgo.Ref<stdgo._internal.strings.Strings.Replacer>);
     }
 function _makeGenericReplacer(_oldnew:stdgo.Slice<stdgo.GoString>):stdgo.Ref<T_genericReplacer> {
         var _r = (stdgo.Go.setRef(({} : stdgo._internal.strings.Strings.T_genericReplacer)) : stdgo.Ref<stdgo._internal.strings.Strings.T_genericReplacer>);
@@ -1349,7 +1349,7 @@ class Builder_asInterface {
     static public function writeString( _b:stdgo.Ref<Builder>, _s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _b:stdgo.Ref<Builder> = _b;
         _b._copyCheck();
-        _b._buf = (_b._buf.__append__(..._s.__toArray__()));
+        _b._buf = (_b._buf.__append__(...(_s : Array<stdgo.GoUInt8>)));
         return { _0 : (_s.length), _1 : (null : stdgo.Error) };
     }
     @:keep
@@ -1371,7 +1371,7 @@ class Builder_asInterface {
     static public function write( _b:stdgo.Ref<Builder>, _p:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _b:stdgo.Ref<Builder> = _b;
         _b._copyCheck();
-        _b._buf = (_b._buf.__append__(..._p.__toArray__()));
+        _b._buf = (_b._buf.__append__(...(_p : Array<stdgo.GoUInt8>)));
         return { _0 : (_p.length), _1 : (null : stdgo.Error) };
     }
     @:keep
@@ -2148,13 +2148,13 @@ class T_appendSliceWriter_asInterface {
     @:keep
     static public function writeString( _w:stdgo.Ref<T_appendSliceWriter>, _s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _w:stdgo.Ref<T_appendSliceWriter> = _w;
-        _w.__setData__(((_w : stdgo._internal.strings.Strings.T_appendSliceWriter).__append__(..._s.__toArray__())));
+        _w.__setData__(((_w : stdgo._internal.strings.Strings.T_appendSliceWriter).__append__(...(_s : Array<stdgo.GoUInt8>))));
         return { _0 : (_s.length), _1 : (null : stdgo.Error) };
     }
     @:keep
     static public function write( _w:stdgo.Ref<T_appendSliceWriter>, _p:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _w:stdgo.Ref<T_appendSliceWriter> = _w;
-        _w.__setData__(((_w : stdgo._internal.strings.Strings.T_appendSliceWriter).__append__(..._p.__toArray__())));
+        _w.__setData__(((_w : stdgo._internal.strings.Strings.T_appendSliceWriter).__append__(...(_p : Array<stdgo.GoUInt8>))));
         return { _0 : (_p.length), _1 : (null : stdgo.Error) };
     }
 }

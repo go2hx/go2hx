@@ -2906,7 +2906,7 @@ class T_digest_asInterface {
         @:recv var _d:stdgo.Ref<T_digest> = _d;
         var _d0:stdgo._internal.crypto.sha1.Sha1.T_digest = (_d : stdgo._internal.crypto.sha1.Sha1.T_digest)?.__copy__();
         var _hash = _d0._constSum()?.__copy__();
-        return (_in.__append__(...(_hash.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+        return (_in.__append__(...((_hash.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
     }
     @:keep
     static public function _checkSum( _d:stdgo.Ref<T_digest>):stdgo.GoArray<stdgo.GoByte> {
@@ -2941,7 +2941,7 @@ class T_digest_asInterface {
         _boringUnreachable();
         var _d0:stdgo._internal.crypto.sha1.Sha1.T_digest = (_d : stdgo._internal.crypto.sha1.Sha1.T_digest)?.__copy__();
         var _hash = _d0._checkSum()?.__copy__();
-        return (_in.__append__(...(_hash.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+        return (_in.__append__(...((_hash.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
     }
     @:keep
     static public function write( _d:stdgo.Ref<T_digest>, _p:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
@@ -3038,13 +3038,13 @@ class T_digest_asInterface {
     static public function marshalBinary( _d:stdgo.Ref<T_digest>):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<T_digest> = _d;
         var _b = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (96 : stdgo.GoInt)).__setNumber32__();
-        _b = (_b.__append__(...stdgo.Go.str("sha", 1).__toArray__()));
+        _b = (_b.__append__(...(stdgo.Go.str("sha", 1) : Array<stdgo.GoUInt8>)));
         _b = stdgo._internal.encoding.binary.Binary.bigEndian.appendUint32(_b, _d._h[(0 : stdgo.GoInt)]);
         _b = stdgo._internal.encoding.binary.Binary.bigEndian.appendUint32(_b, _d._h[(1 : stdgo.GoInt)]);
         _b = stdgo._internal.encoding.binary.Binary.bigEndian.appendUint32(_b, _d._h[(2 : stdgo.GoInt)]);
         _b = stdgo._internal.encoding.binary.Binary.bigEndian.appendUint32(_b, _d._h[(3 : stdgo.GoInt)]);
         _b = stdgo._internal.encoding.binary.Binary.bigEndian.appendUint32(_b, _d._h[(4 : stdgo.GoInt)]);
-        _b = (_b.__append__(...(_d._x.__slice__(0, _d._nx) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+        _b = (_b.__append__(...((_d._x.__slice__(0, _d._nx) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
         _b = (_b.__slice__(0, (((_b.length) + (_d._x.length) : stdgo.GoInt) - _d._nx : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _b = stdgo._internal.encoding.binary.Binary.bigEndian.appendUint64(_b, _d._len);
         return { _0 : _b, _1 : (null : stdgo.Error) };

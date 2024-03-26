@@ -27,7 +27,7 @@ function readData(_r:stdgo._internal.io.Io.Reader, _n:stdgo.GoUInt64):{ var _0 :
                 };
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
             };
-            _buf = (_buf.__append__(...(_buf1.__slice__(0, _next) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+            _buf = (_buf.__append__(...((_buf1.__slice__(0, _next) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
             _n = (_n - (_next) : stdgo.GoUInt64);
         };
         return { _0 : _buf, _1 : (null : stdgo.Error) };
@@ -57,7 +57,7 @@ function readDataAt(_r:stdgo._internal.io.Io.ReaderAt, _n:stdgo.GoUInt64, _off:s
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
             };
-            _buf = (_buf.__append__(...(_buf1.__slice__(0, _next) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+            _buf = (_buf.__append__(...((_buf1.__slice__(0, _next) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
             _n = (_n - (_next) : stdgo.GoUInt64);
             _off = (_off + ((_next : stdgo.GoInt64)) : stdgo.GoInt64);
         };

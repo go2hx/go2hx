@@ -5248,7 +5248,7 @@ function marshal(_v:stdgo.AnyInterface):{ var _0 : stdgo.Slice<stdgo.GoByte>; va
                     return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
                 };
             };
-            var _buf = (((null : stdgo.Slice<stdgo.GoUInt8>) : stdgo.Slice<stdgo.GoByte>).__append__(..._e.bytes().__toArray__()));
+            var _buf = (((null : stdgo.Slice<stdgo.GoUInt8>) : stdgo.Slice<stdgo.GoByte>).__append__(...(_e.bytes() : Array<stdgo.GoUInt8>)));
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -5521,7 +5521,7 @@ function _stringEncoder(_e:stdgo.Ref<T_encodeState>, _v:stdgo._internal.reflect.
             };
             var _b = _e.availableBuffer();
             _b = _mayAppendQuote(_b, _opts._quoted);
-            _b = (_b.__append__(..._numStr.__toArray__()));
+            _b = (_b.__append__(...(_numStr : Array<stdgo.GoUInt8>)));
             _b = _mayAppendQuote(_b, _opts._quoted);
             _e.write(_b);
             return;
@@ -5743,7 +5743,7 @@ function _typeFields(_t:stdgo._internal.reflect.Reflect.Type_):T_structFields {
                             _nameEscBuf = _appendHTMLEscape((_nameEscBuf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _field._nameBytes);
                             _field._nameEscHTML = ((("\"" : stdgo.GoString) + (_nameEscBuf : stdgo.GoString)?.__copy__() : stdgo.GoString) + ("\":" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
                             _field._nameNonEsc = ((("\"" : stdgo.GoString) + _field._name?.__copy__() : stdgo.GoString) + ("\":" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
-                            _fields = (_fields.__append__(_field?.__copy__()));
+                            _fields = (_fields.__append__(_field));
                             if (((_count[_f._typ] ?? (0 : stdgo.GoInt)) > (1 : stdgo.GoInt) : Bool)) {
                                 _fields = (_fields.__append__(_fields[((_fields.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]));
                             };
@@ -5786,12 +5786,12 @@ function _typeFields(_t:stdgo._internal.reflect.Reflect.Type_):T_structFields {
                     });
                 };
                 if (_advance == ((1 : stdgo.GoInt))) {
-                    _out = (_out.__append__(_fi?.__copy__()));
+                    _out = (_out.__append__(_fi));
                     continue;
                 };
                 var __tmp__ = _dominantField((_fields.__slice__(_i, (_i + _advance : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.encoding.json.Json.T_field>)), _dominant:stdgo._internal.encoding.json.Json.T_field = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
-                    _out = (_out.__append__(_dominant?.__copy__()));
+                    _out = (_out.__append__(_dominant));
                 };
             });
         };
@@ -6587,7 +6587,7 @@ function testEncodeString(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
 function _tenc(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } {
         var _a = new stdgo.Slice<stdgo.AnyInterface>(_a.length, 0, ..._a);
         var _buf:stdgo._internal.bytes.Bytes.Buffer = ({} : stdgo._internal.bytes.Bytes.Buffer);
-        stdgo._internal.fmt.Fmt.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>)), _format?.__copy__(), ..._a.__toArray__());
+        stdgo._internal.fmt.Fmt.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>)), _format?.__copy__(), ...(_a : Array<stdgo.AnyInterface>));
         return { _0 : _buf.bytes(), _1 : (null : stdgo.Error) };
     }
 function testEncodeBytekind(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
@@ -7122,17 +7122,17 @@ function _appendHTMLEscape(_dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.Slice<stdg
         var _start:stdgo.GoInt = (0 : stdgo.GoInt);
         for (_i => _c in _src) {
             if (((_c == ((60 : stdgo.GoUInt8)) || _c == ((62 : stdgo.GoUInt8)) : Bool) || (_c == (38 : stdgo.GoUInt8)) : Bool)) {
-                _dst = (_dst.__append__(...(_src.__slice__(_start, _i) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+                _dst = (_dst.__append__(...((_src.__slice__(_start, _i) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
                 _dst = (_dst.__append__((92 : stdgo.GoUInt8), (117 : stdgo.GoUInt8), (48 : stdgo.GoUInt8), (48 : stdgo.GoUInt8), _hex[((_c >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) : stdgo.GoInt)], _hex[((_c & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]));
                 _start = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
             };
             if ((((_c == ((226 : stdgo.GoUInt8)) && ((_i + (2 : stdgo.GoInt) : stdgo.GoInt) < (_src.length) : Bool) : Bool) && _src[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] == ((128 : stdgo.GoUInt8)) : Bool) && ((_src[(_i + (2 : stdgo.GoInt) : stdgo.GoInt)] & (((1 : stdgo.GoUInt8) ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt8)) : stdgo.GoUInt8) == (168 : stdgo.GoUInt8)) : Bool)) {
-                _dst = (_dst.__append__(...(_src.__slice__(_start, _i) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+                _dst = (_dst.__append__(...((_src.__slice__(_start, _i) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
                 _dst = (_dst.__append__((92 : stdgo.GoUInt8), (117 : stdgo.GoUInt8), (50 : stdgo.GoUInt8), (48 : stdgo.GoUInt8), (50 : stdgo.GoUInt8), _hex[((_src[(_i + (2 : stdgo.GoInt) : stdgo.GoInt)] & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]));
                 _start = (_i + (("\u2029" : stdgo.GoString).length) : stdgo.GoInt);
             };
         };
-        return (_dst.__append__(...(_src.__slice__(_start) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+        return (_dst.__append__(...((_src.__slice__(_start) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
     }
 function compact(_dst:stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>, _src:stdgo.Slice<stdgo.GoByte>):stdgo.Error {
         _dst.grow((_src.length));
@@ -7153,12 +7153,12 @@ function _appendCompact(_dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.Slice<stdgo.G
             var _start:stdgo.GoInt = (0 : stdgo.GoInt);
             for (_i => _c in _src) {
                 if ((_escape && (((_c == ((60 : stdgo.GoUInt8)) || _c == ((62 : stdgo.GoUInt8)) : Bool) || (_c == (38 : stdgo.GoUInt8)) : Bool)) : Bool)) {
-                    _dst = (_dst.__append__(...(_src.__slice__(_start, _i) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+                    _dst = (_dst.__append__(...((_src.__slice__(_start, _i) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
                     _dst = (_dst.__append__((92 : stdgo.GoUInt8), (117 : stdgo.GoUInt8), (48 : stdgo.GoUInt8), (48 : stdgo.GoUInt8), _hex[((_c >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) : stdgo.GoInt)], _hex[((_c & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]));
                     _start = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
                 };
                 if (((((_escape && _c == ((226 : stdgo.GoUInt8)) : Bool) && ((_i + (2 : stdgo.GoInt) : stdgo.GoInt) < (_src.length) : Bool) : Bool) && _src[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] == ((128 : stdgo.GoUInt8)) : Bool) && ((_src[(_i + (2 : stdgo.GoInt) : stdgo.GoInt)] & (((1 : stdgo.GoUInt8) ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt8)) : stdgo.GoUInt8) == (168 : stdgo.GoUInt8)) : Bool)) {
-                    _dst = (_dst.__append__(...(_src.__slice__(_start, _i) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+                    _dst = (_dst.__append__(...((_src.__slice__(_start, _i) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
                     _dst = (_dst.__append__((92 : stdgo.GoUInt8), (117 : stdgo.GoUInt8), (50 : stdgo.GoUInt8), (48 : stdgo.GoUInt8), (50 : stdgo.GoUInt8), _hex[((_src[(_i + (2 : stdgo.GoInt) : stdgo.GoInt)] & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]));
                     _start = (_i + (("\u2029" : stdgo.GoString).length) : stdgo.GoInt);
                 };
@@ -7167,7 +7167,7 @@ function _appendCompact(_dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.Slice<stdgo.G
                     if (_v == ((11 : stdgo.GoInt))) {
                         break;
                     };
-                    _dst = (_dst.__append__(...(_src.__slice__(_start, _i) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+                    _dst = (_dst.__append__(...((_src.__slice__(_start, _i) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
                     _start = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
                 };
             };
@@ -7179,7 +7179,7 @@ function _appendCompact(_dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.Slice<stdgo.G
                     return { _0 : (_dst.__slice__(0, _origLen) : stdgo.Slice<stdgo.GoUInt8>), _1 : _scan._err };
                 };
             };
-            _dst = (_dst.__append__(...(_src.__slice__(_start) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+            _dst = (_dst.__append__(...((_src.__slice__(_start) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -7209,11 +7209,11 @@ function _appendCompact(_dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.Slice<stdgo.G
     }
 function _appendNewline(_dst:stdgo.Slice<stdgo.GoByte>, _prefix:stdgo.GoString, _indent:stdgo.GoString, _depth:stdgo.GoInt):stdgo.Slice<stdgo.GoByte> {
         _dst = (_dst.__append__((10 : stdgo.GoUInt8)));
-        _dst = (_dst.__append__(..._prefix.__toArray__()));
+        _dst = (_dst.__append__(...(_prefix : Array<stdgo.GoUInt8>)));
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _depth : Bool), _i++, {
-                _dst = (_dst.__append__(..._indent.__toArray__()));
+                _dst = (_dst.__append__(...(_indent : Array<stdgo.GoUInt8>)));
             });
         };
         return _dst;
@@ -8732,7 +8732,7 @@ class T_decodeState_asInterface {
             if (_d._opcode == ((8 : stdgo.GoInt))) {
                 break;
             };
-            _v = (_v.__append__(_d._valueInterface()));
+            _v = (_v.__append__((_d._valueInterface().value : stdgo.Slice<stdgo.AnyInterface>)));
             if (_d._opcode == ((9 : stdgo.GoInt))) {
                 _d._scanWhile((9 : stdgo.GoInt));
             };
@@ -9087,7 +9087,7 @@ class T_decodeState_asInterface {
                     if (_d._errorContext == null || (_d._errorContext : Dynamic).__nil__) {
                         _d._errorContext = (stdgo.Go.setRef(({} : stdgo._internal.encoding.json.Json.T_errorContext)) : stdgo.Ref<stdgo._internal.encoding.json.Json.T_errorContext>);
                     };
-                    _d._errorContext.fieldStack = (_d._errorContext.fieldStack.__append__(_f._name?.__copy__()));
+                    _d._errorContext.fieldStack = (_d._errorContext.fieldStack.__append__(_f._name));
                     _d._errorContext.struct_ = _t;
                 } else if (_d._disallowUnknownFields) {
                     _d._saveError(stdgo._internal.fmt.Fmt.errorf(("json: unknown field %q" : stdgo.GoString), stdgo.Go.toInterface(_key)));
@@ -11921,7 +11921,7 @@ class RawMessage_asInterface {
         if (_m == null || (_m : Dynamic).__nil__) {
             return stdgo._internal.errors.Errors.new_(("json.RawMessage: UnmarshalJSON on nil pointer" : stdgo.GoString));
         };
-        _m.__setData__(((((_m : stdgo._internal.encoding.json.Json.RawMessage)).__slice__((0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.encoding.json.Json.RawMessage).__append__(..._data.__toArray__())));
+        _m.__setData__(((((_m : stdgo._internal.encoding.json.Json.RawMessage)).__slice__((0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.encoding.json.Json.RawMessage).__append__(...(_data : Array<stdgo.GoUInt8>))));
         return (null : stdgo.Error);
     }
     @:keep

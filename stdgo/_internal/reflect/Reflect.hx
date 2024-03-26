@@ -157,7 +157,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
-    public dynamic function comparable():Bool;
+    public dynamic function comparable_():Bool;
     /**
         // Bits returns the size of the type in bits.
         // It panics if the type's Kind is not one of the
@@ -553,7 +553,7 @@ class Value_asInterface {
     @:keep
     public dynamic function equal(_u:Value):Bool return __self__.value.equal(_u);
     @:keep
-    public dynamic function comparable():Bool return __self__.value.comparable();
+    public dynamic function comparable_():Bool return __self__.value.comparable_();
     @:keep
     public dynamic function canConvert(_t:Type_):Bool return __self__.value.canConvert(_t);
     @:keep
@@ -712,7 +712,7 @@ class Value_asInterface {
     @:keep
     static public function equal( _v:Value, _u:Value):Bool throw "Value:reflect.equal is not yet implemented";
     @:keep
-    static public function comparable( _v:Value):Bool throw "Value:reflect.comparable is not yet implemented";
+    static public function comparable_( _v:Value):Bool throw "Value:reflect.comparable_ is not yet implemented";
     @:keep
     static public function canConvert( _v:Value, _t:Type_):Bool throw "Value:reflect.canConvert is not yet implemented";
     @:keep

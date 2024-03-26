@@ -563,7 +563,7 @@ function multiWriter(_writers:haxe.Rest<Writer>):Writer {
                     { _0 : (null : stdgo.Ref<stdgo._internal.io.Io.T_multiWriter>), _1 : false };
                 }, _mw = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
-                    _allWriters = (_allWriters.__append__(..._mw._writers.__toArray__()));
+                    _allWriters = (_allWriters.__append__(...(_mw._writers : Array<stdgo._internal.io.Io.Writer>)));
                 } else {
                     _allWriters = (_allWriters.__append__(_w));
                 };

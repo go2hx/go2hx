@@ -279,10 +279,10 @@ macro function insert<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1
                     };
                     var _n:stdgo.GoInt = (_s.length);
                     if (_i == (_n)) {
-                        return (_s.__append__(..._v.__toArray__()));
+                        return (_s.__append__(...(_v : stdgo._internal.slices.Slices.Array<$S>)));
                     };
                     if (((_n + _m : stdgo.GoInt) > _s.capacity : Bool)) {
-                        var _s2:$S = ((_s.__slice__(0, _i) : $S).__append__(...new stdgo.Slice<$E>(((_n + _m : stdgo.GoInt) - _i : stdgo.GoInt).toBasic(), 0).__toArray__()));
+                        var _s2:$S = ((_s.__slice__(0, _i) : $S).__append__(...(new stdgo.Slice<$E>(((_n + _m : stdgo.GoInt) - _i : stdgo.GoInt).toBasic(), 0) : stdgo._internal.slices.Slices.Array<$S>)));
                         stdgo.Go.copySlice((_s2.__slice__(_i) : $S), _v);
                         stdgo.Go.copySlice((_s2.__slice__((_i + _m : stdgo.GoInt)) : $S), (_s.__slice__(_i) : $S));
                         return _s2;
@@ -321,7 +321,7 @@ macro function delete<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1
             } catch(_) {
                 final f = macro function f(__generic__0:$S, __generic__1:$E, _s:$S, _i:stdgo.GoInt, _j:stdgo.GoInt) {
                     var __blank__ = (_s.__slice__(_i, _j) : $S);
-                    return ((_s.__slice__(0, _i) : $S).__append__(...(_s.__slice__(_j) : $S).__toArray__()));
+                    return ((_s.__slice__(0, _i) : $S).__append__(...((_s.__slice__(_j) : $S) : stdgo._internal.slices.Slices.Array<$S>)));
                 };
                 switch f.expr {
                     case EFunction(_, f):
@@ -390,14 +390,14 @@ macro function replace<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__
                     var _v = new stdgo.Slice<$E>(_v.length, 0, ..._v);
                     var __blank__ = (_s.__slice__(_i, _j) : $S);
                     if (_i == (_j)) {
-                        return @:privateAccess stdgo._internal.slices.Slices.insert(stdgo.Go.defaultValue((cast (null) : $S)), stdgo.Go.defaultValue((cast (null) : $E)), _s, _i, ..._v.__toArray__());
+                        return @:privateAccess stdgo._internal.slices.Slices.insert(stdgo.Go.defaultValue((cast (null) : $S)), stdgo.Go.defaultValue((cast (null) : $E)), _s, _i, ...(_v : stdgo._internal.slices.Slices.Array<$E>));
                     };
                     if (_j == ((_s.length))) {
-                        return ((_s.__slice__(0, _i) : $S).__append__(..._v.__toArray__()));
+                        return ((_s.__slice__(0, _i) : $S).__append__(...(_v : stdgo._internal.slices.Slices.Array<$S>)));
                     };
                     var _tot:stdgo.GoInt = ((((_s.__slice__(0, _i) : $S).length) + (_v.length) : stdgo.GoInt) + ((_s.__slice__(_j) : $S).length) : stdgo.GoInt);
                     if ((_tot > _s.capacity : Bool)) {
-                        var _s2:$S = ((_s.__slice__(0, _i) : $S).__append__(...new stdgo.Slice<$E>((_tot - _i : stdgo.GoInt).toBasic(), 0).__toArray__()));
+                        var _s2:$S = ((_s.__slice__(0, _i) : $S).__append__(...(new stdgo.Slice<$E>((_tot - _i : stdgo.GoInt).toBasic(), 0) : stdgo._internal.slices.Slices.Array<$S>)));
                         stdgo.Go.copySlice((_s2.__slice__(_i) : $S), _v);
                         stdgo.Go.copySlice((_s2.__slice__((_i + (_v.length) : stdgo.GoInt)) : $S), (_s.__slice__(_j) : $S));
                         return _s2;
@@ -459,7 +459,7 @@ macro function clone<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:
                     if (_s == null) {
                         return stdgo.Go.defaultValue((cast (null) : $S));
                     };
-                    return (((new stdgo.Slice<$E>(0, 0) : stdgo.Slice<$E>) : $S).__append__(..._s.__toArray__()));
+                    return (((new stdgo.Slice<$E>(0, 0) : stdgo.Slice<$E>) : $S).__append__(...(_s : stdgo._internal.slices.Slices.Array<$S>)));
                 };
                 switch f.expr {
                     case EFunction(_, f):
@@ -570,7 +570,7 @@ macro function grow<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:h
                     {
                         _n = (_n - ((_s.capacity - (_s.length) : stdgo.GoInt)) : stdgo.GoInt);
                         if ((_n > (0 : stdgo.GoInt) : Bool)) {
-                            _s = (((_s.__slice__(0, _s.capacity) : $S).__append__(...new stdgo.Slice<$E>((_n : stdgo.GoInt).toBasic(), 0).__toArray__())).__slice__(0, (_s.length)) : $S);
+                            _s = (((_s.__slice__(0, _s.capacity) : $S).__append__(...(new stdgo.Slice<$E>((_n : stdgo.GoInt).toBasic(), 0) : stdgo._internal.slices.Slices.Array<$S>))).__slice__(0, (_s.length)) : $S);
                         };
                     };
                     return _s;
@@ -927,7 +927,7 @@ macro function _naiveReplace<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __gen
                 final f = macro function f(__generic__0:$S, __generic__1:$E, _s:$S, _i:stdgo.GoInt, _j:stdgo.GoInt, _v:haxe.Rest<$E>) {
                     var _v = new stdgo.Slice<$E>(_v.length, 0, ..._v);
                     _s = @:privateAccess stdgo._internal.slices.Slices.delete(stdgo.Go.defaultValue((cast (null) : $S)), stdgo.Go.defaultValue((cast (null) : $E)), _s, _i, _j);
-                    _s = @:privateAccess stdgo._internal.slices.Slices.insert(stdgo.Go.defaultValue((cast (null) : $S)), stdgo.Go.defaultValue((cast (null) : $E)), _s, _i, ..._v.__toArray__());
+                    _s = @:privateAccess stdgo._internal.slices.Slices.insert(stdgo.Go.defaultValue((cast (null) : $S)), stdgo.Go.defaultValue((cast (null) : $E)), _s, _i, ...(_v : stdgo._internal.slices.Slices.Array<$E>));
                     return _s;
                 };
                 switch f.expr {

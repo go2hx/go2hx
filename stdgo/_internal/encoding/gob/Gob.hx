@@ -3277,7 +3277,7 @@ function testFuzz(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             _t.skipf(("disabled; run with -gob.fuzz to enable" : stdgo.GoString));
         };
         var _input = (new stdgo.Slice<stdgo.AnyInterface>(8, 8, stdgo.Go.toInterface(stdgo.Go.pointer((0 : stdgo.GoInt))), stdgo.Go.toInterface(stdgo.Go.pointer((0 : stdgo.GoFloat32))), stdgo.Go.toInterface(stdgo.Go.pointer((0 : stdgo.GoFloat64))), stdgo.Go.toInterface(stdgo.Go.pointer(new stdgo.GoComplex128(0, 0))), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob.ByteStruct((255 : stdgo.GoUInt8)) : stdgo._internal.encoding.gob.Gob.ByteStruct)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob.ByteStruct>))), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob.ArrayStruct() : stdgo._internal.encoding.gob.Gob.ArrayStruct)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob.ArrayStruct>))), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob.StringStruct(("hello" : stdgo.GoString)) : stdgo._internal.encoding.gob.Gob.StringStruct)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob.StringStruct>))), stdgo.Go.toInterface((stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob.GobTest1((0 : stdgo.GoInt), (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob.StringStruct(("hello" : stdgo.GoString)) : stdgo._internal.encoding.gob.Gob.StringStruct)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob.StringStruct>)) : stdgo._internal.encoding.gob.Gob.GobTest1)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob.GobTest1>))) : stdgo.Slice<stdgo.AnyInterface>);
-        _testFuzz(_t, stdgo._internal.time.Time.now().unixNano(), (100 : stdgo.GoInt), ..._input.__toArray__());
+        _testFuzz(_t, stdgo._internal.time.Time.now().unixNano(), (100 : stdgo.GoInt), ...(_input : Array<stdgo.AnyInterface>));
     }
 function testFuzzRegressions(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         if (!_doFuzzTests.value) {
@@ -6286,7 +6286,7 @@ function testDecoderOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
     }
 function _errorf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void {
         var _args = new stdgo.Slice<stdgo.AnyInterface>(_args.length, 0, ..._args);
-        _error_(stdgo._internal.fmt.Fmt.errorf((("gob: " : stdgo.GoString) + _format?.__copy__() : stdgo.GoString)?.__copy__(), ..._args.__toArray__()));
+        _error_(stdgo._internal.fmt.Fmt.errorf((("gob: " : stdgo.GoString) + _format?.__copy__() : stdgo.GoString)?.__copy__(), ...(_args : Array<stdgo.AnyInterface>)));
     }
 function _error_(_err:stdgo.Error):Void {
         throw stdgo.Go.toInterface((new stdgo._internal.encoding.gob.Gob.T_gobError(_err) : stdgo._internal.encoding.gob.Gob.T_gobError));
@@ -9713,12 +9713,12 @@ class T_encBuffer_asInterface {
     @:keep
     static public function writeString( _e:stdgo.Ref<T_encBuffer>, _s:stdgo.GoString):Void {
         @:recv var _e:stdgo.Ref<T_encBuffer> = _e;
-        _e._data = (_e._data.__append__(..._s.__toArray__()));
+        _e._data = (_e._data.__append__(...(_s : Array<stdgo.GoUInt8>)));
     }
     @:keep
     static public function write( _e:stdgo.Ref<T_encBuffer>, _p:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _e:stdgo.Ref<T_encBuffer> = _e;
-        _e._data = (_e._data.__append__(..._p.__toArray__()));
+        _e._data = (_e._data.__append__(...(_p : Array<stdgo.GoUInt8>)));
         return { _0 : (_p.length), _1 : (null : stdgo.Error) };
     }
     @:keep
@@ -11149,7 +11149,7 @@ class T_isZeroBugArray_asInterface {
     static public function gobEncode( _a:T_isZeroBugArray):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } {
         @:recv var _a:T_isZeroBugArray = _a?.__copy__();
         var _b:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>), _e:stdgo.Error = (null : stdgo.Error);
-        _b = (_b.__append__(...(_a.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+        _b = (_b.__append__(...((_a.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
         return { _0 : _b, _1 : (null : stdgo.Error) };
     }
 }

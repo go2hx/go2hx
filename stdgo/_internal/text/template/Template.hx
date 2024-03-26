@@ -2877,7 +2877,7 @@ function _eq(_arg1:stdgo._internal.reflect.Reflect.Value, _arg2:haxe.Rest<stdgo.
                         if ((_isNil(_arg1?.__copy__()) || _isNil(_arg?.__copy__()) : Bool)) {
                             _truth = _isNil(_arg?.__copy__()) == (_isNil(_arg1?.__copy__()));
                         } else {
-                            if (!_arg.type().comparable()) {
+                            if (!_arg.type().comparable_()) {
                                 return { _0 : false, _1 : stdgo._internal.fmt.Fmt.errorf(("non-comparable type %s: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_arg)), stdgo.Go.toInterface(_arg.type())) };
                             };
                             _truth = _arg1.interface_() == (_arg.interface_());
@@ -3090,7 +3090,7 @@ function _evalArgs(_args:stdgo.Slice<stdgo.AnyInterface>):stdgo.GoString {
                     _args[(_i : stdgo.GoInt)] = _a;
                 };
             };
-            _s = stdgo._internal.fmt.Fmt.sprint(..._args.__toArray__())?.__copy__();
+            _s = stdgo._internal.fmt.Fmt.sprint(...(_args : Array<stdgo.AnyInterface>))?.__copy__();
         };
         return _s?.__copy__();
     }
@@ -3102,7 +3102,7 @@ function must(_t:stdgo.Ref<Template>, _err:stdgo.Error):stdgo.Ref<Template> {
     }
 function parseFiles(_filenames:haxe.Rest<stdgo.GoString>):{ var _0 : stdgo.Ref<Template>; var _1 : stdgo.Error; } {
         var _filenames = new stdgo.Slice<stdgo.GoString>(_filenames.length, 0, ..._filenames);
-        return _parseFiles(null, _readFileOS, ..._filenames.__toArray__());
+        return _parseFiles(null, _readFileOS, ...(_filenames : Array<stdgo.GoString>));
     }
 function _parseFiles(_t:stdgo.Ref<Template>, _readFile:stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.Slice<stdgo.GoByte>; var _2 : stdgo.Error; }, _filenames:haxe.Rest<stdgo.GoString>):{ var _0 : stdgo.Ref<Template>; var _1 : stdgo.Error; } {
         var _filenames = new stdgo.Slice<stdgo.GoString>(_filenames.length, 0, ..._filenames);
@@ -3145,7 +3145,7 @@ function _parseGlob(_t:stdgo.Ref<Template>, _pattern:stdgo.GoString):{ var _0 : 
         if ((_filenames.length) == ((0 : stdgo.GoInt))) {
             return { _0 : null, _1 : stdgo._internal.fmt.Fmt.errorf(("template: pattern matches no files: %#q" : stdgo.GoString), stdgo.Go.toInterface(_pattern)) };
         };
-        return _parseFiles(_t, _readFileOS, ..._filenames.__toArray__());
+        return _parseFiles(_t, _readFileOS, ...(_filenames : Array<stdgo.GoString>));
     }
 function parseFS(_fsys:stdgo._internal.io.fs.Fs.FS, _patterns:haxe.Rest<stdgo.GoString>):{ var _0 : stdgo.Ref<Template>; var _1 : stdgo.Error; } {
         var _patterns = new stdgo.Slice<stdgo.GoString>(_patterns.length, 0, ..._patterns);
@@ -3161,9 +3161,9 @@ function _parseFS(_t:stdgo.Ref<Template>, _fsys:stdgo._internal.io.fs.Fs.FS, _pa
             if ((_list.length) == ((0 : stdgo.GoInt))) {
                 return { _0 : null, _1 : stdgo._internal.fmt.Fmt.errorf(("template: pattern matches no files: %#q" : stdgo.GoString), stdgo.Go.toInterface(_pattern)) };
             };
-            _filenames = (_filenames.__append__(..._list.__toArray__()));
+            _filenames = (_filenames.__append__(...(_list : Array<stdgo.GoString>)));
         };
-        return _parseFiles(_t, _readFileFS(_fsys), ..._filenames.__toArray__());
+        return _parseFiles(_t, _readFileFS(_fsys), ...(_filenames : Array<stdgo.GoString>));
     }
 function _readFileOS(_file:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Slice<stdgo.GoByte>; var _2 : stdgo.Error; } {
         var _name:stdgo.GoString = ("" : stdgo.GoString), _b:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>), _err:stdgo.Error = (null : stdgo.Error);
@@ -4542,7 +4542,7 @@ class T_state_asInterface {
             var __tmp__ = _s._tmpl.errorContext(_s._node), _location:stdgo.GoString = __tmp__._0, _context:stdgo.GoString = __tmp__._1;
             _format = stdgo._internal.fmt.Fmt.sprintf(("template: %s: executing %q at <%s>: %s" : stdgo.GoString), stdgo.Go.toInterface(_location), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_doublePercent(_context?.__copy__())), stdgo.Go.toInterface(_format))?.__copy__();
         };
-        throw stdgo.Go.toInterface(stdgo.Go.asInterface(({ name : _s._tmpl.tree.name()?.__copy__(), err : stdgo._internal.fmt.Fmt.errorf(_format?.__copy__(), ..._args.__toArray__()) } : stdgo._internal.text.template.Template.ExecError)));
+        throw stdgo.Go.toInterface(stdgo.Go.asInterface(({ name : _s._tmpl.tree.name()?.__copy__(), err : stdgo._internal.fmt.Fmt.errorf(_format?.__copy__(), ...(_args : Array<stdgo.AnyInterface>)) } : stdgo._internal.text.template.Template.ExecError)));
     }
     @:keep
     static public function _at( _s:stdgo.Ref<T_state>, _node:stdgo._internal.text.template.parse.Parse.Node):Void {
@@ -5375,7 +5375,7 @@ class Template_asInterface {
         var _filenames = new stdgo.Slice<stdgo.GoString>(_filenames.length, 0, ..._filenames);
         @:recv var _t:stdgo.Ref<Template> = _t;
         _t._init();
-        return _parseFiles(_t, _readFileOS, ..._filenames.__toArray__());
+        return _parseFiles(_t, _readFileOS, ...(_filenames : Array<stdgo.GoString>));
     }
     @:keep
     static public function definedTemplates( _t:stdgo.Ref<Template>):stdgo.GoString {

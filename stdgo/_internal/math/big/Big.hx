@@ -3813,7 +3813,7 @@ function testFromBits(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 ({ _bits : (new stdgo.Slice<stdgo.GoInt>(2, 2, (0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _want : ("0x.8p+2" : stdgo.GoString) } : T__struct_6),
 ({ _bits : (new stdgo.Slice<stdgo.GoInt>(4, 4, (0 : stdgo.GoInt), (0 : stdgo.GoInt), (0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _want : ("0x.8p+3" : stdgo.GoString) } : T__struct_6),
 ({ _bits : (new stdgo.Slice<stdgo.GoInt>(3, 3, (0 : stdgo.GoInt), (1 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _want : ("0x.8p+3" : stdgo.GoString) } : T__struct_6),
-({ _bits : ((new stdgo.Slice<stdgo.GoInt>(3, 3, (2 : stdgo.GoInt), (1 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits).__append__(...(new stdgo.Slice<stdgo.GoInt>(2, 2, (3 : stdgo.GoInt), (1 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits).__toArray__())), _want : ("0x.88p+5" : stdgo.GoString) } : T__struct_6)) : stdgo.Slice<T__struct_6>)) {
+({ _bits : ((new stdgo.Slice<stdgo.GoInt>(3, 3, (2 : stdgo.GoInt), (1 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits).__append__(...((new stdgo.Slice<stdgo.GoInt>(2, 2, (3 : stdgo.GoInt), (1 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits) : Array<stdgo.GoInt>))), _want : ("0x.88p+5" : stdgo.GoString) } : T__struct_6)) : stdgo.Slice<T__struct_6>)) {
             var _f = _test._bits.float_();
             {
                 var _got:stdgo.GoString = _f.text((112 : stdgo.GoUInt8), (0 : stdgo.GoInt))?.__copy__();
@@ -6708,7 +6708,7 @@ function _fmtE(_buf:stdgo.Slice<stdgo.GoByte>, _fmt:stdgo.GoByte, _prec:stdgo.Go
             var _i:stdgo.GoInt = (1 : stdgo.GoInt);
             var _m:stdgo.GoInt = _min((_d._mant.length), (_prec + (1 : stdgo.GoInt) : stdgo.GoInt));
             if ((_i < _m : Bool)) {
-                _buf = (_buf.__append__(...(_d._mant.__slice__(_i, _m) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+                _buf = (_buf.__append__(...((_d._mant.__slice__(_i, _m) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
                 _i = _m;
             };
             stdgo.Go.cfor((_i <= _prec : Bool), _i++, {
@@ -6735,7 +6735,7 @@ function _fmtE(_buf:stdgo.Slice<stdgo.GoByte>, _fmt:stdgo.GoByte, _prec:stdgo.Go
 function _fmtF(_buf:stdgo.Slice<stdgo.GoByte>, _prec:stdgo.GoInt, _d:T_decimal):stdgo.Slice<stdgo.GoByte> {
         if ((_d._exp > (0 : stdgo.GoInt) : Bool)) {
             var _m:stdgo.GoInt = _min((_d._mant.length), _d._exp);
-            _buf = (_buf.__append__(...(_d._mant.__slice__(0, _m) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+            _buf = (_buf.__append__(...((_d._mant.__slice__(0, _m) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
             stdgo.Go.cfor((_m < _d._exp : Bool), _m++, {
                 _buf = (_buf.__append__((48 : stdgo.GoUInt8)));
             });
@@ -11220,8 +11220,8 @@ function testScanExponent(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
     }
 function testRatSetString(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _tests:stdgo.Slice<StringTest> = (null : stdgo.Slice<stdgo._internal.math.big.Big.StringTest>);
-        _tests = (_tests.__append__(..._setStringTests.__toArray__()));
-        _tests = (_tests.__append__(..._setStringTests2.__toArray__()));
+        _tests = (_tests.__append__(...(_setStringTests : Array<stdgo._internal.math.big.Big.StringTest>)));
+        _tests = (_tests.__append__(...(_setStringTests2 : Array<stdgo._internal.math.big.Big.StringTest>)));
         for (_i => _test in _tests) {
             var __tmp__ = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big.Rat>).setString(_test._in?.__copy__()), _x:stdgo.Ref<stdgo._internal.math.big.Big.Rat> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
@@ -11657,17 +11657,17 @@ class T_decimal_asInterface {
         var _buf:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
         if ((_x._exp <= (0 : stdgo.GoInt) : Bool)) {
             _buf = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (((2 : stdgo.GoInt) + (-_x._exp) : stdgo.GoInt) + (_x._mant.length) : stdgo.GoInt)).__setNumber32__();
-            _buf = (_buf.__append__(...("0." : stdgo.GoString).__toArray__()));
+            _buf = (_buf.__append__(...(("0." : stdgo.GoString) : Array<stdgo.GoUInt8>)));
             _buf = _appendZeros(_buf, -_x._exp);
-            _buf = (_buf.__append__(..._x._mant.__toArray__()));
+            _buf = (_buf.__append__(...(_x._mant : Array<stdgo.GoUInt8>)));
         } else if ((_x._exp < (_x._mant.length) : Bool)) {
             _buf = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), ((1 : stdgo.GoInt) + (_x._mant.length) : stdgo.GoInt)).__setNumber32__();
-            _buf = (_buf.__append__(...(_x._mant.__slice__(0, _x._exp) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+            _buf = (_buf.__append__(...((_x._mant.__slice__(0, _x._exp) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
             _buf = (_buf.__append__((46 : stdgo.GoUInt8)));
-            _buf = (_buf.__append__(...(_x._mant.__slice__(_x._exp) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+            _buf = (_buf.__append__(...((_x._mant.__slice__(_x._exp) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
         } else {
             _buf = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), _x._exp).__setNumber32__();
-            _buf = (_buf.__append__(..._x._mant.__toArray__()));
+            _buf = (_buf.__append__(...(_x._mant : Array<stdgo.GoUInt8>)));
             _buf = _appendZeros(_buf, (_x._exp - (_x._mant.length) : stdgo.GoInt));
         };
         return (_buf : stdgo.GoString)?.__copy__();
@@ -11699,7 +11699,7 @@ class T_decimal_asInterface {
         while (((_n > (0 : stdgo.GoInt) : Bool) && (_s[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)] == (48 : stdgo.GoUInt8)) : Bool)) {
             _n--;
         };
-        _x._mant = ((_x._mant.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_s.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+        _x._mant = ((_x._mant.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__(...((_s.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
         if ((_shift < (0 : stdgo.GoInt) : Bool)) {
             while ((_shift < (-28 : stdgo.GoInt) : Bool)) {
                 _shr(_x, (28u32 : stdgo.GoUInt));
@@ -12014,8 +12014,8 @@ class Float__asInterface {
             _i++;
         };
         _m = (_m.__slice__(_i) : stdgo._internal.math.big.Big.T_nat);
-        _buf = (_buf.__append__(...("0x." : stdgo.GoString).__toArray__()));
-        _buf = (_buf.__append__(...stdgo._internal.bytes.Bytes.trimRight(_m._utoa((16 : stdgo.GoInt)), ("0" : stdgo.GoString)).__toArray__()));
+        _buf = (_buf.__append__(...(("0x." : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+        _buf = (_buf.__append__(...(stdgo._internal.bytes.Bytes.trimRight(_m._utoa((16 : stdgo.GoInt)), ("0" : stdgo.GoString)) : Array<stdgo.GoUInt8>)));
         _buf = (_buf.__append__((112 : stdgo.GoUInt8)));
         if ((_x._exp >= (0 : stdgo.GoInt32) : Bool)) {
             _buf = (_buf.__append__((43 : stdgo.GoUInt8)));
@@ -12026,7 +12026,7 @@ class Float__asInterface {
     static public function _fmtX( _x:stdgo.Ref<Float_>, _buf:stdgo.Slice<stdgo.GoByte>, _prec:stdgo.GoInt):stdgo.Slice<stdgo.GoByte> {
         @:recv var _x:stdgo.Ref<Float_> = _x;
         if (_x._form == ((0 : stdgo._internal.math.big.Big.T_form))) {
-            _buf = (_buf.__append__(...("0x0" : stdgo.GoString).__toArray__()));
+            _buf = (_buf.__append__(...(("0x0" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
             if ((_prec > (0 : stdgo.GoInt) : Bool)) {
                 _buf = (_buf.__append__((46 : stdgo.GoUInt8)));
                 {
@@ -12036,7 +12036,7 @@ class Float__asInterface {
                     });
                 };
             };
-            _buf = (_buf.__append__(...("p+00" : stdgo.GoString).__toArray__()));
+            _buf = (_buf.__append__(...(("p+00" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
             return _buf;
         };
         if ((false && (_x._form != (1 : stdgo._internal.math.big.Big.T_form)) : Bool)) {
@@ -12063,10 +12063,10 @@ class Float__asInterface {
         if ((false && (_hm[(0 : stdgo.GoInt)] != (49 : stdgo.GoUInt8)) : Bool)) {
             throw stdgo.Go.toInterface((("incorrect mantissa: " : stdgo.GoString) + (_hm : stdgo.GoString)?.__copy__() : stdgo.GoString));
         };
-        _buf = (_buf.__append__(...("0x1" : stdgo.GoString).__toArray__()));
+        _buf = (_buf.__append__(...(("0x1" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
         if (((_hm.length) > (1 : stdgo.GoInt) : Bool)) {
             _buf = (_buf.__append__((46 : stdgo.GoUInt8)));
-            _buf = (_buf.__append__(...(_hm.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+            _buf = (_buf.__append__(...((_hm.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
         };
         _buf = (_buf.__append__((112 : stdgo.GoUInt8)));
         if ((_exp64 >= (0i64 : stdgo.GoInt64) : Bool)) {
@@ -12098,7 +12098,7 @@ class Float__asInterface {
                 _m = (new stdgo._internal.math.big.Big.T_nat(0, 0) : T_nat)._shr(_m, ((_w - _x._prec : stdgo.GoUInt32) : stdgo.GoUInt));
             };
         };
-        _buf = (_buf.__append__(..._m._utoa((10 : stdgo.GoInt)).__toArray__()));
+        _buf = (_buf.__append__(...(_m._utoa((10 : stdgo.GoInt)) : Array<stdgo.GoUInt8>)));
         _buf = (_buf.__append__((112 : stdgo.GoUInt8)));
         var _e:stdgo.GoInt64 = ((_x._exp : stdgo.GoInt64) - (_x._prec : stdgo.GoInt64) : stdgo.GoInt64);
         if ((_e >= (0i64 : stdgo.GoInt64) : Bool)) {
@@ -12116,7 +12116,7 @@ class Float__asInterface {
             if (!_x._neg) {
                 _buf = (_buf.__append__((43 : stdgo.GoUInt8)));
             };
-            return (_buf.__append__(...("Inf" : stdgo.GoString).__toArray__()));
+            return (_buf.__append__(...(("Inf" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
         };
         {
             final __value__ = _fmt;
@@ -14059,9 +14059,9 @@ class Int__asInterface {
     static public function append( _x:stdgo.Ref<Int_>, _buf:stdgo.Slice<stdgo.GoByte>, _base:stdgo.GoInt):stdgo.Slice<stdgo.GoByte> {
         @:recv var _x:stdgo.Ref<Int_> = _x;
         if (_x == null || (_x : Dynamic).__nil__) {
-            return (_buf.__append__(...("<nil>" : stdgo.GoString).__toArray__()));
+            return (_buf.__append__(...(("<nil>" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
         };
-        return (_buf.__append__(..._x._abs._itoa(_x._neg, _base).__toArray__()));
+        return (_buf.__append__(...(_x._abs._itoa(_x._neg, _base) : Array<stdgo.GoUInt8>)));
     }
     @:keep
     static public function text( _x:stdgo.Ref<Int_>, _base:stdgo.GoInt):stdgo.GoString {
@@ -15212,7 +15212,7 @@ class Rat_asInterface {
         if (_x._a._neg) {
             _buf = (_buf.__append__((45 : stdgo.GoUInt8)));
         };
-        _buf = (_buf.__append__(..._q._utoa((10 : stdgo.GoInt)).__toArray__()));
+        _buf = (_buf.__append__(...(_q._utoa((10 : stdgo.GoInt)) : Array<stdgo.GoUInt8>)));
         if ((_prec > (0 : stdgo.GoInt) : Bool)) {
             _buf = (_buf.__append__((46 : stdgo.GoUInt8)));
             var _rs = _r._utoa((10 : stdgo.GoInt));
@@ -15222,7 +15222,7 @@ class Rat_asInterface {
                     _buf = (_buf.__append__((48 : stdgo.GoUInt8)));
                 });
             };
-            _buf = (_buf.__append__(..._rs.__toArray__()));
+            _buf = (_buf.__append__(...(_rs : Array<stdgo.GoUInt8>)));
         };
         return (_buf : stdgo.GoString)?.__copy__();
     }
@@ -15871,7 +15871,7 @@ class Bits_asInterface {
     @:keep
     static public function _add( _x:Bits, _y:Bits):Bits {
         @:recv var _x:Bits = _x;
-        return (_x.__append__(..._y.__toArray__()));
+        return (_x.__append__(...(_y : Array<stdgo.GoInt>)));
     }
 }
 class RoundingMode_asInterface {

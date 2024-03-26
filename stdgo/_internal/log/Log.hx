@@ -95,11 +95,11 @@ function _itoa(_buf:stdgo.Ref<stdgo.Slice<stdgo.GoByte>>, _i:stdgo.GoInt, _wid:s
             _i = _q;
         };
         _b[(_bp : stdgo.GoInt)] = (((48 : stdgo.GoInt) + _i : stdgo.GoInt) : stdgo.GoByte);
-        _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_b.__slice__(_bp) : stdgo.Slice<stdgo.GoUInt8>).__toArray__())));
+        _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__(...((_b.__slice__(_bp) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>))));
     }
 function _formatHeader(_buf:stdgo.Ref<stdgo.Slice<stdgo.GoByte>>, _t:stdgo._internal.time.Time.Time, _prefix:stdgo.GoString, _flag:stdgo.GoInt, _file:stdgo.GoString, _line:stdgo.GoInt):Void {
         if ((_flag & (64 : stdgo.GoInt) : stdgo.GoInt) == ((0 : stdgo.GoInt))) {
-            _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__(..._prefix.__toArray__())));
+            _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_prefix : Array<stdgo.GoUInt8>))));
         };
         if ((_flag & (7 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
             if ((_flag & (32 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
@@ -142,13 +142,13 @@ function _formatHeader(_buf:stdgo.Ref<stdgo.Slice<stdgo.GoByte>>, _t:stdgo._inte
                 };
                 _file = _short?.__copy__();
             };
-            _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__(..._file.__toArray__())));
+            _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_file : Array<stdgo.GoUInt8>))));
             _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__((58 : stdgo.GoUInt8))));
             _itoa(_buf, _line, (-1 : stdgo.GoInt));
-            _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__(...(": " : stdgo.GoString).__toArray__())));
+            _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__(...((": " : stdgo.GoString) : Array<stdgo.GoUInt8>))));
         };
         if ((_flag & (64 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
-            _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__(..._prefix.__toArray__())));
+            _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_prefix : Array<stdgo.GoUInt8>))));
         };
     }
 function _getBuffer():stdgo.Ref<stdgo.Slice<stdgo.GoByte>> {
@@ -183,51 +183,51 @@ function writer():stdgo._internal.io.Io.Writer {
 function print(_v:haxe.Rest<stdgo.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
         _std._output((0 : stdgo.GoUIntptr), (2 : stdgo.GoInt), function(_b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> {
-            return stdgo._internal.fmt.Fmt.append(_b, ..._v.__toArray__());
+            return stdgo._internal.fmt.Fmt.append(_b, ...(_v : Array<stdgo.AnyInterface>));
         });
     }
 function printf(_format:stdgo.GoString, _v:haxe.Rest<stdgo.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
         _std._output((0 : stdgo.GoUIntptr), (2 : stdgo.GoInt), function(_b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> {
-            return stdgo._internal.fmt.Fmt.appendf(_b, _format?.__copy__(), ..._v.__toArray__());
+            return stdgo._internal.fmt.Fmt.appendf(_b, _format?.__copy__(), ...(_v : Array<stdgo.AnyInterface>));
         });
     }
 function println(_v:haxe.Rest<stdgo.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
         _std._output((0 : stdgo.GoUIntptr), (2 : stdgo.GoInt), function(_b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> {
-            return stdgo._internal.fmt.Fmt.appendln(_b, ..._v.__toArray__());
+            return stdgo._internal.fmt.Fmt.appendln(_b, ...(_v : Array<stdgo.AnyInterface>));
         });
     }
 function fatal(_v:haxe.Rest<stdgo.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
-        _std.output((2 : stdgo.GoInt), stdgo._internal.fmt.Fmt.sprint(..._v.__toArray__())?.__copy__());
+        _std.output((2 : stdgo.GoInt), stdgo._internal.fmt.Fmt.sprint(...(_v : Array<stdgo.AnyInterface>))?.__copy__());
         Sys.exit((1 : stdgo.GoInt));
     }
 function fatalf(_format:stdgo.GoString, _v:haxe.Rest<stdgo.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
-        _std.output((2 : stdgo.GoInt), stdgo._internal.fmt.Fmt.sprintf(_format?.__copy__(), ..._v.__toArray__())?.__copy__());
+        _std.output((2 : stdgo.GoInt), stdgo._internal.fmt.Fmt.sprintf(_format?.__copy__(), ...(_v : Array<stdgo.AnyInterface>))?.__copy__());
         Sys.exit((1 : stdgo.GoInt));
     }
 function fatalln(_v:haxe.Rest<stdgo.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
-        _std.output((2 : stdgo.GoInt), stdgo._internal.fmt.Fmt.sprintln(..._v.__toArray__())?.__copy__());
+        _std.output((2 : stdgo.GoInt), stdgo._internal.fmt.Fmt.sprintln(...(_v : Array<stdgo.AnyInterface>))?.__copy__());
         Sys.exit((1 : stdgo.GoInt));
     }
 function panic(_v:haxe.Rest<stdgo.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
-        var _s:stdgo.GoString = stdgo._internal.fmt.Fmt.sprint(..._v.__toArray__())?.__copy__();
+        var _s:stdgo.GoString = stdgo._internal.fmt.Fmt.sprint(...(_v : Array<stdgo.AnyInterface>))?.__copy__();
         _std.output((2 : stdgo.GoInt), _s?.__copy__());
         throw stdgo.Go.toInterface(_s);
     }
 function panicf(_format:stdgo.GoString, _v:haxe.Rest<stdgo.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
-        var _s:stdgo.GoString = stdgo._internal.fmt.Fmt.sprintf(_format?.__copy__(), ..._v.__toArray__())?.__copy__();
+        var _s:stdgo.GoString = stdgo._internal.fmt.Fmt.sprintf(_format?.__copy__(), ...(_v : Array<stdgo.AnyInterface>))?.__copy__();
         _std.output((2 : stdgo.GoInt), _s?.__copy__());
         throw stdgo.Go.toInterface(_s);
     }
 function panicln(_v:haxe.Rest<stdgo.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
-        var _s:stdgo.GoString = stdgo._internal.fmt.Fmt.sprintln(..._v.__toArray__())?.__copy__();
+        var _s:stdgo.GoString = stdgo._internal.fmt.Fmt.sprintln(...(_v : Array<stdgo.AnyInterface>))?.__copy__();
         _std.output((2 : stdgo.GoInt), _s?.__copy__());
         throw stdgo.Go.toInterface(_s);
     }
@@ -518,7 +518,7 @@ function benchmarkDiscard(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void 
         try {
             stdgo._internal.log.internal.Internal.defaultOutput = function(_pc:stdgo.GoUIntptr, _data:stdgo.Slice<stdgo.GoByte>):stdgo.Error {
                 return _std._output(_pc, (0 : stdgo.GoInt), function(_buf:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> {
-                    return (_buf.__append__(..._data.__toArray__()));
+                    return (_buf.__append__(...(_data : Array<stdgo.GoUInt8>)));
                 });
             };
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
@@ -632,7 +632,7 @@ class Logger_asInterface {
     static public function panicln( _l:stdgo.Ref<Logger>, _v:haxe.Rest<stdgo.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
         @:recv var _l:stdgo.Ref<Logger> = _l;
-        var _s:stdgo.GoString = stdgo._internal.fmt.Fmt.sprintln(..._v.__toArray__())?.__copy__();
+        var _s:stdgo.GoString = stdgo._internal.fmt.Fmt.sprintln(...(_v : Array<stdgo.AnyInterface>))?.__copy__();
         _l.output((2 : stdgo.GoInt), _s?.__copy__());
         throw stdgo.Go.toInterface(_s);
     }
@@ -640,7 +640,7 @@ class Logger_asInterface {
     static public function panicf( _l:stdgo.Ref<Logger>, _format:stdgo.GoString, _v:haxe.Rest<stdgo.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
         @:recv var _l:stdgo.Ref<Logger> = _l;
-        var _s:stdgo.GoString = stdgo._internal.fmt.Fmt.sprintf(_format?.__copy__(), ..._v.__toArray__())?.__copy__();
+        var _s:stdgo.GoString = stdgo._internal.fmt.Fmt.sprintf(_format?.__copy__(), ...(_v : Array<stdgo.AnyInterface>))?.__copy__();
         _l.output((2 : stdgo.GoInt), _s?.__copy__());
         throw stdgo.Go.toInterface(_s);
     }
@@ -648,7 +648,7 @@ class Logger_asInterface {
     static public function panic( _l:stdgo.Ref<Logger>, _v:haxe.Rest<stdgo.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
         @:recv var _l:stdgo.Ref<Logger> = _l;
-        var _s:stdgo.GoString = stdgo._internal.fmt.Fmt.sprint(..._v.__toArray__())?.__copy__();
+        var _s:stdgo.GoString = stdgo._internal.fmt.Fmt.sprint(...(_v : Array<stdgo.AnyInterface>))?.__copy__();
         _l.output((2 : stdgo.GoInt), _s?.__copy__());
         throw stdgo.Go.toInterface(_s);
     }
@@ -656,21 +656,21 @@ class Logger_asInterface {
     static public function fatalln( _l:stdgo.Ref<Logger>, _v:haxe.Rest<stdgo.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
         @:recv var _l:stdgo.Ref<Logger> = _l;
-        _l.output((2 : stdgo.GoInt), stdgo._internal.fmt.Fmt.sprintln(..._v.__toArray__())?.__copy__());
+        _l.output((2 : stdgo.GoInt), stdgo._internal.fmt.Fmt.sprintln(...(_v : Array<stdgo.AnyInterface>))?.__copy__());
         Sys.exit((1 : stdgo.GoInt));
     }
     @:keep
     static public function fatalf( _l:stdgo.Ref<Logger>, _format:stdgo.GoString, _v:haxe.Rest<stdgo.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
         @:recv var _l:stdgo.Ref<Logger> = _l;
-        _l.output((2 : stdgo.GoInt), stdgo._internal.fmt.Fmt.sprintf(_format?.__copy__(), ..._v.__toArray__())?.__copy__());
+        _l.output((2 : stdgo.GoInt), stdgo._internal.fmt.Fmt.sprintf(_format?.__copy__(), ...(_v : Array<stdgo.AnyInterface>))?.__copy__());
         Sys.exit((1 : stdgo.GoInt));
     }
     @:keep
     static public function fatal( _l:stdgo.Ref<Logger>, _v:haxe.Rest<stdgo.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
         @:recv var _l:stdgo.Ref<Logger> = _l;
-        _l.output((2 : stdgo.GoInt), stdgo._internal.fmt.Fmt.sprint(..._v.__toArray__())?.__copy__());
+        _l.output((2 : stdgo.GoInt), stdgo._internal.fmt.Fmt.sprint(...(_v : Array<stdgo.AnyInterface>))?.__copy__());
         Sys.exit((1 : stdgo.GoInt));
     }
     @:keep
@@ -678,7 +678,7 @@ class Logger_asInterface {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
         @:recv var _l:stdgo.Ref<Logger> = _l;
         _l._output((0 : stdgo.GoUIntptr), (2 : stdgo.GoInt), function(_b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> {
-            return stdgo._internal.fmt.Fmt.appendln(_b, ..._v.__toArray__());
+            return stdgo._internal.fmt.Fmt.appendln(_b, ...(_v : Array<stdgo.AnyInterface>));
         });
     }
     @:keep
@@ -686,7 +686,7 @@ class Logger_asInterface {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
         @:recv var _l:stdgo.Ref<Logger> = _l;
         _l._output((0 : stdgo.GoUIntptr), (2 : stdgo.GoInt), function(_b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> {
-            return stdgo._internal.fmt.Fmt.appendf(_b, _format?.__copy__(), ..._v.__toArray__());
+            return stdgo._internal.fmt.Fmt.appendf(_b, _format?.__copy__(), ...(_v : Array<stdgo.AnyInterface>));
         });
     }
     @:keep
@@ -694,7 +694,7 @@ class Logger_asInterface {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
         @:recv var _l:stdgo.Ref<Logger> = _l;
         _l._output((0 : stdgo.GoUIntptr), (2 : stdgo.GoInt), function(_b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> {
-            return stdgo._internal.fmt.Fmt.append(_b, ..._v.__toArray__());
+            return stdgo._internal.fmt.Fmt.append(_b, ...(_v : Array<stdgo.AnyInterface>));
         });
     }
     @:keep
@@ -778,7 +778,7 @@ class Logger_asInterface {
         @:recv var _l:stdgo.Ref<Logger> = _l;
         _calldepth++;
         return _l._output((0 : stdgo.GoUIntptr), _calldepth, function(_b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> {
-            return (_b.__append__(..._s.__toArray__()));
+            return (_b.__append__(...(_s : Array<stdgo.GoUInt8>)));
         });
     }
     @:keep

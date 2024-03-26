@@ -504,7 +504,7 @@ inline function isInterface(t:Type_):Bool throw "not implemented";
 /**
     // Comparable reports whether values of type T are comparable.
 **/
-inline function comparable(t:Type_):Bool throw "not implemented";
+inline function comparable_(t:Type_):Bool throw "not implemented";
 /**
     // Default returns the default "typed" type for an "untyped" type;
     // it returns the incoming type for all other types. The default type

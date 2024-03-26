@@ -1207,7 +1207,7 @@ function testExecutable(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         if (false) {} else {
             _cmd.args[(0 : stdgo.GoInt)] = ("-" : stdgo.GoString);
         };
-        _cmd.env = (_cmd.environ().__append__(stdgo._internal.fmt.Fmt.sprintf(("%s=1" : stdgo.GoString), stdgo.Go.toInterface(("OSTEST_OUTPUT_EXECPATH" : stdgo.GoString)))?.__copy__()));
+        _cmd.env = (_cmd.environ().__append__(stdgo._internal.fmt.Fmt.sprintf(("%s=1" : stdgo.GoString), stdgo.Go.toInterface(("OSTEST_OUTPUT_EXECPATH" : stdgo.GoString)))));
         var __tmp__ = _cmd.combinedOutput(), _out:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _t.fatalf(("exec(self) failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
@@ -2870,7 +2870,7 @@ function _testStartProcess(_dir:stdgo.GoString, _cmd:stdgo.GoString, _args:stdgo
                 var __tmp__ = stat(stdgo._internal.strings.Strings.trimSpace(_output?.__copy__())?.__copy__()), _fi1:stdgo._internal.io.fs.Fs.FileInfo = __tmp__._0, __24:stdgo.Error = __tmp__._1;
                 var __tmp__ = stat(_expect?.__copy__()), _fi2:stdgo._internal.io.fs.Fs.FileInfo = __tmp__._0, __25:stdgo.Error = __tmp__._1;
                 if (!sameFile(_fi1, _fi2)) {
-                    _t.errorf(("exec %q returned %q wanted %q" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.strings.Strings.join(((new stdgo.Slice<stdgo.GoString>(1, 1, _cmd?.__copy__()) : stdgo.Slice<stdgo.GoString>).__append__(..._args.__toArray__())), (" " : stdgo.GoString))), stdgo.Go.toInterface(_output), stdgo.Go.toInterface(_expect));
+                    _t.errorf(("exec %q returned %q wanted %q" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.strings.Strings.join(((new stdgo.Slice<stdgo.GoString>(1, 1, _cmd?.__copy__()) : stdgo.Slice<stdgo.GoString>).__append__(...(_args : Array<stdgo.GoString>))), (" " : stdgo.GoString))), stdgo.Go.toInterface(_output), stdgo.Go.toInterface(_expect));
                 };
                 _p.wait_();
                 {
@@ -2924,7 +2924,7 @@ function testStartProcess(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
             };
         };
         var __tmp__ = stdgo._internal.path.filepath.Filepath.split(_cmd?.__copy__()), _cmddir:stdgo.GoString = __tmp__._0, _cmdbase:stdgo.GoString = __tmp__._1;
-        _args = ((new stdgo.Slice<stdgo.GoString>(1, 1, _cmdbase?.__copy__()) : stdgo.Slice<stdgo.GoString>).__append__(..._args.__toArray__()));
+        _args = ((new stdgo.Slice<stdgo.GoString>(1, 1, _cmdbase?.__copy__()) : stdgo.Slice<stdgo.GoString>).__append__(...(_args : Array<stdgo.GoString>)));
         _t.run(("absolute" : stdgo.GoString), _testStartProcess(_dir?.__copy__(), _cmd?.__copy__(), _args, _dir?.__copy__()));
         _t.run(("relative" : stdgo.GoString), _testStartProcess(_cmddir?.__copy__(), _cmdbase?.__copy__(), _args, _cmddir?.__copy__()));
     }
@@ -3489,7 +3489,7 @@ function testChdirAndGetwd(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
                     if (_err != null) {
                         _t.fatalf(("EvalSymlinks: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                     };
-                    _dirs = (_dirs.__append__(_dir?.__copy__()));
+                    _dirs = (_dirs.__append__(_dir));
                 };
             };
         };
@@ -7163,7 +7163,7 @@ function testRemoveAllNoFcntl(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
         };
         var _cmd = stdgo._internal.internal.testenv.Testenv.command(stdgo.Go.asInterface(_t), ("/bin/strace" : stdgo.GoString), ("-f" : stdgo.GoString), ("-e" : stdgo.GoString), ("fcntl" : stdgo.GoString), _me?.__copy__(), ("-test.run=TestRemoveAllNoFcntl" : stdgo.GoString));
         _cmd = stdgo._internal.internal.testenv.Testenv.cleanCmdEnv(_cmd);
-        _cmd.env = (_cmd.env.__append__((("GO_TEST_REMOVE_ALL_NO_FCNTL=" : stdgo.GoString) + _subdir?.__copy__() : stdgo.GoString)?.__copy__()));
+        _cmd.env = (_cmd.env.__append__((("GO_TEST_REMOVE_ALL_NO_FCNTL=" : stdgo.GoString) + _subdir?.__copy__() : stdgo.GoString)));
         var __tmp__ = _cmd.combinedOutput(), _out:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (((_out.length) > (0 : stdgo.GoInt) : Bool)) {
             _t.logf(("%s" : stdgo.GoString), stdgo.Go.toInterface(_out));

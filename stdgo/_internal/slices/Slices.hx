@@ -769,7 +769,7 @@ function testInsert(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__8 => _test in _insertTests) {
             var _copy = clone((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _test._s);
             {
-                var _got = insert((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _copy, _test._i, ..._test._add.__toArray__());
+                var _got = insert((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _copy, _test._i, ...(_test._add : Array<stdgo.GoInt>));
                 if (!equal((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _got, _test._want)) {
                     _t.errorf(("Insert(%v, %d, %v...) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._s), stdgo.Go.toInterface(_test._i), stdgo.Go.toInterface(_test._add), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
                 };
@@ -814,10 +814,10 @@ function testInsertOverlap(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
                                             });
                                         };
                                         _want = (_want.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
-                                        _want = (_want.__append__(...(_a.__slice__(0, _i) : stdgo.Slice<stdgo.GoInt>).__toArray__()));
-                                        _want = (_want.__append__(...(_a.__slice__(_x, _y) : stdgo.Slice<stdgo.GoInt>).__toArray__()));
-                                        _want = (_want.__append__(...(_a.__slice__(_i, _n) : stdgo.Slice<stdgo.GoInt>).__toArray__()));
-                                        var _got = insert((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), (_a.__slice__(0, _n) : stdgo.Slice<stdgo.GoInt>), _i, ...(_a.__slice__(_x, _y) : stdgo.Slice<stdgo.GoInt>).__toArray__());
+                                        _want = (_want.__append__(...((_a.__slice__(0, _i) : stdgo.Slice<stdgo.GoInt>) : Array<stdgo.GoInt>)));
+                                        _want = (_want.__append__(...((_a.__slice__(_x, _y) : stdgo.Slice<stdgo.GoInt>) : Array<stdgo.GoInt>)));
+                                        _want = (_want.__append__(...((_a.__slice__(_i, _n) : stdgo.Slice<stdgo.GoInt>) : Array<stdgo.GoInt>)));
+                                        var _got = insert((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), (_a.__slice__(0, _n) : stdgo.Slice<stdgo.GoInt>), _i, ...((_a.__slice__(_x, _y) : stdgo.Slice<stdgo.GoInt>) : Array<stdgo.GoInt>));
                                         if (!equal((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _got, _want)) {
                                             _t.errorf(("Insert with overlap failed n=%d i=%d x=%d y=%d, got %v want %v" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                                         };
@@ -951,7 +951,7 @@ function benchmarkCompact(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void 
                     var _k:stdgo.GoInt = (0 : stdgo.GoInt);
                     stdgo.Go.cfor((_k < _b.n : Bool), _k++, {
                         _ss = (_ss.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
-                        _ss = (_ss.__append__(..._c._s.__toArray__()));
+                        _ss = (_ss.__append__(...(_c._s : Array<stdgo.GoInt>)));
                         var __blank__ = compact((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _ss);
                     });
                 };
@@ -1149,8 +1149,8 @@ function testReplace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             a();
         }, _v : (new stdgo.Slice<stdgo.GoInt>(5, 5, (3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt), (6 : stdgo.GoInt), (7 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>), _i : (0 : stdgo.GoInt), _j : (1 : stdgo.GoInt) } : T__struct_10)) : stdgo.Slice<T__struct_10>)) {
             var __0 = clone((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _test._s), __1 = clone((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _test._v), _vv = __1, _ss = __0;
-            var _want = _naiveReplace((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _ss, _test._i, _test._j, ..._vv.__toArray__());
-            var _got = replace((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _test._s, _test._i, _test._j, ..._test._v.__toArray__());
+            var _want = _naiveReplace((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _ss, _test._i, _test._j, ...(_vv : Array<stdgo.GoInt>));
+            var _got = replace((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _test._s, _test._i, _test._j, ...(_test._v : Array<stdgo.GoInt>));
             if (!equal((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _got, _want)) {
                 _t.errorf(("Replace(%v, %v, %v, %v) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._s), stdgo.Go.toInterface(_test._i), stdgo.Go.toInterface(_test._j), stdgo.Go.toInterface(_test._v), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
             };
@@ -1160,7 +1160,7 @@ function testReplacePanics(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
         for (__0 => _test in (new stdgo.Slice<T__struct_11>(3, 3, ({ _name : ("indexes out of order" : stdgo.GoString), _s : (new stdgo.Slice<stdgo.GoInt>(2, 2, (1 : stdgo.GoInt), (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>), _v : (new stdgo.Slice<stdgo.GoInt>(1, 1, (3 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>), _i : (2 : stdgo.GoInt), _j : (1 : stdgo.GoInt) } : T__struct_11), ({ _name : ("large index" : stdgo.GoString), _s : (new stdgo.Slice<stdgo.GoInt>(2, 2, (1 : stdgo.GoInt), (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>), _v : (new stdgo.Slice<stdgo.GoInt>(1, 1, (3 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>), _i : (1 : stdgo.GoInt), _j : (10 : stdgo.GoInt) } : T__struct_11), ({ _name : ("negative index" : stdgo.GoString), _s : (new stdgo.Slice<stdgo.GoInt>(2, 2, (1 : stdgo.GoInt), (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>), _v : (new stdgo.Slice<stdgo.GoInt>(1, 1, (3 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>), _i : (-1 : stdgo.GoInt), _j : (2 : stdgo.GoInt) } : T__struct_11)) : stdgo.Slice<T__struct_11>)) {
             var __0 = clone((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _test._s), __1 = clone((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _test._v), _vv = __1, _ss = __0;
             if (!_panics(function():Void {
-                replace((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _ss, _test._i, _test._j, ..._vv.__toArray__());
+                replace((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _ss, _test._i, _test._j, ...(_vv : Array<stdgo.GoInt>));
             })) {
                 _t.errorf(("Replace %s: should have panicked" : stdgo.GoString), stdgo.Go.toInterface(_test._name));
             };
@@ -1192,10 +1192,10 @@ function testReplaceOverlap(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
                                                     });
                                                 };
                                                 _want = (_want.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
-                                                _want = (_want.__append__(...(_a.__slice__(0, _i) : stdgo.Slice<stdgo.GoInt>).__toArray__()));
-                                                _want = (_want.__append__(...(_a.__slice__(_x, _y) : stdgo.Slice<stdgo.GoInt>).__toArray__()));
-                                                _want = (_want.__append__(...(_a.__slice__(_j, _n) : stdgo.Slice<stdgo.GoInt>).__toArray__()));
-                                                var _got = replace((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), (_a.__slice__(0, _n) : stdgo.Slice<stdgo.GoInt>), _i, _j, ...(_a.__slice__(_x, _y) : stdgo.Slice<stdgo.GoInt>).__toArray__());
+                                                _want = (_want.__append__(...((_a.__slice__(0, _i) : stdgo.Slice<stdgo.GoInt>) : Array<stdgo.GoInt>)));
+                                                _want = (_want.__append__(...((_a.__slice__(_x, _y) : stdgo.Slice<stdgo.GoInt>) : Array<stdgo.GoInt>)));
+                                                _want = (_want.__append__(...((_a.__slice__(_j, _n) : stdgo.Slice<stdgo.GoInt>) : Array<stdgo.GoInt>)));
+                                                var _got = replace((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), (_a.__slice__(0, _n) : stdgo.Slice<stdgo.GoInt>), _i, _j, ...((_a.__slice__(_x, _y) : stdgo.Slice<stdgo.GoInt>) : Array<stdgo.GoInt>));
                                                 if (!equal((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _got, _want)) {
                                                     _t.errorf(("Insert with overlap failed n=%d i=%d j=%d x=%d y=%d, got %v want %v" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                                                 };
@@ -1227,7 +1227,7 @@ function benchmarkReplace(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void 
                     stdgo.Go.cfor((_k < _b.n : Bool), _k++, {
                         var _s = _c._s();
                         var _v = _c._v();
-                        var __blank__ = _naiveReplace((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _s, _c._i, _c._j, ..._v.__toArray__());
+                        var __blank__ = _naiveReplace((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _s, _c._i, _c._j, ...(_v : Array<stdgo.GoInt>));
                     });
                 };
             });
@@ -1237,7 +1237,7 @@ function benchmarkReplace(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void 
                     stdgo.Go.cfor((_k < _b.n : Bool), _k++, {
                         var _s = _c._s();
                         var _v = _c._v();
-                        var __blank__ = replace((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _s, _c._i, _c._j, ..._v.__toArray__());
+                        var __blank__ = replace((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _s, _c._i, _c._j, ...(_v : Array<stdgo.GoInt>));
                     });
                 };
             });

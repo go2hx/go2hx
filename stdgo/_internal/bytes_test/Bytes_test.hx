@@ -2428,7 +2428,7 @@ function _bmEqual(_equal:(stdgo.Slice<stdgo.GoByte>, stdgo.Slice<stdgo.GoByte>) 
 function benchmarkEqualBothUnaligned(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _sizes = (new stdgo.Slice<stdgo.GoInt>(2, 2, (64 : stdgo.GoInt), (4096 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
         if (!_isRaceBuilder) {
-            _sizes = (_sizes.__append__(...(new stdgo.Slice<stdgo.GoInt>(2, 2, (4194304 : stdgo.GoInt), (67108864 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>).__toArray__()));
+            _sizes = (_sizes.__append__(...((new stdgo.Slice<stdgo.GoInt>(2, 2, (4194304 : stdgo.GoInt), (67108864 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>) : Array<stdgo.GoInt>)));
         };
         var _maxSize:stdgo.GoInt = ((2 : stdgo.GoInt) * ((_sizes[((_sizes.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
         if (((_bmbuf.length) < _maxSize : Bool)) {
@@ -3037,7 +3037,7 @@ function testIndexFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testReplace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _tt in replaceTests) {
-            var _in = ((_tt._in : stdgo.Slice<stdgo.GoByte>).__append__(...("<spare>" : stdgo.GoString).__toArray__()));
+            var _in = ((_tt._in : stdgo.Slice<stdgo.GoByte>).__append__(...(("<spare>" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
             _in = (_in.__slice__(0, (_tt._in.length)) : stdgo.Slice<stdgo.GoUInt8>);
             var _out = replace(_in, (_tt._old : stdgo.Slice<stdgo.GoByte>), (_tt._new : stdgo.Slice<stdgo.GoByte>), _tt._n);
             {
@@ -3363,7 +3363,7 @@ function _makeBenchInputHard():stdgo.Slice<stdgo.GoByte> {
             if ((((_x.length) + (_tokens[(_i : stdgo.GoInt)].length) : stdgo.GoInt) >= (1048576 : stdgo.GoInt) : Bool)) {
                 break;
             };
-            _x = (_x.__append__(..._tokens[(_i : stdgo.GoInt)].__toArray__()));
+            _x = (_x.__append__(...(_tokens[(_i : stdgo.GoInt)] : Array<stdgo.GoUInt8>)));
         };
         return _x;
     }
@@ -3888,9 +3888,9 @@ function _benchmarkCompareBytesBigUnaligned(_b:stdgo.Ref<stdgo._internal.testing
         _b.stopTimer();
         var _b1 = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (1048576 : stdgo.GoInt)).__setNumber32__();
         while (((_b1.length) < (1048576 : stdgo.GoInt) : Bool)) {
-            _b1 = (_b1.__append__(...("Hello Gophers!" : stdgo.GoString).__toArray__()));
+            _b1 = (_b1.__append__(...(("Hello Gophers!" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
         };
-        var _b2 = (((("12345678" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>).__slice__(0, _offset) : stdgo.Slice<stdgo.GoUInt8>).__append__(..._b1.__toArray__()));
+        var _b2 = (((("12345678" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>).__slice__(0, _offset) : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_b1 : Array<stdgo.GoUInt8>)));
         _b.startTimer();
         {
             var _j:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -3917,7 +3917,7 @@ function _benchmarkCompareBytesBigBothUnaligned(_b:stdgo.Ref<stdgo._internal.tes
         var _pattern = (("Hello Gophers!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
         var _b1 = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), ((1048576 : stdgo.GoInt) + (_pattern.length) : stdgo.GoInt)).__setNumber32__();
         while (((_b1.length) < (1048576 : stdgo.GoInt) : Bool)) {
-            _b1 = (_b1.__append__(..._pattern.__toArray__()));
+            _b1 = (_b1.__append__(...(_pattern : Array<stdgo.GoUInt8>)));
         };
         var _b2 = new stdgo.Slice<stdgo.GoUInt8>((_b1.length : stdgo.GoInt).toBasic(), 0).__setNumber32__();
         stdgo.Go.copySlice(_b2, _b1);
@@ -3946,9 +3946,9 @@ function benchmarkCompareBytesBig(_b:stdgo.Ref<stdgo._internal.testing.Testing.B
         _b.stopTimer();
         var _b1 = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (1048576 : stdgo.GoInt)).__setNumber32__();
         while (((_b1.length) < (1048576 : stdgo.GoInt) : Bool)) {
-            _b1 = (_b1.__append__(...("Hello Gophers!" : stdgo.GoString).__toArray__()));
+            _b1 = (_b1.__append__(...(("Hello Gophers!" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
         };
-        var _b2 = ((new stdgo.Slice<stdgo.GoUInt8>(0, 0) : stdgo.Slice<stdgo.GoUInt8>).__append__(..._b1.__toArray__()));
+        var _b2 = ((new stdgo.Slice<stdgo.GoUInt8>(0, 0) : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_b1 : Array<stdgo.GoUInt8>)));
         _b.startTimer();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -3964,7 +3964,7 @@ function benchmarkCompareBytesBigIdentical(_b:stdgo.Ref<stdgo._internal.testing.
         _b.stopTimer();
         var _b1 = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (1048576 : stdgo.GoInt)).__setNumber32__();
         while (((_b1.length) < (1048576 : stdgo.GoInt) : Bool)) {
-            _b1 = (_b1.__append__(...("Hello Gophers!" : stdgo.GoString).__toArray__()));
+            _b1 = (_b1.__append__(...(("Hello Gophers!" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
         };
         var _b2 = _b1;
         _b.startTimer();
@@ -4315,7 +4315,7 @@ function exampleTrimSuffix():Void {
         var _b:stdgo.Slice<stdgo.GoUInt8> = (("Hello, goodbye, etc!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
         _b = stdgo._internal.bytes.Bytes.trimSuffix(_b, (("goodbye, etc!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>));
         _b = stdgo._internal.bytes.Bytes.trimSuffix(_b, (("gopher" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>));
-        _b = (_b.__append__(...stdgo._internal.bytes.Bytes.trimSuffix((("world!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("x!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>)).__toArray__()));
+        _b = (_b.__append__(...(stdgo._internal.bytes.Bytes.trimSuffix((("world!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("x!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>)) : Array<stdgo.GoUInt8>)));
         stdgo._internal.os.Os.stdout.write(_b);
     }
 function exampleTrimRight():Void {

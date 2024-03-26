@@ -543,7 +543,7 @@ function testMain(_m:stdgo.Ref<stdgo._internal.testing.Testing.M>):Void {
             stdgo._internal.fmt.Fmt.fprintf(stdgo.Go.asInterface(stdgo._internal.os.Os.stderr), ("Unknown command %q\n" : stdgo.GoString), stdgo.Go.toInterface(_cmd));
             Sys.exit((2 : stdgo.GoInt));
         };
-        _f(..._args.__toArray__());
+        _f(...(_args : Array<stdgo.GoString>));
         Sys.exit((0 : stdgo.GoInt));
     }
 function _registerHelperCommand(_name:stdgo.GoString, _f:haxe.Rest<stdgo.GoString> -> Void):Void {
@@ -558,7 +558,7 @@ function _maySkipHelperCommand(_name:stdgo.GoString):Void {
 function _helperCommand(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _name:stdgo.GoString, _args:haxe.Rest<stdgo.GoString>):stdgo.Ref<stdgo._internal.os.exec.Exec.Cmd> {
         var _args = new stdgo.Slice<stdgo.GoString>(_args.length, 0, ..._args);
         _t.helper();
-        return _helperCommandContext(_t, (null : stdgo._internal.context.Context.Context), _name?.__copy__(), ..._args.__toArray__());
+        return _helperCommandContext(_t, (null : stdgo._internal.context.Context.Context), _name?.__copy__(), ...(_args : Array<stdgo.GoString>));
     }
 function _helperCommandContext(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _ctx:stdgo._internal.context.Context.Context, _name:stdgo.GoString, _args:haxe.Rest<stdgo.GoString>):stdgo.Ref<stdgo._internal.os.exec.Exec.Cmd> {
         var _args = new stdgo.Slice<stdgo.GoString>(_args.length, 0, ..._args);
@@ -566,11 +566,11 @@ function _helperCommandContext(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>,
         _helperCommandUsed.loadOrStore(stdgo.Go.toInterface(_name), stdgo.Go.toInterface(true));
         _t.helper();
         stdgo._internal.internal.testenv.Testenv.mustHaveExec(stdgo.Go.asInterface(_t));
-        var _cs = ((new stdgo.Slice<stdgo.GoString>(1, 1, _name?.__copy__()) : stdgo.Slice<stdgo.GoString>).__append__(..._args.__toArray__()));
+        var _cs = ((new stdgo.Slice<stdgo.GoString>(1, 1, _name?.__copy__()) : stdgo.Slice<stdgo.GoString>).__append__(...(_args : Array<stdgo.GoString>)));
         if (_ctx != null) {
-            _cmd = stdgo._internal.os.exec.Exec.commandContext(_ctx, _exePath(stdgo.Go.asInterface(_t))?.__copy__(), ..._cs.__toArray__());
+            _cmd = stdgo._internal.os.exec.Exec.commandContext(_ctx, _exePath(stdgo.Go.asInterface(_t))?.__copy__(), ...(_cs : Array<stdgo.GoString>));
         } else {
-            _cmd = stdgo._internal.os.exec.Exec.command(_exePath(stdgo.Go.asInterface(_t))?.__copy__(), ..._cs.__toArray__());
+            _cmd = stdgo._internal.os.exec.Exec.command(_exePath(stdgo.Go.asInterface(_t))?.__copy__(), ...(_cs : Array<stdgo.GoString>));
         };
         return _cmd;
     }
@@ -594,9 +594,9 @@ function _cmdEcho(_args:haxe.Rest<stdgo.GoString>):Void {
         var _args = new stdgo.Slice<stdgo.GoString>(_args.length, 0, ..._args);
         var _iargs = (new stdgo.Slice<stdgo.AnyInterface>(0, 0) : stdgo.Slice<stdgo.AnyInterface>);
         for (__0 => _s in _args) {
-            _iargs = (_iargs.__append__(stdgo.Go.toInterface(_s)));
+            _iargs = (_iargs.__append__(_s));
         };
-        stdgo._internal.fmt.Fmt.println(..._iargs.__toArray__());
+        stdgo._internal.fmt.Fmt.println(...(_iargs : Array<stdgo.AnyInterface>));
     }
 function _cmdEchoEnv(_args:haxe.Rest<stdgo.GoString>):Void {
         var _args = new stdgo.Slice<stdgo.GoString>(_args.length, 0, ..._args);
@@ -1607,7 +1607,7 @@ function testEnvNULCharacter(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
             _t.skip(stdgo.Go.toInterface(("plan9 explicitly allows NUL in the environment" : stdgo.GoString)));
         };
         var _cmd = _helperCommand(_t, ("echoenv" : stdgo.GoString), ("FOO" : stdgo.GoString), ("BAR" : stdgo.GoString));
-        _cmd.env = (_cmd.environ().__append__(stdgo.Go.str("FOO=foo", 0, "BAR=bar")?.__copy__()));
+        _cmd.env = (_cmd.environ().__append__(stdgo.Go.str("FOO=foo", 0, "BAR=bar")));
         var __tmp__ = _cmd.combinedOutput(), _out:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err == null) {
             _t.errorf(("output = %q; want error" : stdgo.GoString), stdgo.Go.toInterface((_out : stdgo.GoString)));
@@ -1621,7 +1621,7 @@ function testString(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         var _tests = (new stdgo.GoArray<T__struct_2>(({ _path : ("echo" : stdgo.GoString), _args : (null : stdgo.Slice<stdgo.GoString>), _want : _echoPath?.__copy__() } : T__struct_2), ({ _path : ("echo" : stdgo.GoString), _args : (new stdgo.Slice<stdgo.GoString>(1, 1, ("a" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _want : (_echoPath + (" a" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__() } : T__struct_2), ({ _path : ("echo" : stdgo.GoString), _args : (new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString), ("b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _want : (_echoPath + (" a b" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__() } : T__struct_2)) : stdgo.GoArray<T__struct_2>);
         for (__16 => _test in _tests) {
-            var _cmd = stdgo._internal.os.exec.Exec.command(_test._path?.__copy__(), ..._test._args.__toArray__());
+            var _cmd = stdgo._internal.os.exec.Exec.command(_test._path?.__copy__(), ...(_test._args : Array<stdgo.GoString>));
             {
                 var _got:stdgo.GoString = (_cmd.string() : stdgo.GoString)?.__copy__();
                 if (_got != (_test._want)) {
@@ -1802,8 +1802,8 @@ function _newTickReader(_interval:stdgo._internal.time.Time.Duration):stdgo.Ref<
 function _startHang(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _ctx:stdgo._internal.context.Context.Context, _hangTime:stdgo._internal.time.Time.Duration, _interrupt:stdgo._internal.os.Os.Signal, _waitDelay:stdgo._internal.time.Time.Duration, _flags:haxe.Rest<stdgo.GoString>):stdgo.Ref<stdgo._internal.os.exec.Exec.Cmd> {
         var _flags = new stdgo.Slice<stdgo.GoString>(_flags.length, 0, ..._flags);
         _t.helper();
-        var _args = ((new stdgo.Slice<stdgo.GoString>(1, 1, (_hangTime.string() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>).__append__(..._flags.__toArray__()));
-        var _cmd = _helperCommandContext(_t, _ctx, ("hang" : stdgo.GoString), ..._args.__toArray__());
+        var _args = ((new stdgo.Slice<stdgo.GoString>(1, 1, (_hangTime.string() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>).__append__(...(_flags : Array<stdgo.GoString>)));
+        var _cmd = _helperCommandContext(_t, _ctx, ("hang" : stdgo.GoString), ...(_args : Array<stdgo.GoString>));
         _cmd.stdin = stdgo.Go.asInterface(_newTickReader((1000000i64 : stdgo._internal.time.Time.Duration)));
         _cmd.stderr = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.strings.Strings.Builder)) : stdgo.Ref<stdgo._internal.strings.Strings.Builder>));
         if (_interrupt == null) {

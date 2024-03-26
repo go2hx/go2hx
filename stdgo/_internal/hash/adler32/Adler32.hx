@@ -76,7 +76,7 @@ function new_():stdgo._internal.hash.Hash.Hash32 {
     }
 function _appendUint32(_b:stdgo.Slice<stdgo.GoByte>, _x:stdgo.GoUInt32):stdgo.Slice<stdgo.GoByte> {
         var _a = (new stdgo.GoArray<stdgo.GoUInt8>(((_x >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoByte), ((_x >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoByte), ((_x >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoByte), (_x : stdgo.GoByte)) : stdgo.GoArray<stdgo.GoUInt8>);
-        return (_b.__append__(...(_a.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+        return (_b.__append__(...((_a.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
     }
 function _readUint32(_b:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32 {
         var __blank__ = _b[(3 : stdgo.GoInt)];
@@ -263,7 +263,7 @@ class T_digest_asInterface {
     @:pointer
     static public function marshalBinary(____:T_digest,  _d:stdgo.Pointer<T_digest>):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } {
         var _b = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (8 : stdgo.GoInt)).__setNumber32__();
-        _b = (_b.__append__(...stdgo.Go.str("adl", 1).__toArray__()));
+        _b = (_b.__append__(...(stdgo.Go.str("adl", 1) : Array<stdgo.GoUInt8>)));
         _b = _appendUint32(_b, (_d.value : stdgo.GoUInt32));
         return { _0 : _b, _1 : (null : stdgo.Error) };
     }

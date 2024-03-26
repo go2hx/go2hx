@@ -266,7 +266,7 @@ function testJoin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _err1:stdgo.Error = stdgo._internal.errors.Errors.new_(("err1" : stdgo.GoString));
         var _err2:stdgo.Error = stdgo._internal.errors.Errors.new_(("err2" : stdgo.GoString));
         for (__0 => _test in (new stdgo.Slice<T__struct_0>(3, 3, ({ _errs : (new stdgo.Slice<stdgo.Error>(1, 1, _err1) : stdgo.Slice<stdgo.Error>), _want : (new stdgo.Slice<stdgo.Error>(1, 1, _err1) : stdgo.Slice<stdgo.Error>) } : T__struct_0), ({ _errs : (new stdgo.Slice<stdgo.Error>(2, 2, _err1, _err2) : stdgo.Slice<stdgo.Error>), _want : (new stdgo.Slice<stdgo.Error>(2, 2, _err1, _err2) : stdgo.Slice<stdgo.Error>) } : T__struct_0), ({ _errs : (new stdgo.Slice<stdgo.Error>(3, 3, _err1, (null : stdgo.Error), _err2) : stdgo.Slice<stdgo.Error>), _want : (new stdgo.Slice<stdgo.Error>(2, 2, _err1, _err2) : stdgo.Slice<stdgo.Error>) } : T__struct_0)) : stdgo.Slice<T__struct_0>)) {
-            var _got = (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.errors.Errors.join(..._test._errs.__toArray__())) : T__interface_4)) : T__interface_4).unwrap();
+            var _got = (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.errors.Errors.join(...(_test._errs : Array<stdgo.Error>))) : T__interface_4)) : T__interface_4).unwrap();
             if (!stdgo._internal.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want))) {
                 _t.errorf(("Join(%v) = %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._errs), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
             };
@@ -279,7 +279,7 @@ function testJoinErrorMethod(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
         var _err1:stdgo.Error = stdgo._internal.errors.Errors.new_(("err1" : stdgo.GoString));
         var _err2:stdgo.Error = stdgo._internal.errors.Errors.new_(("err2" : stdgo.GoString));
         for (__0 => _test in (new stdgo.Slice<T__struct_1>(3, 3, ({ _errs : (new stdgo.Slice<stdgo.Error>(1, 1, _err1) : stdgo.Slice<stdgo.Error>), _want : ("err1" : stdgo.GoString) } : T__struct_1), ({ _errs : (new stdgo.Slice<stdgo.Error>(2, 2, _err1, _err2) : stdgo.Slice<stdgo.Error>), _want : ("err1\nerr2" : stdgo.GoString) } : T__struct_1), ({ _errs : (new stdgo.Slice<stdgo.Error>(3, 3, _err1, (null : stdgo.Error), _err2) : stdgo.Slice<stdgo.Error>), _want : ("err1\nerr2" : stdgo.GoString) } : T__struct_1)) : stdgo.Slice<T__struct_1>)) {
-            var _got:stdgo.GoString = stdgo._internal.errors.Errors.join(..._test._errs.__toArray__()).error()?.__copy__();
+            var _got:stdgo.GoString = stdgo._internal.errors.Errors.join(...(_test._errs : Array<stdgo.Error>)).error()?.__copy__();
             if (_got != (_test._want)) {
                 _t.errorf(("Join(%v).Error() = %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._errs), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
             };

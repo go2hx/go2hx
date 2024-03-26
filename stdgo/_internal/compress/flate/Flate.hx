@@ -6923,7 +6923,7 @@ function newWriterDict(_w:stdgo._internal.io.Io.Writer, _level:stdgo.GoInt, _dic
             return { _0 : null, _1 : _err };
         };
         _zw._d._fillWindow(_dict);
-        _zw._dict = (_zw._dict.__append__(..._dict.__toArray__()));
+        _zw._dict = (_zw._dict.__append__(...(_dict : Array<stdgo.GoUInt8>)));
         return { _0 : _zw, _1 : _err };
     }
 function _largeDataChunk():stdgo.Slice<stdgo.GoByte> {
@@ -6939,7 +6939,7 @@ function testBulkHash4(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             if (((_y.length) < (4 : stdgo.GoInt) : Bool)) {
                 continue;
             };
-            _y = (_y.__append__(..._y.__toArray__()));
+            _y = (_y.__append__(...(_y : Array<stdgo.GoUInt8>)));
             {
                 var _j:stdgo.GoInt = (4 : stdgo.GoInt);
                 stdgo.Go.cfor((_j < (_y.length) : Bool), _j++, {
@@ -7459,7 +7459,7 @@ function testBestSpeed(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                             continue;
                         };
                         for (__18 => _n in _tc) {
-                            _want = (_want.__append__(...(_abcabc.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>).__toArray__()));
+                            _want = (_want.__append__(...((_abcabc.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
                             {
                                 var __tmp__ = _w.write((_abcabc.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>)), __19:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                 if (_err != null) {

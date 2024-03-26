@@ -1538,7 +1538,7 @@ function testMultiWriterError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
     }
 function testMultiReaderCopy(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _slice = (new stdgo.Slice<stdgo._internal.io.Io.Reader>(1, 1, stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(("hello world" : stdgo.GoString)))) : stdgo.Slice<stdgo._internal.io.Io.Reader>);
-        var _r:stdgo._internal.io.Io.Reader = multiReader(..._slice.__toArray__());
+        var _r:stdgo._internal.io.Io.Reader = multiReader(...(_slice : Array<stdgo._internal.io.Io.Reader>));
         _slice[(0 : stdgo.GoInt)] = (null : stdgo._internal.io.Io.Reader);
         var __tmp__ = readAll(_r), _data:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (((_err != null) || ((_data : stdgo.GoString) != ("hello world" : stdgo.GoString)) : Bool)) {
@@ -1548,7 +1548,7 @@ function testMultiReaderCopy(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
 function testMultiWriterCopy(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _buf:stdgo._internal.strings.Strings.Builder = ({} : stdgo._internal.strings.Strings.Builder);
         var _slice = (new stdgo.Slice<stdgo._internal.io.Io.Writer>(1, 1, stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings.Builder>))) : stdgo.Slice<stdgo._internal.io.Io.Writer>);
-        var _w:stdgo._internal.io.Io.Writer = multiWriter(..._slice.__toArray__());
+        var _w:stdgo._internal.io.Io.Writer = multiWriter(...(_slice : Array<stdgo._internal.io.Io.Writer>));
         _slice[(0 : stdgo.GoInt)] = (null : stdgo._internal.io.Io.Writer);
         var __tmp__ = _w.write((("hello world" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (((_err != null) || (_n != (11 : stdgo.GoInt)) : Bool)) {
@@ -2101,7 +2101,7 @@ function testPipeConcurrent(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
                 stdgo.Go.cfor((_i < _c.capacity : Bool), _i++, {
-                    _got = (_got.__append__(...(_c.__get__()).__toArray__()));
+                    _got = (_got.__append__(...(_c.__get__() : Array<stdgo.GoUInt8>)));
                 });
             };
             _got = _sortBytesInGroups(_got, (2 : stdgo.GoInt));

@@ -1541,7 +1541,7 @@ class Scanner_asInterface {
     static public function _errorf( _s:stdgo.Ref<Scanner>, _format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void {
         var _args = new stdgo.Slice<stdgo.AnyInterface>(_args.length, 0, ..._args);
         @:recv var _s:stdgo.Ref<Scanner> = _s;
-        _s._error(stdgo._internal.fmt.Fmt.sprintf(_format?.__copy__(), ..._args.__toArray__())?.__copy__());
+        _s._error(stdgo._internal.fmt.Fmt.sprintf(_format?.__copy__(), ...(_args : Array<stdgo.AnyInterface>))?.__copy__());
     }
     @:keep
     static public function _error( _s:stdgo.Ref<Scanner>, _msg:stdgo.GoString):Void {

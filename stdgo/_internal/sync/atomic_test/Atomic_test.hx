@@ -568,7 +568,7 @@ function _testPointers():stdgo.Slice<stdgo._internal.unsafe.Unsafe.UnsafePointer
             });
         };
         _pointers = (_pointers.__append__((stdgo.Go.toInterface(stdgo.Go.pointer((0 : stdgo.GoUInt8))) : stdgo._internal.unsafe.Unsafe.UnsafePointer)));
-        _pointers = (_pointers.__append__(@:default_value null));
+        _pointers = (_pointers.__append__((null : stdgo.Slice<stdgo._internal.unsafe.Unsafe.UnsafePointer>)));
         return _pointers;
     }
 function testSwapPointer(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {

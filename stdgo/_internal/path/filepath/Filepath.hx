@@ -396,7 +396,7 @@ function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slic
                     };
                 };
                 if (_matched) {
-                    _m = (_m.__append__(join(_dir?.__copy__(), _n?.__copy__())?.__copy__()));
+                    _m = (_m.__append__(join(_dir?.__copy__(), _n?.__copy__())));
                 };
             };
             {
@@ -976,7 +976,7 @@ class T_lazybuf_asInterface {
     static public function _prepend( _b:stdgo.Ref<T_lazybuf>, _prefix:haxe.Rest<stdgo.GoByte>):Void {
         var _prefix = new stdgo.Slice<stdgo.GoByte>(_prefix.length, 0, ..._prefix);
         @:recv var _b:stdgo.Ref<T_lazybuf> = _b;
-        _b._buf = (_prefix.__append__(..._b._buf.__toArray__()));
+        _b._buf = (_prefix.__append__(...(_b._buf : Array<stdgo.GoUInt8>)));
         _b._w = (_b._w + ((_prefix.length)) : stdgo.GoInt);
     }
     @:keep

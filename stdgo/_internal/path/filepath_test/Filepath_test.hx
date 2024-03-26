@@ -1096,9 +1096,9 @@ function testClean(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             for (_i => _ in _tests) {
                 _tests[(_i : stdgo.GoInt)]._result = stdgo._internal.path.filepath.Filepath.fromSlash(_tests[(_i : stdgo.GoInt)]._result?.__copy__())?.__copy__();
             };
-            _tests = (_tests.__append__(..._wincleantests.__toArray__()));
+            _tests = (_tests.__append__(...(_wincleantests : Array<stdgo._internal.path.filepath_test.Filepath_test.PathTest>)));
         } else {
-            _tests = (_tests.__append__(..._nonwincleantests.__toArray__()));
+            _tests = (_tests.__append__(...(_nonwincleantests : Array<stdgo._internal.path.filepath_test.Filepath_test.PathTest>)));
         };
         for (__0 => _test in _tests) {
             {
@@ -1133,10 +1133,10 @@ function testClean(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testIsLocal(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _tests = _islocaltests;
         if (false) {
-            _tests = (_tests.__append__(..._winislocaltests.__toArray__()));
+            _tests = (_tests.__append__(...(_winislocaltests : Array<stdgo._internal.path.filepath_test.Filepath_test.IsLocalTest>)));
         };
         if (false) {
-            _tests = (_tests.__append__(..._plan9islocaltests.__toArray__()));
+            _tests = (_tests.__append__(...(_plan9islocaltests : Array<stdgo._internal.path.filepath_test.Filepath_test.IsLocalTest>)));
         };
         for (__0 => _test in _tests) {
             {
@@ -1166,7 +1166,7 @@ function testFromAndToSlash(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
 function testSplitList(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _tests = _splitlisttests;
         if (false) {
-            _tests = (_tests.__append__(..._winsplitlisttests.__toArray__()));
+            _tests = (_tests.__append__(...(_winsplitlisttests : Array<stdgo._internal.path.filepath_test.Filepath_test.SplitListTest>)));
         };
         for (__0 => _test in _tests) {
             {
@@ -1181,7 +1181,7 @@ function testSplit(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _splittests:stdgo.Slice<SplitTest> = (null : stdgo.Slice<stdgo._internal.path.filepath_test.Filepath_test.SplitTest>);
         _splittests = _unixsplittests;
         if (false) {
-            _splittests = (_splittests.__append__(..._winsplittests.__toArray__()));
+            _splittests = (_splittests.__append__(...(_winsplittests : Array<stdgo._internal.path.filepath_test.Filepath_test.SplitTest>)));
         };
         for (__0 => _test in _splittests) {
             {
@@ -1194,14 +1194,14 @@ function testSplit(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testJoin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         if (false) {
-            _jointests = (_jointests.__append__(..._winjointests.__toArray__()));
+            _jointests = (_jointests.__append__(...(_winjointests : Array<stdgo._internal.path.filepath_test.Filepath_test.JoinTest>)));
         } else {
-            _jointests = (_jointests.__append__(..._nonwinjointests.__toArray__()));
+            _jointests = (_jointests.__append__(...(_nonwinjointests : Array<stdgo._internal.path.filepath_test.Filepath_test.JoinTest>)));
         };
         for (__0 => _test in _jointests) {
             var _expected:stdgo.GoString = stdgo._internal.path.filepath.Filepath.fromSlash(_test._path?.__copy__())?.__copy__();
             {
-                var _p:stdgo.GoString = stdgo._internal.path.filepath.Filepath.join(..._test._elem.__toArray__())?.__copy__();
+                var _p:stdgo.GoString = stdgo._internal.path.filepath.Filepath.join(...(_test._elem : Array<stdgo.GoString>))?.__copy__();
                 if (_p != (_expected)) {
                     _t.errorf(("join(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._elem), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_expected));
                 };
@@ -1684,7 +1684,7 @@ function testWalkSymlinkRoot(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
                         return _err;
                     };
                     _t.logf(("%#q: %v" : stdgo.GoString), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(stdgo.Go.asInterface(_info.mode())));
-                    _walked = (_walked.__append__(stdgo._internal.path.filepath.Filepath.clean(_path?.__copy__())?.__copy__()));
+                    _walked = (_walked.__append__(stdgo._internal.path.filepath.Filepath.clean(_path?.__copy__())));
                     return (null : stdgo.Error);
                 });
                 if (_err != null) {
@@ -1707,7 +1707,7 @@ function testBase(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             for (_i => _ in _tests) {
                 _tests[(_i : stdgo.GoInt)]._result = stdgo._internal.path.filepath.Filepath.clean(_tests[(_i : stdgo.GoInt)]._result?.__copy__())?.__copy__();
             };
-            _tests = (_tests.__append__(..._winbasetests.__toArray__()));
+            _tests = (_tests.__append__(...(_winbasetests : Array<stdgo._internal.path.filepath_test.Filepath_test.PathTest>)));
         };
         for (__0 => _test in _tests) {
             {
@@ -1724,9 +1724,9 @@ function testDir(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             for (_i => _ in _tests) {
                 _tests[(_i : stdgo.GoInt)]._result = stdgo._internal.path.filepath.Filepath.clean(_tests[(_i : stdgo.GoInt)]._result?.__copy__())?.__copy__();
             };
-            _tests = (_tests.__append__(..._windirtests.__toArray__()));
+            _tests = (_tests.__append__(...(_windirtests : Array<stdgo._internal.path.filepath_test.Filepath_test.PathTest>)));
         } else {
-            _tests = (_tests.__append__(..._nonwindirtests.__toArray__()));
+            _tests = (_tests.__append__(...(_nonwindirtests : Array<stdgo._internal.path.filepath_test.Filepath_test.PathTest>)));
         };
         for (__0 => _test in _tests) {
             {
@@ -1740,7 +1740,7 @@ function testDir(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testIsAbs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _tests:stdgo.Slice<IsAbsTest> = (null : stdgo.Slice<stdgo._internal.path.filepath_test.Filepath_test.IsAbsTest>);
         if (false) {
-            _tests = (_tests.__append__(..._winisabstests.__toArray__()));
+            _tests = (_tests.__append__(...(_winisabstests : Array<stdgo._internal.path.filepath_test.Filepath_test.IsAbsTest>)));
             for (__0 => _test in _isabstests) {
                 _tests = (_tests.__append__((new stdgo._internal.path.filepath_test.Filepath_test.IsAbsTest(_test._path?.__copy__(), false) : stdgo._internal.path.filepath_test.Filepath_test.IsAbsTest)));
             };
@@ -2014,9 +2014,9 @@ function testAbs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                         continue;
                     };
                     _path = (_vol + _path?.__copy__() : stdgo.GoString)?.__copy__();
-                    _extra = (_extra.__append__(_path?.__copy__()));
+                    _extra = (_extra.__append__(_path));
                 };
-                _absTests = (_absTests.__append__(..._extra.__toArray__()));
+                _absTests = (_absTests.__append__(...(_extra : Array<stdgo.GoString>)));
             };
             _err = stdgo._internal.os.Os.chdir(_absTestDirs[(0 : stdgo.GoInt)]?.__copy__());
             if (_err != null) {
@@ -2122,12 +2122,12 @@ function testAbsEmptyString(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
         };
     }
 function testRel(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _tests = ((new stdgo.Slice<stdgo._internal.path.filepath_test.Filepath_test.RelTests>(0, 0) : stdgo.Slice<stdgo._internal.path.filepath_test.Filepath_test.RelTests>).__append__(..._reltests.__toArray__()));
+        var _tests = ((new stdgo.Slice<stdgo._internal.path.filepath_test.Filepath_test.RelTests>(0, 0) : stdgo.Slice<stdgo._internal.path.filepath_test.Filepath_test.RelTests>).__append__(...(_reltests : Array<stdgo._internal.path.filepath_test.Filepath_test.RelTests>)));
         if (false) {
             for (_i => _ in _tests) {
                 _tests[(_i : stdgo.GoInt)]._want = stdgo._internal.path.filepath.Filepath.fromSlash(_tests[(_i : stdgo.GoInt)]._want?.__copy__())?.__copy__();
             };
-            _tests = (_tests.__append__(..._winreltests.__toArray__()));
+            _tests = (_tests.__append__(...(_winreltests : Array<stdgo._internal.path.filepath_test.Filepath_test.RelTests>)));
         };
         for (__0 => _test in _tests) {
             var __tmp__ = stdgo._internal.path.filepath.Filepath.rel(_test._root?.__copy__(), _test._path?.__copy__()), _got:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -2243,7 +2243,7 @@ function _testWalkSymlink(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _mkl
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
-                _visited = (_visited.__append__(_rel?.__copy__()));
+                _visited = (_visited.__append__(_rel));
                 return (null : stdgo.Error);
             });
             if (_err != null) {
@@ -2460,7 +2460,7 @@ function testIssue51617(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                     if (_err != null) {
                         _t.fatal(stdgo.Go.toInterface(_err));
                     };
-                    _saw = (_saw.__append__(_rel?.__copy__()));
+                    _saw = (_saw.__append__(_rel));
                 };
                 return (null : stdgo.Error);
             });
@@ -2547,7 +2547,7 @@ class T_globTest_asInterface {
         @:recv var _test:stdgo.Ref<T_globTest> = _test;
         var _want = new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), 0).__setString__();
         for (__0 => _m in _test._matches) {
-            _want = (_want.__append__((_root + fromSlash(_m?.__copy__())?.__copy__() : stdgo.GoString)?.__copy__()));
+            _want = (_want.__append__((_root + fromSlash(_m?.__copy__())?.__copy__() : stdgo.GoString)));
         };
         stdgo._internal.sort.Sort.strings(_want);
         return _want;

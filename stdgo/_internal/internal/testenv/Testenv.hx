@@ -79,7 +79,7 @@ function cleanCmdEnv(_cmd:stdgo.Ref<stdgo._internal.os.exec.Exec.Cmd>):stdgo.Ref
             if (stdgo._internal.strings.Strings.hasPrefix(_env?.__copy__(), ("GOTRACEBACK=" : stdgo.GoString))) {
                 continue;
             };
-            _cmd.env = (_cmd.env.__append__(_env?.__copy__()));
+            _cmd.env = (_cmd.env.__append__(_env));
         };
         return _cmd;
     }
@@ -131,7 +131,7 @@ function commandContext(_t:stdgo._internal.testing.Testing.TB, _ctx:stdgo._inter
                 };
             };
         };
-        var _cmd = stdgo._internal.os.exec.Exec.commandContext(_ctx, _name?.__copy__(), ..._args.__toArray__());
+        var _cmd = stdgo._internal.os.exec.Exec.commandContext(_ctx, _name?.__copy__(), ...(_args : Array<stdgo.GoString>));
         _cmd.cancel = function():stdgo.Error {
             if (((_cancelCtx != null) && (stdgo.Go.toInterface(_ctx.err()) == stdgo.Go.toInterface(stdgo._internal.context.Context.deadlineExceeded)) : Bool)) {
                 _t.errorf(("test timed out while running command: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)));
@@ -154,7 +154,7 @@ function commandContext(_t:stdgo._internal.testing.Testing.TB, _ctx:stdgo._inter
 function command(_t:stdgo._internal.testing.Testing.TB, _name:stdgo.GoString, _args:haxe.Rest<stdgo.GoString>):stdgo.Ref<stdgo._internal.os.exec.Exec.Cmd> {
         var _args = new stdgo.Slice<stdgo.GoString>(_args.length, 0, ..._args);
         _t.helper();
-        return commandContext(_t, stdgo._internal.context.Context.background(), _name?.__copy__(), ..._args.__toArray__());
+        return commandContext(_t, stdgo._internal.context.Context.background(), _name?.__copy__(), ...(_args : Array<stdgo.GoString>));
     }
 function optimizationOff():Bool {
         return false;
@@ -398,7 +398,7 @@ function writeImportcfg(_t:stdgo._internal.testing.Testing.TB, _dstPath:stdgo.Go
         };
         if (((_pkgs.length) > (0 : stdgo.GoInt) : Bool)) {
             var _cmd = command(_t, goToolPath(_t)?.__copy__(), ("list" : stdgo.GoString), ("-export" : stdgo.GoString), ("-deps" : stdgo.GoString), ("-f" : stdgo.GoString), ("{{if ne .ImportPath \"command-line-arguments\"}}{{if .Export}}{{.ImportPath}}={{.Export}}{{end}}{{end}}" : stdgo.GoString));
-            _cmd.args = (_cmd.args.__append__(..._pkgs.__toArray__()));
+            _cmd.args = (_cmd.args.__append__(...(_pkgs : Array<stdgo.GoString>)));
             _cmd.stderr = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.strings.Strings.Builder)) : stdgo.Ref<stdgo._internal.strings.Strings.Builder>));
             var __tmp__ = _cmd.output(), _out:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {

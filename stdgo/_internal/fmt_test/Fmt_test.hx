@@ -2339,7 +2339,7 @@ function testComplexFormatting(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
     }
 function testReorder(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__3 => _tt in _reorderTests) {
-            var _s:stdgo.GoString = sprintf(_tt._fmt?.__copy__(), ..._tt._val.__toArray__())?.__copy__();
+            var _s:stdgo.GoString = sprintf(_tt._fmt?.__copy__(), ...(_tt._val : Array<stdgo.AnyInterface>))?.__copy__();
             if (_s != (_tt._out)) {
                 _t.errorf(("Sprintf(%q, %v) = <%s> want <%s>" : stdgo.GoString), stdgo.Go.toInterface(_tt._fmt), stdgo.Go.toInterface(_tt._val), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_tt._out));
             } else {};
@@ -2698,7 +2698,7 @@ function _args(_a:haxe.Rest<stdgo.AnyInterface>):stdgo.Slice<stdgo.AnyInterface>
     }
 function testWidthAndPrecision(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (_i => _tt in _startests) {
-            var _s:stdgo.GoString = sprintf(_tt._fmt?.__copy__(), ..._tt._in.__toArray__())?.__copy__();
+            var _s:stdgo.GoString = sprintf(_tt._fmt?.__copy__(), ...(_tt._in : Array<stdgo.AnyInterface>))?.__copy__();
             if (_s != (_tt._out)) {
                 _t.errorf(("#%d: %q: got %q expected %q" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_tt._fmt), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_tt._out));
             };
@@ -2969,7 +2969,7 @@ function _testScanfMulti(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _f:st
         var _sliceType:stdgo._internal.reflect.Reflect.Type_ = stdgo._internal.reflect.Reflect.typeOf(stdgo.Go.toInterface(new stdgo.Slice<stdgo.AnyInterface>((1 : stdgo.GoInt).toBasic(), 0)));
         for (__3 => _test in _multiTests) {
             var _r:stdgo._internal.io.Io.Reader = _f(_test._text?.__copy__());
-            var __tmp__ = fscanf(_r, _test._format?.__copy__(), ..._test._in.__toArray__()), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = fscanf(_r, _test._format?.__copy__(), ...(_test._in : Array<stdgo.AnyInterface>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 if (_test._err == (stdgo.Go.str())) {
                     _t.errorf(("got error scanning (%q, %q): %q" : stdgo.GoString), stdgo.Go.toInterface(_test._format), stdgo.Go.toInterface(_test._text), stdgo.Go.toInterface(_err));

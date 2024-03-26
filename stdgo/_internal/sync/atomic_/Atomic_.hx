@@ -28,7 +28,7 @@ var _firstStoreInProgress : stdgo.GoByte = (0 : stdgo.GoUInt8);
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new Pointer_(__5, __6, _v);
+        return new Pointer_<T_>(__5, __6, _v);
     }
 }
 @:structInit @:using(stdgo._internal.sync.atomic_.Atomic_.Int32_static_extension) class Int32 {

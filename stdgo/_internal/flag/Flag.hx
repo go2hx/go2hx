@@ -692,7 +692,7 @@ class FlagSet_asInterface {
     static public function _failf( _f:stdgo.Ref<FlagSet>, _format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Error {
         var _a = new stdgo.Slice<stdgo.AnyInterface>(_a.length, 0, ..._a);
         @:recv var _f:stdgo.Ref<FlagSet> = _f;
-        var _msg:stdgo.GoString = _f._sprintf(_format?.__copy__(), ..._a.__toArray__())?.__copy__();
+        var _msg:stdgo.GoString = _f._sprintf(_format?.__copy__(), ...(_a : Array<stdgo.AnyInterface>))?.__copy__();
         _f._usage();
         return stdgo._internal.errors.Errors.new_(_msg?.__copy__());
     }
@@ -700,7 +700,7 @@ class FlagSet_asInterface {
     static public function _sprintf( _f:stdgo.Ref<FlagSet>, _format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.GoString {
         var _a = new stdgo.Slice<stdgo.AnyInterface>(_a.length, 0, ..._a);
         @:recv var _f:stdgo.Ref<FlagSet> = _f;
-        var _msg:stdgo.GoString = stdgo._internal.fmt.Fmt.sprintf(_format?.__copy__(), ..._a.__toArray__())?.__copy__();
+        var _msg:stdgo.GoString = stdgo._internal.fmt.Fmt.sprintf(_format?.__copy__(), ...(_a : Array<stdgo.AnyInterface>))?.__copy__();
         stdgo._internal.fmt.Fmt.fprintln(_f.output(), stdgo.Go.toInterface(_msg));
         return _msg?.__copy__();
     }

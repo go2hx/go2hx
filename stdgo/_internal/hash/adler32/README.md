@@ -1,220 +1,57 @@
-# Module: `stdgo._internal.hash.adler32`
-
-[(view library index)](../../../stdgo.md)
-
-
-# Overview
-
-
-stdgo/_internal/internal/Macro.macro.hx:44: non hxb types:,365
-
-# Index
-
-
-- [Constants](<#constants>)
-
-- [Variables](<#variables>)
-
-- [`function _appendUint32(_b:stdgo.Slice<stdgo.GoByte>, _x:stdgo.GoUInt32):stdgo.Slice<stdgo.GoByte>`](<#function-_appenduint32>)
-
-- [`function _checksum(_p:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32`](<#function-_checksum>)
-
-- [`function _readUint32(_b:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32`](<#function-_readuint32>)
-
-- [`function _update(_d:stdgo._internal.hash.adler32.T_digest, _p:stdgo.Slice<stdgo.GoByte>):stdgo._internal.hash.adler32.T_digest`](<#function-_update>)
-
-- [`function benchmarkAdler32KB(_b:stdgo.Ref<stdgo._internal.testing.B>):Void`](<#function-benchmarkadler32kb>)
-
-- [`function checksum(_data:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32`](<#function-checksum>)
-
-- [`function new_():stdgo._internal.hash.Hash32`](<#function-new_>)
-
-- [`function testGolden(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testgolden>)
-
-- [`function testGoldenMarshal(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testgoldenmarshal>)
-
-- [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
-
-- [typedef T\_digest](<#typedef-t_digest>)
-
-# Constants
-
-
-```haxe
-import stdgo._internal.hash.adler32.Adler32
+# Module stdgo._internal.hash.adler32 has compilation errors, please do not use:
 ```
+stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... For function argument 't'
+stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : ... For function argument 'v'
+stdgo/_internal/reflect/Reflect.hx:484: characters 25-270 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
+stdgo/_internal/reflect/Reflect.hx:484: characters 25-270 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/reflect/Reflect.hx:485: characters 9-114 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
+stdgo/_internal/reflect/Reflect.hx:485: characters 9-114 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/reflect/Reflect.hx:779: characters 13-122 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
+stdgo/_internal/reflect/Reflect.hx:779: characters 13-122 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/reflect/Reflect.hx:781: characters 9-142 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
+stdgo/_internal/reflect/Reflect.hx:781: characters 9-142 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/internal/reflect/Reflect.hx:818: characters 19-58 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/_internal/internal/reflect/Reflect.hx:818: characters 19-58 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/internal/reflect/Reflect.hx:818: characters 19-58 : ... For function argument 'typ'
+stdgo/_internal/internal/reflect/Reflect.hx:816: lines 816-818 : Void should be Any
+stdgo/_internal/internal/reflect/Reflect.hx:822: characters 31-70 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/_internal/internal/reflect/Reflect.hx:822: characters 31-70 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/internal/reflect/Reflect.hx:822: characters 31-70 : ... For function argument 'typ'
+stdgo/Go.macro.hx:695: characters 37-123 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:695: characters 37-123 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:695: characters 37-123 : ... For function argument '_u'
+stdgo/_internal/errors/Errors.hx:81: characters 21-87 : ... Called from macro here
+stdgo/Go.macro.hx:695: characters 37-123 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:695: characters 37-123 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:695: characters 37-123 : ... For function argument '_u'
+stdgo/_internal/errors/Errors.hx:101: characters 29-95 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/errors/Errors.hx:111: characters 21-69 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/errors/Errors.hx:117: characters 28-76 : ... Called from macro here
+stdgo/Go.macro.hx:695: characters 37-123 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:695: characters 37-123 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:695: characters 37-123 : ... For function argument '_u'
+stdgo/_internal/errors/Errors.hx:155: characters 29-95 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/errors/Errors.hx:165: characters 21-69 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/errors/Errors.hx:171: characters 28-76 : ... Called from macro here
+stdgo/Go.macro.hx:695: characters 37-123 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:695: characters 37-123 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:695: characters 37-123 : ... For function argument '_u'
 
-
-```haxe
-final _magic:stdgo.GoString = stdgo.Go.str("adl", 1)
 ```
-
-
-```haxe
-final _marshaledSize:stdgo.GoInt = ((8 : stdgo.GoInt))
-```
-
-
-```haxe
-final _mod:stdgo.GoUInt64 = ((65521i64 : stdgo.GoUInt64))
-```
-
-
-```haxe
-final _nmax:stdgo.GoUInt64 = ((5552i64 : stdgo.GoUInt64))
-```
-
-
-```haxe
-final size:stdgo.GoUInt64 = ((4i64 : stdgo.GoUInt64))
-```
-
-
-# Variables
-
-
-```haxe
-import stdgo._internal.hash.adler32.Adler32
-```
-
-
-```haxe
-var _golden:stdgo.Slice<stdgo._internal.hash.adler32.T__struct_0>
-```
-
-
-# Functions
-
-
-```haxe
-import stdgo._internal.hash.adler32.Adler32
-```
-
-
-## function \_appendUint32
-
-
-```haxe
-function _appendUint32(_b:stdgo.Slice<stdgo.GoByte>, _x:stdgo.GoUInt32):stdgo.Slice<stdgo.GoByte>
-```
-
-
-[\(view code\)](<./Adler32.hx#L77>)
-
-
-## function \_checksum
-
-
-```haxe
-function _checksum(_p:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32
-```
-
-
-[\(view code\)](<./Adler32.hx#L121>)
-
-
-## function \_readUint32
-
-
-```haxe
-function _readUint32(_b:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32
-```
-
-
-[\(view code\)](<./Adler32.hx#L81>)
-
-
-## function \_update
-
-
-```haxe
-function _update(_d:stdgo._internal.hash.adler32.T_digest, _p:stdgo.Slice<stdgo.GoByte>):stdgo._internal.hash.adler32.T_digest
-```
-
-
-[\(view code\)](<./Adler32.hx#L85>)
-
-
-## function benchmarkAdler32KB
-
-
-```haxe
-function benchmarkAdler32KB(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
-```
-
-
-[\(view code\)](<./Adler32.hx#L180>)
-
-
-## function checksum
-
-
-```haxe
-function checksum(_data:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32
-```
-
-
-[\(view code\)](<./Adler32.hx#L118>)
-
-
-## function new\_
-
-
-```haxe
-function new_():stdgo._internal.hash.Hash32
-```
-
-
-[\(view code\)](<./Adler32.hx#L72>)
-
-
-## function testGolden
-
-
-```haxe
-function testGolden(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Adler32.hx#L129>)
-
-
-## function testGoldenMarshal
-
-
-```haxe
-function testGoldenMarshal(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Adler32.hx#L152>)
-
-
-# Typedefs
-
-
-```haxe
-import stdgo._internal.hash.adler32.*
-```
-
-
-## typedef T\_\_struct\_0
-
-
-```haxe
-typedef T__struct_0 = {
-	_out:stdgo.GoUInt32;
-	_in:stdgo.GoString;
-	_halfState:stdgo.GoString;
-};
-```
-
-
-## typedef T\_digest
-
-
-```haxe
-typedef T_digest = stdgo.GoUInt32;
-```
-
 

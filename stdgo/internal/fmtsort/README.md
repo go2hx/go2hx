@@ -1,111 +1,17 @@
-# Module: `stdgo.internal.fmtsort`
-
-[(view library index)](../../stdgo.md)
-
-
-# Overview
-
-
-
-Package fmtsort provides a general stable ordering mechanism
-for maps, on behalf of the fmt and text/template packages.
-It is not guaranteed to be efficient and works only for types
-that are valid map keys.  
-
-# Index
-
-
-- [`function compare(a:stdgo._internal.reflect.Value, b:stdgo._internal.reflect.Value):Int`](<#function-compare>)
-
-- [`function sort(mapValue:stdgo._internal.reflect.Value):stdgo.internal.fmtsort.SortedMap`](<#function-sort>)
-
-- [typedef SortedMap](<#typedef-sortedmap>)
-
-- [typedef SortedMap\_asInterface](<#typedef-sortedmap_asinterface>)
-
-- [typedef SortedMap\_static\_extension](<#typedef-sortedmap_static_extension>)
-
-# Functions
-
-
-```haxe
-import stdgo.internal.fmtsort.Fmtsort
+# Module stdgo.internal.fmtsort has compilation errors, please do not use:
 ```
-
-
-## function compare
-
-
-```haxe
-function compare(a:stdgo._internal.reflect.Value, b:stdgo._internal.reflect.Value):Int
-```
-
-
-[\(view code\)](<./Fmtsort.hx#L10>)
-
-
-## function sort
-
-
-```haxe
-function sort(mapValue:stdgo._internal.reflect.Value):stdgo.internal.fmtsort.SortedMap
-```
-
-
-
-Sort accepts a map and returns a SortedMap that has the same keys and
-values but in a stable sorted order according to the keys, modulo issues
-raised by unorderable key values such as NaNs.  
-
-
-The ordering rules are more general than with Go's \< operator:  
+stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... For function argument 't'
+stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : ... For function argument 'v'
+stdgo/_internal/reflect/Reflect.hx:779: characters 13-122 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
+stdgo/_internal/reflect/Reflect.hx:779: characters 13-122 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/reflect/Reflect.hx:781: characters 9-142 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
+stdgo/_internal/reflect/Reflect.hx:781: characters 9-142 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/internal/reflect/Reflect.hx:978: characters 13-51 : stdgo._internal.internal.reflect._Type_asInterface should be Null<stdgo._internal.reflect.Type_>
+stdgo/_internal/internal/reflect/Reflect.hx:978: characters 13-51 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
 
 ```
-   - when applicable, nil compares low
-   - ints, floats, and strings order by <
-   - NaN compares less than non-NaN floats
-   - bool compares false before true
-   - complex compares real, then imag
-   - pointers compare by machine address
-   - channel values compare by machine address
-   - structs compare each field in turn
-   - arrays compare each element in turn.
-     Otherwise identical arrays compare by length.
-   - interface values compare first by reflect.Type describing the concrete type
-     and then by concrete value as described in the previous rules.
-```
-[\(view code\)](<./Fmtsort.hx#L31>)
-
-
-# Typedefs
-
-
-```haxe
-import stdgo.internal.fmtsort.*
-```
-
-
-## typedef SortedMap
-
-
-```haxe
-typedef SortedMap = Dynamic;
-```
-
-
-## typedef SortedMap\_asInterface
-
-
-```haxe
-typedef SortedMap_asInterface = Dynamic;
-```
-
-
-## typedef SortedMap\_static\_extension
-
-
-```haxe
-typedef SortedMap_static_extension = Dynamic;
-```
-
 

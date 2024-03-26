@@ -1,6 +1,8 @@
 # Module stdgo.math.cmplx has compilation errors, please do not use:
 ```
-stdgo/math/cmplx/Cmplx.hx:132: characters 57-58 : Unexpected <
+stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... For function argument 't'
 
 ```
 

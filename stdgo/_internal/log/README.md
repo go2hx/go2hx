@@ -1,11 +1,8 @@
 # Module stdgo._internal.log has compilation errors, please do not use:
 ```
-stdgo/_internal/log_test/Log_test.hx:4: characters 212-216 : Unknown identifier : _buf
-stdgo/_internal/log_test/Log_test.hx:4: characters 212-216 : ... For function argument '_out'
-stdgo/_internal/log_test/Log_test.hx:9: characters 212-216 : Unknown identifier : _buf
-stdgo/_internal/log_test/Log_test.hx:9: characters 212-216 : ... For function argument '_out'
-stdgo/_internal/log_test/Log_test.hx:10: characters 13-20 : Unknown identifier : _logger
-stdgo/_internal/internal/Macro.macro.hx:44: non hxb types:,365
+stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... For function argument 't'
 
 ```
 

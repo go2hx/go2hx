@@ -1,774 +1,430 @@
-# Module: `stdgo.encoding.base64`
+# Module stdgo.encoding.base64 has compilation errors, please do not use:
+```
+stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... For function argument 't'
+stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : ... For function argument 'v'
+stdgo/_internal/reflect/Reflect.hx:484: characters 25-270 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
+stdgo/_internal/reflect/Reflect.hx:484: characters 25-270 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/reflect/Reflect.hx:485: characters 9-114 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
+stdgo/_internal/reflect/Reflect.hx:485: characters 9-114 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/reflect/Reflect.hx:779: characters 13-122 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
+stdgo/_internal/reflect/Reflect.hx:779: characters 13-122 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/reflect/Reflect.hx:781: characters 9-142 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
+stdgo/_internal/reflect/Reflect.hx:781: characters 9-142 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/internal/reflect/Reflect.hx:818: characters 19-58 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/_internal/internal/reflect/Reflect.hx:818: characters 19-58 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/internal/reflect/Reflect.hx:818: characters 19-58 : ... For function argument 'typ'
+stdgo/_internal/internal/reflect/Reflect.hx:816: lines 816-818 : Void should be Any
+stdgo/_internal/internal/reflect/Reflect.hx:822: characters 31-70 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/_internal/internal/reflect/Reflect.hx:822: characters 31-70 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/internal/reflect/Reflect.hx:822: characters 31-70 : ... For function argument 'typ'
+stdgo/Go.macro.hx:695: characters 37-123 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:695: characters 37-123 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:695: characters 37-123 : ... For function argument '_u'
+stdgo/_internal/errors/Errors.hx:81: characters 21-87 : ... Called from macro here
+stdgo/Go.macro.hx:695: characters 37-123 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:695: characters 37-123 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:695: characters 37-123 : ... For function argument '_u'
+stdgo/_internal/errors/Errors.hx:101: characters 29-95 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/errors/Errors.hx:111: characters 21-69 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/errors/Errors.hx:117: characters 28-76 : ... Called from macro here
+stdgo/Go.macro.hx:695: characters 37-123 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:695: characters 37-123 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:695: characters 37-123 : ... For function argument '_u'
+stdgo/_internal/errors/Errors.hx:155: characters 29-95 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/errors/Errors.hx:165: characters 21-69 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/errors/Errors.hx:171: characters 28-76 : ... Called from macro here
+stdgo/Go.macro.hx:695: characters 37-123 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:695: characters 37-123 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:695: characters 37-123 : ... For function argument '_u'
+stdgo/_internal/strconv/Strconv.hx:2167: characters 25-96 : ... Called from macro here
+stdgo/Go.macro.hx:695: characters 37-123 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:695: characters 37-123 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:695: characters 37-123 : ... For function argument '_u'
+stdgo/Go.macro.hx:695: characters 37-123 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:695: characters 37-123 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:695: characters 37-123 : ... For function argument '_u'
+stdgo/Go.macro.hx:695: characters 37-123 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:695: characters 37-123 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:695: characters 37-123 : ... For function argument '_u'
+stdgo/_internal/strconv/Strconv.hx:2846: characters 25-96 : ... Called from macro here
+stdgo/Go.macro.hx:695: characters 37-123 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:695: characters 37-123 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:695: characters 37-123 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:892: characters 33-75 : ... Called from macro here
+stdgo/_internal/internal/reflect/Reflect.hx:978: characters 13-51 : stdgo._internal.internal.reflect._Type_asInterface should be Null<stdgo._internal.reflect.Type_>
+stdgo/_internal/internal/reflect/Reflect.hx:978: characters 13-51 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/encoding/binary/Binary.hx:2605: lines 2605-2614 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:938: characters 17-55 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:938: characters 59-105 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:938: characters 109-156 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:938: characters 160-213 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:938: characters 217-278 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:938: characters 282-344 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:941: characters 24-75 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:944: characters 24-83 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:947: characters 24-84 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:950: characters 24-71 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:950: characters 75-123 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:950: characters 127-189 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:950: characters 193-256 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:953: characters 24-84 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:956: characters 24-85 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:959: characters 24-71 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:959: characters 75-123 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:959: characters 127-189 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:959: characters 193-256 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:962: characters 24-84 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:965: characters 24-85 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:968: characters 24-71 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:968: characters 75-123 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:968: characters 127-189 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:968: characters 193-256 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:971: characters 24-84 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:974: characters 24-85 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:977: characters 24-73 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:977: characters 77-141 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:980: characters 24-73 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:980: characters 77-141 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:983: characters 24-86 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:986: characters 24-86 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:599: characters 25-78 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:602: characters 32-93 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:605: characters 32-94 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:608: characters 32-94 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:611: characters 32-95 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:614: characters 32-94 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:617: characters 32-95 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:620: characters 32-94 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:623: characters 32-95 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:626: characters 32-96 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:629: characters 32-96 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:632: characters 32-83 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:637: characters 32-91 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:642: characters 32-92 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:645: characters 32-92 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:650: characters 32-93 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:655: characters 32-92 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:660: characters 32-93 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:665: characters 32-92 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:670: characters 32-93 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:675: characters 32-94 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:680: characters 32-94 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:726: characters 25-78 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:733: characters 32-70 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:740: characters 32-83 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:749: characters 32-93 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:752: characters 32-78 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:755: characters 32-91 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:760: characters 32-94 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:763: characters 32-79 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:766: characters 32-92 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:769: characters 32-94 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:772: characters 32-79 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:775: characters 32-92 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:780: characters 32-95 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:783: characters 32-80 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:786: characters 32-93 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:791: characters 32-94 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:794: characters 32-79 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:797: characters 32-92 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:802: characters 32-95 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:805: characters 32-80 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:808: characters 32-93 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:813: characters 32-94 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:816: characters 32-79 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:819: characters 32-92 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:824: characters 32-95 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:827: characters 32-80 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:830: characters 32-93 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:835: characters 32-96 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:838: characters 32-81 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:841: characters 32-94 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:846: characters 32-96 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:849: characters 32-81 : ... Called from macro here
+stdgo/Go.macro.hx:772: characters 33-121 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:772: characters 33-121 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:772: characters 33-121 : ... For function argument '_u'
+stdgo/_internal/encoding/binary/Binary.hx:852: characters 32-94 : ... Called from macro here
+stdgo/Go.macro.hx:695: characters 37-123 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/Go.macro.hx:695: characters 37-123 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/Go.macro.hx:695: characters 37-123 : ... For function argument '_u'
 
-[(view library index)](../../stdgo.md)
-
-
-# Overview
-
-
-
-Package base64 implements base64 encoding as specified by RFC 4648.  
-
-# Index
-
-
-- [Constants](<#constants>)
-
-- [Variables](<#variables>)
-
-- [`function benchmarkDecodeString(b:stdgo._internal.testing.B):Void`](<#function-benchmarkdecodestring>)
-
-- [`function benchmarkEncodeToString(b:stdgo._internal.testing.B):Void`](<#function-benchmarkencodetostring>)
-
-- [`function benchmarkNewEncoding(b:stdgo._internal.testing.B):Void`](<#function-benchmarknewencoding>)
-
-- [`function get_rawStdEncoding():stdgo._internal.encoding.base64.Encoding`](<#function-get_rawstdencoding>)
-
-- [`function get_rawURLEncoding():stdgo._internal.encoding.base64.Encoding`](<#function-get_rawurlencoding>)
-
-- [`function get_stdEncoding():stdgo._internal.encoding.base64.Encoding`](<#function-get_stdencoding>)
-
-- [`function get_urlencoding():stdgo._internal.encoding.base64.Encoding`](<#function-get_urlencoding>)
-
-- [`function newDecoder(enc:stdgo.encoding.base64.Encoding, r:stdgo._internal.io.Reader):stdgo._internal.io.Reader`](<#function-newdecoder>)
-
-- [`function newEncoder(enc:stdgo.encoding.base64.Encoding, w:stdgo._internal.io.Writer):stdgo._internal.io.WriteCloser`](<#function-newencoder>)
-
-- [`function newEncoding(encoder:String):stdgo.encoding.base64.Encoding`](<#function-newencoding>)
-
-- [`function set_rawStdEncoding(v:stdgo._internal.encoding.base64.Encoding):stdgo._internal.encoding.base64.Encoding`](<#function-set_rawstdencoding>)
-
-- [`function set_rawURLEncoding(v:stdgo._internal.encoding.base64.Encoding):stdgo._internal.encoding.base64.Encoding`](<#function-set_rawurlencoding>)
-
-- [`function set_stdEncoding(v:stdgo._internal.encoding.base64.Encoding):stdgo._internal.encoding.base64.Encoding`](<#function-set_stdencoding>)
-
-- [`function set_urlencoding(v:stdgo._internal.encoding.base64.Encoding):stdgo._internal.encoding.base64.Encoding`](<#function-set_urlencoding>)
-
-- [`function testBig(t:stdgo._internal.testing.T_):Void`](<#function-testbig>)
-
-- [`function testDecode(t:stdgo._internal.testing.T_):Void`](<#function-testdecode>)
-
-- [`function testDecodeBounds(t:stdgo._internal.testing.T_):Void`](<#function-testdecodebounds>)
-
-- [`function testDecodeCorrupt(t:stdgo._internal.testing.T_):Void`](<#function-testdecodecorrupt>)
-
-- [`function testDecodedLen(t:stdgo._internal.testing.T_):Void`](<#function-testdecodedlen>)
-
-- [`function testDecoder(t:stdgo._internal.testing.T_):Void`](<#function-testdecoder>)
-
-- [`function testDecoderBuffering(t:stdgo._internal.testing.T_):Void`](<#function-testdecoderbuffering>)
-
-- [`function testDecoderIssue15656(t:stdgo._internal.testing.T_):Void`](<#function-testdecoderissue15656>)
-
-- [`function testDecoderIssue3577(t:stdgo._internal.testing.T_):Void`](<#function-testdecoderissue3577>)
-
-- [`function testDecoderIssue4779(t:stdgo._internal.testing.T_):Void`](<#function-testdecoderissue4779>)
-
-- [`function testDecoderIssue7733(t:stdgo._internal.testing.T_):Void`](<#function-testdecoderissue7733>)
-
-- [`function testDecoderRaw(t:stdgo._internal.testing.T_):Void`](<#function-testdecoderraw>)
-
-- [`function testEncode(t:stdgo._internal.testing.T_):Void`](<#function-testencode>)
-
-- [`function testEncodedLen(t:stdgo._internal.testing.T_):Void`](<#function-testencodedlen>)
-
-- [`function testEncoder(t:stdgo._internal.testing.T_):Void`](<#function-testencoder>)
-
-- [`function testEncoderBuffering(t:stdgo._internal.testing.T_):Void`](<#function-testencoderbuffering>)
-
-- [`function testNewLineCharacters(t:stdgo._internal.testing.T_):Void`](<#function-testnewlinecharacters>)
-
-- [typedef CorruptInputError](<#typedef-corruptinputerror>)
-
-- [typedef CorruptInputError\_asInterface](<#typedef-corruptinputerror_asinterface>)
-
-- [typedef CorruptInputError\_static\_extension](<#typedef-corruptinputerror_static_extension>)
-
-- [typedef Encoding](<#typedef-encoding>)
-
-- [typedef Encoding\_asInterface](<#typedef-encoding_asinterface>)
-
-- [typedef Encoding\_static\_extension](<#typedef-encoding_static_extension>)
-
-- [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
-
-- [typedef T\_\_struct\_0\_asInterface](<#typedef-t__struct_0_asinterface>)
-
-- [typedef T\_\_struct\_0\_static\_extension](<#typedef-t__struct_0_static_extension>)
-
-- [typedef T\_\_struct\_1](<#typedef-t__struct_1>)
-
-- [typedef T\_\_struct\_1\_asInterface](<#typedef-t__struct_1_asinterface>)
-
-- [typedef T\_\_struct\_1\_static\_extension](<#typedef-t__struct_1_static_extension>)
-
-- [typedef T\_decoder](<#typedef-t_decoder>)
-
-- [typedef T\_decoder\_asInterface](<#typedef-t_decoder_asinterface>)
-
-- [typedef T\_decoder\_static\_extension](<#typedef-t_decoder_static_extension>)
-
-- [typedef T\_encoder](<#typedef-t_encoder>)
-
-- [typedef T\_encoder\_asInterface](<#typedef-t_encoder_asinterface>)
-
-- [typedef T\_encoder\_static\_extension](<#typedef-t_encoder_static_extension>)
-
-- [typedef T\_encodingTest](<#typedef-t_encodingtest>)
-
-- [typedef T\_faultInjectReader](<#typedef-t_faultinjectreader>)
-
-- [typedef T\_faultInjectReader\_asInterface](<#typedef-t_faultinjectreader_asinterface>)
-
-- [typedef T\_faultInjectReader\_static\_extension](<#typedef-t_faultinjectreader_static_extension>)
-
-- [typedef T\_newlineFilteringReader](<#typedef-t_newlinefilteringreader>)
-
-- [typedef T\_newlineFilteringReader\_asInterface](<#typedef-t_newlinefilteringreader_asinterface>)
-
-- [typedef T\_newlineFilteringReader\_static\_extension](<#typedef-t_newlinefilteringreader_static_extension>)
-
-- [typedef T\_nextRead](<#typedef-t_nextread>)
-
-- [typedef T\_testpair](<#typedef-t_testpair>)
-
-# Constants
-
-
-```haxe
-import stdgo.encoding.base64.Base64
-```
-
-
-```haxe
-final noPadding:Int = stdgo._internal.encoding.base64.Base64.noPadding
-```
-
-
-```haxe
-final stdPadding:Int = stdgo._internal.encoding.base64.Base64.stdPadding
-```
-
-
-# Variables
-
-
-```haxe
-import stdgo.encoding.base64.Base64
-```
-
-
-```haxe
-var rawStdEncoding:stdgo._internal.encoding.base64.Encoding
-```
-
-
-```haxe
-var rawURLEncoding:stdgo._internal.encoding.base64.Encoding
-```
-
-
-```haxe
-var stdEncoding:stdgo._internal.encoding.base64.Encoding
-```
-
-
-```haxe
-var urlencoding:stdgo._internal.encoding.base64.Encoding
-```
-
-
-# Functions
-
-
-```haxe
-import stdgo.encoding.base64.Base64
-```
-
-
-## function benchmarkDecodeString
-
-
-```haxe
-function benchmarkDecodeString(b:stdgo._internal.testing.B):Void
-```
-
-
-[\(view code\)](<./Base64.hx#L76>)
-
-
-## function benchmarkEncodeToString
-
-
-```haxe
-function benchmarkEncodeToString(b:stdgo._internal.testing.B):Void
-```
-
-
-[\(view code\)](<./Base64.hx#L75>)
-
-
-## function benchmarkNewEncoding
-
-
-```haxe
-function benchmarkNewEncoding(b:stdgo._internal.testing.B):Void
-```
-
-
-[\(view code\)](<./Base64.hx#L77>)
-
-
-## function get\_rawStdEncoding
-
-
-```haxe
-function get_rawStdEncoding():stdgo._internal.encoding.base64.Encoding
-```
-
-
-[\(view code\)](<./Base64.hx#L13>)
-
-
-## function get\_rawURLEncoding
-
-
-```haxe
-function get_rawURLEncoding():stdgo._internal.encoding.base64.Encoding
-```
-
-
-[\(view code\)](<./Base64.hx#L16>)
-
-
-## function get\_stdEncoding
-
-
-```haxe
-function get_stdEncoding():stdgo._internal.encoding.base64.Encoding
-```
-
-
-[\(view code\)](<./Base64.hx#L7>)
-
-
-## function get\_urlencoding
-
-
-```haxe
-function get_urlencoding():stdgo._internal.encoding.base64.Encoding
-```
-
-
-[\(view code\)](<./Base64.hx#L10>)
-
-
-## function newDecoder
-
-
-```haxe
-function newDecoder(enc:stdgo.encoding.base64.Encoding, r:stdgo._internal.io.Reader):stdgo._internal.io.Reader
-```
-
-
-
-NewDecoder constructs a new base64 stream decoder.  
-
-[\(view code\)](<./Base64.hx#L55>)
-
-
-## function newEncoder
-
-
-```haxe
-function newEncoder(enc:stdgo.encoding.base64.Encoding, w:stdgo._internal.io.Writer):stdgo._internal.io.WriteCloser
-```
-
-
-
-NewEncoder returns a new base64 stream encoder. Data written to
-the returned writer will be encoded using enc and then written to w.
-Base64 encodings operate in 4\-byte blocks; when finished
-writing, the caller must Close the returned encoder to flush any
-partially written blocks.  
-
-[\(view code\)](<./Base64.hx#L51>)
-
-
-## function newEncoding
-
-
-```haxe
-function newEncoding(encoder:String):stdgo.encoding.base64.Encoding
-```
-
-
-
-NewEncoding returns a new padded Encoding defined by the given alphabet,
-which must be a 64\-byte string that does not contain the padding character
-or CR / LF \('\\r', '\\n'\). The alphabet is treated as sequence of byte values
-without any special treatment for multi\-byte UTF\-8.
-The resulting Encoding uses the default padding character \('='\),
-which may be changed or disabled via WithPadding.  
-
-[\(view code\)](<./Base64.hx#L43>)
-
-
-## function set\_rawStdEncoding
-
-
-```haxe
-function set_rawStdEncoding(v:stdgo._internal.encoding.base64.Encoding):stdgo._internal.encoding.base64.Encoding
-```
-
-
-[\(view code\)](<./Base64.hx#L14>)
-
-
-## function set\_rawURLEncoding
-
-
-```haxe
-function set_rawURLEncoding(v:stdgo._internal.encoding.base64.Encoding):stdgo._internal.encoding.base64.Encoding
-```
-
-
-[\(view code\)](<./Base64.hx#L17>)
-
-
-## function set\_stdEncoding
-
-
-```haxe
-function set_stdEncoding(v:stdgo._internal.encoding.base64.Encoding):stdgo._internal.encoding.base64.Encoding
-```
-
-
-[\(view code\)](<./Base64.hx#L8>)
-
-
-## function set\_urlencoding
-
-
-```haxe
-function set_urlencoding(v:stdgo._internal.encoding.base64.Encoding):stdgo._internal.encoding.base64.Encoding
-```
-
-
-[\(view code\)](<./Base64.hx#L11>)
-
-
-## function testBig
-
-
-```haxe
-function testBig(t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Base64.hx#L66>)
-
-
-## function testDecode
-
-
-```haxe
-function testDecode(t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Base64.hx#L59>)
-
-
-## function testDecodeBounds
-
-
-```haxe
-function testDecodeBounds(t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Base64.hx#L63>)
-
-
-## function testDecodeCorrupt
-
-
-```haxe
-function testDecodeCorrupt(t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Base64.hx#L62>)
-
-
-## function testDecodedLen
-
-
-```haxe
-function testDecodedLen(t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Base64.hx#L65>)
-
-
-## function testDecoder
-
-
-```haxe
-function testDecoder(t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Base64.hx#L60>)
-
-
-## function testDecoderBuffering
-
-
-```haxe
-function testDecoderBuffering(t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Base64.hx#L61>)
-
-
-## function testDecoderIssue15656
-
-
-```haxe
-function testDecoderIssue15656(t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Base64.hx#L74>)
-
-
-## function testDecoderIssue3577
-
-
-```haxe
-function testDecoderIssue3577(t:stdgo._internal.testing.T_):Void
-```
-
-
-
-tests that we don't ignore errors from our underlying reader  
-
-[\(view code\)](<./Base64.hx#L71>)
-
-
-## function testDecoderIssue4779
-
-
-```haxe
-function testDecoderIssue4779(t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Base64.hx#L72>)
-
-
-## function testDecoderIssue7733
-
-
-```haxe
-function testDecoderIssue7733(t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Base64.hx#L73>)
-
-
-## function testDecoderRaw
-
-
-```haxe
-function testDecoderRaw(t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Base64.hx#L78>)
-
-
-## function testEncode
-
-
-```haxe
-function testEncode(t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Base64.hx#L56>)
-
-
-## function testEncodedLen
-
-
-```haxe
-function testEncodedLen(t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Base64.hx#L64>)
-
-
-## function testEncoder
-
-
-```haxe
-function testEncoder(t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Base64.hx#L57>)
-
-
-## function testEncoderBuffering
-
-
-```haxe
-function testEncoderBuffering(t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Base64.hx#L58>)
-
-
-## function testNewLineCharacters
-
-
-```haxe
-function testNewLineCharacters(t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Base64.hx#L67>)
-
-
-# Typedefs
-
-
-```haxe
-import stdgo.encoding.base64.*
-```
-
-
-## typedef CorruptInputError
-
-
-```haxe
-typedef CorruptInputError = stdgo._internal.encoding.base64.CorruptInputError;
-```
-
-
-## typedef CorruptInputError\_asInterface
-
-
-```haxe
-typedef CorruptInputError_asInterface = Dynamic;
-```
-
-
-## typedef CorruptInputError\_static\_extension
-
-
-```haxe
-typedef CorruptInputError_static_extension = Dynamic;
-```
-
-
-## typedef Encoding
-
-
-```haxe
-typedef Encoding = Dynamic;
 ```
-
-
-## typedef Encoding\_asInterface
-
-
-```haxe
-typedef Encoding_asInterface = Dynamic;
-```
-
-
-## typedef Encoding\_static\_extension
-
-
-```haxe
-typedef Encoding_static_extension = Dynamic;
-```
-
-
-## typedef T\_\_struct\_0
-
-
-```haxe
-typedef T__struct_0 = stdgo._internal.encoding.base64.T__struct_0;
-```
-
-
-## typedef T\_\_struct\_0\_asInterface
-
-
-```haxe
-typedef T__struct_0_asInterface = Dynamic;
-```
-
-
-## typedef T\_\_struct\_0\_static\_extension
-
-
-```haxe
-typedef T__struct_0_static_extension = Dynamic;
-```
-
-
-## typedef T\_\_struct\_1
-
-
-```haxe
-typedef T__struct_1 = stdgo._internal.encoding.base64.T__struct_1;
-```
-
-
-## typedef T\_\_struct\_1\_asInterface
-
-
-```haxe
-typedef T__struct_1_asInterface = Dynamic;
-```
-
-
-## typedef T\_\_struct\_1\_static\_extension
-
-
-```haxe
-typedef T__struct_1_static_extension = Dynamic;
-```
-
-
-## typedef T\_decoder
-
-
-```haxe
-typedef T_decoder = Dynamic;
-```
-
-
-## typedef T\_decoder\_asInterface
-
-
-```haxe
-typedef T_decoder_asInterface = Dynamic;
-```
-
-
-## typedef T\_decoder\_static\_extension
-
-
-```haxe
-typedef T_decoder_static_extension = Dynamic;
-```
-
-
-## typedef T\_encoder
-
-
-```haxe
-typedef T_encoder = Dynamic;
-```
-
-
-## typedef T\_encoder\_asInterface
-
-
-```haxe
-typedef T_encoder_asInterface = Dynamic;
-```
-
-
-## typedef T\_encoder\_static\_extension
-
-
-```haxe
-typedef T_encoder_static_extension = Dynamic;
-```
-
-
-## typedef T\_encodingTest
-
-
-```haxe
-typedef T_encodingTest = Dynamic;
-```
-
-
-## typedef T\_faultInjectReader
-
-
-```haxe
-typedef T_faultInjectReader = Dynamic;
-```
-
-
-## typedef T\_faultInjectReader\_asInterface
-
-
-```haxe
-typedef T_faultInjectReader_asInterface = Dynamic;
-```
-
-
-## typedef T\_faultInjectReader\_static\_extension
-
-
-```haxe
-typedef T_faultInjectReader_static_extension = Dynamic;
-```
-
-
-## typedef T\_newlineFilteringReader
-
-
-```haxe
-typedef T_newlineFilteringReader = Dynamic;
-```
-
-
-## typedef T\_newlineFilteringReader\_asInterface
-
-
-```haxe
-typedef T_newlineFilteringReader_asInterface = Dynamic;
-```
-
-
-## typedef T\_newlineFilteringReader\_static\_extension
-
-
-```haxe
-typedef T_newlineFilteringReader_static_extension = Dynamic;
-```
-
-
-## typedef T\_nextRead
-
-
-```haxe
-typedef T_nextRead = Dynamic;
-```
-
-
-## typedef T\_testpair
-
-
-```haxe
-typedef T_testpair = Dynamic;
-```
-
 

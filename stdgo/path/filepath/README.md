@@ -1,6 +1,8 @@
 # Module stdgo.path.filepath has compilation errors, please do not use:
 ```
-stdgo/path/filepath/Filepath.hx:55: characters 64-65 : Unexpected <
+stdgo/_internal/internal/reflect/Reflect.hx:818: characters 19-58 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/_internal/internal/reflect/Reflect.hx:818: characters 19-58 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/internal/reflect/Reflect.hx:818: characters 19-58 : ... For function argument 'typ'
 
 ```
 

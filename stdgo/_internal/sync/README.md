@@ -1,14 +1,17 @@
 # Module stdgo._internal.sync has compilation errors, please do not use:
 ```
-stdgo/_internal/sync/atomic_test/Atomic_test.hx:602: characters 61-69 : stdgo.Pointer<stdgo.GoByte> should be stdgo.AnyInterface
-stdgo/_internal/sync/atomic_test/Atomic_test.hx:2416: characters 57-69 : Not enough arguments, expected __generic__0:Dynamic
-stdgo/_internal/sync/atomic_test/Atomic_test.hx:2437: characters 9-284 : Not enough arguments, expected _val:Dynamic
-stdgo/_internal/sync/atomic_test/Atomic_test.hx:3007: characters 13-224 : Not enough arguments, expected _new:Dynamic
-stdgo/_internal/sync/atomic_test/Atomic_test.hx:3043: characters 13-175 : Not enough arguments, expected _new:Dynamic
-stdgo/_internal/sync/atomic_test/Atomic_test.hx:3109: characters 13-138 : Not enough arguments, expected __generic__0:Dynamic
-stdgo/_internal/sync/atomic_test/Atomic_test.hx:3145: characters 13-176 : Not enough arguments, expected _val:Dynamic
-stdgo/_internal/sync_test/Sync_test.hx:11: characters 58-62 : Unknown identifier : _new
-stdgo/_internal/sync/Sync.macro.hx:12: character 71 : Type not found : T_
+stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... For function argument 't'
+stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : ... For function argument 'v'
+stdgo/_internal/reflect/Reflect.hx:779: characters 13-122 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
+stdgo/_internal/reflect/Reflect.hx:779: characters 13-122 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/reflect/Reflect.hx:781: characters 9-142 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
+stdgo/_internal/reflect/Reflect.hx:781: characters 9-142 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/internal/reflect/Reflect.hx:978: characters 13-51 : stdgo._internal.internal.reflect._Type_asInterface should be Null<stdgo._internal.reflect.Type_>
+stdgo/_internal/internal/reflect/Reflect.hx:978: characters 13-51 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
 
 ```
 

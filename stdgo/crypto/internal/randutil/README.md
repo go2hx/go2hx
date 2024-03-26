@@ -1,83 +1,17 @@
-# Module: `stdgo.crypto.internal.randutil`
-
-[(view library index)](../../../stdgo.md)
-
-
-# Overview
-
-
-
-Package randutil contains internal randomness utilities for various
-crypto packages.  
-
-# Index
-
-
-- [`function maybeReadByte(r:stdgo._internal.io.Reader):Void`](<#function-maybereadbyte>)
-
-- [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
-
-- [typedef T\_\_struct\_0\_asInterface](<#typedef-t__struct_0_asinterface>)
-
-- [typedef T\_\_struct\_0\_static\_extension](<#typedef-t__struct_0_static_extension>)
-
-# Functions
-
-
-```haxe
-import stdgo.crypto.internal.randutil.Randutil
+# Module stdgo.crypto.internal.randutil has compilation errors, please do not use:
 ```
+stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/internal/reflect/Reflect.hx:204: characters 31-33 : ... For function argument 't'
+stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.internal.reflect._Reflect.Type
+stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/internal/reflect/Reflect.hx:1046: characters 36-37 : ... For function argument 'v'
+stdgo/_internal/reflect/Reflect.hx:779: characters 13-122 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
+stdgo/_internal/reflect/Reflect.hx:779: characters 13-122 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/reflect/Reflect.hx:781: characters 9-142 : stdgo._internal.internal.reflect._Type_asInterface should be stdgo._internal.reflect.Type_
+stdgo/_internal/reflect/Reflect.hx:781: characters 9-142 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
+stdgo/_internal/internal/reflect/Reflect.hx:978: characters 13-51 : stdgo._internal.internal.reflect._Type_asInterface should be Null<stdgo._internal.reflect.Type_>
+stdgo/_internal/internal/reflect/Reflect.hx:978: characters 13-51 : ... stdgo._internal.internal.reflect._Type_asInterface has no field comparable (Suggestion: comparable_)
 
-
-## function maybeReadByte
-
-
-```haxe
-function maybeReadByte(r:stdgo._internal.io.Reader):Void
 ```
-
-
-
-MaybeReadByte reads a single byte from r with \~50% probability. This is used
-to ensure that callers do not depend on non\-guaranteed behaviour, e.g.
-assuming that rsa.GenerateKey is deterministic w.r.t. a given random stream.  
-
-
-This does not affect tests that pass a stream of fixed bytes as the random
-source \(e.g. a zeroReader\).  
-
-[\(view code\)](<./Randutil.hx#L18>)
-
-
-# Typedefs
-
-
-```haxe
-import stdgo.crypto.internal.randutil.*
-```
-
-
-## typedef T\_\_struct\_0
-
-
-```haxe
-typedef T__struct_0 = stdgo._internal.crypto.internal.randutil.T__struct_0;
-```
-
-
-## typedef T\_\_struct\_0\_asInterface
-
-
-```haxe
-typedef T__struct_0_asInterface = Dynamic;
-```
-
-
-## typedef T\_\_struct\_0\_static\_extension
-
-
-```haxe
-typedef T__struct_0_static_extension = Dynamic;
-```
-
 

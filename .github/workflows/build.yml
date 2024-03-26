@@ -210,7 +210,7 @@ jobs:
             commit_message: go easy tests update
             file_pattern: '*.json'
   generate-docs:
-    timeout-minutes: 15
+    timeout-minutes: 25
     needs: build
     runs-on: ubuntu-latest
     steps:

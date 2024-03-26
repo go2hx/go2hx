@@ -3529,7 +3529,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						})).expr;
 					case "append":
 						final t = typeof(expr.args[0], info, false);
-						var eType = getElem(t);
+						var eType = t;
 						genArgs(false, eType);
 						var e = args.shift();
 						if (args.length == 0)

@@ -2831,7 +2831,17 @@ private function typeIfStmt(stmt:Ast.IfStmt, info:Info):ExprDef {
 private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 	function ret(e:ExprDef) {
 		if (info.deferBool) {
-			return EBlock([typeDeferReturn(info, false), toExpr(e)]);
+			final exprs:Array<Expr> = [];
+			switch e {
+				case EReturn(e):
+					exprs.push(macro final __ret__ = $e);
+					exprs.push(typeDeferReturn(info, false));
+					exprs.push(macro return __ret__);
+				default:
+					exprs.push(typeDeferReturn(info, false));
+					exprs.push(toExpr(e));
+			}
+			return (macro $b{exprs}).expr;
 		}
 		return e;
 	}

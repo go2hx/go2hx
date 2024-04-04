@@ -2833,10 +2833,15 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 		if (info.deferBool) {
 			final exprs:Array<Expr> = [];
 			switch e {
-				case EReturn(e):
-					exprs.push(macro final __ret__ = $e);
-					exprs.push(typeDeferReturn(info, false));
-					exprs.push(macro return __ret__);
+				case EReturn(expr):
+					if (expr == null) {
+						exprs.push(typeDeferReturn(info, false));
+						exprs.push(toExpr(e));
+					}else{
+						exprs.push(macro final __ret__ = $expr);
+						exprs.push(typeDeferReturn(info, false));
+						exprs.push(macro return __ret__);
+					}
 				default:
 					exprs.push(typeDeferReturn(info, false));
 					exprs.push(toExpr(e));

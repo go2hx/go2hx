@@ -2838,7 +2838,8 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 						exprs.push(typeDeferReturn(info, false));
 						exprs.push(toExpr(e));
 					}else{
-						exprs.push(macro final __ret__ = $expr);
+						final ct = info.returnType;
+						exprs.push(macro final __ret__:$ct = $expr);
 						exprs.push(typeDeferReturn(info, false));
 						exprs.push(macro return __ret__);
 					}

@@ -470,7 +470,10 @@ private function close() {
 	}else {
 		if (output.length == 0){
 			input.sort((a, b) -> a > b ? 1 : -1);
-			File.saveContent('tests/$testName.json', Json.stringify(input, null, " "));
+			final filePath = 'tests/$testName.json';
+			final fileContent = Json.stringify(input, null, " ");
+			Sys.println(' Saving file: $filePath:\n\n$fileContent');
+			File.saveContent(filePath, fileContent);
 		}else{
 			trace(testCount == 0, offset == 0, output.length > 0, run == "");
 		}

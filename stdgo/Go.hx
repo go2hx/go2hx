@@ -19,7 +19,7 @@ class Go {
 
 	public static function print(args:Rest<Dynamic>) {
 		for (i in 0...args.length) {
-			_print(args[i] + (i != args.length - 1 ? " " : ""));
+			_print(args[i]);
 		}
 	}
 
@@ -27,7 +27,7 @@ class Go {
 		for (i in 0...args.length) {
 			_print(args[i] + (i != args.length - 1 ? " " : ""));
 		}
-		print("\n");
+		_print("\n");
 	}
 
 	static function _print(arg:Dynamic) {

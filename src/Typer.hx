@@ -260,7 +260,8 @@ info.global.filePath = file.path;
 							}
 						}
 						values.remove(value);
-						valuesSorted.push(value);
+						if (!valuesSorted.contains(value))
+							valuesSorted.push(value);
 						break;
 					}
 				}

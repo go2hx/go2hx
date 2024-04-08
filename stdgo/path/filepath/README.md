@@ -303,7 +303,7 @@ function get_errBadPattern():stdgo.Error
 ```
 
 
-[\(view code\)](<./Filepath.hx#L13>)
+[\(view code\)](<./Filepath.hx#L15>)
 
 
 ## function get\_lstatP
@@ -314,7 +314,7 @@ function get_lstatP():()
 ```
 
 
-[\(view code\)](<./Filepath.hx#L22>)
+[\(view code\)](<./Filepath.hx#L24>)
 
 
 ## function get\_skipAll
@@ -325,7 +325,7 @@ function get_skipAll():stdgo.Error
 ```
 
 
-[\(view code\)](<./Filepath.hx#L19>)
+[\(view code\)](<./Filepath.hx#L21>)
 
 
 ## function get\_skipDir
@@ -336,7 +336,7 @@ function get_skipDir():stdgo.Error
 ```
 
 
-[\(view code\)](<./Filepath.hx#L16>)
+[\(view code\)](<./Filepath.hx#L18>)
 
 
 ## function glob
@@ -524,7 +524,7 @@ function set_errBadPattern(v:stdgo.Error):stdgo.Error
 ```
 
 
-[\(view code\)](<./Filepath.hx#L14>)
+[\(view code\)](<./Filepath.hx#L16>)
 
 
 ## function set\_lstatP
@@ -535,7 +535,7 @@ function set_lstatP(v:()):()
 ```
 
 
-[\(view code\)](<./Filepath.hx#L23>)
+[\(view code\)](<./Filepath.hx#L25>)
 
 
 ## function set\_skipAll
@@ -546,7 +546,7 @@ function set_skipAll(v:stdgo.Error):stdgo.Error
 ```
 
 
-[\(view code\)](<./Filepath.hx#L20>)
+[\(view code\)](<./Filepath.hx#L22>)
 
 
 ## function set\_skipDir
@@ -557,7 +557,7 @@ function set_skipDir(v:stdgo.Error):stdgo.Error
 ```
 
 
-[\(view code\)](<./Filepath.hx#L17>)
+[\(view code\)](<./Filepath.hx#L19>)
 
 
 ## function split

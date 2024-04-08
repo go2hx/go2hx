@@ -1071,7 +1071,7 @@ function _makeFieldsInput():stdgo.Slice<stdgo.GoUInt8>
 ```
 
 
-[\(view code\)](<./Bytes.hx#L415>)
+[\(view code\)](<./Bytes.hx#L420>)
 
 
 ## function \_makeFieldsInputASCII
@@ -1082,7 +1082,7 @@ function _makeFieldsInputASCII():stdgo.Slice<stdgo.GoUInt8>
 ```
 
 
-[\(view code\)](<./Bytes.hx#L451>)
+[\(view code\)](<./Bytes.hx#L456>)
 
 
 ## function \_not

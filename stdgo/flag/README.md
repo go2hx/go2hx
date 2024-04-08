@@ -509,7 +509,7 @@ function get_commandLine():stdgo._internal.flag.FlagSet
 ```
 
 
-[\(view code\)](<./Flag.hx#L87>)
+[\(view code\)](<./Flag.hx#L90>)
 
 
 ## function get\_defaultUsage
@@ -520,7 +520,7 @@ function get_defaultUsage():():Void
 ```
 
 
-[\(view code\)](<./Flag.hx#L93>)
+[\(view code\)](<./Flag.hx#L96>)
 
 
 ## function get\_errHelp
@@ -531,7 +531,7 @@ function get_errHelp():stdgo.Error
 ```
 
 
-[\(view code\)](<./Flag.hx#L84>)
+[\(view code\)](<./Flag.hx#L87>)
 
 
 ## function get\_usage
@@ -542,7 +542,7 @@ function get_usage():():Void
 ```
 
 
-[\(view code\)](<./Flag.hx#L90>)
+[\(view code\)](<./Flag.hx#L93>)
 
 
 ## function int64
@@ -776,7 +776,7 @@ function set_commandLine(v:stdgo._internal.flag.FlagSet):stdgo._internal.flag.Fl
 ```
 
 
-[\(view code\)](<./Flag.hx#L88>)
+[\(view code\)](<./Flag.hx#L91>)
 
 
 ## function set\_defaultUsage
@@ -787,7 +787,7 @@ function set_defaultUsage(v:():Void):():Void
 ```
 
 
-[\(view code\)](<./Flag.hx#L94>)
+[\(view code\)](<./Flag.hx#L97>)
 
 
 ## function set\_errHelp
@@ -798,7 +798,7 @@ function set_errHelp(v:stdgo.Error):stdgo.Error
 ```
 
 
-[\(view code\)](<./Flag.hx#L85>)
+[\(view code\)](<./Flag.hx#L88>)
 
 
 ## function set\_usage
@@ -809,7 +809,7 @@ function set_usage(v:():Void):():Void
 ```
 
 
-[\(view code\)](<./Flag.hx#L91>)
+[\(view code\)](<./Flag.hx#L94>)
 
 
 ## function string

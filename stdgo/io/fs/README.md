@@ -317,7 +317,7 @@ function get_errClosed():stdgo.Error
 ```
 
 
-[\(view code\)](<./Fs.hx#L21>)
+[\(view code\)](<./Fs.hx#L36>)
 
 
 ## function get\_errExist
@@ -328,7 +328,7 @@ function get_errExist():stdgo.Error
 ```
 
 
-[\(view code\)](<./Fs.hx#L15>)
+[\(view code\)](<./Fs.hx#L30>)
 
 
 ## function get\_errInvalid
@@ -339,7 +339,7 @@ function get_errInvalid():stdgo.Error
 ```
 
 
-[\(view code\)](<./Fs.hx#L9>)
+[\(view code\)](<./Fs.hx#L24>)
 
 
 ## function get\_errNotExist
@@ -350,7 +350,7 @@ function get_errNotExist():stdgo.Error
 ```
 
 
-[\(view code\)](<./Fs.hx#L18>)
+[\(view code\)](<./Fs.hx#L33>)
 
 
 ## function get\_errPermission
@@ -361,7 +361,7 @@ function get_errPermission():stdgo.Error
 ```
 
 
-[\(view code\)](<./Fs.hx#L12>)
+[\(view code\)](<./Fs.hx#L27>)
 
 
 ## function get\_skipAll
@@ -372,7 +372,7 @@ function get_skipAll():stdgo.Error
 ```
 
 
-[\(view code\)](<./Fs.hx#L27>)
+[\(view code\)](<./Fs.hx#L42>)
 
 
 ## function get\_skipDir
@@ -383,7 +383,7 @@ function get_skipDir():stdgo.Error
 ```
 
 
-[\(view code\)](<./Fs.hx#L24>)
+[\(view code\)](<./Fs.hx#L39>)
 
 
 ## function glob
@@ -463,7 +463,7 @@ function set_errClosed(v:stdgo.Error):stdgo.Error
 ```
 
 
-[\(view code\)](<./Fs.hx#L22>)
+[\(view code\)](<./Fs.hx#L37>)
 
 
 ## function set\_errExist
@@ -474,7 +474,7 @@ function set_errExist(v:stdgo.Error):stdgo.Error
 ```
 
 
-[\(view code\)](<./Fs.hx#L16>)
+[\(view code\)](<./Fs.hx#L31>)
 
 
 ## function set\_errInvalid
@@ -485,7 +485,7 @@ function set_errInvalid(v:stdgo.Error):stdgo.Error
 ```
 
 
-[\(view code\)](<./Fs.hx#L10>)
+[\(view code\)](<./Fs.hx#L25>)
 
 
 ## function set\_errNotExist
@@ -496,7 +496,7 @@ function set_errNotExist(v:stdgo.Error):stdgo.Error
 ```
 
 
-[\(view code\)](<./Fs.hx#L19>)
+[\(view code\)](<./Fs.hx#L34>)
 
 
 ## function set\_errPermission
@@ -507,7 +507,7 @@ function set_errPermission(v:stdgo.Error):stdgo.Error
 ```
 
 
-[\(view code\)](<./Fs.hx#L13>)
+[\(view code\)](<./Fs.hx#L28>)
 
 
 ## function set\_skipAll
@@ -518,7 +518,7 @@ function set_skipAll(v:stdgo.Error):stdgo.Error
 ```
 
 
-[\(view code\)](<./Fs.hx#L28>)
+[\(view code\)](<./Fs.hx#L43>)
 
 
 ## function set\_skipDir
@@ -529,7 +529,7 @@ function set_skipDir(v:stdgo.Error):stdgo.Error
 ```
 
 
-[\(view code\)](<./Fs.hx#L25>)
+[\(view code\)](<./Fs.hx#L40>)
 
 
 ## function stat

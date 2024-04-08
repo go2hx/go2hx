@@ -227,7 +227,7 @@ function get_rawStdEncoding():stdgo._internal.encoding.base64.Encoding
 ```
 
 
-[\(view code\)](<./Base64.hx#L13>)
+[\(view code\)](<./Base64.hx#L15>)
 
 
 ## function get\_rawURLEncoding
@@ -238,7 +238,7 @@ function get_rawURLEncoding():stdgo._internal.encoding.base64.Encoding
 ```
 
 
-[\(view code\)](<./Base64.hx#L16>)
+[\(view code\)](<./Base64.hx#L18>)
 
 
 ## function get\_stdEncoding
@@ -249,7 +249,7 @@ function get_stdEncoding():stdgo._internal.encoding.base64.Encoding
 ```
 
 
-[\(view code\)](<./Base64.hx#L7>)
+[\(view code\)](<./Base64.hx#L9>)
 
 
 ## function get\_urlencoding
@@ -260,7 +260,7 @@ function get_urlencoding():stdgo._internal.encoding.base64.Encoding
 ```
 
 
-[\(view code\)](<./Base64.hx#L10>)
+[\(view code\)](<./Base64.hx#L12>)
 
 
 ## function newDecoder
@@ -322,7 +322,7 @@ function set_rawStdEncoding(v:stdgo._internal.encoding.base64.Encoding):stdgo._i
 ```
 
 
-[\(view code\)](<./Base64.hx#L14>)
+[\(view code\)](<./Base64.hx#L16>)
 
 
 ## function set\_rawURLEncoding
@@ -333,7 +333,7 @@ function set_rawURLEncoding(v:stdgo._internal.encoding.base64.Encoding):stdgo._i
 ```
 
 
-[\(view code\)](<./Base64.hx#L17>)
+[\(view code\)](<./Base64.hx#L19>)
 
 
 ## function set\_stdEncoding
@@ -344,7 +344,7 @@ function set_stdEncoding(v:stdgo._internal.encoding.base64.Encoding):stdgo._inte
 ```
 
 
-[\(view code\)](<./Base64.hx#L8>)
+[\(view code\)](<./Base64.hx#L10>)
 
 
 ## function set\_urlencoding
@@ -355,7 +355,7 @@ function set_urlencoding(v:stdgo._internal.encoding.base64.Encoding):stdgo._inte
 ```
 
 
-[\(view code\)](<./Base64.hx#L11>)
+[\(view code\)](<./Base64.hx#L13>)
 
 
 ## function testBig

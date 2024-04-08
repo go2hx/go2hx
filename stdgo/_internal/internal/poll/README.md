@@ -409,7 +409,7 @@ function acceptFunc()
 ```
 
 
-[\(view code\)](<./Poll.hx#L10>)
+[\(view code\)](<./Poll.hx#L22>)
 
 
 ## function closeFunc
@@ -420,7 +420,7 @@ function closeFunc()
 ```
 
 
-[\(view code\)](<./Poll.hx#L9>)
+[\(view code\)](<./Poll.hx#L21>)
 
 
 ## function dupCloseOnExec
@@ -457,7 +457,7 @@ function testHookDidWritev()
 ```
 
 
-[\(view code\)](<./Poll.hx#L8>)
+[\(view code\)](<./Poll.hx#L20>)
 
 
 # Classes

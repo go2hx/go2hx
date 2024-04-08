@@ -641,7 +641,7 @@ function get_memProfileRate():Int
 ```
 
 
-[\(view code\)](<./Runtime.hx#L259>)
+[\(view code\)](<./Runtime.hx#L262>)
 
 
 ## function goexit
@@ -1334,7 +1334,7 @@ function set_memProfileRate(v:Int):Int
 ```
 
 
-[\(view code\)](<./Runtime.hx#L260>)
+[\(view code\)](<./Runtime.hx#L263>)
 
 
 ## function stack

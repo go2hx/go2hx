@@ -15,11 +15,11 @@ stdgo/Go.macro.hx:565: lines 565-567 : error: stdgo._internal.encoding.gob.T__st
 stdgo/Go.macro.hx:565: lines 565-567 : ... have: stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.gob.T__struct_0>>
 stdgo/Go.macro.hx:565: lines 565-567 : ... want: stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.T_emptyStruct>>
 stdgo/Go.macro.hx:565: lines 565-567 : ... For function argument '_e'
-stdgo/_internal/encoding/gob/Gob.hx:5251: characters 9-66 : Invalid assign
-stdgo/_internal/encoding/gob/Gob.hx:5964: characters 125-132 : Unknown identifier : _intMap
-stdgo/_internal/encoding/gob/Gob.hx:6801: characters 17-43 : Type not found : stdgo._internal.net.Net
-stdgo/_internal/encoding/gob/Gob.hx:6802: characters 193-219 : Type not found : stdgo._internal.net.Net
-stdgo/_internal/encoding/gob/Gob.hx:6802: characters 193-219 : ... For function argument '_e'
+stdgo/_internal/encoding/gob/Gob.hx:5253: characters 9-66 : Invalid assign
+stdgo/_internal/encoding/gob/Gob.hx:5969: characters 125-132 : Unknown identifier : _intMap
+stdgo/_internal/encoding/gob/Gob.hx:6806: characters 17-43 : Type not found : stdgo._internal.net.Net
+stdgo/_internal/encoding/gob/Gob.hx:6807: characters 193-219 : Type not found : stdgo._internal.net.Net
+stdgo/_internal/encoding/gob/Gob.hx:6807: characters 193-219 : ... For function argument '_e'
 stdgo/_internal/internal/Macro.macro.hx:44: non hxb types:,448
 
 ```

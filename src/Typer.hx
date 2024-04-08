@@ -2838,10 +2838,16 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 						exprs.push(typeDeferReturn(info, false));
 						exprs.push(toExpr(e));
 					}else{
-						final ct = info.returnType;
-						exprs.push(macro final __ret__:$ct = $expr);
-						exprs.push(typeDeferReturn(info, false));
-						exprs.push(macro return __ret__);
+						switch expr.expr {
+							case EConst(_):
+								exprs.push(typeDeferReturn(info, false));
+								exprs.push(toExpr(e));
+							default:
+								final ct = info.returnType;
+								exprs.push(macro final __ret__:$ct = $expr);
+								exprs.push(typeDeferReturn(info, false));
+								exprs.push(macro return __ret__);
+						}
 					}
 				default:
 					exprs.push(typeDeferReturn(info, false));

@@ -129,6 +129,8 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 			pkg.order = [];
 		}
 
+		info.global.order = pkg.order;
+
 		for (file in pkg.files) {
 			if (file.decls == null)
 				continue;
@@ -252,7 +254,7 @@ info.global.filePath = file.path;
 				for (value in values) {
 					if (value.name == name) {
 						if (value.pos != null) {
-							for (value2 in values) {
+							for (value2 in values.copy()) {
 								if (value2.pos != null && value2.pos.min == value.pos.min) {
 									values.remove(value2);
 									valuesSorted.push(value2);
@@ -7569,28 +7571,37 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 		var data = castTranslate(value.values[0], func, info);
 		func = data.expr;
 		info.blankCounter++;
+		final posMin = info.blankCounter;
 		values.unshift({
 			name: tmp,
-			pos: {min: info.blankCounter, max: 0, file: ""},
+			pos: {min: posMin, max: 0, file: ""},
 			pack: [],
 			fields: [],
 			kind: TDField(FVar(null, func))
 		});
+		var emptyNames = true;
 		for (i in 0...value.names.length) {
 			var fieldName = "_" + i;
 			var nameStr = value.names[i]?.name;
-			if (nameStr == null)
+			if (nameStr == null) {
 				nameStr = fieldName;
+			}else{
+				if (nameStr != "_")
+					emptyNames = false;
+			}
 			final name = nameIdent(nameStr, false, true, info);
+			trace(name, posMin);
 			values.push({
 				name: name,
-				pos: {min: info.blankCounter, max: 0, file: ""},
+				pos: {min: posMin, max: 0, file: ""},
 				pack: [],
 				fields: [],
 				isExtern: isTitle(value.names[i]?.name ?? ""),
 				kind: TDField(FVar(type, macro $tmpExpr.$fieldName), [])
 			});
 		}
+		if (emptyNames)
+			info.global.order.push(tmp);
 	} else {
 		// normal
 		for (i in 0...value.names.length) {
@@ -7850,6 +7861,7 @@ class Global {
 	public var path:String = "";
 	public var filePath:String = "";
 	public var module:Module = null;
+	public var order:Array<String> = [];
 	public var noCommentsBool:Bool = false;
 	public var renameClasses:Map<String, String> = [];
 	public var externBool:Bool = false;

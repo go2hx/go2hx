@@ -1,5 +1,11 @@
 package stdgo._internal.io;
 private var __go2hxdoc__package : Bool;
+final seekStart : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+final seekCurrent : stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
+final seekEnd : stdgo.GoUInt64 = (2i64 : stdgo.GoUInt64);
+var __3 : stdgo._internal.io.Io.ReaderFrom = stdgo.Go.asInterface((new stdgo._internal.io.Io.T_discard() : stdgo._internal.io.Io.T_discard));
+var __4 : stdgo._internal.io.Io.WriterTo = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.io.Io.T_multiReader>) : stdgo.Ref<T_multiReader>));
+var __5 : stdgo._internal.io.Io.StringWriter = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.io.Io.T_multiWriter>) : stdgo.Ref<T_multiWriter>));
 var errShortWrite : stdgo.Error = stdgo._internal.errors.Errors.new_(("short write" : stdgo.GoString));
 var _errInvalidWrite : stdgo.Error = stdgo._internal.errors.Errors.new_(("invalid write result" : stdgo.GoString));
 var errShortBuffer : stdgo.Error = stdgo._internal.errors.Errors.new_(("short buffer" : stdgo.GoString));
@@ -17,12 +23,6 @@ var errClosedPipe : stdgo.Error = stdgo._internal.errors.Errors.new_(("io: read/
 var errInvalidWrite : stdgo.Error = _errInvalidWrite;
 var errWhence : stdgo.Error = _errWhence;
 var errOffset : stdgo.Error = _errOffset;
-final seekStart : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
-final seekCurrent : stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
-final seekEnd : stdgo.GoUInt64 = (2i64 : stdgo.GoUInt64);
-var __3 : stdgo._internal.io.Io.ReaderFrom = stdgo.Go.asInterface((new stdgo._internal.io.Io.T_discard() : stdgo._internal.io.Io.T_discard));
-var __4 : stdgo._internal.io.Io.WriterTo = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.io.Io.T_multiReader>) : stdgo.Ref<T_multiReader>));
-var __5 : stdgo._internal.io.Io.StringWriter = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.io.Io.T_multiWriter>) : stdgo.Ref<T_multiWriter>));
 typedef Reader = stdgo.StructType & {
     /**
         
@@ -1107,17 +1107,19 @@ class T_onceError_asInterface {
             _a.lock();
             __deferstack__.unshift(() -> _a.unlock());
             {
+                final __ret__:stdgo.Error = _a._err;
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return _a._err;
+                return __ret__;
             };
             {
+                final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return (null : stdgo.Error);
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -1126,11 +1128,12 @@ class T_onceError_asInterface {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:stdgo.Error = (null : stdgo.Error);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return (null : stdgo.Error);
+            return __ret__;
         };
     }
     @:keep
@@ -1289,10 +1292,11 @@ class T_pipe_asInterface {
                                     _p._done.__get__();
                                     {
                                         {
+                                            final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _p._writeCloseError() };
                                             for (defer in __deferstack__) {
                                                 defer();
                                             };
-                                            return { _0 : _n, _1 : _p._writeCloseError() };
+                                            return __ret__;
                                         };
                                     };
                                 };
@@ -1304,17 +1308,19 @@ class T_pipe_asInterface {
                 });
             };
             {
+                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return { _0 : _n, _1 : (null : stdgo.Error) };
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : _n, _1 : _err };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -1323,11 +1329,12 @@ class T_pipe_asInterface {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : _n, _1 : _err };
+            return __ret__;
         };
     }
     @:keep

@@ -4,9 +4,6 @@ package stdgo.internal.cpu;
     // used by the Go standard library.
 **/
 private var __go2hxdoc__package : Bool;
-var cacheLineSize(get, set) : stdgo.GoUIntptr;
-function get_cacheLineSize():stdgo.GoUIntptr return stdgo._internal.internal.cpu.Cpu.cacheLineSize;
-function set_cacheLineSize(v:stdgo.GoUIntptr):stdgo.GoUIntptr return stdgo._internal.internal.cpu.Cpu.cacheLineSize = v;
 var debugOptions(get, set) : Bool;
 function get_debugOptions():Bool return stdgo._internal.internal.cpu.Cpu.debugOptions;
 function set_debugOptions(v:Bool):Bool return stdgo._internal.internal.cpu.Cpu.debugOptions = v;
@@ -29,6 +26,9 @@ var s390x(get, set) : T__struct_5;
 function get_s390x():T__struct_5 return stdgo._internal.internal.cpu.Cpu.s390x;
 function set_s390x(v:T__struct_5):T__struct_5 return stdgo._internal.internal.cpu.Cpu.s390x = v;
 final cacheLinePadSize : haxe.UInt64 = stdgo._internal.internal.cpu.Cpu.cacheLinePadSize;
+var cacheLineSize(get, set) : stdgo.GoUIntptr;
+function get_cacheLineSize():stdgo.GoUIntptr return stdgo._internal.internal.cpu.Cpu.cacheLineSize;
+function set_cacheLineSize(v:stdgo.GoUIntptr):stdgo.GoUIntptr return stdgo._internal.internal.cpu.Cpu.cacheLineSize = v;
 @:invalid typedef CacheLinePad = Dynamic;
 @:invalid typedef T_option = Dynamic;
 @:invalid typedef T__struct_0_asInterface = Dynamic;

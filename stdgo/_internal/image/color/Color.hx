@@ -1,5 +1,7 @@
 package stdgo._internal.image.color;
 private var __go2hxdoc__package : Bool;
+var _sink8 : stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+var _sink32 : stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
 var rgbamodel : stdgo._internal.image.color.Color.Model = modelFunc(_rgbaModel);
 var rgba64model : stdgo._internal.image.color.Color.Model = modelFunc(_rgba64Model);
 var nrgbamodel : stdgo._internal.image.color.Color.Model = modelFunc(_nrgbaModel);
@@ -15,8 +17,6 @@ var opaque : stdgo._internal.image.color.Color.Alpha16 = (new stdgo._internal.im
 var ycbCrModel : stdgo._internal.image.color.Color.Model = modelFunc(_yCbCrModel);
 var nycbCrAModel : stdgo._internal.image.color.Color.Model = modelFunc(_nYCbCrAModel);
 var cmykmodel : stdgo._internal.image.color.Color.Model = modelFunc(_cmykModel);
-var _sink8 : stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-var _sink32 : stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
 typedef Color = stdgo.StructType & {
     /**
         // RGBA returns the alpha-premultiplied red, green, blue and alpha values

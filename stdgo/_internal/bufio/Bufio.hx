@@ -1,5 +1,11 @@
 package stdgo._internal.bufio;
 private var __go2hxdoc__package : Bool;
+final _defaultBufSize : stdgo.GoUInt64 = (4096i64 : stdgo.GoUInt64);
+final _minReadBufferSize : stdgo.GoUInt64 = (16i64 : stdgo.GoUInt64);
+final _maxConsecutiveEmptyReads : stdgo.GoUInt64 = (100i64 : stdgo.GoUInt64);
+final defaultBufSize : stdgo.GoUInt64 = (4096i64 : stdgo.GoUInt64);
+final maxScanTokenSize : stdgo.GoUInt64 = (65536i64 : stdgo.GoUInt64);
+final _startBufSize : stdgo.GoUInt64 = (4096i64 : stdgo.GoUInt64);
 var errInvalidUnreadByte : stdgo.Error = stdgo._internal.errors.Errors.new_(("bufio: invalid use of UnreadByte" : stdgo.GoString));
 var errInvalidUnreadRune : stdgo.Error = stdgo._internal.errors.Errors.new_(("bufio: invalid use of UnreadRune" : stdgo.GoString));
 var errBufferFull : stdgo.Error = stdgo._internal.errors.Errors.new_(("bufio: buffer full" : stdgo.GoString));
@@ -13,12 +19,6 @@ var errBadReadCount : stdgo.Error = stdgo._internal.errors.Errors.new_(("bufio.S
 var errFinalToken : stdgo.Error = stdgo._internal.errors.Errors.new_(("final token" : stdgo.GoString));
 var _errorRune : stdgo.Slice<stdgo.GoUInt8> = (((65533 : stdgo.GoInt32) : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
 var isSpace : stdgo.GoInt32 -> Bool = _isSpace;
-final _defaultBufSize : stdgo.GoUInt64 = (4096i64 : stdgo.GoUInt64);
-final _minReadBufferSize : stdgo.GoUInt64 = (16i64 : stdgo.GoUInt64);
-final _maxConsecutiveEmptyReads : stdgo.GoUInt64 = (100i64 : stdgo.GoUInt64);
-final defaultBufSize : stdgo.GoUInt64 = (4096i64 : stdgo.GoUInt64);
-final maxScanTokenSize : stdgo.GoUInt64 = (65536i64 : stdgo.GoUInt64);
-final _startBufSize : stdgo.GoUInt64 = (4096i64 : stdgo.GoUInt64);
 @:structInit @:using(stdgo._internal.bufio.Bufio.Reader_static_extension) class Reader {
     public var _buf : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     public var _rd : stdgo._internal.io.Io.Reader = (null : stdgo._internal.io.Io.Reader);

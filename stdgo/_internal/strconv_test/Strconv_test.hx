@@ -11,6 +11,18 @@ import stdgo._internal.strconv.Strconv;
 import stdgo._internal.strconv.Strconv;
 import stdgo._internal.strconv.Strconv;
 import stdgo._internal.strconv.Strconv;
+var _atofOnce : stdgo._internal.sync.Sync.Once = ({} : stdgo._internal.sync.Sync.Once);
+var _atofRandomTests : stdgo.Slice<T_atofSimpleTest> = (null : stdgo.Slice<stdgo._internal.strconv_test.Strconv_test.T_atofSimpleTest>);
+var _benchmarksRandomBits : stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 1024) ("" : stdgo.GoString)]);
+var _benchmarksRandomNormal : stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 1024) ("" : stdgo.GoString)]);
+final _below1e23 : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+final _above1e23 : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+var benchSink : stdgo.GoInt = (0 : stdgo.GoInt);
+var _benchQuoteBuf : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
+var _benchQuoteRuneBuf : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
+var _globalBuf : stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 64) (0 : stdgo.GoUInt8)]);
+var _oneMB : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
+var sink : T__struct_6 = ({ bool_ : false, int_ : (0 : stdgo.GoInt), int64 : (0 : stdgo.GoInt64), uint64 : (0 : stdgo.GoUInt64), float64 : (0 : stdgo.GoFloat64), complex128 : new stdgo.GoComplex128(0, 0), error : (null : stdgo.Error), bytes : (null : stdgo.Slice<stdgo.GoUInt8>) } : T__struct_6);
 var _atobtests : stdgo.Slice<stdgo._internal.strconv_test.Strconv_test.T_atobTest> = (new stdgo.Slice<stdgo._internal.strconv_test.Strconv_test.T_atobTest>(
 14,
 14,
@@ -1009,18 +1021,6 @@ var _mallocTest : stdgo.Slice<T__struct_5> = (new stdgo.Slice<T__struct_5>(
 ({ _count : (0 : stdgo.GoInt), _desc : ("ParseFloat(\"1.0000000000000001110223024625156540423631668090820312500...001\", 64)" : stdgo.GoString), _fn : function():Void {
         parseFloat(_nextToOne?.__copy__(), (64 : stdgo.GoInt));
     } } : T__struct_5)) : stdgo.Slice<T__struct_5>);
-var _atofOnce : stdgo._internal.sync.Sync.Once = ({} : stdgo._internal.sync.Sync.Once);
-var _atofRandomTests : stdgo.Slice<T_atofSimpleTest> = (null : stdgo.Slice<stdgo._internal.strconv_test.Strconv_test.T_atofSimpleTest>);
-var _benchmarksRandomBits : stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 1024) ("" : stdgo.GoString)]);
-var _benchmarksRandomNormal : stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 1024) ("" : stdgo.GoString)]);
-final _below1e23 : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
-final _above1e23 : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
-var benchSink : stdgo.GoInt = (0 : stdgo.GoInt);
-var _benchQuoteBuf : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
-var _benchQuoteRuneBuf : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
-var _globalBuf : stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 64) (0 : stdgo.GoUInt8)]);
-var _oneMB : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
-var sink : T__struct_6 = ({ bool_ : false, int_ : (0 : stdgo.GoInt), int64 : (0 : stdgo.GoInt64), uint64 : (0 : stdgo.GoUInt64), float64 : (0 : stdgo.GoFloat64), complex128 : new stdgo.GoComplex128(0, 0), error : (null : stdgo.Error), bytes : (null : stdgo.Slice<stdgo.GoUInt8>) } : T__struct_6);
 @:structInit @:private class T_atobTest {
     public var _in : stdgo.GoString = "";
     public var _out : Bool = false;

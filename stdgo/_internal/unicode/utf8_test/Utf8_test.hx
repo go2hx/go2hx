@@ -1,6 +1,9 @@
 package stdgo._internal.unicode.utf8_test;
 import stdgo._internal.unicode.utf8.Utf8;
 import stdgo._internal.unicode.utf8.Utf8;
+var _longStringMostlyASCII : stdgo.GoString = ("" : stdgo.GoString);
+var _longStringJapanese : stdgo.GoString = ("" : stdgo.GoString);
+var _boolSink : Bool = false;
 var _utf8map : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map> = (new stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map>(
 32,
 32,
@@ -129,9 +132,6 @@ var _validrunetests : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.Va
 (new stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest((1114112 : stdgo.GoInt32), false) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest),
 (new stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest((-1 : stdgo.GoInt32), false) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest)) : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest>);
 var _ascii100000 : stdgo.GoString = stdgo._internal.strings.Strings.repeat(("0123456789" : stdgo.GoString), (10000 : stdgo.GoInt));
-var _longStringMostlyASCII : stdgo.GoString = ("" : stdgo.GoString);
-var _longStringJapanese : stdgo.GoString = ("" : stdgo.GoString);
-var _boolSink : Bool = false;
 @:structInit class Utf8Map {
     public var _r : stdgo.GoInt32 = 0;
     public var _str : stdgo.GoString = "";

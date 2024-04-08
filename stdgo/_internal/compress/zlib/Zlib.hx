@@ -1,5 +1,12 @@
 package stdgo._internal.compress.zlib;
 private var __go2hxdoc__package : Bool;
+final _zlibDeflate : stdgo.GoUInt64 = (8i64 : stdgo.GoUInt64);
+final _zlibMaxWindow : stdgo.GoUInt64 = (7i64 : stdgo.GoUInt64);
+final noCompression : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+final bestSpeed : stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
+final bestCompression : stdgo.GoUInt64 = (9i64 : stdgo.GoUInt64);
+final defaultCompression : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+final huffmanOnly : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
 var errChecksum : stdgo.Error = stdgo._internal.errors.Errors.new_(("zlib: invalid checksum" : stdgo.GoString));
 var errDictionary : stdgo.Error = stdgo._internal.errors.Errors.new_(("zlib: invalid dictionary" : stdgo.GoString));
 var errHeader : stdgo.Error = stdgo._internal.errors.Errors.new_(("zlib: invalid header" : stdgo.GoString));
@@ -155,13 +162,6 @@ var _zlibTests : stdgo.Slice<stdgo._internal.compress.zlib.Zlib.T_zlibTest> = (n
 (new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("truncated zlib stream amid fixed-block" : stdgo.GoString), ("He" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(5, 5, (120 : stdgo.GoUInt8), (156 : stdgo.GoUInt8), (242 : stdgo.GoUInt8), (72 : stdgo.GoUInt8), (205 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.io.Io.errUnexpectedEOF) : stdgo._internal.compress.zlib.Zlib.T_zlibTest)) : stdgo.Slice<stdgo._internal.compress.zlib.Zlib.T_zlibTest>);
 var _filenames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(3, 3, ("../testdata/gettysburg.txt" : stdgo.GoString), ("../testdata/e.txt" : stdgo.GoString), ("../testdata/pi.txt" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
 var _data : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(1, 1, ("test a reasonable sized string that can be compressed" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-final _zlibDeflate : stdgo.GoUInt64 = (8i64 : stdgo.GoUInt64);
-final _zlibMaxWindow : stdgo.GoUInt64 = (7i64 : stdgo.GoUInt64);
-final noCompression : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
-final bestSpeed : stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
-final bestCompression : stdgo.GoUInt64 = (9i64 : stdgo.GoUInt64);
-final defaultCompression : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
-final huffmanOnly : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
 typedef Resetter = stdgo.StructType & {
     /**
         // Reset discards any buffered data and resets the Resetter as if it was

@@ -3,6 +3,8 @@ package stdgo.encoding.base64;
     // Package base64 implements base64 encoding as specified by RFC 4648.
 **/
 private var __go2hxdoc__package : Bool;
+final stdPadding : Int = stdgo._internal.encoding.base64.Base64.stdPadding;
+final noPadding : Int = stdgo._internal.encoding.base64.Base64.noPadding;
 var stdEncoding(get, set) : stdgo._internal.encoding.base64.Base64.Encoding;
 function get_stdEncoding():stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.stdEncoding;
 function set_stdEncoding(v:stdgo._internal.encoding.base64.Base64.Encoding):stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.stdEncoding = v;
@@ -15,8 +17,6 @@ function set_rawStdEncoding(v:stdgo._internal.encoding.base64.Base64.Encoding):s
 var rawURLEncoding(get, set) : stdgo._internal.encoding.base64.Base64.Encoding;
 function get_rawURLEncoding():stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.rawURLEncoding;
 function set_rawURLEncoding(v:stdgo._internal.encoding.base64.Base64.Encoding):stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.rawURLEncoding = v;
-final stdPadding : Int = stdgo._internal.encoding.base64.Base64.stdPadding;
-final noPadding : Int = stdgo._internal.encoding.base64.Base64.noPadding;
 @:invalid typedef Encoding = Dynamic;
 @:invalid typedef T_encoder = Dynamic;
 @:invalid typedef T_decoder = Dynamic;

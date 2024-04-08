@@ -1,5 +1,29 @@
 package stdgo._internal.text.template;
 private var __go2hxdoc__package : Bool;
+var _zero : stdgo._internal.reflect.Reflect.Value = ({} : stdgo._internal.reflect.Reflect.Value);
+final _execErrorText : stdgo.GoString = ("line 1\nline 2\nline 3\n{{template \"one\" .}}\n{{define \"one\"}}{{template \"two\" .}}{{end}}\n{{define \"two\"}}{{template \"three\" .}}{{end}}\n{{define \"three\"}}{{index \"hi\" $}}{{end}}" : stdgo.GoString);
+final _treeTemplate : stdgo.GoString = ("\n\t(- define \"tree\" -)\n\t[\n\t\t(- .Val -)\n\t\t(- with .Left -)\n\t\t\t(template \"tree\" . -)\n\t\t(- end -)\n\t\t(- with .Right -)\n\t\t\t(- template \"tree\" . -)\n\t\t(- end -)\n\t]\n\t(- end -)\n" : stdgo.GoString);
+final _testTemplates : stdgo.GoString = ("{{define \"one\"}}one{{end}}{{define \"two\"}}two{{end}}" : stdgo.GoString);
+final _alwaysErrorText : stdgo.GoString = ("always be failing" : stdgo.GoString);
+var _builtinFuncsOnce : T__struct_7 = ({ once : ({} : stdgo._internal.sync.Sync.Once), _v : (null : stdgo.GoMap<stdgo.GoString, stdgo._internal.reflect.Reflect.Value>) } : T__struct_7);
+final _invalidKind : stdgo._internal.text.template.Template.T_kind = (6 : stdgo._internal.text.template.Template.T_kind);
+final _boolKind = (6 : stdgo._internal.text.template.Template.T_kind);
+final _complexKind = (6 : stdgo._internal.text.template.Template.T_kind);
+final _intKind = (6 : stdgo._internal.text.template.Template.T_kind);
+final _floatKind = (6 : stdgo._internal.text.template.Template.T_kind);
+final _stringKind = (6 : stdgo._internal.text.template.Template.T_kind);
+final _uintKind = (6 : stdgo._internal.text.template.Template.T_kind);
+final _noError : Bool = true;
+final _hasError : Bool = false;
+final _multiText1 : stdgo.GoString = ("\n\t{{define \"x\"}}TEXT{{end}}\n\t{{define \"dotV\"}}{{.V}}{{end}}\n" : stdgo.GoString);
+final _multiText2 : stdgo.GoString = ("\n\t{{define \"dot\"}}{{.}}{{end}}\n\t{{define \"nested\"}}{{template \"dot\" .}}{{end}}\n" : stdgo.GoString);
+final _cloneText1 : stdgo.GoString = ("{{define \"a\"}}{{template \"b\"}}{{template \"c\"}}{{end}}" : stdgo.GoString);
+final _cloneText2 : stdgo.GoString = ("{{define \"b\"}}b{{end}}" : stdgo.GoString);
+final _cloneText3 : stdgo.GoString = ("{{define \"c\"}}root{{end}}" : stdgo.GoString);
+final _cloneText4 : stdgo.GoString = ("{{define \"c\"}}clone{{end}}" : stdgo.GoString);
+final _mapInvalid : stdgo._internal.text.template.Template.T_missingKeyAction = (2 : stdgo._internal.text.template.Template.T_missingKeyAction);
+final _mapZeroValue = (2 : stdgo._internal.text.template.Template.T_missingKeyAction);
+final _mapError = (2 : stdgo._internal.text.template.Template.T_missingKeyAction);
 var _maxExecDepth : stdgo.GoInt = _initMaxExecDepth();
 var _missingVal : stdgo._internal.reflect.Reflect.Value = stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface((new stdgo._internal.text.template.Template.T_missingValType() : stdgo._internal.text.template.Template.T_missingValType)));
 var _missingValReflectType : stdgo._internal.reflect.Reflect.Type_ = stdgo._internal.reflect.Reflect.typeOf(stdgo.Go.toInterface((new stdgo._internal.text.template.Template.T_missingValType() : stdgo._internal.text.template.Template.T_missingValType)));
@@ -637,30 +661,6 @@ var _multiExecTests : stdgo.Slice<stdgo._internal.text.template.Template.T_execT
 (new stdgo._internal.text.template.Template.T_execTest(("testFunc literal" : stdgo.GoString), ("{{oneArg \"joe\"}}" : stdgo.GoString), ("oneArg=joe" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_tVal)), true) : stdgo._internal.text.template.Template.T_execTest),
 (new stdgo._internal.text.template.Template.T_execTest(("testFunc ." : stdgo.GoString), ("{{oneArg .}}" : stdgo.GoString), ("oneArg=joe" : stdgo.GoString), stdgo.Go.toInterface(("joe" : stdgo.GoString)), true) : stdgo._internal.text.template.Template.T_execTest)) : stdgo.Slice<stdgo._internal.text.template.Template.T_execTest>);
 var _templateFileExecTests : stdgo.Slice<stdgo._internal.text.template.Template.T_execTest> = (new stdgo.Slice<stdgo._internal.text.template.Template.T_execTest>(1, 1, (new stdgo._internal.text.template.Template.T_execTest(("test" : stdgo.GoString), ("{{template \"tmpl1.tmpl\"}}{{template \"tmpl2.tmpl\"}}" : stdgo.GoString), ("template1\n\ny\ntemplate2\n\nx\n" : stdgo.GoString), stdgo.Go.toInterface((0 : stdgo.GoInt)), true) : stdgo._internal.text.template.Template.T_execTest)) : stdgo.Slice<stdgo._internal.text.template.Template.T_execTest>);
-var _zero : stdgo._internal.reflect.Reflect.Value = ({} : stdgo._internal.reflect.Reflect.Value);
-final _execErrorText : stdgo.GoString = ("line 1\nline 2\nline 3\n{{template \"one\" .}}\n{{define \"one\"}}{{template \"two\" .}}{{end}}\n{{define \"two\"}}{{template \"three\" .}}{{end}}\n{{define \"three\"}}{{index \"hi\" $}}{{end}}" : stdgo.GoString);
-final _treeTemplate : stdgo.GoString = ("\n\t(- define \"tree\" -)\n\t[\n\t\t(- .Val -)\n\t\t(- with .Left -)\n\t\t\t(template \"tree\" . -)\n\t\t(- end -)\n\t\t(- with .Right -)\n\t\t\t(- template \"tree\" . -)\n\t\t(- end -)\n\t]\n\t(- end -)\n" : stdgo.GoString);
-final _testTemplates : stdgo.GoString = ("{{define \"one\"}}one{{end}}{{define \"two\"}}two{{end}}" : stdgo.GoString);
-final _alwaysErrorText : stdgo.GoString = ("always be failing" : stdgo.GoString);
-var _builtinFuncsOnce : T__struct_7 = ({ once : ({} : stdgo._internal.sync.Sync.Once), _v : (null : stdgo.GoMap<stdgo.GoString, stdgo._internal.reflect.Reflect.Value>) } : T__struct_7);
-final _invalidKind : stdgo._internal.text.template.Template.T_kind = (6 : stdgo._internal.text.template.Template.T_kind);
-final _boolKind = (6 : stdgo._internal.text.template.Template.T_kind);
-final _complexKind = (6 : stdgo._internal.text.template.Template.T_kind);
-final _intKind = (6 : stdgo._internal.text.template.Template.T_kind);
-final _floatKind = (6 : stdgo._internal.text.template.Template.T_kind);
-final _stringKind = (6 : stdgo._internal.text.template.Template.T_kind);
-final _uintKind = (6 : stdgo._internal.text.template.Template.T_kind);
-final _noError : Bool = true;
-final _hasError : Bool = false;
-final _multiText1 : stdgo.GoString = ("\n\t{{define \"x\"}}TEXT{{end}}\n\t{{define \"dotV\"}}{{.V}}{{end}}\n" : stdgo.GoString);
-final _multiText2 : stdgo.GoString = ("\n\t{{define \"dot\"}}{{.}}{{end}}\n\t{{define \"nested\"}}{{template \"dot\" .}}{{end}}\n" : stdgo.GoString);
-final _cloneText1 : stdgo.GoString = ("{{define \"a\"}}{{template \"b\"}}{{template \"c\"}}{{end}}" : stdgo.GoString);
-final _cloneText2 : stdgo.GoString = ("{{define \"b\"}}b{{end}}" : stdgo.GoString);
-final _cloneText3 : stdgo.GoString = ("{{define \"c\"}}root{{end}}" : stdgo.GoString);
-final _cloneText4 : stdgo.GoString = ("{{define \"c\"}}clone{{end}}" : stdgo.GoString);
-final _mapInvalid : stdgo._internal.text.template.Template.T_missingKeyAction = (2 : stdgo._internal.text.template.Template.T_missingKeyAction);
-final _mapZeroValue = (2 : stdgo._internal.text.template.Template.T_missingKeyAction);
-final _mapError = (2 : stdgo._internal.text.template.Template.T_missingKeyAction);
 typedef I = stdgo.StructType & {
     /**
         
@@ -2472,10 +2472,11 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<Template>):{ var _0
                     var _fn:stdgo._internal.reflect.Reflect.Value = (_tmpl._common._execFuncs[_name] ?? ({} : stdgo._internal.reflect.Reflect.Value))?.__copy__();
                     if (_fn.isValid()) {
                         {
+                            final __ret__:{ var _0 : stdgo._internal.reflect.Reflect.Value; var _1 : Bool; var _2 : Bool; } = { _0 : _fn?.__copy__(), _1 : false, _2 : true };
                             for (defer in __deferstack__) {
                                 defer();
                             };
-                            return { _0 : _fn?.__copy__(), _1 : false, _2 : true };
+                            return __ret__;
                         };
                     };
                 };
@@ -2484,25 +2485,28 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<Template>):{ var _0
                 var _fn:stdgo._internal.reflect.Reflect.Value = (_builtinFuncs()[_name] ?? ({} : stdgo._internal.reflect.Reflect.Value))?.__copy__();
                 if (_fn.isValid()) {
                     {
+                        final __ret__:{ var _0 : stdgo._internal.reflect.Reflect.Value; var _1 : Bool; var _2 : Bool; } = { _0 : _fn?.__copy__(), _1 : true, _2 : true };
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return { _0 : _fn?.__copy__(), _1 : true, _2 : true };
+                        return __ret__;
                     };
                 };
             };
             {
+                final __ret__:{ var _0 : stdgo._internal.reflect.Reflect.Value; var _1 : Bool; var _2 : Bool; } = { _0 : (new stdgo._internal.reflect.Reflect.Value() : stdgo._internal.reflect.Reflect.Value), _1 : false, _2 : false };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return { _0 : (new stdgo._internal.reflect.Reflect.Value() : stdgo._internal.reflect.Reflect.Value), _1 : false, _2 : false };
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : stdgo._internal.reflect.Reflect.Value; var _1 : Bool; var _2 : Bool; } = { _0 : _v, _1 : _isBuiltin, _2 : _ok };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : _v, _1 : _isBuiltin, _2 : _ok };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -2511,11 +2515,12 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<Template>):{ var _0
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : stdgo._internal.reflect.Reflect.Value; var _1 : Bool; var _2 : Bool; } = { _0 : _v, _1 : _isBuiltin, _2 : _ok };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : _v, _1 : _isBuiltin, _2 : _ok };
+            return __ret__;
         };
     }
 function _prepareArg(_value:stdgo._internal.reflect.Reflect.Value, _argType:stdgo._internal.reflect.Reflect.Type_):{ var _0 : stdgo._internal.reflect.Reflect.Value; var _1 : stdgo.Error; } {
@@ -2747,24 +2752,27 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect.Value, _args:stdgo.Slice
             var _ret = _fun.call(_args);
             if (((_ret.length == (2 : stdgo.GoInt)) && !_ret[(1 : stdgo.GoInt)].isNil() : Bool)) {
                 {
+                    final __ret__:{ var _0 : stdgo._internal.reflect.Reflect.Value; var _1 : stdgo.Error; } = { _0 : _ret[(0 : stdgo.GoInt)], _1 : (stdgo.Go.typeAssert((_ret[(1 : stdgo.GoInt)].interface_() : stdgo.Error)) : stdgo.Error) };
                     for (defer in __deferstack__) {
                         defer();
                     };
-                    return { _0 : _ret[(0 : stdgo.GoInt)], _1 : (stdgo.Go.typeAssert((_ret[(1 : stdgo.GoInt)].interface_() : stdgo.Error)) : stdgo.Error) };
+                    return __ret__;
                 };
             };
             {
+                final __ret__:{ var _0 : stdgo._internal.reflect.Reflect.Value; var _1 : stdgo.Error; } = { _0 : _ret[(0 : stdgo.GoInt)], _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return { _0 : _ret[(0 : stdgo.GoInt)], _1 : (null : stdgo.Error) };
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : stdgo._internal.reflect.Reflect.Value; var _1 : stdgo.Error; } = { _0 : _val, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : _val, _1 : _err };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -2773,11 +2781,12 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect.Value, _args:stdgo.Slice
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : stdgo._internal.reflect.Reflect.Value; var _1 : stdgo.Error; } = { _0 : _val, _1 : _err };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : _val, _1 : _err };
+            return __ret__;
         };
     }
 function _truth(_arg:stdgo._internal.reflect.Reflect.Value):Bool {
@@ -5064,17 +5073,19 @@ class Template_asInterface {
             _t._common._muTmpl.rlock();
             __deferstack__.unshift(() -> _t._common._muTmpl.runlock());
             {
+                final __ret__:stdgo.Ref<Template> = (_t._common._tmpl[_name] ?? (null : stdgo.Ref<stdgo._internal.text.template.Template.Template>));
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return (_t._common._tmpl[_name] ?? (null : stdgo.Ref<stdgo._internal.text.template.Template.Template>));
+                return __ret__;
             };
             {
+                final __ret__:stdgo.Ref<Template> = (null : stdgo.Ref<stdgo._internal.text.template.Template.Template>);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return (null : stdgo.Ref<stdgo._internal.text.template.Template.Template>);
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -5083,11 +5094,12 @@ class Template_asInterface {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:stdgo.Ref<Template> = (null : stdgo.Ref<stdgo._internal.text.template.Template.Template>);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return (null : stdgo.Ref<stdgo._internal.text.template.Template.Template>);
+            return __ret__;
         };
     }
     @:keep
@@ -5107,11 +5119,12 @@ class Template_asInterface {
                 return _t;
             };
             {
+                final __ret__:stdgo.Ref<Template> = (null : stdgo.Ref<stdgo._internal.text.template.Template.Template>);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return (null : stdgo.Ref<stdgo._internal.text.template.Template.Template>);
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -5120,11 +5133,12 @@ class Template_asInterface {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:stdgo.Ref<Template> = (null : stdgo.Ref<stdgo._internal.text.template.Template.Template>);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return (null : stdgo.Ref<stdgo._internal.text.template.Template.Template>);
+            return __ret__;
         };
     }
     @:keep
@@ -5156,11 +5170,12 @@ class Template_asInterface {
                 return _m;
             };
             {
+                final __ret__:stdgo.Slice<stdgo.Ref<Template>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template.Template>>);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template.Template>>);
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -5169,11 +5184,12 @@ class Template_asInterface {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:stdgo.Slice<stdgo.Ref<Template>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template.Template>>);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template.Template>>);
+            return __ret__;
         };
     }
     @:keep
@@ -5192,17 +5208,19 @@ class Template_asInterface {
                 _nt.tree = _tree;
             };
             {
+                final __ret__:{ var _0 : stdgo.Ref<Template>; var _1 : stdgo.Error; } = { _0 : _nt, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return { _0 : _nt, _1 : (null : stdgo.Error) };
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : stdgo.Ref<Template>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Ref<stdgo._internal.text.template.Template.Template>), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : (null : stdgo.Ref<stdgo._internal.text.template.Template.Template>), _1 : (null : stdgo.Error) };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -5211,11 +5229,12 @@ class Template_asInterface {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : stdgo.Ref<Template>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Ref<stdgo._internal.text.template.Template.Template>), _1 : (null : stdgo.Error) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : (null : stdgo.Ref<stdgo._internal.text.template.Template.Template>), _1 : (null : stdgo.Error) };
+            return __ret__;
         };
     }
     @:keep
@@ -5252,17 +5271,19 @@ class Template_asInterface {
                 _nt._common._execFuncs[_k] = _v?.__copy__();
             };
             {
+                final __ret__:{ var _0 : stdgo.Ref<Template>; var _1 : stdgo.Error; } = { _0 : _nt, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return { _0 : _nt, _1 : (null : stdgo.Error) };
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : stdgo.Ref<Template>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Ref<stdgo._internal.text.template.Template.Template>), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : (null : stdgo.Ref<stdgo._internal.text.template.Template.Template>), _1 : (null : stdgo.Error) };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -5271,11 +5292,12 @@ class Template_asInterface {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : stdgo.Ref<Template>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Ref<stdgo._internal.text.template.Template.Template>), _1 : (null : stdgo.Error) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : (null : stdgo.Ref<stdgo._internal.text.template.Template.Template>), _1 : (null : stdgo.Error) };
+            return __ret__;
         };
     }
     @:keep
@@ -5400,17 +5422,19 @@ class Template_asInterface {
                 stdgo._internal.fmt.Fmt.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings.Builder>)), ("%q" : stdgo.GoString), stdgo.Go.toInterface(_name));
             };
             {
+                final __ret__:stdgo.GoString = (_b.string() : stdgo.GoString)?.__copy__();
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return (_b.string() : stdgo.GoString)?.__copy__();
+                return __ret__;
             };
             {
+                final __ret__:stdgo.GoString = ("" : stdgo.GoString);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return ("" : stdgo.GoString);
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -5419,11 +5443,12 @@ class Template_asInterface {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:stdgo.GoString = ("" : stdgo.GoString);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return ("" : stdgo.GoString);
+            return __ret__;
         };
     }
     @:keep

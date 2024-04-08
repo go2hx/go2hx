@@ -1,6 +1,14 @@
 package stdgo._internal.math.rand;
 import stdgo._internal.unsafe.Unsafe;
 private var __go2hxdoc__package : Bool;
+final _re : stdgo.GoFloat64 = (7.69711747013105 : stdgo.GoFloat64);
+final _rn : stdgo.GoFloat64 = (3.442619855899 : stdgo.GoFloat64);
+var _globalRandGenerator : stdgo._internal.sync.atomic_.Atomic_.Pointer_<Rand> = ({} : stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo._internal.math.rand.Rand.Rand>);
+final _rngLen : stdgo.GoUInt64 = (607i64 : stdgo.GoUInt64);
+final _rngTap : stdgo.GoUInt64 = (273i64 : stdgo.GoUInt64);
+final _rngMax : stdgo.GoUInt64 = (-9223372036854775808i64 : stdgo.GoUInt64);
+final _rngMask : stdgo.GoUInt64 = (9223372036854775807i64 : stdgo.GoUInt64);
+final _int32max : stdgo.GoUInt64 = (2147483647i64 : stdgo.GoUInt64);
 var _ke : stdgo.GoArray<stdgo.GoUInt32> = (new stdgo.GoArray<stdgo.GoUInt32>(
 (-493838023u32 : stdgo.GoUInt32),
 (0u32 : stdgo.GoUInt32),
@@ -1768,14 +1776,6 @@ var _rngCooked : stdgo.GoArray<stdgo.GoInt64> = (new stdgo.GoArray<stdgo.GoInt64
 (8382142935188824023i64 : stdgo.GoInt64),
 (9103922860780351547i64 : stdgo.GoInt64),
 (4152330101494654406i64 : stdgo.GoInt64)) : stdgo.GoArray<stdgo.GoInt64>);
-final _re : stdgo.GoFloat64 = (7.69711747013105 : stdgo.GoFloat64);
-final _rn : stdgo.GoFloat64 = (3.442619855899 : stdgo.GoFloat64);
-var _globalRandGenerator : stdgo._internal.sync.atomic_.Atomic_.Pointer_<Rand> = ({} : stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo._internal.math.rand.Rand.Rand>);
-final _rngLen : stdgo.GoUInt64 = (607i64 : stdgo.GoUInt64);
-final _rngTap : stdgo.GoUInt64 = (273i64 : stdgo.GoUInt64);
-final _rngMax : stdgo.GoUInt64 = (-9223372036854775808i64 : stdgo.GoUInt64);
-final _rngMask : stdgo.GoUInt64 = (9223372036854775807i64 : stdgo.GoUInt64);
-final _int32max : stdgo.GoUInt64 = (2147483647i64 : stdgo.GoUInt64);
 typedef Source = stdgo.StructType & {
     /**
         

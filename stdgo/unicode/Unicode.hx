@@ -4,6 +4,16 @@ package stdgo.unicode;
     // Unicode code points.
 **/
 private var __go2hxdoc__package : Bool;
+final maxRune : Int = stdgo._internal.unicode.Unicode.maxRune;
+final replacementChar : Int = stdgo._internal.unicode.Unicode.replacementChar;
+final maxASCII : Int = stdgo._internal.unicode.Unicode.maxASCII;
+final maxLatin1 : Int = stdgo._internal.unicode.Unicode.maxLatin1;
+final upperCase : haxe.UInt64 = stdgo._internal.unicode.Unicode.upperCase;
+final lowerCase = stdgo._internal.unicode.Unicode.lowerCase;
+final titleCase = stdgo._internal.unicode.Unicode.titleCase;
+final maxCase = stdgo._internal.unicode.Unicode.maxCase;
+final upperLower : Int = stdgo._internal.unicode.Unicode.upperLower;
+final version : String = stdgo._internal.unicode.Unicode.version;
 var turkishCase(get, set) : stdgo._internal.unicode.Unicode.SpecialCase;
 function get_turkishCase():stdgo._internal.unicode.Unicode.SpecialCase return stdgo._internal.unicode.Unicode.turkishCase;
 function set_turkishCase(v:stdgo._internal.unicode.Unicode.SpecialCase):stdgo._internal.unicode.Unicode.SpecialCase return stdgo._internal.unicode.Unicode.turkishCase = v;
@@ -769,16 +779,6 @@ function set_foldCategory(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._interna
 var foldScript(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode.RangeTable>>;
 function get_foldScript():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode.RangeTable>> return stdgo._internal.unicode.Unicode.foldScript;
 function set_foldScript(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode.RangeTable>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode.RangeTable>> return stdgo._internal.unicode.Unicode.foldScript = v;
-final maxRune : Int = stdgo._internal.unicode.Unicode.maxRune;
-final replacementChar : Int = stdgo._internal.unicode.Unicode.replacementChar;
-final maxASCII : Int = stdgo._internal.unicode.Unicode.maxASCII;
-final maxLatin1 : Int = stdgo._internal.unicode.Unicode.maxLatin1;
-final upperCase : haxe.UInt64 = stdgo._internal.unicode.Unicode.upperCase;
-final lowerCase = stdgo._internal.unicode.Unicode.lowerCase;
-final titleCase = stdgo._internal.unicode.Unicode.titleCase;
-final maxCase = stdgo._internal.unicode.Unicode.maxCase;
-final upperLower : Int = stdgo._internal.unicode.Unicode.upperLower;
-final version : String = stdgo._internal.unicode.Unicode.version;
 @:invalid typedef RangeTable = Dynamic;
 @:invalid typedef Range16 = Dynamic;
 @:invalid typedef Range32 = Dynamic;

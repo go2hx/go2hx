@@ -1,5 +1,25 @@
 package stdgo._internal.text.scanner;
 private var __go2hxdoc__package : Bool;
+final scanIdents : stdgo.GoUInt64 = (4i64 : stdgo.GoUInt64);
+final scanInts : stdgo.GoUInt64 = (8i64 : stdgo.GoUInt64);
+final scanFloats : stdgo.GoUInt64 = (16i64 : stdgo.GoUInt64);
+final scanChars : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
+final scanStrings : stdgo.GoUInt64 = (64i64 : stdgo.GoUInt64);
+final scanRawStrings : stdgo.GoUInt64 = (128i64 : stdgo.GoUInt64);
+final scanComments : stdgo.GoUInt64 = (256i64 : stdgo.GoUInt64);
+final skipComments : stdgo.GoUInt64 = (512i64 : stdgo.GoUInt64);
+final goTokens : stdgo.GoUInt64 = (1012i64 : stdgo.GoUInt64);
+final eof : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+final ident = (0i64 : stdgo.GoUInt64);
+final int_ = (0i64 : stdgo.GoUInt64);
+final float_ = (0i64 : stdgo.GoUInt64);
+final char = (0i64 : stdgo.GoUInt64);
+final string = (0i64 : stdgo.GoUInt64);
+final rawString = (0i64 : stdgo.GoUInt64);
+final comment = (0i64 : stdgo.GoUInt64);
+final _skipComment = (0i64 : stdgo.GoUInt64);
+final goWhitespace : stdgo.GoUInt64 = (4294977024i64 : stdgo.GoUInt64);
+final _bufLen : stdgo.GoUInt64 = (1024i64 : stdgo.GoUInt64);
 var _tokenString : stdgo.GoMap<stdgo.GoInt32, stdgo.GoString> = ({
         final x = new stdgo.GoMap.GoIntMap<stdgo.GoString>();
         x.__defaultValue__ = () -> ("" : stdgo.GoString);
@@ -161,26 +181,6 @@ var _tokenList : stdgo.Slice<stdgo._internal.text.scanner.Scanner.T_token> = (ne
 (new stdgo._internal.text.scanner.Scanner.T_token((46 : stdgo.GoInt32), ("." : stdgo.GoString)) : stdgo._internal.text.scanner.Scanner.T_token),
 (new stdgo._internal.text.scanner.Scanner.T_token((126 : stdgo.GoInt32), ("~" : stdgo.GoString)) : stdgo._internal.text.scanner.Scanner.T_token),
 (new stdgo._internal.text.scanner.Scanner.T_token((40 : stdgo.GoInt32), ("(" : stdgo.GoString)) : stdgo._internal.text.scanner.Scanner.T_token)) : stdgo.Slice<stdgo._internal.text.scanner.Scanner.T_token>);
-final scanIdents : stdgo.GoUInt64 = (4i64 : stdgo.GoUInt64);
-final scanInts : stdgo.GoUInt64 = (8i64 : stdgo.GoUInt64);
-final scanFloats : stdgo.GoUInt64 = (16i64 : stdgo.GoUInt64);
-final scanChars : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
-final scanStrings : stdgo.GoUInt64 = (64i64 : stdgo.GoUInt64);
-final scanRawStrings : stdgo.GoUInt64 = (128i64 : stdgo.GoUInt64);
-final scanComments : stdgo.GoUInt64 = (256i64 : stdgo.GoUInt64);
-final skipComments : stdgo.GoUInt64 = (512i64 : stdgo.GoUInt64);
-final goTokens : stdgo.GoUInt64 = (1012i64 : stdgo.GoUInt64);
-final eof : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
-final ident = (0i64 : stdgo.GoUInt64);
-final int_ = (0i64 : stdgo.GoUInt64);
-final float_ = (0i64 : stdgo.GoUInt64);
-final char = (0i64 : stdgo.GoUInt64);
-final string = (0i64 : stdgo.GoUInt64);
-final rawString = (0i64 : stdgo.GoUInt64);
-final comment = (0i64 : stdgo.GoUInt64);
-final _skipComment = (0i64 : stdgo.GoUInt64);
-final goWhitespace : stdgo.GoUInt64 = (4294977024i64 : stdgo.GoUInt64);
-final _bufLen : stdgo.GoUInt64 = (1024i64 : stdgo.GoUInt64);
 @:structInit @:using(stdgo._internal.text.scanner.Scanner.Position_static_extension) class Position {
     public var filename : stdgo.GoString = "";
     public var offset : stdgo.GoInt = 0;

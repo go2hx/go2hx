@@ -1,5 +1,86 @@
 package stdgo._internal.regexp.syntax;
 private var __go2hxdoc__package : Bool;
+final __Op_name_0 : stdgo.GoString = ("NoMatchEmptyMatchLiteralCharClassAnyCharNotNLAnyCharBeginLineEndLineBeginTextEndTextWordBoundaryNoWordBoundaryCaptureStarPlusQuestRepeatConcatAlternate" : stdgo.GoString);
+final __Op_name_1 : stdgo.GoString = ("opPseudo" : stdgo.GoString);
+final errInternalError : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("regexp/syntax: internal error" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
+final errInvalidCharClass : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("invalid character class" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
+final errInvalidCharRange : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("invalid character class range" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
+final errInvalidEscape : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("invalid escape sequence" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
+final errInvalidNamedCapture : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("invalid named capture" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
+final errInvalidPerlOp : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("invalid or unsupported Perl syntax" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
+final errInvalidRepeatOp : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("invalid nested repetition operator" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
+final errInvalidRepeatSize : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("invalid repeat count" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
+final errInvalidUTF8 : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("invalid UTF-8" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
+final errMissingBracket : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("missing closing ]" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
+final errMissingParen : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("missing closing )" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
+final errMissingRepeatArgument : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("missing argument to repetition operator" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
+final errTrailingBackslash : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("trailing backslash at end of expression" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
+final errUnexpectedParen : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("unexpected )" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
+final errNestingDepth : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("expression nests too deeply" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
+final errLarge : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("expression too large" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
+final foldCase : stdgo._internal.regexp.syntax.Syntax.Flags = (512 : stdgo._internal.regexp.syntax.Syntax.Flags);
+final literal = (512 : stdgo._internal.regexp.syntax.Syntax.Flags);
+final classNL = (512 : stdgo._internal.regexp.syntax.Syntax.Flags);
+final dotNL = (512 : stdgo._internal.regexp.syntax.Syntax.Flags);
+final oneLine = (512 : stdgo._internal.regexp.syntax.Syntax.Flags);
+final nonGreedy = (512 : stdgo._internal.regexp.syntax.Syntax.Flags);
+final perlX = (512 : stdgo._internal.regexp.syntax.Syntax.Flags);
+final unicodeGroups = (512 : stdgo._internal.regexp.syntax.Syntax.Flags);
+final wasDollar = (512 : stdgo._internal.regexp.syntax.Syntax.Flags);
+final simple = (512 : stdgo._internal.regexp.syntax.Syntax.Flags);
+final matchNL : stdgo._internal.regexp.syntax.Syntax.Flags = (12 : stdgo._internal.regexp.syntax.Syntax.Flags);
+final perl : stdgo._internal.regexp.syntax.Syntax.Flags = (212 : stdgo._internal.regexp.syntax.Syntax.Flags);
+final posix : stdgo._internal.regexp.syntax.Syntax.Flags = (0 : stdgo._internal.regexp.syntax.Syntax.Flags);
+final _opLeftParen : stdgo._internal.regexp.syntax.Syntax.Op = (129 : stdgo._internal.regexp.syntax.Syntax.Op);
+final _opVerticalBar = (129 : stdgo._internal.regexp.syntax.Syntax.Op);
+final _maxHeight : stdgo.GoUInt64 = (1000i64 : stdgo.GoUInt64);
+final _maxSize : stdgo.GoUInt64 = (3355443i64 : stdgo.GoUInt64);
+final _instSize : stdgo.GoUInt64 = (40i64 : stdgo.GoUInt64);
+final _maxRunes : stdgo.GoUInt64 = (33554432i64 : stdgo.GoUInt64);
+final _runeSize : stdgo.GoUInt64 = (4i64 : stdgo.GoUInt64);
+final _minFold : stdgo.GoUInt64 = (65i64 : stdgo.GoUInt64);
+final _maxFold : stdgo.GoUInt64 = (125251i64 : stdgo.GoUInt64);
+final _testFlags : stdgo._internal.regexp.syntax.Syntax.Flags = (204 : stdgo._internal.regexp.syntax.Syntax.Flags);
+final instAlt : stdgo._internal.regexp.syntax.Syntax.InstOp = (10 : stdgo._internal.regexp.syntax.Syntax.InstOp);
+final instAltMatch = (10 : stdgo._internal.regexp.syntax.Syntax.InstOp);
+final instCapture = (10 : stdgo._internal.regexp.syntax.Syntax.InstOp);
+final instEmptyWidth = (10 : stdgo._internal.regexp.syntax.Syntax.InstOp);
+final instMatch = (10 : stdgo._internal.regexp.syntax.Syntax.InstOp);
+final instFail = (10 : stdgo._internal.regexp.syntax.Syntax.InstOp);
+final instNop = (10 : stdgo._internal.regexp.syntax.Syntax.InstOp);
+final instRune = (10 : stdgo._internal.regexp.syntax.Syntax.InstOp);
+final instRune1 = (10 : stdgo._internal.regexp.syntax.Syntax.InstOp);
+final instRuneAny = (10 : stdgo._internal.regexp.syntax.Syntax.InstOp);
+final instRuneAnyNotNL = (10 : stdgo._internal.regexp.syntax.Syntax.InstOp);
+final emptyBeginLine : stdgo._internal.regexp.syntax.Syntax.EmptyOp = (32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp);
+final emptyEndLine = (32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp);
+final emptyBeginText = (32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp);
+final emptyEndText = (32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp);
+final emptyWordBoundary = (32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp);
+final emptyNoWordBoundary = (32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp);
+final _noMatch : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+var _sink : stdgo.AnyInterface = (null : stdgo.AnyInterface);
+final opNoMatch : stdgo._internal.regexp.syntax.Syntax.Op = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
+final opEmptyMatch = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
+final opLiteral = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
+final opCharClass = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
+final opAnyCharNotNL = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
+final opAnyChar = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
+final opBeginLine = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
+final opEndLine = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
+final opBeginText = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
+final opEndText = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
+final opWordBoundary = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
+final opNoWordBoundary = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
+final opCapture = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
+final opStar = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
+final opPlus = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
+final opQuest = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
+final opRepeat = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
+final opConcat = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
+final opAlternate = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
+final _opPseudo : stdgo._internal.regexp.syntax.Syntax.Op = (128 : stdgo._internal.regexp.syntax.Syntax.Op);
+final _meta : stdgo.GoString = ("\\.+*?()|[]{}^$" : stdgo.GoString);
 var _anyRuneNotNL : stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>(4, 4, (0 : stdgo.GoInt32), (9 : stdgo.GoInt32), (11 : stdgo.GoInt32), (1114111 : stdgo.GoInt32)) : stdgo.Slice<stdgo.GoInt32>);
 var _anyRune : stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>(2, 2, (0 : stdgo.GoInt32), (1114111 : stdgo.GoInt32)) : stdgo.Slice<stdgo.GoInt32>);
 var __Op_index_0 : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(
@@ -462,87 +543,6 @@ var _simplifyTests : stdgo.Slice<T__struct_2> = (new stdgo.Slice<T__struct_2>(
 ({ regexp : ("(){1}" : stdgo.GoString), simple : ("()" : stdgo.GoString) } : T__struct_2),
 ({ regexp : ("(){1,}" : stdgo.GoString), simple : ("()+" : stdgo.GoString) } : T__struct_2),
 ({ regexp : ("(){0,2}" : stdgo.GoString), simple : ("(?:()()?)?" : stdgo.GoString) } : T__struct_2)) : stdgo.Slice<T__struct_2>);
-final __Op_name_0 : stdgo.GoString = ("NoMatchEmptyMatchLiteralCharClassAnyCharNotNLAnyCharBeginLineEndLineBeginTextEndTextWordBoundaryNoWordBoundaryCaptureStarPlusQuestRepeatConcatAlternate" : stdgo.GoString);
-final __Op_name_1 : stdgo.GoString = ("opPseudo" : stdgo.GoString);
-final errInternalError : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("regexp/syntax: internal error" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
-final errInvalidCharClass : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("invalid character class" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
-final errInvalidCharRange : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("invalid character class range" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
-final errInvalidEscape : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("invalid escape sequence" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
-final errInvalidNamedCapture : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("invalid named capture" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
-final errInvalidPerlOp : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("invalid or unsupported Perl syntax" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
-final errInvalidRepeatOp : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("invalid nested repetition operator" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
-final errInvalidRepeatSize : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("invalid repeat count" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
-final errInvalidUTF8 : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("invalid UTF-8" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
-final errMissingBracket : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("missing closing ]" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
-final errMissingParen : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("missing closing )" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
-final errMissingRepeatArgument : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("missing argument to repetition operator" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
-final errTrailingBackslash : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("trailing backslash at end of expression" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
-final errUnexpectedParen : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("unexpected )" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
-final errNestingDepth : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("expression nests too deeply" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
-final errLarge : stdgo._internal.regexp.syntax.Syntax.ErrorCode = (("expression too large" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode);
-final foldCase : stdgo._internal.regexp.syntax.Syntax.Flags = (512 : stdgo._internal.regexp.syntax.Syntax.Flags);
-final literal = (512 : stdgo._internal.regexp.syntax.Syntax.Flags);
-final classNL = (512 : stdgo._internal.regexp.syntax.Syntax.Flags);
-final dotNL = (512 : stdgo._internal.regexp.syntax.Syntax.Flags);
-final oneLine = (512 : stdgo._internal.regexp.syntax.Syntax.Flags);
-final nonGreedy = (512 : stdgo._internal.regexp.syntax.Syntax.Flags);
-final perlX = (512 : stdgo._internal.regexp.syntax.Syntax.Flags);
-final unicodeGroups = (512 : stdgo._internal.regexp.syntax.Syntax.Flags);
-final wasDollar = (512 : stdgo._internal.regexp.syntax.Syntax.Flags);
-final simple = (512 : stdgo._internal.regexp.syntax.Syntax.Flags);
-final matchNL : stdgo._internal.regexp.syntax.Syntax.Flags = (12 : stdgo._internal.regexp.syntax.Syntax.Flags);
-final perl : stdgo._internal.regexp.syntax.Syntax.Flags = (212 : stdgo._internal.regexp.syntax.Syntax.Flags);
-final posix : stdgo._internal.regexp.syntax.Syntax.Flags = (0 : stdgo._internal.regexp.syntax.Syntax.Flags);
-final _opLeftParen : stdgo._internal.regexp.syntax.Syntax.Op = (129 : stdgo._internal.regexp.syntax.Syntax.Op);
-final _opVerticalBar = (129 : stdgo._internal.regexp.syntax.Syntax.Op);
-final _maxHeight : stdgo.GoUInt64 = (1000i64 : stdgo.GoUInt64);
-final _maxSize : stdgo.GoUInt64 = (3355443i64 : stdgo.GoUInt64);
-final _instSize : stdgo.GoUInt64 = (40i64 : stdgo.GoUInt64);
-final _maxRunes : stdgo.GoUInt64 = (33554432i64 : stdgo.GoUInt64);
-final _runeSize : stdgo.GoUInt64 = (4i64 : stdgo.GoUInt64);
-final _minFold : stdgo.GoUInt64 = (65i64 : stdgo.GoUInt64);
-final _maxFold : stdgo.GoUInt64 = (125251i64 : stdgo.GoUInt64);
-final _testFlags : stdgo._internal.regexp.syntax.Syntax.Flags = (204 : stdgo._internal.regexp.syntax.Syntax.Flags);
-final instAlt : stdgo._internal.regexp.syntax.Syntax.InstOp = (10 : stdgo._internal.regexp.syntax.Syntax.InstOp);
-final instAltMatch = (10 : stdgo._internal.regexp.syntax.Syntax.InstOp);
-final instCapture = (10 : stdgo._internal.regexp.syntax.Syntax.InstOp);
-final instEmptyWidth = (10 : stdgo._internal.regexp.syntax.Syntax.InstOp);
-final instMatch = (10 : stdgo._internal.regexp.syntax.Syntax.InstOp);
-final instFail = (10 : stdgo._internal.regexp.syntax.Syntax.InstOp);
-final instNop = (10 : stdgo._internal.regexp.syntax.Syntax.InstOp);
-final instRune = (10 : stdgo._internal.regexp.syntax.Syntax.InstOp);
-final instRune1 = (10 : stdgo._internal.regexp.syntax.Syntax.InstOp);
-final instRuneAny = (10 : stdgo._internal.regexp.syntax.Syntax.InstOp);
-final instRuneAnyNotNL = (10 : stdgo._internal.regexp.syntax.Syntax.InstOp);
-final emptyBeginLine : stdgo._internal.regexp.syntax.Syntax.EmptyOp = (32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp);
-final emptyEndLine = (32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp);
-final emptyBeginText = (32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp);
-final emptyEndText = (32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp);
-final emptyWordBoundary = (32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp);
-final emptyNoWordBoundary = (32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp);
-final _noMatch : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
-var _sink : stdgo.AnyInterface = (null : stdgo.AnyInterface);
-final opNoMatch : stdgo._internal.regexp.syntax.Syntax.Op = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
-final opEmptyMatch = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
-final opLiteral = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
-final opCharClass = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
-final opAnyCharNotNL = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
-final opAnyChar = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
-final opBeginLine = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
-final opEndLine = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
-final opBeginText = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
-final opEndText = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
-final opWordBoundary = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
-final opNoWordBoundary = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
-final opCapture = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
-final opStar = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
-final opPlus = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
-final opQuest = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
-final opRepeat = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
-final opConcat = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
-final opAlternate = (19 : stdgo._internal.regexp.syntax.Syntax.Op);
-final _opPseudo : stdgo._internal.regexp.syntax.Syntax.Op = (128 : stdgo._internal.regexp.syntax.Syntax.Op);
-final _meta : stdgo.GoString = ("\\.+*?()|[]{}^$" : stdgo.GoString);
 @:structInit @:private @:using(stdgo._internal.regexp.syntax.Syntax.T_patchList_static_extension) class T_patchList {
     public var _head : stdgo.GoUInt32 = 0;
     public var _tail : stdgo.GoUInt32 = 0;
@@ -893,18 +893,20 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.Ref<Regexp>; v
                         var _err:stdgo.Error = _checkUTF8(_s?.__copy__());
                         if (_err != null) {
                             {
+                                final __ret__:{ var _0 : stdgo.Ref<Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                                 for (defer in __deferstack__) {
                                     defer();
                                 };
-                                return { _0 : null, _1 : _err };
+                                return __ret__;
                             };
                         };
                     };
                     {
+                        final __ret__:{ var _0 : stdgo.Ref<Regexp>; var _1 : stdgo.Error; } = { _0 : _literalRegexp(_s?.__copy__(), _flags), _1 : (null : stdgo.Error) };
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return { _0 : _literalRegexp(_s?.__copy__(), _flags), _1 : (null : stdgo.Error) };
+                        return __ret__;
                     };
                 };
                 var __0:T_parser = ({} : stdgo._internal.regexp.syntax.Syntax.T_parser), __1:stdgo.GoRune = (0 : stdgo.GoInt32), __2:Op = ((0 : stdgo.GoUInt8) : stdgo._internal.regexp.syntax.Syntax.Op), __3:stdgo.GoString = ("" : stdgo.GoString), _lastRepeat:stdgo.GoString = __3, _op:Op = __2, _c:stdgo.GoRune = __1, _p:T_parser = __0;
@@ -930,10 +932,11 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.Ref<Regexp>; v
                                             };
                                             if (_err != null) {
                                                 {
+                                                    final __ret__:{ var _0 : stdgo.Ref<Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                                                     for (defer in __deferstack__) {
                                                         defer();
                                                     };
-                                                    return { _0 : null, _1 : _err };
+                                                    return __ret__;
                                                 };
                                             };
                                         };
@@ -948,10 +951,11 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.Ref<Regexp>; v
                                         _err = _p._parseVerticalBar();
                                         if (_err != null) {
                                             {
+                                                final __ret__:{ var _0 : stdgo.Ref<Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                                                 for (defer in __deferstack__) {
                                                     defer();
                                                 };
-                                                return { _0 : null, _1 : _err };
+                                                return __ret__;
                                             };
                                         };
                                     };
@@ -962,10 +966,11 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.Ref<Regexp>; v
                                         _err = _p._parseRightParen();
                                         if (_err != null) {
                                             {
+                                                final __ret__:{ var _0 : stdgo.Ref<Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                                                 for (defer in __deferstack__) {
                                                     defer();
                                                 };
-                                                return { _0 : null, _1 : _err };
+                                                return __ret__;
                                             };
                                         };
                                     };
@@ -1004,10 +1009,11 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.Ref<Regexp>; v
                                         };
                                         if (_err != null) {
                                             {
+                                                final __ret__:{ var _0 : stdgo.Ref<Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                                                 for (defer in __deferstack__) {
                                                     defer();
                                                 };
-                                                return { _0 : null, _1 : _err };
+                                                return __ret__;
                                             };
                                         };
                                     };
@@ -1033,10 +1039,11 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.Ref<Regexp>; v
                                         };
                                         if (_err != null) {
                                             {
+                                                final __ret__:{ var _0 : stdgo.Ref<Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                                                 for (defer in __deferstack__) {
                                                     defer();
                                                 };
-                                                return { _0 : null, _1 : _err };
+                                                return __ret__;
                                             };
                                         };
                                     };
@@ -1054,10 +1061,11 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.Ref<Regexp>; v
                                     };
                                     if (((((_min < (0 : stdgo.GoInt) : Bool) || (_min > (1000 : stdgo.GoInt) : Bool) : Bool) || (_max > (1000 : stdgo.GoInt) : Bool) : Bool) || ((_max >= (0 : stdgo.GoInt) : Bool) && (_min > _max : Bool) : Bool) : Bool)) {
                                         {
+                                            final __ret__:{ var _0 : stdgo.Ref<Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.regexp.syntax.Syntax.Error((("invalid repeat count" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode), (_before.__slice__(0, ((_before.length) - (_after.length) : stdgo.GoInt)) : stdgo.GoString)?.__copy__()) : stdgo._internal.regexp.syntax.Syntax.Error)) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Error>)) };
                                             for (defer in __deferstack__) {
                                                 defer();
                                             };
-                                            return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.regexp.syntax.Syntax.Error((("invalid repeat count" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode), (_before.__slice__(0, ((_before.length) - (_after.length) : stdgo.GoInt)) : stdgo.GoString)?.__copy__()) : stdgo._internal.regexp.syntax.Syntax.Error)) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Error>)) };
+                                            return __ret__;
                                         };
                                     };
                                     {
@@ -1068,10 +1076,11 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.Ref<Regexp>; v
                                         };
                                         if (_err != null) {
                                             {
+                                                final __ret__:{ var _0 : stdgo.Ref<Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                                                 for (defer in __deferstack__) {
                                                     defer();
                                                 };
-                                                return { _0 : null, _1 : _err };
+                                                return __ret__;
                                             };
                                         };
                                     };
@@ -1104,10 +1113,11 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.Ref<Regexp>; v
                                                         break;
                                                     } else if (__value__ == ((67 : stdgo.GoUInt8))) {
                                                         {
+                                                            final __ret__:{ var _0 : stdgo.Ref<Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.regexp.syntax.Syntax.Error((("invalid escape sequence" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode), (_t.__slice__(0, (2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__()) : stdgo._internal.regexp.syntax.Syntax.Error)) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Error>)) };
                                                             for (defer in __deferstack__) {
                                                                 defer();
                                                             };
-                                                            return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.regexp.syntax.Syntax.Error((("invalid escape sequence" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode), (_t.__slice__(0, (2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__()) : stdgo._internal.regexp.syntax.Syntax.Error)) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Error>)) };
+                                                            return __ret__;
                                                         };
                                                         break;
                                                     } else if (__value__ == ((81 : stdgo.GoUInt8))) {
@@ -1121,10 +1131,11 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.Ref<Regexp>; v
                                                             var __tmp__ = _nextRune(_lit?.__copy__()), _c:stdgo.GoInt32 = __tmp__._0, _rest:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                                                             if (_err != null) {
                                                                 {
+                                                                    final __ret__:{ var _0 : stdgo.Ref<Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                                                                     for (defer in __deferstack__) {
                                                                         defer();
                                                                     };
-                                                                    return { _0 : null, _1 : _err };
+                                                                    return __ret__;
                                                                 };
                                                             };
                                                             _p._literal(_c);
@@ -1149,10 +1160,11 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.Ref<Regexp>; v
                                         var __tmp__ = _p._parseUnicodeClass(_t?.__copy__(), (_re.rune0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>)), _r:stdgo.Slice<stdgo.GoInt32> = __tmp__._0, _rest:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                                         if (_err != null) {
                                             {
+                                                final __ret__:{ var _0 : stdgo.Ref<Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                                                 for (defer in __deferstack__) {
                                                     defer();
                                                 };
-                                                return { _0 : null, _1 : _err };
+                                                return __ret__;
                                             };
                                         };
                                         if (_r != null) {
@@ -1181,10 +1193,11 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.Ref<Regexp>; v
                                         };
                                         if (_err != null) {
                                             {
+                                                final __ret__:{ var _0 : stdgo.Ref<Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                                                 for (defer in __deferstack__) {
                                                     defer();
                                                 };
-                                                return { _0 : null, _1 : _err };
+                                                return __ret__;
                                             };
                                         };
                                     };
@@ -1200,10 +1213,11 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.Ref<Regexp>; v
                                         };
                                         if (_err != null) {
                                             {
+                                                final __ret__:{ var _0 : stdgo.Ref<Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                                                 for (defer in __deferstack__) {
                                                     defer();
                                                 };
-                                                return { _0 : null, _1 : _err };
+                                                return __ret__;
                                             };
                                         };
                                     };
@@ -1223,24 +1237,27 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.Ref<Regexp>; v
                 var _n:stdgo.GoInt = (_p._stack.length);
                 if (_n != ((1 : stdgo.GoInt))) {
                     {
+                        final __ret__:{ var _0 : stdgo.Ref<Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.regexp.syntax.Syntax.Error((("missing closing )" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode), _s?.__copy__()) : stdgo._internal.regexp.syntax.Syntax.Error)) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Error>)) };
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.regexp.syntax.Syntax.Error((("missing closing )" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax.ErrorCode), _s?.__copy__()) : stdgo._internal.regexp.syntax.Syntax.Error)) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Error>)) };
+                        return __ret__;
                     };
                 };
                 {
+                    final __ret__:{ var _0 : stdgo.Ref<Regexp>; var _1 : stdgo.Error; } = { _0 : _p._stack[(0 : stdgo.GoInt)], _1 : (null : stdgo.Error) };
                     for (defer in __deferstack__) {
                         defer();
                     };
-                    return { _0 : _p._stack[(0 : stdgo.GoInt)], _1 : (null : stdgo.Error) };
+                    return __ret__;
                 };
                 {
+                    final __ret__:{ var _0 : stdgo.Ref<Regexp>; var _1 : stdgo.Error; } = { _0 : _0, _1 : _err };
                     for (defer in __deferstack__) {
                         defer();
                     };
                     if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                    return { _0 : _0, _1 : _err };
+                    return __ret__;
                 };
             } catch(__exception__) {
                 var exe:Dynamic = __exception__.native;
@@ -1249,11 +1266,12 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.Ref<Regexp>; v
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };
                 stdgo.Go.recover_exception = exe;
+                final __ret__:{ var _0 : stdgo.Ref<Regexp>; var _1 : stdgo.Error; } = { _0 : _0, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : _0, _1 : _err };
+                return __ret__;
             };
         });
         throw "controlFlow did not return";

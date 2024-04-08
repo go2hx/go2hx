@@ -3,6 +3,11 @@ import stdgo._internal.math.Math;
 import stdgo._internal.math.Math;
 import stdgo._internal.math.Math;
 import stdgo._internal.math.Math;
+final smallestNormalFloat64 : stdgo.GoFloat64 = (2.2250738585072014e-308 : stdgo.GoFloat64);
+final largestSubnormalFloat64 : stdgo.GoFloat64 = (2.225073858507201e-308 : stdgo.GoFloat64);
+var globalI : stdgo.GoInt = (0 : stdgo.GoInt);
+var globalB : Bool = false;
+var globalF : stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
 var _vf : stdgo.Slice<stdgo.GoFloat64> = (new stdgo.Slice<stdgo.GoFloat64>(
 10,
 10,
@@ -1676,11 +1681,6 @@ var _tanHuge : stdgo.Slice<stdgo.GoFloat64> = (new stdgo.Slice<stdgo.GoFloat64>(
 (-6.76813854009065 : stdgo.GoFloat64),
 (0.7641769501660493 : stdgo.GoFloat64),
 (-0.00496201587444489 : stdgo.GoFloat64)) : stdgo.Slice<stdgo.GoFloat64>);
-final smallestNormalFloat64 : stdgo.GoFloat64 = (2.2250738585072014e-308 : stdgo.GoFloat64);
-final largestSubnormalFloat64 : stdgo.GoFloat64 = (2.225073858507201e-308 : stdgo.GoFloat64);
-var globalI : stdgo.GoInt = (0 : stdgo.GoInt);
-var globalB : Bool = false;
-var globalF : stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
 @:structInit @:private class T_fi {
     public var _f : stdgo.GoFloat64 = 0;
     public var _i : stdgo.GoInt = 0;

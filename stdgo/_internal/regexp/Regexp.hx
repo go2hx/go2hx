@@ -1,5 +1,18 @@
 package stdgo._internal.regexp;
 private var __go2hxdoc__package : Bool;
+var _sink : stdgo.GoString = ("" : stdgo.GoString);
+final _visitedBits : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
+final _maxBacktrackProg : stdgo.GoUInt64 = (500i64 : stdgo.GoUInt64);
+final _maxBacktrackVector : stdgo.GoUInt64 = (262144i64 : stdgo.GoUInt64);
+var _bitStatePool : stdgo._internal.sync.Sync.Pool = ({} : stdgo._internal.sync.Sync.Pool);
+var _onePassPool : stdgo._internal.sync.Sync.Pool = ({} : stdgo._internal.sync.Sync.Pool);
+var _arrayNoInts : stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(...[for (i in 0 ... 0) (0 : stdgo.GoInt)]);
+var _text : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
+final _mergeFailed : stdgo.GoUInt32 = (-1u32 : stdgo.GoUInt32);
+var _matchPool : stdgo.GoArray<stdgo._internal.sync.Sync.Pool> = new stdgo.GoArray<stdgo._internal.sync.Sync.Pool>(...[for (i in 0 ... 5) ({} : stdgo._internal.sync.Sync.Pool)]);
+final _endOfText : stdgo.GoInt32 = (-1 : stdgo.GoInt32);
+var _specialBytes : stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 16) (0 : stdgo.GoUInt8)]);
+final _startSize : stdgo.GoUInt64 = (10i64 : stdgo.GoUInt64);
 var _noRune : stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>(0, 0) : stdgo.Slice<stdgo.GoInt32>);
 var _noNext : stdgo.Slice<stdgo.GoUInt32> = (new stdgo.Slice<stdgo.GoUInt32>(1, 1, (-1u32 : stdgo.GoUInt32)) : stdgo.Slice<stdgo.GoUInt32>);
 var _anyRuneNotNL : stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>(4, 4, (0 : stdgo.GoInt32), (9 : stdgo.GoInt32), (11 : stdgo.GoInt32), (1114111 : stdgo.GoInt32)) : stdgo.Slice<stdgo.GoInt32>);
@@ -490,19 +503,6 @@ var _onePassTests : stdgo.Slice<T__struct_6> = (new stdgo.Slice<T__struct_6>(
 ({ _re : ("^(?:(?:a{1,2}){1,2})$" : stdgo.GoString), _isOnePass : false } : T__struct_6),
 ({ _re : ((("^l" : stdgo.GoString) + stdgo._internal.strings.Strings.repeat(("o" : stdgo.GoString), (512 : stdgo.GoInt))?.__copy__() : stdgo.GoString) + ("ng$" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), _isOnePass : true } : T__struct_6)) : stdgo.Slice<T__struct_6>);
 var _onePassTests1 : stdgo.Slice<T__struct_7> = (new stdgo.Slice<T__struct_7>(1, 1, ({ _re : ("^a(/b+(#c+)*)*$" : stdgo.GoString), _match : ("a/b#c" : stdgo.GoString) } : T__struct_7)) : stdgo.Slice<T__struct_7>);
-var _sink : stdgo.GoString = ("" : stdgo.GoString);
-final _visitedBits : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
-final _maxBacktrackProg : stdgo.GoUInt64 = (500i64 : stdgo.GoUInt64);
-final _maxBacktrackVector : stdgo.GoUInt64 = (262144i64 : stdgo.GoUInt64);
-var _bitStatePool : stdgo._internal.sync.Sync.Pool = ({} : stdgo._internal.sync.Sync.Pool);
-var _onePassPool : stdgo._internal.sync.Sync.Pool = ({} : stdgo._internal.sync.Sync.Pool);
-var _arrayNoInts : stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(...[for (i in 0 ... 0) (0 : stdgo.GoInt)]);
-var _text : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
-final _mergeFailed : stdgo.GoUInt32 = (-1u32 : stdgo.GoUInt32);
-var _matchPool : stdgo.GoArray<stdgo._internal.sync.Sync.Pool> = new stdgo.GoArray<stdgo._internal.sync.Sync.Pool>(...[for (i in 0 ... 5) ({} : stdgo._internal.sync.Sync.Pool)]);
-final _endOfText : stdgo.GoInt32 = (-1 : stdgo.GoInt32);
-var _specialBytes : stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 16) (0 : stdgo.GoUInt8)]);
-final _startSize : stdgo.GoUInt64 = (10i64 : stdgo.GoUInt64);
 typedef T_input = stdgo.StructType & {
     /**
         
@@ -1992,17 +1992,19 @@ function _tryCompile(_s:stdgo.GoString):{ var _0 : stdgo.Ref<Regexp>; var _1 : s
                 a();
             });
             {
+                final __ret__:{ var _0 : stdgo.Ref<Regexp>; var _1 : stdgo.Error; } = compile(_s?.__copy__());
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return compile(_s?.__copy__());
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : stdgo.Ref<Regexp>; var _1 : stdgo.Error; } = { _0 : _re, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : _re, _1 : _err };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -2011,11 +2013,12 @@ function _tryCompile(_s:stdgo.GoString):{ var _0 : stdgo.Ref<Regexp>; var _1 : s
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : stdgo.Ref<Regexp>; var _1 : stdgo.Error; } = { _0 : _re, _1 : _err };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : _re, _1 : _err };
+            return __ret__;
         };
     }
 function _parseResult(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _file:stdgo.GoString, _lineno:stdgo.GoInt, _res:stdgo.GoString):stdgo.Slice<stdgo.GoInt> {
@@ -2826,25 +2829,28 @@ function _mergeRuneSets(_leftRunes:stdgo.Ref<stdgo.Slice<stdgo.GoRune>>, _rightR
                 };
                 if (!_ok) {
                     {
+                        final __ret__:{ var _0 : stdgo.Slice<stdgo.GoRune>; var _1 : stdgo.Slice<stdgo.GoUInt32>; } = { _0 : _noRune, _1 : _noNext };
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return { _0 : _noRune, _1 : _noNext };
+                        return __ret__;
                     };
                 };
             };
             {
+                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoRune>; var _1 : stdgo.Slice<stdgo.GoUInt32>; } = { _0 : _merged, _1 : _next };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return { _0 : _merged, _1 : _next };
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoRune>; var _1 : stdgo.Slice<stdgo.GoUInt32>; } = { _0 : (null : stdgo.Slice<stdgo.GoInt32>), _1 : (null : stdgo.Slice<stdgo.GoUInt32>) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : (null : stdgo.Slice<stdgo.GoInt32>), _1 : (null : stdgo.Slice<stdgo.GoUInt32>) };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -2853,11 +2859,12 @@ function _mergeRuneSets(_leftRunes:stdgo.Ref<stdgo.Slice<stdgo.GoRune>>, _rightR
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : stdgo.Slice<stdgo.GoRune>; var _1 : stdgo.Slice<stdgo.GoUInt32>; } = { _0 : (null : stdgo.Slice<stdgo.GoInt32>), _1 : (null : stdgo.Slice<stdgo.GoUInt32>) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : (null : stdgo.Slice<stdgo.GoInt32>), _1 : (null : stdgo.Slice<stdgo.GoUInt32>) };
+            return __ret__;
         };
     }
 function _cleanupOnePass(_prog:stdgo.Ref<T_onePassProg>, _original:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Prog>):Void {

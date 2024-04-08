@@ -1,17 +1,5 @@
 package stdgo._internal.syscall.js;
 private var __go2hxdoc__package : Bool;
-var _funcs : stdgo.GoMap<stdgo.GoUInt32, (stdgo._internal.syscall.js.Js.Value, stdgo.Slice<stdgo._internal.syscall.js.Js.Value>) -> stdgo.AnyInterface> = (null : stdgo.GoMap<stdgo.GoUInt32, (stdgo._internal.syscall.js.Js.Value, stdgo.Slice<stdgo._internal.syscall.js.Js.Value>) -> stdgo.AnyInterface>);
-var _nextFuncID : stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-var _valueUndefined : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
-var _valueNaN : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
-var _valueZero : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
-var _valueNull : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
-var _valueTrue : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
-var _valueFalse : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
-var _valueGlobal : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
-var _jsGo : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
-var _objectConstructor : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
-var _arrayConstructor : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
 var _funcsMu : stdgo._internal.sync.Sync.Mutex = ({} : stdgo._internal.sync.Sync.Mutex);
 final _nanHead : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
 final _typeFlagNone : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
@@ -27,6 +15,18 @@ final typeString = ((0 : stdgo.GoInt) : stdgo._internal.syscall.js.Js.Type_);
 final typeSymbol = ((0 : stdgo.GoInt) : stdgo._internal.syscall.js.Js.Type_);
 final typeObject = ((0 : stdgo.GoInt) : stdgo._internal.syscall.js.Js.Type_);
 final typeFunction = ((0 : stdgo.GoInt) : stdgo._internal.syscall.js.Js.Type_);
+var _funcs : stdgo.GoMap<stdgo.GoUInt32, (stdgo._internal.syscall.js.Js.Value, stdgo.Slice<stdgo._internal.syscall.js.Js.Value>) -> stdgo.AnyInterface> = (null : stdgo.GoMap<stdgo.GoUInt32, (stdgo._internal.syscall.js.Js.Value, stdgo.Slice<stdgo._internal.syscall.js.Js.Value>) -> stdgo.AnyInterface>);
+var _nextFuncID : stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+var _valueUndefined : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
+var _valueNaN : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
+var _valueZero : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
+var _valueNull : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
+var _valueTrue : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
+var _valueFalse : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
+var _valueGlobal : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
+var _jsGo : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
+var _objectConstructor : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
+var _arrayConstructor : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
 @:structInit @:using(stdgo._internal.syscall.js.Js.Func_static_extension) class Func {
     @:embedded
     public var value : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);

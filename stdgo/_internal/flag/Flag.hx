@@ -1,5 +1,8 @@
 package stdgo._internal.flag;
 private var __go2hxdoc__package : Bool;
+final continueOnError : stdgo._internal.flag.Flag.ErrorHandling = (2 : stdgo._internal.flag.Flag.ErrorHandling);
+final exitOnError = (2 : stdgo._internal.flag.Flag.ErrorHandling);
+final panicOnError = (2 : stdgo._internal.flag.Flag.ErrorHandling);
 var errHelp : stdgo.Error = stdgo._internal.errors.Errors.new_(("flag: help requested" : stdgo.GoString));
 var _errParse : stdgo.Error = stdgo._internal.errors.Errors.new_(("parse error" : stdgo.GoString));
 var _errRange : stdgo.Error = stdgo._internal.errors.Errors.new_(("value out of range" : stdgo.GoString));
@@ -9,9 +12,6 @@ var usage : () -> Void = function():Void {
         printDefaults();
     };
 var defaultUsage : () -> Void = usage;
-final continueOnError : stdgo._internal.flag.Flag.ErrorHandling = (2 : stdgo._internal.flag.Flag.ErrorHandling);
-final exitOnError = (2 : stdgo._internal.flag.Flag.ErrorHandling);
-final panicOnError = (2 : stdgo._internal.flag.Flag.ErrorHandling);
 typedef T_boolFlag = stdgo.StructType & {
     > Value,
     /**
@@ -231,17 +231,19 @@ function _isZeroValue(_flag:stdgo.Ref<Flag>, _value:stdgo.GoString):{ var _0 : B
                 a();
             });
             {
+                final __ret__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : _value == (((stdgo.Go.typeAssert((_z.interface_() : Value)) : Value).string() : stdgo.GoString)), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return { _0 : _value == (((stdgo.Go.typeAssert((_z.interface_() : Value)) : Value).string() : stdgo.GoString)), _1 : (null : stdgo.Error) };
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : _ok, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : _ok, _1 : _err };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -250,11 +252,12 @@ function _isZeroValue(_flag:stdgo.Ref<Flag>, _value:stdgo.GoString):{ var _0 : B
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : _ok, _1 : _err };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : _ok, _1 : _err };
+            return __ret__;
         };
     }
 function unquoteUsage(_flag:stdgo.Ref<Flag>):{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } {

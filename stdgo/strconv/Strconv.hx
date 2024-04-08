@@ -53,6 +53,7 @@ package stdgo.strconv;
     // [Unquote] and [UnquoteChar] unquote Go string and rune literals.
 **/
 private var __go2hxdoc__package : Bool;
+final intSize : haxe.UInt64 = stdgo._internal.strconv.Strconv.intSize;
 var errRange(get, set) : stdgo.Error;
 function get_errRange():stdgo.Error return stdgo._internal.strconv.Strconv.errRange;
 function set_errRange(v:stdgo.Error):stdgo.Error return stdgo._internal.strconv.Strconv.errRange = v;
@@ -65,7 +66,6 @@ function set_bitSizeError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> std
 var baseError(get, set) : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError>;
 function get_baseError():(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> return stdgo._internal.strconv.Strconv.baseError;
 function set_baseError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError>):(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> return stdgo._internal.strconv.Strconv.baseError = v;
-final intSize : haxe.UInt64 = stdgo._internal.strconv.Strconv.intSize;
 @:invalid typedef NumError = Dynamic;
 @:invalid typedef T_decimal = Dynamic;
 @:invalid typedef T_leftCheat = Dynamic;

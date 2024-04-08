@@ -1,13 +1,5 @@
 package stdgo._internal.internal.poll;
 private var __go2hxdoc__package : Bool;
-var errNetClosing : stdgo._internal.internal.poll.Poll.T_errNetClosing = ({} : stdgo._internal.internal.poll.Poll.T_errNetClosing);
-var errFileClosing : stdgo.Error = (null : stdgo.Error);
-var errNoDeadline : stdgo.Error = (null : stdgo.Error);
-var errDeadlineExceeded : stdgo.Error = (null : stdgo.Error);
-var errNotPollable : stdgo.Error = (null : stdgo.Error);
-var testHookDidWritev : stdgo.GoInt -> Void = null;
-var closeFunc : stdgo.GoInt -> stdgo.Error = null;
-var acceptFunc : stdgo.GoInt -> { var _0 : stdgo.GoInt; var _1 : stdgo._internal.syscall.Syscall.Sockaddr; var _2 : stdgo.Error; } = null;
 final _mutexClosed : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
 final _mutexRLock : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
 final _mutexWLock : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
@@ -20,6 +12,14 @@ final _mutexWMask : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
 final _overflowMsg : stdgo.GoString = ("" : stdgo.GoString);
 final _maxRW : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
 var _dupCloexecUnsupported : stdgo._internal.sync.atomic_.Atomic_.Bool_ = ({} : stdgo._internal.sync.atomic_.Atomic_.Bool_);
+var errNetClosing : stdgo._internal.internal.poll.Poll.T_errNetClosing = ({} : stdgo._internal.internal.poll.Poll.T_errNetClosing);
+var errFileClosing : stdgo.Error = (null : stdgo.Error);
+var errNoDeadline : stdgo.Error = (null : stdgo.Error);
+var errDeadlineExceeded : stdgo.Error = (null : stdgo.Error);
+var errNotPollable : stdgo.Error = (null : stdgo.Error);
+var testHookDidWritev : stdgo.GoInt -> Void = null;
+var closeFunc : stdgo.GoInt -> stdgo.Error = null;
+var acceptFunc : stdgo.GoInt -> { var _0 : stdgo.GoInt; var _1 : stdgo._internal.syscall.Syscall.Sockaddr; var _2 : stdgo.Error; } = null;
 @:structInit @:private @:using(stdgo._internal.internal.poll.Poll.T_errNetClosing_static_extension) class T_errNetClosing {
     public function new() {}
     public function __underlying__() return stdgo.Go.toInterface(this);

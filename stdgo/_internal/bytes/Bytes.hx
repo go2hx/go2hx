@@ -1,5 +1,14 @@
 package stdgo._internal.bytes;
 private var __go2hxdoc__package : Bool;
+final _smallBufferSize : stdgo.GoUInt64 = (64i64 : stdgo.GoUInt64);
+final _opRead : stdgo._internal.bytes.Bytes.T_readOp = (-1 : stdgo._internal.bytes.Bytes.T_readOp);
+final _opInvalid : stdgo._internal.bytes.Bytes.T_readOp = (0 : stdgo._internal.bytes.Bytes.T_readOp);
+final _opReadRune1 : stdgo._internal.bytes.Bytes.T_readOp = (1 : stdgo._internal.bytes.Bytes.T_readOp);
+final _opReadRune2 : stdgo._internal.bytes.Bytes.T_readOp = (2 : stdgo._internal.bytes.Bytes.T_readOp);
+final _opReadRune3 : stdgo._internal.bytes.Bytes.T_readOp = (3 : stdgo._internal.bytes.Bytes.T_readOp);
+final _opReadRune4 : stdgo._internal.bytes.Bytes.T_readOp = (4 : stdgo._internal.bytes.Bytes.T_readOp);
+final _maxInt : stdgo.GoInt = ((2147483647u32 : stdgo.GoUInt) : stdgo.GoInt);
+final minRead : stdgo.GoUInt64 = (512i64 : stdgo.GoUInt64);
 var errTooLarge : stdgo.Error = stdgo._internal.errors.Errors.new_(("bytes.Buffer: too large" : stdgo.GoString));
 var _errNegativeRead : stdgo.Error = stdgo._internal.errors.Errors.new_(("bytes.Buffer: reader returned negative count from Read" : stdgo.GoString));
 var _errUnreadByte : stdgo.Error = stdgo._internal.errors.Errors.new_(("bytes.Buffer: UnreadByte: previous operation was not a successful read" : stdgo.GoString));
@@ -14,15 +23,6 @@ var _asciiSpace : stdgo.GoArray<stdgo.GoUInt8> = {
         s;
     };
 var indexBytePortable : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt8) -> stdgo.GoInt = _indexBytePortable;
-final _smallBufferSize : stdgo.GoUInt64 = (64i64 : stdgo.GoUInt64);
-final _opRead : stdgo._internal.bytes.Bytes.T_readOp = (-1 : stdgo._internal.bytes.Bytes.T_readOp);
-final _opInvalid : stdgo._internal.bytes.Bytes.T_readOp = (0 : stdgo._internal.bytes.Bytes.T_readOp);
-final _opReadRune1 : stdgo._internal.bytes.Bytes.T_readOp = (1 : stdgo._internal.bytes.Bytes.T_readOp);
-final _opReadRune2 : stdgo._internal.bytes.Bytes.T_readOp = (2 : stdgo._internal.bytes.Bytes.T_readOp);
-final _opReadRune3 : stdgo._internal.bytes.Bytes.T_readOp = (3 : stdgo._internal.bytes.Bytes.T_readOp);
-final _opReadRune4 : stdgo._internal.bytes.Bytes.T_readOp = (4 : stdgo._internal.bytes.Bytes.T_readOp);
-final _maxInt : stdgo.GoInt = ((2147483647u32 : stdgo.GoUInt) : stdgo.GoInt);
-final minRead : stdgo.GoUInt64 = (512i64 : stdgo.GoUInt64);
 @:structInit @:using(stdgo._internal.bytes.Bytes.Buffer_static_extension) class Buffer {
     public var _buf : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     public var _off : stdgo.GoInt = 0;
@@ -75,17 +75,19 @@ function _growSlice(_b:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):stdgo.Slice<st
             var _b2 = (((null : stdgo.Slice<stdgo.GoUInt8>) : stdgo.Slice<stdgo.GoByte>).__append__(...(new stdgo.Slice<stdgo.GoUInt8>((_c : stdgo.GoInt).toBasic(), 0).__setNumber32__() : Array<stdgo.GoUInt8>)));
             stdgo.Go.copySlice(_b2, _b);
             {
+                final __ret__:stdgo.Slice<stdgo.GoByte> = (_b2.__slice__(0, (_b.length)) : stdgo.Slice<stdgo.GoUInt8>);
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return (_b2.__slice__(0, (_b.length)) : stdgo.Slice<stdgo.GoUInt8>);
+                return __ret__;
             };
             {
+                final __ret__:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return (null : stdgo.Slice<stdgo.GoUInt8>);
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -94,11 +96,12 @@ function _growSlice(_b:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):stdgo.Slice<st
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return (null : stdgo.Slice<stdgo.GoUInt8>);
+            return __ret__;
         };
     }
 function newBuffer(_buf:stdgo.Slice<stdgo.GoByte>):stdgo.Ref<Buffer> {

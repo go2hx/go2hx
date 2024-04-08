@@ -1,5 +1,20 @@
 package stdgo._internal.crypto.sha1;
 private var __go2hxdoc__package : Bool;
+final _boringEnabled : Bool = false;
+final size : stdgo.GoUInt64 = (20i64 : stdgo.GoUInt64);
+final blockSize : stdgo.GoUInt64 = (64i64 : stdgo.GoUInt64);
+final _chunk : stdgo.GoUInt64 = (64i64 : stdgo.GoUInt64);
+final _init0 : stdgo.GoUInt64 = (1732584193i64 : stdgo.GoUInt64);
+final _init1 : stdgo.GoUInt64 = (4023233417i64 : stdgo.GoUInt64);
+final _init2 : stdgo.GoUInt64 = (2562383102i64 : stdgo.GoUInt64);
+final _init3 : stdgo.GoUInt64 = (271733878i64 : stdgo.GoUInt64);
+final _init4 : stdgo.GoUInt64 = (3285377520i64 : stdgo.GoUInt64);
+final _magic : stdgo.GoString = stdgo.Go.str("sha", 1);
+final _marshaledSize : stdgo.GoInt = (96 : stdgo.GoInt);
+final __K0 : stdgo.GoUInt64 = (1518500249i64 : stdgo.GoUInt64);
+final __K1 : stdgo.GoUInt64 = (1859775393i64 : stdgo.GoUInt64);
+final __K2 : stdgo.GoUInt64 = (2400959708i64 : stdgo.GoUInt64);
+final __K3 : stdgo.GoUInt64 = (3395469782i64 : stdgo.GoUInt64);
 var _golden : stdgo.Slice<stdgo._internal.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<stdgo._internal.crypto.sha1.Sha1.T_sha1Test>(
 32,
 32,
@@ -2364,21 +2379,6 @@ var _largeUnmarshalTests : stdgo.Slice<stdgo._internal.crypto.sha1.Sha1.T_unmars
 "VCw")?.__copy__(), _sum : ("8f2d1c0e4271768f35feb918bfe21ea1387a2072" : stdgo.GoString) } : stdgo._internal.crypto.sha1.Sha1.T_unmarshalTest)) : stdgo.Slice<stdgo._internal.crypto.sha1.Sha1.T_unmarshalTest>);
 var _bench : stdgo._internal.hash.Hash.Hash = new_();
 var _buf : stdgo.Slice<stdgo.GoUInt8> = new stdgo.Slice<stdgo.GoUInt8>((8192 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-final _boringEnabled : Bool = false;
-final size : stdgo.GoUInt64 = (20i64 : stdgo.GoUInt64);
-final blockSize : stdgo.GoUInt64 = (64i64 : stdgo.GoUInt64);
-final _chunk : stdgo.GoUInt64 = (64i64 : stdgo.GoUInt64);
-final _init0 : stdgo.GoUInt64 = (1732584193i64 : stdgo.GoUInt64);
-final _init1 : stdgo.GoUInt64 = (4023233417i64 : stdgo.GoUInt64);
-final _init2 : stdgo.GoUInt64 = (2562383102i64 : stdgo.GoUInt64);
-final _init3 : stdgo.GoUInt64 = (271733878i64 : stdgo.GoUInt64);
-final _init4 : stdgo.GoUInt64 = (3285377520i64 : stdgo.GoUInt64);
-final _magic : stdgo.GoString = stdgo.Go.str("sha", 1);
-final _marshaledSize : stdgo.GoInt = (96 : stdgo.GoInt);
-final __K0 : stdgo.GoUInt64 = (1518500249i64 : stdgo.GoUInt64);
-final __K1 : stdgo.GoUInt64 = (1859775393i64 : stdgo.GoUInt64);
-final __K2 : stdgo.GoUInt64 = (2400959708i64 : stdgo.GoUInt64);
-final __K3 : stdgo.GoUInt64 = (3395469782i64 : stdgo.GoUInt64);
 @:structInit @:private @:using(stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension) class T_digest {
     public var _h : stdgo.GoArray<stdgo.GoUInt32> = new stdgo.GoArray<stdgo.GoUInt32>(...[for (i in 0 ... 5) (0 : stdgo.GoUInt32)]);
     public var _x : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 64) (0 : stdgo.GoUInt8)]);
@@ -2588,17 +2588,19 @@ function _safeSum(_h:stdgo._internal.hash.Hash.Hash):{ var _0 : stdgo.Slice<stdg
                 a();
             });
             {
+                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : _h.sum((null : stdgo.Slice<stdgo.GoUInt8>)), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return { _0 : _h.sum((null : stdgo.Slice<stdgo.GoUInt8>)), _1 : (null : stdgo.Error) };
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : _sum, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : _sum, _1 : _err };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -2607,11 +2609,12 @@ function _safeSum(_h:stdgo._internal.hash.Hash.Hash):{ var _0 : stdgo.Slice<stdg
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : _sum, _1 : _err };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : _sum, _1 : _err };
+            return __ret__;
         };
     }
 function testLargeHashes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {

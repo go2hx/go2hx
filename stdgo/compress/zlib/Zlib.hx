@@ -21,6 +21,11 @@ package stdgo.compress.zlib;
     *|/
 **/
 private var __go2hxdoc__package : Bool;
+final noCompression : haxe.UInt64 = stdgo._internal.compress.zlib.Zlib.noCompression;
+final bestSpeed : haxe.UInt64 = stdgo._internal.compress.zlib.Zlib.bestSpeed;
+final bestCompression : haxe.UInt64 = stdgo._internal.compress.zlib.Zlib.bestCompression;
+final defaultCompression : haxe.UInt64 = stdgo._internal.compress.zlib.Zlib.defaultCompression;
+final huffmanOnly : haxe.UInt64 = stdgo._internal.compress.zlib.Zlib.huffmanOnly;
 var errChecksum(get, set) : stdgo.Error;
 function get_errChecksum():stdgo.Error return stdgo._internal.compress.zlib.Zlib.errChecksum;
 function set_errChecksum(v:stdgo.Error):stdgo.Error return stdgo._internal.compress.zlib.Zlib.errChecksum = v;
@@ -30,11 +35,6 @@ function set_errDictionary(v:stdgo.Error):stdgo.Error return stdgo._internal.com
 var errHeader(get, set) : stdgo.Error;
 function get_errHeader():stdgo.Error return stdgo._internal.compress.zlib.Zlib.errHeader;
 function set_errHeader(v:stdgo.Error):stdgo.Error return stdgo._internal.compress.zlib.Zlib.errHeader = v;
-final noCompression : haxe.UInt64 = stdgo._internal.compress.zlib.Zlib.noCompression;
-final bestSpeed : haxe.UInt64 = stdgo._internal.compress.zlib.Zlib.bestSpeed;
-final bestCompression : haxe.UInt64 = stdgo._internal.compress.zlib.Zlib.bestCompression;
-final defaultCompression : haxe.UInt64 = stdgo._internal.compress.zlib.Zlib.defaultCompression;
-final huffmanOnly : haxe.UInt64 = stdgo._internal.compress.zlib.Zlib.huffmanOnly;
 typedef Resetter = stdgo._internal.compress.zlib.Zlib.Resetter;
 @:invalid typedef T_reader = Dynamic;
 @:invalid typedef T_zlibTest = Dynamic;

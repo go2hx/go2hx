@@ -1,6 +1,10 @@
 package stdgo._internal.os.exec_test;
 import stdgo._internal.os.exec.Exec;
 import stdgo._internal.os.exec.Exec;
+var _haveUnexpectedFDs : Bool = false;
+var _exeOnce : T__struct_1 = ({ _path : ("" : stdgo.GoString), _err : (null : stdgo.Error), once : ({} : stdgo._internal.sync.Sync.Once) } : T__struct_1);
+var _helperCommandUsed : stdgo._internal.sync.Sync.Map_ = ({} : stdgo._internal.sync.Sync.Map_);
+final _stdinCloseTestString : stdgo.GoString = ("Some test string." : stdgo.GoString);
 var _pathVar : stdgo.GoString = {
         var a = function():stdgo.GoString {
             if (false) {
@@ -29,10 +33,6 @@ var _helperCommands : stdgo.GoMap<stdgo.GoString, haxe.Rest<stdgo.GoString> -> V
         };
         x;
     } : stdgo.GoMap<stdgo.GoString, haxe.Rest<stdgo.GoString> -> Void>);
-var _haveUnexpectedFDs : Bool = false;
-var _exeOnce : T__struct_1 = ({ _path : ("" : stdgo.GoString), _err : (null : stdgo.Error), once : ({} : stdgo._internal.sync.Sync.Once) } : T__struct_1);
-var _helperCommandUsed : stdgo._internal.sync.Sync.Map_ = ({} : stdgo._internal.sync.Sync.Map_);
-final _stdinCloseTestString : stdgo.GoString = ("Some test string." : stdgo.GoString);
 typedef T__interface_0 = stdgo.StructType & {
     /**
         

@@ -255,12 +255,12 @@ package stdgo.runtime;
     *|/
 **/
 private var __go2hxdoc__package : Bool;
-var memProfileRate(get, set) : Int;
-function get_memProfileRate():Int return stdgo._internal.runtime.Runtime.memProfileRate;
-function set_memProfileRate(v:Int):Int return stdgo._internal.runtime.Runtime.memProfileRate = v;
 final compiler : String = stdgo._internal.runtime.Runtime.compiler;
 final goos : String = stdgo._internal.runtime.Runtime.goos;
 final goarch : String = stdgo._internal.runtime.Runtime.goarch;
+var memProfileRate(get, set) : Int;
+function get_memProfileRate():Int return stdgo._internal.runtime.Runtime.memProfileRate;
+function set_memProfileRate(v:Int):Int return stdgo._internal.runtime.Runtime.memProfileRate = v;
 typedef Error = stdgo._internal.runtime.Runtime.Error;
 @:invalid typedef TypeAssertionError = Dynamic;
 @:invalid typedef StackRecord = Dynamic;

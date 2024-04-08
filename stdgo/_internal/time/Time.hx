@@ -1,6 +1,138 @@
 package stdgo._internal.time;
 import stdgo._internal.unsafe.Unsafe;
 private var __go2hxdoc__package : Bool;
+final ruleJulian : stdgo._internal.time.Time.RuleKind = ((0 : stdgo._internal.time.Time.T_ruleKind) : RuleKind);
+final ruleDOY : stdgo._internal.time.Time.RuleKind = ((1 : stdgo._internal.time.Time.T_ruleKind) : RuleKind);
+final ruleMonthWeekDay : stdgo._internal.time.Time.RuleKind = ((2 : stdgo._internal.time.Time.T_ruleKind) : RuleKind);
+final unixToInternal : stdgo.GoInt64 = (62135596800i64 : stdgo.GoInt64);
+final layout : stdgo.GoString = ("01/02 03:04:05PM \'06 -0700" : stdgo.GoString);
+final ansic : stdgo.GoString = ("Mon Jan _2 15:04:05 2006" : stdgo.GoString);
+final unixDate : stdgo.GoString = ("Mon Jan _2 15:04:05 MST 2006" : stdgo.GoString);
+final rubyDate : stdgo.GoString = ("Mon Jan 02 15:04:05 -0700 2006" : stdgo.GoString);
+final rfc822 : stdgo.GoString = ("02 Jan 06 15:04 MST" : stdgo.GoString);
+final rfc822z : stdgo.GoString = ("02 Jan 06 15:04 -0700" : stdgo.GoString);
+final rfc850 : stdgo.GoString = ("Monday, 02-Jan-06 15:04:05 MST" : stdgo.GoString);
+final rfc1123 : stdgo.GoString = ("Mon, 02 Jan 2006 15:04:05 MST" : stdgo.GoString);
+final rfc1123z : stdgo.GoString = ("Mon, 02 Jan 2006 15:04:05 -0700" : stdgo.GoString);
+final rfc3339 : stdgo.GoString = ("2006-01-02T15:04:05Z07:00" : stdgo.GoString);
+final rfc3339nano : stdgo.GoString = ("2006-01-02T15:04:05.999999999Z07:00" : stdgo.GoString);
+final kitchen : stdgo.GoString = ("3:04PM" : stdgo.GoString);
+final stamp : stdgo.GoString = ("Jan _2 15:04:05" : stdgo.GoString);
+final stampMilli : stdgo.GoString = ("Jan _2 15:04:05.000" : stdgo.GoString);
+final stampMicro : stdgo.GoString = ("Jan _2 15:04:05.000000" : stdgo.GoString);
+final stampNano : stdgo.GoString = ("Jan _2 15:04:05.000000000" : stdgo.GoString);
+final dateTime : stdgo.GoString = ("2006-01-02 15:04:05" : stdgo.GoString);
+final dateOnly : stdgo.GoString = ("2006-01-02" : stdgo.GoString);
+final timeOnly : stdgo.GoString = ("15:04:05" : stdgo.GoString);
+final __0 : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+final _stdLongMonth : stdgo.GoUInt64 = (267i64 : stdgo.GoUInt64);
+final _stdMonth = (267i64 : stdgo.GoUInt64);
+final _stdNumMonth = (267i64 : stdgo.GoUInt64);
+final _stdZeroMonth = (267i64 : stdgo.GoUInt64);
+final _stdLongWeekDay = (267i64 : stdgo.GoUInt64);
+final _stdWeekDay = (267i64 : stdgo.GoUInt64);
+final _stdDay = (267i64 : stdgo.GoUInt64);
+final _stdUnderDay = (267i64 : stdgo.GoUInt64);
+final _stdZeroDay = (267i64 : stdgo.GoUInt64);
+final _stdUnderYearDay = (267i64 : stdgo.GoUInt64);
+final _stdZeroYearDay = (267i64 : stdgo.GoUInt64);
+final _stdHour : stdgo.GoUInt64 = (530i64 : stdgo.GoUInt64);
+final _stdHour12 = (530i64 : stdgo.GoUInt64);
+final _stdZeroHour12 = (530i64 : stdgo.GoUInt64);
+final _stdMinute = (530i64 : stdgo.GoUInt64);
+final _stdZeroMinute = (530i64 : stdgo.GoUInt64);
+final _stdSecond = (530i64 : stdgo.GoUInt64);
+final _stdZeroSecond = (530i64 : stdgo.GoUInt64);
+final _stdLongYear : stdgo.GoUInt64 = (276i64 : stdgo.GoUInt64);
+final _stdYear = (276i64 : stdgo.GoUInt64);
+final _stdPM : stdgo.GoUInt64 = (534i64 : stdgo.GoUInt64);
+final _stdpm = (534i64 : stdgo.GoUInt64);
+final _stdTZ : stdgo.GoUInt64 = (35i64 : stdgo.GoUInt64);
+final _stdISO8601TZ = (35i64 : stdgo.GoUInt64);
+final _stdISO8601SecondsTZ = (35i64 : stdgo.GoUInt64);
+final _stdISO8601ShortTZ = (35i64 : stdgo.GoUInt64);
+final _stdISO8601ColonTZ = (35i64 : stdgo.GoUInt64);
+final _stdISO8601ColonSecondsTZ = (35i64 : stdgo.GoUInt64);
+final _stdNumTZ = (35i64 : stdgo.GoUInt64);
+final _stdNumSecondsTz = (35i64 : stdgo.GoUInt64);
+final _stdNumShortTZ = (35i64 : stdgo.GoUInt64);
+final _stdNumColonTZ = (35i64 : stdgo.GoUInt64);
+final _stdNumColonSecondsTZ = (35i64 : stdgo.GoUInt64);
+final _stdFracSecond0 = (35i64 : stdgo.GoUInt64);
+final _stdFracSecond9 = (35i64 : stdgo.GoUInt64);
+final _stdNeedDate : stdgo.GoUInt64 = (256i64 : stdgo.GoUInt64);
+final _stdNeedClock : stdgo.GoUInt64 = (512i64 : stdgo.GoUInt64);
+final _stdArgShift : stdgo.GoUInt64 = (16i64 : stdgo.GoUInt64);
+final _stdSeparatorShift : stdgo.GoUInt64 = (28i64 : stdgo.GoUInt64);
+final _stdMask : stdgo.GoUInt64 = (65535i64 : stdgo.GoUInt64);
+final _lowerhex : stdgo.GoString = ("0123456789abcdef" : stdgo.GoString);
+final _runeSelf : stdgo.GoUInt64 = (128i64 : stdgo.GoUInt64);
+final _runeError : stdgo.GoInt32 = (65533 : stdgo.GoInt32);
+final _hasMonotonic : stdgo.GoUInt64 = (-9223372036854775808i64 : stdgo.GoUInt64);
+final _maxWall : stdgo.GoInt64 = (68043243391i64 : stdgo.GoInt64);
+final _minWall : stdgo.GoInt64 = (59453308800i64 : stdgo.GoInt64);
+final _nsecMask : stdgo.GoUInt64 = (1073741823i64 : stdgo.GoUInt64);
+final _nsecShift : stdgo.GoUInt64 = (30i64 : stdgo.GoUInt64);
+final january : stdgo._internal.time.Time.Month = (12 : stdgo._internal.time.Time.Month);
+final february = (12 : stdgo._internal.time.Time.Month);
+final march = (12 : stdgo._internal.time.Time.Month);
+final april = (12 : stdgo._internal.time.Time.Month);
+final may = (12 : stdgo._internal.time.Time.Month);
+final june = (12 : stdgo._internal.time.Time.Month);
+final july = (12 : stdgo._internal.time.Time.Month);
+final august = (12 : stdgo._internal.time.Time.Month);
+final september = (12 : stdgo._internal.time.Time.Month);
+final october = (12 : stdgo._internal.time.Time.Month);
+final november = (12 : stdgo._internal.time.Time.Month);
+final december = (12 : stdgo._internal.time.Time.Month);
+final sunday : stdgo._internal.time.Time.Weekday = (6 : stdgo._internal.time.Time.Weekday);
+final monday = (6 : stdgo._internal.time.Time.Weekday);
+final tuesday = (6 : stdgo._internal.time.Time.Weekday);
+final wednesday = (6 : stdgo._internal.time.Time.Weekday);
+final thursday = (6 : stdgo._internal.time.Time.Weekday);
+final friday = (6 : stdgo._internal.time.Time.Weekday);
+final saturday = (6 : stdgo._internal.time.Time.Weekday);
+final _absoluteZeroYear : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+final _internalYear : stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
+final _absoluteToInternal : stdgo.GoInt64 = (-9223371966579724800i64 : stdgo.GoInt64);
+final _internalToAbsolute : stdgo.GoInt64 = (9223371966579724800i64 : stdgo.GoInt64);
+final _unixToInternal : stdgo.GoInt64 = (62135596800i64 : stdgo.GoInt64);
+final _internalToUnix : stdgo.GoInt64 = (-62135596800i64 : stdgo.GoInt64);
+final _wallToInternal : stdgo.GoInt64 = (59453308800i64 : stdgo.GoInt64);
+final _minDuration : stdgo._internal.time.Time.Duration = (-9223372036854775808i64 : stdgo._internal.time.Time.Duration);
+final _maxDuration : stdgo._internal.time.Time.Duration = (9223372036854775807i64 : stdgo._internal.time.Time.Duration);
+final nanosecond : stdgo._internal.time.Time.Duration = (1i64 : stdgo._internal.time.Time.Duration);
+final microsecond : stdgo._internal.time.Time.Duration = (1000i64 : stdgo._internal.time.Time.Duration);
+final millisecond : stdgo._internal.time.Time.Duration = (1000000i64 : stdgo._internal.time.Time.Duration);
+final second : stdgo._internal.time.Time.Duration = (1000000000i64 : stdgo._internal.time.Time.Duration);
+final minute : stdgo._internal.time.Time.Duration = (60000000000i64 : stdgo._internal.time.Time.Duration);
+final hour : stdgo._internal.time.Time.Duration = (3600000000000i64 : stdgo._internal.time.Time.Duration);
+final _secondsPerMinute : stdgo.GoUInt64 = (60i64 : stdgo.GoUInt64);
+final _secondsPerHour : stdgo.GoUInt64 = (3600i64 : stdgo.GoUInt64);
+final _secondsPerDay : stdgo.GoUInt64 = (86400i64 : stdgo.GoUInt64);
+final _secondsPerWeek : stdgo.GoUInt64 = (604800i64 : stdgo.GoUInt64);
+final _daysPer400Years : stdgo.GoUInt64 = (146097i64 : stdgo.GoUInt64);
+final _daysPer100Years : stdgo.GoUInt64 = (36524i64 : stdgo.GoUInt64);
+final _daysPer4Years : stdgo.GoUInt64 = (1461i64 : stdgo.GoUInt64);
+final _timeBinaryVersionV1 : stdgo.GoUInt8 = (2 : stdgo.GoUInt8);
+final _timeBinaryVersionV2 = (2 : stdgo.GoUInt8);
+final _alpha : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+final _omega : stdgo.GoUInt64 = (9223372036854775807i64 : stdgo.GoUInt64);
+var _localLoc : Location = ({} : stdgo._internal.time.Time.Location);
+var _localOnce : stdgo._internal.sync.Sync.Once = ({} : stdgo._internal.sync.Sync.Once);
+var _unnamedFixedZones : stdgo.Slice<stdgo.Ref<Location>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.time.Time.Location>>);
+var _unnamedFixedZonesOnce : stdgo._internal.sync.Sync.Once = ({} : stdgo._internal.sync.Sync.Once);
+final _ruleJulian : stdgo._internal.time.Time.T_ruleKind = (2 : stdgo._internal.time.Time.T_ruleKind);
+final _ruleDOY = (2 : stdgo._internal.time.Time.T_ruleKind);
+final _ruleMonthWeekDay = (2 : stdgo._internal.time.Time.T_ruleKind);
+var _zoneinfo : stdgo.Pointer<stdgo.GoString> = (null : stdgo.Pointer<stdgo.GoString>);
+var _zoneinfoOnce : stdgo._internal.sync.Sync.Once = ({} : stdgo._internal.sync.Sync.Once);
+var _loadFromEmbeddedTZData : (_zipname:stdgo.GoString) -> { var _0 : stdgo.GoString; var _1 : stdgo.Error; } = null;
+final _maxFileSize : stdgo.GoUInt64 = (10485760i64 : stdgo.GoUInt64);
+final _seekStart : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+final _seekCurrent : stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
+final _seekEnd : stdgo.GoUInt64 = (2i64 : stdgo.GoUInt64);
+var _loadTzinfoFromTzdata : (_file:stdgo.GoString, _name:stdgo.GoString) -> { var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = null;
 var _std0x : stdgo.GoArray<stdgo.GoInt> = (new stdgo.GoArray<stdgo.GoInt>((260 : stdgo.GoInt), (265 : stdgo.GoInt), (526 : stdgo.GoInt), (528 : stdgo.GoInt), (530 : stdgo.GoInt), (276 : stdgo.GoInt)) : stdgo.GoArray<stdgo.GoInt>);
 var _longDayNames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(7, 7, ("Sunday" : stdgo.GoString), ("Monday" : stdgo.GoString), ("Tuesday" : stdgo.GoString), ("Wednesday" : stdgo.GoString), ("Thursday" : stdgo.GoString), ("Friday" : stdgo.GoString), ("Saturday" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
 var _shortDayNames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(7, 7, ("Sun" : stdgo.GoString), ("Mon" : stdgo.GoString), ("Tue" : stdgo.GoString), ("Wed" : stdgo.GoString), ("Thu" : stdgo.GoString), ("Fri" : stdgo.GoString), ("Sat" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
@@ -156,138 +288,6 @@ var daysIn : (stdgo._internal.time.Time.Month, stdgo.GoInt) -> stdgo.GoInt = _da
 var minMonoTime : stdgo._internal.time.Time.Time = ({ _wall : (-9223372036854775808i64 : stdgo.GoUInt64), _ext : (-9223372036854775808i64 : stdgo.GoInt64), _loc : utc } : stdgo._internal.time.Time.Time);
 var maxMonoTime : stdgo._internal.time.Time.Time = ({ _wall : (-9223372036854775808i64 : stdgo.GoUInt64), _ext : (9223372036854775807i64 : stdgo.GoInt64), _loc : utc } : stdgo._internal.time.Time.Time);
 var notMonoNegativeTime : stdgo._internal.time.Time.Time = ({ _wall : (0i64 : stdgo.GoUInt64), _ext : (-9223372036854775758i64 : stdgo.GoInt64) } : stdgo._internal.time.Time.Time);
-final ruleJulian : stdgo._internal.time.Time.RuleKind = ((0 : stdgo._internal.time.Time.T_ruleKind) : RuleKind);
-final ruleDOY : stdgo._internal.time.Time.RuleKind = ((1 : stdgo._internal.time.Time.T_ruleKind) : RuleKind);
-final ruleMonthWeekDay : stdgo._internal.time.Time.RuleKind = ((2 : stdgo._internal.time.Time.T_ruleKind) : RuleKind);
-final unixToInternal : stdgo.GoInt64 = (62135596800i64 : stdgo.GoInt64);
-final layout : stdgo.GoString = ("01/02 03:04:05PM \'06 -0700" : stdgo.GoString);
-final ansic : stdgo.GoString = ("Mon Jan _2 15:04:05 2006" : stdgo.GoString);
-final unixDate : stdgo.GoString = ("Mon Jan _2 15:04:05 MST 2006" : stdgo.GoString);
-final rubyDate : stdgo.GoString = ("Mon Jan 02 15:04:05 -0700 2006" : stdgo.GoString);
-final rfc822 : stdgo.GoString = ("02 Jan 06 15:04 MST" : stdgo.GoString);
-final rfc822z : stdgo.GoString = ("02 Jan 06 15:04 -0700" : stdgo.GoString);
-final rfc850 : stdgo.GoString = ("Monday, 02-Jan-06 15:04:05 MST" : stdgo.GoString);
-final rfc1123 : stdgo.GoString = ("Mon, 02 Jan 2006 15:04:05 MST" : stdgo.GoString);
-final rfc1123z : stdgo.GoString = ("Mon, 02 Jan 2006 15:04:05 -0700" : stdgo.GoString);
-final rfc3339 : stdgo.GoString = ("2006-01-02T15:04:05Z07:00" : stdgo.GoString);
-final rfc3339nano : stdgo.GoString = ("2006-01-02T15:04:05.999999999Z07:00" : stdgo.GoString);
-final kitchen : stdgo.GoString = ("3:04PM" : stdgo.GoString);
-final stamp : stdgo.GoString = ("Jan _2 15:04:05" : stdgo.GoString);
-final stampMilli : stdgo.GoString = ("Jan _2 15:04:05.000" : stdgo.GoString);
-final stampMicro : stdgo.GoString = ("Jan _2 15:04:05.000000" : stdgo.GoString);
-final stampNano : stdgo.GoString = ("Jan _2 15:04:05.000000000" : stdgo.GoString);
-final dateTime : stdgo.GoString = ("2006-01-02 15:04:05" : stdgo.GoString);
-final dateOnly : stdgo.GoString = ("2006-01-02" : stdgo.GoString);
-final timeOnly : stdgo.GoString = ("15:04:05" : stdgo.GoString);
-final __0 : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
-final _stdLongMonth : stdgo.GoUInt64 = (267i64 : stdgo.GoUInt64);
-final _stdMonth = (267i64 : stdgo.GoUInt64);
-final _stdNumMonth = (267i64 : stdgo.GoUInt64);
-final _stdZeroMonth = (267i64 : stdgo.GoUInt64);
-final _stdLongWeekDay = (267i64 : stdgo.GoUInt64);
-final _stdWeekDay = (267i64 : stdgo.GoUInt64);
-final _stdDay = (267i64 : stdgo.GoUInt64);
-final _stdUnderDay = (267i64 : stdgo.GoUInt64);
-final _stdZeroDay = (267i64 : stdgo.GoUInt64);
-final _stdUnderYearDay = (267i64 : stdgo.GoUInt64);
-final _stdZeroYearDay = (267i64 : stdgo.GoUInt64);
-final _stdHour : stdgo.GoUInt64 = (530i64 : stdgo.GoUInt64);
-final _stdHour12 = (530i64 : stdgo.GoUInt64);
-final _stdZeroHour12 = (530i64 : stdgo.GoUInt64);
-final _stdMinute = (530i64 : stdgo.GoUInt64);
-final _stdZeroMinute = (530i64 : stdgo.GoUInt64);
-final _stdSecond = (530i64 : stdgo.GoUInt64);
-final _stdZeroSecond = (530i64 : stdgo.GoUInt64);
-final _stdLongYear : stdgo.GoUInt64 = (276i64 : stdgo.GoUInt64);
-final _stdYear = (276i64 : stdgo.GoUInt64);
-final _stdPM : stdgo.GoUInt64 = (534i64 : stdgo.GoUInt64);
-final _stdpm = (534i64 : stdgo.GoUInt64);
-final _stdTZ : stdgo.GoUInt64 = (35i64 : stdgo.GoUInt64);
-final _stdISO8601TZ = (35i64 : stdgo.GoUInt64);
-final _stdISO8601SecondsTZ = (35i64 : stdgo.GoUInt64);
-final _stdISO8601ShortTZ = (35i64 : stdgo.GoUInt64);
-final _stdISO8601ColonTZ = (35i64 : stdgo.GoUInt64);
-final _stdISO8601ColonSecondsTZ = (35i64 : stdgo.GoUInt64);
-final _stdNumTZ = (35i64 : stdgo.GoUInt64);
-final _stdNumSecondsTz = (35i64 : stdgo.GoUInt64);
-final _stdNumShortTZ = (35i64 : stdgo.GoUInt64);
-final _stdNumColonTZ = (35i64 : stdgo.GoUInt64);
-final _stdNumColonSecondsTZ = (35i64 : stdgo.GoUInt64);
-final _stdFracSecond0 = (35i64 : stdgo.GoUInt64);
-final _stdFracSecond9 = (35i64 : stdgo.GoUInt64);
-final _stdNeedDate : stdgo.GoUInt64 = (256i64 : stdgo.GoUInt64);
-final _stdNeedClock : stdgo.GoUInt64 = (512i64 : stdgo.GoUInt64);
-final _stdArgShift : stdgo.GoUInt64 = (16i64 : stdgo.GoUInt64);
-final _stdSeparatorShift : stdgo.GoUInt64 = (28i64 : stdgo.GoUInt64);
-final _stdMask : stdgo.GoUInt64 = (65535i64 : stdgo.GoUInt64);
-final _lowerhex : stdgo.GoString = ("0123456789abcdef" : stdgo.GoString);
-final _runeSelf : stdgo.GoUInt64 = (128i64 : stdgo.GoUInt64);
-final _runeError : stdgo.GoInt32 = (65533 : stdgo.GoInt32);
-final _hasMonotonic : stdgo.GoUInt64 = (-9223372036854775808i64 : stdgo.GoUInt64);
-final _maxWall : stdgo.GoInt64 = (68043243391i64 : stdgo.GoInt64);
-final _minWall : stdgo.GoInt64 = (59453308800i64 : stdgo.GoInt64);
-final _nsecMask : stdgo.GoUInt64 = (1073741823i64 : stdgo.GoUInt64);
-final _nsecShift : stdgo.GoUInt64 = (30i64 : stdgo.GoUInt64);
-final january : stdgo._internal.time.Time.Month = (12 : stdgo._internal.time.Time.Month);
-final february = (12 : stdgo._internal.time.Time.Month);
-final march = (12 : stdgo._internal.time.Time.Month);
-final april = (12 : stdgo._internal.time.Time.Month);
-final may = (12 : stdgo._internal.time.Time.Month);
-final june = (12 : stdgo._internal.time.Time.Month);
-final july = (12 : stdgo._internal.time.Time.Month);
-final august = (12 : stdgo._internal.time.Time.Month);
-final september = (12 : stdgo._internal.time.Time.Month);
-final october = (12 : stdgo._internal.time.Time.Month);
-final november = (12 : stdgo._internal.time.Time.Month);
-final december = (12 : stdgo._internal.time.Time.Month);
-final sunday : stdgo._internal.time.Time.Weekday = (6 : stdgo._internal.time.Time.Weekday);
-final monday = (6 : stdgo._internal.time.Time.Weekday);
-final tuesday = (6 : stdgo._internal.time.Time.Weekday);
-final wednesday = (6 : stdgo._internal.time.Time.Weekday);
-final thursday = (6 : stdgo._internal.time.Time.Weekday);
-final friday = (6 : stdgo._internal.time.Time.Weekday);
-final saturday = (6 : stdgo._internal.time.Time.Weekday);
-final _absoluteZeroYear : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
-final _internalYear : stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
-final _absoluteToInternal : stdgo.GoInt64 = (-9223371966579724800i64 : stdgo.GoInt64);
-final _internalToAbsolute : stdgo.GoInt64 = (9223371966579724800i64 : stdgo.GoInt64);
-final _unixToInternal : stdgo.GoInt64 = (62135596800i64 : stdgo.GoInt64);
-final _internalToUnix : stdgo.GoInt64 = (-62135596800i64 : stdgo.GoInt64);
-final _wallToInternal : stdgo.GoInt64 = (59453308800i64 : stdgo.GoInt64);
-final _minDuration : stdgo._internal.time.Time.Duration = (-9223372036854775808i64 : stdgo._internal.time.Time.Duration);
-final _maxDuration : stdgo._internal.time.Time.Duration = (9223372036854775807i64 : stdgo._internal.time.Time.Duration);
-final nanosecond : stdgo._internal.time.Time.Duration = (1i64 : stdgo._internal.time.Time.Duration);
-final microsecond : stdgo._internal.time.Time.Duration = (1000i64 : stdgo._internal.time.Time.Duration);
-final millisecond : stdgo._internal.time.Time.Duration = (1000000i64 : stdgo._internal.time.Time.Duration);
-final second : stdgo._internal.time.Time.Duration = (1000000000i64 : stdgo._internal.time.Time.Duration);
-final minute : stdgo._internal.time.Time.Duration = (60000000000i64 : stdgo._internal.time.Time.Duration);
-final hour : stdgo._internal.time.Time.Duration = (3600000000000i64 : stdgo._internal.time.Time.Duration);
-final _secondsPerMinute : stdgo.GoUInt64 = (60i64 : stdgo.GoUInt64);
-final _secondsPerHour : stdgo.GoUInt64 = (3600i64 : stdgo.GoUInt64);
-final _secondsPerDay : stdgo.GoUInt64 = (86400i64 : stdgo.GoUInt64);
-final _secondsPerWeek : stdgo.GoUInt64 = (604800i64 : stdgo.GoUInt64);
-final _daysPer400Years : stdgo.GoUInt64 = (146097i64 : stdgo.GoUInt64);
-final _daysPer100Years : stdgo.GoUInt64 = (36524i64 : stdgo.GoUInt64);
-final _daysPer4Years : stdgo.GoUInt64 = (1461i64 : stdgo.GoUInt64);
-final _timeBinaryVersionV1 : stdgo.GoUInt8 = (2 : stdgo.GoUInt8);
-final _timeBinaryVersionV2 = (2 : stdgo.GoUInt8);
-final _alpha : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
-final _omega : stdgo.GoUInt64 = (9223372036854775807i64 : stdgo.GoUInt64);
-var _localLoc : Location = ({} : stdgo._internal.time.Time.Location);
-var _localOnce : stdgo._internal.sync.Sync.Once = ({} : stdgo._internal.sync.Sync.Once);
-var _unnamedFixedZones : stdgo.Slice<stdgo.Ref<Location>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.time.Time.Location>>);
-var _unnamedFixedZonesOnce : stdgo._internal.sync.Sync.Once = ({} : stdgo._internal.sync.Sync.Once);
-final _ruleJulian : stdgo._internal.time.Time.T_ruleKind = (2 : stdgo._internal.time.Time.T_ruleKind);
-final _ruleDOY = (2 : stdgo._internal.time.Time.T_ruleKind);
-final _ruleMonthWeekDay = (2 : stdgo._internal.time.Time.T_ruleKind);
-var _zoneinfo : stdgo.Pointer<stdgo.GoString> = (null : stdgo.Pointer<stdgo.GoString>);
-var _zoneinfoOnce : stdgo._internal.sync.Sync.Once = ({} : stdgo._internal.sync.Sync.Once);
-var _loadFromEmbeddedTZData : (_zipname:stdgo.GoString) -> { var _0 : stdgo.GoString; var _1 : stdgo.Error; } = null;
-final _maxFileSize : stdgo.GoUInt64 = (10485760i64 : stdgo.GoUInt64);
-final _seekStart : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
-final _seekCurrent : stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
-final _seekEnd : stdgo.GoUInt64 = (2i64 : stdgo.GoUInt64);
-var _loadTzinfoFromTzdata : (_file:stdgo.GoString, _name:stdgo.GoString) -> { var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = null;
 @:structInit class Rule {
     public var kind : stdgo._internal.time.Time.RuleKind = ((0 : stdgo.GoInt) : stdgo._internal.time.Time.RuleKind);
     public var day : stdgo.GoInt = 0;
@@ -2856,10 +2856,11 @@ function _loadTzinfoFromZip(_zipfile:stdgo.GoString, _name:stdgo.GoString):{ var
                 var _err:stdgo.Error = _preadn(_fd, _buf, (-22 : stdgo.GoInt));
                 if (((_err != null) || (_get4(_buf) != (101010256 : stdgo.GoInt)) : Bool)) {
                     {
+                        final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors.new_((("corrupt zip file " : stdgo.GoString) + _zipfile?.__copy__() : stdgo.GoString)?.__copy__()) };
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors.new_((("corrupt zip file " : stdgo.GoString) + _zipfile?.__copy__() : stdgo.GoString)?.__copy__()) };
+                        return __ret__;
                     };
                 };
             };
@@ -2871,10 +2872,11 @@ function _loadTzinfoFromZip(_zipfile:stdgo.GoString, _name:stdgo.GoString):{ var
                 var _err:stdgo.Error = _preadn(_fd, _buf, _off);
                 if (_err != null) {
                     {
+                        final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors.new_((("corrupt zip file " : stdgo.GoString) + _zipfile?.__copy__() : stdgo.GoString)?.__copy__()) };
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors.new_((("corrupt zip file " : stdgo.GoString) + _zipfile?.__copy__() : stdgo.GoString)?.__copy__()) };
+                        return __ret__;
                     };
                 };
             };
@@ -2897,10 +2899,11 @@ function _loadTzinfoFromZip(_zipfile:stdgo.GoString, _name:stdgo.GoString):{ var
                     };
                     if (_meth != ((0 : stdgo.GoInt))) {
                         {
+                            final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors.new_((((("unsupported compression for " : stdgo.GoString) + _name?.__copy__() : stdgo.GoString) + (" in " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _zipfile?.__copy__() : stdgo.GoString)?.__copy__()) };
                             for (defer in __deferstack__) {
                                 defer();
                             };
-                            return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors.new_((((("unsupported compression for " : stdgo.GoString) + _name?.__copy__() : stdgo.GoString) + (" in " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _zipfile?.__copy__() : stdgo.GoString)?.__copy__()) };
+                            return __ret__;
                         };
                     };
                     _buf = new stdgo.Slice<stdgo.GoUInt8>(((30 : stdgo.GoInt) + _namelen : stdgo.GoInt).toBasic(), 0).__setNumber32__();
@@ -2908,10 +2911,11 @@ function _loadTzinfoFromZip(_zipfile:stdgo.GoString, _name:stdgo.GoString):{ var
                         var _err:stdgo.Error = _preadn(_fd, _buf, _off);
                         if (((((_err != null || _get4(_buf) != ((67324752 : stdgo.GoInt)) : Bool) || _get2((_buf.__slice__((8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) != (_meth) : Bool) || _get2((_buf.__slice__((26 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) != (_namelen) : Bool) || (((_buf.__slice__((30 : stdgo.GoInt), ((30 : stdgo.GoInt) + _namelen : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) != _name) : Bool)) {
                             {
+                                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors.new_((("corrupt zip file " : stdgo.GoString) + _zipfile?.__copy__() : stdgo.GoString)?.__copy__()) };
                                 for (defer in __deferstack__) {
                                     defer();
                                 };
-                                return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors.new_((("corrupt zip file " : stdgo.GoString) + _zipfile?.__copy__() : stdgo.GoString)?.__copy__()) };
+                                return __ret__;
                             };
                         };
                     };
@@ -2921,33 +2925,37 @@ function _loadTzinfoFromZip(_zipfile:stdgo.GoString, _name:stdgo.GoString):{ var
                         var _err:stdgo.Error = _preadn(_fd, _buf, (((_off + (30 : stdgo.GoInt) : stdgo.GoInt) + _namelen : stdgo.GoInt) + _xlen : stdgo.GoInt));
                         if (_err != null) {
                             {
+                                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors.new_((("corrupt zip file " : stdgo.GoString) + _zipfile?.__copy__() : stdgo.GoString)?.__copy__()) };
                                 for (defer in __deferstack__) {
                                     defer();
                                 };
-                                return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors.new_((("corrupt zip file " : stdgo.GoString) + _zipfile?.__copy__() : stdgo.GoString)?.__copy__()) };
+                                return __ret__;
                             };
                         };
                     };
                     {
+                        final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : _buf, _1 : (null : stdgo.Error) };
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return { _0 : _buf, _1 : (null : stdgo.Error) };
+                        return __ret__;
                     };
                 });
             };
             {
+                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo.Go.asInterface((2 : stdgo._internal.syscall.Syscall.Errno)) };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo.Go.asInterface((2 : stdgo._internal.syscall.Syscall.Errno)) };
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -2956,11 +2964,12 @@ function _loadTzinfoFromZip(_zipfile:stdgo.GoString, _name:stdgo.GoString):{ var
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
+            return __ret__;
         };
     }
 function _loadTzinfo(_name:stdgo.GoString, _source:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } {
@@ -3059,25 +3068,28 @@ function _readFile(_name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoByte>; v
                 };
                 if (((_ret.length) > (10485760 : stdgo.GoInt) : Bool)) {
                     {
+                        final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo.Go.asInterface((_name : T_fileSizeError)) };
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo.Go.asInterface((_name : T_fileSizeError)) };
+                        return __ret__;
                     };
                 };
             };
             {
+                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : _ret, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return { _0 : _ret, _1 : _err };
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -3086,11 +3098,12 @@ function _readFile(_name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoByte>; v
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
+            return __ret__;
         };
     }
 @:keep var _ = {

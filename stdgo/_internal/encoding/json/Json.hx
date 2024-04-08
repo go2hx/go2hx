@@ -1,5 +1,43 @@
 package stdgo._internal.encoding.json;
 private var __go2hxdoc__package : Bool;
+var _codeJSON : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
+var _codeStruct : T_codeResponse = ({} : stdgo._internal.encoding.json.Json.T_codeResponse);
+final _phasePanicMsg : stdgo.GoString = ("JSON decoder out of sync - data changing underfoot?" : stdgo.GoString);
+var __4 : stdgo._internal.encoding.Encoding.TextUnmarshaler = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.encoding.json.Json.T_unmarshalerText>) : stdgo.Ref<T_unmarshalerText>));
+var __5 : stdgo._internal.encoding.Encoding.TextUnmarshaler = stdgo.Go.asInterface(((null : stdgo.Pointer<stdgo._internal.encoding.json.Json.T_u8marshal>) : stdgo.Pointer<T_u8marshal>));
+final _startDetectingCyclesAfter : stdgo.GoUInt64 = (1000i64 : stdgo.GoUInt64);
+var _encodeStatePool : stdgo._internal.sync.Sync.Pool = ({} : stdgo._internal.sync.Sync.Pool);
+var _encoderCache : stdgo._internal.sync.Sync.Map_ = ({} : stdgo._internal.sync.Sync.Map_);
+var _fieldCache : stdgo._internal.sync.Sync.Map_ = ({} : stdgo._internal.sync.Sync.Map_);
+final _indentGrowthFactor : stdgo.GoUInt64 = (2i64 : stdgo.GoUInt64);
+final _scanContinue : stdgo.GoUInt64 = (11i64 : stdgo.GoUInt64);
+final _scanBeginLiteral = (11i64 : stdgo.GoUInt64);
+final _scanBeginObject = (11i64 : stdgo.GoUInt64);
+final _scanObjectKey = (11i64 : stdgo.GoUInt64);
+final _scanObjectValue = (11i64 : stdgo.GoUInt64);
+final _scanEndObject = (11i64 : stdgo.GoUInt64);
+final _scanBeginArray = (11i64 : stdgo.GoUInt64);
+final _scanArrayValue = (11i64 : stdgo.GoUInt64);
+final _scanEndArray = (11i64 : stdgo.GoUInt64);
+final _scanSkipSpace = (11i64 : stdgo.GoUInt64);
+final _scanEnd = (11i64 : stdgo.GoUInt64);
+final _scanError = (11i64 : stdgo.GoUInt64);
+final _parseObjectKey : stdgo.GoUInt64 = (2i64 : stdgo.GoUInt64);
+final _parseObjectValue = (2i64 : stdgo.GoUInt64);
+final _parseArrayValue = (2i64 : stdgo.GoUInt64);
+final _maxNestingDepth : stdgo.GoUInt64 = (10000i64 : stdgo.GoUInt64);
+var _jsonBig : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
+var __6 : stdgo._internal.encoding.json.Json.Marshaler = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.encoding.json.Json.RawMessage>) : stdgo.Ref<RawMessage>));
+var __7 : stdgo._internal.encoding.json.Json.Unmarshaler = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.encoding.json.Json.RawMessage>) : stdgo.Ref<RawMessage>));
+final _tokenTopValue : stdgo.GoUInt64 = (8i64 : stdgo.GoUInt64);
+final _tokenArrayStart = (8i64 : stdgo.GoUInt64);
+final _tokenArrayValue = (8i64 : stdgo.GoUInt64);
+final _tokenArrayComma = (8i64 : stdgo.GoUInt64);
+final _tokenObjectStart = (8i64 : stdgo.GoUInt64);
+final _tokenObjectKey = (8i64 : stdgo.GoUInt64);
+final _tokenObjectColon = (8i64 : stdgo.GoUInt64);
+final _tokenObjectValue = (8i64 : stdgo.GoUInt64);
+final _tokenObjectComma = (8i64 : stdgo.GoUInt64);
 var _nullLiteral : stdgo.Slice<stdgo.GoUInt8> = (("null" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
 var _textUnmarshalerType : stdgo._internal.reflect.Reflect.Type_ = stdgo._internal.reflect.Reflect.typeOf(stdgo.Go.toInterface((null : stdgo.Ref<stdgo._internal.encoding.Encoding.TextUnmarshaler>))).elem();
 var _numberType : stdgo._internal.reflect.Reflect.Type_ = stdgo._internal.reflect.Reflect.typeOf(stdgo.Go.toInterface(stdgo.Go.asInterface(((stdgo.Go.str() : stdgo._internal.encoding.json.Json.Number) : Number))));
@@ -761,44 +799,6 @@ var _structTagObjectKeyTests : stdgo.Slice<T__struct_45> = (new stdgo.Slice<T__s
 ({ _raw : stdgo.Go.toInterface((new stdgo._internal.encoding.json.Json.T_punctuationTag(("Union Rags" : stdgo.GoString)) : stdgo._internal.encoding.json.Json.T_punctuationTag)), _value : ("Union Rags" : stdgo.GoString), _key : ("!#$%&()*+-./:;<=>?@[]^_{|}~ " : stdgo.GoString) } : T__struct_45),
 ({ _raw : stdgo.Go.toInterface((new stdgo._internal.encoding.json.Json.T_spaceTag(("Perreddu" : stdgo.GoString)) : stdgo._internal.encoding.json.Json.T_spaceTag)), _value : ("Perreddu" : stdgo.GoString), _key : ("With space" : stdgo.GoString) } : T__struct_45),
 ({ _raw : stdgo.Go.toInterface((new stdgo._internal.encoding.json.Json.T_unicodeTag(("Loukanikos" : stdgo.GoString)) : stdgo._internal.encoding.json.Json.T_unicodeTag)), _value : ("Loukanikos" : stdgo.GoString), _key : ("Ελλάδα" : stdgo.GoString) } : T__struct_45)) : stdgo.Slice<T__struct_45>);
-var _codeJSON : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
-var _codeStruct : T_codeResponse = ({} : stdgo._internal.encoding.json.Json.T_codeResponse);
-final _phasePanicMsg : stdgo.GoString = ("JSON decoder out of sync - data changing underfoot?" : stdgo.GoString);
-var __4 : stdgo._internal.encoding.Encoding.TextUnmarshaler = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.encoding.json.Json.T_unmarshalerText>) : stdgo.Ref<T_unmarshalerText>));
-var __5 : stdgo._internal.encoding.Encoding.TextUnmarshaler = stdgo.Go.asInterface(((null : stdgo.Pointer<stdgo._internal.encoding.json.Json.T_u8marshal>) : stdgo.Pointer<T_u8marshal>));
-final _startDetectingCyclesAfter : stdgo.GoUInt64 = (1000i64 : stdgo.GoUInt64);
-var _encodeStatePool : stdgo._internal.sync.Sync.Pool = ({} : stdgo._internal.sync.Sync.Pool);
-var _encoderCache : stdgo._internal.sync.Sync.Map_ = ({} : stdgo._internal.sync.Sync.Map_);
-var _fieldCache : stdgo._internal.sync.Sync.Map_ = ({} : stdgo._internal.sync.Sync.Map_);
-final _indentGrowthFactor : stdgo.GoUInt64 = (2i64 : stdgo.GoUInt64);
-final _scanContinue : stdgo.GoUInt64 = (11i64 : stdgo.GoUInt64);
-final _scanBeginLiteral = (11i64 : stdgo.GoUInt64);
-final _scanBeginObject = (11i64 : stdgo.GoUInt64);
-final _scanObjectKey = (11i64 : stdgo.GoUInt64);
-final _scanObjectValue = (11i64 : stdgo.GoUInt64);
-final _scanEndObject = (11i64 : stdgo.GoUInt64);
-final _scanBeginArray = (11i64 : stdgo.GoUInt64);
-final _scanArrayValue = (11i64 : stdgo.GoUInt64);
-final _scanEndArray = (11i64 : stdgo.GoUInt64);
-final _scanSkipSpace = (11i64 : stdgo.GoUInt64);
-final _scanEnd = (11i64 : stdgo.GoUInt64);
-final _scanError = (11i64 : stdgo.GoUInt64);
-final _parseObjectKey : stdgo.GoUInt64 = (2i64 : stdgo.GoUInt64);
-final _parseObjectValue = (2i64 : stdgo.GoUInt64);
-final _parseArrayValue = (2i64 : stdgo.GoUInt64);
-final _maxNestingDepth : stdgo.GoUInt64 = (10000i64 : stdgo.GoUInt64);
-var _jsonBig : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
-var __6 : stdgo._internal.encoding.json.Json.Marshaler = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.encoding.json.Json.RawMessage>) : stdgo.Ref<RawMessage>));
-var __7 : stdgo._internal.encoding.json.Json.Unmarshaler = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.encoding.json.Json.RawMessage>) : stdgo.Ref<RawMessage>));
-final _tokenTopValue : stdgo.GoUInt64 = (8i64 : stdgo.GoUInt64);
-final _tokenArrayStart = (8i64 : stdgo.GoUInt64);
-final _tokenArrayValue = (8i64 : stdgo.GoUInt64);
-final _tokenArrayComma = (8i64 : stdgo.GoUInt64);
-final _tokenObjectStart = (8i64 : stdgo.GoUInt64);
-final _tokenObjectKey = (8i64 : stdgo.GoUInt64);
-final _tokenObjectColon = (8i64 : stdgo.GoUInt64);
-final _tokenObjectValue = (8i64 : stdgo.GoUInt64);
-final _tokenObjectComma = (8i64 : stdgo.GoUInt64);
 typedef Unmarshaler = stdgo.StructType & {
     /**
         
@@ -5242,25 +5242,28 @@ function marshal(_v:stdgo.AnyInterface):{ var _0 : stdgo.Slice<stdgo.GoByte>; va
             var _err:stdgo.Error = _e._marshal(_v, ({ _escapeHTML : true } : stdgo._internal.encoding.json.Json.T_encOpts));
             if (_err != null) {
                 {
+                    final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
                     for (defer in __deferstack__) {
                         defer();
                     };
-                    return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                    return __ret__;
                 };
             };
             var _buf = (((null : stdgo.Slice<stdgo.GoUInt8>) : stdgo.Slice<stdgo.GoByte>).__append__(...(_e.bytes() : Array<stdgo.GoUInt8>)));
             {
+                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : _buf, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return { _0 : _buf, _1 : (null : stdgo.Error) };
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -5269,11 +5272,12 @@ function marshal(_v:stdgo.AnyInterface):{ var _0 : stdgo.Slice<stdgo.GoByte>; va
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
+            return __ret__;
         };
     }
 function marshalIndent(_v:stdgo.AnyInterface, _prefix:stdgo.GoString, _indent:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } {
@@ -7173,25 +7177,28 @@ function _appendCompact(_dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.Slice<stdgo.G
             };
             if (_scan._eof() == ((11 : stdgo.GoInt))) {
                 {
+                    final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : (_dst.__slice__(0, _origLen) : stdgo.Slice<stdgo.GoUInt8>), _1 : _scan._err };
                     for (defer in __deferstack__) {
                         defer();
                     };
-                    return { _0 : (_dst.__slice__(0, _origLen) : stdgo.Slice<stdgo.GoUInt8>), _1 : _scan._err };
+                    return __ret__;
                 };
             };
             _dst = (_dst.__append__(...((_src.__slice__(_start) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
             {
+                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : _dst, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return { _0 : _dst, _1 : (null : stdgo.Error) };
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -7200,11 +7207,12 @@ function _appendCompact(_dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.Slice<stdgo.G
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
+            return __ret__;
         };
     }
 function _appendNewline(_dst:stdgo.Slice<stdgo.GoByte>, _prefix:stdgo.GoString, _indent:stdgo.GoString, _depth:stdgo.GoInt):stdgo.Slice<stdgo.GoByte> {
@@ -7279,24 +7287,27 @@ function _appendIndent(_dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.Slice<stdgo.Go
             };
             if (_scan._eof() == ((11 : stdgo.GoInt))) {
                 {
+                    final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : (_dst.__slice__(0, _origLen) : stdgo.Slice<stdgo.GoUInt8>), _1 : _scan._err };
                     for (defer in __deferstack__) {
                         defer();
                     };
-                    return { _0 : (_dst.__slice__(0, _origLen) : stdgo.Slice<stdgo.GoUInt8>), _1 : _scan._err };
+                    return __ret__;
                 };
             };
             {
+                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : _dst, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return { _0 : _dst, _1 : (null : stdgo.Error) };
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -7305,11 +7316,12 @@ function _appendIndent(_dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.Slice<stdgo.Go
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
+            return __ret__;
         };
     }
 function testNumberIsValid(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
@@ -7427,10 +7439,11 @@ function valid(_data:stdgo.Slice<stdgo.GoByte>):Bool {
                 __deferstack__.unshift(() -> _freeScanner(_a0));
             };
             {
+                final __ret__:Bool = _checkValid(_data, _scan) == null;
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return _checkValid(_data, _scan) == null;
+                return __ret__;
             };
             {
                 for (defer in __deferstack__) {
@@ -10061,10 +10074,11 @@ class T_encodeState_asInterface {
             });
             _e._reflectValue(stdgo._internal.reflect.Reflect.valueOf(_v)?.__copy__(), _opts?.__copy__());
             {
+                final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return (null : stdgo.Error);
+                return __ret__;
             };
             {
                 for (defer in __deferstack__) {
@@ -11156,11 +11170,12 @@ class Encoder_asInterface {
                 return _err;
             };
             {
+                final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return (null : stdgo.Error);
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -11169,11 +11184,12 @@ class Encoder_asInterface {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:stdgo.Error = (null : stdgo.Error);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return (null : stdgo.Error);
+            return __ret__;
         };
     }
 }

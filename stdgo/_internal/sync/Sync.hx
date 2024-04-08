@@ -1,10 +1,5 @@
 package stdgo._internal.sync;
 private var __go2hxdoc__package : Bool;
-var _expunged : stdgo.Ref<stdgo.AnyInterface> = (stdgo.Go.setRef((null : stdgo.AnyInterface)) : stdgo.Ref<stdgo.AnyInterface>);
-var runtime_Semacquire : stdgo.Pointer<stdgo.GoUInt32> -> Void = _runtime_Semacquire;
-var runtime_Semrelease : (stdgo.Pointer<stdgo.GoUInt32>, Bool, stdgo.GoInt) -> Void = _runtime_Semrelease;
-var runtime_procPin : () -> stdgo.GoInt = _runtime_procPin;
-var runtime_procUnpin : () -> Void = _runtime_procUnpin;
 final _mutexLocked : stdgo.GoUInt64 = (4i64 : stdgo.GoUInt64);
 final _mutexWoken = (4i64 : stdgo.GoUInt64);
 final _mutexStarving = (4i64 : stdgo.GoUInt64);
@@ -17,6 +12,11 @@ var _oldPools : stdgo.Slice<stdgo.Ref<Pool>> = (null : stdgo.Slice<stdgo.Ref<std
 final _dequeueBits : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
 final _dequeueLimit : stdgo.GoUInt64 = (1073741824i64 : stdgo.GoUInt64);
 final _rwmutexMaxReaders : stdgo.GoUInt64 = (1073741824i64 : stdgo.GoUInt64);
+var _expunged : stdgo.Ref<stdgo.AnyInterface> = (stdgo.Go.setRef((null : stdgo.AnyInterface)) : stdgo.Ref<stdgo.AnyInterface>);
+var runtime_Semacquire : stdgo.Pointer<stdgo.GoUInt32> -> Void = _runtime_Semacquire;
+var runtime_Semrelease : (stdgo.Pointer<stdgo.GoUInt32>, Bool, stdgo.GoInt) -> Void = _runtime_Semrelease;
+var runtime_procPin : () -> stdgo.GoInt = _runtime_procPin;
+var runtime_procUnpin : () -> Void = _runtime_procUnpin;
 typedef PoolDequeue = stdgo.StructType & {
     /**
         

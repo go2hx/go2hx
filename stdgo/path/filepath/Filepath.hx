@@ -9,6 +9,8 @@ package stdgo.path.filepath;
     // system, see the [path] package.
 **/
 private var __go2hxdoc__package : Bool;
+final separator : Int = stdgo._internal.path.filepath.Filepath.separator;
+final listSeparator : Int = stdgo._internal.path.filepath.Filepath.listSeparator;
 var errBadPattern(get, set) : stdgo.Error;
 function get_errBadPattern():stdgo.Error return stdgo._internal.path.filepath.Filepath.errBadPattern;
 function set_errBadPattern(v:stdgo.Error):stdgo.Error return stdgo._internal.path.filepath.Filepath.errBadPattern = v;
@@ -21,8 +23,6 @@ function set_skipAll(v:stdgo.Error):stdgo.Error return stdgo._internal.path.file
 var lstatP(get, set) : stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; };
 function get_lstatP():stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return stdgo._internal.path.filepath.Filepath.lstatP;
 function set_lstatP(v:stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; }):stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return stdgo._internal.path.filepath.Filepath.lstatP = v;
-final separator : Int = stdgo._internal.path.filepath.Filepath.separator;
-final listSeparator : Int = stdgo._internal.path.filepath.Filepath.listSeparator;
 @:invalid typedef T_lazybuf = Dynamic;
 @:invalid typedef T_statDirEntry = Dynamic;
 typedef WalkFunc = stdgo._internal.path.filepath.Filepath.WalkFunc;

@@ -1,5 +1,21 @@
 package stdgo._internal.strconv;
 private var __go2hxdoc__package : Bool;
+final _fnParseComplex : stdgo.GoString = ("ParseComplex" : stdgo.GoString);
+final _fnParseFloat : stdgo.GoString = ("ParseFloat" : stdgo.GoString);
+final _intSize : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
+final intSize : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
+final _maxUint64 : stdgo.GoUInt64 = (-1i64 : stdgo.GoUInt64);
+final _uintSize : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
+final _maxShift : stdgo.GoUInt64 = (28i64 : stdgo.GoUInt64);
+final _detailedPowersOfTenMinExp10 : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+final _detailedPowersOfTenMaxExp10 : stdgo.GoUInt64 = (347i64 : stdgo.GoUInt64);
+final _fastSmalls : Bool = true;
+final _nSmalls : stdgo.GoUInt64 = (100i64 : stdgo.GoUInt64);
+final _smallsString : stdgo.GoString = ("00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899" : stdgo.GoString);
+final _host32bit : Bool = true;
+final _digits : stdgo.GoString = ("0123456789abcdefghijklmnopqrstuvwxyz" : stdgo.GoString);
+final _lowerhex : stdgo.GoString = ("0123456789abcdef" : stdgo.GoString);
+final _upperhex : stdgo.GoString = ("0123456789ABCDEF" : stdgo.GoString);
 var _optimize : Bool = true;
 var _powtab : stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(
 9,
@@ -2049,22 +2065,6 @@ var _isGraphic : stdgo.Slice<stdgo.GoUInt16> = (new stdgo.Slice<stdgo.GoUInt16>(
 (12288 : stdgo.GoUInt16)) : stdgo.Slice<stdgo.GoUInt16>);
 var bitSizeError : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> = _bitSizeError;
 var baseError : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> = _baseError;
-final _fnParseComplex : stdgo.GoString = ("ParseComplex" : stdgo.GoString);
-final _fnParseFloat : stdgo.GoString = ("ParseFloat" : stdgo.GoString);
-final _intSize : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
-final intSize : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
-final _maxUint64 : stdgo.GoUInt64 = (-1i64 : stdgo.GoUInt64);
-final _uintSize : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
-final _maxShift : stdgo.GoUInt64 = (28i64 : stdgo.GoUInt64);
-final _detailedPowersOfTenMinExp10 : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
-final _detailedPowersOfTenMaxExp10 : stdgo.GoUInt64 = (347i64 : stdgo.GoUInt64);
-final _fastSmalls : Bool = true;
-final _nSmalls : stdgo.GoUInt64 = (100i64 : stdgo.GoUInt64);
-final _smallsString : stdgo.GoString = ("00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899" : stdgo.GoString);
-final _host32bit : Bool = true;
-final _digits : stdgo.GoString = ("0123456789abcdefghijklmnopqrstuvwxyz" : stdgo.GoString);
-final _lowerhex : stdgo.GoString = ("0123456789abcdef" : stdgo.GoString);
-final _upperhex : stdgo.GoString = ("0123456789ABCDEF" : stdgo.GoString);
 @:structInit @:using(stdgo._internal.strconv.Strconv.NumError_static_extension) class NumError {
     public var func : stdgo.GoString = "";
     public var num : stdgo.GoString = "";

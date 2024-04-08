@@ -5,6 +5,8 @@ package stdgo.bufio;
     // the interface but provides buffering and some help for textual I/O.
 **/
 private var __go2hxdoc__package : Bool;
+final defaultBufSize : haxe.UInt64 = stdgo._internal.bufio.Bufio.defaultBufSize;
+final maxScanTokenSize : haxe.UInt64 = stdgo._internal.bufio.Bufio.maxScanTokenSize;
 var errInvalidUnreadByte(get, set) : stdgo.Error;
 function get_errInvalidUnreadByte():stdgo.Error return stdgo._internal.bufio.Bufio.errInvalidUnreadByte;
 function set_errInvalidUnreadByte(v:stdgo.Error):stdgo.Error return stdgo._internal.bufio.Bufio.errInvalidUnreadByte = v;
@@ -35,8 +37,6 @@ function set_errFinalToken(v:stdgo.Error):stdgo.Error return stdgo._internal.buf
 var isSpace(get, set) : stdgo.GoInt32 -> Bool;
 function get_isSpace():stdgo.GoInt32 -> Bool return stdgo._internal.bufio.Bufio.isSpace;
 function set_isSpace(v:stdgo.GoInt32 -> Bool):stdgo.GoInt32 -> Bool return stdgo._internal.bufio.Bufio.isSpace = v;
-final defaultBufSize : haxe.UInt64 = stdgo._internal.bufio.Bufio.defaultBufSize;
-final maxScanTokenSize : haxe.UInt64 = stdgo._internal.bufio.Bufio.maxScanTokenSize;
 @:invalid typedef Reader = Dynamic;
 @:invalid typedef Writer = Dynamic;
 @:invalid typedef ReadWriter = Dynamic;

@@ -6,6 +6,15 @@ import stdgo._internal.time.Time;
 import stdgo._internal.time.Time;
 import stdgo._internal.time.tzdata.Tzdata;
 import stdgo._internal.time.Time;
+var _c : stdgo.Chan<stdgo.GoInt> = (null : stdgo.Chan<stdgo.GoInt>);
+final _windowsInaccuracy : stdgo._internal.time.Time.Duration = (17000000i64 : stdgo._internal.time.Time.Duration);
+final _unixToZero : stdgo.GoUInt64 = (62135596800i64 : stdgo.GoUInt64);
+var _t : Time = ({} : stdgo._internal.time.Time.Time);
+var _u : stdgo.GoInt64 = (0 : stdgo.GoInt64);
+final _minDuration : stdgo._internal.time.Time.Duration = (-9223372036854775808i64 : stdgo._internal.time.Time.Duration);
+final _maxDuration : stdgo._internal.time.Time.Duration = (9223372036854775807i64 : stdgo._internal.time.Time.Duration);
+final _testdataRFC3339UTC : stdgo.GoString = ("2020-08-22T11:27:43.123456789Z" : stdgo.GoString);
+final _testdataRFC3339TZ : stdgo.GoString = ("2020-08-22T11:27:43.123456789-02:00" : stdgo.GoString);
 var _nextStdChunkTests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(6, 6, ("(2006)-(01)-(02)T(15):(04):(05)(Z07:00)" : stdgo.GoString), ("(2006)-(01)-(02) (002) (15):(04):(05)" : stdgo.GoString), ("(2006)-(01) (002) (15):(04):(05)" : stdgo.GoString), ("(2006)-(002) (15):(04):(05)" : stdgo.GoString), ("(2006)(002)(01) (15):(04):(05)" : stdgo.GoString), ("(2006)(002)(04) (15):(04):(05)" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
 var _rfc3339Formats : stdgo.Slice<stdgo._internal.time_test.Time_test.TimeFormatTest> = (new stdgo.Slice<stdgo._internal.time_test.Time_test.TimeFormatTest>(3, 3, (new stdgo._internal.time_test.Time_test.TimeFormatTest(date((2008 : stdgo.GoInt), (9 : stdgo._internal.time.Time.Month), (17 : stdgo.GoInt), (20 : stdgo.GoInt), (4 : stdgo.GoInt), (26 : stdgo.GoInt), (0 : stdgo.GoInt), utc)?.__copy__(), ("2008-09-17T20:04:26Z" : stdgo.GoString)) : stdgo._internal.time_test.Time_test.TimeFormatTest), (new stdgo._internal.time_test.Time_test.TimeFormatTest(date((1994 : stdgo.GoInt), (9 : stdgo._internal.time.Time.Month), (17 : stdgo.GoInt), (20 : stdgo.GoInt), (4 : stdgo.GoInt), (26 : stdgo.GoInt), (0 : stdgo.GoInt), fixedZone(("EST" : stdgo.GoString), (-18000 : stdgo.GoInt)))?.__copy__(), ("1994-09-17T20:04:26-05:00" : stdgo.GoString)) : stdgo._internal.time_test.Time_test.TimeFormatTest), (new stdgo._internal.time_test.Time_test.TimeFormatTest(date((2000 : stdgo.GoInt), (12 : stdgo._internal.time.Time.Month), (26 : stdgo.GoInt), (1 : stdgo.GoInt), (15 : stdgo.GoInt), (6 : stdgo.GoInt), (0 : stdgo.GoInt), fixedZone(("OTO" : stdgo.GoString), (15600 : stdgo.GoInt)))?.__copy__(), ("2000-12-26T01:15:06+04:20" : stdgo.GoString)) : stdgo._internal.time_test.Time_test.TimeFormatTest)) : stdgo.Slice<stdgo._internal.time_test.Time_test.TimeFormatTest>);
 var _formatTests : stdgo.Slice<stdgo._internal.time_test.Time_test.FormatTest> = (new stdgo.Slice<stdgo._internal.time_test.Time_test.FormatTest>(
@@ -745,15 +754,6 @@ var _slimTests : stdgo.Slice<T__struct_32> = (new stdgo.Slice<T__struct_32>(4, 4
     }, _wantName : ("EET" : stdgo.GoString), _wantOffset : (7200 : stdgo.GoInt) } : T__struct_32), ({ _zoneName : ("Europe/Dublin" : stdgo.GoString), _fileName : ("2021a_Europe_Dublin" : stdgo.GoString), _date : function(_loc:stdgo.Ref<stdgo._internal.time.Time.Location>):stdgo._internal.time.Time.Time {
         return stdgo._internal.time.Time.date((2021 : stdgo.GoInt), (4 : stdgo._internal.time.Time.Month), (2 : stdgo.GoInt), (11 : stdgo.GoInt), (12 : stdgo.GoInt), (13 : stdgo.GoInt), (0 : stdgo.GoInt), _loc)?.__copy__();
     }, _wantName : ("IST" : stdgo.GoString), _wantOffset : (3600 : stdgo.GoInt) } : T__struct_32)) : stdgo.Slice<T__struct_32>);
-var _c : stdgo.Chan<stdgo.GoInt> = (null : stdgo.Chan<stdgo.GoInt>);
-final _windowsInaccuracy : stdgo._internal.time.Time.Duration = (17000000i64 : stdgo._internal.time.Time.Duration);
-final _unixToZero : stdgo.GoUInt64 = (62135596800i64 : stdgo.GoUInt64);
-var _t : Time = ({} : stdgo._internal.time.Time.Time);
-var _u : stdgo.GoInt64 = (0 : stdgo.GoInt64);
-final _minDuration : stdgo._internal.time.Time.Duration = (-9223372036854775808i64 : stdgo._internal.time.Time.Duration);
-final _maxDuration : stdgo._internal.time.Time.Duration = (9223372036854775807i64 : stdgo._internal.time.Time.Duration);
-final _testdataRFC3339UTC : stdgo.GoString = ("2020-08-22T11:27:43.123456789Z" : stdgo.GoString);
-final _testdataRFC3339TZ : stdgo.GoString = ("2020-08-22T11:27:43.123456789-02:00" : stdgo.GoString);
 @:structInit class TimeFormatTest {
     public var _time : stdgo._internal.time.Time.Time = ({} : stdgo._internal.time.Time.Time);
     public var _formattedValue : stdgo.GoString = "";

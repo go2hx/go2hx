@@ -1,10 +1,10 @@
 package stdgo._internal.context;
 private var __go2hxdoc__package : Bool;
+var _goroutines : stdgo._internal.sync.atomic_.Atomic_.Int32 = ({} : stdgo._internal.sync.atomic_.Atomic_.Int32);
+var _cancelCtxKey : stdgo.GoInt = (0 : stdgo.GoInt);
 var canceled : stdgo.Error = (null : stdgo.Error);
 var deadlineExceeded : stdgo.Error = (null : stdgo.Error);
 var _closedchan : stdgo.Chan<T_deadlineExceededError> = (null : stdgo.Chan<T_deadlineExceededError>);
-var _goroutines : stdgo._internal.sync.atomic_.Atomic_.Int32 = ({} : stdgo._internal.sync.atomic_.Atomic_.Int32);
-var _cancelCtxKey : stdgo.GoInt = (0 : stdgo.GoInt);
 typedef Context = stdgo.StructType & {
     /**
         // Deadline returns the time when work done on behalf of this context

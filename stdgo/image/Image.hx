@@ -21,6 +21,18 @@ package stdgo.image;
     // https://golang.org/doc/articles/image_package.html
 **/
 private var __go2hxdoc__package : Bool;
+var zp(get, set) : Point;
+function get_zp():Point return stdgo._internal.image.Image.zp;
+function set_zp(v:Point):Point return stdgo._internal.image.Image.zp = v;
+var zr(get, set) : Rectangle;
+function get_zr():Rectangle return stdgo._internal.image.Image.zr;
+function set_zr(v:Rectangle):Rectangle return stdgo._internal.image.Image.zr = v;
+final ycbCrSubsampleRatio444 : stdgo._internal.image.Image.YCbCrSubsampleRatio = stdgo._internal.image.Image.ycbCrSubsampleRatio444;
+final ycbCrSubsampleRatio422 = stdgo._internal.image.Image.ycbCrSubsampleRatio422;
+final ycbCrSubsampleRatio420 = stdgo._internal.image.Image.ycbCrSubsampleRatio420;
+final ycbCrSubsampleRatio440 = stdgo._internal.image.Image.ycbCrSubsampleRatio440;
+final ycbCrSubsampleRatio411 = stdgo._internal.image.Image.ycbCrSubsampleRatio411;
+final ycbCrSubsampleRatio410 = stdgo._internal.image.Image.ycbCrSubsampleRatio410;
 var errFormat(get, set) : stdgo.Error;
 function get_errFormat():stdgo.Error return stdgo._internal.image.Image.errFormat;
 function set_errFormat(v:stdgo.Error):stdgo.Error return stdgo._internal.image.Image.errFormat = v;
@@ -36,18 +48,6 @@ function set_transparent(v:stdgo._internal.image.Image.Uniform):stdgo._internal.
 var opaque(get, set) : stdgo._internal.image.Image.Uniform;
 function get_opaque():stdgo._internal.image.Image.Uniform return stdgo._internal.image.Image.opaque;
 function set_opaque(v:stdgo._internal.image.Image.Uniform):stdgo._internal.image.Image.Uniform return stdgo._internal.image.Image.opaque = v;
-var zp(get, set) : Point;
-function get_zp():Point return stdgo._internal.image.Image.zp;
-function set_zp(v:Point):Point return stdgo._internal.image.Image.zp = v;
-var zr(get, set) : Rectangle;
-function get_zr():Rectangle return stdgo._internal.image.Image.zr;
-function set_zr(v:Rectangle):Rectangle return stdgo._internal.image.Image.zr = v;
-final ycbCrSubsampleRatio444 : stdgo._internal.image.Image.YCbCrSubsampleRatio = stdgo._internal.image.Image.ycbCrSubsampleRatio444;
-final ycbCrSubsampleRatio422 = stdgo._internal.image.Image.ycbCrSubsampleRatio422;
-final ycbCrSubsampleRatio420 = stdgo._internal.image.Image.ycbCrSubsampleRatio420;
-final ycbCrSubsampleRatio440 = stdgo._internal.image.Image.ycbCrSubsampleRatio440;
-final ycbCrSubsampleRatio411 = stdgo._internal.image.Image.ycbCrSubsampleRatio411;
-final ycbCrSubsampleRatio410 = stdgo._internal.image.Image.ycbCrSubsampleRatio410;
 typedef T_reader = stdgo._internal.image.Image.T_reader;
 typedef Image = stdgo._internal.image.Image.Image;
 typedef RGBA64Image = stdgo._internal.image.Image.RGBA64Image;

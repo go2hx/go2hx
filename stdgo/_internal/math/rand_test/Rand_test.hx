@@ -5,6 +5,7 @@ import stdgo._internal.math.rand.Rand;
 import stdgo._internal.math.rand.Rand;
 import stdgo._internal.math.rand.Rand;
 import stdgo._internal.math.rand.Rand;
+final _numTestSamples : stdgo.GoUInt64 = (10000i64 : stdgo.GoUInt64);
 var __tmp__0 = getNormalDistributionParameters();
 var _kn = __tmp__0._1;
 var _fn = __tmp__0._3;
@@ -499,7 +500,6 @@ stdgo.Go.toInterface((-2078447788915794233i64 : stdgo.GoUInt64)),
 stdgo.Go.toInterface((161231572858529631i64 : stdgo.GoUInt64)),
 stdgo.Go.toInterface((-1963896117343857469i64 : stdgo.GoUInt64)),
 stdgo.Go.toInterface((-1850266556657611060i64 : stdgo.GoUInt64))) : stdgo.Slice<stdgo.AnyInterface>);
-final _numTestSamples : stdgo.GoUInt64 = (10000i64 : stdgo.GoUInt64);
 @:structInit @:private @:using(stdgo._internal.math.rand_test.Rand_test.T_statsResults_static_extension) class T_statsResults {
     public var _mean : stdgo.GoFloat64 = 0;
     public var _stddev : stdgo.GoFloat64 = 0;

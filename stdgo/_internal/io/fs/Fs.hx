@@ -1,12 +1,5 @@
 package stdgo._internal.io.fs;
 private var __go2hxdoc__package : Bool;
-var errInvalid : stdgo.Error = _errInvalid();
-var errPermission : stdgo.Error = _errPermission();
-var errExist : stdgo.Error = _errExist();
-var errNotExist : stdgo.Error = _errNotExist();
-var errClosed : stdgo.Error = _errClosed();
-var skipDir : stdgo.Error = stdgo._internal.errors.Errors.new_(("skip this directory" : stdgo.GoString));
-var skipAll : stdgo.Error = stdgo._internal.errors.Errors.new_(("skip everything and stop the walk" : stdgo.GoString));
 final modeDir : stdgo._internal.io.fs.Fs.FileMode = (524288u32 : stdgo._internal.io.fs.Fs.FileMode);
 final modeAppend = (524288u32 : stdgo._internal.io.fs.Fs.FileMode);
 final modeExclusive = (524288u32 : stdgo._internal.io.fs.Fs.FileMode);
@@ -22,6 +15,13 @@ final modeSticky = (524288u32 : stdgo._internal.io.fs.Fs.FileMode);
 final modeIrregular = (524288u32 : stdgo._internal.io.fs.Fs.FileMode);
 final modeType : stdgo._internal.io.fs.Fs.FileMode = (-1893203968u32 : stdgo._internal.io.fs.Fs.FileMode);
 final modePerm : stdgo._internal.io.fs.Fs.FileMode = (511u32 : stdgo._internal.io.fs.Fs.FileMode);
+var errInvalid : stdgo.Error = _errInvalid();
+var errPermission : stdgo.Error = _errPermission();
+var errExist : stdgo.Error = _errExist();
+var errNotExist : stdgo.Error = _errNotExist();
+var errClosed : stdgo.Error = _errClosed();
+var skipDir : stdgo.Error = stdgo._internal.errors.Errors.new_(("skip this directory" : stdgo.GoString));
+var skipAll : stdgo.Error = stdgo._internal.errors.Errors.new_(("skip everything and stop the walk" : stdgo.GoString));
 typedef FS = stdgo.StructType & {
     /**
         // Open opens the named file.
@@ -481,10 +481,11 @@ function readDir(_fsys:FS, _name:stdgo.GoString):{ var _0 : stdgo.Slice<DirEntry
             }, _dir = __tmp__._0, _ok = __tmp__._1;
             if (!_ok) {
                 {
+                    final __ret__:{ var _0 : stdgo.Slice<DirEntry>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo._internal.io.fs.Fs.DirEntry>), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ("readdir" : stdgo.GoString), path : _name?.__copy__(), err : stdgo._internal.errors.Errors.new_(("not implemented" : stdgo.GoString)) } : stdgo._internal.io.fs.Fs.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs.PathError>)) };
                     for (defer in __deferstack__) {
                         defer();
                     };
-                    return { _0 : (null : stdgo.Slice<stdgo._internal.io.fs.Fs.DirEntry>), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ("readdir" : stdgo.GoString), path : _name?.__copy__(), err : stdgo._internal.errors.Errors.new_(("not implemented" : stdgo.GoString)) } : stdgo._internal.io.fs.Fs.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs.PathError>)) };
+                    return __ret__;
                 };
             };
             var __tmp__ = _dir.readDir((-1 : stdgo.GoInt)), _list:stdgo.Slice<stdgo._internal.io.fs.Fs.DirEntry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -492,17 +493,19 @@ function readDir(_fsys:FS, _name:stdgo.GoString):{ var _0 : stdgo.Slice<DirEntry
                 return (_list[(_i : stdgo.GoInt)].name() < _list[(_j : stdgo.GoInt)].name() : Bool);
             });
             {
+                final __ret__:{ var _0 : stdgo.Slice<DirEntry>; var _1 : stdgo.Error; } = { _0 : _list, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return { _0 : _list, _1 : _err };
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : stdgo.Slice<DirEntry>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo._internal.io.fs.Fs.DirEntry>), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : (null : stdgo.Slice<stdgo._internal.io.fs.Fs.DirEntry>), _1 : (null : stdgo.Error) };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -511,11 +514,12 @@ function readDir(_fsys:FS, _name:stdgo.GoString):{ var _0 : stdgo.Slice<DirEntry
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : stdgo.Slice<DirEntry>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo._internal.io.fs.Fs.DirEntry>), _1 : (null : stdgo.Error) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : (null : stdgo.Slice<stdgo._internal.io.fs.Fs.DirEntry>), _1 : (null : stdgo.Error) };
+            return __ret__;
         };
     }
 function fileInfoToDirEntry(_info:FileInfo):DirEntry {
@@ -565,19 +569,21 @@ function readFile(_fsys:FS, _name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.G
                         _err = (null : stdgo.Error);
                     };
                     {
+                        final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : _data, _1 : _err };
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return { _0 : _data, _1 : _err };
+                        return __ret__;
                     };
                 };
             };
             {
+                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -586,11 +592,12 @@ function readFile(_fsys:FS, _name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.G
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
+            return __ret__;
         };
     }
 function stat(_fsys:FS, _name:stdgo.GoString):{ var _0 : FileInfo; var _1 : stdgo.Error; } {
@@ -612,17 +619,19 @@ function stat(_fsys:FS, _name:stdgo.GoString):{ var _0 : FileInfo; var _1 : stdg
             };
             __deferstack__.unshift(() -> _file.close());
             {
+                final __ret__:{ var _0 : FileInfo; var _1 : stdgo.Error; } = _file.stat();
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return _file.stat();
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : FileInfo; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.io.fs.Fs.FileInfo), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : (null : stdgo._internal.io.fs.Fs.FileInfo), _1 : (null : stdgo.Error) };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -631,11 +640,12 @@ function stat(_fsys:FS, _name:stdgo.GoString):{ var _0 : FileInfo; var _1 : stdg
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : FileInfo; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.io.fs.Fs.FileInfo), _1 : (null : stdgo.Error) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : (null : stdgo._internal.io.fs.Fs.FileInfo), _1 : (null : stdgo.Error) };
+            return __ret__;
         };
     }
 function sub(_fsys:FS, _dir:stdgo.GoString):{ var _0 : FS; var _1 : stdgo.Error; } {

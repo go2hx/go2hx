@@ -80,6 +80,9 @@ package stdgo.flag;
     *|/
 **/
 private var __go2hxdoc__package : Bool;
+final continueOnError : stdgo._internal.flag.Flag.ErrorHandling = stdgo._internal.flag.Flag.continueOnError;
+final exitOnError = stdgo._internal.flag.Flag.exitOnError;
+final panicOnError = stdgo._internal.flag.Flag.panicOnError;
 var errHelp(get, set) : stdgo.Error;
 function get_errHelp():stdgo.Error return stdgo._internal.flag.Flag.errHelp;
 function set_errHelp(v:stdgo.Error):stdgo.Error return stdgo._internal.flag.Flag.errHelp = v;
@@ -92,9 +95,6 @@ function set_usage(v:() -> Void):() -> Void return stdgo._internal.flag.Flag.usa
 var defaultUsage(get, set) : () -> Void;
 function get_defaultUsage():() -> Void return stdgo._internal.flag.Flag.defaultUsage;
 function set_defaultUsage(v:() -> Void):() -> Void return stdgo._internal.flag.Flag.defaultUsage = v;
-final continueOnError : stdgo._internal.flag.Flag.ErrorHandling = stdgo._internal.flag.Flag.continueOnError;
-final exitOnError = stdgo._internal.flag.Flag.exitOnError;
-final panicOnError = stdgo._internal.flag.Flag.panicOnError;
 typedef T_boolFlag = stdgo._internal.flag.Flag.T_boolFlag;
 typedef Value = stdgo._internal.flag.Flag.Value;
 typedef Getter = stdgo._internal.flag.Flag.Getter;

@@ -1,12 +1,12 @@
 package stdgo._internal.path.filepath;
 private var __go2hxdoc__package : Bool;
+final separator : stdgo.GoInt32 = (47 : stdgo.GoInt32);
+final listSeparator : stdgo.GoInt32 = (58 : stdgo.GoInt32);
 var errBadPattern : stdgo.Error = stdgo._internal.errors.Errors.new_(("syntax error in pattern" : stdgo.GoString));
 var skipDir : stdgo.Error = stdgo._internal.io.fs.Fs.skipDir;
 var skipAll : stdgo.Error = stdgo._internal.io.fs.Fs.skipAll;
 var _lstat : stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } = stdgo._internal.os.Os.lstat;
 var lstatP : stdgo.Ref<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; }> = (stdgo.Go.setRef(_lstat) : stdgo.Ref<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; }>);
-final separator : stdgo.GoInt32 = (47 : stdgo.GoInt32);
-final listSeparator : stdgo.GoInt32 = (58 : stdgo.GoInt32);
 @:structInit @:private @:using(stdgo._internal.path.filepath.Filepath.T_lazybuf_static_extension) class T_lazybuf {
     public var _path : stdgo.GoString = "";
     public var _buf : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
@@ -389,10 +389,11 @@ function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slic
                 var __tmp__ = match(_pattern?.__copy__(), _n?.__copy__()), _matched:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     {
+                        final __ret__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : _m, _1 : _err };
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return { _0 : _m, _1 : _err };
+                        return __ret__;
                     };
                 };
                 if (_matched) {
@@ -400,17 +401,19 @@ function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slic
                 };
             };
             {
+                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : _m, _1 : _e };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return { _0 : _m, _1 : _e };
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : _m, _1 : _e };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : _m, _1 : _e };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -419,11 +422,12 @@ function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slic
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : _m, _1 : _e };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : _m, _1 : _e };
+            return __ret__;
         };
     }
 function _hasMeta(_path:stdgo.GoString):Bool {

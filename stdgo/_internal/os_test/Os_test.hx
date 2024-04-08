@@ -7,6 +7,9 @@ import stdgo._internal.os.Os;
 import stdgo._internal.os.Os;
 import stdgo._internal.os.Os;
 import stdgo._internal.os.Os;
+var _global : stdgo.AnyInterface = (null : stdgo.AnyInterface);
+final _executable_EnvVar : stdgo.GoString = ("OSTEST_OUTPUT_EXECPATH" : stdgo.GoString);
+final _testExecutableDeletion : stdgo.GoString = ("package main\n\nimport (\n\t\"fmt\"\n\t\"os\"\n)\n\nfunc main() {\n\tbefore, err := os.Executable()\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to read executable name before deletion: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\terr = os.Remove(before)\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to remove executable: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\tafter, err := os.Executable()\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to read executable name after deletion: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\tif before != after {\n\t\tfmt.Fprintf(os.Stderr, \"before and after do not match: %v != %v\\n\", before, after)\n\t\tos.Exit(1)\n\t}\n}\n" : stdgo.GoString);
 var _expandTests : stdgo.Slice<T__struct_1> = (new stdgo.Slice<T__struct_1>(
 18,
 18,
@@ -161,9 +164,6 @@ var _nilFileMethodTests : stdgo.Slice<T__struct_5> = (new stdgo.Slice<T__struct_
 var _isReadonlyError : stdgo.Error -> Bool = function(_0:stdgo.Error):Bool {
         return false;
     };
-var _global : stdgo.AnyInterface = (null : stdgo.AnyInterface);
-final _executable_EnvVar : stdgo.GoString = ("OSTEST_OUTPUT_EXECPATH" : stdgo.GoString);
-final _testExecutableDeletion : stdgo.GoString = ("package main\n\nimport (\n\t\"fmt\"\n\t\"os\"\n)\n\nfunc main() {\n\tbefore, err := os.Executable()\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to read executable name before deletion: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\terr = os.Remove(before)\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to remove executable: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\tafter, err := os.Executable()\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to read executable name after deletion: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\tif before != after {\n\t\tfmt.Fprintf(os.Stderr, \"before and after do not match: %v != %v\\n\", before, after)\n\t\tos.Exit(1)\n\t}\n}\n" : stdgo.GoString);
 @:structInit @:private class T_isExistTest {
     public var _err : stdgo.Error = (null : stdgo.Error);
     public var _is : Bool = false;
@@ -1301,11 +1301,12 @@ function _size(_name:stdgo.GoString, _t:stdgo.Ref<stdgo._internal.testing.Testin
                 return _n;
             };
             {
+                final __ret__:stdgo.GoInt64 = (0 : stdgo.GoInt64);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return (0 : stdgo.GoInt64);
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -1314,11 +1315,12 @@ function _size(_name:stdgo.GoString, _t:stdgo.Ref<stdgo._internal.testing.Testin
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:stdgo.GoInt64 = (0 : stdgo.GoInt64);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return (0 : stdgo.GoInt64);
+            return __ret__;
         };
     }
 function _equal(_name1:stdgo.GoString, _name2:stdgo.GoString):Bool {
@@ -2157,17 +2159,19 @@ function testReaddirStatFailures(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
                     };
                     __deferstack__.unshift(() -> _d.close());
                     {
+                        final __ret__:{ var _0 : stdgo.Slice<FileInfo>; var _1 : stdgo.Error; } = _d.readdir((-1 : stdgo.GoInt));
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return _d.readdir((-1 : stdgo.GoInt));
+                        return __ret__;
                     };
                     {
+                        final __ret__:{ var _0 : stdgo.Slice<FileInfo>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo._internal.io.fs.Fs.FileInfo>), _1 : (null : stdgo.Error) };
                         for (defer in __deferstack__) {
                             defer();
                         };
                         if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return { _0 : (null : stdgo.Slice<stdgo._internal.io.fs.Fs.FileInfo>), _1 : (null : stdgo.Error) };
+                        return __ret__;
                     };
                 } catch(__exception__) {
                     var exe:Dynamic = __exception__.native;
@@ -2176,11 +2180,12 @@ function testReaddirStatFailures(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
                         exe = stdgo.Go.toInterface(__exception__.message);
                     };
                     stdgo.Go.recover_exception = exe;
+                    final __ret__:{ var _0 : stdgo.Slice<FileInfo>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo._internal.io.fs.Fs.FileInfo>), _1 : (null : stdgo.Error) };
                     for (defer in __deferstack__) {
                         defer();
                     };
                     if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                    return { _0 : (null : stdgo.Slice<stdgo._internal.io.fs.Fs.FileInfo>), _1 : (null : stdgo.Error) };
+                    return __ret__;
                 };
             };
             var _mustReadDir = function(_testName:stdgo.GoString):stdgo.Slice<FileInfo> {
@@ -3935,17 +3940,19 @@ function _runBinHostname(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):stdgo
                 _t.fatalf(("/bin/hostname produced no output" : stdgo.GoString));
             };
             {
+                final __ret__:stdgo.GoString = _output?.__copy__();
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return _output?.__copy__();
+                return __ret__;
             };
             {
+                final __ret__:stdgo.GoString = ("" : stdgo.GoString);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return ("" : stdgo.GoString);
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -3954,11 +3961,12 @@ function _runBinHostname(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):stdgo
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:stdgo.GoString = ("" : stdgo.GoString);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return ("" : stdgo.GoString);
+            return __ret__;
         };
     }
 function _testWindowsHostname(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _hostname:stdgo.GoString):Void {

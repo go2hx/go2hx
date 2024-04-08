@@ -1,5 +1,25 @@
 package stdgo._internal.crypto;
 private var __go2hxdoc__package : Bool;
+final md4 : stdgo._internal.crypto.Crypto.Hash = (20u32 : stdgo._internal.crypto.Crypto.Hash);
+final md5 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
+final sha1 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
+final sha224 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
+final sha256 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
+final sha384 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
+final sha512 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
+final md5sha1 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
+final ripemd160 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
+final sha3_224 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
+final sha3_256 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
+final sha3_384 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
+final sha3_512 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
+final sha512_224 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
+final sha512_256 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
+final blake2s_256 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
+final blake2b_256 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
+final blake2b_384 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
+final blake2b_512 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
+final _maxHash = (20u32 : stdgo._internal.crypto.Crypto.Hash);
 var _digestSizes : stdgo.Slice<stdgo.GoUInt8> = {
         var s = new stdgo.Slice<stdgo.GoUInt8>(20, 0).__setNumber32__();
         s[1] = (16 : stdgo.GoUInt8);
@@ -24,26 +44,6 @@ var _digestSizes : stdgo.Slice<stdgo.GoUInt8> = {
         s;
     };
 var _hashes : stdgo.Slice<() -> stdgo._internal.hash.Hash.Hash> = new stdgo.Slice<() -> stdgo._internal.hash.Hash.Hash>(((20u32 : stdgo._internal.crypto.Crypto.Hash) : stdgo.GoInt).toBasic(), 0);
-final md4 : stdgo._internal.crypto.Crypto.Hash = (20u32 : stdgo._internal.crypto.Crypto.Hash);
-final md5 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
-final sha1 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
-final sha224 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
-final sha256 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
-final sha384 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
-final sha512 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
-final md5sha1 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
-final ripemd160 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
-final sha3_224 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
-final sha3_256 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
-final sha3_384 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
-final sha3_512 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
-final sha512_224 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
-final sha512_256 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
-final blake2s_256 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
-final blake2b_256 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
-final blake2b_384 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
-final blake2b_512 = (20u32 : stdgo._internal.crypto.Crypto.Hash);
-final _maxHash = (20u32 : stdgo._internal.crypto.Crypto.Hash);
 typedef Signer = stdgo.StructType & {
     /**
         // Public returns the public key corresponding to the opaque,

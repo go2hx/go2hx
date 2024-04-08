@@ -2,6 +2,19 @@ package stdgo._internal.sort_test;
 import stdgo._internal.sort.Sort;
 import stdgo._internal.sort.Sort;
 import stdgo._internal.sort.Sort;
+final __Sawtooth : stdgo.GoUInt64 = (5i64 : stdgo.GoUInt64);
+final __Rand = (5i64 : stdgo.GoUInt64);
+final __Stagger = (5i64 : stdgo.GoUInt64);
+final __Plateau = (5i64 : stdgo.GoUInt64);
+final __Shuffle = (5i64 : stdgo.GoUInt64);
+final __NDist = (5i64 : stdgo.GoUInt64);
+final __Copy : stdgo.GoUInt64 = (6i64 : stdgo.GoUInt64);
+final __Reverse = (6i64 : stdgo.GoUInt64);
+final __ReverseFirstHalf = (6i64 : stdgo.GoUInt64);
+final __ReverseSecondHalf = (6i64 : stdgo.GoUInt64);
+final __Sorted = (6i64 : stdgo.GoUInt64);
+final __Dither = (6i64 : stdgo.GoUInt64);
+final __NMode = (6i64 : stdgo.GoUInt64);
 var _planets : stdgo.Slice<stdgo._internal.sort_test.Sort_test.Planet> = (new stdgo.Slice<stdgo._internal.sort_test.Sort_test.Planet>(4, 4, (new stdgo._internal.sort_test.Sort_test.Planet(("Mercury" : stdgo.GoString), (0.055 : stdgo.GoFloat64), (0.4 : stdgo.GoFloat64)) : stdgo._internal.sort_test.Sort_test.Planet), (new stdgo._internal.sort_test.Sort_test.Planet(("Venus" : stdgo.GoString), (0.815 : stdgo.GoFloat64), (0.7 : stdgo.GoFloat64)) : stdgo._internal.sort_test.Sort_test.Planet), (new stdgo._internal.sort_test.Sort_test.Planet(("Earth" : stdgo.GoString), (1 : stdgo.GoFloat64), (1 : stdgo.GoFloat64)) : stdgo._internal.sort_test.Sort_test.Planet), (new stdgo._internal.sort_test.Sort_test.Planet(("Mars" : stdgo.GoString), (0.107 : stdgo.GoFloat64), (1.5 : stdgo.GoFloat64)) : stdgo._internal.sort_test.Sort_test.Planet)) : stdgo.Slice<stdgo._internal.sort_test.Sort_test.Planet>);
 var _changes : stdgo.Slice<stdgo._internal.sort_test.Sort_test.Change> = (new stdgo.Slice<stdgo._internal.sort_test.Sort_test.Change>(
 9,
@@ -136,19 +149,6 @@ var _countOpsSizes : stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(
 (100000 : stdgo.GoInt),
 (300000 : stdgo.GoInt),
 (1000000 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
-final __Sawtooth : stdgo.GoUInt64 = (5i64 : stdgo.GoUInt64);
-final __Rand = (5i64 : stdgo.GoUInt64);
-final __Stagger = (5i64 : stdgo.GoUInt64);
-final __Plateau = (5i64 : stdgo.GoUInt64);
-final __Shuffle = (5i64 : stdgo.GoUInt64);
-final __NDist = (5i64 : stdgo.GoUInt64);
-final __Copy : stdgo.GoUInt64 = (6i64 : stdgo.GoUInt64);
-final __Reverse = (6i64 : stdgo.GoUInt64);
-final __ReverseFirstHalf = (6i64 : stdgo.GoUInt64);
-final __ReverseSecondHalf = (6i64 : stdgo.GoUInt64);
-final __Sorted = (6i64 : stdgo.GoUInt64);
-final __Dither = (6i64 : stdgo.GoUInt64);
-final __NMode = (6i64 : stdgo.GoUInt64);
 @:structInit @:using(stdgo._internal.sort_test.Sort_test.Person_static_extension) class Person {
     public var name : stdgo.GoString = "";
     public var age : stdgo.GoInt = 0;

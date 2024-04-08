@@ -1,5 +1,19 @@
 package stdgo._internal.log;
 private var __go2hxdoc__package : Bool;
+final ldate : stdgo.GoUInt64 = (64i64 : stdgo.GoUInt64);
+final ltime = (64i64 : stdgo.GoUInt64);
+final lmicroseconds = (64i64 : stdgo.GoUInt64);
+final llongfile = (64i64 : stdgo.GoUInt64);
+final lshortfile = (64i64 : stdgo.GoUInt64);
+final lutc = (64i64 : stdgo.GoUInt64);
+final lmsgprefix = (64i64 : stdgo.GoUInt64);
+final lstdFlags : stdgo.GoUInt64 = (3i64 : stdgo.GoUInt64);
+final rdate : stdgo.GoString = ("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9]" : stdgo.GoString);
+final rtime : stdgo.GoString = ("[0-9][0-9]:[0-9][0-9]:[0-9][0-9]" : stdgo.GoString);
+final rmicroseconds : stdgo.GoString = ("\\.[0-9][0-9][0-9][0-9][0-9][0-9]" : stdgo.GoString);
+final rline : stdgo.GoString = ("(63|65):" : stdgo.GoString);
+final rlongfile : stdgo.GoString = (".*/[A-Za-z0-9_\\-]+\\.go:(63|65):" : stdgo.GoString);
+final rshortfile : stdgo.GoString = ("[A-Za-z0-9_\\-]+\\.go:(63|65):" : stdgo.GoString);
 var _std : stdgo.Ref<stdgo._internal.log.Log.Logger> = new_(stdgo.Go.asInterface(stdgo._internal.os.Os.stderr), stdgo.Go.str()?.__copy__(), (3 : stdgo.GoInt));
 var _bufferPool : stdgo._internal.sync.Sync.Pool = ({ new_ : function():stdgo.AnyInterface {
         return stdgo.Go.toInterface((stdgo.Go.setRef((null : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>));
@@ -21,20 +35,6 @@ var _tests : stdgo.Slice<stdgo._internal.log.Log.T_tester> = (new stdgo.Slice<st
 (new stdgo._internal.log.Log.T_tester((23 : stdgo.GoInt), ("XXX" : stdgo.GoString), ("XXX[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] [A-Za-z0-9_\\-]+\\.go:(63|65): " : stdgo.GoString)) : stdgo._internal.log.Log.T_tester),
 (new stdgo._internal.log.Log.T_tester((79 : stdgo.GoInt), ("XXX" : stdgo.GoString), ("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] .*/[A-Za-z0-9_\\-]+\\.go:(63|65): XXX" : stdgo.GoString)) : stdgo._internal.log.Log.T_tester),
 (new stdgo._internal.log.Log.T_tester((87 : stdgo.GoInt), ("XXX" : stdgo.GoString), ("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] [A-Za-z0-9_\\-]+\\.go:(63|65): XXX" : stdgo.GoString)) : stdgo._internal.log.Log.T_tester)) : stdgo.Slice<stdgo._internal.log.Log.T_tester>);
-final ldate : stdgo.GoUInt64 = (64i64 : stdgo.GoUInt64);
-final ltime = (64i64 : stdgo.GoUInt64);
-final lmicroseconds = (64i64 : stdgo.GoUInt64);
-final llongfile = (64i64 : stdgo.GoUInt64);
-final lshortfile = (64i64 : stdgo.GoUInt64);
-final lutc = (64i64 : stdgo.GoUInt64);
-final lmsgprefix = (64i64 : stdgo.GoUInt64);
-final lstdFlags : stdgo.GoUInt64 = (3i64 : stdgo.GoUInt64);
-final rdate : stdgo.GoString = ("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9]" : stdgo.GoString);
-final rtime : stdgo.GoString = ("[0-9][0-9]:[0-9][0-9]:[0-9][0-9]" : stdgo.GoString);
-final rmicroseconds : stdgo.GoString = ("\\.[0-9][0-9][0-9][0-9][0-9][0-9]" : stdgo.GoString);
-final rline : stdgo.GoString = ("(63|65):" : stdgo.GoString);
-final rlongfile : stdgo.GoString = (".*/[A-Za-z0-9_\\-]+\\.go:(63|65):" : stdgo.GoString);
-final rshortfile : stdgo.GoString = ("[A-Za-z0-9_\\-]+\\.go:(63|65):" : stdgo.GoString);
 @:structInit @:using(stdgo._internal.log.Log.Logger_static_extension) class Logger {
     public var _outMu : stdgo._internal.sync.Sync.Mutex = ({} : stdgo._internal.sync.Sync.Mutex);
     public var _out : stdgo._internal.io.Io.Writer = (null : stdgo._internal.io.Io.Writer);
@@ -576,17 +576,19 @@ class Logger_asInterface {
             _l._outMu.lock();
             __deferstack__.unshift(() -> _l._outMu.unlock());
             {
+                final __ret__:stdgo._internal.io.Io.Writer = _l._out;
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return _l._out;
+                return __ret__;
             };
             {
+                final __ret__:stdgo._internal.io.Io.Writer = (null : stdgo._internal.io.Io.Writer);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return (null : stdgo._internal.io.Io.Writer);
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -595,11 +597,12 @@ class Logger_asInterface {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:stdgo._internal.io.Io.Writer = (null : stdgo._internal.io.Io.Writer);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return (null : stdgo._internal.io.Io.Writer);
+            return __ret__;
         };
     }
     @:keep
@@ -753,11 +756,12 @@ class Logger_asInterface {
                 return _err;
             };
             {
+                final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return (null : stdgo.Error);
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -766,11 +770,12 @@ class Logger_asInterface {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:stdgo.Error = (null : stdgo.Error);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return (null : stdgo.Error);
+            return __ret__;
         };
     }
     @:keep

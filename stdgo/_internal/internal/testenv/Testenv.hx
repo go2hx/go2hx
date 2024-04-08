@@ -1,8 +1,5 @@
 package stdgo._internal.internal.testenv;
 private var __go2hxdoc__package : Bool;
-var _origEnv : stdgo.Slice<stdgo.GoString> = stdgo._internal.os.Os.environ();
-var _flaky : stdgo.Pointer<Bool> = stdgo._internal.flag.Flag.bool_(("flaky" : stdgo.GoString), false, ("run known-flaky tests too" : stdgo.GoString));
-var sigquit : stdgo._internal.os.Os.Signal = stdgo._internal.os.Os.kill;
 var _tryExecOnce : stdgo._internal.sync.Sync.Once = ({} : stdgo._internal.sync.Sync.Once);
 var _tryExecErr : stdgo.Error = (null : stdgo.Error);
 var _execPaths : stdgo._internal.sync.Sync.Map_ = ({} : stdgo._internal.sync.Sync.Map_);
@@ -16,6 +13,9 @@ var _goToolPath : stdgo.GoString = ("" : stdgo.GoString);
 var _goToolErr : stdgo.Error = (null : stdgo.Error);
 var _hasCgoOnce : stdgo._internal.sync.Sync.Once = ({} : stdgo._internal.sync.Sync.Once);
 var _hasCgo : Bool = false;
+var _origEnv : stdgo.Slice<stdgo.GoString> = stdgo._internal.os.Os.environ();
+var _flaky : stdgo.Pointer<Bool> = stdgo._internal.flag.Flag.bool_(("flaky" : stdgo.GoString), false, ("run known-flaky tests too" : stdgo.GoString));
+var sigquit : stdgo._internal.os.Os.Signal = stdgo._internal.os.Os.kill;
 typedef T__interface_0 = stdgo.StructType & {
     > stdgo._internal.testing.Testing.TB,
     /**
@@ -454,10 +454,11 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                         var _err:stdgo.Error = stdgo._internal.os.Os.writeFile(_fpath?.__copy__(), (null : stdgo.Slice<stdgo.GoUInt8>), (420u32 : stdgo._internal.io.fs.Fs.FileMode));
                         if (_err != null) {
                             {
+                                final __ret__:{ var _0 : Bool; var _1 : stdgo.GoString; } = { _0 : false, _1 : stdgo.Go.str()?.__copy__() };
                                 for (defer in __deferstack__) {
                                     defer();
                                 };
-                                return { _0 : false, _1 : stdgo.Go.str()?.__copy__() };
+                                return __ret__;
                             };
                         };
                     };
@@ -466,34 +467,38 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                         if (_err != null) {
                             if (syscallIsNotSupported(_err)) {
                                 {
+                                    final __ret__:{ var _0 : Bool; var _1 : stdgo.GoString; } = { _0 : false, _1 : stdgo._internal.fmt.Fmt.sprintf(("symlinks unsupported: %s" : stdgo.GoString), stdgo.Go.toInterface(_err.error()))?.__copy__() };
                                     for (defer in __deferstack__) {
                                         defer();
                                     };
-                                    return { _0 : false, _1 : stdgo._internal.fmt.Fmt.sprintf(("symlinks unsupported: %s" : stdgo.GoString), stdgo.Go.toInterface(_err.error()))?.__copy__() };
+                                    return __ret__;
                                 };
                             };
                             {
+                                final __ret__:{ var _0 : Bool; var _1 : stdgo.GoString; } = { _0 : false, _1 : stdgo.Go.str()?.__copy__() };
                                 for (defer in __deferstack__) {
                                     defer();
                                 };
-                                return { _0 : false, _1 : stdgo.Go.str()?.__copy__() };
+                                return __ret__;
                             };
                         };
                     };
                 };
             };
             {
+                final __ret__:{ var _0 : Bool; var _1 : stdgo.GoString; } = { _0 : true, _1 : stdgo.Go.str()?.__copy__() };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return { _0 : true, _1 : stdgo.Go.str()?.__copy__() };
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : Bool; var _1 : stdgo.GoString; } = { _0 : _ok, _1 : _reason };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : _ok, _1 : _reason };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -502,10 +507,11 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : Bool; var _1 : stdgo.GoString; } = { _0 : _ok, _1 : _reason };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : _ok, _1 : _reason };
+            return __ret__;
         };
     }

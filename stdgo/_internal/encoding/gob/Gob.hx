@@ -1,5 +1,30 @@
 package stdgo._internal.encoding.gob;
 private var __go2hxdoc__package : Bool;
+var _noValue : stdgo._internal.reflect.Reflect.Value = ({} : stdgo._internal.reflect.Reflect.Value);
+final _intBits : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
+final _uintptrBits : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
+final _tooBig : stdgo.GoUInt64 = (1073741824i64 : stdgo.GoUInt64);
+var _debugFunc : stdgo._internal.io.Io.Reader -> Void = null;
+final _uint64Size : stdgo.GoUInt64 = (8i64 : stdgo.GoUInt64);
+final _singletonField : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+final _maxLength : stdgo.GoUInt64 = (9i64 : stdgo.GoUInt64);
+var _testInt : stdgo.GoInt = (0 : stdgo.GoInt);
+var _testFloat32 : stdgo.GoFloat32 = (0 : stdgo.GoFloat32);
+var _testString : stdgo.GoString = ("" : stdgo.GoString);
+var _testSlice : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
+var _testMap : stdgo.GoMap<stdgo.GoString, stdgo.GoInt> = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>);
+var _testArray : stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(...[for (i in 0 ... 7) (0 : stdgo.GoInt)]);
+final _xGob : stdgo.GoUInt64 = (3i64 : stdgo.GoUInt64);
+final _xBinary = (3i64 : stdgo.GoUInt64);
+final _xText = (3i64 : stdgo.GoUInt64);
+var _userTypeCache : stdgo._internal.sync.Sync.Map_ = ({} : stdgo._internal.sync.Sync.Map_);
+var _typeLock : stdgo._internal.sync.Sync.Mutex = ({} : stdgo._internal.sync.Sync.Mutex);
+final _firstUserId : stdgo.GoUInt64 = (64i64 : stdgo.GoUInt64);
+var _builtinIdToTypeSlice : stdgo.GoArray<T_gobType> = new stdgo.GoArray<stdgo._internal.encoding.gob.Gob.T_gobType>(...[for (i in 0 ... 64) (null : stdgo._internal.encoding.gob.Gob.T_gobType)]);
+var _wireTypeUserInfo : stdgo.Ref<T_userTypeInfo> = (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_userTypeInfo>);
+var _typeInfoMap : stdgo._internal.sync.atomic_.Atomic_.Value = ({} : stdgo._internal.sync.atomic_.Atomic_.Value);
+var _nameToConcreteType : stdgo._internal.sync.Sync.Map_ = ({} : stdgo._internal.sync.Sync.Map_);
+var _concreteTypeToName : stdgo._internal.sync.Sync.Map_ = ({} : stdgo._internal.sync.Sync.Map_);
 var _errBadUint : stdgo.Error = stdgo._internal.errors.Errors.new_(("gob: encoded unsigned integer out of range" : stdgo.GoString));
 var _errBadType : stdgo.Error = stdgo._internal.errors.Errors.new_(("gob: unknown type id or corrupted data" : stdgo.GoString));
 var _errRange : stdgo.Error = stdgo._internal.errors.Errors.new_(("gob: bad data: field numbers out of bounds" : stdgo.GoString));
@@ -298,31 +323,6 @@ var _badDataTests : stdgo.Slice<stdgo._internal.encoding.gob.Gob.T_badDataTest> 
 (new stdgo._internal.encoding.gob.Gob.T_badDataTest(("03fffb0616fffc00f902ff02ff03bf005d02885802a311a8120228022c028ee7" : stdgo.GoString), ("GobDecoder" : stdgo.GoString), (null : stdgo.AnyInterface)) : stdgo._internal.encoding.gob.Gob.T_badDataTest),
 (new stdgo._internal.encoding.gob.Gob.T_badDataTest(("10fe010f020102fe01100001fe010e000016fe010d030102fe010e00010101015801fe01100000000bfe011000f85555555555555555" : stdgo.GoString), ("exceeds input size" : stdgo.GoString), (null : stdgo.AnyInterface)) : stdgo._internal.encoding.gob.Gob.T_badDataTest)) : stdgo.Slice<stdgo._internal.encoding.gob.Gob.T_badDataTest>);
 var _basicTypes : stdgo.Slice<stdgo._internal.encoding.gob.Gob.T_typeT> = (new stdgo.Slice<stdgo._internal.encoding.gob.Gob.T_typeT>(6, 6, (new stdgo._internal.encoding.gob.Gob.T_typeT(_tBool, ("bool" : stdgo.GoString)) : stdgo._internal.encoding.gob.Gob.T_typeT), (new stdgo._internal.encoding.gob.Gob.T_typeT(_tInt, ("int" : stdgo.GoString)) : stdgo._internal.encoding.gob.Gob.T_typeT), (new stdgo._internal.encoding.gob.Gob.T_typeT(_tUint, ("uint" : stdgo.GoString)) : stdgo._internal.encoding.gob.Gob.T_typeT), (new stdgo._internal.encoding.gob.Gob.T_typeT(_tFloat, ("float" : stdgo.GoString)) : stdgo._internal.encoding.gob.Gob.T_typeT), (new stdgo._internal.encoding.gob.Gob.T_typeT(_tBytes, ("bytes" : stdgo.GoString)) : stdgo._internal.encoding.gob.Gob.T_typeT), (new stdgo._internal.encoding.gob.Gob.T_typeT(_tString, ("string" : stdgo.GoString)) : stdgo._internal.encoding.gob.Gob.T_typeT)) : stdgo.Slice<stdgo._internal.encoding.gob.Gob.T_typeT>);
-var _noValue : stdgo._internal.reflect.Reflect.Value = ({} : stdgo._internal.reflect.Reflect.Value);
-final _intBits : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
-final _uintptrBits : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
-final _tooBig : stdgo.GoUInt64 = (1073741824i64 : stdgo.GoUInt64);
-var _debugFunc : stdgo._internal.io.Io.Reader -> Void = null;
-final _uint64Size : stdgo.GoUInt64 = (8i64 : stdgo.GoUInt64);
-final _singletonField : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
-final _maxLength : stdgo.GoUInt64 = (9i64 : stdgo.GoUInt64);
-var _testInt : stdgo.GoInt = (0 : stdgo.GoInt);
-var _testFloat32 : stdgo.GoFloat32 = (0 : stdgo.GoFloat32);
-var _testString : stdgo.GoString = ("" : stdgo.GoString);
-var _testSlice : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-var _testMap : stdgo.GoMap<stdgo.GoString, stdgo.GoInt> = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>);
-var _testArray : stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(...[for (i in 0 ... 7) (0 : stdgo.GoInt)]);
-final _xGob : stdgo.GoUInt64 = (3i64 : stdgo.GoUInt64);
-final _xBinary = (3i64 : stdgo.GoUInt64);
-final _xText = (3i64 : stdgo.GoUInt64);
-var _userTypeCache : stdgo._internal.sync.Sync.Map_ = ({} : stdgo._internal.sync.Sync.Map_);
-var _typeLock : stdgo._internal.sync.Sync.Mutex = ({} : stdgo._internal.sync.Sync.Mutex);
-final _firstUserId : stdgo.GoUInt64 = (64i64 : stdgo.GoUInt64);
-var _builtinIdToTypeSlice : stdgo.GoArray<T_gobType> = new stdgo.GoArray<stdgo._internal.encoding.gob.Gob.T_gobType>(...[for (i in 0 ... 64) (null : stdgo._internal.encoding.gob.Gob.T_gobType)]);
-var _wireTypeUserInfo : stdgo.Ref<T_userTypeInfo> = (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_userTypeInfo>);
-var _typeInfoMap : stdgo._internal.sync.atomic_.Atomic_.Value = ({} : stdgo._internal.sync.atomic_.Atomic_.Value);
-var _nameToConcreteType : stdgo._internal.sync.Sync.Map_ = ({} : stdgo._internal.sync.Sync.Map_);
-var _concreteTypeToName : stdgo._internal.sync.Sync.Map_ = ({} : stdgo._internal.sync.Sync.Map_);
 typedef Squarer = stdgo.StructType & {
     /**
         
@@ -4910,11 +4910,12 @@ function _buildEncEngine(_info:stdgo.Ref<T_typeInfo>, _ut:stdgo.Ref<T_userTypeIn
                 return _enc;
             };
             {
+                final __ret__:stdgo.Ref<T_encEngine> = (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_encEngine>);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_encEngine>);
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -4923,11 +4924,12 @@ function _buildEncEngine(_info:stdgo.Ref<T_typeInfo>, _ut:stdgo.Ref<T_userTypeIn
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:stdgo.Ref<T_encEngine> = (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_encEngine>);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_encEngine>);
+            return __ret__;
         };
     }
 function newEncoder(_w:stdgo._internal.io.Io.Writer):stdgo.Ref<Encoder> {
@@ -5929,17 +5931,19 @@ function _encodeAndRecover(_value:stdgo.AnyInterface):{ var _0 : stdgo.Error; va
             });
             _encodeErr = newEncoder(stdgo._internal.io.Io.discard).encode(_value);
             {
+                final __ret__:{ var _0 : stdgo.Error; var _1 : stdgo.Error; } = { _0 : _encodeErr, _1 : _panicErr };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return { _0 : _encodeErr, _1 : _panicErr };
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : stdgo.Error; var _1 : stdgo.Error; } = { _0 : _encodeErr, _1 : _panicErr };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : _encodeErr, _1 : _panicErr };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -5948,11 +5952,12 @@ function _encodeAndRecover(_value:stdgo.AnyInterface):{ var _0 : stdgo.Error; va
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : stdgo.Error; var _1 : stdgo.Error; } = { _0 : _encodeErr, _1 : _panicErr };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : _encodeErr, _1 : _panicErr };
+            return __ret__;
         };
     }
 function testNilPointerPanics(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
@@ -7312,52 +7317,59 @@ function _newTypeObject(_name:stdgo.GoString, _ut:stdgo.Ref<T_userTypeInfo>, _rt
                     final __value__ = _t.kind();
                     if (__value__ == ((1u32 : stdgo._internal.reflect.Reflect.Kind))) {
                         {
+                            final __ret__:{ var _0 : T_gobType; var _1 : stdgo.Error; } = { _0 : _tBool._gobType(), _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
                                 defer();
                             };
-                            return { _0 : _tBool._gobType(), _1 : (null : stdgo.Error) };
+                            return __ret__;
                         };
                     } else if (__value__ == ((2u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((3u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((4u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((5u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((6u32 : stdgo._internal.reflect.Reflect.Kind))) {
                         {
+                            final __ret__:{ var _0 : T_gobType; var _1 : stdgo.Error; } = { _0 : _tInt._gobType(), _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
                                 defer();
                             };
-                            return { _0 : _tInt._gobType(), _1 : (null : stdgo.Error) };
+                            return __ret__;
                         };
                     } else if (__value__ == ((7u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((8u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((9u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((10u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((11u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((12u32 : stdgo._internal.reflect.Reflect.Kind))) {
                         {
+                            final __ret__:{ var _0 : T_gobType; var _1 : stdgo.Error; } = { _0 : _tUint._gobType(), _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
                                 defer();
                             };
-                            return { _0 : _tUint._gobType(), _1 : (null : stdgo.Error) };
+                            return __ret__;
                         };
                     } else if (__value__ == ((13u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((14u32 : stdgo._internal.reflect.Reflect.Kind))) {
                         {
+                            final __ret__:{ var _0 : T_gobType; var _1 : stdgo.Error; } = { _0 : _tFloat._gobType(), _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
                                 defer();
                             };
-                            return { _0 : _tFloat._gobType(), _1 : (null : stdgo.Error) };
+                            return __ret__;
                         };
                     } else if (__value__ == ((15u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((16u32 : stdgo._internal.reflect.Reflect.Kind))) {
                         {
+                            final __ret__:{ var _0 : T_gobType; var _1 : stdgo.Error; } = { _0 : _tComplex._gobType(), _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
                                 defer();
                             };
-                            return { _0 : _tComplex._gobType(), _1 : (null : stdgo.Error) };
+                            return __ret__;
                         };
                     } else if (__value__ == ((24u32 : stdgo._internal.reflect.Reflect.Kind))) {
                         {
+                            final __ret__:{ var _0 : T_gobType; var _1 : stdgo.Error; } = { _0 : _tString._gobType(), _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
                                 defer();
                             };
-                            return { _0 : _tString._gobType(), _1 : (null : stdgo.Error) };
+                            return __ret__;
                         };
                     } else if (__value__ == ((20u32 : stdgo._internal.reflect.Reflect.Kind))) {
                         {
+                            final __ret__:{ var _0 : T_gobType; var _1 : stdgo.Error; } = { _0 : _tInterface._gobType(), _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
                                 defer();
                             };
-                            return { _0 : _tInterface._gobType(), _1 : (null : stdgo.Error) };
+                            return __ret__;
                         };
                     } else if (__value__ == ((17u32 : stdgo._internal.reflect.Reflect.Kind))) {
                         var _at = _newArrayType(_name?.__copy__());
@@ -7369,18 +7381,20 @@ function _newTypeObject(_name:stdgo.GoString, _ut:stdgo.Ref<T_userTypeInfo>, _rt
                         };
                         if (_err != null) {
                             {
+                                final __ret__:{ var _0 : T_gobType; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.encoding.gob.Gob.T_gobType), _1 : _err };
                                 for (defer in __deferstack__) {
                                     defer();
                                 };
-                                return { _0 : (null : stdgo._internal.encoding.gob.Gob.T_gobType), _1 : _err };
+                                return __ret__;
                             };
                         };
                         _at._init(_type0, _t.len());
                         {
+                            final __ret__:{ var _0 : T_gobType; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface(_at), _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
                                 defer();
                             };
-                            return { _0 : stdgo.Go.asInterface(_at), _1 : (null : stdgo.Error) };
+                            return __ret__;
                         };
                     } else if (__value__ == ((21u32 : stdgo._internal.reflect.Reflect.Kind))) {
                         var _mt = _newMapType(_name?.__copy__());
@@ -7392,10 +7406,11 @@ function _newTypeObject(_name:stdgo.GoString, _ut:stdgo.Ref<T_userTypeInfo>, _rt
                         };
                         if (_err != null) {
                             {
+                                final __ret__:{ var _0 : T_gobType; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.encoding.gob.Gob.T_gobType), _1 : _err };
                                 for (defer in __deferstack__) {
                                     defer();
                                 };
-                                return { _0 : (null : stdgo._internal.encoding.gob.Gob.T_gobType), _1 : _err };
+                                return __ret__;
                             };
                         };
                         {
@@ -7405,26 +7420,29 @@ function _newTypeObject(_name:stdgo.GoString, _ut:stdgo.Ref<T_userTypeInfo>, _rt
                         };
                         if (_err != null) {
                             {
+                                final __ret__:{ var _0 : T_gobType; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.encoding.gob.Gob.T_gobType), _1 : _err };
                                 for (defer in __deferstack__) {
                                     defer();
                                 };
-                                return { _0 : (null : stdgo._internal.encoding.gob.Gob.T_gobType), _1 : _err };
+                                return __ret__;
                             };
                         };
                         _mt._init(_type0, _type1);
                         {
+                            final __ret__:{ var _0 : T_gobType; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface(_mt), _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
                                 defer();
                             };
-                            return { _0 : stdgo.Go.asInterface(_mt), _1 : (null : stdgo.Error) };
+                            return __ret__;
                         };
                     } else if (__value__ == ((23u32 : stdgo._internal.reflect.Reflect.Kind))) {
                         if (_t.elem().kind() == ((8u32 : stdgo._internal.reflect.Reflect.Kind))) {
                             {
+                                final __ret__:{ var _0 : T_gobType; var _1 : stdgo.Error; } = { _0 : _tBytes._gobType(), _1 : (null : stdgo.Error) };
                                 for (defer in __deferstack__) {
                                     defer();
                                 };
-                                return { _0 : _tBytes._gobType(), _1 : (null : stdgo.Error) };
+                                return __ret__;
                             };
                         };
                         var _st = _newSliceType(_name?.__copy__());
@@ -7436,18 +7454,20 @@ function _newTypeObject(_name:stdgo.GoString, _ut:stdgo.Ref<T_userTypeInfo>, _rt
                         };
                         if (_err != null) {
                             {
+                                final __ret__:{ var _0 : T_gobType; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.encoding.gob.Gob.T_gobType), _1 : _err };
                                 for (defer in __deferstack__) {
                                     defer();
                                 };
-                                return { _0 : (null : stdgo._internal.encoding.gob.Gob.T_gobType), _1 : _err };
+                                return __ret__;
                             };
                         };
                         _st._init(_type0);
                         {
+                            final __ret__:{ var _0 : T_gobType; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface(_st), _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
                                 defer();
                             };
-                            return { _0 : stdgo.Go.asInterface(_st), _1 : (null : stdgo.Error) };
+                            return __ret__;
                         };
                     } else if (__value__ == ((25u32 : stdgo._internal.reflect.Reflect.Kind))) {
                         var _st = _newStructType(_name?.__copy__());
@@ -7469,10 +7489,11 @@ function _newTypeObject(_name:stdgo.GoString, _ut:stdgo.Ref<T_userTypeInfo>, _rt
                                 var __tmp__ = _getBaseType(_tname?.__copy__(), _f.type), _gt:stdgo._internal.encoding.gob.Gob.T_gobType = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                 if (_err != null) {
                                     {
+                                        final __ret__:{ var _0 : T_gobType; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.encoding.gob.Gob.T_gobType), _1 : _err };
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
-                                        return { _0 : (null : stdgo._internal.encoding.gob.Gob.T_gobType), _1 : _err };
+                                        return __ret__;
                                     };
                                 };
                                 if (_gt._id() == ((0 : stdgo._internal.encoding.gob.Gob.T_typeId))) {
@@ -7482,27 +7503,30 @@ function _newTypeObject(_name:stdgo.GoString, _ut:stdgo.Ref<T_userTypeInfo>, _rt
                             });
                         };
                         {
+                            final __ret__:{ var _0 : T_gobType; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface(_st), _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
                                 defer();
                             };
-                            return { _0 : stdgo.Go.asInterface(_st), _1 : (null : stdgo.Error) };
+                            return __ret__;
                         };
                     } else {
                         {
+                            final __ret__:{ var _0 : T_gobType; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.encoding.gob.Gob.T_gobType), _1 : stdgo._internal.errors.Errors.new_((("gob NewTypeObject can\'t handle type: " : stdgo.GoString) + (_rt.string() : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()) };
                             for (defer in __deferstack__) {
                                 defer();
                             };
-                            return { _0 : (null : stdgo._internal.encoding.gob.Gob.T_gobType), _1 : stdgo._internal.errors.Errors.new_((("gob NewTypeObject can\'t handle type: " : stdgo.GoString) + (_rt.string() : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()) };
+                            return __ret__;
                         };
                     };
                 };
             };
             {
+                final __ret__:{ var _0 : T_gobType; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.encoding.gob.Gob.T_gobType), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : (null : stdgo._internal.encoding.gob.Gob.T_gobType), _1 : (null : stdgo.Error) };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -7511,11 +7535,12 @@ function _newTypeObject(_name:stdgo.GoString, _ut:stdgo.Ref<T_userTypeInfo>, _rt
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : T_gobType; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.encoding.gob.Gob.T_gobType), _1 : (null : stdgo.Error) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : (null : stdgo._internal.encoding.gob.Gob.T_gobType), _1 : (null : stdgo.Error) };
+            return __ret__;
         };
     }
 function _isExported(_name:stdgo.GoString):Bool {
@@ -7603,20 +7628,22 @@ function _buildTypeInfo(_ut:stdgo.Ref<T_userTypeInfo>, _rt:stdgo._internal.refle
                 var _info = _lookupTypeInfo(_rt);
                 if (_info != null && ((_info : Dynamic).__nil__ == null || !(_info : Dynamic).__nil__)) {
                     {
+                        final __ret__:{ var _0 : stdgo.Ref<T_typeInfo>; var _1 : stdgo.Error; } = { _0 : _info, _1 : (null : stdgo.Error) };
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return { _0 : _info, _1 : (null : stdgo.Error) };
+                        return __ret__;
                     };
                 };
             };
             var __tmp__ = _getBaseType(_rt.name()?.__copy__(), _rt), _gt:stdgo._internal.encoding.gob.Gob.T_gobType = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 {
+                    final __ret__:{ var _0 : stdgo.Ref<T_typeInfo>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                     for (defer in __deferstack__) {
                         defer();
                     };
-                    return { _0 : null, _1 : _err };
+                    return __ret__;
                 };
             };
             var _info = (stdgo.Go.setRef(({ _id : _gt._id() } : stdgo._internal.encoding.gob.Gob.T_typeInfo)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_typeInfo>);
@@ -7624,10 +7651,11 @@ function _buildTypeInfo(_ut:stdgo.Ref<T_userTypeInfo>, _rt:stdgo._internal.refle
                 var __tmp__ = _getType(_rt.name()?.__copy__(), _ut, _rt), _userType:stdgo._internal.encoding.gob.Gob.T_gobType = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     {
+                        final __ret__:{ var _0 : stdgo.Ref<T_typeInfo>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return { _0 : null, _1 : _err };
+                        return __ret__;
                     };
                 };
                 var _gt = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_userType._id()._gobType()) : stdgo.Ref<T_gobEncoderType>)) : stdgo.Ref<T_gobEncoderType>);
@@ -7667,10 +7695,11 @@ function _buildTypeInfo(_ut:stdgo.Ref<T_userTypeInfo>, _rt:stdgo._internal.refle
                 if (_m != null) {
                     _m[_rt] = _info;
                     {
+                        final __ret__:{ var _0 : stdgo.Ref<T_typeInfo>; var _1 : stdgo.Error; } = { _0 : _info, _1 : (null : stdgo.Error) };
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return { _0 : _info, _1 : (null : stdgo.Error) };
+                        return __ret__;
                     };
                 };
             };
@@ -7692,17 +7721,19 @@ function _buildTypeInfo(_ut:stdgo.Ref<T_userTypeInfo>, _rt:stdgo._internal.refle
             _newm[_rt] = _info;
             _typeInfoMap.store(stdgo.Go.toInterface(_newm));
             {
+                final __ret__:{ var _0 : stdgo.Ref<T_typeInfo>; var _1 : stdgo.Error; } = { _0 : _info, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return { _0 : _info, _1 : (null : stdgo.Error) };
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : stdgo.Ref<T_typeInfo>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_typeInfo>), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_typeInfo>), _1 : (null : stdgo.Error) };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -7711,11 +7742,12 @@ function _buildTypeInfo(_ut:stdgo.Ref<T_userTypeInfo>, _rt:stdgo._internal.refle
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : stdgo.Ref<T_typeInfo>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_typeInfo>), _1 : (null : stdgo.Error) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_typeInfo>), _1 : (null : stdgo.Error) };
+            return __ret__;
         };
     }
 function _mustGetTypeInfo(_rt:stdgo._internal.reflect.Reflect.Type_):stdgo.Ref<T_typeInfo> {
@@ -7819,11 +7851,12 @@ function _getTypeUnlocked(_name:stdgo.GoString, _rt:stdgo._internal.reflect.Refl
                 return _t;
             };
             {
+                final __ret__:T_gobType = (null : stdgo._internal.encoding.gob.Gob.T_gobType);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return (null : stdgo._internal.encoding.gob.Gob.T_gobType);
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -7832,11 +7865,12 @@ function _getTypeUnlocked(_name:stdgo.GoString, _rt:stdgo._internal.reflect.Refl
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:T_gobType = (null : stdgo._internal.encoding.gob.Gob.T_gobType);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return (null : stdgo._internal.encoding.gob.Gob.T_gobType);
+            return __ret__;
         };
     }
 function testBasic(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
@@ -8423,17 +8457,19 @@ class Decoder_asInterface {
                 _dec._decodeValue(_id, _v?.__copy__());
             };
             {
+                final __ret__:stdgo.Error = _dec._err;
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return _dec._err;
+                return __ret__;
             };
             {
+                final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return (null : stdgo.Error);
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -8442,11 +8478,12 @@ class Decoder_asInterface {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:stdgo.Error = (null : stdgo.Error);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return (null : stdgo.Error);
+            return __ret__;
         };
     }
     @:keep
@@ -8728,10 +8765,11 @@ class Decoder_asInterface {
             var _srt:stdgo._internal.reflect.Reflect.Type_ = _rt;
             if (((_srt.kind() != (25u32 : stdgo._internal.reflect.Reflect.Kind)) || (_ut._externalDec != (0 : stdgo.GoInt)) : Bool)) {
                 {
+                    final __ret__:{ var _0 : stdgo.Ref<T_decEngine>; var _1 : stdgo.Error; } = _dec._compileSingle(_remoteId, _ut);
                     for (defer in __deferstack__) {
                         defer();
                     };
-                    return _dec._compileSingle(_remoteId, _ut);
+                    return __ret__;
                 };
             };
             var _wireStruct:stdgo.Ref<T_structType> = (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_structType>);
@@ -8800,17 +8838,19 @@ class Decoder_asInterface {
                 });
             };
             {
+                final __ret__:{ var _0 : stdgo.Ref<T_decEngine>; var _1 : stdgo.Error; } = { _0 : _engine, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return { _0 : _engine, _1 : _err };
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : stdgo.Ref<T_decEngine>; var _1 : stdgo.Error; } = { _0 : _engine, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : _engine, _1 : _err };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -8819,11 +8859,12 @@ class Decoder_asInterface {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : stdgo.Ref<T_decEngine>; var _1 : stdgo.Error; } = { _0 : _engine, _1 : _err };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : _engine, _1 : _err };
+            return __ret__;
         };
     }
     @:keep
@@ -8886,25 +8927,28 @@ class Decoder_asInterface {
                 var _t:stdgo._internal.encoding.gob.Gob.T_gobType = _idToType(_remoteId);
                 if (_t != null) {
                     {
+                        final __ret__:stdgo.GoString = _t._string()?.__copy__();
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return _t._string()?.__copy__();
+                        return __ret__;
                     };
                 };
             };
             {
+                final __ret__:stdgo.GoString = (_dec._wireType[_remoteId] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_wireType>))._string()?.__copy__();
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return (_dec._wireType[_remoteId] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_wireType>))._string()?.__copy__();
+                return __ret__;
             };
             {
+                final __ret__:stdgo.GoString = ("" : stdgo.GoString);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return ("" : stdgo.GoString);
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -8913,11 +8957,12 @@ class Decoder_asInterface {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:stdgo.GoString = ("" : stdgo.GoString);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return ("" : stdgo.GoString);
+            return __ret__;
         };
     }
     @:keep
@@ -9808,10 +9853,11 @@ class Encoder_asInterface {
             _enc._sendTypeId(_state, _ut);
             if (_enc._err != null) {
                 {
+                    final __ret__:stdgo.Error = _enc._err;
                     for (defer in __deferstack__) {
                         defer();
                     };
-                    return _enc._err;
+                    return __ret__;
                 };
             };
             _enc._encode(_state._b, _value?.__copy__(), _ut);
@@ -9820,17 +9866,19 @@ class Encoder_asInterface {
             };
             _enc._freeEncoderState(_state);
             {
+                final __ret__:stdgo.Error = _enc._err;
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return _enc._err;
+                return __ret__;
             };
             {
+                final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return (null : stdgo.Error);
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -9839,11 +9887,12 @@ class Encoder_asInterface {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:stdgo.Error = (null : stdgo.Error);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return (null : stdgo.Error);
+            return __ret__;
         };
     }
     @:keep

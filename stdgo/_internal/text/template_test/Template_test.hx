@@ -97,17 +97,19 @@ function _createTestDir(_files:stdgo.Slice<T_templateFile>):stdgo.GoString {
                 };
             };
             {
+                final __ret__:stdgo.GoString = _dir?.__copy__();
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return _dir?.__copy__();
+                return __ret__;
             };
             {
+                final __ret__:stdgo.GoString = ("" : stdgo.GoString);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return ("" : stdgo.GoString);
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -116,11 +118,12 @@ function _createTestDir(_files:stdgo.Slice<T_templateFile>):stdgo.GoString {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:stdgo.GoString = ("" : stdgo.GoString);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return ("" : stdgo.GoString);
+            return __ret__;
         };
     }
 function exampleTemplate_glob():Void {

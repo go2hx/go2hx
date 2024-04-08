@@ -1,5 +1,7 @@
 package stdgo._internal.internal.fmtsort_test;
 import stdgo._internal.internal.fmtsort.Fmtsort;
+var _iFace : stdgo.AnyInterface = (null : stdgo.AnyInterface);
+var _ints : stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(...[for (i in 0 ... 3) (0 : stdgo.GoInt)]);
 var _chans : stdgo.Slice<stdgo.Chan<stdgo.GoInt>> = _makeChans();
 var _compareTests : stdgo.Slice<stdgo.Slice<stdgo._internal.reflect.Reflect.Value>> = (new stdgo.Slice<stdgo.Slice<stdgo._internal.reflect.Reflect.Value>>(
 23,
@@ -114,8 +116,6 @@ var _sortTests : stdgo.Slice<stdgo._internal.internal.fmtsort_test.Fmtsort_test.
         };
         cast x;
     } : stdgo.GoMap<stdgo.GoArray<stdgo.GoInt>, stdgo.GoString>)), ("[3 4]:34 [7 1]:71 [7 2]:72" : stdgo.GoString)) : stdgo._internal.internal.fmtsort_test.Fmtsort_test.T_sortTest)) : stdgo.Slice<stdgo._internal.internal.fmtsort_test.Fmtsort_test.T_sortTest>);
-var _iFace : stdgo.AnyInterface = (null : stdgo.AnyInterface);
-var _ints : stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(...[for (i in 0 ... 3) (0 : stdgo.GoInt)]);
 @:structInit @:private class T_sortTest {
     public var _data : stdgo.AnyInterface = (null : stdgo.AnyInterface);
     public var _print : stdgo.GoString = "";

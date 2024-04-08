@@ -4,6 +4,11 @@ import stdgo._internal.bytes.Bytes;
 import stdgo._internal.bytes.Bytes;
 import stdgo._internal.bytes.Bytes;
 import stdgo._internal.bytes.Bytes;
+final n : stdgo.GoUInt64 = (10000i64 : stdgo.GoUInt64);
+var _testString : stdgo.GoString = ("" : stdgo.GoString);
+var _testBytes : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
+var _bmbuf : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
+final _space : stdgo.GoString = ("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000" : stdgo.GoString);
 var _readBytesTests : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(7, 7, ({ _buffer : stdgo.Go.str()?.__copy__(), _delim : (0 : stdgo.GoUInt8), _expected : (new stdgo.Slice<stdgo.GoString>(1, 1, stdgo.Go.str()?.__copy__()) : stdgo.Slice<stdgo.GoString>), _err : stdgo._internal.io.Io.eof } : T__struct_0), ({ _buffer : stdgo.Go.str("a", 0)?.__copy__(), _delim : (0 : stdgo.GoUInt8), _expected : (new stdgo.Slice<stdgo.GoString>(1, 1, stdgo.Go.str("a", 0)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _err : (null : stdgo.Error) } : T__struct_0), ({ _buffer : ("abbbaaaba" : stdgo.GoString), _delim : (98 : stdgo.GoUInt8), _expected : (new stdgo.Slice<stdgo.GoString>(4, 4, ("ab" : stdgo.GoString), ("b" : stdgo.GoString), ("b" : stdgo.GoString), ("aaab" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _err : (null : stdgo.Error) } : T__struct_0), ({ _buffer : stdgo.Go.str("hello", 1, "world")?.__copy__(), _delim : (1 : stdgo.GoUInt8), _expected : (new stdgo.Slice<stdgo.GoString>(1, 1, stdgo.Go.str("hello", 1)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _err : (null : stdgo.Error) } : T__struct_0), ({ _buffer : ("foo\nbar" : stdgo.GoString), _delim : (0 : stdgo.GoUInt8), _expected : (new stdgo.Slice<stdgo.GoString>(1, 1, ("foo\nbar" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _err : stdgo._internal.io.Io.eof } : T__struct_0), ({ _buffer : ("alpha\nbeta\ngamma\n" : stdgo.GoString), _delim : (10 : stdgo.GoUInt8), _expected : (new stdgo.Slice<stdgo.GoString>(3, 3, ("alpha\n" : stdgo.GoString), ("beta\n" : stdgo.GoString), ("gamma\n" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _err : (null : stdgo.Error) } : T__struct_0), ({ _buffer : ("alpha\nbeta\ngamma" : stdgo.GoString), _delim : (10 : stdgo.GoUInt8), _expected : (new stdgo.Slice<stdgo.GoString>(3, 3, ("alpha\n" : stdgo.GoString), ("beta\n" : stdgo.GoString), ("gamma" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _err : stdgo._internal.io.Io.eof } : T__struct_0)) : stdgo.Slice<T__struct_0>);
 var _abcd : stdgo.GoString = ("abcd" : stdgo.GoString);
 var _faces : stdgo.GoString = ("☺☻☹" : stdgo.GoString);
@@ -496,11 +501,6 @@ var unreadRuneErrorTests : stdgo.Slice<T__struct_17> = (new stdgo.Slice<T__struc
     } } : T__struct_17), ({ _name : ("WriteTo" : stdgo.GoString), _f : function(_r:stdgo.Ref<Reader>):Void {
         _r.writeTo(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.bytes.Bytes.Buffer() : stdgo._internal.bytes.Bytes.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>)));
     } } : T__struct_17)) : stdgo.Slice<T__struct_17>);
-final n : stdgo.GoUInt64 = (10000i64 : stdgo.GoUInt64);
-var _testString : stdgo.GoString = ("" : stdgo.GoString);
-var _testBytes : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
-var _bmbuf : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
-final _space : stdgo.GoString = ("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000" : stdgo.GoString);
 @:structInit @:private @:using(stdgo._internal.bytes_test.Bytes_test.T_negativeReader_static_extension) class T_negativeReader {
     public function new() {}
     public function __underlying__() return stdgo.Go.toInterface(this);

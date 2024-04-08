@@ -1,6 +1,8 @@
 package stdgo._internal.path.filepath_test;
 import stdgo._internal.path.filepath.Filepath;
 import stdgo._internal.path.filepath.Filepath;
+final _sep : stdgo.GoInt32 = (47 : stdgo.GoInt32);
+final _lsep : stdgo.GoInt32 = (58 : stdgo.GoInt32);
 var _matchTests : stdgo.Slice<stdgo._internal.path.filepath_test.Filepath_test.MatchTest> = (new stdgo.Slice<stdgo._internal.path.filepath_test.Filepath_test.MatchTest>(
 56,
 56,
@@ -446,8 +448,6 @@ var _volumenametests : stdgo.Slice<stdgo._internal.path.filepath_test.Filepath_t
 (new stdgo._internal.path.filepath_test.Filepath_test.VolumeNameTest(("//./C:/a/b/c" : stdgo.GoString), ("\\\\.\\C:" : stdgo.GoString)) : stdgo._internal.path.filepath_test.Filepath_test.VolumeNameTest),
 (new stdgo._internal.path.filepath_test.Filepath_test.VolumeNameTest(("//./UNC/host/share/a/b/c" : stdgo.GoString), ("\\\\.\\UNC\\host\\share" : stdgo.GoString)) : stdgo._internal.path.filepath_test.Filepath_test.VolumeNameTest),
 (new stdgo._internal.path.filepath_test.Filepath_test.VolumeNameTest(("//./UNC/host" : stdgo.GoString), ("\\\\.\\UNC\\host" : stdgo.GoString)) : stdgo._internal.path.filepath_test.Filepath_test.VolumeNameTest)) : stdgo.Slice<stdgo._internal.path.filepath_test.Filepath_test.VolumeNameTest>);
-final _sep : stdgo.GoInt32 = (47 : stdgo.GoInt32);
-final _lsep : stdgo.GoInt32 = (58 : stdgo.GoInt32);
 @:structInit class MatchTest {
     public var _pattern : stdgo.GoString = "";
     public var _s : stdgo.GoString = "";

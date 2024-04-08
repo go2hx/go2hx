@@ -1,9 +1,9 @@
 package stdgo._internal.runtime;
 private var __go2hxdoc__package : Bool;
-var memProfileRate : stdgo.GoInt = (0 : stdgo.GoInt);
 final compiler : stdgo.GoString = "go2hx";
 final goos : stdgo.GoString = ("" : stdgo.GoString);
 final goarch : stdgo.GoString = ("" : stdgo.GoString);
+var memProfileRate : stdgo.GoInt = (0 : stdgo.GoInt);
 typedef Error = stdgo.StructType & {
     > stdgo.Error,
     /**

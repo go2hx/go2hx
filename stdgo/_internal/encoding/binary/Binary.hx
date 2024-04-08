@@ -1,5 +1,12 @@
 package stdgo._internal.encoding.binary;
 private var __go2hxdoc__package : Bool;
+var littleEndian : T_littleEndian = ({} : stdgo._internal.encoding.binary.Binary.T_littleEndian);
+var bigEndian : T_bigEndian = ({} : stdgo._internal.encoding.binary.Binary.T_bigEndian);
+var _structSize : stdgo._internal.sync.Sync.Map_ = ({} : stdgo._internal.sync.Sync.Map_);
+var nativeEndian : T_nativeEndian = ({} : stdgo._internal.encoding.binary.Binary.T_nativeEndian);
+final maxVarintLen16 : stdgo.GoUInt64 = (3i64 : stdgo.GoUInt64);
+final maxVarintLen32 : stdgo.GoUInt64 = (5i64 : stdgo.GoUInt64);
+final maxVarintLen64 : stdgo.GoUInt64 = (10i64 : stdgo.GoUInt64);
 var _errOverflow : stdgo.Error = stdgo._internal.errors.Errors.new_(("binary: varint overflows a 64-bit integer" : stdgo.GoString));
 var _s : stdgo._internal.encoding.binary.Binary.Struct = (new stdgo._internal.encoding.binary.Binary.Struct(
 (1 : stdgo.GoInt8),
@@ -198,13 +205,6 @@ var _tests : stdgo.Slice<stdgo.GoInt64> = (new stdgo.Slice<stdgo.GoInt64>(
 (256i64 : stdgo.GoInt64),
 (257i64 : stdgo.GoInt64),
 (9223372036854775807i64 : stdgo.GoInt64)) : stdgo.Slice<stdgo.GoInt64>);
-var littleEndian : T_littleEndian = ({} : stdgo._internal.encoding.binary.Binary.T_littleEndian);
-var bigEndian : T_bigEndian = ({} : stdgo._internal.encoding.binary.Binary.T_bigEndian);
-var _structSize : stdgo._internal.sync.Sync.Map_ = ({} : stdgo._internal.sync.Sync.Map_);
-var nativeEndian : T_nativeEndian = ({} : stdgo._internal.encoding.binary.Binary.T_nativeEndian);
-final maxVarintLen16 : stdgo.GoUInt64 = (3i64 : stdgo.GoUInt64);
-final maxVarintLen32 : stdgo.GoUInt64 = (5i64 : stdgo.GoUInt64);
-final maxVarintLen64 : stdgo.GoUInt64 = (10i64 : stdgo.GoUInt64);
 typedef ByteOrder = stdgo.StructType & {
     /**
         

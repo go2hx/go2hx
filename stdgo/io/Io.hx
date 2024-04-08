@@ -10,6 +10,9 @@ package stdgo.io;
     // assume they are safe for parallel execution.
 **/
 private var __go2hxdoc__package : Bool;
+final seekStart : haxe.UInt64 = stdgo._internal.io.Io.seekStart;
+final seekCurrent : haxe.UInt64 = stdgo._internal.io.Io.seekCurrent;
+final seekEnd : haxe.UInt64 = stdgo._internal.io.Io.seekEnd;
 var errShortWrite(get, set) : stdgo.Error;
 function get_errShortWrite():stdgo.Error return stdgo._internal.io.Io.errShortWrite;
 function set_errShortWrite(v:stdgo.Error):stdgo.Error return stdgo._internal.io.Io.errShortWrite = v;
@@ -40,9 +43,6 @@ function set_errWhence(v:stdgo.Error):stdgo.Error return stdgo._internal.io.Io.e
 var errOffset(get, set) : stdgo.Error;
 function get_errOffset():stdgo.Error return stdgo._internal.io.Io.errOffset;
 function set_errOffset(v:stdgo.Error):stdgo.Error return stdgo._internal.io.Io.errOffset = v;
-final seekStart : haxe.UInt64 = stdgo._internal.io.Io.seekStart;
-final seekCurrent : haxe.UInt64 = stdgo._internal.io.Io.seekCurrent;
-final seekEnd : haxe.UInt64 = stdgo._internal.io.Io.seekEnd;
 typedef Reader = stdgo._internal.io.Io.Reader;
 typedef Writer = stdgo._internal.io.Io.Writer;
 typedef Closer = stdgo._internal.io.Io.Closer;

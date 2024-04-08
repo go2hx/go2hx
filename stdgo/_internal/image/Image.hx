@@ -1,5 +1,15 @@
 package stdgo._internal.image;
 private var __go2hxdoc__package : Bool;
+var _formatsMu : stdgo._internal.sync.Sync.Mutex = ({} : stdgo._internal.sync.Sync.Mutex);
+var _atomicFormats : stdgo._internal.sync.atomic_.Atomic_.Value = ({} : stdgo._internal.sync.atomic_.Atomic_.Value);
+var zp : Point = ({} : stdgo._internal.image.Image.Point);
+var zr : Rectangle = ({} : stdgo._internal.image.Image.Rectangle);
+final ycbCrSubsampleRatio444 : stdgo._internal.image.Image.YCbCrSubsampleRatio = (5 : stdgo._internal.image.Image.YCbCrSubsampleRatio);
+final ycbCrSubsampleRatio422 = (5 : stdgo._internal.image.Image.YCbCrSubsampleRatio);
+final ycbCrSubsampleRatio420 = (5 : stdgo._internal.image.Image.YCbCrSubsampleRatio);
+final ycbCrSubsampleRatio440 = (5 : stdgo._internal.image.Image.YCbCrSubsampleRatio);
+final ycbCrSubsampleRatio411 = (5 : stdgo._internal.image.Image.YCbCrSubsampleRatio);
+final ycbCrSubsampleRatio410 = (5 : stdgo._internal.image.Image.YCbCrSubsampleRatio);
 var errFormat : stdgo.Error = stdgo._internal.errors.Errors.new_(("image: unknown format" : stdgo.GoString));
 var black : stdgo.Ref<stdgo._internal.image.Image.Uniform> = newUniform(stdgo.Go.asInterface(stdgo._internal.image.color.Color.black));
 var white : stdgo.Ref<stdgo._internal.image.Image.Uniform> = newUniform(stdgo.Go.asInterface(stdgo._internal.image.color.Color.white));
@@ -35,16 +45,6 @@ var _testImages : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(
 ({ _name : ("paletted" : stdgo.GoString), _image : function():T_image {
         return stdgo.Go.asInterface(newPaletted(rect((0 : stdgo.GoInt), (0 : stdgo.GoInt), (10 : stdgo.GoInt), (10 : stdgo.GoInt))?.__copy__(), (new stdgo.Slice<stdgo._internal.image.color.Color.Color>(2, 2, stdgo.Go.asInterface(transparent), stdgo.Go.asInterface(opaque)) : stdgo._internal.image.color.Color.Palette)));
     } } : T__struct_0)) : stdgo.Slice<T__struct_0>);
-var _formatsMu : stdgo._internal.sync.Sync.Mutex = ({} : stdgo._internal.sync.Sync.Mutex);
-var _atomicFormats : stdgo._internal.sync.atomic_.Atomic_.Value = ({} : stdgo._internal.sync.atomic_.Atomic_.Value);
-var zp : Point = ({} : stdgo._internal.image.Image.Point);
-var zr : Rectangle = ({} : stdgo._internal.image.Image.Rectangle);
-final ycbCrSubsampleRatio444 : stdgo._internal.image.Image.YCbCrSubsampleRatio = (5 : stdgo._internal.image.Image.YCbCrSubsampleRatio);
-final ycbCrSubsampleRatio422 = (5 : stdgo._internal.image.Image.YCbCrSubsampleRatio);
-final ycbCrSubsampleRatio420 = (5 : stdgo._internal.image.Image.YCbCrSubsampleRatio);
-final ycbCrSubsampleRatio440 = (5 : stdgo._internal.image.Image.YCbCrSubsampleRatio);
-final ycbCrSubsampleRatio411 = (5 : stdgo._internal.image.Image.YCbCrSubsampleRatio);
-final ycbCrSubsampleRatio410 = (5 : stdgo._internal.image.Image.YCbCrSubsampleRatio);
 typedef T_reader = stdgo.StructType & {
     > stdgo._internal.io.Io.Reader,
     /**

@@ -1,6 +1,5 @@
 package stdgo._internal.internal.cpu;
 private var __go2hxdoc__package : Bool;
-var cacheLineSize : stdgo.GoUIntptr = (64 : stdgo.GoUIntptr);
 var debugOptions : Bool = false;
 var x86 : T__struct_0 = ({ hasAES : false, hasADX : false, hasAVX : false, hasAVX2 : false, hasBMI1 : false, hasBMI2 : false, hasERMS : false, hasFMA : false, hasOSXSAVE : false, hasPCLMULQDQ : false, hasPOPCNT : false, hasRDTSCP : false, hasSHA : false, hasSSE3 : false, hasSSSE3 : false, hasSSE41 : false, hasSSE42 : false } : T__struct_0);
 var arm : T__struct_1 = ({ hasVFPv4 : false, hasIDIVA : false } : T__struct_1);
@@ -10,6 +9,7 @@ var ppc64 : T__struct_4 = ({ hasDARN : false, hasSCV : false, isPOWER8 : false, 
 var s390x : T__struct_5 = ({ hasZARCH : false, hasSTFLE : false, hasLDISP : false, hasEIMM : false, hasDFP : false, hasETF3EH : false, hasMSA : false, hasAES : false, hasAESCBC : false, hasAESCTR : false, hasAESGCM : false, hasGHASH : false, hasSHA1 : false, hasSHA256 : false, hasSHA512 : false, hasSHA3 : false, hasVX : false, hasVXE : false, hasKDSA : false, hasECDSA : false, hasEDDSA : false } : T__struct_5);
 var _options : stdgo.Slice<T_option> = (null : stdgo.Slice<stdgo._internal.internal.cpu.Cpu.T_option>);
 final cacheLinePadSize : stdgo.GoUInt64 = (64i64 : stdgo.GoUInt64);
+var cacheLineSize : stdgo.GoUIntptr = (64 : stdgo.GoUIntptr);
 @:structInit class CacheLinePad {
     @:optional
     public var __1 : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 64) (0 : stdgo.GoUInt8)]);

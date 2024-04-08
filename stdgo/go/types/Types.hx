@@ -23,9 +23,6 @@ package stdgo.go.types;
     // For a tutorial, see https://golang.org/s/types-tutorial.
 **/
 private var __go2hxdoc__package : Bool;
-var typ(get, set) : Array<stdgo._internal.go.types.Types.Basic>;
-function get_typ():Array<stdgo._internal.go.types.Types.Basic> return stdgo._internal.go.types.Types.typ;
-function set_typ(v:Array<stdgo._internal.go.types.Types.Basic>):Array<stdgo._internal.go.types.Types.Basic> return stdgo._internal.go.types.Types.typ = v;
 final invalid : stdgo._internal.go.types.Types.BasicKind = stdgo._internal.go.types.Types.invalid;
 final bool_ = stdgo._internal.go.types.Types.bool_;
 final int_ = stdgo._internal.go.types.Types.int_;
@@ -76,6 +73,9 @@ function set_universe(v:Scope):Scope return stdgo._internal.go.types.Types.unive
 var unsafe(get, set) : Package;
 function get_unsafe():Package return stdgo._internal.go.types.Types.unsafe;
 function set_unsafe(v:Package):Package return stdgo._internal.go.types.Types.unsafe = v;
+var typ(get, set) : Array<stdgo._internal.go.types.Types.Basic>;
+function get_typ():Array<stdgo._internal.go.types.Types.Basic> return stdgo._internal.go.types.Types.typ;
+function set_typ(v:Array<stdgo._internal.go.types.Types.Basic>):Array<stdgo._internal.go.types.Types.Basic> return stdgo._internal.go.types.Types.typ = v;
 typedef Importer = stdgo._internal.go.types.Types.Importer;
 typedef ImporterFrom = stdgo._internal.go.types.Types.ImporterFrom;
 typedef T_cleaner = stdgo._internal.go.types.Types.T_cleaner;

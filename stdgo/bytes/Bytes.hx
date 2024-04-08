@@ -4,13 +4,13 @@ package stdgo.bytes;
     // It is analogous to the facilities of the [strings] package.
 **/
 private var __go2hxdoc__package : Bool;
+final minRead : haxe.UInt64 = stdgo._internal.bytes.Bytes.minRead;
 var errTooLarge(get, set) : stdgo.Error;
 function get_errTooLarge():stdgo.Error return stdgo._internal.bytes.Bytes.errTooLarge;
 function set_errTooLarge(v:stdgo.Error):stdgo.Error return stdgo._internal.bytes.Bytes.errTooLarge = v;
 var indexBytePortable(get, set) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt8) -> stdgo.GoInt;
 function get_indexBytePortable():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt8) -> stdgo.GoInt return stdgo._internal.bytes.Bytes.indexBytePortable;
 function set_indexBytePortable(v:(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt8) -> stdgo.GoInt):(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt8) -> stdgo.GoInt return stdgo._internal.bytes.Bytes.indexBytePortable = v;
-final minRead : haxe.UInt64 = stdgo._internal.bytes.Bytes.minRead;
 @:invalid typedef Buffer = Dynamic;
 @:invalid typedef Reader = Dynamic;
 typedef T_readOp = stdgo._internal.bytes.Bytes.T_readOp;

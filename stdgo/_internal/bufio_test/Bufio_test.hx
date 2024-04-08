@@ -2,6 +2,8 @@ package stdgo._internal.bufio_test;
 import stdgo._internal.bufio.Bufio;
 import stdgo._internal.bufio.Bufio;
 import stdgo._internal.bufio.Bufio;
+final _minReadBufferSize : stdgo.GoUInt64 = (16i64 : stdgo.GoUInt64);
+final _smallMaxTokenSize : stdgo.GoUInt64 = (256i64 : stdgo.GoUInt64);
 var _readMakers : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_readMaker> = (new stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_readMaker>(5, 5, (new stdgo._internal.bufio_test.Bufio_test.T_readMaker(("full" : stdgo.GoString), function(_r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
         return _r;
     }) : stdgo._internal.bufio_test.Bufio_test.T_readMaker), (new stdgo._internal.bufio_test.Bufio_test.T_readMaker(("byte" : stdgo.GoString), stdgo._internal.testing.iotest.Iotest.oneByteReader) : stdgo._internal.bufio_test.Bufio_test.T_readMaker), (new stdgo._internal.bufio_test.Bufio_test.T_readMaker(("half" : stdgo.GoString), stdgo._internal.testing.iotest.Iotest.halfReader) : stdgo._internal.bufio_test.Bufio_test.T_readMaker), (new stdgo._internal.bufio_test.Bufio_test.T_readMaker(("data+err" : stdgo.GoString), stdgo._internal.testing.iotest.Iotest.dataErrReader) : stdgo._internal.bufio_test.Bufio_test.T_readMaker), (new stdgo._internal.bufio_test.Bufio_test.T_readMaker(("timeout" : stdgo.GoString), stdgo._internal.testing.iotest.Iotest.timeoutReader) : stdgo._internal.bufio_test.Bufio_test.T_readMaker)) : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_readMaker>);
@@ -54,8 +56,6 @@ stdgo.Go.str(129)?.__copy__(),
 stdgo.Go.str("abc¼☹", 129, "�日本語", 130, "abc")?.__copy__()) : stdgo.Slice<stdgo.GoString>);
 var _wordScanTests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(8, 8, stdgo.Go.str()?.__copy__(), (" " : stdgo.GoString), ("\n" : stdgo.GoString), ("a" : stdgo.GoString), (" a " : stdgo.GoString), ("abc def" : stdgo.GoString), (" abc def " : stdgo.GoString), (" abc\tdef\nghi\rjkl\x0Cmno\x0Bpqr\u0085stu\u00a0\n" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
 var _testError : stdgo.Error = stdgo._internal.errors.Errors.new_(("testError" : stdgo.GoString));
-final _minReadBufferSize : stdgo.GoUInt64 = (16i64 : stdgo.GoUInt64);
-final _smallMaxTokenSize : stdgo.GoUInt64 = (256i64 : stdgo.GoUInt64);
 @:structInit @:private @:using(stdgo._internal.bufio_test.Bufio_test.T_rot13Reader_static_extension) class T_rot13Reader {
     public var _r : stdgo._internal.io.Io.Reader = (null : stdgo._internal.io.Io.Reader);
     public function new(?_r:stdgo._internal.io.Io.Reader) {

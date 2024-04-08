@@ -1,28 +1,5 @@
 package stdgo._internal.fmt;
 private var __go2hxdoc__package : Bool;
-var _ppFree : stdgo._internal.sync.Sync.Pool = ({ new_ : function():stdgo.AnyInterface {
-        return stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.fmt.Fmt.T_pp)) : stdgo.Ref<stdgo._internal.fmt.Fmt.T_pp>)));
-    } } : stdgo._internal.sync.Sync.Pool);
-var _space : stdgo.Slice<stdgo.GoArray<stdgo.GoUInt16>> = (new stdgo.Slice<stdgo.GoArray<stdgo.GoUInt16>>(
-10,
-10,
-(new stdgo.GoArray<stdgo.GoUInt16>((9 : stdgo.GoUInt16), (13 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((32 : stdgo.GoUInt16), (32 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((133 : stdgo.GoUInt16), (133 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((160 : stdgo.GoUInt16), (160 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((5760 : stdgo.GoUInt16), (5760 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((8192 : stdgo.GoUInt16), (8202 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((8232 : stdgo.GoUInt16), (8233 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((8239 : stdgo.GoUInt16), (8239 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((8287 : stdgo.GoUInt16), (8287 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((12288 : stdgo.GoUInt16), (12288 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>)) : stdgo.Slice<stdgo.GoArray<stdgo.GoUInt16>>);
-var _ssFree : stdgo._internal.sync.Sync.Pool = ({ new_ : function():stdgo.AnyInterface {
-        return stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.fmt.Fmt.T_ss)) : stdgo.Ref<stdgo._internal.fmt.Fmt.T_ss>)));
-    } } : stdgo._internal.sync.Sync.Pool);
-var _errComplex : stdgo.Error = stdgo._internal.errors.Errors.new_(("syntax error scanning complex number" : stdgo.GoString));
-var _errBool : stdgo.Error = stdgo._internal.errors.Errors.new_(("syntax error scanning boolean" : stdgo.GoString));
-var isSpace : stdgo.GoInt32 -> Bool = _isSpace;
-var parsenum : (stdgo.GoString, stdgo.GoInt, stdgo.GoInt) -> { var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoInt; } = _parsenum;
 final _ldigits : stdgo.GoString = ("0123456789abcdefx" : stdgo.GoString);
 final _udigits : stdgo.GoString = ("0123456789ABCDEFX" : stdgo.GoString);
 final _signed : Bool = true;
@@ -53,6 +30,29 @@ final _floatVerbs : stdgo.GoString = ("beEfFgGv" : stdgo.GoString);
 final _hugeWid : stdgo.GoUInt64 = (1073741824i64 : stdgo.GoUInt64);
 final _intBits : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
 final _uintptrBits : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
+var _ppFree : stdgo._internal.sync.Sync.Pool = ({ new_ : function():stdgo.AnyInterface {
+        return stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.fmt.Fmt.T_pp)) : stdgo.Ref<stdgo._internal.fmt.Fmt.T_pp>)));
+    } } : stdgo._internal.sync.Sync.Pool);
+var _space : stdgo.Slice<stdgo.GoArray<stdgo.GoUInt16>> = (new stdgo.Slice<stdgo.GoArray<stdgo.GoUInt16>>(
+10,
+10,
+(new stdgo.GoArray<stdgo.GoUInt16>((9 : stdgo.GoUInt16), (13 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
+(new stdgo.GoArray<stdgo.GoUInt16>((32 : stdgo.GoUInt16), (32 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
+(new stdgo.GoArray<stdgo.GoUInt16>((133 : stdgo.GoUInt16), (133 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
+(new stdgo.GoArray<stdgo.GoUInt16>((160 : stdgo.GoUInt16), (160 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
+(new stdgo.GoArray<stdgo.GoUInt16>((5760 : stdgo.GoUInt16), (5760 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
+(new stdgo.GoArray<stdgo.GoUInt16>((8192 : stdgo.GoUInt16), (8202 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
+(new stdgo.GoArray<stdgo.GoUInt16>((8232 : stdgo.GoUInt16), (8233 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
+(new stdgo.GoArray<stdgo.GoUInt16>((8239 : stdgo.GoUInt16), (8239 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
+(new stdgo.GoArray<stdgo.GoUInt16>((8287 : stdgo.GoUInt16), (8287 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
+(new stdgo.GoArray<stdgo.GoUInt16>((12288 : stdgo.GoUInt16), (12288 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>)) : stdgo.Slice<stdgo.GoArray<stdgo.GoUInt16>>);
+var _ssFree : stdgo._internal.sync.Sync.Pool = ({ new_ : function():stdgo.AnyInterface {
+        return stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.fmt.Fmt.T_ss)) : stdgo.Ref<stdgo._internal.fmt.Fmt.T_ss>)));
+    } } : stdgo._internal.sync.Sync.Pool);
+var _errComplex : stdgo.Error = stdgo._internal.errors.Errors.new_(("syntax error scanning complex number" : stdgo.GoString));
+var _errBool : stdgo.Error = stdgo._internal.errors.Errors.new_(("syntax error scanning boolean" : stdgo.GoString));
+var isSpace : stdgo.GoInt32 -> Bool = _isSpace;
+var parsenum : (stdgo.GoString, stdgo.GoInt, stdgo.GoInt) -> { var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoInt; } = _parsenum;
 typedef State = stdgo.StructType & {
     /**
         // Write is the function to call to emit formatted output to be printed.
@@ -2685,17 +2685,19 @@ class T_ss_asInterface {
                 _s._errorString(("too many operands" : stdgo.GoString));
             };
             {
+                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _numProcessed, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return { _0 : _numProcessed, _1 : _err };
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _numProcessed, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : _numProcessed, _1 : _err };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -2704,11 +2706,12 @@ class T_ss_asInterface {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _numProcessed, _1 : _err };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : _numProcessed, _1 : _err };
+            return __ret__;
         };
     }
     @:keep
@@ -2811,17 +2814,19 @@ class T_ss_asInterface {
                 };
             };
             {
+                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _numProcessed, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return { _0 : _numProcessed, _1 : _err };
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _numProcessed, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : _numProcessed, _1 : _err };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -2830,11 +2835,12 @@ class T_ss_asInterface {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _numProcessed, _1 : _err };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : _numProcessed, _1 : _err };
+            return __ret__;
         };
     }
     @:keep
@@ -3503,17 +3509,19 @@ class T_ss_asInterface {
             _s._buf = (_s._buf.__slice__(0, (0 : stdgo.GoInt)) : stdgo._internal.fmt.Fmt.T_buffer);
             _tok = _s._token(_skipSpace, _f);
             {
+                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : _tok, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return { _0 : _tok, _1 : _err };
+                return __ret__;
             };
             {
+                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : _tok, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : _tok, _1 : _err };
+                return __ret__;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -3522,11 +3530,12 @@ class T_ss_asInterface {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
+            final __ret__:{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = { _0 : _tok, _1 : _err };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : _tok, _1 : _err };
+            return __ret__;
         };
     }
     @:keep

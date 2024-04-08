@@ -1,23 +1,5 @@
 package stdgo._internal.syscall;
 private var __go2hxdoc__package : Bool;
-var _envs : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-var _jsProcess : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
-var _jsFS : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
-var _constants : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
-var _uint8Array : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
-var _nodeWRONLY : stdgo.GoInt = (0 : stdgo.GoInt);
-var _nodeRDWR : stdgo.GoInt = (0 : stdgo.GoInt);
-var _nodeCREATE : stdgo.GoInt = (0 : stdgo.GoInt);
-var _nodeTRUNC : stdgo.GoInt = (0 : stdgo.GoInt);
-var _nodeAPPEND : stdgo.GoInt = (0 : stdgo.GoInt);
-var _nodeEXCL : stdgo.GoInt = (0 : stdgo.GoInt);
-var _files : stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo._internal.syscall.Syscall.T_jsFile>> = (null : stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo._internal.syscall.Syscall.T_jsFile>>);
-var _signals : stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 0) ("" : stdgo.GoString)]);
-var _errorstr : stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 2054) ("" : stdgo.GoString)]);
-var _errEAGAIN : stdgo.Error = (null : stdgo.Error);
-var _errEINVAL : stdgo.Error = (null : stdgo.Error);
-var _errENOENT : stdgo.Error = (null : stdgo.Error);
-var _errnoByCode : stdgo.GoMap<stdgo.GoString, stdgo._internal.syscall.Syscall.Errno> = (null : stdgo.GoMap<stdgo.GoString, stdgo._internal.syscall.Syscall.Errno>);
 final _asanenabled : Bool = false;
 final _isBigEndian : Bool = false;
 var _envOnce : stdgo._internal.sync.Sync.Once = ({} : stdgo._internal.sync.Sync.Once);
@@ -329,6 +311,24 @@ final enoshare : stdgo._internal.syscall.Syscall.Errno = ((0 : stdgo.GoUIntptr) 
 final ecaseclash : stdgo._internal.syscall.Syscall.Errno = ((0 : stdgo.GoUIntptr) : stdgo._internal.syscall.Syscall.Errno);
 final ewouldblock : stdgo._internal.syscall.Syscall.Errno = ((0 : stdgo.GoUIntptr) : stdgo._internal.syscall.Syscall.Errno);
 final _faketime : Bool = false;
+var _envs : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
+var _jsProcess : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
+var _jsFS : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
+var _constants : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
+var _uint8Array : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._internal.syscall.js.Js.Value);
+var _nodeWRONLY : stdgo.GoInt = (0 : stdgo.GoInt);
+var _nodeRDWR : stdgo.GoInt = (0 : stdgo.GoInt);
+var _nodeCREATE : stdgo.GoInt = (0 : stdgo.GoInt);
+var _nodeTRUNC : stdgo.GoInt = (0 : stdgo.GoInt);
+var _nodeAPPEND : stdgo.GoInt = (0 : stdgo.GoInt);
+var _nodeEXCL : stdgo.GoInt = (0 : stdgo.GoInt);
+var _files : stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo._internal.syscall.Syscall.T_jsFile>> = (null : stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo._internal.syscall.Syscall.T_jsFile>>);
+var _signals : stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 0) ("" : stdgo.GoString)]);
+var _errorstr : stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 2054) ("" : stdgo.GoString)]);
+var _errEAGAIN : stdgo.Error = (null : stdgo.Error);
+var _errEINVAL : stdgo.Error = (null : stdgo.Error);
+var _errENOENT : stdgo.Error = (null : stdgo.Error);
+var _errnoByCode : stdgo.GoMap<stdgo.GoString, stdgo._internal.syscall.Syscall.Errno> = (null : stdgo.GoMap<stdgo.GoString, stdgo._internal.syscall.Syscall.Errno>);
 typedef RawConn = stdgo.StructType & {
     /**
         // Control invokes f on the underlying connection's file

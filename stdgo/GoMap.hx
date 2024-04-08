@@ -309,6 +309,9 @@ class GoStringMap<T> extends BalancedTree<GoString, T> {
 		}
 		return __defaultValue__();
 	}
+	override function set(key:GoString, value:T) {
+		super.set(key.__copy__(), value);
+	}
 }
 
 class GoInt64Map<T> extends BalancedTree<GoInt64, T> {

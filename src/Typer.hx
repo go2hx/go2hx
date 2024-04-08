@@ -267,7 +267,7 @@ info.global.filePath = file.path;
 			}
 			if (values.length > 0) {
 				// trace("unsorted values left: " + values.length);
-				valuesSorted = valuesSorted.concat(values);
+				valuesSorted = values.concat(valuesSorted);
 			}
 			data.defs = valuesSorted.concat(data.defs);
 

@@ -10,7 +10,7 @@ jobs:
     timeout-minutes: 26
     strategy:
       fail-fast: false
-    runs-on: [ubuntu-latest-m]
+    runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v3
       # Get the cores 
@@ -163,7 +163,7 @@ jobs:
     needs: []
     strategy:
       fail-fast: false
-    runs-on: [ubuntu-latest-m]
+    runs-on: [ubuntu-latest]
     steps:
       - uses: cedx/setup-hashlink@v3
       - uses: actions/checkout@v3

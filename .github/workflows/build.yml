@@ -177,10 +177,10 @@ jobs:
       - name: Get number of cores (macOS)
         if: startsWith(runner.os, 'macOS')
         run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
-      - name: Install lix
-        run: npm i lix -g
-      - name: Run lix
-        run: npx lix download
+      #- name: Install lix
+      #  run: npm i lix -g
+      #- name: Run lix
+      #  run: npx lix download
       # go2hx setup
       - name: Set source
         run: npx haxelib dev go2hx .

@@ -7,4 +7,4 @@
 -dce full
 -lib hxnodejs
 --js export/tests.js
---cmd node export/tests.js --max-old-space-size=4096
+--cmd node export/tests.js --max-old-space-size=2056

@@ -1092,10 +1092,14 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef { // for s
 	if (assign) { // non var
 		switch body.expr {
 			case EBlock(exprs):
-				if (stmt.key != null && (stmt.key.id != "Ident" || stmt.key.name != "_"))
+				if (stmt.key != null && (stmt.key.id != "Ident" || stmt.key.name != "_")) {
+					key = removeCoalAndCheckType(key);
 					exprs.unshift(macro $key = __key__);
-				if (stmt.value != null && (stmt.value.id != "Ident" || stmt.value.name != "_"))
+				}
+				if (stmt.value != null && (stmt.value.id != "Ident" || stmt.value.name != "_")) {
+					value = removeCoalAndCheckType(value);
 					exprs.unshift(macro $value = __value__);
+				}
 			default:
 		}
 	}
@@ -1105,6 +1109,18 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef { // for s
 		value = macro __value__;
 	}
 	return (macro for ($key => $value in $x) $body).expr;
+}
+
+private function removeCoalAndCheckType(assign:Expr):Expr {
+	assign = escapeParens(assign);
+	switch assign.expr {
+		case ECheckType(e, _):
+			assign = e;
+		case EBinop(OpNullCoal, e, _):
+			assign = e;
+		default:
+	}
+	return assign;
 }
 
 private function importClassName(name:String):String {
@@ -2511,15 +2527,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				type: stmt.lhs[0],
 			}, info));
 
-			var assign = typeExpr(stmt.lhs[0], info);
-			assign = escapeParens(assign);
-			switch assign.expr {
-				case ECheckType(e, _):
-					assign = e;
-				case EBinop(OpNullCoal, e, _):
-					assign = e;
-				default:
-			}
+			var assign = removeCoalAndCheckType(typeExpr(stmt.lhs[0], info));
 			if (stmt.lhs[0].id == "IndexExpr" || stmt.lhs[0].id == "StarExpr" && stmt.lhs[0].x.id == "IndexExpr") { // prevent invalid assign to null
 				switch escapeParens(assign).expr {
 					case ETernary(econd, eif, _):
@@ -2563,14 +2571,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 							default:
 						}
 						// remove checkType from x in x = y
-						x = escapeParens(x);
-						switch x.expr {
-							case ECheckType(e, _):
-								x = e;
-							case EBinop(OpNullCoal, e, _):
-								x = e;
-							default:
-						}
+						x = removeCoalAndCheckType(x);
 						// remove Haxe compiler error: "Assigning a value to itself"
 						switch x.expr {
 							case EConst(c):
@@ -2698,15 +2699,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				for (i in 0...stmt.lhs.length) {
 					if (stmt.lhs[i].id == "Ident" && stmt.lhs[i].name == "_")
 						continue;
-					var e = typeExpr(stmt.lhs[i], info);
-					e = escapeParens(e);
-					switch e.expr {
-						case ECheckType(e2, _):
-							e = e2;
-						case EBinop(OpNullCoal, e2, _):
-							e = e2;
-						default:
-					}
+					var e = removeCoalAndCheckType(typeExpr(stmt.lhs[i], info));
 					var fieldName = names[i];
 					if (fieldName == null)
 						fieldName = '_$i';
@@ -7590,7 +7583,6 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 					emptyNames = false;
 			}
 			final name = nameIdent(nameStr, false, true, info);
-			trace(name, posMin);
 			values.push({
 				name: name,
 				pos: {min: posMin, max: 0, file: ""},

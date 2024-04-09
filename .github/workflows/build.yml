@@ -9,7 +9,7 @@ jobs:
   build:
     timeout-minutes: 26
     strategy:
-      fail-fast: true
+      fail-fast: false
     runs-on: [ubuntu-latest-m]
     steps:
       - uses: actions/checkout@v3
@@ -161,7 +161,9 @@ jobs:
   go-easy:
     timeout-minutes: 90
     needs: []
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    runs-on: [ubuntu-latest]
     steps:
       - uses: cedx/setup-hashlink@v3
       - uses: actions/checkout@v3

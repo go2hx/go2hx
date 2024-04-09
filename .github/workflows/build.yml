@@ -163,7 +163,7 @@ jobs:
     needs: []
     strategy:
       fail-fast: false
-    runs-on: [ubuntu-latest]
+    runs-on: [ubuntu-latest-m]
     steps:
       - uses: cedx/setup-hashlink@v3
       - uses: actions/checkout@v3

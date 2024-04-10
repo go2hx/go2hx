@@ -3668,7 +3668,9 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						final underlyingType = getUnderlying(type);
 						var e = switch underlyingType {
 							case sliceType(_.get() => elem):
-								genSlice(elem, size, cap, returnExpr, info);
+								final param = toComplexType(elem, info);
+								final p:TypePath = {name: "Slice", params: [TPType(param)], pack: ["stdgo"]};
+								genSlice(p, elem, size, cap, returnExpr, info);
 							case mapType(_.get() => key, _.get() => value):
 								var keyType = toComplexType(key, info);
 								var valueType = toComplexType(value, info);
@@ -3729,9 +3731,8 @@ private function exprToString(fromType:GoType, toType:GoType, expr:Expr, info:In
 	return expr;
 }
 
-private function genSlice(elem:GoType, size:Expr, cap:Expr, returnExpr:Expr->Expr, info:Info):Expr {
+private function genSlice(p:TypePath, elem:GoType, size:Expr, cap:Expr, returnExpr:Expr->Expr, info:Info):Expr {
 	var param = toComplexType(elem, info);
-	final p = {name: "Slice", params: [TPType(param)], pack: ["stdgo"]};
 	var value = defaultValue(elem, info);
 	if (value == null)
 		value = macro stdgo.Go.expectedValue();
@@ -5111,15 +5112,11 @@ private function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, under
 			sets.push(macro s[${makeExpr(index)}] = $value);
 		}
 		sets.push(macro s);
-		if (len == -1) {
-			length = makeExpr(max + 1);
-			//final e = macro new $p($length, $length, ...([for (i in 0...$length) $value]));
-			final e = genSlice(elem, length,macro 0,e -> e,info);
-			sets.unshift(macro var s = $e);
-			return macro $b{sets};
-		} else {
-			return toExpr(EBlock([macro var s:$ct = new $p(...[for (i in 0...$length) $value])].concat(sets)));
-		}
+		length = makeExpr(max + 1);
+		//final e = macro new $p($length, $length, ...([for (i in 0...$length) $value]));
+		final e = genSlice(p, elem, length,macro 0,e -> e,info);
+		sets.unshift(macro var s = $e);
+		return macro $b{sets};
 	} else {
 		var exprs:Array<Expr> = [];
 		for (elt in expr.elts) {
@@ -5135,19 +5132,8 @@ private function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, under
 			e = assignTranslate(typeof(elt, info, false), elem, e, info);
 			exprs.push(e);
 		}
-		if (len == -1 || len == exprs.length) {
-			if (len == -1) {
-				final len = makeExpr(exprs.length);
-				exprs.unshift(len);
-				exprs.unshift(len);
-			}
-			return macro(new $p($a{exprs}) : $ct);
-		}
-		var diff = len - exprs.length;
-		var len = toExpr(EConst(CInt('$diff')));
-		var value = defaultValue(elem, info, true);
-		var values = macro [for (i in 0...$len) $value];
-		return macro(new $p(...($a{exprs}.concat($values))) : $ct);
+		final len = makeExpr(len);
+		return macro(new $p($len, $len, ...$a{exprs}));
 	}
 }
 
@@ -6364,7 +6350,8 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			var value = defaultValue(elem, info);
 			if (value == null)
 				value = macro stdgo.Go.expectedValue();
-			macro new stdgo.GoArray<$t>(...[for (i in 0...${toExpr(EConst(CInt('$len')))}) $value]);
+			final len = makeExpr(len);
+			macro new stdgo.GoArray<$t>($len, $len, ...[for (i in 0...$len) $value]);
 		case interfaceType(_):
 			final ct = ct();
 			macro(null : $ct);
@@ -6412,7 +6399,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 					final t = namedTypePath(path, info);
 					final elem = defaultValue(elem, info);
 					final len = makeExpr(len);
-					macro new $t(...[for (i in 0...$len) $elem]);
+					macro new $t($len, $len, ...[for (i in 0...$len) $elem]);
 				default:
 					var t = namedTypePath(path, info);
 					macro new $t();

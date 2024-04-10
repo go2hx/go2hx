@@ -236,6 +236,7 @@ class GoArrayDataIterator<T> {
 }
 
 // @:generic
+@:forward.new
 abstract GoArray<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	public var length(get, never):GoInt;
 	public var capacity(get, never):GoInt;
@@ -261,10 +262,6 @@ abstract GoArray<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 
 	public function keyValueIterator():KeyValueIterator<GoInt, T> {
 		return new GoArrayDataKeyValueIterator(this);
-	}
-
-	public function new(args:Rest<T>) {
-		this = new GoArrayData<T>(args.length, args.length, ...args);
 	}
 
 	private function __boundsCheck__(i:Int) {

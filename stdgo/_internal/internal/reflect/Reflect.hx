@@ -820,7 +820,7 @@ function defaultValue(typ:Type):Any {
 		case arrayType(_.get() => elem, len):
 			var t = new _Type(elem);
 			final value = defaultValue(new _Type_asInterface(Go.pointer(t), t));
-			new GoArray([for (i in 0...len) value]);
+			new GoArray(len, len, [for (i in 0...len) value]);
 		default: null;
 	}
 }
@@ -869,7 +869,7 @@ function defaultValueInternal(typ:_Type):Any {
 		case arrayType(_.get() => elem, len):
 			var t = new _Type(elem);
 			final value = defaultValue(new _Type_asInterface(Go.pointer(t), t));
-			new GoArray([for (i in 0...len) value]);
+			new GoArray(len, len, [for (i in 0...len) value]);
 		default: null;
 	}
 }

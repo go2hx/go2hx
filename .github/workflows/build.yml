@@ -194,8 +194,8 @@ jobs:
         run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Create hxb
         run: npx haxelib run go2hx hxb
-      - name: clone go
-        run: git clone https://github.com/golang/go ./tests/go -depth=1
+      #- name: clone go
+      #  run: git clone https://github.com/golang/go ./tests/go -depth=1
       #- name: Sort tests
       #  run: go run ./scripts/sortTests ci
       # run go easy tests

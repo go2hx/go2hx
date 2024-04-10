@@ -5,7 +5,7 @@ import haxe.Rest;
 import stdgo.GoArray;
 import stdgo.GoInt;
 
-@:forward(__ref__)
+@:forward(__ref__,__setNumber32__, __setNumber64__, __setString__)
 @:forward.new
 //@:generic
 abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
@@ -30,27 +30,6 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 
 	public inline function __toBasic__()
 		return this;
-
-	public inline function __setNumber32__():Slice<T> {
-		#if !target.static
-		@:privateAccess this.isNumber32 = true;
-		#end
-		return this;
-	}
-
-	public inline function __setNumber64__():Slice<T> {
-		#if !target.static
-		@:privateAccess this.isNumber64 = true;
-		#end
-		return this;
-	}
-
-	public inline function __setString__():Slice<T> {
-		#if !target.static
-		@:privateAccess this.isString = true;
-		#end
-		return this;
-	}
 
 	public function __slice__(low:GoInt, high:GoInt = -1, max:GoInt = -1):Slice<T> {
 		if (this == null)

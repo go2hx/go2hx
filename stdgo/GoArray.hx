@@ -37,6 +37,27 @@ class GoArrayData<T> {
 		}
 	}
 
+	public inline function __setNumber32__():Slice<T> {
+		#if !target.static
+		@:privateAccess this.isNumber32 = true;
+		#end
+		return this;
+	}
+
+	public inline function __setNumber64__():Slice<T> {
+		#if !target.static
+		@:privateAccess this.isNumber64 = true;
+		#end
+		return this;
+	}
+
+	public inline function __setString__():Slice<T> {
+		#if !target.static
+		@:privateAccess this.isString = true;
+		#end
+		return this;
+	}
+
 	public inline function __ref__():GoArrayData<T> {
 		if (this == null) {
 			final s = new GoArrayData<T>(0, -1);
@@ -237,6 +258,7 @@ class GoArrayDataIterator<T> {
 
 // @:generic
 @:forward.new
+@:forward(__setNumber32__, __setNumber64__, __setString__)
 abstract GoArray<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	public var length(get, never):GoInt;
 	public var capacity(get, never):GoInt;

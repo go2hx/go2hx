@@ -34,6 +34,12 @@ class GoArrayData<T> {
 			vector = new haxe.ds.Vector<T>(vectorLength);
 			for (i in 0...args.length)
 				vector.set(i, args[i]);
+		}else if (args.length != 0) {
+			this.length = args.length;
+			this.capacity = args.length;
+			vector = new haxe.ds.Vector<T>(args.length);
+			for (i in 0...args.length)
+				vector.set(i, args[i]);
 		}
 	}
 

@@ -198,7 +198,7 @@ jobs:
         run: git clone https://github.com/golang/go ./tests/go --depth=1
         continue-on-error: true
       - name: Sort tests
-        run: go run ./scripts/sortTests ci
+        run: go run ./scripts/sortTests
       # run go easy tests
       - name: Run go easy tests
         run: npx haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D hxb

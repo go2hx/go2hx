@@ -5137,12 +5137,8 @@ private function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, under
 			exprs.push(e);
 		}
 		if (len == -1 || len == exprs.length) {
-			if (len == -1) {
-				final len = makeExpr(exprs.length);
-				exprs.unshift(len);
-				exprs.unshift(len);
-			}
-			return macro(new $p($a{exprs}) : $ct);
+			final len = makeExpr(exprs.length);
+			return macro(new $p($len, $len, ...[$a{exprs}]) : $ct);
 		}
 		var diff = len - exprs.length;
 		final fullLength = makeExpr(len);

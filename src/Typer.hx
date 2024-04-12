@@ -5111,9 +5111,16 @@ private function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, under
 			value = assignTranslate(typeof(expr.elts[i], info, false), elem, value, info);
 			sets.push(macro s[${makeExpr(index)}] = $value);
 		}
-		final e = genSlice(p, elem, length,macro 0,e -> e,info);
-		sets.unshift(macro var s = $e);
-		return macro $b{sets};
+		sets.push(macro s);
+		if (len == -1) {
+			length = makeExpr(max + 1);
+			//final e = macro new $p($length, $length, ...([for (i in 0...$length) $value]));
+			final e = genSlice(p, elem, length,macro 0,e -> e,info);
+			sets.unshift(macro var s = $e);
+			return macro $b{sets};
+		} else {
+			return toExpr(EBlock([macro var s:$ct = new $p($length, $length, ...[for (i in 0...$length) $value])].concat(sets)));
+		}
 	} else {
 		var exprs:Array<Expr> = [];
 		for (elt in expr.elts) {
@@ -5129,8 +5136,20 @@ private function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, under
 			e = assignTranslate(typeof(elt, info, false), elem, e, info);
 			exprs.push(e);
 		}
-		final len = makeExpr(len);
-		return genSlice(p, elem, len,macro 0,e -> e,info);
+		if (len == -1 || len == exprs.length) {
+			if (len == -1) {
+				final len = makeExpr(exprs.length);
+				exprs.unshift(len);
+				exprs.unshift(len);
+			}
+			return macro(new $p($a{exprs}) : $ct);
+		}
+		var diff = len - exprs.length;
+		final fullLength = makeExpr(len);
+		var len = makeExpr(diff);
+		var value = defaultValue(elem, info, true);
+		var values = macro [for (i in 0...$len) $value];
+		return macro(new $p($fullLength, $fullLength, ...($a{exprs}.concat($values))) : $ct);
 	}
 }
 

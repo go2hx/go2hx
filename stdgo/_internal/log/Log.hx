@@ -18,9 +18,7 @@ var _std : stdgo.Ref<stdgo._internal.log.Log.Logger> = new_(stdgo.Go.asInterface
 var _bufferPool : stdgo._internal.sync.Sync.Pool = ({ new_ : function():stdgo.AnyInterface {
         return stdgo.Go.toInterface((stdgo.Go.setRef((null : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>));
     } } : stdgo._internal.sync.Sync.Pool);
-var _tests : stdgo.Slice<stdgo._internal.log.Log.T_tester> = (new stdgo.Slice<stdgo._internal.log.Log.T_tester>(
-14,
-14,
+var _tests : stdgo.Slice<stdgo._internal.log.Log.T_tester> = (new stdgo.Slice<stdgo._internal.log.Log.T_tester>(14, 14, ...[
 (new stdgo._internal.log.Log.T_tester((0 : stdgo.GoInt), stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo._internal.log.Log.T_tester),
 (new stdgo._internal.log.Log.T_tester((0 : stdgo.GoInt), ("XXX" : stdgo.GoString), ("XXX" : stdgo.GoString)) : stdgo._internal.log.Log.T_tester),
 (new stdgo._internal.log.Log.T_tester((1 : stdgo.GoInt), stdgo.Go.str()?.__copy__(), ("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] " : stdgo.GoString)) : stdgo._internal.log.Log.T_tester),
@@ -34,7 +32,7 @@ var _tests : stdgo.Slice<stdgo._internal.log.Log.T_tester> = (new stdgo.Slice<st
 (new stdgo._internal.log.Log.T_tester((15 : stdgo.GoInt), ("XXX" : stdgo.GoString), ("XXX[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] .*/[A-Za-z0-9_\\-]+\\.go:(63|65): " : stdgo.GoString)) : stdgo._internal.log.Log.T_tester),
 (new stdgo._internal.log.Log.T_tester((23 : stdgo.GoInt), ("XXX" : stdgo.GoString), ("XXX[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] [A-Za-z0-9_\\-]+\\.go:(63|65): " : stdgo.GoString)) : stdgo._internal.log.Log.T_tester),
 (new stdgo._internal.log.Log.T_tester((79 : stdgo.GoInt), ("XXX" : stdgo.GoString), ("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] .*/[A-Za-z0-9_\\-]+\\.go:(63|65): XXX" : stdgo.GoString)) : stdgo._internal.log.Log.T_tester),
-(new stdgo._internal.log.Log.T_tester((87 : stdgo.GoInt), ("XXX" : stdgo.GoString), ("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] [A-Za-z0-9_\\-]+\\.go:(63|65): XXX" : stdgo.GoString)) : stdgo._internal.log.Log.T_tester)) : stdgo.Slice<stdgo._internal.log.Log.T_tester>);
+(new stdgo._internal.log.Log.T_tester((87 : stdgo.GoInt), ("XXX" : stdgo.GoString), ("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] [A-Za-z0-9_\\-]+\\.go:(63|65): XXX" : stdgo.GoString)) : stdgo._internal.log.Log.T_tester)]) : stdgo.Slice<stdgo._internal.log.Log.T_tester>);
 @:structInit @:using(stdgo._internal.log.Log.Logger_static_extension) class Logger {
     public var _outMu : stdgo._internal.sync.Sync.Mutex = ({} : stdgo._internal.sync.Sync.Mutex);
     public var _out : stdgo._internal.io.Io.Writer = (null : stdgo._internal.io.Io.Writer);
@@ -85,7 +83,7 @@ function default_():stdgo.Ref<Logger> {
         return _std;
     }
 function _itoa(_buf:stdgo.Ref<stdgo.Slice<stdgo.GoByte>>, _i:stdgo.GoInt, _wid:stdgo.GoInt):Void {
-        var _b:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 20) (0 : stdgo.GoUInt8)]);
+        var _b:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20, ...[for (i in 0 ... 20) (0 : stdgo.GoUInt8)]);
         var _bp:stdgo.GoInt = (19 : stdgo.GoInt);
         while (((_i >= (10 : stdgo.GoInt) : Bool) || (_wid > (1 : stdgo.GoInt) : Bool) : Bool)) {
             _wid--;
@@ -727,7 +725,7 @@ class Logger_asInterface {
                         _line = (0 : stdgo.GoInt);
                     };
                 } else {
-                    var _fs = stdgo._internal.runtime.Runtime.callersFrames((new stdgo.Slice<stdgo.GoUIntptr>(1, 1, _pc) : stdgo.Slice<stdgo.GoUIntptr>));
+                    var _fs = stdgo._internal.runtime.Runtime.callersFrames((new stdgo.Slice<stdgo.GoUIntptr>(1, 1, ...[_pc]) : stdgo.Slice<stdgo.GoUIntptr>));
                     var __tmp__ = _fs.next(), _f:stdgo._internal.runtime.Runtime.Frame = __tmp__._0, __35:Bool = __tmp__._1;
                     _file = _f.file?.__copy__();
                     if (_file == (stdgo.Go.str())) {

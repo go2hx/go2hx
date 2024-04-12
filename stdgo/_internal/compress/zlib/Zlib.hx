@@ -10,14 +10,10 @@ final huffmanOnly : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
 var errChecksum : stdgo.Error = stdgo._internal.errors.Errors.new_(("zlib: invalid checksum" : stdgo.GoString));
 var errDictionary : stdgo.Error = stdgo._internal.errors.Errors.new_(("zlib: invalid dictionary" : stdgo.GoString));
 var errHeader : stdgo.Error = stdgo._internal.errors.Errors.new_(("zlib: invalid header" : stdgo.GoString));
-var _zlibTests : stdgo.Slice<stdgo._internal.compress.zlib.Zlib.T_zlibTest> = (new stdgo.Slice<stdgo._internal.compress.zlib.Zlib.T_zlibTest>(
-14,
-14,
-(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("truncated empty" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(0, 0) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.io.Io.errUnexpectedEOF) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
-(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("truncated dict" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(2, 2, (120 : stdgo.GoUInt8), (187 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo.Slice<stdgo.GoUInt8>(1, 1, (0 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.io.Io.errUnexpectedEOF) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
-(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("truncated checksum" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(
-24,
-24,
+var _zlibTests : stdgo.Slice<stdgo._internal.compress.zlib.Zlib.T_zlibTest> = (new stdgo.Slice<stdgo._internal.compress.zlib.Zlib.T_zlibTest>(14, 14, ...[
+(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("truncated empty" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(0, 0, ...[]) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.io.Io.errUnexpectedEOF) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
+(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("truncated dict" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(2, 2, ...[(120 : stdgo.GoUInt8), (187 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(0 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.io.Io.errUnexpectedEOF) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
+(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("truncated checksum" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(24, 24, ...[
 (120 : stdgo.GoUInt8),
 (187 : stdgo.GoUInt8),
 (0 : stdgo.GoUInt8),
@@ -41,11 +37,9 @@ var _zlibTests : stdgo.Slice<stdgo._internal.compress.zlib.Zlib.T_zlibTest> = (n
 (0 : stdgo.GoUInt8),
 (0 : stdgo.GoUInt8),
 (255 : stdgo.GoUInt8),
-(255 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo.Slice<stdgo.GoUInt8>(1, 1, (0 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.io.Io.errUnexpectedEOF) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
-(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("empty" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(8, 8, (120 : stdgo.GoUInt8), (156 : stdgo.GoUInt8), (3 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (1 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Error)) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
-(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("goodbye" : stdgo.GoString), ("goodbye, world" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(
-22,
-22,
+(255 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(0 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.io.Io.errUnexpectedEOF) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
+(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("empty" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(8, 8, ...[(120 : stdgo.GoUInt8), (156 : stdgo.GoUInt8), (3 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (1 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Error)) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
+(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("goodbye" : stdgo.GoString), ("goodbye, world" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(22, 22, ...[
 (120 : stdgo.GoUInt8),
 (156 : stdgo.GoUInt8),
 (75 : stdgo.GoUInt8),
@@ -67,14 +61,12 @@ var _zlibTests : stdgo.Slice<stdgo._internal.compress.zlib.Zlib.T_zlibTest> = (n
 (40 : stdgo.GoUInt8),
 (165 : stdgo.GoUInt8),
 (5 : stdgo.GoUInt8),
-(94 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Error)) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
-(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("bad header (CINFO)" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(8, 8, (136 : stdgo.GoUInt8), (152 : stdgo.GoUInt8), (3 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (1 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), errHeader) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
-(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("bad header (FCHECK)" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(8, 8, (120 : stdgo.GoUInt8), (159 : stdgo.GoUInt8), (3 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (1 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), errHeader) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
-(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("bad checksum" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(8, 8, (120 : stdgo.GoUInt8), (156 : stdgo.GoUInt8), (3 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (255 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), errChecksum) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
-(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("not enough data" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(6, 6, (120 : stdgo.GoUInt8), (156 : stdgo.GoUInt8), (3 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.io.Io.errUnexpectedEOF) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
-(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("excess data is silently ignored" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(
-11,
-11,
+(94 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Error)) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
+(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("bad header (CINFO)" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(8, 8, ...[(136 : stdgo.GoUInt8), (152 : stdgo.GoUInt8), (3 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (1 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), errHeader) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
+(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("bad header (FCHECK)" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(8, 8, ...[(120 : stdgo.GoUInt8), (159 : stdgo.GoUInt8), (3 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (1 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), errHeader) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
+(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("bad checksum" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(8, 8, ...[(120 : stdgo.GoUInt8), (156 : stdgo.GoUInt8), (3 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (255 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), errChecksum) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
+(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("not enough data" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(6, 6, ...[(120 : stdgo.GoUInt8), (156 : stdgo.GoUInt8), (3 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.io.Io.errUnexpectedEOF) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
+(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("excess data is silently ignored" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(11, 11, ...[
 (120 : stdgo.GoUInt8),
 (156 : stdgo.GoUInt8),
 (3 : stdgo.GoUInt8),
@@ -85,10 +77,8 @@ var _zlibTests : stdgo.Slice<stdgo._internal.compress.zlib.Zlib.T_zlibTest> = (n
 (1 : stdgo.GoUInt8),
 (120 : stdgo.GoUInt8),
 (156 : stdgo.GoUInt8),
-(255 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Error)) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
-(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("dictionary" : stdgo.GoString), ("Hello, World!\n" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(
-19,
-19,
+(255 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Error)) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
+(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("dictionary" : stdgo.GoString), ("Hello, World!\n" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(19, 19, ...[
 (120 : stdgo.GoUInt8),
 (187 : stdgo.GoUInt8),
 (28 : stdgo.GoUInt8),
@@ -107,9 +97,7 @@ var _zlibTests : stdgo.Slice<stdgo._internal.compress.zlib.Zlib.T_zlibTest> = (n
 (36 : stdgo.GoUInt8),
 (18 : stdgo.GoUInt8),
 (4 : stdgo.GoUInt8),
-(116 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo.Slice<stdgo.GoUInt8>(
-12,
-12,
+(116 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo.Slice<stdgo.GoUInt8>(12, 12, ...[
 (72 : stdgo.GoUInt8),
 (101 : stdgo.GoUInt8),
 (108 : stdgo.GoUInt8),
@@ -121,10 +109,8 @@ var _zlibTests : stdgo.Slice<stdgo._internal.compress.zlib.Zlib.T_zlibTest> = (n
 (114 : stdgo.GoUInt8),
 (108 : stdgo.GoUInt8),
 (100 : stdgo.GoUInt8),
-(10 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Error)) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
-(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("wrong dictionary" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(
-19,
-19,
+(10 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Error)) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
+(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("wrong dictionary" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(19, 19, ...[
 (120 : stdgo.GoUInt8),
 (187 : stdgo.GoUInt8),
 (28 : stdgo.GoUInt8),
@@ -143,10 +129,8 @@ var _zlibTests : stdgo.Slice<stdgo._internal.compress.zlib.Zlib.T_zlibTest> = (n
 (36 : stdgo.GoUInt8),
 (18 : stdgo.GoUInt8),
 (4 : stdgo.GoUInt8),
-(116 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo.Slice<stdgo.GoUInt8>(4, 4, (72 : stdgo.GoUInt8), (101 : stdgo.GoUInt8), (108 : stdgo.GoUInt8), (108 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), errDictionary) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
-(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("truncated zlib stream amid raw-block" : stdgo.GoString), ("hello" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(
-12,
-12,
+(116 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo.Slice<stdgo.GoUInt8>(4, 4, ...[(72 : stdgo.GoUInt8), (101 : stdgo.GoUInt8), (108 : stdgo.GoUInt8), (108 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>), errDictionary) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
+(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("truncated zlib stream amid raw-block" : stdgo.GoString), ("hello" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(12, 12, ...[
 (120 : stdgo.GoUInt8),
 (156 : stdgo.GoUInt8),
 (0 : stdgo.GoUInt8),
@@ -158,10 +142,10 @@ var _zlibTests : stdgo.Slice<stdgo._internal.compress.zlib.Zlib.T_zlibTest> = (n
 (101 : stdgo.GoUInt8),
 (108 : stdgo.GoUInt8),
 (108 : stdgo.GoUInt8),
-(111 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.io.Io.errUnexpectedEOF) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
-(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("truncated zlib stream amid fixed-block" : stdgo.GoString), ("He" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(5, 5, (120 : stdgo.GoUInt8), (156 : stdgo.GoUInt8), (242 : stdgo.GoUInt8), (72 : stdgo.GoUInt8), (205 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.io.Io.errUnexpectedEOF) : stdgo._internal.compress.zlib.Zlib.T_zlibTest)) : stdgo.Slice<stdgo._internal.compress.zlib.Zlib.T_zlibTest>);
-var _filenames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(3, 3, ("../testdata/gettysburg.txt" : stdgo.GoString), ("../testdata/e.txt" : stdgo.GoString), ("../testdata/pi.txt" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-var _data : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(1, 1, ("test a reasonable sized string that can be compressed" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+(111 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.io.Io.errUnexpectedEOF) : stdgo._internal.compress.zlib.Zlib.T_zlibTest),
+(new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("truncated zlib stream amid fixed-block" : stdgo.GoString), ("He" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(5, 5, ...[(120 : stdgo.GoUInt8), (156 : stdgo.GoUInt8), (242 : stdgo.GoUInt8), (72 : stdgo.GoUInt8), (205 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.io.Io.errUnexpectedEOF) : stdgo._internal.compress.zlib.Zlib.T_zlibTest)]) : stdgo.Slice<stdgo._internal.compress.zlib.Zlib.T_zlibTest>);
+var _filenames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("../testdata/gettysburg.txt" : stdgo.GoString), ("../testdata/e.txt" : stdgo.GoString), ("../testdata/pi.txt" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+var _data : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(1, 1, ...[("test a reasonable sized string that can be compressed" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
 typedef Resetter = stdgo.StructType & {
     /**
         // Reset discards any buffered data and resets the Resetter as if it was
@@ -176,7 +160,7 @@ typedef Resetter = stdgo.StructType & {
     public var _decompressor : stdgo._internal.io.Io.ReadCloser = (null : stdgo._internal.io.Io.ReadCloser);
     public var _digest : stdgo._internal.hash.Hash.Hash32 = (null : stdgo._internal.hash.Hash.Hash32);
     public var _err : stdgo.Error = (null : stdgo.Error);
-    public var _scratch : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 4) (0 : stdgo.GoUInt8)]);
+    public var _scratch : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...[for (i in 0 ... 4) (0 : stdgo.GoUInt8)]);
     public function new(?_r:stdgo._internal.compress.flate.Flate.Reader, ?_decompressor:stdgo._internal.io.Io.ReadCloser, ?_digest:stdgo._internal.hash.Hash.Hash32, ?_err:stdgo.Error, ?_scratch:stdgo.GoArray<stdgo.GoUInt8>) {
         if (_r != null) this._r = _r;
         if (_decompressor != null) this._decompressor = _decompressor;
@@ -214,7 +198,7 @@ typedef Resetter = stdgo.StructType & {
     public var _compressor : stdgo.Ref<stdgo._internal.compress.flate.Flate.Writer> = (null : stdgo.Ref<stdgo._internal.compress.flate.Flate.Writer>);
     public var _digest : stdgo._internal.hash.Hash.Hash32 = (null : stdgo._internal.hash.Hash.Hash32);
     public var _err : stdgo.Error = (null : stdgo.Error);
-    public var _scratch : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 4) (0 : stdgo.GoUInt8)]);
+    public var _scratch : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...[for (i in 0 ... 4) (0 : stdgo.GoUInt8)]);
     public var _wroteHeader : Bool = false;
     public function new(?_w:stdgo._internal.io.Io.Writer, ?_level:stdgo.GoInt, ?_dict:stdgo.Slice<stdgo.GoUInt8>, ?_compressor:stdgo.Ref<stdgo._internal.compress.flate.Flate.Writer>, ?_digest:stdgo._internal.hash.Hash.Hash32, ?_err:stdgo.Error, ?_scratch:stdgo.GoArray<stdgo.GoUInt8>, ?_wroteHeader:Bool) {
         if (_w != null) this._w = _w;
@@ -269,7 +253,7 @@ function testDecompressor(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
                     _t.errorf(("%s: got %d-byte %q want %d-byte %q" : stdgo.GoString), stdgo.Go.toInterface(_tt._desc), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_s), stdgo.Go.toInterface((_tt._raw.length)), stdgo.Go.toInterface(_tt._raw));
                 };
                 {
-                    var __tmp__ = _zr.read((new stdgo.Slice<stdgo.GoUInt8>(1, 1, (0 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = _zr.read((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(0 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (((_n != (0 : stdgo.GoInt)) || (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo._internal.io.Io.eof)) : Bool)) {
                         _t.errorf(("%s: Read() = (%d, %v), want (0, io.EOF)" : stdgo.GoString), stdgo.Go.toInterface(_tt._desc), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
                     };
@@ -907,7 +891,7 @@ class Writer_asInterface {
             _z._digest.reset();
         };
         _z._err = (null : stdgo.Error);
-        _z._scratch = (new stdgo.GoArray<stdgo.GoUInt8>(...([].concat([for (i in 0 ... 4) (0 : stdgo.GoUInt8)]))) : stdgo.GoArray<stdgo.GoUInt8>);
+        _z._scratch = (new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...([].concat([for (i in 0 ... 4) (0 : stdgo.GoUInt8)]))) : stdgo.GoArray<stdgo.GoUInt8>);
         _z._wroteHeader = false;
     }
 }

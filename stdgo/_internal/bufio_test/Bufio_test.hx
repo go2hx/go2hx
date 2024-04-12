@@ -4,10 +4,10 @@ import stdgo._internal.bufio.Bufio;
 import stdgo._internal.bufio.Bufio;
 final _minReadBufferSize : stdgo.GoUInt64 = (16i64 : stdgo.GoUInt64);
 final _smallMaxTokenSize : stdgo.GoUInt64 = (256i64 : stdgo.GoUInt64);
-var _readMakers : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_readMaker> = (new stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_readMaker>(5, 5, (new stdgo._internal.bufio_test.Bufio_test.T_readMaker(("full" : stdgo.GoString), function(_r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
+var _readMakers : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_readMaker> = (new stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_readMaker>(5, 5, ...[(new stdgo._internal.bufio_test.Bufio_test.T_readMaker(("full" : stdgo.GoString), function(_r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
         return _r;
-    }) : stdgo._internal.bufio_test.Bufio_test.T_readMaker), (new stdgo._internal.bufio_test.Bufio_test.T_readMaker(("byte" : stdgo.GoString), stdgo._internal.testing.iotest.Iotest.oneByteReader) : stdgo._internal.bufio_test.Bufio_test.T_readMaker), (new stdgo._internal.bufio_test.Bufio_test.T_readMaker(("half" : stdgo.GoString), stdgo._internal.testing.iotest.Iotest.halfReader) : stdgo._internal.bufio_test.Bufio_test.T_readMaker), (new stdgo._internal.bufio_test.Bufio_test.T_readMaker(("data+err" : stdgo.GoString), stdgo._internal.testing.iotest.Iotest.dataErrReader) : stdgo._internal.bufio_test.Bufio_test.T_readMaker), (new stdgo._internal.bufio_test.Bufio_test.T_readMaker(("timeout" : stdgo.GoString), stdgo._internal.testing.iotest.Iotest.timeoutReader) : stdgo._internal.bufio_test.Bufio_test.T_readMaker)) : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_readMaker>);
-var _bufreaders : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_bufReader> = (new stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_bufReader>(8, 8, (new stdgo._internal.bufio_test.Bufio_test.T_bufReader(("1" : stdgo.GoString), function(_b:stdgo.Ref<Reader>):stdgo.GoString {
+    }) : stdgo._internal.bufio_test.Bufio_test.T_readMaker), (new stdgo._internal.bufio_test.Bufio_test.T_readMaker(("byte" : stdgo.GoString), stdgo._internal.testing.iotest.Iotest.oneByteReader) : stdgo._internal.bufio_test.Bufio_test.T_readMaker), (new stdgo._internal.bufio_test.Bufio_test.T_readMaker(("half" : stdgo.GoString), stdgo._internal.testing.iotest.Iotest.halfReader) : stdgo._internal.bufio_test.Bufio_test.T_readMaker), (new stdgo._internal.bufio_test.Bufio_test.T_readMaker(("data+err" : stdgo.GoString), stdgo._internal.testing.iotest.Iotest.dataErrReader) : stdgo._internal.bufio_test.Bufio_test.T_readMaker), (new stdgo._internal.bufio_test.Bufio_test.T_readMaker(("timeout" : stdgo.GoString), stdgo._internal.testing.iotest.Iotest.timeoutReader) : stdgo._internal.bufio_test.Bufio_test.T_readMaker)]) : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_readMaker>);
+var _bufreaders : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_bufReader> = (new stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_bufReader>(8, 8, ...[(new stdgo._internal.bufio_test.Bufio_test.T_bufReader(("1" : stdgo.GoString), function(_b:stdgo.Ref<Reader>):stdgo.GoString {
         return _reads(_b, (1 : stdgo.GoInt))?.__copy__();
     }) : stdgo._internal.bufio_test.Bufio_test.T_bufReader), (new stdgo._internal.bufio_test.Bufio_test.T_bufReader(("2" : stdgo.GoString), function(_b:stdgo.Ref<Reader>):stdgo.GoString {
         return _reads(_b, (2 : stdgo.GoInt))?.__copy__();
@@ -19,42 +19,19 @@ var _bufreaders : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_bufReader>
         return _reads(_b, (5 : stdgo.GoInt))?.__copy__();
     }) : stdgo._internal.bufio_test.Bufio_test.T_bufReader), (new stdgo._internal.bufio_test.Bufio_test.T_bufReader(("7" : stdgo.GoString), function(_b:stdgo.Ref<Reader>):stdgo.GoString {
         return _reads(_b, (7 : stdgo.GoInt))?.__copy__();
-    }) : stdgo._internal.bufio_test.Bufio_test.T_bufReader), (new stdgo._internal.bufio_test.Bufio_test.T_bufReader(("bytes" : stdgo.GoString), _readBytes) : stdgo._internal.bufio_test.Bufio_test.T_bufReader), (new stdgo._internal.bufio_test.Bufio_test.T_bufReader(("lines" : stdgo.GoString), _readLines) : stdgo._internal.bufio_test.Bufio_test.T_bufReader)) : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_bufReader>);
-var _bufsizes : stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(
-10,
-10,
-(0 : stdgo.GoInt),
-(16 : stdgo.GoInt),
-(23 : stdgo.GoInt),
-(32 : stdgo.GoInt),
-(46 : stdgo.GoInt),
-(64 : stdgo.GoInt),
-(93 : stdgo.GoInt),
-(128 : stdgo.GoInt),
-(1024 : stdgo.GoInt),
-(4096 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
-var _segmentList : stdgo.Slice<stdgo.Slice<stdgo.GoString>> = (new stdgo.Slice<stdgo.Slice<stdgo.GoString>>(8, 8, (new stdgo.Slice<stdgo.GoString>(0, 0) : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(1, 1, stdgo.Go.str()?.__copy__()) : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(2, 2, ("日" : stdgo.GoString), ("本語" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(3, 3, ("日" : stdgo.GoString), ("本" : stdgo.GoString), ("語" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(3, 3, ("日" : stdgo.GoString), ("本" : stdgo.GoString), ("語" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(3, 3, stdgo.Go.str(230)?.__copy__(), stdgo.Go.str(151, 165, 230)?.__copy__(), stdgo.Go.str(156, 172, "語")?.__copy__()) : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(4, 4, ("Hello" : stdgo.GoString), (", " : stdgo.GoString), ("World" : stdgo.GoString), ("!" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(5, 5, ("Hello" : stdgo.GoString), (", " : stdgo.GoString), stdgo.Go.str()?.__copy__(), ("World" : stdgo.GoString), ("!" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.Slice<stdgo.Slice<stdgo.GoString>>);
-var _errorWriterTests : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest> = (new stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest>(6, 6, (new stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest((0 : stdgo.GoInt), (1 : stdgo.GoInt), (null : stdgo.Error), stdgo._internal.io.Io.errShortWrite) : stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest((1 : stdgo.GoInt), (2 : stdgo.GoInt), (null : stdgo.Error), stdgo._internal.io.Io.errShortWrite) : stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest((1 : stdgo.GoInt), (1 : stdgo.GoInt), (null : stdgo.Error), (null : stdgo.Error)) : stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest((0 : stdgo.GoInt), (1 : stdgo.GoInt), stdgo._internal.io.Io.errClosedPipe, stdgo._internal.io.Io.errClosedPipe) : stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest((1 : stdgo.GoInt), (2 : stdgo.GoInt), stdgo._internal.io.Io.errClosedPipe, stdgo._internal.io.Io.errClosedPipe) : stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest((1 : stdgo.GoInt), (1 : stdgo.GoInt), stdgo._internal.io.Io.errClosedPipe, stdgo._internal.io.Io.errClosedPipe) : stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest)) : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest>);
+    }) : stdgo._internal.bufio_test.Bufio_test.T_bufReader), (new stdgo._internal.bufio_test.Bufio_test.T_bufReader(("bytes" : stdgo.GoString), _readBytes) : stdgo._internal.bufio_test.Bufio_test.T_bufReader), (new stdgo._internal.bufio_test.Bufio_test.T_bufReader(("lines" : stdgo.GoString), _readLines) : stdgo._internal.bufio_test.Bufio_test.T_bufReader)]) : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_bufReader>);
+var _bufsizes : stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(10, 10, ...[(0 : stdgo.GoInt), (16 : stdgo.GoInt), (23 : stdgo.GoInt), (32 : stdgo.GoInt), (46 : stdgo.GoInt), (64 : stdgo.GoInt), (93 : stdgo.GoInt), (128 : stdgo.GoInt), (1024 : stdgo.GoInt), (4096 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
+var _segmentList : stdgo.Slice<stdgo.Slice<stdgo.GoString>> = (new stdgo.Slice<stdgo.Slice<stdgo.GoString>>(8, 8, ...[(new stdgo.Slice<stdgo.GoString>(0, 0, ...[]) : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(1, 1, ...[stdgo.Go.str()?.__copy__()]) : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(2, 2, ...[("日" : stdgo.GoString), ("本語" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("日" : stdgo.GoString), ("本" : stdgo.GoString), ("語" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("日" : stdgo.GoString), ("本" : stdgo.GoString), ("語" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(3, 3, ...[stdgo.Go.str(230)?.__copy__(), stdgo.Go.str(151, 165, 230)?.__copy__(), stdgo.Go.str(156, 172, "語")?.__copy__()]) : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(4, 4, ...[("Hello" : stdgo.GoString), (", " : stdgo.GoString), ("World" : stdgo.GoString), ("!" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(5, 5, ...[("Hello" : stdgo.GoString), (", " : stdgo.GoString), stdgo.Go.str()?.__copy__(), ("World" : stdgo.GoString), ("!" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>)]) : stdgo.Slice<stdgo.Slice<stdgo.GoString>>);
+var _errorWriterTests : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest> = (new stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest>(6, 6, ...[(new stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest((0 : stdgo.GoInt), (1 : stdgo.GoInt), (null : stdgo.Error), stdgo._internal.io.Io.errShortWrite) : stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest((1 : stdgo.GoInt), (2 : stdgo.GoInt), (null : stdgo.Error), stdgo._internal.io.Io.errShortWrite) : stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest((1 : stdgo.GoInt), (1 : stdgo.GoInt), (null : stdgo.Error), (null : stdgo.Error)) : stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest((0 : stdgo.GoInt), (1 : stdgo.GoInt), stdgo._internal.io.Io.errClosedPipe, stdgo._internal.io.Io.errClosedPipe) : stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest((1 : stdgo.GoInt), (2 : stdgo.GoInt), stdgo._internal.io.Io.errClosedPipe, stdgo._internal.io.Io.errClosedPipe) : stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest((1 : stdgo.GoInt), (1 : stdgo.GoInt), stdgo._internal.io.Io.errClosedPipe, stdgo._internal.io.Io.errClosedPipe) : stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest)]) : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_errorWriterTest>);
 var _testOutput : stdgo.Slice<stdgo.GoUInt8> = (("0123456789abcdefghijklmnopqrstuvwxy" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
 var _testInput : stdgo.Slice<stdgo.GoUInt8> = (("012\n345\n678\n9ab\ncde\nfgh\nijk\nlmn\nopq\nrst\nuvw\nxy" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
 var _testInputrn : stdgo.Slice<stdgo.GoUInt8> = (("012\r\n345\r\n678\r\n9ab\r\ncde\r\nfgh\r\nijk\r\nlmn\r\nopq\r\nrst\r\nuvw\r\nxy\r\n\n\r\n" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
-var _readLineNewlinesTests : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(2, 2, ({ _input : ("012345678901234\r\n012345678901234\r\n" : stdgo.GoString), _expect : (new stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_readLineResult>(5, 5, (new stdgo._internal.bufio_test.Bufio_test.T_readLineResult((("012345678901234" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), true, (null : stdgo.Error)) : stdgo._internal.bufio_test.Bufio_test.T_readLineResult), (new stdgo._internal.bufio_test.Bufio_test.T_readLineResult((null : stdgo.Slice<stdgo.GoUInt8>), false, (null : stdgo.Error)) : stdgo._internal.bufio_test.Bufio_test.T_readLineResult), (new stdgo._internal.bufio_test.Bufio_test.T_readLineResult((("012345678901234" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), true, (null : stdgo.Error)) : stdgo._internal.bufio_test.Bufio_test.T_readLineResult), (new stdgo._internal.bufio_test.Bufio_test.T_readLineResult((null : stdgo.Slice<stdgo.GoUInt8>), false, (null : stdgo.Error)) : stdgo._internal.bufio_test.Bufio_test.T_readLineResult), (new stdgo._internal.bufio_test.Bufio_test.T_readLineResult((null : stdgo.Slice<stdgo.GoUInt8>), false, stdgo._internal.io.Io.eof) : stdgo._internal.bufio_test.Bufio_test.T_readLineResult)) : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_readLineResult>) } : T__struct_0), ({ _input : ("0123456789012345\r012345678901234\r" : stdgo.GoString), _expect : (new stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_readLineResult>(4, 4, (new stdgo._internal.bufio_test.Bufio_test.T_readLineResult((("0123456789012345" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), true, (null : stdgo.Error)) : stdgo._internal.bufio_test.Bufio_test.T_readLineResult), (new stdgo._internal.bufio_test.Bufio_test.T_readLineResult((("\r012345678901234" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), true, (null : stdgo.Error)) : stdgo._internal.bufio_test.Bufio_test.T_readLineResult), (new stdgo._internal.bufio_test.Bufio_test.T_readLineResult((("\r" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), false, (null : stdgo.Error)) : stdgo._internal.bufio_test.Bufio_test.T_readLineResult), (new stdgo._internal.bufio_test.Bufio_test.T_readLineResult((null : stdgo.Slice<stdgo.GoUInt8>), false, stdgo._internal.io.Io.eof) : stdgo._internal.bufio_test.Bufio_test.T_readLineResult)) : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_readLineResult>) } : T__struct_0)) : stdgo.Slice<T__struct_0>);
-var _errorWriterToTests : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_errorWriterToTest> = (new stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_errorWriterToTest>(4, 4, (new stdgo._internal.bufio_test.Bufio_test.T_errorWriterToTest((1 : stdgo.GoInt), (0 : stdgo.GoInt), (null : stdgo.Error), stdgo._internal.io.Io.errClosedPipe, stdgo._internal.io.Io.errClosedPipe) : stdgo._internal.bufio_test.Bufio_test.T_errorWriterToTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorWriterToTest((0 : stdgo.GoInt), (1 : stdgo.GoInt), stdgo._internal.io.Io.errClosedPipe, (null : stdgo.Error), stdgo._internal.io.Io.errClosedPipe) : stdgo._internal.bufio_test.Bufio_test.T_errorWriterToTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorWriterToTest((0 : stdgo.GoInt), (0 : stdgo.GoInt), stdgo._internal.io.Io.errUnexpectedEOF, stdgo._internal.io.Io.errClosedPipe, stdgo._internal.io.Io.errClosedPipe) : stdgo._internal.bufio_test.Bufio_test.T_errorWriterToTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorWriterToTest((0 : stdgo.GoInt), (1 : stdgo.GoInt), stdgo._internal.io.Io.eof, (null : stdgo.Error), (null : stdgo.Error)) : stdgo._internal.bufio_test.Bufio_test.T_errorWriterToTest)) : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_errorWriterToTest>);
-var _errorReaderFromTests : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest> = (new stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest>(5, 5, (new stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest((0 : stdgo.GoInt), (1 : stdgo.GoInt), stdgo._internal.io.Io.eof, (null : stdgo.Error), (null : stdgo.Error)) : stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest((1 : stdgo.GoInt), (1 : stdgo.GoInt), stdgo._internal.io.Io.eof, (null : stdgo.Error), (null : stdgo.Error)) : stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest((0 : stdgo.GoInt), (1 : stdgo.GoInt), stdgo._internal.io.Io.errClosedPipe, (null : stdgo.Error), stdgo._internal.io.Io.errClosedPipe) : stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest((0 : stdgo.GoInt), (0 : stdgo.GoInt), stdgo._internal.io.Io.errClosedPipe, stdgo._internal.io.Io.errShortWrite, stdgo._internal.io.Io.errClosedPipe) : stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest((1 : stdgo.GoInt), (0 : stdgo.GoInt), (null : stdgo.Error), stdgo._internal.io.Io.errShortWrite, stdgo._internal.io.Io.errShortWrite) : stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest)) : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest>);
+var _readLineNewlinesTests : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(2, 2, ...[({ _input : ("012345678901234\r\n012345678901234\r\n" : stdgo.GoString), _expect : (new stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_readLineResult>(5, 5, ...[(new stdgo._internal.bufio_test.Bufio_test.T_readLineResult((("012345678901234" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), true, (null : stdgo.Error)) : stdgo._internal.bufio_test.Bufio_test.T_readLineResult), (new stdgo._internal.bufio_test.Bufio_test.T_readLineResult((null : stdgo.Slice<stdgo.GoUInt8>), false, (null : stdgo.Error)) : stdgo._internal.bufio_test.Bufio_test.T_readLineResult), (new stdgo._internal.bufio_test.Bufio_test.T_readLineResult((("012345678901234" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), true, (null : stdgo.Error)) : stdgo._internal.bufio_test.Bufio_test.T_readLineResult), (new stdgo._internal.bufio_test.Bufio_test.T_readLineResult((null : stdgo.Slice<stdgo.GoUInt8>), false, (null : stdgo.Error)) : stdgo._internal.bufio_test.Bufio_test.T_readLineResult), (new stdgo._internal.bufio_test.Bufio_test.T_readLineResult((null : stdgo.Slice<stdgo.GoUInt8>), false, stdgo._internal.io.Io.eof) : stdgo._internal.bufio_test.Bufio_test.T_readLineResult)]) : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_readLineResult>) } : T__struct_0), ({ _input : ("0123456789012345\r012345678901234\r" : stdgo.GoString), _expect : (new stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_readLineResult>(4, 4, ...[(new stdgo._internal.bufio_test.Bufio_test.T_readLineResult((("0123456789012345" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), true, (null : stdgo.Error)) : stdgo._internal.bufio_test.Bufio_test.T_readLineResult), (new stdgo._internal.bufio_test.Bufio_test.T_readLineResult((("\r012345678901234" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), true, (null : stdgo.Error)) : stdgo._internal.bufio_test.Bufio_test.T_readLineResult), (new stdgo._internal.bufio_test.Bufio_test.T_readLineResult((("\r" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), false, (null : stdgo.Error)) : stdgo._internal.bufio_test.Bufio_test.T_readLineResult), (new stdgo._internal.bufio_test.Bufio_test.T_readLineResult((null : stdgo.Slice<stdgo.GoUInt8>), false, stdgo._internal.io.Io.eof) : stdgo._internal.bufio_test.Bufio_test.T_readLineResult)]) : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_readLineResult>) } : T__struct_0)]) : stdgo.Slice<T__struct_0>);
+var _errorWriterToTests : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_errorWriterToTest> = (new stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_errorWriterToTest>(4, 4, ...[(new stdgo._internal.bufio_test.Bufio_test.T_errorWriterToTest((1 : stdgo.GoInt), (0 : stdgo.GoInt), (null : stdgo.Error), stdgo._internal.io.Io.errClosedPipe, stdgo._internal.io.Io.errClosedPipe) : stdgo._internal.bufio_test.Bufio_test.T_errorWriterToTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorWriterToTest((0 : stdgo.GoInt), (1 : stdgo.GoInt), stdgo._internal.io.Io.errClosedPipe, (null : stdgo.Error), stdgo._internal.io.Io.errClosedPipe) : stdgo._internal.bufio_test.Bufio_test.T_errorWriterToTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorWriterToTest((0 : stdgo.GoInt), (0 : stdgo.GoInt), stdgo._internal.io.Io.errUnexpectedEOF, stdgo._internal.io.Io.errClosedPipe, stdgo._internal.io.Io.errClosedPipe) : stdgo._internal.bufio_test.Bufio_test.T_errorWriterToTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorWriterToTest((0 : stdgo.GoInt), (1 : stdgo.GoInt), stdgo._internal.io.Io.eof, (null : stdgo.Error), (null : stdgo.Error)) : stdgo._internal.bufio_test.Bufio_test.T_errorWriterToTest)]) : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_errorWriterToTest>);
+var _errorReaderFromTests : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest> = (new stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest>(5, 5, ...[(new stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest((0 : stdgo.GoInt), (1 : stdgo.GoInt), stdgo._internal.io.Io.eof, (null : stdgo.Error), (null : stdgo.Error)) : stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest((1 : stdgo.GoInt), (1 : stdgo.GoInt), stdgo._internal.io.Io.eof, (null : stdgo.Error), (null : stdgo.Error)) : stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest((0 : stdgo.GoInt), (1 : stdgo.GoInt), stdgo._internal.io.Io.errClosedPipe, (null : stdgo.Error), stdgo._internal.io.Io.errClosedPipe) : stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest((0 : stdgo.GoInt), (0 : stdgo.GoInt), stdgo._internal.io.Io.errClosedPipe, stdgo._internal.io.Io.errShortWrite, stdgo._internal.io.Io.errClosedPipe) : stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest), (new stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest((1 : stdgo.GoInt), (0 : stdgo.GoInt), (null : stdgo.Error), stdgo._internal.io.Io.errShortWrite, stdgo._internal.io.Io.errShortWrite) : stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest)]) : stdgo.Slice<stdgo._internal.bufio_test.Bufio_test.T_errorReaderFromTest>);
 var _errFake : stdgo.Error = stdgo._internal.errors.Errors.new_(("fake error" : stdgo.GoString));
-var _scanTests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
-9,
-9,
-stdgo.Go.str()?.__copy__(),
-("a" : stdgo.GoString),
-("¼" : stdgo.GoString),
-("☹" : stdgo.GoString),
-stdgo.Go.str(129)?.__copy__(),
-("�" : stdgo.GoString),
-("abcdefgh" : stdgo.GoString),
-("abc def\n\t\tgh    " : stdgo.GoString),
-stdgo.Go.str("abc¼☹", 129, "�日本語", 130, "abc")?.__copy__()) : stdgo.Slice<stdgo.GoString>);
-var _wordScanTests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(8, 8, stdgo.Go.str()?.__copy__(), (" " : stdgo.GoString), ("\n" : stdgo.GoString), ("a" : stdgo.GoString), (" a " : stdgo.GoString), ("abc def" : stdgo.GoString), (" abc def " : stdgo.GoString), (" abc\tdef\nghi\rjkl\x0Cmno\x0Bpqr\u0085stu\u00a0\n" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+var _scanTests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(9, 9, ...[stdgo.Go.str()?.__copy__(), ("a" : stdgo.GoString), ("¼" : stdgo.GoString), ("☹" : stdgo.GoString), stdgo.Go.str(129)?.__copy__(), ("�" : stdgo.GoString), ("abcdefgh" : stdgo.GoString), ("abc def\n\t\tgh    " : stdgo.GoString), stdgo.Go.str("abc¼☹", 129, "�日本語", 130, "abc")?.__copy__()]) : stdgo.Slice<stdgo.GoString>);
+var _wordScanTests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(8, 8, ...[stdgo.Go.str()?.__copy__(), (" " : stdgo.GoString), ("\n" : stdgo.GoString), ("a" : stdgo.GoString), (" a " : stdgo.GoString), ("abc def" : stdgo.GoString), (" abc def " : stdgo.GoString), (" abc\tdef\nghi\rjkl\x0Cmno\x0Bpqr\u0085stu\u00a0\n" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
 var _testError : stdgo.Error = stdgo._internal.errors.Errors.new_(("testError" : stdgo.GoString));
 @:structInit @:private @:using(stdgo._internal.bufio_test.Bufio_test.T_rot13Reader_static_extension) class T_rot13Reader {
     public var _r : stdgo._internal.io.Io.Reader = (null : stdgo._internal.io.Io.Reader);
@@ -370,7 +347,7 @@ function _newRot13Reader(_r:stdgo._internal.io.Io.Reader):stdgo.Ref<T_rot13Reade
         return _r13;
     }
 function _readBytes(_buf:stdgo.Ref<Reader>):stdgo.GoString {
-        var _b:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 1000) (0 : stdgo.GoUInt8)]);
+        var _b:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(1000, 1000, ...[for (i in 0 ... 1000) (0 : stdgo.GoUInt8)]);
         var _nb:stdgo.GoInt = (0 : stdgo.GoInt);
         while (true) {
             var __tmp__ = _buf.readByte(), _c:stdgo.GoUInt8 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -418,7 +395,7 @@ function _readLines(_b:stdgo.Ref<Reader>):stdgo.GoString {
         return _s?.__copy__();
     }
 function _reads(_buf:stdgo.Ref<Reader>, _m:stdgo.GoInt):stdgo.GoString {
-        var _b:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 1000) (0 : stdgo.GoUInt8)]);
+        var _b:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(1000, 1000, ...[for (i in 0 ... 1000) (0 : stdgo.GoUInt8)]);
         var _nb:stdgo.GoInt = (0 : stdgo.GoInt);
         while (true) {
             var __tmp__ = _buf.read((_b.__slice__(_nb, (_nb + _m : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -430,7 +407,7 @@ function _reads(_buf:stdgo.Ref<Reader>, _m:stdgo.GoInt):stdgo.GoString {
         return ((_b.__slice__((0 : stdgo.GoInt), _nb) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__();
     }
 function testReader(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _texts:stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 31) ("" : stdgo.GoString)]);
+        var _texts:stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(31, 31, ...[for (i in 0 ... 31) ("" : stdgo.GoString)]);
         var _str:stdgo.GoString = stdgo.Go.str()?.__copy__();
         var _all:stdgo.GoString = stdgo.Go.str()?.__copy__();
         {
@@ -537,7 +514,7 @@ function testReadRune(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testUnreadRune(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _segments = (new stdgo.Slice<stdgo.GoString>(2, 2, ("Hello, world:" : stdgo.GoString), ("日本語" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+        var _segments = (new stdgo.Slice<stdgo.GoString>(2, 2, ...[("Hello, world:" : stdgo.GoString), ("日本語" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
         var _r = newReader(stdgo.Go.asInterface((stdgo.Go.setRef(({ _data : _segments } : stdgo._internal.bufio_test.Bufio_test.StringReader)) : stdgo.Ref<stdgo._internal.bufio_test.Bufio_test.StringReader>)));
         var _got:stdgo.GoString = stdgo.Go.str()?.__copy__();
         var _want:stdgo.GoString = stdgo._internal.strings.Strings.join(_segments, stdgo.Go.str()?.__copy__())?.__copy__();
@@ -633,7 +610,7 @@ function testNoUnreadByteAfterWriteTo(_t:stdgo.Ref<stdgo._internal.testing.Testi
         };
     }
 function testUnreadByte(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _segments = (new stdgo.Slice<stdgo.GoString>(2, 2, ("Hello, " : stdgo.GoString), ("world" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+        var _segments = (new stdgo.Slice<stdgo.GoString>(2, 2, ...[("Hello, " : stdgo.GoString), ("world" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
         var _r = newReader(stdgo.Go.asInterface((stdgo.Go.setRef(({ _data : _segments } : stdgo._internal.bufio_test.Bufio_test.StringReader)) : stdgo.Ref<stdgo._internal.bufio_test.Bufio_test.StringReader>)));
         var _got:stdgo.GoString = stdgo.Go.str()?.__copy__();
         var _want:stdgo.GoString = stdgo._internal.strings.Strings.join(_segments, stdgo.Go.str()?.__copy__())?.__copy__();
@@ -665,7 +642,7 @@ function testUnreadByte(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testUnreadByteMultiple(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _segments = (new stdgo.Slice<stdgo.GoString>(2, 2, ("Hello, " : stdgo.GoString), ("world" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+        var _segments = (new stdgo.Slice<stdgo.GoString>(2, 2, ...[("Hello, " : stdgo.GoString), ("world" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
         var _data:stdgo.GoString = stdgo._internal.strings.Strings.join(_segments, stdgo.Go.str()?.__copy__())?.__copy__();
         {
             var _n:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -701,10 +678,10 @@ function testUnreadByteMultiple(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>
         };
     }
 function testUnreadByteOthers(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _readers:stdgo.Slice<(stdgo.Ref<stdgo._internal.bufio.Bufio.Reader>, stdgo.GoUInt8) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }> = (new stdgo.Slice<(stdgo.Ref<stdgo._internal.bufio.Bufio.Reader>, stdgo.GoUInt8) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }>(3, 3, Reader_static_extension.readBytes, Reader_static_extension.readSlice, function(_r:stdgo.Ref<Reader>, _delim:stdgo.GoByte):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } {
+        var _readers:stdgo.Slice<(stdgo.Ref<stdgo._internal.bufio.Bufio.Reader>, stdgo.GoUInt8) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }> = (new stdgo.Slice<(stdgo.Ref<stdgo._internal.bufio.Bufio.Reader>, stdgo.GoUInt8) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }>(3, 3, ...[Reader_static_extension.readBytes, Reader_static_extension.readSlice, function(_r:stdgo.Ref<Reader>, _delim:stdgo.GoByte):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } {
             var __tmp__ = _r.readString(_delim), _data:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             return { _0 : (_data : stdgo.Slice<stdgo.GoByte>), _1 : _err };
-        }) : stdgo.Slice<(stdgo.Ref<stdgo._internal.bufio.Bufio.Reader>, stdgo.GoUInt8) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }>);
+        }]) : stdgo.Slice<(stdgo.Ref<stdgo._internal.bufio.Bufio.Reader>, stdgo.GoUInt8) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }>);
         for (_rno => _read in _readers) {
             {};
             var _buf:stdgo._internal.bytes.Bytes.Buffer = ({} : stdgo._internal.bytes.Bytes.Buffer);
@@ -754,7 +731,7 @@ function testUnreadByteOthers(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
     }
 function testUnreadRuneError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _buf = new stdgo.Slice<stdgo.GoUInt8>((3 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        var _r = newReader(stdgo.Go.asInterface((stdgo.Go.setRef(({ _data : (new stdgo.Slice<stdgo.GoString>(1, 1, ("日本語日本語日本語" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>) } : stdgo._internal.bufio_test.Bufio_test.StringReader)) : stdgo.Ref<stdgo._internal.bufio_test.Bufio_test.StringReader>)));
+        var _r = newReader(stdgo.Go.asInterface((stdgo.Go.setRef(({ _data : (new stdgo.Slice<stdgo.GoString>(1, 1, ...[("日本語日本語日本語" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>) } : stdgo._internal.bufio_test.Bufio_test.StringReader)) : stdgo.Ref<stdgo._internal.bufio_test.Bufio_test.StringReader>)));
         if (_r.unreadRune() == null) {
             _t.error(stdgo.Go.toInterface(("expected error on UnreadRune from fresh buffer" : stdgo.GoString)));
         };
@@ -890,7 +867,7 @@ function testReadWriteRune(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
         };
     }
 function testWriteInvalidRune(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__0 => _r in (new stdgo.Slice<stdgo.GoInt32>(2, 2, (-1 : stdgo.GoInt32), (1114112 : stdgo.GoInt32)) : stdgo.Slice<stdgo.GoInt32>)) {
+        for (__0 => _r in (new stdgo.Slice<stdgo.GoInt32>(2, 2, ...[(-1 : stdgo.GoInt32), (1114112 : stdgo.GoInt32)]) : stdgo.Slice<stdgo.GoInt32>)) {
             var _buf:stdgo._internal.strings.Strings.Builder = ({} : stdgo._internal.strings.Strings.Builder);
             var _w = newWriter(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings.Builder>)));
             _w.writeRune(_r);
@@ -919,7 +896,7 @@ function testReadStringAllocs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
         };
     }
 function testWriter(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _data:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 8192) (0 : stdgo.GoUInt8)]);
+        var _data:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(8192, 8192, ...[for (i in 0 ... 8192) (0 : stdgo.GoUInt8)]);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_data.length) : Bool), _i++, {
@@ -1410,14 +1387,14 @@ function testReaderWriteToErrors(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
         };
     }
 function testWriterReadFrom(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _ws = (new stdgo.Slice<stdgo._internal.io.Io.Writer -> stdgo._internal.io.Io.Writer>(2, 2, function(_w:stdgo._internal.io.Io.Writer):stdgo._internal.io.Io.Writer {
+        var _ws = (new stdgo.Slice<stdgo._internal.io.Io.Writer -> stdgo._internal.io.Io.Writer>(2, 2, ...[function(_w:stdgo._internal.io.Io.Writer):stdgo._internal.io.Io.Writer {
             return stdgo.Go.asInterface((new stdgo._internal.bufio_test.Bufio_test.T_onlyWriter(_w) : stdgo._internal.bufio_test.Bufio_test.T_onlyWriter));
         }, function(_w:stdgo._internal.io.Io.Writer):stdgo._internal.io.Io.Writer {
             return _w;
-        }) : stdgo.Slice<stdgo._internal.io.Io.Writer -> stdgo._internal.io.Io.Writer>);
-        var _rs = (new stdgo.Slice<stdgo._internal.io.Io.Reader -> stdgo._internal.io.Io.Reader>(2, 2, stdgo._internal.testing.iotest.Iotest.dataErrReader, function(_r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
+        }]) : stdgo.Slice<stdgo._internal.io.Io.Writer -> stdgo._internal.io.Io.Writer>);
+        var _rs = (new stdgo.Slice<stdgo._internal.io.Io.Reader -> stdgo._internal.io.Io.Reader>(2, 2, ...[stdgo._internal.testing.iotest.Iotest.dataErrReader, function(_r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
             return _r;
-        }) : stdgo.Slice<stdgo._internal.io.Io.Reader -> stdgo._internal.io.Io.Reader>);
+        }]) : stdgo.Slice<stdgo._internal.io.Io.Reader -> stdgo._internal.io.Io.Reader>);
         for (_ri => _rfunc in _rs) {
             for (_wi => _wfunc in _ws) {
                 var _input = _createTestInput((8192 : stdgo.GoInt));
@@ -1667,7 +1644,7 @@ function testWriterReadFromWithBufferedData(_t:stdgo.Ref<stdgo._internal.testing
         };
     }
 function testReadZero(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__0 => _size in (new stdgo.Slice<stdgo.GoInt>(2, 2, (100 : stdgo.GoInt), (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)) {
+        for (__0 => _size in (new stdgo.Slice<stdgo.GoInt>(2, 2, ...[(100 : stdgo.GoInt), (2 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)) {
             _t.run(stdgo._internal.fmt.Fmt.sprintf(("bufsize=%d" : stdgo.GoString), stdgo.Go.toInterface(_size))?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 var _r:stdgo._internal.io.Io.Reader = stdgo._internal.io.Io.multiReader(stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(("abc" : stdgo.GoString))), stdgo.Go.asInterface((stdgo.Go.setRef(({ _r : stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(("def" : stdgo.GoString))), _n : (1 : stdgo.GoInt) } : stdgo._internal.bufio_test.Bufio_test.T_emptyThenNonEmptyReader)) : stdgo.Ref<stdgo._internal.bufio_test.Bufio_test.T_emptyThenNonEmptyReader>)));
                 var _br = newReaderSize(_r, _size);
@@ -1769,36 +1746,25 @@ function testWriterReset(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
         };
     }
 function testReaderDiscard(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _tests = (new stdgo.Slice<T__struct_1>(
-9,
-9,
-({ _name : ("normal case" : stdgo.GoString), _r : stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(("abcdefghijklmnopqrstuvwxyz" : stdgo.GoString))), _bufSize : (0 : stdgo.GoInt), _peekSize : (16 : stdgo.GoInt), _n : (6 : stdgo.GoInt), _want : (6 : stdgo.GoInt), _wantErr : (null : stdgo.Error), _wantBuffered : (10 : stdgo.GoInt) } : T__struct_1),
-({ _name : ("discard causing read" : stdgo.GoString), _r : stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(("abcdefghijklmnopqrstuvwxyz" : stdgo.GoString))), _bufSize : (0 : stdgo.GoInt), _peekSize : (0 : stdgo.GoInt), _n : (6 : stdgo.GoInt), _want : (6 : stdgo.GoInt), _wantErr : (null : stdgo.Error), _wantBuffered : (10 : stdgo.GoInt) } : T__struct_1),
-({ _name : ("discard all without peek" : stdgo.GoString), _r : stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(("abcdefghijklmnopqrstuvwxyz" : stdgo.GoString))), _bufSize : (0 : stdgo.GoInt), _peekSize : (0 : stdgo.GoInt), _n : (26 : stdgo.GoInt), _want : (26 : stdgo.GoInt), _wantErr : (null : stdgo.Error), _wantBuffered : (0 : stdgo.GoInt) } : T__struct_1),
-({ _name : ("discard more than end" : stdgo.GoString), _r : stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(("abcdefghijklmnopqrstuvwxyz" : stdgo.GoString))), _bufSize : (0 : stdgo.GoInt), _peekSize : (0 : stdgo.GoInt), _n : (27 : stdgo.GoInt), _want : (26 : stdgo.GoInt), _wantErr : stdgo._internal.io.Io.eof, _wantBuffered : (0 : stdgo.GoInt) } : T__struct_1),
-({ _name : ("fill error, discard less" : stdgo.GoString), _r : _newScriptedReader(function(_p:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
+        var _tests = (new stdgo.Slice<T__struct_1>(9, 9, ...[({ _name : ("normal case" : stdgo.GoString), _r : stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(("abcdefghijklmnopqrstuvwxyz" : stdgo.GoString))), _bufSize : (0 : stdgo.GoInt), _peekSize : (16 : stdgo.GoInt), _n : (6 : stdgo.GoInt), _want : (6 : stdgo.GoInt), _wantErr : (null : stdgo.Error), _wantBuffered : (10 : stdgo.GoInt) } : T__struct_1), ({ _name : ("discard causing read" : stdgo.GoString), _r : stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(("abcdefghijklmnopqrstuvwxyz" : stdgo.GoString))), _bufSize : (0 : stdgo.GoInt), _peekSize : (0 : stdgo.GoInt), _n : (6 : stdgo.GoInt), _want : (6 : stdgo.GoInt), _wantErr : (null : stdgo.Error), _wantBuffered : (10 : stdgo.GoInt) } : T__struct_1), ({ _name : ("discard all without peek" : stdgo.GoString), _r : stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(("abcdefghijklmnopqrstuvwxyz" : stdgo.GoString))), _bufSize : (0 : stdgo.GoInt), _peekSize : (0 : stdgo.GoInt), _n : (26 : stdgo.GoInt), _want : (26 : stdgo.GoInt), _wantErr : (null : stdgo.Error), _wantBuffered : (0 : stdgo.GoInt) } : T__struct_1), ({ _name : ("discard more than end" : stdgo.GoString), _r : stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(("abcdefghijklmnopqrstuvwxyz" : stdgo.GoString))), _bufSize : (0 : stdgo.GoInt), _peekSize : (0 : stdgo.GoInt), _n : (27 : stdgo.GoInt), _want : (26 : stdgo.GoInt), _wantErr : stdgo._internal.io.Io.eof, _wantBuffered : (0 : stdgo.GoInt) } : T__struct_1), ({ _name : ("fill error, discard less" : stdgo.GoString), _r : _newScriptedReader(function(_p:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
             var _n:stdgo.GoInt = (0 : stdgo.GoInt), _err:stdgo.Error = (null : stdgo.Error);
             if (((_p.length) < (5 : stdgo.GoInt) : Bool)) {
                 throw stdgo.Go.toInterface(("unexpected small read" : stdgo.GoString));
             };
             return { _0 : (5 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors.new_(("5-then-error" : stdgo.GoString)) };
-        }), _bufSize : (0 : stdgo.GoInt), _peekSize : (0 : stdgo.GoInt), _n : (4 : stdgo.GoInt), _want : (4 : stdgo.GoInt), _wantErr : (null : stdgo.Error), _wantBuffered : (1 : stdgo.GoInt) } : T__struct_1),
-({ _name : ("fill error, discard equal" : stdgo.GoString), _r : _newScriptedReader(function(_p:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
+        }), _bufSize : (0 : stdgo.GoInt), _peekSize : (0 : stdgo.GoInt), _n : (4 : stdgo.GoInt), _want : (4 : stdgo.GoInt), _wantErr : (null : stdgo.Error), _wantBuffered : (1 : stdgo.GoInt) } : T__struct_1), ({ _name : ("fill error, discard equal" : stdgo.GoString), _r : _newScriptedReader(function(_p:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
             var _n:stdgo.GoInt = (0 : stdgo.GoInt), _err:stdgo.Error = (null : stdgo.Error);
             if (((_p.length) < (5 : stdgo.GoInt) : Bool)) {
                 throw stdgo.Go.toInterface(("unexpected small read" : stdgo.GoString));
             };
             return { _0 : (5 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors.new_(("5-then-error" : stdgo.GoString)) };
-        }), _bufSize : (0 : stdgo.GoInt), _peekSize : (0 : stdgo.GoInt), _n : (5 : stdgo.GoInt), _want : (5 : stdgo.GoInt), _wantErr : (null : stdgo.Error), _wantBuffered : (0 : stdgo.GoInt) } : T__struct_1),
-({ _name : ("fill error, discard more" : stdgo.GoString), _r : _newScriptedReader(function(_p:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
+        }), _bufSize : (0 : stdgo.GoInt), _peekSize : (0 : stdgo.GoInt), _n : (5 : stdgo.GoInt), _want : (5 : stdgo.GoInt), _wantErr : (null : stdgo.Error), _wantBuffered : (0 : stdgo.GoInt) } : T__struct_1), ({ _name : ("fill error, discard more" : stdgo.GoString), _r : _newScriptedReader(function(_p:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
             var _n:stdgo.GoInt = (0 : stdgo.GoInt), _err:stdgo.Error = (null : stdgo.Error);
             if (((_p.length) < (5 : stdgo.GoInt) : Bool)) {
                 throw stdgo.Go.toInterface(("unexpected small read" : stdgo.GoString));
             };
             return { _0 : (5 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors.new_(("5-then-error" : stdgo.GoString)) };
-        }), _bufSize : (0 : stdgo.GoInt), _peekSize : (0 : stdgo.GoInt), _n : (6 : stdgo.GoInt), _want : (5 : stdgo.GoInt), _wantErr : stdgo._internal.errors.Errors.new_(("5-then-error" : stdgo.GoString)), _wantBuffered : (0 : stdgo.GoInt) } : T__struct_1),
-({ _name : ("discard zero" : stdgo.GoString), _r : _newScriptedReader(), _bufSize : (0 : stdgo.GoInt), _peekSize : (0 : stdgo.GoInt), _n : (0 : stdgo.GoInt), _want : (0 : stdgo.GoInt), _wantErr : (null : stdgo.Error), _wantBuffered : (0 : stdgo.GoInt) } : T__struct_1),
-({ _name : ("discard negative" : stdgo.GoString), _r : _newScriptedReader(), _bufSize : (0 : stdgo.GoInt), _peekSize : (0 : stdgo.GoInt), _n : (-1 : stdgo.GoInt), _want : (0 : stdgo.GoInt), _wantErr : errNegativeCount, _wantBuffered : (0 : stdgo.GoInt) } : T__struct_1)) : stdgo.Slice<T__struct_1>);
+        }), _bufSize : (0 : stdgo.GoInt), _peekSize : (0 : stdgo.GoInt), _n : (6 : stdgo.GoInt), _want : (5 : stdgo.GoInt), _wantErr : stdgo._internal.errors.Errors.new_(("5-then-error" : stdgo.GoString)), _wantBuffered : (0 : stdgo.GoInt) } : T__struct_1), ({ _name : ("discard zero" : stdgo.GoString), _r : _newScriptedReader(), _bufSize : (0 : stdgo.GoInt), _peekSize : (0 : stdgo.GoInt), _n : (0 : stdgo.GoInt), _want : (0 : stdgo.GoInt), _wantErr : (null : stdgo.Error), _wantBuffered : (0 : stdgo.GoInt) } : T__struct_1), ({ _name : ("discard negative" : stdgo.GoString), _r : _newScriptedReader(), _bufSize : (0 : stdgo.GoInt), _peekSize : (0 : stdgo.GoInt), _n : (-1 : stdgo.GoInt), _want : (0 : stdgo.GoInt), _wantErr : errNegativeCount, _wantBuffered : (0 : stdgo.GoInt) } : T__struct_1)]) : stdgo.Slice<T__struct_1>);
         for (__0 => _tt in _tests) {
             var _br = newReaderSize(_tt._r, _tt._bufSize);
             if ((_tt._peekSize > (0 : stdgo.GoInt) : Bool)) {
@@ -1889,7 +1855,7 @@ function testPartialReadEOF(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
             };
         };
         {
-            var __tmp__ = _r.read((new stdgo.Slice<stdgo.GoUInt8>(0, 0) : stdgo.Slice<stdgo.GoUInt8>));
+            var __tmp__ = _r.read((new stdgo.Slice<stdgo.GoUInt8>(0, 0, ...[]) : stdgo.Slice<stdgo.GoUInt8>));
             _read = __tmp__._0;
             _err = __tmp__._1;
         };
@@ -2139,7 +2105,7 @@ function exampleWriter():Void {
     }
 function exampleWriter_AvailableBuffer():Void {
         var _w = stdgo._internal.bufio.Bufio.newWriter(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout));
-        for (__0 => _i in (new stdgo.Slice<stdgo.GoInt64>(4, 4, (1i64 : stdgo.GoInt64), (2i64 : stdgo.GoInt64), (3i64 : stdgo.GoInt64), (4i64 : stdgo.GoInt64)) : stdgo.Slice<stdgo.GoInt64>)) {
+        for (__0 => _i in (new stdgo.Slice<stdgo.GoInt64>(4, 4, ...[(1i64 : stdgo.GoInt64), (2i64 : stdgo.GoInt64), (3i64 : stdgo.GoInt64), (4i64 : stdgo.GoInt64)]) : stdgo.Slice<stdgo.GoInt64>)) {
             var _b = _w.availableBuffer();
             _b = stdgo._internal.strconv.Strconv.appendInt(_b, _i, (10 : stdgo.GoInt));
             _b = (_b.__append__((32 : stdgo.GoUInt8)));
@@ -2469,22 +2435,22 @@ function _testNoNewline(_text:stdgo.GoString, _lines:stdgo.Slice<stdgo.GoString>
     }
 function testScanLineNoNewline(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
-        var _lines = (new stdgo.Slice<stdgo.GoString>(2, 2, ("abcdefghijklmn" : stdgo.GoString), ("opqrstuvwxyz" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+        var _lines = (new stdgo.Slice<stdgo.GoString>(2, 2, ...[("abcdefghijklmn" : stdgo.GoString), ("opqrstuvwxyz" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
         _testNoNewline(("abcdefghijklmn\nopqrstuvwxyz" : stdgo.GoString), _lines, _t);
     }
 function testScanLineReturnButNoNewline(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
-        var _lines = (new stdgo.Slice<stdgo.GoString>(2, 2, ("abcdefghijklmn" : stdgo.GoString), ("opqrstuvwxyz" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+        var _lines = (new stdgo.Slice<stdgo.GoString>(2, 2, ...[("abcdefghijklmn" : stdgo.GoString), ("opqrstuvwxyz" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
         _testNoNewline(("abcdefghijklmn\nopqrstuvwxyz\r" : stdgo.GoString), _lines, _t);
     }
 function testScanLineEmptyFinalLine(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
-        var _lines = (new stdgo.Slice<stdgo.GoString>(3, 3, ("abcdefghijklmn" : stdgo.GoString), ("opqrstuvwxyz" : stdgo.GoString), stdgo.Go.str()?.__copy__()) : stdgo.Slice<stdgo.GoString>);
+        var _lines = (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("abcdefghijklmn" : stdgo.GoString), ("opqrstuvwxyz" : stdgo.GoString), stdgo.Go.str()?.__copy__()]) : stdgo.Slice<stdgo.GoString>);
         _testNoNewline(("abcdefghijklmn\nopqrstuvwxyz\n\n" : stdgo.GoString), _lines, _t);
     }
 function testScanLineEmptyFinalLineWithCR(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
-        var _lines = (new stdgo.Slice<stdgo.GoString>(3, 3, ("abcdefghijklmn" : stdgo.GoString), ("opqrstuvwxyz" : stdgo.GoString), stdgo.Go.str()?.__copy__()) : stdgo.Slice<stdgo.GoString>);
+        var _lines = (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("abcdefghijklmn" : stdgo.GoString), ("opqrstuvwxyz" : stdgo.GoString), stdgo.Go.str()?.__copy__()]) : stdgo.Slice<stdgo.GoString>);
         _testNoNewline(("abcdefghijklmn\nopqrstuvwxyz\n\r" : stdgo.GoString), _lines, _t);
     }
 function testSplitError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
@@ -2620,10 +2586,10 @@ function _testEmptyTokens(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _tex
         };
     }
 function testEmptyTokens(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        _testEmptyTokens(_t, ("1,2,3," : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(4, 4, ("1" : stdgo.GoString), ("2" : stdgo.GoString), ("3" : stdgo.GoString), stdgo.Go.str()?.__copy__()) : stdgo.Slice<stdgo.GoString>));
+        _testEmptyTokens(_t, ("1,2,3," : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(4, 4, ...[("1" : stdgo.GoString), ("2" : stdgo.GoString), ("3" : stdgo.GoString), stdgo.Go.str()?.__copy__()]) : stdgo.Slice<stdgo.GoString>));
     }
 function testWithNoEmptyTokens(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        _testEmptyTokens(_t, ("1,2,3" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(3, 3, ("1" : stdgo.GoString), ("2" : stdgo.GoString), ("3" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>));
+        _testEmptyTokens(_t, ("1,2,3" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("1" : stdgo.GoString), ("2" : stdgo.GoString), ("3" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>));
     }
 function _loopAtEOFSplit(_data:stdgo.Slice<stdgo.GoByte>, _atEOF:Bool):{ var _0 : stdgo.GoInt; var _1 : stdgo.Slice<stdgo.GoByte>; var _2 : stdgo.Error; } {
         var _advance:stdgo.GoInt = (0 : stdgo.GoInt), _token:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>), _err:stdgo.Error = (null : stdgo.Error);

@@ -13,7 +13,7 @@ var errTooLarge : stdgo.Error = stdgo._internal.errors.Errors.new_(("bytes.Buffe
 var _errNegativeRead : stdgo.Error = stdgo._internal.errors.Errors.new_(("bytes.Buffer: reader returned negative count from Read" : stdgo.GoString));
 var _errUnreadByte : stdgo.Error = stdgo._internal.errors.Errors.new_(("bytes.Buffer: UnreadByte: previous operation was not a successful read" : stdgo.GoString));
 var _asciiSpace : stdgo.GoArray<stdgo.GoUInt8> = {
-        var s:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 256) 0]);
+        var s:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(256, 256, ...[for (i in 0 ... 256) 0]);
         s[9] = (1 : stdgo.GoUInt8);
         s[10] = (1 : stdgo.GoUInt8);
         s[11] = (1 : stdgo.GoUInt8);
@@ -247,7 +247,7 @@ function indexRune(_s:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune):stdgo.GoInt {
         } else if (!stdgo._internal.unicode.utf8.Utf8.validRune(_r)) {
             return (-1 : stdgo.GoInt);
         } else {
-            var _b:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 4) (0 : stdgo.GoUInt8)]);
+            var _b:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...[for (i in 0 ... 4) (0 : stdgo.GoUInt8)]);
             var _n:stdgo.GoInt = stdgo._internal.unicode.utf8.Utf8.encodeRune((_b.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _r);
             return index(_s, (_b.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>));
         };
@@ -556,7 +556,7 @@ function fieldsFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:stdgo.GoRune -> Bool):stdgo
     }
 function join(_s:stdgo.Slice<stdgo.Slice<stdgo.GoByte>>, _sep:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> {
         if ((_s.length) == ((0 : stdgo.GoInt))) {
-            return (new stdgo.Slice<stdgo.GoUInt8>(0, 0) : stdgo.Slice<stdgo.GoUInt8>);
+            return (new stdgo.Slice<stdgo.GoUInt8>(0, 0, ...[]) : stdgo.Slice<stdgo.GoUInt8>);
         };
         if ((_s.length) == ((1 : stdgo.GoInt))) {
             return (((null : stdgo.Slice<stdgo.GoUInt8>) : stdgo.Slice<stdgo.GoByte>).__append__(...(_s[(0 : stdgo.GoInt)] : Array<stdgo.GoUInt8>)));
@@ -613,7 +613,7 @@ function map_(_mapping:(_r:stdgo.GoRune) -> stdgo.GoRune, _s:stdgo.Slice<stdgo.G
     }
 function repeat(_b:stdgo.Slice<stdgo.GoByte>, _count:stdgo.GoInt):stdgo.Slice<stdgo.GoByte> {
         if (_count == ((0 : stdgo.GoInt))) {
-            return (new stdgo.Slice<stdgo.GoUInt8>(0, 0) : stdgo.Slice<stdgo.GoUInt8>);
+            return (new stdgo.Slice<stdgo.GoUInt8>(0, 0, ...[]) : stdgo.Slice<stdgo.GoUInt8>);
         };
         if ((_count < (0 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(("bytes: negative Repeat count" : stdgo.GoString));
@@ -623,7 +623,7 @@ function repeat(_b:stdgo.Slice<stdgo.GoByte>, _count:stdgo.GoInt):stdgo.Slice<st
         };
         var _n:stdgo.GoInt = ((_b.length) * _count : stdgo.GoInt);
         if ((_b.length) == ((0 : stdgo.GoInt))) {
-            return (new stdgo.Slice<stdgo.GoUInt8>(0, 0) : stdgo.Slice<stdgo.GoUInt8>);
+            return (new stdgo.Slice<stdgo.GoUInt8>(0, 0, ...[]) : stdgo.Slice<stdgo.GoUInt8>);
         };
         {};
         var _chunkMax:stdgo.GoInt = _n;
@@ -856,7 +856,7 @@ function _lastIndexFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune) -> Bo
         return (-1 : stdgo.GoInt);
     }
 function _makeASCIISet(_chars:stdgo.GoString):{ var _0 : T_asciiSet; var _1 : Bool; } {
-        var _as:T_asciiSet = new stdgo._internal.bytes.Bytes.T_asciiSet(...[for (i in 0 ... 8) (0 : stdgo.GoUInt32)]), _ok:Bool = false;
+        var _as:T_asciiSet = new stdgo._internal.bytes.Bytes.T_asciiSet(8, 8, ...[for (i in 0 ... 8) (0 : stdgo.GoUInt32)]), _ok:Bool = false;
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_chars.length) : Bool), _i++, {
@@ -1254,7 +1254,7 @@ function clone(_b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> {
         if (_b == null) {
             return (null : stdgo.Slice<stdgo.GoUInt8>);
         };
-        return ((new stdgo.Slice<stdgo.GoUInt8>(0, 0) : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_b : Array<stdgo.GoUInt8>)));
+        return ((new stdgo.Slice<stdgo.GoUInt8>(0, 0, ...[]) : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_b : Array<stdgo.GoUInt8>)));
     }
 function cutPrefix(_s:stdgo.Slice<stdgo.GoByte>, _prefix:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : Bool; } {
         var _after:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>), _found:Bool = false;

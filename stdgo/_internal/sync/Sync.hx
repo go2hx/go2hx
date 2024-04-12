@@ -5,7 +5,7 @@ final _mutexWoken = (4i64 : stdgo.GoUInt64);
 final _mutexStarving = (4i64 : stdgo.GoUInt64);
 final _mutexWaiterShift : stdgo.GoUInt64 = (3i64 : stdgo.GoUInt64);
 final _starvationThresholdNs : stdgo.GoFloat64 = (1e+06 : stdgo.GoFloat64);
-var _poolRaceHash : stdgo.GoArray<stdgo.GoUInt64> = new stdgo.GoArray<stdgo.GoUInt64>(...[for (i in 0 ... 128) (0 : stdgo.GoUInt64)]);
+var _poolRaceHash : stdgo.GoArray<stdgo.GoUInt64> = new stdgo.GoArray<stdgo.GoUInt64>(128, 128, ...[for (i in 0 ... 128) (0 : stdgo.GoUInt64)]);
 var _allPoolsMu : Mutex = ({} : stdgo._internal.sync.Sync.Mutex);
 var _allPools : stdgo.Slice<stdgo.Ref<Pool>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.sync.Sync.Pool>>);
 var _oldPools : stdgo.Slice<stdgo.Ref<Pool>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.sync.Sync.Pool>>);
@@ -177,7 +177,7 @@ typedef Locker = stdgo.StructType & {
 @:structInit @:private @:using(stdgo._internal.sync.Sync.T_poolLocal_static_extension) class T_poolLocal {
     @:embedded
     public var _poolLocalInternal : stdgo._internal.sync.Sync.T_poolLocalInternal = ({} : stdgo._internal.sync.Sync.T_poolLocalInternal);
-    public var _pad : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 112) (0 : stdgo.GoUInt8)]);
+    public var _pad : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(112, 112, ...[for (i in 0 ... 112) (0 : stdgo.GoUInt8)]);
     public function new(?_poolLocalInternal:stdgo._internal.sync.Sync.T_poolLocalInternal, ?_pad:stdgo.GoArray<stdgo.GoUInt8>) {
         if (_poolLocalInternal != null) this._poolLocalInternal = _poolLocalInternal;
         if (_pad != null) this._pad = _pad;

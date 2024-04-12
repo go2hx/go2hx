@@ -459,7 +459,7 @@ macro function clone<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:
                     if (_s == null) {
                         return stdgo.Go.defaultValue((cast (null) : $S));
                     };
-                    return (((new stdgo.Slice<$E>(0, 0) : stdgo.Slice<$E>) : $S).__append__(...(_s : stdgo._internal.slices.Slices.Array<$S>)));
+                    return (((new stdgo.Slice<$E>(0, 0, ...[]) : stdgo.Slice<$E>) : $S).__append__(...(_s : stdgo._internal.slices.Slices.Array<$S>)));
                 };
                 switch f.expr {
                     case EFunction(_, f):

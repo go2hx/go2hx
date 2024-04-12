@@ -1,9 +1,7 @@
 package stdgo._internal.fmt_test;
 import stdgo._internal.fmt.Fmt;
 import stdgo._internal.fmt.Fmt;
-var _tests : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>(
-51,
-51,
+var _tests : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>(51, 51, ...[
 (new stdgo._internal.testing.Testing.InternalTest(("TestErrorf" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.testErrorf) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestFmtInterface" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.testFmtInterface) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestSprintf" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.testSprintf) : stdgo._internal.testing.Testing.InternalTest),
@@ -54,10 +52,8 @@ var _tests : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest> = (new st
 (new stdgo._internal.testing.Testing.InternalTest(("TestScanfNewlineMatchFormat" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.testScanfNewlineMatchFormat) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestHexByte" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.testHexByte) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestFormatString" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.testFormatString) : stdgo._internal.testing.Testing.InternalTest),
-(new stdgo._internal.testing.Testing.InternalTest(("TestStringer" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.testStringer) : stdgo._internal.testing.Testing.InternalTest)) : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>);
-var _benchmarks : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>(
-25,
-25,
+(new stdgo._internal.testing.Testing.InternalTest(("TestStringer" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.testStringer) : stdgo._internal.testing.Testing.InternalTest)]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>);
+var _benchmarks : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>(25, 25, ...[
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkSprintfPadding" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.benchmarkSprintfPadding) : stdgo._internal.testing.Testing.InternalBenchmark),
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkSprintfEmpty" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.benchmarkSprintfEmpty) : stdgo._internal.testing.Testing.InternalBenchmark),
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkSprintfString" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.benchmarkSprintfString) : stdgo._internal.testing.Testing.InternalBenchmark),
@@ -82,11 +78,9 @@ var _benchmarks : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkFprintIntNoAlloc" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.benchmarkFprintIntNoAlloc) : stdgo._internal.testing.Testing.InternalBenchmark),
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkScanInts" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.benchmarkScanInts) : stdgo._internal.testing.Testing.InternalBenchmark),
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkScanRecursiveInt" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.benchmarkScanRecursiveInt) : stdgo._internal.testing.Testing.InternalBenchmark),
-(new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkScanRecursiveIntReaderWrapper" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.benchmarkScanRecursiveIntReaderWrapper) : stdgo._internal.testing.Testing.InternalBenchmark)) : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>);
-var _fuzzTargets : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>(0, 0) : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>);
-var _examples : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>(
-17,
-17,
+(new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkScanRecursiveIntReaderWrapper" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.benchmarkScanRecursiveIntReaderWrapper) : stdgo._internal.testing.Testing.InternalBenchmark)]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>);
+var _fuzzTargets : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>(0, 0, ...[]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>);
+var _examples : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>(17, 17, ...[
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleErrorf" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.exampleErrorf, ("user \"bueller\" (id 17) not found\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleFscanf" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.exampleFscanf, ("5 true gophers\n3\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleFscanln" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.exampleFscanln, ("3: dmr, 1771, 1.618034\n3: ken, 271828, 3.141590\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
@@ -103,7 +97,7 @@ var _examples : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample> = (
 (new stdgo._internal.testing.Testing.InternalExample(("Example_printers" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.example_printers, ("The vector (3 4) has length 5.\nThe vector ( 3 4 ) has length 5 .\nThe vector (3 4) has length 5.\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("Example_formats" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.example_formats, ("23\n23\n23\nint *int\ntrue true\n42 42 2a 52 101010\n3.141592653589793 3.141592653589793 3.14 (  3.14) 3.141593e+00\n(110.7+22.5i) (110.7+22.5i) (110.70+22.50i) (1.11e+02+2.25e+01i)\n128512 128512 😀 \'😀\' U+1F600 U+1F600 \'😀\'\nfoo \"bar\" foo \"bar\" \"foo \\\"bar\\\"\" `foo \"bar\"`\nmap[dachshund:false peanut:true] map[string]bool{\"dachshund\":false, \"peanut\":true}\n{Kim 22} {Name:Kim Age:22} struct { Name string; Age int }{Name:\"Kim\", Age:22}\n&{Kim 22} 0x0\n[Kitano Kobayashi Kurosawa Miyazaki Ozu] [\"Kitano\" \"Kobayashi\" \"Kurosawa\" \"Miyazaki\" \"Ozu\"]\n[Kitano Kobayashi Kurosawa] [\"Kitano\" \"Kobayashi\" \"Kurosawa\"] []string{\"Kitano\", \"Kobayashi\", \"Kurosawa\"}\n[97 226 140 152] [97 226 140 152] a⌘ \"a⌘\" 61e28c98 61 e2 8c 98\n1973-11-29 21:33:09 +0000 UTC \"1973-11-29 21:33:09 +0000 UTC\"\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleGoStringer" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.exampleGoStringer, ("Person{Name: \"Warren\", Age: 31, Addr: &Address{City: \"Denver\", State: \"CO\", Country: \"U.S.A.\"}}\nPerson{Name: \"Theia\", Age: 4}\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
-(new stdgo._internal.testing.Testing.InternalExample(("ExampleStringer" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.exampleStringer, ("Gopher (2)\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample)) : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>);
+(new stdgo._internal.testing.Testing.InternalExample(("ExampleStringer" : stdgo.GoString), stdgo._internal.fmt_test.Fmt_test.exampleStringer, ("Gopher (2)\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample)]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>);
 function main():Void {
         var _m = stdgo._internal.testing.Testing.mainStart(stdgo.Go.asInterface((new stdgo._internal.testing.internal.testdeps.Testdeps.TestDeps() : stdgo._internal.testing.internal.testdeps.Testdeps.TestDeps)), _tests, _benchmarks, _fuzzTargets, _examples);
         Sys.exit(_m.run());

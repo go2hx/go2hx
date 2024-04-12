@@ -43,15 +43,15 @@ var _natPool : stdgo._internal.sync.Sync.Pool = ({} : stdgo._internal.sync.Sync.
 final _digits : stdgo.GoString = ("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : stdgo.GoString);
 final maxBase : stdgo.GoInt32 = (62 : stdgo.GoInt32);
 final _maxBaseSmall : stdgo.GoInt32 = (36 : stdgo.GoInt32);
-var _cacheBase10 : T__struct_57 = ({ mutex : ({} : stdgo._internal.sync.Sync.Mutex), _table : new stdgo.GoArray<stdgo._internal.math.big.Big.T_divisor>(...[for (i in 0 ... 64) ({} : stdgo._internal.math.big.Big.T_divisor)]) } : T__struct_57);
+var _cacheBase10 : T__struct_57 = ({ mutex : ({} : stdgo._internal.sync.Sync.Mutex), _table : new stdgo.GoArray<stdgo._internal.math.big.Big.T_divisor>(64, 64, ...[for (i in 0 ... 64) ({} : stdgo._internal.math.big.Big.T_divisor)]) } : T__struct_57);
 final _divRecursiveThreshold : stdgo.GoUInt64 = (100i64 : stdgo.GoUInt64);
 var _ratZero : Rat = ({} : stdgo._internal.math.big.Big.Rat);
 var __13 : stdgo._internal.fmt.Fmt.Scanner = stdgo.Go.asInterface((stdgo.Go.setRef(_ratZero) : stdgo.Ref<stdgo._internal.math.big.Big.Rat>));
 final _ratGobVersion : stdgo.GoUInt8 = (1 : stdgo.GoUInt8);
 final __RoundingMode_name : stdgo.GoString = ("ToNearestEvenToNearestAwayToZeroAwayFromZeroToNegativeInfToPositiveInf" : stdgo.GoString);
 var _threeOnce : T__struct_67 = ({ once : ({} : stdgo._internal.sync.Sync.Once), _v : (null : stdgo.Ref<stdgo._internal.math.big.Big.Float_>) } : T__struct_67);
-var __Accuracy_index : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>((0 : stdgo.GoUInt8), (5 : stdgo.GoUInt8), (10 : stdgo.GoUInt8), (15 : stdgo.GoUInt8)) : stdgo.GoArray<stdgo.GoUInt8>);
-var _pow5tab : stdgo.GoArray<stdgo.GoUInt64> = (new stdgo.GoArray<stdgo.GoUInt64>(
+var __Accuracy_index : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...[(0 : stdgo.GoUInt8), (5 : stdgo.GoUInt8), (10 : stdgo.GoUInt8), (15 : stdgo.GoUInt8)]) : stdgo.GoArray<stdgo.GoUInt8>);
+var _pow5tab : stdgo.GoArray<stdgo.GoUInt64> = (new stdgo.GoArray<stdgo.GoUInt64>(28, 28, ...[
 (1i64 : stdgo.GoUInt64),
 (5i64 : stdgo.GoUInt64),
 (25i64 : stdgo.GoUInt64),
@@ -79,96 +79,33 @@ var _pow5tab : stdgo.GoArray<stdgo.GoUInt64> = (new stdgo.GoArray<stdgo.GoUInt64
 (59604644775390625i64 : stdgo.GoUInt64),
 (298023223876953125i64 : stdgo.GoUInt64),
 (1490116119384765625i64 : stdgo.GoUInt64),
-(7450580596923828125i64 : stdgo.GoUInt64)) : stdgo.GoArray<stdgo.GoUInt64>);
-var _natOne : stdgo._internal.math.big.Big.T_nat = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat);
+(7450580596923828125i64 : stdgo.GoUInt64)]) : stdgo.GoArray<stdgo.GoUInt64>);
+var _natOne : stdgo._internal.math.big.Big.T_nat = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat);
 var _intOne : stdgo.Ref<stdgo._internal.math.big.Big.Int_> = (stdgo.Go.setRef((new stdgo._internal.math.big.Big.Int_(false, _natOne) : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>);
-var _natTwo : stdgo._internal.math.big.Big.T_nat = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (2u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat);
-var _natFive : stdgo._internal.math.big.Big.T_nat = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (5u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat);
-var _natTen : stdgo._internal.math.big.Big.T_nat = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (10u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat);
+var _natTwo : stdgo._internal.math.big.Big.T_nat = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(2u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat);
+var _natFive : stdgo._internal.math.big.Big.T_nat = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(5u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat);
+var _natTen : stdgo._internal.math.big.Big.T_nat = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(10u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat);
 var _karatsubaThreshold : stdgo.GoInt = (40 : stdgo.GoInt);
 var _basicSqrThreshold : stdgo.GoInt = (20 : stdgo.GoInt);
 var _karatsubaSqrThreshold : stdgo.GoInt = (260 : stdgo.GoInt);
 var _errNoDigits : stdgo.Error = stdgo._internal.errors.Errors.new_(("number has no digits" : stdgo.GoString));
 var _errInvalSep : stdgo.Error = stdgo._internal.errors.Errors.new_(("\'_\' must separate successive digits" : stdgo.GoString));
 var _leafSize : stdgo.GoInt = (8 : stdgo.GoInt);
-var __RoundingMode_index : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>((0 : stdgo.GoUInt8), (13 : stdgo.GoUInt8), (26 : stdgo.GoUInt8), (32 : stdgo.GoUInt8), (44 : stdgo.GoUInt8), (57 : stdgo.GoUInt8), (70 : stdgo.GoUInt8)) : stdgo.GoArray<stdgo.GoUInt8>);
+var __RoundingMode_index : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(7, 7, ...[(0 : stdgo.GoUInt8), (13 : stdgo.GoUInt8), (26 : stdgo.GoUInt8), (32 : stdgo.GoUInt8), (44 : stdgo.GoUInt8), (57 : stdgo.GoUInt8), (70 : stdgo.GoUInt8)]) : stdgo.GoArray<stdgo.GoUInt8>);
 var _isRaceBuilder : Bool = stdgo._internal.strings.Strings.hasSuffix(stdgo._internal.internal.testenv.Testenv.builder()?.__copy__(), ("-race" : stdgo.GoString));
-var _sumVV : stdgo.Slice<stdgo._internal.math.big.Big.T_argVV> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_argVV>(
-9,
-9,
-(new stdgo._internal.math.big.Big.T_argVV() : stdgo._internal.math.big.Big.T_argVV),
-(new stdgo._internal.math.big.Big.T_argVV((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVV),
-(new stdgo._internal.math.big.Big.T_argVV((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVV),
-(new stdgo._internal.math.big.Big.T_argVV((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVV),
-(new stdgo._internal.math.big.Big.T_argVV((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (80235u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (12345u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (67890u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVV),
-(new stdgo._internal.math.big.Big.T_argVV((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-2u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVV),
-(new stdgo._internal.math.big.Big.T_argVV((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVV),
-(new stdgo._internal.math.big.Big.T_argVV((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-2u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVV),
-(new stdgo._internal.math.big.Big.T_argVV((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (-1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVV)) : stdgo.Slice<stdgo._internal.math.big.Big.T_argVV>);
+var _sumVV : stdgo.Slice<stdgo._internal.math.big.Big.T_argVV> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_argVV>(9, 9, ...[(new stdgo._internal.math.big.Big.T_argVV() : stdgo._internal.math.big.Big.T_argVV), (new stdgo._internal.math.big.Big.T_argVV((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVV), (new stdgo._internal.math.big.Big.T_argVV((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVV), (new stdgo._internal.math.big.Big.T_argVV((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVV), (new stdgo._internal.math.big.Big.T_argVV((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(80235u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(12345u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(67890u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVV), (new stdgo._internal.math.big.Big.T_argVV((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-2u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVV), (new stdgo._internal.math.big.Big.T_argVV((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVV), (new stdgo._internal.math.big.Big.T_argVV((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-2u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVV), (new stdgo._internal.math.big.Big.T_argVV((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(-1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVV)]) : stdgo.Slice<stdgo._internal.math.big.Big.T_argVV>);
 var _rnd : stdgo.Ref<stdgo._internal.math.rand.Rand.Rand> = stdgo._internal.math.rand.Rand.new_(stdgo._internal.math.rand.Rand.newSource((0i64 : stdgo.GoInt64)));
-var _benchSizes : stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(
-10,
-10,
-(1 : stdgo.GoInt),
-(2 : stdgo.GoInt),
-(3 : stdgo.GoInt),
-(4 : stdgo.GoInt),
-(5 : stdgo.GoInt),
-(10 : stdgo.GoInt),
-(100 : stdgo.GoInt),
-(1000 : stdgo.GoInt),
-(10000 : stdgo.GoInt),
-(100000 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
-var _sumVW : stdgo.Slice<stdgo._internal.math.big.Big.T_argVW> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_argVW>(8, 8, (new stdgo._internal.math.big.Big.T_argVW() : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW(null, null, (2u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (585u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (314u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (271u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW)) : stdgo.Slice<stdgo._internal.math.big.Big.T_argVW>);
-var _lshVW : stdgo.Slice<stdgo._internal.math.big.Big.T_argVW> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_argVW>(
-10,
-10,
-(new stdgo._internal.math.big.Big.T_argVW() : stdgo._internal.math.big.Big.T_argVW),
-(new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW),
-(new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW),
-(new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (20u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW),
-(new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW),
-(new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-2u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW),
-(new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-1048576u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (20u32 : stdgo._internal.math.big.Big.Word), (1048575u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW),
-(new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW),
-(new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, (-2u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW),
-(new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, (-1048576u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (20u32 : stdgo._internal.math.big.Big.Word), (1048575u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW)) : stdgo.Slice<stdgo._internal.math.big.Big.T_argVW>);
-var _rshVW : stdgo.Slice<stdgo._internal.math.big.Big.T_argVW> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_argVW>(
-10,
-10,
-(new stdgo._internal.math.big.Big.T_argVW() : stdgo._internal.math.big.Big.T_argVW),
-(new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW),
-(new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW),
-(new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (20u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW),
-(new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW),
-(new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (2147483647u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word), (-2147483648u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW),
-(new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (4095u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (20u32 : stdgo._internal.math.big.Big.Word), (-4096u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW),
-(new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW),
-(new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (2147483647u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word), (-2147483648u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW),
-(new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (4095u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (20u32 : stdgo._internal.math.big.Big.Word), (-4096u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW)) : stdgo.Slice<stdgo._internal.math.big.Big.T_argVW>);
-var _argshlVUIn : stdgo.Slice<stdgo._internal.math.big.Big.Word> = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(
-10,
-10,
-(1u32 : stdgo._internal.math.big.Big.Word),
-(2u32 : stdgo._internal.math.big.Big.Word),
-(4u32 : stdgo._internal.math.big.Big.Word),
-(8u32 : stdgo._internal.math.big.Big.Word),
-(16u32 : stdgo._internal.math.big.Big.Word),
-(32u32 : stdgo._internal.math.big.Big.Word),
-(64u32 : stdgo._internal.math.big.Big.Word),
-(0u32 : stdgo._internal.math.big.Big.Word),
-(0u32 : stdgo._internal.math.big.Big.Word),
-(0u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
-var _argshlVUr0 : stdgo.Slice<stdgo._internal.math.big.Big.Word> = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, (1u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word), (4u32 : stdgo._internal.math.big.Big.Word), (8u32 : stdgo._internal.math.big.Big.Word), (16u32 : stdgo._internal.math.big.Big.Word), (32u32 : stdgo._internal.math.big.Big.Word), (64u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
-var _argshlVUr1 : stdgo.Slice<stdgo._internal.math.big.Big.Word> = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, (2u32 : stdgo._internal.math.big.Big.Word), (4u32 : stdgo._internal.math.big.Big.Word), (8u32 : stdgo._internal.math.big.Big.Word), (16u32 : stdgo._internal.math.big.Big.Word), (32u32 : stdgo._internal.math.big.Big.Word), (64u32 : stdgo._internal.math.big.Big.Word), (128u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
-var _argshlVUrWm1 : stdgo.Slice<stdgo._internal.math.big.Big.Word> = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, (-2147483648u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word), (4u32 : stdgo._internal.math.big.Big.Word), (8u32 : stdgo._internal.math.big.Big.Word), (16u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
-var _argshlVU : stdgo.Slice<stdgo._internal.math.big.Big.T_argVU> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_argVU>(
-16,
-16,
-(new stdgo._internal.math.big.Big.T_argVU((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(8, 8, (1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1073741824u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (7u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, (2u32 : stdgo._internal.math.big.Big.Word), (-2u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-2147483647u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (1u32 : stdgo._internal.math.big.Big.Word), ("complete overlap of shlVU" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
-(new stdgo._internal.math.big.Big.T_argVU((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(
-11,
-11,
+var _benchSizes : stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(10, 10, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt), (10 : stdgo.GoInt), (100 : stdgo.GoInt), (1000 : stdgo.GoInt), (10000 : stdgo.GoInt), (100000 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
+var _sumVW : stdgo.Slice<stdgo._internal.math.big.Big.T_argVW> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_argVW>(8, 8, ...[(new stdgo._internal.math.big.Big.T_argVW() : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW(null, null, (2u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(585u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(314u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (271u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW)]) : stdgo.Slice<stdgo._internal.math.big.Big.T_argVW>);
+var _lshVW : stdgo.Slice<stdgo._internal.math.big.Big.T_argVW> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_argVW>(10, 10, ...[(new stdgo._internal.math.big.Big.T_argVW() : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (20u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-2u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-1048576u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (20u32 : stdgo._internal.math.big.Big.Word), (1048575u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, ...[(-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, ...[(-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, ...[(-2u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, ...[(-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, ...[(-1048576u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, ...[(-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (20u32 : stdgo._internal.math.big.Big.Word), (1048575u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW)]) : stdgo.Slice<stdgo._internal.math.big.Big.T_argVW>);
+var _rshVW : stdgo.Slice<stdgo._internal.math.big.Big.T_argVW> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_argVW>(10, 10, ...[(new stdgo._internal.math.big.Big.T_argVW() : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (20u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(2147483647u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word), (-2147483648u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(4095u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (20u32 : stdgo._internal.math.big.Big.Word), (-4096u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, ...[(-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, ...[(-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, ...[(-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (2147483647u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, ...[(-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word), (-2147483648u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW), (new stdgo._internal.math.big.Big.T_argVW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, ...[(-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (4095u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, ...[(-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (20u32 : stdgo._internal.math.big.Big.Word), (-4096u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW)]) : stdgo.Slice<stdgo._internal.math.big.Big.T_argVW>);
+var _argshlVUIn : stdgo.Slice<stdgo._internal.math.big.Big.Word> = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(10, 10, ...[(1u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word), (4u32 : stdgo._internal.math.big.Big.Word), (8u32 : stdgo._internal.math.big.Big.Word), (16u32 : stdgo._internal.math.big.Big.Word), (32u32 : stdgo._internal.math.big.Big.Word), (64u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
+var _argshlVUr0 : stdgo.Slice<stdgo._internal.math.big.Big.Word> = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, ...[(1u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word), (4u32 : stdgo._internal.math.big.Big.Word), (8u32 : stdgo._internal.math.big.Big.Word), (16u32 : stdgo._internal.math.big.Big.Word), (32u32 : stdgo._internal.math.big.Big.Word), (64u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
+var _argshlVUr1 : stdgo.Slice<stdgo._internal.math.big.Big.Word> = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, ...[(2u32 : stdgo._internal.math.big.Big.Word), (4u32 : stdgo._internal.math.big.Big.Word), (8u32 : stdgo._internal.math.big.Big.Word), (16u32 : stdgo._internal.math.big.Big.Word), (32u32 : stdgo._internal.math.big.Big.Word), (64u32 : stdgo._internal.math.big.Big.Word), (128u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
+var _argshlVUrWm1 : stdgo.Slice<stdgo._internal.math.big.Big.Word> = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, ...[(-2147483648u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word), (4u32 : stdgo._internal.math.big.Big.Word), (8u32 : stdgo._internal.math.big.Big.Word), (16u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
+var _argshlVU : stdgo.Slice<stdgo._internal.math.big.Big.T_argVU> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_argVU>(16, 16, ...[
+(new stdgo._internal.math.big.Big.T_argVU((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(8, 8, ...[(1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1073741824u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (7u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, ...[(2u32 : stdgo._internal.math.big.Big.Word), (-2u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-2147483647u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (1u32 : stdgo._internal.math.big.Big.Word), ("complete overlap of shlVU" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
+(new stdgo._internal.math.big.Big.T_argVU((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(11, 11, ...[
 (1u32 : stdgo._internal.math.big.Big.Word),
 (-1u32 : stdgo._internal.math.big.Big.Word),
 (-1u32 : stdgo._internal.math.big.Big.Word),
@@ -179,10 +116,8 @@ var _argshlVU : stdgo.Slice<stdgo._internal.math.big.Big.T_argVU> = (new stdgo.S
 (0u32 : stdgo._internal.math.big.Big.Word),
 (0u32 : stdgo._internal.math.big.Big.Word),
 (0u32 : stdgo._internal.math.big.Big.Word),
-(0u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (7u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (3u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, (2u32 : stdgo._internal.math.big.Big.Word), (-2u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-2147483647u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (1u32 : stdgo._internal.math.big.Big.Word), ("partial overlap by half of shlVU" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
-(new stdgo._internal.math.big.Big.T_argVU((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(
-14,
-14,
+(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (7u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (3u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, ...[(2u32 : stdgo._internal.math.big.Big.Word), (-2u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-2147483647u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (1u32 : stdgo._internal.math.big.Big.Word), ("partial overlap by half of shlVU" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
+(new stdgo._internal.math.big.Big.T_argVU((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(14, 14, ...[
 (1u32 : stdgo._internal.math.big.Big.Word),
 (-1u32 : stdgo._internal.math.big.Big.Word),
 (-1u32 : stdgo._internal.math.big.Big.Word),
@@ -196,10 +131,8 @@ var _argshlVU : stdgo.Slice<stdgo._internal.math.big.Big.T_argVU> = (new stdgo.S
 (0u32 : stdgo._internal.math.big.Big.Word),
 (0u32 : stdgo._internal.math.big.Big.Word),
 (0u32 : stdgo._internal.math.big.Big.Word),
-(0u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (7u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (6u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, (2u32 : stdgo._internal.math.big.Big.Word), (-2u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-2147483647u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (1u32 : stdgo._internal.math.big.Big.Word), ("partial overlap by 1 Word of shlVU" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
-(new stdgo._internal.math.big.Big.T_argVU((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(
-15,
-15,
+(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (7u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (6u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, ...[(2u32 : stdgo._internal.math.big.Big.Word), (-2u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-2147483647u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (1u32 : stdgo._internal.math.big.Big.Word), ("partial overlap by 1 Word of shlVU" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
+(new stdgo._internal.math.big.Big.T_argVU((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(15, 15, ...[
 (1u32 : stdgo._internal.math.big.Big.Word),
 (-1u32 : stdgo._internal.math.big.Big.Word),
 (-1u32 : stdgo._internal.math.big.Big.Word),
@@ -214,7 +147,7 @@ var _argshlVU : stdgo.Slice<stdgo._internal.math.big.Big.T_argVU> = (new stdgo.S
 (0u32 : stdgo._internal.math.big.Big.Word),
 (0u32 : stdgo._internal.math.big.Big.Word),
 (0u32 : stdgo._internal.math.big.Big.Word),
-(0u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (7u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (7u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, (2u32 : stdgo._internal.math.big.Big.Word), (-2u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-2147483647u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (1u32 : stdgo._internal.math.big.Big.Word), ("no overlap of shlVU" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
+(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (7u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (7u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, ...[(2u32 : stdgo._internal.math.big.Big.Word), (-2u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-2147483647u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (1u32 : stdgo._internal.math.big.Big.Word), ("no overlap of shlVU" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
 (new stdgo._internal.math.big.Big.T_argVU(_argshlVUIn, (7u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), _argshlVUr0, (0u32 : stdgo._internal.math.big.Big.Word), ("complete overlap of shlVU and shift of 0" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
 (new stdgo._internal.math.big.Big.T_argVU(_argshlVUIn, (7u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), _argshlVUr1, (0u32 : stdgo._internal.math.big.Big.Word), ("complete overlap of shlVU and shift of 1" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
 (new stdgo._internal.math.big.Big.T_argVU(_argshlVUIn, (7u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (31u32 : stdgo.GoUInt), _argshlVUrWm1, (32u32 : stdgo._internal.math.big.Big.Word), ("complete overlap of shlVU and shift of _W - 1" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
@@ -226,30 +159,14 @@ var _argshlVU : stdgo.Slice<stdgo._internal.math.big.Big.T_argVU> = (new stdgo.S
 (new stdgo._internal.math.big.Big.T_argVU(_argshlVUIn, (7u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (2u32 : stdgo.GoUInt), (31u32 : stdgo.GoUInt), _argshlVUrWm1, (32u32 : stdgo._internal.math.big.Big.Word), ("partial overlap by 5 Words of shlVU abd shift of _W - 1" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
 (new stdgo._internal.math.big.Big.T_argVU(_argshlVUIn, (7u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (3u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), _argshlVUr0, (0u32 : stdgo._internal.math.big.Big.Word), ("partial overlap by 4 Words of shlVU and shift of 0" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
 (new stdgo._internal.math.big.Big.T_argVU(_argshlVUIn, (7u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (3u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), _argshlVUr1, (0u32 : stdgo._internal.math.big.Big.Word), ("partial overlap by 4 Words of shlVU and shift of 1" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
-(new stdgo._internal.math.big.Big.T_argVU(_argshlVUIn, (7u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (3u32 : stdgo.GoUInt), (31u32 : stdgo.GoUInt), _argshlVUrWm1, (32u32 : stdgo._internal.math.big.Big.Word), ("partial overlap by 4 Words of shlVU and shift of _W - 1" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU)) : stdgo.Slice<stdgo._internal.math.big.Big.T_argVU>);
-var _argshrVUIn : stdgo.Slice<stdgo._internal.math.big.Big.Word> = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(
-10,
-10,
-(0u32 : stdgo._internal.math.big.Big.Word),
-(0u32 : stdgo._internal.math.big.Big.Word),
-(0u32 : stdgo._internal.math.big.Big.Word),
-(1u32 : stdgo._internal.math.big.Big.Word),
-(2u32 : stdgo._internal.math.big.Big.Word),
-(4u32 : stdgo._internal.math.big.Big.Word),
-(8u32 : stdgo._internal.math.big.Big.Word),
-(16u32 : stdgo._internal.math.big.Big.Word),
-(32u32 : stdgo._internal.math.big.Big.Word),
-(64u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
-var _argshrVUr0 : stdgo.Slice<stdgo._internal.math.big.Big.Word> = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, (1u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word), (4u32 : stdgo._internal.math.big.Big.Word), (8u32 : stdgo._internal.math.big.Big.Word), (16u32 : stdgo._internal.math.big.Big.Word), (32u32 : stdgo._internal.math.big.Big.Word), (64u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
-var _argshrVUr1 : stdgo.Slice<stdgo._internal.math.big.Big.Word> = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, (0u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word), (4u32 : stdgo._internal.math.big.Big.Word), (8u32 : stdgo._internal.math.big.Big.Word), (16u32 : stdgo._internal.math.big.Big.Word), (32u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
-var _argshrVUrWm1 : stdgo.Slice<stdgo._internal.math.big.Big.Word> = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, (4u32 : stdgo._internal.math.big.Big.Word), (8u32 : stdgo._internal.math.big.Big.Word), (16u32 : stdgo._internal.math.big.Big.Word), (32u32 : stdgo._internal.math.big.Big.Word), (64u32 : stdgo._internal.math.big.Big.Word), (128u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
-var _argshrVU : stdgo.Slice<stdgo._internal.math.big.Big.T_argVU> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_argVU>(
-16,
-16,
-(new stdgo._internal.math.big.Big.T_argVU((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(8, 8, (0u32 : stdgo._internal.math.big.Big.Word), (3u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-2147483648u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (7u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, (-2147483647u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (2147483647u32 : stdgo._internal.math.big.Big.Word), (1073741824u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (-2147483648u32 : stdgo._internal.math.big.Big.Word), ("complete overlap of shrVU" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
-(new stdgo._internal.math.big.Big.T_argVU((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(
-11,
-11,
+(new stdgo._internal.math.big.Big.T_argVU(_argshlVUIn, (7u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (3u32 : stdgo.GoUInt), (31u32 : stdgo.GoUInt), _argshlVUrWm1, (32u32 : stdgo._internal.math.big.Big.Word), ("partial overlap by 4 Words of shlVU and shift of _W - 1" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU)]) : stdgo.Slice<stdgo._internal.math.big.Big.T_argVU>);
+var _argshrVUIn : stdgo.Slice<stdgo._internal.math.big.Big.Word> = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(10, 10, ...[(0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word), (4u32 : stdgo._internal.math.big.Big.Word), (8u32 : stdgo._internal.math.big.Big.Word), (16u32 : stdgo._internal.math.big.Big.Word), (32u32 : stdgo._internal.math.big.Big.Word), (64u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
+var _argshrVUr0 : stdgo.Slice<stdgo._internal.math.big.Big.Word> = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, ...[(1u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word), (4u32 : stdgo._internal.math.big.Big.Word), (8u32 : stdgo._internal.math.big.Big.Word), (16u32 : stdgo._internal.math.big.Big.Word), (32u32 : stdgo._internal.math.big.Big.Word), (64u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
+var _argshrVUr1 : stdgo.Slice<stdgo._internal.math.big.Big.Word> = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, ...[(0u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word), (4u32 : stdgo._internal.math.big.Big.Word), (8u32 : stdgo._internal.math.big.Big.Word), (16u32 : stdgo._internal.math.big.Big.Word), (32u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
+var _argshrVUrWm1 : stdgo.Slice<stdgo._internal.math.big.Big.Word> = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, ...[(4u32 : stdgo._internal.math.big.Big.Word), (8u32 : stdgo._internal.math.big.Big.Word), (16u32 : stdgo._internal.math.big.Big.Word), (32u32 : stdgo._internal.math.big.Big.Word), (64u32 : stdgo._internal.math.big.Big.Word), (128u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
+var _argshrVU : stdgo.Slice<stdgo._internal.math.big.Big.T_argVU> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_argVU>(16, 16, ...[
+(new stdgo._internal.math.big.Big.T_argVU((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(8, 8, ...[(0u32 : stdgo._internal.math.big.Big.Word), (3u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-2147483648u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (7u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, ...[(-2147483647u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (2147483647u32 : stdgo._internal.math.big.Big.Word), (1073741824u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (-2147483648u32 : stdgo._internal.math.big.Big.Word), ("complete overlap of shrVU" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
+(new stdgo._internal.math.big.Big.T_argVU((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(11, 11, ...[
 (0u32 : stdgo._internal.math.big.Big.Word),
 (0u32 : stdgo._internal.math.big.Big.Word),
 (0u32 : stdgo._internal.math.big.Big.Word),
@@ -260,10 +177,8 @@ var _argshrVU : stdgo.Slice<stdgo._internal.math.big.Big.T_argVU> = (new stdgo.S
 (-1u32 : stdgo._internal.math.big.Big.Word),
 (-1u32 : stdgo._internal.math.big.Big.Word),
 (-1u32 : stdgo._internal.math.big.Big.Word),
-(-2147483648u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (7u32 : stdgo.GoUInt), (4u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, (-2147483647u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (2147483647u32 : stdgo._internal.math.big.Big.Word), (1073741824u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (-2147483648u32 : stdgo._internal.math.big.Big.Word), ("partial overlap by half of shrVU" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
-(new stdgo._internal.math.big.Big.T_argVU((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(
-14,
-14,
+(-2147483648u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (7u32 : stdgo.GoUInt), (4u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, ...[(-2147483647u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (2147483647u32 : stdgo._internal.math.big.Big.Word), (1073741824u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (-2147483648u32 : stdgo._internal.math.big.Big.Word), ("partial overlap by half of shrVU" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
+(new stdgo._internal.math.big.Big.T_argVU((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(14, 14, ...[
 (0u32 : stdgo._internal.math.big.Big.Word),
 (0u32 : stdgo._internal.math.big.Big.Word),
 (0u32 : stdgo._internal.math.big.Big.Word),
@@ -277,10 +192,8 @@ var _argshrVU : stdgo.Slice<stdgo._internal.math.big.Big.T_argVU> = (new stdgo.S
 (-1u32 : stdgo._internal.math.big.Big.Word),
 (-1u32 : stdgo._internal.math.big.Big.Word),
 (-1u32 : stdgo._internal.math.big.Big.Word),
-(-2147483648u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (7u32 : stdgo.GoUInt), (7u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, (-2147483647u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (2147483647u32 : stdgo._internal.math.big.Big.Word), (1073741824u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (-2147483648u32 : stdgo._internal.math.big.Big.Word), ("partial overlap by 1 Word of shrVU" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
-(new stdgo._internal.math.big.Big.T_argVU((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(
-15,
-15,
+(-2147483648u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (7u32 : stdgo.GoUInt), (7u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, ...[(-2147483647u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (2147483647u32 : stdgo._internal.math.big.Big.Word), (1073741824u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (-2147483648u32 : stdgo._internal.math.big.Big.Word), ("partial overlap by 1 Word of shrVU" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
+(new stdgo._internal.math.big.Big.T_argVU((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(15, 15, ...[
 (0u32 : stdgo._internal.math.big.Big.Word),
 (0u32 : stdgo._internal.math.big.Big.Word),
 (0u32 : stdgo._internal.math.big.Big.Word),
@@ -295,7 +208,7 @@ var _argshrVU : stdgo.Slice<stdgo._internal.math.big.Big.T_argVU> = (new stdgo.S
 (-1u32 : stdgo._internal.math.big.Big.Word),
 (-1u32 : stdgo._internal.math.big.Big.Word),
 (-1u32 : stdgo._internal.math.big.Big.Word),
-(-2147483648u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (7u32 : stdgo.GoUInt), (8u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, (-2147483647u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (2147483647u32 : stdgo._internal.math.big.Big.Word), (1073741824u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (-2147483648u32 : stdgo._internal.math.big.Big.Word), ("no overlap of shrVU" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
+(-2147483648u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (7u32 : stdgo.GoUInt), (8u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, ...[(-2147483647u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (2147483647u32 : stdgo._internal.math.big.Big.Word), (1073741824u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>), (-2147483648u32 : stdgo._internal.math.big.Big.Word), ("no overlap of shrVU" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
 (new stdgo._internal.math.big.Big.T_argVU(_argshrVUIn, (7u32 : stdgo.GoUInt), (3u32 : stdgo.GoUInt), (3u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), _argshrVUr0, (0u32 : stdgo._internal.math.big.Big.Word), ("complete overlap of shrVU and shift of 0" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
 (new stdgo._internal.math.big.Big.T_argVU(_argshrVUIn, (7u32 : stdgo.GoUInt), (3u32 : stdgo.GoUInt), (3u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), _argshrVUr1, (-2147483648u32 : stdgo._internal.math.big.Big.Word), ("complete overlap of shrVU and shift of 1" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
 (new stdgo._internal.math.big.Big.T_argVU(_argshrVUIn, (7u32 : stdgo.GoUInt), (3u32 : stdgo.GoUInt), (3u32 : stdgo.GoUInt), (31u32 : stdgo.GoUInt), _argshrVUrWm1, (2u32 : stdgo._internal.math.big.Big.Word), ("complete overlap of shrVU and shift of _W - 1" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
@@ -307,38 +220,36 @@ var _argshrVU : stdgo.Slice<stdgo._internal.math.big.Big.T_argVU> = (new stdgo.S
 (new stdgo._internal.math.big.Big.T_argVU(_argshrVUIn, (7u32 : stdgo.GoUInt), (3u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (31u32 : stdgo.GoUInt), _argshrVUrWm1, (2u32 : stdgo._internal.math.big.Big.Word), ("partial overlap by 5 Words of shrVU and shift of _W - 1" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
 (new stdgo._internal.math.big.Big.T_argVU(_argshrVUIn, (7u32 : stdgo.GoUInt), (3u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), _argshrVUr0, (0u32 : stdgo._internal.math.big.Big.Word), ("partial overlap by 4 Words of shrVU and shift of 0" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
 (new stdgo._internal.math.big.Big.T_argVU(_argshrVUIn, (7u32 : stdgo.GoUInt), (3u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), _argshrVUr1, (-2147483648u32 : stdgo._internal.math.big.Big.Word), ("partial overlap by 4 Words of shrVU and shift of 1" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU),
-(new stdgo._internal.math.big.Big.T_argVU(_argshrVUIn, (7u32 : stdgo.GoUInt), (3u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (31u32 : stdgo.GoUInt), _argshrVUrWm1, (2u32 : stdgo._internal.math.big.Big.Word), ("partial overlap by 4 Words of shrVU and shift of _W - 1" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU)) : stdgo.Slice<stdgo._internal.math.big.Big.T_argVU>);
-var _prodVWW : stdgo.Slice<stdgo._internal.math.big.Big.T_argVWW> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_argVWW>(
-23,
-23,
+(new stdgo._internal.math.big.Big.T_argVU(_argshrVUIn, (7u32 : stdgo.GoUInt), (3u32 : stdgo.GoUInt), (0u32 : stdgo.GoUInt), (31u32 : stdgo.GoUInt), _argshrVUrWm1, (2u32 : stdgo._internal.math.big.Big.Word), ("partial overlap by 4 Words of shrVU and shift of _W - 1" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_argVU)]) : stdgo.Slice<stdgo._internal.math.big.Big.T_argVU>);
+var _prodVWW : stdgo.Slice<stdgo._internal.math.big.Big.T_argVWW> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_argVWW>(23, 23, ...[
 (new stdgo._internal.math.big.Big.T_argVWW() : stdgo._internal.math.big.Big.T_argVWW),
-(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
-(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (991u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (991u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
-(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
-(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (991u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (991u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
-(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (-1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
-(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (991u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (-1u32 : stdgo._internal.math.big.Big.Word), (991u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
-(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
-(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (992u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word), (991u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
-(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (22793u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (991u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (23u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
-(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (22800u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (991u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (23u32 : stdgo._internal.math.big.Big.Word), (7u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
-(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (22793u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (991u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (23u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
-(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (7u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (22793u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (991u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (23u32 : stdgo._internal.math.big.Big.Word), (7u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
-(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (7893475u32 : stdgo._internal.math.big.Big.Word), (7395495u32 : stdgo._internal.math.big.Big.Word), (798547395u32 : stdgo._internal.math.big.Big.Word), (68943u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
-(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (991u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (7893475u32 : stdgo._internal.math.big.Big.Word), (7395495u32 : stdgo._internal.math.big.Big.Word), (798547395u32 : stdgo._internal.math.big.Big.Word), (68943u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (991u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
-(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (894375984u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
-(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (991u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (894375984u32 : stdgo._internal.math.big.Big.Word), (991u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
-(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-2u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (2u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
-(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (2u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
-(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-128u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (128u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (127u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
-(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-64u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (128u32 : stdgo._internal.math.big.Big.Word), (64u32 : stdgo._internal.math.big.Big.Word), (127u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
-(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (-128u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (128u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (127u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
-(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (-64u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (128u32 : stdgo._internal.math.big.Big.Word), (64u32 : stdgo._internal.math.big.Big.Word), (127u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW)) : stdgo.Slice<stdgo._internal.math.big.Big.T_argVWW>);
-var _mulWWTests : stdgo.Slice<T__struct_1> = (new stdgo.Slice<T__struct_1>(1, 1, ({ _x : (-1u32 : stdgo._internal.math.big.Big.Word), _y : (-1u32 : stdgo._internal.math.big.Big.Word), _q : (-2u32 : stdgo._internal.math.big.Big.Word), _r : (1u32 : stdgo._internal.math.big.Big.Word) } : T__struct_1)) : stdgo.Slice<T__struct_1>);
-var _mulAddWWWTests : stdgo.Slice<T__struct_2> = (new stdgo.Slice<T__struct_2>(2, 2, ({ _x : (-1u32 : stdgo._internal.math.big.Big.Word), _y : (-1u32 : stdgo._internal.math.big.Big.Word), _c : (0u32 : stdgo._internal.math.big.Big.Word), _q : (-2u32 : stdgo._internal.math.big.Big.Word), _r : (1u32 : stdgo._internal.math.big.Big.Word) } : T__struct_2), ({ _x : (-1u32 : stdgo._internal.math.big.Big.Word), _y : (-1u32 : stdgo._internal.math.big.Big.Word), _c : (-1u32 : stdgo._internal.math.big.Big.Word), _q : (-1u32 : stdgo._internal.math.big.Big.Word), _r : (0u32 : stdgo._internal.math.big.Big.Word) } : T__struct_2)) : stdgo.Slice<T__struct_2>);
-var _divWWTests : stdgo.Slice<T__struct_3> = (new stdgo.Slice<T__struct_3>(2, 2, ({ _x1 : (2147483647u32 : stdgo._internal.math.big.Big.Word), _x0 : (0u32 : stdgo._internal.math.big.Big.Word), _y : (-1u32 : stdgo._internal.math.big.Big.Word), _q : (2147483647u32 : stdgo._internal.math.big.Big.Word), _r : (2147483647u32 : stdgo._internal.math.big.Big.Word) } : T__struct_3), ({ _x1 : (-1073741825u32 : stdgo._internal.math.big.Big.Word), _x0 : (-1u32 : stdgo._internal.math.big.Big.Word), _y : (-1073741824u32 : stdgo._internal.math.big.Big.Word), _q : (-1u32 : stdgo._internal.math.big.Big.Word), _r : (-1073741825u32 : stdgo._internal.math.big.Big.Word) } : T__struct_3)) : stdgo.Slice<T__struct_3>);
+(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
+(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(991u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (991u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
+(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
+(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(991u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (991u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
+(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (-1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
+(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(991u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (-1u32 : stdgo._internal.math.big.Big.Word), (991u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
+(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
+(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(992u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo._internal.math.big.Big.Word), (991u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
+(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(22793u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(991u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (23u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
+(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(22800u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(991u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (23u32 : stdgo._internal.math.big.Big.Word), (7u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
+(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (22793u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (991u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (23u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
+(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(7u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (22793u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (991u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (23u32 : stdgo._internal.math.big.Big.Word), (7u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
+(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(7893475u32 : stdgo._internal.math.big.Big.Word), (7395495u32 : stdgo._internal.math.big.Big.Word), (798547395u32 : stdgo._internal.math.big.Big.Word), (68943u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
+(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(991u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(7893475u32 : stdgo._internal.math.big.Big.Word), (7395495u32 : stdgo._internal.math.big.Big.Word), (798547395u32 : stdgo._internal.math.big.Big.Word), (68943u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (0u32 : stdgo._internal.math.big.Big.Word), (991u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
+(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (894375984u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
+(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(991u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (894375984u32 : stdgo._internal.math.big.Big.Word), (991u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
+(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-2u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (2u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
+(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (2u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
+(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-128u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (128u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (127u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
+(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-64u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (128u32 : stdgo._internal.math.big.Big.Word), (64u32 : stdgo._internal.math.big.Big.Word), (127u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
+(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(-128u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (128u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (127u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW),
+(new stdgo._internal.math.big.Big.T_argVWW((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(-64u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (128u32 : stdgo._internal.math.big.Big.Word), (64u32 : stdgo._internal.math.big.Big.Word), (127u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVWW)]) : stdgo.Slice<stdgo._internal.math.big.Big.T_argVWW>);
+var _mulWWTests : stdgo.Slice<T__struct_1> = (new stdgo.Slice<T__struct_1>(1, 1, ...[({ _x : (-1u32 : stdgo._internal.math.big.Big.Word), _y : (-1u32 : stdgo._internal.math.big.Big.Word), _q : (-2u32 : stdgo._internal.math.big.Big.Word), _r : (1u32 : stdgo._internal.math.big.Big.Word) } : T__struct_1)]) : stdgo.Slice<T__struct_1>);
+var _mulAddWWWTests : stdgo.Slice<T__struct_2> = (new stdgo.Slice<T__struct_2>(2, 2, ...[({ _x : (-1u32 : stdgo._internal.math.big.Big.Word), _y : (-1u32 : stdgo._internal.math.big.Big.Word), _c : (0u32 : stdgo._internal.math.big.Big.Word), _q : (-2u32 : stdgo._internal.math.big.Big.Word), _r : (1u32 : stdgo._internal.math.big.Big.Word) } : T__struct_2), ({ _x : (-1u32 : stdgo._internal.math.big.Big.Word), _y : (-1u32 : stdgo._internal.math.big.Big.Word), _c : (-1u32 : stdgo._internal.math.big.Big.Word), _q : (-1u32 : stdgo._internal.math.big.Big.Word), _r : (0u32 : stdgo._internal.math.big.Big.Word) } : T__struct_2)]) : stdgo.Slice<T__struct_2>);
+var _divWWTests : stdgo.Slice<T__struct_3> = (new stdgo.Slice<T__struct_3>(2, 2, ...[({ _x1 : (2147483647u32 : stdgo._internal.math.big.Big.Word), _x0 : (0u32 : stdgo._internal.math.big.Big.Word), _y : (-1u32 : stdgo._internal.math.big.Big.Word), _q : (2147483647u32 : stdgo._internal.math.big.Big.Word), _r : (2147483647u32 : stdgo._internal.math.big.Big.Word) } : T__struct_3), ({ _x1 : (-1073741825u32 : stdgo._internal.math.big.Big.Word), _x0 : (-1u32 : stdgo._internal.math.big.Big.Word), _y : (-1073741824u32 : stdgo._internal.math.big.Big.Word), _q : (-1u32 : stdgo._internal.math.big.Big.Word), _r : (-1073741825u32 : stdgo._internal.math.big.Big.Word) } : T__struct_3)]) : stdgo.Slice<T__struct_3>);
 var _calibrate : stdgo.Pointer<Bool> = stdgo._internal.flag.Flag.bool_(("calibrate" : stdgo.GoString), false, ("run calibration test" : stdgo.GoString));
-var _precList : stdgo.GoArray<stdgo.GoUInt> = (new stdgo.GoArray<stdgo.GoUInt>(
+var _precList : stdgo.GoArray<stdgo.GoUInt> = (new stdgo.GoArray<stdgo.GoUInt>(20, 20, ...[
 (1u32 : stdgo.GoUInt),
 (2u32 : stdgo.GoUInt),
 (5u32 : stdgo.GoUInt),
@@ -358,12 +269,10 @@ var _precList : stdgo.GoArray<stdgo.GoUInt> = (new stdgo.GoArray<stdgo.GoUInt>(
 (512u32 : stdgo.GoUInt),
 (513u32 : stdgo.GoUInt),
 (1000u32 : stdgo.GoUInt),
-(10000u32 : stdgo.GoUInt)) : stdgo.GoArray<stdgo.GoUInt>);
-var _bitsList : stdgo.GoArray<stdgo._internal.math.big.Big.Bits> = (new stdgo.GoArray<stdgo._internal.math.big.Big.Bits>((new stdgo.Slice<stdgo.GoInt>(0, 0) : stdgo._internal.math.big.Big.Bits), (new stdgo.Slice<stdgo.GoInt>(1, 1, (0 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), (new stdgo.Slice<stdgo.GoInt>(1, 1, (1 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), (new stdgo.Slice<stdgo.GoInt>(1, 1, (-1 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), (new stdgo.Slice<stdgo.GoInt>(1, 1, (10 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), (new stdgo.Slice<stdgo.GoInt>(1, 1, (-10 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), (new stdgo.Slice<stdgo.GoInt>(3, 3, (100 : stdgo.GoInt), (10 : stdgo.GoInt), (1 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), (new stdgo.Slice<stdgo.GoInt>(4, 4, (0 : stdgo.GoInt), (-1 : stdgo.GoInt), (-2 : stdgo.GoInt), (-10 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits)) : stdgo.GoArray<stdgo._internal.math.big.Big.Bits>);
+(10000u32 : stdgo.GoUInt)]) : stdgo.GoArray<stdgo.GoUInt>);
+var _bitsList : stdgo.GoArray<stdgo._internal.math.big.Big.Bits> = (new stdgo.GoArray<stdgo._internal.math.big.Big.Bits>(8, 8, ...[(new stdgo.Slice<stdgo.GoInt>(0, 0, ...[]) : stdgo._internal.math.big.Big.Bits), (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(0 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(1 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(-1 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(10 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(-10 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(100 : stdgo.GoInt), (10 : stdgo.GoInt), (1 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), (new stdgo.Slice<stdgo.GoInt>(4, 4, ...[(0 : stdgo.GoInt), (-1 : stdgo.GoInt), (-2 : stdgo.GoInt), (-10 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits)]) : stdgo.GoArray<stdgo._internal.math.big.Big.Bits>);
 var _long : stdgo.Pointer<Bool> = stdgo._internal.flag.Flag.bool_(("long" : stdgo.GoString), false, ("run very long tests" : stdgo.GoString));
-var _floatVals : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
-11,
-11,
+var _floatVals : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(11, 11, ...[
 ("0" : stdgo.GoString),
 ("1" : stdgo.GoString),
 ("0.1" : stdgo.GoString),
@@ -374,12 +283,10 @@ var _floatVals : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
 ("0.738957395793475734757349579759957975985497e100" : stdgo.GoString),
 ("0.73895739579347546656564656573475734957975995797598589749859834759476745986795497e100" : stdgo.GoString),
 ("inf" : stdgo.GoString),
-("Inf" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-var _sumZZ : stdgo.Slice<stdgo._internal.math.big.Big.T_argZZ> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_argZZ>(6, 6, (new stdgo._internal.math.big.Big.T_argZZ(newInt((0i64 : stdgo.GoInt64)), newInt((0i64 : stdgo.GoInt64)), newInt((0i64 : stdgo.GoInt64))) : stdgo._internal.math.big.Big.T_argZZ), (new stdgo._internal.math.big.Big.T_argZZ(newInt((1i64 : stdgo.GoInt64)), newInt((1i64 : stdgo.GoInt64)), newInt((0i64 : stdgo.GoInt64))) : stdgo._internal.math.big.Big.T_argZZ), (new stdgo._internal.math.big.Big.T_argZZ(newInt((1111111110i64 : stdgo.GoInt64)), newInt((123456789i64 : stdgo.GoInt64)), newInt((987654321i64 : stdgo.GoInt64))) : stdgo._internal.math.big.Big.T_argZZ), (new stdgo._internal.math.big.Big.T_argZZ(newInt((-1i64 : stdgo.GoInt64)), newInt((-1i64 : stdgo.GoInt64)), newInt((0i64 : stdgo.GoInt64))) : stdgo._internal.math.big.Big.T_argZZ), (new stdgo._internal.math.big.Big.T_argZZ(newInt((864197532i64 : stdgo.GoInt64)), newInt((-123456789i64 : stdgo.GoInt64)), newInt((987654321i64 : stdgo.GoInt64))) : stdgo._internal.math.big.Big.T_argZZ), (new stdgo._internal.math.big.Big.T_argZZ(newInt((-1111111110i64 : stdgo.GoInt64)), newInt((-123456789i64 : stdgo.GoInt64)), newInt((-987654321i64 : stdgo.GoInt64))) : stdgo._internal.math.big.Big.T_argZZ)) : stdgo.Slice<stdgo._internal.math.big.Big.T_argZZ>);
-var _prodZZ : stdgo.Slice<stdgo._internal.math.big.Big.T_argZZ> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_argZZ>(4, 4, (new stdgo._internal.math.big.Big.T_argZZ(newInt((0i64 : stdgo.GoInt64)), newInt((0i64 : stdgo.GoInt64)), newInt((0i64 : stdgo.GoInt64))) : stdgo._internal.math.big.Big.T_argZZ), (new stdgo._internal.math.big.Big.T_argZZ(newInt((0i64 : stdgo.GoInt64)), newInt((1i64 : stdgo.GoInt64)), newInt((0i64 : stdgo.GoInt64))) : stdgo._internal.math.big.Big.T_argZZ), (new stdgo._internal.math.big.Big.T_argZZ(newInt((1i64 : stdgo.GoInt64)), newInt((1i64 : stdgo.GoInt64)), newInt((1i64 : stdgo.GoInt64))) : stdgo._internal.math.big.Big.T_argZZ), (new stdgo._internal.math.big.Big.T_argZZ(newInt((-982081i64 : stdgo.GoInt64)), newInt((991i64 : stdgo.GoInt64)), newInt((-991i64 : stdgo.GoInt64))) : stdgo._internal.math.big.Big.T_argZZ)) : stdgo.Slice<stdgo._internal.math.big.Big.T_argZZ>);
-var _mulRangesZ : stdgo.Slice<T__struct_34> = (new stdgo.Slice<T__struct_34>(
-14,
-14,
+("Inf" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+var _sumZZ : stdgo.Slice<stdgo._internal.math.big.Big.T_argZZ> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_argZZ>(6, 6, ...[(new stdgo._internal.math.big.Big.T_argZZ(newInt((0i64 : stdgo.GoInt64)), newInt((0i64 : stdgo.GoInt64)), newInt((0i64 : stdgo.GoInt64))) : stdgo._internal.math.big.Big.T_argZZ), (new stdgo._internal.math.big.Big.T_argZZ(newInt((1i64 : stdgo.GoInt64)), newInt((1i64 : stdgo.GoInt64)), newInt((0i64 : stdgo.GoInt64))) : stdgo._internal.math.big.Big.T_argZZ), (new stdgo._internal.math.big.Big.T_argZZ(newInt((1111111110i64 : stdgo.GoInt64)), newInt((123456789i64 : stdgo.GoInt64)), newInt((987654321i64 : stdgo.GoInt64))) : stdgo._internal.math.big.Big.T_argZZ), (new stdgo._internal.math.big.Big.T_argZZ(newInt((-1i64 : stdgo.GoInt64)), newInt((-1i64 : stdgo.GoInt64)), newInt((0i64 : stdgo.GoInt64))) : stdgo._internal.math.big.Big.T_argZZ), (new stdgo._internal.math.big.Big.T_argZZ(newInt((864197532i64 : stdgo.GoInt64)), newInt((-123456789i64 : stdgo.GoInt64)), newInt((987654321i64 : stdgo.GoInt64))) : stdgo._internal.math.big.Big.T_argZZ), (new stdgo._internal.math.big.Big.T_argZZ(newInt((-1111111110i64 : stdgo.GoInt64)), newInt((-123456789i64 : stdgo.GoInt64)), newInt((-987654321i64 : stdgo.GoInt64))) : stdgo._internal.math.big.Big.T_argZZ)]) : stdgo.Slice<stdgo._internal.math.big.Big.T_argZZ>);
+var _prodZZ : stdgo.Slice<stdgo._internal.math.big.Big.T_argZZ> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_argZZ>(4, 4, ...[(new stdgo._internal.math.big.Big.T_argZZ(newInt((0i64 : stdgo.GoInt64)), newInt((0i64 : stdgo.GoInt64)), newInt((0i64 : stdgo.GoInt64))) : stdgo._internal.math.big.Big.T_argZZ), (new stdgo._internal.math.big.Big.T_argZZ(newInt((0i64 : stdgo.GoInt64)), newInt((1i64 : stdgo.GoInt64)), newInt((0i64 : stdgo.GoInt64))) : stdgo._internal.math.big.Big.T_argZZ), (new stdgo._internal.math.big.Big.T_argZZ(newInt((1i64 : stdgo.GoInt64)), newInt((1i64 : stdgo.GoInt64)), newInt((1i64 : stdgo.GoInt64))) : stdgo._internal.math.big.Big.T_argZZ), (new stdgo._internal.math.big.Big.T_argZZ(newInt((-982081i64 : stdgo.GoInt64)), newInt((991i64 : stdgo.GoInt64)), newInt((-991i64 : stdgo.GoInt64))) : stdgo._internal.math.big.Big.T_argZZ)]) : stdgo.Slice<stdgo._internal.math.big.Big.T_argZZ>);
+var _mulRangesZ : stdgo.Slice<T__struct_34> = (new stdgo.Slice<T__struct_34>(14, 14, ...[
 ({ _a : (-1i64 : stdgo.GoInt64), _b : (1i64 : stdgo.GoInt64), _prod : ("0" : stdgo.GoString) } : T__struct_34),
 ({ _a : (-2i64 : stdgo.GoInt64), _b : (-1i64 : stdgo.GoInt64), _prod : ("2" : stdgo.GoString) } : T__struct_34),
 ({ _a : (-3i64 : stdgo.GoInt64), _b : (-2i64 : stdgo.GoInt64), _prod : ("6" : stdgo.GoString) } : T__struct_34),
@@ -393,12 +300,10 @@ var _mulRangesZ : stdgo.Slice<T__struct_34> = (new stdgo.Slice<T__struct_34>(
 ({ _a : (-1000000000i64 : stdgo.GoInt64), _b : (1000000000i64 : stdgo.GoInt64), _prod : ("0" : stdgo.GoString) } : T__struct_34),
 ({ _a : (-10i64 : stdgo.GoInt64), _b : (-1i64 : stdgo.GoInt64), _prod : ("3628800" : stdgo.GoString) } : T__struct_34),
 ({ _a : (-20i64 : stdgo.GoInt64), _b : (-2i64 : stdgo.GoInt64), _prod : ("-2432902008176640000" : stdgo.GoString) } : T__struct_34),
-({ _a : (-99i64 : stdgo.GoInt64), _b : (-1i64 : stdgo.GoInt64), _prod : ("-933262154439441526816992388562667004907159682643816214685929638952175999932299156089414639761565182862536979208272237582511852109168640000000000000000000000" : stdgo.GoString) } : T__struct_34)) : stdgo.Slice<T__struct_34>);
-var _divisionSignsTests : stdgo.Slice<T__struct_36> = (new stdgo.Slice<T__struct_36>(6, 6, ({ _x : (5i64 : stdgo.GoInt64), _y : (3i64 : stdgo.GoInt64), _q : (1i64 : stdgo.GoInt64), _r : (2i64 : stdgo.GoInt64), _d : (1i64 : stdgo.GoInt64), _m : (2i64 : stdgo.GoInt64) } : T__struct_36), ({ _x : (-5i64 : stdgo.GoInt64), _y : (3i64 : stdgo.GoInt64), _q : (-1i64 : stdgo.GoInt64), _r : (-2i64 : stdgo.GoInt64), _d : (-2i64 : stdgo.GoInt64), _m : (1i64 : stdgo.GoInt64) } : T__struct_36), ({ _x : (5i64 : stdgo.GoInt64), _y : (-3i64 : stdgo.GoInt64), _q : (-1i64 : stdgo.GoInt64), _r : (2i64 : stdgo.GoInt64), _d : (-1i64 : stdgo.GoInt64), _m : (2i64 : stdgo.GoInt64) } : T__struct_36), ({ _x : (-5i64 : stdgo.GoInt64), _y : (-3i64 : stdgo.GoInt64), _q : (1i64 : stdgo.GoInt64), _r : (-2i64 : stdgo.GoInt64), _d : (2i64 : stdgo.GoInt64), _m : (1i64 : stdgo.GoInt64) } : T__struct_36), ({ _x : (1i64 : stdgo.GoInt64), _y : (2i64 : stdgo.GoInt64), _q : (0i64 : stdgo.GoInt64), _r : (1i64 : stdgo.GoInt64), _d : (0i64 : stdgo.GoInt64), _m : (1i64 : stdgo.GoInt64) } : T__struct_36), ({ _x : (8i64 : stdgo.GoInt64), _y : (4i64 : stdgo.GoInt64), _q : (2i64 : stdgo.GoInt64), _r : (0i64 : stdgo.GoInt64), _d : (2i64 : stdgo.GoInt64), _m : (0i64 : stdgo.GoInt64) } : T__struct_36)) : stdgo.Slice<T__struct_36>);
-var _quoTests : stdgo.Slice<T__struct_37> = (new stdgo.Slice<T__struct_37>(2, 2, ({ _x : ("476217953993950760840509444250624797097991362735329973741718102894495832294430498335824897858659711275234906400899559094370964723884706254265559534144986498357" : stdgo.GoString), _y : ("9353930466774385905609975137998169297361893554149986716853295022578535724979483772383667534691121982974895531435241089241440253066816724367338287092081996" : stdgo.GoString), _q : ("50911" : stdgo.GoString), _r : ("1" : stdgo.GoString) } : T__struct_37), ({ _x : ("11510768301994997771168" : stdgo.GoString), _y : ("1328165573307167369775" : stdgo.GoString), _q : ("8" : stdgo.GoString), _r : ("885443715537658812968" : stdgo.GoString) } : T__struct_37)) : stdgo.Slice<T__struct_37>);
-var _bitLenTests : stdgo.Slice<T__struct_38> = (new stdgo.Slice<T__struct_38>(
-12,
-12,
+({ _a : (-99i64 : stdgo.GoInt64), _b : (-1i64 : stdgo.GoInt64), _prod : ("-933262154439441526816992388562667004907159682643816214685929638952175999932299156089414639761565182862536979208272237582511852109168640000000000000000000000" : stdgo.GoString) } : T__struct_34)]) : stdgo.Slice<T__struct_34>);
+var _divisionSignsTests : stdgo.Slice<T__struct_36> = (new stdgo.Slice<T__struct_36>(6, 6, ...[({ _x : (5i64 : stdgo.GoInt64), _y : (3i64 : stdgo.GoInt64), _q : (1i64 : stdgo.GoInt64), _r : (2i64 : stdgo.GoInt64), _d : (1i64 : stdgo.GoInt64), _m : (2i64 : stdgo.GoInt64) } : T__struct_36), ({ _x : (-5i64 : stdgo.GoInt64), _y : (3i64 : stdgo.GoInt64), _q : (-1i64 : stdgo.GoInt64), _r : (-2i64 : stdgo.GoInt64), _d : (-2i64 : stdgo.GoInt64), _m : (1i64 : stdgo.GoInt64) } : T__struct_36), ({ _x : (5i64 : stdgo.GoInt64), _y : (-3i64 : stdgo.GoInt64), _q : (-1i64 : stdgo.GoInt64), _r : (2i64 : stdgo.GoInt64), _d : (-1i64 : stdgo.GoInt64), _m : (2i64 : stdgo.GoInt64) } : T__struct_36), ({ _x : (-5i64 : stdgo.GoInt64), _y : (-3i64 : stdgo.GoInt64), _q : (1i64 : stdgo.GoInt64), _r : (-2i64 : stdgo.GoInt64), _d : (2i64 : stdgo.GoInt64), _m : (1i64 : stdgo.GoInt64) } : T__struct_36), ({ _x : (1i64 : stdgo.GoInt64), _y : (2i64 : stdgo.GoInt64), _q : (0i64 : stdgo.GoInt64), _r : (1i64 : stdgo.GoInt64), _d : (0i64 : stdgo.GoInt64), _m : (1i64 : stdgo.GoInt64) } : T__struct_36), ({ _x : (8i64 : stdgo.GoInt64), _y : (4i64 : stdgo.GoInt64), _q : (2i64 : stdgo.GoInt64), _r : (0i64 : stdgo.GoInt64), _d : (2i64 : stdgo.GoInt64), _m : (0i64 : stdgo.GoInt64) } : T__struct_36)]) : stdgo.Slice<T__struct_36>);
+var _quoTests : stdgo.Slice<T__struct_37> = (new stdgo.Slice<T__struct_37>(2, 2, ...[({ _x : ("476217953993950760840509444250624797097991362735329973741718102894495832294430498335824897858659711275234906400899559094370964723884706254265559534144986498357" : stdgo.GoString), _y : ("9353930466774385905609975137998169297361893554149986716853295022578535724979483772383667534691121982974895531435241089241440253066816724367338287092081996" : stdgo.GoString), _q : ("50911" : stdgo.GoString), _r : ("1" : stdgo.GoString) } : T__struct_37), ({ _x : ("11510768301994997771168" : stdgo.GoString), _y : ("1328165573307167369775" : stdgo.GoString), _q : ("8" : stdgo.GoString), _r : ("885443715537658812968" : stdgo.GoString) } : T__struct_37)]) : stdgo.Slice<T__struct_37>);
+var _bitLenTests : stdgo.Slice<T__struct_38> = (new stdgo.Slice<T__struct_38>(12, 12, ...[
 ({ _in : ("-1" : stdgo.GoString), _out : (1 : stdgo.GoInt) } : T__struct_38),
 ({ _in : ("0" : stdgo.GoString), _out : (0 : stdgo.GoInt) } : T__struct_38),
 ({ _in : ("1" : stdgo.GoString), _out : (1 : stdgo.GoInt) } : T__struct_38),
@@ -410,10 +315,8 @@ var _bitLenTests : stdgo.Slice<T__struct_38> = (new stdgo.Slice<T__struct_38>(
 ({ _in : ("0x800000000000" : stdgo.GoString), _out : (48 : stdgo.GoInt) } : T__struct_38),
 ({ _in : ("0x8000000000000000" : stdgo.GoString), _out : (64 : stdgo.GoInt) } : T__struct_38),
 ({ _in : ("0x80000000000000000000" : stdgo.GoString), _out : (80 : stdgo.GoInt) } : T__struct_38),
-({ _in : ("-0x4000000000000000000000" : stdgo.GoString), _out : (87 : stdgo.GoInt) } : T__struct_38)) : stdgo.Slice<T__struct_38>);
-var _expTests : stdgo.Slice<T__struct_39> = (new stdgo.Slice<T__struct_39>(
-38,
-38,
+({ _in : ("-0x4000000000000000000000" : stdgo.GoString), _out : (87 : stdgo.GoInt) } : T__struct_38)]) : stdgo.Slice<T__struct_38>);
+var _expTests : stdgo.Slice<T__struct_39> = (new stdgo.Slice<T__struct_39>(38, 38, ...[
 ({ _x : ("0" : stdgo.GoString), _y : ("0" : stdgo.GoString), _m : stdgo.Go.str()?.__copy__(), _out : ("1" : stdgo.GoString) } : T__struct_39),
 ({ _x : ("1" : stdgo.GoString), _y : ("0" : stdgo.GoString), _m : stdgo.Go.str()?.__copy__(), _out : ("1" : stdgo.GoString) } : T__struct_39),
 ({ _x : ("-10" : stdgo.GoString), _y : ("0" : stdgo.GoString), _m : stdgo.Go.str()?.__copy__(), _out : ("1" : stdgo.GoString) } : T__struct_39),
@@ -451,10 +354,8 @@ var _expTests : stdgo.Slice<T__struct_39> = (new stdgo.Slice<T__struct_39>(
 ({ _x : ("0xffffffffffffffffffffffff00000001" : stdgo.GoString), _y : ("0xffffffffffffffffffffffff00000001" : stdgo.GoString), _m : ("0xffffffffffffffffffffffff00000001" : stdgo.GoString), _out : ("0" : stdgo.GoString) } : T__struct_39),
 ({ _x : ("0xffffffffffffffffffffffffffffffff00000001" : stdgo.GoString), _y : ("0xffffffffffffffffffffffffffffffff00000001" : stdgo.GoString), _m : ("0xffffffffffffffffffffffffffffffff00000001" : stdgo.GoString), _out : ("0" : stdgo.GoString) } : T__struct_39),
 ({ _x : ("2" : stdgo.GoString), _y : ("0xB08FFB20760FFED58FADA86DFEF71AD72AA0FA763219618FE022C197E54708BB1191C66470250FCE8879487507CEE41381CA4D932F81C2B3F1AB20B539D50DCD" : stdgo.GoString), _m : ("0xAC6BDB41324A9A9BF166DE5E1389582FAF72B6651987EE07FC3192943DB56050A37329CBB4A099ED8193E0757767A13DD52312AB4B03310DCD7F48A9DA04FD50E8083969EDB767B0CF6095179A163AB3661A05FBD5FAAAE82918A9962F0B93B855F97993EC975EEAA80D740ADBF4FF747359D041D5C33EA71D281E446B14773BCA97B43A23FB801676BD207A436C6481F1D2B9078717461A5B9D32E688F87748544523B524B0D57D5EA77A2775D2ECFA032CFBDBF52FB3786160279004E57AE6AF874E7303CE53299CCC041C7BC308D82A5698F3A8D0C38271AE35F8E9DBFBB694B5C803D89F7AE435DE236D525F54759B65E372FCD68EF20FA7111F9E4AFF73" : stdgo.GoString), _out : ("0x6AADD3E3E424D5B713FCAA8D8945B1E055166132038C57BBD2D51C833F0C5EA2007A2324CE514F8E8C2F008A2F36F44005A4039CB55830986F734C93DAF0EB4BAB54A6A8C7081864F44346E9BC6F0A3EB9F2C0146A00C6A05187D0C101E1F2D038CDB70CB5E9E05A2D188AB6CBB46286624D4415E7D4DBFAD3BCC6009D915C406EED38F468B940F41E6BEDC0430DD78E6F19A7DA3A27498A4181E24D738B0072D8F6ADB8C9809A5B033A09785814FD9919F6EF9F83EEA519BEC593855C4C10CBEEC582D4AE0792158823B0275E6AEC35242740468FAF3D5C60FD1E376362B6322F78B7ED0CA1C5BBCD2B49734A56C0967A1D01A100932C837B91D592CE08ABFF" : stdgo.GoString) } : T__struct_39),
-({ _x : ("2" : stdgo.GoString), _y : ("0xB08FFB20760FFED58FADA86DFEF71AD72AA0FA763219618FE022C197E54708BB1191C66470250FCE8879487507CEE41381CA4D932F81C2B3F1AB20B539D50DCD" : stdgo.GoString), _m : ("0xAC6BDB41324A9A9BF166DE5E1389582FAF72B6651987EE07FC3192943DB56050A37329CBB4A099ED8193E0757767A13DD52312AB4B03310DCD7F48A9DA04FD50E8083969EDB767B0CF6095179A163AB3661A05FBD5FAAAE82918A9962F0B93B855F97993EC975EEAA80D740ADBF4FF747359D041D5C33EA71D281E446B14773BCA97B43A23FB801676BD207A436C6481F1D2B9078717461A5B9D32E688F87748544523B524B0D57D5EA77A2775D2ECFA032CFBDBF52FB3786160279004E57AE6AF874E7303CE53299CCC041C7BC308D82A5698F3A8D0C38271AE35F8E9DBFBB694B5C803D89F7AE435DE236D525F54759B65E372FCD68EF20FA7111F9E4AFF72" : stdgo.GoString), _out : ("0x7858794B5897C29F4ED0B40913416AB6C48588484E6A45F2ED3E26C941D878E923575AAC434EE2750E6439A6976F9BB4D64CEDB2A53CE8D04DD48CADCDF8E46F22747C6B81C6CEA86C0D873FBF7CEF262BAAC43A522BD7F32F3CDAC52B9337C77B3DCFB3DB3EDD80476331E82F4B1DF8EFDC1220C92656DFC9197BDC1877804E28D928A2A284B8DED506CBA304435C9D0133C246C98A7D890D1DE60CBC53A024361DA83A9B8775019083D22AC6820ED7C3C68F8E801DD4EC779EE0A05C6EB682EF9840D285B838369BA7E148FA27691D524FAEAF7C6ECE2A4B99A294B9F2C241857B5B90CC8BFFCFCF18DFA7D676131D5CD3855A5A3E8EBFA0CDFADB4D198B4A" : stdgo.GoString) } : T__struct_39)) : stdgo.Slice<T__struct_39>);
-var _gcdTests : stdgo.Slice<T__struct_41> = (new stdgo.Slice<T__struct_41>(
-13,
-13,
+({ _x : ("2" : stdgo.GoString), _y : ("0xB08FFB20760FFED58FADA86DFEF71AD72AA0FA763219618FE022C197E54708BB1191C66470250FCE8879487507CEE41381CA4D932F81C2B3F1AB20B539D50DCD" : stdgo.GoString), _m : ("0xAC6BDB41324A9A9BF166DE5E1389582FAF72B6651987EE07FC3192943DB56050A37329CBB4A099ED8193E0757767A13DD52312AB4B03310DCD7F48A9DA04FD50E8083969EDB767B0CF6095179A163AB3661A05FBD5FAAAE82918A9962F0B93B855F97993EC975EEAA80D740ADBF4FF747359D041D5C33EA71D281E446B14773BCA97B43A23FB801676BD207A436C6481F1D2B9078717461A5B9D32E688F87748544523B524B0D57D5EA77A2775D2ECFA032CFBDBF52FB3786160279004E57AE6AF874E7303CE53299CCC041C7BC308D82A5698F3A8D0C38271AE35F8E9DBFBB694B5C803D89F7AE435DE236D525F54759B65E372FCD68EF20FA7111F9E4AFF72" : stdgo.GoString), _out : ("0x7858794B5897C29F4ED0B40913416AB6C48588484E6A45F2ED3E26C941D878E923575AAC434EE2750E6439A6976F9BB4D64CEDB2A53CE8D04DD48CADCDF8E46F22747C6B81C6CEA86C0D873FBF7CEF262BAAC43A522BD7F32F3CDAC52B9337C77B3DCFB3DB3EDD80476331E82F4B1DF8EFDC1220C92656DFC9197BDC1877804E28D928A2A284B8DED506CBA304435C9D0133C246C98A7D890D1DE60CBC53A024361DA83A9B8775019083D22AC6820ED7C3C68F8E801DD4EC779EE0A05C6EB682EF9840D285B838369BA7E148FA27691D524FAEAF7C6ECE2A4B99A294B9F2C241857B5B90CC8BFFCFCF18DFA7D676131D5CD3855A5A3E8EBFA0CDFADB4D198B4A" : stdgo.GoString) } : T__struct_39)]) : stdgo.Slice<T__struct_39>);
+var _gcdTests : stdgo.Slice<T__struct_41> = (new stdgo.Slice<T__struct_41>(13, 13, ...[
 ({ _d : ("0" : stdgo.GoString), _x : ("0" : stdgo.GoString), _y : ("0" : stdgo.GoString), _a : ("0" : stdgo.GoString), _b : ("0" : stdgo.GoString) } : T__struct_41),
 ({ _d : ("7" : stdgo.GoString), _x : ("0" : stdgo.GoString), _y : ("1" : stdgo.GoString), _a : ("0" : stdgo.GoString), _b : ("7" : stdgo.GoString) } : T__struct_41),
 ({ _d : ("7" : stdgo.GoString), _x : ("0" : stdgo.GoString), _y : ("-1" : stdgo.GoString), _a : ("0" : stdgo.GoString), _b : ("-7" : stdgo.GoString) } : T__struct_41),
@@ -467,10 +368,8 @@ var _gcdTests : stdgo.Slice<T__struct_41> = (new stdgo.Slice<T__struct_41>(
 ({ _d : ("7" : stdgo.GoString), _x : ("1" : stdgo.GoString), _y : ("-2" : stdgo.GoString), _a : ("77" : stdgo.GoString), _b : ("35" : stdgo.GoString) } : T__struct_41),
 ({ _d : ("935" : stdgo.GoString), _x : ("-3" : stdgo.GoString), _y : ("8" : stdgo.GoString), _a : ("64515" : stdgo.GoString), _b : ("24310" : stdgo.GoString) } : T__struct_41),
 ({ _d : ("935000000000000000" : stdgo.GoString), _x : ("-3" : stdgo.GoString), _y : ("8" : stdgo.GoString), _a : ("64515000000000000000" : stdgo.GoString), _b : ("24310000000000000000" : stdgo.GoString) } : T__struct_41),
-({ _d : ("1" : stdgo.GoString), _x : ("-221" : stdgo.GoString), _y : ("22059940471369027483332068679400581064239780177629666810348940098015901108344" : stdgo.GoString), _a : ("98920366548084643601728869055592650835572950932266967461790948584315647051443" : stdgo.GoString), _b : ("991" : stdgo.GoString) } : T__struct_41)) : stdgo.Slice<T__struct_41>);
-var _rshTests : stdgo.Slice<stdgo._internal.math.big.Big.T_intShiftTest> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_intShiftTest>(
-24,
-24,
+({ _d : ("1" : stdgo.GoString), _x : ("-221" : stdgo.GoString), _y : ("22059940471369027483332068679400581064239780177629666810348940098015901108344" : stdgo.GoString), _a : ("98920366548084643601728869055592650835572950932266967461790948584315647051443" : stdgo.GoString), _b : ("991" : stdgo.GoString) } : T__struct_41)]) : stdgo.Slice<T__struct_41>);
+var _rshTests : stdgo.Slice<stdgo._internal.math.big.Big.T_intShiftTest> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_intShiftTest>(24, 24, ...[
 (new stdgo._internal.math.big.Big.T_intShiftTest(("0" : stdgo.GoString), (0u32 : stdgo.GoUInt), ("0" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_intShiftTest),
 (new stdgo._internal.math.big.Big.T_intShiftTest(("-0" : stdgo.GoString), (0u32 : stdgo.GoUInt), ("0" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_intShiftTest),
 (new stdgo._internal.math.big.Big.T_intShiftTest(("0" : stdgo.GoString), (1u32 : stdgo.GoUInt), ("0" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_intShiftTest),
@@ -494,10 +393,8 @@ var _rshTests : stdgo.Slice<stdgo._internal.math.big.Big.T_intShiftTest> = (new 
 (new stdgo._internal.math.big.Big.T_intShiftTest(("18446744073709551616" : stdgo.GoString), (2u32 : stdgo.GoUInt), ("4611686018427387904" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_intShiftTest),
 (new stdgo._internal.math.big.Big.T_intShiftTest(("18446744073709551616" : stdgo.GoString), (64u32 : stdgo.GoUInt), ("1" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_intShiftTest),
 (new stdgo._internal.math.big.Big.T_intShiftTest(("340282366920938463463374607431768211456" : stdgo.GoString), (64u32 : stdgo.GoUInt), ("18446744073709551616" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_intShiftTest),
-(new stdgo._internal.math.big.Big.T_intShiftTest(("340282366920938463463374607431768211456" : stdgo.GoString), (128u32 : stdgo.GoUInt), ("1" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_intShiftTest)) : stdgo.Slice<stdgo._internal.math.big.Big.T_intShiftTest>);
-var _lshTests : stdgo.Slice<stdgo._internal.math.big.Big.T_intShiftTest> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_intShiftTest>(
-19,
-19,
+(new stdgo._internal.math.big.Big.T_intShiftTest(("340282366920938463463374607431768211456" : stdgo.GoString), (128u32 : stdgo.GoUInt), ("1" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_intShiftTest)]) : stdgo.Slice<stdgo._internal.math.big.Big.T_intShiftTest>);
+var _lshTests : stdgo.Slice<stdgo._internal.math.big.Big.T_intShiftTest> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_intShiftTest>(19, 19, ...[
 (new stdgo._internal.math.big.Big.T_intShiftTest(("0" : stdgo.GoString), (0u32 : stdgo.GoUInt), ("0" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_intShiftTest),
 (new stdgo._internal.math.big.Big.T_intShiftTest(("0" : stdgo.GoString), (1u32 : stdgo.GoUInt), ("0" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_intShiftTest),
 (new stdgo._internal.math.big.Big.T_intShiftTest(("0" : stdgo.GoString), (2u32 : stdgo.GoUInt), ("0" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_intShiftTest),
@@ -516,11 +413,9 @@ var _lshTests : stdgo.Slice<stdgo._internal.math.big.Big.T_intShiftTest> = (new 
 (new stdgo._internal.math.big.Big.T_intShiftTest(("4611686018427387904" : stdgo.GoString), (2u32 : stdgo.GoUInt), ("18446744073709551616" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_intShiftTest),
 (new stdgo._internal.math.big.Big.T_intShiftTest(("1" : stdgo.GoString), (64u32 : stdgo.GoUInt), ("18446744073709551616" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_intShiftTest),
 (new stdgo._internal.math.big.Big.T_intShiftTest(("18446744073709551616" : stdgo.GoString), (64u32 : stdgo.GoUInt), ("340282366920938463463374607431768211456" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_intShiftTest),
-(new stdgo._internal.math.big.Big.T_intShiftTest(("1" : stdgo.GoString), (128u32 : stdgo.GoUInt), ("340282366920938463463374607431768211456" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_intShiftTest)) : stdgo.Slice<stdgo._internal.math.big.Big.T_intShiftTest>);
-var _cmpAbsTests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(8, 8, ("0" : stdgo.GoString), ("1" : stdgo.GoString), ("2" : stdgo.GoString), ("10" : stdgo.GoString), ("10000000" : stdgo.GoString), ("2783678367462374683678456387645876387564783686583485" : stdgo.GoString), ("2783678367462374683678456387645876387564783686583486" : stdgo.GoString), ("32957394867987420967976567076075976570670947609750670956097509670576075067076027578341538" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-var _int64Tests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
-14,
-14,
+(new stdgo._internal.math.big.Big.T_intShiftTest(("1" : stdgo.GoString), (128u32 : stdgo.GoUInt), ("340282366920938463463374607431768211456" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_intShiftTest)]) : stdgo.Slice<stdgo._internal.math.big.Big.T_intShiftTest>);
+var _cmpAbsTests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(8, 8, ...[("0" : stdgo.GoString), ("1" : stdgo.GoString), ("2" : stdgo.GoString), ("10" : stdgo.GoString), ("10000000" : stdgo.GoString), ("2783678367462374683678456387645876387564783686583485" : stdgo.GoString), ("2783678367462374683678456387645876387564783686583486" : stdgo.GoString), ("32957394867987420967976567076075976570670947609750670956097509670576075067076027578341538" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+var _int64Tests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(14, 14, ...[
 ("0" : stdgo.GoString),
 ("1" : stdgo.GoString),
 ("-1" : stdgo.GoString),
@@ -534,10 +429,8 @@ var _int64Tests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>
 ("0x8000000000000000" : stdgo.GoString),
 ("-0x8000000000000001" : stdgo.GoString),
 ("38579843757496759476987459679745" : stdgo.GoString),
-("-38579843757496759476987459679745" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-var _uint64Tests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
-12,
-12,
+("-38579843757496759476987459679745" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+var _uint64Tests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(12, 12, ...[
 ("0" : stdgo.GoString),
 ("1" : stdgo.GoString),
 ("4294967295" : stdgo.GoString),
@@ -549,10 +442,8 @@ var _uint64Tests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString
 ("0x08000000000000000" : stdgo.GoString),
 ("0x10000000000000000" : stdgo.GoString),
 ("-0x08000000000000000" : stdgo.GoString),
-("-1" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-var _bitwiseTests : stdgo.Slice<T__struct_42> = (new stdgo.Slice<T__struct_42>(
-17,
-17,
+("-1" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+var _bitwiseTests : stdgo.Slice<T__struct_42> = (new stdgo.Slice<T__struct_42>(17, 17, ...[
 ({ _x : ("0x00" : stdgo.GoString), _y : ("0x00" : stdgo.GoString), _and : ("0x00" : stdgo.GoString), _or : ("0x00" : stdgo.GoString), _xor : ("0x00" : stdgo.GoString), _andNot : ("0x00" : stdgo.GoString) } : T__struct_42),
 ({ _x : ("0x00" : stdgo.GoString), _y : ("0x01" : stdgo.GoString), _and : ("0x00" : stdgo.GoString), _or : ("0x01" : stdgo.GoString), _xor : ("0x01" : stdgo.GoString), _andNot : ("0x00" : stdgo.GoString) } : T__struct_42),
 ({ _x : ("0x01" : stdgo.GoString), _y : ("0x00" : stdgo.GoString), _and : ("0x00" : stdgo.GoString), _or : ("0x01" : stdgo.GoString), _xor : ("0x01" : stdgo.GoString), _andNot : ("0x01" : stdgo.GoString) } : T__struct_42),
@@ -569,10 +460,8 @@ var _bitwiseTests : stdgo.Slice<T__struct_42> = (new stdgo.Slice<T__struct_42>(
 ({ _x : ("-0x013ff6" : stdgo.GoString), _y : ("-0x9a4e" : stdgo.GoString), _and : ("-0x01bffe" : stdgo.GoString), _or : ("-0x1a46" : stdgo.GoString), _xor : ("0x01a5b8" : stdgo.GoString), _andNot : ("0x8008" : stdgo.GoString) } : T__struct_42),
 ({ _x : ("0x1000009dc6e3d9822cba04129bcbe3401" : stdgo.GoString), _y : ("0xb9bd7d543685789d57cb918e833af352559021483cdb05cc21fd" : stdgo.GoString), _and : ("0x1000001186210100001000009048c2001" : stdgo.GoString), _or : ("0xb9bd7d543685789d57cb918e8bfeff7fddb2ebe87dfbbdfe35fd" : stdgo.GoString), _xor : ("0xb9bd7d543685789d57ca918e8ae69d6fcdb2eae87df2b97215fc" : stdgo.GoString), _andNot : ("0x8c40c2d8822caa04120b8321400" : stdgo.GoString) } : T__struct_42),
 ({ _x : ("0x1000009dc6e3d9822cba04129bcbe3401" : stdgo.GoString), _y : ("-0xb9bd7d543685789d57cb918e833af352559021483cdb05cc21fd" : stdgo.GoString), _and : ("0x8c40c2d8822caa04120b8321401" : stdgo.GoString), _or : ("-0xb9bd7d543685789d57ca918e82229142459020483cd2014001fd" : stdgo.GoString), _xor : ("-0xb9bd7d543685789d57ca918e8ae69d6fcdb2eae87df2b97215fe" : stdgo.GoString), _andNot : ("0x1000001186210100001000009048c2000" : stdgo.GoString) } : T__struct_42),
-({ _x : ("-0x1000009dc6e3d9822cba04129bcbe3401" : stdgo.GoString), _y : ("-0xb9bd7d543685789d57cb918e833af352559021483cdb05cc21fd" : stdgo.GoString), _and : ("-0xb9bd7d543685789d57cb918e8bfeff7fddb2ebe87dfbbdfe35fd" : stdgo.GoString), _or : ("-0x1000001186210100001000009048c2001" : stdgo.GoString), _xor : ("0xb9bd7d543685789d57ca918e8ae69d6fcdb2eae87df2b97215fc" : stdgo.GoString), _andNot : ("0xb9bd7d543685789d57ca918e82229142459020483cd2014001fc" : stdgo.GoString) } : T__struct_42)) : stdgo.Slice<T__struct_42>);
-var _bitsetTests : stdgo.Slice<T__struct_43> = (new stdgo.Slice<T__struct_43>(
-12,
-12,
+({ _x : ("-0x1000009dc6e3d9822cba04129bcbe3401" : stdgo.GoString), _y : ("-0xb9bd7d543685789d57cb918e833af352559021483cdb05cc21fd" : stdgo.GoString), _and : ("-0xb9bd7d543685789d57cb918e8bfeff7fddb2ebe87dfbbdfe35fd" : stdgo.GoString), _or : ("-0x1000001186210100001000009048c2001" : stdgo.GoString), _xor : ("0xb9bd7d543685789d57ca918e8ae69d6fcdb2eae87df2b97215fc" : stdgo.GoString), _andNot : ("0xb9bd7d543685789d57ca918e82229142459020483cd2014001fc" : stdgo.GoString) } : T__struct_42)]) : stdgo.Slice<T__struct_42>);
+var _bitsetTests : stdgo.Slice<T__struct_43> = (new stdgo.Slice<T__struct_43>(12, 12, ...[
 ({ _x : ("0" : stdgo.GoString), _i : (0 : stdgo.GoInt), _b : (0u32 : stdgo.GoUInt) } : T__struct_43),
 ({ _x : ("0" : stdgo.GoString), _i : (200 : stdgo.GoInt), _b : (0u32 : stdgo.GoUInt) } : T__struct_43),
 ({ _x : ("1" : stdgo.GoString), _i : (0 : stdgo.GoInt), _b : (1u32 : stdgo.GoUInt) } : T__struct_43),
@@ -584,13 +473,11 @@ var _bitsetTests : stdgo.Slice<T__struct_43> = (new stdgo.Slice<T__struct_43>(
 ({ _x : ("0x2000000000000000000000000000" : stdgo.GoString), _i : (110 : stdgo.GoInt), _b : (0u32 : stdgo.GoUInt) } : T__struct_43),
 ({ _x : ("-0x2000000000000000000000000001" : stdgo.GoString), _i : (108 : stdgo.GoInt), _b : (1u32 : stdgo.GoUInt) } : T__struct_43),
 ({ _x : ("-0x2000000000000000000000000001" : stdgo.GoString), _i : (109 : stdgo.GoInt), _b : (0u32 : stdgo.GoUInt) } : T__struct_43),
-({ _x : ("-0x2000000000000000000000000001" : stdgo.GoString), _i : (110 : stdgo.GoInt), _b : (1u32 : stdgo.GoUInt) } : T__struct_43)) : stdgo.Slice<T__struct_43>);
-var _tzbTests : stdgo.Slice<T__struct_44> = (new stdgo.Slice<T__struct_44>(7, 7, ({ _in : ("0" : stdgo.GoString), _out : (0u32 : stdgo.GoUInt) } : T__struct_44), ({ _in : ("1" : stdgo.GoString), _out : (0u32 : stdgo.GoUInt) } : T__struct_44), ({ _in : ("-1" : stdgo.GoString), _out : (0u32 : stdgo.GoUInt) } : T__struct_44), ({ _in : ("4" : stdgo.GoString), _out : (2u32 : stdgo.GoUInt) } : T__struct_44), ({ _in : ("-8" : stdgo.GoString), _out : (3u32 : stdgo.GoUInt) } : T__struct_44), ({ _in : ("0x4000000000000000000" : stdgo.GoString), _out : (74u32 : stdgo.GoUInt) } : T__struct_44), ({ _in : ("-0x8000000000000000000" : stdgo.GoString), _out : (75u32 : stdgo.GoUInt) } : T__struct_44)) : stdgo.Slice<T__struct_44>);
-var _notTests : stdgo.Slice<T__struct_45> = (new stdgo.Slice<T__struct_45>(6, 6, ({ _in : ("0" : stdgo.GoString), _out : ("-1" : stdgo.GoString) } : T__struct_45), ({ _in : ("1" : stdgo.GoString), _out : ("-2" : stdgo.GoString) } : T__struct_45), ({ _in : ("7" : stdgo.GoString), _out : ("-8" : stdgo.GoString) } : T__struct_45), ({ _in : ("0" : stdgo.GoString), _out : ("-1" : stdgo.GoString) } : T__struct_45), ({ _in : ("-81910" : stdgo.GoString), _out : ("81909" : stdgo.GoString) } : T__struct_45), ({ _in : ("298472983472983471903246121093472394872319615612417471234712061" : stdgo.GoString), _out : ("-298472983472983471903246121093472394872319615612417471234712062" : stdgo.GoString) } : T__struct_45)) : stdgo.Slice<T__struct_45>);
-var _modInverseTests : stdgo.Slice<T__struct_46> = (new stdgo.Slice<T__struct_46>(5, 5, ({ _element : ("1234567" : stdgo.GoString), _modulus : ("458948883992" : stdgo.GoString) } : T__struct_46), ({ _element : ("239487239847" : stdgo.GoString), _modulus : ("2410312426921032588552076022197566074856950548502459942654116941958108831682612228890093858261341614673227141477904012196503648957050582631942730706805009223062734745341073406696246014589361659774041027169249453200378729434170325843778659198143763193776859869524088940195577346119843545301547043747207749969763750084308926339295559968882457872412993810129130294592999947926365264059284647209730384947211681434464714438488520940127459844288859336526896320919633919" : stdgo.GoString) } : T__struct_46), ({ _element : ("-10" : stdgo.GoString), _modulus : ("13" : stdgo.GoString) } : T__struct_46), ({ _element : ("10" : stdgo.GoString), _modulus : ("-13" : stdgo.GoString) } : T__struct_46), ({ _element : ("-17" : stdgo.GoString), _modulus : ("-13" : stdgo.GoString) } : T__struct_46)) : stdgo.Slice<T__struct_46>);
-var _stringTests : stdgo.Slice<T__struct_49> = (new stdgo.Slice<T__struct_49>(
-58,
-58,
+({ _x : ("-0x2000000000000000000000000001" : stdgo.GoString), _i : (110 : stdgo.GoInt), _b : (1u32 : stdgo.GoUInt) } : T__struct_43)]) : stdgo.Slice<T__struct_43>);
+var _tzbTests : stdgo.Slice<T__struct_44> = (new stdgo.Slice<T__struct_44>(7, 7, ...[({ _in : ("0" : stdgo.GoString), _out : (0u32 : stdgo.GoUInt) } : T__struct_44), ({ _in : ("1" : stdgo.GoString), _out : (0u32 : stdgo.GoUInt) } : T__struct_44), ({ _in : ("-1" : stdgo.GoString), _out : (0u32 : stdgo.GoUInt) } : T__struct_44), ({ _in : ("4" : stdgo.GoString), _out : (2u32 : stdgo.GoUInt) } : T__struct_44), ({ _in : ("-8" : stdgo.GoString), _out : (3u32 : stdgo.GoUInt) } : T__struct_44), ({ _in : ("0x4000000000000000000" : stdgo.GoString), _out : (74u32 : stdgo.GoUInt) } : T__struct_44), ({ _in : ("-0x8000000000000000000" : stdgo.GoString), _out : (75u32 : stdgo.GoUInt) } : T__struct_44)]) : stdgo.Slice<T__struct_44>);
+var _notTests : stdgo.Slice<T__struct_45> = (new stdgo.Slice<T__struct_45>(6, 6, ...[({ _in : ("0" : stdgo.GoString), _out : ("-1" : stdgo.GoString) } : T__struct_45), ({ _in : ("1" : stdgo.GoString), _out : ("-2" : stdgo.GoString) } : T__struct_45), ({ _in : ("7" : stdgo.GoString), _out : ("-8" : stdgo.GoString) } : T__struct_45), ({ _in : ("0" : stdgo.GoString), _out : ("-1" : stdgo.GoString) } : T__struct_45), ({ _in : ("-81910" : stdgo.GoString), _out : ("81909" : stdgo.GoString) } : T__struct_45), ({ _in : ("298472983472983471903246121093472394872319615612417471234712061" : stdgo.GoString), _out : ("-298472983472983471903246121093472394872319615612417471234712062" : stdgo.GoString) } : T__struct_45)]) : stdgo.Slice<T__struct_45>);
+var _modInverseTests : stdgo.Slice<T__struct_46> = (new stdgo.Slice<T__struct_46>(5, 5, ...[({ _element : ("1234567" : stdgo.GoString), _modulus : ("458948883992" : stdgo.GoString) } : T__struct_46), ({ _element : ("239487239847" : stdgo.GoString), _modulus : ("2410312426921032588552076022197566074856950548502459942654116941958108831682612228890093858261341614673227141477904012196503648957050582631942730706805009223062734745341073406696246014589361659774041027169249453200378729434170325843778659198143763193776859869524088940195577346119843545301547043747207749969763750084308926339295559968882457872412993810129130294592999947926365264059284647209730384947211681434464714438488520940127459844288859336526896320919633919" : stdgo.GoString) } : T__struct_46), ({ _element : ("-10" : stdgo.GoString), _modulus : ("13" : stdgo.GoString) } : T__struct_46), ({ _element : ("10" : stdgo.GoString), _modulus : ("-13" : stdgo.GoString) } : T__struct_46), ({ _element : ("-17" : stdgo.GoString), _modulus : ("-13" : stdgo.GoString) } : T__struct_46)]) : stdgo.Slice<T__struct_46>);
+var _stringTests : stdgo.Slice<T__struct_49> = (new stdgo.Slice<T__struct_49>(58, 58, ...[
 ({ _in : stdgo.Go.str()?.__copy__(), _out : ("" : stdgo.GoString), _base : (0 : stdgo.GoInt), _val : (0 : stdgo.GoInt64), _ok : false } : T__struct_49),
 ({ _in : ("a" : stdgo.GoString), _out : ("" : stdgo.GoString), _base : (0 : stdgo.GoInt), _val : (0 : stdgo.GoInt64), _ok : false } : T__struct_49),
 ({ _in : ("z" : stdgo.GoString), _out : ("" : stdgo.GoString), _base : (0 : stdgo.GoInt), _val : (0 : stdgo.GoInt64), _ok : false } : T__struct_49),
@@ -648,10 +535,8 @@ var _stringTests : stdgo.Slice<T__struct_49> = (new stdgo.Slice<T__struct_49>(
 ({ _in : ("1_000" : stdgo.GoString), _out : ("1000" : stdgo.GoString), _base : (0 : stdgo.GoInt), _val : (1000i64 : stdgo.GoInt64), _ok : true } : T__struct_49),
 ({ _in : ("0b_1010" : stdgo.GoString), _out : ("10" : stdgo.GoString), _base : (0 : stdgo.GoInt), _val : (10i64 : stdgo.GoInt64), _ok : true } : T__struct_49),
 ({ _in : ("+0o_660" : stdgo.GoString), _out : ("432" : stdgo.GoString), _base : (0 : stdgo.GoInt), _val : (432i64 : stdgo.GoInt64), _ok : true } : T__struct_49),
-({ _in : ("-0xF00D_1E" : stdgo.GoString), _out : ("-15731998" : stdgo.GoString), _base : (0 : stdgo.GoInt), _val : (-15731998i64 : stdgo.GoInt64), _ok : true } : T__struct_49)) : stdgo.Slice<T__struct_49>);
-var _formatTests : stdgo.Slice<T__struct_50> = (new stdgo.Slice<T__struct_50>(
-132,
-132,
+({ _in : ("-0xF00D_1E" : stdgo.GoString), _out : ("-15731998" : stdgo.GoString), _base : (0 : stdgo.GoInt), _val : (-15731998i64 : stdgo.GoInt64), _ok : true } : T__struct_49)]) : stdgo.Slice<T__struct_49>);
+var _formatTests : stdgo.Slice<T__struct_50> = (new stdgo.Slice<T__struct_50>(132, 132, ...[
 ({ _input : ("<nil>" : stdgo.GoString), _format : ("%x" : stdgo.GoString), _output : ("<nil>" : stdgo.GoString) } : T__struct_50),
 ({ _input : ("<nil>" : stdgo.GoString), _format : ("%#x" : stdgo.GoString), _output : ("<nil>" : stdgo.GoString) } : T__struct_50),
 ({ _input : ("<nil>" : stdgo.GoString), _format : ("%#y" : stdgo.GoString), _output : ("%!y(big.Int=<nil>)" : stdgo.GoString) } : T__struct_50),
@@ -783,10 +668,8 @@ var _formatTests : stdgo.Slice<T__struct_50> = (new stdgo.Slice<T__struct_50>(
 ({ _input : ("16777215" : stdgo.GoString), _format : ("%b" : stdgo.GoString), _output : ("111111111111111111111111" : stdgo.GoString) } : T__struct_50),
 ({ _input : ("0" : stdgo.GoString), _format : ("%.d" : stdgo.GoString), _output : stdgo.Go.str()?.__copy__() } : T__struct_50),
 ({ _input : ("0" : stdgo.GoString), _format : ("%.0d" : stdgo.GoString), _output : stdgo.Go.str()?.__copy__() } : T__struct_50),
-({ _input : ("0" : stdgo.GoString), _format : ("%3.d" : stdgo.GoString), _output : stdgo.Go.str()?.__copy__() } : T__struct_50)) : stdgo.Slice<T__struct_50>);
-var _scanTests : stdgo.Slice<T__struct_51> = (new stdgo.Slice<T__struct_51>(
-15,
-15,
+({ _input : ("0" : stdgo.GoString), _format : ("%3.d" : stdgo.GoString), _output : stdgo.Go.str()?.__copy__() } : T__struct_50)]) : stdgo.Slice<T__struct_50>);
+var _scanTests : stdgo.Slice<T__struct_51> = (new stdgo.Slice<T__struct_51>(15, 15, ...[
 ({ _input : ("1010" : stdgo.GoString), _format : ("%b" : stdgo.GoString), _output : ("10" : stdgo.GoString), _remaining : (0 : stdgo.GoInt) } : T__struct_51),
 ({ _input : ("0b1010" : stdgo.GoString), _format : ("%v" : stdgo.GoString), _output : ("10" : stdgo.GoString), _remaining : (0 : stdgo.GoInt) } : T__struct_51),
 ({ _input : ("12" : stdgo.GoString), _format : ("%o" : stdgo.GoString), _output : ("10" : stdgo.GoString), _remaining : (0 : stdgo.GoInt) } : T__struct_51),
@@ -801,43 +684,37 @@ var _scanTests : stdgo.Slice<T__struct_51> = (new stdgo.Slice<T__struct_51>(
 ({ _input : ("0xA" : stdgo.GoString), _format : ("%v" : stdgo.GoString), _output : ("10" : stdgo.GoString), _remaining : (0 : stdgo.GoInt) } : T__struct_51),
 ({ _input : ("0 " : stdgo.GoString), _format : ("%v" : stdgo.GoString), _output : ("0" : stdgo.GoString), _remaining : (1 : stdgo.GoInt) } : T__struct_51),
 ({ _input : ("2+3" : stdgo.GoString), _format : ("%v" : stdgo.GoString), _output : ("2" : stdgo.GoString), _remaining : (2 : stdgo.GoInt) } : T__struct_51),
-({ _input : ("0XABC 12" : stdgo.GoString), _format : ("%v" : stdgo.GoString), _output : ("2748" : stdgo.GoString), _remaining : (3 : stdgo.GoInt) } : T__struct_51)) : stdgo.Slice<T__struct_51>);
-var _encodingTests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(7, 7, ("0" : stdgo.GoString), ("1" : stdgo.GoString), ("2" : stdgo.GoString), ("10" : stdgo.GoString), ("1000" : stdgo.GoString), ("1234567890" : stdgo.GoString), ("298472983472983471903246121093472394872319615612417471234712061" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-var _cmpTests : stdgo.Slice<T__struct_52> = (new stdgo.Slice<T__struct_52>(
-14,
-14,
+({ _input : ("0XABC 12" : stdgo.GoString), _format : ("%v" : stdgo.GoString), _output : ("2748" : stdgo.GoString), _remaining : (3 : stdgo.GoInt) } : T__struct_51)]) : stdgo.Slice<T__struct_51>);
+var _encodingTests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(7, 7, ...[("0" : stdgo.GoString), ("1" : stdgo.GoString), ("2" : stdgo.GoString), ("10" : stdgo.GoString), ("1000" : stdgo.GoString), ("1234567890" : stdgo.GoString), ("298472983472983471903246121093472394872319615612417471234712061" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+var _cmpTests : stdgo.Slice<T__struct_52> = (new stdgo.Slice<T__struct_52>(14, 14, ...[
 ({ _x : null, _y : null, _r : (0 : stdgo.GoInt) } : T__struct_52),
 ({ _x : null, _y : (new stdgo._internal.math.big.Big.T_nat(0, 0) : T_nat), _r : (0 : stdgo.GoInt) } : T__struct_52),
 ({ _x : (new stdgo._internal.math.big.Big.T_nat(0, 0) : T_nat), _y : null, _r : (0 : stdgo.GoInt) } : T__struct_52),
 ({ _x : (new stdgo._internal.math.big.Big.T_nat(0, 0) : T_nat), _y : (new stdgo._internal.math.big.Big.T_nat(0, 0) : T_nat), _r : (0 : stdgo.GoInt) } : T__struct_52),
-({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _y : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _r : (0 : stdgo.GoInt) } : T__struct_52),
-({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _y : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _r : (-1 : stdgo.GoInt) } : T__struct_52),
-({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _y : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _r : (1 : stdgo.GoInt) } : T__struct_52),
-({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _y : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _r : (0 : stdgo.GoInt) } : T__struct_52),
-({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, (0u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _y : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _r : (1 : stdgo.GoInt) } : T__struct_52),
-({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _y : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, (0u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _r : (-1 : stdgo.GoInt) } : T__struct_52),
-({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, (1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _y : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, (0u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _r : (1 : stdgo.GoInt) } : T__struct_52),
-({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, (0u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _y : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, (1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _r : (-1 : stdgo.GoInt) } : T__struct_52),
-({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (16u32 : stdgo._internal.math.big.Big.Word), (571956u32 : stdgo._internal.math.big.Big.Word), (8794u32 : stdgo._internal.math.big.Big.Word), (68u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _y : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (837u32 : stdgo._internal.math.big.Big.Word), (9146u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word), (754489u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _r : (-1 : stdgo.GoInt) } : T__struct_52),
-({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (34986u32 : stdgo._internal.math.big.Big.Word), (41u32 : stdgo._internal.math.big.Big.Word), (105u32 : stdgo._internal.math.big.Big.Word), (1957u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _y : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (56u32 : stdgo._internal.math.big.Big.Word), (7458u32 : stdgo._internal.math.big.Big.Word), (104u32 : stdgo._internal.math.big.Big.Word), (1957u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _r : (1 : stdgo.GoInt) } : T__struct_52)) : stdgo.Slice<T__struct_52>);
-var _sumNN : stdgo.Slice<stdgo._internal.math.big.Big.T_argNN> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_argNN>(6, 6, (new stdgo._internal.math.big.Big.T_argNN() : stdgo._internal.math.big.Big.T_argNN), (new stdgo._internal.math.big.Big.T_argNN((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), null, (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_argNN), (new stdgo._internal.math.big.Big.T_argNN((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1111111110u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (123456789u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (987654321u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_argNN), (new stdgo._internal.math.big.Big.T_argNN((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), null, (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_argNN), (new stdgo._internal.math.big.Big.T_argNN((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (1111111110u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (123456789u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (987654321u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_argNN), (new stdgo._internal.math.big.Big.T_argNN((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_argNN)) : stdgo.Slice<stdgo._internal.math.big.Big.T_argNN>);
-var _prodNN : stdgo.Slice<stdgo._internal.math.big.Big.T_argNN> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_argNN>(
-11,
-11,
+({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _y : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _r : (0 : stdgo.GoInt) } : T__struct_52),
+({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _y : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _r : (-1 : stdgo.GoInt) } : T__struct_52),
+({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _y : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _r : (1 : stdgo.GoInt) } : T__struct_52),
+({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _y : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _r : (0 : stdgo.GoInt) } : T__struct_52),
+({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, ...[(0u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _y : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _r : (1 : stdgo.GoInt) } : T__struct_52),
+({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _y : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, ...[(0u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _r : (-1 : stdgo.GoInt) } : T__struct_52),
+({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, ...[(1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _y : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, ...[(0u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _r : (1 : stdgo.GoInt) } : T__struct_52),
+({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, ...[(0u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _y : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, ...[(1u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _r : (-1 : stdgo.GoInt) } : T__struct_52),
+({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(16u32 : stdgo._internal.math.big.Big.Word), (571956u32 : stdgo._internal.math.big.Big.Word), (8794u32 : stdgo._internal.math.big.Big.Word), (68u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _y : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(837u32 : stdgo._internal.math.big.Big.Word), (9146u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word), (754489u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _r : (-1 : stdgo.GoInt) } : T__struct_52),
+({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(34986u32 : stdgo._internal.math.big.Big.Word), (41u32 : stdgo._internal.math.big.Big.Word), (105u32 : stdgo._internal.math.big.Big.Word), (1957u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _y : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(56u32 : stdgo._internal.math.big.Big.Word), (7458u32 : stdgo._internal.math.big.Big.Word), (104u32 : stdgo._internal.math.big.Big.Word), (1957u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _r : (1 : stdgo.GoInt) } : T__struct_52)]) : stdgo.Slice<T__struct_52>);
+var _sumNN : stdgo.Slice<stdgo._internal.math.big.Big.T_argNN> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_argNN>(6, 6, ...[(new stdgo._internal.math.big.Big.T_argNN() : stdgo._internal.math.big.Big.T_argNN), (new stdgo._internal.math.big.Big.T_argNN((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), null, (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_argNN), (new stdgo._internal.math.big.Big.T_argNN((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1111111110u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(123456789u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(987654321u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_argNN), (new stdgo._internal.math.big.Big.T_argNN((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), null, (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_argNN), (new stdgo._internal.math.big.Big.T_argNN((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (1111111110u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (123456789u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (987654321u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_argNN), (new stdgo._internal.math.big.Big.T_argNN((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, ...[(0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (-1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, ...[(0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_argNN)]) : stdgo.Slice<stdgo._internal.math.big.Big.T_argNN>);
+var _prodNN : stdgo.Slice<stdgo._internal.math.big.Big.T_argNN> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_argNN>(11, 11, ...[
 (new stdgo._internal.math.big.Big.T_argNN() : stdgo._internal.math.big.Big.T_argNN),
 (new stdgo._internal.math.big.Big.T_argNN(null, null, null) : stdgo._internal.math.big.Big.T_argNN),
-(new stdgo._internal.math.big.Big.T_argNN(null, (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (991u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), null) : stdgo._internal.math.big.Big.T_argNN),
-(new stdgo._internal.math.big.Big.T_argNN((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (991u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (991u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_argNN),
-(new stdgo._internal.math.big.Big.T_argNN((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (982081u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (991u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (991u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_argNN),
-(new stdgo._internal.math.big.Big.T_argNN((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (982081u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, (0u32 : stdgo._internal.math.big.Big.Word), (991u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, (0u32 : stdgo._internal.math.big.Big.Word), (991u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_argNN),
-(new stdgo._internal.math.big.Big.T_argNN((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (991u32 : stdgo._internal.math.big.Big.Word), (1982u32 : stdgo._internal.math.big.Big.Word), (2973u32 : stdgo._internal.math.big.Big.Word), (3964u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (1u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word), (3u32 : stdgo._internal.math.big.Big.Word), (4u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (991u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_argNN),
-(new stdgo._internal.math.big.Big.T_argNN((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, (4u32 : stdgo._internal.math.big.Big.Word), (11u32 : stdgo._internal.math.big.Big.Word), (20u32 : stdgo._internal.math.big.Big.Word), (30u32 : stdgo._internal.math.big.Big.Word), (20u32 : stdgo._internal.math.big.Big.Word), (11u32 : stdgo._internal.math.big.Big.Word), (4u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (1u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word), (3u32 : stdgo._internal.math.big.Big.Word), (4u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (4u32 : stdgo._internal.math.big.Big.Word), (3u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_argNN),
+(new stdgo._internal.math.big.Big.T_argNN(null, (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(991u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), null) : stdgo._internal.math.big.Big.T_argNN),
+(new stdgo._internal.math.big.Big.T_argNN((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(991u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(991u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_argNN),
+(new stdgo._internal.math.big.Big.T_argNN((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(982081u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(991u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(991u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_argNN),
+(new stdgo._internal.math.big.Big.T_argNN((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, ...[(0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (982081u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, ...[(0u32 : stdgo._internal.math.big.Big.Word), (991u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, ...[(0u32 : stdgo._internal.math.big.Big.Word), (991u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_argNN),
+(new stdgo._internal.math.big.Big.T_argNN((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(991u32 : stdgo._internal.math.big.Big.Word), (1982u32 : stdgo._internal.math.big.Big.Word), (2973u32 : stdgo._internal.math.big.Big.Word), (3964u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(1u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word), (3u32 : stdgo._internal.math.big.Big.Word), (4u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(991u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_argNN),
+(new stdgo._internal.math.big.Big.T_argNN((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(7, 7, ...[(4u32 : stdgo._internal.math.big.Big.Word), (11u32 : stdgo._internal.math.big.Big.Word), (20u32 : stdgo._internal.math.big.Big.Word), (30u32 : stdgo._internal.math.big.Big.Word), (20u32 : stdgo._internal.math.big.Big.Word), (11u32 : stdgo._internal.math.big.Big.Word), (4u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(1u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word), (3u32 : stdgo._internal.math.big.Big.Word), (4u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(4u32 : stdgo._internal.math.big.Big.Word), (3u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_argNN),
 (new stdgo._internal.math.big.Big.T_argNN(_natFromString(("11790184577738583171520872861412518665678211592275841109096961" : stdgo.GoString)), _natFromString(("515377520732011331036461129765621272702107522001" : stdgo.GoString)), _natFromString(("22876792454961" : stdgo.GoString))) : stdgo._internal.math.big.Big.T_argNN),
 (new stdgo._internal.math.big.Big.T_argNN(_natFromString(stdgo._internal.strings.Strings.repeat(("1" : stdgo.GoString), (70000 : stdgo.GoInt))?.__copy__()), _natFromString((("1" : stdgo.GoString) + stdgo._internal.strings.Strings.repeat((stdgo._internal.strings.Strings.repeat(("0" : stdgo.GoString), (699 : stdgo.GoInt)) + ("1" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), (99 : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__()), _natFromString(stdgo._internal.strings.Strings.repeat(("1" : stdgo.GoString), (700 : stdgo.GoInt))?.__copy__())) : stdgo._internal.math.big.Big.T_argNN),
-(new stdgo._internal.math.big.Big.T_argNN(_natFromString(stdgo._internal.strings.Strings.repeat(("1" : stdgo.GoString), (20000 : stdgo.GoInt))?.__copy__()), _natFromString(((("1" : stdgo.GoString) + stdgo._internal.strings.Strings.repeat(("0" : stdgo.GoString), (9999 : stdgo.GoInt))?.__copy__() : stdgo.GoString) + ("1" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()), _natFromString(stdgo._internal.strings.Strings.repeat(("1" : stdgo.GoString), (10000 : stdgo.GoInt))?.__copy__())) : stdgo._internal.math.big.Big.T_argNN)) : stdgo.Slice<stdgo._internal.math.big.Big.T_argNN>);
-var _mulRangesN : stdgo.Slice<T__struct_53> = (new stdgo.Slice<T__struct_53>(
-12,
-12,
+(new stdgo._internal.math.big.Big.T_argNN(_natFromString(stdgo._internal.strings.Strings.repeat(("1" : stdgo.GoString), (20000 : stdgo.GoInt))?.__copy__()), _natFromString(((("1" : stdgo.GoString) + stdgo._internal.strings.Strings.repeat(("0" : stdgo.GoString), (9999 : stdgo.GoInt))?.__copy__() : stdgo.GoString) + ("1" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()), _natFromString(stdgo._internal.strings.Strings.repeat(("1" : stdgo.GoString), (10000 : stdgo.GoInt))?.__copy__())) : stdgo._internal.math.big.Big.T_argNN)]) : stdgo.Slice<stdgo._internal.math.big.Big.T_argNN>);
+var _mulRangesN : stdgo.Slice<T__struct_53> = (new stdgo.Slice<T__struct_53>(12, 12, ...[
 ({ _a : (0i64 : stdgo.GoUInt64), _b : (0i64 : stdgo.GoUInt64), _prod : ("0" : stdgo.GoString) } : T__struct_53),
 ({ _a : (1i64 : stdgo.GoUInt64), _b : (1i64 : stdgo.GoUInt64), _prod : ("1" : stdgo.GoString) } : T__struct_53),
 ({ _a : (1i64 : stdgo.GoUInt64), _b : (2i64 : stdgo.GoUInt64), _prod : ("2" : stdgo.GoString) } : T__struct_53),
@@ -849,16 +726,14 @@ var _mulRangesN : stdgo.Slice<T__struct_53> = (new stdgo.Slice<T__struct_53>(
 ({ _a : (100i64 : stdgo.GoUInt64), _b : (1i64 : stdgo.GoUInt64), _prod : ("1" : stdgo.GoString) } : T__struct_53),
 ({ _a : (1i64 : stdgo.GoUInt64), _b : (10i64 : stdgo.GoUInt64), _prod : ("3628800" : stdgo.GoString) } : T__struct_53),
 ({ _a : (1i64 : stdgo.GoUInt64), _b : (20i64 : stdgo.GoUInt64), _prod : ("2432902008176640000" : stdgo.GoString) } : T__struct_53),
-({ _a : (1i64 : stdgo.GoUInt64), _b : (100i64 : stdgo.GoUInt64), _prod : ("93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000" : stdgo.GoString) } : T__struct_53)) : stdgo.Slice<T__struct_53>);
-var _mulBenchSizes : stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(5, 5, (10 : stdgo.GoInt), (100 : stdgo.GoInt), (1000 : stdgo.GoInt), (10000 : stdgo.GoInt), (100000 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
-var _leftShiftTests : stdgo.Slice<stdgo._internal.math.big.Big.T_shiftTest> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_shiftTest>(6, 6, (new stdgo._internal.math.big.Big.T_shiftTest(null, (0u32 : stdgo.GoUInt), null) : stdgo._internal.math.big.Big.T_shiftTest), (new stdgo._internal.math.big.Big.T_shiftTest(null, (1u32 : stdgo.GoUInt), null) : stdgo._internal.math.big.Big.T_shiftTest), (new stdgo._internal.math.big.Big.T_shiftTest(_natOne, (0u32 : stdgo.GoUInt), _natOne) : stdgo._internal.math.big.Big.T_shiftTest), (new stdgo._internal.math.big.Big.T_shiftTest(_natOne, (1u32 : stdgo.GoUInt), _natTwo) : stdgo._internal.math.big.Big.T_shiftTest), (new stdgo._internal.math.big.Big.T_shiftTest((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-2147483648u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_shiftTest), (new stdgo._internal.math.big.Big.T_shiftTest((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, (-2147483648u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, (0u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_shiftTest)) : stdgo.Slice<stdgo._internal.math.big.Big.T_shiftTest>);
-var _rightShiftTests : stdgo.Slice<stdgo._internal.math.big.Big.T_shiftTest> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_shiftTest>(7, 7, (new stdgo._internal.math.big.Big.T_shiftTest(null, (0u32 : stdgo.GoUInt), null) : stdgo._internal.math.big.Big.T_shiftTest), (new stdgo._internal.math.big.Big.T_shiftTest(null, (1u32 : stdgo.GoUInt), null) : stdgo._internal.math.big.Big.T_shiftTest), (new stdgo._internal.math.big.Big.T_shiftTest(_natOne, (0u32 : stdgo.GoUInt), _natOne) : stdgo._internal.math.big.Big.T_shiftTest), (new stdgo._internal.math.big.Big.T_shiftTest(_natOne, (1u32 : stdgo.GoUInt), null) : stdgo._internal.math.big.Big.T_shiftTest), (new stdgo._internal.math.big.Big.T_shiftTest(_natTwo, (1u32 : stdgo.GoUInt), _natOne) : stdgo._internal.math.big.Big.T_shiftTest), (new stdgo._internal.math.big.Big.T_shiftTest((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, (0u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-2147483648u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_shiftTest), (new stdgo._internal.math.big.Big.T_shiftTest((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, (2u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, (-2147483647u32 : stdgo._internal.math.big.Big.Word), (-2147483648u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_shiftTest)) : stdgo.Slice<stdgo._internal.math.big.Big.T_shiftTest>);
-var _modWTests32 : stdgo.Slice<stdgo._internal.math.big.Big.T_modWTest> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_modWTest>(1, 1, (new stdgo._internal.math.big.Big.T_modWTest(("23492635982634928349238759823742" : stdgo.GoString), ("252341" : stdgo.GoString), ("220170" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_modWTest)) : stdgo.Slice<stdgo._internal.math.big.Big.T_modWTest>);
-var _modWTests64 : stdgo.Slice<stdgo._internal.math.big.Big.T_modWTest> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_modWTest>(1, 1, (new stdgo._internal.math.big.Big.T_modWTest(("6527895462947293856291561095690465243862946" : stdgo.GoString), ("524326975699234" : stdgo.GoString), ("375066989628668" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_modWTest)) : stdgo.Slice<stdgo._internal.math.big.Big.T_modWTest>);
-var _montgomeryTests : stdgo.Slice<T__struct_54> = (new stdgo.Slice<T__struct_54>(8, 8, ({ _x : ("0xffffffffffffffffffffffffffffffffffffffffffffffffe" : stdgo.GoString), _y : ("0xffffffffffffffffffffffffffffffffffffffffffffffffe" : stdgo.GoString), _m : ("0xfffffffffffffffffffffffffffffffffffffffffffffffff" : stdgo.GoString), _k0 : (1i64 : stdgo.GoUInt64), _out32 : ("0x1000000000000000000000000000000000000000000" : stdgo.GoString), _out64 : ("0x10000000000000000000000000000000000" : stdgo.GoString) } : T__struct_54), ({ _x : ("0x000000000ffffff5" : stdgo.GoString), _y : ("0x000000000ffffff0" : stdgo.GoString), _m : ("0x0000000010000001" : stdgo.GoString), _k0 : (-72057593769492481i64 : stdgo.GoUInt64), _out32 : ("0x000000000bfffff4" : stdgo.GoString), _out64 : ("0x0000000003400001" : stdgo.GoString) } : T__struct_54), ({ _x : ("0x0000000080000000" : stdgo.GoString), _y : ("0x00000000ffffffff" : stdgo.GoString), _m : ("0x1000000000000001" : stdgo.GoString), _k0 : (1152921504606846975i64 : stdgo.GoUInt64), _out32 : ("0x0800000008000001" : stdgo.GoString), _out64 : ("0x0800000008000001" : stdgo.GoString) } : T__struct_54), ({ _x : ("0x0000000080000000" : stdgo.GoString), _y : ("0x0000000080000000" : stdgo.GoString), _m : ("0xffffffff00000001" : stdgo.GoString), _k0 : (-4294967297i64 : stdgo.GoUInt64), _out32 : ("0xbfffffff40000001" : stdgo.GoString), _out64 : ("0xbfffffff40000001" : stdgo.GoString) } : T__struct_54), ({ _x : ("0x0000000080000000" : stdgo.GoString), _y : ("0x0000000080000000" : stdgo.GoString), _m : ("0x00ffffff00000001" : stdgo.GoString), _k0 : (72057589742960639i64 : stdgo.GoUInt64), _out32 : ("0xbfffff40000001" : stdgo.GoString), _out64 : ("0xbfffff40000001" : stdgo.GoString) } : T__struct_54), ({ _x : ("0x0000000080000000" : stdgo.GoString), _y : ("0x0000000080000000" : stdgo.GoString), _m : ("0x0000ffff00000001" : stdgo.GoString), _k0 : (281470681743359i64 : stdgo.GoUInt64), _out32 : ("0xbfff40000001" : stdgo.GoString), _out64 : ("0xbfff40000001" : stdgo.GoString) } : T__struct_54), ({ _x : ("0x3321ffffffffffffffffffffffffffff00000000000022222623333333332bbbb888c0" : stdgo.GoString), _y : ("0x3321ffffffffffffffffffffffffffff00000000000022222623333333332bbbb888c0" : stdgo.GoString), _m : ("0x33377fffffffffffffffffffffffffffffffffffffffffffff0000000000022222eee1" : stdgo.GoString), _k0 : (-2392379993335190817i64 : stdgo.GoUInt64), _out32 : ("0x04eb0e11d72329dc0915f86784820fc403275bf2f6620a20e0dd344c5cd0875e50deb5" : stdgo.GoString), _out64 : ("0x0d7144739a7d8e11d72329dc0915f86784820fc403275bf2f61ed96f35dd34dbb3d6a0" : stdgo.GoString) } : T__struct_54), ({ _x : ("0x10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000022222223333333333444444444" : stdgo.GoString), _y : ("0x10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffff999999999999999aaabbbbbbbbcccccccccccc" : stdgo.GoString), _m : ("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff33377fffffffffffffffffffffffffffffffffffffffffffff0000000000022222eee1" : stdgo.GoString), _k0 : (-2392379993335190817i64 : stdgo.GoUInt64), _out32 : ("0x5c0d52f451aec609b15da8e5e5626c4eaa88723bdeac9d25ca9b961269400410ca208a16af9c2fb07d7a11c7772cba02c22f9711078d51a3797eb18e691295293284d988e349fa6deba46b25a4ecd9f715" : stdgo.GoString), _out64 : ("0x92fcad4b5c0d52f451aec609b15da8e5e5626c4eaa88723bdeac9d25ca9b961269400410ca208a16af9c2fb07d799c32fe2f3cc5422f9711078d51a3797eb18e691295293284d8f5e69caf6decddfe1df6" : stdgo.GoString) } : T__struct_54)) : stdgo.Slice<T__struct_54>);
-var _expNNTests : stdgo.Slice<T__struct_39> = (new stdgo.Slice<T__struct_39>(
-19,
-19,
+({ _a : (1i64 : stdgo.GoUInt64), _b : (100i64 : stdgo.GoUInt64), _prod : ("93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000" : stdgo.GoString) } : T__struct_53)]) : stdgo.Slice<T__struct_53>);
+var _mulBenchSizes : stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(5, 5, ...[(10 : stdgo.GoInt), (100 : stdgo.GoInt), (1000 : stdgo.GoInt), (10000 : stdgo.GoInt), (100000 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
+var _leftShiftTests : stdgo.Slice<stdgo._internal.math.big.Big.T_shiftTest> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_shiftTest>(6, 6, ...[(new stdgo._internal.math.big.Big.T_shiftTest(null, (0u32 : stdgo.GoUInt), null) : stdgo._internal.math.big.Big.T_shiftTest), (new stdgo._internal.math.big.Big.T_shiftTest(null, (1u32 : stdgo.GoUInt), null) : stdgo._internal.math.big.Big.T_shiftTest), (new stdgo._internal.math.big.Big.T_shiftTest(_natOne, (0u32 : stdgo.GoUInt), _natOne) : stdgo._internal.math.big.Big.T_shiftTest), (new stdgo._internal.math.big.Big.T_shiftTest(_natOne, (1u32 : stdgo.GoUInt), _natTwo) : stdgo._internal.math.big.Big.T_shiftTest), (new stdgo._internal.math.big.Big.T_shiftTest((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-2147483648u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_shiftTest), (new stdgo._internal.math.big.Big.T_shiftTest((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, ...[(-2147483648u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, ...[(0u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_shiftTest)]) : stdgo.Slice<stdgo._internal.math.big.Big.T_shiftTest>);
+var _rightShiftTests : stdgo.Slice<stdgo._internal.math.big.Big.T_shiftTest> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_shiftTest>(7, 7, ...[(new stdgo._internal.math.big.Big.T_shiftTest(null, (0u32 : stdgo.GoUInt), null) : stdgo._internal.math.big.Big.T_shiftTest), (new stdgo._internal.math.big.Big.T_shiftTest(null, (1u32 : stdgo.GoUInt), null) : stdgo._internal.math.big.Big.T_shiftTest), (new stdgo._internal.math.big.Big.T_shiftTest(_natOne, (0u32 : stdgo.GoUInt), _natOne) : stdgo._internal.math.big.Big.T_shiftTest), (new stdgo._internal.math.big.Big.T_shiftTest(_natOne, (1u32 : stdgo.GoUInt), null) : stdgo._internal.math.big.Big.T_shiftTest), (new stdgo._internal.math.big.Big.T_shiftTest(_natTwo, (1u32 : stdgo.GoUInt), _natOne) : stdgo._internal.math.big.Big.T_shiftTest), (new stdgo._internal.math.big.Big.T_shiftTest((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, ...[(0u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-2147483648u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_shiftTest), (new stdgo._internal.math.big.Big.T_shiftTest((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, ...[(2u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (1u32 : stdgo.GoUInt), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, ...[(-2147483647u32 : stdgo._internal.math.big.Big.Word), (-2147483648u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.T_shiftTest)]) : stdgo.Slice<stdgo._internal.math.big.Big.T_shiftTest>);
+var _modWTests32 : stdgo.Slice<stdgo._internal.math.big.Big.T_modWTest> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_modWTest>(1, 1, ...[(new stdgo._internal.math.big.Big.T_modWTest(("23492635982634928349238759823742" : stdgo.GoString), ("252341" : stdgo.GoString), ("220170" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_modWTest)]) : stdgo.Slice<stdgo._internal.math.big.Big.T_modWTest>);
+var _modWTests64 : stdgo.Slice<stdgo._internal.math.big.Big.T_modWTest> = (new stdgo.Slice<stdgo._internal.math.big.Big.T_modWTest>(1, 1, ...[(new stdgo._internal.math.big.Big.T_modWTest(("6527895462947293856291561095690465243862946" : stdgo.GoString), ("524326975699234" : stdgo.GoString), ("375066989628668" : stdgo.GoString)) : stdgo._internal.math.big.Big.T_modWTest)]) : stdgo.Slice<stdgo._internal.math.big.Big.T_modWTest>);
+var _montgomeryTests : stdgo.Slice<T__struct_54> = (new stdgo.Slice<T__struct_54>(8, 8, ...[({ _x : ("0xffffffffffffffffffffffffffffffffffffffffffffffffe" : stdgo.GoString), _y : ("0xffffffffffffffffffffffffffffffffffffffffffffffffe" : stdgo.GoString), _m : ("0xfffffffffffffffffffffffffffffffffffffffffffffffff" : stdgo.GoString), _k0 : (1i64 : stdgo.GoUInt64), _out32 : ("0x1000000000000000000000000000000000000000000" : stdgo.GoString), _out64 : ("0x10000000000000000000000000000000000" : stdgo.GoString) } : T__struct_54), ({ _x : ("0x000000000ffffff5" : stdgo.GoString), _y : ("0x000000000ffffff0" : stdgo.GoString), _m : ("0x0000000010000001" : stdgo.GoString), _k0 : (-72057593769492481i64 : stdgo.GoUInt64), _out32 : ("0x000000000bfffff4" : stdgo.GoString), _out64 : ("0x0000000003400001" : stdgo.GoString) } : T__struct_54), ({ _x : ("0x0000000080000000" : stdgo.GoString), _y : ("0x00000000ffffffff" : stdgo.GoString), _m : ("0x1000000000000001" : stdgo.GoString), _k0 : (1152921504606846975i64 : stdgo.GoUInt64), _out32 : ("0x0800000008000001" : stdgo.GoString), _out64 : ("0x0800000008000001" : stdgo.GoString) } : T__struct_54), ({ _x : ("0x0000000080000000" : stdgo.GoString), _y : ("0x0000000080000000" : stdgo.GoString), _m : ("0xffffffff00000001" : stdgo.GoString), _k0 : (-4294967297i64 : stdgo.GoUInt64), _out32 : ("0xbfffffff40000001" : stdgo.GoString), _out64 : ("0xbfffffff40000001" : stdgo.GoString) } : T__struct_54), ({ _x : ("0x0000000080000000" : stdgo.GoString), _y : ("0x0000000080000000" : stdgo.GoString), _m : ("0x00ffffff00000001" : stdgo.GoString), _k0 : (72057589742960639i64 : stdgo.GoUInt64), _out32 : ("0xbfffff40000001" : stdgo.GoString), _out64 : ("0xbfffff40000001" : stdgo.GoString) } : T__struct_54), ({ _x : ("0x0000000080000000" : stdgo.GoString), _y : ("0x0000000080000000" : stdgo.GoString), _m : ("0x0000ffff00000001" : stdgo.GoString), _k0 : (281470681743359i64 : stdgo.GoUInt64), _out32 : ("0xbfff40000001" : stdgo.GoString), _out64 : ("0xbfff40000001" : stdgo.GoString) } : T__struct_54), ({ _x : ("0x3321ffffffffffffffffffffffffffff00000000000022222623333333332bbbb888c0" : stdgo.GoString), _y : ("0x3321ffffffffffffffffffffffffffff00000000000022222623333333332bbbb888c0" : stdgo.GoString), _m : ("0x33377fffffffffffffffffffffffffffffffffffffffffffff0000000000022222eee1" : stdgo.GoString), _k0 : (-2392379993335190817i64 : stdgo.GoUInt64), _out32 : ("0x04eb0e11d72329dc0915f86784820fc403275bf2f6620a20e0dd344c5cd0875e50deb5" : stdgo.GoString), _out64 : ("0x0d7144739a7d8e11d72329dc0915f86784820fc403275bf2f61ed96f35dd34dbb3d6a0" : stdgo.GoString) } : T__struct_54), ({ _x : ("0x10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000022222223333333333444444444" : stdgo.GoString), _y : ("0x10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffff999999999999999aaabbbbbbbbcccccccccccc" : stdgo.GoString), _m : ("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff33377fffffffffffffffffffffffffffffffffffffffffffff0000000000022222eee1" : stdgo.GoString), _k0 : (-2392379993335190817i64 : stdgo.GoUInt64), _out32 : ("0x5c0d52f451aec609b15da8e5e5626c4eaa88723bdeac9d25ca9b961269400410ca208a16af9c2fb07d7a11c7772cba02c22f9711078d51a3797eb18e691295293284d988e349fa6deba46b25a4ecd9f715" : stdgo.GoString), _out64 : ("0x92fcad4b5c0d52f451aec609b15da8e5e5626c4eaa88723bdeac9d25ca9b961269400410ca208a16af9c2fb07d799c32fe2f3cc5422f9711078d51a3797eb18e691295293284d8f5e69caf6decddfe1df6" : stdgo.GoString) } : T__struct_54)]) : stdgo.Slice<T__struct_54>);
+var _expNNTests : stdgo.Slice<T__struct_39> = (new stdgo.Slice<T__struct_39>(19, 19, ...[
 ({ _x : ("0" : stdgo.GoString), _y : ("0" : stdgo.GoString), _m : ("0" : stdgo.GoString), _out : ("1" : stdgo.GoString) } : T__struct_39),
 ({ _x : ("0" : stdgo.GoString), _y : ("0" : stdgo.GoString), _m : ("1" : stdgo.GoString), _out : ("0" : stdgo.GoString) } : T__struct_39),
 ({ _x : ("1" : stdgo.GoString), _y : ("1" : stdgo.GoString), _m : ("1" : stdgo.GoString), _out : ("0" : stdgo.GoString) } : T__struct_39),
@@ -877,10 +752,8 @@ var _expNNTests : stdgo.Slice<T__struct_39> = (new stdgo.Slice<T__struct_39>(
 ({ _x : ("0" : stdgo.GoString), _y : ("0x40000000000000" : stdgo.GoString), _m : ("0x200" : stdgo.GoString), _out : ("0" : stdgo.GoString) } : T__struct_39),
 ({ _x : ("0xeffffff900002f00" : stdgo.GoString), _y : ("0x40000000000000" : stdgo.GoString), _m : ("0x200" : stdgo.GoString), _out : ("0" : stdgo.GoString) } : T__struct_39),
 ({ _x : ("5" : stdgo.GoString), _y : ("1435700818" : stdgo.GoString), _m : ("72" : stdgo.GoString), _out : ("49" : stdgo.GoString) } : T__struct_39),
-({ _x : ("0xffff" : stdgo.GoString), _y : ("0x300030003000300030003000300030003000302a3000300030003000300030003000300030003000300030003000300030003030623066307f3030783062303430383064303630343036" : stdgo.GoString), _m : ("0x300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" : stdgo.GoString), _out : ("0xa3f94c08b0b90e87af637cacc9383f7ea032352b8961fc036a52b659b6c9b33491b335ffd74c927f64ddd62cfca0001" : stdgo.GoString) } : T__struct_39)) : stdgo.Slice<T__struct_39>);
-var _fiboNums : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
-11,
-11,
+({ _x : ("0xffff" : stdgo.GoString), _y : ("0x300030003000300030003000300030003000302a3000300030003000300030003000300030003000300030003000300030003030623066307f3030783062303430383064303630343036" : stdgo.GoString), _m : ("0x300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" : stdgo.GoString), _out : ("0xa3f94c08b0b90e87af637cacc9383f7ea032352b8961fc036a52b659b6c9b33491b335ffd74c927f64ddd62cfca0001" : stdgo.GoString) } : T__struct_39)]) : stdgo.Slice<T__struct_39>);
+var _fiboNums : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(11, 11, ...[
 ("0" : stdgo.GoString),
 ("55" : stdgo.GoString),
 ("6765" : stdgo.GoString),
@@ -891,10 +764,8 @@ var _fiboNums : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
 ("190392490709135" : stdgo.GoString),
 ("23416728348467685" : stdgo.GoString),
 ("2880067194370816120" : stdgo.GoString),
-("354224848179261915075" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-var _bitTests : stdgo.Slice<T__struct_55> = (new stdgo.Slice<T__struct_55>(
-15,
-15,
+("354224848179261915075" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+var _bitTests : stdgo.Slice<T__struct_55> = (new stdgo.Slice<T__struct_55>(15, 15, ...[
 ({ _x : ("0" : stdgo.GoString), _i : (0u32 : stdgo.GoUInt), _want : (0u32 : stdgo.GoUInt) } : T__struct_55),
 ({ _x : ("0" : stdgo.GoString), _i : (1u32 : stdgo.GoUInt), _want : (0u32 : stdgo.GoUInt) } : T__struct_55),
 ({ _x : ("0" : stdgo.GoString), _i : (1000u32 : stdgo.GoUInt), _want : (0u32 : stdgo.GoUInt) } : T__struct_55),
@@ -909,10 +780,8 @@ var _bitTests : stdgo.Slice<T__struct_55> = (new stdgo.Slice<T__struct_55>(
 ({ _x : (("0x3" : stdgo.GoString) + stdgo._internal.strings.Strings.repeat(("0" : stdgo.GoString), (32 : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__(), _i : (127u32 : stdgo.GoUInt), _want : (0u32 : stdgo.GoUInt) } : T__struct_55),
 ({ _x : (("0x3" : stdgo.GoString) + stdgo._internal.strings.Strings.repeat(("0" : stdgo.GoString), (32 : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__(), _i : (128u32 : stdgo.GoUInt), _want : (1u32 : stdgo.GoUInt) } : T__struct_55),
 ({ _x : (("0x3" : stdgo.GoString) + stdgo._internal.strings.Strings.repeat(("0" : stdgo.GoString), (32 : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__(), _i : (129u32 : stdgo.GoUInt), _want : (1u32 : stdgo.GoUInt) } : T__struct_55),
-({ _x : (("0x3" : stdgo.GoString) + stdgo._internal.strings.Strings.repeat(("0" : stdgo.GoString), (32 : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__(), _i : (130u32 : stdgo.GoUInt), _want : (0u32 : stdgo.GoUInt) } : T__struct_55)) : stdgo.Slice<T__struct_55>);
-var _stickyTests : stdgo.Slice<T__struct_55> = (new stdgo.Slice<T__struct_55>(
-12,
-12,
+({ _x : (("0x3" : stdgo.GoString) + stdgo._internal.strings.Strings.repeat(("0" : stdgo.GoString), (32 : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__(), _i : (130u32 : stdgo.GoUInt), _want : (0u32 : stdgo.GoUInt) } : T__struct_55)]) : stdgo.Slice<T__struct_55>);
+var _stickyTests : stdgo.Slice<T__struct_55> = (new stdgo.Slice<T__struct_55>(12, 12, ...[
 ({ _x : ("0" : stdgo.GoString), _i : (0u32 : stdgo.GoUInt), _want : (0u32 : stdgo.GoUInt) } : T__struct_55),
 ({ _x : ("0" : stdgo.GoString), _i : (1u32 : stdgo.GoUInt), _want : (0u32 : stdgo.GoUInt) } : T__struct_55),
 ({ _x : ("0" : stdgo.GoString), _i : (1000u32 : stdgo.GoUInt), _want : (0u32 : stdgo.GoUInt) } : T__struct_55),
@@ -924,10 +793,8 @@ var _stickyTests : stdgo.Slice<T__struct_55> = (new stdgo.Slice<T__struct_55>(
 ({ _x : ("0x8000000000000000" : stdgo.GoString), _i : (63u32 : stdgo.GoUInt), _want : (0u32 : stdgo.GoUInt) } : T__struct_55),
 ({ _x : ("0x8000000000000000" : stdgo.GoString), _i : (64u32 : stdgo.GoUInt), _want : (1u32 : stdgo.GoUInt) } : T__struct_55),
 ({ _x : (("0x1" : stdgo.GoString) + stdgo._internal.strings.Strings.repeat(("0" : stdgo.GoString), (100 : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__(), _i : (400u32 : stdgo.GoUInt), _want : (0u32 : stdgo.GoUInt) } : T__struct_55),
-({ _x : (("0x1" : stdgo.GoString) + stdgo._internal.strings.Strings.repeat(("0" : stdgo.GoString), (100 : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__(), _i : (401u32 : stdgo.GoUInt), _want : (1u32 : stdgo.GoUInt) } : T__struct_55)) : stdgo.Slice<T__struct_55>);
-var _sqrBenchSizes : stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(
-18,
-18,
+({ _x : (("0x1" : stdgo.GoString) + stdgo._internal.strings.Strings.repeat(("0" : stdgo.GoString), (100 : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__(), _i : (401u32 : stdgo.GoUInt), _want : (1u32 : stdgo.GoUInt) } : T__struct_55)]) : stdgo.Slice<T__struct_55>);
+var _sqrBenchSizes : stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(18, 18, ...[
 (1 : stdgo.GoInt),
 (2 : stdgo.GoInt),
 (3 : stdgo.GoInt),
@@ -945,24 +812,10 @@ var _sqrBenchSizes : stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(
 (800 : stdgo.GoInt),
 (1000 : stdgo.GoInt),
 (10000 : stdgo.GoInt),
-(100000 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
-var _subMod2NTests : stdgo.Slice<T__struct_56> = (new stdgo.Slice<T__struct_56>(7, 7, ({ _x : ("1" : stdgo.GoString), _y : ("2" : stdgo.GoString), _n : (0u32 : stdgo.GoUInt), _z : ("0" : stdgo.GoString) } : T__struct_56), ({ _x : ("1" : stdgo.GoString), _y : ("0" : stdgo.GoString), _n : (1u32 : stdgo.GoUInt), _z : ("1" : stdgo.GoString) } : T__struct_56), ({ _x : ("0" : stdgo.GoString), _y : ("1" : stdgo.GoString), _n : (1u32 : stdgo.GoUInt), _z : ("1" : stdgo.GoString) } : T__struct_56), ({ _x : ("3" : stdgo.GoString), _y : ("5" : stdgo.GoString), _n : (3u32 : stdgo.GoUInt), _z : ("6" : stdgo.GoString) } : T__struct_56), ({ _x : ("5" : stdgo.GoString), _y : ("3" : stdgo.GoString), _n : (3u32 : stdgo.GoUInt), _z : ("2" : stdgo.GoString) } : T__struct_56), ({ _x : ("36893488147419103232" : stdgo.GoString), _y : ("73786976294838206463" : stdgo.GoString), _n : (67u32 : stdgo.GoUInt), _z : ("110680464442257309697" : stdgo.GoString) } : T__struct_56), ({ _x : ("73786976294838206463" : stdgo.GoString), _y : ("36893488147419103232" : stdgo.GoString), _n : (67u32 : stdgo.GoUInt), _z : ("36893488147419103231" : stdgo.GoString) } : T__struct_56)) : stdgo.Slice<T__struct_56>);
-var _strTests : stdgo.Slice<T__struct_58> = (new stdgo.Slice<T__struct_58>(
-10,
-10,
-({ _x : null, _b : (2 : stdgo.GoInt), _s : ("0" : stdgo.GoString) } : T__struct_58),
-({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (2 : stdgo.GoInt), _s : ("1" : stdgo.GoString) } : T__struct_58),
-({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (197u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (2 : stdgo.GoInt), _s : ("11000101" : stdgo.GoString) } : T__struct_58),
-({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1721u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _s : ("3271" : stdgo.GoString) } : T__struct_58),
-({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (10u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _s : ("10" : stdgo.GoString) } : T__struct_58),
-({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1234567890u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _s : ("1234567890" : stdgo.GoString) } : T__struct_58),
-({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-559038737u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (16 : stdgo.GoInt), _s : ("deadbeef" : stdgo.GoString) } : T__struct_58),
-({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (2268135u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (17 : stdgo.GoInt), _s : ("1a2b3c" : stdgo.GoString) } : T__struct_58),
-({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (815162342u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (32 : stdgo.GoInt), _s : ("o9cov6" : stdgo.GoString) } : T__struct_58),
-({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (815162342u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (62 : stdgo.GoInt), _s : ("TakXI" : stdgo.GoString) } : T__struct_58)) : stdgo.Slice<T__struct_58>);
-var _natScanTests : stdgo.Slice<T__struct_59> = (new stdgo.Slice<T__struct_59>(
-96,
-96,
+(100000 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
+var _subMod2NTests : stdgo.Slice<T__struct_56> = (new stdgo.Slice<T__struct_56>(7, 7, ...[({ _x : ("1" : stdgo.GoString), _y : ("2" : stdgo.GoString), _n : (0u32 : stdgo.GoUInt), _z : ("0" : stdgo.GoString) } : T__struct_56), ({ _x : ("1" : stdgo.GoString), _y : ("0" : stdgo.GoString), _n : (1u32 : stdgo.GoUInt), _z : ("1" : stdgo.GoString) } : T__struct_56), ({ _x : ("0" : stdgo.GoString), _y : ("1" : stdgo.GoString), _n : (1u32 : stdgo.GoUInt), _z : ("1" : stdgo.GoString) } : T__struct_56), ({ _x : ("3" : stdgo.GoString), _y : ("5" : stdgo.GoString), _n : (3u32 : stdgo.GoUInt), _z : ("6" : stdgo.GoString) } : T__struct_56), ({ _x : ("5" : stdgo.GoString), _y : ("3" : stdgo.GoString), _n : (3u32 : stdgo.GoUInt), _z : ("2" : stdgo.GoString) } : T__struct_56), ({ _x : ("36893488147419103232" : stdgo.GoString), _y : ("73786976294838206463" : stdgo.GoString), _n : (67u32 : stdgo.GoUInt), _z : ("110680464442257309697" : stdgo.GoString) } : T__struct_56), ({ _x : ("73786976294838206463" : stdgo.GoString), _y : ("36893488147419103232" : stdgo.GoString), _n : (67u32 : stdgo.GoUInt), _z : ("36893488147419103231" : stdgo.GoString) } : T__struct_56)]) : stdgo.Slice<T__struct_56>);
+var _strTests : stdgo.Slice<T__struct_58> = (new stdgo.Slice<T__struct_58>(10, 10, ...[({ _x : null, _b : (2 : stdgo.GoInt), _s : ("0" : stdgo.GoString) } : T__struct_58), ({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (2 : stdgo.GoInt), _s : ("1" : stdgo.GoString) } : T__struct_58), ({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(197u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (2 : stdgo.GoInt), _s : ("11000101" : stdgo.GoString) } : T__struct_58), ({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1721u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _s : ("3271" : stdgo.GoString) } : T__struct_58), ({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(10u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _s : ("10" : stdgo.GoString) } : T__struct_58), ({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1234567890u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _s : ("1234567890" : stdgo.GoString) } : T__struct_58), ({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-559038737u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (16 : stdgo.GoInt), _s : ("deadbeef" : stdgo.GoString) } : T__struct_58), ({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(2268135u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (17 : stdgo.GoInt), _s : ("1a2b3c" : stdgo.GoString) } : T__struct_58), ({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(815162342u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (32 : stdgo.GoInt), _s : ("o9cov6" : stdgo.GoString) } : T__struct_58), ({ _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(815162342u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (62 : stdgo.GoInt), _s : ("TakXI" : stdgo.GoString) } : T__struct_58)]) : stdgo.Slice<T__struct_58>);
+var _natScanTests : stdgo.Slice<T__struct_59> = (new stdgo.Slice<T__struct_59>(96, 96, ...[
 ({ _s : stdgo.Go.str()?.__copy__(), _base : (0 : stdgo.GoInt), _frac : false, _x : null, _b : (10 : stdgo.GoInt), _count : (0 : stdgo.GoInt), _err : _errNoDigits, _next : (0 : stdgo.GoInt32) } : T__struct_59),
 ({ _s : ("_" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : null, _b : (10 : stdgo.GoInt), _count : (0 : stdgo.GoInt), _err : _errNoDigits, _next : (0 : stdgo.GoInt32) } : T__struct_59),
 ({ _s : ("?" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : null, _b : (10 : stdgo.GoInt), _count : (0 : stdgo.GoInt), _err : _errNoDigits, _next : (63 : stdgo.GoInt32) } : T__struct_59),
@@ -994,75 +847,73 @@ var _natScanTests : stdgo.Slice<T__struct_59> = (new stdgo.Slice<T__struct_59>(
 ({ _s : ("0x___0" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : null, _b : (16 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : _errInvalSep, _next : (0 : stdgo.GoInt32) } : T__struct_59),
 ({ _s : ("0_x" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : null, _b : (10 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : _errInvalSep, _next : (120 : stdgo.GoInt32) } : T__struct_59),
 ({ _s : ("0_8" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : null, _b : (10 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : _errInvalSep, _next : (56 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("123_." : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (123u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (0 : stdgo.GoInt), _err : _errInvalSep, _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("._123" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (123u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (-3 : stdgo.GoInt), _err : _errInvalSep, _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0b__1000" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (8u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (2 : stdgo.GoInt), _count : (4 : stdgo.GoInt), _err : _errInvalSep, _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0o60___0" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (384u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (3 : stdgo.GoInt), _err : _errInvalSep, _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0466_" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (310u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (3 : stdgo.GoInt), _err : _errInvalSep, _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("01234567_8" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (342391u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (7 : stdgo.GoInt), _err : _errInvalSep, _next : (56 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("1_." : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (0 : stdgo.GoInt), _err : _errInvalSep, _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0._1" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : _errInvalSep, _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("2.7_" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (27u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : _errInvalSep, _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0x1.0_" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (16u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (16 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : _errInvalSep, _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("123_." : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(123u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (0 : stdgo.GoInt), _err : _errInvalSep, _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("._123" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(123u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (-3 : stdgo.GoInt), _err : _errInvalSep, _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0b__1000" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(8u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (2 : stdgo.GoInt), _count : (4 : stdgo.GoInt), _err : _errInvalSep, _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0o60___0" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(384u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (3 : stdgo.GoInt), _err : _errInvalSep, _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0466_" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(310u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (3 : stdgo.GoInt), _err : _errInvalSep, _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("01234567_8" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(342391u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (7 : stdgo.GoInt), _err : _errInvalSep, _next : (56 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("1_." : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (0 : stdgo.GoInt), _err : _errInvalSep, _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0._1" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : _errInvalSep, _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("2.7_" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(27u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : _errInvalSep, _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0x1.0_" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(16u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (16 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : _errInvalSep, _next : (0 : stdgo.GoInt32) } : T__struct_59),
 ({ _s : ("0_" : stdgo.GoString), _base : (10 : stdgo.GoInt), _frac : false, _x : null, _b : (10 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (95 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("1__0" : stdgo.GoString), _base : (10 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (95 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("1__0" : stdgo.GoString), _base : (10 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (95 : stdgo.GoInt32) } : T__struct_59),
 ({ _s : ("0__8" : stdgo.GoString), _base : (10 : stdgo.GoInt), _frac : false, _x : null, _b : (10 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (95 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("xy_z_" : stdgo.GoString), _base : (36 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1222u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (36 : stdgo.GoInt), _count : (2 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (95 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("xy_z_" : stdgo.GoString), _base : (36 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1222u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (36 : stdgo.GoInt), _count : (2 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (95 : stdgo.GoInt32) } : T__struct_59),
 ({ _s : ("0" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : null, _b : (10 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
 ({ _s : ("0" : stdgo.GoString), _base : (36 : stdgo.GoInt), _frac : false, _x : null, _b : (36 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
 ({ _s : ("0" : stdgo.GoString), _base : (62 : stdgo.GoInt), _frac : false, _x : null, _b : (62 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("1" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("1" : stdgo.GoString), _base : (10 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("1" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("1" : stdgo.GoString), _base : (10 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
 ({ _s : ("0 " : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : null, _b : (10 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (32 : stdgo.GoInt32) } : T__struct_59),
 ({ _s : ("00 " : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : null, _b : (8 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (32 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0b1" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (2 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0B11000101" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (197u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (2 : stdgo.GoInt), _count : (8 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0B110001012" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (197u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (2 : stdgo.GoInt), _count : (8 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (50 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("07" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (7u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0b1" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (2 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0B11000101" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(197u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (2 : stdgo.GoInt), _count : (8 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0B110001012" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(197u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (2 : stdgo.GoInt), _count : (8 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (50 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("07" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(7u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
 ({ _s : ("08" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : null, _b : (10 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (56 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("08" : stdgo.GoString), _base : (10 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (8u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (2 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("018" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (56 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0o7" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (7u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0o18" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (56 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0O17" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (15u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (2 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("03271" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1721u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (4 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("10ab" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (10u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (2 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (97 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("1234567890" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1234567890u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (10 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("A" : stdgo.GoString), _base : (36 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (10u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (36 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("A" : stdgo.GoString), _base : (37 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (36u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (37 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("xyz" : stdgo.GoString), _base : (36 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (44027u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (36 : stdgo.GoInt), _count : (3 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("XYZ?" : stdgo.GoString), _base : (36 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (44027u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (36 : stdgo.GoInt), _count : (3 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (63 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("XYZ?" : stdgo.GoString), _base : (62 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (230577u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (62 : stdgo.GoInt), _count : (3 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (63 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("08" : stdgo.GoString), _base : (10 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(8u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (2 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("018" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (56 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0o7" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(7u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0o18" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (56 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0O17" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(15u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (2 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("03271" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1721u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (4 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("10ab" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(10u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (2 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (97 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("1234567890" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1234567890u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (10 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("A" : stdgo.GoString), _base : (36 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(10u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (36 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("A" : stdgo.GoString), _base : (37 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(36u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (37 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("xyz" : stdgo.GoString), _base : (36 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(44027u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (36 : stdgo.GoInt), _count : (3 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("XYZ?" : stdgo.GoString), _base : (36 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(44027u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (36 : stdgo.GoInt), _count : (3 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (63 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("XYZ?" : stdgo.GoString), _base : (62 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(230577u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (62 : stdgo.GoInt), _count : (3 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (63 : stdgo.GoInt32) } : T__struct_59),
 ({ _s : ("0x" : stdgo.GoString), _base : (16 : stdgo.GoInt), _frac : false, _x : null, _b : (16 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (120 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0xdeadbeef" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-559038737u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (16 : stdgo.GoInt), _count : (8 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0XDEADBEEF" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-559038737u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (16 : stdgo.GoInt), _count : (8 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0xdeadbeef" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-559038737u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (16 : stdgo.GoInt), _count : (8 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0XDEADBEEF" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-559038737u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (16 : stdgo.GoInt), _count : (8 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
 ({ _s : ("0." : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : null, _b : (10 : stdgo.GoInt), _count : (1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (46 : stdgo.GoInt32) } : T__struct_59),
 ({ _s : ("0." : stdgo.GoString), _base : (10 : stdgo.GoInt), _frac : true, _x : null, _b : (10 : stdgo.GoInt), _count : (0 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0.1.2" : stdgo.GoString), _base : (10 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (46 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0.1.2" : stdgo.GoString), _base : (10 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (46 : stdgo.GoInt32) } : T__struct_59),
 ({ _s : (".000" : stdgo.GoString), _base : (10 : stdgo.GoInt), _frac : true, _x : null, _b : (10 : stdgo.GoInt), _count : (-3 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("12.3" : stdgo.GoString), _base : (10 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (123u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("012.345" : stdgo.GoString), _base : (10 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (12345u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (-3 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0.1" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0.1" : stdgo.GoString), _base : (2 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (2 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0.12" : stdgo.GoString), _base : (2 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (2 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (50 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0b0.1" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (2 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0B0.12" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (2 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (50 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0o0.7" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (7u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0O0.78" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (7u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (56 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0xdead.beef" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (-559038737u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (16 : stdgo.GoInt), _count : (-4 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("1_000" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1000u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (4 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0_466" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (310u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (3 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0o_600" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (384u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (3 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0x_f0_0d" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (61453u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (16 : stdgo.GoInt), _count : (4 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0b1000_0001" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (129u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (2 : stdgo.GoInt), _count : (8 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("1_000.000_1" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (10000001u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (-4 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0x_f00d.1e" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (15731998u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (16 : stdgo.GoInt), _count : (-2 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0x_f00d.1E2" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (251711970u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (16 : stdgo.GoInt), _count : (-3 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
-({ _s : ("0x_f00d.1eg" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (15731998u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), _b : (16 : stdgo.GoInt), _count : (-2 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (103 : stdgo.GoInt32) } : T__struct_59)) : stdgo.Slice<T__struct_59>);
+({ _s : ("12.3" : stdgo.GoString), _base : (10 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(123u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("012.345" : stdgo.GoString), _base : (10 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(12345u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (-3 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0.1" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0.1" : stdgo.GoString), _base : (2 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (2 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0.12" : stdgo.GoString), _base : (2 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (2 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (50 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0b0.1" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (2 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0B0.12" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (2 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (50 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0o0.7" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(7u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0O0.78" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(7u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (-1 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (56 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0xdead.beef" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(-559038737u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (16 : stdgo.GoInt), _count : (-4 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("1_000" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1000u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (4 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0_466" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(310u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (3 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0o_600" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(384u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (8 : stdgo.GoInt), _count : (3 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0x_f0_0d" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(61453u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (16 : stdgo.GoInt), _count : (4 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0b1000_0001" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : false, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(129u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (2 : stdgo.GoInt), _count : (8 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("1_000.000_1" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(10000001u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (10 : stdgo.GoInt), _count : (-4 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0x_f00d.1e" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(15731998u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (16 : stdgo.GoInt), _count : (-2 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0x_f00d.1E2" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(251711970u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (16 : stdgo.GoInt), _count : (-3 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_59),
+({ _s : ("0x_f00d.1eg" : stdgo.GoString), _base : (0 : stdgo.GoInt), _frac : true, _x : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(15731998u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), _b : (16 : stdgo.GoInt), _count : (-2 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (103 : stdgo.GoInt32) } : T__struct_59)]) : stdgo.Slice<T__struct_59>);
 var _pi : stdgo.GoString = ("3141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067982148086513282306647093844609550582231725359408128481117450284102701938521105559644622948954930381964428810975665933446128475648233786783165271201909145648566923460348610454326648213393607260249141273724587006606315588174881520920962829254091715364367892590360011330530548820466521384146951941511609433057270365759591953092186117381932611793105118548074462379962749567351885752724891227938183011949129833673362440656643086021394946395224737190702179860943702770539217176293176752384674818467669405132000568127145263560827785771342757789609173637178721468440901224953430146549585371050792279689258923542019956112129021960864034418159813629774771309960518707211349999998372978049951059731732816096318595024459455346908302642522308253344685035261931188171010003137838752886587533208381420617177669147303598253490428755468731159562863882353787593751957781857780532171226806613001927876611195909216420198938095257201065485863278865936153381827968230301952035301852968995773622599413891249721775283479131515574857242454150695950829533116861727855889075098381754637464939319255060400927701671139009848824012858361603563707660104710181942955596198946767837449448255379774726847104047534646208046684259069491293313677028989152104752162056966024058038150193511253382430035587640247496473263914199272604269922796782354781636009341721641219924586315030286182974555706749838505494588586926995690927210797509302955321165344987202755960236480665499119881834797753566369807426542527862551818417574672890977772793800081647060016145249192173217214772350141441973568548161361157352552133475741849468438523323907394143334547762416862518983569485562099219222184272550254256887671790494601653466804988627232791786085784383827967976681454100953883786360950680064225125205117392984896084128488626945604241965285022210661186306744278622039194945047123713786960956364371917287467764657573962413890865832645995813390478027590099465764078951269468398352595709825822620522489407726719478268482601476990902640136394437455305068203496252451749399651431429809190659250937221696461515709858387410597885959772975498930161753928468138268683868942774155991855925245953959431049972524680845987273644695848653836736222626099124608051243884390451244136549762780797715691435997700129616089441694868555848406353422072225828488648158456028506016842739452267467678895252138522549954666727823986456596116354886230577456498035593634568174324112515076069479451096596094025228879710893145669136867228748940560101503308617928680920874760917824938589009714909675985261365549781893129784821682998948722658804857564014270477555132379641451523746234364542858444795265867821051141354735739523113427166102135969536231442952484937187110145765403590279934403742007310578539062198387447808478489683321445713868751943506430218453191048481005370614680674919278191197939952061419663428754440643745123718192179998391015919561814675142691239748940907186494231961567945208095146550225231603881930142093762137855956638937787083039069792077346722182562599661501421503068038447734549202605414665925201497442850732518666002132434088190710486331734649651453905796268561005508106658796998163574736384052571459102897064140110971206280439039759515677157700420337869936007230558763176359421873125147120532928191826186125867321579198414848829164470609575270695722091756711672291098169091528017350671274858322287183520935396572512108357915136988209144421006751033467110314126711136990865851639831501970165151168517143765761835155650884909989859982387345528331635507647918535893226185489632132933089857064204675259070915481416549859461637180270981994309924488957571282890592323326097299712084433573265489382391193259746366730583604142813883032038249037589852437441702913276561809377344403070746921120191302033038019762110110044929321516084244485963766983895228684783123552658213144957685726243344189303968642624341077322697802807318915441101044682325271620105265227211166039666557309254711055785376346682065310989652691862056476931257058635662018558100729360659876486117910453348850346113657686753249441668039626579787718556084552965412665408530614344431858676975145661406800700237877659134401712749470420562230538994561314071127000407854733269939081454664645880797270826683063432858785698305235808933065757406795457163775254202114955761581400250126228594130216471550979259230990796547376125517656751357517829666454779174501129961489030463994713296210734043751895735961458901938971311179042978285647503203198691514028708085990480109412147221317947647772622414254854540332157185306142288137585043063321751829798662237172159160771669254748738986654949450114654062843366393790039769265672146385306736096571209180763832716641627488880078692560290228472104031721186082041900042296617119637792133757511495950156604963186294726547364252308177036751590673502350728354056704038674351362222477158915049530984448933309634087807693259939780541934144737744184263129860809988868741326047215695162396586457302163159819319516735381297416772947867242292465436680098067692823828068996400482435403701416314965897940924323789690706977942236250822168895738379862300159377647165122893578601588161755782973523344604281512627203734314653197777416031990665541876397929334419521541341899485444734567383162499341913181480927777103863877343177207545654532207770921201905166096280490926360197598828161332316663652861932668633606273567630354477628035045077723554710585954870279081435624014517180624643626794561275318134078330336254232783944975382437205835311477119926063813346776879695970309833913077109870408591337" : stdgo.GoString);
-var _primes : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
-21,
-21,
+var _primes : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(21, 21, ...[
 ("2" : stdgo.GoString),
 ("3" : stdgo.GoString),
 ("5" : stdgo.GoString),
@@ -1083,10 +934,8 @@ var _primes : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
 ("57896044618658097711785492504343953926634992332820282019728792003956564819949" : stdgo.GoString),
 ("9850501549098619803069760025035903451269934817616361666987073351061430442874302652853566563721228910201656997576599" : stdgo.GoString),
 ("42307582002575910332922579714097346549017899709713998034217522897561970639123926132812109468141778230245837569601494931472367" : stdgo.GoString),
-("6864797660130609714981900799081393217269435300143305409394463459185543183397656052122559640661454554977296311391480858037121987999716643812574028291115057151" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-var _composites : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
-56,
-56,
+("6864797660130609714981900799081393217269435300143305409394463459185543183397656052122559640661454554977296311391480858037121987999716643812574028291115057151" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+var _composites : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(56, 56, ...[
 ("0" : stdgo.GoString),
 ("1" : stdgo.GoString),
 ("21284175091214687912771199898307297748211672914763848041968395774954376176754" : stdgo.GoString),
@@ -1142,22 +991,9 @@ var _composites : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>
 ("6368689" : stdgo.GoString),
 ("8725753" : stdgo.GoString),
 ("80579735209" : stdgo.GoString),
-("105919633" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-var _ratCmpTests : stdgo.Slice<T__struct_60> = (new stdgo.Slice<T__struct_60>(
-9,
-9,
-({ _rat1 : ("0" : stdgo.GoString), _rat2 : ("0/1" : stdgo.GoString), _out : (0 : stdgo.GoInt) } : T__struct_60),
-({ _rat1 : ("1/1" : stdgo.GoString), _rat2 : ("1" : stdgo.GoString), _out : (0 : stdgo.GoInt) } : T__struct_60),
-({ _rat1 : ("-1" : stdgo.GoString), _rat2 : ("-2/2" : stdgo.GoString), _out : (0 : stdgo.GoInt) } : T__struct_60),
-({ _rat1 : ("1" : stdgo.GoString), _rat2 : ("0" : stdgo.GoString), _out : (1 : stdgo.GoInt) } : T__struct_60),
-({ _rat1 : ("0/1" : stdgo.GoString), _rat2 : ("1/1" : stdgo.GoString), _out : (-1 : stdgo.GoInt) } : T__struct_60),
-({ _rat1 : ("-5/1434770811533343057144" : stdgo.GoString), _rat2 : ("-5/1434770811533343057145" : stdgo.GoString), _out : (-1 : stdgo.GoInt) } : T__struct_60),
-({ _rat1 : ("49832350382626108453/8964749413" : stdgo.GoString), _rat2 : ("49832350382626108454/8964749413" : stdgo.GoString), _out : (-1 : stdgo.GoInt) } : T__struct_60),
-({ _rat1 : ("-37414950961700930/7204075375675961" : stdgo.GoString), _rat2 : ("37414950961700930/7204075375675961" : stdgo.GoString), _out : (-1 : stdgo.GoInt) } : T__struct_60),
-({ _rat1 : ("37414950961700930/7204075375675961" : stdgo.GoString), _rat2 : ("74829901923401860/14408150751351922" : stdgo.GoString), _out : (0 : stdgo.GoInt) } : T__struct_60)) : stdgo.Slice<T__struct_60>);
-var _ratBinTests : stdgo.Slice<T__struct_61> = (new stdgo.Slice<T__struct_61>(
-18,
-18,
+("105919633" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+var _ratCmpTests : stdgo.Slice<T__struct_60> = (new stdgo.Slice<T__struct_60>(9, 9, ...[({ _rat1 : ("0" : stdgo.GoString), _rat2 : ("0/1" : stdgo.GoString), _out : (0 : stdgo.GoInt) } : T__struct_60), ({ _rat1 : ("1/1" : stdgo.GoString), _rat2 : ("1" : stdgo.GoString), _out : (0 : stdgo.GoInt) } : T__struct_60), ({ _rat1 : ("-1" : stdgo.GoString), _rat2 : ("-2/2" : stdgo.GoString), _out : (0 : stdgo.GoInt) } : T__struct_60), ({ _rat1 : ("1" : stdgo.GoString), _rat2 : ("0" : stdgo.GoString), _out : (1 : stdgo.GoInt) } : T__struct_60), ({ _rat1 : ("0/1" : stdgo.GoString), _rat2 : ("1/1" : stdgo.GoString), _out : (-1 : stdgo.GoInt) } : T__struct_60), ({ _rat1 : ("-5/1434770811533343057144" : stdgo.GoString), _rat2 : ("-5/1434770811533343057145" : stdgo.GoString), _out : (-1 : stdgo.GoInt) } : T__struct_60), ({ _rat1 : ("49832350382626108453/8964749413" : stdgo.GoString), _rat2 : ("49832350382626108454/8964749413" : stdgo.GoString), _out : (-1 : stdgo.GoInt) } : T__struct_60), ({ _rat1 : ("-37414950961700930/7204075375675961" : stdgo.GoString), _rat2 : ("37414950961700930/7204075375675961" : stdgo.GoString), _out : (-1 : stdgo.GoInt) } : T__struct_60), ({ _rat1 : ("37414950961700930/7204075375675961" : stdgo.GoString), _rat2 : ("74829901923401860/14408150751351922" : stdgo.GoString), _out : (0 : stdgo.GoInt) } : T__struct_60)]) : stdgo.Slice<T__struct_60>);
+var _ratBinTests : stdgo.Slice<T__struct_61> = (new stdgo.Slice<T__struct_61>(18, 18, ...[
 ({ _x : ("0" : stdgo.GoString), _y : ("0" : stdgo.GoString), _sum : ("0" : stdgo.GoString), _prod : ("0" : stdgo.GoString) } : T__struct_61),
 ({ _x : ("0" : stdgo.GoString), _y : ("1" : stdgo.GoString), _sum : ("1" : stdgo.GoString), _prod : ("0" : stdgo.GoString) } : T__struct_61),
 ({ _x : ("-1" : stdgo.GoString), _y : ("0" : stdgo.GoString), _sum : ("-1" : stdgo.GoString), _prod : ("0" : stdgo.GoString) } : T__struct_61),
@@ -1175,11 +1011,9 @@ var _ratBinTests : stdgo.Slice<T__struct_61> = (new stdgo.Slice<T__struct_61>(
 ({ _x : ("-8259900599013409474/7" : stdgo.GoString), _y : ("-84829337473700364773/56707961321161574960" : stdgo.GoString), _sum : ("-468402123685491748914621885145127724451/396955729248131024720" : stdgo.GoString), _prod : ("350340947706464153265156004876107029701/198477864624065512360" : stdgo.GoString) } : T__struct_61),
 ({ _x : ("575775209696864/1320203974639986246357" : stdgo.GoString), _y : ("29/712593081308" : stdgo.GoString), _sum : ("410331716733912717985762465/940768218243776489278275419794956" : stdgo.GoString), _prod : ("808/45524274987585732633" : stdgo.GoString) } : T__struct_61),
 ({ _x : ("1786597389946320496771/2066653520653241" : stdgo.GoString), _y : ("6269770/1992362624741777" : stdgo.GoString), _sum : ("3559549865190272133656109052308126637/4117523232840525481453983149257" : stdgo.GoString), _prod : ("8967230/3296219033" : stdgo.GoString) } : T__struct_61),
-({ _x : ("-36459180403360509753/32150500941194292113930" : stdgo.GoString), _y : ("9381566963714/9633539" : stdgo.GoString), _sum : ("301622077145533298008420642898530153/309723104686531919656937098270" : stdgo.GoString), _prod : ("-3784609207827/3426986245" : stdgo.GoString) } : T__struct_61)) : stdgo.Slice<T__struct_61>);
-var _setFrac64Tests : stdgo.Slice<T__struct_62> = (new stdgo.Slice<T__struct_62>(7, 7, ({ _a : (0i64 : stdgo.GoInt64), _b : (1i64 : stdgo.GoInt64), _out : ("0" : stdgo.GoString) } : T__struct_62), ({ _a : (0i64 : stdgo.GoInt64), _b : (-1i64 : stdgo.GoInt64), _out : ("0" : stdgo.GoString) } : T__struct_62), ({ _a : (1i64 : stdgo.GoInt64), _b : (1i64 : stdgo.GoInt64), _out : ("1" : stdgo.GoString) } : T__struct_62), ({ _a : (-1i64 : stdgo.GoInt64), _b : (1i64 : stdgo.GoInt64), _out : ("-1" : stdgo.GoString) } : T__struct_62), ({ _a : (1i64 : stdgo.GoInt64), _b : (-1i64 : stdgo.GoInt64), _out : ("-1" : stdgo.GoString) } : T__struct_62), ({ _a : (-1i64 : stdgo.GoInt64), _b : (-1i64 : stdgo.GoInt64), _out : ("1" : stdgo.GoString) } : T__struct_62), ({ _a : (-9223372036854775808i64 : stdgo.GoInt64), _b : (-9223372036854775808i64 : stdgo.GoInt64), _out : ("1" : stdgo.GoString) } : T__struct_62)) : stdgo.Slice<T__struct_62>);
-var _exponentTests : stdgo.Slice<T__struct_64> = (new stdgo.Slice<T__struct_64>(
-29,
-29,
+({ _x : ("-36459180403360509753/32150500941194292113930" : stdgo.GoString), _y : ("9381566963714/9633539" : stdgo.GoString), _sum : ("301622077145533298008420642898530153/309723104686531919656937098270" : stdgo.GoString), _prod : ("-3784609207827/3426986245" : stdgo.GoString) } : T__struct_61)]) : stdgo.Slice<T__struct_61>);
+var _setFrac64Tests : stdgo.Slice<T__struct_62> = (new stdgo.Slice<T__struct_62>(7, 7, ...[({ _a : (0i64 : stdgo.GoInt64), _b : (1i64 : stdgo.GoInt64), _out : ("0" : stdgo.GoString) } : T__struct_62), ({ _a : (0i64 : stdgo.GoInt64), _b : (-1i64 : stdgo.GoInt64), _out : ("0" : stdgo.GoString) } : T__struct_62), ({ _a : (1i64 : stdgo.GoInt64), _b : (1i64 : stdgo.GoInt64), _out : ("1" : stdgo.GoString) } : T__struct_62), ({ _a : (-1i64 : stdgo.GoInt64), _b : (1i64 : stdgo.GoInt64), _out : ("-1" : stdgo.GoString) } : T__struct_62), ({ _a : (1i64 : stdgo.GoInt64), _b : (-1i64 : stdgo.GoInt64), _out : ("-1" : stdgo.GoString) } : T__struct_62), ({ _a : (-1i64 : stdgo.GoInt64), _b : (-1i64 : stdgo.GoInt64), _out : ("1" : stdgo.GoString) } : T__struct_62), ({ _a : (-9223372036854775808i64 : stdgo.GoInt64), _b : (-9223372036854775808i64 : stdgo.GoInt64), _out : ("1" : stdgo.GoString) } : T__struct_62)]) : stdgo.Slice<T__struct_62>);
+var _exponentTests : stdgo.Slice<T__struct_64> = (new stdgo.Slice<T__struct_64>(29, 29, ...[
 ({ _s : stdgo.Go.str()?.__copy__(), _base2ok : false, _sepOk : false, _x : (0i64 : stdgo.GoInt64), _b : (10 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_64),
 ({ _s : ("1" : stdgo.GoString), _base2ok : false, _sepOk : false, _x : (0i64 : stdgo.GoInt64), _b : (10 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (49 : stdgo.GoInt32) } : T__struct_64),
 ({ _s : ("e0" : stdgo.GoString), _base2ok : false, _sepOk : false, _x : (0i64 : stdgo.GoInt64), _b : (10 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : T__struct_64),
@@ -1208,10 +1042,8 @@ var _exponentTests : stdgo.Slice<T__struct_64> = (new stdgo.Slice<T__struct_64>(
 ({ _s : ("e+_x" : stdgo.GoString), _base2ok : false, _sepOk : true, _x : (0i64 : stdgo.GoInt64), _b : (10 : stdgo.GoInt), _err : _errNoDigits, _next : (120 : stdgo.GoInt32) } : T__struct_64),
 ({ _s : ("e0_" : stdgo.GoString), _base2ok : false, _sepOk : true, _x : (0i64 : stdgo.GoInt64), _b : (10 : stdgo.GoInt), _err : _errInvalSep, _next : (0 : stdgo.GoInt32) } : T__struct_64),
 ({ _s : ("e_0" : stdgo.GoString), _base2ok : false, _sepOk : true, _x : (0i64 : stdgo.GoInt64), _b : (10 : stdgo.GoInt), _err : _errInvalSep, _next : (0 : stdgo.GoInt32) } : T__struct_64),
-({ _s : ("e-1_2__3" : stdgo.GoString), _base2ok : false, _sepOk : true, _x : (-123i64 : stdgo.GoInt64), _b : (10 : stdgo.GoInt), _err : _errInvalSep, _next : (0 : stdgo.GoInt32) } : T__struct_64)) : stdgo.Slice<T__struct_64>);
-var _setStringTests : stdgo.Slice<stdgo._internal.math.big.Big.StringTest> = (new stdgo.Slice<stdgo._internal.math.big.Big.StringTest>(
-36,
-36,
+({ _s : ("e-1_2__3" : stdgo.GoString), _base2ok : false, _sepOk : true, _x : (-123i64 : stdgo.GoInt64), _b : (10 : stdgo.GoInt), _err : _errInvalSep, _next : (0 : stdgo.GoInt32) } : T__struct_64)]) : stdgo.Slice<T__struct_64>);
+var _setStringTests : stdgo.Slice<stdgo._internal.math.big.Big.StringTest> = (new stdgo.Slice<stdgo._internal.math.big.Big.StringTest>(36, 36, ...[
 ({ _in : ("1e" : stdgo.GoString) } : stdgo._internal.math.big.Big.StringTest),
 ({ _in : ("1.e" : stdgo.GoString) } : stdgo._internal.math.big.Big.StringTest),
 ({ _in : ("1e+14e-5" : stdgo.GoString) } : stdgo._internal.math.big.Big.StringTest),
@@ -1247,10 +1079,8 @@ var _setStringTests : stdgo.Slice<stdgo._internal.math.big.Big.StringTest> = (ne
 (new stdgo._internal.math.big.Big.StringTest(("53/70893980658822810696" : stdgo.GoString), ("53/70893980658822810696" : stdgo.GoString), true) : stdgo._internal.math.big.Big.StringTest),
 (new stdgo._internal.math.big.Big.StringTest(("106/141787961317645621392" : stdgo.GoString), ("53/70893980658822810696" : stdgo.GoString), true) : stdgo._internal.math.big.Big.StringTest),
 (new stdgo._internal.math.big.Big.StringTest(("204211327800791583.81095" : stdgo.GoString), ("4084226556015831676219/20000" : stdgo.GoString), true) : stdgo._internal.math.big.Big.StringTest),
-(new stdgo._internal.math.big.Big.StringTest(("0e9999999999" : stdgo.GoString), ("0" : stdgo.GoString), true) : stdgo._internal.math.big.Big.StringTest)) : stdgo.Slice<stdgo._internal.math.big.Big.StringTest>);
-var _setStringTests2 : stdgo.Slice<stdgo._internal.math.big.Big.StringTest> = (new stdgo.Slice<stdgo._internal.math.big.Big.StringTest>(
-34,
-34,
+(new stdgo._internal.math.big.Big.StringTest(("0e9999999999" : stdgo.GoString), ("0" : stdgo.GoString), true) : stdgo._internal.math.big.Big.StringTest)]) : stdgo.Slice<stdgo._internal.math.big.Big.StringTest>);
+var _setStringTests2 : stdgo.Slice<stdgo._internal.math.big.Big.StringTest> = (new stdgo.Slice<stdgo._internal.math.big.Big.StringTest>(34, 34, ...[
 ({ _in : ("4/3x" : stdgo.GoString) } : stdgo._internal.math.big.Big.StringTest),
 ({ _in : ("0/-1" : stdgo.GoString) } : stdgo._internal.math.big.Big.StringTest),
 ({ _in : ("-1/-1" : stdgo.GoString) } : stdgo._internal.math.big.Big.StringTest),
@@ -1284,10 +1114,8 @@ var _setStringTests2 : stdgo.Slice<stdgo._internal.math.big.Big.StringTest> = (n
 (new stdgo._internal.math.big.Big.StringTest(("0X1.8p0_4" : stdgo.GoString), ("24" : stdgo.GoString), true) : stdgo._internal.math.big.Big.StringTest),
 (new stdgo._internal.math.big.Big.StringTest(("0b1.1_0E2" : stdgo.GoString), ("150" : stdgo.GoString), true) : stdgo._internal.math.big.Big.StringTest),
 (new stdgo._internal.math.big.Big.StringTest(("0o1_0e-2" : stdgo.GoString), ("2/25" : stdgo.GoString), true) : stdgo._internal.math.big.Big.StringTest),
-(new stdgo._internal.math.big.Big.StringTest(("0O_10p-3" : stdgo.GoString), ("1" : stdgo.GoString), true) : stdgo._internal.math.big.Big.StringTest)) : stdgo.Slice<stdgo._internal.math.big.Big.StringTest>);
-var _floatStringTests : stdgo.Slice<T__struct_65> = (new stdgo.Slice<T__struct_65>(
-17,
-17,
+(new stdgo._internal.math.big.Big.StringTest(("0O_10p-3" : stdgo.GoString), ("1" : stdgo.GoString), true) : stdgo._internal.math.big.Big.StringTest)]) : stdgo.Slice<stdgo._internal.math.big.Big.StringTest>);
+var _floatStringTests : stdgo.Slice<T__struct_65> = (new stdgo.Slice<T__struct_65>(17, 17, ...[
 ({ _in : ("0" : stdgo.GoString), _prec : (0 : stdgo.GoInt), _out : ("0" : stdgo.GoString) } : T__struct_65),
 ({ _in : ("0" : stdgo.GoString), _prec : (4 : stdgo.GoInt), _out : ("0.0000" : stdgo.GoString) } : T__struct_65),
 ({ _in : ("1" : stdgo.GoString), _prec : (0 : stdgo.GoInt), _out : ("1" : stdgo.GoString) } : T__struct_65),
@@ -1304,10 +1132,8 @@ var _floatStringTests : stdgo.Slice<T__struct_65> = (new stdgo.Slice<T__struct_6
 ({ _in : ("0.999" : stdgo.GoString), _prec : (2 : stdgo.GoInt), _out : ("1.00" : stdgo.GoString) } : T__struct_65),
 ({ _in : ("0.9" : stdgo.GoString), _prec : (0 : stdgo.GoInt), _out : ("1" : stdgo.GoString) } : T__struct_65),
 ({ _in : (".25" : stdgo.GoString), _prec : (-1 : stdgo.GoInt), _out : ("0" : stdgo.GoString) } : T__struct_65),
-({ _in : (".55" : stdgo.GoString), _prec : (-1 : stdgo.GoInt), _out : ("1" : stdgo.GoString) } : T__struct_65)) : stdgo.Slice<T__struct_65>);
-var _float64inputs : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
-136,
-136,
+({ _in : (".55" : stdgo.GoString), _prec : (-1 : stdgo.GoInt), _out : ("1" : stdgo.GoString) } : T__struct_65)]) : stdgo.Slice<T__struct_65>);
+var _float64inputs : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(136, 136, ...[
 ("5e+125" : stdgo.GoString),
 ("69e+267" : stdgo.GoString),
 ("999e-026" : stdgo.GoString),
@@ -1443,20 +1269,9 @@ var _float64inputs : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoStri
 ("-1152921504606846975" : stdgo.GoString),
 ("1152921504606846977" : stdgo.GoString),
 ("-1152921504606846977" : stdgo.GoString),
-("1/3" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-var _ratNums : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
-9,
-9,
-("-141592653589793238462643383279502884197169399375105820974944592307816406286" : stdgo.GoString),
-("-1415926535897932384626433832795028841971" : stdgo.GoString),
-("-141592653589793" : stdgo.GoString),
-("-1" : stdgo.GoString),
-("0" : stdgo.GoString),
-("1" : stdgo.GoString),
-("141592653589793" : stdgo.GoString),
-("1415926535897932384626433832795028841971" : stdgo.GoString),
-("141592653589793238462643383279502884197169399375105820974944592307816406286" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-var _ratDenoms : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(4, 4, ("1" : stdgo.GoString), ("718281828459045" : stdgo.GoString), ("7182818284590452353602874713526624977572" : stdgo.GoString), ("718281828459045235360287471352662497757247093699959574966967627724076630353" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+("1/3" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+var _ratNums : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(9, 9, ...[("-141592653589793238462643383279502884197169399375105820974944592307816406286" : stdgo.GoString), ("-1415926535897932384626433832795028841971" : stdgo.GoString), ("-141592653589793" : stdgo.GoString), ("-1" : stdgo.GoString), ("0" : stdgo.GoString), ("1" : stdgo.GoString), ("141592653589793" : stdgo.GoString), ("1415926535897932384626433832795028841971" : stdgo.GoString), ("141592653589793238462643383279502884197169399375105820974944592307816406286" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+var _ratDenoms : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(4, 4, ...[("1" : stdgo.GoString), ("718281828459045" : stdgo.GoString), ("7182818284590452353602874713526624977572" : stdgo.GoString), ("718281828459045235360287471352662497757247093699959574966967627724076630353" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
 @:structInit @:private class T_argVV {
     public var _z : stdgo._internal.math.big.Big.T_nat = new stdgo._internal.math.big.Big.T_nat(0, 0);
     public var _x : stdgo._internal.math.big.Big.T_nat = new stdgo._internal.math.big.Big.T_nat(0, 0);
@@ -3430,9 +3245,7 @@ function _makeWordVec(_e:Word, _n:stdgo.GoInt):stdgo.Slice<Word> {
         return _v;
     }
 function testFunVWExt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _vwSizes:stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(
-16,
-16,
+        var _vwSizes:stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(16, 16, ...[
 (0 : stdgo.GoInt),
 (1 : stdgo.GoInt),
 (3 : stdgo.GoInt),
@@ -3448,7 +3261,7 @@ function testFunVWExt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 (35 : stdgo.GoInt),
 (36 : stdgo.GoInt),
 (50 : stdgo.GoInt),
-(120 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
+(120 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
         for (__14 => _n in _vwSizes) {
             var _x = _rndV(_n);
             var _y:stdgo._internal.math.big.Big.Word = _rndW();
@@ -3506,7 +3319,7 @@ function testShiftOverlap(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
     }
 function testIssue31084(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
-        var _p:stdgo._internal.math.big.Big.T_nat = (new stdgo._internal.math.big.Big.T_nat(0, 0) : T_nat)._expNN((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (5u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (165u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), null, false);
+        var _p:stdgo._internal.math.big.Big.T_nat = (new stdgo._internal.math.big.Big.T_nat(0, 0) : T_nat)._expNN((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(5u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(165u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), null, false);
         _p = _p._shl(_p, (165u32 : stdgo.GoUInt));
         var _got:stdgo.GoString = (_p._utoa((10 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
         var _want:stdgo.GoString = (("1" : stdgo.GoString) + stdgo._internal.strings.Strings.repeat(("0" : stdgo.GoString), (165 : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__();
@@ -3765,9 +3578,7 @@ function benchmarkNonZeroShifts(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>)
         };
     }
 function testMulBits(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_4>(7, 7, ({ _x : null, _y : null, _want : null } : T__struct_4), ({ _x : (new stdgo.Slice<stdgo.GoInt>(0, 0) : stdgo._internal.math.big.Big.Bits), _y : (new stdgo.Slice<stdgo.GoInt>(0, 0) : stdgo._internal.math.big.Big.Bits), _want : null } : T__struct_4), ({ _x : (new stdgo.Slice<stdgo.GoInt>(1, 1, (0 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _y : (new stdgo.Slice<stdgo.GoInt>(1, 1, (0 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _want : (new stdgo.Slice<stdgo.GoInt>(1, 1, (0 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits) } : T__struct_4), ({ _x : (new stdgo.Slice<stdgo.GoInt>(1, 1, (0 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _y : (new stdgo.Slice<stdgo.GoInt>(1, 1, (1 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _want : (new stdgo.Slice<stdgo.GoInt>(1, 1, (1 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits) } : T__struct_4), ({ _x : (new stdgo.Slice<stdgo.GoInt>(1, 1, (1 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _y : (new stdgo.Slice<stdgo.GoInt>(3, 3, (1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _want : (new stdgo.Slice<stdgo.GoInt>(3, 3, (2 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits) } : T__struct_4), ({ _x : (new stdgo.Slice<stdgo.GoInt>(1, 1, (-1 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _y : (new stdgo.Slice<stdgo.GoInt>(1, 1, (1 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _want : (new stdgo.Slice<stdgo.GoInt>(1, 1, (0 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits) } : T__struct_4), ({ _x : (new stdgo.Slice<stdgo.GoInt>(5, 5, (-10 : stdgo.GoInt), (-1 : stdgo.GoInt), (0 : stdgo.GoInt), (1 : stdgo.GoInt), (10 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _y : (new stdgo.Slice<stdgo.GoInt>(3, 3, (1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _want : (new stdgo.Slice<stdgo.GoInt>(
-15,
-15,
+        for (__14 => _test in (new stdgo.Slice<T__struct_4>(7, 7, ...[({ _x : null, _y : null, _want : null } : T__struct_4), ({ _x : (new stdgo.Slice<stdgo.GoInt>(0, 0, ...[]) : stdgo._internal.math.big.Big.Bits), _y : (new stdgo.Slice<stdgo.GoInt>(0, 0, ...[]) : stdgo._internal.math.big.Big.Bits), _want : null } : T__struct_4), ({ _x : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(0 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), _y : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(0 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), _want : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(0 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits) } : T__struct_4), ({ _x : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(0 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), _y : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(1 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), _want : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(1 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits) } : T__struct_4), ({ _x : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(1 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), _y : (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), _want : (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(2 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits) } : T__struct_4), ({ _x : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(-1 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), _y : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(1 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), _want : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(0 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits) } : T__struct_4), ({ _x : (new stdgo.Slice<stdgo.GoInt>(5, 5, ...[(-10 : stdgo.GoInt), (-1 : stdgo.GoInt), (0 : stdgo.GoInt), (1 : stdgo.GoInt), (10 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), _y : (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), _want : (new stdgo.Slice<stdgo.GoInt>(15, 15, ...[
 (-9 : stdgo.GoInt),
 (-8 : stdgo.GoInt),
 (-7 : stdgo.GoInt),
@@ -3782,7 +3593,7 @@ function testMulBits(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 (4 : stdgo.GoInt),
 (11 : stdgo.GoInt),
 (12 : stdgo.GoInt),
-(13 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits) } : T__struct_4)) : stdgo.Slice<T__struct_4>)) {
+(13 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits) } : T__struct_4)]) : stdgo.Slice<T__struct_4>)) {
             var _got:stdgo.GoString = stdgo._internal.fmt.Fmt.sprintf(("%v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test._x._mul(_test._y))))?.__copy__();
             var _want:stdgo.GoString = stdgo._internal.fmt.Fmt.sprintf(("%v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test._want)))?.__copy__();
             if (_got != (_want)) {
@@ -3791,7 +3602,7 @@ function testMulBits(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testNormBits(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_5>(6, 6, ({ _x : null, _want : null } : T__struct_5), ({ _x : (new stdgo.Slice<stdgo.GoInt>(0, 0) : stdgo._internal.math.big.Big.Bits), _want : (new stdgo.Slice<stdgo.GoInt>(0, 0) : stdgo._internal.math.big.Big.Bits) } : T__struct_5), ({ _x : (new stdgo.Slice<stdgo.GoInt>(1, 1, (0 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _want : (new stdgo.Slice<stdgo.GoInt>(1, 1, (0 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits) } : T__struct_5), ({ _x : (new stdgo.Slice<stdgo.GoInt>(2, 2, (0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _want : (new stdgo.Slice<stdgo.GoInt>(1, 1, (1 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits) } : T__struct_5), ({ _x : (new stdgo.Slice<stdgo.GoInt>(3, 3, (3 : stdgo.GoInt), (1 : stdgo.GoInt), (1 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _want : (new stdgo.Slice<stdgo.GoInt>(2, 2, (2 : stdgo.GoInt), (3 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits) } : T__struct_5), ({ _x : (new stdgo.Slice<stdgo.GoInt>(6, 6, (10 : stdgo.GoInt), (9 : stdgo.GoInt), (8 : stdgo.GoInt), (7 : stdgo.GoInt), (6 : stdgo.GoInt), (6 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _want : (new stdgo.Slice<stdgo.GoInt>(1, 1, (11 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits) } : T__struct_5)) : stdgo.Slice<T__struct_5>)) {
+        for (__14 => _test in (new stdgo.Slice<T__struct_5>(6, 6, ...[({ _x : null, _want : null } : T__struct_5), ({ _x : (new stdgo.Slice<stdgo.GoInt>(0, 0, ...[]) : stdgo._internal.math.big.Big.Bits), _want : (new stdgo.Slice<stdgo.GoInt>(0, 0, ...[]) : stdgo._internal.math.big.Big.Bits) } : T__struct_5), ({ _x : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(0 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), _want : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(0 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits) } : T__struct_5), ({ _x : (new stdgo.Slice<stdgo.GoInt>(2, 2, ...[(0 : stdgo.GoInt), (0 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), _want : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(1 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits) } : T__struct_5), ({ _x : (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(3 : stdgo.GoInt), (1 : stdgo.GoInt), (1 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), _want : (new stdgo.Slice<stdgo.GoInt>(2, 2, ...[(2 : stdgo.GoInt), (3 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits) } : T__struct_5), ({ _x : (new stdgo.Slice<stdgo.GoInt>(6, 6, ...[(10 : stdgo.GoInt), (9 : stdgo.GoInt), (8 : stdgo.GoInt), (7 : stdgo.GoInt), (6 : stdgo.GoInt), (6 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), _want : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(11 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits) } : T__struct_5)]) : stdgo.Slice<T__struct_5>)) {
             var _got:stdgo.GoString = stdgo._internal.fmt.Fmt.sprintf(("%v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test._x._norm())))?.__copy__();
             var _want:stdgo.GoString = stdgo._internal.fmt.Fmt.sprintf(("%v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test._want)))?.__copy__();
             if (_got != (_want)) {
@@ -3800,20 +3611,18 @@ function testNormBits(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testFromBits(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_6>(
-11,
-11,
+        for (__14 => _test in (new stdgo.Slice<T__struct_6>(11, 11, ...[
 ({ _bits : null, _want : ("0" : stdgo.GoString) } : T__struct_6),
-({ _bits : (new stdgo.Slice<stdgo.GoInt>(1, 1, (0 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _want : ("0x.8p+1" : stdgo.GoString) } : T__struct_6),
-({ _bits : (new stdgo.Slice<stdgo.GoInt>(1, 1, (1 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _want : ("0x.8p+2" : stdgo.GoString) } : T__struct_6),
-({ _bits : (new stdgo.Slice<stdgo.GoInt>(1, 1, (-1 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _want : ("0x.8p+0" : stdgo.GoString) } : T__struct_6),
-({ _bits : (new stdgo.Slice<stdgo.GoInt>(1, 1, (63 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _want : ("0x.8p+64" : stdgo.GoString) } : T__struct_6),
-({ _bits : (new stdgo.Slice<stdgo.GoInt>(2, 2, (33 : stdgo.GoInt), (-30 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _want : ("0x.8000000000000001p+34" : stdgo.GoString) } : T__struct_6),
-({ _bits : (new stdgo.Slice<stdgo.GoInt>(2, 2, (255 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _want : ("0x.8000000000000000000000000000000000000000000000000000000000000001p+256" : stdgo.GoString) } : T__struct_6),
-({ _bits : (new stdgo.Slice<stdgo.GoInt>(2, 2, (0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _want : ("0x.8p+2" : stdgo.GoString) } : T__struct_6),
-({ _bits : (new stdgo.Slice<stdgo.GoInt>(4, 4, (0 : stdgo.GoInt), (0 : stdgo.GoInt), (0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _want : ("0x.8p+3" : stdgo.GoString) } : T__struct_6),
-({ _bits : (new stdgo.Slice<stdgo.GoInt>(3, 3, (0 : stdgo.GoInt), (1 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits), _want : ("0x.8p+3" : stdgo.GoString) } : T__struct_6),
-({ _bits : ((new stdgo.Slice<stdgo.GoInt>(3, 3, (2 : stdgo.GoInt), (1 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits).__append__(...((new stdgo.Slice<stdgo.GoInt>(2, 2, (3 : stdgo.GoInt), (1 : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits) : Array<stdgo.GoInt>))), _want : ("0x.88p+5" : stdgo.GoString) } : T__struct_6)) : stdgo.Slice<T__struct_6>)) {
+({ _bits : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(0 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), _want : ("0x.8p+1" : stdgo.GoString) } : T__struct_6),
+({ _bits : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(1 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), _want : ("0x.8p+2" : stdgo.GoString) } : T__struct_6),
+({ _bits : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(-1 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), _want : ("0x.8p+0" : stdgo.GoString) } : T__struct_6),
+({ _bits : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(63 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), _want : ("0x.8p+64" : stdgo.GoString) } : T__struct_6),
+({ _bits : (new stdgo.Slice<stdgo.GoInt>(2, 2, ...[(33 : stdgo.GoInt), (-30 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), _want : ("0x.8000000000000001p+34" : stdgo.GoString) } : T__struct_6),
+({ _bits : (new stdgo.Slice<stdgo.GoInt>(2, 2, ...[(255 : stdgo.GoInt), (0 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), _want : ("0x.8000000000000000000000000000000000000000000000000000000000000001p+256" : stdgo.GoString) } : T__struct_6),
+({ _bits : (new stdgo.Slice<stdgo.GoInt>(2, 2, ...[(0 : stdgo.GoInt), (0 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), _want : ("0x.8p+2" : stdgo.GoString) } : T__struct_6),
+({ _bits : (new stdgo.Slice<stdgo.GoInt>(4, 4, ...[(0 : stdgo.GoInt), (0 : stdgo.GoInt), (0 : stdgo.GoInt), (0 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), _want : ("0x.8p+3" : stdgo.GoString) } : T__struct_6),
+({ _bits : (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(0 : stdgo.GoInt), (1 : stdgo.GoInt), (0 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits), _want : ("0x.8p+3" : stdgo.GoString) } : T__struct_6),
+({ _bits : ((new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(2 : stdgo.GoInt), (1 : stdgo.GoInt), (0 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits).__append__(...((new stdgo.Slice<stdgo.GoInt>(2, 2, ...[(3 : stdgo.GoInt), (1 : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits) : Array<stdgo.GoInt>))), _want : ("0x.88p+5" : stdgo.GoString) } : T__struct_6)]) : stdgo.Slice<T__struct_6>)) {
             var _f = _test._bits.float_();
             {
                 var _got:stdgo.GoString = _f.text((112 : stdgo.GoUInt8), (0 : stdgo.GoInt))?.__copy__();
@@ -4021,7 +3830,7 @@ function _trim(_x:stdgo.Ref<T_decimal>):Void {
         };
     }
 function testDecimalString(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_7>(6, 6, ({ _x : ({} : stdgo._internal.math.big.Big.T_decimal), _want : ("0" : stdgo.GoString) } : T__struct_7), ({ _x : (new stdgo._internal.math.big.Big.T_decimal((null : stdgo.Slice<stdgo.GoUInt8>), (1000 : stdgo.GoInt)) : stdgo._internal.math.big.Big.T_decimal), _want : ("0" : stdgo.GoString) } : T__struct_7), ({ _x : (new stdgo._internal.math.big.Big.T_decimal((("12345" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (0 : stdgo.GoInt)) : stdgo._internal.math.big.Big.T_decimal), _want : ("0.12345" : stdgo.GoString) } : T__struct_7), ({ _x : (new stdgo._internal.math.big.Big.T_decimal((("12345" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (-3 : stdgo.GoInt)) : stdgo._internal.math.big.Big.T_decimal), _want : ("0.00012345" : stdgo.GoString) } : T__struct_7), ({ _x : (new stdgo._internal.math.big.Big.T_decimal((("12345" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (3 : stdgo.GoInt)) : stdgo._internal.math.big.Big.T_decimal), _want : ("123.45" : stdgo.GoString) } : T__struct_7), ({ _x : (new stdgo._internal.math.big.Big.T_decimal((("12345" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (10 : stdgo.GoInt)) : stdgo._internal.math.big.Big.T_decimal), _want : ("1234500000" : stdgo.GoString) } : T__struct_7)) : stdgo.Slice<T__struct_7>)) {
+        for (__14 => _test in (new stdgo.Slice<T__struct_7>(6, 6, ...[({ _x : ({} : stdgo._internal.math.big.Big.T_decimal), _want : ("0" : stdgo.GoString) } : T__struct_7), ({ _x : (new stdgo._internal.math.big.Big.T_decimal((null : stdgo.Slice<stdgo.GoUInt8>), (1000 : stdgo.GoInt)) : stdgo._internal.math.big.Big.T_decimal), _want : ("0" : stdgo.GoString) } : T__struct_7), ({ _x : (new stdgo._internal.math.big.Big.T_decimal((("12345" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (0 : stdgo.GoInt)) : stdgo._internal.math.big.Big.T_decimal), _want : ("0.12345" : stdgo.GoString) } : T__struct_7), ({ _x : (new stdgo._internal.math.big.Big.T_decimal((("12345" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (-3 : stdgo.GoInt)) : stdgo._internal.math.big.Big.T_decimal), _want : ("0.00012345" : stdgo.GoString) } : T__struct_7), ({ _x : (new stdgo._internal.math.big.Big.T_decimal((("12345" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (3 : stdgo.GoInt)) : stdgo._internal.math.big.Big.T_decimal), _want : ("123.45" : stdgo.GoString) } : T__struct_7), ({ _x : (new stdgo._internal.math.big.Big.T_decimal((("12345" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (10 : stdgo.GoInt)) : stdgo._internal.math.big.Big.T_decimal), _want : ("1234500000" : stdgo.GoString) } : T__struct_7)]) : stdgo.Slice<T__struct_7>)) {
             {
                 var _got:stdgo.GoString = (_test._x.string() : stdgo.GoString)?.__copy__();
                 if (_got != (_test._want)) {
@@ -4031,9 +3840,7 @@ function testDecimalString(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
         };
     }
 function testDecimalInit(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_8>(
-11,
-11,
+        for (__14 => _test in (new stdgo.Slice<T__struct_8>(11, 11, ...[
 ({ _x : (0u32 : stdgo._internal.math.big.Big.Word), _shift : (0 : stdgo.GoInt), _want : ("0" : stdgo.GoString) } : T__struct_8),
 ({ _x : (0u32 : stdgo._internal.math.big.Big.Word), _shift : (-100 : stdgo.GoInt), _want : ("0" : stdgo.GoString) } : T__struct_8),
 ({ _x : (0u32 : stdgo._internal.math.big.Big.Word), _shift : (100 : stdgo.GoInt), _want : ("0" : stdgo.GoString) } : T__struct_8),
@@ -4044,9 +3851,9 @@ function testDecimalInit(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
 ({ _x : (12345678u32 : stdgo._internal.math.big.Big.Word), _shift : (8 : stdgo.GoInt), _want : ("3160493568" : stdgo.GoString) } : T__struct_8),
 ({ _x : (12345678u32 : stdgo._internal.math.big.Big.Word), _shift : (-8 : stdgo.GoInt), _want : ("48225.3046875" : stdgo.GoString) } : T__struct_8),
 ({ _x : (195312u32 : stdgo._internal.math.big.Big.Word), _shift : (9 : stdgo.GoInt), _want : ("99999744" : stdgo.GoString) } : T__struct_8),
-({ _x : (1953125u32 : stdgo._internal.math.big.Big.Word), _shift : (9 : stdgo.GoInt), _want : ("1000000000" : stdgo.GoString) } : T__struct_8)) : stdgo.Slice<T__struct_8>)) {
+({ _x : (1953125u32 : stdgo._internal.math.big.Big.Word), _shift : (9 : stdgo.GoInt), _want : ("1000000000" : stdgo.GoString) } : T__struct_8)]) : stdgo.Slice<T__struct_8>)) {
             var _d:T_decimal = ({} : stdgo._internal.math.big.Big.T_decimal);
-            _d._init((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, _test._x) : stdgo._internal.math.big.Big.T_nat)._norm(), _test._shift);
+            _d._init((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[_test._x]) : stdgo._internal.math.big.Big.T_nat)._norm(), _test._shift);
             {
                 var _got:stdgo.GoString = (_d.string() : stdgo.GoString)?.__copy__();
                 if (_got != (_test._want)) {
@@ -4056,9 +3863,7 @@ function testDecimalInit(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
         };
     }
 function testDecimalRounding(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_9>(
-20,
-20,
+        for (__14 => _test in (new stdgo.Slice<T__struct_9>(20, 20, ...[
 ({ _x : (0i64 : stdgo.GoUInt64), _n : (0 : stdgo.GoInt), _down : ("0" : stdgo.GoString), _even : ("0" : stdgo.GoString), _up : ("0" : stdgo.GoString) } : T__struct_9),
 ({ _x : (0i64 : stdgo.GoUInt64), _n : (1 : stdgo.GoInt), _down : ("0" : stdgo.GoString), _even : ("0" : stdgo.GoString), _up : ("0" : stdgo.GoString) } : T__struct_9),
 ({ _x : (1i64 : stdgo.GoUInt64), _n : (0 : stdgo.GoInt), _down : ("0" : stdgo.GoString), _even : ("0" : stdgo.GoString), _up : ("10" : stdgo.GoString) } : T__struct_9),
@@ -4078,7 +3883,7 @@ function testDecimalRounding(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
 ({ _x : (99999999i64 : stdgo.GoUInt64), _n : (4 : stdgo.GoInt), _down : ("99990000" : stdgo.GoString), _even : ("100000000" : stdgo.GoString), _up : ("100000000" : stdgo.GoString) } : T__struct_9),
 ({ _x : (12994999i64 : stdgo.GoUInt64), _n : (4 : stdgo.GoInt), _down : ("12990000" : stdgo.GoString), _even : ("12990000" : stdgo.GoString), _up : ("13000000" : stdgo.GoString) } : T__struct_9),
 ({ _x : (12995000i64 : stdgo.GoUInt64), _n : (4 : stdgo.GoInt), _down : ("12990000" : stdgo.GoString), _even : ("13000000" : stdgo.GoString), _up : ("13000000" : stdgo.GoString) } : T__struct_9),
-({ _x : (12999999i64 : stdgo.GoUInt64), _n : (4 : stdgo.GoInt), _down : ("12990000" : stdgo.GoString), _even : ("13000000" : stdgo.GoString), _up : ("13000000" : stdgo.GoString) } : T__struct_9)) : stdgo.Slice<T__struct_9>)) {
+({ _x : (12999999i64 : stdgo.GoUInt64), _n : (4 : stdgo.GoInt), _down : ("12990000" : stdgo.GoString), _even : ("13000000" : stdgo.GoString), _up : ("13000000" : stdgo.GoString) } : T__struct_9)]) : stdgo.Slice<T__struct_9>)) {
             var _x:stdgo._internal.math.big.Big.T_nat = (new stdgo._internal.math.big.Big.T_nat(0, 0) : T_nat)._setUint64(_test._x);
             var _d:T_decimal = ({} : stdgo._internal.math.big.Big.T_decimal);
             _d._init(_x, (0 : stdgo.GoInt));
@@ -4124,7 +3929,7 @@ function benchmarkDecimalConversion(_b:stdgo.Ref<stdgo._internal.testing.Testing
     }
 function benchmarkFloatString(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _x = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>);
-        for (__14 => _prec in (new stdgo.Slice<stdgo.GoUInt>(4, 4, (100u32 : stdgo.GoUInt), (1000u32 : stdgo.GoUInt), (10000u32 : stdgo.GoUInt), (100000u32 : stdgo.GoUInt)) : stdgo.Slice<stdgo.GoUInt>)) {
+        for (__14 => _prec in (new stdgo.Slice<stdgo.GoUInt>(4, 4, ...[(100u32 : stdgo.GoUInt), (1000u32 : stdgo.GoUInt), (10000u32 : stdgo.GoUInt), (100000u32 : stdgo.GoUInt)]) : stdgo.Slice<stdgo.GoUInt>)) {
             _x.setPrec(_prec).setRat(newRat((1i64 : stdgo.GoInt64), (3i64 : stdgo.GoInt64)));
             _b.run(stdgo._internal.fmt.Fmt.sprintf(("%v" : stdgo.GoString), stdgo.Go.toInterface(_prec))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
                 _b.reportAllocs();
@@ -4240,9 +4045,7 @@ function testFloatZeroValue(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
             };
             return (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>);
         };
-        for (__30 => _test in (new stdgo.Slice<T__struct_10>(
-15,
-15,
+        for (__30 => _test in (new stdgo.Slice<T__struct_10>(15, 15, ...[
 ({ _z : (0 : stdgo.GoInt), _x : (0 : stdgo.GoInt), _y : (0 : stdgo.GoInt), _want : (0 : stdgo.GoInt), _opname : (43 : stdgo.GoInt32), _op : Float__static_extension.add } : T__struct_10),
 ({ _z : (0 : stdgo.GoInt), _x : (1 : stdgo.GoInt), _y : (2 : stdgo.GoInt), _want : (3 : stdgo.GoInt), _opname : (43 : stdgo.GoInt32), _op : Float__static_extension.add } : T__struct_10),
 ({ _z : (1 : stdgo.GoInt), _x : (2 : stdgo.GoInt), _y : (0 : stdgo.GoInt), _want : (2 : stdgo.GoInt), _opname : (43 : stdgo.GoInt32), _op : Float__static_extension.add } : T__struct_10),
@@ -4257,7 +4060,7 @@ function testFloatZeroValue(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
 ({ _z : (2 : stdgo.GoInt), _x : (0 : stdgo.GoInt), _y : (1 : stdgo.GoInt), _want : (0 : stdgo.GoInt), _opname : (42 : stdgo.GoInt32), _op : Float__static_extension.mul } : T__struct_10),
 ({ _z : (0 : stdgo.GoInt), _x : (2 : stdgo.GoInt), _y : (1 : stdgo.GoInt), _want : (2 : stdgo.GoInt), _opname : (47 : stdgo.GoInt32), _op : Float__static_extension.quo } : T__struct_10),
 ({ _z : (1 : stdgo.GoInt), _x : (2 : stdgo.GoInt), _y : (0 : stdgo.GoInt), _want : (0 : stdgo.GoInt), _opname : (47 : stdgo.GoInt32), _op : Float__static_extension.quo } : T__struct_10),
-({ _z : (2 : stdgo.GoInt), _x : (0 : stdgo.GoInt), _y : (1 : stdgo.GoInt), _want : (0 : stdgo.GoInt), _opname : (47 : stdgo.GoInt32), _op : Float__static_extension.quo } : T__struct_10)) : stdgo.Slice<T__struct_10>)) {
+({ _z : (2 : stdgo.GoInt), _x : (0 : stdgo.GoInt), _y : (1 : stdgo.GoInt), _want : (0 : stdgo.GoInt), _opname : (47 : stdgo.GoInt32), _op : Float__static_extension.quo } : T__struct_10)]) : stdgo.Slice<T__struct_10>)) {
             var _z = _make(_test._z);
             _test._op(_z, _make(_test._x), _make(_test._y));
             var _got:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -4277,9 +4080,7 @@ function _makeFloat(_s:stdgo.GoString):stdgo.Ref<Float_> {
         return _x;
     }
 function testFloatSetPrec(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_11>(
-14,
-14,
+        for (__14 => _test in (new stdgo.Slice<T__struct_11>(14, 14, ...[
 ({ _x : ("0" : stdgo.GoString), _prec : (0u32 : stdgo.GoUInt), _want : ("0" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_11),
 ({ _x : ("-0" : stdgo.GoString), _prec : (0u32 : stdgo.GoUInt), _want : ("-0" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_11),
 ({ _x : ("-Inf" : stdgo.GoString), _prec : (0u32 : stdgo.GoUInt), _want : ("-Inf" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_11),
@@ -4293,7 +4094,7 @@ function testFloatSetPrec(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
 ({ _x : ("1.5" : stdgo.GoString), _prec : (1u32 : stdgo.GoUInt), _want : ("2" : stdgo.GoString), _acc : (1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_11),
 ({ _x : ("-1.5" : stdgo.GoString), _prec : (1u32 : stdgo.GoUInt), _want : ("-2" : stdgo.GoString), _acc : (-1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_11),
 ({ _x : ("123" : stdgo.GoString), _prec : (1000000u32 : stdgo.GoUInt), _want : ("123" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_11),
-({ _x : ("-123" : stdgo.GoString), _prec : (1000000u32 : stdgo.GoUInt), _want : ("-123" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_11)) : stdgo.Slice<T__struct_11>)) {
+({ _x : ("-123" : stdgo.GoString), _prec : (1000000u32 : stdgo.GoUInt), _want : ("-123" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_11)]) : stdgo.Slice<T__struct_11>)) {
             var _x = _makeFloat(_test._x?.__copy__()).setPrec(_test._prec);
             var _prec:stdgo.GoUInt = _test._prec;
             if ((_prec > (-1u32 : stdgo.GoUInt) : Bool)) {
@@ -4315,9 +4116,7 @@ function testFloatSetPrec(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
     }
 function testFloatMinPrec(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
-        for (__14 => _test in (new stdgo.Slice<T__struct_12>(
-11,
-11,
+        for (__14 => _test in (new stdgo.Slice<T__struct_12>(11, 11, ...[
 ({ _x : ("0" : stdgo.GoString), _want : (0u32 : stdgo.GoUInt) } : T__struct_12),
 ({ _x : ("-0" : stdgo.GoString), _want : (0u32 : stdgo.GoUInt) } : T__struct_12),
 ({ _x : ("+Inf" : stdgo.GoString), _want : (0u32 : stdgo.GoUInt) } : T__struct_12),
@@ -4328,7 +4127,7 @@ function testFloatMinPrec(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
 ({ _x : ("0x8001" : stdgo.GoString), _want : (16u32 : stdgo.GoUInt) } : T__struct_12),
 ({ _x : ("0x8001p-1000" : stdgo.GoString), _want : (16u32 : stdgo.GoUInt) } : T__struct_12),
 ({ _x : ("0x8001p+1000" : stdgo.GoString), _want : (16u32 : stdgo.GoUInt) } : T__struct_12),
-({ _x : ("0.1" : stdgo.GoString), _want : (100u32 : stdgo.GoUInt) } : T__struct_12)) : stdgo.Slice<T__struct_12>)) {
+({ _x : ("0.1" : stdgo.GoString), _want : (100u32 : stdgo.GoUInt) } : T__struct_12)]) : stdgo.Slice<T__struct_12>)) {
             var _x = _makeFloat(_test._x?.__copy__()).setPrec((100u32 : stdgo.GoUInt));
             {
                 var _got:stdgo.GoUInt = _x.minPrec();
@@ -4339,7 +4138,7 @@ function testFloatMinPrec(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
         };
     }
 function testFloatSign(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_13>(6, 6, ({ _x : ("-Inf" : stdgo.GoString), _s : (-1 : stdgo.GoInt) } : T__struct_13), ({ _x : ("-1" : stdgo.GoString), _s : (-1 : stdgo.GoInt) } : T__struct_13), ({ _x : ("-0" : stdgo.GoString), _s : (0 : stdgo.GoInt) } : T__struct_13), ({ _x : ("+0" : stdgo.GoString), _s : (0 : stdgo.GoInt) } : T__struct_13), ({ _x : ("+1" : stdgo.GoString), _s : (1 : stdgo.GoInt) } : T__struct_13), ({ _x : ("+Inf" : stdgo.GoString), _s : (1 : stdgo.GoInt) } : T__struct_13)) : stdgo.Slice<T__struct_13>)) {
+        for (__14 => _test in (new stdgo.Slice<T__struct_13>(6, 6, ...[({ _x : ("-Inf" : stdgo.GoString), _s : (-1 : stdgo.GoInt) } : T__struct_13), ({ _x : ("-1" : stdgo.GoString), _s : (-1 : stdgo.GoInt) } : T__struct_13), ({ _x : ("-0" : stdgo.GoString), _s : (0 : stdgo.GoInt) } : T__struct_13), ({ _x : ("+0" : stdgo.GoString), _s : (0 : stdgo.GoInt) } : T__struct_13), ({ _x : ("+1" : stdgo.GoString), _s : (1 : stdgo.GoInt) } : T__struct_13), ({ _x : ("+Inf" : stdgo.GoString), _s : (1 : stdgo.GoInt) } : T__struct_13)]) : stdgo.Slice<T__struct_13>)) {
             var _x = _makeFloat(_test._x?.__copy__());
             var _s:stdgo.GoInt = _x.sign();
             if (_s != (_test._s)) {
@@ -4357,18 +4156,7 @@ function _alike64(_x:stdgo.GoFloat64, _y:stdgo.GoFloat64):Bool {
         return ((_x == _y) && (stdgo._internal.math.Math.signbit(_x) == stdgo._internal.math.Math.signbit(_y)) : Bool);
     }
 function testFloatMantExp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_14>(
-9,
-9,
-({ _x : ("0" : stdgo.GoString), _mant : ("0" : stdgo.GoString), _exp : (0 : stdgo.GoInt) } : T__struct_14),
-({ _x : ("+0" : stdgo.GoString), _mant : ("0" : stdgo.GoString), _exp : (0 : stdgo.GoInt) } : T__struct_14),
-({ _x : ("-0" : stdgo.GoString), _mant : ("-0" : stdgo.GoString), _exp : (0 : stdgo.GoInt) } : T__struct_14),
-({ _x : ("Inf" : stdgo.GoString), _mant : ("+Inf" : stdgo.GoString), _exp : (0 : stdgo.GoInt) } : T__struct_14),
-({ _x : ("+Inf" : stdgo.GoString), _mant : ("+Inf" : stdgo.GoString), _exp : (0 : stdgo.GoInt) } : T__struct_14),
-({ _x : ("-Inf" : stdgo.GoString), _mant : ("-Inf" : stdgo.GoString), _exp : (0 : stdgo.GoInt) } : T__struct_14),
-({ _x : ("1.5" : stdgo.GoString), _mant : ("0.75" : stdgo.GoString), _exp : (1 : stdgo.GoInt) } : T__struct_14),
-({ _x : ("1.024e3" : stdgo.GoString), _mant : ("0.5" : stdgo.GoString), _exp : (11 : stdgo.GoInt) } : T__struct_14),
-({ _x : ("-0.125" : stdgo.GoString), _mant : ("-0.5" : stdgo.GoString), _exp : (-2 : stdgo.GoInt) } : T__struct_14)) : stdgo.Slice<T__struct_14>)) {
+        for (__14 => _test in (new stdgo.Slice<T__struct_14>(9, 9, ...[({ _x : ("0" : stdgo.GoString), _mant : ("0" : stdgo.GoString), _exp : (0 : stdgo.GoInt) } : T__struct_14), ({ _x : ("+0" : stdgo.GoString), _mant : ("0" : stdgo.GoString), _exp : (0 : stdgo.GoInt) } : T__struct_14), ({ _x : ("-0" : stdgo.GoString), _mant : ("-0" : stdgo.GoString), _exp : (0 : stdgo.GoInt) } : T__struct_14), ({ _x : ("Inf" : stdgo.GoString), _mant : ("+Inf" : stdgo.GoString), _exp : (0 : stdgo.GoInt) } : T__struct_14), ({ _x : ("+Inf" : stdgo.GoString), _mant : ("+Inf" : stdgo.GoString), _exp : (0 : stdgo.GoInt) } : T__struct_14), ({ _x : ("-Inf" : stdgo.GoString), _mant : ("-Inf" : stdgo.GoString), _exp : (0 : stdgo.GoInt) } : T__struct_14), ({ _x : ("1.5" : stdgo.GoString), _mant : ("0.75" : stdgo.GoString), _exp : (1 : stdgo.GoInt) } : T__struct_14), ({ _x : ("1.024e3" : stdgo.GoString), _mant : ("0.5" : stdgo.GoString), _exp : (11 : stdgo.GoInt) } : T__struct_14), ({ _x : ("-0.125" : stdgo.GoString), _mant : ("-0.5" : stdgo.GoString), _exp : (-2 : stdgo.GoInt) } : T__struct_14)]) : stdgo.Slice<T__struct_14>)) {
             var _x = _makeFloat(_test._x?.__copy__());
             var _mant = _makeFloat(_test._mant?.__copy__());
             var _m = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>);
@@ -4394,9 +4182,7 @@ function testFloatMantExpAliasing(_t:stdgo.Ref<stdgo._internal.testing.Testing.T
         };
     }
 function testFloatSetMantExp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_15>(
-16,
-16,
+        for (__14 => _test in (new stdgo.Slice<T__struct_15>(16, 16, ...[
 ({ _frac : ("0" : stdgo.GoString), _exp : (0 : stdgo.GoInt), _z : ("0" : stdgo.GoString) } : T__struct_15),
 ({ _frac : ("+0" : stdgo.GoString), _exp : (0 : stdgo.GoInt), _z : ("0" : stdgo.GoString) } : T__struct_15),
 ({ _frac : ("-0" : stdgo.GoString), _exp : (0 : stdgo.GoInt), _z : ("-0" : stdgo.GoString) } : T__struct_15),
@@ -4412,7 +4198,7 @@ function testFloatSetMantExp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
 ({ _frac : ("0.5" : stdgo.GoString), _exp : (11 : stdgo.GoInt), _z : ("1024" : stdgo.GoString) } : T__struct_15),
 ({ _frac : ("-0.5" : stdgo.GoString), _exp : (-2 : stdgo.GoInt), _z : ("-0.125" : stdgo.GoString) } : T__struct_15),
 ({ _frac : ("32" : stdgo.GoString), _exp : (5 : stdgo.GoInt), _z : ("1024" : stdgo.GoString) } : T__struct_15),
-({ _frac : ("1024" : stdgo.GoString), _exp : (-10 : stdgo.GoInt), _z : ("1" : stdgo.GoString) } : T__struct_15)) : stdgo.Slice<T__struct_15>)) {
+({ _frac : ("1024" : stdgo.GoString), _exp : (-10 : stdgo.GoInt), _z : ("1" : stdgo.GoString) } : T__struct_15)]) : stdgo.Slice<T__struct_15>)) {
             var _frac = _makeFloat(_test._frac?.__copy__());
             var _want = _makeFloat(_test._z?.__copy__());
             var _z:Float_ = ({} : stdgo._internal.math.big.Big.Float_);
@@ -4427,7 +4213,7 @@ function testFloatSetMantExp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
         };
     }
 function testFloatPredicates(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_16>(6, 6, ({ _x : ("-Inf" : stdgo.GoString), _sign : (-1 : stdgo.GoInt), _signbit : true, _inf : true } : T__struct_16), ({ _x : ("-1" : stdgo.GoString), _sign : (-1 : stdgo.GoInt), _signbit : true, _inf : false } : T__struct_16), ({ _x : ("-0" : stdgo.GoString), _sign : (0 : stdgo.GoInt), _signbit : true, _inf : false } : T__struct_16), ({ _x : ("0" : stdgo.GoString), _sign : (0 : stdgo.GoInt), _signbit : false, _inf : false } : T__struct_16), ({ _x : ("1" : stdgo.GoString), _sign : (1 : stdgo.GoInt), _signbit : false, _inf : false } : T__struct_16), ({ _x : ("+Inf" : stdgo.GoString), _sign : (1 : stdgo.GoInt), _signbit : false, _inf : true } : T__struct_16)) : stdgo.Slice<T__struct_16>)) {
+        for (__14 => _test in (new stdgo.Slice<T__struct_16>(6, 6, ...[({ _x : ("-Inf" : stdgo.GoString), _sign : (-1 : stdgo.GoInt), _signbit : true, _inf : true } : T__struct_16), ({ _x : ("-1" : stdgo.GoString), _sign : (-1 : stdgo.GoInt), _signbit : true, _inf : false } : T__struct_16), ({ _x : ("-0" : stdgo.GoString), _sign : (0 : stdgo.GoInt), _signbit : true, _inf : false } : T__struct_16), ({ _x : ("0" : stdgo.GoString), _sign : (0 : stdgo.GoInt), _signbit : false, _inf : false } : T__struct_16), ({ _x : ("1" : stdgo.GoString), _sign : (1 : stdgo.GoInt), _signbit : false, _inf : false } : T__struct_16), ({ _x : ("+Inf" : stdgo.GoString), _sign : (1 : stdgo.GoInt), _signbit : false, _inf : true } : T__struct_16)]) : stdgo.Slice<T__struct_16>)) {
             var _x = _makeFloat(_test._x?.__copy__());
             {
                 var _got:Bool = _x.signbit();
@@ -4450,9 +4236,7 @@ function testFloatPredicates(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
         };
     }
 function testFloatIsInt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<stdgo.GoString>(
-14,
-14,
+        for (__14 => _test in (new stdgo.Slice<stdgo.GoString>(14, 14, ...[
 ("0 int" : stdgo.GoString),
 ("-0 int" : stdgo.GoString),
 ("1 int" : stdgo.GoString),
@@ -4466,7 +4250,7 @@ function testFloatIsInt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 ("1.2345e200 int" : stdgo.GoString),
 ("Inf" : stdgo.GoString),
 ("+Inf" : stdgo.GoString),
-("-Inf" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
+("-Inf" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>)) {
             var _s:stdgo.GoString = stdgo._internal.strings.Strings.trimSuffix(_test?.__copy__(), (" int" : stdgo.GoString))?.__copy__();
             var _want:Bool = _s != (_test);
             {
@@ -4542,9 +4326,7 @@ function _testFloatRound(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _x:st
         };
     }
 function testFloatRound(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_17>(
-64,
-64,
+        for (__14 => _test in (new stdgo.Slice<T__struct_17>(64, 64, ...[
 ({ _prec : (5u32 : stdgo.GoUInt), _x : ("1000" : stdgo.GoString), _zero : ("1000" : stdgo.GoString), _neven : ("1000" : stdgo.GoString), _naway : ("1000" : stdgo.GoString), _away : ("1000" : stdgo.GoString) } : T__struct_17),
 ({ _prec : (5u32 : stdgo.GoUInt), _x : ("1001" : stdgo.GoString), _zero : ("1001" : stdgo.GoString), _neven : ("1001" : stdgo.GoString), _naway : ("1001" : stdgo.GoString), _away : ("1001" : stdgo.GoString) } : T__struct_17),
 ({ _prec : (5u32 : stdgo.GoUInt), _x : ("1010" : stdgo.GoString), _zero : ("1010" : stdgo.GoString), _neven : ("1010" : stdgo.GoString), _naway : ("1010" : stdgo.GoString), _away : ("1010" : stdgo.GoString) } : T__struct_17),
@@ -4608,7 +4390,7 @@ function testFloatRound(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 ({ _prec : (1u32 : stdgo.GoUInt), _x : ("1100001" : stdgo.GoString), _zero : ("1000000" : stdgo.GoString), _neven : ("10000000" : stdgo.GoString), _naway : ("10000000" : stdgo.GoString), _away : ("10000000" : stdgo.GoString) } : T__struct_17),
 ({ _prec : (1u32 : stdgo.GoUInt), _x : ("1101001" : stdgo.GoString), _zero : ("1000000" : stdgo.GoString), _neven : ("10000000" : stdgo.GoString), _naway : ("10000000" : stdgo.GoString), _away : ("10000000" : stdgo.GoString) } : T__struct_17),
 ({ _prec : (1u32 : stdgo.GoUInt), _x : ("1110001" : stdgo.GoString), _zero : ("1000000" : stdgo.GoString), _neven : ("10000000" : stdgo.GoString), _naway : ("10000000" : stdgo.GoString), _away : ("10000000" : stdgo.GoString) } : T__struct_17),
-({ _prec : (1u32 : stdgo.GoUInt), _x : ("1111001" : stdgo.GoString), _zero : ("1000000" : stdgo.GoString), _neven : ("10000000" : stdgo.GoString), _naway : ("10000000" : stdgo.GoString), _away : ("10000000" : stdgo.GoString) } : T__struct_17)) : stdgo.Slice<T__struct_17>)) {
+({ _prec : (1u32 : stdgo.GoUInt), _x : ("1111001" : stdgo.GoString), _zero : ("1000000" : stdgo.GoString), _neven : ("10000000" : stdgo.GoString), _naway : ("10000000" : stdgo.GoString), _away : ("10000000" : stdgo.GoString) } : T__struct_17)]) : stdgo.Slice<T__struct_17>)) {
             var _x:stdgo.GoInt64 = _fromBinary(_test._x?.__copy__());
             var _z:stdgo.GoInt64 = _fromBinary(_test._zero?.__copy__());
             var _e:stdgo.GoInt64 = _fromBinary(_test._neven?.__copy__());
@@ -4641,7 +4423,7 @@ function testFloatRound24(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
         };
     }
 function testFloatSetUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _want in (new stdgo.Slice<stdgo.GoUInt64>(8, 8, (0i64 : stdgo.GoUInt64), (1i64 : stdgo.GoUInt64), (2i64 : stdgo.GoUInt64), (10i64 : stdgo.GoUInt64), (100i64 : stdgo.GoUInt64), (4294967295i64 : stdgo.GoUInt64), (4294967296i64 : stdgo.GoUInt64), (-1i64 : stdgo.GoUInt64)) : stdgo.Slice<stdgo.GoUInt64>)) {
+        for (__14 => _want in (new stdgo.Slice<stdgo.GoUInt64>(8, 8, ...[(0i64 : stdgo.GoUInt64), (1i64 : stdgo.GoUInt64), (2i64 : stdgo.GoUInt64), (10i64 : stdgo.GoUInt64), (100i64 : stdgo.GoUInt64), (4294967295i64 : stdgo.GoUInt64), (4294967296i64 : stdgo.GoUInt64), (-1i64 : stdgo.GoUInt64)]) : stdgo.Slice<stdgo.GoUInt64>)) {
             var _f:Float_ = ({} : stdgo._internal.math.big.Big.Float_);
             _f.setUint64(_want);
             {
@@ -4665,8 +4447,8 @@ function testFloatSetUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
         };
     }
 function testFloatSetInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _want in (new stdgo.Slice<stdgo.GoInt64>(8, 8, (0i64 : stdgo.GoInt64), (1i64 : stdgo.GoInt64), (2i64 : stdgo.GoInt64), (10i64 : stdgo.GoInt64), (100i64 : stdgo.GoInt64), (4294967295i64 : stdgo.GoInt64), (4294967296i64 : stdgo.GoInt64), (9223372036854775807i64 : stdgo.GoInt64)) : stdgo.Slice<stdgo.GoInt64>)) {
-            for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(...([].concat([for (i in 0 ... 2) (0 : stdgo.GoInt)]))) : stdgo.GoArray<stdgo.GoInt>)) {
+        for (__14 => _want in (new stdgo.Slice<stdgo.GoInt64>(8, 8, ...[(0i64 : stdgo.GoInt64), (1i64 : stdgo.GoInt64), (2i64 : stdgo.GoInt64), (10i64 : stdgo.GoInt64), (100i64 : stdgo.GoInt64), (4294967295i64 : stdgo.GoInt64), (4294967296i64 : stdgo.GoInt64), (9223372036854775807i64 : stdgo.GoInt64)]) : stdgo.Slice<stdgo.GoInt64>)) {
+            for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(2, 2, ...([].concat([for (i in 0 ... 2) (0 : stdgo.GoInt)]))) : stdgo.GoArray<stdgo.GoInt>)) {
                 if ((_i & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                     _want = -_want;
                 };
@@ -4696,9 +4478,7 @@ function testFloatSetInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
 function testFloatSetFloat64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            for (__14 => _want in (new stdgo.Slice<stdgo.GoFloat64>(
-16,
-16,
+            for (__14 => _want in (new stdgo.Slice<stdgo.GoFloat64>(16, 16, ...[
 (0 : stdgo.GoFloat64),
 (1 : stdgo.GoFloat64),
 (2 : stdgo.GoFloat64),
@@ -4714,8 +4494,8 @@ function testFloatSetFloat64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
 (5e-324 : stdgo.GoFloat64),
 stdgo._internal.math.Math.inf((-1 : stdgo.GoInt)),
 stdgo._internal.math.Math.inf((0 : stdgo.GoInt)),
--stdgo._internal.math.Math.inf((1 : stdgo.GoInt))) : stdgo.Slice<stdgo.GoFloat64>)) {
-                for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(...([].concat([for (i in 0 ... 2) (0 : stdgo.GoInt)]))) : stdgo.GoArray<stdgo.GoInt>)) {
+-stdgo._internal.math.Math.inf((1 : stdgo.GoInt))]) : stdgo.Slice<stdgo.GoFloat64>)) {
+                for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(2, 2, ...([].concat([for (i in 0 ... 2) (0 : stdgo.GoInt)]))) : stdgo.GoArray<stdgo.GoInt>)) {
                     if ((_i & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                         _want = -_want;
                     };
@@ -4785,7 +4565,7 @@ stdgo._internal.math.Math.inf((0 : stdgo.GoInt)),
         };
     }
 function testFloatSetInt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _want in (new stdgo.Slice<stdgo.GoString>(6, 6, ("0" : stdgo.GoString), ("1" : stdgo.GoString), ("-1" : stdgo.GoString), ("1234567890" : stdgo.GoString), ("123456789012345678901234567890" : stdgo.GoString), ("123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
+        for (__14 => _want in (new stdgo.Slice<stdgo.GoString>(6, 6, ...[("0" : stdgo.GoString), ("1" : stdgo.GoString), ("-1" : stdgo.GoString), ("1234567890" : stdgo.GoString), ("123456789012345678901234567890" : stdgo.GoString), ("123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>)) {
             var _x:Int_ = ({} : stdgo._internal.math.big.Big.Int_);
             var __tmp__ = _x.setString(_want?.__copy__(), (0 : stdgo.GoInt)), __15:stdgo.Ref<stdgo._internal.math.big.Big.Int_> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
@@ -4811,7 +4591,7 @@ function testFloatSetInt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
         };
     }
 function testFloatSetRat(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _want in (new stdgo.Slice<stdgo.GoString>(8, 8, ("0" : stdgo.GoString), ("1" : stdgo.GoString), ("-1" : stdgo.GoString), ("1234567890" : stdgo.GoString), ("123456789012345678901234567890" : stdgo.GoString), ("123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890" : stdgo.GoString), ("1.2" : stdgo.GoString), ("3.14159265" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
+        for (__14 => _want in (new stdgo.Slice<stdgo.GoString>(8, 8, ...[("0" : stdgo.GoString), ("1" : stdgo.GoString), ("-1" : stdgo.GoString), ("1234567890" : stdgo.GoString), ("123456789012345678901234567890" : stdgo.GoString), ("123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890" : stdgo.GoString), ("1.2" : stdgo.GoString), ("3.14159265" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>)) {
             var _x:Rat = ({} : stdgo._internal.math.big.Big.Rat);
             var __tmp__ = _x.setString(_want?.__copy__()), __15:stdgo.Ref<stdgo._internal.math.big.Big.Rat> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
@@ -4840,7 +4620,7 @@ function testFloatSetRat(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
     }
 function testFloatSetInf(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _f:Float_ = ({} : stdgo._internal.math.big.Big.Float_);
-        for (__14 => _test in (new stdgo.Slice<T__struct_18>(4, 4, ({ _signbit : false, _prec : (0u32 : stdgo.GoUInt), _want : ("+Inf" : stdgo.GoString) } : T__struct_18), ({ _signbit : true, _prec : (0u32 : stdgo.GoUInt), _want : ("-Inf" : stdgo.GoString) } : T__struct_18), ({ _signbit : false, _prec : (10u32 : stdgo.GoUInt), _want : ("+Inf" : stdgo.GoString) } : T__struct_18), ({ _signbit : true, _prec : (30u32 : stdgo.GoUInt), _want : ("-Inf" : stdgo.GoString) } : T__struct_18)) : stdgo.Slice<T__struct_18>)) {
+        for (__14 => _test in (new stdgo.Slice<T__struct_18>(4, 4, ...[({ _signbit : false, _prec : (0u32 : stdgo.GoUInt), _want : ("+Inf" : stdgo.GoString) } : T__struct_18), ({ _signbit : true, _prec : (0u32 : stdgo.GoUInt), _want : ("-Inf" : stdgo.GoString) } : T__struct_18), ({ _signbit : false, _prec : (10u32 : stdgo.GoUInt), _want : ("+Inf" : stdgo.GoString) } : T__struct_18), ({ _signbit : true, _prec : (30u32 : stdgo.GoUInt), _want : ("-Inf" : stdgo.GoString) } : T__struct_18)]) : stdgo.Slice<T__struct_18>)) {
             var _x = _f.setPrec(_test._prec).setInf(_test._signbit);
             {
                 var _got:stdgo.GoString = (_x.string() : stdgo.GoString)?.__copy__();
@@ -4851,9 +4631,7 @@ function testFloatSetInf(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
         };
     }
 function testFloatUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_19>(
-15,
-15,
+        for (__14 => _test in (new stdgo.Slice<T__struct_19>(15, 15, ...[
 ({ _x : ("-Inf" : stdgo.GoString), _out : (0i64 : stdgo.GoUInt64), _acc : (1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_19),
 ({ _x : ("-1" : stdgo.GoString), _out : (0i64 : stdgo.GoUInt64), _acc : (1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_19),
 ({ _x : ("-1e-1000" : stdgo.GoString), _out : (0i64 : stdgo.GoUInt64), _acc : (1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_19),
@@ -4868,7 +4646,7 @@ function testFloatUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
 ({ _x : ("18446744073709551615.000000000000000000001" : stdgo.GoString), _out : (-1i64 : stdgo.GoUInt64), _acc : (-1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_19),
 ({ _x : ("18446744073709551616" : stdgo.GoString), _out : (-1i64 : stdgo.GoUInt64), _acc : (-1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_19),
 ({ _x : ("1e10000" : stdgo.GoString), _out : (-1i64 : stdgo.GoUInt64), _acc : (-1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_19),
-({ _x : ("+Inf" : stdgo.GoString), _out : (-1i64 : stdgo.GoUInt64), _acc : (-1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_19)) : stdgo.Slice<T__struct_19>)) {
+({ _x : ("+Inf" : stdgo.GoString), _out : (-1i64 : stdgo.GoUInt64), _acc : (-1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_19)]) : stdgo.Slice<T__struct_19>)) {
             var _x = _makeFloat(_test._x?.__copy__());
             var __tmp__ = _x.uint64(), _out:stdgo.GoUInt64 = __tmp__._0, _acc:stdgo._internal.math.big.Big.Accuracy = __tmp__._1;
             if (((_out != _test._out) || (_acc != _test._acc) : Bool)) {
@@ -4877,9 +4655,7 @@ function testFloatUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
         };
     }
 function testFloatInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_20>(
-25,
-25,
+        for (__14 => _test in (new stdgo.Slice<T__struct_20>(25, 25, ...[
 ({ _x : ("-Inf" : stdgo.GoString), _out : (-9223372036854775808i64 : stdgo.GoInt64), _acc : (1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_20),
 ({ _x : ("-1e10000" : stdgo.GoString), _out : (-9223372036854775808i64 : stdgo.GoInt64), _acc : (1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_20),
 ({ _x : ("-9223372036854775809" : stdgo.GoString), _out : (-9223372036854775808i64 : stdgo.GoInt64), _acc : (1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_20),
@@ -4904,7 +4680,7 @@ function testFloatInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 ({ _x : ("9223372036854775807.000000000000000000001" : stdgo.GoString), _out : (9223372036854775807i64 : stdgo.GoInt64), _acc : (-1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_20),
 ({ _x : ("9223372036854775808" : stdgo.GoString), _out : (9223372036854775807i64 : stdgo.GoInt64), _acc : (-1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_20),
 ({ _x : ("1e10000" : stdgo.GoString), _out : (9223372036854775807i64 : stdgo.GoInt64), _acc : (-1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_20),
-({ _x : ("+Inf" : stdgo.GoString), _out : (9223372036854775807i64 : stdgo.GoInt64), _acc : (-1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_20)) : stdgo.Slice<T__struct_20>)) {
+({ _x : ("+Inf" : stdgo.GoString), _out : (9223372036854775807i64 : stdgo.GoInt64), _acc : (-1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_20)]) : stdgo.Slice<T__struct_20>)) {
             var _x = _makeFloat(_test._x?.__copy__());
             var __tmp__ = _x.int64(), _out:stdgo.GoInt64 = __tmp__._0, _acc:stdgo._internal.math.big.Big.Accuracy = __tmp__._1;
             if (((_out != _test._out) || (_acc != _test._acc) : Bool)) {
@@ -4913,9 +4689,7 @@ function testFloatInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testFloatFloat32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_21>(
-56,
-56,
+        for (__14 => _test in (new stdgo.Slice<T__struct_21>(56, 56, ...[
 ({ _x : ("0" : stdgo.GoString), _out : (0 : stdgo.GoFloat64), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_21),
 ({ _x : ("1e-1000" : stdgo.GoString), _out : (0 : stdgo.GoFloat64), _acc : (-1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_21),
 ({ _x : ("0x0.000002p-127" : stdgo.GoString), _out : (0 : stdgo.GoFloat64), _acc : (-1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_21),
@@ -4971,7 +4745,7 @@ function testFloatFloat32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
 ({ _x : ("0x1p128" : stdgo.GoString), _out : (stdgo._internal.math.Math.inf((1 : stdgo.GoInt)) : stdgo.GoFloat32), _acc : (1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_21),
 ({ _x : ("1e10000" : stdgo.GoString), _out : (stdgo._internal.math.Math.inf((1 : stdgo.GoInt)) : stdgo.GoFloat32), _acc : (1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_21),
 ({ _x : ("0x1.ffffff0p2147483646" : stdgo.GoString), _out : (stdgo._internal.math.Math.inf((1 : stdgo.GoInt)) : stdgo.GoFloat32), _acc : (1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_21),
-({ _x : ("Inf" : stdgo.GoString), _out : (stdgo._internal.math.Math.inf((1 : stdgo.GoInt)) : stdgo.GoFloat32), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_21)) : stdgo.Slice<T__struct_21>)) {
+({ _x : ("Inf" : stdgo.GoString), _out : (stdgo._internal.math.Math.inf((1 : stdgo.GoInt)) : stdgo.GoFloat32), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_21)]) : stdgo.Slice<T__struct_21>)) {
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
                 stdgo.Go.cfor((_i < (2 : stdgo.GoInt) : Bool), _i++, {
@@ -5003,9 +4777,7 @@ function testFloatFloat32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
     }
 function testFloatFloat64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
-        for (__14 => _test in (new stdgo.Slice<T__struct_22>(
-49,
-49,
+        for (__14 => _test in (new stdgo.Slice<T__struct_22>(49, 49, ...[
 ({ _x : ("0" : stdgo.GoString), _out : (0 : stdgo.GoFloat64), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_22),
 ({ _x : ("1e-1000" : stdgo.GoString), _out : (0 : stdgo.GoFloat64), _acc : (-1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_22),
 ({ _x : ("0x0.0000000000001p-1023" : stdgo.GoString), _out : (0 : stdgo.GoFloat64), _acc : (-1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_22),
@@ -5054,7 +4826,7 @@ function testFloatFloat64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
 ({ _x : ("0x.fffffffffffffp-1022" : stdgo.GoString), _out : (2.225073858507201e-308 : stdgo.GoFloat64), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_22),
 ({ _x : ("4503599627370495p-1074" : stdgo.GoString), _out : (2.225073858507201e-308 : stdgo.GoFloat64), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_22),
 ({ _x : ("2.2250738585072011e-308" : stdgo.GoString), _out : (2.225073858507201e-308 : stdgo.GoFloat64), _acc : (-1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_22),
-({ _x : ("2.2250738585072012e-308" : stdgo.GoString), _out : (2.2250738585072014e-308 : stdgo.GoFloat64), _acc : (1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_22)) : stdgo.Slice<T__struct_22>)) {
+({ _x : ("2.2250738585072012e-308" : stdgo.GoString), _out : (2.2250738585072014e-308 : stdgo.GoFloat64), _acc : (1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_22)]) : stdgo.Slice<T__struct_22>)) {
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
                 stdgo.Go.cfor((_i < (2 : stdgo.GoInt) : Bool), _i++, {
@@ -5085,9 +4857,7 @@ function testFloatFloat64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
         };
     }
 function testFloatInt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_23>(
-17,
-17,
+        for (__14 => _test in (new stdgo.Slice<T__struct_23>(17, 17, ...[
 ({ _x : ("0" : stdgo.GoString), _want : ("0" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_23),
 ({ _x : ("+0" : stdgo.GoString), _want : ("0" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_23),
 ({ _x : ("-0" : stdgo.GoString), _want : ("0" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_23),
@@ -5104,7 +4874,7 @@ function testFloatInt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 ({ _x : ("1e-1000" : stdgo.GoString), _want : ("0" : stdgo.GoString), _acc : (-1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_23),
 ({ _x : ("-1e-1000" : stdgo.GoString), _want : ("0" : stdgo.GoString), _acc : (1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_23),
 ({ _x : ("1e+10" : stdgo.GoString), _want : ("10000000000" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_23),
-({ _x : ("1e+100" : stdgo.GoString), _want : ("10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_23)) : stdgo.Slice<T__struct_23>)) {
+({ _x : ("1e+100" : stdgo.GoString), _want : ("10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_23)]) : stdgo.Slice<T__struct_23>)) {
             var _x = _makeFloat(_test._x?.__copy__());
             var __tmp__ = _x.int_(null), _res:stdgo.Ref<stdgo._internal.math.big.Big.Int_> = __tmp__._0, _acc:stdgo._internal.math.big.Big.Accuracy = __tmp__._1;
             var _got:stdgo.GoString = ("nil" : stdgo.GoString);
@@ -5115,7 +4885,7 @@ function testFloatInt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 _t.errorf(("%s: got %s (%s); want %s (%s)" : stdgo.GoString), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(stdgo.Go.asInterface(_acc)), stdgo.Go.toInterface(_test._want), stdgo.Go.toInterface(stdgo.Go.asInterface(_test._acc)));
             };
         };
-        for (__23 => _f in (new stdgo.Slice<stdgo.GoString>(4, 4, ("0" : stdgo.GoString), ("1" : stdgo.GoString), ("-1" : stdgo.GoString), ("1234" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
+        for (__23 => _f in (new stdgo.Slice<stdgo.GoString>(4, 4, ...[("0" : stdgo.GoString), ("1" : stdgo.GoString), ("-1" : stdgo.GoString), ("1234" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>)) {
             var _x = _makeFloat(_f?.__copy__());
             var _i = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>);
             {
@@ -5127,9 +4897,7 @@ function testFloatInt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testFloatRat(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_23>(
-14,
-14,
+        for (__14 => _test in (new stdgo.Slice<T__struct_23>(14, 14, ...[
 ({ _x : ("0" : stdgo.GoString), _want : ("0/1" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_23),
 ({ _x : ("+0" : stdgo.GoString), _want : ("0/1" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_23),
 ({ _x : ("-0" : stdgo.GoString), _want : ("0/1" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_23),
@@ -5143,7 +4911,7 @@ function testFloatRat(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 ({ _x : ("1e10" : stdgo.GoString), _want : ("10000000000/1" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_23),
 ({ _x : ("1p10" : stdgo.GoString), _want : ("1024/1" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_23),
 ({ _x : ("-1p-10" : stdgo.GoString), _want : ("-1/1024" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_23),
-({ _x : ("3.14159265" : stdgo.GoString), _want : ("7244019449799623199/2305843009213693952" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_23)) : stdgo.Slice<T__struct_23>)) {
+({ _x : ("3.14159265" : stdgo.GoString), _want : ("7244019449799623199/2305843009213693952" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_23)]) : stdgo.Slice<T__struct_23>)) {
             var _x = _makeFloat(_test._x?.__copy__()).setPrec((64u32 : stdgo.GoUInt));
             var __tmp__ = _x.rat(null), _res:stdgo.Ref<stdgo._internal.math.big.Big.Rat> = __tmp__._0, _acc:stdgo._internal.math.big.Big.Accuracy = __tmp__._1;
             var _got:stdgo.GoString = ("nil" : stdgo.GoString);
@@ -5165,7 +4933,7 @@ function testFloatRat(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 };
             };
         };
-        for (__39 => _f in (new stdgo.Slice<stdgo.GoString>(4, 4, ("0" : stdgo.GoString), ("1" : stdgo.GoString), ("-1" : stdgo.GoString), ("1234" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
+        for (__39 => _f in (new stdgo.Slice<stdgo.GoString>(4, 4, ...[("0" : stdgo.GoString), ("1" : stdgo.GoString), ("-1" : stdgo.GoString), ("1234" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>)) {
             var _x = _makeFloat(_f?.__copy__());
             var _r = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big.Rat>);
             {
@@ -5177,7 +4945,7 @@ function testFloatRat(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testFloatAbs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<stdgo.GoString>(7, 7, ("0" : stdgo.GoString), ("1" : stdgo.GoString), ("1234" : stdgo.GoString), ("1.23e-2" : stdgo.GoString), ("1e-1000" : stdgo.GoString), ("1e1000" : stdgo.GoString), ("Inf" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
+        for (__14 => _test in (new stdgo.Slice<stdgo.GoString>(7, 7, ...[("0" : stdgo.GoString), ("1" : stdgo.GoString), ("1234" : stdgo.GoString), ("1.23e-2" : stdgo.GoString), ("1e-1000" : stdgo.GoString), ("1e1000" : stdgo.GoString), ("Inf" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>)) {
             var _p = _makeFloat(_test?.__copy__());
             var _a = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>).abs(_p);
             if (!_alike(_a, _p)) {
@@ -5191,7 +4959,7 @@ function testFloatAbs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testFloatNeg(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<stdgo.GoString>(7, 7, ("0" : stdgo.GoString), ("1" : stdgo.GoString), ("1234" : stdgo.GoString), ("1.23e-2" : stdgo.GoString), ("1e-1000" : stdgo.GoString), ("1e1000" : stdgo.GoString), ("Inf" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
+        for (__14 => _test in (new stdgo.Slice<stdgo.GoString>(7, 7, ...[("0" : stdgo.GoString), ("1" : stdgo.GoString), ("1234" : stdgo.GoString), ("1.23e-2" : stdgo.GoString), ("1e-1000" : stdgo.GoString), ("1e1000" : stdgo.GoString), ("Inf" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>)) {
             var _p1 = _makeFloat(_test?.__copy__());
             var _n1 = _makeFloat((("-" : stdgo.GoString) + _test?.__copy__() : stdgo.GoString)?.__copy__());
             var _n2 = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>).neg(_p1);
@@ -5231,7 +4999,7 @@ function testFloatAdd(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 var _y = _ybits.float_();
                 var _zbits:stdgo._internal.math.big.Big.Bits = _xbits._add(_ybits);
                 var _z = _zbits.float_();
-                for (_i => _mode in (new stdgo.GoArray<stdgo._internal.math.big.Big.RoundingMode>((2 : stdgo._internal.math.big.Big.RoundingMode), (0 : stdgo._internal.math.big.Big.RoundingMode), (3 : stdgo._internal.math.big.Big.RoundingMode)) : stdgo.GoArray<stdgo._internal.math.big.Big.RoundingMode>)) {
+                for (_i => _mode in (new stdgo.GoArray<stdgo._internal.math.big.Big.RoundingMode>(3, 3, ...[(2 : stdgo._internal.math.big.Big.RoundingMode), (0 : stdgo._internal.math.big.Big.RoundingMode), (3 : stdgo._internal.math.big.Big.RoundingMode)]) : stdgo.GoArray<stdgo._internal.math.big.Big.RoundingMode>)) {
                     for (__16 => _prec in _precList) {
                         var _got = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>).setPrec(_prec).setMode(_mode);
                         _got.add(_x, _y);
@@ -5250,7 +5018,7 @@ function testFloatAdd(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testFloatAddRoundZero(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _mode in (new stdgo.GoArray<stdgo._internal.math.big.Big.RoundingMode>((0 : stdgo._internal.math.big.Big.RoundingMode), (1 : stdgo._internal.math.big.Big.RoundingMode), (2 : stdgo._internal.math.big.Big.RoundingMode), (3 : stdgo._internal.math.big.Big.RoundingMode), (5 : stdgo._internal.math.big.Big.RoundingMode), (4 : stdgo._internal.math.big.Big.RoundingMode)) : stdgo.GoArray<stdgo._internal.math.big.Big.RoundingMode>)) {
+        for (__14 => _mode in (new stdgo.GoArray<stdgo._internal.math.big.Big.RoundingMode>(6, 6, ...[(0 : stdgo._internal.math.big.Big.RoundingMode), (1 : stdgo._internal.math.big.Big.RoundingMode), (2 : stdgo._internal.math.big.Big.RoundingMode), (3 : stdgo._internal.math.big.Big.RoundingMode), (5 : stdgo._internal.math.big.Big.RoundingMode), (4 : stdgo._internal.math.big.Big.RoundingMode)]) : stdgo.GoArray<stdgo._internal.math.big.Big.RoundingMode>)) {
             var _x = newFloat((5 : stdgo.GoFloat64));
             var _y = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>).neg(_x);
             var _want = newFloat((0 : stdgo.GoFloat64));
@@ -5273,7 +5041,7 @@ function testFloatAdd32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _d:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_d <= (16 : stdgo.GoInt) : Bool), _d++, {
-                for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(...([].concat([for (i in 0 ... 2) (0 : stdgo.GoInt)]))) : stdgo.GoArray<stdgo.GoInt>)) {
+                for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(2, 2, ...([].concat([for (i in 0 ... 2) (0 : stdgo.GoInt)]))) : stdgo.GoArray<stdgo.GoInt>)) {
                     var __0:stdgo.GoFloat64 = (6.7108848e+07 : stdgo.GoFloat64), __1:stdgo.GoFloat64 = (_d : stdgo.GoFloat64), _y0:stdgo.GoFloat64 = __1, _x0:stdgo.GoFloat64 = __0;
                     if ((_i & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                         {
@@ -5311,7 +5079,7 @@ function testFloatAdd64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _d:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_d <= (16 : stdgo.GoInt) : Bool), _d++, {
-                for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(...([].concat([for (i in 0 ... 2) (0 : stdgo.GoInt)]))) : stdgo.GoArray<stdgo.GoInt>)) {
+                for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(2, 2, ...([].concat([for (i in 0 ... 2) (0 : stdgo.GoInt)]))) : stdgo.GoArray<stdgo.GoInt>)) {
                     var __0:stdgo.GoFloat64 = (3.602879701896395e+16 : stdgo.GoFloat64), __1:stdgo.GoFloat64 = (_d : stdgo.GoFloat64), _y0:stdgo.GoFloat64 = __1, _x0:stdgo.GoFloat64 = __0;
                     if ((_i & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                         {
@@ -5345,7 +5113,7 @@ function testFloatAdd64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testIssue20490(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _tests:stdgo.Slice<T__struct_24> = (new stdgo.Slice<T__struct_24>(4, 4, ({ _a : (4 : stdgo.GoFloat64), _b : (1 : stdgo.GoFloat64) } : T__struct_24), ({ _a : (-4 : stdgo.GoFloat64), _b : (1 : stdgo.GoFloat64) } : T__struct_24), ({ _a : (4 : stdgo.GoFloat64), _b : (-1 : stdgo.GoFloat64) } : T__struct_24), ({ _a : (-4 : stdgo.GoFloat64), _b : (-1 : stdgo.GoFloat64) } : T__struct_24)) : stdgo.Slice<T__struct_24>);
+        var _tests:stdgo.Slice<T__struct_24> = (new stdgo.Slice<T__struct_24>(4, 4, ...[({ _a : (4 : stdgo.GoFloat64), _b : (1 : stdgo.GoFloat64) } : T__struct_24), ({ _a : (-4 : stdgo.GoFloat64), _b : (1 : stdgo.GoFloat64) } : T__struct_24), ({ _a : (4 : stdgo.GoFloat64), _b : (-1 : stdgo.GoFloat64) } : T__struct_24), ({ _a : (-4 : stdgo.GoFloat64), _b : (-1 : stdgo.GoFloat64) } : T__struct_24)]) : stdgo.Slice<T__struct_24>);
         for (__14 => _test in _tests) {
             var __0 = newFloat(_test._a), __1 = newFloat(_test._b), _b = __1, _a = __0;
             var _diff = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>).sub(_a, _b);
@@ -5368,7 +5136,7 @@ function testFloatMul(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 var _y = _ybits.float_();
                 var _zbits:stdgo._internal.math.big.Big.Bits = _xbits._mul(_ybits);
                 var _z = _zbits.float_();
-                for (_i => _mode in (new stdgo.GoArray<stdgo._internal.math.big.Big.RoundingMode>((2 : stdgo._internal.math.big.Big.RoundingMode), (0 : stdgo._internal.math.big.Big.RoundingMode), (3 : stdgo._internal.math.big.Big.RoundingMode)) : stdgo.GoArray<stdgo._internal.math.big.Big.RoundingMode>)) {
+                for (_i => _mode in (new stdgo.GoArray<stdgo._internal.math.big.Big.RoundingMode>(3, 3, ...[(2 : stdgo._internal.math.big.Big.RoundingMode), (0 : stdgo._internal.math.big.Big.RoundingMode), (3 : stdgo._internal.math.big.Big.RoundingMode)]) : stdgo.GoArray<stdgo._internal.math.big.Big.RoundingMode>)) {
                     for (__16 => _prec in _precList) {
                         var _got = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>).setPrec(_prec).setMode(_mode);
                         _got.mul(_x, _y);
@@ -5390,8 +5158,8 @@ function testFloatMul(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testFloatMul64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_25>(8, 8, ({ _x : (0 : stdgo.GoFloat64), _y : (0 : stdgo.GoFloat64) } : T__struct_25), ({ _x : (0 : stdgo.GoFloat64), _y : (1 : stdgo.GoFloat64) } : T__struct_25), ({ _x : (1 : stdgo.GoFloat64), _y : (1 : stdgo.GoFloat64) } : T__struct_25), ({ _x : (1 : stdgo.GoFloat64), _y : (1.5 : stdgo.GoFloat64) } : T__struct_25), ({ _x : (1.234 : stdgo.GoFloat64), _y : (0.5678 : stdgo.GoFloat64) } : T__struct_25), ({ _x : (2.718281828 : stdgo.GoFloat64), _y : (3.14159265358979 : stdgo.GoFloat64) } : T__struct_25), ({ _x : (2.718281828e+10 : stdgo.GoFloat64), _y : (3.14159265358979e-32 : stdgo.GoFloat64) } : T__struct_25), ({ _x : (0.3333333333333333 : stdgo.GoFloat64), _y : (1e+200 : stdgo.GoFloat64) } : T__struct_25)) : stdgo.Slice<T__struct_25>)) {
-            for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(...([].concat([for (i in 0 ... 8) (0 : stdgo.GoInt)]))) : stdgo.GoArray<stdgo.GoInt>)) {
+        for (__14 => _test in (new stdgo.Slice<T__struct_25>(8, 8, ...[({ _x : (0 : stdgo.GoFloat64), _y : (0 : stdgo.GoFloat64) } : T__struct_25), ({ _x : (0 : stdgo.GoFloat64), _y : (1 : stdgo.GoFloat64) } : T__struct_25), ({ _x : (1 : stdgo.GoFloat64), _y : (1 : stdgo.GoFloat64) } : T__struct_25), ({ _x : (1 : stdgo.GoFloat64), _y : (1.5 : stdgo.GoFloat64) } : T__struct_25), ({ _x : (1.234 : stdgo.GoFloat64), _y : (0.5678 : stdgo.GoFloat64) } : T__struct_25), ({ _x : (2.718281828 : stdgo.GoFloat64), _y : (3.14159265358979 : stdgo.GoFloat64) } : T__struct_25), ({ _x : (2.718281828e+10 : stdgo.GoFloat64), _y : (3.14159265358979e-32 : stdgo.GoFloat64) } : T__struct_25), ({ _x : (0.3333333333333333 : stdgo.GoFloat64), _y : (1e+200 : stdgo.GoFloat64) } : T__struct_25)]) : stdgo.Slice<T__struct_25>)) {
+            for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(8, 8, ...([].concat([for (i in 0 ... 8) (0 : stdgo.GoInt)]))) : stdgo.GoArray<stdgo.GoInt>)) {
                 var __0:stdgo.GoFloat64 = _test._x, __1:stdgo.GoFloat64 = _test._y, _y0:stdgo.GoFloat64 = __1, _x0:stdgo.GoFloat64 = __0;
                 if ((_i & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                     _x0 = -_x0;
@@ -5464,7 +5232,7 @@ function testFloatQuo(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (8 : stdgo.GoInt) : Bool), _i++, {
-                var _bits:stdgo._internal.math.big.Big.Bits = (new stdgo.Slice<stdgo.GoInt>(1, 1, (_preci - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits);
+                var _bits:stdgo._internal.math.big.Big.Bits = (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(_preci - (1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits);
                 if ((_i & (3 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                     _bits = (_bits.__append__((0 : stdgo.GoInt)));
                 };
@@ -5484,7 +5252,7 @@ function testFloatQuo(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                         _t.errorf(("got acc = %s; want exact" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_got)));
                     };
                 };
-                for (__22 => _mode in (new stdgo.GoArray<stdgo._internal.math.big.Big.RoundingMode>((2 : stdgo._internal.math.big.Big.RoundingMode), (0 : stdgo._internal.math.big.Big.RoundingMode), (3 : stdgo._internal.math.big.Big.RoundingMode)) : stdgo.GoArray<stdgo._internal.math.big.Big.RoundingMode>)) {
+                for (__22 => _mode in (new stdgo.GoArray<stdgo._internal.math.big.Big.RoundingMode>(3, 3, ...[(2 : stdgo._internal.math.big.Big.RoundingMode), (0 : stdgo._internal.math.big.Big.RoundingMode), (3 : stdgo._internal.math.big.Big.RoundingMode)]) : stdgo.GoArray<stdgo._internal.math.big.Big.RoundingMode>)) {
                     {
                         var _d:stdgo.GoInt = (-5 : stdgo.GoInt);
                         stdgo.Go.cfor((_d < (5 : stdgo.GoInt) : Bool), _d++, {
@@ -5547,7 +5315,7 @@ function testFloatQuoSmoke(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
     }
 function testFloatArithmeticSpecialValues(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _zero:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
-        var _args = (new stdgo.Slice<stdgo.GoFloat64>(8, 8, stdgo._internal.math.Math.inf((-1 : stdgo.GoInt)), (-2.71828 : stdgo.GoFloat64), (-1 : stdgo.GoFloat64), -_zero, _zero, (1 : stdgo.GoFloat64), (2.71828 : stdgo.GoFloat64), stdgo._internal.math.Math.inf((1 : stdgo.GoInt))) : stdgo.Slice<stdgo.GoFloat64>);
+        var _args = (new stdgo.Slice<stdgo.GoFloat64>(8, 8, ...[stdgo._internal.math.Math.inf((-1 : stdgo.GoInt)), (-2.71828 : stdgo.GoFloat64), (-1 : stdgo.GoFloat64), -_zero, _zero, (1 : stdgo.GoFloat64), (2.71828 : stdgo.GoFloat64), stdgo._internal.math.Math.inf((1 : stdgo.GoInt))]) : stdgo.Slice<stdgo.GoFloat64>);
         var _xx = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>);
         var _yy = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>);
         var _got = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>);
@@ -5653,9 +5421,7 @@ function testFloatArithmeticSpecialValues(_t:stdgo.Ref<stdgo._internal.testing.T
         };
     }
 function testFloatArithmeticOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_26>(
-23,
-23,
+        for (__14 => _test in (new stdgo.Slice<T__struct_26>(23, 23, ...[
 ({ _prec : (4u32 : stdgo.GoUInt), _mode : (0 : stdgo._internal.math.big.Big.RoundingMode), _op : (43 : stdgo.GoUInt8), _x : ("0" : stdgo.GoString), _y : ("0" : stdgo.GoString), _want : ("0" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_26),
 ({ _prec : (4u32 : stdgo.GoUInt), _mode : (0 : stdgo._internal.math.big.Big.RoundingMode), _op : (43 : stdgo.GoUInt8), _x : ("0x.8p+0" : stdgo.GoString), _y : ("0x.8p+0" : stdgo.GoString), _want : ("0x.8p+1" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_26),
 ({ _prec : (4u32 : stdgo.GoUInt), _mode : (0 : stdgo._internal.math.big.Big.RoundingMode), _op : (43 : stdgo.GoUInt8), _x : ("0" : stdgo.GoString), _y : ("0x.8p2147483647" : stdgo.GoString), _want : ("0x.8p+2147483647" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_26),
@@ -5678,7 +5444,7 @@ function testFloatArithmeticOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testin
 ({ _prec : (4u32 : stdgo.GoUInt), _mode : (0 : stdgo._internal.math.big.Big.RoundingMode), _op : (47 : stdgo.GoUInt8), _x : ("0x.8p+0" : stdgo.GoString), _y : ("0x.8p2147483647" : stdgo.GoString), _want : ("0x.8p-2147483646" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_26),
 ({ _prec : (4u32 : stdgo.GoUInt), _mode : (0 : stdgo._internal.math.big.Big.RoundingMode), _op : (47 : stdgo.GoUInt8), _x : ("0x.8p-1" : stdgo.GoString), _y : ("0x.8p2147483647" : stdgo.GoString), _want : ("0x.8p-2147483647" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_26),
 ({ _prec : (4u32 : stdgo.GoUInt), _mode : (0 : stdgo._internal.math.big.Big.RoundingMode), _op : (47 : stdgo.GoUInt8), _x : ("0x.8p-2" : stdgo.GoString), _y : ("0x.8p2147483647" : stdgo.GoString), _want : ("0x.8p-2147483648" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_26),
-({ _prec : (4u32 : stdgo.GoUInt), _mode : (0 : stdgo._internal.math.big.Big.RoundingMode), _op : (47 : stdgo.GoUInt8), _x : ("0x.8p-3" : stdgo.GoString), _y : ("0x.8p2147483647" : stdgo.GoString), _want : ("0" : stdgo.GoString), _acc : (-1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_26)) : stdgo.Slice<T__struct_26>)) {
+({ _prec : (4u32 : stdgo.GoUInt), _mode : (0 : stdgo._internal.math.big.Big.RoundingMode), _op : (47 : stdgo.GoUInt8), _x : ("0x.8p-3" : stdgo.GoString), _y : ("0x.8p2147483647" : stdgo.GoString), _want : ("0" : stdgo.GoString), _acc : (-1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_26)]) : stdgo.Slice<T__struct_26>)) {
             var _x = _makeFloat(_test._x?.__copy__());
             var _y = _makeFloat(_test._y?.__copy__());
             var _z = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>).setPrec(_test._prec).setMode(_test._mode);
@@ -5705,9 +5471,7 @@ function testFloatArithmeticOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testin
         };
     }
 function testFloatArithmeticRounding(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_27>(
-12,
-12,
+        for (__14 => _test in (new stdgo.Slice<T__struct_27>(12, 12, ...[
 ({ _mode : (2 : stdgo._internal.math.big.Big.RoundingMode), _prec : (3u32 : stdgo.GoUInt), _x : (-8i64 : stdgo.GoInt64), _y : (-1i64 : stdgo.GoInt64), _want : (-8i64 : stdgo.GoInt64), _op : (43 : stdgo.GoUInt8) } : T__struct_27),
 ({ _mode : (3 : stdgo._internal.math.big.Big.RoundingMode), _prec : (3u32 : stdgo.GoUInt), _x : (-8i64 : stdgo.GoInt64), _y : (-1i64 : stdgo.GoInt64), _want : (-10i64 : stdgo.GoInt64), _op : (43 : stdgo.GoUInt8) } : T__struct_27),
 ({ _mode : (4 : stdgo._internal.math.big.Big.RoundingMode), _prec : (3u32 : stdgo.GoUInt), _x : (-8i64 : stdgo.GoInt64), _y : (-1i64 : stdgo.GoInt64), _want : (-10i64 : stdgo.GoInt64), _op : (43 : stdgo.GoUInt8) } : T__struct_27),
@@ -5719,7 +5483,7 @@ function testFloatArithmeticRounding(_t:stdgo.Ref<stdgo._internal.testing.Testin
 ({ _mode : (4 : stdgo._internal.math.big.Big.RoundingMode), _prec : (3u32 : stdgo.GoUInt), _x : (-9i64 : stdgo.GoInt64), _y : (1i64 : stdgo.GoInt64), _want : (-10i64 : stdgo.GoInt64), _op : (42 : stdgo.GoUInt8) } : T__struct_27),
 ({ _mode : (2 : stdgo._internal.math.big.Big.RoundingMode), _prec : (3u32 : stdgo.GoUInt), _x : (-9i64 : stdgo.GoInt64), _y : (1i64 : stdgo.GoInt64), _want : (-8i64 : stdgo.GoInt64), _op : (47 : stdgo.GoUInt8) } : T__struct_27),
 ({ _mode : (3 : stdgo._internal.math.big.Big.RoundingMode), _prec : (3u32 : stdgo.GoUInt), _x : (-9i64 : stdgo.GoInt64), _y : (1i64 : stdgo.GoInt64), _want : (-10i64 : stdgo.GoInt64), _op : (47 : stdgo.GoUInt8) } : T__struct_27),
-({ _mode : (4 : stdgo._internal.math.big.Big.RoundingMode), _prec : (3u32 : stdgo.GoUInt), _x : (-9i64 : stdgo.GoInt64), _y : (1i64 : stdgo.GoInt64), _want : (-10i64 : stdgo.GoInt64), _op : (47 : stdgo.GoUInt8) } : T__struct_27)) : stdgo.Slice<T__struct_27>)) {
+({ _mode : (4 : stdgo._internal.math.big.Big.RoundingMode), _prec : (3u32 : stdgo.GoUInt), _x : (-9i64 : stdgo.GoInt64), _y : (1i64 : stdgo.GoInt64), _want : (-10i64 : stdgo.GoInt64), _op : (47 : stdgo.GoUInt8) } : T__struct_27)]) : stdgo.Slice<T__struct_27>)) {
             var __0:Float_ = ({} : stdgo._internal.math.big.Big.Float_), __1:Float_ = ({} : stdgo._internal.math.big.Big.Float_), __2:Float_ = ({} : stdgo._internal.math.big.Big.Float_), _z:Float_ = __2, _y:Float_ = __1, _x:Float_ = __0;
             _x.setInt64(_test._x);
             _y.setInt64(_test._y);
@@ -5748,7 +5512,7 @@ function testFloatArithmeticRounding(_t:stdgo.Ref<stdgo._internal.testing.Testin
     }
 function testFloatCmpSpecialValues(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _zero:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
-        var _args = (new stdgo.Slice<stdgo.GoFloat64>(8, 8, stdgo._internal.math.Math.inf((-1 : stdgo.GoInt)), (-2.71828 : stdgo.GoFloat64), (-1 : stdgo.GoFloat64), -_zero, _zero, (1 : stdgo.GoFloat64), (2.71828 : stdgo.GoFloat64), stdgo._internal.math.Math.inf((1 : stdgo.GoInt))) : stdgo.Slice<stdgo.GoFloat64>);
+        var _args = (new stdgo.Slice<stdgo.GoFloat64>(8, 8, ...[stdgo._internal.math.Math.inf((-1 : stdgo.GoInt)), (-2.71828 : stdgo.GoFloat64), (-1 : stdgo.GoFloat64), -_zero, _zero, (1 : stdgo.GoFloat64), (2.71828 : stdgo.GoFloat64), stdgo._internal.math.Math.inf((1 : stdgo.GoInt))]) : stdgo.Slice<stdgo.GoFloat64>);
         var _xx = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>);
         var _yy = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>);
         {
@@ -5783,7 +5547,7 @@ function benchmarkFloatAdd(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void
         var _x = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>);
         var _y = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>);
         var _z = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>);
-        for (__14 => _prec in (new stdgo.Slice<stdgo.GoUInt>(5, 5, (10u32 : stdgo.GoUInt), (100u32 : stdgo.GoUInt), (1000u32 : stdgo.GoUInt), (10000u32 : stdgo.GoUInt), (100000u32 : stdgo.GoUInt)) : stdgo.Slice<stdgo.GoUInt>)) {
+        for (__14 => _prec in (new stdgo.Slice<stdgo.GoUInt>(5, 5, ...[(10u32 : stdgo.GoUInt), (100u32 : stdgo.GoUInt), (1000u32 : stdgo.GoUInt), (10000u32 : stdgo.GoUInt), (100000u32 : stdgo.GoUInt)]) : stdgo.Slice<stdgo.GoUInt>)) {
             _x.setPrec(_prec).setRat(newRat((1i64 : stdgo.GoInt64), (3i64 : stdgo.GoInt64)));
             _y.setPrec(_prec).setRat(newRat((1i64 : stdgo.GoInt64), (6i64 : stdgo.GoInt64)));
             _z.setPrec(_prec);
@@ -5802,7 +5566,7 @@ function benchmarkFloatSub(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void
         var _x = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>);
         var _y = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>);
         var _z = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>);
-        for (__14 => _prec in (new stdgo.Slice<stdgo.GoUInt>(5, 5, (10u32 : stdgo.GoUInt), (100u32 : stdgo.GoUInt), (1000u32 : stdgo.GoUInt), (10000u32 : stdgo.GoUInt), (100000u32 : stdgo.GoUInt)) : stdgo.Slice<stdgo.GoUInt>)) {
+        for (__14 => _prec in (new stdgo.Slice<stdgo.GoUInt>(5, 5, ...[(10u32 : stdgo.GoUInt), (100u32 : stdgo.GoUInt), (1000u32 : stdgo.GoUInt), (10000u32 : stdgo.GoUInt), (100000u32 : stdgo.GoUInt)]) : stdgo.Slice<stdgo.GoUInt>)) {
             _x.setPrec(_prec).setRat(newRat((1i64 : stdgo.GoInt64), (3i64 : stdgo.GoInt64)));
             _y.setPrec(_prec).setRat(newRat((1i64 : stdgo.GoInt64), (6i64 : stdgo.GoInt64)));
             _z.setPrec(_prec);
@@ -5824,9 +5588,7 @@ function parseFloat(_s:stdgo.GoString, _base:stdgo.GoInt, _prec:stdgo.GoUInt, _m
 function testFloatSetFloat64String(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _inf:stdgo.GoFloat64 = stdgo._internal.math.Math.inf((0 : stdgo.GoInt));
         var _nan:stdgo.GoFloat64 = stdgo._internal.math.Math.naN();
-        for (__14 => _test in (new stdgo.Slice<T__struct_28>(
-117,
-117,
+        for (__14 => _test in (new stdgo.Slice<T__struct_28>(117, 117, ...[
 ({ _s : ("0" : stdgo.GoString), _x : (0 : stdgo.GoFloat64) } : T__struct_28),
 ({ _s : ("-0" : stdgo.GoString), _x : -_zero_ } : T__struct_28),
 ({ _s : ("+0" : stdgo.GoString), _x : (0 : stdgo.GoFloat64) } : T__struct_28),
@@ -5943,7 +5705,7 @@ function testFloatSetFloat64String(_t:stdgo.Ref<stdgo._internal.testing.Testing.
 ({ _s : ("1p+1_0" : stdgo.GoString), _x : (1024 : stdgo.GoFloat64) } : T__struct_28),
 ({ _s : ("0b_1000" : stdgo.GoString), _x : (8 : stdgo.GoFloat64) } : T__struct_28),
 ({ _s : ("0b_1011_1101" : stdgo.GoString), _x : (189 : stdgo.GoFloat64) } : T__struct_28),
-({ _s : ("0x_f0_0d_1eP+0_8" : stdgo.GoString), _x : (4.027391488e+09 : stdgo.GoFloat64) } : T__struct_28)) : stdgo.Slice<T__struct_28>)) {
+({ _s : ("0x_f0_0d_1eP+0_8" : stdgo.GoString), _x : (4.027391488e+09 : stdgo.GoFloat64) } : T__struct_28)]) : stdgo.Slice<T__struct_28>)) {
             var _x:Float_ = ({} : stdgo._internal.math.big.Big.Float_);
             _x.setPrec((53u32 : stdgo.GoUInt));
             var __tmp__ = _x.setString(_test._s?.__copy__()), __15:stdgo.Ref<stdgo._internal.math.big.Big.Float_> = __tmp__._0, _ok:Bool = __tmp__._1;
@@ -5968,9 +5730,7 @@ function _fdiv(_a:stdgo.GoFloat64, _b:stdgo.GoFloat64):stdgo.GoFloat64 {
         return (_a / _b : stdgo.GoFloat64);
     }
 function testFloat64Text(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_29>(
-107,
-107,
+        for (__14 => _test in (new stdgo.Slice<T__struct_29>(107, 107, ...[
 ({ _x : (0 : stdgo.GoFloat64), _format : (102 : stdgo.GoUInt8), _prec : (0 : stdgo.GoInt), _want : ("0" : stdgo.GoString) } : T__struct_29),
 ({ _x : stdgo._internal.math.Math.copysign((0 : stdgo.GoFloat64), (-1 : stdgo.GoFloat64)), _format : (102 : stdgo.GoUInt8), _prec : (0 : stdgo.GoInt), _want : ("-0" : stdgo.GoString) } : T__struct_29),
 ({ _x : (1 : stdgo.GoFloat64), _format : (102 : stdgo.GoUInt8), _prec : (0 : stdgo.GoInt), _want : ("1" : stdgo.GoString) } : T__struct_29),
@@ -6077,7 +5837,7 @@ function testFloat64Text(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
 ({ _x : (3.8326057576481645e+17 : stdgo.GoFloat64), _format : (103 : stdgo.GoUInt8), _prec : (-1 : stdgo.GoInt), _want : ("3.8326057576481645e+17" : stdgo.GoString) } : T__struct_29),
 ({ _x : (1 : stdgo.GoFloat64), _format : (102 : stdgo.GoUInt8), _prec : (-10 : stdgo.GoInt), _want : ("1" : stdgo.GoString) } : T__struct_29),
 ({ _x : (1 : stdgo.GoFloat64), _format : (102 : stdgo.GoUInt8), _prec : (-11 : stdgo.GoInt), _want : ("1" : stdgo.GoString) } : T__struct_29),
-({ _x : (1 : stdgo.GoFloat64), _format : (102 : stdgo.GoUInt8), _prec : (-12 : stdgo.GoInt), _want : ("1" : stdgo.GoString) } : T__struct_29)) : stdgo.Slice<T__struct_29>)) {
+({ _x : (1 : stdgo.GoFloat64), _format : (102 : stdgo.GoUInt8), _prec : (-12 : stdgo.GoInt), _want : ("1" : stdgo.GoString) } : T__struct_29)]) : stdgo.Slice<T__struct_29>)) {
             var _f = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>).setPrec(_actualPrec(_test._x)).setFloat64(_test._x);
             var _got:stdgo.GoString = _f.text(_test._format, _test._prec)?.__copy__();
             if (_got != (_test._want)) {
@@ -6107,9 +5867,7 @@ function _actualPrec(_x:stdgo.GoFloat64):stdgo.GoUInt {
     }
 function testFloatText(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
-        for (__14 => _test in (new stdgo.Slice<T__struct_30>(
-120,
-120,
+        for (__14 => _test in (new stdgo.Slice<T__struct_30>(120, 120, ...[
 ({ _x : ("0" : stdgo.GoString), _round : (255 : stdgo._internal.math.big.Big.RoundingMode), _prec : (10u32 : stdgo.GoUInt), _format : (102 : stdgo.GoUInt8), _digits : (0 : stdgo.GoInt), _want : ("0" : stdgo.GoString) } : T__struct_30),
 ({ _x : ("-0" : stdgo.GoString), _round : (255 : stdgo._internal.math.big.Big.RoundingMode), _prec : (10u32 : stdgo.GoUInt), _format : (102 : stdgo.GoUInt8), _digits : (0 : stdgo.GoInt), _want : ("-0" : stdgo.GoString) } : T__struct_30),
 ({ _x : ("1" : stdgo.GoString), _round : (255 : stdgo._internal.math.big.Big.RoundingMode), _prec : (10u32 : stdgo.GoUInt), _format : (102 : stdgo.GoUInt8), _digits : (0 : stdgo.GoInt), _want : ("1" : stdgo.GoString) } : T__struct_30),
@@ -6229,7 +5987,7 @@ function testFloatText(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 ({ _x : ("8191.53125" : stdgo.GoString), _round : (5 : stdgo._internal.math.big.Big.RoundingMode), _prec : (53u32 : stdgo.GoUInt), _format : (120 : stdgo.GoUInt8), _digits : (4 : stdgo.GoInt), _want : ("0x1.fff9p+12" : stdgo.GoString) } : T__struct_30),
 ({ _x : ("-8191.53125" : stdgo.GoString), _round : (5 : stdgo._internal.math.big.Big.RoundingMode), _prec : (53u32 : stdgo.GoUInt), _format : (120 : stdgo.GoUInt8), _digits : (4 : stdgo.GoInt), _want : ("-0x1.fff8p+12" : stdgo.GoString) } : T__struct_30),
 ({ _x : ("0x.8p-2147483648" : stdgo.GoString), _round : (0 : stdgo._internal.math.big.Big.RoundingMode), _prec : (4u32 : stdgo.GoUInt), _format : (112 : stdgo.GoUInt8), _digits : (-1 : stdgo.GoInt), _want : ("0x.8p-2147483648" : stdgo.GoString) } : T__struct_30),
-({ _x : ("0x.8p-2147483648" : stdgo.GoString), _round : (0 : stdgo._internal.math.big.Big.RoundingMode), _prec : (4u32 : stdgo.GoUInt), _format : (120 : stdgo.GoUInt8), _digits : (-1 : stdgo.GoInt), _want : ("0x1p-2147483649" : stdgo.GoString) } : T__struct_30)) : stdgo.Slice<T__struct_30>)) {
+({ _x : ("0x.8p-2147483648" : stdgo.GoString), _round : (0 : stdgo._internal.math.big.Big.RoundingMode), _prec : (4u32 : stdgo.GoUInt), _format : (120 : stdgo.GoUInt8), _digits : (-1 : stdgo.GoInt), _want : ("0x1p-2147483649" : stdgo.GoString) } : T__struct_30)]) : stdgo.Slice<T__struct_30>)) {
             var __tmp__ = parseFloat(_test._x?.__copy__(), (0 : stdgo.GoInt), _test._prec, (0 : stdgo._internal.math.big.Big.RoundingMode)), _f:stdgo.Ref<stdgo._internal.math.big.Big.Float_> = __tmp__._0, __15:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
             if (_err != null) {
                 _t.errorf(("%v: %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)), stdgo.Go.toInterface(_err));
@@ -6256,9 +6014,7 @@ function testFloatText(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testFloatFormat(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_31>(
-97,
-97,
+        for (__14 => _test in (new stdgo.Slice<T__struct_31>(97, 97, ...[
 ({ _format : ("%+.3e" : stdgo.GoString), _value : stdgo.Go.toInterface((0 : stdgo.GoFloat64)), _want : ("+0.000e+00" : stdgo.GoString) } : T__struct_31),
 ({ _format : ("%+.3e" : stdgo.GoString), _value : stdgo.Go.toInterface((1 : stdgo.GoFloat64)), _want : ("+1.000e+00" : stdgo.GoString) } : T__struct_31),
 ({ _format : ("%+.3f" : stdgo.GoString), _value : stdgo.Go.toInterface((-1 : stdgo.GoFloat64)), _want : ("-1.000" : stdgo.GoString) } : T__struct_31),
@@ -6355,7 +6111,7 @@ function testFloatFormat(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
 ({ _format : ("%030.20f" : stdgo.GoString), _value : stdgo.Go.toInterface(("-1e-20" : stdgo.GoString)), _want : ("-00000000.00000000000000000001" : stdgo.GoString) } : T__struct_31),
 ({ _format : ("%030.20f" : stdgo.GoString), _value : stdgo.Go.toInterface(("+1e-20" : stdgo.GoString)), _want : ("000000000.00000000000000000001" : stdgo.GoString) } : T__struct_31),
 ({ _format : ("% 030.20f" : stdgo.GoString), _value : stdgo.Go.toInterface(("+1e-20" : stdgo.GoString)), _want : (" 00000000.00000000000000000001" : stdgo.GoString) } : T__struct_31),
-({ _format : ("%s" : stdgo.GoString), _value : stdgo.Go.toInterface((1 : stdgo.GoFloat64)), _want : ("%!s(*big.Float=1)" : stdgo.GoString) } : T__struct_31)) : stdgo.Slice<T__struct_31>)) {
+({ _format : ("%s" : stdgo.GoString), _value : stdgo.Go.toInterface((1 : stdgo.GoFloat64)), _want : ("%!s(*big.Float=1)" : stdgo.GoString) } : T__struct_31)]) : stdgo.Slice<T__struct_31>)) {
             var _value = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>);
             {
                 final __type__ = _test._value;
@@ -6385,9 +6141,7 @@ function benchmarkParseFloatSmallExp(_b:stdgo.Ref<stdgo._internal.testing.Testin
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                for (__22 => _s in (new stdgo.Slice<stdgo.GoString>(
-17,
-17,
+                for (__22 => _s in (new stdgo.Slice<stdgo.GoString>(17, 17, ...[
 ("1e0" : stdgo.GoString),
 ("1e-1" : stdgo.GoString),
 ("1e-2" : stdgo.GoString),
@@ -6404,7 +6158,7 @@ function benchmarkParseFloatSmallExp(_b:stdgo.Ref<stdgo._internal.testing.Testin
 ("1e5" : stdgo.GoString),
 ("1e10" : stdgo.GoString),
 ("1e20" : stdgo.GoString),
-("1e50" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
+("1e50" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>)) {
                     var _x:Float_ = ({} : stdgo._internal.math.big.Big.Float_);
                     var __tmp__ = _x.parse(_s?.__copy__(), (0 : stdgo.GoInt)), __23:stdgo.Ref<stdgo._internal.math.big.Big.Float_> = __tmp__._0, __24:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                     if (_err != null) {
@@ -6418,9 +6172,7 @@ function benchmarkParseFloatLargeExp(_b:stdgo.Ref<stdgo._internal.testing.Testin
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                for (__22 => _s in (new stdgo.Slice<stdgo.GoString>(
-21,
-21,
+                for (__22 => _s in (new stdgo.Slice<stdgo.GoString>(21, 21, ...[
 ("1e0" : stdgo.GoString),
 ("1e-10" : stdgo.GoString),
 ("1e-20" : stdgo.GoString),
@@ -6441,7 +6193,7 @@ function benchmarkParseFloatLargeExp(_b:stdgo.Ref<stdgo._internal.testing.Testin
 ("1e500" : stdgo.GoString),
 ("1e1000" : stdgo.GoString),
 ("1e5000" : stdgo.GoString),
-("1e10000" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
+("1e10000" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>)) {
                     var _x:Float_ = ({} : stdgo._internal.math.big.Big.Float_);
                     var __tmp__ = _x.parse(_s?.__copy__(), (0 : stdgo.GoInt)), __23:stdgo.Ref<stdgo._internal.math.big.Big.Float_> = __tmp__._0, __24:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                     if (_err != null) {
@@ -6497,9 +6249,9 @@ function testFloatGobEncoding(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
         var _enc = stdgo._internal.encoding.gob.Gob.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_medium) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>)));
         var _dec = stdgo._internal.encoding.gob.Gob.newDecoder(stdgo.Go.asInterface((stdgo.Go.setRef(_medium) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>)));
         for (__14 => _test in _floatVals) {
-            for (__15 => _sign in (new stdgo.Slice<stdgo.GoString>(3, 3, stdgo.Go.str()?.__copy__(), ("+" : stdgo.GoString), ("-" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
-                for (__16 => _prec in (new stdgo.Slice<stdgo.GoUInt>(8, 8, (0u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (2u32 : stdgo.GoUInt), (10u32 : stdgo.GoUInt), (53u32 : stdgo.GoUInt), (64u32 : stdgo.GoUInt), (100u32 : stdgo.GoUInt), (1000u32 : stdgo.GoUInt)) : stdgo.Slice<stdgo.GoUInt>)) {
-                    for (__17 => _mode in (new stdgo.Slice<stdgo._internal.math.big.Big.RoundingMode>(6, 6, (0 : stdgo._internal.math.big.Big.RoundingMode), (1 : stdgo._internal.math.big.Big.RoundingMode), (2 : stdgo._internal.math.big.Big.RoundingMode), (3 : stdgo._internal.math.big.Big.RoundingMode), (4 : stdgo._internal.math.big.Big.RoundingMode), (5 : stdgo._internal.math.big.Big.RoundingMode)) : stdgo.Slice<stdgo._internal.math.big.Big.RoundingMode>)) {
+            for (__15 => _sign in (new stdgo.Slice<stdgo.GoString>(3, 3, ...[stdgo.Go.str()?.__copy__(), ("+" : stdgo.GoString), ("-" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>)) {
+                for (__16 => _prec in (new stdgo.Slice<stdgo.GoUInt>(8, 8, ...[(0u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (2u32 : stdgo.GoUInt), (10u32 : stdgo.GoUInt), (53u32 : stdgo.GoUInt), (64u32 : stdgo.GoUInt), (100u32 : stdgo.GoUInt), (1000u32 : stdgo.GoUInt)]) : stdgo.Slice<stdgo.GoUInt>)) {
+                    for (__17 => _mode in (new stdgo.Slice<stdgo._internal.math.big.Big.RoundingMode>(6, 6, ...[(0 : stdgo._internal.math.big.Big.RoundingMode), (1 : stdgo._internal.math.big.Big.RoundingMode), (2 : stdgo._internal.math.big.Big.RoundingMode), (3 : stdgo._internal.math.big.Big.RoundingMode), (4 : stdgo._internal.math.big.Big.RoundingMode), (5 : stdgo._internal.math.big.Big.RoundingMode)]) : stdgo.Slice<stdgo._internal.math.big.Big.RoundingMode>)) {
                         _medium.reset();
                         var _x:stdgo.GoString = (_sign + _test?.__copy__() : stdgo.GoString)?.__copy__();
                         var _tx:Float_ = ({} : stdgo._internal.math.big.Big.Float_);
@@ -6577,8 +6329,8 @@ function testFloatCorruptGob(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
     }
 function testFloatJSONEncoding(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__14 => _test in _floatVals) {
-            for (__15 => _sign in (new stdgo.Slice<stdgo.GoString>(3, 3, stdgo.Go.str()?.__copy__(), ("+" : stdgo.GoString), ("-" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
-                for (__16 => _prec in (new stdgo.Slice<stdgo.GoUInt>(8, 8, (0u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (2u32 : stdgo.GoUInt), (10u32 : stdgo.GoUInt), (53u32 : stdgo.GoUInt), (64u32 : stdgo.GoUInt), (100u32 : stdgo.GoUInt), (1000u32 : stdgo.GoUInt)) : stdgo.Slice<stdgo.GoUInt>)) {
+            for (__15 => _sign in (new stdgo.Slice<stdgo.GoString>(3, 3, ...[stdgo.Go.str()?.__copy__(), ("+" : stdgo.GoString), ("-" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>)) {
+                for (__16 => _prec in (new stdgo.Slice<stdgo.GoUInt>(8, 8, ...[(0u32 : stdgo.GoUInt), (1u32 : stdgo.GoUInt), (2u32 : stdgo.GoUInt), (10u32 : stdgo.GoUInt), (53u32 : stdgo.GoUInt), (64u32 : stdgo.GoUInt), (100u32 : stdgo.GoUInt), (1000u32 : stdgo.GoUInt)]) : stdgo.Slice<stdgo.GoUInt>)) {
                     if (((_prec > (53u32 : stdgo.GoUInt) : Bool) && stdgo._internal.testing.Testing.short() : Bool)) {
                         continue;
                     };
@@ -6611,7 +6363,7 @@ function testFloatJSONEncoding(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
         };
     }
 function testFloatGobDecodeShortBuffer(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _tc in (new stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>(2, 2, (new stdgo.Slice<stdgo.GoUInt8>(4, 4, (1 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo.Slice<stdgo.GoUInt8>(6, 6, (1 : stdgo.GoUInt8), (250 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>)) {
+        for (__14 => _tc in (new stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>(2, 2, ...[(new stdgo.Slice<stdgo.GoUInt8>(4, 4, ...[(1 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo.Slice<stdgo.GoUInt8>(6, 6, ...[(1 : stdgo.GoUInt8), (250 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>)]) : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>)) {
             var _err:stdgo.Error = newFloat((0 : stdgo.GoFloat64)).gobDecode(_tc);
             if (_err == null) {
                 _t.error(stdgo.Go.toInterface(("expected GobDecode to return error for malformed input" : stdgo.GoString)));
@@ -6619,9 +6371,7 @@ function testFloatGobDecodeShortBuffer(_t:stdgo.Ref<stdgo._internal.testing.Test
         };
     }
 function testFloatGobDecodeInvalid(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _tc in (new stdgo.Slice<T__struct_33>(2, 2, ({ _buf : (new stdgo.Slice<stdgo.GoUInt8>(
-20,
-20,
+        for (__14 => _tc in (new stdgo.Slice<T__struct_33>(2, 2, ...[({ _buf : (new stdgo.Slice<stdgo.GoUInt8>(20, 20, ...[
 (1 : stdgo.GoUInt8),
 (42 : stdgo.GoUInt8),
 (32 : stdgo.GoUInt8),
@@ -6641,9 +6391,7 @@ function testFloatGobDecodeInvalid(_t:stdgo.Ref<stdgo._internal.testing.Testing.
 (0 : stdgo.GoUInt8),
 (0 : stdgo.GoUInt8),
 (0 : stdgo.GoUInt8),
-(12 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), _msg : ("Float.GobDecode: msb not set in last word" : stdgo.GoString) } : T__struct_33), ({ _buf : (new stdgo.Slice<stdgo.GoUInt8>(
-11,
-11,
+(12 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>), _msg : ("Float.GobDecode: msb not set in last word" : stdgo.GoString) } : T__struct_33), ({ _buf : (new stdgo.Slice<stdgo.GoUInt8>(11, 11, ...[
 (1 : stdgo.GoUInt8),
 (2 : stdgo.GoUInt8),
 (0 : stdgo.GoUInt8),
@@ -6654,7 +6402,7 @@ function testFloatGobDecodeInvalid(_t:stdgo.Ref<stdgo._internal.testing.Testing.
 (0 : stdgo.GoUInt8),
 (0 : stdgo.GoUInt8),
 (0 : stdgo.GoUInt8),
-(0 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), _msg : ("Float.GobDecode: nonzero finite number with empty mantissa" : stdgo.GoString) } : T__struct_33)) : stdgo.Slice<T__struct_33>)) {
+(0 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>), _msg : ("Float.GobDecode: nonzero finite number with empty mantissa" : stdgo.GoString) } : T__struct_33)]) : stdgo.Slice<T__struct_33>)) {
             var _err:stdgo.Error = newFloat((0 : stdgo.GoFloat64)).gobDecode(_tc._buf);
             if (((_err == null) || !stdgo._internal.strings.Strings.hasPrefix(_err.error()?.__copy__(), _tc._msg?.__copy__()) : Bool)) {
                 _t.errorf(("expected GobDecode error prefix: %s, got: %v" : stdgo.GoString), stdgo.Go.toInterface(_tc._msg), stdgo.Go.toInterface(_err));
@@ -6941,9 +6689,9 @@ function newInt(_x:stdgo.GoInt64):stdgo.Ref<Int_> {
         };
         var _abs:stdgo.Slice<Word> = (null : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
         if (_x == ((0i64 : stdgo.GoInt64))) {} else if ((true && ((_u >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) != (0i64 : stdgo.GoUInt64)) : Bool)) {
-            _abs = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, (_u : Word), ((_u >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
+            _abs = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(2, 2, ...[(_u : Word), ((_u >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
         } else {
-            _abs = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (_u : Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
+            _abs = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(_u : Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
         };
         return (stdgo.Go.setRef(({ _neg : (_x < (0i64 : stdgo.GoInt64) : Bool), _abs : _abs } : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>);
     }
@@ -7246,9 +6994,7 @@ function testMulRangeZ(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testBinomial(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _z:Int_ = ({} : stdgo._internal.math.big.Big.Int_);
-        for (__14 => _test in (new stdgo.Slice<T__struct_35>(
-19,
-19,
+        for (__14 => _test in (new stdgo.Slice<T__struct_35>(19, 19, ...[
 ({ _n : (0i64 : stdgo.GoInt64), _k : (0i64 : stdgo.GoInt64), _want : ("1" : stdgo.GoString) } : T__struct_35),
 ({ _n : (0i64 : stdgo.GoInt64), _k : (1i64 : stdgo.GoInt64), _want : ("0" : stdgo.GoString) } : T__struct_35),
 ({ _n : (1i64 : stdgo.GoInt64), _k : (0i64 : stdgo.GoInt64), _want : ("1" : stdgo.GoString) } : T__struct_35),
@@ -7267,7 +7013,7 @@ function testBinomial(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 ({ _n : (100i64 : stdgo.GoInt64), _k : (10i64 : stdgo.GoInt64), _want : ("17310309456440" : stdgo.GoString) } : T__struct_35),
 ({ _n : (100i64 : stdgo.GoInt64), _k : (90i64 : stdgo.GoInt64), _want : ("17310309456440" : stdgo.GoString) } : T__struct_35),
 ({ _n : (1000i64 : stdgo.GoInt64), _k : (10i64 : stdgo.GoInt64), _want : ("263409560461970212832400" : stdgo.GoString) } : T__struct_35),
-({ _n : (1000i64 : stdgo.GoInt64), _k : (990i64 : stdgo.GoInt64), _want : ("263409560461970212832400" : stdgo.GoString) } : T__struct_35)) : stdgo.Slice<T__struct_35>)) {
+({ _n : (1000i64 : stdgo.GoInt64), _k : (990i64 : stdgo.GoInt64), _want : ("263409560461970212832400" : stdgo.GoString) } : T__struct_35)]) : stdgo.Slice<T__struct_35>)) {
             {
                 var _got:stdgo.GoString = (_z.binomial(_test._n, _test._k).string() : stdgo.GoString)?.__copy__();
                 if (_got != (_test._want)) {
@@ -7345,7 +7091,7 @@ function _norm(_x:T_nat):T_nat {
         return (_x.__slice__(0, _i) : stdgo._internal.math.big.Big.T_nat);
     }
 function testBits(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big.T_nat>(6, 6, null, (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(5, 5, (0u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word), (3u32 : stdgo._internal.math.big.Big.Word), (4u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(5, 5, (4u32 : stdgo._internal.math.big.Big.Word), (3u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(8, 8, (4u32 : stdgo._internal.math.big.Big.Word), (3u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat)) : stdgo.Slice<stdgo._internal.math.big.Big.T_nat>)) {
+        for (__14 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big.T_nat>(6, 6, ...[null, (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(5, 5, ...[(0u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word), (3u32 : stdgo._internal.math.big.Big.Word), (4u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(5, 5, ...[(4u32 : stdgo._internal.math.big.Big.Word), (3u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat), (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(8, 8, ...[(4u32 : stdgo._internal.math.big.Big.Word), (3u32 : stdgo._internal.math.big.Big.Word), (2u32 : stdgo._internal.math.big.Big.Word), (1u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat)]) : stdgo.Slice<stdgo._internal.math.big.Big.T_nat>)) {
             var _z:Int_ = ({} : stdgo._internal.math.big.Big.Int_);
             _z._neg = true;
             var _got = _z.setBits(_test);
@@ -7432,8 +7178,8 @@ function testQuo(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testQuoStepD6(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _u = (stdgo.Go.setRef((new stdgo._internal.math.big.Big.Int_(false, (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, (0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (-2147483647u32 : stdgo._internal.math.big.Big.Word), (2147483647u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>);
-        var _v = (stdgo.Go.setRef((new stdgo._internal.math.big.Big.Int_(false, (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, (5u32 : stdgo._internal.math.big.Big.Word), (-2147483646u32 : stdgo._internal.math.big.Big.Word), (-2147483648u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>);
+        var _u = (stdgo.Go.setRef((new stdgo._internal.math.big.Big.Int_(false, (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(4, 4, ...[(0u32 : stdgo._internal.math.big.Big.Word), (0u32 : stdgo._internal.math.big.Big.Word), (-2147483647u32 : stdgo._internal.math.big.Big.Word), (2147483647u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>);
+        var _v = (stdgo.Go.setRef((new stdgo._internal.math.big.Big.Int_(false, (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, ...[(5u32 : stdgo._internal.math.big.Big.Word), (-2147483646u32 : stdgo._internal.math.big.Big.Word), (-2147483648u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat)) : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>);
         var _r = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>);
         var __tmp__ = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>).quoRem(_u, _v, _r), _q:stdgo.Ref<stdgo._internal.math.big.Big.Int_> = __tmp__._0, _r:stdgo.Ref<stdgo._internal.math.big.Big.Int_> = __tmp__._1;
         {};
@@ -7518,7 +7264,7 @@ function testExp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 _t.errorf(("#%d: got %x want %x" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(stdgo.Go.asInterface(_z1)), stdgo.Go.toInterface(stdgo.Go.asInterface(_out)));
             };
             if (_m == null || (_m : Dynamic).__nil__) {
-                _m = (stdgo.Go.setRef(({ _abs : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(0, 0) : stdgo._internal.math.big.Big.T_nat) } : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>);
+                _m = (stdgo.Go.setRef(({ _abs : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(0, 0, ...[]) : stdgo._internal.math.big.Big.T_nat) } : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>);
                 var _z2 = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>).exp(_x, _y, _m);
                 if (_z2.cmp(_z1) != ((0 : stdgo.GoInt))) {
                     _t.errorf(("#%d: got %x want %x" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(stdgo.Go.asInterface(_z2)), stdgo.Go.toInterface(stdgo.Go.asInterface(_z1)));
@@ -7541,9 +7287,7 @@ function benchmarkExp(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
 function benchmarkExpMont(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var __tmp__ = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>).setString(("297778224889315382157302278696111964193" : stdgo.GoString), (0 : stdgo.GoInt)), _x:stdgo.Ref<stdgo._internal.math.big.Big.Int_> = __tmp__._0, __14:Bool = __tmp__._1;
         var __tmp__ = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>).setString(("2548977943381019743024248146923164919440527843026415174732254534318292492375775985739511369575861449426580651447974311336267954477239437734832604782764979371984246675241012538135715981292390886872929238062252506842498360562303324154310849745753254532852868768268023732398278338025070694508489163836616810661033068070127919590264734220833816416141878688318329193389865030063416339367925710474801991305827284114894677717927892032165200876093838921477120036402410731159852999623461591709308405270748511350289172153076023215" : stdgo.GoString), (0 : stdgo.GoInt)), _y:stdgo.Ref<stdgo._internal.math.big.Big.Int_> = __tmp__._0, __15:Bool = __tmp__._1;
-        var _mods:stdgo.Slice<T__struct_40> = (new stdgo.Slice<T__struct_40>(
-15,
-15,
+        var _mods:stdgo.Slice<T__struct_40> = (new stdgo.Slice<T__struct_40>(15, 15, ...[
 ({ _name : ("Odd" : stdgo.GoString), _val : ("0x82828282828200FFFF28FF2B218281FF82828282828200FFFF28FF2B218281FF82828282828200FFFF28FF2B218281FF" : stdgo.GoString) } : T__struct_40),
 ({ _name : ("Even1" : stdgo.GoString), _val : ("0x82828282828200FFFF28FF2B218281FF82828282828200FFFF28FF2B218281FF82828282828200FFFF28FF2B218281FE" : stdgo.GoString) } : T__struct_40),
 ({ _name : ("Even2" : stdgo.GoString), _val : ("0x82828282828200FFFF28FF2B218281FF82828282828200FFFF28FF2B218281FF82828282828200FFFF28FF2B218281FC" : stdgo.GoString) } : T__struct_40),
@@ -7558,7 +7302,7 @@ function benchmarkExpMont(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void 
 ({ _name : ("SmallEven1" : stdgo.GoString), _val : ("0x7E" : stdgo.GoString) } : T__struct_40),
 ({ _name : ("SmallEven2" : stdgo.GoString), _val : ("0x7C" : stdgo.GoString) } : T__struct_40),
 ({ _name : ("SmallEven3" : stdgo.GoString), _val : ("0x78" : stdgo.GoString) } : T__struct_40),
-({ _name : ("SmallEven4" : stdgo.GoString), _val : ("0x70" : stdgo.GoString) } : T__struct_40)) : stdgo.Slice<T__struct_40>);
+({ _name : ("SmallEven4" : stdgo.GoString), _val : ("0x70" : stdgo.GoString) } : T__struct_40)]) : stdgo.Slice<T__struct_40>);
         for (__16 => _mod in _mods) {
             var __tmp__ = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>).setString(_mod._val?.__copy__(), (0 : stdgo.GoInt)), _n:stdgo.Ref<stdgo._internal.math.big.Big.Int_> = __tmp__._0, __17:Bool = __tmp__._1;
             var _out = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>);
@@ -8318,9 +8062,7 @@ function testModSqrt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testJacobi(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _testCases = (new stdgo.Slice<T__struct_47>(
-17,
-17,
+        var _testCases = (new stdgo.Slice<T__struct_47>(17, 17, ...[
 ({ _x : (0i64 : stdgo.GoInt64), _y : (1i64 : stdgo.GoInt64), _result : (1 : stdgo.GoInt) } : T__struct_47),
 ({ _x : (0i64 : stdgo.GoInt64), _y : (-1i64 : stdgo.GoInt64), _result : (1 : stdgo.GoInt) } : T__struct_47),
 ({ _x : (1i64 : stdgo.GoInt64), _y : (1i64 : stdgo.GoInt64), _result : (1 : stdgo.GoInt) } : T__struct_47),
@@ -8337,7 +8079,7 @@ function testJacobi(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 ({ _x : (6i64 : stdgo.GoInt64), _y : (5i64 : stdgo.GoInt64), _result : (1 : stdgo.GoInt) } : T__struct_47),
 ({ _x : (6i64 : stdgo.GoInt64), _y : (-5i64 : stdgo.GoInt64), _result : (1 : stdgo.GoInt) } : T__struct_47),
 ({ _x : (-6i64 : stdgo.GoInt64), _y : (5i64 : stdgo.GoInt64), _result : (1 : stdgo.GoInt) } : T__struct_47),
-({ _x : (-6i64 : stdgo.GoInt64), _y : (-5i64 : stdgo.GoInt64), _result : (-1 : stdgo.GoInt) } : T__struct_47)) : stdgo.Slice<T__struct_47>);
+({ _x : (-6i64 : stdgo.GoInt64), _y : (-5i64 : stdgo.GoInt64), _result : (-1 : stdgo.GoInt) } : T__struct_47)]) : stdgo.Slice<T__struct_47>);
         var __0:Int_ = ({} : stdgo._internal.math.big.Big.Int_), __1:Int_ = ({} : stdgo._internal.math.big.Big.Int_), _y:Int_ = __1, _x:Int_ = __0;
         for (_i => _test in _testCases) {
             _x.setInt64(_test._x);
@@ -8435,7 +8177,7 @@ function testIssue22830(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var __tmp__ = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>).setString(("84555555300000000000" : stdgo.GoString), (10 : stdgo.GoInt)), _base:stdgo.Ref<stdgo._internal.math.big.Big.Int_> = __tmp__._0, __14:Bool = __tmp__._1;
         var __tmp__ = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>).setString(("66666670001111111111" : stdgo.GoString), (10 : stdgo.GoInt)), _mod:stdgo.Ref<stdgo._internal.math.big.Big.Int_> = __tmp__._0, __15:Bool = __tmp__._1;
         var __tmp__ = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>).setString(("17888885298888888889" : stdgo.GoString), (10 : stdgo.GoInt)), _want:stdgo.Ref<stdgo._internal.math.big.Big.Int_> = __tmp__._0, __16:Bool = __tmp__._1;
-        var _tests:stdgo.Slice<stdgo.GoInt64> = (new stdgo.Slice<stdgo.GoInt64>(3, 3, (0i64 : stdgo.GoInt64), (1i64 : stdgo.GoInt64), (-1i64 : stdgo.GoInt64)) : stdgo.Slice<stdgo.GoInt64>);
+        var _tests:stdgo.Slice<stdgo.GoInt64> = (new stdgo.Slice<stdgo.GoInt64>(3, 3, ...[(0i64 : stdgo.GoInt64), (1i64 : stdgo.GoInt64), (-1i64 : stdgo.GoInt64)]) : stdgo.Slice<stdgo.GoInt64>);
         for (__17 => _n in _tests) {
             var _m = newInt(_n);
             {
@@ -8502,9 +8244,7 @@ function _benchmarkDiv(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _aSize:s
         };
     }
 function benchmarkDiv(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-        var _sizes = (new stdgo.Slice<stdgo.GoInt>(
-11,
-11,
+        var _sizes = (new stdgo.Slice<stdgo.GoInt>(11, 11, ...[
 (10 : stdgo.GoInt),
 (20 : stdgo.GoInt),
 (50 : stdgo.GoInt),
@@ -8515,7 +8255,7 @@ function benchmarkDiv(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
 (10000 : stdgo.GoInt),
 (100000 : stdgo.GoInt),
 (1000000 : stdgo.GoInt),
-(10000000 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
+(10000000 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
         for (__14 => _i in _sizes) {
             var _j:stdgo.GoInt = ((2 : stdgo.GoInt) * _i : stdgo.GoInt);
             _b.run(stdgo._internal.fmt.Fmt.sprintf(("%d/%d" : stdgo.GoString), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_i))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
@@ -8573,7 +8313,7 @@ function testFillBytes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 return _panic;
             };
         };
-        for (__14 => _n in (new stdgo.Slice<stdgo.GoString>(8, 8, ("0" : stdgo.GoString), ("1000" : stdgo.GoString), ("0xffffffff" : stdgo.GoString), ("-0xffffffff" : stdgo.GoString), ("0xffffffffffffffff" : stdgo.GoString), ("0x10000000000000000" : stdgo.GoString), ("0xabababababababababababababababababababababababababa" : stdgo.GoString), ("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
+        for (__14 => _n in (new stdgo.Slice<stdgo.GoString>(8, 8, ...[("0" : stdgo.GoString), ("1000" : stdgo.GoString), ("0xffffffff" : stdgo.GoString), ("-0xffffffff" : stdgo.GoString), ("0xffffffffffffffff" : stdgo.GoString), ("0x10000000000000000" : stdgo.GoString), ("0xabababababababababababababababababababababababababa" : stdgo.GoString), ("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>)) {
             _t.run(_n?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 _t.logf(_n?.__copy__());
                 var __tmp__ = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>).setString(_n?.__copy__(), (0 : stdgo.GoInt)), _x:stdgo.Ref<stdgo._internal.math.big.Big.Int_> = __tmp__._0, _ok:Bool = __tmp__._1;
@@ -8610,7 +8350,7 @@ function testNewIntMinInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
     }
 function testNewIntAllocs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         stdgo._internal.internal.testenv.Testenv.skipIfOptimizationOff(stdgo.Go.asInterface(_t));
-        for (__14 => _n in (new stdgo.Slice<stdgo.GoInt64>(7, 7, (0i64 : stdgo.GoInt64), (7i64 : stdgo.GoInt64), (-7i64 : stdgo.GoInt64), (1073741824i64 : stdgo.GoInt64), (-1073741824i64 : stdgo.GoInt64), (1125899906842624i64 : stdgo.GoInt64), (-1125899906842624i64 : stdgo.GoInt64)) : stdgo.Slice<stdgo.GoInt64>)) {
+        for (__14 => _n in (new stdgo.Slice<stdgo.GoInt64>(7, 7, ...[(0i64 : stdgo.GoInt64), (7i64 : stdgo.GoInt64), (-7i64 : stdgo.GoInt64), (1073741824i64 : stdgo.GoInt64), (-1073741824i64 : stdgo.GoInt64), (1125899906842624i64 : stdgo.GoInt64), (-1125899906842624i64 : stdgo.GoInt64)]) : stdgo.Slice<stdgo.GoInt64>)) {
             var _x = newInt((3i64 : stdgo.GoInt64));
             var _got:stdgo.GoFloat64 = stdgo._internal.testing.Testing.allocsPerRun((100 : stdgo.GoInt), function():Void {
                 _x.add(_x, newInt(_n));
@@ -8621,9 +8361,7 @@ function testNewIntAllocs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
         };
     }
 function testFloat64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_48>(
-22,
-22,
+        for (__14 => _test in (new stdgo.Slice<T__struct_48>(22, 22, ...[
 ({ _istr : ("-1000000000000000000000000000000000000000000000000000000" : stdgo.GoString), _f : (-1e+54 : stdgo.GoFloat64), _acc : (-1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_48),
 ({ _istr : ("-9223372036854775809" : stdgo.GoString), _f : (-9.223372036854776e+18 : stdgo.GoFloat64), _acc : (1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_48),
 ({ _istr : ("-9223372036854775808" : stdgo.GoString), _f : (-9.223372036854776e+18 : stdgo.GoFloat64), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_48),
@@ -8645,7 +8383,7 @@ function testFloat64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 ({ _istr : ("0x1010000000000000" : stdgo.GoString), _f : (1.1574251042342175e+18 : stdgo.GoFloat64), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_48),
 ({ _istr : ("9223372036854775807" : stdgo.GoString), _f : (9.223372036854776e+18 : stdgo.GoFloat64), _acc : (1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_48),
 ({ _istr : ("9223372036854775808" : stdgo.GoString), _f : (9.223372036854776e+18 : stdgo.GoFloat64), _acc : (0 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_48),
-({ _istr : ("1000000000000000000000000000000000000000000000000000000" : stdgo.GoString), _f : (1e+54 : stdgo.GoFloat64), _acc : (1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_48)) : stdgo.Slice<T__struct_48>)) {
+({ _istr : ("1000000000000000000000000000000000000000000000000000000" : stdgo.GoString), _f : (1e+54 : stdgo.GoFloat64), _acc : (1 : stdgo._internal.math.big.Big.Accuracy) } : T__struct_48)]) : stdgo.Slice<T__struct_48>)) {
             var __tmp__ = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>).setString(_test._istr?.__copy__(), (0 : stdgo.GoInt)), _i:stdgo.Ref<stdgo._internal.math.big.Big.Int_> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 _t.errorf(("SetString(%s) failed" : stdgo.GoString), stdgo.Go.toInterface(_test._istr));
@@ -8864,7 +8602,7 @@ function testIntGobEncoding(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
         var _enc = stdgo._internal.encoding.gob.Gob.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_medium) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>)));
         var _dec = stdgo._internal.encoding.gob.Gob.newDecoder(stdgo.Go.asInterface((stdgo.Go.setRef(_medium) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>)));
         for (__14 => _test in _encodingTests) {
-            for (__15 => _sign in (new stdgo.Slice<stdgo.GoString>(3, 3, stdgo.Go.str()?.__copy__(), ("+" : stdgo.GoString), ("-" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
+            for (__15 => _sign in (new stdgo.Slice<stdgo.GoString>(3, 3, ...[stdgo.Go.str()?.__copy__(), ("+" : stdgo.GoString), ("-" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>)) {
                 var _x:stdgo.GoString = (_sign + _test?.__copy__() : stdgo.GoString)?.__copy__();
                 _medium.reset();
                 var _tx:Int_ = ({} : stdgo._internal.math.big.Big.Int_);
@@ -8914,7 +8652,7 @@ function testGobEncodingNilIntInSlice(_t:stdgo.Ref<stdgo._internal.testing.Testi
     }
 function testIntJSONEncoding(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__14 => _test in _encodingTests) {
-            for (__15 => _sign in (new stdgo.Slice<stdgo.GoString>(3, 3, stdgo.Go.str()?.__copy__(), ("+" : stdgo.GoString), ("-" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
+            for (__15 => _sign in (new stdgo.Slice<stdgo.GoString>(3, 3, ...[stdgo.Go.str()?.__copy__(), ("+" : stdgo.GoString), ("-" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>)) {
                 var _x:stdgo.GoString = (_sign + _test?.__copy__() : stdgo.GoString)?.__copy__();
                 var _tx:Int_ = ({} : stdgo._internal.math.big.Big.Int_);
                 _tx.setString(_x?.__copy__(), (10 : stdgo.GoInt));
@@ -8951,7 +8689,7 @@ function testIntJSONEncodingNil(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>
     }
 function testIntXMLEncoding(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__14 => _test in _encodingTests) {
-            for (__15 => _sign in (new stdgo.Slice<stdgo.GoString>(3, 3, stdgo.Go.str()?.__copy__(), ("+" : stdgo.GoString), ("-" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
+            for (__15 => _sign in (new stdgo.Slice<stdgo.GoString>(3, 3, ...[stdgo.Go.str()?.__copy__(), ("+" : stdgo.GoString), ("-" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>)) {
                 var _x:stdgo.GoString = (_sign + _test?.__copy__() : stdgo.GoString)?.__copy__();
                 var _tx:Int_ = ({} : stdgo._internal.math.big.Big.Int_);
                 _tx.setString(_x?.__copy__(), (0 : stdgo.GoInt));
@@ -9007,7 +8745,7 @@ function testLinkerGC(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         if (!stdgo._internal.bytes.Bytes.contains(_nm, (("runtime.main" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))) {
             _t.errorf(("expected symbol %q not found" : stdgo.GoString), stdgo.Go.toInterface(("runtime.main" : stdgo.GoString)));
         };
-        var _bad = (new stdgo.Slice<stdgo.GoString>(3, 3, ("math/big.(*Float)" : stdgo.GoString), ("math/big.(*Rat)" : stdgo.GoString), ("math/big.(*Int)" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+        var _bad = (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("math/big.(*Float)" : stdgo.GoString), ("math/big.(*Rat)" : stdgo.GoString), ("math/big.(*Int)" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
         for (__94 => _sym in _bad) {
             if (stdgo._internal.bytes.Bytes.contains(_nm, (_sym : stdgo.Slice<stdgo.GoByte>))) {
                 _t.errorf(("unexpected symbol %q found" : stdgo.GoString), stdgo.Go.toInterface(_sym));
@@ -9492,9 +9230,9 @@ function fuzzExpMont(_f:stdgo.Ref<stdgo._internal.testing.Testing.F>):Void {
             if (((_m1 == ((0u32 : stdgo.GoUInt)) && _m2 == ((0u32 : stdgo.GoUInt)) : Bool) && (_m3 == (0u32 : stdgo.GoUInt)) : Bool)) {
                 return;
             };
-            var _x = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>).setBits((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, (_x1 : Word), (_x2 : Word), (_x3 : Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>));
-            var _y = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>).setBits((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, (_y1 : Word), (_y2 : Word), (_y3 : Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>));
-            var _m = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>).setBits((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, (_m1 : Word), (_m2 : Word), (_m3 : Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>));
+            var _x = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>).setBits((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, ...[(_x1 : Word), (_x2 : Word), (_x3 : Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>));
+            var _y = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>).setBits((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, ...[(_y1 : Word), (_y2 : Word), (_y3 : Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>));
+            var _m = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>).setBits((new stdgo.Slice<stdgo._internal.math.big.Big.Word>(3, 3, ...[(_m1 : Word), (_m2 : Word), (_m3 : Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>));
             var _out = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>).exp(_x, _y, _m);
             var _want = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>)._expSlow(_x, _y, _m);
             if (_out.cmp(_want) != ((0 : stdgo.GoInt))) {
@@ -9504,19 +9242,7 @@ function fuzzExpMont(_f:stdgo.Ref<stdgo._internal.testing.Testing.F>):Void {
     }
 function benchmarkExp3Power(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {};
-        for (__14 => _y in (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(
-10,
-10,
-(16u32 : stdgo._internal.math.big.Big.Word),
-(64u32 : stdgo._internal.math.big.Big.Word),
-(256u32 : stdgo._internal.math.big.Big.Word),
-(1024u32 : stdgo._internal.math.big.Big.Word),
-(4096u32 : stdgo._internal.math.big.Big.Word),
-(16384u32 : stdgo._internal.math.big.Big.Word),
-(65536u32 : stdgo._internal.math.big.Big.Word),
-(262144u32 : stdgo._internal.math.big.Big.Word),
-(1048576u32 : stdgo._internal.math.big.Big.Word),
-(4194304u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>)) {
+        for (__14 => _y in (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(10, 10, ...[(16u32 : stdgo._internal.math.big.Big.Word), (64u32 : stdgo._internal.math.big.Big.Word), (256u32 : stdgo._internal.math.big.Big.Word), (1024u32 : stdgo._internal.math.big.Big.Word), (4096u32 : stdgo._internal.math.big.Big.Word), (16384u32 : stdgo._internal.math.big.Big.Word), (65536u32 : stdgo._internal.math.big.Big.Word), (262144u32 : stdgo._internal.math.big.Big.Word), (1048576u32 : stdgo._internal.math.big.Big.Word), (4194304u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>)) {
             _b.run(stdgo._internal.fmt.Fmt.sprintf(("%#x" : stdgo.GoString), stdgo.Go.toInterface(_y))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
                 var _z:T_nat = new stdgo._internal.math.big.Big.T_nat(0, 0);
                 {
@@ -9534,7 +9260,7 @@ function _fibo(_n:stdgo.GoInt):T_nat {
             if (__value__ == ((0 : stdgo.GoInt))) {
                 return null;
             } else if (__value__ == ((1 : stdgo.GoInt))) {
-                return (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat);
+                return (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat);
             };
         };
         var _f0:stdgo._internal.math.big.Big.T_nat = _fibo((0 : stdgo.GoInt));
@@ -9657,7 +9383,7 @@ function benchmarkNatSqr(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         };
     }
 function testNatSubMod2N(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _mode in (new stdgo.Slice<stdgo.GoString>(3, 3, ("noalias" : stdgo.GoString), ("aliasX" : stdgo.GoString), ("aliasY" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
+        for (__14 => _mode in (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("noalias" : stdgo.GoString), ("aliasX" : stdgo.GoString), ("aliasY" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>)) {
             _t.run(_mode?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 for (__23 => _tt in _subMod2NTests) {
                     var _x0:stdgo._internal.math.big.Big.T_nat = _natFromString(_tt._x?.__copy__());
@@ -9690,7 +9416,7 @@ function testNatSubMod2N(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
     }
 function benchmarkNatSetBytes(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {};
-        var _lengths = (new stdgo.Slice<stdgo.GoInt>(6, 6, (8 : stdgo.GoInt), (24 : stdgo.GoInt), (128 : stdgo.GoInt), (7 : stdgo.GoInt), (23 : stdgo.GoInt), (127 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
+        var _lengths = (new stdgo.Slice<stdgo.GoInt>(6, 6, ...[(8 : stdgo.GoInt), (24 : stdgo.GoInt), (128 : stdgo.GoInt), (7 : stdgo.GoInt), (23 : stdgo.GoInt), (127 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
         var _n:stdgo._internal.math.big.Big.T_nat = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
         var _buf = new stdgo.Slice<stdgo.GoUInt8>((128 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
         for (__14 => _l in _lengths) {
@@ -9705,9 +9431,7 @@ function benchmarkNatSetBytes(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):V
         };
     }
 function testNatDiv(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _sizes = (new stdgo.Slice<stdgo.GoInt>(
-17,
-17,
+        var _sizes = (new stdgo.Slice<stdgo.GoInt>(17, 17, ...[
 (1 : stdgo.GoInt),
 (2 : stdgo.GoInt),
 (5 : stdgo.GoInt),
@@ -9724,7 +9448,7 @@ function testNatDiv(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 (2500 : stdgo.GoInt),
 (4000 : stdgo.GoInt),
 (6500 : stdgo.GoInt),
-(10000 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
+(10000 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
         for (__14 => _i in _sizes) {
             for (__15 => _j in _sizes) {
                 var _a:stdgo._internal.math.big.Big.T_nat = _rndNat1(_i);
@@ -10024,8 +9748,8 @@ function benchmarkStringPiParallel(_b:stdgo.Ref<stdgo._internal.testing.Testing.
     }
 function benchmarkScan(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {};
-        for (__14 => _base in (new stdgo.Slice<stdgo.GoInt>(4, 4, (2 : stdgo.GoInt), (8 : stdgo.GoInt), (10 : stdgo.GoInt), (16 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)) {
-            for (__15 => _y in (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(5, 5, (10u32 : stdgo._internal.math.big.Big.Word), (100u32 : stdgo._internal.math.big.Big.Word), (1000u32 : stdgo._internal.math.big.Big.Word), (10000u32 : stdgo._internal.math.big.Big.Word), (100000u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>)) {
+        for (__14 => _base in (new stdgo.Slice<stdgo.GoInt>(4, 4, ...[(2 : stdgo.GoInt), (8 : stdgo.GoInt), (10 : stdgo.GoInt), (16 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)) {
+            for (__15 => _y in (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(5, 5, ...[(10u32 : stdgo._internal.math.big.Big.Word), (100u32 : stdgo._internal.math.big.Big.Word), (1000u32 : stdgo._internal.math.big.Big.Word), (10000u32 : stdgo._internal.math.big.Big.Word), (100000u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>)) {
                 if ((_isRaceBuilder && (_y > (1000u32 : stdgo._internal.math.big.Big.Word) : Bool) : Bool)) {
                     continue;
                 };
@@ -10053,8 +9777,8 @@ function benchmarkScan(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
     }
 function benchmarkString(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {};
-        for (__14 => _base in (new stdgo.Slice<stdgo.GoInt>(4, 4, (2 : stdgo.GoInt), (8 : stdgo.GoInt), (10 : stdgo.GoInt), (16 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)) {
-            for (__15 => _y in (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(5, 5, (10u32 : stdgo._internal.math.big.Big.Word), (100u32 : stdgo._internal.math.big.Big.Word), (1000u32 : stdgo._internal.math.big.Big.Word), (10000u32 : stdgo._internal.math.big.Big.Word), (100000u32 : stdgo._internal.math.big.Big.Word)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>)) {
+        for (__14 => _base in (new stdgo.Slice<stdgo.GoInt>(4, 4, ...[(2 : stdgo.GoInt), (8 : stdgo.GoInt), (10 : stdgo.GoInt), (16 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)) {
+            for (__15 => _y in (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(5, 5, ...[(10u32 : stdgo._internal.math.big.Big.Word), (100u32 : stdgo._internal.math.big.Big.Word), (1000u32 : stdgo._internal.math.big.Big.Word), (10000u32 : stdgo._internal.math.big.Big.Word), (100000u32 : stdgo._internal.math.big.Big.Word)]) : stdgo.Slice<stdgo._internal.math.big.Big.Word>)) {
                 if ((_isRaceBuilder && (_y > (1000u32 : stdgo._internal.math.big.Big.Word) : Bool) : Bool)) {
                     continue;
                 };
@@ -10083,7 +9807,7 @@ function benchmarkLeafSize(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void
                 });
             });
         };
-        for (__22 => _n in (new stdgo.Slice<stdgo.GoInt>(2, 2, (32 : stdgo.GoInt), (64 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)) {
+        for (__22 => _n in (new stdgo.Slice<stdgo.GoInt>(2, 2, ...[(32 : stdgo.GoInt), (64 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)) {
             _b.run(stdgo._internal.fmt.Fmt.sprint(stdgo.Go.toInterface(_n))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
                 leafSizeHelper(_b, (10 : stdgo.GoInt), _n);
             });
@@ -10202,7 +9926,7 @@ function testProbablyPrime(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
             };
         };
         var _c = newInt((11i64 : stdgo.GoInt64));
-        for (__32 => _n in (new stdgo.Slice<stdgo.GoInt>(3, 3, (-1 : stdgo.GoInt), (0 : stdgo.GoInt), (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)) {
+        for (__32 => _n in (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(-1 : stdgo.GoInt), (0 : stdgo.GoInt), (1 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)) {
             {
                 var a = function():Void {
                     var __deferstack__:Array<Void -> Void> = [];
@@ -10249,7 +9973,7 @@ function testProbablyPrime(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
     }
 function benchmarkProbablyPrime(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var __tmp__ = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>).setString(("203956878356401977405765866929034577280193993314348263094772646453283062722701277632936616063144088173312372882677123879538709400158306567338328279154499698366071906766440037074217117805690872792848149112022286332144876183376326512083574821647933992961249917319836219304274280243803104015000563790123" : stdgo.GoString), (10 : stdgo.GoInt)), _p:stdgo.Ref<stdgo._internal.math.big.Big.Int_> = __tmp__._0, __14:Bool = __tmp__._1;
-        for (__15 => _n in (new stdgo.Slice<stdgo.GoInt>(5, 5, (0 : stdgo.GoInt), (1 : stdgo.GoInt), (5 : stdgo.GoInt), (10 : stdgo.GoInt), (20 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)) {
+        for (__15 => _n in (new stdgo.Slice<stdgo.GoInt>(5, 5, ...[(0 : stdgo.GoInt), (1 : stdgo.GoInt), (5 : stdgo.GoInt), (10 : stdgo.GoInt), (20 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)) {
             _b.run(stdgo._internal.fmt.Fmt.sprintf(("n=%d" : stdgo.GoString), stdgo.Go.toInterface(_n))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
                 {
                     var _i:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -10279,9 +10003,7 @@ function benchmarkProbablyPrime(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>)
 function testMillerRabinPseudoprimes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         _testPseudoprimes(_t, ("probablyPrimeMillerRabin" : stdgo.GoString), function(_n:T_nat):Bool {
             return (_n._probablyPrimeMillerRabin((1 : stdgo.GoInt), true) && !_n._probablyPrimeLucas() : Bool);
-        }, (new stdgo.Slice<stdgo.GoInt>(
-16,
-16,
+        }, (new stdgo.Slice<stdgo.GoInt>(16, 16, ...[
 (2047 : stdgo.GoInt),
 (3277 : stdgo.GoInt),
 (4033 : stdgo.GoInt),
@@ -10297,14 +10019,12 @@ function testMillerRabinPseudoprimes(_t:stdgo.Ref<stdgo._internal.testing.Testin
 (80581 : stdgo.GoInt),
 (85489 : stdgo.GoInt),
 (88357 : stdgo.GoInt),
-(90751 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>));
+(90751 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>));
     }
 function testLucasPseudoprimes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         _testPseudoprimes(_t, ("probablyPrimeLucas" : stdgo.GoString), function(_n:T_nat):Bool {
             return (_n._probablyPrimeLucas() && !_n._probablyPrimeMillerRabin((1 : stdgo.GoInt), true) : Bool);
-        }, (new stdgo.Slice<stdgo.GoInt>(
-12,
-12,
+        }, (new stdgo.Slice<stdgo.GoInt>(12, 12, ...[
 (989 : stdgo.GoInt),
 (3239 : stdgo.GoInt),
 (5777 : stdgo.GoInt),
@@ -10316,10 +10036,10 @@ function testLucasPseudoprimes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
 (39059 : stdgo.GoInt),
 (72389 : stdgo.GoInt),
 (73919 : stdgo.GoInt),
-(75077 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>));
+(75077 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>));
     }
 function _testPseudoprimes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _name:stdgo.GoString, _cond:T_nat -> Bool, _want:stdgo.Slice<stdgo.GoInt>):Void {
-        var _n:stdgo._internal.math.big.Big.T_nat = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat);
+        var _n:stdgo._internal.math.big.Big.T_nat = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat);
         {
             var _i:stdgo.GoInt = (3 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (100000 : stdgo.GoInt) : Bool), _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt), {
@@ -10802,7 +10522,7 @@ function testIssue3521(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testFloat32Distribution(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _add:stdgo.Slice<stdgo.GoInt64> = (new stdgo.Slice<stdgo.GoInt64>(7, 7, (0i64 : stdgo.GoInt64), (1i64 : stdgo.GoInt64), (3i64 : stdgo.GoInt64), (5i64 : stdgo.GoInt64), (7i64 : stdgo.GoInt64), (9i64 : stdgo.GoInt64), (11i64 : stdgo.GoInt64)) : stdgo.Slice<stdgo.GoInt64>);
+        var _add:stdgo.Slice<stdgo.GoInt64> = (new stdgo.Slice<stdgo.GoInt64>(7, 7, ...[(0i64 : stdgo.GoInt64), (1i64 : stdgo.GoInt64), (3i64 : stdgo.GoInt64), (5i64 : stdgo.GoInt64), (7i64 : stdgo.GoInt64), (9i64 : stdgo.GoInt64), (11i64 : stdgo.GoInt64)]) : stdgo.Slice<stdgo.GoInt64>);
         var __0:stdgo.GoUInt64 = (5i64 : stdgo.GoUInt64), __1:stdgo.GoInt = (15 : stdgo.GoInt), _einc:stdgo.GoInt = __1, _winc:stdgo.GoUInt64 = __0;
         if (_long.value) {
             {
@@ -10844,7 +10564,7 @@ function testFloat32Distribution(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
         };
     }
 function testFloat64Distribution(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _add:stdgo.Slice<stdgo.GoInt64> = (new stdgo.Slice<stdgo.GoInt64>(7, 7, (0i64 : stdgo.GoInt64), (1i64 : stdgo.GoInt64), (3i64 : stdgo.GoInt64), (5i64 : stdgo.GoInt64), (7i64 : stdgo.GoInt64), (9i64 : stdgo.GoInt64), (11i64 : stdgo.GoInt64)) : stdgo.Slice<stdgo.GoInt64>);
+        var _add:stdgo.Slice<stdgo.GoInt64> = (new stdgo.Slice<stdgo.GoInt64>(7, 7, ...[(0i64 : stdgo.GoInt64), (1i64 : stdgo.GoInt64), (3i64 : stdgo.GoInt64), (5i64 : stdgo.GoInt64), (7i64 : stdgo.GoInt64), (9i64 : stdgo.GoInt64), (11i64 : stdgo.GoInt64)]) : stdgo.Slice<stdgo.GoInt64>);
         var __0:stdgo.GoUInt64 = (10i64 : stdgo.GoUInt64), __1:stdgo.GoInt = (500 : stdgo.GoInt), _einc:stdgo.GoInt = __1, _winc:stdgo.GoUInt64 = __0;
         if (_long.value) {
             {
@@ -10886,7 +10606,7 @@ function testFloat64Distribution(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
         };
     }
 function testSetFloat64NonFinite(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _f in (new stdgo.Slice<stdgo.GoFloat64>(3, 3, stdgo._internal.math.Math.naN(), stdgo._internal.math.Math.inf((1 : stdgo.GoInt)), stdgo._internal.math.Math.inf((-1 : stdgo.GoInt))) : stdgo.Slice<stdgo.GoFloat64>)) {
+        for (__14 => _f in (new stdgo.Slice<stdgo.GoFloat64>(3, 3, ...[stdgo._internal.math.Math.naN(), stdgo._internal.math.Math.inf((1 : stdgo.GoInt)), stdgo._internal.math.Math.inf((-1 : stdgo.GoInt))]) : stdgo.Slice<stdgo.GoFloat64>)) {
             var _r:Rat = ({} : stdgo._internal.math.big.Big.Rat);
             {
                 var _r2 = _r.setFloat64(_f);
@@ -10989,13 +10709,13 @@ function _isEven64(_f:stdgo.GoFloat64):Bool {
         return (stdgo._internal.math.Math.float64bits(_f) & (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == ((0i64 : stdgo.GoUInt64));
     }
 function testIsFinite(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _finites = (new stdgo.Slice<stdgo.GoFloat64>(6, 6, (0.3333333333333333 : stdgo.GoFloat64), (4.8915598712767145e+243 : stdgo.GoFloat64), (1.7976931348623157e+308 : stdgo.GoFloat64), (5e-324 : stdgo.GoFloat64), (-1.7976931348623157e+308 : stdgo.GoFloat64), (-5e-324 : stdgo.GoFloat64)) : stdgo.Slice<stdgo.GoFloat64>);
+        var _finites = (new stdgo.Slice<stdgo.GoFloat64>(6, 6, ...[(0.3333333333333333 : stdgo.GoFloat64), (4.8915598712767145e+243 : stdgo.GoFloat64), (1.7976931348623157e+308 : stdgo.GoFloat64), (5e-324 : stdgo.GoFloat64), (-1.7976931348623157e+308 : stdgo.GoFloat64), (-5e-324 : stdgo.GoFloat64)]) : stdgo.Slice<stdgo.GoFloat64>);
         for (__14 => _f in _finites) {
             if (!_isFinite(_f)) {
                 _t.errorf(("!IsFinite(%g (%b))" : stdgo.GoString), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_f));
             };
         };
-        var _nonfinites = (new stdgo.Slice<stdgo.GoFloat64>(3, 3, stdgo._internal.math.Math.naN(), stdgo._internal.math.Math.inf((-1 : stdgo.GoInt)), stdgo._internal.math.Math.inf((1 : stdgo.GoInt))) : stdgo.Slice<stdgo.GoFloat64>);
+        var _nonfinites = (new stdgo.Slice<stdgo.GoFloat64>(3, 3, ...[stdgo._internal.math.Math.naN(), stdgo._internal.math.Math.inf((-1 : stdgo.GoInt)), stdgo._internal.math.Math.inf((1 : stdgo.GoInt))]) : stdgo.Slice<stdgo.GoFloat64>);
         for (__23 => _f in _nonfinites) {
             if (_isFinite(_f)) {
                 _t.errorf(("IsFinite(%g, (%b))" : stdgo.GoString), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_f));
@@ -11003,7 +10723,7 @@ function testIsFinite(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testRatSetInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _testCases:stdgo.Slice<stdgo.GoInt64> = (new stdgo.Slice<stdgo.GoInt64>(7, 7, (0i64 : stdgo.GoInt64), (1i64 : stdgo.GoInt64), (-1i64 : stdgo.GoInt64), (12345i64 : stdgo.GoInt64), (-98765i64 : stdgo.GoInt64), (9223372036854775807i64 : stdgo.GoInt64), (-9223372036854775808i64 : stdgo.GoInt64)) : stdgo.Slice<stdgo.GoInt64>);
+        var _testCases:stdgo.Slice<stdgo.GoInt64> = (new stdgo.Slice<stdgo.GoInt64>(7, 7, ...[(0i64 : stdgo.GoInt64), (1i64 : stdgo.GoInt64), (-1i64 : stdgo.GoInt64), (12345i64 : stdgo.GoInt64), (-98765i64 : stdgo.GoInt64), (9223372036854775807i64 : stdgo.GoInt64), (-9223372036854775808i64 : stdgo.GoInt64)]) : stdgo.Slice<stdgo.GoInt64>);
         var _r:stdgo.Ref<stdgo._internal.math.big.Big.Rat> = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big.Rat>);
         for (_i => _want in _testCases) {
             _r.setInt64(_want);
@@ -11021,7 +10741,7 @@ function testRatSetInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
         };
     }
 function testRatSetUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _testCases:stdgo.Slice<stdgo.GoUInt64> = (new stdgo.Slice<stdgo.GoUInt64>(4, 4, (0i64 : stdgo.GoUInt64), (1i64 : stdgo.GoUInt64), (12345i64 : stdgo.GoUInt64), (-1i64 : stdgo.GoUInt64)) : stdgo.Slice<stdgo.GoUInt64>);
+        var _testCases:stdgo.Slice<stdgo.GoUInt64> = (new stdgo.Slice<stdgo.GoUInt64>(4, 4, ...[(0i64 : stdgo.GoUInt64), (1i64 : stdgo.GoUInt64), (12345i64 : stdgo.GoUInt64), (-1i64 : stdgo.GoUInt64)]) : stdgo.Slice<stdgo.GoUInt64>);
         var _r:stdgo.Ref<stdgo._internal.math.big.Big.Rat> = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big.Rat>);
         for (_i => _want in _testCases) {
             _r.setUint64(_want);
@@ -11048,7 +10768,7 @@ function benchmarkRatCmp(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         };
     }
 function testIssue34919(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _acc in (new stdgo.Slice<T__struct_63>(6, 6, ({ _name : ("Float32" : stdgo.GoString), _f : function(_x:stdgo.Ref<Rat>):Void {
+        for (__14 => _acc in (new stdgo.Slice<T__struct_63>(6, 6, ...[({ _name : ("Float32" : stdgo.GoString), _f : function(_x:stdgo.Ref<Rat>):Void {
             _x.float32();
         } } : T__struct_63), ({ _name : ("Float64" : stdgo.GoString), _f : function(_x:stdgo.Ref<Rat>):Void {
             _x.float64();
@@ -11060,8 +10780,8 @@ function testIssue34919(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             _x.isInt();
         } } : T__struct_63), ({ _name : ("Num" : stdgo.GoString), _f : function(_x:stdgo.Ref<Rat>):Void {
             _x.num();
-        } } : T__struct_63)) : stdgo.Slice<T__struct_63>)) {
-            var _r = (stdgo.Go.setRef((new stdgo._internal.math.big.Big.Rat(({ _abs : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (991u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat) } : stdgo._internal.math.big.Big.Int_), ({ _abs : new stdgo.Slice<stdgo._internal.math.big.Big.Word>((0 : stdgo.GoInt).toBasic(), (1 : stdgo.GoInt)).__setNumber32__() } : stdgo._internal.math.big.Big.Int_)) : stdgo._internal.math.big.Big.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big.Rat>);
+        } } : T__struct_63)]) : stdgo.Slice<T__struct_63>)) {
+            var _r = (stdgo.Go.setRef((new stdgo._internal.math.big.Big.Rat(({ _abs : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(991u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat) } : stdgo._internal.math.big.Big.Int_), ({ _abs : new stdgo.Slice<stdgo._internal.math.big.Big.Word>((0 : stdgo.GoInt).toBasic(), (1 : stdgo.GoInt)).__setNumber32__() } : stdgo._internal.math.big.Big.Int_)) : stdgo._internal.math.big.Big.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big.Rat>);
             _acc._f(_r);
             {
                 var _d:stdgo._internal.math.big.Big.Word = (_r._b._abs.__slice__(0, (1 : stdgo.GoInt)) : stdgo._internal.math.big.Big.T_nat)[(0 : stdgo.GoInt)];
@@ -11350,7 +11070,7 @@ function testFloat64SpecialCases(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
     }
 function testIssue31184(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:Rat = ({} : stdgo._internal.math.big.Big.Rat);
-        for (__14 => _want in (new stdgo.Slice<stdgo.GoString>(3, 3, ("-213.090" : stdgo.GoString), ("8.192" : stdgo.GoString), ("16.000" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
+        for (__14 => _want in (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("-213.090" : stdgo.GoString), ("8.192" : stdgo.GoString), ("16.000" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>)) {
             _x.setString(_want?.__copy__());
             var _got:stdgo.GoString = _x.floatString((3 : stdgo.GoInt))?.__copy__();
             if (_got != (_want)) {
@@ -11360,19 +11080,7 @@ function testIssue31184(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testIssue45910(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:Rat = ({} : stdgo._internal.math.big.Big.Rat);
-        for (__14 => _test in (new stdgo.Slice<T__struct_66>(
-10,
-10,
-({ _input : ("1e-1000001" : stdgo.GoString), _want : false } : T__struct_66),
-({ _input : ("1e-1000000" : stdgo.GoString), _want : true } : T__struct_66),
-({ _input : ("1e+1000000" : stdgo.GoString), _want : true } : T__struct_66),
-({ _input : ("1e+1000001" : stdgo.GoString), _want : false } : T__struct_66),
-({ _input : ("0p1000000000000" : stdgo.GoString), _want : true } : T__struct_66),
-({ _input : ("1p-10000001" : stdgo.GoString), _want : false } : T__struct_66),
-({ _input : ("1p-10000000" : stdgo.GoString), _want : true } : T__struct_66),
-({ _input : ("1p+10000000" : stdgo.GoString), _want : true } : T__struct_66),
-({ _input : ("1p+10000001" : stdgo.GoString), _want : false } : T__struct_66),
-({ _input : ("1.770p02041010010011001001" : stdgo.GoString), _want : false } : T__struct_66)) : stdgo.Slice<T__struct_66>)) {
+        for (__14 => _test in (new stdgo.Slice<T__struct_66>(10, 10, ...[({ _input : ("1e-1000001" : stdgo.GoString), _want : false } : T__struct_66), ({ _input : ("1e-1000000" : stdgo.GoString), _want : true } : T__struct_66), ({ _input : ("1e+1000000" : stdgo.GoString), _want : true } : T__struct_66), ({ _input : ("1e+1000001" : stdgo.GoString), _want : false } : T__struct_66), ({ _input : ("0p1000000000000" : stdgo.GoString), _want : true } : T__struct_66), ({ _input : ("1p-10000001" : stdgo.GoString), _want : false } : T__struct_66), ({ _input : ("1p-10000000" : stdgo.GoString), _want : true } : T__struct_66), ({ _input : ("1p+10000000" : stdgo.GoString), _want : true } : T__struct_66), ({ _input : ("1p+10000001" : stdgo.GoString), _want : false } : T__struct_66), ({ _input : ("1.770p02041010010011001001" : stdgo.GoString), _want : false } : T__struct_66)]) : stdgo.Slice<T__struct_66>)) {
             var __tmp__ = _x.setString(_test._input?.__copy__()), __15:stdgo.Ref<stdgo._internal.math.big.Big.Rat> = __tmp__._0, _got:Bool = __tmp__._1;
             if (_got != (_test._want)) {
                 _t.errorf(("SetString(%s) got ok = %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._input), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
@@ -11478,7 +11186,7 @@ function testRatXMLEncoding(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
         };
     }
 function testRatGobDecodeShortBuffer(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _tc in (new stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>(3, 3, (new stdgo.Slice<stdgo.GoUInt8>(1, 1, (2 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo.Slice<stdgo.GoUInt8>(5, 5, (2 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (255 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo.Slice<stdgo.GoUInt8>(5, 5, (2 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>)) {
+        for (__14 => _tc in (new stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>(3, 3, ...[(new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(2 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo.Slice<stdgo.GoUInt8>(5, 5, ...[(2 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (255 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo.Slice<stdgo.GoUInt8>(5, 5, ...[(2 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>)]) : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>)) {
             var _err:stdgo.Error = newRat((1i64 : stdgo.GoInt64), (2i64 : stdgo.GoInt64)).gobDecode(_tc);
             if (_err == null) {
                 _t.error(stdgo.Go.toInterface(("expected GobDecode to return error for malformed input" : stdgo.GoString)));
@@ -11514,9 +11222,7 @@ function testFloatSqrt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
         };
     }
 function testFloatSqrt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_68>(
-12,
-12,
+        for (__14 => _test in (new stdgo.Slice<T__struct_68>(12, 12, ...[
 ({ _x : ("0.03125" : stdgo.GoString), _want : ("0.17677669529663688110021109052621225982120898442211850914708496724884155980776337985629844179095519659187673077886403712811560450698134215158051518713749197892665283324093819909447499381264409775757143376369499645074628431682460775184106467733011114982619404115381053858929018135497032545349940642599871090667456829147610370507757690729404938184321879" : stdgo.GoString) } : T__struct_68),
 ({ _x : ("0.125" : stdgo.GoString), _want : ("0.35355339059327376220042218105242451964241796884423701829416993449768311961552675971259688358191039318375346155772807425623120901396268430316103037427498395785330566648187639818894998762528819551514286752738999290149256863364921550368212935466022229965238808230762107717858036270994065090699881285199742181334913658295220741015515381458809876368643757" : stdgo.GoString) } : T__struct_68),
 ({ _x : ("0.5" : stdgo.GoString), _want : ("0.70710678118654752440084436210484903928483593768847403658833986899536623923105351942519376716382078636750692311545614851246241802792536860632206074854996791570661133296375279637789997525057639103028573505477998580298513726729843100736425870932044459930477616461524215435716072541988130181399762570399484362669827316590441482031030762917619752737287514" : stdgo.GoString) } : T__struct_68),
@@ -11528,10 +11234,8 @@ function testFloatSqrt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 ({ _x : ("9p2048" : stdgo.GoString), _want : ("3p1024" : stdgo.GoString) } : T__struct_68),
 ({ _x : ("1p-1024" : stdgo.GoString), _want : ("1p-512" : stdgo.GoString) } : T__struct_68),
 ({ _x : ("4p-2048" : stdgo.GoString), _want : ("2p-1024" : stdgo.GoString) } : T__struct_68),
-({ _x : ("9p-4096" : stdgo.GoString), _want : ("3p-2048" : stdgo.GoString) } : T__struct_68)) : stdgo.Slice<T__struct_68>)) {
-            for (__15 => _prec in (new stdgo.Slice<stdgo.GoUInt>(
-13,
-13,
+({ _x : ("9p-4096" : stdgo.GoString), _want : ("3p-2048" : stdgo.GoString) } : T__struct_68)]) : stdgo.Slice<T__struct_68>)) {
+            for (__15 => _prec in (new stdgo.Slice<stdgo.GoUInt>(13, 13, ...[
 (24u32 : stdgo.GoUInt),
 (53u32 : stdgo.GoUInt),
 (64u32 : stdgo.GoUInt),
@@ -11544,7 +11248,7 @@ function testFloatSqrt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 (400u32 : stdgo.GoUInt),
 (600u32 : stdgo.GoUInt),
 (800u32 : stdgo.GoUInt),
-(1000u32 : stdgo.GoUInt)) : stdgo.Slice<stdgo.GoUInt>)) {
+(1000u32 : stdgo.GoUInt)]) : stdgo.Slice<stdgo.GoUInt>)) {
                 var _x = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>).setPrec(_prec);
                 _x.parse(_test._x?.__copy__(), (10 : stdgo.GoInt));
                 var _got = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>).setPrec(_prec).sqrt(_x);
@@ -11565,7 +11269,7 @@ function testFloatSqrt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testFloatSqrtSpecial(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<T__struct_69>(3, 3, ({ _x : newFloat((0 : stdgo.GoFloat64)), _want : newFloat((0 : stdgo.GoFloat64)) } : T__struct_69), ({ _x : newFloat((0 : stdgo.GoFloat64)), _want : newFloat((0 : stdgo.GoFloat64)) } : T__struct_69), ({ _x : newFloat(stdgo._internal.math.Math.inf((1 : stdgo.GoInt))), _want : newFloat(stdgo._internal.math.Math.inf((1 : stdgo.GoInt))) } : T__struct_69)) : stdgo.Slice<T__struct_69>)) {
+        for (__14 => _test in (new stdgo.Slice<T__struct_69>(3, 3, ...[({ _x : newFloat((0 : stdgo.GoFloat64)), _want : newFloat((0 : stdgo.GoFloat64)) } : T__struct_69), ({ _x : newFloat((0 : stdgo.GoFloat64)), _want : newFloat((0 : stdgo.GoFloat64)) } : T__struct_69), ({ _x : newFloat(stdgo._internal.math.Math.inf((1 : stdgo.GoInt))), _want : newFloat(stdgo._internal.math.Math.inf((1 : stdgo.GoInt))) } : T__struct_69)]) : stdgo.Slice<T__struct_69>)) {
             var _got = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>).sqrt(_test._x);
             if (((_got._neg != _test._want._neg) || (_got._form != _test._want._form) : Bool)) {
                 _t.errorf(("Sqrt(%v) = %v (neg: %v); want %v (neg: %v)" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test._x)), stdgo.Go.toInterface(stdgo.Go.asInterface(_got)), stdgo.Go.toInterface(_got._neg), stdgo.Go.toInterface(stdgo.Go.asInterface(_test._want)), stdgo.Go.toInterface(_test._want._neg));
@@ -11573,7 +11277,7 @@ function testFloatSqrtSpecial(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
         };
     }
 function benchmarkFloatSqrt(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-        for (__14 => _prec in (new stdgo.Slice<stdgo.GoUInt>(7, 7, (64u32 : stdgo.GoUInt), (128u32 : stdgo.GoUInt), (256u32 : stdgo.GoUInt), (1000u32 : stdgo.GoUInt), (10000u32 : stdgo.GoUInt), (100000u32 : stdgo.GoUInt), (1000000u32 : stdgo.GoUInt)) : stdgo.Slice<stdgo.GoUInt>)) {
+        for (__14 => _prec in (new stdgo.Slice<stdgo.GoUInt>(7, 7, ...[(64u32 : stdgo.GoUInt), (128u32 : stdgo.GoUInt), (256u32 : stdgo.GoUInt), (1000u32 : stdgo.GoUInt), (10000u32 : stdgo.GoUInt), (100000u32 : stdgo.GoUInt), (1000000u32 : stdgo.GoUInt)]) : stdgo.Slice<stdgo.GoUInt>)) {
             var _x = newFloat((2 : stdgo.GoFloat64));
             var _z = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big.Float_>).setPrec(_prec);
             _b.run(stdgo._internal.fmt.Fmt.sprintf(("%v" : stdgo.GoString), stdgo.Go.toInterface(_prec))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
@@ -15558,7 +15262,7 @@ class Rat_asInterface {
     static public function denom( _x:stdgo.Ref<Rat>):stdgo.Ref<Int_> {
         @:recv var _x:stdgo.Ref<Rat> = _x;
         if ((_x._b._abs.length) == ((0 : stdgo.GoInt))) {
-            return (stdgo.Go.setRef(({ _abs : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat) } : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>);
+            return (stdgo.Go.setRef(({ _abs : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat) } : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>);
         };
         return (stdgo.Go.setRef(_x._b) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>);
     }
@@ -15828,7 +15532,7 @@ class Bits_asInterface {
         };
         if ((((_mode == ((0 : stdgo._internal.math.big.Big.RoundingMode)) && _rbit == ((1u32 : stdgo.GoUInt)) : Bool) && (((_sbit == (1u32 : stdgo.GoUInt)) || (_sbit == ((0u32 : stdgo.GoUInt)) && _bit0 != ((0u32 : stdgo.GoUInt)) : Bool) : Bool)) : Bool) || (_mode == (3 : stdgo._internal.math.big.Big.RoundingMode)) : Bool)) {
             _f.setMode((2 : stdgo._internal.math.big.Big.RoundingMode)).setPrec(_prec);
-            _f.add(_f, (new stdgo.Slice<stdgo.GoInt>(1, 1, ((_r : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo._internal.math.big.Big.Bits).float_());
+            _f.add(_f, (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[((_r : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo._internal.math.big.Big.Bits).float_());
         };
         return _f;
     }
@@ -16043,7 +15747,7 @@ class T_nat_asInterface {
             return _n._cmp(_natTwo) == ((0 : stdgo.GoInt));
         };
         var _p:stdgo._internal.math.big.Big.Word = ((3u32 : stdgo._internal.math.big.Big.Word) : Word);
-        var _d:stdgo._internal.math.big.Big.T_nat = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, (1u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_nat);
+        var _d:stdgo._internal.math.big.Big.T_nat = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big.Word)]) : stdgo._internal.math.big.Big.T_nat);
         var _t1:stdgo._internal.math.big.Big.T_nat = (new stdgo._internal.math.big.Big.T_nat(0, 0) : T_nat);
         var _intD = (stdgo.Go.setRef(({ _abs : _d } : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>);
         var _intN = (stdgo.Go.setRef(({ _abs : _n } : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>);
@@ -16920,7 +16624,7 @@ class T_nat_asInterface {
         var _one:stdgo._internal.math.big.Big.T_nat = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_numWords : stdgo.GoInt).toBasic(), 0).__setNumber32__();
         _one[(0 : stdgo.GoInt)] = (1u32 : stdgo._internal.math.big.Big.Word);
         {};
-        var _powers:stdgo.GoArray<T_nat> = new stdgo.GoArray<stdgo._internal.math.big.Big.T_nat>(...[for (i in 0 ... 16) new stdgo._internal.math.big.Big.T_nat(0, 0)]);
+        var _powers:stdgo.GoArray<T_nat> = new stdgo.GoArray<stdgo._internal.math.big.Big.T_nat>(16, 16, ...[for (i in 0 ... 16) new stdgo._internal.math.big.Big.T_nat(0, 0)]);
         _powers[(0 : stdgo.GoInt)] = _powers[(0 : stdgo.GoInt)]._montgomery(_one, rr, _m, _k0, _numWords);
         _powers[(1 : stdgo.GoInt)] = _powers[(1 : stdgo.GoInt)]._montgomery(_x, rr, _m, _k0, _numWords);
         {
@@ -16985,7 +16689,7 @@ class T_nat_asInterface {
         var _zzp = _getNat(_w);
         var _zz:stdgo._internal.math.big.Big.T_nat = (_zzp : stdgo._internal.math.big.Big.T_nat);
         {};
-        var _powers:stdgo.GoArray<stdgo.Ref<T_nat>> = new stdgo.GoArray<stdgo.Ref<stdgo._internal.math.big.Big.T_nat>>(...[for (i in 0 ... 16) (null : stdgo.Ref<stdgo._internal.math.big.Big.T_nat>)]);
+        var _powers:stdgo.GoArray<stdgo.Ref<T_nat>> = new stdgo.GoArray<stdgo.Ref<stdgo._internal.math.big.Big.T_nat>>(16, 16, ...[for (i in 0 ... 16) (null : stdgo.Ref<stdgo._internal.math.big.Big.T_nat>)]);
         for (_i => _ in _powers) {
             _powers[(_i : stdgo.GoInt)] = _getNat(_w);
         };

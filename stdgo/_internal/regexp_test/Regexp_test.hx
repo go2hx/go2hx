@@ -182,7 +182,7 @@ function exampleRegexp_Expand():Void {
         var _content = (("\n\t# comment line\n\toption1: value1\n\toption2: value2\n\n\t# another comment line\n\toption3: value3\n" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
         var _pattern = stdgo._internal.regexp.Regexp.mustCompile(("(?m)(?P<key>\\w+):\\s+(?P<value>\\w+)$" : stdgo.GoString));
         var _template = (("$key=$value\n" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
-        var _result = (new stdgo.Slice<stdgo.GoUInt8>(0, 0) : stdgo.Slice<stdgo.GoUInt8>);
+        var _result = (new stdgo.Slice<stdgo.GoUInt8>(0, 0, ...[]) : stdgo.Slice<stdgo.GoUInt8>);
         for (__0 => _submatches in _pattern.findAllSubmatchIndex(_content, (-1 : stdgo.GoInt))) {
             _result = _pattern.expand(_result, _template, _content, _submatches);
         };
@@ -192,7 +192,7 @@ function exampleRegexp_ExpandString():Void {
         var _content:stdgo.GoString = ("\n\t# comment line\n\toption1: value1\n\toption2: value2\n\n\t# another comment line\n\toption3: value3\n" : stdgo.GoString);
         var _pattern = stdgo._internal.regexp.Regexp.mustCompile(("(?m)(?P<key>\\w+):\\s+(?P<value>\\w+)$" : stdgo.GoString));
         var _template:stdgo.GoString = ("$key=$value\n" : stdgo.GoString);
-        var _result = (new stdgo.Slice<stdgo.GoUInt8>(0, 0) : stdgo.Slice<stdgo.GoUInt8>);
+        var _result = (new stdgo.Slice<stdgo.GoUInt8>(0, 0, ...[]) : stdgo.Slice<stdgo.GoUInt8>);
         for (__0 => _submatches in _pattern.findAllStringSubmatchIndex(_content?.__copy__(), (-1 : stdgo.GoInt))) {
             _result = _pattern.expandString(_result, _template?.__copy__(), _content?.__copy__(), _submatches);
         };

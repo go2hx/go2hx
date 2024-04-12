@@ -63,7 +63,7 @@ typedef Writer = stdgo.StructType & {
     }
 }
 @:structInit @:private @:using(stdgo._internal.internal.bisect.Bisect.T_dedup_static_extension) class T_dedup {
-    public var _recent : stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt64>> = new stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt64>>(...[for (i in 0 ... 128) new stdgo.GoArray<stdgo.GoUInt64>(...[for (i in 0 ... 4) (0 : stdgo.GoUInt64)])]);
+    public var _recent : stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt64>> = new stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt64>>(128, 128, ...[for (i in 0 ... 128) new stdgo.GoArray<stdgo.GoUInt64>(4, 4, ...[for (i in 0 ... 4) (0 : stdgo.GoUInt64)])]);
     public var _mu : stdgo._internal.sync.Sync.Mutex = ({} : stdgo._internal.sync.Sync.Mutex);
     public var _m : stdgo.GoMap<stdgo.GoUInt64, Bool> = (null : stdgo.GoMap<stdgo.GoUInt64, Bool>);
     public function new(?_recent:stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt64>>, ?_mu:stdgo._internal.sync.Sync.Mutex, ?_m:stdgo.GoMap<stdgo.GoUInt64, Bool>) {

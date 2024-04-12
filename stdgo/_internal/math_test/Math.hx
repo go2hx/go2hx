@@ -1,9 +1,7 @@
 package stdgo._internal.math_test;
 import stdgo._internal.math.Math;
 import stdgo._internal.math.Math;
-var _tests : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>(
-76,
-76,
+var _tests : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>(76, 76, ...[
 (new stdgo._internal.testing.Testing.InternalTest(("TestNaN" : stdgo.GoString), stdgo._internal.math_test.Math_test.testNaN) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestAcos" : stdgo.GoString), stdgo._internal.math_test.Math_test.testAcos) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestAcosh" : stdgo.GoString), stdgo._internal.math_test.Math_test.testAcosh) : stdgo._internal.testing.Testing.InternalTest),
@@ -79,10 +77,8 @@ var _tests : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest> = (new st
 (new stdgo._internal.testing.Testing.InternalTest(("TestHugeCos" : stdgo.GoString), stdgo._internal.math_test.Math_test.testHugeCos) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestHugeSin" : stdgo.GoString), stdgo._internal.math_test.Math_test.testHugeSin) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestHugeSinCos" : stdgo.GoString), stdgo._internal.math_test.Math_test.testHugeSinCos) : stdgo._internal.testing.Testing.InternalTest),
-(new stdgo._internal.testing.Testing.InternalTest(("TestHugeTan" : stdgo.GoString), stdgo._internal.math_test.Math_test.testHugeTan) : stdgo._internal.testing.Testing.InternalTest)) : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>);
-var _benchmarks : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>(
-72,
-72,
+(new stdgo._internal.testing.Testing.InternalTest(("TestHugeTan" : stdgo.GoString), stdgo._internal.math_test.Math_test.testHugeTan) : stdgo._internal.testing.Testing.InternalTest)]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>);
+var _benchmarks : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>(72, 72, ...[
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkAcos" : stdgo.GoString), stdgo._internal.math_test.Math_test.benchmarkAcos) : stdgo._internal.testing.Testing.InternalBenchmark),
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkAcosh" : stdgo.GoString), stdgo._internal.math_test.Math_test.benchmarkAcosh) : stdgo._internal.testing.Testing.InternalBenchmark),
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkAsin" : stdgo.GoString), stdgo._internal.math_test.Math_test.benchmarkAsin) : stdgo._internal.testing.Testing.InternalBenchmark),
@@ -154,11 +150,9 @@ var _benchmarks : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkFloat64frombits" : stdgo.GoString), stdgo._internal.math_test.Math_test.benchmarkFloat64frombits) : stdgo._internal.testing.Testing.InternalBenchmark),
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkFloat32bits" : stdgo.GoString), stdgo._internal.math_test.Math_test.benchmarkFloat32bits) : stdgo._internal.testing.Testing.InternalBenchmark),
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkFloat32frombits" : stdgo.GoString), stdgo._internal.math_test.Math_test.benchmarkFloat32frombits) : stdgo._internal.testing.Testing.InternalBenchmark),
-(new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkFMA" : stdgo.GoString), stdgo._internal.math_test.Math_test.benchmarkFMA) : stdgo._internal.testing.Testing.InternalBenchmark)) : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>);
-var _fuzzTargets : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>(0, 0) : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>);
-var _examples : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>(
-35,
-35,
+(new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkFMA" : stdgo.GoString), stdgo._internal.math_test.Math_test.benchmarkFMA) : stdgo._internal.testing.Testing.InternalBenchmark)]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>);
+var _fuzzTargets : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>(0, 0, ...[]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>);
+var _examples : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>(35, 35, ...[
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleAcos" : stdgo.GoString), stdgo._internal.math_test.Math_test.exampleAcos, ("0.00\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleAcosh" : stdgo.GoString), stdgo._internal.math_test.Math_test.exampleAcosh, ("0.00\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleAsin" : stdgo.GoString), stdgo._internal.math_test.Math_test.exampleAsin, ("0.00\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
@@ -193,7 +187,7 @@ var _examples : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample> = (
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleExpm1" : stdgo.GoString), stdgo._internal.math_test.Math_test.exampleExpm1, ("0.010050\n-0.632121\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleTrunc" : stdgo.GoString), stdgo._internal.math_test.Math_test.exampleTrunc, ("3.00\n-1.00\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleCbrt" : stdgo.GoString), stdgo._internal.math_test.Math_test.exampleCbrt, ("2.00\n3.00\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
-(new stdgo._internal.testing.Testing.InternalExample(("ExampleModf" : stdgo.GoString), stdgo._internal.math_test.Math_test.exampleModf, ("3.00, 0.14\n-2.00, -0.71\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample)) : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>);
+(new stdgo._internal.testing.Testing.InternalExample(("ExampleModf" : stdgo.GoString), stdgo._internal.math_test.Math_test.exampleModf, ("3.00, 0.14\n-2.00, -0.71\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample)]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>);
 function main():Void {
         var _m = stdgo._internal.testing.Testing.mainStart(stdgo.Go.asInterface((new stdgo._internal.testing.internal.testdeps.Testdeps.TestDeps() : stdgo._internal.testing.internal.testdeps.Testdeps.TestDeps)), _tests, _benchmarks, _fuzzTargets, _examples);
         Sys.exit(_m.run());

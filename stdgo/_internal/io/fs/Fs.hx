@@ -277,7 +277,7 @@ function formatFileInfo(_info:FileInfo):stdgo.GoString {
             _b = (_b.__append__((45 : stdgo.GoUInt8)));
             _usize = (-_size : stdgo.GoUInt64);
         };
-        var _buf:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 20) (0 : stdgo.GoUInt8)]);
+        var _buf:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20, ...[for (i in 0 ... 20) (0 : stdgo.GoUInt8)]);
         var _i:stdgo.GoInt = (19 : stdgo.GoInt);
         while ((_usize >= (10i64 : stdgo.GoUInt64) : Bool)) {
             var _q:stdgo.GoUInt64 = (_usize / (10i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
@@ -382,7 +382,7 @@ function _globWithLimit(_fsys:FS, _pattern:stdgo.GoString, _depth:stdgo.GoInt):{
                     return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
                 };
             };
-            return { _0 : (new stdgo.Slice<stdgo.GoString>(1, 1, _pattern?.__copy__()) : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
+            return { _0 : (new stdgo.Slice<stdgo.GoString>(1, 1, ...[_pattern?.__copy__()]) : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
         };
         var __tmp__ = stdgo._internal.path.Path.split(_pattern?.__copy__()), _dir:stdgo.GoString = __tmp__._0, _file:stdgo.GoString = __tmp__._1;
         _dir = _cleanGlobPath(_dir?.__copy__())?.__copy__();
@@ -844,7 +844,7 @@ class T_subFS_asInterface {
             };
         };
         if (_pattern == (("." : stdgo.GoString))) {
-            return { _0 : (new stdgo.Slice<stdgo.GoString>(1, 1, ("." : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
+            return { _0 : (new stdgo.Slice<stdgo.GoString>(1, 1, ...[("." : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
         };
         var _full:stdgo.GoString = ((_f._dir + ("/" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _pattern?.__copy__() : stdgo.GoString)?.__copy__();
         var __tmp__ = stdgo._internal.io.fs.Fs.glob(_f._fsys, _full?.__copy__()), _list:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -1018,7 +1018,7 @@ class FileMode_asInterface {
     static public function string( _m:FileMode):stdgo.GoString {
         @:recv var _m:FileMode = _m;
         {};
-        var _buf:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 32) (0 : stdgo.GoUInt8)]);
+        var _buf:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32, ...[for (i in 0 ... 32) (0 : stdgo.GoUInt8)]);
         var _w:stdgo.GoInt = (0 : stdgo.GoInt);
         for (_i => _c in ("dalTLDpSugct?" : stdgo.GoString)) {
             if ((_m & (((1u32 : stdgo._internal.io.fs.Fs.FileMode) << (((31 : stdgo.GoInt) - _i : stdgo.GoInt) : stdgo.GoUInt) : stdgo._internal.io.fs.Fs.FileMode)) : stdgo._internal.io.fs.Fs.FileMode) != ((0u32 : stdgo._internal.io.fs.Fs.FileMode))) {

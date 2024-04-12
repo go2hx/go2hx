@@ -346,9 +346,7 @@ function testSqDiff(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             };
             return (((_d * _d : stdgo.GoUInt32)) >> (2i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
         };
-        var _testCases = (new stdgo.Slice<stdgo.GoUInt32>(
-12,
-12,
+        var _testCases = (new stdgo.Slice<stdgo.GoUInt32>(12, 12, ...[
 (0u32 : stdgo.GoUInt32),
 (1u32 : stdgo.GoUInt32),
 (2u32 : stdgo.GoUInt32),
@@ -360,7 +358,7 @@ function testSqDiff(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 (65538u32 : stdgo.GoUInt32),
 (-3u32 : stdgo.GoUInt32),
 (-2u32 : stdgo.GoUInt32),
-(-1u32 : stdgo.GoUInt32)) : stdgo.Slice<stdgo.GoUInt32>);
+(-1u32 : stdgo.GoUInt32)]) : stdgo.Slice<stdgo.GoUInt32>);
         for (__0 => _x in _testCases) {
             for (__1 => _y in _testCases) {
                 {
@@ -689,7 +687,7 @@ function testCMYKGray(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testPalette(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _p:stdgo._internal.image.color.Color.Palette = (new stdgo.Slice<stdgo._internal.image.color.Color.Color>(6, 6, stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA((255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.RGBA)), stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA((128 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (255 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.RGBA)), stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA((127 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (127 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.RGBA)), stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA((0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (127 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.RGBA)), stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA((0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.RGBA)), stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA((64 : stdgo.GoUInt8), (64 : stdgo.GoUInt8), (64 : stdgo.GoUInt8), (64 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.RGBA))) : stdgo._internal.image.color.Color.Palette);
+        var _p:stdgo._internal.image.color.Color.Palette = (new stdgo.Slice<stdgo._internal.image.color.Color.Color>(6, 6, ...[stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA((255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.RGBA)), stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA((128 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (255 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.RGBA)), stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA((127 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (127 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.RGBA)), stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA((0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (127 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.RGBA)), stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA((0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.RGBA)), stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA((64 : stdgo.GoUInt8), (64 : stdgo.GoUInt8), (64 : stdgo.GoUInt8), (64 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.RGBA))]) : stdgo._internal.image.color.Color.Palette);
         for (_i => _c in _p) {
             var _j:stdgo.GoInt = _p.index(_c);
             if (_i != (_j)) {

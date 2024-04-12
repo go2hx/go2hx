@@ -30,7 +30,7 @@ final _s4 : stdgo.GoUInt64 = (35i64 : stdgo.GoUInt64);
 final _s5 : stdgo.GoUInt64 = (52i64 : stdgo.GoUInt64);
 final _s6 : stdgo.GoUInt64 = (4i64 : stdgo.GoUInt64);
 final _s7 : stdgo.GoUInt64 = (68i64 : stdgo.GoUInt64);
-var _first : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(
+var _first : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(256, 256, ...[
 (240 : stdgo.GoUInt8),
 (240 : stdgo.GoUInt8),
 (240 : stdgo.GoUInt8),
@@ -286,9 +286,9 @@ var _first : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(
 (241 : stdgo.GoUInt8),
 (241 : stdgo.GoUInt8),
 (241 : stdgo.GoUInt8),
-(241 : stdgo.GoUInt8)) : stdgo.GoArray<stdgo.GoUInt8>);
+(241 : stdgo.GoUInt8)]) : stdgo.GoArray<stdgo.GoUInt8>);
 var _acceptRanges : stdgo.GoArray<stdgo._internal.unicode.utf8.Utf8.T_acceptRange> = {
-        var s:stdgo.GoArray<stdgo._internal.unicode.utf8.Utf8.T_acceptRange> = new stdgo.GoArray<stdgo._internal.unicode.utf8.Utf8.T_acceptRange>(...[for (i in 0 ... 16) ({} : stdgo._internal.unicode.utf8.Utf8.T_acceptRange)]);
+        var s:stdgo.GoArray<stdgo._internal.unicode.utf8.Utf8.T_acceptRange> = new stdgo.GoArray<stdgo._internal.unicode.utf8.Utf8.T_acceptRange>(16, 16, ...[for (i in 0 ... 16) ({} : stdgo._internal.unicode.utf8.Utf8.T_acceptRange)]);
         s[0] = (new stdgo._internal.unicode.utf8.Utf8.T_acceptRange((128 : stdgo.GoUInt8), (191 : stdgo.GoUInt8)) : stdgo._internal.unicode.utf8.Utf8.T_acceptRange);
         s[1] = (new stdgo._internal.unicode.utf8.Utf8.T_acceptRange((160 : stdgo.GoUInt8), (191 : stdgo.GoUInt8)) : stdgo._internal.unicode.utf8.Utf8.T_acceptRange);
         s[2] = (new stdgo._internal.unicode.utf8.Utf8.T_acceptRange((128 : stdgo.GoUInt8), (159 : stdgo.GoUInt8)) : stdgo._internal.unicode.utf8.Utf8.T_acceptRange);

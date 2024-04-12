@@ -36,7 +36,7 @@ function maybeReadByte(_r:stdgo._internal.io.Io.Reader):Void {
                     {
                         _closedChan.__get__();
                         {
-                            var _buf:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 1) (0 : stdgo.GoUInt8)]);
+                            var _buf:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(1, 1, ...[for (i in 0 ... 1) (0 : stdgo.GoUInt8)]);
                             _r.read((_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
                         };
                     };

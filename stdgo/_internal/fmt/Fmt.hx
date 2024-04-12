@@ -33,19 +33,7 @@ final _uintptrBits : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
 var _ppFree : stdgo._internal.sync.Sync.Pool = ({ new_ : function():stdgo.AnyInterface {
         return stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.fmt.Fmt.T_pp)) : stdgo.Ref<stdgo._internal.fmt.Fmt.T_pp>)));
     } } : stdgo._internal.sync.Sync.Pool);
-var _space : stdgo.Slice<stdgo.GoArray<stdgo.GoUInt16>> = (new stdgo.Slice<stdgo.GoArray<stdgo.GoUInt16>>(
-10,
-10,
-(new stdgo.GoArray<stdgo.GoUInt16>((9 : stdgo.GoUInt16), (13 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((32 : stdgo.GoUInt16), (32 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((133 : stdgo.GoUInt16), (133 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((160 : stdgo.GoUInt16), (160 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((5760 : stdgo.GoUInt16), (5760 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((8192 : stdgo.GoUInt16), (8202 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((8232 : stdgo.GoUInt16), (8233 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((8239 : stdgo.GoUInt16), (8239 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((8287 : stdgo.GoUInt16), (8287 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>),
-(new stdgo.GoArray<stdgo.GoUInt16>((12288 : stdgo.GoUInt16), (12288 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>)) : stdgo.Slice<stdgo.GoArray<stdgo.GoUInt16>>);
+var _space : stdgo.Slice<stdgo.GoArray<stdgo.GoUInt16>> = (new stdgo.Slice<stdgo.GoArray<stdgo.GoUInt16>>(10, 10, ...[(new stdgo.GoArray<stdgo.GoUInt16>(2, 2, ...[(9 : stdgo.GoUInt16), (13 : stdgo.GoUInt16)]) : stdgo.GoArray<stdgo.GoUInt16>), (new stdgo.GoArray<stdgo.GoUInt16>(2, 2, ...[(32 : stdgo.GoUInt16), (32 : stdgo.GoUInt16)]) : stdgo.GoArray<stdgo.GoUInt16>), (new stdgo.GoArray<stdgo.GoUInt16>(2, 2, ...[(133 : stdgo.GoUInt16), (133 : stdgo.GoUInt16)]) : stdgo.GoArray<stdgo.GoUInt16>), (new stdgo.GoArray<stdgo.GoUInt16>(2, 2, ...[(160 : stdgo.GoUInt16), (160 : stdgo.GoUInt16)]) : stdgo.GoArray<stdgo.GoUInt16>), (new stdgo.GoArray<stdgo.GoUInt16>(2, 2, ...[(5760 : stdgo.GoUInt16), (5760 : stdgo.GoUInt16)]) : stdgo.GoArray<stdgo.GoUInt16>), (new stdgo.GoArray<stdgo.GoUInt16>(2, 2, ...[(8192 : stdgo.GoUInt16), (8202 : stdgo.GoUInt16)]) : stdgo.GoArray<stdgo.GoUInt16>), (new stdgo.GoArray<stdgo.GoUInt16>(2, 2, ...[(8232 : stdgo.GoUInt16), (8233 : stdgo.GoUInt16)]) : stdgo.GoArray<stdgo.GoUInt16>), (new stdgo.GoArray<stdgo.GoUInt16>(2, 2, ...[(8239 : stdgo.GoUInt16), (8239 : stdgo.GoUInt16)]) : stdgo.GoArray<stdgo.GoUInt16>), (new stdgo.GoArray<stdgo.GoUInt16>(2, 2, ...[(8287 : stdgo.GoUInt16), (8287 : stdgo.GoUInt16)]) : stdgo.GoArray<stdgo.GoUInt16>), (new stdgo.GoArray<stdgo.GoUInt16>(2, 2, ...[(12288 : stdgo.GoUInt16), (12288 : stdgo.GoUInt16)]) : stdgo.GoArray<stdgo.GoUInt16>)]) : stdgo.Slice<stdgo.GoArray<stdgo.GoUInt16>>);
 var _ssFree : stdgo._internal.sync.Sync.Pool = ({ new_ : function():stdgo.AnyInterface {
         return stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.fmt.Fmt.T_ss)) : stdgo.Ref<stdgo._internal.fmt.Fmt.T_ss>)));
     } } : stdgo._internal.sync.Sync.Pool);
@@ -220,7 +208,7 @@ typedef Scanner = stdgo.StructType & {
     public var _fmtFlags : stdgo._internal.fmt.Fmt.T_fmtFlags = ({} : stdgo._internal.fmt.Fmt.T_fmtFlags);
     public var _wid : stdgo.GoInt = 0;
     public var _prec : stdgo.GoInt = 0;
-    public var _intbuf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 68) (0 : stdgo.GoUInt8)]);
+    public var _intbuf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(68, 68, ...[for (i in 0 ... 68) (0 : stdgo.GoUInt8)]);
     public function new(?_buf:stdgo.Ref<stdgo._internal.fmt.Fmt.T_buffer>, ?_fmtFlags:stdgo._internal.fmt.Fmt.T_fmtFlags, ?_wid:stdgo.GoInt, ?_prec:stdgo.GoInt, ?_intbuf:stdgo.GoArray<stdgo.GoUInt8>) {
         if (_buf != null) this._buf = _buf;
         if (_fmtFlags != null) this._fmtFlags = _fmtFlags;
@@ -312,9 +300,9 @@ typedef Scanner = stdgo.StructType & {
 }
 @:structInit @:private @:using(stdgo._internal.fmt.Fmt.T_readRune_static_extension) class T_readRune {
     public var _reader : stdgo._internal.io.Io.Reader = (null : stdgo._internal.io.Io.Reader);
-    public var _buf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 4) (0 : stdgo.GoUInt8)]);
+    public var _buf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...[for (i in 0 ... 4) (0 : stdgo.GoUInt8)]);
     public var _pending : stdgo.GoInt = 0;
-    public var _pendBuf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 4) (0 : stdgo.GoUInt8)]);
+    public var _pendBuf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...[for (i in 0 ... 4) (0 : stdgo.GoUInt8)]);
     public var _peekRune : stdgo.GoInt32 = 0;
     public function new(?_reader:stdgo._internal.io.Io.Reader, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_pending:stdgo.GoInt, ?_pendBuf:stdgo.GoArray<stdgo.GoUInt8>, ?_peekRune:stdgo.GoInt32) {
         if (_reader != null) this._reader = _reader;
@@ -379,7 +367,7 @@ function errorf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.
         return _err;
     }
 function formatString(_state:State, _verb:stdgo.GoRune):stdgo.GoString {
-        var _tmp:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 16) (0 : stdgo.GoUInt8)]);
+        var _tmp:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16, ...[for (i in 0 ... 16) (0 : stdgo.GoUInt8)]);
         var _b = ((_tmp.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__((37 : stdgo.GoUInt8)));
         for (__0 => _c in (" +-#0" : stdgo.GoString)) {
             if (_state.flag((_c : stdgo.GoInt))) {
@@ -915,7 +903,7 @@ class T_fmt_asInterface {
                     };
                 };
             };
-            var _tailBuf:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 6) (0 : stdgo.GoUInt8)]);
+            var _tailBuf:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(6, 6, ...[for (i in 0 ... 6) (0 : stdgo.GoUInt8)]);
             var _tail = (_tailBuf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
             var _hasDecimalPoint:Bool = false;
             var _sawNonzeroDigit:Bool = false;

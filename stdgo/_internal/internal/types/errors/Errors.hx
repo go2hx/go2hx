@@ -157,7 +157,7 @@ final __5 = (150 : stdgo._internal.internal.types.errors.Errors.Code);
 final invalidClear = (150 : stdgo._internal.internal.types.errors.Errors.Code);
 final typeTooLarge = (150 : stdgo._internal.internal.types.errors.Errors.Code);
 final invalidMinMaxOperand = (150 : stdgo._internal.internal.types.errors.Errors.Code);
-var __Code_index_1 : stdgo.GoArray<stdgo.GoUInt16> = (new stdgo.GoArray<stdgo.GoUInt16>(
+var __Code_index_1 : stdgo.GoArray<stdgo.GoUInt16> = (new stdgo.GoArray<stdgo.GoUInt16>(29, 29, ...[
 (0 : stdgo.GoUInt16),
 (4 : stdgo.GoUInt16),
 (16 : stdgo.GoUInt16),
@@ -186,8 +186,8 @@ var __Code_index_1 : stdgo.GoArray<stdgo.GoUInt16> = (new stdgo.GoArray<stdgo.Go
 (362 : stdgo.GoUInt16),
 (377 : stdgo.GoUInt16),
 (393 : stdgo.GoUInt16),
-(411 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>);
-var __Code_index_2 : stdgo.GoArray<stdgo.GoUInt16> = (new stdgo.GoArray<stdgo.GoUInt16>(
+(411 : stdgo.GoUInt16)]) : stdgo.GoArray<stdgo.GoUInt16>);
+var __Code_index_2 : stdgo.GoArray<stdgo.GoUInt16> = (new stdgo.GoArray<stdgo.GoUInt16>(51, 51, ...[
 (0 : stdgo.GoUInt16),
 (15 : stdgo.GoUInt16),
 (22 : stdgo.GoUInt16),
@@ -238,8 +238,8 @@ var __Code_index_2 : stdgo.GoArray<stdgo.GoUInt16> = (new stdgo.GoArray<stdgo.Go
 (700 : stdgo.GoUInt16),
 (718 : stdgo.GoUInt16),
 (738 : stdgo.GoUInt16),
-(756 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>);
-var __Code_index_3 : stdgo.GoArray<stdgo.GoUInt16> = (new stdgo.GoArray<stdgo.GoUInt16>(
+(756 : stdgo.GoUInt16)]) : stdgo.GoArray<stdgo.GoUInt16>);
+var __Code_index_3 : stdgo.GoArray<stdgo.GoUInt16> = (new stdgo.GoArray<stdgo.GoUInt16>(27, 27, ...[
 (0 : stdgo.GoUInt16),
 (16 : stdgo.GoUInt16),
 (31 : stdgo.GoUInt16),
@@ -266,8 +266,8 @@ var __Code_index_3 : stdgo.GoArray<stdgo.GoUInt16> = (new stdgo.GoArray<stdgo.Go
 (312 : stdgo.GoUInt16),
 (328 : stdgo.GoUInt16),
 (339 : stdgo.GoUInt16),
-(354 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>);
-var __Code_index_4 : stdgo.GoArray<stdgo.GoUInt16> = (new stdgo.GoArray<stdgo.GoUInt16>(
+(354 : stdgo.GoUInt16)]) : stdgo.GoArray<stdgo.GoUInt16>);
+var __Code_index_4 : stdgo.GoArray<stdgo.GoUInt16> = (new stdgo.GoArray<stdgo.GoUInt16>(40, 40, ...[
 (0 : stdgo.GoUInt16),
 (14 : stdgo.GoUInt16),
 (30 : stdgo.GoUInt16),
@@ -307,8 +307,8 @@ var __Code_index_4 : stdgo.GoArray<stdgo.GoUInt16> = (new stdgo.GoArray<stdgo.Go
 (544 : stdgo.GoUInt16),
 (562 : stdgo.GoUInt16),
 (584 : stdgo.GoUInt16),
-(603 : stdgo.GoUInt16)) : stdgo.GoArray<stdgo.GoUInt16>);
-var __Code_index_5 : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>((0 : stdgo.GoUInt8), (12 : stdgo.GoUInt8), (24 : stdgo.GoUInt8), (44 : stdgo.GoUInt8)) : stdgo.GoArray<stdgo.GoUInt8>);
+(603 : stdgo.GoUInt16)]) : stdgo.GoArray<stdgo.GoUInt16>);
+var __Code_index_5 : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...[(0 : stdgo.GoUInt8), (12 : stdgo.GoUInt8), (24 : stdgo.GoUInt8), (44 : stdgo.GoUInt8)]) : stdgo.GoArray<stdgo.GoUInt8>);
 class T__struct_0_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

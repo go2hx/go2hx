@@ -1,9 +1,7 @@
 package stdgo._internal.io_test;
 import stdgo._internal.io.Io;
 import stdgo._internal.io.Io;
-var _tests : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>(
-53,
-53,
+var _tests : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>(53, 53, ...[
 (new stdgo._internal.testing.Testing.InternalTest(("TestCopy" : stdgo.GoString), stdgo._internal.io_test.Io_test.testCopy) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestCopyNegative" : stdgo.GoString), stdgo._internal.io_test.Io_test.testCopyNegative) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestCopyBuffer" : stdgo.GoString), stdgo._internal.io_test.Io_test.testCopyBuffer) : stdgo._internal.testing.Testing.InternalTest),
@@ -56,12 +54,10 @@ var _tests : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest> = (new st
 (new stdgo._internal.testing.Testing.InternalTest(("TestWriteNil" : stdgo.GoString), stdgo._internal.io_test.Io_test.testWriteNil) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestWriteAfterWriterClose" : stdgo.GoString), stdgo._internal.io_test.Io_test.testWriteAfterWriterClose) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestPipeCloseError" : stdgo.GoString), stdgo._internal.io_test.Io_test.testPipeCloseError) : stdgo._internal.testing.Testing.InternalTest),
-(new stdgo._internal.testing.Testing.InternalTest(("TestPipeConcurrent" : stdgo.GoString), stdgo._internal.io_test.Io_test.testPipeConcurrent) : stdgo._internal.testing.Testing.InternalTest)) : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>);
-var _benchmarks : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>(2, 2, (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkCopyNSmall" : stdgo.GoString), stdgo._internal.io_test.Io_test.benchmarkCopyNSmall) : stdgo._internal.testing.Testing.InternalBenchmark), (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkCopyNLarge" : stdgo.GoString), stdgo._internal.io_test.Io_test.benchmarkCopyNLarge) : stdgo._internal.testing.Testing.InternalBenchmark)) : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>);
-var _fuzzTargets : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>(0, 0) : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>);
-var _examples : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>(
-18,
-18,
+(new stdgo._internal.testing.Testing.InternalTest(("TestPipeConcurrent" : stdgo.GoString), stdgo._internal.io_test.Io_test.testPipeConcurrent) : stdgo._internal.testing.Testing.InternalTest)]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>);
+var _benchmarks : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>(2, 2, ...[(new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkCopyNSmall" : stdgo.GoString), stdgo._internal.io_test.Io_test.benchmarkCopyNSmall) : stdgo._internal.testing.Testing.InternalBenchmark), (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkCopyNLarge" : stdgo.GoString), stdgo._internal.io_test.Io_test.benchmarkCopyNLarge) : stdgo._internal.testing.Testing.InternalBenchmark)]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>);
+var _fuzzTargets : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>(0, 0, ...[]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>);
+var _examples : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>(18, 18, ...[
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleCopy" : stdgo.GoString), stdgo._internal.io_test.Io_test.exampleCopy, ("some io.Reader stream to be read\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleCopyBuffer" : stdgo.GoString), stdgo._internal.io_test.Io_test.exampleCopyBuffer, ("first reader\nsecond reader\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleCopyN" : stdgo.GoString), stdgo._internal.io_test.Io_test.exampleCopyN, ("some\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
@@ -79,7 +75,7 @@ var _examples : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample> = (
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleSeeker_Seek" : stdgo.GoString), stdgo._internal.io_test.Io_test.exampleSeeker_Seek, ("io.Reader stream to be read\nread\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleMultiWriter" : stdgo.GoString), stdgo._internal.io_test.Io_test.exampleMultiWriter, ("some io.Reader stream to be read\nsome io.Reader stream to be read\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("ExamplePipe" : stdgo.GoString), stdgo._internal.io_test.Io_test.examplePipe, ("some io.Reader stream to be read\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
-(new stdgo._internal.testing.Testing.InternalExample(("ExampleReadAll" : stdgo.GoString), stdgo._internal.io_test.Io_test.exampleReadAll, ("Go is a general-purpose language designed with systems programming in mind.\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample)) : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>);
+(new stdgo._internal.testing.Testing.InternalExample(("ExampleReadAll" : stdgo.GoString), stdgo._internal.io_test.Io_test.exampleReadAll, ("Go is a general-purpose language designed with systems programming in mind.\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample)]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>);
 function main():Void {
         var _m = stdgo._internal.testing.Testing.mainStart(stdgo.Go.asInterface((new stdgo._internal.testing.internal.testdeps.Testdeps.TestDeps() : stdgo._internal.testing.internal.testdeps.Testdeps.TestDeps)), _tests, _benchmarks, _fuzzTargets, _examples);
         Sys.exit(_m.run());

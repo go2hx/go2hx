@@ -101,9 +101,9 @@ function exampleFunc():Void {
             };
             return (null : stdgo.Error);
         });
-        _fs.parse((new stdgo.Slice<stdgo.GoString>(2, 2, ("-ip" : stdgo.GoString), ("127.0.0.1" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>));
+        _fs.parse((new stdgo.Slice<stdgo.GoString>(2, 2, ...[("-ip" : stdgo.GoString), ("127.0.0.1" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>));
         stdgo._internal.fmt.Fmt.printf(("{ip: %v, loopback: %t}\n\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_ip)), stdgo.Go.toInterface(_ip.isLoopback()));
-        _fs.parse((new stdgo.Slice<stdgo.GoString>(2, 2, ("-ip" : stdgo.GoString), ("256.0.0.1" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>));
+        _fs.parse((new stdgo.Slice<stdgo.GoString>(2, 2, ...[("-ip" : stdgo.GoString), ("256.0.0.1" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>));
         stdgo._internal.fmt.Fmt.printf(("{ip: %v, loopback: %t}\n\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_ip)), stdgo.Go.toInterface(_ip.isLoopback()));
     }
 function exampleBoolFunc():Void {
@@ -113,8 +113,8 @@ function exampleBoolFunc():Void {
             stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(("dummy message:" : stdgo.GoString)), stdgo.Go.toInterface(_s));
             return (null : stdgo.Error);
         });
-        _fs.parse((new stdgo.Slice<stdgo.GoString>(1, 1, ("-log" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>));
-        _fs.parse((new stdgo.Slice<stdgo.GoString>(1, 1, ("-log=0" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>));
+        _fs.parse((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("-log" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>));
+        _fs.parse((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("-log=0" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>));
     }
 function example():Void {}
 function exampleTextVar():Void {
@@ -122,16 +122,16 @@ function exampleTextVar():Void {
         _fs.setOutput(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout));
         var _ip:stdgo._internal.net.Net.IP = new stdgo._internal.net.Net.IP(0, 0);
         _fs.textVar(stdgo.Go.asInterface((stdgo.Go.setRef(_ip) : stdgo.Ref<stdgo._internal.net.Net.IP>)), ("ip" : stdgo.GoString), stdgo.Go.asInterface(stdgo._internal.net.Net.ipv4((192 : stdgo.GoUInt8), (168 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (100 : stdgo.GoUInt8))), ("`IP address` to parse" : stdgo.GoString));
-        _fs.parse((new stdgo.Slice<stdgo.GoString>(2, 2, ("-ip" : stdgo.GoString), ("127.0.0.1" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>));
+        _fs.parse((new stdgo.Slice<stdgo.GoString>(2, 2, ...[("-ip" : stdgo.GoString), ("127.0.0.1" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>));
         stdgo._internal.fmt.Fmt.printf(("{ip: %v}\n\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_ip)));
         _ip = null;
-        _fs.parse((new stdgo.Slice<stdgo.GoString>(2, 2, ("-ip" : stdgo.GoString), ("256.0.0.1" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>));
+        _fs.parse((new stdgo.Slice<stdgo.GoString>(2, 2, ...[("-ip" : stdgo.GoString), ("256.0.0.1" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>));
         stdgo._internal.fmt.Fmt.printf(("{ip: %v}\n\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_ip)));
     }
 function exampleValue():Void {
         var _fs = stdgo._internal.flag.Flag.newFlagSet(("ExampleValue" : stdgo.GoString), (1 : stdgo._internal.flag.Flag.ErrorHandling));
         _fs.var_(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.flag_test.Flag_test.URLValue(_u) : stdgo._internal.flag_test.Flag_test.URLValue)) : stdgo.Ref<stdgo._internal.flag_test.Flag_test.URLValue>)), ("url" : stdgo.GoString), ("URL to parse" : stdgo.GoString));
-        _fs.parse((new stdgo.Slice<stdgo.GoString>(2, 2, ("-url" : stdgo.GoString), ("https://golang.org/pkg/flag/" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>));
+        _fs.parse((new stdgo.Slice<stdgo.GoString>(2, 2, ...[("-url" : stdgo.GoString), ("https://golang.org/pkg/flag/" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>));
         stdgo._internal.fmt.Fmt.printf(("{scheme: %q, host: %q, path: %q}" : stdgo.GoString), stdgo.Go.toInterface(_u.scheme), stdgo.Go.toInterface(_u.host), stdgo.Go.toInterface(_u.path));
     }
 function _boolString(_s:stdgo.GoString):stdgo.GoString {
@@ -282,7 +282,7 @@ function testUsage(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         resetForTesting(function():Void {
             _called = true;
         });
-        if (commandLine.parse((new stdgo.Slice<stdgo.GoString>(1, 1, ("-x" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) == null) {
+        if (commandLine.parse((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("-x" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>)) == null) {
             _t.error(stdgo.Go.toInterface(("parse did not fail for unknown flag" : stdgo.GoString)));
         };
         if (!_called) {
@@ -303,9 +303,7 @@ function _testParse(_f:stdgo.Ref<FlagSet>, _t:stdgo.Ref<stdgo._internal.testing.
         var _float64Flag = _f.float64(("float64" : stdgo.GoString), (0 : stdgo.GoFloat64), ("float64 value" : stdgo.GoString));
         var _durationFlag = _f.duration(("duration" : stdgo.GoString), (5000000000i64 : stdgo._internal.time.Time.Duration), ("time.Duration value" : stdgo.GoString));
         var _extra:stdgo.GoString = ("one-extra-argument" : stdgo.GoString);
-        var _args = (new stdgo.Slice<stdgo.GoString>(
-17,
-17,
+        var _args = (new stdgo.Slice<stdgo.GoString>(17, 17, ...[
 ("-bool" : stdgo.GoString),
 ("-bool2=true" : stdgo.GoString),
 ("--int" : stdgo.GoString),
@@ -322,7 +320,7 @@ function _testParse(_f:stdgo.Ref<FlagSet>, _t:stdgo.Ref<stdgo._internal.testing.
 ("2718e28" : stdgo.GoString),
 ("-duration" : stdgo.GoString),
 ("2m" : stdgo.GoString),
-_extra?.__copy__()) : stdgo.Slice<stdgo.GoString>);
+_extra?.__copy__()]) : stdgo.Slice<stdgo.GoString>);
         {
             var _err:stdgo.Error = _f.parse(_args);
             if (_err != null) {
@@ -381,7 +379,7 @@ function testUserDefined(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
         var _v:T_flagVar = new stdgo._internal.flag_test.Flag_test.T_flagVar(0, 0);
         _flags.var_(stdgo.Go.asInterface((stdgo.Go.setRef(_v) : stdgo.Ref<stdgo._internal.flag_test.Flag_test.T_flagVar>)), ("v" : stdgo.GoString), ("usage" : stdgo.GoString));
         {
-            var _err:stdgo.Error = _flags.parse((new stdgo.Slice<stdgo.GoString>(5, 5, ("-v" : stdgo.GoString), ("1" : stdgo.GoString), ("-v" : stdgo.GoString), ("2" : stdgo.GoString), ("-v=3" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>));
+            var _err:stdgo.Error = _flags.parse((new stdgo.Slice<stdgo.GoString>(5, 5, ...[("-v" : stdgo.GoString), ("1" : stdgo.GoString), ("-v" : stdgo.GoString), ("2" : stdgo.GoString), ("-v=3" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>));
             if (_err != null) {
                 _t.error(stdgo.Go.toInterface(_err));
             };
@@ -403,7 +401,7 @@ function testUserDefinedFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
             return (null : stdgo.Error);
         });
         {
-            var _err:stdgo.Error = _flags.parse((new stdgo.Slice<stdgo.GoString>(5, 5, ("-v" : stdgo.GoString), ("1" : stdgo.GoString), ("-v" : stdgo.GoString), ("2" : stdgo.GoString), ("-v=3" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>));
+            var _err:stdgo.Error = _flags.parse((new stdgo.Slice<stdgo.GoString>(5, 5, ...[("-v" : stdgo.GoString), ("1" : stdgo.GoString), ("-v" : stdgo.GoString), ("2" : stdgo.GoString), ("-v=3" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>));
             if (_err != null) {
                 _t.error(stdgo.Go.toInterface(_err));
             };
@@ -420,7 +418,7 @@ function testUserDefinedFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
         };
         var _buf:stdgo._internal.strings.Strings.Builder = ({} : stdgo._internal.strings.Strings.Builder);
         _flags.setOutput(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings.Builder>)));
-        _flags.parse((new stdgo.Slice<stdgo.GoString>(1, 1, ("-h" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>));
+        _flags.parse((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("-h" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>));
         {
             var _usage:stdgo.GoString = (_buf.string() : stdgo.GoString)?.__copy__();
             if (!stdgo._internal.strings.Strings.contains(_usage?.__copy__(), ("usage" : stdgo.GoString))) {
@@ -439,7 +437,7 @@ function testUserDefinedFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
             };
         };
         {
-            var _err:stdgo.Error = _flags.parse((new stdgo.Slice<stdgo.GoString>(2, 2, ("-v" : stdgo.GoString), ("1" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>));
+            var _err:stdgo.Error = _flags.parse((new stdgo.Slice<stdgo.GoString>(2, 2, ...[("-v" : stdgo.GoString), ("1" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>));
             if (_err == null) {
                 _t.error(stdgo.Go.toInterface(("expected error; got none" : stdgo.GoString)));
             } else {
@@ -469,7 +467,7 @@ function testUserDefinedBool(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
         var _err:stdgo.Error = (null : stdgo.Error);
         _flags.var_(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.flag_test.Flag_test.T_boolFlagVar>)), ("b" : stdgo.GoString), ("usage" : stdgo.GoString));
         {
-            _err = _flags.parse((new stdgo.Slice<stdgo.GoString>(8, 8, ("-b" : stdgo.GoString), ("-b" : stdgo.GoString), ("-b" : stdgo.GoString), ("-b=true" : stdgo.GoString), ("-b=false" : stdgo.GoString), ("-b" : stdgo.GoString), ("barg" : stdgo.GoString), ("-b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>));
+            _err = _flags.parse((new stdgo.Slice<stdgo.GoString>(8, 8, ...[("-b" : stdgo.GoString), ("-b" : stdgo.GoString), ("-b" : stdgo.GoString), ("-b=true" : stdgo.GoString), ("-b=false" : stdgo.GoString), ("-b" : stdgo.GoString), ("barg" : stdgo.GoString), ("-b" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>));
             if (_err != null) {
                 if ((_b._count < (4 : stdgo.GoInt) : Bool)) {
                     _t.error(stdgo.Go.toInterface(_err));
@@ -510,7 +508,7 @@ function testSetOutput(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _buf:stdgo._internal.strings.Strings.Builder = ({} : stdgo._internal.strings.Strings.Builder);
         _flags.setOutput(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings.Builder>)));
         _flags.init(("test" : stdgo.GoString), (0 : stdgo._internal.flag.Flag.ErrorHandling));
-        _flags.parse((new stdgo.Slice<stdgo.GoString>(1, 1, ("-unknown" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>));
+        _flags.parse((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("-unknown" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>));
         {
             var _out:stdgo.GoString = (_buf.string() : stdgo.GoString)?.__copy__();
             if (!stdgo._internal.strings.Strings.contains(_out?.__copy__(), ("-unknown" : stdgo.GoString))) {
@@ -531,7 +529,7 @@ function testChangingArgs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
                 };
                 a();
             });
-            stdgo._internal.os.Os.args = (new stdgo.Slice<stdgo.GoString>(5, 5, ("cmd" : stdgo.GoString), ("-before" : stdgo.GoString), ("subcmd" : stdgo.GoString), ("-after" : stdgo.GoString), ("args" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+            stdgo._internal.os.Os.args = (new stdgo.Slice<stdgo.GoString>(5, 5, ...[("cmd" : stdgo.GoString), ("-before" : stdgo.GoString), ("subcmd" : stdgo.GoString), ("-after" : stdgo.GoString), ("args" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
             var _before = bool_(("before" : stdgo.GoString), false, stdgo.Go.str()?.__copy__());
             {
                 var _err:stdgo.Error = commandLine.parse((stdgo._internal.os.Os.args.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>));
@@ -576,7 +574,7 @@ function testHelp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         var _flag:Bool = false;
         _fs.boolVar(stdgo.Go.pointer(_flag), ("flag" : stdgo.GoString), false, ("regular flag" : stdgo.GoString));
-        var _err:stdgo.Error = _fs.parse((new stdgo.Slice<stdgo.GoString>(1, 1, ("-flag=true" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>));
+        var _err:stdgo.Error = _fs.parse((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("-flag=true" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(("expected no error; got " : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
@@ -587,7 +585,7 @@ function testHelp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             _t.error(stdgo.Go.toInterface(("help called for regular flag" : stdgo.GoString)));
             _helpCalled = false;
         };
-        _err = _fs.parse((new stdgo.Slice<stdgo.GoString>(1, 1, ("-help" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>));
+        _err = _fs.parse((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("-help" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>));
         if (_err == null) {
             _t.fatal(stdgo.Go.toInterface(("error expected" : stdgo.GoString)));
         };
@@ -600,7 +598,7 @@ function testHelp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _help:Bool = false;
         _fs.boolVar(stdgo.Go.pointer(_help), ("help" : stdgo.GoString), false, ("help flag" : stdgo.GoString));
         _helpCalled = false;
-        _err = _fs.parse((new stdgo.Slice<stdgo.GoString>(1, 1, ("-help" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>));
+        _err = _fs.parse((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("-help" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(("expected no error for defined -help; got " : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
@@ -622,7 +620,7 @@ function testPrintDefaults(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
         _fs.string(("M" : stdgo.GoString), stdgo.Go.str()?.__copy__(), ("a multiline\nhelp\nstring" : stdgo.GoString));
         _fs.int_(("N" : stdgo.GoString), (27 : stdgo.GoInt), ("a non-zero int" : stdgo.GoString));
         _fs.bool_(("O" : stdgo.GoString), true, ("a flag\nmultiline help string" : stdgo.GoString));
-        _fs.var_(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString), ("b" : stdgo.GoString)) : stdgo._internal.flag_test.Flag_test.T_flagVar)) : stdgo.Ref<stdgo._internal.flag_test.Flag_test.T_flagVar>)), ("V" : stdgo.GoString), ("a `list` of strings" : stdgo.GoString));
+        _fs.var_(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.Slice<stdgo.GoString>(2, 2, ...[("a" : stdgo.GoString), ("b" : stdgo.GoString)]) : stdgo._internal.flag_test.Flag_test.T_flagVar)) : stdgo.Ref<stdgo._internal.flag_test.Flag_test.T_flagVar>)), ("V" : stdgo.GoString), ("a `list` of strings" : stdgo.GoString));
         _fs.int_(("Z" : stdgo.GoString), (0 : stdgo.GoInt), ("an int that defaults to zero" : stdgo.GoString));
         _fs.var_(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.flag_test.Flag_test.T_zeroPanicker(true, stdgo.Go.str()?.__copy__()) : stdgo._internal.flag_test.Flag_test.T_zeroPanicker)) : stdgo.Ref<stdgo._internal.flag_test.Flag_test.T_zeroPanicker>)), ("ZP0" : stdgo.GoString), ("a flag whose String method panics when it is zero" : stdgo.GoString));
         _fs.var_(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.flag_test.Flag_test.T_zeroPanicker(true, ("something" : stdgo.GoString)) : stdgo._internal.flag_test.Flag_test.T_zeroPanicker)) : stdgo.Ref<stdgo._internal.flag_test.Flag_test.T_zeroPanicker>)), ("ZP1" : stdgo.GoString), ("a flag whose String method panics when it is zero" : stdgo.GoString));
@@ -668,7 +666,7 @@ function testUsageOutput(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
                     a(_a0);
                 });
             };
-            stdgo._internal.os.Os.args = (new stdgo.Slice<stdgo.GoString>(3, 3, ("app" : stdgo.GoString), ("-i=1" : stdgo.GoString), ("-unknown" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+            stdgo._internal.os.Os.args = (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("app" : stdgo.GoString), ("-i=1" : stdgo.GoString), ("-unknown" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
             parse();
             {};
             {
@@ -728,7 +726,7 @@ function testGetters(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testParseError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        for (__0 => _typ in (new stdgo.Slice<stdgo.GoString>(7, 7, ("bool" : stdgo.GoString), ("int" : stdgo.GoString), ("int64" : stdgo.GoString), ("uint" : stdgo.GoString), ("uint64" : stdgo.GoString), ("float64" : stdgo.GoString), ("duration" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
+        for (__0 => _typ in (new stdgo.Slice<stdgo.GoString>(7, 7, ...[("bool" : stdgo.GoString), ("int" : stdgo.GoString), ("int64" : stdgo.GoString), ("uint" : stdgo.GoString), ("uint64" : stdgo.GoString), ("float64" : stdgo.GoString), ("duration" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>)) {
             var _fs = newFlagSet(("parse error test" : stdgo.GoString), (0 : stdgo._internal.flag.Flag.ErrorHandling));
             _fs.setOutput(stdgo._internal.io.Io.discard);
             var __blank__ = _fs.bool_(("bool" : stdgo.GoString), false, stdgo.Go.str()?.__copy__());
@@ -738,7 +736,7 @@ function testParseError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             var __blank__ = _fs.uint64(("uint64" : stdgo.GoString), (0i64 : stdgo.GoUInt64), stdgo.Go.str()?.__copy__());
             var __blank__ = _fs.float64(("float64" : stdgo.GoString), (0 : stdgo.GoFloat64), stdgo.Go.str()?.__copy__());
             var __blank__ = _fs.duration(("duration" : stdgo.GoString), (0i64 : stdgo._internal.time.Time.Duration), stdgo.Go.str()?.__copy__());
-            var _args = (new stdgo.Slice<stdgo.GoString>(1, 1, ((("-" : stdgo.GoString) + _typ?.__copy__() : stdgo.GoString) + ("=x" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
+            var _args = (new stdgo.Slice<stdgo.GoString>(1, 1, ...[((("-" : stdgo.GoString) + _typ?.__copy__() : stdgo.GoString) + ("=x" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()]) : stdgo.Slice<stdgo.GoString>);
             var _err:stdgo.Error = _fs.parse(_args);
             if (_err == null) {
                 _t.errorf(("Parse(%q)=%v; expected parse error" : stdgo.GoString), stdgo.Go.toInterface(_args), stdgo.Go.toInterface(_err));
@@ -750,7 +748,7 @@ function testParseError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testRangeError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _bad = (new stdgo.Slice<stdgo.GoString>(5, 5, ("-int=123456789012345678901" : stdgo.GoString), ("-int64=123456789012345678901" : stdgo.GoString), ("-uint=123456789012345678901" : stdgo.GoString), ("-uint64=123456789012345678901" : stdgo.GoString), ("-float64=1e1000" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+        var _bad = (new stdgo.Slice<stdgo.GoString>(5, 5, ...[("-int=123456789012345678901" : stdgo.GoString), ("-int64=123456789012345678901" : stdgo.GoString), ("-uint=123456789012345678901" : stdgo.GoString), ("-uint64=123456789012345678901" : stdgo.GoString), ("-float64=1e1000" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
         for (__0 => _arg in _bad) {
             var _fs = newFlagSet(("parse error test" : stdgo.GoString), (0 : stdgo._internal.flag.Flag.ErrorHandling));
             _fs.setOutput(stdgo._internal.io.Io.discard);
@@ -759,7 +757,7 @@ function testRangeError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             var __blank__ = _fs.uint(("uint" : stdgo.GoString), (0u32 : stdgo.GoUInt), stdgo.Go.str()?.__copy__());
             var __blank__ = _fs.uint64(("uint64" : stdgo.GoString), (0i64 : stdgo.GoUInt64), stdgo.Go.str()?.__copy__());
             var __blank__ = _fs.float64(("float64" : stdgo.GoString), (0 : stdgo.GoFloat64), stdgo.Go.str()?.__copy__());
-            var _err:stdgo.Error = _fs.parse((new stdgo.Slice<stdgo.GoString>(1, 1, _arg?.__copy__()) : stdgo.Slice<stdgo.GoString>));
+            var _err:stdgo.Error = _fs.parse((new stdgo.Slice<stdgo.GoString>(1, 1, ...[_arg?.__copy__()]) : stdgo.Slice<stdgo.GoString>));
             if (_err == null) {
                 _t.errorf(("Parse(%q)=%v; expected range error" : stdgo.GoString), stdgo.Go.toInterface(_arg), stdgo.Go.toInterface(_err));
                 continue;
@@ -778,10 +776,10 @@ function testExitCode(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 var _b:Bool = false;
                 _fs.boolVar(stdgo.Go.pointer(_b), stdgo._internal.os.Os.getenv(("GO_CHILD_FLAG_HANDLE" : stdgo.GoString))?.__copy__(), false, stdgo.Go.str()?.__copy__());
             };
-            _fs.parse((new stdgo.Slice<stdgo.GoString>(1, 1, stdgo._internal.os.Os.getenv(("GO_CHILD_FLAG" : stdgo.GoString))?.__copy__()) : stdgo.Slice<stdgo.GoString>));
+            _fs.parse((new stdgo.Slice<stdgo.GoString>(1, 1, ...[stdgo._internal.os.Os.getenv(("GO_CHILD_FLAG" : stdgo.GoString))?.__copy__()]) : stdgo.Slice<stdgo.GoString>));
             Sys.exit(_magic);
         };
-        var _tests = (new stdgo.Slice<T__struct_0>(5, 5, ({ _flag : ("-h" : stdgo.GoString), _flagHandle : ("" : stdgo.GoString), _expectExit : (0 : stdgo.GoInt) } : T__struct_0), ({ _flag : ("-help" : stdgo.GoString), _flagHandle : ("" : stdgo.GoString), _expectExit : (0 : stdgo.GoInt) } : T__struct_0), ({ _flag : ("-undefined" : stdgo.GoString), _flagHandle : ("" : stdgo.GoString), _expectExit : (2 : stdgo.GoInt) } : T__struct_0), ({ _flag : ("-h" : stdgo.GoString), _flagHandle : ("h" : stdgo.GoString), _expectExit : _magic } : T__struct_0), ({ _flag : ("-help" : stdgo.GoString), _flagHandle : ("help" : stdgo.GoString), _expectExit : _magic } : T__struct_0)) : stdgo.Slice<T__struct_0>);
+        var _tests = (new stdgo.Slice<T__struct_0>(5, 5, ...[({ _flag : ("-h" : stdgo.GoString), _flagHandle : ("" : stdgo.GoString), _expectExit : (0 : stdgo.GoInt) } : T__struct_0), ({ _flag : ("-help" : stdgo.GoString), _flagHandle : ("" : stdgo.GoString), _expectExit : (0 : stdgo.GoInt) } : T__struct_0), ({ _flag : ("-undefined" : stdgo.GoString), _flagHandle : ("" : stdgo.GoString), _expectExit : (2 : stdgo.GoInt) } : T__struct_0), ({ _flag : ("-h" : stdgo.GoString), _flagHandle : ("h" : stdgo.GoString), _expectExit : _magic } : T__struct_0), ({ _flag : ("-help" : stdgo.GoString), _flagHandle : ("help" : stdgo.GoString), _expectExit : _magic } : T__struct_0)]) : stdgo.Slice<T__struct_0>);
         for (__0 => _test in _tests) {
             var _cmd = stdgo._internal.os.exec.Exec.command(stdgo._internal.os.Os.args[(0 : stdgo.GoInt)]?.__copy__(), ("-test.run=TestExitCode" : stdgo.GoString));
             _cmd.env = (stdgo._internal.os.Os.environ().__append__((("GO_CHILD_FLAG=" : stdgo.GoString) + _test._flag?.__copy__() : stdgo.GoString), (("GO_CHILD_FLAG_HANDLE=" : stdgo.GoString) + _test._flagHandle?.__copy__() : stdgo.GoString)));
@@ -849,7 +847,7 @@ function _mustPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _testName:
         };
     }
 function testInvalidFlags(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _tests = (new stdgo.Slice<T__struct_1>(2, 2, ({ _flag : ("-foo" : stdgo.GoString), _errorMsg : ("flag \"-foo\" begins with -" : stdgo.GoString) } : T__struct_1), ({ _flag : ("foo=bar" : stdgo.GoString), _errorMsg : ("flag \"foo=bar\" contains =" : stdgo.GoString) } : T__struct_1)) : stdgo.Slice<T__struct_1>);
+        var _tests = (new stdgo.Slice<T__struct_1>(2, 2, ...[({ _flag : ("-foo" : stdgo.GoString), _errorMsg : ("flag \"-foo\" begins with -" : stdgo.GoString) } : T__struct_1), ({ _flag : ("foo=bar" : stdgo.GoString), _errorMsg : ("flag \"foo=bar\" contains =" : stdgo.GoString) } : T__struct_1)]) : stdgo.Slice<T__struct_1>);
         for (__0 => _test in _tests) {
             var _testName:stdgo.GoString = stdgo._internal.fmt.Fmt.sprintf(("FlagSet.Var(&v, %q, \"\")" : stdgo.GoString), stdgo.Go.toInterface(_test._flag))?.__copy__();
             var _fs = newFlagSet(stdgo.Go.str()?.__copy__(), (0 : stdgo._internal.flag.Flag.ErrorHandling));
@@ -868,7 +866,7 @@ function testInvalidFlags(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
         };
     }
 function testRedefinedFlags(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _tests = (new stdgo.Slice<T__struct_2>(2, 2, ({ _flagSetName : stdgo.Go.str()?.__copy__(), _errorMsg : ("flag redefined: foo" : stdgo.GoString) } : T__struct_2), ({ _flagSetName : ("fs" : stdgo.GoString), _errorMsg : ("fs flag redefined: foo" : stdgo.GoString) } : T__struct_2)) : stdgo.Slice<T__struct_2>);
+        var _tests = (new stdgo.Slice<T__struct_2>(2, 2, ...[({ _flagSetName : stdgo.Go.str()?.__copy__(), _errorMsg : ("flag redefined: foo" : stdgo.GoString) } : T__struct_2), ({ _flagSetName : ("fs" : stdgo.GoString), _errorMsg : ("fs flag redefined: foo" : stdgo.GoString) } : T__struct_2)]) : stdgo.Slice<T__struct_2>);
         for (__0 => _test in _tests) {
             var _testName:stdgo.GoString = stdgo._internal.fmt.Fmt.sprintf(("flag redefined in FlagSet(%q)" : stdgo.GoString), stdgo.Go.toInterface(_test._flagSetName))?.__copy__();
             var _fs = newFlagSet(_test._flagSetName?.__copy__(), (0 : stdgo._internal.flag.Flag.ErrorHandling));
@@ -896,7 +894,7 @@ function testUserDefinedBoolFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
             return (null : stdgo.Error);
         });
         {
-            var _err:stdgo.Error = _flags.parse((new stdgo.Slice<stdgo.GoString>(5, 5, ("-v" : stdgo.GoString), stdgo.Go.str()?.__copy__(), ("-v" : stdgo.GoString), ("1" : stdgo.GoString), ("-v=2" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>));
+            var _err:stdgo.Error = _flags.parse((new stdgo.Slice<stdgo.GoString>(5, 5, ...[("-v" : stdgo.GoString), stdgo.Go.str()?.__copy__(), ("-v" : stdgo.GoString), ("1" : stdgo.GoString), ("-v=2" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>));
             if (_err != null) {
                 _t.error(stdgo.Go.toInterface(_err));
             };
@@ -913,7 +911,7 @@ function testUserDefinedBoolFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
         };
         var _buf:stdgo._internal.strings.Strings.Builder = ({} : stdgo._internal.strings.Strings.Builder);
         _flags.setOutput(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings.Builder>)));
-        _flags.parse((new stdgo.Slice<stdgo.GoString>(1, 1, ("-h" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>));
+        _flags.parse((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("-h" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>));
         {
             var _usage:stdgo.GoString = (_buf.string() : stdgo.GoString)?.__copy__();
             if (!stdgo._internal.strings.Strings.contains(_usage?.__copy__(), ("usage" : stdgo.GoString))) {
@@ -932,7 +930,7 @@ function testUserDefinedBoolFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
             };
         };
         {
-            var _err:stdgo.Error = _flags.parse((new stdgo.Slice<stdgo.GoString>(2, 2, ("-v" : stdgo.GoString), stdgo.Go.str()?.__copy__()) : stdgo.Slice<stdgo.GoString>));
+            var _err:stdgo.Error = _flags.parse((new stdgo.Slice<stdgo.GoString>(2, 2, ...[("-v" : stdgo.GoString), stdgo.Go.str()?.__copy__()]) : stdgo.Slice<stdgo.GoString>));
             if (_err == null) {
                 _t.error(stdgo.Go.toInterface(("got err == nil; want err != nil" : stdgo.GoString)));
             } else {

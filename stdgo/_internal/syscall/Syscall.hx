@@ -323,8 +323,8 @@ var _nodeTRUNC : stdgo.GoInt = (0 : stdgo.GoInt);
 var _nodeAPPEND : stdgo.GoInt = (0 : stdgo.GoInt);
 var _nodeEXCL : stdgo.GoInt = (0 : stdgo.GoInt);
 var _files : stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo._internal.syscall.Syscall.T_jsFile>> = (null : stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo._internal.syscall.Syscall.T_jsFile>>);
-var _signals : stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 0) ("" : stdgo.GoString)]);
-var _errorstr : stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 2054) ("" : stdgo.GoString)]);
+var _signals : stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(0, 0, ...[for (i in 0 ... 0) ("" : stdgo.GoString)]);
+var _errorstr : stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(2054, 2054, ...[for (i in 0 ... 2054) ("" : stdgo.GoString)]);
 var _errEAGAIN : stdgo.Error = (null : stdgo.Error);
 var _errEINVAL : stdgo.Error = (null : stdgo.Error);
 var _errENOENT : stdgo.Error = (null : stdgo.Error);
@@ -387,7 +387,7 @@ typedef Conn = stdgo.StructType & {
 }
 @:structInit class SockaddrInet4 {
     public var port : stdgo.GoInt = 0;
-    public var addr : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 4) (0 : stdgo.GoUInt8)]);
+    public var addr : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...[for (i in 0 ... 4) (0 : stdgo.GoUInt8)]);
     public function new(?port:stdgo.GoInt, ?addr:stdgo.GoArray<stdgo.GoUInt8>) {
         if (port != null) this.port = port;
         if (addr != null) this.addr = addr;
@@ -400,7 +400,7 @@ typedef Conn = stdgo.StructType & {
 @:structInit class SockaddrInet6 {
     public var port : stdgo.GoInt = 0;
     public var zoneId : stdgo.GoUInt32 = 0;
-    public var addr : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 16) (0 : stdgo.GoUInt8)]);
+    public var addr : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16, ...[for (i in 0 ... 16) (0 : stdgo.GoUInt8)]);
     public function new(?port:stdgo.GoInt, ?zoneId:stdgo.GoUInt32, ?addr:stdgo.GoArray<stdgo.GoUInt8>) {
         if (port != null) this.port = port;
         if (zoneId != null) this.zoneId = zoneId;
@@ -423,7 +423,7 @@ typedef Conn = stdgo.StructType & {
 }
 @:structInit class Dirent {
     public var reclen : stdgo.GoUInt16 = 0;
-    public var name : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 256) (0 : stdgo.GoUInt8)]);
+    public var name : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(256, 256, ...[for (i in 0 ... 256) (0 : stdgo.GoUInt8)]);
     public function new(?reclen:stdgo.GoUInt16, ?name:stdgo.GoArray<stdgo.GoUInt8>) {
         if (reclen != null) this.reclen = reclen;
         if (name != null) this.name = name;

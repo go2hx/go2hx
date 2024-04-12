@@ -3,7 +3,7 @@ private var __go2hxdoc__package : Bool;
 final _bzip2FileMagic : stdgo.GoUInt64 = (16986i64 : stdgo.GoUInt64);
 final _bzip2BlockMagic : stdgo.GoUInt64 = (54156738319193i64 : stdgo.GoUInt64);
 final _bzip2FinalMagic : stdgo.GoUInt64 = (25779555029136i64 : stdgo.GoUInt64);
-var _crctab : stdgo.GoArray<stdgo.GoUInt32> = new stdgo.GoArray<stdgo.GoUInt32>(...[for (i in 0 ... 256) (0 : stdgo.GoUInt32)]);
+var _crctab : stdgo.GoArray<stdgo.GoUInt32> = new stdgo.GoArray<stdgo.GoUInt32>(256, 256, ...[for (i in 0 ... 256) (0 : stdgo.GoUInt32)]);
 final _invalidNodeValue : stdgo.GoUInt64 = (65535i64 : stdgo.GoUInt64);
 var _digits : stdgo.Slice<stdgo.GoUInt8> = _mustLoadFile(("testdata/e.txt.bz2" : stdgo.GoString));
 var _newton : stdgo.Slice<stdgo.GoUInt8> = _mustLoadFile(("testdata/Isaac.Newton-Opticks.txt.bz2" : stdgo.GoString));
@@ -32,7 +32,7 @@ var _random : stdgo.Slice<stdgo.GoUInt8> = _mustLoadFile(("testdata/random.data.
     public var _setupDone : Bool = false;
     public var _blockSize : stdgo.GoInt = 0;
     public var _eof : Bool = false;
-    public var _c : stdgo.GoArray<stdgo.GoUInt> = new stdgo.GoArray<stdgo.GoUInt>(...[for (i in 0 ... 256) (0 : stdgo.GoUInt)]);
+    public var _c : stdgo.GoArray<stdgo.GoUInt> = new stdgo.GoArray<stdgo.GoUInt>(256, 256, ...[for (i in 0 ... 256) (0 : stdgo.GoUInt)]);
     public var _tt : stdgo.Slice<stdgo.GoUInt32> = (null : stdgo.Slice<stdgo.GoUInt32>);
     public var _tPos : stdgo.GoUInt32 = 0;
     public var _preRLE : stdgo.Slice<stdgo.GoUInt32> = (null : stdgo.Slice<stdgo.GoUInt32>);
@@ -241,9 +241,7 @@ function _trim(_b:stdgo.Slice<stdgo.GoByte>):stdgo.GoString {
         return stdgo._internal.fmt.Fmt.sprintf(("%q..." : stdgo.GoString), stdgo.Go.toInterface((_b.__slice__(0, (1024 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)))?.__copy__();
     }
 function testReader(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _vectors:stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(
-12,
-12,
+        var _vectors:stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(12, 12, ...[
 ({ _desc : ("hello world" : stdgo.GoString), _input : _mustDecodeHex(("425a68393141592653594eece83600000251800010400006449080200031064c4101a7a9a580bb9431f8bb9229c28482776741b0" : stdgo.GoString)), _output : (("hello world\n" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), _fail : false } : T__struct_0),
 ({ _desc : ("concatenated files" : stdgo.GoString), _input : _mustDecodeHex(("425a68393141592653594eece83600000251800010400006449080200031064c4101a7a9a580bb9431f8bb9229c28482776741b0425a68393141592653594eece83600000251800010400006449080200031064c4101a7a9a580bb9431f8bb9229c28482776741b0" : stdgo.GoString)), _output : (("hello world\nhello world\n" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), _fail : false } : T__struct_0),
 ({ _desc : ("32B zeros" : stdgo.GoString), _input : _mustDecodeHex(("425a6839314159265359b5aa5098000000600040000004200021008283177245385090b5aa5098" : stdgo.GoString)), _output : new stdgo.Slice<stdgo.GoUInt8>((32 : stdgo.GoInt).toBasic(), 0).__setNumber32__(), _fail : false } : T__struct_0),
@@ -264,7 +262,7 @@ function testReader(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 ({ _desc : ("RLE2 buffer overrun - issue 5747" : stdgo.GoString), _input : _mustLoadFile(("testdata/fail-issue5747.bz2" : stdgo.GoString)), _output : (null : stdgo.Slice<stdgo.GoUInt8>), _fail : true } : T__struct_0),
 ({ _desc : ("out-of-range selector - issue 8363" : stdgo.GoString), _input : _mustDecodeHex(("425a68393141592653594eece83600000251800010400006449080200031064c4101a7a9a580bb943117724538509000000000" : stdgo.GoString)), _output : (null : stdgo.Slice<stdgo.GoUInt8>), _fail : true } : T__struct_0),
 ({ _desc : ("bad block size - issue 13941" : stdgo.GoString), _input : _mustDecodeHex(("425a683131415926535936dc55330063ffc0006000200020a40830008b0008b8bb9229c28481b6e2a998" : stdgo.GoString)), _output : (null : stdgo.Slice<stdgo.GoUInt8>), _fail : true } : T__struct_0),
-({ _desc : ("bad huffman delta" : stdgo.GoString), _input : _mustDecodeHex(("425a6836314159265359b1f7404b000000400040002000217d184682ee48a70a12163ee80960" : stdgo.GoString)), _output : (null : stdgo.Slice<stdgo.GoUInt8>), _fail : true } : T__struct_0)) : stdgo.Slice<T__struct_0>);
+({ _desc : ("bad huffman delta" : stdgo.GoString), _input : _mustDecodeHex(("425a6836314159265359b1f7404b000000400040002000217d184682ee48a70a12163ee80960" : stdgo.GoString)), _output : (null : stdgo.Slice<stdgo.GoUInt8>), _fail : true } : T__struct_0)]) : stdgo.Slice<T__struct_0>);
         for (_i => _v in _vectors) {
             var _rd:stdgo._internal.io.Io.Reader = newReader(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes.newReader(_v._input)));
             var __tmp__ = stdgo._internal.io.Io.readAll(_rd), _buf:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -284,19 +282,8 @@ function testReader(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testBitReader(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _vectors:stdgo.Slice<T__struct_1> = (new stdgo.Slice<T__struct_1>(
-9,
-9,
-({ _nbits : (1u32 : stdgo.GoUInt), _value : (1 : stdgo.GoInt), _fail : false } : T__struct_1),
-({ _nbits : (1u32 : stdgo.GoUInt), _value : (0 : stdgo.GoInt), _fail : false } : T__struct_1),
-({ _nbits : (1u32 : stdgo.GoUInt), _value : (1 : stdgo.GoInt), _fail : false } : T__struct_1),
-({ _nbits : (5u32 : stdgo.GoUInt), _value : (11 : stdgo.GoInt), _fail : false } : T__struct_1),
-({ _nbits : (32u32 : stdgo.GoUInt), _value : (305419896 : stdgo.GoInt), _fail : false } : T__struct_1),
-({ _nbits : (15u32 : stdgo.GoUInt), _value : (14495 : stdgo.GoInt), _fail : false } : T__struct_1),
-({ _nbits : (3u32 : stdgo.GoUInt), _value : (6 : stdgo.GoInt), _fail : false } : T__struct_1),
-({ _nbits : (6u32 : stdgo.GoUInt), _value : (13 : stdgo.GoInt), _fail : false } : T__struct_1),
-({ _nbits : (1u32 : stdgo.GoUInt), _value : (0 : stdgo.GoInt), _fail : true } : T__struct_1)) : stdgo.Slice<T__struct_1>);
-        var _rd = stdgo._internal.bytes.Bytes.newReader((new stdgo.Slice<stdgo.GoUInt8>(8, 8, (171 : stdgo.GoUInt8), (18 : stdgo.GoUInt8), (52 : stdgo.GoUInt8), (86 : stdgo.GoUInt8), (120 : stdgo.GoUInt8), (113 : stdgo.GoUInt8), (63 : stdgo.GoUInt8), (141 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>));
+        var _vectors:stdgo.Slice<T__struct_1> = (new stdgo.Slice<T__struct_1>(9, 9, ...[({ _nbits : (1u32 : stdgo.GoUInt), _value : (1 : stdgo.GoInt), _fail : false } : T__struct_1), ({ _nbits : (1u32 : stdgo.GoUInt), _value : (0 : stdgo.GoInt), _fail : false } : T__struct_1), ({ _nbits : (1u32 : stdgo.GoUInt), _value : (1 : stdgo.GoInt), _fail : false } : T__struct_1), ({ _nbits : (5u32 : stdgo.GoUInt), _value : (11 : stdgo.GoInt), _fail : false } : T__struct_1), ({ _nbits : (32u32 : stdgo.GoUInt), _value : (305419896 : stdgo.GoInt), _fail : false } : T__struct_1), ({ _nbits : (15u32 : stdgo.GoUInt), _value : (14495 : stdgo.GoInt), _fail : false } : T__struct_1), ({ _nbits : (3u32 : stdgo.GoUInt), _value : (6 : stdgo.GoInt), _fail : false } : T__struct_1), ({ _nbits : (6u32 : stdgo.GoUInt), _value : (13 : stdgo.GoInt), _fail : false } : T__struct_1), ({ _nbits : (1u32 : stdgo.GoUInt), _value : (0 : stdgo.GoInt), _fail : true } : T__struct_1)]) : stdgo.Slice<T__struct_1>);
+        var _rd = stdgo._internal.bytes.Bytes.newReader((new stdgo.Slice<stdgo.GoUInt8>(8, 8, ...[(171 : stdgo.GoUInt8), (18 : stdgo.GoUInt8), (52 : stdgo.GoUInt8), (86 : stdgo.GoUInt8), (120 : stdgo.GoUInt8), (113 : stdgo.GoUInt8), (63 : stdgo.GoUInt8), (141 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>));
         var _br:stdgo._internal.compress.bzip2.Bzip2.T_bitReader = _newBitReader(stdgo.Go.asInterface(_rd))?.__copy__();
         for (_i => _v in _vectors) {
             var _val:stdgo.GoInt = _br.readBits(_v._nbits);
@@ -316,7 +303,7 @@ function testBitReader(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testMTF(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _vectors:stdgo.Slice<T__struct_2> = (new stdgo.Slice<T__struct_2>(5, 5, ({ _idx : (1 : stdgo.GoInt), _sym : (1 : stdgo.GoUInt8) } : T__struct_2), ({ _idx : (0 : stdgo.GoInt), _sym : (1 : stdgo.GoUInt8) } : T__struct_2), ({ _idx : (1 : stdgo.GoInt), _sym : (0 : stdgo.GoUInt8) } : T__struct_2), ({ _idx : (4 : stdgo.GoInt), _sym : (4 : stdgo.GoUInt8) } : T__struct_2), ({ _idx : (1 : stdgo.GoInt), _sym : (0 : stdgo.GoUInt8) } : T__struct_2)) : stdgo.Slice<T__struct_2>);
+        var _vectors:stdgo.Slice<T__struct_2> = (new stdgo.Slice<T__struct_2>(5, 5, ...[({ _idx : (1 : stdgo.GoInt), _sym : (1 : stdgo.GoUInt8) } : T__struct_2), ({ _idx : (0 : stdgo.GoInt), _sym : (1 : stdgo.GoUInt8) } : T__struct_2), ({ _idx : (1 : stdgo.GoInt), _sym : (0 : stdgo.GoUInt8) } : T__struct_2), ({ _idx : (4 : stdgo.GoInt), _sym : (4 : stdgo.GoUInt8) } : T__struct_2), ({ _idx : (1 : stdgo.GoInt), _sym : (0 : stdgo.GoUInt8) } : T__struct_2)]) : stdgo.Slice<T__struct_2>);
         var _mtf:stdgo._internal.compress.bzip2.Bzip2.T_moveToFrontDecoder = _newMTFDecoderWithRange((5 : stdgo.GoInt));
         for (_i => _v in _vectors) {
             var _sym:stdgo.GoUInt8 = _mtf.decode(_v._idx);

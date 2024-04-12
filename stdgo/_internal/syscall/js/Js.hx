@@ -86,7 +86,7 @@ var _arrayConstructor : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._inter
 }
 @:structInit @:using(stdgo._internal.syscall.js.Js.Value_static_extension) class Value {
     @:optional
-    public var __26 : stdgo.GoArray<() -> Void> = new stdgo.GoArray<() -> Void>(...[for (i in 0 ... 0) null]);
+    public var __26 : stdgo.GoArray<() -> Void> = new stdgo.GoArray<() -> Void>(0, 0, ...[for (i in 0 ... 0) null]);
     public var _ref : stdgo._internal.syscall.js.Js.T_ref = ((0 : stdgo.GoUInt64) : stdgo._internal.syscall.js.Js.T_ref);
     public var _gcPtr : stdgo.Pointer<stdgo._internal.syscall.js.Js.T_ref> = (null : stdgo.Pointer<stdgo._internal.syscall.js.Js.T_ref>);
     public function new(?__26:stdgo.GoArray<() -> Void>, ?_ref:stdgo._internal.syscall.js.Js.T_ref, ?_gcPtr:stdgo.Pointer<stdgo._internal.syscall.js.Js.T_ref>) {

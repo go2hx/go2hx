@@ -1,9 +1,7 @@
 package stdgo._internal.math.bits_test;
 import stdgo._internal.math.bits.Bits;
 import stdgo._internal.math.bits.Bits;
-var _tests : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>(
-26,
-26,
+var _tests : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>(26, 26, ...[
 (new stdgo._internal.testing.Testing.InternalTest(("TestUintSize" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.testUintSize) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestLeadingZeros" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.testLeadingZeros) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestTrailingZeros" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.testTrailingZeros) : stdgo._internal.testing.Testing.InternalTest),
@@ -29,10 +27,8 @@ var _tests : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest> = (new st
 (new stdgo._internal.testing.Testing.InternalTest(("TestRem32" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.testRem32) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestRem32Overflow" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.testRem32Overflow) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestRem64" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.testRem64) : stdgo._internal.testing.Testing.InternalTest),
-(new stdgo._internal.testing.Testing.InternalTest(("TestRem64Overflow" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.testRem64Overflow) : stdgo._internal.testing.Testing.InternalTest)) : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>);
-var _benchmarks : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>(
-43,
-43,
+(new stdgo._internal.testing.Testing.InternalTest(("TestRem64Overflow" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.testRem64Overflow) : stdgo._internal.testing.Testing.InternalTest)]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>);
+var _benchmarks : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>(43, 43, ...[
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkLeadingZeros" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.benchmarkLeadingZeros) : stdgo._internal.testing.Testing.InternalBenchmark),
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkLeadingZeros8" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.benchmarkLeadingZeros8) : stdgo._internal.testing.Testing.InternalBenchmark),
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkLeadingZeros16" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.benchmarkLeadingZeros16) : stdgo._internal.testing.Testing.InternalBenchmark),
@@ -75,11 +71,9 @@ var _benchmarks : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkMul64" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.benchmarkMul64) : stdgo._internal.testing.Testing.InternalBenchmark),
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkDiv" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.benchmarkDiv) : stdgo._internal.testing.Testing.InternalBenchmark),
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkDiv32" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.benchmarkDiv32) : stdgo._internal.testing.Testing.InternalBenchmark),
-(new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkDiv64" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.benchmarkDiv64) : stdgo._internal.testing.Testing.InternalBenchmark)) : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>);
-var _fuzzTargets : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>(0, 0) : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>);
-var _examples : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>(
-36,
-36,
+(new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkDiv64" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.benchmarkDiv64) : stdgo._internal.testing.Testing.InternalBenchmark)]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>);
+var _fuzzTargets : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>(0, 0, ...[]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>);
+var _examples : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>(36, 36, ...[
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleAdd32" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.exampleAdd32, ("[33 12] + [21 23] = [54 35] (carry bit was 0)\n[1 2147483648] + [1 2147483648] = [3 0] (carry bit was 1)\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleAdd64" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.exampleAdd64, ("[33 12] + [21 23] = [54 35] (carry bit was 0)\n[1 9223372036854775808] + [1 9223372036854775808] = [3 0] (carry bit was 1)\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleSub32" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.exampleSub32, ("[33 23] - [21 12] = [12 11] (carry bit was 0)\n[3 2147483647] - [1 2147483648] = [1 4294967295] (carry bit was 1)\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
@@ -115,7 +109,7 @@ var _examples : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample> = (
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleLen8" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.exampleLen8, ("Len8(00001000) = 4\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleLen16" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.exampleLen16, ("Len16(0000000000001000) = 4\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleLen32" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.exampleLen32, ("Len32(00000000000000000000000000001000) = 4\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
-(new stdgo._internal.testing.Testing.InternalExample(("ExampleLen64" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.exampleLen64, ("Len64(0000000000000000000000000000000000000000000000000000000000001000) = 4\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample)) : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>);
+(new stdgo._internal.testing.Testing.InternalExample(("ExampleLen64" : stdgo.GoString), stdgo._internal.math.bits_test.Bits_test.exampleLen64, ("Len64(0000000000000000000000000000000000000000000000000000000000001000) = 4\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample)]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>);
 function main():Void {
         var _m = stdgo._internal.testing.Testing.mainStart(stdgo.Go.asInterface((new stdgo._internal.testing.internal.testdeps.Testdeps.TestDeps() : stdgo._internal.testing.internal.testdeps.Testdeps.TestDeps)), _tests, _benchmarks, _fuzzTargets, _examples);
         Sys.exit(_m.run());

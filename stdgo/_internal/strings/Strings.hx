@@ -3,7 +3,7 @@ private var __go2hxdoc__package : Bool;
 final _countCutOff : stdgo.GoUInt64 = (8i64 : stdgo.GoUInt64);
 final _maxInt : stdgo.GoInt = ((2147483647u32 : stdgo.GoUInt) : stdgo.GoInt);
 var _asciiSpace : stdgo.GoArray<stdgo.GoUInt8> = {
-        var s:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 256) 0]);
+        var s:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(256, 256, ...[for (i in 0 ... 256) 0]);
         s[9] = (1 : stdgo.GoUInt8);
         s[10] = (1 : stdgo.GoUInt8);
         s[11] = (1 : stdgo.GoUInt8);
@@ -87,7 +87,7 @@ typedef T_replacer = stdgo.StructType & {
 @:structInit @:private @:using(stdgo._internal.strings.Strings.T_genericReplacer_static_extension) class T_genericReplacer {
     public var _root : stdgo._internal.strings.Strings.T_trieNode = ({} : stdgo._internal.strings.Strings.T_trieNode);
     public var _tableSize : stdgo.GoInt = 0;
-    public var _mapping : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 256) (0 : stdgo.GoUInt8)]);
+    public var _mapping : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(256, 256, ...[for (i in 0 ... 256) (0 : stdgo.GoUInt8)]);
     public function new(?_root:stdgo._internal.strings.Strings.T_trieNode, ?_tableSize:stdgo.GoInt, ?_mapping:stdgo.GoArray<stdgo.GoUInt8>) {
         if (_root != null) this._root = _root;
         if (_tableSize != null) this._tableSize = _tableSize;
@@ -121,7 +121,7 @@ typedef T_replacer = stdgo.StructType & {
     }
 }
 @:structInit @:private @:using(stdgo._internal.strings.Strings.T_byteStringReplacer_static_extension) class T_byteStringReplacer {
-    public var _replacements : stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>> = new stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>>(...[for (i in 0 ... 256) (null : stdgo.Slice<stdgo.GoUInt8>)]);
+    public var _replacements : stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>> = new stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>>(256, 256, ...[for (i in 0 ... 256) (null : stdgo.Slice<stdgo.GoUInt8>)]);
     public var _toReplace : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
     public function new(?_replacements:stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>>, ?_toReplace:stdgo.Slice<stdgo.GoString>) {
         if (_replacements != null) this._replacements = _replacements;
@@ -134,7 +134,7 @@ typedef T_replacer = stdgo.StructType & {
 }
 @:structInit @:private @:using(stdgo._internal.strings.Strings.T_stringFinder_static_extension) class T_stringFinder {
     public var _pattern : stdgo.GoString = "";
-    public var _badCharSkip : stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(...[for (i in 0 ... 256) (0 : stdgo.GoInt)]);
+    public var _badCharSkip : stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(256, 256, ...[for (i in 0 ... 256) (0 : stdgo.GoInt)]);
     public var _goodSuffixSkip : stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
     public function new(?_pattern:stdgo.GoString, ?_badCharSkip:stdgo.GoArray<stdgo.GoInt>, ?_goodSuffixSkip:stdgo.Slice<stdgo.GoInt>) {
         if (_pattern != null) this._pattern = _pattern;
@@ -942,7 +942,7 @@ function _lastIndexFunc(_s:stdgo.GoString, _f:stdgo.GoRune -> Bool, _truth:Bool)
         return (-1 : stdgo.GoInt);
     }
 function _makeASCIISet(_chars:stdgo.GoString):{ var _0 : T_asciiSet; var _1 : Bool; } {
-        var _as:T_asciiSet = new stdgo._internal.strings.Strings.T_asciiSet(...[for (i in 0 ... 8) (0 : stdgo.GoUInt32)]), _ok:Bool = false;
+        var _as:T_asciiSet = new stdgo._internal.strings.Strings.T_asciiSet(8, 8, ...[for (i in 0 ... 8) (0 : stdgo.GoUInt32)]), _ok:Bool = false;
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_chars.length) : Bool), _i++, {
@@ -1656,7 +1656,7 @@ class Replacer_asInterface {
             });
         };
         if (_allNewBytes) {
-            var _r:stdgo._internal.strings.Strings.T_byteReplacer = (new stdgo.GoArray<stdgo.GoUInt8>(...([].concat([for (i in 0 ... 256) (0 : stdgo.GoUInt8)]))) : stdgo._internal.strings.Strings.T_byteReplacer);
+            var _r:stdgo._internal.strings.Strings.T_byteReplacer = (new stdgo.GoArray<stdgo.GoUInt8>(256, 256, ...([].concat([for (i in 0 ... 256) (0 : stdgo.GoUInt8)]))) : stdgo._internal.strings.Strings.T_byteReplacer);
             for (_i => _ in _r) {
                 _r[(_i : stdgo.GoInt)] = (_i : stdgo.GoByte);
             };
@@ -1677,7 +1677,7 @@ class Replacer_asInterface {
                 var _o:stdgo.GoUInt8 = _oldnew[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)];
                 var _n:stdgo.GoString = _oldnew[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)]?.__copy__();
                 if (_r._replacements[(_o : stdgo.GoInt)] == null) {
-                    _r._toReplace = (_r._toReplace.__append__(((new stdgo.Slice<stdgo.GoUInt8>(1, 1, _o) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)));
+                    _r._toReplace = (_r._toReplace.__append__(((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[_o]) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)));
                 };
                 _r._replacements[(_o : stdgo.GoInt)] = (_n : stdgo.Slice<stdgo.GoByte>);
             });
@@ -1899,7 +1899,7 @@ class T_genericReplacer_asInterface {
         } else if (_t._table != null) {
             for (_b => _m in _r._mapping) {
                 if ((((_m : stdgo.GoInt) != _r._tableSize) && ((_t._table[(_m : stdgo.GoInt)] != null) && ((_t._table[(_m : stdgo.GoInt)] : Dynamic).__nil__ == null || !(_t._table[(_m : stdgo.GoInt)] : Dynamic).__nil__)) : Bool)) {
-                    _s = (_s + ((repeat(("." : stdgo.GoString), _depth) + ((new stdgo.Slice<stdgo.GoUInt8>(1, 1, (_b : stdgo.GoByte)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);
+                    _s = (_s + ((repeat(("." : stdgo.GoString), _depth) + ((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(_b : stdgo.GoByte)]) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);
                     _s = (_s + (_r._printNode(_t._table[(_m : stdgo.GoInt)], (_depth + (1 : stdgo.GoInt) : stdgo.GoInt)))?.__copy__() : stdgo.GoString);
                 };
             };

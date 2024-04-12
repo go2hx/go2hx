@@ -16,11 +16,9 @@ var _re = __tmp__2._0;
 var _ke = __tmp__2._1;
 var _we = __tmp__2._2;
 var _fe = __tmp__2._3;
-var _testSeeds : stdgo.Slice<stdgo.GoInt64> = (new stdgo.Slice<stdgo.GoInt64>(4, 4, (1i64 : stdgo.GoInt64), (1754801282i64 : stdgo.GoInt64), (1698661970i64 : stdgo.GoInt64), (1550503961i64 : stdgo.GoInt64)) : stdgo.Slice<stdgo.GoInt64>);
+var _testSeeds : stdgo.Slice<stdgo.GoInt64> = (new stdgo.Slice<stdgo.GoInt64>(4, 4, ...[(1i64 : stdgo.GoInt64), (1754801282i64 : stdgo.GoInt64), (1698661970i64 : stdgo.GoInt64), (1550503961i64 : stdgo.GoInt64)]) : stdgo.Slice<stdgo.GoInt64>);
 var _printgolden : stdgo.Pointer<Bool> = stdgo._internal.flag.Flag.bool_(("printgolden" : stdgo.GoString), false, ("print golden results for regression test" : stdgo.GoString));
-var _regressGolden : stdgo.Slice<stdgo.AnyInterface> = (new stdgo.Slice<stdgo.AnyInterface>(
-280,
-280,
+var _regressGolden : stdgo.Slice<stdgo.AnyInterface> = (new stdgo.Slice<stdgo.AnyInterface>(280, 280, ...[
 stdgo.Go.toInterface((4.668112973579268 : stdgo.GoFloat64)),
 stdgo.Go.toInterface((0.1601593871172866 : stdgo.GoFloat64)),
 stdgo.Go.toInterface((3.0465834105636 : stdgo.GoFloat64)),
@@ -221,38 +219,13 @@ stdgo.Go.toInterface((-1.5515595563231523 : stdgo.GoFloat64)),
 stdgo.Go.toInterface((0.0182029289376123 : stdgo.GoFloat64)),
 stdgo.Go.toInterface((-0.6820951356608795 : stdgo.GoFloat64)),
 stdgo.Go.toInterface((-0.5987943422687668 : stdgo.GoFloat64)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(0, 0) : stdgo.Slice<stdgo.GoInt>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(1, 1, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(5, 5, (0 : stdgo.GoInt), (4 : stdgo.GoInt), (1 : stdgo.GoInt), (3 : stdgo.GoInt), (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(8, 8, (3 : stdgo.GoInt), (1 : stdgo.GoInt), (0 : stdgo.GoInt), (4 : stdgo.GoInt), (7 : stdgo.GoInt), (5 : stdgo.GoInt), (2 : stdgo.GoInt), (6 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(
-9,
-9,
-(5 : stdgo.GoInt),
-(0 : stdgo.GoInt),
-(3 : stdgo.GoInt),
-(6 : stdgo.GoInt),
-(7 : stdgo.GoInt),
-(4 : stdgo.GoInt),
-(2 : stdgo.GoInt),
-(1 : stdgo.GoInt),
-(8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(
-10,
-10,
-(4 : stdgo.GoInt),
-(5 : stdgo.GoInt),
-(0 : stdgo.GoInt),
-(2 : stdgo.GoInt),
-(6 : stdgo.GoInt),
-(9 : stdgo.GoInt),
-(3 : stdgo.GoInt),
-(1 : stdgo.GoInt),
-(8 : stdgo.GoInt),
-(7 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(
-16,
-16,
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(0, 0, ...[]) : stdgo.Slice<stdgo.GoInt>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(0 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(5, 5, ...[(0 : stdgo.GoInt), (4 : stdgo.GoInt), (1 : stdgo.GoInt), (3 : stdgo.GoInt), (2 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(8, 8, ...[(3 : stdgo.GoInt), (1 : stdgo.GoInt), (0 : stdgo.GoInt), (4 : stdgo.GoInt), (7 : stdgo.GoInt), (5 : stdgo.GoInt), (2 : stdgo.GoInt), (6 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(9, 9, ...[(5 : stdgo.GoInt), (0 : stdgo.GoInt), (3 : stdgo.GoInt), (6 : stdgo.GoInt), (7 : stdgo.GoInt), (4 : stdgo.GoInt), (2 : stdgo.GoInt), (1 : stdgo.GoInt), (8 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(10, 10, ...[(4 : stdgo.GoInt), (5 : stdgo.GoInt), (0 : stdgo.GoInt), (2 : stdgo.GoInt), (6 : stdgo.GoInt), (9 : stdgo.GoInt), (3 : stdgo.GoInt), (1 : stdgo.GoInt), (8 : stdgo.GoInt), (7 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(16, 16, ...[
 (14 : stdgo.GoInt),
 (2 : stdgo.GoInt),
 (0 : stdgo.GoInt),
@@ -268,39 +241,14 @@ stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(
 (11 : stdgo.GoInt),
 (9 : stdgo.GoInt),
 (15 : stdgo.GoInt),
-(10 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(0, 0) : stdgo.Slice<stdgo.GoInt>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(1, 1, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(5, 5, (3 : stdgo.GoInt), (0 : stdgo.GoInt), (1 : stdgo.GoInt), (2 : stdgo.GoInt), (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(8, 8, (5 : stdgo.GoInt), (1 : stdgo.GoInt), (2 : stdgo.GoInt), (0 : stdgo.GoInt), (4 : stdgo.GoInt), (7 : stdgo.GoInt), (3 : stdgo.GoInt), (6 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(
-9,
-9,
-(4 : stdgo.GoInt),
-(0 : stdgo.GoInt),
-(6 : stdgo.GoInt),
-(8 : stdgo.GoInt),
-(1 : stdgo.GoInt),
-(5 : stdgo.GoInt),
-(2 : stdgo.GoInt),
-(7 : stdgo.GoInt),
-(3 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(
-10,
-10,
-(8 : stdgo.GoInt),
-(6 : stdgo.GoInt),
-(1 : stdgo.GoInt),
-(7 : stdgo.GoInt),
-(5 : stdgo.GoInt),
-(4 : stdgo.GoInt),
-(3 : stdgo.GoInt),
-(2 : stdgo.GoInt),
-(9 : stdgo.GoInt),
-(0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(
-16,
-16,
+(10 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(0, 0, ...[]) : stdgo.Slice<stdgo.GoInt>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(0 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(5, 5, ...[(3 : stdgo.GoInt), (0 : stdgo.GoInt), (1 : stdgo.GoInt), (2 : stdgo.GoInt), (4 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(8, 8, ...[(5 : stdgo.GoInt), (1 : stdgo.GoInt), (2 : stdgo.GoInt), (0 : stdgo.GoInt), (4 : stdgo.GoInt), (7 : stdgo.GoInt), (3 : stdgo.GoInt), (6 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(9, 9, ...[(4 : stdgo.GoInt), (0 : stdgo.GoInt), (6 : stdgo.GoInt), (8 : stdgo.GoInt), (1 : stdgo.GoInt), (5 : stdgo.GoInt), (2 : stdgo.GoInt), (7 : stdgo.GoInt), (3 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(10, 10, ...[(8 : stdgo.GoInt), (6 : stdgo.GoInt), (1 : stdgo.GoInt), (7 : stdgo.GoInt), (5 : stdgo.GoInt), (4 : stdgo.GoInt), (3 : stdgo.GoInt), (2 : stdgo.GoInt), (9 : stdgo.GoInt), (0 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(16, 16, ...[
 (0 : stdgo.GoInt),
 (3 : stdgo.GoInt),
 (13 : stdgo.GoInt),
@@ -316,148 +264,33 @@ stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(
 (12 : stdgo.GoInt),
 (9 : stdgo.GoInt),
 (5 : stdgo.GoInt),
-(11 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(0, 0) : stdgo.Slice<stdgo.GoInt>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(1, 1, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(5, 5, (0 : stdgo.GoInt), (4 : stdgo.GoInt), (2 : stdgo.GoInt), (1 : stdgo.GoInt), (3 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(8, 8, (2 : stdgo.GoInt), (1 : stdgo.GoInt), (7 : stdgo.GoInt), (0 : stdgo.GoInt), (6 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(
-9,
-9,
-(8 : stdgo.GoInt),
-(7 : stdgo.GoInt),
-(5 : stdgo.GoInt),
-(3 : stdgo.GoInt),
-(4 : stdgo.GoInt),
-(6 : stdgo.GoInt),
-(0 : stdgo.GoInt),
-(1 : stdgo.GoInt),
-(2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(
-10,
-10,
-(1 : stdgo.GoInt),
-(0 : stdgo.GoInt),
-(2 : stdgo.GoInt),
-(5 : stdgo.GoInt),
-(7 : stdgo.GoInt),
-(6 : stdgo.GoInt),
-(9 : stdgo.GoInt),
-(8 : stdgo.GoInt),
-(3 : stdgo.GoInt),
-(4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(1, 1, (1 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(7, 7, (148 : stdgo.GoUInt8), (253 : stdgo.GoUInt8), (194 : stdgo.GoUInt8), (250 : stdgo.GoUInt8), (47 : stdgo.GoUInt8), (252 : stdgo.GoUInt8), (192 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(8, 8, (65 : stdgo.GoUInt8), (211 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (18 : stdgo.GoUInt8), (4 : stdgo.GoUInt8), (91 : stdgo.GoUInt8), (115 : stdgo.GoUInt8), (200 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(
-9,
-9,
-(110 : stdgo.GoUInt8),
-(79 : stdgo.GoUInt8),
-(249 : stdgo.GoUInt8),
-(95 : stdgo.GoUInt8),
-(246 : stdgo.GoUInt8),
-(98 : stdgo.GoUInt8),
-(165 : stdgo.GoUInt8),
-(238 : stdgo.GoUInt8),
-(232 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(
-10,
-10,
-(42 : stdgo.GoUInt8),
-(189 : stdgo.GoUInt8),
-(244 : stdgo.GoUInt8),
-(74 : stdgo.GoUInt8),
-(45 : stdgo.GoUInt8),
-(11 : stdgo.GoUInt8),
-(117 : stdgo.GoUInt8),
-(251 : stdgo.GoUInt8),
-(24 : stdgo.GoUInt8),
-(13 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(1, 1, (175 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(7, 7, (72 : stdgo.GoUInt8), (167 : stdgo.GoUInt8), (158 : stdgo.GoUInt8), (224 : stdgo.GoUInt8), (177 : stdgo.GoUInt8), (13 : stdgo.GoUInt8), (57 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(8, 8, (70 : stdgo.GoUInt8), (81 : stdgo.GoUInt8), (133 : stdgo.GoUInt8), (15 : stdgo.GoUInt8), (212 : stdgo.GoUInt8), (161 : stdgo.GoUInt8), (120 : stdgo.GoUInt8), (137 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(
-9,
-9,
-(46 : stdgo.GoUInt8),
-(226 : stdgo.GoUInt8),
-(133 : stdgo.GoUInt8),
-(236 : stdgo.GoUInt8),
-(225 : stdgo.GoUInt8),
-(81 : stdgo.GoUInt8),
-(20 : stdgo.GoUInt8),
-(85 : stdgo.GoUInt8),
-(120 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(
-10,
-10,
-(8 : stdgo.GoUInt8),
-(117 : stdgo.GoUInt8),
-(214 : stdgo.GoUInt8),
-(78 : stdgo.GoUInt8),
-(226 : stdgo.GoUInt8),
-(211 : stdgo.GoUInt8),
-(208 : stdgo.GoUInt8),
-(208 : stdgo.GoUInt8),
-(222 : stdgo.GoUInt8),
-(107 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(1, 1, (248 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(7, 7, (249 : stdgo.GoUInt8), (180 : stdgo.GoUInt8), (76 : stdgo.GoUInt8), (232 : stdgo.GoUInt8), (95 : stdgo.GoUInt8), (240 : stdgo.GoUInt8), (68 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(8, 8, (198 : stdgo.GoUInt8), (177 : stdgo.GoUInt8), (248 : stdgo.GoUInt8), (59 : stdgo.GoUInt8), (142 : stdgo.GoUInt8), (136 : stdgo.GoUInt8), (59 : stdgo.GoUInt8), (191 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(
-9,
-9,
-(133 : stdgo.GoUInt8),
-(122 : stdgo.GoUInt8),
-(171 : stdgo.GoUInt8),
-(153 : stdgo.GoUInt8),
-(197 : stdgo.GoUInt8),
-(178 : stdgo.GoUInt8),
-(82 : stdgo.GoUInt8),
-(199 : stdgo.GoUInt8),
-(66 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(
-10,
-10,
-(156 : stdgo.GoUInt8),
-(50 : stdgo.GoUInt8),
-(243 : stdgo.GoUInt8),
-(168 : stdgo.GoUInt8),
-(174 : stdgo.GoUInt8),
-(183 : stdgo.GoUInt8),
-(158 : stdgo.GoUInt8),
-(248 : stdgo.GoUInt8),
-(86 : stdgo.GoUInt8),
-(246 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(1, 1, (89 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(7, 7, (193 : stdgo.GoUInt8), (143 : stdgo.GoUInt8), (13 : stdgo.GoUInt8), (206 : stdgo.GoUInt8), (204 : stdgo.GoUInt8), (119 : stdgo.GoUInt8), (199 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(8, 8, (94 : stdgo.GoUInt8), (122 : stdgo.GoUInt8), (129 : stdgo.GoUInt8), (191 : stdgo.GoUInt8), (222 : stdgo.GoUInt8), (39 : stdgo.GoUInt8), (95 : stdgo.GoUInt8), (103 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(
-9,
-9,
-(207 : stdgo.GoUInt8),
-(226 : stdgo.GoUInt8),
-(66 : stdgo.GoUInt8),
-(207 : stdgo.GoUInt8),
-(60 : stdgo.GoUInt8),
-(195 : stdgo.GoUInt8),
-(84 : stdgo.GoUInt8),
-(243 : stdgo.GoUInt8),
-(237 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)),
-stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(
-10,
-10,
-(226 : stdgo.GoUInt8),
-(214 : stdgo.GoUInt8),
-(190 : stdgo.GoUInt8),
-(204 : stdgo.GoUInt8),
-(78 : stdgo.GoUInt8),
-(163 : stdgo.GoUInt8),
-(174 : stdgo.GoUInt8),
-(94 : stdgo.GoUInt8),
-(136 : stdgo.GoUInt8),
-(82 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>)),
+(11 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(0, 0, ...[]) : stdgo.Slice<stdgo.GoInt>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(0 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(5, 5, ...[(0 : stdgo.GoInt), (4 : stdgo.GoInt), (2 : stdgo.GoInt), (1 : stdgo.GoInt), (3 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(8, 8, ...[(2 : stdgo.GoInt), (1 : stdgo.GoInt), (7 : stdgo.GoInt), (0 : stdgo.GoInt), (6 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(9, 9, ...[(8 : stdgo.GoInt), (7 : stdgo.GoInt), (5 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt), (6 : stdgo.GoInt), (0 : stdgo.GoInt), (1 : stdgo.GoInt), (2 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(10, 10, ...[(1 : stdgo.GoInt), (0 : stdgo.GoInt), (2 : stdgo.GoInt), (5 : stdgo.GoInt), (7 : stdgo.GoInt), (6 : stdgo.GoInt), (9 : stdgo.GoInt), (8 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(1 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(7, 7, ...[(148 : stdgo.GoUInt8), (253 : stdgo.GoUInt8), (194 : stdgo.GoUInt8), (250 : stdgo.GoUInt8), (47 : stdgo.GoUInt8), (252 : stdgo.GoUInt8), (192 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(8, 8, ...[(65 : stdgo.GoUInt8), (211 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (18 : stdgo.GoUInt8), (4 : stdgo.GoUInt8), (91 : stdgo.GoUInt8), (115 : stdgo.GoUInt8), (200 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(9, 9, ...[(110 : stdgo.GoUInt8), (79 : stdgo.GoUInt8), (249 : stdgo.GoUInt8), (95 : stdgo.GoUInt8), (246 : stdgo.GoUInt8), (98 : stdgo.GoUInt8), (165 : stdgo.GoUInt8), (238 : stdgo.GoUInt8), (232 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(10, 10, ...[(42 : stdgo.GoUInt8), (189 : stdgo.GoUInt8), (244 : stdgo.GoUInt8), (74 : stdgo.GoUInt8), (45 : stdgo.GoUInt8), (11 : stdgo.GoUInt8), (117 : stdgo.GoUInt8), (251 : stdgo.GoUInt8), (24 : stdgo.GoUInt8), (13 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(175 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(7, 7, ...[(72 : stdgo.GoUInt8), (167 : stdgo.GoUInt8), (158 : stdgo.GoUInt8), (224 : stdgo.GoUInt8), (177 : stdgo.GoUInt8), (13 : stdgo.GoUInt8), (57 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(8, 8, ...[(70 : stdgo.GoUInt8), (81 : stdgo.GoUInt8), (133 : stdgo.GoUInt8), (15 : stdgo.GoUInt8), (212 : stdgo.GoUInt8), (161 : stdgo.GoUInt8), (120 : stdgo.GoUInt8), (137 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(9, 9, ...[(46 : stdgo.GoUInt8), (226 : stdgo.GoUInt8), (133 : stdgo.GoUInt8), (236 : stdgo.GoUInt8), (225 : stdgo.GoUInt8), (81 : stdgo.GoUInt8), (20 : stdgo.GoUInt8), (85 : stdgo.GoUInt8), (120 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(10, 10, ...[(8 : stdgo.GoUInt8), (117 : stdgo.GoUInt8), (214 : stdgo.GoUInt8), (78 : stdgo.GoUInt8), (226 : stdgo.GoUInt8), (211 : stdgo.GoUInt8), (208 : stdgo.GoUInt8), (208 : stdgo.GoUInt8), (222 : stdgo.GoUInt8), (107 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(248 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(7, 7, ...[(249 : stdgo.GoUInt8), (180 : stdgo.GoUInt8), (76 : stdgo.GoUInt8), (232 : stdgo.GoUInt8), (95 : stdgo.GoUInt8), (240 : stdgo.GoUInt8), (68 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(8, 8, ...[(198 : stdgo.GoUInt8), (177 : stdgo.GoUInt8), (248 : stdgo.GoUInt8), (59 : stdgo.GoUInt8), (142 : stdgo.GoUInt8), (136 : stdgo.GoUInt8), (59 : stdgo.GoUInt8), (191 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(9, 9, ...[(133 : stdgo.GoUInt8), (122 : stdgo.GoUInt8), (171 : stdgo.GoUInt8), (153 : stdgo.GoUInt8), (197 : stdgo.GoUInt8), (178 : stdgo.GoUInt8), (82 : stdgo.GoUInt8), (199 : stdgo.GoUInt8), (66 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(10, 10, ...[(156 : stdgo.GoUInt8), (50 : stdgo.GoUInt8), (243 : stdgo.GoUInt8), (168 : stdgo.GoUInt8), (174 : stdgo.GoUInt8), (183 : stdgo.GoUInt8), (158 : stdgo.GoUInt8), (248 : stdgo.GoUInt8), (86 : stdgo.GoUInt8), (246 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(89 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(7, 7, ...[(193 : stdgo.GoUInt8), (143 : stdgo.GoUInt8), (13 : stdgo.GoUInt8), (206 : stdgo.GoUInt8), (204 : stdgo.GoUInt8), (119 : stdgo.GoUInt8), (199 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(8, 8, ...[(94 : stdgo.GoUInt8), (122 : stdgo.GoUInt8), (129 : stdgo.GoUInt8), (191 : stdgo.GoUInt8), (222 : stdgo.GoUInt8), (39 : stdgo.GoUInt8), (95 : stdgo.GoUInt8), (103 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(9, 9, ...[(207 : stdgo.GoUInt8), (226 : stdgo.GoUInt8), (66 : stdgo.GoUInt8), (207 : stdgo.GoUInt8), (60 : stdgo.GoUInt8), (195 : stdgo.GoUInt8), (84 : stdgo.GoUInt8), (243 : stdgo.GoUInt8), (237 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>)),
+stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUInt8>(10, 10, ...[(226 : stdgo.GoUInt8), (214 : stdgo.GoUInt8), (190 : stdgo.GoUInt8), (204 : stdgo.GoUInt8), (78 : stdgo.GoUInt8), (163 : stdgo.GoUInt8), (174 : stdgo.GoUInt8), (94 : stdgo.GoUInt8), (136 : stdgo.GoUInt8), (82 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>)),
 stdgo.Go.toInterface((-235380747u32 : stdgo.GoUInt32)),
 stdgo.Go.toInterface((1052117029u32 : stdgo.GoUInt32)),
 stdgo.Go.toInterface((-1477656590u32 : stdgo.GoUInt32)),
@@ -497,7 +330,7 @@ stdgo.Go.toInterface((-6883808320049659559i64 : stdgo.GoUInt64)),
 stdgo.Go.toInterface((-2078447788915794233i64 : stdgo.GoUInt64)),
 stdgo.Go.toInterface((161231572858529631i64 : stdgo.GoUInt64)),
 stdgo.Go.toInterface((-1963896117343857469i64 : stdgo.GoUInt64)),
-stdgo.Go.toInterface((-1850266556657611060i64 : stdgo.GoUInt64))) : stdgo.Slice<stdgo.AnyInterface>);
+stdgo.Go.toInterface((-1850266556657611060i64 : stdgo.GoUInt64))]) : stdgo.Slice<stdgo.AnyInterface>);
 @:structInit @:private @:using(stdgo._internal.math.rand_test.Rand_test.T_statsResults_static_extension) class T_statsResults {
     public var _mean : stdgo.GoFloat64 = 0;
     public var _stddev : stdgo.GoFloat64 = 0;
@@ -810,9 +643,7 @@ function _doDefaultTest(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _v:std
         };
     }
 function example():Void {
-        var _answers = (new stdgo.Slice<stdgo.GoString>(
-20,
-20,
+        var _answers = (new stdgo.Slice<stdgo.GoString>(20, 20, ...[
 ("It is certain" : stdgo.GoString),
 ("It is decidedly so" : stdgo.GoString),
 ("Without a doubt" : stdgo.GoString),
@@ -832,7 +663,7 @@ function example():Void {
 ("My reply is no" : stdgo.GoString),
 ("My sources say no" : stdgo.GoString),
 ("Outlook not so good" : stdgo.GoString),
-("Very doubtful" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+("Very doubtful" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(("Magic 8-Ball says:" : stdgo.GoString)), stdgo.Go.toInterface(_answers[(stdgo._internal.math.rand.Rand.intn((_answers.length)) : stdgo.GoInt)]));
     }
 function example_rand():Void {
@@ -1302,7 +1133,7 @@ function _testReadUniformity(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _
         _checkSampleDistribution(_t, _samples, _expected);
     }
 function testReadUniformity(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _testBufferSizes = (new stdgo.Slice<stdgo.GoInt>(7, 7, (2 : stdgo.GoInt), (4 : stdgo.GoInt), (7 : stdgo.GoInt), (64 : stdgo.GoInt), (1024 : stdgo.GoInt), (65536 : stdgo.GoInt), (1048576 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
+        var _testBufferSizes = (new stdgo.Slice<stdgo.GoInt>(7, 7, ...[(2 : stdgo.GoInt), (4 : stdgo.GoInt), (7 : stdgo.GoInt), (64 : stdgo.GoInt), (1024 : stdgo.GoInt), (65536 : stdgo.GoInt), (1048576 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
         for (__4 => _seed in _testSeeds) {
             for (__5 => _n in _testBufferSizes) {
                 _testReadUniformity(_t, _n, _seed);
@@ -1409,7 +1240,7 @@ function testUniformFactorial(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
                         });
                     };
                     var _p = new stdgo.Slice<stdgo.GoInt>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-                    var _tests = (new stdgo.GoArray<T__struct_0>(({ _name : ("Int31n" : stdgo.GoString), _fn : function():stdgo.GoInt {
+                    var _tests = (new stdgo.GoArray<T__struct_0>(4, 4, ...[({ _name : ("Int31n" : stdgo.GoString), _fn : function():stdgo.GoInt {
                         return (_r.int31n((_nfact : stdgo.GoInt32)) : stdgo.GoInt);
                     } } : T__struct_0), ({ _name : ("int31n" : stdgo.GoString), _fn : function():stdgo.GoInt {
                         return (int31nForTest(_r, (_nfact : stdgo.GoInt32)) : stdgo.GoInt);
@@ -1428,7 +1259,7 @@ function testUniformFactorial(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
                             };
                         });
                         return _encodePerm(_p);
-                    } } : T__struct_0)) : stdgo.GoArray<T__struct_0>);
+                    } } : T__struct_0)]) : stdgo.GoArray<T__struct_0>);
                     for (__12 => _test in _tests) {
                         _t.run(_test._name?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                             var _nsamples:stdgo.GoInt = ((10 : stdgo.GoInt) * _nfact : stdgo.GoInt);
@@ -1665,21 +1496,8 @@ function benchmarkConcurrent(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Vo
         _wg.wait_();
     }
 function testRegress(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _int32s:stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>(
-9,
-9,
-(1 : stdgo.GoInt32),
-(10 : stdgo.GoInt32),
-(32 : stdgo.GoInt32),
-(1048576 : stdgo.GoInt32),
-(1048577 : stdgo.GoInt32),
-(1000000000 : stdgo.GoInt32),
-(1073741824 : stdgo.GoInt32),
-(2147483646 : stdgo.GoInt32),
-(2147483647 : stdgo.GoInt32)) : stdgo.Slice<stdgo.GoInt32>);
-        var _int64s:stdgo.Slice<stdgo.GoInt64> = (new stdgo.Slice<stdgo.GoInt64>(
-13,
-13,
+        var _int32s:stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>(9, 9, ...[(1 : stdgo.GoInt32), (10 : stdgo.GoInt32), (32 : stdgo.GoInt32), (1048576 : stdgo.GoInt32), (1048577 : stdgo.GoInt32), (1000000000 : stdgo.GoInt32), (1073741824 : stdgo.GoInt32), (2147483646 : stdgo.GoInt32), (2147483647 : stdgo.GoInt32)]) : stdgo.Slice<stdgo.GoInt32>);
+        var _int64s:stdgo.Slice<stdgo.GoInt64> = (new stdgo.Slice<stdgo.GoInt64>(13, 13, ...[
 (1i64 : stdgo.GoInt64),
 (10i64 : stdgo.GoInt64),
 (32i64 : stdgo.GoInt64),
@@ -1692,9 +1510,9 @@ function testRegress(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 (1000000000000000000i64 : stdgo.GoInt64),
 (1152921504606846976i64 : stdgo.GoInt64),
 (9223372036854775806i64 : stdgo.GoInt64),
-(9223372036854775807i64 : stdgo.GoInt64)) : stdgo.Slice<stdgo.GoInt64>);
-        var _permSizes:stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(7, 7, (0 : stdgo.GoInt), (1 : stdgo.GoInt), (5 : stdgo.GoInt), (8 : stdgo.GoInt), (9 : stdgo.GoInt), (10 : stdgo.GoInt), (16 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
-        var _readBufferSizes:stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(5, 5, (1 : stdgo.GoInt), (7 : stdgo.GoInt), (8 : stdgo.GoInt), (9 : stdgo.GoInt), (10 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
+(9223372036854775807i64 : stdgo.GoInt64)]) : stdgo.Slice<stdgo.GoInt64>);
+        var _permSizes:stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(7, 7, ...[(0 : stdgo.GoInt), (1 : stdgo.GoInt), (5 : stdgo.GoInt), (8 : stdgo.GoInt), (9 : stdgo.GoInt), (10 : stdgo.GoInt), (16 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
+        var _readBufferSizes:stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(5, 5, ...[(1 : stdgo.GoInt), (7 : stdgo.GoInt), (8 : stdgo.GoInt), (9 : stdgo.GoInt), (10 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
         var _r = new_(newSource((0i64 : stdgo.GoInt64)));
         var _rv:stdgo._internal.reflect.Reflect.Value = stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface(_r)))?.__copy__();
         var _n:stdgo.GoInt = _rv.numMethod();

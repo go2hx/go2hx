@@ -24,7 +24,7 @@ typedef Error = stdgo.StructType & {
     }
 }
 @:structInit @:using(stdgo._internal.runtime.Runtime.StackRecord_static_extension) class StackRecord {
-    public var stack0 : stdgo.GoArray<stdgo.GoUIntptr> = new stdgo.GoArray<stdgo.GoUIntptr>(...[for (i in 0 ... 32) (0 : stdgo.GoUIntptr)]);
+    public var stack0 : stdgo.GoArray<stdgo.GoUIntptr> = new stdgo.GoArray<stdgo.GoUIntptr>(32, 32, ...[for (i in 0 ... 32) (0 : stdgo.GoUIntptr)]);
     public function new(?stack0:stdgo.GoArray<stdgo.GoUIntptr>) {
         if (stack0 != null) this.stack0 = stack0;
     }
@@ -38,7 +38,7 @@ typedef Error = stdgo.StructType & {
     public var freeBytes : stdgo.GoInt64 = 0;
     public var allocObjects : stdgo.GoInt64 = 0;
     public var freeObjects : stdgo.GoInt64 = 0;
-    public var stack0 : stdgo.GoArray<stdgo.GoUIntptr> = new stdgo.GoArray<stdgo.GoUIntptr>(...[for (i in 0 ... 32) (0 : stdgo.GoUIntptr)]);
+    public var stack0 : stdgo.GoArray<stdgo.GoUIntptr> = new stdgo.GoArray<stdgo.GoUIntptr>(32, 32, ...[for (i in 0 ... 32) (0 : stdgo.GoUIntptr)]);
     public function new(?allocBytes:stdgo.GoInt64, ?freeBytes:stdgo.GoInt64, ?allocObjects:stdgo.GoInt64, ?freeObjects:stdgo.GoInt64, ?stack0:stdgo.GoArray<stdgo.GoUIntptr>) {
         if (allocBytes != null) this.allocBytes = allocBytes;
         if (freeBytes != null) this.freeBytes = freeBytes;
@@ -93,14 +93,14 @@ typedef Error = stdgo.StructType & {
     public var nextGC : stdgo.GoUInt64 = 0;
     public var lastGC : stdgo.GoUInt64 = 0;
     public var pauseTotalNs : stdgo.GoUInt64 = 0;
-    public var pauseNs : stdgo.GoArray<stdgo.GoUInt64> = new stdgo.GoArray<stdgo.GoUInt64>(...[for (i in 0 ... 256) (0 : stdgo.GoUInt64)]);
-    public var pauseEnd : stdgo.GoArray<stdgo.GoUInt64> = new stdgo.GoArray<stdgo.GoUInt64>(...[for (i in 0 ... 256) (0 : stdgo.GoUInt64)]);
+    public var pauseNs : stdgo.GoArray<stdgo.GoUInt64> = new stdgo.GoArray<stdgo.GoUInt64>(256, 256, ...[for (i in 0 ... 256) (0 : stdgo.GoUInt64)]);
+    public var pauseEnd : stdgo.GoArray<stdgo.GoUInt64> = new stdgo.GoArray<stdgo.GoUInt64>(256, 256, ...[for (i in 0 ... 256) (0 : stdgo.GoUInt64)]);
     public var numGC : stdgo.GoUInt32 = 0;
     public var numForcedGC : stdgo.GoUInt32 = 0;
     public var gccpufraction : stdgo.GoFloat64 = 0;
     public var enableGC : Bool = false;
     public var debugGC : Bool = false;
-    public var bySize : stdgo.GoArray<{ var size : stdgo.GoUInt32; var mallocs : stdgo.GoUInt64; var frees : stdgo.GoUInt64; }> = new stdgo.GoArray<{ var size : stdgo.GoUInt32; var mallocs : stdgo.GoUInt64; var frees : stdgo.GoUInt64; }>(...[for (i in 0 ... 61) { size : (0 : stdgo.GoUInt32), mallocs : (0 : stdgo.GoUInt64), frees : (0 : stdgo.GoUInt64) }]);
+    public var bySize : stdgo.GoArray<{ var size : stdgo.GoUInt32; var mallocs : stdgo.GoUInt64; var frees : stdgo.GoUInt64; }> = new stdgo.GoArray<{ var size : stdgo.GoUInt32; var mallocs : stdgo.GoUInt64; var frees : stdgo.GoUInt64; }>(61, 61, ...[for (i in 0 ... 61) { size : (0 : stdgo.GoUInt32), mallocs : (0 : stdgo.GoUInt64), frees : (0 : stdgo.GoUInt64) }]);
     public function new(?alloc:stdgo.GoUInt64, ?totalAlloc:stdgo.GoUInt64, ?sys:stdgo.GoUInt64, ?lookups:stdgo.GoUInt64, ?mallocs:stdgo.GoUInt64, ?frees:stdgo.GoUInt64, ?heapAlloc:stdgo.GoUInt64, ?heapSys:stdgo.GoUInt64, ?heapIdle:stdgo.GoUInt64, ?heapInuse:stdgo.GoUInt64, ?heapReleased:stdgo.GoUInt64, ?heapObjects:stdgo.GoUInt64, ?stackInuse:stdgo.GoUInt64, ?stackSys:stdgo.GoUInt64, ?mspanInuse:stdgo.GoUInt64, ?mspanSys:stdgo.GoUInt64, ?mcacheInuse:stdgo.GoUInt64, ?mcacheSys:stdgo.GoUInt64, ?buckHashSys:stdgo.GoUInt64, ?gcsys:stdgo.GoUInt64, ?otherSys:stdgo.GoUInt64, ?nextGC:stdgo.GoUInt64, ?lastGC:stdgo.GoUInt64, ?pauseTotalNs:stdgo.GoUInt64, ?pauseNs:stdgo.GoArray<stdgo.GoUInt64>, ?pauseEnd:stdgo.GoArray<stdgo.GoUInt64>, ?numGC:stdgo.GoUInt32, ?numForcedGC:stdgo.GoUInt32, ?gccpufraction:stdgo.GoFloat64, ?enableGC:Bool, ?debugGC:Bool, ?bySize:stdgo.GoArray<{ var size : stdgo.GoUInt32; var mallocs : stdgo.GoUInt64; var frees : stdgo.GoUInt64; }>) {
         if (alloc != null) this.alloc = alloc;
         if (totalAlloc != null) this.totalAlloc = totalAlloc;

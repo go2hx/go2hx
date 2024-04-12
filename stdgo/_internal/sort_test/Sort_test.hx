@@ -15,19 +15,8 @@ final __ReverseSecondHalf = (6i64 : stdgo.GoUInt64);
 final __Sorted = (6i64 : stdgo.GoUInt64);
 final __Dither = (6i64 : stdgo.GoUInt64);
 final __NMode = (6i64 : stdgo.GoUInt64);
-var _planets : stdgo.Slice<stdgo._internal.sort_test.Sort_test.Planet> = (new stdgo.Slice<stdgo._internal.sort_test.Sort_test.Planet>(4, 4, (new stdgo._internal.sort_test.Sort_test.Planet(("Mercury" : stdgo.GoString), (0.055 : stdgo.GoFloat64), (0.4 : stdgo.GoFloat64)) : stdgo._internal.sort_test.Sort_test.Planet), (new stdgo._internal.sort_test.Sort_test.Planet(("Venus" : stdgo.GoString), (0.815 : stdgo.GoFloat64), (0.7 : stdgo.GoFloat64)) : stdgo._internal.sort_test.Sort_test.Planet), (new stdgo._internal.sort_test.Sort_test.Planet(("Earth" : stdgo.GoString), (1 : stdgo.GoFloat64), (1 : stdgo.GoFloat64)) : stdgo._internal.sort_test.Sort_test.Planet), (new stdgo._internal.sort_test.Sort_test.Planet(("Mars" : stdgo.GoString), (0.107 : stdgo.GoFloat64), (1.5 : stdgo.GoFloat64)) : stdgo._internal.sort_test.Sort_test.Planet)) : stdgo.Slice<stdgo._internal.sort_test.Sort_test.Planet>);
-var _changes : stdgo.Slice<stdgo._internal.sort_test.Sort_test.Change> = (new stdgo.Slice<stdgo._internal.sort_test.Sort_test.Change>(
-9,
-9,
-(new stdgo._internal.sort_test.Sort_test.Change(("gri" : stdgo.GoString), ("Go" : stdgo.GoString), (100 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change),
-(new stdgo._internal.sort_test.Sort_test.Change(("ken" : stdgo.GoString), ("C" : stdgo.GoString), (150 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change),
-(new stdgo._internal.sort_test.Sort_test.Change(("glenda" : stdgo.GoString), ("Go" : stdgo.GoString), (200 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change),
-(new stdgo._internal.sort_test.Sort_test.Change(("rsc" : stdgo.GoString), ("Go" : stdgo.GoString), (200 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change),
-(new stdgo._internal.sort_test.Sort_test.Change(("r" : stdgo.GoString), ("Go" : stdgo.GoString), (100 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change),
-(new stdgo._internal.sort_test.Sort_test.Change(("ken" : stdgo.GoString), ("Go" : stdgo.GoString), (200 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change),
-(new stdgo._internal.sort_test.Sort_test.Change(("dmr" : stdgo.GoString), ("C" : stdgo.GoString), (100 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change),
-(new stdgo._internal.sort_test.Sort_test.Change(("r" : stdgo.GoString), ("C" : stdgo.GoString), (150 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change),
-(new stdgo._internal.sort_test.Sort_test.Change(("gri" : stdgo.GoString), ("Smalltalk" : stdgo.GoString), (80 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change)) : stdgo.Slice<stdgo._internal.sort_test.Sort_test.Change>);
+var _planets : stdgo.Slice<stdgo._internal.sort_test.Sort_test.Planet> = (new stdgo.Slice<stdgo._internal.sort_test.Sort_test.Planet>(4, 4, ...[(new stdgo._internal.sort_test.Sort_test.Planet(("Mercury" : stdgo.GoString), (0.055 : stdgo.GoFloat64), (0.4 : stdgo.GoFloat64)) : stdgo._internal.sort_test.Sort_test.Planet), (new stdgo._internal.sort_test.Sort_test.Planet(("Venus" : stdgo.GoString), (0.815 : stdgo.GoFloat64), (0.7 : stdgo.GoFloat64)) : stdgo._internal.sort_test.Sort_test.Planet), (new stdgo._internal.sort_test.Sort_test.Planet(("Earth" : stdgo.GoString), (1 : stdgo.GoFloat64), (1 : stdgo.GoFloat64)) : stdgo._internal.sort_test.Sort_test.Planet), (new stdgo._internal.sort_test.Sort_test.Planet(("Mars" : stdgo.GoString), (0.107 : stdgo.GoFloat64), (1.5 : stdgo.GoFloat64)) : stdgo._internal.sort_test.Sort_test.Planet)]) : stdgo.Slice<stdgo._internal.sort_test.Sort_test.Planet>);
+var _changes : stdgo.Slice<stdgo._internal.sort_test.Sort_test.Change> = (new stdgo.Slice<stdgo._internal.sort_test.Sort_test.Change>(9, 9, ...[(new stdgo._internal.sort_test.Sort_test.Change(("gri" : stdgo.GoString), ("Go" : stdgo.GoString), (100 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("ken" : stdgo.GoString), ("C" : stdgo.GoString), (150 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("glenda" : stdgo.GoString), ("Go" : stdgo.GoString), (200 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("rsc" : stdgo.GoString), ("Go" : stdgo.GoString), (200 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("r" : stdgo.GoString), ("Go" : stdgo.GoString), (100 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("ken" : stdgo.GoString), ("Go" : stdgo.GoString), (200 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("dmr" : stdgo.GoString), ("C" : stdgo.GoString), (100 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("r" : stdgo.GoString), ("C" : stdgo.GoString), (150 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("gri" : stdgo.GoString), ("Smalltalk" : stdgo.GoString), (80 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change)]) : stdgo.Slice<stdgo._internal.sort_test.Sort_test.Change>);
 var _data : stdgo.Slice<stdgo.GoInt> = {
         var s = new stdgo.Slice<stdgo.GoInt>(14, 0).__setNumber32__();
         s[0] = (-10 : stdgo.GoInt);
@@ -46,9 +35,7 @@ var _data : stdgo.Slice<stdgo.GoInt> = {
         s[13] = (10000 : stdgo.GoInt);
         s;
     };
-var _tests : stdgo.Slice<T__struct_1> = (new stdgo.Slice<T__struct_1>(
-22,
-22,
+var _tests : stdgo.Slice<T__struct_1> = (new stdgo.Slice<T__struct_1>(22, 22, ...[
 ({ _name : ("empty" : stdgo.GoString), _n : (0 : stdgo.GoInt), _f : null, _i : (0 : stdgo.GoInt) } : T__struct_1),
 ({ _name : ("1 1" : stdgo.GoString), _n : (1 : stdgo.GoInt), _f : function(_i:stdgo.GoInt):Bool {
         return (_i >= (1 : stdgo.GoInt) : Bool);
@@ -81,14 +68,14 @@ var _tests : stdgo.Slice<T__struct_1> = (new stdgo.Slice<T__struct_1>(
 ({ _name : ("data 10000" : stdgo.GoString), _n : (_data.length), _f : _f(_data, (10000 : stdgo.GoInt)), _i : (13 : stdgo.GoInt) } : T__struct_1),
 ({ _name : ("data 10001" : stdgo.GoString), _n : (_data.length), _f : _f(_data, (10001 : stdgo.GoInt)), _i : (14 : stdgo.GoInt) } : T__struct_1),
 ({ _name : ("descending a" : stdgo.GoString), _n : (7 : stdgo.GoInt), _f : function(_i:stdgo.GoInt):Bool {
-        return ((new stdgo.Slice<stdgo.GoInt>(8, 8, (99 : stdgo.GoInt), (99 : stdgo.GoInt), (59 : stdgo.GoInt), (42 : stdgo.GoInt), (7 : stdgo.GoInt), (0 : stdgo.GoInt), (-1 : stdgo.GoInt), (-1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)[(_i : stdgo.GoInt)] <= (7 : stdgo.GoInt) : Bool);
+        return ((new stdgo.Slice<stdgo.GoInt>(8, 8, ...[(99 : stdgo.GoInt), (99 : stdgo.GoInt), (59 : stdgo.GoInt), (42 : stdgo.GoInt), (7 : stdgo.GoInt), (0 : stdgo.GoInt), (-1 : stdgo.GoInt), (-1 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>)[(_i : stdgo.GoInt)] <= (7 : stdgo.GoInt) : Bool);
     }, _i : (4 : stdgo.GoInt) } : T__struct_1),
 ({ _name : ("descending 7" : stdgo.GoString), _n : (1000000000 : stdgo.GoInt), _f : function(_i:stdgo.GoInt):Bool {
         return (((1000000000 : stdgo.GoInt) - _i : stdgo.GoInt) <= (7 : stdgo.GoInt) : Bool);
     }, _i : (999999993 : stdgo.GoInt) } : T__struct_1),
 ({ _name : ("overflow" : stdgo.GoString), _n : (2000000000 : stdgo.GoInt), _f : function(_i:stdgo.GoInt):Bool {
         return false;
-    }, _i : (2000000000 : stdgo.GoInt) } : T__struct_1)) : stdgo.Slice<T__struct_1>);
+    }, _i : (2000000000 : stdgo.GoInt) } : T__struct_1)]) : stdgo.Slice<T__struct_1>);
 var _fdata : stdgo.Slice<stdgo.GoFloat64> = {
         var s = new stdgo.Slice<stdgo.GoFloat64>(5, 0).__setNumber32__();
         s[0] = (-3.14 : stdgo.GoFloat64);
@@ -106,8 +93,8 @@ var _sdata : stdgo.Slice<stdgo.GoString> = {
         s[3] = ("x" : stdgo.GoString);
         s;
     };
-var _wrappertests : stdgo.Slice<T__struct_3> = (new stdgo.Slice<T__struct_3>(6, 6, ({ _name : ("SearchInts" : stdgo.GoString), _result : searchInts(_data, (11 : stdgo.GoInt)), _i : (8 : stdgo.GoInt) } : T__struct_3), ({ _name : ("SearchFloat64s" : stdgo.GoString), _result : searchFloat64s(_fdata, (2.1 : stdgo.GoFloat64)), _i : (4 : stdgo.GoInt) } : T__struct_3), ({ _name : ("SearchStrings" : stdgo.GoString), _result : searchStrings(_sdata, stdgo.Go.str()?.__copy__()), _i : (0 : stdgo.GoInt) } : T__struct_3), ({ _name : ("IntSlice.Search" : stdgo.GoString), _result : (_data : IntSlice).search((0 : stdgo.GoInt)), _i : (2 : stdgo.GoInt) } : T__struct_3), ({ _name : ("Float64Slice.Search" : stdgo.GoString), _result : (_fdata : Float64Slice).search((2 : stdgo.GoFloat64)), _i : (3 : stdgo.GoInt) } : T__struct_3), ({ _name : ("StringSlice.Search" : stdgo.GoString), _result : (_sdata : StringSlice).search(("x" : stdgo.GoString)), _i : (3 : stdgo.GoInt) } : T__struct_3)) : stdgo.Slice<T__struct_3>);
-var _ints : stdgo.GoArray<stdgo.GoInt> = (new stdgo.GoArray<stdgo.GoInt>(
+var _wrappertests : stdgo.Slice<T__struct_3> = (new stdgo.Slice<T__struct_3>(6, 6, ...[({ _name : ("SearchInts" : stdgo.GoString), _result : searchInts(_data, (11 : stdgo.GoInt)), _i : (8 : stdgo.GoInt) } : T__struct_3), ({ _name : ("SearchFloat64s" : stdgo.GoString), _result : searchFloat64s(_fdata, (2.1 : stdgo.GoFloat64)), _i : (4 : stdgo.GoInt) } : T__struct_3), ({ _name : ("SearchStrings" : stdgo.GoString), _result : searchStrings(_sdata, stdgo.Go.str()?.__copy__()), _i : (0 : stdgo.GoInt) } : T__struct_3), ({ _name : ("IntSlice.Search" : stdgo.GoString), _result : (_data : IntSlice).search((0 : stdgo.GoInt)), _i : (2 : stdgo.GoInt) } : T__struct_3), ({ _name : ("Float64Slice.Search" : stdgo.GoString), _result : (_fdata : Float64Slice).search((2 : stdgo.GoFloat64)), _i : (3 : stdgo.GoInt) } : T__struct_3), ({ _name : ("StringSlice.Search" : stdgo.GoString), _result : (_sdata : StringSlice).search(("x" : stdgo.GoString)), _i : (3 : stdgo.GoInt) } : T__struct_3)]) : stdgo.Slice<T__struct_3>);
+var _ints : stdgo.GoArray<stdgo.GoInt> = (new stdgo.GoArray<stdgo.GoInt>(13, 13, ...[
 (74 : stdgo.GoInt),
 (59 : stdgo.GoInt),
 (238 : stdgo.GoInt),
@@ -120,8 +107,8 @@ var _ints : stdgo.GoArray<stdgo.GoInt> = (new stdgo.GoArray<stdgo.GoInt>(
 (42 : stdgo.GoInt),
 (7586 : stdgo.GoInt),
 (-5467984 : stdgo.GoInt),
-(7586 : stdgo.GoInt)) : stdgo.GoArray<stdgo.GoInt>);
-var _float64s : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>(
+(7586 : stdgo.GoInt)]) : stdgo.GoArray<stdgo.GoInt>);
+var _float64s : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>(14, 14, ...[
 (74.3 : stdgo.GoFloat64),
 (59 : stdgo.GoFloat64),
 stdgo._internal.math.Math.inf((1 : stdgo.GoInt)),
@@ -135,20 +122,9 @@ stdgo._internal.math.Math.inf((-1 : stdgo.GoInt)),
 (-959.7485 : stdgo.GoFloat64),
 (905 : stdgo.GoFloat64),
 (7.8 : stdgo.GoFloat64),
-(7.8 : stdgo.GoFloat64)) : stdgo.GoArray<stdgo.GoFloat64>);
-var _strings : stdgo.GoArray<stdgo.GoString> = (new stdgo.GoArray<stdgo.GoString>(stdgo.Go.str()?.__copy__(), ("Hello" : stdgo.GoString), ("foo" : stdgo.GoString), ("bar" : stdgo.GoString), ("foo" : stdgo.GoString), ("f00" : stdgo.GoString), ("%*&^*&^&" : stdgo.GoString), ("***" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>);
-var _countOpsSizes : stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(
-9,
-9,
-(100 : stdgo.GoInt),
-(300 : stdgo.GoInt),
-(1000 : stdgo.GoInt),
-(3000 : stdgo.GoInt),
-(10000 : stdgo.GoInt),
-(30000 : stdgo.GoInt),
-(100000 : stdgo.GoInt),
-(300000 : stdgo.GoInt),
-(1000000 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
+(7.8 : stdgo.GoFloat64)]) : stdgo.GoArray<stdgo.GoFloat64>);
+var _strings : stdgo.GoArray<stdgo.GoString> = (new stdgo.GoArray<stdgo.GoString>(8, 8, ...[stdgo.Go.str()?.__copy__(), ("Hello" : stdgo.GoString), ("foo" : stdgo.GoString), ("bar" : stdgo.GoString), ("foo" : stdgo.GoString), ("f00" : stdgo.GoString), ("%*&^*&^&" : stdgo.GoString), ("***" : stdgo.GoString)]) : stdgo.GoArray<stdgo.GoString>);
+var _countOpsSizes : stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(9, 9, ...[(100 : stdgo.GoInt), (300 : stdgo.GoInt), (1000 : stdgo.GoInt), (3000 : stdgo.GoInt), (10000 : stdgo.GoInt), (30000 : stdgo.GoInt), (100000 : stdgo.GoInt), (300000 : stdgo.GoInt), (1000000 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
 @:structInit @:using(stdgo._internal.sort_test.Sort_test.Person_static_extension) class Person {
     public var name : stdgo.GoString = "";
     public var age : stdgo.GoInt = 0;
@@ -401,7 +377,7 @@ class T__struct_4_asInterface {
 @:named @:using(stdgo._internal.sort_test.Sort_test.Organs_static_extension) typedef Organs = stdgo.Slice<stdgo.Ref<stdgo._internal.sort_test.Sort_test.Organ>>;
 @:named @:using(stdgo._internal.sort_test.Sort_test.T_intPairs_static_extension) typedef T_intPairs = stdgo.Slice<T__struct_4>;
 function example():Void {
-        var _people = (new stdgo.Slice<stdgo._internal.sort_test.Sort_test.Person>(4, 4, (new stdgo._internal.sort_test.Sort_test.Person(("Bob" : stdgo.GoString), (31 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Person), (new stdgo._internal.sort_test.Sort_test.Person(("John" : stdgo.GoString), (42 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Person), (new stdgo._internal.sort_test.Sort_test.Person(("Michael" : stdgo.GoString), (17 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Person), (new stdgo._internal.sort_test.Sort_test.Person(("Jenny" : stdgo.GoString), (26 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Person)) : stdgo.Slice<stdgo._internal.sort_test.Sort_test.Person>);
+        var _people = (new stdgo.Slice<stdgo._internal.sort_test.Sort_test.Person>(4, 4, ...[(new stdgo._internal.sort_test.Sort_test.Person(("Bob" : stdgo.GoString), (31 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Person), (new stdgo._internal.sort_test.Sort_test.Person(("John" : stdgo.GoString), (42 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Person), (new stdgo._internal.sort_test.Sort_test.Person(("Michael" : stdgo.GoString), (17 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Person), (new stdgo._internal.sort_test.Sort_test.Person(("Jenny" : stdgo.GoString), (26 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Person)]) : stdgo.Slice<stdgo._internal.sort_test.Sort_test.Person>);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_people));
         stdgo._internal.sort.Sort.sort(stdgo.Go.asInterface((_people : ByAge)));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_people));
@@ -461,19 +437,7 @@ function example_sortMultiKeys():Void {
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(("By language,<lines,user:" : stdgo.GoString)), stdgo.Go.toInterface(_changes));
     }
 function exampleSearch():Void {
-        var _a = (new stdgo.Slice<stdgo.GoInt>(
-10,
-10,
-(1 : stdgo.GoInt),
-(3 : stdgo.GoInt),
-(6 : stdgo.GoInt),
-(10 : stdgo.GoInt),
-(15 : stdgo.GoInt),
-(21 : stdgo.GoInt),
-(28 : stdgo.GoInt),
-(36 : stdgo.GoInt),
-(45 : stdgo.GoInt),
-(55 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
+        var _a = (new stdgo.Slice<stdgo.GoInt>(10, 10, ...[(1 : stdgo.GoInt), (3 : stdgo.GoInt), (6 : stdgo.GoInt), (10 : stdgo.GoInt), (15 : stdgo.GoInt), (21 : stdgo.GoInt), (28 : stdgo.GoInt), (36 : stdgo.GoInt), (45 : stdgo.GoInt), (55 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
         var _x:stdgo.GoInt = (6 : stdgo.GoInt);
         var _i:stdgo.GoInt = stdgo._internal.sort.Sort.search((_a.length), function(_i:stdgo.GoInt):Bool {
             return (_a[(_i : stdgo.GoInt)] >= _x : Bool);
@@ -485,19 +449,7 @@ function exampleSearch():Void {
         };
     }
 function exampleSearch_descendingOrder():Void {
-        var _a = (new stdgo.Slice<stdgo.GoInt>(
-10,
-10,
-(55 : stdgo.GoInt),
-(45 : stdgo.GoInt),
-(36 : stdgo.GoInt),
-(28 : stdgo.GoInt),
-(21 : stdgo.GoInt),
-(15 : stdgo.GoInt),
-(10 : stdgo.GoInt),
-(6 : stdgo.GoInt),
-(3 : stdgo.GoInt),
-(1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
+        var _a = (new stdgo.Slice<stdgo.GoInt>(10, 10, ...[(55 : stdgo.GoInt), (45 : stdgo.GoInt), (36 : stdgo.GoInt), (28 : stdgo.GoInt), (21 : stdgo.GoInt), (15 : stdgo.GoInt), (10 : stdgo.GoInt), (6 : stdgo.GoInt), (3 : stdgo.GoInt), (1 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
         var _x:stdgo.GoInt = (6 : stdgo.GoInt);
         var _i:stdgo.GoInt = stdgo._internal.sort.Sort.search((_a.length), function(_i:stdgo.GoInt):Bool {
             return (_a[(_i : stdgo.GoInt)] <= _x : Bool);
@@ -509,7 +461,7 @@ function exampleSearch_descendingOrder():Void {
         };
     }
 function exampleSearchFloat64s():Void {
-        var _a = (new stdgo.Slice<stdgo.GoFloat64>(7, 7, (1 : stdgo.GoFloat64), (2 : stdgo.GoFloat64), (3.3 : stdgo.GoFloat64), (4.6 : stdgo.GoFloat64), (6.1 : stdgo.GoFloat64), (7.2 : stdgo.GoFloat64), (8 : stdgo.GoFloat64)) : stdgo.Slice<stdgo.GoFloat64>);
+        var _a = (new stdgo.Slice<stdgo.GoFloat64>(7, 7, ...[(1 : stdgo.GoFloat64), (2 : stdgo.GoFloat64), (3.3 : stdgo.GoFloat64), (4.6 : stdgo.GoFloat64), (6.1 : stdgo.GoFloat64), (7.2 : stdgo.GoFloat64), (8 : stdgo.GoFloat64)]) : stdgo.Slice<stdgo.GoFloat64>);
         var _x:stdgo.GoFloat64 = (2 : stdgo.GoFloat64);
         var _i:stdgo.GoInt = stdgo._internal.sort.Sort.searchFloat64s(_a, _x);
         stdgo._internal.fmt.Fmt.printf(("found %g at index %d in %v\n" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_a));
@@ -518,7 +470,7 @@ function exampleSearchFloat64s():Void {
         stdgo._internal.fmt.Fmt.printf(("%g not found, can be inserted at index %d in %v\n" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_a));
     }
 function exampleSearchInts():Void {
-        var _a = (new stdgo.Slice<stdgo.GoInt>(7, 7, (1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt), (6 : stdgo.GoInt), (7 : stdgo.GoInt), (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
+        var _a = (new stdgo.Slice<stdgo.GoInt>(7, 7, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt), (6 : stdgo.GoInt), (7 : stdgo.GoInt), (8 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
         var _x:stdgo.GoInt = (2 : stdgo.GoInt);
         var _i:stdgo.GoInt = stdgo._internal.sort.Sort.searchInts(_a, _x);
         stdgo._internal.fmt.Fmt.printf(("found %d at index %d in %v\n" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_a));
@@ -527,41 +479,41 @@ function exampleSearchInts():Void {
         stdgo._internal.fmt.Fmt.printf(("%d not found, can be inserted at index %d in %v\n" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_a));
     }
 function exampleInts():Void {
-        var _s = (new stdgo.Slice<stdgo.GoInt>(6, 6, (5 : stdgo.GoInt), (2 : stdgo.GoInt), (6 : stdgo.GoInt), (3 : stdgo.GoInt), (1 : stdgo.GoInt), (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
+        var _s = (new stdgo.Slice<stdgo.GoInt>(6, 6, ...[(5 : stdgo.GoInt), (2 : stdgo.GoInt), (6 : stdgo.GoInt), (3 : stdgo.GoInt), (1 : stdgo.GoInt), (4 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
         stdgo._internal.sort.Sort.ints(_s);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
     }
 function exampleIntsAreSorted():Void {
-        var _s = (new stdgo.Slice<stdgo.GoInt>(6, 6, (1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt), (6 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
+        var _s = (new stdgo.Slice<stdgo.GoInt>(6, 6, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt), (6 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.sort.Sort.intsAreSorted(_s)));
-        _s = (new stdgo.Slice<stdgo.GoInt>(6, 6, (6 : stdgo.GoInt), (5 : stdgo.GoInt), (4 : stdgo.GoInt), (3 : stdgo.GoInt), (2 : stdgo.GoInt), (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
+        _s = (new stdgo.Slice<stdgo.GoInt>(6, 6, ...[(6 : stdgo.GoInt), (5 : stdgo.GoInt), (4 : stdgo.GoInt), (3 : stdgo.GoInt), (2 : stdgo.GoInt), (1 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.sort.Sort.intsAreSorted(_s)));
-        _s = (new stdgo.Slice<stdgo.GoInt>(5, 5, (3 : stdgo.GoInt), (2 : stdgo.GoInt), (4 : stdgo.GoInt), (1 : stdgo.GoInt), (5 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
+        _s = (new stdgo.Slice<stdgo.GoInt>(5, 5, ...[(3 : stdgo.GoInt), (2 : stdgo.GoInt), (4 : stdgo.GoInt), (1 : stdgo.GoInt), (5 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.sort.Sort.intsAreSorted(_s)));
     }
 function exampleFloat64s():Void {
-        var _s = (new stdgo.Slice<stdgo.GoFloat64>(5, 5, (5.2 : stdgo.GoFloat64), (-1.3 : stdgo.GoFloat64), (0.7 : stdgo.GoFloat64), (-3.8 : stdgo.GoFloat64), (2.6 : stdgo.GoFloat64)) : stdgo.Slice<stdgo.GoFloat64>);
+        var _s = (new stdgo.Slice<stdgo.GoFloat64>(5, 5, ...[(5.2 : stdgo.GoFloat64), (-1.3 : stdgo.GoFloat64), (0.7 : stdgo.GoFloat64), (-3.8 : stdgo.GoFloat64), (2.6 : stdgo.GoFloat64)]) : stdgo.Slice<stdgo.GoFloat64>);
         stdgo._internal.sort.Sort.float64s(_s);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
-        _s = (new stdgo.Slice<stdgo.GoFloat64>(4, 4, stdgo._internal.math.Math.inf((1 : stdgo.GoInt)), stdgo._internal.math.Math.naN(), stdgo._internal.math.Math.inf((-1 : stdgo.GoInt)), (0 : stdgo.GoFloat64)) : stdgo.Slice<stdgo.GoFloat64>);
+        _s = (new stdgo.Slice<stdgo.GoFloat64>(4, 4, ...[stdgo._internal.math.Math.inf((1 : stdgo.GoInt)), stdgo._internal.math.Math.naN(), stdgo._internal.math.Math.inf((-1 : stdgo.GoInt)), (0 : stdgo.GoFloat64)]) : stdgo.Slice<stdgo.GoFloat64>);
         stdgo._internal.sort.Sort.float64s(_s);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
     }
 function exampleFloat64sAreSorted():Void {
-        var _s = (new stdgo.Slice<stdgo.GoFloat64>(5, 5, (0.7 : stdgo.GoFloat64), (1.3 : stdgo.GoFloat64), (2.6 : stdgo.GoFloat64), (3.8 : stdgo.GoFloat64), (5.2 : stdgo.GoFloat64)) : stdgo.Slice<stdgo.GoFloat64>);
+        var _s = (new stdgo.Slice<stdgo.GoFloat64>(5, 5, ...[(0.7 : stdgo.GoFloat64), (1.3 : stdgo.GoFloat64), (2.6 : stdgo.GoFloat64), (3.8 : stdgo.GoFloat64), (5.2 : stdgo.GoFloat64)]) : stdgo.Slice<stdgo.GoFloat64>);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.sort.Sort.float64sAreSorted(_s)));
-        _s = (new stdgo.Slice<stdgo.GoFloat64>(5, 5, (5.2 : stdgo.GoFloat64), (3.8 : stdgo.GoFloat64), (2.6 : stdgo.GoFloat64), (1.3 : stdgo.GoFloat64), (0.7 : stdgo.GoFloat64)) : stdgo.Slice<stdgo.GoFloat64>);
+        _s = (new stdgo.Slice<stdgo.GoFloat64>(5, 5, ...[(5.2 : stdgo.GoFloat64), (3.8 : stdgo.GoFloat64), (2.6 : stdgo.GoFloat64), (1.3 : stdgo.GoFloat64), (0.7 : stdgo.GoFloat64)]) : stdgo.Slice<stdgo.GoFloat64>);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.sort.Sort.float64sAreSorted(_s)));
-        _s = (new stdgo.Slice<stdgo.GoFloat64>(5, 5, (5.2 : stdgo.GoFloat64), (1.3 : stdgo.GoFloat64), (0.7 : stdgo.GoFloat64), (3.8 : stdgo.GoFloat64), (2.6 : stdgo.GoFloat64)) : stdgo.Slice<stdgo.GoFloat64>);
+        _s = (new stdgo.Slice<stdgo.GoFloat64>(5, 5, ...[(5.2 : stdgo.GoFloat64), (1.3 : stdgo.GoFloat64), (0.7 : stdgo.GoFloat64), (3.8 : stdgo.GoFloat64), (2.6 : stdgo.GoFloat64)]) : stdgo.Slice<stdgo.GoFloat64>);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.sort.Sort.float64sAreSorted(_s)));
     }
 function exampleReverse():Void {
-        var _s = (new stdgo.Slice<stdgo.GoInt>(6, 6, (5 : stdgo.GoInt), (2 : stdgo.GoInt), (6 : stdgo.GoInt), (3 : stdgo.GoInt), (1 : stdgo.GoInt), (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
+        var _s = (new stdgo.Slice<stdgo.GoInt>(6, 6, ...[(5 : stdgo.GoInt), (2 : stdgo.GoInt), (6 : stdgo.GoInt), (3 : stdgo.GoInt), (1 : stdgo.GoInt), (4 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
         stdgo._internal.sort.Sort.sort(stdgo._internal.sort.Sort.reverse(stdgo.Go.asInterface((_s : stdgo._internal.sort.Sort.IntSlice))));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
     }
 function exampleSlice():Void {
-        var _people = (new stdgo.Slice<Person>(4, 4, (new Person(("Gopher" : stdgo.GoString), (7 : stdgo.GoInt)) : Person), (new Person(("Alice" : stdgo.GoString), (55 : stdgo.GoInt)) : Person), (new Person(("Vera" : stdgo.GoString), (24 : stdgo.GoInt)) : Person), (new Person(("Bob" : stdgo.GoString), (75 : stdgo.GoInt)) : Person)) : stdgo.Slice<Person>);
+        var _people = (new stdgo.Slice<Person>(4, 4, ...[(new Person(("Gopher" : stdgo.GoString), (7 : stdgo.GoInt)) : Person), (new Person(("Alice" : stdgo.GoString), (55 : stdgo.GoInt)) : Person), (new Person(("Vera" : stdgo.GoString), (24 : stdgo.GoInt)) : Person), (new Person(("Bob" : stdgo.GoString), (75 : stdgo.GoInt)) : Person)]) : stdgo.Slice<Person>);
         stdgo._internal.sort.Sort.slice(stdgo.Go.toInterface(_people), function(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
             return (_people[(_i : stdgo.GoInt)].name < _people[(_j : stdgo.GoInt)].name : Bool);
         });
@@ -572,7 +524,7 @@ function exampleSlice():Void {
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(("By age:" : stdgo.GoString)), stdgo.Go.toInterface(_people));
     }
 function exampleSliceStable():Void {
-        var _people = (new stdgo.Slice<Person>(8, 8, (new Person(("Alice" : stdgo.GoString), (25 : stdgo.GoInt)) : Person), (new Person(("Elizabeth" : stdgo.GoString), (75 : stdgo.GoInt)) : Person), (new Person(("Alice" : stdgo.GoString), (75 : stdgo.GoInt)) : Person), (new Person(("Bob" : stdgo.GoString), (75 : stdgo.GoInt)) : Person), (new Person(("Alice" : stdgo.GoString), (75 : stdgo.GoInt)) : Person), (new Person(("Bob" : stdgo.GoString), (25 : stdgo.GoInt)) : Person), (new Person(("Colin" : stdgo.GoString), (25 : stdgo.GoInt)) : Person), (new Person(("Elizabeth" : stdgo.GoString), (25 : stdgo.GoInt)) : Person)) : stdgo.Slice<Person>);
+        var _people = (new stdgo.Slice<Person>(8, 8, ...[(new Person(("Alice" : stdgo.GoString), (25 : stdgo.GoInt)) : Person), (new Person(("Elizabeth" : stdgo.GoString), (75 : stdgo.GoInt)) : Person), (new Person(("Alice" : stdgo.GoString), (75 : stdgo.GoInt)) : Person), (new Person(("Bob" : stdgo.GoString), (75 : stdgo.GoInt)) : Person), (new Person(("Alice" : stdgo.GoString), (75 : stdgo.GoInt)) : Person), (new Person(("Bob" : stdgo.GoString), (25 : stdgo.GoInt)) : Person), (new Person(("Colin" : stdgo.GoString), (25 : stdgo.GoInt)) : Person), (new Person(("Elizabeth" : stdgo.GoString), (25 : stdgo.GoInt)) : Person)]) : stdgo.Slice<Person>);
         stdgo._internal.sort.Sort.sliceStable(stdgo.Go.toInterface(_people), function(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
             return (_people[(_i : stdgo.GoInt)].name < _people[(_j : stdgo.GoInt)].name : Bool);
         });
@@ -583,12 +535,12 @@ function exampleSliceStable():Void {
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(("By age,name:" : stdgo.GoString)), stdgo.Go.toInterface(_people));
     }
 function exampleStrings():Void {
-        var _s = (new stdgo.Slice<stdgo.GoString>(6, 6, ("Go" : stdgo.GoString), ("Bravo" : stdgo.GoString), ("Gopher" : stdgo.GoString), ("Alpha" : stdgo.GoString), ("Grin" : stdgo.GoString), ("Delta" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+        var _s = (new stdgo.Slice<stdgo.GoString>(6, 6, ...[("Go" : stdgo.GoString), ("Bravo" : stdgo.GoString), ("Gopher" : stdgo.GoString), ("Alpha" : stdgo.GoString), ("Grin" : stdgo.GoString), ("Delta" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
         stdgo._internal.sort.Sort.strings(_s);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
     }
 function example_sortWrapper():Void {
-        var _s = (new stdgo.Slice<stdgo.Ref<stdgo._internal.sort_test.Sort_test.Organ>>(6, 6, (new stdgo._internal.sort_test.Sort_test.Organ(("brain" : stdgo.GoString), (1340 : stdgo._internal.sort_test.Sort_test.Grams)) : stdgo._internal.sort_test.Sort_test.Organ), (new stdgo._internal.sort_test.Sort_test.Organ(("heart" : stdgo.GoString), (290 : stdgo._internal.sort_test.Sort_test.Grams)) : stdgo._internal.sort_test.Sort_test.Organ), (new stdgo._internal.sort_test.Sort_test.Organ(("liver" : stdgo.GoString), (1494 : stdgo._internal.sort_test.Sort_test.Grams)) : stdgo._internal.sort_test.Sort_test.Organ), (new stdgo._internal.sort_test.Sort_test.Organ(("pancreas" : stdgo.GoString), (131 : stdgo._internal.sort_test.Sort_test.Grams)) : stdgo._internal.sort_test.Sort_test.Organ), (new stdgo._internal.sort_test.Sort_test.Organ(("prostate" : stdgo.GoString), (62 : stdgo._internal.sort_test.Sort_test.Grams)) : stdgo._internal.sort_test.Sort_test.Organ), (new stdgo._internal.sort_test.Sort_test.Organ(("spleen" : stdgo.GoString), (162 : stdgo._internal.sort_test.Sort_test.Grams)) : stdgo._internal.sort_test.Sort_test.Organ)) : stdgo.Slice<stdgo.Ref<stdgo._internal.sort_test.Sort_test.Organ>>);
+        var _s = (new stdgo.Slice<stdgo.Ref<stdgo._internal.sort_test.Sort_test.Organ>>(6, 6, ...[(new stdgo._internal.sort_test.Sort_test.Organ(("brain" : stdgo.GoString), (1340 : stdgo._internal.sort_test.Sort_test.Grams)) : stdgo._internal.sort_test.Sort_test.Organ), (new stdgo._internal.sort_test.Sort_test.Organ(("heart" : stdgo.GoString), (290 : stdgo._internal.sort_test.Sort_test.Grams)) : stdgo._internal.sort_test.Sort_test.Organ), (new stdgo._internal.sort_test.Sort_test.Organ(("liver" : stdgo.GoString), (1494 : stdgo._internal.sort_test.Sort_test.Grams)) : stdgo._internal.sort_test.Sort_test.Organ), (new stdgo._internal.sort_test.Sort_test.Organ(("pancreas" : stdgo.GoString), (131 : stdgo._internal.sort_test.Sort_test.Grams)) : stdgo._internal.sort_test.Sort_test.Organ), (new stdgo._internal.sort_test.Sort_test.Organ(("prostate" : stdgo.GoString), (62 : stdgo._internal.sort_test.Sort_test.Grams)) : stdgo._internal.sort_test.Sort_test.Organ), (new stdgo._internal.sort_test.Sort_test.Organ(("spleen" : stdgo.GoString), (162 : stdgo._internal.sort_test.Sort_test.Grams)) : stdgo._internal.sort_test.Sort_test.Organ)]) : stdgo.Slice<stdgo.Ref<stdgo._internal.sort_test.Sort_test.Organ>>);
         stdgo._internal.sort.Sort.sort(stdgo.Go.asInterface((new stdgo._internal.sort_test.Sort_test.ByWeight(_s) : stdgo._internal.sort_test.Sort_test.ByWeight)));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(("Organs by weight:" : stdgo.GoString)));
         _printOrgans(_s);
@@ -615,28 +567,15 @@ function testSearch(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testFind(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _str1 = (new stdgo.Slice<stdgo.GoString>(1, 1, ("foo" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-        var _str2 = (new stdgo.Slice<stdgo.GoString>(2, 2, ("ab" : stdgo.GoString), ("ca" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-        var _str3 = (new stdgo.Slice<stdgo.GoString>(3, 3, ("mo" : stdgo.GoString), ("qo" : stdgo.GoString), ("vo" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-        var _str4 = (new stdgo.Slice<stdgo.GoString>(4, 4, ("ab" : stdgo.GoString), ("ad" : stdgo.GoString), ("ca" : stdgo.GoString), ("xy" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-        var _strRepeats = (new stdgo.Slice<stdgo.GoString>(
-9,
-9,
-("ba" : stdgo.GoString),
-("ca" : stdgo.GoString),
-("da" : stdgo.GoString),
-("da" : stdgo.GoString),
-("da" : stdgo.GoString),
-("ka" : stdgo.GoString),
-("ma" : stdgo.GoString),
-("ma" : stdgo.GoString),
-("ta" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-        var _strSame = (new stdgo.Slice<stdgo.GoString>(3, 3, ("xx" : stdgo.GoString), ("xx" : stdgo.GoString), ("xx" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-        var _tests = (new stdgo.Slice<T__struct_2>(
-34,
-34,
-({ _data : (new stdgo.Slice<stdgo.GoString>(0, 0) : stdgo.Slice<stdgo.GoString>), _target : ("foo" : stdgo.GoString), _wantPos : (0 : stdgo.GoInt), _wantFound : false } : T__struct_2),
-({ _data : (new stdgo.Slice<stdgo.GoString>(0, 0) : stdgo.Slice<stdgo.GoString>), _target : stdgo.Go.str()?.__copy__(), _wantPos : (0 : stdgo.GoInt), _wantFound : false } : T__struct_2),
+        var _str1 = (new stdgo.Slice<stdgo.GoString>(1, 1, ...[("foo" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+        var _str2 = (new stdgo.Slice<stdgo.GoString>(2, 2, ...[("ab" : stdgo.GoString), ("ca" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+        var _str3 = (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("mo" : stdgo.GoString), ("qo" : stdgo.GoString), ("vo" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+        var _str4 = (new stdgo.Slice<stdgo.GoString>(4, 4, ...[("ab" : stdgo.GoString), ("ad" : stdgo.GoString), ("ca" : stdgo.GoString), ("xy" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+        var _strRepeats = (new stdgo.Slice<stdgo.GoString>(9, 9, ...[("ba" : stdgo.GoString), ("ca" : stdgo.GoString), ("da" : stdgo.GoString), ("da" : stdgo.GoString), ("da" : stdgo.GoString), ("ka" : stdgo.GoString), ("ma" : stdgo.GoString), ("ma" : stdgo.GoString), ("ta" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+        var _strSame = (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("xx" : stdgo.GoString), ("xx" : stdgo.GoString), ("xx" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+        var _tests = (new stdgo.Slice<T__struct_2>(34, 34, ...[
+({ _data : (new stdgo.Slice<stdgo.GoString>(0, 0, ...[]) : stdgo.Slice<stdgo.GoString>), _target : ("foo" : stdgo.GoString), _wantPos : (0 : stdgo.GoInt), _wantFound : false } : T__struct_2),
+({ _data : (new stdgo.Slice<stdgo.GoString>(0, 0, ...[]) : stdgo.Slice<stdgo.GoString>), _target : stdgo.Go.str()?.__copy__(), _wantPos : (0 : stdgo.GoInt), _wantFound : false } : T__struct_2),
 ({ _data : _str1, _target : ("foo" : stdgo.GoString), _wantPos : (0 : stdgo.GoInt), _wantFound : true } : T__struct_2),
 ({ _data : _str1, _target : ("bar" : stdgo.GoString), _wantPos : (0 : stdgo.GoInt), _wantFound : false } : T__struct_2),
 ({ _data : _str1, _target : ("zx" : stdgo.GoString), _wantPos : (1 : stdgo.GoInt), _wantFound : false } : T__struct_2),
@@ -668,7 +607,7 @@ function testFind(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 ({ _data : _strRepeats, _target : ("mb" : stdgo.GoString), _wantPos : (8 : stdgo.GoInt), _wantFound : false } : T__struct_2),
 ({ _data : _strSame, _target : ("xx" : stdgo.GoString), _wantPos : (0 : stdgo.GoInt), _wantFound : true } : T__struct_2),
 ({ _data : _strSame, _target : ("ab" : stdgo.GoString), _wantPos : (0 : stdgo.GoInt), _wantFound : false } : T__struct_2),
-({ _data : _strSame, _target : ("zz" : stdgo.GoString), _wantPos : (3 : stdgo.GoInt), _wantFound : false } : T__struct_2)) : stdgo.Slice<T__struct_2>);
+({ _data : _strSame, _target : ("zz" : stdgo.GoString), _wantPos : (3 : stdgo.GoInt), _wantFound : false } : T__struct_2)]) : stdgo.Slice<T__struct_2>);
         for (__0 => _tt in _tests) {
             _t.run(_tt._target?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 var _cmp:stdgo.GoInt -> stdgo.GoInt = function(_i:stdgo.GoInt):stdgo.GoInt {
@@ -913,7 +852,7 @@ function testBreakPatterns(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
         sort(stdgo.Go.asInterface((_data : IntSlice)));
     }
 function testReverseRange(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _data = (new stdgo.Slice<stdgo.GoInt>(7, 7, (1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt), (6 : stdgo.GoInt), (7 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
+        var _data = (new stdgo.Slice<stdgo.GoInt>(7, 7, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt), (6 : stdgo.GoInt), (7 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
         reverseRange(stdgo.Go.asInterface((_data : IntSlice)), (0 : stdgo.GoInt), (_data.length));
         {
             var _i:stdgo.GoInt = ((_data.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
@@ -923,8 +862,8 @@ function testReverseRange(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
                 };
             });
         };
-        var _data1 = (new stdgo.Slice<stdgo.GoInt>(7, 7, (1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt), (6 : stdgo.GoInt), (7 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
-        var _data2 = (new stdgo.Slice<stdgo.GoInt>(7, 7, (1 : stdgo.GoInt), (2 : stdgo.GoInt), (5 : stdgo.GoInt), (4 : stdgo.GoInt), (3 : stdgo.GoInt), (6 : stdgo.GoInt), (7 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
+        var _data1 = (new stdgo.Slice<stdgo.GoInt>(7, 7, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt), (6 : stdgo.GoInt), (7 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
+        var _data2 = (new stdgo.Slice<stdgo.GoInt>(7, 7, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (5 : stdgo.GoInt), (4 : stdgo.GoInt), (3 : stdgo.GoInt), (6 : stdgo.GoInt), (7 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
         reverseRange(stdgo.Go.asInterface((_data1 : IntSlice)), (2 : stdgo.GoInt), (5 : stdgo.GoInt));
         for (_i => _v in _data1) {
             if (_v != (_data2[(_i : stdgo.GoInt)])) {
@@ -1209,13 +1148,13 @@ function _lg(_n:stdgo.GoInt):stdgo.GoInt {
         return _i;
     }
 function _testBentleyMcIlroy(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _sort:Interface -> Void, _maxswap:stdgo.GoInt -> stdgo.GoInt):Void {
-        var _sizes = (new stdgo.Slice<stdgo.GoInt>(4, 4, (100 : stdgo.GoInt), (1023 : stdgo.GoInt), (1024 : stdgo.GoInt), (1025 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
+        var _sizes = (new stdgo.Slice<stdgo.GoInt>(4, 4, ...[(100 : stdgo.GoInt), (1023 : stdgo.GoInt), (1024 : stdgo.GoInt), (1025 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
         if (stdgo._internal.testing.Testing.short()) {
-            _sizes = (new stdgo.Slice<stdgo.GoInt>(4, 4, (100 : stdgo.GoInt), (127 : stdgo.GoInt), (128 : stdgo.GoInt), (129 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
+            _sizes = (new stdgo.Slice<stdgo.GoInt>(4, 4, ...[(100 : stdgo.GoInt), (127 : stdgo.GoInt), (128 : stdgo.GoInt), (129 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
         };
-        var _dists = (new stdgo.Slice<stdgo.GoString>(5, 5, ("sawtooth" : stdgo.GoString), ("rand" : stdgo.GoString), ("stagger" : stdgo.GoString), ("plateau" : stdgo.GoString), ("shuffle" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-        var _modes = (new stdgo.Slice<stdgo.GoString>(6, 6, ("copy" : stdgo.GoString), ("reverse" : stdgo.GoString), ("reverse1" : stdgo.GoString), ("reverse2" : stdgo.GoString), ("sort" : stdgo.GoString), ("dither" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-        var __0:stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(...[for (i in 0 ... 1025) (0 : stdgo.GoInt)]), __1:stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(...[for (i in 0 ... 1025) (0 : stdgo.GoInt)]), _tmp2:stdgo.GoArray<stdgo.GoInt> = __1, _tmp1:stdgo.GoArray<stdgo.GoInt> = __0;
+        var _dists = (new stdgo.Slice<stdgo.GoString>(5, 5, ...[("sawtooth" : stdgo.GoString), ("rand" : stdgo.GoString), ("stagger" : stdgo.GoString), ("plateau" : stdgo.GoString), ("shuffle" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+        var _modes = (new stdgo.Slice<stdgo.GoString>(6, 6, ...[("copy" : stdgo.GoString), ("reverse" : stdgo.GoString), ("reverse1" : stdgo.GoString), ("reverse2" : stdgo.GoString), ("sort" : stdgo.GoString), ("dither" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+        var __0:stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(1025, 1025, ...[for (i in 0 ... 1025) (0 : stdgo.GoInt)]), __1:stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(1025, 1025, ...[for (i in 0 ... 1025) (0 : stdgo.GoInt)]), _tmp2:stdgo.GoArray<stdgo.GoInt> = __1, _tmp1:stdgo.GoArray<stdgo.GoInt> = __0;
         for (__0 => _n in _sizes) {
             {
                 var _m:stdgo.GoInt = (1 : stdgo.GoInt);

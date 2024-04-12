@@ -133,12 +133,10 @@ final _seekStart : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
 final _seekCurrent : stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
 final _seekEnd : stdgo.GoUInt64 = (2i64 : stdgo.GoUInt64);
 var _loadTzinfoFromTzdata : (_file:stdgo.GoString, _name:stdgo.GoString) -> { var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } = null;
-var _std0x : stdgo.GoArray<stdgo.GoInt> = (new stdgo.GoArray<stdgo.GoInt>((260 : stdgo.GoInt), (265 : stdgo.GoInt), (526 : stdgo.GoInt), (528 : stdgo.GoInt), (530 : stdgo.GoInt), (276 : stdgo.GoInt)) : stdgo.GoArray<stdgo.GoInt>);
-var _longDayNames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(7, 7, ("Sunday" : stdgo.GoString), ("Monday" : stdgo.GoString), ("Tuesday" : stdgo.GoString), ("Wednesday" : stdgo.GoString), ("Thursday" : stdgo.GoString), ("Friday" : stdgo.GoString), ("Saturday" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-var _shortDayNames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(7, 7, ("Sun" : stdgo.GoString), ("Mon" : stdgo.GoString), ("Tue" : stdgo.GoString), ("Wed" : stdgo.GoString), ("Thu" : stdgo.GoString), ("Fri" : stdgo.GoString), ("Sat" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-var _shortMonthNames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
-12,
-12,
+var _std0x : stdgo.GoArray<stdgo.GoInt> = (new stdgo.GoArray<stdgo.GoInt>(6, 6, ...[(260 : stdgo.GoInt), (265 : stdgo.GoInt), (526 : stdgo.GoInt), (528 : stdgo.GoInt), (530 : stdgo.GoInt), (276 : stdgo.GoInt)]) : stdgo.GoArray<stdgo.GoInt>);
+var _longDayNames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(7, 7, ...[("Sunday" : stdgo.GoString), ("Monday" : stdgo.GoString), ("Tuesday" : stdgo.GoString), ("Wednesday" : stdgo.GoString), ("Thursday" : stdgo.GoString), ("Friday" : stdgo.GoString), ("Saturday" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+var _shortDayNames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(7, 7, ...[("Sun" : stdgo.GoString), ("Mon" : stdgo.GoString), ("Tue" : stdgo.GoString), ("Wed" : stdgo.GoString), ("Thu" : stdgo.GoString), ("Fri" : stdgo.GoString), ("Sat" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+var _shortMonthNames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(12, 12, ...[
 ("Jan" : stdgo.GoString),
 ("Feb" : stdgo.GoString),
 ("Mar" : stdgo.GoString),
@@ -150,10 +148,8 @@ var _shortMonthNames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoSt
 ("Sep" : stdgo.GoString),
 ("Oct" : stdgo.GoString),
 ("Nov" : stdgo.GoString),
-("Dec" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-var _longMonthNames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
-12,
-12,
+("Dec" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+var _longMonthNames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(12, 12, ...[
 ("January" : stdgo.GoString),
 ("February" : stdgo.GoString),
 ("March" : stdgo.GoString),
@@ -165,7 +161,7 @@ var _longMonthNames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoStr
 ("September" : stdgo.GoString),
 ("October" : stdgo.GoString),
 ("November" : stdgo.GoString),
-("December" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+("December" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
 var _errAtoi : stdgo.Error = stdgo._internal.errors.Errors.new_(("time: invalid number" : stdgo.GoString));
 var _errBad : stdgo.Error = stdgo._internal.errors.Errors.new_(("bad value for field" : stdgo.GoString));
 var _errLeadingInt : stdgo.Error = stdgo._internal.errors.Errors.new_(("time: bad [0-9]*" : stdgo.GoString));
@@ -184,7 +180,7 @@ var _unitMap : stdgo.GoMap<stdgo.GoString, stdgo.GoUInt64> = ({
         };
         x;
     } : stdgo.GoMap<stdgo.GoString, stdgo.GoUInt64>);
-var _daysBefore : stdgo.GoArray<stdgo.GoInt32> = (new stdgo.GoArray<stdgo.GoInt32>(
+var _daysBefore : stdgo.GoArray<stdgo.GoInt32> = (new stdgo.GoArray<stdgo.GoInt32>(13, 13, ...[
 (0 : stdgo.GoInt32),
 (31 : stdgo.GoInt32),
 (59 : stdgo.GoInt32),
@@ -197,13 +193,13 @@ var _daysBefore : stdgo.GoArray<stdgo.GoInt32> = (new stdgo.GoArray<stdgo.GoInt3
 (273 : stdgo.GoInt32),
 (304 : stdgo.GoInt32),
 (334 : stdgo.GoInt32),
-(365 : stdgo.GoInt32)) : stdgo.GoArray<stdgo.GoInt32>);
+(365 : stdgo.GoInt32)]) : stdgo.GoArray<stdgo.GoInt32>);
 var _startNano : stdgo.GoInt64 = (_runtimeNano() - (1i64 : stdgo.GoInt64) : stdgo.GoInt64);
 var _utcLoc : stdgo._internal.time.Time.Location = ({ _name : ("UTC" : stdgo.GoString) } : stdgo._internal.time.Time.Location);
 var utc : stdgo.Ref<stdgo._internal.time.Time.Location> = (stdgo.Go.setRef(_utcLoc) : stdgo.Ref<stdgo._internal.time.Time.Location>);
 var local : stdgo.Ref<stdgo._internal.time.Time.Location> = (stdgo.Go.setRef(_localLoc) : stdgo.Ref<stdgo._internal.time.Time.Location>);
 var _errLocation : stdgo.Error = stdgo._internal.errors.Errors.new_(("time: invalid location name" : stdgo.GoString));
-var _platformZoneSources : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(3, 3, ("/usr/share/zoneinfo/" : stdgo.GoString), ("/usr/share/lib/zoneinfo/" : stdgo.GoString), ("/usr/lib/locale/TZ/" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+var _platformZoneSources : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("/usr/share/zoneinfo/" : stdgo.GoString), ("/usr/share/lib/zoneinfo/" : stdgo.GoString), ("/usr/lib/locale/TZ/" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
 var _errBadData : stdgo.Error = stdgo._internal.errors.Errors.new_(("malformed time zone information" : stdgo.GoString));
 var gorootZoneSource : stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : Bool; } = _gorootZoneSource;
 var parseTimeZone : stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : Bool; } = _parseTimeZone;
@@ -1599,7 +1595,7 @@ function _parseStrictRFC3339(_b:stdgo.Slice<stdgo.GoByte>):{ var _0 : Time; var 
         return { _0 : _t?.__copy__(), _1 : (null : stdgo.Error) };
     }
 function _initTestingZone():Void {
-        var _sources = (new stdgo.Slice<stdgo.GoString>(1, 1, ("../../lib/time/zoneinfo.zip" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+        var _sources = (new stdgo.Slice<stdgo.GoString>(1, 1, ...[("../../lib/time/zoneinfo.zip" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
         var __tmp__ = _loadLocation(("America/Los_Angeles" : stdgo.GoString), _sources), _z:stdgo.Ref<stdgo._internal.time.Time.Location> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             throw stdgo.Go.toInterface(((("cannot load America/Los_Angeles for testing: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString) + ("; you may want to use -tags=timetzdata" : stdgo.GoString)?.__copy__() : stdgo.GoString));
@@ -2145,7 +2141,7 @@ function fixedZone(_name:stdgo.GoString, _offset:stdgo.GoInt):stdgo.Ref<Location
         return _fixedZone(_name?.__copy__(), _offset);
     }
 function _fixedZone(_name:stdgo.GoString, _offset:stdgo.GoInt):stdgo.Ref<Location> {
-        var _l = (stdgo.Go.setRef(({ _name : _name?.__copy__(), _zone : (new stdgo.Slice<stdgo._internal.time.Time.T_zone>(1, 1, (new stdgo._internal.time.Time.T_zone(_name?.__copy__(), _offset, false) : stdgo._internal.time.Time.T_zone)) : stdgo.Slice<stdgo._internal.time.Time.T_zone>), _tx : (new stdgo.Slice<stdgo._internal.time.Time.T_zoneTrans>(1, 1, (new stdgo._internal.time.Time.T_zoneTrans((-9223372036854775808i64 : stdgo.GoInt64), (0 : stdgo.GoUInt8), false, false) : stdgo._internal.time.Time.T_zoneTrans)) : stdgo.Slice<stdgo._internal.time.Time.T_zoneTrans>), _cacheStart : (-9223372036854775808i64 : stdgo.GoInt64), _cacheEnd : (9223372036854775807i64 : stdgo.GoInt64) } : stdgo._internal.time.Time.Location)) : stdgo.Ref<stdgo._internal.time.Time.Location>);
+        var _l = (stdgo.Go.setRef(({ _name : _name?.__copy__(), _zone : (new stdgo.Slice<stdgo._internal.time.Time.T_zone>(1, 1, ...[(new stdgo._internal.time.Time.T_zone(_name?.__copy__(), _offset, false) : stdgo._internal.time.Time.T_zone)]) : stdgo.Slice<stdgo._internal.time.Time.T_zone>), _tx : (new stdgo.Slice<stdgo._internal.time.Time.T_zoneTrans>(1, 1, ...[(new stdgo._internal.time.Time.T_zoneTrans((-9223372036854775808i64 : stdgo.GoInt64), (0 : stdgo.GoUInt8), false, false) : stdgo._internal.time.Time.T_zoneTrans)]) : stdgo.Slice<stdgo._internal.time.Time.T_zoneTrans>), _cacheStart : (-9223372036854775808i64 : stdgo.GoInt64), _cacheEnd : (9223372036854775807i64 : stdgo.GoInt64) } : stdgo._internal.time.Time.Location)) : stdgo.Ref<stdgo._internal.time.Time.Location>);
         _l._cacheZone = (stdgo.Go.setRef(_l._zone[(0 : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.time.Time.T_zone>);
         return _l;
     }
@@ -2638,7 +2634,7 @@ function loadLocationFromTZData(_name:stdgo.GoString, _data:stdgo.Slice<stdgo.Go
             };
         };
         {};
-        var _n:stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(...[for (i in 0 ... 6) (0 : stdgo.GoInt)]);
+        var _n:stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(6, 6, ...[for (i in 0 ... 6) (0 : stdgo.GoInt)]);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (6 : stdgo.GoInt) : Bool), _i++, {
@@ -3053,7 +3049,7 @@ function _readFile(_name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoByte>; v
                 var _a0 = _f;
                 __deferstack__.unshift(() -> _closefd(_a0));
             };
-            var __0:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)]), __1:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>), __2:stdgo.GoInt = (0 : stdgo.GoInt), _n:stdgo.GoInt = __2, _ret:stdgo.Slice<stdgo.GoByte> = __1, _buf:stdgo.GoArray<stdgo.GoByte> = __0;
+            var __0:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)]), __1:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>), __2:stdgo.GoInt = (0 : stdgo.GoInt), _n:stdgo.GoInt = __2, _ret:stdgo.Slice<stdgo.GoByte> = __1, _buf:stdgo.GoArray<stdgo.GoByte> = __0;
             while (true) {
                 {
                     var __tmp__ = _read(_f, (_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
@@ -3483,9 +3479,7 @@ class Time_asInterface {
         };
         var _sec:stdgo.GoInt64 = _t._sec();
         var _nsec:stdgo.GoInt32 = _t._nsec();
-        var _enc = (new stdgo.Slice<stdgo.GoUInt8>(
-15,
-15,
+        var _enc = (new stdgo.Slice<stdgo.GoUInt8>(15, 15, ...[
 _version,
 ((_sec >> (56i64 : stdgo.GoUInt64) : stdgo.GoInt64) : stdgo.GoByte),
 ((_sec >> (48i64 : stdgo.GoUInt64) : stdgo.GoInt64) : stdgo.GoByte),
@@ -3500,7 +3494,7 @@ _version,
 ((_nsec >> (8i64 : stdgo.GoUInt64) : stdgo.GoInt32) : stdgo.GoByte),
 (_nsec : stdgo.GoByte),
 ((_offsetMin >> (8i64 : stdgo.GoUInt64) : stdgo.GoInt16) : stdgo.GoByte),
-(_offsetMin : stdgo.GoByte)) : stdgo.Slice<stdgo.GoUInt8>);
+(_offsetMin : stdgo.GoByte)]) : stdgo.Slice<stdgo.GoUInt8>);
         if (_version == ((2 : stdgo.GoUInt8))) {
             _enc = (_enc.__append__((_offsetSec : stdgo.GoByte)));
         };
@@ -4175,7 +4169,7 @@ _version,
         var _b:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _max:stdgo.GoInt = ((_layout.length) + (10 : stdgo.GoInt) : stdgo.GoInt);
         if ((_max < (64 : stdgo.GoInt) : Bool)) {
-            var _buf:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 64) (0 : stdgo.GoUInt8)]);
+            var _buf:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(64, 64, ...[for (i in 0 ... 64) (0 : stdgo.GoUInt8)]);
             _b = (_buf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         } else {
             _b = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), _max).__setNumber32__();
@@ -4655,7 +4649,7 @@ class Duration_asInterface {
     @:keep
     static public function string( _d:Duration):stdgo.GoString {
         @:recv var _d:Duration = _d;
-        var _buf:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 32) (0 : stdgo.GoUInt8)]);
+        var _buf:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32, ...[for (i in 0 ... 32) (0 : stdgo.GoUInt8)]);
         var _w:stdgo.GoInt = (_buf.length);
         var _u:stdgo.GoUInt64 = (_d : stdgo.GoUInt64);
         var _neg:Bool = (_d < (0i64 : stdgo._internal.time.Time.Duration) : Bool);

@@ -1,9 +1,7 @@
 package stdgo._internal.strings_test;
 import stdgo._internal.strings.Strings;
 import stdgo._internal.strings.Strings;
-var _tests : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>(
-67,
-67,
+var _tests : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>(67, 67, ...[
 (new stdgo._internal.testing.Testing.InternalTest(("TestBuilder" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.testBuilder) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestBuilderString" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.testBuilderString) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestBuilderReset" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.testBuilderReset) : stdgo._internal.testing.Testing.InternalTest),
@@ -70,10 +68,8 @@ var _tests : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest> = (new st
 (new stdgo._internal.testing.Testing.InternalTest(("TestCount" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.testCount) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestCut" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.testCut) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestCutPrefix" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.testCutPrefix) : stdgo._internal.testing.Testing.InternalTest),
-(new stdgo._internal.testing.Testing.InternalTest(("TestCutSuffix" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.testCutSuffix) : stdgo._internal.testing.Testing.InternalTest)) : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>);
-var _benchmarks : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>(
-64,
-64,
+(new stdgo._internal.testing.Testing.InternalTest(("TestCutSuffix" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.testCutSuffix) : stdgo._internal.testing.Testing.InternalTest)]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>);
+var _benchmarks : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>(64, 64, ...[
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkBuildString_Builder" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.benchmarkBuildString_Builder) : stdgo._internal.testing.Testing.InternalBenchmark),
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkBuildString_ByteBuffer" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.benchmarkBuildString_ByteBuffer) : stdgo._internal.testing.Testing.InternalBenchmark),
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkClone" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.benchmarkClone) : stdgo._internal.testing.Testing.InternalBenchmark),
@@ -137,11 +133,9 @@ var _benchmarks : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkIndexPeriodic" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.benchmarkIndexPeriodic) : stdgo._internal.testing.Testing.InternalBenchmark),
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkJoin" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.benchmarkJoin) : stdgo._internal.testing.Testing.InternalBenchmark),
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkTrimSpace" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.benchmarkTrimSpace) : stdgo._internal.testing.Testing.InternalBenchmark),
-(new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkReplaceAll" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.benchmarkReplaceAll) : stdgo._internal.testing.Testing.InternalBenchmark)) : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>);
-var _fuzzTargets : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>(0, 0) : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>);
-var _examples : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>(
-51,
-51,
+(new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkReplaceAll" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.benchmarkReplaceAll) : stdgo._internal.testing.Testing.InternalBenchmark)]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>);
+var _fuzzTargets : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>(0, 0, ...[]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>);
+var _examples : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>(51, 51, ...[
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleClone" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.exampleClone, ("true\nfalse\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleBuilder" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.exampleBuilder, ("3...2...1...ignition\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleCompare" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.exampleCompare, ("-1\n0\n1\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
@@ -192,7 +186,7 @@ var _examples : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample> = (
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleTrimLeftFunc" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.exampleTrimLeftFunc, ("Hello, Gophers!!!\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleTrimRight" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.exampleTrimRight, ("¡¡¡Hello, Gophers\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleTrimRightFunc" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.exampleTrimRightFunc, ("¡¡¡Hello, Gophers\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
-(new stdgo._internal.testing.Testing.InternalExample(("ExampleToValidUTF8" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.exampleToValidUTF8, ("abc\nabc\nabc\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample)) : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>);
+(new stdgo._internal.testing.Testing.InternalExample(("ExampleToValidUTF8" : stdgo.GoString), stdgo._internal.strings_test.Strings_test.exampleToValidUTF8, ("abc\nabc\nabc\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample)]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>);
 function main():Void {
         var _m = stdgo._internal.testing.Testing.mainStart(stdgo.Go.asInterface((new stdgo._internal.testing.internal.testdeps.Testdeps.TestDeps() : stdgo._internal.testing.internal.testdeps.Testdeps.TestDeps)), _tests, _benchmarks, _fuzzTargets, _examples);
         Sys.exit(_m.run());

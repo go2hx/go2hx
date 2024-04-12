@@ -844,7 +844,7 @@ final _len8tab : stdgo.GoString = stdgo.Go.str(0,
 6,
 "\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08");
 final deBruijn64 : stdgo.GoUInt64 = (285870213051353865i64 : stdgo.GoUInt64);
-var _deBruijn32tab : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(
+var _deBruijn32tab : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(32, 32, ...[
 (0 : stdgo.GoUInt8),
 (1 : stdgo.GoUInt8),
 (28 : stdgo.GoUInt8),
@@ -876,8 +876,8 @@ var _deBruijn32tab : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoU
 (11 : stdgo.GoUInt8),
 (5 : stdgo.GoUInt8),
 (10 : stdgo.GoUInt8),
-(9 : stdgo.GoUInt8)) : stdgo.GoArray<stdgo.GoUInt8>);
-var _deBruijn64tab : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(
+(9 : stdgo.GoUInt8)]) : stdgo.GoArray<stdgo.GoUInt8>);
+var _deBruijn64tab : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(64, 64, ...[
 (0 : stdgo.GoUInt8),
 (1 : stdgo.GoUInt8),
 (56 : stdgo.GoUInt8),
@@ -941,7 +941,7 @@ var _deBruijn64tab : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoU
 (13 : stdgo.GoUInt8),
 (8 : stdgo.GoUInt8),
 (7 : stdgo.GoUInt8),
-(6 : stdgo.GoUInt8)) : stdgo.GoArray<stdgo.GoUInt8>);
+(6 : stdgo.GoUInt8)]) : stdgo.GoArray<stdgo.GoUInt8>);
 function leadingZeros(_x:stdgo.GoUInt):stdgo.GoInt {
         return ((32 : stdgo.GoInt) - len(_x) : stdgo.GoInt);
     }

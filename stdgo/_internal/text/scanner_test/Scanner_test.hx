@@ -54,7 +54,7 @@ function example_mode():Void {
     }
 function example_whitespace():Void {
         {};
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), __2:stdgo._internal.text.scanner.Scanner.Scanner = ({} : stdgo._internal.text.scanner.Scanner.Scanner), __3:stdgo.GoArray<stdgo.GoArray<stdgo.GoString>> = new stdgo.GoArray<stdgo.GoArray<stdgo.GoString>>(...[for (i in 0 ... 4) new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 4) ("" : stdgo.GoString)])]), _tsv:stdgo.GoArray<stdgo.GoArray<stdgo.GoString>> = __3, _s:stdgo._internal.text.scanner.Scanner.Scanner = __2, _row:stdgo.GoInt = __1, _col:stdgo.GoInt = __0;
+        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), __2:stdgo._internal.text.scanner.Scanner.Scanner = ({} : stdgo._internal.text.scanner.Scanner.Scanner), __3:stdgo.GoArray<stdgo.GoArray<stdgo.GoString>> = new stdgo.GoArray<stdgo.GoArray<stdgo.GoString>>(4, 4, ...[for (i in 0 ... 4) new stdgo.GoArray<stdgo.GoString>(4, 4, ...[for (i in 0 ... 4) ("" : stdgo.GoString)])]), _tsv:stdgo.GoArray<stdgo.GoArray<stdgo.GoString>> = __3, _s:stdgo._internal.text.scanner.Scanner.Scanner = __2, _row:stdgo.GoInt = __1, _col:stdgo.GoInt = __0;
         _s.init(stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(("aa\tab\tac\tad\nba\tbb\tbc\tbd\nca\tcb\tcc\tcd\nda\tdb\tdc\tdd" : stdgo.GoString))));
         _s.whitespace = (_s.whitespace ^ ((1536i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
         {

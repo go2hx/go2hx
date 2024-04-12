@@ -122,10 +122,10 @@ var _kindNames : stdgo.Slice<stdgo.GoString> = {
         s;
     };
 @:structInit @:using(stdgo._internal.internal.abi.Abi.RegArgs_static_extension) class RegArgs {
-    public var ints : stdgo.GoArray<stdgo.GoUIntptr> = new stdgo.GoArray<stdgo.GoUIntptr>(...[for (i in 0 ... 0) (0 : stdgo.GoUIntptr)]);
-    public var floats : stdgo.GoArray<stdgo.GoUInt64> = new stdgo.GoArray<stdgo.GoUInt64>(...[for (i in 0 ... 0) (0 : stdgo.GoUInt64)]);
-    public var ptrs : stdgo.GoArray<stdgo._internal.unsafe.Unsafe.UnsafePointer> = new stdgo.GoArray<stdgo._internal.unsafe.Unsafe.UnsafePointer>(...[for (i in 0 ... 0) @:default_value null]);
-    public var returnIsPtr : stdgo._internal.internal.abi.Abi.IntArgRegBitmap = new stdgo._internal.internal.abi.Abi.IntArgRegBitmap(...[for (i in 0 ... 0) (0 : stdgo.GoUInt8)]);
+    public var ints : stdgo.GoArray<stdgo.GoUIntptr> = new stdgo.GoArray<stdgo.GoUIntptr>(0, 0, ...[for (i in 0 ... 0) (0 : stdgo.GoUIntptr)]);
+    public var floats : stdgo.GoArray<stdgo.GoUInt64> = new stdgo.GoArray<stdgo.GoUInt64>(0, 0, ...[for (i in 0 ... 0) (0 : stdgo.GoUInt64)]);
+    public var ptrs : stdgo.GoArray<stdgo._internal.unsafe.Unsafe.UnsafePointer> = new stdgo.GoArray<stdgo._internal.unsafe.Unsafe.UnsafePointer>(0, 0, ...[for (i in 0 ... 0) @:default_value null]);
+    public var returnIsPtr : stdgo._internal.internal.abi.Abi.IntArgRegBitmap = new stdgo._internal.internal.abi.Abi.IntArgRegBitmap(0, 0, ...[for (i in 0 ... 0) (0 : stdgo.GoUInt8)]);
     public function new(?ints:stdgo.GoArray<stdgo.GoUIntptr>, ?floats:stdgo.GoArray<stdgo.GoUInt64>, ?ptrs:stdgo.GoArray<stdgo._internal.unsafe.Unsafe.UnsafePointer>, ?returnIsPtr:stdgo._internal.internal.abi.Abi.IntArgRegBitmap) {
         if (ints != null) this.ints = ints;
         if (floats != null) this.floats = floats;
@@ -876,8 +876,8 @@ function newName(_n:stdgo.GoString, _tag:stdgo.GoString, _exported:Bool, _embedd
         if (((_tag.length) >= (536870912 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(((("abi.NewName: tag too long: " : stdgo.GoString) + (_tag.__slice__(0, (1024 : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString) + ("..." : stdgo.GoString)?.__copy__() : stdgo.GoString));
         };
-        var _nameLen:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 10) (0 : stdgo.GoUInt8)]);
-        var _tagLen:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(...[for (i in 0 ... 10) (0 : stdgo.GoUInt8)]);
+        var _nameLen:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(10, 10, ...[for (i in 0 ... 10) (0 : stdgo.GoUInt8)]);
+        var _tagLen:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(10, 10, ...[for (i in 0 ... 10) (0 : stdgo.GoUInt8)]);
         var _nameLenLen:stdgo.GoInt = _writeVarint((_nameLen.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_n.length));
         var _tagLenLen:stdgo.GoInt = _writeVarint((_tagLen.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_tag.length));
         var _bits:stdgo.GoByte = (0 : stdgo.GoUInt8);

@@ -952,7 +952,7 @@ function exampleFloat_shift():Void {
 function exampleFloat_Cmp():Void {
         var _inf:stdgo.GoFloat64 = stdgo._internal.math.Math.inf((1 : stdgo.GoInt));
         var _zero:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
-        var _operands = (new stdgo.Slice<stdgo.GoFloat64>(6, 6, -_inf, (-1.2 : stdgo.GoFloat64), -_zero, (0 : stdgo.GoFloat64), (1.2 : stdgo.GoFloat64), _inf) : stdgo.Slice<stdgo.GoFloat64>);
+        var _operands = (new stdgo.Slice<stdgo.GoFloat64>(6, 6, ...[-_inf, (-1.2 : stdgo.GoFloat64), -_zero, (0 : stdgo.GoFloat64), (1.2 : stdgo.GoFloat64), _inf]) : stdgo.Slice<stdgo.GoFloat64>);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(("   x     y  cmp" : stdgo.GoString)));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(("---------------" : stdgo.GoString)));
         for (__0 => _x64 in _operands) {
@@ -965,7 +965,7 @@ function exampleFloat_Cmp():Void {
         };
     }
 function exampleRoundingMode():Void {
-        var _operands = (new stdgo.Slice<stdgo.GoFloat64>(6, 6, (2.6 : stdgo.GoFloat64), (2.5 : stdgo.GoFloat64), (2.1 : stdgo.GoFloat64), (-2.1 : stdgo.GoFloat64), (-2.5 : stdgo.GoFloat64), (-2.6 : stdgo.GoFloat64)) : stdgo.Slice<stdgo.GoFloat64>);
+        var _operands = (new stdgo.Slice<stdgo.GoFloat64>(6, 6, ...[(2.6 : stdgo.GoFloat64), (2.5 : stdgo.GoFloat64), (2.1 : stdgo.GoFloat64), (-2.1 : stdgo.GoFloat64), (-2.5 : stdgo.GoFloat64), (-2.6 : stdgo.GoFloat64)]) : stdgo.Slice<stdgo.GoFloat64>);
         stdgo._internal.fmt.Fmt.print(stdgo.Go.toInterface(("   x" : stdgo.GoString)));
         {
             var _mode:stdgo._internal.math.big.Big.RoundingMode = (0 : stdgo._internal.math.big.Big.RoundingMode);

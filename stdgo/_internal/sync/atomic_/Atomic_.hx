@@ -17,7 +17,7 @@ var _firstStoreInProgress : stdgo.GoByte = (0 : stdgo.GoUInt8);
 }
 @:structInit @:using(stdgo._internal.sync.atomic_.Atomic_.Pointer__static_extension) class Pointer_<T_> {
     @:optional
-    public var __5 : stdgo.GoArray<stdgo.Ref<T_>> = new stdgo.GoArray<stdgo.Ref<T_>>(...[for (i in 0 ... 0) (null : stdgo.Ref<T_>)]);
+    public var __5 : stdgo.GoArray<stdgo.Ref<T_>> = new stdgo.GoArray<stdgo.Ref<T_>>(0, 0, ...[for (i in 0 ... 0) (null : stdgo.Ref<T_>)]);
     @:optional
     public var __6 : stdgo._internal.sync.atomic_.Atomic_.T_noCopy = ({} : stdgo._internal.sync.atomic_.Atomic_.T_noCopy);
     public var _v : stdgo._internal.unsafe.Unsafe.UnsafePointer = @:default_value_kind null;

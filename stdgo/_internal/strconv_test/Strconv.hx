@@ -1,9 +1,7 @@
 package stdgo._internal.strconv_test;
 import stdgo._internal.strconv.Strconv;
 import stdgo._internal.strconv.Strconv;
-var _tests : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>(
-56,
-56,
+var _tests : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>(56, 56, ...[
 (new stdgo._internal.testing.Testing.InternalTest(("TestParseBool" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.testParseBool) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestFormatBool" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.testFormatBool) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestAppendBool" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.testAppendBool) : stdgo._internal.testing.Testing.InternalTest),
@@ -59,10 +57,8 @@ var _tests : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest> = (new st
 (new stdgo._internal.testing.Testing.InternalTest(("TestUnquoteInvalidUTF8" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.testUnquoteInvalidUTF8) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestCountMallocs" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.testCountMallocs) : stdgo._internal.testing.Testing.InternalTest),
 (new stdgo._internal.testing.Testing.InternalTest(("TestAllocationsFromBytes" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.testAllocationsFromBytes) : stdgo._internal.testing.Testing.InternalTest),
-(new stdgo._internal.testing.Testing.InternalTest(("TestErrorPrefixes" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.testErrorPrefixes) : stdgo._internal.testing.Testing.InternalTest)) : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>);
-var _benchmarks : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>(
-29,
-29,
+(new stdgo._internal.testing.Testing.InternalTest(("TestErrorPrefixes" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.testErrorPrefixes) : stdgo._internal.testing.Testing.InternalTest)]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>);
+var _benchmarks : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>(29, 29, ...[
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkAtof64Decimal" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.benchmarkAtof64Decimal) : stdgo._internal.testing.Testing.InternalBenchmark),
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkAtof64Float" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.benchmarkAtof64Float) : stdgo._internal.testing.Testing.InternalBenchmark),
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkAtof64FloatExp" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.benchmarkAtof64FloatExp) : stdgo._internal.testing.Testing.InternalBenchmark),
@@ -91,11 +87,9 @@ var _benchmarks : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkAppendQuote" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.benchmarkAppendQuote) : stdgo._internal.testing.Testing.InternalBenchmark),
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkAppendQuoteRune" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.benchmarkAppendQuoteRune) : stdgo._internal.testing.Testing.InternalBenchmark),
 (new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkUnquoteEasy" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.benchmarkUnquoteEasy) : stdgo._internal.testing.Testing.InternalBenchmark),
-(new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkUnquoteHard" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.benchmarkUnquoteHard) : stdgo._internal.testing.Testing.InternalBenchmark)) : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>);
-var _fuzzTargets : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>(0, 0) : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>);
-var _examples : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>(
-30,
-30,
+(new stdgo._internal.testing.Testing.InternalBenchmark(("BenchmarkUnquoteHard" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.benchmarkUnquoteHard) : stdgo._internal.testing.Testing.InternalBenchmark)]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalBenchmark>);
+var _fuzzTargets : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>(0, 0, ...[]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalFuzzTarget>);
+var _examples : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>(30, 30, ...[
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleAppendBool" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.exampleAppendBool, ("bool:true\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleAppendFloat" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.exampleAppendFloat, ("float32:3.1415927E+00\nfloat64:3.1415926535E+00\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleAppendInt" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.exampleAppendInt, ("int (base 10):-42\nint (base 16):-2a\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
@@ -125,7 +119,7 @@ var _examples : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample> = (
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleQuoteToGraphic" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.exampleQuoteToGraphic, ("\"☺\"\n\"This is a ☺\\t\\n\"\n\"\\\" This is a ☺ \\\\n \\\"\"\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleUnquote" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.exampleUnquote, ("\"\", invalid syntax\n\"The string must be either double-quoted\", <nil>\n\"or backquoted.\", <nil>\n\"☺\", <nil>\n\"\", invalid syntax\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
 (new stdgo._internal.testing.Testing.InternalExample(("ExampleUnquoteChar" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.exampleUnquoteChar, ("value: \"\nmultibyte: false\ntail: Fran & Freddie\'s Diner\\\"\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample),
-(new stdgo._internal.testing.Testing.InternalExample(("ExampleNumError" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.exampleNumError, ("Func: ParseFloat\nNum: Not a number\nErr: invalid syntax\nstrconv.ParseFloat: parsing \"Not a number\": invalid syntax\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample)) : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>);
+(new stdgo._internal.testing.Testing.InternalExample(("ExampleNumError" : stdgo.GoString), stdgo._internal.strconv_test.Strconv_test.exampleNumError, ("Func: ParseFloat\nNum: Not a number\nErr: invalid syntax\nstrconv.ParseFloat: parsing \"Not a number\": invalid syntax\n" : stdgo.GoString), false) : stdgo._internal.testing.Testing.InternalExample)]) : stdgo.Slice<stdgo._internal.testing.Testing.InternalExample>);
 function main():Void {
         var _m = stdgo._internal.testing.Testing.mainStart(stdgo.Go.asInterface((new stdgo._internal.testing.internal.testdeps.Testdeps.TestDeps() : stdgo._internal.testing.internal.testdeps.Testdeps.TestDeps)), _tests, _benchmarks, _fuzzTargets, _examples);
         Sys.exit(_m.run());

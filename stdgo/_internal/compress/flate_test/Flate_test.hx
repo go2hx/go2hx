@@ -1,7 +1,7 @@
 package stdgo._internal.compress.flate_test;
 import stdgo._internal.compress.flate.Flate;
 function example_reset():Void {
-        var _proverbs = (new stdgo.Slice<stdgo.GoString>(4, 4, ("Don\'t communicate by sharing memory, share memory by communicating.\n" : stdgo.GoString), ("Concurrency is not parallelism.\n" : stdgo.GoString), ("The bigger the interface, the weaker the abstraction.\n" : stdgo.GoString), ("Documentation is for users.\n" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+        var _proverbs = (new stdgo.Slice<stdgo.GoString>(4, 4, ...[("Don\'t communicate by sharing memory, share memory by communicating.\n" : stdgo.GoString), ("Concurrency is not parallelism.\n" : stdgo.GoString), ("The bigger the interface, the weaker the abstraction.\n" : stdgo.GoString), ("Documentation is for users.\n" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
         var _r:stdgo._internal.strings.Strings.Reader = ({} : stdgo._internal.strings.Strings.Reader);
         var _b:stdgo._internal.bytes.Bytes.Buffer = ({} : stdgo._internal.bytes.Bytes.Buffer);
         var _buf = new stdgo.Slice<stdgo.GoUInt8>((32768 : stdgo.GoInt).toBasic(), 0).__setNumber32__();

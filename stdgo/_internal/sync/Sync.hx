@@ -1347,7 +1347,7 @@ class T_poolDequeue_asInterface {
             };
         };
         var _val:stdgo.AnyInterface = (((stdgo.Go.toInterface(_slot) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.interfaceType(true, []) })) : stdgo.Ref<stdgo.AnyInterface>) : stdgo.AnyInterface);
-        if (_val == (stdgo.Go.toInterface((new stdgo._internal.sync.Sync.T_dequeueNil() : T_dequeueNil)))) {
+        if (_val == (stdgo.Go.toInterface(((null : stdgo._internal.sync.Sync.T_dequeueNil) : T_dequeueNil)))) {
             _val = (null : stdgo.AnyInterface);
         };
         _slot._val = @:default_value null;
@@ -1372,7 +1372,7 @@ class T_poolDequeue_asInterface {
             };
         };
         var _val:stdgo.AnyInterface = (((stdgo.Go.toInterface(_slot) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.interfaceType(true, []) })) : stdgo.Ref<stdgo.AnyInterface>) : stdgo.AnyInterface);
-        if (_val == (stdgo.Go.toInterface((new stdgo._internal.sync.Sync.T_dequeueNil() : T_dequeueNil)))) {
+        if (_val == (stdgo.Go.toInterface(((null : stdgo._internal.sync.Sync.T_dequeueNil) : T_dequeueNil)))) {
             _val = (null : stdgo.AnyInterface);
         };
         {
@@ -1396,7 +1396,7 @@ class T_poolDequeue_asInterface {
             return false;
         };
         if (_val == null) {
-            _val = stdgo.Go.toInterface((new stdgo._internal.sync.Sync.T_dequeueNil() : T_dequeueNil));
+            _val = stdgo.Go.toInterface(((null : stdgo._internal.sync.Sync.T_dequeueNil) : T_dequeueNil));
         };
         ((stdgo.Go.toInterface(_slot) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.interfaceType(true, []) })) : stdgo.Ref<stdgo.AnyInterface>).__setData__(_val);
         stdgo._internal.sync.atomic_.Atomic_.addUint64(stdgo.Go.pointer(_d._headTail), (4294967296i64 : stdgo.GoUInt64));

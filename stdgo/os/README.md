@@ -1,7 +1,9 @@
 # Module stdgo.os has compilation errors, please do not use:
 ```
-stdgo/_internal/unicode/utf8/Utf8.hx:291: characters 147-226 : Spread unary operator is only allowed for unpacking the last argument in a call with rest arguments
-stdgo/_internal/unicode/utf8/Utf8.hx:291: characters 147-226 : ... For function argument 'length'
+stdgo/os/Os.hx:55: characters 35-68 : stdgo.Slice<stdgo.GoString> should be Array<String>
+stdgo/os/Os.hx:56: characters 57-87 : Array<String> should be stdgo.Slice<stdgo.GoString>
+stdgo/os/Os.hx:56: characters 50-87 : stdgo.Slice<stdgo.GoString> should be Array<String>
+stdgo/_internal/internal/Macro.macro.hx:44: non hxb types:,256
 
 ```
 

@@ -140,6 +140,6 @@ function main():Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L26>)
+[\(view code\)](<./Base64.hx#L24>)
 
 

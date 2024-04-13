@@ -75,6 +75,6 @@ function main():Void
 ```
 
 
-[\(view code\)](<./Iotest.hx#L24>)
+[\(view code\)](<./Iotest.hx#L22>)
 
 

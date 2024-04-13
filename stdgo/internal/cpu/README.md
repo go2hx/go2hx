@@ -1,7 +1,7 @@
 # Module stdgo.internal.cpu has compilation errors, please do not use:
 ```
-stdgo/_internal/internal/cpu/Cpu.hx:15: characters 86-130 : Spread unary operator is only allowed for unpacking the last argument in a call with rest arguments
-stdgo/_internal/internal/cpu/Cpu.hx:15: characters 86-130 : ... For function argument 'length'
+stdgo/internal/cpu/Cpu.hx:28: characters 1-90 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/_internal/internal/Macro.macro.hx:44: non hxb types:,224
 
 ```
 

@@ -101,6 +101,6 @@ function main():Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L48>)
+[\(view code\)](<./Flate.hx#L46>)
 
 

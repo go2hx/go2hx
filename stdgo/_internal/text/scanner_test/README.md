@@ -114,6 +114,6 @@ function main():Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L27>)
+[\(view code\)](<./Scanner.hx#L25>)
 
 

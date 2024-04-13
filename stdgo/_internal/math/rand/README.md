@@ -1,7 +1,12 @@
 # Module stdgo._internal.math.rand has compilation errors, please do not use:
 ```
-stdgo/_internal/unicode/utf8/Utf8.hx:291: characters 147-226 : Spread unary operator is only allowed for unpacking the last argument in a call with rest arguments
-stdgo/_internal/unicode/utf8/Utf8.hx:291: characters 147-226 : ... For function argument 'length'
+stdgo/_internal/math/rand_test/Rand_test.hx:632: lines 632-637 : stdgo.GoInt64Map<Bool> should be stdgo.GoMap<stdgo.GoUInt64, Bool>
+stdgo/_internal/math/rand_test/Rand_test.hx:673: characters 22-62 : Type not found : stdgo._internal.text.tabwriter.Tabwriter
+stdgo/_internal/math/rand_test/Rand_test.hx:676: characters 49-73 : invalid type run asInterface: TDynamic(null)
+stdgo/_internal/math/rand_test/Rand_test.hx:971: characters 62-65 : Unknown identifier : _dn
+stdgo/_internal/math/rand_test/Rand_test.hx:997: characters 62-65 : Unknown identifier : _de
+stdgo/_internal/math/rand_test/Rand_test.hx:1127: characters 209-216 : Unknown identifier : _stddev
+stdgo/_internal/internal/Macro.macro.hx:44: non hxb types:,381
 
 ```
 

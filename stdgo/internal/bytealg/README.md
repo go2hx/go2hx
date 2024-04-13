@@ -1,7 +1,8 @@
 # Module stdgo.internal.bytealg has compilation errors, please do not use:
 ```
-stdgo/_internal/unicode/utf8/Utf8.hx:291: characters 147-226 : Spread unary operator is only allowed for unpacking the last argument in a call with rest arguments
-stdgo/_internal/unicode/utf8/Utf8.hx:291: characters 147-226 : ... For function argument 'length'
+stdgo/internal/bytealg/Bytealg.hx:5: characters 1-80 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/internal/bytealg/Bytealg.hx:6: characters 1-92 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/_internal/internal/Macro.macro.hx:44: non hxb types:,224
 
 ```
 

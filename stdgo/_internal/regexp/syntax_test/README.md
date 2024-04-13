@@ -62,6 +62,6 @@ function main():Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L20>)
+[\(view code\)](<./Syntax.hx#L18>)
 
 

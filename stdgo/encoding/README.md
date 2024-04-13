@@ -1,7 +1,10 @@
 # Module stdgo.encoding has compilation errors, please do not use:
 ```
-stdgo/_internal/unicode/utf8/Utf8.hx:291: characters 147-226 : Spread unary operator is only allowed for unpacking the last argument in a call with rest arguments
-stdgo/_internal/unicode/utf8/Utf8.hx:291: characters 147-226 : ... For function argument 'length'
+stdgo/encoding/binary/Binary.hx:31: characters 1-92 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/encoding/binary/Binary.hx:32: characters 1-92 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/encoding/binary/Binary.hx:33: characters 1-92 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/_internal/encoding/json/Json.hx:8667: characters 33-95 : stdgo.Slice<stdgo.AnyInterface> should be stdgo.AnyInterface
+stdgo/_internal/encoding/json/Json.hx:8667: characters 33-95 : ... For function argument 'args'
 
 ```
 

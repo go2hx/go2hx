@@ -211,7 +211,7 @@ function testAs(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L339>)
+[\(view code\)](<./Errors.hx#L337>)
 
 
 ## function testAsValidation
@@ -222,7 +222,7 @@ function testAsValidation(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L388>)
+[\(view code\)](<./Errors.hx#L384>)
 
 
 ## function testErrorMethod
@@ -299,7 +299,7 @@ function testUnwrap(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L439>)
+[\(view code\)](<./Errors.hx#L435>)
 
 
 ## function main
@@ -310,7 +310,7 @@ function main():Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L19>)
+[\(view code\)](<./Errors.hx#L8>)
 
 
 # Classes
@@ -353,7 +353,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Errors_test.hx#L465>)
+[\(view code\)](<./Errors_test.hx#L461>)
 
 
 # Typedefs

@@ -1,7 +1,11 @@
 # Module stdgo.compress.zlib has compilation errors, please do not use:
 ```
-stdgo/_internal/unicode/utf8/Utf8.hx:291: characters 147-226 : Spread unary operator is only allowed for unpacking the last argument in a call with rest arguments
-stdgo/_internal/unicode/utf8/Utf8.hx:291: characters 147-226 : ... For function argument 'length'
+stdgo/compress/zlib/Zlib.hx:24: characters 1-86 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/compress/zlib/Zlib.hx:25: characters 1-78 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/compress/zlib/Zlib.hx:26: characters 1-90 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/compress/zlib/Zlib.hx:27: characters 1-96 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/compress/zlib/Zlib.hx:28: characters 1-82 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/_internal/internal/Macro.macro.hx:44: non hxb types:,373
 
 ```
 

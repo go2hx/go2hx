@@ -109,7 +109,7 @@ function _chanMap():stdgo.GoMap<stdgo.Chan<stdgo.GoInt>, stdgo.GoString>
 ```
 
 
-[\(view code\)](<./Fmtsort.hx#L287>)
+[\(view code\)](<./Fmtsort.hx#L283>)
 
 
 ## function \_ct
@@ -120,7 +120,7 @@ function _ct(_typ:stdgo._internal.reflect.Type_, _args:haxe.Rest<stdgo.AnyInterf
 ```
 
 
-[\(view code\)](<./Fmtsort.hx#L159>)
+[\(view code\)](<./Fmtsort.hx#L155>)
 
 
 ## function \_makeChans
@@ -131,7 +131,7 @@ function _makeChans():stdgo.Slice<stdgo.Chan<stdgo.GoInt>>
 ```
 
 
-[\(view code\)](<./Fmtsort.hx#L250>)
+[\(view code\)](<./Fmtsort.hx#L246>)
 
 
 ## function \_pointerMap
@@ -142,7 +142,7 @@ function _pointerMap():stdgo.GoMap<stdgo.Pointer<stdgo.GoInt>, stdgo.GoString>
 ```
 
 
-[\(view code\)](<./Fmtsort.hx#L257>)
+[\(view code\)](<./Fmtsort.hx#L253>)
 
 
 ## function \_sprint
@@ -153,7 +153,7 @@ function _sprint(_data:stdgo.AnyInterface):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Fmtsort.hx#L199>)
+[\(view code\)](<./Fmtsort.hx#L195>)
 
 
 ## function \_sprintKey
@@ -164,7 +164,7 @@ function _sprintKey(_key:stdgo._internal.reflect.Value):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Fmtsort.hx#L215>)
+[\(view code\)](<./Fmtsort.hx#L211>)
 
 
 ## function \_unsafePointerMap
@@ -175,7 +175,7 @@ function _unsafePointerMap():stdgo.GoMap<stdgo._internal.unsafe.UnsafePointer, s
 ```
 
 
-[\(view code\)](<./Fmtsort.hx#L271>)
+[\(view code\)](<./Fmtsort.hx#L267>)
 
 
 ## function testCompare
@@ -186,7 +186,7 @@ function testCompare(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Fmtsort.hx#L173>)
+[\(view code\)](<./Fmtsort.hx#L169>)
 
 
 ## function testInterface
@@ -197,7 +197,7 @@ function testInterface(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Fmtsort.hx#L309>)
+[\(view code\)](<./Fmtsort.hx#L305>)
 
 
 ## function testOrder
@@ -208,7 +208,7 @@ function testOrder(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Fmtsort.hx#L301>)
+[\(view code\)](<./Fmtsort.hx#L297>)
 
 
 ## function main

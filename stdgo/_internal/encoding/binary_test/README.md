@@ -84,7 +84,7 @@ function exampleByteOrder_get():Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L88>)
+[\(view code\)](<./Binary.hx#L86>)
 
 
 ## function exampleByteOrder\_put
@@ -95,7 +95,7 @@ function exampleByteOrder_put():Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L82>)
+[\(view code\)](<./Binary.hx#L80>)
 
 
 ## function examplePutUvarint
@@ -106,7 +106,7 @@ function examplePutUvarint():Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L94>)
+[\(view code\)](<./Binary.hx#L92>)
 
 
 ## function examplePutVarint
@@ -117,7 +117,7 @@ function examplePutVarint():Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L101>)
+[\(view code\)](<./Binary.hx#L99>)
 
 
 ## function exampleRead
@@ -150,7 +150,7 @@ function exampleUvarint():Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L119>)
+[\(view code\)](<./Binary.hx#L106>)
 
 
 ## function exampleVarint
@@ -161,7 +161,7 @@ function exampleVarint():Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L129>)
+[\(view code\)](<./Binary.hx#L116>)
 
 
 ## function exampleWrite
@@ -194,7 +194,7 @@ function main():Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L79>)
+[\(view code\)](<./Binary.hx#L63>)
 
 
 # Typedefs

@@ -111,6 +111,8 @@ function main() {
 }
 
 function clean() {
+	if (FileSystem.exists("golibs"))
+		deleteDirectoryRecursively("golibs");
 	for (path in FileSystem.readDirectory("stdgo")) {
 		if (!FileSystem.isDirectory('stdgo/$path'))
 			continue;

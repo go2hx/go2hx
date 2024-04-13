@@ -11,7 +11,7 @@ function exampleBinarySearch():Void {
         };
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(("Bill:" : stdgo.GoString)), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_found));
     }
-@:structInit class T_exampleBinarySearchFunc_21___localname___Person {
+@:structInit class T_exampleBinarySearchFunc_24___localname___Person {
     public var name : stdgo.GoString = "";
     public var age : stdgo.GoInt = 0;
     public function new(?name:stdgo.GoString, ?age:stdgo.GoInt) {
@@ -20,13 +20,13 @@ function exampleBinarySearch():Void {
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_exampleBinarySearchFunc_21___localname___Person(name, age);
+        return new T_exampleBinarySearchFunc_24___localname___Person(name, age);
     }
 }
 function exampleBinarySearchFunc():Void {
         {};
-        var _people = (new stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_21___localname___Person>(3, 3, ...[(new stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_21___localname___Person(("Alice" : stdgo.GoString), (55 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_21___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_21___localname___Person(("Bob" : stdgo.GoString), (24 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_21___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_21___localname___Person(("Gopher" : stdgo.GoString), (13 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_21___localname___Person)]) : stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_21___localname___Person>);
-        var __tmp__ = stdgo._internal.slices.Slices.binarySearchFunc((null : stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_21___localname___Person>), ({} : stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_21___localname___Person), ({} : stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_21___localname___Person), _people, (new stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_21___localname___Person(("Bob" : stdgo.GoString), (0 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_21___localname___Person), function(_a:T_exampleBinarySearchFunc_21___localname___Person, _b:T_exampleBinarySearchFunc_21___localname___Person):stdgo.GoInt {
+        var _people = (new stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_24___localname___Person>(3, 3, ...[(new stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_24___localname___Person(("Alice" : stdgo.GoString), (55 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_24___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_24___localname___Person(("Bob" : stdgo.GoString), (24 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_24___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_24___localname___Person(("Gopher" : stdgo.GoString), (13 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_24___localname___Person)]) : stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_24___localname___Person>);
+        var __tmp__ = stdgo._internal.slices.Slices.binarySearchFunc((null : stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_24___localname___Person>), ({} : stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_24___localname___Person), ({} : stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_24___localname___Person), _people, (new stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_24___localname___Person(("Bob" : stdgo.GoString), (0 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleBinarySearchFunc_24___localname___Person), function(_a:T_exampleBinarySearchFunc_24___localname___Person, _b:T_exampleBinarySearchFunc_24___localname___Person):stdgo.GoInt {
             return stdgo._internal.cmp.Cmp.compare(("" : stdgo.GoString), _a.name?.__copy__(), _b.name?.__copy__());
         }), _n:stdgo.GoInt = __tmp__._0, _found:Bool = __tmp__._1;
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(("Bob:" : stdgo.GoString)), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_found));
@@ -136,7 +136,7 @@ function exampleMax():Void {
         var _numbers = (new stdgo.Slice<stdgo.GoInt>(4, 4, ...[(0 : stdgo.GoInt), (42 : stdgo.GoInt), (-10 : stdgo.GoInt), (8 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.slices.Slices.max((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _numbers)));
     }
-@:structInit class T_exampleMaxFunc_22___localname___Person {
+@:structInit class T_exampleMaxFunc_25___localname___Person {
     public var name : stdgo.GoString = "";
     public var age : stdgo.GoInt = 0;
     public function new(?name:stdgo.GoString, ?age:stdgo.GoInt) {
@@ -145,13 +145,13 @@ function exampleMax():Void {
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_exampleMaxFunc_22___localname___Person(name, age);
+        return new T_exampleMaxFunc_25___localname___Person(name, age);
     }
 }
 function exampleMaxFunc():Void {
         {};
-        var _people = (new stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_22___localname___Person>(4, 4, ...[(new stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_22___localname___Person(("Gopher" : stdgo.GoString), (13 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_22___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_22___localname___Person(("Alice" : stdgo.GoString), (55 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_22___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_22___localname___Person(("Vera" : stdgo.GoString), (24 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_22___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_22___localname___Person(("Bob" : stdgo.GoString), (55 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_22___localname___Person)]) : stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_22___localname___Person>);
-        var _firstOldest:stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_22___localname___Person = stdgo._internal.slices.Slices.maxFunc((null : stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_22___localname___Person>), ({} : stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_22___localname___Person), _people, function(_a:T_exampleMaxFunc_22___localname___Person, _b:T_exampleMaxFunc_22___localname___Person):stdgo.GoInt {
+        var _people = (new stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_25___localname___Person>(4, 4, ...[(new stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_25___localname___Person(("Gopher" : stdgo.GoString), (13 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_25___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_25___localname___Person(("Alice" : stdgo.GoString), (55 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_25___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_25___localname___Person(("Vera" : stdgo.GoString), (24 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_25___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_25___localname___Person(("Bob" : stdgo.GoString), (55 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_25___localname___Person)]) : stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_25___localname___Person>);
+        var _firstOldest:stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_25___localname___Person = stdgo._internal.slices.Slices.maxFunc((null : stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_25___localname___Person>), ({} : stdgo._internal.slices_test.Slices_test.T_exampleMaxFunc_25___localname___Person), _people, function(_a:T_exampleMaxFunc_25___localname___Person, _b:T_exampleMaxFunc_25___localname___Person):stdgo.GoInt {
             return stdgo._internal.cmp.Cmp.compare((0 : stdgo.GoInt), _a.age, _b.age);
         })?.__copy__();
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_firstOldest.name));
@@ -160,7 +160,7 @@ function exampleMin():Void {
         var _numbers = (new stdgo.Slice<stdgo.GoInt>(4, 4, ...[(0 : stdgo.GoInt), (42 : stdgo.GoInt), (-10 : stdgo.GoInt), (8 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt>);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.slices.Slices.min((null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt), _numbers)));
     }
-@:structInit class T_exampleMinFunc_23___localname___Person {
+@:structInit class T_exampleMinFunc_26___localname___Person {
     public var name : stdgo.GoString = "";
     public var age : stdgo.GoInt = 0;
     public function new(?name:stdgo.GoString, ?age:stdgo.GoInt) {
@@ -169,13 +169,13 @@ function exampleMin():Void {
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_exampleMinFunc_23___localname___Person(name, age);
+        return new T_exampleMinFunc_26___localname___Person(name, age);
     }
 }
 function exampleMinFunc():Void {
         {};
-        var _people = (new stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_23___localname___Person>(4, 4, ...[(new stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_23___localname___Person(("Gopher" : stdgo.GoString), (13 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_23___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_23___localname___Person(("Bob" : stdgo.GoString), (5 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_23___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_23___localname___Person(("Vera" : stdgo.GoString), (24 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_23___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_23___localname___Person(("Bill" : stdgo.GoString), (5 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_23___localname___Person)]) : stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_23___localname___Person>);
-        var _firstYoungest:stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_23___localname___Person = stdgo._internal.slices.Slices.minFunc((null : stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_23___localname___Person>), ({} : stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_23___localname___Person), _people, function(_a:T_exampleMinFunc_23___localname___Person, _b:T_exampleMinFunc_23___localname___Person):stdgo.GoInt {
+        var _people = (new stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_26___localname___Person>(4, 4, ...[(new stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_26___localname___Person(("Gopher" : stdgo.GoString), (13 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_26___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_26___localname___Person(("Bob" : stdgo.GoString), (5 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_26___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_26___localname___Person(("Vera" : stdgo.GoString), (24 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_26___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_26___localname___Person(("Bill" : stdgo.GoString), (5 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_26___localname___Person)]) : stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_26___localname___Person>);
+        var _firstYoungest:stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_26___localname___Person = stdgo._internal.slices.Slices.minFunc((null : stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_26___localname___Person>), ({} : stdgo._internal.slices_test.Slices_test.T_exampleMinFunc_26___localname___Person), _people, function(_a:T_exampleMinFunc_26___localname___Person, _b:T_exampleMinFunc_26___localname___Person):stdgo.GoInt {
             return stdgo._internal.cmp.Cmp.compare((0 : stdgo.GoInt), _a.age, _b.age);
         })?.__copy__();
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_firstYoungest.name));
@@ -202,7 +202,7 @@ function exampleSortFunc_caseInsensitive():Void {
         });
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_names));
     }
-@:structInit class T_exampleSortFunc_multiField_24___localname___Person {
+@:structInit class T_exampleSortFunc_multiField_27___localname___Person {
     public var name : stdgo.GoString = "";
     public var age : stdgo.GoInt = 0;
     public function new(?name:stdgo.GoString, ?age:stdgo.GoInt) {
@@ -211,13 +211,13 @@ function exampleSortFunc_caseInsensitive():Void {
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_exampleSortFunc_multiField_24___localname___Person(name, age);
+        return new T_exampleSortFunc_multiField_27___localname___Person(name, age);
     }
 }
 function exampleSortFunc_multiField():Void {
         {};
-        var _people = (new stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_24___localname___Person>(4, 4, ...[(new stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_24___localname___Person(("Gopher" : stdgo.GoString), (13 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_24___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_24___localname___Person(("Alice" : stdgo.GoString), (55 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_24___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_24___localname___Person(("Bob" : stdgo.GoString), (24 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_24___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_24___localname___Person(("Alice" : stdgo.GoString), (20 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_24___localname___Person)]) : stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_24___localname___Person>);
-        stdgo._internal.slices.Slices.sortFunc((null : stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_24___localname___Person>), ({} : stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_24___localname___Person), _people, function(_a:T_exampleSortFunc_multiField_24___localname___Person, _b:T_exampleSortFunc_multiField_24___localname___Person):stdgo.GoInt {
+        var _people = (new stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_27___localname___Person>(4, 4, ...[(new stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_27___localname___Person(("Gopher" : stdgo.GoString), (13 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_27___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_27___localname___Person(("Alice" : stdgo.GoString), (55 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_27___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_27___localname___Person(("Bob" : stdgo.GoString), (24 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_27___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_27___localname___Person(("Alice" : stdgo.GoString), (20 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_27___localname___Person)]) : stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_27___localname___Person>);
+        stdgo._internal.slices.Slices.sortFunc((null : stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_27___localname___Person>), ({} : stdgo._internal.slices_test.Slices_test.T_exampleSortFunc_multiField_27___localname___Person), _people, function(_a:T_exampleSortFunc_multiField_27___localname___Person, _b:T_exampleSortFunc_multiField_27___localname___Person):stdgo.GoInt {
             {
                 var _n:stdgo.GoInt = stdgo._internal.cmp.Cmp.compare(("" : stdgo.GoString), _a.name?.__copy__(), _b.name?.__copy__());
                 if (_n != ((0 : stdgo.GoInt))) {
@@ -228,7 +228,7 @@ function exampleSortFunc_multiField():Void {
         });
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_people));
     }
-@:structInit class T_exampleSortStableFunc_25___localname___Person {
+@:structInit class T_exampleSortStableFunc_28___localname___Person {
     public var name : stdgo.GoString = "";
     public var age : stdgo.GoInt = 0;
     public function new(?name:stdgo.GoString, ?age:stdgo.GoInt) {
@@ -237,13 +237,13 @@ function exampleSortFunc_multiField():Void {
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_exampleSortStableFunc_25___localname___Person(name, age);
+        return new T_exampleSortStableFunc_28___localname___Person(name, age);
     }
 }
 function exampleSortStableFunc():Void {
         {};
-        var _people = (new stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_25___localname___Person>(4, 4, ...[(new stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_25___localname___Person(("Gopher" : stdgo.GoString), (13 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_25___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_25___localname___Person(("Alice" : stdgo.GoString), (20 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_25___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_25___localname___Person(("Bob" : stdgo.GoString), (24 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_25___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_25___localname___Person(("Alice" : stdgo.GoString), (55 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_25___localname___Person)]) : stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_25___localname___Person>);
-        stdgo._internal.slices.Slices.sortStableFunc((null : stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_25___localname___Person>), ({} : stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_25___localname___Person), _people, function(_a:T_exampleSortStableFunc_25___localname___Person, _b:T_exampleSortStableFunc_25___localname___Person):stdgo.GoInt {
+        var _people = (new stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_28___localname___Person>(4, 4, ...[(new stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_28___localname___Person(("Gopher" : stdgo.GoString), (13 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_28___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_28___localname___Person(("Alice" : stdgo.GoString), (20 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_28___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_28___localname___Person(("Bob" : stdgo.GoString), (24 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_28___localname___Person), (new stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_28___localname___Person(("Alice" : stdgo.GoString), (55 : stdgo.GoInt)) : stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_28___localname___Person)]) : stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_28___localname___Person>);
+        stdgo._internal.slices.Slices.sortStableFunc((null : stdgo.Slice<stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_28___localname___Person>), ({} : stdgo._internal.slices_test.Slices_test.T_exampleSortStableFunc_28___localname___Person), _people, function(_a:T_exampleSortStableFunc_28___localname___Person, _b:T_exampleSortStableFunc_28___localname___Person):stdgo.GoInt {
             return stdgo._internal.cmp.Cmp.compare(("" : stdgo.GoString), _a.name?.__copy__(), _b.name?.__copy__());
         });
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_people));

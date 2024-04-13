@@ -154,6 +154,7 @@ var retryFailedCount = 3;
 var failedRegressionTasks:Array<TaskData> = [];
 
 function update() {
+	// Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount + " " + lastTaskLogs);
 	if (completeBool && tests.length == 0 && tasks.length == 0 && runningCount == 0) {
 		trace("COMPLETE");
 		close();
@@ -462,6 +463,7 @@ private function close() {
 		// retry failed tests
 		if (retryFailedCount-- > 0) {
 			tasks = failedRegressionTasks;
+			log('retrying failed tasks: ' + tasks.length);
 			failedRegressionTasks = [];
 			dryRun = false;
 			// runTests();

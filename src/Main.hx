@@ -214,7 +214,7 @@ function close(code:Int=0) {
 
 function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null) {
 	if (port == 0)
-		port = 6114 + Std.random(200); // random range in case port is still bound from before
+		port = 6114 + Std.random(800); // random range in case port is still bound from before
 	Sys.println('listening on local port: $port');
 	#if !js
 	server.bind(new sys.net.Host("127.0.0.1"), port);

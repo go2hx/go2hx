@@ -6362,8 +6362,11 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			var value = defaultValue(elem, info);
 			if (value == null)
 				value = macro stdgo.Go.expectedValue();
-			final len = makeExpr(len);
-			macro new stdgo.GoArray<$t>($len, $len, ...[for (i in 0...$len) $value]);
+			final lenExpr = makeExpr(len);
+			final args = [lenExpr,lenExpr];
+			if (len > 0)
+				args.push(macro ...[for (i in 0...$lenExpr) $value]);
+			macro new stdgo.GoArray<$t>($a{args});
 		case interfaceType(_):
 			final ct = ct();
 			macro(null : $ct);

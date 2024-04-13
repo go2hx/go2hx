@@ -151,7 +151,7 @@ func sortImports(dir string, name string) (r Result) {
 						return nil
 					}
 				}*/
-				fmt.Println(i, path)
+				//fmt.Println(i, path)
 			case "tinygo":
 				b, err := os.ReadFile(path[:len(path)-2] + "txt")
 				if err == nil {

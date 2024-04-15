@@ -502,6 +502,8 @@ class Go {
 					final path = at.pack.join(".") + "." + at.name;
 					var value:Expr = null;
 					switch path {
+						case "stdgo.GoArray":
+							return expr;
 						case "stdgo.GoMap":
 							final t = gtDecode(t, expr, []);
 							final keyComplexType = Context.toComplexType(params[0]);
@@ -526,6 +528,7 @@ class Go {
 							final t = Context.toComplexType(params[0]);
 							value = macro new stdgo.Pointer(null);
 						default:
+							trace('hello');
 							throw "invalid path tabstract setRef: " + path;
 					}
 					if (isNull)

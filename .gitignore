@@ -67,5 +67,6 @@ runrnd
 actions-runner
 log.out
 tests/sort_*.json
+!tests/sort_go.json
 *.zip
 prebuild

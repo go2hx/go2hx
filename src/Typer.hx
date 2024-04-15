@@ -5149,8 +5149,8 @@ private function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, under
 		}
 		final len = makeExpr(len != -1 ? len : exprs.length);
 		final e = genSlice(p, elem, len, len, e -> e, info, exprs);
-		return e;
-		//return macro ($e : $ct);
+		//return e;
+		return macro ($e : $ct);
 	}
 }
 

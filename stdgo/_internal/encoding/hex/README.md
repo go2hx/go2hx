@@ -339,7 +339,7 @@ function dumper(_w:stdgo._internal.io.Writer):stdgo._internal.io.WriteCloser
 function exampleDumper():Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            var _lines = (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("Go is an open source programming language." : stdgo.GoString), ("\n" : stdgo.GoString), ("We encourage all Go users to subscribe to golang-announce." : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+            var _lines = (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("Go is an open source programming language." : stdgo.GoString), ("\n" : stdgo.GoString), ("We encourage all Go users to subscribe to golang-announce." : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
             var _stdoutDumper:stdgo._internal.io.Io.WriteCloser = stdgo._internal.encoding.hex.Hex.dumper(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout));
             __deferstack__.unshift(() -> _stdoutDumper.close());
             for (__0 => _line in _lines) {

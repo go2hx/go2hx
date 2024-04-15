@@ -1263,7 +1263,7 @@ function join(_elems:stdgo.Slice<stdgo.GoString>, _sep:stdgo.GoString):stdgo.GoS
 
 ```haxe
 function exampleJoin():Void {
-        var _s = (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("foo" : stdgo.GoString), ("bar" : stdgo.GoString), ("baz" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+        var _s = (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("foo" : stdgo.GoString), ("bar" : stdgo.GoString), ("baz" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.strings.Strings.join(_s, (", " : stdgo.GoString))));
     }
 ```

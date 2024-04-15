@@ -36,9 +36,9 @@ var _utf8map : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map> 
 (new stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map((262144 : stdgo.GoInt32), ("\u{00040000}" : stdgo.GoString)) : stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map),
 (new stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map((1114110 : stdgo.GoInt32), ("\u{0010fffe}" : stdgo.GoString)) : stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map),
 (new stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map((1114111 : stdgo.GoInt32), ("\u{0010ffff}" : stdgo.GoString)) : stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map),
-(new stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map((65533 : stdgo.GoInt32), ("�" : stdgo.GoString)) : stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map)]) : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map>);
-var _surrogateMap : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map> = (new stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map>(2, 2, ...[(new stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map((55296 : stdgo.GoInt32), stdgo.Go.str(237, 160, 128)?.__copy__()) : stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map), (new stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map((57343 : stdgo.GoInt32), stdgo.Go.str(237, 191, 191)?.__copy__()) : stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map)]) : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map>);
-var _testStrings : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(6, 6, ...[stdgo.Go.str()?.__copy__(), ("abcd" : stdgo.GoString), ("☺☻☹" : stdgo.GoString), ("日a本b語ç日ð本Ê語þ日¥本¼語i日©" : stdgo.GoString), ("日a本b語ç日ð本Ê語þ日¥本¼語i日©日a本b語ç日ð本Ê語þ日¥本¼語i日©日a本b語ç日ð本Ê語þ日¥本¼語i日©" : stdgo.GoString), stdgo.Go.str(128, 128, 128, 128)?.__copy__()]) : stdgo.Slice<stdgo.GoString>);
+(new stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map((65533 : stdgo.GoInt32), ("�" : stdgo.GoString)) : stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map)].concat([for (i in 32 ... (32 > 32 ? 32 : 32 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map)])) : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map>);
+var _surrogateMap : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map> = (new stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map>(2, 2, ...[(new stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map((55296 : stdgo.GoInt32), stdgo.Go.str(237, 160, 128)?.__copy__()) : stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map), (new stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map((57343 : stdgo.GoInt32), stdgo.Go.str(237, 191, 191)?.__copy__()) : stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map)].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map)])) : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.Utf8Map>);
+var _testStrings : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(6, 6, ...[stdgo.Go.str()?.__copy__(), ("abcd" : stdgo.GoString), ("☺☻☹" : stdgo.GoString), ("日a本b語ç日ð本Ê語þ日¥本¼語i日©" : stdgo.GoString), ("日a本b語ç日ð本Ê語þ日¥本¼語i日©日a本b語ç日ð本Ê語þ日¥本¼語i日©日a本b語ç日ð本Ê語þ日¥本¼語i日©" : stdgo.GoString), stdgo.Go.str(128, 128, 128, 128)?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>);
 var _invalidSequenceTests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(37, 37, ...[
 stdgo.Go.str(237, 160, 128, 128)?.__copy__(),
 stdgo.Go.str(237, 191, 191, 128)?.__copy__(),
@@ -76,9 +76,9 @@ stdgo.Go.str(244, 128, 127, 191)?.__copy__(),
 stdgo.Go.str(244, 128, 128, 127)?.__copy__(),
 stdgo.Go.str(244, 143, 191, 192)?.__copy__(),
 stdgo.Go.str(244, 143, 192, 128)?.__copy__(),
-stdgo.Go.str(244, 144, 128, 128)?.__copy__()]) : stdgo.Slice<stdgo.GoString>);
-var _runecounttests : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest> = (new stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest>(6, 6, ...[(new stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest(("abcd" : stdgo.GoString), (4 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest(("☺☻☹" : stdgo.GoString), (3 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest(("1,2,3,4" : stdgo.GoString), (7 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest(stdgo.Go.str(226, 0)?.__copy__(), (2 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest(stdgo.Go.str(226, 128)?.__copy__(), (2 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest(stdgo.Go.str("a", 226, 128)?.__copy__(), (3 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest)]) : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest>);
-var _runelentests : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest> = (new stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest>(10, 10, ...[(new stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest((0 : stdgo.GoInt32), (1 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest((101 : stdgo.GoInt32), (1 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest((233 : stdgo.GoInt32), (2 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest((9786 : stdgo.GoInt32), (3 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest((65533 : stdgo.GoInt32), (3 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest((1114111 : stdgo.GoInt32), (4 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest((55296 : stdgo.GoInt32), (-1 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest((57343 : stdgo.GoInt32), (-1 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest((1114112 : stdgo.GoInt32), (-1 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest((-1 : stdgo.GoInt32), (-1 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest)]) : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest>);
+stdgo.Go.str(244, 144, 128, 128)?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>);
+var _runecounttests : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest> = (new stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest>(6, 6, ...[(new stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest(("abcd" : stdgo.GoString), (4 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest(("☺☻☹" : stdgo.GoString), (3 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest(("1,2,3,4" : stdgo.GoString), (7 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest(stdgo.Go.str(226, 0)?.__copy__(), (2 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest(stdgo.Go.str(226, 128)?.__copy__(), (2 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest(stdgo.Go.str("a", 226, 128)?.__copy__(), (3 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest)].concat([for (i in 6 ... (6 > 6 ? 6 : 6 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest)])) : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.RuneCountTest>);
+var _runelentests : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest> = (new stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest>(10, 10, ...[(new stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest((0 : stdgo.GoInt32), (1 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest((101 : stdgo.GoInt32), (1 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest((233 : stdgo.GoInt32), (2 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest((9786 : stdgo.GoInt32), (3 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest((65533 : stdgo.GoInt32), (3 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest((1114111 : stdgo.GoInt32), (4 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest((55296 : stdgo.GoInt32), (-1 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest((57343 : stdgo.GoInt32), (-1 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest((1114112 : stdgo.GoInt32), (-1 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest), (new stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest((-1 : stdgo.GoInt32), (-1 : stdgo.GoInt)) : stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest)].concat([for (i in 10 ... (10 > 10 ? 10 : 10 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest)])) : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.RuneLenTest>);
 var _validTests : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest> = (new stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest>(18, 18, ...[
 (new stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest(stdgo.Go.str()?.__copy__(), true) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest),
 (new stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest(("a" : stdgo.GoString), true) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest),
@@ -88,8 +88,8 @@ var _validTests : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.ValidT
 (new stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest(("брэд-ЛГТМ" : stdgo.GoString), true) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest),
 (new stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest(("☺☻☹" : stdgo.GoString), true) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest),
 (new stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest(stdgo.Go.str("aa", 226)?.__copy__(), false) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest),
-(new stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest(((new stdgo.Slice<stdgo.GoUInt8>(2, 2, ...[(66 : stdgo.GoUInt8), (250 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString), false) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest),
-(new stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest(((new stdgo.Slice<stdgo.GoUInt8>(3, 3, ...[(66 : stdgo.GoUInt8), (250 : stdgo.GoUInt8), (67 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString), false) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest),
+(new stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest(((new stdgo.Slice<stdgo.GoUInt8>(2, 2, ...[(66 : stdgo.GoUInt8), (250 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__(), false) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest),
+(new stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest(((new stdgo.Slice<stdgo.GoUInt8>(3, 3, ...[(66 : stdgo.GoUInt8), (250 : stdgo.GoUInt8), (67 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__(), false) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest),
 (new stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest(("a�b" : stdgo.GoString), true) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest),
 (new stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest(("\u{0010ffff}" : stdgo.GoString), true) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest),
 (new stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest((stdgo.Go.str(244, 144, 128, 128) : stdgo.GoString)?.__copy__(), false) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest),
@@ -97,7 +97,7 @@ var _validTests : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.ValidT
 (new stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest((stdgo.Go.str(251, 191, 191, 191, 191) : stdgo.GoString)?.__copy__(), false) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest),
 (new stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest((stdgo.Go.str(192, 128) : stdgo.GoString)?.__copy__(), false) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest),
 (new stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest((stdgo.Go.str(237, 160, 128) : stdgo.GoString)?.__copy__(), false) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest),
-(new stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest((stdgo.Go.str(237, 191, 191) : stdgo.GoString)?.__copy__(), false) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest)]) : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest>);
+(new stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest((stdgo.Go.str(237, 191, 191) : stdgo.GoString)?.__copy__(), false) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest)].concat([for (i in 18 ... (18 > 18 ? 18 : 18 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest)])) : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.ValidTest>);
 var _validrunetests : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest> = (new stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest>(12, 12, ...[
 (new stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest((0 : stdgo.GoInt32), true) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest),
 (new stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest((101 : stdgo.GoInt32), true) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest),
@@ -110,7 +110,7 @@ var _validrunetests : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.Va
 (new stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest((57343 : stdgo.GoInt32), false) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest),
 (new stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest((57344 : stdgo.GoInt32), true) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest),
 (new stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest((1114112 : stdgo.GoInt32), false) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest),
-(new stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest((-1 : stdgo.GoInt32), false) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest)]) : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest>);
+(new stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest((-1 : stdgo.GoInt32), false) : stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest)].concat([for (i in 12 ... (12 > 12 ? 12 : 12 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest)])) : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.ValidRuneTest>);
 var _ascii100000 : stdgo.GoString = stdgo._internal.strings.Strings.repeat(("0123456789" : stdgo.GoString), (10000 : stdgo.GoInt));
 @:structInit class Utf8Map {
     public var _r : stdgo.GoInt32 = 0;
@@ -228,7 +228,7 @@ function exampleEncodeRune():Void {
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_n));
     }
 function exampleEncodeRune_outOfRange():Void {
-        var _runes = (new stdgo.Slice<stdgo.GoInt32>(3, 3, ...[(-1 : stdgo.GoInt32), (1114112 : stdgo.GoInt32), (65533 : stdgo.GoInt32)]) : stdgo.Slice<stdgo.GoInt32>);
+        var _runes = (new stdgo.Slice<stdgo.GoInt32>(3, 3, ...[(-1 : stdgo.GoInt32), (1114112 : stdgo.GoInt32), (65533 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
         for (_i => _c in _runes) {
             var _buf = new stdgo.Slice<stdgo.GoUInt8>((3 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
             var _size:stdgo.GoInt = stdgo._internal.unicode.utf8.Utf8.encodeRune(_buf, _c);
@@ -236,7 +236,7 @@ function exampleEncodeRune_outOfRange():Void {
         };
     }
 function exampleFullRune():Void {
-        var _buf = (new stdgo.Slice<stdgo.GoUInt8>(3, 3, ...[(228 : stdgo.GoUInt8), (184 : stdgo.GoUInt8), (150 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>);
+        var _buf = (new stdgo.Slice<stdgo.GoUInt8>(3, 3, ...[(228 : stdgo.GoUInt8), (184 : stdgo.GoUInt8), (150 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.unicode.utf8.Utf8.fullRune(_buf)));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.unicode.utf8.Utf8.fullRune((_buf.__slice__(0, (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>))));
     }
@@ -267,7 +267,7 @@ function exampleRuneStart():Void {
     }
 function exampleValid():Void {
         var _valid = (("Hello, 世界" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
-        var _invalid = (new stdgo.Slice<stdgo.GoUInt8>(3, 3, ...[(255 : stdgo.GoUInt8), (254 : stdgo.GoUInt8), (253 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>);
+        var _invalid = (new stdgo.Slice<stdgo.GoUInt8>(3, 3, ...[(255 : stdgo.GoUInt8), (254 : stdgo.GoUInt8), (253 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.unicode.utf8.Utf8.valid(_valid)));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.unicode.utf8.Utf8.valid(_invalid)));
     }
@@ -279,7 +279,7 @@ function exampleValidRune():Void {
     }
 function exampleValidString():Void {
         var _valid:stdgo.GoString = ("Hello, 世界" : stdgo.GoString);
-        var _invalid:stdgo.GoString = ((new stdgo.Slice<stdgo.GoUInt8>(3, 3, ...[(255 : stdgo.GoUInt8), (254 : stdgo.GoUInt8), (253 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString);
+        var _invalid:stdgo.GoString = ((new stdgo.Slice<stdgo.GoUInt8>(3, 3, ...[(255 : stdgo.GoUInt8), (254 : stdgo.GoUInt8), (253 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__();
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.unicode.utf8.Utf8.validString(_valid?.__copy__())));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.unicode.utf8.Utf8.validString(_invalid?.__copy__())));
     }
@@ -316,7 +316,7 @@ function testFullRune(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 _t.errorf(("FullRune(%q) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_s1));
             };
         };
-        for (__33 => _s in (new stdgo.Slice<stdgo.GoString>(2, 2, ...[stdgo.Go.str(192)?.__copy__(), stdgo.Go.str(193)?.__copy__()]) : stdgo.Slice<stdgo.GoString>)) {
+        for (__33 => _s in (new stdgo.Slice<stdgo.GoString>(2, 2, ...[stdgo.Go.str(192)?.__copy__(), stdgo.Go.str(193)?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>)) {
             var _b = (_s : stdgo.Slice<stdgo.GoByte>);
             if (!fullRune(_b)) {
                 _t.errorf(("FullRune(%q) = false, want true" : stdgo.GoString), stdgo.Go.toInterface(_s));
@@ -452,7 +452,7 @@ function testDecodeSurrogateRune(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
 function testSequencing(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _ts in _testStrings) {
             for (__1 => _m in _utf8map) {
-                for (__2 => _s in (new stdgo.Slice<stdgo.GoString>(3, 3, ...[(_ts + _m._str?.__copy__() : stdgo.GoString)?.__copy__(), (_m._str + _ts?.__copy__() : stdgo.GoString)?.__copy__(), ((_ts + _m._str?.__copy__() : stdgo.GoString) + _ts?.__copy__() : stdgo.GoString)?.__copy__()]) : stdgo.Slice<stdgo.GoString>)) {
+                for (__2 => _s in (new stdgo.Slice<stdgo.GoString>(3, 3, ...[(_ts + _m._str?.__copy__() : stdgo.GoString)?.__copy__(), (_m._str + _ts?.__copy__() : stdgo.GoString)?.__copy__(), ((_ts + _m._str?.__copy__() : stdgo.GoString) + _ts?.__copy__() : stdgo.GoString)?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>)) {
                     _testSequence(_t, _s?.__copy__());
                 };
             };
@@ -805,7 +805,7 @@ function benchmarkAppendJapaneseRune(_b:stdgo.Ref<stdgo._internal.testing.Testin
         };
     }
 function benchmarkDecodeASCIIRune(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-        var _a = (new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(97 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>);
+        var _a = (new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(97 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
@@ -823,7 +823,7 @@ function benchmarkDecodeJapaneseRune(_b:stdgo.Ref<stdgo._internal.testing.Testin
         };
     }
 function benchmarkFullRune(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-        var _benchmarks = (new stdgo.Slice<T__struct_0>(3, 3, ...[({ _name : ("ASCII" : stdgo.GoString), _data : (("a" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>) } : T__struct_0), ({ _name : ("Incomplete" : stdgo.GoString), _data : (stdgo.Go.str(240, 144, 128) : stdgo.Slice<stdgo.GoByte>) } : T__struct_0), ({ _name : ("Japanese" : stdgo.GoString), _data : (("本" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>) } : T__struct_0)]) : stdgo.Slice<T__struct_0>);
+        var _benchmarks = (new stdgo.Slice<T__struct_0>(3, 3, ...[({ _name : ("ASCII" : stdgo.GoString), _data : (("a" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>) } : T__struct_0), ({ _name : ("Incomplete" : stdgo.GoString), _data : (stdgo.Go.str(240, 144, 128) : stdgo.Slice<stdgo.GoByte>) } : T__struct_0), ({ _name : ("Japanese" : stdgo.GoString), _data : (("本" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>) } : T__struct_0)].concat([for (i in 3 ... (3 > 3 ? 3 : 3 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _data : (null : stdgo.Slice<stdgo.GoUInt8>) } : T__struct_0)])) : stdgo.Slice<T__struct_0>);
         for (__0 => _bm in _benchmarks) {
             _b.run(_bm._name?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
                 {

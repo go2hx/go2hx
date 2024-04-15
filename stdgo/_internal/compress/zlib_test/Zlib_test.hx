@@ -33,7 +33,7 @@ function exampleNewReader():Void {
 (33 : stdgo.GoUInt8),
 (231 : stdgo.GoUInt8),
 (4 : stdgo.GoUInt8),
-(147 : stdgo.GoUInt8)]) : stdgo.Slice<stdgo.GoUInt8>);
+(147 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var _b = stdgo._internal.bytes.Bytes.newReader(_buff);
         var __tmp__ = stdgo._internal.compress.zlib.Zlib.newReader(stdgo.Go.asInterface(_b)), _r:stdgo._internal.io.Io.ReadCloser = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {

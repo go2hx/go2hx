@@ -48,7 +48,7 @@ var _golden : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(43, 43, .
 ({ _out : (1763221182u32 : stdgo.GoUInt32), _in : (stdgo._internal.strings.Strings.repeat(stdgo.Go.str(255)?.__copy__(), (5555 : stdgo.GoInt)) + ("5" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), _halfState : stdgo.Go.str("adl", 1, 211, 205, "Ͻ")?.__copy__() } : T__struct_0),
 ({ _out : (-2035351551u32 : stdgo.GoUInt32), _in : stdgo._internal.strings.Strings.repeat(stdgo.Go.str(0)?.__copy__(), (100000 : stdgo.GoInt))?.__copy__(), _halfState : stdgo.Go.str("adl", 1, 195, "P", 0, 1)?.__copy__() } : T__struct_0),
 ({ _out : (2036730701u32 : stdgo.GoUInt32), _in : stdgo._internal.strings.Strings.repeat(("a" : stdgo.GoString), (100000 : stdgo.GoInt))?.__copy__(), _halfState : stdgo.Go.str("adl", 1, 129, "k", 5, 167)?.__copy__() } : T__struct_0),
-({ _out : (285575406u32 : stdgo.GoUInt32), _in : stdgo._internal.strings.Strings.repeat(("ABCDEFGHIJKLMNOPQRSTUVWXYZ" : stdgo.GoString), (10000 : stdgo.GoInt))?.__copy__(), _halfState : stdgo.Go.str("adl", 1, "e", 210, 196, "p")?.__copy__() } : T__struct_0)]) : stdgo.Slice<T__struct_0>);
+({ _out : (285575406u32 : stdgo.GoUInt32), _in : stdgo._internal.strings.Strings.repeat(("ABCDEFGHIJKLMNOPQRSTUVWXYZ" : stdgo.GoString), (10000 : stdgo.GoInt))?.__copy__(), _halfState : stdgo.Go.str("adl", 1, "e", 210, 196, "p")?.__copy__() } : T__struct_0)].concat([for (i in 43 ... (43 > 43 ? 43 : 43 : stdgo.GoInt).toBasic()) ({ _out : (0 : stdgo.GoUInt32), _in : ("" : stdgo.GoString), _halfState : ("" : stdgo.GoString) } : T__struct_0)])) : stdgo.Slice<T__struct_0>);
 class T__struct_0_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;
@@ -73,7 +73,7 @@ function new_():stdgo._internal.hash.Hash.Hash32 {
         return stdgo.Go.asInterface(_d);
     }
 function _appendUint32(_b:stdgo.Slice<stdgo.GoByte>, _x:stdgo.GoUInt32):stdgo.Slice<stdgo.GoByte> {
-        var _a = (new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...[((_x >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoByte), ((_x >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoByte), ((_x >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoByte), (_x : stdgo.GoByte)]) : stdgo.GoArray<stdgo.GoUInt8>);
+        var _a = (new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...[((_x >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoByte), ((_x >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoByte), ((_x >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoByte), (_x : stdgo.GoByte)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt8>)?.__copy__();
         return (_b.__append__(...((_a.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
     }
 function _readUint32(_b:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32 {

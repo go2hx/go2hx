@@ -358,7 +358,7 @@ function testSqDiff(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 (65538u32 : stdgo.GoUInt32),
 (-3u32 : stdgo.GoUInt32),
 (-2u32 : stdgo.GoUInt32),
-(-1u32 : stdgo.GoUInt32)]) : stdgo.Slice<stdgo.GoUInt32>);
+(-1u32 : stdgo.GoUInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt32>);
         for (__0 => _x in _testCases) {
             for (__1 => _y in _testCases) {
                 {

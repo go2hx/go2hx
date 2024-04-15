@@ -298,7 +298,7 @@ function _globWithLimit(_pattern:stdgo.GoString, _depth:stdgo.GoInt):{ var _0 : 
                     return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
                 };
             };
-            return { _0 : (new stdgo.Slice<stdgo.GoString>(1, 1, ...[_pattern?.__copy__()]) : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
+            return { _0 : (new stdgo.Slice<stdgo.GoString>(1, 1, ...[_pattern?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
         };
         var __tmp__ = split(_pattern?.__copy__()), _dir:stdgo.GoString = __tmp__._0, _file:stdgo.GoString = __tmp__._1;
         var _volumeLen:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -825,7 +825,7 @@ function hasPrefix(_p:stdgo.GoString, _prefix:stdgo.GoString):Bool {
     }
 function _splitList(_path:stdgo.GoString):stdgo.Slice<stdgo.GoString> {
         if (_path == (stdgo.Go.str())) {
-            return (new stdgo.Slice<stdgo.GoString>(0, 0, ...[]) : stdgo.Slice<stdgo.GoString>);
+            return (new stdgo.Slice<stdgo.GoString>(0, 0, ...[]).__setString__() : stdgo.Slice<stdgo.GoString>);
         };
         return stdgo._internal.strings.Strings.split(_path?.__copy__(), ((58 : stdgo.GoInt32) : stdgo.GoString));
     }

@@ -2307,7 +2307,7 @@ var _golden : stdgo.Slice<stdgo._internal.crypto.sha1.Sha1.T_sha1Test> = (new st
 0,
 0,
 0,
-28)?.__copy__()) : stdgo._internal.crypto.sha1.Sha1.T_sha1Test)]) : stdgo.Slice<stdgo._internal.crypto.sha1.Sha1.T_sha1Test>);
+28)?.__copy__()) : stdgo._internal.crypto.sha1.Sha1.T_sha1Test)].concat([for (i in 32 ... (32 > 32 ? 32 : 32 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.sha1.Sha1.T_sha1Test)])) : stdgo.Slice<stdgo._internal.crypto.sha1.Sha1.T_sha1Test>);
 var _largeUnmarshalTests : stdgo.Slice<stdgo._internal.crypto.sha1.Sha1.T_unmarshalTest> = (new stdgo.Slice<stdgo._internal.crypto.sha1.Sha1.T_unmarshalTest>(2, 2, ...[({ _state : stdgo.Go.str("sha",
 1,
 19,
@@ -2374,7 +2374,7 @@ var _largeUnmarshalTests : stdgo.Slice<stdgo._internal.crypto.sha1.Sha1.T_unmars
 0,
 1,
 135,
-"VCw")?.__copy__(), _sum : ("8f2d1c0e4271768f35feb918bfe21ea1387a2072" : stdgo.GoString) } : stdgo._internal.crypto.sha1.Sha1.T_unmarshalTest)]) : stdgo.Slice<stdgo._internal.crypto.sha1.Sha1.T_unmarshalTest>);
+"VCw")?.__copy__(), _sum : ("8f2d1c0e4271768f35feb918bfe21ea1387a2072" : stdgo.GoString) } : stdgo._internal.crypto.sha1.Sha1.T_unmarshalTest)].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.sha1.Sha1.T_unmarshalTest)])) : stdgo.Slice<stdgo._internal.crypto.sha1.Sha1.T_unmarshalTest>);
 var _bench : stdgo._internal.hash.Hash.Hash = new_();
 var _buf : stdgo.Slice<stdgo.GoUInt8> = new stdgo.Slice<stdgo.GoUInt8>((8192 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
 @:structInit @:private @:using(stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension) class T_digest {

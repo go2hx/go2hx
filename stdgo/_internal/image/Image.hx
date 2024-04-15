@@ -33,7 +33,7 @@ var _testImages : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(9, 9,
         return stdgo.Go.asInterface(newGray16(rect((0 : stdgo.GoInt), (0 : stdgo.GoInt), (10 : stdgo.GoInt), (10 : stdgo.GoInt))?.__copy__()));
     } } : T__struct_0), ({ _name : ("paletted" : stdgo.GoString), _image : function():T_image {
         return stdgo.Go.asInterface(newPaletted(rect((0 : stdgo.GoInt), (0 : stdgo.GoInt), (10 : stdgo.GoInt), (10 : stdgo.GoInt))?.__copy__(), (new stdgo.Slice<stdgo._internal.image.color.Color.Color>(2, 2, ...[stdgo.Go.asInterface(transparent), stdgo.Go.asInterface(opaque)]) : stdgo._internal.image.color.Color.Palette)));
-    } } : T__struct_0)]) : stdgo.Slice<T__struct_0>);
+    } } : T__struct_0)].concat([for (i in 9 ... (9 > 9 ? 9 : 9 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _image : null } : T__struct_0)])) : stdgo.Slice<T__struct_0>);
 typedef T_reader = stdgo.StructType & {
     > stdgo._internal.io.Io.Reader,
     /**
@@ -552,7 +552,7 @@ rect((-1 : stdgo.GoInt), (-2 : stdgo.GoInt), (4 : stdgo.GoInt), (6 : stdgo.GoInt
 rect((-10 : stdgo.GoInt), (-20 : stdgo.GoInt), (30 : stdgo.GoInt), (40 : stdgo.GoInt))?.__copy__(),
 rect((8 : stdgo.GoInt), (8 : stdgo.GoInt), (8 : stdgo.GoInt), (8 : stdgo.GoInt))?.__copy__(),
 rect((88 : stdgo.GoInt), (88 : stdgo.GoInt), (88 : stdgo.GoInt), (88 : stdgo.GoInt))?.__copy__(),
-rect((6 : stdgo.GoInt), (5 : stdgo.GoInt), (4 : stdgo.GoInt), (3 : stdgo.GoInt))?.__copy__()]) : stdgo.Slice<stdgo._internal.image.Image.Rectangle>);
+rect((6 : stdgo.GoInt), (5 : stdgo.GoInt), (4 : stdgo.GoInt), (3 : stdgo.GoInt))?.__copy__()].concat([for (i in 11 ... (11 > 11 ? 11 : 11 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.image.Image.Rectangle)])) : stdgo.Slice<stdgo._internal.image.Image.Rectangle>);
         for (__0 => _r in _rects) {
             for (__1 => _s in _rects) {
                 var _got:Bool = _r.eq(_s?.__copy__());
@@ -583,7 +583,7 @@ rect((6 : stdgo.GoInt), (5 : stdgo.GoInt), (4 : stdgo.GoInt), (3 : stdgo.GoInt))
                         _t.errorf(("Intersect: r=%s, s=%s, a=%s: isZero=%t same as overlaps=%t" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(_isZero), stdgo.Go.toInterface(_overlaps));
                     };
                 };
-                var _largerThanA = (new stdgo.GoArray<stdgo._internal.image.Image.Rectangle>(4, 4, ...[_a?.__copy__(), _a?.__copy__(), _a?.__copy__(), _a?.__copy__()]) : stdgo.GoArray<stdgo._internal.image.Image.Rectangle>);
+                var _largerThanA = (new stdgo.GoArray<stdgo._internal.image.Image.Rectangle>(4, 4, ...[_a?.__copy__(), _a?.__copy__(), _a?.__copy__(), _a?.__copy__()].concat([for (i in 4 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.image.Image.Rectangle)])) : stdgo.GoArray<stdgo._internal.image.Image.Rectangle>);
                 _largerThanA[(0 : stdgo.GoInt)].min.x--;
                 _largerThanA[(1 : stdgo.GoInt)].min.y--;
                 _largerThanA[(2 : stdgo.GoInt)].max.x++;
@@ -616,7 +616,7 @@ rect((6 : stdgo.GoInt), (5 : stdgo.GoInt), (4 : stdgo.GoInt), (3 : stdgo.GoInt))
                 if (_a.empty()) {
                     continue;
                 };
-                var _smallerThanA = (new stdgo.GoArray<stdgo._internal.image.Image.Rectangle>(4, 4, ...[_a?.__copy__(), _a?.__copy__(), _a?.__copy__(), _a?.__copy__()]) : stdgo.GoArray<stdgo._internal.image.Image.Rectangle>);
+                var _smallerThanA = (new stdgo.GoArray<stdgo._internal.image.Image.Rectangle>(4, 4, ...[_a?.__copy__(), _a?.__copy__(), _a?.__copy__(), _a?.__copy__()].concat([for (i in 4 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.image.Image.Rectangle)])) : stdgo.GoArray<stdgo._internal.image.Image.Rectangle>);
                 _smallerThanA[(0 : stdgo.GoInt)].min.x++;
                 _smallerThanA[(1 : stdgo.GoInt)].min.y++;
                 _smallerThanA[(2 : stdgo.GoInt)].max.x--;
@@ -796,7 +796,7 @@ function testNewXxxBadRectangle(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>
         } } : T__struct_1),
 ({ _name : ("NYCbCrA" : stdgo.GoString), _f : function(_r:Rectangle):Void {
             newNYCbCrA(_r?.__copy__(), (0 : stdgo._internal.image.Image.YCbCrSubsampleRatio));
-        } } : T__struct_1)]) : stdgo.Slice<T__struct_1>);
+        } } : T__struct_1)].concat([for (i in 12 ... (12 > 12 ? 12 : 12 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _f : null } : T__struct_1)])) : stdgo.Slice<T__struct_1>);
         for (__0 => _tc in _testCases) {
             for (__1 => _negDx in (new stdgo.Slice<Bool>(2, 2, ...[false, true]) : stdgo.Slice<Bool>)) {
                 for (__2 => _negDy in (new stdgo.Slice<Bool>(2, 2, ...[false, true]) : stdgo.Slice<Bool>)) {
@@ -1192,9 +1192,9 @@ rect((8 : stdgo.GoInt), (8 : stdgo.GoInt), (9 : stdgo.GoInt), (9 : stdgo.GoInt))
 rect((7 : stdgo.GoInt), (7 : stdgo.GoInt), (17 : stdgo.GoInt), (17 : stdgo.GoInt))?.__copy__(),
 rect((8 : stdgo.GoInt), (8 : stdgo.GoInt), (17 : stdgo.GoInt), (17 : stdgo.GoInt))?.__copy__(),
 rect((9 : stdgo.GoInt), (9 : stdgo.GoInt), (17 : stdgo.GoInt), (17 : stdgo.GoInt))?.__copy__(),
-rect((10 : stdgo.GoInt), (10 : stdgo.GoInt), (17 : stdgo.GoInt), (17 : stdgo.GoInt))?.__copy__()]) : stdgo.Slice<stdgo._internal.image.Image.Rectangle>);
-        var _subsampleRatios = (new stdgo.Slice<stdgo._internal.image.Image.YCbCrSubsampleRatio>(6, 6, ...[(0 : stdgo._internal.image.Image.YCbCrSubsampleRatio), (1 : stdgo._internal.image.Image.YCbCrSubsampleRatio), (2 : stdgo._internal.image.Image.YCbCrSubsampleRatio), (3 : stdgo._internal.image.Image.YCbCrSubsampleRatio), (4 : stdgo._internal.image.Image.YCbCrSubsampleRatio), (5 : stdgo._internal.image.Image.YCbCrSubsampleRatio)]) : stdgo.Slice<stdgo._internal.image.Image.YCbCrSubsampleRatio>);
-        var _deltas = (new stdgo.Slice<stdgo._internal.image.Image.Point>(4, 4, ...[pt((0 : stdgo.GoInt), (0 : stdgo.GoInt))?.__copy__(), pt((1000 : stdgo.GoInt), (1001 : stdgo.GoInt))?.__copy__(), pt((5001 : stdgo.GoInt), (-400 : stdgo.GoInt))?.__copy__(), pt((-701 : stdgo.GoInt), (-801 : stdgo.GoInt))?.__copy__()]) : stdgo.Slice<stdgo._internal.image.Image.Point>);
+rect((10 : stdgo.GoInt), (10 : stdgo.GoInt), (17 : stdgo.GoInt), (17 : stdgo.GoInt))?.__copy__()].concat([for (i in 20 ... (20 > 20 ? 20 : 20 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.image.Image.Rectangle)])) : stdgo.Slice<stdgo._internal.image.Image.Rectangle>);
+        var _subsampleRatios = (new stdgo.Slice<stdgo._internal.image.Image.YCbCrSubsampleRatio>(6, 6, ...[(0 : stdgo._internal.image.Image.YCbCrSubsampleRatio), (1 : stdgo._internal.image.Image.YCbCrSubsampleRatio), (2 : stdgo._internal.image.Image.YCbCrSubsampleRatio), (3 : stdgo._internal.image.Image.YCbCrSubsampleRatio), (4 : stdgo._internal.image.Image.YCbCrSubsampleRatio), (5 : stdgo._internal.image.Image.YCbCrSubsampleRatio)]).__setNumber32__() : stdgo.Slice<stdgo._internal.image.Image.YCbCrSubsampleRatio>);
+        var _deltas = (new stdgo.Slice<stdgo._internal.image.Image.Point>(4, 4, ...[pt((0 : stdgo.GoInt), (0 : stdgo.GoInt))?.__copy__(), pt((1000 : stdgo.GoInt), (1001 : stdgo.GoInt))?.__copy__(), pt((5001 : stdgo.GoInt), (-400 : stdgo.GoInt))?.__copy__(), pt((-701 : stdgo.GoInt), (-801 : stdgo.GoInt))?.__copy__()].concat([for (i in 4 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.image.Image.Point)])) : stdgo.Slice<stdgo._internal.image.Image.Point>);
         for (__0 => _r in _rects) {
             for (__1 => _subsampleRatio in _subsampleRatios) {
                 for (__2 => _delta in _deltas) {
@@ -1269,7 +1269,7 @@ function _testYCbCr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _r:Rectang
     }
 function testYCbCrSlicesDontOverlap(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _m = newYCbCr(rect((0 : stdgo.GoInt), (0 : stdgo.GoInt), (8 : stdgo.GoInt), (8 : stdgo.GoInt))?.__copy__(), (2 : stdgo._internal.image.Image.YCbCrSubsampleRatio));
-        var _names = (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("Y" : stdgo.GoString), ("Cb" : stdgo.GoString), ("Cr" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>);
+        var _names = (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("Y" : stdgo.GoString), ("Cb" : stdgo.GoString), ("Cr" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
         var _slices = (new stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>(3, 3, ...[(_m.y.__slice__(0, _m.y.capacity) : stdgo.Slice<stdgo.GoUInt8>), (_m.cb.__slice__(0, _m.cb.capacity) : stdgo.Slice<stdgo.GoUInt8>), (_m.cr.__slice__(0, _m.cr.capacity) : stdgo.Slice<stdgo.GoUInt8>)]) : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
         for (_i => _slice in _slices) {
             var _want:stdgo.GoUInt8 = (((10 : stdgo.GoInt) + _i : stdgo.GoInt) : stdgo.GoUInt8);

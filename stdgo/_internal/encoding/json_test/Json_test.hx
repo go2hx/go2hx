@@ -62,7 +62,7 @@ function example_customMarshalJSON():Void {
 }
 function exampleMarshal():Void {
         {};
-        var _group:stdgo._internal.encoding.json_test.Json_test.T_exampleMarshal_144___localname___ColorGroup = ({ id : (1 : stdgo.GoInt), name : ("Reds" : stdgo.GoString), colors : (new stdgo.Slice<stdgo.GoString>(4, 4, ...[("Crimson" : stdgo.GoString), ("Red" : stdgo.GoString), ("Ruby" : stdgo.GoString), ("Maroon" : stdgo.GoString)]) : stdgo.Slice<stdgo.GoString>) } : stdgo._internal.encoding.json_test.Json_test.T_exampleMarshal_144___localname___ColorGroup);
+        var _group:stdgo._internal.encoding.json_test.Json_test.T_exampleMarshal_144___localname___ColorGroup = ({ id : (1 : stdgo.GoInt), name : ("Reds" : stdgo.GoString), colors : (new stdgo.Slice<stdgo.GoString>(4, 4, ...[("Crimson" : stdgo.GoString), ("Red" : stdgo.GoString), ("Ruby" : stdgo.GoString), ("Maroon" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>) } : stdgo._internal.encoding.json_test.Json_test.T_exampleMarshal_144___localname___ColorGroup);
         var __tmp__ = stdgo._internal.encoding.json.Json.marshal(stdgo.Go.toInterface(_group)), _b:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(("error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
@@ -267,7 +267,7 @@ function exampleRawMessage_marshal():Void {
 }
 function exampleIndent():Void {
         {};
-        var _roads = (new stdgo.Slice<stdgo._internal.encoding.json_test.Json_test.T_exampleIndent_151___localname___Road>(2, 2, ...[(new stdgo._internal.encoding.json_test.Json_test.T_exampleIndent_151___localname___Road(("Diamond Fork" : stdgo.GoString), (29 : stdgo.GoInt)) : stdgo._internal.encoding.json_test.Json_test.T_exampleIndent_151___localname___Road), (new stdgo._internal.encoding.json_test.Json_test.T_exampleIndent_151___localname___Road(("Sheep Creek" : stdgo.GoString), (51 : stdgo.GoInt)) : stdgo._internal.encoding.json_test.Json_test.T_exampleIndent_151___localname___Road)]) : stdgo.Slice<stdgo._internal.encoding.json_test.Json_test.T_exampleIndent_151___localname___Road>);
+        var _roads = (new stdgo.Slice<stdgo._internal.encoding.json_test.Json_test.T_exampleIndent_151___localname___Road>(2, 2, ...[(new stdgo._internal.encoding.json_test.Json_test.T_exampleIndent_151___localname___Road(("Diamond Fork" : stdgo.GoString), (29 : stdgo.GoInt)) : stdgo._internal.encoding.json_test.Json_test.T_exampleIndent_151___localname___Road), (new stdgo._internal.encoding.json_test.Json_test.T_exampleIndent_151___localname___Road(("Sheep Creek" : stdgo.GoString), (51 : stdgo.GoInt)) : stdgo._internal.encoding.json_test.Json_test.T_exampleIndent_151___localname___Road)].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.encoding.json_test.Json_test.T_exampleIndent_151___localname___Road)])) : stdgo.Slice<stdgo._internal.encoding.json_test.Json_test.T_exampleIndent_151___localname___Road>);
         var __tmp__ = stdgo._internal.encoding.json.Json.marshal(stdgo.Go.toInterface(_roads)), _b:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(_err));

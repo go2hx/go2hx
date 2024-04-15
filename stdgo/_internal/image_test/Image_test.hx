@@ -18,7 +18,7 @@ var _imageTests : stdgo.Slice<stdgo._internal.image_test.Image_test.T_imageTest>
 (new stdgo._internal.image_test.Image_test.T_imageTest(("testdata/video-001.rgb.png" : stdgo.GoString), ("testdata/video-001.rgb.jpeg" : stdgo.GoString), (2048 : stdgo.GoInt)) : stdgo._internal.image_test.Image_test.T_imageTest),
 (new stdgo._internal.image_test.Image_test.T_imageTest(("testdata/video-001.progressive.truncated.png" : stdgo.GoString), ("testdata/video-001.progressive.truncated.jpeg" : stdgo.GoString), (2048 : stdgo.GoInt)) : stdgo._internal.image_test.Image_test.T_imageTest),
 (new stdgo._internal.image_test.Image_test.T_imageTest(("testdata/video-005.gray.png" : stdgo.GoString), ("testdata/video-005.gray.jpeg" : stdgo.GoString), (2048 : stdgo.GoInt)) : stdgo._internal.image_test.Image_test.T_imageTest),
-(new stdgo._internal.image_test.Image_test.T_imageTest(("testdata/video-005.gray.png" : stdgo.GoString), ("testdata/video-005.gray.png" : stdgo.GoString), (0 : stdgo.GoInt)) : stdgo._internal.image_test.Image_test.T_imageTest)]) : stdgo.Slice<stdgo._internal.image_test.Image_test.T_imageTest>);
+(new stdgo._internal.image_test.Image_test.T_imageTest(("testdata/video-005.gray.png" : stdgo.GoString), ("testdata/video-005.gray.png" : stdgo.GoString), (0 : stdgo.GoInt)) : stdgo._internal.image_test.Image_test.T_imageTest)].concat([for (i in 12 ... (12 > 12 ? 12 : 12 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.image_test.Image_test.T_imageTest)])) : stdgo.Slice<stdgo._internal.image_test.Image_test.T_imageTest>);
 @:structInit @:private class T_imageTest {
     public var _goldenFilename : stdgo.GoString = "";
     public var _filename : stdgo.GoString = "";

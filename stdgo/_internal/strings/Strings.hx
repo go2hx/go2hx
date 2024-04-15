@@ -1656,7 +1656,7 @@ class Replacer_asInterface {
             });
         };
         if (_allNewBytes) {
-            var _r:stdgo._internal.strings.Strings.T_byteReplacer = (new stdgo.GoArray<stdgo.GoUInt8>(256, 256, ...([].concat([for (i in 0 ... 256) (0 : stdgo.GoUInt8)]))) : stdgo._internal.strings.Strings.T_byteReplacer);
+            var _r:stdgo._internal.strings.Strings.T_byteReplacer = (new stdgo.GoArray<stdgo.GoUInt8>(256, 256, ...[]).__setNumber32__() : stdgo._internal.strings.Strings.T_byteReplacer)?.__copy__();
             for (_i => _ in _r) {
                 _r[(_i : stdgo.GoInt)] = (_i : stdgo.GoByte);
             };
@@ -1677,7 +1677,7 @@ class Replacer_asInterface {
                 var _o:stdgo.GoUInt8 = _oldnew[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)];
                 var _n:stdgo.GoString = _oldnew[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)]?.__copy__();
                 if (_r._replacements[(_o : stdgo.GoInt)] == null) {
-                    _r._toReplace = (_r._toReplace.__append__(((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[_o]) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)));
+                    _r._toReplace = (_r._toReplace.__append__(((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[_o]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)));
                 };
                 _r._replacements[(_o : stdgo.GoInt)] = (_n : stdgo.Slice<stdgo.GoByte>);
             });
@@ -1899,7 +1899,7 @@ class T_genericReplacer_asInterface {
         } else if (_t._table != null) {
             for (_b => _m in _r._mapping) {
                 if ((((_m : stdgo.GoInt) != _r._tableSize) && ((_t._table[(_m : stdgo.GoInt)] != null) && ((_t._table[(_m : stdgo.GoInt)] : Dynamic).__nil__ == null || !(_t._table[(_m : stdgo.GoInt)] : Dynamic).__nil__)) : Bool)) {
-                    _s = (_s + ((repeat(("." : stdgo.GoString), _depth) + ((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(_b : stdgo.GoByte)]) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);
+                    _s = (_s + ((repeat(("." : stdgo.GoString), _depth) + ((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(_b : stdgo.GoByte)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);
                     _s = (_s + (_r._printNode(_t._table[(_m : stdgo.GoInt)], (_depth + (1 : stdgo.GoInt) : stdgo.GoInt)))?.__copy__() : stdgo.GoString);
                 };
             };

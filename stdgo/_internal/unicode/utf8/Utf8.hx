@@ -286,7 +286,7 @@ var _first : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(25
 (241 : stdgo.GoUInt8),
 (241 : stdgo.GoUInt8),
 (241 : stdgo.GoUInt8),
-(241 : stdgo.GoUInt8)]) : stdgo.GoArray<stdgo.GoUInt8>);
+(241 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt8>);
 var _acceptRanges : stdgo.GoArray<stdgo._internal.unicode.utf8.Utf8.T_acceptRange> = {
         var s:stdgo.GoArray<stdgo._internal.unicode.utf8.Utf8.T_acceptRange> = new stdgo.GoArray<stdgo._internal.unicode.utf8.Utf8.T_acceptRange>(16, 16, ...[for (i in 0 ... 16) ({} : stdgo._internal.unicode.utf8.Utf8.T_acceptRange)]);
         s[0] = (new stdgo._internal.unicode.utf8.Utf8.T_acceptRange((128 : stdgo.GoUInt8), (191 : stdgo.GoUInt8)) : stdgo._internal.unicode.utf8.Utf8.T_acceptRange);

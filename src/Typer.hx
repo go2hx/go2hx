@@ -3745,7 +3745,7 @@ private function genSlice(p:TypePath, elem:GoType, size:Expr, cap:Expr, returnEx
 		return [len,cap, macro ...$a{sets}];
 	}
 	switch getUnderlying(elem) {
-		case structType(_):
+		case structType(_), arrayType(_):
 			if (sets == null) {
 				sets = [macro for (i in 0...($size > $cap ? $size : $cap : stdgo.GoInt).toBasic()) $value];
 			}else {
@@ -5148,7 +5148,9 @@ private function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, under
 			exprs.push(e);
 		}
 		final len = makeExpr(len != -1 ? len : exprs.length);
-		return genSlice(p, elem, len, len, e -> e, info, exprs);
+		final e = genSlice(p, elem, len, len, e -> e, info, exprs);
+		return e;
+		//return macro ($e : $ct);
 	}
 }
 

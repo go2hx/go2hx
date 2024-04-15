@@ -71,6 +71,7 @@ var libsBool = false;
 var yaegiBool = false;
 var goByExampleBool = false;
 var tinygoBool = false;
+var noLogs = false;
 
 function main() {
 	final targetsDefine = Compiler.getDefine("targets");
@@ -80,6 +81,8 @@ function main() {
 		targets = ["cpp"];
 	File.saveContent("test.log", "");
 	logOutput = File.append("test.log", false);
+	// logs
+	noLogs = Compiler.getDefine("nologs") != null;
 	// go by example, stdlib, yaegi, go internal tests, unit regression tests
 	ciBool = Compiler.getDefine("ci") != null;
 	hxbBool = Compiler.getDefine("hxb") != null;
@@ -216,10 +219,12 @@ function update() {
 			ls.kill();
 		};
 		ls.stdout.on('data', function(data) {
-			log(task.target + "|" + task.path + "|" + task.runtime + "|" + task.stamp());
-			Sys.print(data);
-			task.output += data;
-			log(data);
+			if (!noLogs) {
+				log(task.target + "|" + task.path + "|" + task.runtime + "|" + task.stamp());
+				Sys.print(data);
+				task.output += data;
+				log(data);
+			}
 			timeout = 0;
 		});
 		ls.stderr.on('data', function(data) {

@@ -519,7 +519,10 @@ private function sortDataToTests(sortData:SortData) {
 		final path = data.substr(0, index);
 		final output = data.substr(index + 1);
 		final name = Path.withoutExtension(Path.withoutDirectory(path));
+		// exclude certain go tests
 		switch name {
+			case "more_intstar_input": // build compiler flag excludes wasm
+				continue;
 			case "issue32288": // inf loop
 				continue;
 			case "index0", "issue47227": // no main func

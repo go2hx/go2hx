@@ -3670,7 +3670,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							case sliceType(_.get() => elem):
 								final param = toComplexType(elem, info);
 								final p:TypePath = {name: "Slice", params: [TPType(param)], pack: ["stdgo"]};
-								genSlice(p, elem, size, cap, returnExpr, info);
+								genSlice(p, elem, size, cap, returnExpr, info, null);
 							case mapType(_.get() => key, _.get() => value):
 								var keyType = toComplexType(key, info);
 								var valueType = toComplexType(value, info);
@@ -3731,30 +3731,41 @@ private function exprToString(fromType:GoType, toType:GoType, expr:Expr, info:In
 	return expr;
 }
 
-private function genSlice(p:TypePath, elem:GoType, size:Expr, cap:Expr, returnExpr:Expr->Expr, info:Info):Expr {
+private function genSlice(p:TypePath, elem:GoType, size:Expr, cap:Expr, returnExpr:Expr->Expr, info:Info, sets:Array<Expr>):Expr {
 	var param = toComplexType(elem, info);
 	var value = defaultValue(elem, info);
 	if (value == null)
 		value = macro stdgo.Go.expectedValue();
 	if (size == null)
 		return returnExpr(macro new $p(0, 0));
+
+	function createArgs(len:Expr,cap:Expr,sets:Array<Expr>):Array<Expr> {
+		if (sets == null)
+			return [len,cap];
+		return [len,cap, macro ...$a{sets}];
+	}
 	switch getUnderlying(elem) {
 		case structType(_):
-			return returnExpr(macro new $p($size, $cap, ...[for (i in 0...($size > $cap ? $size : $cap : stdgo.GoInt).toBasic()) $value]));
+			if (sets == null) {
+				sets = [macro for (i in 0...($size > $cap ? $size : $cap : stdgo.GoInt).toBasic()) $value];
+			}else {
+				return macro new $p($size,$cap, ...$a{sets}.concat([for (i in ${makeExpr(sets.length)}...($size > $cap ? $size : $cap : stdgo.GoInt).toBasic()) $value]));
+			}
+			return returnExpr(macro new $p($a{createArgs(size, cap, sets)}));
 		case basic(kind):
 			switch kind {
 				case int8_kind, int16_kind, int32_kind, uint8_kind, uint16_kind, uint32_kind, float32_kind, float64_kind, untyped_float_kind,
 					untyped_int_kind, int_kind, uint_kind:
-					return returnExpr(macro new $p($size, $cap).__setNumber32__());
+					return returnExpr(macro new $p($a{createArgs(size, cap, sets)}).__setNumber32__());
 				case int64_kind, uint64_kind:
-					return returnExpr(macro new $p($size, $cap).__setNumber64__());
+					return returnExpr(macro new $p($a{createArgs(size, cap, sets)}).__setNumber64__());
 				case string_kind:
-					return returnExpr(macro new $p($size, $cap).__setString__());
+					return returnExpr(macro new $p($a{createArgs(size, cap, sets)}).__setString__());
 				default:
 			}
 		default:
 	}
-	return macro new $p($size, $cap);
+	return macro new $p($a{createArgs(size, cap, sets)});
 }
 
 private function genericIndices(indices:Array<Ast.Expr>, params:Array<GoType>, typeParams:Array<GoType>, info:Info):Array<Expr> {
@@ -5115,7 +5126,7 @@ private function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, under
 		if (len == -1) {
 			length = makeExpr(max + 1);
 			//final e = macro new $p($length, $length, ...([for (i in 0...$length) $value]));
-			final e = genSlice(p, elem, length,macro 0,e -> e,info);
+			final e = genSlice(p, elem, length,macro 0,e -> e,info, null);
 			sets.unshift(macro var s = $e);
 			return macro $b{sets};
 		} else {
@@ -5136,16 +5147,8 @@ private function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, under
 			e = assignTranslate(typeof(elt, info, false), elem, e, info);
 			exprs.push(e);
 		}
-		if (len == -1 || len == exprs.length) {
-			final len = makeExpr(exprs.length);
-			return macro(new $p($len, $len, ...[$a{exprs}]) : $ct);
-		}
-		var diff = len - exprs.length;
-		final fullLength = makeExpr(len);
-		var len = makeExpr(diff);
-		var value = defaultValue(elem, info, true);
-		var values = macro [for (i in 0...$len) $value];
-		return macro(new $p($fullLength, $fullLength, ...($a{exprs}.concat($values))) : $ct);
+		final len = makeExpr(len != -1 ? len : exprs.length);
+		return genSlice(p, elem, len, len, e -> e, info, exprs);
 	}
 }
 

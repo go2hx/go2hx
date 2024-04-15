@@ -5,12 +5,25 @@ import haxe.Rest;
 import stdgo.GoArray;
 import stdgo.GoInt;
 
-@:forward(__ref__,__setNumber32__, __setNumber64__, __setString__)
+@:forward(__ref__)
 @:forward.new
 //@:generic
 abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	public var length(get, never):GoInt;
 	public var capacity(get, never):GoInt;
+
+	public function __copy__():Slice<T> {
+		return this.__copy__();
+	}
+
+	public function __setNumber32__():Slice<T>
+		return this.__setNumber32__();
+
+	public function __setNumber64__():Slice<T>
+		return this.__setNumber64__();
+
+	public function __setString__():Slice<T>
+		return this.__setString__();
 
 	public function iterator()
 		return new stdgo.GoArray.GoArrayDataIterator<T>(this);

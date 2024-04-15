@@ -264,7 +264,6 @@ class GoArrayDataIterator<T> {
 
 // @:generic
 @:forward.new
-@:forward(__setNumber32__, __setNumber64__, __setString__)
 abstract GoArray<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	public var length(get, never):GoInt;
 	public var capacity(get, never):GoInt;
@@ -275,6 +274,15 @@ abstract GoArray<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	public function __getOffset__():Int {
 		return this.offset;
 	}
+
+	public function __setNumber32__():GoArray<T>
+		return this.__setNumber32__();
+
+	public function __setNumber64__():GoArray<T>
+		return this.__setNumber64__();
+
+	public function __setString__():GoArray<T>
+		return this.__setString__();
 
 	private function get_length():GoInt {
 		return this != null ? this.length : 0;

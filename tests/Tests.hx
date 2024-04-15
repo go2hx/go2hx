@@ -333,6 +333,8 @@ private function sanatize(s:String):String {
 	if (Typer.reserved.indexOf(s) != -1) {
 		s += "_";
 	}
+	if (Typer.reservedClassNames.indexOf(s.charAt(0).toUpperCase() + s.substr(1)) != -1)
+		s += "_";
 	return s;
 }
 

@@ -165,7 +165,7 @@ For information about UTF\-8 strings in Go, see https://blog.golang.org/strings.
 
 - [typedef T\_byteStringReplacer\_static\_extension](<#typedef-t_bytestringreplacer_static_extension>)
 
-- [typedef T\_fieldsFunc\_1\_\_\_localname\_\_\_span](<#typedef-t_fieldsfunc_1localnamespan>)
+- [typedef T\_fieldsFunc\_4\_\_\_localname\_\_\_span](<#typedef-t_fieldsfunc_4localnamespan>)
 
 - [typedef T\_genericReplacer](<#typedef-t_genericreplacer>)
 
@@ -1280,11 +1280,11 @@ typedef T_byteStringReplacer_static_extension = Dynamic;
 ```
 
 
-## typedef T\_fieldsFunc\_1\_\_\_localname\_\_\_span
+## typedef T\_fieldsFunc\_4\_\_\_localname\_\_\_span
 
 
 ```haxe
-typedef T_fieldsFunc_1___localname___span = Dynamic;
+typedef T_fieldsFunc_4___localname___span = Dynamic;
 ```
 
 

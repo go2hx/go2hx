@@ -59,6 +59,7 @@
  "hl|bug194",
  "hl|bug19403",
  "hl|bug199",
+ "hl|bug201",
  "hl|bug202",
  "hl|bug203",
  "hl|bug204",
@@ -315,5 +316,6 @@
  "hl|strvar",
  "hl|turing",
  "hl|varinit",
+ "hl|wrapdefer_largetmp",
  "hl|zombie_struct_select"
 ]

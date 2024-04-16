@@ -48,7 +48,7 @@ jobs:
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D hxb
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D hxb
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: stdgo automatic compile
   # test-cpp-unit:
@@ -154,7 +154,7 @@ jobs:
       - name: Pull latest
         run: git pull
       # add yaegi_easy.json regression 
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: yaegi easy tests update
             file_pattern: '*.json'
@@ -212,7 +212,7 @@ jobs:
       - name: Check go_easy 3
         run: cat tests/go_easy.json
       # add go_easy.json regression 
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: go easy tests update
             file_pattern: '*.json'
@@ -246,7 +246,8 @@ jobs:
       - name: Git pull
         run: git pull
       - name: Commit docs
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: stdgo doc generation
           file_pattern: '*.md *.MD'
+          skip_dirty_check: true

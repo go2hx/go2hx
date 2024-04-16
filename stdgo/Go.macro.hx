@@ -695,7 +695,7 @@ class Go {
 					var t = new stdgo._internal.internal.reflect.Reflect._Type($toType);
 					// trace($e.type._common());
 					// trace(t._common());
-					final b = $e.type.assignableToDirect(new stdgo._internal.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(t), t));
+					final b = $e.type.assignableTo(new stdgo._internal.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(t), t));
 					if (!b)
 						throw "unable to assert";
 					// interface kind check

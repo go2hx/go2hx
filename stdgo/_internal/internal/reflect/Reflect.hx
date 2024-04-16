@@ -367,8 +367,10 @@ function implementsMethod(t:Type, v:Type):Bool {
 		gt = getElem(gt);
 	if (isPointer(vgt) || isRef(vgt))
 		vgt = getElem(vgt);
+	// trace(gt);
+	// trace(vgt);
 	return switch gt {
-		case interfaceType(_, methods), named(_, methods, _):
+		case interfaceType(_, methods), named(_, methods, interfaceType(_, _), _):
 			if (methods == null || methods.length == 0)
 				return true;
 			switch vgt {
@@ -1047,13 +1049,6 @@ class _Type {
 		return b;
 	}
 
-	static public function assignableToDirect(t:_Type, _u:Type):Bool {
-		if (_u == null)
-			throw "reflect: nil type passed to Type.AssignableTo";
-		final i = new _Type_asInterface(Go.pointer(t), t);
-		final b = directlyAssignable(_u, i);
-		return b;
-	}
 
 	static public function implements_(t:_Type, _u:Type):Bool {
 		if (_u == null)

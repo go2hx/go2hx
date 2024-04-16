@@ -531,6 +531,8 @@ private function sortDataToTests(sortData:SortData) {
 				continue;
 			case "zerosize": // uses obsecure &runtime.zerobase
 				continue;
+			case "convert4": // relies on the same underlying runtime
+				continue;
 		}
 		tests.push(path);
 		final outputPath = sortData.name + "_" + name;

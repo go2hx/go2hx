@@ -9,6 +9,7 @@ import (
 	"go/token"
 	"go/types"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"strings"
 
@@ -20,7 +21,16 @@ var std = map[string]bool{}
 func main() {
 	// Specify the directory path
 	mapStd()
+	fmt.Println(len(os.Args))
 	if len(os.Args) == 1 {
+		cmd := exec.Command("go", "env", "GOROOT")
+		out, err := cmd.Output()
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+		createConfig(sortImports(string(out[:len(out)-1])+"/test", "go"))
+	} else {
 		// write code to run command go env GOROOT
 		createConfig(sortImports("tests/go/test", "go"))
 	}
@@ -78,7 +88,7 @@ func sortImports(dir string, name string) (r Result) {
 	// Walk through the directory and its subdirectories
 	err := filepath.Walk(dir, func(path string, info os.FileInfo, err error) error {
 		// Check if the file is a Go file
-		if filepath.Ext(path) == ".go" && !strings.HasSuffix(path, "_test.go") && !strings.Contains(path, "typeparam") {
+		if filepath.Ext(path) == ".go" && !strings.HasSuffix(path, "_test.go") && !strings.Contains(path, "typeparam") && !strings.Contains(path, "chan") {
 			// Parse the Go file
 			fset := token.NewFileSet()
 			file, err := parser.ParseFile(fset, path, nil, parser.ImportsOnly)
@@ -108,6 +118,11 @@ func sortImports(dir string, name string) (r Result) {
 					return nil
 				}
 				text := file.Comments[0].Text()
+				if len(file.Comments) > 1 {
+					if strings.Contains(file.Comments[1].Text(), "+build !wasm") {
+						return nil
+					}
+				}
 				if strings.HasPrefix(text, "runoutput") {
 					return nil
 				}

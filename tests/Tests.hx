@@ -462,7 +462,7 @@ private function close() {
 		}
 	}
 	var code = 0;
-	if (testCount == 0 && offset == 0 && output.length > 0 && run == "") {
+	if (testCount == 0 && offset == 0 && output.length > 0 && run == "" && failedRegressionTasks.length > 0) {
 		log('         regression results: ');
 		for (obj in output)
 			log(obj);
@@ -470,10 +470,10 @@ private function close() {
 		// retry failed tests
 		if (retryFailedCount-- > 0) {
 			tasks = failedRegressionTasks;
+			suite.dataList = [];
 			log('retrying failed tasks: ' + tasks.length);
 			failedRegressionTasks = [];
 			dryRun = false;
-			// runTests();
 			return;
 		}
 	}else {

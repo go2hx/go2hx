@@ -158,6 +158,7 @@ jobs:
         with:
             commit_message: yaegi easy tests update
             file_pattern: '*.json'
+            disable_globbing: true
   go-easy:
     timeout-minutes: 90
     needs: []
@@ -216,6 +217,7 @@ jobs:
         with:
             commit_message: go easy tests update
             file_pattern: '*.json'
+            disable_globbing: true
   generate-docs:
     timeout-minutes: 25
     needs: build
@@ -243,11 +245,17 @@ jobs:
         run: go build github.com/go2hx/go2hxdoc
       - name: Run go2hxdoc
         run: ./go2hxdoc -dir `npx haxelib libpath go2hx`stdgo -stats -force -seq
+      - name: delete bin
+        run: rm -r -d bin
+      - name: delete stdgo.json
+        run: rm stdgo/stdgo.json
+      - name: delete go mod and sum
+        run: rm go.mod && rm go.sum
       - name: Git pull
         run: git pull
       - name: Commit docs
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: stdgo doc generation
-          file_pattern: '*.md *.MD'
-          skip_dirty_check: true
+          file_pattern: '*.md'
+          disable_globbing: true

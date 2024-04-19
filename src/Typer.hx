@@ -7169,13 +7169,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 								]);
 							}
 						}
-						final methodType = typeof(method.type, info, false);
-						final methodPointer = switch methodType {
-							case signature(_,_,_,_.get() => recv):
-								isPointer(recv);
-							default:
-								throw info.panic() + "invalid signature: " + methodType;
-						}
+						final methodRecv = typeof(method.recv, info, false);
+						final methodPointer = isPointer(methodRecv) || isRef(methodRecv);
 						if (methodPointer) {
 							args.unshift(macro stdgo.Go.pointer($i{name}));
 						}

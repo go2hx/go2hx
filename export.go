@@ -1065,7 +1065,12 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 }
 
 func parseMethods(object types.Type, methodCache *typeutil.MethodSetCache, index int, marked map[string]bool) []map[string]interface{} {
-	set := typeutil.IntuitiveMethodSet(object, methodCache)
+	setObj := methodCache.MethodSet(object)
+	set := make([]*types.Selection, setObj.Len())
+	for i := 0; i < setObj.Len(); i++ {
+		set[i] = setObj.At(i)
+	}
+	// _ = typeutil.IntuitiveMethodSet(object, methodCache)
 	methods := []map[string]interface{}{}
 	for _, sel := range set {
 		if len(sel.Index()) > index {

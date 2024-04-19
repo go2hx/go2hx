@@ -7170,7 +7170,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 							}
 						}
 						final methodRecv = typeof(method.recv, info, false);
-						final methodPointer = isPointer(methodRecv) || isRef(methodRecv);
+						final methodPointer = isPointer(methodRecv);
 						if (methodPointer) {
 							args.unshift(macro stdgo.Go.pointer($i{name}));
 						}

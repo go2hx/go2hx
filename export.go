@@ -1027,7 +1027,7 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 			}
 			object := checker.ObjectOf(obj.Name)
 
-			methods := parseMethods(object.Type(), &methodCache, 1, map[string]bool{})
+			methods := parseMethods(object.Type(), &methodCache, 1, map[string]bool{}, true)
 			var params map[string]interface{} = nil
 
 			if obj.TypeParams != nil {
@@ -1064,13 +1064,17 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 	return data
 }
 
-func parseMethods(object types.Type, methodCache *typeutil.MethodSetCache, index int, marked map[string]bool) []map[string]interface{} {
+func parseMethods(object types.Type, methodCache *typeutil.MethodSetCache, index int, marked map[string]bool, intuitionBool bool) []map[string]interface{} {
 	setObj := methodCache.MethodSet(object)
-	set := make([]*types.Selection, setObj.Len())
-	for i := 0; i < setObj.Len(); i++ {
-		set[i] = setObj.At(i)
+	var set []*types.Selection
+	if intuitionBool {
+		set = typeutil.IntuitiveMethodSet(object, methodCache)
+	} else {
+		set = make([]*types.Selection, setObj.Len())
+		for i := 0; i < setObj.Len(); i++ {
+			set[i] = setObj.At(i)
+		}
 	}
-	// _ = typeutil.IntuitiveMethodSet(object, methodCache)
 	methods := []map[string]interface{}{}
 	for _, sel := range set {
 		if len(sel.Index()) > index {
@@ -1149,7 +1153,7 @@ func parseType(node interface{}, marked2 map[string]bool) map[string]interface{}
 			data["alias"] = true
 		} else {
 			if !marked[path] {
-				data["methods"] = parseMethods(named, &methodCache, 0, marked)
+				data["methods"] = parseMethods(named, &methodCache, 0, marked, true)
 				marked[path] = true
 				data["underlying"] = parseType(named.Underlying(), marked)
 				params := make([]map[string]interface{}, named.TypeArgs().Len())
@@ -1178,7 +1182,7 @@ func parseType(node interface{}, marked2 map[string]bool) map[string]interface{}
 	case "Interface":
 		s := node.(*types.Interface)
 		data["empty"] = s.Empty()
-		methods := parseMethods(s, &methodCache, 0, marked)
+		methods := parseMethods(s, &methodCache, 0, marked, true)
 		data["methods"] = methods
 		embeds := make([]map[string]interface{}, s.NumEmbeddeds())
 		for i := 0; i < s.NumEmbeddeds(); i++ {

@@ -49,7 +49,7 @@
 
   - [`function name():stdgo.GoString`](<#b-function-name>)
 
-  - [`function new(?n:stdgo.GoInt):Void`](<#b-function-new>)
+  - [`function new(?n:Null<stdgo.GoInt>):Void`](<#b-function-new>)
 
   - [`function reportAllocs():Void`](<#b-function-reportallocs>)
 
@@ -462,7 +462,7 @@ function name():stdgo.GoString
 
 
 ```haxe
-function new(?n:stdgo.GoInt):Void
+function new(?n:Null<stdgo.GoInt>):Void
 ```
 
 

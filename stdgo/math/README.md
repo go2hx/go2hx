@@ -1,7 +1,5 @@
 # Module stdgo.math has compilation errors, please do not use:
 ```
-stdgo/math/bits/Bits.hx:13: characters 1-72 : stdgo.GoUInt64 should be haxe.UInt64
-stdgo/math/bits/Bits.hx:14: characters 1-76 : stdgo.GoUInt64 should be haxe.UInt64
 stdgo/math/Math.hx:8: characters 1-47 : stdgo.GoFloat64 should be Float
 stdgo/math/Math.hx:9: characters 1-49 : stdgo.GoFloat64 should be Float
 stdgo/math/Math.hx:10: characters 1-51 : stdgo.GoFloat64 should be Float
@@ -33,6 +31,8 @@ stdgo/math/Math.hx:35: characters 1-69 : stdgo.GoUInt64 should be haxe.UInt64
 stdgo/math/Math.hx:36: characters 1-69 : stdgo.GoUInt64 should be haxe.UInt64
 stdgo/math/Math.hx:37: characters 1-69 : stdgo.GoUInt64 should be haxe.UInt64
 stdgo/math/Math.hx:38: characters 1-81 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/math/bits/Bits.hx:13: characters 1-72 : stdgo.GoUInt64 should be haxe.UInt64
+stdgo/math/bits/Bits.hx:14: characters 1-76 : stdgo.GoUInt64 should be haxe.UInt64
 stdgo/_internal/encoding/gob/Gob.hx:2434: characters 67-85 : stdgo.GoInt should be Null<stdgo.Pointer<stdgo.GoInt>>
 stdgo/_internal/encoding/gob/Gob.hx:2505: characters 18-26 : stdgo._internal.encoding.gob.T1 has no field emptyMap
 stdgo/_internal/encoding/gob/Gob.hx:2768: characters 9-56 : Invalid assign

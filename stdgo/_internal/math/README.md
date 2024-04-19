@@ -1,11 +1,5 @@
 # Module stdgo._internal.math has compilation errors, please do not use:
 ```
-stdgo/_internal/math/rand_test/Rand_test.hx:632: lines 632-637 : stdgo.GoInt64Map<Bool> should be stdgo.GoMap<stdgo.GoUInt64, Bool>
-stdgo/_internal/math/rand_test/Rand_test.hx:673: characters 22-62 : Type not found : stdgo._internal.text.tabwriter.Tabwriter
-stdgo/_internal/math/rand_test/Rand_test.hx:676: characters 49-73 : invalid type run asInterface: TDynamic(null)
-stdgo/_internal/math/rand_test/Rand_test.hx:971: characters 62-65 : Unknown identifier : _dn
-stdgo/_internal/math/rand_test/Rand_test.hx:997: characters 62-65 : Unknown identifier : _de
-stdgo/_internal/math/rand_test/Rand_test.hx:1127: characters 209-216 : Unknown identifier : _stddev
 stdgo/_internal/encoding/gob/Gob.hx:2434: characters 67-85 : stdgo.GoInt should be Null<stdgo.Pointer<stdgo.GoInt>>
 stdgo/_internal/encoding/gob/Gob.hx:2505: characters 18-26 : stdgo._internal.encoding.gob.T1 has no field emptyMap
 stdgo/_internal/encoding/gob/Gob.hx:2768: characters 9-56 : Invalid assign

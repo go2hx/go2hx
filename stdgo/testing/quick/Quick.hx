@@ -73,7 +73,7 @@ inline function checkEqual(f:stdgo.AnyInterface, g:stdgo.AnyInterface, config:Co
 inline function testCheckEqual(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testCheckProperty(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testFailure(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testRecursive_35___localname___R = Dynamic;
+@:invalid typedef T_testRecursive_34___localname___R = Dynamic;
 /**
     // Recursive data structures didn't terminate.
     // Issues 8818 and 11148.
@@ -81,7 +81,7 @@ inline function testFailure(t:stdgo._internal.testing.Testing.T_):Void throw "no
 inline function testRecursive(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testEmptyStruct(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testMutuallyRecursive(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testNonZeroSliceAndMap_36___localname___Q = Dynamic;
+@:invalid typedef T_testNonZeroSliceAndMap_35___localname___Q = Dynamic;
 /**
     // Some serialization formats (e.g. encoding/pem) cannot distinguish
     // between a nil and an empty map or slice, so avoid generating the

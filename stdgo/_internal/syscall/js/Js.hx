@@ -86,17 +86,17 @@ var _arrayConstructor : stdgo._internal.syscall.js.Js.Value = ({} : stdgo._inter
 }
 @:structInit @:using(stdgo._internal.syscall.js.Js.Value_static_extension) class Value {
     @:optional
-    public var __26 : stdgo.GoArray<() -> Void> = new stdgo.GoArray<() -> Void>(0, 0);
+    public var __10 : stdgo.GoArray<() -> Void> = new stdgo.GoArray<() -> Void>(0, 0);
     public var _ref : stdgo._internal.syscall.js.Js.T_ref = ((0 : stdgo.GoUInt64) : stdgo._internal.syscall.js.Js.T_ref);
     public var _gcPtr : stdgo.Pointer<stdgo._internal.syscall.js.Js.T_ref> = (null : stdgo.Pointer<stdgo._internal.syscall.js.Js.T_ref>);
-    public function new(?__26:stdgo.GoArray<() -> Void>, ?_ref:stdgo._internal.syscall.js.Js.T_ref, ?_gcPtr:stdgo.Pointer<stdgo._internal.syscall.js.Js.T_ref>) {
-        if (__26 != null) this.__26 = __26;
+    public function new(?__10:stdgo.GoArray<() -> Void>, ?_ref:stdgo._internal.syscall.js.Js.T_ref, ?_gcPtr:stdgo.Pointer<stdgo._internal.syscall.js.Js.T_ref>) {
+        if (__10 != null) this.__10 = __10;
         if (_ref != null) this._ref = _ref;
         if (_gcPtr != null) this._gcPtr = _gcPtr;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new Value(__26, _ref, _gcPtr);
+        return new Value(__10, _ref, _gcPtr);
     }
 }
 @:structInit @:using(stdgo._internal.syscall.js.Js.Error_static_extension) class Error {

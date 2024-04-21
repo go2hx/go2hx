@@ -477,15 +477,12 @@ private function close() {
 			return;
 		}
 	}else {
-		if (output.length == 0){
-			input.sort((a, b) -> a > b ? 1 : -1);
-			final filePath = 'tests/$testName.json';
-			final fileContent = Json.stringify(input, null, " ");
-			Sys.println(' Saving file: $filePath:\n\n$fileContent');
-			File.saveContent(filePath, fileContent);
-		}else{
-			trace(testCount == 0, offset == 0, output.length > 0, run == "");
-		}
+		input.sort((a, b) -> a > b ? 1 : -1);
+		final filePath = 'tests/$testName.json';
+		final fileContent = Json.stringify(input, null, " ");
+		Sys.println(' Saving file: $filePath:\n\n$fileContent');
+		File.saveContent(filePath, fileContent);
+		trace(testCount == 0, offset == 0, output.length > 0, run == "");
 	}
 	logOutput.close();
 	Main.close(code);

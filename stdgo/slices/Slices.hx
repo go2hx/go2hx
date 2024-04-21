@@ -82,15 +82,15 @@ macro inline function clip<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic
 macro inline function reverse<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, s:haxe.macro.Expr.ExprOf<S>):haxe.macro.Expr.ExprOf<Void> throw "not implemented";
 inline function testEqual(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testEqualFunc(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-typedef T_benchmarkEqualFunc_Large_18___localname___Large = stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_18___localname___Large;
+typedef T_benchmarkEqualFunc_Large_15___localname___Large = stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_15___localname___Large;
 inline function benchmarkEqualFunc_Large(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 inline function testCompare(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testCompareFunc(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testIndex(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-typedef T_benchmarkIndex_Large_19___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndex_Large_19___localname___Large;
+typedef T_benchmarkIndex_Large_16___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndex_Large_16___localname___Large;
 inline function benchmarkIndex_Large(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 inline function testIndexFunc(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-typedef T_benchmarkIndexFunc_Large_20___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_20___localname___Large;
+typedef T_benchmarkIndexFunc_Large_17___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_17___localname___Large;
 inline function benchmarkIndexFunc_Large(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 inline function testContains(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testContainsFunc(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -102,10 +102,10 @@ inline function testDeletePanics(t:stdgo._internal.testing.Testing.T_):Void thro
 inline function testClone(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testCompact(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function benchmarkCompact(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
-typedef T_benchmarkCompact_Large_21___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompact_Large_21___localname___Large;
+typedef T_benchmarkCompact_Large_18___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompact_Large_18___localname___Large;
 inline function benchmarkCompact_Large(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 inline function testCompactFunc(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-typedef T_benchmarkCompactFunc_Large_22___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_22___localname___Large;
+typedef T_benchmarkCompactFunc_Large_19___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_19___localname___Large;
 inline function benchmarkCompactFunc_Large(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 inline function testGrow(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testClip(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -117,7 +117,7 @@ inline function benchmarkReplace(b:stdgo._internal.testing.Testing.B):Void throw
 inline function testRotate(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testInsertGrowthRate(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testReplaceGrowthRate(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-typedef T_testInference_23___localname___S = stdgo._internal.slices.Slices.T_testInference_23___localname___S;
+typedef T_testInference_20___localname___S = stdgo._internal.slices.Slices.T_testInference_20___localname___S;
 /**
     // Test type inference with a named slice type.
 **/

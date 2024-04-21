@@ -234,7 +234,7 @@ function blockProfile(_p:stdgo.Slice<stdgo._internal.runtime.BlockProfileRecord>
 ```
 
 
-[\(view code\)](<./Runtime.hx#L272>)
+[\(view code\)](<./Runtime.hx#L275>)
 
 
 ## function breakpoint
@@ -245,7 +245,7 @@ function breakpoint():Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L280>)
+[\(view code\)](<./Runtime.hx#L283>)
 
 
 ## function caller
@@ -261,7 +261,7 @@ function caller(_skip:stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Runtime.hx#L262>)
+[\(view code\)](<./Runtime.hx#L265>)
 
 
 ## function callers
@@ -272,7 +272,7 @@ function callers(_skip:stdgo.GoInt, _pc:stdgo.Slice<stdgo.GoUIntptr>):stdgo.GoIn
 ```
 
 
-[\(view code\)](<./Runtime.hx#L263>)
+[\(view code\)](<./Runtime.hx#L266>)
 
 
 ## function callersFrames
@@ -283,7 +283,7 @@ function callersFrames(_callers:stdgo.Slice<stdgo.GoUIntptr>):stdgo.Ref<stdgo._i
 ```
 
 
-[\(view code\)](<./Runtime.hx#L283>)
+[\(view code\)](<./Runtime.hx#L286>)
 
 
 ## function cpuprofile
@@ -294,7 +294,7 @@ function cpuprofile():stdgo.Slice<stdgo.GoByte>
 ```
 
 
-[\(view code\)](<./Runtime.hx#L257>)
+[\(view code\)](<./Runtime.hx#L260>)
 
 
 ## function funcForPC
@@ -305,7 +305,7 @@ function funcForPC(_pc:stdgo.GoUIntptr):stdgo.Ref<stdgo._internal.runtime.Func>
 ```
 
 
-[\(view code\)](<./Runtime.hx#L284>)
+[\(view code\)](<./Runtime.hx#L287>)
 
 
 ## function gc
@@ -316,7 +316,7 @@ function gc():Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L268>)
+[\(view code\)](<./Runtime.hx#L271>)
 
 
 ## function goexit
@@ -327,7 +327,7 @@ function goexit():Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L278>)
+[\(view code\)](<./Runtime.hx#L281>)
 
 
 ## function gomaxprocs
@@ -338,7 +338,7 @@ function gomaxprocs(_n:stdgo.GoInt):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Runtime.hx#L258>)
+[\(view code\)](<./Runtime.hx#L261>)
 
 
 ## function goroot
@@ -349,7 +349,7 @@ function goroot():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Runtime.hx#L264>)
+[\(view code\)](<./Runtime.hx#L267>)
 
 
 ## function goroutineProfile
@@ -363,7 +363,7 @@ function goroutineProfile(_p:stdgo.Slice<stdgo._internal.runtime.StackRecord>):{
 ```
 
 
-[\(view code\)](<./Runtime.hx#L275>)
+[\(view code\)](<./Runtime.hx#L278>)
 
 
 ## function gosched
@@ -374,7 +374,7 @@ function gosched():Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L279>)
+[\(view code\)](<./Runtime.hx#L282>)
 
 
 ## function keepAlive
@@ -385,7 +385,7 @@ function keepAlive(_x:stdgo.AnyInterface):Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L267>)
+[\(view code\)](<./Runtime.hx#L270>)
 
 
 ## function lockOSThread
@@ -396,7 +396,7 @@ function lockOSThread():Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L281>)
+[\(view code\)](<./Runtime.hx#L284>)
 
 
 ## function memProfile
@@ -410,7 +410,7 @@ function memProfile(_p:stdgo.Slice<stdgo._internal.runtime.MemProfileRecord>, _i
 ```
 
 
-[\(view code\)](<./Runtime.hx#L271>)
+[\(view code\)](<./Runtime.hx#L274>)
 
 
 ## function mutexProfile
@@ -424,7 +424,7 @@ function mutexProfile(_p:stdgo.Slice<stdgo._internal.runtime.BlockProfileRecord>
 ```
 
 
-[\(view code\)](<./Runtime.hx#L273>)
+[\(view code\)](<./Runtime.hx#L276>)
 
 
 ## function numCPU
@@ -435,7 +435,7 @@ function numCPU():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Runtime.hx#L259>)
+[\(view code\)](<./Runtime.hx#L262>)
 
 
 ## function numCgoCall
@@ -446,7 +446,7 @@ function numCgoCall():stdgo.GoInt64
 ```
 
 
-[\(view code\)](<./Runtime.hx#L260>)
+[\(view code\)](<./Runtime.hx#L263>)
 
 
 ## function numGoroutine
@@ -457,7 +457,7 @@ function numGoroutine():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Runtime.hx#L261>)
+[\(view code\)](<./Runtime.hx#L264>)
 
 
 ## function readMemStats
@@ -468,7 +468,7 @@ function readMemStats(_m:stdgo.Ref<stdgo._internal.runtime.MemStats>):Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L277>)
+[\(view code\)](<./Runtime.hx#L280>)
 
 
 ## function readTrace
@@ -479,7 +479,7 @@ function readTrace():stdgo.Slice<stdgo.GoByte>
 ```
 
 
-[\(view code\)](<./Runtime.hx#L287>)
+[\(view code\)](<./Runtime.hx#L290>)
 
 
 ## function setBlockProfileRate
@@ -490,7 +490,7 @@ function setBlockProfileRate(_rate:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L269>)
+[\(view code\)](<./Runtime.hx#L272>)
 
 
 ## function setCPUProfileRate
@@ -501,7 +501,7 @@ function setCPUProfileRate(_hz:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L256>)
+[\(view code\)](<./Runtime.hx#L259>)
 
 
 ## function setCgoTraceback
@@ -512,7 +512,7 @@ function setCgoTraceback(_version:stdgo.GoInt, _traceback:stdgo._internal.unsafe
 ```
 
 
-[\(view code\)](<./Runtime.hx#L288>)
+[\(view code\)](<./Runtime.hx#L291>)
 
 
 ## function setFinalizer
@@ -523,7 +523,7 @@ function setFinalizer(_obj:stdgo.AnyInterface, _finalizer:stdgo.AnyInterface):Vo
 ```
 
 
-[\(view code\)](<./Runtime.hx#L266>)
+[\(view code\)](<./Runtime.hx#L269>)
 
 
 ## function setMutexProfileFraction
@@ -534,7 +534,7 @@ function setMutexProfileFraction(_rate:stdgo.GoInt):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Runtime.hx#L270>)
+[\(view code\)](<./Runtime.hx#L273>)
 
 
 ## function stack
@@ -545,7 +545,7 @@ function stack(_buf:stdgo.Slice<stdgo.GoByte>, _all:Bool):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Runtime.hx#L276>)
+[\(view code\)](<./Runtime.hx#L279>)
 
 
 ## function startTrace
@@ -556,7 +556,7 @@ function startTrace():stdgo.Error
 ```
 
 
-[\(view code\)](<./Runtime.hx#L285>)
+[\(view code\)](<./Runtime.hx#L288>)
 
 
 ## function stopTrace
@@ -567,7 +567,7 @@ function stopTrace():Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L286>)
+[\(view code\)](<./Runtime.hx#L289>)
 
 
 ## function threadCreateProfile
@@ -581,7 +581,7 @@ function threadCreateProfile(_p:stdgo.Slice<stdgo._internal.runtime.StackRecord>
 ```
 
 
-[\(view code\)](<./Runtime.hx#L274>)
+[\(view code\)](<./Runtime.hx#L277>)
 
 
 ## function unlockOSThread
@@ -592,7 +592,7 @@ function unlockOSThread():Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L282>)
+[\(view code\)](<./Runtime.hx#L285>)
 
 
 ## function version
@@ -603,7 +603,7 @@ function version():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Runtime.hx#L265>)
+[\(view code\)](<./Runtime.hx#L268>)
 
 
 # Classes
@@ -640,7 +640,7 @@ function new(?count:stdgo.GoInt64, ?cycles:stdgo.GoInt64, ?stackRecord:stdgo._in
 ```
 
 
-[\(view code\)](<./Runtime.hx#L59>)
+[\(view code\)](<./Runtime.hx#L62>)
 
 
 ### BlockProfileRecord function stack
@@ -651,7 +651,7 @@ function stack():stdgo.Slice<stdgo.GoUIntptr>
 ```
 
 
-[\(view code\)](<./Runtime.hx#L66>)
+[\(view code\)](<./Runtime.hx#L69>)
 
 
 ### BlockProfileRecord function stack
@@ -662,7 +662,7 @@ function stack():stdgo.Slice<stdgo.GoUIntptr>
 ```
 
 
-[\(view code\)](<./Runtime.hx#L359>)
+[\(view code\)](<./Runtime.hx#L362>)
 
 
 ## class Frame
@@ -706,7 +706,7 @@ function new(?pc:stdgo.GoUIntptr, ?func:stdgo.Ref<stdgo._internal.runtime.Func>,
 ```
 
 
-[\(view code\)](<./Runtime.hx#L205>)
+[\(view code\)](<./Runtime.hx#L208>)
 
 
 ## class Frames
@@ -720,7 +720,7 @@ function new():Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L192>)
+[\(view code\)](<./Runtime.hx#L195>)
 
 
 ### Frames function next
@@ -734,7 +734,7 @@ function next():{
 ```
 
 
-[\(view code\)](<./Runtime.hx#L416>)
+[\(view code\)](<./Runtime.hx#L419>)
 
 
 ## class Func
@@ -748,7 +748,7 @@ function new():Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L219>)
+[\(view code\)](<./Runtime.hx#L222>)
 
 
 ### Func function entry
@@ -759,7 +759,7 @@ function entry():stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Runtime.hx#L437>)
+[\(view code\)](<./Runtime.hx#L440>)
 
 
 ### Func function fileLine
@@ -773,7 +773,7 @@ function fileLine( _pc:stdgo.GoUIntptr):{
 ```
 
 
-[\(view code\)](<./Runtime.hx#L435>)
+[\(view code\)](<./Runtime.hx#L438>)
 
 
 ### Func function name
@@ -784,7 +784,7 @@ function name():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Runtime.hx#L439>)
+[\(view code\)](<./Runtime.hx#L442>)
 
 
 ## class MemProfileRecord
@@ -823,7 +823,7 @@ function new(?allocBytes:stdgo.GoInt64, ?freeBytes:stdgo.GoInt64, ?allocObjects:
 ```
 
 
-[\(view code\)](<./Runtime.hx#L42>)
+[\(view code\)](<./Runtime.hx#L45>)
 
 
 ### MemProfileRecord function inUseBytes
@@ -834,7 +834,7 @@ function inUseBytes():stdgo.GoInt64
 ```
 
 
-[\(view code\)](<./Runtime.hx#L344>)
+[\(view code\)](<./Runtime.hx#L347>)
 
 
 ### MemProfileRecord function inUseObjects
@@ -845,7 +845,7 @@ function inUseObjects():stdgo.GoInt64
 ```
 
 
-[\(view code\)](<./Runtime.hx#L342>)
+[\(view code\)](<./Runtime.hx#L345>)
 
 
 ### MemProfileRecord function stack
@@ -856,7 +856,7 @@ function stack():stdgo.Slice<stdgo.GoUIntptr>
 ```
 
 
-[\(view code\)](<./Runtime.hx#L340>)
+[\(view code\)](<./Runtime.hx#L343>)
 
 
 ## class MemStats
@@ -1038,7 +1038,7 @@ function new(?alloc:stdgo.GoUInt64, ?totalAlloc:stdgo.GoUInt64, ?sys:stdgo.GoUIn
 ```
 
 
-[\(view code\)](<./Runtime.hx#L104>)
+[\(view code\)](<./Runtime.hx#L107>)
 
 
 ## class PanicNilError
@@ -1052,7 +1052,7 @@ function new():Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L176>)
+[\(view code\)](<./Runtime.hx#L179>)
 
 
 ### PanicNilError function error
@@ -1063,7 +1063,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Runtime.hx#L378>)
+[\(view code\)](<./Runtime.hx#L381>)
 
 
 ### PanicNilError function runtimeError
@@ -1074,7 +1074,7 @@ function runtimeError():Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L376>)
+[\(view code\)](<./Runtime.hx#L379>)
 
 
 ## class Pinner
@@ -1088,7 +1088,7 @@ function _unpin():Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L186>)
+[\(view code\)](<./Runtime.hx#L189>)
 
 
 ### Pinner function new
@@ -1099,7 +1099,7 @@ function new():Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L183>)
+[\(view code\)](<./Runtime.hx#L186>)
 
 
 ### Pinner function \_unpin
@@ -1110,7 +1110,7 @@ function _unpin():Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L401>)
+[\(view code\)](<./Runtime.hx#L404>)
 
 
 ### Pinner function pin
@@ -1121,7 +1121,7 @@ function pin( _pointer:stdgo.AnyInterface):Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L399>)
+[\(view code\)](<./Runtime.hx#L402>)
 
 
 ### Pinner function unpin
@@ -1132,7 +1132,7 @@ function unpin():Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L397>)
+[\(view code\)](<./Runtime.hx#L400>)
 
 
 ## class StackRecord
@@ -1151,7 +1151,7 @@ function new(?stack0:stdgo.GoArray<stdgo.GoUIntptr>):Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L28>)
+[\(view code\)](<./Runtime.hx#L31>)
 
 
 ### StackRecord function stack
@@ -1162,7 +1162,7 @@ function stack():stdgo.Slice<stdgo.GoUIntptr>
 ```
 
 
-[\(view code\)](<./Runtime.hx#L321>)
+[\(view code\)](<./Runtime.hx#L324>)
 
 
 ## class TypeAssertionError
@@ -1176,7 +1176,7 @@ function new():Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L20>)
+[\(view code\)](<./Runtime.hx#L23>)
 
 
 ### TypeAssertionError function error
@@ -1187,7 +1187,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Runtime.hx#L304>)
+[\(view code\)](<./Runtime.hx#L307>)
 
 
 ### TypeAssertionError function runtimeError
@@ -1198,7 +1198,7 @@ function runtimeError():Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L306>)
+[\(view code\)](<./Runtime.hx#L309>)
 
 
 # Typedefs

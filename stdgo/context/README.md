@@ -110,6 +110,8 @@ Contexts.
 
 - [typedef Context](<#typedef-context>)
 
+- [typedef Context\_static\_extension](<#typedef-context_static_extension>)
+
 - [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
 
 - [typedef T\_\_struct\_0\_asInterface](<#typedef-t__struct_0_asinterface>)
@@ -124,6 +126,8 @@ Contexts.
 
 - [typedef T\_afterFuncer](<#typedef-t_afterfuncer>)
 
+- [typedef T\_afterFuncer\_static\_extension](<#typedef-t_afterfuncer_static_extension>)
+
 - [typedef T\_backgroundCtx](<#typedef-t_backgroundctx>)
 
 - [typedef T\_backgroundCtx\_asInterface](<#typedef-t_backgroundctx_asinterface>)
@@ -137,6 +141,8 @@ Contexts.
 - [typedef T\_cancelCtx\_static\_extension](<#typedef-t_cancelctx_static_extension>)
 
 - [typedef T\_canceler](<#typedef-t_canceler>)
+
+- [typedef T\_canceler\_static\_extension](<#typedef-t_canceler_static_extension>)
 
 - [typedef T\_deadlineExceededError](<#typedef-t_deadlineexceedederror>)
 
@@ -157,6 +163,8 @@ Contexts.
 - [typedef T\_stopCtx\_static\_extension](<#typedef-t_stopctx_static_extension>)
 
 - [typedef T\_stringer](<#typedef-t_stringer>)
+
+- [typedef T\_stringer\_static\_extension](<#typedef-t_stringer_static_extension>)
 
 - [typedef T\_timerCtx](<#typedef-t_timerctx>)
 
@@ -239,7 +247,7 @@ it must coordinate with f explicitly.
 If ctx has a "AfterFunc\(func\(\)\) func\(\) bool" method,
 AfterFunc will use it to schedule the call.  
 
-[\(view code\)](<./Context.hx#L145>)
+[\(view code\)](<./Context.hx#L149>)
 
 
 ## function background
@@ -256,7 +264,7 @@ values, and has no deadline. It is typically used by the main function,
 initialization, and tests, and as the top\-level Context for incoming
 requests.  
 
-[\(view code\)](<./Context.hx#L85>)
+[\(view code\)](<./Context.hx#L89>)
 
 
 ## function cause
@@ -275,7 +283,7 @@ then \[Cause\] returns err.
 Otherwise Cause\(c\) returns the same value as c.Err\(\).
 Cause returns nil if c has not been canceled yet.  
 
-[\(view code\)](<./Context.hx#L124>)
+[\(view code\)](<./Context.hx#L128>)
 
 
 ## function get\_canceled
@@ -336,7 +344,7 @@ it's unclear which Context to use or it is not yet available \(because the
 surrounding function has not yet been extended to accept a Context
 parameter\).  
 
-[\(view code\)](<./Context.hx#L92>)
+[\(view code\)](<./Context.hx#L96>)
 
 
 ## function withCancel
@@ -356,7 +364,7 @@ or when the parent context's Done channel is closed, whichever happens first.
 Canceling this context releases resources associated with it, so code should
 call cancel as soon as the operations running in this Context complete.  
 
-[\(view code\)](<./Context.hx#L101>)
+[\(view code\)](<./Context.hx#L105>)
 
 
 ## function withCancelCause
@@ -382,7 +390,7 @@ Example use:
 	ctx.Err() // returns context.Canceled
 	context.Cause(ctx) // returns myError
 ```
-[\(view code\)](<./Context.hx#L115>)
+[\(view code\)](<./Context.hx#L119>)
 
 
 ## function withDeadline
@@ -405,7 +413,7 @@ closed, whichever happens first.
 Canceling this context releases resources associated with it, so code should
 call cancel as soon as the operations running in this \[Context\] complete.  
 
-[\(view code\)](<./Context.hx#L163>)
+[\(view code\)](<./Context.hx#L167>)
 
 
 ## function withDeadlineCause
@@ -421,7 +429,7 @@ WithDeadlineCause behaves like \[WithDeadline\] but also sets the cause of the
 returned Context when the deadline is exceeded. The returned \[CancelFunc\] does
 not set the cause.  
 
-[\(view code\)](<./Context.hx#L169>)
+[\(view code\)](<./Context.hx#L173>)
 
 
 ## function withTimeout
@@ -446,7 +454,7 @@ call cancel as soon as the operations running in this \[Context\] complete:
 		return slowOperation(ctx)
 	}
 ```
-[\(view code\)](<./Context.hx#L182>)
+[\(view code\)](<./Context.hx#L186>)
 
 
 ## function withTimeoutCause
@@ -462,7 +470,7 @@ WithTimeoutCause behaves like \[WithTimeout\] but also sets the cause of the
 returned Context when the timeout expires. The returned \[CancelFunc\] does
 not set the cause.  
 
-[\(view code\)](<./Context.hx#L188>)
+[\(view code\)](<./Context.hx#L192>)
 
 
 ## function withValue
@@ -490,7 +498,7 @@ interface\{\}, context keys often have concrete type
 struct\{\}. Alternatively, exported context key variables' static
 type should be a pointer or interface.  
 
-[\(view code\)](<./Context.hx#L204>)
+[\(view code\)](<./Context.hx#L208>)
 
 
 ## function withoutCancel
@@ -506,7 +514,7 @@ WithoutCancel returns a copy of parent that is not canceled when parent is cance
 The returned context returns no Deadline or Err, and its Done channel is nil.
 Calling \[Cause\] on the returned context returns nil.  
 
-[\(view code\)](<./Context.hx#L151>)
+[\(view code\)](<./Context.hx#L155>)
 
 
 # Typedefs
@@ -538,6 +546,14 @@ typedef CancelFunc = stdgo._internal.context.CancelFunc;
 
 ```haxe
 typedef Context = stdgo._internal.context.Context;
+```
+
+
+## typedef Context\_static\_extension
+
+
+```haxe
+typedef Context_static_extension = Dynamic;
 ```
 
 
@@ -597,6 +613,14 @@ typedef T_afterFuncer = stdgo._internal.context.T_afterFuncer;
 ```
 
 
+## typedef T\_afterFuncer\_static\_extension
+
+
+```haxe
+typedef T_afterFuncer_static_extension = Dynamic;
+```
+
+
 ## typedef T\_backgroundCtx
 
 
@@ -650,6 +674,14 @@ typedef T_cancelCtx_static_extension = Dynamic;
 
 ```haxe
 typedef T_canceler = stdgo._internal.context.T_canceler;
+```
+
+
+## typedef T\_canceler\_static\_extension
+
+
+```haxe
+typedef T_canceler_static_extension = Dynamic;
 ```
 
 
@@ -730,6 +762,14 @@ typedef T_stopCtx_static_extension = Dynamic;
 
 ```haxe
 typedef T_stringer = stdgo._internal.context.T_stringer;
+```
+
+
+## typedef T\_stringer\_static\_extension
+
+
+```haxe
+typedef T_stringer_static_extension = Dynamic;
 ```
 
 

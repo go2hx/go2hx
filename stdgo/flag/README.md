@@ -217,7 +217,11 @@ flag set.
 
 - [typedef Getter](<#typedef-getter>)
 
+- [typedef Getter\_static\_extension](<#typedef-getter_static_extension>)
+
 - [typedef T\_boolFlag](<#typedef-t_boolflag>)
+
+- [typedef T\_boolFlag\_static\_extension](<#typedef-t_boolflag_static_extension>)
 
 - [typedef T\_boolFuncValue](<#typedef-t_boolfuncvalue>)
 
@@ -287,6 +291,8 @@ flag set.
 
 - [typedef Value](<#typedef-value>)
 
+- [typedef Value\_static\_extension](<#typedef-value_static_extension>)
+
 # Constants
 
 
@@ -349,7 +355,7 @@ Arg returns the i'th command\-line argument. Arg\(0\) is the first remaining arg
 after flags have been processed. Arg returns an empty string if the
 requested element does not exist.  
 
-[\(view code\)](<./Flag.hx#L186>)
+[\(view code\)](<./Flag.hx#L189>)
 
 
 ## function args
@@ -363,7 +369,7 @@ function args():Array<String>
 
 Args returns the non\-flag command\-line arguments.  
 
-[\(view code\)](<./Flag.hx#L194>)
+[\(view code\)](<./Flag.hx#L197>)
 
 
 ## function boolFunc
@@ -379,7 +385,7 @@ BoolFunc defines a flag with the specified name and usage string without requiri
 Each time the flag is seen, fn is called with the value of the flag.
 If fn returns a non\-nil error, it will be treated as a flag value parsing error.  
 
-[\(view code\)](<./Flag.hx#L296>)
+[\(view code\)](<./Flag.hx#L299>)
 
 
 ## function boolVar
@@ -394,7 +400,7 @@ function boolVar(p:stdgo.Pointer<Bool>, name:String, value:Bool, usage:String):V
 BoolVar defines a bool flag with specified name, default value, and usage string.
 The argument p points to a bool variable in which to store the value of the flag.  
 
-[\(view code\)](<./Flag.hx#L199>)
+[\(view code\)](<./Flag.hx#L202>)
 
 
 ## function bool\_
@@ -409,7 +415,7 @@ function bool_(name:String, value:Bool, usage:String):stdgo.Pointer<Bool>
 Bool defines a bool flag with specified name, default value, and usage string.
 The return value is the address of a bool variable that stores the value of the flag.  
 
-[\(view code\)](<./Flag.hx#L204>)
+[\(view code\)](<./Flag.hx#L207>)
 
 
 ## function defaultUsage
@@ -436,7 +442,7 @@ Duration defines a time.Duration flag with specified name, default value, and us
 The return value is the address of a time.Duration variable that stores the value of the flag.
 The flag accepts a value acceptable to time.ParseDuration.  
 
-[\(view code\)](<./Flag.hx#L276>)
+[\(view code\)](<./Flag.hx#L279>)
 
 
 ## function durationVar
@@ -452,7 +458,7 @@ DurationVar defines a time.Duration flag with specified name, default value, and
 The argument p points to a time.Duration variable in which to store the value of the flag.
 The flag accepts a value acceptable to time.ParseDuration.  
 
-[\(view code\)](<./Flag.hx#L270>)
+[\(view code\)](<./Flag.hx#L273>)
 
 
 ## function float64
@@ -467,7 +473,7 @@ function float64(name:String, value:Float, usage:String):stdgo.Pointer<Float>
 Float64 defines a float64 flag with specified name, default value, and usage string.
 The return value is the address of a float64 variable that stores the value of the flag.  
 
-[\(view code\)](<./Flag.hx#L264>)
+[\(view code\)](<./Flag.hx#L267>)
 
 
 ## function float64Var
@@ -482,7 +488,7 @@ function float64Var(p:stdgo.Pointer<Float>, name:String, value:Float, usage:Stri
 Float64Var defines a float64 flag with specified name, default value, and usage string.
 The argument p points to a float64 variable in which to store the value of the flag.  
 
-[\(view code\)](<./Flag.hx#L259>)
+[\(view code\)](<./Flag.hx#L262>)
 
 
 ## function func
@@ -498,7 +504,7 @@ Func defines a flag with the specified name and usage string.
 Each time the flag is seen, fn is called with the value of the flag.
 If fn returns a non\-nil error, it will be treated as a flag value parsing error.  
 
-[\(view code\)](<./Flag.hx#L290>)
+[\(view code\)](<./Flag.hx#L293>)
 
 
 ## function get\_commandLine
@@ -557,7 +563,7 @@ function int64(name:String, value:haxe.Int64, usage:String):stdgo.Pointer<haxe.I
 Int64 defines an int64 flag with specified name, default value, and usage string.
 The return value is the address of an int64 variable that stores the value of the flag.  
 
-[\(view code\)](<./Flag.hx#L224>)
+[\(view code\)](<./Flag.hx#L227>)
 
 
 ## function int64Var
@@ -572,7 +578,7 @@ function int64Var(p:stdgo.Pointer<haxe.Int64>, name:String, value:haxe.Int64, us
 Int64Var defines an int64 flag with specified name, default value, and usage string.
 The argument p points to an int64 variable in which to store the value of the flag.  
 
-[\(view code\)](<./Flag.hx#L219>)
+[\(view code\)](<./Flag.hx#L222>)
 
 
 ## function intVar
@@ -587,7 +593,7 @@ function intVar(p:stdgo.Pointer<Int>, name:String, value:Int, usage:String):Void
 IntVar defines an int flag with specified name, default value, and usage string.
 The argument p points to an int variable in which to store the value of the flag.  
 
-[\(view code\)](<./Flag.hx#L209>)
+[\(view code\)](<./Flag.hx#L212>)
 
 
 ## function int\_
@@ -602,7 +608,7 @@ function int_(name:String, value:Int, usage:String):stdgo.Pointer<Int>
 Int defines an int flag with specified name, default value, and usage string.
 The return value is the address of an int variable that stores the value of the flag.  
 
-[\(view code\)](<./Flag.hx#L214>)
+[\(view code\)](<./Flag.hx#L217>)
 
 
 ## function lookup
@@ -617,7 +623,7 @@ function lookup(name:String):stdgo.flag.Flag
 Lookup returns the Flag structure of the named command\-line flag,
 returning nil if none exists.  
 
-[\(view code\)](<./Flag.hx#L135>)
+[\(view code\)](<./Flag.hx#L138>)
 
 
 ## function narg
@@ -631,7 +637,7 @@ function narg():Int
 
 NArg is the number of arguments remaining after flags have been processed.  
 
-[\(view code\)](<./Flag.hx#L190>)
+[\(view code\)](<./Flag.hx#L193>)
 
 
 ## function newFlagSet
@@ -647,7 +653,7 @@ NewFlagSet returns a new, empty flag set with the specified name and
 error handling property. If the name is not empty, it will be printed
 in the default usage message and in error messages.  
 
-[\(view code\)](<./Flag.hx#L320>)
+[\(view code\)](<./Flag.hx#L323>)
 
 
 ## function nflag
@@ -661,7 +667,7 @@ function nflag():Int
 
 NFlag returns the number of command\-line flags that have been set.  
 
-[\(view code\)](<./Flag.hx#L180>)
+[\(view code\)](<./Flag.hx#L183>)
 
 
 ## function parse
@@ -676,7 +682,7 @@ function parse():Void
 Parse parses the command\-line flags from os.Args\[1:\]. Must be called
 after all flags are defined and before flags are accessed by the program.  
 
-[\(view code\)](<./Flag.hx#L310>)
+[\(view code\)](<./Flag.hx#L313>)
 
 
 ## function parsed
@@ -690,7 +696,7 @@ function parsed():Bool
 
 Parsed reports whether the command\-line flags have been parsed.  
 
-[\(view code\)](<./Flag.hx#L314>)
+[\(view code\)](<./Flag.hx#L317>)
 
 
 ## function printDefaults
@@ -735,7 +741,7 @@ the output will be
 
 To change the destination for flag messages, call CommandLine.SetOutput.  
 
-[\(view code\)](<./Flag.hx#L176>)
+[\(view code\)](<./Flag.hx#L179>)
 
 
 ## function resetForTesting
@@ -751,7 +757,7 @@ ResetForTesting clears all flag state and sets the usage function as directed.
 After calling ResetForTesting, parse errors in flag handling will not
 exit the program.  
 
-[\(view code\)](<./Flag.hx#L120>)
+[\(view code\)](<./Flag.hx#L123>)
 
 
 ## function set
@@ -765,7 +771,7 @@ function set(name:String, value:String):stdgo.Error
 
 Set sets the value of the named command\-line flag.  
 
-[\(view code\)](<./Flag.hx#L139>)
+[\(view code\)](<./Flag.hx#L142>)
 
 
 ## function set\_commandLine
@@ -824,7 +830,7 @@ function string(name:String, value:String, usage:String):stdgo.Pointer<String>
 String defines a string flag with specified name, default value, and usage string.
 The return value is the address of a string variable that stores the value of the flag.  
 
-[\(view code\)](<./Flag.hx#L254>)
+[\(view code\)](<./Flag.hx#L257>)
 
 
 ## function stringVar
@@ -839,7 +845,7 @@ function stringVar(p:stdgo.Pointer<String>, name:String, value:String, usage:Str
 StringVar defines a string flag with specified name, default value, and usage string.
 The argument p points to a string variable in which to store the value of the flag.  
 
-[\(view code\)](<./Flag.hx#L249>)
+[\(view code\)](<./Flag.hx#L252>)
 
 
 ## function textVar
@@ -857,7 +863,7 @@ of the flag, and p must implement encoding.TextUnmarshaler.
 If the flag is used, the flag value will be passed to p's UnmarshalText method.
 The type of the default value must be the same as the type of p.  
 
-[\(view code\)](<./Flag.hx#L284>)
+[\(view code\)](<./Flag.hx#L287>)
 
 
 ## function uint
@@ -872,7 +878,7 @@ function uint(name:String, value:UInt, usage:String):stdgo.Pointer<UInt>
 Uint defines a uint flag with specified name, default value, and usage string.
 The return value is the address of a uint variable that stores the value of the flag.  
 
-[\(view code\)](<./Flag.hx#L234>)
+[\(view code\)](<./Flag.hx#L237>)
 
 
 ## function uint64
@@ -887,7 +893,7 @@ function uint64(name:String, value:haxe.UInt64, usage:String):stdgo.Pointer<haxe
 Uint64 defines a uint64 flag with specified name, default value, and usage string.
 The return value is the address of a uint64 variable that stores the value of the flag.  
 
-[\(view code\)](<./Flag.hx#L244>)
+[\(view code\)](<./Flag.hx#L247>)
 
 
 ## function uint64Var
@@ -902,7 +908,7 @@ function uint64Var(p:stdgo.Pointer<haxe.UInt64>, name:String, value:haxe.UInt64,
 Uint64Var defines a uint64 flag with specified name, default value, and usage string.
 The argument p points to a uint64 variable in which to store the value of the flag.  
 
-[\(view code\)](<./Flag.hx#L239>)
+[\(view code\)](<./Flag.hx#L242>)
 
 
 ## function uintVar
@@ -917,7 +923,7 @@ function uintVar(p:stdgo.Pointer<UInt>, name:String, value:UInt, usage:String):V
 UintVar defines a uint flag with specified name, default value, and usage string.
 The argument p points to a uint variable in which to store the value of the flag.  
 
-[\(view code\)](<./Flag.hx#L229>)
+[\(view code\)](<./Flag.hx#L232>)
 
 
 ## function unquoteUsage
@@ -935,7 +941,7 @@ Given "a \`name\` to show" it returns \("name", "a name to show"\).
 If there are no back quotes, the name is an educated guess of the
 type of the flag's value, or the empty string if the flag is boolean.  
 
-[\(view code\)](<./Flag.hx#L147>)
+[\(view code\)](<./Flag.hx#L150>)
 
 
 ## function usage
@@ -965,7 +971,7 @@ caller could create a flag that turns a comma\-separated string into a slice
 of strings by giving the slice the methods of Value; in particular, Set would
 decompose the comma\-separated string into the slice.  
 
-[\(view code\)](<./Flag.hx#L305>)
+[\(view code\)](<./Flag.hx#L308>)
 
 
 ## function visit
@@ -980,7 +986,7 @@ function visit(fn:()):Void
 Visit visits the command\-line flags in lexicographical order, calling fn
 for each. It visits only those flags that have been set.  
 
-[\(view code\)](<./Flag.hx#L130>)
+[\(view code\)](<./Flag.hx#L133>)
 
 
 ## function visitAll
@@ -995,7 +1001,7 @@ function visitAll(fn:()):Void
 VisitAll visits the command\-line flags in lexicographical order, calling
 fn for each. It visits all flags, even those not set.  
 
-[\(view code\)](<./Flag.hx#L125>)
+[\(view code\)](<./Flag.hx#L128>)
 
 
 # Typedefs
@@ -1054,11 +1060,27 @@ typedef Getter = stdgo._internal.flag.Getter;
 ```
 
 
+## typedef Getter\_static\_extension
+
+
+```haxe
+typedef Getter_static_extension = Dynamic;
+```
+
+
 ## typedef T\_boolFlag
 
 
 ```haxe
 typedef T_boolFlag = stdgo._internal.flag.T_boolFlag;
+```
+
+
+## typedef T\_boolFlag\_static\_extension
+
+
+```haxe
+typedef T_boolFlag_static_extension = Dynamic;
 ```
 
 
@@ -1331,6 +1353,14 @@ typedef T_uintValue_static_extension = Dynamic;
 
 ```haxe
 typedef Value = stdgo._internal.flag.Value;
+```
+
+
+## typedef Value\_static\_extension
+
+
+```haxe
+typedef Value_static_extension = Dynamic;
 ```
 
 

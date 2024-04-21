@@ -381,6 +381,8 @@ checking if the uid/gid match the effective uid/gid.
 
 - [typedef Error](<#typedef-error>)
 
+- [typedef Error\_static\_extension](<#typedef-error_static_extension>)
+
 - [typedef Frame](<#typedef-frame>)
 
 - [typedef Frames](<#typedef-frames>)
@@ -495,7 +497,7 @@ Most clients should use the runtime/pprof package or
 the testing package's \-test.blockprofile flag instead
 of calling BlockProfile directly.  
 
-[\(view code\)](<./Runtime.hx#L534>)
+[\(view code\)](<./Runtime.hx#L535>)
 
 
 ## function breakpoint
@@ -509,7 +511,7 @@ function breakpoint():Void
 
 Breakpoint executes a breakpoint trap.  
 
-[\(view code\)](<./Runtime.hx#L599>)
+[\(view code\)](<./Runtime.hx#L600>)
 
 
 ## function caller
@@ -528,7 +530,7 @@ meaning of skip differs between Caller and Callers.\) The return values report t
 program counter, file name, and line number within the file of the corresponding
 call. The boolean ok is false if it was not possible to recover the information.  
 
-[\(view code\)](<./Runtime.hx#L331>)
+[\(view code\)](<./Runtime.hx#L332>)
 
 
 ## function callers
@@ -555,7 +557,7 @@ directly is discouraged, as is using FuncForPC on any of the
 returned PCs, since these cannot account for inlining or return
 program counter adjustment.  
 
-[\(view code\)](<./Runtime.hx#L347>)
+[\(view code\)](<./Runtime.hx#L348>)
 
 
 ## function callersFrames
@@ -571,7 +573,7 @@ CallersFrames takes a slice of PC values returned by Callers and
 prepares to return function/file/line information.
 Do not change the slice until you are done with the Frames.  
 
-[\(view code\)](<./Runtime.hx#L641>)
+[\(view code\)](<./Runtime.hx#L642>)
 
 
 ## function cpuprofile
@@ -594,7 +596,7 @@ Deprecated: Use the runtime/pprof package,
 or the handlers in the net/http/pprof package,
 or the testing package's \-test.cpuprofile flag instead.  
 
-[\(view code\)](<./Runtime.hx#L299>)
+[\(view code\)](<./Runtime.hx#L300>)
 
 
 ## function funcForPC
@@ -614,7 +616,7 @@ If pc represents multiple functions because of inlining, it returns
 the \*Func describing the innermost function, but with an entry of
 the outermost function.  
 
-[\(view code\)](<./Runtime.hx#L650>)
+[\(view code\)](<./Runtime.hx#L651>)
 
 
 ## function gc
@@ -630,7 +632,7 @@ GC runs a garbage collection and blocks the caller until the
 garbage collection is complete. It may also block the entire
 program.  
 
-[\(view code\)](<./Runtime.hx#L481>)
+[\(view code\)](<./Runtime.hx#L482>)
 
 
 ## function get\_memProfileRate
@@ -663,7 +665,7 @@ without func main returning. Since func main has not returned,
 the program continues execution of other goroutines.
 If all other goroutines exit, the program crashes.  
 
-[\(view code\)](<./Runtime.hx#L588>)
+[\(view code\)](<./Runtime.hx#L589>)
 
 
 ## function gomaxprocs
@@ -680,7 +682,7 @@ simultaneously and returns the previous setting. It defaults to
 the value of runtime.NumCPU. If n \< 1, it does not change the current setting.
 This call will go away when the scheduler improves.  
 
-[\(view code\)](<./Runtime.hx#L306>)
+[\(view code\)](<./Runtime.hx#L307>)
 
 
 ## function goroot
@@ -696,7 +698,7 @@ GOROOT returns the root of the Go tree. It uses the
 GOROOT environment variable, if set at process start,
 or else the root used during the Go build.  
 
-[\(view code\)](<./Runtime.hx#L353>)
+[\(view code\)](<./Runtime.hx#L354>)
 
 
 ## function goroutineProfile
@@ -716,7 +718,7 @@ If len\(p\) \< n, GoroutineProfile does not change p and returns n, false.
 Most clients should use the runtime/pprof package instead
 of calling GoroutineProfile directly.  
 
-[\(view code\)](<./Runtime.hx#L561>)
+[\(view code\)](<./Runtime.hx#L562>)
 
 
 ## function gosched
@@ -734,7 +736,7 @@ suspend the current goroutine, so execution resumes automatically.
 ```
 go:nosplit
 ```
-[\(view code\)](<./Runtime.hx#L595>)
+[\(view code\)](<./Runtime.hx#L596>)
 
 
 ## function keepAlive
@@ -775,7 +777,7 @@ Note: KeepAlive should only be used to prevent finalizers from
 running prematurely. In particular, when used with unsafe.Pointer,
 the rules for valid uses of unsafe.Pointer still apply.  
 
-[\(view code\)](<./Runtime.hx#L475>)
+[\(view code\)](<./Runtime.hx#L476>)
 
 
 ## function lockOSThread
@@ -807,7 +809,7 @@ non\-Go library functions that depend on per\-thread state.
 ```
 go:nosplit
 ```
-[\(view code\)](<./Runtime.hx#L618>)
+[\(view code\)](<./Runtime.hx#L619>)
 
 
 ## function memProfile
@@ -845,7 +847,7 @@ Most clients should use the runtime/pprof package or
 the testing package's \-test.memprofile flag instead
 of calling MemProfile directly.  
 
-[\(view code\)](<./Runtime.hx#L524>)
+[\(view code\)](<./Runtime.hx#L525>)
 
 
 ## function mutexProfile
@@ -865,7 +867,7 @@ Otherwise, MutexProfile does not change p, and returns n, false.
 Most clients should use the runtime/pprof package
 instead of calling MutexProfile directly.  
 
-[\(view code\)](<./Runtime.hx#L543>)
+[\(view code\)](<./Runtime.hx#L544>)
 
 
 ## function numCPU
@@ -884,7 +886,7 @@ The set of available CPUs is checked by querying the operating system
 at process startup. Changes to operating system CPU allocation after
 process startup are not reflected.  
 
-[\(view code\)](<./Runtime.hx#L314>)
+[\(view code\)](<./Runtime.hx#L315>)
 
 
 ## function numCgoCall
@@ -898,7 +900,7 @@ function numCgoCall():haxe.Int64
 
 NumCgoCall returns the number of cgo calls made by the current process.  
 
-[\(view code\)](<./Runtime.hx#L318>)
+[\(view code\)](<./Runtime.hx#L319>)
 
 
 ## function numGoroutine
@@ -912,7 +914,7 @@ function numGoroutine():Int
 
 NumGoroutine returns the number of goroutines that currently exist.  
 
-[\(view code\)](<./Runtime.hx#L322>)
+[\(view code\)](<./Runtime.hx#L323>)
 
 
 ## function readMemStats
@@ -932,7 +934,7 @@ call to ReadMemStats. This is in contrast with a heap profile,
 which is a snapshot as of the most recently completed garbage
 collection cycle.  
 
-[\(view code\)](<./Runtime.hx#L577>)
+[\(view code\)](<./Runtime.hx#L578>)
 
 
 ## function readTrace
@@ -950,7 +952,7 @@ was on has been returned, ReadTrace returns nil. The caller must copy the
 returned data before calling ReadTrace again.
 ReadTrace must be called from one goroutine at a time.  
 
-[\(view code\)](<./Runtime.hx#L671>)
+[\(view code\)](<./Runtime.hx#L672>)
 
 
 ## function setBlockProfileRate
@@ -970,7 +972,7 @@ an average of one blocking event per rate nanoseconds spent blocked.
 To include every blocking event in the profile, pass rate = 1.
 To turn off profiling entirely, pass rate \<= 0.  
 
-[\(view code\)](<./Runtime.hx#L490>)
+[\(view code\)](<./Runtime.hx#L491>)
 
 
 ## function setCPUProfileRate
@@ -991,7 +993,7 @@ Most clients should use the runtime/pprof package or
 the testing package's \-test.cpuprofile flag instead of calling
 SetCPUProfileRate directly.  
 
-[\(view code\)](<./Runtime.hx#L287>)
+[\(view code\)](<./Runtime.hx#L288>)
 
 
 ## function setCgoTraceback
@@ -1192,7 +1194,7 @@ to Go will not show a traceback for the C portion of the call stack.
 
 SetCgoTraceback should be called only once, ideally from an init function.  
 
-[\(view code\)](<./Runtime.hx#L835>)
+[\(view code\)](<./Runtime.hx#L836>)
 
 
 ## function setFinalizer
@@ -1302,7 +1304,7 @@ The modifications in the main program and the inspection in the finalizer
 need to use appropriate synchronization, such as mutexes or atomic updates,
 to avoid read\-write races.  
 
-[\(view code\)](<./Runtime.hx#L448>)
+[\(view code\)](<./Runtime.hx#L449>)
 
 
 ## function setMutexProfileFraction
@@ -1323,7 +1325,7 @@ To turn off profiling entirely, pass rate 0.
 To just read the current rate, pass rate \< 0.
 \(For n\>1 the details of sampling may change.\)  
 
-[\(view code\)](<./Runtime.hx#L500>)
+[\(view code\)](<./Runtime.hx#L501>)
 
 
 ## function set\_memProfileRate
@@ -1351,7 +1353,7 @@ and returns the number of bytes written to buf.
 If all is true, Stack formats stack traces of all other goroutines
 into buf after the trace for the current goroutine.  
 
-[\(view code\)](<./Runtime.hx#L568>)
+[\(view code\)](<./Runtime.hx#L569>)
 
 
 ## function startTrace
@@ -1369,7 +1371,7 @@ StartTrace returns an error if tracing is already enabled.
 Most clients should use the runtime/trace package or the testing package's
 \-test.trace flag instead of calling StartTrace directly.  
 
-[\(view code\)](<./Runtime.hx#L658>)
+[\(view code\)](<./Runtime.hx#L659>)
 
 
 ## function stopTrace
@@ -1384,7 +1386,7 @@ function stopTrace():Void
 StopTrace stops tracing, if it was previously enabled.
 StopTrace only returns after all the reads for the trace have completed.  
 
-[\(view code\)](<./Runtime.hx#L663>)
+[\(view code\)](<./Runtime.hx#L664>)
 
 
 ## function threadCreateProfile
@@ -1404,7 +1406,7 @@ If len\(p\) \< n, ThreadCreateProfile does not change p and returns n, false.
 Most clients should use the runtime/pprof package instead
 of calling ThreadCreateProfile directly.  
 
-[\(view code\)](<./Runtime.hx#L552>)
+[\(view code\)](<./Runtime.hx#L553>)
 
 
 ## function unlockOSThread
@@ -1433,7 +1435,7 @@ hence the thread\) exits.
 ```
 go:nosplit
 ```
-[\(view code\)](<./Runtime.hx#L635>)
+[\(view code\)](<./Runtime.hx#L636>)
 
 
 ## function version
@@ -1449,7 +1451,7 @@ Version returns the Go tree's version string.
 It is either the commit hash and date at the time of the build or,
 when possible, a release tag like "go1.3".  
 
-[\(view code\)](<./Runtime.hx#L359>)
+[\(view code\)](<./Runtime.hx#L360>)
 
 
 # Typedefs
@@ -1489,6 +1491,14 @@ typedef BlockProfileRecord_static_extension = Dynamic;
 
 ```haxe
 typedef Error = stdgo._internal.runtime.Error;
+```
+
+
+## typedef Error\_static\_extension
+
+
+```haxe
+typedef Error_static_extension = Dynamic;
 ```
 
 

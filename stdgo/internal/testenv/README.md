@@ -96,6 +96,8 @@ fundamental to tests in general.
 
 - [typedef T\_\_interface\_0](<#typedef-t__interface_0>)
 
+- [typedef T\_\_interface\_0\_static\_extension](<#typedef-t__interface_0_static_extension>)
+
 # Variables
 
 
@@ -131,7 +133,7 @@ Builder reports the name of the builder running this test
 If the test is not running on the build infrastructure,
 Builder returns the empty string.  
 
-[\(view code\)](<./Testenv.hx#L68>)
+[\(view code\)](<./Testenv.hx#L69>)
 
 
 ## function canInternalLink
@@ -146,7 +148,7 @@ function canInternalLink(withCgo:Bool):Bool
 CanInternalLink reports whether the current system can link programs with
 internal linking.  
 
-[\(view code\)](<./Testenv.hx#L148>)
+[\(view code\)](<./Testenv.hx#L149>)
 
 
 ## function cleanCmdEnv
@@ -162,7 +164,7 @@ CleanCmdEnv will fill cmd.Env with the environment, excluding certain
 variables that could modify the behavior of the Go tools such as
 GODEBUG and GOTRACEBACK.  
 
-[\(view code\)](<./Testenv.hx#L41>)
+[\(view code\)](<./Testenv.hx#L42>)
 
 
 ## function command
@@ -177,7 +179,7 @@ function command(t:stdgo._internal.testing.TB, name:String, args:haxe.Rest<stdgo
 Command is like exec.Command, but applies the same changes as
 testenv.CommandContext \(with a default Context\).  
 
-[\(view code\)](<./Testenv.hx#L57>)
+[\(view code\)](<./Testenv.hx#L58>)
 
 
 ## function commandContext
@@ -198,7 +200,7 @@ function commandContext(t:stdgo._internal.testing.TB, ctx:stdgo._internal.contex
    - fails the test if the command does not complete before the test's deadline, and
    - sets a Cleanup function that verifies that the test did not leak a subprocess.
 ```
-[\(view code\)](<./Testenv.hx#L52>)
+[\(view code\)](<./Testenv.hx#L53>)
 
 
 ## function cpuisSlow
@@ -212,7 +214,7 @@ function cpuisSlow():Bool
 
 CPUIsSlow reports whether the CPU running the test is suspected to be slow.  
 
-[\(view code\)](<./Testenv.hx#L184>)
+[\(view code\)](<./Testenv.hx#L185>)
 
 
 ## function get\_sigquit
@@ -237,7 +239,7 @@ function goTool():stdgo.Tuple<String, stdgo.Error>
 
 GoTool reports the path to the Go tool.  
 
-[\(view code\)](<./Testenv.hx#L120>)
+[\(view code\)](<./Testenv.hx#L121>)
 
 
 ## function goToolPath
@@ -254,7 +256,7 @@ It is a convenience wrapper around GoTool.
 If the tool is unavailable GoToolPath calls t.Skip.
 If the tool should be available and isn't, GoToolPath calls t.Fatal.  
 
-[\(view code\)](<./Testenv.hx#L106>)
+[\(view code\)](<./Testenv.hx#L107>)
 
 
 ## function goroot
@@ -275,7 +277,7 @@ works even if the test binary was built with \-trimpath and cannot exec
 If GOROOT cannot be found, GOROOT skips t if t is non\-nil,
 or panics otherwise.  
 
-[\(view code\)](<./Testenv.hx#L116>)
+[\(view code\)](<./Testenv.hx#L117>)
 
 
 ## function hasCGO
@@ -289,7 +291,7 @@ function hasCGO():Bool
 
 HasCGO reports whether the current system can use cgo.  
 
-[\(view code\)](<./Testenv.hx#L139>)
+[\(view code\)](<./Testenv.hx#L140>)
 
 
 ## function hasExternalNetwork
@@ -304,7 +306,7 @@ function hasExternalNetwork():Bool
 HasExternalNetwork reports whether the current system can use
 external \(non\-localhost\) networks.  
 
-[\(view code\)](<./Testenv.hx#L129>)
+[\(view code\)](<./Testenv.hx#L130>)
 
 
 ## function hasGoBuild
@@ -319,7 +321,7 @@ function hasGoBuild():Bool
 HasGoBuild reports whether the current system can build programs with “go build”
 and then run them with os.StartProcess or exec.Command.  
 
-[\(view code\)](<./Testenv.hx#L73>)
+[\(view code\)](<./Testenv.hx#L74>)
 
 
 ## function hasGoRun
@@ -333,7 +335,7 @@ function hasGoRun():Bool
 
 HasGoRun reports whether the current system can run programs with “go run.”  
 
-[\(view code\)](<./Testenv.hx#L83>)
+[\(view code\)](<./Testenv.hx#L84>)
 
 
 ## function hasLink
@@ -347,7 +349,7 @@ function hasLink():Bool
 
 HasLink reports whether the current system can use os.Link.  
 
-[\(view code\)](<./Testenv.hx#L173>)
+[\(view code\)](<./Testenv.hx#L174>)
 
 
 ## function hasParallelism
@@ -363,7 +365,7 @@ HasParallelism reports whether the current system can execute multiple
 threads in parallel.
 There is a copy of this function in cmd/dist/test.go.  
 
-[\(view code\)](<./Testenv.hx#L94>)
+[\(view code\)](<./Testenv.hx#L95>)
 
 
 ## function hasSrc
@@ -377,7 +379,7 @@ function hasSrc():Bool
 
 HasSrc reports whether the entire source tree is available under GOROOT.  
 
-[\(view code\)](<./Testenv.hx#L124>)
+[\(view code\)](<./Testenv.hx#L125>)
 
 
 ## function hasSymlink
@@ -391,7 +393,7 @@ function hasSymlink():Bool
 
 HasSymlink reports whether the current system can use os.Symlink.  
 
-[\(view code\)](<./Testenv.hx#L164>)
+[\(view code\)](<./Testenv.hx#L165>)
 
 
 ## function mustHaveBuildMode
@@ -407,7 +409,7 @@ MustHaveBuildMode reports whether the current system can build programs in
 the given build mode.
 If not, MustHaveBuildMode calls t.Skip with an explanation.  
 
-[\(view code\)](<./Testenv.hx#L160>)
+[\(view code\)](<./Testenv.hx#L161>)
 
 
 ## function mustHaveCGO
@@ -421,7 +423,7 @@ function mustHaveCGO(t:stdgo._internal.testing.TB):Void
 
 MustHaveCGO calls t.Skip if cgo is not available.  
 
-[\(view code\)](<./Testenv.hx#L143>)
+[\(view code\)](<./Testenv.hx#L144>)
 
 
 ## function mustHaveExec
@@ -448,7 +450,7 @@ To check for exec support outside of a test, just try to exec the command.
 If exec is not supported, testenv.SyscallIsNotSupported will return true
 for the resulting error.  
 
-[\(view code\)](<./Testenv.hx#L29>)
+[\(view code\)](<./Testenv.hx#L30>)
 
 
 ## function mustHaveExecPath
@@ -464,7 +466,7 @@ MustHaveExecPath checks that the current system can start the named executable
 using os.StartProcess or \(more commonly\) exec.Command.
 If not, MustHaveExecPath calls t.Skip with an explanation.  
 
-[\(view code\)](<./Testenv.hx#L35>)
+[\(view code\)](<./Testenv.hx#L36>)
 
 
 ## function mustHaveExternalNetwork
@@ -480,7 +482,7 @@ MustHaveExternalNetwork checks that the current system can use
 external \(non\-localhost\) networks.
 If not, MustHaveExternalNetwork calls t.Skip with an explanation.  
 
-[\(view code\)](<./Testenv.hx#L135>)
+[\(view code\)](<./Testenv.hx#L136>)
 
 
 ## function mustHaveGoBuild
@@ -496,7 +498,7 @@ MustHaveGoBuild checks that the current system can build programs with “go bui
 and then run them with os.StartProcess or exec.Command.
 If not, MustHaveGoBuild calls t.Skip with an explanation.  
 
-[\(view code\)](<./Testenv.hx#L79>)
+[\(view code\)](<./Testenv.hx#L80>)
 
 
 ## function mustHaveGoRun
@@ -511,7 +513,7 @@ function mustHaveGoRun(t:stdgo._internal.testing.TB):Void
 MustHaveGoRun checks that the current system can run programs with “go run.”
 If not, MustHaveGoRun calls t.Skip with an explanation.  
 
-[\(view code\)](<./Testenv.hx#L88>)
+[\(view code\)](<./Testenv.hx#L89>)
 
 
 ## function mustHaveLink
@@ -526,7 +528,7 @@ function mustHaveLink(t:stdgo._internal.testing.TB):Void
 MustHaveLink reports whether the current system can use os.Link.
 If not, MustHaveLink calls t.Skip with an explanation.  
 
-[\(view code\)](<./Testenv.hx#L178>)
+[\(view code\)](<./Testenv.hx#L179>)
 
 
 ## function mustHaveParallelism
@@ -541,7 +543,7 @@ function mustHaveParallelism(t:stdgo._internal.testing.TB):Void
 MustHaveParallelism checks that the current system can execute multiple
 threads in parallel. If not, MustHaveParallelism calls t.Skip with an explanation.  
 
-[\(view code\)](<./Testenv.hx#L99>)
+[\(view code\)](<./Testenv.hx#L100>)
 
 
 ## function mustHaveSymlink
@@ -556,7 +558,7 @@ function mustHaveSymlink(t:stdgo._internal.testing.TB):Void
 MustHaveSymlink reports whether the current system can use os.Symlink.
 If not, MustHaveSymlink calls t.Skip with an explanation.  
 
-[\(view code\)](<./Testenv.hx#L169>)
+[\(view code\)](<./Testenv.hx#L170>)
 
 
 ## function mustInternalLink
@@ -572,7 +574,7 @@ MustInternalLink checks that the current system can link programs with internal
 linking.
 If not, MustInternalLink calls t.Skip with an explanation.  
 
-[\(view code\)](<./Testenv.hx#L154>)
+[\(view code\)](<./Testenv.hx#L155>)
 
 
 ## function optimizationOff
@@ -586,7 +588,7 @@ function optimizationOff():Bool
 
 OptimizationOff reports whether optimization is disabled.  
 
-[\(view code\)](<./Testenv.hx#L61>)
+[\(view code\)](<./Testenv.hx#L62>)
 
 
 ## function set\_sigquit
@@ -608,7 +610,7 @@ function skipFlaky(t:stdgo._internal.testing.TB, issue:Int):Void
 ```
 
 
-[\(view code\)](<./Testenv.hx#L179>)
+[\(view code\)](<./Testenv.hx#L180>)
 
 
 ## function skipFlakyNet
@@ -619,7 +621,7 @@ function skipFlakyNet(t:stdgo._internal.testing.TB):Void
 ```
 
 
-[\(view code\)](<./Testenv.hx#L180>)
+[\(view code\)](<./Testenv.hx#L181>)
 
 
 ## function skipIfOptimizationOff
@@ -633,7 +635,7 @@ function skipIfOptimizationOff(t:stdgo._internal.testing.TB):Void
 
 SkipIfOptimizationOff skips t if optimization is disabled.  
 
-[\(view code\)](<./Testenv.hx#L195>)
+[\(view code\)](<./Testenv.hx#L196>)
 
 
 ## function skipIfShortAndSlow
@@ -651,7 +653,7 @@ suspected to be slow.
 
 \(This is useful for CPU\-intensive tests that otherwise complete quickly.\)  
 
-[\(view code\)](<./Testenv.hx#L191>)
+[\(view code\)](<./Testenv.hx#L192>)
 
 
 ## function syscallIsNotSupported
@@ -666,7 +668,7 @@ function syscallIsNotSupported(err:stdgo.Error):Bool
 SyscallIsNotSupported reports whether err may indicate that a system call is
 not supported by the current platform or execution environment.  
 
-[\(view code\)](<./Testenv.hx#L209>)
+[\(view code\)](<./Testenv.hx#L210>)
 
 
 ## function writeImportcfg
@@ -686,7 +688,7 @@ as for the packages transitively imported by the package\(s\) in pkgs.
 pkgs may include any package pattern that is valid to pass to 'go list',
 so it may also be a list of Go source files all in the same directory.  
 
-[\(view code\)](<./Testenv.hx#L204>)
+[\(view code\)](<./Testenv.hx#L205>)
 
 
 # Typedefs
@@ -702,6 +704,14 @@ import stdgo.internal.testenv.*
 
 ```haxe
 typedef T__interface_0 = stdgo._internal.internal.testenv.T__interface_0;
+```
+
+
+## typedef T\_\_interface\_0\_static\_extension
+
+
+```haxe
+typedef T__interface_0_static_extension = Dynamic;
 ```
 
 

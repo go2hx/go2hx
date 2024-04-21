@@ -255,6 +255,8 @@ in most runs.
 
 - [typedef Writer](<#typedef-writer>)
 
+- [typedef Writer\_static\_extension](<#typedef-writer_static_extension>)
+
 # Functions
 
 
@@ -274,7 +276,7 @@ function appendMarker(dst:Array<Int>, id:haxe.UInt64):Array<Int>
 
 AppendMarker is like \[Marker\] but appends the marker to dst.  
 
-[\(view code\)](<./Bisect.hx#L208>)
+[\(view code\)](<./Bisect.hx#L209>)
 
 
 ## function cutMarker
@@ -292,7 +294,7 @@ the ID from the match marker,
 and whether a marker was found at all.
 If there is no marker, CutMarker returns line, 0, false.  
 
-[\(view code\)](<./Bisect.hx#L216>)
+[\(view code\)](<./Bisect.hx#L217>)
 
 
 ## function hash
@@ -307,7 +309,7 @@ function hash(data:haxe.Rest<stdgo.AnyInterface>):haxe.UInt64
 Hash computes a hash of the data arguments,
 each of which must be of type string, byte, int, uint, int32, uint32, int64, uint64, uintptr, or a slice of one of those types.  
 
-[\(view code\)](<./Bisect.hx#L221>)
+[\(view code\)](<./Bisect.hx#L222>)
 
 
 ## function marker
@@ -323,7 +325,7 @@ Marker returns the match marker text to use on any line reporting details
 about a match of the given ID.
 It always returns the hexadecimal format.  
 
-[\(view code\)](<./Bisect.hx#L204>)
+[\(view code\)](<./Bisect.hx#L205>)
 
 
 ## function new\_
@@ -345,7 +347,7 @@ and false from ShouldPrint for all changes. Callers can avoid calling
 \[Hash\], \[Matcher.ShouldEnable\], and \[Matcher.ShouldPrint\] entirely
 when they recognize the nil Matcher.  
 
-[\(view code\)](<./Bisect.hx#L193>)
+[\(view code\)](<./Bisect.hx#L194>)
 
 
 ## function printMarker
@@ -360,7 +362,7 @@ function printMarker(w:stdgo.internal.bisect.Writer, h:haxe.UInt64):stdgo.Error
 PrintMarker prints to w a one\-line report containing only the marker for h.
 It is appropriate to use when \[Matcher.ShouldPrint\] and \[Matcher.MarkerOnly\] both return true.  
 
-[\(view code\)](<./Bisect.hx#L198>)
+[\(view code\)](<./Bisect.hx#L199>)
 
 
 # Typedefs
@@ -480,6 +482,14 @@ typedef T_parseError_static_extension = Dynamic;
 
 ```haxe
 typedef Writer = stdgo._internal.internal.bisect.Writer;
+```
+
+
+## typedef Writer\_static\_extension
+
+
+```haxe
+typedef Writer_static_extension = Dynamic;
 ```
 
 

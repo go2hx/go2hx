@@ -66,6 +66,8 @@ Package sort provides primitives for sorting slices and user\-defined collection
 
 - [typedef Interface](<#typedef-interface>)
 
+- [typedef Interface\_static\_extension](<#typedef-interface_static_extension>)
+
 - [typedef StringSlice](<#typedef-stringslice>)
 
 - [typedef StringSlice\_asInterface](<#typedef-stringslice_asinterface>)
@@ -133,7 +135,7 @@ list of strings:
 	    fmt.Printf("%s not found, would insert at %d", target, i)
 	}
 ```
-[\(view code\)](<./Sort.hx#L94>)
+[\(view code\)](<./Sort.hx#L95>)
 
 
 ## function float64s
@@ -151,7 +153,7 @@ Not\-a\-number \(NaN\) values are ordered before other values.
 
 Note: consider using the newer slices.Sort function, which runs faster.  
 
-[\(view code\)](<./Sort.hx#L174>)
+[\(view code\)](<./Sort.hx#L175>)
 
 
 ## function float64sAreSorted
@@ -169,7 +171,7 @@ with not\-a\-number \(NaN\) values before any other values.
 
 Note: consider using the newer slices.IsSorted function, which runs faster.  
 
-[\(view code\)](<./Sort.hx#L193>)
+[\(view code\)](<./Sort.hx#L194>)
 
 
 ## function heapsort
@@ -180,7 +182,7 @@ function heapsort(data:stdgo.sort.Interface):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L14>)
+[\(view code\)](<./Sort.hx#L15>)
 
 
 ## function ints
@@ -197,7 +199,7 @@ Ints sorts a slice of ints in increasing order.
 
 Note: consider using the newer slices.Sort function, which runs faster.  
 
-[\(view code\)](<./Sort.hx#L167>)
+[\(view code\)](<./Sort.hx#L168>)
 
 
 ## function intsAreSorted
@@ -214,7 +216,7 @@ IntsAreSorted reports whether the slice x is sorted in increasing order.
 
 Note: consider using the newer slices.IsSorted function, which runs faster.  
 
-[\(view code\)](<./Sort.hx#L186>)
+[\(view code\)](<./Sort.hx#L187>)
 
 
 ## function isSorted
@@ -232,7 +234,7 @@ IsSorted reports whether data is sorted.
 Note: in many situations, the newer slices.IsSortedFunc function is more
 ergonomic and runs faster.  
 
-[\(view code\)](<./Sort.hx#L161>)
+[\(view code\)](<./Sort.hx#L162>)
 
 
 ## function reverse
@@ -246,7 +248,7 @@ function reverse(data:stdgo.sort.Interface):stdgo.sort.Interface
 
 Reverse returns the reverse order for data.  
 
-[\(view code\)](<./Sort.hx#L154>)
+[\(view code\)](<./Sort.hx#L155>)
 
 
 ## function reverseRange
@@ -257,7 +259,7 @@ function reverseRange(data:stdgo.sort.Interface, a:Int, b:Int):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L15>)
+[\(view code\)](<./Sort.hx#L16>)
 
 
 ## function search
@@ -326,7 +328,7 @@ As a more whimsical example, this program guesses your number:
 		fmt.Printf("Your number is %d.\n", answer)
 	}
 ```
-[\(view code\)](<./Sort.hx#L67>)
+[\(view code\)](<./Sort.hx#L68>)
 
 
 ## function searchFloat64s
@@ -343,7 +345,7 @@ as specified by Search. The return value is the index to insert x if x is not
 present \(it could be len\(a\)\).
 The slice must be sorted in ascending order.  
 
-[\(view code\)](<./Sort.hx#L108>)
+[\(view code\)](<./Sort.hx#L109>)
 
 
 ## function searchInts
@@ -360,7 +362,7 @@ as specified by Search. The return value is the index to insert x if x is
 not present \(it could be len\(a\)\).
 The slice must be sorted in ascending order.  
 
-[\(view code\)](<./Sort.hx#L101>)
+[\(view code\)](<./Sort.hx#L102>)
 
 
 ## function searchStrings
@@ -377,7 +379,7 @@ as specified by Search. The return value is the index to insert x if x is not
 present \(it could be len\(a\)\).
 The slice must be sorted in ascending order.  
 
-[\(view code\)](<./Sort.hx#L115>)
+[\(view code\)](<./Sort.hx#L116>)
 
 
 ## function slice
@@ -401,7 +403,7 @@ For a stable sort, use SliceStable.
 The less function must satisfy the same requirements as
 the Interface type's Less method.  
 
-[\(view code\)](<./Sort.hx#L127>)
+[\(view code\)](<./Sort.hx#L128>)
 
 
 ## function sliceIsSorted
@@ -416,7 +418,7 @@ function sliceIsSorted(x:stdgo.AnyInterface, less:(_i:stdgo.GoInt, _j:stdgo.GoIn
 SliceIsSorted reports whether the slice x is sorted according to the provided less function.
 It panics if x is not a slice.  
 
-[\(view code\)](<./Sort.hx#L141>)
+[\(view code\)](<./Sort.hx#L142>)
 
 
 ## function sliceStable
@@ -436,7 +438,7 @@ It panics if x is not a slice.
 The less function must satisfy the same requirements as
 the Interface type's Less method.  
 
-[\(view code\)](<./Sort.hx#L136>)
+[\(view code\)](<./Sort.hx#L137>)
 
 
 ## function sort
@@ -456,7 +458,7 @@ data.Less and data.Swap. The sort is not guaranteed to be stable.
 Note: in many situations, the newer slices.SortFunc function is more
 ergonomic and runs faster.  
 
-[\(view code\)](<./Sort.hx#L150>)
+[\(view code\)](<./Sort.hx#L151>)
 
 
 ## function stable
@@ -479,7 +481,7 @@ data.Less and O\(n\*log\(n\)\*log\(n\)\) calls to data.Swap.
 Note: in many situations, the newer slices.SortStableFunc function is more
 ergonomic and runs faster.  
 
-[\(view code\)](<./Sort.hx#L210>)
+[\(view code\)](<./Sort.hx#L211>)
 
 
 ## function strings
@@ -496,7 +498,7 @@ Strings sorts a slice of strings in increasing order.
 
 Note: consider using the newer slices.Sort function, which runs faster.  
 
-[\(view code\)](<./Sort.hx#L180>)
+[\(view code\)](<./Sort.hx#L181>)
 
 
 ## function stringsAreSorted
@@ -513,7 +515,7 @@ StringsAreSorted reports whether the slice x is sorted in increasing order.
 
 Note: consider using the newer slices.IsSorted function, which runs faster.  
 
-[\(view code\)](<./Sort.hx#L199>)
+[\(view code\)](<./Sort.hx#L200>)
 
 
 # Typedefs
@@ -577,6 +579,14 @@ typedef IntSlice_static_extension = Dynamic;
 
 ```haxe
 typedef Interface = stdgo._internal.sort.Interface;
+```
+
+
+## typedef Interface\_static\_extension
+
+
+```haxe
+typedef Interface_static_extension = Dynamic;
 ```
 
 

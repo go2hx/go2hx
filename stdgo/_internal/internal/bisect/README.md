@@ -100,7 +100,7 @@ function _appendFileLine(_dst:stdgo.Slice<stdgo.GoByte>, _file:stdgo.GoString, _
 ```
 
 
-[\(view code\)](<./Bisect.hx#L81>)
+[\(view code\)](<./Bisect.hx#L84>)
 
 
 ## function \_fnv
@@ -111,7 +111,7 @@ function _fnv(_h:stdgo.GoUInt64, _x:stdgo.GoByte):stdgo.GoUInt64
 ```
 
 
-[\(view code\)](<./Bisect.hx#L88>)
+[\(view code\)](<./Bisect.hx#L91>)
 
 
 ## function \_fnvString
@@ -122,7 +122,7 @@ function _fnvString(_h:stdgo.GoUInt64, _x:stdgo.GoString):stdgo.GoUInt64
 ```
 
 
-[\(view code\)](<./Bisect.hx#L89>)
+[\(view code\)](<./Bisect.hx#L92>)
 
 
 ## function \_fnvUint32
@@ -133,7 +133,7 @@ function _fnvUint32(_h:stdgo.GoUInt64, _x:stdgo.GoUInt32):stdgo.GoUInt64
 ```
 
 
-[\(view code\)](<./Bisect.hx#L91>)
+[\(view code\)](<./Bisect.hx#L94>)
 
 
 ## function \_fnvUint64
@@ -144,7 +144,7 @@ function _fnvUint64(_h:stdgo.GoUInt64, _x:stdgo.GoUInt64):stdgo.GoUInt64
 ```
 
 
-[\(view code\)](<./Bisect.hx#L90>)
+[\(view code\)](<./Bisect.hx#L93>)
 
 
 ## function \_printFileLine
@@ -155,7 +155,7 @@ function _printFileLine(_w:stdgo._internal.internal.bisect.Writer, _h:stdgo.GoUI
 ```
 
 
-[\(view code\)](<./Bisect.hx#L80>)
+[\(view code\)](<./Bisect.hx#L83>)
 
 
 ## function \_printStack
@@ -166,7 +166,7 @@ function _printStack(_w:stdgo._internal.internal.bisect.Writer, _h:stdgo.GoUInt6
 ```
 
 
-[\(view code\)](<./Bisect.hx#L83>)
+[\(view code\)](<./Bisect.hx#L86>)
 
 
 ## function appendMarker
@@ -177,7 +177,7 @@ function appendMarker(_dst:stdgo.Slice<stdgo.GoByte>, _id:stdgo.GoUInt64):stdgo.
 ```
 
 
-[\(view code\)](<./Bisect.hx#L85>)
+[\(view code\)](<./Bisect.hx#L88>)
 
 
 ## function cutMarker
@@ -192,7 +192,7 @@ function cutMarker(_line:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Bisect.hx#L86>)
+[\(view code\)](<./Bisect.hx#L89>)
 
 
 ## function hash
@@ -203,7 +203,7 @@ function hash(_data:haxe.Rest<stdgo.AnyInterface>):stdgo.GoUInt64
 ```
 
 
-[\(view code\)](<./Bisect.hx#L87>)
+[\(view code\)](<./Bisect.hx#L90>)
 
 
 ## function marker
@@ -214,7 +214,7 @@ function marker(_id:stdgo.GoUInt64):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Bisect.hx#L84>)
+[\(view code\)](<./Bisect.hx#L87>)
 
 
 ## function new\_
@@ -228,7 +228,7 @@ function new_(_pattern:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Bisect.hx#L79>)
+[\(view code\)](<./Bisect.hx#L82>)
 
 
 ## function printMarker
@@ -239,7 +239,7 @@ function printMarker(_w:stdgo._internal.internal.bisect.Writer, _h:stdgo.GoUInt6
 ```
 
 
-[\(view code\)](<./Bisect.hx#L82>)
+[\(view code\)](<./Bisect.hx#L85>)
 
 
 # Classes
@@ -286,7 +286,7 @@ function new(?_verbose:Bool, ?_quiet:Bool, ?_enable:Bool, ?_list:stdgo.Slice<std
 ```
 
 
-[\(view code\)](<./Bisect.hx#L19>)
+[\(view code\)](<./Bisect.hx#L22>)
 
 
 ### Matcher function \_fileLine
@@ -297,7 +297,7 @@ function _fileLine( _w:stdgo._internal.internal.bisect.Writer, _file:stdgo.GoStr
 ```
 
 
-[\(view code\)](<./Bisect.hx#L123>)
+[\(view code\)](<./Bisect.hx#L126>)
 
 
 ### Matcher function \_matchResult
@@ -308,7 +308,7 @@ function _matchResult( _id:stdgo.GoUInt64):Bool
 ```
 
 
-[\(view code\)](<./Bisect.hx#L127>)
+[\(view code\)](<./Bisect.hx#L130>)
 
 
 ### Matcher function \_stack
@@ -319,7 +319,7 @@ function _stack( _w:stdgo._internal.internal.bisect.Writer):Bool
 ```
 
 
-[\(view code\)](<./Bisect.hx#L119>)
+[\(view code\)](<./Bisect.hx#L122>)
 
 
 ### Matcher function fileLine
@@ -330,7 +330,7 @@ function fileLine( _w:stdgo._internal.internal.bisect.Writer, _file:stdgo.GoStri
 ```
 
 
-[\(view code\)](<./Bisect.hx#L125>)
+[\(view code\)](<./Bisect.hx#L128>)
 
 
 ### Matcher function markerOnly
@@ -341,7 +341,7 @@ function markerOnly():Bool
 ```
 
 
-[\(view code\)](<./Bisect.hx#L133>)
+[\(view code\)](<./Bisect.hx#L136>)
 
 
 ### Matcher function shouldEnable
@@ -352,7 +352,7 @@ function shouldEnable( _id:stdgo.GoUInt64):Bool
 ```
 
 
-[\(view code\)](<./Bisect.hx#L131>)
+[\(view code\)](<./Bisect.hx#L134>)
 
 
 ### Matcher function shouldPrint
@@ -363,7 +363,7 @@ function shouldPrint( _id:stdgo.GoUInt64):Bool
 ```
 
 
-[\(view code\)](<./Bisect.hx#L129>)
+[\(view code\)](<./Bisect.hx#L132>)
 
 
 ### Matcher function stack
@@ -374,7 +374,7 @@ function stack( _w:stdgo._internal.internal.bisect.Writer):Bool
 ```
 
 
-[\(view code\)](<./Bisect.hx#L121>)
+[\(view code\)](<./Bisect.hx#L124>)
 
 
 # Typedefs

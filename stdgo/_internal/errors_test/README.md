@@ -123,7 +123,7 @@ function _oops():stdgo.Error
 ```
 
 
-[\(view code\)](<./Errors.hx#L178>)
+[\(view code\)](<./Errors.hx#L184>)
 
 
 ## function example
@@ -134,7 +134,7 @@ function example():Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L181>)
+[\(view code\)](<./Errors.hx#L187>)
 
 
 ## function exampleAs
@@ -145,7 +145,7 @@ function exampleAs():Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L226>)
+[\(view code\)](<./Errors.hx#L232>)
 
 
 ## function exampleIs
@@ -156,7 +156,7 @@ function exampleIs():Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L214>)
+[\(view code\)](<./Errors.hx#L220>)
 
 
 ## function exampleJoin
@@ -167,7 +167,7 @@ function exampleJoin():Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L202>)
+[\(view code\)](<./Errors.hx#L208>)
 
 
 ## function exampleNew
@@ -178,7 +178,7 @@ function exampleNew():Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L189>)
+[\(view code\)](<./Errors.hx#L195>)
 
 
 ## function exampleNew\_errorf
@@ -189,7 +189,7 @@ function exampleNew_errorf():Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L195>)
+[\(view code\)](<./Errors.hx#L201>)
 
 
 ## function exampleUnwrap
@@ -200,7 +200,7 @@ function exampleUnwrap():Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L239>)
+[\(view code\)](<./Errors.hx#L245>)
 
 
 ## function testAs
@@ -211,7 +211,7 @@ function testAs(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L337>)
+[\(view code\)](<./Errors.hx#L343>)
 
 
 ## function testAsValidation
@@ -222,7 +222,7 @@ function testAsValidation(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L384>)
+[\(view code\)](<./Errors.hx#L390>)
 
 
 ## function testErrorMethod
@@ -233,7 +233,7 @@ function testErrorMethod(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L172>)
+[\(view code\)](<./Errors.hx#L178>)
 
 
 ## function testIs
@@ -244,7 +244,7 @@ function testIs(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L288>)
+[\(view code\)](<./Errors.hx#L294>)
 
 
 ## function testJoin
@@ -255,7 +255,7 @@ function testJoin(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L265>)
+[\(view code\)](<./Errors.hx#L271>)
 
 
 ## function testJoinErrorMethod
@@ -266,7 +266,7 @@ function testJoinErrorMethod(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L278>)
+[\(view code\)](<./Errors.hx#L284>)
 
 
 ## function testJoinReturnsNil
@@ -277,7 +277,7 @@ function testJoinReturnsNil(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L245>)
+[\(view code\)](<./Errors.hx#L251>)
 
 
 ## function testNewEqual
@@ -288,7 +288,7 @@ function testNewEqual(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L160>)
+[\(view code\)](<./Errors.hx#L166>)
 
 
 ## function testUnwrap
@@ -299,7 +299,7 @@ function testUnwrap(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L435>)
+[\(view code\)](<./Errors.hx#L441>)
 
 
 ## function main
@@ -342,7 +342,7 @@ function new(?when:stdgo._internal.time.Time, ?what:stdgo.GoString):Void
 ```
 
 
-[\(view code\)](<./Errors_test.hx#L23>)
+[\(view code\)](<./Errors_test.hx#L29>)
 
 
 ### MyError function error
@@ -353,7 +353,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Errors_test.hx#L461>)
+[\(view code\)](<./Errors_test.hx#L467>)
 
 
 # Typedefs

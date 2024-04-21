@@ -81,6 +81,10 @@ crypto/rand package.
 
 - [typedef Source64](<#typedef-source64>)
 
+- [typedef Source64\_static\_extension](<#typedef-source64_static_extension>)
+
+- [typedef Source\_static\_extension](<#typedef-source_static_extension>)
+
 - [typedef T\_fastSource](<#typedef-t_fastsource>)
 
 - [typedef T\_fastSource\_asInterface](<#typedef-t_fastsource_asinterface>)
@@ -131,7 +135,7 @@ callers can adjust the output using:
 ```
 	sample = ExpFloat64() / desiredRateParameter
 ```
-[\(view code\)](<./Rand.hx#L150>)
+[\(view code\)](<./Rand.hx#L152>)
 
 
 ## function float32
@@ -146,7 +150,7 @@ function float32():Float
 Float32 returns, as a float32, a pseudo\-random number in the half\-open interval \[0.0,1.0\)
 from the default Source.  
 
-[\(view code\)](<./Rand.hx#L110>)
+[\(view code\)](<./Rand.hx#L112>)
 
 
 ## function float64
@@ -161,7 +165,7 @@ function float64():Float
 Float64 returns, as a float64, a pseudo\-random number in the half\-open interval \[0.0,1.0\)
 from the default Source.  
 
-[\(view code\)](<./Rand.hx#L105>)
+[\(view code\)](<./Rand.hx#L107>)
 
 
 ## function getExponentialDistributionParameters
@@ -172,7 +176,7 @@ function getExponentialDistributionParameters():stdgo.Tuple4<Float, haxe.ds.Vect
 ```
 
 
-[\(view code\)](<./Rand.hx#L27>)
+[\(view code\)](<./Rand.hx#L29>)
 
 
 ## function getNormalDistributionParameters
@@ -183,7 +187,7 @@ function getNormalDistributionParameters():stdgo.Tuple4<Float, haxe.ds.Vector<UI
 ```
 
 
-[\(view code\)](<./Rand.hx#L26>)
+[\(view code\)](<./Rand.hx#L28>)
 
 
 ## function int31
@@ -198,7 +202,7 @@ function int31():Int
 Int31 returns a non\-negative pseudo\-random 31\-bit integer as an int32
 from the default Source.  
 
-[\(view code\)](<./Rand.hx#L78>)
+[\(view code\)](<./Rand.hx#L80>)
 
 
 ## function int31n
@@ -214,7 +218,7 @@ Int31n returns, as an int32, a non\-negative pseudo\-random number in the half\-
 from the default Source.
 It panics if n \<= 0.  
 
-[\(view code\)](<./Rand.hx#L94>)
+[\(view code\)](<./Rand.hx#L96>)
 
 
 ## function int31nForTest
@@ -225,7 +229,7 @@ function int31nForTest(r:stdgo.math.rand.Rand, n:Int):Int
 ```
 
 
-[\(view code\)](<./Rand.hx#L25>)
+[\(view code\)](<./Rand.hx#L27>)
 
 
 ## function int63
@@ -240,7 +244,7 @@ function int63():haxe.Int64
 Int63 returns a non\-negative pseudo\-random 63\-bit integer as an int64
 from the default Source.  
 
-[\(view code\)](<./Rand.hx#L63>)
+[\(view code\)](<./Rand.hx#L65>)
 
 
 ## function int63n
@@ -256,7 +260,7 @@ Int63n returns, as an int64, a non\-negative pseudo\-random number in the half\-
 from the default Source.
 It panics if n \<= 0.  
 
-[\(view code\)](<./Rand.hx#L88>)
+[\(view code\)](<./Rand.hx#L90>)
 
 
 ## function int\_
@@ -270,7 +274,7 @@ function int_():Int
 
 Int returns a non\-negative pseudo\-random int from the default Source.  
 
-[\(view code\)](<./Rand.hx#L82>)
+[\(view code\)](<./Rand.hx#L84>)
 
 
 ## function intn
@@ -286,7 +290,7 @@ Intn returns, as an int, a non\-negative pseudo\-random number in the half\-open
 from the default Source.
 It panics if n \<= 0.  
 
-[\(view code\)](<./Rand.hx#L100>)
+[\(view code\)](<./Rand.hx#L102>)
 
 
 ## function newSource
@@ -303,7 +307,7 @@ Unlike the default Source used by top\-level functions, this source is not
 safe for concurrent use by multiple goroutines.
 The returned Source implements Source64.  
 
-[\(view code\)](<./Rand.hx#L34>)
+[\(view code\)](<./Rand.hx#L36>)
 
 
 ## function newZipf
@@ -320,7 +324,7 @@ The generator generates values k ∈ \[0, imax\]
 such that P\(k\) is proportional to \(v \+ k\) \*\* \(\-s\).
 Requirements: s \> 1 and v \>= 1.  
 
-[\(view code\)](<./Rand.hx#L157>)
+[\(view code\)](<./Rand.hx#L159>)
 
 
 ## function new\_
@@ -335,7 +339,7 @@ function new_(src:stdgo.math.rand.Source):stdgo.math.rand.Rand
 New returns a new Rand that uses random values from src
 to generate other random values.  
 
-[\(view code\)](<./Rand.hx#L39>)
+[\(view code\)](<./Rand.hx#L41>)
 
 
 ## function normFloat64
@@ -357,7 +361,7 @@ adjust the output using:
 ```
 	sample = NormFloat64() * desiredStdDev + desiredMean
 ```
-[\(view code\)](<./Rand.hx#L140>)
+[\(view code\)](<./Rand.hx#L142>)
 
 
 ## function perm
@@ -372,7 +376,7 @@ function perm(n:Int):Array<Int>
 Perm returns, as a slice of n ints, a pseudo\-random permutation of the integers
 in the half\-open interval \[0,n\) from the default Source.  
 
-[\(view code\)](<./Rand.hx#L115>)
+[\(view code\)](<./Rand.hx#L117>)
 
 
 ## function read
@@ -391,7 +395,7 @@ Read, unlike the Rand.Read method, is safe for concurrent use.
 
 Deprecated: For almost all use cases, crypto/rand.Read is more appropriate.  
 
-[\(view code\)](<./Rand.hx#L129>)
+[\(view code\)](<./Rand.hx#L131>)
 
 
 ## function seed
@@ -423,7 +427,7 @@ a random value. Programs that call Seed with a known value to get
 a specific sequence of results should use New\(NewSource\(seed\)\) to
 obtain a local random generator.  
 
-[\(view code\)](<./Rand.hx#L58>)
+[\(view code\)](<./Rand.hx#L60>)
 
 
 ## function shuffle
@@ -439,7 +443,7 @@ Shuffle pseudo\-randomizes the order of elements using the default Source.
 n is the number of elements. Shuffle panics if n \< 0.
 swap swaps the elements with indexes i and j.  
 
-[\(view code\)](<./Rand.hx#L121>)
+[\(view code\)](<./Rand.hx#L123>)
 
 
 ## function uint32
@@ -454,7 +458,7 @@ function uint32():UInt
 Uint32 returns a pseudo\-random 32\-bit value as a uint32
 from the default Source.  
 
-[\(view code\)](<./Rand.hx#L68>)
+[\(view code\)](<./Rand.hx#L70>)
 
 
 ## function uint64
@@ -469,7 +473,7 @@ function uint64():haxe.UInt64
 Uint64 returns a pseudo\-random 64\-bit value as a uint64
 from the default Source.  
 
-[\(view code\)](<./Rand.hx#L73>)
+[\(view code\)](<./Rand.hx#L75>)
 
 
 # Typedefs
@@ -517,6 +521,22 @@ typedef Source = stdgo._internal.math.rand.Source;
 
 ```haxe
 typedef Source64 = stdgo._internal.math.rand.Source64;
+```
+
+
+## typedef Source64\_static\_extension
+
+
+```haxe
+typedef Source64_static_extension = Dynamic;
+```
+
+
+## typedef Source\_static\_extension
+
+
+```haxe
+typedef Source_static_extension = Dynamic;
 ```
 
 

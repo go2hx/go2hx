@@ -98,11 +98,19 @@ because the former will succeed if err wraps an \[\*io/fs.PathError\].
 
 - [typedef T\_\_interface\_0](<#typedef-t__interface_0>)
 
+- [typedef T\_\_interface\_0\_static\_extension](<#typedef-t__interface_0_static_extension>)
+
 - [typedef T\_\_interface\_1](<#typedef-t__interface_1>)
+
+- [typedef T\_\_interface\_1\_static\_extension](<#typedef-t__interface_1_static_extension>)
 
 - [typedef T\_\_interface\_2](<#typedef-t__interface_2>)
 
+- [typedef T\_\_interface\_2\_static\_extension](<#typedef-t__interface_2_static_extension>)
+
 - [typedef T\_\_interface\_3](<#typedef-t__interface_3>)
+
+- [typedef T\_\_interface\_3\_static\_extension](<#typedef-t__interface_3_static_extension>)
 
 - [typedef T\_errorString](<#typedef-t_errorstring>)
 
@@ -168,7 +176,7 @@ different error type.
 As panics if target is not a non\-nil pointer to either a type that implements
 error, or to any interface type.  
 
-[\(view code\)](<./Errors.hx#L130>)
+[\(view code\)](<./Errors.hx#L134>)
 
 
 ## function get\_errUnsupported
@@ -214,7 +222,7 @@ then Is\(MyError\{\}, fs.ErrExist\) returns true. See \[syscall.Errno.Is\] for
 an example in the standard library. An Is method should only shallowly
 compare err and the target and not call Unwrap on either.  
 
-[\(view code\)](<./Errors.hx#L110>)
+[\(view code\)](<./Errors.hx#L114>)
 
 
 ## function join
@@ -236,7 +244,7 @@ between each string.
 
 A non\-nil error returned by Join implements the Unwrap\(\) \[\]error method.  
 
-[\(view code\)](<./Errors.hx#L81>)
+[\(view code\)](<./Errors.hx#L85>)
 
 
 ## function new\_
@@ -251,7 +259,7 @@ function new_(text:String):stdgo.Error
 New returns an error that formats as the given text.
 Each call to New returns a distinct error value even if the text is identical.  
 
-[\(view code\)](<./Errors.hx#L70>)
+[\(view code\)](<./Errors.hx#L74>)
 
 
 ## function set\_errUnsupported
@@ -282,7 +290,7 @@ Otherwise, Unwrap returns nil.
 Unwrap only calls a method of the form "Unwrap\(\) error".
 In particular Unwrap does not unwrap errors returned by \[Join\].  
 
-[\(view code\)](<./Errors.hx#L90>)
+[\(view code\)](<./Errors.hx#L94>)
 
 
 # Typedefs
@@ -301,11 +309,27 @@ typedef T__interface_0 = stdgo._internal.errors.T__interface_0;
 ```
 
 
+## typedef T\_\_interface\_0\_static\_extension
+
+
+```haxe
+typedef T__interface_0_static_extension = Dynamic;
+```
+
+
 ## typedef T\_\_interface\_1
 
 
 ```haxe
 typedef T__interface_1 = stdgo._internal.errors.T__interface_1;
+```
+
+
+## typedef T\_\_interface\_1\_static\_extension
+
+
+```haxe
+typedef T__interface_1_static_extension = Dynamic;
 ```
 
 
@@ -317,11 +341,27 @@ typedef T__interface_2 = stdgo._internal.errors.T__interface_2;
 ```
 
 
+## typedef T\_\_interface\_2\_static\_extension
+
+
+```haxe
+typedef T__interface_2_static_extension = Dynamic;
+```
+
+
 ## typedef T\_\_interface\_3
 
 
 ```haxe
 typedef T__interface_3 = stdgo._internal.errors.T__interface_3;
+```
+
+
+## typedef T\_\_interface\_3\_static\_extension
+
+
+```haxe
+typedef T__interface_3_static_extension = Dynamic;
 ```
 
 

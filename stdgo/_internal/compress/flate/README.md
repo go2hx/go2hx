@@ -639,7 +639,7 @@ function _bulkHash4(_b:stdgo.Slice<stdgo.GoByte>, _dst:stdgo.Slice<stdgo.GoUInt3
 ```
 
 
-[\(view code\)](<./Flate.hx#L6803>)
+[\(view code\)](<./Flate.hx#L6809>)
 
 
 ## function \_checkErrors
@@ -650,7 +650,7 @@ function _checkErrors(_got:stdgo.Slice<stdgo.Error>, _want:stdgo.Error, _t:stdgo
 ```
 
 
-[\(view code\)](<./Flate.hx#L7491>)
+[\(view code\)](<./Flate.hx#L7497>)
 
 
 ## function \_doBench
@@ -661,7 +661,7 @@ function _doBench(_b:stdgo.Ref<stdgo._internal.testing.B>, _f:(_b:stdgo.Ref<stdg
 ```
 
 
-[\(view code\)](<./Flate.hx#L8885>)
+[\(view code\)](<./Flate.hx#L8891>)
 
 
 ## function \_emitLiteral
@@ -672,7 +672,7 @@ function _emitLiteral(_dst:stdgo.Slice<stdgo._internal.compress.flate.T_token>, 
 ```
 
 
-[\(view code\)](<./Flate.hx#L7712>)
+[\(view code\)](<./Flate.hx#L7718>)
 
 
 ## function \_fixedHuffmanDecoderInit
@@ -683,7 +683,7 @@ function _fixedHuffmanDecoderInit():Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L8641>)
+[\(view code\)](<./Flate.hx#L8647>)
 
 
 ## function \_generateFixedLiteralEncoding
@@ -694,7 +694,7 @@ function _generateFixedLiteralEncoding():stdgo.Ref<stdgo._internal.compress.flat
 ```
 
 
-[\(view code\)](<./Flate.hx#L8597>)
+[\(view code\)](<./Flate.hx#L8603>)
 
 
 ## function \_generateFixedOffsetEncoding
@@ -705,7 +705,7 @@ function _generateFixedOffsetEncoding():stdgo.Ref<stdgo._internal.compress.flate
 ```
 
 
-[\(view code\)](<./Flate.hx#L8624>)
+[\(view code\)](<./Flate.hx#L8630>)
 
 
 ## function \_hash
@@ -716,7 +716,7 @@ function _hash(_u:stdgo.GoUInt32):stdgo.GoUInt32
 ```
 
 
-[\(view code\)](<./Flate.hx#L7706>)
+[\(view code\)](<./Flate.hx#L7712>)
 
 
 ## function \_hash4
@@ -727,7 +727,7 @@ function _hash4(_b:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32
 ```
 
 
-[\(view code\)](<./Flate.hx#L6800>)
+[\(view code\)](<./Flate.hx#L6806>)
 
 
 ## function \_histogram
@@ -738,7 +738,7 @@ function _histogram(_b:stdgo.Slice<stdgo.GoByte>, _h:stdgo.Slice<stdgo.GoInt32>)
 ```
 
 
-[\(view code\)](<./Flate.hx#L8251>)
+[\(view code\)](<./Flate.hx#L8257>)
 
 
 ## function \_largeDataChunk
@@ -749,7 +749,7 @@ function _largeDataChunk():stdgo.Slice<stdgo.GoByte>
 ```
 
 
-[\(view code\)](<./Flate.hx#L6848>)
+[\(view code\)](<./Flate.hx#L6854>)
 
 
 ## function \_lengthCode
@@ -760,7 +760,7 @@ function _lengthCode(_len:stdgo.GoUInt32):stdgo.GoUInt32
 ```
 
 
-[\(view code\)](<./Flate.hx#L8909>)
+[\(view code\)](<./Flate.hx#L8915>)
 
 
 ## function \_literalToken
@@ -771,7 +771,7 @@ function _literalToken(_literal:stdgo.GoUInt32):stdgo._internal.compress.flate.T
 ```
 
 
-[\(view code\)](<./Flate.hx#L8903>)
+[\(view code\)](<./Flate.hx#L8909>)
 
 
 ## function \_load32
@@ -782,7 +782,7 @@ function _load32(_b:stdgo.Slice<stdgo.GoByte>, _i:stdgo.GoInt32):stdgo.GoUInt32
 ```
 
 
-[\(view code\)](<./Flate.hx#L7698>)
+[\(view code\)](<./Flate.hx#L7704>)
 
 
 ## function \_load64
@@ -793,7 +793,7 @@ function _load64(_b:stdgo.Slice<stdgo.GoByte>, _i:stdgo.GoInt32):stdgo.GoUInt64
 ```
 
 
-[\(view code\)](<./Flate.hx#L7702>)
+[\(view code\)](<./Flate.hx#L7708>)
 
 
 ## function \_matchLen
@@ -804,7 +804,7 @@ function _matchLen(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>, _
 ```
 
 
-[\(view code\)](<./Flate.hx#L6818>)
+[\(view code\)](<./Flate.hx#L6824>)
 
 
 ## function \_matchToken
@@ -815,7 +815,7 @@ function _matchToken(_xlength:stdgo.GoUInt32, _xoffset:stdgo.GoUInt32):stdgo._in
 ```
 
 
-[\(view code\)](<./Flate.hx#L8906>)
+[\(view code\)](<./Flate.hx#L8912>)
 
 
 ## function \_maxNode
@@ -826,7 +826,7 @@ function _maxNode():stdgo._internal.compress.flate.T_literalNode
 ```
 
 
-[\(view code\)](<./Flate.hx#L8591>)
+[\(view code\)](<./Flate.hx#L8597>)
 
 
 ## function \_newDeflateFast
@@ -837,7 +837,7 @@ function _newDeflateFast():stdgo.Ref<stdgo._internal.compress.flate.T_deflateFas
 ```
 
 
-[\(view code\)](<./Flate.hx#L7709>)
+[\(view code\)](<./Flate.hx#L7715>)
 
 
 ## function \_newHuffmanBitWriter
@@ -848,7 +848,7 @@ function _newHuffmanBitWriter(_w:stdgo._internal.io.Writer):stdgo.Ref<stdgo._int
 ```
 
 
-[\(view code\)](<./Flate.hx#L8248>)
+[\(view code\)](<./Flate.hx#L8254>)
 
 
 ## function \_newHuffmanEncoder
@@ -859,7 +859,7 @@ function _newHuffmanEncoder(_size:stdgo.GoInt):stdgo.Ref<stdgo._internal.compres
 ```
 
 
-[\(view code\)](<./Flate.hx#L8594>)
+[\(view code\)](<./Flate.hx#L8600>)
 
 
 ## function \_newSyncBuffer
@@ -870,7 +870,7 @@ function _newSyncBuffer():stdgo.Ref<stdgo._internal.compress.flate.T_syncBuffer>
 ```
 
 
-[\(view code\)](<./Flate.hx#L6959>)
+[\(view code\)](<./Flate.hx#L6965>)
 
 
 ## function \_noEOF
@@ -881,7 +881,7 @@ function _noEOF(_e:stdgo.Error):stdgo.Error
 ```
 
 
-[\(view code\)](<./Flate.hx#L8635>)
+[\(view code\)](<./Flate.hx#L8641>)
 
 
 ## function \_offsetCode
@@ -892,7 +892,7 @@ function _offsetCode(_off:stdgo.GoUInt32):stdgo.GoUInt32
 ```
 
 
-[\(view code\)](<./Flate.hx#L8912>)
+[\(view code\)](<./Flate.hx#L8918>)
 
 
 ## function \_reverseBits
@@ -903,7 +903,7 @@ function _reverseBits(_number:stdgo.GoUInt16, _bitLength:stdgo.GoByte):stdgo.GoU
 ```
 
 
-[\(view code\)](<./Flate.hx#L8632>)
+[\(view code\)](<./Flate.hx#L8638>)
 
 
 ## function \_testBlock
@@ -914,7 +914,7 @@ function _testBlock(_t:stdgo.Ref<stdgo._internal.testing.T_>, _test:stdgo._inter
 ```
 
 
-[\(view code\)](<./Flate.hx#L8339>)
+[\(view code\)](<./Flate.hx#L8345>)
 
 
 ## function \_testBlockHuff
@@ -925,7 +925,7 @@ function _testBlockHuff(_t:stdgo.Ref<stdgo._internal.testing.T_>, _in:stdgo.GoSt
 ```
 
 
-[\(view code\)](<./Flate.hx#L8270>)
+[\(view code\)](<./Flate.hx#L8276>)
 
 
 ## function \_testDeterministic
@@ -936,7 +936,7 @@ function _testDeterministic(_i:stdgo.GoInt, _t:stdgo.Ref<stdgo._internal.testing
 ```
 
 
-[\(view code\)](<./Flate.hx#L9031>)
+[\(view code\)](<./Flate.hx#L9037>)
 
 
 ## function \_testResetOutput
@@ -947,7 +947,7 @@ function _testResetOutput(_t:stdgo.Ref<stdgo._internal.testing.T_>, _level:stdgo
 ```
 
 
-[\(view code\)](<./Flate.hx#L7278>)
+[\(view code\)](<./Flate.hx#L7284>)
 
 
 ## function \_testSync
@@ -958,7 +958,7 @@ function _testSync(_t:stdgo.Ref<stdgo._internal.testing.T_>, _level:stdgo.GoInt,
 ```
 
 
-[\(view code\)](<./Flate.hx#L6962>)
+[\(view code\)](<./Flate.hx#L6968>)
 
 
 ## function \_testToFromWithLevelAndLimit
@@ -969,7 +969,7 @@ function _testToFromWithLevelAndLimit(_t:stdgo.Ref<stdgo._internal.testing.T_>, 
 ```
 
 
-[\(view code\)](<./Flate.hx#L7061>)
+[\(view code\)](<./Flate.hx#L7067>)
 
 
 ## function \_testToFromWithLimit
@@ -980,7 +980,7 @@ function _testToFromWithLimit(_t:stdgo.Ref<stdgo._internal.testing.T_>, _input:s
 ```
 
 
-[\(view code\)](<./Flate.hx#L7090>)
+[\(view code\)](<./Flate.hx#L7096>)
 
 
 ## function \_testWriterEOF
@@ -991,7 +991,7 @@ function _testWriterEOF(_t:stdgo.Ref<stdgo._internal.testing.T_>, _ttype:stdgo.G
 ```
 
 
-[\(view code\)](<./Flate.hx#L8540>)
+[\(view code\)](<./Flate.hx#L8546>)
 
 
 ## function \_writeToType
@@ -1002,7 +1002,7 @@ function _writeToType(_t:stdgo.Ref<stdgo._internal.testing.T_>, _ttype:stdgo.GoS
 ```
 
 
-[\(view code\)](<./Flate.hx#L8519>)
+[\(view code\)](<./Flate.hx#L8525>)
 
 
 ## function benchmarkDecode
@@ -1013,7 +1013,7 @@ function benchmarkDecode(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L8846>)
+[\(view code\)](<./Flate.hx#L8852>)
 
 
 ## function benchmarkEncode
@@ -1024,7 +1024,7 @@ function benchmarkEncode(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L8921>)
+[\(view code\)](<./Flate.hx#L8927>)
 
 
 ## function newReader
@@ -1035,7 +1035,7 @@ function newReader(_r:stdgo._internal.io.Reader):stdgo._internal.io.ReadCloser
 ```
 
 
-[\(view code\)](<./Flate.hx#L8671>)
+[\(view code\)](<./Flate.hx#L8677>)
 
 
 ## function newReaderDict
@@ -1046,7 +1046,7 @@ function newReaderDict(_r:stdgo._internal.io.Reader, _dict:stdgo.Slice<stdgo.GoB
 ```
 
 
-[\(view code\)](<./Flate.hx#L8681>)
+[\(view code\)](<./Flate.hx#L8687>)
 
 
 ## function newWriter
@@ -1060,7 +1060,7 @@ function newWriter(_w:stdgo._internal.io.Writer, _level:stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Flate.hx#L6828>)
+[\(view code\)](<./Flate.hx#L6834>)
 
 
 ## function newWriterDict
@@ -1074,7 +1074,7 @@ function newWriterDict(_w:stdgo._internal.io.Writer, _level:stdgo.GoInt, _dict:s
 ```
 
 
-[\(view code\)](<./Flate.hx#L6838>)
+[\(view code\)](<./Flate.hx#L6844>)
 
 
 ## function testBestSpeed
@@ -1085,7 +1085,7 @@ function testBestSpeed(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L7338>)
+[\(view code\)](<./Flate.hx#L7344>)
 
 
 ## function testBestSpeedMatch
@@ -1096,7 +1096,7 @@ function testBestSpeedMatch(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L7499>)
+[\(view code\)](<./Flate.hx#L7505>)
 
 
 ## function testBestSpeedMaxMatchOffset
@@ -1107,7 +1107,7 @@ function testBestSpeedMaxMatchOffset(_t:stdgo.Ref<stdgo._internal.testing.T_>):V
 ```
 
 
-[\(view code\)](<./Flate.hx#L7527>)
+[\(view code\)](<./Flate.hx#L7533>)
 
 
 ## function testBestSpeedShiftOffsets
@@ -1118,7 +1118,7 @@ function testBestSpeedShiftOffsets(_t:stdgo.Ref<stdgo._internal.testing.T_>):Voi
 ```
 
 
-[\(view code\)](<./Flate.hx#L7581>)
+[\(view code\)](<./Flate.hx#L7587>)
 
 
 ## function testBlockHuff
@@ -1129,7 +1129,7 @@ function testBlockHuff(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L8257>)
+[\(view code\)](<./Flate.hx#L8263>)
 
 
 ## function testBulkHash4
@@ -1140,7 +1140,7 @@ function testBulkHash4(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L6855>)
+[\(view code\)](<./Flate.hx#L6861>)
 
 
 ## function testDeflate
@@ -1151,7 +1151,7 @@ function testDeflate(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L6883>)
+[\(view code\)](<./Flate.hx#L6889>)
 
 
 ## function testDeflateFast\_Reset
@@ -1162,7 +1162,7 @@ function testDeflateFast_Reset(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L9078>)
+[\(view code\)](<./Flate.hx#L9084>)
 
 
 ## function testDeflateInflate
@@ -1173,7 +1173,7 @@ function testDeflateInflate(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L7099>)
+[\(view code\)](<./Flate.hx#L7105>)
 
 
 ## function testDeflateInflateString
@@ -1184,7 +1184,7 @@ function testDeflateInflateString(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L7118>)
+[\(view code\)](<./Flate.hx#L7124>)
 
 
 ## function testDeterministic
@@ -1195,7 +1195,7 @@ function testDeterministic(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L9017>)
+[\(view code\)](<./Flate.hx#L9023>)
 
 
 ## function testDictDecoder
@@ -1206,7 +1206,7 @@ function testDictDecoder(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L7718>)
+[\(view code\)](<./Flate.hx#L7724>)
 
 
 ## function testInvalidBits
@@ -1217,7 +1217,7 @@ function testInvalidBits(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L8087>)
+[\(view code\)](<./Flate.hx#L8093>)
 
 
 ## function testInvalidEncoding
@@ -1228,7 +1228,7 @@ function testInvalidEncoding(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L8075>)
+[\(view code\)](<./Flate.hx#L8081>)
 
 
 ## function testIssue5915
@@ -1239,7 +1239,7 @@ function testIssue5915(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L7945>)
+[\(view code\)](<./Flate.hx#L7951>)
 
 
 ## function testIssue5962
@@ -1250,7 +1250,7 @@ function testIssue5962(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L8015>)
+[\(view code\)](<./Flate.hx#L8021>)
 
 
 ## function testIssue6255
@@ -1261,7 +1261,7 @@ function testIssue6255(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L8052>)
+[\(view code\)](<./Flate.hx#L8058>)
 
 
 ## function testMaxStackSize
@@ -1272,7 +1272,7 @@ function testMaxStackSize(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L7615>)
+[\(view code\)](<./Flate.hx#L7621>)
 
 
 ## function testNlitOutOfRange
@@ -1283,7 +1283,7 @@ function testNlitOutOfRange(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L8802>)
+[\(view code\)](<./Flate.hx#L8808>)
 
 
 ## function testReaderDict
@@ -1294,7 +1294,7 @@ function testReaderDict(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L7134>)
+[\(view code\)](<./Flate.hx#L7140>)
 
 
 ## function testReaderEarlyEOF
@@ -1305,7 +1305,7 @@ function testReaderEarlyEOF(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L8179>)
+[\(view code\)](<./Flate.hx#L8185>)
 
 
 ## function testReaderReusesReaderBuffer
@@ -1316,7 +1316,7 @@ function testReaderReusesReaderBuffer(_t:stdgo.Ref<stdgo._internal.testing.T_>):
 ```
 
 
-[\(view code\)](<./Flate.hx#L8747>)
+[\(view code\)](<./Flate.hx#L8753>)
 
 
 ## function testReaderTruncated
@@ -1327,7 +1327,7 @@ function testReaderTruncated(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L8711>)
+[\(view code\)](<./Flate.hx#L8717>)
 
 
 ## function testRegression2508
@@ -1338,7 +1338,7 @@ function testRegression2508(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L7178>)
+[\(view code\)](<./Flate.hx#L7184>)
 
 
 ## function testReset
@@ -1349,7 +1349,7 @@ function testReset(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L8691>)
+[\(view code\)](<./Flate.hx#L8697>)
 
 
 ## function testResetDict
@@ -1360,7 +1360,7 @@ function testResetDict(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L8725>)
+[\(view code\)](<./Flate.hx#L8731>)
 
 
 ## function testReverseBits
@@ -1371,7 +1371,7 @@ function testReverseBits(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L7108>)
+[\(view code\)](<./Flate.hx#L7114>)
 
 
 ## function testStreams
@@ -1382,7 +1382,7 @@ function testStreams(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L8098>)
+[\(view code\)](<./Flate.hx#L8104>)
 
 
 ## function testTruncatedStreams
@@ -1393,7 +1393,7 @@ function testTruncatedStreams(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L8156>)
+[\(view code\)](<./Flate.hx#L8162>)
 
 
 ## function testVeryLongSparseChunk
@@ -1404,7 +1404,7 @@ function testVeryLongSparseChunk(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L6939>)
+[\(view code\)](<./Flate.hx#L6945>)
 
 
 ## function testWriteBlock
@@ -1415,7 +1415,7 @@ function testWriteBlock(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L8329>)
+[\(view code\)](<./Flate.hx#L8335>)
 
 
 ## function testWriteBlockDynamic
@@ -1426,7 +1426,7 @@ function testWriteBlockDynamic(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L8334>)
+[\(view code\)](<./Flate.hx#L8340>)
 
 
 ## function testWriteError
@@ -1437,7 +1437,7 @@ function testWriteError(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L8952>)
+[\(view code\)](<./Flate.hx#L8958>)
 
 
 ## function testWriterClose
@@ -1448,7 +1448,7 @@ function testWriterClose(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L6898>)
+[\(view code\)](<./Flate.hx#L6904>)
 
 
 ## function testWriterDict
@@ -1459,7 +1459,7 @@ function testWriterDict(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L7155>)
+[\(view code\)](<./Flate.hx#L7161>)
 
 
 ## function testWriterPersistentCloseError
@@ -1470,7 +1470,7 @@ function testWriterPersistentCloseError(_t:stdgo.Ref<stdgo._internal.testing.T_>
 ```
 
 
-[\(view code\)](<./Flate.hx#L7465>)
+[\(view code\)](<./Flate.hx#L7471>)
 
 
 ## function testWriterPersistentFlushError
@@ -1481,7 +1481,7 @@ function testWriterPersistentFlushError(_t:stdgo.Ref<stdgo._internal.testing.T_>
 ```
 
 
-[\(view code\)](<./Flate.hx#L7455>)
+[\(view code\)](<./Flate.hx#L7461>)
 
 
 ## function testWriterPersistentWriteError
@@ -1492,7 +1492,7 @@ function testWriterPersistentWriteError(_t:stdgo.Ref<stdgo._internal.testing.T_>
 ```
 
 
-[\(view code\)](<./Flate.hx#L7421>)
+[\(view code\)](<./Flate.hx#L7427>)
 
 
 ## function testWriterReset
@@ -1503,7 +1503,7 @@ function testWriterReset(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L7201>)
+[\(view code\)](<./Flate.hx#L7207>)
 
 
 # Classes
@@ -1535,7 +1535,7 @@ function new(?offset:stdgo.GoInt64, ?err:Null<stdgo.Error>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L6545>)
+[\(view code\)](<./Flate.hx#L6551>)
 
 
 ### ReadError function error
@@ -1546,7 +1546,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Flate.hx#L10953>)
+[\(view code\)](<./Flate.hx#L10959>)
 
 
 ## class WriteError
@@ -1570,7 +1570,7 @@ function new(?offset:stdgo.GoInt64, ?err:Null<stdgo.Error>):Void
 ```
 
 
-[\(view code\)](<./Flate.hx#L6557>)
+[\(view code\)](<./Flate.hx#L6563>)
 
 
 ### WriteError function error
@@ -1581,7 +1581,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Flate.hx#L10971>)
+[\(view code\)](<./Flate.hx#L10977>)
 
 
 ## class Writer
@@ -1605,7 +1605,7 @@ function new(?_d:stdgo._internal.compress.flate.T_compressor, ?_dict:stdgo.Slice
 ```
 
 
-[\(view code\)](<./Flate.hx#L6278>)
+[\(view code\)](<./Flate.hx#L6284>)
 
 
 ### Writer function write
@@ -1619,7 +1619,7 @@ function write( _b:stdgo.Slice<stdgo.GoByte>):{
 ```
 
 
-[\(view code\)](<./Flate.hx#L9704>)
+[\(view code\)](<./Flate.hx#L9710>)
 
 
 # Typedefs

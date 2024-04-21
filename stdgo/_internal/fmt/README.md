@@ -414,7 +414,7 @@ function _errorHandler(_errp:stdgo.Ref<stdgo.Error>):Void
 ```
 
 
-[\(view code\)](<./Fmt.hx#L734>)
+[\(view code\)](<./Fmt.hx#L760>)
 
 
 ## function \_getField
@@ -425,7 +425,7 @@ function _getField(_v:stdgo._internal.reflect.Value, _i:stdgo.GoInt):stdgo._inte
 ```
 
 
-[\(view code\)](<./Fmt.hx#L503>)
+[\(view code\)](<./Fmt.hx#L529>)
 
 
 ## function \_hasX
@@ -436,7 +436,7 @@ function _hasX(_s:stdgo.GoString):Bool
 ```
 
 
-[\(view code\)](<./Fmt.hx#L709>)
+[\(view code\)](<./Fmt.hx#L735>)
 
 
 ## function \_hexDigit
@@ -450,7 +450,7 @@ function _hexDigit(_d:stdgo.GoRune):{
 ```
 
 
-[\(view code\)](<./Fmt.hx#L720>)
+[\(view code\)](<./Fmt.hx#L746>)
 
 
 ## function \_indexRune
@@ -461,7 +461,7 @@ function _indexRune(_s:stdgo.GoString, _r:stdgo.GoRune):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Fmt.hx#L701>)
+[\(view code\)](<./Fmt.hx#L727>)
 
 
 ## function \_intFromArg
@@ -476,7 +476,7 @@ function _intFromArg(_a:stdgo.Slice<stdgo.AnyInterface>, _argNum:stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Fmt.hx#L531>)
+[\(view code\)](<./Fmt.hx#L557>)
 
 
 ## function \_isSpace
@@ -487,7 +487,7 @@ function _isSpace(_r:stdgo.GoRune):Bool
 ```
 
 
-[\(view code\)](<./Fmt.hx#L658>)
+[\(view code\)](<./Fmt.hx#L684>)
 
 
 ## function \_newPrinter
@@ -498,7 +498,7 @@ function _newPrinter():stdgo.Ref<stdgo._internal.fmt.T_pp>
 ```
 
 
-[\(view code\)](<./Fmt.hx#L393>)
+[\(view code\)](<./Fmt.hx#L419>)
 
 
 ## function \_newScanState
@@ -512,7 +512,7 @@ function _newScanState(_r:stdgo._internal.io.Reader, _nlIsSpace:Bool, _nlIsEnd:B
 ```
 
 
-[\(view code\)](<./Fmt.hx#L676>)
+[\(view code\)](<./Fmt.hx#L702>)
 
 
 ## function \_notSpace
@@ -523,7 +523,7 @@ function _notSpace(_r:stdgo.GoRune):Bool
 ```
 
 
-[\(view code\)](<./Fmt.hx#L673>)
+[\(view code\)](<./Fmt.hx#L699>)
 
 
 ## function \_parseArgNumber
@@ -538,7 +538,7 @@ function _parseArgNumber(_format:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Fmt.hx#L573>)
+[\(view code\)](<./Fmt.hx#L599>)
 
 
 ## function \_parsenum
@@ -553,7 +553,7 @@ function _parsenum(_s:stdgo.GoString, _start:stdgo.GoInt, _end:stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Fmt.hx#L514>)
+[\(view code\)](<./Fmt.hx#L540>)
 
 
 ## function \_tooLarge
@@ -564,7 +564,7 @@ function _tooLarge(_x:stdgo.GoInt):Bool
 ```
 
 
-[\(view code\)](<./Fmt.hx#L510>)
+[\(view code\)](<./Fmt.hx#L536>)
 
 
 ## function append
@@ -575,7 +575,7 @@ function append(_b:stdgo.Slice<stdgo.GoByte>, _a:haxe.Rest<stdgo.AnyInterface>):
 ```
 
 
-[\(view code\)](<./Fmt.hx#L461>)
+[\(view code\)](<./Fmt.hx#L487>)
 
 
 ## function appendf
@@ -586,7 +586,7 @@ function appendf(_b:stdgo.Slice<stdgo.GoByte>, _format:stdgo.GoString, _a:haxe.R
 ```
 
 
-[\(view code\)](<./Fmt.hx#L427>)
+[\(view code\)](<./Fmt.hx#L453>)
 
 
 ## function appendln
@@ -597,7 +597,7 @@ function appendln(_b:stdgo.Slice<stdgo.GoByte>, _a:haxe.Rest<stdgo.AnyInterface>
 ```
 
 
-[\(view code\)](<./Fmt.hx#L495>)
+[\(view code\)](<./Fmt.hx#L521>)
 
 
 ## function errorf
@@ -628,7 +628,7 @@ function exampleErrorf():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L321>)
+[\(view code\)](<./Fmt.hx#L347>)
 
 
 ## function formatString
@@ -639,7 +639,7 @@ function formatString(_state:stdgo._internal.fmt.State, _verb:stdgo.GoRune):stdg
 ```
 
 
-[\(view code\)](<./Fmt.hx#L369>)
+[\(view code\)](<./Fmt.hx#L395>)
 
 
 ## function fprint
@@ -676,7 +676,7 @@ function exampleFprint():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L435>)
+[\(view code\)](<./Fmt.hx#L461>)
 
 
 ## function fprintf
@@ -713,7 +713,7 @@ function exampleFprintf():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L401>)
+[\(view code\)](<./Fmt.hx#L427>)
 
 
 ## function fprintln
@@ -750,7 +750,7 @@ function exampleFprintln():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L469>)
+[\(view code\)](<./Fmt.hx#L495>)
 
 
 ## function fscan
@@ -764,7 +764,7 @@ function fscan(_r:stdgo._internal.io.Reader, _a:haxe.Rest<stdgo.AnyInterface>):{
 ```
 
 
-[\(view code\)](<./Fmt.hx#L622>)
+[\(view code\)](<./Fmt.hx#L648>)
 
 
 ## function fscanf
@@ -803,7 +803,7 @@ function exampleFscanf():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L646>)
+[\(view code\)](<./Fmt.hx#L672>)
 
 
 ## function fscanln
@@ -849,7 +849,7 @@ function exampleFscanln():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L634>)
+[\(view code\)](<./Fmt.hx#L660>)
 
 
 ## function isSpace
@@ -908,7 +908,7 @@ function examplePrint():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L448>)
+[\(view code\)](<./Fmt.hx#L474>)
 
 
 ## function printf
@@ -941,7 +941,7 @@ function examplePrintf():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L414>)
+[\(view code\)](<./Fmt.hx#L440>)
 
 
 ## function println
@@ -974,7 +974,7 @@ function examplePrintln():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L482>)
+[\(view code\)](<./Fmt.hx#L508>)
 
 
 ## function scan
@@ -988,7 +988,7 @@ function scan(_a:haxe.Rest<stdgo.AnyInterface>):{
 ```
 
 
-[\(view code\)](<./Fmt.hx#L592>)
+[\(view code\)](<./Fmt.hx#L618>)
 
 
 ## function scanf
@@ -1002,7 +1002,7 @@ function scanf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{
 ```
 
 
-[\(view code\)](<./Fmt.hx#L602>)
+[\(view code\)](<./Fmt.hx#L628>)
 
 
 ## function scanln
@@ -1016,7 +1016,7 @@ function scanln(_a:haxe.Rest<stdgo.AnyInterface>):{
 ```
 
 
-[\(view code\)](<./Fmt.hx#L597>)
+[\(view code\)](<./Fmt.hx#L623>)
 
 
 ## function sprint
@@ -1047,7 +1047,7 @@ function exampleSprint():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L453>)
+[\(view code\)](<./Fmt.hx#L479>)
 
 
 ## function sprintf
@@ -1078,7 +1078,7 @@ function exampleSprintf():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L419>)
+[\(view code\)](<./Fmt.hx#L445>)
 
 
 ## function sprintln
@@ -1109,7 +1109,7 @@ function exampleSprintln():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L487>)
+[\(view code\)](<./Fmt.hx#L513>)
 
 
 ## function sscan
@@ -1123,7 +1123,7 @@ function sscan(_str:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{
 ```
 
 
-[\(view code\)](<./Fmt.hx#L607>)
+[\(view code\)](<./Fmt.hx#L633>)
 
 
 ## function sscanf
@@ -1161,7 +1161,7 @@ function exampleSscanf():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L617>)
+[\(view code\)](<./Fmt.hx#L643>)
 
 
 ## function sscanln
@@ -1175,7 +1175,7 @@ function sscanln(_str:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{
 ```
 
 
-[\(view code\)](<./Fmt.hx#L612>)
+[\(view code\)](<./Fmt.hx#L638>)
 
 
 # Typedefs

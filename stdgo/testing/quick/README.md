@@ -61,6 +61,8 @@ The testing/quick package is frozen and is not accepting new features.
 
 - [typedef Generator](<#typedef-generator>)
 
+- [typedef Generator\_static\_extension](<#typedef-generator_static_extension>)
+
 - [typedef SetupError](<#typedef-setuperror>)
 
 - [typedef SetupError\_asInterface](<#typedef-setuperror_asinterface>)
@@ -163,7 +165,7 @@ For example:
 		}
 	}
 ```
-[\(view code\)](<./Quick.hx#L65>)
+[\(view code\)](<./Quick.hx#L66>)
 
 
 ## function checkEqual
@@ -180,7 +182,7 @@ It calls f and g repeatedly with arbitrary values for each argument.
 If f and g return different answers, CheckEqual returns a \*CheckEqualError
 describing the input and the outputs.  
 
-[\(view code\)](<./Quick.hx#L72>)
+[\(view code\)](<./Quick.hx#L73>)
 
 
 ## function testCheckEqual
@@ -191,7 +193,7 @@ function testCheckEqual(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L73>)
+[\(view code\)](<./Quick.hx#L74>)
 
 
 ## function testCheckProperty
@@ -202,7 +204,7 @@ function testCheckProperty(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L74>)
+[\(view code\)](<./Quick.hx#L75>)
 
 
 ## function testEmptyStruct
@@ -213,7 +215,7 @@ function testEmptyStruct(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L82>)
+[\(view code\)](<./Quick.hx#L83>)
 
 
 ## function testFailure
@@ -224,7 +226,7 @@ function testFailure(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L75>)
+[\(view code\)](<./Quick.hx#L76>)
 
 
 ## function testInt64
@@ -235,7 +237,7 @@ function testInt64(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L91>)
+[\(view code\)](<./Quick.hx#L92>)
 
 
 ## function testMutuallyRecursive
@@ -246,7 +248,7 @@ function testMutuallyRecursive(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L83>)
+[\(view code\)](<./Quick.hx#L84>)
 
 
 ## function testNonZeroSliceAndMap
@@ -262,7 +264,7 @@ Some serialization formats \(e.g. encoding/pem\) cannot distinguish
 between a nil and an empty map or slice, so avoid generating the
 zero value for these.  
 
-[\(view code\)](<./Quick.hx#L90>)
+[\(view code\)](<./Quick.hx#L91>)
 
 
 ## function testRecursive
@@ -277,7 +279,7 @@ function testRecursive(t:stdgo._internal.testing.T_):Void
 Recursive data structures didn't terminate.
 Issues 8818 and 11148.  
 
-[\(view code\)](<./Quick.hx#L81>)
+[\(view code\)](<./Quick.hx#L82>)
 
 
 ## function value
@@ -293,7 +295,7 @@ Value returns an arbitrary value of the given type.
 If the type implements the Generator interface, that will be used.
 Note: To create arbitrary values for structs, all the fields must be exported.  
 
-[\(view code\)](<./Quick.hx#L47>)
+[\(view code\)](<./Quick.hx#L48>)
 
 
 # Typedefs
@@ -397,6 +399,14 @@ typedef Config_static_extension = Dynamic;
 
 ```haxe
 typedef Generator = stdgo._internal.testing.quick.Generator;
+```
+
+
+## typedef Generator\_static\_extension
+
+
+```haxe
+typedef Generator_static_extension = Dynamic;
 ```
 
 

@@ -124,6 +124,8 @@ https://golang.org/doc/articles/laws_of_reflection.html
 
 - [typedef Type\_](<#typedef-type_>)
 
+- [typedef Type\_\_static\_extension](<#typedef-type__static_extension>)
+
 - [typedef Value](<#typedef-value>)
 
 - [typedef ValueError](<#typedef-valueerror>)
@@ -334,7 +336,7 @@ function append(s:stdgo.reflect.Value, x:haxe.Rest<stdgo.reflect.Value>):stdgo.r
 Append appends the values x to a slice s and returns the resulting slice.
 As in Go, each x's value must be assignable to the slice's element type.  
 
-[\(view code\)](<./Reflect.hx#L220>)
+[\(view code\)](<./Reflect.hx#L221>)
 
 
 ## function appendSlice
@@ -349,7 +351,7 @@ function appendSlice(s:stdgo.reflect.Value, t:stdgo.reflect.Value):stdgo.reflect
 AppendSlice appends a slice t to a slice s and returns the resulting slice.
 The slices s and t must have the same element type.  
 
-[\(view code\)](<./Reflect.hx#L225>)
+[\(view code\)](<./Reflect.hx#L226>)
 
 
 ## function arrayOf
@@ -368,7 +370,7 @@ For example, if t represents int, ArrayOf\(5, t\) represents \[5\]int.
 If the resulting type would be larger than the available address space,
 ArrayOf panics.  
 
-[\(view code\)](<./Reflect.hx#L215>)
+[\(view code\)](<./Reflect.hx#L216>)
 
 
 ## function chanOf
@@ -387,7 +389,7 @@ For example, if t represents int, ChanOf\(RecvDir, t\) represents \<\-chan int.
 The gc runtime imposes a limit of 64 kB on channel element types.
 If t's size is equal to or exceeds this limit, ChanOf panics.  
 
-[\(view code\)](<./Reflect.hx#L173>)
+[\(view code\)](<./Reflect.hx#L174>)
 
 
 ## function copy
@@ -408,7 +410,7 @@ dst and src must have the same element type.
 
 As a special case, src can have kind String if the element type of dst is kind Uint8.  
 
-[\(view code\)](<./Reflect.hx#L235>)
+[\(view code\)](<./Reflect.hx#L236>)
 
 
 ## function deepEqual
@@ -482,7 +484,7 @@ values that have been compared before, it treats the values as
 equal rather than examining the values to which they point.
 This ensures that DeepEqual terminates.  
 
-[\(view code\)](<./Reflect.hx#L116>)
+[\(view code\)](<./Reflect.hx#L117>)
 
 
 ## function funcOf
@@ -503,7 +505,7 @@ The variadic argument controls whether the function is variadic. FuncOf
 panics if the in\[len\(in\)\-1\] does not represent a slice and variadic is
 true.  
 
-[\(view code\)](<./Reflect.hx#L192>)
+[\(view code\)](<./Reflect.hx#L193>)
 
 
 ## function indirect
@@ -519,7 +521,7 @@ Indirect returns the value that v points to.
 If v is a nil pointer, Indirect returns a zero Value.
 If v is not a pointer, Indirect returns v.  
 
-[\(view code\)](<./Reflect.hx#L270>)
+[\(view code\)](<./Reflect.hx#L271>)
 
 
 ## function makeChan
@@ -533,7 +535,7 @@ function makeChan(typ:stdgo.reflect.Type_, buffer:Int):stdgo.reflect.Value
 
 MakeChan creates a new channel with the specified type and buffer size.  
 
-[\(view code\)](<./Reflect.hx#L255>)
+[\(view code\)](<./Reflect.hx#L256>)
 
 
 ## function makeFunc
@@ -571,7 +573,7 @@ a typed function in terms of Values.
 The Examples section of the documentation includes an illustration
 of how to use MakeFunc to build a swap function for different types.  
 
-[\(view code\)](<./Reflect.hx#L140>)
+[\(view code\)](<./Reflect.hx#L141>)
 
 
 ## function makeMap
@@ -585,7 +587,7 @@ function makeMap(typ:stdgo.reflect.Type_):stdgo.reflect.Value
 
 MakeMap creates a new map with the specified type.  
 
-[\(view code\)](<./Reflect.hx#L259>)
+[\(view code\)](<./Reflect.hx#L260>)
 
 
 ## function makeMapWithSize
@@ -600,7 +602,7 @@ function makeMapWithSize(typ:stdgo.reflect.Type_, n:Int):stdgo.reflect.Value
 MakeMapWithSize creates a new map with the specified type
 and initial space for approximately n elements.  
 
-[\(view code\)](<./Reflect.hx#L264>)
+[\(view code\)](<./Reflect.hx#L265>)
 
 
 ## function makeSlice
@@ -615,7 +617,7 @@ function makeSlice(typ:stdgo.reflect.Type_, len:Int, cap:Int):stdgo.reflect.Valu
 MakeSlice creates a new zero\-initialized slice value
 for the specified slice type, length, and capacity.  
 
-[\(view code\)](<./Reflect.hx#L251>)
+[\(view code\)](<./Reflect.hx#L252>)
 
 
 ## function mapOf
@@ -635,7 +637,7 @@ MapOf\(k, e\) represents map\[int\]string.
 If the key type is not a valid map key type \(that is, if it does
 not implement Go's == operator\), MapOf panics.  
 
-[\(view code\)](<./Reflect.hx#L182>)
+[\(view code\)](<./Reflect.hx#L183>)
 
 
 ## function newAt
@@ -650,7 +652,7 @@ function newAt(typ:stdgo.reflect.Type_, p:stdgo._internal.unsafe.UnsafePointer):
 NewAt returns a Value representing a pointer to a value of the
 specified type, using p as that pointer.  
 
-[\(view code\)](<./Reflect.hx#L293>)
+[\(view code\)](<./Reflect.hx#L294>)
 
 
 ## function new\_
@@ -665,7 +667,7 @@ function new_(typ:stdgo.reflect.Type_):stdgo.reflect.Value
 New returns a Value representing a pointer to a new zero value
 for the specified type. That is, the returned Value's Type is PointerTo\(typ\).  
 
-[\(view code\)](<./Reflect.hx#L288>)
+[\(view code\)](<./Reflect.hx#L289>)
 
 
 ## function pointerTo
@@ -680,7 +682,7 @@ function pointerTo(t:stdgo.reflect.Type_):stdgo.reflect.Type_
 PointerTo returns the pointer type with element t.
 For example, if t represents type Foo, PointerTo\(t\) represents \*Foo.  
 
-[\(view code\)](<./Reflect.hx#L165>)
+[\(view code\)](<./Reflect.hx#L166>)
 
 
 ## function ptrTo
@@ -699,7 +701,7 @@ For example, if t represents type Foo, PtrTo\(t\) represents \*Foo.
 PtrTo is the old spelling of PointerTo.
 The two functions behave identically.  
 
-[\(view code\)](<./Reflect.hx#L160>)
+[\(view code\)](<./Reflect.hx#L161>)
 
 
 ## function select
@@ -720,7 +722,7 @@ boolean indicating whether the value corresponds to a send on the channel
 \(as opposed to a zero value received because the channel is closed\).
 Select supports a maximum of 65536 cases.  
 
-[\(view code\)](<./Reflect.hx#L246>)
+[\(view code\)](<./Reflect.hx#L247>)
 
 
 ## function sliceOf
@@ -735,7 +737,7 @@ function sliceOf(t:stdgo.reflect.Type_):stdgo.reflect.Type_
 SliceOf returns the slice type with element type t.
 For example, if t represents int, SliceOf\(t\) represents \[\]int.  
 
-[\(view code\)](<./Reflect.hx#L197>)
+[\(view code\)](<./Reflect.hx#L198>)
 
 
 ## function structOf
@@ -756,7 +758,7 @@ StructOf currently does not generate wrapper methods for embedded
 fields and panics if passed unexported StructFields.
 These limitations may be lifted in a future version.  
 
-[\(view code\)](<./Reflect.hx#L207>)
+[\(view code\)](<./Reflect.hx#L208>)
 
 
 ## function swapper
@@ -774,7 +776,7 @@ slice.
 
 Swapper panics if the provided interface is not a slice.  
 
-[\(view code\)](<./Reflect.hx#L147>)
+[\(view code\)](<./Reflect.hx#L148>)
 
 
 ## function typeOf
@@ -789,7 +791,7 @@ function typeOf(i:stdgo.AnyInterface):stdgo.reflect.Type_
 TypeOf returns the reflection Type that represents the dynamic type of i.
 If i is a nil interface value, TypeOf returns nil.  
 
-[\(view code\)](<./Reflect.hx#L152>)
+[\(view code\)](<./Reflect.hx#L153>)
 
 
 ## function valueOf
@@ -804,7 +806,7 @@ function valueOf(i:stdgo.AnyInterface):stdgo.reflect.Value
 ValueOf returns a new Value initialized to the concrete value
 stored in the interface i. ValueOf\(nil\) returns the zero Value.  
 
-[\(view code\)](<./Reflect.hx#L275>)
+[\(view code\)](<./Reflect.hx#L276>)
 
 
 ## function visibleFields
@@ -827,7 +829,7 @@ immediately by their promoted fields.
 For each element e of the returned slice, the corresponding field
 can be retrieved from a value v of type t by calling v.FieldByIndex\(e.Index\).  
 
-[\(view code\)](<./Reflect.hx#L305>)
+[\(view code\)](<./Reflect.hx#L306>)
 
 
 ## function zero
@@ -845,7 +847,7 @@ which represents no value at all.
 For example, Zero\(TypeOf\(42\)\) returns a Value with Kind Int and value 0.
 The returned value is neither addressable nor settable.  
 
-[\(view code\)](<./Reflect.hx#L283>)
+[\(view code\)](<./Reflect.hx#L284>)
 
 
 # Typedefs
@@ -1037,6 +1039,14 @@ typedef StructTag_static_extension = Dynamic;
 
 ```haxe
 typedef Type_ = stdgo._internal.reflect.Type_;
+```
+
+
+## typedef Type\_\_static\_extension
+
+
+```haxe
+typedef Type__static_extension = Dynamic;
 ```
 
 

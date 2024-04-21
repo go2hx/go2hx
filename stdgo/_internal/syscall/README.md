@@ -2096,7 +2096,7 @@ function _asanRead(_addr:stdgo._internal.unsafe.UnsafePointer, _len:stdgo.GoInt)
 ```
 
 
-[\(view code\)](<./Syscall.hx#L562>)
+[\(view code\)](<./Syscall.hx#L570>)
 
 
 ## function \_asanWrite
@@ -2107,7 +2107,7 @@ function _asanWrite(_addr:stdgo._internal.unsafe.UnsafePointer, _len:stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Syscall.hx#L563>)
+[\(view code\)](<./Syscall.hx#L571>)
 
 
 ## function \_checkPath
@@ -2118,7 +2118,7 @@ function _checkPath(_path:stdgo.GoString):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L613>)
+[\(view code\)](<./Syscall.hx#L621>)
 
 
 ## function \_copyenv
@@ -2129,7 +2129,7 @@ function _copyenv():Void
 ```
 
 
-[\(view code\)](<./Syscall.hx#L569>)
+[\(view code\)](<./Syscall.hx#L577>)
 
 
 ## function \_direntIno
@@ -2143,7 +2143,7 @@ function _direntIno(_buf:stdgo.Slice<stdgo.GoByte>):{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L642>)
+[\(view code\)](<./Syscall.hx#L650>)
 
 
 ## function \_direntNamlen
@@ -2157,7 +2157,7 @@ function _direntNamlen(_buf:stdgo.Slice<stdgo.GoByte>):{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L644>)
+[\(view code\)](<./Syscall.hx#L652>)
 
 
 ## function \_direntReclen
@@ -2171,7 +2171,7 @@ function _direntReclen(_buf:stdgo.Slice<stdgo.GoByte>):{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L643>)
+[\(view code\)](<./Syscall.hx#L651>)
 
 
 ## function \_errnoErr
@@ -2182,7 +2182,7 @@ function _errnoErr(_e:stdgo._internal.syscall.Errno):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L666>)
+[\(view code\)](<./Syscall.hx#L674>)
 
 
 ## function \_faketimeWrite
@@ -2193,7 +2193,7 @@ function _faketimeWrite(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>):stdgo.GoI
 ```
 
 
-[\(view code\)](<./Syscall.hx#L667>)
+[\(view code\)](<./Syscall.hx#L675>)
 
 
 ## function \_fdToFile
@@ -2207,7 +2207,7 @@ function _fdToFile(_fd:stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L576>)
+[\(view code\)](<./Syscall.hx#L584>)
 
 
 ## function \_fsCall
@@ -2221,7 +2221,7 @@ function _fsCall(_name:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L612>)
+[\(view code\)](<./Syscall.hx#L620>)
 
 
 ## function \_mapJSError
@@ -2232,7 +2232,7 @@ function _mapJSError(_jsErr:stdgo._internal.syscall.js.Value):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L615>)
+[\(view code\)](<./Syscall.hx#L623>)
 
 
 ## function \_msanRead
@@ -2243,7 +2243,7 @@ function _msanRead(_addr:stdgo._internal.unsafe.UnsafePointer, _len:stdgo.GoInt)
 ```
 
 
-[\(view code\)](<./Syscall.hx#L616>)
+[\(view code\)](<./Syscall.hx#L624>)
 
 
 ## function \_msanWrite
@@ -2254,7 +2254,7 @@ function _msanWrite(_addr:stdgo._internal.unsafe.UnsafePointer, _len:stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Syscall.hx#L617>)
+[\(view code\)](<./Syscall.hx#L625>)
 
 
 ## function \_now
@@ -2268,7 +2268,7 @@ function _now():{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L575>)
+[\(view code\)](<./Syscall.hx#L583>)
 
 
 ## function \_readInt
@@ -2282,7 +2282,7 @@ function _readInt(_b:stdgo.Slice<stdgo.GoByte>, _off:stdgo.GoUIntptr, _size:stdg
 ```
 
 
-[\(view code\)](<./Syscall.hx#L564>)
+[\(view code\)](<./Syscall.hx#L572>)
 
 
 ## function \_readIntBE
@@ -2293,7 +2293,7 @@ function _readIntBE(_b:stdgo.Slice<stdgo.GoByte>, _size:stdgo.GoUIntptr):stdgo.G
 ```
 
 
-[\(view code\)](<./Syscall.hx#L565>)
+[\(view code\)](<./Syscall.hx#L573>)
 
 
 ## function \_readIntLE
@@ -2304,7 +2304,7 @@ function _readIntLE(_b:stdgo.Slice<stdgo.GoByte>, _size:stdgo.GoUIntptr):stdgo.G
 ```
 
 
-[\(view code\)](<./Syscall.hx#L566>)
+[\(view code\)](<./Syscall.hx#L574>)
 
 
 ## function \_recoverErr
@@ -2315,7 +2315,7 @@ function _recoverErr(_errPtr:stdgo.Ref<stdgo.Error>):Void
 ```
 
 
-[\(view code\)](<./Syscall.hx#L614>)
+[\(view code\)](<./Syscall.hx#L622>)
 
 
 ## function \_runtimeSetenv
@@ -2326,7 +2326,7 @@ function _runtimeSetenv(_k:stdgo.GoString, _v:stdgo.GoString):Void
 ```
 
 
-[\(view code\)](<./Syscall.hx#L640>)
+[\(view code\)](<./Syscall.hx#L648>)
 
 
 ## function \_runtimeUnsetenv
@@ -2337,7 +2337,7 @@ function _runtimeUnsetenv(_k:stdgo.GoString):Void
 ```
 
 
-[\(view code\)](<./Syscall.hx#L641>)
+[\(view code\)](<./Syscall.hx#L649>)
 
 
 ## function \_runtime\_envs
@@ -2348,7 +2348,7 @@ function _runtime_envs():stdgo.Slice<stdgo.GoString>
 ```
 
 
-[\(view code\)](<./Syscall.hx#L568>)
+[\(view code\)](<./Syscall.hx#L576>)
 
 
 ## function \_setStat
@@ -2359,7 +2359,7 @@ function _setStat(_st:stdgo.Ref<stdgo._internal.syscall.Stat_t>, _jsSt:stdgo._in
 ```
 
 
-[\(view code\)](<./Syscall.hx#L582>)
+[\(view code\)](<./Syscall.hx#L590>)
 
 
 ## function \_setTimespec
@@ -2370,7 +2370,7 @@ function _setTimespec(_sec:stdgo.GoInt64, _nsec:stdgo.GoInt64):stdgo._internal.s
 ```
 
 
-[\(view code\)](<./Syscall.hx#L664>)
+[\(view code\)](<./Syscall.hx#L672>)
 
 
 ## function \_setTimeval
@@ -2381,7 +2381,7 @@ function _setTimeval(_sec:stdgo.GoInt64, _usec:stdgo.GoInt64):stdgo._internal.sy
 ```
 
 
-[\(view code\)](<./Syscall.hx#L665>)
+[\(view code\)](<./Syscall.hx#L673>)
 
 
 ## function accept
@@ -2396,7 +2396,7 @@ function accept(_fd:stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L622>)
+[\(view code\)](<./Syscall.hx#L630>)
 
 
 ## function bind
@@ -2407,7 +2407,7 @@ function bind(_fd:stdgo.GoInt, _sa:stdgo._internal.syscall.Sockaddr):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L619>)
+[\(view code\)](<./Syscall.hx#L627>)
 
 
 ## function bytePtrFromString
@@ -2421,7 +2421,7 @@ function bytePtrFromString(_s:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L637>)
+[\(view code\)](<./Syscall.hx#L645>)
 
 
 ## function byteSliceFromString
@@ -2435,7 +2435,7 @@ function byteSliceFromString(_s:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L635>)
+[\(view code\)](<./Syscall.hx#L643>)
 
 
 ## function chdir
@@ -2446,7 +2446,7 @@ function chdir(_path:stdgo.GoString):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L598>)
+[\(view code\)](<./Syscall.hx#L606>)
 
 
 ## function chmod
@@ -2457,7 +2457,7 @@ function chmod(_path:stdgo.GoString, _mode:stdgo.GoUInt32):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L588>)
+[\(view code\)](<./Syscall.hx#L596>)
 
 
 ## function chown
@@ -2468,7 +2468,7 @@ function chown(_path:stdgo.GoString, _uid:stdgo.GoInt, _gid:stdgo.GoInt):stdgo.E
 ```
 
 
-[\(view code\)](<./Syscall.hx#L590>)
+[\(view code\)](<./Syscall.hx#L598>)
 
 
 ## function clearenv
@@ -2479,7 +2479,7 @@ function clearenv():Void
 ```
 
 
-[\(view code\)](<./Syscall.hx#L573>)
+[\(view code\)](<./Syscall.hx#L581>)
 
 
 ## function close
@@ -2490,7 +2490,7 @@ function close(_fd:stdgo.GoInt):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L578>)
+[\(view code\)](<./Syscall.hx#L586>)
 
 
 ## function closeOnExec
@@ -2501,7 +2501,7 @@ function closeOnExec(_fd:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Syscall.hx#L579>)
+[\(view code\)](<./Syscall.hx#L587>)
 
 
 ## function connect
@@ -2512,7 +2512,7 @@ function connect(_fd:stdgo.GoInt, _sa:stdgo._internal.syscall.Sockaddr):stdgo.Er
 ```
 
 
-[\(view code\)](<./Syscall.hx#L623>)
+[\(view code\)](<./Syscall.hx#L631>)
 
 
 ## function dup
@@ -2526,7 +2526,7 @@ function dup(_fd:stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L609>)
+[\(view code\)](<./Syscall.hx#L617>)
 
 
 ## function dup2
@@ -2537,7 +2537,7 @@ function dup2(_fd:stdgo.GoInt, _newfd:stdgo.GoInt):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L610>)
+[\(view code\)](<./Syscall.hx#L618>)
 
 
 ## function environ
@@ -2548,7 +2548,7 @@ function environ():stdgo.Slice<stdgo.GoString>
 ```
 
 
-[\(view code\)](<./Syscall.hx#L574>)
+[\(view code\)](<./Syscall.hx#L582>)
 
 
 ## function exit
@@ -2559,7 +2559,7 @@ function exit(_code:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Syscall.hx#L639>)
+[\(view code\)](<./Syscall.hx#L647>)
 
 
 ## function fchdir
@@ -2570,7 +2570,7 @@ function fchdir(_fd:stdgo.GoInt):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L599>)
+[\(view code\)](<./Syscall.hx#L607>)
 
 
 ## function fchmod
@@ -2581,7 +2581,7 @@ function fchmod(_fd:stdgo.GoInt, _mode:stdgo.GoUInt32):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L589>)
+[\(view code\)](<./Syscall.hx#L597>)
 
 
 ## function fchown
@@ -2592,7 +2592,7 @@ function fchown(_fd:stdgo.GoInt, _uid:stdgo.GoInt, _gid:stdgo.GoInt):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L591>)
+[\(view code\)](<./Syscall.hx#L599>)
 
 
 ## function fstat
@@ -2603,7 +2603,7 @@ function fstat(_fd:stdgo.GoInt, _st:stdgo.Ref<stdgo._internal.syscall.Stat_t>):s
 ```
 
 
-[\(view code\)](<./Syscall.hx#L585>)
+[\(view code\)](<./Syscall.hx#L593>)
 
 
 ## function fsync
@@ -2614,7 +2614,7 @@ function fsync(_fd:stdgo.GoInt):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L603>)
+[\(view code\)](<./Syscall.hx#L611>)
 
 
 ## function ftruncate
@@ -2625,7 +2625,7 @@ function ftruncate(_fd:stdgo.GoInt, _length:stdgo.GoInt64):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L596>)
+[\(view code\)](<./Syscall.hx#L604>)
 
 
 ## function getcwd
@@ -2639,7 +2639,7 @@ function getcwd(_buf:stdgo.Slice<stdgo.GoByte>):{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L597>)
+[\(view code\)](<./Syscall.hx#L605>)
 
 
 ## function getegid
@@ -2650,7 +2650,7 @@ function getegid():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Syscall.hx#L654>)
+[\(view code\)](<./Syscall.hx#L662>)
 
 
 ## function getenv
@@ -2664,7 +2664,7 @@ function getenv(_key:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L571>)
+[\(view code\)](<./Syscall.hx#L579>)
 
 
 ## function geteuid
@@ -2675,7 +2675,7 @@ function geteuid():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Syscall.hx#L653>)
+[\(view code\)](<./Syscall.hx#L661>)
 
 
 ## function getgid
@@ -2686,7 +2686,7 @@ function getgid():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Syscall.hx#L652>)
+[\(view code\)](<./Syscall.hx#L660>)
 
 
 ## function getgroups
@@ -2700,7 +2700,7 @@ function getgroups():{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L655>)
+[\(view code\)](<./Syscall.hx#L663>)
 
 
 ## function getpagesize
@@ -2711,7 +2711,7 @@ function getpagesize():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Syscall.hx#L638>)
+[\(view code\)](<./Syscall.hx#L646>)
 
 
 ## function getpid
@@ -2722,7 +2722,7 @@ function getpid():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Syscall.hx#L656>)
+[\(view code\)](<./Syscall.hx#L664>)
 
 
 ## function getppid
@@ -2733,7 +2733,7 @@ function getppid():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Syscall.hx#L657>)
+[\(view code\)](<./Syscall.hx#L665>)
 
 
 ## function getsockoptInt
@@ -2747,7 +2747,7 @@ function getsockoptInt(_fd:stdgo.GoInt, _level:stdgo.GoInt, _opt:stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L628>)
+[\(view code\)](<./Syscall.hx#L636>)
 
 
 ## function gettimeofday
@@ -2758,7 +2758,7 @@ function gettimeofday(_tv:stdgo.Ref<stdgo._internal.syscall.Timeval>):stdgo.Erro
 ```
 
 
-[\(view code\)](<./Syscall.hx#L659>)
+[\(view code\)](<./Syscall.hx#L667>)
 
 
 ## function getuid
@@ -2769,7 +2769,7 @@ function getuid():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Syscall.hx#L651>)
+[\(view code\)](<./Syscall.hx#L659>)
 
 
 ## function getwd
@@ -2783,7 +2783,7 @@ function getwd():{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L650>)
+[\(view code\)](<./Syscall.hx#L658>)
 
 
 ## function kill
@@ -2794,7 +2794,7 @@ function kill(_pid:stdgo.GoInt, _signum:stdgo._internal.syscall.Signal):stdgo.Er
 ```
 
 
-[\(view code\)](<./Syscall.hx#L660>)
+[\(view code\)](<./Syscall.hx#L668>)
 
 
 ## function lchown
@@ -2805,7 +2805,7 @@ function lchown(_path:stdgo.GoString, _uid:stdgo.GoInt, _gid:stdgo.GoInt):stdgo.
 ```
 
 
-[\(view code\)](<./Syscall.hx#L592>)
+[\(view code\)](<./Syscall.hx#L600>)
 
 
 ## function link
@@ -2816,7 +2816,7 @@ function link(_path:stdgo.GoString, _link:stdgo.GoString):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L601>)
+[\(view code\)](<./Syscall.hx#L609>)
 
 
 ## function listen
@@ -2827,7 +2827,7 @@ function listen(_fd:stdgo.GoInt, _backlog:stdgo.GoInt):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L621>)
+[\(view code\)](<./Syscall.hx#L629>)
 
 
 ## function lstat
@@ -2838,7 +2838,7 @@ function lstat(_path:stdgo.GoString, _st:stdgo.Ref<stdgo._internal.syscall.Stat_
 ```
 
 
-[\(view code\)](<./Syscall.hx#L584>)
+[\(view code\)](<./Syscall.hx#L592>)
 
 
 ## function mkdir
@@ -2849,7 +2849,7 @@ function mkdir(_path:stdgo.GoString, _perm:stdgo.GoUInt32):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L580>)
+[\(view code\)](<./Syscall.hx#L588>)
 
 
 ## function nsecToTimespec
@@ -2860,7 +2860,7 @@ function nsecToTimespec(_nsec:stdgo.GoInt64):stdgo._internal.syscall.Timespec
 ```
 
 
-[\(view code\)](<./Syscall.hx#L669>)
+[\(view code\)](<./Syscall.hx#L677>)
 
 
 ## function nsecToTimeval
@@ -2871,7 +2871,7 @@ function nsecToTimeval(_nsec:stdgo.GoInt64):stdgo._internal.syscall.Timeval
 ```
 
 
-[\(view code\)](<./Syscall.hx#L671>)
+[\(view code\)](<./Syscall.hx#L679>)
 
 
 ## function open
@@ -2885,7 +2885,7 @@ function open(_path:stdgo.GoString, _openmode:stdgo.GoInt, _perm:stdgo.GoUInt32)
 ```
 
 
-[\(view code\)](<./Syscall.hx#L577>)
+[\(view code\)](<./Syscall.hx#L585>)
 
 
 ## function parseDirent
@@ -2900,7 +2900,7 @@ function parseDirent(_buf:stdgo.Slice<stdgo.GoByte>, _max:stdgo.GoInt, _names:st
 ```
 
 
-[\(view code\)](<./Syscall.hx#L567>)
+[\(view code\)](<./Syscall.hx#L575>)
 
 
 ## function pipe
@@ -2911,7 +2911,7 @@ function pipe(_fd:stdgo.Slice<stdgo.GoInt>):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L611>)
+[\(view code\)](<./Syscall.hx#L619>)
 
 
 ## function pread
@@ -2925,7 +2925,7 @@ function pread(_fd:stdgo.GoInt, _b:stdgo.Slice<stdgo.GoByte>, _offset:stdgo.GoIn
 ```
 
 
-[\(view code\)](<./Syscall.hx#L606>)
+[\(view code\)](<./Syscall.hx#L614>)
 
 
 ## function pwrite
@@ -2939,7 +2939,7 @@ function pwrite(_fd:stdgo.GoInt, _b:stdgo.Slice<stdgo.GoByte>, _offset:stdgo.GoI
 ```
 
 
-[\(view code\)](<./Syscall.hx#L607>)
+[\(view code\)](<./Syscall.hx#L615>)
 
 
 ## function rawSyscall
@@ -2954,7 +2954,7 @@ function rawSyscall(_trap:stdgo.GoUIntptr, _a1:stdgo.GoUIntptr, _a2:stdgo.GoUInt
 ```
 
 
-[\(view code\)](<./Syscall.hx#L647>)
+[\(view code\)](<./Syscall.hx#L655>)
 
 
 ## function rawSyscall6
@@ -2969,7 +2969,7 @@ function rawSyscall6(_trap:stdgo.GoUIntptr, _a1:stdgo.GoUIntptr, _a2:stdgo.GoUIn
 ```
 
 
-[\(view code\)](<./Syscall.hx#L648>)
+[\(view code\)](<./Syscall.hx#L656>)
 
 
 ## function read
@@ -2983,7 +2983,7 @@ function read(_fd:stdgo.GoInt, _b:stdgo.Slice<stdgo.GoByte>):{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L604>)
+[\(view code\)](<./Syscall.hx#L612>)
 
 
 ## function readDirent
@@ -2997,7 +2997,7 @@ function readDirent(_fd:stdgo.GoInt, _buf:stdgo.Slice<stdgo.GoByte>):{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L581>)
+[\(view code\)](<./Syscall.hx#L589>)
 
 
 ## function readlink
@@ -3011,7 +3011,7 @@ function readlink(_path:stdgo.GoString, _buf:stdgo.Slice<stdgo.GoByte>):{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L600>)
+[\(view code\)](<./Syscall.hx#L608>)
 
 
 ## function recvfrom
@@ -3026,7 +3026,7 @@ function recvfrom(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.Go
 ```
 
 
-[\(view code\)](<./Syscall.hx#L624>)
+[\(view code\)](<./Syscall.hx#L632>)
 
 
 ## function recvmsg
@@ -3043,7 +3043,7 @@ function recvmsg(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice
 ```
 
 
-[\(view code\)](<./Syscall.hx#L626>)
+[\(view code\)](<./Syscall.hx#L634>)
 
 
 ## function rename
@@ -3054,7 +3054,7 @@ function rename(_from:stdgo.GoString, _to:stdgo.GoString):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L594>)
+[\(view code\)](<./Syscall.hx#L602>)
 
 
 ## function rmdir
@@ -3065,7 +3065,7 @@ function rmdir(_path:stdgo.GoString):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L587>)
+[\(view code\)](<./Syscall.hx#L595>)
 
 
 ## function seek
@@ -3079,7 +3079,7 @@ function seek(_fd:stdgo.GoInt, _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L608>)
+[\(view code\)](<./Syscall.hx#L616>)
 
 
 ## function sendfile
@@ -3093,7 +3093,7 @@ function sendfile(_outfd:stdgo.GoInt, _infd:stdgo.GoInt, _offset:stdgo.Pointer<s
 ```
 
 
-[\(view code\)](<./Syscall.hx#L661>)
+[\(view code\)](<./Syscall.hx#L669>)
 
 
 ## function sendmsgN
@@ -3107,7 +3107,7 @@ function sendmsgN(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slic
 ```
 
 
-[\(view code\)](<./Syscall.hx#L627>)
+[\(view code\)](<./Syscall.hx#L635>)
 
 
 ## function sendto
@@ -3118,7 +3118,7 @@ function sendto(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoIn
 ```
 
 
-[\(view code\)](<./Syscall.hx#L625>)
+[\(view code\)](<./Syscall.hx#L633>)
 
 
 ## function setNonblock
@@ -3129,7 +3129,7 @@ function setNonblock(_fd:stdgo.GoInt, _nonblocking:Bool):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L633>)
+[\(view code\)](<./Syscall.hx#L641>)
 
 
 ## function setReadDeadline
@@ -3140,7 +3140,7 @@ function setReadDeadline(_fd:stdgo.GoInt, _t:stdgo.GoInt64):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L630>)
+[\(view code\)](<./Syscall.hx#L638>)
 
 
 ## function setWriteDeadline
@@ -3151,7 +3151,7 @@ function setWriteDeadline(_fd:stdgo.GoInt, _t:stdgo.GoInt64):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L631>)
+[\(view code\)](<./Syscall.hx#L639>)
 
 
 ## function setenv
@@ -3162,7 +3162,7 @@ function setenv(_key:stdgo.GoString, _value:stdgo.GoString):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L572>)
+[\(view code\)](<./Syscall.hx#L580>)
 
 
 ## function setsockoptInt
@@ -3173,7 +3173,7 @@ function setsockoptInt(_fd:stdgo.GoInt, _level:stdgo.GoInt, _opt:stdgo.GoInt, _v
 ```
 
 
-[\(view code\)](<./Syscall.hx#L629>)
+[\(view code\)](<./Syscall.hx#L637>)
 
 
 ## function shutdown
@@ -3184,7 +3184,7 @@ function shutdown(_fd:stdgo.GoInt, _how:stdgo.GoInt):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L632>)
+[\(view code\)](<./Syscall.hx#L640>)
 
 
 ## function socket
@@ -3198,7 +3198,7 @@ function socket(_proto:stdgo.GoInt, _sotype:stdgo.GoInt, _unused:stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L618>)
+[\(view code\)](<./Syscall.hx#L626>)
 
 
 ## function startProcess
@@ -3213,7 +3213,7 @@ function startProcess(_argv0:stdgo.GoString, _argv:stdgo.Slice<stdgo.GoString>, 
 ```
 
 
-[\(view code\)](<./Syscall.hx#L662>)
+[\(view code\)](<./Syscall.hx#L670>)
 
 
 ## function stat
@@ -3224,7 +3224,7 @@ function stat(_path:stdgo.GoString, _st:stdgo.Ref<stdgo._internal.syscall.Stat_t
 ```
 
 
-[\(view code\)](<./Syscall.hx#L583>)
+[\(view code\)](<./Syscall.hx#L591>)
 
 
 ## function stopIO
@@ -3235,7 +3235,7 @@ function stopIO(_fd:stdgo.GoInt):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L620>)
+[\(view code\)](<./Syscall.hx#L628>)
 
 
 ## function stringBytePtr
@@ -3246,7 +3246,7 @@ function stringBytePtr(_s:stdgo.GoString):stdgo.Pointer<stdgo.GoByte>
 ```
 
 
-[\(view code\)](<./Syscall.hx#L636>)
+[\(view code\)](<./Syscall.hx#L644>)
 
 
 ## function stringByteSlice
@@ -3257,7 +3257,7 @@ function stringByteSlice(_s:stdgo.GoString):stdgo.Slice<stdgo.GoByte>
 ```
 
 
-[\(view code\)](<./Syscall.hx#L634>)
+[\(view code\)](<./Syscall.hx#L642>)
 
 
 ## function symlink
@@ -3268,7 +3268,7 @@ function symlink(_path:stdgo.GoString, _link:stdgo.GoString):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L602>)
+[\(view code\)](<./Syscall.hx#L610>)
 
 
 ## function syscall
@@ -3283,7 +3283,7 @@ function syscall(_trap:stdgo.GoUIntptr, _a1:stdgo.GoUIntptr, _a2:stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Syscall.hx#L645>)
+[\(view code\)](<./Syscall.hx#L653>)
 
 
 ## function syscall6
@@ -3298,7 +3298,7 @@ function syscall6(_trap:stdgo.GoUIntptr, _a1:stdgo.GoUIntptr, _a2:stdgo.GoUIntpt
 ```
 
 
-[\(view code\)](<./Syscall.hx#L646>)
+[\(view code\)](<./Syscall.hx#L654>)
 
 
 ## function sysctl
@@ -3312,7 +3312,7 @@ function sysctl(_key:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L649>)
+[\(view code\)](<./Syscall.hx#L657>)
 
 
 ## function timespecToNsec
@@ -3323,7 +3323,7 @@ function timespecToNsec(_ts:stdgo._internal.syscall.Timespec):stdgo.GoInt64
 ```
 
 
-[\(view code\)](<./Syscall.hx#L668>)
+[\(view code\)](<./Syscall.hx#L676>)
 
 
 ## function timevalToNsec
@@ -3334,7 +3334,7 @@ function timevalToNsec(_tv:stdgo._internal.syscall.Timeval):stdgo.GoInt64
 ```
 
 
-[\(view code\)](<./Syscall.hx#L670>)
+[\(view code\)](<./Syscall.hx#L678>)
 
 
 ## function truncate
@@ -3345,7 +3345,7 @@ function truncate(_path:stdgo.GoString, _length:stdgo.GoInt64):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L595>)
+[\(view code\)](<./Syscall.hx#L603>)
 
 
 ## function umask
@@ -3356,7 +3356,7 @@ function umask(_mask:stdgo.GoInt):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Syscall.hx#L658>)
+[\(view code\)](<./Syscall.hx#L666>)
 
 
 ## function unlink
@@ -3367,7 +3367,7 @@ function unlink(_path:stdgo.GoString):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L586>)
+[\(view code\)](<./Syscall.hx#L594>)
 
 
 ## function unsetenv
@@ -3378,7 +3378,7 @@ function unsetenv(_key:stdgo.GoString):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syscall.hx#L570>)
+[\(view code\)](<./Syscall.hx#L578>)
 
 
 ## function utimesNano
@@ -3389,7 +3389,7 @@ function utimesNano(_path:stdgo.GoString, _ts:stdgo.Slice<stdgo._internal.syscal
 ```
 
 
-[\(view code\)](<./Syscall.hx#L593>)
+[\(view code\)](<./Syscall.hx#L601>)
 
 
 ## function wait4
@@ -3403,7 +3403,7 @@ function wait4(_pid:stdgo.GoInt, _wstatus:stdgo.Pointer<stdgo._internal.syscall.
 ```
 
 
-[\(view code\)](<./Syscall.hx#L663>)
+[\(view code\)](<./Syscall.hx#L671>)
 
 
 ## function write
@@ -3417,7 +3417,7 @@ function write(_fd:stdgo.GoInt, _b:stdgo.Slice<stdgo.GoByte>):{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L605>)
+[\(view code\)](<./Syscall.hx#L613>)
 
 
 # Classes
@@ -3449,7 +3449,7 @@ function new(?reclen:stdgo.GoUInt16, ?name:stdgo.GoArray<stdgo.GoUInt8>):Void
 ```
 
 
-[\(view code\)](<./Syscall.hx#L427>)
+[\(view code\)](<./Syscall.hx#L435>)
 
 
 ## class Iovec
@@ -3463,7 +3463,7 @@ function new():Void
 ```
 
 
-[\(view code\)](<./Syscall.hx#L528>)
+[\(view code\)](<./Syscall.hx#L536>)
 
 
 ## class ProcAttr
@@ -3497,7 +3497,7 @@ function new(?dir:stdgo.GoString, ?env:stdgo.Slice<stdgo.GoString>, ?files:stdgo
 ```
 
 
-[\(view code\)](<./Syscall.hx#L509>)
+[\(view code\)](<./Syscall.hx#L517>)
 
 
 ## class Rusage
@@ -3521,7 +3521,7 @@ function new(?utime:stdgo._internal.syscall.Timeval, ?stime:stdgo._internal.sysc
 ```
 
 
-[\(view code\)](<./Syscall.hx#L495>)
+[\(view code\)](<./Syscall.hx#L503>)
 
 
 ## class SockaddrInet4
@@ -3545,7 +3545,7 @@ function new(?port:stdgo.GoInt, ?addr:stdgo.GoArray<stdgo.GoUInt8>):Void
 ```
 
 
-[\(view code\)](<./Syscall.hx#L391>)
+[\(view code\)](<./Syscall.hx#L399>)
 
 
 ## class SockaddrInet6
@@ -3574,7 +3574,7 @@ function new(?port:stdgo.GoInt, ?zoneId:stdgo.GoUInt32, ?addr:stdgo.GoArray<stdg
 ```
 
 
-[\(view code\)](<./Syscall.hx#L404>)
+[\(view code\)](<./Syscall.hx#L412>)
 
 
 ## class SockaddrUnix
@@ -3593,7 +3593,7 @@ function new(?name:stdgo.GoString):Void
 ```
 
 
-[\(view code\)](<./Syscall.hx#L416>)
+[\(view code\)](<./Syscall.hx#L424>)
 
 
 ## class Stat\_t
@@ -3687,7 +3687,7 @@ function new(?dev:stdgo.GoInt64, ?ino:stdgo.GoUInt64, ?mode:stdgo.GoUInt32, ?nli
 ```
 
 
-[\(view code\)](<./Syscall.hx#L453>)
+[\(view code\)](<./Syscall.hx#L461>)
 
 
 ## class SysProcAttr
@@ -3701,7 +3701,7 @@ function new():Void
 ```
 
 
-[\(view code\)](<./Syscall.hx#L521>)
+[\(view code\)](<./Syscall.hx#L529>)
 
 
 ## class Timespec
@@ -3725,7 +3725,7 @@ function new(?sec:stdgo.GoInt64, ?nsec:stdgo.GoInt64):Void
 ```
 
 
-[\(view code\)](<./Syscall.hx#L537>)
+[\(view code\)](<./Syscall.hx#L545>)
 
 
 ### Timespec function nano
@@ -3736,7 +3736,7 @@ function nano():stdgo.GoInt64
 ```
 
 
-[\(view code\)](<./Syscall.hx#L687>)
+[\(view code\)](<./Syscall.hx#L695>)
 
 
 ### Timespec function unix
@@ -3750,7 +3750,7 @@ function unix():{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L689>)
+[\(view code\)](<./Syscall.hx#L697>)
 
 
 ## class Timeval
@@ -3774,7 +3774,7 @@ function new(?sec:stdgo.GoInt64, ?usec:stdgo.GoInt64):Void
 ```
 
 
-[\(view code\)](<./Syscall.hx#L549>)
+[\(view code\)](<./Syscall.hx#L557>)
 
 
 ### Timeval function nano
@@ -3785,7 +3785,7 @@ function nano():stdgo.GoInt64
 ```
 
 
-[\(view code\)](<./Syscall.hx#L706>)
+[\(view code\)](<./Syscall.hx#L714>)
 
 
 ### Timeval function unix
@@ -3799,7 +3799,7 @@ function unix():{
 ```
 
 
-[\(view code\)](<./Syscall.hx#L708>)
+[\(view code\)](<./Syscall.hx#L716>)
 
 
 # Typedefs

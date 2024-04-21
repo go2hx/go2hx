@@ -175,6 +175,8 @@ For information about UTF\-8 strings in Go, see https://blog.golang.org/strings.
 
 - [typedef T\_replacer](<#typedef-t_replacer>)
 
+- [typedef T\_replacer\_static\_extension](<#typedef-t_replacer_static_extension>)
+
 - [typedef T\_singleStringReplacer](<#typedef-t_singlestringreplacer>)
 
 - [typedef T\_singleStringReplacer\_asInterface](<#typedef-t_singlestringreplacer_asinterface>)
@@ -227,7 +229,7 @@ profiling indicates that it is needed.
 For strings of length zero the string "" will be returned
 and no allocation is made.  
 
-[\(view code\)](<./Strings.hx#L33>)
+[\(view code\)](<./Strings.hx#L34>)
 
 
 ## function compare
@@ -247,7 +249,7 @@ Compare is included only for symmetry with package bytes.
 It is usually clearer and always faster to use the built\-in
 string comparison operators ==, \<, \>, and so on.  
 
-[\(view code\)](<./Strings.hx#L42>)
+[\(view code\)](<./Strings.hx#L43>)
 
 
 ## function contains
@@ -261,7 +263,7 @@ function contains(s:String, substr:String):Bool
 
 Contains reports whether substr is within s.  
 
-[\(view code\)](<./Strings.hx#L67>)
+[\(view code\)](<./Strings.hx#L68>)
 
 
 ## function containsAny
@@ -275,7 +277,7 @@ function containsAny(s:String, chars:String):Bool
 
 ContainsAny reports whether any Unicode code points in chars are within s.  
 
-[\(view code\)](<./Strings.hx#L71>)
+[\(view code\)](<./Strings.hx#L72>)
 
 
 ## function containsFunc
@@ -289,7 +291,7 @@ function containsFunc(s:String, f:()):Bool
 
 ContainsFunc reports whether any Unicode code points r within s satisfy f\(r\).  
 
-[\(view code\)](<./Strings.hx#L79>)
+[\(view code\)](<./Strings.hx#L80>)
 
 
 ## function containsRune
@@ -303,7 +305,7 @@ function containsRune(s:String, r:Int):Bool
 
 ContainsRune reports whether the Unicode code point r is within s.  
 
-[\(view code\)](<./Strings.hx#L75>)
+[\(view code\)](<./Strings.hx#L76>)
 
 
 ## function count
@@ -318,7 +320,7 @@ function count(s:String, substr:String):Int
 Count counts the number of non\-overlapping instances of substr in s.
 If substr is an empty string, Count returns 1 \+ the number of Unicode code points in s.  
 
-[\(view code\)](<./Strings.hx#L63>)
+[\(view code\)](<./Strings.hx#L64>)
 
 
 ## function cut
@@ -335,7 +337,7 @@ returning the text before and after sep.
 The found result reports whether sep appears in s.
 If sep does not appear in s, cut returns s, "", false.  
 
-[\(view code\)](<./Strings.hx#L343>)
+[\(view code\)](<./Strings.hx#L344>)
 
 
 ## function cutPrefix
@@ -352,7 +354,7 @@ and reports whether it found the prefix.
 If s doesn't start with prefix, CutPrefix returns s, false.
 If prefix is the empty string, CutPrefix returns s, true.  
 
-[\(view code\)](<./Strings.hx#L350>)
+[\(view code\)](<./Strings.hx#L351>)
 
 
 ## function cutSuffix
@@ -369,7 +371,7 @@ and reports whether it found the suffix.
 If s doesn't end with suffix, CutSuffix returns s, false.
 If suffix is the empty string, CutSuffix returns s, true.  
 
-[\(view code\)](<./Strings.hx#L357>)
+[\(view code\)](<./Strings.hx#L358>)
 
 
 ## function dumpTables
@@ -380,7 +382,7 @@ function dumpTables(pattern:String):stdgo.Tuple<Array<Int>, Array<Int>>
 ```
 
 
-[\(view code\)](<./Strings.hx#L44>)
+[\(view code\)](<./Strings.hx#L45>)
 
 
 ## function equalFold
@@ -396,7 +398,7 @@ EqualFold reports whether s and t, interpreted as UTF\-8 strings,
 are equal under simple Unicode case\-folding, which is a more general
 form of case\-insensitivity.  
 
-[\(view code\)](<./Strings.hx#L332>)
+[\(view code\)](<./Strings.hx#L333>)
 
 
 ## function fields
@@ -412,7 +414,7 @@ Fields splits the string s around each instance of one or more consecutive white
 characters, as defined by unicode.IsSpace, returning a slice of substrings of s or an
 empty slice if s contains only white space.  
 
-[\(view code\)](<./Strings.hx#L173>)
+[\(view code\)](<./Strings.hx#L174>)
 
 
 ## function fieldsFunc
@@ -432,7 +434,7 @@ string is empty, an empty slice is returned.
 FieldsFunc makes no guarantees about the order in which it calls f\(c\)
 and assumes that f always returns the same value for a given c.  
 
-[\(view code\)](<./Strings.hx#L183>)
+[\(view code\)](<./Strings.hx#L184>)
 
 
 ## function hasPrefix
@@ -446,7 +448,7 @@ function hasPrefix(s:String, prefix:String):Bool
 
 HasPrefix tests whether the string s begins with prefix.  
 
-[\(view code\)](<./Strings.hx#L192>)
+[\(view code\)](<./Strings.hx#L193>)
 
 
 ## function hasSuffix
@@ -460,7 +462,7 @@ function hasSuffix(s:String, suffix:String):Bool
 
 HasSuffix tests whether the string s ends with suffix.  
 
-[\(view code\)](<./Strings.hx#L196>)
+[\(view code\)](<./Strings.hx#L197>)
 
 
 ## function index
@@ -474,7 +476,7 @@ function index(s:String, substr:String):Int
 
 Index returns the index of the first instance of substr in s, or \-1 if substr is not present in s.  
 
-[\(view code\)](<./Strings.hx#L336>)
+[\(view code\)](<./Strings.hx#L337>)
 
 
 ## function indexAny
@@ -489,7 +491,7 @@ function indexAny(s:String, chars:String):Int
 IndexAny returns the index of the first instance of any Unicode code point
 from chars in s, or \-1 if no Unicode code point from chars is present in s.  
 
-[\(view code\)](<./Strings.hx#L99>)
+[\(view code\)](<./Strings.hx#L100>)
 
 
 ## function indexByte
@@ -503,7 +505,7 @@ function indexByte(s:String, c:Int):Int
 
 IndexByte returns the index of the first instance of c in s, or \-1 if c is not present in s.  
 
-[\(view code\)](<./Strings.hx#L87>)
+[\(view code\)](<./Strings.hx#L88>)
 
 
 ## function indexFunc
@@ -518,7 +520,7 @@ function indexFunc(s:String, f:()):Int
 IndexFunc returns the index into s of the first Unicode
 code point satisfying f\(c\), or \-1 if none do.  
 
-[\(view code\)](<./Strings.hx#L270>)
+[\(view code\)](<./Strings.hx#L271>)
 
 
 ## function indexRune
@@ -535,7 +537,7 @@ r, or \-1 if rune is not present in s.
 If r is utf8.RuneError, it returns the first instance of any
 invalid UTF\-8 byte sequence.  
 
-[\(view code\)](<./Strings.hx#L94>)
+[\(view code\)](<./Strings.hx#L95>)
 
 
 ## function join
@@ -550,7 +552,7 @@ function join(elems:Array<String>, sep:String):String
 Join concatenates the elements of its first argument to create a single string. The separator
 string sep is placed between elements in the resulting string.  
 
-[\(view code\)](<./Strings.hx#L188>)
+[\(view code\)](<./Strings.hx#L189>)
 
 
 ## function lastIndex
@@ -564,7 +566,7 @@ function lastIndex(s:String, substr:String):Int
 
 LastIndex returns the index of the last instance of substr in s, or \-1 if substr is not present in s.  
 
-[\(view code\)](<./Strings.hx#L83>)
+[\(view code\)](<./Strings.hx#L84>)
 
 
 ## function lastIndexAny
@@ -580,7 +582,7 @@ LastIndexAny returns the index of the last instance of any Unicode code
 point from chars in s, or \-1 if no Unicode code point from chars is
 present in s.  
 
-[\(view code\)](<./Strings.hx#L105>)
+[\(view code\)](<./Strings.hx#L106>)
 
 
 ## function lastIndexByte
@@ -594,7 +596,7 @@ function lastIndexByte(s:String, c:Int):Int
 
 LastIndexByte returns the index of the last instance of c in s, or \-1 if c is not present in s.  
 
-[\(view code\)](<./Strings.hx#L109>)
+[\(view code\)](<./Strings.hx#L110>)
 
 
 ## function lastIndexFunc
@@ -609,7 +611,7 @@ function lastIndexFunc(s:String, f:()):Int
 LastIndexFunc returns the index into s of the last
 Unicode code point satisfying f\(c\), or \-1 if none do.  
 
-[\(view code\)](<./Strings.hx#L275>)
+[\(view code\)](<./Strings.hx#L276>)
 
 
 ## function map\_
@@ -625,7 +627,7 @@ Map returns a copy of the string s with all its characters modified
 according to the mapping function. If mapping returns a negative value, the character is
 dropped from the string with no replacement.  
 
-[\(view code\)](<./Strings.hx#L202>)
+[\(view code\)](<./Strings.hx#L203>)
 
 
 ## function newReader
@@ -640,7 +642,7 @@ function newReader(s:String):stdgo.strings.Reader
 NewReader returns a new Reader reading from s.
 It is similar to bytes.NewBufferString but more efficient and non\-writable.  
 
-[\(view code\)](<./Strings.hx#L49>)
+[\(view code\)](<./Strings.hx#L50>)
 
 
 ## function newReplacer
@@ -660,7 +662,7 @@ comparisons are done in argument order.
 
 NewReplacer panics if given an odd number of arguments.  
 
-[\(view code\)](<./Strings.hx#L58>)
+[\(view code\)](<./Strings.hx#L59>)
 
 
 ## function repeat
@@ -678,7 +680,7 @@ Repeat returns a new string consisting of count copies of the string s.
 It panics if count is negative or if the result of \(len\(s\) \* count\)
 overflows.  
 
-[\(view code\)](<./Strings.hx#L209>)
+[\(view code\)](<./Strings.hx#L210>)
 
 
 ## function replace
@@ -697,7 +699,7 @@ and after each UTF\-8 sequence, yielding up to k\+1 replacements
 for a k\-rune string.
 If n \< 0, there is no limit on the number of replacements.  
 
-[\(view code\)](<./Strings.hx#L318>)
+[\(view code\)](<./Strings.hx#L319>)
 
 
 ## function replaceAll
@@ -715,7 +717,7 @@ If old is empty, it matches at the beginning of the string
 and after each UTF\-8 sequence, yielding up to k\+1 replacements
 for a k\-rune string.  
 
-[\(view code\)](<./Strings.hx#L326>)
+[\(view code\)](<./Strings.hx#L327>)
 
 
 ## function split
@@ -744,7 +746,7 @@ It is equivalent to SplitN with a count of \-1.
 
 To split around the first instance of a separator, see Cut.  
 
-[\(view code\)](<./Strings.hx#L154>)
+[\(view code\)](<./Strings.hx#L155>)
 
 
 ## function splitAfter
@@ -770,7 +772,7 @@ both s and sep are empty, SplitAfter returns an empty slice.
 
 It is equivalent to SplitAfterN with a count of \-1.  
 
-[\(view code\)](<./Strings.hx#L167>)
+[\(view code\)](<./Strings.hx#L168>)
 
 
 ## function splitAfterN
@@ -797,7 +799,7 @@ The count determines the number of substrings to return:
 Edge cases for s and sep \(for example, empty strings\) are handled
 as described in the documentation for SplitAfter.  
 
-[\(view code\)](<./Strings.hx#L139>)
+[\(view code\)](<./Strings.hx#L140>)
 
 
 ## function splitN
@@ -827,7 +829,7 @@ as described in the documentation for Split.
 
 To split around the first instance of a separator, see Cut.  
 
-[\(view code\)](<./Strings.hx#L125>)
+[\(view code\)](<./Strings.hx#L126>)
 
 
 ## function stringFind
@@ -838,7 +840,7 @@ function stringFind(pattern:String, text:String):Int
 ```
 
 
-[\(view code\)](<./Strings.hx#L43>)
+[\(view code\)](<./Strings.hx#L44>)
 
 
 ## function title
@@ -857,7 +859,7 @@ mapped to their Unicode title case.
 Deprecated: The rule Title uses for word boundaries does not handle Unicode
 punctuation properly. Use golang.org/x/text/cases instead.  
 
-[\(view code\)](<./Strings.hx#L250>)
+[\(view code\)](<./Strings.hx#L251>)
 
 
 ## function toLower
@@ -871,7 +873,7 @@ function toLower(s:String):String
 
 ToLower returns s with all Unicode letters mapped to their lower case.  
 
-[\(view code\)](<./Strings.hx#L217>)
+[\(view code\)](<./Strings.hx#L218>)
 
 
 ## function toLowerSpecial
@@ -886,7 +888,7 @@ function toLowerSpecial(c:stdgo._internal.unicode.SpecialCase, s:String):String
 ToLowerSpecial returns a copy of the string s with all Unicode letters mapped to their
 lower case using the case mapping specified by c.  
 
-[\(view code\)](<./Strings.hx#L232>)
+[\(view code\)](<./Strings.hx#L233>)
 
 
 ## function toTitle
@@ -901,7 +903,7 @@ function toTitle(s:String):String
 ToTitle returns a copy of the string s with all Unicode letters mapped to
 their Unicode title case.  
 
-[\(view code\)](<./Strings.hx#L222>)
+[\(view code\)](<./Strings.hx#L223>)
 
 
 ## function toTitleSpecial
@@ -916,7 +918,7 @@ function toTitleSpecial(c:stdgo._internal.unicode.SpecialCase, s:String):String
 ToTitleSpecial returns a copy of the string s with all Unicode letters mapped to their
 Unicode title case, giving priority to the special casing rules.  
 
-[\(view code\)](<./Strings.hx#L237>)
+[\(view code\)](<./Strings.hx#L238>)
 
 
 ## function toUpper
@@ -930,7 +932,7 @@ function toUpper(s:String):String
 
 ToUpper returns s with all Unicode letters mapped to their upper case.  
 
-[\(view code\)](<./Strings.hx#L213>)
+[\(view code\)](<./Strings.hx#L214>)
 
 
 ## function toUpperSpecial
@@ -945,7 +947,7 @@ function toUpperSpecial(c:stdgo._internal.unicode.SpecialCase, s:String):String
 ToUpperSpecial returns a copy of the string s with all Unicode letters mapped to their
 upper case using the case mapping specified by c.  
 
-[\(view code\)](<./Strings.hx#L227>)
+[\(view code\)](<./Strings.hx#L228>)
 
 
 ## function toValidUTF8
@@ -960,7 +962,7 @@ function toValidUTF8(s:String, replacement:String):String
 ToValidUTF8 returns a copy of the string s with each run of invalid UTF\-8 byte sequences
 replaced by the replacement string, which may be empty.  
 
-[\(view code\)](<./Strings.hx#L242>)
+[\(view code\)](<./Strings.hx#L243>)
 
 
 ## function trim
@@ -975,7 +977,7 @@ function trim(s:String, cutset:String):String
 Trim returns a slice of the string s with all leading and
 trailing Unicode code points contained in cutset removed.  
 
-[\(view code\)](<./Strings.hx#L280>)
+[\(view code\)](<./Strings.hx#L281>)
 
 
 ## function trimFunc
@@ -990,7 +992,7 @@ function trimFunc(s:String, f:()):String
 TrimFunc returns a slice of the string s with all leading
 and trailing Unicode code points c satisfying f\(c\) removed.  
 
-[\(view code\)](<./Strings.hx#L265>)
+[\(view code\)](<./Strings.hx#L266>)
 
 
 ## function trimLeft
@@ -1008,7 +1010,7 @@ Unicode code points contained in cutset removed.
 
 To remove a prefix, use TrimPrefix instead.  
 
-[\(view code\)](<./Strings.hx#L287>)
+[\(view code\)](<./Strings.hx#L288>)
 
 
 ## function trimLeftFunc
@@ -1023,7 +1025,7 @@ function trimLeftFunc(s:String, f:()):String
 TrimLeftFunc returns a slice of the string s with all leading
 Unicode code points c satisfying f\(c\) removed.  
 
-[\(view code\)](<./Strings.hx#L255>)
+[\(view code\)](<./Strings.hx#L256>)
 
 
 ## function trimPrefix
@@ -1038,7 +1040,7 @@ function trimPrefix(s:String, prefix:String):String
 TrimPrefix returns s without the provided leading prefix string.
 If s doesn't start with prefix, s is returned unchanged.  
 
-[\(view code\)](<./Strings.hx#L304>)
+[\(view code\)](<./Strings.hx#L305>)
 
 
 ## function trimRight
@@ -1056,7 +1058,7 @@ Unicode code points contained in cutset removed.
 
 To remove a suffix, use TrimSuffix instead.  
 
-[\(view code\)](<./Strings.hx#L294>)
+[\(view code\)](<./Strings.hx#L295>)
 
 
 ## function trimRightFunc
@@ -1071,7 +1073,7 @@ function trimRightFunc(s:String, f:()):String
 TrimRightFunc returns a slice of the string s with all trailing
 Unicode code points c satisfying f\(c\) removed.  
 
-[\(view code\)](<./Strings.hx#L260>)
+[\(view code\)](<./Strings.hx#L261>)
 
 
 ## function trimSpace
@@ -1086,7 +1088,7 @@ function trimSpace(s:String):String
 TrimSpace returns a slice of the string s, with all leading
 and trailing white space removed, as defined by Unicode.  
 
-[\(view code\)](<./Strings.hx#L299>)
+[\(view code\)](<./Strings.hx#L300>)
 
 
 ## function trimSuffix
@@ -1101,7 +1103,7 @@ function trimSuffix(s:String, suffix:String):String
 TrimSuffix returns s without the provided trailing suffix string.
 If s doesn't end with suffix, s is returned unchanged.  
 
-[\(view code\)](<./Strings.hx#L309>)
+[\(view code\)](<./Strings.hx#L310>)
 
 
 # Typedefs
@@ -1317,6 +1319,14 @@ typedef T_genericReplacer_static_extension = Dynamic;
 
 ```haxe
 typedef T_replacer = stdgo._internal.strings.T_replacer;
+```
+
+
+## typedef T\_replacer\_static\_extension
+
+
+```haxe
+typedef T_replacer_static_extension = Dynamic;
 ```
 
 

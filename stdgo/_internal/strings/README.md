@@ -405,7 +405,7 @@ function _explode(_s:stdgo.GoString, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoString>
 ```
 
 
-[\(view code\)](<./Strings.hx#L280>)
+[\(view code\)](<./Strings.hx#L284>)
 
 
 ## function \_genSplit
@@ -416,7 +416,7 @@ function _genSplit(_s:stdgo.GoString, _sep:stdgo.GoString, _sepSave:stdgo.GoInt,
 ```
 
 
-[\(view code\)](<./Strings.hx#L490>)
+[\(view code\)](<./Strings.hx#L494>)
 
 
 ## function \_getStringWriter
@@ -427,7 +427,7 @@ function _getStringWriter(_w:stdgo._internal.io.Writer):stdgo._internal.io.Strin
 ```
 
 
-[\(view code\)](<./Strings.hx#L218>)
+[\(view code\)](<./Strings.hx#L222>)
 
 
 ## function \_indexFunc
@@ -438,7 +438,7 @@ function _indexFunc(_s:stdgo.GoString, _f:(), _truth:Bool):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Strings.hx#L923>)
+[\(view code\)](<./Strings.hx#L927>)
 
 
 ## function \_isSeparator
@@ -449,7 +449,7 @@ function _isSeparator(_r:stdgo.GoRune):Bool
 ```
 
 
-[\(view code\)](<./Strings.hx#L868>)
+[\(view code\)](<./Strings.hx#L872>)
 
 
 ## function \_lastIndexFunc
@@ -460,7 +460,7 @@ function _lastIndexFunc(_s:stdgo.GoString, _f:(), _truth:Bool):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Strings.hx#L931>)
+[\(view code\)](<./Strings.hx#L935>)
 
 
 ## function \_longestCommonSuffix
@@ -471,7 +471,7 @@ function _longestCommonSuffix(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Strings.hx#L265>)
+[\(view code\)](<./Strings.hx#L269>)
 
 
 ## function \_makeASCIISet
@@ -485,7 +485,7 @@ function _makeASCIISet(_chars:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Strings.hx#L944>)
+[\(view code\)](<./Strings.hx#L948>)
 
 
 ## function \_makeGenericReplacer
@@ -496,7 +496,7 @@ function _makeGenericReplacer(_oldnew:stdgo.Slice<stdgo.GoString>):stdgo.Ref<std
 ```
 
 
-[\(view code\)](<./Strings.hx#L183>)
+[\(view code\)](<./Strings.hx#L187>)
 
 
 ## function \_makeSingleStringReplacer
@@ -507,7 +507,7 @@ function _makeSingleStringReplacer(_pattern:stdgo.GoString, _value:stdgo.GoStrin
 ```
 
 
-[\(view code\)](<./Strings.hx#L229>)
+[\(view code\)](<./Strings.hx#L233>)
 
 
 ## function \_makeStringFinder
@@ -518,7 +518,7 @@ function _makeStringFinder(_pattern:stdgo.GoString):stdgo.Ref<stdgo._internal.st
 ```
 
 
-[\(view code\)](<./Strings.hx#L232>)
+[\(view code\)](<./Strings.hx#L236>)
 
 
 ## function \_max
@@ -529,7 +529,7 @@ function _max(_a:stdgo.GoInt, _b:stdgo.GoInt):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Strings.hx#L274>)
+[\(view code\)](<./Strings.hx#L278>)
 
 
 ## function \_noescape
@@ -540,7 +540,7 @@ function _noescape(_p:stdgo._internal.unsafe.UnsafePointer):stdgo._internal.unsa
 ```
 
 
-[\(view code\)](<./Strings.hx#L152>)
+[\(view code\)](<./Strings.hx#L156>)
 
 
 ## function \_trimLeftASCII
@@ -551,7 +551,7 @@ function _trimLeftASCII(_s:stdgo.GoString, _as:stdgo.Ref<stdgo._internal.strings
 ```
 
 
-[\(view code\)](<./Strings.hx#L994>)
+[\(view code\)](<./Strings.hx#L998>)
 
 
 ## function \_trimLeftByte
@@ -562,7 +562,7 @@ function _trimLeftByte(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Strings.hx#L988>)
+[\(view code\)](<./Strings.hx#L992>)
 
 
 ## function \_trimLeftUnicode
@@ -573,7 +573,7 @@ function _trimLeftUnicode(_s:stdgo.GoString, _cutset:stdgo.GoString):stdgo.GoStr
 ```
 
 
-[\(view code\)](<./Strings.hx#L1003>)
+[\(view code\)](<./Strings.hx#L1007>)
 
 
 ## function \_trimRightASCII
@@ -584,7 +584,7 @@ function _trimRightASCII(_s:stdgo.GoString, _as:stdgo.Ref<stdgo._internal.string
 ```
 
 
-[\(view code\)](<./Strings.hx#L1041>)
+[\(view code\)](<./Strings.hx#L1045>)
 
 
 ## function \_trimRightByte
@@ -595,7 +595,7 @@ function _trimRightByte(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Strings.hx#L1035>)
+[\(view code\)](<./Strings.hx#L1039>)
 
 
 ## function \_trimRightUnicode
@@ -606,7 +606,7 @@ function _trimRightUnicode(_s:stdgo.GoString, _cutset:stdgo.GoString):stdgo.GoSt
 ```
 
 
-[\(view code\)](<./Strings.hx#L1050>)
+[\(view code\)](<./Strings.hx#L1054>)
 
 
 ## function clone
@@ -638,7 +638,7 @@ function exampleClone():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L156>)
+[\(view code\)](<./Strings.hx#L160>)
 
 
 ## function compare
@@ -669,7 +669,7 @@ function exampleCompare():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L157>)
+[\(view code\)](<./Strings.hx#L161>)
 
 
 ## function contains
@@ -701,7 +701,7 @@ function exampleContains():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L316>)
+[\(view code\)](<./Strings.hx#L320>)
 
 
 ## function containsAny
@@ -735,7 +735,7 @@ function exampleContainsAny():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L319>)
+[\(view code\)](<./Strings.hx#L323>)
 
 
 ## function containsFunc
@@ -746,7 +746,7 @@ function containsFunc(_s:stdgo.GoString, _f:()):Bool
 ```
 
 
-[\(view code\)](<./Strings.hx#L325>)
+[\(view code\)](<./Strings.hx#L329>)
 
 
 ## function containsRune
@@ -776,7 +776,7 @@ function exampleContainsRune():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L322>)
+[\(view code\)](<./Strings.hx#L326>)
 
 
 ## function count
@@ -806,7 +806,7 @@ function exampleCount():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L299>)
+[\(view code\)](<./Strings.hx#L303>)
 
 
 ## function cut
@@ -846,7 +846,7 @@ function exampleCut():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1292>)
+[\(view code\)](<./Strings.hx#L1296>)
 
 
 ## function cutPrefix
@@ -883,7 +883,7 @@ function exampleCutPrefix():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1302>)
+[\(view code\)](<./Strings.hx#L1306>)
 
 
 ## function cutSuffix
@@ -920,7 +920,7 @@ function exampleCutSuffix():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1309>)
+[\(view code\)](<./Strings.hx#L1313>)
 
 
 ## function dumpTables
@@ -934,7 +934,7 @@ function dumpTables(_pattern:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Strings.hx#L169>)
+[\(view code\)](<./Strings.hx#L173>)
 
 
 ## function equalFold
@@ -965,7 +965,7 @@ function exampleEqualFold():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1140>)
+[\(view code\)](<./Strings.hx#L1144>)
 
 
 ## function fields
@@ -994,7 +994,7 @@ function exampleFields():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L530>)
+[\(view code\)](<./Strings.hx#L534>)
 
 
 ## function fieldsFunc
@@ -1026,7 +1026,7 @@ function exampleFieldsFunc():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L585>)
+[\(view code\)](<./Strings.hx#L589>)
 
 
 ## function hasPrefix
@@ -1057,7 +1057,7 @@ function exampleHasPrefix():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L641>)
+[\(view code\)](<./Strings.hx#L645>)
 
 
 ## function hasSuffix
@@ -1089,7 +1089,7 @@ function exampleHasSuffix():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L644>)
+[\(view code\)](<./Strings.hx#L648>)
 
 
 ## function index
@@ -1119,7 +1119,7 @@ function exampleIndex():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1219>)
+[\(view code\)](<./Strings.hx#L1223>)
 
 
 ## function indexAny
@@ -1149,7 +1149,7 @@ function exampleIndexAny():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L386>)
+[\(view code\)](<./Strings.hx#L390>)
 
 
 ## function indexByte
@@ -1180,7 +1180,7 @@ function exampleIndexByte():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L367>)
+[\(view code\)](<./Strings.hx#L371>)
 
 
 ## function indexFunc
@@ -1213,7 +1213,7 @@ function exampleIndexFunc():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L917>)
+[\(view code\)](<./Strings.hx#L921>)
 
 
 ## function indexRune
@@ -1243,7 +1243,7 @@ function exampleIndexRune():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L370>)
+[\(view code\)](<./Strings.hx#L374>)
 
 
 ## function join
@@ -1273,7 +1273,7 @@ function exampleJoin():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L610>)
+[\(view code\)](<./Strings.hx#L614>)
 
 
 ## function lastIndex
@@ -1304,7 +1304,7 @@ function exampleLastIndex():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L328>)
+[\(view code\)](<./Strings.hx#L332>)
 
 
 ## function lastIndexAny
@@ -1335,7 +1335,7 @@ function exampleLastIndexAny():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L420>)
+[\(view code\)](<./Strings.hx#L424>)
 
 
 ## function lastIndexByte
@@ -1366,7 +1366,7 @@ function exampleLastIndexByte():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L479>)
+[\(view code\)](<./Strings.hx#L483>)
 
 
 ## function lastIndexFunc
@@ -1397,7 +1397,7 @@ function exampleLastIndexFunc():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L920>)
+[\(view code\)](<./Strings.hx#L924>)
 
 
 ## function map\_
@@ -1408,7 +1408,7 @@ function map_(_mapping:(), _s:stdgo.GoString):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Strings.hx#L647>)
+[\(view code\)](<./Strings.hx#L651>)
 
 
 ## function newReader
@@ -1419,7 +1419,7 @@ function newReader(_s:stdgo.GoString):stdgo.Ref<stdgo._internal.strings.Reader>
 ```
 
 
-[\(view code\)](<./Strings.hx#L173>)
+[\(view code\)](<./Strings.hx#L177>)
 
 
 ## function newReplacer
@@ -1449,7 +1449,7 @@ function exampleNewReplacer():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L176>)
+[\(view code\)](<./Strings.hx#L180>)
 
 
 ## function repeat
@@ -1478,7 +1478,7 @@ function exampleRepeat():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L690>)
+[\(view code\)](<./Strings.hx#L694>)
 
 
 ## function replace
@@ -1508,7 +1508,7 @@ function exampleReplace():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1102>)
+[\(view code\)](<./Strings.hx#L1106>)
 
 
 ## function replaceAll
@@ -1537,7 +1537,7 @@ function exampleReplaceAll():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1137>)
+[\(view code\)](<./Strings.hx#L1141>)
 
 
 ## function split
@@ -1569,7 +1569,7 @@ function exampleSplit():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L524>)
+[\(view code\)](<./Strings.hx#L528>)
 
 
 ## function splitAfter
@@ -1598,7 +1598,7 @@ function exampleSplitAfter():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L527>)
+[\(view code\)](<./Strings.hx#L531>)
 
 
 ## function splitAfterN
@@ -1627,7 +1627,7 @@ function exampleSplitAfterN():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L521>)
+[\(view code\)](<./Strings.hx#L525>)
 
 
 ## function splitN
@@ -1658,7 +1658,7 @@ function exampleSplitN():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L518>)
+[\(view code\)](<./Strings.hx#L522>)
 
 
 ## function stringFind
@@ -1669,7 +1669,7 @@ function stringFind(_pattern:stdgo.GoString, _text:stdgo.GoString):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Strings.hx#L166>)
+[\(view code\)](<./Strings.hx#L170>)
 
 
 ## function title
@@ -1700,7 +1700,7 @@ function exampleTitle():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L886>)
+[\(view code\)](<./Strings.hx#L890>)
 
 
 ## function toLower
@@ -1729,7 +1729,7 @@ function exampleToLower():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L772>)
+[\(view code\)](<./Strings.hx#L776>)
 
 
 ## function toLowerSpecial
@@ -1758,7 +1758,7 @@ function exampleToLowerSpecial():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L818>)
+[\(view code\)](<./Strings.hx#L822>)
 
 
 ## function toTitle
@@ -1789,7 +1789,7 @@ function exampleToTitle():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L812>)
+[\(view code\)](<./Strings.hx#L816>)
 
 
 ## function toTitleSpecial
@@ -1818,7 +1818,7 @@ function exampleToTitleSpecial():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L821>)
+[\(view code\)](<./Strings.hx#L825>)
 
 
 ## function toUpper
@@ -1847,7 +1847,7 @@ function exampleToUpper():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L732>)
+[\(view code\)](<./Strings.hx#L736>)
 
 
 ## function toUpperSpecial
@@ -1876,7 +1876,7 @@ function exampleToUpperSpecial():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L815>)
+[\(view code\)](<./Strings.hx#L819>)
 
 
 ## function toValidUTF8
@@ -1907,7 +1907,7 @@ function exampleToValidUTF8():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L824>)
+[\(view code\)](<./Strings.hx#L828>)
 
 
 ## function trim
@@ -1936,7 +1936,7 @@ function exampleTrim():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L958>)
+[\(view code\)](<./Strings.hx#L962>)
 
 
 ## function trimFunc
@@ -1967,7 +1967,7 @@ function exampleTrimFunc():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L914>)
+[\(view code\)](<./Strings.hx#L918>)
 
 
 ## function trimLeft
@@ -1996,7 +1996,7 @@ function exampleTrimLeft():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L973>)
+[\(view code\)](<./Strings.hx#L977>)
 
 
 ## function trimLeftFunc
@@ -2027,7 +2027,7 @@ function exampleTrimLeftFunc():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L897>)
+[\(view code\)](<./Strings.hx#L901>)
 
 
 ## function trimPrefix
@@ -2059,7 +2059,7 @@ function exampleTrimPrefix():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1090>)
+[\(view code\)](<./Strings.hx#L1094>)
 
 
 ## function trimRight
@@ -2088,7 +2088,7 @@ function exampleTrimRight():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1020>)
+[\(view code\)](<./Strings.hx#L1024>)
 
 
 ## function trimRightFunc
@@ -2119,7 +2119,7 @@ function exampleTrimRightFunc():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L904>)
+[\(view code\)](<./Strings.hx#L908>)
 
 
 ## function trimSpace
@@ -2148,7 +2148,7 @@ function exampleTrimSpace():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1067>)
+[\(view code\)](<./Strings.hx#L1071>)
 
 
 ## function trimSuffix
@@ -2180,7 +2180,7 @@ function exampleTrimSuffix():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1096>)
+[\(view code\)](<./Strings.hx#L1100>)
 
 
 # Classes
@@ -2212,7 +2212,7 @@ function new(?_addr:stdgo.Ref<stdgo._internal.strings.Builder>, ?_buf:stdgo.Slic
 ```
 
 
-[\(view code\)](<./Strings.hx#L32>)
+[\(view code\)](<./Strings.hx#L36>)
 
 
 ### Builder function \_copyCheck
@@ -2223,7 +2223,7 @@ function _copyCheck():Void
 ```
 
 
-[\(view code\)](<./Strings.hx#L1417>)
+[\(view code\)](<./Strings.hx#L1421>)
 
 
 ### Builder function \_grow
@@ -2234,7 +2234,7 @@ function _grow( _n:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Strings.hx#L1389>)
+[\(view code\)](<./Strings.hx#L1393>)
 
 
 ### Builder function cap
@@ -2245,7 +2245,7 @@ function cap():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Strings.hx#L1402>)
+[\(view code\)](<./Strings.hx#L1406>)
 
 
 ### Builder function grow
@@ -2256,7 +2256,7 @@ function grow( _n:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Strings.hx#L1378>)
+[\(view code\)](<./Strings.hx#L1382>)
 
 
 ### Builder function len
@@ -2267,7 +2267,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Strings.hx#L1407>)
+[\(view code\)](<./Strings.hx#L1411>)
 
 
 ### Builder function reset
@@ -2278,7 +2278,7 @@ function reset():Void
 ```
 
 
-[\(view code\)](<./Strings.hx#L1396>)
+[\(view code\)](<./Strings.hx#L1400>)
 
 
 ### Builder function string
@@ -2289,7 +2289,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Strings.hx#L1412>)
+[\(view code\)](<./Strings.hx#L1416>)
 
 
 ### Builder function write
@@ -2303,7 +2303,7 @@ function write( _p:stdgo.Slice<stdgo.GoByte>):{
 ```
 
 
-[\(view code\)](<./Strings.hx#L1371>)
+[\(view code\)](<./Strings.hx#L1375>)
 
 
 ### Builder function writeByte
@@ -2314,7 +2314,7 @@ function writeByte( _c:stdgo.GoByte):stdgo.Error
 ```
 
 
-[\(view code\)](<./Strings.hx#L1364>)
+[\(view code\)](<./Strings.hx#L1368>)
 
 
 ### Builder function writeRune
@@ -2328,7 +2328,7 @@ function writeRune( _r:stdgo.GoRune):{
 ```
 
 
-[\(view code\)](<./Strings.hx#L1356>)
+[\(view code\)](<./Strings.hx#L1360>)
 
 
 ### Builder function writeString
@@ -2342,7 +2342,7 @@ function writeString( _s:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Strings.hx#L1349>)
+[\(view code\)](<./Strings.hx#L1353>)
 
 
 ## class Reader
@@ -2371,7 +2371,7 @@ function new(?_s:stdgo.GoString, ?_i:stdgo.GoInt64, ?_prevRune:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Strings.hx#L45>)
+[\(view code\)](<./Strings.hx#L49>)
 
 
 ### Reader function len
@@ -2382,7 +2382,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Strings.hx#L1596>)
+[\(view code\)](<./Strings.hx#L1600>)
 
 
 ### Reader function read
@@ -2396,7 +2396,7 @@ function read( _b:stdgo.Slice<stdgo.GoByte>):{
 ```
 
 
-[\(view code\)](<./Strings.hx#L1579>)
+[\(view code\)](<./Strings.hx#L1583>)
 
 
 ### Reader function readAt
@@ -2410,7 +2410,7 @@ function readAt( _b:stdgo.Slice<stdgo.GoByte>, _off:stdgo.GoInt64):{
 ```
 
 
-[\(view code\)](<./Strings.hx#L1563>)
+[\(view code\)](<./Strings.hx#L1567>)
 
 
 ### Reader function readByte
@@ -2424,7 +2424,7 @@ function readByte():{
 ```
 
 
-[\(view code\)](<./Strings.hx#L1552>)
+[\(view code\)](<./Strings.hx#L1556>)
 
 
 ### Reader function readRune
@@ -2439,7 +2439,7 @@ function readRune():{
 ```
 
 
-[\(view code\)](<./Strings.hx#L1518>)
+[\(view code\)](<./Strings.hx#L1522>)
 
 
 ### Reader function reset
@@ -2450,7 +2450,7 @@ function reset( _s:stdgo.GoString):Void
 ```
 
 
-[\(view code\)](<./Strings.hx#L1452>)
+[\(view code\)](<./Strings.hx#L1456>)
 
 
 ### Reader function seek
@@ -2464,7 +2464,7 @@ function seek( _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Strings.hx#L1482>)
+[\(view code\)](<./Strings.hx#L1486>)
 
 
 ### Reader function size
@@ -2475,7 +2475,7 @@ function size():stdgo.GoInt64
 ```
 
 
-[\(view code\)](<./Strings.hx#L1591>)
+[\(view code\)](<./Strings.hx#L1595>)
 
 
 ### Reader function unreadByte
@@ -2486,7 +2486,7 @@ function unreadByte():stdgo.Error
 ```
 
 
-[\(view code\)](<./Strings.hx#L1542>)
+[\(view code\)](<./Strings.hx#L1546>)
 
 
 ### Reader function unreadRune
@@ -2497,7 +2497,7 @@ function unreadRune():stdgo.Error
 ```
 
 
-[\(view code\)](<./Strings.hx#L1505>)
+[\(view code\)](<./Strings.hx#L1509>)
 
 
 ### Reader function writeTo
@@ -2511,7 +2511,7 @@ function writeTo( _w:stdgo._internal.io.Writer):{
 ```
 
 
-[\(view code\)](<./Strings.hx#L1462>)
+[\(view code\)](<./Strings.hx#L1466>)
 
 
 ## class Replacer
@@ -2540,7 +2540,7 @@ function new(?_once:stdgo._internal.sync.Once, ?_r:Null<stdgo._internal.strings.
 ```
 
 
-[\(view code\)](<./Strings.hx#L59>)
+[\(view code\)](<./Strings.hx#L63>)
 
 
 ### Replacer function \_build
@@ -2551,7 +2551,7 @@ function _build():stdgo._internal.strings.T_replacer
 ```
 
 
-[\(view code\)](<./Strings.hx#L1640>)
+[\(view code\)](<./Strings.hx#L1644>)
 
 
 ### Replacer function \_buildOnce
@@ -2562,7 +2562,7 @@ function _buildOnce():Void
 ```
 
 
-[\(view code\)](<./Strings.hx#L1688>)
+[\(view code\)](<./Strings.hx#L1692>)
 
 
 ### Replacer function printTrie
@@ -2573,7 +2573,7 @@ function printTrie():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Strings.hx#L1694>)
+[\(view code\)](<./Strings.hx#L1698>)
 
 
 ### Replacer function replace
@@ -2584,7 +2584,7 @@ function replace( _s:stdgo.GoString):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Strings.hx#L1634>)
+[\(view code\)](<./Strings.hx#L1638>)
 
 
 ### Replacer function replacer
@@ -2595,7 +2595,7 @@ function replacer():stdgo.AnyInterface
 ```
 
 
-[\(view code\)](<./Strings.hx#L1701>)
+[\(view code\)](<./Strings.hx#L1705>)
 
 
 ### Replacer function writeString
@@ -2609,7 +2609,7 @@ function writeString( _w:stdgo._internal.io.Writer, _s:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Strings.hx#L1627>)
+[\(view code\)](<./Strings.hx#L1631>)
 
 
 ## class T\_fieldsFunc\_1\_\_\_localname\_\_\_span
@@ -2633,7 +2633,7 @@ function new(?_start:stdgo.GoInt, ?_end:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Strings.hx#L576>)
+[\(view code\)](<./Strings.hx#L580>)
 
 
 # Typedefs

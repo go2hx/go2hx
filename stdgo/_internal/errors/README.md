@@ -102,7 +102,7 @@ function exampleAs():Void {
 </details>
 
 
-[\(view code\)](<./Errors.hx#L132>)
+[\(view code\)](<./Errors.hx#L144>)
 
 
 ## function is\_
@@ -113,7 +113,7 @@ function is_(_err:stdgo.Error, _target:stdgo.Error):Bool
 ```
 
 
-[\(view code\)](<./Errors.hx#L90>)
+[\(view code\)](<./Errors.hx#L102>)
 
 
 ## function join
@@ -151,7 +151,7 @@ function exampleJoin():Void {
 </details>
 
 
-[\(view code\)](<./Errors.hx#L60>)
+[\(view code\)](<./Errors.hx#L72>)
 
 
 ## function new\_
@@ -162,7 +162,7 @@ function new_(_text:stdgo.GoString):stdgo.Error
 ```
 
 
-[\(view code\)](<./Errors.hx#L57>)
+[\(view code\)](<./Errors.hx#L69>)
 
 
 ## function unwrap
@@ -194,7 +194,7 @@ function exampleUnwrap():Void {
 </details>
 
 
-[\(view code\)](<./Errors.hx#L79>)
+[\(view code\)](<./Errors.hx#L91>)
 
 
 # Typedefs

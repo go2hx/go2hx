@@ -726,7 +726,7 @@ function _build(_n:stdgo.GoInt, _x:haxe.Rest<stdgo.GoInt>):stdgo.Slice<stdgo.Sli
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2383>)
+[\(view code\)](<./Regexp.hx#L2390>)
 
 
 ## function \_cleanupOnePass
@@ -737,7 +737,7 @@ function _cleanupOnePass(_prog:stdgo.Ref<stdgo._internal.regexp.T_onePassProg>, 
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2836>)
+[\(view code\)](<./Regexp.hx#L2843>)
 
 
 ## function \_compile
@@ -751,7 +751,7 @@ function _compile(_expr:stdgo.GoString, _mode:stdgo._internal.regexp.syntax.Flag
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3188>)
+[\(view code\)](<./Regexp.hx#L3195>)
 
 
 ## function \_compileOnePass
@@ -762,7 +762,7 @@ function _compileOnePass(_prog:stdgo.Ref<stdgo._internal.regexp.syntax.Prog>):st
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3086>)
+[\(view code\)](<./Regexp.hx#L3093>)
 
 
 ## function \_compileTest
@@ -773,7 +773,7 @@ function _compileTest(_t:stdgo.Ref<stdgo._internal.testing.T_>, _expr:stdgo.GoSt
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1005>)
+[\(view code\)](<./Regexp.hx#L1012>)
 
 
 ## function \_copyMatchTest
@@ -784,7 +784,7 @@ function _copyMatchTest(_t:stdgo.Ref<stdgo._internal.testing.T_>, _test:stdgo.Re
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1066>)
+[\(view code\)](<./Regexp.hx#L1073>)
 
 
 ## function \_extract
@@ -800,7 +800,7 @@ function _extract(_str:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3348>)
+[\(view code\)](<./Regexp.hx#L3355>)
 
 
 ## function \_freeBitState
@@ -811,7 +811,7 @@ function _freeBitState(_b:stdgo.Ref<stdgo._internal.regexp.T_bitState>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1703>)
+[\(view code\)](<./Regexp.hx#L1710>)
 
 
 ## function \_freeOnePassMachine
@@ -822,7 +822,7 @@ function _freeOnePassMachine(_m:stdgo.Ref<stdgo._internal.regexp.T_onePassMachin
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1730>)
+[\(view code\)](<./Regexp.hx#L1737>)
 
 
 ## function \_iop
@@ -833,7 +833,7 @@ function _iop(_i:stdgo.Ref<stdgo._internal.regexp.syntax.Inst>):stdgo._internal.
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2740>)
+[\(view code\)](<./Regexp.hx#L2747>)
 
 
 ## function \_isSingleBytes
@@ -844,7 +844,7 @@ function _isSingleBytes(_s:stdgo.GoString):Bool
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1933>)
+[\(view code\)](<./Regexp.hx#L1940>)
 
 
 ## function \_makeOnePass
@@ -855,7 +855,7 @@ function _makeOnePass(_p:stdgo.Ref<stdgo._internal.regexp.T_onePassProg>):stdgo.
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2904>)
+[\(view code\)](<./Regexp.hx#L2911>)
 
 
 ## function \_makeText
@@ -866,7 +866,7 @@ function _makeText(_n:stdgo.GoInt):stdgo.Slice<stdgo.GoByte>
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2287>)
+[\(view code\)](<./Regexp.hx#L2294>)
 
 
 ## function \_matchFull
@@ -880,7 +880,7 @@ function _matchFull(_re:stdgo.Ref<stdgo._internal.regexp.Regexp>, _refull:stdgo.
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1917>)
+[\(view code\)](<./Regexp.hx#L1924>)
 
 
 ## function \_matchFullLongest
@@ -894,7 +894,7 @@ function _matchFullLongest(_re:stdgo.Ref<stdgo._internal.regexp.Regexp>, _refull
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1925>)
+[\(view code\)](<./Regexp.hx#L1932>)
 
 
 ## function \_matchFunctionTest
@@ -905,7 +905,7 @@ function _matchFunctionTest(_t:stdgo.Ref<stdgo._internal.testing.T_>, _test:stdg
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1052>)
+[\(view code\)](<./Regexp.hx#L1059>)
 
 
 ## function \_matchPartial
@@ -919,7 +919,7 @@ function _matchPartial(_re:stdgo.Ref<stdgo._internal.regexp.Regexp>, _refull:std
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1921>)
+[\(view code\)](<./Regexp.hx#L1928>)
 
 
 ## function \_matchPartialLongest
@@ -933,7 +933,7 @@ function _matchPartialLongest(_re:stdgo.Ref<stdgo._internal.regexp.Regexp>, _ref
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1929>)
+[\(view code\)](<./Regexp.hx#L1936>)
 
 
 ## function \_matchTest
@@ -944,7 +944,7 @@ function _matchTest(_t:stdgo.Ref<stdgo._internal.testing.T_>, _test:stdgo.Ref<st
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1033>)
+[\(view code\)](<./Regexp.hx#L1040>)
 
 
 ## function \_maxBitStateLen
@@ -955,7 +955,7 @@ function _maxBitStateLen(_prog:stdgo.Ref<stdgo._internal.regexp.syntax.Prog>):st
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1707>)
+[\(view code\)](<./Regexp.hx#L1714>)
 
 
 ## function \_mergeRuneSets
@@ -969,7 +969,7 @@ function _mergeRuneSets(_leftRunes:stdgo.Ref<stdgo.Slice<stdgo.GoRune>>, _rightR
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2754>)
+[\(view code\)](<./Regexp.hx#L2761>)
 
 
 ## function \_minInputLen
@@ -980,7 +980,7 @@ function _minInputLen(_re:stdgo.Ref<stdgo._internal.regexp.syntax.Regexp>):stdgo
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3235>)
+[\(view code\)](<./Regexp.hx#L3242>)
 
 
 ## function \_newBitState
@@ -991,7 +991,7 @@ function _newBitState():stdgo.Ref<stdgo._internal.regexp.T_bitState>
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1692>)
+[\(view code\)](<./Regexp.hx#L1699>)
 
 
 ## function \_newLazyFlag
@@ -1002,7 +1002,7 @@ function _newLazyFlag(_r1:stdgo.GoRune, _r2:stdgo.GoRune):stdgo._internal.regexp
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1716>)
+[\(view code\)](<./Regexp.hx#L1723>)
 
 
 ## function \_newOnePassMachine
@@ -1013,7 +1013,7 @@ function _newOnePassMachine():stdgo.Ref<stdgo._internal.regexp.T_onePassMachine>
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1719>)
+[\(view code\)](<./Regexp.hx#L1726>)
 
 
 ## function \_newQueue
@@ -1024,7 +1024,7 @@ function _newQueue(_size:stdgo.GoInt):stdgo.Ref<stdgo._internal.regexp.T_queueOn
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2750>)
+[\(view code\)](<./Regexp.hx#L2757>)
 
 
 ## function \_onePassCopy
@@ -1035,7 +1035,7 @@ function _onePassCopy(_prog:stdgo.Ref<stdgo._internal.regexp.syntax.Prog>):stdgo
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2849>)
+[\(view code\)](<./Regexp.hx#L2856>)
 
 
 ## function \_onePassNext
@@ -1046,7 +1046,7 @@ function _onePassNext(_i:stdgo.Ref<stdgo._internal.regexp.T_onePassInst>, _r:std
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2730>)
+[\(view code\)](<./Regexp.hx#L2737>)
 
 
 ## function \_onePassPrefix
@@ -1061,7 +1061,7 @@ function _onePassPrefix(_p:stdgo.Ref<stdgo._internal.regexp.syntax.Prog>):{
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2700>)
+[\(view code\)](<./Regexp.hx#L2707>)
 
 
 ## function \_parseFowlerResult
@@ -1077,7 +1077,7 @@ function _parseFowlerResult(_s:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2225>)
+[\(view code\)](<./Regexp.hx#L2232>)
 
 
 ## function \_parseResult
@@ -1088,7 +1088,7 @@ function _parseResult(_t:stdgo.Ref<stdgo._internal.testing.T_>, _file:stdgo.GoSt
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1990>)
+[\(view code\)](<./Regexp.hx#L1997>)
 
 
 ## function \_quote
@@ -1099,7 +1099,7 @@ function _quote(_s:stdgo.GoString):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3289>)
+[\(view code\)](<./Regexp.hx#L3296>)
 
 
 ## function \_runFull
@@ -1113,7 +1113,7 @@ function _runFull(_re:stdgo.Ref<stdgo._internal.regexp.Regexp>, _refull:stdgo.Re
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1901>)
+[\(view code\)](<./Regexp.hx#L1908>)
 
 
 ## function \_runFullLongest
@@ -1127,7 +1127,7 @@ function _runFullLongest(_re:stdgo.Ref<stdgo._internal.regexp.Regexp>, _refull:s
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1909>)
+[\(view code\)](<./Regexp.hx#L1916>)
 
 
 ## function \_runPartial
@@ -1141,7 +1141,7 @@ function _runPartial(_re:stdgo.Ref<stdgo._internal.regexp.Regexp>, _refull:stdgo
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1905>)
+[\(view code\)](<./Regexp.hx#L1912>)
 
 
 ## function \_runPartialLongest
@@ -1155,7 +1155,7 @@ function _runPartialLongest(_re:stdgo.Ref<stdgo._internal.regexp.Regexp>, _reful
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1913>)
+[\(view code\)](<./Regexp.hx#L1920>)
 
 
 ## function \_same
@@ -1166,7 +1166,7 @@ function _same(_x:stdgo.Slice<stdgo.GoInt>, _y:stdgo.Slice<stdgo.GoInt>):Bool
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2031>)
+[\(view code\)](<./Regexp.hx#L2038>)
 
 
 ## function \_shouldBacktrack
@@ -1177,7 +1177,7 @@ function _shouldBacktrack(_prog:stdgo.Ref<stdgo._internal.regexp.syntax.Prog>):B
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1713>)
+[\(view code\)](<./Regexp.hx#L1720>)
 
 
 ## function \_special
@@ -1188,7 +1188,7 @@ function _special(_b:stdgo.GoByte):Bool
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3319>)
+[\(view code\)](<./Regexp.hx#L3326>)
 
 
 ## function \_testFindAllIndex
@@ -1199,7 +1199,7 @@ function _testFindAllIndex(_test:stdgo.Ref<stdgo._internal.regexp.FindTest>, _re
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2510>)
+[\(view code\)](<./Regexp.hx#L2517>)
 
 
 ## function \_testFindAllSubmatchIndex
@@ -1210,7 +1210,7 @@ function _testFindAllSubmatchIndex(_test:stdgo.Ref<stdgo._internal.regexp.FindTe
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2677>)
+[\(view code\)](<./Regexp.hx#L2684>)
 
 
 ## function \_testFindIndex
@@ -1221,7 +1221,7 @@ function _testFindIndex(_test:stdgo.Ref<stdgo._internal.regexp.FindTest>, _resul
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2437>)
+[\(view code\)](<./Regexp.hx#L2444>)
 
 
 ## function \_testFindSubmatchIndex
@@ -1232,7 +1232,7 @@ function _testFindSubmatchIndex(_test:stdgo.Ref<stdgo._internal.regexp.FindTest>
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2621>)
+[\(view code\)](<./Regexp.hx#L2628>)
 
 
 ## function \_testFowler
@@ -1243,7 +1243,7 @@ function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.T_>, _file:stdgo.GoStr
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2052>)
+[\(view code\)](<./Regexp.hx#L2059>)
 
 
 ## function \_testRE2
@@ -1254,7 +1254,7 @@ function _testRE2(_t:stdgo.Ref<stdgo._internal.testing.T_>, _file:stdgo.GoString
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1743>)
+[\(view code\)](<./Regexp.hx#L1750>)
 
 
 ## function \_testSubmatchBytes
@@ -1265,7 +1265,7 @@ function _testSubmatchBytes(_test:stdgo.Ref<stdgo._internal.regexp.FindTest>, _n
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2537>)
+[\(view code\)](<./Regexp.hx#L2544>)
 
 
 ## function \_testSubmatchIndices
@@ -1276,7 +1276,7 @@ function _testSubmatchIndices(_test:stdgo.Ref<stdgo._internal.regexp.FindTest>, 
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2610>)
+[\(view code\)](<./Regexp.hx#L2617>)
 
 
 ## function \_testSubmatchString
@@ -1287,7 +1287,7 @@ function _testSubmatchString(_test:stdgo.Ref<stdgo._internal.regexp.FindTest>, _
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2576>)
+[\(view code\)](<./Regexp.hx#L2583>)
 
 
 ## function \_tryCompile
@@ -1301,7 +1301,7 @@ function _tryCompile(_s:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1941>)
+[\(view code\)](<./Regexp.hx#L1948>)
 
 
 ## function benchmarkAnchoredLiteralLongNonMatch
@@ -1312,7 +1312,7 @@ function benchmarkAnchoredLiteralLongNonMatch(_b:stdgo.Ref<stdgo._internal.testi
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1446>)
+[\(view code\)](<./Regexp.hx#L1453>)
 
 
 ## function benchmarkAnchoredLiteralShortNonMatch
@@ -1323,7 +1323,7 @@ function benchmarkAnchoredLiteralShortNonMatch(_b:stdgo.Ref<stdgo._internal.test
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1434>)
+[\(view code\)](<./Regexp.hx#L1441>)
 
 
 ## function benchmarkAnchoredLongMatch
@@ -1334,7 +1334,7 @@ function benchmarkAnchoredLongMatch(_b:stdgo.Ref<stdgo._internal.testing.B>):Voi
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1476>)
+[\(view code\)](<./Regexp.hx#L1483>)
 
 
 ## function benchmarkAnchoredShortMatch
@@ -1345,7 +1345,7 @@ function benchmarkAnchoredShortMatch(_b:stdgo.Ref<stdgo._internal.testing.B>):Vo
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1464>)
+[\(view code\)](<./Regexp.hx#L1471>)
 
 
 ## function benchmarkCompile
@@ -1356,7 +1356,7 @@ function benchmarkCompile(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1618>)
+[\(view code\)](<./Regexp.hx#L1625>)
 
 
 ## function benchmarkFind
@@ -1367,7 +1367,7 @@ function benchmarkFind(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1277>)
+[\(view code\)](<./Regexp.hx#L1284>)
 
 
 ## function benchmarkFindAllNoMatches
@@ -1378,7 +1378,7 @@ function benchmarkFindAllNoMatches(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1294>)
+[\(view code\)](<./Regexp.hx#L1301>)
 
 
 ## function benchmarkFindString
@@ -1389,7 +1389,7 @@ function benchmarkFindString(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1309>)
+[\(view code\)](<./Regexp.hx#L1316>)
 
 
 ## function benchmarkFindStringSubmatch
@@ -1400,7 +1400,7 @@ function benchmarkFindStringSubmatch(_b:stdgo.Ref<stdgo._internal.testing.B>):Vo
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1346>)
+[\(view code\)](<./Regexp.hx#L1353>)
 
 
 ## function benchmarkFindSubmatch
@@ -1411,7 +1411,7 @@ function benchmarkFindSubmatch(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1326>)
+[\(view code\)](<./Regexp.hx#L1333>)
 
 
 ## function benchmarkLiteral
@@ -1422,7 +1422,7 @@ function benchmarkLiteral(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1366>)
+[\(view code\)](<./Regexp.hx#L1373>)
 
 
 ## function benchmarkMatch
@@ -1433,7 +1433,7 @@ function benchmarkMatch(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2307>)
+[\(view code\)](<./Regexp.hx#L2314>)
 
 
 ## function benchmarkMatchClass
@@ -1444,7 +1444,7 @@ function benchmarkMatchClass(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1394>)
+[\(view code\)](<./Regexp.hx#L1401>)
 
 
 ## function benchmarkMatchClass\_InRange
@@ -1455,7 +1455,7 @@ function benchmarkMatchClass_InRange(_b:stdgo.Ref<stdgo._internal.testing.B>):Vo
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1408>)
+[\(view code\)](<./Regexp.hx#L1415>)
 
 
 ## function benchmarkMatchParallelCopied
@@ -1466,7 +1466,7 @@ function benchmarkMatchParallelCopied(_b:stdgo.Ref<stdgo._internal.testing.B>):V
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1576>)
+[\(view code\)](<./Regexp.hx#L1583>)
 
 
 ## function benchmarkMatchParallelShared
@@ -1477,7 +1477,7 @@ function benchmarkMatchParallelShared(_b:stdgo.Ref<stdgo._internal.testing.B>):V
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1566>)
+[\(view code\)](<./Regexp.hx#L1573>)
 
 
 ## function benchmarkMatch\_onepass\_regex
@@ -1488,7 +1488,7 @@ function benchmarkMatch_onepass_regex(_b:stdgo.Ref<stdgo._internal.testing.B>):V
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2330>)
+[\(view code\)](<./Regexp.hx#L2337>)
 
 
 ## function benchmarkNotLiteral
@@ -1499,7 +1499,7 @@ function benchmarkNotLiteral(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1380>)
+[\(view code\)](<./Regexp.hx#L1387>)
 
 
 ## function benchmarkNotOnePassShortA
@@ -1510,7 +1510,7 @@ function benchmarkNotOnePassShortA(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1506>)
+[\(view code\)](<./Regexp.hx#L1513>)
 
 
 ## function benchmarkNotOnePassShortB
@@ -1521,7 +1521,7 @@ function benchmarkNotOnePassShortB(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1530>)
+[\(view code\)](<./Regexp.hx#L1537>)
 
 
 ## function benchmarkOnePassLongNotPrefix
@@ -1532,7 +1532,7 @@ function benchmarkOnePassLongNotPrefix(_b:stdgo.Ref<stdgo._internal.testing.B>):
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1554>)
+[\(view code\)](<./Regexp.hx#L1561>)
 
 
 ## function benchmarkOnePassLongPrefix
@@ -1543,7 +1543,7 @@ function benchmarkOnePassLongPrefix(_b:stdgo.Ref<stdgo._internal.testing.B>):Voi
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1542>)
+[\(view code\)](<./Regexp.hx#L1549>)
 
 
 ## function benchmarkOnePassShortA
@@ -1554,7 +1554,7 @@ function benchmarkOnePassShortA(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1494>)
+[\(view code\)](<./Regexp.hx#L1501>)
 
 
 ## function benchmarkOnePassShortB
@@ -1565,7 +1565,7 @@ function benchmarkOnePassShortB(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1518>)
+[\(view code\)](<./Regexp.hx#L1525>)
 
 
 ## function benchmarkQuoteMetaAll
@@ -1576,7 +1576,7 @@ function benchmarkQuoteMetaAll(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1587>)
+[\(view code\)](<./Regexp.hx#L1594>)
 
 
 ## function benchmarkQuoteMetaNone
@@ -1587,7 +1587,7 @@ function benchmarkQuoteMetaNone(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1607>)
+[\(view code\)](<./Regexp.hx#L1614>)
 
 
 ## function benchmarkReplaceAll
@@ -1598,7 +1598,7 @@ function benchmarkReplaceAll(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1422>)
+[\(view code\)](<./Regexp.hx#L1429>)
 
 
 ## function compile
@@ -1612,7 +1612,7 @@ function compile(_expr:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3182>)
+[\(view code\)](<./Regexp.hx#L3189>)
 
 
 ## function compilePOSIX
@@ -1626,7 +1626,7 @@ function compilePOSIX(_expr:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3185>)
+[\(view code\)](<./Regexp.hx#L3192>)
 
 
 ## function match
@@ -1671,7 +1671,7 @@ function exampleMatch():Void {
 </details>
 
 
-[\(view code\)](<./Regexp.hx#L3311>)
+[\(view code\)](<./Regexp.hx#L3318>)
 
 
 ## function matchReader
@@ -1685,7 +1685,7 @@ function matchReader(_pattern:stdgo.GoString, _r:stdgo._internal.io.RuneReader):
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3295>)
+[\(view code\)](<./Regexp.hx#L3302>)
 
 
 ## function matchString
@@ -1730,7 +1730,7 @@ function exampleMatchString():Void {
 </details>
 
 
-[\(view code\)](<./Regexp.hx#L3303>)
+[\(view code\)](<./Regexp.hx#L3310>)
 
 
 ## function mustCompile
@@ -1741,7 +1741,7 @@ function mustCompile(_str:stdgo.GoString):stdgo.Ref<stdgo._internal.regexp.Regex
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3275>)
+[\(view code\)](<./Regexp.hx#L3282>)
 
 
 ## function mustCompilePOSIX
@@ -1752,7 +1752,7 @@ function mustCompilePOSIX(_str:stdgo.GoString):stdgo.Ref<stdgo._internal.regexp.
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3282>)
+[\(view code\)](<./Regexp.hx#L3289>)
 
 
 ## function quoteMeta
@@ -1781,7 +1781,7 @@ function exampleQuoteMeta():Void {
 </details>
 
 
-[\(view code\)](<./Regexp.hx#L3322>)
+[\(view code\)](<./Regexp.hx#L3329>)
 
 
 ## function testBadCompile
@@ -1792,7 +1792,7 @@ function testBadCompile(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1025>)
+[\(view code\)](<./Regexp.hx#L1032>)
 
 
 ## function testCompileOnePass
@@ -1803,7 +1803,7 @@ function testCompileOnePass(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3134>)
+[\(view code\)](<./Regexp.hx#L3141>)
 
 
 ## function testCopyMatch
@@ -1814,7 +1814,7 @@ function testCopyMatch(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1077>)
+[\(view code\)](<./Regexp.hx#L1084>)
 
 
 ## function testDeepEqual
@@ -1825,7 +1825,7 @@ function testDeepEqual(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1636>)
+[\(view code\)](<./Regexp.hx#L1643>)
 
 
 ## function testFind
@@ -1836,7 +1836,7 @@ function testFind(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2398>)
+[\(view code\)](<./Regexp.hx#L2405>)
 
 
 ## function testFindAll
@@ -1847,7 +1847,7 @@ function testFindAll(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2464>)
+[\(view code\)](<./Regexp.hx#L2471>)
 
 
 ## function testFindAllIndex
@@ -1858,7 +1858,7 @@ function testFindAllIndex(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2527>)
+[\(view code\)](<./Regexp.hx#L2534>)
 
 
 ## function testFindAllString
@@ -1869,7 +1869,7 @@ function testFindAllString(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2489>)
+[\(view code\)](<./Regexp.hx#L2496>)
 
 
 ## function testFindAllStringIndex
@@ -1880,7 +1880,7 @@ function testFindAllStringIndex(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2532>)
+[\(view code\)](<./Regexp.hx#L2539>)
 
 
 ## function testFindAllStringSubmatch
@@ -1891,7 +1891,7 @@ function testFindAllStringSubmatch(_t:stdgo.Ref<stdgo._internal.testing.T_>):Voi
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2661>)
+[\(view code\)](<./Regexp.hx#L2668>)
 
 
 ## function testFindAllStringSubmatchIndex
@@ -1902,7 +1902,7 @@ function testFindAllStringSubmatchIndex(_t:stdgo.Ref<stdgo._internal.testing.T_>
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2695>)
+[\(view code\)](<./Regexp.hx#L2702>)
 
 
 ## function testFindAllSubmatch
@@ -1913,7 +1913,7 @@ function testFindAllSubmatch(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2645>)
+[\(view code\)](<./Regexp.hx#L2652>)
 
 
 ## function testFindAllSubmatchIndex
@@ -1924,7 +1924,7 @@ function testFindAllSubmatchIndex(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2690>)
+[\(view code\)](<./Regexp.hx#L2697>)
 
 
 ## function testFindIndex
@@ -1935,7 +1935,7 @@ function testFindIndex(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2449>)
+[\(view code\)](<./Regexp.hx#L2456>)
 
 
 ## function testFindReaderIndex
@@ -1946,7 +1946,7 @@ function testFindReaderIndex(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2459>)
+[\(view code\)](<./Regexp.hx#L2466>)
 
 
 ## function testFindReaderSubmatchIndex
@@ -1957,7 +1957,7 @@ function testFindReaderSubmatchIndex(_t:stdgo.Ref<stdgo._internal.testing.T_>):V
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2640>)
+[\(view code\)](<./Regexp.hx#L2647>)
 
 
 ## function testFindString
@@ -1968,7 +1968,7 @@ function testFindString(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2420>)
+[\(view code\)](<./Regexp.hx#L2427>)
 
 
 ## function testFindStringIndex
@@ -1979,7 +1979,7 @@ function testFindStringIndex(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2454>)
+[\(view code\)](<./Regexp.hx#L2461>)
 
 
 ## function testFindStringSubmatch
@@ -1990,7 +1990,7 @@ function testFindStringSubmatch(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2598>)
+[\(view code\)](<./Regexp.hx#L2605>)
 
 
 ## function testFindStringSubmatchIndex
@@ -2001,7 +2001,7 @@ function testFindStringSubmatchIndex(_t:stdgo.Ref<stdgo._internal.testing.T_>):V
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2635>)
+[\(view code\)](<./Regexp.hx#L2642>)
 
 
 ## function testFindSubmatch
@@ -2012,7 +2012,7 @@ function testFindSubmatch(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2564>)
+[\(view code\)](<./Regexp.hx#L2571>)
 
 
 ## function testFindSubmatchIndex
@@ -2023,7 +2023,7 @@ function testFindSubmatchIndex(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2630>)
+[\(view code\)](<./Regexp.hx#L2637>)
 
 
 ## function testFowler
@@ -2034,7 +2034,7 @@ function testFowler(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2042>)
+[\(view code\)](<./Regexp.hx#L2049>)
 
 
 ## function testGoodCompile
@@ -2045,7 +2045,7 @@ function testGoodCompile(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1017>)
+[\(view code\)](<./Regexp.hx#L1024>)
 
 
 ## function testLiteralPrefix
@@ -2056,7 +2056,7 @@ function testLiteralPrefix(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1176>)
+[\(view code\)](<./Regexp.hx#L1183>)
 
 
 ## function testLongest
@@ -2067,7 +2067,7 @@ function testLongest(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2355>)
+[\(view code\)](<./Regexp.hx#L2362>)
 
 
 ## function testMatch
@@ -2078,7 +2078,7 @@ function testMatch(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1047>)
+[\(view code\)](<./Regexp.hx#L1054>)
 
 
 ## function testMatchFunction
@@ -2089,7 +2089,7 @@ function testMatchFunction(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1061>)
+[\(view code\)](<./Regexp.hx#L1068>)
 
 
 ## function testMergeRuneSet
@@ -2100,7 +2100,7 @@ function testMergeRuneSet(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3123>)
+[\(view code\)](<./Regexp.hx#L3130>)
 
 
 ## function testMinInputLen
@@ -2111,7 +2111,7 @@ function testMinInputLen(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1655>)
+[\(view code\)](<./Regexp.hx#L1662>)
 
 
 ## function testOnePassCutoff
@@ -2122,7 +2122,7 @@ function testOnePassCutoff(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1258>)
+[\(view code\)](<./Regexp.hx#L1265>)
 
 
 ## function testParseAndCompile
@@ -2133,7 +2133,7 @@ function testParseAndCompile(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1238>)
+[\(view code\)](<./Regexp.hx#L1245>)
 
 
 ## function testProgramTooLongForBacktrack
@@ -2144,7 +2144,7 @@ function testProgramTooLongForBacktrack(_t:stdgo.Ref<stdgo._internal.testing.T_>
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2374>)
+[\(view code\)](<./Regexp.hx#L2381>)
 
 
 ## function testQuoteMeta
@@ -2155,7 +2155,7 @@ function testQuoteMeta(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1153>)
+[\(view code\)](<./Regexp.hx#L1160>)
 
 
 ## function testRE2Exhaustive
@@ -2166,7 +2166,7 @@ function testRE2Exhaustive(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1734>)
+[\(view code\)](<./Regexp.hx#L1741>)
 
 
 ## function testRE2Search
@@ -2177,7 +2177,7 @@ function testRE2Search(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1740>)
+[\(view code\)](<./Regexp.hx#L1747>)
 
 
 ## function testReplaceAll
@@ -2188,7 +2188,7 @@ function testReplaceAll(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1082>)
+[\(view code\)](<./Regexp.hx#L1089>)
 
 
 ## function testReplaceAllFunc
@@ -2199,7 +2199,7 @@ function testReplaceAllFunc(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1134>)
+[\(view code\)](<./Regexp.hx#L1141>)
 
 
 ## function testReplaceAllLiteral
@@ -2210,7 +2210,7 @@ function testReplaceAllLiteral(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1099>)
+[\(view code\)](<./Regexp.hx#L1106>)
 
 
 ## function testRunOnePass
@@ -2221,7 +2221,7 @@ function testRunOnePass(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3166>)
+[\(view code\)](<./Regexp.hx#L3173>)
 
 
 ## function testSplit
@@ -2232,7 +2232,7 @@ function testSplit(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1219>)
+[\(view code\)](<./Regexp.hx#L1226>)
 
 
 ## function testSubexp
@@ -2243,7 +2243,7 @@ function testSubexp(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1188>)
+[\(view code\)](<./Regexp.hx#L1195>)
 
 
 ## function testSwitchBacktrack
@@ -2254,7 +2254,7 @@ function testSwitchBacktrack(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1271>)
+[\(view code\)](<./Regexp.hx#L1278>)
 
 
 ## function testUnmarshalText
@@ -2265,7 +2265,7 @@ function testUnmarshalText(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1664>)
+[\(view code\)](<./Regexp.hx#L1671>)
 
 
 # Classes
@@ -2302,7 +2302,7 @@ function new(?_pat:stdgo.GoString, ?_text:stdgo.GoString, ?_matches:stdgo.Slice<
 ```
 
 
-[\(view code\)](<./Regexp.hx#L716>)
+[\(view code\)](<./Regexp.hx#L723>)
 
 
 ### FindTest function string
@@ -2313,7 +2313,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3820>)
+[\(view code\)](<./Regexp.hx#L3827>)
 
 
 ## class MetaTest
@@ -2347,7 +2347,7 @@ function new(?_pattern:stdgo.GoString, ?_output:stdgo.GoString, ?_literal:stdgo.
 ```
 
 
-[\(view code\)](<./Regexp.hx#L553>)
+[\(view code\)](<./Regexp.hx#L560>)
 
 
 ## class Regexp
@@ -2441,7 +2441,7 @@ function new(?_expr:stdgo.GoString, ?_prog:stdgo.Ref<stdgo._internal.regexp.synt
 ```
 
 
-[\(view code\)](<./Regexp.hx#L796>)
+[\(view code\)](<./Regexp.hx#L803>)
 
 
 ### Regexp function \_allMatches
@@ -2452,7 +2452,7 @@ function _allMatches( _s:stdgo.GoString, _b:stdgo.Slice<stdgo.GoByte>, _n:stdgo.
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4379>)
+[\(view code\)](<./Regexp.hx#L4386>)
 
 
 ### Regexp function \_backtrack
@@ -2463,7 +2463,7 @@ function _backtrack( _ib:stdgo.Slice<stdgo.GoByte>, _is:stdgo.GoString, _pos:std
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4816>)
+[\(view code\)](<./Regexp.hx#L4823>)
 
 
 ### Regexp function \_doExecute
@@ -2474,7 +2474,7 @@ function _doExecute( _r:stdgo._internal.io.RuneReader, _b:stdgo.Slice<stdgo.GoBy
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4652>)
+[\(view code\)](<./Regexp.hx#L4659>)
 
 
 ### Regexp function \_doMatch
@@ -2485,7 +2485,7 @@ function _doMatch( _r:stdgo._internal.io.RuneReader, _b:stdgo.Slice<stdgo.GoByte
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4678>)
+[\(view code\)](<./Regexp.hx#L4685>)
 
 
 ### Regexp function \_doOnePass
@@ -2496,7 +2496,7 @@ function _doOnePass( _ir:stdgo._internal.io.RuneReader, _ib:stdgo.Slice<stdgo.Go
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4683>)
+[\(view code\)](<./Regexp.hx#L4690>)
 
 
 ### Regexp function \_expand
@@ -2507,7 +2507,7 @@ function _expand( _dst:stdgo.Slice<stdgo.GoByte>, _template:stdgo.GoString, _bsr
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4258>)
+[\(view code\)](<./Regexp.hx#L4265>)
 
 
 ### Regexp function \_get
@@ -2518,7 +2518,7 @@ function _get():stdgo.Ref<stdgo._internal.regexp.T_machine>
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4607>)
+[\(view code\)](<./Regexp.hx#L4614>)
 
 
 ### Regexp function \_pad
@@ -2529,7 +2529,7 @@ function _pad( _a:stdgo.Slice<stdgo.GoInt>):stdgo.Slice<stdgo.GoInt>
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4430>)
+[\(view code\)](<./Regexp.hx#L4437>)
 
 
 ### Regexp function \_put
@@ -2540,7 +2540,7 @@ function _put( _m:stdgo.Ref<stdgo._internal.regexp.T_machine>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4599>)
+[\(view code\)](<./Regexp.hx#L4606>)
 
 
 ### Regexp function \_replaceAll
@@ -2551,7 +2551,7 @@ function _replaceAll( _bsrc:stdgo.Slice<stdgo.GoByte>, _src:stdgo.GoString, _nma
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4472>)
+[\(view code\)](<./Regexp.hx#L4479>)
 
 
 ### Regexp function \_tryBacktrack
@@ -2562,7 +2562,7 @@ function _tryBacktrack( _b:stdgo.Ref<stdgo._internal.regexp.T_bitState>, _i:stdg
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4869>)
+[\(view code\)](<./Regexp.hx#L4876>)
 
 
 ### Regexp function copy
@@ -2573,7 +2573,7 @@ function copy():stdgo.Ref<stdgo._internal.regexp.Regexp>
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4641>)
+[\(view code\)](<./Regexp.hx#L4648>)
 
 
 ### Regexp function expand
@@ -2584,7 +2584,7 @@ function expand( _dst:stdgo.Slice<stdgo.GoByte>, _template:stdgo.Slice<stdgo.GoB
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4308>)
+[\(view code\)](<./Regexp.hx#L4315>)
 
 
 ### Regexp function expandString
@@ -2595,7 +2595,7 @@ function expandString( _dst:stdgo.Slice<stdgo.GoByte>, _template:stdgo.GoString,
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4303>)
+[\(view code\)](<./Regexp.hx#L4310>)
 
 
 ### Regexp function find
@@ -2606,7 +2606,7 @@ function find( _b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4369>)
+[\(view code\)](<./Regexp.hx#L4376>)
 
 
 ### Regexp function findAll
@@ -2617,7 +2617,7 @@ function findAll( _b:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):stdgo.Slice<stdg
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4212>)
+[\(view code\)](<./Regexp.hx#L4219>)
 
 
 ### Regexp function findAllIndex
@@ -2628,7 +2628,7 @@ function findAllIndex( _b:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):stdgo.Slice
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4197>)
+[\(view code\)](<./Regexp.hx#L4204>)
 
 
 ### Regexp function findAllString
@@ -2639,7 +2639,7 @@ function findAllString( _s:stdgo.GoString, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoS
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4182>)
+[\(view code\)](<./Regexp.hx#L4189>)
 
 
 ### Regexp function findAllStringIndex
@@ -2650,7 +2650,7 @@ function findAllStringIndex( _s:stdgo.GoString, _n:stdgo.GoInt):stdgo.Slice<stdg
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4167>)
+[\(view code\)](<./Regexp.hx#L4174>)
 
 
 ### Regexp function findAllStringSubmatch
@@ -2661,7 +2661,7 @@ function findAllStringSubmatch( _s:stdgo.GoString, _n:stdgo.GoInt):stdgo.Slice<s
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4110>)
+[\(view code\)](<./Regexp.hx#L4117>)
 
 
 ### Regexp function findAllStringSubmatchIndex
@@ -2672,7 +2672,7 @@ function findAllStringSubmatchIndex( _s:stdgo.GoString, _n:stdgo.GoInt):stdgo.Sl
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4095>)
+[\(view code\)](<./Regexp.hx#L4102>)
 
 
 ### Regexp function findAllSubmatch
@@ -2683,7 +2683,7 @@ function findAllSubmatch( _b:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):stdgo.Sl
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4146>)
+[\(view code\)](<./Regexp.hx#L4153>)
 
 
 ### Regexp function findAllSubmatchIndex
@@ -2694,7 +2694,7 @@ function findAllSubmatchIndex( _b:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):std
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4131>)
+[\(view code\)](<./Regexp.hx#L4138>)
 
 
 ### Regexp function findIndex
@@ -2705,7 +2705,7 @@ function findIndex( _b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoInt>
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4359>)
+[\(view code\)](<./Regexp.hx#L4366>)
 
 
 ### Regexp function findReaderIndex
@@ -2716,7 +2716,7 @@ function findReaderIndex( _r:stdgo._internal.io.RuneReader):stdgo.Slice<stdgo.Go
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4329>)
+[\(view code\)](<./Regexp.hx#L4336>)
 
 
 ### Regexp function findReaderSubmatchIndex
@@ -2727,7 +2727,7 @@ function findReaderSubmatchIndex( _r:stdgo._internal.io.RuneReader):stdgo.Slice<
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4227>)
+[\(view code\)](<./Regexp.hx#L4234>)
 
 
 ### Regexp function findString
@@ -2738,7 +2738,7 @@ function findString( _s:stdgo.GoString):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4349>)
+[\(view code\)](<./Regexp.hx#L4356>)
 
 
 ### Regexp function findStringIndex
@@ -2749,7 +2749,7 @@ function findStringIndex( _s:stdgo.GoString):stdgo.Slice<stdgo.GoInt>
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4339>)
+[\(view code\)](<./Regexp.hx#L4346>)
 
 
 ### Regexp function findStringSubmatch
@@ -2760,7 +2760,7 @@ function findStringSubmatch( _s:stdgo.GoString):stdgo.Slice<stdgo.GoString>
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4237>)
+[\(view code\)](<./Regexp.hx#L4244>)
 
 
 ### Regexp function findStringSubmatchIndex
@@ -2771,7 +2771,7 @@ function findStringSubmatchIndex( _s:stdgo.GoString):stdgo.Slice<stdgo.GoInt>
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4232>)
+[\(view code\)](<./Regexp.hx#L4239>)
 
 
 ### Regexp function findSubmatch
@@ -2782,7 +2782,7 @@ function findSubmatch( _b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.Slice<std
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4313>)
+[\(view code\)](<./Regexp.hx#L4320>)
 
 
 ### Regexp function findSubmatchIndex
@@ -2793,7 +2793,7 @@ function findSubmatchIndex( _b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoIn
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4253>)
+[\(view code\)](<./Regexp.hx#L4260>)
 
 
 ### Regexp function literalPrefix
@@ -2807,7 +2807,7 @@ function literalPrefix():{
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4571>)
+[\(view code\)](<./Regexp.hx#L4578>)
 
 
 ### Regexp function longest
@@ -2818,7 +2818,7 @@ function longest():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4636>)
+[\(view code\)](<./Regexp.hx#L4643>)
 
 
 ### Regexp function marshalText
@@ -2832,7 +2832,7 @@ function marshalText():{
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4062>)
+[\(view code\)](<./Regexp.hx#L4069>)
 
 
 ### Regexp function match
@@ -2843,7 +2843,7 @@ function match( _b:stdgo.Slice<stdgo.GoByte>):Bool
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4556>)
+[\(view code\)](<./Regexp.hx#L4563>)
 
 
 ### Regexp function matchReader
@@ -2854,7 +2854,7 @@ function matchReader( _r:stdgo._internal.io.RuneReader):Bool
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4566>)
+[\(view code\)](<./Regexp.hx#L4573>)
 
 
 ### Regexp function matchString
@@ -2865,7 +2865,7 @@ function matchString( _s:stdgo.GoString):Bool
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4561>)
+[\(view code\)](<./Regexp.hx#L4568>)
 
 
 ### Regexp function numSubexp
@@ -2876,7 +2876,7 @@ function numSubexp():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4594>)
+[\(view code\)](<./Regexp.hx#L4601>)
 
 
 ### Regexp function replaceAll
@@ -2887,7 +2887,7 @@ function replaceAll( _src:stdgo.Slice<stdgo.GoByte>, _repl:stdgo.Slice<stdgo.GoB
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4456>)
+[\(view code\)](<./Regexp.hx#L4463>)
 
 
 ### Regexp function replaceAllFunc
@@ -2898,7 +2898,7 @@ function replaceAllFunc( _src:stdgo.Slice<stdgo.GoByte>, _repl:()):stdgo.Slice<s
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4442>)
+[\(view code\)](<./Regexp.hx#L4449>)
 
 
 ### Regexp function replaceAllLiteral
@@ -2909,7 +2909,7 @@ function replaceAllLiteral( _src:stdgo.Slice<stdgo.GoByte>, _repl:stdgo.Slice<st
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4449>)
+[\(view code\)](<./Regexp.hx#L4456>)
 
 
 ### Regexp function replaceAllLiteralString
@@ -2920,7 +2920,7 @@ function replaceAllLiteralString( _src:stdgo.GoString, _repl:stdgo.GoString):std
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4537>)
+[\(view code\)](<./Regexp.hx#L4544>)
 
 
 ### Regexp function replaceAllString
@@ -2931,7 +2931,7 @@ function replaceAllString( _src:stdgo.GoString, _repl:stdgo.GoString):stdgo.GoSt
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4544>)
+[\(view code\)](<./Regexp.hx#L4551>)
 
 
 ### Regexp function replaceAllStringFunc
@@ -2942,7 +2942,7 @@ function replaceAllStringFunc( _src:stdgo.GoString, _repl:()):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4529>)
+[\(view code\)](<./Regexp.hx#L4536>)
 
 
 ### Regexp function split
@@ -2953,7 +2953,7 @@ function split( _s:stdgo.GoString, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoString>
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4067>)
+[\(view code\)](<./Regexp.hx#L4074>)
 
 
 ### Regexp function string
@@ -2964,7 +2964,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4647>)
+[\(view code\)](<./Regexp.hx#L4654>)
 
 
 ### Regexp function subexpIndex
@@ -2975,7 +2975,7 @@ function subexpIndex( _name:stdgo.GoString):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4577>)
+[\(view code\)](<./Regexp.hx#L4584>)
 
 
 ### Regexp function subexpNames
@@ -2986,7 +2986,7 @@ function subexpNames():stdgo.Slice<stdgo.GoString>
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4589>)
+[\(view code\)](<./Regexp.hx#L4596>)
 
 
 ### Regexp function unmarshalText
@@ -2997,7 +2997,7 @@ function unmarshalText( _text:stdgo.Slice<stdgo.GoByte>):stdgo.Error
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4034>)
+[\(view code\)](<./Regexp.hx#L4041>)
 
 
 ## class ReplaceFuncTest
@@ -3034,7 +3034,7 @@ function new(?_pattern:stdgo.GoString, ?_replacement:(), ?_input:stdgo.GoString,
 ```
 
 
-[\(view code\)](<./Regexp.hx#L537>)
+[\(view code\)](<./Regexp.hx#L544>)
 
 
 ## class ReplaceTest
@@ -3068,7 +3068,7 @@ function new(?_pattern:stdgo.GoString, ?_replacement:stdgo.GoString, ?_input:std
 ```
 
 
-[\(view code\)](<./Regexp.hx#L521>)
+[\(view code\)](<./Regexp.hx#L528>)
 
 
 # Typedefs

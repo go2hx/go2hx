@@ -224,7 +224,7 @@ function _breakPatterns(_data:stdgo._internal.sort.Interface, _a:stdgo.GoInt, _b
 ```
 
 
-[\(view code\)](<./Sort.hx#L777>)
+[\(view code\)](<./Sort.hx#L782>)
 
 
 ## function \_breakPatterns\_func
@@ -235,7 +235,7 @@ function _breakPatterns_func(_data:stdgo._internal.sort.T_lessSwap, _a:stdgo.GoI
 ```
 
 
-[\(view code\)](<./Sort.hx#L386>)
+[\(view code\)](<./Sort.hx#L391>)
 
 
 ## function \_choosePivot
@@ -249,7 +249,7 @@ function _choosePivot(_data:stdgo._internal.sort.Interface, _a:stdgo.GoInt, _b:s
 ```
 
 
-[\(view code\)](<./Sort.hx#L794>)
+[\(view code\)](<./Sort.hx#L799>)
 
 
 ## function \_choosePivot\_func
@@ -263,7 +263,7 @@ function _choosePivot_func(_data:stdgo._internal.sort.T_lessSwap, _a:stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Sort.hx#L403>)
+[\(view code\)](<./Sort.hx#L408>)
 
 
 ## function \_heapSort
@@ -274,7 +274,7 @@ function _heapSort(_data:stdgo._internal.sort.Interface, _a:stdgo.GoInt, _b:stdg
 ```
 
 
-[\(view code\)](<./Sort.hx#L615>)
+[\(view code\)](<./Sort.hx#L620>)
 
 
 ## function \_heapSort\_func
@@ -285,7 +285,7 @@ function _heapSort_func(_data:stdgo._internal.sort.T_lessSwap, _a:stdgo.GoInt, _
 ```
 
 
-[\(view code\)](<./Sort.hx#L224>)
+[\(view code\)](<./Sort.hx#L229>)
 
 
 ## function \_insertionSort
@@ -296,7 +296,7 @@ function _insertionSort(_data:stdgo._internal.sort.Interface, _a:stdgo.GoInt, _b
 ```
 
 
-[\(view code\)](<./Sort.hx#L585>)
+[\(view code\)](<./Sort.hx#L590>)
 
 
 ## function \_insertionSort\_func
@@ -307,7 +307,7 @@ function _insertionSort_func(_data:stdgo._internal.sort.T_lessSwap, _a:stdgo.GoI
 ```
 
 
-[\(view code\)](<./Sort.hx#L194>)
+[\(view code\)](<./Sort.hx#L199>)
 
 
 ## function \_isNaN
@@ -318,7 +318,7 @@ function _isNaN(_f:stdgo.GoFloat64):Bool
 ```
 
 
-[\(view code\)](<./Sort.hx#L170>)
+[\(view code\)](<./Sort.hx#L175>)
 
 
 ## function \_median
@@ -329,7 +329,7 @@ function _median(_data:stdgo._internal.sort.Interface, _a:stdgo.GoInt, _b:stdgo.
 ```
 
 
-[\(view code\)](<./Sort.hx#L825>)
+[\(view code\)](<./Sort.hx#L830>)
 
 
 ## function \_medianAdjacent
@@ -340,7 +340,7 @@ function _medianAdjacent(_data:stdgo._internal.sort.Interface, _a:stdgo.GoInt, _
 ```
 
 
-[\(view code\)](<./Sort.hx#L843>)
+[\(view code\)](<./Sort.hx#L848>)
 
 
 ## function \_medianAdjacent\_func
@@ -351,7 +351,7 @@ function _medianAdjacent_func(_data:stdgo._internal.sort.T_lessSwap, _a:stdgo.Go
 ```
 
 
-[\(view code\)](<./Sort.hx#L452>)
+[\(view code\)](<./Sort.hx#L457>)
 
 
 ## function \_median\_func
@@ -362,7 +362,7 @@ function _median_func(_data:stdgo._internal.sort.T_lessSwap, _a:stdgo.GoInt, _b:
 ```
 
 
-[\(view code\)](<./Sort.hx#L434>)
+[\(view code\)](<./Sort.hx#L439>)
 
 
 ## function \_nextPowerOfTwo
@@ -373,7 +373,7 @@ function _nextPowerOfTwo(_length:stdgo.GoInt):stdgo.GoUInt
 ```
 
 
-[\(view code\)](<./Sort.hx#L151>)
+[\(view code\)](<./Sort.hx#L156>)
 
 
 ## function \_order2
@@ -387,7 +387,7 @@ function _order2(_data:stdgo._internal.sort.Interface, _a:stdgo.GoInt, _b:stdgo.
 ```
 
 
-[\(view code\)](<./Sort.hx#L818>)
+[\(view code\)](<./Sort.hx#L823>)
 
 
 ## function \_order2\_func
@@ -401,7 +401,7 @@ function _order2_func(_data:stdgo._internal.sort.T_lessSwap, _a:stdgo.GoInt, _b:
 ```
 
 
-[\(view code\)](<./Sort.hx#L427>)
+[\(view code\)](<./Sort.hx#L432>)
 
 
 ## function \_partialInsertionSort
@@ -412,7 +412,7 @@ function _partialInsertionSort(_data:stdgo._internal.sort.Interface, _a:stdgo.Go
 ```
 
 
-[\(view code\)](<./Sort.hx#L735>)
+[\(view code\)](<./Sort.hx#L740>)
 
 
 ## function \_partialInsertionSort\_func
@@ -423,7 +423,7 @@ function _partialInsertionSort_func(_data:stdgo._internal.sort.T_lessSwap, _a:st
 ```
 
 
-[\(view code\)](<./Sort.hx#L344>)
+[\(view code\)](<./Sort.hx#L349>)
 
 
 ## function \_partition
@@ -437,7 +437,7 @@ function _partition(_data:stdgo._internal.sort.Interface, _a:stdgo.GoInt, _b:std
 ```
 
 
-[\(view code\)](<./Sort.hx#L681>)
+[\(view code\)](<./Sort.hx#L686>)
 
 
 ## function \_partitionEqual
@@ -448,7 +448,7 @@ function _partitionEqual(_data:stdgo._internal.sort.Interface, _a:stdgo.GoInt, _
 ```
 
 
-[\(view code\)](<./Sort.hx#L715>)
+[\(view code\)](<./Sort.hx#L720>)
 
 
 ## function \_partitionEqual\_func
@@ -459,7 +459,7 @@ function _partitionEqual_func(_data:stdgo._internal.sort.T_lessSwap, _a:stdgo.Go
 ```
 
 
-[\(view code\)](<./Sort.hx#L324>)
+[\(view code\)](<./Sort.hx#L329>)
 
 
 ## function \_partition\_func
@@ -473,7 +473,7 @@ function _partition_func(_data:stdgo._internal.sort.T_lessSwap, _a:stdgo.GoInt, 
 ```
 
 
-[\(view code\)](<./Sort.hx#L290>)
+[\(view code\)](<./Sort.hx#L295>)
 
 
 ## function \_pdqsort
@@ -484,7 +484,7 @@ function _pdqsort(_data:stdgo._internal.sort.Interface, _a:stdgo.GoInt, _b:stdgo
 ```
 
 
-[\(view code\)](<./Sort.hx#L633>)
+[\(view code\)](<./Sort.hx#L638>)
 
 
 ## function \_pdqsort\_func
@@ -495,7 +495,7 @@ function _pdqsort_func(_data:stdgo._internal.sort.T_lessSwap, _a:stdgo.GoInt, _b
 ```
 
 
-[\(view code\)](<./Sort.hx#L242>)
+[\(view code\)](<./Sort.hx#L247>)
 
 
 ## function \_reverseRange
@@ -506,7 +506,7 @@ function _reverseRange(_data:stdgo._internal.sort.Interface, _a:stdgo.GoInt, _b:
 ```
 
 
-[\(view code\)](<./Sort.hx#L846>)
+[\(view code\)](<./Sort.hx#L851>)
 
 
 ## function \_reverseRange\_func
@@ -517,7 +517,7 @@ function _reverseRange_func(_data:stdgo._internal.sort.T_lessSwap, _a:stdgo.GoIn
 ```
 
 
-[\(view code\)](<./Sort.hx#L455>)
+[\(view code\)](<./Sort.hx#L460>)
 
 
 ## function \_rotate
@@ -528,7 +528,7 @@ function _rotate(_data:stdgo._internal.sort.Interface, _a:stdgo.GoInt, _m:stdgo.
 ```
 
 
-[\(view code\)](<./Sort.hx#L962>)
+[\(view code\)](<./Sort.hx#L967>)
 
 
 ## function \_rotate\_func
@@ -539,7 +539,7 @@ function _rotate_func(_data:stdgo._internal.sort.T_lessSwap, _a:stdgo.GoInt, _m:
 ```
 
 
-[\(view code\)](<./Sort.hx#L571>)
+[\(view code\)](<./Sort.hx#L576>)
 
 
 ## function \_siftDown
@@ -550,7 +550,7 @@ function _siftDown(_data:stdgo._internal.sort.Interface, _lo:stdgo.GoInt, _hi:st
 ```
 
 
-[\(view code\)](<./Sort.hx#L598>)
+[\(view code\)](<./Sort.hx#L603>)
 
 
 ## function \_siftDown\_func
@@ -561,7 +561,7 @@ function _siftDown_func(_data:stdgo._internal.sort.T_lessSwap, _lo:stdgo.GoInt, 
 ```
 
 
-[\(view code\)](<./Sort.hx#L207>)
+[\(view code\)](<./Sort.hx#L212>)
 
 
 ## function \_stable
@@ -572,7 +572,7 @@ function _stable(_data:stdgo._internal.sort.Interface, _n:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L863>)
+[\(view code\)](<./Sort.hx#L868>)
 
 
 ## function \_stable\_func
@@ -583,7 +583,7 @@ function _stable_func(_data:stdgo._internal.sort.T_lessSwap, _n:stdgo.GoInt):Voi
 ```
 
 
-[\(view code\)](<./Sort.hx#L472>)
+[\(view code\)](<./Sort.hx#L477>)
 
 
 ## function \_swapRange
@@ -594,7 +594,7 @@ function _swapRange(_data:stdgo._internal.sort.Interface, _a:stdgo.GoInt, _b:std
 ```
 
 
-[\(view code\)](<./Sort.hx#L855>)
+[\(view code\)](<./Sort.hx#L860>)
 
 
 ## function \_swapRange\_func
@@ -605,7 +605,7 @@ function _swapRange_func(_data:stdgo._internal.sort.T_lessSwap, _a:stdgo.GoInt, 
 ```
 
 
-[\(view code\)](<./Sort.hx#L464>)
+[\(view code\)](<./Sort.hx#L469>)
 
 
 ## function \_symMerge
@@ -616,7 +616,7 @@ function _symMerge(_data:stdgo._internal.sort.Interface, _a:stdgo.GoInt, _m:stdg
 ```
 
 
-[\(view code\)](<./Sort.hx#L893>)
+[\(view code\)](<./Sort.hx#L898>)
 
 
 ## function \_symMerge\_func
@@ -627,7 +627,7 @@ function _symMerge_func(_data:stdgo._internal.sort.T_lessSwap, _a:stdgo.GoInt, _
 ```
 
 
-[\(view code\)](<./Sort.hx#L502>)
+[\(view code\)](<./Sort.hx#L507>)
 
 
 ## function find
@@ -641,7 +641,7 @@ function find(_n:stdgo.GoInt, _cmp:()):{
 ```
 
 
-[\(view code\)](<./Sort.hx#L90>)
+[\(view code\)](<./Sort.hx#L95>)
 
 
 ## function float64s
@@ -675,7 +675,7 @@ function exampleFloat64s():Void {
 </details>
 
 
-[\(view code\)](<./Sort.hx#L176>)
+[\(view code\)](<./Sort.hx#L181>)
 
 
 ## function float64sAreSorted
@@ -709,7 +709,7 @@ function exampleFloat64sAreSorted():Void {
 </details>
 
 
-[\(view code\)](<./Sort.hx#L185>)
+[\(view code\)](<./Sort.hx#L190>)
 
 
 ## function heapsort
@@ -720,7 +720,7 @@ function heapsort(_data:stdgo._internal.sort.Interface):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L72>)
+[\(view code\)](<./Sort.hx#L77>)
 
 
 ## function ints
@@ -751,7 +751,7 @@ function exampleInts():Void {
 </details>
 
 
-[\(view code\)](<./Sort.hx#L173>)
+[\(view code\)](<./Sort.hx#L178>)
 
 
 ## function intsAreSorted
@@ -785,7 +785,7 @@ function exampleIntsAreSorted():Void {
 </details>
 
 
-[\(view code\)](<./Sort.hx#L182>)
+[\(view code\)](<./Sort.hx#L187>)
 
 
 ## function isSorted
@@ -796,7 +796,7 @@ function isSorted(_data:stdgo._internal.sort.Interface):Bool
 ```
 
 
-[\(view code\)](<./Sort.hx#L158>)
+[\(view code\)](<./Sort.hx#L163>)
 
 
 ## function reverse
@@ -827,7 +827,7 @@ function exampleReverse():Void {
 </details>
 
 
-[\(view code\)](<./Sort.hx#L155>)
+[\(view code\)](<./Sort.hx#L160>)
 
 
 ## function reverseRange
@@ -838,7 +838,7 @@ function reverseRange(_data:stdgo._internal.sort.Interface, _a:stdgo.GoInt, _b:s
 ```
 
 
-[\(view code\)](<./Sort.hx#L75>)
+[\(view code\)](<./Sort.hx#L80>)
 
 
 ## function search
@@ -903,7 +903,7 @@ function exampleSearch_descendingOrder():Void {
 </details>
 
 
-[\(view code\)](<./Sort.hx#L78>)
+[\(view code\)](<./Sort.hx#L83>)
 
 
 ## function searchFloat64s
@@ -938,7 +938,7 @@ function exampleSearchFloat64s():Void {
 </details>
 
 
-[\(view code\)](<./Sort.hx#L108>)
+[\(view code\)](<./Sort.hx#L113>)
 
 
 ## function searchInts
@@ -973,7 +973,7 @@ function exampleSearchInts():Void {
 </details>
 
 
-[\(view code\)](<./Sort.hx#L103>)
+[\(view code\)](<./Sort.hx#L108>)
 
 
 ## function searchStrings
@@ -984,7 +984,7 @@ function searchStrings(_a:stdgo.Slice<stdgo.GoString>, _x:stdgo.GoString):stdgo.
 ```
 
 
-[\(view code\)](<./Sort.hx#L113>)
+[\(view code\)](<./Sort.hx#L118>)
 
 
 ## function slice
@@ -1021,7 +1021,7 @@ function exampleSlice():Void {
 </details>
 
 
-[\(view code\)](<./Sort.hx#L118>)
+[\(view code\)](<./Sort.hx#L123>)
 
 
 ## function sliceIsSorted
@@ -1032,7 +1032,7 @@ function sliceIsSorted(_x:stdgo.AnyInterface, _less:(_i:stdgo.GoInt, _j:stdgo.Go
 ```
 
 
-[\(view code\)](<./Sort.hx#L130>)
+[\(view code\)](<./Sort.hx#L135>)
 
 
 ## function sliceStable
@@ -1069,7 +1069,7 @@ function exampleSliceStable():Void {
 </details>
 
 
-[\(view code\)](<./Sort.hx#L125>)
+[\(view code\)](<./Sort.hx#L130>)
 
 
 ## function sort
@@ -1080,7 +1080,7 @@ function sort(_data:stdgo._internal.sort.Interface):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L143>)
+[\(view code\)](<./Sort.hx#L148>)
 
 
 ## function stable
@@ -1091,7 +1091,7 @@ function stable(_data:stdgo._internal.sort.Interface):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L191>)
+[\(view code\)](<./Sort.hx#L196>)
 
 
 ## function strings
@@ -1122,7 +1122,7 @@ function exampleStrings():Void {
 </details>
 
 
-[\(view code\)](<./Sort.hx#L179>)
+[\(view code\)](<./Sort.hx#L184>)
 
 
 ## function stringsAreSorted
@@ -1133,7 +1133,7 @@ function stringsAreSorted(_x:stdgo.Slice<stdgo.GoString>):Bool
 ```
 
 
-[\(view code\)](<./Sort.hx#L188>)
+[\(view code\)](<./Sort.hx#L193>)
 
 
 # Typedefs

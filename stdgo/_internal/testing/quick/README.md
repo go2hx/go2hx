@@ -294,7 +294,7 @@ function _arbitraryValues(_args:stdgo.Slice<stdgo._internal.reflect.Value>, _f:s
 ```
 
 
-[\(view code\)](<./Quick.hx#L356>)
+[\(view code\)](<./Quick.hx#L359>)
 
 
 ## function \_fArray
@@ -305,7 +305,7 @@ function _fArray(_a:stdgo.GoArray<stdgo.GoByte>):stdgo.GoArray<stdgo.GoByte>
 ```
 
 
-[\(view code\)](<./Quick.hx#L403>)
+[\(view code\)](<./Quick.hx#L406>)
 
 
 ## function \_fArrayAlias
@@ -316,7 +316,7 @@ function _fArrayAlias(_a:stdgo._internal.testing.quick.TestArrayAlias):stdgo._in
 ```
 
 
-[\(view code\)](<./Quick.hx#L406>)
+[\(view code\)](<./Quick.hx#L409>)
 
 
 ## function \_fBool
@@ -327,7 +327,7 @@ function _fBool(_a:Bool):Bool
 ```
 
 
-[\(view code\)](<./Quick.hx#L409>)
+[\(view code\)](<./Quick.hx#L412>)
 
 
 ## function \_fBoolAlias
@@ -338,7 +338,7 @@ function _fBoolAlias(_a:stdgo._internal.testing.quick.TestBoolAlias):stdgo._inte
 ```
 
 
-[\(view code\)](<./Quick.hx#L412>)
+[\(view code\)](<./Quick.hx#L415>)
 
 
 ## function \_fComplex128
@@ -349,7 +349,7 @@ function _fComplex128(_a:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-[\(view code\)](<./Quick.hx#L433>)
+[\(view code\)](<./Quick.hx#L436>)
 
 
 ## function \_fComplex128Alias
@@ -360,7 +360,7 @@ function _fComplex128Alias(_a:stdgo._internal.testing.quick.TestComplex128Alias)
 ```
 
 
-[\(view code\)](<./Quick.hx#L436>)
+[\(view code\)](<./Quick.hx#L439>)
 
 
 ## function \_fComplex64
@@ -371,7 +371,7 @@ function _fComplex64(_a:stdgo.GoComplex64):stdgo.GoComplex64
 ```
 
 
-[\(view code\)](<./Quick.hx#L427>)
+[\(view code\)](<./Quick.hx#L430>)
 
 
 ## function \_fComplex64Alias
@@ -382,7 +382,7 @@ function _fComplex64Alias(_a:stdgo._internal.testing.quick.TestComplex64Alias):s
 ```
 
 
-[\(view code\)](<./Quick.hx#L430>)
+[\(view code\)](<./Quick.hx#L433>)
 
 
 ## function \_fFloat32
@@ -393,7 +393,7 @@ function _fFloat32(_a:stdgo.GoFloat32):stdgo.GoFloat32
 ```
 
 
-[\(view code\)](<./Quick.hx#L415>)
+[\(view code\)](<./Quick.hx#L418>)
 
 
 ## function \_fFloat32Alias
@@ -404,7 +404,7 @@ function _fFloat32Alias(_a:stdgo._internal.testing.quick.TestFloat32Alias):stdgo
 ```
 
 
-[\(view code\)](<./Quick.hx#L418>)
+[\(view code\)](<./Quick.hx#L421>)
 
 
 ## function \_fFloat64
@@ -415,7 +415,7 @@ function _fFloat64(_a:stdgo.GoFloat64):stdgo.GoFloat64
 ```
 
 
-[\(view code\)](<./Quick.hx#L421>)
+[\(view code\)](<./Quick.hx#L424>)
 
 
 ## function \_fFloat64Alias
@@ -426,7 +426,7 @@ function _fFloat64Alias(_a:stdgo._internal.testing.quick.TestFloat64Alias):stdgo
 ```
 
 
-[\(view code\)](<./Quick.hx#L424>)
+[\(view code\)](<./Quick.hx#L427>)
 
 
 ## function \_fInt
@@ -437,7 +437,7 @@ function _fInt(_a:stdgo.GoInt):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Quick.hx#L463>)
+[\(view code\)](<./Quick.hx#L466>)
 
 
 ## function \_fInt16
@@ -448,7 +448,7 @@ function _fInt16(_a:stdgo.GoInt16):stdgo.GoInt16
 ```
 
 
-[\(view code\)](<./Quick.hx#L439>)
+[\(view code\)](<./Quick.hx#L442>)
 
 
 ## function \_fInt16Alias
@@ -459,7 +459,7 @@ function _fInt16Alias(_a:stdgo._internal.testing.quick.TestInt16Alias):stdgo._in
 ```
 
 
-[\(view code\)](<./Quick.hx#L442>)
+[\(view code\)](<./Quick.hx#L445>)
 
 
 ## function \_fInt32
@@ -470,7 +470,7 @@ function _fInt32(_a:stdgo.GoInt32):stdgo.GoInt32
 ```
 
 
-[\(view code\)](<./Quick.hx#L445>)
+[\(view code\)](<./Quick.hx#L448>)
 
 
 ## function \_fInt32Alias
@@ -481,7 +481,7 @@ function _fInt32Alias(_a:stdgo._internal.testing.quick.TestInt32Alias):stdgo._in
 ```
 
 
-[\(view code\)](<./Quick.hx#L448>)
+[\(view code\)](<./Quick.hx#L451>)
 
 
 ## function \_fInt64
@@ -492,7 +492,7 @@ function _fInt64(_a:stdgo.GoInt64):stdgo.GoInt64
 ```
 
 
-[\(view code\)](<./Quick.hx#L451>)
+[\(view code\)](<./Quick.hx#L454>)
 
 
 ## function \_fInt64Alias
@@ -503,7 +503,7 @@ function _fInt64Alias(_a:stdgo._internal.testing.quick.TestInt64Alias):stdgo._in
 ```
 
 
-[\(view code\)](<./Quick.hx#L454>)
+[\(view code\)](<./Quick.hx#L457>)
 
 
 ## function \_fInt8
@@ -514,7 +514,7 @@ function _fInt8(_a:stdgo.GoInt8):stdgo.GoInt8
 ```
 
 
-[\(view code\)](<./Quick.hx#L457>)
+[\(view code\)](<./Quick.hx#L460>)
 
 
 ## function \_fInt8Alias
@@ -525,7 +525,7 @@ function _fInt8Alias(_a:stdgo._internal.testing.quick.TestInt8Alias):stdgo._inte
 ```
 
 
-[\(view code\)](<./Quick.hx#L460>)
+[\(view code\)](<./Quick.hx#L463>)
 
 
 ## function \_fIntAlias
@@ -536,7 +536,7 @@ function _fIntAlias(_a:stdgo._internal.testing.quick.TestIntAlias):stdgo._intern
 ```
 
 
-[\(view code\)](<./Quick.hx#L466>)
+[\(view code\)](<./Quick.hx#L469>)
 
 
 ## function \_fMap
@@ -547,7 +547,7 @@ function _fMap(_a:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>):stdgo.GoMap<stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Quick.hx#L469>)
+[\(view code\)](<./Quick.hx#L472>)
 
 
 ## function \_fMapAlias
@@ -558,7 +558,7 @@ function _fMapAlias(_a:stdgo._internal.testing.quick.TestMapAlias):stdgo._intern
 ```
 
 
-[\(view code\)](<./Quick.hx#L472>)
+[\(view code\)](<./Quick.hx#L475>)
 
 
 ## function \_fPtr
@@ -569,7 +569,7 @@ function _fPtr(_a:stdgo.Pointer<stdgo.GoInt>):stdgo.Pointer<stdgo.GoInt>
 ```
 
 
-[\(view code\)](<./Quick.hx#L475>)
+[\(view code\)](<./Quick.hx#L478>)
 
 
 ## function \_fPtrAlias
@@ -580,7 +580,7 @@ function _fPtrAlias(_a:stdgo._internal.testing.quick.TestPtrAlias):stdgo._intern
 ```
 
 
-[\(view code\)](<./Quick.hx#L482>)
+[\(view code\)](<./Quick.hx#L485>)
 
 
 ## function \_fSlice
@@ -591,7 +591,7 @@ function _fSlice(_a:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
 ```
 
 
-[\(view code\)](<./Quick.hx#L485>)
+[\(view code\)](<./Quick.hx#L488>)
 
 
 ## function \_fSliceAlias
@@ -602,7 +602,7 @@ function _fSliceAlias(_a:stdgo._internal.testing.quick.TestSliceAlias):stdgo._in
 ```
 
 
-[\(view code\)](<./Quick.hx#L488>)
+[\(view code\)](<./Quick.hx#L491>)
 
 
 ## function \_fString
@@ -613,7 +613,7 @@ function _fString(_a:stdgo.GoString):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Quick.hx#L491>)
+[\(view code\)](<./Quick.hx#L494>)
 
 
 ## function \_fStringAlias
@@ -624,7 +624,7 @@ function _fStringAlias(_a:stdgo._internal.testing.quick.TestStringAlias):stdgo._
 ```
 
 
-[\(view code\)](<./Quick.hx#L494>)
+[\(view code\)](<./Quick.hx#L497>)
 
 
 ## function \_fStruct
@@ -635,7 +635,7 @@ function _fStruct(_a:stdgo._internal.testing.quick.TestStruct):stdgo._internal.t
 ```
 
 
-[\(view code\)](<./Quick.hx#L497>)
+[\(view code\)](<./Quick.hx#L500>)
 
 
 ## function \_fStructAlias
@@ -646,7 +646,7 @@ function _fStructAlias(_a:stdgo._internal.testing.quick.TestStructAlias):stdgo._
 ```
 
 
-[\(view code\)](<./Quick.hx#L500>)
+[\(view code\)](<./Quick.hx#L503>)
 
 
 ## function \_fUint
@@ -657,7 +657,7 @@ function _fUint(_a:stdgo.GoUInt):stdgo.GoUInt
 ```
 
 
-[\(view code\)](<./Quick.hx#L527>)
+[\(view code\)](<./Quick.hx#L530>)
 
 
 ## function \_fUint16
@@ -668,7 +668,7 @@ function _fUint16(_a:stdgo.GoUInt16):stdgo.GoUInt16
 ```
 
 
-[\(view code\)](<./Quick.hx#L503>)
+[\(view code\)](<./Quick.hx#L506>)
 
 
 ## function \_fUint16Alias
@@ -679,7 +679,7 @@ function _fUint16Alias(_a:stdgo._internal.testing.quick.TestUint16Alias):stdgo._
 ```
 
 
-[\(view code\)](<./Quick.hx#L506>)
+[\(view code\)](<./Quick.hx#L509>)
 
 
 ## function \_fUint32
@@ -690,7 +690,7 @@ function _fUint32(_a:stdgo.GoUInt32):stdgo.GoUInt32
 ```
 
 
-[\(view code\)](<./Quick.hx#L509>)
+[\(view code\)](<./Quick.hx#L512>)
 
 
 ## function \_fUint32Alias
@@ -701,7 +701,7 @@ function _fUint32Alias(_a:stdgo._internal.testing.quick.TestUint32Alias):stdgo._
 ```
 
 
-[\(view code\)](<./Quick.hx#L512>)
+[\(view code\)](<./Quick.hx#L515>)
 
 
 ## function \_fUint64
@@ -712,7 +712,7 @@ function _fUint64(_a:stdgo.GoUInt64):stdgo.GoUInt64
 ```
 
 
-[\(view code\)](<./Quick.hx#L515>)
+[\(view code\)](<./Quick.hx#L518>)
 
 
 ## function \_fUint64Alias
@@ -723,7 +723,7 @@ function _fUint64Alias(_a:stdgo._internal.testing.quick.TestUint64Alias):stdgo._
 ```
 
 
-[\(view code\)](<./Quick.hx#L518>)
+[\(view code\)](<./Quick.hx#L521>)
 
 
 ## function \_fUint8
@@ -734,7 +734,7 @@ function _fUint8(_a:stdgo.GoUInt8):stdgo.GoUInt8
 ```
 
 
-[\(view code\)](<./Quick.hx#L521>)
+[\(view code\)](<./Quick.hx#L524>)
 
 
 ## function \_fUint8Alias
@@ -745,7 +745,7 @@ function _fUint8Alias(_a:stdgo._internal.testing.quick.TestUint8Alias):stdgo._in
 ```
 
 
-[\(view code\)](<./Quick.hx#L524>)
+[\(view code\)](<./Quick.hx#L527>)
 
 
 ## function \_fUintAlias
@@ -756,7 +756,7 @@ function _fUintAlias(_a:stdgo._internal.testing.quick.TestUintAlias):stdgo._inte
 ```
 
 
-[\(view code\)](<./Quick.hx#L530>)
+[\(view code\)](<./Quick.hx#L533>)
 
 
 ## function \_fUintptr
@@ -767,7 +767,7 @@ function _fUintptr(_a:stdgo.GoUIntptr):stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Quick.hx#L533>)
+[\(view code\)](<./Quick.hx#L536>)
 
 
 ## function \_fUintptrAlias
@@ -778,7 +778,7 @@ function _fUintptrAlias(_a:stdgo._internal.testing.quick.TestUintptrAlias):stdgo
 ```
 
 
-[\(view code\)](<./Quick.hx#L536>)
+[\(view code\)](<./Quick.hx#L539>)
 
 
 ## function \_functionAndType
@@ -793,7 +793,7 @@ function _functionAndType(_f:stdgo.AnyInterface):{
 ```
 
 
-[\(view code\)](<./Quick.hx#L379>)
+[\(view code\)](<./Quick.hx#L382>)
 
 
 ## function \_myStructProperty
@@ -804,7 +804,7 @@ function _myStructProperty(_in:stdgo._internal.testing.quick.T_myStruct):Bool
 ```
 
 
-[\(view code\)](<./Quick.hx#L592>)
+[\(view code\)](<./Quick.hx#L595>)
 
 
 ## function \_randFloat32
@@ -815,7 +815,7 @@ function _randFloat32(_rand:stdgo.Ref<stdgo._internal.math.rand.Rand>):stdgo.GoF
 ```
 
 
-[\(view code\)](<./Quick.hx#L136>)
+[\(view code\)](<./Quick.hx#L139>)
 
 
 ## function \_randFloat64
@@ -826,7 +826,7 @@ function _randFloat64(_rand:stdgo.Ref<stdgo._internal.math.rand.Rand>):stdgo.GoF
 ```
 
 
-[\(view code\)](<./Quick.hx#L143>)
+[\(view code\)](<./Quick.hx#L146>)
 
 
 ## function \_randInt64
@@ -837,7 +837,7 @@ function _randInt64(_rand:stdgo.Ref<stdgo._internal.math.rand.Rand>):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Quick.hx#L150>)
+[\(view code\)](<./Quick.hx#L153>)
 
 
 ## function \_reportError
@@ -848,7 +848,7 @@ function _reportError(_property:stdgo.GoString, _err:stdgo.Error, _t:stdgo.Ref<s
 ```
 
 
-[\(view code\)](<./Quick.hx#L539>)
+[\(view code\)](<./Quick.hx#L542>)
 
 
 ## function \_sizedValue
@@ -862,7 +862,7 @@ function _sizedValue(_t:stdgo._internal.reflect.Type_, _rand:stdgo.Ref<stdgo._in
 ```
 
 
-[\(view code\)](<./Quick.hx#L157>)
+[\(view code\)](<./Quick.hx#L160>)
 
 
 ## function \_toInterfaces
@@ -873,7 +873,7 @@ function _toInterfaces(_values:stdgo.Slice<stdgo._internal.reflect.Value>):stdgo
 ```
 
 
-[\(view code\)](<./Quick.hx#L389>)
+[\(view code\)](<./Quick.hx#L392>)
 
 
 ## function \_toString
@@ -884,7 +884,7 @@ function _toString(_interfaces:stdgo.Slice<stdgo.AnyInterface>):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Quick.hx#L396>)
+[\(view code\)](<./Quick.hx#L399>)
 
 
 ## function check
@@ -895,7 +895,7 @@ function check(_f:stdgo.AnyInterface, _config:stdgo.Ref<stdgo._internal.testing.
 ```
 
 
-[\(view code\)](<./Quick.hx#L291>)
+[\(view code\)](<./Quick.hx#L294>)
 
 
 ## function checkEqual
@@ -906,7 +906,7 @@ function checkEqual(_f:stdgo.AnyInterface, _g:stdgo.AnyInterface, _config:stdgo.
 ```
 
 
-[\(view code\)](<./Quick.hx#L322>)
+[\(view code\)](<./Quick.hx#L325>)
 
 
 ## function testCheckEqual
@@ -917,7 +917,7 @@ function testCheckEqual(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L544>)
+[\(view code\)](<./Quick.hx#L547>)
 
 
 ## function testCheckProperty
@@ -928,7 +928,7 @@ function testCheckProperty(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L595>)
+[\(view code\)](<./Quick.hx#L598>)
 
 
 ## function testEmptyStruct
@@ -939,7 +939,7 @@ function testEmptyStruct(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L692>)
+[\(view code\)](<./Quick.hx#L695>)
 
 
 ## function testFailure
@@ -950,7 +950,7 @@ function testFailure(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L598>)
+[\(view code\)](<./Quick.hx#L601>)
 
 
 ## function testInt64
@@ -961,7 +961,7 @@ function testInt64(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L726>)
+[\(view code\)](<./Quick.hx#L729>)
 
 
 ## function testMutuallyRecursive
@@ -972,7 +972,7 @@ function testMutuallyRecursive(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L698>)
+[\(view code\)](<./Quick.hx#L701>)
 
 
 ## function testNonZeroSliceAndMap
@@ -983,7 +983,7 @@ function testNonZeroSliceAndMap(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L716>)
+[\(view code\)](<./Quick.hx#L719>)
 
 
 ## function testRecursive
@@ -994,7 +994,7 @@ function testRecursive(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L685>)
+[\(view code\)](<./Quick.hx#L688>)
 
 
 ## function value
@@ -1008,7 +1008,7 @@ function value(_t:stdgo._internal.reflect.Type_, _rand:stdgo.Ref<stdgo._internal
 ```
 
 
-[\(view code\)](<./Quick.hx#L153>)
+[\(view code\)](<./Quick.hx#L156>)
 
 
 # Classes
@@ -1035,7 +1035,7 @@ function new(?b:stdgo.Ref<stdgo._internal.testing.quick.B>):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L82>)
+[\(view code\)](<./Quick.hx#L85>)
 
 
 ## class B
@@ -1054,7 +1054,7 @@ function new(?a:stdgo.Ref<stdgo._internal.testing.quick.A>):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L92>)
+[\(view code\)](<./Quick.hx#L95>)
 
 
 ## class CheckEqualError
@@ -1083,7 +1083,7 @@ function new(?checkError:stdgo._internal.testing.quick.CheckError, ?out1:stdgo.S
 ```
 
 
-[\(view code\)](<./Quick.hx#L48>)
+[\(view code\)](<./Quick.hx#L51>)
 
 
 ### CheckEqualError function error
@@ -1094,7 +1094,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Quick.hx#L811>)
+[\(view code\)](<./Quick.hx#L814>)
 
 
 ## class CheckError
@@ -1118,7 +1118,7 @@ function new(?count:stdgo.GoInt, ?in_:stdgo.Slice<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L34>)
+[\(view code\)](<./Quick.hx#L37>)
 
 
 ### CheckError function error
@@ -1129,7 +1129,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Quick.hx#L793>)
+[\(view code\)](<./Quick.hx#L796>)
 
 
 ## class Config
@@ -1158,7 +1158,7 @@ function new(?maxCount:stdgo.GoInt, ?maxCountScale:stdgo.GoFloat64, ?rand:stdgo.
 ```
 
 
-[\(view code\)](<./Quick.hx#L20>)
+[\(view code\)](<./Quick.hx#L23>)
 
 
 ### Config function values
@@ -1177,7 +1177,7 @@ function _getMaxCount():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Quick.hx#L758>)
+[\(view code\)](<./Quick.hx#L761>)
 
 
 ### Config function \_getRand
@@ -1188,7 +1188,7 @@ function _getRand():stdgo.Ref<stdgo._internal.math.rand.Rand>
 ```
 
 
-[\(view code\)](<./Quick.hx#L772>)
+[\(view code\)](<./Quick.hx#L775>)
 
 
 ## class T\_testNonZeroSliceAndMap\_36\_\_\_localname\_\_\_Q
@@ -1212,7 +1212,7 @@ function new(?m:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>, ?s:stdgo.Slice<stdgo.GoIn
 ```
 
 
-[\(view code\)](<./Quick.hx#L707>)
+[\(view code\)](<./Quick.hx#L710>)
 
 
 ## class T\_testRecursive\_35\_\_\_localname\_\_\_R
@@ -1261,7 +1261,7 @@ function new(?ptr:stdgo.Ref<stdgo._internal.testing.quick.T_testRecursive_35___l
 ```
 
 
-[\(view code\)](<./Quick.hx#L671>)
+[\(view code\)](<./Quick.hx#L674>)
 
 
 ## class TestStruct
@@ -1285,7 +1285,7 @@ function new(?a:stdgo.GoInt, ?b:stdgo.GoString):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L61>)
+[\(view code\)](<./Quick.hx#L64>)
 
 
 # Typedefs

@@ -175,7 +175,7 @@ function _testFileLevelDict(_t:stdgo.Ref<stdgo._internal.testing.T_>, _fn:stdgo.
 ```
 
 
-[\(view code\)](<./Zlib.hx#L302>)
+[\(view code\)](<./Zlib.hx#L305>)
 
 
 ## function \_testFileLevelDictReset
@@ -186,7 +186,7 @@ function _testFileLevelDictReset(_t:stdgo.Ref<stdgo._internal.testing.T_>, _fn:s
 ```
 
 
-[\(view code\)](<./Zlib.hx#L469>)
+[\(view code\)](<./Zlib.hx#L472>)
 
 
 ## function \_testLevelDict
@@ -197,7 +197,7 @@ function _testLevelDict(_t:stdgo.Ref<stdgo._internal.testing.T_>, _fn:stdgo.GoSt
 ```
 
 
-[\(view code\)](<./Zlib.hx#L343>)
+[\(view code\)](<./Zlib.hx#L346>)
 
 
 ## function newReader
@@ -261,7 +261,7 @@ function exampleNewReader():Void {
 </details>
 
 
-[\(view code\)](<./Zlib.hx#L218>)
+[\(view code\)](<./Zlib.hx#L221>)
 
 
 ## function newReaderDict
@@ -275,7 +275,7 @@ function newReaderDict(_r:stdgo._internal.io.Reader, _dict:stdgo.Slice<stdgo.GoB
 ```
 
 
-[\(view code\)](<./Zlib.hx#L221>)
+[\(view code\)](<./Zlib.hx#L224>)
 
 
 ## function newWriter
@@ -308,7 +308,7 @@ function exampleNewWriter():Void {
 </details>
 
 
-[\(view code\)](<./Zlib.hx#L289>)
+[\(view code\)](<./Zlib.hx#L292>)
 
 
 ## function newWriterLevel
@@ -322,7 +322,7 @@ function newWriterLevel(_w:stdgo._internal.io.Writer, _level:stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Zlib.hx#L293>)
+[\(view code\)](<./Zlib.hx#L296>)
 
 
 ## function newWriterLevelDict
@@ -336,7 +336,7 @@ function newWriterLevelDict(_w:stdgo._internal.io.Writer, _level:stdgo.GoInt, _d
 ```
 
 
-[\(view code\)](<./Zlib.hx#L296>)
+[\(view code\)](<./Zlib.hx#L299>)
 
 
 ## function testDecompressor
@@ -347,7 +347,7 @@ function testDecompressor(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Zlib.hx#L229>)
+[\(view code\)](<./Zlib.hx#L232>)
 
 
 ## function testWriter
@@ -358,7 +358,7 @@ function testWriter(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Zlib.hx#L530>)
+[\(view code\)](<./Zlib.hx#L533>)
 
 
 ## function testWriterBig
@@ -369,7 +369,7 @@ function testWriterBig(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Zlib.hx#L545>)
+[\(view code\)](<./Zlib.hx#L548>)
 
 
 ## function testWriterDict
@@ -380,7 +380,7 @@ function testWriterDict(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Zlib.hx#L564>)
+[\(view code\)](<./Zlib.hx#L567>)
 
 
 ## function testWriterDictIsUsed
@@ -391,7 +391,7 @@ function testWriterDictIsUsed(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Zlib.hx#L604>)
+[\(view code\)](<./Zlib.hx#L607>)
 
 
 ## function testWriterReset
@@ -402,7 +402,7 @@ function testWriterReset(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Zlib.hx#L584>)
+[\(view code\)](<./Zlib.hx#L587>)
 
 
 # Classes
@@ -464,7 +464,7 @@ function new(?_w:Null<stdgo._internal.io.Writer>, ?_level:stdgo.GoInt, ?_dict:st
 ```
 
 
-[\(view code\)](<./Zlib.hx#L203>)
+[\(view code\)](<./Zlib.hx#L206>)
 
 
 ### Writer function \_writeHeader
@@ -475,7 +475,7 @@ function _writeHeader():stdgo.Error
 ```
 
 
-[\(view code\)](<./Zlib.hx#L826>)
+[\(view code\)](<./Zlib.hx#L829>)
 
 
 ### Writer function close
@@ -486,7 +486,7 @@ function close():stdgo.Error
 ```
 
 
-[\(view code\)](<./Zlib.hx#L768>)
+[\(view code\)](<./Zlib.hx#L771>)
 
 
 ### Writer function flush
@@ -497,7 +497,7 @@ function flush():stdgo.Error
 ```
 
 
-[\(view code\)](<./Zlib.hx#L789>)
+[\(view code\)](<./Zlib.hx#L792>)
 
 
 ### Writer function reset
@@ -508,7 +508,7 @@ function reset( _w:stdgo._internal.io.Writer):Void
 ```
 
 
-[\(view code\)](<./Zlib.hx#L884>)
+[\(view code\)](<./Zlib.hx#L887>)
 
 
 ### Writer function write
@@ -522,7 +522,7 @@ function write( _p:stdgo.Slice<stdgo.GoByte>):{
 ```
 
 
-[\(view code\)](<./Zlib.hx#L801>)
+[\(view code\)](<./Zlib.hx#L804>)
 
 
 # Typedefs

@@ -68,11 +68,17 @@ but also by other packages.
 
 - [typedef DirEntry](<#typedef-direntry>)
 
+- [typedef DirEntry\_static\_extension](<#typedef-direntry_static_extension>)
+
 - [typedef FS](<#typedef-fs>)
+
+- [typedef FS\_static\_extension](<#typedef-fs_static_extension>)
 
 - [typedef File](<#typedef-file>)
 
 - [typedef FileInfo](<#typedef-fileinfo>)
+
+- [typedef FileInfo\_static\_extension](<#typedef-fileinfo_static_extension>)
 
 - [typedef FileMode](<#typedef-filemode>)
 
@@ -80,7 +86,11 @@ but also by other packages.
 
 - [typedef FileMode\_static\_extension](<#typedef-filemode_static_extension>)
 
+- [typedef File\_static\_extension](<#typedef-file_static_extension>)
+
 - [typedef GlobFS](<#typedef-globfs>)
+
+- [typedef GlobFS\_static\_extension](<#typedef-globfs_static_extension>)
 
 - [typedef PathError](<#typedef-patherror>)
 
@@ -90,15 +100,27 @@ but also by other packages.
 
 - [typedef ReadDirFS](<#typedef-readdirfs>)
 
+- [typedef ReadDirFS\_static\_extension](<#typedef-readdirfs_static_extension>)
+
 - [typedef ReadDirFile](<#typedef-readdirfile>)
+
+- [typedef ReadDirFile\_static\_extension](<#typedef-readdirfile_static_extension>)
 
 - [typedef ReadFileFS](<#typedef-readfilefs>)
 
+- [typedef ReadFileFS\_static\_extension](<#typedef-readfilefs_static_extension>)
+
 - [typedef StatFS](<#typedef-statfs>)
+
+- [typedef StatFS\_static\_extension](<#typedef-statfs_static_extension>)
 
 - [typedef SubFS](<#typedef-subfs>)
 
+- [typedef SubFS\_static\_extension](<#typedef-subfs_static_extension>)
+
 - [typedef T\_\_interface\_0](<#typedef-t__interface_0>)
+
+- [typedef T\_\_interface\_0\_static\_extension](<#typedef-t__interface_0_static_extension>)
 
 - [typedef T\_dirInfo](<#typedef-t_dirinfo>)
 
@@ -266,7 +288,7 @@ function fileInfoToDirEntry(info:stdgo.io.fs.FileInfo):stdgo.io.fs.DirEntry
 FileInfoToDirEntry returns a DirEntry that returns information from info.
 If info is nil, FileInfoToDirEntry returns nil.  
 
-[\(view code\)](<./Fs.hx#L123>)
+[\(view code\)](<./Fs.hx#L134>)
 
 
 ## function formatDirEntry
@@ -286,7 +308,7 @@ The outputs for a directory named subdir and a file named hello.go are:
 	d subdir/
 	- hello.go
 ```
-[\(view code\)](<./Fs.hx#L78>)
+[\(view code\)](<./Fs.hx#L89>)
 
 
 ## function formatFileInfo
@@ -306,7 +328,7 @@ January 1, 1970 at noon is
 ```
 	-rw-r--r-- 100 1970-01-01 12:00:00 hello.go
 ```
-[\(view code\)](<./Fs.hx#L69>)
+[\(view code\)](<./Fs.hx#L80>)
 
 
 ## function get\_errClosed
@@ -410,7 +432,7 @@ If fs implements GlobFS, Glob calls fs.Glob.
 Otherwise, Glob uses ReadDir to traverse the directory tree
 and look for matches for the pattern.  
 
-[\(view code\)](<./Fs.hx#L109>)
+[\(view code\)](<./Fs.hx#L120>)
 
 
 ## function readDir
@@ -430,7 +452,7 @@ If fs implements ReadDirFS, ReadDir calls fs.ReadDir.
 Otherwise ReadDir calls fs.Open and uses ReadDir and Close
 on the returned file.  
 
-[\(view code\)](<./Fs.hx#L118>)
+[\(view code\)](<./Fs.hx#L129>)
 
 
 ## function readFile
@@ -452,7 +474,7 @@ If fs implements ReadFileFS, ReadFile calls fs.ReadFile.
 Otherwise ReadFile calls fs.Open and uses Read and Close
 on the returned file.  
 
-[\(view code\)](<./Fs.hx#L134>)
+[\(view code\)](<./Fs.hx#L145>)
 
 
 ## function set\_errClosed
@@ -547,7 +569,7 @@ Stat returns a FileInfo describing the named file from the file system.
 If fs implements StatFS, Stat calls fs.Stat.
 Otherwise, Stat opens the file to stat it.  
 
-[\(view code\)](<./Fs.hx#L141>)
+[\(view code\)](<./Fs.hx#L152>)
 
 
 ## function sub
@@ -576,7 +598,7 @@ does not check for symbolic links inside "/prefix" that point to
 other directories. That is, os.DirFS is not a general substitute for a
 chroot\-style security mechanism, and Sub does not change that fact.  
 
-[\(view code\)](<./Fs.hx#L158>)
+[\(view code\)](<./Fs.hx#L169>)
 
 
 ## function validPath
@@ -604,7 +626,7 @@ Paths containing other characters such as backslash and colon
 are accepted as valid, but those characters must never be
 interpreted by an FS implementation as path element separators.  
 
-[\(view code\)](<./Fs.hx#L94>)
+[\(view code\)](<./Fs.hx#L105>)
 
 
 ## function walkDir
@@ -632,7 +654,7 @@ to walk that directory.
 WalkDir does not follow symbolic links found in directories,
 but if root itself is a symbolic link, its target will be walked.  
 
-[\(view code\)](<./Fs.hx#L173>)
+[\(view code\)](<./Fs.hx#L184>)
 
 
 # Typedefs
@@ -651,11 +673,27 @@ typedef DirEntry = stdgo._internal.io.fs.DirEntry;
 ```
 
 
+## typedef DirEntry\_static\_extension
+
+
+```haxe
+typedef DirEntry_static_extension = Dynamic;
+```
+
+
 ## typedef FS
 
 
 ```haxe
 typedef FS = stdgo._internal.io.fs.FS;
+```
+
+
+## typedef FS\_static\_extension
+
+
+```haxe
+typedef FS_static_extension = Dynamic;
 ```
 
 
@@ -672,6 +710,14 @@ typedef File = stdgo._internal.io.fs.File;
 
 ```haxe
 typedef FileInfo = stdgo._internal.io.fs.FileInfo;
+```
+
+
+## typedef FileInfo\_static\_extension
+
+
+```haxe
+typedef FileInfo_static_extension = Dynamic;
 ```
 
 
@@ -699,11 +745,27 @@ typedef FileMode_static_extension = Dynamic;
 ```
 
 
+## typedef File\_static\_extension
+
+
+```haxe
+typedef File_static_extension = Dynamic;
+```
+
+
 ## typedef GlobFS
 
 
 ```haxe
 typedef GlobFS = stdgo._internal.io.fs.GlobFS;
+```
+
+
+## typedef GlobFS\_static\_extension
+
+
+```haxe
+typedef GlobFS_static_extension = Dynamic;
 ```
 
 
@@ -739,11 +801,27 @@ typedef ReadDirFS = stdgo._internal.io.fs.ReadDirFS;
 ```
 
 
+## typedef ReadDirFS\_static\_extension
+
+
+```haxe
+typedef ReadDirFS_static_extension = Dynamic;
+```
+
+
 ## typedef ReadDirFile
 
 
 ```haxe
 typedef ReadDirFile = stdgo._internal.io.fs.ReadDirFile;
+```
+
+
+## typedef ReadDirFile\_static\_extension
+
+
+```haxe
+typedef ReadDirFile_static_extension = Dynamic;
 ```
 
 
@@ -755,11 +833,27 @@ typedef ReadFileFS = stdgo._internal.io.fs.ReadFileFS;
 ```
 
 
+## typedef ReadFileFS\_static\_extension
+
+
+```haxe
+typedef ReadFileFS_static_extension = Dynamic;
+```
+
+
 ## typedef StatFS
 
 
 ```haxe
 typedef StatFS = stdgo._internal.io.fs.StatFS;
+```
+
+
+## typedef StatFS\_static\_extension
+
+
+```haxe
+typedef StatFS_static_extension = Dynamic;
 ```
 
 
@@ -771,11 +865,27 @@ typedef SubFS = stdgo._internal.io.fs.SubFS;
 ```
 
 
+## typedef SubFS\_static\_extension
+
+
+```haxe
+typedef SubFS_static_extension = Dynamic;
+```
+
+
 ## typedef T\_\_interface\_0
 
 
 ```haxe
 typedef T__interface_0 = stdgo._internal.io.fs.T__interface_0;
+```
+
+
+## typedef T\_\_interface\_0\_static\_extension
+
+
+```haxe
+typedef T__interface_0_static_extension = Dynamic;
 ```
 
 

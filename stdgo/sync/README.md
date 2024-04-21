@@ -68,6 +68,8 @@ Values containing the types defined in this package should not be copied.
 
 - [typedef Locker](<#typedef-locker>)
 
+- [typedef Locker\_static\_extension](<#typedef-locker_static_extension>)
+
 - [typedef Map\_](<#typedef-map_>)
 
 - [typedef Map\_\_asInterface](<#typedef-map__asinterface>)
@@ -89,6 +91,8 @@ Values containing the types defined in this package should not be copied.
 - [typedef Pool](<#typedef-pool>)
 
 - [typedef PoolDequeue](<#typedef-pooldequeue>)
+
+- [typedef PoolDequeue\_static\_extension](<#typedef-pooldequeue_static_extension>)
 
 - [typedef Pool\_asInterface](<#typedef-pool_asinterface>)
 
@@ -233,7 +237,7 @@ function newCond(l:stdgo.sync.Locker):stdgo.sync.Cond
 
 NewCond returns a new Cond with Locker l.  
 
-[\(view code\)](<./Sync.hx#L51>)
+[\(view code\)](<./Sync.hx#L53>)
 
 
 ## function newPoolChain
@@ -244,7 +248,7 @@ function newPoolChain():stdgo.sync.PoolDequeue
 ```
 
 
-[\(view code\)](<./Sync.hx#L53>)
+[\(view code\)](<./Sync.hx#L55>)
 
 
 ## function newPoolDequeue
@@ -255,7 +259,7 @@ function newPoolDequeue(n:Int):stdgo.sync.PoolDequeue
 ```
 
 
-[\(view code\)](<./Sync.hx#L52>)
+[\(view code\)](<./Sync.hx#L54>)
 
 
 ## function onceFunc
@@ -273,7 +277,7 @@ may be called concurrently.
 
 If f panics, the returned function will panic with the same value on every call.  
 
-[\(view code\)](<./Sync.hx#L60>)
+[\(view code\)](<./Sync.hx#L62>)
 
 
 ## function onceValue
@@ -432,6 +436,14 @@ typedef Locker = stdgo._internal.sync.Locker;
 ```
 
 
+## typedef Locker\_static\_extension
+
+
+```haxe
+typedef Locker_static_extension = Dynamic;
+```
+
+
 ## typedef Map\_
 
 
@@ -517,6 +529,14 @@ typedef Pool = Dynamic;
 
 ```haxe
 typedef PoolDequeue = stdgo._internal.sync.PoolDequeue;
+```
+
+
+## typedef PoolDequeue\_static\_extension
+
+
+```haxe
+typedef PoolDequeue_static_extension = Dynamic;
 ```
 
 

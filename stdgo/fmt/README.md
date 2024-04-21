@@ -551,15 +551,27 @@ bufio.NewReader.
 
 - [typedef Formatter](<#typedef-formatter>)
 
+- [typedef Formatter\_static\_extension](<#typedef-formatter_static_extension>)
+
 - [typedef GoStringer](<#typedef-gostringer>)
+
+- [typedef GoStringer\_static\_extension](<#typedef-gostringer_static_extension>)
 
 - [typedef ScanState](<#typedef-scanstate>)
 
+- [typedef ScanState\_static\_extension](<#typedef-scanstate_static_extension>)
+
 - [typedef Scanner](<#typedef-scanner>)
+
+- [typedef Scanner\_static\_extension](<#typedef-scanner_static_extension>)
 
 - [typedef State](<#typedef-state>)
 
+- [typedef State\_static\_extension](<#typedef-state_static_extension>)
+
 - [typedef Stringer](<#typedef-stringer>)
+
+- [typedef Stringer\_static\_extension](<#typedef-stringer_static_extension>)
 
 - [typedef T\_buffer](<#typedef-t_buffer>)
 
@@ -635,7 +647,7 @@ function append(b:Array<Int>, a:haxe.Rest<stdgo.AnyInterface>):Array<Int>
 Append formats using the default formats for its operands, appends the result to
 the byte slice, and returns the updated slice.  
 
-[\(view code\)](<./Fmt.hx#L468>)
+[\(view code\)](<./Fmt.hx#L474>)
 
 
 ## function appendf
@@ -650,7 +662,7 @@ function appendf(b:Array<Int>, format:String, a:haxe.Rest<stdgo.AnyInterface>):A
 Appendf formats according to a format specifier, appends the result to the byte
 slice, and returns the updated slice.  
 
-[\(view code\)](<./Fmt.hx#L446>)
+[\(view code\)](<./Fmt.hx#L452>)
 
 
 ## function appendln
@@ -666,7 +678,7 @@ Appendln formats using the default formats for its operands, appends the result
 to the byte slice, and returns the updated slice. Spaces are always added
 between operands and a newline is appended.  
 
-[\(view code\)](<./Fmt.hx#L491>)
+[\(view code\)](<./Fmt.hx#L497>)
 
 
 ## function errorf
@@ -690,7 +702,7 @@ order they appear in the arguments.
 It is invalid to supply the %w verb with an operand that does not implement
 the error interface. The %w verb is otherwise a synonym for %v.  
 
-[\(view code\)](<./Fmt.hx#L418>)
+[\(view code\)](<./Fmt.hx#L424>)
 
 
 ## function formatString
@@ -709,7 +721,7 @@ flags, the width, and the precision. Missing flags, width, and precision are
 omitted. This function allows a Formatter to reconstruct the original
 directive triggering the call to Format.  
 
-[\(view code\)](<./Fmt.hx#L427>)
+[\(view code\)](<./Fmt.hx#L433>)
 
 
 ## function fprint
@@ -725,7 +737,7 @@ Fprint formats using the default formats for its operands and writes to w.
 Spaces are added between operands when neither is a string.
 It returns the number of bytes written and any write error encountered.  
 
-[\(view code\)](<./Fmt.hx#L452>)
+[\(view code\)](<./Fmt.hx#L458>)
 
 
 ## function fprintf
@@ -740,7 +752,7 @@ function fprintf(w:stdgo._internal.io.Writer, format:String, a:haxe.Rest<stdgo.A
 Fprintf formats according to a format specifier and writes to w.
 It returns the number of bytes written and any write error encountered.  
 
-[\(view code\)](<./Fmt.hx#L432>)
+[\(view code\)](<./Fmt.hx#L438>)
 
 
 ## function fprintln
@@ -756,7 +768,7 @@ Fprintln formats using the default formats for its operands and writes to w.
 Spaces are always added between operands and a newline is appended.
 It returns the number of bytes written and any write error encountered.  
 
-[\(view code\)](<./Fmt.hx#L474>)
+[\(view code\)](<./Fmt.hx#L480>)
 
 
 ## function fscan
@@ -773,7 +785,7 @@ values into successive arguments. Newlines count as space. It
 returns the number of items successfully scanned. If that is less
 than the number of arguments, err will report why.  
 
-[\(view code\)](<./Fmt.hx#L539>)
+[\(view code\)](<./Fmt.hx#L545>)
 
 
 ## function fscanf
@@ -790,7 +802,7 @@ values into successive arguments as determined by the format. It
 returns the number of items successfully parsed.
 Newlines in the input must match newlines in the format.  
 
-[\(view code\)](<./Fmt.hx#L551>)
+[\(view code\)](<./Fmt.hx#L557>)
 
 
 ## function fscanln
@@ -805,7 +817,7 @@ function fscanln(r:stdgo._internal.io.Reader, a:haxe.Rest<stdgo.AnyInterface>):s
 Fscanln is similar to Fscan, but stops scanning at a newline and
 after the final item there must be a newline or EOF.  
 
-[\(view code\)](<./Fmt.hx#L544>)
+[\(view code\)](<./Fmt.hx#L550>)
 
 
 ## function get\_isSpace
@@ -873,7 +885,7 @@ Print formats using the default formats for its operands and writes to standard 
 Spaces are added between operands when neither is a string.
 It returns the number of bytes written and any write error encountered.  
 
-[\(view code\)](<./Fmt.hx#L458>)
+[\(view code\)](<./Fmt.hx#L464>)
 
 
 ## function printf
@@ -888,7 +900,7 @@ function printf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int,
 Printf formats according to a format specifier and writes to standard output.
 It returns the number of bytes written and any write error encountered.  
 
-[\(view code\)](<./Fmt.hx#L437>)
+[\(view code\)](<./Fmt.hx#L443>)
 
 
 ## function println
@@ -904,7 +916,7 @@ Println formats using the default formats for its operands and writes to standar
 Spaces are always added between operands and a newline is appended.
 It returns the number of bytes written and any write error encountered.  
 
-[\(view code\)](<./Fmt.hx#L480>)
+[\(view code\)](<./Fmt.hx#L486>)
 
 
 ## function scan
@@ -921,7 +933,7 @@ space\-separated values into successive arguments. Newlines count
 as space. It returns the number of items successfully scanned.
 If that is less than the number of arguments, err will report why.  
 
-[\(view code\)](<./Fmt.hx#L498>)
+[\(view code\)](<./Fmt.hx#L504>)
 
 
 ## function scanf
@@ -941,7 +953,7 @@ Newlines in the input must match newlines in the format.
 The one exception: the verb %c always scans the next rune in the
 input, even if it is a space \(or tab etc.\) or newline.  
 
-[\(view code\)](<./Fmt.hx#L513>)
+[\(view code\)](<./Fmt.hx#L519>)
 
 
 ## function scanln
@@ -956,7 +968,7 @@ function scanln(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 Scanln is similar to Scan, but stops scanning at a newline and
 after the final item there must be a newline or EOF.  
 
-[\(view code\)](<./Fmt.hx#L503>)
+[\(view code\)](<./Fmt.hx#L509>)
 
 
 ## function set\_isSpace
@@ -1001,7 +1013,7 @@ function sprint(a:haxe.Rest<stdgo.AnyInterface>):String
 Sprint formats using the default formats for its operands and returns the resulting string.
 Spaces are added between operands when neither is a string.  
 
-[\(view code\)](<./Fmt.hx#L463>)
+[\(view code\)](<./Fmt.hx#L469>)
 
 
 ## function sprintf
@@ -1015,7 +1027,7 @@ function sprintf(format:String, a:haxe.Rest<stdgo.AnyInterface>):String
 
 Sprintf formats according to a format specifier and returns the resulting string.  
 
-[\(view code\)](<./Fmt.hx#L441>)
+[\(view code\)](<./Fmt.hx#L447>)
 
 
 ## function sprintln
@@ -1030,7 +1042,7 @@ function sprintln(a:haxe.Rest<stdgo.AnyInterface>):String
 Sprintln formats using the default formats for its operands and returns the resulting string.
 Spaces are always added between operands and a newline is appended.  
 
-[\(view code\)](<./Fmt.hx#L485>)
+[\(view code\)](<./Fmt.hx#L491>)
 
 
 ## function sscan
@@ -1047,7 +1059,7 @@ values into successive arguments. Newlines count as space. It
 returns the number of items successfully scanned. If that is less
 than the number of arguments, err will report why.  
 
-[\(view code\)](<./Fmt.hx#L520>)
+[\(view code\)](<./Fmt.hx#L526>)
 
 
 ## function sscanf
@@ -1064,7 +1076,7 @@ values into successive arguments as determined by the format. It
 returns the number of items successfully parsed.
 Newlines in the input must match newlines in the format.  
 
-[\(view code\)](<./Fmt.hx#L532>)
+[\(view code\)](<./Fmt.hx#L538>)
 
 
 ## function sscanln
@@ -1079,7 +1091,7 @@ function sscanln(str:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, s
 Sscanln is similar to Sscan, but stops scanning at a newline and
 after the final item there must be a newline or EOF.  
 
-[\(view code\)](<./Fmt.hx#L525>)
+[\(view code\)](<./Fmt.hx#L531>)
 
 
 # Typedefs
@@ -1098,11 +1110,27 @@ typedef Formatter = stdgo._internal.fmt.Formatter;
 ```
 
 
+## typedef Formatter\_static\_extension
+
+
+```haxe
+typedef Formatter_static_extension = Dynamic;
+```
+
+
 ## typedef GoStringer
 
 
 ```haxe
 typedef GoStringer = stdgo._internal.fmt.GoStringer;
+```
+
+
+## typedef GoStringer\_static\_extension
+
+
+```haxe
+typedef GoStringer_static_extension = Dynamic;
 ```
 
 
@@ -1114,11 +1142,27 @@ typedef ScanState = stdgo._internal.fmt.ScanState;
 ```
 
 
+## typedef ScanState\_static\_extension
+
+
+```haxe
+typedef ScanState_static_extension = Dynamic;
+```
+
+
 ## typedef Scanner
 
 
 ```haxe
 typedef Scanner = stdgo._internal.fmt.Scanner;
+```
+
+
+## typedef Scanner\_static\_extension
+
+
+```haxe
+typedef Scanner_static_extension = Dynamic;
 ```
 
 
@@ -1130,11 +1174,27 @@ typedef State = stdgo._internal.fmt.State;
 ```
 
 
+## typedef State\_static\_extension
+
+
+```haxe
+typedef State_static_extension = Dynamic;
+```
+
+
 ## typedef Stringer
 
 
 ```haxe
 typedef Stringer = stdgo._internal.fmt.Stringer;
+```
+
+
+## typedef Stringer\_static\_extension
+
+
+```haxe
+typedef Stringer_static_extension = Dynamic;
 ```
 
 

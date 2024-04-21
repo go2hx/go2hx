@@ -131,7 +131,7 @@ function _contextName(_c:stdgo._internal.context.Context):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Context.hx#L345>)
+[\(view code\)](<./Context.hx#L361>)
 
 
 ## function \_parentCancelCtx
@@ -145,7 +145,7 @@ function _parentCancelCtx(_parent:stdgo._internal.context.Context):{
 ```
 
 
-[\(view code\)](<./Context.hx#L343>)
+[\(view code\)](<./Context.hx#L359>)
 
 
 ## function \_removeChild
@@ -156,7 +156,7 @@ function _removeChild(_parent:stdgo._internal.context.Context, _child:stdgo._int
 ```
 
 
-[\(view code\)](<./Context.hx#L344>)
+[\(view code\)](<./Context.hx#L360>)
 
 
 ## function \_stringify
@@ -167,7 +167,7 @@ function _stringify(_v:stdgo.AnyInterface):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Context.hx#L352>)
+[\(view code\)](<./Context.hx#L368>)
 
 
 ## function \_value
@@ -178,7 +178,7 @@ function _value(_c:stdgo._internal.context.Context, _key:stdgo.AnyInterface):std
 ```
 
 
-[\(view code\)](<./Context.hx#L353>)
+[\(view code\)](<./Context.hx#L369>)
 
 
 ## function \_withCancel
@@ -189,7 +189,7 @@ function _withCancel(_parent:stdgo._internal.context.Context):stdgo.Ref<stdgo._i
 ```
 
 
-[\(view code\)](<./Context.hx#L340>)
+[\(view code\)](<./Context.hx#L356>)
 
 
 ## function afterFunc
@@ -200,7 +200,7 @@ function afterFunc(_ctx:stdgo._internal.context.Context, _f:():Void):():Bool
 ```
 
 
-[\(view code\)](<./Context.hx#L342>)
+[\(view code\)](<./Context.hx#L358>)
 
 
 ## function background
@@ -211,7 +211,7 @@ function background():stdgo._internal.context.Context
 ```
 
 
-[\(view code\)](<./Context.hx#L336>)
+[\(view code\)](<./Context.hx#L352>)
 
 
 ## function cause
@@ -222,7 +222,7 @@ function cause(_c:stdgo._internal.context.Context):stdgo.Error
 ```
 
 
-[\(view code\)](<./Context.hx#L341>)
+[\(view code\)](<./Context.hx#L357>)
 
 
 ## function todo
@@ -233,7 +233,7 @@ function todo():stdgo._internal.context.Context
 ```
 
 
-[\(view code\)](<./Context.hx#L337>)
+[\(view code\)](<./Context.hx#L353>)
 
 
 ## function withCancel
@@ -247,7 +247,7 @@ function withCancel(_parent:stdgo._internal.context.Context):{
 ```
 
 
-[\(view code\)](<./Context.hx#L338>)
+[\(view code\)](<./Context.hx#L354>)
 
 
 ## function withCancelCause
@@ -261,7 +261,7 @@ function withCancelCause(_parent:stdgo._internal.context.Context):{
 ```
 
 
-[\(view code\)](<./Context.hx#L339>)
+[\(view code\)](<./Context.hx#L355>)
 
 
 ## function withDeadline
@@ -275,7 +275,7 @@ function withDeadline(_parent:stdgo._internal.context.Context, _d:stdgo._interna
 ```
 
 
-[\(view code\)](<./Context.hx#L347>)
+[\(view code\)](<./Context.hx#L363>)
 
 
 ## function withDeadlineCause
@@ -289,7 +289,7 @@ function withDeadlineCause(_parent:stdgo._internal.context.Context, _d:stdgo._in
 ```
 
 
-[\(view code\)](<./Context.hx#L348>)
+[\(view code\)](<./Context.hx#L364>)
 
 
 ## function withTimeout
@@ -303,7 +303,7 @@ function withTimeout(_parent:stdgo._internal.context.Context, _timeout:stdgo._in
 ```
 
 
-[\(view code\)](<./Context.hx#L349>)
+[\(view code\)](<./Context.hx#L365>)
 
 
 ## function withTimeoutCause
@@ -317,7 +317,7 @@ function withTimeoutCause(_parent:stdgo._internal.context.Context, _timeout:stdg
 ```
 
 
-[\(view code\)](<./Context.hx#L350>)
+[\(view code\)](<./Context.hx#L366>)
 
 
 ## function withValue
@@ -328,7 +328,7 @@ function withValue(_parent:stdgo._internal.context.Context, _key:stdgo.AnyInterf
 ```
 
 
-[\(view code\)](<./Context.hx#L351>)
+[\(view code\)](<./Context.hx#L367>)
 
 
 ## function withoutCancel
@@ -339,7 +339,7 @@ function withoutCancel(_parent:stdgo._internal.context.Context):stdgo._internal.
 ```
 
 
-[\(view code\)](<./Context.hx#L346>)
+[\(view code\)](<./Context.hx#L362>)
 
 
 # Typedefs

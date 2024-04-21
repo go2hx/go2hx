@@ -344,6 +344,8 @@ before returning.
 
 - [typedef T\_inputString\_static\_extension](<#typedef-t_inputstring_static_extension>)
 
+- [typedef T\_input\_static\_extension](<#typedef-t_input_static_extension>)
+
 - [typedef T\_inputs](<#typedef-t_inputs>)
 
 - [typedef T\_inputs\_asInterface](<#typedef-t_inputs_asinterface>)
@@ -412,7 +414,7 @@ function benchmarkAnchoredLiteralLongNonMatch(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L155>)
+[\(view code\)](<./Regexp.hx#L156>)
 
 
 ## function benchmarkAnchoredLiteralShortNonMatch
@@ -423,7 +425,7 @@ function benchmarkAnchoredLiteralShortNonMatch(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L154>)
+[\(view code\)](<./Regexp.hx#L155>)
 
 
 ## function benchmarkAnchoredLongMatch
@@ -434,7 +436,7 @@ function benchmarkAnchoredLongMatch(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L157>)
+[\(view code\)](<./Regexp.hx#L158>)
 
 
 ## function benchmarkAnchoredShortMatch
@@ -445,7 +447,7 @@ function benchmarkAnchoredShortMatch(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L156>)
+[\(view code\)](<./Regexp.hx#L157>)
 
 
 ## function benchmarkCompile
@@ -456,7 +458,7 @@ function benchmarkCompile(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L168>)
+[\(view code\)](<./Regexp.hx#L169>)
 
 
 ## function benchmarkFind
@@ -467,7 +469,7 @@ function benchmarkFind(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L144>)
+[\(view code\)](<./Regexp.hx#L145>)
 
 
 ## function benchmarkFindAllNoMatches
@@ -478,7 +480,7 @@ function benchmarkFindAllNoMatches(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L145>)
+[\(view code\)](<./Regexp.hx#L146>)
 
 
 ## function benchmarkFindString
@@ -489,7 +491,7 @@ function benchmarkFindString(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L146>)
+[\(view code\)](<./Regexp.hx#L147>)
 
 
 ## function benchmarkFindStringSubmatch
@@ -500,7 +502,7 @@ function benchmarkFindStringSubmatch(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L148>)
+[\(view code\)](<./Regexp.hx#L149>)
 
 
 ## function benchmarkFindSubmatch
@@ -511,7 +513,7 @@ function benchmarkFindSubmatch(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L147>)
+[\(view code\)](<./Regexp.hx#L148>)
 
 
 ## function benchmarkLiteral
@@ -522,7 +524,7 @@ function benchmarkLiteral(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L149>)
+[\(view code\)](<./Regexp.hx#L150>)
 
 
 ## function benchmarkMatch
@@ -533,7 +535,7 @@ function benchmarkMatch(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L229>)
+[\(view code\)](<./Regexp.hx#L230>)
 
 
 ## function benchmarkMatchClass
@@ -544,7 +546,7 @@ function benchmarkMatchClass(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L151>)
+[\(view code\)](<./Regexp.hx#L152>)
 
 
 ## function benchmarkMatchClass\_InRange
@@ -555,7 +557,7 @@ function benchmarkMatchClass_InRange(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L152>)
+[\(view code\)](<./Regexp.hx#L153>)
 
 
 ## function benchmarkMatchParallelCopied
@@ -566,7 +568,7 @@ function benchmarkMatchParallelCopied(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L165>)
+[\(view code\)](<./Regexp.hx#L166>)
 
 
 ## function benchmarkMatchParallelShared
@@ -577,7 +579,7 @@ function benchmarkMatchParallelShared(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L164>)
+[\(view code\)](<./Regexp.hx#L165>)
 
 
 ## function benchmarkMatch\_onepass\_regex
@@ -588,7 +590,7 @@ function benchmarkMatch_onepass_regex(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L230>)
+[\(view code\)](<./Regexp.hx#L231>)
 
 
 ## function benchmarkNotLiteral
@@ -599,7 +601,7 @@ function benchmarkNotLiteral(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L150>)
+[\(view code\)](<./Regexp.hx#L151>)
 
 
 ## function benchmarkNotOnePassShortA
@@ -610,7 +612,7 @@ function benchmarkNotOnePassShortA(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L159>)
+[\(view code\)](<./Regexp.hx#L160>)
 
 
 ## function benchmarkNotOnePassShortB
@@ -621,7 +623,7 @@ function benchmarkNotOnePassShortB(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L161>)
+[\(view code\)](<./Regexp.hx#L162>)
 
 
 ## function benchmarkOnePassLongNotPrefix
@@ -632,7 +634,7 @@ function benchmarkOnePassLongNotPrefix(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L163>)
+[\(view code\)](<./Regexp.hx#L164>)
 
 
 ## function benchmarkOnePassLongPrefix
@@ -643,7 +645,7 @@ function benchmarkOnePassLongPrefix(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L162>)
+[\(view code\)](<./Regexp.hx#L163>)
 
 
 ## function benchmarkOnePassShortA
@@ -654,7 +656,7 @@ function benchmarkOnePassShortA(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L158>)
+[\(view code\)](<./Regexp.hx#L159>)
 
 
 ## function benchmarkOnePassShortB
@@ -665,7 +667,7 @@ function benchmarkOnePassShortB(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L160>)
+[\(view code\)](<./Regexp.hx#L161>)
 
 
 ## function benchmarkQuoteMetaAll
@@ -676,7 +678,7 @@ function benchmarkQuoteMetaAll(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L166>)
+[\(view code\)](<./Regexp.hx#L167>)
 
 
 ## function benchmarkQuoteMetaNone
@@ -687,7 +689,7 @@ function benchmarkQuoteMetaNone(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L167>)
+[\(view code\)](<./Regexp.hx#L168>)
 
 
 ## function benchmarkReplaceAll
@@ -698,7 +700,7 @@ function benchmarkReplaceAll(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L153>)
+[\(view code\)](<./Regexp.hx#L154>)
 
 
 ## function compile
@@ -722,7 +724,7 @@ that Perl, Python, and other implementations use, although this
 package implements it without the expense of backtracking.
 For POSIX leftmost\-longest matching, see CompilePOSIX.  
 
-[\(view code\)](<./Regexp.hx#L270>)
+[\(view code\)](<./Regexp.hx#L271>)
 
 
 ## function compilePOSIX
@@ -756,7 +758,7 @@ subexpression, then the second, and so on from left to right.
 The POSIX rule is computationally prohibitive and not even well\-defined.
 See https://swtch.com/~rsc/regexp/regexp2.html#posix for details.  
 
-[\(view code\)](<./Regexp.hx#L292>)
+[\(view code\)](<./Regexp.hx#L293>)
 
 
 ## function match
@@ -772,7 +774,7 @@ Match reports whether the byte slice b
 contains any match of the regular expression pattern.
 More complicated queries need to use Compile and the full Regexp interface.  
 
-[\(view code\)](<./Regexp.hx#L322>)
+[\(view code\)](<./Regexp.hx#L323>)
 
 
 ## function matchReader
@@ -788,7 +790,7 @@ MatchReader reports whether the text returned by the RuneReader
 contains any match of the regular expression pattern.
 More complicated queries need to use Compile and the full Regexp interface.  
 
-[\(view code\)](<./Regexp.hx#L310>)
+[\(view code\)](<./Regexp.hx#L311>)
 
 
 ## function matchString
@@ -804,7 +806,7 @@ MatchString reports whether the string s
 contains any match of the regular expression pattern.
 More complicated queries need to use Compile and the full Regexp interface.  
 
-[\(view code\)](<./Regexp.hx#L316>)
+[\(view code\)](<./Regexp.hx#L317>)
 
 
 ## function mustCompile
@@ -820,7 +822,7 @@ MustCompile is like Compile but panics if the expression cannot be parsed.
 It simplifies safe initialization of global variables holding compiled regular
 expressions.  
 
-[\(view code\)](<./Regexp.hx#L298>)
+[\(view code\)](<./Regexp.hx#L299>)
 
 
 ## function mustCompilePOSIX
@@ -836,7 +838,7 @@ MustCompilePOSIX is like CompilePOSIX but panics if the expression cannot be par
 It simplifies safe initialization of global variables holding compiled regular
 expressions.  
 
-[\(view code\)](<./Regexp.hx#L304>)
+[\(view code\)](<./Regexp.hx#L305>)
 
 
 ## function quoteMeta
@@ -852,7 +854,7 @@ QuoteMeta returns a string that escapes all regular expression metacharacters
 inside the argument text; the returned string is a regular expression matching
 the literal text.  
 
-[\(view code\)](<./Regexp.hx#L328>)
+[\(view code\)](<./Regexp.hx#L329>)
 
 
 ## function testBadCompile
@@ -863,7 +865,7 @@ function testBadCompile(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L120>)
+[\(view code\)](<./Regexp.hx#L121>)
 
 
 ## function testCompileOnePass
@@ -874,7 +876,7 @@ function testCompileOnePass(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L256>)
+[\(view code\)](<./Regexp.hx#L257>)
 
 
 ## function testCopyMatch
@@ -885,7 +887,7 @@ function testCopyMatch(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L123>)
+[\(view code\)](<./Regexp.hx#L124>)
 
 
 ## function testDeepEqual
@@ -896,7 +898,7 @@ function testDeepEqual(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L169>)
+[\(view code\)](<./Regexp.hx#L170>)
 
 
 ## function testFind
@@ -907,7 +909,7 @@ function testFind(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L237>)
+[\(view code\)](<./Regexp.hx#L238>)
 
 
 ## function testFindAll
@@ -918,7 +920,7 @@ function testFindAll(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L242>)
+[\(view code\)](<./Regexp.hx#L243>)
 
 
 ## function testFindAllIndex
@@ -929,7 +931,7 @@ function testFindAllIndex(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L244>)
+[\(view code\)](<./Regexp.hx#L245>)
 
 
 ## function testFindAllString
@@ -940,7 +942,7 @@ function testFindAllString(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L243>)
+[\(view code\)](<./Regexp.hx#L244>)
 
 
 ## function testFindAllStringIndex
@@ -951,7 +953,7 @@ function testFindAllStringIndex(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L245>)
+[\(view code\)](<./Regexp.hx#L246>)
 
 
 ## function testFindAllStringSubmatch
@@ -962,7 +964,7 @@ function testFindAllStringSubmatch(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L252>)
+[\(view code\)](<./Regexp.hx#L253>)
 
 
 ## function testFindAllStringSubmatchIndex
@@ -973,7 +975,7 @@ function testFindAllStringSubmatchIndex(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L254>)
+[\(view code\)](<./Regexp.hx#L255>)
 
 
 ## function testFindAllSubmatch
@@ -984,7 +986,7 @@ function testFindAllSubmatch(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L251>)
+[\(view code\)](<./Regexp.hx#L252>)
 
 
 ## function testFindAllSubmatchIndex
@@ -995,7 +997,7 @@ function testFindAllSubmatchIndex(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L253>)
+[\(view code\)](<./Regexp.hx#L254>)
 
 
 ## function testFindIndex
@@ -1006,7 +1008,7 @@ function testFindIndex(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L239>)
+[\(view code\)](<./Regexp.hx#L240>)
 
 
 ## function testFindReaderIndex
@@ -1017,7 +1019,7 @@ function testFindReaderIndex(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L241>)
+[\(view code\)](<./Regexp.hx#L242>)
 
 
 ## function testFindReaderSubmatchIndex
@@ -1028,7 +1030,7 @@ function testFindReaderSubmatchIndex(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L250>)
+[\(view code\)](<./Regexp.hx#L251>)
 
 
 ## function testFindString
@@ -1039,7 +1041,7 @@ function testFindString(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L238>)
+[\(view code\)](<./Regexp.hx#L239>)
 
 
 ## function testFindStringIndex
@@ -1050,7 +1052,7 @@ function testFindStringIndex(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L240>)
+[\(view code\)](<./Regexp.hx#L241>)
 
 
 ## function testFindStringSubmatch
@@ -1061,7 +1063,7 @@ function testFindStringSubmatch(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L247>)
+[\(view code\)](<./Regexp.hx#L248>)
 
 
 ## function testFindStringSubmatchIndex
@@ -1072,7 +1074,7 @@ function testFindStringSubmatchIndex(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L249>)
+[\(view code\)](<./Regexp.hx#L250>)
 
 
 ## function testFindSubmatch
@@ -1083,7 +1085,7 @@ function testFindSubmatch(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L246>)
+[\(view code\)](<./Regexp.hx#L247>)
 
 
 ## function testFindSubmatchIndex
@@ -1094,7 +1096,7 @@ function testFindSubmatchIndex(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L248>)
+[\(view code\)](<./Regexp.hx#L249>)
 
 
 ## function testFowler
@@ -1110,7 +1112,7 @@ TestFowler runs this package's regexp API against the
 POSIX regular expression tests collected by Glenn Fowler
 at http://www2.research.att.com/~astopen/testregex/testregex.html.  
 
-[\(view code\)](<./Regexp.hx#L228>)
+[\(view code\)](<./Regexp.hx#L229>)
 
 
 ## function testGoodCompile
@@ -1121,7 +1123,7 @@ function testGoodCompile(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L119>)
+[\(view code\)](<./Regexp.hx#L120>)
 
 
 ## function testLiteralPrefix
@@ -1132,7 +1134,7 @@ function testLiteralPrefix(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L128>)
+[\(view code\)](<./Regexp.hx#L129>)
 
 
 ## function testLongest
@@ -1143,7 +1145,7 @@ function testLongest(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L231>)
+[\(view code\)](<./Regexp.hx#L232>)
 
 
 ## function testMatch
@@ -1154,7 +1156,7 @@ function testMatch(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L121>)
+[\(view code\)](<./Regexp.hx#L122>)
 
 
 ## function testMatchFunction
@@ -1165,7 +1167,7 @@ function testMatchFunction(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L122>)
+[\(view code\)](<./Regexp.hx#L123>)
 
 
 ## function testMergeRuneSet
@@ -1176,7 +1178,7 @@ function testMergeRuneSet(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L255>)
+[\(view code\)](<./Regexp.hx#L256>)
 
 
 ## function testMinInputLen
@@ -1187,7 +1189,7 @@ function testMinInputLen(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L170>)
+[\(view code\)](<./Regexp.hx#L171>)
 
 
 ## function testOnePassCutoff
@@ -1201,7 +1203,7 @@ function testOnePassCutoff(t:stdgo._internal.testing.T_):Void
 
 Check that one\-pass cutoff does trigger.  
 
-[\(view code\)](<./Regexp.hx#L138>)
+[\(view code\)](<./Regexp.hx#L139>)
 
 
 ## function testParseAndCompile
@@ -1215,7 +1217,7 @@ function testParseAndCompile(t:stdgo._internal.testing.T_):Void
 
 The following sequence of Match calls used to panic. See issue \#12980.  
 
-[\(view code\)](<./Regexp.hx#L134>)
+[\(view code\)](<./Regexp.hx#L135>)
 
 
 ## function testProgramTooLongForBacktrack
@@ -1230,7 +1232,7 @@ function testProgramTooLongForBacktrack(t:stdgo._internal.testing.T_):Void
 TestProgramTooLongForBacktrack tests that a regex which is too long
 for the backtracker still executes properly.  
 
-[\(view code\)](<./Regexp.hx#L236>)
+[\(view code\)](<./Regexp.hx#L237>)
 
 
 ## function testQuoteMeta
@@ -1241,7 +1243,7 @@ function testQuoteMeta(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L127>)
+[\(view code\)](<./Regexp.hx#L128>)
 
 
 ## function testRE2Exhaustive
@@ -1256,7 +1258,7 @@ function testRE2Exhaustive(t:stdgo._internal.testing.T_):Void
 This test is excluded when running under the race detector because
 it is a very expensive test and takes too long.  
 
-[\(view code\)](<./Regexp.hx#L176>)
+[\(view code\)](<./Regexp.hx#L177>)
 
 
 ## function testRE2Search
@@ -1317,7 +1319,7 @@ and are echoed into t but otherwise ignored.
 At time of writing, re2\-exhaustive.txt is 59 MB but compresses to 385 kB,
 so we store re2\-exhaustive.txt.bz2 in the repository and decompress it on the fly.  
 
-[\(view code\)](<./Regexp.hx#L222>)
+[\(view code\)](<./Regexp.hx#L223>)
 
 
 ## function testReplaceAll
@@ -1328,7 +1330,7 @@ function testReplaceAll(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L124>)
+[\(view code\)](<./Regexp.hx#L125>)
 
 
 ## function testReplaceAllFunc
@@ -1339,7 +1341,7 @@ function testReplaceAllFunc(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L126>)
+[\(view code\)](<./Regexp.hx#L127>)
 
 
 ## function testReplaceAllLiteral
@@ -1350,7 +1352,7 @@ function testReplaceAllLiteral(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L125>)
+[\(view code\)](<./Regexp.hx#L126>)
 
 
 ## function testRunOnePass
@@ -1361,7 +1363,7 @@ function testRunOnePass(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L257>)
+[\(view code\)](<./Regexp.hx#L258>)
 
 
 ## function testSplit
@@ -1372,7 +1374,7 @@ function testSplit(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L130>)
+[\(view code\)](<./Regexp.hx#L131>)
 
 
 ## function testSubexp
@@ -1383,7 +1385,7 @@ function testSubexp(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L129>)
+[\(view code\)](<./Regexp.hx#L130>)
 
 
 ## function testSwitchBacktrack
@@ -1398,7 +1400,7 @@ function testSwitchBacktrack(t:stdgo._internal.testing.T_):Void
 Check that the same machine can be used with the standard matcher
 and then the backtracker when there are no captures.  
 
-[\(view code\)](<./Regexp.hx#L143>)
+[\(view code\)](<./Regexp.hx#L144>)
 
 
 ## function testUnmarshalText
@@ -1409,7 +1411,7 @@ function testUnmarshalText(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L171>)
+[\(view code\)](<./Regexp.hx#L172>)
 
 
 # Typedefs
@@ -1793,6 +1795,14 @@ typedef T_inputString_asInterface = Dynamic;
 
 ```haxe
 typedef T_inputString_static_extension = Dynamic;
+```
+
+
+## typedef T\_input\_static\_extension
+
+
+```haxe
+typedef T_input_static_extension = Dynamic;
 ```
 
 

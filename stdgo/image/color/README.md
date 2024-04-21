@@ -132,6 +132,8 @@ Package color implements a basic color library.
 
 - [typedef Color](<#typedef-color>)
 
+- [typedef Color\_static\_extension](<#typedef-color_static_extension>)
+
 - [typedef Gray](<#typedef-gray>)
 
 - [typedef Gray16](<#typedef-gray16>)
@@ -145,6 +147,8 @@ Package color implements a basic color library.
 - [typedef Gray\_static\_extension](<#typedef-gray_static_extension>)
 
 - [typedef Model](<#typedef-model>)
+
+- [typedef Model\_static\_extension](<#typedef-model_static_extension>)
 
 - [typedef NRGBA](<#typedef-nrgba>)
 
@@ -293,7 +297,7 @@ function benchmarkNYCbCrAToRGBA(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Color.hx#L129>)
+[\(view code\)](<./Color.hx#L131>)
 
 
 ## function benchmarkRGBToYCbCr
@@ -304,7 +308,7 @@ function benchmarkRGBToYCbCr(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Color.hx#L127>)
+[\(view code\)](<./Color.hx#L129>)
 
 
 ## function benchmarkYCbCrToRGB
@@ -315,7 +319,7 @@ function benchmarkYCbCrToRGB(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Color.hx#L126>)
+[\(view code\)](<./Color.hx#L128>)
 
 
 ## function benchmarkYCbCrToRGBA
@@ -326,7 +330,7 @@ function benchmarkYCbCrToRGBA(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Color.hx#L128>)
+[\(view code\)](<./Color.hx#L130>)
 
 
 ## function cmyktoRGB
@@ -340,7 +344,7 @@ function cmyktoRGB(c:UInt, m:UInt, y:UInt, k:UInt):stdgo.Tuple3<UInt, UInt, UInt
 
 CMYKToRGB converts a CMYK quadruple to an RGB triple.  
 
-[\(view code\)](<./Color.hx#L86>)
+[\(view code\)](<./Color.hx#L88>)
 
 
 ## function get\_alpha16Model
@@ -519,7 +523,7 @@ function modelFunc(f:()):stdgo.image.color.Model
 
 ModelFunc returns a Model that invokes f to implement the conversion.  
 
-[\(view code\)](<./Color.hx#L69>)
+[\(view code\)](<./Color.hx#L71>)
 
 
 ## function rgbtoCMYK
@@ -533,7 +537,7 @@ function rgbtoCMYK(r:UInt, g:UInt, b:UInt):stdgo.Tuple4<UInt, UInt, UInt, UInt>
 
 RGBToCMYK converts an RGB triple to a CMYK quadruple.  
 
-[\(view code\)](<./Color.hx#L82>)
+[\(view code\)](<./Color.hx#L84>)
 
 
 ## function rgbtoYCbCr
@@ -547,7 +551,7 @@ function rgbtoYCbCr(r:UInt, g:UInt, b:UInt):stdgo.Tuple3<UInt, UInt, UInt>
 
 RGBToYCbCr converts an RGB triple to a Y'CbCr triple.  
 
-[\(view code\)](<./Color.hx#L74>)
+[\(view code\)](<./Color.hx#L76>)
 
 
 ## function set\_alpha16Model
@@ -726,7 +730,7 @@ function testCMYKGray(t:stdgo._internal.testing.T_):Void
 
 TestCMYKGray tests that CMYK colors are a superset of Gray colors.  
 
-[\(view code\)](<./Color.hx#L124>)
+[\(view code\)](<./Color.hx#L126>)
 
 
 ## function testCMYKRoundtrip
@@ -741,7 +745,7 @@ function testCMYKRoundtrip(t:stdgo._internal.testing.T_):Void
 TestCMYKRoundtrip tests that a subset of RGB space can be converted to CMYK
 and back to within 1/256 tolerance.  
 
-[\(view code\)](<./Color.hx#L114>)
+[\(view code\)](<./Color.hx#L116>)
 
 
 ## function testCMYKToRGBConsistency
@@ -757,7 +761,7 @@ TestCMYKToRGBConsistency tests that calling the RGBA method \(16 bit color\)
 then truncating to 8 bits is equivalent to calling the CMYKToRGB function \(8
 bit color\).  
 
-[\(view code\)](<./Color.hx#L120>)
+[\(view code\)](<./Color.hx#L122>)
 
 
 ## function testNYCbCrAAlpha
@@ -771,7 +775,7 @@ function testNYCbCrAAlpha(t:stdgo._internal.testing.T_):Void
 
 TestNYCbCrAAlpha tests that NYCbCrA colors are a superset of Alpha colors.  
 
-[\(view code\)](<./Color.hx#L105>)
+[\(view code\)](<./Color.hx#L107>)
 
 
 ## function testNYCbCrAYCbCr
@@ -785,7 +789,7 @@ function testNYCbCrAYCbCr(t:stdgo._internal.testing.T_):Void
 
 TestNYCbCrAYCbCr tests that NYCbCrA colors are a superset of YCbCr colors.  
 
-[\(view code\)](<./Color.hx#L109>)
+[\(view code\)](<./Color.hx#L111>)
 
 
 ## function testPalette
@@ -796,7 +800,7 @@ function testPalette(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Color.hx#L125>)
+[\(view code\)](<./Color.hx#L127>)
 
 
 ## function testSqDiff
@@ -807,7 +811,7 @@ function testSqDiff(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Color.hx#L70>)
+[\(view code\)](<./Color.hx#L72>)
 
 
 ## function testYCbCrGray
@@ -821,7 +825,7 @@ function testYCbCrGray(t:stdgo._internal.testing.T_):Void
 
 TestYCbCrGray tests that YCbCr colors are a superset of Gray colors.  
 
-[\(view code\)](<./Color.hx#L101>)
+[\(view code\)](<./Color.hx#L103>)
 
 
 ## function testYCbCrRoundtrip
@@ -836,7 +840,7 @@ function testYCbCrRoundtrip(t:stdgo._internal.testing.T_):Void
 TestYCbCrRoundtrip tests that a subset of RGB space can be converted to YCbCr
 and back to within 2/256 tolerance.  
 
-[\(view code\)](<./Color.hx#L91>)
+[\(view code\)](<./Color.hx#L93>)
 
 
 ## function testYCbCrToRGBConsistency
@@ -852,7 +856,7 @@ TestYCbCrToRGBConsistency tests that calling the RGBA method \(16 bit color\)
 then truncating to 8 bits is equivalent to calling the YCbCrToRGB function \(8
 bit color\).  
 
-[\(view code\)](<./Color.hx#L97>)
+[\(view code\)](<./Color.hx#L99>)
 
 
 ## function ycbCrToRGB
@@ -866,7 +870,7 @@ function ycbCrToRGB(y:UInt, cb:UInt, cr:UInt):stdgo.Tuple3<UInt, UInt, UInt>
 
 YCbCrToRGB converts a Y'CbCr triple to an RGB triple.  
 
-[\(view code\)](<./Color.hx#L78>)
+[\(view code\)](<./Color.hx#L80>)
 
 
 # Typedefs
@@ -957,6 +961,14 @@ typedef Color = stdgo._internal.image.color.Color;
 ```
 
 
+## typedef Color\_static\_extension
+
+
+```haxe
+typedef Color_static_extension = Dynamic;
+```
+
+
 ## typedef Gray
 
 
@@ -1010,6 +1022,14 @@ typedef Gray_static_extension = Dynamic;
 
 ```haxe
 typedef Model = stdgo._internal.image.color.Model;
+```
+
+
+## typedef Model\_static\_extension
+
+
+```haxe
+typedef Model_static_extension = Dynamic;
 ```
 
 

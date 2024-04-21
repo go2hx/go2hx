@@ -2669,7 +2669,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 							throw info.panic() + "expr should normally be a binop: " + expr.expr;
 					}
 				}
-				exprs = inits.concat(exprs);
+				exprs = orderOperations(inits, exprs);
 				return EBlock(exprs);
 			} else if (stmt.lhs.length > stmt.rhs.length && stmt.rhs.length == 1) { // x,y = z
 				// assign, destructure system
@@ -2799,6 +2799,22 @@ if (p.name == "InvalidType" && p.pack.length == 0 && name == "___f__") {
 		default:
 			throw info.panic() + "type assign tok not found: " + stmt.tok;
 	}
+}
+
+private function orderOperations(inits:Array<Expr>, exprs:Array<Expr>):Array<Expr> {
+	var initsCount = inits.length;
+	for (i in 0...exprs.length) {
+		switch exprs[i].expr {
+			case EBinop(OpAssign, {expr: EArray(v, index), pos: _}, e2):
+				final tmpNameVar = "__tmp__" + initsCount++;
+				final tmpNameIndex = "__tmp__" + initsCount++;
+				inits.push(macro final $tmpNameVar = $v);
+				inits.push(macro final $tmpNameIndex = $index);
+				exprs[i] = macro $i{tmpNameVar}[$i{tmpNameIndex}] = ${e2};
+			default:
+		}
+	}
+	return inits.concat(exprs);
 }
 
 private function removeStrParens(s:String):String {

@@ -7671,6 +7671,9 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 			if (expr == null)
 				continue;
 			var name = nameIdent(value.names[i].name, false, true, info);
+			// empty name
+			if (value.names[i].name == "_")
+				info.global.order.push(name);
 			var doc:String = getDocComment(value, value); // + getSource(value, info);
 			var access = [];
 			//if (!isTitle(value.names[i].name))

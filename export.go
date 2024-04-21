@@ -1077,20 +1077,24 @@ func parseMethods(object types.Type, methodCache *typeutil.MethodSetCache, index
 	}
 	methods := []map[string]interface{}{}
 	for _, sel := range set {
+		fmt.Println(sel.Obj().Name())
+		fmt.Println(sel.Obj().Type().(*types.Signature).Recv().String())
+		fmt.Println(sel.Recv().String())
+		fmt.Println("--------")
 		if len(sel.Index()) > index {
 			if index > 0 {
 				methods = append(methods, map[string]interface{}{
 					"name":  sel.Obj().Name(),
-					"type":  parseType(sel.Type(), marked),
-					"recv":  parseType(sel.Recv(), marked),
+					"type":  parseType(sel.Obj().Type(), marked),
+					"recv":  parseType(sel.Obj().Type().(*types.Signature).Recv().Type(), marked),
 					"index": sel.Index(),
 				})
 			} else {
 				methods = append(methods, map[string]interface{}{
 					"name":  sel.Obj().Name(),
 					"index": sel.Index(),
-					"recv":  parseType(sel.Recv(), marked),
-					"type":  parseType(sel.Type(), marked),
+					"recv":  parseType(sel.Obj().Type().(*types.Signature).Recv().Type(), marked),
+					"type":  parseType(sel.Obj().Type(), marked),
 				})
 			}
 		}

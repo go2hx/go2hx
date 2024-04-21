@@ -35,6 +35,7 @@ function set_errDictionary(v:stdgo.Error):stdgo.Error return stdgo._internal.com
 var errHeader(get, set) : stdgo.Error;
 function get_errHeader():stdgo.Error return stdgo._internal.compress.zlib.Zlib.errHeader;
 function set_errHeader(v:stdgo.Error):stdgo.Error return stdgo._internal.compress.zlib.Zlib.errHeader = v;
+@:invalid typedef Resetter_static_extension = Dynamic;
 typedef Resetter = stdgo._internal.compress.zlib.Zlib.Resetter;
 @:invalid typedef T_reader = Dynamic;
 @:invalid typedef T_zlibTest = Dynamic;

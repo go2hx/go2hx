@@ -44,6 +44,10 @@ var _digestSizes : stdgo.Slice<stdgo.GoUInt8> = {
         s;
     };
 var _hashes : stdgo.Slice<() -> stdgo._internal.hash.Hash.Hash> = new stdgo.Slice<() -> stdgo._internal.hash.Hash.Hash>(((20u32 : stdgo._internal.crypto.Crypto.Hash) : stdgo.GoInt).toBasic(), 0);
+@:keep class Signer_static_extension {
+    static public function sign(t:Signer, _rand:stdgo._internal.io.Io.Reader, _digest:stdgo.Slice<stdgo.GoByte>, _opts:SignerOpts):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } return t.sign(_rand, _digest, _opts);
+    static public function public_(t:Signer):PublicKey return t.public_();
+}
 typedef Signer = stdgo.StructType & {
     /**
         // Public returns the public key corresponding to the opaque,
@@ -71,6 +75,9 @@ typedef Signer = stdgo.StructType & {
     **/
     public dynamic function sign(_rand:stdgo._internal.io.Io.Reader, _digest:stdgo.Slice<stdgo.GoByte>, _opts:SignerOpts):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; };
 };
+@:keep class SignerOpts_static_extension {
+    static public function hashFunc(t:SignerOpts):Hash return t.hashFunc();
+}
 typedef SignerOpts = stdgo.StructType & {
     /**
         // HashFunc returns an identifier for the hash function used to produce
@@ -81,6 +88,10 @@ typedef SignerOpts = stdgo.StructType & {
     **/
     public dynamic function hashFunc():Hash;
 };
+@:keep class Decrypter_static_extension {
+    static public function decrypt(t:Decrypter, _rand:stdgo._internal.io.Io.Reader, _msg:stdgo.Slice<stdgo.GoByte>, _opts:DecrypterOpts):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } return t.decrypt(_rand, _msg, _opts);
+    static public function public_(t:Decrypter):PublicKey return t.public_();
+}
 typedef Decrypter = stdgo.StructType & {
     /**
         // Public returns the public key corresponding to the opaque,

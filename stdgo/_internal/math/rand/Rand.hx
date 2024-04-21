@@ -1776,6 +1776,10 @@ var _rngCooked : stdgo.GoArray<stdgo.GoInt64> = (new stdgo.GoArray<stdgo.GoInt64
 (8382142935188824023i64 : stdgo.GoInt64),
 (9103922860780351547i64 : stdgo.GoInt64),
 (4152330101494654406i64 : stdgo.GoInt64)]).__setNumber64__() : stdgo.GoArray<stdgo.GoInt64>)?.__copy__();
+@:keep class Source_static_extension {
+    static public function seed(t:Source, _seed:stdgo.GoInt64):Void t.seed(_seed);
+    static public function int63(t:Source):stdgo.GoInt64 return t.int63();
+}
 typedef Source = stdgo.StructType & {
     /**
         
@@ -1790,6 +1794,9 @@ typedef Source = stdgo.StructType & {
     **/
     public dynamic function seed(_seed:stdgo.GoInt64):Void;
 };
+@:keep class Source64_static_extension {
+    static public function uint64(t:Source64):stdgo.GoUInt64 return t.uint64();
+}
 typedef Source64 = stdgo.StructType & {
     > Source,
     /**

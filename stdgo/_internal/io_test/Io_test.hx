@@ -4,6 +4,10 @@ import stdgo._internal.io.Io;
 import stdgo._internal.io.Io;
 import stdgo._internal.io.Io;
 var _pipeTests : stdgo.Slice<stdgo._internal.io_test.Io_test.T_pipeTest> = (new stdgo.Slice<stdgo._internal.io_test.Io_test.T_pipeTest>(6, 6, ...[(new stdgo._internal.io_test.Io_test.T_pipeTest(true, (null : stdgo.Error), false) : stdgo._internal.io_test.Io_test.T_pipeTest), (new stdgo._internal.io_test.Io_test.T_pipeTest(true, (null : stdgo.Error), true) : stdgo._internal.io_test.Io_test.T_pipeTest), (new stdgo._internal.io_test.Io_test.T_pipeTest(true, errShortWrite, true) : stdgo._internal.io_test.Io_test.T_pipeTest), (new stdgo._internal.io_test.Io_test.T_pipeTest(false, (null : stdgo.Error), false) : stdgo._internal.io_test.Io_test.T_pipeTest), (new stdgo._internal.io_test.Io_test.T_pipeTest(false, (null : stdgo.Error), true) : stdgo._internal.io_test.Io_test.T_pipeTest), (new stdgo._internal.io_test.Io_test.T_pipeTest(false, errShortWrite, true) : stdgo._internal.io_test.Io_test.T_pipeTest)].concat([for (i in 6 ... (6 > 6 ? 6 : 6 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.io_test.Io_test.T_pipeTest)])) : stdgo.Slice<stdgo._internal.io_test.Io_test.T_pipeTest>);
+@:keep class T_closer_static_extension {
+    static public function close(t:T_closer):stdgo.Error return t.close();
+    static public function closeWithError(t:T_closer, _0:stdgo.Error):stdgo.Error return t.closeWithError(_0);
+}
 typedef T_closer = stdgo.StructType & {
     /**
         
@@ -18,6 +22,9 @@ typedef T_closer = stdgo.StructType & {
     **/
     public dynamic function close():stdgo.Error;
 };
+@:keep class T__interface_0_static_extension {
+
+}
 typedef T__interface_0 = stdgo.StructType & {
     > Writer,
     > stdgo._internal.fmt.Fmt.Stringer,

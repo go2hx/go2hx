@@ -643,6 +643,9 @@ var _multiExecTests : stdgo.Slice<stdgo._internal.text.template.Template.T_execT
 (new stdgo._internal.text.template.Template.T_execTest(("testFunc literal" : stdgo.GoString), ("{{oneArg \"joe\"}}" : stdgo.GoString), ("oneArg=joe" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_tVal)), true) : stdgo._internal.text.template.Template.T_execTest),
 (new stdgo._internal.text.template.Template.T_execTest(("testFunc ." : stdgo.GoString), ("{{oneArg .}}" : stdgo.GoString), ("oneArg=joe" : stdgo.GoString), stdgo.Go.toInterface(("joe" : stdgo.GoString)), true) : stdgo._internal.text.template.Template.T_execTest)].concat([for (i in 11 ... (11 > 11 ? 11 : 11 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.template.Template.T_execTest)])) : stdgo.Slice<stdgo._internal.text.template.Template.T_execTest>);
 var _templateFileExecTests : stdgo.Slice<stdgo._internal.text.template.Template.T_execTest> = (new stdgo.Slice<stdgo._internal.text.template.Template.T_execTest>(1, 1, ...[(new stdgo._internal.text.template.Template.T_execTest(("test" : stdgo.GoString), ("{{template \"tmpl1.tmpl\"}}{{template \"tmpl2.tmpl\"}}" : stdgo.GoString), ("template1\n\ny\ntemplate2\n\nx\n" : stdgo.GoString), stdgo.Go.toInterface((0 : stdgo.GoInt)), true) : stdgo._internal.text.template.Template.T_execTest)].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.template.Template.T_execTest)])) : stdgo.Slice<stdgo._internal.text.template.Template.T_execTest>);
+@:keep class I_static_extension {
+    static public function method0(t:I):stdgo.GoString return t.method0();
+}
 typedef I = stdgo.StructType & {
     /**
         

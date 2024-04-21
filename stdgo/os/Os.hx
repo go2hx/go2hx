@@ -126,7 +126,9 @@ function set_errPatternHasSeparator(v:stdgo.Error):stdgo.Error return stdgo._int
 var splitPath(get, set) : stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; };
 function get_splitPath():stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; } return stdgo._internal.os.Os.splitPath;
 function set_splitPath(v:stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; }):stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; } return stdgo._internal.os.Os.splitPath = v;
+@:invalid typedef T_timeout_static_extension = Dynamic;
 typedef T_timeout = stdgo._internal.os.Os.T_timeout;
+@:invalid typedef Signal_static_extension = Dynamic;
 typedef Signal = stdgo._internal.os.Os.Signal;
 @:invalid typedef T_dirInfo = Dynamic;
 @:invalid typedef SyscallError = Dynamic;

@@ -67,6 +67,7 @@ package stdgo.regexp;
     // (There are a few other methods that do not match this pattern.)
 **/
 private var __go2hxdoc__package : Bool;
+@:invalid typedef T_input_static_extension = Dynamic;
 typedef T_input = stdgo._internal.regexp.Regexp.T_input;
 @:invalid typedef T_stringError = Dynamic;
 @:invalid typedef ReplaceTest = Dynamic;

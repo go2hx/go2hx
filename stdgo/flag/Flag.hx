@@ -95,8 +95,11 @@ function set_usage(v:() -> Void):() -> Void return stdgo._internal.flag.Flag.usa
 var defaultUsage(get, set) : () -> Void;
 function get_defaultUsage():() -> Void return stdgo._internal.flag.Flag.defaultUsage;
 function set_defaultUsage(v:() -> Void):() -> Void return stdgo._internal.flag.Flag.defaultUsage = v;
+@:invalid typedef T_boolFlag_static_extension = Dynamic;
 typedef T_boolFlag = stdgo._internal.flag.Flag.T_boolFlag;
+@:invalid typedef Value_static_extension = Dynamic;
 typedef Value = stdgo._internal.flag.Flag.Value;
+@:invalid typedef Getter_static_extension = Dynamic;
 typedef Getter = stdgo._internal.flag.Flag.Getter;
 @:invalid typedef T_textValue = Dynamic;
 @:invalid typedef FlagSet = Dynamic;

@@ -57,9 +57,13 @@ function set_canceled(v:stdgo.Error):stdgo.Error return stdgo._internal.context.
 var deadlineExceeded(get, set) : stdgo.Error;
 function get_deadlineExceeded():stdgo.Error return stdgo._internal.context.Context.deadlineExceeded;
 function set_deadlineExceeded(v:stdgo.Error):stdgo.Error return stdgo._internal.context.Context.deadlineExceeded = v;
+@:invalid typedef Context_static_extension = Dynamic;
 typedef Context = stdgo._internal.context.Context.Context;
+@:invalid typedef T_afterFuncer_static_extension = Dynamic;
 typedef T_afterFuncer = stdgo._internal.context.Context.T_afterFuncer;
+@:invalid typedef T_canceler_static_extension = Dynamic;
 typedef T_canceler = stdgo._internal.context.Context.T_canceler;
+@:invalid typedef T_stringer_static_extension = Dynamic;
 typedef T_stringer = stdgo._internal.context.Context.T_stringer;
 @:invalid typedef T_deadlineExceededError = Dynamic;
 @:invalid typedef T_emptyCtx = Dynamic;

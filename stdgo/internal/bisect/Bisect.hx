@@ -174,6 +174,7 @@ package stdgo.internal.bisect;
     // in most runs.
 **/
 private var __go2hxdoc__package : Bool;
+@:invalid typedef Writer_static_extension = Dynamic;
 typedef Writer = stdgo._internal.internal.bisect.Bisect.Writer;
 @:invalid typedef Matcher = Dynamic;
 @:invalid typedef T_atomicPointerDedup = Dynamic;

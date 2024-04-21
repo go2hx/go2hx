@@ -47,6 +47,7 @@ final bothDir : stdgo._internal.reflect.Reflect.ChanDir = stdgo._internal.reflec
 final selectSend = stdgo._internal.reflect.Reflect.selectSend;
 final selectRecv = stdgo._internal.reflect.Reflect.selectRecv;
 final selectDefault = stdgo._internal.reflect.Reflect.selectDefault;
+@:invalid typedef Type__static_extension = Dynamic;
 typedef Type_ = stdgo._internal.reflect.Reflect.Type_;
 @:invalid typedef Method = Dynamic;
 @:invalid typedef StructField = Dynamic;

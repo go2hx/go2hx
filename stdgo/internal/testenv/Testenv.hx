@@ -11,6 +11,7 @@ private var __go2hxdoc__package : Bool;
 var sigquit(get, set) : stdgo._internal.os.Os.Signal;
 function get_sigquit():stdgo._internal.os.Os.Signal return stdgo._internal.internal.testenv.Testenv.sigquit;
 function set_sigquit(v:stdgo._internal.os.Os.Signal):stdgo._internal.os.Os.Signal return stdgo._internal.internal.testenv.Testenv.sigquit = v;
+@:invalid typedef T__interface_0_static_extension = Dynamic;
 typedef T__interface_0 = stdgo._internal.internal.testenv.Testenv.T__interface_0;
 /**
     // MustHaveExec checks that the current system can start new processes

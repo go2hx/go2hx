@@ -1,5 +1,11 @@
 package stdgo._internal.hash;
 private var __go2hxdoc__package : Bool;
+@:keep class Hash_static_extension {
+    static public function blockSize(t:Hash):stdgo.GoInt return t.blockSize();
+    static public function size(t:Hash):stdgo.GoInt return t.size();
+    static public function reset(t:Hash):Void t.reset();
+    static public function sum(t:Hash, _b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> return t.sum(_b);
+}
 typedef Hash = stdgo.StructType & {
     > stdgo._internal.io.Io.Writer,
     /**
@@ -31,6 +37,9 @@ typedef Hash = stdgo.StructType & {
     **/
     public dynamic function blockSize():stdgo.GoInt;
 };
+@:keep class Hash32_static_extension {
+    static public function sum32(t:Hash32):stdgo.GoUInt32 return t.sum32();
+}
 typedef Hash32 = stdgo.StructType & {
     > Hash,
     /**
@@ -40,6 +49,9 @@ typedef Hash32 = stdgo.StructType & {
     **/
     public dynamic function sum32():stdgo.GoUInt32;
 };
+@:keep class Hash64_static_extension {
+    static public function sum64(t:Hash64):stdgo.GoUInt64 return t.sum64();
+}
 typedef Hash64 = stdgo.StructType & {
     > Hash,
     /**

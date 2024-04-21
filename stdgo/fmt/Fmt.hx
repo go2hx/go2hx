@@ -386,11 +386,17 @@ function set_isSpace(v:stdgo.GoInt32 -> Bool):stdgo.GoInt32 -> Bool return stdgo
 var parsenum(get, set) : (stdgo.GoString, stdgo.GoInt, stdgo.GoInt) -> { var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoInt; };
 function get_parsenum():(stdgo.GoString, stdgo.GoInt, stdgo.GoInt) -> { var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoInt; } return stdgo._internal.fmt.Fmt.parsenum;
 function set_parsenum(v:(stdgo.GoString, stdgo.GoInt, stdgo.GoInt) -> { var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoInt; }):(stdgo.GoString, stdgo.GoInt, stdgo.GoInt) -> { var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoInt; } return stdgo._internal.fmt.Fmt.parsenum = v;
+@:invalid typedef State_static_extension = Dynamic;
 typedef State = stdgo._internal.fmt.Fmt.State;
+@:invalid typedef Formatter_static_extension = Dynamic;
 typedef Formatter = stdgo._internal.fmt.Fmt.Formatter;
+@:invalid typedef Stringer_static_extension = Dynamic;
 typedef Stringer = stdgo._internal.fmt.Fmt.Stringer;
+@:invalid typedef GoStringer_static_extension = Dynamic;
 typedef GoStringer = stdgo._internal.fmt.Fmt.GoStringer;
+@:invalid typedef ScanState_static_extension = Dynamic;
 typedef ScanState = stdgo._internal.fmt.Fmt.ScanState;
+@:invalid typedef Scanner_static_extension = Dynamic;
 typedef Scanner = stdgo._internal.fmt.Fmt.Scanner;
 @:invalid typedef T_wrapError = Dynamic;
 @:invalid typedef T_wrapErrors = Dynamic;

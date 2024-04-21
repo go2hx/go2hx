@@ -15,7 +15,9 @@ package stdgo.math.rand;
     // crypto/rand package.
 **/
 private var __go2hxdoc__package : Bool;
+@:invalid typedef Source_static_extension = Dynamic;
 typedef Source = stdgo._internal.math.rand.Rand.Source;
+@:invalid typedef Source64_static_extension = Dynamic;
 typedef Source64 = stdgo._internal.math.rand.Rand.Source64;
 @:invalid typedef Rand = Dynamic;
 @:invalid typedef T_fastSource = Dynamic;

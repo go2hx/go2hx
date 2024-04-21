@@ -34,6 +34,9 @@ var _testImages : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(9, 9,
     } } : T__struct_0), ({ _name : ("paletted" : stdgo.GoString), _image : function():T_image {
         return stdgo.Go.asInterface(newPaletted(rect((0 : stdgo.GoInt), (0 : stdgo.GoInt), (10 : stdgo.GoInt), (10 : stdgo.GoInt))?.__copy__(), (new stdgo.Slice<stdgo._internal.image.color.Color.Color>(2, 2, ...[stdgo.Go.asInterface(transparent), stdgo.Go.asInterface(opaque)]) : stdgo._internal.image.color.Color.Palette)));
     } } : T__struct_0)].concat([for (i in 9 ... (9 > 9 ? 9 : 9 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _image : null } : T__struct_0)])) : stdgo.Slice<T__struct_0>);
+@:keep class T_reader_static_extension {
+    static public function peek(t:T_reader, _0:stdgo.GoInt):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } return t.peek(_0);
+}
 typedef T_reader = stdgo.StructType & {
     > stdgo._internal.io.Io.Reader,
     /**
@@ -43,6 +46,11 @@ typedef T_reader = stdgo.StructType & {
     **/
     public dynamic function peek(_0:stdgo.GoInt):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; };
 };
+@:keep class Image_static_extension {
+    static public function at(t:Image, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.Color return t.at(_x, _y);
+    static public function bounds(t:Image):Rectangle return t.bounds();
+    static public function colorModel(t:Image):stdgo._internal.image.color.Color.Model return t.colorModel();
+}
 typedef Image = stdgo.StructType & {
     /**
         // ColorModel returns the Image's color model.
@@ -66,6 +74,9 @@ typedef Image = stdgo.StructType & {
     **/
     public dynamic function at(_x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.Color;
 };
+@:keep class RGBA64Image_static_extension {
+    static public function rgba64at(t:RGBA64Image, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.RGBA64 return t.rgba64at(_x, _y);
+}
 typedef RGBA64Image = stdgo.StructType & {
     > Image,
     /**
@@ -78,6 +89,9 @@ typedef RGBA64Image = stdgo.StructType & {
     **/
     public dynamic function rgba64at(_x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.RGBA64;
 };
+@:keep class PalettedImage_static_extension {
+    static public function colorIndexAt(t:PalettedImage, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo.GoUInt8 return t.colorIndexAt(_x, _y);
+}
 typedef PalettedImage = stdgo.StructType & {
     > Image,
     /**
@@ -87,6 +101,11 @@ typedef PalettedImage = stdgo.StructType & {
     **/
     public dynamic function colorIndexAt(_x:stdgo.GoInt, _y:stdgo.GoInt):stdgo.GoUInt8;
 };
+@:keep class T_image_static_extension {
+    static public function subImage(t:T_image, _0:Rectangle):Image return t.subImage(_0);
+    static public function set(t:T_image, _0:stdgo.GoInt, _1:stdgo.GoInt, _2:stdgo._internal.image.color.Color.Color):Void t.set(_0, _1, _2);
+    static public function opaque(t:T_image):Bool return t.opaque();
+}
 typedef T_image = stdgo.StructType & {
     > Image,
     /**
@@ -108,6 +127,9 @@ typedef T_image = stdgo.StructType & {
     **/
     public dynamic function subImage(_0:Rectangle):Image;
 };
+@:keep class T__interface_0_static_extension {
+    static public function setRGBA64(t:T__interface_0, _x:stdgo.GoInt, _y:stdgo.GoInt, _c:stdgo._internal.image.color.Color.RGBA64):Void t.setRGBA64(_x, _y, _c);
+}
 typedef T__interface_0 = stdgo.StructType & {
     /**
         

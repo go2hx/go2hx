@@ -5,6 +5,12 @@ var _cancelCtxKey : stdgo.GoInt = (0 : stdgo.GoInt);
 var canceled : stdgo.Error = (null : stdgo.Error);
 var deadlineExceeded : stdgo.Error = (null : stdgo.Error);
 var _closedchan : stdgo.Chan<T_deadlineExceededError> = (null : stdgo.Chan<T_deadlineExceededError>);
+@:keep class Context_static_extension {
+    static public function value(t:Context, _key:stdgo.AnyInterface):stdgo.AnyInterface return t.value(_key);
+    static public function err(t:Context):stdgo.Error return t.err();
+    static public function done(t:Context):stdgo.Chan<T__struct_0> return t.done();
+    static public function deadline(t:Context):{ var _0 : stdgo._internal.time.Time.Time; var _1 : Bool; } return t.deadline();
+}
 typedef Context = stdgo.StructType & {
     /**
         // Deadline returns the time when work done on behalf of this context
@@ -111,6 +117,9 @@ typedef Context = stdgo.StructType & {
     **/
     public dynamic function value(_key:stdgo.AnyInterface):stdgo.AnyInterface;
 };
+@:keep class T_afterFuncer_static_extension {
+    static public function afterFunc(t:T_afterFuncer, _0:() -> Void):() -> Bool return t.afterFunc(_0);
+}
 typedef T_afterFuncer = stdgo.StructType & {
     /**
         
@@ -119,6 +128,10 @@ typedef T_afterFuncer = stdgo.StructType & {
     **/
     public dynamic function afterFunc(_0:() -> Void):() -> Bool;
 };
+@:keep class T_canceler_static_extension {
+    static public function done(t:T_canceler):stdgo.Chan<T__struct_0> return t.done();
+    static public function _cancel(t:T_canceler, _removeFromParent:Bool, _err:stdgo.Error, _cause:stdgo.Error):Void t._cancel(_removeFromParent, _err, _cause);
+}
 typedef T_canceler = stdgo.StructType & {
     /**
         
@@ -133,6 +146,9 @@ typedef T_canceler = stdgo.StructType & {
     **/
     public dynamic function done():stdgo.Chan<T__struct_0>;
 };
+@:keep class T_stringer_static_extension {
+    static public function string(t:T_stringer):stdgo.GoString return t.string();
+}
 typedef T_stringer = stdgo.StructType & {
     /**
         

@@ -4,6 +4,9 @@ final compiler : stdgo.GoString = "go2hx";
 final goos : stdgo.GoString = ("" : stdgo.GoString);
 final goarch : stdgo.GoString = ("" : stdgo.GoString);
 var memProfileRate : stdgo.GoInt = (0 : stdgo.GoInt);
+@:keep class Error_static_extension {
+    static public function runtimeError(t:Error):Void t.runtimeError();
+}
 typedef Error = stdgo.StructType & {
     > stdgo.Error,
     /**

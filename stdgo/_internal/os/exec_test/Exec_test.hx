@@ -33,6 +33,9 @@ var _helperCommands : stdgo.GoMap<stdgo.GoString, haxe.Rest<stdgo.GoString> -> V
         };
         x;
     } : stdgo.GoMap<stdgo.GoString, haxe.Rest<stdgo.GoString> -> Void>);
+@:keep class T__interface_0_static_extension {
+    static public function fd(t:T__interface_0):stdgo.GoUIntptr return t.fd();
+}
 typedef T__interface_0 = stdgo.StructType & {
     /**
         

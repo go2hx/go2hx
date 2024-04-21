@@ -3,6 +3,7 @@ package stdgo.sort;
     // Package sort provides primitives for sorting slices and user-defined collections.
 **/
 private var __go2hxdoc__package : Bool;
+@:invalid typedef Interface_static_extension = Dynamic;
 typedef Interface = stdgo._internal.sort.Sort.Interface;
 @:invalid typedef T_lessSwap = Dynamic;
 @:invalid typedef T_reverse = Dynamic;

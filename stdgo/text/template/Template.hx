@@ -461,6 +461,7 @@ package stdgo.text.template;
     *|/
 **/
 private var __go2hxdoc__package : Bool;
+@:invalid typedef I_static_extension = Dynamic;
 typedef I = stdgo._internal.text.template.Template.I;
 @:invalid typedef T_state = Dynamic;
 @:invalid typedef T_variable = Dynamic;

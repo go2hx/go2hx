@@ -329,6 +329,11 @@ var _errnoByCode : stdgo.GoMap<stdgo.GoString, stdgo._internal.syscall.Syscall.E
 final __8 : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
 final __9 : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
 final __10 : stdgo._internal.syscall.Syscall.Signal = ((0 : stdgo.GoInt) : stdgo._internal.syscall.Syscall.Signal);
+@:keep class RawConn_static_extension {
+    static public function write(t:RawConn, _f:(_fd:stdgo.GoUIntptr) -> Bool):stdgo.Error return t.write(_f);
+    static public function read(t:RawConn, _f:(_fd:stdgo.GoUIntptr) -> Bool):stdgo.Error return t.read(_f);
+    static public function control(t:RawConn, _f:(_fd:stdgo.GoUIntptr) -> Void):stdgo.Error return t.control(_f);
+}
 typedef RawConn = stdgo.StructType & {
     /**
         // Control invokes f on the underlying connection's file
@@ -359,6 +364,9 @@ typedef RawConn = stdgo.StructType & {
     **/
     public dynamic function write(_f:(_fd:stdgo.GoUIntptr) -> Bool):stdgo.Error;
 };
+@:keep class Conn_static_extension {
+    static public function syscallConn(t:Conn):{ var _0 : RawConn; var _1 : stdgo.Error; } return t.syscallConn();
+}
 typedef Conn = stdgo.StructType & {
     /**
         // SyscallConn returns a raw network connection.

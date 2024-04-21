@@ -48,11 +48,17 @@ function set_transparent(v:stdgo._internal.image.Image.Uniform):stdgo._internal.
 var opaque(get, set) : stdgo._internal.image.Image.Uniform;
 function get_opaque():stdgo._internal.image.Image.Uniform return stdgo._internal.image.Image.opaque;
 function set_opaque(v:stdgo._internal.image.Image.Uniform):stdgo._internal.image.Image.Uniform return stdgo._internal.image.Image.opaque = v;
+@:invalid typedef T_reader_static_extension = Dynamic;
 typedef T_reader = stdgo._internal.image.Image.T_reader;
+@:invalid typedef Image_static_extension = Dynamic;
 typedef Image = stdgo._internal.image.Image.Image;
+@:invalid typedef RGBA64Image_static_extension = Dynamic;
 typedef RGBA64Image = stdgo._internal.image.Image.RGBA64Image;
+@:invalid typedef PalettedImage_static_extension = Dynamic;
 typedef PalettedImage = stdgo._internal.image.Image.PalettedImage;
+@:invalid typedef T_image_static_extension = Dynamic;
 typedef T_image = stdgo._internal.image.Image.T_image;
+@:invalid typedef T__interface_0_static_extension = Dynamic;
 typedef T__interface_0 = stdgo._internal.image.Image.T__interface_0;
 @:invalid typedef T_format = Dynamic;
 @:invalid typedef Point = Dynamic;

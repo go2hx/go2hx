@@ -6154,6 +6154,9 @@ var _writeBlockTests : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_huffTe
 var _suites : stdgo.Slice<T__struct_5> = (new stdgo.Slice<T__struct_5>(2, 2, ...[({ _name : ("Digits" : stdgo.GoString), _file : ("../testdata/e.txt" : stdgo.GoString) } : T__struct_5), ({ _name : ("Newton" : stdgo.GoString), _file : ("../../testdata/Isaac.Newton-Opticks.txt" : stdgo.GoString) } : T__struct_5)].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _file : ("" : stdgo.GoString) } : T__struct_5)])) : stdgo.Slice<T__struct_5>);
 var _levelTests : stdgo.Slice<T__struct_6> = (new stdgo.Slice<T__struct_6>(4, 4, ...[({ _name : ("Huffman" : stdgo.GoString), _level : (-2 : stdgo.GoInt) } : T__struct_6), ({ _name : ("Speed" : stdgo.GoString), _level : (1 : stdgo.GoInt) } : T__struct_6), ({ _name : ("Default" : stdgo.GoString), _level : (-1 : stdgo.GoInt) } : T__struct_6), ({ _name : ("Compression" : stdgo.GoString), _level : (9 : stdgo.GoInt) } : T__struct_6)].concat([for (i in 4 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _level : (0 : stdgo.GoInt) } : T__struct_6)])) : stdgo.Slice<T__struct_6>);
 var _sizes : stdgo.Slice<T__struct_7> = (new stdgo.Slice<T__struct_7>(3, 3, ...[({ _name : ("1e4" : stdgo.GoString), _n : (10000 : stdgo.GoInt) } : T__struct_7), ({ _name : ("1e5" : stdgo.GoString), _n : (100000 : stdgo.GoInt) } : T__struct_7), ({ _name : ("1e6" : stdgo.GoString), _n : (1000000 : stdgo.GoInt) } : T__struct_7)].concat([for (i in 3 ... (3 > 3 ? 3 : 3 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _n : (0 : stdgo.GoInt) } : T__struct_7)])) : stdgo.Slice<T__struct_7>);
+@:keep class Resetter_static_extension {
+    static public function reset(t:Resetter, _r:stdgo._internal.io.Io.Reader, _dict:stdgo.Slice<stdgo.GoByte>):stdgo.Error return t.reset(_r, _dict);
+}
 typedef Resetter = stdgo.StructType & {
     /**
         // Reset discards any buffered data and resets the Resetter as if it was
@@ -6163,6 +6166,9 @@ typedef Resetter = stdgo.StructType & {
     **/
     public dynamic function reset(_r:stdgo._internal.io.Io.Reader, _dict:stdgo.Slice<stdgo.GoByte>):stdgo.Error;
 };
+@:keep class Reader_static_extension {
+
+}
 typedef Reader = stdgo.StructType & {
     > stdgo._internal.io.Io.Reader,
     > stdgo._internal.io.Io.ByteReader,

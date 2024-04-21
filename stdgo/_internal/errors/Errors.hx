@@ -2,6 +2,9 @@ package stdgo._internal.errors;
 private var __go2hxdoc__package : Bool;
 var errUnsupported : stdgo.Error = new_(("unsupported operation" : stdgo.GoString));
 var _errorType : stdgo._internal.internal.reflectlite.Reflectlite.Type_ = stdgo._internal.internal.reflectlite.Reflectlite.typeOf(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Error>))).elem();
+@:keep class T__interface_0_static_extension {
+    static public function unwrap(t:T__interface_0):stdgo.Error return t.unwrap();
+}
 typedef T__interface_0 = stdgo.StructType & {
     /**
         
@@ -10,6 +13,9 @@ typedef T__interface_0 = stdgo.StructType & {
     **/
     public dynamic function unwrap():stdgo.Error;
 };
+@:keep class T__interface_1_static_extension {
+    static public function is_(t:T__interface_1, _0:stdgo.Error):Bool return t.is_(_0);
+}
 typedef T__interface_1 = stdgo.StructType & {
     /**
         
@@ -18,6 +24,9 @@ typedef T__interface_1 = stdgo.StructType & {
     **/
     public dynamic function is_(_0:stdgo.Error):Bool;
 };
+@:keep class T__interface_2_static_extension {
+    static public function unwrap(t:T__interface_2):stdgo.Slice<stdgo.Error> return t.unwrap();
+}
 typedef T__interface_2 = stdgo.StructType & {
     /**
         
@@ -26,6 +35,9 @@ typedef T__interface_2 = stdgo.StructType & {
     **/
     public dynamic function unwrap():stdgo.Slice<stdgo.Error>;
 };
+@:keep class T__interface_3_static_extension {
+    static public function as(t:T__interface_3, _0:stdgo.AnyInterface):Bool return t.as(_0);
+}
 typedef T__interface_3 = stdgo.StructType & {
     /**
         

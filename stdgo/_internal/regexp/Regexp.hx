@@ -469,6 +469,13 @@ var _onePassTests : stdgo.Slice<T__struct_6> = (new stdgo.Slice<T__struct_6>(35,
 ({ _re : ("^(?:(?:a{1,2}){1,2})$" : stdgo.GoString), _isOnePass : false } : T__struct_6),
 ({ _re : ((("^l" : stdgo.GoString) + stdgo._internal.strings.Strings.repeat(("o" : stdgo.GoString), (512 : stdgo.GoInt))?.__copy__() : stdgo.GoString) + ("ng$" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), _isOnePass : true } : T__struct_6)].concat([for (i in 35 ... (35 > 35 ? 35 : 35 : stdgo.GoInt).toBasic()) ({ _re : ("" : stdgo.GoString), _isOnePass : false } : T__struct_6)])) : stdgo.Slice<T__struct_6>);
 var _onePassTests1 : stdgo.Slice<T__struct_7> = (new stdgo.Slice<T__struct_7>(1, 1, ...[({ _re : ("^a(/b+(#c+)*)*$" : stdgo.GoString), _match : ("a/b#c" : stdgo.GoString) } : T__struct_7)].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({ _re : ("" : stdgo.GoString), _match : ("" : stdgo.GoString) } : T__struct_7)])) : stdgo.Slice<T__struct_7>);
+@:keep class T_input_static_extension {
+    static public function _context(t:T_input, _pos:stdgo.GoInt):T_lazyFlag return t._context(_pos);
+    static public function _index(t:T_input, _re:stdgo.Ref<Regexp>, _pos:stdgo.GoInt):stdgo.GoInt return t._index(_re, _pos);
+    static public function _hasPrefix(t:T_input, _re:stdgo.Ref<Regexp>):Bool return t._hasPrefix(_re);
+    static public function _canCheckPrefix(t:T_input):Bool return t._canCheckPrefix();
+    static public function _step(t:T_input, _pos:stdgo.GoInt):{ var _0 : stdgo.GoRune; var _1 : stdgo.GoInt; } return t._step(_pos);
+}
 typedef T_input = stdgo.StructType & {
     /**
         

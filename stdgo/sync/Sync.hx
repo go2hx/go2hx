@@ -20,7 +20,9 @@ function set_runtime_procPin(v:() -> stdgo.GoInt):() -> stdgo.GoInt return stdgo
 var runtime_procUnpin(get, set) : () -> Void;
 function get_runtime_procUnpin():() -> Void return stdgo._internal.sync.Sync.runtime_procUnpin;
 function set_runtime_procUnpin(v:() -> Void):() -> Void return stdgo._internal.sync.Sync.runtime_procUnpin = v;
+@:invalid typedef PoolDequeue_static_extension = Dynamic;
 typedef PoolDequeue = stdgo._internal.sync.Sync.PoolDequeue;
+@:invalid typedef Locker_static_extension = Dynamic;
 typedef Locker = stdgo._internal.sync.Sync.Locker;
 @:invalid typedef Cond = Dynamic;
 @:invalid typedef T_noCopy = Dynamic;

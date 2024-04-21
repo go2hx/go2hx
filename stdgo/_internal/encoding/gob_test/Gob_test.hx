@@ -1,5 +1,8 @@
 package stdgo._internal.encoding.gob_test;
 import stdgo._internal.encoding.gob.Gob;
+@:keep class Pythagoras_static_extension {
+    static public function hypotenuse(t:Pythagoras):stdgo.GoFloat64 return t.hypotenuse();
+}
 typedef Pythagoras = stdgo.StructType & {
     /**
         

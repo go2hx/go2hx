@@ -48,7 +48,9 @@ function set_nycbCrAModel(v:stdgo._internal.image.color.Color.Model):stdgo._inte
 var cmykmodel(get, set) : stdgo._internal.image.color.Color.Model;
 function get_cmykmodel():stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.cmykmodel;
 function set_cmykmodel(v:stdgo._internal.image.color.Color.Model):stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.cmykmodel = v;
+@:invalid typedef Color_static_extension = Dynamic;
 typedef Color = stdgo._internal.image.color.Color.Color;
+@:invalid typedef Model_static_extension = Dynamic;
 typedef Model = stdgo._internal.image.color.Color.Model;
 @:invalid typedef RGBA = Dynamic;
 @:invalid typedef RGBA64 = Dynamic;

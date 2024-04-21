@@ -41,6 +41,12 @@ var _errComplex : stdgo.Error = stdgo._internal.errors.Errors.new_(("syntax erro
 var _errBool : stdgo.Error = stdgo._internal.errors.Errors.new_(("syntax error scanning boolean" : stdgo.GoString));
 var isSpace : stdgo.GoInt32 -> Bool = _isSpace;
 var parsenum : (stdgo.GoString, stdgo.GoInt, stdgo.GoInt) -> { var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoInt; } = _parsenum;
+@:keep class State_static_extension {
+    static public function flag(t:State, _c:stdgo.GoInt):Bool return t.flag(_c);
+    static public function precision(t:State):{ var _0 : stdgo.GoInt; var _1 : Bool; } return t.precision();
+    static public function width(t:State):{ var _0 : stdgo.GoInt; var _1 : Bool; } return t.width();
+    static public function write(t:State, _b:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return t.write(_b);
+}
 typedef State = stdgo.StructType & {
     /**
         // Write is the function to call to emit formatted output to be printed.
@@ -67,6 +73,9 @@ typedef State = stdgo.StructType & {
     **/
     public dynamic function flag(_c:stdgo.GoInt):Bool;
 };
+@:keep class Formatter_static_extension {
+    static public function format(t:Formatter, _f:State, _verb:stdgo.GoRune):Void t.format(_f, _verb);
+}
 typedef Formatter = stdgo.StructType & {
     /**
         
@@ -75,6 +84,9 @@ typedef Formatter = stdgo.StructType & {
     **/
     public dynamic function format(_f:State, _verb:stdgo.GoRune):Void;
 };
+@:keep class Stringer_static_extension {
+    static public function string(t:Stringer):stdgo.GoString return t.string();
+}
 typedef Stringer = stdgo.StructType & {
     /**
         
@@ -83,6 +95,9 @@ typedef Stringer = stdgo.StructType & {
     **/
     public dynamic function string():stdgo.GoString;
 };
+@:keep class GoStringer_static_extension {
+    static public function goString(t:GoStringer):stdgo.GoString return t.goString();
+}
 typedef GoStringer = stdgo.StructType & {
     /**
         
@@ -91,6 +106,14 @@ typedef GoStringer = stdgo.StructType & {
     **/
     public dynamic function goString():stdgo.GoString;
 };
+@:keep class ScanState_static_extension {
+    static public function read(t:ScanState, _buf:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return t.read(_buf);
+    static public function width(t:ScanState):{ var _0 : stdgo.GoInt; var _1 : Bool; } return t.width();
+    static public function token(t:ScanState, _skipSpace:Bool, _f:stdgo.GoRune -> Bool):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } return t.token(_skipSpace, _f);
+    static public function skipSpace(t:ScanState):Void t.skipSpace();
+    static public function unreadRune(t:ScanState):stdgo.Error return t.unreadRune();
+    static public function readRune(t:ScanState):{ var _0 : stdgo.GoRune; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } return t.readRune();
+}
 typedef ScanState = stdgo.StructType & {
     /**
         // ReadRune reads the next rune (Unicode code point) from the input.
@@ -144,6 +167,9 @@ typedef ScanState = stdgo.StructType & {
     **/
     public dynamic function read(_buf:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
 };
+@:keep class Scanner_static_extension {
+    static public function scan(t:Scanner, _state:ScanState, _verb:stdgo.GoRune):stdgo.Error return t.scan(_state, _verb);
+}
 typedef Scanner = stdgo.StructType & {
     /**
         

@@ -34,6 +34,37 @@ final bothDir : stdgo._internal.reflect.Reflect.ChanDir = ((0 : stdgo.GoInt) : s
 final selectSend = @:unknown_default_value null;
 final selectRecv = @:unknown_default_value null;
 final selectDefault = @:unknown_default_value null;
+@:keep class Type__static_extension {
+    static public function out(t:Type_, _i:stdgo.GoInt):Type_ return t.out(_i);
+    static public function numOut(t:Type_):stdgo.GoInt return t.numOut();
+    static public function numIn(t:Type_):stdgo.GoInt return t.numIn();
+    static public function numField(t:Type_):stdgo.GoInt return t.numField();
+    static public function len(t:Type_):stdgo.GoInt return t.len();
+    static public function key(t:Type_):Type_ return t.key();
+    static public function in_(t:Type_, _i:stdgo.GoInt):Type_ return t.in_(_i);
+    static public function fieldByNameFunc(t:Type_, _match:stdgo.GoString -> Bool):{ var _0 : StructField; var _1 : Bool; } return t.fieldByNameFunc(_match);
+    static public function fieldByName(t:Type_, _name:stdgo.GoString):{ var _0 : StructField; var _1 : Bool; } return t.fieldByName(_name);
+    static public function fieldByIndex(t:Type_, _index:stdgo.Slice<stdgo.GoInt>):StructField return t.fieldByIndex(_index);
+    static public function field(t:Type_, _i:stdgo.GoInt):StructField return t.field(_i);
+    static public function elem(t:Type_):Type_ return t.elem();
+    static public function isVariadic(t:Type_):Bool return t.isVariadic();
+    static public function chanDir(t:Type_):ChanDir return t.chanDir();
+    static public function bits(t:Type_):stdgo.GoInt return t.bits();
+    static public function comparable_(t:Type_):Bool return t.comparable_();
+    static public function convertibleTo(t:Type_, _u:Type_):Bool return t.convertibleTo(_u);
+    static public function assignableTo(t:Type_, _u:Type_):Bool return t.assignableTo(_u);
+    static public function implements_(t:Type_, _u:Type_):Bool return t.implements_(_u);
+    static public function kind(t:Type_):Kind return t.kind();
+    static public function string(t:Type_):stdgo.GoString return t.string();
+    static public function size(t:Type_):stdgo.GoUIntptr return t.size();
+    static public function pkgPath(t:Type_):stdgo.GoString return t.pkgPath();
+    static public function name(t:Type_):stdgo.GoString return t.name();
+    static public function numMethod(t:Type_):stdgo.GoInt return t.numMethod();
+    static public function methodByName(t:Type_, _0:stdgo.GoString):{ var _0 : Method; var _1 : Bool; } return t.methodByName(_0);
+    static public function method(t:Type_, _0:stdgo.GoInt):Method return t.method(_0);
+    static public function fieldAlign(t:Type_):stdgo.GoInt return t.fieldAlign();
+    static public function align(t:Type_):stdgo.GoInt return t.align();
+}
 typedef Type_ = stdgo.StructType & {
     /**
         // Align returns the alignment in bytes of a value of

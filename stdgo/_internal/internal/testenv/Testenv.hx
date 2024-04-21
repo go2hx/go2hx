@@ -16,6 +16,9 @@ var _hasCgo : Bool = false;
 var _origEnv : stdgo.Slice<stdgo.GoString> = stdgo._internal.os.Os.environ();
 var _flaky : stdgo.Pointer<Bool> = stdgo._internal.flag.Flag.bool_(("flaky" : stdgo.GoString), false, ("run known-flaky tests too" : stdgo.GoString));
 var sigquit : stdgo._internal.os.Os.Signal = stdgo._internal.os.Os.kill;
+@:keep class T__interface_0_static_extension {
+    static public function deadline(t:T__interface_0):{ var _0 : stdgo._internal.time.Time.Time; var _1 : Bool; } return t.deadline();
+}
 typedef T__interface_0 = stdgo.StructType & {
     > stdgo._internal.testing.Testing.TB,
     /**

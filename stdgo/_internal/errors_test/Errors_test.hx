@@ -1,6 +1,9 @@
 package stdgo._internal.errors_test;
 import stdgo._internal.errors.Errors;
 var _poserPathErr : stdgo.Ref<stdgo._internal.io.fs.Fs.PathError> = (stdgo.Go.setRef(({ op : ("poser" : stdgo.GoString) } : stdgo._internal.io.fs.Fs.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs.PathError>);
+@:keep class T__interface_4_static_extension {
+    static public function unwrap(t:T__interface_4):stdgo.Slice<stdgo.Error> return t.unwrap();
+}
 typedef T__interface_4 = stdgo.StructType & {
     /**
         
@@ -9,6 +12,9 @@ typedef T__interface_4 = stdgo.StructType & {
     **/
     public dynamic function unwrap():stdgo.Slice<stdgo.Error>;
 };
+@:keep class T__interface_5_static_extension {
+    static public function timeout(t:T__interface_5):Bool return t.timeout();
+}
 typedef T__interface_5 = stdgo.StructType & {
     /**
         

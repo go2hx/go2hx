@@ -17,6 +17,11 @@ var runtime_Semacquire : stdgo.Pointer<stdgo.GoUInt32> -> Void = _runtime_Semacq
 var runtime_Semrelease : (stdgo.Pointer<stdgo.GoUInt32>, Bool, stdgo.GoInt) -> Void = _runtime_Semrelease;
 var runtime_procPin : () -> stdgo.GoInt = _runtime_procPin;
 var runtime_procUnpin : () -> Void = _runtime_procUnpin;
+@:keep class PoolDequeue_static_extension {
+    static public function popTail(t:PoolDequeue):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } return t.popTail();
+    static public function popHead(t:PoolDequeue):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } return t.popHead();
+    static public function pushHead(t:PoolDequeue, _val:stdgo.AnyInterface):Bool return t.pushHead(_val);
+}
 typedef PoolDequeue = stdgo.StructType & {
     /**
         
@@ -37,6 +42,10 @@ typedef PoolDequeue = stdgo.StructType & {
     **/
     public dynamic function popTail():{ var _0 : stdgo.AnyInterface; var _1 : Bool; };
 };
+@:keep class Locker_static_extension {
+    static public function unlock(t:Locker):Void t.unlock();
+    static public function lock(t:Locker):Void t.lock();
+}
 typedef Locker = stdgo.StructType & {
     /**
         

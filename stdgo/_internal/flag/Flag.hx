@@ -12,6 +12,9 @@ var usage : () -> Void = function():Void {
         printDefaults();
     };
 var defaultUsage : () -> Void = usage;
+@:keep class T_boolFlag_static_extension {
+    static public function isBoolFlag(t:T_boolFlag):Bool return t.isBoolFlag();
+}
 typedef T_boolFlag = stdgo.StructType & {
     > Value,
     /**
@@ -21,6 +24,10 @@ typedef T_boolFlag = stdgo.StructType & {
     **/
     public dynamic function isBoolFlag():Bool;
 };
+@:keep class Value_static_extension {
+    static public function set(t:Value, _0:stdgo.GoString):stdgo.Error return t.set(_0);
+    static public function string(t:Value):stdgo.GoString return t.string();
+}
 typedef Value = stdgo.StructType & {
     /**
         
@@ -35,6 +42,9 @@ typedef Value = stdgo.StructType & {
     **/
     public dynamic function set(_0:stdgo.GoString):stdgo.Error;
 };
+@:keep class Getter_static_extension {
+    static public function get(t:Getter):stdgo.AnyInterface return t.get();
+}
 typedef Getter = stdgo.StructType & {
     > Value,
     /**

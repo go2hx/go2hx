@@ -5,6 +5,7 @@ package stdgo.strings;
     // For information about UTF-8 strings in Go, see https://blog.golang.org/strings.
 **/
 private var __go2hxdoc__package : Bool;
+@:invalid typedef T_replacer_static_extension = Dynamic;
 typedef T_replacer = stdgo._internal.strings.Strings.T_replacer;
 @:invalid typedef Builder = Dynamic;
 @:invalid typedef Reader = Dynamic;

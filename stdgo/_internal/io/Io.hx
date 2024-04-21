@@ -23,6 +23,9 @@ var errOffset : stdgo.Error = _errOffset;
 var __3 : stdgo._internal.io.Io.ReaderFrom = stdgo.Go.asInterface((new stdgo._internal.io.Io.T_discard() : stdgo._internal.io.Io.T_discard));
 var __4 : stdgo._internal.io.Io.WriterTo = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.io.Io.T_multiReader>) : stdgo.Ref<T_multiReader>));
 var __5 : stdgo._internal.io.Io.StringWriter = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.io.Io.T_multiWriter>) : stdgo.Ref<T_multiWriter>));
+@:keep class Reader_static_extension {
+    static public function read(t:Reader, _p:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return t.read(_p);
+}
 typedef Reader = stdgo.StructType & {
     /**
         
@@ -31,6 +34,9 @@ typedef Reader = stdgo.StructType & {
     **/
     public dynamic function read(_p:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
 };
+@:keep class Writer_static_extension {
+    static public function write(t:Writer, _p:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return t.write(_p);
+}
 typedef Writer = stdgo.StructType & {
     /**
         
@@ -39,6 +45,9 @@ typedef Writer = stdgo.StructType & {
     **/
     public dynamic function write(_p:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
 };
+@:keep class Closer_static_extension {
+    static public function close(t:Closer):stdgo.Error return t.close();
+}
 typedef Closer = stdgo.StructType & {
     /**
         
@@ -47,6 +56,9 @@ typedef Closer = stdgo.StructType & {
     **/
     public dynamic function close():stdgo.Error;
 };
+@:keep class Seeker_static_extension {
+    static public function seek(t:Seeker, _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return t.seek(_offset, _whence);
+}
 typedef Seeker = stdgo.StructType & {
     /**
         
@@ -55,41 +67,68 @@ typedef Seeker = stdgo.StructType & {
     **/
     public dynamic function seek(_offset:stdgo.GoInt64, _whence:stdgo.GoInt):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; };
 };
+@:keep class ReadWriter_static_extension {
+
+}
 typedef ReadWriter = stdgo.StructType & {
     > Reader,
     > Writer,
 };
+@:keep class ReadCloser_static_extension {
+
+}
 typedef ReadCloser = stdgo.StructType & {
     > Reader,
     > Closer,
 };
+@:keep class WriteCloser_static_extension {
+
+}
 typedef WriteCloser = stdgo.StructType & {
     > Writer,
     > Closer,
 };
+@:keep class ReadWriteCloser_static_extension {
+
+}
 typedef ReadWriteCloser = stdgo.StructType & {
     > Reader,
     > Writer,
     > Closer,
 };
+@:keep class ReadSeeker_static_extension {
+
+}
 typedef ReadSeeker = stdgo.StructType & {
     > Reader,
     > Seeker,
 };
+@:keep class ReadSeekCloser_static_extension {
+
+}
 typedef ReadSeekCloser = stdgo.StructType & {
     > Reader,
     > Seeker,
     > Closer,
 };
+@:keep class WriteSeeker_static_extension {
+
+}
 typedef WriteSeeker = stdgo.StructType & {
     > Writer,
     > Seeker,
 };
+@:keep class ReadWriteSeeker_static_extension {
+
+}
 typedef ReadWriteSeeker = stdgo.StructType & {
     > Reader,
     > Writer,
     > Seeker,
 };
+@:keep class ReaderFrom_static_extension {
+    static public function readFrom(t:ReaderFrom, _r:Reader):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return t.readFrom(_r);
+}
 typedef ReaderFrom = stdgo.StructType & {
     /**
         
@@ -98,6 +137,9 @@ typedef ReaderFrom = stdgo.StructType & {
     **/
     public dynamic function readFrom(_r:Reader):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; };
 };
+@:keep class WriterTo_static_extension {
+    static public function writeTo(t:WriterTo, _w:Writer):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return t.writeTo(_w);
+}
 typedef WriterTo = stdgo.StructType & {
     /**
         
@@ -106,6 +148,9 @@ typedef WriterTo = stdgo.StructType & {
     **/
     public dynamic function writeTo(_w:Writer):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; };
 };
+@:keep class ReaderAt_static_extension {
+    static public function readAt(t:ReaderAt, _p:stdgo.Slice<stdgo.GoByte>, _off:stdgo.GoInt64):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return t.readAt(_p, _off);
+}
 typedef ReaderAt = stdgo.StructType & {
     /**
         
@@ -114,6 +159,9 @@ typedef ReaderAt = stdgo.StructType & {
     **/
     public dynamic function readAt(_p:stdgo.Slice<stdgo.GoByte>, _off:stdgo.GoInt64):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
 };
+@:keep class WriterAt_static_extension {
+    static public function writeAt(t:WriterAt, _p:stdgo.Slice<stdgo.GoByte>, _off:stdgo.GoInt64):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return t.writeAt(_p, _off);
+}
 typedef WriterAt = stdgo.StructType & {
     /**
         
@@ -122,6 +170,9 @@ typedef WriterAt = stdgo.StructType & {
     **/
     public dynamic function writeAt(_p:stdgo.Slice<stdgo.GoByte>, _off:stdgo.GoInt64):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
 };
+@:keep class ByteReader_static_extension {
+    static public function readByte(t:ByteReader):{ var _0 : stdgo.GoByte; var _1 : stdgo.Error; } return t.readByte();
+}
 typedef ByteReader = stdgo.StructType & {
     /**
         
@@ -130,6 +181,9 @@ typedef ByteReader = stdgo.StructType & {
     **/
     public dynamic function readByte():{ var _0 : stdgo.GoByte; var _1 : stdgo.Error; };
 };
+@:keep class ByteScanner_static_extension {
+    static public function unreadByte(t:ByteScanner):stdgo.Error return t.unreadByte();
+}
 typedef ByteScanner = stdgo.StructType & {
     > ByteReader,
     /**
@@ -139,6 +193,9 @@ typedef ByteScanner = stdgo.StructType & {
     **/
     public dynamic function unreadByte():stdgo.Error;
 };
+@:keep class ByteWriter_static_extension {
+    static public function writeByte(t:ByteWriter, _c:stdgo.GoByte):stdgo.Error return t.writeByte(_c);
+}
 typedef ByteWriter = stdgo.StructType & {
     /**
         
@@ -147,6 +204,9 @@ typedef ByteWriter = stdgo.StructType & {
     **/
     public dynamic function writeByte(_c:stdgo.GoByte):stdgo.Error;
 };
+@:keep class RuneReader_static_extension {
+    static public function readRune(t:RuneReader):{ var _0 : stdgo.GoRune; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } return t.readRune();
+}
 typedef RuneReader = stdgo.StructType & {
     /**
         
@@ -155,6 +215,9 @@ typedef RuneReader = stdgo.StructType & {
     **/
     public dynamic function readRune():{ var _0 : stdgo.GoRune; var _1 : stdgo.GoInt; var _2 : stdgo.Error; };
 };
+@:keep class RuneScanner_static_extension {
+    static public function unreadRune(t:RuneScanner):stdgo.Error return t.unreadRune();
+}
 typedef RuneScanner = stdgo.StructType & {
     > RuneReader,
     /**
@@ -164,6 +227,9 @@ typedef RuneScanner = stdgo.StructType & {
     **/
     public dynamic function unreadRune():stdgo.Error;
 };
+@:keep class StringWriter_static_extension {
+    static public function writeString(t:StringWriter, _s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return t.writeString(_s);
+}
 typedef StringWriter = stdgo.StructType & {
     /**
         

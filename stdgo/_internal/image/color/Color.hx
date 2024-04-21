@@ -17,6 +17,9 @@ var opaque : stdgo._internal.image.color.Color.Alpha16 = (new stdgo._internal.im
 var ycbCrModel : stdgo._internal.image.color.Color.Model = modelFunc(_yCbCrModel);
 var nycbCrAModel : stdgo._internal.image.color.Color.Model = modelFunc(_nYCbCrAModel);
 var cmykmodel : stdgo._internal.image.color.Color.Model = modelFunc(_cmykModel);
+@:keep class Color_static_extension {
+    static public function rgba(t:Color):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } return t.rgba();
+}
 typedef Color = stdgo.StructType & {
     /**
         // RGBA returns the alpha-premultiplied red, green, blue and alpha values
@@ -31,6 +34,9 @@ typedef Color = stdgo.StructType & {
     **/
     public dynamic function rgba():{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; };
 };
+@:keep class Model_static_extension {
+    static public function convert(t:Model, _c:Color):Color return t.convert(_c);
+}
 typedef Model = stdgo.StructType & {
     /**
         

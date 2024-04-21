@@ -15,7 +15,11 @@ package stdgo.encoding;
     // the addition of marshaling functions if no existing, reasonable marshaling exists.
 **/
 private var __go2hxdoc__package : Bool;
+@:invalid typedef BinaryMarshaler_static_extension = Dynamic;
 typedef BinaryMarshaler = stdgo._internal.encoding.Encoding.BinaryMarshaler;
+@:invalid typedef BinaryUnmarshaler_static_extension = Dynamic;
 typedef BinaryUnmarshaler = stdgo._internal.encoding.Encoding.BinaryUnmarshaler;
+@:invalid typedef TextMarshaler_static_extension = Dynamic;
 typedef TextMarshaler = stdgo._internal.encoding.Encoding.TextMarshaler;
+@:invalid typedef TextUnmarshaler_static_extension = Dynamic;
 typedef TextUnmarshaler = stdgo._internal.encoding.Encoding.TextUnmarshaler;

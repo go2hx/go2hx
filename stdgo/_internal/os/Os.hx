@@ -71,6 +71,9 @@ var errWriteAtInAppendMode : stdgo.Error = (null : stdgo.Error);
 var testingForceReadDirLstat : stdgo.Pointer<Bool> = (null : stdgo.Pointer<Bool>);
 var errPatternHasSeparator : stdgo.Error = (null : stdgo.Error);
 var splitPath : stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = null;
+@:keep class T_timeout_static_extension {
+    static public function timeout(t:T_timeout):Bool return t.timeout();
+}
 typedef T_timeout = stdgo.StructType & {
     /**
         
@@ -79,6 +82,10 @@ typedef T_timeout = stdgo.StructType & {
     **/
     public dynamic function timeout():Bool;
 };
+@:keep class Signal_static_extension {
+    static public function signal(t:Signal):Void t.signal();
+    static public function string(t:Signal):stdgo.GoString return t.string();
+}
 typedef Signal = stdgo.StructType & {
     /**
         

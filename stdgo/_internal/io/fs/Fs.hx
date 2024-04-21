@@ -22,6 +22,9 @@ var errNotExist : stdgo.Error = _errNotExist();
 var errClosed : stdgo.Error = _errClosed();
 var skipDir : stdgo.Error = stdgo._internal.errors.Errors.new_(("skip this directory" : stdgo.GoString));
 var skipAll : stdgo.Error = stdgo._internal.errors.Errors.new_(("skip everything and stop the walk" : stdgo.GoString));
+@:keep class FS_static_extension {
+    static public function open(t:FS, _name:stdgo.GoString):{ var _0 : File; var _1 : stdgo.Error; } return t.open(_name);
+}
 typedef FS = stdgo.StructType & {
     /**
         // Open opens the named file.
@@ -38,6 +41,11 @@ typedef FS = stdgo.StructType & {
     **/
     public dynamic function open(_name:stdgo.GoString):{ var _0 : File; var _1 : stdgo.Error; };
 };
+@:keep class File_static_extension {
+    static public function close(t:File):stdgo.Error return t.close();
+    static public function read(t:File, _0:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return t.read(_0);
+    static public function stat(t:File):{ var _0 : FileInfo; var _1 : stdgo.Error; } return t.stat();
+}
 typedef File = stdgo.StructType & {
     /**
         
@@ -58,6 +66,12 @@ typedef File = stdgo.StructType & {
     **/
     public dynamic function close():stdgo.Error;
 };
+@:keep class DirEntry_static_extension {
+    static public function info(t:DirEntry):{ var _0 : FileInfo; var _1 : stdgo.Error; } return t.info();
+    static public function type(t:DirEntry):FileMode return t.type();
+    static public function isDir(t:DirEntry):Bool return t.isDir();
+    static public function name(t:DirEntry):stdgo.GoString return t.name();
+}
 typedef DirEntry = stdgo.StructType & {
     /**
         // Name returns the name of the file (or subdirectory) described by the entry.
@@ -92,6 +106,9 @@ typedef DirEntry = stdgo.StructType & {
     **/
     public dynamic function info():{ var _0 : FileInfo; var _1 : stdgo.Error; };
 };
+@:keep class ReadDirFile_static_extension {
+    static public function readDir(t:ReadDirFile, _n:stdgo.GoInt):{ var _0 : stdgo.Slice<DirEntry>; var _1 : stdgo.Error; } return t.readDir(_n);
+}
 typedef ReadDirFile = stdgo.StructType & {
     > File,
     /**
@@ -115,6 +132,14 @@ typedef ReadDirFile = stdgo.StructType & {
     **/
     public dynamic function readDir(_n:stdgo.GoInt):{ var _0 : stdgo.Slice<DirEntry>; var _1 : stdgo.Error; };
 };
+@:keep class FileInfo_static_extension {
+    static public function sys(t:FileInfo):stdgo.AnyInterface return t.sys();
+    static public function isDir(t:FileInfo):Bool return t.isDir();
+    static public function modTime(t:FileInfo):stdgo._internal.time.Time.Time return t.modTime();
+    static public function mode(t:FileInfo):FileMode return t.mode();
+    static public function size(t:FileInfo):stdgo.GoInt64 return t.size();
+    static public function name(t:FileInfo):stdgo.GoString return t.name();
+}
 typedef FileInfo = stdgo.StructType & {
     /**
         
@@ -153,6 +178,9 @@ typedef FileInfo = stdgo.StructType & {
     **/
     public dynamic function sys():stdgo.AnyInterface;
 };
+@:keep class GlobFS_static_extension {
+    static public function glob(t:GlobFS, _pattern:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } return t.glob(_pattern);
+}
 typedef GlobFS = stdgo.StructType & {
     > FS,
     /**
@@ -164,6 +192,9 @@ typedef GlobFS = stdgo.StructType & {
     **/
     public dynamic function glob(_pattern:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; };
 };
+@:keep class ReadDirFS_static_extension {
+    static public function readDir(t:ReadDirFS, _name:stdgo.GoString):{ var _0 : stdgo.Slice<DirEntry>; var _1 : stdgo.Error; } return t.readDir(_name);
+}
 typedef ReadDirFS = stdgo.StructType & {
     > FS,
     /**
@@ -174,6 +205,9 @@ typedef ReadDirFS = stdgo.StructType & {
     **/
     public dynamic function readDir(_name:stdgo.GoString):{ var _0 : stdgo.Slice<DirEntry>; var _1 : stdgo.Error; };
 };
+@:keep class ReadFileFS_static_extension {
+    static public function readFile(t:ReadFileFS, _name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } return t.readFile(_name);
+}
 typedef ReadFileFS = stdgo.StructType & {
     > FS,
     /**
@@ -189,6 +223,9 @@ typedef ReadFileFS = stdgo.StructType & {
     **/
     public dynamic function readFile(_name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; };
 };
+@:keep class StatFS_static_extension {
+    static public function stat(t:StatFS, _name:stdgo.GoString):{ var _0 : FileInfo; var _1 : stdgo.Error; } return t.stat(_name);
+}
 typedef StatFS = stdgo.StructType & {
     > FS,
     /**
@@ -199,6 +236,9 @@ typedef StatFS = stdgo.StructType & {
     **/
     public dynamic function stat(_name:stdgo.GoString):{ var _0 : FileInfo; var _1 : stdgo.Error; };
 };
+@:keep class SubFS_static_extension {
+    static public function sub(t:SubFS, _dir:stdgo.GoString):{ var _0 : FS; var _1 : stdgo.Error; } return t.sub(_dir);
+}
 typedef SubFS = stdgo.StructType & {
     > FS,
     /**
@@ -208,6 +248,9 @@ typedef SubFS = stdgo.StructType & {
     **/
     public dynamic function sub(_dir:stdgo.GoString):{ var _0 : FS; var _1 : stdgo.Error; };
 };
+@:keep class T__interface_0_static_extension {
+    static public function timeout(t:T__interface_0):Bool return t.timeout();
+}
 typedef T__interface_0 = stdgo.StructType & {
     /**
         

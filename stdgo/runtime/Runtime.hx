@@ -261,6 +261,7 @@ final goarch : String = stdgo._internal.runtime.Runtime.goarch;
 var memProfileRate(get, set) : Int;
 function get_memProfileRate():Int return stdgo._internal.runtime.Runtime.memProfileRate;
 function set_memProfileRate(v:Int):Int return stdgo._internal.runtime.Runtime.memProfileRate = v;
+@:invalid typedef Error_static_extension = Dynamic;
 typedef Error = stdgo._internal.runtime.Runtime.Error;
 @:invalid typedef TypeAssertionError = Dynamic;
 @:invalid typedef StackRecord = Dynamic;

@@ -146,6 +146,9 @@ var _zlibTests : stdgo.Slice<stdgo._internal.compress.zlib.Zlib.T_zlibTest> = (n
 (new stdgo._internal.compress.zlib.Zlib.T_zlibTest(("truncated zlib stream amid fixed-block" : stdgo.GoString), ("He" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(5, 5, ...[(120 : stdgo.GoUInt8), (156 : stdgo.GoUInt8), (242 : stdgo.GoUInt8), (72 : stdgo.GoUInt8), (205 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.io.Io.errUnexpectedEOF) : stdgo._internal.compress.zlib.Zlib.T_zlibTest)].concat([for (i in 14 ... (14 > 14 ? 14 : 14 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.compress.zlib.Zlib.T_zlibTest)])) : stdgo.Slice<stdgo._internal.compress.zlib.Zlib.T_zlibTest>);
 var _filenames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("../testdata/gettysburg.txt" : stdgo.GoString), ("../testdata/e.txt" : stdgo.GoString), ("../testdata/pi.txt" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
 var _data : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(1, 1, ...[("test a reasonable sized string that can be compressed" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
+@:keep class Resetter_static_extension {
+    static public function reset(t:Resetter, _r:stdgo._internal.io.Io.Reader, _dict:stdgo.Slice<stdgo.GoByte>):stdgo.Error return t.reset(_r, _dict);
+}
 typedef Resetter = stdgo.StructType & {
     /**
         // Reset discards any buffered data and resets the Resetter as if it was

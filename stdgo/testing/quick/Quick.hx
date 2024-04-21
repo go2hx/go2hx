@@ -5,6 +5,7 @@ package stdgo.testing.quick;
     // The testing/quick package is frozen and is not accepting new features.
 **/
 private var __go2hxdoc__package : Bool;
+@:invalid typedef Generator_static_extension = Dynamic;
 typedef Generator = stdgo._internal.testing.quick.Quick.Generator;
 @:invalid typedef Config = Dynamic;
 @:invalid typedef CheckError = Dynamic;

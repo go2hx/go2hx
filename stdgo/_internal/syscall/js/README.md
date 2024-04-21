@@ -284,7 +284,7 @@
 
 - [class Value](<#class-value>)
 
-  - [`function new(?__10:stdgo.GoArray<():Void>, ?_ref:Null<stdgo._internal.syscall.js.T_ref>, ?_gcPtr:stdgo.Pointer<stdgo._internal.syscall.js.T_ref>):Void`](<#value-function-new>)
+  - [`function new(?__32:stdgo.GoArray<():Void>, ?_ref:Null<stdgo._internal.syscall.js.T_ref>, ?_gcPtr:stdgo.Pointer<stdgo._internal.syscall.js.T_ref>):Void`](<#value-function-new>)
 
   - [`function _float( _method:stdgo.GoString):stdgo.GoFloat64`](<#value-function-_float>)
 
@@ -1895,7 +1895,7 @@ function type():stdgo._internal.syscall.js.Type_
 
 
 ```haxe
-var __10:stdgo.GoArray<():Void>
+var __32:stdgo.GoArray<():Void>
 ```
 
 
@@ -1913,7 +1913,7 @@ var _ref:stdgo._internal.syscall.js.T_ref
 
 
 ```haxe
-function new(?__10:stdgo.GoArray<():Void>, ?_ref:Null<stdgo._internal.syscall.js.T_ref>, ?_gcPtr:stdgo.Pointer<stdgo._internal.syscall.js.T_ref>):Void
+function new(?__32:stdgo.GoArray<():Void>, ?_ref:Null<stdgo._internal.syscall.js.T_ref>, ?_gcPtr:stdgo.Pointer<stdgo._internal.syscall.js.T_ref>):Void
 ```
 
 

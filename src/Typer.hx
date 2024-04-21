@@ -7414,7 +7414,39 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 					kind: TDAlias(anyInterfaceType()),
 				}
 			}
+			final staticExtensionName = name + "_static_extension";
+			final staticExtension:TypeDefinition = {
+				name: staticExtensionName,
+				pos: null,
+				pack: [],
+				kind: TDClass(),
+				fields: [],
+				isExtern: true,
+				meta: [
+					{name: ":keep", pos: null},
+				],
+			};
+			info.data.defs.push(staticExtension);
 			final fields = typeFieldListMethods(struct.methods, info);
+			final wrapper = macro class Wrapper {};
+			for (i in 0...fields.length) {
+				final field = fields[i];
+				switch field.kind {
+					case FFun(f):
+						// f.args.unshift({})
+						final args = [for (arg in f.args) macro $i{arg.name}];
+						final fieldName = field.name;
+						f.expr = macro t.$fieldName($a{args});
+						if (!isVoid(f.ret))
+							f.expr = macro return ${f.expr};
+						f.args.unshift({name: "t", type: TPath({name: name, pack: []})});
+						// interface struct creation
+						addLocalMethod(field.name, field.pos, field.meta, null, [], f, staticExtension, wrapper, false, false);
+						f.expr = null;
+						f.args.shift();
+					default:
+				}
+			}
 			for (field in fields)
 				field.access.push(ADynamic);
 			var meta = [];

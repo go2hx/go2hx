@@ -48,6 +48,8 @@ jobs:
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D hxb
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D hxb
+      - name: Pull latest
+        run: git pull
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: stdgo automatic compile

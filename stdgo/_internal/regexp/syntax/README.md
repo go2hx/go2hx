@@ -1502,7 +1502,7 @@ function _op():stdgo._internal.regexp.syntax.InstOp
 ```
 
 
-[\(view code\)](<./Syntax.hx#L4105>)
+[\(view code\)](<./Syntax.hx#L4117>)
 
 
 ### Inst function matchEmptyWidth
@@ -1513,7 +1513,7 @@ function matchEmptyWidth( _before:stdgo.GoRune, _after:stdgo.GoRune):Bool
 ```
 
 
-[\(view code\)](<./Syntax.hx#L4017>)
+[\(view code\)](<./Syntax.hx#L4029>)
 
 
 ### Inst function matchRune
@@ -1524,7 +1524,7 @@ function matchRune( _r:stdgo.GoRune):Bool
 ```
 
 
-[\(view code\)](<./Syntax.hx#L4100>)
+[\(view code\)](<./Syntax.hx#L4112>)
 
 
 ### Inst function matchRunePos
@@ -1535,7 +1535,7 @@ function matchRunePos( _r:stdgo.GoRune):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Syntax.hx#L4038>)
+[\(view code\)](<./Syntax.hx#L4050>)
 
 
 ### Inst function string
@@ -1546,7 +1546,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L4010>)
+[\(view code\)](<./Syntax.hx#L4022>)
 
 
 ## class Prog
@@ -1586,7 +1586,7 @@ function _skipNop( _pc:stdgo.GoUInt32):stdgo.Ref<stdgo._internal.regexp.syntax.I
 ```
 
 
-[\(view code\)](<./Syntax.hx#L3973>)
+[\(view code\)](<./Syntax.hx#L3985>)
 
 
 ### Prog function prefix
@@ -1600,7 +1600,7 @@ function prefix():{
 ```
 
 
-[\(view code\)](<./Syntax.hx#L3958>)
+[\(view code\)](<./Syntax.hx#L3970>)
 
 
 ### Prog function startCond
@@ -1611,7 +1611,7 @@ function startCond():stdgo._internal.regexp.syntax.EmptyOp
 ```
 
 
-[\(view code\)](<./Syntax.hx#L3921>)
+[\(view code\)](<./Syntax.hx#L3933>)
 
 
 ### Prog function string
@@ -1622,7 +1622,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L3982>)
+[\(view code\)](<./Syntax.hx#L3994>)
 
 
 ## class Regexp
@@ -1697,7 +1697,7 @@ function _capNames( _names:stdgo.Slice<stdgo.GoString>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L4238>)
+[\(view code\)](<./Syntax.hx#L4250>)
 
 
 ### Regexp function capNames
@@ -1708,7 +1708,7 @@ function capNames():stdgo.Slice<stdgo.GoString>
 ```
 
 
-[\(view code\)](<./Syntax.hx#L4248>)
+[\(view code\)](<./Syntax.hx#L4260>)
 
 
 ### Regexp function equal
@@ -1719,7 +1719,7 @@ function equal( _y:stdgo.Ref<stdgo._internal.regexp.syntax.Regexp>):Bool
 ```
 
 
-[\(view code\)](<./Syntax.hx#L4279>)
+[\(view code\)](<./Syntax.hx#L4291>)
 
 
 ### Regexp function maxCap
@@ -1730,7 +1730,7 @@ function maxCap():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Syntax.hx#L4255>)
+[\(view code\)](<./Syntax.hx#L4267>)
 
 
 ### Regexp function simplify
@@ -1741,7 +1741,7 @@ function simplify():stdgo.Ref<stdgo._internal.regexp.syntax.Regexp>
 ```
 
 
-[\(view code\)](<./Syntax.hx#L4140>)
+[\(view code\)](<./Syntax.hx#L4152>)
 
 
 ### Regexp function string
@@ -1752,7 +1752,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L4272>)
+[\(view code\)](<./Syntax.hx#L4284>)
 
 
 # Typedefs

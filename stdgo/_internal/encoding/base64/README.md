@@ -677,7 +677,7 @@ function encode( _dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.Slice<stdgo.GoByte>)
 ```
 
 
-[\(view code\)](<./Base64.hx#L1455>)
+[\(view code\)](<./Base64.hx#L1461>)
 
 
 ### Encoding function encodeToString
@@ -688,7 +688,7 @@ function encodeToString( _src:stdgo.Slice<stdgo.GoByte>):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Base64.hx#L1448>)
+[\(view code\)](<./Base64.hx#L1454>)
 
 
 ### Encoding function encodedLen
@@ -699,7 +699,7 @@ function encodedLen( _n:stdgo.GoInt):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Base64.hx#L1440>)
+[\(view code\)](<./Base64.hx#L1446>)
 
 
 ### Encoding function strict
@@ -710,7 +710,7 @@ function strict():stdgo.Ref<stdgo._internal.encoding.base64.Encoding>
 ```
 
 
-[\(view code\)](<./Base64.hx#L1498>)
+[\(view code\)](<./Base64.hx#L1504>)
 
 
 ### Encoding function withPadding
@@ -721,7 +721,7 @@ function withPadding( _padding:stdgo.GoRune):stdgo.Ref<stdgo._internal.encoding.
 ```
 
 
-[\(view code\)](<./Base64.hx#L1504>)
+[\(view code\)](<./Base64.hx#L1510>)
 
 
 # Typedefs

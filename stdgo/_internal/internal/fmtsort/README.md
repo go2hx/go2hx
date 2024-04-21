@@ -153,7 +153,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Fmtsort.hx#L220>)
+[\(view code\)](<./Fmtsort.hx#L228>)
 
 
 ### SortedMap function less
@@ -164,7 +164,7 @@ function less( _i:stdgo.GoInt, _j:stdgo.GoInt):Bool
 ```
 
 
-[\(view code\)](<./Fmtsort.hx#L215>)
+[\(view code\)](<./Fmtsort.hx#L223>)
 
 
 ### SortedMap function swap

@@ -4920,22 +4920,25 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 				}
 			}
 			if (keyValueBool) {
-				for (field in fields) {
-					var set = false;
-					for (i in 0...expr.elts.length) {
-						final elt:Ast.KeyValueExpr = expr.elts[i];
-						final key = formatHaxeFieldName(elt.key.name, info);
+				final fields = fields.copy();
+				for (i in 0...expr.elts.length) {
+					final elt:Ast.KeyValueExpr = expr.elts[i];
+					final key = formatHaxeFieldName(elt.key.name, info);
+					for (field in fields) {
 						if (field.name == key) {
 							final value = assignTranslate(typeof(elt.value, info, false), field.type.get(), typeExpr(elt.value, info), info);
 							objectFields.push({
 								field: field.name,
 								expr: value,
 							});
-							set = true;
+							if (isAlias)
+								fields.remove(field);
 							break;
 						}
 					}
-					if (isAlias && !set) {
+				}
+				if (isAlias) {
+					for (field in fields) {
 						objectFields.push({
 							field: field.name,
 							expr: defaultValue(field.type.get(), info, true),

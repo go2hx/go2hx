@@ -2847,7 +2847,7 @@ function _cleanupOnePass(_prog:stdgo.Ref<T_onePassProg>, _original:stdgo.Ref<std
         };
     }
 function _onePassCopy(_prog:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Prog>):stdgo.Ref<T_onePassProg> {
-        var _p = (stdgo.Go.setRef(({ inst : new stdgo.Slice<stdgo._internal.regexp.Regexp.T_onePassInst>((_prog.inst.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_prog.inst.length : stdgo.GoInt).toBasic() > 0 ? (_prog.inst.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.regexp.Regexp.T_onePassInst)]), start : _prog.start, numCap : _prog.numCap } : stdgo._internal.regexp.Regexp.T_onePassProg)) : stdgo.Ref<stdgo._internal.regexp.Regexp.T_onePassProg>);
+        var _p = (stdgo.Go.setRef(({ start : _prog.start, numCap : _prog.numCap, inst : new stdgo.Slice<stdgo._internal.regexp.Regexp.T_onePassInst>((_prog.inst.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_prog.inst.length : stdgo.GoInt).toBasic() > 0 ? (_prog.inst.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.regexp.Regexp.T_onePassInst)]) } : stdgo._internal.regexp.Regexp.T_onePassProg)) : stdgo.Ref<stdgo._internal.regexp.Regexp.T_onePassProg>);
         for (_i => _inst in _prog.inst) {
             _p.inst[(_i : stdgo.GoInt)] = ({ inst : _inst?.__copy__() } : stdgo._internal.regexp.Regexp.T_onePassInst);
         };
@@ -3201,7 +3201,7 @@ function _compile(_expr:stdgo.GoString, _mode:stdgo._internal.regexp.syntax.Synt
         if ((_matchcap < (2 : stdgo.GoInt) : Bool)) {
             _matchcap = (2 : stdgo.GoInt);
         };
-        var _regexp = (stdgo.Go.setRef(({ _expr : _expr?.__copy__(), _prog : _prog, _onepass : _compileOnePass(_prog), _numSubexp : _maxCap, _subexpNames : _capNames, _matchcap : _matchcap, _cond : _prog.startCond(), _minInputLen : _minInputLen(_re), _longest : _longest } : stdgo._internal.regexp.Regexp.Regexp)) : stdgo.Ref<stdgo._internal.regexp.Regexp.Regexp>);
+        var _regexp = (stdgo.Go.setRef(({ _expr : _expr?.__copy__(), _prog : _prog, _onepass : _compileOnePass(_prog), _numSubexp : _maxCap, _subexpNames : _capNames, _cond : _prog.startCond(), _longest : _longest, _matchcap : _matchcap, _minInputLen : _minInputLen(_re) } : stdgo._internal.regexp.Regexp.Regexp)) : stdgo.Ref<stdgo._internal.regexp.Regexp.Regexp>);
         if (_regexp._onepass == null || (_regexp._onepass : Dynamic).__nil__) {
             {
                 var __tmp__ = _prog.prefix();

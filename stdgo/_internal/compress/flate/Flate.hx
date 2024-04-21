@@ -828,7 +828,7 @@ var _deflateInflateStringTests : stdgo.Slice<stdgo._internal.compress.flate.Flat
 (325240 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)?.__copy__()) : stdgo._internal.compress.flate.Flate.T_deflateInflateStringTest)].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.compress.flate.Flate.T_deflateInflateStringTest)])) : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_deflateInflateStringTest>);
 var _errIO : stdgo.Error = stdgo._internal.errors.Errors.new_(("IO error" : stdgo.GoString));
 var _update : stdgo.Pointer<Bool> = stdgo._internal.flag.Flag.bool_(("update" : stdgo.GoString), false, ("update reference files" : stdgo.GoString));
-var _writeBlockTests : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_huffTest> = (new stdgo.Slice<stdgo._internal.compress.flate.Flate.T_huffTest>(9, 9, ...[({ _tokens : (new stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>(257, 257, ...[
+var _writeBlockTests : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_huffTest> = (new stdgo.Slice<stdgo._internal.compress.flate.Flate.T_huffTest>(9, 9, ...[({ _input : ("testdata/huffman-null-max.in" : stdgo.GoString), _want : ("testdata/huffman-null-max.%s.expect" : stdgo.GoString), _wantNoInput : ("testdata/huffman-null-max.%s.expect-noinput" : stdgo.GoString), _tokens : (new stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>(257, 257, ...[
 (0u32 : stdgo._internal.compress.flate.Flate.T_token),
 (2143289344u32 : stdgo._internal.compress.flate.Flate.T_token),
 (2143289344u32 : stdgo._internal.compress.flate.Flate.T_token),
@@ -1085,7 +1085,7 @@ var _writeBlockTests : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_huffTe
 (2143289344u32 : stdgo._internal.compress.flate.Flate.T_token),
 (2143289344u32 : stdgo._internal.compress.flate.Flate.T_token),
 (0u32 : stdgo._internal.compress.flate.Flate.T_token),
-(0u32 : stdgo._internal.compress.flate.Flate.T_token)]).__setNumber32__() : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>), _input : ("testdata/huffman-null-max.in" : stdgo.GoString), _want : ("testdata/huffman-null-max.%s.expect" : stdgo.GoString), _wantNoInput : ("testdata/huffman-null-max.%s.expect-noinput" : stdgo.GoString) } : stdgo._internal.compress.flate.Flate.T_huffTest), ({ _tokens : (new stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>(2582, 2582, ...[
+(0u32 : stdgo._internal.compress.flate.Flate.T_token)]).__setNumber32__() : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>) } : stdgo._internal.compress.flate.Flate.T_huffTest), ({ _input : ("testdata/huffman-pi.in" : stdgo.GoString), _want : ("testdata/huffman-pi.%s.expect" : stdgo.GoString), _wantNoInput : ("testdata/huffman-pi.%s.expect-noinput" : stdgo.GoString), _tokens : (new stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>(2582, 2582, ...[
 (51u32 : stdgo._internal.compress.flate.Flate.T_token),
 (46u32 : stdgo._internal.compress.flate.Flate.T_token),
 (49u32 : stdgo._internal.compress.flate.Flate.T_token),
@@ -3667,7 +3667,7 @@ var _writeBlockTests : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_huffTe
 (49u32 : stdgo._internal.compress.flate.Flate.T_token),
 (1077939145u32 : stdgo._internal.compress.flate.Flate.T_token),
 (56u32 : stdgo._internal.compress.flate.Flate.T_token),
-(48u32 : stdgo._internal.compress.flate.Flate.T_token)]).__setNumber32__() : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>), _input : ("testdata/huffman-pi.in" : stdgo.GoString), _want : ("testdata/huffman-pi.%s.expect" : stdgo.GoString), _wantNoInput : ("testdata/huffman-pi.%s.expect-noinput" : stdgo.GoString) } : stdgo._internal.compress.flate.Flate.T_huffTest), ({ _tokens : (new stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>(1000, 1000, ...[
+(48u32 : stdgo._internal.compress.flate.Flate.T_token)]).__setNumber32__() : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>) } : stdgo._internal.compress.flate.Flate.T_huffTest), ({ _input : ("testdata/huffman-rand-1k.in" : stdgo.GoString), _want : ("testdata/huffman-rand-1k.%s.expect" : stdgo.GoString), _wantNoInput : ("testdata/huffman-rand-1k.%s.expect-noinput" : stdgo.GoString), _tokens : (new stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>(1000, 1000, ...[
 (248u32 : stdgo._internal.compress.flate.Flate.T_token),
 (139u32 : stdgo._internal.compress.flate.Flate.T_token),
 (150u32 : stdgo._internal.compress.flate.Flate.T_token),
@@ -4667,7 +4667,7 @@ var _writeBlockTests : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_huffTe
 (177u32 : stdgo._internal.compress.flate.Flate.T_token),
 (222u32 : stdgo._internal.compress.flate.Flate.T_token),
 (23u32 : stdgo._internal.compress.flate.Flate.T_token),
-(74u32 : stdgo._internal.compress.flate.Flate.T_token)]).__setNumber32__() : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>), _input : ("testdata/huffman-rand-1k.in" : stdgo.GoString), _want : ("testdata/huffman-rand-1k.%s.expect" : stdgo.GoString), _wantNoInput : ("testdata/huffman-rand-1k.%s.expect-noinput" : stdgo.GoString) } : stdgo._internal.compress.flate.Flate.T_huffTest), ({ _tokens : (new stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>(174, 174, ...[
+(74u32 : stdgo._internal.compress.flate.Flate.T_token)]).__setNumber32__() : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>) } : stdgo._internal.compress.flate.Flate.T_huffTest), ({ _input : ("testdata/huffman-rand-limit.in" : stdgo.GoString), _want : ("testdata/huffman-rand-limit.%s.expect" : stdgo.GoString), _wantNoInput : ("testdata/huffman-rand-limit.%s.expect-noinput" : stdgo.GoString), _tokens : (new stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>(174, 174, ...[
 (97u32 : stdgo._internal.compress.flate.Flate.T_token),
 (1371537408u32 : stdgo._internal.compress.flate.Flate.T_token),
 (10u32 : stdgo._internal.compress.flate.Flate.T_token),
@@ -4841,7 +4841,7 @@ var _writeBlockTests : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_huffTe
 (218u32 : stdgo._internal.compress.flate.Flate.T_token),
 (234u32 : stdgo._internal.compress.flate.Flate.T_token),
 (155u32 : stdgo._internal.compress.flate.Flate.T_token),
-(10u32 : stdgo._internal.compress.flate.Flate.T_token)]).__setNumber32__() : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>), _input : ("testdata/huffman-rand-limit.in" : stdgo.GoString), _want : ("testdata/huffman-rand-limit.%s.expect" : stdgo.GoString), _wantNoInput : ("testdata/huffman-rand-limit.%s.expect-noinput" : stdgo.GoString) } : stdgo._internal.compress.flate.Flate.T_huffTest), ({ _tokens : (new stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>(32, 32, ...[
+(10u32 : stdgo._internal.compress.flate.Flate.T_token)]).__setNumber32__() : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>) } : stdgo._internal.compress.flate.Flate.T_huffTest), ({ _input : ("testdata/huffman-shifts.in" : stdgo.GoString), _want : ("testdata/huffman-shifts.%s.expect" : stdgo.GoString), _wantNoInput : ("testdata/huffman-shifts.%s.expect-noinput" : stdgo.GoString), _tokens : (new stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>(32, 32, ...[
 (49u32 : stdgo._internal.compress.flate.Flate.T_token),
 (48u32 : stdgo._internal.compress.flate.Flate.T_token),
 (2143289345u32 : stdgo._internal.compress.flate.Flate.T_token),
@@ -4873,7 +4873,7 @@ var _writeBlockTests : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_huffTe
 (2143289345u32 : stdgo._internal.compress.flate.Flate.T_token),
 (2143289345u32 : stdgo._internal.compress.flate.Flate.T_token),
 (2143289345u32 : stdgo._internal.compress.flate.Flate.T_token),
-(2134900737u32 : stdgo._internal.compress.flate.Flate.T_token)]).__setNumber32__() : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>), _input : ("testdata/huffman-shifts.in" : stdgo.GoString), _want : ("testdata/huffman-shifts.%s.expect" : stdgo.GoString), _wantNoInput : ("testdata/huffman-shifts.%s.expect-noinput" : stdgo.GoString) } : stdgo._internal.compress.flate.Flate.T_huffTest), ({ _tokens : (new stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>(236, 236, ...[
+(2134900737u32 : stdgo._internal.compress.flate.Flate.T_token)]).__setNumber32__() : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>) } : stdgo._internal.compress.flate.Flate.T_huffTest), ({ _input : ("testdata/huffman-text-shift.in" : stdgo.GoString), _want : ("testdata/huffman-text-shift.%s.expect" : stdgo.GoString), _wantNoInput : ("testdata/huffman-text-shift.%s.expect-noinput" : stdgo.GoString), _tokens : (new stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>(236, 236, ...[
 (47u32 : stdgo._internal.compress.flate.Flate.T_token),
 (47u32 : stdgo._internal.compress.flate.Flate.T_token),
 (67u32 : stdgo._internal.compress.flate.Flate.T_token),
@@ -5109,7 +5109,7 @@ var _writeBlockTests : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_huffTe
 (38u32 : stdgo._internal.compress.flate.Flate.T_token),
 (47u32 : stdgo._internal.compress.flate.Flate.T_token),
 (63u32 : stdgo._internal.compress.flate.Flate.T_token),
-(34u32 : stdgo._internal.compress.flate.Flate.T_token)]).__setNumber32__() : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>), _input : ("testdata/huffman-text-shift.in" : stdgo.GoString), _want : ("testdata/huffman-text-shift.%s.expect" : stdgo.GoString), _wantNoInput : ("testdata/huffman-text-shift.%s.expect-noinput" : stdgo.GoString) } : stdgo._internal.compress.flate.Flate.T_huffTest), ({ _tokens : (new stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>(277, 277, ...[
+(34u32 : stdgo._internal.compress.flate.Flate.T_token)]).__setNumber32__() : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>) } : stdgo._internal.compress.flate.Flate.T_huffTest), ({ _input : ("testdata/huffman-text.in" : stdgo.GoString), _want : ("testdata/huffman-text.%s.expect" : stdgo.GoString), _wantNoInput : ("testdata/huffman-text.%s.expect-noinput" : stdgo.GoString), _tokens : (new stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>(277, 277, ...[
 (47u32 : stdgo._internal.compress.flate.Flate.T_token),
 (47u32 : stdgo._internal.compress.flate.Flate.T_token),
 (32u32 : stdgo._internal.compress.flate.Flate.T_token),
@@ -5386,7 +5386,7 @@ var _writeBlockTests : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_huffTe
 (10u32 : stdgo._internal.compress.flate.Flate.T_token),
 (125u32 : stdgo._internal.compress.flate.Flate.T_token),
 (13u32 : stdgo._internal.compress.flate.Flate.T_token),
-(10u32 : stdgo._internal.compress.flate.Flate.T_token)]).__setNumber32__() : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>), _input : ("testdata/huffman-text.in" : stdgo.GoString), _want : ("testdata/huffman-text.%s.expect" : stdgo.GoString), _wantNoInput : ("testdata/huffman-text.%s.expect-noinput" : stdgo.GoString) } : stdgo._internal.compress.flate.Flate.T_huffTest), ({ _tokens : (new stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>(3, 3, ...[(48u32 : stdgo._internal.compress.flate.Flate.T_token), (2143289344u32 : stdgo._internal.compress.flate.Flate.T_token), (1266679808u32 : stdgo._internal.compress.flate.Flate.T_token)]).__setNumber32__() : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>), _input : ("testdata/huffman-zero.in" : stdgo.GoString), _want : ("testdata/huffman-zero.%s.expect" : stdgo.GoString), _wantNoInput : ("testdata/huffman-zero.%s.expect-noinput" : stdgo.GoString) } : stdgo._internal.compress.flate.Flate.T_huffTest), ({ _tokens : (new stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>(764, 764, ...[
+(10u32 : stdgo._internal.compress.flate.Flate.T_token)]).__setNumber32__() : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>) } : stdgo._internal.compress.flate.Flate.T_huffTest), ({ _input : ("testdata/huffman-zero.in" : stdgo.GoString), _want : ("testdata/huffman-zero.%s.expect" : stdgo.GoString), _wantNoInput : ("testdata/huffman-zero.%s.expect-noinput" : stdgo.GoString), _tokens : (new stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>(3, 3, ...[(48u32 : stdgo._internal.compress.flate.Flate.T_token), (2143289344u32 : stdgo._internal.compress.flate.Flate.T_token), (1266679808u32 : stdgo._internal.compress.flate.Flate.T_token)]).__setNumber32__() : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>) } : stdgo._internal.compress.flate.Flate.T_huffTest), ({ _input : stdgo.Go.str()?.__copy__(), _want : stdgo.Go.str()?.__copy__(), _wantNoInput : ("testdata/null-long-match.%s.expect-noinput" : stdgo.GoString), _tokens : (new stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>(764, 764, ...[
 (0u32 : stdgo._internal.compress.flate.Flate.T_token),
 (2143289344u32 : stdgo._internal.compress.flate.Flate.T_token),
 (2143289344u32 : stdgo._internal.compress.flate.Flate.T_token),
@@ -6150,7 +6150,7 @@ var _writeBlockTests : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_huffTe
 (2143289344u32 : stdgo._internal.compress.flate.Flate.T_token),
 (2143289344u32 : stdgo._internal.compress.flate.Flate.T_token),
 (2143289344u32 : stdgo._internal.compress.flate.Flate.T_token),
-(1094713344u32 : stdgo._internal.compress.flate.Flate.T_token)]).__setNumber32__() : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>), _input : stdgo.Go.str()?.__copy__(), _want : stdgo.Go.str()?.__copy__(), _wantNoInput : ("testdata/null-long-match.%s.expect-noinput" : stdgo.GoString) } : stdgo._internal.compress.flate.Flate.T_huffTest)].concat([for (i in 9 ... (9 > 9 ? 9 : 9 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.compress.flate.Flate.T_huffTest)])) : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_huffTest>);
+(1094713344u32 : stdgo._internal.compress.flate.Flate.T_token)]).__setNumber32__() : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_token>) } : stdgo._internal.compress.flate.Flate.T_huffTest)].concat([for (i in 9 ... (9 > 9 ? 9 : 9 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.compress.flate.Flate.T_huffTest)])) : stdgo.Slice<stdgo._internal.compress.flate.Flate.T_huffTest>);
 var _suites : stdgo.Slice<T__struct_5> = (new stdgo.Slice<T__struct_5>(2, 2, ...[({ _name : ("Digits" : stdgo.GoString), _file : ("../testdata/e.txt" : stdgo.GoString) } : T__struct_5), ({ _name : ("Newton" : stdgo.GoString), _file : ("../../testdata/Isaac.Newton-Opticks.txt" : stdgo.GoString) } : T__struct_5)].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _file : ("" : stdgo.GoString) } : T__struct_5)])) : stdgo.Slice<T__struct_5>);
 var _levelTests : stdgo.Slice<T__struct_6> = (new stdgo.Slice<T__struct_6>(4, 4, ...[({ _name : ("Huffman" : stdgo.GoString), _level : (-2 : stdgo.GoInt) } : T__struct_6), ({ _name : ("Speed" : stdgo.GoString), _level : (1 : stdgo.GoInt) } : T__struct_6), ({ _name : ("Default" : stdgo.GoString), _level : (-1 : stdgo.GoInt) } : T__struct_6), ({ _name : ("Compression" : stdgo.GoString), _level : (9 : stdgo.GoInt) } : T__struct_6)].concat([for (i in 4 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _level : (0 : stdgo.GoInt) } : T__struct_6)])) : stdgo.Slice<T__struct_6>);
 var _sizes : stdgo.Slice<T__struct_7> = (new stdgo.Slice<T__struct_7>(3, 3, ...[({ _name : ("1e4" : stdgo.GoString), _n : (10000 : stdgo.GoInt) } : T__struct_7), ({ _name : ("1e5" : stdgo.GoString), _n : (100000 : stdgo.GoInt) } : T__struct_7), ({ _name : ("1e6" : stdgo.GoString), _n : (1000000 : stdgo.GoInt) } : T__struct_7)].concat([for (i in 3 ... (3 > 3 ? 3 : 3 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _n : (0 : stdgo.GoInt) } : T__struct_7)])) : stdgo.Slice<T__struct_7>);
@@ -7707,7 +7707,7 @@ function _hash(_u:stdgo.GoUInt32):stdgo.GoUInt32 {
         return (((_u * (506832829u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) >> (18i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
     }
 function _newDeflateFast():stdgo.Ref<T_deflateFast> {
-        return (stdgo.Go.setRef(({ _prev : new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (65535 : stdgo.GoInt)).__setNumber32__(), _cur : (65535 : stdgo.GoInt32) } : stdgo._internal.compress.flate.Flate.T_deflateFast)) : stdgo.Ref<stdgo._internal.compress.flate.Flate.T_deflateFast>);
+        return (stdgo.Go.setRef(({ _cur : (65535 : stdgo.GoInt32), _prev : new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (65535 : stdgo.GoInt)).__setNumber32__() } : stdgo._internal.compress.flate.Flate.T_deflateFast)) : stdgo.Ref<stdgo._internal.compress.flate.Flate.T_deflateFast>);
     }
 function _emitLiteral(_dst:stdgo.Slice<T_token>, _lit:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<T_token> {
         for (__0 => _v in _lit) {
@@ -8246,7 +8246,7 @@ function testReaderEarlyEOF(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
         };
     }
 function _newHuffmanBitWriter(_w:stdgo._internal.io.Io.Writer):stdgo.Ref<T_huffmanBitWriter> {
-        return (stdgo.Go.setRef(({ _writer : _w, _literalFreq : new stdgo.Slice<stdgo.GoInt32>((286 : stdgo.GoInt).toBasic(), 0).__setNumber32__(), _offsetFreq : new stdgo.Slice<stdgo.GoInt32>((30 : stdgo.GoInt).toBasic(), 0).__setNumber32__(), _codegen : new stdgo.Slice<stdgo.GoUInt8>((317 : stdgo.GoInt).toBasic(), 0).__setNumber32__(), _literalEncoding : _newHuffmanEncoder((286 : stdgo.GoInt)), _offsetEncoding : _newHuffmanEncoder((30 : stdgo.GoInt)), _codegenEncoding : _newHuffmanEncoder((19 : stdgo.GoInt)) } : stdgo._internal.compress.flate.Flate.T_huffmanBitWriter)) : stdgo.Ref<stdgo._internal.compress.flate.Flate.T_huffmanBitWriter>);
+        return (stdgo.Go.setRef(({ _writer : _w, _literalFreq : new stdgo.Slice<stdgo.GoInt32>((286 : stdgo.GoInt).toBasic(), 0).__setNumber32__(), _offsetFreq : new stdgo.Slice<stdgo.GoInt32>((30 : stdgo.GoInt).toBasic(), 0).__setNumber32__(), _codegen : new stdgo.Slice<stdgo.GoUInt8>((317 : stdgo.GoInt).toBasic(), 0).__setNumber32__(), _literalEncoding : _newHuffmanEncoder((286 : stdgo.GoInt)), _codegenEncoding : _newHuffmanEncoder((19 : stdgo.GoInt)), _offsetEncoding : _newHuffmanEncoder((30 : stdgo.GoInt)) } : stdgo._internal.compress.flate.Flate.T_huffmanBitWriter)) : stdgo.Ref<stdgo._internal.compress.flate.Flate.T_huffmanBitWriter>);
     }
 function _histogram(_b:stdgo.Slice<stdgo.GoByte>, _h:stdgo.Slice<stdgo.GoInt32>):Void {
         _h = (_h.__slice__(0, (256 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>);
@@ -10033,7 +10033,7 @@ class T_deflateFast_asInterface {
                     };
                     _candidate = _e._table[((_nextHash & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)];
                     var _now:stdgo.GoUInt32 = _load32(_src, _nextS);
-                    _e._table[((_nextHash & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] = ({ _val : _cv, _offset : (_s + _e._cur : stdgo.GoInt32) } : stdgo._internal.compress.flate.Flate.T_tableEntry);
+                    _e._table[((_nextHash & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] = ({ _offset : (_s + _e._cur : stdgo.GoInt32), _val : _cv } : stdgo._internal.compress.flate.Flate.T_tableEntry);
                     _nextHash = _hash(_now);
                     var _offset:stdgo.GoInt32 = (_s - ((_candidate._offset - _e._cur : stdgo.GoInt32)) : stdgo.GoInt32);
                     if (((_offset > (32768 : stdgo.GoInt32) : Bool) || (_cv != _candidate._val) : Bool)) {
@@ -10055,11 +10055,11 @@ class T_deflateFast_asInterface {
                     };
                     var _x:stdgo.GoUInt64 = _load64(_src, (_s - (1 : stdgo.GoInt32) : stdgo.GoInt32));
                     var _prevHash:stdgo.GoUInt32 = _hash((_x : stdgo.GoUInt32));
-                    _e._table[((_prevHash & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] = ({ _val : (_x : stdgo.GoUInt32), _offset : ((_e._cur + _s : stdgo.GoInt32) - (1 : stdgo.GoInt32) : stdgo.GoInt32) } : stdgo._internal.compress.flate.Flate.T_tableEntry);
+                    _e._table[((_prevHash & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] = ({ _offset : ((_e._cur + _s : stdgo.GoInt32) - (1 : stdgo.GoInt32) : stdgo.GoInt32), _val : (_x : stdgo.GoUInt32) } : stdgo._internal.compress.flate.Flate.T_tableEntry);
                     _x = (_x >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
                     var _currHash:stdgo.GoUInt32 = _hash((_x : stdgo.GoUInt32));
                     _candidate = _e._table[((_currHash & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)];
-                    _e._table[((_currHash & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] = ({ _val : (_x : stdgo.GoUInt32), _offset : (_e._cur + _s : stdgo.GoInt32) } : stdgo._internal.compress.flate.Flate.T_tableEntry);
+                    _e._table[((_currHash & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] = ({ _offset : (_e._cur + _s : stdgo.GoInt32), _val : (_x : stdgo.GoUInt32) } : stdgo._internal.compress.flate.Flate.T_tableEntry);
                     var _offset:stdgo.GoInt32 = (_s - ((_candidate._offset - _e._cur : stdgo.GoInt32)) : stdgo.GoInt32);
                     if (((_offset > (32768 : stdgo.GoInt32) : Bool) || ((_x : stdgo.GoUInt32) != _candidate._val) : Bool)) {
                         _cv = ((_x >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt32);

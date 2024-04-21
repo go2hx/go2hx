@@ -2775,7 +2775,7 @@ function loadLocationFromTZData(_name:stdgo.GoString, _data:stdgo.Slice<stdgo.Go
         if ((_tx.length) == ((0 : stdgo.GoInt))) {
             _tx = (_tx.__append__(({ _when : (-9223372036854775808i64 : stdgo.GoInt64), _index : (0 : stdgo.GoUInt8) } : stdgo._internal.time.Time.T_zoneTrans)));
         };
-        var _l = (stdgo.Go.setRef(({ _name : _name?.__copy__(), _zone : _zones, _tx : _tx, _extend : _extend?.__copy__() } : stdgo._internal.time.Time.Location)) : stdgo.Ref<stdgo._internal.time.Time.Location>);
+        var _l = (stdgo.Go.setRef(({ _zone : _zones, _tx : _tx, _name : _name?.__copy__(), _extend : _extend?.__copy__() } : stdgo._internal.time.Time.Location)) : stdgo.Ref<stdgo._internal.time.Time.Location>);
         var __tmp__ = _now(), _sec:stdgo.GoInt64 = __tmp__._0, __1:stdgo.GoInt32 = __tmp__._1, __2:stdgo.GoInt64 = __tmp__._2;
         for (_i => _ in _tx) {
             if (((_tx[(_i : stdgo.GoInt)]._when <= _sec : Bool) && ((((_i + (1 : stdgo.GoInt) : stdgo.GoInt) == (_tx.length)) || (_sec < _tx[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)]._when : Bool) : Bool)) : Bool)) {

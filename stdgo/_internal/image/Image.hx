@@ -1156,7 +1156,7 @@ function newYCbCr(_r:Rectangle, _subsampleRatio:YCbCrSubsampleRatio):stdgo.Ref<Y
         var _i1:stdgo.GoInt = ((_w * _h : stdgo.GoInt) + (((1 : stdgo.GoInt) * _cw : stdgo.GoInt) * _ch : stdgo.GoInt) : stdgo.GoInt);
         var _i2:stdgo.GoInt = ((_w * _h : stdgo.GoInt) + (((2 : stdgo.GoInt) * _cw : stdgo.GoInt) * _ch : stdgo.GoInt) : stdgo.GoInt);
         var _b = new stdgo.Slice<stdgo.GoUInt8>((_i2 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        return (stdgo.Go.setRef(({ y : (_b.__slice__(0, _i0, _i0) : stdgo.Slice<stdgo.GoUInt8>), cb : (_b.__slice__(_i0, _i1, _i1) : stdgo.Slice<stdgo.GoUInt8>), cr : (_b.__slice__(_i1, _i2, _i2) : stdgo.Slice<stdgo.GoUInt8>), ystride : _w, cstride : _cw, subsampleRatio : _subsampleRatio, rect : _r?.__copy__() } : stdgo._internal.image.Image.YCbCr)) : stdgo.Ref<stdgo._internal.image.Image.YCbCr>);
+        return (stdgo.Go.setRef(({ y : (_b.__slice__(0, _i0, _i0) : stdgo.Slice<stdgo.GoUInt8>), cb : (_b.__slice__(_i0, _i1, _i1) : stdgo.Slice<stdgo.GoUInt8>), cr : (_b.__slice__(_i1, _i2, _i2) : stdgo.Slice<stdgo.GoUInt8>), subsampleRatio : _subsampleRatio, ystride : _w, cstride : _cw, rect : _r?.__copy__() } : stdgo._internal.image.Image.YCbCr)) : stdgo.Ref<stdgo._internal.image.Image.YCbCr>);
     }
 function newNYCbCrA(_r:Rectangle, _subsampleRatio:YCbCrSubsampleRatio):stdgo.Ref<NYCbCrA> {
         var __tmp__ = _yCbCrSize(_r?.__copy__(), _subsampleRatio), _w:stdgo.GoInt = __tmp__._0, _h:stdgo.GoInt = __tmp__._1, _cw:stdgo.GoInt = __tmp__._2, _ch:stdgo.GoInt = __tmp__._3;
@@ -1169,7 +1169,7 @@ function newNYCbCrA(_r:Rectangle, _subsampleRatio:YCbCrSubsampleRatio):stdgo.Ref
         var _i2:stdgo.GoInt = ((((1 : stdgo.GoInt) * _w : stdgo.GoInt) * _h : stdgo.GoInt) + (((2 : stdgo.GoInt) * _cw : stdgo.GoInt) * _ch : stdgo.GoInt) : stdgo.GoInt);
         var _i3:stdgo.GoInt = ((((2 : stdgo.GoInt) * _w : stdgo.GoInt) * _h : stdgo.GoInt) + (((2 : stdgo.GoInt) * _cw : stdgo.GoInt) * _ch : stdgo.GoInt) : stdgo.GoInt);
         var _b = new stdgo.Slice<stdgo.GoUInt8>((_i3 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        return (stdgo.Go.setRef(({ ycbCr : ({ y : (_b.__slice__(0, _i0, _i0) : stdgo.Slice<stdgo.GoUInt8>), cb : (_b.__slice__(_i0, _i1, _i1) : stdgo.Slice<stdgo.GoUInt8>), cr : (_b.__slice__(_i1, _i2, _i2) : stdgo.Slice<stdgo.GoUInt8>), ystride : _w, cstride : _cw, subsampleRatio : _subsampleRatio, rect : _r?.__copy__() } : stdgo._internal.image.Image.YCbCr), a : (_b.__slice__(_i2) : stdgo.Slice<stdgo.GoUInt8>), astride : _w } : stdgo._internal.image.Image.NYCbCrA)) : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>);
+        return (stdgo.Go.setRef(({ ycbCr : ({ y : (_b.__slice__(0, _i0, _i0) : stdgo.Slice<stdgo.GoUInt8>), cb : (_b.__slice__(_i0, _i1, _i1) : stdgo.Slice<stdgo.GoUInt8>), cr : (_b.__slice__(_i1, _i2, _i2) : stdgo.Slice<stdgo.GoUInt8>), subsampleRatio : _subsampleRatio, ystride : _w, cstride : _cw, rect : _r?.__copy__() } : stdgo._internal.image.Image.YCbCr), a : (_b.__slice__(_i2) : stdgo.Slice<stdgo.GoUInt8>), astride : _w } : stdgo._internal.image.Image.NYCbCrA)) : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>);
     }
 function testYCbCr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _rects = (new stdgo.Slice<stdgo._internal.image.Image.Rectangle>(20, 20, ...[
@@ -3029,7 +3029,7 @@ class YCbCr_asInterface {
         };
         var _yi:stdgo.GoInt = _p.yoffset(_r.min.x, _r.min.y);
         var _ci:stdgo.GoInt = _p.coffset(_r.min.x, _r.min.y);
-        return stdgo.Go.asInterface((stdgo.Go.setRef(({ y : (_p.y.__slice__(_yi) : stdgo.Slice<stdgo.GoUInt8>), cb : (_p.cb.__slice__(_ci) : stdgo.Slice<stdgo.GoUInt8>), cr : (_p.cr.__slice__(_ci) : stdgo.Slice<stdgo.GoUInt8>), ystride : _p.ystride, cstride : _p.cstride, subsampleRatio : _p.subsampleRatio, rect : _r?.__copy__() } : stdgo._internal.image.Image.YCbCr)) : stdgo.Ref<stdgo._internal.image.Image.YCbCr>));
+        return stdgo.Go.asInterface((stdgo.Go.setRef(({ y : (_p.y.__slice__(_yi) : stdgo.Slice<stdgo.GoUInt8>), cb : (_p.cb.__slice__(_ci) : stdgo.Slice<stdgo.GoUInt8>), cr : (_p.cr.__slice__(_ci) : stdgo.Slice<stdgo.GoUInt8>), subsampleRatio : _p.subsampleRatio, ystride : _p.ystride, cstride : _p.cstride, rect : _r?.__copy__() } : stdgo._internal.image.Image.YCbCr)) : stdgo.Ref<stdgo._internal.image.Image.YCbCr>));
     }
     @:keep
     static public function coffset( _p:stdgo.Ref<YCbCr>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo.GoInt {
@@ -3150,7 +3150,7 @@ class NYCbCrA_asInterface {
         var _yi:stdgo.GoInt = _p.yoffset(_r.min.x, _r.min.y);
         var _ci:stdgo.GoInt = _p.coffset(_r.min.x, _r.min.y);
         var _ai:stdgo.GoInt = _p.aoffset(_r.min.x, _r.min.y);
-        return stdgo.Go.asInterface((stdgo.Go.setRef(({ ycbCr : ({ y : (_p.ycbCr.y.__slice__(_yi) : stdgo.Slice<stdgo.GoUInt8>), cb : (_p.ycbCr.cb.__slice__(_ci) : stdgo.Slice<stdgo.GoUInt8>), cr : (_p.ycbCr.cr.__slice__(_ci) : stdgo.Slice<stdgo.GoUInt8>), ystride : _p.ycbCr.ystride, cstride : _p.ycbCr.cstride, subsampleRatio : _p.ycbCr.subsampleRatio, rect : _r?.__copy__() } : stdgo._internal.image.Image.YCbCr), a : (_p.a.__slice__(_ai) : stdgo.Slice<stdgo.GoUInt8>), astride : _p.astride } : stdgo._internal.image.Image.NYCbCrA)) : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>));
+        return stdgo.Go.asInterface((stdgo.Go.setRef(({ ycbCr : ({ y : (_p.ycbCr.y.__slice__(_yi) : stdgo.Slice<stdgo.GoUInt8>), cb : (_p.ycbCr.cb.__slice__(_ci) : stdgo.Slice<stdgo.GoUInt8>), cr : (_p.ycbCr.cr.__slice__(_ci) : stdgo.Slice<stdgo.GoUInt8>), subsampleRatio : _p.ycbCr.subsampleRatio, ystride : _p.ycbCr.ystride, cstride : _p.ycbCr.cstride, rect : _r?.__copy__() } : stdgo._internal.image.Image.YCbCr), a : (_p.a.__slice__(_ai) : stdgo.Slice<stdgo.GoUInt8>), astride : _p.astride } : stdgo._internal.image.Image.NYCbCrA)) : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>));
     }
     @:keep
     static public function aoffset( _p:stdgo.Ref<NYCbCrA>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo.GoInt {

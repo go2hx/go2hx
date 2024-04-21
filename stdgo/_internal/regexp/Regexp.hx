@@ -749,9 +749,9 @@ typedef T_input = stdgo.StructType & {
     @:embedded
     public function matchEmptyWidth(_old:stdgo.GoInt32, _new:stdgo.GoInt32):Bool return inst.matchEmptyWidth(_old, _new);
     @:embedded
-    public function matchRune(__0:stdgo.GoInt32):Bool return inst.matchRune(__0);
+    public function matchRune(_nameOff:stdgo.GoInt32):Bool return inst.matchRune(_nameOff);
     @:embedded
-    public function matchRunePos(__0:stdgo.GoInt32):stdgo.GoInt return inst.matchRunePos(__0);
+    public function matchRunePos(_nameOff:stdgo.GoInt32):stdgo.GoInt return inst.matchRunePos(_nameOff);
     @:embedded
     public function string():stdgo.GoString return inst.string();
     @:embedded
@@ -3828,9 +3828,9 @@ class T_onePassInst_asInterface {
     @:embedded
     public dynamic function string():stdgo.GoString return __self__.value.string();
     @:embedded
-    public dynamic function matchRunePos(__0:stdgo.GoInt32):stdgo.GoInt return __self__.value.matchRunePos(__0);
+    public dynamic function matchRunePos(_nameOff:stdgo.GoInt32):stdgo.GoInt return __self__.value.matchRunePos(_nameOff);
     @:embedded
-    public dynamic function matchRune(__0:stdgo.GoInt32):Bool return __self__.value.matchRune(__0);
+    public dynamic function matchRune(_nameOff:stdgo.GoInt32):Bool return __self__.value.matchRune(_nameOff);
     @:embedded
     public dynamic function matchEmptyWidth(_old:stdgo.GoInt32, _new:stdgo.GoInt32):Bool return __self__.value.matchEmptyWidth(_old, _new);
     public function new(__self__, __type__) {
@@ -3847,9 +3847,9 @@ class T_onePassInst_asInterface {
     @:embedded
     public static function string( __self__:T_onePassInst):stdgo.GoString return __self__.string();
     @:embedded
-    public static function matchRunePos( __self__:T_onePassInst, __0:stdgo.GoInt32):stdgo.GoInt return __self__.matchRunePos(__0);
+    public static function matchRunePos( __self__:T_onePassInst, _nameOff:stdgo.GoInt32):stdgo.GoInt return __self__.matchRunePos(_nameOff);
     @:embedded
-    public static function matchRune( __self__:T_onePassInst, __0:stdgo.GoInt32):Bool return __self__.matchRune(__0);
+    public static function matchRune( __self__:T_onePassInst, _nameOff:stdgo.GoInt32):Bool return __self__.matchRune(_nameOff);
     @:embedded
     public static function matchEmptyWidth( __self__:T_onePassInst, _old:stdgo.GoInt32, _new:stdgo.GoInt32):Bool return __self__.matchEmptyWidth(_old, _new);
 }

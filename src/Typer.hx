@@ -1206,6 +1206,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 								return (macro @:destructure_non_tuple {}).expr; 
 						}
 						var tuples = getReturnTupleType(type);
+
 						for (i in 0...spec.names.length) {
 							final fieldName = "_" + i;
 							final type = toComplexType(tuples[i], info);
@@ -1260,6 +1261,8 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 	if (vars.length > 0) {
 		vars2 = vars2.concat(createTempVars(vars));
 		return EVars(vars.concat(vars2));
+	} else if (vars2.length > 0) {
+		return EVars(vars2);
 	}
 	return (macro {}).expr; // blank expr def
 } // ($expr : $type);
@@ -6874,6 +6877,23 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				meta: meta,
 				kind: TDAlias(ct)
 			};
+		case refType(_.get() => named(path, _, t, _, _)), pointerType(_.get() => named(path, _, t, _, _)):
+			switch t {
+				case refType(_.get() => elem):
+					switch elem {
+						case named(path2, _, invalidType, _, _):
+							if (path == path2) {
+								final td = macro class $name {
+									public function new() {}
+					
+									public function __copy__() {}
+								};
+								return td;
+							}
+						default:
+					}
+				default:
+			}
 		default:
 	}
 	if (getUnderlying(t) == invalidType) {

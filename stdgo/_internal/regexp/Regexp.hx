@@ -5272,8 +5272,12 @@ class T_runeSlice_asInterface {
         {
             final __tmp__0 = _p[(_j : stdgo.GoInt)];
             final __tmp__1 = _p[(_i : stdgo.GoInt)];
-            _p[(_i : stdgo.GoInt)] = __tmp__0;
-            _p[(_j : stdgo.GoInt)] = __tmp__1;
+            final __tmp__2 = _p;
+            final __tmp__3 = (_i : stdgo.GoInt);
+            final __tmp__4 = _p;
+            final __tmp__5 = (_j : stdgo.GoInt);
+            __tmp__2[__tmp__3] = __tmp__0;
+            __tmp__4[__tmp__5] = __tmp__1;
         };
     }
     @:keep

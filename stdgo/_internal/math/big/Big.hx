@@ -3019,8 +3019,10 @@ function _addMulVVW_g(_z:stdgo.Slice<Word>, _x:stdgo.Slice<Word>, _y:Word):Word 
                 {
                     final __tmp__0 = (_cc : Word);
                     final __tmp__1 = (_lo : Word);
+                    final __tmp__2 = _z;
+                    final __tmp__3 = (_i : stdgo.GoInt);
                     _c = __tmp__0;
-                    _z[(_i : stdgo.GoInt)] = __tmp__1;
+                    __tmp__2[__tmp__3] = __tmp__1;
                 };
                 _c = (_c + (_z1) : stdgo._internal.math.big.Big.Word);
             });
@@ -6943,7 +6945,9 @@ function _mulBytes(_x:stdgo.Slice<stdgo.GoByte>, _y:stdgo.Slice<stdgo.GoByte>):s
                             {
                                 final __tmp__0 = (_t : stdgo.GoByte);
                                 final __tmp__1 = (_t >> (8i64 : stdgo.GoUInt64) : stdgo.GoInt);
-                                _z[(_k : stdgo.GoInt)] = __tmp__0;
+                                final __tmp__2 = _z;
+                                final __tmp__3 = (_k : stdgo.GoInt);
+                                __tmp__2[__tmp__3] = __tmp__0;
                                 _carry = __tmp__1;
                             };
                             _k--;

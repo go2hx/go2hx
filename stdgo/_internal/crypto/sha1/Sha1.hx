@@ -2802,11 +2802,21 @@ function _blockGeneric(_dig:stdgo.Ref<T_digest>, _p:stdgo.Slice<stdgo.GoByte>):V
             final __tmp__2 = _h2;
             final __tmp__3 = _h3;
             final __tmp__4 = _h4;
-            _dig._h[(0 : stdgo.GoInt)] = __tmp__0;
-            _dig._h[(1 : stdgo.GoInt)] = __tmp__1;
-            _dig._h[(2 : stdgo.GoInt)] = __tmp__2;
-            _dig._h[(3 : stdgo.GoInt)] = __tmp__3;
-            _dig._h[(4 : stdgo.GoInt)] = __tmp__4;
+            final __tmp__5 = _dig._h;
+            final __tmp__6 = (0 : stdgo.GoInt);
+            final __tmp__7 = _dig._h;
+            final __tmp__8 = (1 : stdgo.GoInt);
+            final __tmp__9 = _dig._h;
+            final __tmp__10 = (2 : stdgo.GoInt);
+            final __tmp__11 = _dig._h;
+            final __tmp__12 = (3 : stdgo.GoInt);
+            final __tmp__13 = _dig._h;
+            final __tmp__14 = (4 : stdgo.GoInt);
+            __tmp__5[__tmp__6] = __tmp__0;
+            __tmp__7[__tmp__8] = __tmp__1;
+            __tmp__9[__tmp__10] = __tmp__2;
+            __tmp__11[__tmp__12] = __tmp__3;
+            __tmp__13[__tmp__14] = __tmp__4;
         };
     }
 function _block(_dig:stdgo.Ref<T_digest>, _p:stdgo.Slice<stdgo.GoByte>):Void {

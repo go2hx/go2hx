@@ -1390,9 +1390,15 @@ class Encoding_asInterface {
             final __tmp__0 = ((_val >> (0i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoByte);
             final __tmp__1 = ((_val >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoByte);
             final __tmp__2 = ((_val >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoByte);
-            _dbuf[(2 : stdgo.GoInt)] = __tmp__0;
-            _dbuf[(1 : stdgo.GoInt)] = __tmp__1;
-            _dbuf[(0 : stdgo.GoInt)] = __tmp__2;
+            final __tmp__3 = _dbuf;
+            final __tmp__4 = (2 : stdgo.GoInt);
+            final __tmp__5 = _dbuf;
+            final __tmp__6 = (1 : stdgo.GoInt);
+            final __tmp__7 = _dbuf;
+            final __tmp__8 = (0 : stdgo.GoInt);
+            __tmp__3[__tmp__4] = __tmp__0;
+            __tmp__5[__tmp__6] = __tmp__1;
+            __tmp__7[__tmp__8] = __tmp__2;
         };
         {
             var __switchIndex__ = -1;

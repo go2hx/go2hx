@@ -1490,8 +1490,12 @@ class T_planetSorter_asInterface {
         {
             final __tmp__0 = _s._planets[(_j : stdgo.GoInt)];
             final __tmp__1 = _s._planets[(_i : stdgo.GoInt)];
-            _s._planets[(_i : stdgo.GoInt)] = __tmp__0;
-            _s._planets[(_j : stdgo.GoInt)] = __tmp__1;
+            final __tmp__2 = _s._planets;
+            final __tmp__3 = (_i : stdgo.GoInt);
+            final __tmp__4 = _s._planets;
+            final __tmp__5 = (_j : stdgo.GoInt);
+            __tmp__2[__tmp__3] = __tmp__0;
+            __tmp__4[__tmp__5] = __tmp__1;
         };
     }
     @:keep
@@ -1542,8 +1546,12 @@ class T_multiSorter_asInterface {
         {
             final __tmp__0 = _ms._changes[(_j : stdgo.GoInt)];
             final __tmp__1 = _ms._changes[(_i : stdgo.GoInt)];
-            _ms._changes[(_i : stdgo.GoInt)] = __tmp__0;
-            _ms._changes[(_j : stdgo.GoInt)] = __tmp__1;
+            final __tmp__2 = _ms._changes;
+            final __tmp__3 = (_i : stdgo.GoInt);
+            final __tmp__4 = _ms._changes;
+            final __tmp__5 = (_j : stdgo.GoInt);
+            __tmp__2[__tmp__3] = __tmp__0;
+            __tmp__4[__tmp__5] = __tmp__1;
         };
     }
     @:keep
@@ -1673,8 +1681,12 @@ class T_testingData_asInterface {
         {
             final __tmp__0 = _d._data[(_j : stdgo.GoInt)];
             final __tmp__1 = _d._data[(_i : stdgo.GoInt)];
-            _d._data[(_i : stdgo.GoInt)] = __tmp__0;
-            _d._data[(_j : stdgo.GoInt)] = __tmp__1;
+            final __tmp__2 = _d._data;
+            final __tmp__3 = (_i : stdgo.GoInt);
+            final __tmp__4 = _d._data;
+            final __tmp__5 = (_j : stdgo.GoInt);
+            __tmp__2[__tmp__3] = __tmp__0;
+            __tmp__4[__tmp__5] = __tmp__1;
         };
     }
     @:keep
@@ -1711,8 +1723,12 @@ class T_adversaryTestingData_asInterface {
         {
             final __tmp__0 = _d._data[(_j : stdgo.GoInt)];
             final __tmp__1 = _d._data[(_i : stdgo.GoInt)];
-            _d._data[(_i : stdgo.GoInt)] = __tmp__0;
-            _d._data[(_j : stdgo.GoInt)] = __tmp__1;
+            final __tmp__2 = _d._data;
+            final __tmp__3 = (_i : stdgo.GoInt);
+            final __tmp__4 = _d._data;
+            final __tmp__5 = (_j : stdgo.GoInt);
+            __tmp__2[__tmp__3] = __tmp__0;
+            __tmp__4[__tmp__5] = __tmp__1;
         };
     }
     @:keep
@@ -1771,8 +1787,12 @@ class ByAge_asInterface {
         {
             final __tmp__0 = _a[(_j : stdgo.GoInt)];
             final __tmp__1 = _a[(_i : stdgo.GoInt)];
-            _a[(_i : stdgo.GoInt)] = __tmp__0;
-            _a[(_j : stdgo.GoInt)] = __tmp__1;
+            final __tmp__2 = _a;
+            final __tmp__3 = (_i : stdgo.GoInt);
+            final __tmp__4 = _a;
+            final __tmp__5 = (_j : stdgo.GoInt);
+            __tmp__2[__tmp__3] = __tmp__0;
+            __tmp__4[__tmp__5] = __tmp__1;
         };
     }
     @:keep
@@ -1838,8 +1858,12 @@ class Organs_asInterface {
         {
             final __tmp__0 = _s[(_j : stdgo.GoInt)];
             final __tmp__1 = _s[(_i : stdgo.GoInt)];
-            _s[(_i : stdgo.GoInt)] = __tmp__0;
-            _s[(_j : stdgo.GoInt)] = __tmp__1;
+            final __tmp__2 = _s;
+            final __tmp__3 = (_i : stdgo.GoInt);
+            final __tmp__4 = _s;
+            final __tmp__5 = (_j : stdgo.GoInt);
+            __tmp__2[__tmp__3] = __tmp__0;
+            __tmp__4[__tmp__5] = __tmp__1;
         };
     }
     @:keep
@@ -1907,8 +1931,12 @@ class T_intPairs_asInterface {
                 final x = _d[(_i : stdgo.GoInt)];
                 ({ _a : x._a, _b : x._b } : T__struct_4);
             };
-            _d[(_i : stdgo.GoInt)] = __tmp__0;
-            _d[(_j : stdgo.GoInt)] = __tmp__1;
+            final __tmp__2 = _d;
+            final __tmp__3 = (_i : stdgo.GoInt);
+            final __tmp__4 = _d;
+            final __tmp__5 = (_j : stdgo.GoInt);
+            __tmp__2[__tmp__3] = __tmp__0;
+            __tmp__4[__tmp__5] = __tmp__1;
         };
     }
     @:keep

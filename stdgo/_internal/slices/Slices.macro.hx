@@ -689,8 +689,12 @@ macro function _swap<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _x:haxe.macro.Ex
                             {
                                 final __tmp__0 = _y[(_i : stdgo.GoInt)];
                                 final __tmp__1 = _x[(_i : stdgo.GoInt)];
-                                _x[(_i : stdgo.GoInt)] = __tmp__0;
-                                _y[(_i : stdgo.GoInt)] = __tmp__1;
+                                final __tmp__2 = _x;
+                                final __tmp__3 = (_i : stdgo.GoInt);
+                                final __tmp__4 = _y;
+                                final __tmp__5 = (_i : stdgo.GoInt);
+                                __tmp__2[__tmp__3] = __tmp__0;
+                                __tmp__4[__tmp__5] = __tmp__1;
                             };
                         });
                     };
@@ -790,8 +794,12 @@ macro function reverse<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__
                             {
                                 final __tmp__0 = _s[@:param_index _j];
                                 final __tmp__1 = _s[@:param_index _i];
-                                _s[@:param_index _i] = __tmp__0;
-                                _s[@:param_index _j] = __tmp__1;
+                                final __tmp__2 = _s;
+                                final __tmp__3 = @:param_index _i;
+                                final __tmp__4 = _s;
+                                final __tmp__5 = @:param_index _j;
+                                __tmp__2[__tmp__3] = __tmp__0;
+                                __tmp__4[__tmp__5] = __tmp__1;
                             };
                         });
                     };
@@ -1367,8 +1375,12 @@ macro function _insertionSortCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, 
                                     {
                                         final __tmp__0 = _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)];
                                         final __tmp__1 = _data[(_j : stdgo.GoInt)];
-                                        _data[(_j : stdgo.GoInt)] = __tmp__0;
-                                        _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)] = __tmp__1;
+                                        final __tmp__2 = _data;
+                                        final __tmp__3 = (_j : stdgo.GoInt);
+                                        final __tmp__4 = _data;
+                                        final __tmp__5 = (_j - (1 : stdgo.GoInt) : stdgo.GoInt);
+                                        __tmp__2[__tmp__3] = __tmp__0;
+                                        __tmp__4[__tmp__5] = __tmp__1;
                                     };
                                 });
                             };
@@ -1412,8 +1424,12 @@ macro function _siftDownCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                         {
                             final __tmp__0 = _data[(_first + _child : stdgo.GoInt)];
                             final __tmp__1 = _data[(_first + _root : stdgo.GoInt)];
-                            _data[(_first + _root : stdgo.GoInt)] = __tmp__0;
-                            _data[(_first + _child : stdgo.GoInt)] = __tmp__1;
+                            final __tmp__2 = _data;
+                            final __tmp__3 = (_first + _root : stdgo.GoInt);
+                            final __tmp__4 = _data;
+                            final __tmp__5 = (_first + _child : stdgo.GoInt);
+                            __tmp__2[__tmp__3] = __tmp__0;
+                            __tmp__4[__tmp__5] = __tmp__1;
                         };
                         _root = _child;
                     };
@@ -1455,8 +1471,12 @@ macro function _heapSortCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                             {
                                 final __tmp__0 = _data[(_first + _i : stdgo.GoInt)];
                                 final __tmp__1 = _data[(_first : stdgo.GoInt)];
-                                _data[(_first : stdgo.GoInt)] = __tmp__0;
-                                _data[(_first + _i : stdgo.GoInt)] = __tmp__1;
+                                final __tmp__2 = _data;
+                                final __tmp__3 = (_first : stdgo.GoInt);
+                                final __tmp__4 = _data;
+                                final __tmp__5 = (_first + _i : stdgo.GoInt);
+                                __tmp__2[__tmp__3] = __tmp__0;
+                                __tmp__4[__tmp__5] = __tmp__1;
                             };
                             @:privateAccess stdgo._internal.slices.Slices._siftDownCmpFunc(stdgo.Go.defaultValue((cast (null) : $E)), _data, _lo, _i, _first, _cmp);
                         });
@@ -1557,8 +1577,12 @@ macro function _partitionCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _dat
                     {
                         final __tmp__0 = _data[(_pivot : stdgo.GoInt)];
                         final __tmp__1 = _data[(_a : stdgo.GoInt)];
-                        _data[(_a : stdgo.GoInt)] = __tmp__0;
-                        _data[(_pivot : stdgo.GoInt)] = __tmp__1;
+                        final __tmp__2 = _data;
+                        final __tmp__3 = (_a : stdgo.GoInt);
+                        final __tmp__4 = _data;
+                        final __tmp__5 = (_pivot : stdgo.GoInt);
+                        __tmp__2[__tmp__3] = __tmp__0;
+                        __tmp__4[__tmp__5] = __tmp__1;
                     };
                     var __0:stdgo.GoInt = (_a + (1 : stdgo.GoInt) : stdgo.GoInt), __1:stdgo.GoInt = (_b - (1 : stdgo.GoInt) : stdgo.GoInt), _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
                     while (((_i <= _j : Bool) && ((_cmp(_data[(_i : stdgo.GoInt)], _data[(_a : stdgo.GoInt)]) < (0 : stdgo.GoInt) : Bool)) : Bool)) {
@@ -1571,16 +1595,24 @@ macro function _partitionCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _dat
                         {
                             final __tmp__0 = _data[(_a : stdgo.GoInt)];
                             final __tmp__1 = _data[(_j : stdgo.GoInt)];
-                            _data[(_j : stdgo.GoInt)] = __tmp__0;
-                            _data[(_a : stdgo.GoInt)] = __tmp__1;
+                            final __tmp__2 = _data;
+                            final __tmp__3 = (_j : stdgo.GoInt);
+                            final __tmp__4 = _data;
+                            final __tmp__5 = (_a : stdgo.GoInt);
+                            __tmp__2[__tmp__3] = __tmp__0;
+                            __tmp__4[__tmp__5] = __tmp__1;
                         };
                         return { _0 : _j, _1 : true };
                     };
                     {
                         final __tmp__0 = _data[(_j : stdgo.GoInt)];
                         final __tmp__1 = _data[(_i : stdgo.GoInt)];
-                        _data[(_i : stdgo.GoInt)] = __tmp__0;
-                        _data[(_j : stdgo.GoInt)] = __tmp__1;
+                        final __tmp__2 = _data;
+                        final __tmp__3 = (_i : stdgo.GoInt);
+                        final __tmp__4 = _data;
+                        final __tmp__5 = (_j : stdgo.GoInt);
+                        __tmp__2[__tmp__3] = __tmp__0;
+                        __tmp__4[__tmp__5] = __tmp__1;
                     };
                     _i++;
                     _j--;
@@ -1597,8 +1629,12 @@ macro function _partitionCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _dat
                         {
                             final __tmp__0 = _data[(_j : stdgo.GoInt)];
                             final __tmp__1 = _data[(_i : stdgo.GoInt)];
-                            _data[(_i : stdgo.GoInt)] = __tmp__0;
-                            _data[(_j : stdgo.GoInt)] = __tmp__1;
+                            final __tmp__2 = _data;
+                            final __tmp__3 = (_i : stdgo.GoInt);
+                            final __tmp__4 = _data;
+                            final __tmp__5 = (_j : stdgo.GoInt);
+                            __tmp__2[__tmp__3] = __tmp__0;
+                            __tmp__4[__tmp__5] = __tmp__1;
                         };
                         _i++;
                         _j--;
@@ -1606,8 +1642,12 @@ macro function _partitionCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _dat
                     {
                         final __tmp__0 = _data[(_a : stdgo.GoInt)];
                         final __tmp__1 = _data[(_j : stdgo.GoInt)];
-                        _data[(_j : stdgo.GoInt)] = __tmp__0;
-                        _data[(_a : stdgo.GoInt)] = __tmp__1;
+                        final __tmp__2 = _data;
+                        final __tmp__3 = (_j : stdgo.GoInt);
+                        final __tmp__4 = _data;
+                        final __tmp__5 = (_a : stdgo.GoInt);
+                        __tmp__2[__tmp__3] = __tmp__0;
+                        __tmp__4[__tmp__5] = __tmp__1;
                     };
                     return { _0 : _j, _1 : false };
                 };
@@ -1637,8 +1677,12 @@ macro function _partitionEqualCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>,
                     {
                         final __tmp__0 = _data[(_pivot : stdgo.GoInt)];
                         final __tmp__1 = _data[(_a : stdgo.GoInt)];
-                        _data[(_a : stdgo.GoInt)] = __tmp__0;
-                        _data[(_pivot : stdgo.GoInt)] = __tmp__1;
+                        final __tmp__2 = _data;
+                        final __tmp__3 = (_a : stdgo.GoInt);
+                        final __tmp__4 = _data;
+                        final __tmp__5 = (_pivot : stdgo.GoInt);
+                        __tmp__2[__tmp__3] = __tmp__0;
+                        __tmp__4[__tmp__5] = __tmp__1;
                     };
                     var __0:stdgo.GoInt = (_a + (1 : stdgo.GoInt) : stdgo.GoInt), __1:stdgo.GoInt = (_b - (1 : stdgo.GoInt) : stdgo.GoInt), _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
                     while (true) {
@@ -1654,8 +1698,12 @@ macro function _partitionEqualCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>,
                         {
                             final __tmp__0 = _data[(_j : stdgo.GoInt)];
                             final __tmp__1 = _data[(_i : stdgo.GoInt)];
-                            _data[(_i : stdgo.GoInt)] = __tmp__0;
-                            _data[(_j : stdgo.GoInt)] = __tmp__1;
+                            final __tmp__2 = _data;
+                            final __tmp__3 = (_i : stdgo.GoInt);
+                            final __tmp__4 = _data;
+                            final __tmp__5 = (_j : stdgo.GoInt);
+                            __tmp__2[__tmp__3] = __tmp__0;
+                            __tmp__4[__tmp__5] = __tmp__1;
                         };
                         _i++;
                         _j--;
@@ -1701,8 +1749,12 @@ macro function _partialInsertionSortCmpFunc<E>(__generic__0:haxe.macro.Expr.Expr
                             {
                                 final __tmp__0 = _data[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)];
                                 final __tmp__1 = _data[(_i : stdgo.GoInt)];
-                                _data[(_i : stdgo.GoInt)] = __tmp__0;
-                                _data[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)] = __tmp__1;
+                                final __tmp__2 = _data;
+                                final __tmp__3 = (_i : stdgo.GoInt);
+                                final __tmp__4 = _data;
+                                final __tmp__5 = (_i - (1 : stdgo.GoInt) : stdgo.GoInt);
+                                __tmp__2[__tmp__3] = __tmp__0;
+                                __tmp__4[__tmp__5] = __tmp__1;
                             };
                             if (((_i - _a : stdgo.GoInt) >= (2 : stdgo.GoInt) : Bool)) {
                                 {
@@ -1714,8 +1766,12 @@ macro function _partialInsertionSortCmpFunc<E>(__generic__0:haxe.macro.Expr.Expr
                                         {
                                             final __tmp__0 = _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)];
                                             final __tmp__1 = _data[(_j : stdgo.GoInt)];
-                                            _data[(_j : stdgo.GoInt)] = __tmp__0;
-                                            _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)] = __tmp__1;
+                                            final __tmp__2 = _data;
+                                            final __tmp__3 = (_j : stdgo.GoInt);
+                                            final __tmp__4 = _data;
+                                            final __tmp__5 = (_j - (1 : stdgo.GoInt) : stdgo.GoInt);
+                                            __tmp__2[__tmp__3] = __tmp__0;
+                                            __tmp__4[__tmp__5] = __tmp__1;
                                         };
                                     });
                                 };
@@ -1730,8 +1786,12 @@ macro function _partialInsertionSortCmpFunc<E>(__generic__0:haxe.macro.Expr.Expr
                                         {
                                             final __tmp__0 = _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)];
                                             final __tmp__1 = _data[(_j : stdgo.GoInt)];
-                                            _data[(_j : stdgo.GoInt)] = __tmp__0;
-                                            _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)] = __tmp__1;
+                                            final __tmp__2 = _data;
+                                            final __tmp__3 = (_j : stdgo.GoInt);
+                                            final __tmp__4 = _data;
+                                            final __tmp__5 = (_j - (1 : stdgo.GoInt) : stdgo.GoInt);
+                                            __tmp__2[__tmp__3] = __tmp__0;
+                                            __tmp__4[__tmp__5] = __tmp__1;
                                         };
                                     });
                                 };
@@ -1776,8 +1836,12 @@ macro function _breakPatternsCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, 
                                 {
                                     final __tmp__0 = _data[(_a + _other : stdgo.GoInt)];
                                     final __tmp__1 = _data[(_idx : stdgo.GoInt)];
-                                    _data[(_idx : stdgo.GoInt)] = __tmp__0;
-                                    _data[(_a + _other : stdgo.GoInt)] = __tmp__1;
+                                    final __tmp__2 = _data;
+                                    final __tmp__3 = (_idx : stdgo.GoInt);
+                                    final __tmp__4 = _data;
+                                    final __tmp__5 = (_a + _other : stdgo.GoInt);
+                                    __tmp__2[__tmp__3] = __tmp__0;
+                                    __tmp__4[__tmp__5] = __tmp__1;
                                 };
                             });
                         };
@@ -1947,8 +2011,12 @@ macro function _reverseRangeCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _
                         {
                             final __tmp__0 = _data[(_j : stdgo.GoInt)];
                             final __tmp__1 = _data[(_i : stdgo.GoInt)];
-                            _data[(_i : stdgo.GoInt)] = __tmp__0;
-                            _data[(_j : stdgo.GoInt)] = __tmp__1;
+                            final __tmp__2 = _data;
+                            final __tmp__3 = (_i : stdgo.GoInt);
+                            final __tmp__4 = _data;
+                            final __tmp__5 = (_j : stdgo.GoInt);
+                            __tmp__2[__tmp__3] = __tmp__0;
+                            __tmp__4[__tmp__5] = __tmp__1;
                         };
                         _i++;
                         _j--;
@@ -1982,8 +2050,12 @@ macro function _swapRangeCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _dat
                             {
                                 final __tmp__0 = _data[(_b + _i : stdgo.GoInt)];
                                 final __tmp__1 = _data[(_a + _i : stdgo.GoInt)];
-                                _data[(_a + _i : stdgo.GoInt)] = __tmp__0;
-                                _data[(_b + _i : stdgo.GoInt)] = __tmp__1;
+                                final __tmp__2 = _data;
+                                final __tmp__3 = (_a + _i : stdgo.GoInt);
+                                final __tmp__4 = _data;
+                                final __tmp__5 = (_b + _i : stdgo.GoInt);
+                                __tmp__2[__tmp__3] = __tmp__0;
+                                __tmp__4[__tmp__5] = __tmp__1;
                             };
                         });
                     };
@@ -2078,8 +2150,12 @@ macro function _symMergeCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                                 {
                                     final __tmp__0 = _data[(_k + (1 : stdgo.GoInt) : stdgo.GoInt)];
                                     final __tmp__1 = _data[(_k : stdgo.GoInt)];
-                                    _data[(_k : stdgo.GoInt)] = __tmp__0;
-                                    _data[(_k + (1 : stdgo.GoInt) : stdgo.GoInt)] = __tmp__1;
+                                    final __tmp__2 = _data;
+                                    final __tmp__3 = (_k : stdgo.GoInt);
+                                    final __tmp__4 = _data;
+                                    final __tmp__5 = (_k + (1 : stdgo.GoInt) : stdgo.GoInt);
+                                    __tmp__2[__tmp__3] = __tmp__0;
+                                    __tmp__4[__tmp__5] = __tmp__1;
                                 };
                             });
                         };
@@ -2102,8 +2178,12 @@ macro function _symMergeCmpFunc<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                                 {
                                     final __tmp__0 = _data[(_k - (1 : stdgo.GoInt) : stdgo.GoInt)];
                                     final __tmp__1 = _data[(_k : stdgo.GoInt)];
-                                    _data[(_k : stdgo.GoInt)] = __tmp__0;
-                                    _data[(_k - (1 : stdgo.GoInt) : stdgo.GoInt)] = __tmp__1;
+                                    final __tmp__2 = _data;
+                                    final __tmp__3 = (_k : stdgo.GoInt);
+                                    final __tmp__4 = _data;
+                                    final __tmp__5 = (_k - (1 : stdgo.GoInt) : stdgo.GoInt);
+                                    __tmp__2[__tmp__3] = __tmp__0;
+                                    __tmp__4[__tmp__5] = __tmp__1;
                                 };
                             });
                         };
@@ -2205,8 +2285,12 @@ macro function _insertionSortOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, 
                                     {
                                         final __tmp__0 = _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)];
                                         final __tmp__1 = _data[(_j : stdgo.GoInt)];
-                                        _data[(_j : stdgo.GoInt)] = __tmp__0;
-                                        _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)] = __tmp__1;
+                                        final __tmp__2 = _data;
+                                        final __tmp__3 = (_j : stdgo.GoInt);
+                                        final __tmp__4 = _data;
+                                        final __tmp__5 = (_j - (1 : stdgo.GoInt) : stdgo.GoInt);
+                                        __tmp__2[__tmp__3] = __tmp__0;
+                                        __tmp__4[__tmp__5] = __tmp__1;
                                     };
                                 });
                             };
@@ -2250,8 +2334,12 @@ macro function _siftDownOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                         {
                             final __tmp__0 = _data[(_first + _child : stdgo.GoInt)];
                             final __tmp__1 = _data[(_first + _root : stdgo.GoInt)];
-                            _data[(_first + _root : stdgo.GoInt)] = __tmp__0;
-                            _data[(_first + _child : stdgo.GoInt)] = __tmp__1;
+                            final __tmp__2 = _data;
+                            final __tmp__3 = (_first + _root : stdgo.GoInt);
+                            final __tmp__4 = _data;
+                            final __tmp__5 = (_first + _child : stdgo.GoInt);
+                            __tmp__2[__tmp__3] = __tmp__0;
+                            __tmp__4[__tmp__5] = __tmp__1;
                         };
                         _root = _child;
                     };
@@ -2293,8 +2381,12 @@ macro function _heapSortOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                             {
                                 final __tmp__0 = _data[(_first + _i : stdgo.GoInt)];
                                 final __tmp__1 = _data[(_first : stdgo.GoInt)];
-                                _data[(_first : stdgo.GoInt)] = __tmp__0;
-                                _data[(_first + _i : stdgo.GoInt)] = __tmp__1;
+                                final __tmp__2 = _data;
+                                final __tmp__3 = (_first : stdgo.GoInt);
+                                final __tmp__4 = _data;
+                                final __tmp__5 = (_first + _i : stdgo.GoInt);
+                                __tmp__2[__tmp__3] = __tmp__0;
+                                __tmp__4[__tmp__5] = __tmp__1;
                             };
                             @:privateAccess stdgo._internal.slices.Slices._siftDownOrdered(stdgo.Go.defaultValue((cast (null) : $E)), _data, _lo, _i, _first);
                         });
@@ -2395,8 +2487,12 @@ macro function _partitionOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _dat
                     {
                         final __tmp__0 = _data[(_pivot : stdgo.GoInt)];
                         final __tmp__1 = _data[(_a : stdgo.GoInt)];
-                        _data[(_a : stdgo.GoInt)] = __tmp__0;
-                        _data[(_pivot : stdgo.GoInt)] = __tmp__1;
+                        final __tmp__2 = _data;
+                        final __tmp__3 = (_a : stdgo.GoInt);
+                        final __tmp__4 = _data;
+                        final __tmp__5 = (_pivot : stdgo.GoInt);
+                        __tmp__2[__tmp__3] = __tmp__0;
+                        __tmp__4[__tmp__5] = __tmp__1;
                     };
                     var __0:stdgo.GoInt = (_a + (1 : stdgo.GoInt) : stdgo.GoInt), __1:stdgo.GoInt = (_b - (1 : stdgo.GoInt) : stdgo.GoInt), _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
                     while (((_i <= _j : Bool) && stdgo._internal.cmp.Cmp.less(stdgo.Go.defaultValue((cast (null) : $E)), _data[(_i : stdgo.GoInt)], _data[(_a : stdgo.GoInt)]) : Bool)) {
@@ -2409,16 +2505,24 @@ macro function _partitionOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _dat
                         {
                             final __tmp__0 = _data[(_a : stdgo.GoInt)];
                             final __tmp__1 = _data[(_j : stdgo.GoInt)];
-                            _data[(_j : stdgo.GoInt)] = __tmp__0;
-                            _data[(_a : stdgo.GoInt)] = __tmp__1;
+                            final __tmp__2 = _data;
+                            final __tmp__3 = (_j : stdgo.GoInt);
+                            final __tmp__4 = _data;
+                            final __tmp__5 = (_a : stdgo.GoInt);
+                            __tmp__2[__tmp__3] = __tmp__0;
+                            __tmp__4[__tmp__5] = __tmp__1;
                         };
                         return { _0 : _j, _1 : true };
                     };
                     {
                         final __tmp__0 = _data[(_j : stdgo.GoInt)];
                         final __tmp__1 = _data[(_i : stdgo.GoInt)];
-                        _data[(_i : stdgo.GoInt)] = __tmp__0;
-                        _data[(_j : stdgo.GoInt)] = __tmp__1;
+                        final __tmp__2 = _data;
+                        final __tmp__3 = (_i : stdgo.GoInt);
+                        final __tmp__4 = _data;
+                        final __tmp__5 = (_j : stdgo.GoInt);
+                        __tmp__2[__tmp__3] = __tmp__0;
+                        __tmp__4[__tmp__5] = __tmp__1;
                     };
                     _i++;
                     _j--;
@@ -2435,8 +2539,12 @@ macro function _partitionOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _dat
                         {
                             final __tmp__0 = _data[(_j : stdgo.GoInt)];
                             final __tmp__1 = _data[(_i : stdgo.GoInt)];
-                            _data[(_i : stdgo.GoInt)] = __tmp__0;
-                            _data[(_j : stdgo.GoInt)] = __tmp__1;
+                            final __tmp__2 = _data;
+                            final __tmp__3 = (_i : stdgo.GoInt);
+                            final __tmp__4 = _data;
+                            final __tmp__5 = (_j : stdgo.GoInt);
+                            __tmp__2[__tmp__3] = __tmp__0;
+                            __tmp__4[__tmp__5] = __tmp__1;
                         };
                         _i++;
                         _j--;
@@ -2444,8 +2552,12 @@ macro function _partitionOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _dat
                     {
                         final __tmp__0 = _data[(_a : stdgo.GoInt)];
                         final __tmp__1 = _data[(_j : stdgo.GoInt)];
-                        _data[(_j : stdgo.GoInt)] = __tmp__0;
-                        _data[(_a : stdgo.GoInt)] = __tmp__1;
+                        final __tmp__2 = _data;
+                        final __tmp__3 = (_j : stdgo.GoInt);
+                        final __tmp__4 = _data;
+                        final __tmp__5 = (_a : stdgo.GoInt);
+                        __tmp__2[__tmp__3] = __tmp__0;
+                        __tmp__4[__tmp__5] = __tmp__1;
                     };
                     return { _0 : _j, _1 : false };
                 };
@@ -2475,8 +2587,12 @@ macro function _partitionEqualOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>,
                     {
                         final __tmp__0 = _data[(_pivot : stdgo.GoInt)];
                         final __tmp__1 = _data[(_a : stdgo.GoInt)];
-                        _data[(_a : stdgo.GoInt)] = __tmp__0;
-                        _data[(_pivot : stdgo.GoInt)] = __tmp__1;
+                        final __tmp__2 = _data;
+                        final __tmp__3 = (_a : stdgo.GoInt);
+                        final __tmp__4 = _data;
+                        final __tmp__5 = (_pivot : stdgo.GoInt);
+                        __tmp__2[__tmp__3] = __tmp__0;
+                        __tmp__4[__tmp__5] = __tmp__1;
                     };
                     var __0:stdgo.GoInt = (_a + (1 : stdgo.GoInt) : stdgo.GoInt), __1:stdgo.GoInt = (_b - (1 : stdgo.GoInt) : stdgo.GoInt), _j:stdgo.GoInt = __1, _i:stdgo.GoInt = __0;
                     while (true) {
@@ -2492,8 +2608,12 @@ macro function _partitionEqualOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>,
                         {
                             final __tmp__0 = _data[(_j : stdgo.GoInt)];
                             final __tmp__1 = _data[(_i : stdgo.GoInt)];
-                            _data[(_i : stdgo.GoInt)] = __tmp__0;
-                            _data[(_j : stdgo.GoInt)] = __tmp__1;
+                            final __tmp__2 = _data;
+                            final __tmp__3 = (_i : stdgo.GoInt);
+                            final __tmp__4 = _data;
+                            final __tmp__5 = (_j : stdgo.GoInt);
+                            __tmp__2[__tmp__3] = __tmp__0;
+                            __tmp__4[__tmp__5] = __tmp__1;
                         };
                         _i++;
                         _j--;
@@ -2539,8 +2659,12 @@ macro function _partialInsertionSortOrdered<E>(__generic__0:haxe.macro.Expr.Expr
                             {
                                 final __tmp__0 = _data[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)];
                                 final __tmp__1 = _data[(_i : stdgo.GoInt)];
-                                _data[(_i : stdgo.GoInt)] = __tmp__0;
-                                _data[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)] = __tmp__1;
+                                final __tmp__2 = _data;
+                                final __tmp__3 = (_i : stdgo.GoInt);
+                                final __tmp__4 = _data;
+                                final __tmp__5 = (_i - (1 : stdgo.GoInt) : stdgo.GoInt);
+                                __tmp__2[__tmp__3] = __tmp__0;
+                                __tmp__4[__tmp__5] = __tmp__1;
                             };
                             if (((_i - _a : stdgo.GoInt) >= (2 : stdgo.GoInt) : Bool)) {
                                 {
@@ -2552,8 +2676,12 @@ macro function _partialInsertionSortOrdered<E>(__generic__0:haxe.macro.Expr.Expr
                                         {
                                             final __tmp__0 = _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)];
                                             final __tmp__1 = _data[(_j : stdgo.GoInt)];
-                                            _data[(_j : stdgo.GoInt)] = __tmp__0;
-                                            _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)] = __tmp__1;
+                                            final __tmp__2 = _data;
+                                            final __tmp__3 = (_j : stdgo.GoInt);
+                                            final __tmp__4 = _data;
+                                            final __tmp__5 = (_j - (1 : stdgo.GoInt) : stdgo.GoInt);
+                                            __tmp__2[__tmp__3] = __tmp__0;
+                                            __tmp__4[__tmp__5] = __tmp__1;
                                         };
                                     });
                                 };
@@ -2568,8 +2696,12 @@ macro function _partialInsertionSortOrdered<E>(__generic__0:haxe.macro.Expr.Expr
                                         {
                                             final __tmp__0 = _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)];
                                             final __tmp__1 = _data[(_j : stdgo.GoInt)];
-                                            _data[(_j : stdgo.GoInt)] = __tmp__0;
-                                            _data[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)] = __tmp__1;
+                                            final __tmp__2 = _data;
+                                            final __tmp__3 = (_j : stdgo.GoInt);
+                                            final __tmp__4 = _data;
+                                            final __tmp__5 = (_j - (1 : stdgo.GoInt) : stdgo.GoInt);
+                                            __tmp__2[__tmp__3] = __tmp__0;
+                                            __tmp__4[__tmp__5] = __tmp__1;
                                         };
                                     });
                                 };
@@ -2614,8 +2746,12 @@ macro function _breakPatternsOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, 
                                 {
                                     final __tmp__0 = _data[(_a + _other : stdgo.GoInt)];
                                     final __tmp__1 = _data[(_idx : stdgo.GoInt)];
-                                    _data[(_idx : stdgo.GoInt)] = __tmp__0;
-                                    _data[(_a + _other : stdgo.GoInt)] = __tmp__1;
+                                    final __tmp__2 = _data;
+                                    final __tmp__3 = (_idx : stdgo.GoInt);
+                                    final __tmp__4 = _data;
+                                    final __tmp__5 = (_a + _other : stdgo.GoInt);
+                                    __tmp__2[__tmp__3] = __tmp__0;
+                                    __tmp__4[__tmp__5] = __tmp__1;
                                 };
                             });
                         };
@@ -2785,8 +2921,12 @@ macro function _reverseRangeOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _
                         {
                             final __tmp__0 = _data[(_j : stdgo.GoInt)];
                             final __tmp__1 = _data[(_i : stdgo.GoInt)];
-                            _data[(_i : stdgo.GoInt)] = __tmp__0;
-                            _data[(_j : stdgo.GoInt)] = __tmp__1;
+                            final __tmp__2 = _data;
+                            final __tmp__3 = (_i : stdgo.GoInt);
+                            final __tmp__4 = _data;
+                            final __tmp__5 = (_j : stdgo.GoInt);
+                            __tmp__2[__tmp__3] = __tmp__0;
+                            __tmp__4[__tmp__5] = __tmp__1;
                         };
                         _i++;
                         _j--;
@@ -2820,8 +2960,12 @@ macro function _swapRangeOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _dat
                             {
                                 final __tmp__0 = _data[(_b + _i : stdgo.GoInt)];
                                 final __tmp__1 = _data[(_a + _i : stdgo.GoInt)];
-                                _data[(_a + _i : stdgo.GoInt)] = __tmp__0;
-                                _data[(_b + _i : stdgo.GoInt)] = __tmp__1;
+                                final __tmp__2 = _data;
+                                final __tmp__3 = (_a + _i : stdgo.GoInt);
+                                final __tmp__4 = _data;
+                                final __tmp__5 = (_b + _i : stdgo.GoInt);
+                                __tmp__2[__tmp__3] = __tmp__0;
+                                __tmp__4[__tmp__5] = __tmp__1;
                             };
                         });
                     };
@@ -2916,8 +3060,12 @@ macro function _symMergeOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                                 {
                                     final __tmp__0 = _data[(_k + (1 : stdgo.GoInt) : stdgo.GoInt)];
                                     final __tmp__1 = _data[(_k : stdgo.GoInt)];
-                                    _data[(_k : stdgo.GoInt)] = __tmp__0;
-                                    _data[(_k + (1 : stdgo.GoInt) : stdgo.GoInt)] = __tmp__1;
+                                    final __tmp__2 = _data;
+                                    final __tmp__3 = (_k : stdgo.GoInt);
+                                    final __tmp__4 = _data;
+                                    final __tmp__5 = (_k + (1 : stdgo.GoInt) : stdgo.GoInt);
+                                    __tmp__2[__tmp__3] = __tmp__0;
+                                    __tmp__4[__tmp__5] = __tmp__1;
                                 };
                             });
                         };
@@ -2940,8 +3088,12 @@ macro function _symMergeOrdered<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _data
                                 {
                                     final __tmp__0 = _data[(_k - (1 : stdgo.GoInt) : stdgo.GoInt)];
                                     final __tmp__1 = _data[(_k : stdgo.GoInt)];
-                                    _data[(_k : stdgo.GoInt)] = __tmp__0;
-                                    _data[(_k - (1 : stdgo.GoInt) : stdgo.GoInt)] = __tmp__1;
+                                    final __tmp__2 = _data;
+                                    final __tmp__3 = (_k : stdgo.GoInt);
+                                    final __tmp__4 = _data;
+                                    final __tmp__5 = (_k - (1 : stdgo.GoInt) : stdgo.GoInt);
+                                    __tmp__2[__tmp__3] = __tmp__0;
+                                    __tmp__4[__tmp__5] = __tmp__1;
                                 };
                             });
                         };

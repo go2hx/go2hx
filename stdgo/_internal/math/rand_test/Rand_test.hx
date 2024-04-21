@@ -718,8 +718,12 @@ function exampleShuffle():Void {
             {
                 final __tmp__0 = _words[(_j : stdgo.GoInt)]?.__copy__();
                 final __tmp__1 = _words[(_i : stdgo.GoInt)]?.__copy__();
-                _words[(_i : stdgo.GoInt)] = __tmp__0;
-                _words[(_j : stdgo.GoInt)] = __tmp__1;
+                final __tmp__2 = _words;
+                final __tmp__3 = (_i : stdgo.GoInt);
+                final __tmp__4 = _words;
+                final __tmp__5 = (_j : stdgo.GoInt);
+                __tmp__2[__tmp__3] = __tmp__0;
+                __tmp__4[__tmp__5] = __tmp__1;
             };
         });
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_words));
@@ -731,14 +735,22 @@ function exampleShuffle_slicesInUnison():Void {
             {
                 final __tmp__0 = _numbers[(_j : stdgo.GoInt)];
                 final __tmp__1 = _numbers[(_i : stdgo.GoInt)];
-                _numbers[(_i : stdgo.GoInt)] = __tmp__0;
-                _numbers[(_j : stdgo.GoInt)] = __tmp__1;
+                final __tmp__2 = _numbers;
+                final __tmp__3 = (_i : stdgo.GoInt);
+                final __tmp__4 = _numbers;
+                final __tmp__5 = (_j : stdgo.GoInt);
+                __tmp__2[__tmp__3] = __tmp__0;
+                __tmp__4[__tmp__5] = __tmp__1;
             };
             {
                 final __tmp__0 = _letters[(_j : stdgo.GoInt)];
                 final __tmp__1 = _letters[(_i : stdgo.GoInt)];
-                _letters[(_i : stdgo.GoInt)] = __tmp__0;
-                _letters[(_j : stdgo.GoInt)] = __tmp__1;
+                final __tmp__2 = _letters;
+                final __tmp__3 = (_i : stdgo.GoInt);
+                final __tmp__4 = _letters;
+                final __tmp__5 = (_j : stdgo.GoInt);
+                __tmp__2[__tmp__3] = __tmp__0;
+                __tmp__4[__tmp__5] = __tmp__1;
             };
         });
         for (_i => _ in _numbers) {
@@ -1254,8 +1266,12 @@ function testUniformFactorial(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
                             {
                                 final __tmp__0 = _p[(_j : stdgo.GoInt)];
                                 final __tmp__1 = _p[(_i : stdgo.GoInt)];
-                                _p[(_i : stdgo.GoInt)] = __tmp__0;
-                                _p[(_j : stdgo.GoInt)] = __tmp__1;
+                                final __tmp__2 = _p;
+                                final __tmp__3 = (_i : stdgo.GoInt);
+                                final __tmp__4 = _p;
+                                final __tmp__5 = (_j : stdgo.GoInt);
+                                __tmp__2[__tmp__3] = __tmp__0;
+                                __tmp__4[__tmp__5] = __tmp__1;
                             };
                         });
                         return _encodePerm(_p);
@@ -1397,8 +1413,12 @@ function benchmarkPerm30ViaShuffle(_b:stdgo.Ref<stdgo._internal.testing.Testing.
                     {
                         final __tmp__0 = _p[(_j : stdgo.GoInt)];
                         final __tmp__1 = _p[(_i : stdgo.GoInt)];
-                        _p[(_i : stdgo.GoInt)] = __tmp__0;
-                        _p[(_j : stdgo.GoInt)] = __tmp__1;
+                        final __tmp__2 = _p;
+                        final __tmp__3 = (_i : stdgo.GoInt);
+                        final __tmp__4 = _p;
+                        final __tmp__5 = (_j : stdgo.GoInt);
+                        __tmp__2[__tmp__3] = __tmp__0;
+                        __tmp__4[__tmp__5] = __tmp__1;
                     };
                 });
             });

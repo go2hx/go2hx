@@ -3475,8 +3475,12 @@ class T_parser_asInterface {
                     {
                         final __tmp__0 = _sub[(_max : stdgo.GoInt)];
                         final __tmp__1 = _sub[(_start : stdgo.GoInt)];
-                        _sub[(_start : stdgo.GoInt)] = __tmp__0;
-                        _sub[(_max : stdgo.GoInt)] = __tmp__1;
+                        final __tmp__2 = _sub;
+                        final __tmp__3 = (_start : stdgo.GoInt);
+                        final __tmp__4 = _sub;
+                        final __tmp__5 = (_max : stdgo.GoInt);
+                        __tmp__2[__tmp__3] = __tmp__0;
+                        __tmp__4[__tmp__5] = __tmp__1;
                     };
                     {
                         var _j:stdgo.GoInt = (_start + (1 : stdgo.GoInt) : stdgo.GoInt);
@@ -3879,10 +3883,18 @@ class T_ranges_asInterface {
             final __tmp__1 = _p[(_j + (1 : stdgo.GoInt) : stdgo.GoInt)];
             final __tmp__2 = _p[(_i : stdgo.GoInt)];
             final __tmp__3 = _p[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)];
-            _p[(_i : stdgo.GoInt)] = __tmp__0;
-            _p[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = __tmp__1;
-            _p[(_j : stdgo.GoInt)] = __tmp__2;
-            _p[(_j + (1 : stdgo.GoInt) : stdgo.GoInt)] = __tmp__3;
+            final __tmp__4 = _p;
+            final __tmp__5 = (_i : stdgo.GoInt);
+            final __tmp__6 = _p;
+            final __tmp__7 = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
+            final __tmp__8 = _p;
+            final __tmp__9 = (_j : stdgo.GoInt);
+            final __tmp__10 = _p;
+            final __tmp__11 = (_j + (1 : stdgo.GoInt) : stdgo.GoInt);
+            __tmp__4[__tmp__5] = __tmp__0;
+            __tmp__6[__tmp__7] = __tmp__1;
+            __tmp__8[__tmp__9] = __tmp__2;
+            __tmp__10[__tmp__11] = __tmp__3;
         };
     }
     @:keep

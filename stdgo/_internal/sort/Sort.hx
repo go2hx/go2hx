@@ -1052,8 +1052,12 @@ class IntSlice_asInterface {
         {
             final __tmp__0 = _x[(_j : stdgo.GoInt)];
             final __tmp__1 = _x[(_i : stdgo.GoInt)];
-            _x[(_i : stdgo.GoInt)] = __tmp__0;
-            _x[(_j : stdgo.GoInt)] = __tmp__1;
+            final __tmp__2 = _x;
+            final __tmp__3 = (_i : stdgo.GoInt);
+            final __tmp__4 = _x;
+            final __tmp__5 = (_j : stdgo.GoInt);
+            __tmp__2[__tmp__3] = __tmp__0;
+            __tmp__4[__tmp__5] = __tmp__1;
         };
     }
     @:keep
@@ -1103,8 +1107,12 @@ class Float64Slice_asInterface {
         {
             final __tmp__0 = _x[(_j : stdgo.GoInt)];
             final __tmp__1 = _x[(_i : stdgo.GoInt)];
-            _x[(_i : stdgo.GoInt)] = __tmp__0;
-            _x[(_j : stdgo.GoInt)] = __tmp__1;
+            final __tmp__2 = _x;
+            final __tmp__3 = (_i : stdgo.GoInt);
+            final __tmp__4 = _x;
+            final __tmp__5 = (_j : stdgo.GoInt);
+            __tmp__2[__tmp__3] = __tmp__0;
+            __tmp__4[__tmp__5] = __tmp__1;
         };
     }
     @:keep
@@ -1154,8 +1162,12 @@ class StringSlice_asInterface {
         {
             final __tmp__0 = _x[(_j : stdgo.GoInt)]?.__copy__();
             final __tmp__1 = _x[(_i : stdgo.GoInt)]?.__copy__();
-            _x[(_i : stdgo.GoInt)] = __tmp__0;
-            _x[(_j : stdgo.GoInt)] = __tmp__1;
+            final __tmp__2 = _x;
+            final __tmp__3 = (_i : stdgo.GoInt);
+            final __tmp__4 = _x;
+            final __tmp__5 = (_j : stdgo.GoInt);
+            __tmp__2[__tmp__3] = __tmp__0;
+            __tmp__4[__tmp__5] = __tmp__1;
         };
     }
     @:keep

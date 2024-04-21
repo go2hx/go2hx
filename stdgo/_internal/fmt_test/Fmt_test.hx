@@ -6,7 +6,6 @@ import stdgo._internal.fmt.Fmt;
 var _pValue : P = ((0 : stdgo.GoInt) : stdgo._internal.fmt_test.Fmt_test.P);
 var _mallocBuf : stdgo._internal.bytes.Bytes.Buffer = ({} : stdgo._internal.bytes.Bytes.Buffer);
 var _mallocPointer : stdgo.Pointer<stdgo.GoInt> = (null : stdgo.Pointer<stdgo.GoInt>);
-var __1 : stdgo._internal.bytes.Bytes.Buffer = ({} : stdgo._internal.bytes.Bytes.Buffer);
 final _appendResult : stdgo.GoString = ("hello world, 23" : stdgo.GoString);
 final _hello : stdgo.GoString = ("hello " : stdgo.GoString);
 var _boolVal : Bool = false;
@@ -63,7 +62,6 @@ var _r1 : stdgo.GoRune = (0 : stdgo.GoInt32);
 var _r2 : stdgo.GoRune = (0 : stdgo.GoInt32);
 var _r3 : stdgo.GoRune = (0 : stdgo.GoInt32);
 final _intCount : stdgo.GoUInt64 = (800i64 : stdgo.GoUInt64);
-var __2 : stdgo._internal.fmt.Fmt.State = stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.T_testState() : stdgo._internal.fmt_test.Fmt_test.T_testState));
 final no : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
 var naN : stdgo.GoFloat64 = stdgo._internal.math.Math.naN();
 var _posInf : stdgo.GoFloat64 = stdgo._internal.math.Math.inf((1 : stdgo.GoInt));
@@ -1373,6 +1371,8 @@ var _eofTests : stdgo.Slice<T__struct_13> = (new stdgo.Slice<T__struct_13>(17, 1
 ({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_renamedBoolVal)) } : T__struct_13),
 ({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_renamedFloat32Val)) } : T__struct_13),
 ({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_renamedComplex64Val)) } : T__struct_13)].concat([for (i in 17 ... (17 > 17 ? 17 : 17 : stdgo.GoInt).toBasic()) ({ _format : ("" : stdgo.GoString), _v : (null : stdgo.AnyInterface) } : T__struct_13)])) : stdgo.Slice<T__struct_13>);
+var __1 : stdgo._internal.bytes.Bytes.Buffer = ({} : stdgo._internal.bytes.Bytes.Buffer);
+var __2 : stdgo._internal.fmt.Fmt.State = stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.T_testState() : stdgo._internal.fmt_test.Fmt_test.T_testState));
 typedef T__interface_0 = stdgo.StructType & {
     /**
         

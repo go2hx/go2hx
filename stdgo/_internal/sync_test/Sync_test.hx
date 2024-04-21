@@ -8,8 +8,6 @@ import stdgo._internal.sync.Sync;
 import stdgo._internal.sync.Sync;
 import stdgo._internal.sync.Sync;
 var _http : T_httpPkg = ({} : stdgo._internal.sync_test.Sync_test.T_httpPkg);
-var __2 : stdgo._internal.sync_test.Sync_test.T_mapInterface = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.sync_test.Sync_test.RWMutexMap() : stdgo._internal.sync_test.Sync_test.RWMutexMap)) : stdgo.Ref<stdgo._internal.sync_test.Sync_test.RWMutexMap>));
-var __3 : stdgo._internal.sync_test.Sync_test.T_mapInterface = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.sync_test.Sync_test.DeepCopyMap() : stdgo._internal.sync_test.Sync_test.DeepCopyMap)) : stdgo.Ref<stdgo._internal.sync_test.Sync_test.DeepCopyMap>));
 final _opLoad : stdgo._internal.sync_test.Sync_test.T_mapOp = ((("Load" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp) : T_mapOp);
 final _opStore : stdgo._internal.sync_test.Sync_test.T_mapOp = ((("Store" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp) : T_mapOp);
 final _opLoadOrStore : stdgo._internal.sync_test.Sync_test.T_mapOp = ((("LoadOrStore" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp) : T_mapOp);
@@ -63,6 +61,8 @@ var _onceFunc : () -> Void = stdgo._internal.sync.Sync.onceFunc(function():Void 
 var _onceValue : () -> stdgo.GoInt = stdgo._internal.sync.Sync.onceValue((0 : stdgo.GoInt), function():stdgo.GoInt {
         return (42 : stdgo.GoInt);
     });
+var __2 : stdgo._internal.sync_test.Sync_test.T_mapInterface = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.sync_test.Sync_test.RWMutexMap() : stdgo._internal.sync_test.Sync_test.RWMutexMap)) : stdgo.Ref<stdgo._internal.sync_test.Sync_test.RWMutexMap>));
+var __3 : stdgo._internal.sync_test.Sync_test.T_mapInterface = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.sync_test.Sync_test.DeepCopyMap() : stdgo._internal.sync_test.Sync_test.DeepCopyMap)) : stdgo.Ref<stdgo._internal.sync_test.Sync_test.DeepCopyMap>));
 typedef T_mapInterface = stdgo.StructType & {
     /**
         

@@ -3,9 +3,6 @@ private var __go2hxdoc__package : Bool;
 final seekStart : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
 final seekCurrent : stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
 final seekEnd : stdgo.GoUInt64 = (2i64 : stdgo.GoUInt64);
-var __3 : stdgo._internal.io.Io.ReaderFrom = stdgo.Go.asInterface((new stdgo._internal.io.Io.T_discard() : stdgo._internal.io.Io.T_discard));
-var __4 : stdgo._internal.io.Io.WriterTo = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.io.Io.T_multiReader>) : stdgo.Ref<T_multiReader>));
-var __5 : stdgo._internal.io.Io.StringWriter = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.io.Io.T_multiWriter>) : stdgo.Ref<T_multiWriter>));
 var errShortWrite : stdgo.Error = stdgo._internal.errors.Errors.new_(("short write" : stdgo.GoString));
 var _errInvalidWrite : stdgo.Error = stdgo._internal.errors.Errors.new_(("invalid write result" : stdgo.GoString));
 var errShortBuffer : stdgo.Error = stdgo._internal.errors.Errors.new_(("short buffer" : stdgo.GoString));
@@ -23,6 +20,9 @@ var errClosedPipe : stdgo.Error = stdgo._internal.errors.Errors.new_(("io: read/
 var errInvalidWrite : stdgo.Error = _errInvalidWrite;
 var errWhence : stdgo.Error = _errWhence;
 var errOffset : stdgo.Error = _errOffset;
+var __3 : stdgo._internal.io.Io.ReaderFrom = stdgo.Go.asInterface((new stdgo._internal.io.Io.T_discard() : stdgo._internal.io.Io.T_discard));
+var __4 : stdgo._internal.io.Io.WriterTo = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.io.Io.T_multiReader>) : stdgo.Ref<T_multiReader>));
+var __5 : stdgo._internal.io.Io.StringWriter = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.io.Io.T_multiWriter>) : stdgo.Ref<T_multiWriter>));
 typedef Reader = stdgo.StructType & {
     /**
         

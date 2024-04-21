@@ -3,8 +3,6 @@ private var __go2hxdoc__package : Bool;
 var _codeJSON : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
 var _codeStruct : T_codeResponse = ({} : stdgo._internal.encoding.json.Json.T_codeResponse);
 final _phasePanicMsg : stdgo.GoString = ("JSON decoder out of sync - data changing underfoot?" : stdgo.GoString);
-var __4 : stdgo._internal.encoding.Encoding.TextUnmarshaler = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.encoding.json.Json.T_unmarshalerText>) : stdgo.Ref<T_unmarshalerText>));
-var __5 : stdgo._internal.encoding.Encoding.TextUnmarshaler = stdgo.Go.asInterface(((null : stdgo.Pointer<stdgo._internal.encoding.json.Json.T_u8marshal>) : stdgo.Pointer<T_u8marshal>));
 final _startDetectingCyclesAfter : stdgo.GoUInt64 = (1000i64 : stdgo.GoUInt64);
 var _encodeStatePool : stdgo._internal.sync.Sync.Pool = ({} : stdgo._internal.sync.Sync.Pool);
 var _encoderCache : stdgo._internal.sync.Sync.Map_ = ({} : stdgo._internal.sync.Sync.Map_);
@@ -27,8 +25,6 @@ final _parseObjectValue = (2i64 : stdgo.GoUInt64);
 final _parseArrayValue = (2i64 : stdgo.GoUInt64);
 final _maxNestingDepth : stdgo.GoUInt64 = (10000i64 : stdgo.GoUInt64);
 var _jsonBig : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
-var __6 : stdgo._internal.encoding.json.Json.Marshaler = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.encoding.json.Json.RawMessage>) : stdgo.Ref<RawMessage>));
-var __7 : stdgo._internal.encoding.json.Json.Unmarshaler = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.encoding.json.Json.RawMessage>) : stdgo.Ref<RawMessage>));
 final _tokenTopValue : stdgo.GoUInt64 = (8i64 : stdgo.GoUInt64);
 final _tokenArrayStart = (8i64 : stdgo.GoUInt64);
 final _tokenArrayValue = (8i64 : stdgo.GoUInt64);
@@ -753,6 +749,10 @@ var _structTagObjectKeyTests : stdgo.Slice<T__struct_45> = (new stdgo.Slice<T__s
 ({ _raw : stdgo.Go.toInterface((new stdgo._internal.encoding.json.Json.T_punctuationTag(("Union Rags" : stdgo.GoString)) : stdgo._internal.encoding.json.Json.T_punctuationTag)), _value : ("Union Rags" : stdgo.GoString), _key : ("!#$%&()*+-./:;<=>?@[]^_{|}~ " : stdgo.GoString) } : T__struct_45),
 ({ _raw : stdgo.Go.toInterface((new stdgo._internal.encoding.json.Json.T_spaceTag(("Perreddu" : stdgo.GoString)) : stdgo._internal.encoding.json.Json.T_spaceTag)), _value : ("Perreddu" : stdgo.GoString), _key : ("With space" : stdgo.GoString) } : T__struct_45),
 ({ _raw : stdgo.Go.toInterface((new stdgo._internal.encoding.json.Json.T_unicodeTag(("Loukanikos" : stdgo.GoString)) : stdgo._internal.encoding.json.Json.T_unicodeTag)), _value : ("Loukanikos" : stdgo.GoString), _key : ("Ελλάδα" : stdgo.GoString) } : T__struct_45)].concat([for (i in 16 ... (16 > 16 ? 16 : 16 : stdgo.GoInt).toBasic()) ({ _raw : (null : stdgo.AnyInterface), _value : ("" : stdgo.GoString), _key : ("" : stdgo.GoString) } : T__struct_45)])) : stdgo.Slice<T__struct_45>);
+var __4 : stdgo._internal.encoding.Encoding.TextUnmarshaler = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.encoding.json.Json.T_unmarshalerText>) : stdgo.Ref<T_unmarshalerText>));
+var __5 : stdgo._internal.encoding.Encoding.TextUnmarshaler = stdgo.Go.asInterface(((null : stdgo.Pointer<stdgo._internal.encoding.json.Json.T_u8marshal>) : stdgo.Pointer<T_u8marshal>));
+var __6 : stdgo._internal.encoding.json.Json.Marshaler = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.encoding.json.Json.RawMessage>) : stdgo.Ref<RawMessage>));
+var __7 : stdgo._internal.encoding.json.Json.Unmarshaler = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.encoding.json.Json.RawMessage>) : stdgo.Ref<RawMessage>));
 typedef Unmarshaler = stdgo.StructType & {
     /**
         

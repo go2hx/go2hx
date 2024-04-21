@@ -20,17 +20,14 @@ final ipproto_IPV4 : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
 final ipproto_IPV6 : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
 final ipproto_TCP : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
 final ipproto_UDP : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-final __8 : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
 final ipv6_V6ONLY = @:invalid_type null;
 final somaxconn = @:invalid_type null;
 final so_ERROR = @:invalid_type null;
-final __9 : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
 final f_DUPFD_CLOEXEC = @:invalid_type null;
 final sys_FCNTL : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
 var __zero : stdgo.GoUIntptr = (0 : stdgo.GoUIntptr);
 final _direntSize : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
 final pathMax : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-final __10 : stdgo._internal.syscall.Syscall.Signal = ((0 : stdgo.GoInt) : stdgo._internal.syscall.Syscall.Signal);
 final sigchld = ((0 : stdgo.GoInt) : stdgo._internal.syscall.Syscall.Signal);
 final sigint = ((0 : stdgo.GoInt) : stdgo._internal.syscall.Syscall.Signal);
 final sigkill = ((0 : stdgo.GoInt) : stdgo._internal.syscall.Syscall.Signal);
@@ -329,6 +326,9 @@ var _errEAGAIN : stdgo.Error = (null : stdgo.Error);
 var _errEINVAL : stdgo.Error = (null : stdgo.Error);
 var _errENOENT : stdgo.Error = (null : stdgo.Error);
 var _errnoByCode : stdgo.GoMap<stdgo.GoString, stdgo._internal.syscall.Syscall.Errno> = (null : stdgo.GoMap<stdgo.GoString, stdgo._internal.syscall.Syscall.Errno>);
+final __8 : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+final __9 : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+final __10 : stdgo._internal.syscall.Syscall.Signal = ((0 : stdgo.GoInt) : stdgo._internal.syscall.Syscall.Signal);
 typedef RawConn = stdgo.StructType & {
     /**
         // Control invokes f on the underlying connection's file

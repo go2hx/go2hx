@@ -24,7 +24,6 @@ final stampNano : stdgo.GoString = ("Jan _2 15:04:05.000000000" : stdgo.GoString
 final dateTime : stdgo.GoString = ("2006-01-02 15:04:05" : stdgo.GoString);
 final dateOnly : stdgo.GoString = ("2006-01-02" : stdgo.GoString);
 final timeOnly : stdgo.GoString = ("15:04:05" : stdgo.GoString);
-final __0 : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
 final _stdLongMonth : stdgo.GoUInt64 = (267i64 : stdgo.GoUInt64);
 final _stdMonth = (267i64 : stdgo.GoUInt64);
 final _stdNumMonth = (267i64 : stdgo.GoUInt64);
@@ -284,6 +283,7 @@ var daysIn : (stdgo._internal.time.Time.Month, stdgo.GoInt) -> stdgo.GoInt = _da
 var minMonoTime : stdgo._internal.time.Time.Time = ({ _wall : (-9223372036854775808i64 : stdgo.GoUInt64), _ext : (-9223372036854775808i64 : stdgo.GoInt64), _loc : utc } : stdgo._internal.time.Time.Time);
 var maxMonoTime : stdgo._internal.time.Time.Time = ({ _wall : (-9223372036854775808i64 : stdgo.GoUInt64), _ext : (9223372036854775807i64 : stdgo.GoInt64), _loc : utc } : stdgo._internal.time.Time.Time);
 var notMonoNegativeTime : stdgo._internal.time.Time.Time = ({ _wall : (0i64 : stdgo.GoUInt64), _ext : (-9223372036854775758i64 : stdgo.GoInt64) } : stdgo._internal.time.Time.Time);
+final __0 : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
 @:structInit class Rule {
     public var kind : stdgo._internal.time.Time.RuleKind = ((0 : stdgo.GoInt) : stdgo._internal.time.Time.RuleKind);
     public var day : stdgo.GoInt = 0;

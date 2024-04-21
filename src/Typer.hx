@@ -7188,16 +7188,21 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						}
 						final methodRecv = typeof(method.recv, info, false);
 						final methodPointer = isPointer(methodRecv);
-						final fieldType = typeof(struct.fields.list[fieldIndex].type, info, false);
+						var fieldPointerBool = false;
+						switch field.kind {
+							case FVar(TPath({name: "Pointer", pack: ["stdgo"], params: _}), _):
+								fieldPointerBool = true;
+							default:
+						}
 						if (methodPointer) {
-							if (isPointer(fieldType)) {
+							if (fieldPointerBool) {
 								args.unshift(macro $i{name});
 							}else{
 								args.unshift(macro stdgo.Go.pointer($i{name}));
 							}
 						}
 						final methodName = nameIdent(method.name, false, false, info);
-						var expr = if (isPointer(fieldType)) {
+						var expr = if (fieldPointerBool) {
 							macro $i{name}.value.$fieldName($a{args});
 						}else{
 							macro $i{name}.$fieldName($a{args});

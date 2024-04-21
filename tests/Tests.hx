@@ -401,6 +401,8 @@ private function log(v) {
 	logOutput.flush();
 }
 
+final input:Array<String> = [];
+
 private function close() {
 	log("======= TIME =======");
 	log(Date.now().toString());
@@ -422,7 +424,6 @@ private function close() {
 			return false;
 		return true;
 	});
-	final input:Array<String> = [];
 	log('--> $type');
 	log('      correct output: ' + calc(suite.correctCount, suite.count));
 	log('    incorrect output: ' + calc(suite.incorrectCount, suite.count));

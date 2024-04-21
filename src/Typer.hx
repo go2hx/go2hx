@@ -7019,10 +7019,10 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 			info.classNames[spec.name.name] = name + "_static_extension";
 			// add to fields patch structs
 			final patchName = info.global.module.path + ":" + name;
-			final struct = Patch.structs[patchName];
+			final structExpr = Patch.structs[patchName];
 			var structAddFieldsIndex = -1;
-			if (struct != null) { // patch modify struct
-				switch struct.expr {
+			if (structExpr != null) { // patch modify struct
+				switch structExpr.expr {
 					case EBlock(exprs):
 						// exprs.pop();
 						for (expr in exprs) {
@@ -7115,7 +7115,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				// embedded methods
 				if (structAddFieldsIndex > -1 && structAddFieldsIndex <= method.index[0])
 					continue;
-				final field = fields[method.index[0]];
+				final fieldIndex = method.index[0];
+				final field = fields[fieldIndex];
 				if (field == null)
 					continue;
 				final name = field.name;
@@ -7187,11 +7188,20 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						}
 						final methodRecv = typeof(method.recv, info, false);
 						final methodPointer = isPointer(methodRecv);
+						final fieldType = typeof(struct.fields.list[fieldIndex].type, info, false);
 						if (methodPointer) {
-							args.unshift(macro stdgo.Go.pointer($i{name}));
+							if (isPointer(fieldType)) {
+								args.unshift(macro $i{name});
+							}else{
+								args.unshift(macro stdgo.Go.pointer($i{name}));
+							}
 						}
 						final methodName = nameIdent(method.name, false, false, info);
-						var expr = macro $i{name}.$fieldName($a{args});
+						var expr = if (isPointer(fieldType)) {
+							macro $i{name}.value.$fieldName($a{args});
+						}else{
+							macro $i{name}.$fieldName($a{args});
+						}
 						if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
 							expr = results.length == 1 ? defaultValue(results[0], info) : macro @:typeType null;
 						}

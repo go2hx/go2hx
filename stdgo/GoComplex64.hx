@@ -69,4 +69,10 @@ abstract GoComplex64(Complex64) from Complex64 {
 
 	@:op(-A) private static function neg(t:GoComplex64):GoComplex64
 		return new GoComplex64(-t.real, -t.imag);
+
+	@:op(A == B) private static function eq(a:GoComplex64, b:GoComplex64):Bool
+		return a.real == b.real && a.imag == b.imag;
+
+	@:op(A != B) private static function neq(a:GoComplex64, b:GoComplex64):Bool
+		return a.real != b.real || a.imag != b.imag;
 }

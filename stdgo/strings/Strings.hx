@@ -171,7 +171,7 @@ inline function splitAfter(s:String, sep:String):Array<String> throw "not implem
     // empty slice if s contains only white space.
 **/
 inline function fields(s:String):Array<String> throw "not implemented";
-@:invalid typedef T_fieldsFunc_1___localname___span = Dynamic;
+@:invalid typedef T_fieldsFunc_4___localname___span = Dynamic;
 /**
     // FieldsFunc splits the string s at each run of Unicode code points c satisfying f(c)
     // and returns an array of slices of s. If all code points in s satisfy f(c) or the

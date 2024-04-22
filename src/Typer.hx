@@ -3475,9 +3475,11 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				rparen: 0,
 			}, info);
 		case "SelectorExpr":
+			expr.fun.x = escapeParensRaw(expr.fun.x);
+			final selKind = selectorKind(expr.fun);
 			final selType = typeof(expr.fun, info, false);
 			switch selType {
-				case signature(_, params, results, _):
+				case signature(_, _, _, _):
 					final recv = typeof(expr.fun.recv, info, false);
 					switch recv {
 						case _var(_, _.get() => type):
@@ -3492,18 +3494,27 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 									default:
 										throw info.panic() + "unknown expr: " + expr.fun.sel;
 								}
-								var x = typeExpr(expr.fun.x, info);
-								genArgs(true);
-								if (isPointer(xType)) {
-									args.unshift(x);
-								} else {
-									args.unshift(macro stdgo.Go.pointer($x));
+								var e:Expr = null;
+								if (selKind == 3) {
+									e = typeExpr(expr.fun,info);
+									genArgs(true);
+									if (isPointer(xType)) {
+										args.unshift(args[0]);
+									}
+									e = macro $e($a{args});
+								}else{
+									var x = typeExpr(expr.fun.x, info);
+									genArgs(true);
+									if (isPointer(xType)) {
+										args.unshift(x);
+									} else {
+										args.unshift(macro stdgo.Go.pointer($x));
+									}
+									e = x;
+									if (xTypePointer)
+										e = macro $e.value;
+									e = macro $e.$sel($a{args});
 								}
-
-								var e = x;
-								if (xTypePointer)
-									e = macro $e.value;
-								e = macro $e.$sel($a{args});
 								return returnExpr(e).expr;
 							}
 						default:
@@ -5425,17 +5436,12 @@ function getStructFields(type:GoType):Array<FieldType> {
 	}
 }
 
-private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { // EField
-	var sel = nameIdent(expr.sel.name, false, false, info);
-	var isStar = false;
-	expr.x = escapeParensRaw(expr.x);
-	final kind = switch expr.x.id {
+private function selectorKind(expr:Ast.SelectorExpr):Int {
+	return switch expr.x.id {
 		case "StarExpr":
 			if (expr.x.x.id == "Ident") {
-				isStar = true;
 				expr.x.x.kind;
 			} else if (expr.x.x.id == "SelectorExpr") {
-				isStar = true;
 				expr.x.x.sel.kind;
 			} else {
 				-1;
@@ -5451,6 +5457,14 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 		default:
 			-1;
 	}
+}
+
+private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { // EField
+	var sel = nameIdent(expr.sel.name, false, false, info);
+	var isStar = false;
+	expr.x = escapeParensRaw(expr.x);
+	final kind = selectorKind(expr);
+	final isStar = expr.x.id == "StarExpr";
 	var x = typeExpr(expr.x, info);
 	// if ident is type
 	if (kind == 3) {

@@ -3854,6 +3854,9 @@ function typeFunctionLiteral(args:Array<Expr>, params:Array<GoType>, results:Arr
 			throw info.panic() + "param not var: " + param;
 	});
 	final exprArgs = funcArgs.map(arg -> macro $i{arg.name});
+	if (funcArgs.length > 0 && isRestType(funcArgs[funcArgs.length - 1].type)) {
+		exprArgs[exprArgs.length - 1] = macro...$e{exprArgs[exprArgs.length - 1]};
+	}
 	final ret = getReturn(results, info);
 	var expr = macro $x($a{args.concat(exprArgs)});
 	if (!isVoid(ret))
@@ -7435,6 +7438,9 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 					case FFun(f):
 						// f.args.unshift({})
 						final args = [for (arg in f.args) macro $i{arg.name}];
+						if (f.args.length > 0 && isRestType(f.args[f.args.length - 1].type)) {
+							args[args.length - 1] = macro...$e{args[args.length - 1]};
+						}
 						final fieldName = field.name;
 						f.expr = macro t.$fieldName($a{args});
 						if (!isVoid(f.ret))

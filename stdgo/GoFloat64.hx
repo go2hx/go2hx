@@ -72,12 +72,23 @@ abstract GoFloat64(Float) from Float {
 	public inline function toBasic()
 		return this;
 
-	@:op(A + B) private static function add(a:GoFloat, b:GoFloat):GoFloat
+	@:op(A + B) private static function add(a:GoFloat, b:GoFloat):GoFloat {
 		return a.toBasic() + b.toBasic();
+	}
 
 	@:op(A / B) private static function div(a:GoFloat, b:GoFloat):GoFloat {
-		if (b == 0)
-			return std.Math.NaN;
+		#if numberlinkmath
+		if (b == 0) {
+			var flip = a >= 0;
+			if (stdgo._internal.math.Math.signbit(b))
+				flip = !flip;
+			if (flip) {
+				return std.Math.POSITIVE_INFINITY;
+			}else{
+				return std.Math.NEGATIVE_INFINITY;
+			}
+		}
+		#end
 		return a.toBasic() / b.toBasic();
 	}
 

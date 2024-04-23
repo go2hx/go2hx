@@ -11,5 +11,6 @@
 -D no-deprecation-warnings
 -D hl_no_opt
 -D numberlinkerror
+-D numberlinkmath
 
 #-D nolinkstd

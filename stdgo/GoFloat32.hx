@@ -74,8 +74,18 @@ abstract GoFloat32(Float32) from Float32 {
 		return a.toBasic() % b.toBasic();
 
 	@:op(A / B) private static function div(a:GoFloat32, b:GoFloat32):GoFloat32 {
-		if (b == 0)
-			return std.Math.NaN;
+		#if numberlinkmath
+		if (b == 0) {
+			var flip = a >= 0;
+			if (stdgo._internal.math.Math.signbit(b))
+				flip = !flip;
+			if (flip) {
+				return std.Math.POSITIVE_INFINITY;
+			}else{
+				return std.Math.NEGATIVE_INFINITY;
+			}
+		}
+		#end
 		return a.toBasic() / b.toBasic();
 	}
 

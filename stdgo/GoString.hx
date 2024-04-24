@@ -75,8 +75,13 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 		return String.fromCharCode(x.toBasic());
 	}
 
-	@:from static function ofUInt64(x:GoUInt64):GoString
-		return String.fromCharCode(x.toBasic().toInt());
+	@:from static function ofUInt64(x:GoUInt64):GoString {
+		return try {
+			String.fromCharCode(x.toBasic().toInt());
+		}catch(_) {
+			"�";
+		}
+	}
 
 	@:from static function ofInt64(x:GoInt64):GoString
 		return String.fromCharCode(x.toBasic().high);

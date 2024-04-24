@@ -424,6 +424,10 @@ class Go {
 						// selfPointer = true;
 						return run();
 					}
+					if (ct.meta.has(":follow")) {
+						t = ct.type;
+						return run();
+					}
 					f(ct, params);
 				case TInst(_.get() => ct, params):
 					f(ct, params);
@@ -445,6 +449,8 @@ class Go {
 					}
 					t = t2;
 					run();
+				case TAnonymous(_):
+					macro {};
 				default:
 					Context.error("invalid type run asInterface: " + t, Context.currentPos());
 					null;

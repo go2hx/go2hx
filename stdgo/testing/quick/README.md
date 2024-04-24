@@ -81,9 +81,9 @@ The testing/quick package is frozen and is not accepting new features.
 
 - [typedef T\_myStruct\_static\_extension](<#typedef-t_mystruct_static_extension>)
 
-- [typedef T\_testNonZeroSliceAndMap\_35\_\_\_localname\_\_\_Q](<#typedef-t_testnonzerosliceandmap_35localnameq>)
+- [typedef T\_testNonZeroSliceAndMap\_36\_\_\_localname\_\_\_Q](<#typedef-t_testnonzerosliceandmap_36localnameq>)
 
-- [typedef T\_testRecursive\_34\_\_\_localname\_\_\_R](<#typedef-t_testrecursive_34localnamer>)
+- [typedef T\_testRecursive\_35\_\_\_localname\_\_\_R](<#typedef-t_testrecursive_35localnamer>)
 
 - [typedef TestArrayAlias](<#typedef-testarrayalias>)
 
@@ -482,19 +482,19 @@ typedef T_myStruct_static_extension = Dynamic;
 ```
 
 
-## typedef T\_testNonZeroSliceAndMap\_35\_\_\_localname\_\_\_Q
+## typedef T\_testNonZeroSliceAndMap\_36\_\_\_localname\_\_\_Q
 
 
 ```haxe
-typedef T_testNonZeroSliceAndMap_35___localname___Q = Dynamic;
+typedef T_testNonZeroSliceAndMap_36___localname___Q = Dynamic;
 ```
 
 
-## typedef T\_testRecursive\_34\_\_\_localname\_\_\_R
+## typedef T\_testRecursive\_35\_\_\_localname\_\_\_R
 
 
 ```haxe
-typedef T_testRecursive_34___localname___R = Dynamic;
+typedef T_testRecursive_35___localname___R = Dynamic;
 ```
 
 

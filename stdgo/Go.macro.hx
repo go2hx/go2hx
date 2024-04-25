@@ -706,7 +706,6 @@ class Go {
 						throw "unable to assert";
 					// interface kind check
 					// interface
-					trace(t.kind());
 					if (t.kind() == 20) {
 						var isPointer = false;
 						var asInterface = false;

@@ -706,6 +706,7 @@ class Go {
 						throw "unable to assert";
 					// interface kind check
 					// interface
+					trace(t.kind());
 					if (t.kind() == 20) {
 						var isPointer = false;
 						var asInterface = false;
@@ -733,7 +734,7 @@ class Go {
 					} else {
 						// exclude basic types from using __underlying__ field access
 						// trace(t.kind());
-						if (t.kind() == 2 || t.kind() == 1 || t.kind() == 5 || t.kind() == 19) {
+						if (t.kind() >= 0 && t.kind() <= 17) {
 							($e.value : $t);
 						}else if (($e.value : Dynamic).__underlying__ == null) {
 							($e.value : $t);

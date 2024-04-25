@@ -23,10 +23,10 @@ abstract GoInt32(Int) from Int32 to Int32 to Int {
 		return this;
 
 	@:to inline function toInt8():stdgo.GoInt8
-		return this;
+		return clampInt8(this);
 
 	@:to inline function toInt16():stdgo.GoInt16
-		return this;
+		return clampInt16(this);
 
 	@:to inline function toUInt32():stdgo.GoUInt32
 		return clampUInt(this);

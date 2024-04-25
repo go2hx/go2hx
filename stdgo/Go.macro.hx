@@ -450,7 +450,7 @@ class Go {
 					t = t2;
 					run();
 				case TAnonymous(_):
-					macro {};
+					expr;
 				default:
 					Context.error("invalid type run asInterface: " + t, Context.currentPos());
 					null;

@@ -116,6 +116,8 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 					final name = fields[i].name;
 					if (StringTools.startsWith(name, "__blank__"))
 						continue;
+					if (!std.Reflect.hasField(bValue,name))
+						return false;
 					final type = fields[i].type.get();
 					final fieldValue = std.Reflect.field(aValue, name);
 					final fieldValue2 = std.Reflect.field(bValue, name);
@@ -135,7 +137,6 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 						return false;
 				}
 				true;
-
 			case invalidType:
 				switch @:privateAccess ((b.type : Dynamic)._common() : stdgo._internal.internal.reflect.Reflect.GoType) {
 					case invalidType: true;

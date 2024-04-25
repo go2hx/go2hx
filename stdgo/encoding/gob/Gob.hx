@@ -458,26 +458,26 @@ inline function testScalarEncInstructions(t:stdgo._internal.testing.Testing.T_):
     // Do not run the machine yet; instead do individual instructions crafted by hand.
 **/
 inline function testScalarDecInstructions(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testEndToEnd_54___localname___T2 = Dynamic;
-@:invalid typedef T_testEndToEnd_55___localname___T3 = Dynamic;
-@:invalid typedef T_testEndToEnd_56___localname___T1 = Dynamic;
+@:invalid typedef T_testEndToEnd_121___localname___T2 = Dynamic;
+@:invalid typedef T_testEndToEnd_122___localname___T3 = Dynamic;
+@:invalid typedef T_testEndToEnd_123___localname___T1 = Dynamic;
 inline function testEndToEnd(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testOverflow_57___localname___inputT = Dynamic;
-@:invalid typedef T_testOverflow_58___localname___outi8 = Dynamic;
-@:invalid typedef T_testOverflow_59___localname___outi16 = Dynamic;
-@:invalid typedef T_testOverflow_60___localname___outi32 = Dynamic;
-@:invalid typedef T_testOverflow_61___localname___outu8 = Dynamic;
-@:invalid typedef T_testOverflow_62___localname___outu16 = Dynamic;
-@:invalid typedef T_testOverflow_63___localname___outu32 = Dynamic;
-@:invalid typedef T_testOverflow_64___localname___outf32 = Dynamic;
-@:invalid typedef T_testOverflow_65___localname___outc64 = Dynamic;
+@:invalid typedef T_testOverflow_124___localname___inputT = Dynamic;
+@:invalid typedef T_testOverflow_125___localname___outi8 = Dynamic;
+@:invalid typedef T_testOverflow_126___localname___outi16 = Dynamic;
+@:invalid typedef T_testOverflow_127___localname___outi32 = Dynamic;
+@:invalid typedef T_testOverflow_128___localname___outu8 = Dynamic;
+@:invalid typedef T_testOverflow_129___localname___outu16 = Dynamic;
+@:invalid typedef T_testOverflow_130___localname___outu32 = Dynamic;
+@:invalid typedef T_testOverflow_131___localname___outf32 = Dynamic;
+@:invalid typedef T_testOverflow_132___localname___outc64 = Dynamic;
 inline function testOverflow(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testNesting_66___localname___RT = Dynamic;
+@:invalid typedef T_testNesting_133___localname___RT = Dynamic;
 inline function testNesting(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testAutoIndirection(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testReorderedFields(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testIgnoredFields(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-typedef T_testBadRecursiveType_67___localname___Rec = stdgo._internal.encoding.gob.Gob.T_testBadRecursiveType_67___localname___Rec;
+typedef T_testBadRecursiveType_134___localname___Rec = stdgo._internal.encoding.gob.Gob.T_testBadRecursiveType_134___localname___Rec;
 inline function testBadRecursiveType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testIndirectSliceMapArray(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testInterface(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -529,31 +529,31 @@ inline function testEncoderDecoder(t:stdgo._internal.testing.Testing.T_):Void th
 **/
 inline function testWrongTypeDecoder(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testUnsupported(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testTypeToPtrType_68___localname___Type0 = Dynamic;
+@:invalid typedef T_testTypeToPtrType_135___localname___Type0 = Dynamic;
 inline function testTypeToPtrType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testPtrTypeToType_69___localname___Type1 = Dynamic;
+@:invalid typedef T_testPtrTypeToType_136___localname___Type1 = Dynamic;
 inline function testPtrTypeToType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testTypeToPtrPtrPtrPtrType_70___localname___Type2 = Dynamic;
+@:invalid typedef T_testTypeToPtrPtrPtrPtrType_137___localname___Type2 = Dynamic;
 inline function testTypeToPtrPtrPtrPtrType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testSlice_71___localname___Type3 = Dynamic;
+@:invalid typedef T_testSlice_138___localname___Type3 = Dynamic;
 inline function testSlice(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testValueError_72___localname___Type4 = Dynamic;
+@:invalid typedef T_testValueError_139___localname___Type4 = Dynamic;
 inline function testValueError(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testArray_73___localname___Type5 = Dynamic;
-@:invalid typedef T_testArray_74___localname___Type6 = Dynamic;
+@:invalid typedef T_testArray_140___localname___Type5 = Dynamic;
+@:invalid typedef T_testArray_141___localname___Type6 = Dynamic;
 inline function testArray(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-typedef T_testRecursiveMapType_75___localname___recursiveMap = stdgo._internal.encoding.gob.Gob.T_testRecursiveMapType_75___localname___recursiveMap;
+typedef T_testRecursiveMapType_142___localname___recursiveMap = stdgo._internal.encoding.gob.Gob.T_testRecursiveMapType_142___localname___recursiveMap;
 inline function testRecursiveMapType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-typedef T_testRecursiveSliceType_76___localname___recursiveSlice = stdgo._internal.encoding.gob.Gob.T_testRecursiveSliceType_76___localname___recursiveSlice;
+typedef T_testRecursiveSliceType_143___localname___recursiveSlice = stdgo._internal.encoding.gob.Gob.T_testRecursiveSliceType_143___localname___recursiveSlice;
 inline function testRecursiveSliceType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testDefaultsInArray_77___localname___Type7 = Dynamic;
+@:invalid typedef T_testDefaultsInArray_144___localname___Type7 = Dynamic;
 /**
     // Regression test for bug: must send zero values inside arrays
 **/
 inline function testDefaultsInArray(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testSingletons(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testStructNonStruct_78___localname___Struct = Dynamic;
-typedef T_testStructNonStruct_79___localname___NonStruct = stdgo._internal.encoding.gob.Gob.T_testStructNonStruct_79___localname___NonStruct;
+@:invalid typedef T_testStructNonStruct_145___localname___Struct = Dynamic;
+typedef T_testStructNonStruct_146___localname___NonStruct = stdgo._internal.encoding.gob.Gob.T_testStructNonStruct_146___localname___NonStruct;
 inline function testStructNonStruct(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
     // A version of a bug reported on golang-nuts. Also tests top-level
@@ -612,14 +612,14 @@ inline function testErrorForHugeSlice(t:stdgo._internal.testing.Testing.T_):Void
     // are caught as errors and do not cause panics.
 **/
 inline function testBadData(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testDecodeErrorMultipleTypes_80___localname___Test = Dynamic;
+@:invalid typedef T_testDecodeErrorMultipleTypes_147___localname___Test = Dynamic;
 inline function testDecodeErrorMultipleTypes(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testMarshalFloatMap_81___localname___mapEntry = Dynamic;
+@:invalid typedef T_testMarshalFloatMap_148___localname___mapEntry = Dynamic;
 /**
     // Issue 24075
 **/
 inline function testMarshalFloatMap(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testDecodePartial_82___localname___T = Dynamic;
+@:invalid typedef T_testDecodePartial_149___localname___T = Dynamic;
 inline function testDecodePartial(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testDecoderOverflow(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testGobEncoderField(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -725,7 +725,7 @@ inline function testArrayType(t:stdgo._internal.testing.Testing.T_):Void throw "
 inline function testSliceType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testMapType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testStructType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testRegistration_83___localname___T = Dynamic;
+@:invalid typedef T_testRegistration_150___localname___T = Dynamic;
 /**
     // Should be OK to register the same type multiple times, as long as they're
     // at the same level of indirection.
@@ -735,7 +735,7 @@ inline function testRegistration(t:stdgo._internal.testing.Testing.T_):Void thro
     // See comment in type.go/Register.
 **/
 inline function testRegistrationNaming(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
-@:invalid typedef T_testStressParallel_84___localname___T2 = Dynamic;
+@:invalid typedef T_testStressParallel_151___localname___T2 = Dynamic;
 inline function testStressParallel(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
     // Issue 23328. Note that this test name is known to cmd/dist/test.go.

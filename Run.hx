@@ -24,11 +24,6 @@ function main() {
 		return;
 	}
 
-	if (args.length > 0 && args.indexOf("libs") != -1) {
-		testLibs();
-		return;
-	}
-
 	if (args.length > 0 && args.indexOf("build") != -1) {
 		build(true);
 		return;
@@ -82,7 +77,7 @@ function main() {
 		setupNodeJS(rebuild,args);
 		return;
 	}
-	/*code = 1;
+	/*var code = 1;
 	try {
 		process = new Process("node -v");
 		code = process.exitCode();
@@ -95,19 +90,7 @@ function main() {
 		setupNodeJS(rebuild,args);
 		return;
 	}*/
-	var code = 1;
-	try {
-		process = new Process("hl", ["--version"]);
-		code = process.exitCode();
-		process.close();
-	}catch(_) {
-		code = 1;
-	}
-	if (code == 0) {
-		setupHashlink(rebuild,args);
-	} else {
-		setupInterp(rebuild,args);
-	}
+	setupInterp(rebuild,args);
 }
 
 function clean() {
@@ -239,11 +222,6 @@ function setupHxb() {
 		Sys.println("Failed to consume Hxb");
 		Sys.exit(1);
 	}
-}
-
-function testLibs() {
-	final args = Sys.args();
-	Sys.command('haxe tests/tests.hxml -D ci -D libs -D path=${args[args.length - 1]}');
 }
 
 function createExtraParams() {

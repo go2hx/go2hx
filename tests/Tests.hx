@@ -67,7 +67,6 @@ final runnerCount = Compiler.getDefine("runnerCount") ?? "2";
 var unitBool = false;
 var stdBool = false;
 var goBool = false;
-var libsBool = false;
 var yaegiBool = false;
 var goByExampleBool = false;
 var tinygoBool = false;
@@ -89,7 +88,6 @@ function main() {
 	unitBool = Compiler.getDefine("unit") != null;
 	stdBool = Compiler.getDefine("std") != null;
 	goBool = Compiler.getDefine("go") != null;
-	libsBool = Compiler.getDefine("libs") != null;
 	globalPath = Compiler.getDefine("path") ?? "";
 	yaegiBool = Compiler.getDefine("yaegi") != null;
 	goByExampleBool = Compiler.getDefine("gobyexample") != null;
@@ -103,7 +101,7 @@ function main() {
 	dryRun = Compiler.getDefine("dryRun") != null;
 	var startStamp = 0.0;
 
-	if (!unitBool && !stdBool && !goBool && !yaegiBool && !goByExampleBool && !libsBool) {
+	if (!unitBool && !stdBool && !goBool && !yaegiBool && !goByExampleBool) {
 		trace("no tests specified");
 		close();
 		return;
@@ -128,8 +126,6 @@ function runTests() {
 		testStd();
 	if (goBool)
 		testGo();
-	if (libsBool)
-		testLibs();
 	if (yaegiBool)
 		testYaegi();
 	if (tinygoBool)
@@ -336,31 +332,6 @@ private function sanatize(s:String):String {
 	if (Typer.reservedClassNames.indexOf(s.charAt(0).toUpperCase() + s.substr(1)) != -1)
 		s += "_";
 	return s;
-}
-
-private function testLibs() {
-	type = "libs";
-	noDepsBool = true;
-	testBool = true;
-	// all the targets
-	targets = ["python"];
-	//targets = ["hl", "interp", "python", "js", "cpp", "jvm", "php"];
-	var libLines:Array<String> = Json.parse(File.getContent("tests/std.json"));
-	//libLines = libLines.concat(File.getContent("tests/libs.conf").split("\n"));
-    libLines = libLines.slice(0,1);
-    tests = [];
-    for (lib in libLines) {
-        lib = StringTools.trim(lib);
-		final index = lib.indexOf("|");
-		if (index != -1)
-			lib = lib.substr(index + 1);
-        if (lib.indexOf("#") == 0) {
-            continue;
-        }
-		if (!tests.contains(lib)) {
-			tests.push(lib);
-		}
-	}
 }
 
 private function testGo() { // go tests

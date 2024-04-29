@@ -1,6 +1,5 @@
 # Module stdgo.crypto.sha1 has compilation errors, please do not use:
 ```
-stdgo/crypto/sha1/Sha1.hx:9: characters 1-66 : stdgo.GoUInt64 should be haxe.UInt64
 stdgo/_internal/encoding/gob/Gob.hx:2453: characters 67-85 : stdgo.GoInt should be Null<stdgo.Pointer<stdgo.GoInt>>
 stdgo/_internal/encoding/gob/Gob.hx:2524: characters 18-26 : stdgo._internal.encoding.gob.T1 has no field emptyMap
 stdgo/_internal/encoding/gob/Gob.hx:2787: characters 9-56 : Invalid assign

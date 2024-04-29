@@ -325,8 +325,6 @@
 
 - [typedef StructType](<#typedef-structtype>)
 
-- [typedef Tuple](<#typedef-tuple>)
-
 - [typedef UInt16](<#typedef-uint16>)
 
 - [typedef UInt32](<#typedef-uint32>)
@@ -374,18 +372,6 @@
 - [abstract Pointer](<#abstract-pointer>)
 
 - [abstract Slice](<#abstract-slice>)
-
-- [abstract Tuple1](<#abstract-tuple1>)
-
-- [abstract Tuple2](<#abstract-tuple2>)
-
-- [abstract Tuple3](<#abstract-tuple3>)
-
-- [abstract Tuple4](<#abstract-tuple4>)
-
-- [abstract Tuple5](<#abstract-tuple5>)
-
-- [abstract Tuple6](<#abstract-tuple6>)
 
 # Constants
 
@@ -1942,14 +1928,6 @@ typedef StructType = {
 ```
 
 
-## typedef Tuple
-
-
-```haxe
-typedef Tuple = stdgo.Tuple2<stdgo.Tuple.T0, stdgo.Tuple.T1>;
-```
-
-
 ## typedef UInt16
 
 
@@ -2103,59 +2081,5 @@ typedef UInt8 = Int;
 
 
 [\(view file containing code\)](<./Slice.hx>)
-
-
-## abstract Tuple1
-
-
-
-\`Tuple1\` is a tuple with one value. It maps directly to its own T0 types.  
-
-[\(view file containing code\)](<./Tuple.hx>)
-
-
-## abstract Tuple2
-
-
-
-\`Tuple2\` is a tuple with two values. It maps to an anonymous object with fields \`\_0\` and \`\_1\`.  
-
-[\(view file containing code\)](<./Tuple.hx>)
-
-
-## abstract Tuple3
-
-
-
-\`Tuple3\` is a tuple with three values. It maps to an anonymous object with fields \`\_0\`, \`\_1\`, and \`\_2\`.  
-
-[\(view file containing code\)](<./Tuple.hx>)
-
-
-## abstract Tuple4
-
-
-
-\`Tuple4\` is a tuple with four values. It maps to an anonymous object with fields \`\_0\`, \`\_1\`, \`\_2\`, and \`\_3\`.  
-
-[\(view file containing code\)](<./Tuple.hx>)
-
-
-## abstract Tuple5
-
-
-
-\`Tuple5\` is a tuple with five values. It maps to an anonymous object with fields \`\_0\`, \`\_1\`, \`\_2\`, \`\_4\`, and \`\_5\`.  
-
-[\(view file containing code\)](<./Tuple.hx>)
-
-
-## abstract Tuple6
-
-
-
-\`Tuple6\` is a tuple with size values. It maps to an anonymous object with fields \`\_0\`, \`\_1\`, \`\_2\`, \`\_4\`, \`\_5\`, and \`\_6\`.  
-
-[\(view file containing code\)](<./Tuple.hx>)
 
 

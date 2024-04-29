@@ -143,6 +143,7 @@ function compileArgs(args:Array<String>):InstanceData {
 		["-timeout", "--timeout"] => d -> instance.defines.push('timeoutTest $d'),
 		@doc("Verbose output: log all tests as they are run. Also print all text from Log and Logf calls even if the test succeeds.")
 		["-v", "--v"] => () -> instance.defines.push("verboseTest"),
+		@doc("Remove all depedency on go2hx for the compiled code by moving the stdlib into the output")
 		["-nodeps", "--nodeps", "-nodep", "--nodep"] => () -> instance.noDeps = true,
 	]);
 	argHandler.parse(args);
@@ -369,8 +370,14 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 }
 
 private function createBasePkgs(outputPath:String, modules:Array<Typer.Module>, cwd:String) {
-	if (FileSystem.exists(outputPath + "/stdgo/_internal/unicode") && FileSystem.exists(outputPath + "/stdgo/Go.hx"))
-		return;
+	/*if (FileSystem.exists(outputPath + "/stdgo/_internal/unicode") && FileSystem.exists(outputPath + "/stdgo/Go.hx"))
+		return;*/
+	for (file in FileSystem.readDirectory(cwd + "/stdgo")) {
+		if (Path.extension(file) == "hx") {
+			final content = File.getContent(cwd + "/stdgo/" + file);
+			File.saveContent(outputPath + "/stdgo/" + file, content);
+		}
+	}
 	src.Util.copyDirectoryRecursively(cwd + "/haxe", outputPath + "/haxe");
 	src.Util.copyDirectoryRecursively(cwd + "/stdgo/_internal/", outputPath + "/stdgo/_internal/");
 	for (file in FileSystem.readDirectory(cwd + "/stdgo/_internal")) {

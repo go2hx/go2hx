@@ -3,7 +3,7 @@ package stdgo;
 import stdgo.GoNumber;
 
 @:notNull
-abstract GoFloat32(Float32) from Float32 {
+abstract GoFloat32(Float32) from Float32 to Float32 {
 	public inline function new(x = 0)
 		this = x;
 

@@ -3,7 +3,7 @@ package stdgo;
 import stdgo.GoNumber;
 
 @:notNull
-abstract GoUInt64(UInt64) from UInt64 {
+abstract GoUInt64(UInt64) from UInt64 to UInt64 {
 	public inline function new(x = 0) {
 		this = x;
 	}

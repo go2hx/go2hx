@@ -4,7 +4,7 @@ import stdgo.GoNumber;
 
 
 @:notNull
-abstract GoInt64(Int64) from Int64 {
+abstract GoInt64(Int64) from Int64 to Int64 {
 	public inline function new(x = 0) {
 		this = x;
 	}

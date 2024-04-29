@@ -40,7 +40,7 @@ class T_errorString_asInterface {
 	}
 
 	public function __underlying__()
-		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+		return new AnyInterface((__type__.kind() == stdgo._internal.reflect.Reflect.ptr
 			&& !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 

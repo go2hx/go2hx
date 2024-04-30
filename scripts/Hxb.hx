@@ -1,5 +1,6 @@
 package scripts;
 
+import sys.FileSystem;
 import haxe.Json;
 import sys.io.File;
 
@@ -58,7 +59,11 @@ func main() {
 }
     ');
     Sys.println("Run Compiler");
-    Sys.command('haxelib run go2hx ./hxb.go -compiler_interp');
+    if (Sys.command('haxelib run go2hx ./hxb.go -compiler_interp') != 0) {
+        Sys.exit(1);
+    }
+
+    FileSystem.deleteFile("./hxb.go");
 
     final commands:Array<String> = [];
     // create
@@ -67,5 +72,7 @@ func main() {
     commands.push('\"stdgo._internal.internal.Macro.initHxb(\'$startingPath\')"');
     commands.push("--hl");
     commands.push("hxb.hl");
-    Sys.command("haxe " + commands.join(" "));
+    if (Sys.command("haxe " + commands.join(" ")) != 0) {
+        Sys.exit(1);
+    }
 }

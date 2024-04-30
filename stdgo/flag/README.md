@@ -350,11 +350,11 @@ function arg(i:Int):String
 ```
 
 
-
-Arg returns the i'th command\-line argument. Arg\(0\) is the first remaining argument
-after flags have been processed. Arg returns an empty string if the
-requested element does not exist.  
-
+```
+Arg returns the i'th command-line argument. Arg(0) is the first remaining argument
+    after flags have been processed. Arg returns an empty string if the
+    requested element does not exist.
+```
 [\(view code\)](<./Flag.hx#L189>)
 
 
@@ -380,11 +380,11 @@ function boolFunc(name:String, usage:String, fn:()):Void
 ```
 
 
-
+```
 BoolFunc defines a flag with the specified name and usage string without requiring values.
-Each time the flag is seen, fn is called with the value of the flag.
-If fn returns a non\-nil error, it will be treated as a flag value parsing error.  
-
+    Each time the flag is seen, fn is called with the value of the flag.
+    If fn returns a non-nil error, it will be treated as a flag value parsing error.
+```
 [\(view code\)](<./Flag.hx#L299>)
 
 
@@ -396,10 +396,10 @@ function boolVar(p:stdgo.Pointer<Bool>, name:String, value:Bool, usage:String):V
 ```
 
 
-
+```
 BoolVar defines a bool flag with specified name, default value, and usage string.
-The argument p points to a bool variable in which to store the value of the flag.  
-
+    The argument p points to a bool variable in which to store the value of the flag.
+```
 [\(view code\)](<./Flag.hx#L202>)
 
 
@@ -411,10 +411,10 @@ function bool_(name:String, value:Bool, usage:String):stdgo.Pointer<Bool>
 ```
 
 
-
+```
 Bool defines a bool flag with specified name, default value, and usage string.
-The return value is the address of a bool variable that stores the value of the flag.  
-
+    The return value is the address of a bool variable that stores the value of the flag.
+```
 [\(view code\)](<./Flag.hx#L207>)
 
 
@@ -437,11 +437,11 @@ function duration(name:String, value:stdgo._internal.time.Duration, usage:String
 ```
 
 
-
+```
 Duration defines a time.Duration flag with specified name, default value, and usage string.
-The return value is the address of a time.Duration variable that stores the value of the flag.
-The flag accepts a value acceptable to time.ParseDuration.  
-
+    The return value is the address of a time.Duration variable that stores the value of the flag.
+    The flag accepts a value acceptable to time.ParseDuration.
+```
 [\(view code\)](<./Flag.hx#L279>)
 
 
@@ -453,11 +453,11 @@ function durationVar(p:stdgo.Pointer<stdgo._internal.time.Duration>, name:String
 ```
 
 
-
+```
 DurationVar defines a time.Duration flag with specified name, default value, and usage string.
-The argument p points to a time.Duration variable in which to store the value of the flag.
-The flag accepts a value acceptable to time.ParseDuration.  
-
+    The argument p points to a time.Duration variable in which to store the value of the flag.
+    The flag accepts a value acceptable to time.ParseDuration.
+```
 [\(view code\)](<./Flag.hx#L273>)
 
 
@@ -469,10 +469,10 @@ function float64(name:String, value:Float, usage:String):stdgo.Pointer<Float>
 ```
 
 
-
+```
 Float64 defines a float64 flag with specified name, default value, and usage string.
-The return value is the address of a float64 variable that stores the value of the flag.  
-
+    The return value is the address of a float64 variable that stores the value of the flag.
+```
 [\(view code\)](<./Flag.hx#L267>)
 
 
@@ -484,10 +484,10 @@ function float64Var(p:stdgo.Pointer<Float>, name:String, value:Float, usage:Stri
 ```
 
 
-
+```
 Float64Var defines a float64 flag with specified name, default value, and usage string.
-The argument p points to a float64 variable in which to store the value of the flag.  
-
+    The argument p points to a float64 variable in which to store the value of the flag.
+```
 [\(view code\)](<./Flag.hx#L262>)
 
 
@@ -499,11 +499,11 @@ function func(name:String, usage:String, fn:()):Void
 ```
 
 
-
+```
 Func defines a flag with the specified name and usage string.
-Each time the flag is seen, fn is called with the value of the flag.
-If fn returns a non\-nil error, it will be treated as a flag value parsing error.  
-
+    Each time the flag is seen, fn is called with the value of the flag.
+    If fn returns a non-nil error, it will be treated as a flag value parsing error.
+```
 [\(view code\)](<./Flag.hx#L293>)
 
 
@@ -559,10 +559,10 @@ function int64(name:String, value:haxe.Int64, usage:String):stdgo.Pointer<haxe.I
 ```
 
 
-
+```
 Int64 defines an int64 flag with specified name, default value, and usage string.
-The return value is the address of an int64 variable that stores the value of the flag.  
-
+    The return value is the address of an int64 variable that stores the value of the flag.
+```
 [\(view code\)](<./Flag.hx#L227>)
 
 
@@ -574,10 +574,10 @@ function int64Var(p:stdgo.Pointer<haxe.Int64>, name:String, value:haxe.Int64, us
 ```
 
 
-
+```
 Int64Var defines an int64 flag with specified name, default value, and usage string.
-The argument p points to an int64 variable in which to store the value of the flag.  
-
+    The argument p points to an int64 variable in which to store the value of the flag.
+```
 [\(view code\)](<./Flag.hx#L222>)
 
 
@@ -589,10 +589,10 @@ function intVar(p:stdgo.Pointer<Int>, name:String, value:Int, usage:String):Void
 ```
 
 
-
+```
 IntVar defines an int flag with specified name, default value, and usage string.
-The argument p points to an int variable in which to store the value of the flag.  
-
+    The argument p points to an int variable in which to store the value of the flag.
+```
 [\(view code\)](<./Flag.hx#L212>)
 
 
@@ -604,10 +604,10 @@ function int_(name:String, value:Int, usage:String):stdgo.Pointer<Int>
 ```
 
 
-
+```
 Int defines an int flag with specified name, default value, and usage string.
-The return value is the address of an int variable that stores the value of the flag.  
-
+    The return value is the address of an int variable that stores the value of the flag.
+```
 [\(view code\)](<./Flag.hx#L217>)
 
 
@@ -619,10 +619,10 @@ function lookup(name:String):stdgo.flag.Flag
 ```
 
 
-
-Lookup returns the Flag structure of the named command\-line flag,
-returning nil if none exists.  
-
+```
+Lookup returns the Flag structure of the named command-line flag,
+    returning nil if none exists.
+```
 [\(view code\)](<./Flag.hx#L138>)
 
 
@@ -648,11 +648,11 @@ function newFlagSet(name:String, errorHandling:stdgo.flag.ErrorHandling):stdgo.f
 ```
 
 
-
+```
 NewFlagSet returns a new, empty flag set with the specified name and
-error handling property. If the name is not empty, it will be printed
-in the default usage message and in error messages.  
-
+    error handling property. If the name is not empty, it will be printed
+    in the default usage message and in error messages.
+```
 [\(view code\)](<./Flag.hx#L323>)
 
 
@@ -678,10 +678,10 @@ function parse():Void
 ```
 
 
-
-Parse parses the command\-line flags from os.Args\[1:\]. Must be called
-after all flags are defined and before flags are accessed by the program.  
-
+```
+Parse parses the command-line flags from os.Args[1:]. Must be called
+    after all flags are defined and before flags are accessed by the program.
+```
 [\(view code\)](<./Flag.hx#L313>)
 
 
@@ -707,15 +707,15 @@ function printDefaults():Void
 ```
 
 
-
-PrintDefaults prints, to standard error unless configured otherwise,
-a usage message showing the default settings of all defined
-command\-line flags.
-For an integer valued flag x, the default output has the form  
-
 ```
-	-x int
-		usage-message-for-x (default 7)
+PrintDefaults prints, to standard error unless configured otherwise,
+    a usage message showing the default settings of all defined
+    command-line flags.
+    For an integer valued flag x, the default output has the form
+```
+```
+    	-x int
+    		usage-message-for-x (default 7)
 ```
 
 The usage message will appear on a separate line for anything but
@@ -729,14 +729,14 @@ name to show in the message and the back quotes are stripped from
 the message when displayed. For instance, given  
 
 ```
-	flag.String("I", "", "search `directory` for include files")
+    	flag.String("I", "", "search `directory` for include files")
 ```
 
 the output will be  
 
 ```
-	-I directory
-		search directory for include files.
+    	-I directory
+    		search directory for include files.
 ```
 
 To change the destination for flag messages, call CommandLine.SetOutput.  
@@ -752,11 +752,11 @@ function resetForTesting(usage:():Void):Void
 ```
 
 
-
+```
 ResetForTesting clears all flag state and sets the usage function as directed.
-After calling ResetForTesting, parse errors in flag handling will not
-exit the program.  
-
+    After calling ResetForTesting, parse errors in flag handling will not
+    exit the program.
+```
 [\(view code\)](<./Flag.hx#L123>)
 
 
@@ -826,10 +826,10 @@ function string(name:String, value:String, usage:String):stdgo.Pointer<String>
 ```
 
 
-
+```
 String defines a string flag with specified name, default value, and usage string.
-The return value is the address of a string variable that stores the value of the flag.  
-
+    The return value is the address of a string variable that stores the value of the flag.
+```
 [\(view code\)](<./Flag.hx#L257>)
 
 
@@ -841,10 +841,10 @@ function stringVar(p:stdgo.Pointer<String>, name:String, value:String, usage:Str
 ```
 
 
-
+```
 StringVar defines a string flag with specified name, default value, and usage string.
-The argument p points to a string variable in which to store the value of the flag.  
-
+    The argument p points to a string variable in which to store the value of the flag.
+```
 [\(view code\)](<./Flag.hx#L252>)
 
 
@@ -856,13 +856,13 @@ function textVar(p:stdgo._internal.encoding.TextUnmarshaler, name:String, value:
 ```
 
 
-
+```
 TextVar defines a flag with a specified name, default value, and usage string.
-The argument p must be a pointer to a variable that will hold the value
-of the flag, and p must implement encoding.TextUnmarshaler.
-If the flag is used, the flag value will be passed to p's UnmarshalText method.
-The type of the default value must be the same as the type of p.  
-
+    The argument p must be a pointer to a variable that will hold the value
+    of the flag, and p must implement encoding.TextUnmarshaler.
+    If the flag is used, the flag value will be passed to p's UnmarshalText method.
+    The type of the default value must be the same as the type of p.
+```
 [\(view code\)](<./Flag.hx#L287>)
 
 
@@ -874,10 +874,10 @@ function uint(name:String, value:UInt, usage:String):stdgo.Pointer<UInt>
 ```
 
 
-
+```
 Uint defines a uint flag with specified name, default value, and usage string.
-The return value is the address of a uint variable that stores the value of the flag.  
-
+    The return value is the address of a uint variable that stores the value of the flag.
+```
 [\(view code\)](<./Flag.hx#L237>)
 
 
@@ -889,10 +889,10 @@ function uint64(name:String, value:haxe.UInt64, usage:String):stdgo.Pointer<haxe
 ```
 
 
-
+```
 Uint64 defines a uint64 flag with specified name, default value, and usage string.
-The return value is the address of a uint64 variable that stores the value of the flag.  
-
+    The return value is the address of a uint64 variable that stores the value of the flag.
+```
 [\(view code\)](<./Flag.hx#L247>)
 
 
@@ -904,10 +904,10 @@ function uint64Var(p:stdgo.Pointer<haxe.UInt64>, name:String, value:haxe.UInt64,
 ```
 
 
-
+```
 Uint64Var defines a uint64 flag with specified name, default value, and usage string.
-The argument p points to a uint64 variable in which to store the value of the flag.  
-
+    The argument p points to a uint64 variable in which to store the value of the flag.
+```
 [\(view code\)](<./Flag.hx#L242>)
 
 
@@ -919,10 +919,10 @@ function uintVar(p:stdgo.Pointer<UInt>, name:String, value:UInt, usage:String):V
 ```
 
 
-
+```
 UintVar defines a uint flag with specified name, default value, and usage string.
-The argument p points to a uint variable in which to store the value of the flag.  
-
+    The argument p points to a uint variable in which to store the value of the flag.
+```
 [\(view code\)](<./Flag.hx#L232>)
 
 
@@ -934,13 +934,13 @@ function unquoteUsage(flag:stdgo.flag.Flag):stdgo.Tuple<String, String>
 ```
 
 
-
-UnquoteUsage extracts a back\-quoted name from the usage
-string for a flag and returns it and the un\-quoted usage.
-Given "a \`name\` to show" it returns \("name", "a name to show"\).
-If there are no back quotes, the name is an educated guess of the
-type of the flag's value, or the empty string if the flag is boolean.  
-
+```
+UnquoteUsage extracts a back-quoted name from the usage
+    string for a flag and returns it and the un-quoted usage.
+    Given "a `name` to show" it returns ("name", "a name to show").
+    If there are no back quotes, the name is an educated guess of the
+    type of the flag's value, or the empty string if the flag is boolean.
+```
 [\(view code\)](<./Flag.hx#L150>)
 
 
@@ -963,14 +963,14 @@ function var_(value:stdgo.flag.Value, name:String, usage:String):Void
 ```
 
 
-
+```
 Var defines a flag with the specified name and usage string. The type and
-value of the flag are represented by the first argument, of type Value, which
-typically holds a user\-defined implementation of Value. For instance, the
-caller could create a flag that turns a comma\-separated string into a slice
-of strings by giving the slice the methods of Value; in particular, Set would
-decompose the comma\-separated string into the slice.  
-
+    value of the flag are represented by the first argument, of type Value, which
+    typically holds a user-defined implementation of Value. For instance, the
+    caller could create a flag that turns a comma-separated string into a slice
+    of strings by giving the slice the methods of Value; in particular, Set would
+    decompose the comma-separated string into the slice.
+```
 [\(view code\)](<./Flag.hx#L308>)
 
 
@@ -982,10 +982,10 @@ function visit(fn:()):Void
 ```
 
 
-
-Visit visits the command\-line flags in lexicographical order, calling fn
-for each. It visits only those flags that have been set.  
-
+```
+Visit visits the command-line flags in lexicographical order, calling fn
+    for each. It visits only those flags that have been set.
+```
 [\(view code\)](<./Flag.hx#L133>)
 
 
@@ -997,10 +997,10 @@ function visitAll(fn:()):Void
 ```
 
 
-
-VisitAll visits the command\-line flags in lexicographical order, calling
-fn for each. It visits all flags, even those not set.  
-
+```
+VisitAll visits the command-line flags in lexicographical order, calling
+    fn for each. It visits all flags, even those not set.
+```
 [\(view code\)](<./Flag.hx#L128>)
 
 

@@ -6,10 +6,10 @@
 # Overview
 
 
-
+```
 Package testenv provides information about what functionality
-is available in different testing environments run by the Go team.  
-
+    is available in different testing environments run by the Go team.
+```
 
 It is an internal package because these details are specific
 to the Go team's test setup \(on build.golang.org\) and not
@@ -127,12 +127,12 @@ function builder():String
 ```
 
 
-
+```
 Builder reports the name of the builder running this test
-\(for example, "linux\-amd64" or "windows\-386\-gce"\).
-If the test is not running on the build infrastructure,
-Builder returns the empty string.  
-
+    (for example, "linux-amd64" or "windows-386-gce").
+    If the test is not running on the build infrastructure,
+    Builder returns the empty string.
+```
 [\(view code\)](<./Testenv.hx#L69>)
 
 
@@ -144,10 +144,10 @@ function canInternalLink(withCgo:Bool):Bool
 ```
 
 
-
+```
 CanInternalLink reports whether the current system can link programs with
-internal linking.  
-
+    internal linking.
+```
 [\(view code\)](<./Testenv.hx#L149>)
 
 
@@ -159,11 +159,11 @@ function cleanCmdEnv(cmd:stdgo._internal.os.exec.Cmd):stdgo._internal.os.exec.Cm
 ```
 
 
-
+```
 CleanCmdEnv will fill cmd.Env with the environment, excluding certain
-variables that could modify the behavior of the Go tools such as
-GODEBUG and GOTRACEBACK.  
-
+    variables that could modify the behavior of the Go tools such as
+    GODEBUG and GOTRACEBACK.
+```
 [\(view code\)](<./Testenv.hx#L42>)
 
 
@@ -175,10 +175,10 @@ function command(t:stdgo._internal.testing.TB, name:String, args:haxe.Rest<stdgo
 ```
 
 
-
+```
 Command is like exec.Command, but applies the same changes as
-testenv.CommandContext \(with a default Context\).  
-
+    testenv.CommandContext (with a default Context).
+```
 [\(view code\)](<./Testenv.hx#L58>)
 
 
@@ -191,14 +191,14 @@ function commandContext(t:stdgo._internal.testing.TB, ctx:stdgo._internal.contex
 
 
 ```
- CommandContext is like exec.CommandContext, but:
-   - skips t if the platform does not support os/exec,
-   - sends SIGQUIT (if supported by the platform) instead of SIGKILL
-     in its Cancel function
-   - if the test has a deadline, adds a Context timeout and WaitDelay
-     for an arbitrary grace period before the test's deadline expires,
-   - fails the test if the command does not complete before the test's deadline, and
-   - sets a Cleanup function that verifies that the test did not leak a subprocess.
+CommandContext is like exec.CommandContext, but:
+      - skips t if the platform does not support os/exec,
+      - sends SIGQUIT (if supported by the platform) instead of SIGKILL
+        in its Cancel function
+      - if the test has a deadline, adds a Context timeout and WaitDelay
+        for an arbitrary grace period before the test's deadline expires,
+      - fails the test if the command does not complete before the test's deadline, and
+      - sets a Cleanup function that verifies that the test did not leak a subprocess.
 ```
 [\(view code\)](<./Testenv.hx#L53>)
 
@@ -250,12 +250,12 @@ function goToolPath(t:stdgo._internal.testing.TB):String
 ```
 
 
-
+```
 GoToolPath reports the path to the Go tool.
-It is a convenience wrapper around GoTool.
-If the tool is unavailable GoToolPath calls t.Skip.
-If the tool should be available and isn't, GoToolPath calls t.Fatal.  
-
+    It is a convenience wrapper around GoTool.
+    If the tool is unavailable GoToolPath calls t.Skip.
+    If the tool should be available and isn't, GoToolPath calls t.Fatal.
+```
 [\(view code\)](<./Testenv.hx#L107>)
 
 
@@ -267,12 +267,12 @@ function goroot(t:stdgo._internal.testing.TB):String
 ```
 
 
-
+```
 GOROOT reports the path to the directory containing the root of the Go
-project source tree. This is normally equivalent to runtime.GOROOT, but
-works even if the test binary was built with \-trimpath and cannot exec
-'go env GOROOT'.  
-
+    project source tree. This is normally equivalent to runtime.GOROOT, but
+    works even if the test binary was built with -trimpath and cannot exec
+    'go env GOROOT'.
+```
 
 If GOROOT cannot be found, GOROOT skips t if t is non\-nil,
 or panics otherwise.  
@@ -302,10 +302,10 @@ function hasExternalNetwork():Bool
 ```
 
 
-
+```
 HasExternalNetwork reports whether the current system can use
-external \(non\-localhost\) networks.  
-
+    external (non-localhost) networks.
+```
 [\(view code\)](<./Testenv.hx#L130>)
 
 
@@ -317,10 +317,10 @@ function hasGoBuild():Bool
 ```
 
 
-
+```
 HasGoBuild reports whether the current system can build programs with “go build”
-and then run them with os.StartProcess or exec.Command.  
-
+    and then run them with os.StartProcess or exec.Command.
+```
 [\(view code\)](<./Testenv.hx#L74>)
 
 
@@ -360,11 +360,11 @@ function hasParallelism():Bool
 ```
 
 
-
+```
 HasParallelism reports whether the current system can execute multiple
-threads in parallel.
-There is a copy of this function in cmd/dist/test.go.  
-
+    threads in parallel.
+    There is a copy of this function in cmd/dist/test.go.
+```
 [\(view code\)](<./Testenv.hx#L95>)
 
 
@@ -404,11 +404,11 @@ function mustHaveBuildMode(t:stdgo._internal.testing.TB, buildmode:String):Void
 ```
 
 
-
+```
 MustHaveBuildMode reports whether the current system can build programs in
-the given build mode.
-If not, MustHaveBuildMode calls t.Skip with an explanation.  
-
+    the given build mode.
+    If not, MustHaveBuildMode calls t.Skip with an explanation.
+```
 [\(view code\)](<./Testenv.hx#L161>)
 
 
@@ -434,11 +434,11 @@ function mustHaveExec(t:stdgo._internal.testing.TB):Void
 ```
 
 
-
+```
 MustHaveExec checks that the current system can start new processes
-using os.StartProcess or \(more commonly\) exec.Command.
-If not, MustHaveExec calls t.Skip with an explanation.  
-
+    using os.StartProcess or (more commonly) exec.Command.
+    If not, MustHaveExec calls t.Skip with an explanation.
+```
 
 On some platforms MustHaveExec checks for exec support by re\-executing the
 current executable, which must be a binary built by 'go test'.
@@ -461,11 +461,11 @@ function mustHaveExecPath(t:stdgo._internal.testing.TB, path:String):Void
 ```
 
 
-
+```
 MustHaveExecPath checks that the current system can start the named executable
-using os.StartProcess or \(more commonly\) exec.Command.
-If not, MustHaveExecPath calls t.Skip with an explanation.  
-
+    using os.StartProcess or (more commonly) exec.Command.
+    If not, MustHaveExecPath calls t.Skip with an explanation.
+```
 [\(view code\)](<./Testenv.hx#L36>)
 
 
@@ -477,11 +477,11 @@ function mustHaveExternalNetwork(t:stdgo._internal.testing.TB):Void
 ```
 
 
-
+```
 MustHaveExternalNetwork checks that the current system can use
-external \(non\-localhost\) networks.
-If not, MustHaveExternalNetwork calls t.Skip with an explanation.  
-
+    external (non-localhost) networks.
+    If not, MustHaveExternalNetwork calls t.Skip with an explanation.
+```
 [\(view code\)](<./Testenv.hx#L136>)
 
 
@@ -493,11 +493,11 @@ function mustHaveGoBuild(t:stdgo._internal.testing.TB):Void
 ```
 
 
-
+```
 MustHaveGoBuild checks that the current system can build programs with “go build”
-and then run them with os.StartProcess or exec.Command.
-If not, MustHaveGoBuild calls t.Skip with an explanation.  
-
+    and then run them with os.StartProcess or exec.Command.
+    If not, MustHaveGoBuild calls t.Skip with an explanation.
+```
 [\(view code\)](<./Testenv.hx#L80>)
 
 
@@ -509,10 +509,10 @@ function mustHaveGoRun(t:stdgo._internal.testing.TB):Void
 ```
 
 
-
+```
 MustHaveGoRun checks that the current system can run programs with “go run.”
-If not, MustHaveGoRun calls t.Skip with an explanation.  
-
+    If not, MustHaveGoRun calls t.Skip with an explanation.
+```
 [\(view code\)](<./Testenv.hx#L89>)
 
 
@@ -524,10 +524,10 @@ function mustHaveLink(t:stdgo._internal.testing.TB):Void
 ```
 
 
-
+```
 MustHaveLink reports whether the current system can use os.Link.
-If not, MustHaveLink calls t.Skip with an explanation.  
-
+    If not, MustHaveLink calls t.Skip with an explanation.
+```
 [\(view code\)](<./Testenv.hx#L179>)
 
 
@@ -539,10 +539,10 @@ function mustHaveParallelism(t:stdgo._internal.testing.TB):Void
 ```
 
 
-
+```
 MustHaveParallelism checks that the current system can execute multiple
-threads in parallel. If not, MustHaveParallelism calls t.Skip with an explanation.  
-
+    threads in parallel. If not, MustHaveParallelism calls t.Skip with an explanation.
+```
 [\(view code\)](<./Testenv.hx#L100>)
 
 
@@ -554,10 +554,10 @@ function mustHaveSymlink(t:stdgo._internal.testing.TB):Void
 ```
 
 
-
+```
 MustHaveSymlink reports whether the current system can use os.Symlink.
-If not, MustHaveSymlink calls t.Skip with an explanation.  
-
+    If not, MustHaveSymlink calls t.Skip with an explanation.
+```
 [\(view code\)](<./Testenv.hx#L170>)
 
 
@@ -569,11 +569,11 @@ function mustInternalLink(t:stdgo._internal.testing.TB, withCgo:Bool):Void
 ```
 
 
-
+```
 MustInternalLink checks that the current system can link programs with internal
-linking.
-If not, MustInternalLink calls t.Skip with an explanation.  
-
+    linking.
+    If not, MustInternalLink calls t.Skip with an explanation.
+```
 [\(view code\)](<./Testenv.hx#L155>)
 
 
@@ -646,10 +646,10 @@ function skipIfShortAndSlow(t:stdgo._internal.testing.TB):Void
 ```
 
 
-
-SkipIfShortAndSlow skips t if \-short is set and the CPU running the test is
-suspected to be slow.  
-
+```
+SkipIfShortAndSlow skips t if -short is set and the CPU running the test is
+    suspected to be slow.
+```
 
 \(This is useful for CPU\-intensive tests that otherwise complete quickly.\)  
 
@@ -664,10 +664,10 @@ function syscallIsNotSupported(err:stdgo.Error):Bool
 ```
 
 
-
+```
 SyscallIsNotSupported reports whether err may indicate that a system call is
-not supported by the current platform or execution environment.  
-
+    not supported by the current platform or execution environment.
+```
 [\(view code\)](<./Testenv.hx#L210>)
 
 
@@ -679,11 +679,11 @@ function writeImportcfg(t:stdgo._internal.testing.TB, dstPath:String, packageFil
 ```
 
 
-
+```
 WriteImportcfg writes an importcfg file used by the compiler or linker to
-dstPath containing entries for the file mappings in packageFiles, as well
-as for the packages transitively imported by the package\(s\) in pkgs.  
-
+    dstPath containing entries for the file mappings in packageFiles, as well
+    as for the packages transitively imported by the package(s) in pkgs.
+```
 
 pkgs may include any package pattern that is valid to pass to 'go list',
 so it may also be a list of Go source files all in the same directory.  

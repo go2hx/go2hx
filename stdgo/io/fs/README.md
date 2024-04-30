@@ -6,11 +6,11 @@
 # Overview
 
 
-
+```
 Package fs defines basic interfaces to a file system.
-A file system can be provided by the host operating system
-but also by other packages.  
-
+    A file system can be provided by the host operating system
+    but also by other packages.
+```
 # Index
 
 
@@ -284,10 +284,10 @@ function fileInfoToDirEntry(info:stdgo.io.fs.FileInfo):stdgo.io.fs.DirEntry
 ```
 
 
-
+```
 FileInfoToDirEntry returns a DirEntry that returns information from info.
-If info is nil, FileInfoToDirEntry returns nil.  
-
+    If info is nil, FileInfoToDirEntry returns nil.
+```
 [\(view code\)](<./Fs.hx#L134>)
 
 
@@ -299,14 +299,14 @@ function formatDirEntry(dir:stdgo.io.fs.DirEntry):String
 ```
 
 
-
-FormatDirEntry returns a formatted version of dir for human readability.
-Implementations of DirEntry can call this from a String method.
-The outputs for a directory named subdir and a file named hello.go are:  
-
 ```
-	d subdir/
-	- hello.go
+FormatDirEntry returns a formatted version of dir for human readability.
+    Implementations of DirEntry can call this from a String method.
+    The outputs for a directory named subdir and a file named hello.go are:
+```
+```
+    	d subdir/
+    	- hello.go
 ```
 [\(view code\)](<./Fs.hx#L89>)
 
@@ -319,14 +319,14 @@ function formatFileInfo(info:stdgo.io.fs.FileInfo):String
 ```
 
 
-
-FormatFileInfo returns a formatted version of info for human readability.
-Implementations of FileInfo can call this from a String method.
-The output for a file named "hello.go", 100 bytes, mode 0o644, created
-January 1, 1970 at noon is  
-
 ```
-	-rw-r--r-- 100 1970-01-01 12:00:00 hello.go
+FormatFileInfo returns a formatted version of info for human readability.
+    Implementations of FileInfo can call this from a String method.
+    The output for a file named "hello.go", 100 bytes, mode 0o644, created
+    January 1, 1970 at noon is
+```
+```
+    	-rw-r--r-- 100 1970-01-01 12:00:00 hello.go
 ```
 [\(view code\)](<./Fs.hx#L80>)
 
@@ -416,12 +416,12 @@ function glob(fsys:stdgo.io.fs.FS, pattern:String):stdgo.Tuple<Array<String>, st
 ```
 
 
-
+```
 Glob returns the names of all files matching pattern or nil
-if there is no matching file. The syntax of patterns is the same
-as in path.Match. The pattern may describe hierarchical names such as
-usr/|\*|/bin/ed.  
-
+    if there is no matching file. The syntax of patterns is the same
+    as in path.Match. The pattern may describe hierarchical names such as
+    usr/|*|/bin/ed.
+```
 
 Glob ignores file system errors such as I/O errors reading directories.
 The only possible returned error is path.ErrBadPattern, reporting that
@@ -443,10 +443,10 @@ function readDir(fsys:stdgo.io.fs.FS, name:String):stdgo.Tuple<Array<stdgo.io.fs
 ```
 
 
-
+```
 ReadDir reads the named directory
-and returns a list of directory entries sorted by filename.  
-
+    and returns a list of directory entries sorted by filename.
+```
 
 If fs implements ReadDirFS, ReadDir calls fs.ReadDir.
 Otherwise ReadDir calls fs.Open and uses ReadDir and Close
@@ -463,12 +463,12 @@ function readFile(fsys:stdgo.io.fs.FS, name:String):stdgo.Tuple<Array<Int>, stdg
 ```
 
 
-
+```
 ReadFile reads the named file from the file system fs and returns its contents.
-A successful call returns a nil error, not io.EOF.
-\(Because ReadFile reads the whole file, the expected EOF
-from the final Read is not treated as an error to be reported.\)  
-
+    A successful call returns a nil error, not io.EOF.
+    (Because ReadFile reads the whole file, the expected EOF
+    from the final Read is not treated as an error to be reported.)
+```
 
 If fs implements ReadFileFS, ReadFile calls fs.ReadFile.
 Otherwise ReadFile calls fs.Open and uses Read and Close
@@ -609,10 +609,10 @@ function validPath(name:String):Bool
 ```
 
 
-
+```
 ValidPath reports whether the given path name
-is valid for use in a call to Open.  
-
+    is valid for use in a call to Open.
+```
 
 Path names passed to open are UTF\-8\-encoded,
 unrooted, slash\-separated sequences of path elements, like “x/y/z”.
@@ -637,10 +637,10 @@ function walkDir(fsys:stdgo.io.fs.FS, root:String, fn:stdgo.io.fs.WalkDirFunc):s
 ```
 
 
-
+```
 WalkDir walks the file tree rooted at root, calling fn for each file or
-directory in the tree, including root.  
-
+    directory in the tree, including root.
+```
 
 All errors that arise visiting files and directories are filtered by fn:
 see the fs.WalkDirFunc documentation for details.  

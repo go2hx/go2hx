@@ -17,7 +17,7 @@ https://golang.org/s/re2syntax, except for \\C.
 For an overview of the syntax, run  
 
 ```
-	go doc regexp/syntax
+    	go doc regexp/syntax
 ```
 
 The regexp implementation provided by this package is
@@ -27,7 +27,7 @@ implementations of regular expressions.\) For more information
 about this property, see  
 
 ```
-	https://swtch.com/~rsc/regexp/regexp1.html
+    	https://swtch.com/~rsc/regexp/regexp1.html
 ```
 
 or any book about automata theory.  
@@ -42,7 +42,7 @@ There are 16 methods of Regexp that match a regular expression and identify
 the matched text. Their names are matched by this regular expression:  
 
 ```
-	Find(All)?(String)?(Submatch)?(Index)?
+    	Find(All)?(String)?(Submatch)?(Index)?
 ```
 
 If 'All' is present, the routine matches successive non\-overlapping
@@ -78,7 +78,7 @@ There is also a subset of the methods that can be applied to text read
 from a RuneReader:  
 
 ```
-	MatchReader, FindReaderIndex, FindReaderSubmatchIndex
+    	MatchReader, FindReaderIndex, FindReaderSubmatchIndex
 ```
 
 This set may grow. Note that regular expression matches may need to
@@ -711,10 +711,10 @@ function compile(expr:String):stdgo.Tuple<stdgo.regexp.Regexp, stdgo.Error>
 ```
 
 
-
+```
 Compile parses a regular expression and returns, if successful,
-a Regexp object that can be used to match against text.  
-
+    a Regexp object that can be used to match against text.
+```
 
 When matching against text, the regexp returns a match that
 begins as early as possible in the input \(leftmost\), and among those
@@ -735,11 +735,11 @@ function compilePOSIX(expr:String):stdgo.Tuple<stdgo.regexp.Regexp, stdgo.Error>
 ```
 
 
-
+```
 CompilePOSIX is like Compile but restricts the regular expression
-to POSIX ERE \(egrep\) syntax and changes the match semantics to
-leftmost\-longest.  
-
+    to POSIX ERE (egrep) syntax and changes the match semantics to
+    leftmost-longest.
+```
 
 That is, when matching against text, the regexp returns a match that
 begins as early as possible in the input \(leftmost\), and among those
@@ -769,11 +769,11 @@ function match(pattern:String, b:Array<Int>):stdgo.Tuple<Bool, stdgo.Error>
 ```
 
 
-
+```
 Match reports whether the byte slice b
-contains any match of the regular expression pattern.
-More complicated queries need to use Compile and the full Regexp interface.  
-
+    contains any match of the regular expression pattern.
+    More complicated queries need to use Compile and the full Regexp interface.
+```
 [\(view code\)](<./Regexp.hx#L323>)
 
 
@@ -785,11 +785,11 @@ function matchReader(pattern:String, r:stdgo._internal.io.RuneReader):stdgo.Tupl
 ```
 
 
-
+```
 MatchReader reports whether the text returned by the RuneReader
-contains any match of the regular expression pattern.
-More complicated queries need to use Compile and the full Regexp interface.  
-
+    contains any match of the regular expression pattern.
+    More complicated queries need to use Compile and the full Regexp interface.
+```
 [\(view code\)](<./Regexp.hx#L311>)
 
 
@@ -801,11 +801,11 @@ function matchString(pattern:String, s:String):stdgo.Tuple<Bool, stdgo.Error>
 ```
 
 
-
+```
 MatchString reports whether the string s
-contains any match of the regular expression pattern.
-More complicated queries need to use Compile and the full Regexp interface.  
-
+    contains any match of the regular expression pattern.
+    More complicated queries need to use Compile and the full Regexp interface.
+```
 [\(view code\)](<./Regexp.hx#L317>)
 
 
@@ -817,11 +817,11 @@ function mustCompile(str:String):stdgo.regexp.Regexp
 ```
 
 
-
+```
 MustCompile is like Compile but panics if the expression cannot be parsed.
-It simplifies safe initialization of global variables holding compiled regular
-expressions.  
-
+    It simplifies safe initialization of global variables holding compiled regular
+    expressions.
+```
 [\(view code\)](<./Regexp.hx#L299>)
 
 
@@ -833,11 +833,11 @@ function mustCompilePOSIX(str:String):stdgo.regexp.Regexp
 ```
 
 
-
+```
 MustCompilePOSIX is like CompilePOSIX but panics if the expression cannot be parsed.
-It simplifies safe initialization of global variables holding compiled regular
-expressions.  
-
+    It simplifies safe initialization of global variables holding compiled regular
+    expressions.
+```
 [\(view code\)](<./Regexp.hx#L305>)
 
 
@@ -849,11 +849,11 @@ function quoteMeta(s:String):String
 ```
 
 
-
+```
 QuoteMeta returns a string that escapes all regular expression metacharacters
-inside the argument text; the returned string is a regular expression matching
-the literal text.  
-
+    inside the argument text; the returned string is a regular expression matching
+    the literal text.
+```
 [\(view code\)](<./Regexp.hx#L329>)
 
 
@@ -1107,11 +1107,11 @@ function testFowler(t:stdgo._internal.testing.T_):Void
 ```
 
 
-
+```
 TestFowler runs this package's regexp API against the
-POSIX regular expression tests collected by Glenn Fowler
-at http://www2.research.att.com/~astopen/testregex/testregex.html.  
-
+    POSIX regular expression tests collected by Glenn Fowler
+    at http://www2.research.att.com/~astopen/testregex/testregex.html.
+```
 [\(view code\)](<./Regexp.hx#L229>)
 
 
@@ -1228,10 +1228,10 @@ function testProgramTooLongForBacktrack(t:stdgo._internal.testing.T_):Void
 ```
 
 
-
+```
 TestProgramTooLongForBacktrack tests that a regex which is too long
-for the backtracker still executes properly.  
-
+    for the backtracker still executes properly.
+```
 [\(view code\)](<./Regexp.hx#L237>)
 
 
@@ -1254,10 +1254,10 @@ function testRE2Exhaustive(t:stdgo._internal.testing.T_):Void
 ```
 
 
-
+```
 This test is excluded when running under the race detector because
-it is a very expensive test and takes too long.  
-
+    it is a very expensive test and takes too long.
+```
 [\(view code\)](<./Regexp.hx#L177>)
 
 
@@ -1269,30 +1269,30 @@ function testRE2Search(t:stdgo._internal.testing.T_):Void
 ```
 
 
-
+```
 TestRE2 tests this package's regexp API against test cases
-considered during RE2's exhaustive tests, which run all possible
-regexps over a given set of atoms and operators, up to a given
-complexity, over all possible strings over a given alphabet,
-up to a given size. Rather than try to link with RE2, we read a
-log file containing the test cases and the expected matches.
-The log file, re2\-exhaustive.txt, is generated by running 'make log'
-in the open source RE2 distribution https://github.com/google/re2/.  
-
+    considered during RE2's exhaustive tests, which run all possible
+    regexps over a given set of atoms and operators, up to a given
+    complexity, over all possible strings over a given alphabet,
+    up to a given size. Rather than try to link with RE2, we read a
+    log file containing the test cases and the expected matches.
+    The log file, re2-exhaustive.txt, is generated by running 'make log'
+    in the open source RE2 distribution https://github.com/google/re2/.
+```
 
 The test file format is a sequence of stanzas like:  
 
 ```
-	strings
-	"abc"
-	"123x"
-	regexps
-	"[a-z]+"
-	0-3;0-3
-	-;-
-	"([0-9])([0-9])([0-9])"
-	-;-
-	-;0-3 0-1 1-2 2-3
+    	strings
+    	"abc"
+    	"123x"
+    	regexps
+    	"[a-z]+"
+    	0-3;0-3
+    	-;-
+    	"([0-9])([0-9])([0-9])"
+    	-;-
+    	-;0-3 0-1 1-2 2-3
 ```
 
 The stanza begins by defining a set of strings, quoted
@@ -1396,10 +1396,10 @@ function testSwitchBacktrack(t:stdgo._internal.testing.T_):Void
 ```
 
 
-
+```
 Check that the same machine can be used with the standard matcher
-and then the backtracker when there are no captures.  
-
+    and then the backtracker when there are no captures.
+```
 [\(view code\)](<./Regexp.hx#L144>)
 
 

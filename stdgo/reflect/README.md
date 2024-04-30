@@ -6,12 +6,12 @@
 # Overview
 
 
-
-Package reflect implements run\-time reflection, allowing a program to
-manipulate objects with arbitrary types. The typical use is to take a value
-with static type interface\{\} and extract its dynamic type information by
-calling TypeOf, which returns a Type.  
-
+```
+Package reflect implements run-time reflection, allowing a program to
+    manipulate objects with arbitrary types. The typical use is to take a value
+    with static type interface{} and extract its dynamic type information by
+    calling TypeOf, which returns a Type.
+```
 
 A call to ValueOf returns a Value representing the run\-time data.
 Zero takes a Type and returns a Value representing a zero value
@@ -332,10 +332,10 @@ function append(s:stdgo.reflect.Value, x:haxe.Rest<stdgo.reflect.Value>):stdgo.r
 ```
 
 
-
+```
 Append appends the values x to a slice s and returns the resulting slice.
-As in Go, each x's value must be assignable to the slice's element type.  
-
+    As in Go, each x's value must be assignable to the slice's element type.
+```
 [\(view code\)](<./Reflect.hx#L221>)
 
 
@@ -347,10 +347,10 @@ function appendSlice(s:stdgo.reflect.Value, t:stdgo.reflect.Value):stdgo.reflect
 ```
 
 
-
+```
 AppendSlice appends a slice t to a slice s and returns the resulting slice.
-The slices s and t must have the same element type.  
-
+    The slices s and t must have the same element type.
+```
 [\(view code\)](<./Reflect.hx#L226>)
 
 
@@ -362,10 +362,10 @@ function arrayOf(_length:Int, elem:stdgo.reflect.Type_):stdgo.reflect.Type_
 ```
 
 
-
+```
 ArrayOf returns the array type with the given length and element type.
-For example, if t represents int, ArrayOf\(5, t\) represents \[5\]int.  
-
+    For example, if t represents int, ArrayOf(5, t) represents [5]int.
+```
 
 If the resulting type would be larger than the available address space,
 ArrayOf panics.  
@@ -381,10 +381,10 @@ function chanOf(dir:stdgo.reflect.ChanDir, t:stdgo.reflect.Type_):stdgo.reflect.
 ```
 
 
-
+```
 ChanOf returns the channel type with the given direction and element type.
-For example, if t represents int, ChanOf\(RecvDir, t\) represents \<\-chan int.  
-
+    For example, if t represents int, ChanOf(RecvDir, t) represents <-chan int.
+```
 
 The gc runtime imposes a limit of 64 kB on channel element types.
 If t's size is equal to or exceeds this limit, ChanOf panics.  
@@ -400,13 +400,13 @@ function copy(dst:stdgo.reflect.Value, src:stdgo.reflect.Value):Int
 ```
 
 
-
+```
 Copy copies the contents of src into dst until either
-dst has been filled or src has been exhausted.
-It returns the number of elements copied.
-Dst and src each must have kind Slice or Array, and
-dst and src must have the same element type.  
-
+    dst has been filled or src has been exhausted.
+    It returns the number of elements copied.
+    Dst and src each must have kind Slice or Array, and
+    dst and src must have the same element type.
+```
 
 As a special case, src can have kind String if the element type of dst is kind Uint8.  
 
@@ -421,11 +421,11 @@ function deepEqual(x:stdgo.AnyInterface, y:stdgo.AnyInterface):Bool
 ```
 
 
-
+```
 DeepEqual reports whether x and y are “deeply equal,” defined as follows.
-Two values of identical type are deeply equal if one of the following cases applies.
-Values of distinct types are never deeply equal.  
-
+    Two values of identical type are deeply equal if one of the following cases applies.
+    Values of distinct types are never deeply equal.
+```
 
 Array values are deeply equal when their corresponding elements are deeply equal.  
 
@@ -495,11 +495,11 @@ function funcOf(_in:Array<stdgo.reflect.Type_>, out:Array<stdgo.reflect.Type_>, 
 ```
 
 
-
+```
 FuncOf returns the function type with the given argument and result types.
-For example if k represents int and e represents string,
-FuncOf\(\[\]Type\{k\}, \[\]Type\{e\}, false\) represents func\(int\) string.  
-
+    For example if k represents int and e represents string,
+    FuncOf([]Type{k}, []Type{e}, false) represents func(int) string.
+```
 
 The variadic argument controls whether the function is variadic. FuncOf
 panics if the in\[len\(in\)\-1\] does not represent a slice and variadic is
@@ -516,11 +516,11 @@ function indirect(v:stdgo.reflect.Value):stdgo.reflect.Value
 ```
 
 
-
+```
 Indirect returns the value that v points to.
-If v is a nil pointer, Indirect returns a zero Value.
-If v is not a pointer, Indirect returns v.  
-
+    If v is a nil pointer, Indirect returns a zero Value.
+    If v is not a pointer, Indirect returns v.
+```
 [\(view code\)](<./Reflect.hx#L271>)
 
 
@@ -546,24 +546,24 @@ function makeFunc(typ:stdgo.reflect.Type_, fn:(_args:stdgo.Slice<stdgo.reflect.V
 ```
 
 
-
+```
 MakeFunc returns a new function of the given Type
-that wraps the function fn. When called, that new function
-does the following:  
-
-```
-   - converts its arguments to a slice of Values.
-   - runs results := fn(args).
-   - returns the results as a slice of Values, one per formal result.
+    that wraps the function fn. When called, that new function
+    does the following:
 ```
 
-The implementation fn can assume that the argument Value slice
-has the number and type of arguments given by typ.
-If typ describes a variadic function, the final Value is itself
-a slice representing the variadic arguments, as in the
-body of a variadic function. The result Value slice returned by fn
-must have the number and type of results given by typ.  
+\- converts its arguments to a slice of Values.
+\- runs results := fn\(args\).
+\- returns the results as a slice of Values, one per formal result.  
 
+```
+    The implementation fn can assume that the argument Value slice
+    has the number and type of arguments given by typ.
+    If typ describes a variadic function, the final Value is itself
+    a slice representing the variadic arguments, as in the
+    body of a variadic function. The result Value slice returned by fn
+    must have the number and type of results given by typ.
+```
 
 The Value.Call method allows the caller to invoke a typed function
 in terms of Values; in contrast, MakeFunc allows the caller to implement
@@ -598,10 +598,10 @@ function makeMapWithSize(typ:stdgo.reflect.Type_, n:Int):stdgo.reflect.Value
 ```
 
 
-
+```
 MakeMapWithSize creates a new map with the specified type
-and initial space for approximately n elements.  
-
+    and initial space for approximately n elements.
+```
 [\(view code\)](<./Reflect.hx#L265>)
 
 
@@ -613,10 +613,10 @@ function makeSlice(typ:stdgo.reflect.Type_, len:Int, cap:Int):stdgo.reflect.Valu
 ```
 
 
-
-MakeSlice creates a new zero\-initialized slice value
-for the specified slice type, length, and capacity.  
-
+```
+MakeSlice creates a new zero-initialized slice value
+    for the specified slice type, length, and capacity.
+```
 [\(view code\)](<./Reflect.hx#L252>)
 
 
@@ -628,11 +628,11 @@ function mapOf(key:stdgo.reflect.Type_, elem:stdgo.reflect.Type_):stdgo.reflect.
 ```
 
 
-
+```
 MapOf returns the map type with the given key and element types.
-For example, if k represents int and e represents string,
-MapOf\(k, e\) represents map\[int\]string.  
-
+    For example, if k represents int and e represents string,
+    MapOf(k, e) represents map[int]string.
+```
 
 If the key type is not a valid map key type \(that is, if it does
 not implement Go's == operator\), MapOf panics.  
@@ -648,10 +648,10 @@ function newAt(typ:stdgo.reflect.Type_, p:stdgo._internal.unsafe.UnsafePointer):
 ```
 
 
-
+```
 NewAt returns a Value representing a pointer to a value of the
-specified type, using p as that pointer.  
-
+    specified type, using p as that pointer.
+```
 [\(view code\)](<./Reflect.hx#L294>)
 
 
@@ -663,10 +663,10 @@ function new_(typ:stdgo.reflect.Type_):stdgo.reflect.Value
 ```
 
 
-
+```
 New returns a Value representing a pointer to a new zero value
-for the specified type. That is, the returned Value's Type is PointerTo\(typ\).  
-
+    for the specified type. That is, the returned Value's Type is PointerTo(typ).
+```
 [\(view code\)](<./Reflect.hx#L289>)
 
 
@@ -678,10 +678,10 @@ function pointerTo(t:stdgo.reflect.Type_):stdgo.reflect.Type_
 ```
 
 
-
+```
 PointerTo returns the pointer type with element t.
-For example, if t represents type Foo, PointerTo\(t\) represents \*Foo.  
-
+    For example, if t represents type Foo, PointerTo(t) represents *Foo.
+```
 [\(view code\)](<./Reflect.hx#L166>)
 
 
@@ -693,10 +693,10 @@ function ptrTo(t:stdgo.reflect.Type_):stdgo.reflect.Type_
 ```
 
 
-
+```
 PtrTo returns the pointer type with element t.
-For example, if t represents type Foo, PtrTo\(t\) represents \*Foo.  
-
+    For example, if t represents type Foo, PtrTo(t) represents *Foo.
+```
 
 PtrTo is the old spelling of PointerTo.
 The two functions behave identically.  
@@ -712,16 +712,16 @@ function select(cases:Array<stdgo.reflect.SelectCase>):stdgo.Tuple3<Int, stdgo.r
 ```
 
 
-
+```
 Select executes a select operation described by the list of cases.
-Like the Go select statement, it blocks until at least one of the cases
-can proceed, makes a uniform pseudo\-random choice,
-and then executes that case. It returns the index of the chosen case
-and, if that case was a receive operation, the value received and a
-boolean indicating whether the value corresponds to a send on the channel
-\(as opposed to a zero value received because the channel is closed\).
-Select supports a maximum of 65536 cases.  
-
+    Like the Go select statement, it blocks until at least one of the cases
+    can proceed, makes a uniform pseudo-random choice,
+    and then executes that case. It returns the index of the chosen case
+    and, if that case was a receive operation, the value received and a
+    boolean indicating whether the value corresponds to a send on the channel
+    (as opposed to a zero value received because the channel is closed).
+    Select supports a maximum of 65536 cases.
+```
 [\(view code\)](<./Reflect.hx#L247>)
 
 
@@ -733,10 +733,10 @@ function sliceOf(t:stdgo.reflect.Type_):stdgo.reflect.Type_
 ```
 
 
-
+```
 SliceOf returns the slice type with element type t.
-For example, if t represents int, SliceOf\(t\) represents \[\]int.  
-
+    For example, if t represents int, SliceOf(t) represents []int.
+```
 [\(view code\)](<./Reflect.hx#L198>)
 
 
@@ -748,11 +748,11 @@ function structOf(fields:Array<stdgo.reflect.StructField>):stdgo.reflect.Type_
 ```
 
 
-
+```
 StructOf returns the struct type containing fields.
-The Offset and Index fields are ignored and computed as they would be
-by the compiler.  
-
+    The Offset and Index fields are ignored and computed as they would be
+    by the compiler.
+```
 
 StructOf currently does not generate wrapper methods for embedded
 fields and panics if passed unexported StructFields.
@@ -769,10 +769,10 @@ function swapper(slice:stdgo.AnyInterface):(_i:stdgo.GoInt, _j:stdgo.GoInt):Void
 ```
 
 
-
+```
 Swapper returns a function that swaps the elements in the provided
-slice.  
-
+    slice.
+```
 
 Swapper panics if the provided interface is not a slice.  
 
@@ -787,10 +787,10 @@ function typeOf(i:stdgo.AnyInterface):stdgo.reflect.Type_
 ```
 
 
-
+```
 TypeOf returns the reflection Type that represents the dynamic type of i.
-If i is a nil interface value, TypeOf returns nil.  
-
+    If i is a nil interface value, TypeOf returns nil.
+```
 [\(view code\)](<./Reflect.hx#L153>)
 
 
@@ -802,10 +802,10 @@ function valueOf(i:stdgo.AnyInterface):stdgo.reflect.Value
 ```
 
 
-
+```
 ValueOf returns a new Value initialized to the concrete value
-stored in the interface i. ValueOf\(nil\) returns the zero Value.  
-
+    stored in the interface i. ValueOf(nil) returns the zero Value.
+```
 [\(view code\)](<./Reflect.hx#L276>)
 
 
@@ -817,14 +817,14 @@ function visibleFields(t:stdgo.reflect.Type_):Array<stdgo.reflect.StructField>
 ```
 
 
-
+```
 VisibleFields returns all the visible fields in t, which must be a
-struct type. A field is defined as visible if it's accessible
-directly with a FieldByName call. The returned fields include fields
-inside anonymous struct members and unexported fields. They follow
-the same order found in the struct, with anonymous fields followed
-immediately by their promoted fields.  
-
+    struct type. A field is defined as visible if it's accessible
+    directly with a FieldByName call. The returned fields include fields
+    inside anonymous struct members and unexported fields. They follow
+    the same order found in the struct, with anonymous fields followed
+    immediately by their promoted fields.
+```
 
 For each element e of the returned slice, the corresponding field
 can be retrieved from a value v of type t by calling v.FieldByIndex\(e.Index\).  
@@ -840,13 +840,13 @@ function zero(typ:stdgo.reflect.Type_):stdgo.reflect.Value
 ```
 
 
-
+```
 Zero returns a Value representing the zero value for the specified type.
-The result is different from the zero value of the Value struct,
-which represents no value at all.
-For example, Zero\(TypeOf\(42\)\) returns a Value with Kind Int and value 0.
-The returned value is neither addressable nor settable.  
-
+    The result is different from the zero value of the Value struct,
+    which represents no value at all.
+    For example, Zero(TypeOf(42)) returns a Value with Kind Int and value 0.
+    The returned value is neither addressable nor settable.
+```
 [\(view code\)](<./Reflect.hx#L284>)
 
 

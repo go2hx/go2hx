@@ -81,9 +81,9 @@ The testing/quick package is frozen and is not accepting new features.
 
 - [typedef T\_myStruct\_static\_extension](<#typedef-t_mystruct_static_extension>)
 
-- [typedef T\_testNonZeroSliceAndMap\_35\_\_\_localname\_\_\_Q](<#typedef-t_testnonzerosliceandmap_35localnameq>)
+- [typedef T\_testNonZeroSliceAndMap\_36\_\_\_localname\_\_\_Q](<#typedef-t_testnonzerosliceandmap_36localnameq>)
 
-- [typedef T\_testRecursive\_34\_\_\_localname\_\_\_R](<#typedef-t_testrecursive_34localnamer>)
+- [typedef T\_testRecursive\_35\_\_\_localname\_\_\_R](<#typedef-t_testrecursive_35localnamer>)
 
 - [typedef TestArrayAlias](<#typedef-testarrayalias>)
 
@@ -147,23 +147,23 @@ function check(f:stdgo.AnyInterface, config:stdgo.testing.quick.Config):stdgo.Er
 ```
 
 
-
-Check looks for an input to f, any function that returns bool,
-such that f returns false. It calls f repeatedly, with arbitrary
-values for each argument. If f returns false on a given input,
-Check returns that input as a \*CheckError.
-For example:  
-
 ```
-	func TestOddMultipleOfThree(t *testing.T) {
-		f := func(x int) bool {
-			y := OddMultipleOfThree(x)
-			return y%2 == 1 && y%3 == 0
-		}
-		if err := quick.Check(f, nil); err != nil {
-			t.Error(err)
-		}
-	}
+Check looks for an input to f, any function that returns bool,
+    such that f returns false. It calls f repeatedly, with arbitrary
+    values for each argument. If f returns false on a given input,
+    Check returns that input as a *CheckError.
+    For example:
+```
+```
+    	func TestOddMultipleOfThree(t *testing.T) {
+    		f := func(x int) bool {
+    			y := OddMultipleOfThree(x)
+    			return y%2 == 1 && y%3 == 0
+}
+    		if err := quick.Check(f, nil); err != nil {
+    			t.Error(err)
+}
+}
 ```
 [\(view code\)](<./Quick.hx#L66>)
 
@@ -176,12 +176,12 @@ function checkEqual(f:stdgo.AnyInterface, g:stdgo.AnyInterface, config:stdgo.tes
 ```
 
 
-
+```
 CheckEqual looks for an input on which f and g return different results.
-It calls f and g repeatedly with arbitrary values for each argument.
-If f and g return different answers, CheckEqual returns a \*CheckEqualError
-describing the input and the outputs.  
-
+    It calls f and g repeatedly with arbitrary values for each argument.
+    If f and g return different answers, CheckEqual returns a *CheckEqualError
+    describing the input and the outputs.
+```
 [\(view code\)](<./Quick.hx#L73>)
 
 
@@ -259,11 +259,11 @@ function testNonZeroSliceAndMap(t:stdgo._internal.testing.T_):Void
 ```
 
 
-
-Some serialization formats \(e.g. encoding/pem\) cannot distinguish
-between a nil and an empty map or slice, so avoid generating the
-zero value for these.  
-
+```
+Some serialization formats (e.g. encoding/pem) cannot distinguish
+    between a nil and an empty map or slice, so avoid generating the
+    zero value for these.
+```
 [\(view code\)](<./Quick.hx#L91>)
 
 
@@ -275,10 +275,10 @@ function testRecursive(t:stdgo._internal.testing.T_):Void
 ```
 
 
-
+```
 Recursive data structures didn't terminate.
-Issues 8818 and 11148.  
-
+    Issues 8818 and 11148.
+```
 [\(view code\)](<./Quick.hx#L82>)
 
 
@@ -290,11 +290,11 @@ function value(t:stdgo._internal.reflect.Type_, rand:stdgo._internal.math.rand.R
 ```
 
 
-
+```
 Value returns an arbitrary value of the given type.
-If the type implements the Generator interface, that will be used.
-Note: To create arbitrary values for structs, all the fields must be exported.  
-
+    If the type implements the Generator interface, that will be used.
+    Note: To create arbitrary values for structs, all the fields must be exported.
+```
 [\(view code\)](<./Quick.hx#L48>)
 
 
@@ -482,19 +482,19 @@ typedef T_myStruct_static_extension = Dynamic;
 ```
 
 
-## typedef T\_testNonZeroSliceAndMap\_35\_\_\_localname\_\_\_Q
+## typedef T\_testNonZeroSliceAndMap\_36\_\_\_localname\_\_\_Q
 
 
 ```haxe
-typedef T_testNonZeroSliceAndMap_35___localname___Q = Dynamic;
+typedef T_testNonZeroSliceAndMap_36___localname___Q = Dynamic;
 ```
 
 
-## typedef T\_testRecursive\_34\_\_\_localname\_\_\_R
+## typedef T\_testRecursive\_35\_\_\_localname\_\_\_R
 
 
 ```haxe
-typedef T_testRecursive_34___localname___R = Dynamic;
+typedef T_testRecursive_35___localname___R = Dynamic;
 ```
 
 

@@ -6,11 +6,11 @@
 # Overview
 
 
-
+```
 Package cmplx provides basic constants and mathematical functions for
-complex numbers. Special case handling conforms to the C99 standard
-Annex G IEC 60559\-compatible complex arithmetic.  
-
+    complex numbers. Special case handling conforms to the C99 standard
+    Annex G IEC 60559-compatible complex arithmetic.
+```
 # Index
 
 
@@ -622,10 +622,10 @@ function isNaN(x:stdgo.GoComplex128):Bool
 ```
 
 
-
-IsNaN reports whether either real\(x\) or imag\(x\) is NaN
-and neither is an infinity.  
-
+```
+IsNaN reports whether either real(x) or imag(x) is NaN
+    and neither is an infinity.
+```
 [\(view code\)](<./Cmplx.hx#L109>)
 
 
@@ -679,10 +679,10 @@ function phase(x:stdgo.GoComplex128):Float
 ```
 
 
-
-Phase returns the phase \(also called the argument\) of x.
-The returned value is in the range \[\-Pi, Pi\].  
-
+```
+Phase returns the phase (also called the argument) of x.
+    The returned value is in the range [-Pi, Pi].
+```
 [\(view code\)](<./Cmplx.hx#L126>)
 
 
@@ -694,11 +694,11 @@ function polar(x:stdgo.GoComplex128):stdgo.Tuple<Float, Float>
 ```
 
 
-
+```
 Polar returns the absolute value r and phase θ of x,
-such that x = r \* e\*\*θi.
-The phase is in the range \[\-Pi, Pi\].  
-
+    such that x = r * e**θi.
+    The phase is in the range [-Pi, Pi].
+```
 [\(view code\)](<./Cmplx.hx#L132>)
 
 
@@ -710,13 +710,13 @@ function pow(x:stdgo.GoComplex128, y:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-
-Pow returns x\*\*y, the base\-x exponential of y.
-For generalized compatibility with math.Pow:  
-
 ```
-	Pow(0, ±0) returns 1+0i
-	Pow(0, c) for real(c)<0 returns Inf+0i if imag(c) is zero, otherwise Inf+Inf i.
+Pow returns x**y, the base-x exponential of y.
+    For generalized compatibility with math.Pow:
+```
+```
+    	Pow(0, ±0) returns 1+0i
+    	Pow(0, c) for real(c)<0 returns Inf+0i if imag(c) is zero, otherwise Inf+Inf i.
 ```
 [\(view code\)](<./Cmplx.hx#L140>)
 
@@ -771,10 +771,10 @@ function sqrt(x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-
+```
 Sqrt returns the square root of x.
-The result r is chosen so that real\(r\) ≥ 0 and imag\(r\) has the same sign as imag\(x\).  
-
+    The result r is chosen so that real(r) ≥ 0 and imag(r) has the same sign as imag(x).
+```
 [\(view code\)](<./Cmplx.hx#L165>)
 
 

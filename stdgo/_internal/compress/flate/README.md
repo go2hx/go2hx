@@ -1668,7 +1668,7 @@ typedef Reader = {
 
 ```haxe
 typedef Resetter = {
-	public function reset(_r:stdgo._internal.io.Reader, _dict:stdgo.Slice<stdgo.GoByte>):stdgo.Error;	//  Reset discards any buffered data and resets the Resetter as if it was newly initialized with the given reader.
+	public function reset(_r:stdgo._internal.io.Reader, _dict:stdgo.Slice<stdgo.GoByte>):stdgo.Error;	// Reset discards any buffered data and resets the Resetter as if it was newly initialized with the given reader.
 };
 ```
 

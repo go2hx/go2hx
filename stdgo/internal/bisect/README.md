@@ -6,37 +6,37 @@
 # Overview
 
 
-
+```
 Package bisect can be used by compilers and other programs
-to serve as a target for the bisect debugging tool.
-See \[golang.org/x/tools/cmd/bisect\] for details about using the tool.  
-
+    to serve as a target for the bisect debugging tool.
+    See [golang.org/x/tools/cmd/bisect] for details about using the tool.
+```
 
 To be a bisect target, allowing bisect to help determine which of a set of independent
 changes provokes a failure, a program needs to:  
 
 ```
-  1. Define a way to accept a change pattern on its command line or in its environment.
-     The most common mechanism is a command-line flag.
-     The pattern can be passed to [New] to create a [Matcher], the compiled form of a pattern.
+     1. Define a way to accept a change pattern on its command line or in its environment.
+        The most common mechanism is a command-line flag.
+        The pattern can be passed to [New] to create a [Matcher], the compiled form of a pattern.
 ```
 ```
-  2. Assign each change a unique ID. One possibility is to use a sequence number,
-     but the most common mechanism is to hash some kind of identifying information
-     like the file and line number where the change might be applied.
-     [Hash] hashes its arguments to compute an ID.
+     2. Assign each change a unique ID. One possibility is to use a sequence number,
+        but the most common mechanism is to hash some kind of identifying information
+        like the file and line number where the change might be applied.
+        [Hash] hashes its arguments to compute an ID.
 ```
 ```
-  3. Enable each change that the pattern says should be enabled.
-     The [Matcher.ShouldEnable] method answers this question for a given change ID.
+     3. Enable each change that the pattern says should be enabled.
+        The [Matcher.ShouldEnable] method answers this question for a given change ID.
 ```
 ```
-  4. Print a report identifying each change that the pattern says should be printed.
-     The [Matcher.ShouldPrint] method answers this question for a given change ID.
-     The report consists of one more lines on standard error or standard output
-     that contain a “match marker”. [Marker] returns the match marker for a given ID.
-     When bisect reports a change as causing the failure, it identifies the change
-     by printing the report lines with the match marker removed.
+     4. Print a report identifying each change that the pattern says should be printed.
+        The [Matcher.ShouldPrint] method answers this question for a given change ID.
+        The report consists of one more lines on standard error or standard output
+        that contain a “match marker”. [Marker] returns the match marker for a given ID.
+        When bisect reports a change as causing the failure, it identifies the change
+        by printing the report lines with the match marker removed.
 ```
 ## Example Usage
 
@@ -46,10 +46,10 @@ A program starts by defining how it receives the pattern. In this example, we wi
 The next step is to compile the pattern:  
 
 ```
-	m, err := bisect.New(patternFlag)
-	if err != nil {
-		log.Fatal(err)
-	}
+    	m, err := bisect.New(patternFlag)
+    	if err != nil {
+    		log.Fatal(err)
+}
 ```
 
 Then, each time a potential change is considered, the program computes
@@ -66,13 +66,13 @@ should be enabled. For example, a helper for changes identified by a file and li
 would be:  
 
 ```
-	func ShouldEnable(file string, line int) {
-		h := bisect.Hash(file, line)
-		if m.ShouldPrint(h) {
-			fmt.Fprintf(os.Stderr, "%v %s:%d\n", bisect.Marker(h), file, line)
-		}
-		return m.ShouldEnable(h)
-	}
+    	func ShouldEnable(file string, line int) {
+    		h := bisect.Hash(file, line)
+    		if m.ShouldPrint(h) {
+    			fmt.Fprintf(os.Stderr, "%v %s:%d\n", bisect.Marker(h), file, line)
+}
+    		return m.ShouldEnable(h)
+}
 ```
 
 Finally, note that New returns a nil Matcher when there is no pattern,
@@ -82,16 +82,16 @@ In that common case, the computation of the hash can be avoided entirely
 by checking for m == nil first:  
 
 ```
-	func ShouldEnable(file string, line int) bool {
-		if m == nil {
-			return false
-		}
-		h := bisect.Hash(file, line)
-		if m.ShouldPrint(h) {
-			fmt.Fprintf(os.Stderr, "%v %s:%d\n", bisect.Marker(h), file, line)
-		}
-		return m.ShouldEnable(h)
-	}
+    	func ShouldEnable(file string, line int) bool {
+    		if m == nil {
+    			return false
+}
+    		h := bisect.Hash(file, line)
+    		if m.ShouldPrint(h) {
+    			fmt.Fprintf(os.Stderr, "%v %s:%d\n", bisect.Marker(h), file, line)
+}
+    		return m.ShouldEnable(h)
+}
 ```
 
 When the identifying information is expensive to format, this code can call
@@ -101,20 +101,20 @@ still exploring the space of possible changes and will not be showing the
 output to the user.\) If so, the client can choose to print only the marker:  
 
 ```
-	func ShouldEnable(file string, line int) bool {
-		if m == nil {
-			return false
-		}
-		h := bisect.Hash(file, line)
-		if m.ShouldPrint(h) {
-			if m.MarkerOnly() {
-				bisect.PrintMarker(os.Stderr)
-			} else {
-				fmt.Fprintf(os.Stderr, "%v %s:%d\n", bisect.Marker(h), file, line)
-			}
-		}
-		return m.ShouldEnable(h)
-	}
+    	func ShouldEnable(file string, line int) bool {
+    		if m == nil {
+    			return false
+}
+    		h := bisect.Hash(file, line)
+    		if m.ShouldPrint(h) {
+    			if m.MarkerOnly() {
+    				bisect.PrintMarker(os.Stderr)
+    			} else {
+    				fmt.Fprintf(os.Stderr, "%v %s:%d\n", bisect.Marker(h), file, line)
+}
+}
+    		return m.ShouldEnable(h)
+}
 ```
 
 This specific helper – deciding whether to enable a change identified by
@@ -151,20 +151,20 @@ possible suffixes.
 For example:  
 
 ```
-   - “01+10” and “+01+10” both denote the set of changes
-     with IDs ending with the bits 01 or 10.
+      - “01+10” and “+01+10” both denote the set of changes
+        with IDs ending with the bits 01 or 10.
 ```
 ```
-   - “01+10-1001” denotes the set of changes with IDs
-     ending with the bits 01 or 10, but excluding those ending in 1001.
+      - “01+10-1001” denotes the set of changes with IDs
+        ending with the bits 01 or 10, but excluding those ending in 1001.
 ```
 ```
-   - “-01-1000” and “y-01-1000 both denote the set of all changes
-     with IDs not ending in 01 nor 1000.
+      - “-01-1000” and “y-01-1000 both denote the set of all changes
+        with IDs not ending in 01 nor 1000.
 ```
 ```
-   - “0+1-01+001” is not a valid pattern, because all the + operators do not
-     appear before all the - operators.
+      - “0+1-01+001” is not a valid pattern, because all the + operators do not
+        appear before all the - operators.
 ```
 
 In the syntaxes described so far, the pattern specifies the changes to
@@ -287,13 +287,13 @@ function cutMarker(line:String):stdgo.Tuple3<String, haxe.UInt64, Bool>
 ```
 
 
-
+```
 CutMarker finds the first match marker in line and removes it,
-returning the shortened line \(with the marker removed\),
-the ID from the match marker,
-and whether a marker was found at all.
-If there is no marker, CutMarker returns line, 0, false.  
-
+    returning the shortened line (with the marker removed),
+    the ID from the match marker,
+    and whether a marker was found at all.
+    If there is no marker, CutMarker returns line, 0, false.
+```
 [\(view code\)](<./Bisect.hx#L217>)
 
 
@@ -305,10 +305,10 @@ function hash(data:haxe.Rest<stdgo.AnyInterface>):haxe.UInt64
 ```
 
 
-
+```
 Hash computes a hash of the data arguments,
-each of which must be of type string, byte, int, uint, int32, uint32, int64, uint64, uintptr, or a slice of one of those types.  
-
+    each of which must be of type string, byte, int, uint, int32, uint32, int64, uint64, uintptr, or a slice of one of those types.
+```
 [\(view code\)](<./Bisect.hx#L222>)
 
 
@@ -320,11 +320,11 @@ function marker(id:haxe.UInt64):String
 ```
 
 
-
+```
 Marker returns the match marker text to use on any line reporting details
-about a match of the given ID.
-It always returns the hexadecimal format.  
-
+    about a match of the given ID.
+    It always returns the hexadecimal format.
+```
 [\(view code\)](<./Bisect.hx#L205>)
 
 
@@ -336,10 +336,10 @@ function new_(pattern:String):stdgo.Tuple<stdgo.internal.bisect.Matcher, stdgo.E
 ```
 
 
-
+```
 New creates and returns a new Matcher implementing the given pattern.
-The pattern syntax is defined in the package doc comment.  
-
+    The pattern syntax is defined in the package doc comment.
+```
 
 In addition to the pattern syntax syntax, New\(""\) returns nil, nil.
 The nil \*Matcher is valid for use: it returns true from ShouldEnable
@@ -358,10 +358,10 @@ function printMarker(w:stdgo.internal.bisect.Writer, h:haxe.UInt64):stdgo.Error
 ```
 
 
-
-PrintMarker prints to w a one\-line report containing only the marker for h.
-It is appropriate to use when \[Matcher.ShouldPrint\] and \[Matcher.MarkerOnly\] both return true.  
-
+```
+PrintMarker prints to w a one-line report containing only the marker for h.
+    It is appropriate to use when [Matcher.ShouldPrint] and [Matcher.MarkerOnly] both return true.
+```
 [\(view code\)](<./Bisect.hx#L199>)
 
 

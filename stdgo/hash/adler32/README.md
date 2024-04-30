@@ -13,11 +13,11 @@ Package adler32 implements the Adler\-32 checksum.
 It is defined in RFC 1950:  
 
 ```
-	Adler-32 is composed of two sums accumulated per byte: s1 is
-	the sum of all bytes, s2 is the sum of all s1 values. Both sums
-	are done modulo 65521. s1 is initialized to 1, s2 to zero.  The
-	Adler-32 checksum is stored as s2*65536 + s1 in most-
-	significant-byte first (network) order.
+    	Adler-32 is composed of two sums accumulated per byte: s1 is
+    	the sum of all bytes, s2 is the sum of all s1 values. Both sums
+    	are done modulo 65521. s1 is initialized to 1, s2 to zero.  The
+    	Adler-32 checksum is stored as s2*65536 + s1 in most-
+    	significant-byte first (network) order.
 ```
 # Index
 
@@ -100,13 +100,13 @@ function new_():stdgo._internal.hash.Hash32
 ```
 
 
-
-New returns a new hash.Hash32 computing the Adler\-32 checksum. Its
-Sum method will lay the value out in big\-endian byte order. The
-returned Hash32 also implements encoding.BinaryMarshaler and
-encoding.BinaryUnmarshaler to marshal and unmarshal the internal
-state of the hash.  
-
+```
+New returns a new hash.Hash32 computing the Adler-32 checksum. Its
+    Sum method will lay the value out in big-endian byte order. The
+    returned Hash32 also implements encoding.BinaryMarshaler and
+    encoding.BinaryUnmarshaler to marshal and unmarshal the internal
+    state of the hash.
+```
 [\(view code\)](<./Adler32.hx#L26>)
 
 

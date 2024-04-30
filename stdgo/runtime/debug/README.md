@@ -6,10 +6,10 @@
 # Overview
 
 
-
+```
 Package debug contains facilities for programs to debug themselves while
-they are running.  
-
+    they are running.
+```
 # Index
 
 
@@ -67,12 +67,12 @@ function freeOSMemory():Void
 ```
 
 
-
+```
 FreeOSMemory forces a garbage collection followed by an
-attempt to return as much memory to the operating system
-as possible. \(Even if this is not called, the runtime gradually
-returns memory to the operating system in a background task.\)  
-
+    attempt to return as much memory to the operating system
+    as possible. (Even if this is not called, the runtime gradually
+    returns memory to the operating system in a background task.)
+```
 [\(view code\)](<./Debug.hx#L42>)
 
 
@@ -109,11 +109,11 @@ function readBuildInfo():stdgo.Tuple<stdgo.runtime.debug.BuildInfo, Bool>
 ```
 
 
-
+```
 ReadBuildInfo returns the build information embedded
-in the running binary. The information is available only
-in binaries built with module support.  
-
+    in the running binary. The information is available only
+    in binaries built with module support.
+```
 [\(view code\)](<./Debug.hx#L179>)
 
 
@@ -125,16 +125,16 @@ function readGCStats(stats:stdgo.runtime.debug.GCStats):Void
 ```
 
 
-
+```
 ReadGCStats reads statistics about garbage collection into stats.
-The number of entries in the pause history is system\-dependent;
-stats.Pause slice will be reused if large enough, reallocated otherwise.
-ReadGCStats may use the full capacity of the stats.Pause slice.
-If stats.PauseQuantiles is non\-empty, ReadGCStats fills it with quantiles
-summarizing the distribution of pause time. For example, if
-len\(stats.PauseQuantiles\) is 5, it will be filled with the minimum,
-25%, 50%, 75%, and maximum pause times.  
-
+    The number of entries in the pause history is system-dependent;
+    stats.Pause slice will be reused if large enough, reallocated otherwise.
+    ReadGCStats may use the full capacity of the stats.Pause slice.
+    If stats.PauseQuantiles is non-empty, ReadGCStats fills it with quantiles
+    summarizing the distribution of pause time. For example, if
+    len(stats.PauseQuantiles) is 5, it will be filled with the minimum,
+    25%, 50%, 75%, and maximum pause times.
+```
 [\(view code\)](<./Debug.hx#L21>)
 
 
@@ -146,19 +146,19 @@ function setGCPercent(percent:Int):Int
 ```
 
 
-
+```
 SetGCPercent sets the garbage collection target percentage:
-a collection is triggered when the ratio of freshly allocated data
-to live data remaining after the previous collection reaches this percentage.
-SetGCPercent returns the previous setting.
-The initial setting is the value of the GOGC environment variable
-at startup, or 100 if the variable is not set.
-This setting may be effectively reduced in order to maintain a memory
-limit.
-A negative percentage effectively disables garbage collection, unless
-the memory limit is reached.
-See SetMemoryLimit for more details.  
-
+    a collection is triggered when the ratio of freshly allocated data
+    to live data remaining after the previous collection reaches this percentage.
+    SetGCPercent returns the previous setting.
+    The initial setting is the value of the GOGC environment variable
+    at startup, or 100 if the variable is not set.
+    This setting may be effectively reduced in order to maintain a memory
+    limit.
+    A negative percentage effectively disables garbage collection, unless
+    the memory limit is reached.
+    See SetMemoryLimit for more details.
+```
 [\(view code\)](<./Debug.hx#L35>)
 
 
@@ -170,16 +170,16 @@ function setMaxStack(bytes:Int):Int
 ```
 
 
-
+```
 SetMaxStack sets the maximum amount of memory that
-can be used by a single goroutine stack.
-If any goroutine exceeds this limit while growing its stack,
-the program crashes.
-SetMaxStack returns the previous setting.
-The initial setting is 1 GB on 64\-bit systems, 250 MB on 32\-bit systems.
-There may be a system\-imposed maximum stack limit regardless
-of the value provided to SetMaxStack.  
-
+    can be used by a single goroutine stack.
+    If any goroutine exceeds this limit while growing its stack,
+    the program crashes.
+    SetMaxStack returns the previous setting.
+    The initial setting is 1 GB on 64-bit systems, 250 MB on 32-bit systems.
+    There may be a system-imposed maximum stack limit regardless
+    of the value provided to SetMaxStack.
+```
 
 SetMaxStack is useful mainly for limiting the damage done by
 goroutines that enter an infinite recursion. It only limits future
@@ -196,13 +196,13 @@ function setMaxThreads(threads:Int):Int
 ```
 
 
-
+```
 SetMaxThreads sets the maximum number of operating system
-threads that the Go program can use. If it attempts to use more than
-this many, the program crashes.
-SetMaxThreads returns the previous setting.
-The initial setting is 10,000 threads.  
-
+    threads that the Go program can use. If it attempts to use more than
+    this many, the program crashes.
+    SetMaxThreads returns the previous setting.
+    The initial setting is 10,000 threads.
+```
 
 The limit controls the number of operating system threads, not the number
 of goroutines. A Go program creates a new thread only when a goroutine
@@ -251,13 +251,13 @@ More specifically, the following expression accurately reflects
 the value the runtime attempts to maintain as the limit:  
 
 ```
-	runtime.MemStats.Sys - runtime.MemStats.HeapReleased
+    	runtime.MemStats.Sys - runtime.MemStats.HeapReleased
 ```
 
 or in terms of the runtime/metrics package:  
 
 ```
-	/memory/classes/total:bytes - /memory/classes/heap/released:bytes
+    	/memory/classes/total:bytes - /memory/classes/heap/released:bytes
 ```
 
 A zero limit or a limit that's lower than the amount of memory
@@ -302,18 +302,18 @@ function setPanicOnFault(enabled:Bool):Bool
 ```
 
 
-
-SetPanicOnFault controls the runtime's behavior when a program faults
-at an unexpected \(non\-nil\) address. Such faults are typically caused by
-bugs such as runtime memory corruption, so the default response is to crash
-the program. Programs working with memory\-mapped files or unsafe
-manipulation of memory may cause faults at non\-nil addresses in less
-dramatic situations; SetPanicOnFault allows such programs to request
-that the runtime trigger only a panic, not a crash.
-The runtime.Error that the runtime panics with may have an additional method:  
-
 ```
-	Addr() uintptr
+SetPanicOnFault controls the runtime's behavior when a program faults
+    at an unexpected (non-nil) address. Such faults are typically caused by
+    bugs such as runtime memory corruption, so the default response is to crash
+    the program. Programs working with memory-mapped files or unsafe
+    manipulation of memory may cause faults at non-nil addresses in less
+    dramatic situations; SetPanicOnFault allows such programs to request
+    that the runtime trigger only a panic, not a crash.
+    The runtime.Error that the runtime panics with may have an additional method:
+```
+```
+    	Addr() uintptr
 ```
 
 If that method exists, it returns the memory address which triggered the fault.
@@ -333,17 +333,17 @@ function setTraceback(level:String):Void
 ```
 
 
-
+```
 SetTraceback sets the amount of detail printed by the runtime in
-the traceback it prints before exiting due to an unrecovered panic
-or an internal runtime error.
-The level argument takes the same values as the GOTRACEBACK
-environment variable. For example, SetTraceback\("all"\) ensure
-that the program prints all goroutines when it crashes.
-See the package runtime documentation for details.
-If SetTraceback is called with a level lower than that of the
-environment variable, the call is ignored.  
-
+    the traceback it prints before exiting due to an unrecovered panic
+    or an internal runtime error.
+    The level argument takes the same values as the GOTRACEBACK
+    environment variable. For example, SetTraceback("all") ensure
+    that the program prints all goroutines when it crashes.
+    See the package runtime documentation for details.
+    If SetTraceback is called with a level lower than that of the
+    environment variable, the call is ignored.
+```
 [\(view code\)](<./Debug.hx#L117>)
 
 
@@ -355,10 +355,10 @@ function stack():Array<Int>
 ```
 
 
-
+```
 Stack returns a formatted stack trace of the goroutine that calls it.
-It calls runtime.Stack with a large enough buffer to capture the entire trace.  
-
+    It calls runtime.Stack with a large enough buffer to capture the entire trace.
+```
 [\(view code\)](<./Debug.hx#L189>)
 
 
@@ -370,10 +370,10 @@ function writeHeapDump(fd:stdgo.GoUIntptr):Void
 ```
 
 
-
+```
 WriteHeapDump writes a description of the heap and the objects in
-it to the given file descriptor.  
-
+    it to the given file descriptor.
+```
 
 WriteHeapDump suspends the execution of all goroutines until the heap
 dump is completely written.  Thus, the file descriptor must not be

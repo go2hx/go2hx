@@ -107,15 +107,15 @@ function testFS(fsys:stdgo._internal.io.fs.FS, expected:haxe.Rest<stdgo.GoString
 ```
 
 
-
+```
 TestFS tests a file system implementation.
-It walks the entire tree of files in fsys,
-opening and checking that each file behaves correctly.
-It also checks that the file system contains at least the expected files.
-As a special case, if no expected files are listed, fsys must be empty.
-Otherwise, fsys must contain at least the listed files; it can also contain others.
-The contents of fsys must not change concurrently with TestFS.  
-
+    It walks the entire tree of files in fsys,
+    opening and checking that each file behaves correctly.
+    It also checks that the file system contains at least the expected files.
+    As a special case, if no expected files are listed, fsys must be empty.
+    Otherwise, fsys must contain at least the listed files; it can also contain others.
+    The contents of fsys must not change concurrently with TestFS.
+```
 
 If TestFS finds any misbehaviors, it returns an error reporting all of them.
 The error text spans multiple lines, one per detected misbehavior.  
@@ -124,9 +124,9 @@ The error text spans multiple lines, one per detected misbehavior.
 Typical usage inside a test is:  
 
 ```
-	if err := fstest.TestFS(myFS, "file/that/should/be/present"); err != nil {
-		t.Fatal(err)
-	}
+    	if err := fstest.TestFS(myFS, "file/that/should/be/present"); err != nil {
+    		t.Fatal(err)
+}
 ```
 [\(view code\)](<./Fstest.hx#L36>)
 

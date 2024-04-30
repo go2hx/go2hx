@@ -106,12 +106,12 @@ function find(n:Int, cmp:()):stdgo.Tuple<Int, Bool>
 ```
 
 
-
-Find uses binary search to find and return the smallest index i in \[0, n\)
-at which cmp\(i\) \<= 0. If there is no such index i, Find returns i = n.
-The found result is true if i \< n and cmp\(i\) == 0.
-Find calls cmp\(i\) only for i in the range \[0, n\).  
-
+```
+Find uses binary search to find and return the smallest index i in [0, n)
+    at which cmp(i) <= 0. If there is no such index i, Find returns i = n.
+    The found result is true if i < n and cmp(i) == 0.
+    Find calls cmp(i) only for i in the range [0, n).
+```
 
 To permit binary search, Find requires that cmp\(i\) \> 0 for a leading
 prefix of the range, cmp\(i\) == 0 in the middle, and cmp\(i\) \< 0 for
@@ -126,14 +126,14 @@ For example, to look for a particular string in a sorted, random\-access
 list of strings:  
 
 ```
-	i, found := sort.Find(x.Len(), func(i int) int {
-	    return strings.Compare(target, x.At(i))
-	})
-	if found {
-	    fmt.Printf("found %s at entry %d\n", target, i)
-	} else {
-	    fmt.Printf("%s not found, would insert at %d", target, i)
-	}
+    	i, found := sort.Find(x.Len(), func(i int) int {
+    	    return strings.Compare(target, x.At(i))
+    	})
+    	if found {
+    	    fmt.Printf("found %s at entry %d\n", target, i)
+    	} else {
+    	    fmt.Printf("%s not found, would insert at %d", target, i)
+}
 ```
 [\(view code\)](<./Sort.hx#L95>)
 
@@ -146,10 +146,10 @@ function float64s(x:Array<Float>):Void
 ```
 
 
-
+```
 Float64s sorts a slice of float64s in increasing order.
-Not\-a\-number \(NaN\) values are ordered before other values.  
-
+    Not-a-number (NaN) values are ordered before other values.
+```
 
 Note: consider using the newer slices.Sort function, which runs faster.  
 
@@ -164,10 +164,10 @@ function float64sAreSorted(x:Array<Float>):Bool
 ```
 
 
-
+```
 Float64sAreSorted reports whether the slice x is sorted in increasing order,
-with not\-a\-number \(NaN\) values before any other values.  
-
+    with not-a-number (NaN) values before any other values.
+```
 
 Note: consider using the newer slices.IsSorted function, which runs faster.  
 
@@ -270,17 +270,17 @@ function search(n:Int, f:()):Int
 ```
 
 
-
+```
 Search uses binary search to find and return the smallest index i
-in \[0, n\) at which f\(i\) is true, assuming that on the range \[0, n\),
-f\(i\) == true implies f\(i\+1\) == true. That is, Search requires that
-f is false for some \(possibly empty\) prefix of the input range \[0, n\)
-and then true for the \(possibly empty\) remainder; Search returns
-the first true index. If there is no such index, Search returns n.
-\(Note that the "not found" return value is not \-1 as in, for instance,
-strings.Index.\)
-Search calls f\(i\) only for i in the range \[0, n\).  
-
+    in [0, n) at which f(i) is true, assuming that on the range [0, n),
+    f(i) == true implies f(i+1) == true. That is, Search requires that
+    f is false for some (possibly empty) prefix of the input range [0, n)
+    and then true for the (possibly empty) remainder; Search returns
+    the first true index. If there is no such index, Search returns n.
+    (Note that the "not found" return value is not -1 as in, for instance,
+    strings.Index.)
+    Search calls f(i) only for i in the range [0, n).
+```
 
 A common use of Search is to find the index i for a value x in
 a sorted, indexable data structure such as an array or slice.
@@ -304,29 +304,29 @@ To complete the example above, the following code tries to find the value
 x in an integer slice data sorted in ascending order:  
 
 ```
-	x := 23
-	i := sort.Search(len(data), func(i int) bool { return data[i] >= x })
-	if i < len(data) && data[i] == x {
-		// x is present at data[i]
-	} else {
-		// x is not present in data,
-		// but i is the index where it would be inserted.
-	}
+    	x := 23
+    	i := sort.Search(len(data), func(i int) bool { return data[i] >= x })
+    	if i < len(data) && data[i] == x {
+ x is present at data[i]
+    	} else {
+ x is not present in data,
+ but i is the index where it would be inserted.
+}
 ```
 
 As a more whimsical example, this program guesses your number:  
 
 ```
-	func GuessingGame() {
-		var s string
-		fmt.Printf("Pick an integer from 0 to 100.\n")
-		answer := sort.Search(100, func(i int) bool {
-			fmt.Printf("Is your number <= %d? ", i)
-			fmt.Scanf("%s", &s)
-			return s != "" && s[0] == 'y'
-		})
-		fmt.Printf("Your number is %d.\n", answer)
-	}
+    	func GuessingGame() {
+    		var s string
+    		fmt.Printf("Pick an integer from 0 to 100.\n")
+    		answer := sort.Search(100, func(i int) bool {
+    			fmt.Printf("Is your number <= %d? ", i)
+    			fmt.Scanf("%s", &s)
+    			return s != "" && s[0] == 'y'
+    		})
+    		fmt.Printf("Your number is %d.\n", answer)
+}
 ```
 [\(view code\)](<./Sort.hx#L68>)
 
@@ -339,12 +339,12 @@ function searchFloat64s(a:Array<Float>, x:Float):Int
 ```
 
 
-
+```
 SearchFloat64s searches for x in a sorted slice of float64s and returns the index
-as specified by Search. The return value is the index to insert x if x is not
-present \(it could be len\(a\)\).
-The slice must be sorted in ascending order.  
-
+    as specified by Search. The return value is the index to insert x if x is not
+    present (it could be len(a)).
+    The slice must be sorted in ascending order.
+```
 [\(view code\)](<./Sort.hx#L109>)
 
 
@@ -356,12 +356,12 @@ function searchInts(a:Array<Int>, x:Int):Int
 ```
 
 
-
+```
 SearchInts searches for x in a sorted slice of ints and returns the index
-as specified by Search. The return value is the index to insert x if x is
-not present \(it could be len\(a\)\).
-The slice must be sorted in ascending order.  
-
+    as specified by Search. The return value is the index to insert x if x is
+    not present (it could be len(a)).
+    The slice must be sorted in ascending order.
+```
 [\(view code\)](<./Sort.hx#L102>)
 
 
@@ -373,12 +373,12 @@ function searchStrings(a:Array<String>, x:String):Int
 ```
 
 
-
+```
 SearchStrings searches for x in a sorted slice of strings and returns the index
-as specified by Search. The return value is the index to insert x if x is not
-present \(it could be len\(a\)\).
-The slice must be sorted in ascending order.  
-
+    as specified by Search. The return value is the index to insert x if x is not
+    present (it could be len(a)).
+    The slice must be sorted in ascending order.
+```
 [\(view code\)](<./Sort.hx#L116>)
 
 
@@ -390,10 +390,10 @@ function slice(x:stdgo.AnyInterface, less:(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool)
 ```
 
 
-
+```
 Slice sorts the slice x given the provided less function.
-It panics if x is not a slice.  
-
+    It panics if x is not a slice.
+```
 
 The sort is not guaranteed to be stable: equal elements
 may be reversed from their original order.
@@ -414,10 +414,10 @@ function sliceIsSorted(x:stdgo.AnyInterface, less:(_i:stdgo.GoInt, _j:stdgo.GoIn
 ```
 
 
-
+```
 SliceIsSorted reports whether the slice x is sorted according to the provided less function.
-It panics if x is not a slice.  
-
+    It panics if x is not a slice.
+```
 [\(view code\)](<./Sort.hx#L142>)
 
 
@@ -429,11 +429,11 @@ function sliceStable(x:stdgo.AnyInterface, less:(_i:stdgo.GoInt, _j:stdgo.GoInt)
 ```
 
 
-
+```
 SliceStable sorts the slice x using the provided less
-function, keeping equal elements in their original order.
-It panics if x is not a slice.  
-
+    function, keeping equal elements in their original order.
+    It panics if x is not a slice.
+```
 
 The less function must satisfy the same requirements as
 the Interface type's Less method.  
@@ -449,11 +449,11 @@ function sort(data:stdgo.sort.Interface):Void
 ```
 
 
-
+```
 Sort sorts data in ascending order as determined by the Less method.
-It makes one call to data.Len to determine n and O\(n\*log\(n\)\) calls to
-data.Less and data.Swap. The sort is not guaranteed to be stable.  
-
+    It makes one call to data.Len to determine n and O(n*log(n)) calls to
+    data.Less and data.Swap. The sort is not guaranteed to be stable.
+```
 
 Note: in many situations, the newer slices.SortFunc function is more
 ergonomic and runs faster.  
@@ -469,10 +469,10 @@ function stable(data:stdgo.sort.Interface):Void
 ```
 
 
-
+```
 Stable sorts data in ascending order as determined by the Less method,
-while keeping the original order of equal elements.  
-
+    while keeping the original order of equal elements.
+```
 
 It makes one call to data.Len to determine n, O\(n\*log\(n\)\) calls to
 data.Less and O\(n\*log\(n\)\*log\(n\)\) calls to data.Swap.  

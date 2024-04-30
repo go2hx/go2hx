@@ -33,10 +33,10 @@ approximately 20 milliseconds, even if the wall clock is changed during
 the operation being timed:  
 
 ```
-	start := time.Now()
-	... operation that takes 20 milliseconds ...
-	t := time.Now()
-	elapsed := t.Sub(start)
+    	start := time.Now()
+    	... operation that takes 20 milliseconds ...
+    	t := time.Now()
+    	elapsed := t.Sub(start)
 ```
 
 Other idioms, such as time.Since\(start\), time.Until\(deadline\), and
@@ -742,14 +742,14 @@ function after(d:stdgo.time.Duration):stdgo.Chan<stdgo.time.Time>
 ```
 
 
-
+```
 After waits for the duration to elapse and then sends the current time
-on the returned channel.
-It is equivalent to NewTimer\(d\).C.
-The underlying Timer is not recovered by the garbage collector
-until the timer fires. If efficiency is a concern, use NewTimer
-instead and call Timer.Stop if the timer is no longer needed.  
-
+    on the returned channel.
+    It is equivalent to NewTimer(d).C.
+    The underlying Timer is not recovered by the garbage collector
+    until the timer fires. If efficiency is a concern, use NewTimer
+    instead and call Timer.Stop if the timer is no longer needed.
+```
 [\(view code\)](<./Time.hx#L315>)
 
 
@@ -761,11 +761,11 @@ function afterFunc(d:stdgo.time.Duration, f:():Void):stdgo.time.Timer
 ```
 
 
-
+```
 AfterFunc waits for the duration to elapse and then calls f
-in its own goroutine. It returns a Timer that can
-be used to cancel the call using its Stop method.  
-
+    in its own goroutine. It returns a Timer that can
+    be used to cancel the call using its Stop method.
+```
 [\(view code\)](<./Time.hx#L321>)
 
 
@@ -810,10 +810,10 @@ function checkRuntimeTimerPeriodOverflow():Void
 ```
 
 
-
+```
 Test that a runtimeTimer with a period that would overflow when on
-expiration does not throw or cause other timers to hang.  
-
+    expiration does not throw or cause other timers to hang.
+```
 
 This test has to be in internal\_test.go since it fiddles with
 unexported data structures.  
@@ -833,7 +833,7 @@ function date(year:Int, month:stdgo.time.Month, day:Int, hour:Int, min:Int, sec:
 Date returns the Time corresponding to  
 
 ```
-	yyyy-mm-dd hh:mm:ss + nsec nanoseconds
+    	yyyy-mm-dd hh:mm:ss + nsec nanoseconds
 ```
 
 in the appropriate zone for that time in the given location.  
@@ -887,10 +887,10 @@ function fixedZone(name:String, offset:Int):stdgo.time.Location
 ```
 
 
-
+```
 FixedZone returns a Location that always uses
-the given zone name and offset \(seconds east of UTC\).  
-
+    the given zone name and offset (seconds east of UTC).
+```
 [\(view code\)](<./Time.hx#L396>)
 
 
@@ -1275,10 +1275,10 @@ LoadLocation looks for the IANA Time Zone database in the following
 locations in order:  
 
 ```
-   - the directory or uncompressed zip file named by the ZONEINFO environment variable
-   - on a Unix system, the system standard installation location
-   - $GOROOT/lib/time/zoneinfo.zip
-   - the time/tzdata package, if it was imported
+      - the directory or uncompressed zip file named by the ZONEINFO environment variable
+      - on a Unix system, the system standard installation location
+      - $GOROOT/lib/time/zoneinfo.zip
+      - the time/tzdata package, if it was imported
 ```
 [\(view code\)](<./Time.hx#L414>)
 
@@ -1291,12 +1291,12 @@ function loadLocationFromTZData(name:String, data:Array<Int>):stdgo.Tuple<stdgo.
 ```
 
 
-
+```
 LoadLocationFromTZData returns a Location with the given name
-initialized from the IANA Time Zone database\-formatted data.
-The data should be in the format of a standard IANA time zone file
-\(for example, the content of /etc/localtime on Unix systems\).  
-
+    initialized from the IANA Time Zone database-formatted data.
+    The data should be in the format of a standard IANA time zone file
+    (for example, the content of /etc/localtime on Unix systems).
+```
 [\(view code\)](<./Time.hx#L421>)
 
 
@@ -1322,14 +1322,14 @@ function newTicker(d:stdgo.time.Duration):stdgo.time.Ticker
 ```
 
 
-
+```
 NewTicker returns a new Ticker containing a channel that will send
-the current time on the channel after each tick. The period of the
-ticks is specified by the duration argument. The ticker will adjust
-the time interval or drop ticks to make up for slow receivers.
-The duration d must be greater than zero; if not, NewTicker will
-panic. Stop the ticker to release associated resources.  
-
+    the current time on the channel after each tick. The period of the
+    ticks is specified by the duration argument. The ticker will adjust
+    the time interval or drop ticks to make up for slow receivers.
+    The duration d must be greater than zero; if not, NewTicker will
+    panic. Stop the ticker to release associated resources.
+```
 [\(view code\)](<./Time.hx#L330>)
 
 
@@ -1341,10 +1341,10 @@ function newTimer(d:stdgo.time.Duration):stdgo.time.Timer
 ```
 
 
-
+```
 NewTimer creates a new Timer that will send
-the current time on its channel after at least duration d.  
-
+    the current time on its channel after at least duration d.
+```
 [\(view code\)](<./Time.hx#L306>)
 
 
@@ -1381,12 +1381,12 @@ function parse(layout:String, value:String):stdgo.Tuple<stdgo.time.Time, stdgo.E
 ```
 
 
-
+```
 Parse parses a formatted string and returns the time value it represents.
-See the documentation for the constant called Layout to see how to
-represent the format. The second argument must be parseable using
-the format string \(layout\) provided as the first argument.  
-
+    See the documentation for the constant called Layout to see how to
+    represent the format. The second argument must be parseable using
+    the format string (layout) provided as the first argument.
+```
 
 The example for Time.Format demonstrates the working of the layout string
 in detail and is a good reference.  
@@ -1458,13 +1458,13 @@ function parseDuration(s:String):stdgo.Tuple<stdgo.time.Duration, stdgo.Error>
 ```
 
 
-
+```
 ParseDuration parses a duration string.
-A duration string is a possibly signed sequence of
-decimal numbers, each with optional fraction and a unit suffix,
-such as "300ms", "\-1.5h" or "2h45m".
-Valid time units are "ns", "us" \(or "µs"\), "ms", "s", "m", "h".  
-
+    A duration string is a possibly signed sequence of
+    decimal numbers, each with optional fraction and a unit suffix,
+    such as "300ms", "-1.5h" or "2h45m".
+    Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h".
+```
 [\(view code\)](<./Time.hx#L288>)
 
 
@@ -1476,13 +1476,13 @@ function parseInLocation(layout:String, value:String, loc:stdgo.time.Location):s
 ```
 
 
-
+```
 ParseInLocation is like Parse but differs in two important ways.
-First, in the absence of time zone information, Parse interprets a time as UTC;
-ParseInLocation interprets the time as in the given location.
-Second, when given a zone offset or abbreviation, Parse tries to match it
-against the Local location; ParseInLocation uses the given location.  
-
+    First, in the absence of time zone information, Parse interprets a time as UTC;
+    ParseInLocation interprets the time as in the given location.
+    Second, when given a zone offset or abbreviation, Parse tries to match it
+    against the Local location; ParseInLocation uses the given location.
+```
 [\(view code\)](<./Time.hx#L280>)
 
 
@@ -1892,10 +1892,10 @@ function since(t:stdgo.time.Time):stdgo.time.Duration
 ```
 
 
-
+```
 Since returns the time elapsed since t.
-It is shorthand for time.Now\(\).Sub\(t\).  
-
+    It is shorthand for time.Now().Sub(t).
+```
 [\(view code\)](<./Time.hx#L343>)
 
 
@@ -1907,10 +1907,10 @@ function sleep(d:stdgo.time.Duration):Void
 ```
 
 
-
+```
 Sleep pauses the current goroutine for at least the duration d.
-A negative or zero duration causes Sleep to return immediately.  
-
+    A negative or zero duration causes Sleep to return immediately.
+```
 [\(view code\)](<./Time.hx#L301>)
 
 
@@ -1922,13 +1922,13 @@ function tick(d:stdgo.time.Duration):stdgo.Chan<stdgo.time.Time>
 ```
 
 
-
+```
 Tick is a convenience wrapper for NewTicker providing access to the ticking
-channel only. While Tick is useful for clients that have no need to shut down
-the Ticker, be aware that without a way to shut it down the underlying
-Ticker cannot be recovered by the garbage collector; it "leaks".
-Unlike NewTicker, Tick will return nil if d \<= 0.  
-
+    channel only. While Tick is useful for clients that have no need to shut down
+    the Ticker, be aware that without a way to shut it down the underlying
+    Ticker cannot be recovered by the garbage collector; it "leaks".
+    Unlike NewTicker, Tick will return nil if d <= 0.
+```
 [\(view code\)](<./Time.hx#L338>)
 
 
@@ -1991,13 +1991,13 @@ function unix(sec:haxe.Int64, nsec:haxe.Int64):stdgo.time.Time
 ```
 
 
-
+```
 Unix returns the local Time corresponding to the given Unix time,
-sec seconds and nsec nanoseconds since January 1, 1970 UTC.
-It is valid to pass nsec outside the range \[0, 999999999\].
-Not all sec values have a corresponding time value. One such
-value is 1\<\<63\-1 \(the largest int64 value\).  
-
+    sec seconds and nsec nanoseconds since January 1, 1970 UTC.
+    It is valid to pass nsec outside the range [0, 999999999].
+    Not all sec values have a corresponding time value. One such
+    value is 1<<63-1 (the largest int64 value).
+```
 [\(view code\)](<./Time.hx#L360>)
 
 
@@ -2009,10 +2009,10 @@ function unixMicro(usec:haxe.Int64):stdgo.time.Time
 ```
 
 
-
+```
 UnixMicro returns the local Time corresponding to the given Unix time,
-usec microseconds since January 1, 1970 UTC.  
-
+    usec microseconds since January 1, 1970 UTC.
+```
 [\(view code\)](<./Time.hx#L370>)
 
 
@@ -2024,10 +2024,10 @@ function unixMilli(msec:haxe.Int64):stdgo.time.Time
 ```
 
 
-
+```
 UnixMilli returns the local Time corresponding to the given Unix time,
-msec milliseconds since January 1, 1970 UTC.  
-
+    msec milliseconds since January 1, 1970 UTC.
+```
 [\(view code\)](<./Time.hx#L365>)
 
 
@@ -2039,10 +2039,10 @@ function until(t:stdgo.time.Time):stdgo.time.Duration
 ```
 
 
-
+```
 Until returns the duration until t.
-It is shorthand for t.Sub\(time.Now\(\)\).  
-
+    It is shorthand for t.Sub(time.Now()).
+```
 [\(view code\)](<./Time.hx#L348>)
 
 

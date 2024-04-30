@@ -285,13 +285,13 @@ function newEncoder(enc:stdgo.encoding.base64.Encoding, w:stdgo._internal.io.Wri
 ```
 
 
-
+```
 NewEncoder returns a new base64 stream encoder. Data written to
-the returned writer will be encoded using enc and then written to w.
-Base64 encodings operate in 4\-byte blocks; when finished
-writing, the caller must Close the returned encoder to flush any
-partially written blocks.  
-
+    the returned writer will be encoded using enc and then written to w.
+    Base64 encodings operate in 4-byte blocks; when finished
+    writing, the caller must Close the returned encoder to flush any
+    partially written blocks.
+```
 [\(view code\)](<./Base64.hx#L51>)
 
 
@@ -303,14 +303,14 @@ function newEncoding(encoder:String):stdgo.encoding.base64.Encoding
 ```
 
 
-
+```
 NewEncoding returns a new padded Encoding defined by the given alphabet,
-which must be a 64\-byte string that does not contain the padding character
-or CR / LF \('\\r', '\\n'\). The alphabet is treated as sequence of byte values
-without any special treatment for multi\-byte UTF\-8.
-The resulting Encoding uses the default padding character \('='\),
-which may be changed or disabled via WithPadding.  
-
+    which must be a 64-byte string that does not contain the padding character
+    or CR / LF ('\r', '\n'). The alphabet is treated as sequence of byte values
+    without any special treatment for multi-byte UTF-8.
+    The resulting Encoding uses the default padding character ('='),
+    which may be changed or disabled via WithPadding.
+```
 [\(view code\)](<./Base64.hx#L43>)
 
 

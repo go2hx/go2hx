@@ -6,10 +6,10 @@
 # Overview
 
 
-
+```
 Package unicode provides data and functions to test some properties of
-Unicode code points.  
-
+    Unicode code points.
+```
 # Index
 
 
@@ -5273,11 +5273,11 @@ function isControl(r:Int):Bool
 ```
 
 
-
+```
 IsControl reports whether the rune is a control character.
-The C \(Other\) Unicode category includes more code points
-such as surrogates; use Is\(C, r\) to test for them.  
-
+    The C (Other) Unicode category includes more code points
+    such as surrogates; use Is(C, r) to test for them.
+```
 [\(view code\)](<./Unicode.hx#L821>)
 
 
@@ -5303,11 +5303,11 @@ function isGraphic(r:Int):Bool
 ```
 
 
-
+```
 IsGraphic reports whether the rune is defined as a Graphic by Unicode.
-Such characters include letters, marks, numbers, punctuation, symbols, and
-spaces, from categories L, M, N, P, S, Zs.  
-
+    Such characters include letters, marks, numbers, punctuation, symbols, and
+    spaces, from categories L, M, N, P, S, Zs.
+```
 [\(view code\)](<./Unicode.hx#L798>)
 
 
@@ -5375,10 +5375,10 @@ function isOneOf(ranges:Array<stdgo.unicode.RangeTable>, r:Int):Bool
 ```
 
 
-
+```
 IsOneOf reports whether the rune is a member of one of the ranges.
-The function "In" provides a nicer signature and should be used in preference to IsOneOf.  
-
+    The function "In" provides a nicer signature and should be used in preference to IsOneOf.
+```
 [\(view code\)](<./Unicode.hx#L811>)
 
 
@@ -5390,13 +5390,13 @@ function isPrint(r:Int):Bool
 ```
 
 
-
+```
 IsPrint reports whether the rune is defined as printable by Go. Such
-characters include letters, marks, numbers, punctuation, symbols, and the
-ASCII space character, from categories L, M, N, P, S and the ASCII space
-character. This categorization is the same as IsGraphic except that the
-only spacing character is ASCII space, U\+0020.  
-
+    characters include letters, marks, numbers, punctuation, symbols, and the
+    ASCII space character, from categories L, M, N, P, S and the ASCII space
+    character. This categorization is the same as IsGraphic except that the
+    only spacing character is ASCII space, U+0020.
+```
 [\(view code\)](<./Unicode.hx#L806>)
 
 
@@ -5408,10 +5408,10 @@ function isPunct(r:Int):Bool
 ```
 
 
-
+```
 IsPunct reports whether the rune is a Unicode punctuation character
-\(category P\).  
-
+    (category P).
+```
 [\(view code\)](<./Unicode.hx#L838>)
 
 
@@ -5423,13 +5423,13 @@ function isSpace(r:Int):Bool
 ```
 
 
-
-IsSpace reports whether the rune is a space character as defined
-by Unicode's White Space property; in the Latin\-1 space
-this is  
-
 ```
-	'\t', '\n', '\v', '\f', '\r', ' ', U+0085 (NEL), U+00A0 (NBSP).
+IsSpace reports whether the rune is a space character as defined
+    by Unicode's White Space property; in the Latin-1 space
+    this is
+```
+```
+    	'\t', '\n', '\v', '\f', '\r', ' ', U+0085 (NEL), U+00A0 (NBSP).
 ```
 
 Other definitions of spacing characters are set by category
@@ -8307,30 +8307,30 @@ function simpleFold(r:Int):Int
 ```
 
 
-
+```
 SimpleFold iterates over Unicode code points equivalent under
-the Unicode\-defined simple case folding. Among the code points
-equivalent to rune \(including rune itself\), SimpleFold returns the
-smallest rune \> r if one exists, or else the smallest rune \>= 0.
-If r is not a valid Unicode code point, SimpleFold\(r\) returns r.  
-
+    the Unicode-defined simple case folding. Among the code points
+    equivalent to rune (including rune itself), SimpleFold returns the
+    smallest rune > r if one exists, or else the smallest rune >= 0.
+    If r is not a valid Unicode code point, SimpleFold(r) returns r.
+```
 
 For example:  
 
 ```
-	SimpleFold('A') = 'a'
-	SimpleFold('a') = 'A'
+    	SimpleFold('A') = 'a'
+    	SimpleFold('a') = 'A'
 ```
 ```
-	SimpleFold('K') = 'k'
-	SimpleFold('k') = '\u212A' (Kelvin symbol, K)
-	SimpleFold('\u212A') = 'K'
+    	SimpleFold('K') = 'k'
+    	SimpleFold('k') = '\u212A' (Kelvin symbol, K)
+    	SimpleFold('\u212A') = 'K'
 ```
 ```
-	SimpleFold('1') = '1'
+    	SimpleFold('1') = '1'
 ```
 ```
-	SimpleFold(-2) = -2
+    	SimpleFold(-2) = -2
 ```
 [\(view code\)](<./Unicode.hx#L906>)
 

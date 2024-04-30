@@ -643,10 +643,10 @@ function append(b:Array<Int>, a:haxe.Rest<stdgo.AnyInterface>):Array<Int>
 ```
 
 
-
+```
 Append formats using the default formats for its operands, appends the result to
-the byte slice, and returns the updated slice.  
-
+    the byte slice, and returns the updated slice.
+```
 [\(view code\)](<./Fmt.hx#L474>)
 
 
@@ -658,10 +658,10 @@ function appendf(b:Array<Int>, format:String, a:haxe.Rest<stdgo.AnyInterface>):A
 ```
 
 
-
+```
 Appendf formats according to a format specifier, appends the result to the byte
-slice, and returns the updated slice.  
-
+    slice, and returns the updated slice.
+```
 [\(view code\)](<./Fmt.hx#L452>)
 
 
@@ -673,11 +673,11 @@ function appendln(b:Array<Int>, a:haxe.Rest<stdgo.AnyInterface>):Array<Int>
 ```
 
 
-
+```
 Appendln formats using the default formats for its operands, appends the result
-to the byte slice, and returns the updated slice. Spaces are always added
-between operands and a newline is appended.  
-
+    to the byte slice, and returns the updated slice. Spaces are always added
+    between operands and a newline is appended.
+```
 [\(view code\)](<./Fmt.hx#L497>)
 
 
@@ -689,10 +689,10 @@ function errorf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Error
 ```
 
 
-
+```
 Errorf formats according to a format specifier and returns the string as a
-value that satisfies error.  
-
+    value that satisfies error.
+```
 
 If the format specifier includes a %w verb with an error operand,
 the returned error will implement an Unwrap method returning the operand.
@@ -713,14 +713,14 @@ function formatString(state:stdgo.fmt.State, verb:Int):String
 ```
 
 
-
+```
 FormatString returns a string representing the fully qualified formatting
-directive captured by the State, followed by the argument verb. \(State does not
-itself contain the verb.\) The result has a leading percent sign followed by any
-flags, the width, and the precision. Missing flags, width, and precision are
-omitted. This function allows a Formatter to reconstruct the original
-directive triggering the call to Format.  
-
+    directive captured by the State, followed by the argument verb. (State does not
+    itself contain the verb.) The result has a leading percent sign followed by any
+    flags, the width, and the precision. Missing flags, width, and precision are
+    omitted. This function allows a Formatter to reconstruct the original
+    directive triggering the call to Format.
+```
 [\(view code\)](<./Fmt.hx#L433>)
 
 
@@ -732,11 +732,11 @@ function fprint(w:stdgo._internal.io.Writer, a:haxe.Rest<stdgo.AnyInterface>):st
 ```
 
 
-
+```
 Fprint formats using the default formats for its operands and writes to w.
-Spaces are added between operands when neither is a string.
-It returns the number of bytes written and any write error encountered.  
-
+    Spaces are added between operands when neither is a string.
+    It returns the number of bytes written and any write error encountered.
+```
 [\(view code\)](<./Fmt.hx#L458>)
 
 
@@ -748,10 +748,10 @@ function fprintf(w:stdgo._internal.io.Writer, format:String, a:haxe.Rest<stdgo.A
 ```
 
 
-
+```
 Fprintf formats according to a format specifier and writes to w.
-It returns the number of bytes written and any write error encountered.  
-
+    It returns the number of bytes written and any write error encountered.
+```
 [\(view code\)](<./Fmt.hx#L438>)
 
 
@@ -763,11 +763,11 @@ function fprintln(w:stdgo._internal.io.Writer, a:haxe.Rest<stdgo.AnyInterface>):
 ```
 
 
-
+```
 Fprintln formats using the default formats for its operands and writes to w.
-Spaces are always added between operands and a newline is appended.
-It returns the number of bytes written and any write error encountered.  
-
+    Spaces are always added between operands and a newline is appended.
+    It returns the number of bytes written and any write error encountered.
+```
 [\(view code\)](<./Fmt.hx#L480>)
 
 
@@ -779,12 +779,12 @@ function fscan(r:stdgo._internal.io.Reader, a:haxe.Rest<stdgo.AnyInterface>):std
 ```
 
 
-
-Fscan scans text read from r, storing successive space\-separated
-values into successive arguments. Newlines count as space. It
-returns the number of items successfully scanned. If that is less
-than the number of arguments, err will report why.  
-
+```
+Fscan scans text read from r, storing successive space-separated
+    values into successive arguments. Newlines count as space. It
+    returns the number of items successfully scanned. If that is less
+    than the number of arguments, err will report why.
+```
 [\(view code\)](<./Fmt.hx#L545>)
 
 
@@ -796,12 +796,12 @@ function fscanf(r:stdgo._internal.io.Reader, format:String, a:haxe.Rest<stdgo.An
 ```
 
 
-
-Fscanf scans text read from r, storing successive space\-separated
-values into successive arguments as determined by the format. It
-returns the number of items successfully parsed.
-Newlines in the input must match newlines in the format.  
-
+```
+Fscanf scans text read from r, storing successive space-separated
+    values into successive arguments as determined by the format. It
+    returns the number of items successfully parsed.
+    Newlines in the input must match newlines in the format.
+```
 [\(view code\)](<./Fmt.hx#L557>)
 
 
@@ -813,10 +813,10 @@ function fscanln(r:stdgo._internal.io.Reader, a:haxe.Rest<stdgo.AnyInterface>):s
 ```
 
 
-
+```
 Fscanln is similar to Fscan, but stops scanning at a newline and
-after the final item there must be a newline or EOF.  
-
+    after the final item there must be a newline or EOF.
+```
 [\(view code\)](<./Fmt.hx#L550>)
 
 
@@ -880,11 +880,11 @@ function print(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
-
+```
 Print formats using the default formats for its operands and writes to standard output.
-Spaces are added between operands when neither is a string.
-It returns the number of bytes written and any write error encountered.  
-
+    Spaces are added between operands when neither is a string.
+    It returns the number of bytes written and any write error encountered.
+```
 [\(view code\)](<./Fmt.hx#L464>)
 
 
@@ -896,10 +896,10 @@ function printf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int,
 ```
 
 
-
+```
 Printf formats according to a format specifier and writes to standard output.
-It returns the number of bytes written and any write error encountered.  
-
+    It returns the number of bytes written and any write error encountered.
+```
 [\(view code\)](<./Fmt.hx#L443>)
 
 
@@ -911,11 +911,11 @@ function println(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
-
+```
 Println formats using the default formats for its operands and writes to standard output.
-Spaces are always added between operands and a newline is appended.
-It returns the number of bytes written and any write error encountered.  
-
+    Spaces are always added between operands and a newline is appended.
+    It returns the number of bytes written and any write error encountered.
+```
 [\(view code\)](<./Fmt.hx#L486>)
 
 
@@ -927,12 +927,12 @@ function scan(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
-
+```
 Scan scans text read from standard input, storing successive
-space\-separated values into successive arguments. Newlines count
-as space. It returns the number of items successfully scanned.
-If that is less than the number of arguments, err will report why.  
-
+    space-separated values into successive arguments. Newlines count
+    as space. It returns the number of items successfully scanned.
+    If that is less than the number of arguments, err will report why.
+```
 [\(view code\)](<./Fmt.hx#L504>)
 
 
@@ -944,15 +944,15 @@ function scanf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, 
 ```
 
 
-
+```
 Scanf scans text read from standard input, storing successive
-space\-separated values into successive arguments as determined by
-the format. It returns the number of items successfully scanned.
-If that is less than the number of arguments, err will report why.
-Newlines in the input must match newlines in the format.
-The one exception: the verb %c always scans the next rune in the
-input, even if it is a space \(or tab etc.\) or newline.  
-
+    space-separated values into successive arguments as determined by
+    the format. It returns the number of items successfully scanned.
+    If that is less than the number of arguments, err will report why.
+    Newlines in the input must match newlines in the format.
+    The one exception: the verb %c always scans the next rune in the
+    input, even if it is a space (or tab etc.) or newline.
+```
 [\(view code\)](<./Fmt.hx#L519>)
 
 
@@ -964,10 +964,10 @@ function scanln(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
-
+```
 Scanln is similar to Scan, but stops scanning at a newline and
-after the final item there must be a newline or EOF.  
-
+    after the final item there must be a newline or EOF.
+```
 [\(view code\)](<./Fmt.hx#L509>)
 
 
@@ -1009,10 +1009,10 @@ function sprint(a:haxe.Rest<stdgo.AnyInterface>):String
 ```
 
 
-
+```
 Sprint formats using the default formats for its operands and returns the resulting string.
-Spaces are added between operands when neither is a string.  
-
+    Spaces are added between operands when neither is a string.
+```
 [\(view code\)](<./Fmt.hx#L469>)
 
 
@@ -1038,10 +1038,10 @@ function sprintln(a:haxe.Rest<stdgo.AnyInterface>):String
 ```
 
 
-
+```
 Sprintln formats using the default formats for its operands and returns the resulting string.
-Spaces are always added between operands and a newline is appended.  
-
+    Spaces are always added between operands and a newline is appended.
+```
 [\(view code\)](<./Fmt.hx#L491>)
 
 
@@ -1053,12 +1053,12 @@ function sscan(str:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, std
 ```
 
 
-
-Sscan scans the argument string, storing successive space\-separated
-values into successive arguments. Newlines count as space. It
-returns the number of items successfully scanned. If that is less
-than the number of arguments, err will report why.  
-
+```
+Sscan scans the argument string, storing successive space-separated
+    values into successive arguments. Newlines count as space. It
+    returns the number of items successfully scanned. If that is less
+    than the number of arguments, err will report why.
+```
 [\(view code\)](<./Fmt.hx#L526>)
 
 
@@ -1070,12 +1070,12 @@ function sscanf(str:String, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdg
 ```
 
 
-
-Sscanf scans the argument string, storing successive space\-separated
-values into successive arguments as determined by the format. It
-returns the number of items successfully parsed.
-Newlines in the input must match newlines in the format.  
-
+```
+Sscanf scans the argument string, storing successive space-separated
+    values into successive arguments as determined by the format. It
+    returns the number of items successfully parsed.
+    Newlines in the input must match newlines in the format.
+```
 [\(view code\)](<./Fmt.hx#L538>)
 
 
@@ -1087,10 +1087,10 @@ function sscanln(str:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, s
 ```
 
 
-
+```
 Sscanln is similar to Sscan, but stops scanning at a newline and
-after the final item there must be a newline or EOF.  
-
+    after the final item there must be a newline or EOF.
+```
 [\(view code\)](<./Fmt.hx#L531>)
 
 

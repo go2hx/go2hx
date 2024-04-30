@@ -6,10 +6,10 @@
 # Overview
 
 
-
+```
 Package js gives access to the WebAssembly host environment when using the js/wasm architecture.
-Its API is based on JavaScript semantics.  
-
+    Its API is based on JavaScript semantics.
+```
 
 This package is EXPERIMENTAL. Its current scope is only to allow tests to run, but not yet to provide a
 comprehensive API for users. It is exempt from the Go compatibility promise.  
@@ -129,11 +129,11 @@ function copyBytesToGo(dst:Array<Int>, src:stdgo.syscall.js.Value):Int
 ```
 
 
-
+```
 CopyBytesToGo copies bytes from src to dst.
-It panics if src is not a Uint8Array or Uint8ClampedArray.
-It returns the number of bytes copied, which will be the minimum of the lengths of src and dst.  
-
+    It panics if src is not a Uint8Array or Uint8ClampedArray.
+    It returns the number of bytes copied, which will be the minimum of the lengths of src and dst.
+```
 [\(view code\)](<./Js.hx#L79>)
 
 
@@ -145,11 +145,11 @@ function copyBytesToJS(dst:stdgo.syscall.js.Value, src:Array<Int>):Int
 ```
 
 
-
+```
 CopyBytesToJS copies bytes from src to dst.
-It panics if dst is not a Uint8Array or Uint8ClampedArray.
-It returns the number of bytes copied, which will be the minimum of the lengths of src and dst.  
-
+    It panics if dst is not a Uint8Array or Uint8ClampedArray.
+    It returns the number of bytes copied, which will be the minimum of the lengths of src and dst.
+```
 [\(view code\)](<./Js.hx#L85>)
 
 
@@ -242,16 +242,16 @@ function valueOf(x:stdgo.AnyInterface):stdgo.syscall.js.Value
 ValueOf returns x as a JavaScript value:  
 
 ```
-	| Go                     | JavaScript             |
-	| ---------------------- | ---------------------- |
-	| js.Value               | [its value]            |
-	| js.Func                | function               |
-	| nil                    | null                   |
-	| bool                   | boolean                |
-	| integers and floats    | number                 |
-	| string                 | string                 |
-	| []interface{}          | new array              |
-	| map[string]interface{} | new object             |
+    	| Go                     | JavaScript             |
+    	| ---------------------- | ---------------------- |
+    	| js.Value               | [its value]            |
+    	| js.Func                | function               |
+    	| nil                    | null                   |
+    	| bool                   | boolean                |
+    	| integers and floats    | number                 |
+    	| string                 | string                 |
+    	| []interface{}          | new array              |
+    	| map[string]interface{} | new object             |
 ```
 
 Panics if x is not one of the expected types.  

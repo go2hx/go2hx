@@ -174,10 +174,10 @@ function decode(dst:Array<Int>, src:Array<Int>):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
-
-Decode decodes src into DecodedLen\(len\(src\)\) bytes,
-returning the actual number of bytes written to dst.  
-
+```
+Decode decodes src into DecodedLen(len(src)) bytes,
+    returning the actual number of bytes written to dst.
+```
 
 Decode expects that src contains only hexadecimal
 characters and that src has even length.
@@ -215,10 +215,10 @@ function decodedLen(x:Int):Int
 ```
 
 
-
+```
 DecodedLen returns the length of a decoding of x source bytes.
-Specifically, it returns x / 2.  
-
+    Specifically, it returns x / 2.
+```
 [\(view code\)](<./Hex.hx#L39>)
 
 
@@ -230,10 +230,10 @@ function dump(data:Array<Int>):String
 ```
 
 
-
+```
 Dump returns a string that contains a hex dump of the given data. The format
-of the hex dump matches the output of \`hexdump \-C\` on the command line.  
-
+    of the hex dump matches the output of `hexdump -C` on the command line.
+```
 [\(view code\)](<./Hex.hx#L67>)
 
 
@@ -245,11 +245,11 @@ function dumper(w:stdgo._internal.io.Writer):stdgo._internal.io.WriteCloser
 ```
 
 
-
+```
 Dumper returns a WriteCloser that writes a hex dump of all written data to
-w. The format of the dump matches the output of \`hexdump \-C\` on the command
-line.  
-
+    w. The format of the dump matches the output of `hexdump -C` on the command
+    line.
+```
 [\(view code\)](<./Hex.hx#L82>)
 
 
@@ -261,12 +261,12 @@ function encode(dst:Array<Int>, src:Array<Int>):Int
 ```
 
 
-
-Encode encodes src into EncodedLen\(len\(src\)\)
-bytes of dst. As a convenience, it returns the number
-of bytes written to dst, but this value is always EncodedLen\(len\(src\)\).
-Encode implements hexadecimal encoding.  
-
+```
+Encode encodes src into EncodedLen(len(src))
+    bytes of dst. As a convenience, it returns the number
+    of bytes written to dst, but this value is always EncodedLen(len(src)).
+    Encode implements hexadecimal encoding.
+```
 [\(view code\)](<./Hex.hx#L34>)
 
 
@@ -292,10 +292,10 @@ function encodedLen(n:Int):Int
 ```
 
 
-
+```
 EncodedLen returns the length of an encoding of n source bytes.
-Specifically, it returns n \* 2.  
-
+    Specifically, it returns n * 2.
+```
 [\(view code\)](<./Hex.hx#L27>)
 
 
@@ -318,10 +318,10 @@ function newDecoder(r:stdgo._internal.io.Reader):stdgo._internal.io.Reader
 ```
 
 
-
+```
 NewDecoder returns an io.Reader that decodes hexadecimal characters from r.
-NewDecoder expects that r contain only an even number of hexadecimal characters.  
-
+    NewDecoder expects that r contain only an even number of hexadecimal characters.
+```
 [\(view code\)](<./Hex.hx#L76>)
 
 

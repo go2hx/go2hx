@@ -6,18 +6,18 @@
 # Overview
 
 
-
+```
 Package log implements a simple logging package. It defines a type, Logger,
-with methods for formatting output. It also has a predefined 'standard'
-Logger accessible through helper functions Print\[f|ln\], Fatal\[f|ln\], and
-Panic\[f|ln\], which are easier to use than creating a Logger manually.
-That logger writes to standard error and prints the date and time
-of each logged message.
-Every log message is output on a separate line: if the message being
-printed does not end in a newline, the logger will add one.
-The Fatal functions call os.Exit\(1\) after writing the log message.
-The Panic functions call panic after writing the log message.  
-
+    with methods for formatting output. It also has a predefined 'standard'
+    Logger accessible through helper functions Print[f|ln], Fatal[f|ln], and
+    Panic[f|ln], which are easier to use than creating a Logger manually.
+    That logger writes to standard error and prints the date and time
+    of each logged message.
+    Every log message is output on a separate line: if the message being
+    printed does not end in a newline, the logger will add one.
+    The Fatal functions call os.Exit(1) after writing the log message.
+    The Panic functions call panic after writing the log message.
+```
 # Index
 
 
@@ -306,10 +306,10 @@ function flags():Int
 ```
 
 
-
+```
 Flags returns the output flags for the standard logger.
-The flag bits are Ldate, Ltime, and so on.  
-
+    The flag bits are Ldate, Ltime, and so on.
+```
 [\(view code\)](<./Log.hx#L52>)
 
 
@@ -321,13 +321,13 @@ function new_(out:stdgo._internal.io.Writer, prefix:String, flag:Int):stdgo.log.
 ```
 
 
-
+```
 New creates a new Logger. The out variable sets the
-destination to which log data will be written.
-The prefix appears at the beginning of each generated log line, or
-after the log header if the Lmsgprefix flag is provided.
-The flag argument defines the logging properties.  
-
+    destination to which log data will be written.
+    The prefix appears at the beginning of each generated log line, or
+    after the log header if the Lmsgprefix flag is provided.
+    The flag argument defines the logging properties.
+```
 [\(view code\)](<./Log.hx#L39>)
 
 
@@ -339,15 +339,15 @@ function output(calldepth:Int, s:String):stdgo.Error
 ```
 
 
-
+```
 Output writes the output for a logging event. The string s contains
-the text to print after the prefix specified by the flags of the
-Logger. A newline is appended if the last character of s is not
-already a newline. Calldepth is the count of the number of
-frames to skip when computing the file name and line number
-if Llongfile or Lshortfile is set; a value of 1 will print the details
-for the caller of Output.  
-
+    the text to print after the prefix specified by the flags of the
+    Logger. A newline is appended if the last character of s is not
+    already a newline. Calldepth is the count of the number of
+    frames to skip when computing the file name and line number
+    if Llongfile or Lshortfile is set; a value of 1 will print the details
+    for the caller of Output.
+```
 [\(view code\)](<./Log.hx#L118>)
 
 
@@ -415,10 +415,10 @@ function print(v:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-
+```
 Print calls Output to print to the standard logger.
-Arguments are handled in the manner of fmt.Print.  
-
+    Arguments are handled in the manner of fmt.Print.
+```
 [\(view code\)](<./Log.hx#L74>)
 
 
@@ -430,10 +430,10 @@ function printf(format:String, v:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-
+```
 Printf calls Output to print to the standard logger.
-Arguments are handled in the manner of fmt.Printf.  
-
+    Arguments are handled in the manner of fmt.Printf.
+```
 [\(view code\)](<./Log.hx#L79>)
 
 
@@ -445,10 +445,10 @@ function println(v:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-
+```
 Println calls Output to print to the standard logger.
-Arguments are handled in the manner of fmt.Println.  
-
+    Arguments are handled in the manner of fmt.Println.
+```
 [\(view code\)](<./Log.hx#L84>)
 
 
@@ -460,10 +460,10 @@ function setFlags(flag:Int):Void
 ```
 
 
-
+```
 SetFlags sets the output flags for the standard logger.
-The flag bits are Ldate, Ltime, and so on.  
-
+    The flag bits are Ldate, Ltime, and so on.
+```
 [\(view code\)](<./Log.hx#L57>)
 
 

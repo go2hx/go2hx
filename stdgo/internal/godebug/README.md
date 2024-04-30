@@ -6,28 +6,28 @@
 # Overview
 
 
-
+```
 Package godebug makes the settings in the $GODEBUG environment variable
-available to other packages. These settings are often used for compatibility
-tweaks, when we need to change a default behavior but want to let users
-opt back in to the original. For example GODEBUG=http2server=0 disables
-HTTP/2 support in the net/http server.  
-
+    available to other packages. These settings are often used for compatibility
+    tweaks, when we need to change a default behavior but want to let users
+    opt back in to the original. For example GODEBUG=http2server=0 disables
+    HTTP/2 support in the net/http server.
+```
 
 In typical usage, code should declare a Setting as a global
 and then call Value each time the current setting value is needed:  
 
 ```
-	var http2server = godebug.New("http2server")
+    	var http2server = godebug.New("http2server")
 ```
 ```
-	func ServeConn(c net.Conn) {
-		if http2server.Value() == "0" {
-			disallow HTTP/2
-			...
-		}
-		...
-	}
+    	func ServeConn(c net.Conn) {
+    		if http2server.Value() == "0" {
+    			disallow HTTP/2
+    			...
+}
+    		...
+}
 ```
 
 Each time a non\-default setting causes a change in program behavior,

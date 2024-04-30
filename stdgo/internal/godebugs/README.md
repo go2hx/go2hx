@@ -6,11 +6,11 @@
 # Overview
 
 
-
+```
 Package godebugs provides a table of known GODEBUG settings,
-for use by a variety of other packages, including internal/godebug,
-runtime, runtime/metrics, and cmd/go/internal/load.  
-
+    for use by a variety of other packages, including internal/godebug,
+    runtime, runtime/metrics, and cmd/go/internal/load.
+```
 # Index
 
 

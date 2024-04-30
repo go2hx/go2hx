@@ -6,13 +6,13 @@
 # Overview
 
 
-
-Package poll supports non\-blocking I/O on file descriptors with polling.
-This supports I/O operations that block only a goroutine, not a thread.
-This is used by the net and os packages.
-It uses a poller built into the runtime, with support from the
-runtime scheduler.  
-
+```
+Package poll supports non-blocking I/O on file descriptors with polling.
+    This supports I/O operations that block only a goroutine, not a thread.
+    This is used by the net and os packages.
+    It uses a poller built into the runtime, with support from the
+    runtime scheduler.
+```
 # Index
 
 
@@ -269,10 +269,10 @@ function isPollDescriptor(fd:stdgo.GoUIntptr):Bool
 ```
 
 
-
+```
 IsPollDescriptor reports whether fd is the descriptor being used by the poller.
-This is only used for testing.  
-
+    This is only used for testing.
+```
 [\(view code\)](<./Poll.hx#L44>)
 
 

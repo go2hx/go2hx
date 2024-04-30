@@ -6,11 +6,11 @@
 # Overview
 
 
-
+```
 Package flate implements the DEFLATE compressed data format, described in
-RFC 1951.  The gzip and zlib packages implement access to DEFLATE\-based file
-formats.  
-
+    RFC 1951.  The gzip and zlib packages implement access to DEFLATE-based file
+    formats.
+```
 # Index
 
 
@@ -377,14 +377,14 @@ function newReader(r:stdgo._internal.io.Reader):stdgo._internal.io.ReadCloser
 ```
 
 
-
+```
 NewReader returns a new ReadCloser that can be used
-to read the uncompressed version of r.
-If r does not also implement io.ByteReader,
-the decompressor may read more data than necessary from r.
-The reader returns io.EOF after the final block in the DEFLATE stream has
-been encountered. Any trailing data after the final block is ignored.  
-
+    to read the uncompressed version of r.
+    If r does not also implement io.ByteReader,
+    the decompressor may read more data than necessary from r.
+    The reader returns io.EOF after the final block in the DEFLATE stream has
+    been encountered. Any trailing data after the final block is ignored.
+```
 
 The ReadCloser returned by NewReader also implements Resetter.  
 
@@ -399,13 +399,13 @@ function newReaderDict(r:stdgo._internal.io.Reader, dict:Array<Int>):stdgo._inte
 ```
 
 
-
+```
 NewReaderDict is like NewReader but initializes the reader
-with a preset dictionary. The returned Reader behaves as if
-the uncompressed data stream started with the given dictionary,
-which has already been read. NewReaderDict is typically used
-to read data compressed by NewWriterDict.  
-
+    with a preset dictionary. The returned Reader behaves as if
+    the uncompressed data stream started with the given dictionary,
+    which has already been read. NewReaderDict is typically used
+    to read data compressed by NewWriterDict.
+```
 
 The ReadCloser returned by NewReader also implements Resetter.  
 
@@ -420,17 +420,17 @@ function newWriter(w:stdgo._internal.io.Writer, level:Int):stdgo.Tuple<stdgo.com
 ```
 
 
-
+```
 NewWriter returns a new Writer compressing data at the given level.
-Following zlib, levels range from 1 \(BestSpeed\) to 9 \(BestCompression\);
-higher levels typically run slower but compress more. Level 0
-\(NoCompression\) does not attempt any compression; it only adds the
-necessary DEFLATE framing.
-Level \-1 \(DefaultCompression\) uses the default compression level.
-Level \-2 \(HuffmanOnly\) will use Huffman compression only, giving
-a very fast compression for all types of input, but sacrificing considerable
-compression efficiency.  
-
+    Following zlib, levels range from 1 (BestSpeed) to 9 (BestCompression);
+    higher levels typically run slower but compress more. Level 0
+    (NoCompression) does not attempt any compression; it only adds the
+    necessary DEFLATE framing.
+    Level -1 (DefaultCompression) uses the default compression level.
+    Level -2 (HuffmanOnly) will use Huffman compression only, giving
+    a very fast compression for all types of input, but sacrificing considerable
+    compression efficiency.
+```
 
 If level is in the range \[\-2, 9\] then the error returned will be nil.
 Otherwise the error returned will be non\-nil.  
@@ -446,14 +446,14 @@ function newWriterDict(w:stdgo._internal.io.Writer, level:Int, dict:Array<Int>):
 ```
 
 
-
+```
 NewWriterDict is like NewWriter but initializes the new
-Writer with a preset dictionary. The returned Writer behaves
-as if the dictionary had been written to it without producing
-any compressed output. The compressed data written to w
-can only be decompressed by a Reader initialized with the
-same dictionary.  
-
+    Writer with a preset dictionary. The returned Writer behaves
+    as if the dictionary had been written to it without producing
+    any compressed output. The compressed data written to w
+    can only be decompressed by a Reader initialized with the
+    same dictionary.
+```
 [\(view code\)](<./Flate.hx#L94>)
 
 
@@ -465,12 +465,12 @@ function testBestSpeed(t:stdgo._internal.testing.T_):Void
 ```
 
 
-
-TestBestSpeed tests that round\-tripping through deflate and then inflate
-recovers the original input. The Write sizes are near the thresholds in the
-compressor.encSpeed method \(0, 16, 128\), as well as near maxStoreBlockSize
-\(65535\).  
-
+```
+TestBestSpeed tests that round-tripping through deflate and then inflate
+    recovers the original input. The Write sizes are near the thresholds in the
+    compressor.encSpeed method (0, 16, 128), as well as near maxStoreBlockSize
+    (65535).
+```
 [\(view code\)](<./Flate.hx#L115>)
 
 
@@ -515,12 +515,12 @@ function testBlockHuff(t:stdgo._internal.testing.T_):Void
 ```
 
 
-
+```
 TestBlockHuff tests huffman encoding against reference files
-to detect possible regressions.
-If encoding/bit allocation changes you can regenerate these files
-by using the \-update flag.  
-
+    to detect possible regressions.
+    If encoding/bit allocation changes you can regenerate these files
+    by using the -update flag.
+```
 [\(view code\)](<./Flate.hx#L156>)
 
 
@@ -554,11 +554,11 @@ function testDeflateFast_Reset(t:stdgo._internal.testing.T_):Void
 ```
 
 
-
-TestDeflateFast\_Reset will test that encoding is consistent
-across a warparound of the table offset.
-See https://github.com/golang/go/issues/34121  
-
+```
+TestDeflateFast_Reset will test that encoding is consistent
+    across a warparound of the table offset.
+    See https://github.com/golang/go/issues/34121
+```
 [\(view code\)](<./Flate.hx#L209>)
 
 
@@ -592,10 +592,10 @@ function testDeterministic(t:stdgo._internal.testing.T_):Void
 ```
 
 
-
+```
 Test if two runs produce identical results
-even when writing different sizes to the Writer.  
-
+    even when writing different sizes to the Writer.
+```
 [\(view code\)](<./Flate.hx#L203>)
 
 
@@ -715,10 +715,10 @@ function testReaderEarlyEOF(t:stdgo._internal.testing.T_):Void
 ```
 
 
-
-Verify that flate.Reader.Read returns \(n, io.EOF\) instead
-of \(n, nil\) \+ \(0, io.EOF\) when possible.  
-
+```
+Verify that flate.Reader.Read returns (n, io.EOF) instead
+    of (n, nil) + (0, io.EOF) when possible.
+```
 
 This helps net/http.Transport reuse HTTP/1 connections more
 aggressively.  
@@ -839,10 +839,10 @@ function testWriteBlock(t:stdgo._internal.testing.T_):Void
 ```
 
 
-
+```
 TestWriteBlock tests if the writeBlock encoding has changed.
-To update the reference files use the "\-update" flag on the test.  
-
+    To update the reference files use the "-update" flag on the test.
+```
 [\(view code\)](<./Flate.hx#L161>)
 
 
@@ -854,10 +854,10 @@ function testWriteBlockDynamic(t:stdgo._internal.testing.T_):Void
 ```
 
 
-
+```
 TestWriteBlockDynamic tests if the writeBlockDynamic encoding has changed.
-To update the reference files use the "\-update" flag on the test.  
-
+    To update the reference files use the "-update" flag on the test.
+```
 [\(view code\)](<./Flate.hx#L166>)
 
 

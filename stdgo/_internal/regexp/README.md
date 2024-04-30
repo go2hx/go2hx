@@ -3181,11 +3181,11 @@ typedef T_input = {
 	public function _step(_pos:stdgo.GoInt):{
 		_1:stdgo.GoInt;
 		_0:stdgo.GoRune;
-	};	//  advance one rune
+	};	// advance one rune
 	public function _index(_re:stdgo.Ref<stdgo._internal.regexp.Regexp>, _pos:stdgo.GoInt):stdgo.GoInt;
 	public function _hasPrefix(_re:stdgo.Ref<stdgo._internal.regexp.Regexp>):Bool;
 	public function _context(_pos:stdgo.GoInt):stdgo._internal.regexp.T_lazyFlag;
-	public function _canCheckPrefix():Bool;	//  can we look ahead without losing info?
+	public function _canCheckPrefix():Bool;	// can we look ahead without losing info?
 };
 ```
 

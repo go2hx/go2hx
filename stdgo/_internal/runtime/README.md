@@ -1214,7 +1214,7 @@ import stdgo._internal.runtime.*
 
 ```haxe
 typedef Error = {
-	public function runtimeError():Void;	//  RuntimeError is a no-op function but serves to distinguish types that are run time errors from ordinary errors: a type is a run time error if it has a RuntimeError method.
+	public function runtimeError():Void;	// RuntimeError is a no-op function but serves to distinguish types that are run time errors from ordinary errors: a type is a run time error if it has a RuntimeError method.
 	public function error():stdgo.GoString;
 };
 ```
@@ -1225,9 +1225,9 @@ typedef Error = {
 
 ```haxe
 typedef T__struct_0 = {
-	size:stdgo.GoUInt32;	//  Size is the maximum byte size of an object in this size class.
-	mallocs:stdgo.GoUInt64;	//  Mallocs is the cumulative count of heap objects allocated in this size class. The cumulative bytes of allocation is Size*Mallocs. The number of live objects in this size class is Mallocs - Frees.
-	frees:stdgo.GoUInt64;	//  Frees is the cumulative count of heap objects freed in this size class.
+	size:stdgo.GoUInt32;	// Size is the maximum byte size of an object in this size class.
+	mallocs:stdgo.GoUInt64;	// Mallocs is the cumulative count of heap objects allocated in this size class. The cumulative bytes of allocation is Size*Mallocs. The number of live objects in this size class is Mallocs - Frees.
+	frees:stdgo.GoUInt64;	// Frees is the cumulative count of heap objects freed in this size class.
 };
 ```
 

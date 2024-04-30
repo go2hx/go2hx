@@ -6,11 +6,11 @@
 # Overview
 
 
-
+```
 Package utf8 implements functions and constants to support text encoded in
-UTF\-8. It includes functions to translate between runes and UTF\-8 byte sequences.
-See https://en.wikipedia.org/wiki/UTF-8  
-
+    UTF-8. It includes functions to translate between runes and UTF-8 byte sequences.
+    See https://en.wikipedia.org/wiki/UTF-8
+```
 # Index
 
 
@@ -92,11 +92,11 @@ function appendRune(p:Array<Int>, r:Int):Array<Int>
 ```
 
 
-
-AppendRune appends the UTF\-8 encoding of r to the end of p and
-returns the extended buffer. If the rune is out of range,
-it appends the encoding of RuneError.  
-
+```
+AppendRune appends the UTF-8 encoding of r to the end of p and
+    returns the extended buffer. If the rune is out of range,
+    it appends the encoding of RuneError.
+```
 [\(view code\)](<./Utf8.hx#L82>)
 
 
@@ -108,12 +108,12 @@ function decodeLastRune(p:Array<Int>):stdgo.Tuple<Int, Int>
 ```
 
 
-
-DecodeLastRune unpacks the last UTF\-8 encoding in p and returns the rune and
-its width in bytes. If p is empty it returns \(RuneError, 0\). Otherwise, if
-the encoding is invalid, it returns \(RuneError, 1\). Both are impossible
-results for correct, non\-empty UTF\-8.  
-
+```
+DecodeLastRune unpacks the last UTF-8 encoding in p and returns the rune and
+    its width in bytes. If p is empty it returns (RuneError, 0). Otherwise, if
+    the encoding is invalid, it returns (RuneError, 1). Both are impossible
+    results for correct, non-empty UTF-8.
+```
 
 An encoding is invalid if it is incorrect UTF\-8, encodes a rune that is
 out of range, or is not the shortest possible UTF\-8 encoding for the
@@ -130,12 +130,12 @@ function decodeLastRuneInString(s:String):stdgo.Tuple<Int, Int>
 ```
 
 
-
+```
 DecodeLastRuneInString is like DecodeLastRune but its input is a string. If
-s is empty it returns \(RuneError, 0\). Otherwise, if the encoding is invalid,
-it returns \(RuneError, 1\). Both are impossible results for correct,
-non\-empty UTF\-8.  
-
+    s is empty it returns (RuneError, 0). Otherwise, if the encoding is invalid,
+    it returns (RuneError, 1). Both are impossible results for correct,
+    non-empty UTF-8.
+```
 
 An encoding is invalid if it is incorrect UTF\-8, encodes a rune that is
 out of range, or is not the shortest possible UTF\-8 encoding for the
@@ -152,12 +152,12 @@ function decodeRune(p:Array<Int>):stdgo.Tuple<Int, Int>
 ```
 
 
-
-DecodeRune unpacks the first UTF\-8 encoding in p and returns the rune and
-its width in bytes. If p is empty it returns \(RuneError, 0\). Otherwise, if
-the encoding is invalid, it returns \(RuneError, 1\). Both are impossible
-results for correct, non\-empty UTF\-8.  
-
+```
+DecodeRune unpacks the first UTF-8 encoding in p and returns the rune and
+    its width in bytes. If p is empty it returns (RuneError, 0). Otherwise, if
+    the encoding is invalid, it returns (RuneError, 1). Both are impossible
+    results for correct, non-empty UTF-8.
+```
 
 An encoding is invalid if it is incorrect UTF\-8, encodes a rune that is
 out of range, or is not the shortest possible UTF\-8 encoding for the
@@ -174,12 +174,12 @@ function decodeRuneInString(s:String):stdgo.Tuple<Int, Int>
 ```
 
 
-
+```
 DecodeRuneInString is like DecodeRune but its input is a string. If s is
-empty it returns \(RuneError, 0\). Otherwise, if the encoding is invalid, it
-returns \(RuneError, 1\). Both are impossible results for correct, non\-empty
-UTF\-8.  
-
+    empty it returns (RuneError, 0). Otherwise, if the encoding is invalid, it
+    returns (RuneError, 1). Both are impossible results for correct, non-empty
+    UTF-8.
+```
 
 An encoding is invalid if it is incorrect UTF\-8, encodes a rune that is
 out of range, or is not the shortest possible UTF\-8 encoding for the
@@ -196,11 +196,11 @@ function encodeRune(p:Array<Int>, r:Int):Int
 ```
 
 
-
-EncodeRune writes into p \(which must be large enough\) the UTF\-8 encoding of the rune.
-If the rune is out of range, it writes the encoding of RuneError.
-It returns the number of bytes written.  
-
+```
+EncodeRune writes into p (which must be large enough) the UTF-8 encoding of the rune.
+    If the rune is out of range, it writes the encoding of RuneError.
+    It returns the number of bytes written.
+```
 [\(view code\)](<./Utf8.hx#L76>)
 
 
@@ -212,10 +212,10 @@ function fullRune(p:Array<Int>):Bool
 ```
 
 
-
-FullRune reports whether the bytes in p begin with a full UTF\-8 encoding of a rune.
-An invalid encoding is considered a full Rune since it will convert as a width\-1 error rune.  
-
+```
+FullRune reports whether the bytes in p begin with a full UTF-8 encoding of a rune.
+    An invalid encoding is considered a full Rune since it will convert as a width-1 error rune.
+```
 [\(view code\)](<./Utf8.hx#L17>)
 
 
@@ -241,10 +241,10 @@ function runeCount(p:Array<Int>):Int
 ```
 
 
-
+```
 RuneCount returns the number of runes in p. Erroneous and short
-encodings are treated as single runes of width 1 byte.  
-
+    encodings are treated as single runes of width 1 byte.
+```
 [\(view code\)](<./Utf8.hx#L87>)
 
 
@@ -270,10 +270,10 @@ function runeLen(r:Int):Int
 ```
 
 
-
+```
 RuneLen returns the number of bytes required to encode the rune.
-It returns \-1 if the rune is not a valid value to encode in UTF\-8.  
-
+    It returns -1 if the rune is not a valid value to encode in UTF-8.
+```
 [\(view code\)](<./Utf8.hx#L70>)
 
 
@@ -285,11 +285,11 @@ function runeStart(b:Int):Bool
 ```
 
 
-
+```
 RuneStart reports whether the byte could be the first byte of an encoded,
-possibly invalid rune. Second and subsequent bytes always have the top two
-bits set to 10.  
-
+    possibly invalid rune. Second and subsequent bytes always have the top two
+    bits set to 10.
+```
 [\(view code\)](<./Utf8.hx#L97>)
 
 
@@ -315,10 +315,10 @@ function validRune(r:Int):Bool
 ```
 
 
-
-ValidRune reports whether r can be legally encoded as UTF\-8.
-Code points that are out of range or a surrogate half are illegal.  
-
+```
+ValidRune reports whether r can be legally encoded as UTF-8.
+    Code points that are out of range or a surrogate half are illegal.
+```
 [\(view code\)](<./Utf8.hx#L110>)
 
 

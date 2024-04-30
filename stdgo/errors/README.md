@@ -16,8 +16,8 @@ The \[New\] function creates errors whose only content is a text message.
 An error e wraps another error if e's type has one of the methods  
 
 ```
-	Unwrap() error
-	Unwrap() []error
+    	Unwrap() error
+    	Unwrap() []error
 ```
 
 If e.Unwrap\(\) returns a non\-nil error w or a slice containing w,
@@ -30,7 +30,7 @@ An easy way to create wrapped errors is to call \[fmt.Errorf\] and apply
 the %w verb to the error argument:  
 
 ```
-	wrapsErr := fmt.Errorf("... %w ...", ..., err, ...)
+    	wrapsErr := fmt.Errorf("... %w ...", ..., err, ...)
 ```
 
 Successive unwrapping of an error creates a tree. The \[Is\] and \[As\]
@@ -44,13 +44,13 @@ matches the second. It reports whether it finds a match. It should be
 used in preference to simple equality checks:  
 
 ```
-	if errors.Is(err, fs.ErrExist)
+    	if errors.Is(err, fs.ErrExist)
 ```
 
 is preferable to  
 
 ```
-	if err == fs.ErrExist
+    	if err == fs.ErrExist
 ```
 
 because the former will succeed if err wraps \[io/fs.ErrExist\].  
@@ -61,18 +61,18 @@ assigned to its second argument, which must be a pointer. If it succeeds, it
 performs the assignment and returns true. Otherwise, it returns false. The form  
 
 ```
-	var perr *fs.PathError
-	if errors.As(err, &perr) {
-		fmt.Println(perr.Path)
-	}
+    	var perr *fs.PathError
+    	if errors.As(err, &perr) {
+    		fmt.Println(perr.Path)
+}
 ```
 
 is preferable to  
 
 ```
-	if perr, ok := err.(*fs.PathError); ok {
-		fmt.Println(perr.Path)
-	}
+    	if perr, ok := err.(*fs.PathError); ok {
+    		fmt.Println(perr.Path)
+}
 ```
 
 because the former will succeed if err wraps an \[\*io/fs.PathError\].  
@@ -153,10 +153,10 @@ function as(err:stdgo.Error, target:stdgo.AnyInterface):Bool
 ```
 
 
-
+```
 As finds the first error in err's tree that matches target, and if one is found, sets
-target to that error value and returns true. Otherwise, it returns false.  
-
+    target to that error value and returns true. Otherwise, it returns false.
+```
 
 The tree consists of err itself, followed by the errors obtained by repeatedly
 calling Unwrap. When err wraps multiple errors, As examines err followed by a
@@ -215,7 +215,7 @@ An error type might provide an Is method so it can be treated as equivalent
 to an existing error. For example, if MyError defines  
 
 ```
-	func (m MyError) Is(target error) bool { return target == fs.ErrExist }
+    	func (m MyError) Is(target error) bool { return target == fs.ErrExist }
 ```
 
 then Is\(MyError\{\}, fs.ErrExist\) returns true. See \[syscall.Errno.Is\] for
@@ -233,14 +233,14 @@ function join(errs:haxe.Rest<stdgo.Error>):stdgo.Error
 ```
 
 
-
+```
 Join returns an error that wraps the given errors.
-Any nil error values are discarded.
-Join returns nil if every value in errs is nil.
-The error formats as the concatenation of the strings obtained
-by calling the Error method of each element of errs, with a newline
-between each string.  
-
+    Any nil error values are discarded.
+    Join returns nil if every value in errs is nil.
+    The error formats as the concatenation of the strings obtained
+    by calling the Error method of each element of errs, with a newline
+    between each string.
+```
 
 A non\-nil error returned by Join implements the Unwrap\(\) \[\]error method.  
 
@@ -255,10 +255,10 @@ function new_(text:String):stdgo.Error
 ```
 
 
-
+```
 New returns an error that formats as the given text.
-Each call to New returns a distinct error value even if the text is identical.  
-
+    Each call to New returns a distinct error value even if the text is identical.
+```
 [\(view code\)](<./Errors.hx#L74>)
 
 
@@ -281,11 +281,11 @@ function unwrap(err:stdgo.Error):stdgo.Error
 ```
 
 
-
+```
 Unwrap returns the result of calling the Unwrap method on err, if err's
-type contains an Unwrap method returning error.
-Otherwise, Unwrap returns nil.  
-
+    type contains an Unwrap method returning error.
+    Otherwise, Unwrap returns nil.
+```
 
 Unwrap only calls a method of the form "Unwrap\(\) error".
 In particular Unwrap does not unwrap errors returned by \[Join\].  

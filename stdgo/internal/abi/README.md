@@ -682,11 +682,11 @@ function funcPCABI0(f:stdgo.AnyInterface):stdgo.GoUIntptr
 ```
 
 
-
+```
 FuncPCABI0 returns the entry PC of the function f, which must be a
-direct reference of a function defined as ABI0. Otherwise it is a
-compile\-time error.  
-
+    direct reference of a function defined as ABI0. Otherwise it is a
+    compile-time error.
+```
 
 Implemented as a compile intrinsic.  
 
@@ -701,13 +701,13 @@ function funcPCABIInternal(f:stdgo.AnyInterface):stdgo.GoUIntptr
 ```
 
 
-
+```
 FuncPCABIInternal returns the entry PC of the function f. If f is a
-direct reference of a function, it must be defined as ABIInternal.
-Otherwise it is a compile\-time error. If f is not a direct reference
-of a defined function, it assumes that f is a func value. Otherwise
-the behavior is undefined.  
-
+    direct reference of a function, it must be defined as ABIInternal.
+    Otherwise it is a compile-time error. If f is not a direct reference
+    of a defined function, it assumes that f is a func value. Otherwise
+    the behavior is undefined.
+```
 
 Implemented as a compile intrinsic.  
 
@@ -845,10 +845,10 @@ function uncommonSize():haxe.UInt64
 ```
 
 
-
-UncommonSize returns sizeof\(UncommonType\).  This currently does not depend on ptrSize.
-This exported function is in an internal package, so it may change to depend on ptrSize in the future.  
-
+```
+UncommonSize returns sizeof(UncommonType).  This currently does not depend on ptrSize.
+    This exported function is in an internal package, so it may change to depend on ptrSize in the future.
+```
 [\(view code\)](<./Abi.hx#L131>)
 
 

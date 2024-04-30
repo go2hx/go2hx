@@ -6,12 +6,12 @@
 # Overview
 
 
-
+```
 Package io provides basic interfaces to I/O primitives.
-Its primary job is to wrap existing implementations of such primitives,
-such as those in package os, into shared public interfaces that
-abstract the functionality, plus some other related primitives.  
-
+    Its primary job is to wrap existing implementations of such primitives,
+    such as those in package os, into shared public interfaces that
+    abstract the functionality, plus some other related primitives.
+```
 
 Because these interfaces and primitives wrap lower\-level operations with
 various implementations, unless otherwise informed clients should not
@@ -369,11 +369,11 @@ function copy(dst:stdgo.io.Writer, src:stdgo.io.Reader):stdgo.Tuple<haxe.Int64, 
 ```
 
 
-
+```
 Copy copies from src to dst until either EOF is reached
-on src or an error occurs. It returns the number of bytes
-copied and the first error encountered while copying, if any.  
-
+    on src or an error occurs. It returns the number of bytes
+    copied and the first error encountered while copying, if any.
+```
 
 A successful Copy returns err == nil, not err == EOF.
 Because Copy is defined to read from src until EOF, it does
@@ -396,12 +396,12 @@ function copyBuffer(dst:stdgo.io.Writer, src:stdgo.io.Reader, buf:Array<Int>):st
 ```
 
 
-
+```
 CopyBuffer is identical to Copy except that it stages through the
-provided buffer \(if one is required\) rather than allocating a
-temporary one. If buf is nil, one is allocated; otherwise if it has
-zero length, CopyBuffer panics.  
-
+    provided buffer (if one is required) rather than allocating a
+    temporary one. If buf is nil, one is allocated; otherwise if it has
+    zero length, CopyBuffer panics.
+```
 
 If either src implements WriterTo or dst implements ReaderFrom,
 buf will not be used to perform the copy.  
@@ -417,12 +417,12 @@ function copyN(dst:stdgo.io.Writer, src:stdgo.io.Reader, n:haxe.Int64):stdgo.Tup
 ```
 
 
-
-CopyN copies n bytes \(or until an error\) from src to dst.
-It returns the number of bytes copied and the earliest
-error encountered while copying.
-On return, written == n if and only if err == nil.  
-
+```
+CopyN copies n bytes (or until an error) from src to dst.
+    It returns the number of bytes copied and the earliest
+    error encountered while copying.
+    On return, written == n if and only if err == nil.
+```
 
 If dst implements the ReaderFrom interface,
 the copy is implemented using it.  
@@ -548,11 +548,11 @@ function limitReader(r:stdgo.io.Reader, n:haxe.Int64):stdgo.io.Reader
 ```
 
 
-
+```
 LimitReader returns a Reader that reads from r
-but stops with EOF after n bytes.
-The underlying implementation is a \*LimitedReader.  
-
+    but stops with EOF after n bytes.
+    The underlying implementation is a *LimitedReader.
+```
 [\(view code\)](<./Io.hx#L174>)
 
 
@@ -564,12 +564,12 @@ function multiReader(readers:haxe.Rest<stdgo.io.Reader>):stdgo.io.Reader
 ```
 
 
-
+```
 MultiReader returns a Reader that's the logical concatenation of
-the provided input readers. They're read sequentially. Once all
-inputs have returned EOF, Read will return EOF.  If any of the readers
-return a non\-nil, non\-EOF error, Read will return that error.  
-
+    the provided input readers. They're read sequentially. Once all
+    inputs have returned EOF, Read will return EOF.  If any of the readers
+    return a non-nil, non-EOF error, Read will return that error.
+```
 [\(view code\)](<./Io.hx#L213>)
 
 
@@ -581,10 +581,10 @@ function multiWriter(writers:haxe.Rest<stdgo.io.Writer>):stdgo.io.Writer
 ```
 
 
-
+```
 MultiWriter creates a writer that duplicates its writes to all the
-provided writers, similar to the Unix tee\(1\) command.  
-
+    provided writers, similar to the Unix tee(1) command.
+```
 
 Each write is written to each listed writer, one at a time.
 If a listed writer returns an error, that overall write operation
@@ -601,10 +601,10 @@ function newOffsetWriter(w:stdgo.io.WriterAt, off:haxe.Int64):stdgo.io.OffsetWri
 ```
 
 
-
+```
 NewOffsetWriter returns an OffsetWriter that writes to w
-starting at offset off.  
-
+    starting at offset off.
+```
 [\(view code\)](<./Io.hx#L184>)
 
 
@@ -616,10 +616,10 @@ function newSectionReader(r:stdgo.io.ReaderAt, off:haxe.Int64, n:haxe.Int64):std
 ```
 
 
-
+```
 NewSectionReader returns a SectionReader that reads from r
-starting at offset off and stops with EOF after n bytes.  
-
+    starting at offset off and stops with EOF after n bytes.
+```
 [\(view code\)](<./Io.hx#L179>)
 
 
@@ -631,12 +631,12 @@ function nopCloser(r:stdgo.io.Reader):stdgo.io.ReadCloser
 ```
 
 
-
-NopCloser returns a ReadCloser with a no\-op Close method wrapping
-the provided Reader r.
-If r implements WriterTo, the returned ReadCloser will implement WriterTo
-by forwarding calls to r.  
-
+```
+NopCloser returns a ReadCloser with a no-op Close method wrapping
+    the provided Reader r.
+    If r implements WriterTo, the returned ReadCloser will implement WriterTo
+    by forwarding calls to r.
+```
 [\(view code\)](<./Io.hx#L199>)
 
 
@@ -648,11 +648,11 @@ function pipe():stdgo.Tuple<stdgo.io.PipeReader, stdgo.io.PipeWriter>
 ```
 
 
-
-Pipe creates a synchronous in\-memory pipe.
-It can be used to connect code expecting an io.Reader
-with code expecting an io.Writer.  
-
+```
+Pipe creates a synchronous in-memory pipe.
+    It can be used to connect code expecting an io.Reader
+    with code expecting an io.Writer.
+```
 
 Reads and Writes on the pipe are matched one to one
 except when multiple Reads are needed to consume a single Write.
@@ -678,12 +678,12 @@ function readAll(r:stdgo.io.Reader):stdgo.Tuple<Array<Int>, stdgo.Error>
 ```
 
 
-
+```
 ReadAll reads from r until an error or EOF and returns the data it read.
-A successful call returns err == nil, not err == EOF. Because ReadAll is
-defined to read from src until EOF, it does not treat an EOF from Read
-as an error to be reported.  
-
+    A successful call returns err == nil, not err == EOF. Because ReadAll is
+    defined to read from src until EOF, it does not treat an EOF from Read
+    as an error to be reported.
+```
 [\(view code\)](<./Io.hx#L206>)
 
 
@@ -695,16 +695,16 @@ function readAtLeast(r:stdgo.io.Reader, buf:Array<Int>, min:Int):stdgo.Tuple<Int
 ```
 
 
-
+```
 ReadAtLeast reads from r into buf until it has read at least min bytes.
-It returns the number of bytes copied and an error if fewer bytes were read.
-The error is EOF only if no bytes were read.
-If an EOF happens after reading fewer than min bytes,
-ReadAtLeast returns ErrUnexpectedEOF.
-If min is greater than the length of buf, ReadAtLeast returns ErrShortBuffer.
-On return, n \>= min if and only if err == nil.
-If r returns an error having read at least min bytes, the error is dropped.  
-
+    It returns the number of bytes copied and an error if fewer bytes were read.
+    The error is EOF only if no bytes were read.
+    If an EOF happens after reading fewer than min bytes,
+    ReadAtLeast returns ErrUnexpectedEOF.
+    If min is greater than the length of buf, ReadAtLeast returns ErrShortBuffer.
+    On return, n >= min if and only if err == nil.
+    If r returns an error having read at least min bytes, the error is dropped.
+```
 [\(view code\)](<./Io.hx#L123>)
 
 
@@ -716,15 +716,15 @@ function readFull(r:stdgo.io.Reader, buf:Array<Int>):stdgo.Tuple<Int, stdgo.Erro
 ```
 
 
-
-ReadFull reads exactly len\(buf\) bytes from r into buf.
-It returns the number of bytes copied and an error if fewer bytes were read.
-The error is EOF only if no bytes were read.
-If an EOF happens after reading some but not all the bytes,
-ReadFull returns ErrUnexpectedEOF.
-On return, n == len\(buf\) if and only if err == nil.
-If r returns an error having read at least len\(buf\) bytes, the error is dropped.  
-
+```
+ReadFull reads exactly len(buf) bytes from r into buf.
+    It returns the number of bytes copied and an error if fewer bytes were read.
+    The error is EOF only if no bytes were read.
+    If an EOF happens after reading some but not all the bytes,
+    ReadFull returns ErrUnexpectedEOF.
+    On return, n == len(buf) if and only if err == nil.
+    If r returns an error having read at least len(buf) bytes, the error is dropped.
+```
 [\(view code\)](<./Io.hx#L133>)
 
 
@@ -846,13 +846,13 @@ function teeReader(r:stdgo.io.Reader, w:stdgo.io.Writer):stdgo.io.Reader
 ```
 
 
-
+```
 TeeReader returns a Reader that writes to w what it reads from r.
-All reads from r performed through it are matched with
-corresponding writes to w. There is no internal buffering \-
-the write must complete before the read completes.
-Any error encountered while writing is reported as a read error.  
-
+    All reads from r performed through it are matched with
+    corresponding writes to w. There is no internal buffering -
+    the write must complete before the read completes.
+    Any error encountered while writing is reported as a read error.
+```
 [\(view code\)](<./Io.hx#L192>)
 
 
@@ -864,11 +864,11 @@ function writeString(w:stdgo.io.Writer, s:String):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
-
+```
 WriteString writes the contents of the string s to w, which accepts a slice of bytes.
-If w implements StringWriter, its WriteString method is invoked directly.
-Otherwise, w.Write is called exactly once.  
-
+    If w implements StringWriter, its WriteString method is invoked directly.
+    Otherwise, w.Write is called exactly once.
+```
 [\(view code\)](<./Io.hx#L112>)
 
 

@@ -6,11 +6,11 @@
 # Overview
 
 
-
+```
 Package context defines the Context type, which carries deadlines,
-cancellation signals, and other request\-scoped values across API boundaries
-and between processes.  
-
+    cancellation signals, and other request-scoped values across API boundaries
+    and between processes.
+```
 
 Incoming requests to a server should create a \[Context\], and outgoing
 calls to servers should accept a Context. The chain of function
@@ -47,9 +47,9 @@ explicitly to each function that needs it. The Context should be the first
 parameter, typically named ctx:  
 
 ```
-	func DoSomething(ctx context.Context, arg Arg) error {
-		// ... use ctx ...
-	}
+    	func DoSomething(ctx context.Context, arg Arg) error {
+ ... use ctx ...
+}
 ```
 
 Do not pass a nil \[Context\], even if a function permits it. Pass \[context.TODO\]
@@ -224,11 +224,11 @@ function afterFunc(ctx:stdgo.context.Context, f:():Void):():Bool
 ```
 
 
-
+```
 AfterFunc arranges to call f in its own goroutine after ctx is done
-\(cancelled or timed out\).
-If ctx is already done, AfterFunc calls f immediately in its own goroutine.  
-
+    (cancelled or timed out).
+    If ctx is already done, AfterFunc calls f immediately in its own goroutine.
+```
 
 Multiple calls to AfterFunc on a context operate independently;
 one does not replace another.  
@@ -258,12 +258,12 @@ function background():stdgo.context.Context
 ```
 
 
-
-Background returns a non\-nil, empty \[Context\]. It is never canceled, has no
-values, and has no deadline. It is typically used by the main function,
-initialization, and tests, and as the top\-level Context for incoming
-requests.  
-
+```
+Background returns a non-nil, empty [Context]. It is never canceled, has no
+    values, and has no deadline. It is typically used by the main function,
+    initialization, and tests, and as the top-level Context for incoming
+    requests.
+```
 [\(view code\)](<./Context.hx#L89>)
 
 
@@ -275,14 +275,14 @@ function cause(c:stdgo.context.Context):stdgo.Error
 ```
 
 
-
-Cause returns a non\-nil error explaining why c was canceled.
-The first cancellation of c or one of its parents sets the cause.
-If that cancellation happened via a call to CancelCauseFunc\(err\),
-then \[Cause\] returns err.
-Otherwise Cause\(c\) returns the same value as c.Err\(\).
-Cause returns nil if c has not been canceled yet.  
-
+```
+Cause returns a non-nil error explaining why c was canceled.
+    The first cancellation of c or one of its parents sets the cause.
+    If that cancellation happened via a call to CancelCauseFunc(err),
+    then [Cause] returns err.
+    Otherwise Cause(c) returns the same value as c.Err().
+    Cause returns nil if c has not been canceled yet.
+```
 [\(view code\)](<./Context.hx#L128>)
 
 
@@ -338,12 +338,12 @@ function todo():stdgo.context.Context
 ```
 
 
-
-TODO returns a non\-nil, empty \[Context\]. Code should use context.TODO when
-it's unclear which Context to use or it is not yet available \(because the
-surrounding function has not yet been extended to accept a Context
-parameter\).  
-
+```
+TODO returns a non-nil, empty [Context]. Code should use context.TODO when
+    it's unclear which Context to use or it is not yet available (because the
+    surrounding function has not yet been extended to accept a Context
+    parameter).
+```
 [\(view code\)](<./Context.hx#L96>)
 
 
@@ -355,11 +355,11 @@ function withCancel(parent:stdgo.context.Context):stdgo.Tuple<stdgo.context.Cont
 ```
 
 
-
+```
 WithCancel returns a copy of parent with a new Done channel. The returned
-context's Done channel is closed when the returned cancel function is called
-or when the parent context's Done channel is closed, whichever happens first.  
-
+    context's Done channel is closed when the returned cancel function is called
+    or when the parent context's Done channel is closed, whichever happens first.
+```
 
 Canceling this context releases resources associated with it, so code should
 call cancel as soon as the operations running in this Context complete.  
@@ -375,20 +375,20 @@ function withCancelCause(parent:stdgo.context.Context):stdgo.Tuple<stdgo.context
 ```
 
 
-
-WithCancelCause behaves like \[WithCancel\] but returns a \[CancelCauseFunc\] instead of a \[CancelFunc\].
-Calling cancel with a non\-nil error \(the "cause"\) records that error in ctx;
-it can then be retrieved using Cause\(ctx\).
-Calling cancel with nil sets the cause to Canceled.  
-
+```
+WithCancelCause behaves like [WithCancel] but returns a [CancelCauseFunc] instead of a [CancelFunc].
+    Calling cancel with a non-nil error (the "cause") records that error in ctx;
+    it can then be retrieved using Cause(ctx).
+    Calling cancel with nil sets the cause to Canceled.
+```
 
 Example use:  
 
 ```
-	ctx, cancel := context.WithCancelCause(parent)
-	cancel(myError)
-	ctx.Err() // returns context.Canceled
-	context.Cause(ctx) // returns myError
+    	ctx, cancel := context.WithCancelCause(parent)
+    	cancel(myError)
+    	ctx.Err() // returns context.Canceled
+    	context.Cause(ctx) // returns myError
 ```
 [\(view code\)](<./Context.hx#L119>)
 
@@ -401,14 +401,14 @@ function withDeadline(parent:stdgo.context.Context, d:stdgo._internal.time.Time)
 ```
 
 
-
+```
 WithDeadline returns a copy of the parent context with the deadline adjusted
-to be no later than d. If the parent's deadline is already earlier than d,
-WithDeadline\(parent, d\) is semantically equivalent to parent. The returned
-\[Context.Done\] channel is closed when the deadline expires, when the returned
-cancel function is called, or when the parent context's Done channel is
-closed, whichever happens first.  
-
+    to be no later than d. If the parent's deadline is already earlier than d,
+    WithDeadline(parent, d) is semantically equivalent to parent. The returned
+    [Context.Done] channel is closed when the deadline expires, when the returned
+    cancel function is called, or when the parent context's Done channel is
+    closed, whichever happens first.
+```
 
 Canceling this context releases resources associated with it, so code should
 call cancel as soon as the operations running in this \[Context\] complete.  
@@ -424,11 +424,11 @@ function withDeadlineCause(parent:stdgo.context.Context, d:stdgo._internal.time.
 ```
 
 
-
-WithDeadlineCause behaves like \[WithDeadline\] but also sets the cause of the
-returned Context when the deadline is exceeded. The returned \[CancelFunc\] does
-not set the cause.  
-
+```
+WithDeadlineCause behaves like [WithDeadline] but also sets the cause of the
+    returned Context when the deadline is exceeded. The returned [CancelFunc] does
+    not set the cause.
+```
 [\(view code\)](<./Context.hx#L173>)
 
 
@@ -448,11 +448,11 @@ Canceling this context releases resources associated with it, so code should
 call cancel as soon as the operations running in this \[Context\] complete:  
 
 ```
-	func slowOperationWithTimeout(ctx context.Context) (Result, error) {
-		ctx, cancel := context.WithTimeout(ctx, 100*time.Millisecond)
-		defer cancel()  // releases resources if slowOperation completes before timeout elapses
-		return slowOperation(ctx)
-	}
+    	func slowOperationWithTimeout(ctx context.Context) (Result, error) {
+    		ctx, cancel := context.WithTimeout(ctx, 100*time.Millisecond)
+    		defer cancel()  // releases resources if slowOperation completes before timeout elapses
+    		return slowOperation(ctx)
+}
 ```
 [\(view code\)](<./Context.hx#L186>)
 
@@ -465,11 +465,11 @@ function withTimeoutCause(parent:stdgo.context.Context, timeout:stdgo._internal.
 ```
 
 
-
-WithTimeoutCause behaves like \[WithTimeout\] but also sets the cause of the
-returned Context when the timeout expires. The returned \[CancelFunc\] does
-not set the cause.  
-
+```
+WithTimeoutCause behaves like [WithTimeout] but also sets the cause of the
+    returned Context when the timeout expires. The returned [CancelFunc] does
+    not set the cause.
+```
 [\(view code\)](<./Context.hx#L192>)
 
 
@@ -481,10 +481,10 @@ function withValue(parent:stdgo.context.Context, key:stdgo.AnyInterface, val:std
 ```
 
 
-
+```
 WithValue returns a copy of parent in which the value associated with key is
-val.  
-
+    val.
+```
 
 Use context Values only for request\-scoped data that transits processes and
 APIs, not for passing optional parameters to functions.  
@@ -509,11 +509,11 @@ function withoutCancel(parent:stdgo.context.Context):stdgo.context.Context
 ```
 
 
-
+```
 WithoutCancel returns a copy of parent that is not canceled when parent is canceled.
-The returned context returns no Deadline or Err, and its Done channel is nil.
-Calling \[Cause\] on the returned context returns nil.  
-
+    The returned context returns no Deadline or Err, and its Done channel is nil.
+    Calling [Cause] on the returned context returns nil.
+```
 [\(view code\)](<./Context.hx#L155>)
 
 

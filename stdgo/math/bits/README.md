@@ -6,10 +6,10 @@
 # Overview
 
 
-
+```
 Package bits implements bit counting and manipulation
-functions for the predeclared unsigned integer types.  
-
+    functions for the predeclared unsigned integer types.
+```
 
 Functions in this package may be implemented directly by
 the compiler, for better performance. For those functions
@@ -154,11 +154,11 @@ function add(x:UInt, y:UInt, carry:UInt):stdgo.Tuple<UInt, UInt>
 ```
 
 
-
-Add returns the sum with carry of x, y and carry: sum = x \+ y \+ carry.
-The carry input must be 0 or 1; otherwise the behavior is undefined.
-The carryOut output is guaranteed to be 0 or 1.  
-
+```
+Add returns the sum with carry of x, y and carry: sum = x + y + carry.
+    The carry input must be 0 or 1; otherwise the behavior is undefined.
+    The carryOut output is guaranteed to be 0 or 1.
+```
 
 This function's execution time does not depend on the inputs.  
 
@@ -173,11 +173,11 @@ function add32(x:UInt, y:UInt, carry:UInt):stdgo.Tuple<UInt, UInt>
 ```
 
 
-
-Add32 returns the sum with carry of x, y and carry: sum = x \+ y \+ carry.
-The carry input must be 0 or 1; otherwise the behavior is undefined.
-The carryOut output is guaranteed to be 0 or 1.  
-
+```
+Add32 returns the sum with carry of x, y and carry: sum = x + y + carry.
+    The carry input must be 0 or 1; otherwise the behavior is undefined.
+    The carryOut output is guaranteed to be 0 or 1.
+```
 
 This function's execution time does not depend on the inputs.  
 
@@ -192,11 +192,11 @@ function add64(x:haxe.UInt64, y:haxe.UInt64, carry:haxe.UInt64):stdgo.Tuple<haxe
 ```
 
 
-
-Add64 returns the sum with carry of x, y and carry: sum = x \+ y \+ carry.
-The carry input must be 0 or 1; otherwise the behavior is undefined.
-The carryOut output is guaranteed to be 0 or 1.  
-
+```
+Add64 returns the sum with carry of x, y and carry: sum = x + y + carry.
+    The carry input must be 0 or 1; otherwise the behavior is undefined.
+    The carryOut output is guaranteed to be 0 or 1.
+```
 
 This function's execution time does not depend on the inputs.  
 
@@ -211,12 +211,12 @@ function div(hi:UInt, lo:UInt, y:UInt):stdgo.Tuple<UInt, UInt>
 ```
 
 
-
-Div returns the quotient and remainder of \(hi, lo\) divided by y:
-quo = \(hi, lo\)/y, rem = \(hi, lo\)%y with the dividend bits' upper
-half in parameter hi and the lower half in parameter lo.
-Div panics for y == 0 \(division by zero\) or y \<= hi \(quotient overflow\).  
-
+```
+Div returns the quotient and remainder of (hi, lo) divided by y:
+    quo = (hi, lo)/y, rem = (hi, lo)%y with the dividend bits' upper
+    half in parameter hi and the lower half in parameter lo.
+    Div panics for y == 0 (division by zero) or y <= hi (quotient overflow).
+```
 [\(view code\)](<./Bits.hx#L252>)
 
 
@@ -228,12 +228,12 @@ function div32(hi:UInt, lo:UInt, y:UInt):stdgo.Tuple<UInt, UInt>
 ```
 
 
-
-Div32 returns the quotient and remainder of \(hi, lo\) divided by y:
-quo = \(hi, lo\)/y, rem = \(hi, lo\)%y with the dividend bits' upper
-half in parameter hi and the lower half in parameter lo.
-Div32 panics for y == 0 \(division by zero\) or y \<= hi \(quotient overflow\).  
-
+```
+Div32 returns the quotient and remainder of (hi, lo) divided by y:
+    quo = (hi, lo)/y, rem = (hi, lo)%y with the dividend bits' upper
+    half in parameter hi and the lower half in parameter lo.
+    Div32 panics for y == 0 (division by zero) or y <= hi (quotient overflow).
+```
 [\(view code\)](<./Bits.hx#L259>)
 
 
@@ -245,12 +245,12 @@ function div64(hi:haxe.UInt64, lo:haxe.UInt64, y:haxe.UInt64):stdgo.Tuple<haxe.U
 ```
 
 
-
-Div64 returns the quotient and remainder of \(hi, lo\) divided by y:
-quo = \(hi, lo\)/y, rem = \(hi, lo\)%y with the dividend bits' upper
-half in parameter hi and the lower half in parameter lo.
-Div64 panics for y == 0 \(division by zero\) or y \<= hi \(quotient overflow\).  
-
+```
+Div64 returns the quotient and remainder of (hi, lo) divided by y:
+    quo = (hi, lo)/y, rem = (hi, lo)%y with the dividend bits' upper
+    half in parameter hi and the lower half in parameter lo.
+    Div64 panics for y == 0 (division by zero) or y <= hi (quotient overflow).
+```
 [\(view code\)](<./Bits.hx#L266>)
 
 
@@ -402,11 +402,11 @@ function mul(x:UInt, y:UInt):stdgo.Tuple<UInt, UInt>
 ```
 
 
-
-Mul returns the full\-width product of x and y: \(hi, lo\) = x \* y
-with the product bits' upper half returned in hi and the lower
-half returned in lo.  
-
+```
+Mul returns the full-width product of x and y: (hi, lo) = x * y
+    with the product bits' upper half returned in hi and the lower
+    half returned in lo.
+```
 
 This function's execution time does not depend on the inputs.  
 
@@ -421,11 +421,11 @@ function mul32(x:UInt, y:UInt):stdgo.Tuple<UInt, UInt>
 ```
 
 
-
-Mul32 returns the 64\-bit product of x and y: \(hi, lo\) = x \* y
-with the product bits' upper half returned in hi and the lower
-half returned in lo.  
-
+```
+Mul32 returns the 64-bit product of x and y: (hi, lo) = x * y
+    with the product bits' upper half returned in hi and the lower
+    half returned in lo.
+```
 
 This function's execution time does not depend on the inputs.  
 
@@ -440,11 +440,11 @@ function mul64(x:haxe.UInt64, y:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt6
 ```
 
 
-
-Mul64 returns the 128\-bit product of x and y: \(hi, lo\) = x \* y
-with the product bits' upper half returned in hi and the lower
-half returned in lo.  
-
+```
+Mul64 returns the 128-bit product of x and y: (hi, lo) = x * y
+    with the product bits' upper half returned in hi and the lower
+    half returned in lo.
+```
 
 This function's execution time does not depend on the inputs.  
 
@@ -529,11 +529,11 @@ function rem(hi:UInt, lo:UInt, y:UInt):UInt
 ```
 
 
-
-Rem returns the remainder of \(hi, lo\) divided by y. Rem panics for
-y == 0 \(division by zero\) but, unlike Div, it doesn't panic on a
-quotient overflow.  
-
+```
+Rem returns the remainder of (hi, lo) divided by y. Rem panics for
+    y == 0 (division by zero) but, unlike Div, it doesn't panic on a
+    quotient overflow.
+```
 [\(view code\)](<./Bits.hx#L272>)
 
 
@@ -545,11 +545,11 @@ function rem32(hi:UInt, lo:UInt, y:UInt):UInt
 ```
 
 
-
-Rem32 returns the remainder of \(hi, lo\) divided by y. Rem32 panics
-for y == 0 \(division by zero\) but, unlike Div32, it doesn't panic
-on a quotient overflow.  
-
+```
+Rem32 returns the remainder of (hi, lo) divided by y. Rem32 panics
+    for y == 0 (division by zero) but, unlike Div32, it doesn't panic
+    on a quotient overflow.
+```
 [\(view code\)](<./Bits.hx#L278>)
 
 
@@ -561,11 +561,11 @@ function rem64(hi:haxe.UInt64, lo:haxe.UInt64, y:haxe.UInt64):haxe.UInt64
 ```
 
 
-
-Rem64 returns the remainder of \(hi, lo\) divided by y. Rem64 panics
-for y == 0 \(division by zero\) but, unlike Div64, it doesn't panic
-on a quotient overflow.  
-
+```
+Rem64 returns the remainder of (hi, lo) divided by y. Rem64 panics
+    for y == 0 (division by zero) but, unlike Div64, it doesn't panic
+    on a quotient overflow.
+```
 [\(view code\)](<./Bits.hx#L284>)
 
 
@@ -715,10 +715,10 @@ function rotateLeft(x:UInt, k:Int):UInt
 ```
 
 
-
-RotateLeft returns the value of x rotated left by \(k mod UintSize\) bits.
-To rotate x right by k bits, call RotateLeft\(x, \-k\).  
-
+```
+RotateLeft returns the value of x rotated left by (k mod UintSize) bits.
+    To rotate x right by k bits, call RotateLeft(x, -k).
+```
 
 This function's execution time does not depend on the inputs.  
 
@@ -733,10 +733,10 @@ function rotateLeft16(x:UInt, k:Int):UInt
 ```
 
 
-
-RotateLeft16 returns the value of x rotated left by \(k mod 16\) bits.
-To rotate x right by k bits, call RotateLeft16\(x, \-k\).  
-
+```
+RotateLeft16 returns the value of x rotated left by (k mod 16) bits.
+    To rotate x right by k bits, call RotateLeft16(x, -k).
+```
 
 This function's execution time does not depend on the inputs.  
 
@@ -751,10 +751,10 @@ function rotateLeft32(x:UInt, k:Int):UInt
 ```
 
 
-
-RotateLeft32 returns the value of x rotated left by \(k mod 32\) bits.
-To rotate x right by k bits, call RotateLeft32\(x, \-k\).  
-
+```
+RotateLeft32 returns the value of x rotated left by (k mod 32) bits.
+    To rotate x right by k bits, call RotateLeft32(x, -k).
+```
 
 This function's execution time does not depend on the inputs.  
 
@@ -769,10 +769,10 @@ function rotateLeft64(x:haxe.UInt64, k:Int):haxe.UInt64
 ```
 
 
-
-RotateLeft64 returns the value of x rotated left by \(k mod 64\) bits.
-To rotate x right by k bits, call RotateLeft64\(x, \-k\).  
-
+```
+RotateLeft64 returns the value of x rotated left by (k mod 64) bits.
+    To rotate x right by k bits, call RotateLeft64(x, -k).
+```
 
 This function's execution time does not depend on the inputs.  
 
@@ -787,10 +787,10 @@ function rotateLeft8(x:UInt, k:Int):UInt
 ```
 
 
-
-RotateLeft8 returns the value of x rotated left by \(k mod 8\) bits.
-To rotate x right by k bits, call RotateLeft8\(x, \-k\).  
-
+```
+RotateLeft8 returns the value of x rotated left by (k mod 8) bits.
+    To rotate x right by k bits, call RotateLeft8(x, -k).
+```
 
 This function's execution time does not depend on the inputs.  
 
@@ -805,11 +805,11 @@ function sub(x:UInt, y:UInt, borrow:UInt):stdgo.Tuple<UInt, UInt>
 ```
 
 
-
-Sub returns the difference of x, y and borrow: diff = x \- y \- borrow.
-The borrow input must be 0 or 1; otherwise the behavior is undefined.
-The borrowOut output is guaranteed to be 0 or 1.  
-
+```
+Sub returns the difference of x, y and borrow: diff = x - y - borrow.
+    The borrow input must be 0 or 1; otherwise the behavior is undefined.
+    The borrowOut output is guaranteed to be 0 or 1.
+```
 
 This function's execution time does not depend on the inputs.  
 
@@ -824,11 +824,11 @@ function sub32(x:UInt, y:UInt, borrow:UInt):stdgo.Tuple<UInt, UInt>
 ```
 
 
-
-Sub32 returns the difference of x, y and borrow, diff = x \- y \- borrow.
-The borrow input must be 0 or 1; otherwise the behavior is undefined.
-The borrowOut output is guaranteed to be 0 or 1.  
-
+```
+Sub32 returns the difference of x, y and borrow, diff = x - y - borrow.
+    The borrow input must be 0 or 1; otherwise the behavior is undefined.
+    The borrowOut output is guaranteed to be 0 or 1.
+```
 
 This function's execution time does not depend on the inputs.  
 
@@ -843,11 +843,11 @@ function sub64(x:haxe.UInt64, y:haxe.UInt64, borrow:haxe.UInt64):stdgo.Tuple<hax
 ```
 
 
-
-Sub64 returns the difference of x, y and borrow: diff = x \- y \- borrow.
-The borrow input must be 0 or 1; otherwise the behavior is undefined.
-The borrowOut output is guaranteed to be 0 or 1.  
-
+```
+Sub64 returns the difference of x, y and borrow: diff = x - y - borrow.
+    The borrow input must be 0 or 1; otherwise the behavior is undefined.
+    The borrowOut output is guaranteed to be 0 or 1.
+```
 
 This function's execution time does not depend on the inputs.  
 

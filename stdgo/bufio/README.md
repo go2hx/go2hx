@@ -6,11 +6,11 @@
 # Overview
 
 
-
+```
 Package bufio implements buffered I/O. It wraps an io.Reader or io.Writer
-object, creating another object \(Reader or Writer\) that also implements
-the interface but provides buffering and some help for textual I/O.  
-
+    object, creating another object (Reader or Writer) that also implements
+    the interface but provides buffering and some help for textual I/O.
+```
 # Index
 
 
@@ -342,11 +342,11 @@ function newReaderSize(rd:stdgo._internal.io.Reader, size:Int):stdgo.bufio.Reade
 ```
 
 
-
+```
 NewReaderSize returns a new Reader whose buffer has at least the specified
-size. If the argument io.Reader is already a Reader with large enough
-size, it returns the underlying Reader.  
-
+    size. If the argument io.Reader is already a Reader with large enough
+    size, it returns the underlying Reader.
+```
 [\(view code\)](<./Bufio.hx#L50>)
 
 
@@ -358,10 +358,10 @@ function newScanner(r:stdgo._internal.io.Reader):stdgo.bufio.Scanner
 ```
 
 
-
+```
 NewScanner returns a new Scanner to read from r.
-The split function defaults to ScanLines.  
-
+    The split function defaults to ScanLines.
+```
 [\(view code\)](<./Bufio.hx#L75>)
 
 
@@ -373,11 +373,11 @@ function newWriter(w:stdgo._internal.io.Writer):stdgo.bufio.Writer
 ```
 
 
-
+```
 NewWriter returns a new Writer whose buffer has the default size.
-If the argument io.Writer is already a Writer with large enough buffer size,
-it returns the underlying Writer.  
-
+    If the argument io.Writer is already a Writer with large enough buffer size,
+    it returns the underlying Writer.
+```
 [\(view code\)](<./Bufio.hx#L66>)
 
 
@@ -389,11 +389,11 @@ function newWriterSize(w:stdgo._internal.io.Writer, size:Int):stdgo.bufio.Writer
 ```
 
 
-
+```
 NewWriterSize returns a new Writer whose buffer has at least the specified
-size. If the argument io.Writer is already a Writer with large enough
-size, it returns the underlying Writer.  
-
+    size. If the argument io.Writer is already a Writer with large enough
+    size, it returns the underlying Writer.
+```
 [\(view code\)](<./Bufio.hx#L60>)
 
 
@@ -419,14 +419,14 @@ function scanLines(data:Array<Int>, atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, st
 ```
 
 
-
+```
 ScanLines is a split function for a Scanner that returns each line of
-text, stripped of any trailing end\-of\-line marker. The returned line may
-be empty. The end\-of\-line marker is one optional carriage return followed
-by one mandatory newline. In regular expression notation, it is \`\\r?\\n\`.
-The last non\-empty line of input will be returned even if it has no
-newline.  
-
+    text, stripped of any trailing end-of-line marker. The returned line may
+    be empty. The end-of-line marker is one optional carriage return followed
+    by one mandatory newline. In regular expression notation, it is `\r?\n`.
+    The last non-empty line of input will be returned even if it has no
+    newline.
+```
 [\(view code\)](<./Bufio.hx#L97>)
 
 
@@ -438,14 +438,14 @@ function scanRunes(data:Array<Int>, atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, st
 ```
 
 
-
+```
 ScanRunes is a split function for a Scanner that returns each
-UTF\-8\-encoded rune as a token. The sequence of runes returned is
-equivalent to that from a range loop over the input as a string, which
-means that erroneous UTF\-8 encodings translate to U\+FFFD = "\\xef\\xbf\\xbd".
-Because of the Scan interface, this makes it impossible for the client to
-distinguish correctly encoded replacement runes from encoding errors.  
-
+    UTF-8-encoded rune as a token. The sequence of runes returned is
+    equivalent to that from a range loop over the input as a string, which
+    means that erroneous UTF-8 encodings translate to U+FFFD = "\xef\xbf\xbd".
+    Because of the Scan interface, this makes it impossible for the client to
+    distinguish correctly encoded replacement runes from encoding errors.
+```
 [\(view code\)](<./Bufio.hx#L88>)
 
 
@@ -457,12 +457,12 @@ function scanWords(data:Array<Int>, atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, st
 ```
 
 
-
+```
 ScanWords is a split function for a Scanner that returns each
-space\-separated word of text, with surrounding spaces deleted. It will
-never return an empty string. The definition of space is set by
-unicode.IsSpace.  
-
+    space-separated word of text, with surrounding spaces deleted. It will
+    never return an empty string. The definition of space is set by
+    unicode.IsSpace.
+```
 [\(view code\)](<./Bufio.hx#L104>)
 
 

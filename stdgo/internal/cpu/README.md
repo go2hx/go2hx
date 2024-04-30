@@ -6,10 +6,10 @@
 # Overview
 
 
-
+```
 Package cpu implements processor feature detection
-used by the Go standard library.  
-
+    used by the Go standard library.
+```
 # Index
 
 
@@ -258,12 +258,12 @@ function initialize(env:String):Void
 ```
 
 
-
+```
 Initialize examines the processor and sets the relevant variables above.
-This is called by the runtime package early in program initialization,
-before normal init functions are run. env is set by runtime if the OS supports
-cpu feature options in GODEBUG.  
-
+    This is called by the runtime package early in program initialization,
+    before normal init functions are run. env is set by runtime if the OS supports
+    cpu feature options in GODEBUG.
+```
 [\(view code\)](<./Cpu.hx#L58>)
 
 
@@ -275,11 +275,11 @@ function name():String
 ```
 
 
-
+```
 Name returns the CPU name given by the vendor
-if it can be read directly from memory or by CPU instructions.
-If the CPU name can not be determined an empty string is returned.  
-
+    if it can be read directly from memory or by CPU instructions.
+    If the CPU name can not be determined an empty string is returned.
+```
 
 Implementations that use the Operating System \(e.g. sysctl or /sys/\)
 to gather CPU information for display should be placed in internal/sysinfo.  

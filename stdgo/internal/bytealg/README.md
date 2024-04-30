@@ -132,12 +132,12 @@ function cutover(n:Int):Int
 ```
 
 
-
+```
 Cutover reports the number of failures of IndexByte we should tolerate
-before switching over to Index.
-n is the number of bytes processed so far.
-See the bytes.Index implementation for details.  
-
+    before switching over to Index.
+    n is the number of bytes processed so far.
+    See the bytes.Index implementation for details.
+```
 [\(view code\)](<./Bytealg.hx#L75>)
 
 
@@ -149,11 +149,11 @@ function equal(a:Array<Int>, b:Array<Int>):Bool
 ```
 
 
-
+```
 Equal reports whether a and b
-are the same length and contain the same bytes.
-A nil argument is equivalent to an empty slice.  
-
+    are the same length and contain the same bytes.
+    A nil argument is equivalent to an empty slice.
+```
 
 Equal is equivalent to bytes.Equal.
 It is provided here for convenience,
@@ -181,10 +181,10 @@ function hashStr(sep:String):stdgo.Tuple<UInt, UInt>
 ```
 
 
-
+```
 HashStr returns the hash and the appropriate multiplicative
-factor for use in Rabin\-Karp algorithm.  
-
+    factor for use in Rabin-Karp algorithm.
+```
 [\(view code\)](<./Bytealg.hx#L16>)
 
 
@@ -196,10 +196,10 @@ function hashStrBytes(sep:Array<Int>):stdgo.Tuple<UInt, UInt>
 ```
 
 
-
+```
 HashStrBytes returns the hash and the appropriate multiplicative
-factor for use in Rabin\-Karp algorithm.  
-
+    factor for use in Rabin-Karp algorithm.
+```
 [\(view code\)](<./Bytealg.hx#L11>)
 
 
@@ -211,10 +211,10 @@ function hashStrRev(sep:String):stdgo.Tuple<UInt, UInt>
 ```
 
 
-
+```
 HashStrRev returns the hash of the reverse of sep and the
-appropriate multiplicative factor for use in Rabin\-Karp algorithm.  
-
+    appropriate multiplicative factor for use in Rabin-Karp algorithm.
+```
 [\(view code\)](<./Bytealg.hx#L26>)
 
 
@@ -226,10 +226,10 @@ function hashStrRevBytes(sep:Array<Int>):stdgo.Tuple<UInt, UInt>
 ```
 
 
-
+```
 HashStrRevBytes returns the hash of the reverse of sep and the
-appropriate multiplicative factor for use in Rabin\-Karp algorithm.  
-
+    appropriate multiplicative factor for use in Rabin-Karp algorithm.
+```
 [\(view code\)](<./Bytealg.hx#L21>)
 
 
@@ -241,10 +241,10 @@ function index(a:Array<Int>, b:Array<Int>):Int
 ```
 
 
-
-Index returns the index of the first instance of b in a, or \-1 if b is not present in a.
-Requires 2 \<= len\(b\) \<= MaxLen.  
-
+```
+Index returns the index of the first instance of b in a, or -1 if b is not present in a.
+    Requires 2 <= len(b) <= MaxLen.
+```
 [\(view code\)](<./Bytealg.hx#L63>)
 
 
@@ -284,10 +284,10 @@ function indexRabinKarp(s:String, substr:String):Int
 ```
 
 
-
-IndexRabinKarp uses the Rabin\-Karp search algorithm to return the index of the
-first occurrence of substr in s, or \-1 if not present.  
-
+```
+IndexRabinKarp uses the Rabin-Karp search algorithm to return the index of the
+    first occurrence of substr in s, or -1 if not present.
+```
 [\(view code\)](<./Bytealg.hx#L36>)
 
 
@@ -299,10 +299,10 @@ function indexRabinKarpBytes(s:Array<Int>, sep:Array<Int>):Int
 ```
 
 
-
-IndexRabinKarpBytes uses the Rabin\-Karp search algorithm to return the index of the
-first occurrence of substr in s, or \-1 if not present.  
-
+```
+IndexRabinKarpBytes uses the Rabin-Karp search algorithm to return the index of the
+    first occurrence of substr in s, or -1 if not present.
+```
 [\(view code\)](<./Bytealg.hx#L31>)
 
 
@@ -314,10 +314,10 @@ function indexString(a:String, b:String):Int
 ```
 
 
-
-IndexString returns the index of the first instance of b in a, or \-1 if b is not present in a.
-Requires 2 \<= len\(b\) \<= MaxLen.  
-
+```
+IndexString returns the index of the first instance of b in a, or -1 if b is not present in a.
+    Requires 2 <= len(b) <= MaxLen.
+```
 [\(view code\)](<./Bytealg.hx#L68>)
 
 
@@ -329,11 +329,11 @@ function makeNoZero(n:Int):Array<Int>
 ```
 
 
-
+```
 MakeNoZero makes a slice of length and capacity n without zeroing the bytes.
-It is the caller's responsibility to ensure uninitialized bytes
-do not leak to the end user.  
-
+    It is the caller's responsibility to ensure uninitialized bytes
+    do not leak to the end user.
+```
 [\(view code\)](<./Bytealg.hx#L42>)
 
 

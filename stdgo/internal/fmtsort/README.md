@@ -6,12 +6,12 @@
 # Overview
 
 
-
+```
 Package fmtsort provides a general stable ordering mechanism
-for maps, on behalf of the fmt and text/template packages.
-It is not guaranteed to be efficient and works only for types
-that are valid map keys.  
-
+    for maps, on behalf of the fmt and text/template packages.
+    It is not guaranteed to be efficient and works only for types
+    that are valid map keys.
+```
 # Index
 
 
@@ -52,27 +52,27 @@ function sort(mapValue:stdgo._internal.reflect.Value):stdgo.internal.fmtsort.Sor
 ```
 
 
-
+```
 Sort accepts a map and returns a SortedMap that has the same keys and
-values but in a stable sorted order according to the keys, modulo issues
-raised by unorderable key values such as NaNs.  
-
+    values but in a stable sorted order according to the keys, modulo issues
+    raised by unorderable key values such as NaNs.
+```
 
 The ordering rules are more general than with Go's \< operator:  
 
 ```
-   - when applicable, nil compares low
-   - ints, floats, and strings order by <
-   - NaN compares less than non-NaN floats
-   - bool compares false before true
-   - complex compares real, then imag
-   - pointers compare by machine address
-   - channel values compare by machine address
-   - structs compare each field in turn
-   - arrays compare each element in turn.
-     Otherwise identical arrays compare by length.
-   - interface values compare first by reflect.Type describing the concrete type
-     and then by concrete value as described in the previous rules.
+      - when applicable, nil compares low
+      - ints, floats, and strings order by <
+      - NaN compares less than non-NaN floats
+      - bool compares false before true
+      - complex compares real, then imag
+      - pointers compare by machine address
+      - channel values compare by machine address
+      - structs compare each field in turn
+      - arrays compare each element in turn.
+        Otherwise identical arrays compare by length.
+      - interface values compare first by reflect.Type describing the concrete type
+        and then by concrete value as described in the previous rules.
 ```
 [\(view code\)](<./Fmtsort.hx#L31>)
 

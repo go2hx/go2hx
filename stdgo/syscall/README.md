@@ -6,23 +6,23 @@
 # Overview
 
 
-
-Package syscall contains an interface to the low\-level operating system
-primitives. The details vary depending on the underlying system, and
-by default, godoc will display the syscall documentation for the current
-system. If you want godoc to display syscall documentation for another
-system, set $GOOS and $GOARCH to the desired system. For example, if
-you want to view documentation for freebsd/arm on linux/amd64, set $GOOS
-to freebsd and $GOARCH to arm.
-The primary use of syscall is inside other packages that provide a more
-portable interface to the system, such as "os", "time" and "net".  Use
-those packages rather than this one if you can.
-For details of the functions and data types in this package consult
-the manuals for the appropriate operating system.
-These calls return err == nil to indicate success; otherwise
-err is an operating system error describing the failure.
-On most systems, that error has type syscall.Errno.  
-
+```
+Package syscall contains an interface to the low-level operating system
+    primitives. The details vary depending on the underlying system, and
+    by default, godoc will display the syscall documentation for the current
+    system. If you want godoc to display syscall documentation for another
+    system, set $GOOS and $GOARCH to the desired system. For example, if
+    you want to view documentation for freebsd/arm on linux/amd64, set $GOOS
+    to freebsd and $GOARCH to arm.
+    The primary use of syscall is inside other packages that provide a more
+    portable interface to the system, such as "os", "time" and "net".  Use
+    those packages rather than this one if you can.
+    For details of the functions and data types in this package consult
+    the manuals for the appropriate operating system.
+    These calls return err == nil to indicate success; otherwise
+    err is an operating system error describing the failure.
+    On most systems, that error has type syscall.Errno.
+```
 
 Deprecated: this package is locked down. Callers should use the
 corresponding package in the golang.org/x/sys repository instead.
@@ -1400,11 +1400,11 @@ function bytePtrFromString(s:String):stdgo.Tuple<stdgo.Pointer<Int>, stdgo.Error
 ```
 
 
-
-BytePtrFromString returns a pointer to a NUL\-terminated array of
-bytes containing the text of s. If s contains a NUL byte at any
-location, it returns \(nil, EINVAL\).  
-
+```
+BytePtrFromString returns a pointer to a NUL-terminated array of
+    bytes containing the text of s. If s contains a NUL byte at any
+    location, it returns (nil, EINVAL).
+```
 [\(view code\)](<./Syscall.hx#L352>)
 
 
@@ -1416,11 +1416,11 @@ function byteSliceFromString(s:String):stdgo.Tuple<Array<Int>, stdgo.Error>
 ```
 
 
-
-ByteSliceFromString returns a NUL\-terminated slice of bytes
-containing the text of s. If s contains a NUL byte at any
-location, it returns \(nil, EINVAL\).  
-
+```
+ByteSliceFromString returns a NUL-terminated slice of bytes
+    containing the text of s. If s contains a NUL byte at any
+    location, it returns (nil, EINVAL).
+```
 [\(view code\)](<./Syscall.hx#L338>)
 
 
@@ -1878,12 +1878,12 @@ function parseDirent(buf:Array<Int>, max:Int, names:Array<String>):stdgo.Tuple3<
 ```
 
 
-
+```
 ParseDirent parses up to max directory entries in buf,
-appending the names to names. It returns the number of
-bytes consumed from buf, the number of entries added
-to names, and the new names slice.  
-
+    appending the names to names. It returns the number of
+    bytes consumed from buf, the number of entries added
+    to names, and the new names slice.
+```
 [\(view code\)](<./Syscall.hx#L269>)
 
 
@@ -2192,11 +2192,11 @@ function stringBytePtr(s:String):stdgo.Pointer<Int>
 ```
 
 
-
-StringBytePtr returns a pointer to a NUL\-terminated array of bytes.
-If s contains a NUL byte this function panics instead of returning
-an error.  
-
+```
+StringBytePtr returns a pointer to a NUL-terminated array of bytes.
+    If s contains a NUL byte this function panics instead of returning
+    an error.
+```
 
 Deprecated: Use BytePtrFromString instead.  
 
@@ -2211,11 +2211,11 @@ function stringByteSlice(s:String):Array<Int>
 ```
 
 
-
-StringByteSlice converts a string to a NUL\-terminated \[\]byte,
-If s contains a NUL byte this function panics instead of
-returning an error.  
-
+```
+StringByteSlice converts a string to a NUL-terminated []byte,
+    If s contains a NUL byte this function panics instead of
+    returning an error.
+```
 
 Deprecated: Use ByteSliceFromString instead.  
 

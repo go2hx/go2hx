@@ -78,10 +78,10 @@ function asanSupported(goos:String, goarch:String):Bool
 ```
 
 
-
+```
 ASanSupported reports whether goos/goarch supports the address
-sanitizer option.  
-
+    sanitizer option.
+```
 [\(view code\)](<./Platform.hx#L24>)
 
 
@@ -93,10 +93,10 @@ function broken(goos:String, goarch:String):Bool
 ```
 
 
-
+```
 Broken reportsr whether goos/goarch is considered a broken port.
-\(See https://go.dev/wiki/PortingPolicy#broken-ports.\)  
-
+    (See https://go.dev/wiki/PortingPolicy#broken-ports.)
+```
 [\(view code\)](<./Platform.hx#L71>)
 
 
@@ -108,11 +108,11 @@ function buildModeSupported(compiler:String, buildmode:String, goos:String, goar
 ```
 
 
-
+```
 BuildModeSupported reports whether goos/goarch supports the given build mode
-using the given compiler.
-There is a copy of this function in cmd/dist/test.go.  
-
+    using the given compiler.
+    There is a copy of this function in cmd/dist/test.go.
+```
 [\(view code\)](<./Platform.hx#L45>)
 
 
@@ -138,11 +138,11 @@ function defaultPIE(goos:String, goarch:String, isRace:Bool):Bool
 ```
 
 
-
+```
 DefaultPIE reports whether goos/goarch produces a PIE binary when using the
-"default" buildmode. On Windows this is affected by \-race,
-so force the caller to pass that in to centralize that choice.  
-
+    "default" buildmode. On Windows this is affected by -race,
+    so force the caller to pass that in to centralize that choice.
+```
 [\(view code\)](<./Platform.hx#L52>)
 
 
@@ -154,10 +154,10 @@ function executableHasDWARF(goos:String, goarch:String):Bool
 ```
 
 
-
+```
 ExecutableHasDWARF reports whether the linked executable includes DWARF
-symbols on goos/goarch.  
-
+    symbols on goos/goarch.
+```
 [\(view code\)](<./Platform.hx#L57>)
 
 
@@ -169,10 +169,10 @@ function firstClass(goos:String, goarch:String):Bool
 ```
 
 
-
+```
 FirstClass reports whether goos/goarch is considered a “first class” port.
-\(See https://go.dev/wiki/PortingPolicy#first-class-ports.\)  
-
+    (See https://go.dev/wiki/PortingPolicy#first-class-ports.)
+```
 [\(view code\)](<./Platform.hx#L66>)
 
 
@@ -184,10 +184,10 @@ function fuzzInstrumented(goos:String, goarch:String):Bool
 ```
 
 
-
+```
 FuzzInstrumented reports whether fuzzing on goos/goarch uses coverage
-instrumentation. \(FuzzInstrumented implies FuzzSupported.\)  
-
+    instrumentation. (FuzzInstrumented implies FuzzSupported.)
+```
 [\(view code\)](<./Platform.hx#L34>)
 
 
@@ -199,10 +199,10 @@ function fuzzSupported(goos:String, goarch:String):Bool
 ```
 
 
-
+```
 FuzzSupported reports whether goos/goarch supports fuzzing
-\('go test \-fuzz=.'\).  
-
+    ('go test -fuzz=.').
+```
 [\(view code\)](<./Platform.hx#L29>)
 
 
@@ -236,10 +236,10 @@ function msanSupported(goos:String, goarch:String):Bool
 ```
 
 
-
+```
 MSanSupported reports whether goos/goarch supports the memory
-sanitizer option.  
-
+    sanitizer option.
+```
 [\(view code\)](<./Platform.hx#L19>)
 
 
@@ -251,10 +251,10 @@ function mustLinkExternal(goos:String, goarch:String, withCgo:Bool):Bool
 ```
 
 
-
+```
 MustLinkExternal reports whether goos/goarch requires external linking
-with or without cgo dependencies.  
-
+    with or without cgo dependencies.
+```
 [\(view code\)](<./Platform.hx#L39>)
 
 
@@ -266,13 +266,13 @@ function raceDetectorSupported(goos:String, goarch:String):Bool
 ```
 
 
-
+```
 RaceDetectorSupported reports whether goos/goarch supports the race
-detector. There is a copy of this function in cmd/dist/test.go.
-Race detector only supports 48\-bit VMA on arm64. But it will always
-return true for arm64, because we don't have VMA size information during
-the compile time.  
-
+    detector. There is a copy of this function in cmd/dist/test.go.
+    Race detector only supports 48-bit VMA on arm64. But it will always
+    return true for arm64, because we don't have VMA size information during
+    the compile time.
+```
 [\(view code\)](<./Platform.hx#L14>)
 
 

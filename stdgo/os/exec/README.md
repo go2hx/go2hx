@@ -6,11 +6,11 @@
 # Overview
 
 
-
+```
 Package exec runs external commands. It wraps os.StartProcess to make it
-easier to remap stdin and stdout, connect I/O with pipes, and do other
-adjustments.  
-
+    easier to remap stdin and stdout, connect I/O with pipes, and do other
+    adjustments.
+```
 
 Unlike the "system" library call from C and other languages, the
 os/exec package intentionally does not invoke the system shell and
@@ -51,20 +51,20 @@ these functions return an error err satisfying errors.Is\(err, ErrDot\).
 For example, consider these two program snippets:  
 
 ```
-	path, err := exec.LookPath("prog")
-	if err != nil {
-		log.Fatal(err)
-	}
-	use(path)
+    	path, err := exec.LookPath("prog")
+    	if err != nil {
+    		log.Fatal(err)
+}
+    	use(path)
 ```
 
 and  
 
 ```
-	cmd := exec.Command("prog")
-	if err := cmd.Run(); err != nil {
-		log.Fatal(err)
-	}
+    	cmd := exec.Command("prog")
+    	if err := cmd.Run(); err != nil {
+    		log.Fatal(err)
+}
 ```
 
 These will not find and run ./prog or .\\prog.exe,
@@ -79,26 +79,26 @@ Code that insists on including results from relative path entries
 can instead override the error using an errors.Is check:  
 
 ```
-	path, err := exec.LookPath("prog")
-	if errors.Is(err, exec.ErrDot) {
-		err = nil
-	}
-	if err != nil {
-		log.Fatal(err)
-	}
-	use(path)
+    	path, err := exec.LookPath("prog")
+    	if errors.Is(err, exec.ErrDot) {
+    		err = nil
+}
+    	if err != nil {
+    		log.Fatal(err)
+}
+    	use(path)
 ```
 
 and  
 
 ```
-	cmd := exec.Command("prog")
-	if errors.Is(cmd.Err, exec.ErrDot) {
-		cmd.Err = nil
-	}
-	if err := cmd.Run(); err != nil {
-		log.Fatal(err)
-	}
+    	cmd := exec.Command("prog")
+    	if errors.Is(cmd.Err, exec.ErrDot) {
+    		cmd.Err = nil
+}
+    	if err := cmd.Run(); err != nil {
+    		log.Fatal(err)
+}
 ```
 
 Setting the environment variable GODEBUG=execerrdot=0
@@ -224,10 +224,10 @@ function command(name:String, arg:haxe.Rest<stdgo.GoString>):stdgo.os.exec.Cmd
 ```
 
 
-
+```
 Command returns the Cmd struct to execute the named program with
-the given arguments.  
-
+    the given arguments.
+```
 
 It sets only the Path and Args in the returned structure.  
 
@@ -320,12 +320,12 @@ function lookPath(file:String):stdgo.Tuple<String, stdgo.Error>
 ```
 
 
-
+```
 LookPath searches for an executable named file in the
-directories named by the PATH environment variable.
-If file contains a slash, it is tried directly and the PATH is not consulted.
-The result may be an absolute path or a path relative to the current directory.  
-
+    directories named by the PATH environment variable.
+    If file contains a slash, it is tried directly and the PATH is not consulted.
+    The result may be an absolute path or a path relative to the current directory.
+```
 [\(view code\)](<./Exec.hx#L153>)
 
 

@@ -6,10 +6,10 @@
 # Overview
 
 
-
-Package atomic provides low\-level atomic memory primitives
-useful for implementing synchronization algorithms.  
-
+```
+Package atomic provides low-level atomic memory primitives
+    useful for implementing synchronization algorithms.
+```
 
 These functions require great care to be used correctly.
 Except for special, low\-level applications, synchronization is better
@@ -22,28 +22,28 @@ The swap operation, implemented by the SwapT functions, is the atomic
 equivalent of:  
 
 ```
-	old = *addr
-	*addr = new
-	return old
+    	old = *addr
+    	*addr = new
+    	return old
 ```
 
 The compare\-and\-swap operation, implemented by the CompareAndSwapT
 functions, is the atomic equivalent of:  
 
 ```
-	if *addr == old {
-		*addr = new
-		return true
-	}
-	return false
+    	if *addr == old {
+    		*addr = new
+    		return true
+}
+    	return false
 ```
 
 The add operation, implemented by the AddT functions, is the atomic
 equivalent of:  
 
 ```
-	*addr += delta
-	return *addr
+    	*addr += delta
+    	return *addr
 ```
 
 The load and store operations, implemented by the LoadT and StoreT
@@ -194,10 +194,10 @@ function addInt32(addr:stdgo.Pointer<Int>, delta:Int):Int
 ```
 
 
-
-AddInt32 atomically adds delta to \*addr and returns the new value.
-Consider using the more ergonomic and less error\-prone \[Int32.Add\] instead.  
-
+```
+AddInt32 atomically adds delta to *addr and returns the new value.
+    Consider using the more ergonomic and less error-prone [Int32.Add] instead.
+```
 [\(view code\)](<./Atomic_.hx#L126>)
 
 
@@ -209,11 +209,11 @@ function addInt64(addr:stdgo.Pointer<haxe.Int64>, delta:haxe.Int64):haxe.Int64
 ```
 
 
-
-AddInt64 atomically adds delta to \*addr and returns the new value.
-Consider using the more ergonomic and less error\-prone \[Int64.Add\] instead
-\(particularly if you target 32\-bit platforms; see the bugs section\).  
-
+```
+AddInt64 atomically adds delta to *addr and returns the new value.
+    Consider using the more ergonomic and less error-prone [Int64.Add] instead
+    (particularly if you target 32-bit platforms; see the bugs section).
+```
 [\(view code\)](<./Atomic_.hx#L139>)
 
 
@@ -225,12 +225,12 @@ function addUint32(addr:stdgo.Pointer<UInt>, delta:UInt):UInt
 ```
 
 
-
-AddUint32 atomically adds delta to \*addr and returns the new value.
-To subtract a signed positive constant value c from x, do AddUint32\(&x, ^uint32\(c\-1\)\).
-In particular, to decrement x, do AddUint32\(&x, ^uint32\(0\)\).
-Consider using the more ergonomic and less error\-prone \[Uint32.Add\] instead.  
-
+```
+AddUint32 atomically adds delta to *addr and returns the new value.
+    To subtract a signed positive constant value c from x, do AddUint32(&x, ^uint32(c-1)).
+    In particular, to decrement x, do AddUint32(&x, ^uint32(0)).
+    Consider using the more ergonomic and less error-prone [Uint32.Add] instead.
+```
 [\(view code\)](<./Atomic_.hx#L133>)
 
 
@@ -242,13 +242,13 @@ function addUint64(addr:stdgo.Pointer<haxe.UInt64>, delta:haxe.UInt64):haxe.UInt
 ```
 
 
-
-AddUint64 atomically adds delta to \*addr and returns the new value.
-To subtract a signed positive constant value c from x, do AddUint64\(&x, ^uint64\(c\-1\)\).
-In particular, to decrement x, do AddUint64\(&x, ^uint64\(0\)\).
-Consider using the more ergonomic and less error\-prone \[Uint64.Add\] instead
-\(particularly if you target 32\-bit platforms; see the bugs section\).  
-
+```
+AddUint64 atomically adds delta to *addr and returns the new value.
+    To subtract a signed positive constant value c from x, do AddUint64(&x, ^uint64(c-1)).
+    In particular, to decrement x, do AddUint64(&x, ^uint64(0)).
+    Consider using the more ergonomic and less error-prone [Uint64.Add] instead
+    (particularly if you target 32-bit platforms; see the bugs section).
+```
 [\(view code\)](<./Atomic_.hx#L147>)
 
 
@@ -260,10 +260,10 @@ function addUintptr(addr:stdgo.Pointer<stdgo.GoUIntptr>, delta:stdgo.GoUIntptr):
 ```
 
 
-
-AddUintptr atomically adds delta to \*addr and returns the new value.
-Consider using the more ergonomic and less error\-prone \[Uintptr.Add\] instead.  
-
+```
+AddUintptr atomically adds delta to *addr and returns the new value.
+    Consider using the more ergonomic and less error-prone [Uintptr.Add] instead.
+```
 [\(view code\)](<./Atomic_.hx#L152>)
 
 
@@ -275,10 +275,10 @@ function compareAndSwapInt32(addr:stdgo.Pointer<Int>, old:Int, _new:Int):Bool
 ```
 
 
-
-CompareAndSwapInt32 executes the compare\-and\-swap operation for an int32 value.
-Consider using the more ergonomic and less error\-prone \[Int32.CompareAndSwap\] instead.  
-
+```
+CompareAndSwapInt32 executes the compare-and-swap operation for an int32 value.
+    Consider using the more ergonomic and less error-prone [Int32.CompareAndSwap] instead.
+```
 [\(view code\)](<./Atomic_.hx#L94>)
 
 
@@ -290,11 +290,11 @@ function compareAndSwapInt64(addr:stdgo.Pointer<haxe.Int64>, old:haxe.Int64, _ne
 ```
 
 
-
-CompareAndSwapInt64 executes the compare\-and\-swap operation for an int64 value.
-Consider using the more ergonomic and less error\-prone \[Int64.CompareAndSwap\] instead
-\(particularly if you target 32\-bit platforms; see the bugs section\).  
-
+```
+CompareAndSwapInt64 executes the compare-and-swap operation for an int64 value.
+    Consider using the more ergonomic and less error-prone [Int64.CompareAndSwap] instead
+    (particularly if you target 32-bit platforms; see the bugs section).
+```
 [\(view code\)](<./Atomic_.hx#L100>)
 
 
@@ -306,10 +306,10 @@ function compareAndSwapPointer(addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafeP
 ```
 
 
-
-CompareAndSwapPointer executes the compare\-and\-swap operation for a unsafe.Pointer value.
-Consider using the more ergonomic and less error\-prone \[Pointer.CompareAndSwap\] instead.  
-
+```
+CompareAndSwapPointer executes the compare-and-swap operation for a unsafe.Pointer value.
+    Consider using the more ergonomic and less error-prone [Pointer.CompareAndSwap] instead.
+```
 [\(view code\)](<./Atomic_.hx#L121>)
 
 
@@ -321,10 +321,10 @@ function compareAndSwapUint32(addr:stdgo.Pointer<UInt>, old:UInt, _new:UInt):Boo
 ```
 
 
-
-CompareAndSwapUint32 executes the compare\-and\-swap operation for a uint32 value.
-Consider using the more ergonomic and less error\-prone \[Uint32.CompareAndSwap\] instead.  
-
+```
+CompareAndSwapUint32 executes the compare-and-swap operation for a uint32 value.
+    Consider using the more ergonomic and less error-prone [Uint32.CompareAndSwap] instead.
+```
 [\(view code\)](<./Atomic_.hx#L105>)
 
 
@@ -336,11 +336,11 @@ function compareAndSwapUint64(addr:stdgo.Pointer<haxe.UInt64>, old:haxe.UInt64, 
 ```
 
 
-
-CompareAndSwapUint64 executes the compare\-and\-swap operation for a uint64 value.
-Consider using the more ergonomic and less error\-prone \[Uint64.CompareAndSwap\] instead
-\(particularly if you target 32\-bit platforms; see the bugs section\).  
-
+```
+CompareAndSwapUint64 executes the compare-and-swap operation for a uint64 value.
+    Consider using the more ergonomic and less error-prone [Uint64.CompareAndSwap] instead
+    (particularly if you target 32-bit platforms; see the bugs section).
+```
 [\(view code\)](<./Atomic_.hx#L111>)
 
 
@@ -352,10 +352,10 @@ function compareAndSwapUintptr(addr:stdgo.Pointer<stdgo.GoUIntptr>, old:stdgo.Go
 ```
 
 
-
-CompareAndSwapUintptr executes the compare\-and\-swap operation for a uintptr value.
-Consider using the more ergonomic and less error\-prone \[Uintptr.CompareAndSwap\] instead.  
-
+```
+CompareAndSwapUintptr executes the compare-and-swap operation for a uintptr value.
+    Consider using the more ergonomic and less error-prone [Uintptr.CompareAndSwap] instead.
+```
 [\(view code\)](<./Atomic_.hx#L116>)
 
 
@@ -367,10 +367,10 @@ function loadInt32(addr:stdgo.Pointer<Int>):Int
 ```
 
 
-
-LoadInt32 atomically loads \*addr.
-Consider using the more ergonomic and less error\-prone \[Int32.Load\] instead.  
-
+```
+LoadInt32 atomically loads *addr.
+    Consider using the more ergonomic and less error-prone [Int32.Load] instead.
+```
 [\(view code\)](<./Atomic_.hx#L157>)
 
 
@@ -382,11 +382,11 @@ function loadInt64(addr:stdgo.Pointer<haxe.Int64>):haxe.Int64
 ```
 
 
-
-LoadInt64 atomically loads \*addr.
-Consider using the more ergonomic and less error\-prone \[Int64.Load\] instead
-\(particularly if you target 32\-bit platforms; see the bugs section\).  
-
+```
+LoadInt64 atomically loads *addr.
+    Consider using the more ergonomic and less error-prone [Int64.Load] instead
+    (particularly if you target 32-bit platforms; see the bugs section).
+```
 [\(view code\)](<./Atomic_.hx#L163>)
 
 
@@ -398,10 +398,10 @@ function loadPointer(addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>):s
 ```
 
 
-
-LoadPointer atomically loads \*addr.
-Consider using the more ergonomic and less error\-prone \[Pointer.Load\] instead.  
-
+```
+LoadPointer atomically loads *addr.
+    Consider using the more ergonomic and less error-prone [Pointer.Load] instead.
+```
 [\(view code\)](<./Atomic_.hx#L184>)
 
 
@@ -413,10 +413,10 @@ function loadUint32(addr:stdgo.Pointer<UInt>):UInt
 ```
 
 
-
-LoadUint32 atomically loads \*addr.
-Consider using the more ergonomic and less error\-prone \[Uint32.Load\] instead.  
-
+```
+LoadUint32 atomically loads *addr.
+    Consider using the more ergonomic and less error-prone [Uint32.Load] instead.
+```
 [\(view code\)](<./Atomic_.hx#L168>)
 
 
@@ -428,11 +428,11 @@ function loadUint64(addr:stdgo.Pointer<haxe.UInt64>):haxe.UInt64
 ```
 
 
-
-LoadUint64 atomically loads \*addr.
-Consider using the more ergonomic and less error\-prone \[Uint64.Load\] instead
-\(particularly if you target 32\-bit platforms; see the bugs section\).  
-
+```
+LoadUint64 atomically loads *addr.
+    Consider using the more ergonomic and less error-prone [Uint64.Load] instead
+    (particularly if you target 32-bit platforms; see the bugs section).
+```
 [\(view code\)](<./Atomic_.hx#L174>)
 
 
@@ -444,10 +444,10 @@ function loadUintptr(addr:stdgo.Pointer<stdgo.GoUIntptr>):stdgo.GoUIntptr
 ```
 
 
-
-LoadUintptr atomically loads \*addr.
-Consider using the more ergonomic and less error\-prone \[Uintptr.Load\] instead.  
-
+```
+LoadUintptr atomically loads *addr.
+    Consider using the more ergonomic and less error-prone [Uintptr.Load] instead.
+```
 [\(view code\)](<./Atomic_.hx#L179>)
 
 
@@ -459,10 +459,10 @@ function storeInt32(addr:stdgo.Pointer<Int>, val:Int):Void
 ```
 
 
-
-StoreInt32 atomically stores val into \*addr.
-Consider using the more ergonomic and less error\-prone \[Int32.Store\] instead.  
-
+```
+StoreInt32 atomically stores val into *addr.
+    Consider using the more ergonomic and less error-prone [Int32.Store] instead.
+```
 [\(view code\)](<./Atomic_.hx#L189>)
 
 
@@ -474,11 +474,11 @@ function storeInt64(addr:stdgo.Pointer<haxe.Int64>, val:haxe.Int64):Void
 ```
 
 
-
-StoreInt64 atomically stores val into \*addr.
-Consider using the more ergonomic and less error\-prone \[Int64.Store\] instead
-\(particularly if you target 32\-bit platforms; see the bugs section\).  
-
+```
+StoreInt64 atomically stores val into *addr.
+    Consider using the more ergonomic and less error-prone [Int64.Store] instead
+    (particularly if you target 32-bit platforms; see the bugs section).
+```
 [\(view code\)](<./Atomic_.hx#L195>)
 
 
@@ -490,10 +490,10 @@ function storePointer(addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>, 
 ```
 
 
-
-StorePointer atomically stores val into \*addr.
-Consider using the more ergonomic and less error\-prone \[Pointer.Store\] instead.  
-
+```
+StorePointer atomically stores val into *addr.
+    Consider using the more ergonomic and less error-prone [Pointer.Store] instead.
+```
 [\(view code\)](<./Atomic_.hx#L216>)
 
 
@@ -505,10 +505,10 @@ function storeUint32(addr:stdgo.Pointer<UInt>, val:UInt):Void
 ```
 
 
-
-StoreUint32 atomically stores val into \*addr.
-Consider using the more ergonomic and less error\-prone \[Uint32.Store\] instead.  
-
+```
+StoreUint32 atomically stores val into *addr.
+    Consider using the more ergonomic and less error-prone [Uint32.Store] instead.
+```
 [\(view code\)](<./Atomic_.hx#L200>)
 
 
@@ -520,11 +520,11 @@ function storeUint64(addr:stdgo.Pointer<haxe.UInt64>, val:haxe.UInt64):Void
 ```
 
 
-
-StoreUint64 atomically stores val into \*addr.
-Consider using the more ergonomic and less error\-prone \[Uint64.Store\] instead
-\(particularly if you target 32\-bit platforms; see the bugs section\).  
-
+```
+StoreUint64 atomically stores val into *addr.
+    Consider using the more ergonomic and less error-prone [Uint64.Store] instead
+    (particularly if you target 32-bit platforms; see the bugs section).
+```
 [\(view code\)](<./Atomic_.hx#L206>)
 
 
@@ -536,10 +536,10 @@ function storeUintptr(addr:stdgo.Pointer<stdgo.GoUIntptr>, val:stdgo.GoUIntptr):
 ```
 
 
-
-StoreUintptr atomically stores val into \*addr.
-Consider using the more ergonomic and less error\-prone \[Uintptr.Store\] instead.  
-
+```
+StoreUintptr atomically stores val into *addr.
+    Consider using the more ergonomic and less error-prone [Uintptr.Store] instead.
+```
 [\(view code\)](<./Atomic_.hx#L211>)
 
 
@@ -551,10 +551,10 @@ function swapInt32(addr:stdgo.Pointer<Int>, _new:Int):Int
 ```
 
 
-
-SwapInt32 atomically stores new into \*addr and returns the previous \*addr value.
-Consider using the more ergonomic and less error\-prone \[Int32.Swap\] instead.  
-
+```
+SwapInt32 atomically stores new into *addr and returns the previous *addr value.
+    Consider using the more ergonomic and less error-prone [Int32.Swap] instead.
+```
 [\(view code\)](<./Atomic_.hx#L62>)
 
 
@@ -566,11 +566,11 @@ function swapInt64(addr:stdgo.Pointer<haxe.Int64>, _new:haxe.Int64):haxe.Int64
 ```
 
 
-
-SwapInt64 atomically stores new into \*addr and returns the previous \*addr value.
-Consider using the more ergonomic and less error\-prone \[Int64.Swap\] instead
-\(particularly if you target 32\-bit platforms; see the bugs section\).  
-
+```
+SwapInt64 atomically stores new into *addr and returns the previous *addr value.
+    Consider using the more ergonomic and less error-prone [Int64.Swap] instead
+    (particularly if you target 32-bit platforms; see the bugs section).
+```
 [\(view code\)](<./Atomic_.hx#L68>)
 
 
@@ -582,10 +582,10 @@ function swapPointer(addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>, _
 ```
 
 
-
-SwapPointer atomically stores new into \*addr and returns the previous \*addr value.
-Consider using the more ergonomic and less error\-prone \[Pointer.Swap\] instead.  
-
+```
+SwapPointer atomically stores new into *addr and returns the previous *addr value.
+    Consider using the more ergonomic and less error-prone [Pointer.Swap] instead.
+```
 [\(view code\)](<./Atomic_.hx#L89>)
 
 
@@ -597,10 +597,10 @@ function swapUint32(addr:stdgo.Pointer<UInt>, _new:UInt):UInt
 ```
 
 
-
-SwapUint32 atomically stores new into \*addr and returns the previous \*addr value.
-Consider using the more ergonomic and less error\-prone \[Uint32.Swap\] instead.  
-
+```
+SwapUint32 atomically stores new into *addr and returns the previous *addr value.
+    Consider using the more ergonomic and less error-prone [Uint32.Swap] instead.
+```
 [\(view code\)](<./Atomic_.hx#L73>)
 
 
@@ -612,11 +612,11 @@ function swapUint64(addr:stdgo.Pointer<haxe.UInt64>, _new:haxe.UInt64):haxe.UInt
 ```
 
 
-
-SwapUint64 atomically stores new into \*addr and returns the previous \*addr value.
-Consider using the more ergonomic and less error\-prone \[Uint64.Swap\] instead
-\(particularly if you target 32\-bit platforms; see the bugs section\).  
-
+```
+SwapUint64 atomically stores new into *addr and returns the previous *addr value.
+    Consider using the more ergonomic and less error-prone [Uint64.Swap] instead
+    (particularly if you target 32-bit platforms; see the bugs section).
+```
 [\(view code\)](<./Atomic_.hx#L79>)
 
 
@@ -628,10 +628,10 @@ function swapUintptr(addr:stdgo.Pointer<stdgo.GoUIntptr>, _new:stdgo.GoUIntptr):
 ```
 
 
-
-SwapUintptr atomically stores new into \*addr and returns the previous \*addr value.
-Consider using the more ergonomic and less error\-prone \[Uintptr.Swap\] instead.  
-
+```
+SwapUintptr atomically stores new into *addr and returns the previous *addr value.
+    Consider using the more ergonomic and less error-prone [Uintptr.Swap] instead.
+```
 [\(view code\)](<./Atomic_.hx#L84>)
 
 

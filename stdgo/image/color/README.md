@@ -741,10 +741,10 @@ function testCMYKRoundtrip(t:stdgo._internal.testing.T_):Void
 ```
 
 
-
+```
 TestCMYKRoundtrip tests that a subset of RGB space can be converted to CMYK
-and back to within 1/256 tolerance.  
-
+    and back to within 1/256 tolerance.
+```
 [\(view code\)](<./Color.hx#L116>)
 
 
@@ -756,11 +756,11 @@ function testCMYKToRGBConsistency(t:stdgo._internal.testing.T_):Void
 ```
 
 
-
-TestCMYKToRGBConsistency tests that calling the RGBA method \(16 bit color\)
-then truncating to 8 bits is equivalent to calling the CMYKToRGB function \(8
-bit color\).  
-
+```
+TestCMYKToRGBConsistency tests that calling the RGBA method (16 bit color)
+    then truncating to 8 bits is equivalent to calling the CMYKToRGB function (8
+    bit color).
+```
 [\(view code\)](<./Color.hx#L122>)
 
 
@@ -836,10 +836,10 @@ function testYCbCrRoundtrip(t:stdgo._internal.testing.T_):Void
 ```
 
 
-
+```
 TestYCbCrRoundtrip tests that a subset of RGB space can be converted to YCbCr
-and back to within 2/256 tolerance.  
-
+    and back to within 2/256 tolerance.
+```
 [\(view code\)](<./Color.hx#L93>)
 
 
@@ -851,11 +851,11 @@ function testYCbCrToRGBConsistency(t:stdgo._internal.testing.T_):Void
 ```
 
 
-
-TestYCbCrToRGBConsistency tests that calling the RGBA method \(16 bit color\)
-then truncating to 8 bits is equivalent to calling the YCbCrToRGB function \(8
-bit color\).  
-
+```
+TestYCbCrToRGBConsistency tests that calling the RGBA method (16 bit color)
+    then truncating to 8 bits is equivalent to calling the YCbCrToRGB function (8
+    bit color).
+```
 [\(view code\)](<./Color.hx#L99>)
 
 

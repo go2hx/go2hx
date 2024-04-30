@@ -670,10 +670,10 @@ function compile(re:stdgo.regexp.syntax.Regexp):stdgo.Tuple<stdgo.regexp.syntax.
 ```
 
 
-
+```
 Compile compiles the regexp into a program to be executed.
-The regexp should have been simplified already \(returned from re.Simplify\).  
-
+    The regexp should have been simplified already (returned from re.Simplify).
+```
 [\(view code\)](<./Syntax.hx#L233>)
 
 
@@ -685,14 +685,14 @@ function emptyOpContext(r1:Int, r2:Int):stdgo.regexp.syntax.EmptyOp
 ```
 
 
-
-EmptyOpContext returns the zero\-width assertions
-satisfied at the position between the runes r1 and r2.
-Passing r1 == \-1 indicates that the position is
-at the beginning of the text.
-Passing r2 == \-1 indicates that the position is
-at the end of the text.  
-
+```
+EmptyOpContext returns the zero-width assertions
+    satisfied at the position between the runes r1 and r2.
+    Passing r1 == -1 indicates that the position is
+    at the beginning of the text.
+    Passing r2 == -1 indicates that the position is
+    at the end of the text.
+```
 [\(view code\)](<./Syntax.hx#L257>)
 
 
@@ -704,11 +704,11 @@ function isWordChar(r:Int):Bool
 ```
 
 
-
+```
 IsWordChar reports whether r is considered a “word character”
-during the evaluation of the \\b and \\B zero\-width assertions.
-These assertions are ASCII\-only: the word characters are \[A\-Za\-z0\-9\_\].  
-
+    during the evaluation of the \b and \B zero-width assertions.
+    These assertions are ASCII-only: the word characters are [A-Za-z0-9_].
+```
 [\(view code\)](<./Syntax.hx#L263>)
 
 
@@ -720,11 +720,11 @@ function parse(s:String, flags:stdgo.regexp.syntax.Flags):stdgo.Tuple<stdgo.rege
 ```
 
 
-
+```
 Parse parses a regular expression string s, controlled by the specified
-Flags, and returns a regular expression parse tree. The syntax is
-described in the top\-level comment.  
-
+    Flags, and returns a regular expression parse tree. The syntax is
+    described in the top-level comment.
+```
 [\(view code\)](<./Syntax.hx#L239>)
 
 

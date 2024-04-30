@@ -2101,7 +2101,7 @@ typedef T__struct_3 = {
 ```haxe
 typedef T__struct_4 = {
 	_wantErr:stdgo.Error;
-	_want:stdgo.GoString;	//  one of:
+	_want:stdgo.GoString;	// one of:
 	_in:stdgo.GoString;
 };
 ```

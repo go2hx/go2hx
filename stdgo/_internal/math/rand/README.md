@@ -6,7 +6,7 @@ stdgo/_internal/math/rand_test/Rand_test.hx:676: characters 49-73 : invalid type
 stdgo/_internal/math/rand_test/Rand_test.hx:983: characters 62-65 : Unknown identifier : _dn
 stdgo/_internal/math/rand_test/Rand_test.hx:1009: characters 62-65 : Unknown identifier : _de
 stdgo/_internal/math/rand_test/Rand_test.hx:1139: characters 209-216 : Unknown identifier : _stddev
-stdgo/_internal/internal/Macro.macro.hx:44: non hxb types:,381
+stdgo/_internal/internal/Macro.macro.hx:54: non hxb types:,381
 
 ```
 

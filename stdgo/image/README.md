@@ -105,7 +105,7 @@ stdgo/Go.macro.hx:1240: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:92
 stdgo/Go.macro.hx:1240: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:921: characters 46-71)
 stdgo/Go.macro.hx:1240: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:926: characters 74-99)
 stdgo/Go.macro.hx:1240: TAbstract(Any,[]),#pos(stdgo/_internal/image/Image.hx:932: characters 131-156)
-stdgo/_internal/internal/Macro.macro.hx:44: non hxb types:,354
+stdgo/_internal/internal/Macro.macro.hx:54: non hxb types:,354
 
 ```
 

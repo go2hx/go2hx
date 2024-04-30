@@ -132,7 +132,7 @@ function new():Void
 ```
 
 
-[\(view code\)](<./Macro.macro.hx#L49>)
+[\(view code\)](<./Macro.macro.hx#L59>)
 
 
 ## class Async

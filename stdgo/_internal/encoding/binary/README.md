@@ -6,7 +6,7 @@
 # Overview
 
 
-stdgo/_internal/internal/Macro.macro.hx:44: non hxb types:,376
+stdgo/_internal/internal/Macro.macro.hx:54: non hxb types:,376
 
 # Index
 
@@ -203,17 +203,17 @@ stdgo/_internal/internal/Macro.macro.hx:44: non hxb types:,376
 
   - [`function new(?int_:stdgo.GoInt, ?uint:stdgo.GoUInt, ?uintptr:stdgo.GoUIntptr, ?array:stdgo.GoArray<stdgo.GoInt>):Void`](<#t_-function-new>)
 
-- [class T\_testNoFixedSize\_14\_\_\_localname\_\_\_Person](<#class-t_testnofixedsize_14localnameperson>)
+- [class T\_testNoFixedSize\_17\_\_\_localname\_\_\_Person](<#class-t_testnofixedsize_17localnameperson>)
 
-  - [`function new(?age:stdgo.GoInt, ?weight:stdgo.GoFloat64, ?height:stdgo.GoFloat64):Void`](<#t_testnofixedsize_14localnameperson-function-new>)
+  - [`function new(?age:stdgo.GoInt, ?weight:stdgo.GoFloat64, ?height:stdgo.GoFloat64):Void`](<#t_testnofixedsize_17localnameperson-function-new>)
 
-- [class T\_testSizeStructCache\_11\_\_\_localname\_\_\_foo](<#class-t_testsizestructcache_11localnamefoo>)
+- [class T\_testSizeStructCache\_14\_\_\_localname\_\_\_foo](<#class-t_testsizestructcache_14localnamefoo>)
 
-  - [`function new(?a:stdgo.GoUInt32):Void`](<#t_testsizestructcache_11localnamefoo-function-new>)
+  - [`function new(?a:stdgo.GoUInt32):Void`](<#t_testsizestructcache_14localnamefoo-function-new>)
 
-- [class T\_testSizeStructCache\_12\_\_\_localname\_\_\_bar](<#class-t_testsizestructcache_12localnamebar>)
+- [class T\_testSizeStructCache\_15\_\_\_localname\_\_\_bar](<#class-t_testsizestructcache_15localnamebar>)
 
-  - [`function new(?a:stdgo._internal.encoding.binary.Struct, ?b:stdgo._internal.encoding.binary.T_testSizeStructCache_11___localname___foo, ?c:stdgo._internal.encoding.binary.Struct):Void`](<#t_testsizestructcache_12localnamebar-function-new>)
+  - [`function new(?a:stdgo._internal.encoding.binary.Struct, ?b:stdgo._internal.encoding.binary.T_testSizeStructCache_14___localname___foo, ?c:stdgo._internal.encoding.binary.Struct):Void`](<#t_testsizestructcache_15localnamebar-function-new>)
 
 - [class Unexported](<#class-unexported>)
 
@@ -241,7 +241,7 @@ stdgo/_internal/internal/Macro.macro.hx:44: non hxb types:,376
 
 - [typedef T\_encoder](<#typedef-t_encoder>)
 
-- [typedef T\_testByteOrder\_13\_\_\_localname\_\_\_byteOrder](<#typedef-t_testbyteorder_13localnamebyteorder>)
+- [typedef T\_testByteOrder\_16\_\_\_localname\_\_\_byteOrder](<#typedef-t_testbyteorder_16localnamebyteorder>)
 
 # Examples
 
@@ -1712,7 +1712,7 @@ function new(?int_:stdgo.GoInt, ?uint:stdgo.GoUInt, ?uintptr:stdgo.GoUIntptr, ?a
 [\(view code\)](<./Binary.hx#L373>)
 
 
-## class T\_testNoFixedSize\_14\_\_\_localname\_\_\_Person
+## class T\_testNoFixedSize\_17\_\_\_localname\_\_\_Person
 
 
 ```haxe
@@ -1730,7 +1730,7 @@ var weight:stdgo.GoFloat64
 ```
 
 
-### T\_testNoFixedSize\_14\_\_\_localname\_\_\_Person function new
+### T\_testNoFixedSize\_17\_\_\_localname\_\_\_Person function new
 
 
 ```haxe
@@ -1741,7 +1741,7 @@ function new(?age:stdgo.GoInt, ?weight:stdgo.GoFloat64, ?height:stdgo.GoFloat64)
 [\(view code\)](<./Binary.hx#L1517>)
 
 
-## class T\_testSizeStructCache\_11\_\_\_localname\_\_\_foo
+## class T\_testSizeStructCache\_14\_\_\_localname\_\_\_foo
 
 
 ```haxe
@@ -1749,7 +1749,7 @@ var a:stdgo.GoUInt32
 ```
 
 
-### T\_testSizeStructCache\_11\_\_\_localname\_\_\_foo function new
+### T\_testSizeStructCache\_14\_\_\_localname\_\_\_foo function new
 
 
 ```haxe
@@ -1760,7 +1760,7 @@ function new(?a:stdgo.GoUInt32):Void
 [\(view code\)](<./Binary.hx#L1170>)
 
 
-## class T\_testSizeStructCache\_12\_\_\_localname\_\_\_bar
+## class T\_testSizeStructCache\_15\_\_\_localname\_\_\_bar
 
 
 ```haxe
@@ -1769,7 +1769,7 @@ var a:stdgo._internal.encoding.binary.Struct
 
 
 ```haxe
-var b:stdgo._internal.encoding.binary.T_testSizeStructCache_11___localname___foo
+var b:stdgo._internal.encoding.binary.T_testSizeStructCache_14___localname___foo
 ```
 
 
@@ -1778,11 +1778,11 @@ var c:stdgo._internal.encoding.binary.Struct
 ```
 
 
-### T\_testSizeStructCache\_12\_\_\_localname\_\_\_bar function new
+### T\_testSizeStructCache\_15\_\_\_localname\_\_\_bar function new
 
 
 ```haxe
-function new(?a:stdgo._internal.encoding.binary.Struct, ?b:stdgo._internal.encoding.binary.T_testSizeStructCache_11___localname___foo, ?c:stdgo._internal.encoding.binary.Struct):Void
+function new(?a:stdgo._internal.encoding.binary.Struct, ?b:stdgo._internal.encoding.binary.T_testSizeStructCache_14___localname___foo, ?c:stdgo._internal.encoding.binary.Struct):Void
 ```
 
 
@@ -1943,11 +1943,11 @@ typedef T_encoder = stdgo._internal.encoding.binary.T_coder;
 ```
 
 
-## typedef T\_testByteOrder\_13\_\_\_localname\_\_\_byteOrder
+## typedef T\_testByteOrder\_16\_\_\_localname\_\_\_byteOrder
 
 
 ```haxe
-typedef T_testByteOrder_13___localname___byteOrder = {
+typedef T_testByteOrder_16___localname___byteOrder = {
 	public function uint64(_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt64;
 	public function uint32(_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32;
 	public function uint16(_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt16;

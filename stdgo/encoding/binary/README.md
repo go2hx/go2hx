@@ -277,15 +277,15 @@ package or protocol buffers.
 
 - [typedef T\_nativeEndian\_static\_extension](<#typedef-t_nativeendian_static_extension>)
 
-- [typedef T\_testByteOrder\_13\_\_\_localname\_\_\_byteOrder](<#typedef-t_testbyteorder_13localnamebyteorder>)
+- [typedef T\_testByteOrder\_16\_\_\_localname\_\_\_byteOrder](<#typedef-t_testbyteorder_16localnamebyteorder>)
 
-- [typedef T\_testByteOrder\_13\_\_\_localname\_\_\_byteOrder\_static\_extension](<#typedef-t_testbyteorder_13localnamebyteorder_static_extension>)
+- [typedef T\_testByteOrder\_16\_\_\_localname\_\_\_byteOrder\_static\_extension](<#typedef-t_testbyteorder_16localnamebyteorder_static_extension>)
 
-- [typedef T\_testNoFixedSize\_14\_\_\_localname\_\_\_Person](<#typedef-t_testnofixedsize_14localnameperson>)
+- [typedef T\_testNoFixedSize\_17\_\_\_localname\_\_\_Person](<#typedef-t_testnofixedsize_17localnameperson>)
 
-- [typedef T\_testSizeStructCache\_11\_\_\_localname\_\_\_foo](<#typedef-t_testsizestructcache_11localnamefoo>)
+- [typedef T\_testSizeStructCache\_14\_\_\_localname\_\_\_foo](<#typedef-t_testsizestructcache_14localnamefoo>)
 
-- [typedef T\_testSizeStructCache\_12\_\_\_localname\_\_\_bar](<#typedef-t_testsizestructcache_12localnamebar>)
+- [typedef T\_testSizeStructCache\_15\_\_\_localname\_\_\_bar](<#typedef-t_testsizestructcache_15localnamebar>)
 
 - [typedef Unexported](<#typedef-unexported>)
 
@@ -1624,43 +1624,43 @@ typedef T_nativeEndian_static_extension = Dynamic;
 ```
 
 
-## typedef T\_testByteOrder\_13\_\_\_localname\_\_\_byteOrder
+## typedef T\_testByteOrder\_16\_\_\_localname\_\_\_byteOrder
 
 
 ```haxe
-typedef T_testByteOrder_13___localname___byteOrder = stdgo._internal.encoding.binary.T_testByteOrder_13___localname___byteOrder;
+typedef T_testByteOrder_16___localname___byteOrder = stdgo._internal.encoding.binary.T_testByteOrder_16___localname___byteOrder;
 ```
 
 
-## typedef T\_testByteOrder\_13\_\_\_localname\_\_\_byteOrder\_static\_extension
+## typedef T\_testByteOrder\_16\_\_\_localname\_\_\_byteOrder\_static\_extension
 
 
 ```haxe
-typedef T_testByteOrder_13___localname___byteOrder_static_extension = Dynamic;
+typedef T_testByteOrder_16___localname___byteOrder_static_extension = Dynamic;
 ```
 
 
-## typedef T\_testNoFixedSize\_14\_\_\_localname\_\_\_Person
+## typedef T\_testNoFixedSize\_17\_\_\_localname\_\_\_Person
 
 
 ```haxe
-typedef T_testNoFixedSize_14___localname___Person = Dynamic;
+typedef T_testNoFixedSize_17___localname___Person = Dynamic;
 ```
 
 
-## typedef T\_testSizeStructCache\_11\_\_\_localname\_\_\_foo
+## typedef T\_testSizeStructCache\_14\_\_\_localname\_\_\_foo
 
 
 ```haxe
-typedef T_testSizeStructCache_11___localname___foo = Dynamic;
+typedef T_testSizeStructCache_14___localname___foo = Dynamic;
 ```
 
 
-## typedef T\_testSizeStructCache\_12\_\_\_localname\_\_\_bar
+## typedef T\_testSizeStructCache\_15\_\_\_localname\_\_\_bar
 
 
 ```haxe
-typedef T_testSizeStructCache_12___localname___bar = Dynamic;
+typedef T_testSizeStructCache_15___localname___bar = Dynamic;
 ```
 
 

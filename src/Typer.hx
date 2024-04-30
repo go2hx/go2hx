@@ -7818,7 +7818,14 @@ private function sanatizeComment(source:String):String {
 		return source;
 	source = StringTools.replace(source, "/*", "/|*");
 	source = StringTools.replace(source, "*/", "*|/");
-	return source;
+	final lines = source.split("\n");
+	for (i in 0...lines.length) {
+		if (lines[i].substr(0,3) == "// ")
+			lines[i] = lines[i].substr(3);
+		if (lines[i].substr(0,2) == "//")
+			lines[i] = lines[i].substr(2);
+	}
+	return lines.join("\n");
 }
 
 private function typeAccess(name:String, isField:Bool = false):Array<Access> {

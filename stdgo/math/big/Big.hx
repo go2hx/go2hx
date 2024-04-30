@@ -357,9 +357,9 @@ inline function benchmarkAddVV(b:stdgo._internal.testing.Testing.B):Void throw "
 inline function benchmarkSubVV(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 inline function testFunVW(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Extended testing to addVW and subVW using various kinds of input data.
-    // We utilize the results of addVW_g and subVW_g as golden reference to check
-    // correctness.
+    Extended testing to addVW and subVW using various kinds of input data.
+    We utilize the results of addVW_g and subVW_g as golden reference to check
+    correctness.
 **/
 inline function testFunVWExt(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testShiftOverlap(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -367,12 +367,12 @@ inline function testIssue31084(t:stdgo._internal.testing.Testing.T_):Void throw 
 inline function testIssue42838(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function benchmarkAddVW(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 /**
-    // Benchmarking addVW using vector of maximum uint to force carry flag set
+    Benchmarking addVW using vector of maximum uint to force carry flag set
 **/
 inline function benchmarkAddVWext(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 inline function benchmarkSubVW(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 /**
-    // Benchmarking subVW using vector of zero to force carry flag set
+    Benchmarking subVW using vector of zero to force carry flag set
 **/
 inline function benchmarkSubVWext(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 inline function testFunVWW(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -393,9 +393,9 @@ inline function testDecimalRounding(t:stdgo._internal.testing.Testing.T_):Void t
 inline function benchmarkDecimalConversion(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 inline function benchmarkFloatString(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 /**
-    // NewFloat allocates and returns a new Float set to x,
-    // with precision 53 and rounding mode ToNearestEven.
-    // NewFloat panics with ErrNaN if x is a NaN.
+    NewFloat allocates and returns a new Float set to x,
+    with precision 53 and rounding mode ToNearestEven.
+    NewFloat panics with ErrNaN if x is a NaN.
 **/
 inline function newFloat(x:Float):Float_ throw "not implemented";
 inline function testFloatZeroValue(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -408,13 +408,13 @@ inline function testFloatSetMantExp(t:stdgo._internal.testing.Testing.T_):Void t
 inline function testFloatPredicates(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testFloatIsInt(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestFloatRound tests basic rounding.
+    TestFloatRound tests basic rounding.
 **/
 inline function testFloatRound(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestFloatRound24 tests that rounding a float64 to 24 bits
-    // matches IEEE-754 rounding to nearest when converting a
-    // float64 to a float32 (excluding denormal numbers).
+    TestFloatRound24 tests that rounding a float64 to 24 bits
+    matches IEEE-754 rounding to nearest when converting a
+    float64 to a float32 (excluding denormal numbers).
 **/
 inline function testFloatRound24(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testFloatSetUint64(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -433,75 +433,75 @@ inline function testFloatAbs(t:stdgo._internal.testing.Testing.T_):Void throw "n
 inline function testFloatNeg(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testFloatInc(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestFloatAdd tests Float.Add/Sub by comparing the result of a "manual"
-    // addition/subtraction of arguments represented by Bits values with the
-    // respective Float addition/subtraction for a variety of precisions
-    // and rounding modes.
+    TestFloatAdd tests Float.Add/Sub by comparing the result of a "manual"
+    addition/subtraction of arguments represented by Bits values with the
+    respective Float addition/subtraction for a variety of precisions
+    and rounding modes.
 **/
 inline function testFloatAdd(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestFloatAddRoundZero tests Float.Add/Sub rounding when the result is exactly zero.
-    // x + (-x) or x - x for non-zero x should be +0 in all cases except when
-    // the rounding mode is ToNegativeInf in which case it should be -0.
+    TestFloatAddRoundZero tests Float.Add/Sub rounding when the result is exactly zero.
+    x + (-x) or x - x for non-zero x should be +0 in all cases except when
+    the rounding mode is ToNegativeInf in which case it should be -0.
 **/
 inline function testFloatAddRoundZero(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestFloatAdd32 tests that Float.Add/Sub of numbers with
-    // 24bit mantissa behaves like float32 addition/subtraction
-    // (excluding denormal numbers).
+    TestFloatAdd32 tests that Float.Add/Sub of numbers with
+    24bit mantissa behaves like float32 addition/subtraction
+    (excluding denormal numbers).
 **/
 inline function testFloatAdd32(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestFloatAdd64 tests that Float.Add/Sub of numbers with
-    // 53bit mantissa behaves like float64 addition/subtraction.
+    TestFloatAdd64 tests that Float.Add/Sub of numbers with
+    53bit mantissa behaves like float64 addition/subtraction.
 **/
 inline function testFloatAdd64(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testIssue20490(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestFloatMul tests Float.Mul/Quo by comparing the result of a "manual"
-    // multiplication/division of arguments represented by Bits values with the
-    // respective Float multiplication/division for a variety of precisions
-    // and rounding modes.
+    TestFloatMul tests Float.Mul/Quo by comparing the result of a "manual"
+    multiplication/division of arguments represented by Bits values with the
+    respective Float multiplication/division for a variety of precisions
+    and rounding modes.
 **/
 inline function testFloatMul(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestFloatMul64 tests that Float.Mul/Quo of numbers with
-    // 53bit mantissa behaves like float64 multiplication/division.
+    TestFloatMul64 tests that Float.Mul/Quo of numbers with
+    53bit mantissa behaves like float64 multiplication/division.
 **/
 inline function testFloatMul64(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testIssue6866(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testFloatQuo(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestFloatQuoSmoke tests all divisions x/y for values x, y in the range [-n, +n];
-    // it serves as a smoke test for basic correctness of division.
+    TestFloatQuoSmoke tests all divisions x/y for values x, y in the range [-n, +n];
+    it serves as a smoke test for basic correctness of division.
 **/
 inline function testFloatQuoSmoke(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestFloatArithmeticSpecialValues tests that Float operations produce the
-    // correct results for combinations of zero (±0), finite (±1 and ±2.71828),
-    // and infinite (±Inf) operands.
+    TestFloatArithmeticSpecialValues tests that Float operations produce the
+    correct results for combinations of zero (±0), finite (±1 and ±2.71828),
+    and infinite (±Inf) operands.
 **/
 inline function testFloatArithmeticSpecialValues(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testFloatArithmeticOverflow(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // For rounding modes ToNegativeInf and ToPositiveInf, rounding is affected
-    // by the sign of the value to be rounded. Test that rounding happens after
-    // the sign of a result has been set.
-    // This test uses specific values that are known to fail if rounding is
-    // "factored" out before setting the result sign.
+    For rounding modes ToNegativeInf and ToPositiveInf, rounding is affected
+    by the sign of the value to be rounded. Test that rounding happens after
+    the sign of a result has been set.
+    This test uses specific values that are known to fail if rounding is
+    "factored" out before setting the result sign.
 **/
 inline function testFloatArithmeticRounding(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestFloatCmpSpecialValues tests that Cmp produces the correct results for
-    // combinations of zero (±0), finite (±1 and ±2.71828), and infinite (±Inf)
-    // operands.
+    TestFloatCmpSpecialValues tests that Cmp produces the correct results for
+    combinations of zero (±0), finite (±1 and ±2.71828), and infinite (±Inf)
+    operands.
 **/
 inline function testFloatCmpSpecialValues(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function benchmarkFloatAdd(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 inline function benchmarkFloatSub(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 /**
-    // ParseFloat is like f.Parse(s, base) with f set to the given precision
-    // and rounding mode.
+    ParseFloat is like f.Parse(s, base) with f set to the given precision
+    and rounding mode.
 **/
 inline function parseFloat(s:String, base:Int, prec:UInt, mode:RoundingMode):stdgo.Tuple.Tuple3<Float_, Int, stdgo.Error> throw "not implemented";
 inline function testFloatSetFloat64String(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -534,12 +534,12 @@ inline function benchmarkGCD100000x100000(b:stdgo._internal.testing.Testing.B):V
 inline function testHilbert(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function benchmarkHilbert(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 /**
-    // NewInt allocates and returns a new Int set to x.
+    NewInt allocates and returns a new Int set to x.
 **/
 inline function newInt(x:haxe.Int64):Int_ throw "not implemented";
 /**
-    // Jacobi returns the Jacobi symbol (x/y), either +1, -1, or 0.
-    // The y argument must be an odd integer.
+    Jacobi returns the Jacobi symbol (x/y), either +1, -1, or 0.
+    The y argument must be an odd integer.
 **/
 inline function jacobi(x:Int_, y:Int_):Int throw "not implemented";
 inline function testSignZ(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -593,8 +593,8 @@ inline function testJacobiPanic(t:stdgo._internal.testing.Testing.T_):Void throw
 inline function testIssue2607(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testSqrt(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // We can't test this together with the other Exp tests above because
-    // it requires a different receiver setup.
+    We can't test this together with the other Exp tests above because
+    it requires a different receiver setup.
 **/
 inline function testIssue22830(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function benchmarkSqrt(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
@@ -612,16 +612,16 @@ inline function testFormat(t:stdgo._internal.testing.Testing.T_):Void throw "not
 inline function testScan(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testIntGobEncoding(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Sending a nil Int pointer (inside a slice) on a round trip through gob should yield a zero.
-    // TODO: top-level nils.
+    Sending a nil Int pointer (inside a slice) on a round trip through gob should yield a zero.
+    TODO: top-level nils.
 **/
 inline function testGobEncodingNilIntInSlice(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testIntJSONEncoding(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testIntJSONEncodingNil(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testIntXMLEncoding(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Tests that the linker is able to remove references to Float, Rat,
-    // and Int if unused (notably, not used by init).
+    Tests that the linker is able to remove references to Float, Rat,
+    and Int if unused (notably, not used by init).
 **/
 inline function testLinkerGC(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testCmp(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -629,9 +629,9 @@ inline function testSet(t:stdgo._internal.testing.Testing.T_):Void throw "not im
 inline function testFunNN(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testMulRangeN(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestMulUnbalanced tests that multiplying numbers of different lengths
-    // does not cause deep recursion and in turn allocate too much memory.
-    // Test case for issue 3807.
+    TestMulUnbalanced tests that multiplying numbers of different lengths
+    does not cause deep recursion and in turn allocate too much memory.
+    Test case for issue 3807.
 **/
 inline function testMulUnbalanced(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function benchmarkMul(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
@@ -655,22 +655,22 @@ inline function testNatSubMod2N(t:stdgo._internal.testing.Testing.T_):Void throw
 inline function benchmarkNatSetBytes(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 inline function testNatDiv(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestIssue37499 triggers the edge case of divBasic where
-    // the inaccurate estimate of the first word's quotient
-    // happens at the very beginning of the loop.
+    TestIssue37499 triggers the edge case of divBasic where
+    the inaccurate estimate of the first word's quotient
+    happens at the very beginning of the loop.
 **/
 inline function testIssue37499(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestIssue42552 triggers an edge case of recursive division
-    // where the first division loop is never entered, and correcting
-    // the remainder takes exactly two iterations in the final loop.
+    TestIssue42552 triggers an edge case of recursive division
+    where the first division loop is never entered, and correcting
+    the remainder takes exactly two iterations in the final loop.
 **/
 inline function testIssue42552(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testMaxBase(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testString(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testScanBase(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Test case for BenchmarkScanPi.
+    Test case for BenchmarkScanPi.
 **/
 inline function testScanPi(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testScanPiParallel(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -686,7 +686,7 @@ inline function benchmarkProbablyPrime(b:stdgo._internal.testing.Testing.B):Void
 inline function testMillerRabinPseudoprimes(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testLucasPseudoprimes(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // NewRat creates a new Rat with numerator a and denominator b.
+    NewRat creates a new Rat with numerator a and denominator b.
 **/
 inline function newRat(a:haxe.Int64, b:haxe.Int64):Rat throw "not implemented";
 inline function testZeroRat(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -704,8 +704,8 @@ inline function testIssue3521(t:stdgo._internal.testing.Testing.T_):Void throw "
 inline function testFloat32Distribution(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testFloat64Distribution(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestSetFloat64NonFinite checks that SetFloat64 of a non-finite value
-    // returns nil.
+    TestSetFloat64NonFinite checks that SetFloat64 of a non-finite value
+    returns nil.
 **/
 inline function testSetFloat64NonFinite(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testIsFinite(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -713,8 +713,8 @@ inline function testRatSetInt64(t:stdgo._internal.testing.Testing.T_):Void throw
 inline function testRatSetUint64(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function benchmarkRatCmp(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 /**
-    // TestIssue34919 verifies that a Rat's denominator is not modified
-    // when simply accessing the Rat value.
+    TestIssue34919 verifies that a Rat's denominator is not modified
+    when simply accessing the Rat value.
 **/
 inline function testIssue34919(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testDenomRace(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -729,16 +729,16 @@ inline function testIssue31184(t:stdgo._internal.testing.Testing.T_):Void throw 
 inline function testIssue45910(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testRatGobEncoding(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Sending a nil Rat pointer (inside a slice) on a round trip through gob should yield a zero.
-    // TODO: top-level nils.
+    Sending a nil Rat pointer (inside a slice) on a round trip through gob should yield a zero.
+    TODO: top-level nils.
 **/
 inline function testGobEncodingNilRatInSlice(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testRatJSONEncoding(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testRatXMLEncoding(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testRatGobDecodeShortBuffer(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestFloatSqrt64 tests that Float.Sqrt of numbers with 53bit mantissa
-    // behaves like float math.Sqrt.
+    TestFloatSqrt64 tests that Float.Sqrt of numbers with 53bit mantissa
+    behaves like float math.Sqrt.
 **/
 inline function testFloatSqrt64(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testFloatSqrt(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";

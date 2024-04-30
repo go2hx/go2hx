@@ -1,6 +1,6 @@
 package stdgo.image.color;
 /**
-    // Package color implements a basic color library.
+    Package color implements a basic color library.
 **/
 private var __go2hxdoc__package : Bool;
 var rgbamodel(get, set) : stdgo._internal.image.color.Color.Model;
@@ -66,62 +66,62 @@ typedef Model = stdgo._internal.image.color.Color.Model;
 @:invalid typedef CMYK = Dynamic;
 typedef Palette = stdgo._internal.image.color.Color.Palette;
 /**
-    // ModelFunc returns a Model that invokes f to implement the conversion.
+    ModelFunc returns a Model that invokes f to implement the conversion.
 **/
 inline function modelFunc(f:Color -> Color):Model throw "not implemented";
 inline function testSqDiff(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // RGBToYCbCr converts an RGB triple to a Y'CbCr triple.
+    RGBToYCbCr converts an RGB triple to a Y'CbCr triple.
 **/
 inline function rgbtoYCbCr(r:UInt, g:UInt, b:UInt):stdgo.Tuple.Tuple3<UInt, UInt, UInt> throw "not implemented";
 /**
-    // YCbCrToRGB converts a Y'CbCr triple to an RGB triple.
+    YCbCrToRGB converts a Y'CbCr triple to an RGB triple.
 **/
 inline function ycbCrToRGB(y:UInt, cb:UInt, cr:UInt):stdgo.Tuple.Tuple3<UInt, UInt, UInt> throw "not implemented";
 /**
-    // RGBToCMYK converts an RGB triple to a CMYK quadruple.
+    RGBToCMYK converts an RGB triple to a CMYK quadruple.
 **/
 inline function rgbtoCMYK(r:UInt, g:UInt, b:UInt):stdgo.Tuple.Tuple4<UInt, UInt, UInt, UInt> throw "not implemented";
 /**
-    // CMYKToRGB converts a CMYK quadruple to an RGB triple.
+    CMYKToRGB converts a CMYK quadruple to an RGB triple.
 **/
 inline function cmyktoRGB(c:UInt, m:UInt, y:UInt, k:UInt):stdgo.Tuple.Tuple3<UInt, UInt, UInt> throw "not implemented";
 /**
-    // TestYCbCrRoundtrip tests that a subset of RGB space can be converted to YCbCr
-    // and back to within 2/256 tolerance.
+    TestYCbCrRoundtrip tests that a subset of RGB space can be converted to YCbCr
+    and back to within 2/256 tolerance.
 **/
 inline function testYCbCrRoundtrip(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestYCbCrToRGBConsistency tests that calling the RGBA method (16 bit color)
-    // then truncating to 8 bits is equivalent to calling the YCbCrToRGB function (8
-    // bit color).
+    TestYCbCrToRGBConsistency tests that calling the RGBA method (16 bit color)
+    then truncating to 8 bits is equivalent to calling the YCbCrToRGB function (8
+    bit color).
 **/
 inline function testYCbCrToRGBConsistency(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestYCbCrGray tests that YCbCr colors are a superset of Gray colors.
+    TestYCbCrGray tests that YCbCr colors are a superset of Gray colors.
 **/
 inline function testYCbCrGray(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestNYCbCrAAlpha tests that NYCbCrA colors are a superset of Alpha colors.
+    TestNYCbCrAAlpha tests that NYCbCrA colors are a superset of Alpha colors.
 **/
 inline function testNYCbCrAAlpha(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestNYCbCrAYCbCr tests that NYCbCrA colors are a superset of YCbCr colors.
+    TestNYCbCrAYCbCr tests that NYCbCrA colors are a superset of YCbCr colors.
 **/
 inline function testNYCbCrAYCbCr(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestCMYKRoundtrip tests that a subset of RGB space can be converted to CMYK
-    // and back to within 1/256 tolerance.
+    TestCMYKRoundtrip tests that a subset of RGB space can be converted to CMYK
+    and back to within 1/256 tolerance.
 **/
 inline function testCMYKRoundtrip(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestCMYKToRGBConsistency tests that calling the RGBA method (16 bit color)
-    // then truncating to 8 bits is equivalent to calling the CMYKToRGB function (8
-    // bit color).
+    TestCMYKToRGBConsistency tests that calling the RGBA method (16 bit color)
+    then truncating to 8 bits is equivalent to calling the CMYKToRGB function (8
+    bit color).
 **/
 inline function testCMYKToRGBConsistency(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestCMYKGray tests that CMYK colors are a superset of Gray colors.
+    TestCMYKGray tests that CMYK colors are a superset of Gray colors.
 **/
 inline function testCMYKGray(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testPalette(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";

@@ -1387,7 +1387,7 @@ class T__struct_4_asInterface {
 @:local @:using(stdgo._internal.strconv_test.Strconv_test.T__struct_4_static_extension) typedef T__struct_4 = {
     public var _in : stdgo.GoString;
     /**
-        // one of:
+        one of:
     **/
     public var _want : stdgo.GoString;
     public var _wantErr : stdgo.Error;

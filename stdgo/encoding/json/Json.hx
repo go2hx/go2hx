@@ -1,11 +1,11 @@
 package stdgo.encoding.json;
 /**
-    // Package json implements encoding and decoding of JSON as defined in
-    // RFC 7159. The mapping between JSON and Go values is described
-    // in the documentation for the Marshal and Unmarshal functions.
-    //
-    // See "JSON and Go" for an introduction to this package:
-    // https://golang.org/doc/articles/json_and_go.html
+    Package json implements encoding and decoding of JSON as defined in
+    RFC 7159. The mapping between JSON and Go values is described
+    in the documentation for the Marshal and Unmarshal functions.
+    
+    See "JSON and Go" for an introduction to this package:
+    https://golang.org/doc/articles/json_and_go.html
 **/
 private var __go2hxdoc__package : Bool;
 @:invalid typedef Unmarshaler_static_extension = Dynamic;
@@ -329,81 +329,81 @@ inline function benchmarkEncoderEncode(b:stdgo._internal.testing.Testing.B):Void
 inline function benchmarkNumberIsValid(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 inline function benchmarkNumberIsValidRegexp(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 /**
-    // Unmarshal parses the JSON-encoded data and stores the result
-    // in the value pointed to by v. If v is nil or not a pointer,
-    // Unmarshal returns an InvalidUnmarshalError.
-    //
-    // Unmarshal uses the inverse of the encodings that
-    // Marshal uses, allocating maps, slices, and pointers as necessary,
-    // with the following additional rules:
-    //
-    // To unmarshal JSON into a pointer, Unmarshal first handles the case of
-    // the JSON being the JSON literal null. In that case, Unmarshal sets
-    // the pointer to nil. Otherwise, Unmarshal unmarshals the JSON into
-    // the value pointed at by the pointer. If the pointer is nil, Unmarshal
-    // allocates a new value for it to point to.
-    //
-    // To unmarshal JSON into a value implementing the Unmarshaler interface,
-    // Unmarshal calls that value's UnmarshalJSON method, including
-    // when the input is a JSON null.
-    // Otherwise, if the value implements encoding.TextUnmarshaler
-    // and the input is a JSON quoted string, Unmarshal calls that value's
-    // UnmarshalText method with the unquoted form of the string.
-    //
-    // To unmarshal JSON into a struct, Unmarshal matches incoming object
-    // keys to the keys used by Marshal (either the struct field name or its tag),
-    // preferring an exact match but also accepting a case-insensitive match. By
-    // default, object keys which don't have a corresponding struct field are
-    // ignored (see Decoder.DisallowUnknownFields for an alternative).
-    //
-    // To unmarshal JSON into an interface value,
-    // Unmarshal stores one of these in the interface value:
-    //
-    //	bool, for JSON booleans
-    //	float64, for JSON numbers
-    //	string, for JSON strings
-    //	[]interface{}, for JSON arrays
-    //	map[string]interface{}, for JSON objects
-    //	nil for JSON null
-    //
-    // To unmarshal a JSON array into a slice, Unmarshal resets the slice length
-    // to zero and then appends each element to the slice.
-    // As a special case, to unmarshal an empty JSON array into a slice,
-    // Unmarshal replaces the slice with a new empty slice.
-    //
-    // To unmarshal a JSON array into a Go array, Unmarshal decodes
-    // JSON array elements into corresponding Go array elements.
-    // If the Go array is smaller than the JSON array,
-    // the additional JSON array elements are discarded.
-    // If the JSON array is smaller than the Go array,
-    // the additional Go array elements are set to zero values.
-    //
-    // To unmarshal a JSON object into a map, Unmarshal first establishes a map to
-    // use. If the map is nil, Unmarshal allocates a new map. Otherwise Unmarshal
-    // reuses the existing map, keeping existing entries. Unmarshal then stores
-    // key-value pairs from the JSON object into the map. The map's key type must
-    // either be any string type, an integer, implement json.Unmarshaler, or
-    // implement encoding.TextUnmarshaler.
-    //
-    // If the JSON-encoded data contain a syntax error, Unmarshal returns a SyntaxError.
-    //
-    // If a JSON value is not appropriate for a given target type,
-    // or if a JSON number overflows the target type, Unmarshal
-    // skips that field and completes the unmarshaling as best it can.
-    // If no more serious errors are encountered, Unmarshal returns
-    // an UnmarshalTypeError describing the earliest such error. In any
-    // case, it's not guaranteed that all the remaining fields following
-    // the problematic one will be unmarshaled into the target object.
-    //
-    // The JSON null value unmarshals into an interface, map, pointer, or slice
-    // by setting that Go value to nil. Because null is often used in JSON to mean
-    // “not present,” unmarshaling a JSON null into any other Go type has no effect
-    // on the value and produces no error.
-    //
-    // When unmarshaling quoted strings, invalid UTF-8 or
-    // invalid UTF-16 surrogate pairs are not treated as an error.
-    // Instead, they are replaced by the Unicode replacement
-    // character U+FFFD.
+    Unmarshal parses the JSON-encoded data and stores the result
+    in the value pointed to by v. If v is nil or not a pointer,
+    Unmarshal returns an InvalidUnmarshalError.
+    
+    Unmarshal uses the inverse of the encodings that
+    Marshal uses, allocating maps, slices, and pointers as necessary,
+    with the following additional rules:
+    
+    To unmarshal JSON into a pointer, Unmarshal first handles the case of
+    the JSON being the JSON literal null. In that case, Unmarshal sets
+    the pointer to nil. Otherwise, Unmarshal unmarshals the JSON into
+    the value pointed at by the pointer. If the pointer is nil, Unmarshal
+    allocates a new value for it to point to.
+    
+    To unmarshal JSON into a value implementing the Unmarshaler interface,
+    Unmarshal calls that value's UnmarshalJSON method, including
+    when the input is a JSON null.
+    Otherwise, if the value implements encoding.TextUnmarshaler
+    and the input is a JSON quoted string, Unmarshal calls that value's
+    UnmarshalText method with the unquoted form of the string.
+    
+    To unmarshal JSON into a struct, Unmarshal matches incoming object
+    keys to the keys used by Marshal (either the struct field name or its tag),
+    preferring an exact match but also accepting a case-insensitive match. By
+    default, object keys which don't have a corresponding struct field are
+    ignored (see Decoder.DisallowUnknownFields for an alternative).
+    
+    To unmarshal JSON into an interface value,
+    Unmarshal stores one of these in the interface value:
+    
+    	bool, for JSON booleans
+    	float64, for JSON numbers
+    	string, for JSON strings
+    	[]interface{}, for JSON arrays
+    	map[string]interface{}, for JSON objects
+    	nil for JSON null
+    
+    To unmarshal a JSON array into a slice, Unmarshal resets the slice length
+    to zero and then appends each element to the slice.
+    As a special case, to unmarshal an empty JSON array into a slice,
+    Unmarshal replaces the slice with a new empty slice.
+    
+    To unmarshal a JSON array into a Go array, Unmarshal decodes
+    JSON array elements into corresponding Go array elements.
+    If the Go array is smaller than the JSON array,
+    the additional JSON array elements are discarded.
+    If the JSON array is smaller than the Go array,
+    the additional Go array elements are set to zero values.
+    
+    To unmarshal a JSON object into a map, Unmarshal first establishes a map to
+    use. If the map is nil, Unmarshal allocates a new map. Otherwise Unmarshal
+    reuses the existing map, keeping existing entries. Unmarshal then stores
+    key-value pairs from the JSON object into the map. The map's key type must
+    either be any string type, an integer, implement json.Unmarshaler, or
+    implement encoding.TextUnmarshaler.
+    
+    If the JSON-encoded data contain a syntax error, Unmarshal returns a SyntaxError.
+    
+    If a JSON value is not appropriate for a given target type,
+    or if a JSON number overflows the target type, Unmarshal
+    skips that field and completes the unmarshaling as best it can.
+    If no more serious errors are encountered, Unmarshal returns
+    an UnmarshalTypeError describing the earliest such error. In any
+    case, it's not guaranteed that all the remaining fields following
+    the problematic one will be unmarshaled into the target object.
+    
+    The JSON null value unmarshals into an interface, map, pointer, or slice
+    by setting that Go value to nil. Because null is often used in JSON to mean
+    “not present,” unmarshaling a JSON null into any other Go type has no effect
+    on the value and produces no error.
+    
+    When unmarshaling quoted strings, invalid UTF-8 or
+    invalid UTF-16 surrogate pairs are not treated as an error.
+    Instead, they are replaced by the Unicode replacement
+    character U+FFFD.
 **/
 inline function unmarshal(data:Array<Int>, v:stdgo.AnyInterface):stdgo.Error throw "not implemented";
 inline function testMarshal(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -413,7 +413,7 @@ inline function testMarshalEmbeds(t:stdgo._internal.testing.Testing.T_):Void thr
 inline function testUnmarshal(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testUnmarshalMarshal(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Independent of Decode, basic coverage of the accessors in Number
+    Independent of Decode, basic coverage of the accessors in Number
 **/
 inline function testNumberAccessors(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testLargeByteSlice(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -421,43 +421,43 @@ inline function testUnmarshalInterface(t:stdgo._internal.testing.Testing.T_):Voi
 inline function testUnmarshalPtrPtr(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testEscape(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // If people misuse the ,string modifier, the error message should be
-    // helpful, telling the user that they're doing it wrong.
+    If people misuse the ,string modifier, the error message should be
+    helpful, telling the user that they're doing it wrong.
 **/
 inline function testErrorMessageFromMisusedString(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testRefUnmarshal_89___localname___S = Dynamic;
 inline function testRefUnmarshal(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testEmptyString_90___localname___T2 = Dynamic;
 /**
-    // Test that the empty string doesn't panic decoding when ,string is specified
-    // Issue 3450
+    Test that the empty string doesn't panic decoding when ,string is specified
+    Issue 3450
 **/
 inline function testEmptyString(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testNullString_91___localname___T = Dynamic;
 /**
-    // Test that a null for ,string is not replaced with the previous quoted string (issue 7046).
-    // It should also not be an error (issue 2540, issue 8587).
+    Test that a null for ,string is not replaced with the previous quoted string (issue 7046).
+    It should also not be an error (issue 2540, issue 8587).
 **/
 inline function testNullString(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testInterfaceSet(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // JSON null values should be ignored for primitives and string values instead of resulting in an error.
-    // Issue 2540
+    JSON null values should be ignored for primitives and string values instead of resulting in an error.
+    Issue 2540
 **/
 inline function testUnmarshalNulls(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 typedef T_testStringKind_92___localname___stringKind = stdgo._internal.encoding.json.Json.T_testStringKind_92___localname___stringKind;
 inline function testStringKind(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 typedef T_testByteKind_93___localname___byteKind = stdgo._internal.encoding.json.Json.T_testByteKind_93___localname___byteKind;
 /**
-    // Custom types with []byte as underlying type could not be marshaled
-    // and then unmarshaled.
-    // Issue 8962.
+    Custom types with []byte as underlying type could not be marshaled
+    and then unmarshaled.
+    Issue 8962.
 **/
 inline function testByteKind(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 typedef T_testSliceOfCustomByte_94___localname___Uint8 = stdgo._internal.encoding.json.Json.T_testSliceOfCustomByte_94___localname___Uint8;
 /**
-    // The fix for issue 8962 introduced a regression.
-    // Issue 12921.
+    The fix for issue 8962 introduced a regression.
+    Issue 12921.
 **/
 inline function testSliceOfCustomByte(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testUnmarshalTypeError(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -465,22 +465,22 @@ inline function testUnmarshalSyntax(t:stdgo._internal.testing.Testing.T_):Void t
 inline function testUnmarshalUnexported(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testUnmarshalJSONLiteralError(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Test that extra object elements in an array do not result in a
-    // "data changing underfoot" error.
-    // Issue 3717
+    Test that extra object elements in an array do not result in a
+    "data changing underfoot" error.
+    Issue 3717
 **/
 inline function testSkipArrayObjects(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Test semantics of pre-filled data, such as struct fields, map elements,
-    // slices, and arrays.
-    // Issues 4900 and 8837, among others.
+    Test semantics of pre-filled data, such as struct fields, map elements,
+    slices, and arrays.
+    Issues 4900 and 8837, among others.
 **/
 inline function testPrefilled(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testInvalidUnmarshal(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testInvalidUnmarshalText(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Test that string option is ignored for invalid types.
-    // Issue 9812.
+    Test that string option is ignored for invalid types.
+    Issue 9812.
 **/
 inline function testInvalidStringOption(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testUnmarshalEmbeddedUnexported_95___localname___embed1 = Dynamic;
@@ -496,170 +496,170 @@ inline function testInvalidStringOption(t:stdgo._internal.testing.Testing.T_):Vo
 @:invalid typedef T_testUnmarshalEmbeddedUnexported_105___localname___S8 = Dynamic;
 @:invalid typedef T_testUnmarshalEmbeddedUnexported_106___localname___S9 = Dynamic;
 /**
-    // Test unmarshal behavior with regards to embedded unexported structs.
-    //
-    // (Issue 21357) If the embedded struct is a pointer and is unallocated,
-    // this returns an error because unmarshal cannot set the field.
-    //
-    // (Issue 24152) If the embedded struct is given an explicit name,
-    // ensure that the normal unmarshal logic does not panic in reflect.
-    //
-    // (Issue 28145) If the embedded struct is given an explicit name and has
-    // exported methods, don't cause a panic trying to get its value.
+    Test unmarshal behavior with regards to embedded unexported structs.
+    
+    (Issue 21357) If the embedded struct is a pointer and is unallocated,
+    this returns an error because unmarshal cannot set the field.
+    
+    (Issue 24152) If the embedded struct is given an explicit name,
+    ensure that the normal unmarshal logic does not panic in reflect.
+    
+    (Issue 28145) If the embedded struct is given an explicit name and has
+    exported methods, don't cause a panic trying to get its value.
 **/
 inline function testUnmarshalEmbeddedUnexported(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testUnmarshalErrorAfterMultipleJSON(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testUnmarshalPanic(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // The decoder used to hang if decoding into an interface pointing to its own address.
-    // See golang.org/issues/31740.
+    The decoder used to hang if decoding into an interface pointing to its own address.
+    See golang.org/issues/31740.
 **/
 inline function testUnmarshalRecursivePointer(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Test unmarshal to a map, where the map key is a user defined type.
-    // See golang.org/issues/34437.
+    Test unmarshal to a map, where the map key is a user defined type.
+    See golang.org/issues/34437.
 **/
 inline function testUnmarshalMapWithTextUnmarshalerStringKey(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testUnmarshalRescanLiteralMangledUnquote_107___localname___T = Dynamic;
 inline function testUnmarshalRescanLiteralMangledUnquote(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testUnmarshalMaxDepth(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Marshal returns the JSON encoding of v.
-    //
-    // Marshal traverses the value v recursively.
-    // If an encountered value implements the Marshaler interface
-    // and is not a nil pointer, Marshal calls its MarshalJSON method
-    // to produce JSON. If no MarshalJSON method is present but the
-    // value implements encoding.TextMarshaler instead, Marshal calls
-    // its MarshalText method and encodes the result as a JSON string.
-    // The nil pointer exception is not strictly necessary
-    // but mimics a similar, necessary exception in the behavior of
-    // UnmarshalJSON.
-    //
-    // Otherwise, Marshal uses the following type-dependent default encodings:
-    //
-    // Boolean values encode as JSON booleans.
-    //
-    // Floating point, integer, and Number values encode as JSON numbers.
-    // NaN and +/-Inf values will return an [UnsupportedValueError].
-    //
-    // String values encode as JSON strings coerced to valid UTF-8,
-    // replacing invalid bytes with the Unicode replacement rune.
-    // So that the JSON will be safe to embed inside HTML <script> tags,
-    // the string is encoded using HTMLEscape,
-    // which replaces "<", ">", "&", U+2028, and U+2029 are escaped
-    // to "\u003c","\u003e", "\u0026", "\u2028", and "\u2029".
-    // This replacement can be disabled when using an Encoder,
-    // by calling SetEscapeHTML(false).
-    //
-    // Array and slice values encode as JSON arrays, except that
-    // []byte encodes as a base64-encoded string, and a nil slice
-    // encodes as the null JSON value.
-    //
-    // Struct values encode as JSON objects.
-    // Each exported struct field becomes a member of the object, using the
-    // field name as the object key, unless the field is omitted for one of the
-    // reasons given below.
-    //
-    // The encoding of each struct field can be customized by the format string
-    // stored under the "json" key in the struct field's tag.
-    // The format string gives the name of the field, possibly followed by a
-    // comma-separated list of options. The name may be empty in order to
-    // specify options without overriding the default field name.
-    //
-    // The "omitempty" option specifies that the field should be omitted
-    // from the encoding if the field has an empty value, defined as
-    // false, 0, a nil pointer, a nil interface value, and any empty array,
-    // slice, map, or string.
-    //
-    // As a special case, if the field tag is "-", the field is always omitted.
-    // Note that a field with name "-" can still be generated using the tag "-,".
-    //
-    // Examples of struct field tags and their meanings:
-    //
-    //	// Field appears in JSON as key "myName".
-    //	Field int `json:"myName"`
-    //
-    //	// Field appears in JSON as key "myName" and
-    //	// the field is omitted from the object if its value is empty,
-    //	// as defined above.
-    //	Field int `json:"myName,omitempty"`
-    //
-    //	// Field appears in JSON as key "Field" (the default), but
-    //	// the field is skipped if empty.
-    //	// Note the leading comma.
-    //	Field int `json:",omitempty"`
-    //
-    //	// Field is ignored by this package.
-    //	Field int `json:"-"`
-    //
-    //	// Field appears in JSON as key "-".
-    //	Field int `json:"-,"`
-    //
-    // The "string" option signals that a field is stored as JSON inside a
-    // JSON-encoded string. It applies only to fields of string, floating point,
-    // integer, or boolean types. This extra level of encoding is sometimes used
-    // when communicating with JavaScript programs:
-    //
-    //	Int64String int64 `json:",string"`
-    //
-    // The key name will be used if it's a non-empty string consisting of
-    // only Unicode letters, digits, and ASCII punctuation except quotation
-    // marks, backslash, and comma.
-    //
-    // Anonymous struct fields are usually marshaled as if their inner exported fields
-    // were fields in the outer struct, subject to the usual Go visibility rules amended
-    // as described in the next paragraph.
-    // An anonymous struct field with a name given in its JSON tag is treated as
-    // having that name, rather than being anonymous.
-    // An anonymous struct field of interface type is treated the same as having
-    // that type as its name, rather than being anonymous.
-    //
-    // The Go visibility rules for struct fields are amended for JSON when
-    // deciding which field to marshal or unmarshal. If there are
-    // multiple fields at the same level, and that level is the least
-    // nested (and would therefore be the nesting level selected by the
-    // usual Go rules), the following extra rules apply:
-    //
-    // 1) Of those fields, if any are JSON-tagged, only tagged fields are considered,
-    // even if there are multiple untagged fields that would otherwise conflict.
-    //
-    // 2) If there is exactly one field (tagged or not according to the first rule), that is selected.
-    //
-    // 3) Otherwise there are multiple fields, and all are ignored; no error occurs.
-    //
-    // Handling of anonymous struct fields is new in Go 1.1.
-    // Prior to Go 1.1, anonymous struct fields were ignored. To force ignoring of
-    // an anonymous struct field in both current and earlier versions, give the field
-    // a JSON tag of "-".
-    //
-    // Map values encode as JSON objects. The map's key type must either be a
-    // string, an integer type, or implement encoding.TextMarshaler. The map keys
-    // are sorted and used as JSON object keys by applying the following rules,
-    // subject to the UTF-8 coercion described for string values above:
-    //   - keys of any string type are used directly
-    //   - encoding.TextMarshalers are marshaled
-    //   - integer keys are converted to strings
-    //
-    // Pointer values encode as the value pointed to.
-    // A nil pointer encodes as the null JSON value.
-    //
-    // Interface values encode as the value contained in the interface.
-    // A nil interface value encodes as the null JSON value.
-    //
-    // Channel, complex, and function values cannot be encoded in JSON.
-    // Attempting to encode such a value causes Marshal to return
-    // an UnsupportedTypeError.
-    //
-    // JSON cannot represent cyclic data structures and Marshal does not
-    // handle them. Passing cyclic structures to Marshal will result in
-    // an error.
+    Marshal returns the JSON encoding of v.
+    
+    Marshal traverses the value v recursively.
+    If an encountered value implements the Marshaler interface
+    and is not a nil pointer, Marshal calls its MarshalJSON method
+    to produce JSON. If no MarshalJSON method is present but the
+    value implements encoding.TextMarshaler instead, Marshal calls
+    its MarshalText method and encodes the result as a JSON string.
+    The nil pointer exception is not strictly necessary
+    but mimics a similar, necessary exception in the behavior of
+    UnmarshalJSON.
+    
+    Otherwise, Marshal uses the following type-dependent default encodings:
+    
+    Boolean values encode as JSON booleans.
+    
+    Floating point, integer, and Number values encode as JSON numbers.
+    NaN and +/-Inf values will return an [UnsupportedValueError].
+    
+    String values encode as JSON strings coerced to valid UTF-8,
+    replacing invalid bytes with the Unicode replacement rune.
+    So that the JSON will be safe to embed inside HTML <script> tags,
+    the string is encoded using HTMLEscape,
+    which replaces "<", ">", "&", U+2028, and U+2029 are escaped
+    to "\u003c","\u003e", "\u0026", "\u2028", and "\u2029".
+    This replacement can be disabled when using an Encoder,
+    by calling SetEscapeHTML(false).
+    
+    Array and slice values encode as JSON arrays, except that
+    []byte encodes as a base64-encoded string, and a nil slice
+    encodes as the null JSON value.
+    
+    Struct values encode as JSON objects.
+    Each exported struct field becomes a member of the object, using the
+    field name as the object key, unless the field is omitted for one of the
+    reasons given below.
+    
+    The encoding of each struct field can be customized by the format string
+    stored under the "json" key in the struct field's tag.
+    The format string gives the name of the field, possibly followed by a
+    comma-separated list of options. The name may be empty in order to
+    specify options without overriding the default field name.
+    
+    The "omitempty" option specifies that the field should be omitted
+    from the encoding if the field has an empty value, defined as
+    false, 0, a nil pointer, a nil interface value, and any empty array,
+    slice, map, or string.
+    
+    As a special case, if the field tag is "-", the field is always omitted.
+    Note that a field with name "-" can still be generated using the tag "-,".
+    
+    Examples of struct field tags and their meanings:
+    
+    	// Field appears in JSON as key "myName".
+    	Field int `json:"myName"`
+    
+    	// Field appears in JSON as key "myName" and
+    	// the field is omitted from the object if its value is empty,
+    	// as defined above.
+    	Field int `json:"myName,omitempty"`
+    
+    	// Field appears in JSON as key "Field" (the default), but
+    	// the field is skipped if empty.
+    	// Note the leading comma.
+    	Field int `json:",omitempty"`
+    
+    	// Field is ignored by this package.
+    	Field int `json:"-"`
+    
+    	// Field appears in JSON as key "-".
+    	Field int `json:"-,"`
+    
+    The "string" option signals that a field is stored as JSON inside a
+    JSON-encoded string. It applies only to fields of string, floating point,
+    integer, or boolean types. This extra level of encoding is sometimes used
+    when communicating with JavaScript programs:
+    
+    	Int64String int64 `json:",string"`
+    
+    The key name will be used if it's a non-empty string consisting of
+    only Unicode letters, digits, and ASCII punctuation except quotation
+    marks, backslash, and comma.
+    
+    Anonymous struct fields are usually marshaled as if their inner exported fields
+    were fields in the outer struct, subject to the usual Go visibility rules amended
+    as described in the next paragraph.
+    An anonymous struct field with a name given in its JSON tag is treated as
+    having that name, rather than being anonymous.
+    An anonymous struct field of interface type is treated the same as having
+    that type as its name, rather than being anonymous.
+    
+    The Go visibility rules for struct fields are amended for JSON when
+    deciding which field to marshal or unmarshal. If there are
+    multiple fields at the same level, and that level is the least
+    nested (and would therefore be the nesting level selected by the
+    usual Go rules), the following extra rules apply:
+    
+    1) Of those fields, if any are JSON-tagged, only tagged fields are considered,
+    even if there are multiple untagged fields that would otherwise conflict.
+    
+    2) If there is exactly one field (tagged or not according to the first rule), that is selected.
+    
+    3) Otherwise there are multiple fields, and all are ignored; no error occurs.
+    
+    Handling of anonymous struct fields is new in Go 1.1.
+    Prior to Go 1.1, anonymous struct fields were ignored. To force ignoring of
+    an anonymous struct field in both current and earlier versions, give the field
+    a JSON tag of "-".
+    
+    Map values encode as JSON objects. The map's key type must either be a
+    string, an integer type, or implement encoding.TextMarshaler. The map keys
+    are sorted and used as JSON object keys by applying the following rules,
+    subject to the UTF-8 coercion described for string values above:
+      - keys of any string type are used directly
+      - encoding.TextMarshalers are marshaled
+      - integer keys are converted to strings
+    
+    Pointer values encode as the value pointed to.
+    A nil pointer encodes as the null JSON value.
+    
+    Interface values encode as the value contained in the interface.
+    A nil interface value encodes as the null JSON value.
+    
+    Channel, complex, and function values cannot be encoded in JSON.
+    Attempting to encode such a value causes Marshal to return
+    an UnsupportedTypeError.
+    
+    JSON cannot represent cyclic data structures and Marshal does not
+    handle them. Passing cyclic structures to Marshal will result in
+    an error.
 **/
 inline function marshal(v:stdgo.AnyInterface):stdgo.Tuple<Array<Int>, stdgo.Error> throw "not implemented";
 /**
-    // MarshalIndent is like Marshal but applies Indent to format the output.
-    // Each JSON element in the output will begin on a new line beginning with prefix
-    // followed by one or more copies of indent according to the indentation nesting.
+    MarshalIndent is like Marshal but applies Indent to format the output.
+    Each JSON element in the output will begin on a new line beginning with prefix
+    followed by one or more copies of indent according to the indentation nesting.
 **/
 inline function marshalIndent(v:stdgo.AnyInterface, prefix:String, indent:String):stdgo.Tuple<Array<Int>, stdgo.Error> throw "not implemented";
 inline function testOmitEmpty(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -669,7 +669,7 @@ inline function testSamePointerNoCycle(t:stdgo._internal.testing.Testing.T_):Voi
 inline function testSliceNoCycle(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testUnsupportedValues(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Issue 43207
+    Issue 43207
 **/
 inline function testMarshalTextFloatMap(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testRefValMarshal(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -704,15 +704,15 @@ typedef T_testAnonymousFields_130___localname___myInt = stdgo._internal.encoding
 @:invalid typedef T_testAnonymousFields_135___localname___S = Dynamic;
 inline function testAnonymousFields(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // See golang.org/issue/16042 and golang.org/issue/34235.
+    See golang.org/issue/16042 and golang.org/issue/34235.
 **/
 inline function testNilMarshal(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Issue 5245.
+    Issue 5245.
 **/
 inline function testEmbeddedBug(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Test that a field with a tag dominates untagged fields.
+    Test that a field with a tag dominates untagged fields.
 **/
 inline function testTaggedFieldDominates(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testDuplicatedFieldDisappears(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -724,17 +724,17 @@ inline function testMarshalErrorAndReuseEncodeState(t:stdgo._internal.testing.Te
 inline function testHTMLEscape(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testEncodePointerString_139___localname___stringPointer = Dynamic;
 /**
-    // golang.org/issue/8582
+    golang.org/issue/8582
 **/
 inline function testEncodePointerString(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testEncodeString(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Issue 13783
+    Issue 13783
 **/
 inline function testEncodeBytekind(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testTextMarshalerMapKeysAreSorted(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // https://golang.org/issue/33675
+    https://golang.org/issue/33675
 **/
 inline function testNilMarshalerTextMapKey(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testMarshalFloat(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -748,35 +748,35 @@ inline function fuzzEqualFold(f:stdgo._internal.testing.Testing.F):Void throw "n
 inline function fuzzUnmarshalJSON(f:stdgo._internal.testing.Testing.F):Void throw "not implemented";
 inline function fuzzDecoderToken(f:stdgo._internal.testing.Testing.F):Void throw "not implemented";
 /**
-    // HTMLEscape appends to dst the JSON-encoded src with <, >, &, U+2028 and U+2029
-    // characters inside string literals changed to \u003c, \u003e, \u0026, \u2028, \u2029
-    // so that the JSON will be safe to embed inside HTML <script> tags.
-    // For historical reasons, web browsers don't honor standard HTML
-    // escaping within <script> tags, so an alternative JSON encoding must be used.
+    HTMLEscape appends to dst the JSON-encoded src with <, >, &, U+2028 and U+2029
+    characters inside string literals changed to \u003c, \u003e, \u0026, \u2028, \u2029
+    so that the JSON will be safe to embed inside HTML <script> tags.
+    For historical reasons, web browsers don't honor standard HTML
+    escaping within <script> tags, so an alternative JSON encoding must be used.
 **/
 inline function htmlescape(dst:stdgo._internal.bytes.Bytes.Buffer, src:Array<Int>):Void throw "not implemented";
 /**
-    // Compact appends to dst the JSON-encoded src with
-    // insignificant space characters elided.
+    Compact appends to dst the JSON-encoded src with
+    insignificant space characters elided.
 **/
 inline function compact(dst:stdgo._internal.bytes.Bytes.Buffer, src:Array<Int>):stdgo.Error throw "not implemented";
 /**
-    // Indent appends to dst an indented form of the JSON-encoded src.
-    // Each element in a JSON object or array begins on a new,
-    // indented line beginning with prefix followed by one or more
-    // copies of indent according to the indentation nesting.
-    // The data appended to dst does not begin with the prefix nor
-    // any indentation, to make it easier to embed inside other formatted JSON data.
-    // Although leading space characters (space, tab, carriage return, newline)
-    // at the beginning of src are dropped, trailing space characters
-    // at the end of src are preserved and copied to dst.
-    // For example, if src has no trailing spaces, neither will dst;
-    // if src ends in a trailing newline, so will dst.
+    Indent appends to dst an indented form of the JSON-encoded src.
+    Each element in a JSON object or array begins on a new,
+    indented line beginning with prefix followed by one or more
+    copies of indent according to the indentation nesting.
+    The data appended to dst does not begin with the prefix nor
+    any indentation, to make it easier to embed inside other formatted JSON data.
+    Although leading space characters (space, tab, carriage return, newline)
+    at the beginning of src are dropped, trailing space characters
+    at the end of src are preserved and copied to dst.
+    For example, if src has no trailing spaces, neither will dst;
+    if src ends in a trailing newline, so will dst.
 **/
 inline function indent(dst:stdgo._internal.bytes.Bytes.Buffer, src:Array<Int>, prefix:String, indent:String):stdgo.Error throw "not implemented";
 inline function testNumberIsValid(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Valid reports whether data is a valid JSON encoding.
+    Valid reports whether data is a valid JSON encoding.
 **/
 inline function valid(data:Array<Int>):Bool throw "not implemented";
 inline function testValid(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -787,14 +787,14 @@ inline function testCompactBig(t:stdgo._internal.testing.Testing.T_):Void throw 
 inline function testIndentBig(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testIndentErrors(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // NewDecoder returns a new decoder that reads from r.
-    //
-    // The decoder introduces its own buffering and may
-    // read data from r beyond the JSON values requested.
+    NewDecoder returns a new decoder that reads from r.
+    
+    The decoder introduces its own buffering and may
+    read data from r beyond the JSON values requested.
 **/
 inline function newDecoder(r:stdgo._internal.io.Io.Reader):Decoder throw "not implemented";
 /**
-    // NewEncoder returns a new encoder that writes to w.
+    NewEncoder returns a new encoder that writes to w.
 **/
 inline function newEncoder(w:stdgo._internal.io.Io.Writer):Encoder throw "not implemented";
 inline function testEncoder(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -810,7 +810,7 @@ inline function testNullRawMessage(t:stdgo._internal.testing.Testing.T_):Void th
 inline function testBlocking(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testDecodeInStream(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Test from golang.org/issue/11893
+    Test from golang.org/issue/11893
 **/
 inline function testHTTPDecoding(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testStructTagObjectKey(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";

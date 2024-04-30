@@ -1,8 +1,8 @@
 package stdgo.bufio;
 /**
-    // Package bufio implements buffered I/O. It wraps an io.Reader or io.Writer
-    // object, creating another object (Reader or Writer) that also implements
-    // the interface but provides buffering and some help for textual I/O.
+    Package bufio implements buffered I/O. It wraps an io.Reader or io.Writer
+    object, creating another object (Reader or Writer) that also implements
+    the interface but provides buffering and some help for textual I/O.
 **/
 private var __go2hxdoc__package : Bool;
 final defaultBufSize : haxe.UInt64 = stdgo._internal.bufio.Bufio.defaultBufSize;
@@ -43,63 +43,63 @@ function set_isSpace(v:stdgo.GoInt32 -> Bool):stdgo.GoInt32 -> Bool return stdgo
 @:invalid typedef Scanner = Dynamic;
 typedef SplitFunc = stdgo._internal.bufio.Bufio.SplitFunc;
 /**
-    // NewReaderSize returns a new Reader whose buffer has at least the specified
-    // size. If the argument io.Reader is already a Reader with large enough
-    // size, it returns the underlying Reader.
+    NewReaderSize returns a new Reader whose buffer has at least the specified
+    size. If the argument io.Reader is already a Reader with large enough
+    size, it returns the underlying Reader.
 **/
 inline function newReaderSize(rd:stdgo._internal.io.Io.Reader, size:Int):Reader throw "not implemented";
 /**
-    // NewReader returns a new Reader whose buffer has the default size.
+    NewReader returns a new Reader whose buffer has the default size.
 **/
 inline function newReader(rd:stdgo._internal.io.Io.Reader):Reader throw "not implemented";
 /**
-    // NewWriterSize returns a new Writer whose buffer has at least the specified
-    // size. If the argument io.Writer is already a Writer with large enough
-    // size, it returns the underlying Writer.
+    NewWriterSize returns a new Writer whose buffer has at least the specified
+    size. If the argument io.Writer is already a Writer with large enough
+    size, it returns the underlying Writer.
 **/
 inline function newWriterSize(w:stdgo._internal.io.Io.Writer, size:Int):Writer throw "not implemented";
 /**
-    // NewWriter returns a new Writer whose buffer has the default size.
-    // If the argument io.Writer is already a Writer with large enough buffer size,
-    // it returns the underlying Writer.
+    NewWriter returns a new Writer whose buffer has the default size.
+    If the argument io.Writer is already a Writer with large enough buffer size,
+    it returns the underlying Writer.
 **/
 inline function newWriter(w:stdgo._internal.io.Io.Writer):Writer throw "not implemented";
 /**
-    // NewReadWriter allocates a new ReadWriter that dispatches to r and w.
+    NewReadWriter allocates a new ReadWriter that dispatches to r and w.
 **/
 inline function newReadWriter(r:Reader, w:Writer):ReadWriter throw "not implemented";
 /**
-    // NewScanner returns a new Scanner to read from r.
-    // The split function defaults to ScanLines.
+    NewScanner returns a new Scanner to read from r.
+    The split function defaults to ScanLines.
 **/
 inline function newScanner(r:stdgo._internal.io.Io.Reader):Scanner throw "not implemented";
 /**
-    // ScanBytes is a split function for a Scanner that returns each byte as a token.
+    ScanBytes is a split function for a Scanner that returns each byte as a token.
 **/
 inline function scanBytes(data:Array<Int>, atEOF:Bool):stdgo.Tuple.Tuple3<Int, Array<Int>, stdgo.Error> throw "not implemented";
 /**
-    // ScanRunes is a split function for a Scanner that returns each
-    // UTF-8-encoded rune as a token. The sequence of runes returned is
-    // equivalent to that from a range loop over the input as a string, which
-    // means that erroneous UTF-8 encodings translate to U+FFFD = "\xef\xbf\xbd".
-    // Because of the Scan interface, this makes it impossible for the client to
-    // distinguish correctly encoded replacement runes from encoding errors.
+    ScanRunes is a split function for a Scanner that returns each
+    UTF-8-encoded rune as a token. The sequence of runes returned is
+    equivalent to that from a range loop over the input as a string, which
+    means that erroneous UTF-8 encodings translate to U+FFFD = "\xef\xbf\xbd".
+    Because of the Scan interface, this makes it impossible for the client to
+    distinguish correctly encoded replacement runes from encoding errors.
 **/
 inline function scanRunes(data:Array<Int>, atEOF:Bool):stdgo.Tuple.Tuple3<Int, Array<Int>, stdgo.Error> throw "not implemented";
 /**
-    // ScanLines is a split function for a Scanner that returns each line of
-    // text, stripped of any trailing end-of-line marker. The returned line may
-    // be empty. The end-of-line marker is one optional carriage return followed
-    // by one mandatory newline. In regular expression notation, it is `\r?\n`.
-    // The last non-empty line of input will be returned even if it has no
-    // newline.
+    ScanLines is a split function for a Scanner that returns each line of
+    text, stripped of any trailing end-of-line marker. The returned line may
+    be empty. The end-of-line marker is one optional carriage return followed
+    by one mandatory newline. In regular expression notation, it is `\r?\n`.
+    The last non-empty line of input will be returned even if it has no
+    newline.
 **/
 inline function scanLines(data:Array<Int>, atEOF:Bool):stdgo.Tuple.Tuple3<Int, Array<Int>, stdgo.Error> throw "not implemented";
 /**
-    // ScanWords is a split function for a Scanner that returns each
-    // space-separated word of text, with surrounding spaces deleted. It will
-    // never return an empty string. The definition of space is set by
-    // unicode.IsSpace.
+    ScanWords is a split function for a Scanner that returns each
+    space-separated word of text, with surrounding spaces deleted. It will
+    never return an empty string. The definition of space is set by
+    unicode.IsSpace.
 **/
 inline function scanWords(data:Array<Int>, atEOF:Bool):stdgo.Tuple.Tuple3<Int, Array<Int>, stdgo.Error> throw "not implemented";
 @:invalid typedef Reader_asInterface = Dynamic;

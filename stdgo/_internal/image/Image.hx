@@ -53,22 +53,22 @@ typedef T_reader = stdgo.StructType & {
 }
 typedef Image = stdgo.StructType & {
     /**
-        // ColorModel returns the Image's color model.
+        ColorModel returns the Image's color model.
         
         
     **/
     public dynamic function colorModel():stdgo._internal.image.color.Color.Model;
     /**
-        // Bounds returns the domain for which At can return non-zero color.
-        // The bounds do not necessarily contain the point (0, 0).
+        Bounds returns the domain for which At can return non-zero color.
+        The bounds do not necessarily contain the point (0, 0).
         
         
     **/
     public dynamic function bounds():Rectangle;
     /**
-        // At returns the color of the pixel at (x, y).
-        // At(Bounds().Min.X, Bounds().Min.Y) returns the upper-left pixel of the grid.
-        // At(Bounds().Max.X-1, Bounds().Max.Y-1) returns the lower-right one.
+        At returns the color of the pixel at (x, y).
+        At(Bounds().Min.X, Bounds().Min.Y) returns the upper-left pixel of the grid.
+        At(Bounds().Max.X-1, Bounds().Max.Y-1) returns the lower-right one.
         
         
     **/
@@ -80,10 +80,10 @@ typedef Image = stdgo.StructType & {
 typedef RGBA64Image = stdgo.StructType & {
     > Image,
     /**
-        // RGBA64At returns the RGBA64 color of the pixel at (x, y). It is
-        // equivalent to calling At(x, y).RGBA() and converting the resulting
-        // 32-bit return values to a color.RGBA64, but it can avoid allocations
-        // from converting concrete color types to the color.Color interface type.
+        RGBA64At returns the RGBA64 color of the pixel at (x, y). It is
+        equivalent to calling At(x, y).RGBA() and converting the resulting
+        32-bit return values to a color.RGBA64, but it can avoid allocations
+        from converting concrete color types to the color.Color interface type.
         
         
     **/
@@ -95,7 +95,7 @@ typedef RGBA64Image = stdgo.StructType & {
 typedef PalettedImage = stdgo.StructType & {
     > Image,
     /**
-        // ColorIndexAt returns the palette index of the pixel at (x, y).
+        ColorIndexAt returns the palette index of the pixel at (x, y).
         
         
     **/

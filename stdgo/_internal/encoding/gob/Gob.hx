@@ -317,7 +317,7 @@ typedef T_gobType = stdgo.StructType & {
     /**
         
         
-        // not public; only for debugging
+        not public; only for debugging
     **/
     public dynamic function _string():stdgo.GoString;
     /**
@@ -332,9 +332,9 @@ typedef T_gobType = stdgo.StructType & {
 }
 typedef GobEncoder = stdgo.StructType & {
     /**
-        // GobEncode returns a byte slice representing the encoding of the
-        // receiver for transmission to a GobDecoder, usually of the same
-        // concrete type.
+        GobEncode returns a byte slice representing the encoding of the
+        receiver for transmission to a GobDecoder, usually of the same
+        concrete type.
         
         
     **/
@@ -345,9 +345,9 @@ typedef GobEncoder = stdgo.StructType & {
 }
 typedef GobDecoder = stdgo.StructType & {
     /**
-        // GobDecode overwrites the receiver, which must be a pointer,
-        // with the value represented by the byte slice, which was written
-        // by GobEncode, usually for the same concrete type.
+        GobDecode overwrites the receiver, which must be a pointer,
+        with the value represented by the byte slice, which was written
+        by GobEncode, usually for the same concrete type.
         
         
     **/

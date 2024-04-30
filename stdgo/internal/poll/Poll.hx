@@ -1,10 +1,10 @@
 package stdgo.internal.poll;
 /**
-    // Package poll supports non-blocking I/O on file descriptors with polling.
-    // This supports I/O operations that block only a goroutine, not a thread.
-    // This is used by the net and os packages.
-    // It uses a poller built into the runtime, with support from the
-    // runtime scheduler.
+    Package poll supports non-blocking I/O on file descriptors with polling.
+    This supports I/O operations that block only a goroutine, not a thread.
+    This is used by the net and os packages.
+    It uses a poller built into the runtime, with support from the
+    runtime scheduler.
 **/
 private var __go2hxdoc__package : Bool;
 var errNetClosing(get, set) : stdgo._internal.internal.poll.Poll.T_errNetClosing;
@@ -38,12 +38,12 @@ function set_acceptFunc(v:stdgo.GoInt -> { var _0 : stdgo.GoInt; var _1 : stdgo.
 @:invalid typedef FD = Dynamic;
 @:invalid typedef SysFile = Dynamic;
 /**
-    // IsPollDescriptor reports whether fd is the descriptor being used by the poller.
-    // This is only used for testing.
+    IsPollDescriptor reports whether fd is the descriptor being used by the poller.
+    This is only used for testing.
 **/
 inline function isPollDescriptor(fd:stdgo.GoUIntptr):Bool throw "not implemented";
 /**
-    // DupCloseOnExec dups fd and marks it close-on-exec.
+    DupCloseOnExec dups fd and marks it close-on-exec.
 **/
 inline function dupCloseOnExec(fd:Int):stdgo.Tuple.Tuple3<Int, String, stdgo.Error> throw "not implemented";
 @:invalid typedef T_errNetClosing_asInterface = Dynamic;

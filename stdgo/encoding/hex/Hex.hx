@@ -1,6 +1,6 @@
 package stdgo.encoding.hex;
 /**
-    // Package hex implements hexadecimal encoding and decoding.
+    Package hex implements hexadecimal encoding and decoding.
 **/
 private var __go2hxdoc__package : Bool;
 var errLength(get, set) : stdgo.Error;
@@ -21,63 +21,63 @@ typedef T__struct_1 = stdgo._internal.encoding.hex.Hex.T__struct_1;
 typedef T__struct_2 = stdgo._internal.encoding.hex.Hex.T__struct_2;
 typedef InvalidByteError = stdgo._internal.encoding.hex.Hex.InvalidByteError;
 /**
-    // EncodedLen returns the length of an encoding of n source bytes.
-    // Specifically, it returns n * 2.
+    EncodedLen returns the length of an encoding of n source bytes.
+    Specifically, it returns n * 2.
 **/
 inline function encodedLen(n:Int):Int throw "not implemented";
 /**
-    // Encode encodes src into EncodedLen(len(src))
-    // bytes of dst. As a convenience, it returns the number
-    // of bytes written to dst, but this value is always EncodedLen(len(src)).
-    // Encode implements hexadecimal encoding.
+    Encode encodes src into EncodedLen(len(src))
+    bytes of dst. As a convenience, it returns the number
+    of bytes written to dst, but this value is always EncodedLen(len(src)).
+    Encode implements hexadecimal encoding.
 **/
 inline function encode(dst:Array<Int>, src:Array<Int>):Int throw "not implemented";
 /**
-    // DecodedLen returns the length of a decoding of x source bytes.
-    // Specifically, it returns x / 2.
+    DecodedLen returns the length of a decoding of x source bytes.
+    Specifically, it returns x / 2.
 **/
 inline function decodedLen(x:Int):Int throw "not implemented";
 /**
-    // Decode decodes src into DecodedLen(len(src)) bytes,
-    // returning the actual number of bytes written to dst.
-    //
-    // Decode expects that src contains only hexadecimal
-    // characters and that src has even length.
-    // If the input is malformed, Decode returns the number
-    // of bytes decoded before the error.
+    Decode decodes src into DecodedLen(len(src)) bytes,
+    returning the actual number of bytes written to dst.
+    
+    Decode expects that src contains only hexadecimal
+    characters and that src has even length.
+    If the input is malformed, Decode returns the number
+    of bytes decoded before the error.
 **/
 inline function decode(dst:Array<Int>, src:Array<Int>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 /**
-    // EncodeToString returns the hexadecimal encoding of src.
+    EncodeToString returns the hexadecimal encoding of src.
 **/
 inline function encodeToString(src:Array<Int>):String throw "not implemented";
 /**
-    // DecodeString returns the bytes represented by the hexadecimal string s.
-    //
-    // DecodeString expects that src contains only hexadecimal
-    // characters and that src has even length.
-    // If the input is malformed, DecodeString returns
-    // the bytes decoded before the error.
+    DecodeString returns the bytes represented by the hexadecimal string s.
+    
+    DecodeString expects that src contains only hexadecimal
+    characters and that src has even length.
+    If the input is malformed, DecodeString returns
+    the bytes decoded before the error.
 **/
 inline function decodeString(s:String):stdgo.Tuple<Array<Int>, stdgo.Error> throw "not implemented";
 /**
-    // Dump returns a string that contains a hex dump of the given data. The format
-    // of the hex dump matches the output of `hexdump -C` on the command line.
+    Dump returns a string that contains a hex dump of the given data. The format
+    of the hex dump matches the output of `hexdump -C` on the command line.
 **/
 inline function dump(data:Array<Int>):String throw "not implemented";
 /**
-    // NewEncoder returns an io.Writer that writes lowercase hexadecimal characters to w.
+    NewEncoder returns an io.Writer that writes lowercase hexadecimal characters to w.
 **/
 inline function newEncoder(w:stdgo._internal.io.Io.Writer):stdgo._internal.io.Io.Writer throw "not implemented";
 /**
-    // NewDecoder returns an io.Reader that decodes hexadecimal characters from r.
-    // NewDecoder expects that r contain only an even number of hexadecimal characters.
+    NewDecoder returns an io.Reader that decodes hexadecimal characters from r.
+    NewDecoder expects that r contain only an even number of hexadecimal characters.
 **/
 inline function newDecoder(r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader throw "not implemented";
 /**
-    // Dumper returns a WriteCloser that writes a hex dump of all written data to
-    // w. The format of the dump matches the output of `hexdump -C` on the command
-    // line.
+    Dumper returns a WriteCloser that writes a hex dump of all written data to
+    w. The format of the dump matches the output of `hexdump -C` on the command
+    line.
 **/
 inline function dumper(w:stdgo._internal.io.Io.Writer):stdgo._internal.io.Io.WriteCloser throw "not implemented";
 inline function testEncode(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";

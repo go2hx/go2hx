@@ -8,8 +8,8 @@ var _defaultMaxCount : stdgo.Pointer<stdgo.GoInt> = stdgo._internal.flag.Flag.in
 }
 typedef Generator = stdgo.StructType & {
     /**
-        // Generate returns a random instance of the type on which it is a
-        // method using the size as a size hint.
+        Generate returns a random instance of the type on which it is a
+        method using the size as a size hint.
         
         
     **/

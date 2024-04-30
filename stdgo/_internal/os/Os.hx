@@ -96,7 +96,7 @@ typedef Signal = stdgo.StructType & {
     /**
         
         
-        // to distinguish from other Stringers
+        to distinguish from other Stringers
     **/
     public dynamic function signal():Void;
 };

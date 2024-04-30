@@ -1,6 +1,6 @@
 package stdgo.hash;
 /**
-    // Package hash provides interfaces for hash functions.
+    Package hash provides interfaces for hash functions.
 **/
 private var __go2hxdoc__package : Bool;
 @:invalid typedef Hash_static_extension = Dynamic;

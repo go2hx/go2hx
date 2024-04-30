@@ -1,6 +1,6 @@
 package stdgo.log.internal;
 /**
-    // Package internal contains definitions used by both log and log/slog.
+    Package internal contains definitions used by both log and log/slog.
 **/
 private var __go2hxdoc__package : Bool;
 var defaultOutput(get, set) : (_pc:stdgo.GoUIntptr, _data:stdgo.Slice<stdgo.GoByte>) -> stdgo.Error;

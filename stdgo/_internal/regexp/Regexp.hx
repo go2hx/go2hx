@@ -480,13 +480,13 @@ typedef T_input = stdgo.StructType & {
     /**
         
         
-        // advance one rune
+        advance one rune
     **/
     public dynamic function _step(_pos:stdgo.GoInt):{ var _0 : stdgo.GoRune; var _1 : stdgo.GoInt; };
     /**
         
         
-        // can we look ahead without losing info?
+        can we look ahead without losing info?
     **/
     public dynamic function _canCheckPrefix():Bool;
     /**

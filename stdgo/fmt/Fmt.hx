@@ -410,149 +410,149 @@ typedef Scanner = stdgo._internal.fmt.Fmt.Scanner;
 typedef T_buffer = stdgo._internal.fmt.Fmt.T_buffer;
 typedef T_stringReader = stdgo._internal.fmt.Fmt.T_stringReader;
 /**
-    // Errorf formats according to a format specifier and returns the string as a
-    // value that satisfies error.
-    //
-    // If the format specifier includes a %w verb with an error operand,
-    // the returned error will implement an Unwrap method returning the operand.
-    // If there is more than one %w verb, the returned error will implement an
-    // Unwrap method returning a []error containing all the %w operands in the
-    // order they appear in the arguments.
-    // It is invalid to supply the %w verb with an operand that does not implement
-    // the error interface. The %w verb is otherwise a synonym for %v.
+    Errorf formats according to a format specifier and returns the string as a
+    value that satisfies error.
+    
+    If the format specifier includes a %w verb with an error operand,
+    the returned error will implement an Unwrap method returning the operand.
+    If there is more than one %w verb, the returned error will implement an
+    Unwrap method returning a []error containing all the %w operands in the
+    order they appear in the arguments.
+    It is invalid to supply the %w verb with an operand that does not implement
+    the error interface. The %w verb is otherwise a synonym for %v.
 **/
 inline function errorf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Error throw "not implemented";
 /**
-    // FormatString returns a string representing the fully qualified formatting
-    // directive captured by the State, followed by the argument verb. (State does not
-    // itself contain the verb.) The result has a leading percent sign followed by any
-    // flags, the width, and the precision. Missing flags, width, and precision are
-    // omitted. This function allows a Formatter to reconstruct the original
-    // directive triggering the call to Format.
+    FormatString returns a string representing the fully qualified formatting
+    directive captured by the State, followed by the argument verb. (State does not
+    itself contain the verb.) The result has a leading percent sign followed by any
+    flags, the width, and the precision. Missing flags, width, and precision are
+    omitted. This function allows a Formatter to reconstruct the original
+    directive triggering the call to Format.
 **/
 inline function formatString(state:State, verb:Int):String throw "not implemented";
 /**
-    // Fprintf formats according to a format specifier and writes to w.
-    // It returns the number of bytes written and any write error encountered.
+    Fprintf formats according to a format specifier and writes to w.
+    It returns the number of bytes written and any write error encountered.
 **/
 inline function fprintf(w:stdgo._internal.io.Io.Writer, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 /**
-    // Printf formats according to a format specifier and writes to standard output.
-    // It returns the number of bytes written and any write error encountered.
+    Printf formats according to a format specifier and writes to standard output.
+    It returns the number of bytes written and any write error encountered.
 **/
 inline function printf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 /**
-    // Sprintf formats according to a format specifier and returns the resulting string.
+    Sprintf formats according to a format specifier and returns the resulting string.
 **/
 inline function sprintf(format:String, a:haxe.Rest<stdgo.AnyInterface>):String throw "not implemented";
 /**
-    // Appendf formats according to a format specifier, appends the result to the byte
-    // slice, and returns the updated slice.
+    Appendf formats according to a format specifier, appends the result to the byte
+    slice, and returns the updated slice.
 **/
 inline function appendf(b:Array<Int>, format:String, a:haxe.Rest<stdgo.AnyInterface>):Array<Int> throw "not implemented";
 /**
-    // Fprint formats using the default formats for its operands and writes to w.
-    // Spaces are added between operands when neither is a string.
-    // It returns the number of bytes written and any write error encountered.
+    Fprint formats using the default formats for its operands and writes to w.
+    Spaces are added between operands when neither is a string.
+    It returns the number of bytes written and any write error encountered.
 **/
 inline function fprint(w:stdgo._internal.io.Io.Writer, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 /**
-    // Print formats using the default formats for its operands and writes to standard output.
-    // Spaces are added between operands when neither is a string.
-    // It returns the number of bytes written and any write error encountered.
+    Print formats using the default formats for its operands and writes to standard output.
+    Spaces are added between operands when neither is a string.
+    It returns the number of bytes written and any write error encountered.
 **/
 inline function print(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 /**
-    // Sprint formats using the default formats for its operands and returns the resulting string.
-    // Spaces are added between operands when neither is a string.
+    Sprint formats using the default formats for its operands and returns the resulting string.
+    Spaces are added between operands when neither is a string.
 **/
 inline function sprint(a:haxe.Rest<stdgo.AnyInterface>):String throw "not implemented";
 /**
-    // Append formats using the default formats for its operands, appends the result to
-    // the byte slice, and returns the updated slice.
+    Append formats using the default formats for its operands, appends the result to
+    the byte slice, and returns the updated slice.
 **/
 inline function append(b:Array<Int>, a:haxe.Rest<stdgo.AnyInterface>):Array<Int> throw "not implemented";
 /**
-    // Fprintln formats using the default formats for its operands and writes to w.
-    // Spaces are always added between operands and a newline is appended.
-    // It returns the number of bytes written and any write error encountered.
+    Fprintln formats using the default formats for its operands and writes to w.
+    Spaces are always added between operands and a newline is appended.
+    It returns the number of bytes written and any write error encountered.
 **/
 inline function fprintln(w:stdgo._internal.io.Io.Writer, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 /**
-    // Println formats using the default formats for its operands and writes to standard output.
-    // Spaces are always added between operands and a newline is appended.
-    // It returns the number of bytes written and any write error encountered.
+    Println formats using the default formats for its operands and writes to standard output.
+    Spaces are always added between operands and a newline is appended.
+    It returns the number of bytes written and any write error encountered.
 **/
 inline function println(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 /**
-    // Sprintln formats using the default formats for its operands and returns the resulting string.
-    // Spaces are always added between operands and a newline is appended.
+    Sprintln formats using the default formats for its operands and returns the resulting string.
+    Spaces are always added between operands and a newline is appended.
 **/
 inline function sprintln(a:haxe.Rest<stdgo.AnyInterface>):String throw "not implemented";
 /**
-    // Appendln formats using the default formats for its operands, appends the result
-    // to the byte slice, and returns the updated slice. Spaces are always added
-    // between operands and a newline is appended.
+    Appendln formats using the default formats for its operands, appends the result
+    to the byte slice, and returns the updated slice. Spaces are always added
+    between operands and a newline is appended.
 **/
 inline function appendln(b:Array<Int>, a:haxe.Rest<stdgo.AnyInterface>):Array<Int> throw "not implemented";
 /**
-    // Scan scans text read from standard input, storing successive
-    // space-separated values into successive arguments. Newlines count
-    // as space. It returns the number of items successfully scanned.
-    // If that is less than the number of arguments, err will report why.
+    Scan scans text read from standard input, storing successive
+    space-separated values into successive arguments. Newlines count
+    as space. It returns the number of items successfully scanned.
+    If that is less than the number of arguments, err will report why.
 **/
 inline function scan(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 /**
-    // Scanln is similar to Scan, but stops scanning at a newline and
-    // after the final item there must be a newline or EOF.
+    Scanln is similar to Scan, but stops scanning at a newline and
+    after the final item there must be a newline or EOF.
 **/
 inline function scanln(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 /**
-    // Scanf scans text read from standard input, storing successive
-    // space-separated values into successive arguments as determined by
-    // the format. It returns the number of items successfully scanned.
-    // If that is less than the number of arguments, err will report why.
-    // Newlines in the input must match newlines in the format.
-    // The one exception: the verb %c always scans the next rune in the
-    // input, even if it is a space (or tab etc.) or newline.
+    Scanf scans text read from standard input, storing successive
+    space-separated values into successive arguments as determined by
+    the format. It returns the number of items successfully scanned.
+    If that is less than the number of arguments, err will report why.
+    Newlines in the input must match newlines in the format.
+    The one exception: the verb %c always scans the next rune in the
+    input, even if it is a space (or tab etc.) or newline.
 **/
 inline function scanf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 /**
-    // Sscan scans the argument string, storing successive space-separated
-    // values into successive arguments. Newlines count as space. It
-    // returns the number of items successfully scanned. If that is less
-    // than the number of arguments, err will report why.
+    Sscan scans the argument string, storing successive space-separated
+    values into successive arguments. Newlines count as space. It
+    returns the number of items successfully scanned. If that is less
+    than the number of arguments, err will report why.
 **/
 inline function sscan(str:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 /**
-    // Sscanln is similar to Sscan, but stops scanning at a newline and
-    // after the final item there must be a newline or EOF.
+    Sscanln is similar to Sscan, but stops scanning at a newline and
+    after the final item there must be a newline or EOF.
 **/
 inline function sscanln(str:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 /**
-    // Sscanf scans the argument string, storing successive space-separated
-    // values into successive arguments as determined by the format. It
-    // returns the number of items successfully parsed.
-    // Newlines in the input must match newlines in the format.
+    Sscanf scans the argument string, storing successive space-separated
+    values into successive arguments as determined by the format. It
+    returns the number of items successfully parsed.
+    Newlines in the input must match newlines in the format.
 **/
 inline function sscanf(str:String, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 /**
-    // Fscan scans text read from r, storing successive space-separated
-    // values into successive arguments. Newlines count as space. It
-    // returns the number of items successfully scanned. If that is less
-    // than the number of arguments, err will report why.
+    Fscan scans text read from r, storing successive space-separated
+    values into successive arguments. Newlines count as space. It
+    returns the number of items successfully scanned. If that is less
+    than the number of arguments, err will report why.
 **/
 inline function fscan(r:stdgo._internal.io.Io.Reader, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 /**
-    // Fscanln is similar to Fscan, but stops scanning at a newline and
-    // after the final item there must be a newline or EOF.
+    Fscanln is similar to Fscan, but stops scanning at a newline and
+    after the final item there must be a newline or EOF.
 **/
 inline function fscanln(r:stdgo._internal.io.Io.Reader, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 /**
-    // Fscanf scans text read from r, storing successive space-separated
-    // values into successive arguments as determined by the format. It
-    // returns the number of items successfully parsed.
-    // Newlines in the input must match newlines in the format.
+    Fscanf scans text read from r, storing successive space-separated
+    values into successive arguments as determined by the format. It
+    returns the number of items successfully parsed.
+    Newlines in the input must match newlines in the format.
 **/
 inline function fscanf(r:stdgo._internal.io.Io.Reader, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 @:invalid typedef T_wrapError_asInterface = Dynamic;

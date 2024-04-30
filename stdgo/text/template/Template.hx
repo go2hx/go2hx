@@ -66,11 +66,11 @@ package stdgo.text.template;
     data, defined in detail in the corresponding sections that follow.
     
     *|/
-    //	{{/|* a comment *|/}}
-    //	{{- /|* a comment with white space trimmed from preceding and following text *|/ -}}
-    //		A comment; discarded. May contain newlines.
-    //		Comments do not nest and must start and end at the
-    //		delimiters, as shown here.
+    	{{/|* a comment *|/}}
+    	{{- /|* a comment with white space trimmed from preceding and following text *|/ -}}
+    		A comment; discarded. May contain newlines.
+    		Comments do not nest and must start and end at the
+    		delimiters, as shown here.
     /|*
     
     	{{pipeline}}
@@ -513,23 +513,23 @@ typedef FuncMap = stdgo._internal.text.template.Template.FuncMap;
 typedef T_kind = stdgo._internal.text.template.Template.T_kind;
 typedef T_missingKeyAction = stdgo._internal.text.template.Template.T_missingKeyAction;
 /**
-    // IsTrue reports whether the value is 'true', in the sense of not the zero of its type,
-    // and whether the value has a meaningful truth value. This is the definition of
-    // truth used by if and other such actions.
+    IsTrue reports whether the value is 'true', in the sense of not the zero of its type,
+    and whether the value has a meaningful truth value. This is the definition of
+    truth used by if and other such actions.
 **/
 inline function isTrue(val:stdgo.AnyInterface):stdgo.Tuple<Bool, Bool> throw "not implemented";
 inline function testExecute(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testDelims(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Check that an error from a method flows back to the top.
+    Check that an error from a method flows back to the top.
 **/
 inline function testExecuteError(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Check that an error from a nested template contains all the relevant information.
+    Check that an error from a nested template contains all the relevant information.
 **/
 inline function testExecError(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Check that a custom error can be returned.
+    Check that a custom error can be returned.
 **/
 inline function testExecError_CustomError(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testJSEscaping(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -540,8 +540,8 @@ inline function testFinalForPrintf(t:stdgo._internal.testing.Testing.T_):Void th
 inline function testComparison(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testMissingMapKey(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Test that the error message for multiline unterminated string
-    // refers to the line number of the opening quote.
+    Test that the error message for multiline unterminated string
+    refers to the line number of the opening quote.
 **/
 inline function testUnterminatedStringError(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testExecuteGivesExecError(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -553,96 +553,96 @@ inline function testMaxExecDepth(t:stdgo._internal.testing.Testing.T_):Void thro
 inline function testAddrOfIndex(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testInterfaceValues(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Check that panics during calls are recovered and returned as errors.
+    Check that panics during calls are recovered and returned as errors.
 **/
 inline function testExecutePanicDuringCall(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Issue 31810. Check that a parenthesized first argument behaves properly.
+    Issue 31810. Check that a parenthesized first argument behaves properly.
 **/
 inline function testIssue31810(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Issue 43065, range over send only channel
+    Issue 43065, range over send only channel
 **/
 inline function testIssue43065(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Issue 39807: data race in html/template & text/template
+    Issue 39807: data race in html/template & text/template
 **/
 inline function testIssue39807(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testIssue48215_51___localname___A = Dynamic;
 @:invalid typedef T_testIssue48215_52___localname___B = Dynamic;
 /**
-    // Issue 48215: embedded nil pointer causes panic.
-    // Fixed by adding FieldByIndexErr to the reflect package.
+    Issue 48215: embedded nil pointer causes panic.
+    Fixed by adding FieldByIndexErr to the reflect package.
 **/
 inline function testIssue48215(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // HTMLEscape writes to w the escaped HTML equivalent of the plain text data b.
+    HTMLEscape writes to w the escaped HTML equivalent of the plain text data b.
 **/
 inline function htmlescape(w:stdgo._internal.io.Io.Writer, b:Array<Int>):Void throw "not implemented";
 /**
-    // HTMLEscapeString returns the escaped HTML equivalent of the plain text data s.
+    HTMLEscapeString returns the escaped HTML equivalent of the plain text data s.
 **/
 inline function htmlescapeString(s:String):String throw "not implemented";
 /**
-    // HTMLEscaper returns the escaped HTML equivalent of the textual
-    // representation of its arguments.
+    HTMLEscaper returns the escaped HTML equivalent of the textual
+    representation of its arguments.
 **/
 inline function htmlescaper(args:haxe.Rest<stdgo.AnyInterface>):String throw "not implemented";
 /**
-    // JSEscape writes to w the escaped JavaScript equivalent of the plain text data b.
+    JSEscape writes to w the escaped JavaScript equivalent of the plain text data b.
 **/
 inline function jsescape(w:stdgo._internal.io.Io.Writer, b:Array<Int>):Void throw "not implemented";
 /**
-    // JSEscapeString returns the escaped JavaScript equivalent of the plain text data s.
+    JSEscapeString returns the escaped JavaScript equivalent of the plain text data s.
 **/
 inline function jsescapeString(s:String):String throw "not implemented";
 /**
-    // JSEscaper returns the escaped JavaScript equivalent of the textual
-    // representation of its arguments.
+    JSEscaper returns the escaped JavaScript equivalent of the textual
+    representation of its arguments.
 **/
 inline function jsescaper(args:haxe.Rest<stdgo.AnyInterface>):String throw "not implemented";
 /**
-    // URLQueryEscaper returns the escaped value of the textual representation of
-    // its arguments in a form suitable for embedding in a URL query.
+    URLQueryEscaper returns the escaped value of the textual representation of
+    its arguments in a form suitable for embedding in a URL query.
 **/
 inline function urlqueryEscaper(args:haxe.Rest<stdgo.AnyInterface>):String throw "not implemented";
 /**
-    // Must is a helper that wraps a call to a function returning (*Template, error)
-    // and panics if the error is non-nil. It is intended for use in variable
-    // initializations such as
-    //
-    //	var t = template.Must(template.New("name").Parse("text"))
+    Must is a helper that wraps a call to a function returning (*Template, error)
+    and panics if the error is non-nil. It is intended for use in variable
+    initializations such as
+    
+    	var t = template.Must(template.New("name").Parse("text"))
 **/
 inline function must(t:Template, err:stdgo.Error):Template throw "not implemented";
 /**
-    // ParseFiles creates a new Template and parses the template definitions from
-    // the named files. The returned template's name will have the base name and
-    // parsed contents of the first file. There must be at least one file.
-    // If an error occurs, parsing stops and the returned *Template is nil.
-    //
-    // When parsing multiple files with the same name in different directories,
-    // the last one mentioned will be the one that results.
-    // For instance, ParseFiles("a/foo", "b/foo") stores "b/foo" as the template
-    // named "foo", while "a/foo" is unavailable.
+    ParseFiles creates a new Template and parses the template definitions from
+    the named files. The returned template's name will have the base name and
+    parsed contents of the first file. There must be at least one file.
+    If an error occurs, parsing stops and the returned *Template is nil.
+    
+    When parsing multiple files with the same name in different directories,
+    the last one mentioned will be the one that results.
+    For instance, ParseFiles("a/foo", "b/foo") stores "b/foo" as the template
+    named "foo", while "a/foo" is unavailable.
 **/
 inline function parseFiles(filenames:haxe.Rest<stdgo.GoString>):stdgo.Tuple<Template, stdgo.Error> throw "not implemented";
 /**
-    // ParseGlob creates a new Template and parses the template definitions from
-    // the files identified by the pattern. The files are matched according to the
-    // semantics of filepath.Match, and the pattern must match at least one file.
-    // The returned template will have the (base) name and (parsed) contents of the
-    // first file matched by the pattern. ParseGlob is equivalent to calling
-    // ParseFiles with the list of files matched by the pattern.
-    //
-    // When parsing multiple files with the same name in different directories,
-    // the last one mentioned will be the one that results.
+    ParseGlob creates a new Template and parses the template definitions from
+    the files identified by the pattern. The files are matched according to the
+    semantics of filepath.Match, and the pattern must match at least one file.
+    The returned template will have the (base) name and (parsed) contents of the
+    first file matched by the pattern. ParseGlob is equivalent to calling
+    ParseFiles with the list of files matched by the pattern.
+    
+    When parsing multiple files with the same name in different directories,
+    the last one mentioned will be the one that results.
 **/
 inline function parseGlob(pattern:String):stdgo.Tuple<Template, stdgo.Error> throw "not implemented";
 /**
-    // ParseFS is like ParseFiles or ParseGlob but reads from the file system fsys
-    // instead of the host operating system's file system.
-    // It accepts a list of glob patterns.
-    // (Note that most file names serve as glob patterns matching only themselves.)
+    ParseFS is like ParseFiles or ParseGlob but reads from the file system fsys
+    instead of the host operating system's file system.
+    It accepts a list of glob patterns.
+    (Note that most file names serve as glob patterns matching only themselves.)
 **/
 inline function parseFS(fsys:stdgo._internal.io.fs.Fs.FS, patterns:haxe.Rest<stdgo.GoString>):stdgo.Tuple<Template, stdgo.Error> throw "not implemented";
 inline function testMultiParse(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -655,33 +655,33 @@ inline function testParseGlobWithData(t:stdgo._internal.testing.Testing.T_):Void
 inline function testClone(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testAddParseTree(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Issue 7032
+    Issue 7032
 **/
 inline function testAddParseTreeToUnparsedTemplate(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testRedefinition(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Issue 10879
+    Issue 10879
 **/
 inline function testEmptyTemplateCloneCrash(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Issue 10910, 10926
+    Issue 10910, 10926
 **/
 inline function testTemplateLookUp(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testNew(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testParse(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testEmptyTemplate(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Issue 19249 was a regression in 1.8 caused by the handling of empty
-    // templates added in that release, which got different answers depending
-    // on the order templates appeared in the internal map.
+    Issue 19249 was a regression in 1.8 caused by the handling of empty
+    templates added in that release, which got different answers depending
+    on the order templates appeared in the internal map.
 **/
 inline function testIssue19294(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Issue 48436
+    Issue 48436
 **/
 inline function testAddToZeroTemplate(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // New allocates a new, undefined template with the given name.
+    New allocates a new, undefined template with the given name.
 **/
 inline function new_(name:String):Template throw "not implemented";
 @:invalid typedef T_state_asInterface = Dynamic;

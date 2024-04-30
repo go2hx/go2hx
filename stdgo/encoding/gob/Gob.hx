@@ -441,21 +441,21 @@ typedef TextValueGobber = stdgo._internal.encoding.gob.Gob.TextValueGobber;
 typedef T_isZeroBugArray = stdgo._internal.encoding.gob.Gob.T_isZeroBugArray;
 typedef T_typeId = stdgo._internal.encoding.gob.Gob.T_typeId;
 /**
-    // Test basic encode/decode routines for unsigned integers
+    Test basic encode/decode routines for unsigned integers
 **/
 inline function testUintCodec(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Test basic encode/decode routines for signed integers
+    Test basic encode/decode routines for signed integers
 **/
 inline function testIntCodec(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Test instruction execution for encoding.
-    // Do not run the machine yet; instead do individual instructions crafted by hand.
+    Test instruction execution for encoding.
+    Do not run the machine yet; instead do individual instructions crafted by hand.
 **/
 inline function testScalarEncInstructions(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Test instruction execution for decoding.
-    // Do not run the machine yet; instead do individual instructions crafted by hand.
+    Test instruction execution for decoding.
+    Do not run the machine yet; instead do individual instructions crafted by hand.
 **/
 inline function testScalarDecInstructions(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testEndToEnd_54___localname___T2 = Dynamic;
@@ -483,8 +483,8 @@ inline function testIndirectSliceMapArray(t:stdgo._internal.testing.Testing.T_):
 inline function testInterface(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testInterfaceBasic(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // We'll send pointers; should receive values.
-    // Also check that we can register T but send *T.
+    We'll send pointers; should receive values.
+    Also check that we can register T but send *T.
 **/
 inline function testInterfacePointer(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testIgnoreInterface(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -492,40 +492,40 @@ inline function testUnexportedFields(t:stdgo._internal.testing.Testing.T_):Void 
 inline function testDebugSingleton(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testDebugStruct(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // This does some "fuzz testing" by attempting to decode a sequence of random bytes.
+    This does some "fuzz testing" by attempting to decode a sequence of random bytes.
 **/
 inline function testFuzz(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testFuzzRegressions(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestFuzzOneByte tries to decode corrupted input sequences
-    // and checks that no panic occurs.
+    TestFuzzOneByte tries to decode corrupted input sequences
+    and checks that no panic occurs.
 **/
 inline function testFuzzOneByte(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Don't crash, just give error with invalid type id.
-    // Issue 9649.
+    Don't crash, just give error with invalid type id.
+    Issue 9649.
 **/
 inline function testErrorInvalidTypeId(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testLargeSlice(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testLocalRemoteTypesMismatch(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // NewDecoder returns a new decoder that reads from the io.Reader.
-    // If r does not also implement io.ByteReader, it will be wrapped in a
-    // bufio.Reader.
+    NewDecoder returns a new decoder that reads from the io.Reader.
+    If r does not also implement io.ByteReader, it will be wrapped in a
+    bufio.Reader.
 **/
 inline function newDecoder(r:stdgo._internal.io.Io.Reader):Decoder throw "not implemented";
 /**
-    // NewEncoder returns a new encoder that will transmit on the io.Writer.
+    NewEncoder returns a new encoder that will transmit on the io.Writer.
 **/
 inline function newEncoder(w:stdgo._internal.io.Io.Writer):Encoder throw "not implemented";
 /**
-    // Test basic operations in a safe manner.
+    Test basic operations in a safe manner.
 **/
 inline function testBasicEncoderDecoder(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testEncodeIntSlice(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testEncoderDecoder(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Test that we recognize a bad type the first time.
+    Test that we recognize a bad type the first time.
 **/
 inline function testWrongTypeDecoder(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testUnsupported(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -548,7 +548,7 @@ typedef T_testRecursiveSliceType_76___localname___recursiveSlice = stdgo._intern
 inline function testRecursiveSliceType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testDefaultsInArray_77___localname___Type7 = Dynamic;
 /**
-    // Regression test for bug: must send zero values inside arrays
+    Regression test for bug: must send zero values inside arrays
 **/
 inline function testDefaultsInArray(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testSingletons(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -556,9 +556,9 @@ inline function testSingletons(t:stdgo._internal.testing.Testing.T_):Void throw 
 typedef T_testStructNonStruct_79___localname___NonStruct = stdgo._internal.encoding.gob.Gob.T_testStructNonStruct_79___localname___NonStruct;
 inline function testStructNonStruct(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // A version of a bug reported on golang-nuts. Also tests top-level
-    // slice of interfaces. The issue was registering *T caused T to be
-    // stored as the concrete type.
+    A version of a bug reported on golang-nuts. Also tests top-level
+    slice of interfaces. The issue was registering *T caused T to be
+    stored as the concrete type.
 **/
 inline function testInterfaceIndirect(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testDecodeIntoNothing(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -568,55 +568,55 @@ inline function testMapBug1(t:stdgo._internal.testing.Testing.T_):Void throw "no
 inline function testGobMapInterfaceEncode(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testSliceReusesMemory(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Used to crash: negative count in recvMessage.
+    Used to crash: negative count in recvMessage.
 **/
 inline function testBadCount(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Verify that sequential Decoders built on a single input will
-    // succeed if the input implements ReadByte and there is no
-    // type information in the stream.
+    Verify that sequential Decoders built on a single input will
+    succeed if the input implements ReadByte and there is no
+    type information in the stream.
 **/
 inline function testSequentialDecoder(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testChanFuncIgnored(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testSliceIncompatibility(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testGobPtrSlices(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // getDecEnginePtr cached engine for ut.base instead of ut.user so we passed
-    // a *map and then tried to reuse its engine to decode the inner map.
+    getDecEnginePtr cached engine for ut.base instead of ut.user so we passed
+    a *map and then tried to reuse its engine to decode the inner map.
 **/
 inline function testPtrToMapOfMap(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Test that untyped nils generate an error, not a panic.
-    // See Issue 16204.
+    Test that untyped nils generate an error, not a panic.
+    See Issue 16204.
 **/
 inline function testCatchInvalidNilValue(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // A top-level nil pointer generates a panic with a helpful string-valued message.
+    A top-level nil pointer generates a panic with a helpful string-valued message.
 **/
 inline function testTopLevelNilPointer(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testNilPointerPanics(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testNilPointerInsideInterface(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Test that a failed compilation doesn't leave around an executable encoder.
-    // Issue 3723.
+    Test that a failed compilation doesn't leave around an executable encoder.
+    Issue 3723.
 **/
 inline function testMutipleEncodingsOfBadType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function test29ElementSlice(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Don't crash, just give error when allocating a huge slice.
-    // Issue 8084.
+    Don't crash, just give error when allocating a huge slice.
+    Issue 8084.
 **/
 inline function testErrorForHugeSlice(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // TestBadData tests that various problems caused by malformed input
-    // are caught as errors and do not cause panics.
+    TestBadData tests that various problems caused by malformed input
+    are caught as errors and do not cause panics.
 **/
 inline function testBadData(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testDecodeErrorMultipleTypes_80___localname___Test = Dynamic;
 inline function testDecodeErrorMultipleTypes(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testMarshalFloatMap_81___localname___mapEntry = Dynamic;
 /**
-    // Issue 24075
+    Issue 24075
 **/
 inline function testMarshalFloatMap(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testDecodePartial_82___localname___T = Dynamic;
@@ -624,48 +624,48 @@ inline function testDecodePartial(t:stdgo._internal.testing.Testing.T_):Void thr
 inline function testDecoderOverflow(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testGobEncoderField(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Even though the field is a value, we can still take its address
-    // and should be able to call the methods.
+    Even though the field is a value, we can still take its address
+    and should be able to call the methods.
 **/
 inline function testGobEncoderValueField(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // GobEncode/Decode should work even if the value is
-    // more indirect than the receiver.
+    GobEncode/Decode should work even if the value is
+    more indirect than the receiver.
 **/
 inline function testGobEncoderIndirectField(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Test with a large field with methods.
+    Test with a large field with methods.
 **/
 inline function testGobEncoderArrayField(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Test an indirection to a large field with methods.
+    Test an indirection to a large field with methods.
 **/
 inline function testGobEncoderIndirectArrayField(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // As long as the fields have the same name and implement the
-    // interface, we can cross-connect them. Not sure it's useful
-    // and may even be bad but it works and it's hard to prevent
-    // without exposing the contents of the object, which would
-    // defeat the purpose.
+    As long as the fields have the same name and implement the
+    interface, we can cross-connect them. Not sure it's useful
+    and may even be bad but it works and it's hard to prevent
+    without exposing the contents of the object, which would
+    defeat the purpose.
 **/
 inline function testGobEncoderFieldsOfDifferentType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Test that we can encode a value and decode into a pointer.
+    Test that we can encode a value and decode into a pointer.
 **/
 inline function testGobEncoderValueEncoder(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Test that we can use a value then a pointer type of a GobEncoder
-    // in the same encoded value. Bug 4647.
+    Test that we can use a value then a pointer type of a GobEncoder
+    in the same encoded value. Bug 4647.
 **/
 inline function testGobEncoderValueThenPointer(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Test that we can use a pointer then a value type of a GobEncoder
-    // in the same encoded value.
+    Test that we can use a pointer then a value type of a GobEncoder
+    in the same encoded value.
 **/
 inline function testGobEncoderPointerThenValue(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testGobEncoderFieldTypeError(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Even though ByteStruct is a struct, it's treated as a singleton at the top level.
+    Even though ByteStruct is a struct, it's treated as a singleton at the top level.
 **/
 inline function testGobEncoderStructSingleton(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testGobEncoderNonStructSingleton(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -673,8 +673,8 @@ inline function testGobEncoderIgnoreStructField(t:stdgo._internal.testing.Testin
 inline function testGobEncoderIgnoreNonStructField(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testGobEncoderIgnoreNilEncoder(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // This was a bug: the receiver has a different indirection level
-    // than the variable.
+    This was a bug: the receiver has a different indirection level
+    than the variable.
 **/
 inline function testGobEncoderExtraIndirect(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testGobEncodeIsZero(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -700,25 +700,25 @@ inline function benchmarkDecodeBytesSlice(b:stdgo._internal.testing.Testing.B):V
 inline function benchmarkDecodeInterfaceSlice(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 inline function benchmarkDecodeMap(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 /**
-    // RegisterName is like Register but uses the provided name rather than the
-    // type's default.
+    RegisterName is like Register but uses the provided name rather than the
+    type's default.
 **/
 inline function registerName(name:String, value:stdgo.AnyInterface):Void throw "not implemented";
 /**
-    // Register records a type, identified by a value for that type, under its
-    // internal type name. That name will identify the concrete type of a value
-    // sent or received as an interface variable. Only types that will be
-    // transferred as implementations of interface values need to be registered.
-    // Expecting to be used only during initialization, it panics if the mapping
-    // between types and names is not a bijection.
+    Register records a type, identified by a value for that type, under its
+    internal type name. That name will identify the concrete type of a value
+    sent or received as an interface variable. Only types that will be
+    transferred as implementations of interface values need to be registered.
+    Expecting to be used only during initialization, it panics if the mapping
+    between types and names is not a bijection.
 **/
 inline function register(value:stdgo.AnyInterface):Void throw "not implemented";
 /**
-    // Sanity checks
+    Sanity checks
 **/
 inline function testBasic(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Reregister some basic types to check registration is idempotent.
+    Reregister some basic types to check registration is idempotent.
 **/
 inline function testReregistration(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testArrayType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -727,18 +727,18 @@ inline function testMapType(t:stdgo._internal.testing.Testing.T_):Void throw "no
 inline function testStructType(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testRegistration_83___localname___T = Dynamic;
 /**
-    // Should be OK to register the same type multiple times, as long as they're
-    // at the same level of indirection.
+    Should be OK to register the same type multiple times, as long as they're
+    at the same level of indirection.
 **/
 inline function testRegistration(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // See comment in type.go/Register.
+    See comment in type.go/Register.
 **/
 inline function testRegistrationNaming(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef T_testStressParallel_84___localname___T2 = Dynamic;
 inline function testStressParallel(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // Issue 23328. Note that this test name is known to cmd/dist/test.go.
+    Issue 23328. Note that this test name is known to cmd/dist/test.go.
 **/
 inline function testTypeRace(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 @:invalid typedef Point_asInterface = Dynamic;

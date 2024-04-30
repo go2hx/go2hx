@@ -1,6 +1,6 @@
 package stdgo.compress.bzip2;
 /**
-    // Package bzip2 implements bzip2 decompression.
+    Package bzip2 implements bzip2 decompression.
 **/
 private var __go2hxdoc__package : Bool;
 @:invalid typedef T_bitReader = Dynamic;
@@ -21,9 +21,9 @@ typedef T__struct_2 = stdgo._internal.compress.bzip2.Bzip2.T__struct_2;
 typedef StructuralError = stdgo._internal.compress.bzip2.Bzip2.StructuralError;
 typedef T_moveToFrontDecoder = stdgo._internal.compress.bzip2.Bzip2.T_moveToFrontDecoder;
 /**
-    // NewReader returns an io.Reader which decompresses bzip2 data from r.
-    // If r does not also implement io.ByteReader,
-    // the decompressor may read more data than necessary from r.
+    NewReader returns an io.Reader which decompresses bzip2 data from r.
+    If r does not also implement io.ByteReader,
+    the decompressor may read more data than necessary from r.
 **/
 inline function newReader(r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader throw "not implemented";
 inline function testReader(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";

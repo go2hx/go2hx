@@ -1,6 +1,6 @@
 package stdgo.crypto;
 /**
-    // Package crypto collects common cryptographic constants.
+    Package crypto collects common cryptographic constants.
 **/
 private var __go2hxdoc__package : Bool;
 final md4 : stdgo._internal.crypto.Crypto.Hash = stdgo._internal.crypto.Crypto.md4;
@@ -33,9 +33,9 @@ typedef PublicKey = stdgo._internal.crypto.Crypto.PublicKey;
 typedef PrivateKey = stdgo._internal.crypto.Crypto.PrivateKey;
 typedef DecrypterOpts = stdgo._internal.crypto.Crypto.DecrypterOpts;
 /**
-    // RegisterHash registers a function that returns a new instance of the given
-    // hash function. This is intended to be called from the init function in
-    // packages that implement hash functions.
+    RegisterHash registers a function that returns a new instance of the given
+    hash function. This is intended to be called from the init function in
+    packages that implement hash functions.
 **/
 inline function registerHash(h:Hash, f:() -> stdgo._internal.hash.Hash.Hash):Void throw "not implemented";
 @:invalid typedef Hash_asInterface = Dynamic;

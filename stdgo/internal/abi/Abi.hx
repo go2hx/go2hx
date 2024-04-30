@@ -117,66 +117,66 @@ typedef TypeOff = stdgo._internal.internal.abi.Abi.TypeOff;
 typedef TextOff = stdgo._internal.internal.abi.Abi.TextOff;
 typedef ChanDir = stdgo._internal.internal.abi.Abi.ChanDir;
 /**
-    // CommonSize returns sizeof(Type) for a compilation target with a given ptrSize
+    CommonSize returns sizeof(Type) for a compilation target with a given ptrSize
 **/
 inline function commonSize(ptrSize:Int):Int throw "not implemented";
 /**
-    // StructFieldSize returns sizeof(StructField) for a compilation target with a given ptrSize
+    StructFieldSize returns sizeof(StructField) for a compilation target with a given ptrSize
 **/
 inline function structFieldSize(ptrSize:Int):Int throw "not implemented";
 /**
-    // UncommonSize returns sizeof(UncommonType).  This currently does not depend on ptrSize.
-    // This exported function is in an internal package, so it may change to depend on ptrSize in the future.
+    UncommonSize returns sizeof(UncommonType).  This currently does not depend on ptrSize.
+    This exported function is in an internal package, so it may change to depend on ptrSize in the future.
 **/
 inline function uncommonSize():haxe.UInt64 throw "not implemented";
 /**
-    // IMethodSize returns sizeof(IMethod) for a compilation target with a given ptrSize
+    IMethodSize returns sizeof(IMethod) for a compilation target with a given ptrSize
 **/
 inline function imethodSize(ptrSize:Int):Int throw "not implemented";
 /**
-    // KindOff returns the offset of Type.Kind_ for a compilation target with a given ptrSize
+    KindOff returns the offset of Type.Kind_ for a compilation target with a given ptrSize
 **/
 inline function kindOff(ptrSize:Int):Int throw "not implemented";
 /**
-    // SizeOff returns the offset of Type.Size_ for a compilation target with a given ptrSize
+    SizeOff returns the offset of Type.Size_ for a compilation target with a given ptrSize
 **/
 inline function sizeOff(ptrSize:Int):Int throw "not implemented";
 /**
-    // PtrBytes returns the offset of Type.PtrBytes for a compilation target with a given ptrSize
+    PtrBytes returns the offset of Type.PtrBytes for a compilation target with a given ptrSize
 **/
 inline function ptrBytesOff(ptrSize:Int):Int throw "not implemented";
 /**
-    // TFlagOff returns the offset of Type.TFlag for a compilation target with a given ptrSize
+    TFlagOff returns the offset of Type.TFlag for a compilation target with a given ptrSize
 **/
 inline function tflagOff(ptrSize:Int):Int throw "not implemented";
 /**
-    // NewOffset returns a new Offset with offset 0 and alignment 1.
+    NewOffset returns a new Offset with offset 0 and alignment 1.
 **/
 inline function newOffset(ptrSize:UInt, twoWordAlignSlices:Bool):Offset throw "not implemented";
 /**
-    // InitializedOffset returns a new Offset with specified offset, alignment, pointer size, and slice alignment.
+    InitializedOffset returns a new Offset with specified offset, alignment, pointer size, and slice alignment.
 **/
 inline function initializedOffset(off:Int, align:UInt, ptrSize:UInt, twoWordAlignSlices:Bool):Offset throw "not implemented";
 /**
-    // CommonOffset returns the Offset to the data after the common portion of type data structures.
+    CommonOffset returns the Offset to the data after the common portion of type data structures.
 **/
 inline function commonOffset(ptrSize:Int, twoWordAlignSlices:Bool):Offset throw "not implemented";
 /**
-    // FuncPCABI0 returns the entry PC of the function f, which must be a
-    // direct reference of a function defined as ABI0. Otherwise it is a
-    // compile-time error.
-    //
-    // Implemented as a compile intrinsic.
+    FuncPCABI0 returns the entry PC of the function f, which must be a
+    direct reference of a function defined as ABI0. Otherwise it is a
+    compile-time error.
+    
+    Implemented as a compile intrinsic.
 **/
 inline function funcPCABI0(f:stdgo.AnyInterface):stdgo.GoUIntptr throw "not implemented";
 /**
-    // FuncPCABIInternal returns the entry PC of the function f. If f is a
-    // direct reference of a function, it must be defined as ABIInternal.
-    // Otherwise it is a compile-time error. If f is not a direct reference
-    // of a defined function, it assumes that f is a func value. Otherwise
-    // the behavior is undefined.
-    //
-    // Implemented as a compile intrinsic.
+    FuncPCABIInternal returns the entry PC of the function f. If f is a
+    direct reference of a function, it must be defined as ABIInternal.
+    Otherwise it is a compile-time error. If f is not a direct reference
+    of a defined function, it assumes that f is a func value. Otherwise
+    the behavior is undefined.
+    
+    Implemented as a compile intrinsic.
 **/
 inline function funcPCABIInternal(f:stdgo.AnyInterface):stdgo.GoUIntptr throw "not implemented";
 inline function newName(n:String, tag:String, exported:Bool, embedded:Bool):Name throw "not implemented";

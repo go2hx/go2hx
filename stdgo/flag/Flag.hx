@@ -116,209 +116,209 @@ typedef T_funcValue = stdgo._internal.flag.Flag.T_funcValue;
 typedef T_boolFuncValue = stdgo._internal.flag.Flag.T_boolFuncValue;
 typedef ErrorHandling = stdgo._internal.flag.Flag.ErrorHandling;
 /**
-    // ResetForTesting clears all flag state and sets the usage function as directed.
-    // After calling ResetForTesting, parse errors in flag handling will not
-    // exit the program.
+    ResetForTesting clears all flag state and sets the usage function as directed.
+    After calling ResetForTesting, parse errors in flag handling will not
+    exit the program.
 **/
 inline function resetForTesting(usage:() -> Void):Void throw "not implemented";
 /**
-    // VisitAll visits the command-line flags in lexicographical order, calling
-    // fn for each. It visits all flags, even those not set.
+    VisitAll visits the command-line flags in lexicographical order, calling
+    fn for each. It visits all flags, even those not set.
 **/
 inline function visitAll(fn:stdgo.Ref<Flag> -> Void):Void throw "not implemented";
 /**
-    // Visit visits the command-line flags in lexicographical order, calling fn
-    // for each. It visits only those flags that have been set.
+    Visit visits the command-line flags in lexicographical order, calling fn
+    for each. It visits only those flags that have been set.
 **/
 inline function visit(fn:stdgo.Ref<Flag> -> Void):Void throw "not implemented";
 /**
-    // Lookup returns the Flag structure of the named command-line flag,
-    // returning nil if none exists.
+    Lookup returns the Flag structure of the named command-line flag,
+    returning nil if none exists.
 **/
 inline function lookup(name:String):Flag throw "not implemented";
 /**
-    // Set sets the value of the named command-line flag.
+    Set sets the value of the named command-line flag.
 **/
 inline function set(name:String, value:String):stdgo.Error throw "not implemented";
 /**
-    // UnquoteUsage extracts a back-quoted name from the usage
-    // string for a flag and returns it and the un-quoted usage.
-    // Given "a `name` to show" it returns ("name", "a name to show").
-    // If there are no back quotes, the name is an educated guess of the
-    // type of the flag's value, or the empty string if the flag is boolean.
+    UnquoteUsage extracts a back-quoted name from the usage
+    string for a flag and returns it and the un-quoted usage.
+    Given "a `name` to show" it returns ("name", "a name to show").
+    If there are no back quotes, the name is an educated guess of the
+    type of the flag's value, or the empty string if the flag is boolean.
 **/
 inline function unquoteUsage(flag:Flag):stdgo.Tuple<String, String> throw "not implemented";
 /**
-    // PrintDefaults prints, to standard error unless configured otherwise,
-    // a usage message showing the default settings of all defined
-    // command-line flags.
-    // For an integer valued flag x, the default output has the form
-    //
-    //	-x int
-    //		usage-message-for-x (default 7)
-    //
-    // The usage message will appear on a separate line for anything but
-    // a bool flag with a one-byte name. For bool flags, the type is
-    // omitted and if the flag name is one byte the usage message appears
-    // on the same line. The parenthetical default is omitted if the
-    // default is the zero value for the type. The listed type, here int,
-    // can be changed by placing a back-quoted name in the flag's usage
-    // string; the first such item in the message is taken to be a parameter
-    // name to show in the message and the back quotes are stripped from
-    // the message when displayed. For instance, given
-    //
-    //	flag.String("I", "", "search `directory` for include files")
-    //
-    // the output will be
-    //
-    //	-I directory
-    //		search directory for include files.
-    //
-    // To change the destination for flag messages, call CommandLine.SetOutput.
+    PrintDefaults prints, to standard error unless configured otherwise,
+    a usage message showing the default settings of all defined
+    command-line flags.
+    For an integer valued flag x, the default output has the form
+    
+    	-x int
+    		usage-message-for-x (default 7)
+    
+    The usage message will appear on a separate line for anything but
+    a bool flag with a one-byte name. For bool flags, the type is
+    omitted and if the flag name is one byte the usage message appears
+    on the same line. The parenthetical default is omitted if the
+    default is the zero value for the type. The listed type, here int,
+    can be changed by placing a back-quoted name in the flag's usage
+    string; the first such item in the message is taken to be a parameter
+    name to show in the message and the back quotes are stripped from
+    the message when displayed. For instance, given
+    
+    	flag.String("I", "", "search `directory` for include files")
+    
+    the output will be
+    
+    	-I directory
+    		search directory for include files.
+    
+    To change the destination for flag messages, call CommandLine.SetOutput.
 **/
 inline function printDefaults():Void throw "not implemented";
 /**
-    // NFlag returns the number of command-line flags that have been set.
+    NFlag returns the number of command-line flags that have been set.
 **/
 inline function nflag():Int throw "not implemented";
 /**
-    // Arg returns the i'th command-line argument. Arg(0) is the first remaining argument
-    // after flags have been processed. Arg returns an empty string if the
-    // requested element does not exist.
+    Arg returns the i'th command-line argument. Arg(0) is the first remaining argument
+    after flags have been processed. Arg returns an empty string if the
+    requested element does not exist.
 **/
 inline function arg(i:Int):String throw "not implemented";
 /**
-    // NArg is the number of arguments remaining after flags have been processed.
+    NArg is the number of arguments remaining after flags have been processed.
 **/
 inline function narg():Int throw "not implemented";
 /**
-    // Args returns the non-flag command-line arguments.
+    Args returns the non-flag command-line arguments.
 **/
 inline function args():Array<String> throw "not implemented";
 /**
-    // BoolVar defines a bool flag with specified name, default value, and usage string.
-    // The argument p points to a bool variable in which to store the value of the flag.
+    BoolVar defines a bool flag with specified name, default value, and usage string.
+    The argument p points to a bool variable in which to store the value of the flag.
 **/
 inline function boolVar(p:stdgo.Pointer<Bool>, name:String, value:Bool, usage:String):Void throw "not implemented";
 /**
-    // Bool defines a bool flag with specified name, default value, and usage string.
-    // The return value is the address of a bool variable that stores the value of the flag.
+    Bool defines a bool flag with specified name, default value, and usage string.
+    The return value is the address of a bool variable that stores the value of the flag.
 **/
 inline function bool_(name:String, value:Bool, usage:String):stdgo.Pointer<Bool> throw "not implemented";
 /**
-    // IntVar defines an int flag with specified name, default value, and usage string.
-    // The argument p points to an int variable in which to store the value of the flag.
+    IntVar defines an int flag with specified name, default value, and usage string.
+    The argument p points to an int variable in which to store the value of the flag.
 **/
 inline function intVar(p:stdgo.Pointer<Int>, name:String, value:Int, usage:String):Void throw "not implemented";
 /**
-    // Int defines an int flag with specified name, default value, and usage string.
-    // The return value is the address of an int variable that stores the value of the flag.
+    Int defines an int flag with specified name, default value, and usage string.
+    The return value is the address of an int variable that stores the value of the flag.
 **/
 inline function int_(name:String, value:Int, usage:String):stdgo.Pointer<Int> throw "not implemented";
 /**
-    // Int64Var defines an int64 flag with specified name, default value, and usage string.
-    // The argument p points to an int64 variable in which to store the value of the flag.
+    Int64Var defines an int64 flag with specified name, default value, and usage string.
+    The argument p points to an int64 variable in which to store the value of the flag.
 **/
 inline function int64Var(p:stdgo.Pointer<haxe.Int64>, name:String, value:haxe.Int64, usage:String):Void throw "not implemented";
 /**
-    // Int64 defines an int64 flag with specified name, default value, and usage string.
-    // The return value is the address of an int64 variable that stores the value of the flag.
+    Int64 defines an int64 flag with specified name, default value, and usage string.
+    The return value is the address of an int64 variable that stores the value of the flag.
 **/
 inline function int64(name:String, value:haxe.Int64, usage:String):stdgo.Pointer<haxe.Int64> throw "not implemented";
 /**
-    // UintVar defines a uint flag with specified name, default value, and usage string.
-    // The argument p points to a uint variable in which to store the value of the flag.
+    UintVar defines a uint flag with specified name, default value, and usage string.
+    The argument p points to a uint variable in which to store the value of the flag.
 **/
 inline function uintVar(p:stdgo.Pointer<UInt>, name:String, value:UInt, usage:String):Void throw "not implemented";
 /**
-    // Uint defines a uint flag with specified name, default value, and usage string.
-    // The return value is the address of a uint variable that stores the value of the flag.
+    Uint defines a uint flag with specified name, default value, and usage string.
+    The return value is the address of a uint variable that stores the value of the flag.
 **/
 inline function uint(name:String, value:UInt, usage:String):stdgo.Pointer<UInt> throw "not implemented";
 /**
-    // Uint64Var defines a uint64 flag with specified name, default value, and usage string.
-    // The argument p points to a uint64 variable in which to store the value of the flag.
+    Uint64Var defines a uint64 flag with specified name, default value, and usage string.
+    The argument p points to a uint64 variable in which to store the value of the flag.
 **/
 inline function uint64Var(p:stdgo.Pointer<haxe.UInt64>, name:String, value:haxe.UInt64, usage:String):Void throw "not implemented";
 /**
-    // Uint64 defines a uint64 flag with specified name, default value, and usage string.
-    // The return value is the address of a uint64 variable that stores the value of the flag.
+    Uint64 defines a uint64 flag with specified name, default value, and usage string.
+    The return value is the address of a uint64 variable that stores the value of the flag.
 **/
 inline function uint64(name:String, value:haxe.UInt64, usage:String):stdgo.Pointer<haxe.UInt64> throw "not implemented";
 /**
-    // StringVar defines a string flag with specified name, default value, and usage string.
-    // The argument p points to a string variable in which to store the value of the flag.
+    StringVar defines a string flag with specified name, default value, and usage string.
+    The argument p points to a string variable in which to store the value of the flag.
 **/
 inline function stringVar(p:stdgo.Pointer<String>, name:String, value:String, usage:String):Void throw "not implemented";
 /**
-    // String defines a string flag with specified name, default value, and usage string.
-    // The return value is the address of a string variable that stores the value of the flag.
+    String defines a string flag with specified name, default value, and usage string.
+    The return value is the address of a string variable that stores the value of the flag.
 **/
 inline function string(name:String, value:String, usage:String):stdgo.Pointer<String> throw "not implemented";
 /**
-    // Float64Var defines a float64 flag with specified name, default value, and usage string.
-    // The argument p points to a float64 variable in which to store the value of the flag.
+    Float64Var defines a float64 flag with specified name, default value, and usage string.
+    The argument p points to a float64 variable in which to store the value of the flag.
 **/
 inline function float64Var(p:stdgo.Pointer<Float>, name:String, value:Float, usage:String):Void throw "not implemented";
 /**
-    // Float64 defines a float64 flag with specified name, default value, and usage string.
-    // The return value is the address of a float64 variable that stores the value of the flag.
+    Float64 defines a float64 flag with specified name, default value, and usage string.
+    The return value is the address of a float64 variable that stores the value of the flag.
 **/
 inline function float64(name:String, value:Float, usage:String):stdgo.Pointer<Float> throw "not implemented";
 /**
-    // DurationVar defines a time.Duration flag with specified name, default value, and usage string.
-    // The argument p points to a time.Duration variable in which to store the value of the flag.
-    // The flag accepts a value acceptable to time.ParseDuration.
+    DurationVar defines a time.Duration flag with specified name, default value, and usage string.
+    The argument p points to a time.Duration variable in which to store the value of the flag.
+    The flag accepts a value acceptable to time.ParseDuration.
 **/
 inline function durationVar(p:stdgo.Pointer<stdgo._internal.time.Time.Duration>, name:String, value:stdgo._internal.time.Time.Duration, usage:String):Void throw "not implemented";
 /**
-    // Duration defines a time.Duration flag with specified name, default value, and usage string.
-    // The return value is the address of a time.Duration variable that stores the value of the flag.
-    // The flag accepts a value acceptable to time.ParseDuration.
+    Duration defines a time.Duration flag with specified name, default value, and usage string.
+    The return value is the address of a time.Duration variable that stores the value of the flag.
+    The flag accepts a value acceptable to time.ParseDuration.
 **/
 inline function duration(name:String, value:stdgo._internal.time.Time.Duration, usage:String):stdgo.Pointer<stdgo._internal.time.Time.Duration> throw "not implemented";
 /**
-    // TextVar defines a flag with a specified name, default value, and usage string.
-    // The argument p must be a pointer to a variable that will hold the value
-    // of the flag, and p must implement encoding.TextUnmarshaler.
-    // If the flag is used, the flag value will be passed to p's UnmarshalText method.
-    // The type of the default value must be the same as the type of p.
+    TextVar defines a flag with a specified name, default value, and usage string.
+    The argument p must be a pointer to a variable that will hold the value
+    of the flag, and p must implement encoding.TextUnmarshaler.
+    If the flag is used, the flag value will be passed to p's UnmarshalText method.
+    The type of the default value must be the same as the type of p.
 **/
 inline function textVar(p:stdgo._internal.encoding.Encoding.TextUnmarshaler, name:String, value:stdgo._internal.encoding.Encoding.TextMarshaler, usage:String):Void throw "not implemented";
 /**
-    // Func defines a flag with the specified name and usage string.
-    // Each time the flag is seen, fn is called with the value of the flag.
-    // If fn returns a non-nil error, it will be treated as a flag value parsing error.
+    Func defines a flag with the specified name and usage string.
+    Each time the flag is seen, fn is called with the value of the flag.
+    If fn returns a non-nil error, it will be treated as a flag value parsing error.
 **/
 inline function func(name:String, usage:String, fn:stdgo.GoString -> stdgo.Error):Void throw "not implemented";
 /**
-    // BoolFunc defines a flag with the specified name and usage string without requiring values.
-    // Each time the flag is seen, fn is called with the value of the flag.
-    // If fn returns a non-nil error, it will be treated as a flag value parsing error.
+    BoolFunc defines a flag with the specified name and usage string without requiring values.
+    Each time the flag is seen, fn is called with the value of the flag.
+    If fn returns a non-nil error, it will be treated as a flag value parsing error.
 **/
 inline function boolFunc(name:String, usage:String, fn:stdgo.GoString -> stdgo.Error):Void throw "not implemented";
 /**
-    // Var defines a flag with the specified name and usage string. The type and
-    // value of the flag are represented by the first argument, of type Value, which
-    // typically holds a user-defined implementation of Value. For instance, the
-    // caller could create a flag that turns a comma-separated string into a slice
-    // of strings by giving the slice the methods of Value; in particular, Set would
-    // decompose the comma-separated string into the slice.
+    Var defines a flag with the specified name and usage string. The type and
+    value of the flag are represented by the first argument, of type Value, which
+    typically holds a user-defined implementation of Value. For instance, the
+    caller could create a flag that turns a comma-separated string into a slice
+    of strings by giving the slice the methods of Value; in particular, Set would
+    decompose the comma-separated string into the slice.
 **/
 inline function var_(value:Value, name:String, usage:String):Void throw "not implemented";
 /**
-    // Parse parses the command-line flags from os.Args[1:]. Must be called
-    // after all flags are defined and before flags are accessed by the program.
+    Parse parses the command-line flags from os.Args[1:]. Must be called
+    after all flags are defined and before flags are accessed by the program.
 **/
 inline function parse():Void throw "not implemented";
 /**
-    // Parsed reports whether the command-line flags have been parsed.
+    Parsed reports whether the command-line flags have been parsed.
 **/
 inline function parsed():Bool throw "not implemented";
 /**
-    // NewFlagSet returns a new, empty flag set with the specified name and
-    // error handling property. If the name is not empty, it will be printed
-    // in the default usage message and in error messages.
+    NewFlagSet returns a new, empty flag set with the specified name and
+    error handling property. If the name is not empty, it will be printed
+    in the default usage message and in error messages.
 **/
 inline function newFlagSet(name:String, errorHandling:ErrorHandling):FlagSet throw "not implemented";
 @:invalid typedef T_textValue_asInterface = Dynamic;

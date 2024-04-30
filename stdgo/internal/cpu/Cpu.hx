@@ -1,7 +1,7 @@
 package stdgo.internal.cpu;
 /**
-    // Package cpu implements processor feature detection
-    // used by the Go standard library.
+    Package cpu implements processor feature detection
+    used by the Go standard library.
 **/
 private var __go2hxdoc__package : Bool;
 var debugOptions(get, set) : Bool;
@@ -50,18 +50,18 @@ typedef T__struct_4 = stdgo._internal.internal.cpu.Cpu.T__struct_4;
 @:invalid typedef T__struct_5_static_extension = Dynamic;
 typedef T__struct_5 = stdgo._internal.internal.cpu.Cpu.T__struct_5;
 /**
-    // Initialize examines the processor and sets the relevant variables above.
-    // This is called by the runtime package early in program initialization,
-    // before normal init functions are run. env is set by runtime if the OS supports
-    // cpu feature options in GODEBUG.
+    Initialize examines the processor and sets the relevant variables above.
+    This is called by the runtime package early in program initialization,
+    before normal init functions are run. env is set by runtime if the OS supports
+    cpu feature options in GODEBUG.
 **/
 inline function initialize(env:String):Void throw "not implemented";
 /**
-    // Name returns the CPU name given by the vendor
-    // if it can be read directly from memory or by CPU instructions.
-    // If the CPU name can not be determined an empty string is returned.
-    //
-    // Implementations that use the Operating System (e.g. sysctl or /sys/)
-    // to gather CPU information for display should be placed in internal/sysinfo.
+    Name returns the CPU name given by the vendor
+    if it can be read directly from memory or by CPU instructions.
+    If the CPU name can not be determined an empty string is returned.
+    
+    Implementations that use the Operating System (e.g. sysctl or /sys/)
+    to gather CPU information for display should be placed in internal/sysinfo.
 **/
 inline function name():String throw "not implemented";

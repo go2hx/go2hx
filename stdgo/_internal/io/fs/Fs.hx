@@ -27,15 +27,15 @@ var skipAll : stdgo.Error = stdgo._internal.errors.Errors.new_(("skip everything
 }
 typedef FS = stdgo.StructType & {
     /**
-        // Open opens the named file.
-        //
-        // When Open returns an error, it should be of type *PathError
-        // with the Op field set to "open", the Path field set to name,
-        // and the Err field describing the problem.
-        //
-        // Open should reject attempts to open names that do not satisfy
-        // ValidPath(name), returning a *PathError with Err set to
-        // ErrInvalid or ErrNotExist.
+        Open opens the named file.
+        
+        When Open returns an error, it should be of type *PathError
+        with the Op field set to "open", the Path field set to name,
+        and the Err field describing the problem.
+        
+        Open should reject attempts to open names that do not satisfy
+        ValidPath(name), returning a *PathError with Err set to
+        ErrInvalid or ErrNotExist.
         
         
     **/
@@ -74,33 +74,33 @@ typedef File = stdgo.StructType & {
 }
 typedef DirEntry = stdgo.StructType & {
     /**
-        // Name returns the name of the file (or subdirectory) described by the entry.
-        // This name is only the final element of the path (the base name), not the entire path.
-        // For example, Name would return "hello.go" not "home/gopher/hello.go".
+        Name returns the name of the file (or subdirectory) described by the entry.
+        This name is only the final element of the path (the base name), not the entire path.
+        For example, Name would return "hello.go" not "home/gopher/hello.go".
         
         
     **/
     public dynamic function name():stdgo.GoString;
     /**
-        // IsDir reports whether the entry describes a directory.
+        IsDir reports whether the entry describes a directory.
         
         
     **/
     public dynamic function isDir():Bool;
     /**
-        // Type returns the type bits for the entry.
-        // The type bits are a subset of the usual FileMode bits, those returned by the FileMode.Type method.
+        Type returns the type bits for the entry.
+        The type bits are a subset of the usual FileMode bits, those returned by the FileMode.Type method.
         
         
     **/
     public dynamic function type():FileMode;
     /**
-        // Info returns the FileInfo for the file or subdirectory described by the entry.
-        // The returned FileInfo may be from the time of the original directory read
-        // or from the time of the call to Info. If the file has been removed or renamed
-        // since the directory read, Info may return an error satisfying errors.Is(err, ErrNotExist).
-        // If the entry denotes a symbolic link, Info reports the information about the link itself,
-        // not the link's target.
+        Info returns the FileInfo for the file or subdirectory described by the entry.
+        The returned FileInfo may be from the time of the original directory read
+        or from the time of the call to Info. If the file has been removed or renamed
+        since the directory read, Info may return an error satisfying errors.Is(err, ErrNotExist).
+        If the entry denotes a symbolic link, Info reports the information about the link itself,
+        not the link's target.
         
         
     **/
@@ -112,21 +112,21 @@ typedef DirEntry = stdgo.StructType & {
 typedef ReadDirFile = stdgo.StructType & {
     > File,
     /**
-        // ReadDir reads the contents of the directory and returns
-        // a slice of up to n DirEntry values in directory order.
-        // Subsequent calls on the same file will yield further DirEntry values.
-        //
-        // If n > 0, ReadDir returns at most n DirEntry structures.
-        // In this case, if ReadDir returns an empty slice, it will return
-        // a non-nil error explaining why.
-        // At the end of a directory, the error is io.EOF.
-        // (ReadDir must return io.EOF itself, not an error wrapping io.EOF.)
-        //
-        // If n <= 0, ReadDir returns all the DirEntry values from the directory
-        // in a single slice. In this case, if ReadDir succeeds (reads all the way
-        // to the end of the directory), it returns the slice and a nil error.
-        // If it encounters an error before the end of the directory,
-        // ReadDir returns the DirEntry list read until that point and a non-nil error.
+        ReadDir reads the contents of the directory and returns
+        a slice of up to n DirEntry values in directory order.
+        Subsequent calls on the same file will yield further DirEntry values.
+        
+        If n > 0, ReadDir returns at most n DirEntry structures.
+        In this case, if ReadDir returns an empty slice, it will return
+        a non-nil error explaining why.
+        At the end of a directory, the error is io.EOF.
+        (ReadDir must return io.EOF itself, not an error wrapping io.EOF.)
+        
+        If n <= 0, ReadDir returns all the DirEntry values from the directory
+        in a single slice. In this case, if ReadDir succeeds (reads all the way
+        to the end of the directory), it returns the slice and a nil error.
+        If it encounters an error before the end of the directory,
+        ReadDir returns the DirEntry list read until that point and a non-nil error.
         
         
     **/
@@ -144,37 +144,37 @@ typedef FileInfo = stdgo.StructType & {
     /**
         
         
-        // base name of the file
+        base name of the file
     **/
     public dynamic function name():stdgo.GoString;
     /**
         
         
-        // length in bytes for regular files; system-dependent for others
+        length in bytes for regular files; system-dependent for others
     **/
     public dynamic function size():stdgo.GoInt64;
     /**
         
         
-        // file mode bits
+        file mode bits
     **/
     public dynamic function mode():FileMode;
     /**
         
         
-        // modification time
+        modification time
     **/
     public dynamic function modTime():stdgo._internal.time.Time.Time;
     /**
         
         
-        // abbreviation for Mode().IsDir()
+        abbreviation for Mode().IsDir()
     **/
     public dynamic function isDir():Bool;
     /**
         
         
-        // underlying data source (can return nil)
+        underlying data source (can return nil)
     **/
     public dynamic function sys():stdgo.AnyInterface;
 };
@@ -184,9 +184,9 @@ typedef FileInfo = stdgo.StructType & {
 typedef GlobFS = stdgo.StructType & {
     > FS,
     /**
-        // Glob returns the names of all files matching pattern,
-        // providing an implementation of the top-level
-        // Glob function.
+        Glob returns the names of all files matching pattern,
+        providing an implementation of the top-level
+        Glob function.
         
         
     **/
@@ -198,8 +198,8 @@ typedef GlobFS = stdgo.StructType & {
 typedef ReadDirFS = stdgo.StructType & {
     > FS,
     /**
-        // ReadDir reads the named directory
-        // and returns a list of directory entries sorted by filename.
+        ReadDir reads the named directory
+        and returns a list of directory entries sorted by filename.
         
         
     **/
@@ -211,13 +211,13 @@ typedef ReadDirFS = stdgo.StructType & {
 typedef ReadFileFS = stdgo.StructType & {
     > FS,
     /**
-        // ReadFile reads the named file and returns its contents.
-        // A successful call returns a nil error, not io.EOF.
-        // (Because ReadFile reads the whole file, the expected EOF
-        // from the final Read is not treated as an error to be reported.)
-        //
-        // The caller is permitted to modify the returned byte slice.
-        // This method should return a copy of the underlying data.
+        ReadFile reads the named file and returns its contents.
+        A successful call returns a nil error, not io.EOF.
+        (Because ReadFile reads the whole file, the expected EOF
+        from the final Read is not treated as an error to be reported.)
+        
+        The caller is permitted to modify the returned byte slice.
+        This method should return a copy of the underlying data.
         
         
     **/
@@ -229,8 +229,8 @@ typedef ReadFileFS = stdgo.StructType & {
 typedef StatFS = stdgo.StructType & {
     > FS,
     /**
-        // Stat returns a FileInfo describing the file.
-        // If there is an error, it should be of type *PathError.
+        Stat returns a FileInfo describing the file.
+        If there is an error, it should be of type *PathError.
         
         
     **/
@@ -242,7 +242,7 @@ typedef StatFS = stdgo.StructType & {
 typedef SubFS = stdgo.StructType & {
     > FS,
     /**
-        // Sub returns an FS corresponding to the subtree rooted at dir.
+        Sub returns an FS corresponding to the subtree rooted at dir.
         
         
     **/

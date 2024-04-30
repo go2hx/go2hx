@@ -1,6 +1,6 @@
 package stdgo.slices;
 /**
-    // Package slices defines various functions useful with slices of any type.
+    Package slices defines various functions useful with slices of any type.
 **/
 private var __go2hxdoc__package : Bool;
 final n : haxe.UInt64 = stdgo._internal.slices.Slices.n;
@@ -119,7 +119,7 @@ inline function testInsertGrowthRate(t:stdgo._internal.testing.Testing.T_):Void 
 inline function testReplaceGrowthRate(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 typedef T_testInference_23___localname___S = stdgo._internal.slices.Slices.T_testInference_23___localname___S;
 /**
-    // Test type inference with a named slice type.
+    Test type inference with a named slice type.
 **/
 inline function testInference(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 macro inline function sort<S, E>(_generic__0:haxe.macro.Expr.ExprOf<S>, _generic__1:haxe.macro.Expr.ExprOf<E>, x:haxe.macro.Expr.ExprOf<S>):haxe.macro.Expr.ExprOf<Void> throw "not implemented";
@@ -140,8 +140,8 @@ inline function benchmarkSlicesSortInts_Reversed(b:stdgo._internal.testing.Testi
 inline function benchmarkIntsAreSorted(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 inline function benchmarkIsSorted(b:stdgo._internal.testing.Testing.B):Void throw "not implemented";
 /**
-    // Since we're benchmarking these sorts against each other, make sure that they
-    // generate similar results.
+    Since we're benchmarking these sorts against each other, make sure that they
+    generate similar results.
 **/
 inline function testIntSorts(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testStringSorts(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";

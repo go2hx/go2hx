@@ -1,6 +1,6 @@
 package stdgo.encoding.base64;
 /**
-    // Package base64 implements base64 encoding as specified by RFC 4648.
+    Package base64 implements base64 encoding as specified by RFC 4648.
 **/
 private var __go2hxdoc__package : Bool;
 final stdPadding : Int = stdgo._internal.encoding.base64.Base64.stdPadding;
@@ -33,24 +33,24 @@ typedef T__struct_0 = stdgo._internal.encoding.base64.Base64.T__struct_0;
 typedef T__struct_1 = stdgo._internal.encoding.base64.Base64.T__struct_1;
 typedef CorruptInputError = stdgo._internal.encoding.base64.Base64.CorruptInputError;
 /**
-    // NewEncoding returns a new padded Encoding defined by the given alphabet,
-    // which must be a 64-byte string that does not contain the padding character
-    // or CR / LF ('\r', '\n'). The alphabet is treated as sequence of byte values
-    // without any special treatment for multi-byte UTF-8.
-    // The resulting Encoding uses the default padding character ('='),
-    // which may be changed or disabled via WithPadding.
+    NewEncoding returns a new padded Encoding defined by the given alphabet,
+    which must be a 64-byte string that does not contain the padding character
+    or CR / LF ('\r', '\n'). The alphabet is treated as sequence of byte values
+    without any special treatment for multi-byte UTF-8.
+    The resulting Encoding uses the default padding character ('='),
+    which may be changed or disabled via WithPadding.
 **/
 inline function newEncoding(encoder:String):Encoding throw "not implemented";
 /**
-    // NewEncoder returns a new base64 stream encoder. Data written to
-    // the returned writer will be encoded using enc and then written to w.
-    // Base64 encodings operate in 4-byte blocks; when finished
-    // writing, the caller must Close the returned encoder to flush any
-    // partially written blocks.
+    NewEncoder returns a new base64 stream encoder. Data written to
+    the returned writer will be encoded using enc and then written to w.
+    Base64 encodings operate in 4-byte blocks; when finished
+    writing, the caller must Close the returned encoder to flush any
+    partially written blocks.
 **/
 inline function newEncoder(enc:Encoding, w:stdgo._internal.io.Io.Writer):stdgo._internal.io.Io.WriteCloser throw "not implemented";
 /**
-    // NewDecoder constructs a new base64 stream decoder.
+    NewDecoder constructs a new base64 stream decoder.
 **/
 inline function newDecoder(enc:Encoding, r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader throw "not implemented";
 inline function testEncode(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -66,7 +66,7 @@ inline function testDecodedLen(t:stdgo._internal.testing.Testing.T_):Void throw 
 inline function testBig(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testNewLineCharacters(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // tests that we don't ignore errors from our underlying reader
+    tests that we don't ignore errors from our underlying reader
 **/
 inline function testDecoderIssue3577(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testDecoderIssue4779(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";

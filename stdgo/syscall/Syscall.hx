@@ -1,26 +1,26 @@
 package stdgo.syscall;
 /**
-    // Package syscall contains an interface to the low-level operating system
-    // primitives. The details vary depending on the underlying system, and
-    // by default, godoc will display the syscall documentation for the current
-    // system. If you want godoc to display syscall documentation for another
-    // system, set $GOOS and $GOARCH to the desired system. For example, if
-    // you want to view documentation for freebsd/arm on linux/amd64, set $GOOS
-    // to freebsd and $GOARCH to arm.
-    // The primary use of syscall is inside other packages that provide a more
-    // portable interface to the system, such as "os", "time" and "net".  Use
-    // those packages rather than this one if you can.
-    // For details of the functions and data types in this package consult
-    // the manuals for the appropriate operating system.
-    // These calls return err == nil to indicate success; otherwise
-    // err is an operating system error describing the failure.
-    // On most systems, that error has type syscall.Errno.
-    //
-    // Deprecated: this package is locked down. Callers should use the
-    // corresponding package in the golang.org/x/sys repository instead.
-    // That is also where updates required by new systems or versions
-    // should be applied. See https://golang.org/s/go1.4-syscall for more
-    // information.
+    Package syscall contains an interface to the low-level operating system
+    primitives. The details vary depending on the underlying system, and
+    by default, godoc will display the syscall documentation for the current
+    system. If you want godoc to display syscall documentation for another
+    system, set $GOOS and $GOARCH to the desired system. For example, if
+    you want to view documentation for freebsd/arm on linux/amd64, set $GOOS
+    to freebsd and $GOARCH to arm.
+    The primary use of syscall is inside other packages that provide a more
+    portable interface to the system, such as "os", "time" and "net".  Use
+    those packages rather than this one if you can.
+    For details of the functions and data types in this package consult
+    the manuals for the appropriate operating system.
+    These calls return err == nil to indicate success; otherwise
+    err is an operating system error describing the failure.
+    On most systems, that error has type syscall.Errno.
+    
+    Deprecated: this package is locked down. Callers should use the
+    corresponding package in the golang.org/x/sys repository instead.
+    That is also where updates required by new systems or versions
+    should be applied. See https://golang.org/s/go1.4-syscall for more
+    information.
 **/
 private var __go2hxdoc__package : Bool;
 final af_UNSPEC : haxe.UInt64 = stdgo._internal.syscall.Syscall.af_UNSPEC;
@@ -261,10 +261,10 @@ typedef Errno = stdgo._internal.syscall.Syscall.Errno;
 typedef Signal = stdgo._internal.syscall.Syscall.Signal;
 typedef WaitStatus = stdgo._internal.syscall.Syscall.WaitStatus;
 /**
-    // ParseDirent parses up to max directory entries in buf,
-    // appending the names to names. It returns the number of
-    // bytes consumed from buf, the number of entries added
-    // to names, and the new names slice.
+    ParseDirent parses up to max directory entries in buf,
+    appending the names to names. It returns the number of
+    bytes consumed from buf, the number of entries added
+    to names, and the new names slice.
 **/
 inline function parseDirent(buf:Array<Int>, max:Int, names:Array<String>):stdgo.Tuple.Tuple3<Int, Int, Array<String>> throw "not implemented";
 inline function unsetenv(key:String):stdgo.Error throw "not implemented";
@@ -323,31 +323,31 @@ inline function setWriteDeadline(fd:Int, t:haxe.Int64):stdgo.Error throw "not im
 inline function shutdown(fd:Int, how:Int):stdgo.Error throw "not implemented";
 inline function setNonblock(fd:Int, nonblocking:Bool):stdgo.Error throw "not implemented";
 /**
-    // StringByteSlice converts a string to a NUL-terminated []byte,
-    // If s contains a NUL byte this function panics instead of
-    // returning an error.
-    //
-    // Deprecated: Use ByteSliceFromString instead.
+    StringByteSlice converts a string to a NUL-terminated []byte,
+    If s contains a NUL byte this function panics instead of
+    returning an error.
+    
+    Deprecated: Use ByteSliceFromString instead.
 **/
 inline function stringByteSlice(s:String):Array<Int> throw "not implemented";
 /**
-    // ByteSliceFromString returns a NUL-terminated slice of bytes
-    // containing the text of s. If s contains a NUL byte at any
-    // location, it returns (nil, EINVAL).
+    ByteSliceFromString returns a NUL-terminated slice of bytes
+    containing the text of s. If s contains a NUL byte at any
+    location, it returns (nil, EINVAL).
 **/
 inline function byteSliceFromString(s:String):stdgo.Tuple<Array<Int>, stdgo.Error> throw "not implemented";
 /**
-    // StringBytePtr returns a pointer to a NUL-terminated array of bytes.
-    // If s contains a NUL byte this function panics instead of returning
-    // an error.
-    //
-    // Deprecated: Use BytePtrFromString instead.
+    StringBytePtr returns a pointer to a NUL-terminated array of bytes.
+    If s contains a NUL byte this function panics instead of returning
+    an error.
+    
+    Deprecated: Use BytePtrFromString instead.
 **/
 inline function stringBytePtr(s:String):stdgo.Pointer<Int> throw "not implemented";
 /**
-    // BytePtrFromString returns a pointer to a NUL-terminated array of
-    // bytes containing the text of s. If s contains a NUL byte at any
-    // location, it returns (nil, EINVAL).
+    BytePtrFromString returns a pointer to a NUL-terminated array of
+    bytes containing the text of s. If s contains a NUL byte at any
+    location, it returns (nil, EINVAL).
 **/
 inline function bytePtrFromString(s:String):stdgo.Tuple<stdgo.Pointer<Int>, stdgo.Error> throw "not implemented";
 inline function getpagesize():Int throw "not implemented";
@@ -372,19 +372,19 @@ inline function sendfile(outfd:Int, infd:Int, offset:stdgo.Pointer<haxe.Int64>, 
 inline function startProcess(argv0:String, argv:Array<String>, attr:ProcAttr):stdgo.Tuple.Tuple3<Int, stdgo.GoUIntptr, stdgo.Error> throw "not implemented";
 inline function wait4(pid:Int, wstatus:stdgo.Pointer<WaitStatus>, options:Int, rusage:Rusage):stdgo.Tuple<Int, stdgo.Error> throw "not implemented";
 /**
-    // TimespecToNsec returns the time stored in ts as nanoseconds.
+    TimespecToNsec returns the time stored in ts as nanoseconds.
 **/
 inline function timespecToNsec(ts:Timespec):haxe.Int64 throw "not implemented";
 /**
-    // NsecToTimespec converts a number of nanoseconds into a Timespec.
+    NsecToTimespec converts a number of nanoseconds into a Timespec.
 **/
 inline function nsecToTimespec(nsec:haxe.Int64):Timespec throw "not implemented";
 /**
-    // TimevalToNsec returns the time stored in tv as nanoseconds.
+    TimevalToNsec returns the time stored in tv as nanoseconds.
 **/
 inline function timevalToNsec(tv:Timeval):haxe.Int64 throw "not implemented";
 /**
-    // NsecToTimeval converts a number of nanoseconds into a Timeval.
+    NsecToTimeval converts a number of nanoseconds into a Timeval.
 **/
 inline function nsecToTimeval(nsec:haxe.Int64):Timeval throw "not implemented";
 @:invalid typedef Timespec_asInterface = Dynamic;

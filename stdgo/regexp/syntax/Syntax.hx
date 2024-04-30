@@ -227,14 +227,14 @@ typedef InstOp = stdgo._internal.regexp.syntax.Syntax.InstOp;
 typedef EmptyOp = stdgo._internal.regexp.syntax.Syntax.EmptyOp;
 typedef Op = stdgo._internal.regexp.syntax.Syntax.Op;
 /**
-    // Compile compiles the regexp into a program to be executed.
-    // The regexp should have been simplified already (returned from re.Simplify).
+    Compile compiles the regexp into a program to be executed.
+    The regexp should have been simplified already (returned from re.Simplify).
 **/
 inline function compile(re:Regexp):stdgo.Tuple<Prog, stdgo.Error> throw "not implemented";
 /**
-    // Parse parses a regular expression string s, controlled by the specified
-    // Flags, and returns a regular expression parse tree. The syntax is
-    // described in the top-level comment.
+    Parse parses a regular expression string s, controlled by the specified
+    Flags, and returns a regular expression parse tree. The syntax is
+    described in the top-level comment.
 **/
 inline function parse(s:String, flags:Flags):stdgo.Tuple<Regexp, stdgo.Error> throw "not implemented";
 inline function testParseSimple(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
@@ -247,18 +247,18 @@ inline function testAppendRangeCollapse(t:stdgo._internal.testing.Testing.T_):Vo
 inline function testParseInvalidRegexps(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 inline function testToStringEquivalentParse(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";
 /**
-    // EmptyOpContext returns the zero-width assertions
-    // satisfied at the position between the runes r1 and r2.
-    // Passing r1 == -1 indicates that the position is
-    // at the beginning of the text.
-    // Passing r2 == -1 indicates that the position is
-    // at the end of the text.
+    EmptyOpContext returns the zero-width assertions
+    satisfied at the position between the runes r1 and r2.
+    Passing r1 == -1 indicates that the position is
+    at the beginning of the text.
+    Passing r2 == -1 indicates that the position is
+    at the end of the text.
 **/
 inline function emptyOpContext(r1:Int, r2:Int):EmptyOp throw "not implemented";
 /**
-    // IsWordChar reports whether r is considered a “word character”
-    // during the evaluation of the \b and \B zero-width assertions.
-    // These assertions are ASCII-only: the word characters are [A-Za-z0-9_].
+    IsWordChar reports whether r is considered a “word character”
+    during the evaluation of the \b and \B zero-width assertions.
+    These assertions are ASCII-only: the word characters are [A-Za-z0-9_].
 **/
 inline function isWordChar(r:Int):Bool throw "not implemented";
 inline function testCompile(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";

@@ -1,15 +1,15 @@
 package stdgo.text.scanner;
 /**
-    // Package scanner provides a scanner and tokenizer for UTF-8-encoded text.
-    // It takes an io.Reader providing the source, which then can be tokenized
-    // through repeated calls to the Scan function. For compatibility with
-    // existing tools, the NUL character is not allowed. If the first character
-    // in the source is a UTF-8 encoded byte order mark (BOM), it is discarded.
-    //
-    // By default, a Scanner skips white space and Go comments and recognizes all
-    // literals as defined by the Go language specification. It may be
-    // customized to recognize only a subset of those literals and to recognize
-    // different identifier and white space characters.
+    Package scanner provides a scanner and tokenizer for UTF-8-encoded text.
+    It takes an io.Reader providing the source, which then can be tokenized
+    through repeated calls to the Scan function. For compatibility with
+    existing tools, the NUL character is not allowed. If the first character
+    in the source is a UTF-8 encoded byte order mark (BOM), it is discarded.
+    
+    By default, a Scanner skips white space and Go comments and recognizes all
+    literals as defined by the Go language specification. It may be
+    customized to recognize only a subset of those literals and to recognize
+    different identifier and white space characters.
 **/
 private var __go2hxdoc__package : Bool;
 final scanIdents : haxe.UInt64 = stdgo._internal.text.scanner.Scanner.scanIdents;
@@ -43,7 +43,7 @@ typedef T__struct_0 = stdgo._internal.text.scanner.Scanner.T__struct_0;
 typedef T__struct_1 = stdgo._internal.text.scanner.Scanner.T__struct_1;
 typedef T_countReader = stdgo._internal.text.scanner.Scanner.T_countReader;
 /**
-    // TokenString returns a printable string for a token or Unicode character.
+    TokenString returns a printable string for a token or Unicode character.
 **/
 inline function tokenString(tok:Int):String throw "not implemented";
 inline function testNext(t:stdgo._internal.testing.Testing.T_):Void throw "not implemented";

@@ -1,11 +1,11 @@
 package stdgo.sync;
 /**
-    // Package sync provides basic synchronization primitives such as mutual
-    // exclusion locks. Other than the Once and WaitGroup types, most are intended
-    // for use by low-level library routines. Higher-level synchronization is
-    // better done via channels and communication.
-    //
-    // Values containing the types defined in this package should not be copied.
+    Package sync provides basic synchronization primitives such as mutual
+    exclusion locks. Other than the Once and WaitGroup types, most are intended
+    for use by low-level library routines. Higher-level synchronization is
+    better done via channels and communication.
+    
+    Values containing the types defined in this package should not be copied.
 **/
 private var __go2hxdoc__package : Bool;
 var runtime_Semacquire(get, set) : stdgo.Pointer<stdgo.GoUInt32> -> Void;
@@ -48,16 +48,16 @@ typedef T_copyChecker = stdgo._internal.sync.Sync.T_copyChecker;
 typedef T_dequeueNil = stdgo._internal.sync.Sync.T_dequeueNil;
 typedef T_rlocker = stdgo._internal.sync.Sync.T_rlocker;
 /**
-    // NewCond returns a new Cond with Locker l.
+    NewCond returns a new Cond with Locker l.
 **/
 inline function newCond(l:Locker):Cond throw "not implemented";
 inline function newPoolDequeue(n:Int):PoolDequeue throw "not implemented";
 inline function newPoolChain():PoolDequeue throw "not implemented";
 /**
-    // OnceFunc returns a function that invokes f only once. The returned function
-    // may be called concurrently.
-    //
-    // If f panics, the returned function will panic with the same value on every call.
+    OnceFunc returns a function that invokes f only once. The returned function
+    may be called concurrently.
+    
+    If f panics, the returned function will panic with the same value on every call.
 **/
 inline function onceFunc(f:() -> Void):() -> Void throw "not implemented";
 macro inline function onceValue<T_>(_generic__0:haxe.macro.Expr.ExprOf<T_>, f:haxe.macro.Expr.ExprOf<() -> T_>):haxe.macro.Expr.ExprOf<() -> T_> throw "not implemented";

@@ -1,7 +1,7 @@
 package stdgo.unicode;
 /**
-    // Package unicode provides data and functions to test some properties of
-    // Unicode code points.
+    Package unicode provides data and functions to test some properties of
+    Unicode code points.
 **/
 private var __go2hxdoc__package : Bool;
 final maxRune : Int = stdgo._internal.unicode.Unicode.maxRune;
@@ -787,121 +787,121 @@ function set_foldScript(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.
 typedef SpecialCase = stdgo._internal.unicode.Unicode.SpecialCase;
 typedef T_d = stdgo._internal.unicode.Unicode.T_d;
 /**
-    // IsDigit reports whether the rune is a decimal digit.
+    IsDigit reports whether the rune is a decimal digit.
 **/
 inline function isDigit(r:Int):Bool throw "not implemented";
 /**
-    // IsGraphic reports whether the rune is defined as a Graphic by Unicode.
-    // Such characters include letters, marks, numbers, punctuation, symbols, and
-    // spaces, from categories L, M, N, P, S, Zs.
+    IsGraphic reports whether the rune is defined as a Graphic by Unicode.
+    Such characters include letters, marks, numbers, punctuation, symbols, and
+    spaces, from categories L, M, N, P, S, Zs.
 **/
 inline function isGraphic(r:Int):Bool throw "not implemented";
 /**
-    // IsPrint reports whether the rune is defined as printable by Go. Such
-    // characters include letters, marks, numbers, punctuation, symbols, and the
-    // ASCII space character, from categories L, M, N, P, S and the ASCII space
-    // character. This categorization is the same as IsGraphic except that the
-    // only spacing character is ASCII space, U+0020.
+    IsPrint reports whether the rune is defined as printable by Go. Such
+    characters include letters, marks, numbers, punctuation, symbols, and the
+    ASCII space character, from categories L, M, N, P, S and the ASCII space
+    character. This categorization is the same as IsGraphic except that the
+    only spacing character is ASCII space, U+0020.
 **/
 inline function isPrint(r:Int):Bool throw "not implemented";
 /**
-    // IsOneOf reports whether the rune is a member of one of the ranges.
-    // The function "In" provides a nicer signature and should be used in preference to IsOneOf.
+    IsOneOf reports whether the rune is a member of one of the ranges.
+    The function "In" provides a nicer signature and should be used in preference to IsOneOf.
 **/
 inline function isOneOf(ranges:Array<RangeTable>, r:Int):Bool throw "not implemented";
 /**
-    // In reports whether the rune is a member of one of the ranges.
+    In reports whether the rune is a member of one of the ranges.
 **/
 inline function in_(r:Int, ranges:haxe.Rest<stdgo.Ref<RangeTable>>):Bool throw "not implemented";
 /**
-    // IsControl reports whether the rune is a control character.
-    // The C (Other) Unicode category includes more code points
-    // such as surrogates; use Is(C, r) to test for them.
+    IsControl reports whether the rune is a control character.
+    The C (Other) Unicode category includes more code points
+    such as surrogates; use Is(C, r) to test for them.
 **/
 inline function isControl(r:Int):Bool throw "not implemented";
 /**
-    // IsLetter reports whether the rune is a letter (category L).
+    IsLetter reports whether the rune is a letter (category L).
 **/
 inline function isLetter(r:Int):Bool throw "not implemented";
 /**
-    // IsMark reports whether the rune is a mark character (category M).
+    IsMark reports whether the rune is a mark character (category M).
 **/
 inline function isMark(r:Int):Bool throw "not implemented";
 /**
-    // IsNumber reports whether the rune is a number (category N).
+    IsNumber reports whether the rune is a number (category N).
 **/
 inline function isNumber(r:Int):Bool throw "not implemented";
 /**
-    // IsPunct reports whether the rune is a Unicode punctuation character
-    // (category P).
+    IsPunct reports whether the rune is a Unicode punctuation character
+    (category P).
 **/
 inline function isPunct(r:Int):Bool throw "not implemented";
 /**
-    // IsSpace reports whether the rune is a space character as defined
-    // by Unicode's White Space property; in the Latin-1 space
-    // this is
-    //
-    //	'\t', '\n', '\v', '\f', '\r', ' ', U+0085 (NEL), U+00A0 (NBSP).
-    //
-    // Other definitions of spacing characters are set by category
-    // Z and property Pattern_White_Space.
+    IsSpace reports whether the rune is a space character as defined
+    by Unicode's White Space property; in the Latin-1 space
+    this is
+    
+    	'\t', '\n', '\v', '\f', '\r', ' ', U+0085 (NEL), U+00A0 (NBSP).
+    
+    Other definitions of spacing characters are set by category
+    Z and property Pattern_White_Space.
 **/
 inline function isSpace(r:Int):Bool throw "not implemented";
 /**
-    // IsSymbol reports whether the rune is a symbolic character.
+    IsSymbol reports whether the rune is a symbolic character.
 **/
 inline function isSymbol(r:Int):Bool throw "not implemented";
 /**
-    // Is reports whether the rune is in the specified table of ranges.
+    Is reports whether the rune is in the specified table of ranges.
 **/
 inline function is_(rangeTab:RangeTable, r:Int):Bool throw "not implemented";
 /**
-    // IsUpper reports whether the rune is an upper case letter.
+    IsUpper reports whether the rune is an upper case letter.
 **/
 inline function isUpper(r:Int):Bool throw "not implemented";
 /**
-    // IsLower reports whether the rune is a lower case letter.
+    IsLower reports whether the rune is a lower case letter.
 **/
 inline function isLower(r:Int):Bool throw "not implemented";
 /**
-    // IsTitle reports whether the rune is a title case letter.
+    IsTitle reports whether the rune is a title case letter.
 **/
 inline function isTitle(r:Int):Bool throw "not implemented";
 /**
-    // To maps the rune to the specified case: UpperCase, LowerCase, or TitleCase.
+    To maps the rune to the specified case: UpperCase, LowerCase, or TitleCase.
 **/
 inline function to(_case:Int, r:Int):Int throw "not implemented";
 /**
-    // ToUpper maps the rune to upper case.
+    ToUpper maps the rune to upper case.
 **/
 inline function toUpper(r:Int):Int throw "not implemented";
 /**
-    // ToLower maps the rune to lower case.
+    ToLower maps the rune to lower case.
 **/
 inline function toLower(r:Int):Int throw "not implemented";
 /**
-    // ToTitle maps the rune to title case.
+    ToTitle maps the rune to title case.
 **/
 inline function toTitle(r:Int):Int throw "not implemented";
 /**
-    // SimpleFold iterates over Unicode code points equivalent under
-    // the Unicode-defined simple case folding. Among the code points
-    // equivalent to rune (including rune itself), SimpleFold returns the
-    // smallest rune > r if one exists, or else the smallest rune >= 0.
-    // If r is not a valid Unicode code point, SimpleFold(r) returns r.
-    //
-    // For example:
-    //
-    //	SimpleFold('A') = 'a'
-    //	SimpleFold('a') = 'A'
-    //
-    //	SimpleFold('K') = 'k'
-    //	SimpleFold('k') = '\u212A' (Kelvin symbol, K)
-    //	SimpleFold('\u212A') = 'K'
-    //
-    //	SimpleFold('1') = '1'
-    //
-    //	SimpleFold(-2) = -2
+    SimpleFold iterates over Unicode code points equivalent under
+    the Unicode-defined simple case folding. Among the code points
+    equivalent to rune (including rune itself), SimpleFold returns the
+    smallest rune > r if one exists, or else the smallest rune >= 0.
+    If r is not a valid Unicode code point, SimpleFold(r) returns r.
+    
+    For example:
+    
+    	SimpleFold('A') = 'a'
+    	SimpleFold('a') = 'A'
+    
+    	SimpleFold('K') = 'k'
+    	SimpleFold('k') = '\u212A' (Kelvin symbol, K)
+    	SimpleFold('\u212A') = 'K'
+    
+    	SimpleFold('1') = '1'
+    
+    	SimpleFold(-2) = -2
 **/
 inline function simpleFold(r:Int):Int throw "not implemented";
 @:invalid typedef SpecialCase_asInterface = Dynamic;

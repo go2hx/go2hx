@@ -3,15 +3,10 @@ package scripts;
 import haxe.Json;
 import sys.io.File;
 
+var cwd = Sys.getCwd();
 
 function main() {
     genGo();
-    runCompiler();
-}
-
-function runCompiler() {
-    Sys.println("Run Compiler");
-    Sys.command("haxelib run go2hx ./scripts/hxb -compiler_interp");
 }
 
 function allGenStd() {
@@ -31,9 +26,19 @@ function passingStd() {
 
 function genGo() {
     Sys.println("Generate Go");
-    var stdList = passingStd();
+    var list:Array<String> = [];
+    final args = Sys.args();
+    final startingPath = args.shift();
+    final outputPath = args.pop();
+    if (args.length == 1) {
+        list = args[0].split(",");
+    }else if (args.length > 1) {
+        list = args;
+    }
+    list = list.concat(passingStd());
+    
      // sort alphabetically
-     stdList.sort((a, b) -> {
+     list.sort((a, b) -> {
         if (a < b)
             return -1;
         else if (a > b)
@@ -41,16 +46,26 @@ function genGo() {
         else
             return 0;
     });
-    stdList = stdList.map(std -> '    _ "$std"');
-    //stdList = stdList.slice(0,0);
-    if (!sys.FileSystem.exists("./scripts/hxb")) {
-        sys.FileSystem.createDirectory("./scripts/hxb");
-    }
-    File.saveContent("./scripts/hxb/main.go",'package main\n
-import (\n' + stdList.join("\n") + '\n)\n
+    list = list.map(imp -> '    _ "$imp"');
+    Sys.setCwd(outputPath); 
+    final path = "./hxb.go";
+    Sys.println(path);
+    File.saveContent(path,'package main\n
+import (\n' + list.join("\n") + '\n)\n
 func main() {
     _ = 1
     println(0)
 }
     ');
+    Sys.println("Run Compiler");
+    Sys.command('haxelib run go2hx ./hxb.go -compiler_interp');
+
+    final commands:Array<String> = [];
+    // create
+    src.Util.hxmlToArgs(cwd + "/scripts/create_hxb.hxml", commands);
+    commands.push("--macro");
+    commands.push('\"stdgo._internal.internal.Macro.initHxb(\'$startingPath\')"');
+    commands.push("--hl");
+    commands.push("hxb.hl");
+    Sys.command("haxe " + commands.join(" "));
 }

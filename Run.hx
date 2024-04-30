@@ -208,18 +208,11 @@ function setupInterp(rebuild:Bool, args:Array<String>) {
 
 function setupHxb() {
 	Sys.println("setting up Hxb");
-	if (Sys.command("haxe scripts/hxb.hxml") != 0) {
+	var args = Sys.args();
+	final index = args.indexOf("hxb");
+	args = args.slice(index + 1);
+	if (Sys.command('haxe scripts/hxb.hxml ' + args.join(" ")) != 0) {
 		Sys.println("Failed to setup Hxb");
-		Sys.exit(1);
-	}
-	Sys.println("creating Hxb");
-	if (Sys.command("haxe scripts/create_hxb.hxml") != 0) {
-		Sys.println("Failed to create Hxb");
-		Sys.exit(1);
-	}
-	Sys.println("consuming Hxb");
-	if (Sys.command("haxe scripts/consume_hxb.hxml") != 0) {
-		Sys.println("Failed to consume Hxb");
 		Sys.exit(1);
 	}
 }

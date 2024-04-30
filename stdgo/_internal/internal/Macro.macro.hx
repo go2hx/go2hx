@@ -8,12 +8,13 @@ import haxe.macro.Context;
 using Lambda;
 
 class Macro {
-	public static function initHxb() {
+	public static function initHxb(startingPath:String) {
         var run = false;
 		Context.onAfterTyping(_ -> {
 			if (run)
 				return;
 			run = true;
+			final printer = new haxe.macro.Printer();
 			final exprs:Array<Expr> = [];
 			for (name => e in @:privateAccess Go.nameTypes) {
 				exprs.push(macro $v{name} => $e);
@@ -27,7 +28,16 @@ class Macro {
 			};
 			cl.pack = ["stdgo", "_internal", "internal"];
 			cl.name = className;
-			sys.io.File.saveContent(haxe.io.Path.join(cl.pack.concat([cl.name + ".hx"])), new haxe.macro.Printer().printTypeDefinition(cl, true));
+			var path = haxe.io.Path.join(cl.pack.concat([cl.name + ".hx"]));
+			path = startingPath + "/" + path;
+			sys.io.File.saveContent(path, printer.printTypeDefinition(cl, true));
+			final className = "TypeInfoData_go2hx_";
+			final typeInfoDataCl = macro class T {
+				public var names = [];
+				public function new() {}
+			}
+			typeInfoDataCl.name = className;
+			sys.io.File.saveContent(startingPath + "/" + className + ".hx", printer.printTypeDefinition(cl,true));
 			//Context.defineType(cl);
 		});
     }

@@ -449,15 +449,7 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 		commands.push("-lib");
 		commands.push("go2hx");
 	} else {
-		final lines = File.getContent(cwd + "/extraParams.hxml").split("\n");
-		for (line in lines) {
-			if (line != "") {
-				final parts = line.split(" ");
-				commands.push(parts[0]);
-				if (parts.length > 1)
-					commands.push(parts[1]);
-			}
-		}
+		src.Util.hxmlToArgs(cwd + "/extraParams.hxml", commands);
 	}
 	var cp = instance.outputPath;
 	if (cp != "") {

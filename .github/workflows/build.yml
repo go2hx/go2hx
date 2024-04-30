@@ -43,7 +43,7 @@ jobs:
       - name: Run stdgo automatic compile
         run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Create hxb
-        run: haxelib run go2hx hxb .
+        run: haxelib run go2hx hxb golibs
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D hxb
       - name: Run std
@@ -144,7 +144,7 @@ jobs:
       - name: Run rnd
         run: npx haxe rnd/rnd.hxml
       - name: Create hxb
-        run: haxelib run go2hx hxb .
+        run: haxelib run go2hx hxb golibs
       # run yaegi easy tests
       - name: clone yaegi
         run: git clone https://github.com/traefik/yaegi ./tests/yaegi
@@ -196,7 +196,7 @@ jobs:
       - name: Run stdgo automatic compile
         run: haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Create hxb
-        run: haxelib run go2hx hxb .
+        run: haxelib run go2hx hxb golibs
       - name: clone go
         run: git clone https://github.com/golang/go ./tests/go --depth=1
         continue-on-error: true

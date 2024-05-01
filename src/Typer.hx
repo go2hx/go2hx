@@ -6630,7 +6630,7 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 	return type;
 }
 
-private function isVoid(ct:ComplexType):Bool {
+function isVoid(ct:ComplexType):Bool {
 	if (ct == null)
 		return true;
 	return switch ct {

@@ -409,6 +409,8 @@ function convertTypeParams(params:Array<haxe.macro.Expr.TypeParam>):Array<haxe.m
 }
 
 function reverseConvertCast(e:Expr, ct:ComplexType):Expr {
+	if (ct == null)
+		return null;
 	switch ct {
 		case TAnonymous(fields):
 			final expr = {expr: EObjectDecl([for (field in fields) {
@@ -454,6 +456,8 @@ function reverseConvertCast(e:Expr, ct:ComplexType):Expr {
 }
 
 function convertCast(e:Expr, ct:ComplexType):Expr {
+	if (ct == null)
+		return null;
 	switch ct {
 		case TAnonymous(fields):
 			final expr = {expr: EObjectDecl([for (field in fields) {
@@ -491,8 +495,24 @@ function convertCast(e:Expr, ct:ComplexType):Expr {
 				case "GoArray":
 				case "Ref":
 			}
-		case TFunction(_, _):
-			return e;
+		case TPath({name: "Void", pack: []}):
+		case TFunction(args, ret):
+			final ret = convertComplexType(ret);
+			final callArgs = [for (i in 0...args.length) "_" + i];
+			final exprArgs = [for (i in 0...args.length)
+				convertCast(macro $i{callArgs[i]}, args[i])
+			];
+			final expr = macro $e($a{exprArgs});
+			return {
+				expr: EFunction(FArrow, {
+					args: callArgs.map(arg -> ({
+						name: arg,
+					} : FunctionArg)),
+					expr: expr,
+					ret: ret,
+				}),
+				pos: null,
+			}
 		default:
 			trace("unknown convert cast: " + new haxe.macro.Printer().printComplexType(ct));
 	}

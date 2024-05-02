@@ -67,7 +67,7 @@ function ofFloatInt64(x:Float):Int64 {
 	if (isNeg)
 		x *= -1;
 	if (Math.isNaN(x))
-		return (isNeg ? -1 : 1) * Math.floor(x);
+		return haxe.Int64.fromFloat((isNeg ? -1 : 1) * Math.floor(x));
 	if (x > 9223372036854775807.0)
 		return isNeg ? haxe.Int64.make(0x80000000, 0) : haxe.Int64.make(0x7fffffff, 0xffffffff);
 	var res = ofFloatUInt64(x);
@@ -80,7 +80,7 @@ function ofFloatUInt64(x:Float):UInt64 {
 	if (Math.isNaN(x))
 		return haxe.Int64.make(0x80000000, 0);
 	if (x < 2147483647.0)
-		return Math.floor(x);
+		return haxe.Int64.fromFloat(Math.floor(x));
 	if (x > 18446744073709551615.0)
 		return haxe.Int64.make(0xffffffff, 0xffffffff);
 	// https://github.com/tardisgo/tardisgo/blob/master/haxe/haxeRuntime.go#L2048-L2058

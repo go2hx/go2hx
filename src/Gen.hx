@@ -274,6 +274,7 @@ function externGenStruct(td:TypeDefinition):TypeDefinition {
 function externGenVar(td:TypeDefinition, path:String):Array<TypeDefinition> {
 	switch td.kind {
 		case TDField(FVar(type, e), access):
+			final access = access.copy();
 			final pack = path.split("/");
 			pack.push(Typer.title(pack[pack.length - 1]));
 			final name = macro $p{pack.concat([td.name])};

@@ -2846,6 +2846,6 @@ function float64frombits(_b:stdgo.GoUInt64):stdgo.GoFloat64 {
         bits.set(7, (high >> 24) & 0xff);
         return bits.getDouble(0);
     }
-private function negZero() {
+function negZero() {
         return copysign(0.0, -1.0);
     }

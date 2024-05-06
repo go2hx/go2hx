@@ -66,8 +66,8 @@ function ofFloatInt64(x:Float):Int64 {
 	final isNeg = x < 0;
 	if (isNeg)
 		x *= -1;
-	if (Math.isNaN(x))
-		return haxe.Int64.fromFloat((isNeg ? -1 : 1) * Math.floor(x));
+	if (std.Math.isNaN(x))
+		return haxe.Int64.fromFloat((isNeg ? -1 : 1) * std.Math.floor(x));
 	if (x > 9223372036854775807.0)
 		return isNeg ? haxe.Int64.make(0x80000000, 0) : haxe.Int64.make(0x7fffffff, 0xffffffff);
 	var res = ofFloatUInt64(x);
@@ -77,24 +77,24 @@ function ofFloatInt64(x:Float):Int64 {
 function ofFloatUInt64(x:Float):UInt64 {
 	if (x < 0.0)
 		x += 1;
-	if (Math.isNaN(x))
+	if (std.Math.isNaN(x))
 		return haxe.Int64.make(0x80000000, 0);
 	if (x < 2147483647.0)
-		return haxe.Int64.fromFloat(Math.floor(x));
+		return haxe.Int64.fromFloat(std.Math.floor(x));
 	if (x > 18446744073709551615.0)
 		return haxe.Int64.make(0xffffffff, 0xffffffff);
 	// https://github.com/tardisgo/tardisgo/blob/master/haxe/haxeRuntime.go#L2048-L2058
 	var f32:Float = 4294967296.0; // the number of combinations in 32-bits
 	var f16:Float = 65536.0; // the number of combinations in 16-bits
-	x = Math.ffloor(x); // remove any fractional part
-	var high:Float = Math.ffloor(x / f32);
-	var highTop16:Float = Math.ffloor(high / f16);
+	x = std.Math.ffloor(x); // remove any fractional part
+	var high:Float = std.Math.ffloor(x / f32);
+	var highTop16:Float = std.Math.ffloor(high / f16);
 	var highBot16:Float = high - (highTop16 * f16);
-	var highBits:Int = Math.floor(highTop16) << 16 | Math.floor(highBot16);
+	var highBits:Int = std.Math.floor(highTop16) << 16 | std.Math.floor(highBot16);
 	var low:Float = x - (high * f32);
-	var lowTop16:Float = Math.ffloor(low / f16);
+	var lowTop16:Float = std.Math.ffloor(low / f16);
 	var lowBot16:Float = low - (lowTop16 * f16);
-	var lowBits:Int = Math.floor(lowTop16) << 16 | Math.floor(lowBot16);
+	var lowBits:Int = std.Math.floor(lowTop16) << 16 | std.Math.floor(lowBot16);
 	return haxe.Int64.make(highBits, lowBits);
 }
 

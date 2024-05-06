@@ -178,8 +178,8 @@ function externGen(td:TypeDefinition,path:String):Array<TypeDefinition> {
 					externGenVar(td, path);
 				case FFun(f):
 					final access = access.copy();
-					if (access.indexOf(AInline) == -1)
-						access.push(AInline);
+					/*if (access.indexOf(AInline) == -1)
+						access.push(AInline);*/
 					[{
 						name: td.name,
 						pos: td.pos,
@@ -374,8 +374,8 @@ function externGenFields(fields:Array<haxe.macro.Expr.Field>, path:String):Array
 		switch field.kind {
 			case FFun(f):
 				final access = field.access.copy();
-				if (access.indexOf(AInline) == -1)
-					access.push(AInline);
+				/*if (access.indexOf(AInline) == -1)
+					access.push(AInline);*/
 				{
 					name: field.name,
 					access: access,
@@ -559,11 +559,11 @@ function convertComplexType(ct:ComplexType):ComplexType {
 		case TPath(p) if (p.pack != null && p.pack.length > 0 && p.pack[0] == "stdgo"):
 			switch p.name {
 				case "GoInt", "GoInt32", "GoInt16", "GoInt8", "GoByte", "GoRune":
-					return TPath({name: "Int", pack: []});
+					return TPath({name: "StdTypes", sub: "Int", pack: []});
 				case "GoUInt", "GoUInt32", "GoUInt16", "GoUInt8":
-					return TPath({name: "UInt", pack: []});
+					return TPath({name: "UInt", pack: ["std"]});
 				case "GoFloat", "GoFloat32", "GoFloat64":
-					return TPath({name: "Float", pack: []});
+					return TPath({name: "StdTypes", sub: "Float", pack: []});
 				case "GoString":
 					return TPath({name: "String", pack: []});
 				case "GoInt64":

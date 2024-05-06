@@ -82,7 +82,7 @@ final list = [
 	"time:sleep" => macro {
 		final seconds = _d.toFloat() / 1000000000;
 		#if sys
-		var ticks = Math.floor(seconds * 100);
+		var ticks = std.Math.floor(seconds * 100);
 		while (--ticks > 0) {
 			stdgo._internal.internal.Async.tick();
 			Sys.sleep(0.01);

@@ -305,7 +305,7 @@ info.global.filePath = file.path;
 						pos: null,
 						fields: [],
 						pack: [],
-						kind: TDField(FFun({args: [], expr: expr}), [APrivate]),
+						kind: TDField(FFun({args: [], expr: expr}), []),
 					});
 					Patch.adds.remove(key);
 				}

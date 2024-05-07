@@ -1,7 +1,6 @@
 # Module stdgo._internal.io.fs has compilation errors, please do not use:
 ```
-stdgo/_internal/io/fs_test/Fs_test.hx:228: characters 9-11 : Unknown identifier : fs
-stdgo/_internal/internal/Macro.macro.hx:54: non hxb types:,379
+/home/runner/work/go2hx/go2hx/stdgo/Reflect.hx:172: characters 27-28 : Unexpected :
 
 ```
 

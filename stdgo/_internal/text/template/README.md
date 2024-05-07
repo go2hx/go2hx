@@ -1,6 +1,6 @@
 # Module stdgo._internal.text.template has compilation errors, please do not use:
 ```
-stdgo/_internal/text/template/Template.hx:1080: characters 82-86 : Unexpected keyword "true"
+/home/runner/work/go2hx/go2hx/stdgo/Reflect.hx:172: characters 27-28 : Unexpected :
 
 ```
 

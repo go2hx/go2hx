@@ -1,6 +1,6 @@
 # Module stdgo.internal has compilation errors, please do not use:
 ```
-stdgo/time/Time.hx:2: characters 8-27 : Type not found : stdgo.unsafe.Unsafe
+/home/runner/work/go2hx/go2hx/stdgo/Reflect.hx:172: characters 27-28 : Unexpected :
 
 ```
 

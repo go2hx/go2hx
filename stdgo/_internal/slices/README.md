@@ -1,6 +1,6 @@
 # Module stdgo._internal.slices has compilation errors, please do not use:
 ```
-stdgo/_internal/slices/Slices.hx:423: characters 298-301 : Type not found : $E1
+/home/runner/work/go2hx/go2hx/stdgo/Reflect.hx:172: characters 27-28 : Unexpected :
 
 ```
 

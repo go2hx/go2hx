@@ -1,46 +1,6 @@
-# Module: `stdgo._internal.internal.oserror`
-
-[(view library index)](../../../stdgo.md)
-
-
-# Overview
-
-
-# Index
-
-
-- [Variables](<#variables>)
-
-# Variables
-
-
-```haxe
-import stdgo._internal.internal.oserror.Oserror
+# Module stdgo._internal.internal.oserror has compilation errors, please do not use:
 ```
+/home/runner/work/go2hx/go2hx/stdgo/Reflect.hx:172: characters 27-28 : Unexpected :
 
-
-```haxe
-var errClosed:stdgo.Error
 ```
-
-
-```haxe
-var errExist:stdgo.Error
-```
-
-
-```haxe
-var errInvalid:stdgo.Error
-```
-
-
-```haxe
-var errNotExist:stdgo.Error
-```
-
-
-```haxe
-var errPermission:stdgo.Error
-```
-
 

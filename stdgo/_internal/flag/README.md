@@ -1,6 +1,6 @@
 # Module stdgo._internal.flag has compilation errors, please do not use:
 ```
-stdgo/_internal/flag_test/Flag_test.hx:9: characters 20-51 : Type not found : stdgo._internal.net.url.Url
+/home/runner/work/go2hx/go2hx/stdgo/Reflect.hx:172: characters 27-28 : Unexpected :
 
 ```
 

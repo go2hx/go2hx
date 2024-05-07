@@ -1,8 +1,6 @@
 # Module stdgo._internal.path has compilation errors, please do not use:
 ```
-stdgo/_internal/slices/Slices.hx:423: characters 298-301 : Type not found : $E1
-stdgo/_internal/slices/Slices.hx:423: characters 298-301 : ... For function argument 'f'
-stdgo/_internal/internal/Macro.macro.hx:54: non hxb types:,386
+/home/runner/work/go2hx/go2hx/stdgo/Reflect.hx:172: characters 27-28 : Unexpected :
 
 ```
 

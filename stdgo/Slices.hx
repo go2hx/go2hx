@@ -196,7 +196,7 @@ function testEqual(t:stdgo._internal.testing.Testing.T_):Void {
 function testEqualFunc(t:stdgo._internal.testing.Testing.T_):Void {
         stdgo._internal.slices.Slices.testEqualFunc(t);
     }
-typedef T_benchmarkEqualFunc_Large_23___localname___Large = stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_23___localname___Large;
+typedef T_benchmarkEqualFunc_Large_18___localname___Large = stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_18___localname___Large;
 function benchmarkEqualFunc_Large(b:stdgo._internal.testing.Testing.B):Void {
         stdgo._internal.slices.Slices.benchmarkEqualFunc_Large(b);
     }
@@ -209,14 +209,14 @@ function testCompareFunc(t:stdgo._internal.testing.Testing.T_):Void {
 function testIndex(t:stdgo._internal.testing.Testing.T_):Void {
         stdgo._internal.slices.Slices.testIndex(t);
     }
-typedef T_benchmarkIndex_Large_24___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndex_Large_24___localname___Large;
+typedef T_benchmarkIndex_Large_19___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndex_Large_19___localname___Large;
 function benchmarkIndex_Large(b:stdgo._internal.testing.Testing.B):Void {
         stdgo._internal.slices.Slices.benchmarkIndex_Large(b);
     }
 function testIndexFunc(t:stdgo._internal.testing.Testing.T_):Void {
         stdgo._internal.slices.Slices.testIndexFunc(t);
     }
-typedef T_benchmarkIndexFunc_Large_25___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_25___localname___Large;
+typedef T_benchmarkIndexFunc_Large_20___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_20___localname___Large;
 function benchmarkIndexFunc_Large(b:stdgo._internal.testing.Testing.B):Void {
         stdgo._internal.slices.Slices.benchmarkIndexFunc_Large(b);
     }
@@ -250,14 +250,14 @@ function testCompact(t:stdgo._internal.testing.Testing.T_):Void {
 function benchmarkCompact(b:stdgo._internal.testing.Testing.B):Void {
         stdgo._internal.slices.Slices.benchmarkCompact(b);
     }
-typedef T_benchmarkCompact_Large_26___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompact_Large_26___localname___Large;
+typedef T_benchmarkCompact_Large_21___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompact_Large_21___localname___Large;
 function benchmarkCompact_Large(b:stdgo._internal.testing.Testing.B):Void {
         stdgo._internal.slices.Slices.benchmarkCompact_Large(b);
     }
 function testCompactFunc(t:stdgo._internal.testing.Testing.T_):Void {
         stdgo._internal.slices.Slices.testCompactFunc(t);
     }
-typedef T_benchmarkCompactFunc_Large_27___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_27___localname___Large;
+typedef T_benchmarkCompactFunc_Large_22___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_22___localname___Large;
 function benchmarkCompactFunc_Large(b:stdgo._internal.testing.Testing.B):Void {
         stdgo._internal.slices.Slices.benchmarkCompactFunc_Large(b);
     }
@@ -291,7 +291,7 @@ function testInsertGrowthRate(t:stdgo._internal.testing.Testing.T_):Void {
 function testReplaceGrowthRate(t:stdgo._internal.testing.Testing.T_):Void {
         stdgo._internal.slices.Slices.testReplaceGrowthRate(t);
     }
-typedef T_testInference_28___localname___S = stdgo._internal.slices.Slices.T_testInference_28___localname___S;
+typedef T_testInference_23___localname___S = stdgo._internal.slices.Slices.T_testInference_23___localname___S;
 /**
     Test type inference with a named slice type.
 **/

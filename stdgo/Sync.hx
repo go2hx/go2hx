@@ -109,7 +109,7 @@ function newPoolChain():PoolDequeue {
 **/
 function onceFunc(f:() -> Void):() -> Void {
         final f = f;
-        return () ->:Void stdgo._internal.sync.Sync.onceFunc(f)();
+        return () -> stdgo._internal.sync.Sync.onceFunc(f)();
     }
 macro function onceValue<T_>(_generic__0:haxe.macro.Expr<T_>, f:haxe.macro.Expr<() -> T_>):haxe.macro.Expr<() -> T_> {
         return stdgo._internal.sync.Sync.onceValue(_generic__0, f);

@@ -169,7 +169,7 @@ function makeFunc(typ:Type_, fn:(_args:stdgo.Slice<Value>) -> stdgo.Slice<Value>
     Swapper panics if the provided interface is not a slice.
 **/
 function swapper(slice:stdgo.AnyInterface):(_i:stdgo.GoInt, _j:stdgo.GoInt) -> Void {
-        return (_0, _1) ->:Void stdgo._internal.reflect.Reflect.swapper(slice)(#NULL_EXPR, #NULL_EXPR);
+        return (_0, _1) -> stdgo._internal.reflect.Reflect.swapper(slice)(_0, _1);
     }
 /**
     TypeOf returns the reflection Type that represents the dynamic type of i.

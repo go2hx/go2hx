@@ -196,7 +196,7 @@ function cause(c:Context):stdgo.Error {
 **/
 function afterFunc(ctx:Context, f:() -> Void):() -> Bool {
         final f = f;
-        return () ->:Bool stdgo._internal.context.Context.afterFunc(ctx, f)();
+        return () -> stdgo._internal.context.Context.afterFunc(ctx, f)();
     }
 /**
     WithoutCancel returns a copy of parent that is not canceled when parent is canceled.

@@ -1,18 +1,49 @@
 package stdgo.internal;
 var list(get, set) : Array<stdgo._internal.internal.platform.Platform.OSArch>;
-private function get_list():Array<stdgo._internal.internal.platform.Platform.OSArch> return stdgo._internal.internal.platform.Platform.list;
-private function set_list(v:Array<stdgo._internal.internal.platform.Platform.OSArch>):Array<stdgo._internal.internal.platform.Platform.OSArch> return stdgo._internal.internal.platform.Platform.list = v;
-@:forward @:forward.new abstract OSArch(stdgo._internal.internal.platform.Platform.OSArch) from stdgo._internal.internal.platform.Platform.OSArch to stdgo._internal.internal.platform.Platform.OSArch {
-
+private function get_list():Array<stdgo._internal.internal.platform.Platform.OSArch> return [for (i in stdgo._internal.internal.platform.Platform.list) i];
+private function set_list(v:Array<stdgo._internal.internal.platform.Platform.OSArch>):Array<stdgo._internal.internal.platform.Platform.OSArch> {
+        stdgo._internal.internal.platform.Platform.list = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.platform.Platform.OSArch>);
+        return v;
+    }
+abstract OSArch(stdgo._internal.internal.platform.Platform.OSArch) from stdgo._internal.internal.platform.Platform.OSArch to stdgo._internal.internal.platform.Platform.OSArch {
+    public var goos(get, set) : String;
+    function get_goos():String return this.goos;
+    function set_goos(v:String):String {
+        this.goos = v;
+        return v;
+    }
+    public var goarch(get, set) : String;
+    function get_goarch():String return this.goarch;
+    function set_goarch(v:String):String {
+        this.goarch = v;
+        return v;
+    }
+    public function new(?goos:String, ?goarch:String) this = new stdgo._internal.internal.platform.Platform.OSArch(goos, goarch);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_osArchInfo(stdgo._internal.internal.platform.Platform.T_osArchInfo) from stdgo._internal.internal.platform.Platform.T_osArchInfo to stdgo._internal.internal.platform.Platform.T_osArchInfo {
-
-}
-@:forward @:forward.new abstract OSArch_asInterface(stdgo._internal.internal.platform.Platform.OSArch_asInterface) from stdgo._internal.internal.platform.Platform.OSArch_asInterface to stdgo._internal.internal.platform.Platform.OSArch_asInterface {
-
-}
-@:forward @:forward.new abstract OSArch_static_extension(stdgo._internal.internal.platform.Platform.OSArch_static_extension) from stdgo._internal.internal.platform.Platform.OSArch_static_extension to stdgo._internal.internal.platform.Platform.OSArch_static_extension {
-
+abstract T_osArchInfo(stdgo._internal.internal.platform.Platform.T_osArchInfo) from stdgo._internal.internal.platform.Platform.T_osArchInfo to stdgo._internal.internal.platform.Platform.T_osArchInfo {
+    public var cgoSupported(get, set) : Bool;
+    function get_cgoSupported():Bool return this.cgoSupported;
+    function set_cgoSupported(v:Bool):Bool {
+        this.cgoSupported = v;
+        return v;
+    }
+    public var firstClass(get, set) : Bool;
+    function get_firstClass():Bool return this.firstClass;
+    function set_firstClass(v:Bool):Bool {
+        this.firstClass = v;
+        return v;
+    }
+    public var broken(get, set) : Bool;
+    function get_broken():Bool return this.broken;
+    function set_broken(v:Bool):Bool {
+        this.broken = v;
+        return v;
+    }
+    public function new(?cgoSupported:Bool, ?firstClass:Bool, ?broken:Bool) this = new stdgo._internal.internal.platform.Platform.T_osArchInfo(cgoSupported, firstClass, broken);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 class Platform {
     /**

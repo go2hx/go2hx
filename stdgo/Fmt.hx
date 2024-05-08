@@ -381,112 +381,340 @@ package stdgo;
 **/
 private var __go2hxdoc__package : Bool;
 var isSpace(get, set) : stdgo.GoInt32 -> Bool;
-private function get_isSpace():stdgo.GoInt32 -> Bool return stdgo._internal.fmt.Fmt.isSpace;
-private function set_isSpace(v:stdgo.GoInt32 -> Bool):stdgo.GoInt32 -> Bool return stdgo._internal.fmt.Fmt.isSpace = v;
+private function get_isSpace():stdgo.GoInt32 -> Bool return _0 -> stdgo._internal.fmt.Fmt.isSpace(_0);
+private function set_isSpace(v:stdgo.GoInt32 -> Bool):stdgo.GoInt32 -> Bool {
+        stdgo._internal.fmt.Fmt.isSpace = v;
+        return v;
+    }
 var parsenum(get, set) : (stdgo.GoString, stdgo.GoInt, stdgo.GoInt) -> { var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoInt; };
-private function get_parsenum():(stdgo.GoString, stdgo.GoInt, stdgo.GoInt) -> { var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoInt; } return stdgo._internal.fmt.Fmt.parsenum;
-private function set_parsenum(v:(stdgo.GoString, stdgo.GoInt, stdgo.GoInt) -> { var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoInt; }):(stdgo.GoString, stdgo.GoInt, stdgo.GoInt) -> { var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoInt; } return stdgo._internal.fmt.Fmt.parsenum = v;
-@:forward @:forward.new abstract State_static_extension(stdgo._internal.fmt.Fmt.State_static_extension) from stdgo._internal.fmt.Fmt.State_static_extension to stdgo._internal.fmt.Fmt.State_static_extension {
-
-}
+private function get_parsenum():(stdgo.GoString, stdgo.GoInt, stdgo.GoInt) -> { var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoInt; } return (_0, _1, _2) -> stdgo._internal.fmt.Fmt.parsenum(_0, _1, _2);
+private function set_parsenum(v:(stdgo.GoString, stdgo.GoInt, stdgo.GoInt) -> { var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoInt; }):(stdgo.GoString, stdgo.GoInt, stdgo.GoInt) -> { var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoInt; } {
+        stdgo._internal.fmt.Fmt.parsenum = v;
+        return v;
+    }
 typedef State = stdgo._internal.fmt.Fmt.State;
-@:forward @:forward.new abstract Formatter_static_extension(stdgo._internal.fmt.Fmt.Formatter_static_extension) from stdgo._internal.fmt.Fmt.Formatter_static_extension to stdgo._internal.fmt.Fmt.Formatter_static_extension {
-
-}
 typedef Formatter = stdgo._internal.fmt.Fmt.Formatter;
-@:forward @:forward.new abstract Stringer_static_extension(stdgo._internal.fmt.Fmt.Stringer_static_extension) from stdgo._internal.fmt.Fmt.Stringer_static_extension to stdgo._internal.fmt.Fmt.Stringer_static_extension {
-
-}
 typedef Stringer = stdgo._internal.fmt.Fmt.Stringer;
-@:forward @:forward.new abstract GoStringer_static_extension(stdgo._internal.fmt.Fmt.GoStringer_static_extension) from stdgo._internal.fmt.Fmt.GoStringer_static_extension to stdgo._internal.fmt.Fmt.GoStringer_static_extension {
-
-}
 typedef GoStringer = stdgo._internal.fmt.Fmt.GoStringer;
-@:forward @:forward.new abstract ScanState_static_extension(stdgo._internal.fmt.Fmt.ScanState_static_extension) from stdgo._internal.fmt.Fmt.ScanState_static_extension to stdgo._internal.fmt.Fmt.ScanState_static_extension {
-
-}
 typedef ScanState = stdgo._internal.fmt.Fmt.ScanState;
-@:forward @:forward.new abstract Scanner_static_extension(stdgo._internal.fmt.Fmt.Scanner_static_extension) from stdgo._internal.fmt.Fmt.Scanner_static_extension to stdgo._internal.fmt.Fmt.Scanner_static_extension {
-
-}
 typedef Scanner = stdgo._internal.fmt.Fmt.Scanner;
-@:forward @:forward.new abstract T_wrapError(stdgo._internal.fmt.Fmt.T_wrapError) from stdgo._internal.fmt.Fmt.T_wrapError to stdgo._internal.fmt.Fmt.T_wrapError {
-
+abstract T_wrapError(stdgo._internal.fmt.Fmt.T_wrapError) from stdgo._internal.fmt.Fmt.T_wrapError to stdgo._internal.fmt.Fmt.T_wrapError {
+    public var _msg(get, set) : String;
+    function get__msg():String return this._msg;
+    function set__msg(v:String):String {
+        this._msg = v;
+        return v;
+    }
+    public var _err(get, set) : stdgo.Error;
+    function get__err():stdgo.Error return this._err;
+    function set__err(v:stdgo.Error):stdgo.Error {
+        this._err = v;
+        return v;
+    }
+    public function new(?_msg:String, ?_err:stdgo.Error) this = new stdgo._internal.fmt.Fmt.T_wrapError(_msg, _err);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_wrapErrors(stdgo._internal.fmt.Fmt.T_wrapErrors) from stdgo._internal.fmt.Fmt.T_wrapErrors to stdgo._internal.fmt.Fmt.T_wrapErrors {
-
+abstract T_wrapErrors(stdgo._internal.fmt.Fmt.T_wrapErrors) from stdgo._internal.fmt.Fmt.T_wrapErrors to stdgo._internal.fmt.Fmt.T_wrapErrors {
+    public var _msg(get, set) : String;
+    function get__msg():String return this._msg;
+    function set__msg(v:String):String {
+        this._msg = v;
+        return v;
+    }
+    public var _errs(get, set) : Array<stdgo.Error>;
+    function get__errs():Array<stdgo.Error> return [for (i in this._errs) i];
+    function set__errs(v:Array<stdgo.Error>):Array<stdgo.Error> {
+        this._errs = ([for (i in v) i] : stdgo.Slice<stdgo.Error>);
+        return v;
+    }
+    public function new(?_msg:String, ?_errs:Array<stdgo.Error>) this = new stdgo._internal.fmt.Fmt.T_wrapErrors(_msg, ([for (i in _errs) i] : stdgo.Slice<stdgo.Error>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_fmtFlags(stdgo._internal.fmt.Fmt.T_fmtFlags) from stdgo._internal.fmt.Fmt.T_fmtFlags to stdgo._internal.fmt.Fmt.T_fmtFlags {
-
+abstract T_fmtFlags(stdgo._internal.fmt.Fmt.T_fmtFlags) from stdgo._internal.fmt.Fmt.T_fmtFlags to stdgo._internal.fmt.Fmt.T_fmtFlags {
+    public var _widPresent(get, set) : Bool;
+    function get__widPresent():Bool return this._widPresent;
+    function set__widPresent(v:Bool):Bool {
+        this._widPresent = v;
+        return v;
+    }
+    public var _precPresent(get, set) : Bool;
+    function get__precPresent():Bool return this._precPresent;
+    function set__precPresent(v:Bool):Bool {
+        this._precPresent = v;
+        return v;
+    }
+    public var _minus(get, set) : Bool;
+    function get__minus():Bool return this._minus;
+    function set__minus(v:Bool):Bool {
+        this._minus = v;
+        return v;
+    }
+    public var _plus(get, set) : Bool;
+    function get__plus():Bool return this._plus;
+    function set__plus(v:Bool):Bool {
+        this._plus = v;
+        return v;
+    }
+    public var _sharp(get, set) : Bool;
+    function get__sharp():Bool return this._sharp;
+    function set__sharp(v:Bool):Bool {
+        this._sharp = v;
+        return v;
+    }
+    public var _space(get, set) : Bool;
+    function get__space():Bool return this._space;
+    function set__space(v:Bool):Bool {
+        this._space = v;
+        return v;
+    }
+    public var _zero(get, set) : Bool;
+    function get__zero():Bool return this._zero;
+    function set__zero(v:Bool):Bool {
+        this._zero = v;
+        return v;
+    }
+    public var _plusV(get, set) : Bool;
+    function get__plusV():Bool return this._plusV;
+    function set__plusV(v:Bool):Bool {
+        this._plusV = v;
+        return v;
+    }
+    public var _sharpV(get, set) : Bool;
+    function get__sharpV():Bool return this._sharpV;
+    function set__sharpV(v:Bool):Bool {
+        this._sharpV = v;
+        return v;
+    }
+    public function new(?_widPresent:Bool, ?_precPresent:Bool, ?_minus:Bool, ?_plus:Bool, ?_sharp:Bool, ?_space:Bool, ?_zero:Bool, ?_plusV:Bool, ?_sharpV:Bool) this = new stdgo._internal.fmt.Fmt.T_fmtFlags(_widPresent, _precPresent, _minus, _plus, _sharp, _space, _zero, _plusV, _sharpV);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_fmt(stdgo._internal.fmt.Fmt.T_fmt) from stdgo._internal.fmt.Fmt.T_fmt to stdgo._internal.fmt.Fmt.T_fmt {
-
+abstract T_fmt(stdgo._internal.fmt.Fmt.T_fmt) from stdgo._internal.fmt.Fmt.T_fmt to stdgo._internal.fmt.Fmt.T_fmt {
+    public var _buf(get, set) : stdgo._internal.fmt.Fmt.T_buffer;
+    function get__buf():stdgo._internal.fmt.Fmt.T_buffer return this._buf;
+    function set__buf(v:stdgo._internal.fmt.Fmt.T_buffer):stdgo._internal.fmt.Fmt.T_buffer {
+        this._buf = v;
+        return v;
+    }
+    public var _fmtFlags(get, set) : stdgo._internal.fmt.Fmt.T_fmtFlags;
+    function get__fmtFlags():stdgo._internal.fmt.Fmt.T_fmtFlags return this._fmtFlags;
+    function set__fmtFlags(v:stdgo._internal.fmt.Fmt.T_fmtFlags):stdgo._internal.fmt.Fmt.T_fmtFlags {
+        this._fmtFlags = v;
+        return v;
+    }
+    public var _wid(get, set) : StdTypes.Int;
+    function get__wid():StdTypes.Int return this._wid;
+    function set__wid(v:StdTypes.Int):StdTypes.Int {
+        this._wid = v;
+        return v;
+    }
+    public var _prec(get, set) : StdTypes.Int;
+    function get__prec():StdTypes.Int return this._prec;
+    function set__prec(v:StdTypes.Int):StdTypes.Int {
+        this._prec = v;
+        return v;
+    }
+    public var _intbuf(get, set) : haxe.ds.Vector<std.UInt>;
+    function get__intbuf():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._intbuf) i]);
+    function set__intbuf(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
+        this._intbuf = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        return v;
+    }
+    public function new(?_buf:stdgo._internal.fmt.Fmt.T_buffer, ?_fmtFlags:stdgo._internal.fmt.Fmt.T_fmtFlags, ?_wid:StdTypes.Int, ?_prec:StdTypes.Int, ?_intbuf:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.fmt.Fmt.T_fmt(_buf, _fmtFlags, _wid, _prec, ([for (i in _intbuf) i] : stdgo.GoArray<stdgo.GoUInt8>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_pp(stdgo._internal.fmt.Fmt.T_pp) from stdgo._internal.fmt.Fmt.T_pp to stdgo._internal.fmt.Fmt.T_pp {
-
+abstract T_pp(stdgo._internal.fmt.Fmt.T_pp) from stdgo._internal.fmt.Fmt.T_pp to stdgo._internal.fmt.Fmt.T_pp {
+    public var _buf(get, set) : stdgo._internal.fmt.Fmt.T_buffer;
+    function get__buf():stdgo._internal.fmt.Fmt.T_buffer return this._buf;
+    function set__buf(v:stdgo._internal.fmt.Fmt.T_buffer):stdgo._internal.fmt.Fmt.T_buffer {
+        this._buf = v;
+        return v;
+    }
+    public var _arg(get, set) : stdgo.AnyInterface;
+    function get__arg():stdgo.AnyInterface return this._arg;
+    function set__arg(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this._arg = v;
+        return v;
+    }
+    public var _value(get, set) : stdgo._internal.reflect.Reflect.Value;
+    function get__value():stdgo._internal.reflect.Reflect.Value return this._value;
+    function set__value(v:stdgo._internal.reflect.Reflect.Value):stdgo._internal.reflect.Reflect.Value {
+        this._value = v;
+        return v;
+    }
+    public var _fmt(get, set) : stdgo._internal.fmt.Fmt.T_fmt;
+    function get__fmt():stdgo._internal.fmt.Fmt.T_fmt return this._fmt;
+    function set__fmt(v:stdgo._internal.fmt.Fmt.T_fmt):stdgo._internal.fmt.Fmt.T_fmt {
+        this._fmt = v;
+        return v;
+    }
+    public var _reordered(get, set) : Bool;
+    function get__reordered():Bool return this._reordered;
+    function set__reordered(v:Bool):Bool {
+        this._reordered = v;
+        return v;
+    }
+    public var _goodArgNum(get, set) : Bool;
+    function get__goodArgNum():Bool return this._goodArgNum;
+    function set__goodArgNum(v:Bool):Bool {
+        this._goodArgNum = v;
+        return v;
+    }
+    public var _panicking(get, set) : Bool;
+    function get__panicking():Bool return this._panicking;
+    function set__panicking(v:Bool):Bool {
+        this._panicking = v;
+        return v;
+    }
+    public var _erroring(get, set) : Bool;
+    function get__erroring():Bool return this._erroring;
+    function set__erroring(v:Bool):Bool {
+        this._erroring = v;
+        return v;
+    }
+    public var _wrapErrs(get, set) : Bool;
+    function get__wrapErrs():Bool return this._wrapErrs;
+    function set__wrapErrs(v:Bool):Bool {
+        this._wrapErrs = v;
+        return v;
+    }
+    public var _wrappedErrs(get, set) : Array<StdTypes.Int>;
+    function get__wrappedErrs():Array<StdTypes.Int> return [for (i in this._wrappedErrs) i];
+    function set__wrappedErrs(v:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        this._wrappedErrs = ([for (i in v) i] : stdgo.Slice<stdgo.GoInt>);
+        return v;
+    }
+    public function new(?_buf:stdgo._internal.fmt.Fmt.T_buffer, ?_arg:stdgo.AnyInterface, ?_value:stdgo._internal.reflect.Reflect.Value, ?_fmt:stdgo._internal.fmt.Fmt.T_fmt, ?_reordered:Bool, ?_goodArgNum:Bool, ?_panicking:Bool, ?_erroring:Bool, ?_wrapErrs:Bool, ?_wrappedErrs:Array<StdTypes.Int>) this = new stdgo._internal.fmt.Fmt.T_pp(_buf, _arg, _value, _fmt, _reordered, _goodArgNum, _panicking, _erroring, _wrapErrs, ([for (i in _wrappedErrs) i] : stdgo.Slice<stdgo.GoInt>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_scanError(stdgo._internal.fmt.Fmt.T_scanError) from stdgo._internal.fmt.Fmt.T_scanError to stdgo._internal.fmt.Fmt.T_scanError {
-
+abstract T_scanError(stdgo._internal.fmt.Fmt.T_scanError) from stdgo._internal.fmt.Fmt.T_scanError to stdgo._internal.fmt.Fmt.T_scanError {
+    public var _err(get, set) : stdgo.Error;
+    function get__err():stdgo.Error return this._err;
+    function set__err(v:stdgo.Error):stdgo.Error {
+        this._err = v;
+        return v;
+    }
+    public function new(?_err:stdgo.Error) this = new stdgo._internal.fmt.Fmt.T_scanError(_err);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_ss(stdgo._internal.fmt.Fmt.T_ss) from stdgo._internal.fmt.Fmt.T_ss to stdgo._internal.fmt.Fmt.T_ss {
-
+abstract T_ss(stdgo._internal.fmt.Fmt.T_ss) from stdgo._internal.fmt.Fmt.T_ss to stdgo._internal.fmt.Fmt.T_ss {
+    public var _rs(get, set) : stdgo._internal.io.Io.RuneScanner;
+    function get__rs():stdgo._internal.io.Io.RuneScanner return this._rs;
+    function set__rs(v:stdgo._internal.io.Io.RuneScanner):stdgo._internal.io.Io.RuneScanner {
+        this._rs = v;
+        return v;
+    }
+    public var _buf(get, set) : stdgo._internal.fmt.Fmt.T_buffer;
+    function get__buf():stdgo._internal.fmt.Fmt.T_buffer return this._buf;
+    function set__buf(v:stdgo._internal.fmt.Fmt.T_buffer):stdgo._internal.fmt.Fmt.T_buffer {
+        this._buf = v;
+        return v;
+    }
+    public var _count(get, set) : StdTypes.Int;
+    function get__count():StdTypes.Int return this._count;
+    function set__count(v:StdTypes.Int):StdTypes.Int {
+        this._count = v;
+        return v;
+    }
+    public var _atEOF(get, set) : Bool;
+    function get__atEOF():Bool return this._atEOF;
+    function set__atEOF(v:Bool):Bool {
+        this._atEOF = v;
+        return v;
+    }
+    public var _ssave(get, set) : stdgo._internal.fmt.Fmt.T_ssave;
+    function get__ssave():stdgo._internal.fmt.Fmt.T_ssave return this._ssave;
+    function set__ssave(v:stdgo._internal.fmt.Fmt.T_ssave):stdgo._internal.fmt.Fmt.T_ssave {
+        this._ssave = v;
+        return v;
+    }
+    public function new(?_rs:stdgo._internal.io.Io.RuneScanner, ?_buf:stdgo._internal.fmt.Fmt.T_buffer, ?_count:StdTypes.Int, ?_atEOF:Bool, ?_ssave:stdgo._internal.fmt.Fmt.T_ssave) this = new stdgo._internal.fmt.Fmt.T_ss(_rs, _buf, _count, _atEOF, _ssave);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_ssave(stdgo._internal.fmt.Fmt.T_ssave) from stdgo._internal.fmt.Fmt.T_ssave to stdgo._internal.fmt.Fmt.T_ssave {
-
+abstract T_ssave(stdgo._internal.fmt.Fmt.T_ssave) from stdgo._internal.fmt.Fmt.T_ssave to stdgo._internal.fmt.Fmt.T_ssave {
+    public var _validSave(get, set) : Bool;
+    function get__validSave():Bool return this._validSave;
+    function set__validSave(v:Bool):Bool {
+        this._validSave = v;
+        return v;
+    }
+    public var _nlIsEnd(get, set) : Bool;
+    function get__nlIsEnd():Bool return this._nlIsEnd;
+    function set__nlIsEnd(v:Bool):Bool {
+        this._nlIsEnd = v;
+        return v;
+    }
+    public var _nlIsSpace(get, set) : Bool;
+    function get__nlIsSpace():Bool return this._nlIsSpace;
+    function set__nlIsSpace(v:Bool):Bool {
+        this._nlIsSpace = v;
+        return v;
+    }
+    public var _argLimit(get, set) : StdTypes.Int;
+    function get__argLimit():StdTypes.Int return this._argLimit;
+    function set__argLimit(v:StdTypes.Int):StdTypes.Int {
+        this._argLimit = v;
+        return v;
+    }
+    public var _limit(get, set) : StdTypes.Int;
+    function get__limit():StdTypes.Int return this._limit;
+    function set__limit(v:StdTypes.Int):StdTypes.Int {
+        this._limit = v;
+        return v;
+    }
+    public var _maxWid(get, set) : StdTypes.Int;
+    function get__maxWid():StdTypes.Int return this._maxWid;
+    function set__maxWid(v:StdTypes.Int):StdTypes.Int {
+        this._maxWid = v;
+        return v;
+    }
+    public function new(?_validSave:Bool, ?_nlIsEnd:Bool, ?_nlIsSpace:Bool, ?_argLimit:StdTypes.Int, ?_limit:StdTypes.Int, ?_maxWid:StdTypes.Int) this = new stdgo._internal.fmt.Fmt.T_ssave(_validSave, _nlIsEnd, _nlIsSpace, _argLimit, _limit, _maxWid);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_readRune(stdgo._internal.fmt.Fmt.T_readRune) from stdgo._internal.fmt.Fmt.T_readRune to stdgo._internal.fmt.Fmt.T_readRune {
-
+abstract T_readRune(stdgo._internal.fmt.Fmt.T_readRune) from stdgo._internal.fmt.Fmt.T_readRune to stdgo._internal.fmt.Fmt.T_readRune {
+    public var _reader(get, set) : stdgo._internal.io.Io.Reader;
+    function get__reader():stdgo._internal.io.Io.Reader return this._reader;
+    function set__reader(v:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
+        this._reader = v;
+        return v;
+    }
+    public var _buf(get, set) : haxe.ds.Vector<std.UInt>;
+    function get__buf():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._buf) i]);
+    function set__buf(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
+        this._buf = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _pending(get, set) : StdTypes.Int;
+    function get__pending():StdTypes.Int return this._pending;
+    function set__pending(v:StdTypes.Int):StdTypes.Int {
+        this._pending = v;
+        return v;
+    }
+    public var _pendBuf(get, set) : haxe.ds.Vector<std.UInt>;
+    function get__pendBuf():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._pendBuf) i]);
+    function set__pendBuf(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
+        this._pendBuf = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _peekRune(get, set) : StdTypes.Int;
+    function get__peekRune():StdTypes.Int return this._peekRune;
+    function set__peekRune(v:StdTypes.Int):StdTypes.Int {
+        this._peekRune = v;
+        return v;
+    }
+    public function new(?_reader:stdgo._internal.io.Io.Reader, ?_buf:haxe.ds.Vector<std.UInt>, ?_pending:StdTypes.Int, ?_pendBuf:haxe.ds.Vector<std.UInt>, ?_peekRune:StdTypes.Int) this = new stdgo._internal.fmt.Fmt.T_readRune(_reader, ([for (i in _buf) i] : stdgo.GoArray<stdgo.GoUInt8>), _pending, ([for (i in _pendBuf) i] : stdgo.GoArray<stdgo.GoUInt8>), _peekRune);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef T_buffer = stdgo._internal.fmt.Fmt.T_buffer;
 typedef T_stringReader = stdgo._internal.fmt.Fmt.T_stringReader;
-@:forward @:forward.new abstract T_wrapError_asInterface(stdgo._internal.fmt.Fmt.T_wrapError_asInterface) from stdgo._internal.fmt.Fmt.T_wrapError_asInterface to stdgo._internal.fmt.Fmt.T_wrapError_asInterface {
-
-}
-@:forward @:forward.new abstract T_wrapError_static_extension(stdgo._internal.fmt.Fmt.T_wrapError_static_extension) from stdgo._internal.fmt.Fmt.T_wrapError_static_extension to stdgo._internal.fmt.Fmt.T_wrapError_static_extension {
-
-}
-@:forward @:forward.new abstract T_wrapErrors_asInterface(stdgo._internal.fmt.Fmt.T_wrapErrors_asInterface) from stdgo._internal.fmt.Fmt.T_wrapErrors_asInterface to stdgo._internal.fmt.Fmt.T_wrapErrors_asInterface {
-
-}
-@:forward @:forward.new abstract T_wrapErrors_static_extension(stdgo._internal.fmt.Fmt.T_wrapErrors_static_extension) from stdgo._internal.fmt.Fmt.T_wrapErrors_static_extension to stdgo._internal.fmt.Fmt.T_wrapErrors_static_extension {
-
-}
-@:forward @:forward.new abstract T_fmt_asInterface(stdgo._internal.fmt.Fmt.T_fmt_asInterface) from stdgo._internal.fmt.Fmt.T_fmt_asInterface to stdgo._internal.fmt.Fmt.T_fmt_asInterface {
-
-}
-@:forward @:forward.new abstract T_fmt_static_extension(stdgo._internal.fmt.Fmt.T_fmt_static_extension) from stdgo._internal.fmt.Fmt.T_fmt_static_extension to stdgo._internal.fmt.Fmt.T_fmt_static_extension {
-
-}
-@:forward @:forward.new abstract T_pp_asInterface(stdgo._internal.fmt.Fmt.T_pp_asInterface) from stdgo._internal.fmt.Fmt.T_pp_asInterface to stdgo._internal.fmt.Fmt.T_pp_asInterface {
-
-}
-@:forward @:forward.new abstract T_pp_static_extension(stdgo._internal.fmt.Fmt.T_pp_static_extension) from stdgo._internal.fmt.Fmt.T_pp_static_extension to stdgo._internal.fmt.Fmt.T_pp_static_extension {
-
-}
-@:forward @:forward.new abstract T_ss_asInterface(stdgo._internal.fmt.Fmt.T_ss_asInterface) from stdgo._internal.fmt.Fmt.T_ss_asInterface to stdgo._internal.fmt.Fmt.T_ss_asInterface {
-
-}
-@:forward @:forward.new abstract T_ss_static_extension(stdgo._internal.fmt.Fmt.T_ss_static_extension) from stdgo._internal.fmt.Fmt.T_ss_static_extension to stdgo._internal.fmt.Fmt.T_ss_static_extension {
-
-}
-@:forward @:forward.new abstract T_readRune_asInterface(stdgo._internal.fmt.Fmt.T_readRune_asInterface) from stdgo._internal.fmt.Fmt.T_readRune_asInterface to stdgo._internal.fmt.Fmt.T_readRune_asInterface {
-
-}
-@:forward @:forward.new abstract T_readRune_static_extension(stdgo._internal.fmt.Fmt.T_readRune_static_extension) from stdgo._internal.fmt.Fmt.T_readRune_static_extension to stdgo._internal.fmt.Fmt.T_readRune_static_extension {
-
-}
-@:forward @:forward.new abstract T_buffer_asInterface(stdgo._internal.fmt.Fmt.T_buffer_asInterface) from stdgo._internal.fmt.Fmt.T_buffer_asInterface to stdgo._internal.fmt.Fmt.T_buffer_asInterface {
-
-}
-@:forward @:forward.new abstract T_buffer_static_extension(stdgo._internal.fmt.Fmt.T_buffer_static_extension) from stdgo._internal.fmt.Fmt.T_buffer_static_extension to stdgo._internal.fmt.Fmt.T_buffer_static_extension {
-
-}
-@:forward @:forward.new abstract T_stringReader_asInterface(stdgo._internal.fmt.Fmt.T_stringReader_asInterface) from stdgo._internal.fmt.Fmt.T_stringReader_asInterface to stdgo._internal.fmt.Fmt.T_stringReader_asInterface {
-
-}
-@:forward @:forward.new abstract T_stringReader_static_extension(stdgo._internal.fmt.Fmt.T_stringReader_static_extension) from stdgo._internal.fmt.Fmt.T_stringReader_static_extension to stdgo._internal.fmt.Fmt.T_stringReader_static_extension {
-
-}
 class Fmt {
     /**
         Errorf formats according to a format specifier and returns the string as a

@@ -108,555 +108,583 @@ final below : stdgo._internal.math.big.Big.Accuracy = stdgo._internal.math.big.B
 final exact : stdgo._internal.math.big.Big.Accuracy = stdgo._internal.math.big.Big.exact;
 final above : stdgo._internal.math.big.Big.Accuracy = stdgo._internal.math.big.Big.above;
 final maxBase : StdTypes.Int = stdgo._internal.math.big.Big.maxBase;
-@:forward @:forward.new abstract T_argVV(stdgo._internal.math.big.Big.T_argVV) from stdgo._internal.math.big.Big.T_argVV to stdgo._internal.math.big.Big.T_argVV {
-
+abstract T_argVV(stdgo._internal.math.big.Big.T_argVV) from stdgo._internal.math.big.Big.T_argVV to stdgo._internal.math.big.Big.T_argVV {
+    public var _z(get, set) : stdgo._internal.math.big.Big.T_nat;
+    function get__z():stdgo._internal.math.big.Big.T_nat return this._z;
+    function set__z(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+        this._z = v;
+        return v;
+    }
+    public var _x(get, set) : stdgo._internal.math.big.Big.T_nat;
+    function get__x():stdgo._internal.math.big.Big.T_nat return this._x;
+    function set__x(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+        this._x = v;
+        return v;
+    }
+    public var _y(get, set) : stdgo._internal.math.big.Big.T_nat;
+    function get__y():stdgo._internal.math.big.Big.T_nat return this._y;
+    function set__y(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+        this._y = v;
+        return v;
+    }
+    public var _c(get, set) : stdgo._internal.math.big.Big.Word;
+    function get__c():stdgo._internal.math.big.Big.Word return this._c;
+    function set__c(v:stdgo._internal.math.big.Big.Word):stdgo._internal.math.big.Big.Word {
+        this._c = v;
+        return v;
+    }
+    public function new(?_z:stdgo._internal.math.big.Big.T_nat, ?_x:stdgo._internal.math.big.Big.T_nat, ?_y:stdgo._internal.math.big.Big.T_nat, ?_c:stdgo._internal.math.big.Big.Word) this = new stdgo._internal.math.big.Big.T_argVV(_z, _x, _y, _c);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_argVW(stdgo._internal.math.big.Big.T_argVW) from stdgo._internal.math.big.Big.T_argVW to stdgo._internal.math.big.Big.T_argVW {
-
+abstract T_argVW(stdgo._internal.math.big.Big.T_argVW) from stdgo._internal.math.big.Big.T_argVW to stdgo._internal.math.big.Big.T_argVW {
+    public var _z(get, set) : stdgo._internal.math.big.Big.T_nat;
+    function get__z():stdgo._internal.math.big.Big.T_nat return this._z;
+    function set__z(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+        this._z = v;
+        return v;
+    }
+    public var _x(get, set) : stdgo._internal.math.big.Big.T_nat;
+    function get__x():stdgo._internal.math.big.Big.T_nat return this._x;
+    function set__x(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+        this._x = v;
+        return v;
+    }
+    public var _y(get, set) : stdgo._internal.math.big.Big.Word;
+    function get__y():stdgo._internal.math.big.Big.Word return this._y;
+    function set__y(v:stdgo._internal.math.big.Big.Word):stdgo._internal.math.big.Big.Word {
+        this._y = v;
+        return v;
+    }
+    public var _c(get, set) : stdgo._internal.math.big.Big.Word;
+    function get__c():stdgo._internal.math.big.Big.Word return this._c;
+    function set__c(v:stdgo._internal.math.big.Big.Word):stdgo._internal.math.big.Big.Word {
+        this._c = v;
+        return v;
+    }
+    public function new(?_z:stdgo._internal.math.big.Big.T_nat, ?_x:stdgo._internal.math.big.Big.T_nat, ?_y:stdgo._internal.math.big.Big.Word, ?_c:stdgo._internal.math.big.Big.Word) this = new stdgo._internal.math.big.Big.T_argVW(_z, _x, _y, _c);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_argVU(stdgo._internal.math.big.Big.T_argVU) from stdgo._internal.math.big.Big.T_argVU to stdgo._internal.math.big.Big.T_argVU {
-
+abstract T_argVU(stdgo._internal.math.big.Big.T_argVU) from stdgo._internal.math.big.Big.T_argVU to stdgo._internal.math.big.Big.T_argVU {
+    public var _d(get, set) : Array<stdgo._internal.math.big.Big.Word>;
+    function get__d():Array<stdgo._internal.math.big.Big.Word> return [for (i in this._d) i];
+    function set__d(v:Array<stdgo._internal.math.big.Big.Word>):Array<stdgo._internal.math.big.Big.Word> {
+        this._d = ([for (i in v) i] : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
+        return v;
+    }
+    public var _l(get, set) : std.UInt;
+    function get__l():std.UInt return this._l;
+    function set__l(v:std.UInt):std.UInt {
+        this._l = v;
+        return v;
+    }
+    public var _xp(get, set) : std.UInt;
+    function get__xp():std.UInt return this._xp;
+    function set__xp(v:std.UInt):std.UInt {
+        this._xp = v;
+        return v;
+    }
+    public var _zp(get, set) : std.UInt;
+    function get__zp():std.UInt return this._zp;
+    function set__zp(v:std.UInt):std.UInt {
+        this._zp = v;
+        return v;
+    }
+    public var _s(get, set) : std.UInt;
+    function get__s():std.UInt return this._s;
+    function set__s(v:std.UInt):std.UInt {
+        this._s = v;
+        return v;
+    }
+    public var _r(get, set) : Array<stdgo._internal.math.big.Big.Word>;
+    function get__r():Array<stdgo._internal.math.big.Big.Word> return [for (i in this._r) i];
+    function set__r(v:Array<stdgo._internal.math.big.Big.Word>):Array<stdgo._internal.math.big.Big.Word> {
+        this._r = ([for (i in v) i] : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
+        return v;
+    }
+    public var _c(get, set) : stdgo._internal.math.big.Big.Word;
+    function get__c():stdgo._internal.math.big.Big.Word return this._c;
+    function set__c(v:stdgo._internal.math.big.Big.Word):stdgo._internal.math.big.Big.Word {
+        this._c = v;
+        return v;
+    }
+    public var _m(get, set) : String;
+    function get__m():String return this._m;
+    function set__m(v:String):String {
+        this._m = v;
+        return v;
+    }
+    public function new(?_d:Array<stdgo._internal.math.big.Big.Word>, ?_l:std.UInt, ?_xp:std.UInt, ?_zp:std.UInt, ?_s:std.UInt, ?_r:Array<stdgo._internal.math.big.Big.Word>, ?_c:stdgo._internal.math.big.Big.Word, ?_m:String) this = new stdgo._internal.math.big.Big.T_argVU(([for (i in _d) i] : stdgo.Slice<stdgo._internal.math.big.Big.Word>), _l, _xp, _zp, _s, ([for (i in _r) i] : stdgo.Slice<stdgo._internal.math.big.Big.Word>), _c, _m);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_argVWW(stdgo._internal.math.big.Big.T_argVWW) from stdgo._internal.math.big.Big.T_argVWW to stdgo._internal.math.big.Big.T_argVWW {
-
+abstract T_argVWW(stdgo._internal.math.big.Big.T_argVWW) from stdgo._internal.math.big.Big.T_argVWW to stdgo._internal.math.big.Big.T_argVWW {
+    public var _z(get, set) : stdgo._internal.math.big.Big.T_nat;
+    function get__z():stdgo._internal.math.big.Big.T_nat return this._z;
+    function set__z(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+        this._z = v;
+        return v;
+    }
+    public var _x(get, set) : stdgo._internal.math.big.Big.T_nat;
+    function get__x():stdgo._internal.math.big.Big.T_nat return this._x;
+    function set__x(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+        this._x = v;
+        return v;
+    }
+    public var _y(get, set) : stdgo._internal.math.big.Big.Word;
+    function get__y():stdgo._internal.math.big.Big.Word return this._y;
+    function set__y(v:stdgo._internal.math.big.Big.Word):stdgo._internal.math.big.Big.Word {
+        this._y = v;
+        return v;
+    }
+    public var _r(get, set) : stdgo._internal.math.big.Big.Word;
+    function get__r():stdgo._internal.math.big.Big.Word return this._r;
+    function set__r(v:stdgo._internal.math.big.Big.Word):stdgo._internal.math.big.Big.Word {
+        this._r = v;
+        return v;
+    }
+    public var _c(get, set) : stdgo._internal.math.big.Big.Word;
+    function get__c():stdgo._internal.math.big.Big.Word return this._c;
+    function set__c(v:stdgo._internal.math.big.Big.Word):stdgo._internal.math.big.Big.Word {
+        this._c = v;
+        return v;
+    }
+    public function new(?_z:stdgo._internal.math.big.Big.T_nat, ?_x:stdgo._internal.math.big.Big.T_nat, ?_y:stdgo._internal.math.big.Big.Word, ?_r:stdgo._internal.math.big.Big.Word, ?_c:stdgo._internal.math.big.Big.Word) this = new stdgo._internal.math.big.Big.T_argVWW(_z, _x, _y, _r, _c);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_argWVW(stdgo._internal.math.big.Big.T_argWVW) from stdgo._internal.math.big.Big.T_argWVW to stdgo._internal.math.big.Big.T_argWVW {
-
+abstract T_argWVW(stdgo._internal.math.big.Big.T_argWVW) from stdgo._internal.math.big.Big.T_argWVW to stdgo._internal.math.big.Big.T_argWVW {
+    public var _z(get, set) : stdgo._internal.math.big.Big.T_nat;
+    function get__z():stdgo._internal.math.big.Big.T_nat return this._z;
+    function set__z(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+        this._z = v;
+        return v;
+    }
+    public var _xn(get, set) : stdgo._internal.math.big.Big.Word;
+    function get__xn():stdgo._internal.math.big.Big.Word return this._xn;
+    function set__xn(v:stdgo._internal.math.big.Big.Word):stdgo._internal.math.big.Big.Word {
+        this._xn = v;
+        return v;
+    }
+    public var _x(get, set) : stdgo._internal.math.big.Big.T_nat;
+    function get__x():stdgo._internal.math.big.Big.T_nat return this._x;
+    function set__x(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+        this._x = v;
+        return v;
+    }
+    public var _y(get, set) : stdgo._internal.math.big.Big.Word;
+    function get__y():stdgo._internal.math.big.Big.Word return this._y;
+    function set__y(v:stdgo._internal.math.big.Big.Word):stdgo._internal.math.big.Big.Word {
+        this._y = v;
+        return v;
+    }
+    public var _r(get, set) : stdgo._internal.math.big.Big.Word;
+    function get__r():stdgo._internal.math.big.Big.Word return this._r;
+    function set__r(v:stdgo._internal.math.big.Big.Word):stdgo._internal.math.big.Big.Word {
+        this._r = v;
+        return v;
+    }
+    public function new(?_z:stdgo._internal.math.big.Big.T_nat, ?_xn:stdgo._internal.math.big.Big.Word, ?_x:stdgo._internal.math.big.Big.T_nat, ?_y:stdgo._internal.math.big.Big.Word, ?_r:stdgo._internal.math.big.Big.Word) this = new stdgo._internal.math.big.Big.T_argWVW(_z, _xn, _x, _y, _r);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_decimal(stdgo._internal.math.big.Big.T_decimal) from stdgo._internal.math.big.Big.T_decimal to stdgo._internal.math.big.Big.T_decimal {
-
+abstract T_decimal(stdgo._internal.math.big.Big.T_decimal) from stdgo._internal.math.big.Big.T_decimal to stdgo._internal.math.big.Big.T_decimal {
+    public var _mant(get, set) : Array<std.UInt>;
+    function get__mant():Array<std.UInt> return [for (i in this._mant) i];
+    function set__mant(v:Array<std.UInt>):Array<std.UInt> {
+        this._mant = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _exp(get, set) : StdTypes.Int;
+    function get__exp():StdTypes.Int return this._exp;
+    function set__exp(v:StdTypes.Int):StdTypes.Int {
+        this._exp = v;
+        return v;
+    }
+    public function new(?_mant:Array<std.UInt>, ?_exp:StdTypes.Int) this = new stdgo._internal.math.big.Big.T_decimal(([for (i in _mant) i] : stdgo.Slice<stdgo.GoUInt8>), _exp);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Float_(stdgo._internal.math.big.Big.Float_) from stdgo._internal.math.big.Big.Float_ to stdgo._internal.math.big.Big.Float_ {
-
+abstract Float_(stdgo._internal.math.big.Big.Float_) from stdgo._internal.math.big.Big.Float_ to stdgo._internal.math.big.Big.Float_ {
+    public var _prec(get, set) : std.UInt;
+    function get__prec():std.UInt return this._prec;
+    function set__prec(v:std.UInt):std.UInt {
+        this._prec = v;
+        return v;
+    }
+    public var _mode(get, set) : stdgo._internal.math.big.Big.RoundingMode;
+    function get__mode():stdgo._internal.math.big.Big.RoundingMode return this._mode;
+    function set__mode(v:stdgo._internal.math.big.Big.RoundingMode):stdgo._internal.math.big.Big.RoundingMode {
+        this._mode = v;
+        return v;
+    }
+    public var _acc(get, set) : stdgo._internal.math.big.Big.Accuracy;
+    function get__acc():stdgo._internal.math.big.Big.Accuracy return this._acc;
+    function set__acc(v:stdgo._internal.math.big.Big.Accuracy):stdgo._internal.math.big.Big.Accuracy {
+        this._acc = v;
+        return v;
+    }
+    public var _form(get, set) : stdgo._internal.math.big.Big.T_form;
+    function get__form():stdgo._internal.math.big.Big.T_form return this._form;
+    function set__form(v:stdgo._internal.math.big.Big.T_form):stdgo._internal.math.big.Big.T_form {
+        this._form = v;
+        return v;
+    }
+    public var _neg(get, set) : Bool;
+    function get__neg():Bool return this._neg;
+    function set__neg(v:Bool):Bool {
+        this._neg = v;
+        return v;
+    }
+    public var _mant(get, set) : stdgo._internal.math.big.Big.T_nat;
+    function get__mant():stdgo._internal.math.big.Big.T_nat return this._mant;
+    function set__mant(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+        this._mant = v;
+        return v;
+    }
+    public var _exp(get, set) : StdTypes.Int;
+    function get__exp():StdTypes.Int return this._exp;
+    function set__exp(v:StdTypes.Int):StdTypes.Int {
+        this._exp = v;
+        return v;
+    }
+    public function new(?_prec:std.UInt, ?_mode:stdgo._internal.math.big.Big.RoundingMode, ?_acc:stdgo._internal.math.big.Big.Accuracy, ?_form:stdgo._internal.math.big.Big.T_form, ?_neg:Bool, ?_mant:stdgo._internal.math.big.Big.T_nat, ?_exp:StdTypes.Int) this = new stdgo._internal.math.big.Big.Float_(_prec, _mode, _acc, _form, _neg, _mant, _exp);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract ErrNaN(stdgo._internal.math.big.Big.ErrNaN) from stdgo._internal.math.big.Big.ErrNaN to stdgo._internal.math.big.Big.ErrNaN {
-
+abstract ErrNaN(stdgo._internal.math.big.Big.ErrNaN) from stdgo._internal.math.big.Big.ErrNaN to stdgo._internal.math.big.Big.ErrNaN {
+    public var _msg(get, set) : String;
+    function get__msg():String return this._msg;
+    function set__msg(v:String):String {
+        this._msg = v;
+        return v;
+    }
+    public function new(?_msg:String) this = new stdgo._internal.math.big.Big.ErrNaN(_msg);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_matrix(stdgo._internal.math.big.Big.T_matrix) from stdgo._internal.math.big.Big.T_matrix to stdgo._internal.math.big.Big.T_matrix {
-
+abstract T_matrix(stdgo._internal.math.big.Big.T_matrix) from stdgo._internal.math.big.Big.T_matrix to stdgo._internal.math.big.Big.T_matrix {
+    public var _n(get, set) : StdTypes.Int;
+    function get__n():StdTypes.Int return this._n;
+    function set__n(v:StdTypes.Int):StdTypes.Int {
+        this._n = v;
+        return v;
+    }
+    public var _m(get, set) : StdTypes.Int;
+    function get__m():StdTypes.Int return this._m;
+    function set__m(v:StdTypes.Int):StdTypes.Int {
+        this._m = v;
+        return v;
+    }
+    public var _a(get, set) : Array<stdgo._internal.math.big.Big.Rat>;
+    function get__a():Array<stdgo._internal.math.big.Big.Rat> return [for (i in this._a) i];
+    function set__a(v:Array<stdgo._internal.math.big.Big.Rat>):Array<stdgo._internal.math.big.Big.Rat> {
+        this._a = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.Rat>>);
+        return v;
+    }
+    public function new(?_n:StdTypes.Int, ?_m:StdTypes.Int, ?_a:Array<stdgo._internal.math.big.Big.Rat>) this = new stdgo._internal.math.big.Big.T_matrix(_n, _m, ([for (i in _a) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.Rat>>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Int_(stdgo._internal.math.big.Big.Int_) from stdgo._internal.math.big.Big.Int_ to stdgo._internal.math.big.Big.Int_ {
-
+abstract Int_(stdgo._internal.math.big.Big.Int_) from stdgo._internal.math.big.Big.Int_ to stdgo._internal.math.big.Big.Int_ {
+    public var _neg(get, set) : Bool;
+    function get__neg():Bool return this._neg;
+    function set__neg(v:Bool):Bool {
+        this._neg = v;
+        return v;
+    }
+    public var _abs(get, set) : stdgo._internal.math.big.Big.T_nat;
+    function get__abs():stdgo._internal.math.big.Big.T_nat return this._abs;
+    function set__abs(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+        this._abs = v;
+        return v;
+    }
+    public function new(?_neg:Bool, ?_abs:stdgo._internal.math.big.Big.T_nat) this = new stdgo._internal.math.big.Big.Int_(_neg, _abs);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_argZZ(stdgo._internal.math.big.Big.T_argZZ) from stdgo._internal.math.big.Big.T_argZZ to stdgo._internal.math.big.Big.T_argZZ {
-
+abstract T_argZZ(stdgo._internal.math.big.Big.T_argZZ) from stdgo._internal.math.big.Big.T_argZZ to stdgo._internal.math.big.Big.T_argZZ {
+    public var _z(get, set) : stdgo._internal.math.big.Big.Int_;
+    function get__z():stdgo._internal.math.big.Big.Int_ return this._z;
+    function set__z(v:stdgo._internal.math.big.Big.Int_):stdgo._internal.math.big.Big.Int_ {
+        this._z = v;
+        return v;
+    }
+    public var _x(get, set) : stdgo._internal.math.big.Big.Int_;
+    function get__x():stdgo._internal.math.big.Big.Int_ return this._x;
+    function set__x(v:stdgo._internal.math.big.Big.Int_):stdgo._internal.math.big.Big.Int_ {
+        this._x = v;
+        return v;
+    }
+    public var _y(get, set) : stdgo._internal.math.big.Big.Int_;
+    function get__y():stdgo._internal.math.big.Big.Int_ return this._y;
+    function set__y(v:stdgo._internal.math.big.Big.Int_):stdgo._internal.math.big.Big.Int_ {
+        this._y = v;
+        return v;
+    }
+    public function new(?_z:stdgo._internal.math.big.Big.Int_, ?_x:stdgo._internal.math.big.Big.Int_, ?_y:stdgo._internal.math.big.Big.Int_) this = new stdgo._internal.math.big.Big.T_argZZ(_z, _x, _y);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_intShiftTest(stdgo._internal.math.big.Big.T_intShiftTest) from stdgo._internal.math.big.Big.T_intShiftTest to stdgo._internal.math.big.Big.T_intShiftTest {
-
+abstract T_intShiftTest(stdgo._internal.math.big.Big.T_intShiftTest) from stdgo._internal.math.big.Big.T_intShiftTest to stdgo._internal.math.big.Big.T_intShiftTest {
+    public var _in(get, set) : String;
+    function get__in():String return this._in;
+    function set__in(v:String):String {
+        this._in = v;
+        return v;
+    }
+    public var _shift(get, set) : std.UInt;
+    function get__shift():std.UInt return this._shift;
+    function set__shift(v:std.UInt):std.UInt {
+        this._shift = v;
+        return v;
+    }
+    public var _out(get, set) : String;
+    function get__out():String return this._out;
+    function set__out(v:String):String {
+        this._out = v;
+        return v;
+    }
+    public function new(?_in:String, ?_shift:std.UInt, ?_out:String) this = new stdgo._internal.math.big.Big.T_intShiftTest(_in, _shift, _out);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_byteReader(stdgo._internal.math.big.Big.T_byteReader) from stdgo._internal.math.big.Big.T_byteReader to stdgo._internal.math.big.Big.T_byteReader {
-
+abstract T_byteReader(stdgo._internal.math.big.Big.T_byteReader) from stdgo._internal.math.big.Big.T_byteReader to stdgo._internal.math.big.Big.T_byteReader {
+    public var scanState(get, set) : stdgo._internal.fmt.Fmt.ScanState;
+    function get_scanState():stdgo._internal.fmt.Fmt.ScanState return this.scanState;
+    function set_scanState(v:stdgo._internal.fmt.Fmt.ScanState):stdgo._internal.fmt.Fmt.ScanState {
+        this.scanState = v;
+        return v;
+    }
+    public function new(?scanState:stdgo._internal.fmt.Fmt.ScanState) this = new stdgo._internal.math.big.Big.T_byteReader(scanState);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_argNN(stdgo._internal.math.big.Big.T_argNN) from stdgo._internal.math.big.Big.T_argNN to stdgo._internal.math.big.Big.T_argNN {
-
+abstract T_argNN(stdgo._internal.math.big.Big.T_argNN) from stdgo._internal.math.big.Big.T_argNN to stdgo._internal.math.big.Big.T_argNN {
+    public var _z(get, set) : stdgo._internal.math.big.Big.T_nat;
+    function get__z():stdgo._internal.math.big.Big.T_nat return this._z;
+    function set__z(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+        this._z = v;
+        return v;
+    }
+    public var _x(get, set) : stdgo._internal.math.big.Big.T_nat;
+    function get__x():stdgo._internal.math.big.Big.T_nat return this._x;
+    function set__x(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+        this._x = v;
+        return v;
+    }
+    public var _y(get, set) : stdgo._internal.math.big.Big.T_nat;
+    function get__y():stdgo._internal.math.big.Big.T_nat return this._y;
+    function set__y(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+        this._y = v;
+        return v;
+    }
+    public function new(?_z:stdgo._internal.math.big.Big.T_nat, ?_x:stdgo._internal.math.big.Big.T_nat, ?_y:stdgo._internal.math.big.Big.T_nat) this = new stdgo._internal.math.big.Big.T_argNN(_z, _x, _y);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_shiftTest(stdgo._internal.math.big.Big.T_shiftTest) from stdgo._internal.math.big.Big.T_shiftTest to stdgo._internal.math.big.Big.T_shiftTest {
-
+abstract T_shiftTest(stdgo._internal.math.big.Big.T_shiftTest) from stdgo._internal.math.big.Big.T_shiftTest to stdgo._internal.math.big.Big.T_shiftTest {
+    public var _in(get, set) : stdgo._internal.math.big.Big.T_nat;
+    function get__in():stdgo._internal.math.big.Big.T_nat return this._in;
+    function set__in(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+        this._in = v;
+        return v;
+    }
+    public var _shift(get, set) : std.UInt;
+    function get__shift():std.UInt return this._shift;
+    function set__shift(v:std.UInt):std.UInt {
+        this._shift = v;
+        return v;
+    }
+    public var _out(get, set) : stdgo._internal.math.big.Big.T_nat;
+    function get__out():stdgo._internal.math.big.Big.T_nat return this._out;
+    function set__out(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+        this._out = v;
+        return v;
+    }
+    public function new(?_in:stdgo._internal.math.big.Big.T_nat, ?_shift:std.UInt, ?_out:stdgo._internal.math.big.Big.T_nat) this = new stdgo._internal.math.big.Big.T_shiftTest(_in, _shift, _out);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_modWTest(stdgo._internal.math.big.Big.T_modWTest) from stdgo._internal.math.big.Big.T_modWTest to stdgo._internal.math.big.Big.T_modWTest {
-
+abstract T_modWTest(stdgo._internal.math.big.Big.T_modWTest) from stdgo._internal.math.big.Big.T_modWTest to stdgo._internal.math.big.Big.T_modWTest {
+    public var _in(get, set) : String;
+    function get__in():String return this._in;
+    function set__in(v:String):String {
+        this._in = v;
+        return v;
+    }
+    public var _dividend(get, set) : String;
+    function get__dividend():String return this._dividend;
+    function set__dividend(v:String):String {
+        this._dividend = v;
+        return v;
+    }
+    public var _out(get, set) : String;
+    function get__out():String return this._out;
+    function set__out(v:String):String {
+        this._out = v;
+        return v;
+    }
+    public function new(?_in:String, ?_dividend:String, ?_out:String) this = new stdgo._internal.math.big.Big.T_modWTest(_in, _dividend, _out);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_divisor(stdgo._internal.math.big.Big.T_divisor) from stdgo._internal.math.big.Big.T_divisor to stdgo._internal.math.big.Big.T_divisor {
-
+abstract T_divisor(stdgo._internal.math.big.Big.T_divisor) from stdgo._internal.math.big.Big.T_divisor to stdgo._internal.math.big.Big.T_divisor {
+    public var _bbb(get, set) : stdgo._internal.math.big.Big.T_nat;
+    function get__bbb():stdgo._internal.math.big.Big.T_nat return this._bbb;
+    function set__bbb(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+        this._bbb = v;
+        return v;
+    }
+    public var _nbits(get, set) : StdTypes.Int;
+    function get__nbits():StdTypes.Int return this._nbits;
+    function set__nbits(v:StdTypes.Int):StdTypes.Int {
+        this._nbits = v;
+        return v;
+    }
+    public var _ndigits(get, set) : StdTypes.Int;
+    function get__ndigits():StdTypes.Int return this._ndigits;
+    function set__ndigits(v:StdTypes.Int):StdTypes.Int {
+        this._ndigits = v;
+        return v;
+    }
+    public function new(?_bbb:stdgo._internal.math.big.Big.T_nat, ?_nbits:StdTypes.Int, ?_ndigits:StdTypes.Int) this = new stdgo._internal.math.big.Big.T_divisor(_bbb, _nbits, _ndigits);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Rat(stdgo._internal.math.big.Big.Rat) from stdgo._internal.math.big.Big.Rat to stdgo._internal.math.big.Big.Rat {
-
+abstract Rat(stdgo._internal.math.big.Big.Rat) from stdgo._internal.math.big.Big.Rat to stdgo._internal.math.big.Big.Rat {
+    public var _a(get, set) : stdgo._internal.math.big.Big.Int_;
+    function get__a():stdgo._internal.math.big.Big.Int_ return this._a;
+    function set__a(v:stdgo._internal.math.big.Big.Int_):stdgo._internal.math.big.Big.Int_ {
+        this._a = v;
+        return v;
+    }
+    public var _b(get, set) : stdgo._internal.math.big.Big.Int_;
+    function get__b():stdgo._internal.math.big.Big.Int_ return this._b;
+    function set__b(v:stdgo._internal.math.big.Big.Int_):stdgo._internal.math.big.Big.Int_ {
+        this._b = v;
+        return v;
+    }
+    public function new(?_a:stdgo._internal.math.big.Big.Int_, ?_b:stdgo._internal.math.big.Big.Int_) this = new stdgo._internal.math.big.Big.Rat(_a, _b);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_ratBinArg(stdgo._internal.math.big.Big.T_ratBinArg) from stdgo._internal.math.big.Big.T_ratBinArg to stdgo._internal.math.big.Big.T_ratBinArg {
-
+abstract T_ratBinArg(stdgo._internal.math.big.Big.T_ratBinArg) from stdgo._internal.math.big.Big.T_ratBinArg to stdgo._internal.math.big.Big.T_ratBinArg {
+    public var _x(get, set) : String;
+    function get__x():String return this._x;
+    function set__x(v:String):String {
+        this._x = v;
+        return v;
+    }
+    public var _y(get, set) : String;
+    function get__y():String return this._y;
+    function set__y(v:String):String {
+        this._y = v;
+        return v;
+    }
+    public var _z(get, set) : String;
+    function get__z():String return this._z;
+    function set__z(v:String):String {
+        this._z = v;
+        return v;
+    }
+    public function new(?_x:String, ?_y:String, ?_z:String) this = new stdgo._internal.math.big.Big.T_ratBinArg(_x, _y, _z);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract StringTest(stdgo._internal.math.big.Big.StringTest) from stdgo._internal.math.big.Big.StringTest to stdgo._internal.math.big.Big.StringTest {
-
-}
-@:forward @:forward.new abstract T__struct_0_asInterface(stdgo._internal.math.big.Big.T__struct_0_asInterface) from stdgo._internal.math.big.Big.T__struct_0_asInterface to stdgo._internal.math.big.Big.T__struct_0_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_0_static_extension(stdgo._internal.math.big.Big.T__struct_0_static_extension) from stdgo._internal.math.big.Big.T__struct_0_static_extension to stdgo._internal.math.big.Big.T__struct_0_static_extension {
-
+abstract StringTest(stdgo._internal.math.big.Big.StringTest) from stdgo._internal.math.big.Big.StringTest to stdgo._internal.math.big.Big.StringTest {
+    public var _in(get, set) : String;
+    function get__in():String return this._in;
+    function set__in(v:String):String {
+        this._in = v;
+        return v;
+    }
+    public var _out(get, set) : String;
+    function get__out():String return this._out;
+    function set__out(v:String):String {
+        this._out = v;
+        return v;
+    }
+    public var _ok(get, set) : Bool;
+    function get__ok():Bool return this._ok;
+    function set__ok(v:Bool):Bool {
+        this._ok = v;
+        return v;
+    }
+    public function new(?_in:String, ?_out:String, ?_ok:Bool) this = new stdgo._internal.math.big.Big.StringTest(_in, _out, _ok);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef T__struct_0 = stdgo._internal.math.big.Big.T__struct_0;
-@:forward @:forward.new abstract T__struct_1_asInterface(stdgo._internal.math.big.Big.T__struct_1_asInterface) from stdgo._internal.math.big.Big.T__struct_1_asInterface to stdgo._internal.math.big.Big.T__struct_1_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_1_static_extension(stdgo._internal.math.big.Big.T__struct_1_static_extension) from stdgo._internal.math.big.Big.T__struct_1_static_extension to stdgo._internal.math.big.Big.T__struct_1_static_extension {
-
-}
 typedef T__struct_1 = stdgo._internal.math.big.Big.T__struct_1;
-@:forward @:forward.new abstract T__struct_2_asInterface(stdgo._internal.math.big.Big.T__struct_2_asInterface) from stdgo._internal.math.big.Big.T__struct_2_asInterface to stdgo._internal.math.big.Big.T__struct_2_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_2_static_extension(stdgo._internal.math.big.Big.T__struct_2_static_extension) from stdgo._internal.math.big.Big.T__struct_2_static_extension to stdgo._internal.math.big.Big.T__struct_2_static_extension {
-
-}
 typedef T__struct_2 = stdgo._internal.math.big.Big.T__struct_2;
-@:forward @:forward.new abstract T__struct_3_asInterface(stdgo._internal.math.big.Big.T__struct_3_asInterface) from stdgo._internal.math.big.Big.T__struct_3_asInterface to stdgo._internal.math.big.Big.T__struct_3_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_3_static_extension(stdgo._internal.math.big.Big.T__struct_3_static_extension) from stdgo._internal.math.big.Big.T__struct_3_static_extension to stdgo._internal.math.big.Big.T__struct_3_static_extension {
-
-}
 typedef T__struct_3 = stdgo._internal.math.big.Big.T__struct_3;
-@:forward @:forward.new abstract T__struct_4_asInterface(stdgo._internal.math.big.Big.T__struct_4_asInterface) from stdgo._internal.math.big.Big.T__struct_4_asInterface to stdgo._internal.math.big.Big.T__struct_4_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_4_static_extension(stdgo._internal.math.big.Big.T__struct_4_static_extension) from stdgo._internal.math.big.Big.T__struct_4_static_extension to stdgo._internal.math.big.Big.T__struct_4_static_extension {
-
-}
 typedef T__struct_4 = stdgo._internal.math.big.Big.T__struct_4;
-@:forward @:forward.new abstract T__struct_5_asInterface(stdgo._internal.math.big.Big.T__struct_5_asInterface) from stdgo._internal.math.big.Big.T__struct_5_asInterface to stdgo._internal.math.big.Big.T__struct_5_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_5_static_extension(stdgo._internal.math.big.Big.T__struct_5_static_extension) from stdgo._internal.math.big.Big.T__struct_5_static_extension to stdgo._internal.math.big.Big.T__struct_5_static_extension {
-
-}
 typedef T__struct_5 = stdgo._internal.math.big.Big.T__struct_5;
-@:forward @:forward.new abstract T__struct_6_asInterface(stdgo._internal.math.big.Big.T__struct_6_asInterface) from stdgo._internal.math.big.Big.T__struct_6_asInterface to stdgo._internal.math.big.Big.T__struct_6_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_6_static_extension(stdgo._internal.math.big.Big.T__struct_6_static_extension) from stdgo._internal.math.big.Big.T__struct_6_static_extension to stdgo._internal.math.big.Big.T__struct_6_static_extension {
-
-}
 typedef T__struct_6 = stdgo._internal.math.big.Big.T__struct_6;
-@:forward @:forward.new abstract T__struct_7_asInterface(stdgo._internal.math.big.Big.T__struct_7_asInterface) from stdgo._internal.math.big.Big.T__struct_7_asInterface to stdgo._internal.math.big.Big.T__struct_7_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_7_static_extension(stdgo._internal.math.big.Big.T__struct_7_static_extension) from stdgo._internal.math.big.Big.T__struct_7_static_extension to stdgo._internal.math.big.Big.T__struct_7_static_extension {
-
-}
 typedef T__struct_7 = stdgo._internal.math.big.Big.T__struct_7;
-@:forward @:forward.new abstract T__struct_8_asInterface(stdgo._internal.math.big.Big.T__struct_8_asInterface) from stdgo._internal.math.big.Big.T__struct_8_asInterface to stdgo._internal.math.big.Big.T__struct_8_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_8_static_extension(stdgo._internal.math.big.Big.T__struct_8_static_extension) from stdgo._internal.math.big.Big.T__struct_8_static_extension to stdgo._internal.math.big.Big.T__struct_8_static_extension {
-
-}
 typedef T__struct_8 = stdgo._internal.math.big.Big.T__struct_8;
-@:forward @:forward.new abstract T__struct_9_asInterface(stdgo._internal.math.big.Big.T__struct_9_asInterface) from stdgo._internal.math.big.Big.T__struct_9_asInterface to stdgo._internal.math.big.Big.T__struct_9_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_9_static_extension(stdgo._internal.math.big.Big.T__struct_9_static_extension) from stdgo._internal.math.big.Big.T__struct_9_static_extension to stdgo._internal.math.big.Big.T__struct_9_static_extension {
-
-}
 typedef T__struct_9 = stdgo._internal.math.big.Big.T__struct_9;
-@:forward @:forward.new abstract T__struct_10_asInterface(stdgo._internal.math.big.Big.T__struct_10_asInterface) from stdgo._internal.math.big.Big.T__struct_10_asInterface to stdgo._internal.math.big.Big.T__struct_10_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_10_static_extension(stdgo._internal.math.big.Big.T__struct_10_static_extension) from stdgo._internal.math.big.Big.T__struct_10_static_extension to stdgo._internal.math.big.Big.T__struct_10_static_extension {
-
-}
 typedef T__struct_10 = stdgo._internal.math.big.Big.T__struct_10;
-@:forward @:forward.new abstract T__struct_11_asInterface(stdgo._internal.math.big.Big.T__struct_11_asInterface) from stdgo._internal.math.big.Big.T__struct_11_asInterface to stdgo._internal.math.big.Big.T__struct_11_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_11_static_extension(stdgo._internal.math.big.Big.T__struct_11_static_extension) from stdgo._internal.math.big.Big.T__struct_11_static_extension to stdgo._internal.math.big.Big.T__struct_11_static_extension {
-
-}
 typedef T__struct_11 = stdgo._internal.math.big.Big.T__struct_11;
-@:forward @:forward.new abstract T__struct_12_asInterface(stdgo._internal.math.big.Big.T__struct_12_asInterface) from stdgo._internal.math.big.Big.T__struct_12_asInterface to stdgo._internal.math.big.Big.T__struct_12_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_12_static_extension(stdgo._internal.math.big.Big.T__struct_12_static_extension) from stdgo._internal.math.big.Big.T__struct_12_static_extension to stdgo._internal.math.big.Big.T__struct_12_static_extension {
-
-}
 typedef T__struct_12 = stdgo._internal.math.big.Big.T__struct_12;
-@:forward @:forward.new abstract T__struct_13_asInterface(stdgo._internal.math.big.Big.T__struct_13_asInterface) from stdgo._internal.math.big.Big.T__struct_13_asInterface to stdgo._internal.math.big.Big.T__struct_13_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_13_static_extension(stdgo._internal.math.big.Big.T__struct_13_static_extension) from stdgo._internal.math.big.Big.T__struct_13_static_extension to stdgo._internal.math.big.Big.T__struct_13_static_extension {
-
-}
 typedef T__struct_13 = stdgo._internal.math.big.Big.T__struct_13;
-@:forward @:forward.new abstract T__struct_14_asInterface(stdgo._internal.math.big.Big.T__struct_14_asInterface) from stdgo._internal.math.big.Big.T__struct_14_asInterface to stdgo._internal.math.big.Big.T__struct_14_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_14_static_extension(stdgo._internal.math.big.Big.T__struct_14_static_extension) from stdgo._internal.math.big.Big.T__struct_14_static_extension to stdgo._internal.math.big.Big.T__struct_14_static_extension {
-
-}
 typedef T__struct_14 = stdgo._internal.math.big.Big.T__struct_14;
-@:forward @:forward.new abstract T__struct_15_asInterface(stdgo._internal.math.big.Big.T__struct_15_asInterface) from stdgo._internal.math.big.Big.T__struct_15_asInterface to stdgo._internal.math.big.Big.T__struct_15_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_15_static_extension(stdgo._internal.math.big.Big.T__struct_15_static_extension) from stdgo._internal.math.big.Big.T__struct_15_static_extension to stdgo._internal.math.big.Big.T__struct_15_static_extension {
-
-}
 typedef T__struct_15 = stdgo._internal.math.big.Big.T__struct_15;
-@:forward @:forward.new abstract T__struct_16_asInterface(stdgo._internal.math.big.Big.T__struct_16_asInterface) from stdgo._internal.math.big.Big.T__struct_16_asInterface to stdgo._internal.math.big.Big.T__struct_16_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_16_static_extension(stdgo._internal.math.big.Big.T__struct_16_static_extension) from stdgo._internal.math.big.Big.T__struct_16_static_extension to stdgo._internal.math.big.Big.T__struct_16_static_extension {
-
-}
 typedef T__struct_16 = stdgo._internal.math.big.Big.T__struct_16;
-@:forward @:forward.new abstract T__struct_17_asInterface(stdgo._internal.math.big.Big.T__struct_17_asInterface) from stdgo._internal.math.big.Big.T__struct_17_asInterface to stdgo._internal.math.big.Big.T__struct_17_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_17_static_extension(stdgo._internal.math.big.Big.T__struct_17_static_extension) from stdgo._internal.math.big.Big.T__struct_17_static_extension to stdgo._internal.math.big.Big.T__struct_17_static_extension {
-
-}
 typedef T__struct_17 = stdgo._internal.math.big.Big.T__struct_17;
-@:forward @:forward.new abstract T__struct_18_asInterface(stdgo._internal.math.big.Big.T__struct_18_asInterface) from stdgo._internal.math.big.Big.T__struct_18_asInterface to stdgo._internal.math.big.Big.T__struct_18_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_18_static_extension(stdgo._internal.math.big.Big.T__struct_18_static_extension) from stdgo._internal.math.big.Big.T__struct_18_static_extension to stdgo._internal.math.big.Big.T__struct_18_static_extension {
-
-}
 typedef T__struct_18 = stdgo._internal.math.big.Big.T__struct_18;
-@:forward @:forward.new abstract T__struct_19_asInterface(stdgo._internal.math.big.Big.T__struct_19_asInterface) from stdgo._internal.math.big.Big.T__struct_19_asInterface to stdgo._internal.math.big.Big.T__struct_19_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_19_static_extension(stdgo._internal.math.big.Big.T__struct_19_static_extension) from stdgo._internal.math.big.Big.T__struct_19_static_extension to stdgo._internal.math.big.Big.T__struct_19_static_extension {
-
-}
 typedef T__struct_19 = stdgo._internal.math.big.Big.T__struct_19;
-@:forward @:forward.new abstract T__struct_20_asInterface(stdgo._internal.math.big.Big.T__struct_20_asInterface) from stdgo._internal.math.big.Big.T__struct_20_asInterface to stdgo._internal.math.big.Big.T__struct_20_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_20_static_extension(stdgo._internal.math.big.Big.T__struct_20_static_extension) from stdgo._internal.math.big.Big.T__struct_20_static_extension to stdgo._internal.math.big.Big.T__struct_20_static_extension {
-
-}
 typedef T__struct_20 = stdgo._internal.math.big.Big.T__struct_20;
-@:forward @:forward.new abstract T__struct_21_asInterface(stdgo._internal.math.big.Big.T__struct_21_asInterface) from stdgo._internal.math.big.Big.T__struct_21_asInterface to stdgo._internal.math.big.Big.T__struct_21_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_21_static_extension(stdgo._internal.math.big.Big.T__struct_21_static_extension) from stdgo._internal.math.big.Big.T__struct_21_static_extension to stdgo._internal.math.big.Big.T__struct_21_static_extension {
-
-}
 typedef T__struct_21 = stdgo._internal.math.big.Big.T__struct_21;
-@:forward @:forward.new abstract T__struct_22_asInterface(stdgo._internal.math.big.Big.T__struct_22_asInterface) from stdgo._internal.math.big.Big.T__struct_22_asInterface to stdgo._internal.math.big.Big.T__struct_22_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_22_static_extension(stdgo._internal.math.big.Big.T__struct_22_static_extension) from stdgo._internal.math.big.Big.T__struct_22_static_extension to stdgo._internal.math.big.Big.T__struct_22_static_extension {
-
-}
 typedef T__struct_22 = stdgo._internal.math.big.Big.T__struct_22;
-@:forward @:forward.new abstract T__struct_23_asInterface(stdgo._internal.math.big.Big.T__struct_23_asInterface) from stdgo._internal.math.big.Big.T__struct_23_asInterface to stdgo._internal.math.big.Big.T__struct_23_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_23_static_extension(stdgo._internal.math.big.Big.T__struct_23_static_extension) from stdgo._internal.math.big.Big.T__struct_23_static_extension to stdgo._internal.math.big.Big.T__struct_23_static_extension {
-
-}
 typedef T__struct_23 = stdgo._internal.math.big.Big.T__struct_23;
-@:forward @:forward.new abstract T__struct_24_asInterface(stdgo._internal.math.big.Big.T__struct_24_asInterface) from stdgo._internal.math.big.Big.T__struct_24_asInterface to stdgo._internal.math.big.Big.T__struct_24_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_24_static_extension(stdgo._internal.math.big.Big.T__struct_24_static_extension) from stdgo._internal.math.big.Big.T__struct_24_static_extension to stdgo._internal.math.big.Big.T__struct_24_static_extension {
-
-}
 typedef T__struct_24 = stdgo._internal.math.big.Big.T__struct_24;
-@:forward @:forward.new abstract T__struct_25_asInterface(stdgo._internal.math.big.Big.T__struct_25_asInterface) from stdgo._internal.math.big.Big.T__struct_25_asInterface to stdgo._internal.math.big.Big.T__struct_25_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_25_static_extension(stdgo._internal.math.big.Big.T__struct_25_static_extension) from stdgo._internal.math.big.Big.T__struct_25_static_extension to stdgo._internal.math.big.Big.T__struct_25_static_extension {
-
-}
 typedef T__struct_25 = stdgo._internal.math.big.Big.T__struct_25;
-@:forward @:forward.new abstract T__struct_26_asInterface(stdgo._internal.math.big.Big.T__struct_26_asInterface) from stdgo._internal.math.big.Big.T__struct_26_asInterface to stdgo._internal.math.big.Big.T__struct_26_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_26_static_extension(stdgo._internal.math.big.Big.T__struct_26_static_extension) from stdgo._internal.math.big.Big.T__struct_26_static_extension to stdgo._internal.math.big.Big.T__struct_26_static_extension {
-
-}
 typedef T__struct_26 = stdgo._internal.math.big.Big.T__struct_26;
-@:forward @:forward.new abstract T__struct_27_asInterface(stdgo._internal.math.big.Big.T__struct_27_asInterface) from stdgo._internal.math.big.Big.T__struct_27_asInterface to stdgo._internal.math.big.Big.T__struct_27_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_27_static_extension(stdgo._internal.math.big.Big.T__struct_27_static_extension) from stdgo._internal.math.big.Big.T__struct_27_static_extension to stdgo._internal.math.big.Big.T__struct_27_static_extension {
-
-}
 typedef T__struct_27 = stdgo._internal.math.big.Big.T__struct_27;
-@:forward @:forward.new abstract T__struct_28_asInterface(stdgo._internal.math.big.Big.T__struct_28_asInterface) from stdgo._internal.math.big.Big.T__struct_28_asInterface to stdgo._internal.math.big.Big.T__struct_28_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_28_static_extension(stdgo._internal.math.big.Big.T__struct_28_static_extension) from stdgo._internal.math.big.Big.T__struct_28_static_extension to stdgo._internal.math.big.Big.T__struct_28_static_extension {
-
-}
 typedef T__struct_28 = stdgo._internal.math.big.Big.T__struct_28;
-@:forward @:forward.new abstract T__struct_29_asInterface(stdgo._internal.math.big.Big.T__struct_29_asInterface) from stdgo._internal.math.big.Big.T__struct_29_asInterface to stdgo._internal.math.big.Big.T__struct_29_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_29_static_extension(stdgo._internal.math.big.Big.T__struct_29_static_extension) from stdgo._internal.math.big.Big.T__struct_29_static_extension to stdgo._internal.math.big.Big.T__struct_29_static_extension {
-
-}
 typedef T__struct_29 = stdgo._internal.math.big.Big.T__struct_29;
-@:forward @:forward.new abstract T__struct_30_asInterface(stdgo._internal.math.big.Big.T__struct_30_asInterface) from stdgo._internal.math.big.Big.T__struct_30_asInterface to stdgo._internal.math.big.Big.T__struct_30_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_30_static_extension(stdgo._internal.math.big.Big.T__struct_30_static_extension) from stdgo._internal.math.big.Big.T__struct_30_static_extension to stdgo._internal.math.big.Big.T__struct_30_static_extension {
-
-}
 typedef T__struct_30 = stdgo._internal.math.big.Big.T__struct_30;
-@:forward @:forward.new abstract T__struct_31_asInterface(stdgo._internal.math.big.Big.T__struct_31_asInterface) from stdgo._internal.math.big.Big.T__struct_31_asInterface to stdgo._internal.math.big.Big.T__struct_31_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_31_static_extension(stdgo._internal.math.big.Big.T__struct_31_static_extension) from stdgo._internal.math.big.Big.T__struct_31_static_extension to stdgo._internal.math.big.Big.T__struct_31_static_extension {
-
-}
 typedef T__struct_31 = stdgo._internal.math.big.Big.T__struct_31;
-@:forward @:forward.new abstract T__struct_32_asInterface(stdgo._internal.math.big.Big.T__struct_32_asInterface) from stdgo._internal.math.big.Big.T__struct_32_asInterface to stdgo._internal.math.big.Big.T__struct_32_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_32_static_extension(stdgo._internal.math.big.Big.T__struct_32_static_extension) from stdgo._internal.math.big.Big.T__struct_32_static_extension to stdgo._internal.math.big.Big.T__struct_32_static_extension {
-
-}
 typedef T__struct_32 = stdgo._internal.math.big.Big.T__struct_32;
-@:forward @:forward.new abstract T__struct_33_asInterface(stdgo._internal.math.big.Big.T__struct_33_asInterface) from stdgo._internal.math.big.Big.T__struct_33_asInterface to stdgo._internal.math.big.Big.T__struct_33_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_33_static_extension(stdgo._internal.math.big.Big.T__struct_33_static_extension) from stdgo._internal.math.big.Big.T__struct_33_static_extension to stdgo._internal.math.big.Big.T__struct_33_static_extension {
-
-}
 typedef T__struct_33 = stdgo._internal.math.big.Big.T__struct_33;
-@:forward @:forward.new abstract T__struct_34_asInterface(stdgo._internal.math.big.Big.T__struct_34_asInterface) from stdgo._internal.math.big.Big.T__struct_34_asInterface to stdgo._internal.math.big.Big.T__struct_34_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_34_static_extension(stdgo._internal.math.big.Big.T__struct_34_static_extension) from stdgo._internal.math.big.Big.T__struct_34_static_extension to stdgo._internal.math.big.Big.T__struct_34_static_extension {
-
-}
 typedef T__struct_34 = stdgo._internal.math.big.Big.T__struct_34;
-@:forward @:forward.new abstract T__struct_35_asInterface(stdgo._internal.math.big.Big.T__struct_35_asInterface) from stdgo._internal.math.big.Big.T__struct_35_asInterface to stdgo._internal.math.big.Big.T__struct_35_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_35_static_extension(stdgo._internal.math.big.Big.T__struct_35_static_extension) from stdgo._internal.math.big.Big.T__struct_35_static_extension to stdgo._internal.math.big.Big.T__struct_35_static_extension {
-
-}
 typedef T__struct_35 = stdgo._internal.math.big.Big.T__struct_35;
-@:forward @:forward.new abstract T__struct_36_asInterface(stdgo._internal.math.big.Big.T__struct_36_asInterface) from stdgo._internal.math.big.Big.T__struct_36_asInterface to stdgo._internal.math.big.Big.T__struct_36_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_36_static_extension(stdgo._internal.math.big.Big.T__struct_36_static_extension) from stdgo._internal.math.big.Big.T__struct_36_static_extension to stdgo._internal.math.big.Big.T__struct_36_static_extension {
-
-}
 typedef T__struct_36 = stdgo._internal.math.big.Big.T__struct_36;
-@:forward @:forward.new abstract T__struct_37_asInterface(stdgo._internal.math.big.Big.T__struct_37_asInterface) from stdgo._internal.math.big.Big.T__struct_37_asInterface to stdgo._internal.math.big.Big.T__struct_37_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_37_static_extension(stdgo._internal.math.big.Big.T__struct_37_static_extension) from stdgo._internal.math.big.Big.T__struct_37_static_extension to stdgo._internal.math.big.Big.T__struct_37_static_extension {
-
-}
 typedef T__struct_37 = stdgo._internal.math.big.Big.T__struct_37;
-@:forward @:forward.new abstract T__struct_38_asInterface(stdgo._internal.math.big.Big.T__struct_38_asInterface) from stdgo._internal.math.big.Big.T__struct_38_asInterface to stdgo._internal.math.big.Big.T__struct_38_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_38_static_extension(stdgo._internal.math.big.Big.T__struct_38_static_extension) from stdgo._internal.math.big.Big.T__struct_38_static_extension to stdgo._internal.math.big.Big.T__struct_38_static_extension {
-
-}
 typedef T__struct_38 = stdgo._internal.math.big.Big.T__struct_38;
-@:forward @:forward.new abstract T__struct_39_asInterface(stdgo._internal.math.big.Big.T__struct_39_asInterface) from stdgo._internal.math.big.Big.T__struct_39_asInterface to stdgo._internal.math.big.Big.T__struct_39_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_39_static_extension(stdgo._internal.math.big.Big.T__struct_39_static_extension) from stdgo._internal.math.big.Big.T__struct_39_static_extension to stdgo._internal.math.big.Big.T__struct_39_static_extension {
-
-}
 typedef T__struct_39 = stdgo._internal.math.big.Big.T__struct_39;
-@:forward @:forward.new abstract T__struct_40_asInterface(stdgo._internal.math.big.Big.T__struct_40_asInterface) from stdgo._internal.math.big.Big.T__struct_40_asInterface to stdgo._internal.math.big.Big.T__struct_40_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_40_static_extension(stdgo._internal.math.big.Big.T__struct_40_static_extension) from stdgo._internal.math.big.Big.T__struct_40_static_extension to stdgo._internal.math.big.Big.T__struct_40_static_extension {
-
-}
 typedef T__struct_40 = stdgo._internal.math.big.Big.T__struct_40;
-@:forward @:forward.new abstract T__struct_41_asInterface(stdgo._internal.math.big.Big.T__struct_41_asInterface) from stdgo._internal.math.big.Big.T__struct_41_asInterface to stdgo._internal.math.big.Big.T__struct_41_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_41_static_extension(stdgo._internal.math.big.Big.T__struct_41_static_extension) from stdgo._internal.math.big.Big.T__struct_41_static_extension to stdgo._internal.math.big.Big.T__struct_41_static_extension {
-
-}
 typedef T__struct_41 = stdgo._internal.math.big.Big.T__struct_41;
-@:forward @:forward.new abstract T__struct_42_asInterface(stdgo._internal.math.big.Big.T__struct_42_asInterface) from stdgo._internal.math.big.Big.T__struct_42_asInterface to stdgo._internal.math.big.Big.T__struct_42_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_42_static_extension(stdgo._internal.math.big.Big.T__struct_42_static_extension) from stdgo._internal.math.big.Big.T__struct_42_static_extension to stdgo._internal.math.big.Big.T__struct_42_static_extension {
-
-}
 typedef T__struct_42 = stdgo._internal.math.big.Big.T__struct_42;
-@:forward @:forward.new abstract T__struct_43_asInterface(stdgo._internal.math.big.Big.T__struct_43_asInterface) from stdgo._internal.math.big.Big.T__struct_43_asInterface to stdgo._internal.math.big.Big.T__struct_43_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_43_static_extension(stdgo._internal.math.big.Big.T__struct_43_static_extension) from stdgo._internal.math.big.Big.T__struct_43_static_extension to stdgo._internal.math.big.Big.T__struct_43_static_extension {
-
-}
 typedef T__struct_43 = stdgo._internal.math.big.Big.T__struct_43;
-@:forward @:forward.new abstract T__struct_44_asInterface(stdgo._internal.math.big.Big.T__struct_44_asInterface) from stdgo._internal.math.big.Big.T__struct_44_asInterface to stdgo._internal.math.big.Big.T__struct_44_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_44_static_extension(stdgo._internal.math.big.Big.T__struct_44_static_extension) from stdgo._internal.math.big.Big.T__struct_44_static_extension to stdgo._internal.math.big.Big.T__struct_44_static_extension {
-
-}
 typedef T__struct_44 = stdgo._internal.math.big.Big.T__struct_44;
-@:forward @:forward.new abstract T__struct_45_asInterface(stdgo._internal.math.big.Big.T__struct_45_asInterface) from stdgo._internal.math.big.Big.T__struct_45_asInterface to stdgo._internal.math.big.Big.T__struct_45_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_45_static_extension(stdgo._internal.math.big.Big.T__struct_45_static_extension) from stdgo._internal.math.big.Big.T__struct_45_static_extension to stdgo._internal.math.big.Big.T__struct_45_static_extension {
-
-}
 typedef T__struct_45 = stdgo._internal.math.big.Big.T__struct_45;
-@:forward @:forward.new abstract T__struct_46_asInterface(stdgo._internal.math.big.Big.T__struct_46_asInterface) from stdgo._internal.math.big.Big.T__struct_46_asInterface to stdgo._internal.math.big.Big.T__struct_46_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_46_static_extension(stdgo._internal.math.big.Big.T__struct_46_static_extension) from stdgo._internal.math.big.Big.T__struct_46_static_extension to stdgo._internal.math.big.Big.T__struct_46_static_extension {
-
-}
 typedef T__struct_46 = stdgo._internal.math.big.Big.T__struct_46;
-@:forward @:forward.new abstract T__struct_47_asInterface(stdgo._internal.math.big.Big.T__struct_47_asInterface) from stdgo._internal.math.big.Big.T__struct_47_asInterface to stdgo._internal.math.big.Big.T__struct_47_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_47_static_extension(stdgo._internal.math.big.Big.T__struct_47_static_extension) from stdgo._internal.math.big.Big.T__struct_47_static_extension to stdgo._internal.math.big.Big.T__struct_47_static_extension {
-
-}
 typedef T__struct_47 = stdgo._internal.math.big.Big.T__struct_47;
-@:forward @:forward.new abstract T__struct_48_asInterface(stdgo._internal.math.big.Big.T__struct_48_asInterface) from stdgo._internal.math.big.Big.T__struct_48_asInterface to stdgo._internal.math.big.Big.T__struct_48_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_48_static_extension(stdgo._internal.math.big.Big.T__struct_48_static_extension) from stdgo._internal.math.big.Big.T__struct_48_static_extension to stdgo._internal.math.big.Big.T__struct_48_static_extension {
-
-}
 typedef T__struct_48 = stdgo._internal.math.big.Big.T__struct_48;
-@:forward @:forward.new abstract T__struct_49_asInterface(stdgo._internal.math.big.Big.T__struct_49_asInterface) from stdgo._internal.math.big.Big.T__struct_49_asInterface to stdgo._internal.math.big.Big.T__struct_49_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_49_static_extension(stdgo._internal.math.big.Big.T__struct_49_static_extension) from stdgo._internal.math.big.Big.T__struct_49_static_extension to stdgo._internal.math.big.Big.T__struct_49_static_extension {
-
-}
 typedef T__struct_49 = stdgo._internal.math.big.Big.T__struct_49;
-@:forward @:forward.new abstract T__struct_50_asInterface(stdgo._internal.math.big.Big.T__struct_50_asInterface) from stdgo._internal.math.big.Big.T__struct_50_asInterface to stdgo._internal.math.big.Big.T__struct_50_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_50_static_extension(stdgo._internal.math.big.Big.T__struct_50_static_extension) from stdgo._internal.math.big.Big.T__struct_50_static_extension to stdgo._internal.math.big.Big.T__struct_50_static_extension {
-
-}
 typedef T__struct_50 = stdgo._internal.math.big.Big.T__struct_50;
-@:forward @:forward.new abstract T__struct_51_asInterface(stdgo._internal.math.big.Big.T__struct_51_asInterface) from stdgo._internal.math.big.Big.T__struct_51_asInterface to stdgo._internal.math.big.Big.T__struct_51_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_51_static_extension(stdgo._internal.math.big.Big.T__struct_51_static_extension) from stdgo._internal.math.big.Big.T__struct_51_static_extension to stdgo._internal.math.big.Big.T__struct_51_static_extension {
-
-}
 typedef T__struct_51 = stdgo._internal.math.big.Big.T__struct_51;
-@:forward @:forward.new abstract T__struct_52_asInterface(stdgo._internal.math.big.Big.T__struct_52_asInterface) from stdgo._internal.math.big.Big.T__struct_52_asInterface to stdgo._internal.math.big.Big.T__struct_52_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_52_static_extension(stdgo._internal.math.big.Big.T__struct_52_static_extension) from stdgo._internal.math.big.Big.T__struct_52_static_extension to stdgo._internal.math.big.Big.T__struct_52_static_extension {
-
-}
 typedef T__struct_52 = stdgo._internal.math.big.Big.T__struct_52;
-@:forward @:forward.new abstract T__struct_53_asInterface(stdgo._internal.math.big.Big.T__struct_53_asInterface) from stdgo._internal.math.big.Big.T__struct_53_asInterface to stdgo._internal.math.big.Big.T__struct_53_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_53_static_extension(stdgo._internal.math.big.Big.T__struct_53_static_extension) from stdgo._internal.math.big.Big.T__struct_53_static_extension to stdgo._internal.math.big.Big.T__struct_53_static_extension {
-
-}
 typedef T__struct_53 = stdgo._internal.math.big.Big.T__struct_53;
-@:forward @:forward.new abstract T__struct_54_asInterface(stdgo._internal.math.big.Big.T__struct_54_asInterface) from stdgo._internal.math.big.Big.T__struct_54_asInterface to stdgo._internal.math.big.Big.T__struct_54_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_54_static_extension(stdgo._internal.math.big.Big.T__struct_54_static_extension) from stdgo._internal.math.big.Big.T__struct_54_static_extension to stdgo._internal.math.big.Big.T__struct_54_static_extension {
-
-}
 typedef T__struct_54 = stdgo._internal.math.big.Big.T__struct_54;
-@:forward @:forward.new abstract T__struct_55_asInterface(stdgo._internal.math.big.Big.T__struct_55_asInterface) from stdgo._internal.math.big.Big.T__struct_55_asInterface to stdgo._internal.math.big.Big.T__struct_55_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_55_static_extension(stdgo._internal.math.big.Big.T__struct_55_static_extension) from stdgo._internal.math.big.Big.T__struct_55_static_extension to stdgo._internal.math.big.Big.T__struct_55_static_extension {
-
-}
 typedef T__struct_55 = stdgo._internal.math.big.Big.T__struct_55;
-@:forward @:forward.new abstract T__struct_56_asInterface(stdgo._internal.math.big.Big.T__struct_56_asInterface) from stdgo._internal.math.big.Big.T__struct_56_asInterface to stdgo._internal.math.big.Big.T__struct_56_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_56_static_extension(stdgo._internal.math.big.Big.T__struct_56_static_extension) from stdgo._internal.math.big.Big.T__struct_56_static_extension to stdgo._internal.math.big.Big.T__struct_56_static_extension {
-
-}
 typedef T__struct_56 = stdgo._internal.math.big.Big.T__struct_56;
-@:forward @:forward.new abstract T__struct_57_asInterface(stdgo._internal.math.big.Big.T__struct_57_asInterface) from stdgo._internal.math.big.Big.T__struct_57_asInterface to stdgo._internal.math.big.Big.T__struct_57_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_57_static_extension(stdgo._internal.math.big.Big.T__struct_57_static_extension) from stdgo._internal.math.big.Big.T__struct_57_static_extension to stdgo._internal.math.big.Big.T__struct_57_static_extension {
-
-}
 typedef T__struct_57 = stdgo._internal.math.big.Big.T__struct_57;
-@:forward @:forward.new abstract T__struct_58_asInterface(stdgo._internal.math.big.Big.T__struct_58_asInterface) from stdgo._internal.math.big.Big.T__struct_58_asInterface to stdgo._internal.math.big.Big.T__struct_58_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_58_static_extension(stdgo._internal.math.big.Big.T__struct_58_static_extension) from stdgo._internal.math.big.Big.T__struct_58_static_extension to stdgo._internal.math.big.Big.T__struct_58_static_extension {
-
-}
 typedef T__struct_58 = stdgo._internal.math.big.Big.T__struct_58;
-@:forward @:forward.new abstract T__struct_59_asInterface(stdgo._internal.math.big.Big.T__struct_59_asInterface) from stdgo._internal.math.big.Big.T__struct_59_asInterface to stdgo._internal.math.big.Big.T__struct_59_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_59_static_extension(stdgo._internal.math.big.Big.T__struct_59_static_extension) from stdgo._internal.math.big.Big.T__struct_59_static_extension to stdgo._internal.math.big.Big.T__struct_59_static_extension {
-
-}
 typedef T__struct_59 = stdgo._internal.math.big.Big.T__struct_59;
-@:forward @:forward.new abstract T__struct_60_asInterface(stdgo._internal.math.big.Big.T__struct_60_asInterface) from stdgo._internal.math.big.Big.T__struct_60_asInterface to stdgo._internal.math.big.Big.T__struct_60_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_60_static_extension(stdgo._internal.math.big.Big.T__struct_60_static_extension) from stdgo._internal.math.big.Big.T__struct_60_static_extension to stdgo._internal.math.big.Big.T__struct_60_static_extension {
-
-}
 typedef T__struct_60 = stdgo._internal.math.big.Big.T__struct_60;
-@:forward @:forward.new abstract T__struct_61_asInterface(stdgo._internal.math.big.Big.T__struct_61_asInterface) from stdgo._internal.math.big.Big.T__struct_61_asInterface to stdgo._internal.math.big.Big.T__struct_61_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_61_static_extension(stdgo._internal.math.big.Big.T__struct_61_static_extension) from stdgo._internal.math.big.Big.T__struct_61_static_extension to stdgo._internal.math.big.Big.T__struct_61_static_extension {
-
-}
 typedef T__struct_61 = stdgo._internal.math.big.Big.T__struct_61;
-@:forward @:forward.new abstract T__struct_62_asInterface(stdgo._internal.math.big.Big.T__struct_62_asInterface) from stdgo._internal.math.big.Big.T__struct_62_asInterface to stdgo._internal.math.big.Big.T__struct_62_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_62_static_extension(stdgo._internal.math.big.Big.T__struct_62_static_extension) from stdgo._internal.math.big.Big.T__struct_62_static_extension to stdgo._internal.math.big.Big.T__struct_62_static_extension {
-
-}
 typedef T__struct_62 = stdgo._internal.math.big.Big.T__struct_62;
-@:forward @:forward.new abstract T__struct_63_asInterface(stdgo._internal.math.big.Big.T__struct_63_asInterface) from stdgo._internal.math.big.Big.T__struct_63_asInterface to stdgo._internal.math.big.Big.T__struct_63_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_63_static_extension(stdgo._internal.math.big.Big.T__struct_63_static_extension) from stdgo._internal.math.big.Big.T__struct_63_static_extension to stdgo._internal.math.big.Big.T__struct_63_static_extension {
-
-}
 typedef T__struct_63 = stdgo._internal.math.big.Big.T__struct_63;
-@:forward @:forward.new abstract T__struct_64_asInterface(stdgo._internal.math.big.Big.T__struct_64_asInterface) from stdgo._internal.math.big.Big.T__struct_64_asInterface to stdgo._internal.math.big.Big.T__struct_64_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_64_static_extension(stdgo._internal.math.big.Big.T__struct_64_static_extension) from stdgo._internal.math.big.Big.T__struct_64_static_extension to stdgo._internal.math.big.Big.T__struct_64_static_extension {
-
-}
 typedef T__struct_64 = stdgo._internal.math.big.Big.T__struct_64;
-@:forward @:forward.new abstract T__struct_65_asInterface(stdgo._internal.math.big.Big.T__struct_65_asInterface) from stdgo._internal.math.big.Big.T__struct_65_asInterface to stdgo._internal.math.big.Big.T__struct_65_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_65_static_extension(stdgo._internal.math.big.Big.T__struct_65_static_extension) from stdgo._internal.math.big.Big.T__struct_65_static_extension to stdgo._internal.math.big.Big.T__struct_65_static_extension {
-
-}
 typedef T__struct_65 = stdgo._internal.math.big.Big.T__struct_65;
-@:forward @:forward.new abstract T__struct_66_asInterface(stdgo._internal.math.big.Big.T__struct_66_asInterface) from stdgo._internal.math.big.Big.T__struct_66_asInterface to stdgo._internal.math.big.Big.T__struct_66_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_66_static_extension(stdgo._internal.math.big.Big.T__struct_66_static_extension) from stdgo._internal.math.big.Big.T__struct_66_static_extension to stdgo._internal.math.big.Big.T__struct_66_static_extension {
-
-}
 typedef T__struct_66 = stdgo._internal.math.big.Big.T__struct_66;
-@:forward @:forward.new abstract T__struct_67_asInterface(stdgo._internal.math.big.Big.T__struct_67_asInterface) from stdgo._internal.math.big.Big.T__struct_67_asInterface to stdgo._internal.math.big.Big.T__struct_67_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_67_static_extension(stdgo._internal.math.big.Big.T__struct_67_static_extension) from stdgo._internal.math.big.Big.T__struct_67_static_extension to stdgo._internal.math.big.Big.T__struct_67_static_extension {
-
-}
 typedef T__struct_67 = stdgo._internal.math.big.Big.T__struct_67;
-@:forward @:forward.new abstract T__struct_68_asInterface(stdgo._internal.math.big.Big.T__struct_68_asInterface) from stdgo._internal.math.big.Big.T__struct_68_asInterface to stdgo._internal.math.big.Big.T__struct_68_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_68_static_extension(stdgo._internal.math.big.Big.T__struct_68_static_extension) from stdgo._internal.math.big.Big.T__struct_68_static_extension to stdgo._internal.math.big.Big.T__struct_68_static_extension {
-
-}
 typedef T__struct_68 = stdgo._internal.math.big.Big.T__struct_68;
-@:forward @:forward.new abstract T__struct_69_asInterface(stdgo._internal.math.big.Big.T__struct_69_asInterface) from stdgo._internal.math.big.Big.T__struct_69_asInterface to stdgo._internal.math.big.Big.T__struct_69_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_69_static_extension(stdgo._internal.math.big.Big.T__struct_69_static_extension) from stdgo._internal.math.big.Big.T__struct_69_static_extension to stdgo._internal.math.big.Big.T__struct_69_static_extension {
-
-}
 typedef T__struct_69 = stdgo._internal.math.big.Big.T__struct_69;
 typedef Word = stdgo._internal.math.big.Big.Word;
 typedef T_funVV = stdgo._internal.math.big.Big.T_funVV;
@@ -672,72 +700,6 @@ typedef T_bitFun = stdgo._internal.math.big.Big.T_bitFun;
 typedef T_nat = stdgo._internal.math.big.Big.T_nat;
 typedef T_funNN = stdgo._internal.math.big.Big.T_funNN;
 typedef T_ratBinFun = stdgo._internal.math.big.Big.T_ratBinFun;
-@:forward @:forward.new abstract T_decimal_asInterface(stdgo._internal.math.big.Big.T_decimal_asInterface) from stdgo._internal.math.big.Big.T_decimal_asInterface to stdgo._internal.math.big.Big.T_decimal_asInterface {
-
-}
-@:forward @:forward.new abstract T_decimal_static_extension(stdgo._internal.math.big.Big.T_decimal_static_extension) from stdgo._internal.math.big.Big.T_decimal_static_extension to stdgo._internal.math.big.Big.T_decimal_static_extension {
-
-}
-@:forward @:forward.new abstract Float__asInterface(stdgo._internal.math.big.Big.Float__asInterface) from stdgo._internal.math.big.Big.Float__asInterface to stdgo._internal.math.big.Big.Float__asInterface {
-
-}
-@:forward @:forward.new abstract Float__static_extension(stdgo._internal.math.big.Big.Float__static_extension) from stdgo._internal.math.big.Big.Float__static_extension to stdgo._internal.math.big.Big.Float__static_extension {
-
-}
-@:forward @:forward.new abstract ErrNaN_asInterface(stdgo._internal.math.big.Big.ErrNaN_asInterface) from stdgo._internal.math.big.Big.ErrNaN_asInterface to stdgo._internal.math.big.Big.ErrNaN_asInterface {
-
-}
-@:forward @:forward.new abstract ErrNaN_static_extension(stdgo._internal.math.big.Big.ErrNaN_static_extension) from stdgo._internal.math.big.Big.ErrNaN_static_extension to stdgo._internal.math.big.Big.ErrNaN_static_extension {
-
-}
-@:forward @:forward.new abstract T_matrix_asInterface(stdgo._internal.math.big.Big.T_matrix_asInterface) from stdgo._internal.math.big.Big.T_matrix_asInterface to stdgo._internal.math.big.Big.T_matrix_asInterface {
-
-}
-@:forward @:forward.new abstract T_matrix_static_extension(stdgo._internal.math.big.Big.T_matrix_static_extension) from stdgo._internal.math.big.Big.T_matrix_static_extension to stdgo._internal.math.big.Big.T_matrix_static_extension {
-
-}
-@:forward @:forward.new abstract Int__asInterface(stdgo._internal.math.big.Big.Int__asInterface) from stdgo._internal.math.big.Big.Int__asInterface to stdgo._internal.math.big.Big.Int__asInterface {
-
-}
-@:forward @:forward.new abstract Int__static_extension(stdgo._internal.math.big.Big.Int__static_extension) from stdgo._internal.math.big.Big.Int__static_extension to stdgo._internal.math.big.Big.Int__static_extension {
-
-}
-@:forward @:forward.new abstract T_byteReader_asInterface(stdgo._internal.math.big.Big.T_byteReader_asInterface) from stdgo._internal.math.big.Big.T_byteReader_asInterface to stdgo._internal.math.big.Big.T_byteReader_asInterface {
-
-}
-@:forward @:forward.new abstract T_byteReader_static_extension(stdgo._internal.math.big.Big.T_byteReader_static_extension) from stdgo._internal.math.big.Big.T_byteReader_static_extension to stdgo._internal.math.big.Big.T_byteReader_static_extension {
-
-}
-@:forward @:forward.new abstract Rat_asInterface(stdgo._internal.math.big.Big.Rat_asInterface) from stdgo._internal.math.big.Big.Rat_asInterface to stdgo._internal.math.big.Big.Rat_asInterface {
-
-}
-@:forward @:forward.new abstract Rat_static_extension(stdgo._internal.math.big.Big.Rat_static_extension) from stdgo._internal.math.big.Big.Rat_static_extension to stdgo._internal.math.big.Big.Rat_static_extension {
-
-}
-@:forward @:forward.new abstract Bits_asInterface(stdgo._internal.math.big.Big.Bits_asInterface) from stdgo._internal.math.big.Big.Bits_asInterface to stdgo._internal.math.big.Big.Bits_asInterface {
-
-}
-@:forward @:forward.new abstract Bits_static_extension(stdgo._internal.math.big.Big.Bits_static_extension) from stdgo._internal.math.big.Big.Bits_static_extension to stdgo._internal.math.big.Big.Bits_static_extension {
-
-}
-@:forward @:forward.new abstract RoundingMode_asInterface(stdgo._internal.math.big.Big.RoundingMode_asInterface) from stdgo._internal.math.big.Big.RoundingMode_asInterface to stdgo._internal.math.big.Big.RoundingMode_asInterface {
-
-}
-@:forward @:forward.new abstract RoundingMode_static_extension(stdgo._internal.math.big.Big.RoundingMode_static_extension) from stdgo._internal.math.big.Big.RoundingMode_static_extension to stdgo._internal.math.big.Big.RoundingMode_static_extension {
-
-}
-@:forward @:forward.new abstract Accuracy_asInterface(stdgo._internal.math.big.Big.Accuracy_asInterface) from stdgo._internal.math.big.Big.Accuracy_asInterface to stdgo._internal.math.big.Big.Accuracy_asInterface {
-
-}
-@:forward @:forward.new abstract Accuracy_static_extension(stdgo._internal.math.big.Big.Accuracy_static_extension) from stdgo._internal.math.big.Big.Accuracy_static_extension to stdgo._internal.math.big.Big.Accuracy_static_extension {
-
-}
-@:forward @:forward.new abstract T_nat_asInterface(stdgo._internal.math.big.Big.T_nat_asInterface) from stdgo._internal.math.big.Big.T_nat_asInterface to stdgo._internal.math.big.Big.T_nat_asInterface {
-
-}
-@:forward @:forward.new abstract T_nat_static_extension(stdgo._internal.math.big.Big.T_nat_static_extension) from stdgo._internal.math.big.Big.T_nat_static_extension to stdgo._internal.math.big.Big.T_nat_static_extension {
-
-}
 class Big {
     static public function testFunVV(t:stdgo._internal.testing.Testing.T_):Void {
         stdgo._internal.math.big.Big.testFunVV(t);

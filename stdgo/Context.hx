@@ -53,125 +53,193 @@ package stdgo;
 private var __go2hxdoc__package : Bool;
 var canceled(get, set) : stdgo.Error;
 private function get_canceled():stdgo.Error return stdgo._internal.context.Context.canceled;
-private function set_canceled(v:stdgo.Error):stdgo.Error return stdgo._internal.context.Context.canceled = v;
+private function set_canceled(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.context.Context.canceled = v;
+        return v;
+    }
 var deadlineExceeded(get, set) : stdgo.Error;
 private function get_deadlineExceeded():stdgo.Error return stdgo._internal.context.Context.deadlineExceeded;
-private function set_deadlineExceeded(v:stdgo.Error):stdgo.Error return stdgo._internal.context.Context.deadlineExceeded = v;
-@:forward @:forward.new abstract Context_static_extension(stdgo._internal.context.Context.Context_static_extension) from stdgo._internal.context.Context.Context_static_extension to stdgo._internal.context.Context.Context_static_extension {
-
-}
+private function set_deadlineExceeded(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.context.Context.deadlineExceeded = v;
+        return v;
+    }
 typedef Context = stdgo._internal.context.Context.Context;
-@:forward @:forward.new abstract T_afterFuncer_static_extension(stdgo._internal.context.Context.T_afterFuncer_static_extension) from stdgo._internal.context.Context.T_afterFuncer_static_extension to stdgo._internal.context.Context.T_afterFuncer_static_extension {
-
-}
 typedef T_afterFuncer = stdgo._internal.context.Context.T_afterFuncer;
-@:forward @:forward.new abstract T_canceler_static_extension(stdgo._internal.context.Context.T_canceler_static_extension) from stdgo._internal.context.Context.T_canceler_static_extension to stdgo._internal.context.Context.T_canceler_static_extension {
-
-}
 typedef T_canceler = stdgo._internal.context.Context.T_canceler;
-@:forward @:forward.new abstract T_stringer_static_extension(stdgo._internal.context.Context.T_stringer_static_extension) from stdgo._internal.context.Context.T_stringer_static_extension to stdgo._internal.context.Context.T_stringer_static_extension {
-
-}
 typedef T_stringer = stdgo._internal.context.Context.T_stringer;
-@:forward @:forward.new abstract T_deadlineExceededError(stdgo._internal.context.Context.T_deadlineExceededError) from stdgo._internal.context.Context.T_deadlineExceededError to stdgo._internal.context.Context.T_deadlineExceededError {
-
+abstract T_deadlineExceededError(stdgo._internal.context.Context.T_deadlineExceededError) from stdgo._internal.context.Context.T_deadlineExceededError to stdgo._internal.context.Context.T_deadlineExceededError {
+    public function new() this = new stdgo._internal.context.Context.T_deadlineExceededError();
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_emptyCtx(stdgo._internal.context.Context.T_emptyCtx) from stdgo._internal.context.Context.T_emptyCtx to stdgo._internal.context.Context.T_emptyCtx {
-
+abstract T_emptyCtx(stdgo._internal.context.Context.T_emptyCtx) from stdgo._internal.context.Context.T_emptyCtx to stdgo._internal.context.Context.T_emptyCtx {
+    public function new() this = new stdgo._internal.context.Context.T_emptyCtx();
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_backgroundCtx(stdgo._internal.context.Context.T_backgroundCtx) from stdgo._internal.context.Context.T_backgroundCtx to stdgo._internal.context.Context.T_backgroundCtx {
-
+abstract T_backgroundCtx(stdgo._internal.context.Context.T_backgroundCtx) from stdgo._internal.context.Context.T_backgroundCtx to stdgo._internal.context.Context.T_backgroundCtx {
+    public var _emptyCtx(get, set) : stdgo._internal.context.Context.T_emptyCtx;
+    function get__emptyCtx():stdgo._internal.context.Context.T_emptyCtx return this._emptyCtx;
+    function set__emptyCtx(v:stdgo._internal.context.Context.T_emptyCtx):stdgo._internal.context.Context.T_emptyCtx {
+        this._emptyCtx = v;
+        return v;
+    }
+    public function new(?_emptyCtx:stdgo._internal.context.Context.T_emptyCtx) this = new stdgo._internal.context.Context.T_backgroundCtx(_emptyCtx);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_todoCtx(stdgo._internal.context.Context.T_todoCtx) from stdgo._internal.context.Context.T_todoCtx to stdgo._internal.context.Context.T_todoCtx {
-
+abstract T_todoCtx(stdgo._internal.context.Context.T_todoCtx) from stdgo._internal.context.Context.T_todoCtx to stdgo._internal.context.Context.T_todoCtx {
+    public var _emptyCtx(get, set) : stdgo._internal.context.Context.T_emptyCtx;
+    function get__emptyCtx():stdgo._internal.context.Context.T_emptyCtx return this._emptyCtx;
+    function set__emptyCtx(v:stdgo._internal.context.Context.T_emptyCtx):stdgo._internal.context.Context.T_emptyCtx {
+        this._emptyCtx = v;
+        return v;
+    }
+    public function new(?_emptyCtx:stdgo._internal.context.Context.T_emptyCtx) this = new stdgo._internal.context.Context.T_todoCtx(_emptyCtx);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_afterFuncCtx(stdgo._internal.context.Context.T_afterFuncCtx) from stdgo._internal.context.Context.T_afterFuncCtx to stdgo._internal.context.Context.T_afterFuncCtx {
-
+abstract T_afterFuncCtx(stdgo._internal.context.Context.T_afterFuncCtx) from stdgo._internal.context.Context.T_afterFuncCtx to stdgo._internal.context.Context.T_afterFuncCtx {
+    public var _cancelCtx(get, set) : stdgo._internal.context.Context.T_cancelCtx;
+    function get__cancelCtx():stdgo._internal.context.Context.T_cancelCtx return this._cancelCtx;
+    function set__cancelCtx(v:stdgo._internal.context.Context.T_cancelCtx):stdgo._internal.context.Context.T_cancelCtx {
+        this._cancelCtx = v;
+        return v;
+    }
+    public var _once(get, set) : stdgo._internal.sync.Sync.Once;
+    function get__once():stdgo._internal.sync.Sync.Once return this._once;
+    function set__once(v:stdgo._internal.sync.Sync.Once):stdgo._internal.sync.Sync.Once {
+        this._once = v;
+        return v;
+    }
+    public var _f(get, set) : () -> Void;
+    function get__f():() -> Void return () -> this._f();
+    function set__f(v:() -> Void):() -> Void {
+        this._f = v;
+        return v;
+    }
+    public function new(?_cancelCtx:stdgo._internal.context.Context.T_cancelCtx, ?_once:stdgo._internal.sync.Sync.Once, ?_f:() -> Void) this = new stdgo._internal.context.Context.T_afterFuncCtx(_cancelCtx, _once, _f);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_stopCtx(stdgo._internal.context.Context.T_stopCtx) from stdgo._internal.context.Context.T_stopCtx to stdgo._internal.context.Context.T_stopCtx {
-
+abstract T_stopCtx(stdgo._internal.context.Context.T_stopCtx) from stdgo._internal.context.Context.T_stopCtx to stdgo._internal.context.Context.T_stopCtx {
+    public var context(get, set) : stdgo._internal.context.Context.Context;
+    function get_context():stdgo._internal.context.Context.Context return this.context;
+    function set_context(v:stdgo._internal.context.Context.Context):stdgo._internal.context.Context.Context {
+        this.context = v;
+        return v;
+    }
+    public var _stop(get, set) : () -> Bool;
+    function get__stop():() -> Bool return () -> this._stop();
+    function set__stop(v:() -> Bool):() -> Bool {
+        this._stop = v;
+        return v;
+    }
+    public function new(?context:stdgo._internal.context.Context.Context, ?_stop:() -> Bool) this = new stdgo._internal.context.Context.T_stopCtx(context, _stop);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_cancelCtx(stdgo._internal.context.Context.T_cancelCtx) from stdgo._internal.context.Context.T_cancelCtx to stdgo._internal.context.Context.T_cancelCtx {
-
+abstract T_cancelCtx(stdgo._internal.context.Context.T_cancelCtx) from stdgo._internal.context.Context.T_cancelCtx to stdgo._internal.context.Context.T_cancelCtx {
+    public var context(get, set) : stdgo._internal.context.Context.Context;
+    function get_context():stdgo._internal.context.Context.Context return this.context;
+    function set_context(v:stdgo._internal.context.Context.Context):stdgo._internal.context.Context.Context {
+        this.context = v;
+        return v;
+    }
+    public var _mu(get, set) : stdgo._internal.sync.Sync.Mutex;
+    function get__mu():stdgo._internal.sync.Sync.Mutex return this._mu;
+    function set__mu(v:stdgo._internal.sync.Sync.Mutex):stdgo._internal.sync.Sync.Mutex {
+        this._mu = v;
+        return v;
+    }
+    public var _done(get, set) : stdgo._internal.sync.atomic_.Atomic_.Value;
+    function get__done():stdgo._internal.sync.atomic_.Atomic_.Value return this._done;
+    function set__done(v:stdgo._internal.sync.atomic_.Atomic_.Value):stdgo._internal.sync.atomic_.Atomic_.Value {
+        this._done = v;
+        return v;
+    }
+    public var _children(get, set) : stdgo.GoMap<stdgo._internal.context.Context.T_canceler, T_deadlineExceededError>;
+    function get__children():stdgo.GoMap<stdgo._internal.context.Context.T_canceler, T_deadlineExceededError> return this._children;
+    function set__children(v:stdgo.GoMap<stdgo._internal.context.Context.T_canceler, T_deadlineExceededError>):stdgo.GoMap<stdgo._internal.context.Context.T_canceler, T_deadlineExceededError> {
+        this._children = v;
+        return v;
+    }
+    public var _err(get, set) : stdgo.Error;
+    function get__err():stdgo.Error return this._err;
+    function set__err(v:stdgo.Error):stdgo.Error {
+        this._err = v;
+        return v;
+    }
+    public var _cause(get, set) : stdgo.Error;
+    function get__cause():stdgo.Error return this._cause;
+    function set__cause(v:stdgo.Error):stdgo.Error {
+        this._cause = v;
+        return v;
+    }
+    public function new(?context:stdgo._internal.context.Context.Context, ?_mu:stdgo._internal.sync.Sync.Mutex, ?_done:stdgo._internal.sync.atomic_.Atomic_.Value, ?_children:stdgo.GoMap<stdgo._internal.context.Context.T_canceler, T_deadlineExceededError>, ?_err:stdgo.Error, ?_cause:stdgo.Error) this = new stdgo._internal.context.Context.T_cancelCtx(context, _mu, _done, _children, _err, _cause);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_withoutCancelCtx(stdgo._internal.context.Context.T_withoutCancelCtx) from stdgo._internal.context.Context.T_withoutCancelCtx to stdgo._internal.context.Context.T_withoutCancelCtx {
-
+abstract T_withoutCancelCtx(stdgo._internal.context.Context.T_withoutCancelCtx) from stdgo._internal.context.Context.T_withoutCancelCtx to stdgo._internal.context.Context.T_withoutCancelCtx {
+    public var _c(get, set) : stdgo._internal.context.Context.Context;
+    function get__c():stdgo._internal.context.Context.Context return this._c;
+    function set__c(v:stdgo._internal.context.Context.Context):stdgo._internal.context.Context.Context {
+        this._c = v;
+        return v;
+    }
+    public function new(?_c:stdgo._internal.context.Context.Context) this = new stdgo._internal.context.Context.T_withoutCancelCtx(_c);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_timerCtx(stdgo._internal.context.Context.T_timerCtx) from stdgo._internal.context.Context.T_timerCtx to stdgo._internal.context.Context.T_timerCtx {
-
+abstract T_timerCtx(stdgo._internal.context.Context.T_timerCtx) from stdgo._internal.context.Context.T_timerCtx to stdgo._internal.context.Context.T_timerCtx {
+    public var _cancelCtx(get, set) : stdgo._internal.context.Context.T_cancelCtx;
+    function get__cancelCtx():stdgo._internal.context.Context.T_cancelCtx return this._cancelCtx;
+    function set__cancelCtx(v:stdgo._internal.context.Context.T_cancelCtx):stdgo._internal.context.Context.T_cancelCtx {
+        this._cancelCtx = v;
+        return v;
+    }
+    public var _timer(get, set) : stdgo._internal.time.Time.Timer;
+    function get__timer():stdgo._internal.time.Time.Timer return this._timer;
+    function set__timer(v:stdgo._internal.time.Time.Timer):stdgo._internal.time.Time.Timer {
+        this._timer = v;
+        return v;
+    }
+    public var _deadline(get, set) : stdgo._internal.time.Time.Time;
+    function get__deadline():stdgo._internal.time.Time.Time return this._deadline;
+    function set__deadline(v:stdgo._internal.time.Time.Time):stdgo._internal.time.Time.Time {
+        this._deadline = v;
+        return v;
+    }
+    public function new(?_cancelCtx:stdgo._internal.context.Context.T_cancelCtx, ?_timer:stdgo._internal.time.Time.Timer, ?_deadline:stdgo._internal.time.Time.Time) this = new stdgo._internal.context.Context.T_timerCtx(_cancelCtx, _timer, _deadline);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_valueCtx(stdgo._internal.context.Context.T_valueCtx) from stdgo._internal.context.Context.T_valueCtx to stdgo._internal.context.Context.T_valueCtx {
-
-}
-@:forward @:forward.new abstract T__struct_0_asInterface(stdgo._internal.context.Context.T__struct_0_asInterface) from stdgo._internal.context.Context.T__struct_0_asInterface to stdgo._internal.context.Context.T__struct_0_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_0_static_extension(stdgo._internal.context.Context.T__struct_0_static_extension) from stdgo._internal.context.Context.T__struct_0_static_extension to stdgo._internal.context.Context.T__struct_0_static_extension {
-
+abstract T_valueCtx(stdgo._internal.context.Context.T_valueCtx) from stdgo._internal.context.Context.T_valueCtx to stdgo._internal.context.Context.T_valueCtx {
+    public var context(get, set) : stdgo._internal.context.Context.Context;
+    function get_context():stdgo._internal.context.Context.Context return this.context;
+    function set_context(v:stdgo._internal.context.Context.Context):stdgo._internal.context.Context.Context {
+        this.context = v;
+        return v;
+    }
+    public var _key(get, set) : stdgo.AnyInterface;
+    function get__key():stdgo.AnyInterface return this._key;
+    function set__key(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this._key = v;
+        return v;
+    }
+    public var _val(get, set) : stdgo.AnyInterface;
+    function get__val():stdgo.AnyInterface return this._val;
+    function set__val(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this._val = v;
+        return v;
+    }
+    public function new(?context:stdgo._internal.context.Context.Context, ?_key:stdgo.AnyInterface, ?_val:stdgo.AnyInterface) this = new stdgo._internal.context.Context.T_valueCtx(context, _key, _val);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef T__struct_0 = stdgo._internal.context.Context.T__struct_0;
 typedef CancelFunc = stdgo._internal.context.Context.CancelFunc;
 typedef CancelCauseFunc = stdgo._internal.context.Context.CancelCauseFunc;
-@:forward @:forward.new abstract T_deadlineExceededError_asInterface(stdgo._internal.context.Context.T_deadlineExceededError_asInterface) from stdgo._internal.context.Context.T_deadlineExceededError_asInterface to stdgo._internal.context.Context.T_deadlineExceededError_asInterface {
-
-}
-@:forward @:forward.new abstract T_deadlineExceededError_static_extension(stdgo._internal.context.Context.T_deadlineExceededError_static_extension) from stdgo._internal.context.Context.T_deadlineExceededError_static_extension to stdgo._internal.context.Context.T_deadlineExceededError_static_extension {
-
-}
-@:forward @:forward.new abstract T_emptyCtx_asInterface(stdgo._internal.context.Context.T_emptyCtx_asInterface) from stdgo._internal.context.Context.T_emptyCtx_asInterface to stdgo._internal.context.Context.T_emptyCtx_asInterface {
-
-}
-@:forward @:forward.new abstract T_emptyCtx_static_extension(stdgo._internal.context.Context.T_emptyCtx_static_extension) from stdgo._internal.context.Context.T_emptyCtx_static_extension to stdgo._internal.context.Context.T_emptyCtx_static_extension {
-
-}
-@:forward @:forward.new abstract T_backgroundCtx_asInterface(stdgo._internal.context.Context.T_backgroundCtx_asInterface) from stdgo._internal.context.Context.T_backgroundCtx_asInterface to stdgo._internal.context.Context.T_backgroundCtx_asInterface {
-
-}
-@:forward @:forward.new abstract T_backgroundCtx_static_extension(stdgo._internal.context.Context.T_backgroundCtx_static_extension) from stdgo._internal.context.Context.T_backgroundCtx_static_extension to stdgo._internal.context.Context.T_backgroundCtx_static_extension {
-
-}
-@:forward @:forward.new abstract T_todoCtx_asInterface(stdgo._internal.context.Context.T_todoCtx_asInterface) from stdgo._internal.context.Context.T_todoCtx_asInterface to stdgo._internal.context.Context.T_todoCtx_asInterface {
-
-}
-@:forward @:forward.new abstract T_todoCtx_static_extension(stdgo._internal.context.Context.T_todoCtx_static_extension) from stdgo._internal.context.Context.T_todoCtx_static_extension to stdgo._internal.context.Context.T_todoCtx_static_extension {
-
-}
-@:forward @:forward.new abstract T_afterFuncCtx_asInterface(stdgo._internal.context.Context.T_afterFuncCtx_asInterface) from stdgo._internal.context.Context.T_afterFuncCtx_asInterface to stdgo._internal.context.Context.T_afterFuncCtx_asInterface {
-
-}
-@:forward @:forward.new abstract T_afterFuncCtx_static_extension(stdgo._internal.context.Context.T_afterFuncCtx_static_extension) from stdgo._internal.context.Context.T_afterFuncCtx_static_extension to stdgo._internal.context.Context.T_afterFuncCtx_static_extension {
-
-}
-@:forward @:forward.new abstract T_stopCtx_asInterface(stdgo._internal.context.Context.T_stopCtx_asInterface) from stdgo._internal.context.Context.T_stopCtx_asInterface to stdgo._internal.context.Context.T_stopCtx_asInterface {
-
-}
-@:forward @:forward.new abstract T_stopCtx_static_extension(stdgo._internal.context.Context.T_stopCtx_static_extension) from stdgo._internal.context.Context.T_stopCtx_static_extension to stdgo._internal.context.Context.T_stopCtx_static_extension {
-
-}
-@:forward @:forward.new abstract T_cancelCtx_asInterface(stdgo._internal.context.Context.T_cancelCtx_asInterface) from stdgo._internal.context.Context.T_cancelCtx_asInterface to stdgo._internal.context.Context.T_cancelCtx_asInterface {
-
-}
-@:forward @:forward.new abstract T_cancelCtx_static_extension(stdgo._internal.context.Context.T_cancelCtx_static_extension) from stdgo._internal.context.Context.T_cancelCtx_static_extension to stdgo._internal.context.Context.T_cancelCtx_static_extension {
-
-}
-@:forward @:forward.new abstract T_withoutCancelCtx_asInterface(stdgo._internal.context.Context.T_withoutCancelCtx_asInterface) from stdgo._internal.context.Context.T_withoutCancelCtx_asInterface to stdgo._internal.context.Context.T_withoutCancelCtx_asInterface {
-
-}
-@:forward @:forward.new abstract T_withoutCancelCtx_static_extension(stdgo._internal.context.Context.T_withoutCancelCtx_static_extension) from stdgo._internal.context.Context.T_withoutCancelCtx_static_extension to stdgo._internal.context.Context.T_withoutCancelCtx_static_extension {
-
-}
-@:forward @:forward.new abstract T_timerCtx_asInterface(stdgo._internal.context.Context.T_timerCtx_asInterface) from stdgo._internal.context.Context.T_timerCtx_asInterface to stdgo._internal.context.Context.T_timerCtx_asInterface {
-
-}
-@:forward @:forward.new abstract T_timerCtx_static_extension(stdgo._internal.context.Context.T_timerCtx_static_extension) from stdgo._internal.context.Context.T_timerCtx_static_extension to stdgo._internal.context.Context.T_timerCtx_static_extension {
-
-}
-@:forward @:forward.new abstract T_valueCtx_asInterface(stdgo._internal.context.Context.T_valueCtx_asInterface) from stdgo._internal.context.Context.T_valueCtx_asInterface to stdgo._internal.context.Context.T_valueCtx_asInterface {
-
-}
-@:forward @:forward.new abstract T_valueCtx_static_extension(stdgo._internal.context.Context.T_valueCtx_static_extension) from stdgo._internal.context.Context.T_valueCtx_static_extension to stdgo._internal.context.Context.T_valueCtx_static_extension {
-
-}
 class Context {
     /**
         Background returns a non-nil, empty [Context]. It is never canceled, has no

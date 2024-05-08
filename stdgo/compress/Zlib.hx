@@ -28,37 +28,145 @@ final defaultCompression : haxe.UInt64 = stdgo._internal.compress.zlib.Zlib.defa
 final huffmanOnly : haxe.UInt64 = stdgo._internal.compress.zlib.Zlib.huffmanOnly;
 var errChecksum(get, set) : stdgo.Error;
 private function get_errChecksum():stdgo.Error return stdgo._internal.compress.zlib.Zlib.errChecksum;
-private function set_errChecksum(v:stdgo.Error):stdgo.Error return stdgo._internal.compress.zlib.Zlib.errChecksum = v;
+private function set_errChecksum(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.compress.zlib.Zlib.errChecksum = v;
+        return v;
+    }
 var errDictionary(get, set) : stdgo.Error;
 private function get_errDictionary():stdgo.Error return stdgo._internal.compress.zlib.Zlib.errDictionary;
-private function set_errDictionary(v:stdgo.Error):stdgo.Error return stdgo._internal.compress.zlib.Zlib.errDictionary = v;
+private function set_errDictionary(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.compress.zlib.Zlib.errDictionary = v;
+        return v;
+    }
 var errHeader(get, set) : stdgo.Error;
 private function get_errHeader():stdgo.Error return stdgo._internal.compress.zlib.Zlib.errHeader;
-private function set_errHeader(v:stdgo.Error):stdgo.Error return stdgo._internal.compress.zlib.Zlib.errHeader = v;
-@:forward @:forward.new abstract Resetter_static_extension(stdgo._internal.compress.zlib.Zlib.Resetter_static_extension) from stdgo._internal.compress.zlib.Zlib.Resetter_static_extension to stdgo._internal.compress.zlib.Zlib.Resetter_static_extension {
-
-}
+private function set_errHeader(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.compress.zlib.Zlib.errHeader = v;
+        return v;
+    }
 typedef Resetter = stdgo._internal.compress.zlib.Zlib.Resetter;
-@:forward @:forward.new abstract T_reader(stdgo._internal.compress.zlib.Zlib.T_reader) from stdgo._internal.compress.zlib.Zlib.T_reader to stdgo._internal.compress.zlib.Zlib.T_reader {
-
+abstract T_reader(stdgo._internal.compress.zlib.Zlib.T_reader) from stdgo._internal.compress.zlib.Zlib.T_reader to stdgo._internal.compress.zlib.Zlib.T_reader {
+    public var _r(get, set) : stdgo._internal.compress.flate.Flate.Reader;
+    function get__r():stdgo._internal.compress.flate.Flate.Reader return this._r;
+    function set__r(v:stdgo._internal.compress.flate.Flate.Reader):stdgo._internal.compress.flate.Flate.Reader {
+        this._r = v;
+        return v;
+    }
+    public var _decompressor(get, set) : stdgo._internal.io.Io.ReadCloser;
+    function get__decompressor():stdgo._internal.io.Io.ReadCloser return this._decompressor;
+    function set__decompressor(v:stdgo._internal.io.Io.ReadCloser):stdgo._internal.io.Io.ReadCloser {
+        this._decompressor = v;
+        return v;
+    }
+    public var _digest(get, set) : stdgo._internal.hash.Hash.Hash32;
+    function get__digest():stdgo._internal.hash.Hash.Hash32 return this._digest;
+    function set__digest(v:stdgo._internal.hash.Hash.Hash32):stdgo._internal.hash.Hash.Hash32 {
+        this._digest = v;
+        return v;
+    }
+    public var _err(get, set) : stdgo.Error;
+    function get__err():stdgo.Error return this._err;
+    function set__err(v:stdgo.Error):stdgo.Error {
+        this._err = v;
+        return v;
+    }
+    public var _scratch(get, set) : haxe.ds.Vector<std.UInt>;
+    function get__scratch():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._scratch) i]);
+    function set__scratch(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
+        this._scratch = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        return v;
+    }
+    public function new(?_r:stdgo._internal.compress.flate.Flate.Reader, ?_decompressor:stdgo._internal.io.Io.ReadCloser, ?_digest:stdgo._internal.hash.Hash.Hash32, ?_err:stdgo.Error, ?_scratch:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.compress.zlib.Zlib.T_reader(_r, _decompressor, _digest, _err, ([for (i in _scratch) i] : stdgo.GoArray<stdgo.GoUInt8>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_zlibTest(stdgo._internal.compress.zlib.Zlib.T_zlibTest) from stdgo._internal.compress.zlib.Zlib.T_zlibTest to stdgo._internal.compress.zlib.Zlib.T_zlibTest {
-
+abstract T_zlibTest(stdgo._internal.compress.zlib.Zlib.T_zlibTest) from stdgo._internal.compress.zlib.Zlib.T_zlibTest to stdgo._internal.compress.zlib.Zlib.T_zlibTest {
+    public var _desc(get, set) : String;
+    function get__desc():String return this._desc;
+    function set__desc(v:String):String {
+        this._desc = v;
+        return v;
+    }
+    public var _raw(get, set) : String;
+    function get__raw():String return this._raw;
+    function set__raw(v:String):String {
+        this._raw = v;
+        return v;
+    }
+    public var _compressed(get, set) : Array<std.UInt>;
+    function get__compressed():Array<std.UInt> return [for (i in this._compressed) i];
+    function set__compressed(v:Array<std.UInt>):Array<std.UInt> {
+        this._compressed = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _dict(get, set) : Array<std.UInt>;
+    function get__dict():Array<std.UInt> return [for (i in this._dict) i];
+    function set__dict(v:Array<std.UInt>):Array<std.UInt> {
+        this._dict = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _err(get, set) : stdgo.Error;
+    function get__err():stdgo.Error return this._err;
+    function set__err(v:stdgo.Error):stdgo.Error {
+        this._err = v;
+        return v;
+    }
+    public function new(?_desc:String, ?_raw:String, ?_compressed:Array<std.UInt>, ?_dict:Array<std.UInt>, ?_err:stdgo.Error) this = new stdgo._internal.compress.zlib.Zlib.T_zlibTest(_desc, _raw, ([for (i in _compressed) i] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _dict) i] : stdgo.Slice<stdgo.GoUInt8>), _err);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Writer(stdgo._internal.compress.zlib.Zlib.Writer) from stdgo._internal.compress.zlib.Zlib.Writer to stdgo._internal.compress.zlib.Zlib.Writer {
-
-}
-@:forward @:forward.new abstract T_reader_asInterface(stdgo._internal.compress.zlib.Zlib.T_reader_asInterface) from stdgo._internal.compress.zlib.Zlib.T_reader_asInterface to stdgo._internal.compress.zlib.Zlib.T_reader_asInterface {
-
-}
-@:forward @:forward.new abstract T_reader_static_extension(stdgo._internal.compress.zlib.Zlib.T_reader_static_extension) from stdgo._internal.compress.zlib.Zlib.T_reader_static_extension to stdgo._internal.compress.zlib.Zlib.T_reader_static_extension {
-
-}
-@:forward @:forward.new abstract Writer_asInterface(stdgo._internal.compress.zlib.Zlib.Writer_asInterface) from stdgo._internal.compress.zlib.Zlib.Writer_asInterface to stdgo._internal.compress.zlib.Zlib.Writer_asInterface {
-
-}
-@:forward @:forward.new abstract Writer_static_extension(stdgo._internal.compress.zlib.Zlib.Writer_static_extension) from stdgo._internal.compress.zlib.Zlib.Writer_static_extension to stdgo._internal.compress.zlib.Zlib.Writer_static_extension {
-
+abstract Writer(stdgo._internal.compress.zlib.Zlib.Writer) from stdgo._internal.compress.zlib.Zlib.Writer to stdgo._internal.compress.zlib.Zlib.Writer {
+    public var _w(get, set) : stdgo._internal.io.Io.Writer;
+    function get__w():stdgo._internal.io.Io.Writer return this._w;
+    function set__w(v:stdgo._internal.io.Io.Writer):stdgo._internal.io.Io.Writer {
+        this._w = v;
+        return v;
+    }
+    public var _level(get, set) : StdTypes.Int;
+    function get__level():StdTypes.Int return this._level;
+    function set__level(v:StdTypes.Int):StdTypes.Int {
+        this._level = v;
+        return v;
+    }
+    public var _dict(get, set) : Array<std.UInt>;
+    function get__dict():Array<std.UInt> return [for (i in this._dict) i];
+    function set__dict(v:Array<std.UInt>):Array<std.UInt> {
+        this._dict = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _compressor(get, set) : stdgo._internal.compress.flate.Flate.Writer;
+    function get__compressor():stdgo._internal.compress.flate.Flate.Writer return this._compressor;
+    function set__compressor(v:stdgo._internal.compress.flate.Flate.Writer):stdgo._internal.compress.flate.Flate.Writer {
+        this._compressor = v;
+        return v;
+    }
+    public var _digest(get, set) : stdgo._internal.hash.Hash.Hash32;
+    function get__digest():stdgo._internal.hash.Hash.Hash32 return this._digest;
+    function set__digest(v:stdgo._internal.hash.Hash.Hash32):stdgo._internal.hash.Hash.Hash32 {
+        this._digest = v;
+        return v;
+    }
+    public var _err(get, set) : stdgo.Error;
+    function get__err():stdgo.Error return this._err;
+    function set__err(v:stdgo.Error):stdgo.Error {
+        this._err = v;
+        return v;
+    }
+    public var _scratch(get, set) : haxe.ds.Vector<std.UInt>;
+    function get__scratch():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._scratch) i]);
+    function set__scratch(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
+        this._scratch = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _wroteHeader(get, set) : Bool;
+    function get__wroteHeader():Bool return this._wroteHeader;
+    function set__wroteHeader(v:Bool):Bool {
+        this._wroteHeader = v;
+        return v;
+    }
+    public function new(?_w:stdgo._internal.io.Io.Writer, ?_level:StdTypes.Int, ?_dict:Array<std.UInt>, ?_compressor:stdgo._internal.compress.flate.Flate.Writer, ?_digest:stdgo._internal.hash.Hash.Hash32, ?_err:stdgo.Error, ?_scratch:haxe.ds.Vector<std.UInt>, ?_wroteHeader:Bool) this = new stdgo._internal.compress.zlib.Zlib.Writer(_w, _level, ([for (i in _dict) i] : stdgo.Slice<stdgo.GoUInt8>), _compressor, _digest, _err, ([for (i in _scratch) i] : stdgo.GoArray<stdgo.GoUInt8>), _wroteHeader);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 class Zlib {
     /**

@@ -4,23 +4,127 @@ package stdgo.runtime;
     they are running.
 **/
 private var __go2hxdoc__package : Bool;
-@:forward @:forward.new abstract GCStats(stdgo._internal.runtime.debug.Debug.GCStats) from stdgo._internal.runtime.debug.Debug.GCStats to stdgo._internal.runtime.debug.Debug.GCStats {
-
+abstract GCStats(stdgo._internal.runtime.debug.Debug.GCStats) from stdgo._internal.runtime.debug.Debug.GCStats to stdgo._internal.runtime.debug.Debug.GCStats {
+    public var lastGC(get, set) : stdgo._internal.time.Time.Time;
+    function get_lastGC():stdgo._internal.time.Time.Time return this.lastGC;
+    function set_lastGC(v:stdgo._internal.time.Time.Time):stdgo._internal.time.Time.Time {
+        this.lastGC = v;
+        return v;
+    }
+    public var numGC(get, set) : haxe.Int64;
+    function get_numGC():haxe.Int64 return this.numGC;
+    function set_numGC(v:haxe.Int64):haxe.Int64 {
+        this.numGC = v;
+        return v;
+    }
+    public var pauseTotal(get, set) : stdgo._internal.time.Time.Duration;
+    function get_pauseTotal():stdgo._internal.time.Time.Duration return this.pauseTotal;
+    function set_pauseTotal(v:stdgo._internal.time.Time.Duration):stdgo._internal.time.Time.Duration {
+        this.pauseTotal = v;
+        return v;
+    }
+    public var pause(get, set) : Array<stdgo._internal.time.Time.Duration>;
+    function get_pause():Array<stdgo._internal.time.Time.Duration> return [for (i in this.pause) i];
+    function set_pause(v:Array<stdgo._internal.time.Time.Duration>):Array<stdgo._internal.time.Time.Duration> {
+        this.pause = ([for (i in v) i] : stdgo.Slice<stdgo._internal.time.Time.Duration>);
+        return v;
+    }
+    public var pauseEnd(get, set) : Array<stdgo._internal.time.Time.Time>;
+    function get_pauseEnd():Array<stdgo._internal.time.Time.Time> return [for (i in this.pauseEnd) i];
+    function set_pauseEnd(v:Array<stdgo._internal.time.Time.Time>):Array<stdgo._internal.time.Time.Time> {
+        this.pauseEnd = ([for (i in v) i] : stdgo.Slice<stdgo._internal.time.Time.Time>);
+        return v;
+    }
+    public var pauseQuantiles(get, set) : Array<stdgo._internal.time.Time.Duration>;
+    function get_pauseQuantiles():Array<stdgo._internal.time.Time.Duration> return [for (i in this.pauseQuantiles) i];
+    function set_pauseQuantiles(v:Array<stdgo._internal.time.Time.Duration>):Array<stdgo._internal.time.Time.Duration> {
+        this.pauseQuantiles = ([for (i in v) i] : stdgo.Slice<stdgo._internal.time.Time.Duration>);
+        return v;
+    }
+    public function new(?lastGC:stdgo._internal.time.Time.Time, ?numGC:haxe.Int64, ?pauseTotal:stdgo._internal.time.Time.Duration, ?pause:Array<stdgo._internal.time.Time.Duration>, ?pauseEnd:Array<stdgo._internal.time.Time.Time>, ?pauseQuantiles:Array<stdgo._internal.time.Time.Duration>) this = new stdgo._internal.runtime.debug.Debug.GCStats(lastGC, numGC, pauseTotal, ([for (i in pause) i] : stdgo.Slice<stdgo._internal.time.Time.Duration>), ([for (i in pauseEnd) i] : stdgo.Slice<stdgo._internal.time.Time.Time>), ([for (i in pauseQuantiles) i] : stdgo.Slice<stdgo._internal.time.Time.Duration>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract BuildInfo(stdgo._internal.runtime.debug.Debug.BuildInfo) from stdgo._internal.runtime.debug.Debug.BuildInfo to stdgo._internal.runtime.debug.Debug.BuildInfo {
-
+abstract BuildInfo(stdgo._internal.runtime.debug.Debug.BuildInfo) from stdgo._internal.runtime.debug.Debug.BuildInfo to stdgo._internal.runtime.debug.Debug.BuildInfo {
+    public var goVersion(get, set) : String;
+    function get_goVersion():String return this.goVersion;
+    function set_goVersion(v:String):String {
+        this.goVersion = v;
+        return v;
+    }
+    public var path(get, set) : String;
+    function get_path():String return this.path;
+    function set_path(v:String):String {
+        this.path = v;
+        return v;
+    }
+    public var _Main(get, set) : stdgo._internal.runtime.debug.Debug.Module;
+    function get__Main():stdgo._internal.runtime.debug.Debug.Module return this._Main;
+    function set__Main(v:stdgo._internal.runtime.debug.Debug.Module):stdgo._internal.runtime.debug.Debug.Module {
+        this._Main = v;
+        return v;
+    }
+    public var deps(get, set) : Array<stdgo._internal.runtime.debug.Debug.Module>;
+    function get_deps():Array<stdgo._internal.runtime.debug.Debug.Module> return [for (i in this.deps) i];
+    function set_deps(v:Array<stdgo._internal.runtime.debug.Debug.Module>):Array<stdgo._internal.runtime.debug.Debug.Module> {
+        this.deps = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.debug.Debug.Module>>);
+        return v;
+    }
+    public var settings(get, set) : Array<stdgo._internal.runtime.debug.Debug.BuildSetting>;
+    function get_settings():Array<stdgo._internal.runtime.debug.Debug.BuildSetting> return [for (i in this.settings) i];
+    function set_settings(v:Array<stdgo._internal.runtime.debug.Debug.BuildSetting>):Array<stdgo._internal.runtime.debug.Debug.BuildSetting> {
+        this.settings = ([for (i in v) i] : stdgo.Slice<stdgo._internal.runtime.debug.Debug.BuildSetting>);
+        return v;
+    }
+    public function new(?goVersion:String, ?path:String, ?_Main:stdgo._internal.runtime.debug.Debug.Module, ?deps:Array<stdgo._internal.runtime.debug.Debug.Module>, ?settings:Array<stdgo._internal.runtime.debug.Debug.BuildSetting>) this = new stdgo._internal.runtime.debug.Debug.BuildInfo(goVersion, path, _Main, ([for (i in deps) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.debug.Debug.Module>>), ([for (i in settings) i] : stdgo.Slice<stdgo._internal.runtime.debug.Debug.BuildSetting>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Module(stdgo._internal.runtime.debug.Debug.Module) from stdgo._internal.runtime.debug.Debug.Module to stdgo._internal.runtime.debug.Debug.Module {
-
+abstract Module(stdgo._internal.runtime.debug.Debug.Module) from stdgo._internal.runtime.debug.Debug.Module to stdgo._internal.runtime.debug.Debug.Module {
+    public var path(get, set) : String;
+    function get_path():String return this.path;
+    function set_path(v:String):String {
+        this.path = v;
+        return v;
+    }
+    public var version(get, set) : String;
+    function get_version():String return this.version;
+    function set_version(v:String):String {
+        this.version = v;
+        return v;
+    }
+    public var sum(get, set) : String;
+    function get_sum():String return this.sum;
+    function set_sum(v:String):String {
+        this.sum = v;
+        return v;
+    }
+    public var replace(get, set) : stdgo._internal.runtime.debug.Debug.Module;
+    function get_replace():stdgo._internal.runtime.debug.Debug.Module return this.replace;
+    function set_replace(v:stdgo._internal.runtime.debug.Debug.Module):stdgo._internal.runtime.debug.Debug.Module {
+        this.replace = v;
+        return v;
+    }
+    public function new(?path:String, ?version:String, ?sum:String, ?replace:stdgo._internal.runtime.debug.Debug.Module) this = new stdgo._internal.runtime.debug.Debug.Module(path, version, sum, replace);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract BuildSetting(stdgo._internal.runtime.debug.Debug.BuildSetting) from stdgo._internal.runtime.debug.Debug.BuildSetting to stdgo._internal.runtime.debug.Debug.BuildSetting {
-
-}
-@:forward @:forward.new abstract BuildInfo_asInterface(stdgo._internal.runtime.debug.Debug.BuildInfo_asInterface) from stdgo._internal.runtime.debug.Debug.BuildInfo_asInterface to stdgo._internal.runtime.debug.Debug.BuildInfo_asInterface {
-
-}
-@:forward @:forward.new abstract BuildInfo_static_extension(stdgo._internal.runtime.debug.Debug.BuildInfo_static_extension) from stdgo._internal.runtime.debug.Debug.BuildInfo_static_extension to stdgo._internal.runtime.debug.Debug.BuildInfo_static_extension {
-
+abstract BuildSetting(stdgo._internal.runtime.debug.Debug.BuildSetting) from stdgo._internal.runtime.debug.Debug.BuildSetting to stdgo._internal.runtime.debug.Debug.BuildSetting {
+    public var key(get, set) : String;
+    function get_key():String return this.key;
+    function set_key(v:String):String {
+        this.key = v;
+        return v;
+    }
+    public var value(get, set) : String;
+    function get_value():String return this.value;
+    function set_value(v:String):String {
+        this.value = v;
+        return v;
+    }
+    public function new(?key:String, ?value:String) this = new stdgo._internal.runtime.debug.Debug.BuildSetting(key, value);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 class Debug {
     /**

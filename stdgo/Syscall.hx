@@ -116,7 +116,10 @@ final s_IWOTH : haxe.UInt64 = stdgo._internal.syscall.Syscall.s_IWOTH;
 final s_IXOTH : haxe.UInt64 = stdgo._internal.syscall.Syscall.s_IXOTH;
 var forkLock(get, set) : stdgo._internal.sync.Sync.RWMutex;
 private function get_forkLock():stdgo._internal.sync.Sync.RWMutex return stdgo._internal.syscall.Syscall.forkLock;
-private function set_forkLock(v:stdgo._internal.sync.Sync.RWMutex):stdgo._internal.sync.Sync.RWMutex return stdgo._internal.syscall.Syscall.forkLock = v;
+private function set_forkLock(v:stdgo._internal.sync.Sync.RWMutex):stdgo._internal.sync.Sync.RWMutex {
+        stdgo._internal.syscall.Syscall.forkLock = v;
+        return v;
+    }
 final implementsGetwd : Bool = stdgo._internal.syscall.Syscall.implementsGetwd;
 final eperm : stdgo._internal.syscall.Syscall.Errno = stdgo._internal.syscall.Syscall.eperm;
 final enoent : stdgo._internal.syscall.Syscall.Errno = stdgo._internal.syscall.Syscall.enoent;
@@ -240,84 +243,322 @@ final eproclim : stdgo._internal.syscall.Syscall.Errno = stdgo._internal.syscall
 final enoshare : stdgo._internal.syscall.Syscall.Errno = stdgo._internal.syscall.Syscall.enoshare;
 final ecaseclash : stdgo._internal.syscall.Syscall.Errno = stdgo._internal.syscall.Syscall.ecaseclash;
 final ewouldblock : stdgo._internal.syscall.Syscall.Errno = stdgo._internal.syscall.Syscall.ewouldblock;
-@:forward @:forward.new abstract RawConn_static_extension(stdgo._internal.syscall.Syscall.RawConn_static_extension) from stdgo._internal.syscall.Syscall.RawConn_static_extension to stdgo._internal.syscall.Syscall.RawConn_static_extension {
-
-}
 typedef RawConn = stdgo._internal.syscall.Syscall.RawConn;
-@:forward @:forward.new abstract Conn_static_extension(stdgo._internal.syscall.Syscall.Conn_static_extension) from stdgo._internal.syscall.Syscall.Conn_static_extension to stdgo._internal.syscall.Syscall.Conn_static_extension {
-
-}
 typedef Conn = stdgo._internal.syscall.Syscall.Conn;
-@:forward @:forward.new abstract T_jsFile(stdgo._internal.syscall.Syscall.T_jsFile) from stdgo._internal.syscall.Syscall.T_jsFile to stdgo._internal.syscall.Syscall.T_jsFile {
-
+abstract T_jsFile(stdgo._internal.syscall.Syscall.T_jsFile) from stdgo._internal.syscall.Syscall.T_jsFile to stdgo._internal.syscall.Syscall.T_jsFile {
+    public var _path(get, set) : String;
+    function get__path():String return this._path;
+    function set__path(v:String):String {
+        this._path = v;
+        return v;
+    }
+    public var _entries(get, set) : Array<String>;
+    function get__entries():Array<String> return [for (i in this._entries) i];
+    function set__entries(v:Array<String>):Array<String> {
+        this._entries = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        return v;
+    }
+    public var _dirIdx(get, set) : StdTypes.Int;
+    function get__dirIdx():StdTypes.Int return this._dirIdx;
+    function set__dirIdx(v:StdTypes.Int):StdTypes.Int {
+        this._dirIdx = v;
+        return v;
+    }
+    public var _pos(get, set) : haxe.Int64;
+    function get__pos():haxe.Int64 return this._pos;
+    function set__pos(v:haxe.Int64):haxe.Int64 {
+        this._pos = v;
+        return v;
+    }
+    public var _seeked(get, set) : Bool;
+    function get__seeked():Bool return this._seeked;
+    function set__seeked(v:Bool):Bool {
+        this._seeked = v;
+        return v;
+    }
+    public function new(?_path:String, ?_entries:Array<String>, ?_dirIdx:StdTypes.Int, ?_pos:haxe.Int64, ?_seeked:Bool) this = new stdgo._internal.syscall.Syscall.T_jsFile(_path, ([for (i in _entries) i] : stdgo.Slice<stdgo.GoString>), _dirIdx, _pos, _seeked);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract SockaddrInet4(stdgo._internal.syscall.Syscall.SockaddrInet4) from stdgo._internal.syscall.Syscall.SockaddrInet4 to stdgo._internal.syscall.Syscall.SockaddrInet4 {
-
+abstract SockaddrInet4(stdgo._internal.syscall.Syscall.SockaddrInet4) from stdgo._internal.syscall.Syscall.SockaddrInet4 to stdgo._internal.syscall.Syscall.SockaddrInet4 {
+    public var port(get, set) : StdTypes.Int;
+    function get_port():StdTypes.Int return this.port;
+    function set_port(v:StdTypes.Int):StdTypes.Int {
+        this.port = v;
+        return v;
+    }
+    public var addr(get, set) : haxe.ds.Vector<std.UInt>;
+    function get_addr():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.addr) i]);
+    function set_addr(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
+        this.addr = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        return v;
+    }
+    public function new(?port:StdTypes.Int, ?addr:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.syscall.Syscall.SockaddrInet4(port, ([for (i in addr) i] : stdgo.GoArray<stdgo.GoUInt8>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract SockaddrInet6(stdgo._internal.syscall.Syscall.SockaddrInet6) from stdgo._internal.syscall.Syscall.SockaddrInet6 to stdgo._internal.syscall.Syscall.SockaddrInet6 {
-
+abstract SockaddrInet6(stdgo._internal.syscall.Syscall.SockaddrInet6) from stdgo._internal.syscall.Syscall.SockaddrInet6 to stdgo._internal.syscall.Syscall.SockaddrInet6 {
+    public var port(get, set) : StdTypes.Int;
+    function get_port():StdTypes.Int return this.port;
+    function set_port(v:StdTypes.Int):StdTypes.Int {
+        this.port = v;
+        return v;
+    }
+    public var zoneId(get, set) : std.UInt;
+    function get_zoneId():std.UInt return this.zoneId;
+    function set_zoneId(v:std.UInt):std.UInt {
+        this.zoneId = v;
+        return v;
+    }
+    public var addr(get, set) : haxe.ds.Vector<std.UInt>;
+    function get_addr():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.addr) i]);
+    function set_addr(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
+        this.addr = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        return v;
+    }
+    public function new(?port:StdTypes.Int, ?zoneId:std.UInt, ?addr:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.syscall.Syscall.SockaddrInet6(port, zoneId, ([for (i in addr) i] : stdgo.GoArray<stdgo.GoUInt8>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract SockaddrUnix(stdgo._internal.syscall.Syscall.SockaddrUnix) from stdgo._internal.syscall.Syscall.SockaddrUnix to stdgo._internal.syscall.Syscall.SockaddrUnix {
-
+abstract SockaddrUnix(stdgo._internal.syscall.Syscall.SockaddrUnix) from stdgo._internal.syscall.Syscall.SockaddrUnix to stdgo._internal.syscall.Syscall.SockaddrUnix {
+    public var name(get, set) : String;
+    function get_name():String return this.name;
+    function set_name(v:String):String {
+        this.name = v;
+        return v;
+    }
+    public function new(?name:String) this = new stdgo._internal.syscall.Syscall.SockaddrUnix(name);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Dirent(stdgo._internal.syscall.Syscall.Dirent) from stdgo._internal.syscall.Syscall.Dirent to stdgo._internal.syscall.Syscall.Dirent {
-
+abstract Dirent(stdgo._internal.syscall.Syscall.Dirent) from stdgo._internal.syscall.Syscall.Dirent to stdgo._internal.syscall.Syscall.Dirent {
+    public var reclen(get, set) : std.UInt;
+    function get_reclen():std.UInt return this.reclen;
+    function set_reclen(v:std.UInt):std.UInt {
+        this.reclen = v;
+        return v;
+    }
+    public var name(get, set) : haxe.ds.Vector<std.UInt>;
+    function get_name():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.name) i]);
+    function set_name(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
+        this.name = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        return v;
+    }
+    public function new(?reclen:std.UInt, ?name:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.syscall.Syscall.Dirent(reclen, ([for (i in name) i] : stdgo.GoArray<stdgo.GoUInt8>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Stat_t(stdgo._internal.syscall.Syscall.Stat_t) from stdgo._internal.syscall.Syscall.Stat_t to stdgo._internal.syscall.Syscall.Stat_t {
-
+abstract Stat_t(stdgo._internal.syscall.Syscall.Stat_t) from stdgo._internal.syscall.Syscall.Stat_t to stdgo._internal.syscall.Syscall.Stat_t {
+    public var dev(get, set) : haxe.Int64;
+    function get_dev():haxe.Int64 return this.dev;
+    function set_dev(v:haxe.Int64):haxe.Int64 {
+        this.dev = v;
+        return v;
+    }
+    public var ino(get, set) : haxe.UInt64;
+    function get_ino():haxe.UInt64 return this.ino;
+    function set_ino(v:haxe.UInt64):haxe.UInt64 {
+        this.ino = v;
+        return v;
+    }
+    public var mode(get, set) : std.UInt;
+    function get_mode():std.UInt return this.mode;
+    function set_mode(v:std.UInt):std.UInt {
+        this.mode = v;
+        return v;
+    }
+    public var nlink(get, set) : std.UInt;
+    function get_nlink():std.UInt return this.nlink;
+    function set_nlink(v:std.UInt):std.UInt {
+        this.nlink = v;
+        return v;
+    }
+    public var uid(get, set) : std.UInt;
+    function get_uid():std.UInt return this.uid;
+    function set_uid(v:std.UInt):std.UInt {
+        this.uid = v;
+        return v;
+    }
+    public var gid(get, set) : std.UInt;
+    function get_gid():std.UInt return this.gid;
+    function set_gid(v:std.UInt):std.UInt {
+        this.gid = v;
+        return v;
+    }
+    public var rdev(get, set) : haxe.Int64;
+    function get_rdev():haxe.Int64 return this.rdev;
+    function set_rdev(v:haxe.Int64):haxe.Int64 {
+        this.rdev = v;
+        return v;
+    }
+    public var size(get, set) : haxe.Int64;
+    function get_size():haxe.Int64 return this.size;
+    function set_size(v:haxe.Int64):haxe.Int64 {
+        this.size = v;
+        return v;
+    }
+    public var blksize(get, set) : StdTypes.Int;
+    function get_blksize():StdTypes.Int return this.blksize;
+    function set_blksize(v:StdTypes.Int):StdTypes.Int {
+        this.blksize = v;
+        return v;
+    }
+    public var blocks(get, set) : StdTypes.Int;
+    function get_blocks():StdTypes.Int return this.blocks;
+    function set_blocks(v:StdTypes.Int):StdTypes.Int {
+        this.blocks = v;
+        return v;
+    }
+    public var atime(get, set) : haxe.Int64;
+    function get_atime():haxe.Int64 return this.atime;
+    function set_atime(v:haxe.Int64):haxe.Int64 {
+        this.atime = v;
+        return v;
+    }
+    public var atimeNsec(get, set) : haxe.Int64;
+    function get_atimeNsec():haxe.Int64 return this.atimeNsec;
+    function set_atimeNsec(v:haxe.Int64):haxe.Int64 {
+        this.atimeNsec = v;
+        return v;
+    }
+    public var mtime(get, set) : haxe.Int64;
+    function get_mtime():haxe.Int64 return this.mtime;
+    function set_mtime(v:haxe.Int64):haxe.Int64 {
+        this.mtime = v;
+        return v;
+    }
+    public var mtimeNsec(get, set) : haxe.Int64;
+    function get_mtimeNsec():haxe.Int64 return this.mtimeNsec;
+    function set_mtimeNsec(v:haxe.Int64):haxe.Int64 {
+        this.mtimeNsec = v;
+        return v;
+    }
+    public var ctime(get, set) : haxe.Int64;
+    function get_ctime():haxe.Int64 return this.ctime;
+    function set_ctime(v:haxe.Int64):haxe.Int64 {
+        this.ctime = v;
+        return v;
+    }
+    public var ctimeNsec(get, set) : haxe.Int64;
+    function get_ctimeNsec():haxe.Int64 return this.ctimeNsec;
+    function set_ctimeNsec(v:haxe.Int64):haxe.Int64 {
+        this.ctimeNsec = v;
+        return v;
+    }
+    public function new(?dev:haxe.Int64, ?ino:haxe.UInt64, ?mode:std.UInt, ?nlink:std.UInt, ?uid:std.UInt, ?gid:std.UInt, ?rdev:haxe.Int64, ?size:haxe.Int64, ?blksize:StdTypes.Int, ?blocks:StdTypes.Int, ?atime:haxe.Int64, ?atimeNsec:haxe.Int64, ?mtime:haxe.Int64, ?mtimeNsec:haxe.Int64, ?ctime:haxe.Int64, ?ctimeNsec:haxe.Int64) this = new stdgo._internal.syscall.Syscall.Stat_t(
+dev,
+ino,
+mode,
+nlink,
+uid,
+gid,
+rdev,
+size,
+blksize,
+blocks,
+atime,
+atimeNsec,
+mtime,
+mtimeNsec,
+ctime,
+ctimeNsec);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Rusage(stdgo._internal.syscall.Syscall.Rusage) from stdgo._internal.syscall.Syscall.Rusage to stdgo._internal.syscall.Syscall.Rusage {
-
+abstract Rusage(stdgo._internal.syscall.Syscall.Rusage) from stdgo._internal.syscall.Syscall.Rusage to stdgo._internal.syscall.Syscall.Rusage {
+    public var utime(get, set) : stdgo._internal.syscall.Syscall.Timeval;
+    function get_utime():stdgo._internal.syscall.Syscall.Timeval return this.utime;
+    function set_utime(v:stdgo._internal.syscall.Syscall.Timeval):stdgo._internal.syscall.Syscall.Timeval {
+        this.utime = v;
+        return v;
+    }
+    public var stime(get, set) : stdgo._internal.syscall.Syscall.Timeval;
+    function get_stime():stdgo._internal.syscall.Syscall.Timeval return this.stime;
+    function set_stime(v:stdgo._internal.syscall.Syscall.Timeval):stdgo._internal.syscall.Syscall.Timeval {
+        this.stime = v;
+        return v;
+    }
+    public function new(?utime:stdgo._internal.syscall.Syscall.Timeval, ?stime:stdgo._internal.syscall.Syscall.Timeval) this = new stdgo._internal.syscall.Syscall.Rusage(utime, stime);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract ProcAttr(stdgo._internal.syscall.Syscall.ProcAttr) from stdgo._internal.syscall.Syscall.ProcAttr to stdgo._internal.syscall.Syscall.ProcAttr {
-
+abstract ProcAttr(stdgo._internal.syscall.Syscall.ProcAttr) from stdgo._internal.syscall.Syscall.ProcAttr to stdgo._internal.syscall.Syscall.ProcAttr {
+    public var dir(get, set) : String;
+    function get_dir():String return this.dir;
+    function set_dir(v:String):String {
+        this.dir = v;
+        return v;
+    }
+    public var env(get, set) : Array<String>;
+    function get_env():Array<String> return [for (i in this.env) i];
+    function set_env(v:Array<String>):Array<String> {
+        this.env = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        return v;
+    }
+    public var files(get, set) : Array<stdgo.GoUIntptr>;
+    function get_files():Array<stdgo.GoUIntptr> return [for (i in this.files) i];
+    function set_files(v:Array<stdgo.GoUIntptr>):Array<stdgo.GoUIntptr> {
+        this.files = ([for (i in v) i] : stdgo.Slice<stdgo.GoUIntptr>);
+        return v;
+    }
+    public var sys(get, set) : stdgo._internal.syscall.Syscall.SysProcAttr;
+    function get_sys():stdgo._internal.syscall.Syscall.SysProcAttr return this.sys;
+    function set_sys(v:stdgo._internal.syscall.Syscall.SysProcAttr):stdgo._internal.syscall.Syscall.SysProcAttr {
+        this.sys = v;
+        return v;
+    }
+    public function new(?dir:String, ?env:Array<String>, ?files:Array<stdgo.GoUIntptr>, ?sys:stdgo._internal.syscall.Syscall.SysProcAttr) this = new stdgo._internal.syscall.Syscall.ProcAttr(dir, ([for (i in env) i] : stdgo.Slice<stdgo.GoString>), ([for (i in files) i] : stdgo.Slice<stdgo.GoUIntptr>), sys);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract SysProcAttr(stdgo._internal.syscall.Syscall.SysProcAttr) from stdgo._internal.syscall.Syscall.SysProcAttr to stdgo._internal.syscall.Syscall.SysProcAttr {
-
+abstract SysProcAttr(stdgo._internal.syscall.Syscall.SysProcAttr) from stdgo._internal.syscall.Syscall.SysProcAttr to stdgo._internal.syscall.Syscall.SysProcAttr {
+    public function new() this = new stdgo._internal.syscall.Syscall.SysProcAttr();
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Iovec(stdgo._internal.syscall.Syscall.Iovec) from stdgo._internal.syscall.Syscall.Iovec to stdgo._internal.syscall.Syscall.Iovec {
-
+abstract Iovec(stdgo._internal.syscall.Syscall.Iovec) from stdgo._internal.syscall.Syscall.Iovec to stdgo._internal.syscall.Syscall.Iovec {
+    public function new() this = new stdgo._internal.syscall.Syscall.Iovec();
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Timespec(stdgo._internal.syscall.Syscall.Timespec) from stdgo._internal.syscall.Syscall.Timespec to stdgo._internal.syscall.Syscall.Timespec {
-
+abstract Timespec(stdgo._internal.syscall.Syscall.Timespec) from stdgo._internal.syscall.Syscall.Timespec to stdgo._internal.syscall.Syscall.Timespec {
+    public var sec(get, set) : haxe.Int64;
+    function get_sec():haxe.Int64 return this.sec;
+    function set_sec(v:haxe.Int64):haxe.Int64 {
+        this.sec = v;
+        return v;
+    }
+    public var nsec(get, set) : haxe.Int64;
+    function get_nsec():haxe.Int64 return this.nsec;
+    function set_nsec(v:haxe.Int64):haxe.Int64 {
+        this.nsec = v;
+        return v;
+    }
+    public function new(?sec:haxe.Int64, ?nsec:haxe.Int64) this = new stdgo._internal.syscall.Syscall.Timespec(sec, nsec);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Timeval(stdgo._internal.syscall.Syscall.Timeval) from stdgo._internal.syscall.Syscall.Timeval to stdgo._internal.syscall.Syscall.Timeval {
-
+abstract Timeval(stdgo._internal.syscall.Syscall.Timeval) from stdgo._internal.syscall.Syscall.Timeval to stdgo._internal.syscall.Syscall.Timeval {
+    public var sec(get, set) : haxe.Int64;
+    function get_sec():haxe.Int64 return this.sec;
+    function set_sec(v:haxe.Int64):haxe.Int64 {
+        this.sec = v;
+        return v;
+    }
+    public var usec(get, set) : haxe.Int64;
+    function get_usec():haxe.Int64 return this.usec;
+    function set_usec(v:haxe.Int64):haxe.Int64 {
+        this.usec = v;
+        return v;
+    }
+    public function new(?sec:haxe.Int64, ?usec:haxe.Int64) this = new stdgo._internal.syscall.Syscall.Timeval(sec, usec);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef Sockaddr = stdgo._internal.syscall.Syscall.Sockaddr;
 typedef Errno = stdgo._internal.syscall.Syscall.Errno;
 typedef Signal = stdgo._internal.syscall.Syscall.Signal;
 typedef WaitStatus = stdgo._internal.syscall.Syscall.WaitStatus;
-@:forward @:forward.new abstract Timespec_asInterface(stdgo._internal.syscall.Syscall.Timespec_asInterface) from stdgo._internal.syscall.Syscall.Timespec_asInterface to stdgo._internal.syscall.Syscall.Timespec_asInterface {
-
-}
-@:forward @:forward.new abstract Timespec_static_extension(stdgo._internal.syscall.Syscall.Timespec_static_extension) from stdgo._internal.syscall.Syscall.Timespec_static_extension to stdgo._internal.syscall.Syscall.Timespec_static_extension {
-
-}
-@:forward @:forward.new abstract Timeval_asInterface(stdgo._internal.syscall.Syscall.Timeval_asInterface) from stdgo._internal.syscall.Syscall.Timeval_asInterface to stdgo._internal.syscall.Syscall.Timeval_asInterface {
-
-}
-@:forward @:forward.new abstract Timeval_static_extension(stdgo._internal.syscall.Syscall.Timeval_static_extension) from stdgo._internal.syscall.Syscall.Timeval_static_extension to stdgo._internal.syscall.Syscall.Timeval_static_extension {
-
-}
-@:forward @:forward.new abstract Errno_asInterface(stdgo._internal.syscall.Syscall.Errno_asInterface) from stdgo._internal.syscall.Syscall.Errno_asInterface to stdgo._internal.syscall.Syscall.Errno_asInterface {
-
-}
-@:forward @:forward.new abstract Errno_static_extension(stdgo._internal.syscall.Syscall.Errno_static_extension) from stdgo._internal.syscall.Syscall.Errno_static_extension to stdgo._internal.syscall.Syscall.Errno_static_extension {
-
-}
-@:forward @:forward.new abstract Signal_asInterface(stdgo._internal.syscall.Syscall.Signal_asInterface) from stdgo._internal.syscall.Syscall.Signal_asInterface to stdgo._internal.syscall.Syscall.Signal_asInterface {
-
-}
-@:forward @:forward.new abstract Signal_static_extension(stdgo._internal.syscall.Syscall.Signal_static_extension) from stdgo._internal.syscall.Syscall.Signal_static_extension to stdgo._internal.syscall.Syscall.Signal_static_extension {
-
-}
-@:forward @:forward.new abstract WaitStatus_asInterface(stdgo._internal.syscall.Syscall.WaitStatus_asInterface) from stdgo._internal.syscall.Syscall.WaitStatus_asInterface to stdgo._internal.syscall.Syscall.WaitStatus_asInterface {
-
-}
-@:forward @:forward.new abstract WaitStatus_static_extension(stdgo._internal.syscall.Syscall.WaitStatus_static_extension) from stdgo._internal.syscall.Syscall.WaitStatus_static_extension to stdgo._internal.syscall.Syscall.WaitStatus_static_extension {
-
-}
 class Syscall {
     /**
         ParseDirent parses up to max directory entries in buf,

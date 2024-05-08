@@ -5,14 +5,22 @@ package stdgo.math;
     Annex G IEC 60559-compatible complex arithmetic.
 **/
 private var __go2hxdoc__package : Bool;
-@:forward @:forward.new abstract T_ff(stdgo._internal.math.cmplx.Cmplx.T_ff) from stdgo._internal.math.cmplx.Cmplx.T_ff to stdgo._internal.math.cmplx.Cmplx.T_ff {
-
-}
-@:forward @:forward.new abstract T__struct_0_asInterface(stdgo._internal.math.cmplx.Cmplx.T__struct_0_asInterface) from stdgo._internal.math.cmplx.Cmplx.T__struct_0_asInterface to stdgo._internal.math.cmplx.Cmplx.T__struct_0_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_0_static_extension(stdgo._internal.math.cmplx.Cmplx.T__struct_0_static_extension) from stdgo._internal.math.cmplx.Cmplx.T__struct_0_static_extension to stdgo._internal.math.cmplx.Cmplx.T__struct_0_static_extension {
-
+abstract T_ff(stdgo._internal.math.cmplx.Cmplx.T_ff) from stdgo._internal.math.cmplx.Cmplx.T_ff to stdgo._internal.math.cmplx.Cmplx.T_ff {
+    public var _r(get, set) : StdTypes.Float;
+    function get__r():StdTypes.Float return this._r;
+    function set__r(v:StdTypes.Float):StdTypes.Float {
+        this._r = v;
+        return v;
+    }
+    public var _theta(get, set) : StdTypes.Float;
+    function get__theta():StdTypes.Float return this._theta;
+    function set__theta(v:StdTypes.Float):StdTypes.Float {
+        this._theta = v;
+        return v;
+    }
+    public function new(?_r:StdTypes.Float, ?_theta:StdTypes.Float) this = new stdgo._internal.math.cmplx.Cmplx.T_ff(_r, _theta);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef T__struct_0 = stdgo._internal.math.cmplx.Cmplx.T__struct_0;
 class Cmplx {

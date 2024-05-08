@@ -44,92 +44,180 @@ package stdgo.sync;
     C++'s sequentially consistent atomics and Java's volatile variables.
 **/
 private var __go2hxdoc__package : Bool;
-@:forward @:forward.new abstract Bool_(stdgo._internal.sync.atomic_.Atomic_.Bool_) from stdgo._internal.sync.atomic_.Atomic_.Bool_ to stdgo._internal.sync.atomic_.Atomic_.Bool_ {
-
+abstract Bool_(stdgo._internal.sync.atomic_.Atomic_.Bool_) from stdgo._internal.sync.atomic_.Atomic_.Bool_ to stdgo._internal.sync.atomic_.Atomic_.Bool_ {
+    public var __2(get, set) : stdgo._internal.sync.atomic_.Atomic_.T_noCopy;
+    function get___2():stdgo._internal.sync.atomic_.Atomic_.T_noCopy return this.__2;
+    function set___2(v:stdgo._internal.sync.atomic_.Atomic_.T_noCopy):stdgo._internal.sync.atomic_.Atomic_.T_noCopy {
+        this.__2 = v;
+        return v;
+    }
+    public var _v(get, set) : std.UInt;
+    function get__v():std.UInt return this._v;
+    function set__v(v:std.UInt):std.UInt {
+        this._v = v;
+        return v;
+    }
+    public function new(?__2:stdgo._internal.sync.atomic_.Atomic_.T_noCopy, ?_v:std.UInt) this = new stdgo._internal.sync.atomic_.Atomic_.Bool_(__2, _v);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Pointer_(stdgo._internal.sync.atomic_.Atomic_.Pointer_) from stdgo._internal.sync.atomic_.Atomic_.Pointer_ to stdgo._internal.sync.atomic_.Atomic_.Pointer_ {
-
+abstract Pointer_(stdgo._internal.sync.atomic_.Atomic_.Pointer_) from stdgo._internal.sync.atomic_.Atomic_.Pointer_ to stdgo._internal.sync.atomic_.Atomic_.Pointer_ {
+    public var __5(get, set) : haxe.ds.Vector<T_>;
+    function get___5():haxe.ds.Vector<T_> return haxe.ds.Vector.fromArrayCopy([for (i in this.__5) i]);
+    function set___5(v:haxe.ds.Vector<T_>):haxe.ds.Vector<T_> {
+        this.__5 = ([for (i in v) i] : stdgo.GoArray<stdgo.Ref<T_>>);
+        return v;
+    }
+    public var __6(get, set) : stdgo._internal.sync.atomic_.Atomic_.T_noCopy;
+    function get___6():stdgo._internal.sync.atomic_.Atomic_.T_noCopy return this.__6;
+    function set___6(v:stdgo._internal.sync.atomic_.Atomic_.T_noCopy):stdgo._internal.sync.atomic_.Atomic_.T_noCopy {
+        this.__6 = v;
+        return v;
+    }
+    public var _v(get, set) : stdgo._internal.unsafe.Unsafe.UnsafePointer;
+    function get__v():stdgo._internal.unsafe.Unsafe.UnsafePointer return this._v;
+    function set__v(v:stdgo._internal.unsafe.Unsafe.UnsafePointer):stdgo._internal.unsafe.Unsafe.UnsafePointer {
+        this._v = v;
+        return v;
+    }
+    public function new(?__5:haxe.ds.Vector<T_>, ?__6:stdgo._internal.sync.atomic_.Atomic_.T_noCopy, ?_v:stdgo._internal.unsafe.Unsafe.UnsafePointer) this = new stdgo._internal.sync.atomic_.Atomic_.Pointer_(([for (i in __5) i] : stdgo.GoArray<stdgo.Ref<T_>>), __6, _v);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Int32(stdgo._internal.sync.atomic_.Atomic_.Int32) from stdgo._internal.sync.atomic_.Atomic_.Int32 to stdgo._internal.sync.atomic_.Atomic_.Int32 {
-
+abstract Int32(stdgo._internal.sync.atomic_.Atomic_.Int32) from stdgo._internal.sync.atomic_.Atomic_.Int32 to stdgo._internal.sync.atomic_.Atomic_.Int32 {
+    public var __8(get, set) : stdgo._internal.sync.atomic_.Atomic_.T_noCopy;
+    function get___8():stdgo._internal.sync.atomic_.Atomic_.T_noCopy return this.__8;
+    function set___8(v:stdgo._internal.sync.atomic_.Atomic_.T_noCopy):stdgo._internal.sync.atomic_.Atomic_.T_noCopy {
+        this.__8 = v;
+        return v;
+    }
+    public var _v(get, set) : StdTypes.Int;
+    function get__v():StdTypes.Int return this._v;
+    function set__v(v:StdTypes.Int):StdTypes.Int {
+        this._v = v;
+        return v;
+    }
+    public function new(?__8:stdgo._internal.sync.atomic_.Atomic_.T_noCopy, ?_v:StdTypes.Int) this = new stdgo._internal.sync.atomic_.Atomic_.Int32(__8, _v);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Int64_(stdgo._internal.sync.atomic_.Atomic_.Int64_) from stdgo._internal.sync.atomic_.Atomic_.Int64_ to stdgo._internal.sync.atomic_.Atomic_.Int64_ {
-
+abstract Int64_(stdgo._internal.sync.atomic_.Atomic_.Int64_) from stdgo._internal.sync.atomic_.Atomic_.Int64_ to stdgo._internal.sync.atomic_.Atomic_.Int64_ {
+    public var __11(get, set) : stdgo._internal.sync.atomic_.Atomic_.T_noCopy;
+    function get___11():stdgo._internal.sync.atomic_.Atomic_.T_noCopy return this.__11;
+    function set___11(v:stdgo._internal.sync.atomic_.Atomic_.T_noCopy):stdgo._internal.sync.atomic_.Atomic_.T_noCopy {
+        this.__11 = v;
+        return v;
+    }
+    public var __12(get, set) : stdgo._internal.sync.atomic_.Atomic_.T_align64;
+    function get___12():stdgo._internal.sync.atomic_.Atomic_.T_align64 return this.__12;
+    function set___12(v:stdgo._internal.sync.atomic_.Atomic_.T_align64):stdgo._internal.sync.atomic_.Atomic_.T_align64 {
+        this.__12 = v;
+        return v;
+    }
+    public var _v(get, set) : haxe.Int64;
+    function get__v():haxe.Int64 return this._v;
+    function set__v(v:haxe.Int64):haxe.Int64 {
+        this._v = v;
+        return v;
+    }
+    public function new(?__11:stdgo._internal.sync.atomic_.Atomic_.T_noCopy, ?__12:stdgo._internal.sync.atomic_.Atomic_.T_align64, ?_v:haxe.Int64) this = new stdgo._internal.sync.atomic_.Atomic_.Int64_(__11, __12, _v);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Uint32(stdgo._internal.sync.atomic_.Atomic_.Uint32) from stdgo._internal.sync.atomic_.Atomic_.Uint32 to stdgo._internal.sync.atomic_.Atomic_.Uint32 {
-
+abstract Uint32(stdgo._internal.sync.atomic_.Atomic_.Uint32) from stdgo._internal.sync.atomic_.Atomic_.Uint32 to stdgo._internal.sync.atomic_.Atomic_.Uint32 {
+    public var __13(get, set) : stdgo._internal.sync.atomic_.Atomic_.T_noCopy;
+    function get___13():stdgo._internal.sync.atomic_.Atomic_.T_noCopy return this.__13;
+    function set___13(v:stdgo._internal.sync.atomic_.Atomic_.T_noCopy):stdgo._internal.sync.atomic_.Atomic_.T_noCopy {
+        this.__13 = v;
+        return v;
+    }
+    public var _v(get, set) : std.UInt;
+    function get__v():std.UInt return this._v;
+    function set__v(v:std.UInt):std.UInt {
+        this._v = v;
+        return v;
+    }
+    public function new(?__13:stdgo._internal.sync.atomic_.Atomic_.T_noCopy, ?_v:std.UInt) this = new stdgo._internal.sync.atomic_.Atomic_.Uint32(__13, _v);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Uint64(stdgo._internal.sync.atomic_.Atomic_.Uint64) from stdgo._internal.sync.atomic_.Atomic_.Uint64 to stdgo._internal.sync.atomic_.Atomic_.Uint64 {
-
+abstract Uint64(stdgo._internal.sync.atomic_.Atomic_.Uint64) from stdgo._internal.sync.atomic_.Atomic_.Uint64 to stdgo._internal.sync.atomic_.Atomic_.Uint64 {
+    public var __16(get, set) : stdgo._internal.sync.atomic_.Atomic_.T_noCopy;
+    function get___16():stdgo._internal.sync.atomic_.Atomic_.T_noCopy return this.__16;
+    function set___16(v:stdgo._internal.sync.atomic_.Atomic_.T_noCopy):stdgo._internal.sync.atomic_.Atomic_.T_noCopy {
+        this.__16 = v;
+        return v;
+    }
+    public var __17(get, set) : stdgo._internal.sync.atomic_.Atomic_.T_align64;
+    function get___17():stdgo._internal.sync.atomic_.Atomic_.T_align64 return this.__17;
+    function set___17(v:stdgo._internal.sync.atomic_.Atomic_.T_align64):stdgo._internal.sync.atomic_.Atomic_.T_align64 {
+        this.__17 = v;
+        return v;
+    }
+    public var _v(get, set) : haxe.UInt64;
+    function get__v():haxe.UInt64 return this._v;
+    function set__v(v:haxe.UInt64):haxe.UInt64 {
+        this._v = v;
+        return v;
+    }
+    public function new(?__16:stdgo._internal.sync.atomic_.Atomic_.T_noCopy, ?__17:stdgo._internal.sync.atomic_.Atomic_.T_align64, ?_v:haxe.UInt64) this = new stdgo._internal.sync.atomic_.Atomic_.Uint64(__16, __17, _v);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Uintptr(stdgo._internal.sync.atomic_.Atomic_.Uintptr) from stdgo._internal.sync.atomic_.Atomic_.Uintptr to stdgo._internal.sync.atomic_.Atomic_.Uintptr {
-
+abstract Uintptr(stdgo._internal.sync.atomic_.Atomic_.Uintptr) from stdgo._internal.sync.atomic_.Atomic_.Uintptr to stdgo._internal.sync.atomic_.Atomic_.Uintptr {
+    public var __19(get, set) : stdgo._internal.sync.atomic_.Atomic_.T_noCopy;
+    function get___19():stdgo._internal.sync.atomic_.Atomic_.T_noCopy return this.__19;
+    function set___19(v:stdgo._internal.sync.atomic_.Atomic_.T_noCopy):stdgo._internal.sync.atomic_.Atomic_.T_noCopy {
+        this.__19 = v;
+        return v;
+    }
+    public var _v(get, set) : stdgo.GoUIntptr;
+    function get__v():stdgo.GoUIntptr return this._v;
+    function set__v(v:stdgo.GoUIntptr):stdgo.GoUIntptr {
+        this._v = v;
+        return v;
+    }
+    public function new(?__19:stdgo._internal.sync.atomic_.Atomic_.T_noCopy, ?_v:stdgo.GoUIntptr) this = new stdgo._internal.sync.atomic_.Atomic_.Uintptr(__19, _v);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_noCopy(stdgo._internal.sync.atomic_.Atomic_.T_noCopy) from stdgo._internal.sync.atomic_.Atomic_.T_noCopy to stdgo._internal.sync.atomic_.Atomic_.T_noCopy {
-
+abstract T_noCopy(stdgo._internal.sync.atomic_.Atomic_.T_noCopy) from stdgo._internal.sync.atomic_.Atomic_.T_noCopy to stdgo._internal.sync.atomic_.Atomic_.T_noCopy {
+    public function new() this = new stdgo._internal.sync.atomic_.Atomic_.T_noCopy();
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_align64(stdgo._internal.sync.atomic_.Atomic_.T_align64) from stdgo._internal.sync.atomic_.Atomic_.T_align64 to stdgo._internal.sync.atomic_.Atomic_.T_align64 {
-
+abstract T_align64(stdgo._internal.sync.atomic_.Atomic_.T_align64) from stdgo._internal.sync.atomic_.Atomic_.T_align64 to stdgo._internal.sync.atomic_.Atomic_.T_align64 {
+    public function new() this = new stdgo._internal.sync.atomic_.Atomic_.T_align64();
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Value(stdgo._internal.sync.atomic_.Atomic_.Value) from stdgo._internal.sync.atomic_.Atomic_.Value to stdgo._internal.sync.atomic_.Atomic_.Value {
-
+abstract Value(stdgo._internal.sync.atomic_.Atomic_.Value) from stdgo._internal.sync.atomic_.Atomic_.Value to stdgo._internal.sync.atomic_.Atomic_.Value {
+    public var _v(get, set) : stdgo.AnyInterface;
+    function get__v():stdgo.AnyInterface return this._v;
+    function set__v(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this._v = v;
+        return v;
+    }
+    public function new(?_v:stdgo.AnyInterface) this = new stdgo._internal.sync.atomic_.Atomic_.Value(_v);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_efaceWords(stdgo._internal.sync.atomic_.Atomic_.T_efaceWords) from stdgo._internal.sync.atomic_.Atomic_.T_efaceWords to stdgo._internal.sync.atomic_.Atomic_.T_efaceWords {
-
-}
-@:forward @:forward.new abstract Bool__asInterface(stdgo._internal.sync.atomic_.Atomic_.Bool__asInterface) from stdgo._internal.sync.atomic_.Atomic_.Bool__asInterface to stdgo._internal.sync.atomic_.Atomic_.Bool__asInterface {
-
-}
-@:forward @:forward.new abstract Bool__static_extension(stdgo._internal.sync.atomic_.Atomic_.Bool__static_extension) from stdgo._internal.sync.atomic_.Atomic_.Bool__static_extension to stdgo._internal.sync.atomic_.Atomic_.Bool__static_extension {
-
-}
-@:forward @:forward.new abstract Pointer__asInterface(stdgo._internal.sync.atomic_.Atomic_.Pointer__asInterface) from stdgo._internal.sync.atomic_.Atomic_.Pointer__asInterface to stdgo._internal.sync.atomic_.Atomic_.Pointer__asInterface {
-
-}
-@:forward @:forward.new abstract Pointer__static_extension(stdgo._internal.sync.atomic_.Atomic_.Pointer__static_extension) from stdgo._internal.sync.atomic_.Atomic_.Pointer__static_extension to stdgo._internal.sync.atomic_.Atomic_.Pointer__static_extension {
-
-}
-@:forward @:forward.new abstract Int32_asInterface(stdgo._internal.sync.atomic_.Atomic_.Int32_asInterface) from stdgo._internal.sync.atomic_.Atomic_.Int32_asInterface to stdgo._internal.sync.atomic_.Atomic_.Int32_asInterface {
-
-}
-@:forward @:forward.new abstract Int32_static_extension(stdgo._internal.sync.atomic_.Atomic_.Int32_static_extension) from stdgo._internal.sync.atomic_.Atomic_.Int32_static_extension to stdgo._internal.sync.atomic_.Atomic_.Int32_static_extension {
-
-}
-@:forward @:forward.new abstract Int64__asInterface(stdgo._internal.sync.atomic_.Atomic_.Int64__asInterface) from stdgo._internal.sync.atomic_.Atomic_.Int64__asInterface to stdgo._internal.sync.atomic_.Atomic_.Int64__asInterface {
-
-}
-@:forward @:forward.new abstract Int64__static_extension(stdgo._internal.sync.atomic_.Atomic_.Int64__static_extension) from stdgo._internal.sync.atomic_.Atomic_.Int64__static_extension to stdgo._internal.sync.atomic_.Atomic_.Int64__static_extension {
-
-}
-@:forward @:forward.new abstract Uint32_asInterface(stdgo._internal.sync.atomic_.Atomic_.Uint32_asInterface) from stdgo._internal.sync.atomic_.Atomic_.Uint32_asInterface to stdgo._internal.sync.atomic_.Atomic_.Uint32_asInterface {
-
-}
-@:forward @:forward.new abstract Uint32_static_extension(stdgo._internal.sync.atomic_.Atomic_.Uint32_static_extension) from stdgo._internal.sync.atomic_.Atomic_.Uint32_static_extension to stdgo._internal.sync.atomic_.Atomic_.Uint32_static_extension {
-
-}
-@:forward @:forward.new abstract Uint64_asInterface(stdgo._internal.sync.atomic_.Atomic_.Uint64_asInterface) from stdgo._internal.sync.atomic_.Atomic_.Uint64_asInterface to stdgo._internal.sync.atomic_.Atomic_.Uint64_asInterface {
-
-}
-@:forward @:forward.new abstract Uint64_static_extension(stdgo._internal.sync.atomic_.Atomic_.Uint64_static_extension) from stdgo._internal.sync.atomic_.Atomic_.Uint64_static_extension to stdgo._internal.sync.atomic_.Atomic_.Uint64_static_extension {
-
-}
-@:forward @:forward.new abstract Uintptr_asInterface(stdgo._internal.sync.atomic_.Atomic_.Uintptr_asInterface) from stdgo._internal.sync.atomic_.Atomic_.Uintptr_asInterface to stdgo._internal.sync.atomic_.Atomic_.Uintptr_asInterface {
-
-}
-@:forward @:forward.new abstract Uintptr_static_extension(stdgo._internal.sync.atomic_.Atomic_.Uintptr_static_extension) from stdgo._internal.sync.atomic_.Atomic_.Uintptr_static_extension to stdgo._internal.sync.atomic_.Atomic_.Uintptr_static_extension {
-
-}
-@:forward @:forward.new abstract T_noCopy_asInterface(stdgo._internal.sync.atomic_.Atomic_.T_noCopy_asInterface) from stdgo._internal.sync.atomic_.Atomic_.T_noCopy_asInterface to stdgo._internal.sync.atomic_.Atomic_.T_noCopy_asInterface {
-
-}
-@:forward @:forward.new abstract T_noCopy_static_extension(stdgo._internal.sync.atomic_.Atomic_.T_noCopy_static_extension) from stdgo._internal.sync.atomic_.Atomic_.T_noCopy_static_extension to stdgo._internal.sync.atomic_.Atomic_.T_noCopy_static_extension {
-
-}
-@:forward @:forward.new abstract Value_asInterface(stdgo._internal.sync.atomic_.Atomic_.Value_asInterface) from stdgo._internal.sync.atomic_.Atomic_.Value_asInterface to stdgo._internal.sync.atomic_.Atomic_.Value_asInterface {
-
-}
-@:forward @:forward.new abstract Value_static_extension(stdgo._internal.sync.atomic_.Atomic_.Value_static_extension) from stdgo._internal.sync.atomic_.Atomic_.Value_static_extension to stdgo._internal.sync.atomic_.Atomic_.Value_static_extension {
-
+abstract T_efaceWords(stdgo._internal.sync.atomic_.Atomic_.T_efaceWords) from stdgo._internal.sync.atomic_.Atomic_.T_efaceWords to stdgo._internal.sync.atomic_.Atomic_.T_efaceWords {
+    public var _typ(get, set) : stdgo._internal.unsafe.Unsafe.UnsafePointer;
+    function get__typ():stdgo._internal.unsafe.Unsafe.UnsafePointer return this._typ;
+    function set__typ(v:stdgo._internal.unsafe.Unsafe.UnsafePointer):stdgo._internal.unsafe.Unsafe.UnsafePointer {
+        this._typ = v;
+        return v;
+    }
+    public var _data(get, set) : stdgo._internal.unsafe.Unsafe.UnsafePointer;
+    function get__data():stdgo._internal.unsafe.Unsafe.UnsafePointer return this._data;
+    function set__data(v:stdgo._internal.unsafe.Unsafe.UnsafePointer):stdgo._internal.unsafe.Unsafe.UnsafePointer {
+        this._data = v;
+        return v;
+    }
+    public function new(?_typ:stdgo._internal.unsafe.Unsafe.UnsafePointer, ?_data:stdgo._internal.unsafe.Unsafe.UnsafePointer) this = new stdgo._internal.sync.atomic_.Atomic_.T_efaceWords(_typ, _data);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 class Atomic_ {
     /**

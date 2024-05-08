@@ -12,20 +12,8 @@ package stdgo.hash;
 **/
 private var __go2hxdoc__package : Bool;
 final size : haxe.UInt64 = stdgo._internal.hash.adler32.Adler32.size;
-@:forward @:forward.new abstract T__struct_0_asInterface(stdgo._internal.hash.adler32.Adler32.T__struct_0_asInterface) from stdgo._internal.hash.adler32.Adler32.T__struct_0_asInterface to stdgo._internal.hash.adler32.Adler32.T__struct_0_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_0_static_extension(stdgo._internal.hash.adler32.Adler32.T__struct_0_static_extension) from stdgo._internal.hash.adler32.Adler32.T__struct_0_static_extension to stdgo._internal.hash.adler32.Adler32.T__struct_0_static_extension {
-
-}
 typedef T__struct_0 = stdgo._internal.hash.adler32.Adler32.T__struct_0;
 typedef T_digest = stdgo._internal.hash.adler32.Adler32.T_digest;
-@:forward @:forward.new abstract T_digest_asInterface(stdgo._internal.hash.adler32.Adler32.T_digest_asInterface) from stdgo._internal.hash.adler32.Adler32.T_digest_asInterface to stdgo._internal.hash.adler32.Adler32.T_digest_asInterface {
-
-}
-@:forward @:forward.new abstract T_digest_static_extension(stdgo._internal.hash.adler32.Adler32.T_digest_static_extension) from stdgo._internal.hash.adler32.Adler32.T_digest_static_extension to stdgo._internal.hash.adler32.Adler32.T_digest_static_extension {
-
-}
 class Adler32 {
     /**
         New returns a new hash.Hash32 computing the Adler-32 checksum. Its

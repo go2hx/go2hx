@@ -85,36 +85,129 @@ final exitOnError = stdgo._internal.flag.Flag.exitOnError;
 final panicOnError = stdgo._internal.flag.Flag.panicOnError;
 var errHelp(get, set) : stdgo.Error;
 private function get_errHelp():stdgo.Error return stdgo._internal.flag.Flag.errHelp;
-private function set_errHelp(v:stdgo.Error):stdgo.Error return stdgo._internal.flag.Flag.errHelp = v;
+private function set_errHelp(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.flag.Flag.errHelp = v;
+        return v;
+    }
 var commandLine(get, set) : stdgo._internal.flag.Flag.FlagSet;
 private function get_commandLine():stdgo._internal.flag.Flag.FlagSet return stdgo._internal.flag.Flag.commandLine;
-private function set_commandLine(v:stdgo._internal.flag.Flag.FlagSet):stdgo._internal.flag.Flag.FlagSet return stdgo._internal.flag.Flag.commandLine = v;
+private function set_commandLine(v:stdgo._internal.flag.Flag.FlagSet):stdgo._internal.flag.Flag.FlagSet {
+        stdgo._internal.flag.Flag.commandLine = v;
+        return v;
+    }
 var usage(get, set) : () -> Void;
-private function get_usage():() -> Void return stdgo._internal.flag.Flag.usage;
-private function set_usage(v:() -> Void):() -> Void return stdgo._internal.flag.Flag.usage = v;
+private function get_usage():() -> Void return () -> stdgo._internal.flag.Flag.usage();
+private function set_usage(v:() -> Void):() -> Void {
+        stdgo._internal.flag.Flag.usage = v;
+        return v;
+    }
 var defaultUsage(get, set) : () -> Void;
-private function get_defaultUsage():() -> Void return stdgo._internal.flag.Flag.defaultUsage;
-private function set_defaultUsage(v:() -> Void):() -> Void return stdgo._internal.flag.Flag.defaultUsage = v;
-@:forward @:forward.new abstract T_boolFlag_static_extension(stdgo._internal.flag.Flag.T_boolFlag_static_extension) from stdgo._internal.flag.Flag.T_boolFlag_static_extension to stdgo._internal.flag.Flag.T_boolFlag_static_extension {
-
-}
+private function get_defaultUsage():() -> Void return () -> stdgo._internal.flag.Flag.defaultUsage();
+private function set_defaultUsage(v:() -> Void):() -> Void {
+        stdgo._internal.flag.Flag.defaultUsage = v;
+        return v;
+    }
 typedef T_boolFlag = stdgo._internal.flag.Flag.T_boolFlag;
-@:forward @:forward.new abstract Value_static_extension(stdgo._internal.flag.Flag.Value_static_extension) from stdgo._internal.flag.Flag.Value_static_extension to stdgo._internal.flag.Flag.Value_static_extension {
-
-}
 typedef Value = stdgo._internal.flag.Flag.Value;
-@:forward @:forward.new abstract Getter_static_extension(stdgo._internal.flag.Flag.Getter_static_extension) from stdgo._internal.flag.Flag.Getter_static_extension to stdgo._internal.flag.Flag.Getter_static_extension {
-
-}
 typedef Getter = stdgo._internal.flag.Flag.Getter;
-@:forward @:forward.new abstract T_textValue(stdgo._internal.flag.Flag.T_textValue) from stdgo._internal.flag.Flag.T_textValue to stdgo._internal.flag.Flag.T_textValue {
-
+abstract T_textValue(stdgo._internal.flag.Flag.T_textValue) from stdgo._internal.flag.Flag.T_textValue to stdgo._internal.flag.Flag.T_textValue {
+    public var _p(get, set) : stdgo._internal.encoding.Encoding.TextUnmarshaler;
+    function get__p():stdgo._internal.encoding.Encoding.TextUnmarshaler return this._p;
+    function set__p(v:stdgo._internal.encoding.Encoding.TextUnmarshaler):stdgo._internal.encoding.Encoding.TextUnmarshaler {
+        this._p = v;
+        return v;
+    }
+    public function new(?_p:stdgo._internal.encoding.Encoding.TextUnmarshaler) this = new stdgo._internal.flag.Flag.T_textValue(_p);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract FlagSet(stdgo._internal.flag.Flag.FlagSet) from stdgo._internal.flag.Flag.FlagSet to stdgo._internal.flag.Flag.FlagSet {
-
+abstract FlagSet(stdgo._internal.flag.Flag.FlagSet) from stdgo._internal.flag.Flag.FlagSet to stdgo._internal.flag.Flag.FlagSet {
+    public var usage(get, set) : () -> Void;
+    function get_usage():() -> Void return () -> this.usage();
+    function set_usage(v:() -> Void):() -> Void {
+        this.usage = v;
+        return v;
+    }
+    public var _name(get, set) : String;
+    function get__name():String return this._name;
+    function set__name(v:String):String {
+        this._name = v;
+        return v;
+    }
+    public var _parsed(get, set) : Bool;
+    function get__parsed():Bool return this._parsed;
+    function set__parsed(v:Bool):Bool {
+        this._parsed = v;
+        return v;
+    }
+    public var _actual(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag.Flag>>;
+    function get__actual():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag.Flag>> return this._actual;
+    function set__actual(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag.Flag>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag.Flag>> {
+        this._actual = v;
+        return v;
+    }
+    public var _formal(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag.Flag>>;
+    function get__formal():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag.Flag>> return this._formal;
+    function set__formal(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag.Flag>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag.Flag>> {
+        this._formal = v;
+        return v;
+    }
+    public var _args(get, set) : Array<String>;
+    function get__args():Array<String> return [for (i in this._args) i];
+    function set__args(v:Array<String>):Array<String> {
+        this._args = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        return v;
+    }
+    public var _errorHandling(get, set) : stdgo._internal.flag.Flag.ErrorHandling;
+    function get__errorHandling():stdgo._internal.flag.Flag.ErrorHandling return this._errorHandling;
+    function set__errorHandling(v:stdgo._internal.flag.Flag.ErrorHandling):stdgo._internal.flag.Flag.ErrorHandling {
+        this._errorHandling = v;
+        return v;
+    }
+    public var _output(get, set) : stdgo._internal.io.Io.Writer;
+    function get__output():stdgo._internal.io.Io.Writer return this._output;
+    function set__output(v:stdgo._internal.io.Io.Writer):stdgo._internal.io.Io.Writer {
+        this._output = v;
+        return v;
+    }
+    public var _undef(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
+    function get__undef():stdgo.GoMap<stdgo.GoString, stdgo.GoString> return this._undef;
+    function set__undef(v:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
+        this._undef = v;
+        return v;
+    }
+    public function new(?usage:() -> Void, ?_name:String, ?_parsed:Bool, ?_actual:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag.Flag>>, ?_formal:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag.Flag>>, ?_args:Array<String>, ?_errorHandling:stdgo._internal.flag.Flag.ErrorHandling, ?_output:stdgo._internal.io.Io.Writer, ?_undef:stdgo.GoMap<stdgo.GoString, stdgo.GoString>) this = new stdgo._internal.flag.Flag.FlagSet(usage, _name, _parsed, _actual, _formal, ([for (i in _args) i] : stdgo.Slice<stdgo.GoString>), _errorHandling, _output, _undef);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Flag(stdgo._internal.flag.Flag.Flag) from stdgo._internal.flag.Flag.Flag to stdgo._internal.flag.Flag.Flag {
-
+abstract Flag_(stdgo._internal.flag.Flag.Flag) from stdgo._internal.flag.Flag.Flag to stdgo._internal.flag.Flag.Flag {
+    public var name(get, set) : String;
+    function get_name():String return this.name;
+    function set_name(v:String):String {
+        this.name = v;
+        return v;
+    }
+    public var usage(get, set) : String;
+    function get_usage():String return this.usage;
+    function set_usage(v:String):String {
+        this.usage = v;
+        return v;
+    }
+    public var value(get, set) : stdgo._internal.flag.Flag.Value;
+    function get_value():stdgo._internal.flag.Flag.Value return this.value;
+    function set_value(v:stdgo._internal.flag.Flag.Value):stdgo._internal.flag.Flag.Value {
+        this.value = v;
+        return v;
+    }
+    public var defValue(get, set) : String;
+    function get_defValue():String return this.defValue;
+    function set_defValue(v:String):String {
+        this.defValue = v;
+        return v;
+    }
+    public function new(?name:String, ?usage:String, ?value:stdgo._internal.flag.Flag.Value, ?defValue:String) this = new stdgo._internal.flag.Flag.Flag(name, usage, value, defValue);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef T_boolValue = stdgo._internal.flag.Flag.T_boolValue;
 typedef T_intValue = stdgo._internal.flag.Flag.T_intValue;
@@ -127,78 +220,6 @@ typedef T_durationValue = stdgo._internal.flag.Flag.T_durationValue;
 typedef T_funcValue = stdgo._internal.flag.Flag.T_funcValue;
 typedef T_boolFuncValue = stdgo._internal.flag.Flag.T_boolFuncValue;
 typedef ErrorHandling = stdgo._internal.flag.Flag.ErrorHandling;
-@:forward @:forward.new abstract T_textValue_asInterface(stdgo._internal.flag.Flag.T_textValue_asInterface) from stdgo._internal.flag.Flag.T_textValue_asInterface to stdgo._internal.flag.Flag.T_textValue_asInterface {
-
-}
-@:forward @:forward.new abstract T_textValue_static_extension(stdgo._internal.flag.Flag.T_textValue_static_extension) from stdgo._internal.flag.Flag.T_textValue_static_extension to stdgo._internal.flag.Flag.T_textValue_static_extension {
-
-}
-@:forward @:forward.new abstract FlagSet_asInterface(stdgo._internal.flag.Flag.FlagSet_asInterface) from stdgo._internal.flag.Flag.FlagSet_asInterface to stdgo._internal.flag.Flag.FlagSet_asInterface {
-
-}
-@:forward @:forward.new abstract FlagSet_static_extension(stdgo._internal.flag.Flag.FlagSet_static_extension) from stdgo._internal.flag.Flag.FlagSet_static_extension to stdgo._internal.flag.Flag.FlagSet_static_extension {
-
-}
-@:forward @:forward.new abstract T_boolValue_asInterface(stdgo._internal.flag.Flag.T_boolValue_asInterface) from stdgo._internal.flag.Flag.T_boolValue_asInterface to stdgo._internal.flag.Flag.T_boolValue_asInterface {
-
-}
-@:forward @:forward.new abstract T_boolValue_static_extension(stdgo._internal.flag.Flag.T_boolValue_static_extension) from stdgo._internal.flag.Flag.T_boolValue_static_extension to stdgo._internal.flag.Flag.T_boolValue_static_extension {
-
-}
-@:forward @:forward.new abstract T_intValue_asInterface(stdgo._internal.flag.Flag.T_intValue_asInterface) from stdgo._internal.flag.Flag.T_intValue_asInterface to stdgo._internal.flag.Flag.T_intValue_asInterface {
-
-}
-@:forward @:forward.new abstract T_intValue_static_extension(stdgo._internal.flag.Flag.T_intValue_static_extension) from stdgo._internal.flag.Flag.T_intValue_static_extension to stdgo._internal.flag.Flag.T_intValue_static_extension {
-
-}
-@:forward @:forward.new abstract T_int64Value_asInterface(stdgo._internal.flag.Flag.T_int64Value_asInterface) from stdgo._internal.flag.Flag.T_int64Value_asInterface to stdgo._internal.flag.Flag.T_int64Value_asInterface {
-
-}
-@:forward @:forward.new abstract T_int64Value_static_extension(stdgo._internal.flag.Flag.T_int64Value_static_extension) from stdgo._internal.flag.Flag.T_int64Value_static_extension to stdgo._internal.flag.Flag.T_int64Value_static_extension {
-
-}
-@:forward @:forward.new abstract T_uintValue_asInterface(stdgo._internal.flag.Flag.T_uintValue_asInterface) from stdgo._internal.flag.Flag.T_uintValue_asInterface to stdgo._internal.flag.Flag.T_uintValue_asInterface {
-
-}
-@:forward @:forward.new abstract T_uintValue_static_extension(stdgo._internal.flag.Flag.T_uintValue_static_extension) from stdgo._internal.flag.Flag.T_uintValue_static_extension to stdgo._internal.flag.Flag.T_uintValue_static_extension {
-
-}
-@:forward @:forward.new abstract T_uint64Value_asInterface(stdgo._internal.flag.Flag.T_uint64Value_asInterface) from stdgo._internal.flag.Flag.T_uint64Value_asInterface to stdgo._internal.flag.Flag.T_uint64Value_asInterface {
-
-}
-@:forward @:forward.new abstract T_uint64Value_static_extension(stdgo._internal.flag.Flag.T_uint64Value_static_extension) from stdgo._internal.flag.Flag.T_uint64Value_static_extension to stdgo._internal.flag.Flag.T_uint64Value_static_extension {
-
-}
-@:forward @:forward.new abstract T_stringValue_asInterface(stdgo._internal.flag.Flag.T_stringValue_asInterface) from stdgo._internal.flag.Flag.T_stringValue_asInterface to stdgo._internal.flag.Flag.T_stringValue_asInterface {
-
-}
-@:forward @:forward.new abstract T_stringValue_static_extension(stdgo._internal.flag.Flag.T_stringValue_static_extension) from stdgo._internal.flag.Flag.T_stringValue_static_extension to stdgo._internal.flag.Flag.T_stringValue_static_extension {
-
-}
-@:forward @:forward.new abstract T_float64Value_asInterface(stdgo._internal.flag.Flag.T_float64Value_asInterface) from stdgo._internal.flag.Flag.T_float64Value_asInterface to stdgo._internal.flag.Flag.T_float64Value_asInterface {
-
-}
-@:forward @:forward.new abstract T_float64Value_static_extension(stdgo._internal.flag.Flag.T_float64Value_static_extension) from stdgo._internal.flag.Flag.T_float64Value_static_extension to stdgo._internal.flag.Flag.T_float64Value_static_extension {
-
-}
-@:forward @:forward.new abstract T_durationValue_asInterface(stdgo._internal.flag.Flag.T_durationValue_asInterface) from stdgo._internal.flag.Flag.T_durationValue_asInterface to stdgo._internal.flag.Flag.T_durationValue_asInterface {
-
-}
-@:forward @:forward.new abstract T_durationValue_static_extension(stdgo._internal.flag.Flag.T_durationValue_static_extension) from stdgo._internal.flag.Flag.T_durationValue_static_extension to stdgo._internal.flag.Flag.T_durationValue_static_extension {
-
-}
-@:forward @:forward.new abstract T_funcValue_asInterface(stdgo._internal.flag.Flag.T_funcValue_asInterface) from stdgo._internal.flag.Flag.T_funcValue_asInterface to stdgo._internal.flag.Flag.T_funcValue_asInterface {
-
-}
-@:forward @:forward.new abstract T_funcValue_static_extension(stdgo._internal.flag.Flag.T_funcValue_static_extension) from stdgo._internal.flag.Flag.T_funcValue_static_extension to stdgo._internal.flag.Flag.T_funcValue_static_extension {
-
-}
-@:forward @:forward.new abstract T_boolFuncValue_asInterface(stdgo._internal.flag.Flag.T_boolFuncValue_asInterface) from stdgo._internal.flag.Flag.T_boolFuncValue_asInterface to stdgo._internal.flag.Flag.T_boolFuncValue_asInterface {
-
-}
-@:forward @:forward.new abstract T_boolFuncValue_static_extension(stdgo._internal.flag.Flag.T_boolFuncValue_static_extension) from stdgo._internal.flag.Flag.T_boolFuncValue_static_extension to stdgo._internal.flag.Flag.T_boolFuncValue_static_extension {
-
-}
 class Flag {
     /**
         ResetForTesting clears all flag state and sets the usage function as directed.

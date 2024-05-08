@@ -15,50 +15,76 @@ final typeString = stdgo._internal.syscall.js.Js.typeString;
 final typeSymbol = stdgo._internal.syscall.js.Js.typeSymbol;
 final typeObject = stdgo._internal.syscall.js.Js.typeObject;
 final typeFunction = stdgo._internal.syscall.js.Js.typeFunction;
-@:forward @:forward.new abstract Func(stdgo._internal.syscall.js.Js.Func) from stdgo._internal.syscall.js.Js.Func to stdgo._internal.syscall.js.Js.Func {
-
+abstract Func(stdgo._internal.syscall.js.Js.Func) from stdgo._internal.syscall.js.Js.Func to stdgo._internal.syscall.js.Js.Func {
+    public var value(get, set) : stdgo._internal.syscall.js.Js.Value;
+    function get_value():stdgo._internal.syscall.js.Js.Value return this.value;
+    function set_value(v:stdgo._internal.syscall.js.Js.Value):stdgo._internal.syscall.js.Js.Value {
+        this.value = v;
+        return v;
+    }
+    public var _id(get, set) : std.UInt;
+    function get__id():std.UInt return this._id;
+    function set__id(v:std.UInt):std.UInt {
+        this._id = v;
+        return v;
+    }
+    public function new(?value:stdgo._internal.syscall.js.Js.Value, ?_id:std.UInt) this = new stdgo._internal.syscall.js.Js.Func(value, _id);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Value(stdgo._internal.syscall.js.Js.Value) from stdgo._internal.syscall.js.Js.Value to stdgo._internal.syscall.js.Js.Value {
-
+abstract Value(stdgo._internal.syscall.js.Js.Value) from stdgo._internal.syscall.js.Js.Value to stdgo._internal.syscall.js.Js.Value {
+    public var __32(get, set) : haxe.ds.Vector<() -> Void>;
+    function get___32():haxe.ds.Vector<() -> Void> return haxe.ds.Vector.fromArrayCopy([for (i in this.__32) () -> i()]);
+    function set___32(v:haxe.ds.Vector<() -> Void>):haxe.ds.Vector<() -> Void> {
+        this.__32 = ([for (i in v) i] : stdgo.GoArray<() -> Void>);
+        return v;
+    }
+    public var _ref(get, set) : stdgo._internal.syscall.js.Js.T_ref;
+    function get__ref():stdgo._internal.syscall.js.Js.T_ref return this._ref;
+    function set__ref(v:stdgo._internal.syscall.js.Js.T_ref):stdgo._internal.syscall.js.Js.T_ref {
+        this._ref = v;
+        return v;
+    }
+    public var _gcPtr(get, set) : stdgo.Pointer<stdgo._internal.syscall.js.Js.T_ref>;
+    function get__gcPtr():stdgo.Pointer<stdgo._internal.syscall.js.Js.T_ref> return this._gcPtr;
+    function set__gcPtr(v:stdgo.Pointer<stdgo._internal.syscall.js.Js.T_ref>):stdgo.Pointer<stdgo._internal.syscall.js.Js.T_ref> {
+        this._gcPtr = v;
+        return v;
+    }
+    public function new(?__32:haxe.ds.Vector<() -> Void>, ?_ref:stdgo._internal.syscall.js.Js.T_ref, ?_gcPtr:stdgo.Pointer<stdgo._internal.syscall.js.Js.T_ref>) this = new stdgo._internal.syscall.js.Js.Value(([for (i in __32) i] : stdgo.GoArray<() -> Void>), _ref, _gcPtr);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Error(stdgo._internal.syscall.js.Js.Error) from stdgo._internal.syscall.js.Js.Error to stdgo._internal.syscall.js.Js.Error {
-
+abstract Error(stdgo._internal.syscall.js.Js.Error) from stdgo._internal.syscall.js.Js.Error to stdgo._internal.syscall.js.Js.Error {
+    public var value(get, set) : stdgo._internal.syscall.js.Js.Value;
+    function get_value():stdgo._internal.syscall.js.Js.Value return this.value;
+    function set_value(v:stdgo._internal.syscall.js.Js.Value):stdgo._internal.syscall.js.Js.Value {
+        this.value = v;
+        return v;
+    }
+    public function new(?value:stdgo._internal.syscall.js.Js.Value) this = new stdgo._internal.syscall.js.Js.Error(value);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract ValueError(stdgo._internal.syscall.js.Js.ValueError) from stdgo._internal.syscall.js.Js.ValueError to stdgo._internal.syscall.js.Js.ValueError {
-
+abstract ValueError(stdgo._internal.syscall.js.Js.ValueError) from stdgo._internal.syscall.js.Js.ValueError to stdgo._internal.syscall.js.Js.ValueError {
+    public var method(get, set) : String;
+    function get_method():String return this.method;
+    function set_method(v:String):String {
+        this.method = v;
+        return v;
+    }
+    public var type(get, set) : stdgo._internal.syscall.js.Js.Type_;
+    function get_type():stdgo._internal.syscall.js.Js.Type_ return this.type;
+    function set_type(v:stdgo._internal.syscall.js.Js.Type_):stdgo._internal.syscall.js.Js.Type_ {
+        this.type = v;
+        return v;
+    }
+    public function new(?method:String, ?type:stdgo._internal.syscall.js.Js.Type_) this = new stdgo._internal.syscall.js.Js.ValueError(method, type);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef T_ref = stdgo._internal.syscall.js.Js.T_ref;
 typedef Type_ = stdgo._internal.syscall.js.Js.Type_;
-@:forward @:forward.new abstract Func_asInterface(stdgo._internal.syscall.js.Js.Func_asInterface) from stdgo._internal.syscall.js.Js.Func_asInterface to stdgo._internal.syscall.js.Js.Func_asInterface {
-
-}
-@:forward @:forward.new abstract Func_static_extension(stdgo._internal.syscall.js.Js.Func_static_extension) from stdgo._internal.syscall.js.Js.Func_static_extension to stdgo._internal.syscall.js.Js.Func_static_extension {
-
-}
-@:forward @:forward.new abstract Value_asInterface(stdgo._internal.syscall.js.Js.Value_asInterface) from stdgo._internal.syscall.js.Js.Value_asInterface to stdgo._internal.syscall.js.Js.Value_asInterface {
-
-}
-@:forward @:forward.new abstract Value_static_extension(stdgo._internal.syscall.js.Js.Value_static_extension) from stdgo._internal.syscall.js.Js.Value_static_extension to stdgo._internal.syscall.js.Js.Value_static_extension {
-
-}
-@:forward @:forward.new abstract Error_asInterface(stdgo._internal.syscall.js.Js.Error_asInterface) from stdgo._internal.syscall.js.Js.Error_asInterface to stdgo._internal.syscall.js.Js.Error_asInterface {
-
-}
-@:forward @:forward.new abstract Error_static_extension(stdgo._internal.syscall.js.Js.Error_static_extension) from stdgo._internal.syscall.js.Js.Error_static_extension to stdgo._internal.syscall.js.Js.Error_static_extension {
-
-}
-@:forward @:forward.new abstract ValueError_asInterface(stdgo._internal.syscall.js.Js.ValueError_asInterface) from stdgo._internal.syscall.js.Js.ValueError_asInterface to stdgo._internal.syscall.js.Js.ValueError_asInterface {
-
-}
-@:forward @:forward.new abstract ValueError_static_extension(stdgo._internal.syscall.js.Js.ValueError_static_extension) from stdgo._internal.syscall.js.Js.ValueError_static_extension to stdgo._internal.syscall.js.Js.ValueError_static_extension {
-
-}
-@:forward @:forward.new abstract Type__asInterface(stdgo._internal.syscall.js.Js.Type__asInterface) from stdgo._internal.syscall.js.Js.Type__asInterface to stdgo._internal.syscall.js.Js.Type__asInterface {
-
-}
-@:forward @:forward.new abstract Type__static_extension(stdgo._internal.syscall.js.Js.Type__static_extension) from stdgo._internal.syscall.js.Js.Type__static_extension to stdgo._internal.syscall.js.Js.Type__static_extension {
-
-}
 class Js {
     /**
         FuncOf returns a function to be used by JavaScript.

@@ -1452,7 +1452,7 @@ function testMultiWriter(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
 function testMultiWriter_String(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         _testMultiWriter(_t, stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>)));
     }
-@:structInit @:using(stdgo._internal.io_test.Io_test.T_testMultiWriter_WriteStringSingleAlloc_3___localname___simpleWriter_static_extension) class T_testMultiWriter_WriteStringSingleAlloc_3___localname___simpleWriter {
+@:structInit @:using(stdgo._internal.io_test.Io_test.T_testMultiWriter_WriteStringSingleAlloc_1___localname___simpleWriter_static_extension) class T_testMultiWriter_WriteStringSingleAlloc_1___localname___simpleWriter {
     @:embedded
     public var writer : stdgo._internal.io.Io.Writer = (null : stdgo._internal.io.Io.Writer);
     public function new(?writer:stdgo._internal.io.Io.Writer) {
@@ -1462,13 +1462,13 @@ function testMultiWriter_String(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>
     @:embedded
     public function write(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return writer.write(_b);
     public function __copy__() {
-        return new T_testMultiWriter_WriteStringSingleAlloc_3___localname___simpleWriter(writer);
+        return new T_testMultiWriter_WriteStringSingleAlloc_1___localname___simpleWriter(writer);
     }
 }
 function testMultiWriter_WriteStringSingleAlloc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var __0:stdgo._internal.bytes.Bytes.Buffer = ({} : stdgo._internal.bytes.Bytes.Buffer), __1:stdgo._internal.bytes.Bytes.Buffer = ({} : stdgo._internal.bytes.Bytes.Buffer), _sink2:stdgo._internal.bytes.Bytes.Buffer = __1, _sink1:stdgo._internal.bytes.Bytes.Buffer = __0;
         {};
-        var _mw:stdgo._internal.io.Io.Writer = multiWriter(stdgo.Go.asInterface((new stdgo._internal.io_test.Io_test.T_testMultiWriter_WriteStringSingleAlloc_3___localname___simpleWriter(stdgo.Go.asInterface((stdgo.Go.setRef(_sink1) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>))) : stdgo._internal.io_test.Io_test.T_testMultiWriter_WriteStringSingleAlloc_3___localname___simpleWriter)), stdgo.Go.asInterface((new stdgo._internal.io_test.Io_test.T_testMultiWriter_WriteStringSingleAlloc_3___localname___simpleWriter(stdgo.Go.asInterface((stdgo.Go.setRef(_sink2) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>))) : stdgo._internal.io_test.Io_test.T_testMultiWriter_WriteStringSingleAlloc_3___localname___simpleWriter)));
+        var _mw:stdgo._internal.io.Io.Writer = multiWriter(stdgo.Go.asInterface((new stdgo._internal.io_test.Io_test.T_testMultiWriter_WriteStringSingleAlloc_1___localname___simpleWriter(stdgo.Go.asInterface((stdgo.Go.setRef(_sink1) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>))) : stdgo._internal.io_test.Io_test.T_testMultiWriter_WriteStringSingleAlloc_1___localname___simpleWriter)), stdgo.Go.asInterface((new stdgo._internal.io_test.Io_test.T_testMultiWriter_WriteStringSingleAlloc_1___localname___simpleWriter(stdgo.Go.asInterface((stdgo.Go.setRef(_sink2) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>))) : stdgo._internal.io_test.Io_test.T_testMultiWriter_WriteStringSingleAlloc_1___localname___simpleWriter)));
         var _allocs:stdgo.GoInt = (stdgo._internal.testing.Testing.allocsPerRun((1000 : stdgo.GoInt), function():Void {
             writeString(_mw, ("foo" : stdgo.GoString));
         }) : stdgo.GoInt);
@@ -1966,7 +1966,7 @@ function testWriteAfterWriterClose(_t:stdgo.Ref<stdgo._internal.testing.Testing.
             _t.errorf(("got: %q; want: %q" : stdgo.GoString), stdgo.Go.toInterface(_writeErr), stdgo.Go.toInterface(errClosedPipe));
         };
     }
-@:structInit @:using(stdgo._internal.io_test.Io_test.T_testPipeCloseError_4___localname___testError1_static_extension) class T_testPipeCloseError_4___localname___testError1 {
+@:structInit @:using(stdgo._internal.io_test.Io_test.T_testPipeCloseError_2___localname___testError1_static_extension) class T_testPipeCloseError_2___localname___testError1 {
     @:embedded
     public var _error : stdgo.Error = (null : stdgo.Error);
     public function new(?_error:stdgo.Error) {
@@ -1976,10 +1976,10 @@ function testWriteAfterWriterClose(_t:stdgo.Ref<stdgo._internal.testing.Testing.
     @:embedded
     public function error():stdgo.GoString return _error.error();
     public function __copy__() {
-        return new T_testPipeCloseError_4___localname___testError1(_error);
+        return new T_testPipeCloseError_2___localname___testError1(_error);
     }
 }
-@:structInit @:using(stdgo._internal.io_test.Io_test.T_testPipeCloseError_5___localname___testError2_static_extension) class T_testPipeCloseError_5___localname___testError2 {
+@:structInit @:using(stdgo._internal.io_test.Io_test.T_testPipeCloseError_3___localname___testError2_static_extension) class T_testPipeCloseError_3___localname___testError2 {
     @:embedded
     public var _error : stdgo.Error = (null : stdgo.Error);
     public function new(?_error:stdgo.Error) {
@@ -1989,24 +1989,24 @@ function testWriteAfterWriterClose(_t:stdgo.Ref<stdgo._internal.testing.Testing.
     @:embedded
     public function error():stdgo.GoString return _error.error();
     public function __copy__() {
-        return new T_testPipeCloseError_5___localname___testError2(_error);
+        return new T_testPipeCloseError_3___localname___testError2(_error);
     }
 }
 function testPipeCloseError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
         {};
         var __tmp__ = pipe(), _r:stdgo.Ref<stdgo._internal.io.Io.PipeReader> = __tmp__._0, _w:stdgo.Ref<stdgo._internal.io.Io.PipeWriter> = __tmp__._1;
-        _r.closeWithError(stdgo.Go.asInterface((new stdgo._internal.io_test.Io_test.T_testPipeCloseError_4___localname___testError1() : stdgo._internal.io_test.Io_test.T_testPipeCloseError_4___localname___testError1)));
+        _r.closeWithError(stdgo.Go.asInterface((new stdgo._internal.io_test.Io_test.T_testPipeCloseError_2___localname___testError1() : stdgo._internal.io_test.Io_test.T_testPipeCloseError_2___localname___testError1)));
         {
             var __tmp__ = _w.write((null : stdgo.Slice<stdgo.GoUInt8>)), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-            if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo.Go.asInterface(((new stdgo._internal.io_test.Io_test.T_testPipeCloseError_4___localname___testError1() : stdgo._internal.io_test.Io_test.T_testPipeCloseError_4___localname___testError1)))))) {
+            if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo.Go.asInterface(((new stdgo._internal.io_test.Io_test.T_testPipeCloseError_2___localname___testError1() : stdgo._internal.io_test.Io_test.T_testPipeCloseError_2___localname___testError1)))))) {
                 _t.errorf(("Write error: got %T, want testError1" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
         };
-        _r.closeWithError(stdgo.Go.asInterface((new stdgo._internal.io_test.Io_test.T_testPipeCloseError_5___localname___testError2() : stdgo._internal.io_test.Io_test.T_testPipeCloseError_5___localname___testError2)));
+        _r.closeWithError(stdgo.Go.asInterface((new stdgo._internal.io_test.Io_test.T_testPipeCloseError_3___localname___testError2() : stdgo._internal.io_test.Io_test.T_testPipeCloseError_3___localname___testError2)));
         {
             var __tmp__ = _w.write((null : stdgo.Slice<stdgo.GoUInt8>)), __9:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-            if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo.Go.asInterface(((new stdgo._internal.io_test.Io_test.T_testPipeCloseError_4___localname___testError1() : stdgo._internal.io_test.Io_test.T_testPipeCloseError_4___localname___testError1)))))) {
+            if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo.Go.asInterface(((new stdgo._internal.io_test.Io_test.T_testPipeCloseError_2___localname___testError1() : stdgo._internal.io_test.Io_test.T_testPipeCloseError_2___localname___testError1)))))) {
                 _t.errorf(("Write error: got %T, want testError1" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
         };
@@ -2015,17 +2015,17 @@ function testPipeCloseError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
             _r = __tmp__._0;
             _w = __tmp__._1;
         };
-        _w.closeWithError(stdgo.Go.asInterface((new stdgo._internal.io_test.Io_test.T_testPipeCloseError_4___localname___testError1() : stdgo._internal.io_test.Io_test.T_testPipeCloseError_4___localname___testError1)));
+        _w.closeWithError(stdgo.Go.asInterface((new stdgo._internal.io_test.Io_test.T_testPipeCloseError_2___localname___testError1() : stdgo._internal.io_test.Io_test.T_testPipeCloseError_2___localname___testError1)));
         {
             var __tmp__ = _r.read((null : stdgo.Slice<stdgo.GoUInt8>)), __18:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-            if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo.Go.asInterface(((new stdgo._internal.io_test.Io_test.T_testPipeCloseError_4___localname___testError1() : stdgo._internal.io_test.Io_test.T_testPipeCloseError_4___localname___testError1)))))) {
+            if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo.Go.asInterface(((new stdgo._internal.io_test.Io_test.T_testPipeCloseError_2___localname___testError1() : stdgo._internal.io_test.Io_test.T_testPipeCloseError_2___localname___testError1)))))) {
                 _t.errorf(("Read error: got %T, want testError1" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
         };
-        _w.closeWithError(stdgo.Go.asInterface((new stdgo._internal.io_test.Io_test.T_testPipeCloseError_5___localname___testError2() : stdgo._internal.io_test.Io_test.T_testPipeCloseError_5___localname___testError2)));
+        _w.closeWithError(stdgo.Go.asInterface((new stdgo._internal.io_test.Io_test.T_testPipeCloseError_3___localname___testError2() : stdgo._internal.io_test.Io_test.T_testPipeCloseError_3___localname___testError2)));
         {
             var __tmp__ = _r.read((null : stdgo.Slice<stdgo.GoUInt8>)), __27:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-            if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo.Go.asInterface(((new stdgo._internal.io_test.Io_test.T_testPipeCloseError_4___localname___testError1() : stdgo._internal.io_test.Io_test.T_testPipeCloseError_4___localname___testError1)))))) {
+            if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo.Go.asInterface(((new stdgo._internal.io_test.Io_test.T_testPipeCloseError_2___localname___testError1() : stdgo._internal.io_test.Io_test.T_testPipeCloseError_2___localname___testError1)))))) {
                 _t.errorf(("Read error: got %T, want testError1" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
         };
@@ -2689,7 +2689,7 @@ class T_byteAndEOFReader_asInterface {
         return { _0 : (1 : stdgo.GoInt), _1 : eof };
     }
 }
-class T_testMultiWriter_WriteStringSingleAlloc_3___localname___simpleWriter_asInterface {
+class T_testMultiWriter_WriteStringSingleAlloc_1___localname___simpleWriter_asInterface {
     @:embedded
     public dynamic function write(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.value.write(_b);
     public function new(__self__, __type__) {
@@ -2697,14 +2697,14 @@ class T_testMultiWriter_WriteStringSingleAlloc_3___localname___simpleWriter_asIn
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<T_testMultiWriter_WriteStringSingleAlloc_3___localname___simpleWriter>;
+    var __self__ : stdgo.Pointer<T_testMultiWriter_WriteStringSingleAlloc_1___localname___simpleWriter>;
     var __type__ : stdgo._internal.internal.reflect.Reflect._Type;
 }
-@:keep @:allow(stdgo._internal.io_test.Io_test.T_testMultiWriter_WriteStringSingleAlloc_3___localname___simpleWriter_asInterface) class T_testMultiWriter_WriteStringSingleAlloc_3___localname___simpleWriter_static_extension {
+@:keep @:allow(stdgo._internal.io_test.Io_test.T_testMultiWriter_WriteStringSingleAlloc_1___localname___simpleWriter_asInterface) class T_testMultiWriter_WriteStringSingleAlloc_1___localname___simpleWriter_static_extension {
     @:embedded
-    public static function write( __self__:T_testMultiWriter_WriteStringSingleAlloc_3___localname___simpleWriter, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.write(_b);
+    public static function write( __self__:T_testMultiWriter_WriteStringSingleAlloc_1___localname___simpleWriter, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.write(_b);
 }
-class T_testPipeCloseError_4___localname___testError1_asInterface {
+class T_testPipeCloseError_2___localname___testError1_asInterface {
     @:embedded
     public dynamic function error():stdgo.GoString return __self__.value.error();
     public function new(__self__, __type__) {
@@ -2712,14 +2712,14 @@ class T_testPipeCloseError_4___localname___testError1_asInterface {
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<T_testPipeCloseError_4___localname___testError1>;
+    var __self__ : stdgo.Pointer<T_testPipeCloseError_2___localname___testError1>;
     var __type__ : stdgo._internal.internal.reflect.Reflect._Type;
 }
-@:keep @:allow(stdgo._internal.io_test.Io_test.T_testPipeCloseError_4___localname___testError1_asInterface) class T_testPipeCloseError_4___localname___testError1_static_extension {
+@:keep @:allow(stdgo._internal.io_test.Io_test.T_testPipeCloseError_2___localname___testError1_asInterface) class T_testPipeCloseError_2___localname___testError1_static_extension {
     @:embedded
-    public static function error( __self__:T_testPipeCloseError_4___localname___testError1):stdgo.GoString return __self__.error();
+    public static function error( __self__:T_testPipeCloseError_2___localname___testError1):stdgo.GoString return __self__.error();
 }
-class T_testPipeCloseError_5___localname___testError2_asInterface {
+class T_testPipeCloseError_3___localname___testError2_asInterface {
     @:embedded
     public dynamic function error():stdgo.GoString return __self__.value.error();
     public function new(__self__, __type__) {
@@ -2727,10 +2727,10 @@ class T_testPipeCloseError_5___localname___testError2_asInterface {
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<T_testPipeCloseError_5___localname___testError2>;
+    var __self__ : stdgo.Pointer<T_testPipeCloseError_3___localname___testError2>;
     var __type__ : stdgo._internal.internal.reflect.Reflect._Type;
 }
-@:keep @:allow(stdgo._internal.io_test.Io_test.T_testPipeCloseError_5___localname___testError2_asInterface) class T_testPipeCloseError_5___localname___testError2_static_extension {
+@:keep @:allow(stdgo._internal.io_test.Io_test.T_testPipeCloseError_3___localname___testError2_asInterface) class T_testPipeCloseError_3___localname___testError2_static_extension {
     @:embedded
-    public static function error( __self__:T_testPipeCloseError_5___localname___testError2):stdgo.GoString return __self__.error();
+    public static function error( __self__:T_testPipeCloseError_3___localname___testError2):stdgo.GoString return __self__.error();
 }

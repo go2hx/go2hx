@@ -4,162 +4,102 @@ package stdgo;
 **/
 private var __go2hxdoc__package : Bool;
 final n : haxe.UInt64 = stdgo._internal.slices.Slices.n;
-@:forward @:forward.new abstract T_myStruct(stdgo._internal.slices.Slices.T_myStruct) from stdgo._internal.slices.Slices.T_myStruct to stdgo._internal.slices.Slices.T_myStruct {
-
+abstract T_myStruct(stdgo._internal.slices.Slices.T_myStruct) from stdgo._internal.slices.Slices.T_myStruct to stdgo._internal.slices.Slices.T_myStruct {
+    public var _a(get, set) : String;
+    function get__a():String return this._a;
+    function set__a(v:String):String {
+        this._a = v;
+        return v;
+    }
+    public var _b(get, set) : String;
+    function get__b():String return this._b;
+    function set__b(v:String):String {
+        this._b = v;
+        return v;
+    }
+    public var _c(get, set) : String;
+    function get__c():String return this._c;
+    function set__c(v:String):String {
+        this._c = v;
+        return v;
+    }
+    public var _d(get, set) : String;
+    function get__d():String return this._d;
+    function set__d(v:String):String {
+        this._d = v;
+        return v;
+    }
+    public var _n(get, set) : StdTypes.Int;
+    function get__n():StdTypes.Int return this._n;
+    function set__n(v:StdTypes.Int):StdTypes.Int {
+        this._n = v;
+        return v;
+    }
+    public function new(?_a:String, ?_b:String, ?_c:String, ?_d:String, ?_n:StdTypes.Int) this = new stdgo._internal.slices.Slices.T_myStruct(_a, _b, _c, _d, _n);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_intPair(stdgo._internal.slices.Slices.T_intPair) from stdgo._internal.slices.Slices.T_intPair to stdgo._internal.slices.Slices.T_intPair {
-
+abstract T_intPair(stdgo._internal.slices.Slices.T_intPair) from stdgo._internal.slices.Slices.T_intPair to stdgo._internal.slices.Slices.T_intPair {
+    public var _a(get, set) : StdTypes.Int;
+    function get__a():StdTypes.Int return this._a;
+    function set__a(v:StdTypes.Int):StdTypes.Int {
+        this._a = v;
+        return v;
+    }
+    public var _b(get, set) : StdTypes.Int;
+    function get__b():StdTypes.Int return this._b;
+    function set__b(v:StdTypes.Int):StdTypes.Int {
+        this._b = v;
+        return v;
+    }
+    public function new(?_a:StdTypes.Int, ?_b:StdTypes.Int) this = new stdgo._internal.slices.Slices.T_intPair(_a, _b);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract S(stdgo._internal.slices.Slices.S) from stdgo._internal.slices.Slices.S to stdgo._internal.slices.Slices.S {
-
-}
-@:forward @:forward.new abstract T__struct_0_asInterface(stdgo._internal.slices.Slices.T__struct_0_asInterface) from stdgo._internal.slices.Slices.T__struct_0_asInterface to stdgo._internal.slices.Slices.T__struct_0_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_0_static_extension(stdgo._internal.slices.Slices.T__struct_0_static_extension) from stdgo._internal.slices.Slices.T__struct_0_static_extension to stdgo._internal.slices.Slices.T__struct_0_static_extension {
-
+abstract S(stdgo._internal.slices.Slices.S) from stdgo._internal.slices.Slices.S to stdgo._internal.slices.Slices.S {
+    public var _a(get, set) : StdTypes.Int;
+    function get__a():StdTypes.Int return this._a;
+    function set__a(v:StdTypes.Int):StdTypes.Int {
+        this._a = v;
+        return v;
+    }
+    public var _b(get, set) : String;
+    function get__b():String return this._b;
+    function set__b(v:String):String {
+        this._b = v;
+        return v;
+    }
+    public function new(?_a:StdTypes.Int, ?_b:String) this = new stdgo._internal.slices.Slices.S(_a, _b);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef T__struct_0 = stdgo._internal.slices.Slices.T__struct_0;
-@:forward @:forward.new abstract T__struct_1_asInterface(stdgo._internal.slices.Slices.T__struct_1_asInterface) from stdgo._internal.slices.Slices.T__struct_1_asInterface to stdgo._internal.slices.Slices.T__struct_1_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_1_static_extension(stdgo._internal.slices.Slices.T__struct_1_static_extension) from stdgo._internal.slices.Slices.T__struct_1_static_extension to stdgo._internal.slices.Slices.T__struct_1_static_extension {
-
-}
 typedef T__struct_1 = stdgo._internal.slices.Slices.T__struct_1;
-@:forward @:forward.new abstract T__struct_2_asInterface(stdgo._internal.slices.Slices.T__struct_2_asInterface) from stdgo._internal.slices.Slices.T__struct_2_asInterface to stdgo._internal.slices.Slices.T__struct_2_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_2_static_extension(stdgo._internal.slices.Slices.T__struct_2_static_extension) from stdgo._internal.slices.Slices.T__struct_2_static_extension to stdgo._internal.slices.Slices.T__struct_2_static_extension {
-
-}
 typedef T__struct_2 = stdgo._internal.slices.Slices.T__struct_2;
-@:forward @:forward.new abstract T__struct_3_asInterface(stdgo._internal.slices.Slices.T__struct_3_asInterface) from stdgo._internal.slices.Slices.T__struct_3_asInterface to stdgo._internal.slices.Slices.T__struct_3_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_3_static_extension(stdgo._internal.slices.Slices.T__struct_3_static_extension) from stdgo._internal.slices.Slices.T__struct_3_static_extension to stdgo._internal.slices.Slices.T__struct_3_static_extension {
-
-}
 typedef T__struct_3 = stdgo._internal.slices.Slices.T__struct_3;
-@:forward @:forward.new abstract T__struct_4_asInterface(stdgo._internal.slices.Slices.T__struct_4_asInterface) from stdgo._internal.slices.Slices.T__struct_4_asInterface to stdgo._internal.slices.Slices.T__struct_4_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_4_static_extension(stdgo._internal.slices.Slices.T__struct_4_static_extension) from stdgo._internal.slices.Slices.T__struct_4_static_extension to stdgo._internal.slices.Slices.T__struct_4_static_extension {
-
-}
 typedef T__struct_4 = stdgo._internal.slices.Slices.T__struct_4;
-@:forward @:forward.new abstract T__struct_5_asInterface(stdgo._internal.slices.Slices.T__struct_5_asInterface) from stdgo._internal.slices.Slices.T__struct_5_asInterface to stdgo._internal.slices.Slices.T__struct_5_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_5_static_extension(stdgo._internal.slices.Slices.T__struct_5_static_extension) from stdgo._internal.slices.Slices.T__struct_5_static_extension to stdgo._internal.slices.Slices.T__struct_5_static_extension {
-
-}
 typedef T__struct_5 = stdgo._internal.slices.Slices.T__struct_5;
-@:forward @:forward.new abstract T__struct_6_asInterface(stdgo._internal.slices.Slices.T__struct_6_asInterface) from stdgo._internal.slices.Slices.T__struct_6_asInterface to stdgo._internal.slices.Slices.T__struct_6_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_6_static_extension(stdgo._internal.slices.Slices.T__struct_6_static_extension) from stdgo._internal.slices.Slices.T__struct_6_static_extension to stdgo._internal.slices.Slices.T__struct_6_static_extension {
-
-}
 typedef T__struct_6 = stdgo._internal.slices.Slices.T__struct_6;
-@:forward @:forward.new abstract T__struct_7_asInterface(stdgo._internal.slices.Slices.T__struct_7_asInterface) from stdgo._internal.slices.Slices.T__struct_7_asInterface to stdgo._internal.slices.Slices.T__struct_7_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_7_static_extension(stdgo._internal.slices.Slices.T__struct_7_static_extension) from stdgo._internal.slices.Slices.T__struct_7_static_extension to stdgo._internal.slices.Slices.T__struct_7_static_extension {
-
-}
 typedef T__struct_7 = stdgo._internal.slices.Slices.T__struct_7;
-@:forward @:forward.new abstract T__struct_8_asInterface(stdgo._internal.slices.Slices.T__struct_8_asInterface) from stdgo._internal.slices.Slices.T__struct_8_asInterface to stdgo._internal.slices.Slices.T__struct_8_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_8_static_extension(stdgo._internal.slices.Slices.T__struct_8_static_extension) from stdgo._internal.slices.Slices.T__struct_8_static_extension to stdgo._internal.slices.Slices.T__struct_8_static_extension {
-
-}
 typedef T__struct_8 = stdgo._internal.slices.Slices.T__struct_8;
-@:forward @:forward.new abstract T__struct_9_asInterface(stdgo._internal.slices.Slices.T__struct_9_asInterface) from stdgo._internal.slices.Slices.T__struct_9_asInterface to stdgo._internal.slices.Slices.T__struct_9_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_9_static_extension(stdgo._internal.slices.Slices.T__struct_9_static_extension) from stdgo._internal.slices.Slices.T__struct_9_static_extension to stdgo._internal.slices.Slices.T__struct_9_static_extension {
-
-}
 typedef T__struct_9 = stdgo._internal.slices.Slices.T__struct_9;
-@:forward @:forward.new abstract T__struct_10_asInterface(stdgo._internal.slices.Slices.T__struct_10_asInterface) from stdgo._internal.slices.Slices.T__struct_10_asInterface to stdgo._internal.slices.Slices.T__struct_10_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_10_static_extension(stdgo._internal.slices.Slices.T__struct_10_static_extension) from stdgo._internal.slices.Slices.T__struct_10_static_extension to stdgo._internal.slices.Slices.T__struct_10_static_extension {
-
-}
 typedef T__struct_10 = stdgo._internal.slices.Slices.T__struct_10;
-@:forward @:forward.new abstract T__struct_11_asInterface(stdgo._internal.slices.Slices.T__struct_11_asInterface) from stdgo._internal.slices.Slices.T__struct_11_asInterface to stdgo._internal.slices.Slices.T__struct_11_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_11_static_extension(stdgo._internal.slices.Slices.T__struct_11_static_extension) from stdgo._internal.slices.Slices.T__struct_11_static_extension to stdgo._internal.slices.Slices.T__struct_11_static_extension {
-
-}
 typedef T__struct_11 = stdgo._internal.slices.Slices.T__struct_11;
-@:forward @:forward.new abstract T__struct_12_asInterface(stdgo._internal.slices.Slices.T__struct_12_asInterface) from stdgo._internal.slices.Slices.T__struct_12_asInterface to stdgo._internal.slices.Slices.T__struct_12_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_12_static_extension(stdgo._internal.slices.Slices.T__struct_12_static_extension) from stdgo._internal.slices.Slices.T__struct_12_static_extension to stdgo._internal.slices.Slices.T__struct_12_static_extension {
-
-}
 typedef T__struct_12 = stdgo._internal.slices.Slices.T__struct_12;
-@:forward @:forward.new abstract T__struct_13_asInterface(stdgo._internal.slices.Slices.T__struct_13_asInterface) from stdgo._internal.slices.Slices.T__struct_13_asInterface to stdgo._internal.slices.Slices.T__struct_13_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_13_static_extension(stdgo._internal.slices.Slices.T__struct_13_static_extension) from stdgo._internal.slices.Slices.T__struct_13_static_extension to stdgo._internal.slices.Slices.T__struct_13_static_extension {
-
-}
 typedef T__struct_13 = stdgo._internal.slices.Slices.T__struct_13;
-@:forward @:forward.new abstract T__struct_14_asInterface(stdgo._internal.slices.Slices.T__struct_14_asInterface) from stdgo._internal.slices.Slices.T__struct_14_asInterface to stdgo._internal.slices.Slices.T__struct_14_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_14_static_extension(stdgo._internal.slices.Slices.T__struct_14_static_extension) from stdgo._internal.slices.Slices.T__struct_14_static_extension to stdgo._internal.slices.Slices.T__struct_14_static_extension {
-
-}
 typedef T__struct_14 = stdgo._internal.slices.Slices.T__struct_14;
-@:forward @:forward.new abstract T__struct_15_asInterface(stdgo._internal.slices.Slices.T__struct_15_asInterface) from stdgo._internal.slices.Slices.T__struct_15_asInterface to stdgo._internal.slices.Slices.T__struct_15_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_15_static_extension(stdgo._internal.slices.Slices.T__struct_15_static_extension) from stdgo._internal.slices.Slices.T__struct_15_static_extension to stdgo._internal.slices.Slices.T__struct_15_static_extension {
-
-}
 typedef T__struct_15 = stdgo._internal.slices.Slices.T__struct_15;
-@:forward @:forward.new abstract T__struct_16_asInterface(stdgo._internal.slices.Slices.T__struct_16_asInterface) from stdgo._internal.slices.Slices.T__struct_16_asInterface to stdgo._internal.slices.Slices.T__struct_16_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_16_static_extension(stdgo._internal.slices.Slices.T__struct_16_static_extension) from stdgo._internal.slices.Slices.T__struct_16_static_extension to stdgo._internal.slices.Slices.T__struct_16_static_extension {
-
-}
 typedef T__struct_16 = stdgo._internal.slices.Slices.T__struct_16;
 typedef T_sortedHint = stdgo._internal.slices.Slices.T_sortedHint;
 typedef T_xorshift = stdgo._internal.slices.Slices.T_xorshift;
 typedef T_myStructs = stdgo._internal.slices.Slices.T_myStructs;
 typedef T_intPairs = stdgo._internal.slices.Slices.T_intPairs;
-typedef T_benchmarkEqualFunc_Large_23___localname___Large = stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_23___localname___Large;
-typedef T_benchmarkIndex_Large_24___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndex_Large_24___localname___Large;
-typedef T_benchmarkIndexFunc_Large_25___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_25___localname___Large;
-typedef T_benchmarkCompact_Large_26___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompact_Large_26___localname___Large;
-typedef T_benchmarkCompactFunc_Large_27___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_27___localname___Large;
-typedef T_testInference_28___localname___S = stdgo._internal.slices.Slices.T_testInference_28___localname___S;
-@:forward @:forward.new abstract T_xorshift_asInterface(stdgo._internal.slices.Slices.T_xorshift_asInterface) from stdgo._internal.slices.Slices.T_xorshift_asInterface to stdgo._internal.slices.Slices.T_xorshift_asInterface {
-
-}
-@:forward @:forward.new abstract T_xorshift_static_extension(stdgo._internal.slices.Slices.T_xorshift_static_extension) from stdgo._internal.slices.Slices.T_xorshift_static_extension to stdgo._internal.slices.Slices.T_xorshift_static_extension {
-
-}
-@:forward @:forward.new abstract T_myStructs_asInterface(stdgo._internal.slices.Slices.T_myStructs_asInterface) from stdgo._internal.slices.Slices.T_myStructs_asInterface to stdgo._internal.slices.Slices.T_myStructs_asInterface {
-
-}
-@:forward @:forward.new abstract T_myStructs_static_extension(stdgo._internal.slices.Slices.T_myStructs_static_extension) from stdgo._internal.slices.Slices.T_myStructs_static_extension to stdgo._internal.slices.Slices.T_myStructs_static_extension {
-
-}
-@:forward @:forward.new abstract T_intPairs_asInterface(stdgo._internal.slices.Slices.T_intPairs_asInterface) from stdgo._internal.slices.Slices.T_intPairs_asInterface to stdgo._internal.slices.Slices.T_intPairs_asInterface {
-
-}
-@:forward @:forward.new abstract T_intPairs_static_extension(stdgo._internal.slices.Slices.T_intPairs_static_extension) from stdgo._internal.slices.Slices.T_intPairs_static_extension to stdgo._internal.slices.Slices.T_intPairs_static_extension {
-
-}
+typedef T_benchmarkEqualFunc_Large_15___localname___Large = stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_15___localname___Large;
+typedef T_benchmarkIndex_Large_16___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndex_Large_16___localname___Large;
+typedef T_benchmarkIndexFunc_Large_17___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_17___localname___Large;
+typedef T_benchmarkCompact_Large_18___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompact_Large_18___localname___Large;
+typedef T_benchmarkCompactFunc_Large_19___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_19___localname___Large;
+typedef T_testInference_20___localname___S = stdgo._internal.slices.Slices.T_testInference_20___localname___S;
 class Slices {
     static public function equal<S, E>(_generic__0:haxe.macro.Expr<S>, _generic__1:haxe.macro.Expr<E>, s1:haxe.macro.Expr<S>, s2:haxe.macro.Expr<S>):haxe.macro.Expr<Bool> {
         return stdgo._internal.slices.Slices.equal(_generic__0, _generic__1, s1, s2);

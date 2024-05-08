@@ -285,383 +285,2087 @@ package stdgo.encoding;
     *|/
 **/
 private var __go2hxdoc__package : Bool;
-@:forward @:forward.new abstract Squarer_static_extension(stdgo._internal.encoding.gob.Gob.Squarer_static_extension) from stdgo._internal.encoding.gob.Gob.Squarer_static_extension to stdgo._internal.encoding.gob.Gob.Squarer_static_extension {
-
-}
 typedef Squarer = stdgo._internal.encoding.gob.Gob.Squarer;
-@:forward @:forward.new abstract T_interfaceIndirectTestI_static_extension(stdgo._internal.encoding.gob.Gob.T_interfaceIndirectTestI_static_extension) from stdgo._internal.encoding.gob.Gob.T_interfaceIndirectTestI_static_extension to stdgo._internal.encoding.gob.Gob.T_interfaceIndirectTestI_static_extension {
-
-}
 typedef T_interfaceIndirectTestI = stdgo._internal.encoding.gob.Gob.T_interfaceIndirectTestI;
-@:forward @:forward.new abstract T_gobType_static_extension(stdgo._internal.encoding.gob.Gob.T_gobType_static_extension) from stdgo._internal.encoding.gob.Gob.T_gobType_static_extension to stdgo._internal.encoding.gob.Gob.T_gobType_static_extension {
-
-}
 typedef T_gobType = stdgo._internal.encoding.gob.Gob.T_gobType;
-@:forward @:forward.new abstract GobEncoder_static_extension(stdgo._internal.encoding.gob.Gob.GobEncoder_static_extension) from stdgo._internal.encoding.gob.Gob.GobEncoder_static_extension to stdgo._internal.encoding.gob.Gob.GobEncoder_static_extension {
-
-}
 typedef GobEncoder = stdgo._internal.encoding.gob.Gob.GobEncoder;
-@:forward @:forward.new abstract GobDecoder_static_extension(stdgo._internal.encoding.gob.Gob.GobDecoder_static_extension) from stdgo._internal.encoding.gob.Gob.GobDecoder_static_extension to stdgo._internal.encoding.gob.Gob.GobDecoder_static_extension {
-
-}
 typedef GobDecoder = stdgo._internal.encoding.gob.Gob.GobDecoder;
-@:forward @:forward.new abstract EncodeT(stdgo._internal.encoding.gob.Gob.EncodeT) from stdgo._internal.encoding.gob.Gob.EncodeT to stdgo._internal.encoding.gob.Gob.EncodeT {
-
-}
-@:forward @:forward.new abstract T0(stdgo._internal.encoding.gob.Gob.T0) from stdgo._internal.encoding.gob.Gob.T0 to stdgo._internal.encoding.gob.Gob.T0 {
-
-}
-@:forward @:forward.new abstract T1(stdgo._internal.encoding.gob.Gob.T1) from stdgo._internal.encoding.gob.Gob.T1 to stdgo._internal.encoding.gob.Gob.T1 {
-
-}
-@:forward @:forward.new abstract T2(stdgo._internal.encoding.gob.Gob.T2) from stdgo._internal.encoding.gob.Gob.T2 to stdgo._internal.encoding.gob.Gob.T2 {
-
-}
-@:forward @:forward.new abstract RT0(stdgo._internal.encoding.gob.Gob.RT0) from stdgo._internal.encoding.gob.Gob.RT0 to stdgo._internal.encoding.gob.Gob.RT0 {
-
-}
-@:forward @:forward.new abstract RT1(stdgo._internal.encoding.gob.Gob.RT1) from stdgo._internal.encoding.gob.Gob.RT1 to stdgo._internal.encoding.gob.Gob.RT1 {
-
-}
-@:forward @:forward.new abstract IT0(stdgo._internal.encoding.gob.Gob.IT0) from stdgo._internal.encoding.gob.Gob.IT0 to stdgo._internal.encoding.gob.Gob.IT0 {
-
-}
-@:forward @:forward.new abstract Indirect(stdgo._internal.encoding.gob.Gob.Indirect) from stdgo._internal.encoding.gob.Gob.Indirect to stdgo._internal.encoding.gob.Gob.Indirect {
-
-}
-@:forward @:forward.new abstract Direct(stdgo._internal.encoding.gob.Gob.Direct) from stdgo._internal.encoding.gob.Gob.Direct to stdgo._internal.encoding.gob.Gob.Direct {
-
-}
-@:forward @:forward.new abstract Point(stdgo._internal.encoding.gob.Gob.Point) from stdgo._internal.encoding.gob.Gob.Point to stdgo._internal.encoding.gob.Gob.Point {
-
-}
-@:forward @:forward.new abstract InterfaceItem(stdgo._internal.encoding.gob.Gob.InterfaceItem) from stdgo._internal.encoding.gob.Gob.InterfaceItem to stdgo._internal.encoding.gob.Gob.InterfaceItem {
-
-}
-@:forward @:forward.new abstract NoInterfaceItem(stdgo._internal.encoding.gob.Gob.NoInterfaceItem) from stdgo._internal.encoding.gob.Gob.NoInterfaceItem to stdgo._internal.encoding.gob.Gob.NoInterfaceItem {
-
-}
-@:forward @:forward.new abstract BasicInterfaceItem(stdgo._internal.encoding.gob.Gob.BasicInterfaceItem) from stdgo._internal.encoding.gob.Gob.BasicInterfaceItem to stdgo._internal.encoding.gob.Gob.BasicInterfaceItem {
-
-}
-@:forward @:forward.new abstract PtrInterfaceItem(stdgo._internal.encoding.gob.Gob.PtrInterfaceItem) from stdgo._internal.encoding.gob.Gob.PtrInterfaceItem to stdgo._internal.encoding.gob.Gob.PtrInterfaceItem {
-
-}
-@:forward @:forward.new abstract U(stdgo._internal.encoding.gob.Gob.U) from stdgo._internal.encoding.gob.Gob.U to stdgo._internal.encoding.gob.Gob.U {
-
-}
-@:forward @:forward.new abstract OnTheFly(stdgo._internal.encoding.gob.Gob.OnTheFly) from stdgo._internal.encoding.gob.Gob.OnTheFly to stdgo._internal.encoding.gob.Gob.OnTheFly {
-
-}
-@:forward @:forward.new abstract DT(stdgo._internal.encoding.gob.Gob.DT) from stdgo._internal.encoding.gob.Gob.DT to stdgo._internal.encoding.gob.Gob.DT {
-
-}
-@:forward @:forward.new abstract LargeSliceByte(stdgo._internal.encoding.gob.Gob.LargeSliceByte) from stdgo._internal.encoding.gob.Gob.LargeSliceByte to stdgo._internal.encoding.gob.Gob.LargeSliceByte {
-
-}
-@:forward @:forward.new abstract LargeSliceInt8(stdgo._internal.encoding.gob.Gob.LargeSliceInt8) from stdgo._internal.encoding.gob.Gob.LargeSliceInt8 to stdgo._internal.encoding.gob.Gob.LargeSliceInt8 {
-
-}
-@:forward @:forward.new abstract StringPair(stdgo._internal.encoding.gob.Gob.StringPair) from stdgo._internal.encoding.gob.Gob.StringPair to stdgo._internal.encoding.gob.Gob.StringPair {
-
-}
-@:forward @:forward.new abstract LargeSliceStruct(stdgo._internal.encoding.gob.Gob.LargeSliceStruct) from stdgo._internal.encoding.gob.Gob.LargeSliceStruct to stdgo._internal.encoding.gob.Gob.LargeSliceStruct {
-
-}
-@:forward @:forward.new abstract LargeSliceString(stdgo._internal.encoding.gob.Gob.LargeSliceString) from stdgo._internal.encoding.gob.Gob.LargeSliceString to stdgo._internal.encoding.gob.Gob.LargeSliceString {
-
-}
-@:forward @:forward.new abstract T_decoderState(stdgo._internal.encoding.gob.Gob.T_decoderState) from stdgo._internal.encoding.gob.Gob.T_decoderState to stdgo._internal.encoding.gob.Gob.T_decoderState {
-
-}
-@:forward @:forward.new abstract T_decBuffer(stdgo._internal.encoding.gob.Gob.T_decBuffer) from stdgo._internal.encoding.gob.Gob.T_decBuffer to stdgo._internal.encoding.gob.Gob.T_decBuffer {
-
-}
-@:forward @:forward.new abstract T_decInstr(stdgo._internal.encoding.gob.Gob.T_decInstr) from stdgo._internal.encoding.gob.Gob.T_decInstr to stdgo._internal.encoding.gob.Gob.T_decInstr {
-
-}
-@:forward @:forward.new abstract T_decEngine(stdgo._internal.encoding.gob.Gob.T_decEngine) from stdgo._internal.encoding.gob.Gob.T_decEngine to stdgo._internal.encoding.gob.Gob.T_decEngine {
-
-}
-@:forward @:forward.new abstract T_emptyStruct(stdgo._internal.encoding.gob.Gob.T_emptyStruct) from stdgo._internal.encoding.gob.Gob.T_emptyStruct to stdgo._internal.encoding.gob.Gob.T_emptyStruct {
-
-}
-@:forward @:forward.new abstract Decoder(stdgo._internal.encoding.gob.Gob.Decoder) from stdgo._internal.encoding.gob.Gob.Decoder to stdgo._internal.encoding.gob.Gob.Decoder {
-
-}
-@:forward @:forward.new abstract T_encoderState(stdgo._internal.encoding.gob.Gob.T_encoderState) from stdgo._internal.encoding.gob.Gob.T_encoderState to stdgo._internal.encoding.gob.Gob.T_encoderState {
-
-}
-@:forward @:forward.new abstract T_encBuffer(stdgo._internal.encoding.gob.Gob.T_encBuffer) from stdgo._internal.encoding.gob.Gob.T_encBuffer to stdgo._internal.encoding.gob.Gob.T_encBuffer {
-
-}
-@:forward @:forward.new abstract T_encInstr(stdgo._internal.encoding.gob.Gob.T_encInstr) from stdgo._internal.encoding.gob.Gob.T_encInstr to stdgo._internal.encoding.gob.Gob.T_encInstr {
-
-}
-@:forward @:forward.new abstract T_encEngine(stdgo._internal.encoding.gob.Gob.T_encEngine) from stdgo._internal.encoding.gob.Gob.T_encEngine to stdgo._internal.encoding.gob.Gob.T_encEngine {
-
-}
-@:forward @:forward.new abstract Encoder(stdgo._internal.encoding.gob.Gob.Encoder) from stdgo._internal.encoding.gob.Gob.Encoder to stdgo._internal.encoding.gob.Gob.Encoder {
-
-}
-@:forward @:forward.new abstract ET0(stdgo._internal.encoding.gob.Gob.ET0) from stdgo._internal.encoding.gob.Gob.ET0 to stdgo._internal.encoding.gob.Gob.ET0 {
-
-}
-@:forward @:forward.new abstract ET2(stdgo._internal.encoding.gob.Gob.ET2) from stdgo._internal.encoding.gob.Gob.ET2 to stdgo._internal.encoding.gob.Gob.ET2 {
-
-}
-@:forward @:forward.new abstract ET1(stdgo._internal.encoding.gob.Gob.ET1) from stdgo._internal.encoding.gob.Gob.ET1 to stdgo._internal.encoding.gob.Gob.ET1 {
-
-}
-@:forward @:forward.new abstract ET3(stdgo._internal.encoding.gob.Gob.ET3) from stdgo._internal.encoding.gob.Gob.ET3 to stdgo._internal.encoding.gob.Gob.ET3 {
-
-}
-@:forward @:forward.new abstract ET4(stdgo._internal.encoding.gob.Gob.ET4) from stdgo._internal.encoding.gob.Gob.ET4 to stdgo._internal.encoding.gob.Gob.ET4 {
-
-}
-@:forward @:forward.new abstract SingleTest(stdgo._internal.encoding.gob.Gob.SingleTest) from stdgo._internal.encoding.gob.Gob.SingleTest to stdgo._internal.encoding.gob.Gob.SingleTest {
-
-}
-@:forward @:forward.new abstract T_interfaceIndirectTestT(stdgo._internal.encoding.gob.Gob.T_interfaceIndirectTestT) from stdgo._internal.encoding.gob.Gob.T_interfaceIndirectTestT to stdgo._internal.encoding.gob.Gob.T_interfaceIndirectTestT {
-
-}
-@:forward @:forward.new abstract Struct0(stdgo._internal.encoding.gob.Gob.Struct0) from stdgo._internal.encoding.gob.Gob.Struct0 to stdgo._internal.encoding.gob.Gob.Struct0 {
-
-}
-@:forward @:forward.new abstract NewType0(stdgo._internal.encoding.gob.Gob.NewType0) from stdgo._internal.encoding.gob.Gob.NewType0 to stdgo._internal.encoding.gob.Gob.NewType0 {
-
-}
-@:forward @:forward.new abstract T_ignoreTest(stdgo._internal.encoding.gob.Gob.T_ignoreTest) from stdgo._internal.encoding.gob.Gob.T_ignoreTest to stdgo._internal.encoding.gob.Gob.T_ignoreTest {
-
-}
-@:forward @:forward.new abstract Bug0Outer(stdgo._internal.encoding.gob.Gob.Bug0Outer) from stdgo._internal.encoding.gob.Gob.Bug0Outer to stdgo._internal.encoding.gob.Gob.Bug0Outer {
-
-}
-@:forward @:forward.new abstract Bug0Inner(stdgo._internal.encoding.gob.Gob.Bug0Inner) from stdgo._internal.encoding.gob.Gob.Bug0Inner to stdgo._internal.encoding.gob.Gob.Bug0Inner {
-
-}
-@:forward @:forward.new abstract Bug1Elem(stdgo._internal.encoding.gob.Gob.Bug1Elem) from stdgo._internal.encoding.gob.Gob.Bug1Elem to stdgo._internal.encoding.gob.Gob.Bug1Elem {
-
-}
-@:forward @:forward.new abstract Bug2(stdgo._internal.encoding.gob.Gob.Bug2) from stdgo._internal.encoding.gob.Gob.Bug2 to stdgo._internal.encoding.gob.Gob.Bug2 {
-
-}
-@:forward @:forward.new abstract Bug3(stdgo._internal.encoding.gob.Gob.Bug3) from stdgo._internal.encoding.gob.Gob.Bug3 to stdgo._internal.encoding.gob.Gob.Bug3 {
-
-}
-@:forward @:forward.new abstract Bug4Public(stdgo._internal.encoding.gob.Gob.Bug4Public) from stdgo._internal.encoding.gob.Gob.Bug4Public to stdgo._internal.encoding.gob.Gob.Bug4Public {
-
-}
-@:forward @:forward.new abstract Bug4Secret(stdgo._internal.encoding.gob.Gob.Bug4Secret) from stdgo._internal.encoding.gob.Gob.Bug4Secret to stdgo._internal.encoding.gob.Gob.Bug4Secret {
-
-}
-@:forward @:forward.new abstract Z(stdgo._internal.encoding.gob.Gob.Z) from stdgo._internal.encoding.gob.Gob.Z to stdgo._internal.encoding.gob.Gob.Z {
-
-}
-@:forward @:forward.new abstract T_badDataTest(stdgo._internal.encoding.gob.Gob.T_badDataTest) from stdgo._internal.encoding.gob.Gob.T_badDataTest to stdgo._internal.encoding.gob.Gob.T_badDataTest {
-
-}
-@:forward @:forward.new abstract T_gobError(stdgo._internal.encoding.gob.Gob.T_gobError) from stdgo._internal.encoding.gob.Gob.T_gobError to stdgo._internal.encoding.gob.Gob.T_gobError {
-
-}
-@:forward @:forward.new abstract ByteStruct(stdgo._internal.encoding.gob.Gob.ByteStruct) from stdgo._internal.encoding.gob.Gob.ByteStruct to stdgo._internal.encoding.gob.Gob.ByteStruct {
-
-}
-@:forward @:forward.new abstract StringStruct(stdgo._internal.encoding.gob.Gob.StringStruct) from stdgo._internal.encoding.gob.Gob.StringStruct to stdgo._internal.encoding.gob.Gob.StringStruct {
-
-}
-@:forward @:forward.new abstract ArrayStruct(stdgo._internal.encoding.gob.Gob.ArrayStruct) from stdgo._internal.encoding.gob.Gob.ArrayStruct to stdgo._internal.encoding.gob.Gob.ArrayStruct {
-
-}
-@:forward @:forward.new abstract GobTest0(stdgo._internal.encoding.gob.Gob.GobTest0) from stdgo._internal.encoding.gob.Gob.GobTest0 to stdgo._internal.encoding.gob.Gob.GobTest0 {
-
-}
-@:forward @:forward.new abstract GobTest1(stdgo._internal.encoding.gob.Gob.GobTest1) from stdgo._internal.encoding.gob.Gob.GobTest1 to stdgo._internal.encoding.gob.Gob.GobTest1 {
-
-}
-@:forward @:forward.new abstract GobTest2(stdgo._internal.encoding.gob.Gob.GobTest2) from stdgo._internal.encoding.gob.Gob.GobTest2 to stdgo._internal.encoding.gob.Gob.GobTest2 {
-
-}
-@:forward @:forward.new abstract GobTest3(stdgo._internal.encoding.gob.Gob.GobTest3) from stdgo._internal.encoding.gob.Gob.GobTest3 to stdgo._internal.encoding.gob.Gob.GobTest3 {
-
-}
-@:forward @:forward.new abstract GobTest4(stdgo._internal.encoding.gob.Gob.GobTest4) from stdgo._internal.encoding.gob.Gob.GobTest4 to stdgo._internal.encoding.gob.Gob.GobTest4 {
-
-}
-@:forward @:forward.new abstract GobTest5(stdgo._internal.encoding.gob.Gob.GobTest5) from stdgo._internal.encoding.gob.Gob.GobTest5 to stdgo._internal.encoding.gob.Gob.GobTest5 {
-
-}
-@:forward @:forward.new abstract GobTest6(stdgo._internal.encoding.gob.Gob.GobTest6) from stdgo._internal.encoding.gob.Gob.GobTest6 to stdgo._internal.encoding.gob.Gob.GobTest6 {
-
-}
-@:forward @:forward.new abstract GobTest7(stdgo._internal.encoding.gob.Gob.GobTest7) from stdgo._internal.encoding.gob.Gob.GobTest7 to stdgo._internal.encoding.gob.Gob.GobTest7 {
-
-}
-@:forward @:forward.new abstract GobTestIgnoreEncoder(stdgo._internal.encoding.gob.Gob.GobTestIgnoreEncoder) from stdgo._internal.encoding.gob.Gob.GobTestIgnoreEncoder to stdgo._internal.encoding.gob.Gob.GobTestIgnoreEncoder {
-
-}
-@:forward @:forward.new abstract GobTestValueEncDec(stdgo._internal.encoding.gob.Gob.GobTestValueEncDec) from stdgo._internal.encoding.gob.Gob.GobTestValueEncDec to stdgo._internal.encoding.gob.Gob.GobTestValueEncDec {
-
-}
-@:forward @:forward.new abstract GobTestIndirectEncDec(stdgo._internal.encoding.gob.Gob.GobTestIndirectEncDec) from stdgo._internal.encoding.gob.Gob.GobTestIndirectEncDec to stdgo._internal.encoding.gob.Gob.GobTestIndirectEncDec {
-
-}
-@:forward @:forward.new abstract GobTestArrayEncDec(stdgo._internal.encoding.gob.Gob.GobTestArrayEncDec) from stdgo._internal.encoding.gob.Gob.GobTestArrayEncDec to stdgo._internal.encoding.gob.Gob.GobTestArrayEncDec {
-
-}
-@:forward @:forward.new abstract GobTestIndirectArrayEncDec(stdgo._internal.encoding.gob.Gob.GobTestIndirectArrayEncDec) from stdgo._internal.encoding.gob.Gob.GobTestIndirectArrayEncDec to stdgo._internal.encoding.gob.Gob.GobTestIndirectArrayEncDec {
-
-}
-@:forward @:forward.new abstract T_gobDecoderBug0(stdgo._internal.encoding.gob.Gob.T_gobDecoderBug0) from stdgo._internal.encoding.gob.Gob.T_gobDecoderBug0 to stdgo._internal.encoding.gob.Gob.T_gobDecoderBug0 {
-
-}
-@:forward @:forward.new abstract T_isZeroBug(stdgo._internal.encoding.gob.Gob.T_isZeroBug) from stdgo._internal.encoding.gob.Gob.T_isZeroBug to stdgo._internal.encoding.gob.Gob.T_isZeroBug {
-
-}
-@:forward @:forward.new abstract T_isZeroBugInterface(stdgo._internal.encoding.gob.Gob.T_isZeroBugInterface) from stdgo._internal.encoding.gob.Gob.T_isZeroBugInterface to stdgo._internal.encoding.gob.Gob.T_isZeroBugInterface {
-
-}
-@:forward @:forward.new abstract Bench(stdgo._internal.encoding.gob.Gob.Bench) from stdgo._internal.encoding.gob.Gob.Bench to stdgo._internal.encoding.gob.Gob.Bench {
-
-}
-@:forward @:forward.new abstract T_benchmarkBuf(stdgo._internal.encoding.gob.Gob.T_benchmarkBuf) from stdgo._internal.encoding.gob.Gob.T_benchmarkBuf to stdgo._internal.encoding.gob.Gob.T_benchmarkBuf {
-
-}
-@:forward @:forward.new abstract T_userTypeInfo(stdgo._internal.encoding.gob.Gob.T_userTypeInfo) from stdgo._internal.encoding.gob.Gob.T_userTypeInfo to stdgo._internal.encoding.gob.Gob.T_userTypeInfo {
-
-}
-@:forward @:forward.new abstract CommonType(stdgo._internal.encoding.gob.Gob.CommonType) from stdgo._internal.encoding.gob.Gob.CommonType to stdgo._internal.encoding.gob.Gob.CommonType {
-
-}
-@:forward @:forward.new abstract T_arrayType(stdgo._internal.encoding.gob.Gob.T_arrayType) from stdgo._internal.encoding.gob.Gob.T_arrayType to stdgo._internal.encoding.gob.Gob.T_arrayType {
-
-}
-@:forward @:forward.new abstract T_gobEncoderType(stdgo._internal.encoding.gob.Gob.T_gobEncoderType) from stdgo._internal.encoding.gob.Gob.T_gobEncoderType to stdgo._internal.encoding.gob.Gob.T_gobEncoderType {
-
-}
-@:forward @:forward.new abstract T_mapType(stdgo._internal.encoding.gob.Gob.T_mapType) from stdgo._internal.encoding.gob.Gob.T_mapType to stdgo._internal.encoding.gob.Gob.T_mapType {
-
-}
-@:forward @:forward.new abstract T_sliceType(stdgo._internal.encoding.gob.Gob.T_sliceType) from stdgo._internal.encoding.gob.Gob.T_sliceType to stdgo._internal.encoding.gob.Gob.T_sliceType {
-
-}
-@:forward @:forward.new abstract T_fieldType(stdgo._internal.encoding.gob.Gob.T_fieldType) from stdgo._internal.encoding.gob.Gob.T_fieldType to stdgo._internal.encoding.gob.Gob.T_fieldType {
-
-}
-@:forward @:forward.new abstract T_structType(stdgo._internal.encoding.gob.Gob.T_structType) from stdgo._internal.encoding.gob.Gob.T_structType to stdgo._internal.encoding.gob.Gob.T_structType {
-
-}
-@:forward @:forward.new abstract T_wireType(stdgo._internal.encoding.gob.Gob.T_wireType) from stdgo._internal.encoding.gob.Gob.T_wireType to stdgo._internal.encoding.gob.Gob.T_wireType {
-
-}
-@:forward @:forward.new abstract T_typeInfo(stdgo._internal.encoding.gob.Gob.T_typeInfo) from stdgo._internal.encoding.gob.Gob.T_typeInfo to stdgo._internal.encoding.gob.Gob.T_typeInfo {
-
-}
-@:forward @:forward.new abstract T_typeT(stdgo._internal.encoding.gob.Gob.T_typeT) from stdgo._internal.encoding.gob.Gob.T_typeT to stdgo._internal.encoding.gob.Gob.T_typeT {
-
-}
-@:forward @:forward.new abstract Bar(stdgo._internal.encoding.gob.Gob.Bar) from stdgo._internal.encoding.gob.Gob.Bar to stdgo._internal.encoding.gob.Gob.Bar {
-
-}
-@:forward @:forward.new abstract Foo(stdgo._internal.encoding.gob.Gob.Foo) from stdgo._internal.encoding.gob.Gob.Foo to stdgo._internal.encoding.gob.Gob.Foo {
-
-}
-@:forward @:forward.new abstract N1(stdgo._internal.encoding.gob.Gob.N1) from stdgo._internal.encoding.gob.Gob.N1 to stdgo._internal.encoding.gob.Gob.N1 {
-
-}
-@:forward @:forward.new abstract N2(stdgo._internal.encoding.gob.Gob.N2) from stdgo._internal.encoding.gob.Gob.N2 to stdgo._internal.encoding.gob.Gob.N2 {
-
-}
-@:forward @:forward.new abstract T__struct_0_asInterface(stdgo._internal.encoding.gob.Gob.T__struct_0_asInterface) from stdgo._internal.encoding.gob.Gob.T__struct_0_asInterface to stdgo._internal.encoding.gob.Gob.T__struct_0_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_0_static_extension(stdgo._internal.encoding.gob.Gob.T__struct_0_static_extension) from stdgo._internal.encoding.gob.Gob.T__struct_0_static_extension to stdgo._internal.encoding.gob.Gob.T__struct_0_static_extension {
-
+abstract EncodeT(stdgo._internal.encoding.gob.Gob.EncodeT) from stdgo._internal.encoding.gob.Gob.EncodeT to stdgo._internal.encoding.gob.Gob.EncodeT {
+    public var _x(get, set) : haxe.UInt64;
+    function get__x():haxe.UInt64 return this._x;
+    function set__x(v:haxe.UInt64):haxe.UInt64 {
+        this._x = v;
+        return v;
+    }
+    public var _b(get, set) : Array<std.UInt>;
+    function get__b():Array<std.UInt> return [for (i in this._b) i];
+    function set__b(v:Array<std.UInt>):Array<std.UInt> {
+        this._b = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public function new(?_x:haxe.UInt64, ?_b:Array<std.UInt>) this = new stdgo._internal.encoding.gob.Gob.EncodeT(_x, ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T0(stdgo._internal.encoding.gob.Gob.T0) from stdgo._internal.encoding.gob.Gob.T0 to stdgo._internal.encoding.gob.Gob.T0 {
+    public var a(get, set) : StdTypes.Int;
+    function get_a():StdTypes.Int return this.a;
+    function set_a(v:StdTypes.Int):StdTypes.Int {
+        this.a = v;
+        return v;
+    }
+    public var b(get, set) : StdTypes.Int;
+    function get_b():StdTypes.Int return this.b;
+    function set_b(v:StdTypes.Int):StdTypes.Int {
+        this.b = v;
+        return v;
+    }
+    public var c(get, set) : StdTypes.Int;
+    function get_c():StdTypes.Int return this.c;
+    function set_c(v:StdTypes.Int):StdTypes.Int {
+        this.c = v;
+        return v;
+    }
+    public var d(get, set) : StdTypes.Int;
+    function get_d():StdTypes.Int return this.d;
+    function set_d(v:StdTypes.Int):StdTypes.Int {
+        this.d = v;
+        return v;
+    }
+    public function new(?a:StdTypes.Int, ?b:StdTypes.Int, ?c:StdTypes.Int, ?d:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.T0(a, b, c, d);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T1(stdgo._internal.encoding.gob.Gob.T1) from stdgo._internal.encoding.gob.Gob.T1 to stdgo._internal.encoding.gob.Gob.T1 {
+    public var a(get, set) : StdTypes.Int;
+    function get_a():StdTypes.Int return this.a;
+    function set_a(v:StdTypes.Int):StdTypes.Int {
+        this.a = v;
+        return v;
+    }
+    public var b(get, set) : stdgo.Pointer<StdTypes.Int>;
+    function get_b():stdgo.Pointer<StdTypes.Int> return this.b;
+    function set_b(v:stdgo.Pointer<StdTypes.Int>):stdgo.Pointer<StdTypes.Int> {
+        this.b = v;
+        return v;
+    }
+    public var c(get, set) : stdgo.Pointer<StdTypes.Int>;
+    function get_c():stdgo.Pointer<StdTypes.Int> return this.c;
+    function set_c(v:stdgo.Pointer<StdTypes.Int>):stdgo.Pointer<StdTypes.Int> {
+        this.c = v;
+        return v;
+    }
+    public var d(get, set) : stdgo.Pointer<StdTypes.Int>;
+    function get_d():stdgo.Pointer<StdTypes.Int> return this.d;
+    function set_d(v:stdgo.Pointer<StdTypes.Int>):stdgo.Pointer<StdTypes.Int> {
+        this.d = v;
+        return v;
+    }
+    public function new(?a:StdTypes.Int, ?b:stdgo.Pointer<StdTypes.Int>, ?c:stdgo.Pointer<StdTypes.Int>, ?d:stdgo.Pointer<StdTypes.Int>) this = new stdgo._internal.encoding.gob.Gob.T1(a, b, c, d);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T2(stdgo._internal.encoding.gob.Gob.T2) from stdgo._internal.encoding.gob.Gob.T2 to stdgo._internal.encoding.gob.Gob.T2 {
+    public var a(get, set) : stdgo.Pointer<StdTypes.Int>;
+    function get_a():stdgo.Pointer<StdTypes.Int> return this.a;
+    function set_a(v:stdgo.Pointer<StdTypes.Int>):stdgo.Pointer<StdTypes.Int> {
+        this.a = v;
+        return v;
+    }
+    public var b(get, set) : stdgo.Pointer<StdTypes.Int>;
+    function get_b():stdgo.Pointer<StdTypes.Int> return this.b;
+    function set_b(v:stdgo.Pointer<StdTypes.Int>):stdgo.Pointer<StdTypes.Int> {
+        this.b = v;
+        return v;
+    }
+    public var c(get, set) : stdgo.Pointer<StdTypes.Int>;
+    function get_c():stdgo.Pointer<StdTypes.Int> return this.c;
+    function set_c(v:stdgo.Pointer<StdTypes.Int>):stdgo.Pointer<StdTypes.Int> {
+        this.c = v;
+        return v;
+    }
+    public var d(get, set) : StdTypes.Int;
+    function get_d():StdTypes.Int return this.d;
+    function set_d(v:StdTypes.Int):StdTypes.Int {
+        this.d = v;
+        return v;
+    }
+    public function new(?a:stdgo.Pointer<StdTypes.Int>, ?b:stdgo.Pointer<StdTypes.Int>, ?c:stdgo.Pointer<StdTypes.Int>, ?d:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.T2(a, b, c, d);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract RT0(stdgo._internal.encoding.gob.Gob.RT0) from stdgo._internal.encoding.gob.Gob.RT0 to stdgo._internal.encoding.gob.Gob.RT0 {
+    public var a(get, set) : StdTypes.Int;
+    function get_a():StdTypes.Int return this.a;
+    function set_a(v:StdTypes.Int):StdTypes.Int {
+        this.a = v;
+        return v;
+    }
+    public var b(get, set) : String;
+    function get_b():String return this.b;
+    function set_b(v:String):String {
+        this.b = v;
+        return v;
+    }
+    public var c(get, set) : StdTypes.Float;
+    function get_c():StdTypes.Float return this.c;
+    function set_c(v:StdTypes.Float):StdTypes.Float {
+        this.c = v;
+        return v;
+    }
+    public function new(?a:StdTypes.Int, ?b:String, ?c:StdTypes.Float) this = new stdgo._internal.encoding.gob.Gob.RT0(a, b, c);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract RT1(stdgo._internal.encoding.gob.Gob.RT1) from stdgo._internal.encoding.gob.Gob.RT1 to stdgo._internal.encoding.gob.Gob.RT1 {
+    public var c(get, set) : StdTypes.Float;
+    function get_c():StdTypes.Float return this.c;
+    function set_c(v:StdTypes.Float):StdTypes.Float {
+        this.c = v;
+        return v;
+    }
+    public var b(get, set) : String;
+    function get_b():String return this.b;
+    function set_b(v:String):String {
+        this.b = v;
+        return v;
+    }
+    public var a(get, set) : StdTypes.Int;
+    function get_a():StdTypes.Int return this.a;
+    function set_a(v:StdTypes.Int):StdTypes.Int {
+        this.a = v;
+        return v;
+    }
+    public var notSet(get, set) : String;
+    function get_notSet():String return this.notSet;
+    function set_notSet(v:String):String {
+        this.notSet = v;
+        return v;
+    }
+    public function new(?c:StdTypes.Float, ?b:String, ?a:StdTypes.Int, ?notSet:String) this = new stdgo._internal.encoding.gob.Gob.RT1(c, b, a, notSet);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract IT0(stdgo._internal.encoding.gob.Gob.IT0) from stdgo._internal.encoding.gob.Gob.IT0 to stdgo._internal.encoding.gob.Gob.IT0 {
+    public var a(get, set) : haxe.Int64;
+    function get_a():haxe.Int64 return this.a;
+    function set_a(v:haxe.Int64):haxe.Int64 {
+        this.a = v;
+        return v;
+    }
+    public var b(get, set) : String;
+    function get_b():String return this.b;
+    function set_b(v:String):String {
+        this.b = v;
+        return v;
+    }
+    public var ignore_d(get, set) : Array<StdTypes.Int>;
+    function get_ignore_d():Array<StdTypes.Int> return [for (i in this.ignore_d) i];
+    function set_ignore_d(v:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        this.ignore_d = ([for (i in v) i] : stdgo.Slice<stdgo.GoInt>);
+        return v;
+    }
+    public var ignore_e(get, set) : haxe.ds.Vector<StdTypes.Float>;
+    function get_ignore_e():haxe.ds.Vector<StdTypes.Float> return haxe.ds.Vector.fromArrayCopy([for (i in this.ignore_e) i]);
+    function set_ignore_e(v:haxe.ds.Vector<StdTypes.Float>):haxe.ds.Vector<StdTypes.Float> {
+        this.ignore_e = ([for (i in v) i] : stdgo.GoArray<stdgo.GoFloat64>);
+        return v;
+    }
+    public var ignore_f(get, set) : Bool;
+    function get_ignore_f():Bool return this.ignore_f;
+    function set_ignore_f(v:Bool):Bool {
+        this.ignore_f = v;
+        return v;
+    }
+    public var ignore_g(get, set) : String;
+    function get_ignore_g():String return this.ignore_g;
+    function set_ignore_g(v:String):String {
+        this.ignore_g = v;
+        return v;
+    }
+    public var ignore_h(get, set) : Array<std.UInt>;
+    function get_ignore_h():Array<std.UInt> return [for (i in this.ignore_h) i];
+    function set_ignore_h(v:Array<std.UInt>):Array<std.UInt> {
+        this.ignore_h = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public var ignore_i(get, set) : stdgo._internal.encoding.gob.Gob.RT1;
+    function get_ignore_i():stdgo._internal.encoding.gob.Gob.RT1 return this.ignore_i;
+    function set_ignore_i(v:stdgo._internal.encoding.gob.Gob.RT1):stdgo._internal.encoding.gob.Gob.RT1 {
+        this.ignore_i = v;
+        return v;
+    }
+    public var ignore_m(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>;
+    function get_ignore_m():stdgo.GoMap<stdgo.GoString, stdgo.GoInt> return this.ignore_m;
+    function set_ignore_m(v:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>):stdgo.GoMap<stdgo.GoString, stdgo.GoInt> {
+        this.ignore_m = v;
+        return v;
+    }
+    public var c(get, set) : StdTypes.Float;
+    function get_c():StdTypes.Float return this.c;
+    function set_c(v:StdTypes.Float):StdTypes.Float {
+        this.c = v;
+        return v;
+    }
+    public function new(?a:haxe.Int64, ?b:String, ?ignore_d:Array<StdTypes.Int>, ?ignore_e:haxe.ds.Vector<StdTypes.Float>, ?ignore_f:Bool, ?ignore_g:String, ?ignore_h:Array<std.UInt>, ?ignore_i:stdgo._internal.encoding.gob.Gob.RT1, ?ignore_m:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?c:StdTypes.Float) this = new stdgo._internal.encoding.gob.Gob.IT0(a, b, ([for (i in ignore_d) i] : stdgo.Slice<stdgo.GoInt>), ([for (i in ignore_e) i] : stdgo.GoArray<stdgo.GoFloat64>), ignore_f, ignore_g, ([for (i in ignore_h) i] : stdgo.Slice<stdgo.GoUInt8>), ignore_i, ignore_m, c);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract Indirect(stdgo._internal.encoding.gob.Gob.Indirect) from stdgo._internal.encoding.gob.Gob.Indirect to stdgo._internal.encoding.gob.Gob.Indirect {
+    public var a(get, set) : stdgo.Pointer<haxe.ds.Vector<StdTypes.Int>>;
+    function get_a():stdgo.Pointer<haxe.ds.Vector<StdTypes.Int>> return this.a;
+    function set_a(v:stdgo.Pointer<haxe.ds.Vector<StdTypes.Int>>):stdgo.Pointer<haxe.ds.Vector<StdTypes.Int>> {
+        this.a = v;
+        return v;
+    }
+    public var s(get, set) : stdgo.Pointer<Array<StdTypes.Int>>;
+    function get_s():stdgo.Pointer<Array<StdTypes.Int>> return this.s;
+    function set_s(v:stdgo.Pointer<Array<StdTypes.Int>>):stdgo.Pointer<Array<StdTypes.Int>> {
+        this.s = v;
+        return v;
+    }
+    public var m(get, set) : stdgo.Pointer<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>;
+    function get_m():stdgo.Pointer<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>> return this.m;
+    function set_m(v:stdgo.Pointer<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>):stdgo.Pointer<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>> {
+        this.m = v;
+        return v;
+    }
+    public function new(?a:stdgo.Pointer<haxe.ds.Vector<StdTypes.Int>>, ?s:stdgo.Pointer<Array<StdTypes.Int>>, ?m:stdgo.Pointer<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>) this = new stdgo._internal.encoding.gob.Gob.Indirect(a, s, m);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract Direct(stdgo._internal.encoding.gob.Gob.Direct) from stdgo._internal.encoding.gob.Gob.Direct to stdgo._internal.encoding.gob.Gob.Direct {
+    public var a(get, set) : haxe.ds.Vector<StdTypes.Int>;
+    function get_a():haxe.ds.Vector<StdTypes.Int> return haxe.ds.Vector.fromArrayCopy([for (i in this.a) i]);
+    function set_a(v:haxe.ds.Vector<StdTypes.Int>):haxe.ds.Vector<StdTypes.Int> {
+        this.a = ([for (i in v) i] : stdgo.GoArray<stdgo.GoInt>);
+        return v;
+    }
+    public var s(get, set) : Array<StdTypes.Int>;
+    function get_s():Array<StdTypes.Int> return [for (i in this.s) i];
+    function set_s(v:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        this.s = ([for (i in v) i] : stdgo.Slice<stdgo.GoInt>);
+        return v;
+    }
+    public var m(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>;
+    function get_m():stdgo.GoMap<stdgo.GoString, stdgo.GoInt> return this.m;
+    function set_m(v:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>):stdgo.GoMap<stdgo.GoString, stdgo.GoInt> {
+        this.m = v;
+        return v;
+    }
+    public function new(?a:haxe.ds.Vector<StdTypes.Int>, ?s:Array<StdTypes.Int>, ?m:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>) this = new stdgo._internal.encoding.gob.Gob.Direct(([for (i in a) i] : stdgo.GoArray<stdgo.GoInt>), ([for (i in s) i] : stdgo.Slice<stdgo.GoInt>), m);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract Point(stdgo._internal.encoding.gob.Gob.Point) from stdgo._internal.encoding.gob.Gob.Point to stdgo._internal.encoding.gob.Gob.Point {
+    public var x(get, set) : StdTypes.Int;
+    function get_x():StdTypes.Int return this.x;
+    function set_x(v:StdTypes.Int):StdTypes.Int {
+        this.x = v;
+        return v;
+    }
+    public var y(get, set) : StdTypes.Int;
+    function get_y():StdTypes.Int return this.y;
+    function set_y(v:StdTypes.Int):StdTypes.Int {
+        this.y = v;
+        return v;
+    }
+    public function new(?x:StdTypes.Int, ?y:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.Point(x, y);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract InterfaceItem(stdgo._internal.encoding.gob.Gob.InterfaceItem) from stdgo._internal.encoding.gob.Gob.InterfaceItem to stdgo._internal.encoding.gob.Gob.InterfaceItem {
+    public var i(get, set) : StdTypes.Int;
+    function get_i():StdTypes.Int return this.i;
+    function set_i(v:StdTypes.Int):StdTypes.Int {
+        this.i = v;
+        return v;
+    }
+    public var sq1(get, set) : stdgo._internal.encoding.gob.Gob.Squarer;
+    function get_sq1():stdgo._internal.encoding.gob.Gob.Squarer return this.sq1;
+    function set_sq1(v:stdgo._internal.encoding.gob.Gob.Squarer):stdgo._internal.encoding.gob.Gob.Squarer {
+        this.sq1 = v;
+        return v;
+    }
+    public var sq2(get, set) : stdgo._internal.encoding.gob.Gob.Squarer;
+    function get_sq2():stdgo._internal.encoding.gob.Gob.Squarer return this.sq2;
+    function set_sq2(v:stdgo._internal.encoding.gob.Gob.Squarer):stdgo._internal.encoding.gob.Gob.Squarer {
+        this.sq2 = v;
+        return v;
+    }
+    public var sq3(get, set) : stdgo._internal.encoding.gob.Gob.Squarer;
+    function get_sq3():stdgo._internal.encoding.gob.Gob.Squarer return this.sq3;
+    function set_sq3(v:stdgo._internal.encoding.gob.Gob.Squarer):stdgo._internal.encoding.gob.Gob.Squarer {
+        this.sq3 = v;
+        return v;
+    }
+    public var f(get, set) : StdTypes.Float;
+    function get_f():StdTypes.Float return this.f;
+    function set_f(v:StdTypes.Float):StdTypes.Float {
+        this.f = v;
+        return v;
+    }
+    public var sq(get, set) : Array<stdgo._internal.encoding.gob.Gob.Squarer>;
+    function get_sq():Array<stdgo._internal.encoding.gob.Gob.Squarer> return [for (i in this.sq) i];
+    function set_sq(v:Array<stdgo._internal.encoding.gob.Gob.Squarer>):Array<stdgo._internal.encoding.gob.Gob.Squarer> {
+        this.sq = ([for (i in v) i] : stdgo.Slice<stdgo._internal.encoding.gob.Gob.Squarer>);
+        return v;
+    }
+    public function new(?i:StdTypes.Int, ?sq1:stdgo._internal.encoding.gob.Gob.Squarer, ?sq2:stdgo._internal.encoding.gob.Gob.Squarer, ?sq3:stdgo._internal.encoding.gob.Gob.Squarer, ?f:StdTypes.Float, ?sq:Array<stdgo._internal.encoding.gob.Gob.Squarer>) this = new stdgo._internal.encoding.gob.Gob.InterfaceItem(i, sq1, sq2, sq3, f, ([for (i in sq) i] : stdgo.Slice<stdgo._internal.encoding.gob.Gob.Squarer>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract NoInterfaceItem(stdgo._internal.encoding.gob.Gob.NoInterfaceItem) from stdgo._internal.encoding.gob.Gob.NoInterfaceItem to stdgo._internal.encoding.gob.Gob.NoInterfaceItem {
+    public var i(get, set) : StdTypes.Int;
+    function get_i():StdTypes.Int return this.i;
+    function set_i(v:StdTypes.Int):StdTypes.Int {
+        this.i = v;
+        return v;
+    }
+    public var f(get, set) : StdTypes.Float;
+    function get_f():StdTypes.Float return this.f;
+    function set_f(v:StdTypes.Float):StdTypes.Float {
+        this.f = v;
+        return v;
+    }
+    public function new(?i:StdTypes.Int, ?f:StdTypes.Float) this = new stdgo._internal.encoding.gob.Gob.NoInterfaceItem(i, f);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract BasicInterfaceItem(stdgo._internal.encoding.gob.Gob.BasicInterfaceItem) from stdgo._internal.encoding.gob.Gob.BasicInterfaceItem to stdgo._internal.encoding.gob.Gob.BasicInterfaceItem {
+    public var int_(get, set) : stdgo.AnyInterface;
+    function get_int_():stdgo.AnyInterface return this.int_;
+    function set_int_(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.int_ = v;
+        return v;
+    }
+    public var int8(get, set) : stdgo.AnyInterface;
+    function get_int8():stdgo.AnyInterface return this.int8;
+    function set_int8(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.int8 = v;
+        return v;
+    }
+    public var int16(get, set) : stdgo.AnyInterface;
+    function get_int16():stdgo.AnyInterface return this.int16;
+    function set_int16(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.int16 = v;
+        return v;
+    }
+    public var int32(get, set) : stdgo.AnyInterface;
+    function get_int32():stdgo.AnyInterface return this.int32;
+    function set_int32(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.int32 = v;
+        return v;
+    }
+    public var int64(get, set) : stdgo.AnyInterface;
+    function get_int64():stdgo.AnyInterface return this.int64;
+    function set_int64(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.int64 = v;
+        return v;
+    }
+    public var uint(get, set) : stdgo.AnyInterface;
+    function get_uint():stdgo.AnyInterface return this.uint;
+    function set_uint(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.uint = v;
+        return v;
+    }
+    public var uint8(get, set) : stdgo.AnyInterface;
+    function get_uint8():stdgo.AnyInterface return this.uint8;
+    function set_uint8(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.uint8 = v;
+        return v;
+    }
+    public var uint16(get, set) : stdgo.AnyInterface;
+    function get_uint16():stdgo.AnyInterface return this.uint16;
+    function set_uint16(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.uint16 = v;
+        return v;
+    }
+    public var uint32(get, set) : stdgo.AnyInterface;
+    function get_uint32():stdgo.AnyInterface return this.uint32;
+    function set_uint32(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.uint32 = v;
+        return v;
+    }
+    public var uint64(get, set) : stdgo.AnyInterface;
+    function get_uint64():stdgo.AnyInterface return this.uint64;
+    function set_uint64(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.uint64 = v;
+        return v;
+    }
+    public var float32(get, set) : stdgo.AnyInterface;
+    function get_float32():stdgo.AnyInterface return this.float32;
+    function set_float32(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.float32 = v;
+        return v;
+    }
+    public var float64(get, set) : stdgo.AnyInterface;
+    function get_float64():stdgo.AnyInterface return this.float64;
+    function set_float64(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.float64 = v;
+        return v;
+    }
+    public var complex64(get, set) : stdgo.AnyInterface;
+    function get_complex64():stdgo.AnyInterface return this.complex64;
+    function set_complex64(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.complex64 = v;
+        return v;
+    }
+    public var complex128(get, set) : stdgo.AnyInterface;
+    function get_complex128():stdgo.AnyInterface return this.complex128;
+    function set_complex128(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.complex128 = v;
+        return v;
+    }
+    public var bool_(get, set) : stdgo.AnyInterface;
+    function get_bool_():stdgo.AnyInterface return this.bool_;
+    function set_bool_(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.bool_ = v;
+        return v;
+    }
+    public var string(get, set) : stdgo.AnyInterface;
+    function get_string():stdgo.AnyInterface return this.string;
+    function set_string(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.string = v;
+        return v;
+    }
+    public var bytes(get, set) : stdgo.AnyInterface;
+    function get_bytes():stdgo.AnyInterface return this.bytes;
+    function set_bytes(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.bytes = v;
+        return v;
+    }
+    public function new(?int_:stdgo.AnyInterface, ?int8:stdgo.AnyInterface, ?int16:stdgo.AnyInterface, ?int32:stdgo.AnyInterface, ?int64:stdgo.AnyInterface, ?uint:stdgo.AnyInterface, ?uint8:stdgo.AnyInterface, ?uint16:stdgo.AnyInterface, ?uint32:stdgo.AnyInterface, ?uint64:stdgo.AnyInterface, ?float32:stdgo.AnyInterface, ?float64:stdgo.AnyInterface, ?complex64:stdgo.AnyInterface, ?complex128:stdgo.AnyInterface, ?bool_:stdgo.AnyInterface, ?string:stdgo.AnyInterface, ?bytes:stdgo.AnyInterface) this = new stdgo._internal.encoding.gob.Gob.BasicInterfaceItem(
+int_,
+int8,
+int16,
+int32,
+int64,
+uint,
+uint8,
+uint16,
+uint32,
+uint64,
+float32,
+float64,
+complex64,
+complex128,
+bool_,
+string,
+bytes);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract PtrInterfaceItem(stdgo._internal.encoding.gob.Gob.PtrInterfaceItem) from stdgo._internal.encoding.gob.Gob.PtrInterfaceItem to stdgo._internal.encoding.gob.Gob.PtrInterfaceItem {
+    public var str1(get, set) : stdgo.AnyInterface;
+    function get_str1():stdgo.AnyInterface return this.str1;
+    function set_str1(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.str1 = v;
+        return v;
+    }
+    public var str2(get, set) : stdgo.AnyInterface;
+    function get_str2():stdgo.AnyInterface return this.str2;
+    function set_str2(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.str2 = v;
+        return v;
+    }
+    public function new(?str1:stdgo.AnyInterface, ?str2:stdgo.AnyInterface) this = new stdgo._internal.encoding.gob.Gob.PtrInterfaceItem(str1, str2);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract U(stdgo._internal.encoding.gob.Gob.U) from stdgo._internal.encoding.gob.Gob.U to stdgo._internal.encoding.gob.Gob.U {
+    public var a(get, set) : StdTypes.Int;
+    function get_a():StdTypes.Int return this.a;
+    function set_a(v:StdTypes.Int):StdTypes.Int {
+        this.a = v;
+        return v;
+    }
+    public var b(get, set) : String;
+    function get_b():String return this.b;
+    function set_b(v:String):String {
+        this.b = v;
+        return v;
+    }
+    public var _c(get, set) : StdTypes.Float;
+    function get__c():StdTypes.Float return this._c;
+    function set__c(v:StdTypes.Float):StdTypes.Float {
+        this._c = v;
+        return v;
+    }
+    public var d(get, set) : std.UInt;
+    function get_d():std.UInt return this.d;
+    function set_d(v:std.UInt):std.UInt {
+        this.d = v;
+        return v;
+    }
+    public function new(?a:StdTypes.Int, ?b:String, ?_c:StdTypes.Float, ?d:std.UInt) this = new stdgo._internal.encoding.gob.Gob.U(a, b, _c, d);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract OnTheFly(stdgo._internal.encoding.gob.Gob.OnTheFly) from stdgo._internal.encoding.gob.Gob.OnTheFly to stdgo._internal.encoding.gob.Gob.OnTheFly {
+    public var a(get, set) : StdTypes.Int;
+    function get_a():StdTypes.Int return this.a;
+    function set_a(v:StdTypes.Int):StdTypes.Int {
+        this.a = v;
+        return v;
+    }
+    public function new(?a:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.OnTheFly(a);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract DT(stdgo._internal.encoding.gob.Gob.DT) from stdgo._internal.encoding.gob.Gob.DT to stdgo._internal.encoding.gob.Gob.DT {
+    public var a(get, set) : StdTypes.Int;
+    function get_a():StdTypes.Int return this.a;
+    function set_a(v:StdTypes.Int):StdTypes.Int {
+        this.a = v;
+        return v;
+    }
+    public var b(get, set) : String;
+    function get_b():String return this.b;
+    function set_b(v:String):String {
+        this.b = v;
+        return v;
+    }
+    public var c(get, set) : StdTypes.Float;
+    function get_c():StdTypes.Float return this.c;
+    function set_c(v:StdTypes.Float):StdTypes.Float {
+        this.c = v;
+        return v;
+    }
+    public var i(get, set) : stdgo.AnyInterface;
+    function get_i():stdgo.AnyInterface return this.i;
+    function set_i(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.i = v;
+        return v;
+    }
+    public var j(get, set) : stdgo.AnyInterface;
+    function get_j():stdgo.AnyInterface return this.j;
+    function set_j(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.j = v;
+        return v;
+    }
+    public var i_nil(get, set) : stdgo.AnyInterface;
+    function get_i_nil():stdgo.AnyInterface return this.i_nil;
+    function set_i_nil(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.i_nil = v;
+        return v;
+    }
+    public var m(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>;
+    function get_m():stdgo.GoMap<stdgo.GoString, stdgo.GoInt> return this.m;
+    function set_m(v:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>):stdgo.GoMap<stdgo.GoString, stdgo.GoInt> {
+        this.m = v;
+        return v;
+    }
+    public var t(get, set) : haxe.ds.Vector<StdTypes.Int>;
+    function get_t():haxe.ds.Vector<StdTypes.Int> return haxe.ds.Vector.fromArrayCopy([for (i in this.t) i]);
+    function set_t(v:haxe.ds.Vector<StdTypes.Int>):haxe.ds.Vector<StdTypes.Int> {
+        this.t = ([for (i in v) i] : stdgo.GoArray<stdgo.GoInt>);
+        return v;
+    }
+    public var s(get, set) : Array<String>;
+    function get_s():Array<String> return [for (i in this.s) i];
+    function set_s(v:Array<String>):Array<String> {
+        this.s = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        return v;
+    }
+    public function new(?a:StdTypes.Int, ?b:String, ?c:StdTypes.Float, ?i:stdgo.AnyInterface, ?j:stdgo.AnyInterface, ?i_nil:stdgo.AnyInterface, ?m:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?t:haxe.ds.Vector<StdTypes.Int>, ?s:Array<String>) this = new stdgo._internal.encoding.gob.Gob.DT(a, b, c, i, j, i_nil, m, ([for (i in t) i] : stdgo.GoArray<stdgo.GoInt>), ([for (i in s) i] : stdgo.Slice<stdgo.GoString>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract LargeSliceByte(stdgo._internal.encoding.gob.Gob.LargeSliceByte) from stdgo._internal.encoding.gob.Gob.LargeSliceByte to stdgo._internal.encoding.gob.Gob.LargeSliceByte {
+    public var s(get, set) : Array<std.UInt>;
+    function get_s():Array<std.UInt> return [for (i in this.s) i];
+    function set_s(v:Array<std.UInt>):Array<std.UInt> {
+        this.s = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public function new(?s:Array<std.UInt>) this = new stdgo._internal.encoding.gob.Gob.LargeSliceByte(([for (i in s) i] : stdgo.Slice<stdgo.GoUInt8>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract LargeSliceInt8(stdgo._internal.encoding.gob.Gob.LargeSliceInt8) from stdgo._internal.encoding.gob.Gob.LargeSliceInt8 to stdgo._internal.encoding.gob.Gob.LargeSliceInt8 {
+    public var s(get, set) : Array<StdTypes.Int>;
+    function get_s():Array<StdTypes.Int> return [for (i in this.s) i];
+    function set_s(v:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        this.s = ([for (i in v) i] : stdgo.Slice<stdgo.GoInt8>);
+        return v;
+    }
+    public function new(?s:Array<StdTypes.Int>) this = new stdgo._internal.encoding.gob.Gob.LargeSliceInt8(([for (i in s) i] : stdgo.Slice<stdgo.GoInt8>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract StringPair(stdgo._internal.encoding.gob.Gob.StringPair) from stdgo._internal.encoding.gob.Gob.StringPair to stdgo._internal.encoding.gob.Gob.StringPair {
+    public var a(get, set) : String;
+    function get_a():String return this.a;
+    function set_a(v:String):String {
+        this.a = v;
+        return v;
+    }
+    public var b(get, set) : String;
+    function get_b():String return this.b;
+    function set_b(v:String):String {
+        this.b = v;
+        return v;
+    }
+    public function new(?a:String, ?b:String) this = new stdgo._internal.encoding.gob.Gob.StringPair(a, b);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract LargeSliceStruct(stdgo._internal.encoding.gob.Gob.LargeSliceStruct) from stdgo._internal.encoding.gob.Gob.LargeSliceStruct to stdgo._internal.encoding.gob.Gob.LargeSliceStruct {
+    public var s(get, set) : Array<stdgo._internal.encoding.gob.Gob.StringPair>;
+    function get_s():Array<stdgo._internal.encoding.gob.Gob.StringPair> return [for (i in this.s) i];
+    function set_s(v:Array<stdgo._internal.encoding.gob.Gob.StringPair>):Array<stdgo._internal.encoding.gob.Gob.StringPair> {
+        this.s = ([for (i in v) i] : stdgo.Slice<stdgo._internal.encoding.gob.Gob.StringPair>);
+        return v;
+    }
+    public function new(?s:Array<stdgo._internal.encoding.gob.Gob.StringPair>) this = new stdgo._internal.encoding.gob.Gob.LargeSliceStruct(([for (i in s) i] : stdgo.Slice<stdgo._internal.encoding.gob.Gob.StringPair>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract LargeSliceString(stdgo._internal.encoding.gob.Gob.LargeSliceString) from stdgo._internal.encoding.gob.Gob.LargeSliceString to stdgo._internal.encoding.gob.Gob.LargeSliceString {
+    public var s(get, set) : Array<String>;
+    function get_s():Array<String> return [for (i in this.s) i];
+    function set_s(v:Array<String>):Array<String> {
+        this.s = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        return v;
+    }
+    public function new(?s:Array<String>) this = new stdgo._internal.encoding.gob.Gob.LargeSliceString(([for (i in s) i] : stdgo.Slice<stdgo.GoString>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_decoderState(stdgo._internal.encoding.gob.Gob.T_decoderState) from stdgo._internal.encoding.gob.Gob.T_decoderState to stdgo._internal.encoding.gob.Gob.T_decoderState {
+    public var _dec(get, set) : stdgo._internal.encoding.gob.Gob.Decoder;
+    function get__dec():stdgo._internal.encoding.gob.Gob.Decoder return this._dec;
+    function set__dec(v:stdgo._internal.encoding.gob.Gob.Decoder):stdgo._internal.encoding.gob.Gob.Decoder {
+        this._dec = v;
+        return v;
+    }
+    public var _b(get, set) : stdgo._internal.encoding.gob.Gob.T_decBuffer;
+    function get__b():stdgo._internal.encoding.gob.Gob.T_decBuffer return this._b;
+    function set__b(v:stdgo._internal.encoding.gob.Gob.T_decBuffer):stdgo._internal.encoding.gob.Gob.T_decBuffer {
+        this._b = v;
+        return v;
+    }
+    public var _fieldnum(get, set) : StdTypes.Int;
+    function get__fieldnum():StdTypes.Int return this._fieldnum;
+    function set__fieldnum(v:StdTypes.Int):StdTypes.Int {
+        this._fieldnum = v;
+        return v;
+    }
+    public var _next(get, set) : stdgo._internal.encoding.gob.Gob.T_decoderState;
+    function get__next():stdgo._internal.encoding.gob.Gob.T_decoderState return this._next;
+    function set__next(v:stdgo._internal.encoding.gob.Gob.T_decoderState):stdgo._internal.encoding.gob.Gob.T_decoderState {
+        this._next = v;
+        return v;
+    }
+    public function new(?_dec:stdgo._internal.encoding.gob.Gob.Decoder, ?_b:stdgo._internal.encoding.gob.Gob.T_decBuffer, ?_fieldnum:StdTypes.Int, ?_next:stdgo._internal.encoding.gob.Gob.T_decoderState) this = new stdgo._internal.encoding.gob.Gob.T_decoderState(_dec, _b, _fieldnum, _next);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_decBuffer(stdgo._internal.encoding.gob.Gob.T_decBuffer) from stdgo._internal.encoding.gob.Gob.T_decBuffer to stdgo._internal.encoding.gob.Gob.T_decBuffer {
+    public var _data(get, set) : Array<std.UInt>;
+    function get__data():Array<std.UInt> return [for (i in this._data) i];
+    function set__data(v:Array<std.UInt>):Array<std.UInt> {
+        this._data = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _offset(get, set) : StdTypes.Int;
+    function get__offset():StdTypes.Int return this._offset;
+    function set__offset(v:StdTypes.Int):StdTypes.Int {
+        this._offset = v;
+        return v;
+    }
+    public function new(?_data:Array<std.UInt>, ?_offset:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.T_decBuffer(([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>), _offset);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_decInstr(stdgo._internal.encoding.gob.Gob.T_decInstr) from stdgo._internal.encoding.gob.Gob.T_decInstr to stdgo._internal.encoding.gob.Gob.T_decInstr {
+    public var _op(get, set) : stdgo._internal.encoding.gob.Gob.T_decOp;
+    function get__op():stdgo._internal.encoding.gob.Gob.T_decOp return this._op;
+    function set__op(v:stdgo._internal.encoding.gob.Gob.T_decOp):stdgo._internal.encoding.gob.Gob.T_decOp {
+        this._op = v;
+        return v;
+    }
+    public var _field(get, set) : StdTypes.Int;
+    function get__field():StdTypes.Int return this._field;
+    function set__field(v:StdTypes.Int):StdTypes.Int {
+        this._field = v;
+        return v;
+    }
+    public var _index(get, set) : Array<StdTypes.Int>;
+    function get__index():Array<StdTypes.Int> return [for (i in this._index) i];
+    function set__index(v:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        this._index = ([for (i in v) i] : stdgo.Slice<stdgo.GoInt>);
+        return v;
+    }
+    public var _ovfl(get, set) : stdgo.Error;
+    function get__ovfl():stdgo.Error return this._ovfl;
+    function set__ovfl(v:stdgo.Error):stdgo.Error {
+        this._ovfl = v;
+        return v;
+    }
+    public function new(?_op:stdgo._internal.encoding.gob.Gob.T_decOp, ?_field:StdTypes.Int, ?_index:Array<StdTypes.Int>, ?_ovfl:stdgo.Error) this = new stdgo._internal.encoding.gob.Gob.T_decInstr(_op, _field, ([for (i in _index) i] : stdgo.Slice<stdgo.GoInt>), _ovfl);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_decEngine(stdgo._internal.encoding.gob.Gob.T_decEngine) from stdgo._internal.encoding.gob.Gob.T_decEngine to stdgo._internal.encoding.gob.Gob.T_decEngine {
+    public var _instr(get, set) : Array<stdgo._internal.encoding.gob.Gob.T_decInstr>;
+    function get__instr():Array<stdgo._internal.encoding.gob.Gob.T_decInstr> return [for (i in this._instr) i];
+    function set__instr(v:Array<stdgo._internal.encoding.gob.Gob.T_decInstr>):Array<stdgo._internal.encoding.gob.Gob.T_decInstr> {
+        this._instr = ([for (i in v) i] : stdgo.Slice<stdgo._internal.encoding.gob.Gob.T_decInstr>);
+        return v;
+    }
+    public var _numInstr(get, set) : StdTypes.Int;
+    function get__numInstr():StdTypes.Int return this._numInstr;
+    function set__numInstr(v:StdTypes.Int):StdTypes.Int {
+        this._numInstr = v;
+        return v;
+    }
+    public function new(?_instr:Array<stdgo._internal.encoding.gob.Gob.T_decInstr>, ?_numInstr:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.T_decEngine(([for (i in _instr) i] : stdgo.Slice<stdgo._internal.encoding.gob.Gob.T_decInstr>), _numInstr);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_emptyStruct(stdgo._internal.encoding.gob.Gob.T_emptyStruct) from stdgo._internal.encoding.gob.Gob.T_emptyStruct to stdgo._internal.encoding.gob.Gob.T_emptyStruct {
+    public function new() this = new stdgo._internal.encoding.gob.Gob.T_emptyStruct();
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract Decoder(stdgo._internal.encoding.gob.Gob.Decoder) from stdgo._internal.encoding.gob.Gob.Decoder to stdgo._internal.encoding.gob.Gob.Decoder {
+    public var _mutex(get, set) : stdgo._internal.sync.Sync.Mutex;
+    function get__mutex():stdgo._internal.sync.Sync.Mutex return this._mutex;
+    function set__mutex(v:stdgo._internal.sync.Sync.Mutex):stdgo._internal.sync.Sync.Mutex {
+        this._mutex = v;
+        return v;
+    }
+    public var _r(get, set) : stdgo._internal.io.Io.Reader;
+    function get__r():stdgo._internal.io.Io.Reader return this._r;
+    function set__r(v:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
+        this._r = v;
+        return v;
+    }
+    public var _buf(get, set) : stdgo._internal.encoding.gob.Gob.T_decBuffer;
+    function get__buf():stdgo._internal.encoding.gob.Gob.T_decBuffer return this._buf;
+    function set__buf(v:stdgo._internal.encoding.gob.Gob.T_decBuffer):stdgo._internal.encoding.gob.Gob.T_decBuffer {
+        this._buf = v;
+        return v;
+    }
+    public var _wireType(get, set) : stdgo.GoMap<stdgo._internal.encoding.gob.Gob.T_typeId, stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_wireType>>;
+    function get__wireType():stdgo.GoMap<stdgo._internal.encoding.gob.Gob.T_typeId, stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_wireType>> return this._wireType;
+    function set__wireType(v:stdgo.GoMap<stdgo._internal.encoding.gob.Gob.T_typeId, stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_wireType>>):stdgo.GoMap<stdgo._internal.encoding.gob.Gob.T_typeId, stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_wireType>> {
+        this._wireType = v;
+        return v;
+    }
+    public var _decoderCache(get, set) : stdgo.GoMap<stdgo._internal.reflect.Reflect.Type_, stdgo.GoMap<stdgo._internal.encoding.gob.Gob.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_decEngine>>>>;
+    function get__decoderCache():stdgo.GoMap<stdgo._internal.reflect.Reflect.Type_, stdgo.GoMap<stdgo._internal.encoding.gob.Gob.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_decEngine>>>> return this._decoderCache;
+    function set__decoderCache(v:stdgo.GoMap<stdgo._internal.reflect.Reflect.Type_, stdgo.GoMap<stdgo._internal.encoding.gob.Gob.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_decEngine>>>>):stdgo.GoMap<stdgo._internal.reflect.Reflect.Type_, stdgo.GoMap<stdgo._internal.encoding.gob.Gob.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_decEngine>>>> {
+        this._decoderCache = v;
+        return v;
+    }
+    public var _ignorerCache(get, set) : stdgo.GoMap<stdgo._internal.encoding.gob.Gob.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_decEngine>>>;
+    function get__ignorerCache():stdgo.GoMap<stdgo._internal.encoding.gob.Gob.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_decEngine>>> return this._ignorerCache;
+    function set__ignorerCache(v:stdgo.GoMap<stdgo._internal.encoding.gob.Gob.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_decEngine>>>):stdgo.GoMap<stdgo._internal.encoding.gob.Gob.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_decEngine>>> {
+        this._ignorerCache = v;
+        return v;
+    }
+    public var _freeList(get, set) : stdgo._internal.encoding.gob.Gob.T_decoderState;
+    function get__freeList():stdgo._internal.encoding.gob.Gob.T_decoderState return this._freeList;
+    function set__freeList(v:stdgo._internal.encoding.gob.Gob.T_decoderState):stdgo._internal.encoding.gob.Gob.T_decoderState {
+        this._freeList = v;
+        return v;
+    }
+    public var _countBuf(get, set) : Array<std.UInt>;
+    function get__countBuf():Array<std.UInt> return [for (i in this._countBuf) i];
+    function set__countBuf(v:Array<std.UInt>):Array<std.UInt> {
+        this._countBuf = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _err(get, set) : stdgo.Error;
+    function get__err():stdgo.Error return this._err;
+    function set__err(v:stdgo.Error):stdgo.Error {
+        this._err = v;
+        return v;
+    }
+    public function new(?_mutex:stdgo._internal.sync.Sync.Mutex, ?_r:stdgo._internal.io.Io.Reader, ?_buf:stdgo._internal.encoding.gob.Gob.T_decBuffer, ?_wireType:stdgo.GoMap<stdgo._internal.encoding.gob.Gob.T_typeId, stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_wireType>>, ?_decoderCache:stdgo.GoMap<stdgo._internal.reflect.Reflect.Type_, stdgo.GoMap<stdgo._internal.encoding.gob.Gob.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_decEngine>>>>, ?_ignorerCache:stdgo.GoMap<stdgo._internal.encoding.gob.Gob.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_decEngine>>>, ?_freeList:stdgo._internal.encoding.gob.Gob.T_decoderState, ?_countBuf:Array<std.UInt>, ?_err:stdgo.Error) this = new stdgo._internal.encoding.gob.Gob.Decoder(_mutex, _r, _buf, _wireType, _decoderCache, _ignorerCache, _freeList, ([for (i in _countBuf) i] : stdgo.Slice<stdgo.GoUInt8>), _err);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_encoderState(stdgo._internal.encoding.gob.Gob.T_encoderState) from stdgo._internal.encoding.gob.Gob.T_encoderState to stdgo._internal.encoding.gob.Gob.T_encoderState {
+    public var _enc(get, set) : stdgo._internal.encoding.gob.Gob.Encoder;
+    function get__enc():stdgo._internal.encoding.gob.Gob.Encoder return this._enc;
+    function set__enc(v:stdgo._internal.encoding.gob.Gob.Encoder):stdgo._internal.encoding.gob.Gob.Encoder {
+        this._enc = v;
+        return v;
+    }
+    public var _b(get, set) : stdgo._internal.encoding.gob.Gob.T_encBuffer;
+    function get__b():stdgo._internal.encoding.gob.Gob.T_encBuffer return this._b;
+    function set__b(v:stdgo._internal.encoding.gob.Gob.T_encBuffer):stdgo._internal.encoding.gob.Gob.T_encBuffer {
+        this._b = v;
+        return v;
+    }
+    public var _sendZero(get, set) : Bool;
+    function get__sendZero():Bool return this._sendZero;
+    function set__sendZero(v:Bool):Bool {
+        this._sendZero = v;
+        return v;
+    }
+    public var _fieldnum(get, set) : StdTypes.Int;
+    function get__fieldnum():StdTypes.Int return this._fieldnum;
+    function set__fieldnum(v:StdTypes.Int):StdTypes.Int {
+        this._fieldnum = v;
+        return v;
+    }
+    public var _buf(get, set) : haxe.ds.Vector<std.UInt>;
+    function get__buf():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._buf) i]);
+    function set__buf(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
+        this._buf = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _next(get, set) : stdgo._internal.encoding.gob.Gob.T_encoderState;
+    function get__next():stdgo._internal.encoding.gob.Gob.T_encoderState return this._next;
+    function set__next(v:stdgo._internal.encoding.gob.Gob.T_encoderState):stdgo._internal.encoding.gob.Gob.T_encoderState {
+        this._next = v;
+        return v;
+    }
+    public function new(?_enc:stdgo._internal.encoding.gob.Gob.Encoder, ?_b:stdgo._internal.encoding.gob.Gob.T_encBuffer, ?_sendZero:Bool, ?_fieldnum:StdTypes.Int, ?_buf:haxe.ds.Vector<std.UInt>, ?_next:stdgo._internal.encoding.gob.Gob.T_encoderState) this = new stdgo._internal.encoding.gob.Gob.T_encoderState(_enc, _b, _sendZero, _fieldnum, ([for (i in _buf) i] : stdgo.GoArray<stdgo.GoUInt8>), _next);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_encBuffer(stdgo._internal.encoding.gob.Gob.T_encBuffer) from stdgo._internal.encoding.gob.Gob.T_encBuffer to stdgo._internal.encoding.gob.Gob.T_encBuffer {
+    public var _data(get, set) : Array<std.UInt>;
+    function get__data():Array<std.UInt> return [for (i in this._data) i];
+    function set__data(v:Array<std.UInt>):Array<std.UInt> {
+        this._data = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _scratch(get, set) : haxe.ds.Vector<std.UInt>;
+    function get__scratch():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._scratch) i]);
+    function set__scratch(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
+        this._scratch = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        return v;
+    }
+    public function new(?_data:Array<std.UInt>, ?_scratch:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.encoding.gob.Gob.T_encBuffer(([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _scratch) i] : stdgo.GoArray<stdgo.GoUInt8>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_encInstr(stdgo._internal.encoding.gob.Gob.T_encInstr) from stdgo._internal.encoding.gob.Gob.T_encInstr to stdgo._internal.encoding.gob.Gob.T_encInstr {
+    public var _op(get, set) : stdgo._internal.encoding.gob.Gob.T_encOp;
+    function get__op():stdgo._internal.encoding.gob.Gob.T_encOp return this._op;
+    function set__op(v:stdgo._internal.encoding.gob.Gob.T_encOp):stdgo._internal.encoding.gob.Gob.T_encOp {
+        this._op = v;
+        return v;
+    }
+    public var _field(get, set) : StdTypes.Int;
+    function get__field():StdTypes.Int return this._field;
+    function set__field(v:StdTypes.Int):StdTypes.Int {
+        this._field = v;
+        return v;
+    }
+    public var _index(get, set) : Array<StdTypes.Int>;
+    function get__index():Array<StdTypes.Int> return [for (i in this._index) i];
+    function set__index(v:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        this._index = ([for (i in v) i] : stdgo.Slice<stdgo.GoInt>);
+        return v;
+    }
+    public var _indir(get, set) : StdTypes.Int;
+    function get__indir():StdTypes.Int return this._indir;
+    function set__indir(v:StdTypes.Int):StdTypes.Int {
+        this._indir = v;
+        return v;
+    }
+    public function new(?_op:stdgo._internal.encoding.gob.Gob.T_encOp, ?_field:StdTypes.Int, ?_index:Array<StdTypes.Int>, ?_indir:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.T_encInstr(_op, _field, ([for (i in _index) i] : stdgo.Slice<stdgo.GoInt>), _indir);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_encEngine(stdgo._internal.encoding.gob.Gob.T_encEngine) from stdgo._internal.encoding.gob.Gob.T_encEngine to stdgo._internal.encoding.gob.Gob.T_encEngine {
+    public var _instr(get, set) : Array<stdgo._internal.encoding.gob.Gob.T_encInstr>;
+    function get__instr():Array<stdgo._internal.encoding.gob.Gob.T_encInstr> return [for (i in this._instr) i];
+    function set__instr(v:Array<stdgo._internal.encoding.gob.Gob.T_encInstr>):Array<stdgo._internal.encoding.gob.Gob.T_encInstr> {
+        this._instr = ([for (i in v) i] : stdgo.Slice<stdgo._internal.encoding.gob.Gob.T_encInstr>);
+        return v;
+    }
+    public function new(?_instr:Array<stdgo._internal.encoding.gob.Gob.T_encInstr>) this = new stdgo._internal.encoding.gob.Gob.T_encEngine(([for (i in _instr) i] : stdgo.Slice<stdgo._internal.encoding.gob.Gob.T_encInstr>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract Encoder(stdgo._internal.encoding.gob.Gob.Encoder) from stdgo._internal.encoding.gob.Gob.Encoder to stdgo._internal.encoding.gob.Gob.Encoder {
+    public var _mutex(get, set) : stdgo._internal.sync.Sync.Mutex;
+    function get__mutex():stdgo._internal.sync.Sync.Mutex return this._mutex;
+    function set__mutex(v:stdgo._internal.sync.Sync.Mutex):stdgo._internal.sync.Sync.Mutex {
+        this._mutex = v;
+        return v;
+    }
+    public var _w(get, set) : Array<stdgo._internal.io.Io.Writer>;
+    function get__w():Array<stdgo._internal.io.Io.Writer> return [for (i in this._w) i];
+    function set__w(v:Array<stdgo._internal.io.Io.Writer>):Array<stdgo._internal.io.Io.Writer> {
+        this._w = ([for (i in v) i] : stdgo.Slice<stdgo._internal.io.Io.Writer>);
+        return v;
+    }
+    public var _sent(get, set) : stdgo.GoMap<stdgo._internal.reflect.Reflect.Type_, stdgo._internal.encoding.gob.Gob.T_typeId>;
+    function get__sent():stdgo.GoMap<stdgo._internal.reflect.Reflect.Type_, stdgo._internal.encoding.gob.Gob.T_typeId> return this._sent;
+    function set__sent(v:stdgo.GoMap<stdgo._internal.reflect.Reflect.Type_, stdgo._internal.encoding.gob.Gob.T_typeId>):stdgo.GoMap<stdgo._internal.reflect.Reflect.Type_, stdgo._internal.encoding.gob.Gob.T_typeId> {
+        this._sent = v;
+        return v;
+    }
+    public var _countState(get, set) : stdgo._internal.encoding.gob.Gob.T_encoderState;
+    function get__countState():stdgo._internal.encoding.gob.Gob.T_encoderState return this._countState;
+    function set__countState(v:stdgo._internal.encoding.gob.Gob.T_encoderState):stdgo._internal.encoding.gob.Gob.T_encoderState {
+        this._countState = v;
+        return v;
+    }
+    public var _freeList(get, set) : stdgo._internal.encoding.gob.Gob.T_encoderState;
+    function get__freeList():stdgo._internal.encoding.gob.Gob.T_encoderState return this._freeList;
+    function set__freeList(v:stdgo._internal.encoding.gob.Gob.T_encoderState):stdgo._internal.encoding.gob.Gob.T_encoderState {
+        this._freeList = v;
+        return v;
+    }
+    public var _byteBuf(get, set) : stdgo._internal.encoding.gob.Gob.T_encBuffer;
+    function get__byteBuf():stdgo._internal.encoding.gob.Gob.T_encBuffer return this._byteBuf;
+    function set__byteBuf(v:stdgo._internal.encoding.gob.Gob.T_encBuffer):stdgo._internal.encoding.gob.Gob.T_encBuffer {
+        this._byteBuf = v;
+        return v;
+    }
+    public var _err(get, set) : stdgo.Error;
+    function get__err():stdgo.Error return this._err;
+    function set__err(v:stdgo.Error):stdgo.Error {
+        this._err = v;
+        return v;
+    }
+    public function new(?_mutex:stdgo._internal.sync.Sync.Mutex, ?_w:Array<stdgo._internal.io.Io.Writer>, ?_sent:stdgo.GoMap<stdgo._internal.reflect.Reflect.Type_, stdgo._internal.encoding.gob.Gob.T_typeId>, ?_countState:stdgo._internal.encoding.gob.Gob.T_encoderState, ?_freeList:stdgo._internal.encoding.gob.Gob.T_encoderState, ?_byteBuf:stdgo._internal.encoding.gob.Gob.T_encBuffer, ?_err:stdgo.Error) this = new stdgo._internal.encoding.gob.Gob.Encoder(_mutex, ([for (i in _w) i] : stdgo.Slice<stdgo._internal.io.Io.Writer>), _sent, _countState, _freeList, _byteBuf, _err);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract ET0(stdgo._internal.encoding.gob.Gob.ET0) from stdgo._internal.encoding.gob.Gob.ET0 to stdgo._internal.encoding.gob.Gob.ET0 {
+    public var a(get, set) : StdTypes.Int;
+    function get_a():StdTypes.Int return this.a;
+    function set_a(v:StdTypes.Int):StdTypes.Int {
+        this.a = v;
+        return v;
+    }
+    public var b(get, set) : String;
+    function get_b():String return this.b;
+    function set_b(v:String):String {
+        this.b = v;
+        return v;
+    }
+    public function new(?a:StdTypes.Int, ?b:String) this = new stdgo._internal.encoding.gob.Gob.ET0(a, b);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract ET2(stdgo._internal.encoding.gob.Gob.ET2) from stdgo._internal.encoding.gob.Gob.ET2 to stdgo._internal.encoding.gob.Gob.ET2 {
+    public var x(get, set) : String;
+    function get_x():String return this.x;
+    function set_x(v:String):String {
+        this.x = v;
+        return v;
+    }
+    public function new(?x:String) this = new stdgo._internal.encoding.gob.Gob.ET2(x);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract ET1(stdgo._internal.encoding.gob.Gob.ET1) from stdgo._internal.encoding.gob.Gob.ET1 to stdgo._internal.encoding.gob.Gob.ET1 {
+    public var a(get, set) : StdTypes.Int;
+    function get_a():StdTypes.Int return this.a;
+    function set_a(v:StdTypes.Int):StdTypes.Int {
+        this.a = v;
+        return v;
+    }
+    public var et2(get, set) : stdgo._internal.encoding.gob.Gob.ET2;
+    function get_et2():stdgo._internal.encoding.gob.Gob.ET2 return this.et2;
+    function set_et2(v:stdgo._internal.encoding.gob.Gob.ET2):stdgo._internal.encoding.gob.Gob.ET2 {
+        this.et2 = v;
+        return v;
+    }
+    public var next(get, set) : stdgo._internal.encoding.gob.Gob.ET1;
+    function get_next():stdgo._internal.encoding.gob.Gob.ET1 return this.next;
+    function set_next(v:stdgo._internal.encoding.gob.Gob.ET1):stdgo._internal.encoding.gob.Gob.ET1 {
+        this.next = v;
+        return v;
+    }
+    public function new(?a:StdTypes.Int, ?et2:stdgo._internal.encoding.gob.Gob.ET2, ?next:stdgo._internal.encoding.gob.Gob.ET1) this = new stdgo._internal.encoding.gob.Gob.ET1(a, et2, next);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract ET3(stdgo._internal.encoding.gob.Gob.ET3) from stdgo._internal.encoding.gob.Gob.ET3 to stdgo._internal.encoding.gob.Gob.ET3 {
+    public var a(get, set) : StdTypes.Int;
+    function get_a():StdTypes.Int return this.a;
+    function set_a(v:StdTypes.Int):StdTypes.Int {
+        this.a = v;
+        return v;
+    }
+    public var et2(get, set) : stdgo._internal.encoding.gob.Gob.ET2;
+    function get_et2():stdgo._internal.encoding.gob.Gob.ET2 return this.et2;
+    function set_et2(v:stdgo._internal.encoding.gob.Gob.ET2):stdgo._internal.encoding.gob.Gob.ET2 {
+        this.et2 = v;
+        return v;
+    }
+    public var differentNext(get, set) : stdgo._internal.encoding.gob.Gob.ET1;
+    function get_differentNext():stdgo._internal.encoding.gob.Gob.ET1 return this.differentNext;
+    function set_differentNext(v:stdgo._internal.encoding.gob.Gob.ET1):stdgo._internal.encoding.gob.Gob.ET1 {
+        this.differentNext = v;
+        return v;
+    }
+    public function new(?a:StdTypes.Int, ?et2:stdgo._internal.encoding.gob.Gob.ET2, ?differentNext:stdgo._internal.encoding.gob.Gob.ET1) this = new stdgo._internal.encoding.gob.Gob.ET3(a, et2, differentNext);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract ET4(stdgo._internal.encoding.gob.Gob.ET4) from stdgo._internal.encoding.gob.Gob.ET4 to stdgo._internal.encoding.gob.Gob.ET4 {
+    public var a(get, set) : StdTypes.Int;
+    function get_a():StdTypes.Int return this.a;
+    function set_a(v:StdTypes.Int):StdTypes.Int {
+        this.a = v;
+        return v;
+    }
+    public var et2(get, set) : StdTypes.Float;
+    function get_et2():StdTypes.Float return this.et2;
+    function set_et2(v:StdTypes.Float):StdTypes.Float {
+        this.et2 = v;
+        return v;
+    }
+    public var next(get, set) : StdTypes.Int;
+    function get_next():StdTypes.Int return this.next;
+    function set_next(v:StdTypes.Int):StdTypes.Int {
+        this.next = v;
+        return v;
+    }
+    public function new(?a:StdTypes.Int, ?et2:StdTypes.Float, ?next:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.ET4(a, et2, next);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract SingleTest(stdgo._internal.encoding.gob.Gob.SingleTest) from stdgo._internal.encoding.gob.Gob.SingleTest to stdgo._internal.encoding.gob.Gob.SingleTest {
+    public var _in(get, set) : stdgo.AnyInterface;
+    function get__in():stdgo.AnyInterface return this._in;
+    function set__in(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this._in = v;
+        return v;
+    }
+    public var _out(get, set) : stdgo.AnyInterface;
+    function get__out():stdgo.AnyInterface return this._out;
+    function set__out(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this._out = v;
+        return v;
+    }
+    public var _err(get, set) : String;
+    function get__err():String return this._err;
+    function set__err(v:String):String {
+        this._err = v;
+        return v;
+    }
+    public function new(?_in:stdgo.AnyInterface, ?_out:stdgo.AnyInterface, ?_err:String) this = new stdgo._internal.encoding.gob.Gob.SingleTest(_in, _out, _err);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_interfaceIndirectTestT(stdgo._internal.encoding.gob.Gob.T_interfaceIndirectTestT) from stdgo._internal.encoding.gob.Gob.T_interfaceIndirectTestT to stdgo._internal.encoding.gob.Gob.T_interfaceIndirectTestT {
+    public function new() this = new stdgo._internal.encoding.gob.Gob.T_interfaceIndirectTestT();
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract Struct0(stdgo._internal.encoding.gob.Gob.Struct0) from stdgo._internal.encoding.gob.Gob.Struct0 to stdgo._internal.encoding.gob.Gob.Struct0 {
+    public var i(get, set) : stdgo.AnyInterface;
+    function get_i():stdgo.AnyInterface return this.i;
+    function set_i(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.i = v;
+        return v;
+    }
+    public function new(?i:stdgo.AnyInterface) this = new stdgo._internal.encoding.gob.Gob.Struct0(i);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract NewType0(stdgo._internal.encoding.gob.Gob.NewType0) from stdgo._internal.encoding.gob.Gob.NewType0 to stdgo._internal.encoding.gob.Gob.NewType0 {
+    public var s(get, set) : String;
+    function get_s():String return this.s;
+    function set_s(v:String):String {
+        this.s = v;
+        return v;
+    }
+    public function new(?s:String) this = new stdgo._internal.encoding.gob.Gob.NewType0(s);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_ignoreTest(stdgo._internal.encoding.gob.Gob.T_ignoreTest) from stdgo._internal.encoding.gob.Gob.T_ignoreTest to stdgo._internal.encoding.gob.Gob.T_ignoreTest {
+    public var _in(get, set) : stdgo.AnyInterface;
+    function get__in():stdgo.AnyInterface return this._in;
+    function set__in(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this._in = v;
+        return v;
+    }
+    public var _out(get, set) : stdgo.AnyInterface;
+    function get__out():stdgo.AnyInterface return this._out;
+    function set__out(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this._out = v;
+        return v;
+    }
+    public function new(?_in:stdgo.AnyInterface, ?_out:stdgo.AnyInterface) this = new stdgo._internal.encoding.gob.Gob.T_ignoreTest(_in, _out);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract Bug0Outer(stdgo._internal.encoding.gob.Gob.Bug0Outer) from stdgo._internal.encoding.gob.Gob.Bug0Outer to stdgo._internal.encoding.gob.Gob.Bug0Outer {
+    public var bug0Field(get, set) : stdgo.AnyInterface;
+    function get_bug0Field():stdgo.AnyInterface return this.bug0Field;
+    function set_bug0Field(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.bug0Field = v;
+        return v;
+    }
+    public function new(?bug0Field:stdgo.AnyInterface) this = new stdgo._internal.encoding.gob.Gob.Bug0Outer(bug0Field);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract Bug0Inner(stdgo._internal.encoding.gob.Gob.Bug0Inner) from stdgo._internal.encoding.gob.Gob.Bug0Inner to stdgo._internal.encoding.gob.Gob.Bug0Inner {
+    public var a(get, set) : StdTypes.Int;
+    function get_a():StdTypes.Int return this.a;
+    function set_a(v:StdTypes.Int):StdTypes.Int {
+        this.a = v;
+        return v;
+    }
+    public function new(?a:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.Bug0Inner(a);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract Bug1Elem(stdgo._internal.encoding.gob.Gob.Bug1Elem) from stdgo._internal.encoding.gob.Gob.Bug1Elem to stdgo._internal.encoding.gob.Gob.Bug1Elem {
+    public var name(get, set) : String;
+    function get_name():String return this.name;
+    function set_name(v:String):String {
+        this.name = v;
+        return v;
+    }
+    public var id(get, set) : StdTypes.Int;
+    function get_id():StdTypes.Int return this.id;
+    function set_id(v:StdTypes.Int):StdTypes.Int {
+        this.id = v;
+        return v;
+    }
+    public function new(?name:String, ?id:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.Bug1Elem(name, id);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract Bug2(stdgo._internal.encoding.gob.Gob.Bug2) from stdgo._internal.encoding.gob.Gob.Bug2 to stdgo._internal.encoding.gob.Gob.Bug2 {
+    public var a(get, set) : StdTypes.Int;
+    function get_a():StdTypes.Int return this.a;
+    function set_a(v:StdTypes.Int):StdTypes.Int {
+        this.a = v;
+        return v;
+    }
+    public var c(get, set) : stdgo.Chan<stdgo.GoInt>;
+    function get_c():stdgo.Chan<stdgo.GoInt> return this.c;
+    function set_c(v:stdgo.Chan<stdgo.GoInt>):stdgo.Chan<stdgo.GoInt> {
+        this.c = v;
+        return v;
+    }
+    public var cp(get, set) : stdgo.Chan<stdgo.GoInt>;
+    function get_cp():stdgo.Chan<stdgo.GoInt> return this.cp;
+    function set_cp(v:stdgo.Chan<stdgo.GoInt>):stdgo.Chan<stdgo.GoInt> {
+        this.cp = v;
+        return v;
+    }
+    public var f(get, set) : () -> Void;
+    function get_f():() -> Void return () -> this.f();
+    function set_f(v:() -> Void):() -> Void {
+        this.f = v;
+        return v;
+    }
+    public var fpp(get, set) : () -> Void;
+    function get_fpp():() -> Void return this.fpp;
+    function set_fpp(v:() -> Void):() -> Void {
+        this.fpp = v;
+        return v;
+    }
+    public function new(?a:StdTypes.Int, ?c:stdgo.Chan<stdgo.GoInt>, ?cp:stdgo.Chan<stdgo.GoInt>, ?f:() -> Void, ?fpp:() -> Void) this = new stdgo._internal.encoding.gob.Gob.Bug2(a, c, cp, f, fpp);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract Bug3(stdgo._internal.encoding.gob.Gob.Bug3) from stdgo._internal.encoding.gob.Gob.Bug3 to stdgo._internal.encoding.gob.Gob.Bug3 {
+    public var num(get, set) : StdTypes.Int;
+    function get_num():StdTypes.Int return this.num;
+    function set_num(v:StdTypes.Int):StdTypes.Int {
+        this.num = v;
+        return v;
+    }
+    public var children(get, set) : Array<stdgo._internal.encoding.gob.Gob.Bug3>;
+    function get_children():Array<stdgo._internal.encoding.gob.Gob.Bug3> return [for (i in this.children) i];
+    function set_children(v:Array<stdgo._internal.encoding.gob.Gob.Bug3>):Array<stdgo._internal.encoding.gob.Gob.Bug3> {
+        this.children = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.gob.Gob.Bug3>>);
+        return v;
+    }
+    public function new(?num:StdTypes.Int, ?children:Array<stdgo._internal.encoding.gob.Gob.Bug3>) this = new stdgo._internal.encoding.gob.Gob.Bug3(num, ([for (i in children) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.gob.Gob.Bug3>>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract Bug4Public(stdgo._internal.encoding.gob.Gob.Bug4Public) from stdgo._internal.encoding.gob.Gob.Bug4Public to stdgo._internal.encoding.gob.Gob.Bug4Public {
+    public var name(get, set) : String;
+    function get_name():String return this.name;
+    function set_name(v:String):String {
+        this.name = v;
+        return v;
+    }
+    public var secret(get, set) : stdgo._internal.encoding.gob.Gob.Bug4Secret;
+    function get_secret():stdgo._internal.encoding.gob.Gob.Bug4Secret return this.secret;
+    function set_secret(v:stdgo._internal.encoding.gob.Gob.Bug4Secret):stdgo._internal.encoding.gob.Gob.Bug4Secret {
+        this.secret = v;
+        return v;
+    }
+    public function new(?name:String, ?secret:stdgo._internal.encoding.gob.Gob.Bug4Secret) this = new stdgo._internal.encoding.gob.Gob.Bug4Public(name, secret);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract Bug4Secret(stdgo._internal.encoding.gob.Gob.Bug4Secret) from stdgo._internal.encoding.gob.Gob.Bug4Secret to stdgo._internal.encoding.gob.Gob.Bug4Secret {
+    public var _a(get, set) : StdTypes.Int;
+    function get__a():StdTypes.Int return this._a;
+    function set__a(v:StdTypes.Int):StdTypes.Int {
+        this._a = v;
+        return v;
+    }
+    public function new(?_a:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.Bug4Secret(_a);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract Z(stdgo._internal.encoding.gob.Gob.Z) from stdgo._internal.encoding.gob.Gob.Z to stdgo._internal.encoding.gob.Gob.Z {
+    public function new() this = new stdgo._internal.encoding.gob.Gob.Z();
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_badDataTest(stdgo._internal.encoding.gob.Gob.T_badDataTest) from stdgo._internal.encoding.gob.Gob.T_badDataTest to stdgo._internal.encoding.gob.Gob.T_badDataTest {
+    public var _input(get, set) : String;
+    function get__input():String return this._input;
+    function set__input(v:String):String {
+        this._input = v;
+        return v;
+    }
+    public var _error(get, set) : String;
+    function get__error():String return this._error;
+    function set__error(v:String):String {
+        this._error = v;
+        return v;
+    }
+    public var _data(get, set) : stdgo.AnyInterface;
+    function get__data():stdgo.AnyInterface return this._data;
+    function set__data(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this._data = v;
+        return v;
+    }
+    public function new(?_input:String, ?_error:String, ?_data:stdgo.AnyInterface) this = new stdgo._internal.encoding.gob.Gob.T_badDataTest(_input, _error, _data);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_gobError(stdgo._internal.encoding.gob.Gob.T_gobError) from stdgo._internal.encoding.gob.Gob.T_gobError to stdgo._internal.encoding.gob.Gob.T_gobError {
+    public var _err(get, set) : stdgo.Error;
+    function get__err():stdgo.Error return this._err;
+    function set__err(v:stdgo.Error):stdgo.Error {
+        this._err = v;
+        return v;
+    }
+    public function new(?_err:stdgo.Error) this = new stdgo._internal.encoding.gob.Gob.T_gobError(_err);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract ByteStruct(stdgo._internal.encoding.gob.Gob.ByteStruct) from stdgo._internal.encoding.gob.Gob.ByteStruct to stdgo._internal.encoding.gob.Gob.ByteStruct {
+    public var _a(get, set) : std.UInt;
+    function get__a():std.UInt return this._a;
+    function set__a(v:std.UInt):std.UInt {
+        this._a = v;
+        return v;
+    }
+    public function new(?_a:std.UInt) this = new stdgo._internal.encoding.gob.Gob.ByteStruct(_a);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract StringStruct(stdgo._internal.encoding.gob.Gob.StringStruct) from stdgo._internal.encoding.gob.Gob.StringStruct to stdgo._internal.encoding.gob.Gob.StringStruct {
+    public var _s(get, set) : String;
+    function get__s():String return this._s;
+    function set__s(v:String):String {
+        this._s = v;
+        return v;
+    }
+    public function new(?_s:String) this = new stdgo._internal.encoding.gob.Gob.StringStruct(_s);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract ArrayStruct(stdgo._internal.encoding.gob.Gob.ArrayStruct) from stdgo._internal.encoding.gob.Gob.ArrayStruct to stdgo._internal.encoding.gob.Gob.ArrayStruct {
+    public var _a(get, set) : haxe.ds.Vector<std.UInt>;
+    function get__a():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._a) i]);
+    function set__a(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
+        this._a = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        return v;
+    }
+    public function new(?_a:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.encoding.gob.Gob.ArrayStruct(([for (i in _a) i] : stdgo.GoArray<stdgo.GoUInt8>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract GobTest0(stdgo._internal.encoding.gob.Gob.GobTest0) from stdgo._internal.encoding.gob.Gob.GobTest0 to stdgo._internal.encoding.gob.Gob.GobTest0 {
+    public var x(get, set) : StdTypes.Int;
+    function get_x():StdTypes.Int return this.x;
+    function set_x(v:StdTypes.Int):StdTypes.Int {
+        this.x = v;
+        return v;
+    }
+    public var g(get, set) : stdgo._internal.encoding.gob.Gob.ByteStruct;
+    function get_g():stdgo._internal.encoding.gob.Gob.ByteStruct return this.g;
+    function set_g(v:stdgo._internal.encoding.gob.Gob.ByteStruct):stdgo._internal.encoding.gob.Gob.ByteStruct {
+        this.g = v;
+        return v;
+    }
+    public function new(?x:StdTypes.Int, ?g:stdgo._internal.encoding.gob.Gob.ByteStruct) this = new stdgo._internal.encoding.gob.Gob.GobTest0(x, g);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract GobTest1(stdgo._internal.encoding.gob.Gob.GobTest1) from stdgo._internal.encoding.gob.Gob.GobTest1 to stdgo._internal.encoding.gob.Gob.GobTest1 {
+    public var x(get, set) : StdTypes.Int;
+    function get_x():StdTypes.Int return this.x;
+    function set_x(v:StdTypes.Int):StdTypes.Int {
+        this.x = v;
+        return v;
+    }
+    public var g(get, set) : stdgo._internal.encoding.gob.Gob.StringStruct;
+    function get_g():stdgo._internal.encoding.gob.Gob.StringStruct return this.g;
+    function set_g(v:stdgo._internal.encoding.gob.Gob.StringStruct):stdgo._internal.encoding.gob.Gob.StringStruct {
+        this.g = v;
+        return v;
+    }
+    public function new(?x:StdTypes.Int, ?g:stdgo._internal.encoding.gob.Gob.StringStruct) this = new stdgo._internal.encoding.gob.Gob.GobTest1(x, g);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract GobTest2(stdgo._internal.encoding.gob.Gob.GobTest2) from stdgo._internal.encoding.gob.Gob.GobTest2 to stdgo._internal.encoding.gob.Gob.GobTest2 {
+    public var x(get, set) : StdTypes.Int;
+    function get_x():StdTypes.Int return this.x;
+    function set_x(v:StdTypes.Int):StdTypes.Int {
+        this.x = v;
+        return v;
+    }
+    public var g(get, set) : String;
+    function get_g():String return this.g;
+    function set_g(v:String):String {
+        this.g = v;
+        return v;
+    }
+    public function new(?x:StdTypes.Int, ?g:String) this = new stdgo._internal.encoding.gob.Gob.GobTest2(x, g);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract GobTest3(stdgo._internal.encoding.gob.Gob.GobTest3) from stdgo._internal.encoding.gob.Gob.GobTest3 to stdgo._internal.encoding.gob.Gob.GobTest3 {
+    public var x(get, set) : StdTypes.Int;
+    function get_x():StdTypes.Int return this.x;
+    function set_x(v:StdTypes.Int):StdTypes.Int {
+        this.x = v;
+        return v;
+    }
+    public var g(get, set) : stdgo.Pointer<stdgo._internal.encoding.gob.Gob.Gobber>;
+    function get_g():stdgo.Pointer<stdgo._internal.encoding.gob.Gob.Gobber> return this.g;
+    function set_g(v:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.Gobber>):stdgo.Pointer<stdgo._internal.encoding.gob.Gob.Gobber> {
+        this.g = v;
+        return v;
+    }
+    public var b(get, set) : stdgo.Pointer<stdgo._internal.encoding.gob.Gob.BinaryGobber>;
+    function get_b():stdgo.Pointer<stdgo._internal.encoding.gob.Gob.BinaryGobber> return this.b;
+    function set_b(v:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.BinaryGobber>):stdgo.Pointer<stdgo._internal.encoding.gob.Gob.BinaryGobber> {
+        this.b = v;
+        return v;
+    }
+    public var t(get, set) : stdgo.Pointer<stdgo._internal.encoding.gob.Gob.TextGobber>;
+    function get_t():stdgo.Pointer<stdgo._internal.encoding.gob.Gob.TextGobber> return this.t;
+    function set_t(v:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.TextGobber>):stdgo.Pointer<stdgo._internal.encoding.gob.Gob.TextGobber> {
+        this.t = v;
+        return v;
+    }
+    public function new(?x:StdTypes.Int, ?g:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.Gobber>, ?b:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.BinaryGobber>, ?t:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.TextGobber>) this = new stdgo._internal.encoding.gob.Gob.GobTest3(x, g, b, t);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract GobTest4(stdgo._internal.encoding.gob.Gob.GobTest4) from stdgo._internal.encoding.gob.Gob.GobTest4 to stdgo._internal.encoding.gob.Gob.GobTest4 {
+    public var x(get, set) : StdTypes.Int;
+    function get_x():StdTypes.Int return this.x;
+    function set_x(v:StdTypes.Int):StdTypes.Int {
+        this.x = v;
+        return v;
+    }
+    public var v(get, set) : stdgo._internal.encoding.gob.Gob.ValueGobber;
+    function get_v():stdgo._internal.encoding.gob.Gob.ValueGobber return this.v;
+    function set_v(v:stdgo._internal.encoding.gob.Gob.ValueGobber):stdgo._internal.encoding.gob.Gob.ValueGobber {
+        this.v = v;
+        return v;
+    }
+    public var bv(get, set) : stdgo._internal.encoding.gob.Gob.BinaryValueGobber;
+    function get_bv():stdgo._internal.encoding.gob.Gob.BinaryValueGobber return this.bv;
+    function set_bv(v:stdgo._internal.encoding.gob.Gob.BinaryValueGobber):stdgo._internal.encoding.gob.Gob.BinaryValueGobber {
+        this.bv = v;
+        return v;
+    }
+    public var tv(get, set) : stdgo._internal.encoding.gob.Gob.TextValueGobber;
+    function get_tv():stdgo._internal.encoding.gob.Gob.TextValueGobber return this.tv;
+    function set_tv(v:stdgo._internal.encoding.gob.Gob.TextValueGobber):stdgo._internal.encoding.gob.Gob.TextValueGobber {
+        this.tv = v;
+        return v;
+    }
+    public function new(?x:StdTypes.Int, ?v:stdgo._internal.encoding.gob.Gob.ValueGobber, ?bv:stdgo._internal.encoding.gob.Gob.BinaryValueGobber, ?tv:stdgo._internal.encoding.gob.Gob.TextValueGobber) this = new stdgo._internal.encoding.gob.Gob.GobTest4(x, v, bv, tv);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract GobTest5(stdgo._internal.encoding.gob.Gob.GobTest5) from stdgo._internal.encoding.gob.Gob.GobTest5 to stdgo._internal.encoding.gob.Gob.GobTest5 {
+    public var x(get, set) : StdTypes.Int;
+    function get_x():StdTypes.Int return this.x;
+    function set_x(v:StdTypes.Int):StdTypes.Int {
+        this.x = v;
+        return v;
+    }
+    public var v(get, set) : stdgo.Pointer<stdgo._internal.encoding.gob.Gob.ValueGobber>;
+    function get_v():stdgo.Pointer<stdgo._internal.encoding.gob.Gob.ValueGobber> return this.v;
+    function set_v(v:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.ValueGobber>):stdgo.Pointer<stdgo._internal.encoding.gob.Gob.ValueGobber> {
+        this.v = v;
+        return v;
+    }
+    public var bv(get, set) : stdgo.Pointer<stdgo._internal.encoding.gob.Gob.BinaryValueGobber>;
+    function get_bv():stdgo.Pointer<stdgo._internal.encoding.gob.Gob.BinaryValueGobber> return this.bv;
+    function set_bv(v:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.BinaryValueGobber>):stdgo.Pointer<stdgo._internal.encoding.gob.Gob.BinaryValueGobber> {
+        this.bv = v;
+        return v;
+    }
+    public var tv(get, set) : stdgo.Pointer<stdgo._internal.encoding.gob.Gob.TextValueGobber>;
+    function get_tv():stdgo.Pointer<stdgo._internal.encoding.gob.Gob.TextValueGobber> return this.tv;
+    function set_tv(v:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.TextValueGobber>):stdgo.Pointer<stdgo._internal.encoding.gob.Gob.TextValueGobber> {
+        this.tv = v;
+        return v;
+    }
+    public function new(?x:StdTypes.Int, ?v:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.ValueGobber>, ?bv:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.BinaryValueGobber>, ?tv:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.TextValueGobber>) this = new stdgo._internal.encoding.gob.Gob.GobTest5(x, v, bv, tv);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract GobTest6(stdgo._internal.encoding.gob.Gob.GobTest6) from stdgo._internal.encoding.gob.Gob.GobTest6 to stdgo._internal.encoding.gob.Gob.GobTest6 {
+    public var x(get, set) : StdTypes.Int;
+    function get_x():StdTypes.Int return this.x;
+    function set_x(v:StdTypes.Int):StdTypes.Int {
+        this.x = v;
+        return v;
+    }
+    public var v(get, set) : stdgo._internal.encoding.gob.Gob.ValueGobber;
+    function get_v():stdgo._internal.encoding.gob.Gob.ValueGobber return this.v;
+    function set_v(v:stdgo._internal.encoding.gob.Gob.ValueGobber):stdgo._internal.encoding.gob.Gob.ValueGobber {
+        this.v = v;
+        return v;
+    }
+    public var w(get, set) : stdgo.Pointer<stdgo._internal.encoding.gob.Gob.ValueGobber>;
+    function get_w():stdgo.Pointer<stdgo._internal.encoding.gob.Gob.ValueGobber> return this.w;
+    function set_w(v:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.ValueGobber>):stdgo.Pointer<stdgo._internal.encoding.gob.Gob.ValueGobber> {
+        this.w = v;
+        return v;
+    }
+    public var bv(get, set) : stdgo._internal.encoding.gob.Gob.BinaryValueGobber;
+    function get_bv():stdgo._internal.encoding.gob.Gob.BinaryValueGobber return this.bv;
+    function set_bv(v:stdgo._internal.encoding.gob.Gob.BinaryValueGobber):stdgo._internal.encoding.gob.Gob.BinaryValueGobber {
+        this.bv = v;
+        return v;
+    }
+    public var bw(get, set) : stdgo.Pointer<stdgo._internal.encoding.gob.Gob.BinaryValueGobber>;
+    function get_bw():stdgo.Pointer<stdgo._internal.encoding.gob.Gob.BinaryValueGobber> return this.bw;
+    function set_bw(v:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.BinaryValueGobber>):stdgo.Pointer<stdgo._internal.encoding.gob.Gob.BinaryValueGobber> {
+        this.bw = v;
+        return v;
+    }
+    public var tv(get, set) : stdgo._internal.encoding.gob.Gob.TextValueGobber;
+    function get_tv():stdgo._internal.encoding.gob.Gob.TextValueGobber return this.tv;
+    function set_tv(v:stdgo._internal.encoding.gob.Gob.TextValueGobber):stdgo._internal.encoding.gob.Gob.TextValueGobber {
+        this.tv = v;
+        return v;
+    }
+    public var tw(get, set) : stdgo.Pointer<stdgo._internal.encoding.gob.Gob.TextValueGobber>;
+    function get_tw():stdgo.Pointer<stdgo._internal.encoding.gob.Gob.TextValueGobber> return this.tw;
+    function set_tw(v:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.TextValueGobber>):stdgo.Pointer<stdgo._internal.encoding.gob.Gob.TextValueGobber> {
+        this.tw = v;
+        return v;
+    }
+    public function new(?x:StdTypes.Int, ?v:stdgo._internal.encoding.gob.Gob.ValueGobber, ?w:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.ValueGobber>, ?bv:stdgo._internal.encoding.gob.Gob.BinaryValueGobber, ?bw:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.BinaryValueGobber>, ?tv:stdgo._internal.encoding.gob.Gob.TextValueGobber, ?tw:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.TextValueGobber>) this = new stdgo._internal.encoding.gob.Gob.GobTest6(x, v, w, bv, bw, tv, tw);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract GobTest7(stdgo._internal.encoding.gob.Gob.GobTest7) from stdgo._internal.encoding.gob.Gob.GobTest7 to stdgo._internal.encoding.gob.Gob.GobTest7 {
+    public var x(get, set) : StdTypes.Int;
+    function get_x():StdTypes.Int return this.x;
+    function set_x(v:StdTypes.Int):StdTypes.Int {
+        this.x = v;
+        return v;
+    }
+    public var v(get, set) : stdgo.Pointer<stdgo._internal.encoding.gob.Gob.ValueGobber>;
+    function get_v():stdgo.Pointer<stdgo._internal.encoding.gob.Gob.ValueGobber> return this.v;
+    function set_v(v:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.ValueGobber>):stdgo.Pointer<stdgo._internal.encoding.gob.Gob.ValueGobber> {
+        this.v = v;
+        return v;
+    }
+    public var w(get, set) : stdgo._internal.encoding.gob.Gob.ValueGobber;
+    function get_w():stdgo._internal.encoding.gob.Gob.ValueGobber return this.w;
+    function set_w(v:stdgo._internal.encoding.gob.Gob.ValueGobber):stdgo._internal.encoding.gob.Gob.ValueGobber {
+        this.w = v;
+        return v;
+    }
+    public var bv(get, set) : stdgo.Pointer<stdgo._internal.encoding.gob.Gob.BinaryValueGobber>;
+    function get_bv():stdgo.Pointer<stdgo._internal.encoding.gob.Gob.BinaryValueGobber> return this.bv;
+    function set_bv(v:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.BinaryValueGobber>):stdgo.Pointer<stdgo._internal.encoding.gob.Gob.BinaryValueGobber> {
+        this.bv = v;
+        return v;
+    }
+    public var bw(get, set) : stdgo._internal.encoding.gob.Gob.BinaryValueGobber;
+    function get_bw():stdgo._internal.encoding.gob.Gob.BinaryValueGobber return this.bw;
+    function set_bw(v:stdgo._internal.encoding.gob.Gob.BinaryValueGobber):stdgo._internal.encoding.gob.Gob.BinaryValueGobber {
+        this.bw = v;
+        return v;
+    }
+    public var tv(get, set) : stdgo.Pointer<stdgo._internal.encoding.gob.Gob.TextValueGobber>;
+    function get_tv():stdgo.Pointer<stdgo._internal.encoding.gob.Gob.TextValueGobber> return this.tv;
+    function set_tv(v:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.TextValueGobber>):stdgo.Pointer<stdgo._internal.encoding.gob.Gob.TextValueGobber> {
+        this.tv = v;
+        return v;
+    }
+    public var tw(get, set) : stdgo._internal.encoding.gob.Gob.TextValueGobber;
+    function get_tw():stdgo._internal.encoding.gob.Gob.TextValueGobber return this.tw;
+    function set_tw(v:stdgo._internal.encoding.gob.Gob.TextValueGobber):stdgo._internal.encoding.gob.Gob.TextValueGobber {
+        this.tw = v;
+        return v;
+    }
+    public function new(?x:StdTypes.Int, ?v:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.ValueGobber>, ?w:stdgo._internal.encoding.gob.Gob.ValueGobber, ?bv:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.BinaryValueGobber>, ?bw:stdgo._internal.encoding.gob.Gob.BinaryValueGobber, ?tv:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.TextValueGobber>, ?tw:stdgo._internal.encoding.gob.Gob.TextValueGobber) this = new stdgo._internal.encoding.gob.Gob.GobTest7(x, v, w, bv, bw, tv, tw);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract GobTestIgnoreEncoder(stdgo._internal.encoding.gob.Gob.GobTestIgnoreEncoder) from stdgo._internal.encoding.gob.Gob.GobTestIgnoreEncoder to stdgo._internal.encoding.gob.Gob.GobTestIgnoreEncoder {
+    public var x(get, set) : StdTypes.Int;
+    function get_x():StdTypes.Int return this.x;
+    function set_x(v:StdTypes.Int):StdTypes.Int {
+        this.x = v;
+        return v;
+    }
+    public function new(?x:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.GobTestIgnoreEncoder(x);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract GobTestValueEncDec(stdgo._internal.encoding.gob.Gob.GobTestValueEncDec) from stdgo._internal.encoding.gob.Gob.GobTestValueEncDec to stdgo._internal.encoding.gob.Gob.GobTestValueEncDec {
+    public var x(get, set) : StdTypes.Int;
+    function get_x():StdTypes.Int return this.x;
+    function set_x(v:StdTypes.Int):StdTypes.Int {
+        this.x = v;
+        return v;
+    }
+    public var g(get, set) : stdgo._internal.encoding.gob.Gob.StringStruct;
+    function get_g():stdgo._internal.encoding.gob.Gob.StringStruct return this.g;
+    function set_g(v:stdgo._internal.encoding.gob.Gob.StringStruct):stdgo._internal.encoding.gob.Gob.StringStruct {
+        this.g = v;
+        return v;
+    }
+    public function new(?x:StdTypes.Int, ?g:stdgo._internal.encoding.gob.Gob.StringStruct) this = new stdgo._internal.encoding.gob.Gob.GobTestValueEncDec(x, g);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract GobTestIndirectEncDec(stdgo._internal.encoding.gob.Gob.GobTestIndirectEncDec) from stdgo._internal.encoding.gob.Gob.GobTestIndirectEncDec to stdgo._internal.encoding.gob.Gob.GobTestIndirectEncDec {
+    public var x(get, set) : StdTypes.Int;
+    function get_x():StdTypes.Int return this.x;
+    function set_x(v:StdTypes.Int):StdTypes.Int {
+        this.x = v;
+        return v;
+    }
+    public var g(get, set) : stdgo.Pointer<stdgo._internal.encoding.gob.Gob.StringStruct>;
+    function get_g():stdgo.Pointer<stdgo._internal.encoding.gob.Gob.StringStruct> return this.g;
+    function set_g(v:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.StringStruct>):stdgo.Pointer<stdgo._internal.encoding.gob.Gob.StringStruct> {
+        this.g = v;
+        return v;
+    }
+    public function new(?x:StdTypes.Int, ?g:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.StringStruct>) this = new stdgo._internal.encoding.gob.Gob.GobTestIndirectEncDec(x, g);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract GobTestArrayEncDec(stdgo._internal.encoding.gob.Gob.GobTestArrayEncDec) from stdgo._internal.encoding.gob.Gob.GobTestArrayEncDec to stdgo._internal.encoding.gob.Gob.GobTestArrayEncDec {
+    public var x(get, set) : StdTypes.Int;
+    function get_x():StdTypes.Int return this.x;
+    function set_x(v:StdTypes.Int):StdTypes.Int {
+        this.x = v;
+        return v;
+    }
+    public var a(get, set) : stdgo._internal.encoding.gob.Gob.ArrayStruct;
+    function get_a():stdgo._internal.encoding.gob.Gob.ArrayStruct return this.a;
+    function set_a(v:stdgo._internal.encoding.gob.Gob.ArrayStruct):stdgo._internal.encoding.gob.Gob.ArrayStruct {
+        this.a = v;
+        return v;
+    }
+    public function new(?x:StdTypes.Int, ?a:stdgo._internal.encoding.gob.Gob.ArrayStruct) this = new stdgo._internal.encoding.gob.Gob.GobTestArrayEncDec(x, a);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract GobTestIndirectArrayEncDec(stdgo._internal.encoding.gob.Gob.GobTestIndirectArrayEncDec) from stdgo._internal.encoding.gob.Gob.GobTestIndirectArrayEncDec to stdgo._internal.encoding.gob.Gob.GobTestIndirectArrayEncDec {
+    public var x(get, set) : StdTypes.Int;
+    function get_x():StdTypes.Int return this.x;
+    function set_x(v:StdTypes.Int):StdTypes.Int {
+        this.x = v;
+        return v;
+    }
+    public var a(get, set) : stdgo.Pointer<stdgo._internal.encoding.gob.Gob.ArrayStruct>;
+    function get_a():stdgo.Pointer<stdgo._internal.encoding.gob.Gob.ArrayStruct> return this.a;
+    function set_a(v:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.ArrayStruct>):stdgo.Pointer<stdgo._internal.encoding.gob.Gob.ArrayStruct> {
+        this.a = v;
+        return v;
+    }
+    public function new(?x:StdTypes.Int, ?a:stdgo.Pointer<stdgo._internal.encoding.gob.Gob.ArrayStruct>) this = new stdgo._internal.encoding.gob.Gob.GobTestIndirectArrayEncDec(x, a);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_gobDecoderBug0(stdgo._internal.encoding.gob.Gob.T_gobDecoderBug0) from stdgo._internal.encoding.gob.Gob.T_gobDecoderBug0 to stdgo._internal.encoding.gob.Gob.T_gobDecoderBug0 {
+    public var _foo(get, set) : String;
+    function get__foo():String return this._foo;
+    function set__foo(v:String):String {
+        this._foo = v;
+        return v;
+    }
+    public var _bar(get, set) : String;
+    function get__bar():String return this._bar;
+    function set__bar(v:String):String {
+        this._bar = v;
+        return v;
+    }
+    public function new(?_foo:String, ?_bar:String) this = new stdgo._internal.encoding.gob.Gob.T_gobDecoderBug0(_foo, _bar);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_isZeroBug(stdgo._internal.encoding.gob.Gob.T_isZeroBug) from stdgo._internal.encoding.gob.Gob.T_isZeroBug to stdgo._internal.encoding.gob.Gob.T_isZeroBug {
+    public var t(get, set) : stdgo._internal.time.Time.Time;
+    function get_t():stdgo._internal.time.Time.Time return this.t;
+    function set_t(v:stdgo._internal.time.Time.Time):stdgo._internal.time.Time.Time {
+        this.t = v;
+        return v;
+    }
+    public var s(get, set) : String;
+    function get_s():String return this.s;
+    function set_s(v:String):String {
+        this.s = v;
+        return v;
+    }
+    public var i(get, set) : StdTypes.Int;
+    function get_i():StdTypes.Int return this.i;
+    function set_i(v:StdTypes.Int):StdTypes.Int {
+        this.i = v;
+        return v;
+    }
+    public var a(get, set) : stdgo._internal.encoding.gob.Gob.T_isZeroBugArray;
+    function get_a():stdgo._internal.encoding.gob.Gob.T_isZeroBugArray return this.a;
+    function set_a(v:stdgo._internal.encoding.gob.Gob.T_isZeroBugArray):stdgo._internal.encoding.gob.Gob.T_isZeroBugArray {
+        this.a = v;
+        return v;
+    }
+    public var f(get, set) : stdgo._internal.encoding.gob.Gob.T_isZeroBugInterface;
+    function get_f():stdgo._internal.encoding.gob.Gob.T_isZeroBugInterface return this.f;
+    function set_f(v:stdgo._internal.encoding.gob.Gob.T_isZeroBugInterface):stdgo._internal.encoding.gob.Gob.T_isZeroBugInterface {
+        this.f = v;
+        return v;
+    }
+    public function new(?t:stdgo._internal.time.Time.Time, ?s:String, ?i:StdTypes.Int, ?a:stdgo._internal.encoding.gob.Gob.T_isZeroBugArray, ?f:stdgo._internal.encoding.gob.Gob.T_isZeroBugInterface) this = new stdgo._internal.encoding.gob.Gob.T_isZeroBug(t, s, i, a, f);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_isZeroBugInterface(stdgo._internal.encoding.gob.Gob.T_isZeroBugInterface) from stdgo._internal.encoding.gob.Gob.T_isZeroBugInterface to stdgo._internal.encoding.gob.Gob.T_isZeroBugInterface {
+    public var i(get, set) : stdgo.AnyInterface;
+    function get_i():stdgo.AnyInterface return this.i;
+    function set_i(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.i = v;
+        return v;
+    }
+    public function new(?i:stdgo.AnyInterface) this = new stdgo._internal.encoding.gob.Gob.T_isZeroBugInterface(i);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract Bench(stdgo._internal.encoding.gob.Gob.Bench) from stdgo._internal.encoding.gob.Gob.Bench to stdgo._internal.encoding.gob.Gob.Bench {
+    public var a(get, set) : StdTypes.Int;
+    function get_a():StdTypes.Int return this.a;
+    function set_a(v:StdTypes.Int):StdTypes.Int {
+        this.a = v;
+        return v;
+    }
+    public var b(get, set) : StdTypes.Float;
+    function get_b():StdTypes.Float return this.b;
+    function set_b(v:StdTypes.Float):StdTypes.Float {
+        this.b = v;
+        return v;
+    }
+    public var c(get, set) : String;
+    function get_c():String return this.c;
+    function set_c(v:String):String {
+        this.c = v;
+        return v;
+    }
+    public var d(get, set) : Array<std.UInt>;
+    function get_d():Array<std.UInt> return [for (i in this.d) i];
+    function set_d(v:Array<std.UInt>):Array<std.UInt> {
+        this.d = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public function new(?a:StdTypes.Int, ?b:StdTypes.Float, ?c:String, ?d:Array<std.UInt>) this = new stdgo._internal.encoding.gob.Gob.Bench(a, b, c, ([for (i in d) i] : stdgo.Slice<stdgo.GoUInt8>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_benchmarkBuf(stdgo._internal.encoding.gob.Gob.T_benchmarkBuf) from stdgo._internal.encoding.gob.Gob.T_benchmarkBuf to stdgo._internal.encoding.gob.Gob.T_benchmarkBuf {
+    public var _offset(get, set) : StdTypes.Int;
+    function get__offset():StdTypes.Int return this._offset;
+    function set__offset(v:StdTypes.Int):StdTypes.Int {
+        this._offset = v;
+        return v;
+    }
+    public var _data(get, set) : Array<std.UInt>;
+    function get__data():Array<std.UInt> return [for (i in this._data) i];
+    function set__data(v:Array<std.UInt>):Array<std.UInt> {
+        this._data = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public function new(?_offset:StdTypes.Int, ?_data:Array<std.UInt>) this = new stdgo._internal.encoding.gob.Gob.T_benchmarkBuf(_offset, ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_userTypeInfo(stdgo._internal.encoding.gob.Gob.T_userTypeInfo) from stdgo._internal.encoding.gob.Gob.T_userTypeInfo to stdgo._internal.encoding.gob.Gob.T_userTypeInfo {
+    public var _user(get, set) : stdgo._internal.reflect.Reflect.Type_;
+    function get__user():stdgo._internal.reflect.Reflect.Type_ return this._user;
+    function set__user(v:stdgo._internal.reflect.Reflect.Type_):stdgo._internal.reflect.Reflect.Type_ {
+        this._user = v;
+        return v;
+    }
+    public var _base(get, set) : stdgo._internal.reflect.Reflect.Type_;
+    function get__base():stdgo._internal.reflect.Reflect.Type_ return this._base;
+    function set__base(v:stdgo._internal.reflect.Reflect.Type_):stdgo._internal.reflect.Reflect.Type_ {
+        this._base = v;
+        return v;
+    }
+    public var _indir(get, set) : StdTypes.Int;
+    function get__indir():StdTypes.Int return this._indir;
+    function set__indir(v:StdTypes.Int):StdTypes.Int {
+        this._indir = v;
+        return v;
+    }
+    public var _externalEnc(get, set) : StdTypes.Int;
+    function get__externalEnc():StdTypes.Int return this._externalEnc;
+    function set__externalEnc(v:StdTypes.Int):StdTypes.Int {
+        this._externalEnc = v;
+        return v;
+    }
+    public var _externalDec(get, set) : StdTypes.Int;
+    function get__externalDec():StdTypes.Int return this._externalDec;
+    function set__externalDec(v:StdTypes.Int):StdTypes.Int {
+        this._externalDec = v;
+        return v;
+    }
+    public var _encIndir(get, set) : StdTypes.Int;
+    function get__encIndir():StdTypes.Int return this._encIndir;
+    function set__encIndir(v:StdTypes.Int):StdTypes.Int {
+        this._encIndir = v;
+        return v;
+    }
+    public var _decIndir(get, set) : StdTypes.Int;
+    function get__decIndir():StdTypes.Int return this._decIndir;
+    function set__decIndir(v:StdTypes.Int):StdTypes.Int {
+        this._decIndir = v;
+        return v;
+    }
+    public function new(?_user:stdgo._internal.reflect.Reflect.Type_, ?_base:stdgo._internal.reflect.Reflect.Type_, ?_indir:StdTypes.Int, ?_externalEnc:StdTypes.Int, ?_externalDec:StdTypes.Int, ?_encIndir:StdTypes.Int, ?_decIndir:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.T_userTypeInfo(_user, _base, _indir, _externalEnc, _externalDec, _encIndir, _decIndir);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract CommonType(stdgo._internal.encoding.gob.Gob.CommonType) from stdgo._internal.encoding.gob.Gob.CommonType to stdgo._internal.encoding.gob.Gob.CommonType {
+    public var name(get, set) : String;
+    function get_name():String return this.name;
+    function set_name(v:String):String {
+        this.name = v;
+        return v;
+    }
+    public var id(get, set) : stdgo._internal.encoding.gob.Gob.T_typeId;
+    function get_id():stdgo._internal.encoding.gob.Gob.T_typeId return this.id;
+    function set_id(v:stdgo._internal.encoding.gob.Gob.T_typeId):stdgo._internal.encoding.gob.Gob.T_typeId {
+        this.id = v;
+        return v;
+    }
+    public function new(?name:String, ?id:stdgo._internal.encoding.gob.Gob.T_typeId) this = new stdgo._internal.encoding.gob.Gob.CommonType(name, id);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_arrayType(stdgo._internal.encoding.gob.Gob.T_arrayType) from stdgo._internal.encoding.gob.Gob.T_arrayType to stdgo._internal.encoding.gob.Gob.T_arrayType {
+    public var commonType(get, set) : stdgo._internal.encoding.gob.Gob.CommonType;
+    function get_commonType():stdgo._internal.encoding.gob.Gob.CommonType return this.commonType;
+    function set_commonType(v:stdgo._internal.encoding.gob.Gob.CommonType):stdgo._internal.encoding.gob.Gob.CommonType {
+        this.commonType = v;
+        return v;
+    }
+    public var elem(get, set) : stdgo._internal.encoding.gob.Gob.T_typeId;
+    function get_elem():stdgo._internal.encoding.gob.Gob.T_typeId return this.elem;
+    function set_elem(v:stdgo._internal.encoding.gob.Gob.T_typeId):stdgo._internal.encoding.gob.Gob.T_typeId {
+        this.elem = v;
+        return v;
+    }
+    public var len(get, set) : StdTypes.Int;
+    function get_len():StdTypes.Int return this.len;
+    function set_len(v:StdTypes.Int):StdTypes.Int {
+        this.len = v;
+        return v;
+    }
+    public function new(?commonType:stdgo._internal.encoding.gob.Gob.CommonType, ?elem:stdgo._internal.encoding.gob.Gob.T_typeId, ?len:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.T_arrayType(commonType, elem, len);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_gobEncoderType(stdgo._internal.encoding.gob.Gob.T_gobEncoderType) from stdgo._internal.encoding.gob.Gob.T_gobEncoderType to stdgo._internal.encoding.gob.Gob.T_gobEncoderType {
+    public var commonType(get, set) : stdgo._internal.encoding.gob.Gob.CommonType;
+    function get_commonType():stdgo._internal.encoding.gob.Gob.CommonType return this.commonType;
+    function set_commonType(v:stdgo._internal.encoding.gob.Gob.CommonType):stdgo._internal.encoding.gob.Gob.CommonType {
+        this.commonType = v;
+        return v;
+    }
+    public function new(?commonType:stdgo._internal.encoding.gob.Gob.CommonType) this = new stdgo._internal.encoding.gob.Gob.T_gobEncoderType(commonType);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_mapType(stdgo._internal.encoding.gob.Gob.T_mapType) from stdgo._internal.encoding.gob.Gob.T_mapType to stdgo._internal.encoding.gob.Gob.T_mapType {
+    public var commonType(get, set) : stdgo._internal.encoding.gob.Gob.CommonType;
+    function get_commonType():stdgo._internal.encoding.gob.Gob.CommonType return this.commonType;
+    function set_commonType(v:stdgo._internal.encoding.gob.Gob.CommonType):stdgo._internal.encoding.gob.Gob.CommonType {
+        this.commonType = v;
+        return v;
+    }
+    public var key(get, set) : stdgo._internal.encoding.gob.Gob.T_typeId;
+    function get_key():stdgo._internal.encoding.gob.Gob.T_typeId return this.key;
+    function set_key(v:stdgo._internal.encoding.gob.Gob.T_typeId):stdgo._internal.encoding.gob.Gob.T_typeId {
+        this.key = v;
+        return v;
+    }
+    public var elem(get, set) : stdgo._internal.encoding.gob.Gob.T_typeId;
+    function get_elem():stdgo._internal.encoding.gob.Gob.T_typeId return this.elem;
+    function set_elem(v:stdgo._internal.encoding.gob.Gob.T_typeId):stdgo._internal.encoding.gob.Gob.T_typeId {
+        this.elem = v;
+        return v;
+    }
+    public function new(?commonType:stdgo._internal.encoding.gob.Gob.CommonType, ?key:stdgo._internal.encoding.gob.Gob.T_typeId, ?elem:stdgo._internal.encoding.gob.Gob.T_typeId) this = new stdgo._internal.encoding.gob.Gob.T_mapType(commonType, key, elem);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_sliceType(stdgo._internal.encoding.gob.Gob.T_sliceType) from stdgo._internal.encoding.gob.Gob.T_sliceType to stdgo._internal.encoding.gob.Gob.T_sliceType {
+    public var commonType(get, set) : stdgo._internal.encoding.gob.Gob.CommonType;
+    function get_commonType():stdgo._internal.encoding.gob.Gob.CommonType return this.commonType;
+    function set_commonType(v:stdgo._internal.encoding.gob.Gob.CommonType):stdgo._internal.encoding.gob.Gob.CommonType {
+        this.commonType = v;
+        return v;
+    }
+    public var elem(get, set) : stdgo._internal.encoding.gob.Gob.T_typeId;
+    function get_elem():stdgo._internal.encoding.gob.Gob.T_typeId return this.elem;
+    function set_elem(v:stdgo._internal.encoding.gob.Gob.T_typeId):stdgo._internal.encoding.gob.Gob.T_typeId {
+        this.elem = v;
+        return v;
+    }
+    public function new(?commonType:stdgo._internal.encoding.gob.Gob.CommonType, ?elem:stdgo._internal.encoding.gob.Gob.T_typeId) this = new stdgo._internal.encoding.gob.Gob.T_sliceType(commonType, elem);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_fieldType(stdgo._internal.encoding.gob.Gob.T_fieldType) from stdgo._internal.encoding.gob.Gob.T_fieldType to stdgo._internal.encoding.gob.Gob.T_fieldType {
+    public var name(get, set) : String;
+    function get_name():String return this.name;
+    function set_name(v:String):String {
+        this.name = v;
+        return v;
+    }
+    public var id(get, set) : stdgo._internal.encoding.gob.Gob.T_typeId;
+    function get_id():stdgo._internal.encoding.gob.Gob.T_typeId return this.id;
+    function set_id(v:stdgo._internal.encoding.gob.Gob.T_typeId):stdgo._internal.encoding.gob.Gob.T_typeId {
+        this.id = v;
+        return v;
+    }
+    public function new(?name:String, ?id:stdgo._internal.encoding.gob.Gob.T_typeId) this = new stdgo._internal.encoding.gob.Gob.T_fieldType(name, id);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_structType(stdgo._internal.encoding.gob.Gob.T_structType) from stdgo._internal.encoding.gob.Gob.T_structType to stdgo._internal.encoding.gob.Gob.T_structType {
+    public var commonType(get, set) : stdgo._internal.encoding.gob.Gob.CommonType;
+    function get_commonType():stdgo._internal.encoding.gob.Gob.CommonType return this.commonType;
+    function set_commonType(v:stdgo._internal.encoding.gob.Gob.CommonType):stdgo._internal.encoding.gob.Gob.CommonType {
+        this.commonType = v;
+        return v;
+    }
+    public var field(get, set) : Array<stdgo._internal.encoding.gob.Gob.T_fieldType>;
+    function get_field():Array<stdgo._internal.encoding.gob.Gob.T_fieldType> return [for (i in this.field) i];
+    function set_field(v:Array<stdgo._internal.encoding.gob.Gob.T_fieldType>):Array<stdgo._internal.encoding.gob.Gob.T_fieldType> {
+        this.field = ([for (i in v) i] : stdgo.Slice<stdgo._internal.encoding.gob.Gob.T_fieldType>);
+        return v;
+    }
+    public function new(?commonType:stdgo._internal.encoding.gob.Gob.CommonType, ?field:Array<stdgo._internal.encoding.gob.Gob.T_fieldType>) this = new stdgo._internal.encoding.gob.Gob.T_structType(commonType, ([for (i in field) i] : stdgo.Slice<stdgo._internal.encoding.gob.Gob.T_fieldType>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_wireType(stdgo._internal.encoding.gob.Gob.T_wireType) from stdgo._internal.encoding.gob.Gob.T_wireType to stdgo._internal.encoding.gob.Gob.T_wireType {
+    public var arrayT(get, set) : stdgo._internal.encoding.gob.Gob.T_arrayType;
+    function get_arrayT():stdgo._internal.encoding.gob.Gob.T_arrayType return this.arrayT;
+    function set_arrayT(v:stdgo._internal.encoding.gob.Gob.T_arrayType):stdgo._internal.encoding.gob.Gob.T_arrayType {
+        this.arrayT = v;
+        return v;
+    }
+    public var sliceT(get, set) : stdgo._internal.encoding.gob.Gob.T_sliceType;
+    function get_sliceT():stdgo._internal.encoding.gob.Gob.T_sliceType return this.sliceT;
+    function set_sliceT(v:stdgo._internal.encoding.gob.Gob.T_sliceType):stdgo._internal.encoding.gob.Gob.T_sliceType {
+        this.sliceT = v;
+        return v;
+    }
+    public var structT(get, set) : stdgo._internal.encoding.gob.Gob.T_structType;
+    function get_structT():stdgo._internal.encoding.gob.Gob.T_structType return this.structT;
+    function set_structT(v:stdgo._internal.encoding.gob.Gob.T_structType):stdgo._internal.encoding.gob.Gob.T_structType {
+        this.structT = v;
+        return v;
+    }
+    public var mapT(get, set) : stdgo._internal.encoding.gob.Gob.T_mapType;
+    function get_mapT():stdgo._internal.encoding.gob.Gob.T_mapType return this.mapT;
+    function set_mapT(v:stdgo._internal.encoding.gob.Gob.T_mapType):stdgo._internal.encoding.gob.Gob.T_mapType {
+        this.mapT = v;
+        return v;
+    }
+    public var gobEncoderT(get, set) : stdgo._internal.encoding.gob.Gob.T_gobEncoderType;
+    function get_gobEncoderT():stdgo._internal.encoding.gob.Gob.T_gobEncoderType return this.gobEncoderT;
+    function set_gobEncoderT(v:stdgo._internal.encoding.gob.Gob.T_gobEncoderType):stdgo._internal.encoding.gob.Gob.T_gobEncoderType {
+        this.gobEncoderT = v;
+        return v;
+    }
+    public var binaryMarshalerT(get, set) : stdgo._internal.encoding.gob.Gob.T_gobEncoderType;
+    function get_binaryMarshalerT():stdgo._internal.encoding.gob.Gob.T_gobEncoderType return this.binaryMarshalerT;
+    function set_binaryMarshalerT(v:stdgo._internal.encoding.gob.Gob.T_gobEncoderType):stdgo._internal.encoding.gob.Gob.T_gobEncoderType {
+        this.binaryMarshalerT = v;
+        return v;
+    }
+    public var textMarshalerT(get, set) : stdgo._internal.encoding.gob.Gob.T_gobEncoderType;
+    function get_textMarshalerT():stdgo._internal.encoding.gob.Gob.T_gobEncoderType return this.textMarshalerT;
+    function set_textMarshalerT(v:stdgo._internal.encoding.gob.Gob.T_gobEncoderType):stdgo._internal.encoding.gob.Gob.T_gobEncoderType {
+        this.textMarshalerT = v;
+        return v;
+    }
+    public function new(?arrayT:stdgo._internal.encoding.gob.Gob.T_arrayType, ?sliceT:stdgo._internal.encoding.gob.Gob.T_sliceType, ?structT:stdgo._internal.encoding.gob.Gob.T_structType, ?mapT:stdgo._internal.encoding.gob.Gob.T_mapType, ?gobEncoderT:stdgo._internal.encoding.gob.Gob.T_gobEncoderType, ?binaryMarshalerT:stdgo._internal.encoding.gob.Gob.T_gobEncoderType, ?textMarshalerT:stdgo._internal.encoding.gob.Gob.T_gobEncoderType) this = new stdgo._internal.encoding.gob.Gob.T_wireType(arrayT, sliceT, structT, mapT, gobEncoderT, binaryMarshalerT, textMarshalerT);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_typeInfo(stdgo._internal.encoding.gob.Gob.T_typeInfo) from stdgo._internal.encoding.gob.Gob.T_typeInfo to stdgo._internal.encoding.gob.Gob.T_typeInfo {
+    public var _id(get, set) : stdgo._internal.encoding.gob.Gob.T_typeId;
+    function get__id():stdgo._internal.encoding.gob.Gob.T_typeId return this._id;
+    function set__id(v:stdgo._internal.encoding.gob.Gob.T_typeId):stdgo._internal.encoding.gob.Gob.T_typeId {
+        this._id = v;
+        return v;
+    }
+    public var _encInit(get, set) : stdgo._internal.sync.Sync.Mutex;
+    function get__encInit():stdgo._internal.sync.Sync.Mutex return this._encInit;
+    function set__encInit(v:stdgo._internal.sync.Sync.Mutex):stdgo._internal.sync.Sync.Mutex {
+        this._encInit = v;
+        return v;
+    }
+    public var _encoder(get, set) : stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo._internal.encoding.gob.Gob.T_encEngine>;
+    function get__encoder():stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo._internal.encoding.gob.Gob.T_encEngine> return this._encoder;
+    function set__encoder(v:stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo._internal.encoding.gob.Gob.T_encEngine>):stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo._internal.encoding.gob.Gob.T_encEngine> {
+        this._encoder = v;
+        return v;
+    }
+    public var _wire(get, set) : stdgo._internal.encoding.gob.Gob.T_wireType;
+    function get__wire():stdgo._internal.encoding.gob.Gob.T_wireType return this._wire;
+    function set__wire(v:stdgo._internal.encoding.gob.Gob.T_wireType):stdgo._internal.encoding.gob.Gob.T_wireType {
+        this._wire = v;
+        return v;
+    }
+    public function new(?_id:stdgo._internal.encoding.gob.Gob.T_typeId, ?_encInit:stdgo._internal.sync.Sync.Mutex, ?_encoder:stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo._internal.encoding.gob.Gob.T_encEngine>, ?_wire:stdgo._internal.encoding.gob.Gob.T_wireType) this = new stdgo._internal.encoding.gob.Gob.T_typeInfo(_id, _encInit, _encoder, _wire);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_typeT(stdgo._internal.encoding.gob.Gob.T_typeT) from stdgo._internal.encoding.gob.Gob.T_typeT to stdgo._internal.encoding.gob.Gob.T_typeT {
+    public var _id(get, set) : stdgo._internal.encoding.gob.Gob.T_typeId;
+    function get__id():stdgo._internal.encoding.gob.Gob.T_typeId return this._id;
+    function set__id(v:stdgo._internal.encoding.gob.Gob.T_typeId):stdgo._internal.encoding.gob.Gob.T_typeId {
+        this._id = v;
+        return v;
+    }
+    public var _str(get, set) : String;
+    function get__str():String return this._str;
+    function set__str(v:String):String {
+        this._str = v;
+        return v;
+    }
+    public function new(?_id:stdgo._internal.encoding.gob.Gob.T_typeId, ?_str:String) this = new stdgo._internal.encoding.gob.Gob.T_typeT(_id, _str);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract Bar(stdgo._internal.encoding.gob.Gob.Bar) from stdgo._internal.encoding.gob.Gob.Bar to stdgo._internal.encoding.gob.Gob.Bar {
+    public var x(get, set) : String;
+    function get_x():String return this.x;
+    function set_x(v:String):String {
+        this.x = v;
+        return v;
+    }
+    public function new(?x:String) this = new stdgo._internal.encoding.gob.Gob.Bar(x);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract Foo(stdgo._internal.encoding.gob.Gob.Foo) from stdgo._internal.encoding.gob.Gob.Foo to stdgo._internal.encoding.gob.Gob.Foo {
+    public var a(get, set) : StdTypes.Int;
+    function get_a():StdTypes.Int return this.a;
+    function set_a(v:StdTypes.Int):StdTypes.Int {
+        this.a = v;
+        return v;
+    }
+    public var b(get, set) : StdTypes.Int;
+    function get_b():StdTypes.Int return this.b;
+    function set_b(v:StdTypes.Int):StdTypes.Int {
+        this.b = v;
+        return v;
+    }
+    public var c(get, set) : String;
+    function get_c():String return this.c;
+    function set_c(v:String):String {
+        this.c = v;
+        return v;
+    }
+    public var d(get, set) : Array<std.UInt>;
+    function get_d():Array<std.UInt> return [for (i in this.d) i];
+    function set_d(v:Array<std.UInt>):Array<std.UInt> {
+        this.d = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public var e(get, set) : stdgo.Pointer<StdTypes.Float>;
+    function get_e():stdgo.Pointer<StdTypes.Float> return this.e;
+    function set_e(v:stdgo.Pointer<StdTypes.Float>):stdgo.Pointer<StdTypes.Float> {
+        this.e = v;
+        return v;
+    }
+    public var f(get, set) : stdgo.Pointer<stdgo.Pointer<StdTypes.Float>>;
+    function get_f():stdgo.Pointer<stdgo.Pointer<StdTypes.Float>> return this.f;
+    function set_f(v:stdgo.Pointer<stdgo.Pointer<StdTypes.Float>>):stdgo.Pointer<stdgo.Pointer<StdTypes.Float>> {
+        this.f = v;
+        return v;
+    }
+    public var g(get, set) : stdgo._internal.encoding.gob.Gob.Bar;
+    function get_g():stdgo._internal.encoding.gob.Gob.Bar return this.g;
+    function set_g(v:stdgo._internal.encoding.gob.Gob.Bar):stdgo._internal.encoding.gob.Gob.Bar {
+        this.g = v;
+        return v;
+    }
+    public var h(get, set) : stdgo._internal.encoding.gob.Gob.Bar;
+    function get_h():stdgo._internal.encoding.gob.Gob.Bar return this.h;
+    function set_h(v:stdgo._internal.encoding.gob.Gob.Bar):stdgo._internal.encoding.gob.Gob.Bar {
+        this.h = v;
+        return v;
+    }
+    public var i(get, set) : stdgo._internal.encoding.gob.Gob.Foo;
+    function get_i():stdgo._internal.encoding.gob.Gob.Foo return this.i;
+    function set_i(v:stdgo._internal.encoding.gob.Gob.Foo):stdgo._internal.encoding.gob.Gob.Foo {
+        this.i = v;
+        return v;
+    }
+    public function new(?a:StdTypes.Int, ?b:StdTypes.Int, ?c:String, ?d:Array<std.UInt>, ?e:stdgo.Pointer<StdTypes.Float>, ?f:stdgo.Pointer<stdgo.Pointer<StdTypes.Float>>, ?g:stdgo._internal.encoding.gob.Gob.Bar, ?h:stdgo._internal.encoding.gob.Gob.Bar, ?i:stdgo._internal.encoding.gob.Gob.Foo) this = new stdgo._internal.encoding.gob.Gob.Foo(a, b, c, ([for (i in d) i] : stdgo.Slice<stdgo.GoUInt8>), e, f, g, h, i);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract N1(stdgo._internal.encoding.gob.Gob.N1) from stdgo._internal.encoding.gob.Gob.N1 to stdgo._internal.encoding.gob.Gob.N1 {
+    public function new() this = new stdgo._internal.encoding.gob.Gob.N1();
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract N2(stdgo._internal.encoding.gob.Gob.N2) from stdgo._internal.encoding.gob.Gob.N2 to stdgo._internal.encoding.gob.Gob.N2 {
+    public function new() this = new stdgo._internal.encoding.gob.Gob.N2();
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef T__struct_0 = stdgo._internal.encoding.gob.Gob.T__struct_0;
-@:forward @:forward.new abstract T__struct_1_asInterface(stdgo._internal.encoding.gob.Gob.T__struct_1_asInterface) from stdgo._internal.encoding.gob.Gob.T__struct_1_asInterface to stdgo._internal.encoding.gob.Gob.T__struct_1_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_1_static_extension(stdgo._internal.encoding.gob.Gob.T__struct_1_static_extension) from stdgo._internal.encoding.gob.Gob.T__struct_1_static_extension to stdgo._internal.encoding.gob.Gob.T__struct_1_static_extension {
-
-}
 typedef T__struct_1 = stdgo._internal.encoding.gob.Gob.T__struct_1;
-@:forward @:forward.new abstract T__struct_2_asInterface(stdgo._internal.encoding.gob.Gob.T__struct_2_asInterface) from stdgo._internal.encoding.gob.Gob.T__struct_2_asInterface to stdgo._internal.encoding.gob.Gob.T__struct_2_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_2_static_extension(stdgo._internal.encoding.gob.Gob.T__struct_2_static_extension) from stdgo._internal.encoding.gob.Gob.T__struct_2_static_extension to stdgo._internal.encoding.gob.Gob.T__struct_2_static_extension {
-
-}
 typedef T__struct_2 = stdgo._internal.encoding.gob.Gob.T__struct_2;
-@:forward @:forward.new abstract T__struct_3_asInterface(stdgo._internal.encoding.gob.Gob.T__struct_3_asInterface) from stdgo._internal.encoding.gob.Gob.T__struct_3_asInterface to stdgo._internal.encoding.gob.Gob.T__struct_3_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_3_static_extension(stdgo._internal.encoding.gob.Gob.T__struct_3_static_extension) from stdgo._internal.encoding.gob.Gob.T__struct_3_static_extension to stdgo._internal.encoding.gob.Gob.T__struct_3_static_extension {
-
-}
 typedef T__struct_3 = stdgo._internal.encoding.gob.Gob.T__struct_3;
-@:forward @:forward.new abstract T__struct_4_asInterface(stdgo._internal.encoding.gob.Gob.T__struct_4_asInterface) from stdgo._internal.encoding.gob.Gob.T__struct_4_asInterface to stdgo._internal.encoding.gob.Gob.T__struct_4_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_4_static_extension(stdgo._internal.encoding.gob.Gob.T__struct_4_static_extension) from stdgo._internal.encoding.gob.Gob.T__struct_4_static_extension to stdgo._internal.encoding.gob.Gob.T__struct_4_static_extension {
-
-}
 typedef T__struct_4 = stdgo._internal.encoding.gob.Gob.T__struct_4;
-@:forward @:forward.new abstract T__struct_5_asInterface(stdgo._internal.encoding.gob.Gob.T__struct_5_asInterface) from stdgo._internal.encoding.gob.Gob.T__struct_5_asInterface to stdgo._internal.encoding.gob.Gob.T__struct_5_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_5_static_extension(stdgo._internal.encoding.gob.Gob.T__struct_5_static_extension) from stdgo._internal.encoding.gob.Gob.T__struct_5_static_extension to stdgo._internal.encoding.gob.Gob.T__struct_5_static_extension {
-
-}
 typedef T__struct_5 = stdgo._internal.encoding.gob.Gob.T__struct_5;
-@:forward @:forward.new abstract T__struct_6_asInterface(stdgo._internal.encoding.gob.Gob.T__struct_6_asInterface) from stdgo._internal.encoding.gob.Gob.T__struct_6_asInterface to stdgo._internal.encoding.gob.Gob.T__struct_6_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_6_static_extension(stdgo._internal.encoding.gob.Gob.T__struct_6_static_extension) from stdgo._internal.encoding.gob.Gob.T__struct_6_static_extension to stdgo._internal.encoding.gob.Gob.T__struct_6_static_extension {
-
-}
 typedef T__struct_6 = stdgo._internal.encoding.gob.Gob.T__struct_6;
-@:forward @:forward.new abstract T__struct_7_asInterface(stdgo._internal.encoding.gob.Gob.T__struct_7_asInterface) from stdgo._internal.encoding.gob.Gob.T__struct_7_asInterface to stdgo._internal.encoding.gob.Gob.T__struct_7_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_7_static_extension(stdgo._internal.encoding.gob.Gob.T__struct_7_static_extension) from stdgo._internal.encoding.gob.Gob.T__struct_7_static_extension to stdgo._internal.encoding.gob.Gob.T__struct_7_static_extension {
-
-}
 typedef T__struct_7 = stdgo._internal.encoding.gob.Gob.T__struct_7;
-@:forward @:forward.new abstract T__struct_8_asInterface(stdgo._internal.encoding.gob.Gob.T__struct_8_asInterface) from stdgo._internal.encoding.gob.Gob.T__struct_8_asInterface to stdgo._internal.encoding.gob.Gob.T__struct_8_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_8_static_extension(stdgo._internal.encoding.gob.Gob.T__struct_8_static_extension) from stdgo._internal.encoding.gob.Gob.T__struct_8_static_extension to stdgo._internal.encoding.gob.Gob.T__struct_8_static_extension {
-
-}
 typedef T__struct_8 = stdgo._internal.encoding.gob.Gob.T__struct_8;
-@:forward @:forward.new abstract T__struct_9_asInterface(stdgo._internal.encoding.gob.Gob.T__struct_9_asInterface) from stdgo._internal.encoding.gob.Gob.T__struct_9_asInterface to stdgo._internal.encoding.gob.Gob.T__struct_9_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_9_static_extension(stdgo._internal.encoding.gob.Gob.T__struct_9_static_extension) from stdgo._internal.encoding.gob.Gob.T__struct_9_static_extension to stdgo._internal.encoding.gob.Gob.T__struct_9_static_extension {
-
-}
 typedef T__struct_9 = stdgo._internal.encoding.gob.Gob.T__struct_9;
-@:forward @:forward.new abstract T__struct_10_asInterface(stdgo._internal.encoding.gob.Gob.T__struct_10_asInterface) from stdgo._internal.encoding.gob.Gob.T__struct_10_asInterface to stdgo._internal.encoding.gob.Gob.T__struct_10_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_10_static_extension(stdgo._internal.encoding.gob.Gob.T__struct_10_static_extension) from stdgo._internal.encoding.gob.Gob.T__struct_10_static_extension to stdgo._internal.encoding.gob.Gob.T__struct_10_static_extension {
-
-}
 typedef T__struct_10 = stdgo._internal.encoding.gob.Gob.T__struct_10;
-@:forward @:forward.new abstract T__struct_11_asInterface(stdgo._internal.encoding.gob.Gob.T__struct_11_asInterface) from stdgo._internal.encoding.gob.Gob.T__struct_11_asInterface to stdgo._internal.encoding.gob.Gob.T__struct_11_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_11_static_extension(stdgo._internal.encoding.gob.Gob.T__struct_11_static_extension) from stdgo._internal.encoding.gob.Gob.T__struct_11_static_extension to stdgo._internal.encoding.gob.Gob.T__struct_11_static_extension {
-
-}
 typedef T__struct_11 = stdgo._internal.encoding.gob.Gob.T__struct_11;
-@:forward @:forward.new abstract T__struct_12_asInterface(stdgo._internal.encoding.gob.Gob.T__struct_12_asInterface) from stdgo._internal.encoding.gob.Gob.T__struct_12_asInterface to stdgo._internal.encoding.gob.Gob.T__struct_12_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_12_static_extension(stdgo._internal.encoding.gob.Gob.T__struct_12_static_extension) from stdgo._internal.encoding.gob.Gob.T__struct_12_static_extension to stdgo._internal.encoding.gob.Gob.T__struct_12_static_extension {
-
-}
 typedef T__struct_12 = stdgo._internal.encoding.gob.Gob.T__struct_12;
 typedef Int_ = stdgo._internal.encoding.gob.Gob.Int_;
 typedef Float_ = stdgo._internal.encoding.gob.Gob.Float_;
@@ -680,282 +2384,539 @@ typedef TextGobber = stdgo._internal.encoding.gob.Gob.TextGobber;
 typedef TextValueGobber = stdgo._internal.encoding.gob.Gob.TextValueGobber;
 typedef T_isZeroBugArray = stdgo._internal.encoding.gob.Gob.T_isZeroBugArray;
 typedef T_typeId = stdgo._internal.encoding.gob.Gob.T_typeId;
-@:forward @:forward.new abstract T_testEndToEnd_54___localname___T2(stdgo._internal.encoding.gob.Gob.T_testEndToEnd_54___localname___T2) from stdgo._internal.encoding.gob.Gob.T_testEndToEnd_54___localname___T2 to stdgo._internal.encoding.gob.Gob.T_testEndToEnd_54___localname___T2 {
-
+abstract T_testEndToEnd_54___localname___T2(stdgo._internal.encoding.gob.Gob.T_testEndToEnd_54___localname___T2) from stdgo._internal.encoding.gob.Gob.T_testEndToEnd_54___localname___T2 to stdgo._internal.encoding.gob.Gob.T_testEndToEnd_54___localname___T2 {
+    public var t(get, set) : String;
+    function get_t():String return this.t;
+    function set_t(v:String):String {
+        this.t = v;
+        return v;
+    }
+    public function new(?t:String) this = new stdgo._internal.encoding.gob.Gob.T_testEndToEnd_54___localname___T2(t);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_testEndToEnd_55___localname___T3(stdgo._internal.encoding.gob.Gob.T_testEndToEnd_55___localname___T3) from stdgo._internal.encoding.gob.Gob.T_testEndToEnd_55___localname___T3 to stdgo._internal.encoding.gob.Gob.T_testEndToEnd_55___localname___T3 {
-
+abstract T_testEndToEnd_55___localname___T3(stdgo._internal.encoding.gob.Gob.T_testEndToEnd_55___localname___T3) from stdgo._internal.encoding.gob.Gob.T_testEndToEnd_55___localname___T3 to stdgo._internal.encoding.gob.Gob.T_testEndToEnd_55___localname___T3 {
+    public var x(get, set) : StdTypes.Float;
+    function get_x():StdTypes.Float return this.x;
+    function set_x(v:StdTypes.Float):StdTypes.Float {
+        this.x = v;
+        return v;
+    }
+    public var z(get, set) : stdgo.Pointer<StdTypes.Int>;
+    function get_z():stdgo.Pointer<StdTypes.Int> return this.z;
+    function set_z(v:stdgo.Pointer<StdTypes.Int>):stdgo.Pointer<StdTypes.Int> {
+        this.z = v;
+        return v;
+    }
+    public function new(?x:StdTypes.Float, ?z:stdgo.Pointer<StdTypes.Int>) this = new stdgo._internal.encoding.gob.Gob.T_testEndToEnd_55___localname___T3(x, z);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_testEndToEnd_56___localname___T1(stdgo._internal.encoding.gob.Gob.T_testEndToEnd_56___localname___T1) from stdgo._internal.encoding.gob.Gob.T_testEndToEnd_56___localname___T1 to stdgo._internal.encoding.gob.Gob.T_testEndToEnd_56___localname___T1 {
-
+abstract T_testEndToEnd_56___localname___T1(stdgo._internal.encoding.gob.Gob.T_testEndToEnd_56___localname___T1) from stdgo._internal.encoding.gob.Gob.T_testEndToEnd_56___localname___T1 to stdgo._internal.encoding.gob.Gob.T_testEndToEnd_56___localname___T1 {
+    public var a(get, set) : StdTypes.Int;
+    function get_a():StdTypes.Int return this.a;
+    function set_a(v:StdTypes.Int):StdTypes.Int {
+        this.a = v;
+        return v;
+    }
+    public var b(get, set) : StdTypes.Int;
+    function get_b():StdTypes.Int return this.b;
+    function set_b(v:StdTypes.Int):StdTypes.Int {
+        this.b = v;
+        return v;
+    }
+    public var c(get, set) : StdTypes.Int;
+    function get_c():StdTypes.Int return this.c;
+    function set_c(v:StdTypes.Int):StdTypes.Int {
+        this.c = v;
+        return v;
+    }
+    public var m(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Pointer<stdgo.GoFloat64>>;
+    function get_m():stdgo.GoMap<stdgo.GoString, stdgo.Pointer<stdgo.GoFloat64>> return this.m;
+    function set_m(v:stdgo.GoMap<stdgo.GoString, stdgo.Pointer<stdgo.GoFloat64>>):stdgo.GoMap<stdgo.GoString, stdgo.Pointer<stdgo.GoFloat64>> {
+        this.m = v;
+        return v;
+    }
+    public var m2(get, set) : stdgo.GoMap<stdgo.GoInt, stdgo._internal.encoding.gob.Gob.T_testEndToEnd_55___localname___T3>;
+    function get_m2():stdgo.GoMap<stdgo.GoInt, stdgo._internal.encoding.gob.Gob.T_testEndToEnd_55___localname___T3> return this.m2;
+    function set_m2(v:stdgo.GoMap<stdgo.GoInt, stdgo._internal.encoding.gob.Gob.T_testEndToEnd_55___localname___T3>):stdgo.GoMap<stdgo.GoInt, stdgo._internal.encoding.gob.Gob.T_testEndToEnd_55___localname___T3> {
+        this.m2 = v;
+        return v;
+    }
+    public var mstring(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
+    function get_mstring():stdgo.GoMap<stdgo.GoString, stdgo.GoString> return this.mstring;
+    function set_mstring(v:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
+        this.mstring = v;
+        return v;
+    }
+    public var mintptr(get, set) : stdgo.GoMap<stdgo.GoInt, stdgo.Pointer<stdgo.GoInt>>;
+    function get_mintptr():stdgo.GoMap<stdgo.GoInt, stdgo.Pointer<stdgo.GoInt>> return this.mintptr;
+    function set_mintptr(v:stdgo.GoMap<stdgo.GoInt, stdgo.Pointer<stdgo.GoInt>>):stdgo.GoMap<stdgo.GoInt, stdgo.Pointer<stdgo.GoInt>> {
+        this.mintptr = v;
+        return v;
+    }
+    public var mcomp(get, set) : stdgo.GoMap<stdgo.GoComplex128, stdgo.GoComplex128>;
+    function get_mcomp():stdgo.GoMap<stdgo.GoComplex128, stdgo.GoComplex128> return this.mcomp;
+    function set_mcomp(v:stdgo.GoMap<stdgo.GoComplex128, stdgo.GoComplex128>):stdgo.GoMap<stdgo.GoComplex128, stdgo.GoComplex128> {
+        this.mcomp = v;
+        return v;
+    }
+    public var marr(get, set) : stdgo.GoMap<stdgo.GoArray<stdgo.GoString>, stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>>;
+    function get_marr():stdgo.GoMap<stdgo.GoArray<stdgo.GoString>, stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>> return this.marr;
+    function set_marr(v:stdgo.GoMap<stdgo.GoArray<stdgo.GoString>, stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>>):stdgo.GoMap<stdgo.GoArray<stdgo.GoString>, stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>> {
+        this.marr = v;
+        return v;
+    }
+    public var emptyMap(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>;
+    function get_emptyMap():stdgo.GoMap<stdgo.GoString, stdgo.GoInt> return this.emptyMap;
+    function set_emptyMap(v:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>):stdgo.GoMap<stdgo.GoString, stdgo.GoInt> {
+        this.emptyMap = v;
+        return v;
+    }
+    public var n(get, set) : haxe.ds.Vector<StdTypes.Float>;
+    function get_n():haxe.ds.Vector<StdTypes.Float> return this.n;
+    function set_n(v:haxe.ds.Vector<StdTypes.Float>):haxe.ds.Vector<StdTypes.Float> {
+        this.n = v;
+        return v;
+    }
+    public var strs(get, set) : haxe.ds.Vector<String>;
+    function get_strs():haxe.ds.Vector<String> return this.strs;
+    function set_strs(v:haxe.ds.Vector<String>):haxe.ds.Vector<String> {
+        this.strs = v;
+        return v;
+    }
+    public var int64s(get, set) : Array<haxe.Int64>;
+    function get_int64s():Array<haxe.Int64> return this.int64s;
+    function set_int64s(v:Array<haxe.Int64>):Array<haxe.Int64> {
+        this.int64s = v;
+        return v;
+    }
+    public var ri(get, set) : stdgo.GoComplex64;
+    function get_ri():stdgo.GoComplex64 return this.ri;
+    function set_ri(v:stdgo.GoComplex64):stdgo.GoComplex64 {
+        this.ri = v;
+        return v;
+    }
+    public var s(get, set) : String;
+    function get_s():String return this.s;
+    function set_s(v:String):String {
+        this.s = v;
+        return v;
+    }
+    public var y(get, set) : Array<std.UInt>;
+    function get_y():Array<std.UInt> return [for (i in this.y) i];
+    function set_y(v:Array<std.UInt>):Array<std.UInt> {
+        this.y = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public var t(get, set) : stdgo._internal.encoding.gob.Gob.T2;
+    function get_t():stdgo._internal.encoding.gob.Gob.T2 return this.t;
+    function set_t(v:stdgo._internal.encoding.gob.Gob.T2):stdgo._internal.encoding.gob.Gob.T2 {
+        this.t = v;
+        return v;
+    }
+    public function new(?a:StdTypes.Int, ?b:StdTypes.Int, ?c:StdTypes.Int, ?m:stdgo.GoMap<stdgo.GoString, stdgo.Pointer<stdgo.GoFloat64>>, ?m2:stdgo.GoMap<stdgo.GoInt, stdgo._internal.encoding.gob.Gob.T_testEndToEnd_55___localname___T3>, ?mstring:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?mintptr:stdgo.GoMap<stdgo.GoInt, stdgo.Pointer<stdgo.GoInt>>, ?mcomp:stdgo.GoMap<stdgo.GoComplex128, stdgo.GoComplex128>, ?marr:stdgo.GoMap<stdgo.GoArray<stdgo.GoString>, stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>>, ?emptyMap:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?n:haxe.ds.Vector<StdTypes.Float>, ?strs:haxe.ds.Vector<String>, ?int64s:Array<haxe.Int64>, ?ri:stdgo.GoComplex64, ?s:String, ?y:Array<std.UInt>, ?t:stdgo._internal.encoding.gob.Gob.T2) this = new stdgo._internal.encoding.gob.Gob.T_testEndToEnd_56___localname___T1(
+a,
+b,
+c,
+m,
+m2,
+mstring,
+mintptr,
+mcomp,
+marr,
+emptyMap,
+n,
+strs,
+int64s,
+ri,
+s,
+([for (i in y) i] : stdgo.Slice<stdgo.GoUInt8>),
+t);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_testOverflow_57___localname___inputT(stdgo._internal.encoding.gob.Gob.T_testOverflow_57___localname___inputT) from stdgo._internal.encoding.gob.Gob.T_testOverflow_57___localname___inputT to stdgo._internal.encoding.gob.Gob.T_testOverflow_57___localname___inputT {
-
+abstract T_testOverflow_57___localname___inputT(stdgo._internal.encoding.gob.Gob.T_testOverflow_57___localname___inputT) from stdgo._internal.encoding.gob.Gob.T_testOverflow_57___localname___inputT to stdgo._internal.encoding.gob.Gob.T_testOverflow_57___localname___inputT {
+    public var maxi(get, set) : haxe.Int64;
+    function get_maxi():haxe.Int64 return this.maxi;
+    function set_maxi(v:haxe.Int64):haxe.Int64 {
+        this.maxi = v;
+        return v;
+    }
+    public var mini(get, set) : haxe.Int64;
+    function get_mini():haxe.Int64 return this.mini;
+    function set_mini(v:haxe.Int64):haxe.Int64 {
+        this.mini = v;
+        return v;
+    }
+    public var maxu(get, set) : haxe.UInt64;
+    function get_maxu():haxe.UInt64 return this.maxu;
+    function set_maxu(v:haxe.UInt64):haxe.UInt64 {
+        this.maxu = v;
+        return v;
+    }
+    public var maxf(get, set) : StdTypes.Float;
+    function get_maxf():StdTypes.Float return this.maxf;
+    function set_maxf(v:StdTypes.Float):StdTypes.Float {
+        this.maxf = v;
+        return v;
+    }
+    public var minf(get, set) : StdTypes.Float;
+    function get_minf():StdTypes.Float return this.minf;
+    function set_minf(v:StdTypes.Float):StdTypes.Float {
+        this.minf = v;
+        return v;
+    }
+    public var maxc(get, set) : stdgo.GoComplex128;
+    function get_maxc():stdgo.GoComplex128 return this.maxc;
+    function set_maxc(v:stdgo.GoComplex128):stdgo.GoComplex128 {
+        this.maxc = v;
+        return v;
+    }
+    public var minc(get, set) : stdgo.GoComplex128;
+    function get_minc():stdgo.GoComplex128 return this.minc;
+    function set_minc(v:stdgo.GoComplex128):stdgo.GoComplex128 {
+        this.minc = v;
+        return v;
+    }
+    public function new(?maxi:haxe.Int64, ?mini:haxe.Int64, ?maxu:haxe.UInt64, ?maxf:StdTypes.Float, ?minf:StdTypes.Float, ?maxc:stdgo.GoComplex128, ?minc:stdgo.GoComplex128) this = new stdgo._internal.encoding.gob.Gob.T_testOverflow_57___localname___inputT(maxi, mini, maxu, maxf, minf, maxc, minc);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_testOverflow_58___localname___outi8(stdgo._internal.encoding.gob.Gob.T_testOverflow_58___localname___outi8) from stdgo._internal.encoding.gob.Gob.T_testOverflow_58___localname___outi8 to stdgo._internal.encoding.gob.Gob.T_testOverflow_58___localname___outi8 {
-
+abstract T_testOverflow_58___localname___outi8(stdgo._internal.encoding.gob.Gob.T_testOverflow_58___localname___outi8) from stdgo._internal.encoding.gob.Gob.T_testOverflow_58___localname___outi8 to stdgo._internal.encoding.gob.Gob.T_testOverflow_58___localname___outi8 {
+    public var maxi(get, set) : StdTypes.Int;
+    function get_maxi():StdTypes.Int return this.maxi;
+    function set_maxi(v:StdTypes.Int):StdTypes.Int {
+        this.maxi = v;
+        return v;
+    }
+    public var mini(get, set) : StdTypes.Int;
+    function get_mini():StdTypes.Int return this.mini;
+    function set_mini(v:StdTypes.Int):StdTypes.Int {
+        this.mini = v;
+        return v;
+    }
+    public function new(?maxi:StdTypes.Int, ?mini:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.T_testOverflow_58___localname___outi8(maxi, mini);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_testOverflow_59___localname___outi16(stdgo._internal.encoding.gob.Gob.T_testOverflow_59___localname___outi16) from stdgo._internal.encoding.gob.Gob.T_testOverflow_59___localname___outi16 to stdgo._internal.encoding.gob.Gob.T_testOverflow_59___localname___outi16 {
-
+abstract T_testOverflow_59___localname___outi16(stdgo._internal.encoding.gob.Gob.T_testOverflow_59___localname___outi16) from stdgo._internal.encoding.gob.Gob.T_testOverflow_59___localname___outi16 to stdgo._internal.encoding.gob.Gob.T_testOverflow_59___localname___outi16 {
+    public var maxi(get, set) : StdTypes.Int;
+    function get_maxi():StdTypes.Int return this.maxi;
+    function set_maxi(v:StdTypes.Int):StdTypes.Int {
+        this.maxi = v;
+        return v;
+    }
+    public var mini(get, set) : StdTypes.Int;
+    function get_mini():StdTypes.Int return this.mini;
+    function set_mini(v:StdTypes.Int):StdTypes.Int {
+        this.mini = v;
+        return v;
+    }
+    public function new(?maxi:StdTypes.Int, ?mini:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.T_testOverflow_59___localname___outi16(maxi, mini);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_testOverflow_60___localname___outi32(stdgo._internal.encoding.gob.Gob.T_testOverflow_60___localname___outi32) from stdgo._internal.encoding.gob.Gob.T_testOverflow_60___localname___outi32 to stdgo._internal.encoding.gob.Gob.T_testOverflow_60___localname___outi32 {
-
+abstract T_testOverflow_60___localname___outi32(stdgo._internal.encoding.gob.Gob.T_testOverflow_60___localname___outi32) from stdgo._internal.encoding.gob.Gob.T_testOverflow_60___localname___outi32 to stdgo._internal.encoding.gob.Gob.T_testOverflow_60___localname___outi32 {
+    public var maxi(get, set) : StdTypes.Int;
+    function get_maxi():StdTypes.Int return this.maxi;
+    function set_maxi(v:StdTypes.Int):StdTypes.Int {
+        this.maxi = v;
+        return v;
+    }
+    public var mini(get, set) : StdTypes.Int;
+    function get_mini():StdTypes.Int return this.mini;
+    function set_mini(v:StdTypes.Int):StdTypes.Int {
+        this.mini = v;
+        return v;
+    }
+    public function new(?maxi:StdTypes.Int, ?mini:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.T_testOverflow_60___localname___outi32(maxi, mini);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_testOverflow_61___localname___outu8(stdgo._internal.encoding.gob.Gob.T_testOverflow_61___localname___outu8) from stdgo._internal.encoding.gob.Gob.T_testOverflow_61___localname___outu8 to stdgo._internal.encoding.gob.Gob.T_testOverflow_61___localname___outu8 {
-
+abstract T_testOverflow_61___localname___outu8(stdgo._internal.encoding.gob.Gob.T_testOverflow_61___localname___outu8) from stdgo._internal.encoding.gob.Gob.T_testOverflow_61___localname___outu8 to stdgo._internal.encoding.gob.Gob.T_testOverflow_61___localname___outu8 {
+    public var maxu(get, set) : std.UInt;
+    function get_maxu():std.UInt return this.maxu;
+    function set_maxu(v:std.UInt):std.UInt {
+        this.maxu = v;
+        return v;
+    }
+    public function new(?maxu:std.UInt) this = new stdgo._internal.encoding.gob.Gob.T_testOverflow_61___localname___outu8(maxu);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_testOverflow_62___localname___outu16(stdgo._internal.encoding.gob.Gob.T_testOverflow_62___localname___outu16) from stdgo._internal.encoding.gob.Gob.T_testOverflow_62___localname___outu16 to stdgo._internal.encoding.gob.Gob.T_testOverflow_62___localname___outu16 {
-
+abstract T_testOverflow_62___localname___outu16(stdgo._internal.encoding.gob.Gob.T_testOverflow_62___localname___outu16) from stdgo._internal.encoding.gob.Gob.T_testOverflow_62___localname___outu16 to stdgo._internal.encoding.gob.Gob.T_testOverflow_62___localname___outu16 {
+    public var maxu(get, set) : std.UInt;
+    function get_maxu():std.UInt return this.maxu;
+    function set_maxu(v:std.UInt):std.UInt {
+        this.maxu = v;
+        return v;
+    }
+    public function new(?maxu:std.UInt) this = new stdgo._internal.encoding.gob.Gob.T_testOverflow_62___localname___outu16(maxu);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_testOverflow_63___localname___outu32(stdgo._internal.encoding.gob.Gob.T_testOverflow_63___localname___outu32) from stdgo._internal.encoding.gob.Gob.T_testOverflow_63___localname___outu32 to stdgo._internal.encoding.gob.Gob.T_testOverflow_63___localname___outu32 {
-
+abstract T_testOverflow_63___localname___outu32(stdgo._internal.encoding.gob.Gob.T_testOverflow_63___localname___outu32) from stdgo._internal.encoding.gob.Gob.T_testOverflow_63___localname___outu32 to stdgo._internal.encoding.gob.Gob.T_testOverflow_63___localname___outu32 {
+    public var maxu(get, set) : std.UInt;
+    function get_maxu():std.UInt return this.maxu;
+    function set_maxu(v:std.UInt):std.UInt {
+        this.maxu = v;
+        return v;
+    }
+    public function new(?maxu:std.UInt) this = new stdgo._internal.encoding.gob.Gob.T_testOverflow_63___localname___outu32(maxu);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_testOverflow_64___localname___outf32(stdgo._internal.encoding.gob.Gob.T_testOverflow_64___localname___outf32) from stdgo._internal.encoding.gob.Gob.T_testOverflow_64___localname___outf32 to stdgo._internal.encoding.gob.Gob.T_testOverflow_64___localname___outf32 {
-
+abstract T_testOverflow_64___localname___outf32(stdgo._internal.encoding.gob.Gob.T_testOverflow_64___localname___outf32) from stdgo._internal.encoding.gob.Gob.T_testOverflow_64___localname___outf32 to stdgo._internal.encoding.gob.Gob.T_testOverflow_64___localname___outf32 {
+    public var maxf(get, set) : StdTypes.Float;
+    function get_maxf():StdTypes.Float return this.maxf;
+    function set_maxf(v:StdTypes.Float):StdTypes.Float {
+        this.maxf = v;
+        return v;
+    }
+    public var minf(get, set) : StdTypes.Float;
+    function get_minf():StdTypes.Float return this.minf;
+    function set_minf(v:StdTypes.Float):StdTypes.Float {
+        this.minf = v;
+        return v;
+    }
+    public function new(?maxf:StdTypes.Float, ?minf:StdTypes.Float) this = new stdgo._internal.encoding.gob.Gob.T_testOverflow_64___localname___outf32(maxf, minf);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_testOverflow_65___localname___outc64(stdgo._internal.encoding.gob.Gob.T_testOverflow_65___localname___outc64) from stdgo._internal.encoding.gob.Gob.T_testOverflow_65___localname___outc64 to stdgo._internal.encoding.gob.Gob.T_testOverflow_65___localname___outc64 {
-
+abstract T_testOverflow_65___localname___outc64(stdgo._internal.encoding.gob.Gob.T_testOverflow_65___localname___outc64) from stdgo._internal.encoding.gob.Gob.T_testOverflow_65___localname___outc64 to stdgo._internal.encoding.gob.Gob.T_testOverflow_65___localname___outc64 {
+    public var maxc(get, set) : stdgo.GoComplex64;
+    function get_maxc():stdgo.GoComplex64 return this.maxc;
+    function set_maxc(v:stdgo.GoComplex64):stdgo.GoComplex64 {
+        this.maxc = v;
+        return v;
+    }
+    public var minc(get, set) : stdgo.GoComplex64;
+    function get_minc():stdgo.GoComplex64 return this.minc;
+    function set_minc(v:stdgo.GoComplex64):stdgo.GoComplex64 {
+        this.minc = v;
+        return v;
+    }
+    public function new(?maxc:stdgo.GoComplex64, ?minc:stdgo.GoComplex64) this = new stdgo._internal.encoding.gob.Gob.T_testOverflow_65___localname___outc64(maxc, minc);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_testNesting_66___localname___RT(stdgo._internal.encoding.gob.Gob.T_testNesting_66___localname___RT) from stdgo._internal.encoding.gob.Gob.T_testNesting_66___localname___RT to stdgo._internal.encoding.gob.Gob.T_testNesting_66___localname___RT {
-
+abstract T_testNesting_66___localname___RT(stdgo._internal.encoding.gob.Gob.T_testNesting_66___localname___RT) from stdgo._internal.encoding.gob.Gob.T_testNesting_66___localname___RT to stdgo._internal.encoding.gob.Gob.T_testNesting_66___localname___RT {
+    public var a(get, set) : String;
+    function get_a():String return this.a;
+    function set_a(v:String):String {
+        this.a = v;
+        return v;
+    }
+    public var next(get, set) : stdgo._internal.encoding.gob.Gob.T_testNesting_66___localname___RT;
+    function get_next():stdgo._internal.encoding.gob.Gob.T_testNesting_66___localname___RT return this.next;
+    function set_next(v:stdgo._internal.encoding.gob.Gob.T_testNesting_66___localname___RT):stdgo._internal.encoding.gob.Gob.T_testNesting_66___localname___RT {
+        this.next = v;
+        return v;
+    }
+    public function new(?a:String, ?next:stdgo._internal.encoding.gob.Gob.T_testNesting_66___localname___RT) this = new stdgo._internal.encoding.gob.Gob.T_testNesting_66___localname___RT(a, next);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef T_testBadRecursiveType_67___localname___Rec = stdgo._internal.encoding.gob.Gob.T_testBadRecursiveType_67___localname___Rec;
-@:forward @:forward.new abstract T_testTypeToPtrType_68___localname___Type0(stdgo._internal.encoding.gob.Gob.T_testTypeToPtrType_68___localname___Type0) from stdgo._internal.encoding.gob.Gob.T_testTypeToPtrType_68___localname___Type0 to stdgo._internal.encoding.gob.Gob.T_testTypeToPtrType_68___localname___Type0 {
-
+abstract T_testTypeToPtrType_68___localname___Type0(stdgo._internal.encoding.gob.Gob.T_testTypeToPtrType_68___localname___Type0) from stdgo._internal.encoding.gob.Gob.T_testTypeToPtrType_68___localname___Type0 to stdgo._internal.encoding.gob.Gob.T_testTypeToPtrType_68___localname___Type0 {
+    public var a(get, set) : StdTypes.Int;
+    function get_a():StdTypes.Int return this.a;
+    function set_a(v:StdTypes.Int):StdTypes.Int {
+        this.a = v;
+        return v;
+    }
+    public function new(?a:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.T_testTypeToPtrType_68___localname___Type0(a);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_testPtrTypeToType_69___localname___Type1(stdgo._internal.encoding.gob.Gob.T_testPtrTypeToType_69___localname___Type1) from stdgo._internal.encoding.gob.Gob.T_testPtrTypeToType_69___localname___Type1 to stdgo._internal.encoding.gob.Gob.T_testPtrTypeToType_69___localname___Type1 {
-
+abstract T_testPtrTypeToType_69___localname___Type1(stdgo._internal.encoding.gob.Gob.T_testPtrTypeToType_69___localname___Type1) from stdgo._internal.encoding.gob.Gob.T_testPtrTypeToType_69___localname___Type1 to stdgo._internal.encoding.gob.Gob.T_testPtrTypeToType_69___localname___Type1 {
+    public var a(get, set) : std.UInt;
+    function get_a():std.UInt return this.a;
+    function set_a(v:std.UInt):std.UInt {
+        this.a = v;
+        return v;
+    }
+    public function new(?a:std.UInt) this = new stdgo._internal.encoding.gob.Gob.T_testPtrTypeToType_69___localname___Type1(a);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_testTypeToPtrPtrPtrPtrType_70___localname___Type2(stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType_70___localname___Type2) from stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType_70___localname___Type2 to stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType_70___localname___Type2 {
-
+abstract T_testTypeToPtrPtrPtrPtrType_70___localname___Type2(stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType_70___localname___Type2) from stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType_70___localname___Type2 to stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType_70___localname___Type2 {
+    public var a(get, set) : stdgo.Pointer<stdgo.Pointer<StdTypes.Float>>;
+    function get_a():stdgo.Pointer<stdgo.Pointer<StdTypes.Float>> return this.a;
+    function set_a(v:stdgo.Pointer<stdgo.Pointer<StdTypes.Float>>):stdgo.Pointer<stdgo.Pointer<StdTypes.Float>> {
+        this.a = v;
+        return v;
+    }
+    public function new(?a:stdgo.Pointer<stdgo.Pointer<StdTypes.Float>>) this = new stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType_70___localname___Type2(a);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_testSlice_71___localname___Type3(stdgo._internal.encoding.gob.Gob.T_testSlice_71___localname___Type3) from stdgo._internal.encoding.gob.Gob.T_testSlice_71___localname___Type3 to stdgo._internal.encoding.gob.Gob.T_testSlice_71___localname___Type3 {
-
+abstract T_testSlice_71___localname___Type3(stdgo._internal.encoding.gob.Gob.T_testSlice_71___localname___Type3) from stdgo._internal.encoding.gob.Gob.T_testSlice_71___localname___Type3 to stdgo._internal.encoding.gob.Gob.T_testSlice_71___localname___Type3 {
+    public var a(get, set) : Array<String>;
+    function get_a():Array<String> return [for (i in this.a) i];
+    function set_a(v:Array<String>):Array<String> {
+        this.a = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        return v;
+    }
+    public function new(?a:Array<String>) this = new stdgo._internal.encoding.gob.Gob.T_testSlice_71___localname___Type3(([for (i in a) i] : stdgo.Slice<stdgo.GoString>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_testValueError_72___localname___Type4(stdgo._internal.encoding.gob.Gob.T_testValueError_72___localname___Type4) from stdgo._internal.encoding.gob.Gob.T_testValueError_72___localname___Type4 to stdgo._internal.encoding.gob.Gob.T_testValueError_72___localname___Type4 {
-
+abstract T_testValueError_72___localname___Type4(stdgo._internal.encoding.gob.Gob.T_testValueError_72___localname___Type4) from stdgo._internal.encoding.gob.Gob.T_testValueError_72___localname___Type4 to stdgo._internal.encoding.gob.Gob.T_testValueError_72___localname___Type4 {
+    public var a(get, set) : StdTypes.Int;
+    function get_a():StdTypes.Int return this.a;
+    function set_a(v:StdTypes.Int):StdTypes.Int {
+        this.a = v;
+        return v;
+    }
+    public function new(?a:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.T_testValueError_72___localname___Type4(a);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_testArray_73___localname___Type5(stdgo._internal.encoding.gob.Gob.T_testArray_73___localname___Type5) from stdgo._internal.encoding.gob.Gob.T_testArray_73___localname___Type5 to stdgo._internal.encoding.gob.Gob.T_testArray_73___localname___Type5 {
-
+abstract T_testArray_73___localname___Type5(stdgo._internal.encoding.gob.Gob.T_testArray_73___localname___Type5) from stdgo._internal.encoding.gob.Gob.T_testArray_73___localname___Type5 to stdgo._internal.encoding.gob.Gob.T_testArray_73___localname___Type5 {
+    public var a(get, set) : haxe.ds.Vector<String>;
+    function get_a():haxe.ds.Vector<String> return haxe.ds.Vector.fromArrayCopy([for (i in this.a) i]);
+    function set_a(v:haxe.ds.Vector<String>):haxe.ds.Vector<String> {
+        this.a = ([for (i in v) i] : stdgo.GoArray<stdgo.GoString>);
+        return v;
+    }
+    public var b(get, set) : haxe.ds.Vector<std.UInt>;
+    function get_b():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.b) i]);
+    function set_b(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
+        this.b = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        return v;
+    }
+    public function new(?a:haxe.ds.Vector<String>, ?b:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.encoding.gob.Gob.T_testArray_73___localname___Type5(([for (i in a) i] : stdgo.GoArray<stdgo.GoString>), ([for (i in b) i] : stdgo.GoArray<stdgo.GoUInt8>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_testArray_74___localname___Type6(stdgo._internal.encoding.gob.Gob.T_testArray_74___localname___Type6) from stdgo._internal.encoding.gob.Gob.T_testArray_74___localname___Type6 to stdgo._internal.encoding.gob.Gob.T_testArray_74___localname___Type6 {
-
+abstract T_testArray_74___localname___Type6(stdgo._internal.encoding.gob.Gob.T_testArray_74___localname___Type6) from stdgo._internal.encoding.gob.Gob.T_testArray_74___localname___Type6 to stdgo._internal.encoding.gob.Gob.T_testArray_74___localname___Type6 {
+    public var a(get, set) : haxe.ds.Vector<String>;
+    function get_a():haxe.ds.Vector<String> return haxe.ds.Vector.fromArrayCopy([for (i in this.a) i]);
+    function set_a(v:haxe.ds.Vector<String>):haxe.ds.Vector<String> {
+        this.a = ([for (i in v) i] : stdgo.GoArray<stdgo.GoString>);
+        return v;
+    }
+    public function new(?a:haxe.ds.Vector<String>) this = new stdgo._internal.encoding.gob.Gob.T_testArray_74___localname___Type6(([for (i in a) i] : stdgo.GoArray<stdgo.GoString>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef T_testRecursiveMapType_75___localname___recursiveMap = stdgo._internal.encoding.gob.Gob.T_testRecursiveMapType_75___localname___recursiveMap;
 typedef T_testRecursiveSliceType_76___localname___recursiveSlice = stdgo._internal.encoding.gob.Gob.T_testRecursiveSliceType_76___localname___recursiveSlice;
-@:forward @:forward.new abstract T_testDefaultsInArray_77___localname___Type7(stdgo._internal.encoding.gob.Gob.T_testDefaultsInArray_77___localname___Type7) from stdgo._internal.encoding.gob.Gob.T_testDefaultsInArray_77___localname___Type7 to stdgo._internal.encoding.gob.Gob.T_testDefaultsInArray_77___localname___Type7 {
-
+abstract T_testDefaultsInArray_77___localname___Type7(stdgo._internal.encoding.gob.Gob.T_testDefaultsInArray_77___localname___Type7) from stdgo._internal.encoding.gob.Gob.T_testDefaultsInArray_77___localname___Type7 to stdgo._internal.encoding.gob.Gob.T_testDefaultsInArray_77___localname___Type7 {
+    public var b(get, set) : Array<Bool>;
+    function get_b():Array<Bool> return [for (i in this.b) i];
+    function set_b(v:Array<Bool>):Array<Bool> {
+        this.b = ([for (i in v) i] : stdgo.Slice<Bool>);
+        return v;
+    }
+    public var i(get, set) : Array<StdTypes.Int>;
+    function get_i():Array<StdTypes.Int> return [for (i in this.i) i];
+    function set_i(v:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        this.i = ([for (i in v) i] : stdgo.Slice<stdgo.GoInt>);
+        return v;
+    }
+    public var s(get, set) : Array<String>;
+    function get_s():Array<String> return [for (i in this.s) i];
+    function set_s(v:Array<String>):Array<String> {
+        this.s = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        return v;
+    }
+    public var f(get, set) : Array<StdTypes.Float>;
+    function get_f():Array<StdTypes.Float> return [for (i in this.f) i];
+    function set_f(v:Array<StdTypes.Float>):Array<StdTypes.Float> {
+        this.f = ([for (i in v) i] : stdgo.Slice<stdgo.GoFloat64>);
+        return v;
+    }
+    public function new(?b:Array<Bool>, ?i:Array<StdTypes.Int>, ?s:Array<String>, ?f:Array<StdTypes.Float>) this = new stdgo._internal.encoding.gob.Gob.T_testDefaultsInArray_77___localname___Type7(([for (i in b) i] : stdgo.Slice<Bool>), ([for (i in i) i] : stdgo.Slice<stdgo.GoInt>), ([for (i in s) i] : stdgo.Slice<stdgo.GoString>), ([for (i in f) i] : stdgo.Slice<stdgo.GoFloat64>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_testStructNonStruct_78___localname___Struct(stdgo._internal.encoding.gob.Gob.T_testStructNonStruct_78___localname___Struct) from stdgo._internal.encoding.gob.Gob.T_testStructNonStruct_78___localname___Struct to stdgo._internal.encoding.gob.Gob.T_testStructNonStruct_78___localname___Struct {
-
+abstract T_testStructNonStruct_78___localname___Struct(stdgo._internal.encoding.gob.Gob.T_testStructNonStruct_78___localname___Struct) from stdgo._internal.encoding.gob.Gob.T_testStructNonStruct_78___localname___Struct to stdgo._internal.encoding.gob.Gob.T_testStructNonStruct_78___localname___Struct {
+    public var a(get, set) : String;
+    function get_a():String return this.a;
+    function set_a(v:String):String {
+        this.a = v;
+        return v;
+    }
+    public function new(?a:String) this = new stdgo._internal.encoding.gob.Gob.T_testStructNonStruct_78___localname___Struct(a);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef T_testStructNonStruct_79___localname___NonStruct = stdgo._internal.encoding.gob.Gob.T_testStructNonStruct_79___localname___NonStruct;
-@:forward @:forward.new abstract T_testDecodeErrorMultipleTypes_80___localname___Test(stdgo._internal.encoding.gob.Gob.T_testDecodeErrorMultipleTypes_80___localname___Test) from stdgo._internal.encoding.gob.Gob.T_testDecodeErrorMultipleTypes_80___localname___Test to stdgo._internal.encoding.gob.Gob.T_testDecodeErrorMultipleTypes_80___localname___Test {
-
-}
-@:forward @:forward.new abstract T_testMarshalFloatMap_81___localname___mapEntry(stdgo._internal.encoding.gob.Gob.T_testMarshalFloatMap_81___localname___mapEntry) from stdgo._internal.encoding.gob.Gob.T_testMarshalFloatMap_81___localname___mapEntry to stdgo._internal.encoding.gob.Gob.T_testMarshalFloatMap_81___localname___mapEntry {
-
-}
-@:forward @:forward.new abstract T_testDecodePartial_82___localname___T(stdgo._internal.encoding.gob.Gob.T_testDecodePartial_82___localname___T) from stdgo._internal.encoding.gob.Gob.T_testDecodePartial_82___localname___T to stdgo._internal.encoding.gob.Gob.T_testDecodePartial_82___localname___T {
-
-}
-@:forward @:forward.new abstract T_testRegistration_83___localname___T(stdgo._internal.encoding.gob.Gob.T_testRegistration_83___localname___T) from stdgo._internal.encoding.gob.Gob.T_testRegistration_83___localname___T to stdgo._internal.encoding.gob.Gob.T_testRegistration_83___localname___T {
-
-}
-@:forward @:forward.new abstract T_testStressParallel_84___localname___T2(stdgo._internal.encoding.gob.Gob.T_testStressParallel_84___localname___T2) from stdgo._internal.encoding.gob.Gob.T_testStressParallel_84___localname___T2 to stdgo._internal.encoding.gob.Gob.T_testStressParallel_84___localname___T2 {
-
-}
-@:forward @:forward.new abstract Point_asInterface(stdgo._internal.encoding.gob.Gob.Point_asInterface) from stdgo._internal.encoding.gob.Gob.Point_asInterface to stdgo._internal.encoding.gob.Gob.Point_asInterface {
-
-}
-@:forward @:forward.new abstract Point_static_extension(stdgo._internal.encoding.gob.Gob.Point_static_extension) from stdgo._internal.encoding.gob.Gob.Point_static_extension to stdgo._internal.encoding.gob.Gob.Point_static_extension {
-
-}
-@:forward @:forward.new abstract T_decoderState_asInterface(stdgo._internal.encoding.gob.Gob.T_decoderState_asInterface) from stdgo._internal.encoding.gob.Gob.T_decoderState_asInterface to stdgo._internal.encoding.gob.Gob.T_decoderState_asInterface {
-
-}
-@:forward @:forward.new abstract T_decoderState_static_extension(stdgo._internal.encoding.gob.Gob.T_decoderState_static_extension) from stdgo._internal.encoding.gob.Gob.T_decoderState_static_extension to stdgo._internal.encoding.gob.Gob.T_decoderState_static_extension {
-
-}
-@:forward @:forward.new abstract T_decBuffer_asInterface(stdgo._internal.encoding.gob.Gob.T_decBuffer_asInterface) from stdgo._internal.encoding.gob.Gob.T_decBuffer_asInterface to stdgo._internal.encoding.gob.Gob.T_decBuffer_asInterface {
-
-}
-@:forward @:forward.new abstract T_decBuffer_static_extension(stdgo._internal.encoding.gob.Gob.T_decBuffer_static_extension) from stdgo._internal.encoding.gob.Gob.T_decBuffer_static_extension to stdgo._internal.encoding.gob.Gob.T_decBuffer_static_extension {
-
-}
-@:forward @:forward.new abstract Decoder_asInterface(stdgo._internal.encoding.gob.Gob.Decoder_asInterface) from stdgo._internal.encoding.gob.Gob.Decoder_asInterface to stdgo._internal.encoding.gob.Gob.Decoder_asInterface {
-
-}
-@:forward @:forward.new abstract Decoder_static_extension(stdgo._internal.encoding.gob.Gob.Decoder_static_extension) from stdgo._internal.encoding.gob.Gob.Decoder_static_extension to stdgo._internal.encoding.gob.Gob.Decoder_static_extension {
-
-}
-@:forward @:forward.new abstract T_encoderState_asInterface(stdgo._internal.encoding.gob.Gob.T_encoderState_asInterface) from stdgo._internal.encoding.gob.Gob.T_encoderState_asInterface to stdgo._internal.encoding.gob.Gob.T_encoderState_asInterface {
-
-}
-@:forward @:forward.new abstract T_encoderState_static_extension(stdgo._internal.encoding.gob.Gob.T_encoderState_static_extension) from stdgo._internal.encoding.gob.Gob.T_encoderState_static_extension to stdgo._internal.encoding.gob.Gob.T_encoderState_static_extension {
-
-}
-@:forward @:forward.new abstract T_encBuffer_asInterface(stdgo._internal.encoding.gob.Gob.T_encBuffer_asInterface) from stdgo._internal.encoding.gob.Gob.T_encBuffer_asInterface to stdgo._internal.encoding.gob.Gob.T_encBuffer_asInterface {
-
-}
-@:forward @:forward.new abstract T_encBuffer_static_extension(stdgo._internal.encoding.gob.Gob.T_encBuffer_static_extension) from stdgo._internal.encoding.gob.Gob.T_encBuffer_static_extension to stdgo._internal.encoding.gob.Gob.T_encBuffer_static_extension {
-
-}
-@:forward @:forward.new abstract Encoder_asInterface(stdgo._internal.encoding.gob.Gob.Encoder_asInterface) from stdgo._internal.encoding.gob.Gob.Encoder_asInterface to stdgo._internal.encoding.gob.Gob.Encoder_asInterface {
-
-}
-@:forward @:forward.new abstract Encoder_static_extension(stdgo._internal.encoding.gob.Gob.Encoder_static_extension) from stdgo._internal.encoding.gob.Gob.Encoder_static_extension to stdgo._internal.encoding.gob.Gob.Encoder_static_extension {
-
-}
-@:forward @:forward.new abstract T_interfaceIndirectTestT_asInterface(stdgo._internal.encoding.gob.Gob.T_interfaceIndirectTestT_asInterface) from stdgo._internal.encoding.gob.Gob.T_interfaceIndirectTestT_asInterface to stdgo._internal.encoding.gob.Gob.T_interfaceIndirectTestT_asInterface {
-
-}
-@:forward @:forward.new abstract T_interfaceIndirectTestT_static_extension(stdgo._internal.encoding.gob.Gob.T_interfaceIndirectTestT_static_extension) from stdgo._internal.encoding.gob.Gob.T_interfaceIndirectTestT_static_extension to stdgo._internal.encoding.gob.Gob.T_interfaceIndirectTestT_static_extension {
-
-}
-@:forward @:forward.new abstract ByteStruct_asInterface(stdgo._internal.encoding.gob.Gob.ByteStruct_asInterface) from stdgo._internal.encoding.gob.Gob.ByteStruct_asInterface to stdgo._internal.encoding.gob.Gob.ByteStruct_asInterface {
-
-}
-@:forward @:forward.new abstract ByteStruct_static_extension(stdgo._internal.encoding.gob.Gob.ByteStruct_static_extension) from stdgo._internal.encoding.gob.Gob.ByteStruct_static_extension to stdgo._internal.encoding.gob.Gob.ByteStruct_static_extension {
-
-}
-@:forward @:forward.new abstract StringStruct_asInterface(stdgo._internal.encoding.gob.Gob.StringStruct_asInterface) from stdgo._internal.encoding.gob.Gob.StringStruct_asInterface to stdgo._internal.encoding.gob.Gob.StringStruct_asInterface {
-
-}
-@:forward @:forward.new abstract StringStruct_static_extension(stdgo._internal.encoding.gob.Gob.StringStruct_static_extension) from stdgo._internal.encoding.gob.Gob.StringStruct_static_extension to stdgo._internal.encoding.gob.Gob.StringStruct_static_extension {
-
-}
-@:forward @:forward.new abstract ArrayStruct_asInterface(stdgo._internal.encoding.gob.Gob.ArrayStruct_asInterface) from stdgo._internal.encoding.gob.Gob.ArrayStruct_asInterface to stdgo._internal.encoding.gob.Gob.ArrayStruct_asInterface {
-
-}
-@:forward @:forward.new abstract ArrayStruct_static_extension(stdgo._internal.encoding.gob.Gob.ArrayStruct_static_extension) from stdgo._internal.encoding.gob.Gob.ArrayStruct_static_extension to stdgo._internal.encoding.gob.Gob.ArrayStruct_static_extension {
-
-}
-@:forward @:forward.new abstract T_gobDecoderBug0_asInterface(stdgo._internal.encoding.gob.Gob.T_gobDecoderBug0_asInterface) from stdgo._internal.encoding.gob.Gob.T_gobDecoderBug0_asInterface to stdgo._internal.encoding.gob.Gob.T_gobDecoderBug0_asInterface {
-
-}
-@:forward @:forward.new abstract T_gobDecoderBug0_static_extension(stdgo._internal.encoding.gob.Gob.T_gobDecoderBug0_static_extension) from stdgo._internal.encoding.gob.Gob.T_gobDecoderBug0_static_extension to stdgo._internal.encoding.gob.Gob.T_gobDecoderBug0_static_extension {
-
-}
-@:forward @:forward.new abstract T_isZeroBugInterface_asInterface(stdgo._internal.encoding.gob.Gob.T_isZeroBugInterface_asInterface) from stdgo._internal.encoding.gob.Gob.T_isZeroBugInterface_asInterface to stdgo._internal.encoding.gob.Gob.T_isZeroBugInterface_asInterface {
-
-}
-@:forward @:forward.new abstract T_isZeroBugInterface_static_extension(stdgo._internal.encoding.gob.Gob.T_isZeroBugInterface_static_extension) from stdgo._internal.encoding.gob.Gob.T_isZeroBugInterface_static_extension to stdgo._internal.encoding.gob.Gob.T_isZeroBugInterface_static_extension {
-
-}
-@:forward @:forward.new abstract T_benchmarkBuf_asInterface(stdgo._internal.encoding.gob.Gob.T_benchmarkBuf_asInterface) from stdgo._internal.encoding.gob.Gob.T_benchmarkBuf_asInterface to stdgo._internal.encoding.gob.Gob.T_benchmarkBuf_asInterface {
-
-}
-@:forward @:forward.new abstract T_benchmarkBuf_static_extension(stdgo._internal.encoding.gob.Gob.T_benchmarkBuf_static_extension) from stdgo._internal.encoding.gob.Gob.T_benchmarkBuf_static_extension to stdgo._internal.encoding.gob.Gob.T_benchmarkBuf_static_extension {
-
-}
-@:forward @:forward.new abstract CommonType_asInterface(stdgo._internal.encoding.gob.Gob.CommonType_asInterface) from stdgo._internal.encoding.gob.Gob.CommonType_asInterface to stdgo._internal.encoding.gob.Gob.CommonType_asInterface {
-
-}
-@:forward @:forward.new abstract CommonType_static_extension(stdgo._internal.encoding.gob.Gob.CommonType_static_extension) from stdgo._internal.encoding.gob.Gob.CommonType_static_extension to stdgo._internal.encoding.gob.Gob.CommonType_static_extension {
-
-}
-@:forward @:forward.new abstract T_arrayType_asInterface(stdgo._internal.encoding.gob.Gob.T_arrayType_asInterface) from stdgo._internal.encoding.gob.Gob.T_arrayType_asInterface to stdgo._internal.encoding.gob.Gob.T_arrayType_asInterface {
-
-}
-@:forward @:forward.new abstract T_arrayType_static_extension(stdgo._internal.encoding.gob.Gob.T_arrayType_static_extension) from stdgo._internal.encoding.gob.Gob.T_arrayType_static_extension to stdgo._internal.encoding.gob.Gob.T_arrayType_static_extension {
-
-}
-@:forward @:forward.new abstract T_gobEncoderType_asInterface(stdgo._internal.encoding.gob.Gob.T_gobEncoderType_asInterface) from stdgo._internal.encoding.gob.Gob.T_gobEncoderType_asInterface to stdgo._internal.encoding.gob.Gob.T_gobEncoderType_asInterface {
-
-}
-@:forward @:forward.new abstract T_gobEncoderType_static_extension(stdgo._internal.encoding.gob.Gob.T_gobEncoderType_static_extension) from stdgo._internal.encoding.gob.Gob.T_gobEncoderType_static_extension to stdgo._internal.encoding.gob.Gob.T_gobEncoderType_static_extension {
-
-}
-@:forward @:forward.new abstract T_mapType_asInterface(stdgo._internal.encoding.gob.Gob.T_mapType_asInterface) from stdgo._internal.encoding.gob.Gob.T_mapType_asInterface to stdgo._internal.encoding.gob.Gob.T_mapType_asInterface {
-
-}
-@:forward @:forward.new abstract T_mapType_static_extension(stdgo._internal.encoding.gob.Gob.T_mapType_static_extension) from stdgo._internal.encoding.gob.Gob.T_mapType_static_extension to stdgo._internal.encoding.gob.Gob.T_mapType_static_extension {
-
-}
-@:forward @:forward.new abstract T_sliceType_asInterface(stdgo._internal.encoding.gob.Gob.T_sliceType_asInterface) from stdgo._internal.encoding.gob.Gob.T_sliceType_asInterface to stdgo._internal.encoding.gob.Gob.T_sliceType_asInterface {
-
-}
-@:forward @:forward.new abstract T_sliceType_static_extension(stdgo._internal.encoding.gob.Gob.T_sliceType_static_extension) from stdgo._internal.encoding.gob.Gob.T_sliceType_static_extension to stdgo._internal.encoding.gob.Gob.T_sliceType_static_extension {
-
-}
-@:forward @:forward.new abstract T_structType_asInterface(stdgo._internal.encoding.gob.Gob.T_structType_asInterface) from stdgo._internal.encoding.gob.Gob.T_structType_asInterface to stdgo._internal.encoding.gob.Gob.T_structType_asInterface {
-
-}
-@:forward @:forward.new abstract T_structType_static_extension(stdgo._internal.encoding.gob.Gob.T_structType_static_extension) from stdgo._internal.encoding.gob.Gob.T_structType_static_extension to stdgo._internal.encoding.gob.Gob.T_structType_static_extension {
-
-}
-@:forward @:forward.new abstract T_wireType_asInterface(stdgo._internal.encoding.gob.Gob.T_wireType_asInterface) from stdgo._internal.encoding.gob.Gob.T_wireType_asInterface to stdgo._internal.encoding.gob.Gob.T_wireType_asInterface {
-
-}
-@:forward @:forward.new abstract T_wireType_static_extension(stdgo._internal.encoding.gob.Gob.T_wireType_static_extension) from stdgo._internal.encoding.gob.Gob.T_wireType_static_extension to stdgo._internal.encoding.gob.Gob.T_wireType_static_extension {
-
-}
-@:forward @:forward.new abstract Int__asInterface(stdgo._internal.encoding.gob.Gob.Int__asInterface) from stdgo._internal.encoding.gob.Gob.Int__asInterface to stdgo._internal.encoding.gob.Gob.Int__asInterface {
-
-}
-@:forward @:forward.new abstract Int__static_extension(stdgo._internal.encoding.gob.Gob.Int__static_extension) from stdgo._internal.encoding.gob.Gob.Int__static_extension to stdgo._internal.encoding.gob.Gob.Int__static_extension {
-
-}
-@:forward @:forward.new abstract Float__asInterface(stdgo._internal.encoding.gob.Gob.Float__asInterface) from stdgo._internal.encoding.gob.Gob.Float__asInterface to stdgo._internal.encoding.gob.Gob.Float__asInterface {
-
-}
-@:forward @:forward.new abstract Float__static_extension(stdgo._internal.encoding.gob.Gob.Float__static_extension) from stdgo._internal.encoding.gob.Gob.Float__static_extension to stdgo._internal.encoding.gob.Gob.Float__static_extension {
-
-}
-@:forward @:forward.new abstract Vector_asInterface(stdgo._internal.encoding.gob.Gob.Vector_asInterface) from stdgo._internal.encoding.gob.Gob.Vector_asInterface to stdgo._internal.encoding.gob.Gob.Vector_asInterface {
-
-}
-@:forward @:forward.new abstract Vector_static_extension(stdgo._internal.encoding.gob.Gob.Vector_static_extension) from stdgo._internal.encoding.gob.Gob.Vector_static_extension to stdgo._internal.encoding.gob.Gob.Vector_static_extension {
-
-}
-@:forward @:forward.new abstract Gobber_asInterface(stdgo._internal.encoding.gob.Gob.Gobber_asInterface) from stdgo._internal.encoding.gob.Gob.Gobber_asInterface to stdgo._internal.encoding.gob.Gob.Gobber_asInterface {
-
-}
-@:forward @:forward.new abstract Gobber_static_extension(stdgo._internal.encoding.gob.Gob.Gobber_static_extension) from stdgo._internal.encoding.gob.Gob.Gobber_static_extension to stdgo._internal.encoding.gob.Gob.Gobber_static_extension {
-
-}
-@:forward @:forward.new abstract ValueGobber_asInterface(stdgo._internal.encoding.gob.Gob.ValueGobber_asInterface) from stdgo._internal.encoding.gob.Gob.ValueGobber_asInterface to stdgo._internal.encoding.gob.Gob.ValueGobber_asInterface {
-
-}
-@:forward @:forward.new abstract ValueGobber_static_extension(stdgo._internal.encoding.gob.Gob.ValueGobber_static_extension) from stdgo._internal.encoding.gob.Gob.ValueGobber_static_extension to stdgo._internal.encoding.gob.Gob.ValueGobber_static_extension {
-
-}
-@:forward @:forward.new abstract BinaryGobber_asInterface(stdgo._internal.encoding.gob.Gob.BinaryGobber_asInterface) from stdgo._internal.encoding.gob.Gob.BinaryGobber_asInterface to stdgo._internal.encoding.gob.Gob.BinaryGobber_asInterface {
-
-}
-@:forward @:forward.new abstract BinaryGobber_static_extension(stdgo._internal.encoding.gob.Gob.BinaryGobber_static_extension) from stdgo._internal.encoding.gob.Gob.BinaryGobber_static_extension to stdgo._internal.encoding.gob.Gob.BinaryGobber_static_extension {
-
-}
-@:forward @:forward.new abstract BinaryValueGobber_asInterface(stdgo._internal.encoding.gob.Gob.BinaryValueGobber_asInterface) from stdgo._internal.encoding.gob.Gob.BinaryValueGobber_asInterface to stdgo._internal.encoding.gob.Gob.BinaryValueGobber_asInterface {
-
-}
-@:forward @:forward.new abstract BinaryValueGobber_static_extension(stdgo._internal.encoding.gob.Gob.BinaryValueGobber_static_extension) from stdgo._internal.encoding.gob.Gob.BinaryValueGobber_static_extension to stdgo._internal.encoding.gob.Gob.BinaryValueGobber_static_extension {
-
-}
-@:forward @:forward.new abstract TextGobber_asInterface(stdgo._internal.encoding.gob.Gob.TextGobber_asInterface) from stdgo._internal.encoding.gob.Gob.TextGobber_asInterface to stdgo._internal.encoding.gob.Gob.TextGobber_asInterface {
-
-}
-@:forward @:forward.new abstract TextGobber_static_extension(stdgo._internal.encoding.gob.Gob.TextGobber_static_extension) from stdgo._internal.encoding.gob.Gob.TextGobber_static_extension to stdgo._internal.encoding.gob.Gob.TextGobber_static_extension {
-
-}
-@:forward @:forward.new abstract TextValueGobber_asInterface(stdgo._internal.encoding.gob.Gob.TextValueGobber_asInterface) from stdgo._internal.encoding.gob.Gob.TextValueGobber_asInterface to stdgo._internal.encoding.gob.Gob.TextValueGobber_asInterface {
-
-}
-@:forward @:forward.new abstract TextValueGobber_static_extension(stdgo._internal.encoding.gob.Gob.TextValueGobber_static_extension) from stdgo._internal.encoding.gob.Gob.TextValueGobber_static_extension to stdgo._internal.encoding.gob.Gob.TextValueGobber_static_extension {
-
-}
-@:forward @:forward.new abstract T_isZeroBugArray_asInterface(stdgo._internal.encoding.gob.Gob.T_isZeroBugArray_asInterface) from stdgo._internal.encoding.gob.Gob.T_isZeroBugArray_asInterface to stdgo._internal.encoding.gob.Gob.T_isZeroBugArray_asInterface {
-
-}
-@:forward @:forward.new abstract T_isZeroBugArray_static_extension(stdgo._internal.encoding.gob.Gob.T_isZeroBugArray_static_extension) from stdgo._internal.encoding.gob.Gob.T_isZeroBugArray_static_extension to stdgo._internal.encoding.gob.Gob.T_isZeroBugArray_static_extension {
-
-}
-@:forward @:forward.new abstract T_typeId_asInterface(stdgo._internal.encoding.gob.Gob.T_typeId_asInterface) from stdgo._internal.encoding.gob.Gob.T_typeId_asInterface to stdgo._internal.encoding.gob.Gob.T_typeId_asInterface {
-
-}
-@:forward @:forward.new abstract T_typeId_static_extension(stdgo._internal.encoding.gob.Gob.T_typeId_static_extension) from stdgo._internal.encoding.gob.Gob.T_typeId_static_extension to stdgo._internal.encoding.gob.Gob.T_typeId_static_extension {
-
+abstract T_testDecodeErrorMultipleTypes_80___localname___Test(stdgo._internal.encoding.gob.Gob.T_testDecodeErrorMultipleTypes_80___localname___Test) from stdgo._internal.encoding.gob.Gob.T_testDecodeErrorMultipleTypes_80___localname___Test to stdgo._internal.encoding.gob.Gob.T_testDecodeErrorMultipleTypes_80___localname___Test {
+    public var a(get, set) : String;
+    function get_a():String return this.a;
+    function set_a(v:String):String {
+        this.a = v;
+        return v;
+    }
+    public var b(get, set) : StdTypes.Int;
+    function get_b():StdTypes.Int return this.b;
+    function set_b(v:StdTypes.Int):StdTypes.Int {
+        this.b = v;
+        return v;
+    }
+    public function new(?a:String, ?b:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.T_testDecodeErrorMultipleTypes_80___localname___Test(a, b);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_testMarshalFloatMap_81___localname___mapEntry(stdgo._internal.encoding.gob.Gob.T_testMarshalFloatMap_81___localname___mapEntry) from stdgo._internal.encoding.gob.Gob.T_testMarshalFloatMap_81___localname___mapEntry to stdgo._internal.encoding.gob.Gob.T_testMarshalFloatMap_81___localname___mapEntry {
+    public var _keyBits(get, set) : haxe.UInt64;
+    function get__keyBits():haxe.UInt64 return this._keyBits;
+    function set__keyBits(v:haxe.UInt64):haxe.UInt64 {
+        this._keyBits = v;
+        return v;
+    }
+    public var _value(get, set) : String;
+    function get__value():String return this._value;
+    function set__value(v:String):String {
+        this._value = v;
+        return v;
+    }
+    public function new(?_keyBits:haxe.UInt64, ?_value:String) this = new stdgo._internal.encoding.gob.Gob.T_testMarshalFloatMap_81___localname___mapEntry(_keyBits, _value);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_testDecodePartial_82___localname___T(stdgo._internal.encoding.gob.Gob.T_testDecodePartial_82___localname___T) from stdgo._internal.encoding.gob.Gob.T_testDecodePartial_82___localname___T to stdgo._internal.encoding.gob.Gob.T_testDecodePartial_82___localname___T {
+    public var x(get, set) : Array<StdTypes.Int>;
+    function get_x():Array<StdTypes.Int> return [for (i in this.x) i];
+    function set_x(v:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        this.x = ([for (i in v) i] : stdgo.Slice<stdgo.GoInt>);
+        return v;
+    }
+    public var y(get, set) : String;
+    function get_y():String return this.y;
+    function set_y(v:String):String {
+        this.y = v;
+        return v;
+    }
+    public function new(?x:Array<StdTypes.Int>, ?y:String) this = new stdgo._internal.encoding.gob.Gob.T_testDecodePartial_82___localname___T(([for (i in x) i] : stdgo.Slice<stdgo.GoInt>), y);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_testRegistration_83___localname___T(stdgo._internal.encoding.gob.Gob.T_testRegistration_83___localname___T) from stdgo._internal.encoding.gob.Gob.T_testRegistration_83___localname___T to stdgo._internal.encoding.gob.Gob.T_testRegistration_83___localname___T {
+    public var _a(get, set) : StdTypes.Int;
+    function get__a():StdTypes.Int return this._a;
+    function set__a(v:StdTypes.Int):StdTypes.Int {
+        this._a = v;
+        return v;
+    }
+    public function new(?_a:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.T_testRegistration_83___localname___T(_a);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+abstract T_testStressParallel_84___localname___T2(stdgo._internal.encoding.gob.Gob.T_testStressParallel_84___localname___T2) from stdgo._internal.encoding.gob.Gob.T_testStressParallel_84___localname___T2 to stdgo._internal.encoding.gob.Gob.T_testStressParallel_84___localname___T2 {
+    public var a(get, set) : StdTypes.Int;
+    function get_a():StdTypes.Int return this.a;
+    function set_a(v:StdTypes.Int):StdTypes.Int {
+        this.a = v;
+        return v;
+    }
+    public function new(?a:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.T_testStressParallel_84___localname___T2(a);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 class Gob {
     /**

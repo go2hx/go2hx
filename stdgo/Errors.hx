@@ -56,40 +56,35 @@ package stdgo;
 private var __go2hxdoc__package : Bool;
 var errUnsupported(get, set) : stdgo.Error;
 private function get_errUnsupported():stdgo.Error return stdgo._internal.errors.Errors.errUnsupported;
-private function set_errUnsupported(v:stdgo.Error):stdgo.Error return stdgo._internal.errors.Errors.errUnsupported = v;
-@:forward @:forward.new abstract T__interface_0_static_extension(stdgo._internal.errors.Errors.T__interface_0_static_extension) from stdgo._internal.errors.Errors.T__interface_0_static_extension to stdgo._internal.errors.Errors.T__interface_0_static_extension {
-
-}
+private function set_errUnsupported(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.errors.Errors.errUnsupported = v;
+        return v;
+    }
 typedef T__interface_0 = stdgo._internal.errors.Errors.T__interface_0;
-@:forward @:forward.new abstract T__interface_1_static_extension(stdgo._internal.errors.Errors.T__interface_1_static_extension) from stdgo._internal.errors.Errors.T__interface_1_static_extension to stdgo._internal.errors.Errors.T__interface_1_static_extension {
-
-}
 typedef T__interface_1 = stdgo._internal.errors.Errors.T__interface_1;
-@:forward @:forward.new abstract T__interface_2_static_extension(stdgo._internal.errors.Errors.T__interface_2_static_extension) from stdgo._internal.errors.Errors.T__interface_2_static_extension to stdgo._internal.errors.Errors.T__interface_2_static_extension {
-
-}
 typedef T__interface_2 = stdgo._internal.errors.Errors.T__interface_2;
-@:forward @:forward.new abstract T__interface_3_static_extension(stdgo._internal.errors.Errors.T__interface_3_static_extension) from stdgo._internal.errors.Errors.T__interface_3_static_extension to stdgo._internal.errors.Errors.T__interface_3_static_extension {
-
-}
 typedef T__interface_3 = stdgo._internal.errors.Errors.T__interface_3;
-@:forward @:forward.new abstract T_errorString(stdgo._internal.errors.Errors.T_errorString) from stdgo._internal.errors.Errors.T_errorString to stdgo._internal.errors.Errors.T_errorString {
-
+abstract T_errorString(stdgo._internal.errors.Errors.T_errorString) from stdgo._internal.errors.Errors.T_errorString to stdgo._internal.errors.Errors.T_errorString {
+    public var _s(get, set) : String;
+    function get__s():String return this._s;
+    function set__s(v:String):String {
+        this._s = v;
+        return v;
+    }
+    public function new(?_s:String) this = new stdgo._internal.errors.Errors.T_errorString(_s);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_joinError(stdgo._internal.errors.Errors.T_joinError) from stdgo._internal.errors.Errors.T_joinError to stdgo._internal.errors.Errors.T_joinError {
-
-}
-@:forward @:forward.new abstract T_errorString_asInterface(stdgo._internal.errors.Errors.T_errorString_asInterface) from stdgo._internal.errors.Errors.T_errorString_asInterface to stdgo._internal.errors.Errors.T_errorString_asInterface {
-
-}
-@:forward @:forward.new abstract T_errorString_static_extension(stdgo._internal.errors.Errors.T_errorString_static_extension) from stdgo._internal.errors.Errors.T_errorString_static_extension to stdgo._internal.errors.Errors.T_errorString_static_extension {
-
-}
-@:forward @:forward.new abstract T_joinError_asInterface(stdgo._internal.errors.Errors.T_joinError_asInterface) from stdgo._internal.errors.Errors.T_joinError_asInterface to stdgo._internal.errors.Errors.T_joinError_asInterface {
-
-}
-@:forward @:forward.new abstract T_joinError_static_extension(stdgo._internal.errors.Errors.T_joinError_static_extension) from stdgo._internal.errors.Errors.T_joinError_static_extension to stdgo._internal.errors.Errors.T_joinError_static_extension {
-
+abstract T_joinError(stdgo._internal.errors.Errors.T_joinError) from stdgo._internal.errors.Errors.T_joinError to stdgo._internal.errors.Errors.T_joinError {
+    public var _errs(get, set) : Array<stdgo.Error>;
+    function get__errs():Array<stdgo.Error> return [for (i in this._errs) i];
+    function set__errs(v:Array<stdgo.Error>):Array<stdgo.Error> {
+        this._errs = ([for (i in v) i] : stdgo.Slice<stdgo.Error>);
+        return v;
+    }
+    public function new(?_errs:Array<stdgo.Error>) this = new stdgo._internal.errors.Errors.T_joinError(([for (i in _errs) i] : stdgo.Slice<stdgo.Error>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 class Errors {
     /**

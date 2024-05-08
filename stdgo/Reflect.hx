@@ -47,86 +47,183 @@ final bothDir : stdgo._internal.reflect.Reflect.ChanDir = stdgo._internal.reflec
 final selectSend = stdgo._internal.reflect.Reflect.selectSend;
 final selectRecv = stdgo._internal.reflect.Reflect.selectRecv;
 final selectDefault = stdgo._internal.reflect.Reflect.selectDefault;
-@:forward @:forward.new abstract Type__static_extension(stdgo._internal.reflect.Reflect.Type__static_extension) from stdgo._internal.reflect.Reflect.Type__static_extension to stdgo._internal.reflect.Reflect.Type__static_extension {
-
-}
 typedef Type_ = stdgo._internal.reflect.Reflect.Type_;
-@:forward @:forward.new abstract Method(stdgo._internal.reflect.Reflect.Method) from stdgo._internal.reflect.Reflect.Method to stdgo._internal.reflect.Reflect.Method {
-
+abstract Method(stdgo._internal.reflect.Reflect.Method) from stdgo._internal.reflect.Reflect.Method to stdgo._internal.reflect.Reflect.Method {
+    public var name(get, set) : String;
+    function get_name():String return this.name;
+    function set_name(v:String):String {
+        this.name = v;
+        return v;
+    }
+    public var pkgPath(get, set) : String;
+    function get_pkgPath():String return this.pkgPath;
+    function set_pkgPath(v:String):String {
+        this.pkgPath = v;
+        return v;
+    }
+    public var type(get, set) : stdgo._internal.reflect.Reflect.Type_;
+    function get_type():stdgo._internal.reflect.Reflect.Type_ return this.type;
+    function set_type(v:stdgo._internal.reflect.Reflect.Type_):stdgo._internal.reflect.Reflect.Type_ {
+        this.type = v;
+        return v;
+    }
+    public var func(get, set) : stdgo._internal.reflect.Reflect.Value;
+    function get_func():stdgo._internal.reflect.Reflect.Value return this.func;
+    function set_func(v:stdgo._internal.reflect.Reflect.Value):stdgo._internal.reflect.Reflect.Value {
+        this.func = v;
+        return v;
+    }
+    public var index(get, set) : StdTypes.Int;
+    function get_index():StdTypes.Int return this.index;
+    function set_index(v:StdTypes.Int):StdTypes.Int {
+        this.index = v;
+        return v;
+    }
+    public function new(?name:String, ?pkgPath:String, ?type:stdgo._internal.reflect.Reflect.Type_, ?func:stdgo._internal.reflect.Reflect.Value, ?index:StdTypes.Int) this = new stdgo._internal.reflect.Reflect.Method(name, pkgPath, type, func, index);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract StructField(stdgo._internal.reflect.Reflect.StructField) from stdgo._internal.reflect.Reflect.StructField to stdgo._internal.reflect.Reflect.StructField {
-
+abstract StructField(stdgo._internal.reflect.Reflect.StructField) from stdgo._internal.reflect.Reflect.StructField to stdgo._internal.reflect.Reflect.StructField {
+    public var name(get, set) : String;
+    function get_name():String return this.name;
+    function set_name(v:String):String {
+        this.name = v;
+        return v;
+    }
+    public var pkgPath(get, set) : String;
+    function get_pkgPath():String return this.pkgPath;
+    function set_pkgPath(v:String):String {
+        this.pkgPath = v;
+        return v;
+    }
+    public var type(get, set) : stdgo._internal.reflect.Reflect.Type_;
+    function get_type():stdgo._internal.reflect.Reflect.Type_ return this.type;
+    function set_type(v:stdgo._internal.reflect.Reflect.Type_):stdgo._internal.reflect.Reflect.Type_ {
+        this.type = v;
+        return v;
+    }
+    public var tag(get, set) : stdgo._internal.reflect.Reflect.StructTag;
+    function get_tag():stdgo._internal.reflect.Reflect.StructTag return this.tag;
+    function set_tag(v:stdgo._internal.reflect.Reflect.StructTag):stdgo._internal.reflect.Reflect.StructTag {
+        this.tag = v;
+        return v;
+    }
+    public var offset(get, set) : stdgo.GoUIntptr;
+    function get_offset():stdgo.GoUIntptr return this.offset;
+    function set_offset(v:stdgo.GoUIntptr):stdgo.GoUIntptr {
+        this.offset = v;
+        return v;
+    }
+    public var index(get, set) : Array<StdTypes.Int>;
+    function get_index():Array<StdTypes.Int> return [for (i in this.index) i];
+    function set_index(v:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        this.index = ([for (i in v) i] : stdgo.Slice<stdgo.GoInt>);
+        return v;
+    }
+    public var anonymous(get, set) : Bool;
+    function get_anonymous():Bool return this.anonymous;
+    function set_anonymous(v:Bool):Bool {
+        this.anonymous = v;
+        return v;
+    }
+    public function new(?name:String, ?pkgPath:String, ?type:stdgo._internal.reflect.Reflect.Type_, ?tag:stdgo._internal.reflect.Reflect.StructTag, ?offset:stdgo.GoUIntptr, ?index:Array<StdTypes.Int>, ?anonymous:Bool) this = new stdgo._internal.reflect.Reflect.StructField(name, pkgPath, type, tag, offset, ([for (i in index) i] : stdgo.Slice<stdgo.GoInt>), anonymous);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Value(stdgo._internal.reflect.Reflect.Value) from stdgo._internal.reflect.Reflect.Value to stdgo._internal.reflect.Reflect.Value {
-
+abstract Value(stdgo._internal.reflect.Reflect.Value) from stdgo._internal.reflect.Reflect.Value to stdgo._internal.reflect.Reflect.Value {
+    public function new(?value:stdgo.AnyInterface, ?underlyingValue:Dynamic, ?underlyingIndex:StdTypes.Int, ?underlyingKey:Dynamic, ?canAddrBool:Bool, ?notSetBool:Bool, ?string) this = new stdgo._internal.reflect.Reflect.Value(value, underlyingValue, underlyingIndex, underlyingKey, canAddrBool, notSetBool, string);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract ValueError(stdgo._internal.reflect.Reflect.ValueError) from stdgo._internal.reflect.Reflect.ValueError to stdgo._internal.reflect.Reflect.ValueError {
-
+abstract ValueError(stdgo._internal.reflect.Reflect.ValueError) from stdgo._internal.reflect.Reflect.ValueError to stdgo._internal.reflect.Reflect.ValueError {
+    public var method(get, set) : String;
+    function get_method():String return this.method;
+    function set_method(v:String):String {
+        this.method = v;
+        return v;
+    }
+    public var kind(get, set) : stdgo._internal.reflect.Reflect.Kind;
+    function get_kind():stdgo._internal.reflect.Reflect.Kind return this.kind;
+    function set_kind(v:stdgo._internal.reflect.Reflect.Kind):stdgo._internal.reflect.Reflect.Kind {
+        this.kind = v;
+        return v;
+    }
+    public function new(?method:String, ?kind:stdgo._internal.reflect.Reflect.Kind, ?toString) this = new stdgo._internal.reflect.Reflect.ValueError(method, kind, toString);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract MapIter(stdgo._internal.reflect.Reflect.MapIter) from stdgo._internal.reflect.Reflect.MapIter to stdgo._internal.reflect.Reflect.MapIter {
-
+abstract MapIter(stdgo._internal.reflect.Reflect.MapIter) from stdgo._internal.reflect.Reflect.MapIter to stdgo._internal.reflect.Reflect.MapIter {
+    public function new(?map:haxe.Constraints<Dynamic, Dynamic>, ?keys:Array<Dynamic>, ?values:Array<Dynamic>, ?t:stdgo._internal.internal.reflect.Reflect._Type, ?index:Int) this = new stdgo._internal.reflect.Reflect.MapIter(map, keys, values, t, index);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract StringHeader(stdgo._internal.reflect.Reflect.StringHeader) from stdgo._internal.reflect.Reflect.StringHeader to stdgo._internal.reflect.Reflect.StringHeader {
-
+abstract StringHeader(stdgo._internal.reflect.Reflect.StringHeader) from stdgo._internal.reflect.Reflect.StringHeader to stdgo._internal.reflect.Reflect.StringHeader {
+    public var data(get, set) : stdgo.GoUIntptr;
+    function get_data():stdgo.GoUIntptr return this.data;
+    function set_data(v:stdgo.GoUIntptr):stdgo.GoUIntptr {
+        this.data = v;
+        return v;
+    }
+    public var len(get, set) : StdTypes.Int;
+    function get_len():StdTypes.Int return this.len;
+    function set_len(v:StdTypes.Int):StdTypes.Int {
+        this.len = v;
+        return v;
+    }
+    public function new(?data:stdgo.GoUIntptr, ?len:StdTypes.Int) this = new stdgo._internal.reflect.Reflect.StringHeader(data, len);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract SliceHeader(stdgo._internal.reflect.Reflect.SliceHeader) from stdgo._internal.reflect.Reflect.SliceHeader to stdgo._internal.reflect.Reflect.SliceHeader {
-
+abstract SliceHeader(stdgo._internal.reflect.Reflect.SliceHeader) from stdgo._internal.reflect.Reflect.SliceHeader to stdgo._internal.reflect.Reflect.SliceHeader {
+    public var data(get, set) : stdgo.GoUIntptr;
+    function get_data():stdgo.GoUIntptr return this.data;
+    function set_data(v:stdgo.GoUIntptr):stdgo.GoUIntptr {
+        this.data = v;
+        return v;
+    }
+    public var len(get, set) : StdTypes.Int;
+    function get_len():StdTypes.Int return this.len;
+    function set_len(v:StdTypes.Int):StdTypes.Int {
+        this.len = v;
+        return v;
+    }
+    public var cap(get, set) : StdTypes.Int;
+    function get_cap():StdTypes.Int return this.cap;
+    function set_cap(v:StdTypes.Int):StdTypes.Int {
+        this.cap = v;
+        return v;
+    }
+    public function new(?data:stdgo.GoUIntptr, ?len:StdTypes.Int, ?cap:StdTypes.Int) this = new stdgo._internal.reflect.Reflect.SliceHeader(data, len, cap);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract SelectCase(stdgo._internal.reflect.Reflect.SelectCase) from stdgo._internal.reflect.Reflect.SelectCase to stdgo._internal.reflect.Reflect.SelectCase {
-
+abstract SelectCase(stdgo._internal.reflect.Reflect.SelectCase) from stdgo._internal.reflect.Reflect.SelectCase to stdgo._internal.reflect.Reflect.SelectCase {
+    public var dir(get, set) : stdgo._internal.reflect.Reflect.SelectDir;
+    function get_dir():stdgo._internal.reflect.Reflect.SelectDir return this.dir;
+    function set_dir(v:stdgo._internal.reflect.Reflect.SelectDir):stdgo._internal.reflect.Reflect.SelectDir {
+        this.dir = v;
+        return v;
+    }
+    public var chan(get, set) : stdgo._internal.reflect.Reflect.Value;
+    function get_chan():stdgo._internal.reflect.Reflect.Value return this.chan;
+    function set_chan(v:stdgo._internal.reflect.Reflect.Value):stdgo._internal.reflect.Reflect.Value {
+        this.chan = v;
+        return v;
+    }
+    public var send(get, set) : stdgo._internal.reflect.Reflect.Value;
+    function get_send():stdgo._internal.reflect.Reflect.Value return this.send;
+    function set_send(v:stdgo._internal.reflect.Reflect.Value):stdgo._internal.reflect.Reflect.Value {
+        this.send = v;
+        return v;
+    }
+    public function new(?dir:stdgo._internal.reflect.Reflect.SelectDir, ?chan:stdgo._internal.reflect.Reflect.Value, ?send:stdgo._internal.reflect.Reflect.Value) this = new stdgo._internal.reflect.Reflect.SelectCase(dir, chan, send);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef Kind = stdgo._internal.reflect.Reflect.Kind;
 typedef ChanDir = stdgo._internal.reflect.Reflect.ChanDir;
 typedef StructTag = stdgo._internal.reflect.Reflect.StructTag;
 typedef SelectDir = stdgo._internal.reflect.Reflect.SelectDir;
-@:forward @:forward.new abstract Method_asInterface(stdgo._internal.reflect.Reflect.Method_asInterface) from stdgo._internal.reflect.Reflect.Method_asInterface to stdgo._internal.reflect.Reflect.Method_asInterface {
-
-}
-@:forward @:forward.new abstract Method_static_extension(stdgo._internal.reflect.Reflect.Method_static_extension) from stdgo._internal.reflect.Reflect.Method_static_extension to stdgo._internal.reflect.Reflect.Method_static_extension {
-
-}
-@:forward @:forward.new abstract StructField_asInterface(stdgo._internal.reflect.Reflect.StructField_asInterface) from stdgo._internal.reflect.Reflect.StructField_asInterface to stdgo._internal.reflect.Reflect.StructField_asInterface {
-
-}
-@:forward @:forward.new abstract StructField_static_extension(stdgo._internal.reflect.Reflect.StructField_static_extension) from stdgo._internal.reflect.Reflect.StructField_static_extension to stdgo._internal.reflect.Reflect.StructField_static_extension {
-
-}
-@:forward @:forward.new abstract Value_asInterface(stdgo._internal.reflect.Reflect.Value_asInterface) from stdgo._internal.reflect.Reflect.Value_asInterface to stdgo._internal.reflect.Reflect.Value_asInterface {
-
-}
-@:forward @:forward.new abstract Value_static_extension(stdgo._internal.reflect.Reflect.Value_static_extension) from stdgo._internal.reflect.Reflect.Value_static_extension to stdgo._internal.reflect.Reflect.Value_static_extension {
-
-}
-@:forward @:forward.new abstract ValueError_asInterface(stdgo._internal.reflect.Reflect.ValueError_asInterface) from stdgo._internal.reflect.Reflect.ValueError_asInterface to stdgo._internal.reflect.Reflect.ValueError_asInterface {
-
-}
-@:forward @:forward.new abstract ValueError_static_extension(stdgo._internal.reflect.Reflect.ValueError_static_extension) from stdgo._internal.reflect.Reflect.ValueError_static_extension to stdgo._internal.reflect.Reflect.ValueError_static_extension {
-
-}
-@:forward @:forward.new abstract MapIter_asInterface(stdgo._internal.reflect.Reflect.MapIter_asInterface) from stdgo._internal.reflect.Reflect.MapIter_asInterface to stdgo._internal.reflect.Reflect.MapIter_asInterface {
-
-}
-@:forward @:forward.new abstract MapIter_static_extension(stdgo._internal.reflect.Reflect.MapIter_static_extension) from stdgo._internal.reflect.Reflect.MapIter_static_extension to stdgo._internal.reflect.Reflect.MapIter_static_extension {
-
-}
-@:forward @:forward.new abstract Kind_asInterface(stdgo._internal.reflect.Reflect.Kind_asInterface) from stdgo._internal.reflect.Reflect.Kind_asInterface to stdgo._internal.reflect.Reflect.Kind_asInterface {
-
-}
-@:forward @:forward.new abstract Kind_static_extension(stdgo._internal.reflect.Reflect.Kind_static_extension) from stdgo._internal.reflect.Reflect.Kind_static_extension to stdgo._internal.reflect.Reflect.Kind_static_extension {
-
-}
-@:forward @:forward.new abstract ChanDir_asInterface(stdgo._internal.reflect.Reflect.ChanDir_asInterface) from stdgo._internal.reflect.Reflect.ChanDir_asInterface to stdgo._internal.reflect.Reflect.ChanDir_asInterface {
-
-}
-@:forward @:forward.new abstract ChanDir_static_extension(stdgo._internal.reflect.Reflect.ChanDir_static_extension) from stdgo._internal.reflect.Reflect.ChanDir_static_extension to stdgo._internal.reflect.Reflect.ChanDir_static_extension {
-
-}
-@:forward @:forward.new abstract StructTag_asInterface(stdgo._internal.reflect.Reflect.StructTag_asInterface) from stdgo._internal.reflect.Reflect.StructTag_asInterface to stdgo._internal.reflect.Reflect.StructTag_asInterface {
-
-}
-@:forward @:forward.new abstract StructTag_static_extension(stdgo._internal.reflect.Reflect.StructTag_static_extension) from stdgo._internal.reflect.Reflect.StructTag_static_extension to stdgo._internal.reflect.Reflect.StructTag_static_extension {
-
-}
 class Reflect {
     /**
         DeepEqual reports whether x and y are “deeply equal,” defined as follows.

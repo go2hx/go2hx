@@ -5,114 +5,215 @@ package stdgo;
     For information about UTF-8 strings in Go, see https://blog.golang.org/strings.
 **/
 private var __go2hxdoc__package : Bool;
-@:forward @:forward.new abstract T_replacer_static_extension(stdgo._internal.strings.Strings.T_replacer_static_extension) from stdgo._internal.strings.Strings.T_replacer_static_extension to stdgo._internal.strings.Strings.T_replacer_static_extension {
-
-}
 typedef T_replacer = stdgo._internal.strings.Strings.T_replacer;
-@:forward @:forward.new abstract Builder(stdgo._internal.strings.Strings.Builder) from stdgo._internal.strings.Strings.Builder to stdgo._internal.strings.Strings.Builder {
-
+abstract Builder(stdgo._internal.strings.Strings.Builder) from stdgo._internal.strings.Strings.Builder to stdgo._internal.strings.Strings.Builder {
+    public var _addr(get, set) : stdgo._internal.strings.Strings.Builder;
+    function get__addr():stdgo._internal.strings.Strings.Builder return this._addr;
+    function set__addr(v:stdgo._internal.strings.Strings.Builder):stdgo._internal.strings.Strings.Builder {
+        this._addr = v;
+        return v;
+    }
+    public var _buf(get, set) : Array<std.UInt>;
+    function get__buf():Array<std.UInt> return [for (i in this._buf) i];
+    function set__buf(v:Array<std.UInt>):Array<std.UInt> {
+        this._buf = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public function new(?_addr:stdgo._internal.strings.Strings.Builder, ?_buf:Array<std.UInt>) this = new stdgo._internal.strings.Strings.Builder(_addr, ([for (i in _buf) i] : stdgo.Slice<stdgo.GoUInt8>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Reader(stdgo._internal.strings.Strings.Reader) from stdgo._internal.strings.Strings.Reader to stdgo._internal.strings.Strings.Reader {
-
+abstract Reader(stdgo._internal.strings.Strings.Reader) from stdgo._internal.strings.Strings.Reader to stdgo._internal.strings.Strings.Reader {
+    public var _s(get, set) : String;
+    function get__s():String return this._s;
+    function set__s(v:String):String {
+        this._s = v;
+        return v;
+    }
+    public var _i(get, set) : haxe.Int64;
+    function get__i():haxe.Int64 return this._i;
+    function set__i(v:haxe.Int64):haxe.Int64 {
+        this._i = v;
+        return v;
+    }
+    public var _prevRune(get, set) : StdTypes.Int;
+    function get__prevRune():StdTypes.Int return this._prevRune;
+    function set__prevRune(v:StdTypes.Int):StdTypes.Int {
+        this._prevRune = v;
+        return v;
+    }
+    public function new(?_s:String, ?_i:haxe.Int64, ?_prevRune:StdTypes.Int) this = new stdgo._internal.strings.Strings.Reader(_s, _i, _prevRune);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Replacer(stdgo._internal.strings.Strings.Replacer) from stdgo._internal.strings.Strings.Replacer to stdgo._internal.strings.Strings.Replacer {
-
+abstract Replacer(stdgo._internal.strings.Strings.Replacer) from stdgo._internal.strings.Strings.Replacer to stdgo._internal.strings.Strings.Replacer {
+    public var _once(get, set) : stdgo._internal.sync.Sync.Once;
+    function get__once():stdgo._internal.sync.Sync.Once return this._once;
+    function set__once(v:stdgo._internal.sync.Sync.Once):stdgo._internal.sync.Sync.Once {
+        this._once = v;
+        return v;
+    }
+    public var _r(get, set) : stdgo._internal.strings.Strings.T_replacer;
+    function get__r():stdgo._internal.strings.Strings.T_replacer return this._r;
+    function set__r(v:stdgo._internal.strings.Strings.T_replacer):stdgo._internal.strings.Strings.T_replacer {
+        this._r = v;
+        return v;
+    }
+    public var _oldnew(get, set) : Array<String>;
+    function get__oldnew():Array<String> return [for (i in this._oldnew) i];
+    function set__oldnew(v:Array<String>):Array<String> {
+        this._oldnew = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        return v;
+    }
+    public function new(?_once:stdgo._internal.sync.Sync.Once, ?_r:stdgo._internal.strings.Strings.T_replacer, ?_oldnew:Array<String>) this = new stdgo._internal.strings.Strings.Replacer(_once, _r, ([for (i in _oldnew) i] : stdgo.Slice<stdgo.GoString>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_trieNode(stdgo._internal.strings.Strings.T_trieNode) from stdgo._internal.strings.Strings.T_trieNode to stdgo._internal.strings.Strings.T_trieNode {
-
+abstract T_trieNode(stdgo._internal.strings.Strings.T_trieNode) from stdgo._internal.strings.Strings.T_trieNode to stdgo._internal.strings.Strings.T_trieNode {
+    public var _value(get, set) : String;
+    function get__value():String return this._value;
+    function set__value(v:String):String {
+        this._value = v;
+        return v;
+    }
+    public var _priority(get, set) : StdTypes.Int;
+    function get__priority():StdTypes.Int return this._priority;
+    function set__priority(v:StdTypes.Int):StdTypes.Int {
+        this._priority = v;
+        return v;
+    }
+    public var _prefix(get, set) : String;
+    function get__prefix():String return this._prefix;
+    function set__prefix(v:String):String {
+        this._prefix = v;
+        return v;
+    }
+    public var _next(get, set) : stdgo._internal.strings.Strings.T_trieNode;
+    function get__next():stdgo._internal.strings.Strings.T_trieNode return this._next;
+    function set__next(v:stdgo._internal.strings.Strings.T_trieNode):stdgo._internal.strings.Strings.T_trieNode {
+        this._next = v;
+        return v;
+    }
+    public var _table(get, set) : Array<stdgo._internal.strings.Strings.T_trieNode>;
+    function get__table():Array<stdgo._internal.strings.Strings.T_trieNode> return [for (i in this._table) i];
+    function set__table(v:Array<stdgo._internal.strings.Strings.T_trieNode>):Array<stdgo._internal.strings.Strings.T_trieNode> {
+        this._table = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.strings.Strings.T_trieNode>>);
+        return v;
+    }
+    public function new(?_value:String, ?_priority:StdTypes.Int, ?_prefix:String, ?_next:stdgo._internal.strings.Strings.T_trieNode, ?_table:Array<stdgo._internal.strings.Strings.T_trieNode>) this = new stdgo._internal.strings.Strings.T_trieNode(_value, _priority, _prefix, _next, ([for (i in _table) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.strings.Strings.T_trieNode>>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_genericReplacer(stdgo._internal.strings.Strings.T_genericReplacer) from stdgo._internal.strings.Strings.T_genericReplacer to stdgo._internal.strings.Strings.T_genericReplacer {
-
+abstract T_genericReplacer(stdgo._internal.strings.Strings.T_genericReplacer) from stdgo._internal.strings.Strings.T_genericReplacer to stdgo._internal.strings.Strings.T_genericReplacer {
+    public var _root(get, set) : stdgo._internal.strings.Strings.T_trieNode;
+    function get__root():stdgo._internal.strings.Strings.T_trieNode return this._root;
+    function set__root(v:stdgo._internal.strings.Strings.T_trieNode):stdgo._internal.strings.Strings.T_trieNode {
+        this._root = v;
+        return v;
+    }
+    public var _tableSize(get, set) : StdTypes.Int;
+    function get__tableSize():StdTypes.Int return this._tableSize;
+    function set__tableSize(v:StdTypes.Int):StdTypes.Int {
+        this._tableSize = v;
+        return v;
+    }
+    public var _mapping(get, set) : haxe.ds.Vector<std.UInt>;
+    function get__mapping():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._mapping) i]);
+    function set__mapping(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
+        this._mapping = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        return v;
+    }
+    public function new(?_root:stdgo._internal.strings.Strings.T_trieNode, ?_tableSize:StdTypes.Int, ?_mapping:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.strings.Strings.T_genericReplacer(_root, _tableSize, ([for (i in _mapping) i] : stdgo.GoArray<stdgo.GoUInt8>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_stringWriter(stdgo._internal.strings.Strings.T_stringWriter) from stdgo._internal.strings.Strings.T_stringWriter to stdgo._internal.strings.Strings.T_stringWriter {
-
+abstract T_stringWriter(stdgo._internal.strings.Strings.T_stringWriter) from stdgo._internal.strings.Strings.T_stringWriter to stdgo._internal.strings.Strings.T_stringWriter {
+    public var _w(get, set) : stdgo._internal.io.Io.Writer;
+    function get__w():stdgo._internal.io.Io.Writer return this._w;
+    function set__w(v:stdgo._internal.io.Io.Writer):stdgo._internal.io.Io.Writer {
+        this._w = v;
+        return v;
+    }
+    public function new(?_w:stdgo._internal.io.Io.Writer) this = new stdgo._internal.strings.Strings.T_stringWriter(_w);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_singleStringReplacer(stdgo._internal.strings.Strings.T_singleStringReplacer) from stdgo._internal.strings.Strings.T_singleStringReplacer to stdgo._internal.strings.Strings.T_singleStringReplacer {
-
+abstract T_singleStringReplacer(stdgo._internal.strings.Strings.T_singleStringReplacer) from stdgo._internal.strings.Strings.T_singleStringReplacer to stdgo._internal.strings.Strings.T_singleStringReplacer {
+    public var _finder(get, set) : stdgo._internal.strings.Strings.T_stringFinder;
+    function get__finder():stdgo._internal.strings.Strings.T_stringFinder return this._finder;
+    function set__finder(v:stdgo._internal.strings.Strings.T_stringFinder):stdgo._internal.strings.Strings.T_stringFinder {
+        this._finder = v;
+        return v;
+    }
+    public var _value(get, set) : String;
+    function get__value():String return this._value;
+    function set__value(v:String):String {
+        this._value = v;
+        return v;
+    }
+    public function new(?_finder:stdgo._internal.strings.Strings.T_stringFinder, ?_value:String) this = new stdgo._internal.strings.Strings.T_singleStringReplacer(_finder, _value);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_byteStringReplacer(stdgo._internal.strings.Strings.T_byteStringReplacer) from stdgo._internal.strings.Strings.T_byteStringReplacer to stdgo._internal.strings.Strings.T_byteStringReplacer {
-
+abstract T_byteStringReplacer(stdgo._internal.strings.Strings.T_byteStringReplacer) from stdgo._internal.strings.Strings.T_byteStringReplacer to stdgo._internal.strings.Strings.T_byteStringReplacer {
+    public var _replacements(get, set) : haxe.ds.Vector<Array<std.UInt>>;
+    function get__replacements():haxe.ds.Vector<Array<std.UInt>> return haxe.ds.Vector.fromArrayCopy([for (i in this._replacements) [for (i in i) i]]);
+    function set__replacements(v:haxe.ds.Vector<Array<std.UInt>>):haxe.ds.Vector<Array<std.UInt>> {
+        this._replacements = ([for (i in v) ([for (i in i) i] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>>);
+        return v;
+    }
+    public var _toReplace(get, set) : Array<String>;
+    function get__toReplace():Array<String> return [for (i in this._toReplace) i];
+    function set__toReplace(v:Array<String>):Array<String> {
+        this._toReplace = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        return v;
+    }
+    public function new(?_replacements:haxe.ds.Vector<Array<std.UInt>>, ?_toReplace:Array<String>) this = new stdgo._internal.strings.Strings.T_byteStringReplacer(([for (i in _replacements) ([for (i in i) i] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>>), ([for (i in _toReplace) i] : stdgo.Slice<stdgo.GoString>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_stringFinder(stdgo._internal.strings.Strings.T_stringFinder) from stdgo._internal.strings.Strings.T_stringFinder to stdgo._internal.strings.Strings.T_stringFinder {
-
+abstract T_stringFinder(stdgo._internal.strings.Strings.T_stringFinder) from stdgo._internal.strings.Strings.T_stringFinder to stdgo._internal.strings.Strings.T_stringFinder {
+    public var _pattern(get, set) : String;
+    function get__pattern():String return this._pattern;
+    function set__pattern(v:String):String {
+        this._pattern = v;
+        return v;
+    }
+    public var _badCharSkip(get, set) : haxe.ds.Vector<StdTypes.Int>;
+    function get__badCharSkip():haxe.ds.Vector<StdTypes.Int> return haxe.ds.Vector.fromArrayCopy([for (i in this._badCharSkip) i]);
+    function set__badCharSkip(v:haxe.ds.Vector<StdTypes.Int>):haxe.ds.Vector<StdTypes.Int> {
+        this._badCharSkip = ([for (i in v) i] : stdgo.GoArray<stdgo.GoInt>);
+        return v;
+    }
+    public var _goodSuffixSkip(get, set) : Array<StdTypes.Int>;
+    function get__goodSuffixSkip():Array<StdTypes.Int> return [for (i in this._goodSuffixSkip) i];
+    function set__goodSuffixSkip(v:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        this._goodSuffixSkip = ([for (i in v) i] : stdgo.Slice<stdgo.GoInt>);
+        return v;
+    }
+    public function new(?_pattern:String, ?_badCharSkip:haxe.ds.Vector<StdTypes.Int>, ?_goodSuffixSkip:Array<StdTypes.Int>) this = new stdgo._internal.strings.Strings.T_stringFinder(_pattern, ([for (i in _badCharSkip) i] : stdgo.GoArray<stdgo.GoInt>), ([for (i in _goodSuffixSkip) i] : stdgo.Slice<stdgo.GoInt>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef T_appendSliceWriter = stdgo._internal.strings.Strings.T_appendSliceWriter;
 typedef T_byteReplacer = stdgo._internal.strings.Strings.T_byteReplacer;
 typedef T_asciiSet = stdgo._internal.strings.Strings.T_asciiSet;
-@:forward @:forward.new abstract T_fieldsFunc_1___localname___span(stdgo._internal.strings.Strings.T_fieldsFunc_1___localname___span) from stdgo._internal.strings.Strings.T_fieldsFunc_1___localname___span to stdgo._internal.strings.Strings.T_fieldsFunc_1___localname___span {
-
-}
-@:forward @:forward.new abstract Builder_asInterface(stdgo._internal.strings.Strings.Builder_asInterface) from stdgo._internal.strings.Strings.Builder_asInterface to stdgo._internal.strings.Strings.Builder_asInterface {
-
-}
-@:forward @:forward.new abstract Builder_static_extension(stdgo._internal.strings.Strings.Builder_static_extension) from stdgo._internal.strings.Strings.Builder_static_extension to stdgo._internal.strings.Strings.Builder_static_extension {
-
-}
-@:forward @:forward.new abstract Reader_asInterface(stdgo._internal.strings.Strings.Reader_asInterface) from stdgo._internal.strings.Strings.Reader_asInterface to stdgo._internal.strings.Strings.Reader_asInterface {
-
-}
-@:forward @:forward.new abstract Reader_static_extension(stdgo._internal.strings.Strings.Reader_static_extension) from stdgo._internal.strings.Strings.Reader_static_extension to stdgo._internal.strings.Strings.Reader_static_extension {
-
-}
-@:forward @:forward.new abstract Replacer_asInterface(stdgo._internal.strings.Strings.Replacer_asInterface) from stdgo._internal.strings.Strings.Replacer_asInterface to stdgo._internal.strings.Strings.Replacer_asInterface {
-
-}
-@:forward @:forward.new abstract Replacer_static_extension(stdgo._internal.strings.Strings.Replacer_static_extension) from stdgo._internal.strings.Strings.Replacer_static_extension to stdgo._internal.strings.Strings.Replacer_static_extension {
-
-}
-@:forward @:forward.new abstract T_trieNode_asInterface(stdgo._internal.strings.Strings.T_trieNode_asInterface) from stdgo._internal.strings.Strings.T_trieNode_asInterface to stdgo._internal.strings.Strings.T_trieNode_asInterface {
-
-}
-@:forward @:forward.new abstract T_trieNode_static_extension(stdgo._internal.strings.Strings.T_trieNode_static_extension) from stdgo._internal.strings.Strings.T_trieNode_static_extension to stdgo._internal.strings.Strings.T_trieNode_static_extension {
-
-}
-@:forward @:forward.new abstract T_genericReplacer_asInterface(stdgo._internal.strings.Strings.T_genericReplacer_asInterface) from stdgo._internal.strings.Strings.T_genericReplacer_asInterface to stdgo._internal.strings.Strings.T_genericReplacer_asInterface {
-
-}
-@:forward @:forward.new abstract T_genericReplacer_static_extension(stdgo._internal.strings.Strings.T_genericReplacer_static_extension) from stdgo._internal.strings.Strings.T_genericReplacer_static_extension to stdgo._internal.strings.Strings.T_genericReplacer_static_extension {
-
-}
-@:forward @:forward.new abstract T_stringWriter_asInterface(stdgo._internal.strings.Strings.T_stringWriter_asInterface) from stdgo._internal.strings.Strings.T_stringWriter_asInterface to stdgo._internal.strings.Strings.T_stringWriter_asInterface {
-
-}
-@:forward @:forward.new abstract T_stringWriter_static_extension(stdgo._internal.strings.Strings.T_stringWriter_static_extension) from stdgo._internal.strings.Strings.T_stringWriter_static_extension to stdgo._internal.strings.Strings.T_stringWriter_static_extension {
-
-}
-@:forward @:forward.new abstract T_singleStringReplacer_asInterface(stdgo._internal.strings.Strings.T_singleStringReplacer_asInterface) from stdgo._internal.strings.Strings.T_singleStringReplacer_asInterface to stdgo._internal.strings.Strings.T_singleStringReplacer_asInterface {
-
-}
-@:forward @:forward.new abstract T_singleStringReplacer_static_extension(stdgo._internal.strings.Strings.T_singleStringReplacer_static_extension) from stdgo._internal.strings.Strings.T_singleStringReplacer_static_extension to stdgo._internal.strings.Strings.T_singleStringReplacer_static_extension {
-
-}
-@:forward @:forward.new abstract T_byteStringReplacer_asInterface(stdgo._internal.strings.Strings.T_byteStringReplacer_asInterface) from stdgo._internal.strings.Strings.T_byteStringReplacer_asInterface to stdgo._internal.strings.Strings.T_byteStringReplacer_asInterface {
-
-}
-@:forward @:forward.new abstract T_byteStringReplacer_static_extension(stdgo._internal.strings.Strings.T_byteStringReplacer_static_extension) from stdgo._internal.strings.Strings.T_byteStringReplacer_static_extension to stdgo._internal.strings.Strings.T_byteStringReplacer_static_extension {
-
-}
-@:forward @:forward.new abstract T_stringFinder_asInterface(stdgo._internal.strings.Strings.T_stringFinder_asInterface) from stdgo._internal.strings.Strings.T_stringFinder_asInterface to stdgo._internal.strings.Strings.T_stringFinder_asInterface {
-
-}
-@:forward @:forward.new abstract T_stringFinder_static_extension(stdgo._internal.strings.Strings.T_stringFinder_static_extension) from stdgo._internal.strings.Strings.T_stringFinder_static_extension to stdgo._internal.strings.Strings.T_stringFinder_static_extension {
-
-}
-@:forward @:forward.new abstract T_appendSliceWriter_asInterface(stdgo._internal.strings.Strings.T_appendSliceWriter_asInterface) from stdgo._internal.strings.Strings.T_appendSliceWriter_asInterface to stdgo._internal.strings.Strings.T_appendSliceWriter_asInterface {
-
-}
-@:forward @:forward.new abstract T_appendSliceWriter_static_extension(stdgo._internal.strings.Strings.T_appendSliceWriter_static_extension) from stdgo._internal.strings.Strings.T_appendSliceWriter_static_extension to stdgo._internal.strings.Strings.T_appendSliceWriter_static_extension {
-
-}
-@:forward @:forward.new abstract T_byteReplacer_asInterface(stdgo._internal.strings.Strings.T_byteReplacer_asInterface) from stdgo._internal.strings.Strings.T_byteReplacer_asInterface to stdgo._internal.strings.Strings.T_byteReplacer_asInterface {
-
-}
-@:forward @:forward.new abstract T_byteReplacer_static_extension(stdgo._internal.strings.Strings.T_byteReplacer_static_extension) from stdgo._internal.strings.Strings.T_byteReplacer_static_extension to stdgo._internal.strings.Strings.T_byteReplacer_static_extension {
-
-}
-@:forward @:forward.new abstract T_asciiSet_asInterface(stdgo._internal.strings.Strings.T_asciiSet_asInterface) from stdgo._internal.strings.Strings.T_asciiSet_asInterface to stdgo._internal.strings.Strings.T_asciiSet_asInterface {
-
-}
-@:forward @:forward.new abstract T_asciiSet_static_extension(stdgo._internal.strings.Strings.T_asciiSet_static_extension) from stdgo._internal.strings.Strings.T_asciiSet_static_extension to stdgo._internal.strings.Strings.T_asciiSet_static_extension {
-
+abstract T_fieldsFunc_4___localname___span(stdgo._internal.strings.Strings.T_fieldsFunc_4___localname___span) from stdgo._internal.strings.Strings.T_fieldsFunc_4___localname___span to stdgo._internal.strings.Strings.T_fieldsFunc_4___localname___span {
+    public var _start(get, set) : StdTypes.Int;
+    function get__start():StdTypes.Int return this._start;
+    function set__start(v:StdTypes.Int):StdTypes.Int {
+        this._start = v;
+        return v;
+    }
+    public var _end(get, set) : StdTypes.Int;
+    function get__end():StdTypes.Int return this._end;
+    function set__end(v:StdTypes.Int):StdTypes.Int {
+        this._end = v;
+        return v;
+    }
+    public function new(?_start:StdTypes.Int, ?_end:StdTypes.Int) this = new stdgo._internal.strings.Strings.T_fieldsFunc_4___localname___span(_start, _end);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 class Strings {
     /**

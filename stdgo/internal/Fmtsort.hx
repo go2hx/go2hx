@@ -6,14 +6,22 @@ package stdgo.internal;
     that are valid map keys.
 **/
 private var __go2hxdoc__package : Bool;
-@:forward @:forward.new abstract SortedMap(stdgo._internal.internal.fmtsort.Fmtsort.SortedMap) from stdgo._internal.internal.fmtsort.Fmtsort.SortedMap to stdgo._internal.internal.fmtsort.Fmtsort.SortedMap {
-
-}
-@:forward @:forward.new abstract SortedMap_asInterface(stdgo._internal.internal.fmtsort.Fmtsort.SortedMap_asInterface) from stdgo._internal.internal.fmtsort.Fmtsort.SortedMap_asInterface to stdgo._internal.internal.fmtsort.Fmtsort.SortedMap_asInterface {
-
-}
-@:forward @:forward.new abstract SortedMap_static_extension(stdgo._internal.internal.fmtsort.Fmtsort.SortedMap_static_extension) from stdgo._internal.internal.fmtsort.Fmtsort.SortedMap_static_extension to stdgo._internal.internal.fmtsort.Fmtsort.SortedMap_static_extension {
-
+abstract SortedMap(stdgo._internal.internal.fmtsort.Fmtsort.SortedMap) from stdgo._internal.internal.fmtsort.Fmtsort.SortedMap to stdgo._internal.internal.fmtsort.Fmtsort.SortedMap {
+    public var key(get, set) : Array<stdgo._internal.reflect.Reflect.Value>;
+    function get_key():Array<stdgo._internal.reflect.Reflect.Value> return [for (i in this.key) i];
+    function set_key(v:Array<stdgo._internal.reflect.Reflect.Value>):Array<stdgo._internal.reflect.Reflect.Value> {
+        this.key = ([for (i in v) i] : stdgo.Slice<stdgo._internal.reflect.Reflect.Value>);
+        return v;
+    }
+    public var value(get, set) : Array<stdgo._internal.reflect.Reflect.Value>;
+    function get_value():Array<stdgo._internal.reflect.Reflect.Value> return [for (i in this.value) i];
+    function set_value(v:Array<stdgo._internal.reflect.Reflect.Value>):Array<stdgo._internal.reflect.Reflect.Value> {
+        this.value = ([for (i in v) i] : stdgo.Slice<stdgo._internal.reflect.Reflect.Value>);
+        return v;
+    }
+    public function new(?key:Array<stdgo._internal.reflect.Reflect.Value>, ?value:Array<stdgo._internal.reflect.Reflect.Value>) this = new stdgo._internal.internal.fmtsort.Fmtsort.SortedMap(([for (i in key) i] : stdgo.Slice<stdgo._internal.reflect.Reflect.Value>), ([for (i in value) i] : stdgo.Slice<stdgo._internal.reflect.Reflect.Value>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 class Fmtsort {
     static public function compare(a:stdgo._internal.reflect.Reflect.Value, b:stdgo._internal.reflect.Reflect.Value):StdTypes.Int {

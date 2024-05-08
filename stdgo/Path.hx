@@ -11,15 +11,32 @@ package stdgo;
 private var __go2hxdoc__package : Bool;
 var errBadPattern(get, set) : stdgo.Error;
 private function get_errBadPattern():stdgo.Error return stdgo._internal.path.Path.errBadPattern;
-private function set_errBadPattern(v:stdgo.Error):stdgo.Error return stdgo._internal.path.Path.errBadPattern = v;
-@:forward @:forward.new abstract T_lazybuf(stdgo._internal.path.Path.T_lazybuf) from stdgo._internal.path.Path.T_lazybuf to stdgo._internal.path.Path.T_lazybuf {
-
-}
-@:forward @:forward.new abstract T_lazybuf_asInterface(stdgo._internal.path.Path.T_lazybuf_asInterface) from stdgo._internal.path.Path.T_lazybuf_asInterface to stdgo._internal.path.Path.T_lazybuf_asInterface {
-
-}
-@:forward @:forward.new abstract T_lazybuf_static_extension(stdgo._internal.path.Path.T_lazybuf_static_extension) from stdgo._internal.path.Path.T_lazybuf_static_extension to stdgo._internal.path.Path.T_lazybuf_static_extension {
-
+private function set_errBadPattern(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.path.Path.errBadPattern = v;
+        return v;
+    }
+abstract T_lazybuf(stdgo._internal.path.Path.T_lazybuf) from stdgo._internal.path.Path.T_lazybuf to stdgo._internal.path.Path.T_lazybuf {
+    public var _s(get, set) : String;
+    function get__s():String return this._s;
+    function set__s(v:String):String {
+        this._s = v;
+        return v;
+    }
+    public var _buf(get, set) : Array<std.UInt>;
+    function get__buf():Array<std.UInt> return [for (i in this._buf) i];
+    function set__buf(v:Array<std.UInt>):Array<std.UInt> {
+        this._buf = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _w(get, set) : StdTypes.Int;
+    function get__w():StdTypes.Int return this._w;
+    function set__w(v:StdTypes.Int):StdTypes.Int {
+        this._w = v;
+        return v;
+    }
+    public function new(?_s:String, ?_buf:Array<std.UInt>, ?_w:StdTypes.Int) this = new stdgo._internal.path.Path.T_lazybuf(_s, ([for (i in _buf) i] : stdgo.Slice<stdgo.GoUInt8>), _w);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 class Path {
     /**

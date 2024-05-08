@@ -1,7 +1,10 @@
 package stdgo.internal;
 var maxLen(get, set) : StdTypes.Int;
 private function get_maxLen():StdTypes.Int return stdgo._internal.internal.bytealg.Bytealg.maxLen;
-private function set_maxLen(v:StdTypes.Int):StdTypes.Int return stdgo._internal.internal.bytealg.Bytealg.maxLen = v;
+private function set_maxLen(v:StdTypes.Int):StdTypes.Int {
+        stdgo._internal.internal.bytealg.Bytealg.maxLen = v;
+        return v;
+    }
 final primeRK : haxe.UInt64 = stdgo._internal.internal.bytealg.Bytealg.primeRK;
 final maxBruteForce : haxe.UInt64 = stdgo._internal.internal.bytealg.Bytealg.maxBruteForce;
 class Bytealg {

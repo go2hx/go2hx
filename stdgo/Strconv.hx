@@ -56,42 +56,148 @@ private var __go2hxdoc__package : Bool;
 final intSize : haxe.UInt64 = stdgo._internal.strconv.Strconv.intSize;
 var errRange(get, set) : stdgo.Error;
 private function get_errRange():stdgo.Error return stdgo._internal.strconv.Strconv.errRange;
-private function set_errRange(v:stdgo.Error):stdgo.Error return stdgo._internal.strconv.Strconv.errRange = v;
+private function set_errRange(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.strconv.Strconv.errRange = v;
+        return v;
+    }
 var errSyntax(get, set) : stdgo.Error;
 private function get_errSyntax():stdgo.Error return stdgo._internal.strconv.Strconv.errSyntax;
-private function set_errSyntax(v:stdgo.Error):stdgo.Error return stdgo._internal.strconv.Strconv.errSyntax = v;
+private function set_errSyntax(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.strconv.Strconv.errSyntax = v;
+        return v;
+    }
 var bitSizeError(get, set) : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError>;
-private function get_bitSizeError():(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> return stdgo._internal.strconv.Strconv.bitSizeError;
-private function set_bitSizeError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError>):(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> return stdgo._internal.strconv.Strconv.bitSizeError = v;
+private function get_bitSizeError():(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> return (_0, _1, _2) -> stdgo._internal.strconv.Strconv.bitSizeError(_0, _1, _2);
+private function set_bitSizeError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError>):(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> {
+        stdgo._internal.strconv.Strconv.bitSizeError = v;
+        return v;
+    }
 var baseError(get, set) : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError>;
-private function get_baseError():(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> return stdgo._internal.strconv.Strconv.baseError;
-private function set_baseError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError>):(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> return stdgo._internal.strconv.Strconv.baseError = v;
-@:forward @:forward.new abstract NumError(stdgo._internal.strconv.Strconv.NumError) from stdgo._internal.strconv.Strconv.NumError to stdgo._internal.strconv.Strconv.NumError {
-
+private function get_baseError():(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> return (_0, _1, _2) -> stdgo._internal.strconv.Strconv.baseError(_0, _1, _2);
+private function set_baseError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError>):(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> {
+        stdgo._internal.strconv.Strconv.baseError = v;
+        return v;
+    }
+abstract NumError(stdgo._internal.strconv.Strconv.NumError) from stdgo._internal.strconv.Strconv.NumError to stdgo._internal.strconv.Strconv.NumError {
+    public var func(get, set) : String;
+    function get_func():String return this.func;
+    function set_func(v:String):String {
+        this.func = v;
+        return v;
+    }
+    public var num(get, set) : String;
+    function get_num():String return this.num;
+    function set_num(v:String):String {
+        this.num = v;
+        return v;
+    }
+    public var err(get, set) : stdgo.Error;
+    function get_err():stdgo.Error return this.err;
+    function set_err(v:stdgo.Error):stdgo.Error {
+        this.err = v;
+        return v;
+    }
+    public function new(?func:String, ?num:String, ?err:stdgo.Error) this = new stdgo._internal.strconv.Strconv.NumError(func, num, err);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_decimal(stdgo._internal.strconv.Strconv.T_decimal) from stdgo._internal.strconv.Strconv.T_decimal to stdgo._internal.strconv.Strconv.T_decimal {
-
+abstract T_decimal(stdgo._internal.strconv.Strconv.T_decimal) from stdgo._internal.strconv.Strconv.T_decimal to stdgo._internal.strconv.Strconv.T_decimal {
+    public var _d(get, set) : haxe.ds.Vector<std.UInt>;
+    function get__d():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._d) i]);
+    function set__d(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
+        this._d = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _nd(get, set) : StdTypes.Int;
+    function get__nd():StdTypes.Int return this._nd;
+    function set__nd(v:StdTypes.Int):StdTypes.Int {
+        this._nd = v;
+        return v;
+    }
+    public var _dp(get, set) : StdTypes.Int;
+    function get__dp():StdTypes.Int return this._dp;
+    function set__dp(v:StdTypes.Int):StdTypes.Int {
+        this._dp = v;
+        return v;
+    }
+    public var _neg(get, set) : Bool;
+    function get__neg():Bool return this._neg;
+    function set__neg(v:Bool):Bool {
+        this._neg = v;
+        return v;
+    }
+    public var _trunc(get, set) : Bool;
+    function get__trunc():Bool return this._trunc;
+    function set__trunc(v:Bool):Bool {
+        this._trunc = v;
+        return v;
+    }
+    public function new(?_d:haxe.ds.Vector<std.UInt>, ?_nd:StdTypes.Int, ?_dp:StdTypes.Int, ?_neg:Bool, ?_trunc:Bool) this = new stdgo._internal.strconv.Strconv.T_decimal(([for (i in _d) i] : stdgo.GoArray<stdgo.GoUInt8>), _nd, _dp, _neg, _trunc);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_leftCheat(stdgo._internal.strconv.Strconv.T_leftCheat) from stdgo._internal.strconv.Strconv.T_leftCheat to stdgo._internal.strconv.Strconv.T_leftCheat {
-
+abstract T_leftCheat(stdgo._internal.strconv.Strconv.T_leftCheat) from stdgo._internal.strconv.Strconv.T_leftCheat to stdgo._internal.strconv.Strconv.T_leftCheat {
+    public var _delta(get, set) : StdTypes.Int;
+    function get__delta():StdTypes.Int return this._delta;
+    function set__delta(v:StdTypes.Int):StdTypes.Int {
+        this._delta = v;
+        return v;
+    }
+    public var _cutoff(get, set) : String;
+    function get__cutoff():String return this._cutoff;
+    function set__cutoff(v:String):String {
+        this._cutoff = v;
+        return v;
+    }
+    public function new(?_delta:StdTypes.Int, ?_cutoff:String) this = new stdgo._internal.strconv.Strconv.T_leftCheat(_delta, _cutoff);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_floatInfo(stdgo._internal.strconv.Strconv.T_floatInfo) from stdgo._internal.strconv.Strconv.T_floatInfo to stdgo._internal.strconv.Strconv.T_floatInfo {
-
+abstract T_floatInfo(stdgo._internal.strconv.Strconv.T_floatInfo) from stdgo._internal.strconv.Strconv.T_floatInfo to stdgo._internal.strconv.Strconv.T_floatInfo {
+    public var _mantbits(get, set) : std.UInt;
+    function get__mantbits():std.UInt return this._mantbits;
+    function set__mantbits(v:std.UInt):std.UInt {
+        this._mantbits = v;
+        return v;
+    }
+    public var _expbits(get, set) : std.UInt;
+    function get__expbits():std.UInt return this._expbits;
+    function set__expbits(v:std.UInt):std.UInt {
+        this._expbits = v;
+        return v;
+    }
+    public var _bias(get, set) : StdTypes.Int;
+    function get__bias():StdTypes.Int return this._bias;
+    function set__bias(v:StdTypes.Int):StdTypes.Int {
+        this._bias = v;
+        return v;
+    }
+    public function new(?_mantbits:std.UInt, ?_expbits:std.UInt, ?_bias:StdTypes.Int) this = new stdgo._internal.strconv.Strconv.T_floatInfo(_mantbits, _expbits, _bias);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_decimalSlice(stdgo._internal.strconv.Strconv.T_decimalSlice) from stdgo._internal.strconv.Strconv.T_decimalSlice to stdgo._internal.strconv.Strconv.T_decimalSlice {
-
-}
-@:forward @:forward.new abstract NumError_asInterface(stdgo._internal.strconv.Strconv.NumError_asInterface) from stdgo._internal.strconv.Strconv.NumError_asInterface to stdgo._internal.strconv.Strconv.NumError_asInterface {
-
-}
-@:forward @:forward.new abstract NumError_static_extension(stdgo._internal.strconv.Strconv.NumError_static_extension) from stdgo._internal.strconv.Strconv.NumError_static_extension to stdgo._internal.strconv.Strconv.NumError_static_extension {
-
-}
-@:forward @:forward.new abstract T_decimal_asInterface(stdgo._internal.strconv.Strconv.T_decimal_asInterface) from stdgo._internal.strconv.Strconv.T_decimal_asInterface to stdgo._internal.strconv.Strconv.T_decimal_asInterface {
-
-}
-@:forward @:forward.new abstract T_decimal_static_extension(stdgo._internal.strconv.Strconv.T_decimal_static_extension) from stdgo._internal.strconv.Strconv.T_decimal_static_extension to stdgo._internal.strconv.Strconv.T_decimal_static_extension {
-
+abstract T_decimalSlice(stdgo._internal.strconv.Strconv.T_decimalSlice) from stdgo._internal.strconv.Strconv.T_decimalSlice to stdgo._internal.strconv.Strconv.T_decimalSlice {
+    public var _d(get, set) : Array<std.UInt>;
+    function get__d():Array<std.UInt> return [for (i in this._d) i];
+    function set__d(v:Array<std.UInt>):Array<std.UInt> {
+        this._d = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _nd(get, set) : StdTypes.Int;
+    function get__nd():StdTypes.Int return this._nd;
+    function set__nd(v:StdTypes.Int):StdTypes.Int {
+        this._nd = v;
+        return v;
+    }
+    public var _dp(get, set) : StdTypes.Int;
+    function get__dp():StdTypes.Int return this._dp;
+    function set__dp(v:StdTypes.Int):StdTypes.Int {
+        this._dp = v;
+        return v;
+    }
+    public function new(?_d:Array<std.UInt>, ?_nd:StdTypes.Int, ?_dp:StdTypes.Int) this = new stdgo._internal.strconv.Strconv.T_decimalSlice(([for (i in _d) i] : stdgo.Slice<stdgo.GoUInt8>), _nd, _dp);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 class Strconv {
     /**

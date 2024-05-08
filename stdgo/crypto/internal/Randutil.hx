@@ -4,12 +4,6 @@ package stdgo.crypto.internal;
     crypto packages.
 **/
 private var __go2hxdoc__package : Bool;
-@:forward @:forward.new abstract T__struct_0_asInterface(stdgo._internal.crypto.internal.randutil.Randutil.T__struct_0_asInterface) from stdgo._internal.crypto.internal.randutil.Randutil.T__struct_0_asInterface to stdgo._internal.crypto.internal.randutil.Randutil.T__struct_0_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_0_static_extension(stdgo._internal.crypto.internal.randutil.Randutil.T__struct_0_static_extension) from stdgo._internal.crypto.internal.randutil.Randutil.T__struct_0_static_extension to stdgo._internal.crypto.internal.randutil.Randutil.T__struct_0_static_extension {
-
-}
 typedef T__struct_0 = stdgo._internal.crypto.internal.randutil.Randutil.T__struct_0;
 class Randutil {
     /**

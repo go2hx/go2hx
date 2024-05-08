@@ -3,51 +3,40 @@ package stdgo;
     Package sort provides primitives for sorting slices and user-defined collections.
 **/
 private var __go2hxdoc__package : Bool;
-@:forward @:forward.new abstract Interface_static_extension(stdgo._internal.sort.Sort.Interface_static_extension) from stdgo._internal.sort.Sort.Interface_static_extension to stdgo._internal.sort.Sort.Interface_static_extension {
-
-}
 typedef Interface = stdgo._internal.sort.Sort.Interface;
-@:forward @:forward.new abstract T_lessSwap(stdgo._internal.sort.Sort.T_lessSwap) from stdgo._internal.sort.Sort.T_lessSwap to stdgo._internal.sort.Sort.T_lessSwap {
-
+abstract T_lessSwap(stdgo._internal.sort.Sort.T_lessSwap) from stdgo._internal.sort.Sort.T_lessSwap to stdgo._internal.sort.Sort.T_lessSwap {
+    public var less(get, set) : (stdgo.GoInt, stdgo.GoInt) -> Bool;
+    function get_less():(stdgo.GoInt, stdgo.GoInt) -> Bool return (_0, _1) -> this.less(_0, _1);
+    function set_less(v:(stdgo.GoInt, stdgo.GoInt) -> Bool):(stdgo.GoInt, stdgo.GoInt) -> Bool {
+        this.less = v;
+        return v;
+    }
+    public var swap(get, set) : (stdgo.GoInt, stdgo.GoInt) -> Void;
+    function get_swap():(stdgo.GoInt, stdgo.GoInt) -> Void return (_0, _1) -> this.swap(_0, _1);
+    function set_swap(v:(stdgo.GoInt, stdgo.GoInt) -> Void):(stdgo.GoInt, stdgo.GoInt) -> Void {
+        this.swap = v;
+        return v;
+    }
+    public function new(?less:(stdgo.GoInt, stdgo.GoInt) -> Bool, ?swap:(stdgo.GoInt, stdgo.GoInt) -> Void) this = new stdgo._internal.sort.Sort.T_lessSwap(less, swap);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_reverse(stdgo._internal.sort.Sort.T_reverse) from stdgo._internal.sort.Sort.T_reverse to stdgo._internal.sort.Sort.T_reverse {
-
+abstract T_reverse(stdgo._internal.sort.Sort.T_reverse) from stdgo._internal.sort.Sort.T_reverse to stdgo._internal.sort.Sort.T_reverse {
+    public var interface_(get, set) : stdgo._internal.sort.Sort.Interface;
+    function get_interface_():stdgo._internal.sort.Sort.Interface return this.interface_;
+    function set_interface_(v:stdgo._internal.sort.Sort.Interface):stdgo._internal.sort.Sort.Interface {
+        this.interface_ = v;
+        return v;
+    }
+    public function new(?interface_:stdgo._internal.sort.Sort.Interface) this = new stdgo._internal.sort.Sort.T_reverse(interface_);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef T_sortedHint = stdgo._internal.sort.Sort.T_sortedHint;
 typedef T_xorshift = stdgo._internal.sort.Sort.T_xorshift;
 typedef IntSlice = stdgo._internal.sort.Sort.IntSlice;
 typedef Float64Slice = stdgo._internal.sort.Sort.Float64Slice;
 typedef StringSlice = stdgo._internal.sort.Sort.StringSlice;
-@:forward @:forward.new abstract T_reverse_asInterface(stdgo._internal.sort.Sort.T_reverse_asInterface) from stdgo._internal.sort.Sort.T_reverse_asInterface to stdgo._internal.sort.Sort.T_reverse_asInterface {
-
-}
-@:forward @:forward.new abstract T_reverse_static_extension(stdgo._internal.sort.Sort.T_reverse_static_extension) from stdgo._internal.sort.Sort.T_reverse_static_extension to stdgo._internal.sort.Sort.T_reverse_static_extension {
-
-}
-@:forward @:forward.new abstract T_xorshift_asInterface(stdgo._internal.sort.Sort.T_xorshift_asInterface) from stdgo._internal.sort.Sort.T_xorshift_asInterface to stdgo._internal.sort.Sort.T_xorshift_asInterface {
-
-}
-@:forward @:forward.new abstract T_xorshift_static_extension(stdgo._internal.sort.Sort.T_xorshift_static_extension) from stdgo._internal.sort.Sort.T_xorshift_static_extension to stdgo._internal.sort.Sort.T_xorshift_static_extension {
-
-}
-@:forward @:forward.new abstract IntSlice_asInterface(stdgo._internal.sort.Sort.IntSlice_asInterface) from stdgo._internal.sort.Sort.IntSlice_asInterface to stdgo._internal.sort.Sort.IntSlice_asInterface {
-
-}
-@:forward @:forward.new abstract IntSlice_static_extension(stdgo._internal.sort.Sort.IntSlice_static_extension) from stdgo._internal.sort.Sort.IntSlice_static_extension to stdgo._internal.sort.Sort.IntSlice_static_extension {
-
-}
-@:forward @:forward.new abstract Float64Slice_asInterface(stdgo._internal.sort.Sort.Float64Slice_asInterface) from stdgo._internal.sort.Sort.Float64Slice_asInterface to stdgo._internal.sort.Sort.Float64Slice_asInterface {
-
-}
-@:forward @:forward.new abstract Float64Slice_static_extension(stdgo._internal.sort.Sort.Float64Slice_static_extension) from stdgo._internal.sort.Sort.Float64Slice_static_extension to stdgo._internal.sort.Sort.Float64Slice_static_extension {
-
-}
-@:forward @:forward.new abstract StringSlice_asInterface(stdgo._internal.sort.Sort.StringSlice_asInterface) from stdgo._internal.sort.Sort.StringSlice_asInterface to stdgo._internal.sort.Sort.StringSlice_asInterface {
-
-}
-@:forward @:forward.new abstract StringSlice_static_extension(stdgo._internal.sort.Sort.StringSlice_static_extension) from stdgo._internal.sort.Sort.StringSlice_static_extension to stdgo._internal.sort.Sort.StringSlice_static_extension {
-
-}
 class Sort {
     static public function heapsort(data:Interface):Void {
         stdgo._internal.sort.Sort.heapsort(data);

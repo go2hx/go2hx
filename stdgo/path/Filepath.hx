@@ -13,35 +13,75 @@ final separator : StdTypes.Int = stdgo._internal.path.filepath.Filepath.separato
 final listSeparator : StdTypes.Int = stdgo._internal.path.filepath.Filepath.listSeparator;
 var errBadPattern(get, set) : stdgo.Error;
 private function get_errBadPattern():stdgo.Error return stdgo._internal.path.filepath.Filepath.errBadPattern;
-private function set_errBadPattern(v:stdgo.Error):stdgo.Error return stdgo._internal.path.filepath.Filepath.errBadPattern = v;
+private function set_errBadPattern(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.path.filepath.Filepath.errBadPattern = v;
+        return v;
+    }
 var skipDir(get, set) : stdgo.Error;
 private function get_skipDir():stdgo.Error return stdgo._internal.path.filepath.Filepath.skipDir;
-private function set_skipDir(v:stdgo.Error):stdgo.Error return stdgo._internal.path.filepath.Filepath.skipDir = v;
+private function set_skipDir(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.path.filepath.Filepath.skipDir = v;
+        return v;
+    }
 var skipAll(get, set) : stdgo.Error;
 private function get_skipAll():stdgo.Error return stdgo._internal.path.filepath.Filepath.skipAll;
-private function set_skipAll(v:stdgo.Error):stdgo.Error return stdgo._internal.path.filepath.Filepath.skipAll = v;
+private function set_skipAll(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.path.filepath.Filepath.skipAll = v;
+        return v;
+    }
 var lstatP(get, set) : stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; };
 private function get_lstatP():stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return stdgo._internal.path.filepath.Filepath.lstatP;
-private function set_lstatP(v:stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; }):stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return stdgo._internal.path.filepath.Filepath.lstatP = v;
-@:forward @:forward.new abstract T_lazybuf(stdgo._internal.path.filepath.Filepath.T_lazybuf) from stdgo._internal.path.filepath.Filepath.T_lazybuf to stdgo._internal.path.filepath.Filepath.T_lazybuf {
-
+private function set_lstatP(v:stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; }):stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } {
+        stdgo._internal.path.filepath.Filepath.lstatP = v;
+        return v;
+    }
+abstract T_lazybuf(stdgo._internal.path.filepath.Filepath.T_lazybuf) from stdgo._internal.path.filepath.Filepath.T_lazybuf to stdgo._internal.path.filepath.Filepath.T_lazybuf {
+    public var _path(get, set) : String;
+    function get__path():String return this._path;
+    function set__path(v:String):String {
+        this._path = v;
+        return v;
+    }
+    public var _buf(get, set) : Array<std.UInt>;
+    function get__buf():Array<std.UInt> return [for (i in this._buf) i];
+    function set__buf(v:Array<std.UInt>):Array<std.UInt> {
+        this._buf = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _w(get, set) : StdTypes.Int;
+    function get__w():StdTypes.Int return this._w;
+    function set__w(v:StdTypes.Int):StdTypes.Int {
+        this._w = v;
+        return v;
+    }
+    public var _volAndPath(get, set) : String;
+    function get__volAndPath():String return this._volAndPath;
+    function set__volAndPath(v:String):String {
+        this._volAndPath = v;
+        return v;
+    }
+    public var _volLen(get, set) : StdTypes.Int;
+    function get__volLen():StdTypes.Int return this._volLen;
+    function set__volLen(v:StdTypes.Int):StdTypes.Int {
+        this._volLen = v;
+        return v;
+    }
+    public function new(?_path:String, ?_buf:Array<std.UInt>, ?_w:StdTypes.Int, ?_volAndPath:String, ?_volLen:StdTypes.Int) this = new stdgo._internal.path.filepath.Filepath.T_lazybuf(_path, ([for (i in _buf) i] : stdgo.Slice<stdgo.GoUInt8>), _w, _volAndPath, _volLen);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_statDirEntry(stdgo._internal.path.filepath.Filepath.T_statDirEntry) from stdgo._internal.path.filepath.Filepath.T_statDirEntry to stdgo._internal.path.filepath.Filepath.T_statDirEntry {
-
+abstract T_statDirEntry(stdgo._internal.path.filepath.Filepath.T_statDirEntry) from stdgo._internal.path.filepath.Filepath.T_statDirEntry to stdgo._internal.path.filepath.Filepath.T_statDirEntry {
+    public var _info(get, set) : stdgo._internal.io.fs.Fs.FileInfo;
+    function get__info():stdgo._internal.io.fs.Fs.FileInfo return this._info;
+    function set__info(v:stdgo._internal.io.fs.Fs.FileInfo):stdgo._internal.io.fs.Fs.FileInfo {
+        this._info = v;
+        return v;
+    }
+    public function new(?_info:stdgo._internal.io.fs.Fs.FileInfo) this = new stdgo._internal.path.filepath.Filepath.T_statDirEntry(_info);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef WalkFunc = stdgo._internal.path.filepath.Filepath.WalkFunc;
-@:forward @:forward.new abstract T_lazybuf_asInterface(stdgo._internal.path.filepath.Filepath.T_lazybuf_asInterface) from stdgo._internal.path.filepath.Filepath.T_lazybuf_asInterface to stdgo._internal.path.filepath.Filepath.T_lazybuf_asInterface {
-
-}
-@:forward @:forward.new abstract T_lazybuf_static_extension(stdgo._internal.path.filepath.Filepath.T_lazybuf_static_extension) from stdgo._internal.path.filepath.Filepath.T_lazybuf_static_extension to stdgo._internal.path.filepath.Filepath.T_lazybuf_static_extension {
-
-}
-@:forward @:forward.new abstract T_statDirEntry_asInterface(stdgo._internal.path.filepath.Filepath.T_statDirEntry_asInterface) from stdgo._internal.path.filepath.Filepath.T_statDirEntry_asInterface to stdgo._internal.path.filepath.Filepath.T_statDirEntry_asInterface {
-
-}
-@:forward @:forward.new abstract T_statDirEntry_static_extension(stdgo._internal.path.filepath.Filepath.T_statDirEntry_static_extension) from stdgo._internal.path.filepath.Filepath.T_statDirEntry_static_extension to stdgo._internal.path.filepath.Filepath.T_statDirEntry_static_extension {
-
-}
 class Filepath {
     /**
         Match reports whether name matches the shell file name pattern.

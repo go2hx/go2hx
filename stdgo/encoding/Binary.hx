@@ -21,153 +21,410 @@ package stdgo.encoding;
 private var __go2hxdoc__package : Bool;
 var littleEndian(get, set) : T_littleEndian;
 private function get_littleEndian():T_littleEndian return stdgo._internal.encoding.binary.Binary.littleEndian;
-private function set_littleEndian(v:T_littleEndian):T_littleEndian return stdgo._internal.encoding.binary.Binary.littleEndian = v;
+private function set_littleEndian(v:T_littleEndian):T_littleEndian {
+        stdgo._internal.encoding.binary.Binary.littleEndian = v;
+        return v;
+    }
 var bigEndian(get, set) : T_bigEndian;
 private function get_bigEndian():T_bigEndian return stdgo._internal.encoding.binary.Binary.bigEndian;
-private function set_bigEndian(v:T_bigEndian):T_bigEndian return stdgo._internal.encoding.binary.Binary.bigEndian = v;
+private function set_bigEndian(v:T_bigEndian):T_bigEndian {
+        stdgo._internal.encoding.binary.Binary.bigEndian = v;
+        return v;
+    }
 var nativeEndian(get, set) : T_nativeEndian;
 private function get_nativeEndian():T_nativeEndian return stdgo._internal.encoding.binary.Binary.nativeEndian;
-private function set_nativeEndian(v:T_nativeEndian):T_nativeEndian return stdgo._internal.encoding.binary.Binary.nativeEndian = v;
+private function set_nativeEndian(v:T_nativeEndian):T_nativeEndian {
+        stdgo._internal.encoding.binary.Binary.nativeEndian = v;
+        return v;
+    }
 final maxVarintLen16 : haxe.UInt64 = stdgo._internal.encoding.binary.Binary.maxVarintLen16;
 final maxVarintLen32 : haxe.UInt64 = stdgo._internal.encoding.binary.Binary.maxVarintLen32;
 final maxVarintLen64 : haxe.UInt64 = stdgo._internal.encoding.binary.Binary.maxVarintLen64;
-@:forward @:forward.new abstract ByteOrder_static_extension(stdgo._internal.encoding.binary.Binary.ByteOrder_static_extension) from stdgo._internal.encoding.binary.Binary.ByteOrder_static_extension to stdgo._internal.encoding.binary.Binary.ByteOrder_static_extension {
-
-}
 typedef ByteOrder = stdgo._internal.encoding.binary.Binary.ByteOrder;
-@:forward @:forward.new abstract AppendByteOrder_static_extension(stdgo._internal.encoding.binary.Binary.AppendByteOrder_static_extension) from stdgo._internal.encoding.binary.Binary.AppendByteOrder_static_extension to stdgo._internal.encoding.binary.Binary.AppendByteOrder_static_extension {
-
-}
 typedef AppendByteOrder = stdgo._internal.encoding.binary.Binary.AppendByteOrder;
-@:forward @:forward.new abstract T_littleEndian(stdgo._internal.encoding.binary.Binary.T_littleEndian) from stdgo._internal.encoding.binary.Binary.T_littleEndian to stdgo._internal.encoding.binary.Binary.T_littleEndian {
-
+abstract T_littleEndian(stdgo._internal.encoding.binary.Binary.T_littleEndian) from stdgo._internal.encoding.binary.Binary.T_littleEndian to stdgo._internal.encoding.binary.Binary.T_littleEndian {
+    public function new() this = new stdgo._internal.encoding.binary.Binary.T_littleEndian();
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_bigEndian(stdgo._internal.encoding.binary.Binary.T_bigEndian) from stdgo._internal.encoding.binary.Binary.T_bigEndian to stdgo._internal.encoding.binary.Binary.T_bigEndian {
-
+abstract T_bigEndian(stdgo._internal.encoding.binary.Binary.T_bigEndian) from stdgo._internal.encoding.binary.Binary.T_bigEndian to stdgo._internal.encoding.binary.Binary.T_bigEndian {
+    public function new() this = new stdgo._internal.encoding.binary.Binary.T_bigEndian();
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_coder(stdgo._internal.encoding.binary.Binary.T_coder) from stdgo._internal.encoding.binary.Binary.T_coder to stdgo._internal.encoding.binary.Binary.T_coder {
-
+abstract T_coder(stdgo._internal.encoding.binary.Binary.T_coder) from stdgo._internal.encoding.binary.Binary.T_coder to stdgo._internal.encoding.binary.Binary.T_coder {
+    public var _order(get, set) : stdgo._internal.encoding.binary.Binary.ByteOrder;
+    function get__order():stdgo._internal.encoding.binary.Binary.ByteOrder return this._order;
+    function set__order(v:stdgo._internal.encoding.binary.Binary.ByteOrder):stdgo._internal.encoding.binary.Binary.ByteOrder {
+        this._order = v;
+        return v;
+    }
+    public var _buf(get, set) : Array<std.UInt>;
+    function get__buf():Array<std.UInt> return [for (i in this._buf) i];
+    function set__buf(v:Array<std.UInt>):Array<std.UInt> {
+        this._buf = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _offset(get, set) : StdTypes.Int;
+    function get__offset():StdTypes.Int return this._offset;
+    function set__offset(v:StdTypes.Int):StdTypes.Int {
+        this._offset = v;
+        return v;
+    }
+    public function new(?_order:stdgo._internal.encoding.binary.Binary.ByteOrder, ?_buf:Array<std.UInt>, ?_offset:StdTypes.Int) this = new stdgo._internal.encoding.binary.Binary.T_coder(_order, ([for (i in _buf) i] : stdgo.Slice<stdgo.GoUInt8>), _offset);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Struct(stdgo._internal.encoding.binary.Binary.Struct) from stdgo._internal.encoding.binary.Binary.Struct to stdgo._internal.encoding.binary.Binary.Struct {
-
+abstract Struct(stdgo._internal.encoding.binary.Binary.Struct) from stdgo._internal.encoding.binary.Binary.Struct to stdgo._internal.encoding.binary.Binary.Struct {
+    public var int8(get, set) : StdTypes.Int;
+    function get_int8():StdTypes.Int return this.int8;
+    function set_int8(v:StdTypes.Int):StdTypes.Int {
+        this.int8 = v;
+        return v;
+    }
+    public var int16(get, set) : StdTypes.Int;
+    function get_int16():StdTypes.Int return this.int16;
+    function set_int16(v:StdTypes.Int):StdTypes.Int {
+        this.int16 = v;
+        return v;
+    }
+    public var int32(get, set) : StdTypes.Int;
+    function get_int32():StdTypes.Int return this.int32;
+    function set_int32(v:StdTypes.Int):StdTypes.Int {
+        this.int32 = v;
+        return v;
+    }
+    public var int64(get, set) : haxe.Int64;
+    function get_int64():haxe.Int64 return this.int64;
+    function set_int64(v:haxe.Int64):haxe.Int64 {
+        this.int64 = v;
+        return v;
+    }
+    public var uint8(get, set) : std.UInt;
+    function get_uint8():std.UInt return this.uint8;
+    function set_uint8(v:std.UInt):std.UInt {
+        this.uint8 = v;
+        return v;
+    }
+    public var uint16(get, set) : std.UInt;
+    function get_uint16():std.UInt return this.uint16;
+    function set_uint16(v:std.UInt):std.UInt {
+        this.uint16 = v;
+        return v;
+    }
+    public var uint32(get, set) : std.UInt;
+    function get_uint32():std.UInt return this.uint32;
+    function set_uint32(v:std.UInt):std.UInt {
+        this.uint32 = v;
+        return v;
+    }
+    public var uint64(get, set) : haxe.UInt64;
+    function get_uint64():haxe.UInt64 return this.uint64;
+    function set_uint64(v:haxe.UInt64):haxe.UInt64 {
+        this.uint64 = v;
+        return v;
+    }
+    public var float32(get, set) : StdTypes.Float;
+    function get_float32():StdTypes.Float return this.float32;
+    function set_float32(v:StdTypes.Float):StdTypes.Float {
+        this.float32 = v;
+        return v;
+    }
+    public var float64(get, set) : StdTypes.Float;
+    function get_float64():StdTypes.Float return this.float64;
+    function set_float64(v:StdTypes.Float):StdTypes.Float {
+        this.float64 = v;
+        return v;
+    }
+    public var complex64(get, set) : stdgo.GoComplex64;
+    function get_complex64():stdgo.GoComplex64 return this.complex64;
+    function set_complex64(v:stdgo.GoComplex64):stdgo.GoComplex64 {
+        this.complex64 = v;
+        return v;
+    }
+    public var complex128(get, set) : stdgo.GoComplex128;
+    function get_complex128():stdgo.GoComplex128 return this.complex128;
+    function set_complex128(v:stdgo.GoComplex128):stdgo.GoComplex128 {
+        this.complex128 = v;
+        return v;
+    }
+    public var array(get, set) : haxe.ds.Vector<std.UInt>;
+    function get_array():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.array) i]);
+    function set_array(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
+        this.array = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        return v;
+    }
+    public var bool_(get, set) : Bool;
+    function get_bool_():Bool return this.bool_;
+    function set_bool_(v:Bool):Bool {
+        this.bool_ = v;
+        return v;
+    }
+    public var boolArray(get, set) : haxe.ds.Vector<Bool>;
+    function get_boolArray():haxe.ds.Vector<Bool> return haxe.ds.Vector.fromArrayCopy([for (i in this.boolArray) i]);
+    function set_boolArray(v:haxe.ds.Vector<Bool>):haxe.ds.Vector<Bool> {
+        this.boolArray = ([for (i in v) i] : stdgo.GoArray<Bool>);
+        return v;
+    }
+    public function new(?int8:StdTypes.Int, ?int16:StdTypes.Int, ?int32:StdTypes.Int, ?int64:haxe.Int64, ?uint8:std.UInt, ?uint16:std.UInt, ?uint32:std.UInt, ?uint64:haxe.UInt64, ?float32:StdTypes.Float, ?float64:StdTypes.Float, ?complex64:stdgo.GoComplex64, ?complex128:stdgo.GoComplex128, ?array:haxe.ds.Vector<std.UInt>, ?bool_:Bool, ?boolArray:haxe.ds.Vector<Bool>) this = new stdgo._internal.encoding.binary.Binary.Struct(
+int8,
+int16,
+int32,
+int64,
+uint8,
+uint16,
+uint32,
+uint64,
+float32,
+float64,
+complex64,
+complex128,
+([for (i in array) i] : stdgo.GoArray<stdgo.GoUInt8>),
+bool_,
+([for (i in boolArray) i] : stdgo.GoArray<Bool>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_(stdgo._internal.encoding.binary.Binary.T_) from stdgo._internal.encoding.binary.Binary.T_ to stdgo._internal.encoding.binary.Binary.T_ {
-
+abstract T_(stdgo._internal.encoding.binary.Binary.T_) from stdgo._internal.encoding.binary.Binary.T_ to stdgo._internal.encoding.binary.Binary.T_ {
+    public var int_(get, set) : StdTypes.Int;
+    function get_int_():StdTypes.Int return this.int_;
+    function set_int_(v:StdTypes.Int):StdTypes.Int {
+        this.int_ = v;
+        return v;
+    }
+    public var uint(get, set) : std.UInt;
+    function get_uint():std.UInt return this.uint;
+    function set_uint(v:std.UInt):std.UInt {
+        this.uint = v;
+        return v;
+    }
+    public var uintptr(get, set) : stdgo.GoUIntptr;
+    function get_uintptr():stdgo.GoUIntptr return this.uintptr;
+    function set_uintptr(v:stdgo.GoUIntptr):stdgo.GoUIntptr {
+        this.uintptr = v;
+        return v;
+    }
+    public var array(get, set) : haxe.ds.Vector<StdTypes.Int>;
+    function get_array():haxe.ds.Vector<StdTypes.Int> return haxe.ds.Vector.fromArrayCopy([for (i in this.array) i]);
+    function set_array(v:haxe.ds.Vector<StdTypes.Int>):haxe.ds.Vector<StdTypes.Int> {
+        this.array = ([for (i in v) i] : stdgo.GoArray<stdgo.GoInt>);
+        return v;
+    }
+    public function new(?int_:StdTypes.Int, ?uint:std.UInt, ?uintptr:stdgo.GoUIntptr, ?array:haxe.ds.Vector<StdTypes.Int>) this = new stdgo._internal.encoding.binary.Binary.T_(int_, uint, uintptr, ([for (i in array) i] : stdgo.GoArray<stdgo.GoInt>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract BlankFields(stdgo._internal.encoding.binary.Binary.BlankFields) from stdgo._internal.encoding.binary.Binary.BlankFields to stdgo._internal.encoding.binary.Binary.BlankFields {
-
+abstract BlankFields(stdgo._internal.encoding.binary.Binary.BlankFields) from stdgo._internal.encoding.binary.Binary.BlankFields to stdgo._internal.encoding.binary.Binary.BlankFields {
+    public var a(get, set) : std.UInt;
+    function get_a():std.UInt return this.a;
+    function set_a(v:std.UInt):std.UInt {
+        this.a = v;
+        return v;
+    }
+    public var __4(get, set) : StdTypes.Int;
+    function get___4():StdTypes.Int return this.__4;
+    function set___4(v:StdTypes.Int):StdTypes.Int {
+        this.__4 = v;
+        return v;
+    }
+    public var b(get, set) : StdTypes.Float;
+    function get_b():StdTypes.Float return this.b;
+    function set_b(v:StdTypes.Float):StdTypes.Float {
+        this.b = v;
+        return v;
+    }
+    public var __5(get, set) : haxe.ds.Vector<StdTypes.Int>;
+    function get___5():haxe.ds.Vector<StdTypes.Int> return haxe.ds.Vector.fromArrayCopy([for (i in this.__5) i]);
+    function set___5(v:haxe.ds.Vector<StdTypes.Int>):haxe.ds.Vector<StdTypes.Int> {
+        this.__5 = ([for (i in v) i] : stdgo.GoArray<stdgo.GoInt16>);
+        return v;
+    }
+    public var c(get, set) : std.UInt;
+    function get_c():std.UInt return this.c;
+    function set_c(v:std.UInt):std.UInt {
+        this.c = v;
+        return v;
+    }
+    public var __6(get, set) : haxe.ds.Vector<std.UInt>;
+    function get___6():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.__6) i]);
+    function set___6(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
+        this.__6 = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        return v;
+    }
+    public var __7(get, set) : stdgo.Tuple.Tuple1<haxe.ds.Vector<StdTypes.Float>>;
+    function get___7():stdgo.Tuple.Tuple1<haxe.ds.Vector<StdTypes.Float>> return {
+        final obj = this.__7;
+        { _f : haxe.ds.Vector.fromArrayCopy([for (i in obj._f) i]) };
+    };
+    function set___7(v:stdgo.Tuple.Tuple1<haxe.ds.Vector<StdTypes.Float>>):stdgo.Tuple.Tuple1<haxe.ds.Vector<StdTypes.Float>> {
+        this.__7 = {
+            final obj = v;
+            { _f : ([for (i in obj._f) i] : stdgo.GoArray<stdgo.GoFloat32>) };
+        };
+        return v;
+    }
+    public function new(?a:std.UInt, ?__4:StdTypes.Int, ?b:StdTypes.Float, ?__5:haxe.ds.Vector<StdTypes.Int>, ?c:std.UInt, ?__6:haxe.ds.Vector<std.UInt>, ?__7:stdgo.Tuple.Tuple1<haxe.ds.Vector<StdTypes.Float>>) this = new stdgo._internal.encoding.binary.Binary.BlankFields(a, __4, b, ([for (i in __5) i] : stdgo.GoArray<stdgo.GoInt16>), c, ([for (i in __6) i] : stdgo.GoArray<stdgo.GoUInt8>), {
+        final obj = __7;
+        { _f : ([for (i in obj._f) i] : stdgo.GoArray<stdgo.GoFloat32>) };
+    });
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract BlankFieldsProbe(stdgo._internal.encoding.binary.Binary.BlankFieldsProbe) from stdgo._internal.encoding.binary.Binary.BlankFieldsProbe to stdgo._internal.encoding.binary.Binary.BlankFieldsProbe {
-
+abstract BlankFieldsProbe(stdgo._internal.encoding.binary.Binary.BlankFieldsProbe) from stdgo._internal.encoding.binary.Binary.BlankFieldsProbe to stdgo._internal.encoding.binary.Binary.BlankFieldsProbe {
+    public var a(get, set) : std.UInt;
+    function get_a():std.UInt return this.a;
+    function set_a(v:std.UInt):std.UInt {
+        this.a = v;
+        return v;
+    }
+    public var p0(get, set) : StdTypes.Int;
+    function get_p0():StdTypes.Int return this.p0;
+    function set_p0(v:StdTypes.Int):StdTypes.Int {
+        this.p0 = v;
+        return v;
+    }
+    public var b(get, set) : StdTypes.Float;
+    function get_b():StdTypes.Float return this.b;
+    function set_b(v:StdTypes.Float):StdTypes.Float {
+        this.b = v;
+        return v;
+    }
+    public var p1(get, set) : haxe.ds.Vector<StdTypes.Int>;
+    function get_p1():haxe.ds.Vector<StdTypes.Int> return haxe.ds.Vector.fromArrayCopy([for (i in this.p1) i]);
+    function set_p1(v:haxe.ds.Vector<StdTypes.Int>):haxe.ds.Vector<StdTypes.Int> {
+        this.p1 = ([for (i in v) i] : stdgo.GoArray<stdgo.GoInt16>);
+        return v;
+    }
+    public var c(get, set) : std.UInt;
+    function get_c():std.UInt return this.c;
+    function set_c(v:std.UInt):std.UInt {
+        this.c = v;
+        return v;
+    }
+    public var p2(get, set) : haxe.ds.Vector<std.UInt>;
+    function get_p2():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.p2) i]);
+    function set_p2(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
+        this.p2 = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        return v;
+    }
+    public var p3(get, set) : stdgo.Tuple.Tuple1<haxe.ds.Vector<StdTypes.Float>>;
+    function get_p3():stdgo.Tuple.Tuple1<haxe.ds.Vector<StdTypes.Float>> return {
+        final obj = this.p3;
+        { f : haxe.ds.Vector.fromArrayCopy([for (i in obj.f) i]) };
+    };
+    function set_p3(v:stdgo.Tuple.Tuple1<haxe.ds.Vector<StdTypes.Float>>):stdgo.Tuple.Tuple1<haxe.ds.Vector<StdTypes.Float>> {
+        this.p3 = {
+            final obj = v;
+            { f : ([for (i in obj.f) i] : stdgo.GoArray<stdgo.GoFloat32>) };
+        };
+        return v;
+    }
+    public function new(?a:std.UInt, ?p0:StdTypes.Int, ?b:StdTypes.Float, ?p1:haxe.ds.Vector<StdTypes.Int>, ?c:std.UInt, ?p2:haxe.ds.Vector<std.UInt>, ?p3:stdgo.Tuple.Tuple1<haxe.ds.Vector<StdTypes.Float>>) this = new stdgo._internal.encoding.binary.Binary.BlankFieldsProbe(a, p0, b, ([for (i in p1) i] : stdgo.GoArray<stdgo.GoInt16>), c, ([for (i in p2) i] : stdgo.GoArray<stdgo.GoUInt8>), {
+        final obj = p3;
+        { f : ([for (i in obj.f) i] : stdgo.GoArray<stdgo.GoFloat32>) };
+    });
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Unexported(stdgo._internal.encoding.binary.Binary.Unexported) from stdgo._internal.encoding.binary.Binary.Unexported to stdgo._internal.encoding.binary.Binary.Unexported {
-
+abstract Unexported(stdgo._internal.encoding.binary.Binary.Unexported) from stdgo._internal.encoding.binary.Binary.Unexported to stdgo._internal.encoding.binary.Binary.Unexported {
+    public var _a(get, set) : StdTypes.Int;
+    function get__a():StdTypes.Int return this._a;
+    function set__a(v:StdTypes.Int):StdTypes.Int {
+        this._a = v;
+        return v;
+    }
+    public function new(?_a:StdTypes.Int) this = new stdgo._internal.encoding.binary.Binary.Unexported(_a);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_byteSliceReader(stdgo._internal.encoding.binary.Binary.T_byteSliceReader) from stdgo._internal.encoding.binary.Binary.T_byteSliceReader to stdgo._internal.encoding.binary.Binary.T_byteSliceReader {
-
+abstract T_byteSliceReader(stdgo._internal.encoding.binary.Binary.T_byteSliceReader) from stdgo._internal.encoding.binary.Binary.T_byteSliceReader to stdgo._internal.encoding.binary.Binary.T_byteSliceReader {
+    public var _remain(get, set) : Array<std.UInt>;
+    function get__remain():Array<std.UInt> return [for (i in this._remain) i];
+    function set__remain(v:Array<std.UInt>):Array<std.UInt> {
+        this._remain = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public function new(?_remain:Array<std.UInt>) this = new stdgo._internal.encoding.binary.Binary.T_byteSliceReader(([for (i in _remain) i] : stdgo.Slice<stdgo.GoUInt8>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_nativeEndian(stdgo._internal.encoding.binary.Binary.T_nativeEndian) from stdgo._internal.encoding.binary.Binary.T_nativeEndian to stdgo._internal.encoding.binary.Binary.T_nativeEndian {
-
-}
-@:forward @:forward.new abstract T__struct_0_asInterface(stdgo._internal.encoding.binary.Binary.T__struct_0_asInterface) from stdgo._internal.encoding.binary.Binary.T__struct_0_asInterface to stdgo._internal.encoding.binary.Binary.T__struct_0_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_0_static_extension(stdgo._internal.encoding.binary.Binary.T__struct_0_static_extension) from stdgo._internal.encoding.binary.Binary.T__struct_0_static_extension to stdgo._internal.encoding.binary.Binary.T__struct_0_static_extension {
-
+abstract T_nativeEndian(stdgo._internal.encoding.binary.Binary.T_nativeEndian) from stdgo._internal.encoding.binary.Binary.T_nativeEndian to stdgo._internal.encoding.binary.Binary.T_nativeEndian {
+    public var _littleEndian(get, set) : stdgo._internal.encoding.binary.Binary.T_littleEndian;
+    function get__littleEndian():stdgo._internal.encoding.binary.Binary.T_littleEndian return this._littleEndian;
+    function set__littleEndian(v:stdgo._internal.encoding.binary.Binary.T_littleEndian):stdgo._internal.encoding.binary.Binary.T_littleEndian {
+        this._littleEndian = v;
+        return v;
+    }
+    public function new(?_littleEndian:stdgo._internal.encoding.binary.Binary.T_littleEndian) this = new stdgo._internal.encoding.binary.Binary.T_nativeEndian(_littleEndian);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef T__struct_0 = stdgo._internal.encoding.binary.Binary.T__struct_0;
-@:forward @:forward.new abstract T__struct_1_asInterface(stdgo._internal.encoding.binary.Binary.T__struct_1_asInterface) from stdgo._internal.encoding.binary.Binary.T__struct_1_asInterface to stdgo._internal.encoding.binary.Binary.T__struct_1_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_1_static_extension(stdgo._internal.encoding.binary.Binary.T__struct_1_static_extension) from stdgo._internal.encoding.binary.Binary.T__struct_1_static_extension to stdgo._internal.encoding.binary.Binary.T__struct_1_static_extension {
-
-}
 typedef T__struct_1 = stdgo._internal.encoding.binary.Binary.T__struct_1;
-@:forward @:forward.new abstract T__struct_2_asInterface(stdgo._internal.encoding.binary.Binary.T__struct_2_asInterface) from stdgo._internal.encoding.binary.Binary.T__struct_2_asInterface to stdgo._internal.encoding.binary.Binary.T__struct_2_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_2_static_extension(stdgo._internal.encoding.binary.Binary.T__struct_2_static_extension) from stdgo._internal.encoding.binary.Binary.T__struct_2_static_extension to stdgo._internal.encoding.binary.Binary.T__struct_2_static_extension {
-
-}
 typedef T__struct_2 = stdgo._internal.encoding.binary.Binary.T__struct_2;
-@:forward @:forward.new abstract T__struct_3_asInterface(stdgo._internal.encoding.binary.Binary.T__struct_3_asInterface) from stdgo._internal.encoding.binary.Binary.T__struct_3_asInterface to stdgo._internal.encoding.binary.Binary.T__struct_3_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_3_static_extension(stdgo._internal.encoding.binary.Binary.T__struct_3_static_extension) from stdgo._internal.encoding.binary.Binary.T__struct_3_static_extension to stdgo._internal.encoding.binary.Binary.T__struct_3_static_extension {
-
-}
 typedef T__struct_3 = stdgo._internal.encoding.binary.Binary.T__struct_3;
-@:forward @:forward.new abstract T__struct_4_asInterface(stdgo._internal.encoding.binary.Binary.T__struct_4_asInterface) from stdgo._internal.encoding.binary.Binary.T__struct_4_asInterface to stdgo._internal.encoding.binary.Binary.T__struct_4_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_4_static_extension(stdgo._internal.encoding.binary.Binary.T__struct_4_static_extension) from stdgo._internal.encoding.binary.Binary.T__struct_4_static_extension to stdgo._internal.encoding.binary.Binary.T__struct_4_static_extension {
-
-}
 typedef T__struct_4 = stdgo._internal.encoding.binary.Binary.T__struct_4;
-@:forward @:forward.new abstract T__struct_5_asInterface(stdgo._internal.encoding.binary.Binary.T__struct_5_asInterface) from stdgo._internal.encoding.binary.Binary.T__struct_5_asInterface to stdgo._internal.encoding.binary.Binary.T__struct_5_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_5_static_extension(stdgo._internal.encoding.binary.Binary.T__struct_5_static_extension) from stdgo._internal.encoding.binary.Binary.T__struct_5_static_extension to stdgo._internal.encoding.binary.Binary.T__struct_5_static_extension {
-
-}
 typedef T__struct_5 = stdgo._internal.encoding.binary.Binary.T__struct_5;
-@:forward @:forward.new abstract T__struct_6_asInterface(stdgo._internal.encoding.binary.Binary.T__struct_6_asInterface) from stdgo._internal.encoding.binary.Binary.T__struct_6_asInterface to stdgo._internal.encoding.binary.Binary.T__struct_6_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_6_static_extension(stdgo._internal.encoding.binary.Binary.T__struct_6_static_extension) from stdgo._internal.encoding.binary.Binary.T__struct_6_static_extension to stdgo._internal.encoding.binary.Binary.T__struct_6_static_extension {
-
-}
 typedef T__struct_6 = stdgo._internal.encoding.binary.Binary.T__struct_6;
 typedef T_decoder = stdgo._internal.encoding.binary.Binary.T_decoder;
 typedef T_encoder = stdgo._internal.encoding.binary.Binary.T_encoder;
-@:forward @:forward.new abstract T_testSizeStructCache_11___localname___foo(stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo) from stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo to stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo {
-
+abstract T_testSizeStructCache_11___localname___foo(stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo) from stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo to stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo {
+    public var a(get, set) : std.UInt;
+    function get_a():std.UInt return this.a;
+    function set_a(v:std.UInt):std.UInt {
+        this.a = v;
+        return v;
+    }
+    public function new(?a:std.UInt) this = new stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo(a);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_testSizeStructCache_12___localname___bar(stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_12___localname___bar) from stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_12___localname___bar to stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_12___localname___bar {
-
-}
-@:forward @:forward.new abstract T_testByteOrder_13___localname___byteOrder_static_extension(stdgo._internal.encoding.binary.Binary.T_testByteOrder_13___localname___byteOrder_static_extension) from stdgo._internal.encoding.binary.Binary.T_testByteOrder_13___localname___byteOrder_static_extension to stdgo._internal.encoding.binary.Binary.T_testByteOrder_13___localname___byteOrder_static_extension {
-
+abstract T_testSizeStructCache_12___localname___bar(stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_12___localname___bar) from stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_12___localname___bar to stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_12___localname___bar {
+    public var a(get, set) : stdgo._internal.encoding.binary.Binary.Struct;
+    function get_a():stdgo._internal.encoding.binary.Binary.Struct return this.a;
+    function set_a(v:stdgo._internal.encoding.binary.Binary.Struct):stdgo._internal.encoding.binary.Binary.Struct {
+        this.a = v;
+        return v;
+    }
+    public var b(get, set) : stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo;
+    function get_b():stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo return this.b;
+    function set_b(v:stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo):stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo {
+        this.b = v;
+        return v;
+    }
+    public var c(get, set) : stdgo._internal.encoding.binary.Binary.Struct;
+    function get_c():stdgo._internal.encoding.binary.Binary.Struct return this.c;
+    function set_c(v:stdgo._internal.encoding.binary.Binary.Struct):stdgo._internal.encoding.binary.Binary.Struct {
+        this.c = v;
+        return v;
+    }
+    public function new(?a:stdgo._internal.encoding.binary.Binary.Struct, ?b:stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo, ?c:stdgo._internal.encoding.binary.Binary.Struct) this = new stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_12___localname___bar(a, b, c);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef T_testByteOrder_13___localname___byteOrder = stdgo._internal.encoding.binary.Binary.T_testByteOrder_13___localname___byteOrder;
-@:forward @:forward.new abstract T_testNoFixedSize_14___localname___Person(stdgo._internal.encoding.binary.Binary.T_testNoFixedSize_14___localname___Person) from stdgo._internal.encoding.binary.Binary.T_testNoFixedSize_14___localname___Person to stdgo._internal.encoding.binary.Binary.T_testNoFixedSize_14___localname___Person {
-
-}
-@:forward @:forward.new abstract T_littleEndian_asInterface(stdgo._internal.encoding.binary.Binary.T_littleEndian_asInterface) from stdgo._internal.encoding.binary.Binary.T_littleEndian_asInterface to stdgo._internal.encoding.binary.Binary.T_littleEndian_asInterface {
-
-}
-@:forward @:forward.new abstract T_littleEndian_static_extension(stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension) from stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension to stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension {
-
-}
-@:forward @:forward.new abstract T_bigEndian_asInterface(stdgo._internal.encoding.binary.Binary.T_bigEndian_asInterface) from stdgo._internal.encoding.binary.Binary.T_bigEndian_asInterface to stdgo._internal.encoding.binary.Binary.T_bigEndian_asInterface {
-
-}
-@:forward @:forward.new abstract T_bigEndian_static_extension(stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension) from stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension to stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension {
-
-}
-@:forward @:forward.new abstract T_byteSliceReader_asInterface(stdgo._internal.encoding.binary.Binary.T_byteSliceReader_asInterface) from stdgo._internal.encoding.binary.Binary.T_byteSliceReader_asInterface to stdgo._internal.encoding.binary.Binary.T_byteSliceReader_asInterface {
-
-}
-@:forward @:forward.new abstract T_byteSliceReader_static_extension(stdgo._internal.encoding.binary.Binary.T_byteSliceReader_static_extension) from stdgo._internal.encoding.binary.Binary.T_byteSliceReader_static_extension to stdgo._internal.encoding.binary.Binary.T_byteSliceReader_static_extension {
-
-}
-@:forward @:forward.new abstract T_nativeEndian_asInterface(stdgo._internal.encoding.binary.Binary.T_nativeEndian_asInterface) from stdgo._internal.encoding.binary.Binary.T_nativeEndian_asInterface to stdgo._internal.encoding.binary.Binary.T_nativeEndian_asInterface {
-
-}
-@:forward @:forward.new abstract T_nativeEndian_static_extension(stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension) from stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension to stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension {
-
-}
-@:forward @:forward.new abstract T_decoder_asInterface(stdgo._internal.encoding.binary.Binary.T_decoder_asInterface) from stdgo._internal.encoding.binary.Binary.T_decoder_asInterface to stdgo._internal.encoding.binary.Binary.T_decoder_asInterface {
-
-}
-@:forward @:forward.new abstract T_decoder_static_extension(stdgo._internal.encoding.binary.Binary.T_decoder_static_extension) from stdgo._internal.encoding.binary.Binary.T_decoder_static_extension to stdgo._internal.encoding.binary.Binary.T_decoder_static_extension {
-
-}
-@:forward @:forward.new abstract T_encoder_asInterface(stdgo._internal.encoding.binary.Binary.T_encoder_asInterface) from stdgo._internal.encoding.binary.Binary.T_encoder_asInterface to stdgo._internal.encoding.binary.Binary.T_encoder_asInterface {
-
-}
-@:forward @:forward.new abstract T_encoder_static_extension(stdgo._internal.encoding.binary.Binary.T_encoder_static_extension) from stdgo._internal.encoding.binary.Binary.T_encoder_static_extension to stdgo._internal.encoding.binary.Binary.T_encoder_static_extension {
-
+abstract T_testNoFixedSize_14___localname___Person(stdgo._internal.encoding.binary.Binary.T_testNoFixedSize_14___localname___Person) from stdgo._internal.encoding.binary.Binary.T_testNoFixedSize_14___localname___Person to stdgo._internal.encoding.binary.Binary.T_testNoFixedSize_14___localname___Person {
+    public var age(get, set) : StdTypes.Int;
+    function get_age():StdTypes.Int return this.age;
+    function set_age(v:StdTypes.Int):StdTypes.Int {
+        this.age = v;
+        return v;
+    }
+    public var weight(get, set) : StdTypes.Float;
+    function get_weight():StdTypes.Float return this.weight;
+    function set_weight(v:StdTypes.Float):StdTypes.Float {
+        this.weight = v;
+        return v;
+    }
+    public var height(get, set) : StdTypes.Float;
+    function get_height():StdTypes.Float return this.height;
+    function set_height(v:StdTypes.Float):StdTypes.Float {
+        this.height = v;
+        return v;
+    }
+    public function new(?age:StdTypes.Int, ?weight:StdTypes.Float, ?height:StdTypes.Float) this = new stdgo._internal.encoding.binary.Binary.T_testNoFixedSize_14___localname___Person(age, weight, height);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 class Binary {
     /**

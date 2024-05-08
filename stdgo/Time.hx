@@ -126,114 +126,490 @@ final minute : stdgo._internal.time.Time.Duration = stdgo._internal.time.Time.mi
 final hour : stdgo._internal.time.Time.Duration = stdgo._internal.time.Time.hour;
 var utc(get, set) : stdgo._internal.time.Time.Location;
 private function get_utc():stdgo._internal.time.Time.Location return stdgo._internal.time.Time.utc;
-private function set_utc(v:stdgo._internal.time.Time.Location):stdgo._internal.time.Time.Location return stdgo._internal.time.Time.utc = v;
+private function set_utc(v:stdgo._internal.time.Time.Location):stdgo._internal.time.Time.Location {
+        stdgo._internal.time.Time.utc = v;
+        return v;
+    }
 var local(get, set) : stdgo._internal.time.Time.Location;
 private function get_local():stdgo._internal.time.Time.Location return stdgo._internal.time.Time.local;
-private function set_local(v:stdgo._internal.time.Time.Location):stdgo._internal.time.Time.Location return stdgo._internal.time.Time.local = v;
+private function set_local(v:stdgo._internal.time.Time.Location):stdgo._internal.time.Time.Location {
+        stdgo._internal.time.Time.local = v;
+        return v;
+    }
 var gorootZoneSource(get, set) : stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : Bool; };
-private function get_gorootZoneSource():stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : Bool; } return stdgo._internal.time.Time.gorootZoneSource;
-private function set_gorootZoneSource(v:stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : Bool; }):stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : Bool; } return stdgo._internal.time.Time.gorootZoneSource = v;
+private function get_gorootZoneSource():stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : Bool; } return _0 -> stdgo._internal.time.Time.gorootZoneSource(_0);
+private function set_gorootZoneSource(v:stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : Bool; }):stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : Bool; } {
+        stdgo._internal.time.Time.gorootZoneSource = v;
+        return v;
+    }
 var parseTimeZone(get, set) : stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : Bool; };
-private function get_parseTimeZone():stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : Bool; } return stdgo._internal.time.Time.parseTimeZone;
-private function set_parseTimeZone(v:stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : Bool; }):stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : Bool; } return stdgo._internal.time.Time.parseTimeZone = v;
+private function get_parseTimeZone():stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : Bool; } return _0 -> stdgo._internal.time.Time.parseTimeZone(_0);
+private function set_parseTimeZone(v:stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : Bool; }):stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : Bool; } {
+        stdgo._internal.time.Time.parseTimeZone = v;
+        return v;
+    }
 var setMono(get, set) : (stdgo.Ref<stdgo._internal.time.Time.Time>, stdgo.GoInt64) -> Void;
-private function get_setMono():(stdgo.Ref<stdgo._internal.time.Time.Time>, stdgo.GoInt64) -> Void return stdgo._internal.time.Time.setMono;
-private function set_setMono(v:(stdgo.Ref<stdgo._internal.time.Time.Time>, stdgo.GoInt64) -> Void):(stdgo.Ref<stdgo._internal.time.Time.Time>, stdgo.GoInt64) -> Void return stdgo._internal.time.Time.setMono = v;
+private function get_setMono():(stdgo.Ref<stdgo._internal.time.Time.Time>, stdgo.GoInt64) -> Void return (_0, _1) -> stdgo._internal.time.Time.setMono(_0, _1);
+private function set_setMono(v:(stdgo.Ref<stdgo._internal.time.Time.Time>, stdgo.GoInt64) -> Void):(stdgo.Ref<stdgo._internal.time.Time.Time>, stdgo.GoInt64) -> Void {
+        stdgo._internal.time.Time.setMono = v;
+        return v;
+    }
 var getMono(get, set) : stdgo.Ref<stdgo._internal.time.Time.Time> -> stdgo.GoInt64;
-private function get_getMono():stdgo.Ref<stdgo._internal.time.Time.Time> -> stdgo.GoInt64 return stdgo._internal.time.Time.getMono;
-private function set_getMono(v:stdgo.Ref<stdgo._internal.time.Time.Time> -> stdgo.GoInt64):stdgo.Ref<stdgo._internal.time.Time.Time> -> stdgo.GoInt64 return stdgo._internal.time.Time.getMono = v;
+private function get_getMono():stdgo.Ref<stdgo._internal.time.Time.Time> -> stdgo.GoInt64 return _0 -> stdgo._internal.time.Time.getMono(_0);
+private function set_getMono(v:stdgo.Ref<stdgo._internal.time.Time.Time> -> stdgo.GoInt64):stdgo.Ref<stdgo._internal.time.Time.Time> -> stdgo.GoInt64 {
+        stdgo._internal.time.Time.getMono = v;
+        return v;
+    }
 var errLocation(get, set) : stdgo.Error;
 private function get_errLocation():stdgo.Error return stdgo._internal.time.Time.errLocation;
-private function set_errLocation(v:stdgo.Error):stdgo.Error return stdgo._internal.time.Time.errLocation = v;
+private function set_errLocation(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.time.Time.errLocation = v;
+        return v;
+    }
 var readFile(get, set) : stdgo.GoString -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; };
-private function get_readFile():stdgo.GoString -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return stdgo._internal.time.Time.readFile;
-private function set_readFile(v:stdgo.GoString -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }):stdgo.GoString -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return stdgo._internal.time.Time.readFile = v;
+private function get_readFile():stdgo.GoString -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return _0 -> stdgo._internal.time.Time.readFile(_0);
+private function set_readFile(v:stdgo.GoString -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }):stdgo.GoString -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
+        stdgo._internal.time.Time.readFile = v;
+        return v;
+    }
 var loadTzinfo(get, set) : (stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; };
-private function get_loadTzinfo():(stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return stdgo._internal.time.Time.loadTzinfo;
-private function set_loadTzinfo(v:(stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }):(stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return stdgo._internal.time.Time.loadTzinfo = v;
+private function get_loadTzinfo():(stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return (_0, _1) -> stdgo._internal.time.Time.loadTzinfo(_0, _1);
+private function set_loadTzinfo(v:(stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }):(stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
+        stdgo._internal.time.Time.loadTzinfo = v;
+        return v;
+    }
 var nextStdChunk(get, set) : stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoString; };
-private function get_nextStdChunk():stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoString; } return stdgo._internal.time.Time.nextStdChunk;
-private function set_nextStdChunk(v:stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoString; }):stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoString; } return stdgo._internal.time.Time.nextStdChunk = v;
+private function get_nextStdChunk():stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoString; } return _0 -> stdgo._internal.time.Time.nextStdChunk(_0);
+private function set_nextStdChunk(v:stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoString; }):stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoString; } {
+        stdgo._internal.time.Time.nextStdChunk = v;
+        return v;
+    }
 var tzset(get, set) : (stdgo.GoString, stdgo.GoInt64, stdgo.GoInt64) -> { var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt64; var _3 : stdgo.GoInt64; var _4 : Bool; var _5 : Bool; };
-private function get_tzset():(stdgo.GoString, stdgo.GoInt64, stdgo.GoInt64) -> { var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt64; var _3 : stdgo.GoInt64; var _4 : Bool; var _5 : Bool; } return stdgo._internal.time.Time.tzset;
-private function set_tzset(v:(stdgo.GoString, stdgo.GoInt64, stdgo.GoInt64) -> { var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt64; var _3 : stdgo.GoInt64; var _4 : Bool; var _5 : Bool; }):(stdgo.GoString, stdgo.GoInt64, stdgo.GoInt64) -> { var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt64; var _3 : stdgo.GoInt64; var _4 : Bool; var _5 : Bool; } return stdgo._internal.time.Time.tzset = v;
+private function get_tzset():(stdgo.GoString, stdgo.GoInt64, stdgo.GoInt64) -> { var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt64; var _3 : stdgo.GoInt64; var _4 : Bool; var _5 : Bool; } return (_0, _1, _2) -> stdgo._internal.time.Time.tzset(_0, _1, _2);
+private function set_tzset(v:(stdgo.GoString, stdgo.GoInt64, stdgo.GoInt64) -> { var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt64; var _3 : stdgo.GoInt64; var _4 : Bool; var _5 : Bool; }):(stdgo.GoString, stdgo.GoInt64, stdgo.GoInt64) -> { var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt64; var _3 : stdgo.GoInt64; var _4 : Bool; var _5 : Bool; } {
+        stdgo._internal.time.Time.tzset = v;
+        return v;
+    }
 var tzsetName(get, set) : stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; };
-private function get_tzsetName():stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } return stdgo._internal.time.Time.tzsetName;
-private function set_tzsetName(v:stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; }):stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } return stdgo._internal.time.Time.tzsetName = v;
+private function get_tzsetName():stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } return _0 -> stdgo._internal.time.Time.tzsetName(_0);
+private function set_tzsetName(v:stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; }):stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } {
+        stdgo._internal.time.Time.tzsetName = v;
+        return v;
+    }
 var tzsetOffset(get, set) : stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; };
-private function get_tzsetOffset():stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; } return stdgo._internal.time.Time.tzsetOffset;
-private function set_tzsetOffset(v:stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; }):stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; } return stdgo._internal.time.Time.tzsetOffset = v;
+private function get_tzsetOffset():stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; } return _0 -> stdgo._internal.time.Time.tzsetOffset(_0);
+private function set_tzsetOffset(v:stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; }):stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; } {
+        stdgo._internal.time.Time.tzsetOffset = v;
+        return v;
+    }
 var stdChunkNames(get, set) : stdgo.GoMap<stdgo.GoInt, stdgo.GoString>;
 private function get_stdChunkNames():stdgo.GoMap<stdgo.GoInt, stdgo.GoString> return stdgo._internal.time.Time.stdChunkNames;
-private function set_stdChunkNames(v:stdgo.GoMap<stdgo.GoInt, stdgo.GoString>):stdgo.GoMap<stdgo.GoInt, stdgo.GoString> return stdgo._internal.time.Time.stdChunkNames = v;
+private function set_stdChunkNames(v:stdgo.GoMap<stdgo.GoInt, stdgo.GoString>):stdgo.GoMap<stdgo.GoInt, stdgo.GoString> {
+        stdgo._internal.time.Time.stdChunkNames = v;
+        return v;
+    }
 var quote(get, set) : stdgo.GoString -> stdgo.GoString;
-private function get_quote():stdgo.GoString -> stdgo.GoString return stdgo._internal.time.Time.quote;
-private function set_quote(v:stdgo.GoString -> stdgo.GoString):stdgo.GoString -> stdgo.GoString return stdgo._internal.time.Time.quote = v;
+private function get_quote():stdgo.GoString -> stdgo.GoString return _0 -> stdgo._internal.time.Time.quote(_0);
+private function set_quote(v:stdgo.GoString -> stdgo.GoString):stdgo.GoString -> stdgo.GoString {
+        stdgo._internal.time.Time.quote = v;
+        return v;
+    }
 var appendInt(get, set) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt, stdgo.GoInt) -> stdgo.Slice<stdgo.GoUInt8>;
-private function get_appendInt():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt, stdgo.GoInt) -> stdgo.Slice<stdgo.GoUInt8> return stdgo._internal.time.Time.appendInt;
-private function set_appendInt(v:(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt, stdgo.GoInt) -> stdgo.Slice<stdgo.GoUInt8>):(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt, stdgo.GoInt) -> stdgo.Slice<stdgo.GoUInt8> return stdgo._internal.time.Time.appendInt = v;
+private function get_appendInt():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt, stdgo.GoInt) -> stdgo.Slice<stdgo.GoUInt8> return (_0, _1, _2) -> stdgo._internal.time.Time.appendInt([for (i in _0) i], _1, _2);
+private function set_appendInt(v:(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt, stdgo.GoInt) -> stdgo.Slice<stdgo.GoUInt8>):(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt, stdgo.GoInt) -> stdgo.Slice<stdgo.GoUInt8> {
+        stdgo._internal.time.Time.appendInt = v;
+        return v;
+    }
 var appendFormatAny(get, set) : (stdgo._internal.time.Time.Time, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoString) -> stdgo.Slice<stdgo.GoUInt8>;
-private function get_appendFormatAny():(stdgo._internal.time.Time.Time, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoString) -> stdgo.Slice<stdgo.GoUInt8> return stdgo._internal.time.Time.appendFormatAny;
-private function set_appendFormatAny(v:(stdgo._internal.time.Time.Time, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoString) -> stdgo.Slice<stdgo.GoUInt8>):(stdgo._internal.time.Time.Time, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoString) -> stdgo.Slice<stdgo.GoUInt8> return stdgo._internal.time.Time.appendFormatAny = v;
+private function get_appendFormatAny():(stdgo._internal.time.Time.Time, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoString) -> stdgo.Slice<stdgo.GoUInt8> return (_0, _1, _2) -> stdgo._internal.time.Time.appendFormatAny(_0, [for (i in _1) i], _2);
+private function set_appendFormatAny(v:(stdgo._internal.time.Time.Time, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoString) -> stdgo.Slice<stdgo.GoUInt8>):(stdgo._internal.time.Time.Time, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoString) -> stdgo.Slice<stdgo.GoUInt8> {
+        stdgo._internal.time.Time.appendFormatAny = v;
+        return v;
+    }
 var appendFormatRFC3339(get, set) : (stdgo._internal.time.Time.Time, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.Slice<stdgo.GoUInt8>;
-private function get_appendFormatRFC3339():(stdgo._internal.time.Time.Time, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.Slice<stdgo.GoUInt8> return stdgo._internal.time.Time.appendFormatRFC3339;
-private function set_appendFormatRFC3339(v:(stdgo._internal.time.Time.Time, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.Slice<stdgo.GoUInt8>):(stdgo._internal.time.Time.Time, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.Slice<stdgo.GoUInt8> return stdgo._internal.time.Time.appendFormatRFC3339 = v;
+private function get_appendFormatRFC3339():(stdgo._internal.time.Time.Time, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.Slice<stdgo.GoUInt8> return (_0, _1, _2) -> stdgo._internal.time.Time.appendFormatRFC3339(_0, [for (i in _1) i], _2);
+private function set_appendFormatRFC3339(v:(stdgo._internal.time.Time.Time, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.Slice<stdgo.GoUInt8>):(stdgo._internal.time.Time.Time, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.Slice<stdgo.GoUInt8> {
+        stdgo._internal.time.Time.appendFormatRFC3339 = v;
+        return v;
+    }
 var parseAny(get, set) : (stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time.Location>, stdgo.Ref<stdgo._internal.time.Time.Location>) -> { var _0 : stdgo._internal.time.Time.Time; var _1 : stdgo.Error; };
-private function get_parseAny():(stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time.Location>, stdgo.Ref<stdgo._internal.time.Time.Location>) -> { var _0 : stdgo._internal.time.Time.Time; var _1 : stdgo.Error; } return stdgo._internal.time.Time.parseAny;
-private function set_parseAny(v:(stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time.Location>, stdgo.Ref<stdgo._internal.time.Time.Location>) -> { var _0 : stdgo._internal.time.Time.Time; var _1 : stdgo.Error; }):(stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time.Location>, stdgo.Ref<stdgo._internal.time.Time.Location>) -> { var _0 : stdgo._internal.time.Time.Time; var _1 : stdgo.Error; } return stdgo._internal.time.Time.parseAny = v;
+private function get_parseAny():(stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time.Location>, stdgo.Ref<stdgo._internal.time.Time.Location>) -> { var _0 : stdgo._internal.time.Time.Time; var _1 : stdgo.Error; } return (_0, _1, _2, _3) -> stdgo._internal.time.Time.parseAny(_0, _1, _2, _3);
+private function set_parseAny(v:(stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time.Location>, stdgo.Ref<stdgo._internal.time.Time.Location>) -> { var _0 : stdgo._internal.time.Time.Time; var _1 : stdgo.Error; }):(stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time.Location>, stdgo.Ref<stdgo._internal.time.Time.Location>) -> { var _0 : stdgo._internal.time.Time.Time; var _1 : stdgo.Error; } {
+        stdgo._internal.time.Time.parseAny = v;
+        return v;
+    }
 var parseRFC3339(get, set) : (stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time.Location>) -> { var _0 : stdgo._internal.time.Time.Time; var _1 : Bool; };
-private function get_parseRFC3339():(stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time.Location>) -> { var _0 : stdgo._internal.time.Time.Time; var _1 : Bool; } return stdgo._internal.time.Time.parseRFC3339;
-private function set_parseRFC3339(v:(stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time.Location>) -> { var _0 : stdgo._internal.time.Time.Time; var _1 : Bool; }):(stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time.Location>) -> { var _0 : stdgo._internal.time.Time.Time; var _1 : Bool; } return stdgo._internal.time.Time.parseRFC3339 = v;
+private function get_parseRFC3339():(stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time.Location>) -> { var _0 : stdgo._internal.time.Time.Time; var _1 : Bool; } return (_0, _1) -> stdgo._internal.time.Time.parseRFC3339(_0, _1);
+private function set_parseRFC3339(v:(stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time.Location>) -> { var _0 : stdgo._internal.time.Time.Time; var _1 : Bool; }):(stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time.Location>) -> { var _0 : stdgo._internal.time.Time.Time; var _1 : Bool; } {
+        stdgo._internal.time.Time.parseRFC3339 = v;
+        return v;
+    }
 var disablePlatformSources(get, set) : () -> (() -> Void);
-private function get_disablePlatformSources():() -> (() -> Void) return stdgo._internal.time.Time.disablePlatformSources;
-private function set_disablePlatformSources(v:() -> (() -> Void)):() -> (() -> Void) return stdgo._internal.time.Time.disablePlatformSources = v;
+private function get_disablePlatformSources():() -> (() -> Void) return () -> stdgo._internal.time.Time.disablePlatformSources();
+private function set_disablePlatformSources(v:() -> (() -> Void)):() -> (() -> Void) {
+        stdgo._internal.time.Time.disablePlatformSources = v;
+        return v;
+    }
 var interrupt(get, set) : () -> Void;
-private function get_interrupt():() -> Void return stdgo._internal.time.Time.interrupt;
-private function set_interrupt(v:() -> Void):() -> Void return stdgo._internal.time.Time.interrupt = v;
+private function get_interrupt():() -> Void return () -> stdgo._internal.time.Time.interrupt();
+private function set_interrupt(v:() -> Void):() -> Void {
+        stdgo._internal.time.Time.interrupt = v;
+        return v;
+    }
 var daysIn(get, set) : (stdgo._internal.time.Time.Month, stdgo.GoInt) -> stdgo.GoInt;
-private function get_daysIn():(stdgo._internal.time.Time.Month, stdgo.GoInt) -> stdgo.GoInt return stdgo._internal.time.Time.daysIn;
-private function set_daysIn(v:(stdgo._internal.time.Time.Month, stdgo.GoInt) -> stdgo.GoInt):(stdgo._internal.time.Time.Month, stdgo.GoInt) -> stdgo.GoInt return stdgo._internal.time.Time.daysIn = v;
+private function get_daysIn():(stdgo._internal.time.Time.Month, stdgo.GoInt) -> stdgo.GoInt return (_0, _1) -> stdgo._internal.time.Time.daysIn(_0, _1);
+private function set_daysIn(v:(stdgo._internal.time.Time.Month, stdgo.GoInt) -> stdgo.GoInt):(stdgo._internal.time.Time.Month, stdgo.GoInt) -> stdgo.GoInt {
+        stdgo._internal.time.Time.daysIn = v;
+        return v;
+    }
 var minMonoTime(get, set) : stdgo._internal.time.Time.Time;
 private function get_minMonoTime():stdgo._internal.time.Time.Time return stdgo._internal.time.Time.minMonoTime;
-private function set_minMonoTime(v:stdgo._internal.time.Time.Time):stdgo._internal.time.Time.Time return stdgo._internal.time.Time.minMonoTime = v;
+private function set_minMonoTime(v:stdgo._internal.time.Time.Time):stdgo._internal.time.Time.Time {
+        stdgo._internal.time.Time.minMonoTime = v;
+        return v;
+    }
 var maxMonoTime(get, set) : stdgo._internal.time.Time.Time;
 private function get_maxMonoTime():stdgo._internal.time.Time.Time return stdgo._internal.time.Time.maxMonoTime;
-private function set_maxMonoTime(v:stdgo._internal.time.Time.Time):stdgo._internal.time.Time.Time return stdgo._internal.time.Time.maxMonoTime = v;
+private function set_maxMonoTime(v:stdgo._internal.time.Time.Time):stdgo._internal.time.Time.Time {
+        stdgo._internal.time.Time.maxMonoTime = v;
+        return v;
+    }
 var notMonoNegativeTime(get, set) : stdgo._internal.time.Time.Time;
 private function get_notMonoNegativeTime():stdgo._internal.time.Time.Time return stdgo._internal.time.Time.notMonoNegativeTime;
-private function set_notMonoNegativeTime(v:stdgo._internal.time.Time.Time):stdgo._internal.time.Time.Time return stdgo._internal.time.Time.notMonoNegativeTime = v;
-@:forward @:forward.new abstract Rule(stdgo._internal.time.Time.Rule) from stdgo._internal.time.Time.Rule to stdgo._internal.time.Time.Rule {
-
+private function set_notMonoNegativeTime(v:stdgo._internal.time.Time.Time):stdgo._internal.time.Time.Time {
+        stdgo._internal.time.Time.notMonoNegativeTime = v;
+        return v;
+    }
+abstract Rule(stdgo._internal.time.Time.Rule) from stdgo._internal.time.Time.Rule to stdgo._internal.time.Time.Rule {
+    public var kind(get, set) : stdgo._internal.time.Time.RuleKind;
+    function get_kind():stdgo._internal.time.Time.RuleKind return this.kind;
+    function set_kind(v:stdgo._internal.time.Time.RuleKind):stdgo._internal.time.Time.RuleKind {
+        this.kind = v;
+        return v;
+    }
+    public var day(get, set) : StdTypes.Int;
+    function get_day():StdTypes.Int return this.day;
+    function set_day(v:StdTypes.Int):StdTypes.Int {
+        this.day = v;
+        return v;
+    }
+    public var week(get, set) : StdTypes.Int;
+    function get_week():StdTypes.Int return this.week;
+    function set_week(v:StdTypes.Int):StdTypes.Int {
+        this.week = v;
+        return v;
+    }
+    public var mon(get, set) : StdTypes.Int;
+    function get_mon():StdTypes.Int return this.mon;
+    function set_mon(v:StdTypes.Int):StdTypes.Int {
+        this.mon = v;
+        return v;
+    }
+    public var time(get, set) : StdTypes.Int;
+    function get_time():StdTypes.Int return this.time;
+    function set_time(v:StdTypes.Int):StdTypes.Int {
+        this.time = v;
+        return v;
+    }
+    public function new(?kind:stdgo._internal.time.Time.RuleKind, ?day:StdTypes.Int, ?week:StdTypes.Int, ?mon:StdTypes.Int, ?time:StdTypes.Int) this = new stdgo._internal.time.Time.Rule(kind, day, week, mon, time);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract ParseError(stdgo._internal.time.Time.ParseError) from stdgo._internal.time.Time.ParseError to stdgo._internal.time.Time.ParseError {
-
+abstract ParseError(stdgo._internal.time.Time.ParseError) from stdgo._internal.time.Time.ParseError to stdgo._internal.time.Time.ParseError {
+    public var layout(get, set) : String;
+    function get_layout():String return this.layout;
+    function set_layout(v:String):String {
+        this.layout = v;
+        return v;
+    }
+    public var value(get, set) : String;
+    function get_value():String return this.value;
+    function set_value(v:String):String {
+        this.value = v;
+        return v;
+    }
+    public var layoutElem(get, set) : String;
+    function get_layoutElem():String return this.layoutElem;
+    function set_layoutElem(v:String):String {
+        this.layoutElem = v;
+        return v;
+    }
+    public var valueElem(get, set) : String;
+    function get_valueElem():String return this.valueElem;
+    function set_valueElem(v:String):String {
+        this.valueElem = v;
+        return v;
+    }
+    public var message(get, set) : String;
+    function get_message():String return this.message;
+    function set_message(v:String):String {
+        this.message = v;
+        return v;
+    }
+    public function new(?layout:String, ?value:String, ?layoutElem:String, ?valueElem:String, ?message:String) this = new stdgo._internal.time.Time.ParseError(layout, value, layoutElem, valueElem, message);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_runtimeTimer(stdgo._internal.time.Time.T_runtimeTimer) from stdgo._internal.time.Time.T_runtimeTimer to stdgo._internal.time.Time.T_runtimeTimer {
-
+abstract T_runtimeTimer(stdgo._internal.time.Time.T_runtimeTimer) from stdgo._internal.time.Time.T_runtimeTimer to stdgo._internal.time.Time.T_runtimeTimer {
+    public var _pp(get, set) : stdgo.GoUIntptr;
+    function get__pp():stdgo.GoUIntptr return this._pp;
+    function set__pp(v:stdgo.GoUIntptr):stdgo.GoUIntptr {
+        this._pp = v;
+        return v;
+    }
+    public var _when(get, set) : haxe.Int64;
+    function get__when():haxe.Int64 return this._when;
+    function set__when(v:haxe.Int64):haxe.Int64 {
+        this._when = v;
+        return v;
+    }
+    public var _period(get, set) : haxe.Int64;
+    function get__period():haxe.Int64 return this._period;
+    function set__period(v:haxe.Int64):haxe.Int64 {
+        this._period = v;
+        return v;
+    }
+    public var _f(get, set) : (stdgo.AnyInterface, stdgo.GoUIntptr) -> Void;
+    function get__f():(stdgo.AnyInterface, stdgo.GoUIntptr) -> Void return (_0, _1) -> this._f(_0, _1);
+    function set__f(v:(stdgo.AnyInterface, stdgo.GoUIntptr) -> Void):(stdgo.AnyInterface, stdgo.GoUIntptr) -> Void {
+        this._f = v;
+        return v;
+    }
+    public var _arg(get, set) : stdgo.AnyInterface;
+    function get__arg():stdgo.AnyInterface return this._arg;
+    function set__arg(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this._arg = v;
+        return v;
+    }
+    public var _seq(get, set) : stdgo.GoUIntptr;
+    function get__seq():stdgo.GoUIntptr return this._seq;
+    function set__seq(v:stdgo.GoUIntptr):stdgo.GoUIntptr {
+        this._seq = v;
+        return v;
+    }
+    public var _nextwhen(get, set) : haxe.Int64;
+    function get__nextwhen():haxe.Int64 return this._nextwhen;
+    function set__nextwhen(v:haxe.Int64):haxe.Int64 {
+        this._nextwhen = v;
+        return v;
+    }
+    public var _status(get, set) : std.UInt;
+    function get__status():std.UInt return this._status;
+    function set__status(v:std.UInt):std.UInt {
+        this._status = v;
+        return v;
+    }
+    public function new(?_pp:stdgo.GoUIntptr, ?_when:haxe.Int64, ?_period:haxe.Int64, ?_f:(stdgo.AnyInterface, stdgo.GoUIntptr) -> Void, ?_arg:stdgo.AnyInterface, ?_seq:stdgo.GoUIntptr, ?_nextwhen:haxe.Int64, ?_status:std.UInt) this = new stdgo._internal.time.Time.T_runtimeTimer(_pp, _when, _period, _f, _arg, _seq, _nextwhen, _status);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Timer(stdgo._internal.time.Time.Timer) from stdgo._internal.time.Time.Timer to stdgo._internal.time.Time.Timer {
-
+abstract Timer(stdgo._internal.time.Time.Timer) from stdgo._internal.time.Time.Timer to stdgo._internal.time.Time.Timer {
+    public var c(get, set) : stdgo.Chan<stdgo._internal.time.Time.Time>;
+    function get_c():stdgo.Chan<stdgo._internal.time.Time.Time> return this.c;
+    function set_c(v:stdgo.Chan<stdgo._internal.time.Time.Time>):stdgo.Chan<stdgo._internal.time.Time.Time> {
+        this.c = v;
+        return v;
+    }
+    public var _r(get, set) : stdgo._internal.time.Time.T_runtimeTimer;
+    function get__r():stdgo._internal.time.Time.T_runtimeTimer return this._r;
+    function set__r(v:stdgo._internal.time.Time.T_runtimeTimer):stdgo._internal.time.Time.T_runtimeTimer {
+        this._r = v;
+        return v;
+    }
+    public function new(?c:stdgo.Chan<stdgo._internal.time.Time.Time>, ?_r:stdgo._internal.time.Time.T_runtimeTimer) this = new stdgo._internal.time.Time.Timer(c, _r);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Ticker(stdgo._internal.time.Time.Ticker) from stdgo._internal.time.Time.Ticker to stdgo._internal.time.Time.Ticker {
-
+abstract Ticker(stdgo._internal.time.Time.Ticker) from stdgo._internal.time.Time.Ticker to stdgo._internal.time.Time.Ticker {
+    public var c(get, set) : stdgo.Chan<stdgo._internal.time.Time.Time>;
+    function get_c():stdgo.Chan<stdgo._internal.time.Time.Time> return this.c;
+    function set_c(v:stdgo.Chan<stdgo._internal.time.Time.Time>):stdgo.Chan<stdgo._internal.time.Time.Time> {
+        this.c = v;
+        return v;
+    }
+    public var _r(get, set) : stdgo._internal.time.Time.T_runtimeTimer;
+    function get__r():stdgo._internal.time.Time.T_runtimeTimer return this._r;
+    function set__r(v:stdgo._internal.time.Time.T_runtimeTimer):stdgo._internal.time.Time.T_runtimeTimer {
+        this._r = v;
+        return v;
+    }
+    public function new(?c:stdgo.Chan<stdgo._internal.time.Time.Time>, ?_r:stdgo._internal.time.Time.T_runtimeTimer) this = new stdgo._internal.time.Time.Ticker(c, _r);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Time(stdgo._internal.time.Time.Time) from stdgo._internal.time.Time.Time to stdgo._internal.time.Time.Time {
-
+abstract Time_(stdgo._internal.time.Time.Time) from stdgo._internal.time.Time.Time to stdgo._internal.time.Time.Time {
+    public var _wall(get, set) : haxe.UInt64;
+    function get__wall():haxe.UInt64 return this._wall;
+    function set__wall(v:haxe.UInt64):haxe.UInt64 {
+        this._wall = v;
+        return v;
+    }
+    public var _ext(get, set) : haxe.Int64;
+    function get__ext():haxe.Int64 return this._ext;
+    function set__ext(v:haxe.Int64):haxe.Int64 {
+        this._ext = v;
+        return v;
+    }
+    public var _loc(get, set) : stdgo._internal.time.Time.Location;
+    function get__loc():stdgo._internal.time.Time.Location return this._loc;
+    function set__loc(v:stdgo._internal.time.Time.Location):stdgo._internal.time.Time.Location {
+        this._loc = v;
+        return v;
+    }
+    public function new(?_wall:haxe.UInt64, ?_ext:haxe.Int64, ?_loc:stdgo._internal.time.Time.Location) this = new stdgo._internal.time.Time.Time(_wall, _ext, _loc);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Location(stdgo._internal.time.Time.Location) from stdgo._internal.time.Time.Location to stdgo._internal.time.Time.Location {
-
+abstract Location(stdgo._internal.time.Time.Location) from stdgo._internal.time.Time.Location to stdgo._internal.time.Time.Location {
+    public var _name(get, set) : String;
+    function get__name():String return this._name;
+    function set__name(v:String):String {
+        this._name = v;
+        return v;
+    }
+    public var _zone(get, set) : Array<stdgo._internal.time.Time.T_zone>;
+    function get__zone():Array<stdgo._internal.time.Time.T_zone> return [for (i in this._zone) i];
+    function set__zone(v:Array<stdgo._internal.time.Time.T_zone>):Array<stdgo._internal.time.Time.T_zone> {
+        this._zone = ([for (i in v) i] : stdgo.Slice<stdgo._internal.time.Time.T_zone>);
+        return v;
+    }
+    public var _tx(get, set) : Array<stdgo._internal.time.Time.T_zoneTrans>;
+    function get__tx():Array<stdgo._internal.time.Time.T_zoneTrans> return [for (i in this._tx) i];
+    function set__tx(v:Array<stdgo._internal.time.Time.T_zoneTrans>):Array<stdgo._internal.time.Time.T_zoneTrans> {
+        this._tx = ([for (i in v) i] : stdgo.Slice<stdgo._internal.time.Time.T_zoneTrans>);
+        return v;
+    }
+    public var _extend(get, set) : String;
+    function get__extend():String return this._extend;
+    function set__extend(v:String):String {
+        this._extend = v;
+        return v;
+    }
+    public var _cacheStart(get, set) : haxe.Int64;
+    function get__cacheStart():haxe.Int64 return this._cacheStart;
+    function set__cacheStart(v:haxe.Int64):haxe.Int64 {
+        this._cacheStart = v;
+        return v;
+    }
+    public var _cacheEnd(get, set) : haxe.Int64;
+    function get__cacheEnd():haxe.Int64 return this._cacheEnd;
+    function set__cacheEnd(v:haxe.Int64):haxe.Int64 {
+        this._cacheEnd = v;
+        return v;
+    }
+    public var _cacheZone(get, set) : stdgo._internal.time.Time.T_zone;
+    function get__cacheZone():stdgo._internal.time.Time.T_zone return this._cacheZone;
+    function set__cacheZone(v:stdgo._internal.time.Time.T_zone):stdgo._internal.time.Time.T_zone {
+        this._cacheZone = v;
+        return v;
+    }
+    public function new(?_name:String, ?_zone:Array<stdgo._internal.time.Time.T_zone>, ?_tx:Array<stdgo._internal.time.Time.T_zoneTrans>, ?_extend:String, ?_cacheStart:haxe.Int64, ?_cacheEnd:haxe.Int64, ?_cacheZone:stdgo._internal.time.Time.T_zone) this = new stdgo._internal.time.Time.Location(_name, ([for (i in _zone) i] : stdgo.Slice<stdgo._internal.time.Time.T_zone>), ([for (i in _tx) i] : stdgo.Slice<stdgo._internal.time.Time.T_zoneTrans>), _extend, _cacheStart, _cacheEnd, _cacheZone);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_zone(stdgo._internal.time.Time.T_zone) from stdgo._internal.time.Time.T_zone to stdgo._internal.time.Time.T_zone {
-
+abstract T_zone(stdgo._internal.time.Time.T_zone) from stdgo._internal.time.Time.T_zone to stdgo._internal.time.Time.T_zone {
+    public var _name(get, set) : String;
+    function get__name():String return this._name;
+    function set__name(v:String):String {
+        this._name = v;
+        return v;
+    }
+    public var _offset(get, set) : StdTypes.Int;
+    function get__offset():StdTypes.Int return this._offset;
+    function set__offset(v:StdTypes.Int):StdTypes.Int {
+        this._offset = v;
+        return v;
+    }
+    public var _isDST(get, set) : Bool;
+    function get__isDST():Bool return this._isDST;
+    function set__isDST(v:Bool):Bool {
+        this._isDST = v;
+        return v;
+    }
+    public function new(?_name:String, ?_offset:StdTypes.Int, ?_isDST:Bool) this = new stdgo._internal.time.Time.T_zone(_name, _offset, _isDST);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_zoneTrans(stdgo._internal.time.Time.T_zoneTrans) from stdgo._internal.time.Time.T_zoneTrans to stdgo._internal.time.Time.T_zoneTrans {
-
+abstract T_zoneTrans(stdgo._internal.time.Time.T_zoneTrans) from stdgo._internal.time.Time.T_zoneTrans to stdgo._internal.time.Time.T_zoneTrans {
+    public var _when(get, set) : haxe.Int64;
+    function get__when():haxe.Int64 return this._when;
+    function set__when(v:haxe.Int64):haxe.Int64 {
+        this._when = v;
+        return v;
+    }
+    public var _index(get, set) : std.UInt;
+    function get__index():std.UInt return this._index;
+    function set__index(v:std.UInt):std.UInt {
+        this._index = v;
+        return v;
+    }
+    public var _isstd(get, set) : Bool;
+    function get__isstd():Bool return this._isstd;
+    function set__isstd(v:Bool):Bool {
+        this._isstd = v;
+        return v;
+    }
+    public var _isutc(get, set) : Bool;
+    function get__isutc():Bool return this._isutc;
+    function set__isutc(v:Bool):Bool {
+        this._isutc = v;
+        return v;
+    }
+    public function new(?_when:haxe.Int64, ?_index:std.UInt, ?_isstd:Bool, ?_isutc:Bool) this = new stdgo._internal.time.Time.T_zoneTrans(_when, _index, _isstd, _isutc);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_rule(stdgo._internal.time.Time.T_rule) from stdgo._internal.time.Time.T_rule to stdgo._internal.time.Time.T_rule {
-
+abstract T_rule(stdgo._internal.time.Time.T_rule) from stdgo._internal.time.Time.T_rule to stdgo._internal.time.Time.T_rule {
+    public var _kind(get, set) : stdgo._internal.time.Time.T_ruleKind;
+    function get__kind():stdgo._internal.time.Time.T_ruleKind return this._kind;
+    function set__kind(v:stdgo._internal.time.Time.T_ruleKind):stdgo._internal.time.Time.T_ruleKind {
+        this._kind = v;
+        return v;
+    }
+    public var _day(get, set) : StdTypes.Int;
+    function get__day():StdTypes.Int return this._day;
+    function set__day(v:StdTypes.Int):StdTypes.Int {
+        this._day = v;
+        return v;
+    }
+    public var _week(get, set) : StdTypes.Int;
+    function get__week():StdTypes.Int return this._week;
+    function set__week(v:StdTypes.Int):StdTypes.Int {
+        this._week = v;
+        return v;
+    }
+    public var _mon(get, set) : StdTypes.Int;
+    function get__mon():StdTypes.Int return this._mon;
+    function set__mon(v:StdTypes.Int):StdTypes.Int {
+        this._mon = v;
+        return v;
+    }
+    public var _time(get, set) : StdTypes.Int;
+    function get__time():StdTypes.Int return this._time;
+    function set__time(v:StdTypes.Int):StdTypes.Int {
+        this._time = v;
+        return v;
+    }
+    public function new(?_kind:stdgo._internal.time.Time.T_ruleKind, ?_day:StdTypes.Int, ?_week:StdTypes.Int, ?_mon:StdTypes.Int, ?_time:StdTypes.Int) this = new stdgo._internal.time.Time.T_rule(_kind, _day, _week, _mon, _time);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_dataIO(stdgo._internal.time.Time.T_dataIO) from stdgo._internal.time.Time.T_dataIO to stdgo._internal.time.Time.T_dataIO {
-
+abstract T_dataIO(stdgo._internal.time.Time.T_dataIO) from stdgo._internal.time.Time.T_dataIO to stdgo._internal.time.Time.T_dataIO {
+    public var _p(get, set) : Array<std.UInt>;
+    function get__p():Array<std.UInt> return [for (i in this._p) i];
+    function set__p(v:Array<std.UInt>):Array<std.UInt> {
+        this._p = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _error(get, set) : Bool;
+    function get__error():Bool return this._error;
+    function set__error(v:Bool):Bool {
+        this._error = v;
+        return v;
+    }
+    public function new(?_p:Array<std.UInt>, ?_error:Bool) this = new stdgo._internal.time.Time.T_dataIO(([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>), _error);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef RuleKind = stdgo._internal.time.Time.RuleKind;
 typedef Month = stdgo._internal.time.Time.Month;
@@ -241,66 +617,6 @@ typedef Weekday = stdgo._internal.time.Time.Weekday;
 typedef Duration = stdgo._internal.time.Time.Duration;
 typedef T_ruleKind = stdgo._internal.time.Time.T_ruleKind;
 typedef T_fileSizeError = stdgo._internal.time.Time.T_fileSizeError;
-@:forward @:forward.new abstract ParseError_asInterface(stdgo._internal.time.Time.ParseError_asInterface) from stdgo._internal.time.Time.ParseError_asInterface to stdgo._internal.time.Time.ParseError_asInterface {
-
-}
-@:forward @:forward.new abstract ParseError_static_extension(stdgo._internal.time.Time.ParseError_static_extension) from stdgo._internal.time.Time.ParseError_static_extension to stdgo._internal.time.Time.ParseError_static_extension {
-
-}
-@:forward @:forward.new abstract Timer_asInterface(stdgo._internal.time.Time.Timer_asInterface) from stdgo._internal.time.Time.Timer_asInterface to stdgo._internal.time.Time.Timer_asInterface {
-
-}
-@:forward @:forward.new abstract Timer_static_extension(stdgo._internal.time.Time.Timer_static_extension) from stdgo._internal.time.Time.Timer_static_extension to stdgo._internal.time.Time.Timer_static_extension {
-
-}
-@:forward @:forward.new abstract Ticker_asInterface(stdgo._internal.time.Time.Ticker_asInterface) from stdgo._internal.time.Time.Ticker_asInterface to stdgo._internal.time.Time.Ticker_asInterface {
-
-}
-@:forward @:forward.new abstract Ticker_static_extension(stdgo._internal.time.Time.Ticker_static_extension) from stdgo._internal.time.Time.Ticker_static_extension to stdgo._internal.time.Time.Ticker_static_extension {
-
-}
-@:forward @:forward.new abstract Time_asInterface(stdgo._internal.time.Time.Time_asInterface) from stdgo._internal.time.Time.Time_asInterface to stdgo._internal.time.Time.Time_asInterface {
-
-}
-@:forward @:forward.new abstract Time_static_extension(stdgo._internal.time.Time.Time_static_extension) from stdgo._internal.time.Time.Time_static_extension to stdgo._internal.time.Time.Time_static_extension {
-
-}
-@:forward @:forward.new abstract Location_asInterface(stdgo._internal.time.Time.Location_asInterface) from stdgo._internal.time.Time.Location_asInterface to stdgo._internal.time.Time.Location_asInterface {
-
-}
-@:forward @:forward.new abstract Location_static_extension(stdgo._internal.time.Time.Location_static_extension) from stdgo._internal.time.Time.Location_static_extension to stdgo._internal.time.Time.Location_static_extension {
-
-}
-@:forward @:forward.new abstract T_dataIO_asInterface(stdgo._internal.time.Time.T_dataIO_asInterface) from stdgo._internal.time.Time.T_dataIO_asInterface to stdgo._internal.time.Time.T_dataIO_asInterface {
-
-}
-@:forward @:forward.new abstract T_dataIO_static_extension(stdgo._internal.time.Time.T_dataIO_static_extension) from stdgo._internal.time.Time.T_dataIO_static_extension to stdgo._internal.time.Time.T_dataIO_static_extension {
-
-}
-@:forward @:forward.new abstract Month_asInterface(stdgo._internal.time.Time.Month_asInterface) from stdgo._internal.time.Time.Month_asInterface to stdgo._internal.time.Time.Month_asInterface {
-
-}
-@:forward @:forward.new abstract Month_static_extension(stdgo._internal.time.Time.Month_static_extension) from stdgo._internal.time.Time.Month_static_extension to stdgo._internal.time.Time.Month_static_extension {
-
-}
-@:forward @:forward.new abstract Weekday_asInterface(stdgo._internal.time.Time.Weekday_asInterface) from stdgo._internal.time.Time.Weekday_asInterface to stdgo._internal.time.Time.Weekday_asInterface {
-
-}
-@:forward @:forward.new abstract Weekday_static_extension(stdgo._internal.time.Time.Weekday_static_extension) from stdgo._internal.time.Time.Weekday_static_extension to stdgo._internal.time.Time.Weekday_static_extension {
-
-}
-@:forward @:forward.new abstract Duration_asInterface(stdgo._internal.time.Time.Duration_asInterface) from stdgo._internal.time.Time.Duration_asInterface to stdgo._internal.time.Time.Duration_asInterface {
-
-}
-@:forward @:forward.new abstract Duration_static_extension(stdgo._internal.time.Time.Duration_static_extension) from stdgo._internal.time.Time.Duration_static_extension to stdgo._internal.time.Time.Duration_static_extension {
-
-}
-@:forward @:forward.new abstract T_fileSizeError_asInterface(stdgo._internal.time.Time.T_fileSizeError_asInterface) from stdgo._internal.time.Time.T_fileSizeError_asInterface to stdgo._internal.time.Time.T_fileSizeError_asInterface {
-
-}
-@:forward @:forward.new abstract T_fileSizeError_static_extension(stdgo._internal.time.Time.T_fileSizeError_static_extension) from stdgo._internal.time.Time.T_fileSizeError_static_extension to stdgo._internal.time.Time.T_fileSizeError_static_extension {
-
-}
 class Time {
     static public function resetLocalOnceForTest():Void {
         stdgo._internal.time.Time.resetLocalOnceForTest();

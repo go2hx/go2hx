@@ -6,15 +6,14 @@ package stdgo.crypto;
 private var __go2hxdoc__package : Bool;
 var reader(get, set) : stdgo._internal.io.Io.Reader;
 private function get_reader():stdgo._internal.io.Io.Reader return stdgo._internal.crypto.rand.Rand.reader;
-private function set_reader(v:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader return stdgo._internal.crypto.rand.Rand.reader = v;
-@:forward @:forward.new abstract T_reader(stdgo._internal.crypto.rand.Rand.T_reader) from stdgo._internal.crypto.rand.Rand.T_reader to stdgo._internal.crypto.rand.Rand.T_reader {
-
-}
-@:forward @:forward.new abstract T_reader_asInterface(stdgo._internal.crypto.rand.Rand.T_reader_asInterface) from stdgo._internal.crypto.rand.Rand.T_reader_asInterface to stdgo._internal.crypto.rand.Rand.T_reader_asInterface {
-
-}
-@:forward @:forward.new abstract T_reader_static_extension(stdgo._internal.crypto.rand.Rand.T_reader_static_extension) from stdgo._internal.crypto.rand.Rand.T_reader_static_extension to stdgo._internal.crypto.rand.Rand.T_reader_static_extension {
-
+private function set_reader(v:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
+        stdgo._internal.crypto.rand.Rand.reader = v;
+        return v;
+    }
+abstract T_reader(stdgo._internal.crypto.rand.Rand.T_reader) from stdgo._internal.crypto.rand.Rand.T_reader to stdgo._internal.crypto.rand.Rand.T_reader {
+    public function new() this = new stdgo._internal.crypto.rand.Rand.T_reader();
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 class Rand {
     /**

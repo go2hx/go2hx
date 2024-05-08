@@ -7,38 +7,80 @@ private var __go2hxdoc__package : Bool;
 final minRead : haxe.UInt64 = stdgo._internal.bytes.Bytes.minRead;
 var errTooLarge(get, set) : stdgo.Error;
 private function get_errTooLarge():stdgo.Error return stdgo._internal.bytes.Bytes.errTooLarge;
-private function set_errTooLarge(v:stdgo.Error):stdgo.Error return stdgo._internal.bytes.Bytes.errTooLarge = v;
+private function set_errTooLarge(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.bytes.Bytes.errTooLarge = v;
+        return v;
+    }
 var indexBytePortable(get, set) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt8) -> stdgo.GoInt;
-private function get_indexBytePortable():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt8) -> stdgo.GoInt return stdgo._internal.bytes.Bytes.indexBytePortable;
-private function set_indexBytePortable(v:(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt8) -> stdgo.GoInt):(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt8) -> stdgo.GoInt return stdgo._internal.bytes.Bytes.indexBytePortable = v;
-@:forward @:forward.new abstract Buffer(stdgo._internal.bytes.Bytes.Buffer) from stdgo._internal.bytes.Bytes.Buffer to stdgo._internal.bytes.Bytes.Buffer {
-
+private function get_indexBytePortable():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt8) -> stdgo.GoInt return (_0, _1) -> stdgo._internal.bytes.Bytes.indexBytePortable([for (i in _0) i], _1);
+private function set_indexBytePortable(v:(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt8) -> stdgo.GoInt):(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt8) -> stdgo.GoInt {
+        stdgo._internal.bytes.Bytes.indexBytePortable = v;
+        return v;
+    }
+abstract Buffer(stdgo._internal.bytes.Bytes.Buffer) from stdgo._internal.bytes.Bytes.Buffer to stdgo._internal.bytes.Bytes.Buffer {
+    public var _buf(get, set) : Array<std.UInt>;
+    function get__buf():Array<std.UInt> return [for (i in this._buf) i];
+    function set__buf(v:Array<std.UInt>):Array<std.UInt> {
+        this._buf = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _off(get, set) : StdTypes.Int;
+    function get__off():StdTypes.Int return this._off;
+    function set__off(v:StdTypes.Int):StdTypes.Int {
+        this._off = v;
+        return v;
+    }
+    public var _lastRead(get, set) : stdgo._internal.bytes.Bytes.T_readOp;
+    function get__lastRead():stdgo._internal.bytes.Bytes.T_readOp return this._lastRead;
+    function set__lastRead(v:stdgo._internal.bytes.Bytes.T_readOp):stdgo._internal.bytes.Bytes.T_readOp {
+        this._lastRead = v;
+        return v;
+    }
+    public function new(?_buf:Array<std.UInt>, ?_off:StdTypes.Int, ?_lastRead:stdgo._internal.bytes.Bytes.T_readOp) this = new stdgo._internal.bytes.Bytes.Buffer(([for (i in _buf) i] : stdgo.Slice<stdgo.GoUInt8>), _off, _lastRead);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Reader(stdgo._internal.bytes.Bytes.Reader) from stdgo._internal.bytes.Bytes.Reader to stdgo._internal.bytes.Bytes.Reader {
-
+abstract Reader(stdgo._internal.bytes.Bytes.Reader) from stdgo._internal.bytes.Bytes.Reader to stdgo._internal.bytes.Bytes.Reader {
+    public var _s(get, set) : Array<std.UInt>;
+    function get__s():Array<std.UInt> return [for (i in this._s) i];
+    function set__s(v:Array<std.UInt>):Array<std.UInt> {
+        this._s = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _i(get, set) : haxe.Int64;
+    function get__i():haxe.Int64 return this._i;
+    function set__i(v:haxe.Int64):haxe.Int64 {
+        this._i = v;
+        return v;
+    }
+    public var _prevRune(get, set) : StdTypes.Int;
+    function get__prevRune():StdTypes.Int return this._prevRune;
+    function set__prevRune(v:StdTypes.Int):StdTypes.Int {
+        this._prevRune = v;
+        return v;
+    }
+    public function new(?_s:Array<std.UInt>, ?_i:haxe.Int64, ?_prevRune:StdTypes.Int) this = new stdgo._internal.bytes.Bytes.Reader(([for (i in _s) i] : stdgo.Slice<stdgo.GoUInt8>), _i, _prevRune);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef T_readOp = stdgo._internal.bytes.Bytes.T_readOp;
 typedef T_asciiSet = stdgo._internal.bytes.Bytes.T_asciiSet;
-@:forward @:forward.new abstract T_fieldsFunc_7___localname___span(stdgo._internal.bytes.Bytes.T_fieldsFunc_7___localname___span) from stdgo._internal.bytes.Bytes.T_fieldsFunc_7___localname___span to stdgo._internal.bytes.Bytes.T_fieldsFunc_7___localname___span {
-
-}
-@:forward @:forward.new abstract Buffer_asInterface(stdgo._internal.bytes.Bytes.Buffer_asInterface) from stdgo._internal.bytes.Bytes.Buffer_asInterface to stdgo._internal.bytes.Bytes.Buffer_asInterface {
-
-}
-@:forward @:forward.new abstract Buffer_static_extension(stdgo._internal.bytes.Bytes.Buffer_static_extension) from stdgo._internal.bytes.Bytes.Buffer_static_extension to stdgo._internal.bytes.Bytes.Buffer_static_extension {
-
-}
-@:forward @:forward.new abstract Reader_asInterface(stdgo._internal.bytes.Bytes.Reader_asInterface) from stdgo._internal.bytes.Bytes.Reader_asInterface to stdgo._internal.bytes.Bytes.Reader_asInterface {
-
-}
-@:forward @:forward.new abstract Reader_static_extension(stdgo._internal.bytes.Bytes.Reader_static_extension) from stdgo._internal.bytes.Bytes.Reader_static_extension to stdgo._internal.bytes.Bytes.Reader_static_extension {
-
-}
-@:forward @:forward.new abstract T_asciiSet_asInterface(stdgo._internal.bytes.Bytes.T_asciiSet_asInterface) from stdgo._internal.bytes.Bytes.T_asciiSet_asInterface to stdgo._internal.bytes.Bytes.T_asciiSet_asInterface {
-
-}
-@:forward @:forward.new abstract T_asciiSet_static_extension(stdgo._internal.bytes.Bytes.T_asciiSet_static_extension) from stdgo._internal.bytes.Bytes.T_asciiSet_static_extension to stdgo._internal.bytes.Bytes.T_asciiSet_static_extension {
-
+abstract T_fieldsFunc_7___localname___span(stdgo._internal.bytes.Bytes.T_fieldsFunc_7___localname___span) from stdgo._internal.bytes.Bytes.T_fieldsFunc_7___localname___span to stdgo._internal.bytes.Bytes.T_fieldsFunc_7___localname___span {
+    public var _start(get, set) : StdTypes.Int;
+    function get__start():StdTypes.Int return this._start;
+    function set__start(v:StdTypes.Int):StdTypes.Int {
+        this._start = v;
+        return v;
+    }
+    public var _end(get, set) : StdTypes.Int;
+    function get__end():StdTypes.Int return this._end;
+    function set__end(v:StdTypes.Int):StdTypes.Int {
+        this._end = v;
+        return v;
+    }
+    public function new(?_start:StdTypes.Int, ?_end:StdTypes.Int) this = new stdgo._internal.bytes.Bytes.T_fieldsFunc_7___localname___span(_start, _end);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 class Bytes {
     /**

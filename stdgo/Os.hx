@@ -52,8 +52,11 @@ final devNull : String = stdgo._internal.os.Os.devNull;
 final pathSeparator : StdTypes.Int = stdgo._internal.os.Os.pathSeparator;
 final pathListSeparator : StdTypes.Int = stdgo._internal.os.Os.pathListSeparator;
 var args(get, set) : Array<String>;
-private function get_args():Array<String> return stdgo._internal.os.Os.args;
-private function set_args(v:Array<String>):Array<String> return stdgo._internal.os.Os.args = v;
+private function get_args():Array<String> return [for (i in stdgo._internal.os.Os.args) i];
+private function set_args(v:Array<String>):Array<String> {
+        stdgo._internal.os.Os.args = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        return v;
+    }
 final modeDir : stdgo._internal.io.fs.Fs.FileMode = stdgo._internal.os.Os.modeDir;
 final modeAppend : stdgo._internal.io.fs.Fs.FileMode = stdgo._internal.os.Os.modeAppend;
 final modeExclusive : stdgo._internal.io.fs.Fs.FileMode = stdgo._internal.os.Os.modeExclusive;
@@ -71,110 +74,407 @@ final modeType : stdgo._internal.io.fs.Fs.FileMode = stdgo._internal.os.Os.modeT
 final modePerm : stdgo._internal.io.fs.Fs.FileMode = stdgo._internal.os.Os.modePerm;
 var errInvalid(get, set) : stdgo.Error;
 private function get_errInvalid():stdgo.Error return stdgo._internal.os.Os.errInvalid;
-private function set_errInvalid(v:stdgo.Error):stdgo.Error return stdgo._internal.os.Os.errInvalid = v;
+private function set_errInvalid(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.os.Os.errInvalid = v;
+        return v;
+    }
 var errPermission(get, set) : stdgo.Error;
 private function get_errPermission():stdgo.Error return stdgo._internal.os.Os.errPermission;
-private function set_errPermission(v:stdgo.Error):stdgo.Error return stdgo._internal.os.Os.errPermission = v;
+private function set_errPermission(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.os.Os.errPermission = v;
+        return v;
+    }
 var errExist(get, set) : stdgo.Error;
 private function get_errExist():stdgo.Error return stdgo._internal.os.Os.errExist;
-private function set_errExist(v:stdgo.Error):stdgo.Error return stdgo._internal.os.Os.errExist = v;
+private function set_errExist(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.os.Os.errExist = v;
+        return v;
+    }
 var errNotExist(get, set) : stdgo.Error;
 private function get_errNotExist():stdgo.Error return stdgo._internal.os.Os.errNotExist;
-private function set_errNotExist(v:stdgo.Error):stdgo.Error return stdgo._internal.os.Os.errNotExist = v;
+private function set_errNotExist(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.os.Os.errNotExist = v;
+        return v;
+    }
 var errClosed(get, set) : stdgo.Error;
 private function get_errClosed():stdgo.Error return stdgo._internal.os.Os.errClosed;
-private function set_errClosed(v:stdgo.Error):stdgo.Error return stdgo._internal.os.Os.errClosed = v;
+private function set_errClosed(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.os.Os.errClosed = v;
+        return v;
+    }
 var errNoDeadline(get, set) : stdgo.Error;
 private function get_errNoDeadline():stdgo.Error return stdgo._internal.os.Os.errNoDeadline;
-private function set_errNoDeadline(v:stdgo.Error):stdgo.Error return stdgo._internal.os.Os.errNoDeadline = v;
+private function set_errNoDeadline(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.os.Os.errNoDeadline = v;
+        return v;
+    }
 var errDeadlineExceeded(get, set) : stdgo.Error;
 private function get_errDeadlineExceeded():stdgo.Error return stdgo._internal.os.Os.errDeadlineExceeded;
-private function set_errDeadlineExceeded(v:stdgo.Error):stdgo.Error return stdgo._internal.os.Os.errDeadlineExceeded = v;
+private function set_errDeadlineExceeded(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.os.Os.errDeadlineExceeded = v;
+        return v;
+    }
 var errProcessDone(get, set) : stdgo.Error;
 private function get_errProcessDone():stdgo.Error return stdgo._internal.os.Os.errProcessDone;
-private function set_errProcessDone(v:stdgo.Error):stdgo.Error return stdgo._internal.os.Os.errProcessDone = v;
+private function set_errProcessDone(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.os.Os.errProcessDone = v;
+        return v;
+    }
 var interrupt(get, set) : stdgo._internal.os.Os.Signal;
 private function get_interrupt():stdgo._internal.os.Os.Signal return stdgo._internal.os.Os.interrupt;
-private function set_interrupt(v:stdgo._internal.os.Os.Signal):stdgo._internal.os.Os.Signal return stdgo._internal.os.Os.interrupt = v;
+private function set_interrupt(v:stdgo._internal.os.Os.Signal):stdgo._internal.os.Os.Signal {
+        stdgo._internal.os.Os.interrupt = v;
+        return v;
+    }
 var kill(get, set) : stdgo._internal.os.Os.Signal;
 private function get_kill():stdgo._internal.os.Os.Signal return stdgo._internal.os.Os.kill;
-private function set_kill(v:stdgo._internal.os.Os.Signal):stdgo._internal.os.Os.Signal return stdgo._internal.os.Os.kill = v;
+private function set_kill(v:stdgo._internal.os.Os.Signal):stdgo._internal.os.Os.Signal {
+        stdgo._internal.os.Os.kill = v;
+        return v;
+    }
 var stdin(get, set) : stdgo._internal.os.Os.File;
 private function get_stdin():stdgo._internal.os.Os.File return stdgo._internal.os.Os.stdin;
-private function set_stdin(v:stdgo._internal.os.Os.File):stdgo._internal.os.Os.File return stdgo._internal.os.Os.stdin = v;
+private function set_stdin(v:stdgo._internal.os.Os.File):stdgo._internal.os.Os.File {
+        stdgo._internal.os.Os.stdin = v;
+        return v;
+    }
 var stdout(get, set) : stdgo._internal.os.Os.File;
 private function get_stdout():stdgo._internal.os.Os.File return stdgo._internal.os.Os.stdout;
-private function set_stdout(v:stdgo._internal.os.Os.File):stdgo._internal.os.Os.File return stdgo._internal.os.Os.stdout = v;
+private function set_stdout(v:stdgo._internal.os.Os.File):stdgo._internal.os.Os.File {
+        stdgo._internal.os.Os.stdout = v;
+        return v;
+    }
 var stderr(get, set) : stdgo._internal.os.Os.File;
 private function get_stderr():stdgo._internal.os.Os.File return stdgo._internal.os.Os.stderr;
-private function set_stderr(v:stdgo._internal.os.Os.File):stdgo._internal.os.Os.File return stdgo._internal.os.Os.stderr = v;
+private function set_stderr(v:stdgo._internal.os.Os.File):stdgo._internal.os.Os.File {
+        stdgo._internal.os.Os.stderr = v;
+        return v;
+    }
 var atime(get, set) : stdgo._internal.io.fs.Fs.FileInfo -> stdgo._internal.time.Time.Time;
-private function get_atime():stdgo._internal.io.fs.Fs.FileInfo -> stdgo._internal.time.Time.Time return stdgo._internal.os.Os.atime;
-private function set_atime(v:stdgo._internal.io.fs.Fs.FileInfo -> stdgo._internal.time.Time.Time):stdgo._internal.io.fs.Fs.FileInfo -> stdgo._internal.time.Time.Time return stdgo._internal.os.Os.atime = v;
+private function get_atime():stdgo._internal.io.fs.Fs.FileInfo -> stdgo._internal.time.Time.Time return _0 -> stdgo._internal.os.Os.atime(_0);
+private function set_atime(v:stdgo._internal.io.fs.Fs.FileInfo -> stdgo._internal.time.Time.Time):stdgo._internal.io.fs.Fs.FileInfo -> stdgo._internal.time.Time.Time {
+        stdgo._internal.os.Os.atime = v;
+        return v;
+    }
 var lstatP(get, set) : stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; };
 private function get_lstatP():stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return stdgo._internal.os.Os.lstatP;
-private function set_lstatP(v:stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; }):stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return stdgo._internal.os.Os.lstatP = v;
+private function set_lstatP(v:stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; }):stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } {
+        stdgo._internal.os.Os.lstatP = v;
+        return v;
+    }
 var errWriteAtInAppendMode(get, set) : stdgo.Error;
 private function get_errWriteAtInAppendMode():stdgo.Error return stdgo._internal.os.Os.errWriteAtInAppendMode;
-private function set_errWriteAtInAppendMode(v:stdgo.Error):stdgo.Error return stdgo._internal.os.Os.errWriteAtInAppendMode = v;
+private function set_errWriteAtInAppendMode(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.os.Os.errWriteAtInAppendMode = v;
+        return v;
+    }
 var testingForceReadDirLstat(get, set) : stdgo.Pointer<Bool>;
 private function get_testingForceReadDirLstat():stdgo.Pointer<Bool> return stdgo._internal.os.Os.testingForceReadDirLstat;
-private function set_testingForceReadDirLstat(v:stdgo.Pointer<Bool>):stdgo.Pointer<Bool> return stdgo._internal.os.Os.testingForceReadDirLstat = v;
+private function set_testingForceReadDirLstat(v:stdgo.Pointer<Bool>):stdgo.Pointer<Bool> {
+        stdgo._internal.os.Os.testingForceReadDirLstat = v;
+        return v;
+    }
 var errPatternHasSeparator(get, set) : stdgo.Error;
 private function get_errPatternHasSeparator():stdgo.Error return stdgo._internal.os.Os.errPatternHasSeparator;
-private function set_errPatternHasSeparator(v:stdgo.Error):stdgo.Error return stdgo._internal.os.Os.errPatternHasSeparator = v;
+private function set_errPatternHasSeparator(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.os.Os.errPatternHasSeparator = v;
+        return v;
+    }
 var splitPath(get, set) : stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; };
-private function get_splitPath():stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; } return stdgo._internal.os.Os.splitPath;
-private function set_splitPath(v:stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; }):stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; } return stdgo._internal.os.Os.splitPath = v;
-@:forward @:forward.new abstract T_timeout_static_extension(stdgo._internal.os.Os.T_timeout_static_extension) from stdgo._internal.os.Os.T_timeout_static_extension to stdgo._internal.os.Os.T_timeout_static_extension {
-
-}
+private function get_splitPath():stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; } return _0 -> stdgo._internal.os.Os.splitPath(_0);
+private function set_splitPath(v:stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; }):stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; } {
+        stdgo._internal.os.Os.splitPath = v;
+        return v;
+    }
 typedef T_timeout = stdgo._internal.os.Os.T_timeout;
-@:forward @:forward.new abstract Signal_static_extension(stdgo._internal.os.Os.Signal_static_extension) from stdgo._internal.os.Os.Signal_static_extension to stdgo._internal.os.Os.Signal_static_extension {
-
-}
 typedef Signal = stdgo._internal.os.Os.Signal;
-@:forward @:forward.new abstract T_dirInfo(stdgo._internal.os.Os.T_dirInfo) from stdgo._internal.os.Os.T_dirInfo to stdgo._internal.os.Os.T_dirInfo {
-
+abstract T_dirInfo(stdgo._internal.os.Os.T_dirInfo) from stdgo._internal.os.Os.T_dirInfo to stdgo._internal.os.Os.T_dirInfo {
+    public var _buf(get, set) : Array<std.UInt>;
+    function get__buf():Array<std.UInt> return this._buf;
+    function set__buf(v:Array<std.UInt>):Array<std.UInt> {
+        this._buf = v;
+        return v;
+    }
+    public var _nbuf(get, set) : StdTypes.Int;
+    function get__nbuf():StdTypes.Int return this._nbuf;
+    function set__nbuf(v:StdTypes.Int):StdTypes.Int {
+        this._nbuf = v;
+        return v;
+    }
+    public var _bufp(get, set) : StdTypes.Int;
+    function get__bufp():StdTypes.Int return this._bufp;
+    function set__bufp(v:StdTypes.Int):StdTypes.Int {
+        this._bufp = v;
+        return v;
+    }
+    public function new(?_buf:Array<std.UInt>, ?_nbuf:StdTypes.Int, ?_bufp:StdTypes.Int) this = new stdgo._internal.os.Os.T_dirInfo(_buf, _nbuf, _bufp);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract SyscallError(stdgo._internal.os.Os.SyscallError) from stdgo._internal.os.Os.SyscallError to stdgo._internal.os.Os.SyscallError {
-
+abstract SyscallError(stdgo._internal.os.Os.SyscallError) from stdgo._internal.os.Os.SyscallError to stdgo._internal.os.Os.SyscallError {
+    public var syscall(get, set) : String;
+    function get_syscall():String return this.syscall;
+    function set_syscall(v:String):String {
+        this.syscall = v;
+        return v;
+    }
+    public var err(get, set) : stdgo.Error;
+    function get_err():stdgo.Error return this.err;
+    function set_err(v:stdgo.Error):stdgo.Error {
+        this.err = v;
+        return v;
+    }
+    public function new(?syscall:String, ?err:stdgo.Error) this = new stdgo._internal.os.Os.SyscallError(syscall, err);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Process(stdgo._internal.os.Os.Process) from stdgo._internal.os.Os.Process to stdgo._internal.os.Os.Process {
-
+abstract Process(stdgo._internal.os.Os.Process) from stdgo._internal.os.Os.Process to stdgo._internal.os.Os.Process {
+    public var pid(get, set) : StdTypes.Int;
+    function get_pid():StdTypes.Int return this.pid;
+    function set_pid(v:StdTypes.Int):StdTypes.Int {
+        this.pid = v;
+        return v;
+    }
+    public var _handle(get, set) : stdgo.GoUIntptr;
+    function get__handle():stdgo.GoUIntptr return this._handle;
+    function set__handle(v:stdgo.GoUIntptr):stdgo.GoUIntptr {
+        this._handle = v;
+        return v;
+    }
+    public var _isdone(get, set) : stdgo._internal.sync.atomic_.Atomic_.Bool_;
+    function get__isdone():stdgo._internal.sync.atomic_.Atomic_.Bool_ return this._isdone;
+    function set__isdone(v:stdgo._internal.sync.atomic_.Atomic_.Bool_):stdgo._internal.sync.atomic_.Atomic_.Bool_ {
+        this._isdone = v;
+        return v;
+    }
+    public var _sigMu(get, set) : stdgo._internal.sync.Sync.RWMutex;
+    function get__sigMu():stdgo._internal.sync.Sync.RWMutex return this._sigMu;
+    function set__sigMu(v:stdgo._internal.sync.Sync.RWMutex):stdgo._internal.sync.Sync.RWMutex {
+        this._sigMu = v;
+        return v;
+    }
+    public function new(?pid:StdTypes.Int, ?_handle:stdgo.GoUIntptr, ?_isdone:stdgo._internal.sync.atomic_.Atomic_.Bool_, ?_sigMu:stdgo._internal.sync.Sync.RWMutex) this = new stdgo._internal.os.Os.Process(pid, _handle, _isdone, _sigMu);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract ProcAttr(stdgo._internal.os.Os.ProcAttr) from stdgo._internal.os.Os.ProcAttr to stdgo._internal.os.Os.ProcAttr {
-
+abstract ProcAttr(stdgo._internal.os.Os.ProcAttr) from stdgo._internal.os.Os.ProcAttr to stdgo._internal.os.Os.ProcAttr {
+    public var dir(get, set) : String;
+    function get_dir():String return this.dir;
+    function set_dir(v:String):String {
+        this.dir = v;
+        return v;
+    }
+    public var env(get, set) : Array<String>;
+    function get_env():Array<String> return [for (i in this.env) i];
+    function set_env(v:Array<String>):Array<String> {
+        this.env = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        return v;
+    }
+    public var files(get, set) : Array<stdgo._internal.os.Os.File>;
+    function get_files():Array<stdgo._internal.os.Os.File> return [for (i in this.files) i];
+    function set_files(v:Array<stdgo._internal.os.Os.File>):Array<stdgo._internal.os.Os.File> {
+        this.files = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os.File>>);
+        return v;
+    }
+    public var sys(get, set) : stdgo._internal.syscall.Syscall.SysProcAttr;
+    function get_sys():stdgo._internal.syscall.Syscall.SysProcAttr return this.sys;
+    function set_sys(v:stdgo._internal.syscall.Syscall.SysProcAttr):stdgo._internal.syscall.Syscall.SysProcAttr {
+        this.sys = v;
+        return v;
+    }
+    public function new(?dir:String, ?env:Array<String>, ?files:Array<stdgo._internal.os.Os.File>, ?sys:stdgo._internal.syscall.Syscall.SysProcAttr) this = new stdgo._internal.os.Os.ProcAttr(dir, ([for (i in env) i] : stdgo.Slice<stdgo.GoString>), ([for (i in files) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os.File>>), sys);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract ProcessState(stdgo._internal.os.Os.ProcessState) from stdgo._internal.os.Os.ProcessState to stdgo._internal.os.Os.ProcessState {
-
+abstract ProcessState(stdgo._internal.os.Os.ProcessState) from stdgo._internal.os.Os.ProcessState to stdgo._internal.os.Os.ProcessState {
+    public var _pid(get, set) : StdTypes.Int;
+    function get__pid():StdTypes.Int return this._pid;
+    function set__pid(v:StdTypes.Int):StdTypes.Int {
+        this._pid = v;
+        return v;
+    }
+    public var _status(get, set) : stdgo._internal.syscall.Syscall.WaitStatus;
+    function get__status():stdgo._internal.syscall.Syscall.WaitStatus return this._status;
+    function set__status(v:stdgo._internal.syscall.Syscall.WaitStatus):stdgo._internal.syscall.Syscall.WaitStatus {
+        this._status = v;
+        return v;
+    }
+    public var _rusage(get, set) : stdgo._internal.syscall.Syscall.Rusage;
+    function get__rusage():stdgo._internal.syscall.Syscall.Rusage return this._rusage;
+    function set__rusage(v:stdgo._internal.syscall.Syscall.Rusage):stdgo._internal.syscall.Syscall.Rusage {
+        this._rusage = v;
+        return v;
+    }
+    public function new(?_pid:StdTypes.Int, ?_status:stdgo._internal.syscall.Syscall.WaitStatus, ?_rusage:stdgo._internal.syscall.Syscall.Rusage) this = new stdgo._internal.os.Os.ProcessState(_pid, _status, _rusage);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract LinkError(stdgo._internal.os.Os.LinkError) from stdgo._internal.os.Os.LinkError to stdgo._internal.os.Os.LinkError {
-
+abstract LinkError(stdgo._internal.os.Os.LinkError) from stdgo._internal.os.Os.LinkError to stdgo._internal.os.Os.LinkError {
+    public var op(get, set) : String;
+    function get_op():String return this.op;
+    function set_op(v:String):String {
+        this.op = v;
+        return v;
+    }
+    public var old(get, set) : String;
+    function get_old():String return this.old;
+    function set_old(v:String):String {
+        this.old = v;
+        return v;
+    }
+    public var new_(get, set) : String;
+    function get_new_():String return this.new_;
+    function set_new_(v:String):String {
+        this.new_ = v;
+        return v;
+    }
+    public var err(get, set) : stdgo.Error;
+    function get_err():stdgo.Error return this.err;
+    function set_err(v:stdgo.Error):stdgo.Error {
+        this.err = v;
+        return v;
+    }
+    public function new(?op:String, ?old:String, ?new_:String, ?err:stdgo.Error) this = new stdgo._internal.os.Os.LinkError(op, old, new_, err);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_fileWithoutReadFrom(stdgo._internal.os.Os.T_fileWithoutReadFrom) from stdgo._internal.os.Os.T_fileWithoutReadFrom to stdgo._internal.os.Os.T_fileWithoutReadFrom {
-
+abstract T_fileWithoutReadFrom(stdgo._internal.os.Os.T_fileWithoutReadFrom) from stdgo._internal.os.Os.T_fileWithoutReadFrom to stdgo._internal.os.Os.T_fileWithoutReadFrom {
+    public var file(get, set) : stdgo._internal.os.Os.File;
+    function get_file():stdgo._internal.os.Os.File return this.file;
+    function set_file(v:stdgo._internal.os.Os.File):stdgo._internal.os.Os.File {
+        this.file = v;
+        return v;
+    }
+    public function new(?file:stdgo._internal.os.Os.File) this = new stdgo._internal.os.Os.T_fileWithoutReadFrom(file);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_file(stdgo._internal.os.Os.T_file) from stdgo._internal.os.Os.T_file to stdgo._internal.os.Os.T_file {
-
+abstract T_file(stdgo._internal.os.Os.T_file) from stdgo._internal.os.Os.T_file to stdgo._internal.os.Os.T_file {
+    public var _pfd(get, set) : stdgo._internal.internal.poll.Poll.FD;
+    function get__pfd():stdgo._internal.internal.poll.Poll.FD return this._pfd;
+    function set__pfd(v:stdgo._internal.internal.poll.Poll.FD):stdgo._internal.internal.poll.Poll.FD {
+        this._pfd = v;
+        return v;
+    }
+    public var _name(get, set) : String;
+    function get__name():String return this._name;
+    function set__name(v:String):String {
+        this._name = v;
+        return v;
+    }
+    public var _dirinfo(get, set) : stdgo._internal.os.Os.T_dirInfo;
+    function get__dirinfo():stdgo._internal.os.Os.T_dirInfo return this._dirinfo;
+    function set__dirinfo(v:stdgo._internal.os.Os.T_dirInfo):stdgo._internal.os.Os.T_dirInfo {
+        this._dirinfo = v;
+        return v;
+    }
+    public var _nonblock(get, set) : Bool;
+    function get__nonblock():Bool return this._nonblock;
+    function set__nonblock(v:Bool):Bool {
+        this._nonblock = v;
+        return v;
+    }
+    public var _stdoutOrErr(get, set) : Bool;
+    function get__stdoutOrErr():Bool return this._stdoutOrErr;
+    function set__stdoutOrErr(v:Bool):Bool {
+        this._stdoutOrErr = v;
+        return v;
+    }
+    public var _appendMode(get, set) : Bool;
+    function get__appendMode():Bool return this._appendMode;
+    function set__appendMode(v:Bool):Bool {
+        this._appendMode = v;
+        return v;
+    }
+    public function new(?_pfd:stdgo._internal.internal.poll.Poll.FD, ?_name:String, ?_dirinfo:stdgo._internal.os.Os.T_dirInfo, ?_nonblock:Bool, ?_stdoutOrErr:Bool, ?_appendMode:Bool) this = new stdgo._internal.os.Os.T_file(_pfd, _name, _dirinfo, _nonblock, _stdoutOrErr, _appendMode);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_unixDirent(stdgo._internal.os.Os.T_unixDirent) from stdgo._internal.os.Os.T_unixDirent to stdgo._internal.os.Os.T_unixDirent {
-
+abstract T_unixDirent(stdgo._internal.os.Os.T_unixDirent) from stdgo._internal.os.Os.T_unixDirent to stdgo._internal.os.Os.T_unixDirent {
+    public var _parent(get, set) : String;
+    function get__parent():String return this._parent;
+    function set__parent(v:String):String {
+        this._parent = v;
+        return v;
+    }
+    public var _name(get, set) : String;
+    function get__name():String return this._name;
+    function set__name(v:String):String {
+        this._name = v;
+        return v;
+    }
+    public var _typ(get, set) : stdgo._internal.io.fs.Fs.FileMode;
+    function get__typ():stdgo._internal.io.fs.Fs.FileMode return this._typ;
+    function set__typ(v:stdgo._internal.io.fs.Fs.FileMode):stdgo._internal.io.fs.Fs.FileMode {
+        this._typ = v;
+        return v;
+    }
+    public var _info(get, set) : stdgo._internal.io.fs.Fs.FileInfo;
+    function get__info():stdgo._internal.io.fs.Fs.FileInfo return this._info;
+    function set__info(v:stdgo._internal.io.fs.Fs.FileInfo):stdgo._internal.io.fs.Fs.FileInfo {
+        this._info = v;
+        return v;
+    }
+    public function new(?_parent:String, ?_name:String, ?_typ:stdgo._internal.io.fs.Fs.FileMode, ?_info:stdgo._internal.io.fs.Fs.FileInfo) this = new stdgo._internal.os.Os.T_unixDirent(_parent, _name, _typ, _info);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_rawConn(stdgo._internal.os.Os.T_rawConn) from stdgo._internal.os.Os.T_rawConn to stdgo._internal.os.Os.T_rawConn {
-
+abstract T_rawConn(stdgo._internal.os.Os.T_rawConn) from stdgo._internal.os.Os.T_rawConn to stdgo._internal.os.Os.T_rawConn {
+    public var _file(get, set) : stdgo._internal.os.Os.File;
+    function get__file():stdgo._internal.os.Os.File return this._file;
+    function set__file(v:stdgo._internal.os.Os.File):stdgo._internal.os.Os.File {
+        this._file = v;
+        return v;
+    }
+    public function new(?_file:stdgo._internal.os.Os.File) this = new stdgo._internal.os.Os.T_rawConn(_file);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract File(stdgo._internal.os.Os.File) from stdgo._internal.os.Os.File to stdgo._internal.os.Os.File {
-
+abstract File(stdgo._internal.os.Os.File) from stdgo._internal.os.Os.File to stdgo._internal.os.Os.File {
+    public var _file(get, set) : stdgo._internal.os.Os.T_file;
+    function get__file():stdgo._internal.os.Os.T_file return this._file;
+    function set__file(v:stdgo._internal.os.Os.T_file):stdgo._internal.os.Os.T_file {
+        this._file = v;
+        return v;
+    }
+    public function new(?_file:stdgo._internal.os.Os.T_file, ?_input:haxe.io.Input, ?_output:haxe.io.Output) this = new stdgo._internal.os.Os.File(_file, _input, _output);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_fileStat(stdgo._internal.os.Os.T_fileStat) from stdgo._internal.os.Os.T_fileStat to stdgo._internal.os.Os.T_fileStat {
-
-}
-@:forward @:forward.new abstract T__struct_0_asInterface(stdgo._internal.os.Os.T__struct_0_asInterface) from stdgo._internal.os.Os.T__struct_0_asInterface to stdgo._internal.os.Os.T__struct_0_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_0_static_extension(stdgo._internal.os.Os.T__struct_0_static_extension) from stdgo._internal.os.Os.T__struct_0_static_extension to stdgo._internal.os.Os.T__struct_0_static_extension {
-
+abstract T_fileStat(stdgo._internal.os.Os.T_fileStat) from stdgo._internal.os.Os.T_fileStat to stdgo._internal.os.Os.T_fileStat {
+    public var _name(get, set) : String;
+    function get__name():String return this._name;
+    function set__name(v:String):String {
+        this._name = v;
+        return v;
+    }
+    public var _size(get, set) : haxe.Int64;
+    function get__size():haxe.Int64 return this._size;
+    function set__size(v:haxe.Int64):haxe.Int64 {
+        this._size = v;
+        return v;
+    }
+    public var _mode(get, set) : stdgo._internal.io.fs.Fs.FileMode;
+    function get__mode():stdgo._internal.io.fs.Fs.FileMode return this._mode;
+    function set__mode(v:stdgo._internal.io.fs.Fs.FileMode):stdgo._internal.io.fs.Fs.FileMode {
+        this._mode = v;
+        return v;
+    }
+    public var _modTime(get, set) : stdgo._internal.time.Time.Time;
+    function get__modTime():stdgo._internal.time.Time.Time return this._modTime;
+    function set__modTime(v:stdgo._internal.time.Time.Time):stdgo._internal.time.Time.Time {
+        this._modTime = v;
+        return v;
+    }
+    public var _sys(get, set) : stdgo._internal.syscall.Syscall.Stat_t;
+    function get__sys():stdgo._internal.syscall.Syscall.Stat_t return this._sys;
+    function set__sys(v:stdgo._internal.syscall.Syscall.Stat_t):stdgo._internal.syscall.Syscall.Stat_t {
+        this._sys = v;
+        return v;
+    }
+    public function new(?_name:String, ?_size:haxe.Int64, ?_mode:stdgo._internal.io.fs.Fs.FileMode, ?_modTime:stdgo._internal.time.Time.Time, ?_sys:stdgo._internal.syscall.Syscall.Stat_t) this = new stdgo._internal.os.Os.T_fileStat(_name, _size, _mode, _modTime, _sys);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef T__struct_0 = stdgo._internal.os.Os.T__struct_0;
 typedef T_readdirMode = stdgo._internal.os.Os.T_readdirMode;
@@ -185,78 +485,6 @@ typedef T_dirFS = stdgo._internal.os.Os.T_dirFS;
 typedef T_newFileKind = stdgo._internal.os.Os.T_newFileKind;
 typedef FileInfo = stdgo._internal.os.Os.FileInfo;
 typedef FileMode = stdgo._internal.os.Os.FileMode;
-@:forward @:forward.new abstract T_dirInfo_asInterface(stdgo._internal.os.Os.T_dirInfo_asInterface) from stdgo._internal.os.Os.T_dirInfo_asInterface to stdgo._internal.os.Os.T_dirInfo_asInterface {
-
-}
-@:forward @:forward.new abstract T_dirInfo_static_extension(stdgo._internal.os.Os.T_dirInfo_static_extension) from stdgo._internal.os.Os.T_dirInfo_static_extension to stdgo._internal.os.Os.T_dirInfo_static_extension {
-
-}
-@:forward @:forward.new abstract SyscallError_asInterface(stdgo._internal.os.Os.SyscallError_asInterface) from stdgo._internal.os.Os.SyscallError_asInterface to stdgo._internal.os.Os.SyscallError_asInterface {
-
-}
-@:forward @:forward.new abstract SyscallError_static_extension(stdgo._internal.os.Os.SyscallError_static_extension) from stdgo._internal.os.Os.SyscallError_static_extension to stdgo._internal.os.Os.SyscallError_static_extension {
-
-}
-@:forward @:forward.new abstract Process_asInterface(stdgo._internal.os.Os.Process_asInterface) from stdgo._internal.os.Os.Process_asInterface to stdgo._internal.os.Os.Process_asInterface {
-
-}
-@:forward @:forward.new abstract Process_static_extension(stdgo._internal.os.Os.Process_static_extension) from stdgo._internal.os.Os.Process_static_extension to stdgo._internal.os.Os.Process_static_extension {
-
-}
-@:forward @:forward.new abstract ProcessState_asInterface(stdgo._internal.os.Os.ProcessState_asInterface) from stdgo._internal.os.Os.ProcessState_asInterface to stdgo._internal.os.Os.ProcessState_asInterface {
-
-}
-@:forward @:forward.new abstract ProcessState_static_extension(stdgo._internal.os.Os.ProcessState_static_extension) from stdgo._internal.os.Os.ProcessState_static_extension to stdgo._internal.os.Os.ProcessState_static_extension {
-
-}
-@:forward @:forward.new abstract LinkError_asInterface(stdgo._internal.os.Os.LinkError_asInterface) from stdgo._internal.os.Os.LinkError_asInterface to stdgo._internal.os.Os.LinkError_asInterface {
-
-}
-@:forward @:forward.new abstract LinkError_static_extension(stdgo._internal.os.Os.LinkError_static_extension) from stdgo._internal.os.Os.LinkError_static_extension to stdgo._internal.os.Os.LinkError_static_extension {
-
-}
-@:forward @:forward.new abstract T_fileWithoutReadFrom_asInterface(stdgo._internal.os.Os.T_fileWithoutReadFrom_asInterface) from stdgo._internal.os.Os.T_fileWithoutReadFrom_asInterface to stdgo._internal.os.Os.T_fileWithoutReadFrom_asInterface {
-
-}
-@:forward @:forward.new abstract T_fileWithoutReadFrom_static_extension(stdgo._internal.os.Os.T_fileWithoutReadFrom_static_extension) from stdgo._internal.os.Os.T_fileWithoutReadFrom_static_extension to stdgo._internal.os.Os.T_fileWithoutReadFrom_static_extension {
-
-}
-@:forward @:forward.new abstract T_file_asInterface(stdgo._internal.os.Os.T_file_asInterface) from stdgo._internal.os.Os.T_file_asInterface to stdgo._internal.os.Os.T_file_asInterface {
-
-}
-@:forward @:forward.new abstract T_file_static_extension(stdgo._internal.os.Os.T_file_static_extension) from stdgo._internal.os.Os.T_file_static_extension to stdgo._internal.os.Os.T_file_static_extension {
-
-}
-@:forward @:forward.new abstract T_unixDirent_asInterface(stdgo._internal.os.Os.T_unixDirent_asInterface) from stdgo._internal.os.Os.T_unixDirent_asInterface to stdgo._internal.os.Os.T_unixDirent_asInterface {
-
-}
-@:forward @:forward.new abstract T_unixDirent_static_extension(stdgo._internal.os.Os.T_unixDirent_static_extension) from stdgo._internal.os.Os.T_unixDirent_static_extension to stdgo._internal.os.Os.T_unixDirent_static_extension {
-
-}
-@:forward @:forward.new abstract T_rawConn_asInterface(stdgo._internal.os.Os.T_rawConn_asInterface) from stdgo._internal.os.Os.T_rawConn_asInterface to stdgo._internal.os.Os.T_rawConn_asInterface {
-
-}
-@:forward @:forward.new abstract T_rawConn_static_extension(stdgo._internal.os.Os.T_rawConn_static_extension) from stdgo._internal.os.Os.T_rawConn_static_extension to stdgo._internal.os.Os.T_rawConn_static_extension {
-
-}
-@:forward @:forward.new abstract File_asInterface(stdgo._internal.os.Os.File_asInterface) from stdgo._internal.os.Os.File_asInterface to stdgo._internal.os.Os.File_asInterface {
-
-}
-@:forward @:forward.new abstract File_static_extension(stdgo._internal.os.Os.File_static_extension) from stdgo._internal.os.Os.File_static_extension to stdgo._internal.os.Os.File_static_extension {
-
-}
-@:forward @:forward.new abstract T_fileStat_asInterface(stdgo._internal.os.Os.T_fileStat_asInterface) from stdgo._internal.os.Os.T_fileStat_asInterface to stdgo._internal.os.Os.T_fileStat_asInterface {
-
-}
-@:forward @:forward.new abstract T_fileStat_static_extension(stdgo._internal.os.Os.T_fileStat_static_extension) from stdgo._internal.os.Os.T_fileStat_static_extension to stdgo._internal.os.Os.T_fileStat_static_extension {
-
-}
-@:forward @:forward.new abstract T_dirFS_asInterface(stdgo._internal.os.Os.T_dirFS_asInterface) from stdgo._internal.os.Os.T_dirFS_asInterface to stdgo._internal.os.Os.T_dirFS_asInterface {
-
-}
-@:forward @:forward.new abstract T_dirFS_static_extension(stdgo._internal.os.Os.T_dirFS_static_extension) from stdgo._internal.os.Os.T_dirFS_static_extension to stdgo._internal.os.Os.T_dirFS_static_extension {
-
-}
 class Os {
     /**
         ReadDir reads the named directory,

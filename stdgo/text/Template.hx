@@ -461,200 +461,751 @@ package stdgo.text;
     *|/
 **/
 private var __go2hxdoc__package : Bool;
-@:forward @:forward.new abstract I_static_extension(stdgo._internal.text.template.Template.I_static_extension) from stdgo._internal.text.template.Template.I_static_extension to stdgo._internal.text.template.Template.I_static_extension {
-
-}
 typedef I = stdgo._internal.text.template.Template.I;
-@:forward @:forward.new abstract T_state(stdgo._internal.text.template.Template.T_state) from stdgo._internal.text.template.Template.T_state to stdgo._internal.text.template.Template.T_state {
-
+abstract T_state(stdgo._internal.text.template.Template.T_state) from stdgo._internal.text.template.Template.T_state to stdgo._internal.text.template.Template.T_state {
+    public var _tmpl(get, set) : stdgo._internal.text.template.Template.Template;
+    function get__tmpl():stdgo._internal.text.template.Template.Template return this._tmpl;
+    function set__tmpl(v:stdgo._internal.text.template.Template.Template):stdgo._internal.text.template.Template.Template {
+        this._tmpl = v;
+        return v;
+    }
+    public var _wr(get, set) : stdgo._internal.io.Io.Writer;
+    function get__wr():stdgo._internal.io.Io.Writer return this._wr;
+    function set__wr(v:stdgo._internal.io.Io.Writer):stdgo._internal.io.Io.Writer {
+        this._wr = v;
+        return v;
+    }
+    public var _node(get, set) : stdgo._internal.text.template.parse.Parse.Node;
+    function get__node():stdgo._internal.text.template.parse.Parse.Node return this._node;
+    function set__node(v:stdgo._internal.text.template.parse.Parse.Node):stdgo._internal.text.template.parse.Parse.Node {
+        this._node = v;
+        return v;
+    }
+    public var _vars(get, set) : Array<stdgo._internal.text.template.Template.T_variable>;
+    function get__vars():Array<stdgo._internal.text.template.Template.T_variable> return [for (i in this._vars) i];
+    function set__vars(v:Array<stdgo._internal.text.template.Template.T_variable>):Array<stdgo._internal.text.template.Template.T_variable> {
+        this._vars = ([for (i in v) i] : stdgo.Slice<stdgo._internal.text.template.Template.T_variable>);
+        return v;
+    }
+    public var _depth(get, set) : StdTypes.Int;
+    function get__depth():StdTypes.Int return this._depth;
+    function set__depth(v:StdTypes.Int):StdTypes.Int {
+        this._depth = v;
+        return v;
+    }
+    public function new(?_tmpl:stdgo._internal.text.template.Template.Template, ?_wr:stdgo._internal.io.Io.Writer, ?_node:stdgo._internal.text.template.parse.Parse.Node, ?_vars:Array<stdgo._internal.text.template.Template.T_variable>, ?_depth:StdTypes.Int) this = new stdgo._internal.text.template.Template.T_state(_tmpl, _wr, _node, ([for (i in _vars) i] : stdgo.Slice<stdgo._internal.text.template.Template.T_variable>), _depth);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_variable(stdgo._internal.text.template.Template.T_variable) from stdgo._internal.text.template.Template.T_variable to stdgo._internal.text.template.Template.T_variable {
-
+abstract T_variable(stdgo._internal.text.template.Template.T_variable) from stdgo._internal.text.template.Template.T_variable to stdgo._internal.text.template.Template.T_variable {
+    public var _name(get, set) : String;
+    function get__name():String return this._name;
+    function set__name(v:String):String {
+        this._name = v;
+        return v;
+    }
+    public var _value(get, set) : stdgo._internal.reflect.Reflect.Value;
+    function get__value():stdgo._internal.reflect.Reflect.Value return this._value;
+    function set__value(v:stdgo._internal.reflect.Reflect.Value):stdgo._internal.reflect.Reflect.Value {
+        this._value = v;
+        return v;
+    }
+    public function new(?_name:String, ?_value:stdgo._internal.reflect.Reflect.Value) this = new stdgo._internal.text.template.Template.T_variable(_name, _value);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_missingValType(stdgo._internal.text.template.Template.T_missingValType) from stdgo._internal.text.template.Template.T_missingValType to stdgo._internal.text.template.Template.T_missingValType {
-
+abstract T_missingValType(stdgo._internal.text.template.Template.T_missingValType) from stdgo._internal.text.template.Template.T_missingValType to stdgo._internal.text.template.Template.T_missingValType {
+    public function new() this = new stdgo._internal.text.template.Template.T_missingValType();
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract ExecError(stdgo._internal.text.template.Template.ExecError) from stdgo._internal.text.template.Template.ExecError to stdgo._internal.text.template.Template.ExecError {
-
+abstract ExecError(stdgo._internal.text.template.Template.ExecError) from stdgo._internal.text.template.Template.ExecError to stdgo._internal.text.template.Template.ExecError {
+    public var name(get, set) : String;
+    function get_name():String return this.name;
+    function set_name(v:String):String {
+        this.name = v;
+        return v;
+    }
+    public var err(get, set) : stdgo.Error;
+    function get_err():stdgo.Error return this.err;
+    function set_err(v:stdgo.Error):stdgo.Error {
+        this.err = v;
+        return v;
+    }
+    public function new(?name:String, ?err:stdgo.Error) this = new stdgo._internal.text.template.Template.ExecError(name, err);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_writeError(stdgo._internal.text.template.Template.T_writeError) from stdgo._internal.text.template.Template.T_writeError to stdgo._internal.text.template.Template.T_writeError {
-
+abstract T_writeError(stdgo._internal.text.template.Template.T_writeError) from stdgo._internal.text.template.Template.T_writeError to stdgo._internal.text.template.Template.T_writeError {
+    public var err(get, set) : stdgo.Error;
+    function get_err():stdgo.Error return this.err;
+    function set_err(v:stdgo.Error):stdgo.Error {
+        this.err = v;
+        return v;
+    }
+    public function new(?err:stdgo.Error) this = new stdgo._internal.text.template.Template.T_writeError(err);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_(stdgo._internal.text.template.Template.T_) from stdgo._internal.text.template.Template.T_ to stdgo._internal.text.template.Template.T_ {
-
+abstract T_(stdgo._internal.text.template.Template.T_) from stdgo._internal.text.template.Template.T_ to stdgo._internal.text.template.Template.T_ {
+    public var _True(get, set) : Bool;
+    function get__True():Bool return this._True;
+    function set__True(v:Bool):Bool {
+        this._True = v;
+        return v;
+    }
+    public var i(get, set) : StdTypes.Int;
+    function get_i():StdTypes.Int return this.i;
+    function set_i(v:StdTypes.Int):StdTypes.Int {
+        this.i = v;
+        return v;
+    }
+    public var u16(get, set) : std.UInt;
+    function get_u16():std.UInt return this.u16;
+    function set_u16(v:std.UInt):std.UInt {
+        this.u16 = v;
+        return v;
+    }
+    public var x(get, set) : String;
+    function get_x():String return this.x;
+    function set_x(v:String):String {
+        this.x = v;
+        return v;
+    }
+    public var s(get, set) : String;
+    function get_s():String return this.s;
+    function set_s(v:String):String {
+        this.s = v;
+        return v;
+    }
+    public var floatZero(get, set) : StdTypes.Float;
+    function get_floatZero():StdTypes.Float return this.floatZero;
+    function set_floatZero(v:StdTypes.Float):StdTypes.Float {
+        this.floatZero = v;
+        return v;
+    }
+    public var complexZero(get, set) : stdgo.GoComplex128;
+    function get_complexZero():stdgo.GoComplex128 return this.complexZero;
+    function set_complexZero(v:stdgo.GoComplex128):stdgo.GoComplex128 {
+        this.complexZero = v;
+        return v;
+    }
+    public var u(get, set) : stdgo._internal.text.template.Template.U;
+    function get_u():stdgo._internal.text.template.Template.U return this.u;
+    function set_u(v:stdgo._internal.text.template.Template.U):stdgo._internal.text.template.Template.U {
+        this.u = v;
+        return v;
+    }
+    public var v0(get, set) : stdgo._internal.text.template.Template.V;
+    function get_v0():stdgo._internal.text.template.Template.V return this.v0;
+    function set_v0(v:stdgo._internal.text.template.Template.V):stdgo._internal.text.template.Template.V {
+        this.v0 = v;
+        return v;
+    }
+    public var v1(get, set) : stdgo._internal.text.template.Template.V;
+    function get_v1():stdgo._internal.text.template.Template.V return this.v1;
+    function set_v1(v:stdgo._internal.text.template.Template.V):stdgo._internal.text.template.Template.V {
+        this.v1 = v;
+        return v;
+    }
+    public var v2(get, set) : stdgo._internal.text.template.Template.V;
+    function get_v2():stdgo._internal.text.template.Template.V return this.v2;
+    function set_v2(v:stdgo._internal.text.template.Template.V):stdgo._internal.text.template.Template.V {
+        this.v2 = v;
+        return v;
+    }
+    public var w0(get, set) : stdgo._internal.text.template.Template.W;
+    function get_w0():stdgo._internal.text.template.Template.W return this.w0;
+    function set_w0(v:stdgo._internal.text.template.Template.W):stdgo._internal.text.template.Template.W {
+        this.w0 = v;
+        return v;
+    }
+    public var w1(get, set) : stdgo._internal.text.template.Template.W;
+    function get_w1():stdgo._internal.text.template.Template.W return this.w1;
+    function set_w1(v:stdgo._internal.text.template.Template.W):stdgo._internal.text.template.Template.W {
+        this.w1 = v;
+        return v;
+    }
+    public var w2(get, set) : stdgo._internal.text.template.Template.W;
+    function get_w2():stdgo._internal.text.template.Template.W return this.w2;
+    function set_w2(v:stdgo._internal.text.template.Template.W):stdgo._internal.text.template.Template.W {
+        this.w2 = v;
+        return v;
+    }
+    public var si(get, set) : Array<StdTypes.Int>;
+    function get_si():Array<StdTypes.Int> return [for (i in this.si) i];
+    function set_si(v:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        this.si = ([for (i in v) i] : stdgo.Slice<stdgo.GoInt>);
+        return v;
+    }
+    public var sicap(get, set) : Array<StdTypes.Int>;
+    function get_sicap():Array<StdTypes.Int> return [for (i in this.sicap) i];
+    function set_sicap(v:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        this.sicap = ([for (i in v) i] : stdgo.Slice<stdgo.GoInt>);
+        return v;
+    }
+    public var siempty(get, set) : Array<StdTypes.Int>;
+    function get_siempty():Array<StdTypes.Int> return [for (i in this.siempty) i];
+    function set_siempty(v:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        this.siempty = ([for (i in v) i] : stdgo.Slice<stdgo.GoInt>);
+        return v;
+    }
+    public var sb(get, set) : Array<Bool>;
+    function get_sb():Array<Bool> return [for (i in this.sb) i];
+    function set_sb(v:Array<Bool>):Array<Bool> {
+        this.sb = ([for (i in v) i] : stdgo.Slice<Bool>);
+        return v;
+    }
+    public var ai(get, set) : haxe.ds.Vector<StdTypes.Int>;
+    function get_ai():haxe.ds.Vector<StdTypes.Int> return haxe.ds.Vector.fromArrayCopy([for (i in this.ai) i]);
+    function set_ai(v:haxe.ds.Vector<StdTypes.Int>):haxe.ds.Vector<StdTypes.Int> {
+        this.ai = ([for (i in v) i] : stdgo.GoArray<stdgo.GoInt>);
+        return v;
+    }
+    public var msi(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>;
+    function get_msi():stdgo.GoMap<stdgo.GoString, stdgo.GoInt> return this.msi;
+    function set_msi(v:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>):stdgo.GoMap<stdgo.GoString, stdgo.GoInt> {
+        this.msi = v;
+        return v;
+    }
+    public var msione(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>;
+    function get_msione():stdgo.GoMap<stdgo.GoString, stdgo.GoInt> return this.msione;
+    function set_msione(v:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>):stdgo.GoMap<stdgo.GoString, stdgo.GoInt> {
+        this.msione = v;
+        return v;
+    }
+    public var msiempty(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>;
+    function get_msiempty():stdgo.GoMap<stdgo.GoString, stdgo.GoInt> return this.msiempty;
+    function set_msiempty(v:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>):stdgo.GoMap<stdgo.GoString, stdgo.GoInt> {
+        this.msiempty = v;
+        return v;
+    }
+    public var mxi(get, set) : stdgo.GoMap<stdgo.AnyInterface, stdgo.GoInt>;
+    function get_mxi():stdgo.GoMap<stdgo.AnyInterface, stdgo.GoInt> return this.mxi;
+    function set_mxi(v:stdgo.GoMap<stdgo.AnyInterface, stdgo.GoInt>):stdgo.GoMap<stdgo.AnyInterface, stdgo.GoInt> {
+        this.mxi = v;
+        return v;
+    }
+    public var mii(get, set) : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>;
+    function get_mii():stdgo.GoMap<stdgo.GoInt, stdgo.GoInt> return this.mii;
+    function set_mii(v:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>):stdgo.GoMap<stdgo.GoInt, stdgo.GoInt> {
+        this.mii = v;
+        return v;
+    }
+    public var mi32s(get, set) : stdgo.GoMap<stdgo.GoInt32, stdgo.GoString>;
+    function get_mi32s():stdgo.GoMap<stdgo.GoInt32, stdgo.GoString> return this.mi32s;
+    function set_mi32s(v:stdgo.GoMap<stdgo.GoInt32, stdgo.GoString>):stdgo.GoMap<stdgo.GoInt32, stdgo.GoString> {
+        this.mi32s = v;
+        return v;
+    }
+    public var mi64s(get, set) : stdgo.GoMap<stdgo.GoInt64, stdgo.GoString>;
+    function get_mi64s():stdgo.GoMap<stdgo.GoInt64, stdgo.GoString> return this.mi64s;
+    function set_mi64s(v:stdgo.GoMap<stdgo.GoInt64, stdgo.GoString>):stdgo.GoMap<stdgo.GoInt64, stdgo.GoString> {
+        this.mi64s = v;
+        return v;
+    }
+    public var mui32s(get, set) : stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>;
+    function get_mui32s():stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString> return this.mui32s;
+    function set_mui32s(v:stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>):stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString> {
+        this.mui32s = v;
+        return v;
+    }
+    public var mui64s(get, set) : stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString>;
+    function get_mui64s():stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString> return this.mui64s;
+    function set_mui64s(v:stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString>):stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString> {
+        this.mui64s = v;
+        return v;
+    }
+    public var mi8s(get, set) : stdgo.GoMap<stdgo.GoInt8, stdgo.GoString>;
+    function get_mi8s():stdgo.GoMap<stdgo.GoInt8, stdgo.GoString> return this.mi8s;
+    function set_mi8s(v:stdgo.GoMap<stdgo.GoInt8, stdgo.GoString>):stdgo.GoMap<stdgo.GoInt8, stdgo.GoString> {
+        this.mi8s = v;
+        return v;
+    }
+    public var mui8s(get, set) : stdgo.GoMap<stdgo.GoUInt8, stdgo.GoString>;
+    function get_mui8s():stdgo.GoMap<stdgo.GoUInt8, stdgo.GoString> return this.mui8s;
+    function set_mui8s(v:stdgo.GoMap<stdgo.GoUInt8, stdgo.GoString>):stdgo.GoMap<stdgo.GoUInt8, stdgo.GoString> {
+        this.mui8s = v;
+        return v;
+    }
+    public var smsi(get, set) : Array<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>;
+    function get_smsi():Array<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>> return [for (i in this.smsi) i];
+    function set_smsi(v:Array<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>):Array<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>> {
+        this.smsi = ([for (i in v) i] : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>);
+        return v;
+    }
+    public var empty0(get, set) : stdgo.AnyInterface;
+    function get_empty0():stdgo.AnyInterface return this.empty0;
+    function set_empty0(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.empty0 = v;
+        return v;
+    }
+    public var empty1(get, set) : stdgo.AnyInterface;
+    function get_empty1():stdgo.AnyInterface return this.empty1;
+    function set_empty1(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.empty1 = v;
+        return v;
+    }
+    public var empty2(get, set) : stdgo.AnyInterface;
+    function get_empty2():stdgo.AnyInterface return this.empty2;
+    function set_empty2(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.empty2 = v;
+        return v;
+    }
+    public var empty3(get, set) : stdgo.AnyInterface;
+    function get_empty3():stdgo.AnyInterface return this.empty3;
+    function set_empty3(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.empty3 = v;
+        return v;
+    }
+    public var empty4(get, set) : stdgo.AnyInterface;
+    function get_empty4():stdgo.AnyInterface return this.empty4;
+    function set_empty4(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this.empty4 = v;
+        return v;
+    }
+    public var nonEmptyInterface(get, set) : stdgo._internal.text.template.Template.I;
+    function get_nonEmptyInterface():stdgo._internal.text.template.Template.I return this.nonEmptyInterface;
+    function set_nonEmptyInterface(v:stdgo._internal.text.template.Template.I):stdgo._internal.text.template.Template.I {
+        this.nonEmptyInterface = v;
+        return v;
+    }
+    public var nonEmptyInterfacePtS(get, set) : stdgo._internal.text.template.Template.I;
+    function get_nonEmptyInterfacePtS():stdgo._internal.text.template.Template.I return this.nonEmptyInterfacePtS;
+    function set_nonEmptyInterfacePtS(v:stdgo._internal.text.template.Template.I):stdgo._internal.text.template.Template.I {
+        this.nonEmptyInterfacePtS = v;
+        return v;
+    }
+    public var nonEmptyInterfaceNil(get, set) : stdgo._internal.text.template.Template.I;
+    function get_nonEmptyInterfaceNil():stdgo._internal.text.template.Template.I return this.nonEmptyInterfaceNil;
+    function set_nonEmptyInterfaceNil(v:stdgo._internal.text.template.Template.I):stdgo._internal.text.template.Template.I {
+        this.nonEmptyInterfaceNil = v;
+        return v;
+    }
+    public var nonEmptyInterfaceTypedNil(get, set) : stdgo._internal.text.template.Template.I;
+    function get_nonEmptyInterfaceTypedNil():stdgo._internal.text.template.Template.I return this.nonEmptyInterfaceTypedNil;
+    function set_nonEmptyInterfaceTypedNil(v:stdgo._internal.text.template.Template.I):stdgo._internal.text.template.Template.I {
+        this.nonEmptyInterfaceTypedNil = v;
+        return v;
+    }
+    public var str(get, set) : stdgo._internal.fmt.Fmt.Stringer;
+    function get_str():stdgo._internal.fmt.Fmt.Stringer return this.str;
+    function set_str(v:stdgo._internal.fmt.Fmt.Stringer):stdgo._internal.fmt.Fmt.Stringer {
+        this.str = v;
+        return v;
+    }
+    public var err(get, set) : stdgo.Error;
+    function get_err():stdgo.Error return this.err;
+    function set_err(v:stdgo.Error):stdgo.Error {
+        this.err = v;
+        return v;
+    }
+    public var pi(get, set) : stdgo.Pointer<StdTypes.Int>;
+    function get_pi():stdgo.Pointer<StdTypes.Int> return this.pi;
+    function set_pi(v:stdgo.Pointer<StdTypes.Int>):stdgo.Pointer<StdTypes.Int> {
+        this.pi = v;
+        return v;
+    }
+    public var ps(get, set) : stdgo.Pointer<String>;
+    function get_ps():stdgo.Pointer<String> return this.ps;
+    function set_ps(v:stdgo.Pointer<String>):stdgo.Pointer<String> {
+        this.ps = v;
+        return v;
+    }
+    public var psi(get, set) : Array<StdTypes.Int>;
+    function get_psi():Array<StdTypes.Int> return this.psi;
+    function set_psi(v:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        this.psi = v;
+        return v;
+    }
+    public var nil(get, set) : stdgo.Pointer<StdTypes.Int>;
+    function get_nil():stdgo.Pointer<StdTypes.Int> return this.nil;
+    function set_nil(v:stdgo.Pointer<StdTypes.Int>):stdgo.Pointer<StdTypes.Int> {
+        this.nil = v;
+        return v;
+    }
+    public var binaryFunc(get, set) : (stdgo.GoString, stdgo.GoString) -> stdgo.GoString;
+    function get_binaryFunc():(stdgo.GoString, stdgo.GoString) -> stdgo.GoString return (_0, _1) -> this.binaryFunc(_0, _1);
+    function set_binaryFunc(v:(stdgo.GoString, stdgo.GoString) -> stdgo.GoString):(stdgo.GoString, stdgo.GoString) -> stdgo.GoString {
+        this.binaryFunc = v;
+        return v;
+    }
+    public var variadicFunc(get, set) : stdgo.Slice<stdgo.GoString> -> stdgo.GoString;
+    function get_variadicFunc():stdgo.Slice<stdgo.GoString> -> stdgo.GoString return _0 -> this.variadicFunc([for (i in _0) i]);
+    function set_variadicFunc(v:stdgo.Slice<stdgo.GoString> -> stdgo.GoString):stdgo.Slice<stdgo.GoString> -> stdgo.GoString {
+        this.variadicFunc = v;
+        return v;
+    }
+    public var variadicFuncInt(get, set) : (stdgo.GoInt, stdgo.Slice<stdgo.GoString>) -> stdgo.GoString;
+    function get_variadicFuncInt():(stdgo.GoInt, stdgo.Slice<stdgo.GoString>) -> stdgo.GoString return (_0, _1) -> this.variadicFuncInt(_0, [for (i in _1) i]);
+    function set_variadicFuncInt(v:(stdgo.GoInt, stdgo.Slice<stdgo.GoString>) -> stdgo.GoString):(stdgo.GoInt, stdgo.Slice<stdgo.GoString>) -> stdgo.GoString {
+        this.variadicFuncInt = v;
+        return v;
+    }
+    public var nilOKFunc(get, set) : stdgo.Pointer<stdgo.GoInt> -> Bool;
+    function get_nilOKFunc():stdgo.Pointer<stdgo.GoInt> -> Bool return _0 -> this.nilOKFunc(_0);
+    function set_nilOKFunc(v:stdgo.Pointer<stdgo.GoInt> -> Bool):stdgo.Pointer<stdgo.GoInt> -> Bool {
+        this.nilOKFunc = v;
+        return v;
+    }
+    public var errFunc(get, set) : () -> { var _0 : stdgo.GoString; var _1 : stdgo.Error; };
+    function get_errFunc():() -> { var _0 : stdgo.GoString; var _1 : stdgo.Error; } return () -> this.errFunc();
+    function set_errFunc(v:() -> { var _0 : stdgo.GoString; var _1 : stdgo.Error; }):() -> { var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
+        this.errFunc = v;
+        return v;
+    }
+    public var panicFunc(get, set) : () -> stdgo.GoString;
+    function get_panicFunc():() -> stdgo.GoString return () -> this.panicFunc();
+    function set_panicFunc(v:() -> stdgo.GoString):() -> stdgo.GoString {
+        this.panicFunc = v;
+        return v;
+    }
+    public var tmpl(get, set) : stdgo._internal.text.template.Template.Template;
+    function get_tmpl():stdgo._internal.text.template.Template.Template return this.tmpl;
+    function set_tmpl(v:stdgo._internal.text.template.Template.Template):stdgo._internal.text.template.Template.Template {
+        this.tmpl = v;
+        return v;
+    }
+    public var _unexported(get, set) : StdTypes.Int;
+    function get__unexported():StdTypes.Int return this._unexported;
+    function set__unexported(v:StdTypes.Int):StdTypes.Int {
+        this._unexported = v;
+        return v;
+    }
+    public function new(?_True:Bool, ?i:StdTypes.Int, ?u16:std.UInt, ?x:String, ?s:String, ?floatZero:StdTypes.Float, ?complexZero:stdgo.GoComplex128, ?u:stdgo._internal.text.template.Template.U, ?v0:stdgo._internal.text.template.Template.V, ?v1:stdgo._internal.text.template.Template.V, ?v2:stdgo._internal.text.template.Template.V, ?w0:stdgo._internal.text.template.Template.W, ?w1:stdgo._internal.text.template.Template.W, ?w2:stdgo._internal.text.template.Template.W, ?si:Array<StdTypes.Int>, ?sicap:Array<StdTypes.Int>, ?siempty:Array<StdTypes.Int>, ?sb:Array<Bool>, ?ai:haxe.ds.Vector<StdTypes.Int>, ?msi:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?msione:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?msiempty:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?mxi:stdgo.GoMap<stdgo.AnyInterface, stdgo.GoInt>, ?mii:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>, ?mi32s:stdgo.GoMap<stdgo.GoInt32, stdgo.GoString>, ?mi64s:stdgo.GoMap<stdgo.GoInt64, stdgo.GoString>, ?mui32s:stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>, ?mui64s:stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString>, ?mi8s:stdgo.GoMap<stdgo.GoInt8, stdgo.GoString>, ?mui8s:stdgo.GoMap<stdgo.GoUInt8, stdgo.GoString>, ?smsi:Array<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>, ?empty0:stdgo.AnyInterface, ?empty1:stdgo.AnyInterface, ?empty2:stdgo.AnyInterface, ?empty3:stdgo.AnyInterface, ?empty4:stdgo.AnyInterface, ?nonEmptyInterface:stdgo._internal.text.template.Template.I, ?nonEmptyInterfacePtS:stdgo._internal.text.template.Template.I, ?nonEmptyInterfaceNil:stdgo._internal.text.template.Template.I, ?nonEmptyInterfaceTypedNil:stdgo._internal.text.template.Template.I, ?str:stdgo._internal.fmt.Fmt.Stringer, ?err:stdgo.Error, ?pi:stdgo.Pointer<StdTypes.Int>, ?ps:stdgo.Pointer<String>, ?psi:Array<StdTypes.Int>, ?nil:stdgo.Pointer<StdTypes.Int>, ?binaryFunc:(stdgo.GoString, stdgo.GoString) -> stdgo.GoString, ?variadicFunc:stdgo.Slice<stdgo.GoString> -> stdgo.GoString, ?variadicFuncInt:(stdgo.GoInt, stdgo.Slice<stdgo.GoString>) -> stdgo.GoString, ?nilOKFunc:stdgo.Pointer<stdgo.GoInt> -> Bool, ?errFunc:() -> { var _0 : stdgo.GoString; var _1 : stdgo.Error; }, ?panicFunc:() -> stdgo.GoString, ?tmpl:stdgo._internal.text.template.Template.Template, ?_unexported:StdTypes.Int) this = new stdgo._internal.text.template.Template.T_(
+_True,
+i,
+u16,
+x,
+s,
+floatZero,
+complexZero,
+u,
+v0,
+v1,
+v2,
+w0,
+w1,
+w2,
+([for (i in si) i] : stdgo.Slice<stdgo.GoInt>),
+([for (i in sicap) i] : stdgo.Slice<stdgo.GoInt>),
+([for (i in siempty) i] : stdgo.Slice<stdgo.GoInt>),
+([for (i in sb) i] : stdgo.Slice<Bool>),
+([for (i in ai) i] : stdgo.GoArray<stdgo.GoInt>),
+msi,
+msione,
+msiempty,
+mxi,
+mii,
+mi32s,
+mi64s,
+mui32s,
+mui64s,
+mi8s,
+mui8s,
+([for (i in smsi) i] : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>),
+empty0,
+empty1,
+empty2,
+empty3,
+empty4,
+nonEmptyInterface,
+nonEmptyInterfacePtS,
+nonEmptyInterfaceNil,
+nonEmptyInterfaceTypedNil,
+str,
+err,
+pi,
+ps,
+psi,
+nil,
+binaryFunc,
+variadicFunc,
+variadicFuncInt,
+nilOKFunc,
+errFunc,
+panicFunc,
+tmpl,
+_unexported);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract U(stdgo._internal.text.template.Template.U) from stdgo._internal.text.template.Template.U to stdgo._internal.text.template.Template.U {
-
+abstract U(stdgo._internal.text.template.Template.U) from stdgo._internal.text.template.Template.U to stdgo._internal.text.template.Template.U {
+    public var v(get, set) : String;
+    function get_v():String return this.v;
+    function set_v(v:String):String {
+        this.v = v;
+        return v;
+    }
+    public function new(?v:String) this = new stdgo._internal.text.template.Template.U(v);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract V(stdgo._internal.text.template.Template.V) from stdgo._internal.text.template.Template.V to stdgo._internal.text.template.Template.V {
-
+abstract V(stdgo._internal.text.template.Template.V) from stdgo._internal.text.template.Template.V to stdgo._internal.text.template.Template.V {
+    public var _j(get, set) : StdTypes.Int;
+    function get__j():StdTypes.Int return this._j;
+    function set__j(v:StdTypes.Int):StdTypes.Int {
+        this._j = v;
+        return v;
+    }
+    public function new(?_j:StdTypes.Int) this = new stdgo._internal.text.template.Template.V(_j);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract W(stdgo._internal.text.template.Template.W) from stdgo._internal.text.template.Template.W to stdgo._internal.text.template.Template.W {
-
+abstract W(stdgo._internal.text.template.Template.W) from stdgo._internal.text.template.Template.W to stdgo._internal.text.template.Template.W {
+    public var _k(get, set) : StdTypes.Int;
+    function get__k():StdTypes.Int return this._k;
+    function set__k(v:StdTypes.Int):StdTypes.Int {
+        this._k = v;
+        return v;
+    }
+    public function new(?_k:StdTypes.Int) this = new stdgo._internal.text.template.Template.W(_k);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_execTest(stdgo._internal.text.template.Template.T_execTest) from stdgo._internal.text.template.Template.T_execTest to stdgo._internal.text.template.Template.T_execTest {
-
+abstract T_execTest(stdgo._internal.text.template.Template.T_execTest) from stdgo._internal.text.template.Template.T_execTest to stdgo._internal.text.template.Template.T_execTest {
+    public var _name(get, set) : String;
+    function get__name():String return this._name;
+    function set__name(v:String):String {
+        this._name = v;
+        return v;
+    }
+    public var _input(get, set) : String;
+    function get__input():String return this._input;
+    function set__input(v:String):String {
+        this._input = v;
+        return v;
+    }
+    public var _output(get, set) : String;
+    function get__output():String return this._output;
+    function set__output(v:String):String {
+        this._output = v;
+        return v;
+    }
+    public var _data(get, set) : stdgo.AnyInterface;
+    function get__data():stdgo.AnyInterface return this._data;
+    function set__data(v:stdgo.AnyInterface):stdgo.AnyInterface {
+        this._data = v;
+        return v;
+    }
+    public var _ok(get, set) : Bool;
+    function get__ok():Bool return this._ok;
+    function set__ok(v:Bool):Bool {
+        this._ok = v;
+        return v;
+    }
+    public function new(?_name:String, ?_input:String, ?_output:String, ?_data:stdgo.AnyInterface, ?_ok:Bool) this = new stdgo._internal.text.template.Template.T_execTest(_name, _input, _output, _data, _ok);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract CustomError(stdgo._internal.text.template.Template.CustomError) from stdgo._internal.text.template.Template.CustomError to stdgo._internal.text.template.Template.CustomError {
-
+abstract CustomError(stdgo._internal.text.template.Template.CustomError) from stdgo._internal.text.template.Template.CustomError to stdgo._internal.text.template.Template.CustomError {
+    public function new() this = new stdgo._internal.text.template.Template.CustomError();
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Tree(stdgo._internal.text.template.Template.Tree) from stdgo._internal.text.template.Template.Tree to stdgo._internal.text.template.Template.Tree {
-
+abstract Tree(stdgo._internal.text.template.Template.Tree) from stdgo._internal.text.template.Template.Tree to stdgo._internal.text.template.Template.Tree {
+    public var val(get, set) : StdTypes.Int;
+    function get_val():StdTypes.Int return this.val;
+    function set_val(v:StdTypes.Int):StdTypes.Int {
+        this.val = v;
+        return v;
+    }
+    public var left(get, set) : stdgo._internal.text.template.Template.Tree;
+    function get_left():stdgo._internal.text.template.Template.Tree return this.left;
+    function set_left(v:stdgo._internal.text.template.Template.Tree):stdgo._internal.text.template.Template.Tree {
+        this.left = v;
+        return v;
+    }
+    public var right(get, set) : stdgo._internal.text.template.Template.Tree;
+    function get_right():stdgo._internal.text.template.Template.Tree return this.right;
+    function set_right(v:stdgo._internal.text.template.Template.Tree):stdgo._internal.text.template.Template.Tree {
+        this.right = v;
+        return v;
+    }
+    public function new(?val:StdTypes.Int, ?left:stdgo._internal.text.template.Template.Tree, ?right:stdgo._internal.text.template.Template.Tree) this = new stdgo._internal.text.template.Template.Tree(val, left, right);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_cmpTest(stdgo._internal.text.template.Template.T_cmpTest) from stdgo._internal.text.template.Template.T_cmpTest to stdgo._internal.text.template.Template.T_cmpTest {
-
+abstract T_cmpTest(stdgo._internal.text.template.Template.T_cmpTest) from stdgo._internal.text.template.Template.T_cmpTest to stdgo._internal.text.template.Template.T_cmpTest {
+    public var _expr(get, set) : String;
+    function get__expr():String return this._expr;
+    function set__expr(v:String):String {
+        this._expr = v;
+        return v;
+    }
+    public var _truth(get, set) : String;
+    function get__truth():String return this._truth;
+    function set__truth(v:String):String {
+        this._truth = v;
+        return v;
+    }
+    public var _ok(get, set) : Bool;
+    function get__ok():Bool return this._ok;
+    function set__ok(v:Bool):Bool {
+        this._ok = v;
+        return v;
+    }
+    public function new(?_expr:String, ?_truth:String, ?_ok:Bool) this = new stdgo._internal.text.template.Template.T_cmpTest(_expr, _truth, _ok);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_multiParseTest(stdgo._internal.text.template.Template.T_multiParseTest) from stdgo._internal.text.template.Template.T_multiParseTest to stdgo._internal.text.template.Template.T_multiParseTest {
-
+abstract T_multiParseTest(stdgo._internal.text.template.Template.T_multiParseTest) from stdgo._internal.text.template.Template.T_multiParseTest to stdgo._internal.text.template.Template.T_multiParseTest {
+    public var _name(get, set) : String;
+    function get__name():String return this._name;
+    function set__name(v:String):String {
+        this._name = v;
+        return v;
+    }
+    public var _input(get, set) : String;
+    function get__input():String return this._input;
+    function set__input(v:String):String {
+        this._input = v;
+        return v;
+    }
+    public var _ok(get, set) : Bool;
+    function get__ok():Bool return this._ok;
+    function set__ok(v:Bool):Bool {
+        this._ok = v;
+        return v;
+    }
+    public var _names(get, set) : Array<String>;
+    function get__names():Array<String> return [for (i in this._names) i];
+    function set__names(v:Array<String>):Array<String> {
+        this._names = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        return v;
+    }
+    public var _results(get, set) : Array<String>;
+    function get__results():Array<String> return [for (i in this._results) i];
+    function set__results(v:Array<String>):Array<String> {
+        this._results = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        return v;
+    }
+    public function new(?_name:String, ?_input:String, ?_ok:Bool, ?_names:Array<String>, ?_results:Array<String>) this = new stdgo._internal.text.template.Template.T_multiParseTest(_name, _input, _ok, ([for (i in _names) i] : stdgo.Slice<stdgo.GoString>), ([for (i in _results) i] : stdgo.Slice<stdgo.GoString>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_option(stdgo._internal.text.template.Template.T_option) from stdgo._internal.text.template.Template.T_option to stdgo._internal.text.template.Template.T_option {
-
+abstract T_option(stdgo._internal.text.template.Template.T_option) from stdgo._internal.text.template.Template.T_option to stdgo._internal.text.template.Template.T_option {
+    public var _missingKey(get, set) : stdgo._internal.text.template.Template.T_missingKeyAction;
+    function get__missingKey():stdgo._internal.text.template.Template.T_missingKeyAction return this._missingKey;
+    function set__missingKey(v:stdgo._internal.text.template.Template.T_missingKeyAction):stdgo._internal.text.template.Template.T_missingKeyAction {
+        this._missingKey = v;
+        return v;
+    }
+    public function new(?_missingKey:stdgo._internal.text.template.Template.T_missingKeyAction) this = new stdgo._internal.text.template.Template.T_option(_missingKey);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_common(stdgo._internal.text.template.Template.T_common) from stdgo._internal.text.template.Template.T_common to stdgo._internal.text.template.Template.T_common {
-
+abstract T_common(stdgo._internal.text.template.Template.T_common) from stdgo._internal.text.template.Template.T_common to stdgo._internal.text.template.Template.T_common {
+    public var _tmpl(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template.Template>>;
+    function get__tmpl():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template.Template>> return this._tmpl;
+    function set__tmpl(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template.Template>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template.Template>> {
+        this._tmpl = v;
+        return v;
+    }
+    public var _muTmpl(get, set) : stdgo._internal.sync.Sync.RWMutex;
+    function get__muTmpl():stdgo._internal.sync.Sync.RWMutex return this._muTmpl;
+    function set__muTmpl(v:stdgo._internal.sync.Sync.RWMutex):stdgo._internal.sync.Sync.RWMutex {
+        this._muTmpl = v;
+        return v;
+    }
+    public var _option(get, set) : stdgo._internal.text.template.Template.T_option;
+    function get__option():stdgo._internal.text.template.Template.T_option return this._option;
+    function set__option(v:stdgo._internal.text.template.Template.T_option):stdgo._internal.text.template.Template.T_option {
+        this._option = v;
+        return v;
+    }
+    public var _muFuncs(get, set) : stdgo._internal.sync.Sync.RWMutex;
+    function get__muFuncs():stdgo._internal.sync.Sync.RWMutex return this._muFuncs;
+    function set__muFuncs(v:stdgo._internal.sync.Sync.RWMutex):stdgo._internal.sync.Sync.RWMutex {
+        this._muFuncs = v;
+        return v;
+    }
+    public var _parseFuncs(get, set) : stdgo._internal.text.template.Template.FuncMap;
+    function get__parseFuncs():stdgo._internal.text.template.Template.FuncMap return this._parseFuncs;
+    function set__parseFuncs(v:stdgo._internal.text.template.Template.FuncMap):stdgo._internal.text.template.Template.FuncMap {
+        this._parseFuncs = v;
+        return v;
+    }
+    public var _execFuncs(get, set) : stdgo.GoMap<stdgo.GoString, stdgo._internal.reflect.Reflect.Value>;
+    function get__execFuncs():stdgo.GoMap<stdgo.GoString, stdgo._internal.reflect.Reflect.Value> return this._execFuncs;
+    function set__execFuncs(v:stdgo.GoMap<stdgo.GoString, stdgo._internal.reflect.Reflect.Value>):stdgo.GoMap<stdgo.GoString, stdgo._internal.reflect.Reflect.Value> {
+        this._execFuncs = v;
+        return v;
+    }
+    public function new(?_tmpl:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template.Template>>, ?_muTmpl:stdgo._internal.sync.Sync.RWMutex, ?_option:stdgo._internal.text.template.Template.T_option, ?_muFuncs:stdgo._internal.sync.Sync.RWMutex, ?_parseFuncs:stdgo._internal.text.template.Template.FuncMap, ?_execFuncs:stdgo.GoMap<stdgo.GoString, stdgo._internal.reflect.Reflect.Value>) this = new stdgo._internal.text.template.Template.T_common(_tmpl, _muTmpl, _option, _muFuncs, _parseFuncs, _execFuncs);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Template(stdgo._internal.text.template.Template.Template) from stdgo._internal.text.template.Template.Template to stdgo._internal.text.template.Template.Template {
-
-}
-@:forward @:forward.new abstract T__struct_0_asInterface(stdgo._internal.text.template.Template.T__struct_0_asInterface) from stdgo._internal.text.template.Template.T__struct_0_asInterface to stdgo._internal.text.template.Template.T__struct_0_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_0_static_extension(stdgo._internal.text.template.Template.T__struct_0_static_extension) from stdgo._internal.text.template.Template.T__struct_0_static_extension to stdgo._internal.text.template.Template.T__struct_0_static_extension {
-
+abstract Template_(stdgo._internal.text.template.Template.Template) from stdgo._internal.text.template.Template.Template to stdgo._internal.text.template.Template.Template {
+    public var _name(get, set) : String;
+    function get__name():String return this._name;
+    function set__name(v:String):String {
+        this._name = v;
+        return v;
+    }
+    public var tree(get, set) : stdgo._internal.text.template.parse.Parse.Tree;
+    function get_tree():stdgo._internal.text.template.parse.Parse.Tree return this.tree;
+    function set_tree(v:stdgo._internal.text.template.parse.Parse.Tree):stdgo._internal.text.template.parse.Parse.Tree {
+        this.tree = v;
+        return v;
+    }
+    public var _common(get, set) : stdgo._internal.text.template.Template.T_common;
+    function get__common():stdgo._internal.text.template.Template.T_common return this._common;
+    function set__common(v:stdgo._internal.text.template.Template.T_common):stdgo._internal.text.template.Template.T_common {
+        this._common = v;
+        return v;
+    }
+    public var _leftDelim(get, set) : String;
+    function get__leftDelim():String return this._leftDelim;
+    function set__leftDelim(v:String):String {
+        this._leftDelim = v;
+        return v;
+    }
+    public var _rightDelim(get, set) : String;
+    function get__rightDelim():String return this._rightDelim;
+    function set__rightDelim(v:String):String {
+        this._rightDelim = v;
+        return v;
+    }
+    public function new(?_name:String, ?tree:stdgo._internal.text.template.parse.Parse.Tree, ?_common:stdgo._internal.text.template.Template.T_common, ?_leftDelim:String, ?_rightDelim:String) this = new stdgo._internal.text.template.Template.Template(_name, tree, _common, _leftDelim, _rightDelim);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef T__struct_0 = stdgo._internal.text.template.Template.T__struct_0;
-@:forward @:forward.new abstract T__struct_1_asInterface(stdgo._internal.text.template.Template.T__struct_1_asInterface) from stdgo._internal.text.template.Template.T__struct_1_asInterface to stdgo._internal.text.template.Template.T__struct_1_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_1_static_extension(stdgo._internal.text.template.Template.T__struct_1_static_extension) from stdgo._internal.text.template.Template.T__struct_1_static_extension to stdgo._internal.text.template.Template.T__struct_1_static_extension {
-
-}
 typedef T__struct_1 = stdgo._internal.text.template.Template.T__struct_1;
-@:forward @:forward.new abstract T__struct_2_asInterface(stdgo._internal.text.template.Template.T__struct_2_asInterface) from stdgo._internal.text.template.Template.T__struct_2_asInterface to stdgo._internal.text.template.Template.T__struct_2_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_2_static_extension(stdgo._internal.text.template.Template.T__struct_2_static_extension) from stdgo._internal.text.template.Template.T__struct_2_static_extension to stdgo._internal.text.template.Template.T__struct_2_static_extension {
-
-}
 typedef T__struct_2 = stdgo._internal.text.template.Template.T__struct_2;
-@:forward @:forward.new abstract T__struct_3_asInterface(stdgo._internal.text.template.Template.T__struct_3_asInterface) from stdgo._internal.text.template.Template.T__struct_3_asInterface to stdgo._internal.text.template.Template.T__struct_3_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_3_static_extension(stdgo._internal.text.template.Template.T__struct_3_static_extension) from stdgo._internal.text.template.Template.T__struct_3_static_extension to stdgo._internal.text.template.Template.T__struct_3_static_extension {
-
-}
 typedef T__struct_3 = stdgo._internal.text.template.Template.T__struct_3;
-@:forward @:forward.new abstract T__struct_4_asInterface(stdgo._internal.text.template.Template.T__struct_4_asInterface) from stdgo._internal.text.template.Template.T__struct_4_asInterface to stdgo._internal.text.template.Template.T__struct_4_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_4_static_extension(stdgo._internal.text.template.Template.T__struct_4_static_extension) from stdgo._internal.text.template.Template.T__struct_4_static_extension to stdgo._internal.text.template.Template.T__struct_4_static_extension {
-
-}
 typedef T__struct_4 = stdgo._internal.text.template.Template.T__struct_4;
-@:forward @:forward.new abstract T__struct_5_asInterface(stdgo._internal.text.template.Template.T__struct_5_asInterface) from stdgo._internal.text.template.Template.T__struct_5_asInterface to stdgo._internal.text.template.Template.T__struct_5_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_5_static_extension(stdgo._internal.text.template.Template.T__struct_5_static_extension) from stdgo._internal.text.template.Template.T__struct_5_static_extension to stdgo._internal.text.template.Template.T__struct_5_static_extension {
-
-}
 typedef T__struct_5 = stdgo._internal.text.template.Template.T__struct_5;
-@:forward @:forward.new abstract T__struct_6_asInterface(stdgo._internal.text.template.Template.T__struct_6_asInterface) from stdgo._internal.text.template.Template.T__struct_6_asInterface to stdgo._internal.text.template.Template.T__struct_6_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_6_static_extension(stdgo._internal.text.template.Template.T__struct_6_static_extension) from stdgo._internal.text.template.Template.T__struct_6_static_extension to stdgo._internal.text.template.Template.T__struct_6_static_extension {
-
-}
 typedef T__struct_6 = stdgo._internal.text.template.Template.T__struct_6;
-@:forward @:forward.new abstract T__struct_7_asInterface(stdgo._internal.text.template.Template.T__struct_7_asInterface) from stdgo._internal.text.template.Template.T__struct_7_asInterface to stdgo._internal.text.template.Template.T__struct_7_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_7_static_extension(stdgo._internal.text.template.Template.T__struct_7_static_extension) from stdgo._internal.text.template.Template.T__struct_7_static_extension to stdgo._internal.text.template.Template.T__struct_7_static_extension {
-
-}
 typedef T__struct_7 = stdgo._internal.text.template.Template.T__struct_7;
-@:forward @:forward.new abstract T__struct_8_asInterface(stdgo._internal.text.template.Template.T__struct_8_asInterface) from stdgo._internal.text.template.Template.T__struct_8_asInterface to stdgo._internal.text.template.Template.T__struct_8_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_8_static_extension(stdgo._internal.text.template.Template.T__struct_8_static_extension) from stdgo._internal.text.template.Template.T__struct_8_static_extension to stdgo._internal.text.template.Template.T__struct_8_static_extension {
-
-}
 typedef T__struct_8 = stdgo._internal.text.template.Template.T__struct_8;
 typedef S = stdgo._internal.text.template.Template.S;
 typedef ErrorWriter = stdgo._internal.text.template.Template.ErrorWriter;
 typedef FuncMap = stdgo._internal.text.template.Template.FuncMap;
 typedef T_kind = stdgo._internal.text.template.Template.T_kind;
 typedef T_missingKeyAction = stdgo._internal.text.template.Template.T_missingKeyAction;
-@:forward @:forward.new abstract T_testIssue48215_51___localname___A(stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A) from stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A to stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A {
-
+abstract T_testIssue48215_51___localname___A(stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A) from stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A to stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A {
+    public var s(get, set) : String;
+    function get_s():String return this.s;
+    function set_s(v:String):String {
+        this.s = v;
+        return v;
+    }
+    public function new(?s:String) this = new stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A(s);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_testIssue48215_52___localname___B(stdgo._internal.text.template.Template.T_testIssue48215_52___localname___B) from stdgo._internal.text.template.Template.T_testIssue48215_52___localname___B to stdgo._internal.text.template.Template.T_testIssue48215_52___localname___B {
-
-}
-@:forward @:forward.new abstract T_state_asInterface(stdgo._internal.text.template.Template.T_state_asInterface) from stdgo._internal.text.template.Template.T_state_asInterface to stdgo._internal.text.template.Template.T_state_asInterface {
-
-}
-@:forward @:forward.new abstract T_state_static_extension(stdgo._internal.text.template.Template.T_state_static_extension) from stdgo._internal.text.template.Template.T_state_static_extension to stdgo._internal.text.template.Template.T_state_static_extension {
-
-}
-@:forward @:forward.new abstract ExecError_asInterface(stdgo._internal.text.template.Template.ExecError_asInterface) from stdgo._internal.text.template.Template.ExecError_asInterface to stdgo._internal.text.template.Template.ExecError_asInterface {
-
-}
-@:forward @:forward.new abstract ExecError_static_extension(stdgo._internal.text.template.Template.ExecError_static_extension) from stdgo._internal.text.template.Template.ExecError_static_extension to stdgo._internal.text.template.Template.ExecError_static_extension {
-
-}
-@:forward @:forward.new abstract T__asInterface(stdgo._internal.text.template.Template.T__asInterface) from stdgo._internal.text.template.Template.T__asInterface to stdgo._internal.text.template.Template.T__asInterface {
-
-}
-@:forward @:forward.new abstract T__static_extension(stdgo._internal.text.template.Template.T__static_extension) from stdgo._internal.text.template.Template.T__static_extension to stdgo._internal.text.template.Template.T__static_extension {
-
-}
-@:forward @:forward.new abstract U_asInterface(stdgo._internal.text.template.Template.U_asInterface) from stdgo._internal.text.template.Template.U_asInterface to stdgo._internal.text.template.Template.U_asInterface {
-
-}
-@:forward @:forward.new abstract U_static_extension(stdgo._internal.text.template.Template.U_static_extension) from stdgo._internal.text.template.Template.U_static_extension to stdgo._internal.text.template.Template.U_static_extension {
-
-}
-@:forward @:forward.new abstract V_asInterface(stdgo._internal.text.template.Template.V_asInterface) from stdgo._internal.text.template.Template.V_asInterface to stdgo._internal.text.template.Template.V_asInterface {
-
-}
-@:forward @:forward.new abstract V_static_extension(stdgo._internal.text.template.Template.V_static_extension) from stdgo._internal.text.template.Template.V_static_extension to stdgo._internal.text.template.Template.V_static_extension {
-
-}
-@:forward @:forward.new abstract W_asInterface(stdgo._internal.text.template.Template.W_asInterface) from stdgo._internal.text.template.Template.W_asInterface to stdgo._internal.text.template.Template.W_asInterface {
-
-}
-@:forward @:forward.new abstract W_static_extension(stdgo._internal.text.template.Template.W_static_extension) from stdgo._internal.text.template.Template.W_static_extension to stdgo._internal.text.template.Template.W_static_extension {
-
-}
-@:forward @:forward.new abstract CustomError_asInterface(stdgo._internal.text.template.Template.CustomError_asInterface) from stdgo._internal.text.template.Template.CustomError_asInterface to stdgo._internal.text.template.Template.CustomError_asInterface {
-
-}
-@:forward @:forward.new abstract CustomError_static_extension(stdgo._internal.text.template.Template.CustomError_static_extension) from stdgo._internal.text.template.Template.CustomError_static_extension to stdgo._internal.text.template.Template.CustomError_static_extension {
-
-}
-@:forward @:forward.new abstract Template_asInterface(stdgo._internal.text.template.Template.Template_asInterface) from stdgo._internal.text.template.Template.Template_asInterface to stdgo._internal.text.template.Template.Template_asInterface {
-
-}
-@:forward @:forward.new abstract Template_static_extension(stdgo._internal.text.template.Template.Template_static_extension) from stdgo._internal.text.template.Template.Template_static_extension to stdgo._internal.text.template.Template.Template_static_extension {
-
-}
-@:forward @:forward.new abstract S_asInterface(stdgo._internal.text.template.Template.S_asInterface) from stdgo._internal.text.template.Template.S_asInterface to stdgo._internal.text.template.Template.S_asInterface {
-
-}
-@:forward @:forward.new abstract S_static_extension(stdgo._internal.text.template.Template.S_static_extension) from stdgo._internal.text.template.Template.S_static_extension to stdgo._internal.text.template.Template.S_static_extension {
-
-}
-@:forward @:forward.new abstract ErrorWriter_asInterface(stdgo._internal.text.template.Template.ErrorWriter_asInterface) from stdgo._internal.text.template.Template.ErrorWriter_asInterface to stdgo._internal.text.template.Template.ErrorWriter_asInterface {
-
-}
-@:forward @:forward.new abstract ErrorWriter_static_extension(stdgo._internal.text.template.Template.ErrorWriter_static_extension) from stdgo._internal.text.template.Template.ErrorWriter_static_extension to stdgo._internal.text.template.Template.ErrorWriter_static_extension {
-
-}
-@:forward @:forward.new abstract T_testIssue48215_52___localname___B_asInterface(stdgo._internal.text.template.Template.T_testIssue48215_52___localname___B_asInterface) from stdgo._internal.text.template.Template.T_testIssue48215_52___localname___B_asInterface to stdgo._internal.text.template.Template.T_testIssue48215_52___localname___B_asInterface {
-
-}
-@:forward @:forward.new abstract T_testIssue48215_52___localname___B_static_extension(stdgo._internal.text.template.Template.T_testIssue48215_52___localname___B_static_extension) from stdgo._internal.text.template.Template.T_testIssue48215_52___localname___B_static_extension to stdgo._internal.text.template.Template.T_testIssue48215_52___localname___B_static_extension {
-
+abstract T_testIssue48215_52___localname___B(stdgo._internal.text.template.Template.T_testIssue48215_52___localname___B) from stdgo._internal.text.template.Template.T_testIssue48215_52___localname___B to stdgo._internal.text.template.Template.T_testIssue48215_52___localname___B {
+    public var a(get, set) : stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A;
+    function get_a():stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A return this.a;
+    function set_a(v:stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A):stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A {
+        this.a = v;
+        return v;
+    }
+    public function new(?a:stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A) this = new stdgo._internal.text.template.Template.T_testIssue48215_52___localname___B(a);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 class Template {
     /**

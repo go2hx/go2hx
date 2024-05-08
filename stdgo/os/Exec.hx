@@ -90,60 +90,283 @@ package stdgo.os;
 private var __go2hxdoc__package : Bool;
 var errWaitDelay(get, set) : stdgo.Error;
 private function get_errWaitDelay():stdgo.Error return stdgo._internal.os.exec.Exec.errWaitDelay;
-private function set_errWaitDelay(v:stdgo.Error):stdgo.Error return stdgo._internal.os.exec.Exec.errWaitDelay = v;
+private function set_errWaitDelay(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.os.exec.Exec.errWaitDelay = v;
+        return v;
+    }
 var errDot(get, set) : stdgo.Error;
 private function get_errDot():stdgo.Error return stdgo._internal.os.exec.Exec.errDot;
-private function set_errDot(v:stdgo.Error):stdgo.Error return stdgo._internal.os.exec.Exec.errDot = v;
+private function set_errDot(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.os.exec.Exec.errDot = v;
+        return v;
+    }
 var errNotFound(get, set) : stdgo.Error;
 private function get_errNotFound():stdgo.Error return stdgo._internal.os.exec.Exec.errNotFound;
-private function set_errNotFound(v:stdgo.Error):stdgo.Error return stdgo._internal.os.exec.Exec.errNotFound = v;
-@:forward @:forward.new abstract Error(stdgo._internal.os.exec.Exec.Error) from stdgo._internal.os.exec.Exec.Error to stdgo._internal.os.exec.Exec.Error {
-
+private function set_errNotFound(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.os.exec.Exec.errNotFound = v;
+        return v;
+    }
+abstract Error(stdgo._internal.os.exec.Exec.Error) from stdgo._internal.os.exec.Exec.Error to stdgo._internal.os.exec.Exec.Error {
+    public var name(get, set) : String;
+    function get_name():String return this.name;
+    function set_name(v:String):String {
+        this.name = v;
+        return v;
+    }
+    public var err(get, set) : stdgo.Error;
+    function get_err():stdgo.Error return this.err;
+    function set_err(v:stdgo.Error):stdgo.Error {
+        this.err = v;
+        return v;
+    }
+    public function new(?name:String, ?err:stdgo.Error) this = new stdgo._internal.os.exec.Exec.Error(name, err);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_wrappedError(stdgo._internal.os.exec.Exec.T_wrappedError) from stdgo._internal.os.exec.Exec.T_wrappedError to stdgo._internal.os.exec.Exec.T_wrappedError {
-
+abstract T_wrappedError(stdgo._internal.os.exec.Exec.T_wrappedError) from stdgo._internal.os.exec.Exec.T_wrappedError to stdgo._internal.os.exec.Exec.T_wrappedError {
+    public var _prefix(get, set) : String;
+    function get__prefix():String return this._prefix;
+    function set__prefix(v:String):String {
+        this._prefix = v;
+        return v;
+    }
+    public var _err(get, set) : stdgo.Error;
+    function get__err():stdgo.Error return this._err;
+    function set__err(v:stdgo.Error):stdgo.Error {
+        this._err = v;
+        return v;
+    }
+    public function new(?_prefix:String, ?_err:stdgo.Error) this = new stdgo._internal.os.exec.Exec.T_wrappedError(_prefix, _err);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Cmd(stdgo._internal.os.exec.Exec.Cmd) from stdgo._internal.os.exec.Exec.Cmd to stdgo._internal.os.exec.Exec.Cmd {
-
+abstract Cmd(stdgo._internal.os.exec.Exec.Cmd) from stdgo._internal.os.exec.Exec.Cmd to stdgo._internal.os.exec.Exec.Cmd {
+    public var path(get, set) : String;
+    function get_path():String return this.path;
+    function set_path(v:String):String {
+        this.path = v;
+        return v;
+    }
+    public var args(get, set) : Array<String>;
+    function get_args():Array<String> return [for (i in this.args) i];
+    function set_args(v:Array<String>):Array<String> {
+        this.args = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        return v;
+    }
+    public var env(get, set) : Array<String>;
+    function get_env():Array<String> return [for (i in this.env) i];
+    function set_env(v:Array<String>):Array<String> {
+        this.env = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        return v;
+    }
+    public var dir(get, set) : String;
+    function get_dir():String return this.dir;
+    function set_dir(v:String):String {
+        this.dir = v;
+        return v;
+    }
+    public var stdin(get, set) : stdgo._internal.io.Io.Reader;
+    function get_stdin():stdgo._internal.io.Io.Reader return this.stdin;
+    function set_stdin(v:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
+        this.stdin = v;
+        return v;
+    }
+    public var stdout(get, set) : stdgo._internal.io.Io.Writer;
+    function get_stdout():stdgo._internal.io.Io.Writer return this.stdout;
+    function set_stdout(v:stdgo._internal.io.Io.Writer):stdgo._internal.io.Io.Writer {
+        this.stdout = v;
+        return v;
+    }
+    public var stderr(get, set) : stdgo._internal.io.Io.Writer;
+    function get_stderr():stdgo._internal.io.Io.Writer return this.stderr;
+    function set_stderr(v:stdgo._internal.io.Io.Writer):stdgo._internal.io.Io.Writer {
+        this.stderr = v;
+        return v;
+    }
+    public var extraFiles(get, set) : Array<stdgo._internal.os.Os.File>;
+    function get_extraFiles():Array<stdgo._internal.os.Os.File> return [for (i in this.extraFiles) i];
+    function set_extraFiles(v:Array<stdgo._internal.os.Os.File>):Array<stdgo._internal.os.Os.File> {
+        this.extraFiles = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os.File>>);
+        return v;
+    }
+    public var sysProcAttr(get, set) : stdgo._internal.syscall.Syscall.SysProcAttr;
+    function get_sysProcAttr():stdgo._internal.syscall.Syscall.SysProcAttr return this.sysProcAttr;
+    function set_sysProcAttr(v:stdgo._internal.syscall.Syscall.SysProcAttr):stdgo._internal.syscall.Syscall.SysProcAttr {
+        this.sysProcAttr = v;
+        return v;
+    }
+    public var process(get, set) : stdgo._internal.os.Os.Process;
+    function get_process():stdgo._internal.os.Os.Process return this.process;
+    function set_process(v:stdgo._internal.os.Os.Process):stdgo._internal.os.Os.Process {
+        this.process = v;
+        return v;
+    }
+    public var processState(get, set) : stdgo._internal.os.Os.ProcessState;
+    function get_processState():stdgo._internal.os.Os.ProcessState return this.processState;
+    function set_processState(v:stdgo._internal.os.Os.ProcessState):stdgo._internal.os.Os.ProcessState {
+        this.processState = v;
+        return v;
+    }
+    public var _ctx(get, set) : stdgo._internal.context.Context.Context;
+    function get__ctx():stdgo._internal.context.Context.Context return this._ctx;
+    function set__ctx(v:stdgo._internal.context.Context.Context):stdgo._internal.context.Context.Context {
+        this._ctx = v;
+        return v;
+    }
+    public var err(get, set) : stdgo.Error;
+    function get_err():stdgo.Error return this.err;
+    function set_err(v:stdgo.Error):stdgo.Error {
+        this.err = v;
+        return v;
+    }
+    public var cancel(get, set) : () -> stdgo.Error;
+    function get_cancel():() -> stdgo.Error return () -> this.cancel();
+    function set_cancel(v:() -> stdgo.Error):() -> stdgo.Error {
+        this.cancel = v;
+        return v;
+    }
+    public var waitDelay(get, set) : stdgo._internal.time.Time.Duration;
+    function get_waitDelay():stdgo._internal.time.Time.Duration return this.waitDelay;
+    function set_waitDelay(v:stdgo._internal.time.Time.Duration):stdgo._internal.time.Time.Duration {
+        this.waitDelay = v;
+        return v;
+    }
+    public var _childIOFiles(get, set) : Array<stdgo._internal.io.Io.Closer>;
+    function get__childIOFiles():Array<stdgo._internal.io.Io.Closer> return [for (i in this._childIOFiles) i];
+    function set__childIOFiles(v:Array<stdgo._internal.io.Io.Closer>):Array<stdgo._internal.io.Io.Closer> {
+        this._childIOFiles = ([for (i in v) i] : stdgo.Slice<stdgo._internal.io.Io.Closer>);
+        return v;
+    }
+    public var _parentIOPipes(get, set) : Array<stdgo._internal.io.Io.Closer>;
+    function get__parentIOPipes():Array<stdgo._internal.io.Io.Closer> return [for (i in this._parentIOPipes) i];
+    function set__parentIOPipes(v:Array<stdgo._internal.io.Io.Closer>):Array<stdgo._internal.io.Io.Closer> {
+        this._parentIOPipes = ([for (i in v) i] : stdgo.Slice<stdgo._internal.io.Io.Closer>);
+        return v;
+    }
+    public var _goroutine(get, set) : Array<() -> stdgo.Error>;
+    function get__goroutine():Array<() -> stdgo.Error> return [for (i in this._goroutine) () -> i()];
+    function set__goroutine(v:Array<() -> stdgo.Error>):Array<() -> stdgo.Error> {
+        this._goroutine = ([for (i in v) i] : stdgo.Slice<() -> stdgo.Error>);
+        return v;
+    }
+    public var _goroutineErr(get, set) : stdgo.Chan<stdgo.Error>;
+    function get__goroutineErr():stdgo.Chan<stdgo.Error> return this._goroutineErr;
+    function set__goroutineErr(v:stdgo.Chan<stdgo.Error>):stdgo.Chan<stdgo.Error> {
+        this._goroutineErr = v;
+        return v;
+    }
+    public var _ctxResult(get, set) : stdgo.Chan<stdgo._internal.os.exec.Exec.T_ctxResult>;
+    function get__ctxResult():stdgo.Chan<stdgo._internal.os.exec.Exec.T_ctxResult> return this._ctxResult;
+    function set__ctxResult(v:stdgo.Chan<stdgo._internal.os.exec.Exec.T_ctxResult>):stdgo.Chan<stdgo._internal.os.exec.Exec.T_ctxResult> {
+        this._ctxResult = v;
+        return v;
+    }
+    public var _createdByStack(get, set) : Array<std.UInt>;
+    function get__createdByStack():Array<std.UInt> return [for (i in this._createdByStack) i];
+    function set__createdByStack(v:Array<std.UInt>):Array<std.UInt> {
+        this._createdByStack = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _lookPathErr(get, set) : stdgo.Error;
+    function get__lookPathErr():stdgo.Error return this._lookPathErr;
+    function set__lookPathErr(v:stdgo.Error):stdgo.Error {
+        this._lookPathErr = v;
+        return v;
+    }
+    public function new(?path:String, ?args:Array<String>, ?env:Array<String>, ?dir:String, ?stdin:stdgo._internal.io.Io.Reader, ?stdout:stdgo._internal.io.Io.Writer, ?stderr:stdgo._internal.io.Io.Writer, ?extraFiles:Array<stdgo._internal.os.Os.File>, ?sysProcAttr:stdgo._internal.syscall.Syscall.SysProcAttr, ?process:stdgo._internal.os.Os.Process, ?processState:stdgo._internal.os.Os.ProcessState, ?_ctx:stdgo._internal.context.Context.Context, ?err:stdgo.Error, ?cancel:() -> stdgo.Error, ?waitDelay:stdgo._internal.time.Time.Duration, ?_childIOFiles:Array<stdgo._internal.io.Io.Closer>, ?_parentIOPipes:Array<stdgo._internal.io.Io.Closer>, ?_goroutine:Array<() -> stdgo.Error>, ?_goroutineErr:stdgo.Chan<stdgo.Error>, ?_ctxResult:stdgo.Chan<stdgo._internal.os.exec.Exec.T_ctxResult>, ?_createdByStack:Array<std.UInt>, ?_lookPathErr:stdgo.Error) this = new stdgo._internal.os.exec.Exec.Cmd(
+path,
+([for (i in args) i] : stdgo.Slice<stdgo.GoString>),
+([for (i in env) i] : stdgo.Slice<stdgo.GoString>),
+dir,
+stdin,
+stdout,
+stderr,
+([for (i in extraFiles) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os.File>>),
+sysProcAttr,
+process,
+processState,
+_ctx,
+err,
+cancel,
+waitDelay,
+([for (i in _childIOFiles) i] : stdgo.Slice<stdgo._internal.io.Io.Closer>),
+([for (i in _parentIOPipes) i] : stdgo.Slice<stdgo._internal.io.Io.Closer>),
+([for (i in _goroutine) i] : stdgo.Slice<() -> stdgo.Error>),
+_goroutineErr,
+_ctxResult,
+([for (i in _createdByStack) i] : stdgo.Slice<stdgo.GoUInt8>),
+_lookPathErr);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_ctxResult(stdgo._internal.os.exec.Exec.T_ctxResult) from stdgo._internal.os.exec.Exec.T_ctxResult to stdgo._internal.os.exec.Exec.T_ctxResult {
-
+abstract T_ctxResult(stdgo._internal.os.exec.Exec.T_ctxResult) from stdgo._internal.os.exec.Exec.T_ctxResult to stdgo._internal.os.exec.Exec.T_ctxResult {
+    public var _err(get, set) : stdgo.Error;
+    function get__err():stdgo.Error return this._err;
+    function set__err(v:stdgo.Error):stdgo.Error {
+        this._err = v;
+        return v;
+    }
+    public var _timer(get, set) : stdgo._internal.time.Time.Timer;
+    function get__timer():stdgo._internal.time.Time.Timer return this._timer;
+    function set__timer(v:stdgo._internal.time.Time.Timer):stdgo._internal.time.Time.Timer {
+        this._timer = v;
+        return v;
+    }
+    public function new(?_err:stdgo.Error, ?_timer:stdgo._internal.time.Time.Timer) this = new stdgo._internal.os.exec.Exec.T_ctxResult(_err, _timer);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract ExitError(stdgo._internal.os.exec.Exec.ExitError) from stdgo._internal.os.exec.Exec.ExitError to stdgo._internal.os.exec.Exec.ExitError {
-
+abstract ExitError(stdgo._internal.os.exec.Exec.ExitError) from stdgo._internal.os.exec.Exec.ExitError to stdgo._internal.os.exec.Exec.ExitError {
+    public var processState(get, set) : stdgo._internal.os.Os.ProcessState;
+    function get_processState():stdgo._internal.os.Os.ProcessState return this.processState;
+    function set_processState(v:stdgo._internal.os.Os.ProcessState):stdgo._internal.os.Os.ProcessState {
+        this.processState = v;
+        return v;
+    }
+    public var stderr(get, set) : Array<std.UInt>;
+    function get_stderr():Array<std.UInt> return [for (i in this.stderr) i];
+    function set_stderr(v:Array<std.UInt>):Array<std.UInt> {
+        this.stderr = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public function new(?processState:stdgo._internal.os.Os.ProcessState, ?stderr:Array<std.UInt>) this = new stdgo._internal.os.exec.Exec.ExitError(processState, ([for (i in stderr) i] : stdgo.Slice<stdgo.GoUInt8>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_prefixSuffixSaver(stdgo._internal.os.exec.Exec.T_prefixSuffixSaver) from stdgo._internal.os.exec.Exec.T_prefixSuffixSaver to stdgo._internal.os.exec.Exec.T_prefixSuffixSaver {
-
-}
-@:forward @:forward.new abstract Error_asInterface(stdgo._internal.os.exec.Exec.Error_asInterface) from stdgo._internal.os.exec.Exec.Error_asInterface to stdgo._internal.os.exec.Exec.Error_asInterface {
-
-}
-@:forward @:forward.new abstract Error_static_extension(stdgo._internal.os.exec.Exec.Error_static_extension) from stdgo._internal.os.exec.Exec.Error_static_extension to stdgo._internal.os.exec.Exec.Error_static_extension {
-
-}
-@:forward @:forward.new abstract T_wrappedError_asInterface(stdgo._internal.os.exec.Exec.T_wrappedError_asInterface) from stdgo._internal.os.exec.Exec.T_wrappedError_asInterface to stdgo._internal.os.exec.Exec.T_wrappedError_asInterface {
-
-}
-@:forward @:forward.new abstract T_wrappedError_static_extension(stdgo._internal.os.exec.Exec.T_wrappedError_static_extension) from stdgo._internal.os.exec.Exec.T_wrappedError_static_extension to stdgo._internal.os.exec.Exec.T_wrappedError_static_extension {
-
-}
-@:forward @:forward.new abstract Cmd_asInterface(stdgo._internal.os.exec.Exec.Cmd_asInterface) from stdgo._internal.os.exec.Exec.Cmd_asInterface to stdgo._internal.os.exec.Exec.Cmd_asInterface {
-
-}
-@:forward @:forward.new abstract Cmd_static_extension(stdgo._internal.os.exec.Exec.Cmd_static_extension) from stdgo._internal.os.exec.Exec.Cmd_static_extension to stdgo._internal.os.exec.Exec.Cmd_static_extension {
-
-}
-@:forward @:forward.new abstract ExitError_asInterface(stdgo._internal.os.exec.Exec.ExitError_asInterface) from stdgo._internal.os.exec.Exec.ExitError_asInterface to stdgo._internal.os.exec.Exec.ExitError_asInterface {
-
-}
-@:forward @:forward.new abstract ExitError_static_extension(stdgo._internal.os.exec.Exec.ExitError_static_extension) from stdgo._internal.os.exec.Exec.ExitError_static_extension to stdgo._internal.os.exec.Exec.ExitError_static_extension {
-
-}
-@:forward @:forward.new abstract T_prefixSuffixSaver_asInterface(stdgo._internal.os.exec.Exec.T_prefixSuffixSaver_asInterface) from stdgo._internal.os.exec.Exec.T_prefixSuffixSaver_asInterface to stdgo._internal.os.exec.Exec.T_prefixSuffixSaver_asInterface {
-
-}
-@:forward @:forward.new abstract T_prefixSuffixSaver_static_extension(stdgo._internal.os.exec.Exec.T_prefixSuffixSaver_static_extension) from stdgo._internal.os.exec.Exec.T_prefixSuffixSaver_static_extension to stdgo._internal.os.exec.Exec.T_prefixSuffixSaver_static_extension {
-
+abstract T_prefixSuffixSaver(stdgo._internal.os.exec.Exec.T_prefixSuffixSaver) from stdgo._internal.os.exec.Exec.T_prefixSuffixSaver to stdgo._internal.os.exec.Exec.T_prefixSuffixSaver {
+    public var n(get, set) : StdTypes.Int;
+    function get_n():StdTypes.Int return this.n;
+    function set_n(v:StdTypes.Int):StdTypes.Int {
+        this.n = v;
+        return v;
+    }
+    public var _prefix(get, set) : Array<std.UInt>;
+    function get__prefix():Array<std.UInt> return [for (i in this._prefix) i];
+    function set__prefix(v:Array<std.UInt>):Array<std.UInt> {
+        this._prefix = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _suffix(get, set) : Array<std.UInt>;
+    function get__suffix():Array<std.UInt> return [for (i in this._suffix) i];
+    function set__suffix(v:Array<std.UInt>):Array<std.UInt> {
+        this._suffix = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _suffixOff(get, set) : StdTypes.Int;
+    function get__suffixOff():StdTypes.Int return this._suffixOff;
+    function set__suffixOff(v:StdTypes.Int):StdTypes.Int {
+        this._suffixOff = v;
+        return v;
+    }
+    public var _skipped(get, set) : haxe.Int64;
+    function get__skipped():haxe.Int64 return this._skipped;
+    function set__skipped(v:haxe.Int64):haxe.Int64 {
+        this._skipped = v;
+        return v;
+    }
+    public function new(?n:StdTypes.Int, ?_prefix:Array<std.UInt>, ?_suffix:Array<std.UInt>, ?_suffixOff:StdTypes.Int, ?_skipped:haxe.Int64) this = new stdgo._internal.os.exec.Exec.T_prefixSuffixSaver(n, ([for (i in _prefix) i] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _suffix) i] : stdgo.Slice<stdgo.GoUInt8>), _suffixOff, _skipped);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 class Exec {
     static public function benchmarkExecHostname(b:stdgo._internal.testing.Testing.B):Void {

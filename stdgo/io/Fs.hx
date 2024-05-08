@@ -22,113 +22,121 @@ final modeType : stdgo._internal.io.fs.Fs.FileMode = stdgo._internal.io.fs.Fs.mo
 final modePerm : stdgo._internal.io.fs.Fs.FileMode = stdgo._internal.io.fs.Fs.modePerm;
 var errInvalid(get, set) : stdgo.Error;
 private function get_errInvalid():stdgo.Error return stdgo._internal.io.fs.Fs.errInvalid;
-private function set_errInvalid(v:stdgo.Error):stdgo.Error return stdgo._internal.io.fs.Fs.errInvalid = v;
+private function set_errInvalid(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.io.fs.Fs.errInvalid = v;
+        return v;
+    }
 var errPermission(get, set) : stdgo.Error;
 private function get_errPermission():stdgo.Error return stdgo._internal.io.fs.Fs.errPermission;
-private function set_errPermission(v:stdgo.Error):stdgo.Error return stdgo._internal.io.fs.Fs.errPermission = v;
+private function set_errPermission(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.io.fs.Fs.errPermission = v;
+        return v;
+    }
 var errExist(get, set) : stdgo.Error;
 private function get_errExist():stdgo.Error return stdgo._internal.io.fs.Fs.errExist;
-private function set_errExist(v:stdgo.Error):stdgo.Error return stdgo._internal.io.fs.Fs.errExist = v;
+private function set_errExist(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.io.fs.Fs.errExist = v;
+        return v;
+    }
 var errNotExist(get, set) : stdgo.Error;
 private function get_errNotExist():stdgo.Error return stdgo._internal.io.fs.Fs.errNotExist;
-private function set_errNotExist(v:stdgo.Error):stdgo.Error return stdgo._internal.io.fs.Fs.errNotExist = v;
+private function set_errNotExist(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.io.fs.Fs.errNotExist = v;
+        return v;
+    }
 var errClosed(get, set) : stdgo.Error;
 private function get_errClosed():stdgo.Error return stdgo._internal.io.fs.Fs.errClosed;
-private function set_errClosed(v:stdgo.Error):stdgo.Error return stdgo._internal.io.fs.Fs.errClosed = v;
+private function set_errClosed(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.io.fs.Fs.errClosed = v;
+        return v;
+    }
 var skipDir(get, set) : stdgo.Error;
 private function get_skipDir():stdgo.Error return stdgo._internal.io.fs.Fs.skipDir;
-private function set_skipDir(v:stdgo.Error):stdgo.Error return stdgo._internal.io.fs.Fs.skipDir = v;
+private function set_skipDir(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.io.fs.Fs.skipDir = v;
+        return v;
+    }
 var skipAll(get, set) : stdgo.Error;
 private function get_skipAll():stdgo.Error return stdgo._internal.io.fs.Fs.skipAll;
-private function set_skipAll(v:stdgo.Error):stdgo.Error return stdgo._internal.io.fs.Fs.skipAll = v;
-@:forward @:forward.new abstract FS_static_extension(stdgo._internal.io.fs.Fs.FS_static_extension) from stdgo._internal.io.fs.Fs.FS_static_extension to stdgo._internal.io.fs.Fs.FS_static_extension {
-
-}
+private function set_skipAll(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.io.fs.Fs.skipAll = v;
+        return v;
+    }
 typedef FS = stdgo._internal.io.fs.Fs.FS;
-@:forward @:forward.new abstract File_static_extension(stdgo._internal.io.fs.Fs.File_static_extension) from stdgo._internal.io.fs.Fs.File_static_extension to stdgo._internal.io.fs.Fs.File_static_extension {
-
-}
 typedef File = stdgo._internal.io.fs.Fs.File;
-@:forward @:forward.new abstract DirEntry_static_extension(stdgo._internal.io.fs.Fs.DirEntry_static_extension) from stdgo._internal.io.fs.Fs.DirEntry_static_extension to stdgo._internal.io.fs.Fs.DirEntry_static_extension {
-
-}
 typedef DirEntry = stdgo._internal.io.fs.Fs.DirEntry;
-@:forward @:forward.new abstract ReadDirFile_static_extension(stdgo._internal.io.fs.Fs.ReadDirFile_static_extension) from stdgo._internal.io.fs.Fs.ReadDirFile_static_extension to stdgo._internal.io.fs.Fs.ReadDirFile_static_extension {
-
-}
 typedef ReadDirFile = stdgo._internal.io.fs.Fs.ReadDirFile;
-@:forward @:forward.new abstract FileInfo_static_extension(stdgo._internal.io.fs.Fs.FileInfo_static_extension) from stdgo._internal.io.fs.Fs.FileInfo_static_extension to stdgo._internal.io.fs.Fs.FileInfo_static_extension {
-
-}
 typedef FileInfo = stdgo._internal.io.fs.Fs.FileInfo;
-@:forward @:forward.new abstract GlobFS_static_extension(stdgo._internal.io.fs.Fs.GlobFS_static_extension) from stdgo._internal.io.fs.Fs.GlobFS_static_extension to stdgo._internal.io.fs.Fs.GlobFS_static_extension {
-
-}
 typedef GlobFS = stdgo._internal.io.fs.Fs.GlobFS;
-@:forward @:forward.new abstract ReadDirFS_static_extension(stdgo._internal.io.fs.Fs.ReadDirFS_static_extension) from stdgo._internal.io.fs.Fs.ReadDirFS_static_extension to stdgo._internal.io.fs.Fs.ReadDirFS_static_extension {
-
-}
 typedef ReadDirFS = stdgo._internal.io.fs.Fs.ReadDirFS;
-@:forward @:forward.new abstract ReadFileFS_static_extension(stdgo._internal.io.fs.Fs.ReadFileFS_static_extension) from stdgo._internal.io.fs.Fs.ReadFileFS_static_extension to stdgo._internal.io.fs.Fs.ReadFileFS_static_extension {
-
-}
 typedef ReadFileFS = stdgo._internal.io.fs.Fs.ReadFileFS;
-@:forward @:forward.new abstract StatFS_static_extension(stdgo._internal.io.fs.Fs.StatFS_static_extension) from stdgo._internal.io.fs.Fs.StatFS_static_extension to stdgo._internal.io.fs.Fs.StatFS_static_extension {
-
-}
 typedef StatFS = stdgo._internal.io.fs.Fs.StatFS;
-@:forward @:forward.new abstract SubFS_static_extension(stdgo._internal.io.fs.Fs.SubFS_static_extension) from stdgo._internal.io.fs.Fs.SubFS_static_extension to stdgo._internal.io.fs.Fs.SubFS_static_extension {
-
-}
 typedef SubFS = stdgo._internal.io.fs.Fs.SubFS;
-@:forward @:forward.new abstract T__interface_0_static_extension(stdgo._internal.io.fs.Fs.T__interface_0_static_extension) from stdgo._internal.io.fs.Fs.T__interface_0_static_extension to stdgo._internal.io.fs.Fs.T__interface_0_static_extension {
-
-}
 typedef T__interface_0 = stdgo._internal.io.fs.Fs.T__interface_0;
-@:forward @:forward.new abstract PathError(stdgo._internal.io.fs.Fs.PathError) from stdgo._internal.io.fs.Fs.PathError to stdgo._internal.io.fs.Fs.PathError {
-
+abstract PathError(stdgo._internal.io.fs.Fs.PathError) from stdgo._internal.io.fs.Fs.PathError to stdgo._internal.io.fs.Fs.PathError {
+    public var op(get, set) : String;
+    function get_op():String return this.op;
+    function set_op(v:String):String {
+        this.op = v;
+        return v;
+    }
+    public var path(get, set) : String;
+    function get_path():String return this.path;
+    function set_path(v:String):String {
+        this.path = v;
+        return v;
+    }
+    public var err(get, set) : stdgo.Error;
+    function get_err():stdgo.Error return this.err;
+    function set_err(v:stdgo.Error):stdgo.Error {
+        this.err = v;
+        return v;
+    }
+    public function new(?op:String, ?path:String, ?err:stdgo.Error) this = new stdgo._internal.io.fs.Fs.PathError(op, path, err);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_dirInfo(stdgo._internal.io.fs.Fs.T_dirInfo) from stdgo._internal.io.fs.Fs.T_dirInfo to stdgo._internal.io.fs.Fs.T_dirInfo {
-
+abstract T_dirInfo(stdgo._internal.io.fs.Fs.T_dirInfo) from stdgo._internal.io.fs.Fs.T_dirInfo to stdgo._internal.io.fs.Fs.T_dirInfo {
+    public var _fileInfo(get, set) : stdgo._internal.io.fs.Fs.FileInfo;
+    function get__fileInfo():stdgo._internal.io.fs.Fs.FileInfo return this._fileInfo;
+    function set__fileInfo(v:stdgo._internal.io.fs.Fs.FileInfo):stdgo._internal.io.fs.Fs.FileInfo {
+        this._fileInfo = v;
+        return v;
+    }
+    public function new(?_fileInfo:stdgo._internal.io.fs.Fs.FileInfo) this = new stdgo._internal.io.fs.Fs.T_dirInfo(_fileInfo);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_subFS(stdgo._internal.io.fs.Fs.T_subFS) from stdgo._internal.io.fs.Fs.T_subFS to stdgo._internal.io.fs.Fs.T_subFS {
-
+abstract T_subFS(stdgo._internal.io.fs.Fs.T_subFS) from stdgo._internal.io.fs.Fs.T_subFS to stdgo._internal.io.fs.Fs.T_subFS {
+    public var _fsys(get, set) : stdgo._internal.io.fs.Fs.FS;
+    function get__fsys():stdgo._internal.io.fs.Fs.FS return this._fsys;
+    function set__fsys(v:stdgo._internal.io.fs.Fs.FS):stdgo._internal.io.fs.Fs.FS {
+        this._fsys = v;
+        return v;
+    }
+    public var _dir(get, set) : String;
+    function get__dir():String return this._dir;
+    function set__dir(v:String):String {
+        this._dir = v;
+        return v;
+    }
+    public function new(?_fsys:stdgo._internal.io.fs.Fs.FS, ?_dir:String) this = new stdgo._internal.io.fs.Fs.T_subFS(_fsys, _dir);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_statDirEntry(stdgo._internal.io.fs.Fs.T_statDirEntry) from stdgo._internal.io.fs.Fs.T_statDirEntry to stdgo._internal.io.fs.Fs.T_statDirEntry {
-
+abstract T_statDirEntry(stdgo._internal.io.fs.Fs.T_statDirEntry) from stdgo._internal.io.fs.Fs.T_statDirEntry to stdgo._internal.io.fs.Fs.T_statDirEntry {
+    public var _info(get, set) : stdgo._internal.io.fs.Fs.FileInfo;
+    function get__info():stdgo._internal.io.fs.Fs.FileInfo return this._info;
+    function set__info(v:stdgo._internal.io.fs.Fs.FileInfo):stdgo._internal.io.fs.Fs.FileInfo {
+        this._info = v;
+        return v;
+    }
+    public function new(?_info:stdgo._internal.io.fs.Fs.FileInfo) this = new stdgo._internal.io.fs.Fs.T_statDirEntry(_info);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef FileMode = stdgo._internal.io.fs.Fs.FileMode;
 typedef WalkDirFunc = stdgo._internal.io.fs.Fs.WalkDirFunc;
-@:forward @:forward.new abstract PathError_asInterface(stdgo._internal.io.fs.Fs.PathError_asInterface) from stdgo._internal.io.fs.Fs.PathError_asInterface to stdgo._internal.io.fs.Fs.PathError_asInterface {
-
-}
-@:forward @:forward.new abstract PathError_static_extension(stdgo._internal.io.fs.Fs.PathError_static_extension) from stdgo._internal.io.fs.Fs.PathError_static_extension to stdgo._internal.io.fs.Fs.PathError_static_extension {
-
-}
-@:forward @:forward.new abstract T_dirInfo_asInterface(stdgo._internal.io.fs.Fs.T_dirInfo_asInterface) from stdgo._internal.io.fs.Fs.T_dirInfo_asInterface to stdgo._internal.io.fs.Fs.T_dirInfo_asInterface {
-
-}
-@:forward @:forward.new abstract T_dirInfo_static_extension(stdgo._internal.io.fs.Fs.T_dirInfo_static_extension) from stdgo._internal.io.fs.Fs.T_dirInfo_static_extension to stdgo._internal.io.fs.Fs.T_dirInfo_static_extension {
-
-}
-@:forward @:forward.new abstract T_subFS_asInterface(stdgo._internal.io.fs.Fs.T_subFS_asInterface) from stdgo._internal.io.fs.Fs.T_subFS_asInterface to stdgo._internal.io.fs.Fs.T_subFS_asInterface {
-
-}
-@:forward @:forward.new abstract T_subFS_static_extension(stdgo._internal.io.fs.Fs.T_subFS_static_extension) from stdgo._internal.io.fs.Fs.T_subFS_static_extension to stdgo._internal.io.fs.Fs.T_subFS_static_extension {
-
-}
-@:forward @:forward.new abstract T_statDirEntry_asInterface(stdgo._internal.io.fs.Fs.T_statDirEntry_asInterface) from stdgo._internal.io.fs.Fs.T_statDirEntry_asInterface to stdgo._internal.io.fs.Fs.T_statDirEntry_asInterface {
-
-}
-@:forward @:forward.new abstract T_statDirEntry_static_extension(stdgo._internal.io.fs.Fs.T_statDirEntry_static_extension) from stdgo._internal.io.fs.Fs.T_statDirEntry_static_extension to stdgo._internal.io.fs.Fs.T_statDirEntry_static_extension {
-
-}
-@:forward @:forward.new abstract FileMode_asInterface(stdgo._internal.io.fs.Fs.FileMode_asInterface) from stdgo._internal.io.fs.Fs.FileMode_asInterface to stdgo._internal.io.fs.Fs.FileMode_asInterface {
-
-}
-@:forward @:forward.new abstract FileMode_static_extension(stdgo._internal.io.fs.Fs.FileMode_static_extension) from stdgo._internal.io.fs.Fs.FileMode_static_extension to stdgo._internal.io.fs.Fs.FileMode_static_extension {
-
-}
 class Fs {
     /**
         FormatFileInfo returns a formatted version of info for human readability.

@@ -260,96 +260,385 @@ final goos : String = stdgo._internal.runtime.Runtime.goos;
 final goarch : String = stdgo._internal.runtime.Runtime.goarch;
 var memProfileRate(get, set) : StdTypes.Int;
 private function get_memProfileRate():StdTypes.Int return stdgo._internal.runtime.Runtime.memProfileRate;
-private function set_memProfileRate(v:StdTypes.Int):StdTypes.Int return stdgo._internal.runtime.Runtime.memProfileRate = v;
-@:forward @:forward.new abstract Error_static_extension(stdgo._internal.runtime.Runtime.Error_static_extension) from stdgo._internal.runtime.Runtime.Error_static_extension to stdgo._internal.runtime.Runtime.Error_static_extension {
-
-}
+private function set_memProfileRate(v:StdTypes.Int):StdTypes.Int {
+        stdgo._internal.runtime.Runtime.memProfileRate = v;
+        return v;
+    }
 typedef Error = stdgo._internal.runtime.Runtime.Error;
-@:forward @:forward.new abstract TypeAssertionError(stdgo._internal.runtime.Runtime.TypeAssertionError) from stdgo._internal.runtime.Runtime.TypeAssertionError to stdgo._internal.runtime.Runtime.TypeAssertionError {
-
+abstract TypeAssertionError(stdgo._internal.runtime.Runtime.TypeAssertionError) from stdgo._internal.runtime.Runtime.TypeAssertionError to stdgo._internal.runtime.Runtime.TypeAssertionError {
+    public function new() this = new stdgo._internal.runtime.Runtime.TypeAssertionError();
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract StackRecord(stdgo._internal.runtime.Runtime.StackRecord) from stdgo._internal.runtime.Runtime.StackRecord to stdgo._internal.runtime.Runtime.StackRecord {
-
+abstract StackRecord(stdgo._internal.runtime.Runtime.StackRecord) from stdgo._internal.runtime.Runtime.StackRecord to stdgo._internal.runtime.Runtime.StackRecord {
+    public var stack0(get, set) : haxe.ds.Vector<stdgo.GoUIntptr>;
+    function get_stack0():haxe.ds.Vector<stdgo.GoUIntptr> return haxe.ds.Vector.fromArrayCopy([for (i in this.stack0) i]);
+    function set_stack0(v:haxe.ds.Vector<stdgo.GoUIntptr>):haxe.ds.Vector<stdgo.GoUIntptr> {
+        this.stack0 = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUIntptr>);
+        return v;
+    }
+    public function new(?stack0:haxe.ds.Vector<stdgo.GoUIntptr>) this = new stdgo._internal.runtime.Runtime.StackRecord(([for (i in stack0) i] : stdgo.GoArray<stdgo.GoUIntptr>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract MemProfileRecord(stdgo._internal.runtime.Runtime.MemProfileRecord) from stdgo._internal.runtime.Runtime.MemProfileRecord to stdgo._internal.runtime.Runtime.MemProfileRecord {
-
+abstract MemProfileRecord(stdgo._internal.runtime.Runtime.MemProfileRecord) from stdgo._internal.runtime.Runtime.MemProfileRecord to stdgo._internal.runtime.Runtime.MemProfileRecord {
+    public var allocBytes(get, set) : haxe.Int64;
+    function get_allocBytes():haxe.Int64 return this.allocBytes;
+    function set_allocBytes(v:haxe.Int64):haxe.Int64 {
+        this.allocBytes = v;
+        return v;
+    }
+    public var freeBytes(get, set) : haxe.Int64;
+    function get_freeBytes():haxe.Int64 return this.freeBytes;
+    function set_freeBytes(v:haxe.Int64):haxe.Int64 {
+        this.freeBytes = v;
+        return v;
+    }
+    public var allocObjects(get, set) : haxe.Int64;
+    function get_allocObjects():haxe.Int64 return this.allocObjects;
+    function set_allocObjects(v:haxe.Int64):haxe.Int64 {
+        this.allocObjects = v;
+        return v;
+    }
+    public var freeObjects(get, set) : haxe.Int64;
+    function get_freeObjects():haxe.Int64 return this.freeObjects;
+    function set_freeObjects(v:haxe.Int64):haxe.Int64 {
+        this.freeObjects = v;
+        return v;
+    }
+    public var stack0(get, set) : haxe.ds.Vector<stdgo.GoUIntptr>;
+    function get_stack0():haxe.ds.Vector<stdgo.GoUIntptr> return haxe.ds.Vector.fromArrayCopy([for (i in this.stack0) i]);
+    function set_stack0(v:haxe.ds.Vector<stdgo.GoUIntptr>):haxe.ds.Vector<stdgo.GoUIntptr> {
+        this.stack0 = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUIntptr>);
+        return v;
+    }
+    public function new(?allocBytes:haxe.Int64, ?freeBytes:haxe.Int64, ?allocObjects:haxe.Int64, ?freeObjects:haxe.Int64, ?stack0:haxe.ds.Vector<stdgo.GoUIntptr>) this = new stdgo._internal.runtime.Runtime.MemProfileRecord(allocBytes, freeBytes, allocObjects, freeObjects, ([for (i in stack0) i] : stdgo.GoArray<stdgo.GoUIntptr>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract BlockProfileRecord(stdgo._internal.runtime.Runtime.BlockProfileRecord) from stdgo._internal.runtime.Runtime.BlockProfileRecord to stdgo._internal.runtime.Runtime.BlockProfileRecord {
-
+abstract BlockProfileRecord(stdgo._internal.runtime.Runtime.BlockProfileRecord) from stdgo._internal.runtime.Runtime.BlockProfileRecord to stdgo._internal.runtime.Runtime.BlockProfileRecord {
+    public var count(get, set) : haxe.Int64;
+    function get_count():haxe.Int64 return this.count;
+    function set_count(v:haxe.Int64):haxe.Int64 {
+        this.count = v;
+        return v;
+    }
+    public var cycles(get, set) : haxe.Int64;
+    function get_cycles():haxe.Int64 return this.cycles;
+    function set_cycles(v:haxe.Int64):haxe.Int64 {
+        this.cycles = v;
+        return v;
+    }
+    public var stackRecord(get, set) : stdgo._internal.runtime.Runtime.StackRecord;
+    function get_stackRecord():stdgo._internal.runtime.Runtime.StackRecord return this.stackRecord;
+    function set_stackRecord(v:stdgo._internal.runtime.Runtime.StackRecord):stdgo._internal.runtime.Runtime.StackRecord {
+        this.stackRecord = v;
+        return v;
+    }
+    public function new(?count:haxe.Int64, ?cycles:haxe.Int64, ?stackRecord:stdgo._internal.runtime.Runtime.StackRecord) this = new stdgo._internal.runtime.Runtime.BlockProfileRecord(count, cycles, stackRecord);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract MemStats(stdgo._internal.runtime.Runtime.MemStats) from stdgo._internal.runtime.Runtime.MemStats to stdgo._internal.runtime.Runtime.MemStats {
-
+abstract MemStats(stdgo._internal.runtime.Runtime.MemStats) from stdgo._internal.runtime.Runtime.MemStats to stdgo._internal.runtime.Runtime.MemStats {
+    public var alloc(get, set) : haxe.UInt64;
+    function get_alloc():haxe.UInt64 return this.alloc;
+    function set_alloc(v:haxe.UInt64):haxe.UInt64 {
+        this.alloc = v;
+        return v;
+    }
+    public var totalAlloc(get, set) : haxe.UInt64;
+    function get_totalAlloc():haxe.UInt64 return this.totalAlloc;
+    function set_totalAlloc(v:haxe.UInt64):haxe.UInt64 {
+        this.totalAlloc = v;
+        return v;
+    }
+    public var sys(get, set) : haxe.UInt64;
+    function get_sys():haxe.UInt64 return this.sys;
+    function set_sys(v:haxe.UInt64):haxe.UInt64 {
+        this.sys = v;
+        return v;
+    }
+    public var lookups(get, set) : haxe.UInt64;
+    function get_lookups():haxe.UInt64 return this.lookups;
+    function set_lookups(v:haxe.UInt64):haxe.UInt64 {
+        this.lookups = v;
+        return v;
+    }
+    public var mallocs(get, set) : haxe.UInt64;
+    function get_mallocs():haxe.UInt64 return this.mallocs;
+    function set_mallocs(v:haxe.UInt64):haxe.UInt64 {
+        this.mallocs = v;
+        return v;
+    }
+    public var frees(get, set) : haxe.UInt64;
+    function get_frees():haxe.UInt64 return this.frees;
+    function set_frees(v:haxe.UInt64):haxe.UInt64 {
+        this.frees = v;
+        return v;
+    }
+    public var heapAlloc(get, set) : haxe.UInt64;
+    function get_heapAlloc():haxe.UInt64 return this.heapAlloc;
+    function set_heapAlloc(v:haxe.UInt64):haxe.UInt64 {
+        this.heapAlloc = v;
+        return v;
+    }
+    public var heapSys(get, set) : haxe.UInt64;
+    function get_heapSys():haxe.UInt64 return this.heapSys;
+    function set_heapSys(v:haxe.UInt64):haxe.UInt64 {
+        this.heapSys = v;
+        return v;
+    }
+    public var heapIdle(get, set) : haxe.UInt64;
+    function get_heapIdle():haxe.UInt64 return this.heapIdle;
+    function set_heapIdle(v:haxe.UInt64):haxe.UInt64 {
+        this.heapIdle = v;
+        return v;
+    }
+    public var heapInuse(get, set) : haxe.UInt64;
+    function get_heapInuse():haxe.UInt64 return this.heapInuse;
+    function set_heapInuse(v:haxe.UInt64):haxe.UInt64 {
+        this.heapInuse = v;
+        return v;
+    }
+    public var heapReleased(get, set) : haxe.UInt64;
+    function get_heapReleased():haxe.UInt64 return this.heapReleased;
+    function set_heapReleased(v:haxe.UInt64):haxe.UInt64 {
+        this.heapReleased = v;
+        return v;
+    }
+    public var heapObjects(get, set) : haxe.UInt64;
+    function get_heapObjects():haxe.UInt64 return this.heapObjects;
+    function set_heapObjects(v:haxe.UInt64):haxe.UInt64 {
+        this.heapObjects = v;
+        return v;
+    }
+    public var stackInuse(get, set) : haxe.UInt64;
+    function get_stackInuse():haxe.UInt64 return this.stackInuse;
+    function set_stackInuse(v:haxe.UInt64):haxe.UInt64 {
+        this.stackInuse = v;
+        return v;
+    }
+    public var stackSys(get, set) : haxe.UInt64;
+    function get_stackSys():haxe.UInt64 return this.stackSys;
+    function set_stackSys(v:haxe.UInt64):haxe.UInt64 {
+        this.stackSys = v;
+        return v;
+    }
+    public var mspanInuse(get, set) : haxe.UInt64;
+    function get_mspanInuse():haxe.UInt64 return this.mspanInuse;
+    function set_mspanInuse(v:haxe.UInt64):haxe.UInt64 {
+        this.mspanInuse = v;
+        return v;
+    }
+    public var mspanSys(get, set) : haxe.UInt64;
+    function get_mspanSys():haxe.UInt64 return this.mspanSys;
+    function set_mspanSys(v:haxe.UInt64):haxe.UInt64 {
+        this.mspanSys = v;
+        return v;
+    }
+    public var mcacheInuse(get, set) : haxe.UInt64;
+    function get_mcacheInuse():haxe.UInt64 return this.mcacheInuse;
+    function set_mcacheInuse(v:haxe.UInt64):haxe.UInt64 {
+        this.mcacheInuse = v;
+        return v;
+    }
+    public var mcacheSys(get, set) : haxe.UInt64;
+    function get_mcacheSys():haxe.UInt64 return this.mcacheSys;
+    function set_mcacheSys(v:haxe.UInt64):haxe.UInt64 {
+        this.mcacheSys = v;
+        return v;
+    }
+    public var buckHashSys(get, set) : haxe.UInt64;
+    function get_buckHashSys():haxe.UInt64 return this.buckHashSys;
+    function set_buckHashSys(v:haxe.UInt64):haxe.UInt64 {
+        this.buckHashSys = v;
+        return v;
+    }
+    public var gcsys(get, set) : haxe.UInt64;
+    function get_gcsys():haxe.UInt64 return this.gcsys;
+    function set_gcsys(v:haxe.UInt64):haxe.UInt64 {
+        this.gcsys = v;
+        return v;
+    }
+    public var otherSys(get, set) : haxe.UInt64;
+    function get_otherSys():haxe.UInt64 return this.otherSys;
+    function set_otherSys(v:haxe.UInt64):haxe.UInt64 {
+        this.otherSys = v;
+        return v;
+    }
+    public var nextGC(get, set) : haxe.UInt64;
+    function get_nextGC():haxe.UInt64 return this.nextGC;
+    function set_nextGC(v:haxe.UInt64):haxe.UInt64 {
+        this.nextGC = v;
+        return v;
+    }
+    public var lastGC(get, set) : haxe.UInt64;
+    function get_lastGC():haxe.UInt64 return this.lastGC;
+    function set_lastGC(v:haxe.UInt64):haxe.UInt64 {
+        this.lastGC = v;
+        return v;
+    }
+    public var pauseTotalNs(get, set) : haxe.UInt64;
+    function get_pauseTotalNs():haxe.UInt64 return this.pauseTotalNs;
+    function set_pauseTotalNs(v:haxe.UInt64):haxe.UInt64 {
+        this.pauseTotalNs = v;
+        return v;
+    }
+    public var pauseNs(get, set) : haxe.ds.Vector<haxe.UInt64>;
+    function get_pauseNs():haxe.ds.Vector<haxe.UInt64> return haxe.ds.Vector.fromArrayCopy([for (i in this.pauseNs) i]);
+    function set_pauseNs(v:haxe.ds.Vector<haxe.UInt64>):haxe.ds.Vector<haxe.UInt64> {
+        this.pauseNs = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt64>);
+        return v;
+    }
+    public var pauseEnd(get, set) : haxe.ds.Vector<haxe.UInt64>;
+    function get_pauseEnd():haxe.ds.Vector<haxe.UInt64> return haxe.ds.Vector.fromArrayCopy([for (i in this.pauseEnd) i]);
+    function set_pauseEnd(v:haxe.ds.Vector<haxe.UInt64>):haxe.ds.Vector<haxe.UInt64> {
+        this.pauseEnd = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt64>);
+        return v;
+    }
+    public var numGC(get, set) : std.UInt;
+    function get_numGC():std.UInt return this.numGC;
+    function set_numGC(v:std.UInt):std.UInt {
+        this.numGC = v;
+        return v;
+    }
+    public var numForcedGC(get, set) : std.UInt;
+    function get_numForcedGC():std.UInt return this.numForcedGC;
+    function set_numForcedGC(v:std.UInt):std.UInt {
+        this.numForcedGC = v;
+        return v;
+    }
+    public var gccpufraction(get, set) : StdTypes.Float;
+    function get_gccpufraction():StdTypes.Float return this.gccpufraction;
+    function set_gccpufraction(v:StdTypes.Float):StdTypes.Float {
+        this.gccpufraction = v;
+        return v;
+    }
+    public var enableGC(get, set) : Bool;
+    function get_enableGC():Bool return this.enableGC;
+    function set_enableGC(v:Bool):Bool {
+        this.enableGC = v;
+        return v;
+    }
+    public var debugGC(get, set) : Bool;
+    function get_debugGC():Bool return this.debugGC;
+    function set_debugGC(v:Bool):Bool {
+        this.debugGC = v;
+        return v;
+    }
+    public var bySize(get, set) : haxe.ds.Vector<stdgo.Tuple.Tuple3<std.UInt, haxe.UInt64, haxe.UInt64>>;
+    function get_bySize():haxe.ds.Vector<stdgo.Tuple.Tuple3<std.UInt, haxe.UInt64, haxe.UInt64>> return haxe.ds.Vector.fromArrayCopy([for (i in this.bySize) {
+        final obj = i;
+        { size : obj.size, mallocs : obj.mallocs, frees : obj.frees };
+    }]);
+    function set_bySize(v:haxe.ds.Vector<stdgo.Tuple.Tuple3<std.UInt, haxe.UInt64, haxe.UInt64>>):haxe.ds.Vector<stdgo.Tuple.Tuple3<std.UInt, haxe.UInt64, haxe.UInt64>> {
+        this.bySize = ([for (i in v) {
+            final obj = i;
+            { size : #NULL_EXPR, mallocs : #NULL_EXPR, frees : #NULL_EXPR };
+        }] : stdgo.GoArray<{ var size : stdgo.GoUInt32; var mallocs : stdgo.GoUInt64; var frees : stdgo.GoUInt64; }>);
+        return v;
+    }
+    public function new(?alloc:haxe.UInt64, ?totalAlloc:haxe.UInt64, ?sys:haxe.UInt64, ?lookups:haxe.UInt64, ?mallocs:haxe.UInt64, ?frees:haxe.UInt64, ?heapAlloc:haxe.UInt64, ?heapSys:haxe.UInt64, ?heapIdle:haxe.UInt64, ?heapInuse:haxe.UInt64, ?heapReleased:haxe.UInt64, ?heapObjects:haxe.UInt64, ?stackInuse:haxe.UInt64, ?stackSys:haxe.UInt64, ?mspanInuse:haxe.UInt64, ?mspanSys:haxe.UInt64, ?mcacheInuse:haxe.UInt64, ?mcacheSys:haxe.UInt64, ?buckHashSys:haxe.UInt64, ?gcsys:haxe.UInt64, ?otherSys:haxe.UInt64, ?nextGC:haxe.UInt64, ?lastGC:haxe.UInt64, ?pauseTotalNs:haxe.UInt64, ?pauseNs:haxe.ds.Vector<haxe.UInt64>, ?pauseEnd:haxe.ds.Vector<haxe.UInt64>, ?numGC:std.UInt, ?numForcedGC:std.UInt, ?gccpufraction:StdTypes.Float, ?enableGC:Bool, ?debugGC:Bool, ?bySize:haxe.ds.Vector<stdgo.Tuple.Tuple3<std.UInt, haxe.UInt64, haxe.UInt64>>) this = new stdgo._internal.runtime.Runtime.MemStats(
+alloc,
+totalAlloc,
+sys,
+lookups,
+mallocs,
+frees,
+heapAlloc,
+heapSys,
+heapIdle,
+heapInuse,
+heapReleased,
+heapObjects,
+stackInuse,
+stackSys,
+mspanInuse,
+mspanSys,
+mcacheInuse,
+mcacheSys,
+buckHashSys,
+gcsys,
+otherSys,
+nextGC,
+lastGC,
+pauseTotalNs,
+([for (i in pauseNs) i] : stdgo.GoArray<stdgo.GoUInt64>),
+([for (i in pauseEnd) i] : stdgo.GoArray<stdgo.GoUInt64>),
+numGC,
+numForcedGC,
+gccpufraction,
+enableGC,
+debugGC,
+([for (i in bySize) {
+        final obj = i;
+        { size : #NULL_EXPR, mallocs : #NULL_EXPR, frees : #NULL_EXPR };
+    }] : stdgo.GoArray<{ var size : stdgo.GoUInt32; var mallocs : stdgo.GoUInt64; var frees : stdgo.GoUInt64; }>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract PanicNilError(stdgo._internal.runtime.Runtime.PanicNilError) from stdgo._internal.runtime.Runtime.PanicNilError to stdgo._internal.runtime.Runtime.PanicNilError {
-
+abstract PanicNilError(stdgo._internal.runtime.Runtime.PanicNilError) from stdgo._internal.runtime.Runtime.PanicNilError to stdgo._internal.runtime.Runtime.PanicNilError {
+    public function new() this = new stdgo._internal.runtime.Runtime.PanicNilError();
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Pinner(stdgo._internal.runtime.Runtime.Pinner) from stdgo._internal.runtime.Runtime.Pinner to stdgo._internal.runtime.Runtime.Pinner {
-
+abstract Pinner(stdgo._internal.runtime.Runtime.Pinner) from stdgo._internal.runtime.Runtime.Pinner to stdgo._internal.runtime.Runtime.Pinner {
+    public function new() this = new stdgo._internal.runtime.Runtime.Pinner();
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Frames(stdgo._internal.runtime.Runtime.Frames) from stdgo._internal.runtime.Runtime.Frames to stdgo._internal.runtime.Runtime.Frames {
-
+abstract Frames(stdgo._internal.runtime.Runtime.Frames) from stdgo._internal.runtime.Runtime.Frames to stdgo._internal.runtime.Runtime.Frames {
+    public function new() this = new stdgo._internal.runtime.Runtime.Frames();
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Frame(stdgo._internal.runtime.Runtime.Frame) from stdgo._internal.runtime.Runtime.Frame to stdgo._internal.runtime.Runtime.Frame {
-
+abstract Frame(stdgo._internal.runtime.Runtime.Frame) from stdgo._internal.runtime.Runtime.Frame to stdgo._internal.runtime.Runtime.Frame {
+    public var pc(get, set) : stdgo.GoUIntptr;
+    function get_pc():stdgo.GoUIntptr return this.pc;
+    function set_pc(v:stdgo.GoUIntptr):stdgo.GoUIntptr {
+        this.pc = v;
+        return v;
+    }
+    public var func(get, set) : stdgo._internal.runtime.Runtime.Func;
+    function get_func():stdgo._internal.runtime.Runtime.Func return this.func;
+    function set_func(v:stdgo._internal.runtime.Runtime.Func):stdgo._internal.runtime.Runtime.Func {
+        this.func = v;
+        return v;
+    }
+    public var function_(get, set) : String;
+    function get_function_():String return this.function_;
+    function set_function_(v:String):String {
+        this.function_ = v;
+        return v;
+    }
+    public var file(get, set) : String;
+    function get_file():String return this.file;
+    function set_file(v:String):String {
+        this.file = v;
+        return v;
+    }
+    public var line(get, set) : StdTypes.Int;
+    function get_line():StdTypes.Int return this.line;
+    function set_line(v:StdTypes.Int):StdTypes.Int {
+        this.line = v;
+        return v;
+    }
+    public var entry(get, set) : stdgo.GoUIntptr;
+    function get_entry():stdgo.GoUIntptr return this.entry;
+    function set_entry(v:stdgo.GoUIntptr):stdgo.GoUIntptr {
+        this.entry = v;
+        return v;
+    }
+    public function new(?pc:stdgo.GoUIntptr, ?func:stdgo._internal.runtime.Runtime.Func, ?function_:String, ?file:String, ?line:StdTypes.Int, ?entry:stdgo.GoUIntptr) this = new stdgo._internal.runtime.Runtime.Frame(pc, func, function_, file, line, entry);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract Func(stdgo._internal.runtime.Runtime.Func) from stdgo._internal.runtime.Runtime.Func to stdgo._internal.runtime.Runtime.Func {
-
-}
-@:forward @:forward.new abstract T__struct_0_asInterface(stdgo._internal.runtime.Runtime.T__struct_0_asInterface) from stdgo._internal.runtime.Runtime.T__struct_0_asInterface to stdgo._internal.runtime.Runtime.T__struct_0_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_0_static_extension(stdgo._internal.runtime.Runtime.T__struct_0_static_extension) from stdgo._internal.runtime.Runtime.T__struct_0_static_extension to stdgo._internal.runtime.Runtime.T__struct_0_static_extension {
-
+abstract Func(stdgo._internal.runtime.Runtime.Func) from stdgo._internal.runtime.Runtime.Func to stdgo._internal.runtime.Runtime.Func {
+    public function new() this = new stdgo._internal.runtime.Runtime.Func();
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 typedef T__struct_0 = stdgo._internal.runtime.Runtime.T__struct_0;
-@:forward @:forward.new abstract TypeAssertionError_asInterface(stdgo._internal.runtime.Runtime.TypeAssertionError_asInterface) from stdgo._internal.runtime.Runtime.TypeAssertionError_asInterface to stdgo._internal.runtime.Runtime.TypeAssertionError_asInterface {
-
-}
-@:forward @:forward.new abstract TypeAssertionError_static_extension(stdgo._internal.runtime.Runtime.TypeAssertionError_static_extension) from stdgo._internal.runtime.Runtime.TypeAssertionError_static_extension to stdgo._internal.runtime.Runtime.TypeAssertionError_static_extension {
-
-}
-@:forward @:forward.new abstract StackRecord_asInterface(stdgo._internal.runtime.Runtime.StackRecord_asInterface) from stdgo._internal.runtime.Runtime.StackRecord_asInterface to stdgo._internal.runtime.Runtime.StackRecord_asInterface {
-
-}
-@:forward @:forward.new abstract StackRecord_static_extension(stdgo._internal.runtime.Runtime.StackRecord_static_extension) from stdgo._internal.runtime.Runtime.StackRecord_static_extension to stdgo._internal.runtime.Runtime.StackRecord_static_extension {
-
-}
-@:forward @:forward.new abstract MemProfileRecord_asInterface(stdgo._internal.runtime.Runtime.MemProfileRecord_asInterface) from stdgo._internal.runtime.Runtime.MemProfileRecord_asInterface to stdgo._internal.runtime.Runtime.MemProfileRecord_asInterface {
-
-}
-@:forward @:forward.new abstract MemProfileRecord_static_extension(stdgo._internal.runtime.Runtime.MemProfileRecord_static_extension) from stdgo._internal.runtime.Runtime.MemProfileRecord_static_extension to stdgo._internal.runtime.Runtime.MemProfileRecord_static_extension {
-
-}
-@:forward @:forward.new abstract BlockProfileRecord_asInterface(stdgo._internal.runtime.Runtime.BlockProfileRecord_asInterface) from stdgo._internal.runtime.Runtime.BlockProfileRecord_asInterface to stdgo._internal.runtime.Runtime.BlockProfileRecord_asInterface {
-
-}
-@:forward @:forward.new abstract BlockProfileRecord_static_extension(stdgo._internal.runtime.Runtime.BlockProfileRecord_static_extension) from stdgo._internal.runtime.Runtime.BlockProfileRecord_static_extension to stdgo._internal.runtime.Runtime.BlockProfileRecord_static_extension {
-
-}
-@:forward @:forward.new abstract PanicNilError_asInterface(stdgo._internal.runtime.Runtime.PanicNilError_asInterface) from stdgo._internal.runtime.Runtime.PanicNilError_asInterface to stdgo._internal.runtime.Runtime.PanicNilError_asInterface {
-
-}
-@:forward @:forward.new abstract PanicNilError_static_extension(stdgo._internal.runtime.Runtime.PanicNilError_static_extension) from stdgo._internal.runtime.Runtime.PanicNilError_static_extension to stdgo._internal.runtime.Runtime.PanicNilError_static_extension {
-
-}
-@:forward @:forward.new abstract Pinner_asInterface(stdgo._internal.runtime.Runtime.Pinner_asInterface) from stdgo._internal.runtime.Runtime.Pinner_asInterface to stdgo._internal.runtime.Runtime.Pinner_asInterface {
-
-}
-@:forward @:forward.new abstract Pinner_static_extension(stdgo._internal.runtime.Runtime.Pinner_static_extension) from stdgo._internal.runtime.Runtime.Pinner_static_extension to stdgo._internal.runtime.Runtime.Pinner_static_extension {
-
-}
-@:forward @:forward.new abstract Frames_asInterface(stdgo._internal.runtime.Runtime.Frames_asInterface) from stdgo._internal.runtime.Runtime.Frames_asInterface to stdgo._internal.runtime.Runtime.Frames_asInterface {
-
-}
-@:forward @:forward.new abstract Frames_static_extension(stdgo._internal.runtime.Runtime.Frames_static_extension) from stdgo._internal.runtime.Runtime.Frames_static_extension to stdgo._internal.runtime.Runtime.Frames_static_extension {
-
-}
-@:forward @:forward.new abstract Func_asInterface(stdgo._internal.runtime.Runtime.Func_asInterface) from stdgo._internal.runtime.Runtime.Func_asInterface to stdgo._internal.runtime.Runtime.Func_asInterface {
-
-}
-@:forward @:forward.new abstract Func_static_extension(stdgo._internal.runtime.Runtime.Func_static_extension) from stdgo._internal.runtime.Runtime.Func_static_extension to stdgo._internal.runtime.Runtime.Func_static_extension {
-
-}
 class Runtime {
     /**
         SetCPUProfileRate sets the CPU profiling rate to hz samples per second.

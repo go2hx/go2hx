@@ -146,20 +146,8 @@ final invalidUnsafeString = stdgo._internal.internal.types.errors.Errors.invalid
 final invalidClear = stdgo._internal.internal.types.errors.Errors.invalidClear;
 final typeTooLarge = stdgo._internal.internal.types.errors.Errors.typeTooLarge;
 final invalidMinMaxOperand = stdgo._internal.internal.types.errors.Errors.invalidMinMaxOperand;
-@:forward @:forward.new abstract T__struct_0_asInterface(stdgo._internal.internal.types.errors.Errors.T__struct_0_asInterface) from stdgo._internal.internal.types.errors.Errors.T__struct_0_asInterface to stdgo._internal.internal.types.errors.Errors.T__struct_0_asInterface {
-
-}
-@:forward @:forward.new abstract T__struct_0_static_extension(stdgo._internal.internal.types.errors.Errors.T__struct_0_static_extension) from stdgo._internal.internal.types.errors.Errors.T__struct_0_static_extension to stdgo._internal.internal.types.errors.Errors.T__struct_0_static_extension {
-
-}
 typedef T__struct_0 = stdgo._internal.internal.types.errors.Errors.T__struct_0;
 typedef Code = stdgo._internal.internal.types.errors.Errors.Code;
-@:forward @:forward.new abstract Code_asInterface(stdgo._internal.internal.types.errors.Errors.Code_asInterface) from stdgo._internal.internal.types.errors.Errors.Code_asInterface to stdgo._internal.internal.types.errors.Errors.Code_asInterface {
-
-}
-@:forward @:forward.new abstract Code_static_extension(stdgo._internal.internal.types.errors.Errors.Code_static_extension) from stdgo._internal.internal.types.errors.Errors.Code_static_extension to stdgo._internal.internal.types.errors.Errors.Code_static_extension {
-
-}
 class Errors {
 
 }

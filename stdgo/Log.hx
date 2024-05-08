@@ -26,26 +26,68 @@ final rmicroseconds : String = stdgo._internal.log.Log.rmicroseconds;
 final rline : String = stdgo._internal.log.Log.rline;
 final rlongfile : String = stdgo._internal.log.Log.rlongfile;
 final rshortfile : String = stdgo._internal.log.Log.rshortfile;
-@:forward @:forward.new abstract Logger(stdgo._internal.log.Log.Logger) from stdgo._internal.log.Log.Logger to stdgo._internal.log.Log.Logger {
-
+abstract Logger(stdgo._internal.log.Log.Logger) from stdgo._internal.log.Log.Logger to stdgo._internal.log.Log.Logger {
+    public var _outMu(get, set) : stdgo._internal.sync.Sync.Mutex;
+    function get__outMu():stdgo._internal.sync.Sync.Mutex return this._outMu;
+    function set__outMu(v:stdgo._internal.sync.Sync.Mutex):stdgo._internal.sync.Sync.Mutex {
+        this._outMu = v;
+        return v;
+    }
+    public var _out(get, set) : stdgo._internal.io.Io.Writer;
+    function get__out():stdgo._internal.io.Io.Writer return this._out;
+    function set__out(v:stdgo._internal.io.Io.Writer):stdgo._internal.io.Io.Writer {
+        this._out = v;
+        return v;
+    }
+    public var _prefix(get, set) : stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo.GoString>;
+    function get__prefix():stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo.GoString> return this._prefix;
+    function set__prefix(v:stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo.GoString>):stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo.GoString> {
+        this._prefix = v;
+        return v;
+    }
+    public var _flag(get, set) : stdgo._internal.sync.atomic_.Atomic_.Int32;
+    function get__flag():stdgo._internal.sync.atomic_.Atomic_.Int32 return this._flag;
+    function set__flag(v:stdgo._internal.sync.atomic_.Atomic_.Int32):stdgo._internal.sync.atomic_.Atomic_.Int32 {
+        this._flag = v;
+        return v;
+    }
+    public var _isDiscard(get, set) : stdgo._internal.sync.atomic_.Atomic_.Bool_;
+    function get__isDiscard():stdgo._internal.sync.atomic_.Atomic_.Bool_ return this._isDiscard;
+    function set__isDiscard(v:stdgo._internal.sync.atomic_.Atomic_.Bool_):stdgo._internal.sync.atomic_.Atomic_.Bool_ {
+        this._isDiscard = v;
+        return v;
+    }
+    public function new(?_outMu:stdgo._internal.sync.Sync.Mutex, ?_out:stdgo._internal.io.Io.Writer, ?_prefix:stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo.GoString>, ?_flag:stdgo._internal.sync.atomic_.Atomic_.Int32, ?_isDiscard:stdgo._internal.sync.atomic_.Atomic_.Bool_) this = new stdgo._internal.log.Log.Logger(_outMu, _out, _prefix, _flag, _isDiscard);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_tester(stdgo._internal.log.Log.T_tester) from stdgo._internal.log.Log.T_tester to stdgo._internal.log.Log.T_tester {
-
+abstract T_tester(stdgo._internal.log.Log.T_tester) from stdgo._internal.log.Log.T_tester to stdgo._internal.log.Log.T_tester {
+    public var _flag(get, set) : StdTypes.Int;
+    function get__flag():StdTypes.Int return this._flag;
+    function set__flag(v:StdTypes.Int):StdTypes.Int {
+        this._flag = v;
+        return v;
+    }
+    public var _prefix(get, set) : String;
+    function get__prefix():String return this._prefix;
+    function set__prefix(v:String):String {
+        this._prefix = v;
+        return v;
+    }
+    public var _pattern(get, set) : String;
+    function get__pattern():String return this._pattern;
+    function set__pattern(v:String):String {
+        this._pattern = v;
+        return v;
+    }
+    public function new(?_flag:StdTypes.Int, ?_prefix:String, ?_pattern:String) this = new stdgo._internal.log.Log.T_tester(_flag, _prefix, _pattern);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_discard(stdgo._internal.log.Log.T_discard) from stdgo._internal.log.Log.T_discard to stdgo._internal.log.Log.T_discard {
-
-}
-@:forward @:forward.new abstract Logger_asInterface(stdgo._internal.log.Log.Logger_asInterface) from stdgo._internal.log.Log.Logger_asInterface to stdgo._internal.log.Log.Logger_asInterface {
-
-}
-@:forward @:forward.new abstract Logger_static_extension(stdgo._internal.log.Log.Logger_static_extension) from stdgo._internal.log.Log.Logger_static_extension to stdgo._internal.log.Log.Logger_static_extension {
-
-}
-@:forward @:forward.new abstract T_discard_asInterface(stdgo._internal.log.Log.T_discard_asInterface) from stdgo._internal.log.Log.T_discard_asInterface to stdgo._internal.log.Log.T_discard_asInterface {
-
-}
-@:forward @:forward.new abstract T_discard_static_extension(stdgo._internal.log.Log.T_discard_static_extension) from stdgo._internal.log.Log.T_discard_static_extension to stdgo._internal.log.Log.T_discard_static_extension {
-
+abstract T_discard(stdgo._internal.log.Log.T_discard) from stdgo._internal.log.Log.T_discard to stdgo._internal.log.Log.T_discard {
+    public function new() this = new stdgo._internal.log.Log.T_discard();
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 class Log {
     /**

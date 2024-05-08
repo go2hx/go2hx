@@ -8,20 +8,74 @@ package stdgo.crypto;
 private var __go2hxdoc__package : Bool;
 final size : haxe.UInt64 = stdgo._internal.crypto.sha1.Sha1.size;
 final blockSize : haxe.UInt64 = stdgo._internal.crypto.sha1.Sha1.blockSize;
-@:forward @:forward.new abstract T_digest(stdgo._internal.crypto.sha1.Sha1.T_digest) from stdgo._internal.crypto.sha1.Sha1.T_digest to stdgo._internal.crypto.sha1.Sha1.T_digest {
-
+abstract T_digest(stdgo._internal.crypto.sha1.Sha1.T_digest) from stdgo._internal.crypto.sha1.Sha1.T_digest to stdgo._internal.crypto.sha1.Sha1.T_digest {
+    public var _h(get, set) : haxe.ds.Vector<std.UInt>;
+    function get__h():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._h) i]);
+    function set__h(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
+        this._h = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt32>);
+        return v;
+    }
+    public var _x(get, set) : haxe.ds.Vector<std.UInt>;
+    function get__x():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._x) i]);
+    function set__x(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
+        this._x = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _nx(get, set) : StdTypes.Int;
+    function get__nx():StdTypes.Int return this._nx;
+    function set__nx(v:StdTypes.Int):StdTypes.Int {
+        this._nx = v;
+        return v;
+    }
+    public var _len(get, set) : haxe.UInt64;
+    function get__len():haxe.UInt64 return this._len;
+    function set__len(v:haxe.UInt64):haxe.UInt64 {
+        this._len = v;
+        return v;
+    }
+    public function new(?_h:haxe.ds.Vector<std.UInt>, ?_x:haxe.ds.Vector<std.UInt>, ?_nx:StdTypes.Int, ?_len:haxe.UInt64) this = new stdgo._internal.crypto.sha1.Sha1.T_digest(([for (i in _h) i] : stdgo.GoArray<stdgo.GoUInt32>), ([for (i in _x) i] : stdgo.GoArray<stdgo.GoUInt8>), _nx, _len);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_sha1Test(stdgo._internal.crypto.sha1.Sha1.T_sha1Test) from stdgo._internal.crypto.sha1.Sha1.T_sha1Test to stdgo._internal.crypto.sha1.Sha1.T_sha1Test {
-
+abstract T_sha1Test(stdgo._internal.crypto.sha1.Sha1.T_sha1Test) from stdgo._internal.crypto.sha1.Sha1.T_sha1Test to stdgo._internal.crypto.sha1.Sha1.T_sha1Test {
+    public var _out(get, set) : String;
+    function get__out():String return this._out;
+    function set__out(v:String):String {
+        this._out = v;
+        return v;
+    }
+    public var _in(get, set) : String;
+    function get__in():String return this._in;
+    function set__in(v:String):String {
+        this._in = v;
+        return v;
+    }
+    public var _halfState(get, set) : String;
+    function get__halfState():String return this._halfState;
+    function set__halfState(v:String):String {
+        this._halfState = v;
+        return v;
+    }
+    public function new(?_out:String, ?_in:String, ?_halfState:String) this = new stdgo._internal.crypto.sha1.Sha1.T_sha1Test(_out, _in, _halfState);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
-@:forward @:forward.new abstract T_unmarshalTest(stdgo._internal.crypto.sha1.Sha1.T_unmarshalTest) from stdgo._internal.crypto.sha1.Sha1.T_unmarshalTest to stdgo._internal.crypto.sha1.Sha1.T_unmarshalTest {
-
-}
-@:forward @:forward.new abstract T_digest_asInterface(stdgo._internal.crypto.sha1.Sha1.T_digest_asInterface) from stdgo._internal.crypto.sha1.Sha1.T_digest_asInterface to stdgo._internal.crypto.sha1.Sha1.T_digest_asInterface {
-
-}
-@:forward @:forward.new abstract T_digest_static_extension(stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension) from stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension to stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension {
-
+abstract T_unmarshalTest(stdgo._internal.crypto.sha1.Sha1.T_unmarshalTest) from stdgo._internal.crypto.sha1.Sha1.T_unmarshalTest to stdgo._internal.crypto.sha1.Sha1.T_unmarshalTest {
+    public var _state(get, set) : String;
+    function get__state():String return this._state;
+    function set__state(v:String):String {
+        this._state = v;
+        return v;
+    }
+    public var _sum(get, set) : String;
+    function get__sum():String return this._sum;
+    function set__sum(v:String):String {
+        this._sum = v;
+        return v;
+    }
+    public function new(?_state:String, ?_sum:String) this = new stdgo._internal.crypto.sha1.Sha1.T_unmarshalTest(_state, _sum);
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
 }
 class Sha1 {
     /**

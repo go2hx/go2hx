@@ -22,28 +22,13 @@ final blake2s_256 = stdgo._internal.crypto.Crypto.blake2s_256;
 final blake2b_256 = stdgo._internal.crypto.Crypto.blake2b_256;
 final blake2b_384 = stdgo._internal.crypto.Crypto.blake2b_384;
 final blake2b_512 = stdgo._internal.crypto.Crypto.blake2b_512;
-@:forward @:forward.new abstract Signer_static_extension(stdgo._internal.crypto.Crypto.Signer_static_extension) from stdgo._internal.crypto.Crypto.Signer_static_extension to stdgo._internal.crypto.Crypto.Signer_static_extension {
-
-}
 typedef Signer = stdgo._internal.crypto.Crypto.Signer;
-@:forward @:forward.new abstract SignerOpts_static_extension(stdgo._internal.crypto.Crypto.SignerOpts_static_extension) from stdgo._internal.crypto.Crypto.SignerOpts_static_extension to stdgo._internal.crypto.Crypto.SignerOpts_static_extension {
-
-}
 typedef SignerOpts = stdgo._internal.crypto.Crypto.SignerOpts;
-@:forward @:forward.new abstract Decrypter_static_extension(stdgo._internal.crypto.Crypto.Decrypter_static_extension) from stdgo._internal.crypto.Crypto.Decrypter_static_extension to stdgo._internal.crypto.Crypto.Decrypter_static_extension {
-
-}
 typedef Decrypter = stdgo._internal.crypto.Crypto.Decrypter;
 typedef Hash = stdgo._internal.crypto.Crypto.Hash;
 typedef PublicKey = stdgo._internal.crypto.Crypto.PublicKey;
 typedef PrivateKey = stdgo._internal.crypto.Crypto.PrivateKey;
 typedef DecrypterOpts = stdgo._internal.crypto.Crypto.DecrypterOpts;
-@:forward @:forward.new abstract Hash_asInterface(stdgo._internal.crypto.Crypto.Hash_asInterface) from stdgo._internal.crypto.Crypto.Hash_asInterface to stdgo._internal.crypto.Crypto.Hash_asInterface {
-
-}
-@:forward @:forward.new abstract Hash_static_extension(stdgo._internal.crypto.Crypto.Hash_static_extension) from stdgo._internal.crypto.Crypto.Hash_static_extension to stdgo._internal.crypto.Crypto.Hash_static_extension {
-
-}
 class Crypto {
     /**
         RegisterHash registers a function that returns a new instance of the given

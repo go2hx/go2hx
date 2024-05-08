@@ -175,10 +175,10 @@ function externGen(td:TypeDefinition,path:String, cl:TypeDefinition):Array<TypeD
 			if (StringTools.endsWith(td.name, "_asInterface") || StringTools.endsWith(td.name, "_static_extension"))
 				return [];
 			if (isInterface)
-				return [externGenInterface(td, path)];
+				return [externGenInterface(td, path, cl)];
 			if (isAbstract)
-				return [externGenAbstract(td)];
-			return [externGenClass(td, path)];
+				return [externGenAbstract(td, cl)];
+			return [externGenClass(td, path,cl)];
 		case TDField(kind, access):
 			if (td.name == "__go2hxdoc__package")
 				return [td];
@@ -210,12 +210,12 @@ function externGen(td:TypeDefinition,path:String, cl:TypeDefinition):Array<TypeD
 	return [td];
 }
 
-function externGenInterface(td:TypeDefinition, path:String):TypeDefinition {
+function externGenInterface(td:TypeDefinition, path:String, cl:TypeDefinition):TypeDefinition {
 	td.fields = externGenFields(td.fields, path);
 	return externInvalid(td);
 }
 
-function externGenAbstract(td:TypeDefinition):TypeDefinition {
+function externGenAbstract(td:TypeDefinition, cl:TypeDefinition):TypeDefinition {
 	return externInvalid(td);
 }
 
@@ -228,7 +228,7 @@ function copyField(field:Field, kind:FieldType):Field {
 	};
 }
 
-function externGenClass(td:TypeDefinition, path:String):TypeDefinition {
+function externGenClass(td:TypeDefinition, path:String, cl:TypeDefinition):TypeDefinition {
 	final params:Array<TypeParam> = [];
 	final pack = path.split("/");
 	pack.push(Typer.title(pack[pack.length - 1]));
@@ -307,7 +307,7 @@ function externGenClass(td:TypeDefinition, path:String):TypeDefinition {
 		}
 	}
 	return {
-		name: td.name,
+		name: td.name == cl.name ? td.name + "_" : td.name,
 		pack: td.pack,
 		pos: null,
 		meta: [],
@@ -679,11 +679,12 @@ function convertComplexType(ct:ComplexType):ComplexType {
 				case "Pointer":
 					return TPath({name: "Pointer", pack: ["stdgo"], params: convertTypeParams(p.params)});
 				case "Ref":
-					switch p.params[0] {
-						case TPType(ct):
-							return convertComplexType(ct);
-						default:
-					}
+					if (p.params != null && p.params.length > 0)
+						switch p.params[0] {
+							case TPType(ct):
+								return convertComplexType(ct);
+							default:
+						}
 			}
 		case TPath({name: name, pack: pack, params: params}) if (params != null):
 			return TPath({name: name, pack: pack, params: params.map(param -> switch param {

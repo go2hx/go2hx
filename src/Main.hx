@@ -246,7 +246,10 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 	for (i in 0...processCount) {
 		// sys.thread.Thread.create(() -> Sys.command("./go4hx", ['$port']));
 		#if (target.threaded)
-		processes.push(new sys.io.Process("./go4hx", ['$port'], false));
+		var name = "./go4hx";
+		if (Sys.systemName() == "Windows")
+			name += ".exe";
+		processes.push(new sys.io.Process(name, ['$port'], false));
 		#else
 		jsProcess();
 		#end

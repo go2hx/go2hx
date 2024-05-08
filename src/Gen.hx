@@ -172,6 +172,8 @@ function externGen(td:TypeDefinition,path:String, cl:TypeDefinition):Array<TypeD
 		case TDClass(_, _, isInterface, _, isAbstract):
 			//if (td.name.substring(0,2) == "T_")
 			//	return null;
+			if (StringTools.endsWith(td.name, "_asInterface") || StringTools.endsWith(td.name, "_static_extension"))
+				return [];
 			if (isInterface)
 				return [externGenInterface(td, path)];
 			if (isAbstract)
@@ -251,7 +253,7 @@ function externGenClass(td:TypeDefinition, path:String):TypeDefinition {
 					kind: FFun({
 						args: [],
 						ret: convertComplexType(type),
-						expr: macro return $name,
+						expr: macro return ${convertCast(name, type) ?? name},
 						params: [],
 					}),
 				},{
@@ -260,7 +262,10 @@ function externGenClass(td:TypeDefinition, path:String):TypeDefinition {
 					kind: FFun({
 						args: [{name: "v", type: convertComplexType(type)}],
 						ret: convertComplexType(type),
-						expr: macro return $name = v,
+						expr: macro {
+							$name = ${reverseConvertCast(macro v, type) ?? macro v};
+							return v;
+						},
 						params: [],
 					})
 				}]);
@@ -388,7 +393,7 @@ function externGenVar(td:TypeDefinition, path:String):Array<TypeDefinition> {
 				kind: TDField(FFun({
 					args: [],
 					ret: convertComplexType(type),
-					expr: macro return $name,
+					expr: macro return ${convertCast(name, type) ?? name},
 					params: [],
 				}), access),
 			},{
@@ -399,7 +404,10 @@ function externGenVar(td:TypeDefinition, path:String):Array<TypeDefinition> {
 				kind: TDField(FFun({
 					args: [{name: "v", type: convertComplexType(type)}],
 					ret: convertComplexType(type),
-					expr: macro return $name = v,
+					expr: macro {
+						$name = ${reverseConvertCast(macro v, type) ?? macro v};
+						return v;
+					},
 					params: [],
 				}), access),
 			}];
@@ -520,6 +528,10 @@ function reverseConvertCast(e:Expr, ct:ComplexType):Expr {
 			final i = reverseConvertCast(macro i, param) ?? macro i;
 			if (i != null)
 				return macro ([for (i in $e) $i] : $ct);
+		case TPath({name: "GoArray", pack: ["stdgo"], params: [TPType(param)]}):
+			final i = reverseConvertCast(macro i, param) ?? macro i;
+			if (i != null)
+				return macro ([for (i in $e) $i] : $ct);
 		case TPath({name: "Pointer", pack: ["stdgo"], params: [TPType(param)]}):
 		case TPath({name: name, pack: ["stdgo"], params: _}):
 			switch name {
@@ -567,6 +579,9 @@ function convertCast(e:Expr, ct:ComplexType):Expr {
 		case TPath({name: "Slice", pack: ["stdgo"], params: [TPType(param)]}):
 			final i = convertCast(macro i, param) ?? macro i;
 			return macro [for (i in $e) $i];
+		case TPath({name: "GoArray", pack: ["stdgo"], params: [TPType(param)]}):
+				final i = convertCast(macro i, param) ?? macro i;
+				return macro haxe.ds.Vector.fromArrayCopy([for (i in $e) $i]);
 		case TPath({name: "Pointer", pack: ["stdgo"], params: [TPType(param)]}):
 			return convertCast(e, param) ?? e;
 		case TPath({name: name, pack: ["stdgo"], params: _}):

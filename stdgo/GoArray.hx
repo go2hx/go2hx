@@ -307,6 +307,10 @@ abstract GoArray<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 		}
 		#end
 	}
+	@:from
+	public static function fromArray<T>(array:Array<T>):GoArray<T> {
+		return new GoArray(array.length, array.length, ...array);
+	}
 	// maybe bound checks are not required, because the length is already known for GoArrays
 	@:op([]) public function __set__(index:GoInt, value:T):T {
 		__boundsCheck__(index.toBasic());

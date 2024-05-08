@@ -57,6 +57,11 @@ function create(outputPath:String, module:Module, root:String) {
 			content += ";\n";
 		}
 		var macroFields:Array<haxe.macro.Expr.Field> = [];
+		final cl = macro class C {};
+		final clMacro = macro class C {};
+		final clName = Typer.title(paths.pop());
+		cl.name = clName;
+		clMacro.name = clName;
 		for (def in file.defs) {
 			macroFields = [];
 			switch def.kind {
@@ -67,7 +72,7 @@ function create(outputPath:String, module:Module, root:String) {
 								final isExtern = def.isExtern;
 								def.isExtern = true;
 								hasMacroDef = true;
-								for (td in externGen(def, actualPath)) 
+								for (td in externGen(def, actualPath, clMacro)) 
 									externMacroContent += Typer.printer.printTypeDefinition(td, false);
 								macroContent += Typer.printer.printTypeDefinition(stripComments(def), false);
 								def.isExtern = isExtern;
@@ -109,25 +114,28 @@ function create(outputPath:String, module:Module, root:String) {
 					isExtern: true,
 				};
 				if (externDefBool) {
-					for (td in externGen(def, actualPath))
+					for (td in externGen(def, actualPath, cl))
 						externMacroContent += Typer.printer.printTypeDefinition(td, false);
 				}
 				macroContent += Typer.printer.printTypeDefinition(stripComments(td), false);
 			}
 			if (externDefBool) {
-				for (td in externGen(def, actualPath)) {
+				for (td in externGen(def, actualPath, cl)) {
 					externContent += Typer.printer.printTypeDefinition(td, false);
 				}
 			}
 			content += Typer.printer.printTypeDefinition(stripComments(def), false);
 		}
 		if (externDefBool) {
+			externContent += Typer.printer.printTypeDefinition(cl,false);
 			save(outputPath + actualPathExtern + "/", file.name, externContent);
 		}
 		save(outputPath + actualPath + "/", file.name, content);
 		if (hasMacroDef) {
-			if (externDefBool)
+			if (externDefBool) {
+				externMacroContent += Typer.printer.printTypeDefinition(clMacro,false);
 				save(outputPath + actualPathExtern + "/", file.name, externMacroContent, ".macro");
+			}
 			save(outputPath + actualPath + "/", file.name, macroContent, ".macro");
 		}
 	}
@@ -158,7 +166,7 @@ private function save(dir:String, name:String, content:String, extension:String 
 }
 
 
-function externGen(td:TypeDefinition,path:String):Array<TypeDefinition> {
+function externGen(td:TypeDefinition,path:String, cl:TypeDefinition):Array<TypeDefinition> {
 	switch td.kind {
 		case TDClass(_, _, isInterface, _, isAbstract):
 			//if (td.name.substring(0,2) == "T_")
@@ -180,14 +188,14 @@ function externGen(td:TypeDefinition,path:String):Array<TypeDefinition> {
 					final access = access.copy();
 					/*if (access.indexOf(AInline) == -1)
 						access.push(AInline);*/
-					[{
+					cl.fields.push({
 						name: td.name,
 						pos: td.pos,
-						pack: td.pack,
 						doc: td.doc,
-						fields: td.fields,
-						kind: TDField(FFun(externGenFun(td.name, f, path)), access),
-					}];
+						access: [AStatic, APublic],
+						kind: FFun(externGenFun(td.name, f, path)),
+					});
+					[];
 				case FProp(_, _, _, _):
 					throw "FProp not supported";
 			}

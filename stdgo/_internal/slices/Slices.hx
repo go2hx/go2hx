@@ -508,15 +508,15 @@ function testEqualFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             _t.errorf(("EqualFunc(%v, %v, cmpIntString) = false, want true" : stdgo.GoString), stdgo.Go.toInterface(_s1), stdgo.Go.toInterface(_s3));
         };
     }
-@:named typedef T_benchmarkEqualFunc_Large_18___localname___Large = stdgo.GoArray<stdgo.GoUInt8>;
+@:named typedef T_benchmarkEqualFunc_Large_19___localname___Large = stdgo.GoArray<stdgo.GoUInt8>;
 function benchmarkEqualFunc_Large(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {};
-        var _xs = new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_18___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_18___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]);
-        var _ys = new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_18___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_18___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]);
+        var _xs = new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_19___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_19___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]);
+        var _ys = new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_19___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_19___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                var __blank__ = equalFunc((null : stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_18___localname___Large>), (null : stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_18___localname___Large>), new stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_18___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)]), new stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_18___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)]), _xs, _ys, function(_x:T_benchmarkEqualFunc_Large_18___localname___Large, _y:T_benchmarkEqualFunc_Large_18___localname___Large):Bool {
+                var __blank__ = equalFunc((null : stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_19___localname___Large>), (null : stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_19___localname___Large>), new stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_19___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)]), new stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_19___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)]), _xs, _ys, function(_x:T_benchmarkEqualFunc_Large_19___localname___Large, _y:T_benchmarkEqualFunc_Large_19___localname___Large):Bool {
                     return stdgo.Go.toInterface(_x) == stdgo.Go.toInterface(_y);
                 });
             });
@@ -648,14 +648,14 @@ function testIndex(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 macro function _equalToIndex<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _f:haxe.macro.Expr.ExprOf<($T_, $T_) -> Bool>, _v1:haxe.macro.Expr.ExprOf<T_>):haxe.macro.Expr.ExprOf<T_ -> Bool>;
-@:named typedef T_benchmarkIndex_Large_19___localname___Large = stdgo.GoArray<stdgo.GoUInt8>;
+@:named typedef T_benchmarkIndex_Large_20___localname___Large = stdgo.GoArray<stdgo.GoUInt8>;
 function benchmarkIndex_Large(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {};
-        var _ss = new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkIndex_Large_19___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkIndex_Large_19___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]);
+        var _ss = new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkIndex_Large_20___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkIndex_Large_20___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                var __blank__ = index((null : stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkIndex_Large_19___localname___Large>), new stdgo._internal.slices.Slices.T_benchmarkIndex_Large_19___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)]), _ss, (new stdgo.GoArray<stdgo.GoUInt8>(4096, 4096, ...[(1 : stdgo.GoUInt8)]).__setNumber32__() : stdgo._internal.slices.Slices.T_benchmarkIndex_Large_19___localname___Large)?.__copy__());
+                var __blank__ = index((null : stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkIndex_Large_20___localname___Large>), new stdgo._internal.slices.Slices.T_benchmarkIndex_Large_20___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)]), _ss, (new stdgo.GoArray<stdgo.GoUInt8>(4096, 4096, ...[(1 : stdgo.GoUInt8)]).__setNumber32__() : stdgo._internal.slices.Slices.T_benchmarkIndex_Large_20___localname___Large)?.__copy__());
             });
         };
     }
@@ -682,15 +682,15 @@ function testIndexFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             };
         };
     }
-@:named typedef T_benchmarkIndexFunc_Large_20___localname___Large = stdgo.GoArray<stdgo.GoUInt8>;
+@:named typedef T_benchmarkIndexFunc_Large_21___localname___Large = stdgo.GoArray<stdgo.GoUInt8>;
 function benchmarkIndexFunc_Large(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {};
-        var _ss = new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_20___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_20___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]);
+        var _ss = new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_21___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_21___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                var __blank__ = indexFunc((null : stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_20___localname___Large>), new stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_20___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)]), _ss, function(_e:T_benchmarkIndexFunc_Large_20___localname___Large):Bool {
-                    return stdgo.Go.toInterface(_e) == stdgo.Go.toInterface((new stdgo.GoArray<stdgo.GoUInt8>(4096, 4096, ...[(1 : stdgo.GoUInt8)]).__setNumber32__() : stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_20___localname___Large));
+                var __blank__ = indexFunc((null : stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_21___localname___Large>), new stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_21___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)]), _ss, function(_e:T_benchmarkIndexFunc_Large_21___localname___Large):Bool {
+                    return stdgo.Go.toInterface(_e) == stdgo.Go.toInterface((new stdgo.GoArray<stdgo.GoUInt8>(4096, 4096, ...[(1 : stdgo.GoUInt8)]).__setNumber32__() : stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_21___localname___Large));
                 });
             });
         };
@@ -934,14 +934,14 @@ function benchmarkCompact(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void 
             });
         };
     }
-@:named typedef T_benchmarkCompact_Large_21___localname___Large = stdgo.GoArray<stdgo.GoUInt8>;
+@:named typedef T_benchmarkCompact_Large_22___localname___Large = stdgo.GoArray<stdgo.GoUInt8>;
 function benchmarkCompact_Large(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {};
-        var _ss = new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkCompact_Large_21___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkCompact_Large_21___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]);
+        var _ss = new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkCompact_Large_22___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkCompact_Large_22___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                var __blank__ = compact((null : stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkCompact_Large_21___localname___Large>), new stdgo._internal.slices.Slices.T_benchmarkCompact_Large_21___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)]), _ss);
+                var __blank__ = compact((null : stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkCompact_Large_22___localname___Large>), new stdgo._internal.slices.Slices.T_benchmarkCompact_Large_22___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)]), _ss);
             });
         };
     }
@@ -965,14 +965,14 @@ function testCompactFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
             };
         };
     }
-@:named typedef T_benchmarkCompactFunc_Large_22___localname___Large = stdgo.GoArray<stdgo.GoUInt8>;
+@:named typedef T_benchmarkCompactFunc_Large_23___localname___Large = stdgo.GoArray<stdgo.GoUInt8>;
 function benchmarkCompactFunc_Large(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {};
-        var _ss = new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_22___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_22___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]);
+        var _ss = new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_23___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_23___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                var __blank__ = compactFunc((null : stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_22___localname___Large>), new stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_22___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)]), _ss, function(_a:T_benchmarkCompactFunc_Large_22___localname___Large, _b:T_benchmarkCompactFunc_Large_22___localname___Large):Bool {
+                var __blank__ = compactFunc((null : stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_23___localname___Large>), new stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_23___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)]), _ss, function(_a:T_benchmarkCompactFunc_Large_23___localname___Large, _b:T_benchmarkCompactFunc_Large_23___localname___Large):Bool {
                     return stdgo.Go.toInterface(_a) == stdgo.Go.toInterface(_b);
                 });
             });
@@ -1290,7 +1290,7 @@ function testReplaceGrowthRate(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
         };
     }
 macro function _apply<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _v:haxe.macro.Expr.ExprOf<T_>, _f:haxe.macro.Expr.ExprOf<$T_ -> Void>):haxe.macro.Expr.ExprOf<Void>;
-@:named typedef T_testInference_23___localname___S = stdgo.Slice<stdgo.GoInt>;
+@:named typedef T_testInference_24___localname___S = stdgo.Slice<stdgo.GoInt>;
 function testInference(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _s1 = (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         _apply((null : stdgo.Slice<stdgo.GoInt>), _s1, reverse);

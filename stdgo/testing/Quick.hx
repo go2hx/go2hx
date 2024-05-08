@@ -109,7 +109,7 @@ function testCheckProperty(t:stdgo._internal.testing.Testing.T_):Void {
 function testFailure(t:stdgo._internal.testing.Testing.T_):Void {
         stdgo._internal.testing.quick.Quick.testFailure(t);
     }
-@:forward @:forward.new abstract T_testRecursive_34___localname___R(stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R) from stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R to stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R {
+@:forward @:forward.new abstract T_testRecursive_35___localname___R(stdgo._internal.testing.quick.Quick.T_testRecursive_35___localname___R) from stdgo._internal.testing.quick.Quick.T_testRecursive_35___localname___R to stdgo._internal.testing.quick.Quick.T_testRecursive_35___localname___R {
 
 }
 /**
@@ -125,7 +125,7 @@ function testEmptyStruct(t:stdgo._internal.testing.Testing.T_):Void {
 function testMutuallyRecursive(t:stdgo._internal.testing.Testing.T_):Void {
         stdgo._internal.testing.quick.Quick.testMutuallyRecursive(t);
     }
-@:forward @:forward.new abstract T_testNonZeroSliceAndMap_35___localname___Q(stdgo._internal.testing.quick.Quick.T_testNonZeroSliceAndMap_35___localname___Q) from stdgo._internal.testing.quick.Quick.T_testNonZeroSliceAndMap_35___localname___Q to stdgo._internal.testing.quick.Quick.T_testNonZeroSliceAndMap_35___localname___Q {
+@:forward @:forward.new abstract T_testNonZeroSliceAndMap_36___localname___Q(stdgo._internal.testing.quick.Quick.T_testNonZeroSliceAndMap_36___localname___Q) from stdgo._internal.testing.quick.Quick.T_testNonZeroSliceAndMap_36___localname___Q to stdgo._internal.testing.quick.Quick.T_testNonZeroSliceAndMap_36___localname___Q {
 
 }
 /**

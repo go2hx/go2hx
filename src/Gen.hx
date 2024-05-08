@@ -1,3 +1,4 @@
+import haxe.macro.Type.FieldKind;
 import Typer.Module;
 import haxe.macro.Expr.TypeDefKind;
 import haxe.macro.Expr.TypeDefinition;
@@ -216,20 +217,96 @@ function externGenAbstract(td:TypeDefinition):TypeDefinition {
 	return externInvalid(td);
 }
 
+function copyField(field:Field, kind:FieldType):Field {
+	return {
+		name: field.name,
+		pos: field.pos,
+		access: field.access,
+		kind: kind,
+	};
+}
+
 function externGenClass(td:TypeDefinition, path:String):TypeDefinition {
 	final params:Array<TypeParam> = [];
 	final pack = path.split("/");
 	pack.push(Typer.title(pack[pack.length - 1]));
-	final ct = TPath({pack: pack, name: td.name, params: params});
+	final p:TypePath = {pack: pack, name: td.name, params: params};
+	final ct = TPath(p);
+	var fields = [];
+	for (field in td.fields) {
+		if (field.access.indexOf(APublic) == -1)
+			continue; 
+		// special fields
+		switch field.kind {
+			case FVar(type, _):
+				final name = macro $i{"this." + field.name};
+				fields = fields.concat([{
+					name: field.name,
+					pos: field.pos,
+					access: field.access,
+					kind: FProp("get", "set", convertComplexType(type)),
+				},{
+					name: "get_" + field.name,
+					pos: field.pos,
+					kind: FFun({
+						args: [],
+						ret: convertComplexType(type),
+						expr: macro return $name,
+						params: [],
+					}),
+				},{
+					name: "set_" + field.name,
+					pos: field.pos,
+					kind: FFun({
+						args: [{name: "v", type: convertComplexType(type)}],
+						ret: convertComplexType(type),
+						expr: macro return $name = v,
+						params: [],
+					})
+				}]);
+			case FFun(f):
+				// special funcs
+				switch field.name {
+					case "new":
+						final exprArgs = f.args.map(arg -> {
+							final e = macro $i{arg.name};
+							reverseConvertCast(e, arg.type) ?? e;
+						});
+						final args = f.args.map(arg -> ({
+							name: arg.name,
+							meta: arg.meta,
+							opt: arg.opt,
+							type: convertComplexType(arg.type),
+							value: arg.value,
+						} : FunctionArg));
+						fields.push(copyField(field, FFun({
+							args: args,
+							ret: f.ret,
+							params: f.params,
+							expr: macro this = new $p($a{exprArgs}),
+						})));
+					case "__underlying__":
+						fields.push(field);
+					case "__copy__":
+						fields.push(copyField(field, FFun({
+							args: f.args,
+							ret: f.ret,
+							params: f.params,
+							expr: macro return this.__copy__(),
+						})));
+					default:
+						
+				}
+			default:
+				field;
+		}
+	}
 	return {
 		name: td.name,
 		pack: td.pack,
 		pos: null,
-		meta: [
-			{name: ":forward", pos: null},
-			{name: ":forward.new", pos: null},
-		],
-		fields: [],
+		meta: [],
+		fields: fields,
 		kind: TDAbstract(ct, null, [ct], [ct]),
 	}
 }

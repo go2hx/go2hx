@@ -501,7 +501,7 @@ function convertCast(e:Expr, ct:ComplexType):Expr {
 			final ret = convertComplexType(ret);
 			final callArgs = [for (i in 0...args.length) "_" + i];
 			final exprArgs = [for (i in 0...args.length)
-				convertCast(macro $i{callArgs[i]}, args[i])
+				convertCast(macro $i{callArgs[i]}, args[i]) ?? macro $i{"_" + i}
 			];
 			final expr = macro $e($a{exprArgs});
 			return {
@@ -510,10 +510,12 @@ function convertCast(e:Expr, ct:ComplexType):Expr {
 						name: arg,
 					} : FunctionArg)),
 					expr: expr,
-					ret: ret,
+					//ret: ret,
 				}),
 				pos: null,
 			}
+		case TNamed(_, t):
+			return convertCast(e, t);
 		default:
 			trace("unknown convert cast: " + new haxe.macro.Printer().printComplexType(ct));
 	}

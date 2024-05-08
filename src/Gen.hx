@@ -234,7 +234,7 @@ function externGenClass(td:TypeDefinition, path:String):TypeDefinition {
 	final ct = TPath(p);
 	var fields = [];
 	for (field in td.fields) {
-		if (field.access.indexOf(APublic) == -1)
+		if (field.access == null || field.access.indexOf(APublic) == -1)
 			continue; 
 		// special fields
 		switch field.kind {

@@ -223,7 +223,12 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 	var processCountIndex = 0;
 	var resetCount = 0;
 	function jsProcess() {
-		final child = js.node.ChildProcess.exec('./go4hx $port', null, null);
+		final name = if (Sys.systemName() != "Windows") {
+			"./go4hx";
+		}else{
+			"go4hx.exe";
+		}
+		final child = js.node.ChildProcess.exec('$name $port', null, null);
 		//final child = js.node.ChildProcess.execFile('go4hx', ['$port'], {cwd: cwd}, null);
 		child.on('exit', code -> {
 			final code:Int = code;

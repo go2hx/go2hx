@@ -1,54 +1,53 @@
 # Module stdgo.sync has compilation errors, please do not use:
 ```
 /home/runner/haxe/versions/3c97999/std/haxe/ds/BalancedTree.hx:226: character 10 : `package stdgo;` in /home/runner/work/go2hx/go2hx/stdgo/Reflect.hx should be `package;`
-/home/runner/haxe/versions/3c97999/std/haxe/ds/BalancedTree.hx:226: characters 10-17 : Module Reflect does not define type Reflect
+/home/runner/haxe/versions/3c97999/std/haxe/ds/BalancedTree.hx:226: characters 18-25 : Class<Reflect> has no field compare
 stdgo/GoNumber.hx:69: character 6 : `package stdgo;` in /home/runner/work/go2hx/go2hx/stdgo/Math.hx should be `package;`
-/home/runner/haxe/versions/3c97999/std/haxe/Int64Helper.hx:80: characters 25-29 : Module Math does not define type Math
-stdgo/_internal/math/Math.hx:964: characters 14-22 : Type not found : std.Math
-stdgo/_internal/math/Math.hx:965: characters 16-24 : Type not found : std.Math
-stdgo/GoNumber.hx:89: characters 6-14 : Type not found : std.Math
-stdgo/GoNumber.hx:90: characters 19-27 : Type not found : std.Math
-stdgo/GoNumber.hx:91: characters 24-32 : Type not found : std.Math
+/home/runner/haxe/versions/3c97999/std/haxe/Int64Helper.hx:80: characters 30-38 : Class<Math> has no field isFinite
+stdgo/_internal/math/Math.hx:964: characters 23-31 : Class<Math> has no field isFinite
+stdgo/_internal/math/Math.hx:965: characters 25-31 : Class<Math> has no field ffloor (Suggestion: floor)
+stdgo/GoNumber.hx:89: characters 15-21 : Class<Math> has no field ffloor (Suggestion: floor)
+stdgo/GoNumber.hx:90: characters 28-34 : Class<Math> has no field ffloor (Suggestion: floor)
+stdgo/GoNumber.hx:91: characters 33-39 : Class<Math> has no field ffloor (Suggestion: floor)
 stdgo/GoNumber.hx:93: characters 21-46 : Float should be Int
 stdgo/GoNumber.hx:93: characters 55-80 : Float should be Int
-stdgo/GoNumber.hx:95: characters 23-31 : Type not found : std.Math
+stdgo/GoNumber.hx:95: characters 32-38 : Class<Math> has no field ffloor (Suggestion: floor)
 stdgo/GoNumber.hx:97: characters 20-44 : Float should be Int
 stdgo/GoNumber.hx:97: characters 53-77 : Float should be Int
-stdgo/_internal/math/Math.hx:514: characters 97-123 : Type not found : std.Math
-stdgo/_internal/math/Math.hx:509: characters 32-58 : Type not found : std.Math
-stdgo/_internal/math/Math.hx:510: characters 16-42 : Type not found : std.Math
-stdgo/GoFloat64.hx:86: characters 12-38 : Type not found : std.Math
-stdgo/GoFloat64.hx:88: characters 12-38 : Type not found : std.Math
-stdgo/_internal/math/Math.hx:512: characters 39-51 : Type not found : std.Math
-stdgo/_internal/math/Math.hx:571: characters 24-32 : Type not found : std.Math
-stdgo/_internal/math/Math.hx:593: characters 24-32 : Type not found : std.Math
-stdgo/_internal/math/Math.hx:982: characters 14-22 : Type not found : std.Math
-/home/runner/haxe/versions/3c97999/std/haxe/macro/ExprTools.hx:242: characters 6-13 : Module Reflect does not define type Reflect
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:43: characters 43-47 : Module Math does not define type Math
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:43: characters 68-72 : Module Math does not define type Math
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:43: characters 43-65 : Void should be Float
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:43: characters 68-90 : Void should be Float
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:43: characters 94-98 : Module Math does not define type Math
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:43: characters 94-102 : Void should be Float
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:52: characters 56-60 : Module Math does not define type Math
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:52: characters 81-85 : Module Math does not define type Math
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:52: characters 56-78 : Void should be Float
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:52: characters 81-103 : Void should be Float
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:52: characters 107-111 : Module Math does not define type Math
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:52: characters 107-115 : Void should be Float
+stdgo/_internal/math/Math.hx:514: characters 106-123 : Class<Math> has no field POSITIVE_INFINITY
+stdgo/_internal/math/Math.hx:514: characters 166-183 : Class<Math> has no field NEGATIVE_INFINITY
+stdgo/_internal/math/Math.hx:509: characters 41-58 : Class<Math> has no field POSITIVE_INFINITY
+stdgo/_internal/math/Math.hx:510: characters 25-42 : Class<Math> has no field NEGATIVE_INFINITY
+stdgo/GoFloat64.hx:86: characters 21-38 : Class<Math> has no field POSITIVE_INFINITY
+stdgo/GoFloat64.hx:88: characters 21-38 : Class<Math> has no field NEGATIVE_INFINITY
+stdgo/_internal/math/Math.hx:512: characters 48-51 : Class<Math> has no field NaN (Suggestion: naN)
+stdgo/_internal/math/Math.hx:571: characters 33-41 : Class<Math> has no field isFinite
+stdgo/_internal/math/Math.hx:571: characters 79-87 : Class<Math> has no field isFinite
+stdgo/_internal/math/Math.hx:593: characters 33-41 : Class<Math> has no field isFinite
+stdgo/_internal/math/Math.hx:593: characters 79-87 : Class<Math> has no field isFinite
+stdgo/_internal/math/Math.hx:982: characters 23-31 : Class<Math> has no field isFinite
+/home/runner/haxe/versions/3c97999/std/haxe/macro/ExprTools.hx:242: characters 14-22 : Class<Reflect> has no field setField
+/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:43: characters 48-65 : Class<Math> has no field POSITIVE_INFINITY
+/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:43: characters 73-90 : Class<Math> has no field NEGATIVE_INFINITY
+/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:43: characters 99-102 : Class<Math> has no field NaN (Suggestion: naN)
+/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:52: characters 61-78 : Class<Math> has no field POSITIVE_INFINITY
+/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:52: characters 86-103 : Class<Math> has no field NEGATIVE_INFINITY
+/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:52: characters 112-115 : Class<Math> has no field NaN (Suggestion: naN)
 /home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:72: characters 39-50 : Float should be Int
 /home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:72: characters 60-74 : Float should be Int
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:81: characters 15-19 : Module Math does not define type Math
-stdgo/_internal/math/Math.hx:1371: characters 14-22 : Type not found : std.Math
+/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:81: characters 20-28 : Class<Math> has no field isFinite
+/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:97: characters 20-26 : Class<Math> has no field fround (Suggestion: round)
+/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:102: characters 46-58 : Float should be Int
+/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:102: characters 46-58 : ... For function argument 'x'
+stdgo/_internal/math/Math.hx:1371: characters 23-31 : Class<Math> has no field isFinite
 stdgo/_internal/math/Math.hx:2457: characters 38-82 : Recursive operator method
 stdgo/_internal/math/Math.hx:2460: characters 38-83 : Recursive operator method
-stdgo/_internal/reflect/Reflect.hx:1017: characters 40-51 : Type not found : std.Reflect
-stdgo/_internal/reflect/Reflect.hx:1018: characters 21-32 : Type not found : std.Reflect
+stdgo/_internal/reflect/Reflect.hx:1017: characters 52-57 : Class<Reflect> has no field field
+stdgo/_internal/reflect/Reflect.hx:1018: characters 33-41 : Class<Reflect> has no field setField
 stdgo/_internal/reflect/Reflect.hx:506: characters 20-74 : Recursive operator method
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:25: characters 13-17 : Module Math does not define type Math
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:33: characters 25-29 : Module Math does not define type Math
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:33: characters 25-47 : Void should be Float
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:51: characters 13-17 : Module Math does not define type Math
+/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:25: characters 18-35 : Class<Math> has no field NEGATIVE_INFINITY
+/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:33: characters 30-47 : Class<Math> has no field NEGATIVE_INFINITY
+/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:51: characters 18-35 : Class<Math> has no field NEGATIVE_INFINITY
 stdgo/_internal/fmt/Fmt.hx:33: characters 15-45 : Module stdgo._internal.sync.Sync does not define type Pool
 stdgo/_internal/io/Io.hx:15: characters 22-52 : Module stdgo._internal.sync.Sync does not define type Pool
 stdgo/_internal/io/Io.hx:15: characters 22-52 : ... For function argument '__self__'
@@ -92,8 +91,8 @@ stdgo/_internal/strconv/Strconv.hx:4781: characters 39-68 : Recursive operator m
 stdgo/_internal/strconv/Strconv.hx:4781: characters 39-41 : haxe._Int64.___Int64 should be Int
 stdgo/_internal/strconv/Strconv.hx:4781: characters 39-41 : haxe._Int64.___Int64 should be Int
 stdgo/_internal/strconv/Strconv.hx:4781: characters 39-68 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/GoFloat32.hx:83: characters 12-38 : Type not found : std.Math
-stdgo/GoFloat32.hx:85: characters 12-38 : Type not found : std.Math
+stdgo/GoFloat32.hx:83: characters 21-38 : Class<Math> has no field POSITIVE_INFINITY
+stdgo/GoFloat32.hx:85: characters 21-38 : Class<Math> has no field NEGATIVE_INFINITY
 stdgo/_internal/strconv/Strconv.hx:3611: characters 39-68 : Recursive operator method
 stdgo/_internal/strconv/Strconv.hx:3611: characters 39-41 : haxe._Int64.___Int64 should be Int
 stdgo/_internal/strconv/Strconv.hx:3611: characters 39-41 : haxe._Int64.___Int64 should be Int
@@ -148,15 +147,15 @@ stdgo/_internal/fmt/Fmt.hx:3370: characters 31-39 : ... For function argument '_
 stdgo/_internal/fmt/Fmt.hx:3486: characters 9-16 : Unknown identifier : _ssFree
 stdgo/_internal/fmt/Fmt.hx:3498: characters 48-65 : Class<stdgo.Go> has no field recover_exception
 stdgo/_internal/fmt/Fmt.hx:3499: characters 38-55 : Class<stdgo.Go> has no field recover_exception
-/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:70: characters 14-21 : Module Reflect does not define type Reflect
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonParser.hx:90: characters 9-16 : Module Reflect does not define type Reflect
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:171: characters 16-23 : Module Reflect does not define type Reflect
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:172: characters 8-15 : Module Reflect does not define type Reflect
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:162: characters 19-26 : Module Reflect does not define type Reflect
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:162: characters 19-26 : ... For function argument 'fields'
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:92: characters 9-13 : Module Math does not define type Math
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:92: characters 9-13 : ... For function argument 'v'
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:123: characters 7-14 : Module Reflect does not define type Reflect
+/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:70: characters 22-33 : Class<Reflect> has no field isEnumValue
+/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:70: characters 49-60 : Class<Reflect> has no field isEnumValue
+/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:75: characters 12-19 : Class<Reflect> has no field compare
+/home/runner/haxe/versions/3c97999/std/haxe/format/JsonParser.hx:90: characters 17-25 : Class<Reflect> has no field setField
+/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:171: characters 24-29 : Class<Reflect> has no field field
+/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:172: characters 16-26 : Class<Reflect> has no field isFunction
+/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:162: characters 27-33 : Class<Reflect> has no field fields
+/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:92: characters 14-22 : Class<Math> has no field isFinite
+/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:123: characters 15-23 : Class<Reflect> has no field setField
 stdgo/_internal/fmt/Fmt.hx:3725: characters 23-44 : Module stdgo._internal.io.Io does not define type Io
 stdgo/_internal/fmt/Fmt.hx:3521: characters 22-31 : Unknown identifier : _notSpace
 stdgo/_internal/fmt/Fmt.hx:3537: characters 30-47 : Class<stdgo.Go> has no field recover_exception
@@ -254,10 +253,10 @@ stdgo/_internal/internal/abi/Abi.hx:955: characters 18-25 : Class<stdgo.Go> has 
 stdgo/_internal/internal/abi/Abi.hx:3502: characters 21-43 : Recursive operator method
 stdgo/_internal/internal/abi/Abi.hx:3507: characters 13-35 : Recursive operator method
 stdgo/_internal/internal/abi/Abi.hx:3507: characters 59-81 : Recursive operator method
-stdgo/_internal/reflect/Reflect.hx:1348: characters 18-29 : Type not found : std.Reflect
-stdgo/AnyInterface.hx:119: characters 11-22 : Type not found : std.Reflect
-stdgo/AnyInterface.hx:122: characters 25-36 : Type not found : std.Reflect
-stdgo/AnyInterface.hx:123: characters 26-37 : Type not found : std.Reflect
+stdgo/_internal/reflect/Reflect.hx:1348: characters 30-35 : Class<Reflect> has no field field
+stdgo/AnyInterface.hx:119: characters 23-31 : Class<Reflect> has no field hasField
+stdgo/AnyInterface.hx:122: characters 37-42 : Class<Reflect> has no field field
+stdgo/AnyInterface.hx:123: characters 38-43 : Class<Reflect> has no field field
 stdgo/_internal/math/bits/Bits.hx:4287: characters 28-36 : Recursive operator method
 stdgo/_internal/math/bits/Bits.hx:4287: characters 28-31 : haxe._Int64.___Int64 should be Int
 stdgo/_internal/math/bits/Bits.hx:4287: characters 28-31 : haxe._Int64.___Int64 should be Int
@@ -274,173 +273,69 @@ stdgo/_internal/math/bits/Bits.hx:4271: characters 32-58 : Recursive operator me
 stdgo/_internal/math/bits/Bits.hx:4271: characters 32-34 : haxe._Int64.___Int64 should be Int
 stdgo/_internal/math/bits/Bits.hx:4271: characters 32-34 : haxe._Int64.___Int64 should be Int
 stdgo/_internal/math/bits/Bits.hx:4271: characters 32-58 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
 /home/runner/haxe/versions/3c97999/std/neko/_std/Std.hx:48: character 11 : `package stdgo;` in /home/runner/work/go2hx/go2hx/stdgo/Math.hx should be `package;`
-stdgo/_internal/math/Math.hx:982: characters 14-22 : Type not found : std.Math
-/home/runner/haxe/versions/3c97999/std/haxe/Int64Helper.hx:80: characters 25-29 : Module Math does not define type Math
-stdgo/_internal/math/Math.hx:964: characters 14-22 : Type not found : std.Math
-stdgo/_internal/math/Math.hx:965: characters 16-24 : Type not found : std.Math
-stdgo/GoNumber.hx:89: characters 6-14 : Type not found : std.Math
-stdgo/GoNumber.hx:90: characters 19-27 : Type not found : std.Math
-stdgo/GoNumber.hx:91: characters 24-32 : Type not found : std.Math
+stdgo/_internal/math/Math.hx:982: characters 23-31 : Class<Math> has no field isFinite
+/home/runner/haxe/versions/3c97999/std/haxe/Int64Helper.hx:80: characters 30-38 : Class<Math> has no field isFinite
+stdgo/_internal/math/Math.hx:964: characters 23-31 : Class<Math> has no field isFinite
+stdgo/_internal/math/Math.hx:965: characters 25-31 : Class<Math> has no field ffloor (Suggestion: floor)
+stdgo/GoNumber.hx:89: characters 15-21 : Class<Math> has no field ffloor (Suggestion: floor)
+stdgo/GoNumber.hx:90: characters 28-34 : Class<Math> has no field ffloor (Suggestion: floor)
+stdgo/GoNumber.hx:91: characters 33-39 : Class<Math> has no field ffloor (Suggestion: floor)
 stdgo/GoNumber.hx:93: characters 21-46 : Float should be Int
 stdgo/GoNumber.hx:93: characters 55-80 : Float should be Int
-stdgo/GoNumber.hx:95: characters 23-31 : Type not found : std.Math
+stdgo/GoNumber.hx:95: characters 32-38 : Class<Math> has no field ffloor (Suggestion: floor)
 stdgo/GoNumber.hx:97: characters 20-44 : Float should be Int
 stdgo/GoNumber.hx:97: characters 53-77 : Float should be Int
 /home/runner/haxe/versions/3c97999/std/neko/_std/Std.hx:48: characters 4-23 : Float should be Int
 /home/runner/haxe/versions/3c97999/std/neko/_std/Std.hx:49: characters 3-23 : Float should be Int
 /home/runner/haxe/versions/3c97999/std/haxe/ds/BalancedTree.hx:226: character 10 : `package stdgo;` in /home/runner/work/go2hx/go2hx/stdgo/Reflect.hx should be `package;`
-/home/runner/haxe/versions/3c97999/std/haxe/ds/BalancedTree.hx:226: characters 10-17 : Module Reflect does not define type Reflect
-stdgo/AnyInterface.hx:119: characters 11-22 : Type not found : std.Reflect
-stdgo/AnyInterface.hx:122: characters 25-36 : Type not found : std.Reflect
-stdgo/AnyInterface.hx:123: characters 26-37 : Type not found : std.Reflect
-stdgo/_internal/reflect/Reflect.hx:1348: characters 18-29 : Type not found : std.Reflect
-/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:70: characters 14-21 : Module Reflect does not define type Reflect
-/home/runner/haxe/versions/3c97999/std/neko/vm/Loader.hx:89: characters 13-20 : Module Reflect does not define type Reflect
-/home/runner/haxe/versions/3c97999/std/neko/vm/Loader.hx:99: characters 4-11 : Module Reflect does not define type Reflect
-/home/runner/haxe/versions/3c97999/std/neko/vm/Loader.hx:101: characters 4-11 : Module Reflect does not define type Reflect
-/home/runner/haxe/versions/3c97999/std/neko/vm/Module.hx:112: characters 13-20 : Module Reflect does not define type Reflect
-/home/runner/haxe/versions/3c97999/std/neko/vm/Module.hx:129: characters 3-10 : Module Reflect does not define type Reflect
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:119: characters 19-26 : Module Reflect does not define type Reflect
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:121: characters 7-14 : Module Reflect does not define type Reflect
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:137: characters 11-18 : Module Reflect does not define type Reflect
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:140: characters 14-21 : Module Reflect does not define type Reflect
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:154: characters 11-18 : Module Reflect does not define type Reflect
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:227: characters 12-19 : Module Reflect does not define type Reflect
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:228: characters 9-16 : Module Reflect does not define type Reflect
-stdgo/_internal/reflect/Reflect.hx:1017: characters 40-51 : Type not found : std.Reflect
-stdgo/_internal/reflect/Reflect.hx:1018: characters 21-32 : Type not found : std.Reflect
-stdgo/_internal/math/Math.hx:571: characters 24-32 : Type not found : std.Math
-stdgo/_internal/math/Math.hx:512: characters 39-51 : Type not found : std.Math
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:25: characters 13-17 : Module Math does not define type Math
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:33: characters 25-29 : Module Math does not define type Math
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:33: characters 25-47 : Void should be Float
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:51: characters 13-17 : Module Math does not define type Math
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
+/home/runner/haxe/versions/3c97999/std/haxe/ds/BalancedTree.hx:226: characters 18-25 : Class<Reflect> has no field compare
+stdgo/AnyInterface.hx:119: characters 23-31 : Class<Reflect> has no field hasField
+stdgo/AnyInterface.hx:122: characters 37-42 : Class<Reflect> has no field field
+stdgo/AnyInterface.hx:123: characters 38-43 : Class<Reflect> has no field field
+stdgo/_internal/reflect/Reflect.hx:1348: characters 30-35 : Class<Reflect> has no field field
+/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:70: characters 22-33 : Class<Reflect> has no field isEnumValue
+/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:70: characters 49-60 : Class<Reflect> has no field isEnumValue
+/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:75: characters 12-19 : Class<Reflect> has no field compare
+/home/runner/haxe/versions/3c97999/std/neko/vm/Loader.hx:89: characters 21-27 : Class<Reflect> has no field fields
+/home/runner/haxe/versions/3c97999/std/neko/vm/Loader.hx:89: characters 13-34 : You can't iterate on a Dynamic value, please specify Iterator or Iterable
+/home/runner/haxe/versions/3c97999/std/neko/vm/Loader.hx:90: characters 32-37 : Class<Reflect> has no field field
+/home/runner/haxe/versions/3c97999/std/neko/vm/Loader.hx:99: characters 12-23 : Class<Reflect> has no field deleteField
+/home/runner/haxe/versions/3c97999/std/neko/vm/Loader.hx:101: characters 12-20 : Class<Reflect> has no field setField
+/home/runner/haxe/versions/3c97999/std/neko/vm/Module.hx:112: characters 21-27 : Class<Reflect> has no field fields
+/home/runner/haxe/versions/3c97999/std/neko/vm/Module.hx:112: characters 13-32 : You can't iterate on a Dynamic value, please specify Iterator or Iterable
+/home/runner/haxe/versions/3c97999/std/neko/vm/Module.hx:113: characters 21-26 : Class<Reflect> has no field field
+/home/runner/haxe/versions/3c97999/std/neko/vm/Module.hx:129: characters 11-19 : Class<Reflect> has no field setField
+/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:119: characters 27-32 : Class<Reflect> has no field field
+/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:121: characters 15-25 : Class<Reflect> has no field isFunction
+/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:123: characters 19-29 : Class<Reflect> has no field callMethod
+/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:137: characters 19-25 : Class<Reflect> has no field fields
+/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:140: characters 22-28 : Class<Reflect> has no field fields
+/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:140: characters 14-49 : You can't iterate on a Dynamic value, please specify Iterator or Iterable
+/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:154: characters 19-25 : Class<Reflect> has no field fields
+/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:227: characters 20-25 : Class<Reflect> has no field field
+/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:228: characters 17-27 : Class<Reflect> has no field isFunction
+stdgo/_internal/reflect/Reflect.hx:1017: characters 52-57 : Class<Reflect> has no field field
+stdgo/_internal/reflect/Reflect.hx:1018: characters 33-41 : Class<Reflect> has no field setField
+stdgo/_internal/math/Math.hx:571: characters 33-41 : Class<Math> has no field isFinite
+stdgo/_internal/math/Math.hx:571: characters 79-87 : Class<Math> has no field isFinite
+stdgo/_internal/math/Math.hx:509: characters 41-58 : Class<Math> has no field POSITIVE_INFINITY
+stdgo/_internal/math/Math.hx:510: characters 25-42 : Class<Math> has no field NEGATIVE_INFINITY
+stdgo/_internal/math/Math.hx:512: characters 48-51 : Class<Math> has no field NaN (Suggestion: naN)
+/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:25: characters 18-35 : Class<Math> has no field NEGATIVE_INFINITY
+/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:33: characters 30-47 : Class<Math> has no field NEGATIVE_INFINITY
+/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:51: characters 18-35 : Class<Math> has no field NEGATIVE_INFINITY
 stdgo/_internal/internal/abi/Abi.hx:3450: lines 3450-3456 : Missing return: { _1 : stdgo.GoInt, _0 : stdgo.GoInt }
 stdgo/_internal/internal/abi/Abi.hx:861: lines 861-869 : Missing return: stdgo.GoInt
-stdgo/_internal/math/Math.hx:509: characters 32-58 : Type not found : std.Math
-stdgo/_internal/math/Math.hx:510: characters 16-42 : Type not found : std.Math
-stdgo/GoFloat32.hx:83: characters 12-38 : Type not found : std.Math
-stdgo/GoFloat32.hx:85: characters 12-38 : Type not found : std.Math
-stdgo/GoFloat64.hx:86: characters 12-38 : Type not found : std.Math
-stdgo/GoFloat64.hx:88: characters 12-38 : Type not found : std.Math
-stdgo/_internal/math/Math.hx:514: characters 97-123 : Type not found : std.Math
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-/home/runner/work/go2hx/go2hx/stdgo/Math.hx:7: character 9 : Warning : (WStaticInitOrder) Warning : maybe loop in static generation of _Math.Math_Fields_
-stdgo/_internal/math/Math.hx:593: characters 24-32 : Type not found : std.Math
-stdgo/_internal/math/Math.hx:1371: characters 14-22 : Type not found : std.Math
+stdgo/GoFloat32.hx:83: characters 21-38 : Class<Math> has no field POSITIVE_INFINITY
+stdgo/GoFloat32.hx:85: characters 21-38 : Class<Math> has no field NEGATIVE_INFINITY
+stdgo/GoFloat64.hx:86: characters 21-38 : Class<Math> has no field POSITIVE_INFINITY
+stdgo/GoFloat64.hx:88: characters 21-38 : Class<Math> has no field NEGATIVE_INFINITY
+stdgo/_internal/math/Math.hx:514: characters 106-123 : Class<Math> has no field POSITIVE_INFINITY
+stdgo/_internal/math/Math.hx:514: characters 166-183 : Class<Math> has no field NEGATIVE_INFINITY
+stdgo/_internal/math/Math.hx:593: characters 33-41 : Class<Math> has no field isFinite
+stdgo/_internal/math/Math.hx:593: characters 79-87 : Class<Math> has no field isFinite
+stdgo/_internal/math/Math.hx:1371: characters 23-31 : Class<Math> has no field isFinite
 
 ```
 

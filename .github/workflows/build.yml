@@ -182,10 +182,6 @@ jobs:
       - name: Get number of cores (macOS)
         if: startsWith(runner.os, 'macOS')
         run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
-      - name: Get number of cores (Windows)
-        if: startsWith(runner.os, 'windows')
-        run: echo "CORES=20" >> $GITHUB_ENV
-        #run: echo "CORES=$((Get-WmiObject Win32_Processor).NumberOfLogicalProcessors)" >> $GITHUB_ENV
       #- name: Install lix
       #  run: npm i lix -g
       #- name: Run lix
@@ -198,7 +194,8 @@ jobs:
       - name: Build go2hx compiler
         run: haxe --run Run build
       - name: Run stdgo automatic compile
-        run: haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
+        run: haxe scripts/stdgo.hxml -D runnerCount=20
+        #run: haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Create hxb
         run: haxelib run go2hx hxb .
       - name: clone go

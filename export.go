@@ -1077,7 +1077,6 @@ func parseMethods(object types.Type, methodCache *typeutil.MethodSetCache, index
 	}
 	methods := []map[string]interface{}{}
 	for _, sel := range set {
-		fmt.Println("--------")
 		if len(sel.Index()) > index {
 			recv := sel.Obj().Type().(*types.Signature).Recv()
 			var recvParseType map[string]interface{} = nil

@@ -732,8 +732,7 @@ class Go {
 						}
 					} else {
 						// exclude basic types from using __underlying__ field access
-						// trace(t.kind());
-						if (t.kind() >= 0 && t.kind() <= 17) {
+						if (t.kind() >= 0 && t.kind() <= 17 || t.kind() == 19) {
 							($e.value : $t);
 						}else if (($e.value : Dynamic).__underlying__ == null) {
 							($e.value : $t);

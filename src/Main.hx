@@ -237,6 +237,12 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 				jsProcess();
 			}
 		});
+		child.stderr.on('data', data -> {
+			Sys.println('stderr: $data');
+		});
+		child.stdout.on('data', data -> {
+			Sys.println('stdout: $data');
+		});
 		child.on('SIGINT', () -> {
 			Sys.println('Received SIGINT. Press Control-D to exit.');
 		});
@@ -246,10 +252,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 	for (i in 0...processCount) {
 		// sys.thread.Thread.create(() -> Sys.command("./go4hx", ['$port']));
 		#if (target.threaded)
-		var name = "./go4hx";
-		if (Sys.systemName() == "Windows")
-			name += ".exe";
-		processes.push(new sys.io.Process(name, ['$port'], false));
+		processes.push(new sys.io.Process("./go4hx", ['$port'], false));
 		#else
 		jsProcess();
 		#end

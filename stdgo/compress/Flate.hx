@@ -154,243 +154,6 @@ typedef T_byFreq = stdgo._internal.compress.flate.Flate.T_byFreq;
 typedef CorruptInputError = stdgo._internal.compress.flate.Flate.CorruptInputError;
 typedef InternalError = stdgo._internal.compress.flate.Flate.InternalError;
 typedef T_token = stdgo._internal.compress.flate.Flate.T_token;
-/**
-    NewWriter returns a new Writer compressing data at the given level.
-    Following zlib, levels range from 1 (BestSpeed) to 9 (BestCompression);
-    higher levels typically run slower but compress more. Level 0
-    (NoCompression) does not attempt any compression; it only adds the
-    necessary DEFLATE framing.
-    Level -1 (DefaultCompression) uses the default compression level.
-    Level -2 (HuffmanOnly) will use Huffman compression only, giving
-    a very fast compression for all types of input, but sacrificing considerable
-    compression efficiency.
-    
-    If level is in the range [-2, 9] then the error returned will be nil.
-    Otherwise the error returned will be non-nil.
-**/
-function newWriter(w:stdgo._internal.io.Io.Writer, level:StdTypes.Int):stdgo.Tuple<Writer, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.compress.flate.Flate.newWriter(w, level);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    NewWriterDict is like NewWriter but initializes the new
-    Writer with a preset dictionary. The returned Writer behaves
-    as if the dictionary had been written to it without producing
-    any compressed output. The compressed data written to w
-    can only be decompressed by a Reader initialized with the
-    same dictionary.
-**/
-function newWriterDict(w:stdgo._internal.io.Io.Writer, level:StdTypes.Int, dict:Array<StdTypes.Int>):stdgo.Tuple<Writer, stdgo.Error> {
-        final dict = ([for (i in dict) i] : stdgo.Slice<stdgo.GoByte>);
-        return {
-            final obj = stdgo._internal.compress.flate.Flate.newWriterDict(w, level, dict);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-function testBulkHash4(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testBulkHash4(t);
-    }
-function testDeflate(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testDeflate(t);
-    }
-function testWriterClose(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testWriterClose(t);
-    }
-function testVeryLongSparseChunk(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testVeryLongSparseChunk(t);
-    }
-function testDeflateInflate(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testDeflateInflate(t);
-    }
-function testReverseBits(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testReverseBits(t);
-    }
-function testDeflateInflateString(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testDeflateInflateString(t);
-    }
-function testReaderDict(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testReaderDict(t);
-    }
-function testWriterDict(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testWriterDict(t);
-    }
-/**
-    See https://golang.org/issue/2508
-**/
-function testRegression2508(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testRegression2508(t);
-    }
-function testWriterReset(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testWriterReset(t);
-    }
-/**
-    TestBestSpeed tests that round-tripping through deflate and then inflate
-    recovers the original input. The Write sizes are near the thresholds in the
-    compressor.encSpeed method (0, 16, 128), as well as near maxStoreBlockSize
-    (65535).
-**/
-function testBestSpeed(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testBestSpeed(t);
-    }
-function testWriterPersistentWriteError(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testWriterPersistentWriteError(t);
-    }
-function testWriterPersistentFlushError(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testWriterPersistentFlushError(t);
-    }
-function testWriterPersistentCloseError(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testWriterPersistentCloseError(t);
-    }
-function testBestSpeedMatch(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testBestSpeedMatch(t);
-    }
-function testBestSpeedMaxMatchOffset(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testBestSpeedMaxMatchOffset(t);
-    }
-function testBestSpeedShiftOffsets(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testBestSpeedShiftOffsets(t);
-    }
-function testMaxStackSize(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testMaxStackSize(t);
-    }
-function testDictDecoder(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testDictDecoder(t);
-    }
-/**
-    The following test should not panic.
-**/
-function testIssue5915(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testIssue5915(t);
-    }
-/**
-    The following test should not panic.
-**/
-function testIssue5962(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testIssue5962(t);
-    }
-/**
-    The following test should not panic.
-**/
-function testIssue6255(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testIssue6255(t);
-    }
-function testInvalidEncoding(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testInvalidEncoding(t);
-    }
-function testInvalidBits(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testInvalidBits(t);
-    }
-function testStreams(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testStreams(t);
-    }
-function testTruncatedStreams(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testTruncatedStreams(t);
-    }
-/**
-    Verify that flate.Reader.Read returns (n, io.EOF) instead
-    of (n, nil) + (0, io.EOF) when possible.
-    
-    This helps net/http.Transport reuse HTTP/1 connections more
-    aggressively.
-    
-    See https://github.com/google/go-github/pull/317 for background.
-**/
-function testReaderEarlyEOF(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testReaderEarlyEOF(t);
-    }
-/**
-    TestBlockHuff tests huffman encoding against reference files
-    to detect possible regressions.
-    If encoding/bit allocation changes you can regenerate these files
-    by using the -update flag.
-**/
-function testBlockHuff(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testBlockHuff(t);
-    }
-/**
-    TestWriteBlock tests if the writeBlock encoding has changed.
-    To update the reference files use the "-update" flag on the test.
-**/
-function testWriteBlock(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testWriteBlock(t);
-    }
-/**
-    TestWriteBlockDynamic tests if the writeBlockDynamic encoding has changed.
-    To update the reference files use the "-update" flag on the test.
-**/
-function testWriteBlockDynamic(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testWriteBlockDynamic(t);
-    }
-/**
-    NewReader returns a new ReadCloser that can be used
-    to read the uncompressed version of r.
-    If r does not also implement io.ByteReader,
-    the decompressor may read more data than necessary from r.
-    The reader returns io.EOF after the final block in the DEFLATE stream has
-    been encountered. Any trailing data after the final block is ignored.
-    
-    The ReadCloser returned by NewReader also implements Resetter.
-**/
-function newReader(r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.ReadCloser {
-        return stdgo._internal.compress.flate.Flate.newReader(r);
-    }
-/**
-    NewReaderDict is like NewReader but initializes the reader
-    with a preset dictionary. The returned Reader behaves as if
-    the uncompressed data stream started with the given dictionary,
-    which has already been read. NewReaderDict is typically used
-    to read data compressed by NewWriterDict.
-    
-    The ReadCloser returned by NewReader also implements Resetter.
-**/
-function newReaderDict(r:stdgo._internal.io.Io.Reader, dict:Array<StdTypes.Int>):stdgo._internal.io.Io.ReadCloser {
-        final dict = ([for (i in dict) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.compress.flate.Flate.newReaderDict(r, dict);
-    }
-function testReset(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testReset(t);
-    }
-function testReaderTruncated(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testReaderTruncated(t);
-    }
-function testResetDict(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testResetDict(t);
-    }
-function testReaderReusesReaderBuffer(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testReaderReusesReaderBuffer(t);
-    }
-function testNlitOutOfRange(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testNlitOutOfRange(t);
-    }
-function benchmarkDecode(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.compress.flate.Flate.benchmarkDecode(b);
-    }
-function benchmarkEncode(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.compress.flate.Flate.benchmarkEncode(b);
-    }
-/**
-    Test if errors from the underlying writer is passed upwards.
-**/
-function testWriteError(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testWriteError(t);
-    }
-/**
-    Test if two runs produce identical results
-    even when writing different sizes to the Writer.
-**/
-function testDeterministic(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testDeterministic(t);
-    }
-/**
-    TestDeflateFast_Reset will test that encoding is consistent
-    across a warparound of the table offset.
-    See https://github.com/golang/go/issues/34121
-**/
-function testDeflateFast_Reset(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.flate.Flate.testDeflateFast_Reset(t);
-    }
 @:forward @:forward.new abstract T_compressor_asInterface(stdgo._internal.compress.flate.Flate.T_compressor_asInterface) from stdgo._internal.compress.flate.Flate.T_compressor_asInterface to stdgo._internal.compress.flate.Flate.T_compressor_asInterface {
 
 }
@@ -516,4 +279,243 @@ function testDeflateFast_Reset(t:stdgo._internal.testing.Testing.T_):Void {
 }
 @:forward @:forward.new abstract T_token_static_extension(stdgo._internal.compress.flate.Flate.T_token_static_extension) from stdgo._internal.compress.flate.Flate.T_token_static_extension to stdgo._internal.compress.flate.Flate.T_token_static_extension {
 
+}
+class Flate {
+    /**
+        NewWriter returns a new Writer compressing data at the given level.
+        Following zlib, levels range from 1 (BestSpeed) to 9 (BestCompression);
+        higher levels typically run slower but compress more. Level 0
+        (NoCompression) does not attempt any compression; it only adds the
+        necessary DEFLATE framing.
+        Level -1 (DefaultCompression) uses the default compression level.
+        Level -2 (HuffmanOnly) will use Huffman compression only, giving
+        a very fast compression for all types of input, but sacrificing considerable
+        compression efficiency.
+        
+        If level is in the range [-2, 9] then the error returned will be nil.
+        Otherwise the error returned will be non-nil.
+    **/
+    static public function newWriter(w:stdgo._internal.io.Io.Writer, level:StdTypes.Int):stdgo.Tuple<Writer, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.compress.flate.Flate.newWriter(w, level);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        NewWriterDict is like NewWriter but initializes the new
+        Writer with a preset dictionary. The returned Writer behaves
+        as if the dictionary had been written to it without producing
+        any compressed output. The compressed data written to w
+        can only be decompressed by a Reader initialized with the
+        same dictionary.
+    **/
+    static public function newWriterDict(w:stdgo._internal.io.Io.Writer, level:StdTypes.Int, dict:Array<StdTypes.Int>):stdgo.Tuple<Writer, stdgo.Error> {
+        final dict = ([for (i in dict) i] : stdgo.Slice<stdgo.GoByte>);
+        return {
+            final obj = stdgo._internal.compress.flate.Flate.newWriterDict(w, level, dict);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    static public function testBulkHash4(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testBulkHash4(t);
+    }
+    static public function testDeflate(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testDeflate(t);
+    }
+    static public function testWriterClose(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testWriterClose(t);
+    }
+    static public function testVeryLongSparseChunk(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testVeryLongSparseChunk(t);
+    }
+    static public function testDeflateInflate(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testDeflateInflate(t);
+    }
+    static public function testReverseBits(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testReverseBits(t);
+    }
+    static public function testDeflateInflateString(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testDeflateInflateString(t);
+    }
+    static public function testReaderDict(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testReaderDict(t);
+    }
+    static public function testWriterDict(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testWriterDict(t);
+    }
+    /**
+        See https://golang.org/issue/2508
+    **/
+    static public function testRegression2508(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testRegression2508(t);
+    }
+    static public function testWriterReset(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testWriterReset(t);
+    }
+    /**
+        TestBestSpeed tests that round-tripping through deflate and then inflate
+        recovers the original input. The Write sizes are near the thresholds in the
+        compressor.encSpeed method (0, 16, 128), as well as near maxStoreBlockSize
+        (65535).
+    **/
+    static public function testBestSpeed(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testBestSpeed(t);
+    }
+    static public function testWriterPersistentWriteError(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testWriterPersistentWriteError(t);
+    }
+    static public function testWriterPersistentFlushError(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testWriterPersistentFlushError(t);
+    }
+    static public function testWriterPersistentCloseError(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testWriterPersistentCloseError(t);
+    }
+    static public function testBestSpeedMatch(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testBestSpeedMatch(t);
+    }
+    static public function testBestSpeedMaxMatchOffset(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testBestSpeedMaxMatchOffset(t);
+    }
+    static public function testBestSpeedShiftOffsets(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testBestSpeedShiftOffsets(t);
+    }
+    static public function testMaxStackSize(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testMaxStackSize(t);
+    }
+    static public function testDictDecoder(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testDictDecoder(t);
+    }
+    /**
+        The following test should not panic.
+    **/
+    static public function testIssue5915(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testIssue5915(t);
+    }
+    /**
+        The following test should not panic.
+    **/
+    static public function testIssue5962(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testIssue5962(t);
+    }
+    /**
+        The following test should not panic.
+    **/
+    static public function testIssue6255(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testIssue6255(t);
+    }
+    static public function testInvalidEncoding(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testInvalidEncoding(t);
+    }
+    static public function testInvalidBits(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testInvalidBits(t);
+    }
+    static public function testStreams(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testStreams(t);
+    }
+    static public function testTruncatedStreams(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testTruncatedStreams(t);
+    }
+    /**
+        Verify that flate.Reader.Read returns (n, io.EOF) instead
+        of (n, nil) + (0, io.EOF) when possible.
+        
+        This helps net/http.Transport reuse HTTP/1 connections more
+        aggressively.
+        
+        See https://github.com/google/go-github/pull/317 for background.
+    **/
+    static public function testReaderEarlyEOF(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testReaderEarlyEOF(t);
+    }
+    /**
+        TestBlockHuff tests huffman encoding against reference files
+        to detect possible regressions.
+        If encoding/bit allocation changes you can regenerate these files
+        by using the -update flag.
+    **/
+    static public function testBlockHuff(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testBlockHuff(t);
+    }
+    /**
+        TestWriteBlock tests if the writeBlock encoding has changed.
+        To update the reference files use the "-update" flag on the test.
+    **/
+    static public function testWriteBlock(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testWriteBlock(t);
+    }
+    /**
+        TestWriteBlockDynamic tests if the writeBlockDynamic encoding has changed.
+        To update the reference files use the "-update" flag on the test.
+    **/
+    static public function testWriteBlockDynamic(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testWriteBlockDynamic(t);
+    }
+    /**
+        NewReader returns a new ReadCloser that can be used
+        to read the uncompressed version of r.
+        If r does not also implement io.ByteReader,
+        the decompressor may read more data than necessary from r.
+        The reader returns io.EOF after the final block in the DEFLATE stream has
+        been encountered. Any trailing data after the final block is ignored.
+        
+        The ReadCloser returned by NewReader also implements Resetter.
+    **/
+    static public function newReader(r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.ReadCloser {
+        return stdgo._internal.compress.flate.Flate.newReader(r);
+    }
+    /**
+        NewReaderDict is like NewReader but initializes the reader
+        with a preset dictionary. The returned Reader behaves as if
+        the uncompressed data stream started with the given dictionary,
+        which has already been read. NewReaderDict is typically used
+        to read data compressed by NewWriterDict.
+        
+        The ReadCloser returned by NewReader also implements Resetter.
+    **/
+    static public function newReaderDict(r:stdgo._internal.io.Io.Reader, dict:Array<StdTypes.Int>):stdgo._internal.io.Io.ReadCloser {
+        final dict = ([for (i in dict) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.compress.flate.Flate.newReaderDict(r, dict);
+    }
+    static public function testReset(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testReset(t);
+    }
+    static public function testReaderTruncated(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testReaderTruncated(t);
+    }
+    static public function testResetDict(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testResetDict(t);
+    }
+    static public function testReaderReusesReaderBuffer(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testReaderReusesReaderBuffer(t);
+    }
+    static public function testNlitOutOfRange(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testNlitOutOfRange(t);
+    }
+    static public function benchmarkDecode(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.compress.flate.Flate.benchmarkDecode(b);
+    }
+    static public function benchmarkEncode(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.compress.flate.Flate.benchmarkEncode(b);
+    }
+    /**
+        Test if errors from the underlying writer is passed upwards.
+    **/
+    static public function testWriteError(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testWriteError(t);
+    }
+    /**
+        Test if two runs produce identical results
+        even when writing different sizes to the Writer.
+    **/
+    static public function testDeterministic(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testDeterministic(t);
+    }
+    /**
+        TestDeflateFast_Reset will test that encoding is consistent
+        across a warparound of the table offset.
+        See https://github.com/golang/go/issues/34121
+    **/
+    static public function testDeflateFast_Reset(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.flate.Flate.testDeflateFast_Reset(t);
+    }
 }

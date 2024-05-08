@@ -672,915 +672,6 @@ typedef T_bitFun = stdgo._internal.math.big.Big.T_bitFun;
 typedef T_nat = stdgo._internal.math.big.Big.T_nat;
 typedef T_funNN = stdgo._internal.math.big.Big.T_funNN;
 typedef T_ratBinFun = stdgo._internal.math.big.Big.T_ratBinFun;
-function testFunVV(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFunVV(t);
-    }
-function benchmarkAddVV(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkAddVV(b);
-    }
-function benchmarkSubVV(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkSubVV(b);
-    }
-function testFunVW(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFunVW(t);
-    }
-/**
-    Extended testing to addVW and subVW using various kinds of input data.
-    We utilize the results of addVW_g and subVW_g as golden reference to check
-    correctness.
-**/
-function testFunVWExt(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFunVWExt(t);
-    }
-function testShiftOverlap(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testShiftOverlap(t);
-    }
-function testIssue31084(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testIssue31084(t);
-    }
-function testIssue42838(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testIssue42838(t);
-    }
-function benchmarkAddVW(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkAddVW(b);
-    }
-/**
-    Benchmarking addVW using vector of maximum uint to force carry flag set
-**/
-function benchmarkAddVWext(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkAddVWext(b);
-    }
-function benchmarkSubVW(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkSubVW(b);
-    }
-/**
-    Benchmarking subVW using vector of zero to force carry flag set
-**/
-function benchmarkSubVWext(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkSubVWext(b);
-    }
-function testFunVWW(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFunVWW(t);
-    }
-function testMulWW(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testMulWW(t);
-    }
-function testMulAddWWW(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testMulAddWWW(t);
-    }
-function testDivWW(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testDivWW(t);
-    }
-function benchmarkMulAddVWW(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkMulAddVWW(b);
-    }
-function benchmarkAddMulVVW(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkAddMulVVW(b);
-    }
-function benchmarkDivWVW(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkDivWVW(b);
-    }
-function benchmarkNonZeroShifts(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkNonZeroShifts(b);
-    }
-function testMulBits(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testMulBits(t);
-    }
-function testNormBits(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testNormBits(t);
-    }
-function testFromBits(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFromBits(t);
-    }
-function testCalibrate(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testCalibrate(t);
-    }
-function testDecimalString(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testDecimalString(t);
-    }
-function testDecimalInit(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testDecimalInit(t);
-    }
-function testDecimalRounding(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testDecimalRounding(t);
-    }
-function benchmarkDecimalConversion(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkDecimalConversion(b);
-    }
-function benchmarkFloatString(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkFloatString(b);
-    }
-/**
-    NewFloat allocates and returns a new Float set to x,
-    with precision 53 and rounding mode ToNearestEven.
-    NewFloat panics with ErrNaN if x is a NaN.
-**/
-function newFloat(x:StdTypes.Float):Float_ {
-        return stdgo._internal.math.big.Big.newFloat(x);
-    }
-function testFloatZeroValue(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatZeroValue(t);
-    }
-function testFloatSetPrec(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatSetPrec(t);
-    }
-function testFloatMinPrec(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatMinPrec(t);
-    }
-function testFloatSign(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatSign(t);
-    }
-function testFloatMantExp(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatMantExp(t);
-    }
-function testFloatMantExpAliasing(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatMantExpAliasing(t);
-    }
-function testFloatSetMantExp(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatSetMantExp(t);
-    }
-function testFloatPredicates(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatPredicates(t);
-    }
-function testFloatIsInt(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatIsInt(t);
-    }
-/**
-    TestFloatRound tests basic rounding.
-**/
-function testFloatRound(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatRound(t);
-    }
-/**
-    TestFloatRound24 tests that rounding a float64 to 24 bits
-    matches IEEE-754 rounding to nearest when converting a
-    float64 to a float32 (excluding denormal numbers).
-**/
-function testFloatRound24(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatRound24(t);
-    }
-function testFloatSetUint64(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatSetUint64(t);
-    }
-function testFloatSetInt64(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatSetInt64(t);
-    }
-function testFloatSetFloat64(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatSetFloat64(t);
-    }
-function testFloatSetInt(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatSetInt(t);
-    }
-function testFloatSetRat(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatSetRat(t);
-    }
-function testFloatSetInf(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatSetInf(t);
-    }
-function testFloatUint64(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatUint64(t);
-    }
-function testFloatInt64(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatInt64(t);
-    }
-function testFloatFloat32(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatFloat32(t);
-    }
-function testFloatFloat64(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatFloat64(t);
-    }
-function testFloatInt(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatInt(t);
-    }
-function testFloatRat(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatRat(t);
-    }
-function testFloatAbs(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatAbs(t);
-    }
-function testFloatNeg(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatNeg(t);
-    }
-function testFloatInc(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatInc(t);
-    }
-/**
-    TestFloatAdd tests Float.Add/Sub by comparing the result of a "manual"
-    addition/subtraction of arguments represented by Bits values with the
-    respective Float addition/subtraction for a variety of precisions
-    and rounding modes.
-**/
-function testFloatAdd(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatAdd(t);
-    }
-/**
-    TestFloatAddRoundZero tests Float.Add/Sub rounding when the result is exactly zero.
-    x + (-x) or x - x for non-zero x should be +0 in all cases except when
-    the rounding mode is ToNegativeInf in which case it should be -0.
-**/
-function testFloatAddRoundZero(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatAddRoundZero(t);
-    }
-/**
-    TestFloatAdd32 tests that Float.Add/Sub of numbers with
-    24bit mantissa behaves like float32 addition/subtraction
-    (excluding denormal numbers).
-**/
-function testFloatAdd32(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatAdd32(t);
-    }
-/**
-    TestFloatAdd64 tests that Float.Add/Sub of numbers with
-    53bit mantissa behaves like float64 addition/subtraction.
-**/
-function testFloatAdd64(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatAdd64(t);
-    }
-function testIssue20490(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testIssue20490(t);
-    }
-/**
-    TestFloatMul tests Float.Mul/Quo by comparing the result of a "manual"
-    multiplication/division of arguments represented by Bits values with the
-    respective Float multiplication/division for a variety of precisions
-    and rounding modes.
-**/
-function testFloatMul(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatMul(t);
-    }
-/**
-    TestFloatMul64 tests that Float.Mul/Quo of numbers with
-    53bit mantissa behaves like float64 multiplication/division.
-**/
-function testFloatMul64(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatMul64(t);
-    }
-function testIssue6866(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testIssue6866(t);
-    }
-function testFloatQuo(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatQuo(t);
-    }
-/**
-    TestFloatQuoSmoke tests all divisions x/y for values x, y in the range [-n, +n];
-    it serves as a smoke test for basic correctness of division.
-**/
-function testFloatQuoSmoke(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatQuoSmoke(t);
-    }
-/**
-    TestFloatArithmeticSpecialValues tests that Float operations produce the
-    correct results for combinations of zero (±0), finite (±1 and ±2.71828),
-    and infinite (±Inf) operands.
-**/
-function testFloatArithmeticSpecialValues(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatArithmeticSpecialValues(t);
-    }
-function testFloatArithmeticOverflow(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatArithmeticOverflow(t);
-    }
-/**
-    For rounding modes ToNegativeInf and ToPositiveInf, rounding is affected
-    by the sign of the value to be rounded. Test that rounding happens after
-    the sign of a result has been set.
-    This test uses specific values that are known to fail if rounding is
-    "factored" out before setting the result sign.
-**/
-function testFloatArithmeticRounding(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatArithmeticRounding(t);
-    }
-/**
-    TestFloatCmpSpecialValues tests that Cmp produces the correct results for
-    combinations of zero (±0), finite (±1 and ±2.71828), and infinite (±Inf)
-    operands.
-**/
-function testFloatCmpSpecialValues(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatCmpSpecialValues(t);
-    }
-function benchmarkFloatAdd(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkFloatAdd(b);
-    }
-function benchmarkFloatSub(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkFloatSub(b);
-    }
-/**
-    ParseFloat is like f.Parse(s, base) with f set to the given precision
-    and rounding mode.
-**/
-function parseFloat(s:String, base:StdTypes.Int, prec:std.UInt, mode:RoundingMode):stdgo.Tuple.Tuple3<Float_, StdTypes.Int, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.math.big.Big.parseFloat(s, base, prec, mode);
-            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
-        };
-    }
-function testFloatSetFloat64String(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatSetFloat64String(t);
-    }
-function testFloat64Text(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloat64Text(t);
-    }
-function testFloatText(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatText(t);
-    }
-function testFloatFormat(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatFormat(t);
-    }
-function benchmarkParseFloatSmallExp(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkParseFloatSmallExp(b);
-    }
-function benchmarkParseFloatLargeExp(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkParseFloatLargeExp(b);
-    }
-function testFloatScan(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatScan(t);
-    }
-function testFloatGobEncoding(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatGobEncoding(t);
-    }
-function testFloatCorruptGob(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatCorruptGob(t);
-    }
-function testFloatJSONEncoding(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatJSONEncoding(t);
-    }
-function testFloatGobDecodeShortBuffer(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatGobDecodeShortBuffer(t);
-    }
-function testFloatGobDecodeInvalid(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatGobDecodeInvalid(t);
-    }
-function benchmarkGCD10x10(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkGCD10x10(b);
-    }
-function benchmarkGCD10x100(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkGCD10x100(b);
-    }
-function benchmarkGCD10x1000(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkGCD10x1000(b);
-    }
-function benchmarkGCD10x10000(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkGCD10x10000(b);
-    }
-function benchmarkGCD10x100000(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkGCD10x100000(b);
-    }
-function benchmarkGCD100x100(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkGCD100x100(b);
-    }
-function benchmarkGCD100x1000(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkGCD100x1000(b);
-    }
-function benchmarkGCD100x10000(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkGCD100x10000(b);
-    }
-function benchmarkGCD100x100000(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkGCD100x100000(b);
-    }
-function benchmarkGCD1000x1000(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkGCD1000x1000(b);
-    }
-function benchmarkGCD1000x10000(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkGCD1000x10000(b);
-    }
-function benchmarkGCD1000x100000(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkGCD1000x100000(b);
-    }
-function benchmarkGCD10000x10000(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkGCD10000x10000(b);
-    }
-function benchmarkGCD10000x100000(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkGCD10000x100000(b);
-    }
-function benchmarkGCD100000x100000(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkGCD100000x100000(b);
-    }
-function testHilbert(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testHilbert(t);
-    }
-function benchmarkHilbert(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkHilbert(b);
-    }
-/**
-    NewInt allocates and returns a new Int set to x.
-**/
-function newInt(x:haxe.Int64):Int_ {
-        return stdgo._internal.math.big.Big.newInt(x);
-    }
-/**
-    Jacobi returns the Jacobi symbol (x/y), either +1, -1, or 0.
-    The y argument must be an odd integer.
-**/
-function jacobi(x:Int_, y:Int_):StdTypes.Int {
-        return stdgo._internal.math.big.Big.jacobi(x, y);
-    }
-function testSignZ(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testSignZ(t);
-    }
-function testSetZ(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testSetZ(t);
-    }
-function testAbsZ(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testAbsZ(t);
-    }
-function testSumZZ(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testSumZZ(t);
-    }
-function testProdZZ(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testProdZZ(t);
-    }
-function testMul(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testMul(t);
-    }
-function testMulRangeZ(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testMulRangeZ(t);
-    }
-function testBinomial(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testBinomial(t);
-    }
-function benchmarkBinomial(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkBinomial(b);
-    }
-function testDivisionSigns(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testDivisionSigns(t);
-    }
-function testBits(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testBits(t);
-    }
-function testSetBytes(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testSetBytes(t);
-    }
-function testBytes(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testBytes(t);
-    }
-function testQuo(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testQuo(t);
-    }
-function testQuoStepD6(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testQuoStepD6(t);
-    }
-function benchmarkQuoRem(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkQuoRem(b);
-    }
-function testBitLen(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testBitLen(t);
-    }
-function testExp(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testExp(t);
-    }
-function benchmarkExp(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkExp(b);
-    }
-function benchmarkExpMont(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkExpMont(b);
-    }
-function benchmarkExp2(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkExp2(b);
-    }
-function testGcd(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testGcd(t);
-    }
-function testRsh(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testRsh(t);
-    }
-function testRshSelf(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testRshSelf(t);
-    }
-function testLsh(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testLsh(t);
-    }
-function testLshSelf(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testLshSelf(t);
-    }
-function testLshRsh(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testLshRsh(t);
-    }
-function testCmpAbs(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testCmpAbs(t);
-    }
-function testIntCmpSelf(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testIntCmpSelf(t);
-    }
-function testInt64(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testInt64(t);
-    }
-function testUint64(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testUint64(t);
-    }
-function testBitSet(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testBitSet(t);
-    }
-function testTrailingZeroBits(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testTrailingZeroBits(t);
-    }
-function benchmarkBitset(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkBitset(b);
-    }
-function benchmarkBitsetNeg(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkBitsetNeg(b);
-    }
-function benchmarkBitsetOrig(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkBitsetOrig(b);
-    }
-function benchmarkBitsetNegOrig(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkBitsetNegOrig(b);
-    }
-function benchmarkModSqrt225_Tonelli(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkModSqrt225_Tonelli(b);
-    }
-function benchmarkModSqrt225_3Mod4(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkModSqrt225_3Mod4(b);
-    }
-function benchmarkModSqrt231_Tonelli(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkModSqrt231_Tonelli(b);
-    }
-function benchmarkModSqrt231_5Mod8(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkModSqrt231_5Mod8(b);
-    }
-function testBitwise(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testBitwise(t);
-    }
-function testNot(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testNot(t);
-    }
-function testModInverse(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testModInverse(t);
-    }
-function benchmarkModInverse(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkModInverse(b);
-    }
-function testModSqrt(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testModSqrt(t);
-    }
-function testJacobi(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testJacobi(t);
-    }
-function testJacobiPanic(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testJacobiPanic(t);
-    }
-function testIssue2607(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testIssue2607(t);
-    }
-function testSqrt(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testSqrt(t);
-    }
-/**
-    We can't test this together with the other Exp tests above because
-    it requires a different receiver setup.
-**/
-function testIssue22830(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testIssue22830(t);
-    }
-function benchmarkSqrt(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkSqrt(b);
-    }
-function benchmarkIntSqr(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkIntSqr(b);
-    }
-function benchmarkDiv(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkDiv(b);
-    }
-function testFillBytes(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFillBytes(t);
-    }
-function testNewIntMinInt64(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testNewIntMinInt64(t);
-    }
-function testNewIntAllocs(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testNewIntAllocs(t);
-    }
-function testFloat64(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloat64(t);
-    }
-function testIntText(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testIntText(t);
-    }
-function testAppendText(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testAppendText(t);
-    }
-function testGetString(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testGetString(t);
-    }
-function testSetString(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testSetString(t);
-    }
-function testFormat(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFormat(t);
-    }
-function testScan(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testScan(t);
-    }
-function testIntGobEncoding(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testIntGobEncoding(t);
-    }
-/**
-    Sending a nil Int pointer (inside a slice) on a round trip through gob should yield a zero.
-    TODO: top-level nils.
-**/
-function testGobEncodingNilIntInSlice(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testGobEncodingNilIntInSlice(t);
-    }
-function testIntJSONEncoding(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testIntJSONEncoding(t);
-    }
-function testIntJSONEncodingNil(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testIntJSONEncodingNil(t);
-    }
-function testIntXMLEncoding(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testIntXMLEncoding(t);
-    }
-/**
-    Tests that the linker is able to remove references to Float, Rat,
-    and Int if unused (notably, not used by init).
-**/
-function testLinkerGC(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testLinkerGC(t);
-    }
-function testCmp(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testCmp(t);
-    }
-function testSet(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testSet(t);
-    }
-function testFunNN(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFunNN(t);
-    }
-function testMulRangeN(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testMulRangeN(t);
-    }
-/**
-    TestMulUnbalanced tests that multiplying numbers of different lengths
-    does not cause deep recursion and in turn allocate too much memory.
-    Test case for issue 3807.
-**/
-function testMulUnbalanced(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testMulUnbalanced(t);
-    }
-function benchmarkMul(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkMul(b);
-    }
-function benchmarkNatMul(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkNatMul(b);
-    }
-function testNLZ(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testNLZ(t);
-    }
-function testShiftLeft(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testShiftLeft(t);
-    }
-function testShiftRight(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testShiftRight(t);
-    }
-function benchmarkZeroShifts(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkZeroShifts(b);
-    }
-function testModW(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testModW(t);
-    }
-function testMontgomery(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testMontgomery(t);
-    }
-function testExpNN(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testExpNN(t);
-    }
-function fuzzExpMont(f:stdgo._internal.testing.Testing.F):Void {
-        stdgo._internal.math.big.Big.fuzzExpMont(f);
-    }
-function benchmarkExp3Power(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkExp3Power(b);
-    }
-function testFibo(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFibo(t);
-    }
-function benchmarkFibo(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkFibo(b);
-    }
-function testBit(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testBit(t);
-    }
-function testSticky(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testSticky(t);
-    }
-function testSqr(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testSqr(t);
-    }
-function benchmarkNatSqr(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkNatSqr(b);
-    }
-function testNatSubMod2N(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testNatSubMod2N(t);
-    }
-function benchmarkNatSetBytes(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkNatSetBytes(b);
-    }
-function testNatDiv(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testNatDiv(t);
-    }
-/**
-    TestIssue37499 triggers the edge case of divBasic where
-    the inaccurate estimate of the first word's quotient
-    happens at the very beginning of the loop.
-**/
-function testIssue37499(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testIssue37499(t);
-    }
-/**
-    TestIssue42552 triggers an edge case of recursive division
-    where the first division loop is never entered, and correcting
-    the remainder takes exactly two iterations in the final loop.
-**/
-function testIssue42552(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testIssue42552(t);
-    }
-function testMaxBase(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testMaxBase(t);
-    }
-function testString(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testString(t);
-    }
-function testScanBase(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testScanBase(t);
-    }
-/**
-    Test case for BenchmarkScanPi.
-**/
-function testScanPi(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testScanPi(t);
-    }
-function testScanPiParallel(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testScanPiParallel(t);
-    }
-function benchmarkScanPi(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkScanPi(b);
-    }
-function benchmarkStringPiParallel(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkStringPiParallel(b);
-    }
-function benchmarkScan(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkScan(b);
-    }
-function benchmarkString(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkString(b);
-    }
-function benchmarkLeafSize(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkLeafSize(b);
-    }
-function leafSizeHelper(b:stdgo._internal.testing.Testing.B, base:StdTypes.Int, size:StdTypes.Int):Void {
-        stdgo._internal.math.big.Big.leafSizeHelper(b, base, size);
-    }
-function testStringPowers(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testStringPowers(t);
-    }
-function testProbablyPrime(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testProbablyPrime(t);
-    }
-function benchmarkProbablyPrime(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkProbablyPrime(b);
-    }
-function testMillerRabinPseudoprimes(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testMillerRabinPseudoprimes(t);
-    }
-function testLucasPseudoprimes(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testLucasPseudoprimes(t);
-    }
-/**
-    NewRat creates a new Rat with numerator a and denominator b.
-**/
-function newRat(a:haxe.Int64, b:haxe.Int64):Rat {
-        return stdgo._internal.math.big.Big.newRat(a, b);
-    }
-function testZeroRat(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testZeroRat(t);
-    }
-function testRatSign(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testRatSign(t);
-    }
-function testRatCmp(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testRatCmp(t);
-    }
-function testIsInt(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testIsInt(t);
-    }
-function testRatAbs(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testRatAbs(t);
-    }
-function testRatNeg(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testRatNeg(t);
-    }
-function testRatInv(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testRatInv(t);
-    }
-function testRatBin(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testRatBin(t);
-    }
-function testIssue820(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testIssue820(t);
-    }
-function testRatSetFrac64Rat(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testRatSetFrac64Rat(t);
-    }
-function testIssue2379(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testIssue2379(t);
-    }
-function testIssue3521(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testIssue3521(t);
-    }
-function testFloat32Distribution(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloat32Distribution(t);
-    }
-function testFloat64Distribution(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloat64Distribution(t);
-    }
-/**
-    TestSetFloat64NonFinite checks that SetFloat64 of a non-finite value
-    returns nil.
-**/
-function testSetFloat64NonFinite(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testSetFloat64NonFinite(t);
-    }
-function testIsFinite(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testIsFinite(t);
-    }
-function testRatSetInt64(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testRatSetInt64(t);
-    }
-function testRatSetUint64(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testRatSetUint64(t);
-    }
-function benchmarkRatCmp(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkRatCmp(b);
-    }
-/**
-    TestIssue34919 verifies that a Rat's denominator is not modified
-    when simply accessing the Rat value.
-**/
-function testIssue34919(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testIssue34919(t);
-    }
-function testDenomRace(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testDenomRace(t);
-    }
-function testScanExponent(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testScanExponent(t);
-    }
-function testRatSetString(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testRatSetString(t);
-    }
-function testRatSetStringZero(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testRatSetStringZero(t);
-    }
-function testRatScan(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testRatScan(t);
-    }
-function testFloatString(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatString(t);
-    }
-function testFloat32SpecialCases(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloat32SpecialCases(t);
-    }
-function testFloat64SpecialCases(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloat64SpecialCases(t);
-    }
-function testIssue31184(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testIssue31184(t);
-    }
-function testIssue45910(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testIssue45910(t);
-    }
-function testRatGobEncoding(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testRatGobEncoding(t);
-    }
-/**
-    Sending a nil Rat pointer (inside a slice) on a round trip through gob should yield a zero.
-    TODO: top-level nils.
-**/
-function testGobEncodingNilRatInSlice(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testGobEncodingNilRatInSlice(t);
-    }
-function testRatJSONEncoding(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testRatJSONEncoding(t);
-    }
-function testRatXMLEncoding(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testRatXMLEncoding(t);
-    }
-function testRatGobDecodeShortBuffer(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testRatGobDecodeShortBuffer(t);
-    }
-/**
-    TestFloatSqrt64 tests that Float.Sqrt of numbers with 53bit mantissa
-    behaves like float math.Sqrt.
-**/
-function testFloatSqrt64(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatSqrt64(t);
-    }
-function testFloatSqrt(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatSqrt(t);
-    }
-function testFloatSqrtSpecial(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.big.Big.testFloatSqrtSpecial(t);
-    }
-function benchmarkFloatSqrt(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.big.Big.benchmarkFloatSqrt(b);
-    }
 @:forward @:forward.new abstract T_decimal_asInterface(stdgo._internal.math.big.Big.T_decimal_asInterface) from stdgo._internal.math.big.Big.T_decimal_asInterface to stdgo._internal.math.big.Big.T_decimal_asInterface {
 
 }
@@ -1646,4 +737,915 @@ function benchmarkFloatSqrt(b:stdgo._internal.testing.Testing.B):Void {
 }
 @:forward @:forward.new abstract T_nat_static_extension(stdgo._internal.math.big.Big.T_nat_static_extension) from stdgo._internal.math.big.Big.T_nat_static_extension to stdgo._internal.math.big.Big.T_nat_static_extension {
 
+}
+class Big {
+    static public function testFunVV(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFunVV(t);
+    }
+    static public function benchmarkAddVV(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkAddVV(b);
+    }
+    static public function benchmarkSubVV(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkSubVV(b);
+    }
+    static public function testFunVW(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFunVW(t);
+    }
+    /**
+        Extended testing to addVW and subVW using various kinds of input data.
+        We utilize the results of addVW_g and subVW_g as golden reference to check
+        correctness.
+    **/
+    static public function testFunVWExt(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFunVWExt(t);
+    }
+    static public function testShiftOverlap(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testShiftOverlap(t);
+    }
+    static public function testIssue31084(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testIssue31084(t);
+    }
+    static public function testIssue42838(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testIssue42838(t);
+    }
+    static public function benchmarkAddVW(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkAddVW(b);
+    }
+    /**
+        Benchmarking addVW using vector of maximum uint to force carry flag set
+    **/
+    static public function benchmarkAddVWext(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkAddVWext(b);
+    }
+    static public function benchmarkSubVW(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkSubVW(b);
+    }
+    /**
+        Benchmarking subVW using vector of zero to force carry flag set
+    **/
+    static public function benchmarkSubVWext(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkSubVWext(b);
+    }
+    static public function testFunVWW(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFunVWW(t);
+    }
+    static public function testMulWW(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testMulWW(t);
+    }
+    static public function testMulAddWWW(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testMulAddWWW(t);
+    }
+    static public function testDivWW(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testDivWW(t);
+    }
+    static public function benchmarkMulAddVWW(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkMulAddVWW(b);
+    }
+    static public function benchmarkAddMulVVW(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkAddMulVVW(b);
+    }
+    static public function benchmarkDivWVW(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkDivWVW(b);
+    }
+    static public function benchmarkNonZeroShifts(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkNonZeroShifts(b);
+    }
+    static public function testMulBits(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testMulBits(t);
+    }
+    static public function testNormBits(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testNormBits(t);
+    }
+    static public function testFromBits(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFromBits(t);
+    }
+    static public function testCalibrate(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testCalibrate(t);
+    }
+    static public function testDecimalString(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testDecimalString(t);
+    }
+    static public function testDecimalInit(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testDecimalInit(t);
+    }
+    static public function testDecimalRounding(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testDecimalRounding(t);
+    }
+    static public function benchmarkDecimalConversion(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkDecimalConversion(b);
+    }
+    static public function benchmarkFloatString(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkFloatString(b);
+    }
+    /**
+        NewFloat allocates and returns a new Float set to x,
+        with precision 53 and rounding mode ToNearestEven.
+        NewFloat panics with ErrNaN if x is a NaN.
+    **/
+    static public function newFloat(x:StdTypes.Float):Float_ {
+        return stdgo._internal.math.big.Big.newFloat(x);
+    }
+    static public function testFloatZeroValue(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatZeroValue(t);
+    }
+    static public function testFloatSetPrec(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatSetPrec(t);
+    }
+    static public function testFloatMinPrec(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatMinPrec(t);
+    }
+    static public function testFloatSign(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatSign(t);
+    }
+    static public function testFloatMantExp(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatMantExp(t);
+    }
+    static public function testFloatMantExpAliasing(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatMantExpAliasing(t);
+    }
+    static public function testFloatSetMantExp(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatSetMantExp(t);
+    }
+    static public function testFloatPredicates(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatPredicates(t);
+    }
+    static public function testFloatIsInt(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatIsInt(t);
+    }
+    /**
+        TestFloatRound tests basic rounding.
+    **/
+    static public function testFloatRound(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatRound(t);
+    }
+    /**
+        TestFloatRound24 tests that rounding a float64 to 24 bits
+        matches IEEE-754 rounding to nearest when converting a
+        float64 to a float32 (excluding denormal numbers).
+    **/
+    static public function testFloatRound24(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatRound24(t);
+    }
+    static public function testFloatSetUint64(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatSetUint64(t);
+    }
+    static public function testFloatSetInt64(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatSetInt64(t);
+    }
+    static public function testFloatSetFloat64(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatSetFloat64(t);
+    }
+    static public function testFloatSetInt(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatSetInt(t);
+    }
+    static public function testFloatSetRat(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatSetRat(t);
+    }
+    static public function testFloatSetInf(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatSetInf(t);
+    }
+    static public function testFloatUint64(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatUint64(t);
+    }
+    static public function testFloatInt64(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatInt64(t);
+    }
+    static public function testFloatFloat32(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatFloat32(t);
+    }
+    static public function testFloatFloat64(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatFloat64(t);
+    }
+    static public function testFloatInt(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatInt(t);
+    }
+    static public function testFloatRat(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatRat(t);
+    }
+    static public function testFloatAbs(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatAbs(t);
+    }
+    static public function testFloatNeg(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatNeg(t);
+    }
+    static public function testFloatInc(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatInc(t);
+    }
+    /**
+        TestFloatAdd tests Float.Add/Sub by comparing the result of a "manual"
+        addition/subtraction of arguments represented by Bits values with the
+        respective Float addition/subtraction for a variety of precisions
+        and rounding modes.
+    **/
+    static public function testFloatAdd(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatAdd(t);
+    }
+    /**
+        TestFloatAddRoundZero tests Float.Add/Sub rounding when the result is exactly zero.
+        x + (-x) or x - x for non-zero x should be +0 in all cases except when
+        the rounding mode is ToNegativeInf in which case it should be -0.
+    **/
+    static public function testFloatAddRoundZero(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatAddRoundZero(t);
+    }
+    /**
+        TestFloatAdd32 tests that Float.Add/Sub of numbers with
+        24bit mantissa behaves like float32 addition/subtraction
+        (excluding denormal numbers).
+    **/
+    static public function testFloatAdd32(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatAdd32(t);
+    }
+    /**
+        TestFloatAdd64 tests that Float.Add/Sub of numbers with
+        53bit mantissa behaves like float64 addition/subtraction.
+    **/
+    static public function testFloatAdd64(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatAdd64(t);
+    }
+    static public function testIssue20490(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testIssue20490(t);
+    }
+    /**
+        TestFloatMul tests Float.Mul/Quo by comparing the result of a "manual"
+        multiplication/division of arguments represented by Bits values with the
+        respective Float multiplication/division for a variety of precisions
+        and rounding modes.
+    **/
+    static public function testFloatMul(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatMul(t);
+    }
+    /**
+        TestFloatMul64 tests that Float.Mul/Quo of numbers with
+        53bit mantissa behaves like float64 multiplication/division.
+    **/
+    static public function testFloatMul64(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatMul64(t);
+    }
+    static public function testIssue6866(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testIssue6866(t);
+    }
+    static public function testFloatQuo(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatQuo(t);
+    }
+    /**
+        TestFloatQuoSmoke tests all divisions x/y for values x, y in the range [-n, +n];
+        it serves as a smoke test for basic correctness of division.
+    **/
+    static public function testFloatQuoSmoke(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatQuoSmoke(t);
+    }
+    /**
+        TestFloatArithmeticSpecialValues tests that Float operations produce the
+        correct results for combinations of zero (±0), finite (±1 and ±2.71828),
+        and infinite (±Inf) operands.
+    **/
+    static public function testFloatArithmeticSpecialValues(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatArithmeticSpecialValues(t);
+    }
+    static public function testFloatArithmeticOverflow(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatArithmeticOverflow(t);
+    }
+    /**
+        For rounding modes ToNegativeInf and ToPositiveInf, rounding is affected
+        by the sign of the value to be rounded. Test that rounding happens after
+        the sign of a result has been set.
+        This test uses specific values that are known to fail if rounding is
+        "factored" out before setting the result sign.
+    **/
+    static public function testFloatArithmeticRounding(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatArithmeticRounding(t);
+    }
+    /**
+        TestFloatCmpSpecialValues tests that Cmp produces the correct results for
+        combinations of zero (±0), finite (±1 and ±2.71828), and infinite (±Inf)
+        operands.
+    **/
+    static public function testFloatCmpSpecialValues(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatCmpSpecialValues(t);
+    }
+    static public function benchmarkFloatAdd(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkFloatAdd(b);
+    }
+    static public function benchmarkFloatSub(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkFloatSub(b);
+    }
+    /**
+        ParseFloat is like f.Parse(s, base) with f set to the given precision
+        and rounding mode.
+    **/
+    static public function parseFloat(s:String, base:StdTypes.Int, prec:std.UInt, mode:RoundingMode):stdgo.Tuple.Tuple3<Float_, StdTypes.Int, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.math.big.Big.parseFloat(s, base, prec, mode);
+            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
+        };
+    }
+    static public function testFloatSetFloat64String(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatSetFloat64String(t);
+    }
+    static public function testFloat64Text(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloat64Text(t);
+    }
+    static public function testFloatText(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatText(t);
+    }
+    static public function testFloatFormat(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatFormat(t);
+    }
+    static public function benchmarkParseFloatSmallExp(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkParseFloatSmallExp(b);
+    }
+    static public function benchmarkParseFloatLargeExp(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkParseFloatLargeExp(b);
+    }
+    static public function testFloatScan(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatScan(t);
+    }
+    static public function testFloatGobEncoding(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatGobEncoding(t);
+    }
+    static public function testFloatCorruptGob(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatCorruptGob(t);
+    }
+    static public function testFloatJSONEncoding(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatJSONEncoding(t);
+    }
+    static public function testFloatGobDecodeShortBuffer(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatGobDecodeShortBuffer(t);
+    }
+    static public function testFloatGobDecodeInvalid(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatGobDecodeInvalid(t);
+    }
+    static public function benchmarkGCD10x10(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkGCD10x10(b);
+    }
+    static public function benchmarkGCD10x100(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkGCD10x100(b);
+    }
+    static public function benchmarkGCD10x1000(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkGCD10x1000(b);
+    }
+    static public function benchmarkGCD10x10000(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkGCD10x10000(b);
+    }
+    static public function benchmarkGCD10x100000(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkGCD10x100000(b);
+    }
+    static public function benchmarkGCD100x100(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkGCD100x100(b);
+    }
+    static public function benchmarkGCD100x1000(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkGCD100x1000(b);
+    }
+    static public function benchmarkGCD100x10000(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkGCD100x10000(b);
+    }
+    static public function benchmarkGCD100x100000(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkGCD100x100000(b);
+    }
+    static public function benchmarkGCD1000x1000(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkGCD1000x1000(b);
+    }
+    static public function benchmarkGCD1000x10000(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkGCD1000x10000(b);
+    }
+    static public function benchmarkGCD1000x100000(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkGCD1000x100000(b);
+    }
+    static public function benchmarkGCD10000x10000(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkGCD10000x10000(b);
+    }
+    static public function benchmarkGCD10000x100000(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkGCD10000x100000(b);
+    }
+    static public function benchmarkGCD100000x100000(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkGCD100000x100000(b);
+    }
+    static public function testHilbert(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testHilbert(t);
+    }
+    static public function benchmarkHilbert(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkHilbert(b);
+    }
+    /**
+        NewInt allocates and returns a new Int set to x.
+    **/
+    static public function newInt(x:haxe.Int64):Int_ {
+        return stdgo._internal.math.big.Big.newInt(x);
+    }
+    /**
+        Jacobi returns the Jacobi symbol (x/y), either +1, -1, or 0.
+        The y argument must be an odd integer.
+    **/
+    static public function jacobi(x:Int_, y:Int_):StdTypes.Int {
+        return stdgo._internal.math.big.Big.jacobi(x, y);
+    }
+    static public function testSignZ(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testSignZ(t);
+    }
+    static public function testSetZ(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testSetZ(t);
+    }
+    static public function testAbsZ(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testAbsZ(t);
+    }
+    static public function testSumZZ(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testSumZZ(t);
+    }
+    static public function testProdZZ(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testProdZZ(t);
+    }
+    static public function testMul(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testMul(t);
+    }
+    static public function testMulRangeZ(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testMulRangeZ(t);
+    }
+    static public function testBinomial(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testBinomial(t);
+    }
+    static public function benchmarkBinomial(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkBinomial(b);
+    }
+    static public function testDivisionSigns(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testDivisionSigns(t);
+    }
+    static public function testBits(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testBits(t);
+    }
+    static public function testSetBytes(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testSetBytes(t);
+    }
+    static public function testBytes(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testBytes(t);
+    }
+    static public function testQuo(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testQuo(t);
+    }
+    static public function testQuoStepD6(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testQuoStepD6(t);
+    }
+    static public function benchmarkQuoRem(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkQuoRem(b);
+    }
+    static public function testBitLen(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testBitLen(t);
+    }
+    static public function testExp(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testExp(t);
+    }
+    static public function benchmarkExp(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkExp(b);
+    }
+    static public function benchmarkExpMont(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkExpMont(b);
+    }
+    static public function benchmarkExp2(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkExp2(b);
+    }
+    static public function testGcd(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testGcd(t);
+    }
+    static public function testRsh(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testRsh(t);
+    }
+    static public function testRshSelf(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testRshSelf(t);
+    }
+    static public function testLsh(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testLsh(t);
+    }
+    static public function testLshSelf(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testLshSelf(t);
+    }
+    static public function testLshRsh(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testLshRsh(t);
+    }
+    static public function testCmpAbs(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testCmpAbs(t);
+    }
+    static public function testIntCmpSelf(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testIntCmpSelf(t);
+    }
+    static public function testInt64(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testInt64(t);
+    }
+    static public function testUint64(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testUint64(t);
+    }
+    static public function testBitSet(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testBitSet(t);
+    }
+    static public function testTrailingZeroBits(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testTrailingZeroBits(t);
+    }
+    static public function benchmarkBitset(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkBitset(b);
+    }
+    static public function benchmarkBitsetNeg(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkBitsetNeg(b);
+    }
+    static public function benchmarkBitsetOrig(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkBitsetOrig(b);
+    }
+    static public function benchmarkBitsetNegOrig(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkBitsetNegOrig(b);
+    }
+    static public function benchmarkModSqrt225_Tonelli(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkModSqrt225_Tonelli(b);
+    }
+    static public function benchmarkModSqrt225_3Mod4(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkModSqrt225_3Mod4(b);
+    }
+    static public function benchmarkModSqrt231_Tonelli(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkModSqrt231_Tonelli(b);
+    }
+    static public function benchmarkModSqrt231_5Mod8(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkModSqrt231_5Mod8(b);
+    }
+    static public function testBitwise(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testBitwise(t);
+    }
+    static public function testNot(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testNot(t);
+    }
+    static public function testModInverse(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testModInverse(t);
+    }
+    static public function benchmarkModInverse(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkModInverse(b);
+    }
+    static public function testModSqrt(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testModSqrt(t);
+    }
+    static public function testJacobi(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testJacobi(t);
+    }
+    static public function testJacobiPanic(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testJacobiPanic(t);
+    }
+    static public function testIssue2607(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testIssue2607(t);
+    }
+    static public function testSqrt(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testSqrt(t);
+    }
+    /**
+        We can't test this together with the other Exp tests above because
+        it requires a different receiver setup.
+    **/
+    static public function testIssue22830(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testIssue22830(t);
+    }
+    static public function benchmarkSqrt(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkSqrt(b);
+    }
+    static public function benchmarkIntSqr(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkIntSqr(b);
+    }
+    static public function benchmarkDiv(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkDiv(b);
+    }
+    static public function testFillBytes(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFillBytes(t);
+    }
+    static public function testNewIntMinInt64(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testNewIntMinInt64(t);
+    }
+    static public function testNewIntAllocs(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testNewIntAllocs(t);
+    }
+    static public function testFloat64(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloat64(t);
+    }
+    static public function testIntText(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testIntText(t);
+    }
+    static public function testAppendText(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testAppendText(t);
+    }
+    static public function testGetString(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testGetString(t);
+    }
+    static public function testSetString(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testSetString(t);
+    }
+    static public function testFormat(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFormat(t);
+    }
+    static public function testScan(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testScan(t);
+    }
+    static public function testIntGobEncoding(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testIntGobEncoding(t);
+    }
+    /**
+        Sending a nil Int pointer (inside a slice) on a round trip through gob should yield a zero.
+        TODO: top-level nils.
+    **/
+    static public function testGobEncodingNilIntInSlice(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testGobEncodingNilIntInSlice(t);
+    }
+    static public function testIntJSONEncoding(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testIntJSONEncoding(t);
+    }
+    static public function testIntJSONEncodingNil(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testIntJSONEncodingNil(t);
+    }
+    static public function testIntXMLEncoding(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testIntXMLEncoding(t);
+    }
+    /**
+        Tests that the linker is able to remove references to Float, Rat,
+        and Int if unused (notably, not used by init).
+    **/
+    static public function testLinkerGC(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testLinkerGC(t);
+    }
+    static public function testCmp(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testCmp(t);
+    }
+    static public function testSet(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testSet(t);
+    }
+    static public function testFunNN(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFunNN(t);
+    }
+    static public function testMulRangeN(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testMulRangeN(t);
+    }
+    /**
+        TestMulUnbalanced tests that multiplying numbers of different lengths
+        does not cause deep recursion and in turn allocate too much memory.
+        Test case for issue 3807.
+    **/
+    static public function testMulUnbalanced(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testMulUnbalanced(t);
+    }
+    static public function benchmarkMul(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkMul(b);
+    }
+    static public function benchmarkNatMul(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkNatMul(b);
+    }
+    static public function testNLZ(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testNLZ(t);
+    }
+    static public function testShiftLeft(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testShiftLeft(t);
+    }
+    static public function testShiftRight(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testShiftRight(t);
+    }
+    static public function benchmarkZeroShifts(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkZeroShifts(b);
+    }
+    static public function testModW(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testModW(t);
+    }
+    static public function testMontgomery(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testMontgomery(t);
+    }
+    static public function testExpNN(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testExpNN(t);
+    }
+    static public function fuzzExpMont(f:stdgo._internal.testing.Testing.F):Void {
+        stdgo._internal.math.big.Big.fuzzExpMont(f);
+    }
+    static public function benchmarkExp3Power(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkExp3Power(b);
+    }
+    static public function testFibo(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFibo(t);
+    }
+    static public function benchmarkFibo(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkFibo(b);
+    }
+    static public function testBit(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testBit(t);
+    }
+    static public function testSticky(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testSticky(t);
+    }
+    static public function testSqr(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testSqr(t);
+    }
+    static public function benchmarkNatSqr(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkNatSqr(b);
+    }
+    static public function testNatSubMod2N(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testNatSubMod2N(t);
+    }
+    static public function benchmarkNatSetBytes(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkNatSetBytes(b);
+    }
+    static public function testNatDiv(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testNatDiv(t);
+    }
+    /**
+        TestIssue37499 triggers the edge case of divBasic where
+        the inaccurate estimate of the first word's quotient
+        happens at the very beginning of the loop.
+    **/
+    static public function testIssue37499(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testIssue37499(t);
+    }
+    /**
+        TestIssue42552 triggers an edge case of recursive division
+        where the first division loop is never entered, and correcting
+        the remainder takes exactly two iterations in the final loop.
+    **/
+    static public function testIssue42552(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testIssue42552(t);
+    }
+    static public function testMaxBase(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testMaxBase(t);
+    }
+    static public function testString(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testString(t);
+    }
+    static public function testScanBase(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testScanBase(t);
+    }
+    /**
+        Test case for BenchmarkScanPi.
+    **/
+    static public function testScanPi(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testScanPi(t);
+    }
+    static public function testScanPiParallel(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testScanPiParallel(t);
+    }
+    static public function benchmarkScanPi(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkScanPi(b);
+    }
+    static public function benchmarkStringPiParallel(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkStringPiParallel(b);
+    }
+    static public function benchmarkScan(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkScan(b);
+    }
+    static public function benchmarkString(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkString(b);
+    }
+    static public function benchmarkLeafSize(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkLeafSize(b);
+    }
+    static public function leafSizeHelper(b:stdgo._internal.testing.Testing.B, base:StdTypes.Int, size:StdTypes.Int):Void {
+        stdgo._internal.math.big.Big.leafSizeHelper(b, base, size);
+    }
+    static public function testStringPowers(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testStringPowers(t);
+    }
+    static public function testProbablyPrime(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testProbablyPrime(t);
+    }
+    static public function benchmarkProbablyPrime(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkProbablyPrime(b);
+    }
+    static public function testMillerRabinPseudoprimes(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testMillerRabinPseudoprimes(t);
+    }
+    static public function testLucasPseudoprimes(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testLucasPseudoprimes(t);
+    }
+    /**
+        NewRat creates a new Rat with numerator a and denominator b.
+    **/
+    static public function newRat(a:haxe.Int64, b:haxe.Int64):Rat {
+        return stdgo._internal.math.big.Big.newRat(a, b);
+    }
+    static public function testZeroRat(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testZeroRat(t);
+    }
+    static public function testRatSign(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testRatSign(t);
+    }
+    static public function testRatCmp(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testRatCmp(t);
+    }
+    static public function testIsInt(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testIsInt(t);
+    }
+    static public function testRatAbs(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testRatAbs(t);
+    }
+    static public function testRatNeg(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testRatNeg(t);
+    }
+    static public function testRatInv(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testRatInv(t);
+    }
+    static public function testRatBin(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testRatBin(t);
+    }
+    static public function testIssue820(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testIssue820(t);
+    }
+    static public function testRatSetFrac64Rat(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testRatSetFrac64Rat(t);
+    }
+    static public function testIssue2379(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testIssue2379(t);
+    }
+    static public function testIssue3521(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testIssue3521(t);
+    }
+    static public function testFloat32Distribution(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloat32Distribution(t);
+    }
+    static public function testFloat64Distribution(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloat64Distribution(t);
+    }
+    /**
+        TestSetFloat64NonFinite checks that SetFloat64 of a non-finite value
+        returns nil.
+    **/
+    static public function testSetFloat64NonFinite(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testSetFloat64NonFinite(t);
+    }
+    static public function testIsFinite(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testIsFinite(t);
+    }
+    static public function testRatSetInt64(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testRatSetInt64(t);
+    }
+    static public function testRatSetUint64(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testRatSetUint64(t);
+    }
+    static public function benchmarkRatCmp(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkRatCmp(b);
+    }
+    /**
+        TestIssue34919 verifies that a Rat's denominator is not modified
+        when simply accessing the Rat value.
+    **/
+    static public function testIssue34919(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testIssue34919(t);
+    }
+    static public function testDenomRace(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testDenomRace(t);
+    }
+    static public function testScanExponent(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testScanExponent(t);
+    }
+    static public function testRatSetString(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testRatSetString(t);
+    }
+    static public function testRatSetStringZero(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testRatSetStringZero(t);
+    }
+    static public function testRatScan(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testRatScan(t);
+    }
+    static public function testFloatString(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatString(t);
+    }
+    static public function testFloat32SpecialCases(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloat32SpecialCases(t);
+    }
+    static public function testFloat64SpecialCases(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloat64SpecialCases(t);
+    }
+    static public function testIssue31184(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testIssue31184(t);
+    }
+    static public function testIssue45910(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testIssue45910(t);
+    }
+    static public function testRatGobEncoding(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testRatGobEncoding(t);
+    }
+    /**
+        Sending a nil Rat pointer (inside a slice) on a round trip through gob should yield a zero.
+        TODO: top-level nils.
+    **/
+    static public function testGobEncodingNilRatInSlice(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testGobEncodingNilRatInSlice(t);
+    }
+    static public function testRatJSONEncoding(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testRatJSONEncoding(t);
+    }
+    static public function testRatXMLEncoding(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testRatXMLEncoding(t);
+    }
+    static public function testRatGobDecodeShortBuffer(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testRatGobDecodeShortBuffer(t);
+    }
+    /**
+        TestFloatSqrt64 tests that Float.Sqrt of numbers with 53bit mantissa
+        behaves like float math.Sqrt.
+    **/
+    static public function testFloatSqrt64(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatSqrt64(t);
+    }
+    static public function testFloatSqrt(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatSqrt(t);
+    }
+    static public function testFloatSqrtSpecial(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.big.Big.testFloatSqrtSpecial(t);
+    }
+    static public function benchmarkFloatSqrt(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.big.Big.benchmarkFloatSqrt(b);
+    }
 }

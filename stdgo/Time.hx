@@ -241,281 +241,6 @@ typedef Weekday = stdgo._internal.time.Time.Weekday;
 typedef Duration = stdgo._internal.time.Time.Duration;
 typedef T_ruleKind = stdgo._internal.time.Time.T_ruleKind;
 typedef T_fileSizeError = stdgo._internal.time.Time.T_fileSizeError;
-function resetLocalOnceForTest():Void {
-        stdgo._internal.time.Time.resetLocalOnceForTest();
-    }
-function forceUSPacificForTesting():Void {
-        stdgo._internal.time.Time.forceUSPacificForTesting();
-    }
-function zoneinfoForTesting():stdgo.Pointer<String> {
-        return stdgo._internal.time.Time.zoneinfoForTesting();
-    }
-function resetZoneinfoForTesting():Void {
-        stdgo._internal.time.Time.resetZoneinfoForTesting();
-    }
-function loadFromEmbeddedTZData(zone:String):stdgo.Tuple<String, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.time.Time.loadFromEmbeddedTZData(zone);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-function tzsetRule(s:String):stdgo.Tuple.Tuple3<Rule, String, Bool> {
-        return {
-            final obj = stdgo._internal.time.Time.tzsetRule(s);
-            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
-        };
-    }
-/**
-    Parse parses a formatted string and returns the time value it represents.
-    See the documentation for the constant called Layout to see how to
-    represent the format. The second argument must be parseable using
-    the format string (layout) provided as the first argument.
-    
-    The example for Time.Format demonstrates the working of the layout string
-    in detail and is a good reference.
-    
-    When parsing (only), the input may contain a fractional second
-    field immediately after the seconds field, even if the layout does not
-    signify its presence. In that case either a comma or a decimal point
-    followed by a maximal series of digits is parsed as a fractional second.
-    Fractional seconds are truncated to nanosecond precision.
-    
-    Elements omitted from the layout are assumed to be zero or, when
-    zero is impossible, one, so parsing "3:04pm" returns the time
-    corresponding to Jan 1, year 0, 15:04:00 UTC (note that because the year is
-    0, this time is before the zero Time).
-    Years must be in the range 0000..9999. The day of the week is checked
-    for syntax but it is otherwise ignored.
-    
-    For layouts specifying the two-digit year 06, a value NN >= 69 will be treated
-    as 19NN and a value NN < 69 will be treated as 20NN.
-    
-    The remainder of this comment describes the handling of time zones.
-    
-    In the absence of a time zone indicator, Parse returns a time in UTC.
-    
-    When parsing a time with a zone offset like -0700, if the offset corresponds
-    to a time zone used by the current location (Local), then Parse uses that
-    location and zone in the returned time. Otherwise it records the time as
-    being in a fabricated location with time fixed at the given zone offset.
-    
-    When parsing a time with a zone abbreviation like MST, if the zone abbreviation
-    has a defined offset in the current location, then that offset is used.
-    The zone abbreviation "UTC" is recognized as UTC regardless of location.
-    If the zone abbreviation is unknown, Parse records the time as being
-    in a fabricated location with the given zone abbreviation and a zero offset.
-    This choice means that such a time can be parsed and reformatted with the
-    same layout losslessly, but the exact instant used in the representation will
-    differ by the actual zone offset. To avoid such problems, prefer time layouts
-    that use a numeric zone offset, or use ParseInLocation.
-**/
-function parse(layout:String, value:String):stdgo.Tuple<Time, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.time.Time.parse(layout, value);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    ParseInLocation is like Parse but differs in two important ways.
-    First, in the absence of time zone information, Parse interprets a time as UTC;
-    ParseInLocation interprets the time as in the given location.
-    Second, when given a zone offset or abbreviation, Parse tries to match it
-    against the Local location; ParseInLocation uses the given location.
-**/
-function parseInLocation(layout:String, value:String, loc:Location):stdgo.Tuple<Time, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.time.Time.parseInLocation(layout, value, loc);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    ParseDuration parses a duration string.
-    A duration string is a possibly signed sequence of
-    decimal numbers, each with optional fraction and a unit suffix,
-    such as "300ms", "-1.5h" or "2h45m".
-    Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h".
-**/
-function parseDuration(s:String):stdgo.Tuple<Duration, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.time.Time.parseDuration(s);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Test that a runtimeTimer with a period that would overflow when on
-    expiration does not throw or cause other timers to hang.
-    
-    This test has to be in internal_test.go since it fiddles with
-    unexported data structures.
-**/
-function checkRuntimeTimerPeriodOverflow():Void {
-        stdgo._internal.time.Time.checkRuntimeTimerPeriodOverflow();
-    }
-/**
-    Sleep pauses the current goroutine for at least the duration d.
-    A negative or zero duration causes Sleep to return immediately.
-**/
-function sleep(d:Duration):Void {
-        stdgo._internal.time.Time.sleep(d);
-    }
-/**
-    NewTimer creates a new Timer that will send
-    the current time on its channel after at least duration d.
-**/
-function newTimer(d:Duration):Timer {
-        return stdgo._internal.time.Time.newTimer(d);
-    }
-/**
-    After waits for the duration to elapse and then sends the current time
-    on the returned channel.
-    It is equivalent to NewTimer(d).C.
-    The underlying Timer is not recovered by the garbage collector
-    until the timer fires. If efficiency is a concern, use NewTimer
-    instead and call Timer.Stop if the timer is no longer needed.
-**/
-function after(d:Duration):stdgo.Chan<Time> {
-        return stdgo._internal.time.Time.after(d);
-    }
-/**
-    AfterFunc waits for the duration to elapse and then calls f
-    in its own goroutine. It returns a Timer that can
-    be used to cancel the call using its Stop method.
-**/
-function afterFunc(d:Duration, f:() -> Void):Timer {
-        final f = f;
-        return stdgo._internal.time.Time.afterFunc(d, f);
-    }
-/**
-    NewTicker returns a new Ticker containing a channel that will send
-    the current time on the channel after each tick. The period of the
-    ticks is specified by the duration argument. The ticker will adjust
-    the time interval or drop ticks to make up for slow receivers.
-    The duration d must be greater than zero; if not, NewTicker will
-    panic. Stop the ticker to release associated resources.
-**/
-function newTicker(d:Duration):Ticker {
-        return stdgo._internal.time.Time.newTicker(d);
-    }
-/**
-    Tick is a convenience wrapper for NewTicker providing access to the ticking
-    channel only. While Tick is useful for clients that have no need to shut down
-    the Ticker, be aware that without a way to shut it down the underlying
-    Ticker cannot be recovered by the garbage collector; it "leaks".
-    Unlike NewTicker, Tick will return nil if d <= 0.
-**/
-function tick(d:Duration):stdgo.Chan<Time> {
-        return stdgo._internal.time.Time.tick(d);
-    }
-/**
-    Since returns the time elapsed since t.
-    It is shorthand for time.Now().Sub(t).
-**/
-function since(t:Time):Duration {
-        return stdgo._internal.time.Time.since(t);
-    }
-/**
-    Until returns the duration until t.
-    It is shorthand for t.Sub(time.Now()).
-**/
-function until(t:Time):Duration {
-        return stdgo._internal.time.Time.until(t);
-    }
-/**
-    Now returns the current local time.
-**/
-function now():Time {
-        return stdgo._internal.time.Time.now();
-    }
-/**
-    Unix returns the local Time corresponding to the given Unix time,
-    sec seconds and nsec nanoseconds since January 1, 1970 UTC.
-    It is valid to pass nsec outside the range [0, 999999999].
-    Not all sec values have a corresponding time value. One such
-    value is 1<<63-1 (the largest int64 value).
-**/
-function unix(sec:haxe.Int64, nsec:haxe.Int64):Time {
-        return stdgo._internal.time.Time.unix(sec, nsec);
-    }
-/**
-    UnixMilli returns the local Time corresponding to the given Unix time,
-    msec milliseconds since January 1, 1970 UTC.
-**/
-function unixMilli(msec:haxe.Int64):Time {
-        return stdgo._internal.time.Time.unixMilli(msec);
-    }
-/**
-    UnixMicro returns the local Time corresponding to the given Unix time,
-    usec microseconds since January 1, 1970 UTC.
-**/
-function unixMicro(usec:haxe.Int64):Time {
-        return stdgo._internal.time.Time.unixMicro(usec);
-    }
-/**
-    Date returns the Time corresponding to
-    
-    	yyyy-mm-dd hh:mm:ss + nsec nanoseconds
-    
-    in the appropriate zone for that time in the given location.
-    
-    The month, day, hour, min, sec, and nsec values may be outside
-    their usual ranges and will be normalized during the conversion.
-    For example, October 32 converts to November 1.
-    
-    A daylight savings time transition skips or repeats times.
-    For example, in the United States, March 13, 2011 2:15am never occurred,
-    while November 6, 2011 1:15am occurred twice. In such cases, the
-    choice of time zone, and therefore the time, is not well-defined.
-    Date returns a time that is correct in one of the two zones involved
-    in the transition, but it does not guarantee which.
-    
-    Date panics if loc is nil.
-**/
-function date(year:StdTypes.Int, month:Month, day:StdTypes.Int, hour:StdTypes.Int, min:StdTypes.Int, sec:StdTypes.Int, nsec:StdTypes.Int, loc:Location):Time {
-        return stdgo._internal.time.Time.date(year, month, day, hour, min, sec, nsec, loc);
-    }
-/**
-    FixedZone returns a Location that always uses
-    the given zone name and offset (seconds east of UTC).
-**/
-function fixedZone(name:String, offset:StdTypes.Int):Location {
-        return stdgo._internal.time.Time.fixedZone(name, offset);
-    }
-/**
-    LoadLocation returns the Location with the given name.
-    
-    If the name is "" or "UTC", LoadLocation returns UTC.
-    If the name is "Local", LoadLocation returns Local.
-    
-    Otherwise, the name is taken to be a location name corresponding to a file
-    in the IANA Time Zone database, such as "America/New_York".
-    
-    LoadLocation looks for the IANA Time Zone database in the following
-    locations in order:
-    
-      - the directory or uncompressed zip file named by the ZONEINFO environment variable
-      - on a Unix system, the system standard installation location
-      - $GOROOT/lib/time/zoneinfo.zip
-      - the time/tzdata package, if it was imported
-**/
-function loadLocation(name:String):stdgo.Tuple<Location, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.time.Time.loadLocation(name);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    LoadLocationFromTZData returns a Location with the given name
-    initialized from the IANA Time Zone database-formatted data.
-    The data should be in the format of a standard IANA time zone file
-    (for example, the content of /etc/localtime on Unix systems).
-**/
-function loadLocationFromTZData(name:String, data:Array<StdTypes.Int>):stdgo.Tuple<Location, stdgo.Error> {
-        final data = ([for (i in data) i] : stdgo.Slice<stdgo.GoByte>);
-        return {
-            final obj = stdgo._internal.time.Time.loadLocationFromTZData(name, data);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
 @:forward @:forward.new abstract ParseError_asInterface(stdgo._internal.time.Time.ParseError_asInterface) from stdgo._internal.time.Time.ParseError_asInterface to stdgo._internal.time.Time.ParseError_asInterface {
 
 }
@@ -575,4 +300,281 @@ function loadLocationFromTZData(name:String, data:Array<StdTypes.Int>):stdgo.Tup
 }
 @:forward @:forward.new abstract T_fileSizeError_static_extension(stdgo._internal.time.Time.T_fileSizeError_static_extension) from stdgo._internal.time.Time.T_fileSizeError_static_extension to stdgo._internal.time.Time.T_fileSizeError_static_extension {
 
+}
+class Time {
+    static public function resetLocalOnceForTest():Void {
+        stdgo._internal.time.Time.resetLocalOnceForTest();
+    }
+    static public function forceUSPacificForTesting():Void {
+        stdgo._internal.time.Time.forceUSPacificForTesting();
+    }
+    static public function zoneinfoForTesting():stdgo.Pointer<String> {
+        return stdgo._internal.time.Time.zoneinfoForTesting();
+    }
+    static public function resetZoneinfoForTesting():Void {
+        stdgo._internal.time.Time.resetZoneinfoForTesting();
+    }
+    static public function loadFromEmbeddedTZData(zone:String):stdgo.Tuple<String, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.time.Time.loadFromEmbeddedTZData(zone);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    static public function tzsetRule(s:String):stdgo.Tuple.Tuple3<Rule, String, Bool> {
+        return {
+            final obj = stdgo._internal.time.Time.tzsetRule(s);
+            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
+        };
+    }
+    /**
+        Parse parses a formatted string and returns the time value it represents.
+        See the documentation for the constant called Layout to see how to
+        represent the format. The second argument must be parseable using
+        the format string (layout) provided as the first argument.
+        
+        The example for Time.Format demonstrates the working of the layout string
+        in detail and is a good reference.
+        
+        When parsing (only), the input may contain a fractional second
+        field immediately after the seconds field, even if the layout does not
+        signify its presence. In that case either a comma or a decimal point
+        followed by a maximal series of digits is parsed as a fractional second.
+        Fractional seconds are truncated to nanosecond precision.
+        
+        Elements omitted from the layout are assumed to be zero or, when
+        zero is impossible, one, so parsing "3:04pm" returns the time
+        corresponding to Jan 1, year 0, 15:04:00 UTC (note that because the year is
+        0, this time is before the zero Time).
+        Years must be in the range 0000..9999. The day of the week is checked
+        for syntax but it is otherwise ignored.
+        
+        For layouts specifying the two-digit year 06, a value NN >= 69 will be treated
+        as 19NN and a value NN < 69 will be treated as 20NN.
+        
+        The remainder of this comment describes the handling of time zones.
+        
+        In the absence of a time zone indicator, Parse returns a time in UTC.
+        
+        When parsing a time with a zone offset like -0700, if the offset corresponds
+        to a time zone used by the current location (Local), then Parse uses that
+        location and zone in the returned time. Otherwise it records the time as
+        being in a fabricated location with time fixed at the given zone offset.
+        
+        When parsing a time with a zone abbreviation like MST, if the zone abbreviation
+        has a defined offset in the current location, then that offset is used.
+        The zone abbreviation "UTC" is recognized as UTC regardless of location.
+        If the zone abbreviation is unknown, Parse records the time as being
+        in a fabricated location with the given zone abbreviation and a zero offset.
+        This choice means that such a time can be parsed and reformatted with the
+        same layout losslessly, but the exact instant used in the representation will
+        differ by the actual zone offset. To avoid such problems, prefer time layouts
+        that use a numeric zone offset, or use ParseInLocation.
+    **/
+    static public function parse(layout:String, value:String):stdgo.Tuple<Time, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.time.Time.parse(layout, value);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        ParseInLocation is like Parse but differs in two important ways.
+        First, in the absence of time zone information, Parse interprets a time as UTC;
+        ParseInLocation interprets the time as in the given location.
+        Second, when given a zone offset or abbreviation, Parse tries to match it
+        against the Local location; ParseInLocation uses the given location.
+    **/
+    static public function parseInLocation(layout:String, value:String, loc:Location):stdgo.Tuple<Time, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.time.Time.parseInLocation(layout, value, loc);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        ParseDuration parses a duration string.
+        A duration string is a possibly signed sequence of
+        decimal numbers, each with optional fraction and a unit suffix,
+        such as "300ms", "-1.5h" or "2h45m".
+        Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h".
+    **/
+    static public function parseDuration(s:String):stdgo.Tuple<Duration, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.time.Time.parseDuration(s);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Test that a runtimeTimer with a period that would overflow when on
+        expiration does not throw or cause other timers to hang.
+        
+        This test has to be in internal_test.go since it fiddles with
+        unexported data structures.
+    **/
+    static public function checkRuntimeTimerPeriodOverflow():Void {
+        stdgo._internal.time.Time.checkRuntimeTimerPeriodOverflow();
+    }
+    /**
+        Sleep pauses the current goroutine for at least the duration d.
+        A negative or zero duration causes Sleep to return immediately.
+    **/
+    static public function sleep(d:Duration):Void {
+        stdgo._internal.time.Time.sleep(d);
+    }
+    /**
+        NewTimer creates a new Timer that will send
+        the current time on its channel after at least duration d.
+    **/
+    static public function newTimer(d:Duration):Timer {
+        return stdgo._internal.time.Time.newTimer(d);
+    }
+    /**
+        After waits for the duration to elapse and then sends the current time
+        on the returned channel.
+        It is equivalent to NewTimer(d).C.
+        The underlying Timer is not recovered by the garbage collector
+        until the timer fires. If efficiency is a concern, use NewTimer
+        instead and call Timer.Stop if the timer is no longer needed.
+    **/
+    static public function after(d:Duration):stdgo.Chan<Time> {
+        return stdgo._internal.time.Time.after(d);
+    }
+    /**
+        AfterFunc waits for the duration to elapse and then calls f
+        in its own goroutine. It returns a Timer that can
+        be used to cancel the call using its Stop method.
+    **/
+    static public function afterFunc(d:Duration, f:() -> Void):Timer {
+        final f = f;
+        return stdgo._internal.time.Time.afterFunc(d, f);
+    }
+    /**
+        NewTicker returns a new Ticker containing a channel that will send
+        the current time on the channel after each tick. The period of the
+        ticks is specified by the duration argument. The ticker will adjust
+        the time interval or drop ticks to make up for slow receivers.
+        The duration d must be greater than zero; if not, NewTicker will
+        panic. Stop the ticker to release associated resources.
+    **/
+    static public function newTicker(d:Duration):Ticker {
+        return stdgo._internal.time.Time.newTicker(d);
+    }
+    /**
+        Tick is a convenience wrapper for NewTicker providing access to the ticking
+        channel only. While Tick is useful for clients that have no need to shut down
+        the Ticker, be aware that without a way to shut it down the underlying
+        Ticker cannot be recovered by the garbage collector; it "leaks".
+        Unlike NewTicker, Tick will return nil if d <= 0.
+    **/
+    static public function tick(d:Duration):stdgo.Chan<Time> {
+        return stdgo._internal.time.Time.tick(d);
+    }
+    /**
+        Since returns the time elapsed since t.
+        It is shorthand for time.Now().Sub(t).
+    **/
+    static public function since(t:Time):Duration {
+        return stdgo._internal.time.Time.since(t);
+    }
+    /**
+        Until returns the duration until t.
+        It is shorthand for t.Sub(time.Now()).
+    **/
+    static public function until(t:Time):Duration {
+        return stdgo._internal.time.Time.until(t);
+    }
+    /**
+        Now returns the current local time.
+    **/
+    static public function now():Time {
+        return stdgo._internal.time.Time.now();
+    }
+    /**
+        Unix returns the local Time corresponding to the given Unix time,
+        sec seconds and nsec nanoseconds since January 1, 1970 UTC.
+        It is valid to pass nsec outside the range [0, 999999999].
+        Not all sec values have a corresponding time value. One such
+        value is 1<<63-1 (the largest int64 value).
+    **/
+    static public function unix(sec:haxe.Int64, nsec:haxe.Int64):Time {
+        return stdgo._internal.time.Time.unix(sec, nsec);
+    }
+    /**
+        UnixMilli returns the local Time corresponding to the given Unix time,
+        msec milliseconds since January 1, 1970 UTC.
+    **/
+    static public function unixMilli(msec:haxe.Int64):Time {
+        return stdgo._internal.time.Time.unixMilli(msec);
+    }
+    /**
+        UnixMicro returns the local Time corresponding to the given Unix time,
+        usec microseconds since January 1, 1970 UTC.
+    **/
+    static public function unixMicro(usec:haxe.Int64):Time {
+        return stdgo._internal.time.Time.unixMicro(usec);
+    }
+    /**
+        Date returns the Time corresponding to
+        
+        	yyyy-mm-dd hh:mm:ss + nsec nanoseconds
+        
+        in the appropriate zone for that time in the given location.
+        
+        The month, day, hour, min, sec, and nsec values may be outside
+        their usual ranges and will be normalized during the conversion.
+        For example, October 32 converts to November 1.
+        
+        A daylight savings time transition skips or repeats times.
+        For example, in the United States, March 13, 2011 2:15am never occurred,
+        while November 6, 2011 1:15am occurred twice. In such cases, the
+        choice of time zone, and therefore the time, is not well-defined.
+        Date returns a time that is correct in one of the two zones involved
+        in the transition, but it does not guarantee which.
+        
+        Date panics if loc is nil.
+    **/
+    static public function date(year:StdTypes.Int, month:Month, day:StdTypes.Int, hour:StdTypes.Int, min:StdTypes.Int, sec:StdTypes.Int, nsec:StdTypes.Int, loc:Location):Time {
+        return stdgo._internal.time.Time.date(year, month, day, hour, min, sec, nsec, loc);
+    }
+    /**
+        FixedZone returns a Location that always uses
+        the given zone name and offset (seconds east of UTC).
+    **/
+    static public function fixedZone(name:String, offset:StdTypes.Int):Location {
+        return stdgo._internal.time.Time.fixedZone(name, offset);
+    }
+    /**
+        LoadLocation returns the Location with the given name.
+        
+        If the name is "" or "UTC", LoadLocation returns UTC.
+        If the name is "Local", LoadLocation returns Local.
+        
+        Otherwise, the name is taken to be a location name corresponding to a file
+        in the IANA Time Zone database, such as "America/New_York".
+        
+        LoadLocation looks for the IANA Time Zone database in the following
+        locations in order:
+        
+          - the directory or uncompressed zip file named by the ZONEINFO environment variable
+          - on a Unix system, the system standard installation location
+          - $GOROOT/lib/time/zoneinfo.zip
+          - the time/tzdata package, if it was imported
+    **/
+    static public function loadLocation(name:String):stdgo.Tuple<Location, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.time.Time.loadLocation(name);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        LoadLocationFromTZData returns a Location with the given name
+        initialized from the IANA Time Zone database-formatted data.
+        The data should be in the format of a standard IANA time zone file
+        (for example, the content of /etc/localtime on Unix systems).
+    **/
+    static public function loadLocationFromTZData(name:String, data:Array<StdTypes.Int>):stdgo.Tuple<Location, stdgo.Error> {
+        final data = ([for (i in data) i] : stdgo.Slice<stdgo.GoByte>);
+        return {
+            final obj = stdgo._internal.time.Time.loadLocationFromTZData(name, data);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
 }

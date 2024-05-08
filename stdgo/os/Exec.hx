@@ -115,71 +115,6 @@ private function set_errNotFound(v:stdgo.Error):stdgo.Error return stdgo._intern
 @:forward @:forward.new abstract T_prefixSuffixSaver(stdgo._internal.os.exec.Exec.T_prefixSuffixSaver) from stdgo._internal.os.exec.Exec.T_prefixSuffixSaver to stdgo._internal.os.exec.Exec.T_prefixSuffixSaver {
 
 }
-function benchmarkExecHostname(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.os.exec.Exec.benchmarkExecHostname(b);
-    }
-function testDedupEnv(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.os.exec.Exec.testDedupEnv(t);
-    }
-/**
-    Command returns the Cmd struct to execute the named program with
-    the given arguments.
-    
-    It sets only the Path and Args in the returned structure.
-    
-    If name contains no path separators, Command uses LookPath to
-    resolve name to a complete path if possible. Otherwise it uses name
-    directly as Path.
-    
-    The returned Cmd's Args field is constructed from the command name
-    followed by the elements of arg, so arg should not include the
-    command name itself. For example, Command("echo", "hello").
-    Args[0] is always name, not the possibly resolved Path.
-    
-    On Windows, processes receive the whole command line as a single string
-    and do their own parsing. Command combines and quotes Args into a command
-    line string with an algorithm compatible with applications using
-    CommandLineToArgvW (which is the most common way). Notable exceptions are
-    msiexec.exe and cmd.exe (and thus, all batch files), which have a different
-    unquoting algorithm. In these or other similar cases, you can do the
-    quoting yourself and provide the full command line in SysProcAttr.CmdLine,
-    leaving Args empty.
-**/
-function command(name:String, arg:haxe.Rest<String>):Cmd {
-        return stdgo._internal.os.exec.Exec.command(name, ...arg);
-    }
-/**
-    CommandContext is like Command but includes a context.
-    
-    The provided context is used to interrupt the process
-    (by calling cmd.Cancel or os.Process.Kill)
-    if the context becomes done before the command completes on its own.
-    
-    CommandContext sets the command's Cancel function to invoke the Kill method
-    on its Process, and leaves its WaitDelay unset. The caller may change the
-    cancellation behavior by modifying those fields before starting the command.
-**/
-function commandContext(ctx:stdgo._internal.context.Context.Context, name:String, arg:haxe.Rest<String>):Cmd {
-        return stdgo._internal.os.exec.Exec.commandContext(ctx, name, ...arg);
-    }
-function testPrefixSuffixSaver(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.os.exec.Exec.testPrefixSuffixSaver(t);
-    }
-function testLookPathNotFound(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.os.exec.Exec.testLookPathNotFound(t);
-    }
-/**
-    LookPath searches for an executable named file in the
-    directories named by the PATH environment variable.
-    If file contains a slash, it is tried directly and the PATH is not consulted.
-    The result may be an absolute path or a path relative to the current directory.
-**/
-function lookPath(file:String):stdgo.Tuple<String, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.os.exec.Exec.lookPath(file);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
 @:forward @:forward.new abstract Error_asInterface(stdgo._internal.os.exec.Exec.Error_asInterface) from stdgo._internal.os.exec.Exec.Error_asInterface to stdgo._internal.os.exec.Exec.Error_asInterface {
 
 }
@@ -209,4 +144,71 @@ function lookPath(file:String):stdgo.Tuple<String, stdgo.Error> {
 }
 @:forward @:forward.new abstract T_prefixSuffixSaver_static_extension(stdgo._internal.os.exec.Exec.T_prefixSuffixSaver_static_extension) from stdgo._internal.os.exec.Exec.T_prefixSuffixSaver_static_extension to stdgo._internal.os.exec.Exec.T_prefixSuffixSaver_static_extension {
 
+}
+class Exec {
+    static public function benchmarkExecHostname(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.os.exec.Exec.benchmarkExecHostname(b);
+    }
+    static public function testDedupEnv(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.os.exec.Exec.testDedupEnv(t);
+    }
+    /**
+        Command returns the Cmd struct to execute the named program with
+        the given arguments.
+        
+        It sets only the Path and Args in the returned structure.
+        
+        If name contains no path separators, Command uses LookPath to
+        resolve name to a complete path if possible. Otherwise it uses name
+        directly as Path.
+        
+        The returned Cmd's Args field is constructed from the command name
+        followed by the elements of arg, so arg should not include the
+        command name itself. For example, Command("echo", "hello").
+        Args[0] is always name, not the possibly resolved Path.
+        
+        On Windows, processes receive the whole command line as a single string
+        and do their own parsing. Command combines and quotes Args into a command
+        line string with an algorithm compatible with applications using
+        CommandLineToArgvW (which is the most common way). Notable exceptions are
+        msiexec.exe and cmd.exe (and thus, all batch files), which have a different
+        unquoting algorithm. In these or other similar cases, you can do the
+        quoting yourself and provide the full command line in SysProcAttr.CmdLine,
+        leaving Args empty.
+    **/
+    static public function command(name:String, arg:haxe.Rest<String>):Cmd {
+        return stdgo._internal.os.exec.Exec.command(name, ...arg);
+    }
+    /**
+        CommandContext is like Command but includes a context.
+        
+        The provided context is used to interrupt the process
+        (by calling cmd.Cancel or os.Process.Kill)
+        if the context becomes done before the command completes on its own.
+        
+        CommandContext sets the command's Cancel function to invoke the Kill method
+        on its Process, and leaves its WaitDelay unset. The caller may change the
+        cancellation behavior by modifying those fields before starting the command.
+    **/
+    static public function commandContext(ctx:stdgo._internal.context.Context.Context, name:String, arg:haxe.Rest<String>):Cmd {
+        return stdgo._internal.os.exec.Exec.commandContext(ctx, name, ...arg);
+    }
+    static public function testPrefixSuffixSaver(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.os.exec.Exec.testPrefixSuffixSaver(t);
+    }
+    static public function testLookPathNotFound(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.os.exec.Exec.testLookPathNotFound(t);
+    }
+    /**
+        LookPath searches for an executable named file in the
+        directories named by the PATH environment variable.
+        If file contains a slash, it is tried directly and the PATH is not consulted.
+        The result may be an absolute path or a path relative to the current directory.
+    **/
+    static public function lookPath(file:String):stdgo.Tuple<String, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.os.exec.Exec.lookPath(file);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
 }

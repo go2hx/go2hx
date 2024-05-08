@@ -39,20 +39,6 @@ private var __go2hxdoc__package : Bool;
 @:forward @:forward.new abstract T_runtimeStderr(stdgo._internal.internal.godebug.Godebug.T_runtimeStderr) from stdgo._internal.internal.godebug.Godebug.T_runtimeStderr to stdgo._internal.internal.godebug.Godebug.T_runtimeStderr {
 
 }
-/**
-    New returns a new Setting for the $GODEBUG setting with the given name.
-    
-    GODEBUGs meant for use by end users must be listed in ../godebugs/table.go,
-    which is used for generating and checking various documentation.
-    If the name is not listed in that table, New will succeed but calling Value
-    on the returned Setting will panic.
-    To disable that panic for access to an undocumented setting,
-    prefix the name with a #, as in godebug.New("#gofsystrace").
-    The # is a signal to New but not part of the key used in $GODEBUG.
-**/
-function new_(name:String):Setting {
-        return stdgo._internal.internal.godebug.Godebug.new_(name);
-    }
 @:forward @:forward.new abstract Setting_asInterface(stdgo._internal.internal.godebug.Godebug.Setting_asInterface) from stdgo._internal.internal.godebug.Godebug.Setting_asInterface to stdgo._internal.internal.godebug.Godebug.Setting_asInterface {
 
 }
@@ -64,4 +50,20 @@ function new_(name:String):Setting {
 }
 @:forward @:forward.new abstract T_runtimeStderr_static_extension(stdgo._internal.internal.godebug.Godebug.T_runtimeStderr_static_extension) from stdgo._internal.internal.godebug.Godebug.T_runtimeStderr_static_extension to stdgo._internal.internal.godebug.Godebug.T_runtimeStderr_static_extension {
 
+}
+class Godebug {
+    /**
+        New returns a new Setting for the $GODEBUG setting with the given name.
+        
+        GODEBUGs meant for use by end users must be listed in ../godebugs/table.go,
+        which is used for generating and checking various documentation.
+        If the name is not listed in that table, New will succeed but calling Value
+        on the returned Setting will panic.
+        To disable that panic for access to an undocumented setting,
+        prefix the name with a #, as in godebug.New("#gofsystrace").
+        The # is a signal to New but not part of the key used in $GODEBUG.
+    **/
+    static public function new_(name:String):Setting {
+        return stdgo._internal.internal.godebug.Godebug.new_(name);
+    }
 }

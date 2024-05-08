@@ -77,23 +77,25 @@ typedef T__struct_4 = stdgo._internal.internal.cpu.Cpu.T__struct_4;
 
 }
 typedef T__struct_5 = stdgo._internal.internal.cpu.Cpu.T__struct_5;
-/**
-    Initialize examines the processor and sets the relevant variables above.
-    This is called by the runtime package early in program initialization,
-    before normal init functions are run. env is set by runtime if the OS supports
-    cpu feature options in GODEBUG.
-**/
-function initialize(env:String):Void {
+class Cpu {
+    /**
+        Initialize examines the processor and sets the relevant variables above.
+        This is called by the runtime package early in program initialization,
+        before normal init functions are run. env is set by runtime if the OS supports
+        cpu feature options in GODEBUG.
+    **/
+    static public function initialize(env:String):Void {
         stdgo._internal.internal.cpu.Cpu.initialize(env);
     }
-/**
-    Name returns the CPU name given by the vendor
-    if it can be read directly from memory or by CPU instructions.
-    If the CPU name can not be determined an empty string is returned.
-    
-    Implementations that use the Operating System (e.g. sysctl or /sys/)
-    to gather CPU information for display should be placed in internal/sysinfo.
-**/
-function name():String {
+    /**
+        Name returns the CPU name given by the vendor
+        if it can be read directly from memory or by CPU instructions.
+        If the CPU name can not be determined an empty string is returned.
+        
+        Implementations that use the Operating System (e.g. sysctl or /sys/)
+        to gather CPU information for display should be placed in internal/sysinfo.
+    **/
+    static public function name():String {
         return stdgo._internal.internal.cpu.Cpu.name();
     }
+}

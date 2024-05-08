@@ -56,96 +56,6 @@ typedef T__struct_0 = stdgo._internal.encoding.base64.Base64.T__struct_0;
 }
 typedef T__struct_1 = stdgo._internal.encoding.base64.Base64.T__struct_1;
 typedef CorruptInputError = stdgo._internal.encoding.base64.Base64.CorruptInputError;
-/**
-    NewEncoding returns a new padded Encoding defined by the given alphabet,
-    which must be a 64-byte string that does not contain the padding character
-    or CR / LF ('\r', '\n'). The alphabet is treated as sequence of byte values
-    without any special treatment for multi-byte UTF-8.
-    The resulting Encoding uses the default padding character ('='),
-    which may be changed or disabled via WithPadding.
-**/
-function newEncoding(encoder:String):Encoding {
-        return stdgo._internal.encoding.base64.Base64.newEncoding(encoder);
-    }
-/**
-    NewEncoder returns a new base64 stream encoder. Data written to
-    the returned writer will be encoded using enc and then written to w.
-    Base64 encodings operate in 4-byte blocks; when finished
-    writing, the caller must Close the returned encoder to flush any
-    partially written blocks.
-**/
-function newEncoder(enc:Encoding, w:stdgo._internal.io.Io.Writer):stdgo._internal.io.Io.WriteCloser {
-        return stdgo._internal.encoding.base64.Base64.newEncoder(enc, w);
-    }
-/**
-    NewDecoder constructs a new base64 stream decoder.
-**/
-function newDecoder(enc:Encoding, r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
-        return stdgo._internal.encoding.base64.Base64.newDecoder(enc, r);
-    }
-function testEncode(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testEncode(t);
-    }
-function testEncoder(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testEncoder(t);
-    }
-function testEncoderBuffering(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testEncoderBuffering(t);
-    }
-function testDecode(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testDecode(t);
-    }
-function testDecoder(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testDecoder(t);
-    }
-function testDecoderBuffering(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testDecoderBuffering(t);
-    }
-function testDecodeCorrupt(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testDecodeCorrupt(t);
-    }
-function testDecodeBounds(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testDecodeBounds(t);
-    }
-function testEncodedLen(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testEncodedLen(t);
-    }
-function testDecodedLen(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testDecodedLen(t);
-    }
-function testBig(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testBig(t);
-    }
-function testNewLineCharacters(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testNewLineCharacters(t);
-    }
-/**
-    tests that we don't ignore errors from our underlying reader
-**/
-function testDecoderIssue3577(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testDecoderIssue3577(t);
-    }
-function testDecoderIssue4779(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testDecoderIssue4779(t);
-    }
-function testDecoderIssue7733(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testDecoderIssue7733(t);
-    }
-function testDecoderIssue15656(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testDecoderIssue15656(t);
-    }
-function benchmarkEncodeToString(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.base64.Base64.benchmarkEncodeToString(b);
-    }
-function benchmarkDecodeString(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.base64.Base64.benchmarkDecodeString(b);
-    }
-function benchmarkNewEncoding(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.base64.Base64.benchmarkNewEncoding(b);
-    }
-function testDecoderRaw(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testDecoderRaw(t);
-    }
 @:forward @:forward.new abstract Encoding_asInterface(stdgo._internal.encoding.base64.Base64.Encoding_asInterface) from stdgo._internal.encoding.base64.Base64.Encoding_asInterface to stdgo._internal.encoding.base64.Base64.Encoding_asInterface {
 
 }
@@ -181,4 +91,96 @@ function testDecoderRaw(t:stdgo._internal.testing.Testing.T_):Void {
 }
 @:forward @:forward.new abstract CorruptInputError_static_extension(stdgo._internal.encoding.base64.Base64.CorruptInputError_static_extension) from stdgo._internal.encoding.base64.Base64.CorruptInputError_static_extension to stdgo._internal.encoding.base64.Base64.CorruptInputError_static_extension {
 
+}
+class Base64 {
+    /**
+        NewEncoding returns a new padded Encoding defined by the given alphabet,
+        which must be a 64-byte string that does not contain the padding character
+        or CR / LF ('\r', '\n'). The alphabet is treated as sequence of byte values
+        without any special treatment for multi-byte UTF-8.
+        The resulting Encoding uses the default padding character ('='),
+        which may be changed or disabled via WithPadding.
+    **/
+    static public function newEncoding(encoder:String):Encoding {
+        return stdgo._internal.encoding.base64.Base64.newEncoding(encoder);
+    }
+    /**
+        NewEncoder returns a new base64 stream encoder. Data written to
+        the returned writer will be encoded using enc and then written to w.
+        Base64 encodings operate in 4-byte blocks; when finished
+        writing, the caller must Close the returned encoder to flush any
+        partially written blocks.
+    **/
+    static public function newEncoder(enc:Encoding, w:stdgo._internal.io.Io.Writer):stdgo._internal.io.Io.WriteCloser {
+        return stdgo._internal.encoding.base64.Base64.newEncoder(enc, w);
+    }
+    /**
+        NewDecoder constructs a new base64 stream decoder.
+    **/
+    static public function newDecoder(enc:Encoding, r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
+        return stdgo._internal.encoding.base64.Base64.newDecoder(enc, r);
+    }
+    static public function testEncode(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testEncode(t);
+    }
+    static public function testEncoder(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testEncoder(t);
+    }
+    static public function testEncoderBuffering(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testEncoderBuffering(t);
+    }
+    static public function testDecode(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testDecode(t);
+    }
+    static public function testDecoder(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testDecoder(t);
+    }
+    static public function testDecoderBuffering(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testDecoderBuffering(t);
+    }
+    static public function testDecodeCorrupt(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testDecodeCorrupt(t);
+    }
+    static public function testDecodeBounds(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testDecodeBounds(t);
+    }
+    static public function testEncodedLen(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testEncodedLen(t);
+    }
+    static public function testDecodedLen(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testDecodedLen(t);
+    }
+    static public function testBig(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testBig(t);
+    }
+    static public function testNewLineCharacters(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testNewLineCharacters(t);
+    }
+    /**
+        tests that we don't ignore errors from our underlying reader
+    **/
+    static public function testDecoderIssue3577(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testDecoderIssue3577(t);
+    }
+    static public function testDecoderIssue4779(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testDecoderIssue4779(t);
+    }
+    static public function testDecoderIssue7733(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testDecoderIssue7733(t);
+    }
+    static public function testDecoderIssue15656(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testDecoderIssue15656(t);
+    }
+    static public function benchmarkEncodeToString(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.base64.Base64.benchmarkEncodeToString(b);
+    }
+    static public function benchmarkDecodeString(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.base64.Base64.benchmarkDecodeString(b);
+    }
+    static public function benchmarkNewEncoding(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.base64.Base64.benchmarkNewEncoding(b);
+    }
+    static public function testDecoderRaw(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testDecoderRaw(t);
+    }
 }

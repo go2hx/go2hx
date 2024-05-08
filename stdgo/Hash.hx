@@ -15,3 +15,6 @@ typedef Hash32 = stdgo._internal.hash.Hash.Hash32;
 
 }
 typedef Hash64 = stdgo._internal.hash.Hash.Hash64;
+class Hash {
+
+}

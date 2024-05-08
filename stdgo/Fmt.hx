@@ -439,246 +439,6 @@ typedef Scanner = stdgo._internal.fmt.Fmt.Scanner;
 }
 typedef T_buffer = stdgo._internal.fmt.Fmt.T_buffer;
 typedef T_stringReader = stdgo._internal.fmt.Fmt.T_stringReader;
-/**
-    Errorf formats according to a format specifier and returns the string as a
-    value that satisfies error.
-    
-    If the format specifier includes a %w verb with an error operand,
-    the returned error will implement an Unwrap method returning the operand.
-    If there is more than one %w verb, the returned error will implement an
-    Unwrap method returning a []error containing all the %w operands in the
-    order they appear in the arguments.
-    It is invalid to supply the %w verb with an operand that does not implement
-    the error interface. The %w verb is otherwise a synonym for %v.
-**/
-function errorf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Error {
-        return stdgo._internal.fmt.Fmt.errorf(format, ...a);
-    }
-/**
-    FormatString returns a string representing the fully qualified formatting
-    directive captured by the State, followed by the argument verb. (State does not
-    itself contain the verb.) The result has a leading percent sign followed by any
-    flags, the width, and the precision. Missing flags, width, and precision are
-    omitted. This function allows a Formatter to reconstruct the original
-    directive triggering the call to Format.
-**/
-function formatString(state:State, verb:StdTypes.Int):String {
-        return stdgo._internal.fmt.Fmt.formatString(state, verb);
-    }
-/**
-    Fprintf formats according to a format specifier and writes to w.
-    It returns the number of bytes written and any write error encountered.
-**/
-function fprintf(w:stdgo._internal.io.Io.Writer, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.fmt.Fmt.fprintf(w, format, ...a);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Printf formats according to a format specifier and writes to standard output.
-    It returns the number of bytes written and any write error encountered.
-**/
-function printf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.fmt.Fmt.printf(format, ...a);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Sprintf formats according to a format specifier and returns the resulting string.
-**/
-function sprintf(format:String, a:haxe.Rest<stdgo.AnyInterface>):String {
-        return stdgo._internal.fmt.Fmt.sprintf(format, ...a);
-    }
-/**
-    Appendf formats according to a format specifier, appends the result to the byte
-    slice, and returns the updated slice.
-**/
-function appendf(b:Array<StdTypes.Int>, format:String, a:haxe.Rest<stdgo.AnyInterface>):Array<StdTypes.Int> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.fmt.Fmt.appendf(b, format, ...a)) i];
-    }
-/**
-    Fprint formats using the default formats for its operands and writes to w.
-    Spaces are added between operands when neither is a string.
-    It returns the number of bytes written and any write error encountered.
-**/
-function fprint(w:stdgo._internal.io.Io.Writer, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.fmt.Fmt.fprint(w, ...a);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Print formats using the default formats for its operands and writes to standard output.
-    Spaces are added between operands when neither is a string.
-    It returns the number of bytes written and any write error encountered.
-**/
-function print(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.fmt.Fmt.print(...a);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Sprint formats using the default formats for its operands and returns the resulting string.
-    Spaces are added between operands when neither is a string.
-**/
-function sprint(a:haxe.Rest<stdgo.AnyInterface>):String {
-        return stdgo._internal.fmt.Fmt.sprint(...a);
-    }
-/**
-    Append formats using the default formats for its operands, appends the result to
-    the byte slice, and returns the updated slice.
-**/
-function append(b:Array<StdTypes.Int>, a:haxe.Rest<stdgo.AnyInterface>):Array<StdTypes.Int> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.fmt.Fmt.append(b, ...a)) i];
-    }
-/**
-    Fprintln formats using the default formats for its operands and writes to w.
-    Spaces are always added between operands and a newline is appended.
-    It returns the number of bytes written and any write error encountered.
-**/
-function fprintln(w:stdgo._internal.io.Io.Writer, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.fmt.Fmt.fprintln(w, ...a);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Println formats using the default formats for its operands and writes to standard output.
-    Spaces are always added between operands and a newline is appended.
-    It returns the number of bytes written and any write error encountered.
-**/
-function println(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.fmt.Fmt.println(...a);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Sprintln formats using the default formats for its operands and returns the resulting string.
-    Spaces are always added between operands and a newline is appended.
-**/
-function sprintln(a:haxe.Rest<stdgo.AnyInterface>):String {
-        return stdgo._internal.fmt.Fmt.sprintln(...a);
-    }
-/**
-    Appendln formats using the default formats for its operands, appends the result
-    to the byte slice, and returns the updated slice. Spaces are always added
-    between operands and a newline is appended.
-**/
-function appendln(b:Array<StdTypes.Int>, a:haxe.Rest<stdgo.AnyInterface>):Array<StdTypes.Int> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.fmt.Fmt.appendln(b, ...a)) i];
-    }
-/**
-    Scan scans text read from standard input, storing successive
-    space-separated values into successive arguments. Newlines count
-    as space. It returns the number of items successfully scanned.
-    If that is less than the number of arguments, err will report why.
-**/
-function scan(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.fmt.Fmt.scan(...a);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Scanln is similar to Scan, but stops scanning at a newline and
-    after the final item there must be a newline or EOF.
-**/
-function scanln(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.fmt.Fmt.scanln(...a);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Scanf scans text read from standard input, storing successive
-    space-separated values into successive arguments as determined by
-    the format. It returns the number of items successfully scanned.
-    If that is less than the number of arguments, err will report why.
-    Newlines in the input must match newlines in the format.
-    The one exception: the verb %c always scans the next rune in the
-    input, even if it is a space (or tab etc.) or newline.
-**/
-function scanf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.fmt.Fmt.scanf(format, ...a);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Sscan scans the argument string, storing successive space-separated
-    values into successive arguments. Newlines count as space. It
-    returns the number of items successfully scanned. If that is less
-    than the number of arguments, err will report why.
-**/
-function sscan(str:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.fmt.Fmt.sscan(str, ...a);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Sscanln is similar to Sscan, but stops scanning at a newline and
-    after the final item there must be a newline or EOF.
-**/
-function sscanln(str:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.fmt.Fmt.sscanln(str, ...a);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Sscanf scans the argument string, storing successive space-separated
-    values into successive arguments as determined by the format. It
-    returns the number of items successfully parsed.
-    Newlines in the input must match newlines in the format.
-**/
-function sscanf(str:String, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.fmt.Fmt.sscanf(str, format, ...a);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Fscan scans text read from r, storing successive space-separated
-    values into successive arguments. Newlines count as space. It
-    returns the number of items successfully scanned. If that is less
-    than the number of arguments, err will report why.
-**/
-function fscan(r:stdgo._internal.io.Io.Reader, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.fmt.Fmt.fscan(r, ...a);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Fscanln is similar to Fscan, but stops scanning at a newline and
-    after the final item there must be a newline or EOF.
-**/
-function fscanln(r:stdgo._internal.io.Io.Reader, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.fmt.Fmt.fscanln(r, ...a);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Fscanf scans text read from r, storing successive space-separated
-    values into successive arguments as determined by the format. It
-    returns the number of items successfully parsed.
-    Newlines in the input must match newlines in the format.
-**/
-function fscanf(r:stdgo._internal.io.Io.Reader, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.fmt.Fmt.fscanf(r, format, ...a);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
 @:forward @:forward.new abstract T_wrapError_asInterface(stdgo._internal.fmt.Fmt.T_wrapError_asInterface) from stdgo._internal.fmt.Fmt.T_wrapError_asInterface to stdgo._internal.fmt.Fmt.T_wrapError_asInterface {
 
 }
@@ -726,4 +486,246 @@ function fscanf(r:stdgo._internal.io.Io.Reader, format:String, a:haxe.Rest<stdgo
 }
 @:forward @:forward.new abstract T_stringReader_static_extension(stdgo._internal.fmt.Fmt.T_stringReader_static_extension) from stdgo._internal.fmt.Fmt.T_stringReader_static_extension to stdgo._internal.fmt.Fmt.T_stringReader_static_extension {
 
+}
+class Fmt {
+    /**
+        Errorf formats according to a format specifier and returns the string as a
+        value that satisfies error.
+        
+        If the format specifier includes a %w verb with an error operand,
+        the returned error will implement an Unwrap method returning the operand.
+        If there is more than one %w verb, the returned error will implement an
+        Unwrap method returning a []error containing all the %w operands in the
+        order they appear in the arguments.
+        It is invalid to supply the %w verb with an operand that does not implement
+        the error interface. The %w verb is otherwise a synonym for %v.
+    **/
+    static public function errorf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Error {
+        return stdgo._internal.fmt.Fmt.errorf(format, ...a);
+    }
+    /**
+        FormatString returns a string representing the fully qualified formatting
+        directive captured by the State, followed by the argument verb. (State does not
+        itself contain the verb.) The result has a leading percent sign followed by any
+        flags, the width, and the precision. Missing flags, width, and precision are
+        omitted. This function allows a Formatter to reconstruct the original
+        directive triggering the call to Format.
+    **/
+    static public function formatString(state:State, verb:StdTypes.Int):String {
+        return stdgo._internal.fmt.Fmt.formatString(state, verb);
+    }
+    /**
+        Fprintf formats according to a format specifier and writes to w.
+        It returns the number of bytes written and any write error encountered.
+    **/
+    static public function fprintf(w:stdgo._internal.io.Io.Writer, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.fmt.Fmt.fprintf(w, format, ...a);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Printf formats according to a format specifier and writes to standard output.
+        It returns the number of bytes written and any write error encountered.
+    **/
+    static public function printf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.fmt.Fmt.printf(format, ...a);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Sprintf formats according to a format specifier and returns the resulting string.
+    **/
+    static public function sprintf(format:String, a:haxe.Rest<stdgo.AnyInterface>):String {
+        return stdgo._internal.fmt.Fmt.sprintf(format, ...a);
+    }
+    /**
+        Appendf formats according to a format specifier, appends the result to the byte
+        slice, and returns the updated slice.
+    **/
+    static public function appendf(b:Array<StdTypes.Int>, format:String, a:haxe.Rest<stdgo.AnyInterface>):Array<StdTypes.Int> {
+        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.fmt.Fmt.appendf(b, format, ...a)) i];
+    }
+    /**
+        Fprint formats using the default formats for its operands and writes to w.
+        Spaces are added between operands when neither is a string.
+        It returns the number of bytes written and any write error encountered.
+    **/
+    static public function fprint(w:stdgo._internal.io.Io.Writer, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.fmt.Fmt.fprint(w, ...a);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Print formats using the default formats for its operands and writes to standard output.
+        Spaces are added between operands when neither is a string.
+        It returns the number of bytes written and any write error encountered.
+    **/
+    static public function print(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.fmt.Fmt.print(...a);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Sprint formats using the default formats for its operands and returns the resulting string.
+        Spaces are added between operands when neither is a string.
+    **/
+    static public function sprint(a:haxe.Rest<stdgo.AnyInterface>):String {
+        return stdgo._internal.fmt.Fmt.sprint(...a);
+    }
+    /**
+        Append formats using the default formats for its operands, appends the result to
+        the byte slice, and returns the updated slice.
+    **/
+    static public function append(b:Array<StdTypes.Int>, a:haxe.Rest<stdgo.AnyInterface>):Array<StdTypes.Int> {
+        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.fmt.Fmt.append(b, ...a)) i];
+    }
+    /**
+        Fprintln formats using the default formats for its operands and writes to w.
+        Spaces are always added between operands and a newline is appended.
+        It returns the number of bytes written and any write error encountered.
+    **/
+    static public function fprintln(w:stdgo._internal.io.Io.Writer, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.fmt.Fmt.fprintln(w, ...a);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Println formats using the default formats for its operands and writes to standard output.
+        Spaces are always added between operands and a newline is appended.
+        It returns the number of bytes written and any write error encountered.
+    **/
+    static public function println(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.fmt.Fmt.println(...a);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Sprintln formats using the default formats for its operands and returns the resulting string.
+        Spaces are always added between operands and a newline is appended.
+    **/
+    static public function sprintln(a:haxe.Rest<stdgo.AnyInterface>):String {
+        return stdgo._internal.fmt.Fmt.sprintln(...a);
+    }
+    /**
+        Appendln formats using the default formats for its operands, appends the result
+        to the byte slice, and returns the updated slice. Spaces are always added
+        between operands and a newline is appended.
+    **/
+    static public function appendln(b:Array<StdTypes.Int>, a:haxe.Rest<stdgo.AnyInterface>):Array<StdTypes.Int> {
+        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.fmt.Fmt.appendln(b, ...a)) i];
+    }
+    /**
+        Scan scans text read from standard input, storing successive
+        space-separated values into successive arguments. Newlines count
+        as space. It returns the number of items successfully scanned.
+        If that is less than the number of arguments, err will report why.
+    **/
+    static public function scan(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.fmt.Fmt.scan(...a);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Scanln is similar to Scan, but stops scanning at a newline and
+        after the final item there must be a newline or EOF.
+    **/
+    static public function scanln(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.fmt.Fmt.scanln(...a);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Scanf scans text read from standard input, storing successive
+        space-separated values into successive arguments as determined by
+        the format. It returns the number of items successfully scanned.
+        If that is less than the number of arguments, err will report why.
+        Newlines in the input must match newlines in the format.
+        The one exception: the verb %c always scans the next rune in the
+        input, even if it is a space (or tab etc.) or newline.
+    **/
+    static public function scanf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.fmt.Fmt.scanf(format, ...a);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Sscan scans the argument string, storing successive space-separated
+        values into successive arguments. Newlines count as space. It
+        returns the number of items successfully scanned. If that is less
+        than the number of arguments, err will report why.
+    **/
+    static public function sscan(str:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.fmt.Fmt.sscan(str, ...a);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Sscanln is similar to Sscan, but stops scanning at a newline and
+        after the final item there must be a newline or EOF.
+    **/
+    static public function sscanln(str:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.fmt.Fmt.sscanln(str, ...a);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Sscanf scans the argument string, storing successive space-separated
+        values into successive arguments as determined by the format. It
+        returns the number of items successfully parsed.
+        Newlines in the input must match newlines in the format.
+    **/
+    static public function sscanf(str:String, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.fmt.Fmt.sscanf(str, format, ...a);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Fscan scans text read from r, storing successive space-separated
+        values into successive arguments. Newlines count as space. It
+        returns the number of items successfully scanned. If that is less
+        than the number of arguments, err will report why.
+    **/
+    static public function fscan(r:stdgo._internal.io.Io.Reader, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.fmt.Fmt.fscan(r, ...a);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Fscanln is similar to Fscan, but stops scanning at a newline and
+        after the final item there must be a newline or EOF.
+    **/
+    static public function fscanln(r:stdgo._internal.io.Io.Reader, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.fmt.Fmt.fscanln(r, ...a);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Fscanf scans text read from r, storing successive space-separated
+        values into successive arguments as determined by the format. It
+        returns the number of items successfully parsed.
+        Newlines in the input must match newlines in the format.
+    **/
+    static public function fscanf(r:stdgo._internal.io.Io.Reader, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.fmt.Fmt.fscanf(r, format, ...a);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
 }

@@ -93,121 +93,6 @@ typedef Model = stdgo._internal.image.color.Color.Model;
 
 }
 typedef Palette = stdgo._internal.image.color.Color.Palette;
-/**
-    ModelFunc returns a Model that invokes f to implement the conversion.
-**/
-function modelFunc(f:Color -> Color):Model {
-        final f = f;
-        return stdgo._internal.image.color.Color.modelFunc(f);
-    }
-function testSqDiff(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.color.Color.testSqDiff(t);
-    }
-/**
-    RGBToYCbCr converts an RGB triple to a Y'CbCr triple.
-**/
-function rgbtoYCbCr(r:std.UInt, g:std.UInt, b:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
-        return {
-            final obj = stdgo._internal.image.color.Color.rgbtoYCbCr(r, g, b);
-            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
-        };
-    }
-/**
-    YCbCrToRGB converts a Y'CbCr triple to an RGB triple.
-**/
-function ycbCrToRGB(y:std.UInt, cb:std.UInt, cr:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
-        return {
-            final obj = stdgo._internal.image.color.Color.ycbCrToRGB(y, cb, cr);
-            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
-        };
-    }
-/**
-    RGBToCMYK converts an RGB triple to a CMYK quadruple.
-**/
-function rgbtoCMYK(r:std.UInt, g:std.UInt, b:std.UInt):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
-        return {
-            final obj = stdgo._internal.image.color.Color.rgbtoCMYK(r, g, b);
-            { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
-        };
-    }
-/**
-    CMYKToRGB converts a CMYK quadruple to an RGB triple.
-**/
-function cmyktoRGB(c:std.UInt, m:std.UInt, y:std.UInt, k:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
-        return {
-            final obj = stdgo._internal.image.color.Color.cmyktoRGB(c, m, y, k);
-            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
-        };
-    }
-/**
-    TestYCbCrRoundtrip tests that a subset of RGB space can be converted to YCbCr
-    and back to within 2/256 tolerance.
-**/
-function testYCbCrRoundtrip(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.color.Color.testYCbCrRoundtrip(t);
-    }
-/**
-    TestYCbCrToRGBConsistency tests that calling the RGBA method (16 bit color)
-    then truncating to 8 bits is equivalent to calling the YCbCrToRGB function (8
-    bit color).
-**/
-function testYCbCrToRGBConsistency(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.color.Color.testYCbCrToRGBConsistency(t);
-    }
-/**
-    TestYCbCrGray tests that YCbCr colors are a superset of Gray colors.
-**/
-function testYCbCrGray(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.color.Color.testYCbCrGray(t);
-    }
-/**
-    TestNYCbCrAAlpha tests that NYCbCrA colors are a superset of Alpha colors.
-**/
-function testNYCbCrAAlpha(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.color.Color.testNYCbCrAAlpha(t);
-    }
-/**
-    TestNYCbCrAYCbCr tests that NYCbCrA colors are a superset of YCbCr colors.
-**/
-function testNYCbCrAYCbCr(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.color.Color.testNYCbCrAYCbCr(t);
-    }
-/**
-    TestCMYKRoundtrip tests that a subset of RGB space can be converted to CMYK
-    and back to within 1/256 tolerance.
-**/
-function testCMYKRoundtrip(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.color.Color.testCMYKRoundtrip(t);
-    }
-/**
-    TestCMYKToRGBConsistency tests that calling the RGBA method (16 bit color)
-    then truncating to 8 bits is equivalent to calling the CMYKToRGB function (8
-    bit color).
-**/
-function testCMYKToRGBConsistency(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.color.Color.testCMYKToRGBConsistency(t);
-    }
-/**
-    TestCMYKGray tests that CMYK colors are a superset of Gray colors.
-**/
-function testCMYKGray(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.color.Color.testCMYKGray(t);
-    }
-function testPalette(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.color.Color.testPalette(t);
-    }
-function benchmarkYCbCrToRGB(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.color.Color.benchmarkYCbCrToRGB(b);
-    }
-function benchmarkRGBToYCbCr(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.color.Color.benchmarkRGBToYCbCr(b);
-    }
-function benchmarkYCbCrToRGBA(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.color.Color.benchmarkYCbCrToRGBA(b);
-    }
-function benchmarkNYCbCrAToRGBA(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.color.Color.benchmarkNYCbCrAToRGBA(b);
-    }
 @:forward @:forward.new abstract RGBA_asInterface(stdgo._internal.image.color.Color.RGBA_asInterface) from stdgo._internal.image.color.Color.RGBA_asInterface to stdgo._internal.image.color.Color.RGBA_asInterface {
 
 }
@@ -285,4 +170,121 @@ function benchmarkNYCbCrAToRGBA(b:stdgo._internal.testing.Testing.B):Void {
 }
 @:forward @:forward.new abstract Palette_static_extension(stdgo._internal.image.color.Color.Palette_static_extension) from stdgo._internal.image.color.Color.Palette_static_extension to stdgo._internal.image.color.Color.Palette_static_extension {
 
+}
+class Color {
+    /**
+        ModelFunc returns a Model that invokes f to implement the conversion.
+    **/
+    static public function modelFunc(f:Color -> Color):Model {
+        final f = f;
+        return stdgo._internal.image.color.Color.modelFunc(f);
+    }
+    static public function testSqDiff(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.color.Color.testSqDiff(t);
+    }
+    /**
+        RGBToYCbCr converts an RGB triple to a Y'CbCr triple.
+    **/
+    static public function rgbtoYCbCr(r:std.UInt, g:std.UInt, b:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
+        return {
+            final obj = stdgo._internal.image.color.Color.rgbtoYCbCr(r, g, b);
+            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
+        };
+    }
+    /**
+        YCbCrToRGB converts a Y'CbCr triple to an RGB triple.
+    **/
+    static public function ycbCrToRGB(y:std.UInt, cb:std.UInt, cr:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
+        return {
+            final obj = stdgo._internal.image.color.Color.ycbCrToRGB(y, cb, cr);
+            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
+        };
+    }
+    /**
+        RGBToCMYK converts an RGB triple to a CMYK quadruple.
+    **/
+    static public function rgbtoCMYK(r:std.UInt, g:std.UInt, b:std.UInt):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+        return {
+            final obj = stdgo._internal.image.color.Color.rgbtoCMYK(r, g, b);
+            { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
+        };
+    }
+    /**
+        CMYKToRGB converts a CMYK quadruple to an RGB triple.
+    **/
+    static public function cmyktoRGB(c:std.UInt, m:std.UInt, y:std.UInt, k:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
+        return {
+            final obj = stdgo._internal.image.color.Color.cmyktoRGB(c, m, y, k);
+            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
+        };
+    }
+    /**
+        TestYCbCrRoundtrip tests that a subset of RGB space can be converted to YCbCr
+        and back to within 2/256 tolerance.
+    **/
+    static public function testYCbCrRoundtrip(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.color.Color.testYCbCrRoundtrip(t);
+    }
+    /**
+        TestYCbCrToRGBConsistency tests that calling the RGBA method (16 bit color)
+        then truncating to 8 bits is equivalent to calling the YCbCrToRGB function (8
+        bit color).
+    **/
+    static public function testYCbCrToRGBConsistency(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.color.Color.testYCbCrToRGBConsistency(t);
+    }
+    /**
+        TestYCbCrGray tests that YCbCr colors are a superset of Gray colors.
+    **/
+    static public function testYCbCrGray(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.color.Color.testYCbCrGray(t);
+    }
+    /**
+        TestNYCbCrAAlpha tests that NYCbCrA colors are a superset of Alpha colors.
+    **/
+    static public function testNYCbCrAAlpha(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.color.Color.testNYCbCrAAlpha(t);
+    }
+    /**
+        TestNYCbCrAYCbCr tests that NYCbCrA colors are a superset of YCbCr colors.
+    **/
+    static public function testNYCbCrAYCbCr(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.color.Color.testNYCbCrAYCbCr(t);
+    }
+    /**
+        TestCMYKRoundtrip tests that a subset of RGB space can be converted to CMYK
+        and back to within 1/256 tolerance.
+    **/
+    static public function testCMYKRoundtrip(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.color.Color.testCMYKRoundtrip(t);
+    }
+    /**
+        TestCMYKToRGBConsistency tests that calling the RGBA method (16 bit color)
+        then truncating to 8 bits is equivalent to calling the CMYKToRGB function (8
+        bit color).
+    **/
+    static public function testCMYKToRGBConsistency(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.color.Color.testCMYKToRGBConsistency(t);
+    }
+    /**
+        TestCMYKGray tests that CMYK colors are a superset of Gray colors.
+    **/
+    static public function testCMYKGray(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.color.Color.testCMYKGray(t);
+    }
+    static public function testPalette(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.color.Color.testPalette(t);
+    }
+    static public function benchmarkYCbCrToRGB(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.color.Color.benchmarkYCbCrToRGB(b);
+    }
+    static public function benchmarkRGBToYCbCr(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.color.Color.benchmarkRGBToYCbCr(b);
+    }
+    static public function benchmarkYCbCrToRGBA(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.color.Color.benchmarkYCbCrToRGBA(b);
+    }
+    static public function benchmarkNYCbCrAToRGBA(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.color.Color.benchmarkNYCbCrAToRGBA(b);
+    }
 }

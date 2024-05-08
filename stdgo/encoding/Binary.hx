@@ -120,321 +120,19 @@ typedef T__struct_5 = stdgo._internal.encoding.binary.Binary.T__struct_5;
 typedef T__struct_6 = stdgo._internal.encoding.binary.Binary.T__struct_6;
 typedef T_decoder = stdgo._internal.encoding.binary.Binary.T_decoder;
 typedef T_encoder = stdgo._internal.encoding.binary.Binary.T_encoder;
-/**
-    Read reads structured binary data from r into data.
-    Data must be a pointer to a fixed-size value or a slice
-    of fixed-size values.
-    Bytes read from r are decoded using the specified byte order
-    and written to successive fields of the data.
-    When decoding boolean values, a zero byte is decoded as false, and
-    any other non-zero byte is decoded as true.
-    When reading into structs, the field data for fields with
-    blank (_) field names is skipped; i.e., blank field names
-    may be used for padding.
-    When reading into a struct, all non-blank fields must be exported
-    or Read may panic.
-    
-    The error is EOF only if no bytes were read.
-    If an EOF happens after reading some but not all the bytes,
-    Read returns ErrUnexpectedEOF.
-**/
-function read(r:stdgo._internal.io.Io.Reader, order:ByteOrder, data:stdgo.AnyInterface):stdgo.Error {
-        return stdgo._internal.encoding.binary.Binary.read(r, order, data);
-    }
-/**
-    Write writes the binary representation of data into w.
-    Data must be a fixed-size value or a slice of fixed-size
-    values, or a pointer to such data.
-    Boolean values encode as one byte: 1 for true, and 0 for false.
-    Bytes written to w are encoded using the specified byte order
-    and read from successive fields of the data.
-    When writing structs, zero values are written for fields
-    with blank (_) field names.
-**/
-function write(w:stdgo._internal.io.Io.Writer, order:ByteOrder, data:stdgo.AnyInterface):stdgo.Error {
-        return stdgo._internal.encoding.binary.Binary.write(w, order, data);
-    }
-/**
-    Size returns how many bytes Write would generate to encode the value v, which
-    must be a fixed-size value or a slice of fixed-size values, or a pointer to such data.
-    If v is neither of these, Size returns -1.
-**/
-function size(v:stdgo.AnyInterface):StdTypes.Int {
-        return stdgo._internal.encoding.binary.Binary.size(v);
-    }
-function testLittleEndianRead(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testLittleEndianRead(t);
-    }
-function testLittleEndianWrite(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testLittleEndianWrite(t);
-    }
-function testLittleEndianPtrWrite(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testLittleEndianPtrWrite(t);
-    }
-function testBigEndianRead(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testBigEndianRead(t);
-    }
-function testBigEndianWrite(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testBigEndianWrite(t);
-    }
-function testBigEndianPtrWrite(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testBigEndianPtrWrite(t);
-    }
-function testReadSlice(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testReadSlice(t);
-    }
-function testWriteSlice(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testWriteSlice(t);
-    }
-function testReadBool(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testReadBool(t);
-    }
-function testReadBoolSlice(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testReadBoolSlice(t);
-    }
-function testSliceRoundTrip(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testSliceRoundTrip(t);
-    }
-function testWriteT(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testWriteT(t);
-    }
-function testBlankFields(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testBlankFields(t);
-    }
 @:forward @:forward.new abstract T_testSizeStructCache_11___localname___foo(stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo) from stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo to stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo {
 
 }
 @:forward @:forward.new abstract T_testSizeStructCache_12___localname___bar(stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_12___localname___bar) from stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_12___localname___bar to stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_12___localname___bar {
 
 }
-function testSizeStructCache(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testSizeStructCache(t);
-    }
-function testSizeInvalid(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testSizeInvalid(t);
-    }
-function testUnexportedRead(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testUnexportedRead(t);
-    }
-function testReadErrorMsg(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testReadErrorMsg(t);
-    }
-function testReadTruncated(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testReadTruncated(t);
-    }
 @:forward @:forward.new abstract T_testByteOrder_13___localname___byteOrder_static_extension(stdgo._internal.encoding.binary.Binary.T_testByteOrder_13___localname___byteOrder_static_extension) from stdgo._internal.encoding.binary.Binary.T_testByteOrder_13___localname___byteOrder_static_extension to stdgo._internal.encoding.binary.Binary.T_testByteOrder_13___localname___byteOrder_static_extension {
 
 }
 typedef T_testByteOrder_13___localname___byteOrder = stdgo._internal.encoding.binary.Binary.T_testByteOrder_13___localname___byteOrder;
-function testByteOrder(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testByteOrder(t);
-    }
-function testEarlyBoundsChecks(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testEarlyBoundsChecks(t);
-    }
-function testReadInvalidDestination(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testReadInvalidDestination(t);
-    }
 @:forward @:forward.new abstract T_testNoFixedSize_14___localname___Person(stdgo._internal.encoding.binary.Binary.T_testNoFixedSize_14___localname___Person) from stdgo._internal.encoding.binary.Binary.T_testNoFixedSize_14___localname___Person to stdgo._internal.encoding.binary.Binary.T_testNoFixedSize_14___localname___Person {
 
 }
-function testNoFixedSize(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testNoFixedSize(t);
-    }
-function benchmarkReadSlice1000Int32s(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkReadSlice1000Int32s(b);
-    }
-function benchmarkReadStruct(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkReadStruct(b);
-    }
-function benchmarkWriteStruct(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkWriteStruct(b);
-    }
-function benchmarkReadInts(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkReadInts(b);
-    }
-function benchmarkWriteInts(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkWriteInts(b);
-    }
-function benchmarkWriteSlice1000Int32s(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkWriteSlice1000Int32s(b);
-    }
-function benchmarkPutUint16(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkPutUint16(b);
-    }
-function benchmarkAppendUint16(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkAppendUint16(b);
-    }
-function benchmarkPutUint32(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkPutUint32(b);
-    }
-function benchmarkAppendUint32(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkAppendUint32(b);
-    }
-function benchmarkPutUint64(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkPutUint64(b);
-    }
-function benchmarkAppendUint64(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkAppendUint64(b);
-    }
-function benchmarkLittleEndianPutUint16(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianPutUint16(b);
-    }
-function benchmarkLittleEndianAppendUint16(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianAppendUint16(b);
-    }
-function benchmarkLittleEndianPutUint32(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianPutUint32(b);
-    }
-function benchmarkLittleEndianAppendUint32(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianAppendUint32(b);
-    }
-function benchmarkLittleEndianPutUint64(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianPutUint64(b);
-    }
-function benchmarkLittleEndianAppendUint64(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianAppendUint64(b);
-    }
-function benchmarkReadFloats(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkReadFloats(b);
-    }
-function benchmarkWriteFloats(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkWriteFloats(b);
-    }
-function benchmarkReadSlice1000Float32s(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkReadSlice1000Float32s(b);
-    }
-function benchmarkWriteSlice1000Float32s(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkWriteSlice1000Float32s(b);
-    }
-function benchmarkReadSlice1000Uint8s(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkReadSlice1000Uint8s(b);
-    }
-function benchmarkWriteSlice1000Uint8s(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkWriteSlice1000Uint8s(b);
-    }
-function testNativeEndian(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testNativeEndian(t);
-    }
-/**
-    AppendUvarint appends the varint-encoded form of x,
-    as generated by PutUvarint, to buf and returns the extended buffer.
-**/
-function appendUvarint(buf:Array<StdTypes.Int>, x:haxe.UInt64):Array<StdTypes.Int> {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.encoding.binary.Binary.appendUvarint(buf, x)) i];
-    }
-/**
-    PutUvarint encodes a uint64 into buf and returns the number of bytes written.
-    If the buffer is too small, PutUvarint will panic.
-**/
-function putUvarint(buf:Array<StdTypes.Int>, x:haxe.UInt64):StdTypes.Int {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.encoding.binary.Binary.putUvarint(buf, x);
-    }
-/**
-    Uvarint decodes a uint64 from buf and returns that value and the
-    number of bytes read (> 0). If an error occurred, the value is 0
-    and the number of bytes n is <= 0 meaning:
-    
-    	n == 0: buf too small
-    	n  < 0: value larger than 64 bits (overflow)
-    	        and -n is the number of bytes read
-**/
-function uvarint(buf:Array<StdTypes.Int>):stdgo.Tuple<haxe.UInt64, StdTypes.Int> {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
-        return {
-            final obj = stdgo._internal.encoding.binary.Binary.uvarint(buf);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    AppendVarint appends the varint-encoded form of x,
-    as generated by PutVarint, to buf and returns the extended buffer.
-**/
-function appendVarint(buf:Array<StdTypes.Int>, x:haxe.Int64):Array<StdTypes.Int> {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.encoding.binary.Binary.appendVarint(buf, x)) i];
-    }
-/**
-    PutVarint encodes an int64 into buf and returns the number of bytes written.
-    If the buffer is too small, PutVarint will panic.
-**/
-function putVarint(buf:Array<StdTypes.Int>, x:haxe.Int64):StdTypes.Int {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.encoding.binary.Binary.putVarint(buf, x);
-    }
-/**
-    Varint decodes an int64 from buf and returns that value and the
-    number of bytes read (> 0). If an error occurred, the value is 0
-    and the number of bytes n is <= 0 with the following meaning:
-    
-    	n == 0: buf too small
-    	n  < 0: value larger than 64 bits (overflow)
-    	        and -n is the number of bytes read
-**/
-function varint(buf:Array<StdTypes.Int>):stdgo.Tuple<haxe.Int64, StdTypes.Int> {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
-        return {
-            final obj = stdgo._internal.encoding.binary.Binary.varint(buf);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    ReadUvarint reads an encoded unsigned integer from r and returns it as a uint64.
-    The error is EOF only if no bytes were read.
-    If an EOF happens after reading some but not all the bytes,
-    ReadUvarint returns io.ErrUnexpectedEOF.
-**/
-function readUvarint(r:stdgo._internal.io.Io.ByteReader):stdgo.Tuple<haxe.UInt64, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.encoding.binary.Binary.readUvarint(r);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    ReadVarint reads an encoded signed integer from r and returns it as an int64.
-    The error is EOF only if no bytes were read.
-    If an EOF happens after reading some but not all the bytes,
-    ReadVarint returns io.ErrUnexpectedEOF.
-**/
-function readVarint(r:stdgo._internal.io.Io.ByteReader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.encoding.binary.Binary.readVarint(r);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-function testConstants(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testConstants(t);
-    }
-function testVarint(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testVarint(t);
-    }
-function testUvarint(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testUvarint(t);
-    }
-function testBufferTooSmall(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testBufferTooSmall(t);
-    }
-/**
-    Ensure that we catch overflows of bytes going past MaxVarintLen64.
-    See issue https://golang.org/issues/41185
-**/
-function testBufferTooBigWithOverflow(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testBufferTooBigWithOverflow(t);
-    }
-function testOverflow(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testOverflow(t);
-    }
-function testNonCanonicalZero(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testNonCanonicalZero(t);
-    }
-function benchmarkPutUvarint32(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkPutUvarint32(b);
-    }
-function benchmarkPutUvarint64(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkPutUvarint64(b);
-    }
 @:forward @:forward.new abstract T_littleEndian_asInterface(stdgo._internal.encoding.binary.Binary.T_littleEndian_asInterface) from stdgo._internal.encoding.binary.Binary.T_littleEndian_asInterface to stdgo._internal.encoding.binary.Binary.T_littleEndian_asInterface {
 
 }
@@ -470,4 +168,308 @@ function benchmarkPutUvarint64(b:stdgo._internal.testing.Testing.B):Void {
 }
 @:forward @:forward.new abstract T_encoder_static_extension(stdgo._internal.encoding.binary.Binary.T_encoder_static_extension) from stdgo._internal.encoding.binary.Binary.T_encoder_static_extension to stdgo._internal.encoding.binary.Binary.T_encoder_static_extension {
 
+}
+class Binary {
+    /**
+        Read reads structured binary data from r into data.
+        Data must be a pointer to a fixed-size value or a slice
+        of fixed-size values.
+        Bytes read from r are decoded using the specified byte order
+        and written to successive fields of the data.
+        When decoding boolean values, a zero byte is decoded as false, and
+        any other non-zero byte is decoded as true.
+        When reading into structs, the field data for fields with
+        blank (_) field names is skipped; i.e., blank field names
+        may be used for padding.
+        When reading into a struct, all non-blank fields must be exported
+        or Read may panic.
+        
+        The error is EOF only if no bytes were read.
+        If an EOF happens after reading some but not all the bytes,
+        Read returns ErrUnexpectedEOF.
+    **/
+    static public function read(r:stdgo._internal.io.Io.Reader, order:ByteOrder, data:stdgo.AnyInterface):stdgo.Error {
+        return stdgo._internal.encoding.binary.Binary.read(r, order, data);
+    }
+    /**
+        Write writes the binary representation of data into w.
+        Data must be a fixed-size value or a slice of fixed-size
+        values, or a pointer to such data.
+        Boolean values encode as one byte: 1 for true, and 0 for false.
+        Bytes written to w are encoded using the specified byte order
+        and read from successive fields of the data.
+        When writing structs, zero values are written for fields
+        with blank (_) field names.
+    **/
+    static public function write(w:stdgo._internal.io.Io.Writer, order:ByteOrder, data:stdgo.AnyInterface):stdgo.Error {
+        return stdgo._internal.encoding.binary.Binary.write(w, order, data);
+    }
+    /**
+        Size returns how many bytes Write would generate to encode the value v, which
+        must be a fixed-size value or a slice of fixed-size values, or a pointer to such data.
+        If v is neither of these, Size returns -1.
+    **/
+    static public function size(v:stdgo.AnyInterface):StdTypes.Int {
+        return stdgo._internal.encoding.binary.Binary.size(v);
+    }
+    static public function testLittleEndianRead(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testLittleEndianRead(t);
+    }
+    static public function testLittleEndianWrite(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testLittleEndianWrite(t);
+    }
+    static public function testLittleEndianPtrWrite(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testLittleEndianPtrWrite(t);
+    }
+    static public function testBigEndianRead(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testBigEndianRead(t);
+    }
+    static public function testBigEndianWrite(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testBigEndianWrite(t);
+    }
+    static public function testBigEndianPtrWrite(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testBigEndianPtrWrite(t);
+    }
+    static public function testReadSlice(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testReadSlice(t);
+    }
+    static public function testWriteSlice(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testWriteSlice(t);
+    }
+    static public function testReadBool(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testReadBool(t);
+    }
+    static public function testReadBoolSlice(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testReadBoolSlice(t);
+    }
+    static public function testSliceRoundTrip(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testSliceRoundTrip(t);
+    }
+    static public function testWriteT(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testWriteT(t);
+    }
+    static public function testBlankFields(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testBlankFields(t);
+    }
+    static public function testSizeStructCache(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testSizeStructCache(t);
+    }
+    static public function testSizeInvalid(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testSizeInvalid(t);
+    }
+    static public function testUnexportedRead(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testUnexportedRead(t);
+    }
+    static public function testReadErrorMsg(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testReadErrorMsg(t);
+    }
+    static public function testReadTruncated(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testReadTruncated(t);
+    }
+    static public function testByteOrder(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testByteOrder(t);
+    }
+    static public function testEarlyBoundsChecks(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testEarlyBoundsChecks(t);
+    }
+    static public function testReadInvalidDestination(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testReadInvalidDestination(t);
+    }
+    static public function testNoFixedSize(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testNoFixedSize(t);
+    }
+    static public function benchmarkReadSlice1000Int32s(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkReadSlice1000Int32s(b);
+    }
+    static public function benchmarkReadStruct(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkReadStruct(b);
+    }
+    static public function benchmarkWriteStruct(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkWriteStruct(b);
+    }
+    static public function benchmarkReadInts(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkReadInts(b);
+    }
+    static public function benchmarkWriteInts(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkWriteInts(b);
+    }
+    static public function benchmarkWriteSlice1000Int32s(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkWriteSlice1000Int32s(b);
+    }
+    static public function benchmarkPutUint16(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkPutUint16(b);
+    }
+    static public function benchmarkAppendUint16(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkAppendUint16(b);
+    }
+    static public function benchmarkPutUint32(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkPutUint32(b);
+    }
+    static public function benchmarkAppendUint32(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkAppendUint32(b);
+    }
+    static public function benchmarkPutUint64(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkPutUint64(b);
+    }
+    static public function benchmarkAppendUint64(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkAppendUint64(b);
+    }
+    static public function benchmarkLittleEndianPutUint16(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianPutUint16(b);
+    }
+    static public function benchmarkLittleEndianAppendUint16(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianAppendUint16(b);
+    }
+    static public function benchmarkLittleEndianPutUint32(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianPutUint32(b);
+    }
+    static public function benchmarkLittleEndianAppendUint32(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianAppendUint32(b);
+    }
+    static public function benchmarkLittleEndianPutUint64(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianPutUint64(b);
+    }
+    static public function benchmarkLittleEndianAppendUint64(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianAppendUint64(b);
+    }
+    static public function benchmarkReadFloats(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkReadFloats(b);
+    }
+    static public function benchmarkWriteFloats(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkWriteFloats(b);
+    }
+    static public function benchmarkReadSlice1000Float32s(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkReadSlice1000Float32s(b);
+    }
+    static public function benchmarkWriteSlice1000Float32s(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkWriteSlice1000Float32s(b);
+    }
+    static public function benchmarkReadSlice1000Uint8s(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkReadSlice1000Uint8s(b);
+    }
+    static public function benchmarkWriteSlice1000Uint8s(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkWriteSlice1000Uint8s(b);
+    }
+    static public function testNativeEndian(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testNativeEndian(t);
+    }
+    /**
+        AppendUvarint appends the varint-encoded form of x,
+        as generated by PutUvarint, to buf and returns the extended buffer.
+    **/
+    static public function appendUvarint(buf:Array<StdTypes.Int>, x:haxe.UInt64):Array<StdTypes.Int> {
+        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.encoding.binary.Binary.appendUvarint(buf, x)) i];
+    }
+    /**
+        PutUvarint encodes a uint64 into buf and returns the number of bytes written.
+        If the buffer is too small, PutUvarint will panic.
+    **/
+    static public function putUvarint(buf:Array<StdTypes.Int>, x:haxe.UInt64):StdTypes.Int {
+        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.encoding.binary.Binary.putUvarint(buf, x);
+    }
+    /**
+        Uvarint decodes a uint64 from buf and returns that value and the
+        number of bytes read (> 0). If an error occurred, the value is 0
+        and the number of bytes n is <= 0 meaning:
+        
+        	n == 0: buf too small
+        	n  < 0: value larger than 64 bits (overflow)
+        	        and -n is the number of bytes read
+    **/
+    static public function uvarint(buf:Array<StdTypes.Int>):stdgo.Tuple<haxe.UInt64, StdTypes.Int> {
+        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
+        return {
+            final obj = stdgo._internal.encoding.binary.Binary.uvarint(buf);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        AppendVarint appends the varint-encoded form of x,
+        as generated by PutVarint, to buf and returns the extended buffer.
+    **/
+    static public function appendVarint(buf:Array<StdTypes.Int>, x:haxe.Int64):Array<StdTypes.Int> {
+        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.encoding.binary.Binary.appendVarint(buf, x)) i];
+    }
+    /**
+        PutVarint encodes an int64 into buf and returns the number of bytes written.
+        If the buffer is too small, PutVarint will panic.
+    **/
+    static public function putVarint(buf:Array<StdTypes.Int>, x:haxe.Int64):StdTypes.Int {
+        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.encoding.binary.Binary.putVarint(buf, x);
+    }
+    /**
+        Varint decodes an int64 from buf and returns that value and the
+        number of bytes read (> 0). If an error occurred, the value is 0
+        and the number of bytes n is <= 0 with the following meaning:
+        
+        	n == 0: buf too small
+        	n  < 0: value larger than 64 bits (overflow)
+        	        and -n is the number of bytes read
+    **/
+    static public function varint(buf:Array<StdTypes.Int>):stdgo.Tuple<haxe.Int64, StdTypes.Int> {
+        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
+        return {
+            final obj = stdgo._internal.encoding.binary.Binary.varint(buf);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        ReadUvarint reads an encoded unsigned integer from r and returns it as a uint64.
+        The error is EOF only if no bytes were read.
+        If an EOF happens after reading some but not all the bytes,
+        ReadUvarint returns io.ErrUnexpectedEOF.
+    **/
+    static public function readUvarint(r:stdgo._internal.io.Io.ByteReader):stdgo.Tuple<haxe.UInt64, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.encoding.binary.Binary.readUvarint(r);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        ReadVarint reads an encoded signed integer from r and returns it as an int64.
+        The error is EOF only if no bytes were read.
+        If an EOF happens after reading some but not all the bytes,
+        ReadVarint returns io.ErrUnexpectedEOF.
+    **/
+    static public function readVarint(r:stdgo._internal.io.Io.ByteReader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.encoding.binary.Binary.readVarint(r);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    static public function testConstants(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testConstants(t);
+    }
+    static public function testVarint(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testVarint(t);
+    }
+    static public function testUvarint(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testUvarint(t);
+    }
+    static public function testBufferTooSmall(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testBufferTooSmall(t);
+    }
+    /**
+        Ensure that we catch overflows of bytes going past MaxVarintLen64.
+        See issue https://golang.org/issues/41185
+    **/
+    static public function testBufferTooBigWithOverflow(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testBufferTooBigWithOverflow(t);
+    }
+    static public function testOverflow(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testOverflow(t);
+    }
+    static public function testNonCanonicalZero(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testNonCanonicalZero(t);
+    }
+    static public function benchmarkPutUvarint32(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkPutUvarint32(b);
+    }
+    static public function benchmarkPutUvarint64(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkPutUvarint64(b);
+    }
 }

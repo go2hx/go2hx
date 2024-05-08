@@ -29,3 +29,6 @@ private function set_importPath(v:String):String return stdgo._internal.testing.
 @:forward @:forward.new abstract T_testLog_static_extension(stdgo._internal.testing.internal.testdeps.Testdeps.T_testLog_static_extension) from stdgo._internal.testing.internal.testdeps.Testdeps.T_testLog_static_extension to stdgo._internal.testing.internal.testdeps.Testdeps.T_testLog_static_extension {
 
 }
+class Testdeps {
+
+}

@@ -31,3 +31,6 @@ typedef TextMarshaler = stdgo._internal.encoding.Encoding.TextMarshaler;
 
 }
 typedef TextUnmarshaler = stdgo._internal.encoding.Encoding.TextUnmarshaler;
+class Encoding {
+
+}

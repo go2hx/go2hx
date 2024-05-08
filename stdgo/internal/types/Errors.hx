@@ -160,3 +160,6 @@ typedef Code = stdgo._internal.internal.types.errors.Errors.Code;
 @:forward @:forward.new abstract Code_static_extension(stdgo._internal.internal.types.errors.Errors.Code_static_extension) from stdgo._internal.internal.types.errors.Errors.Code_static_extension to stdgo._internal.internal.types.errors.Errors.Code_static_extension {
 
 }
+class Errors {
+
+}

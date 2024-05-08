@@ -112,175 +112,6 @@ typedef T_stringer = stdgo._internal.context.Context.T_stringer;
 typedef T__struct_0 = stdgo._internal.context.Context.T__struct_0;
 typedef CancelFunc = stdgo._internal.context.Context.CancelFunc;
 typedef CancelCauseFunc = stdgo._internal.context.Context.CancelCauseFunc;
-/**
-    Background returns a non-nil, empty [Context]. It is never canceled, has no
-    values, and has no deadline. It is typically used by the main function,
-    initialization, and tests, and as the top-level Context for incoming
-    requests.
-**/
-function background():Context {
-        return stdgo._internal.context.Context.background();
-    }
-/**
-    TODO returns a non-nil, empty [Context]. Code should use context.TODO when
-    it's unclear which Context to use or it is not yet available (because the
-    surrounding function has not yet been extended to accept a Context
-    parameter).
-**/
-function todo():Context {
-        return stdgo._internal.context.Context.todo();
-    }
-/**
-    WithCancel returns a copy of parent with a new Done channel. The returned
-    context's Done channel is closed when the returned cancel function is called
-    or when the parent context's Done channel is closed, whichever happens first.
-    
-    Canceling this context releases resources associated with it, so code should
-    call cancel as soon as the operations running in this Context complete.
-**/
-function withCancel(parent:Context):stdgo.Tuple<Context, CancelFunc> {
-        return {
-            final obj = stdgo._internal.context.Context.withCancel(parent);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    WithCancelCause behaves like [WithCancel] but returns a [CancelCauseFunc] instead of a [CancelFunc].
-    Calling cancel with a non-nil error (the "cause") records that error in ctx;
-    it can then be retrieved using Cause(ctx).
-    Calling cancel with nil sets the cause to Canceled.
-    
-    Example use:
-    
-    	ctx, cancel := context.WithCancelCause(parent)
-    	cancel(myError)
-    	ctx.Err() // returns context.Canceled
-    	context.Cause(ctx) // returns myError
-**/
-function withCancelCause(parent:Context):stdgo.Tuple<Context, CancelCauseFunc> {
-        return {
-            final obj = stdgo._internal.context.Context.withCancelCause(parent);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Cause returns a non-nil error explaining why c was canceled.
-    The first cancellation of c or one of its parents sets the cause.
-    If that cancellation happened via a call to CancelCauseFunc(err),
-    then [Cause] returns err.
-    Otherwise Cause(c) returns the same value as c.Err().
-    Cause returns nil if c has not been canceled yet.
-**/
-function cause(c:Context):stdgo.Error {
-        return stdgo._internal.context.Context.cause(c);
-    }
-/**
-    AfterFunc arranges to call f in its own goroutine after ctx is done
-    (cancelled or timed out).
-    If ctx is already done, AfterFunc calls f immediately in its own goroutine.
-    
-    Multiple calls to AfterFunc on a context operate independently;
-    one does not replace another.
-    
-    Calling the returned stop function stops the association of ctx with f.
-    It returns true if the call stopped f from being run.
-    If stop returns false,
-    either the context is done and f has been started in its own goroutine;
-    or f was already stopped.
-    The stop function does not wait for f to complete before returning.
-    If the caller needs to know whether f is completed,
-    it must coordinate with f explicitly.
-    
-    If ctx has a "AfterFunc(func()) func() bool" method,
-    AfterFunc will use it to schedule the call.
-**/
-function afterFunc(ctx:Context, f:() -> Void):() -> Bool {
-        final f = f;
-        return () -> stdgo._internal.context.Context.afterFunc(ctx, f)();
-    }
-/**
-    WithoutCancel returns a copy of parent that is not canceled when parent is canceled.
-    The returned context returns no Deadline or Err, and its Done channel is nil.
-    Calling [Cause] on the returned context returns nil.
-**/
-function withoutCancel(parent:Context):Context {
-        return stdgo._internal.context.Context.withoutCancel(parent);
-    }
-/**
-    WithDeadline returns a copy of the parent context with the deadline adjusted
-    to be no later than d. If the parent's deadline is already earlier than d,
-    WithDeadline(parent, d) is semantically equivalent to parent. The returned
-    [Context.Done] channel is closed when the deadline expires, when the returned
-    cancel function is called, or when the parent context's Done channel is
-    closed, whichever happens first.
-    
-    Canceling this context releases resources associated with it, so code should
-    call cancel as soon as the operations running in this [Context] complete.
-**/
-function withDeadline(parent:Context, d:stdgo._internal.time.Time.Time):stdgo.Tuple<Context, CancelFunc> {
-        return {
-            final obj = stdgo._internal.context.Context.withDeadline(parent, d);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    WithDeadlineCause behaves like [WithDeadline] but also sets the cause of the
-    returned Context when the deadline is exceeded. The returned [CancelFunc] does
-    not set the cause.
-**/
-function withDeadlineCause(parent:Context, d:stdgo._internal.time.Time.Time, cause:stdgo.Error):stdgo.Tuple<Context, CancelFunc> {
-        return {
-            final obj = stdgo._internal.context.Context.withDeadlineCause(parent, d, cause);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    WithTimeout returns WithDeadline(parent, time.Now().Add(timeout)).
-    
-    Canceling this context releases resources associated with it, so code should
-    call cancel as soon as the operations running in this [Context] complete:
-    
-    	func slowOperationWithTimeout(ctx context.Context) (Result, error) {
-    		ctx, cancel := context.WithTimeout(ctx, 100*time.Millisecond)
-    		defer cancel()  // releases resources if slowOperation completes before timeout elapses
-    		return slowOperation(ctx)
-    	}
-**/
-function withTimeout(parent:Context, timeout:stdgo._internal.time.Time.Duration):stdgo.Tuple<Context, CancelFunc> {
-        return {
-            final obj = stdgo._internal.context.Context.withTimeout(parent, timeout);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    WithTimeoutCause behaves like [WithTimeout] but also sets the cause of the
-    returned Context when the timeout expires. The returned [CancelFunc] does
-    not set the cause.
-**/
-function withTimeoutCause(parent:Context, timeout:stdgo._internal.time.Time.Duration, cause:stdgo.Error):stdgo.Tuple<Context, CancelFunc> {
-        return {
-            final obj = stdgo._internal.context.Context.withTimeoutCause(parent, timeout, cause);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    WithValue returns a copy of parent in which the value associated with key is
-    val.
-    
-    Use context Values only for request-scoped data that transits processes and
-    APIs, not for passing optional parameters to functions.
-    
-    The provided key must be comparable and should not be of type
-    string or any other built-in type to avoid collisions between
-    packages using context. Users of WithValue should define their own
-    types for keys. To avoid allocating when assigning to an
-    interface{}, context keys often have concrete type
-    struct{}. Alternatively, exported context key variables' static
-    type should be a pointer or interface.
-**/
-function withValue(parent:Context, key:stdgo.AnyInterface, val:stdgo.AnyInterface):Context {
-        return stdgo._internal.context.Context.withValue(parent, key, val);
-    }
 @:forward @:forward.new abstract T_deadlineExceededError_asInterface(stdgo._internal.context.Context.T_deadlineExceededError_asInterface) from stdgo._internal.context.Context.T_deadlineExceededError_asInterface to stdgo._internal.context.Context.T_deadlineExceededError_asInterface {
 
 }
@@ -340,4 +171,175 @@ function withValue(parent:Context, key:stdgo.AnyInterface, val:stdgo.AnyInterfac
 }
 @:forward @:forward.new abstract T_valueCtx_static_extension(stdgo._internal.context.Context.T_valueCtx_static_extension) from stdgo._internal.context.Context.T_valueCtx_static_extension to stdgo._internal.context.Context.T_valueCtx_static_extension {
 
+}
+class Context {
+    /**
+        Background returns a non-nil, empty [Context]. It is never canceled, has no
+        values, and has no deadline. It is typically used by the main function,
+        initialization, and tests, and as the top-level Context for incoming
+        requests.
+    **/
+    static public function background():Context {
+        return stdgo._internal.context.Context.background();
+    }
+    /**
+        TODO returns a non-nil, empty [Context]. Code should use context.TODO when
+        it's unclear which Context to use or it is not yet available (because the
+        surrounding function has not yet been extended to accept a Context
+        parameter).
+    **/
+    static public function todo():Context {
+        return stdgo._internal.context.Context.todo();
+    }
+    /**
+        WithCancel returns a copy of parent with a new Done channel. The returned
+        context's Done channel is closed when the returned cancel function is called
+        or when the parent context's Done channel is closed, whichever happens first.
+        
+        Canceling this context releases resources associated with it, so code should
+        call cancel as soon as the operations running in this Context complete.
+    **/
+    static public function withCancel(parent:Context):stdgo.Tuple<Context, CancelFunc> {
+        return {
+            final obj = stdgo._internal.context.Context.withCancel(parent);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        WithCancelCause behaves like [WithCancel] but returns a [CancelCauseFunc] instead of a [CancelFunc].
+        Calling cancel with a non-nil error (the "cause") records that error in ctx;
+        it can then be retrieved using Cause(ctx).
+        Calling cancel with nil sets the cause to Canceled.
+        
+        Example use:
+        
+        	ctx, cancel := context.WithCancelCause(parent)
+        	cancel(myError)
+        	ctx.Err() // returns context.Canceled
+        	context.Cause(ctx) // returns myError
+    **/
+    static public function withCancelCause(parent:Context):stdgo.Tuple<Context, CancelCauseFunc> {
+        return {
+            final obj = stdgo._internal.context.Context.withCancelCause(parent);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Cause returns a non-nil error explaining why c was canceled.
+        The first cancellation of c or one of its parents sets the cause.
+        If that cancellation happened via a call to CancelCauseFunc(err),
+        then [Cause] returns err.
+        Otherwise Cause(c) returns the same value as c.Err().
+        Cause returns nil if c has not been canceled yet.
+    **/
+    static public function cause(c:Context):stdgo.Error {
+        return stdgo._internal.context.Context.cause(c);
+    }
+    /**
+        AfterFunc arranges to call f in its own goroutine after ctx is done
+        (cancelled or timed out).
+        If ctx is already done, AfterFunc calls f immediately in its own goroutine.
+        
+        Multiple calls to AfterFunc on a context operate independently;
+        one does not replace another.
+        
+        Calling the returned stop function stops the association of ctx with f.
+        It returns true if the call stopped f from being run.
+        If stop returns false,
+        either the context is done and f has been started in its own goroutine;
+        or f was already stopped.
+        The stop function does not wait for f to complete before returning.
+        If the caller needs to know whether f is completed,
+        it must coordinate with f explicitly.
+        
+        If ctx has a "AfterFunc(func()) func() bool" method,
+        AfterFunc will use it to schedule the call.
+    **/
+    static public function afterFunc(ctx:Context, f:() -> Void):() -> Bool {
+        final f = f;
+        return () -> stdgo._internal.context.Context.afterFunc(ctx, f)();
+    }
+    /**
+        WithoutCancel returns a copy of parent that is not canceled when parent is canceled.
+        The returned context returns no Deadline or Err, and its Done channel is nil.
+        Calling [Cause] on the returned context returns nil.
+    **/
+    static public function withoutCancel(parent:Context):Context {
+        return stdgo._internal.context.Context.withoutCancel(parent);
+    }
+    /**
+        WithDeadline returns a copy of the parent context with the deadline adjusted
+        to be no later than d. If the parent's deadline is already earlier than d,
+        WithDeadline(parent, d) is semantically equivalent to parent. The returned
+        [Context.Done] channel is closed when the deadline expires, when the returned
+        cancel function is called, or when the parent context's Done channel is
+        closed, whichever happens first.
+        
+        Canceling this context releases resources associated with it, so code should
+        call cancel as soon as the operations running in this [Context] complete.
+    **/
+    static public function withDeadline(parent:Context, d:stdgo._internal.time.Time.Time):stdgo.Tuple<Context, CancelFunc> {
+        return {
+            final obj = stdgo._internal.context.Context.withDeadline(parent, d);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        WithDeadlineCause behaves like [WithDeadline] but also sets the cause of the
+        returned Context when the deadline is exceeded. The returned [CancelFunc] does
+        not set the cause.
+    **/
+    static public function withDeadlineCause(parent:Context, d:stdgo._internal.time.Time.Time, cause:stdgo.Error):stdgo.Tuple<Context, CancelFunc> {
+        return {
+            final obj = stdgo._internal.context.Context.withDeadlineCause(parent, d, cause);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        WithTimeout returns WithDeadline(parent, time.Now().Add(timeout)).
+        
+        Canceling this context releases resources associated with it, so code should
+        call cancel as soon as the operations running in this [Context] complete:
+        
+        	func slowOperationWithTimeout(ctx context.Context) (Result, error) {
+        		ctx, cancel := context.WithTimeout(ctx, 100*time.Millisecond)
+        		defer cancel()  // releases resources if slowOperation completes before timeout elapses
+        		return slowOperation(ctx)
+        	}
+    **/
+    static public function withTimeout(parent:Context, timeout:stdgo._internal.time.Time.Duration):stdgo.Tuple<Context, CancelFunc> {
+        return {
+            final obj = stdgo._internal.context.Context.withTimeout(parent, timeout);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        WithTimeoutCause behaves like [WithTimeout] but also sets the cause of the
+        returned Context when the timeout expires. The returned [CancelFunc] does
+        not set the cause.
+    **/
+    static public function withTimeoutCause(parent:Context, timeout:stdgo._internal.time.Time.Duration, cause:stdgo.Error):stdgo.Tuple<Context, CancelFunc> {
+        return {
+            final obj = stdgo._internal.context.Context.withTimeoutCause(parent, timeout, cause);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        WithValue returns a copy of parent in which the value associated with key is
+        val.
+        
+        Use context Values only for request-scoped data that transits processes and
+        APIs, not for passing optional parameters to functions.
+        
+        The provided key must be comparable and should not be of type
+        string or any other built-in type to avoid collisions between
+        packages using context. Users of WithValue should define their own
+        types for keys. To avoid allocating when assigning to an
+        interface{}, context keys often have concrete type
+        struct{}. Alternatively, exported context key variables' static
+        type should be a pointer or interface.
+    **/
+    static public function withValue(parent:Context, key:stdgo.AnyInterface, val:stdgo.AnyInterface):Context {
+        return stdgo._internal.context.Context.withValue(parent, key, val);
+    }
 }

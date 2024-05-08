@@ -195,390 +195,6 @@ typedef T__struct_6 = stdgo._internal.regexp.Regexp.T__struct_6;
 typedef T__struct_7 = stdgo._internal.regexp.Regexp.T__struct_7;
 typedef T_lazyFlag = stdgo._internal.regexp.Regexp.T_lazyFlag;
 typedef T_runeSlice = stdgo._internal.regexp.Regexp.T_runeSlice;
-function testGoodCompile(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testGoodCompile(t);
-    }
-function testBadCompile(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testBadCompile(t);
-    }
-function testMatch(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testMatch(t);
-    }
-function testMatchFunction(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testMatchFunction(t);
-    }
-function testCopyMatch(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testCopyMatch(t);
-    }
-function testReplaceAll(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testReplaceAll(t);
-    }
-function testReplaceAllLiteral(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testReplaceAllLiteral(t);
-    }
-function testReplaceAllFunc(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testReplaceAllFunc(t);
-    }
-function testQuoteMeta(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testQuoteMeta(t);
-    }
-function testLiteralPrefix(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testLiteralPrefix(t);
-    }
-function testSubexp(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testSubexp(t);
-    }
-function testSplit(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testSplit(t);
-    }
-/**
-    The following sequence of Match calls used to panic. See issue #12980.
-**/
-function testParseAndCompile(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testParseAndCompile(t);
-    }
-/**
-    Check that one-pass cutoff does trigger.
-**/
-function testOnePassCutoff(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testOnePassCutoff(t);
-    }
-/**
-    Check that the same machine can be used with the standard matcher
-    and then the backtracker when there are no captures.
-**/
-function testSwitchBacktrack(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testSwitchBacktrack(t);
-    }
-function benchmarkFind(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkFind(b);
-    }
-function benchmarkFindAllNoMatches(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkFindAllNoMatches(b);
-    }
-function benchmarkFindString(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkFindString(b);
-    }
-function benchmarkFindSubmatch(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkFindSubmatch(b);
-    }
-function benchmarkFindStringSubmatch(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkFindStringSubmatch(b);
-    }
-function benchmarkLiteral(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkLiteral(b);
-    }
-function benchmarkNotLiteral(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkNotLiteral(b);
-    }
-function benchmarkMatchClass(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkMatchClass(b);
-    }
-function benchmarkMatchClass_InRange(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkMatchClass_InRange(b);
-    }
-function benchmarkReplaceAll(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkReplaceAll(b);
-    }
-function benchmarkAnchoredLiteralShortNonMatch(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkAnchoredLiteralShortNonMatch(b);
-    }
-function benchmarkAnchoredLiteralLongNonMatch(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkAnchoredLiteralLongNonMatch(b);
-    }
-function benchmarkAnchoredShortMatch(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkAnchoredShortMatch(b);
-    }
-function benchmarkAnchoredLongMatch(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkAnchoredLongMatch(b);
-    }
-function benchmarkOnePassShortA(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkOnePassShortA(b);
-    }
-function benchmarkNotOnePassShortA(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkNotOnePassShortA(b);
-    }
-function benchmarkOnePassShortB(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkOnePassShortB(b);
-    }
-function benchmarkNotOnePassShortB(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkNotOnePassShortB(b);
-    }
-function benchmarkOnePassLongPrefix(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkOnePassLongPrefix(b);
-    }
-function benchmarkOnePassLongNotPrefix(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkOnePassLongNotPrefix(b);
-    }
-function benchmarkMatchParallelShared(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkMatchParallelShared(b);
-    }
-function benchmarkMatchParallelCopied(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkMatchParallelCopied(b);
-    }
-function benchmarkQuoteMetaAll(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkQuoteMetaAll(b);
-    }
-function benchmarkQuoteMetaNone(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkQuoteMetaNone(b);
-    }
-function benchmarkCompile(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkCompile(b);
-    }
-function testDeepEqual(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testDeepEqual(t);
-    }
-function testMinInputLen(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testMinInputLen(t);
-    }
-function testUnmarshalText(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testUnmarshalText(t);
-    }
-/**
-    This test is excluded when running under the race detector because
-    it is a very expensive test and takes too long.
-**/
-function testRE2Exhaustive(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testRE2Exhaustive(t);
-    }
-/**
-    TestRE2 tests this package's regexp API against test cases
-    considered during RE2's exhaustive tests, which run all possible
-    regexps over a given set of atoms and operators, up to a given
-    complexity, over all possible strings over a given alphabet,
-    up to a given size. Rather than try to link with RE2, we read a
-    log file containing the test cases and the expected matches.
-    The log file, re2-exhaustive.txt, is generated by running 'make log'
-    in the open source RE2 distribution https://github.com/google/re2/.
-    
-    The test file format is a sequence of stanzas like:
-    
-    	strings
-    	"abc"
-    	"123x"
-    	regexps
-    	"[a-z]+"
-    	0-3;0-3
-    	-;-
-    	"([0-9])([0-9])([0-9])"
-    	-;-
-    	-;0-3 0-1 1-2 2-3
-    
-    The stanza begins by defining a set of strings, quoted
-    using Go double-quote syntax, one per line. Then the
-    regexps section gives a sequence of regexps to run on
-    the strings. In the block that follows a regexp, each line
-    gives the semicolon-separated match results of running
-    the regexp on the corresponding string.
-    Each match result is either a single -, meaning no match, or a
-    space-separated sequence of pairs giving the match and
-    submatch indices. An unmatched subexpression formats
-    its pair as a single - (not illustrated above).  For now
-    each regexp run produces two match results, one for a
-    “full match” that restricts the regexp to matching the entire
-    string or nothing, and one for a “partial match” that gives
-    the leftmost first match found in the string.
-    
-    Lines beginning with # are comments. Lines beginning with
-    a capital letter are test names printed during RE2's test suite
-    and are echoed into t but otherwise ignored.
-    
-    At time of writing, re2-exhaustive.txt is 59 MB but compresses to 385 kB,
-    so we store re2-exhaustive.txt.bz2 in the repository and decompress it on the fly.
-**/
-function testRE2Search(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testRE2Search(t);
-    }
-/**
-    TestFowler runs this package's regexp API against the
-    POSIX regular expression tests collected by Glenn Fowler
-    at http://www2.research.att.com/~astopen/testregex/testregex.html.
-**/
-function testFowler(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFowler(t);
-    }
-function benchmarkMatch(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkMatch(b);
-    }
-function benchmarkMatch_onepass_regex(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkMatch_onepass_regex(b);
-    }
-function testLongest(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testLongest(t);
-    }
-/**
-    TestProgramTooLongForBacktrack tests that a regex which is too long
-    for the backtracker still executes properly.
-**/
-function testProgramTooLongForBacktrack(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testProgramTooLongForBacktrack(t);
-    }
-function testFind(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFind(t);
-    }
-function testFindString(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindString(t);
-    }
-function testFindIndex(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindIndex(t);
-    }
-function testFindStringIndex(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindStringIndex(t);
-    }
-function testFindReaderIndex(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindReaderIndex(t);
-    }
-function testFindAll(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindAll(t);
-    }
-function testFindAllString(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindAllString(t);
-    }
-function testFindAllIndex(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindAllIndex(t);
-    }
-function testFindAllStringIndex(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindAllStringIndex(t);
-    }
-function testFindSubmatch(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindSubmatch(t);
-    }
-function testFindStringSubmatch(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindStringSubmatch(t);
-    }
-function testFindSubmatchIndex(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindSubmatchIndex(t);
-    }
-function testFindStringSubmatchIndex(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindStringSubmatchIndex(t);
-    }
-function testFindReaderSubmatchIndex(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindReaderSubmatchIndex(t);
-    }
-function testFindAllSubmatch(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindAllSubmatch(t);
-    }
-function testFindAllStringSubmatch(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindAllStringSubmatch(t);
-    }
-function testFindAllSubmatchIndex(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindAllSubmatchIndex(t);
-    }
-function testFindAllStringSubmatchIndex(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindAllStringSubmatchIndex(t);
-    }
-function testMergeRuneSet(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testMergeRuneSet(t);
-    }
-function testCompileOnePass(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testCompileOnePass(t);
-    }
-function testRunOnePass(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testRunOnePass(t);
-    }
-/**
-    Compile parses a regular expression and returns, if successful,
-    a Regexp object that can be used to match against text.
-    
-    When matching against text, the regexp returns a match that
-    begins as early as possible in the input (leftmost), and among those
-    it chooses the one that a backtracking search would have found first.
-    This so-called leftmost-first matching is the same semantics
-    that Perl, Python, and other implementations use, although this
-    package implements it without the expense of backtracking.
-    For POSIX leftmost-longest matching, see CompilePOSIX.
-**/
-function compile(expr:String):stdgo.Tuple<Regexp, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.regexp.Regexp.compile(expr);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    CompilePOSIX is like Compile but restricts the regular expression
-    to POSIX ERE (egrep) syntax and changes the match semantics to
-    leftmost-longest.
-    
-    That is, when matching against text, the regexp returns a match that
-    begins as early as possible in the input (leftmost), and among those
-    it chooses a match that is as long as possible.
-    This so-called leftmost-longest matching is the same semantics
-    that early regular expression implementations used and that POSIX
-    specifies.
-    
-    However, there can be multiple leftmost-longest matches, with different
-    submatch choices, and here this package diverges from POSIX.
-    Among the possible leftmost-longest matches, this package chooses
-    the one that a backtracking search would have found first, while POSIX
-    specifies that the match be chosen to maximize the length of the first
-    subexpression, then the second, and so on from left to right.
-    The POSIX rule is computationally prohibitive and not even well-defined.
-    See https://swtch.com/~rsc/regexp/regexp2.html#posix for details.
-**/
-function compilePOSIX(expr:String):stdgo.Tuple<Regexp, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.regexp.Regexp.compilePOSIX(expr);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    MustCompile is like Compile but panics if the expression cannot be parsed.
-    It simplifies safe initialization of global variables holding compiled regular
-    expressions.
-**/
-function mustCompile(str:String):Regexp {
-        return stdgo._internal.regexp.Regexp.mustCompile(str);
-    }
-/**
-    MustCompilePOSIX is like CompilePOSIX but panics if the expression cannot be parsed.
-    It simplifies safe initialization of global variables holding compiled regular
-    expressions.
-**/
-function mustCompilePOSIX(str:String):Regexp {
-        return stdgo._internal.regexp.Regexp.mustCompilePOSIX(str);
-    }
-/**
-    MatchReader reports whether the text returned by the RuneReader
-    contains any match of the regular expression pattern.
-    More complicated queries need to use Compile and the full Regexp interface.
-**/
-function matchReader(pattern:String, r:stdgo._internal.io.Io.RuneReader):stdgo.Tuple<Bool, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.regexp.Regexp.matchReader(pattern, r);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    MatchString reports whether the string s
-    contains any match of the regular expression pattern.
-    More complicated queries need to use Compile and the full Regexp interface.
-**/
-function matchString(pattern:String, s:String):stdgo.Tuple<Bool, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.regexp.Regexp.matchString(pattern, s);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Match reports whether the byte slice b
-    contains any match of the regular expression pattern.
-    More complicated queries need to use Compile and the full Regexp interface.
-**/
-function match(pattern:String, b:Array<StdTypes.Int>):stdgo.Tuple<Bool, stdgo.Error> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return {
-            final obj = stdgo._internal.regexp.Regexp.match(pattern, b);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    QuoteMeta returns a string that escapes all regular expression metacharacters
-    inside the argument text; the returned string is a regular expression matching
-    the literal text.
-**/
-function quoteMeta(s:String):String {
-        return stdgo._internal.regexp.Regexp.quoteMeta(s);
-    }
 @:forward @:forward.new abstract T_bitState_asInterface(stdgo._internal.regexp.Regexp.T_bitState_asInterface) from stdgo._internal.regexp.Regexp.T_bitState_asInterface to stdgo._internal.regexp.Regexp.T_bitState_asInterface {
 
 }
@@ -650,4 +266,390 @@ function quoteMeta(s:String):String {
 }
 @:forward @:forward.new abstract T_runeSlice_static_extension(stdgo._internal.regexp.Regexp.T_runeSlice_static_extension) from stdgo._internal.regexp.Regexp.T_runeSlice_static_extension to stdgo._internal.regexp.Regexp.T_runeSlice_static_extension {
 
+}
+class Regexp {
+    static public function testGoodCompile(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testGoodCompile(t);
+    }
+    static public function testBadCompile(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testBadCompile(t);
+    }
+    static public function testMatch(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testMatch(t);
+    }
+    static public function testMatchFunction(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testMatchFunction(t);
+    }
+    static public function testCopyMatch(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testCopyMatch(t);
+    }
+    static public function testReplaceAll(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testReplaceAll(t);
+    }
+    static public function testReplaceAllLiteral(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testReplaceAllLiteral(t);
+    }
+    static public function testReplaceAllFunc(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testReplaceAllFunc(t);
+    }
+    static public function testQuoteMeta(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testQuoteMeta(t);
+    }
+    static public function testLiteralPrefix(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testLiteralPrefix(t);
+    }
+    static public function testSubexp(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testSubexp(t);
+    }
+    static public function testSplit(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testSplit(t);
+    }
+    /**
+        The following sequence of Match calls used to panic. See issue #12980.
+    **/
+    static public function testParseAndCompile(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testParseAndCompile(t);
+    }
+    /**
+        Check that one-pass cutoff does trigger.
+    **/
+    static public function testOnePassCutoff(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testOnePassCutoff(t);
+    }
+    /**
+        Check that the same machine can be used with the standard matcher
+        and then the backtracker when there are no captures.
+    **/
+    static public function testSwitchBacktrack(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testSwitchBacktrack(t);
+    }
+    static public function benchmarkFind(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkFind(b);
+    }
+    static public function benchmarkFindAllNoMatches(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkFindAllNoMatches(b);
+    }
+    static public function benchmarkFindString(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkFindString(b);
+    }
+    static public function benchmarkFindSubmatch(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkFindSubmatch(b);
+    }
+    static public function benchmarkFindStringSubmatch(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkFindStringSubmatch(b);
+    }
+    static public function benchmarkLiteral(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkLiteral(b);
+    }
+    static public function benchmarkNotLiteral(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkNotLiteral(b);
+    }
+    static public function benchmarkMatchClass(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkMatchClass(b);
+    }
+    static public function benchmarkMatchClass_InRange(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkMatchClass_InRange(b);
+    }
+    static public function benchmarkReplaceAll(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkReplaceAll(b);
+    }
+    static public function benchmarkAnchoredLiteralShortNonMatch(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkAnchoredLiteralShortNonMatch(b);
+    }
+    static public function benchmarkAnchoredLiteralLongNonMatch(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkAnchoredLiteralLongNonMatch(b);
+    }
+    static public function benchmarkAnchoredShortMatch(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkAnchoredShortMatch(b);
+    }
+    static public function benchmarkAnchoredLongMatch(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkAnchoredLongMatch(b);
+    }
+    static public function benchmarkOnePassShortA(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkOnePassShortA(b);
+    }
+    static public function benchmarkNotOnePassShortA(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkNotOnePassShortA(b);
+    }
+    static public function benchmarkOnePassShortB(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkOnePassShortB(b);
+    }
+    static public function benchmarkNotOnePassShortB(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkNotOnePassShortB(b);
+    }
+    static public function benchmarkOnePassLongPrefix(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkOnePassLongPrefix(b);
+    }
+    static public function benchmarkOnePassLongNotPrefix(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkOnePassLongNotPrefix(b);
+    }
+    static public function benchmarkMatchParallelShared(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkMatchParallelShared(b);
+    }
+    static public function benchmarkMatchParallelCopied(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkMatchParallelCopied(b);
+    }
+    static public function benchmarkQuoteMetaAll(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkQuoteMetaAll(b);
+    }
+    static public function benchmarkQuoteMetaNone(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkQuoteMetaNone(b);
+    }
+    static public function benchmarkCompile(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkCompile(b);
+    }
+    static public function testDeepEqual(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testDeepEqual(t);
+    }
+    static public function testMinInputLen(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testMinInputLen(t);
+    }
+    static public function testUnmarshalText(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testUnmarshalText(t);
+    }
+    /**
+        This test is excluded when running under the race detector because
+        it is a very expensive test and takes too long.
+    **/
+    static public function testRE2Exhaustive(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testRE2Exhaustive(t);
+    }
+    /**
+        TestRE2 tests this package's regexp API against test cases
+        considered during RE2's exhaustive tests, which run all possible
+        regexps over a given set of atoms and operators, up to a given
+        complexity, over all possible strings over a given alphabet,
+        up to a given size. Rather than try to link with RE2, we read a
+        log file containing the test cases and the expected matches.
+        The log file, re2-exhaustive.txt, is generated by running 'make log'
+        in the open source RE2 distribution https://github.com/google/re2/.
+        
+        The test file format is a sequence of stanzas like:
+        
+        	strings
+        	"abc"
+        	"123x"
+        	regexps
+        	"[a-z]+"
+        	0-3;0-3
+        	-;-
+        	"([0-9])([0-9])([0-9])"
+        	-;-
+        	-;0-3 0-1 1-2 2-3
+        
+        The stanza begins by defining a set of strings, quoted
+        using Go double-quote syntax, one per line. Then the
+        regexps section gives a sequence of regexps to run on
+        the strings. In the block that follows a regexp, each line
+        gives the semicolon-separated match results of running
+        the regexp on the corresponding string.
+        Each match result is either a single -, meaning no match, or a
+        space-separated sequence of pairs giving the match and
+        submatch indices. An unmatched subexpression formats
+        its pair as a single - (not illustrated above).  For now
+        each regexp run produces two match results, one for a
+        “full match” that restricts the regexp to matching the entire
+        string or nothing, and one for a “partial match” that gives
+        the leftmost first match found in the string.
+        
+        Lines beginning with # are comments. Lines beginning with
+        a capital letter are test names printed during RE2's test suite
+        and are echoed into t but otherwise ignored.
+        
+        At time of writing, re2-exhaustive.txt is 59 MB but compresses to 385 kB,
+        so we store re2-exhaustive.txt.bz2 in the repository and decompress it on the fly.
+    **/
+    static public function testRE2Search(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testRE2Search(t);
+    }
+    /**
+        TestFowler runs this package's regexp API against the
+        POSIX regular expression tests collected by Glenn Fowler
+        at http://www2.research.att.com/~astopen/testregex/testregex.html.
+    **/
+    static public function testFowler(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFowler(t);
+    }
+    static public function benchmarkMatch(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkMatch(b);
+    }
+    static public function benchmarkMatch_onepass_regex(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkMatch_onepass_regex(b);
+    }
+    static public function testLongest(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testLongest(t);
+    }
+    /**
+        TestProgramTooLongForBacktrack tests that a regex which is too long
+        for the backtracker still executes properly.
+    **/
+    static public function testProgramTooLongForBacktrack(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testProgramTooLongForBacktrack(t);
+    }
+    static public function testFind(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFind(t);
+    }
+    static public function testFindString(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindString(t);
+    }
+    static public function testFindIndex(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindIndex(t);
+    }
+    static public function testFindStringIndex(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindStringIndex(t);
+    }
+    static public function testFindReaderIndex(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindReaderIndex(t);
+    }
+    static public function testFindAll(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindAll(t);
+    }
+    static public function testFindAllString(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindAllString(t);
+    }
+    static public function testFindAllIndex(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindAllIndex(t);
+    }
+    static public function testFindAllStringIndex(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindAllStringIndex(t);
+    }
+    static public function testFindSubmatch(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindSubmatch(t);
+    }
+    static public function testFindStringSubmatch(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindStringSubmatch(t);
+    }
+    static public function testFindSubmatchIndex(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindSubmatchIndex(t);
+    }
+    static public function testFindStringSubmatchIndex(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindStringSubmatchIndex(t);
+    }
+    static public function testFindReaderSubmatchIndex(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindReaderSubmatchIndex(t);
+    }
+    static public function testFindAllSubmatch(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindAllSubmatch(t);
+    }
+    static public function testFindAllStringSubmatch(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindAllStringSubmatch(t);
+    }
+    static public function testFindAllSubmatchIndex(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindAllSubmatchIndex(t);
+    }
+    static public function testFindAllStringSubmatchIndex(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindAllStringSubmatchIndex(t);
+    }
+    static public function testMergeRuneSet(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testMergeRuneSet(t);
+    }
+    static public function testCompileOnePass(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testCompileOnePass(t);
+    }
+    static public function testRunOnePass(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testRunOnePass(t);
+    }
+    /**
+        Compile parses a regular expression and returns, if successful,
+        a Regexp object that can be used to match against text.
+        
+        When matching against text, the regexp returns a match that
+        begins as early as possible in the input (leftmost), and among those
+        it chooses the one that a backtracking search would have found first.
+        This so-called leftmost-first matching is the same semantics
+        that Perl, Python, and other implementations use, although this
+        package implements it without the expense of backtracking.
+        For POSIX leftmost-longest matching, see CompilePOSIX.
+    **/
+    static public function compile(expr:String):stdgo.Tuple<Regexp, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.regexp.Regexp.compile(expr);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        CompilePOSIX is like Compile but restricts the regular expression
+        to POSIX ERE (egrep) syntax and changes the match semantics to
+        leftmost-longest.
+        
+        That is, when matching against text, the regexp returns a match that
+        begins as early as possible in the input (leftmost), and among those
+        it chooses a match that is as long as possible.
+        This so-called leftmost-longest matching is the same semantics
+        that early regular expression implementations used and that POSIX
+        specifies.
+        
+        However, there can be multiple leftmost-longest matches, with different
+        submatch choices, and here this package diverges from POSIX.
+        Among the possible leftmost-longest matches, this package chooses
+        the one that a backtracking search would have found first, while POSIX
+        specifies that the match be chosen to maximize the length of the first
+        subexpression, then the second, and so on from left to right.
+        The POSIX rule is computationally prohibitive and not even well-defined.
+        See https://swtch.com/~rsc/regexp/regexp2.html#posix for details.
+    **/
+    static public function compilePOSIX(expr:String):stdgo.Tuple<Regexp, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.regexp.Regexp.compilePOSIX(expr);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        MustCompile is like Compile but panics if the expression cannot be parsed.
+        It simplifies safe initialization of global variables holding compiled regular
+        expressions.
+    **/
+    static public function mustCompile(str:String):Regexp {
+        return stdgo._internal.regexp.Regexp.mustCompile(str);
+    }
+    /**
+        MustCompilePOSIX is like CompilePOSIX but panics if the expression cannot be parsed.
+        It simplifies safe initialization of global variables holding compiled regular
+        expressions.
+    **/
+    static public function mustCompilePOSIX(str:String):Regexp {
+        return stdgo._internal.regexp.Regexp.mustCompilePOSIX(str);
+    }
+    /**
+        MatchReader reports whether the text returned by the RuneReader
+        contains any match of the regular expression pattern.
+        More complicated queries need to use Compile and the full Regexp interface.
+    **/
+    static public function matchReader(pattern:String, r:stdgo._internal.io.Io.RuneReader):stdgo.Tuple<Bool, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.regexp.Regexp.matchReader(pattern, r);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        MatchString reports whether the string s
+        contains any match of the regular expression pattern.
+        More complicated queries need to use Compile and the full Regexp interface.
+    **/
+    static public function matchString(pattern:String, s:String):stdgo.Tuple<Bool, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.regexp.Regexp.matchString(pattern, s);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Match reports whether the byte slice b
+        contains any match of the regular expression pattern.
+        More complicated queries need to use Compile and the full Regexp interface.
+    **/
+    static public function match(pattern:String, b:Array<StdTypes.Int>):stdgo.Tuple<Bool, stdgo.Error> {
+        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
+        return {
+            final obj = stdgo._internal.regexp.Regexp.match(pattern, b);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        QuoteMeta returns a string that escapes all regular expression metacharacters
+        inside the argument text; the returned string is a regular expression matching
+        the literal text.
+    **/
+    static public function quoteMeta(s:String):String {
+        return stdgo._internal.regexp.Regexp.quoteMeta(s);
+    }
 }

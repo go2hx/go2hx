@@ -185,681 +185,6 @@ typedef T_dirFS = stdgo._internal.os.Os.T_dirFS;
 typedef T_newFileKind = stdgo._internal.os.Os.T_newFileKind;
 typedef FileInfo = stdgo._internal.os.Os.FileInfo;
 typedef FileMode = stdgo._internal.os.Os.FileMode;
-/**
-    ReadDir reads the named directory,
-    returning all its directory entries sorted by filename.
-    If an error occurs reading the directory,
-    ReadDir returns the entries it was able to read before the error,
-    along with the error.
-**/
-function readDir(name:String):stdgo.Tuple<Array<DirEntry>, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.os.Os.readDir(name);
-            { _0 : [for (i in obj._0) i], _1 : obj._1 };
-        };
-    }
-/**
-    Expand replaces ${var} or $var in the string based on the mapping function.
-    For example, os.ExpandEnv(s) is equivalent to os.Expand(s, os.Getenv).
-**/
-function expand(s:String, mapping:stdgo.GoString -> stdgo.GoString):String {
-        final mapping = mapping;
-        return stdgo._internal.os.Os.expand(s, mapping);
-    }
-/**
-    ExpandEnv replaces ${var} or $var in the string according to the values
-    of the current environment variables. References to undefined
-    variables are replaced by the empty string.
-**/
-function expandEnv(s:String):String {
-        return stdgo._internal.os.Os.expandEnv(s);
-    }
-/**
-    Getenv retrieves the value of the environment variable named by the key.
-    It returns the value, which will be empty if the variable is not present.
-    To distinguish between an empty value and an unset value, use LookupEnv.
-**/
-function getenv(key:String):String {
-        return stdgo._internal.os.Os.getenv(key);
-    }
-/**
-    LookupEnv retrieves the value of the environment variable named
-    by the key. If the variable is present in the environment the
-    value (which may be empty) is returned and the boolean is true.
-    Otherwise the returned value will be empty and the boolean will
-    be false.
-**/
-function lookupEnv(key:String):stdgo.Tuple<String, Bool> {
-        return {
-            final obj = stdgo._internal.os.Os.lookupEnv(key);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Setenv sets the value of the environment variable named by the key.
-    It returns an error, if any.
-**/
-function setenv(key:String, value:String):stdgo.Error {
-        return stdgo._internal.os.Os.setenv(key, value);
-    }
-/**
-    Unsetenv unsets a single environment variable.
-**/
-function unsetenv(key:String):stdgo.Error {
-        return stdgo._internal.os.Os.unsetenv(key);
-    }
-/**
-    Clearenv deletes all environment variables.
-**/
-function clearenv():Void {
-        stdgo._internal.os.Os.clearenv();
-    }
-/**
-    Environ returns a copy of strings representing the environment,
-    in the form "key=value".
-**/
-function environ():Array<String> {
-        return [for (i in stdgo._internal.os.Os.environ()) i];
-    }
-/**
-    NewSyscallError returns, as an error, a new SyscallError
-    with the given system call name and error details.
-    As a convenience, if err is nil, NewSyscallError returns nil.
-**/
-function newSyscallError(syscall:String, err:stdgo.Error):stdgo.Error {
-        return stdgo._internal.os.Os.newSyscallError(syscall, err);
-    }
-/**
-    IsExist returns a boolean indicating whether the error is known to report
-    that a file or directory already exists. It is satisfied by ErrExist as
-    well as some syscall errors.
-    
-    This function predates errors.Is. It only supports errors returned by
-    the os package. New code should use errors.Is(err, fs.ErrExist).
-**/
-function isExist(err:stdgo.Error):Bool {
-        return stdgo._internal.os.Os.isExist(err);
-    }
-/**
-    IsNotExist returns a boolean indicating whether the error is known to
-    report that a file or directory does not exist. It is satisfied by
-    ErrNotExist as well as some syscall errors.
-    
-    This function predates errors.Is. It only supports errors returned by
-    the os package. New code should use errors.Is(err, fs.ErrNotExist).
-**/
-function isNotExist(err:stdgo.Error):Bool {
-        return stdgo._internal.os.Os.isNotExist(err);
-    }
-/**
-    IsPermission returns a boolean indicating whether the error is known to
-    report that permission is denied. It is satisfied by ErrPermission as well
-    as some syscall errors.
-    
-    This function predates errors.Is. It only supports errors returned by
-    the os package. New code should use errors.Is(err, fs.ErrPermission).
-**/
-function isPermission(err:stdgo.Error):Bool {
-        return stdgo._internal.os.Os.isPermission(err);
-    }
-/**
-    IsTimeout returns a boolean indicating whether the error is known
-    to report that a timeout occurred.
-    
-    This function predates errors.Is, and the notion of whether an
-    error indicates a timeout can be ambiguous. For example, the Unix
-    error EWOULDBLOCK sometimes indicates a timeout and sometimes does not.
-    New code should use errors.Is with a value appropriate to the call
-    returning the error, such as os.ErrDeadlineExceeded.
-**/
-function isTimeout(err:stdgo.Error):Bool {
-        return stdgo._internal.os.Os.isTimeout(err);
-    }
-/**
-    Getpid returns the process id of the caller.
-**/
-function getpid():StdTypes.Int {
-        return stdgo._internal.os.Os.getpid();
-    }
-/**
-    Getppid returns the process id of the caller's parent.
-**/
-function getppid():StdTypes.Int {
-        return stdgo._internal.os.Os.getppid();
-    }
-/**
-    FindProcess looks for a running process by its pid.
-    
-    The Process it returns can be used to obtain information
-    about the underlying operating system process.
-    
-    On Unix systems, FindProcess always succeeds and returns a Process
-    for the given pid, regardless of whether the process exists. To test whether
-    the process actually exists, see whether p.Signal(syscall.Signal(0)) reports
-    an error.
-**/
-function findProcess(pid:StdTypes.Int):stdgo.Tuple<Process, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.os.Os.findProcess(pid);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    StartProcess starts a new process with the program, arguments and attributes
-    specified by name, argv and attr. The argv slice will become os.Args in the
-    new process, so it normally starts with the program name.
-    
-    If the calling goroutine has locked the operating system thread
-    with runtime.LockOSThread and modified any inheritable OS-level
-    thread state (for example, Linux or Plan 9 name spaces), the new
-    process will inherit the caller's thread state.
-    
-    StartProcess is a low-level interface. The os/exec package provides
-    higher-level interfaces.
-    
-    If there is an error, it will be of type *PathError.
-**/
-function startProcess(name:String, argv:Array<String>, attr:ProcAttr):stdgo.Tuple<Process, stdgo.Error> {
-        final argv = ([for (i in argv) i] : stdgo.Slice<stdgo.GoString>);
-        return {
-            final obj = stdgo._internal.os.Os.startProcess(name, argv, attr);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Executable returns the path name for the executable that started
-    the current process. There is no guarantee that the path is still
-    pointing to the correct executable. If a symlink was used to start
-    the process, depending on the operating system, the result might
-    be the symlink or the path it pointed to. If a stable result is
-    needed, path/filepath.EvalSymlinks might help.
-    
-    Executable returns an absolute path unless an error occurred.
-    
-    The main use case is finding resources located relative to an
-    executable.
-**/
-function executable():stdgo.Tuple<String, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.os.Os.executable();
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Mkdir creates a new directory with the specified name and permission
-    bits (before umask).
-    If there is an error, it will be of type *PathError.
-**/
-function mkdir(name:String, perm:FileMode):stdgo.Error {
-        return stdgo._internal.os.Os.mkdir(name, perm);
-    }
-/**
-    Chdir changes the current working directory to the named directory.
-    If there is an error, it will be of type *PathError.
-**/
-function chdir(dir:String):stdgo.Error {
-        return stdgo._internal.os.Os.chdir(dir);
-    }
-/**
-    Open opens the named file for reading. If successful, methods on
-    the returned file can be used for reading; the associated file
-    descriptor has mode O_RDONLY.
-    If there is an error, it will be of type *PathError.
-**/
-function open(name:String):stdgo.Tuple<File, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.os.Os.open(name);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Create creates or truncates the named file. If the file already exists,
-    it is truncated. If the file does not exist, it is created with mode 0666
-    (before umask). If successful, methods on the returned File can
-    be used for I/O; the associated file descriptor has mode O_RDWR.
-    If there is an error, it will be of type *PathError.
-**/
-function create(name:String):stdgo.Tuple<File, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.os.Os.create(name);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    OpenFile is the generalized open call; most users will use Open
-    or Create instead. It opens the named file with specified flag
-    (O_RDONLY etc.). If the file does not exist, and the O_CREATE flag
-    is passed, it is created with mode perm (before umask). If successful,
-    methods on the returned File can be used for I/O.
-    If there is an error, it will be of type *PathError.
-**/
-function openFile(name:String, flag:StdTypes.Int, perm:FileMode):stdgo.Tuple<File, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.os.Os.openFile(name, flag, perm);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Rename renames (moves) oldpath to newpath.
-    If newpath already exists and is not a directory, Rename replaces it.
-    OS-specific restrictions may apply when oldpath and newpath are in different directories.
-    Even within the same directory, on non-Unix platforms Rename is not an atomic operation.
-    If there is an error, it will be of type *LinkError.
-**/
-function rename(oldpath:String, newpath:String):stdgo.Error {
-        return stdgo._internal.os.Os.rename(oldpath, newpath);
-    }
-/**
-    TempDir returns the default directory to use for temporary files.
-    
-    On Unix systems, it returns $TMPDIR if non-empty, else /tmp.
-    On Windows, it uses GetTempPath, returning the first non-empty
-    value from %TMP%, %TEMP%, %USERPROFILE%, or the Windows directory.
-    On Plan 9, it returns /tmp.
-    
-    The directory is neither guaranteed to exist nor have accessible
-    permissions.
-**/
-function tempDir():String {
-        return stdgo._internal.os.Os.tempDir();
-    }
-/**
-    UserCacheDir returns the default root directory to use for user-specific
-    cached data. Users should create their own application-specific subdirectory
-    within this one and use that.
-    
-    On Unix systems, it returns $XDG_CACHE_HOME as specified by
-    https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html if
-    non-empty, else $HOME/.cache.
-    On Darwin, it returns $HOME/Library/Caches.
-    On Windows, it returns %LocalAppData%.
-    On Plan 9, it returns $home/lib/cache.
-    
-    If the location cannot be determined (for example, $HOME is not defined),
-    then it will return an error.
-**/
-function userCacheDir():stdgo.Tuple<String, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.os.Os.userCacheDir();
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    UserConfigDir returns the default root directory to use for user-specific
-    configuration data. Users should create their own application-specific
-    subdirectory within this one and use that.
-    
-    On Unix systems, it returns $XDG_CONFIG_HOME as specified by
-    https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html if
-    non-empty, else $HOME/.config.
-    On Darwin, it returns $HOME/Library/Application Support.
-    On Windows, it returns %AppData%.
-    On Plan 9, it returns $home/lib.
-    
-    If the location cannot be determined (for example, $HOME is not defined),
-    then it will return an error.
-**/
-function userConfigDir():stdgo.Tuple<String, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.os.Os.userConfigDir();
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    UserHomeDir returns the current user's home directory.
-    
-    On Unix, including macOS, it returns the $HOME environment variable.
-    On Windows, it returns %USERPROFILE%.
-    On Plan 9, it returns the $home environment variable.
-    
-    If the expected variable is not set in the environment, UserHomeDir
-    returns either a platform-specific default value or a non-nil error.
-**/
-function userHomeDir():stdgo.Tuple<String, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.os.Os.userHomeDir();
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Chmod changes the mode of the named file to mode.
-    If the file is a symbolic link, it changes the mode of the link's target.
-    If there is an error, it will be of type *PathError.
-    
-    A different subset of the mode bits are used, depending on the
-    operating system.
-    
-    On Unix, the mode's permission bits, ModeSetuid, ModeSetgid, and
-    ModeSticky are used.
-    
-    On Windows, only the 0200 bit (owner writable) of mode is used; it
-    controls whether the file's read-only attribute is set or cleared.
-    The other bits are currently unused. For compatibility with Go 1.12
-    and earlier, use a non-zero mode. Use mode 0400 for a read-only
-    file and 0600 for a readable+writable file.
-    
-    On Plan 9, the mode's permission bits, ModeAppend, ModeExclusive,
-    and ModeTemporary are used.
-**/
-function chmod(name:String, mode:FileMode):stdgo.Error {
-        return stdgo._internal.os.Os.chmod(name, mode);
-    }
-/**
-    DirFS returns a file system (an fs.FS) for the tree of files rooted at the directory dir.
-    
-    Note that DirFS("/prefix") only guarantees that the Open calls it makes to the
-    operating system will begin with "/prefix": DirFS("/prefix").Open("file") is the
-    same as os.Open("/prefix/file"). So if /prefix/file is a symbolic link pointing outside
-    the /prefix tree, then using DirFS does not stop the access any more than using
-    os.Open does. Additionally, the root of the fs.FS returned for a relative path,
-    DirFS("prefix"), will be affected by later calls to Chdir. DirFS is therefore not
-    a general substitute for a chroot-style security mechanism when the directory tree
-    contains arbitrary content.
-    
-    The directory dir must not be "".
-    
-    The result implements [io/fs.StatFS], [io/fs.ReadFileFS] and
-    [io/fs.ReadDirFS].
-**/
-function dirFS(dir:String):stdgo._internal.io.fs.Fs.FS {
-        return stdgo._internal.os.Os.dirFS(dir);
-    }
-/**
-    ReadFile reads the named file and returns the contents.
-    A successful call returns err == nil, not err == EOF.
-    Because ReadFile reads the whole file, it does not treat an EOF from Read
-    as an error to be reported.
-**/
-function readFile(name:String):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.os.Os.readFile(name);
-            { _0 : [for (i in obj._0) i], _1 : obj._1 };
-        };
-    }
-/**
-    WriteFile writes data to the named file, creating it if necessary.
-    If the file does not exist, WriteFile creates it with permissions perm (before umask);
-    otherwise WriteFile truncates it before writing, without changing permissions.
-    Since WriteFile requires multiple system calls to complete, a failure mid-operation
-    can leave the file in a partially written state.
-**/
-function writeFile(name:String, data:Array<StdTypes.Int>, perm:FileMode):stdgo.Error {
-        final data = ([for (i in data) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.os.Os.writeFile(name, data, perm);
-    }
-/**
-    Chown changes the numeric uid and gid of the named file.
-    If the file is a symbolic link, it changes the uid and gid of the link's target.
-    A uid or gid of -1 means to not change that value.
-    If there is an error, it will be of type *PathError.
-    
-    On Windows or Plan 9, Chown always returns the syscall.EWINDOWS or
-    EPLAN9 error, wrapped in *PathError.
-**/
-function chown(name:String, uid:StdTypes.Int, gid:StdTypes.Int):stdgo.Error {
-        return stdgo._internal.os.Os.chown(name, uid, gid);
-    }
-/**
-    Lchown changes the numeric uid and gid of the named file.
-    If the file is a symbolic link, it changes the uid and gid of the link itself.
-    If there is an error, it will be of type *PathError.
-    
-    On Windows, it always returns the syscall.EWINDOWS error, wrapped
-    in *PathError.
-**/
-function lchown(name:String, uid:StdTypes.Int, gid:StdTypes.Int):stdgo.Error {
-        return stdgo._internal.os.Os.lchown(name, uid, gid);
-    }
-/**
-    Chtimes changes the access and modification times of the named
-    file, similar to the Unix utime() or utimes() functions.
-    A zero time.Time value will leave the corresponding file time unchanged.
-    
-    The underlying filesystem may truncate or round the values to a
-    less precise time unit.
-    If there is an error, it will be of type *PathError.
-**/
-function chtimes(name:String, atime:stdgo._internal.time.Time.Time, mtime:stdgo._internal.time.Time.Time):stdgo.Error {
-        return stdgo._internal.os.Os.chtimes(name, atime, mtime);
-    }
-/**
-    NewFile returns a new File with the given file descriptor and
-    name. The returned value will be nil if fd is not a valid file
-    descriptor. On Unix systems, if the file descriptor is in
-    non-blocking mode, NewFile will attempt to return a pollable File
-    (one for which the SetDeadline methods work).
-    
-    After passing it to NewFile, fd may become invalid under the same
-    conditions described in the comments of the Fd method, and the same
-    constraints apply.
-**/
-function newFile(fd:stdgo.GoUIntptr, name:String):File {
-        return stdgo._internal.os.Os.newFile(fd, name);
-    }
-/**
-    Truncate changes the size of the named file.
-    If the file is a symbolic link, it changes the size of the link's target.
-    If there is an error, it will be of type *PathError.
-**/
-function truncate(name:String, size:haxe.Int64):stdgo.Error {
-        return stdgo._internal.os.Os.truncate(name, size);
-    }
-/**
-    Remove removes the named file or (empty) directory.
-    If there is an error, it will be of type *PathError.
-**/
-function remove(name:String):stdgo.Error {
-        return stdgo._internal.os.Os.remove(name);
-    }
-/**
-    Link creates newname as a hard link to the oldname file.
-    If there is an error, it will be of type *LinkError.
-**/
-function link(oldname:String, newname:String):stdgo.Error {
-        return stdgo._internal.os.Os.link(oldname, newname);
-    }
-/**
-    Symlink creates newname as a symbolic link to oldname.
-    On Windows, a symlink to a non-existent oldname creates a file symlink;
-    if oldname is later created as a directory the symlink will not work.
-    If there is an error, it will be of type *LinkError.
-**/
-function symlink(oldname:String, newname:String):stdgo.Error {
-        return stdgo._internal.os.Os.symlink(oldname, newname);
-    }
-/**
-    Readlink returns the destination of the named symbolic link.
-    If there is an error, it will be of type *PathError.
-**/
-function readlink(name:String):stdgo.Tuple<String, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.os.Os.readlink(name);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Getwd returns a rooted path name corresponding to the
-    current directory. If the current directory can be
-    reached via multiple paths (due to symbolic links),
-    Getwd may return any one of them.
-**/
-function getwd():stdgo.Tuple<String, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.os.Os.getwd();
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    MkdirAll creates a directory named path,
-    along with any necessary parents, and returns nil,
-    or else returns an error.
-    The permission bits perm (before umask) are used for all
-    directories that MkdirAll creates.
-    If path is already a directory, MkdirAll does nothing
-    and returns nil.
-**/
-function mkdirAll(path:String, perm:FileMode):stdgo.Error {
-        return stdgo._internal.os.Os.mkdirAll(path, perm);
-    }
-/**
-    RemoveAll removes path and any children it contains.
-    It removes everything it can but returns the first error
-    it encounters. If the path does not exist, RemoveAll
-    returns nil (no error).
-    If there is an error, it will be of type *PathError.
-**/
-function removeAll(path:String):stdgo.Error {
-        return stdgo._internal.os.Os.removeAll(path);
-    }
-/**
-    IsPathSeparator reports whether c is a directory separator character.
-**/
-function isPathSeparator(c:std.UInt):Bool {
-        return stdgo._internal.os.Os.isPathSeparator(c);
-    }
-/**
-    Pipe returns a connected pair of Files; reads from r return bytes written to w.
-    It returns the files and an error, if any.
-**/
-function pipe():stdgo.Tuple.Tuple3<File, File, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.os.Os.pipe();
-            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
-        };
-    }
-/**
-    Getuid returns the numeric user id of the caller.
-    
-    On Windows, it returns -1.
-**/
-function getuid():StdTypes.Int {
-        return stdgo._internal.os.Os.getuid();
-    }
-/**
-    Geteuid returns the numeric effective user id of the caller.
-    
-    On Windows, it returns -1.
-**/
-function geteuid():StdTypes.Int {
-        return stdgo._internal.os.Os.geteuid();
-    }
-/**
-    Getgid returns the numeric group id of the caller.
-    
-    On Windows, it returns -1.
-**/
-function getgid():StdTypes.Int {
-        return stdgo._internal.os.Os.getgid();
-    }
-/**
-    Getegid returns the numeric effective group id of the caller.
-    
-    On Windows, it returns -1.
-**/
-function getegid():StdTypes.Int {
-        return stdgo._internal.os.Os.getegid();
-    }
-/**
-    Getgroups returns a list of the numeric ids of groups that the caller belongs to.
-    
-    On Windows, it returns syscall.EWINDOWS. See the os/user package
-    for a possible alternative.
-**/
-function getgroups():stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.os.Os.getgroups();
-            { _0 : [for (i in obj._0) i], _1 : obj._1 };
-        };
-    }
-/**
-    Exit causes the current program to exit with the given status code.
-    Conventionally, code zero indicates success, non-zero an error.
-    The program terminates immediately; deferred functions are not run.
-    
-    For portability, the status code should be in the range [0, 125].
-**/
-function exit(code:StdTypes.Int):Void {
-        stdgo._internal.os.Os.exit(code);
-    }
-/**
-    Stat returns a FileInfo describing the named file.
-    If there is an error, it will be of type *PathError.
-**/
-function stat(name:String):stdgo.Tuple<FileInfo, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.os.Os.stat(name);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Lstat returns a FileInfo describing the named file.
-    If the file is a symbolic link, the returned FileInfo
-    describes the symbolic link. Lstat makes no attempt to follow the link.
-    If there is an error, it will be of type *PathError.
-**/
-function lstat(name:String):stdgo.Tuple<FileInfo, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.os.Os.lstat(name);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Hostname returns the host name reported by the kernel.
-**/
-function hostname():stdgo.Tuple<String, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.os.Os.hostname();
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    CreateTemp creates a new temporary file in the directory dir,
-    opens the file for reading and writing, and returns the resulting file.
-    The filename is generated by taking pattern and adding a random string to the end.
-    If pattern includes a "*", the random string replaces the last "*".
-    If dir is the empty string, CreateTemp uses the default directory for temporary files, as returned by TempDir.
-    Multiple programs or goroutines calling CreateTemp simultaneously will not choose the same file.
-    The caller can use the file's Name method to find the pathname of the file.
-    It is the caller's responsibility to remove the file when it is no longer needed.
-**/
-function createTemp(dir:String, pattern:String):stdgo.Tuple<File, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.os.Os.createTemp(dir, pattern);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    MkdirTemp creates a new temporary directory in the directory dir
-    and returns the pathname of the new directory.
-    The new directory's name is generated by adding a random string to the end of pattern.
-    If pattern includes a "*", the random string replaces the last "*" instead.
-    If dir is the empty string, MkdirTemp uses the default directory for temporary files, as returned by TempDir.
-    Multiple programs or goroutines calling MkdirTemp simultaneously will not choose the same directory.
-    It is the caller's responsibility to remove the directory when it is no longer needed.
-**/
-function mkdirTemp(dir:String, pattern:String):stdgo.Tuple<String, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.os.Os.mkdirTemp(dir, pattern);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Getpagesize returns the underlying system's memory page size.
-**/
-function getpagesize():StdTypes.Int {
-        return stdgo._internal.os.Os.getpagesize();
-    }
-/**
-    SameFile reports whether fi1 and fi2 describe the same file.
-    For example, on Unix this means that the device and inode fields
-    of the two underlying structures are identical; on other systems
-    the decision may be based on the path names.
-    SameFile only applies to results returned by this package's Stat.
-    It returns false in other cases.
-**/
-function sameFile(fi1:FileInfo, fi2:FileInfo):Bool {
-        return stdgo._internal.os.Os.sameFile(fi1, fi2);
-    }
 @:forward @:forward.new abstract T_dirInfo_asInterface(stdgo._internal.os.Os.T_dirInfo_asInterface) from stdgo._internal.os.Os.T_dirInfo_asInterface to stdgo._internal.os.Os.T_dirInfo_asInterface {
 
 }
@@ -931,4 +256,681 @@ function sameFile(fi1:FileInfo, fi2:FileInfo):Bool {
 }
 @:forward @:forward.new abstract T_dirFS_static_extension(stdgo._internal.os.Os.T_dirFS_static_extension) from stdgo._internal.os.Os.T_dirFS_static_extension to stdgo._internal.os.Os.T_dirFS_static_extension {
 
+}
+class Os {
+    /**
+        ReadDir reads the named directory,
+        returning all its directory entries sorted by filename.
+        If an error occurs reading the directory,
+        ReadDir returns the entries it was able to read before the error,
+        along with the error.
+    **/
+    static public function readDir(name:String):stdgo.Tuple<Array<DirEntry>, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.os.Os.readDir(name);
+            { _0 : [for (i in obj._0) i], _1 : obj._1 };
+        };
+    }
+    /**
+        Expand replaces ${var} or $var in the string based on the mapping function.
+        For example, os.ExpandEnv(s) is equivalent to os.Expand(s, os.Getenv).
+    **/
+    static public function expand(s:String, mapping:stdgo.GoString -> stdgo.GoString):String {
+        final mapping = mapping;
+        return stdgo._internal.os.Os.expand(s, mapping);
+    }
+    /**
+        ExpandEnv replaces ${var} or $var in the string according to the values
+        of the current environment variables. References to undefined
+        variables are replaced by the empty string.
+    **/
+    static public function expandEnv(s:String):String {
+        return stdgo._internal.os.Os.expandEnv(s);
+    }
+    /**
+        Getenv retrieves the value of the environment variable named by the key.
+        It returns the value, which will be empty if the variable is not present.
+        To distinguish between an empty value and an unset value, use LookupEnv.
+    **/
+    static public function getenv(key:String):String {
+        return stdgo._internal.os.Os.getenv(key);
+    }
+    /**
+        LookupEnv retrieves the value of the environment variable named
+        by the key. If the variable is present in the environment the
+        value (which may be empty) is returned and the boolean is true.
+        Otherwise the returned value will be empty and the boolean will
+        be false.
+    **/
+    static public function lookupEnv(key:String):stdgo.Tuple<String, Bool> {
+        return {
+            final obj = stdgo._internal.os.Os.lookupEnv(key);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Setenv sets the value of the environment variable named by the key.
+        It returns an error, if any.
+    **/
+    static public function setenv(key:String, value:String):stdgo.Error {
+        return stdgo._internal.os.Os.setenv(key, value);
+    }
+    /**
+        Unsetenv unsets a single environment variable.
+    **/
+    static public function unsetenv(key:String):stdgo.Error {
+        return stdgo._internal.os.Os.unsetenv(key);
+    }
+    /**
+        Clearenv deletes all environment variables.
+    **/
+    static public function clearenv():Void {
+        stdgo._internal.os.Os.clearenv();
+    }
+    /**
+        Environ returns a copy of strings representing the environment,
+        in the form "key=value".
+    **/
+    static public function environ():Array<String> {
+        return [for (i in stdgo._internal.os.Os.environ()) i];
+    }
+    /**
+        NewSyscallError returns, as an error, a new SyscallError
+        with the given system call name and error details.
+        As a convenience, if err is nil, NewSyscallError returns nil.
+    **/
+    static public function newSyscallError(syscall:String, err:stdgo.Error):stdgo.Error {
+        return stdgo._internal.os.Os.newSyscallError(syscall, err);
+    }
+    /**
+        IsExist returns a boolean indicating whether the error is known to report
+        that a file or directory already exists. It is satisfied by ErrExist as
+        well as some syscall errors.
+        
+        This function predates errors.Is. It only supports errors returned by
+        the os package. New code should use errors.Is(err, fs.ErrExist).
+    **/
+    static public function isExist(err:stdgo.Error):Bool {
+        return stdgo._internal.os.Os.isExist(err);
+    }
+    /**
+        IsNotExist returns a boolean indicating whether the error is known to
+        report that a file or directory does not exist. It is satisfied by
+        ErrNotExist as well as some syscall errors.
+        
+        This function predates errors.Is. It only supports errors returned by
+        the os package. New code should use errors.Is(err, fs.ErrNotExist).
+    **/
+    static public function isNotExist(err:stdgo.Error):Bool {
+        return stdgo._internal.os.Os.isNotExist(err);
+    }
+    /**
+        IsPermission returns a boolean indicating whether the error is known to
+        report that permission is denied. It is satisfied by ErrPermission as well
+        as some syscall errors.
+        
+        This function predates errors.Is. It only supports errors returned by
+        the os package. New code should use errors.Is(err, fs.ErrPermission).
+    **/
+    static public function isPermission(err:stdgo.Error):Bool {
+        return stdgo._internal.os.Os.isPermission(err);
+    }
+    /**
+        IsTimeout returns a boolean indicating whether the error is known
+        to report that a timeout occurred.
+        
+        This function predates errors.Is, and the notion of whether an
+        error indicates a timeout can be ambiguous. For example, the Unix
+        error EWOULDBLOCK sometimes indicates a timeout and sometimes does not.
+        New code should use errors.Is with a value appropriate to the call
+        returning the error, such as os.ErrDeadlineExceeded.
+    **/
+    static public function isTimeout(err:stdgo.Error):Bool {
+        return stdgo._internal.os.Os.isTimeout(err);
+    }
+    /**
+        Getpid returns the process id of the caller.
+    **/
+    static public function getpid():StdTypes.Int {
+        return stdgo._internal.os.Os.getpid();
+    }
+    /**
+        Getppid returns the process id of the caller's parent.
+    **/
+    static public function getppid():StdTypes.Int {
+        return stdgo._internal.os.Os.getppid();
+    }
+    /**
+        FindProcess looks for a running process by its pid.
+        
+        The Process it returns can be used to obtain information
+        about the underlying operating system process.
+        
+        On Unix systems, FindProcess always succeeds and returns a Process
+        for the given pid, regardless of whether the process exists. To test whether
+        the process actually exists, see whether p.Signal(syscall.Signal(0)) reports
+        an error.
+    **/
+    static public function findProcess(pid:StdTypes.Int):stdgo.Tuple<Process, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.os.Os.findProcess(pid);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        StartProcess starts a new process with the program, arguments and attributes
+        specified by name, argv and attr. The argv slice will become os.Args in the
+        new process, so it normally starts with the program name.
+        
+        If the calling goroutine has locked the operating system thread
+        with runtime.LockOSThread and modified any inheritable OS-level
+        thread state (for example, Linux or Plan 9 name spaces), the new
+        process will inherit the caller's thread state.
+        
+        StartProcess is a low-level interface. The os/exec package provides
+        higher-level interfaces.
+        
+        If there is an error, it will be of type *PathError.
+    **/
+    static public function startProcess(name:String, argv:Array<String>, attr:ProcAttr):stdgo.Tuple<Process, stdgo.Error> {
+        final argv = ([for (i in argv) i] : stdgo.Slice<stdgo.GoString>);
+        return {
+            final obj = stdgo._internal.os.Os.startProcess(name, argv, attr);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Executable returns the path name for the executable that started
+        the current process. There is no guarantee that the path is still
+        pointing to the correct executable. If a symlink was used to start
+        the process, depending on the operating system, the result might
+        be the symlink or the path it pointed to. If a stable result is
+        needed, path/filepath.EvalSymlinks might help.
+        
+        Executable returns an absolute path unless an error occurred.
+        
+        The main use case is finding resources located relative to an
+        executable.
+    **/
+    static public function executable():stdgo.Tuple<String, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.os.Os.executable();
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Mkdir creates a new directory with the specified name and permission
+        bits (before umask).
+        If there is an error, it will be of type *PathError.
+    **/
+    static public function mkdir(name:String, perm:FileMode):stdgo.Error {
+        return stdgo._internal.os.Os.mkdir(name, perm);
+    }
+    /**
+        Chdir changes the current working directory to the named directory.
+        If there is an error, it will be of type *PathError.
+    **/
+    static public function chdir(dir:String):stdgo.Error {
+        return stdgo._internal.os.Os.chdir(dir);
+    }
+    /**
+        Open opens the named file for reading. If successful, methods on
+        the returned file can be used for reading; the associated file
+        descriptor has mode O_RDONLY.
+        If there is an error, it will be of type *PathError.
+    **/
+    static public function open(name:String):stdgo.Tuple<File, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.os.Os.open(name);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Create creates or truncates the named file. If the file already exists,
+        it is truncated. If the file does not exist, it is created with mode 0666
+        (before umask). If successful, methods on the returned File can
+        be used for I/O; the associated file descriptor has mode O_RDWR.
+        If there is an error, it will be of type *PathError.
+    **/
+    static public function create(name:String):stdgo.Tuple<File, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.os.Os.create(name);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        OpenFile is the generalized open call; most users will use Open
+        or Create instead. It opens the named file with specified flag
+        (O_RDONLY etc.). If the file does not exist, and the O_CREATE flag
+        is passed, it is created with mode perm (before umask). If successful,
+        methods on the returned File can be used for I/O.
+        If there is an error, it will be of type *PathError.
+    **/
+    static public function openFile(name:String, flag:StdTypes.Int, perm:FileMode):stdgo.Tuple<File, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.os.Os.openFile(name, flag, perm);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Rename renames (moves) oldpath to newpath.
+        If newpath already exists and is not a directory, Rename replaces it.
+        OS-specific restrictions may apply when oldpath and newpath are in different directories.
+        Even within the same directory, on non-Unix platforms Rename is not an atomic operation.
+        If there is an error, it will be of type *LinkError.
+    **/
+    static public function rename(oldpath:String, newpath:String):stdgo.Error {
+        return stdgo._internal.os.Os.rename(oldpath, newpath);
+    }
+    /**
+        TempDir returns the default directory to use for temporary files.
+        
+        On Unix systems, it returns $TMPDIR if non-empty, else /tmp.
+        On Windows, it uses GetTempPath, returning the first non-empty
+        value from %TMP%, %TEMP%, %USERPROFILE%, or the Windows directory.
+        On Plan 9, it returns /tmp.
+        
+        The directory is neither guaranteed to exist nor have accessible
+        permissions.
+    **/
+    static public function tempDir():String {
+        return stdgo._internal.os.Os.tempDir();
+    }
+    /**
+        UserCacheDir returns the default root directory to use for user-specific
+        cached data. Users should create their own application-specific subdirectory
+        within this one and use that.
+        
+        On Unix systems, it returns $XDG_CACHE_HOME as specified by
+        https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html if
+        non-empty, else $HOME/.cache.
+        On Darwin, it returns $HOME/Library/Caches.
+        On Windows, it returns %LocalAppData%.
+        On Plan 9, it returns $home/lib/cache.
+        
+        If the location cannot be determined (for example, $HOME is not defined),
+        then it will return an error.
+    **/
+    static public function userCacheDir():stdgo.Tuple<String, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.os.Os.userCacheDir();
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        UserConfigDir returns the default root directory to use for user-specific
+        configuration data. Users should create their own application-specific
+        subdirectory within this one and use that.
+        
+        On Unix systems, it returns $XDG_CONFIG_HOME as specified by
+        https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html if
+        non-empty, else $HOME/.config.
+        On Darwin, it returns $HOME/Library/Application Support.
+        On Windows, it returns %AppData%.
+        On Plan 9, it returns $home/lib.
+        
+        If the location cannot be determined (for example, $HOME is not defined),
+        then it will return an error.
+    **/
+    static public function userConfigDir():stdgo.Tuple<String, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.os.Os.userConfigDir();
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        UserHomeDir returns the current user's home directory.
+        
+        On Unix, including macOS, it returns the $HOME environment variable.
+        On Windows, it returns %USERPROFILE%.
+        On Plan 9, it returns the $home environment variable.
+        
+        If the expected variable is not set in the environment, UserHomeDir
+        returns either a platform-specific default value or a non-nil error.
+    **/
+    static public function userHomeDir():stdgo.Tuple<String, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.os.Os.userHomeDir();
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Chmod changes the mode of the named file to mode.
+        If the file is a symbolic link, it changes the mode of the link's target.
+        If there is an error, it will be of type *PathError.
+        
+        A different subset of the mode bits are used, depending on the
+        operating system.
+        
+        On Unix, the mode's permission bits, ModeSetuid, ModeSetgid, and
+        ModeSticky are used.
+        
+        On Windows, only the 0200 bit (owner writable) of mode is used; it
+        controls whether the file's read-only attribute is set or cleared.
+        The other bits are currently unused. For compatibility with Go 1.12
+        and earlier, use a non-zero mode. Use mode 0400 for a read-only
+        file and 0600 for a readable+writable file.
+        
+        On Plan 9, the mode's permission bits, ModeAppend, ModeExclusive,
+        and ModeTemporary are used.
+    **/
+    static public function chmod(name:String, mode:FileMode):stdgo.Error {
+        return stdgo._internal.os.Os.chmod(name, mode);
+    }
+    /**
+        DirFS returns a file system (an fs.FS) for the tree of files rooted at the directory dir.
+        
+        Note that DirFS("/prefix") only guarantees that the Open calls it makes to the
+        operating system will begin with "/prefix": DirFS("/prefix").Open("file") is the
+        same as os.Open("/prefix/file"). So if /prefix/file is a symbolic link pointing outside
+        the /prefix tree, then using DirFS does not stop the access any more than using
+        os.Open does. Additionally, the root of the fs.FS returned for a relative path,
+        DirFS("prefix"), will be affected by later calls to Chdir. DirFS is therefore not
+        a general substitute for a chroot-style security mechanism when the directory tree
+        contains arbitrary content.
+        
+        The directory dir must not be "".
+        
+        The result implements [io/fs.StatFS], [io/fs.ReadFileFS] and
+        [io/fs.ReadDirFS].
+    **/
+    static public function dirFS(dir:String):stdgo._internal.io.fs.Fs.FS {
+        return stdgo._internal.os.Os.dirFS(dir);
+    }
+    /**
+        ReadFile reads the named file and returns the contents.
+        A successful call returns err == nil, not err == EOF.
+        Because ReadFile reads the whole file, it does not treat an EOF from Read
+        as an error to be reported.
+    **/
+    static public function readFile(name:String):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.os.Os.readFile(name);
+            { _0 : [for (i in obj._0) i], _1 : obj._1 };
+        };
+    }
+    /**
+        WriteFile writes data to the named file, creating it if necessary.
+        If the file does not exist, WriteFile creates it with permissions perm (before umask);
+        otherwise WriteFile truncates it before writing, without changing permissions.
+        Since WriteFile requires multiple system calls to complete, a failure mid-operation
+        can leave the file in a partially written state.
+    **/
+    static public function writeFile(name:String, data:Array<StdTypes.Int>, perm:FileMode):stdgo.Error {
+        final data = ([for (i in data) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.os.Os.writeFile(name, data, perm);
+    }
+    /**
+        Chown changes the numeric uid and gid of the named file.
+        If the file is a symbolic link, it changes the uid and gid of the link's target.
+        A uid or gid of -1 means to not change that value.
+        If there is an error, it will be of type *PathError.
+        
+        On Windows or Plan 9, Chown always returns the syscall.EWINDOWS or
+        EPLAN9 error, wrapped in *PathError.
+    **/
+    static public function chown(name:String, uid:StdTypes.Int, gid:StdTypes.Int):stdgo.Error {
+        return stdgo._internal.os.Os.chown(name, uid, gid);
+    }
+    /**
+        Lchown changes the numeric uid and gid of the named file.
+        If the file is a symbolic link, it changes the uid and gid of the link itself.
+        If there is an error, it will be of type *PathError.
+        
+        On Windows, it always returns the syscall.EWINDOWS error, wrapped
+        in *PathError.
+    **/
+    static public function lchown(name:String, uid:StdTypes.Int, gid:StdTypes.Int):stdgo.Error {
+        return stdgo._internal.os.Os.lchown(name, uid, gid);
+    }
+    /**
+        Chtimes changes the access and modification times of the named
+        file, similar to the Unix utime() or utimes() functions.
+        A zero time.Time value will leave the corresponding file time unchanged.
+        
+        The underlying filesystem may truncate or round the values to a
+        less precise time unit.
+        If there is an error, it will be of type *PathError.
+    **/
+    static public function chtimes(name:String, atime:stdgo._internal.time.Time.Time, mtime:stdgo._internal.time.Time.Time):stdgo.Error {
+        return stdgo._internal.os.Os.chtimes(name, atime, mtime);
+    }
+    /**
+        NewFile returns a new File with the given file descriptor and
+        name. The returned value will be nil if fd is not a valid file
+        descriptor. On Unix systems, if the file descriptor is in
+        non-blocking mode, NewFile will attempt to return a pollable File
+        (one for which the SetDeadline methods work).
+        
+        After passing it to NewFile, fd may become invalid under the same
+        conditions described in the comments of the Fd method, and the same
+        constraints apply.
+    **/
+    static public function newFile(fd:stdgo.GoUIntptr, name:String):File {
+        return stdgo._internal.os.Os.newFile(fd, name);
+    }
+    /**
+        Truncate changes the size of the named file.
+        If the file is a symbolic link, it changes the size of the link's target.
+        If there is an error, it will be of type *PathError.
+    **/
+    static public function truncate(name:String, size:haxe.Int64):stdgo.Error {
+        return stdgo._internal.os.Os.truncate(name, size);
+    }
+    /**
+        Remove removes the named file or (empty) directory.
+        If there is an error, it will be of type *PathError.
+    **/
+    static public function remove(name:String):stdgo.Error {
+        return stdgo._internal.os.Os.remove(name);
+    }
+    /**
+        Link creates newname as a hard link to the oldname file.
+        If there is an error, it will be of type *LinkError.
+    **/
+    static public function link(oldname:String, newname:String):stdgo.Error {
+        return stdgo._internal.os.Os.link(oldname, newname);
+    }
+    /**
+        Symlink creates newname as a symbolic link to oldname.
+        On Windows, a symlink to a non-existent oldname creates a file symlink;
+        if oldname is later created as a directory the symlink will not work.
+        If there is an error, it will be of type *LinkError.
+    **/
+    static public function symlink(oldname:String, newname:String):stdgo.Error {
+        return stdgo._internal.os.Os.symlink(oldname, newname);
+    }
+    /**
+        Readlink returns the destination of the named symbolic link.
+        If there is an error, it will be of type *PathError.
+    **/
+    static public function readlink(name:String):stdgo.Tuple<String, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.os.Os.readlink(name);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Getwd returns a rooted path name corresponding to the
+        current directory. If the current directory can be
+        reached via multiple paths (due to symbolic links),
+        Getwd may return any one of them.
+    **/
+    static public function getwd():stdgo.Tuple<String, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.os.Os.getwd();
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        MkdirAll creates a directory named path,
+        along with any necessary parents, and returns nil,
+        or else returns an error.
+        The permission bits perm (before umask) are used for all
+        directories that MkdirAll creates.
+        If path is already a directory, MkdirAll does nothing
+        and returns nil.
+    **/
+    static public function mkdirAll(path:String, perm:FileMode):stdgo.Error {
+        return stdgo._internal.os.Os.mkdirAll(path, perm);
+    }
+    /**
+        RemoveAll removes path and any children it contains.
+        It removes everything it can but returns the first error
+        it encounters. If the path does not exist, RemoveAll
+        returns nil (no error).
+        If there is an error, it will be of type *PathError.
+    **/
+    static public function removeAll(path:String):stdgo.Error {
+        return stdgo._internal.os.Os.removeAll(path);
+    }
+    /**
+        IsPathSeparator reports whether c is a directory separator character.
+    **/
+    static public function isPathSeparator(c:std.UInt):Bool {
+        return stdgo._internal.os.Os.isPathSeparator(c);
+    }
+    /**
+        Pipe returns a connected pair of Files; reads from r return bytes written to w.
+        It returns the files and an error, if any.
+    **/
+    static public function pipe():stdgo.Tuple.Tuple3<File, File, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.os.Os.pipe();
+            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
+        };
+    }
+    /**
+        Getuid returns the numeric user id of the caller.
+        
+        On Windows, it returns -1.
+    **/
+    static public function getuid():StdTypes.Int {
+        return stdgo._internal.os.Os.getuid();
+    }
+    /**
+        Geteuid returns the numeric effective user id of the caller.
+        
+        On Windows, it returns -1.
+    **/
+    static public function geteuid():StdTypes.Int {
+        return stdgo._internal.os.Os.geteuid();
+    }
+    /**
+        Getgid returns the numeric group id of the caller.
+        
+        On Windows, it returns -1.
+    **/
+    static public function getgid():StdTypes.Int {
+        return stdgo._internal.os.Os.getgid();
+    }
+    /**
+        Getegid returns the numeric effective group id of the caller.
+        
+        On Windows, it returns -1.
+    **/
+    static public function getegid():StdTypes.Int {
+        return stdgo._internal.os.Os.getegid();
+    }
+    /**
+        Getgroups returns a list of the numeric ids of groups that the caller belongs to.
+        
+        On Windows, it returns syscall.EWINDOWS. See the os/user package
+        for a possible alternative.
+    **/
+    static public function getgroups():stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.os.Os.getgroups();
+            { _0 : [for (i in obj._0) i], _1 : obj._1 };
+        };
+    }
+    /**
+        Exit causes the current program to exit with the given status code.
+        Conventionally, code zero indicates success, non-zero an error.
+        The program terminates immediately; deferred functions are not run.
+        
+        For portability, the status code should be in the range [0, 125].
+    **/
+    static public function exit(code:StdTypes.Int):Void {
+        stdgo._internal.os.Os.exit(code);
+    }
+    /**
+        Stat returns a FileInfo describing the named file.
+        If there is an error, it will be of type *PathError.
+    **/
+    static public function stat(name:String):stdgo.Tuple<FileInfo, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.os.Os.stat(name);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Lstat returns a FileInfo describing the named file.
+        If the file is a symbolic link, the returned FileInfo
+        describes the symbolic link. Lstat makes no attempt to follow the link.
+        If there is an error, it will be of type *PathError.
+    **/
+    static public function lstat(name:String):stdgo.Tuple<FileInfo, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.os.Os.lstat(name);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Hostname returns the host name reported by the kernel.
+    **/
+    static public function hostname():stdgo.Tuple<String, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.os.Os.hostname();
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        CreateTemp creates a new temporary file in the directory dir,
+        opens the file for reading and writing, and returns the resulting file.
+        The filename is generated by taking pattern and adding a random string to the end.
+        If pattern includes a "*", the random string replaces the last "*".
+        If dir is the empty string, CreateTemp uses the default directory for temporary files, as returned by TempDir.
+        Multiple programs or goroutines calling CreateTemp simultaneously will not choose the same file.
+        The caller can use the file's Name method to find the pathname of the file.
+        It is the caller's responsibility to remove the file when it is no longer needed.
+    **/
+    static public function createTemp(dir:String, pattern:String):stdgo.Tuple<File, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.os.Os.createTemp(dir, pattern);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        MkdirTemp creates a new temporary directory in the directory dir
+        and returns the pathname of the new directory.
+        The new directory's name is generated by adding a random string to the end of pattern.
+        If pattern includes a "*", the random string replaces the last "*" instead.
+        If dir is the empty string, MkdirTemp uses the default directory for temporary files, as returned by TempDir.
+        Multiple programs or goroutines calling MkdirTemp simultaneously will not choose the same directory.
+        It is the caller's responsibility to remove the directory when it is no longer needed.
+    **/
+    static public function mkdirTemp(dir:String, pattern:String):stdgo.Tuple<String, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.os.Os.mkdirTemp(dir, pattern);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Getpagesize returns the underlying system's memory page size.
+    **/
+    static public function getpagesize():StdTypes.Int {
+        return stdgo._internal.os.Os.getpagesize();
+    }
+    /**
+        SameFile reports whether fi1 and fi2 describe the same file.
+        For example, on Unix this means that the device and inode fields
+        of the two underlying structures are identical; on other systems
+        the decision may be based on the path names.
+        SameFile only applies to results returned by this package's Stat.
+        It returns false in other cases.
+    **/
+    static public function sameFile(fi1:FileInfo, fi2:FileInfo):Bool {
+        return stdgo._internal.os.Os.sameFile(fi1, fi2);
+    }
 }

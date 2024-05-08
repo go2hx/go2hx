@@ -584,310 +584,12 @@ typedef ErrorWriter = stdgo._internal.text.template.Template.ErrorWriter;
 typedef FuncMap = stdgo._internal.text.template.Template.FuncMap;
 typedef T_kind = stdgo._internal.text.template.Template.T_kind;
 typedef T_missingKeyAction = stdgo._internal.text.template.Template.T_missingKeyAction;
-/**
-    IsTrue reports whether the value is 'true', in the sense of not the zero of its type,
-    and whether the value has a meaningful truth value. This is the definition of
-    truth used by if and other such actions.
-**/
-function isTrue(val:stdgo.AnyInterface):stdgo.Tuple<Bool, Bool> {
-        return {
-            final obj = stdgo._internal.text.template.Template.isTrue(val);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-function testExecute(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testExecute(t);
-    }
-function testDelims(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testDelims(t);
-    }
-/**
-    Check that an error from a method flows back to the top.
-**/
-function testExecuteError(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testExecuteError(t);
-    }
-/**
-    Check that an error from a nested template contains all the relevant information.
-**/
-function testExecError(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testExecError(t);
-    }
-/**
-    Check that a custom error can be returned.
-**/
-function testExecError_CustomError(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testExecError_CustomError(t);
-    }
-function testJSEscaping(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testJSEscaping(t);
-    }
-function testTree(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testTree(t);
-    }
-function testExecuteOnNewTemplate(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testExecuteOnNewTemplate(t);
-    }
-function testMessageForExecuteEmpty(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testMessageForExecuteEmpty(t);
-    }
-function testFinalForPrintf(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testFinalForPrintf(t);
-    }
-function testComparison(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testComparison(t);
-    }
-function testMissingMapKey(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testMissingMapKey(t);
-    }
-/**
-    Test that the error message for multiline unterminated string
-    refers to the line number of the opening quote.
-**/
-function testUnterminatedStringError(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testUnterminatedStringError(t);
-    }
-function testExecuteGivesExecError(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testExecuteGivesExecError(t);
-    }
-function testGoodFuncNames(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testGoodFuncNames(t);
-    }
-function testBadFuncNames(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testBadFuncNames(t);
-    }
-function testBlock(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testBlock(t);
-    }
-function testEvalFieldErrors(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testEvalFieldErrors(t);
-    }
-function testMaxExecDepth(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testMaxExecDepth(t);
-    }
-function testAddrOfIndex(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testAddrOfIndex(t);
-    }
-function testInterfaceValues(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testInterfaceValues(t);
-    }
-/**
-    Check that panics during calls are recovered and returned as errors.
-**/
-function testExecutePanicDuringCall(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testExecutePanicDuringCall(t);
-    }
-/**
-    Issue 31810. Check that a parenthesized first argument behaves properly.
-**/
-function testIssue31810(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testIssue31810(t);
-    }
-/**
-    Issue 43065, range over send only channel
-**/
-function testIssue43065(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testIssue43065(t);
-    }
-/**
-    Issue 39807: data race in html/template & text/template
-**/
-function testIssue39807(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testIssue39807(t);
-    }
 @:forward @:forward.new abstract T_testIssue48215_51___localname___A(stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A) from stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A to stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A {
 
 }
 @:forward @:forward.new abstract T_testIssue48215_52___localname___B(stdgo._internal.text.template.Template.T_testIssue48215_52___localname___B) from stdgo._internal.text.template.Template.T_testIssue48215_52___localname___B to stdgo._internal.text.template.Template.T_testIssue48215_52___localname___B {
 
 }
-/**
-    Issue 48215: embedded nil pointer causes panic.
-    Fixed by adding FieldByIndexErr to the reflect package.
-**/
-function testIssue48215(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testIssue48215(t);
-    }
-/**
-    HTMLEscape writes to w the escaped HTML equivalent of the plain text data b.
-**/
-function htmlescape(w:stdgo._internal.io.Io.Writer, b:Array<StdTypes.Int>):Void {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        stdgo._internal.text.template.Template.htmlescape(w, b);
-    }
-/**
-    HTMLEscapeString returns the escaped HTML equivalent of the plain text data s.
-**/
-function htmlescapeString(s:String):String {
-        return stdgo._internal.text.template.Template.htmlescapeString(s);
-    }
-/**
-    HTMLEscaper returns the escaped HTML equivalent of the textual
-    representation of its arguments.
-**/
-function htmlescaper(args:haxe.Rest<stdgo.AnyInterface>):String {
-        return stdgo._internal.text.template.Template.htmlescaper(...args);
-    }
-/**
-    JSEscape writes to w the escaped JavaScript equivalent of the plain text data b.
-**/
-function jsescape(w:stdgo._internal.io.Io.Writer, b:Array<StdTypes.Int>):Void {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        stdgo._internal.text.template.Template.jsescape(w, b);
-    }
-/**
-    JSEscapeString returns the escaped JavaScript equivalent of the plain text data s.
-**/
-function jsescapeString(s:String):String {
-        return stdgo._internal.text.template.Template.jsescapeString(s);
-    }
-/**
-    JSEscaper returns the escaped JavaScript equivalent of the textual
-    representation of its arguments.
-**/
-function jsescaper(args:haxe.Rest<stdgo.AnyInterface>):String {
-        return stdgo._internal.text.template.Template.jsescaper(...args);
-    }
-/**
-    URLQueryEscaper returns the escaped value of the textual representation of
-    its arguments in a form suitable for embedding in a URL query.
-**/
-function urlqueryEscaper(args:haxe.Rest<stdgo.AnyInterface>):String {
-        return stdgo._internal.text.template.Template.urlqueryEscaper(...args);
-    }
-/**
-    Must is a helper that wraps a call to a function returning (*Template, error)
-    and panics if the error is non-nil. It is intended for use in variable
-    initializations such as
-    
-    	var t = template.Must(template.New("name").Parse("text"))
-**/
-function must(t:Template, err:stdgo.Error):Template {
-        return stdgo._internal.text.template.Template.must(t, err);
-    }
-/**
-    ParseFiles creates a new Template and parses the template definitions from
-    the named files. The returned template's name will have the base name and
-    parsed contents of the first file. There must be at least one file.
-    If an error occurs, parsing stops and the returned *Template is nil.
-    
-    When parsing multiple files with the same name in different directories,
-    the last one mentioned will be the one that results.
-    For instance, ParseFiles("a/foo", "b/foo") stores "b/foo" as the template
-    named "foo", while "a/foo" is unavailable.
-**/
-function parseFiles(filenames:haxe.Rest<String>):stdgo.Tuple<Template, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.text.template.Template.parseFiles(...filenames);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    ParseGlob creates a new Template and parses the template definitions from
-    the files identified by the pattern. The files are matched according to the
-    semantics of filepath.Match, and the pattern must match at least one file.
-    The returned template will have the (base) name and (parsed) contents of the
-    first file matched by the pattern. ParseGlob is equivalent to calling
-    ParseFiles with the list of files matched by the pattern.
-    
-    When parsing multiple files with the same name in different directories,
-    the last one mentioned will be the one that results.
-**/
-function parseGlob(pattern:String):stdgo.Tuple<Template, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.text.template.Template.parseGlob(pattern);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    ParseFS is like ParseFiles or ParseGlob but reads from the file system fsys
-    instead of the host operating system's file system.
-    It accepts a list of glob patterns.
-    (Note that most file names serve as glob patterns matching only themselves.)
-**/
-function parseFS(fsys:stdgo._internal.io.fs.Fs.FS, patterns:haxe.Rest<String>):stdgo.Tuple<Template, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.text.template.Template.parseFS(fsys, ...patterns);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-function testMultiParse(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testMultiParse(t);
-    }
-function testMultiExecute(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testMultiExecute(t);
-    }
-function testParseFiles(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testParseFiles(t);
-    }
-function testParseGlob(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testParseGlob(t);
-    }
-function testParseFS(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testParseFS(t);
-    }
-function testParseFilesWithData(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testParseFilesWithData(t);
-    }
-function testParseGlobWithData(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testParseGlobWithData(t);
-    }
-function testClone(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testClone(t);
-    }
-function testAddParseTree(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testAddParseTree(t);
-    }
-/**
-    Issue 7032
-**/
-function testAddParseTreeToUnparsedTemplate(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testAddParseTreeToUnparsedTemplate(t);
-    }
-function testRedefinition(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testRedefinition(t);
-    }
-/**
-    Issue 10879
-**/
-function testEmptyTemplateCloneCrash(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testEmptyTemplateCloneCrash(t);
-    }
-/**
-    Issue 10910, 10926
-**/
-function testTemplateLookUp(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testTemplateLookUp(t);
-    }
-function testNew(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testNew(t);
-    }
-function testParse(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testParse(t);
-    }
-function testEmptyTemplate(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testEmptyTemplate(t);
-    }
-/**
-    Issue 19249 was a regression in 1.8 caused by the handling of empty
-    templates added in that release, which got different answers depending
-    on the order templates appeared in the internal map.
-**/
-function testIssue19294(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testIssue19294(t);
-    }
-/**
-    Issue 48436
-**/
-function testAddToZeroTemplate(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.text.template.Template.testAddToZeroTemplate(t);
-    }
-/**
-    New allocates a new, undefined template with the given name.
-**/
-function new_(name:String):Template {
-        return stdgo._internal.text.template.Template.new_(name);
-    }
 @:forward @:forward.new abstract T_state_asInterface(stdgo._internal.text.template.Template.T_state_asInterface) from stdgo._internal.text.template.Template.T_state_asInterface to stdgo._internal.text.template.Template.T_state_asInterface {
 
 }
@@ -953,4 +655,304 @@ function new_(name:String):Template {
 }
 @:forward @:forward.new abstract T_testIssue48215_52___localname___B_static_extension(stdgo._internal.text.template.Template.T_testIssue48215_52___localname___B_static_extension) from stdgo._internal.text.template.Template.T_testIssue48215_52___localname___B_static_extension to stdgo._internal.text.template.Template.T_testIssue48215_52___localname___B_static_extension {
 
+}
+class Template {
+    /**
+        IsTrue reports whether the value is 'true', in the sense of not the zero of its type,
+        and whether the value has a meaningful truth value. This is the definition of
+        truth used by if and other such actions.
+    **/
+    static public function isTrue(val:stdgo.AnyInterface):stdgo.Tuple<Bool, Bool> {
+        return {
+            final obj = stdgo._internal.text.template.Template.isTrue(val);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    static public function testExecute(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testExecute(t);
+    }
+    static public function testDelims(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testDelims(t);
+    }
+    /**
+        Check that an error from a method flows back to the top.
+    **/
+    static public function testExecuteError(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testExecuteError(t);
+    }
+    /**
+        Check that an error from a nested template contains all the relevant information.
+    **/
+    static public function testExecError(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testExecError(t);
+    }
+    /**
+        Check that a custom error can be returned.
+    **/
+    static public function testExecError_CustomError(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testExecError_CustomError(t);
+    }
+    static public function testJSEscaping(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testJSEscaping(t);
+    }
+    static public function testTree(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testTree(t);
+    }
+    static public function testExecuteOnNewTemplate(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testExecuteOnNewTemplate(t);
+    }
+    static public function testMessageForExecuteEmpty(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testMessageForExecuteEmpty(t);
+    }
+    static public function testFinalForPrintf(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testFinalForPrintf(t);
+    }
+    static public function testComparison(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testComparison(t);
+    }
+    static public function testMissingMapKey(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testMissingMapKey(t);
+    }
+    /**
+        Test that the error message for multiline unterminated string
+        refers to the line number of the opening quote.
+    **/
+    static public function testUnterminatedStringError(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testUnterminatedStringError(t);
+    }
+    static public function testExecuteGivesExecError(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testExecuteGivesExecError(t);
+    }
+    static public function testGoodFuncNames(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testGoodFuncNames(t);
+    }
+    static public function testBadFuncNames(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testBadFuncNames(t);
+    }
+    static public function testBlock(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testBlock(t);
+    }
+    static public function testEvalFieldErrors(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testEvalFieldErrors(t);
+    }
+    static public function testMaxExecDepth(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testMaxExecDepth(t);
+    }
+    static public function testAddrOfIndex(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testAddrOfIndex(t);
+    }
+    static public function testInterfaceValues(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testInterfaceValues(t);
+    }
+    /**
+        Check that panics during calls are recovered and returned as errors.
+    **/
+    static public function testExecutePanicDuringCall(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testExecutePanicDuringCall(t);
+    }
+    /**
+        Issue 31810. Check that a parenthesized first argument behaves properly.
+    **/
+    static public function testIssue31810(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testIssue31810(t);
+    }
+    /**
+        Issue 43065, range over send only channel
+    **/
+    static public function testIssue43065(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testIssue43065(t);
+    }
+    /**
+        Issue 39807: data race in html/template & text/template
+    **/
+    static public function testIssue39807(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testIssue39807(t);
+    }
+    /**
+        Issue 48215: embedded nil pointer causes panic.
+        Fixed by adding FieldByIndexErr to the reflect package.
+    **/
+    static public function testIssue48215(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testIssue48215(t);
+    }
+    /**
+        HTMLEscape writes to w the escaped HTML equivalent of the plain text data b.
+    **/
+    static public function htmlescape(w:stdgo._internal.io.Io.Writer, b:Array<StdTypes.Int>):Void {
+        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
+        stdgo._internal.text.template.Template.htmlescape(w, b);
+    }
+    /**
+        HTMLEscapeString returns the escaped HTML equivalent of the plain text data s.
+    **/
+    static public function htmlescapeString(s:String):String {
+        return stdgo._internal.text.template.Template.htmlescapeString(s);
+    }
+    /**
+        HTMLEscaper returns the escaped HTML equivalent of the textual
+        representation of its arguments.
+    **/
+    static public function htmlescaper(args:haxe.Rest<stdgo.AnyInterface>):String {
+        return stdgo._internal.text.template.Template.htmlescaper(...args);
+    }
+    /**
+        JSEscape writes to w the escaped JavaScript equivalent of the plain text data b.
+    **/
+    static public function jsescape(w:stdgo._internal.io.Io.Writer, b:Array<StdTypes.Int>):Void {
+        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
+        stdgo._internal.text.template.Template.jsescape(w, b);
+    }
+    /**
+        JSEscapeString returns the escaped JavaScript equivalent of the plain text data s.
+    **/
+    static public function jsescapeString(s:String):String {
+        return stdgo._internal.text.template.Template.jsescapeString(s);
+    }
+    /**
+        JSEscaper returns the escaped JavaScript equivalent of the textual
+        representation of its arguments.
+    **/
+    static public function jsescaper(args:haxe.Rest<stdgo.AnyInterface>):String {
+        return stdgo._internal.text.template.Template.jsescaper(...args);
+    }
+    /**
+        URLQueryEscaper returns the escaped value of the textual representation of
+        its arguments in a form suitable for embedding in a URL query.
+    **/
+    static public function urlqueryEscaper(args:haxe.Rest<stdgo.AnyInterface>):String {
+        return stdgo._internal.text.template.Template.urlqueryEscaper(...args);
+    }
+    /**
+        Must is a helper that wraps a call to a function returning (*Template, error)
+        and panics if the error is non-nil. It is intended for use in variable
+        initializations such as
+        
+        	var t = template.Must(template.New("name").Parse("text"))
+    **/
+    static public function must(t:Template, err:stdgo.Error):Template {
+        return stdgo._internal.text.template.Template.must(t, err);
+    }
+    /**
+        ParseFiles creates a new Template and parses the template definitions from
+        the named files. The returned template's name will have the base name and
+        parsed contents of the first file. There must be at least one file.
+        If an error occurs, parsing stops and the returned *Template is nil.
+        
+        When parsing multiple files with the same name in different directories,
+        the last one mentioned will be the one that results.
+        For instance, ParseFiles("a/foo", "b/foo") stores "b/foo" as the template
+        named "foo", while "a/foo" is unavailable.
+    **/
+    static public function parseFiles(filenames:haxe.Rest<String>):stdgo.Tuple<Template, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.text.template.Template.parseFiles(...filenames);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        ParseGlob creates a new Template and parses the template definitions from
+        the files identified by the pattern. The files are matched according to the
+        semantics of filepath.Match, and the pattern must match at least one file.
+        The returned template will have the (base) name and (parsed) contents of the
+        first file matched by the pattern. ParseGlob is equivalent to calling
+        ParseFiles with the list of files matched by the pattern.
+        
+        When parsing multiple files with the same name in different directories,
+        the last one mentioned will be the one that results.
+    **/
+    static public function parseGlob(pattern:String):stdgo.Tuple<Template, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.text.template.Template.parseGlob(pattern);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        ParseFS is like ParseFiles or ParseGlob but reads from the file system fsys
+        instead of the host operating system's file system.
+        It accepts a list of glob patterns.
+        (Note that most file names serve as glob patterns matching only themselves.)
+    **/
+    static public function parseFS(fsys:stdgo._internal.io.fs.Fs.FS, patterns:haxe.Rest<String>):stdgo.Tuple<Template, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.text.template.Template.parseFS(fsys, ...patterns);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    static public function testMultiParse(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testMultiParse(t);
+    }
+    static public function testMultiExecute(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testMultiExecute(t);
+    }
+    static public function testParseFiles(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testParseFiles(t);
+    }
+    static public function testParseGlob(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testParseGlob(t);
+    }
+    static public function testParseFS(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testParseFS(t);
+    }
+    static public function testParseFilesWithData(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testParseFilesWithData(t);
+    }
+    static public function testParseGlobWithData(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testParseGlobWithData(t);
+    }
+    static public function testClone(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testClone(t);
+    }
+    static public function testAddParseTree(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testAddParseTree(t);
+    }
+    /**
+        Issue 7032
+    **/
+    static public function testAddParseTreeToUnparsedTemplate(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testAddParseTreeToUnparsedTemplate(t);
+    }
+    static public function testRedefinition(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testRedefinition(t);
+    }
+    /**
+        Issue 10879
+    **/
+    static public function testEmptyTemplateCloneCrash(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testEmptyTemplateCloneCrash(t);
+    }
+    /**
+        Issue 10910, 10926
+    **/
+    static public function testTemplateLookUp(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testTemplateLookUp(t);
+    }
+    static public function testNew(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testNew(t);
+    }
+    static public function testParse(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testParse(t);
+    }
+    static public function testEmptyTemplate(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testEmptyTemplate(t);
+    }
+    /**
+        Issue 19249 was a regression in 1.8 caused by the handling of empty
+        templates added in that release, which got different answers depending
+        on the order templates appeared in the internal map.
+    **/
+    static public function testIssue19294(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testIssue19294(t);
+    }
+    /**
+        Issue 48436
+    **/
+    static public function testAddToZeroTemplate(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.text.template.Template.testAddToZeroTemplate(t);
+    }
+    /**
+        New allocates a new, undefined template with the given name.
+    **/
+    static public function new_(name:String):Template {
+        return stdgo._internal.text.template.Template.new_(name);
+    }
 }

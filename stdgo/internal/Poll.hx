@@ -49,22 +49,6 @@ private function set_acceptFunc(v:stdgo.GoInt -> { var _0 : stdgo.GoInt; var _1 
 @:forward @:forward.new abstract SysFile(stdgo._internal.internal.poll.Poll.SysFile) from stdgo._internal.internal.poll.Poll.SysFile to stdgo._internal.internal.poll.Poll.SysFile {
 
 }
-/**
-    IsPollDescriptor reports whether fd is the descriptor being used by the poller.
-    This is only used for testing.
-**/
-function isPollDescriptor(fd:stdgo.GoUIntptr):Bool {
-        return stdgo._internal.internal.poll.Poll.isPollDescriptor(fd);
-    }
-/**
-    DupCloseOnExec dups fd and marks it close-on-exec.
-**/
-function dupCloseOnExec(fd:StdTypes.Int):stdgo.Tuple.Tuple3<StdTypes.Int, String, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.internal.poll.Poll.dupCloseOnExec(fd);
-            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
-        };
-    }
 @:forward @:forward.new abstract T_errNetClosing_asInterface(stdgo._internal.internal.poll.Poll.T_errNetClosing_asInterface) from stdgo._internal.internal.poll.Poll.T_errNetClosing_asInterface to stdgo._internal.internal.poll.Poll.T_errNetClosing_asInterface {
 
 }
@@ -100,4 +84,22 @@ function dupCloseOnExec(fd:StdTypes.Int):stdgo.Tuple.Tuple3<StdTypes.Int, String
 }
 @:forward @:forward.new abstract SysFile_static_extension(stdgo._internal.internal.poll.Poll.SysFile_static_extension) from stdgo._internal.internal.poll.Poll.SysFile_static_extension to stdgo._internal.internal.poll.Poll.SysFile_static_extension {
 
+}
+class Poll {
+    /**
+        IsPollDescriptor reports whether fd is the descriptor being used by the poller.
+        This is only used for testing.
+    **/
+    static public function isPollDescriptor(fd:stdgo.GoUIntptr):Bool {
+        return stdgo._internal.internal.poll.Poll.isPollDescriptor(fd);
+    }
+    /**
+        DupCloseOnExec dups fd and marks it close-on-exec.
+    **/
+    static public function dupCloseOnExec(fd:StdTypes.Int):stdgo.Tuple.Tuple3<StdTypes.Int, String, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.internal.poll.Poll.dupCloseOnExec(fd);
+            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
+        };
+    }
 }

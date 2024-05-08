@@ -680,32 +680,6 @@ typedef TextGobber = stdgo._internal.encoding.gob.Gob.TextGobber;
 typedef TextValueGobber = stdgo._internal.encoding.gob.Gob.TextValueGobber;
 typedef T_isZeroBugArray = stdgo._internal.encoding.gob.Gob.T_isZeroBugArray;
 typedef T_typeId = stdgo._internal.encoding.gob.Gob.T_typeId;
-/**
-    Test basic encode/decode routines for unsigned integers
-**/
-function testUintCodec(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testUintCodec(t);
-    }
-/**
-    Test basic encode/decode routines for signed integers
-**/
-function testIntCodec(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testIntCodec(t);
-    }
-/**
-    Test instruction execution for encoding.
-    Do not run the machine yet; instead do individual instructions crafted by hand.
-**/
-function testScalarEncInstructions(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testScalarEncInstructions(t);
-    }
-/**
-    Test instruction execution for decoding.
-    Do not run the machine yet; instead do individual instructions crafted by hand.
-**/
-function testScalarDecInstructions(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testScalarDecInstructions(t);
-    }
 @:forward @:forward.new abstract T_testEndToEnd_54___localname___T2(stdgo._internal.encoding.gob.Gob.T_testEndToEnd_54___localname___T2) from stdgo._internal.encoding.gob.Gob.T_testEndToEnd_54___localname___T2 to stdgo._internal.encoding.gob.Gob.T_testEndToEnd_54___localname___T2 {
 
 }
@@ -715,9 +689,6 @@ function testScalarDecInstructions(t:stdgo._internal.testing.Testing.T_):Void {
 @:forward @:forward.new abstract T_testEndToEnd_56___localname___T1(stdgo._internal.encoding.gob.Gob.T_testEndToEnd_56___localname___T1) from stdgo._internal.encoding.gob.Gob.T_testEndToEnd_56___localname___T1 to stdgo._internal.encoding.gob.Gob.T_testEndToEnd_56___localname___T1 {
 
 }
-function testEndToEnd(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testEndToEnd(t);
-    }
 @:forward @:forward.new abstract T_testOverflow_57___localname___inputT(stdgo._internal.encoding.gob.Gob.T_testOverflow_57___localname___inputT) from stdgo._internal.encoding.gob.Gob.T_testOverflow_57___localname___inputT to stdgo._internal.encoding.gob.Gob.T_testOverflow_57___localname___inputT {
 
 }
@@ -745,532 +716,55 @@ function testEndToEnd(t:stdgo._internal.testing.Testing.T_):Void {
 @:forward @:forward.new abstract T_testOverflow_65___localname___outc64(stdgo._internal.encoding.gob.Gob.T_testOverflow_65___localname___outc64) from stdgo._internal.encoding.gob.Gob.T_testOverflow_65___localname___outc64 to stdgo._internal.encoding.gob.Gob.T_testOverflow_65___localname___outc64 {
 
 }
-function testOverflow(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testOverflow(t);
-    }
 @:forward @:forward.new abstract T_testNesting_66___localname___RT(stdgo._internal.encoding.gob.Gob.T_testNesting_66___localname___RT) from stdgo._internal.encoding.gob.Gob.T_testNesting_66___localname___RT to stdgo._internal.encoding.gob.Gob.T_testNesting_66___localname___RT {
 
 }
-function testNesting(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testNesting(t);
-    }
-function testAutoIndirection(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testAutoIndirection(t);
-    }
-function testReorderedFields(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testReorderedFields(t);
-    }
-function testIgnoredFields(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testIgnoredFields(t);
-    }
 typedef T_testBadRecursiveType_67___localname___Rec = stdgo._internal.encoding.gob.Gob.T_testBadRecursiveType_67___localname___Rec;
-function testBadRecursiveType(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testBadRecursiveType(t);
-    }
-function testIndirectSliceMapArray(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testIndirectSliceMapArray(t);
-    }
-function testInterface(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testInterface(t);
-    }
-function testInterfaceBasic(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testInterfaceBasic(t);
-    }
-/**
-    We'll send pointers; should receive values.
-    Also check that we can register T but send *T.
-**/
-function testInterfacePointer(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testInterfacePointer(t);
-    }
-function testIgnoreInterface(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testIgnoreInterface(t);
-    }
-function testUnexportedFields(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testUnexportedFields(t);
-    }
-function testDebugSingleton(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testDebugSingleton(t);
-    }
-function testDebugStruct(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testDebugStruct(t);
-    }
-/**
-    This does some "fuzz testing" by attempting to decode a sequence of random bytes.
-**/
-function testFuzz(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testFuzz(t);
-    }
-function testFuzzRegressions(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testFuzzRegressions(t);
-    }
-/**
-    TestFuzzOneByte tries to decode corrupted input sequences
-    and checks that no panic occurs.
-**/
-function testFuzzOneByte(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testFuzzOneByte(t);
-    }
-/**
-    Don't crash, just give error with invalid type id.
-    Issue 9649.
-**/
-function testErrorInvalidTypeId(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testErrorInvalidTypeId(t);
-    }
-function testLargeSlice(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testLargeSlice(t);
-    }
-function testLocalRemoteTypesMismatch(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testLocalRemoteTypesMismatch(t);
-    }
-/**
-    NewDecoder returns a new decoder that reads from the io.Reader.
-    If r does not also implement io.ByteReader, it will be wrapped in a
-    bufio.Reader.
-**/
-function newDecoder(r:stdgo._internal.io.Io.Reader):Decoder {
-        return stdgo._internal.encoding.gob.Gob.newDecoder(r);
-    }
-/**
-    NewEncoder returns a new encoder that will transmit on the io.Writer.
-**/
-function newEncoder(w:stdgo._internal.io.Io.Writer):Encoder {
-        return stdgo._internal.encoding.gob.Gob.newEncoder(w);
-    }
-/**
-    Test basic operations in a safe manner.
-**/
-function testBasicEncoderDecoder(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testBasicEncoderDecoder(t);
-    }
-function testEncodeIntSlice(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testEncodeIntSlice(t);
-    }
-function testEncoderDecoder(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testEncoderDecoder(t);
-    }
-/**
-    Test that we recognize a bad type the first time.
-**/
-function testWrongTypeDecoder(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testWrongTypeDecoder(t);
-    }
-function testUnsupported(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testUnsupported(t);
-    }
 @:forward @:forward.new abstract T_testTypeToPtrType_68___localname___Type0(stdgo._internal.encoding.gob.Gob.T_testTypeToPtrType_68___localname___Type0) from stdgo._internal.encoding.gob.Gob.T_testTypeToPtrType_68___localname___Type0 to stdgo._internal.encoding.gob.Gob.T_testTypeToPtrType_68___localname___Type0 {
 
 }
-function testTypeToPtrType(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testTypeToPtrType(t);
-    }
 @:forward @:forward.new abstract T_testPtrTypeToType_69___localname___Type1(stdgo._internal.encoding.gob.Gob.T_testPtrTypeToType_69___localname___Type1) from stdgo._internal.encoding.gob.Gob.T_testPtrTypeToType_69___localname___Type1 to stdgo._internal.encoding.gob.Gob.T_testPtrTypeToType_69___localname___Type1 {
 
 }
-function testPtrTypeToType(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testPtrTypeToType(t);
-    }
 @:forward @:forward.new abstract T_testTypeToPtrPtrPtrPtrType_70___localname___Type2(stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType_70___localname___Type2) from stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType_70___localname___Type2 to stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType_70___localname___Type2 {
 
 }
-function testTypeToPtrPtrPtrPtrType(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testTypeToPtrPtrPtrPtrType(t);
-    }
 @:forward @:forward.new abstract T_testSlice_71___localname___Type3(stdgo._internal.encoding.gob.Gob.T_testSlice_71___localname___Type3) from stdgo._internal.encoding.gob.Gob.T_testSlice_71___localname___Type3 to stdgo._internal.encoding.gob.Gob.T_testSlice_71___localname___Type3 {
 
 }
-function testSlice(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testSlice(t);
-    }
 @:forward @:forward.new abstract T_testValueError_72___localname___Type4(stdgo._internal.encoding.gob.Gob.T_testValueError_72___localname___Type4) from stdgo._internal.encoding.gob.Gob.T_testValueError_72___localname___Type4 to stdgo._internal.encoding.gob.Gob.T_testValueError_72___localname___Type4 {
 
 }
-function testValueError(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testValueError(t);
-    }
 @:forward @:forward.new abstract T_testArray_73___localname___Type5(stdgo._internal.encoding.gob.Gob.T_testArray_73___localname___Type5) from stdgo._internal.encoding.gob.Gob.T_testArray_73___localname___Type5 to stdgo._internal.encoding.gob.Gob.T_testArray_73___localname___Type5 {
 
 }
 @:forward @:forward.new abstract T_testArray_74___localname___Type6(stdgo._internal.encoding.gob.Gob.T_testArray_74___localname___Type6) from stdgo._internal.encoding.gob.Gob.T_testArray_74___localname___Type6 to stdgo._internal.encoding.gob.Gob.T_testArray_74___localname___Type6 {
 
 }
-function testArray(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testArray(t);
-    }
 typedef T_testRecursiveMapType_75___localname___recursiveMap = stdgo._internal.encoding.gob.Gob.T_testRecursiveMapType_75___localname___recursiveMap;
-function testRecursiveMapType(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testRecursiveMapType(t);
-    }
 typedef T_testRecursiveSliceType_76___localname___recursiveSlice = stdgo._internal.encoding.gob.Gob.T_testRecursiveSliceType_76___localname___recursiveSlice;
-function testRecursiveSliceType(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testRecursiveSliceType(t);
-    }
 @:forward @:forward.new abstract T_testDefaultsInArray_77___localname___Type7(stdgo._internal.encoding.gob.Gob.T_testDefaultsInArray_77___localname___Type7) from stdgo._internal.encoding.gob.Gob.T_testDefaultsInArray_77___localname___Type7 to stdgo._internal.encoding.gob.Gob.T_testDefaultsInArray_77___localname___Type7 {
 
 }
-/**
-    Regression test for bug: must send zero values inside arrays
-**/
-function testDefaultsInArray(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testDefaultsInArray(t);
-    }
-function testSingletons(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testSingletons(t);
-    }
 @:forward @:forward.new abstract T_testStructNonStruct_78___localname___Struct(stdgo._internal.encoding.gob.Gob.T_testStructNonStruct_78___localname___Struct) from stdgo._internal.encoding.gob.Gob.T_testStructNonStruct_78___localname___Struct to stdgo._internal.encoding.gob.Gob.T_testStructNonStruct_78___localname___Struct {
 
 }
 typedef T_testStructNonStruct_79___localname___NonStruct = stdgo._internal.encoding.gob.Gob.T_testStructNonStruct_79___localname___NonStruct;
-function testStructNonStruct(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testStructNonStruct(t);
-    }
-/**
-    A version of a bug reported on golang-nuts. Also tests top-level
-    slice of interfaces. The issue was registering *T caused T to be
-    stored as the concrete type.
-**/
-function testInterfaceIndirect(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testInterfaceIndirect(t);
-    }
-function testDecodeIntoNothing(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testDecodeIntoNothing(t);
-    }
-function testIgnoreRecursiveType(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testIgnoreRecursiveType(t);
-    }
-function testNestedInterfaces(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testNestedInterfaces(t);
-    }
-function testMapBug1(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testMapBug1(t);
-    }
-function testGobMapInterfaceEncode(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testGobMapInterfaceEncode(t);
-    }
-function testSliceReusesMemory(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testSliceReusesMemory(t);
-    }
-/**
-    Used to crash: negative count in recvMessage.
-**/
-function testBadCount(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testBadCount(t);
-    }
-/**
-    Verify that sequential Decoders built on a single input will
-    succeed if the input implements ReadByte and there is no
-    type information in the stream.
-**/
-function testSequentialDecoder(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testSequentialDecoder(t);
-    }
-function testChanFuncIgnored(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testChanFuncIgnored(t);
-    }
-function testSliceIncompatibility(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testSliceIncompatibility(t);
-    }
-function testGobPtrSlices(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testGobPtrSlices(t);
-    }
-/**
-    getDecEnginePtr cached engine for ut.base instead of ut.user so we passed
-    a *map and then tried to reuse its engine to decode the inner map.
-**/
-function testPtrToMapOfMap(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testPtrToMapOfMap(t);
-    }
-/**
-    Test that untyped nils generate an error, not a panic.
-    See Issue 16204.
-**/
-function testCatchInvalidNilValue(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testCatchInvalidNilValue(t);
-    }
-/**
-    A top-level nil pointer generates a panic with a helpful string-valued message.
-**/
-function testTopLevelNilPointer(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testTopLevelNilPointer(t);
-    }
-function testNilPointerPanics(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testNilPointerPanics(t);
-    }
-function testNilPointerInsideInterface(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testNilPointerInsideInterface(t);
-    }
-/**
-    Test that a failed compilation doesn't leave around an executable encoder.
-    Issue 3723.
-**/
-function testMutipleEncodingsOfBadType(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testMutipleEncodingsOfBadType(t);
-    }
-function test29ElementSlice(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.test29ElementSlice(t);
-    }
-/**
-    Don't crash, just give error when allocating a huge slice.
-    Issue 8084.
-**/
-function testErrorForHugeSlice(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testErrorForHugeSlice(t);
-    }
-/**
-    TestBadData tests that various problems caused by malformed input
-    are caught as errors and do not cause panics.
-**/
-function testBadData(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testBadData(t);
-    }
 @:forward @:forward.new abstract T_testDecodeErrorMultipleTypes_80___localname___Test(stdgo._internal.encoding.gob.Gob.T_testDecodeErrorMultipleTypes_80___localname___Test) from stdgo._internal.encoding.gob.Gob.T_testDecodeErrorMultipleTypes_80___localname___Test to stdgo._internal.encoding.gob.Gob.T_testDecodeErrorMultipleTypes_80___localname___Test {
 
 }
-function testDecodeErrorMultipleTypes(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testDecodeErrorMultipleTypes(t);
-    }
 @:forward @:forward.new abstract T_testMarshalFloatMap_81___localname___mapEntry(stdgo._internal.encoding.gob.Gob.T_testMarshalFloatMap_81___localname___mapEntry) from stdgo._internal.encoding.gob.Gob.T_testMarshalFloatMap_81___localname___mapEntry to stdgo._internal.encoding.gob.Gob.T_testMarshalFloatMap_81___localname___mapEntry {
 
 }
-/**
-    Issue 24075
-**/
-function testMarshalFloatMap(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testMarshalFloatMap(t);
-    }
 @:forward @:forward.new abstract T_testDecodePartial_82___localname___T(stdgo._internal.encoding.gob.Gob.T_testDecodePartial_82___localname___T) from stdgo._internal.encoding.gob.Gob.T_testDecodePartial_82___localname___T to stdgo._internal.encoding.gob.Gob.T_testDecodePartial_82___localname___T {
 
 }
-function testDecodePartial(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testDecodePartial(t);
-    }
-function testDecoderOverflow(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testDecoderOverflow(t);
-    }
-function testGobEncoderField(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testGobEncoderField(t);
-    }
-/**
-    Even though the field is a value, we can still take its address
-    and should be able to call the methods.
-**/
-function testGobEncoderValueField(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testGobEncoderValueField(t);
-    }
-/**
-    GobEncode/Decode should work even if the value is
-    more indirect than the receiver.
-**/
-function testGobEncoderIndirectField(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testGobEncoderIndirectField(t);
-    }
-/**
-    Test with a large field with methods.
-**/
-function testGobEncoderArrayField(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testGobEncoderArrayField(t);
-    }
-/**
-    Test an indirection to a large field with methods.
-**/
-function testGobEncoderIndirectArrayField(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testGobEncoderIndirectArrayField(t);
-    }
-/**
-    As long as the fields have the same name and implement the
-    interface, we can cross-connect them. Not sure it's useful
-    and may even be bad but it works and it's hard to prevent
-    without exposing the contents of the object, which would
-    defeat the purpose.
-**/
-function testGobEncoderFieldsOfDifferentType(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testGobEncoderFieldsOfDifferentType(t);
-    }
-/**
-    Test that we can encode a value and decode into a pointer.
-**/
-function testGobEncoderValueEncoder(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testGobEncoderValueEncoder(t);
-    }
-/**
-    Test that we can use a value then a pointer type of a GobEncoder
-    in the same encoded value. Bug 4647.
-**/
-function testGobEncoderValueThenPointer(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testGobEncoderValueThenPointer(t);
-    }
-/**
-    Test that we can use a pointer then a value type of a GobEncoder
-    in the same encoded value.
-**/
-function testGobEncoderPointerThenValue(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testGobEncoderPointerThenValue(t);
-    }
-function testGobEncoderFieldTypeError(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testGobEncoderFieldTypeError(t);
-    }
-/**
-    Even though ByteStruct is a struct, it's treated as a singleton at the top level.
-**/
-function testGobEncoderStructSingleton(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testGobEncoderStructSingleton(t);
-    }
-function testGobEncoderNonStructSingleton(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testGobEncoderNonStructSingleton(t);
-    }
-function testGobEncoderIgnoreStructField(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testGobEncoderIgnoreStructField(t);
-    }
-function testGobEncoderIgnoreNonStructField(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testGobEncoderIgnoreNonStructField(t);
-    }
-function testGobEncoderIgnoreNilEncoder(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testGobEncoderIgnoreNilEncoder(t);
-    }
-/**
-    This was a bug: the receiver has a different indirection level
-    than the variable.
-**/
-function testGobEncoderExtraIndirect(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testGobEncoderExtraIndirect(t);
-    }
-function testGobEncodeIsZero(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testGobEncodeIsZero(t);
-    }
-function testGobEncodePtrError(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testGobEncodePtrError(t);
-    }
-function testNetIP(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testNetIP(t);
-    }
-function testIgnoreDepthLimit(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testIgnoreDepthLimit(t);
-    }
-function benchmarkEndToEndPipe(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.gob.Gob.benchmarkEndToEndPipe(b);
-    }
-function benchmarkEndToEndByteBuffer(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.gob.Gob.benchmarkEndToEndByteBuffer(b);
-    }
-function benchmarkEndToEndSliceByteBuffer(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.gob.Gob.benchmarkEndToEndSliceByteBuffer(b);
-    }
-function testCountEncodeMallocs(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testCountEncodeMallocs(t);
-    }
-function testCountDecodeMallocs(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testCountDecodeMallocs(t);
-    }
-function benchmarkEncodeComplex128Slice(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.gob.Gob.benchmarkEncodeComplex128Slice(b);
-    }
-function benchmarkEncodeFloat64Slice(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.gob.Gob.benchmarkEncodeFloat64Slice(b);
-    }
-function benchmarkEncodeInt32Slice(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.gob.Gob.benchmarkEncodeInt32Slice(b);
-    }
-function benchmarkEncodeStringSlice(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.gob.Gob.benchmarkEncodeStringSlice(b);
-    }
-function benchmarkEncodeInterfaceSlice(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.gob.Gob.benchmarkEncodeInterfaceSlice(b);
-    }
-function benchmarkDecodeComplex128Slice(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.gob.Gob.benchmarkDecodeComplex128Slice(b);
-    }
-function benchmarkDecodeFloat64Slice(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.gob.Gob.benchmarkDecodeFloat64Slice(b);
-    }
-function benchmarkDecodeInt32Slice(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.gob.Gob.benchmarkDecodeInt32Slice(b);
-    }
-function benchmarkDecodeStringSlice(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.gob.Gob.benchmarkDecodeStringSlice(b);
-    }
-function benchmarkDecodeStringsSlice(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.gob.Gob.benchmarkDecodeStringsSlice(b);
-    }
-function benchmarkDecodeBytesSlice(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.gob.Gob.benchmarkDecodeBytesSlice(b);
-    }
-function benchmarkDecodeInterfaceSlice(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.gob.Gob.benchmarkDecodeInterfaceSlice(b);
-    }
-function benchmarkDecodeMap(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.gob.Gob.benchmarkDecodeMap(b);
-    }
-/**
-    RegisterName is like Register but uses the provided name rather than the
-    type's default.
-**/
-function registerName(name:String, value:stdgo.AnyInterface):Void {
-        stdgo._internal.encoding.gob.Gob.registerName(name, value);
-    }
-/**
-    Register records a type, identified by a value for that type, under its
-    internal type name. That name will identify the concrete type of a value
-    sent or received as an interface variable. Only types that will be
-    transferred as implementations of interface values need to be registered.
-    Expecting to be used only during initialization, it panics if the mapping
-    between types and names is not a bijection.
-**/
-function register(value:stdgo.AnyInterface):Void {
-        stdgo._internal.encoding.gob.Gob.register(value);
-    }
-/**
-    Sanity checks
-**/
-function testBasic(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testBasic(t);
-    }
-/**
-    Reregister some basic types to check registration is idempotent.
-**/
-function testReregistration(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testReregistration(t);
-    }
-function testArrayType(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testArrayType(t);
-    }
-function testSliceType(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testSliceType(t);
-    }
-function testMapType(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testMapType(t);
-    }
-function testStructType(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testStructType(t);
-    }
 @:forward @:forward.new abstract T_testRegistration_83___localname___T(stdgo._internal.encoding.gob.Gob.T_testRegistration_83___localname___T) from stdgo._internal.encoding.gob.Gob.T_testRegistration_83___localname___T to stdgo._internal.encoding.gob.Gob.T_testRegistration_83___localname___T {
 
 }
-/**
-    Should be OK to register the same type multiple times, as long as they're
-    at the same level of indirection.
-**/
-function testRegistration(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testRegistration(t);
-    }
-/**
-    See comment in type.go/Register.
-**/
-function testRegistrationNaming(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testRegistrationNaming(t);
-    }
 @:forward @:forward.new abstract T_testStressParallel_84___localname___T2(stdgo._internal.encoding.gob.Gob.T_testStressParallel_84___localname___T2) from stdgo._internal.encoding.gob.Gob.T_testStressParallel_84___localname___T2 to stdgo._internal.encoding.gob.Gob.T_testStressParallel_84___localname___T2 {
 
 }
-function testStressParallel(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testStressParallel(t);
-    }
-/**
-    Issue 23328. Note that this test name is known to cmd/dist/test.go.
-**/
-function testTypeRace(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.gob.Gob.testTypeRace(t);
-    }
 @:forward @:forward.new abstract Point_asInterface(stdgo._internal.encoding.gob.Gob.Point_asInterface) from stdgo._internal.encoding.gob.Gob.Point_asInterface to stdgo._internal.encoding.gob.Gob.Point_asInterface {
 
 }
@@ -1462,4 +956,512 @@ function testTypeRace(t:stdgo._internal.testing.Testing.T_):Void {
 }
 @:forward @:forward.new abstract T_typeId_static_extension(stdgo._internal.encoding.gob.Gob.T_typeId_static_extension) from stdgo._internal.encoding.gob.Gob.T_typeId_static_extension to stdgo._internal.encoding.gob.Gob.T_typeId_static_extension {
 
+}
+class Gob {
+    /**
+        Test basic encode/decode routines for unsigned integers
+    **/
+    static public function testUintCodec(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testUintCodec(t);
+    }
+    /**
+        Test basic encode/decode routines for signed integers
+    **/
+    static public function testIntCodec(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testIntCodec(t);
+    }
+    /**
+        Test instruction execution for encoding.
+        Do not run the machine yet; instead do individual instructions crafted by hand.
+    **/
+    static public function testScalarEncInstructions(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testScalarEncInstructions(t);
+    }
+    /**
+        Test instruction execution for decoding.
+        Do not run the machine yet; instead do individual instructions crafted by hand.
+    **/
+    static public function testScalarDecInstructions(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testScalarDecInstructions(t);
+    }
+    static public function testEndToEnd(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testEndToEnd(t);
+    }
+    static public function testOverflow(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testOverflow(t);
+    }
+    static public function testNesting(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testNesting(t);
+    }
+    static public function testAutoIndirection(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testAutoIndirection(t);
+    }
+    static public function testReorderedFields(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testReorderedFields(t);
+    }
+    static public function testIgnoredFields(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testIgnoredFields(t);
+    }
+    static public function testBadRecursiveType(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testBadRecursiveType(t);
+    }
+    static public function testIndirectSliceMapArray(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testIndirectSliceMapArray(t);
+    }
+    static public function testInterface(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testInterface(t);
+    }
+    static public function testInterfaceBasic(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testInterfaceBasic(t);
+    }
+    /**
+        We'll send pointers; should receive values.
+        Also check that we can register T but send *T.
+    **/
+    static public function testInterfacePointer(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testInterfacePointer(t);
+    }
+    static public function testIgnoreInterface(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testIgnoreInterface(t);
+    }
+    static public function testUnexportedFields(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testUnexportedFields(t);
+    }
+    static public function testDebugSingleton(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testDebugSingleton(t);
+    }
+    static public function testDebugStruct(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testDebugStruct(t);
+    }
+    /**
+        This does some "fuzz testing" by attempting to decode a sequence of random bytes.
+    **/
+    static public function testFuzz(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testFuzz(t);
+    }
+    static public function testFuzzRegressions(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testFuzzRegressions(t);
+    }
+    /**
+        TestFuzzOneByte tries to decode corrupted input sequences
+        and checks that no panic occurs.
+    **/
+    static public function testFuzzOneByte(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testFuzzOneByte(t);
+    }
+    /**
+        Don't crash, just give error with invalid type id.
+        Issue 9649.
+    **/
+    static public function testErrorInvalidTypeId(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testErrorInvalidTypeId(t);
+    }
+    static public function testLargeSlice(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testLargeSlice(t);
+    }
+    static public function testLocalRemoteTypesMismatch(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testLocalRemoteTypesMismatch(t);
+    }
+    /**
+        NewDecoder returns a new decoder that reads from the io.Reader.
+        If r does not also implement io.ByteReader, it will be wrapped in a
+        bufio.Reader.
+    **/
+    static public function newDecoder(r:stdgo._internal.io.Io.Reader):Decoder {
+        return stdgo._internal.encoding.gob.Gob.newDecoder(r);
+    }
+    /**
+        NewEncoder returns a new encoder that will transmit on the io.Writer.
+    **/
+    static public function newEncoder(w:stdgo._internal.io.Io.Writer):Encoder {
+        return stdgo._internal.encoding.gob.Gob.newEncoder(w);
+    }
+    /**
+        Test basic operations in a safe manner.
+    **/
+    static public function testBasicEncoderDecoder(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testBasicEncoderDecoder(t);
+    }
+    static public function testEncodeIntSlice(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testEncodeIntSlice(t);
+    }
+    static public function testEncoderDecoder(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testEncoderDecoder(t);
+    }
+    /**
+        Test that we recognize a bad type the first time.
+    **/
+    static public function testWrongTypeDecoder(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testWrongTypeDecoder(t);
+    }
+    static public function testUnsupported(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testUnsupported(t);
+    }
+    static public function testTypeToPtrType(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testTypeToPtrType(t);
+    }
+    static public function testPtrTypeToType(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testPtrTypeToType(t);
+    }
+    static public function testTypeToPtrPtrPtrPtrType(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testTypeToPtrPtrPtrPtrType(t);
+    }
+    static public function testSlice(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testSlice(t);
+    }
+    static public function testValueError(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testValueError(t);
+    }
+    static public function testArray(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testArray(t);
+    }
+    static public function testRecursiveMapType(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testRecursiveMapType(t);
+    }
+    static public function testRecursiveSliceType(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testRecursiveSliceType(t);
+    }
+    /**
+        Regression test for bug: must send zero values inside arrays
+    **/
+    static public function testDefaultsInArray(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testDefaultsInArray(t);
+    }
+    static public function testSingletons(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testSingletons(t);
+    }
+    static public function testStructNonStruct(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testStructNonStruct(t);
+    }
+    /**
+        A version of a bug reported on golang-nuts. Also tests top-level
+        slice of interfaces. The issue was registering *T caused T to be
+        stored as the concrete type.
+    **/
+    static public function testInterfaceIndirect(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testInterfaceIndirect(t);
+    }
+    static public function testDecodeIntoNothing(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testDecodeIntoNothing(t);
+    }
+    static public function testIgnoreRecursiveType(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testIgnoreRecursiveType(t);
+    }
+    static public function testNestedInterfaces(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testNestedInterfaces(t);
+    }
+    static public function testMapBug1(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testMapBug1(t);
+    }
+    static public function testGobMapInterfaceEncode(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testGobMapInterfaceEncode(t);
+    }
+    static public function testSliceReusesMemory(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testSliceReusesMemory(t);
+    }
+    /**
+        Used to crash: negative count in recvMessage.
+    **/
+    static public function testBadCount(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testBadCount(t);
+    }
+    /**
+        Verify that sequential Decoders built on a single input will
+        succeed if the input implements ReadByte and there is no
+        type information in the stream.
+    **/
+    static public function testSequentialDecoder(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testSequentialDecoder(t);
+    }
+    static public function testChanFuncIgnored(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testChanFuncIgnored(t);
+    }
+    static public function testSliceIncompatibility(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testSliceIncompatibility(t);
+    }
+    static public function testGobPtrSlices(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testGobPtrSlices(t);
+    }
+    /**
+        getDecEnginePtr cached engine for ut.base instead of ut.user so we passed
+        a *map and then tried to reuse its engine to decode the inner map.
+    **/
+    static public function testPtrToMapOfMap(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testPtrToMapOfMap(t);
+    }
+    /**
+        Test that untyped nils generate an error, not a panic.
+        See Issue 16204.
+    **/
+    static public function testCatchInvalidNilValue(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testCatchInvalidNilValue(t);
+    }
+    /**
+        A top-level nil pointer generates a panic with a helpful string-valued message.
+    **/
+    static public function testTopLevelNilPointer(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testTopLevelNilPointer(t);
+    }
+    static public function testNilPointerPanics(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testNilPointerPanics(t);
+    }
+    static public function testNilPointerInsideInterface(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testNilPointerInsideInterface(t);
+    }
+    /**
+        Test that a failed compilation doesn't leave around an executable encoder.
+        Issue 3723.
+    **/
+    static public function testMutipleEncodingsOfBadType(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testMutipleEncodingsOfBadType(t);
+    }
+    static public function test29ElementSlice(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.test29ElementSlice(t);
+    }
+    /**
+        Don't crash, just give error when allocating a huge slice.
+        Issue 8084.
+    **/
+    static public function testErrorForHugeSlice(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testErrorForHugeSlice(t);
+    }
+    /**
+        TestBadData tests that various problems caused by malformed input
+        are caught as errors and do not cause panics.
+    **/
+    static public function testBadData(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testBadData(t);
+    }
+    static public function testDecodeErrorMultipleTypes(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testDecodeErrorMultipleTypes(t);
+    }
+    /**
+        Issue 24075
+    **/
+    static public function testMarshalFloatMap(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testMarshalFloatMap(t);
+    }
+    static public function testDecodePartial(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testDecodePartial(t);
+    }
+    static public function testDecoderOverflow(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testDecoderOverflow(t);
+    }
+    static public function testGobEncoderField(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testGobEncoderField(t);
+    }
+    /**
+        Even though the field is a value, we can still take its address
+        and should be able to call the methods.
+    **/
+    static public function testGobEncoderValueField(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testGobEncoderValueField(t);
+    }
+    /**
+        GobEncode/Decode should work even if the value is
+        more indirect than the receiver.
+    **/
+    static public function testGobEncoderIndirectField(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testGobEncoderIndirectField(t);
+    }
+    /**
+        Test with a large field with methods.
+    **/
+    static public function testGobEncoderArrayField(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testGobEncoderArrayField(t);
+    }
+    /**
+        Test an indirection to a large field with methods.
+    **/
+    static public function testGobEncoderIndirectArrayField(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testGobEncoderIndirectArrayField(t);
+    }
+    /**
+        As long as the fields have the same name and implement the
+        interface, we can cross-connect them. Not sure it's useful
+        and may even be bad but it works and it's hard to prevent
+        without exposing the contents of the object, which would
+        defeat the purpose.
+    **/
+    static public function testGobEncoderFieldsOfDifferentType(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testGobEncoderFieldsOfDifferentType(t);
+    }
+    /**
+        Test that we can encode a value and decode into a pointer.
+    **/
+    static public function testGobEncoderValueEncoder(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testGobEncoderValueEncoder(t);
+    }
+    /**
+        Test that we can use a value then a pointer type of a GobEncoder
+        in the same encoded value. Bug 4647.
+    **/
+    static public function testGobEncoderValueThenPointer(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testGobEncoderValueThenPointer(t);
+    }
+    /**
+        Test that we can use a pointer then a value type of a GobEncoder
+        in the same encoded value.
+    **/
+    static public function testGobEncoderPointerThenValue(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testGobEncoderPointerThenValue(t);
+    }
+    static public function testGobEncoderFieldTypeError(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testGobEncoderFieldTypeError(t);
+    }
+    /**
+        Even though ByteStruct is a struct, it's treated as a singleton at the top level.
+    **/
+    static public function testGobEncoderStructSingleton(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testGobEncoderStructSingleton(t);
+    }
+    static public function testGobEncoderNonStructSingleton(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testGobEncoderNonStructSingleton(t);
+    }
+    static public function testGobEncoderIgnoreStructField(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testGobEncoderIgnoreStructField(t);
+    }
+    static public function testGobEncoderIgnoreNonStructField(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testGobEncoderIgnoreNonStructField(t);
+    }
+    static public function testGobEncoderIgnoreNilEncoder(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testGobEncoderIgnoreNilEncoder(t);
+    }
+    /**
+        This was a bug: the receiver has a different indirection level
+        than the variable.
+    **/
+    static public function testGobEncoderExtraIndirect(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testGobEncoderExtraIndirect(t);
+    }
+    static public function testGobEncodeIsZero(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testGobEncodeIsZero(t);
+    }
+    static public function testGobEncodePtrError(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testGobEncodePtrError(t);
+    }
+    static public function testNetIP(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testNetIP(t);
+    }
+    static public function testIgnoreDepthLimit(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testIgnoreDepthLimit(t);
+    }
+    static public function benchmarkEndToEndPipe(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.gob.Gob.benchmarkEndToEndPipe(b);
+    }
+    static public function benchmarkEndToEndByteBuffer(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.gob.Gob.benchmarkEndToEndByteBuffer(b);
+    }
+    static public function benchmarkEndToEndSliceByteBuffer(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.gob.Gob.benchmarkEndToEndSliceByteBuffer(b);
+    }
+    static public function testCountEncodeMallocs(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testCountEncodeMallocs(t);
+    }
+    static public function testCountDecodeMallocs(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testCountDecodeMallocs(t);
+    }
+    static public function benchmarkEncodeComplex128Slice(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.gob.Gob.benchmarkEncodeComplex128Slice(b);
+    }
+    static public function benchmarkEncodeFloat64Slice(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.gob.Gob.benchmarkEncodeFloat64Slice(b);
+    }
+    static public function benchmarkEncodeInt32Slice(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.gob.Gob.benchmarkEncodeInt32Slice(b);
+    }
+    static public function benchmarkEncodeStringSlice(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.gob.Gob.benchmarkEncodeStringSlice(b);
+    }
+    static public function benchmarkEncodeInterfaceSlice(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.gob.Gob.benchmarkEncodeInterfaceSlice(b);
+    }
+    static public function benchmarkDecodeComplex128Slice(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.gob.Gob.benchmarkDecodeComplex128Slice(b);
+    }
+    static public function benchmarkDecodeFloat64Slice(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.gob.Gob.benchmarkDecodeFloat64Slice(b);
+    }
+    static public function benchmarkDecodeInt32Slice(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.gob.Gob.benchmarkDecodeInt32Slice(b);
+    }
+    static public function benchmarkDecodeStringSlice(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.gob.Gob.benchmarkDecodeStringSlice(b);
+    }
+    static public function benchmarkDecodeStringsSlice(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.gob.Gob.benchmarkDecodeStringsSlice(b);
+    }
+    static public function benchmarkDecodeBytesSlice(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.gob.Gob.benchmarkDecodeBytesSlice(b);
+    }
+    static public function benchmarkDecodeInterfaceSlice(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.gob.Gob.benchmarkDecodeInterfaceSlice(b);
+    }
+    static public function benchmarkDecodeMap(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.gob.Gob.benchmarkDecodeMap(b);
+    }
+    /**
+        RegisterName is like Register but uses the provided name rather than the
+        type's default.
+    **/
+    static public function registerName(name:String, value:stdgo.AnyInterface):Void {
+        stdgo._internal.encoding.gob.Gob.registerName(name, value);
+    }
+    /**
+        Register records a type, identified by a value for that type, under its
+        internal type name. That name will identify the concrete type of a value
+        sent or received as an interface variable. Only types that will be
+        transferred as implementations of interface values need to be registered.
+        Expecting to be used only during initialization, it panics if the mapping
+        between types and names is not a bijection.
+    **/
+    static public function register(value:stdgo.AnyInterface):Void {
+        stdgo._internal.encoding.gob.Gob.register(value);
+    }
+    /**
+        Sanity checks
+    **/
+    static public function testBasic(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testBasic(t);
+    }
+    /**
+        Reregister some basic types to check registration is idempotent.
+    **/
+    static public function testReregistration(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testReregistration(t);
+    }
+    static public function testArrayType(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testArrayType(t);
+    }
+    static public function testSliceType(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testSliceType(t);
+    }
+    static public function testMapType(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testMapType(t);
+    }
+    static public function testStructType(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testStructType(t);
+    }
+    /**
+        Should be OK to register the same type multiple times, as long as they're
+        at the same level of indirection.
+    **/
+    static public function testRegistration(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testRegistration(t);
+    }
+    /**
+        See comment in type.go/Register.
+    **/
+    static public function testRegistrationNaming(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testRegistrationNaming(t);
+    }
+    static public function testStressParallel(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testStressParallel(t);
+    }
+    /**
+        Issue 23328. Note that this test name is known to cmd/dist/test.go.
+    **/
+    static public function testTypeRace(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.gob.Gob.testTypeRace(t);
+    }
 }

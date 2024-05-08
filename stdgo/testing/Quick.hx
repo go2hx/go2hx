@@ -60,85 +60,12 @@ typedef TestUint64Alias = stdgo._internal.testing.quick.Quick.TestUint64Alias;
 typedef TestUint8Alias = stdgo._internal.testing.quick.Quick.TestUint8Alias;
 typedef TestUintAlias = stdgo._internal.testing.quick.Quick.TestUintAlias;
 typedef TestUintptrAlias = stdgo._internal.testing.quick.Quick.TestUintptrAlias;
-/**
-    Value returns an arbitrary value of the given type.
-    If the type implements the Generator interface, that will be used.
-    Note: To create arbitrary values for structs, all the fields must be exported.
-**/
-function value(t:stdgo._internal.reflect.Reflect.Type_, rand:stdgo._internal.math.rand.Rand.Rand):stdgo.Tuple<stdgo._internal.reflect.Reflect.Value, Bool> {
-        return {
-            final obj = stdgo._internal.testing.quick.Quick.value(t, rand);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Check looks for an input to f, any function that returns bool,
-    such that f returns false. It calls f repeatedly, with arbitrary
-    values for each argument. If f returns false on a given input,
-    Check returns that input as a *CheckError.
-    For example:
-    
-    	func TestOddMultipleOfThree(t *testing.T) {
-    		f := func(x int) bool {
-    			y := OddMultipleOfThree(x)
-    			return y%2 == 1 && y%3 == 0
-    		}
-    		if err := quick.Check(f, nil); err != nil {
-    			t.Error(err)
-    		}
-    	}
-**/
-function check(f:stdgo.AnyInterface, config:Config):stdgo.Error {
-        return stdgo._internal.testing.quick.Quick.check(f, config);
-    }
-/**
-    CheckEqual looks for an input on which f and g return different results.
-    It calls f and g repeatedly with arbitrary values for each argument.
-    If f and g return different answers, CheckEqual returns a *CheckEqualError
-    describing the input and the outputs.
-**/
-function checkEqual(f:stdgo.AnyInterface, g:stdgo.AnyInterface, config:Config):stdgo.Error {
-        return stdgo._internal.testing.quick.Quick.checkEqual(f, g, config);
-    }
-function testCheckEqual(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.quick.Quick.testCheckEqual(t);
-    }
-function testCheckProperty(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.quick.Quick.testCheckProperty(t);
-    }
-function testFailure(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.quick.Quick.testFailure(t);
-    }
 @:forward @:forward.new abstract T_testRecursive_35___localname___R(stdgo._internal.testing.quick.Quick.T_testRecursive_35___localname___R) from stdgo._internal.testing.quick.Quick.T_testRecursive_35___localname___R to stdgo._internal.testing.quick.Quick.T_testRecursive_35___localname___R {
 
 }
-/**
-    Recursive data structures didn't terminate.
-    Issues 8818 and 11148.
-**/
-function testRecursive(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.quick.Quick.testRecursive(t);
-    }
-function testEmptyStruct(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.quick.Quick.testEmptyStruct(t);
-    }
-function testMutuallyRecursive(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.quick.Quick.testMutuallyRecursive(t);
-    }
 @:forward @:forward.new abstract T_testNonZeroSliceAndMap_36___localname___Q(stdgo._internal.testing.quick.Quick.T_testNonZeroSliceAndMap_36___localname___Q) from stdgo._internal.testing.quick.Quick.T_testNonZeroSliceAndMap_36___localname___Q to stdgo._internal.testing.quick.Quick.T_testNonZeroSliceAndMap_36___localname___Q {
 
 }
-/**
-    Some serialization formats (e.g. encoding/pem) cannot distinguish
-    between a nil and an empty map or slice, so avoid generating the
-    zero value for these.
-**/
-function testNonZeroSliceAndMap(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.quick.Quick.testNonZeroSliceAndMap(t);
-    }
-function testInt64(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.quick.Quick.testInt64(t);
-    }
 @:forward @:forward.new abstract Config_asInterface(stdgo._internal.testing.quick.Quick.Config_asInterface) from stdgo._internal.testing.quick.Quick.Config_asInterface to stdgo._internal.testing.quick.Quick.Config_asInterface {
 
 }
@@ -168,4 +95,79 @@ function testInt64(t:stdgo._internal.testing.Testing.T_):Void {
 }
 @:forward @:forward.new abstract SetupError_static_extension(stdgo._internal.testing.quick.Quick.SetupError_static_extension) from stdgo._internal.testing.quick.Quick.SetupError_static_extension to stdgo._internal.testing.quick.Quick.SetupError_static_extension {
 
+}
+class Quick {
+    /**
+        Value returns an arbitrary value of the given type.
+        If the type implements the Generator interface, that will be used.
+        Note: To create arbitrary values for structs, all the fields must be exported.
+    **/
+    static public function value(t:stdgo._internal.reflect.Reflect.Type_, rand:stdgo._internal.math.rand.Rand.Rand):stdgo.Tuple<stdgo._internal.reflect.Reflect.Value, Bool> {
+        return {
+            final obj = stdgo._internal.testing.quick.Quick.value(t, rand);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Check looks for an input to f, any function that returns bool,
+        such that f returns false. It calls f repeatedly, with arbitrary
+        values for each argument. If f returns false on a given input,
+        Check returns that input as a *CheckError.
+        For example:
+        
+        	func TestOddMultipleOfThree(t *testing.T) {
+        		f := func(x int) bool {
+        			y := OddMultipleOfThree(x)
+        			return y%2 == 1 && y%3 == 0
+        		}
+        		if err := quick.Check(f, nil); err != nil {
+        			t.Error(err)
+        		}
+        	}
+    **/
+    static public function check(f:stdgo.AnyInterface, config:Config):stdgo.Error {
+        return stdgo._internal.testing.quick.Quick.check(f, config);
+    }
+    /**
+        CheckEqual looks for an input on which f and g return different results.
+        It calls f and g repeatedly with arbitrary values for each argument.
+        If f and g return different answers, CheckEqual returns a *CheckEqualError
+        describing the input and the outputs.
+    **/
+    static public function checkEqual(f:stdgo.AnyInterface, g:stdgo.AnyInterface, config:Config):stdgo.Error {
+        return stdgo._internal.testing.quick.Quick.checkEqual(f, g, config);
+    }
+    static public function testCheckEqual(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.quick.Quick.testCheckEqual(t);
+    }
+    static public function testCheckProperty(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.quick.Quick.testCheckProperty(t);
+    }
+    static public function testFailure(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.quick.Quick.testFailure(t);
+    }
+    /**
+        Recursive data structures didn't terminate.
+        Issues 8818 and 11148.
+    **/
+    static public function testRecursive(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.quick.Quick.testRecursive(t);
+    }
+    static public function testEmptyStruct(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.quick.Quick.testEmptyStruct(t);
+    }
+    static public function testMutuallyRecursive(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.quick.Quick.testMutuallyRecursive(t);
+    }
+    /**
+        Some serialization formats (e.g. encoding/pem) cannot distinguish
+        between a nil and an empty map or slice, so avoid generating the
+        zero value for these.
+    **/
+    static public function testNonZeroSliceAndMap(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.quick.Quick.testNonZeroSliceAndMap(t);
+    }
+    static public function testInt64(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.quick.Quick.testInt64(t);
+    }
 }

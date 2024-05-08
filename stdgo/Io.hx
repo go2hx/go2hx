@@ -180,197 +180,6 @@ typedef StringWriter = stdgo._internal.io.Io.StringWriter;
 
 }
 typedef T__struct_0 = stdgo._internal.io.Io.T__struct_0;
-/**
-    WriteString writes the contents of the string s to w, which accepts a slice of bytes.
-    If w implements StringWriter, its WriteString method is invoked directly.
-    Otherwise, w.Write is called exactly once.
-**/
-function writeString(w:Writer, s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.io.Io.writeString(w, s);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    ReadAtLeast reads from r into buf until it has read at least min bytes.
-    It returns the number of bytes copied and an error if fewer bytes were read.
-    The error is EOF only if no bytes were read.
-    If an EOF happens after reading fewer than min bytes,
-    ReadAtLeast returns ErrUnexpectedEOF.
-    If min is greater than the length of buf, ReadAtLeast returns ErrShortBuffer.
-    On return, n >= min if and only if err == nil.
-    If r returns an error having read at least min bytes, the error is dropped.
-**/
-function readAtLeast(r:Reader, buf:Array<StdTypes.Int>, min:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
-        return {
-            final obj = stdgo._internal.io.Io.readAtLeast(r, buf, min);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    ReadFull reads exactly len(buf) bytes from r into buf.
-    It returns the number of bytes copied and an error if fewer bytes were read.
-    The error is EOF only if no bytes were read.
-    If an EOF happens after reading some but not all the bytes,
-    ReadFull returns ErrUnexpectedEOF.
-    On return, n == len(buf) if and only if err == nil.
-    If r returns an error having read at least len(buf) bytes, the error is dropped.
-**/
-function readFull(r:Reader, buf:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
-        return {
-            final obj = stdgo._internal.io.Io.readFull(r, buf);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    CopyN copies n bytes (or until an error) from src to dst.
-    It returns the number of bytes copied and the earliest
-    error encountered while copying.
-    On return, written == n if and only if err == nil.
-    
-    If dst implements the ReaderFrom interface,
-    the copy is implemented using it.
-**/
-function copyN(dst:Writer, src:Reader, n:haxe.Int64):stdgo.Tuple<haxe.Int64, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.io.Io.copyN(dst, src, n);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Copy copies from src to dst until either EOF is reached
-    on src or an error occurs. It returns the number of bytes
-    copied and the first error encountered while copying, if any.
-    
-    A successful Copy returns err == nil, not err == EOF.
-    Because Copy is defined to read from src until EOF, it does
-    not treat an EOF from Read as an error to be reported.
-    
-    If src implements the WriterTo interface,
-    the copy is implemented by calling src.WriteTo(dst).
-    Otherwise, if dst implements the ReaderFrom interface,
-    the copy is implemented by calling dst.ReadFrom(src).
-**/
-function copy(dst:Writer, src:Reader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.io.Io.copy(dst, src);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    CopyBuffer is identical to Copy except that it stages through the
-    provided buffer (if one is required) rather than allocating a
-    temporary one. If buf is nil, one is allocated; otherwise if it has
-    zero length, CopyBuffer panics.
-    
-    If either src implements WriterTo or dst implements ReaderFrom,
-    buf will not be used to perform the copy.
-**/
-function copyBuffer(dst:Writer, src:Reader, buf:Array<StdTypes.Int>):stdgo.Tuple<haxe.Int64, stdgo.Error> {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
-        return {
-            final obj = stdgo._internal.io.Io.copyBuffer(dst, src, buf);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    LimitReader returns a Reader that reads from r
-    but stops with EOF after n bytes.
-    The underlying implementation is a *LimitedReader.
-**/
-function limitReader(r:Reader, n:haxe.Int64):Reader {
-        return stdgo._internal.io.Io.limitReader(r, n);
-    }
-/**
-    NewSectionReader returns a SectionReader that reads from r
-    starting at offset off and stops with EOF after n bytes.
-**/
-function newSectionReader(r:ReaderAt, off:haxe.Int64, n:haxe.Int64):SectionReader {
-        return stdgo._internal.io.Io.newSectionReader(r, off, n);
-    }
-/**
-    NewOffsetWriter returns an OffsetWriter that writes to w
-    starting at offset off.
-**/
-function newOffsetWriter(w:WriterAt, off:haxe.Int64):OffsetWriter {
-        return stdgo._internal.io.Io.newOffsetWriter(w, off);
-    }
-/**
-    TeeReader returns a Reader that writes to w what it reads from r.
-    All reads from r performed through it are matched with
-    corresponding writes to w. There is no internal buffering -
-    the write must complete before the read completes.
-    Any error encountered while writing is reported as a read error.
-**/
-function teeReader(r:Reader, w:Writer):Reader {
-        return stdgo._internal.io.Io.teeReader(r, w);
-    }
-/**
-    NopCloser returns a ReadCloser with a no-op Close method wrapping
-    the provided Reader r.
-    If r implements WriterTo, the returned ReadCloser will implement WriterTo
-    by forwarding calls to r.
-**/
-function nopCloser(r:Reader):ReadCloser {
-        return stdgo._internal.io.Io.nopCloser(r);
-    }
-/**
-    ReadAll reads from r until an error or EOF and returns the data it read.
-    A successful call returns err == nil, not err == EOF. Because ReadAll is
-    defined to read from src until EOF, it does not treat an EOF from Read
-    as an error to be reported.
-**/
-function readAll(r:Reader):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.io.Io.readAll(r);
-            { _0 : [for (i in obj._0) i], _1 : obj._1 };
-        };
-    }
-/**
-    MultiReader returns a Reader that's the logical concatenation of
-    the provided input readers. They're read sequentially. Once all
-    inputs have returned EOF, Read will return EOF.  If any of the readers
-    return a non-nil, non-EOF error, Read will return that error.
-**/
-function multiReader(readers:haxe.Rest<Reader>):Reader {
-        return stdgo._internal.io.Io.multiReader(...readers);
-    }
-/**
-    MultiWriter creates a writer that duplicates its writes to all the
-    provided writers, similar to the Unix tee(1) command.
-    
-    Each write is written to each listed writer, one at a time.
-    If a listed writer returns an error, that overall write operation
-    stops and returns the error; it does not continue down the list.
-**/
-function multiWriter(writers:haxe.Rest<Writer>):Writer {
-        return stdgo._internal.io.Io.multiWriter(...writers);
-    }
-/**
-    Pipe creates a synchronous in-memory pipe.
-    It can be used to connect code expecting an io.Reader
-    with code expecting an io.Writer.
-    
-    Reads and Writes on the pipe are matched one to one
-    except when multiple Reads are needed to consume a single Write.
-    That is, each Write to the PipeWriter blocks until it has satisfied
-    one or more Reads from the PipeReader that fully consume
-    the written data.
-    The data is copied directly from the Write to the corresponding
-    Read (or Reads); there is no internal buffering.
-    
-    It is safe to call Read and Write in parallel with each other or with Close.
-    Parallel calls to Read and parallel calls to Write are also safe:
-    the individual calls will be gated sequentially.
-**/
-function pipe():stdgo.Tuple<PipeReader, PipeWriter> {
-        return {
-            final obj = stdgo._internal.io.Io.pipe();
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
 @:forward @:forward.new abstract LimitedReader_asInterface(stdgo._internal.io.Io.LimitedReader_asInterface) from stdgo._internal.io.Io.LimitedReader_asInterface to stdgo._internal.io.Io.LimitedReader_asInterface {
 
 }
@@ -454,4 +263,197 @@ function pipe():stdgo.Tuple<PipeReader, PipeWriter> {
 }
 @:forward @:forward.new abstract PipeWriter_static_extension(stdgo._internal.io.Io.PipeWriter_static_extension) from stdgo._internal.io.Io.PipeWriter_static_extension to stdgo._internal.io.Io.PipeWriter_static_extension {
 
+}
+class Io {
+    /**
+        WriteString writes the contents of the string s to w, which accepts a slice of bytes.
+        If w implements StringWriter, its WriteString method is invoked directly.
+        Otherwise, w.Write is called exactly once.
+    **/
+    static public function writeString(w:Writer, s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.io.Io.writeString(w, s);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        ReadAtLeast reads from r into buf until it has read at least min bytes.
+        It returns the number of bytes copied and an error if fewer bytes were read.
+        The error is EOF only if no bytes were read.
+        If an EOF happens after reading fewer than min bytes,
+        ReadAtLeast returns ErrUnexpectedEOF.
+        If min is greater than the length of buf, ReadAtLeast returns ErrShortBuffer.
+        On return, n >= min if and only if err == nil.
+        If r returns an error having read at least min bytes, the error is dropped.
+    **/
+    static public function readAtLeast(r:Reader, buf:Array<StdTypes.Int>, min:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
+        return {
+            final obj = stdgo._internal.io.Io.readAtLeast(r, buf, min);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        ReadFull reads exactly len(buf) bytes from r into buf.
+        It returns the number of bytes copied and an error if fewer bytes were read.
+        The error is EOF only if no bytes were read.
+        If an EOF happens after reading some but not all the bytes,
+        ReadFull returns ErrUnexpectedEOF.
+        On return, n == len(buf) if and only if err == nil.
+        If r returns an error having read at least len(buf) bytes, the error is dropped.
+    **/
+    static public function readFull(r:Reader, buf:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
+        return {
+            final obj = stdgo._internal.io.Io.readFull(r, buf);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        CopyN copies n bytes (or until an error) from src to dst.
+        It returns the number of bytes copied and the earliest
+        error encountered while copying.
+        On return, written == n if and only if err == nil.
+        
+        If dst implements the ReaderFrom interface,
+        the copy is implemented using it.
+    **/
+    static public function copyN(dst:Writer, src:Reader, n:haxe.Int64):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.io.Io.copyN(dst, src, n);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Copy copies from src to dst until either EOF is reached
+        on src or an error occurs. It returns the number of bytes
+        copied and the first error encountered while copying, if any.
+        
+        A successful Copy returns err == nil, not err == EOF.
+        Because Copy is defined to read from src until EOF, it does
+        not treat an EOF from Read as an error to be reported.
+        
+        If src implements the WriterTo interface,
+        the copy is implemented by calling src.WriteTo(dst).
+        Otherwise, if dst implements the ReaderFrom interface,
+        the copy is implemented by calling dst.ReadFrom(src).
+    **/
+    static public function copy(dst:Writer, src:Reader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.io.Io.copy(dst, src);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        CopyBuffer is identical to Copy except that it stages through the
+        provided buffer (if one is required) rather than allocating a
+        temporary one. If buf is nil, one is allocated; otherwise if it has
+        zero length, CopyBuffer panics.
+        
+        If either src implements WriterTo or dst implements ReaderFrom,
+        buf will not be used to perform the copy.
+    **/
+    static public function copyBuffer(dst:Writer, src:Reader, buf:Array<StdTypes.Int>):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
+        return {
+            final obj = stdgo._internal.io.Io.copyBuffer(dst, src, buf);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        LimitReader returns a Reader that reads from r
+        but stops with EOF after n bytes.
+        The underlying implementation is a *LimitedReader.
+    **/
+    static public function limitReader(r:Reader, n:haxe.Int64):Reader {
+        return stdgo._internal.io.Io.limitReader(r, n);
+    }
+    /**
+        NewSectionReader returns a SectionReader that reads from r
+        starting at offset off and stops with EOF after n bytes.
+    **/
+    static public function newSectionReader(r:ReaderAt, off:haxe.Int64, n:haxe.Int64):SectionReader {
+        return stdgo._internal.io.Io.newSectionReader(r, off, n);
+    }
+    /**
+        NewOffsetWriter returns an OffsetWriter that writes to w
+        starting at offset off.
+    **/
+    static public function newOffsetWriter(w:WriterAt, off:haxe.Int64):OffsetWriter {
+        return stdgo._internal.io.Io.newOffsetWriter(w, off);
+    }
+    /**
+        TeeReader returns a Reader that writes to w what it reads from r.
+        All reads from r performed through it are matched with
+        corresponding writes to w. There is no internal buffering -
+        the write must complete before the read completes.
+        Any error encountered while writing is reported as a read error.
+    **/
+    static public function teeReader(r:Reader, w:Writer):Reader {
+        return stdgo._internal.io.Io.teeReader(r, w);
+    }
+    /**
+        NopCloser returns a ReadCloser with a no-op Close method wrapping
+        the provided Reader r.
+        If r implements WriterTo, the returned ReadCloser will implement WriterTo
+        by forwarding calls to r.
+    **/
+    static public function nopCloser(r:Reader):ReadCloser {
+        return stdgo._internal.io.Io.nopCloser(r);
+    }
+    /**
+        ReadAll reads from r until an error or EOF and returns the data it read.
+        A successful call returns err == nil, not err == EOF. Because ReadAll is
+        defined to read from src until EOF, it does not treat an EOF from Read
+        as an error to be reported.
+    **/
+    static public function readAll(r:Reader):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.io.Io.readAll(r);
+            { _0 : [for (i in obj._0) i], _1 : obj._1 };
+        };
+    }
+    /**
+        MultiReader returns a Reader that's the logical concatenation of
+        the provided input readers. They're read sequentially. Once all
+        inputs have returned EOF, Read will return EOF.  If any of the readers
+        return a non-nil, non-EOF error, Read will return that error.
+    **/
+    static public function multiReader(readers:haxe.Rest<Reader>):Reader {
+        return stdgo._internal.io.Io.multiReader(...readers);
+    }
+    /**
+        MultiWriter creates a writer that duplicates its writes to all the
+        provided writers, similar to the Unix tee(1) command.
+        
+        Each write is written to each listed writer, one at a time.
+        If a listed writer returns an error, that overall write operation
+        stops and returns the error; it does not continue down the list.
+    **/
+    static public function multiWriter(writers:haxe.Rest<Writer>):Writer {
+        return stdgo._internal.io.Io.multiWriter(...writers);
+    }
+    /**
+        Pipe creates a synchronous in-memory pipe.
+        It can be used to connect code expecting an io.Reader
+        with code expecting an io.Writer.
+        
+        Reads and Writes on the pipe are matched one to one
+        except when multiple Reads are needed to consume a single Write.
+        That is, each Write to the PipeWriter blocks until it has satisfied
+        one or more Reads from the PipeReader that fully consume
+        the written data.
+        The data is copied directly from the Write to the corresponding
+        Read (or Reads); there is no internal buffering.
+        
+        It is safe to call Read and Write in parallel with each other or with Close.
+        Parallel calls to Read and parallel calls to Write are also safe:
+        the individual calls will be gated sequentially.
+    **/
+    static public function pipe():stdgo.Tuple<PipeReader, PipeWriter> {
+        return {
+            final obj = stdgo._internal.io.Io.pipe();
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
 }

@@ -20,3 +20,6 @@ private function set_errNotExist(v:stdgo.Error):stdgo.Error return stdgo._intern
 var errClosed(get, set) : stdgo.Error;
 private function get_errClosed():stdgo.Error return stdgo._internal.internal.oserror.Oserror.errClosed;
 private function set_errClosed(v:stdgo.Error):stdgo.Error return stdgo._internal.internal.oserror.Oserror.errClosed = v;
+class Oserror {
+
+}

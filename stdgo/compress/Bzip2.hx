@@ -44,35 +44,6 @@ typedef T__struct_1 = stdgo._internal.compress.bzip2.Bzip2.T__struct_1;
 typedef T__struct_2 = stdgo._internal.compress.bzip2.Bzip2.T__struct_2;
 typedef StructuralError = stdgo._internal.compress.bzip2.Bzip2.StructuralError;
 typedef T_moveToFrontDecoder = stdgo._internal.compress.bzip2.Bzip2.T_moveToFrontDecoder;
-/**
-    NewReader returns an io.Reader which decompresses bzip2 data from r.
-    If r does not also implement io.ByteReader,
-    the decompressor may read more data than necessary from r.
-**/
-function newReader(r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
-        return stdgo._internal.compress.bzip2.Bzip2.newReader(r);
-    }
-function testReader(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.bzip2.Bzip2.testReader(t);
-    }
-function testBitReader(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.bzip2.Bzip2.testBitReader(t);
-    }
-function testMTF(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.bzip2.Bzip2.testMTF(t);
-    }
-function testZeroRead(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.bzip2.Bzip2.testZeroRead(t);
-    }
-function benchmarkDecodeDigits(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.compress.bzip2.Bzip2.benchmarkDecodeDigits(b);
-    }
-function benchmarkDecodeNewton(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.compress.bzip2.Bzip2.benchmarkDecodeNewton(b);
-    }
-function benchmarkDecodeRand(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.compress.bzip2.Bzip2.benchmarkDecodeRand(b);
-    }
 @:forward @:forward.new abstract T_bitReader_asInterface(stdgo._internal.compress.bzip2.Bzip2.T_bitReader_asInterface) from stdgo._internal.compress.bzip2.Bzip2.T_bitReader_asInterface to stdgo._internal.compress.bzip2.Bzip2.T_bitReader_asInterface {
 
 }
@@ -102,4 +73,35 @@ function benchmarkDecodeRand(b:stdgo._internal.testing.Testing.B):Void {
 }
 @:forward @:forward.new abstract T_moveToFrontDecoder_static_extension(stdgo._internal.compress.bzip2.Bzip2.T_moveToFrontDecoder_static_extension) from stdgo._internal.compress.bzip2.Bzip2.T_moveToFrontDecoder_static_extension to stdgo._internal.compress.bzip2.Bzip2.T_moveToFrontDecoder_static_extension {
 
+}
+class Bzip2 {
+    /**
+        NewReader returns an io.Reader which decompresses bzip2 data from r.
+        If r does not also implement io.ByteReader,
+        the decompressor may read more data than necessary from r.
+    **/
+    static public function newReader(r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
+        return stdgo._internal.compress.bzip2.Bzip2.newReader(r);
+    }
+    static public function testReader(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.bzip2.Bzip2.testReader(t);
+    }
+    static public function testBitReader(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.bzip2.Bzip2.testBitReader(t);
+    }
+    static public function testMTF(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.bzip2.Bzip2.testMTF(t);
+    }
+    static public function testZeroRead(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.bzip2.Bzip2.testZeroRead(t);
+    }
+    static public function benchmarkDecodeDigits(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.compress.bzip2.Bzip2.benchmarkDecodeDigits(b);
+    }
+    static public function benchmarkDecodeNewton(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.compress.bzip2.Bzip2.benchmarkDecodeNewton(b);
+    }
+    static public function benchmarkDecodeRand(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.compress.bzip2.Bzip2.benchmarkDecodeRand(b);
+    }
 }

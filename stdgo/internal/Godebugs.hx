@@ -11,9 +11,11 @@ private function set_all(v:Array<stdgo._internal.internal.godebugs.Godebugs.Info
 @:forward @:forward.new abstract Info(stdgo._internal.internal.godebugs.Godebugs.Info) from stdgo._internal.internal.godebugs.Godebugs.Info to stdgo._internal.internal.godebugs.Godebugs.Info {
 
 }
-/**
-    Lookup returns the Info with the given name.
-**/
-function lookup(name:String):Info {
+class Godebugs {
+    /**
+        Lookup returns the Info with the given name.
+    **/
+    static public function lookup(name:String):Info {
         return stdgo._internal.internal.godebugs.Godebugs.lookup(name);
     }
+}

@@ -89,34 +89,6 @@ typedef T__struct_0 = stdgo._internal.sync.Sync.T__struct_0;
 typedef T_copyChecker = stdgo._internal.sync.Sync.T_copyChecker;
 typedef T_dequeueNil = stdgo._internal.sync.Sync.T_dequeueNil;
 typedef T_rlocker = stdgo._internal.sync.Sync.T_rlocker;
-/**
-    NewCond returns a new Cond with Locker l.
-**/
-function newCond(l:Locker):Cond {
-        return stdgo._internal.sync.Sync.newCond(l);
-    }
-function newPoolDequeue(n:StdTypes.Int):PoolDequeue {
-        return stdgo._internal.sync.Sync.newPoolDequeue(n);
-    }
-function newPoolChain():PoolDequeue {
-        return stdgo._internal.sync.Sync.newPoolChain();
-    }
-/**
-    OnceFunc returns a function that invokes f only once. The returned function
-    may be called concurrently.
-    
-    If f panics, the returned function will panic with the same value on every call.
-**/
-function onceFunc(f:() -> Void):() -> Void {
-        final f = f;
-        return () -> stdgo._internal.sync.Sync.onceFunc(f)();
-    }
-macro function onceValue<T_>(_generic__0:haxe.macro.Expr<T_>, f:haxe.macro.Expr<() -> T_>):haxe.macro.Expr<() -> T_> {
-        return stdgo._internal.sync.Sync.onceValue(_generic__0, f);
-    }
-macro function onceValues<T1, T2>(_generic__0:haxe.macro.Expr<T1>, _generic__1:haxe.macro.Expr<T2>, f:haxe.macro.Expr<() -> { var _0 : T1; var _1 : T2; }>):haxe.macro.Expr<() -> { var _0 : T1; var _1 : T2; }> {
-        return stdgo._internal.sync.Sync.onceValues(_generic__0, _generic__1, f);
-    }
 @:forward @:forward.new abstract Cond_asInterface(stdgo._internal.sync.Sync.Cond_asInterface) from stdgo._internal.sync.Sync.Cond_asInterface to stdgo._internal.sync.Sync.Cond_asInterface {
 
 }
@@ -206,4 +178,34 @@ macro function onceValues<T1, T2>(_generic__0:haxe.macro.Expr<T1>, _generic__1:h
 }
 @:forward @:forward.new abstract T_rlocker_static_extension(stdgo._internal.sync.Sync.T_rlocker_static_extension) from stdgo._internal.sync.Sync.T_rlocker_static_extension to stdgo._internal.sync.Sync.T_rlocker_static_extension {
 
+}
+class Sync {
+    /**
+        NewCond returns a new Cond with Locker l.
+    **/
+    static public function newCond(l:Locker):Cond {
+        return stdgo._internal.sync.Sync.newCond(l);
+    }
+    static public function newPoolDequeue(n:StdTypes.Int):PoolDequeue {
+        return stdgo._internal.sync.Sync.newPoolDequeue(n);
+    }
+    static public function newPoolChain():PoolDequeue {
+        return stdgo._internal.sync.Sync.newPoolChain();
+    }
+    /**
+        OnceFunc returns a function that invokes f only once. The returned function
+        may be called concurrently.
+        
+        If f panics, the returned function will panic with the same value on every call.
+    **/
+    static public function onceFunc(f:() -> Void):() -> Void {
+        final f = f;
+        return () -> stdgo._internal.sync.Sync.onceFunc(f)();
+    }
+    static public function onceValue<T_>(_generic__0:haxe.macro.Expr<T_>, f:haxe.macro.Expr<() -> T_>):haxe.macro.Expr<() -> T_> {
+        return stdgo._internal.sync.Sync.onceValue(_generic__0, f);
+    }
+    static public function onceValues<T1, T2>(_generic__0:haxe.macro.Expr<T1>, _generic__1:haxe.macro.Expr<T2>, f:haxe.macro.Expr<() -> { var _0 : T1; var _1 : T2; }>):haxe.macro.Expr<() -> { var _0 : T1; var _1 : T2; }> {
+        return stdgo._internal.sync.Sync.onceValues(_generic__0, _generic__1, f);
+    }
 }

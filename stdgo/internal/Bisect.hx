@@ -193,64 +193,6 @@ typedef Writer = stdgo._internal.internal.bisect.Bisect.Writer;
 @:forward @:forward.new abstract T_dedup(stdgo._internal.internal.bisect.Bisect.T_dedup) from stdgo._internal.internal.bisect.Bisect.T_dedup to stdgo._internal.internal.bisect.Bisect.T_dedup {
 
 }
-/**
-    New creates and returns a new Matcher implementing the given pattern.
-    The pattern syntax is defined in the package doc comment.
-    
-    In addition to the pattern syntax syntax, New("") returns nil, nil.
-    The nil *Matcher is valid for use: it returns true from ShouldEnable
-    and false from ShouldPrint for all changes. Callers can avoid calling
-    [Hash], [Matcher.ShouldEnable], and [Matcher.ShouldPrint] entirely
-    when they recognize the nil Matcher.
-**/
-function new_(pattern:String):stdgo.Tuple<Matcher, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.internal.bisect.Bisect.new_(pattern);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    PrintMarker prints to w a one-line report containing only the marker for h.
-    It is appropriate to use when [Matcher.ShouldPrint] and [Matcher.MarkerOnly] both return true.
-**/
-function printMarker(w:Writer, h:haxe.UInt64):stdgo.Error {
-        return stdgo._internal.internal.bisect.Bisect.printMarker(w, h);
-    }
-/**
-    Marker returns the match marker text to use on any line reporting details
-    about a match of the given ID.
-    It always returns the hexadecimal format.
-**/
-function marker(id:haxe.UInt64):String {
-        return stdgo._internal.internal.bisect.Bisect.marker(id);
-    }
-/**
-    AppendMarker is like [Marker] but appends the marker to dst.
-**/
-function appendMarker(dst:Array<StdTypes.Int>, id:haxe.UInt64):Array<StdTypes.Int> {
-        final dst = ([for (i in dst) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.internal.bisect.Bisect.appendMarker(dst, id)) i];
-    }
-/**
-    CutMarker finds the first match marker in line and removes it,
-    returning the shortened line (with the marker removed),
-    the ID from the match marker,
-    and whether a marker was found at all.
-    If there is no marker, CutMarker returns line, 0, false.
-**/
-function cutMarker(line:String):stdgo.Tuple.Tuple3<String, haxe.UInt64, Bool> {
-        return {
-            final obj = stdgo._internal.internal.bisect.Bisect.cutMarker(line);
-            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
-        };
-    }
-/**
-    Hash computes a hash of the data arguments,
-    each of which must be of type string, byte, int, uint, int32, uint32, int64, uint64, uintptr, or a slice of one of those types.
-**/
-function hash(data:haxe.Rest<stdgo.AnyInterface>):haxe.UInt64 {
-        return stdgo._internal.internal.bisect.Bisect.hash(...data);
-    }
 @:forward @:forward.new abstract Matcher_asInterface(stdgo._internal.internal.bisect.Bisect.Matcher_asInterface) from stdgo._internal.internal.bisect.Bisect.Matcher_asInterface to stdgo._internal.internal.bisect.Bisect.Matcher_asInterface {
 
 }
@@ -274,4 +216,64 @@ function hash(data:haxe.Rest<stdgo.AnyInterface>):haxe.UInt64 {
 }
 @:forward @:forward.new abstract T_dedup_static_extension(stdgo._internal.internal.bisect.Bisect.T_dedup_static_extension) from stdgo._internal.internal.bisect.Bisect.T_dedup_static_extension to stdgo._internal.internal.bisect.Bisect.T_dedup_static_extension {
 
+}
+class Bisect {
+    /**
+        New creates and returns a new Matcher implementing the given pattern.
+        The pattern syntax is defined in the package doc comment.
+        
+        In addition to the pattern syntax syntax, New("") returns nil, nil.
+        The nil *Matcher is valid for use: it returns true from ShouldEnable
+        and false from ShouldPrint for all changes. Callers can avoid calling
+        [Hash], [Matcher.ShouldEnable], and [Matcher.ShouldPrint] entirely
+        when they recognize the nil Matcher.
+    **/
+    static public function new_(pattern:String):stdgo.Tuple<Matcher, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.internal.bisect.Bisect.new_(pattern);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        PrintMarker prints to w a one-line report containing only the marker for h.
+        It is appropriate to use when [Matcher.ShouldPrint] and [Matcher.MarkerOnly] both return true.
+    **/
+    static public function printMarker(w:Writer, h:haxe.UInt64):stdgo.Error {
+        return stdgo._internal.internal.bisect.Bisect.printMarker(w, h);
+    }
+    /**
+        Marker returns the match marker text to use on any line reporting details
+        about a match of the given ID.
+        It always returns the hexadecimal format.
+    **/
+    static public function marker(id:haxe.UInt64):String {
+        return stdgo._internal.internal.bisect.Bisect.marker(id);
+    }
+    /**
+        AppendMarker is like [Marker] but appends the marker to dst.
+    **/
+    static public function appendMarker(dst:Array<StdTypes.Int>, id:haxe.UInt64):Array<StdTypes.Int> {
+        final dst = ([for (i in dst) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.internal.bisect.Bisect.appendMarker(dst, id)) i];
+    }
+    /**
+        CutMarker finds the first match marker in line and removes it,
+        returning the shortened line (with the marker removed),
+        the ID from the match marker,
+        and whether a marker was found at all.
+        If there is no marker, CutMarker returns line, 0, false.
+    **/
+    static public function cutMarker(line:String):stdgo.Tuple.Tuple3<String, haxe.UInt64, Bool> {
+        return {
+            final obj = stdgo._internal.internal.bisect.Bisect.cutMarker(line);
+            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
+        };
+    }
+    /**
+        Hash computes a hash of the data arguments,
+        each of which must be of type string, byte, int, uint, int32, uint32, int64, uint64, uintptr, or a slice of one of those types.
+    **/
+    static public function hash(data:haxe.Rest<stdgo.AnyInterface>):haxe.UInt64 {
+        return stdgo._internal.internal.bisect.Bisect.hash(...data);
+    }
 }

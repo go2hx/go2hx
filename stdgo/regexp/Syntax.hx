@@ -260,85 +260,6 @@ typedef Flags = stdgo._internal.regexp.syntax.Syntax.Flags;
 typedef InstOp = stdgo._internal.regexp.syntax.Syntax.InstOp;
 typedef EmptyOp = stdgo._internal.regexp.syntax.Syntax.EmptyOp;
 typedef Op = stdgo._internal.regexp.syntax.Syntax.Op;
-/**
-    Compile compiles the regexp into a program to be executed.
-    The regexp should have been simplified already (returned from re.Simplify).
-**/
-function compile(re:Regexp):stdgo.Tuple<Prog, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.regexp.syntax.Syntax.compile(re);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-/**
-    Parse parses a regular expression string s, controlled by the specified
-    Flags, and returns a regular expression parse tree. The syntax is
-    described in the top-level comment.
-**/
-function parse(s:String, flags:Flags):stdgo.Tuple<Regexp, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.regexp.syntax.Syntax.parse(s, flags);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-function testParseSimple(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.syntax.Syntax.testParseSimple(t);
-    }
-function testParseFoldCase(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.syntax.Syntax.testParseFoldCase(t);
-    }
-function testParseLiteral(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.syntax.Syntax.testParseLiteral(t);
-    }
-function testParseMatchNL(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.syntax.Syntax.testParseMatchNL(t);
-    }
-function testParseNoMatchNL(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.syntax.Syntax.testParseNoMatchNL(t);
-    }
-function testFoldConstants(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.syntax.Syntax.testFoldConstants(t);
-    }
-function testAppendRangeCollapse(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.syntax.Syntax.testAppendRangeCollapse(t);
-    }
-function testParseInvalidRegexps(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.syntax.Syntax.testParseInvalidRegexps(t);
-    }
-function testToStringEquivalentParse(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.syntax.Syntax.testToStringEquivalentParse(t);
-    }
-/**
-    EmptyOpContext returns the zero-width assertions
-    satisfied at the position between the runes r1 and r2.
-    Passing r1 == -1 indicates that the position is
-    at the beginning of the text.
-    Passing r2 == -1 indicates that the position is
-    at the end of the text.
-**/
-function emptyOpContext(r1:StdTypes.Int, r2:StdTypes.Int):EmptyOp {
-        return stdgo._internal.regexp.syntax.Syntax.emptyOpContext(r1, r2);
-    }
-/**
-    IsWordChar reports whether r is considered a “word character”
-    during the evaluation of the \b and \B zero-width assertions.
-    These assertions are ASCII-only: the word characters are [A-Za-z0-9_].
-**/
-function isWordChar(r:StdTypes.Int):Bool {
-        return stdgo._internal.regexp.syntax.Syntax.isWordChar(r);
-    }
-function testCompile(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.syntax.Syntax.testCompile(t);
-    }
-function benchmarkEmptyOpContext(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.syntax.Syntax.benchmarkEmptyOpContext(b);
-    }
-function benchmarkIsWordChar(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.syntax.Syntax.benchmarkIsWordChar(b);
-    }
-function testSimplify(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.syntax.Syntax.testSimplify(t);
-    }
 @:forward @:forward.new abstract T_patchList_asInterface(stdgo._internal.regexp.syntax.Syntax.T_patchList_asInterface) from stdgo._internal.regexp.syntax.Syntax.T_patchList_asInterface to stdgo._internal.regexp.syntax.Syntax.T_patchList_asInterface {
 
 }
@@ -404,4 +325,85 @@ function testSimplify(t:stdgo._internal.testing.Testing.T_):Void {
 }
 @:forward @:forward.new abstract Op_static_extension(stdgo._internal.regexp.syntax.Syntax.Op_static_extension) from stdgo._internal.regexp.syntax.Syntax.Op_static_extension to stdgo._internal.regexp.syntax.Syntax.Op_static_extension {
 
+}
+class Syntax {
+    /**
+        Compile compiles the regexp into a program to be executed.
+        The regexp should have been simplified already (returned from re.Simplify).
+    **/
+    static public function compile(re:Regexp):stdgo.Tuple<Prog, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.regexp.syntax.Syntax.compile(re);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    /**
+        Parse parses a regular expression string s, controlled by the specified
+        Flags, and returns a regular expression parse tree. The syntax is
+        described in the top-level comment.
+    **/
+    static public function parse(s:String, flags:Flags):stdgo.Tuple<Regexp, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.regexp.syntax.Syntax.parse(s, flags);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+    static public function testParseSimple(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.syntax.Syntax.testParseSimple(t);
+    }
+    static public function testParseFoldCase(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.syntax.Syntax.testParseFoldCase(t);
+    }
+    static public function testParseLiteral(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.syntax.Syntax.testParseLiteral(t);
+    }
+    static public function testParseMatchNL(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.syntax.Syntax.testParseMatchNL(t);
+    }
+    static public function testParseNoMatchNL(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.syntax.Syntax.testParseNoMatchNL(t);
+    }
+    static public function testFoldConstants(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.syntax.Syntax.testFoldConstants(t);
+    }
+    static public function testAppendRangeCollapse(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.syntax.Syntax.testAppendRangeCollapse(t);
+    }
+    static public function testParseInvalidRegexps(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.syntax.Syntax.testParseInvalidRegexps(t);
+    }
+    static public function testToStringEquivalentParse(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.syntax.Syntax.testToStringEquivalentParse(t);
+    }
+    /**
+        EmptyOpContext returns the zero-width assertions
+        satisfied at the position between the runes r1 and r2.
+        Passing r1 == -1 indicates that the position is
+        at the beginning of the text.
+        Passing r2 == -1 indicates that the position is
+        at the end of the text.
+    **/
+    static public function emptyOpContext(r1:StdTypes.Int, r2:StdTypes.Int):EmptyOp {
+        return stdgo._internal.regexp.syntax.Syntax.emptyOpContext(r1, r2);
+    }
+    /**
+        IsWordChar reports whether r is considered a “word character”
+        during the evaluation of the \b and \B zero-width assertions.
+        These assertions are ASCII-only: the word characters are [A-Za-z0-9_].
+    **/
+    static public function isWordChar(r:StdTypes.Int):Bool {
+        return stdgo._internal.regexp.syntax.Syntax.isWordChar(r);
+    }
+    static public function testCompile(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.syntax.Syntax.testCompile(t);
+    }
+    static public function benchmarkEmptyOpContext(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.syntax.Syntax.benchmarkEmptyOpContext(b);
+    }
+    static public function benchmarkIsWordChar(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.syntax.Syntax.benchmarkIsWordChar(b);
+    }
+    static public function testSimplify(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.syntax.Syntax.testSimplify(t);
+    }
 }

@@ -796,170 +796,172 @@ private function set_foldScript(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._i
 }
 typedef SpecialCase = stdgo._internal.unicode.Unicode.SpecialCase;
 typedef T_d = stdgo._internal.unicode.Unicode.T_d;
-/**
-    IsDigit reports whether the rune is a decimal digit.
-**/
-function isDigit(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isDigit(r);
-    }
-/**
-    IsGraphic reports whether the rune is defined as a Graphic by Unicode.
-    Such characters include letters, marks, numbers, punctuation, symbols, and
-    spaces, from categories L, M, N, P, S, Zs.
-**/
-function isGraphic(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isGraphic(r);
-    }
-/**
-    IsPrint reports whether the rune is defined as printable by Go. Such
-    characters include letters, marks, numbers, punctuation, symbols, and the
-    ASCII space character, from categories L, M, N, P, S and the ASCII space
-    character. This categorization is the same as IsGraphic except that the
-    only spacing character is ASCII space, U+0020.
-**/
-function isPrint(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isPrint(r);
-    }
-/**
-    IsOneOf reports whether the rune is a member of one of the ranges.
-    The function "In" provides a nicer signature and should be used in preference to IsOneOf.
-**/
-function isOneOf(ranges:Array<RangeTable>, r:StdTypes.Int):Bool {
-        final ranges = ([for (i in ranges) i] : stdgo.Slice<stdgo.Ref<RangeTable>>);
-        return stdgo._internal.unicode.Unicode.isOneOf(ranges, r);
-    }
-/**
-    In reports whether the rune is a member of one of the ranges.
-**/
-function in_(r:StdTypes.Int, ranges:haxe.Rest<RangeTable>):Bool {
-        return stdgo._internal.unicode.Unicode.in_(r, ...ranges);
-    }
-/**
-    IsControl reports whether the rune is a control character.
-    The C (Other) Unicode category includes more code points
-    such as surrogates; use Is(C, r) to test for them.
-**/
-function isControl(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isControl(r);
-    }
-/**
-    IsLetter reports whether the rune is a letter (category L).
-**/
-function isLetter(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isLetter(r);
-    }
-/**
-    IsMark reports whether the rune is a mark character (category M).
-**/
-function isMark(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isMark(r);
-    }
-/**
-    IsNumber reports whether the rune is a number (category N).
-**/
-function isNumber(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isNumber(r);
-    }
-/**
-    IsPunct reports whether the rune is a Unicode punctuation character
-    (category P).
-**/
-function isPunct(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isPunct(r);
-    }
-/**
-    IsSpace reports whether the rune is a space character as defined
-    by Unicode's White Space property; in the Latin-1 space
-    this is
-    
-    	'\t', '\n', '\v', '\f', '\r', ' ', U+0085 (NEL), U+00A0 (NBSP).
-    
-    Other definitions of spacing characters are set by category
-    Z and property Pattern_White_Space.
-**/
-function isSpace(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isSpace(r);
-    }
-/**
-    IsSymbol reports whether the rune is a symbolic character.
-**/
-function isSymbol(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isSymbol(r);
-    }
-/**
-    Is reports whether the rune is in the specified table of ranges.
-**/
-function is_(rangeTab:RangeTable, r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.is_(rangeTab, r);
-    }
-/**
-    IsUpper reports whether the rune is an upper case letter.
-**/
-function isUpper(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isUpper(r);
-    }
-/**
-    IsLower reports whether the rune is a lower case letter.
-**/
-function isLower(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isLower(r);
-    }
-/**
-    IsTitle reports whether the rune is a title case letter.
-**/
-function isTitle(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isTitle(r);
-    }
-/**
-    To maps the rune to the specified case: UpperCase, LowerCase, or TitleCase.
-**/
-function to(_case:StdTypes.Int, r:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.unicode.Unicode.to(_case, r);
-    }
-/**
-    ToUpper maps the rune to upper case.
-**/
-function toUpper(r:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.unicode.Unicode.toUpper(r);
-    }
-/**
-    ToLower maps the rune to lower case.
-**/
-function toLower(r:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.unicode.Unicode.toLower(r);
-    }
-/**
-    ToTitle maps the rune to title case.
-**/
-function toTitle(r:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.unicode.Unicode.toTitle(r);
-    }
-/**
-    SimpleFold iterates over Unicode code points equivalent under
-    the Unicode-defined simple case folding. Among the code points
-    equivalent to rune (including rune itself), SimpleFold returns the
-    smallest rune > r if one exists, or else the smallest rune >= 0.
-    If r is not a valid Unicode code point, SimpleFold(r) returns r.
-    
-    For example:
-    
-    	SimpleFold('A') = 'a'
-    	SimpleFold('a') = 'A'
-    
-    	SimpleFold('K') = 'k'
-    	SimpleFold('k') = '\u212A' (Kelvin symbol, K)
-    	SimpleFold('\u212A') = 'K'
-    
-    	SimpleFold('1') = '1'
-    
-    	SimpleFold(-2) = -2
-**/
-function simpleFold(r:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.unicode.Unicode.simpleFold(r);
-    }
 @:forward @:forward.new abstract SpecialCase_asInterface(stdgo._internal.unicode.Unicode.SpecialCase_asInterface) from stdgo._internal.unicode.Unicode.SpecialCase_asInterface to stdgo._internal.unicode.Unicode.SpecialCase_asInterface {
 
 }
 @:forward @:forward.new abstract SpecialCase_static_extension(stdgo._internal.unicode.Unicode.SpecialCase_static_extension) from stdgo._internal.unicode.Unicode.SpecialCase_static_extension to stdgo._internal.unicode.Unicode.SpecialCase_static_extension {
 
+}
+class Unicode {
+    /**
+        IsDigit reports whether the rune is a decimal digit.
+    **/
+    static public function isDigit(r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isDigit(r);
+    }
+    /**
+        IsGraphic reports whether the rune is defined as a Graphic by Unicode.
+        Such characters include letters, marks, numbers, punctuation, symbols, and
+        spaces, from categories L, M, N, P, S, Zs.
+    **/
+    static public function isGraphic(r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isGraphic(r);
+    }
+    /**
+        IsPrint reports whether the rune is defined as printable by Go. Such
+        characters include letters, marks, numbers, punctuation, symbols, and the
+        ASCII space character, from categories L, M, N, P, S and the ASCII space
+        character. This categorization is the same as IsGraphic except that the
+        only spacing character is ASCII space, U+0020.
+    **/
+    static public function isPrint(r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isPrint(r);
+    }
+    /**
+        IsOneOf reports whether the rune is a member of one of the ranges.
+        The function "In" provides a nicer signature and should be used in preference to IsOneOf.
+    **/
+    static public function isOneOf(ranges:Array<RangeTable>, r:StdTypes.Int):Bool {
+        final ranges = ([for (i in ranges) i] : stdgo.Slice<stdgo.Ref<RangeTable>>);
+        return stdgo._internal.unicode.Unicode.isOneOf(ranges, r);
+    }
+    /**
+        In reports whether the rune is a member of one of the ranges.
+    **/
+    static public function in_(r:StdTypes.Int, ranges:haxe.Rest<RangeTable>):Bool {
+        return stdgo._internal.unicode.Unicode.in_(r, ...ranges);
+    }
+    /**
+        IsControl reports whether the rune is a control character.
+        The C (Other) Unicode category includes more code points
+        such as surrogates; use Is(C, r) to test for them.
+    **/
+    static public function isControl(r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isControl(r);
+    }
+    /**
+        IsLetter reports whether the rune is a letter (category L).
+    **/
+    static public function isLetter(r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isLetter(r);
+    }
+    /**
+        IsMark reports whether the rune is a mark character (category M).
+    **/
+    static public function isMark(r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isMark(r);
+    }
+    /**
+        IsNumber reports whether the rune is a number (category N).
+    **/
+    static public function isNumber(r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isNumber(r);
+    }
+    /**
+        IsPunct reports whether the rune is a Unicode punctuation character
+        (category P).
+    **/
+    static public function isPunct(r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isPunct(r);
+    }
+    /**
+        IsSpace reports whether the rune is a space character as defined
+        by Unicode's White Space property; in the Latin-1 space
+        this is
+        
+        	'\t', '\n', '\v', '\f', '\r', ' ', U+0085 (NEL), U+00A0 (NBSP).
+        
+        Other definitions of spacing characters are set by category
+        Z and property Pattern_White_Space.
+    **/
+    static public function isSpace(r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isSpace(r);
+    }
+    /**
+        IsSymbol reports whether the rune is a symbolic character.
+    **/
+    static public function isSymbol(r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isSymbol(r);
+    }
+    /**
+        Is reports whether the rune is in the specified table of ranges.
+    **/
+    static public function is_(rangeTab:RangeTable, r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.is_(rangeTab, r);
+    }
+    /**
+        IsUpper reports whether the rune is an upper case letter.
+    **/
+    static public function isUpper(r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isUpper(r);
+    }
+    /**
+        IsLower reports whether the rune is a lower case letter.
+    **/
+    static public function isLower(r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isLower(r);
+    }
+    /**
+        IsTitle reports whether the rune is a title case letter.
+    **/
+    static public function isTitle(r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isTitle(r);
+    }
+    /**
+        To maps the rune to the specified case: UpperCase, LowerCase, or TitleCase.
+    **/
+    static public function to(_case:StdTypes.Int, r:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.unicode.Unicode.to(_case, r);
+    }
+    /**
+        ToUpper maps the rune to upper case.
+    **/
+    static public function toUpper(r:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.unicode.Unicode.toUpper(r);
+    }
+    /**
+        ToLower maps the rune to lower case.
+    **/
+    static public function toLower(r:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.unicode.Unicode.toLower(r);
+    }
+    /**
+        ToTitle maps the rune to title case.
+    **/
+    static public function toTitle(r:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.unicode.Unicode.toTitle(r);
+    }
+    /**
+        SimpleFold iterates over Unicode code points equivalent under
+        the Unicode-defined simple case folding. Among the code points
+        equivalent to rune (including rune itself), SimpleFold returns the
+        smallest rune > r if one exists, or else the smallest rune >= 0.
+        If r is not a valid Unicode code point, SimpleFold(r) returns r.
+        
+        For example:
+        
+        	SimpleFold('A') = 'a'
+        	SimpleFold('a') = 'A'
+        
+        	SimpleFold('K') = 'k'
+        	SimpleFold('k') = '\u212A' (Kelvin symbol, K)
+        	SimpleFold('\u212A') = 'K'
+        
+        	SimpleFold('1') = '1'
+        
+        	SimpleFold(-2) = -2
+    **/
+    static public function simpleFold(r:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.unicode.Unicode.simpleFold(r);
+    }
 }

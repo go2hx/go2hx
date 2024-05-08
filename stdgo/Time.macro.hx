@@ -1,1 +1,4 @@
 package stdgo;
+class Time {
+
+}

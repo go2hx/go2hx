@@ -138,213 +138,6 @@ typedef T__struct_0 = stdgo._internal.image.Image.T__struct_0;
 }
 typedef T__struct_1 = stdgo._internal.image.Image.T__struct_1;
 typedef YCbCrSubsampleRatio = stdgo._internal.image.Image.YCbCrSubsampleRatio;
-/**
-    RegisterFormat registers an image format for use by Decode.
-    Name is the name of the format, like "jpeg" or "png".
-    Magic is the magic prefix that identifies the format's encoding. The magic
-    string can contain "?" wildcards that each match any one byte.
-    Decode is the function that decodes the encoded image.
-    DecodeConfig is the function that decodes just its configuration.
-**/
-function registerFormat(name:String, magic:String, decode:stdgo._internal.io.Io.Reader -> { var _0 : Image; var _1 : stdgo.Error; }, decodeConfig:stdgo._internal.io.Io.Reader -> { var _0 : Config; var _1 : stdgo.Error; }):Void {
-        final decode = decode;
-        final decodeConfig = decodeConfig;
-        stdgo._internal.image.Image.registerFormat(name, magic, decode, decodeConfig);
-    }
-/**
-    Decode decodes an image that has been encoded in a registered format.
-    The string returned is the format name used during format registration.
-    Format registration is typically done by an init function in the codec-
-    specific package.
-**/
-function decode(r:stdgo._internal.io.Io.Reader):stdgo.Tuple.Tuple3<Image, String, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.image.Image.decode(r);
-            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
-        };
-    }
-/**
-    DecodeConfig decodes the color model and dimensions of an image that has
-    been encoded in a registered format. The string returned is the format name
-    used during format registration. Format registration is typically done by
-    an init function in the codec-specific package.
-**/
-function decodeConfig(r:stdgo._internal.io.Io.Reader):stdgo.Tuple.Tuple3<Config, String, stdgo.Error> {
-        return {
-            final obj = stdgo._internal.image.Image.decodeConfig(r);
-            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
-        };
-    }
-/**
-    Pt is shorthand for Point{X, Y}.
-**/
-function pt(x:StdTypes.Int, y:StdTypes.Int):Point {
-        return stdgo._internal.image.Image.pt(x, y);
-    }
-/**
-    Rect is shorthand for Rectangle{Pt(x0, y0), Pt(x1, y1)}. The returned
-    rectangle has minimum and maximum coordinates swapped if necessary so that
-    it is well-formed.
-**/
-function rect(x0:StdTypes.Int, y0:StdTypes.Int, x1:StdTypes.Int, y1:StdTypes.Int):Rectangle {
-        return stdgo._internal.image.Image.rect(x0, y0, x1, y1);
-    }
-function testRectangle(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.Image.testRectangle(t);
-    }
-/**
-    NewRGBA returns a new RGBA image with the given bounds.
-**/
-function newRGBA(r:Rectangle):RGBA {
-        return stdgo._internal.image.Image.newRGBA(r);
-    }
-/**
-    NewRGBA64 returns a new RGBA64 image with the given bounds.
-**/
-function newRGBA64(r:Rectangle):RGBA64 {
-        return stdgo._internal.image.Image.newRGBA64(r);
-    }
-/**
-    NewNRGBA returns a new NRGBA image with the given bounds.
-**/
-function newNRGBA(r:Rectangle):NRGBA {
-        return stdgo._internal.image.Image.newNRGBA(r);
-    }
-/**
-    NewNRGBA64 returns a new NRGBA64 image with the given bounds.
-**/
-function newNRGBA64(r:Rectangle):NRGBA64 {
-        return stdgo._internal.image.Image.newNRGBA64(r);
-    }
-/**
-    NewAlpha returns a new Alpha image with the given bounds.
-**/
-function newAlpha(r:Rectangle):Alpha {
-        return stdgo._internal.image.Image.newAlpha(r);
-    }
-/**
-    NewAlpha16 returns a new Alpha16 image with the given bounds.
-**/
-function newAlpha16(r:Rectangle):Alpha16 {
-        return stdgo._internal.image.Image.newAlpha16(r);
-    }
-/**
-    NewGray returns a new Gray image with the given bounds.
-**/
-function newGray(r:Rectangle):Gray {
-        return stdgo._internal.image.Image.newGray(r);
-    }
-/**
-    NewGray16 returns a new Gray16 image with the given bounds.
-**/
-function newGray16(r:Rectangle):Gray16 {
-        return stdgo._internal.image.Image.newGray16(r);
-    }
-/**
-    NewCMYK returns a new CMYK image with the given bounds.
-**/
-function newCMYK(r:Rectangle):CMYK {
-        return stdgo._internal.image.Image.newCMYK(r);
-    }
-/**
-    NewPaletted returns a new Paletted image with the given width, height and
-    palette.
-**/
-function newPaletted(r:Rectangle, p:stdgo._internal.image.color.Color.Palette):Paletted {
-        return stdgo._internal.image.Image.newPaletted(r, p);
-    }
-function testImage(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.Image.testImage(t);
-    }
-function testNewXxxBadRectangle(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.Image.testNewXxxBadRectangle(t);
-    }
-function test16BitsPerColorChannel(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.Image.test16BitsPerColorChannel(t);
-    }
-function testRGBA64Image(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.Image.testRGBA64Image(t);
-    }
-function benchmarkAt(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkAt(b);
-    }
-function benchmarkSet(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkSet(b);
-    }
-function benchmarkRGBAAt(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkRGBAAt(b);
-    }
-function benchmarkRGBASetRGBA(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkRGBASetRGBA(b);
-    }
-function benchmarkRGBA64At(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkRGBA64At(b);
-    }
-function benchmarkRGBA64SetRGBA64(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkRGBA64SetRGBA64(b);
-    }
-function benchmarkNRGBAAt(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkNRGBAAt(b);
-    }
-function benchmarkNRGBASetNRGBA(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkNRGBASetNRGBA(b);
-    }
-function benchmarkNRGBA64At(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkNRGBA64At(b);
-    }
-function benchmarkNRGBA64SetNRGBA64(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkNRGBA64SetNRGBA64(b);
-    }
-function benchmarkAlphaAt(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkAlphaAt(b);
-    }
-function benchmarkAlphaSetAlpha(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkAlphaSetAlpha(b);
-    }
-function benchmarkAlpha16At(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkAlpha16At(b);
-    }
-function benchmarkAlphaSetAlpha16(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkAlphaSetAlpha16(b);
-    }
-function benchmarkGrayAt(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkGrayAt(b);
-    }
-function benchmarkGraySetGray(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkGraySetGray(b);
-    }
-function benchmarkGray16At(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkGray16At(b);
-    }
-function benchmarkGraySetGray16(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkGraySetGray16(b);
-    }
-/**
-    NewUniform returns a new Uniform image of the given color.
-**/
-function newUniform(c:stdgo._internal.image.color.Color.Color):Uniform {
-        return stdgo._internal.image.Image.newUniform(c);
-    }
-/**
-    NewYCbCr returns a new YCbCr image with the given bounds and subsample
-    ratio.
-**/
-function newYCbCr(r:Rectangle, subsampleRatio:YCbCrSubsampleRatio):YCbCr {
-        return stdgo._internal.image.Image.newYCbCr(r, subsampleRatio);
-    }
-/**
-    NewNYCbCrA returns a new NYCbCrA image with the given bounds and subsample
-    ratio.
-**/
-function newNYCbCrA(r:Rectangle, subsampleRatio:YCbCrSubsampleRatio):NYCbCrA {
-        return stdgo._internal.image.Image.newNYCbCrA(r, subsampleRatio);
-    }
-function testYCbCr(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.Image.testYCbCr(t);
-    }
-function testYCbCrSlicesDontOverlap(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.Image.testYCbCrSlicesDontOverlap(t);
-    }
 @:forward @:forward.new abstract Point_asInterface(stdgo._internal.image.Image.Point_asInterface) from stdgo._internal.image.Image.Point_asInterface to stdgo._internal.image.Image.Point_asInterface {
 
 }
@@ -440,4 +233,213 @@ function testYCbCrSlicesDontOverlap(t:stdgo._internal.testing.Testing.T_):Void {
 }
 @:forward @:forward.new abstract YCbCrSubsampleRatio_static_extension(stdgo._internal.image.Image.YCbCrSubsampleRatio_static_extension) from stdgo._internal.image.Image.YCbCrSubsampleRatio_static_extension to stdgo._internal.image.Image.YCbCrSubsampleRatio_static_extension {
 
+}
+class Image {
+    /**
+        RegisterFormat registers an image format for use by Decode.
+        Name is the name of the format, like "jpeg" or "png".
+        Magic is the magic prefix that identifies the format's encoding. The magic
+        string can contain "?" wildcards that each match any one byte.
+        Decode is the function that decodes the encoded image.
+        DecodeConfig is the function that decodes just its configuration.
+    **/
+    static public function registerFormat(name:String, magic:String, decode:stdgo._internal.io.Io.Reader -> { var _0 : Image; var _1 : stdgo.Error; }, decodeConfig:stdgo._internal.io.Io.Reader -> { var _0 : Config; var _1 : stdgo.Error; }):Void {
+        final decode = decode;
+        final decodeConfig = decodeConfig;
+        stdgo._internal.image.Image.registerFormat(name, magic, decode, decodeConfig);
+    }
+    /**
+        Decode decodes an image that has been encoded in a registered format.
+        The string returned is the format name used during format registration.
+        Format registration is typically done by an init function in the codec-
+        specific package.
+    **/
+    static public function decode(r:stdgo._internal.io.Io.Reader):stdgo.Tuple.Tuple3<Image, String, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.image.Image.decode(r);
+            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
+        };
+    }
+    /**
+        DecodeConfig decodes the color model and dimensions of an image that has
+        been encoded in a registered format. The string returned is the format name
+        used during format registration. Format registration is typically done by
+        an init function in the codec-specific package.
+    **/
+    static public function decodeConfig(r:stdgo._internal.io.Io.Reader):stdgo.Tuple.Tuple3<Config, String, stdgo.Error> {
+        return {
+            final obj = stdgo._internal.image.Image.decodeConfig(r);
+            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
+        };
+    }
+    /**
+        Pt is shorthand for Point{X, Y}.
+    **/
+    static public function pt(x:StdTypes.Int, y:StdTypes.Int):Point {
+        return stdgo._internal.image.Image.pt(x, y);
+    }
+    /**
+        Rect is shorthand for Rectangle{Pt(x0, y0), Pt(x1, y1)}. The returned
+        rectangle has minimum and maximum coordinates swapped if necessary so that
+        it is well-formed.
+    **/
+    static public function rect(x0:StdTypes.Int, y0:StdTypes.Int, x1:StdTypes.Int, y1:StdTypes.Int):Rectangle {
+        return stdgo._internal.image.Image.rect(x0, y0, x1, y1);
+    }
+    static public function testRectangle(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.Image.testRectangle(t);
+    }
+    /**
+        NewRGBA returns a new RGBA image with the given bounds.
+    **/
+    static public function newRGBA(r:Rectangle):RGBA {
+        return stdgo._internal.image.Image.newRGBA(r);
+    }
+    /**
+        NewRGBA64 returns a new RGBA64 image with the given bounds.
+    **/
+    static public function newRGBA64(r:Rectangle):RGBA64 {
+        return stdgo._internal.image.Image.newRGBA64(r);
+    }
+    /**
+        NewNRGBA returns a new NRGBA image with the given bounds.
+    **/
+    static public function newNRGBA(r:Rectangle):NRGBA {
+        return stdgo._internal.image.Image.newNRGBA(r);
+    }
+    /**
+        NewNRGBA64 returns a new NRGBA64 image with the given bounds.
+    **/
+    static public function newNRGBA64(r:Rectangle):NRGBA64 {
+        return stdgo._internal.image.Image.newNRGBA64(r);
+    }
+    /**
+        NewAlpha returns a new Alpha image with the given bounds.
+    **/
+    static public function newAlpha(r:Rectangle):Alpha {
+        return stdgo._internal.image.Image.newAlpha(r);
+    }
+    /**
+        NewAlpha16 returns a new Alpha16 image with the given bounds.
+    **/
+    static public function newAlpha16(r:Rectangle):Alpha16 {
+        return stdgo._internal.image.Image.newAlpha16(r);
+    }
+    /**
+        NewGray returns a new Gray image with the given bounds.
+    **/
+    static public function newGray(r:Rectangle):Gray {
+        return stdgo._internal.image.Image.newGray(r);
+    }
+    /**
+        NewGray16 returns a new Gray16 image with the given bounds.
+    **/
+    static public function newGray16(r:Rectangle):Gray16 {
+        return stdgo._internal.image.Image.newGray16(r);
+    }
+    /**
+        NewCMYK returns a new CMYK image with the given bounds.
+    **/
+    static public function newCMYK(r:Rectangle):CMYK {
+        return stdgo._internal.image.Image.newCMYK(r);
+    }
+    /**
+        NewPaletted returns a new Paletted image with the given width, height and
+        palette.
+    **/
+    static public function newPaletted(r:Rectangle, p:stdgo._internal.image.color.Color.Palette):Paletted {
+        return stdgo._internal.image.Image.newPaletted(r, p);
+    }
+    static public function testImage(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.Image.testImage(t);
+    }
+    static public function testNewXxxBadRectangle(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.Image.testNewXxxBadRectangle(t);
+    }
+    static public function test16BitsPerColorChannel(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.Image.test16BitsPerColorChannel(t);
+    }
+    static public function testRGBA64Image(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.Image.testRGBA64Image(t);
+    }
+    static public function benchmarkAt(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkAt(b);
+    }
+    static public function benchmarkSet(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkSet(b);
+    }
+    static public function benchmarkRGBAAt(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkRGBAAt(b);
+    }
+    static public function benchmarkRGBASetRGBA(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkRGBASetRGBA(b);
+    }
+    static public function benchmarkRGBA64At(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkRGBA64At(b);
+    }
+    static public function benchmarkRGBA64SetRGBA64(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkRGBA64SetRGBA64(b);
+    }
+    static public function benchmarkNRGBAAt(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkNRGBAAt(b);
+    }
+    static public function benchmarkNRGBASetNRGBA(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkNRGBASetNRGBA(b);
+    }
+    static public function benchmarkNRGBA64At(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkNRGBA64At(b);
+    }
+    static public function benchmarkNRGBA64SetNRGBA64(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkNRGBA64SetNRGBA64(b);
+    }
+    static public function benchmarkAlphaAt(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkAlphaAt(b);
+    }
+    static public function benchmarkAlphaSetAlpha(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkAlphaSetAlpha(b);
+    }
+    static public function benchmarkAlpha16At(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkAlpha16At(b);
+    }
+    static public function benchmarkAlphaSetAlpha16(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkAlphaSetAlpha16(b);
+    }
+    static public function benchmarkGrayAt(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkGrayAt(b);
+    }
+    static public function benchmarkGraySetGray(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkGraySetGray(b);
+    }
+    static public function benchmarkGray16At(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkGray16At(b);
+    }
+    static public function benchmarkGraySetGray16(b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkGraySetGray16(b);
+    }
+    /**
+        NewUniform returns a new Uniform image of the given color.
+    **/
+    static public function newUniform(c:stdgo._internal.image.color.Color.Color):Uniform {
+        return stdgo._internal.image.Image.newUniform(c);
+    }
+    /**
+        NewYCbCr returns a new YCbCr image with the given bounds and subsample
+        ratio.
+    **/
+    static public function newYCbCr(r:Rectangle, subsampleRatio:YCbCrSubsampleRatio):YCbCr {
+        return stdgo._internal.image.Image.newYCbCr(r, subsampleRatio);
+    }
+    /**
+        NewNYCbCrA returns a new NYCbCrA image with the given bounds and subsample
+        ratio.
+    **/
+    static public function newNYCbCrA(r:Rectangle, subsampleRatio:YCbCrSubsampleRatio):NYCbCrA {
+        return stdgo._internal.image.Image.newNYCbCrA(r, subsampleRatio);
+    }
+    static public function testYCbCr(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.Image.testYCbCr(t);
+    }
+    static public function testYCbCrSlicesDontOverlap(t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.Image.testYCbCrSlicesDontOverlap(t);
+    }
 }

@@ -150,98 +150,6 @@ typedef NameOff = stdgo._internal.internal.abi.Abi.NameOff;
 typedef TypeOff = stdgo._internal.internal.abi.Abi.TypeOff;
 typedef TextOff = stdgo._internal.internal.abi.Abi.TextOff;
 typedef ChanDir = stdgo._internal.internal.abi.Abi.ChanDir;
-/**
-    CommonSize returns sizeof(Type) for a compilation target with a given ptrSize
-**/
-function commonSize(ptrSize:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.commonSize(ptrSize);
-    }
-/**
-    StructFieldSize returns sizeof(StructField) for a compilation target with a given ptrSize
-**/
-function structFieldSize(ptrSize:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.structFieldSize(ptrSize);
-    }
-/**
-    UncommonSize returns sizeof(UncommonType).  This currently does not depend on ptrSize.
-    This exported function is in an internal package, so it may change to depend on ptrSize in the future.
-**/
-function uncommonSize():haxe.UInt64 {
-        return stdgo._internal.internal.abi.Abi.uncommonSize();
-    }
-/**
-    IMethodSize returns sizeof(IMethod) for a compilation target with a given ptrSize
-**/
-function imethodSize(ptrSize:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.imethodSize(ptrSize);
-    }
-/**
-    KindOff returns the offset of Type.Kind_ for a compilation target with a given ptrSize
-**/
-function kindOff(ptrSize:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.kindOff(ptrSize);
-    }
-/**
-    SizeOff returns the offset of Type.Size_ for a compilation target with a given ptrSize
-**/
-function sizeOff(ptrSize:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.sizeOff(ptrSize);
-    }
-/**
-    PtrBytes returns the offset of Type.PtrBytes for a compilation target with a given ptrSize
-**/
-function ptrBytesOff(ptrSize:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.ptrBytesOff(ptrSize);
-    }
-/**
-    TFlagOff returns the offset of Type.TFlag for a compilation target with a given ptrSize
-**/
-function tflagOff(ptrSize:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.tflagOff(ptrSize);
-    }
-/**
-    NewOffset returns a new Offset with offset 0 and alignment 1.
-**/
-function newOffset(ptrSize:std.UInt, twoWordAlignSlices:Bool):Offset {
-        return stdgo._internal.internal.abi.Abi.newOffset(ptrSize, twoWordAlignSlices);
-    }
-/**
-    InitializedOffset returns a new Offset with specified offset, alignment, pointer size, and slice alignment.
-**/
-function initializedOffset(off:StdTypes.Int, align:std.UInt, ptrSize:std.UInt, twoWordAlignSlices:Bool):Offset {
-        return stdgo._internal.internal.abi.Abi.initializedOffset(off, align, ptrSize, twoWordAlignSlices);
-    }
-/**
-    CommonOffset returns the Offset to the data after the common portion of type data structures.
-**/
-function commonOffset(ptrSize:StdTypes.Int, twoWordAlignSlices:Bool):Offset {
-        return stdgo._internal.internal.abi.Abi.commonOffset(ptrSize, twoWordAlignSlices);
-    }
-/**
-    FuncPCABI0 returns the entry PC of the function f, which must be a
-    direct reference of a function defined as ABI0. Otherwise it is a
-    compile-time error.
-    
-    Implemented as a compile intrinsic.
-**/
-function funcPCABI0(f:stdgo.AnyInterface):stdgo.GoUIntptr {
-        return stdgo._internal.internal.abi.Abi.funcPCABI0(f);
-    }
-/**
-    FuncPCABIInternal returns the entry PC of the function f. If f is a
-    direct reference of a function, it must be defined as ABIInternal.
-    Otherwise it is a compile-time error. If f is not a direct reference
-    of a defined function, it assumes that f is a func value. Otherwise
-    the behavior is undefined.
-    
-    Implemented as a compile intrinsic.
-**/
-function funcPCABIInternal(f:stdgo.AnyInterface):stdgo.GoUIntptr {
-        return stdgo._internal.internal.abi.Abi.funcPCABIInternal(f);
-    }
-function newName(n:String, tag:String, exported:Bool, embedded:Bool):Name {
-        return stdgo._internal.internal.abi.Abi.newName(n, tag, exported, embedded);
-    }
 @:forward @:forward.new abstract RegArgs_asInterface(stdgo._internal.internal.abi.Abi.RegArgs_asInterface) from stdgo._internal.internal.abi.Abi.RegArgs_asInterface to stdgo._internal.internal.abi.Abi.RegArgs_asInterface {
 
 }
@@ -367,4 +275,98 @@ function newName(n:String, tag:String, exported:Bool, embedded:Bool):Name {
 }
 @:forward @:forward.new abstract Kind_static_extension(stdgo._internal.internal.abi.Abi.Kind_static_extension) from stdgo._internal.internal.abi.Abi.Kind_static_extension to stdgo._internal.internal.abi.Abi.Kind_static_extension {
 
+}
+class Abi {
+    /**
+        CommonSize returns sizeof(Type) for a compilation target with a given ptrSize
+    **/
+    static public function commonSize(ptrSize:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.commonSize(ptrSize);
+    }
+    /**
+        StructFieldSize returns sizeof(StructField) for a compilation target with a given ptrSize
+    **/
+    static public function structFieldSize(ptrSize:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.structFieldSize(ptrSize);
+    }
+    /**
+        UncommonSize returns sizeof(UncommonType).  This currently does not depend on ptrSize.
+        This exported function is in an internal package, so it may change to depend on ptrSize in the future.
+    **/
+    static public function uncommonSize():haxe.UInt64 {
+        return stdgo._internal.internal.abi.Abi.uncommonSize();
+    }
+    /**
+        IMethodSize returns sizeof(IMethod) for a compilation target with a given ptrSize
+    **/
+    static public function imethodSize(ptrSize:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.imethodSize(ptrSize);
+    }
+    /**
+        KindOff returns the offset of Type.Kind_ for a compilation target with a given ptrSize
+    **/
+    static public function kindOff(ptrSize:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.kindOff(ptrSize);
+    }
+    /**
+        SizeOff returns the offset of Type.Size_ for a compilation target with a given ptrSize
+    **/
+    static public function sizeOff(ptrSize:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.sizeOff(ptrSize);
+    }
+    /**
+        PtrBytes returns the offset of Type.PtrBytes for a compilation target with a given ptrSize
+    **/
+    static public function ptrBytesOff(ptrSize:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.ptrBytesOff(ptrSize);
+    }
+    /**
+        TFlagOff returns the offset of Type.TFlag for a compilation target with a given ptrSize
+    **/
+    static public function tflagOff(ptrSize:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.tflagOff(ptrSize);
+    }
+    /**
+        NewOffset returns a new Offset with offset 0 and alignment 1.
+    **/
+    static public function newOffset(ptrSize:std.UInt, twoWordAlignSlices:Bool):Offset {
+        return stdgo._internal.internal.abi.Abi.newOffset(ptrSize, twoWordAlignSlices);
+    }
+    /**
+        InitializedOffset returns a new Offset with specified offset, alignment, pointer size, and slice alignment.
+    **/
+    static public function initializedOffset(off:StdTypes.Int, align:std.UInt, ptrSize:std.UInt, twoWordAlignSlices:Bool):Offset {
+        return stdgo._internal.internal.abi.Abi.initializedOffset(off, align, ptrSize, twoWordAlignSlices);
+    }
+    /**
+        CommonOffset returns the Offset to the data after the common portion of type data structures.
+    **/
+    static public function commonOffset(ptrSize:StdTypes.Int, twoWordAlignSlices:Bool):Offset {
+        return stdgo._internal.internal.abi.Abi.commonOffset(ptrSize, twoWordAlignSlices);
+    }
+    /**
+        FuncPCABI0 returns the entry PC of the function f, which must be a
+        direct reference of a function defined as ABI0. Otherwise it is a
+        compile-time error.
+        
+        Implemented as a compile intrinsic.
+    **/
+    static public function funcPCABI0(f:stdgo.AnyInterface):stdgo.GoUIntptr {
+        return stdgo._internal.internal.abi.Abi.funcPCABI0(f);
+    }
+    /**
+        FuncPCABIInternal returns the entry PC of the function f. If f is a
+        direct reference of a function, it must be defined as ABIInternal.
+        Otherwise it is a compile-time error. If f is not a direct reference
+        of a defined function, it assumes that f is a func value. Otherwise
+        the behavior is undefined.
+        
+        Implemented as a compile intrinsic.
+    **/
+    static public function funcPCABIInternal(f:stdgo.AnyInterface):stdgo.GoUIntptr {
+        return stdgo._internal.internal.abi.Abi.funcPCABIInternal(f);
+    }
+    static public function newName(n:String, tag:String, exported:Bool, embedded:Bool):Name {
+        return stdgo._internal.internal.abi.Abi.newName(n, tag, exported, embedded);
+    }
 }

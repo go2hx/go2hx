@@ -38,18 +38,20 @@ typedef Hash = stdgo._internal.crypto.Crypto.Hash;
 typedef PublicKey = stdgo._internal.crypto.Crypto.PublicKey;
 typedef PrivateKey = stdgo._internal.crypto.Crypto.PrivateKey;
 typedef DecrypterOpts = stdgo._internal.crypto.Crypto.DecrypterOpts;
-/**
-    RegisterHash registers a function that returns a new instance of the given
-    hash function. This is intended to be called from the init function in
-    packages that implement hash functions.
-**/
-function registerHash(h:Hash, f:() -> stdgo._internal.hash.Hash.Hash):Void {
-        final f = f;
-        stdgo._internal.crypto.Crypto.registerHash(h, f);
-    }
 @:forward @:forward.new abstract Hash_asInterface(stdgo._internal.crypto.Crypto.Hash_asInterface) from stdgo._internal.crypto.Crypto.Hash_asInterface to stdgo._internal.crypto.Crypto.Hash_asInterface {
 
 }
 @:forward @:forward.new abstract Hash_static_extension(stdgo._internal.crypto.Crypto.Hash_static_extension) from stdgo._internal.crypto.Crypto.Hash_static_extension to stdgo._internal.crypto.Crypto.Hash_static_extension {
 
+}
+class Crypto {
+    /**
+        RegisterHash registers a function that returns a new instance of the given
+        hash function. This is intended to be called from the init function in
+        packages that implement hash functions.
+    **/
+    static public function registerHash(h:Hash, f:() -> stdgo._internal.hash.Hash.Hash):Void {
+        final f = f;
+        stdgo._internal.crypto.Crypto.registerHash(h, f);
+    }
 }

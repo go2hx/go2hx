@@ -1429,8 +1429,11 @@ func parseData(node interface{}) map[string]interface{} {
 			case *ast.ArrayType:
 			case *ast.FuncLit:
 			case *ast.ParenExpr:
+			case *ast.CallExpr:
+			case *ast.TypeAssertExpr:
+			case *ast.MapType:
 			default:
-				fmt.Println("issue:", reflect.TypeOf(fun))
+				fmt.Println("issue generic:", reflect.TypeOf(fun))
 			}
 		}
 		resolveGeneric(node.Fun)

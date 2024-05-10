@@ -1,4 +1,0 @@
-package stdgo;
-class Time {
-
-}

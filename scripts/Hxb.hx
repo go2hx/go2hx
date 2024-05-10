@@ -60,6 +60,7 @@ func main() {
     ');
     Sys.println("Run Compiler");
     if (Sys.command('haxelib run go2hx ./hxb.go -compiler_interp') != 0) {
+        FileSystem.deleteFile("./hxb.go");
         Sys.exit(1);
     }
 

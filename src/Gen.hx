@@ -7,10 +7,12 @@ import haxe.macro.Type.ClassKind;
 import sys.FileSystem;
 import sys.io.File;
 
+var clName = "";
+
 function create(outputPath:String, module:Module, root:String) {
 	var actualPath = StringTools.replace(module.path, ".", "/");
 	final paths = actualPath.split("/");
-	var actualPathExtern = paths.slice(0, paths.length > 0 ? paths.length - 1 : 0).join("/");
+	var actualPathExtern = paths.join("/");
 	var externDefBool = !module.isMain;
 	var testPath = actualPath;
 	if (paths.length > 0) {
@@ -60,7 +62,7 @@ function create(outputPath:String, module:Module, root:String) {
 		var macroFields:Array<haxe.macro.Expr.Field> = [];
 		final cl = macro class C {};
 		final clMacro = macro class C {};
-		final clName = Typer.title(paths.pop());
+		clName = Typer.title(paths.pop());
 		cl.name = clName;
 		clMacro.name = clName;
 		for (def in file.defs) {
@@ -166,13 +168,39 @@ private function save(dir:String, name:String, content:String, extension:String 
 	Sys.println("Generated: " + dir + name + extension + ".hx - " + src.Util.kbCount(content) + "kb");
 }
 
+function staticExtensionName(name:String,cl:TypeDefinition):String {
+	return name.indexOf(cl.name) == 0 ? cl.name + "_" + name.substr(cl.name.length) : name;
+}
+
+function externStaticExtension(td:TypeDefinition, path:String, cl:TypeDefinition):TypeDefinition {
+	final fields = [];
+	for (field in td.fields) {
+		switch field.kind {
+			case FFun(f):
+				fields.push(copyField(field, FFun(externGenFun(field.name, f, path, td.name))));
+			default:
+		}
+	}
+	return {
+		name: staticExtensionName(td.name, cl),
+		pos: td.pos,
+		pack: td.pack,
+		params: td.params,
+		fields: fields,
+		kind: td.kind
+	};
+}
+
 
 function externGen(td:TypeDefinition,path:String, cl:TypeDefinition):Array<TypeDefinition> {
 	switch td.kind {
 		case TDClass(_, _, isInterface, _, isAbstract):
 			//if (td.name.substring(0,2) == "T_")
 			//	return null;
-			if (StringTools.endsWith(td.name, "_asInterface") || StringTools.endsWith(td.name, "_static_extension"))
+			if (StringTools.endsWith(td.name, "_static_extension")) {
+				return [externStaticExtension(td, path, cl)];
+			}
+			if (StringTools.endsWith(td.name, "_asInterface"))
 				return [];
 			if (isInterface)
 				return [externGenInterface(td, path, cl)];
@@ -180,8 +208,10 @@ function externGen(td:TypeDefinition,path:String, cl:TypeDefinition):Array<TypeD
 				return [externGenAbstract(td, cl)];
 			return [externGenClass(td, path,cl)];
 		case TDField(kind, access):
-			if (td.name == "__go2hxdoc__package")
-				return [td];
+			if (td.name == "__go2hxdoc__package") {
+				cl.doc = td.doc;
+				return [];
+			}
 			if (td.name.charAt(0) == "_")
 				return [];
 			return switch kind {
@@ -306,12 +336,28 @@ function externGenClass(td:TypeDefinition, path:String, cl:TypeDefinition):TypeD
 				field;
 		}
 	}
+	final meta = td.meta.copy();
+	for (i in 0...meta.length) {
+		if (meta[i].name == ":using") {
+			final usingPath = Typer.printer.printExpr(meta[i].params[0]).split(".");
+			final endUsing = staticExtensionName(usingPath.pop(), cl);
+			usingPath.push(endUsing);
+			usingPath.remove("_internal");
+			// remove unneeded pack refrence
+			meta[i] = {
+				name: meta[i].name,
+				pos: null,
+				params: [macro $p{usingPath}]
+			};
+			break;
+		}
+	}
 	return {
 		name: td.name == cl.name ? td.name + "_" : td.name,
 		pack: td.pack,
 		pos: null,
-		meta: [],
 		fields: fields,
+		meta: meta,
 		kind: TDAbstract(ct, null, [ct], [ct]),
 	}
 }
@@ -425,7 +471,7 @@ function removeUnderline(name:String):String {
 	return name;
 }
 
-function externGenFun(name:String, f:Function, path:String):Function {
+function externGenFun(name:String, f:Function, path:String, staticExtensionName:String=""):Function {
 	final args = f.args.copy();
 	final args = [for (arg in args) {
 		name: removeUnderline(arg.name),
@@ -434,13 +480,18 @@ function externGenFun(name:String, f:Function, path:String):Function {
 	final exprArgs = args.map(arg -> macro $i{arg.name});
 	if (args.length > 0) {
 		switch args[args.length - 1].type {
-			case TPath({name: "Rest", pack: ["haxe"]}):
-				exprArgs[exprArgs.length - 1] = macro ...${exprArgs[exprArgs.length -1]};
+			case TPath({name: "Rest", pack: ["haxe"], params: [TPType(t)]}):
+				exprArgs[exprArgs.length - 1] = macro ...[for (i in ${exprArgs[exprArgs.length -1]}) ${convertCast(macro i, t) ?? macro i}];
 			default:
 		}
 	}
+	
 	final path = path.split("/");
-	path.push(Typer.title(path[path.length - 1]));
+	var last = Typer.title(path[path.length - 1]);
+	path.push(last);
+	if (staticExtensionName != "") {
+		path.push(staticExtensionName);
+	}
 	path.push(name);
 	var expr = macro $p{path}($a{exprArgs});
 	expr = convertCast(expr,f.ret) ?? expr;
@@ -686,8 +737,8 @@ function convertComplexType(ct:ComplexType):ComplexType {
 							default:
 						}
 			}
-		case TPath({name: name, pack: pack, params: params}) if (params != null):
-			return TPath({name: name, pack: pack, params: params.map(param -> switch param {
+		case TPath({name: name, pack: pack, params: params}):
+			return TPath({name: name == clName ? name + "_" : name , pack: pack, params: params == null ? null : params.map(param -> switch param {
 				case TPType(t):
 					TPType(convertComplexType(t));
 				default:

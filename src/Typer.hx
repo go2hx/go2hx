@@ -500,9 +500,7 @@ info.global.filePath = file.path;
 									final args = fun.args.slice(1).map(a -> macro $i{a.name});
 									switch fun.args[fun.args.length - 1].type {
 										case TPath(p):
-											if (p.name == "Rest" && p.pack.length == 1 && p.pack[0] == "haxe") args[args.length - 1] = macro...$e{
-												args[args.length - 1]
-											};
+											if (p.name == "Rest" && p.pack.length == 1 && p.pack[0] == "haxe") args[args.length - 1] = macro...[for (i in $e{args[args.length - 1]}) i];
 										default:
 									}
 									fun.expr = macro __self__.$fieldName($a{args});

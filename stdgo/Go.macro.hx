@@ -441,8 +441,8 @@ class Go {
 						selfPointer = true;
 						return run();
 					}
-					Context.error("invalid type abstract run asInterface: " + t, Context.currentPos());
-					null;
+					t = ct.type;
+					return run();
 				case TMono(_.get() => t2):
 					if (t2 == null) {
 						trace(Context.currentPos());
@@ -1236,9 +1236,7 @@ class Go {
 					case "Void":
 						ret = macro stdgo._internal.internal.reflect.Reflect.GoType.invalidType; // Currently no value is supported for Void however in the future, there will be a runtime value to match to it. HaxeFoundation/haxe-evolution#76
 					default: // used internally such as reflect.Kind
-						trace(t, Context.currentPos());
-						throw "issue";
-						Context.error('unknown abstract type: $sref', Context.currentPos());
+						ret = gtDecode(ref.get().type, expr, marked);
 				}
 			case TInst(ref, params):
 				final refString = ref.toString();

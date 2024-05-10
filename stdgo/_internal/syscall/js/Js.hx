@@ -271,7 +271,7 @@ class Func_asInterface {
     @:embedded
     public static function set( __self__:Func, _p:stdgo.GoString, _x:stdgo.AnyInterface) __self__.set(_p, _x);
     @:embedded
-    public static function new_( __self__:Func, _args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value return __self__.new_(..._args);
+    public static function new_( __self__:Func, _args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value return __self__.new_(...[for (i in _args) i]);
     @:embedded
     public static function length_( __self__:Func):stdgo.GoInt return __self__.length_();
     @:embedded
@@ -281,7 +281,7 @@ class Func_asInterface {
     @:embedded
     public static function isNaN( __self__:Func):Bool return __self__.isNaN();
     @:embedded
-    public static function invoke( __self__:Func, _args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value return __self__.invoke(..._args);
+    public static function invoke( __self__:Func, _args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value return __self__.invoke(...[for (i in _args) i]);
     @:embedded
     public static function int_( __self__:Func):stdgo.GoInt return __self__.int_();
     @:embedded
@@ -297,7 +297,7 @@ class Func_asInterface {
     @:embedded
     public static function delete( __self__:Func, _p:stdgo.GoString) __self__.delete(_p);
     @:embedded
-    public static function call( __self__:Func, _m:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value return __self__.call(_m, ..._args);
+    public static function call( __self__:Func, _m:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value return __self__.call(_m, ...[for (i in _args) i]);
     @:embedded
     public static function bool_( __self__:Func):Bool return __self__.bool_();
 }
@@ -473,7 +473,7 @@ class Error_asInterface {
     @:embedded
     public static function set( __self__:Error, _p:stdgo.GoString, _x:stdgo.AnyInterface) __self__.set(_p, _x);
     @:embedded
-    public static function new_( __self__:Error, _args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value return __self__.new_(..._args);
+    public static function new_( __self__:Error, _args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value return __self__.new_(...[for (i in _args) i]);
     @:embedded
     public static function length_( __self__:Error):stdgo.GoInt return __self__.length_();
     @:embedded
@@ -483,7 +483,7 @@ class Error_asInterface {
     @:embedded
     public static function isNaN( __self__:Error):Bool return __self__.isNaN();
     @:embedded
-    public static function invoke( __self__:Error, _args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value return __self__.invoke(..._args);
+    public static function invoke( __self__:Error, _args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value return __self__.invoke(...[for (i in _args) i]);
     @:embedded
     public static function int_( __self__:Error):stdgo.GoInt return __self__.int_();
     @:embedded
@@ -499,7 +499,7 @@ class Error_asInterface {
     @:embedded
     public static function delete( __self__:Error, _p:stdgo.GoString) __self__.delete(_p);
     @:embedded
-    public static function call( __self__:Error, _m:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value return __self__.call(_m, ..._args);
+    public static function call( __self__:Error, _m:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value return __self__.call(_m, ...[for (i in _args) i]);
     @:embedded
     public static function bool_( __self__:Error):Bool return __self__.bool_();
 }

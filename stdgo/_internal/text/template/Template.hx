@@ -5595,7 +5595,7 @@ class Template_asInterface {
     @:embedded
     public static function _expect( __self__:Template, _expected:stdgo._internal.text.template.parse.Parse.T_itemType, _context:stdgo.GoString):stdgo._internal.text.template.parse.Parse.T_item return __self__._expect(_expected, _context);
     @:embedded
-    public static function _errorf( __self__:Template, _format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>) __self__._errorf(_format, ..._args);
+    public static function _errorf( __self__:Template, _format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>) __self__._errorf(_format, ...[for (i in _args) i]);
     @:embedded
     public static function _error( __self__:Template, __0:stdgo.Error) __self__._error(__0);
     @:embedded

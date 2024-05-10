@@ -1,341 +1,3429 @@
-# Module stdgo._internal.unicode has compilation errors, please do not use:
-```
-/home/runner/haxe/versions/3c97999/std/haxe/ds/BalancedTree.hx:226: character 10 : `package stdgo;` in /home/runner/work/go2hx/go2hx/stdgo/Reflect.hx should be `package;`
-/home/runner/haxe/versions/3c97999/std/haxe/ds/BalancedTree.hx:226: characters 18-25 : Class<Reflect> has no field compare
-stdgo/GoNumber.hx:69: character 6 : `package stdgo;` in /home/runner/work/go2hx/go2hx/stdgo/Math.hx should be `package;`
-/home/runner/haxe/versions/3c97999/std/haxe/Int64Helper.hx:80: characters 30-38 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:964: characters 23-31 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:965: characters 25-31 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:89: characters 15-21 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:90: characters 28-34 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:91: characters 33-39 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:93: characters 21-46 : Float should be Int
-stdgo/GoNumber.hx:93: characters 55-80 : Float should be Int
-stdgo/GoNumber.hx:95: characters 32-38 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:97: characters 20-44 : Float should be Int
-stdgo/GoNumber.hx:97: characters 53-77 : Float should be Int
-stdgo/_internal/math/Math.hx:514: characters 106-123 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/_internal/math/Math.hx:514: characters 166-183 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/_internal/math/Math.hx:509: characters 41-58 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/_internal/math/Math.hx:510: characters 25-42 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/GoFloat64.hx:86: characters 21-38 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/GoFloat64.hx:88: characters 21-38 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/_internal/math/Math.hx:512: characters 48-51 : Class<Math> has no field NaN (Suggestion: naN)
-stdgo/_internal/math/Math.hx:571: characters 33-41 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:571: characters 79-87 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:593: characters 33-41 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:593: characters 79-87 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:982: characters 23-31 : Class<Math> has no field isFinite
-/home/runner/haxe/versions/3c97999/std/haxe/macro/ExprTools.hx:242: characters 14-22 : Class<Reflect> has no field setField
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:43: characters 48-65 : Class<Math> has no field POSITIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:43: characters 73-90 : Class<Math> has no field NEGATIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:43: characters 99-102 : Class<Math> has no field NaN (Suggestion: naN)
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:52: characters 61-78 : Class<Math> has no field POSITIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:52: characters 86-103 : Class<Math> has no field NEGATIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:52: characters 112-115 : Class<Math> has no field NaN (Suggestion: naN)
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:72: characters 39-50 : Float should be Int
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:72: characters 60-74 : Float should be Int
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:81: characters 20-28 : Class<Math> has no field isFinite
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:97: characters 20-26 : Class<Math> has no field fround (Suggestion: round)
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:102: characters 46-58 : Float should be Int
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:102: characters 46-58 : ... For function argument 'x'
-stdgo/_internal/math/Math.hx:1371: characters 23-31 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:2457: characters 38-82 : Recursive operator method
-stdgo/_internal/math/Math.hx:2460: characters 38-83 : Recursive operator method
-stdgo/_internal/reflect/Reflect.hx:1017: characters 52-57 : Class<Reflect> has no field field
-stdgo/_internal/reflect/Reflect.hx:1018: characters 33-41 : Class<Reflect> has no field setField
-stdgo/_internal/reflect/Reflect.hx:506: characters 20-74 : Recursive operator method
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:25: characters 18-35 : Class<Math> has no field NEGATIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:33: characters 30-47 : Class<Math> has no field NEGATIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:51: characters 18-35 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/_internal/fmt/Fmt.hx:33: characters 15-45 : Module stdgo._internal.sync.Sync does not define type Pool
-stdgo/_internal/io/Io.hx:15: characters 22-52 : Module stdgo._internal.sync.Sync does not define type Pool
-stdgo/_internal/io/Io.hx:15: characters 22-52 : ... For function argument '__self__'
-stdgo/_internal/io/Io.hx:379: characters 24-55 : Module stdgo._internal.sync.Sync does not define type Mutex
-stdgo/_internal/io/Io.hx:379: characters 24-55 : ... For function argument '__self__'
-stdgo/_internal/io/Io.hx:357: characters 24-55 : Module stdgo._internal.sync.Sync does not define type Mutex
-stdgo/_internal/io/Io.hx:1176: characters 48-52 : stdgo.Ref<stdgo._internal.io.T_onceError> has no field _err
-stdgo/_internal/io/Io.hx:1187: characters 30-47 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1187: characters 72-89 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1212: characters 20-24 : stdgo.Ref<stdgo._internal.io.T_onceError> has no field _err
-stdgo/_internal/io/Io.hx:1220: characters 16-20 : stdgo.Ref<stdgo._internal.io.T_onceError> has no field _err
-stdgo/_internal/io/Io.hx:1225: characters 30-47 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1225: characters 72-89 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1278: characters 36-41 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _werr
-stdgo/_internal/io/Io.hx:1280: characters 40-45 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _rerr
-stdgo/_internal/io/Io.hx:1285: characters 16-29 : Unknown identifier : errClosedPipe
-stdgo/_internal/io/Io.hx:1290: characters 36-41 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _rerr
-stdgo/_internal/io/Io.hx:1292: characters 40-45 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _werr
-stdgo/_internal/io/Io.hx:1297: characters 16-29 : Unknown identifier : errClosedPipe
-stdgo/_internal/io/Io.hx:1305: characters 12-17 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _werr
-stdgo/_internal/io/Io.hx:1306: characters 12-17 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _once
-stdgo/_internal/io/Io.hx:1307: characters 20-25 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1307: characters 38-43 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1320: characters 28-33 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1320: characters 48-53 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1323: characters 32-37 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1331: characters 32-37 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _wrMu
-stdgo/_internal/io/Io.hx:1332: characters 61-66 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _wrMu
-stdgo/_internal/io/Io.hx:1410: characters 20-33 : Unknown identifier : errClosedPipe
-stdgo/_internal/io/Io.hx:1412: characters 12-17 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _rerr
-stdgo/_internal/io/Io.hx:1413: characters 12-17 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _once
-stdgo/_internal/io/Io.hx:1414: characters 20-25 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1414: characters 38-43 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1425: characters 24-29 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1425: characters 44-49 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1428: characters 28-33 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1445: characters 28-33 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _wrCh
-stdgo/_internal/io/Io.hx:1445: characters 48-53 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _wrCh
-stdgo/_internal/io/Io.hx:1448: characters 42-47 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _wrCh
-stdgo/_internal/strconv/Strconv.hx:4781: characters 39-68 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:4781: characters 39-41 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:4781: characters 39-41 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:4781: characters 39-68 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/GoFloat32.hx:83: characters 21-38 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/GoFloat32.hx:85: characters 21-38 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/_internal/strconv/Strconv.hx:3611: characters 39-68 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3611: characters 39-41 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3611: characters 39-41 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3611: characters 39-68 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/strconv/Strconv.hx:3629: characters 19-50 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3629: characters 19-21 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3629: characters 19-21 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3629: characters 19-50 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/strconv/Strconv.hx:3639: characters 40-89 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3646: characters 39-69 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3646: characters 39-41 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3646: characters 39-41 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3646: characters 39-69 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/strconv/Strconv.hx:3964: characters 29-66 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3964: characters 29-31 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3964: characters 29-31 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3964: characters 29-66 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/strconv/Strconv.hx:3867: characters 38-118 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3868: characters 39-74 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3869: characters 38-71 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3900: characters 39-69 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3840: characters 47-76 : Recursive operator method
-stdgo/_internal/fmt/Fmt.hx:1198: characters 49-78 : Recursive operator method
-stdgo/_internal/fmt/Fmt.hx:1198: characters 49-51 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/fmt/Fmt.hx:1198: characters 49-51 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/fmt/Fmt.hx:1198: characters 49-78 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/fmt/Fmt.hx:1752: characters 23-38 : Unknown identifier : _parseArgNumber
-stdgo/_internal/fmt/Fmt.hx:2231: characters 36-53 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2232: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2378: characters 40-65 : Recursive operator method
-stdgo/_internal/fmt/Fmt.hx:2380: characters 40-65 : Recursive operator method
-stdgo/_internal/fmt/Fmt.hx:2549: characters 9-16 : Unknown identifier : _ppFree
-stdgo/_internal/fmt/Fmt.hx:2737: characters 17-25 : Unknown identifier : _isSpace
-stdgo/_internal/fmt/Fmt.hx:3027: characters 23-32 : Unknown identifier : _hexDigit
-stdgo/_internal/fmt/Fmt.hx:3032: characters 23-32 : Unknown identifier : _hexDigit
-stdgo/_internal/fmt/Fmt.hx:3420: characters 14-24 : Unknown identifier : _indexRune
-stdgo/_internal/fmt/Fmt.hx:3172: characters 23-34 : Unknown identifier : _errComplex
-stdgo/_internal/fmt/Fmt.hx:3172: characters 23-34 : ... For function argument '_err'
-stdgo/_internal/fmt/Fmt.hx:3177: characters 23-34 : Unknown identifier : _errComplex
-stdgo/_internal/fmt/Fmt.hx:3177: characters 23-34 : ... For function argument '_err'
-stdgo/_internal/fmt/Fmt.hx:3180: characters 23-34 : Unknown identifier : _errComplex
-stdgo/_internal/fmt/Fmt.hx:3180: characters 23-34 : ... For function argument '_err'
-stdgo/_internal/fmt/Fmt.hx:3125: characters 34-44 : Unknown identifier : _indexRune
-stdgo/_internal/fmt/Fmt.hx:3126: characters 55-60 : Unknown identifier : _hasX
-stdgo/_internal/fmt/Fmt.hx:3117: characters 75-97 : Recursive operator method
-stdgo/_internal/fmt/Fmt.hx:3118: characters 75-97 : Recursive operator method
-stdgo/_internal/fmt/Fmt.hx:3411: characters 17-27 : Unknown identifier : _indexRune
-stdgo/_internal/fmt/Fmt.hx:3365: characters 31-39 : Unknown identifier : _errBool
-stdgo/_internal/fmt/Fmt.hx:3365: characters 31-39 : ... For function argument '_err'
-stdgo/_internal/fmt/Fmt.hx:3370: characters 31-39 : Unknown identifier : _errBool
-stdgo/_internal/fmt/Fmt.hx:3370: characters 31-39 : ... For function argument '_err'
-stdgo/_internal/fmt/Fmt.hx:3486: characters 9-16 : Unknown identifier : _ssFree
-stdgo/_internal/fmt/Fmt.hx:3498: characters 48-65 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:3499: characters 38-55 : Class<stdgo.Go> has no field recover_exception
-/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:70: characters 22-33 : Class<Reflect> has no field isEnumValue
-/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:70: characters 49-60 : Class<Reflect> has no field isEnumValue
-/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:75: characters 12-19 : Class<Reflect> has no field compare
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonParser.hx:90: characters 17-25 : Class<Reflect> has no field setField
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:171: characters 24-29 : Class<Reflect> has no field field
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:172: characters 16-26 : Class<Reflect> has no field isFunction
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:162: characters 27-33 : Class<Reflect> has no field fields
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:92: characters 14-22 : Class<Math> has no field isFinite
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:123: characters 15-23 : Class<Reflect> has no field setField
-stdgo/_internal/fmt/Fmt.hx:3725: characters 23-44 : Module stdgo._internal.io.Io does not define type Io
-stdgo/_internal/fmt/Fmt.hx:3521: characters 22-31 : Unknown identifier : _notSpace
-stdgo/_internal/fmt/Fmt.hx:3537: characters 30-47 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:3537: characters 72-89 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:3546: characters 22-39 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:3551: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:3551: characters 68-85 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:3103: characters 41-50 : Unknown identifier : _notSpace
-stdgo/_internal/fmt/Fmt.hx:3103: characters 41-50 : ... For function argument '_f'
-stdgo/_internal/fmt/Fmt.hx:3468: characters 18-26 : Unknown identifier : _isSpace
-stdgo/_internal/fmt/Fmt.hx:2812: characters 46-59 : Unknown identifier : _errorHandler
-stdgo/_internal/fmt/Fmt.hx:2812: characters 46-59 : ... For function argument 'x'
-stdgo/_internal/fmt/Fmt.hx:2824: characters 26-34 : Unknown identifier : _isSpace
-stdgo/_internal/fmt/Fmt.hx:2842: characters 30-47 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2842: characters 72-89 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2851: characters 22-39 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2856: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2856: characters 68-85 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2644: characters 46-59 : Unknown identifier : _errorHandler
-stdgo/_internal/fmt/Fmt.hx:2644: characters 46-59 : ... For function argument 'x'
-stdgo/_internal/fmt/Fmt.hx:2664: characters 39-48 : Unknown identifier : _parsenum
-stdgo/_internal/fmt/Fmt.hx:2713: characters 30-47 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2713: characters 72-89 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2722: characters 22-39 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2727: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2727: characters 68-85 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2209: characters 30-47 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2209: characters 72-89 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2218: characters 22-39 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2222: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2222: characters 68-85 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/sort/Sort.hx:625: characters 35-96 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:788: characters 50-77 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:803: characters 76-98 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:803: characters 191-213 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:803: characters 306-328 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:674: characters 50-77 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:234: characters 35-96 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:397: characters 50-77 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:412: characters 76-98 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:412: characters 191-213 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:412: characters 306-328 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:283: characters 50-77 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:4533: characters 97-157 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3492: characters 40-65 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3494: characters 40-66 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3494: characters 144-169 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3496: characters 40-67 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3496: characters 144-170 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3496: characters 288-313 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:4045: characters 46-83 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:4045: characters 46-48 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:4045: characters 46-48 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:4045: characters 46-83 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/strconv/Strconv.hx:4065: characters 24-55 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:4092: characters 42-49 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:4092: characters 42-44 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:4092: characters 42-44 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:4092: characters 42-49 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/strconv/Strconv.hx:3376: characters 40-65 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3378: characters 40-66 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3378: characters 143-168 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:2715: characters 29-80 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:2715: characters 29-53 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:2715: characters 29-53 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:2715: characters 29-80 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/strconv/Strconv.hx:2969: characters 38-65 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:4117: characters 96-163 : Recursive operator method
-stdgo/_internal/io/Io.hx:1451: characters 36-41 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _rdCh
-stdgo/_internal/io/Io.hx:1455: characters 35-40 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1455: characters 55-60 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1458: characters 32-37 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1388: characters 30-47 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1388: characters 72-89 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1397: characters 22-39 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1402: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1402: characters 68-85 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1234: characters 22-39 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1238: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1238: characters 68-85 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1196: characters 22-39 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1201: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1201: characters 68-85 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1011: characters 39-50 : Unknown identifier : _copyBuffer
-stdgo/_internal/io/Io.hx:886: characters 17-31 : Unknown identifier : _blackHolePool
-stdgo/_internal/internal/abi/Abi.hx:941: characters 18-23 : Class<stdgo.Go> has no field print
-stdgo/_internal/internal/abi/Abi.hx:943: characters 22-27 : Class<stdgo.Go> has no field print
-stdgo/_internal/internal/abi/Abi.hx:945: characters 18-25 : Class<stdgo.Go> has no field println
-stdgo/_internal/internal/abi/Abi.hx:946: characters 18-23 : Class<stdgo.Go> has no field print
-stdgo/_internal/internal/abi/Abi.hx:948: characters 22-27 : Class<stdgo.Go> has no field print
-stdgo/_internal/internal/abi/Abi.hx:950: characters 18-25 : Class<stdgo.Go> has no field println
-stdgo/_internal/internal/abi/Abi.hx:951: characters 18-23 : Class<stdgo.Go> has no field print
-stdgo/_internal/internal/abi/Abi.hx:953: characters 22-27 : Class<stdgo.Go> has no field print
-stdgo/_internal/internal/abi/Abi.hx:955: characters 18-25 : Class<stdgo.Go> has no field println
-stdgo/_internal/internal/abi/Abi.hx:3502: characters 21-43 : Recursive operator method
-stdgo/_internal/internal/abi/Abi.hx:3507: characters 13-35 : Recursive operator method
-stdgo/_internal/internal/abi/Abi.hx:3507: characters 59-81 : Recursive operator method
-stdgo/_internal/reflect/Reflect.hx:1348: characters 30-35 : Class<Reflect> has no field field
-stdgo/AnyInterface.hx:119: characters 23-31 : Class<Reflect> has no field hasField
-stdgo/AnyInterface.hx:122: characters 37-42 : Class<Reflect> has no field field
-stdgo/AnyInterface.hx:123: characters 38-43 : Class<Reflect> has no field field
-stdgo/_internal/math/bits/Bits.hx:4287: characters 28-36 : Recursive operator method
-stdgo/_internal/math/bits/Bits.hx:4287: characters 28-31 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4287: characters 28-31 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4287: characters 28-36 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/math/bits/Bits.hx:4298: characters 35-47 : Recursive operator method
-stdgo/_internal/math/bits/Bits.hx:4298: characters 35-40 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4298: characters 35-40 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4298: characters 35-47 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/math/bits/Bits.hx:4308: characters 35-47 : Recursive operator method
-stdgo/_internal/math/bits/Bits.hx:4308: characters 35-40 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4308: characters 35-40 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4308: characters 35-47 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/math/bits/Bits.hx:4271: characters 32-58 : Recursive operator method
-stdgo/_internal/math/bits/Bits.hx:4271: characters 32-34 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4271: characters 32-34 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4271: characters 32-58 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-/home/runner/haxe/versions/3c97999/std/neko/_std/Std.hx:48: character 11 : `package stdgo;` in /home/runner/work/go2hx/go2hx/stdgo/Math.hx should be `package;`
-stdgo/_internal/math/Math.hx:982: characters 23-31 : Class<Math> has no field isFinite
-/home/runner/haxe/versions/3c97999/std/haxe/Int64Helper.hx:80: characters 30-38 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:964: characters 23-31 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:965: characters 25-31 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:89: characters 15-21 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:90: characters 28-34 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:91: characters 33-39 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:93: characters 21-46 : Float should be Int
-stdgo/GoNumber.hx:93: characters 55-80 : Float should be Int
-stdgo/GoNumber.hx:95: characters 32-38 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:97: characters 20-44 : Float should be Int
-stdgo/GoNumber.hx:97: characters 53-77 : Float should be Int
-/home/runner/haxe/versions/3c97999/std/neko/_std/Std.hx:48: characters 4-23 : Float should be Int
-/home/runner/haxe/versions/3c97999/std/neko/_std/Std.hx:49: characters 3-23 : Float should be Int
-stdgo/_internal/math/Math.hx:514: characters 106-123 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/_internal/math/Math.hx:514: characters 166-183 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/_internal/math/Math.hx:509: characters 41-58 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/_internal/math/Math.hx:510: characters 25-42 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/GoFloat64.hx:86: characters 21-38 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/GoFloat64.hx:88: characters 21-38 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/_internal/math/Math.hx:512: characters 48-51 : Class<Math> has no field NaN (Suggestion: naN)
-stdgo/_internal/math/Math.hx:571: characters 33-41 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:571: characters 79-87 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:593: characters 33-41 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:593: characters 79-87 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:1371: characters 23-31 : Class<Math> has no field isFinite
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:72: character 12 : `package stdgo;` in /home/runner/work/go2hx/go2hx/stdgo/Reflect.hx should be `package;`
-/home/runner/haxe/versions/3c97999/std/haxe/ds/BalancedTree.hx:226: characters 18-25 : Class<Reflect> has no field compare
-stdgo/AnyInterface.hx:119: characters 23-31 : Class<Reflect> has no field hasField
-stdgo/AnyInterface.hx:122: characters 37-42 : Class<Reflect> has no field field
-stdgo/AnyInterface.hx:123: characters 38-43 : Class<Reflect> has no field field
-stdgo/_internal/reflect/Reflect.hx:1348: characters 30-35 : Class<Reflect> has no field field
-/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:70: characters 22-33 : Class<Reflect> has no field isEnumValue
-/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:70: characters 49-60 : Class<Reflect> has no field isEnumValue
-/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:75: characters 12-19 : Class<Reflect> has no field compare
-/home/runner/haxe/versions/3c97999/std/neko/vm/Loader.hx:89: characters 21-27 : Class<Reflect> has no field fields
-/home/runner/haxe/versions/3c97999/std/neko/vm/Loader.hx:89: characters 13-34 : You can't iterate on a Dynamic value, please specify Iterator or Iterable
-/home/runner/haxe/versions/3c97999/std/neko/vm/Loader.hx:90: characters 32-37 : Class<Reflect> has no field field
-/home/runner/haxe/versions/3c97999/std/neko/vm/Loader.hx:99: characters 12-23 : Class<Reflect> has no field deleteField
-/home/runner/haxe/versions/3c97999/std/neko/vm/Loader.hx:101: characters 12-20 : Class<Reflect> has no field setField
-/home/runner/haxe/versions/3c97999/std/neko/vm/Module.hx:112: characters 21-27 : Class<Reflect> has no field fields
-/home/runner/haxe/versions/3c97999/std/neko/vm/Module.hx:112: characters 13-32 : You can't iterate on a Dynamic value, please specify Iterator or Iterable
-/home/runner/haxe/versions/3c97999/std/neko/vm/Module.hx:113: characters 21-26 : Class<Reflect> has no field field
-/home/runner/haxe/versions/3c97999/std/neko/vm/Module.hx:129: characters 11-19 : Class<Reflect> has no field setField
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:119: characters 27-32 : Class<Reflect> has no field field
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:121: characters 15-25 : Class<Reflect> has no field isFunction
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:123: characters 19-29 : Class<Reflect> has no field callMethod
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:137: characters 19-25 : Class<Reflect> has no field fields
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:140: characters 22-28 : Class<Reflect> has no field fields
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:140: characters 14-49 : You can't iterate on a Dynamic value, please specify Iterator or Iterable
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:154: characters 19-25 : Class<Reflect> has no field fields
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:227: characters 20-25 : Class<Reflect> has no field field
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:228: characters 17-27 : Class<Reflect> has no field isFunction
-stdgo/_internal/reflect/Reflect.hx:1017: characters 52-57 : Class<Reflect> has no field field
-stdgo/_internal/reflect/Reflect.hx:1018: characters 33-41 : Class<Reflect> has no field setField
-stdgo/_internal/internal/abi/Abi.hx:3450: lines 3450-3456 : Missing return: { _1 : stdgo.GoInt, _0 : stdgo.GoInt }
-stdgo/_internal/internal/abi/Abi.hx:861: lines 861-869 : Missing return: stdgo.GoInt
-stdgo/GoFloat32.hx:83: characters 21-38 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/GoFloat32.hx:85: characters 21-38 : Class<Math> has no field NEGATIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:25: characters 18-35 : Class<Math> has no field NEGATIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:33: characters 30-47 : Class<Math> has no field NEGATIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:51: characters 18-35 : Class<Math> has no field NEGATIVE_INFINITY
+# Module: `stdgo._internal.unicode`
 
+[(view library index)](../../stdgo.md)
+
+
+# Overview
+
+
+stdgo/_internal/internal/Macro.macro.hx:54: non hxb types:,373
+
+# Index
+
+
+- [Constants](<#constants>)
+
+- [Variables](<#variables>)
+
+- [`function _is16(_ranges:stdgo.Slice<stdgo._internal.unicode.Range16>, _r:stdgo.GoUInt16):Bool`](<#function-_is16>)
+
+- [`function _is32(_ranges:stdgo.Slice<stdgo._internal.unicode.Range32>, _r:stdgo.GoUInt32):Bool`](<#function-_is32>)
+
+- [`function _isExcludingLatin(_rangeTab:stdgo.Ref<stdgo._internal.unicode.RangeTable>, _r:stdgo.GoRune):Bool`](<#function-_isexcludinglatin>)
+
+- [`function _to(__case:stdgo.GoInt, _r:stdgo.GoRune, _caseRange:stdgo.Slice<stdgo._internal.unicode.CaseRange>):{
+	_1:Bool;
+	_0:stdgo.GoRune;
+}`](<#function-_to>)
+
+- [`function in_(_r:stdgo.GoRune, _ranges:haxe.Rest<stdgo.Ref<stdgo._internal.unicode.RangeTable>>):Bool`](<#function-in_>)
+
+- [`function isControl(_r:stdgo.GoRune):Bool`](<#function-iscontrol>)
+
+- [`function isDigit(_r:stdgo.GoRune):Bool`](<#function-isdigit>)
+
+- [`function isGraphic(_r:stdgo.GoRune):Bool`](<#function-isgraphic>)
+
+- [`function isLetter(_r:stdgo.GoRune):Bool`](<#function-isletter>)
+
+- [`function isLower(_r:stdgo.GoRune):Bool`](<#function-islower>)
+
+- [`function isMark(_r:stdgo.GoRune):Bool`](<#function-ismark>)
+
+- [`function isNumber(_r:stdgo.GoRune):Bool`](<#function-isnumber>)
+
+- [`function isOneOf(_ranges:stdgo.Slice<stdgo.Ref<stdgo._internal.unicode.RangeTable>>, _r:stdgo.GoRune):Bool`](<#function-isoneof>)
+
+- [`function isPrint(_r:stdgo.GoRune):Bool`](<#function-isprint>)
+
+- [`function isPunct(_r:stdgo.GoRune):Bool`](<#function-ispunct>)
+
+- [`function isSpace(_r:stdgo.GoRune):Bool`](<#function-isspace>)
+
+- [`function isSymbol(_r:stdgo.GoRune):Bool`](<#function-issymbol>)
+
+- [`function isTitle(_r:stdgo.GoRune):Bool`](<#function-istitle>)
+
+- [`function isUpper(_r:stdgo.GoRune):Bool`](<#function-isupper>)
+
+- [`function is_(_rangeTab:stdgo.Ref<stdgo._internal.unicode.RangeTable>, _r:stdgo.GoRune):Bool`](<#function-is_>)
+
+- [`function simpleFold(_r:stdgo.GoRune):stdgo.GoRune`](<#function-simplefold>)
+
+- [`function to(__case:stdgo.GoInt, _r:stdgo.GoRune):stdgo.GoRune`](<#function-to>)
+
+- [`function toLower(_r:stdgo.GoRune):stdgo.GoRune`](<#function-tolower>)
+
+- [`function toTitle(_r:stdgo.GoRune):stdgo.GoRune`](<#function-totitle>)
+
+- [`function toUpper(_r:stdgo.GoRune):stdgo.GoRune`](<#function-toupper>)
+
+- [class CaseRange](<#class-caserange>)
+
+  - [`function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?delta:Null<stdgo._internal.unicode.T_d>):Void`](<#caserange-function-new>)
+
+- [class Range16](<#class-range16>)
+
+  - [`function new(?lo:stdgo.GoUInt16, ?hi:stdgo.GoUInt16, ?stride:stdgo.GoUInt16):Void`](<#range16-function-new>)
+
+- [class Range32](<#class-range32>)
+
+  - [`function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?stride:stdgo.GoUInt32):Void`](<#range32-function-new>)
+
+- [class RangeTable](<#class-rangetable>)
+
+  - [`function new(?r16:stdgo.Slice<stdgo._internal.unicode.Range16>, ?r32:stdgo.Slice<stdgo._internal.unicode.Range32>, ?latinOffset:stdgo.GoInt):Void`](<#rangetable-function-new>)
+
+- [typedef SpecialCase](<#typedef-specialcase>)
+
+- [typedef T\_d](<#typedef-t_d>)
+
+# Examples
+
+
+- [`exampleIsDigit`](<#exampleisdigit>)
+
+- [`exampleIsLetter`](<#exampleisletter>)
+
+- [`exampleIsLower`](<#exampleislower>)
+
+- [`exampleIsNumber`](<#exampleisnumber>)
+
+- [`exampleIsSpace`](<#exampleisspace>)
+
+- [`exampleIsTitle`](<#exampleistitle>)
+
+- [`exampleIsUpper`](<#exampleisupper>)
+
+- [`exampleSimpleFold`](<#examplesimplefold>)
+
+- [`exampleSpecialCase`](<#examplespecialcase>)
+
+- [`exampleTo`](<#exampleto>)
+
+- [`exampleToLower`](<#exampletolower>)
+
+- [`exampleToTitle`](<#exampletotitle>)
+
+- [`exampleToUpper`](<#exampletoupper>)
+
+# Constants
+
+
+```haxe
+import stdgo._internal.unicode.Unicode
 ```
+
+
+```haxe
+final _linearMax:stdgo.GoUInt64 = ((18i64 : stdgo.GoUInt64))
+```
+
+
+```haxe
+final _pC:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
+```
+
+
+```haxe
+final _pLl:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
+```
+
+
+```haxe
+final _pLmask:stdgo.GoUInt64 = ((96i64 : stdgo.GoUInt64))
+```
+
+
+```haxe
+final _pLo:stdgo.GoUInt64 = ((96i64 : stdgo.GoUInt64))
+```
+
+
+```haxe
+final _pLu:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
+```
+
+
+```haxe
+final _pN:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
+```
+
+
+```haxe
+final _pP:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
+```
+
+
+```haxe
+final _pS:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
+```
+
+
+```haxe
+final _pZ:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
+```
+
+
+```haxe
+final _pg:stdgo.GoUInt64 = ((144i64 : stdgo.GoUInt64))
+```
+
+
+```haxe
+final _pp:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
+```
+
+
+```haxe
+final lowerCase:stdgo.GoUInt64 = ((2i64 : stdgo.GoUInt64))
+```
+
+
+```haxe
+final maxASCII:stdgo.GoInt32 = ((127 : stdgo.GoInt32))
+```
+
+
+```haxe
+final maxCase:stdgo.GoUInt64 = ((2i64 : stdgo.GoUInt64))
+```
+
+
+```haxe
+final maxLatin1:stdgo.GoInt32 = ((255 : stdgo.GoInt32))
+```
+
+
+```haxe
+final maxRune:stdgo.GoInt32 = ((1114111 : stdgo.GoInt32))
+```
+
+
+```haxe
+final replacementChar:stdgo.GoInt32 = ((65533 : stdgo.GoInt32))
+```
+
+
+```haxe
+final titleCase:stdgo.GoUInt64 = ((2i64 : stdgo.GoUInt64))
+```
+
+
+```haxe
+final upperCase:stdgo.GoUInt64 = ((2i64 : stdgo.GoUInt64))
+```
+
+
+```haxe
+final upperLower:stdgo.GoInt32 = ((1114112 : stdgo.GoInt32))
+```
+
+
+```haxe
+final version:stdgo.GoString = (("15.0.0" : stdgo.GoString))
+```
+
+
+# Variables
+
+
+```haxe
+import stdgo._internal.unicode.Unicode
+```
+
+
+```haxe
+var __ASCII_Hex_Digit:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Adlam:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Ahom:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Anatolian_Hieroglyphs:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Arabic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Armenian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Avestan:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Balinese:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Bamum:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Bassa_Vah:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Batak:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Bengali:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Bhaiksuki:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Bidi_Control:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Bopomofo:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Brahmi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Braille:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Buginese:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Buhid:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __C:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Canadian_Aboriginal:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Carian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __CaseRanges:stdgo.Slice<stdgo._internal.unicode.CaseRange>
+```
+
+
+```haxe
+var __Caucasian_Albanian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Cc:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Cf:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Chakma:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Cham:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Cherokee:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Chorasmian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Co:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Common:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Coptic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Cs:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Cuneiform:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Cypriot:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Cypro_Minoan:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Cyrillic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Dash:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Deprecated:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Deseret:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Devanagari:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Diacritic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Dives_Akuru:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Dogra:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Duployan:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Egyptian_Hieroglyphs:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Elbasan:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Elymaic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Ethiopic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Extender:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Georgian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Glagolitic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Gothic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Grantha:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Greek:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Gujarati:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Gunjala_Gondi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Gurmukhi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Han:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Hangul:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Hanifi_Rohingya:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Hanunoo:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Hatran:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Hebrew:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Hex_Digit:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Hiragana:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Hyphen:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __IDS_Binary_Operator:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __IDS_Trinary_Operator:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Ideographic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Imperial_Aramaic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Inherited:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Inscriptional_Pahlavi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Inscriptional_Parthian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Javanese:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Join_Control:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Kaithi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Kannada:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Katakana:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Kawi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Kayah_Li:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Kharoshthi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Khitan_Small_Script:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Khmer:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Khojki:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Khudawadi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __L:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Lao:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Latin:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Lepcha:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Limbu:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Linear_A:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Linear_B:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Lisu:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Ll:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Lm:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Lo:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Logical_Order_Exception:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Lt:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Lu:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Lycian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Lydian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __M:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Mahajani:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Makasar:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Malayalam:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Mandaic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Manichaean:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Marchen:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Masaram_Gondi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Mc:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Me:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Medefaidrin:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Meetei_Mayek:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Mende_Kikakui:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Meroitic_Cursive:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Meroitic_Hieroglyphs:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Miao:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Mn:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Modi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Mongolian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Mro:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Multani:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Myanmar:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __N:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Nabataean:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Nag_Mundari:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Nandinagari:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Nd:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __New_Tai_Lue:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Newa:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Nko:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Nl:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __No:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Noncharacter_Code_Point:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Nushu:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Nyiakeng_Puachue_Hmong:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Ogham:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Ol_Chiki:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Old_Hungarian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Old_Italic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Old_North_Arabian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Old_Permic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Old_Persian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Old_Sogdian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Old_South_Arabian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Old_Turkic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Old_Uyghur:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Oriya:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Osage:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Osmanya:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Other_Alphabetic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Other_Default_Ignorable_Code_Point:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Other_Grapheme_Extend:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Other_ID_Continue:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Other_ID_Start:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Other_Lowercase:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Other_Math:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Other_Uppercase:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __P:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Pahawh_Hmong:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Palmyrene:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Pattern_Syntax:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Pattern_White_Space:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Pau_Cin_Hau:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Pc:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Pd:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Pe:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Pf:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Phags_Pa:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Phoenician:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Pi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Po:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Prepended_Concatenation_Mark:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Ps:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Psalter_Pahlavi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Quotation_Mark:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Radical:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Regional_Indicator:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Rejang:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Runic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __S:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Samaritan:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Saurashtra:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Sc:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Sentence_Terminal:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Sharada:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Shavian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Siddham:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __SignWriting:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Sinhala:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Sk:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Sm:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __So:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Soft_Dotted:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Sogdian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Sora_Sompeng:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Soyombo:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Sundanese:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Syloti_Nagri:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Syriac:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Tagalog:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Tagbanwa:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Tai_Le:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Tai_Tham:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Tai_Viet:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Takri:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Tamil:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Tangsa:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Tangut:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Telugu:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Terminal_Punctuation:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Thaana:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Thai:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Tibetan:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Tifinagh:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Tirhuta:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Toto:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __TurkishCase:stdgo._internal.unicode.SpecialCase
+```
+
+
+```haxe
+var __Ugaritic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Unified_Ideograph:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Vai:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Variation_Selector:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Vithkuqi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Wancho:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Warang_Citi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __White_Space:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Yezidi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Yi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Z:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Zanabazar_Square:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Zl:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Zp:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var __Zs:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var _asciiFold:stdgo.GoArray<stdgo.GoUInt16>
+```
+
+
+```haxe
+var _caseOrbit:stdgo.Slice<stdgo._internal.unicode.T_foldPair>
+```
+
+
+```haxe
+var _foldCommon:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var _foldGreek:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var _foldInherited:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var _foldL:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var _foldLl:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var _foldLt:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var _foldLu:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var _foldM:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var _foldMn:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var _properties:stdgo.GoArray<stdgo.GoUInt8>
+```
+
+
+```haxe
+var adlam:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var ahom:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var anatolian_Hieroglyphs:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var arabic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var armenian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var ascii_Hex_Digit:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var avestan:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var azeriCase:stdgo._internal.unicode.SpecialCase
+```
+
+
+```haxe
+var balinese:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var bamum:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var bassa_Vah:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var batak:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var bengali:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var bhaiksuki:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var bidi_Control:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var bopomofo:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var brahmi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var braille:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var buginese:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var buhid:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var c:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var canadian_Aboriginal:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var carian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var caseRanges:stdgo.Slice<stdgo._internal.unicode.CaseRange>
+```
+
+
+```haxe
+var categories:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.RangeTable>>
+```
+
+
+```haxe
+var caucasian_Albanian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var cc:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var cf:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var chakma:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var cham:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var cherokee:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var chorasmian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var co:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var common:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var coptic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var cs:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var cuneiform:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var cypriot:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var cypro_Minoan:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var cyrillic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var dash:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var deprecated:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var deseret:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var devanagari:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var diacritic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var digit:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var dives_Akuru:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var dogra:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var duployan:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var egyptian_Hieroglyphs:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var elbasan:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var elymaic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var ethiopic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var extender:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var foldCategory:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.RangeTable>>
+```
+
+
+```haxe
+var foldScript:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.RangeTable>>
+```
+
+
+```haxe
+var georgian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var glagolitic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var gothic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var grantha:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var graphicRanges:stdgo.Slice<stdgo.Ref<stdgo._internal.unicode.RangeTable>>
+```
+
+
+```haxe
+var greek:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var gujarati:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var gunjala_Gondi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var gurmukhi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var han:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var hangul:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var hanifi_Rohingya:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var hanunoo:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var hatran:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var hebrew:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var hex_Digit:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var hiragana:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var hyphen:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var ideographic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var ids_Binary_Operator:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var ids_Trinary_Operator:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var imperial_Aramaic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var inherited:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var inscriptional_Pahlavi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var inscriptional_Parthian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var javanese:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var join_Control:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var kaithi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var kannada:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var katakana:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var kawi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var kayah_Li:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var kharoshthi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var khitan_Small_Script:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var khmer:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var khojki:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var khudawadi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var l:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var lao:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var latin:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var lepcha:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var letter:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var limbu:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var linear_A:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var linear_B:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var lisu:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var ll:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var lm:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var lo:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var logical_Order_Exception:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var lower:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var lt:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var lu:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var lycian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var lydian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var m:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var mahajani:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var makasar:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var malayalam:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var mandaic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var manichaean:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var marchen:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var mark:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var masaram_Gondi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var mc:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var me:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var medefaidrin:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var meetei_Mayek:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var mende_Kikakui:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var meroitic_Cursive:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var meroitic_Hieroglyphs:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var miao:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var mn:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var modi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var mongolian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var mro:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var multani:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var myanmar:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var n:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var nabataean:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var nag_Mundari:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var nandinagari:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var nd:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var new_Tai_Lue:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var newa:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var nko:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var nl:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var no:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var noncharacter_Code_Point:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var number:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var nushu:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var nyiakeng_Puachue_Hmong:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var ogham:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var ol_Chiki:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var old_Hungarian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var old_Italic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var old_North_Arabian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var old_Permic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var old_Persian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var old_Sogdian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var old_South_Arabian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var old_Turkic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var old_Uyghur:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var oriya:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var osage:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var osmanya:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var other:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var other_Alphabetic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var other_Default_Ignorable_Code_Point:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var other_Grapheme_Extend:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var other_ID_Continue:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var other_ID_Start:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var other_Lowercase:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var other_Math:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var other_Uppercase:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var p:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var pahawh_Hmong:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var palmyrene:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var pattern_Syntax:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var pattern_White_Space:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var pau_Cin_Hau:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var pc:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var pd:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var pe:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var pf:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var phags_Pa:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var phoenician:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var pi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var po:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var prepended_Concatenation_Mark:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var printRanges:stdgo.Slice<stdgo.Ref<stdgo._internal.unicode.RangeTable>>
+```
+
+
+```haxe
+var properties:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.RangeTable>>
+```
+
+
+```haxe
+var ps:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var psalter_Pahlavi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var punct:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var quotation_Mark:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var radical:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var regional_Indicator:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var rejang:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var runic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var s:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var samaritan:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var saurashtra:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var sc:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var scripts:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.RangeTable>>
+```
+
+
+```haxe
+var sentence_Terminal:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var sharada:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var shavian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var siddham:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var signWriting:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var sinhala:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var sk:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var sm:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var so:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var soft_Dotted:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var sogdian:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var sora_Sompeng:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var soyombo:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var space:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var sterm:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var sundanese:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var syloti_Nagri:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var symbol:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var syriac:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var tagalog:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var tagbanwa:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var tai_Le:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var tai_Tham:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var tai_Viet:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var takri:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var tamil:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var tangsa:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var tangut:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var telugu:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var terminal_Punctuation:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var thaana:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var thai:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var tibetan:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var tifinagh:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var tirhuta:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var title:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var toto:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var turkishCase:stdgo._internal.unicode.SpecialCase
+```
+
+
+```haxe
+var ugaritic:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var unified_Ideograph:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var upper:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var vai:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var variation_Selector:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var vithkuqi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var wancho:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var warang_Citi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var white_Space:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var yezidi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var yi:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var z:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var zanabazar_Square:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var zl:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var zp:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+```haxe
+var zs:stdgo.Ref<stdgo._internal.unicode.RangeTable>
+```
+
+
+# Functions
+
+
+```haxe
+import stdgo._internal.unicode.Unicode
+```
+
+
+## function \_is16
+
+
+```haxe
+function _is16(_ranges:stdgo.Slice<stdgo._internal.unicode.Range16>, _r:stdgo.GoUInt16):Bool
+```
+
+
+[\(view code\)](<./Unicode.hx#L6601>)
+
+
+## function \_is32
+
+
+```haxe
+function _is32(_ranges:stdgo.Slice<stdgo._internal.unicode.Range32>, _r:stdgo.GoUInt32):Bool
+```
+
+
+[\(view code\)](<./Unicode.hx#L6630>)
+
+
+## function \_isExcludingLatin
+
+
+```haxe
+function _isExcludingLatin(_rangeTab:stdgo.Ref<stdgo._internal.unicode.RangeTable>, _r:stdgo.GoRune):Bool
+```
+
+
+[\(view code\)](<./Unicode.hx#L6670>)
+
+
+## function \_to
+
+
+```haxe
+function _to(__case:stdgo.GoInt, _r:stdgo.GoRune, _caseRange:stdgo.Slice<stdgo._internal.unicode.CaseRange>):{
+	_1:Bool;
+	_0:stdgo.GoRune;
+}
+```
+
+
+[\(view code\)](<./Unicode.hx#L6702>)
+
+
+## function in\_
+
+
+```haxe
+function in_(_r:stdgo.GoRune, _ranges:haxe.Rest<stdgo.Ref<stdgo._internal.unicode.RangeTable>>):Bool
+```
+
+
+[\(view code\)](<./Unicode.hx#L6547>)
+
+
+## function isControl
+
+
+```haxe
+function isControl(_r:stdgo.GoRune):Bool
+```
+
+
+[\(view code\)](<./Unicode.hx#L6556>)
+
+
+## function isDigit
+
+
+```haxe
+function isDigit(_r:stdgo.GoRune):Bool
+```
+
+
+### exampleIsDigit
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleIsDigit():Void {
+        stdgo._internal.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.isDigit((2537 : stdgo.GoInt32))));
+        stdgo._internal.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.isDigit((65 : stdgo.GoInt32))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Unicode.hx#L6521>)
+
+
+## function isGraphic
+
+
+```haxe
+function isGraphic(_r:stdgo.GoRune):Bool
+```
+
+
+[\(view code\)](<./Unicode.hx#L6527>)
+
+
+## function isLetter
+
+
+```haxe
+function isLetter(_r:stdgo.GoRune):Bool
+```
+
+
+### exampleIsLetter
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleIsLetter():Void {
+        stdgo._internal.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.isLetter((65 : stdgo.GoInt32))));
+        stdgo._internal.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.isLetter((55 : stdgo.GoInt32))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Unicode.hx#L6562>)
+
+
+## function isLower
+
+
+```haxe
+function isLower(_r:stdgo.GoRune):Bool
+```
+
+
+### exampleIsLower
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleIsLower():Void {
+        stdgo._internal.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.isLower((97 : stdgo.GoInt32))));
+        stdgo._internal.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.isLower((65 : stdgo.GoInt32))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Unicode.hx#L6690>)
+
+
+## function isMark
+
+
+```haxe
+function isMark(_r:stdgo.GoRune):Bool
+```
+
+
+[\(view code\)](<./Unicode.hx#L6568>)
+
+
+## function isNumber
+
+
+```haxe
+function isNumber(_r:stdgo.GoRune):Bool
+```
+
+
+### exampleIsNumber
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleIsNumber():Void {
+        stdgo._internal.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.isNumber((8551 : stdgo.GoInt32))));
+        stdgo._internal.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.isNumber((65 : stdgo.GoInt32))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Unicode.hx#L6571>)
+
+
+## function isOneOf
+
+
+```haxe
+function isOneOf(_ranges:stdgo.Slice<stdgo.Ref<stdgo._internal.unicode.RangeTable>>, _r:stdgo.GoRune):Bool
+```
+
+
+[\(view code\)](<./Unicode.hx#L6539>)
+
+
+## function isPrint
+
+
+```haxe
+function isPrint(_r:stdgo.GoRune):Bool
+```
+
+
+[\(view code\)](<./Unicode.hx#L6533>)
+
+
+## function isPunct
+
+
+```haxe
+function isPunct(_r:stdgo.GoRune):Bool
+```
+
+
+[\(view code\)](<./Unicode.hx#L6577>)
+
+
+## function isSpace
+
+
+```haxe
+function isSpace(_r:stdgo.GoRune):Bool
+```
+
+
+### exampleIsSpace
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleIsSpace():Void {
+        stdgo._internal.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.isSpace((32 : stdgo.GoInt32))));
+        stdgo._internal.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.isSpace((10 : stdgo.GoInt32))));
+        stdgo._internal.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.isSpace((9 : stdgo.GoInt32))));
+        stdgo._internal.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.isSpace((97 : stdgo.GoInt32))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Unicode.hx#L6583>)
+
+
+## function isSymbol
+
+
+```haxe
+function isSymbol(_r:stdgo.GoRune):Bool
+```
+
+
+[\(view code\)](<./Unicode.hx#L6595>)
+
+
+## function isTitle
+
+
+```haxe
+function isTitle(_r:stdgo.GoRune):Bool
+```
+
+
+### exampleIsTitle
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleIsTitle():Void {
+        stdgo._internal.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.isTitle((453 : stdgo.GoInt32))));
+        stdgo._internal.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.isTitle((97 : stdgo.GoInt32))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Unicode.hx#L6696>)
+
+
+## function isUpper
+
+
+```haxe
+function isUpper(_r:stdgo.GoRune):Bool
+```
+
+
+### exampleIsUpper
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleIsUpper():Void {
+        stdgo._internal.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.isUpper((65 : stdgo.GoInt32))));
+        stdgo._internal.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.isUpper((97 : stdgo.GoInt32))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Unicode.hx#L6684>)
+
+
+## function is\_
+
+
+```haxe
+function is_(_rangeTab:stdgo.Ref<stdgo._internal.unicode.RangeTable>, _r:stdgo.GoRune):Bool
+```
+
+
+[\(view code\)](<./Unicode.hx#L6659>)
+
+
+## function simpleFold
+
+
+```haxe
+function simpleFold(_r:stdgo.GoRune):stdgo.GoRune
+```
+
+
+### exampleSimpleFold
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleSimpleFold():Void {
+        stdgo._internal.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.simpleFold((65 : stdgo.GoInt32))));
+        stdgo._internal.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.simpleFold((97 : stdgo.GoInt32))));
+        stdgo._internal.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.simpleFold((75 : stdgo.GoInt32))));
+        stdgo._internal.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.simpleFold((107 : stdgo.GoInt32))));
+        stdgo._internal.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.simpleFold((8490 : stdgo.GoInt32))));
+        stdgo._internal.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.simpleFold((49 : stdgo.GoInt32))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Unicode.hx#L6761>)
+
+
+## function to
+
+
+```haxe
+function to(__case:stdgo.GoInt, _r:stdgo.GoRune):stdgo.GoRune
+```
+
+
+### exampleTo
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleTo():Void {
+        {};
+        stdgo._internal.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.to((0 : stdgo.GoInt), (103 : stdgo.GoInt32))));
+        stdgo._internal.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.to((1 : stdgo.GoInt), (103 : stdgo.GoInt32))));
+        stdgo._internal.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.to((2 : stdgo.GoInt), (103 : stdgo.GoInt32))));
+        {};
+        stdgo._internal.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.to((0 : stdgo.GoInt), (71 : stdgo.GoInt32))));
+        stdgo._internal.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.to((1 : stdgo.GoInt), (71 : stdgo.GoInt32))));
+        stdgo._internal.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.to((2 : stdgo.GoInt), (71 : stdgo.GoInt32))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Unicode.hx#L6727>)
+
+
+## function toLower
+
+
+```haxe
+function toLower(_r:stdgo.GoRune):stdgo.GoRune
+```
+
+
+### exampleToLower
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleToLower():Void {
+        {};
+        stdgo._internal.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.toLower((71 : stdgo.GoInt32))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Unicode.hx#L6743>)
+
+
+## function toTitle
+
+
+```haxe
+function toTitle(_r:stdgo.GoRune):stdgo.GoRune
+```
+
+
+### exampleToTitle
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleToTitle():Void {
+        {};
+        stdgo._internal.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.toTitle((103 : stdgo.GoInt32))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Unicode.hx#L6752>)
+
+
+## function toUpper
+
+
+```haxe
+function toUpper(_r:stdgo.GoRune):stdgo.GoRune
+```
+
+
+### exampleToUpper
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleToUpper():Void {
+        {};
+        stdgo._internal.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.unicode.Unicode.toUpper((103 : stdgo.GoInt32))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Unicode.hx#L6734>)
+
+
+# Classes
+
+
+```haxe
+import stdgo._internal.unicode.*
+```
+
+
+## class CaseRange
+
+
+```haxe
+var delta:stdgo._internal.unicode.T_d
+```
+
+
+```haxe
+var hi:stdgo.GoUInt32
+```
+
+
+```haxe
+var lo:stdgo.GoUInt32
+```
+
+
+### CaseRange function new
+
+
+```haxe
+function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?delta:Null<stdgo._internal.unicode.T_d>):Void
+```
+
+
+[\(view code\)](<./Unicode.hx#L6497>)
+
+
+## class Range16
+
+
+```haxe
+var hi:stdgo.GoUInt16
+```
+
+
+```haxe
+var lo:stdgo.GoUInt16
+```
+
+
+```haxe
+var stride:stdgo.GoUInt16
+```
+
+
+### Range16 function new
+
+
+```haxe
+function new(?lo:stdgo.GoUInt16, ?hi:stdgo.GoUInt16, ?stride:stdgo.GoUInt16):Void
+```
+
+
+[\(view code\)](<./Unicode.hx#L6469>)
+
+
+## class Range32
+
+
+```haxe
+var hi:stdgo.GoUInt32
+```
+
+
+```haxe
+var lo:stdgo.GoUInt32
+```
+
+
+```haxe
+var stride:stdgo.GoUInt32
+```
+
+
+### Range32 function new
+
+
+```haxe
+function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?stride:stdgo.GoUInt32):Void
+```
+
+
+[\(view code\)](<./Unicode.hx#L6483>)
+
+
+## class RangeTable
+
+
+```haxe
+var latinOffset:stdgo.GoInt
+```
+
+
+```haxe
+var r16:stdgo.Slice<stdgo._internal.unicode.Range16>
+```
+
+
+```haxe
+var r32:stdgo.Slice<stdgo._internal.unicode.Range32>
+```
+
+
+### RangeTable function new
+
+
+```haxe
+function new(?r16:stdgo.Slice<stdgo._internal.unicode.Range16>, ?r32:stdgo.Slice<stdgo._internal.unicode.Range32>, ?latinOffset:stdgo.GoInt):Void
+```
+
+
+[\(view code\)](<./Unicode.hx#L6455>)
+
+
+# Typedefs
+
+
+```haxe
+import stdgo._internal.unicode.*
+```
+
+
+## typedef SpecialCase
+
+
+```haxe
+typedef SpecialCase = stdgo.Slice<stdgo._internal.unicode.CaseRange>;
+```
+
+
+## typedef T\_d
+
+
+```haxe
+typedef T_d = stdgo.GoArray<stdgo.GoInt32>;
+```
+
 

@@ -1,341 +1,2863 @@
-# Module stdgo._internal.bytes has compilation errors, please do not use:
-```
-/home/runner/haxe/versions/3c97999/std/haxe/ds/BalancedTree.hx:226: character 10 : `package stdgo;` in /home/runner/work/go2hx/go2hx/stdgo/Reflect.hx should be `package;`
-/home/runner/haxe/versions/3c97999/std/haxe/ds/BalancedTree.hx:226: characters 18-25 : Class<Reflect> has no field compare
-stdgo/GoNumber.hx:69: character 6 : `package stdgo;` in /home/runner/work/go2hx/go2hx/stdgo/Math.hx should be `package;`
-/home/runner/haxe/versions/3c97999/std/haxe/Int64Helper.hx:80: characters 30-38 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:964: characters 23-31 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:965: characters 25-31 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:89: characters 15-21 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:90: characters 28-34 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:91: characters 33-39 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:93: characters 21-46 : Float should be Int
-stdgo/GoNumber.hx:93: characters 55-80 : Float should be Int
-stdgo/GoNumber.hx:95: characters 32-38 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:97: characters 20-44 : Float should be Int
-stdgo/GoNumber.hx:97: characters 53-77 : Float should be Int
-stdgo/_internal/math/Math.hx:514: characters 106-123 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/_internal/math/Math.hx:514: characters 166-183 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/_internal/math/Math.hx:509: characters 41-58 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/_internal/math/Math.hx:510: characters 25-42 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/GoFloat64.hx:86: characters 21-38 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/GoFloat64.hx:88: characters 21-38 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/_internal/math/Math.hx:512: characters 48-51 : Class<Math> has no field NaN (Suggestion: naN)
-stdgo/_internal/math/Math.hx:571: characters 33-41 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:571: characters 79-87 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:593: characters 33-41 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:593: characters 79-87 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:982: characters 23-31 : Class<Math> has no field isFinite
-/home/runner/haxe/versions/3c97999/std/haxe/macro/ExprTools.hx:242: characters 14-22 : Class<Reflect> has no field setField
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:43: characters 48-65 : Class<Math> has no field POSITIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:43: characters 73-90 : Class<Math> has no field NEGATIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:43: characters 99-102 : Class<Math> has no field NaN (Suggestion: naN)
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:52: characters 61-78 : Class<Math> has no field POSITIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:52: characters 86-103 : Class<Math> has no field NEGATIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:52: characters 112-115 : Class<Math> has no field NaN (Suggestion: naN)
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:72: characters 39-50 : Float should be Int
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:72: characters 60-74 : Float should be Int
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:81: characters 20-28 : Class<Math> has no field isFinite
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:97: characters 20-26 : Class<Math> has no field fround (Suggestion: round)
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:102: characters 46-58 : Float should be Int
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:102: characters 46-58 : ... For function argument 'x'
-stdgo/_internal/math/Math.hx:1371: characters 23-31 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:2457: characters 38-82 : Recursive operator method
-stdgo/_internal/math/Math.hx:2460: characters 38-83 : Recursive operator method
-stdgo/_internal/reflect/Reflect.hx:1017: characters 52-57 : Class<Reflect> has no field field
-stdgo/_internal/reflect/Reflect.hx:1018: characters 33-41 : Class<Reflect> has no field setField
-stdgo/_internal/reflect/Reflect.hx:506: characters 20-74 : Recursive operator method
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:25: characters 18-35 : Class<Math> has no field NEGATIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:33: characters 30-47 : Class<Math> has no field NEGATIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:51: characters 18-35 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/_internal/fmt/Fmt.hx:33: characters 15-45 : Module stdgo._internal.sync.Sync does not define type Pool
-stdgo/_internal/io/Io.hx:15: characters 22-52 : Module stdgo._internal.sync.Sync does not define type Pool
-stdgo/_internal/io/Io.hx:15: characters 22-52 : ... For function argument '__self__'
-stdgo/_internal/io/Io.hx:379: characters 24-55 : Module stdgo._internal.sync.Sync does not define type Mutex
-stdgo/_internal/io/Io.hx:379: characters 24-55 : ... For function argument '__self__'
-stdgo/_internal/io/Io.hx:357: characters 24-55 : Module stdgo._internal.sync.Sync does not define type Mutex
-stdgo/_internal/io/Io.hx:1176: characters 48-52 : stdgo.Ref<stdgo._internal.io.T_onceError> has no field _err
-stdgo/_internal/io/Io.hx:1187: characters 30-47 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1187: characters 72-89 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1212: characters 20-24 : stdgo.Ref<stdgo._internal.io.T_onceError> has no field _err
-stdgo/_internal/io/Io.hx:1220: characters 16-20 : stdgo.Ref<stdgo._internal.io.T_onceError> has no field _err
-stdgo/_internal/io/Io.hx:1225: characters 30-47 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1225: characters 72-89 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1278: characters 36-41 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _werr
-stdgo/_internal/io/Io.hx:1280: characters 40-45 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _rerr
-stdgo/_internal/io/Io.hx:1285: characters 16-29 : Unknown identifier : errClosedPipe
-stdgo/_internal/io/Io.hx:1290: characters 36-41 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _rerr
-stdgo/_internal/io/Io.hx:1292: characters 40-45 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _werr
-stdgo/_internal/io/Io.hx:1297: characters 16-29 : Unknown identifier : errClosedPipe
-stdgo/_internal/io/Io.hx:1305: characters 12-17 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _werr
-stdgo/_internal/io/Io.hx:1306: characters 12-17 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _once
-stdgo/_internal/io/Io.hx:1307: characters 20-25 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1307: characters 38-43 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1320: characters 28-33 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1320: characters 48-53 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1323: characters 32-37 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1331: characters 32-37 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _wrMu
-stdgo/_internal/io/Io.hx:1332: characters 61-66 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _wrMu
-stdgo/_internal/io/Io.hx:1410: characters 20-33 : Unknown identifier : errClosedPipe
-stdgo/_internal/io/Io.hx:1412: characters 12-17 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _rerr
-stdgo/_internal/io/Io.hx:1413: characters 12-17 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _once
-stdgo/_internal/io/Io.hx:1414: characters 20-25 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1414: characters 38-43 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1425: characters 24-29 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1425: characters 44-49 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1428: characters 28-33 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1445: characters 28-33 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _wrCh
-stdgo/_internal/io/Io.hx:1445: characters 48-53 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _wrCh
-stdgo/_internal/io/Io.hx:1448: characters 42-47 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _wrCh
-stdgo/_internal/strconv/Strconv.hx:4781: characters 39-68 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:4781: characters 39-41 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:4781: characters 39-41 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:4781: characters 39-68 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/GoFloat32.hx:83: characters 21-38 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/GoFloat32.hx:85: characters 21-38 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/_internal/strconv/Strconv.hx:3611: characters 39-68 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3611: characters 39-41 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3611: characters 39-41 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3611: characters 39-68 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/strconv/Strconv.hx:3629: characters 19-50 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3629: characters 19-21 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3629: characters 19-21 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3629: characters 19-50 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/strconv/Strconv.hx:3639: characters 40-89 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3646: characters 39-69 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3646: characters 39-41 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3646: characters 39-41 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3646: characters 39-69 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/strconv/Strconv.hx:3964: characters 29-66 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3964: characters 29-31 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3964: characters 29-31 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3964: characters 29-66 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/strconv/Strconv.hx:3867: characters 38-118 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3868: characters 39-74 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3869: characters 38-71 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3900: characters 39-69 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3840: characters 47-76 : Recursive operator method
-stdgo/_internal/fmt/Fmt.hx:1198: characters 49-78 : Recursive operator method
-stdgo/_internal/fmt/Fmt.hx:1198: characters 49-51 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/fmt/Fmt.hx:1198: characters 49-51 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/fmt/Fmt.hx:1198: characters 49-78 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/fmt/Fmt.hx:1752: characters 23-38 : Unknown identifier : _parseArgNumber
-stdgo/_internal/fmt/Fmt.hx:2231: characters 36-53 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2232: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2378: characters 40-65 : Recursive operator method
-stdgo/_internal/fmt/Fmt.hx:2380: characters 40-65 : Recursive operator method
-stdgo/_internal/fmt/Fmt.hx:2549: characters 9-16 : Unknown identifier : _ppFree
-stdgo/_internal/fmt/Fmt.hx:2737: characters 17-25 : Unknown identifier : _isSpace
-stdgo/_internal/fmt/Fmt.hx:3027: characters 23-32 : Unknown identifier : _hexDigit
-stdgo/_internal/fmt/Fmt.hx:3032: characters 23-32 : Unknown identifier : _hexDigit
-stdgo/_internal/fmt/Fmt.hx:3420: characters 14-24 : Unknown identifier : _indexRune
-stdgo/_internal/fmt/Fmt.hx:3172: characters 23-34 : Unknown identifier : _errComplex
-stdgo/_internal/fmt/Fmt.hx:3172: characters 23-34 : ... For function argument '_err'
-stdgo/_internal/fmt/Fmt.hx:3177: characters 23-34 : Unknown identifier : _errComplex
-stdgo/_internal/fmt/Fmt.hx:3177: characters 23-34 : ... For function argument '_err'
-stdgo/_internal/fmt/Fmt.hx:3180: characters 23-34 : Unknown identifier : _errComplex
-stdgo/_internal/fmt/Fmt.hx:3180: characters 23-34 : ... For function argument '_err'
-stdgo/_internal/fmt/Fmt.hx:3125: characters 34-44 : Unknown identifier : _indexRune
-stdgo/_internal/fmt/Fmt.hx:3126: characters 55-60 : Unknown identifier : _hasX
-stdgo/_internal/fmt/Fmt.hx:3117: characters 75-97 : Recursive operator method
-stdgo/_internal/fmt/Fmt.hx:3118: characters 75-97 : Recursive operator method
-stdgo/_internal/fmt/Fmt.hx:3411: characters 17-27 : Unknown identifier : _indexRune
-stdgo/_internal/fmt/Fmt.hx:3365: characters 31-39 : Unknown identifier : _errBool
-stdgo/_internal/fmt/Fmt.hx:3365: characters 31-39 : ... For function argument '_err'
-stdgo/_internal/fmt/Fmt.hx:3370: characters 31-39 : Unknown identifier : _errBool
-stdgo/_internal/fmt/Fmt.hx:3370: characters 31-39 : ... For function argument '_err'
-stdgo/_internal/fmt/Fmt.hx:3486: characters 9-16 : Unknown identifier : _ssFree
-stdgo/_internal/fmt/Fmt.hx:3498: characters 48-65 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:3499: characters 38-55 : Class<stdgo.Go> has no field recover_exception
-/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:70: characters 22-33 : Class<Reflect> has no field isEnumValue
-/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:70: characters 49-60 : Class<Reflect> has no field isEnumValue
-/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:75: characters 12-19 : Class<Reflect> has no field compare
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonParser.hx:90: characters 17-25 : Class<Reflect> has no field setField
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:171: characters 24-29 : Class<Reflect> has no field field
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:172: characters 16-26 : Class<Reflect> has no field isFunction
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:162: characters 27-33 : Class<Reflect> has no field fields
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:92: characters 14-22 : Class<Math> has no field isFinite
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:123: characters 15-23 : Class<Reflect> has no field setField
-stdgo/_internal/fmt/Fmt.hx:3725: characters 23-44 : Module stdgo._internal.io.Io does not define type Io
-stdgo/_internal/fmt/Fmt.hx:3521: characters 22-31 : Unknown identifier : _notSpace
-stdgo/_internal/fmt/Fmt.hx:3537: characters 30-47 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:3537: characters 72-89 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:3546: characters 22-39 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:3551: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:3551: characters 68-85 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:3103: characters 41-50 : Unknown identifier : _notSpace
-stdgo/_internal/fmt/Fmt.hx:3103: characters 41-50 : ... For function argument '_f'
-stdgo/_internal/fmt/Fmt.hx:3468: characters 18-26 : Unknown identifier : _isSpace
-stdgo/_internal/fmt/Fmt.hx:2812: characters 46-59 : Unknown identifier : _errorHandler
-stdgo/_internal/fmt/Fmt.hx:2812: characters 46-59 : ... For function argument 'x'
-stdgo/_internal/fmt/Fmt.hx:2824: characters 26-34 : Unknown identifier : _isSpace
-stdgo/_internal/fmt/Fmt.hx:2842: characters 30-47 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2842: characters 72-89 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2851: characters 22-39 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2856: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2856: characters 68-85 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2644: characters 46-59 : Unknown identifier : _errorHandler
-stdgo/_internal/fmt/Fmt.hx:2644: characters 46-59 : ... For function argument 'x'
-stdgo/_internal/fmt/Fmt.hx:2664: characters 39-48 : Unknown identifier : _parsenum
-stdgo/_internal/fmt/Fmt.hx:2713: characters 30-47 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2713: characters 72-89 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2722: characters 22-39 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2727: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2727: characters 68-85 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2209: characters 30-47 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2209: characters 72-89 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2218: characters 22-39 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2222: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2222: characters 68-85 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/sort/Sort.hx:625: characters 35-96 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:788: characters 50-77 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:803: characters 76-98 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:803: characters 191-213 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:803: characters 306-328 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:674: characters 50-77 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:234: characters 35-96 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:397: characters 50-77 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:412: characters 76-98 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:412: characters 191-213 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:412: characters 306-328 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:283: characters 50-77 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:4533: characters 97-157 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3492: characters 40-65 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3494: characters 40-66 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3494: characters 144-169 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3496: characters 40-67 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3496: characters 144-170 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3496: characters 288-313 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:4045: characters 46-83 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:4045: characters 46-48 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:4045: characters 46-48 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:4045: characters 46-83 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/strconv/Strconv.hx:4065: characters 24-55 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:4092: characters 42-49 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:4092: characters 42-44 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:4092: characters 42-44 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:4092: characters 42-49 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/strconv/Strconv.hx:3376: characters 40-65 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3378: characters 40-66 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3378: characters 143-168 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:2715: characters 29-80 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:2715: characters 29-53 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:2715: characters 29-53 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:2715: characters 29-80 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/strconv/Strconv.hx:2969: characters 38-65 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:4117: characters 96-163 : Recursive operator method
-stdgo/_internal/io/Io.hx:1451: characters 36-41 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _rdCh
-stdgo/_internal/io/Io.hx:1455: characters 35-40 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1455: characters 55-60 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1458: characters 32-37 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1388: characters 30-47 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1388: characters 72-89 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1397: characters 22-39 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1402: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1402: characters 68-85 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1234: characters 22-39 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1238: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1238: characters 68-85 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1196: characters 22-39 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1201: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1201: characters 68-85 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1011: characters 39-50 : Unknown identifier : _copyBuffer
-stdgo/_internal/io/Io.hx:886: characters 17-31 : Unknown identifier : _blackHolePool
-stdgo/_internal/internal/abi/Abi.hx:941: characters 18-23 : Class<stdgo.Go> has no field print
-stdgo/_internal/internal/abi/Abi.hx:943: characters 22-27 : Class<stdgo.Go> has no field print
-stdgo/_internal/internal/abi/Abi.hx:945: characters 18-25 : Class<stdgo.Go> has no field println
-stdgo/_internal/internal/abi/Abi.hx:946: characters 18-23 : Class<stdgo.Go> has no field print
-stdgo/_internal/internal/abi/Abi.hx:948: characters 22-27 : Class<stdgo.Go> has no field print
-stdgo/_internal/internal/abi/Abi.hx:950: characters 18-25 : Class<stdgo.Go> has no field println
-stdgo/_internal/internal/abi/Abi.hx:951: characters 18-23 : Class<stdgo.Go> has no field print
-stdgo/_internal/internal/abi/Abi.hx:953: characters 22-27 : Class<stdgo.Go> has no field print
-stdgo/_internal/internal/abi/Abi.hx:955: characters 18-25 : Class<stdgo.Go> has no field println
-stdgo/_internal/internal/abi/Abi.hx:3502: characters 21-43 : Recursive operator method
-stdgo/_internal/internal/abi/Abi.hx:3507: characters 13-35 : Recursive operator method
-stdgo/_internal/internal/abi/Abi.hx:3507: characters 59-81 : Recursive operator method
-stdgo/_internal/reflect/Reflect.hx:1348: characters 30-35 : Class<Reflect> has no field field
-stdgo/AnyInterface.hx:119: characters 23-31 : Class<Reflect> has no field hasField
-stdgo/AnyInterface.hx:122: characters 37-42 : Class<Reflect> has no field field
-stdgo/AnyInterface.hx:123: characters 38-43 : Class<Reflect> has no field field
-stdgo/_internal/math/bits/Bits.hx:4287: characters 28-36 : Recursive operator method
-stdgo/_internal/math/bits/Bits.hx:4287: characters 28-31 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4287: characters 28-31 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4287: characters 28-36 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/math/bits/Bits.hx:4298: characters 35-47 : Recursive operator method
-stdgo/_internal/math/bits/Bits.hx:4298: characters 35-40 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4298: characters 35-40 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4298: characters 35-47 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/math/bits/Bits.hx:4308: characters 35-47 : Recursive operator method
-stdgo/_internal/math/bits/Bits.hx:4308: characters 35-40 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4308: characters 35-40 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4308: characters 35-47 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/math/bits/Bits.hx:4271: characters 32-58 : Recursive operator method
-stdgo/_internal/math/bits/Bits.hx:4271: characters 32-34 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4271: characters 32-34 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4271: characters 32-58 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-/home/runner/haxe/versions/3c97999/std/neko/_std/Std.hx:48: character 11 : `package stdgo;` in /home/runner/work/go2hx/go2hx/stdgo/Math.hx should be `package;`
-stdgo/_internal/math/Math.hx:982: characters 23-31 : Class<Math> has no field isFinite
-/home/runner/haxe/versions/3c97999/std/haxe/Int64Helper.hx:80: characters 30-38 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:964: characters 23-31 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:965: characters 25-31 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:89: characters 15-21 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:90: characters 28-34 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:91: characters 33-39 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:93: characters 21-46 : Float should be Int
-stdgo/GoNumber.hx:93: characters 55-80 : Float should be Int
-stdgo/GoNumber.hx:95: characters 32-38 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:97: characters 20-44 : Float should be Int
-stdgo/GoNumber.hx:97: characters 53-77 : Float should be Int
-/home/runner/haxe/versions/3c97999/std/neko/_std/Std.hx:48: characters 4-23 : Float should be Int
-/home/runner/haxe/versions/3c97999/std/neko/_std/Std.hx:49: characters 3-23 : Float should be Int
-stdgo/_internal/math/Math.hx:514: characters 106-123 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/_internal/math/Math.hx:514: characters 166-183 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/_internal/math/Math.hx:509: characters 41-58 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/_internal/math/Math.hx:510: characters 25-42 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/GoFloat64.hx:86: characters 21-38 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/GoFloat64.hx:88: characters 21-38 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/_internal/math/Math.hx:512: characters 48-51 : Class<Math> has no field NaN (Suggestion: naN)
-stdgo/_internal/math/Math.hx:571: characters 33-41 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:571: characters 79-87 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:593: characters 33-41 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:593: characters 79-87 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:1371: characters 23-31 : Class<Math> has no field isFinite
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:72: character 12 : `package stdgo;` in /home/runner/work/go2hx/go2hx/stdgo/Reflect.hx should be `package;`
-/home/runner/haxe/versions/3c97999/std/haxe/ds/BalancedTree.hx:226: characters 18-25 : Class<Reflect> has no field compare
-stdgo/AnyInterface.hx:119: characters 23-31 : Class<Reflect> has no field hasField
-stdgo/AnyInterface.hx:122: characters 37-42 : Class<Reflect> has no field field
-stdgo/AnyInterface.hx:123: characters 38-43 : Class<Reflect> has no field field
-stdgo/_internal/reflect/Reflect.hx:1348: characters 30-35 : Class<Reflect> has no field field
-/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:70: characters 22-33 : Class<Reflect> has no field isEnumValue
-/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:70: characters 49-60 : Class<Reflect> has no field isEnumValue
-/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:75: characters 12-19 : Class<Reflect> has no field compare
-/home/runner/haxe/versions/3c97999/std/neko/vm/Loader.hx:89: characters 21-27 : Class<Reflect> has no field fields
-/home/runner/haxe/versions/3c97999/std/neko/vm/Loader.hx:89: characters 13-34 : You can't iterate on a Dynamic value, please specify Iterator or Iterable
-/home/runner/haxe/versions/3c97999/std/neko/vm/Loader.hx:90: characters 32-37 : Class<Reflect> has no field field
-/home/runner/haxe/versions/3c97999/std/neko/vm/Loader.hx:99: characters 12-23 : Class<Reflect> has no field deleteField
-/home/runner/haxe/versions/3c97999/std/neko/vm/Loader.hx:101: characters 12-20 : Class<Reflect> has no field setField
-/home/runner/haxe/versions/3c97999/std/neko/vm/Module.hx:112: characters 21-27 : Class<Reflect> has no field fields
-/home/runner/haxe/versions/3c97999/std/neko/vm/Module.hx:112: characters 13-32 : You can't iterate on a Dynamic value, please specify Iterator or Iterable
-/home/runner/haxe/versions/3c97999/std/neko/vm/Module.hx:113: characters 21-26 : Class<Reflect> has no field field
-/home/runner/haxe/versions/3c97999/std/neko/vm/Module.hx:129: characters 11-19 : Class<Reflect> has no field setField
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:119: characters 27-32 : Class<Reflect> has no field field
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:121: characters 15-25 : Class<Reflect> has no field isFunction
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:123: characters 19-29 : Class<Reflect> has no field callMethod
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:137: characters 19-25 : Class<Reflect> has no field fields
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:140: characters 22-28 : Class<Reflect> has no field fields
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:140: characters 14-49 : You can't iterate on a Dynamic value, please specify Iterator or Iterable
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:154: characters 19-25 : Class<Reflect> has no field fields
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:227: characters 20-25 : Class<Reflect> has no field field
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:228: characters 17-27 : Class<Reflect> has no field isFunction
-stdgo/_internal/reflect/Reflect.hx:1017: characters 52-57 : Class<Reflect> has no field field
-stdgo/_internal/reflect/Reflect.hx:1018: characters 33-41 : Class<Reflect> has no field setField
-stdgo/_internal/internal/abi/Abi.hx:3450: lines 3450-3456 : Missing return: { _1 : stdgo.GoInt, _0 : stdgo.GoInt }
-stdgo/_internal/internal/abi/Abi.hx:861: lines 861-869 : Missing return: stdgo.GoInt
-stdgo/GoFloat32.hx:83: characters 21-38 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/GoFloat32.hx:85: characters 21-38 : Class<Math> has no field NEGATIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:25: characters 18-35 : Class<Math> has no field NEGATIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:33: characters 30-47 : Class<Math> has no field NEGATIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:51: characters 18-35 : Class<Math> has no field NEGATIVE_INFINITY
+# Module: `stdgo._internal.bytes`
 
+[(view library index)](../../stdgo.md)
+
+
+# Overview
+
+
+stdgo/_internal/internal/Macro.macro.hx:54: non hxb types:,414
+
+# Index
+
+
+- [Constants](<#constants>)
+
+- [Variables](<#variables>)
+
+- [`function _containsRune(_s:stdgo.GoString, _r:stdgo.GoRune):Bool`](<#function-_containsrune>)
+
+- [`function _explode(_s:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):stdgo.Slice<stdgo.Slice<stdgo.GoByte>>`](<#function-_explode>)
+
+- [`function _genSplit(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>, _sepSave:stdgo.GoInt, _n:stdgo.GoInt):stdgo.Slice<stdgo.Slice<stdgo.GoByte>>`](<#function-_gensplit>)
+
+- [`function _growSlice(_b:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoByte>`](<#function-_growslice>)
+
+- [`function _indexBytePortable(_s:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt`](<#function-_indexbyteportable>)
+
+- [`function _indexFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool, _truth:Bool):stdgo.GoInt`](<#function-_indexfunc>)
+
+- [`function _isSeparator(_r:stdgo.GoRune):Bool`](<#function-_isseparator>)
+
+- [`function _lastIndexFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool, _truth:Bool):stdgo.GoInt`](<#function-_lastindexfunc>)
+
+- [`function _makeASCIISet(_chars:stdgo.GoString):{
+	_1:Bool;
+	_0:stdgo._internal.bytes.T_asciiSet;
+}`](<#function-_makeasciiset>)
+
+- [`function _trimLeftASCII(_s:stdgo.Slice<stdgo.GoByte>, _as:stdgo.Ref<stdgo._internal.bytes.T_asciiSet>):stdgo.Slice<stdgo.GoByte>`](<#function-_trimleftascii>)
+
+- [`function _trimLeftByte(_s:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.Slice<stdgo.GoByte>`](<#function-_trimleftbyte>)
+
+- [`function _trimLeftUnicode(_s:stdgo.Slice<stdgo.GoByte>, _cutset:stdgo.GoString):stdgo.Slice<stdgo.GoByte>`](<#function-_trimleftunicode>)
+
+- [`function _trimRightASCII(_s:stdgo.Slice<stdgo.GoByte>, _as:stdgo.Ref<stdgo._internal.bytes.T_asciiSet>):stdgo.Slice<stdgo.GoByte>`](<#function-_trimrightascii>)
+
+- [`function _trimRightByte(_s:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.Slice<stdgo.GoByte>`](<#function-_trimrightbyte>)
+
+- [`function _trimRightUnicode(_s:stdgo.Slice<stdgo.GoByte>, _cutset:stdgo.GoString):stdgo.Slice<stdgo.GoByte>`](<#function-_trimrightunicode>)
+
+- [`function clone(_b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>`](<#function-clone>)
+
+- [`function compare(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt`](<#function-compare>)
+
+- [`function contains(_b:stdgo.Slice<stdgo.GoByte>, _subslice:stdgo.Slice<stdgo.GoByte>):Bool`](<#function-contains>)
+
+- [`function containsAny(_b:stdgo.Slice<stdgo.GoByte>, _chars:stdgo.GoString):Bool`](<#function-containsany>)
+
+- [`function containsFunc(_b:stdgo.Slice<stdgo.GoByte>, _f:()):Bool`](<#function-containsfunc>)
+
+- [`function containsRune(_b:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune):Bool`](<#function-containsrune>)
+
+- [`function count(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt`](<#function-count>)
+
+- [`function cut(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):{
+	_2:Bool;
+	_1:stdgo.Slice<stdgo.GoByte>;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}`](<#function-cut>)
+
+- [`function cutPrefix(_s:stdgo.Slice<stdgo.GoByte>, _prefix:stdgo.Slice<stdgo.GoByte>):{
+	_1:Bool;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}`](<#function-cutprefix>)
+
+- [`function cutSuffix(_s:stdgo.Slice<stdgo.GoByte>, _suffix:stdgo.Slice<stdgo.GoByte>):{
+	_1:Bool;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}`](<#function-cutsuffix>)
+
+- [`function equal(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>):Bool`](<#function-equal>)
+
+- [`function equalFold(_s:stdgo.Slice<stdgo.GoByte>, _t:stdgo.Slice<stdgo.GoByte>):Bool`](<#function-equalfold>)
+
+- [`function fields(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.Slice<stdgo.GoByte>>`](<#function-fields>)
+
+- [`function fieldsFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:()):stdgo.Slice<stdgo.Slice<stdgo.GoByte>>`](<#function-fieldsfunc>)
+
+- [`function hasPrefix(_s:stdgo.Slice<stdgo.GoByte>, _prefix:stdgo.Slice<stdgo.GoByte>):Bool`](<#function-hasprefix>)
+
+- [`function hasSuffix(_s:stdgo.Slice<stdgo.GoByte>, _suffix:stdgo.Slice<stdgo.GoByte>):Bool`](<#function-hassuffix>)
+
+- [`function index(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt`](<#function-index>)
+
+- [`function indexAny(_s:stdgo.Slice<stdgo.GoByte>, _chars:stdgo.GoString):stdgo.GoInt`](<#function-indexany>)
+
+- [`function indexByte(_b:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt`](<#function-indexbyte>)
+
+- [`function indexBytePortable(:stdgo.Slice<stdgo.GoUInt8>, :stdgo.GoUInt8):stdgo.GoInt`](<#function-indexbyteportable>)
+
+- [`function indexFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool):stdgo.GoInt`](<#function-indexfunc>)
+
+- [`function indexRune(_s:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune):stdgo.GoInt`](<#function-indexrune>)
+
+- [`function join(_s:stdgo.Slice<stdgo.Slice<stdgo.GoByte>>, _sep:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>`](<#function-join>)
+
+- [`function lastIndex(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt`](<#function-lastindex>)
+
+- [`function lastIndexAny(_s:stdgo.Slice<stdgo.GoByte>, _chars:stdgo.GoString):stdgo.GoInt`](<#function-lastindexany>)
+
+- [`function lastIndexByte(_s:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt`](<#function-lastindexbyte>)
+
+- [`function lastIndexFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool):stdgo.GoInt`](<#function-lastindexfunc>)
+
+- [`function map_(_mapping:(_r:stdgo.GoRune):stdgo.GoRune, _s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>`](<#function-map_>)
+
+- [`function newBuffer(_buf:stdgo.Slice<stdgo.GoByte>):stdgo.Ref<stdgo._internal.bytes.Buffer>`](<#function-newbuffer>)
+
+- [`function newBufferString(_s:stdgo.GoString):stdgo.Ref<stdgo._internal.bytes.Buffer>`](<#function-newbufferstring>)
+
+- [`function newReader(_b:stdgo.Slice<stdgo.GoByte>):stdgo.Ref<stdgo._internal.bytes.Reader>`](<#function-newreader>)
+
+- [`function repeat(_b:stdgo.Slice<stdgo.GoByte>, _count:stdgo.GoInt):stdgo.Slice<stdgo.GoByte>`](<#function-repeat>)
+
+- [`function replace(_s:stdgo.Slice<stdgo.GoByte>, _old:stdgo.Slice<stdgo.GoByte>, _new:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoByte>`](<#function-replace>)
+
+- [`function replaceAll(_s:stdgo.Slice<stdgo.GoByte>, _old:stdgo.Slice<stdgo.GoByte>, _new:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>`](<#function-replaceall>)
+
+- [`function runes(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoRune>`](<#function-runes>)
+
+- [`function split(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.Slice<stdgo.GoByte>>`](<#function-split>)
+
+- [`function splitAfter(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.Slice<stdgo.GoByte>>`](<#function-splitafter>)
+
+- [`function splitAfterN(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):stdgo.Slice<stdgo.Slice<stdgo.GoByte>>`](<#function-splitaftern>)
+
+- [`function splitN(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):stdgo.Slice<stdgo.Slice<stdgo.GoByte>>`](<#function-splitn>)
+
+- [`function title(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>`](<#function-title>)
+
+- [`function toLower(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>`](<#function-tolower>)
+
+- [`function toLowerSpecial(_c:stdgo._internal.unicode.SpecialCase, _s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>`](<#function-tolowerspecial>)
+
+- [`function toTitle(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>`](<#function-totitle>)
+
+- [`function toTitleSpecial(_c:stdgo._internal.unicode.SpecialCase, _s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>`](<#function-totitlespecial>)
+
+- [`function toUpper(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>`](<#function-toupper>)
+
+- [`function toUpperSpecial(_c:stdgo._internal.unicode.SpecialCase, _s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>`](<#function-toupperspecial>)
+
+- [`function toValidUTF8(_s:stdgo.Slice<stdgo.GoByte>, _replacement:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>`](<#function-tovalidutf8>)
+
+- [`function trim(_s:stdgo.Slice<stdgo.GoByte>, _cutset:stdgo.GoString):stdgo.Slice<stdgo.GoByte>`](<#function-trim>)
+
+- [`function trimFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool):stdgo.Slice<stdgo.GoByte>`](<#function-trimfunc>)
+
+- [`function trimLeft(_s:stdgo.Slice<stdgo.GoByte>, _cutset:stdgo.GoString):stdgo.Slice<stdgo.GoByte>`](<#function-trimleft>)
+
+- [`function trimLeftFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool):stdgo.Slice<stdgo.GoByte>`](<#function-trimleftfunc>)
+
+- [`function trimPrefix(_s:stdgo.Slice<stdgo.GoByte>, _prefix:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>`](<#function-trimprefix>)
+
+- [`function trimRight(_s:stdgo.Slice<stdgo.GoByte>, _cutset:stdgo.GoString):stdgo.Slice<stdgo.GoByte>`](<#function-trimright>)
+
+- [`function trimRightFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool):stdgo.Slice<stdgo.GoByte>`](<#function-trimrightfunc>)
+
+- [`function trimSpace(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>`](<#function-trimspace>)
+
+- [`function trimSuffix(_s:stdgo.Slice<stdgo.GoByte>, _suffix:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>`](<#function-trimsuffix>)
+
+- [class Buffer](<#class-buffer>)
+
+  - [`function new(?_buf:stdgo.Slice<stdgo.GoUInt8>, ?_off:stdgo.GoInt, ?_lastRead:Null<stdgo._internal.bytes.T_readOp>):Void`](<#buffer-function-new>)
+
+  - [`function _empty():Bool`](<#buffer-function-_empty>)
+
+  - [`function _grow( _n:stdgo.GoInt):stdgo.GoInt`](<#buffer-function-_grow>)
+
+  - [`function _readSlice( _delim:stdgo.GoByte):{ _1:stdgo.Error; _0:stdgo.Slice<stdgo.GoByte>;}`](<#buffer-function-_readslice>)
+
+  - [`function _tryGrowByReslice( _n:stdgo.GoInt):{ _1:Bool; _0:stdgo.GoInt;}`](<#buffer-function-_trygrowbyreslice>)
+
+  - [`function available():stdgo.GoInt`](<#buffer-function-available>)
+
+  - [`function availableBuffer():stdgo.Slice<stdgo.GoByte>`](<#buffer-function-availablebuffer>)
+
+  - [`function bytes():stdgo.Slice<stdgo.GoByte>`](<#buffer-function-bytes>)
+
+  - [`function cap():stdgo.GoInt`](<#buffer-function-cap>)
+
+  - [`function grow( _n:stdgo.GoInt):Void`](<#buffer-function-grow>)
+
+  - [`function len():stdgo.GoInt`](<#buffer-function-len>)
+
+  - [`function next( _n:stdgo.GoInt):stdgo.Slice<stdgo.GoByte>`](<#buffer-function-next>)
+
+  - [`function read( _p:stdgo.Slice<stdgo.GoByte>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#buffer-function-read>)
+
+  - [`function readByte():{ _1:stdgo.Error; _0:stdgo.GoByte;}`](<#buffer-function-readbyte>)
+
+  - [`function readBytes( _delim:stdgo.GoByte):{ _1:stdgo.Error; _0:stdgo.Slice<stdgo.GoByte>;}`](<#buffer-function-readbytes>)
+
+  - [`function readFrom( _r:stdgo._internal.io.Reader):{ _1:stdgo.Error; _0:stdgo.GoInt64;}`](<#buffer-function-readfrom>)
+
+  - [`function readRune():{ _2:stdgo.Error; _1:stdgo.GoInt; _0:stdgo.GoRune;}`](<#buffer-function-readrune>)
+
+  - [`function readString( _delim:stdgo.GoByte):{ _1:stdgo.Error; _0:stdgo.GoString;}`](<#buffer-function-readstring>)
+
+  - [`function reset():Void`](<#buffer-function-reset>)
+
+  - [`function string():stdgo.GoString`](<#buffer-function-string>)
+
+  - [`function truncate( _n:stdgo.GoInt):Void`](<#buffer-function-truncate>)
+
+  - [`function unreadByte():stdgo.Error`](<#buffer-function-unreadbyte>)
+
+  - [`function unreadRune():stdgo.Error`](<#buffer-function-unreadrune>)
+
+  - [`function write( _p:stdgo.Slice<stdgo.GoByte>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#buffer-function-write>)
+
+  - [`function writeByte( _c:stdgo.GoByte):stdgo.Error`](<#buffer-function-writebyte>)
+
+  - [`function writeRune( _r:stdgo.GoRune):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#buffer-function-writerune>)
+
+  - [`function writeString( _s:stdgo.GoString):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#buffer-function-writestring>)
+
+  - [`function writeTo( _w:stdgo._internal.io.Writer):{ _1:stdgo.Error; _0:stdgo.GoInt64;}`](<#buffer-function-writeto>)
+
+- [class Reader](<#class-reader>)
+
+  - [`function new(?_s:stdgo.Slice<stdgo.GoUInt8>, ?_i:stdgo.GoInt64, ?_prevRune:stdgo.GoInt):Void`](<#reader-function-new>)
+
+  - [`function len():stdgo.GoInt`](<#reader-function-len>)
+
+  - [`function read( _b:stdgo.Slice<stdgo.GoByte>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#reader-function-read>)
+
+  - [`function readAt( _b:stdgo.Slice<stdgo.GoByte>, _off:stdgo.GoInt64):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#reader-function-readat>)
+
+  - [`function readByte():{ _1:stdgo.Error; _0:stdgo.GoByte;}`](<#reader-function-readbyte>)
+
+  - [`function readRune():{ _2:stdgo.Error; _1:stdgo.GoInt; _0:stdgo.GoRune;}`](<#reader-function-readrune>)
+
+  - [`function reset( _b:stdgo.Slice<stdgo.GoByte>):Void`](<#reader-function-reset>)
+
+  - [`function seek( _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{ _1:stdgo.Error; _0:stdgo.GoInt64;}`](<#reader-function-seek>)
+
+  - [`function size():stdgo.GoInt64`](<#reader-function-size>)
+
+  - [`function unreadByte():stdgo.Error`](<#reader-function-unreadbyte>)
+
+  - [`function unreadRune():stdgo.Error`](<#reader-function-unreadrune>)
+
+  - [`function writeTo( _w:stdgo._internal.io.Writer):{ _1:stdgo.Error; _0:stdgo.GoInt64;}`](<#reader-function-writeto>)
+
+- [class T\_fieldsFunc\_7\_\_\_localname\_\_\_span](<#class-t_fieldsfunc_7localnamespan>)
+
+  - [`function new(?_start:stdgo.GoInt, ?_end:stdgo.GoInt):Void`](<#t_fieldsfunc_7localnamespan-function-new>)
+
+- [typedef T\_asciiSet](<#typedef-t_asciiset>)
+
+- [typedef T\_readOp](<#typedef-t_readop>)
+
+# Examples
+
+
+- [`exampleClone`](<#exampleclone>)
+
+- [`exampleCompare`](<#examplecompare>)
+
+- [`exampleCompare_search`](<#examplecompare_search>)
+
+- [`exampleContains`](<#examplecontains>)
+
+- [`exampleContainsAny`](<#examplecontainsany>)
+
+- [`exampleContainsRune`](<#examplecontainsrune>)
+
+- [`exampleCount`](<#examplecount>)
+
+- [`exampleCut`](<#examplecut>)
+
+- [`exampleCutPrefix`](<#examplecutprefix>)
+
+- [`exampleCutSuffix`](<#examplecutsuffix>)
+
+- [`exampleEqual`](<#exampleequal>)
+
+- [`exampleEqualFold`](<#exampleequalfold>)
+
+- [`exampleFields`](<#examplefields>)
+
+- [`exampleFieldsFunc`](<#examplefieldsfunc>)
+
+- [`exampleHasPrefix`](<#examplehasprefix>)
+
+- [`exampleHasSuffix`](<#examplehassuffix>)
+
+- [`exampleIndex`](<#exampleindex>)
+
+- [`exampleIndexAny`](<#exampleindexany>)
+
+- [`exampleIndexByte`](<#exampleindexbyte>)
+
+- [`exampleIndexFunc`](<#exampleindexfunc>)
+
+- [`exampleIndexRune`](<#exampleindexrune>)
+
+- [`exampleJoin`](<#examplejoin>)
+
+- [`exampleLastIndex`](<#examplelastindex>)
+
+- [`exampleLastIndexAny`](<#examplelastindexany>)
+
+- [`exampleLastIndexByte`](<#examplelastindexbyte>)
+
+- [`exampleLastIndexFunc`](<#examplelastindexfunc>)
+
+- [`exampleRepeat`](<#examplerepeat>)
+
+- [`exampleReplace`](<#examplereplace>)
+
+- [`exampleReplaceAll`](<#examplereplaceall>)
+
+- [`exampleRunes`](<#examplerunes>)
+
+- [`exampleSplit`](<#examplesplit>)
+
+- [`exampleSplitAfter`](<#examplesplitafter>)
+
+- [`exampleSplitAfterN`](<#examplesplitaftern>)
+
+- [`exampleSplitN`](<#examplesplitn>)
+
+- [`exampleTitle`](<#exampletitle>)
+
+- [`exampleToLower`](<#exampletolower>)
+
+- [`exampleToLowerSpecial`](<#exampletolowerspecial>)
+
+- [`exampleToTitle`](<#exampletotitle>)
+
+- [`exampleToTitleSpecial`](<#exampletotitlespecial>)
+
+- [`exampleToUpper`](<#exampletoupper>)
+
+- [`exampleToUpperSpecial`](<#exampletoupperspecial>)
+
+- [`exampleToValidUTF8`](<#exampletovalidutf8>)
+
+- [`exampleTrim`](<#exampletrim>)
+
+- [`exampleTrimFunc`](<#exampletrimfunc>)
+
+- [`exampleTrimLeft`](<#exampletrimleft>)
+
+- [`exampleTrimLeftFunc`](<#exampletrimleftfunc>)
+
+- [`exampleTrimPrefix`](<#exampletrimprefix>)
+
+- [`exampleTrimRight`](<#exampletrimright>)
+
+- [`exampleTrimRightFunc`](<#exampletrimrightfunc>)
+
+- [`exampleTrimSpace`](<#exampletrimspace>)
+
+- [`exampleTrimSuffix`](<#exampletrimsuffix>)
+
+# Constants
+
+
+```haxe
+import stdgo._internal.bytes.Bytes
 ```
+
+
+```haxe
+final _maxInt:stdgo.GoInt = ((((2147483647u32 : stdgo.GoUInt)) : stdgo.GoInt))
+```
+
+
+```haxe
+final _opInvalid:stdgo._internal.bytes.T_readOp = ((0 : stdgo._internal.bytes.Bytes.T_readOp))
+```
+
+
+```haxe
+final _opRead:stdgo._internal.bytes.T_readOp = ((-1 : stdgo._internal.bytes.Bytes.T_readOp))
+```
+
+
+```haxe
+final _opReadRune1:stdgo._internal.bytes.T_readOp = ((1 : stdgo._internal.bytes.Bytes.T_readOp))
+```
+
+
+```haxe
+final _opReadRune2:stdgo._internal.bytes.T_readOp = ((2 : stdgo._internal.bytes.Bytes.T_readOp))
+```
+
+
+```haxe
+final _opReadRune3:stdgo._internal.bytes.T_readOp = ((3 : stdgo._internal.bytes.Bytes.T_readOp))
+```
+
+
+```haxe
+final _opReadRune4:stdgo._internal.bytes.T_readOp = ((4 : stdgo._internal.bytes.Bytes.T_readOp))
+```
+
+
+```haxe
+final _smallBufferSize:stdgo.GoUInt64 = ((64i64 : stdgo.GoUInt64))
+```
+
+
+```haxe
+final minRead:stdgo.GoUInt64 = ((512i64 : stdgo.GoUInt64))
+```
+
+
+# Variables
+
+
+```haxe
+import stdgo._internal.bytes.Bytes
+```
+
+
+```haxe
+var _asciiSpace:stdgo.GoArray<stdgo.GoUInt8>
+```
+
+
+```haxe
+var _errNegativeRead:stdgo.Error
+```
+
+
+```haxe
+var _errUnreadByte:stdgo.Error
+```
+
+
+```haxe
+var errTooLarge:stdgo.Error
+```
+
+
+# Functions
+
+
+```haxe
+import stdgo._internal.bytes.Bytes
+```
+
+
+## function \_containsRune
+
+
+```haxe
+function _containsRune(_s:stdgo.GoString, _r:stdgo.GoRune):Bool
+```
+
+
+[\(view code\)](<./Bytes.hx#L872>)
+
+
+## function \_explode
+
+
+```haxe
+function _explode(_s:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):stdgo.Slice<stdgo.Slice<stdgo.GoByte>>
+```
+
+
+[\(view code\)](<./Bytes.hx#L119>)
+
+
+## function \_genSplit
+
+
+```haxe
+function _genSplit(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>, _sepSave:stdgo.GoInt, _n:stdgo.GoInt):stdgo.Slice<stdgo.Slice<stdgo.GoByte>>
+```
+
+
+[\(view code\)](<./Bytes.hx#L424>)
+
+
+## function \_growSlice
+
+
+```haxe
+function _growSlice(_b:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoByte>
+```
+
+
+[\(view code\)](<./Bytes.hx#L56>)
+
+
+## function \_indexBytePortable
+
+
+```haxe
+function _indexBytePortable(_s:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt
+```
+
+
+[\(view code\)](<./Bytes.hx#L174>)
+
+
+## function \_indexFunc
+
+
+```haxe
+function _indexFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool, _truth:Bool):stdgo.GoInt
+```
+
+
+[\(view code\)](<./Bytes.hx#L819>)
+
+
+## function \_isSeparator
+
+
+```haxe
+function _isSeparator(_r:stdgo.GoRune):Bool
+```
+
+
+[\(view code\)](<./Bytes.hx#L752>)
+
+
+## function \_lastIndexFunc
+
+
+```haxe
+function _lastIndexFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool, _truth:Bool):stdgo.GoInt
+```
+
+
+[\(view code\)](<./Bytes.hx#L838>)
+
+
+## function \_makeASCIISet
+
+
+```haxe
+function _makeASCIISet(_chars:stdgo.GoString):{
+	_1:Bool;
+	_0:stdgo._internal.bytes.T_asciiSet;
+}
+```
+
+
+[\(view code\)](<./Bytes.hx#L858>)
+
+
+## function \_trimLeftASCII
+
+
+```haxe
+function _trimLeftASCII(_s:stdgo.Slice<stdgo.GoByte>, _as:stdgo.Ref<stdgo._internal.bytes.T_asciiSet>):stdgo.Slice<stdgo.GoByte>
+```
+
+
+[\(view code\)](<./Bytes.hx#L925>)
+
+
+## function \_trimLeftByte
+
+
+```haxe
+function _trimLeftByte(_s:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.Slice<stdgo.GoByte>
+```
+
+
+[\(view code\)](<./Bytes.hx#L916>)
+
+
+## function \_trimLeftUnicode
+
+
+```haxe
+function _trimLeftUnicode(_s:stdgo.Slice<stdgo.GoByte>, _cutset:stdgo.GoString):stdgo.Slice<stdgo.GoByte>
+```
+
+
+[\(view code\)](<./Bytes.hx#L937>)
+
+
+## function \_trimRightASCII
+
+
+```haxe
+function _trimRightASCII(_s:stdgo.Slice<stdgo.GoByte>, _as:stdgo.Ref<stdgo._internal.bytes.T_asciiSet>):stdgo.Slice<stdgo.GoByte>
+```
+
+
+[\(view code\)](<./Bytes.hx#L978>)
+
+
+## function \_trimRightByte
+
+
+```haxe
+function _trimRightByte(_s:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.Slice<stdgo.GoByte>
+```
+
+
+[\(view code\)](<./Bytes.hx#L972>)
+
+
+## function \_trimRightUnicode
+
+
+```haxe
+function _trimRightUnicode(_s:stdgo.Slice<stdgo.GoByte>, _cutset:stdgo.GoString):stdgo.Slice<stdgo.GoByte>
+```
+
+
+[\(view code\)](<./Bytes.hx#L987>)
+
+
+## function clone
+
+
+```haxe
+function clone(_b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
+```
+
+
+### exampleClone
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleClone():Void {
+        var _b = (("abc" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
+        var _clone = stdgo._internal.bytes.Bytes.clone(_b);
+        stdgo._internal.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(_clone));
+        _clone[(0 : stdgo.GoInt)] = (100 : stdgo.GoUInt8);
+        stdgo._internal.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(_b));
+        stdgo._internal.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(_clone));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L1253>)
+
+
+## function compare
+
+
+```haxe
+function compare(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt
+```
+
+
+### exampleCompare
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleCompare():Void {
+        var __0:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>), __1:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>), _b:stdgo.Slice<stdgo.GoByte> = __1, _a:stdgo.Slice<stdgo.GoByte> = __0;
+        if ((stdgo._internal.bytes.Bytes.compare(_a, _b) < (0 : stdgo.GoInt) : Bool)) {};
+        if ((stdgo._internal.bytes.Bytes.compare(_a, _b) <= (0 : stdgo.GoInt) : Bool)) {};
+        if ((stdgo._internal.bytes.Bytes.compare(_a, _b) > (0 : stdgo.GoInt) : Bool)) {};
+        if ((stdgo._internal.bytes.Bytes.compare(_a, _b) >= (0 : stdgo.GoInt) : Bool)) {};
+        if (stdgo._internal.bytes.Bytes.equal(_a, _b)) {};
+        if (!stdgo._internal.bytes.Bytes.equal(_a, _b)) {};
+    }
+```
+
+
+</p>
+</details>
+
+
+### exampleCompare\_search
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleCompare_search():Void {
+        var _needle:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
+        var _haystack:stdgo.Slice<stdgo.Slice<stdgo.GoByte>> = (null : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
+        var _i:stdgo.GoInt = stdgo._internal.sort.Sort.search((_haystack.length), function(_i:stdgo.GoInt):Bool {
+            return (stdgo._internal.bytes.Bytes.compare(_haystack[(_i : stdgo.GoInt)], _needle) >= (0 : stdgo.GoInt) : Bool);
+        });
+        if (((_i < (_haystack.length) : Bool) && stdgo._internal.bytes.Bytes.equal(_haystack[(_i : stdgo.GoInt)], _needle) : Bool)) {};
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L116>)
+
+
+## function contains
+
+
+```haxe
+function contains(_b:stdgo.Slice<stdgo.GoByte>, _subslice:stdgo.Slice<stdgo.GoByte>):Bool
+```
+
+
+### exampleContains
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleContains():Void {
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.contains((("seafood" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("foo" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.contains((("seafood" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("bar" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.contains((("seafood" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (stdgo.Go.str() : stdgo.Slice<stdgo.GoByte>))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.contains((stdgo.Go.str() : stdgo.Slice<stdgo.GoByte>), (stdgo.Go.str() : stdgo.Slice<stdgo.GoByte>))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L159>)
+
+
+## function containsAny
+
+
+```haxe
+function containsAny(_b:stdgo.Slice<stdgo.GoByte>, _chars:stdgo.GoString):Bool
+```
+
+
+### exampleContainsAny
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleContainsAny():Void {
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.containsAny((("I like seafood." : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), ("fÄo!" : stdgo.GoString))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.containsAny((("I like seafood." : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), ("去是伟大的." : stdgo.GoString))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.containsAny((("I like seafood." : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), stdgo.Go.str()?.__copy__())));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.containsAny((stdgo.Go.str() : stdgo.Slice<stdgo.GoByte>), stdgo.Go.str()?.__copy__())));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L162>)
+
+
+## function containsFunc
+
+
+```haxe
+function containsFunc(_b:stdgo.Slice<stdgo.GoByte>, _f:()):Bool
+```
+
+
+[\(view code\)](<./Bytes.hx#L168>)
+
+
+## function containsRune
+
+
+```haxe
+function containsRune(_b:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune):Bool
+```
+
+
+### exampleContainsRune
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleContainsRune():Void {
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.containsRune((("I like seafood." : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (102 : stdgo.GoInt32))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.containsRune((("I like seafood." : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (246 : stdgo.GoInt32))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.containsRune((("去是伟大的!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (22823 : stdgo.GoInt32))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.containsRune((("去是伟大的!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (33 : stdgo.GoInt32))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.containsRune((stdgo.Go.str() : stdgo.Slice<stdgo.GoByte>), (64 : stdgo.GoInt32))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L165>)
+
+
+## function count
+
+
+```haxe
+function count(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt
+```
+
+
+### exampleCount
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleCount():Void {
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.count((("cheese" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("e" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.count((("five" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (stdgo.Go.str() : stdgo.Slice<stdgo.GoByte>))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L142>)
+
+
+## function cut
+
+
+```haxe
+function cut(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):{
+	_2:Bool;
+	_1:stdgo.Slice<stdgo.GoByte>;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}
+```
+
+
+### exampleCut
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleCut():Void {
+        var _show:(stdgo.GoString, stdgo.GoString) -> Void = function(_s:stdgo.GoString, _sep:stdgo.GoString):Void {
+            var __tmp__ = stdgo._internal.bytes.Bytes.cut((_s : stdgo.Slice<stdgo.GoByte>), (_sep : stdgo.Slice<stdgo.GoByte>)), _before:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _after:stdgo.Slice<stdgo.GoUInt8> = __tmp__._1, _found:Bool = __tmp__._2;
+            stdgo._internal.fmt.Fmt.printf(("Cut(%q, %q) = %q, %q, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_sep), stdgo.Go.toInterface(_before), stdgo.Go.toInterface(_after), stdgo.Go.toInterface(_found));
+        };
+        _show(("Gopher" : stdgo.GoString), ("Go" : stdgo.GoString));
+        _show(("Gopher" : stdgo.GoString), ("ph" : stdgo.GoString));
+        _show(("Gopher" : stdgo.GoString), ("er" : stdgo.GoString));
+        _show(("Gopher" : stdgo.GoString), ("Badger" : stdgo.GoString));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L1243>)
+
+
+## function cutPrefix
+
+
+```haxe
+function cutPrefix(_s:stdgo.Slice<stdgo.GoByte>, _prefix:stdgo.Slice<stdgo.GoByte>):{
+	_1:Bool;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}
+```
+
+
+### exampleCutPrefix
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleCutPrefix():Void {
+        var _show:(stdgo.GoString, stdgo.GoString) -> Void = function(_s:stdgo.GoString, _sep:stdgo.GoString):Void {
+            var __tmp__ = stdgo._internal.bytes.Bytes.cutPrefix((_s : stdgo.Slice<stdgo.GoByte>), (_sep : stdgo.Slice<stdgo.GoByte>)), _after:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _found:Bool = __tmp__._1;
+            stdgo._internal.fmt.Fmt.printf(("CutPrefix(%q, %q) = %q, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_sep), stdgo.Go.toInterface(_after), stdgo.Go.toInterface(_found));
+        };
+        _show(("Gopher" : stdgo.GoString), ("Go" : stdgo.GoString));
+        _show(("Gopher" : stdgo.GoString), ("ph" : stdgo.GoString));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L1259>)
+
+
+## function cutSuffix
+
+
+```haxe
+function cutSuffix(_s:stdgo.Slice<stdgo.GoByte>, _suffix:stdgo.Slice<stdgo.GoByte>):{
+	_1:Bool;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}
+```
+
+
+### exampleCutSuffix
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleCutSuffix():Void {
+        var _show:(stdgo.GoString, stdgo.GoString) -> Void = function(_s:stdgo.GoString, _sep:stdgo.GoString):Void {
+            var __tmp__ = stdgo._internal.bytes.Bytes.cutSuffix((_s : stdgo.Slice<stdgo.GoByte>), (_sep : stdgo.Slice<stdgo.GoByte>)), _before:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _found:Bool = __tmp__._1;
+            stdgo._internal.fmt.Fmt.printf(("CutSuffix(%q, %q) = %q, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_sep), stdgo.Go.toInterface(_before), stdgo.Go.toInterface(_found));
+        };
+        _show(("Gopher" : stdgo.GoString), ("Go" : stdgo.GoString));
+        _show(("Gopher" : stdgo.GoString), ("er" : stdgo.GoString));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L1266>)
+
+
+## function equal
+
+
+```haxe
+function equal(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>):Bool
+```
+
+
+### exampleEqual
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleEqual():Void {
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.equal((("Go" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("Go" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.equal((("Go" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("C++" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L113>)
+
+
+## function equalFold
+
+
+```haxe
+function equalFold(_s:stdgo.Slice<stdgo.GoByte>, _t:stdgo.Slice<stdgo.GoByte>):Bool
+```
+
+
+### exampleEqualFold
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleEqualFold():Void {
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.equalFold((("Go" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("go" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L1078>)
+
+
+## function fields
+
+
+```haxe
+function fields(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.Slice<stdgo.GoByte>>
+```
+
+
+### exampleFields
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleFields():Void {
+        stdgo._internal.fmt.Fmt.printf(("Fields are: %q" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.fields((("  foo bar  baz   " : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L464>)
+
+
+## function fieldsFunc
+
+
+```haxe
+function fieldsFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:()):stdgo.Slice<stdgo.Slice<stdgo.GoByte>>
+```
+
+
+### exampleFieldsFunc
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleFieldsFunc():Void {
+        var _f:stdgo.GoInt32 -> Bool = function(_c:stdgo.GoRune):Bool {
+            return (!stdgo._internal.unicode.Unicode.isLetter(_c) && !stdgo._internal.unicode.Unicode.isNumber(_c) : Bool);
+        };
+        stdgo._internal.fmt.Fmt.printf(("Fields are: %q" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.fieldsFunc((("  foo1;bar2,baz3..." : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), _f)));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L519>)
+
+
+## function hasPrefix
+
+
+```haxe
+function hasPrefix(_s:stdgo.Slice<stdgo.GoByte>, _prefix:stdgo.Slice<stdgo.GoByte>):Bool
+```
+
+
+### exampleHasPrefix
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleHasPrefix():Void {
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.hasPrefix((("Gopher" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("Go" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.hasPrefix((("Gopher" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("C" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.hasPrefix((("Gopher" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (stdgo.Go.str() : stdgo.Slice<stdgo.GoByte>))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L585>)
+
+
+## function hasSuffix
+
+
+```haxe
+function hasSuffix(_s:stdgo.Slice<stdgo.GoByte>, _suffix:stdgo.Slice<stdgo.GoByte>):Bool
+```
+
+
+### exampleHasSuffix
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleHasSuffix():Void {
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.hasSuffix((("Amigo" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("go" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.hasSuffix((("Amigo" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("O" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.hasSuffix((("Amigo" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("Ami" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.hasSuffix((("Amigo" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (stdgo.Go.str() : stdgo.Slice<stdgo.GoByte>))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L588>)
+
+
+## function index
+
+
+```haxe
+function index(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt
+```
+
+
+### exampleIndex
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleIndex():Void {
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.index((("chicken" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("ken" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.index((("chicken" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("dmr" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L1170>)
+
+
+## function indexAny
+
+
+```haxe
+function indexAny(_s:stdgo.Slice<stdgo.GoByte>, _chars:stdgo.GoString):stdgo.GoInt
+```
+
+
+### exampleIndexAny
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleIndexAny():Void {
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.indexAny((("chicken" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), ("aeiouy" : stdgo.GoString))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.indexAny((("crwth" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), ("aeiouy" : stdgo.GoString))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L255>)
+
+
+## function indexByte
+
+
+```haxe
+function indexByte(_b:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt
+```
+
+
+### exampleIndexByte
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleIndexByte():Void {
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.indexByte((("chicken" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), ((107 : stdgo.GoUInt8) : stdgo.GoByte))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.indexByte((("chicken" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), ((103 : stdgo.GoUInt8) : stdgo.GoByte))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L171>)
+
+
+## function indexBytePortable
+
+
+```haxe
+function indexBytePortable(:stdgo.Slice<stdgo.GoUInt8>, :stdgo.GoUInt8):stdgo.GoInt
+```
+
+
+[\(view code\)](<./Bytes.hx#L25>)
+
+
+## function indexFunc
+
+
+```haxe
+function indexFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool):stdgo.GoInt
+```
+
+
+### exampleIndexFunc
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleIndexFunc():Void {
+        var _f:stdgo.GoInt32 -> Bool = function(_c:stdgo.GoRune):Bool {
+            return stdgo._internal.unicode.Unicode.is_(stdgo._internal.unicode.Unicode.han, _c);
+        };
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.indexFunc((("Hello, 世界" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), _f)));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.indexFunc((("Hello, world" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), _f)));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L813>)
+
+
+## function indexRune
+
+
+```haxe
+function indexRune(_s:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune):stdgo.GoInt
+```
+
+
+### exampleIndexRune
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleIndexRune():Void {
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.indexRune((("chicken" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (107 : stdgo.GoInt32))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.indexRune((("chicken" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (100 : stdgo.GoInt32))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L232>)
+
+
+## function join
+
+
+```haxe
+function join(_s:stdgo.Slice<stdgo.Slice<stdgo.GoByte>>, _sep:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
+```
+
+
+### exampleJoin
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleJoin():Void {
+        var _s = (new stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>(3, 3, ...[(("foo" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("bar" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("baz" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>)]) : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
+        stdgo._internal.fmt.Fmt.printf(("%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.join(_s, ((", " : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L557>)
+
+
+## function lastIndex
+
+
+```haxe
+function lastIndex(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt
+```
+
+
+### exampleLastIndex
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleLastIndex():Void {
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.index((("go gopher" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("go" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.lastIndex((("go gopher" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("go" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.lastIndex((("go gopher" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("rodent" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L182>)
+
+
+## function lastIndexAny
+
+
+```haxe
+function lastIndexAny(_s:stdgo.Slice<stdgo.GoByte>, _chars:stdgo.GoString):stdgo.GoInt
+```
+
+
+### exampleLastIndexAny
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleLastIndexAny():Void {
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.lastIndexAny((("go gopher" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), ("MüQp" : stdgo.GoString))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.lastIndexAny((("go 地鼠" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), ("地大" : stdgo.GoString))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.lastIndexAny((("go gopher" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), ("z,!." : stdgo.GoString))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L335>)
+
+
+## function lastIndexByte
+
+
+```haxe
+function lastIndexByte(_s:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt
+```
+
+
+### exampleLastIndexByte
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleLastIndexByte():Void {
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.lastIndexByte((("go gopher" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), ((103 : stdgo.GoUInt8) : stdgo.GoByte))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.lastIndexByte((("go gopher" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), ((114 : stdgo.GoUInt8) : stdgo.GoByte))));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.lastIndexByte((("go gopher" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), ((122 : stdgo.GoUInt8) : stdgo.GoByte))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L221>)
+
+
+## function lastIndexFunc
+
+
+```haxe
+function lastIndexFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool):stdgo.GoInt
+```
+
+
+### exampleLastIndexFunc
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleLastIndexFunc():Void {
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.lastIndexFunc((("go gopher!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), stdgo._internal.unicode.Unicode.isLetter)));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.lastIndexFunc((("go gopher!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), stdgo._internal.unicode.Unicode.isPunct)));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.lastIndexFunc((("go gopher!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), stdgo._internal.unicode.Unicode.isNumber)));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L816>)
+
+
+## function map\_
+
+
+```haxe
+function map_(_mapping:(_r:stdgo.GoRune):stdgo.GoRune, _s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
+```
+
+
+[\(view code\)](<./Bytes.hx#L591>)
+
+
+## function newBuffer
+
+
+```haxe
+function newBuffer(_buf:stdgo.Slice<stdgo.GoByte>):stdgo.Ref<stdgo._internal.bytes.Buffer>
+```
+
+
+[\(view code\)](<./Bytes.hx#L107>)
+
+
+## function newBufferString
+
+
+```haxe
+function newBufferString(_s:stdgo.GoString):stdgo.Ref<stdgo._internal.bytes.Buffer>
+```
+
+
+[\(view code\)](<./Bytes.hx#L110>)
+
+
+## function newReader
+
+
+```haxe
+function newReader(_b:stdgo.Slice<stdgo.GoByte>):stdgo.Ref<stdgo._internal.bytes.Reader>
+```
+
+
+[\(view code\)](<./Bytes.hx#L1273>)
+
+
+## function repeat
+
+
+```haxe
+function repeat(_b:stdgo.Slice<stdgo.GoByte>, _count:stdgo.GoInt):stdgo.Slice<stdgo.GoByte>
+```
+
+
+### exampleRepeat
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleRepeat():Void {
+        stdgo._internal.fmt.Fmt.printf(("ba%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.repeat((("na" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (2 : stdgo.GoInt))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L614>)
+
+
+## function replace
+
+
+```haxe
+function replace(_s:stdgo.Slice<stdgo.GoByte>, _old:stdgo.Slice<stdgo.GoByte>, _new:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoByte>
+```
+
+
+### exampleReplace
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleReplace():Void {
+        stdgo._internal.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.replace((("oink oink oink" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("k" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("ky" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (2 : stdgo.GoInt))));
+        stdgo._internal.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.replace((("oink oink oink" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("oink" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("moo" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (-1 : stdgo.GoInt))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L1041>)
+
+
+## function replaceAll
+
+
+```haxe
+function replaceAll(_s:stdgo.Slice<stdgo.GoByte>, _old:stdgo.Slice<stdgo.GoByte>, _new:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
+```
+
+
+### exampleReplaceAll
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleReplaceAll():Void {
+        stdgo._internal.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.replaceAll((("oink oink oink" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("oink" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("moo" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L1075>)
+
+
+## function runes
+
+
+```haxe
+function runes(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoRune>
+```
+
+
+### exampleRunes
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleRunes():Void {
+        var _rs = stdgo._internal.bytes.Bytes.runes((("go gopher" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>));
+        for (__0 => _r in _rs) {
+            stdgo._internal.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(_r));
+        };
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L1030>)
+
+
+## function split
+
+
+```haxe
+function split(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.Slice<stdgo.GoByte>>
+```
+
+
+### exampleSplit
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleSplit():Void {
+        stdgo._internal.fmt.Fmt.printf(("%q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.split((("a,b,c" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("," : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+        stdgo._internal.fmt.Fmt.printf(("%q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.split((("a man a plan a canal panama" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("a " : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+        stdgo._internal.fmt.Fmt.printf(("%q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.split(((" xyz " : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (stdgo.Go.str() : stdgo.Slice<stdgo.GoByte>))));
+        stdgo._internal.fmt.Fmt.printf(("%q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.split((stdgo.Go.str() : stdgo.Slice<stdgo.GoByte>), (("Bernardo O\'Higgins" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L458>)
+
+
+## function splitAfter
+
+
+```haxe
+function splitAfter(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.Slice<stdgo.GoByte>>
+```
+
+
+### exampleSplitAfter
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleSplitAfter():Void {
+        stdgo._internal.fmt.Fmt.printf(("%q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.splitAfter((("a,b,c" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("," : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L461>)
+
+
+## function splitAfterN
+
+
+```haxe
+function splitAfterN(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):stdgo.Slice<stdgo.Slice<stdgo.GoByte>>
+```
+
+
+### exampleSplitAfterN
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleSplitAfterN():Void {
+        stdgo._internal.fmt.Fmt.printf(("%q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.splitAfterN((("a,b,c" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("," : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (2 : stdgo.GoInt))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L455>)
+
+
+## function splitN
+
+
+```haxe
+function splitN(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):stdgo.Slice<stdgo.Slice<stdgo.GoByte>>
+```
+
+
+### exampleSplitN
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleSplitN():Void {
+        stdgo._internal.fmt.Fmt.printf(("%q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.splitN((("a,b,c" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("," : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (2 : stdgo.GoInt))));
+        var _z = stdgo._internal.bytes.Bytes.splitN((("a,b,c" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("," : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (0 : stdgo.GoInt));
+        stdgo._internal.fmt.Fmt.printf(("%q (nil = %v)\n" : stdgo.GoString), stdgo.Go.toInterface(_z), stdgo.Go.toInterface(_z == null));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L452>)
+
+
+## function title
+
+
+```haxe
+function title(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
+```
+
+
+### exampleTitle
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleTitle():Void {
+        stdgo._internal.fmt.Fmt.printf(("%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.title((("her royal highness" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L770>)
+
+
+## function toLower
+
+
+```haxe
+function toLower(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
+```
+
+
+### exampleToLower
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleToLower():Void {
+        stdgo._internal.fmt.Fmt.printf(("%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.toLower((("Gopher" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L679>)
+
+
+## function toLowerSpecial
+
+
+```haxe
+function toLowerSpecial(_c:stdgo._internal.unicode.SpecialCase, _s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
+```
+
+
+### exampleToLowerSpecial
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleToLowerSpecial():Void {
+        var _str = (("AHOJ VÝVOJÁRİ GOLANG" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
+        var _totitle = stdgo._internal.bytes.Bytes.toLowerSpecial(stdgo._internal.unicode.Unicode.azeriCase, _str);
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface((("Original : " : stdgo.GoString) + (_str : stdgo.GoString)?.__copy__() : stdgo.GoString)));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface((("ToLower : " : stdgo.GoString) + (_totitle : stdgo.GoString)?.__copy__() : stdgo.GoString)));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L717>)
+
+
+## function toTitle
+
+
+```haxe
+function toTitle(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
+```
+
+
+### exampleToTitle
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleToTitle():Void {
+        stdgo._internal.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.toTitle((("loud noises" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+        stdgo._internal.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.toTitle((("хлеб" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L711>)
+
+
+## function toTitleSpecial
+
+
+```haxe
+function toTitleSpecial(_c:stdgo._internal.unicode.SpecialCase, _s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
+```
+
+
+### exampleToTitleSpecial
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleToTitleSpecial():Void {
+        var _str = (("ahoj vývojári golang" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
+        var _totitle = stdgo._internal.bytes.Bytes.toTitleSpecial(stdgo._internal.unicode.Unicode.azeriCase, _str);
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface((("Original : " : stdgo.GoString) + (_str : stdgo.GoString)?.__copy__() : stdgo.GoString)));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface((("ToTitle : " : stdgo.GoString) + (_totitle : stdgo.GoString)?.__copy__() : stdgo.GoString)));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L720>)
+
+
+## function toUpper
+
+
+```haxe
+function toUpper(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
+```
+
+
+### exampleToUpper
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleToUpper():Void {
+        stdgo._internal.fmt.Fmt.printf(("%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.toUpper((("Gopher" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L647>)
+
+
+## function toUpperSpecial
+
+
+```haxe
+function toUpperSpecial(_c:stdgo._internal.unicode.SpecialCase, _s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
+```
+
+
+### exampleToUpperSpecial
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleToUpperSpecial():Void {
+        var _str = (("ahoj vývojári golang" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
+        var _totitle = stdgo._internal.bytes.Bytes.toUpperSpecial(stdgo._internal.unicode.Unicode.azeriCase, _str);
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface((("Original : " : stdgo.GoString) + (_str : stdgo.GoString)?.__copy__() : stdgo.GoString)));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface((("ToUpper : " : stdgo.GoString) + (_totitle : stdgo.GoString)?.__copy__() : stdgo.GoString)));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L714>)
+
+
+## function toValidUTF8
+
+
+```haxe
+function toValidUTF8(_s:stdgo.Slice<stdgo.GoByte>, _replacement:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
+```
+
+
+### exampleToValidUTF8
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleToValidUTF8():Void {
+        stdgo._internal.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.toValidUTF8((("abc" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("�" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+        stdgo._internal.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.toValidUTF8((stdgo.Go.str("a", 255, "b", 192, 175, "c", 255) : stdgo.Slice<stdgo.GoByte>), (stdgo.Go.str() : stdgo.Slice<stdgo.GoByte>))));
+        stdgo._internal.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.toValidUTF8((stdgo.Go.str(237, 160, 128) : stdgo.Slice<stdgo.GoByte>), (("abc" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L723>)
+
+
+## function trim
+
+
+```haxe
+function trim(_s:stdgo.Slice<stdgo.GoByte>, _cutset:stdgo.GoString):stdgo.Slice<stdgo.GoByte>
+```
+
+
+### exampleTrim
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleTrim():Void {
+        stdgo._internal.fmt.Fmt.printf(("[%q]" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.trim(((" !!! Achtung! Achtung! !!! " : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), ("! " : stdgo.GoString))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L880>)
+
+
+## function trimFunc
+
+
+```haxe
+function trimFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool):stdgo.Slice<stdgo.GoByte>
+```
+
+
+### exampleTrimFunc
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleTrimFunc():Void {
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface((stdgo._internal.bytes.Bytes.trimFunc((("go-gopher!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), stdgo._internal.unicode.Unicode.isLetter) : stdgo.GoString)));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface((stdgo._internal.bytes.Bytes.trimFunc((("\"go-gopher!\"" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), stdgo._internal.unicode.Unicode.isLetter) : stdgo.GoString)));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface((stdgo._internal.bytes.Bytes.trimFunc((("go-gopher!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), stdgo._internal.unicode.Unicode.isPunct) : stdgo.GoString)));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface((stdgo._internal.bytes.Bytes.trimFunc((("1234go-gopher!567" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), stdgo._internal.unicode.Unicode.isNumber) : stdgo.GoString)));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L798>)
+
+
+## function trimLeft
+
+
+```haxe
+function trimLeft(_s:stdgo.Slice<stdgo.GoByte>, _cutset:stdgo.GoString):stdgo.Slice<stdgo.GoByte>
+```
+
+
+### exampleTrimLeft
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleTrimLeft():Void {
+        stdgo._internal.fmt.Fmt.print(stdgo.Go.toInterface((stdgo._internal.bytes.Bytes.trimLeft((("453gopher8257" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), ("0123456789" : stdgo.GoString)) : stdgo.GoString)));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L898>)
+
+
+## function trimLeftFunc
+
+
+```haxe
+function trimLeftFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool):stdgo.Slice<stdgo.GoByte>
+```
+
+
+### exampleTrimLeftFunc
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleTrimLeftFunc():Void {
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface((stdgo._internal.bytes.Bytes.trimLeftFunc((("go-gopher" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), stdgo._internal.unicode.Unicode.isLetter) : stdgo.GoString)));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface((stdgo._internal.bytes.Bytes.trimLeftFunc((("go-gopher!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), stdgo._internal.unicode.Unicode.isPunct) : stdgo.GoString)));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface((stdgo._internal.bytes.Bytes.trimLeftFunc((("1234go-gopher!567" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), stdgo._internal.unicode.Unicode.isNumber) : stdgo.GoString)));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L781>)
+
+
+## function trimPrefix
+
+
+```haxe
+function trimPrefix(_s:stdgo.Slice<stdgo.GoByte>, _prefix:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
+```
+
+
+### exampleTrimPrefix
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleTrimPrefix():Void {
+        var _b:stdgo.Slice<stdgo.GoUInt8> = (("Goodbye,, world!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
+        _b = stdgo._internal.bytes.Bytes.trimPrefix(_b, (("Goodbye," : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>));
+        _b = stdgo._internal.bytes.Bytes.trimPrefix(_b, (("See ya," : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>));
+        stdgo._internal.fmt.Fmt.printf(("Hello%s" : stdgo.GoString), stdgo.Go.toInterface(_b));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L801>)
+
+
+## function trimRight
+
+
+```haxe
+function trimRight(_s:stdgo.Slice<stdgo.GoByte>, _cutset:stdgo.GoString):stdgo.Slice<stdgo.GoByte>
+```
+
+
+### exampleTrimRight
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleTrimRight():Void {
+        stdgo._internal.fmt.Fmt.print(stdgo.Go.toInterface((stdgo._internal.bytes.Bytes.trimRight((("453gopher8257" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), ("0123456789" : stdgo.GoString)) : stdgo.GoString)));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L957>)
+
+
+## function trimRightFunc
+
+
+```haxe
+function trimRightFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool):stdgo.Slice<stdgo.GoByte>
+```
+
+
+### exampleTrimRightFunc
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleTrimRightFunc():Void {
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface((stdgo._internal.bytes.Bytes.trimRightFunc((("go-gopher" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), stdgo._internal.unicode.Unicode.isLetter) : stdgo.GoString)));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface((stdgo._internal.bytes.Bytes.trimRightFunc((("go-gopher!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), stdgo._internal.unicode.Unicode.isPunct) : stdgo.GoString)));
+        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface((stdgo._internal.bytes.Bytes.trimRightFunc((("1234go-gopher!567" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), stdgo._internal.unicode.Unicode.isNumber) : stdgo.GoString)));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L788>)
+
+
+## function trimSpace
+
+
+```haxe
+function trimSpace(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
+```
+
+
+### exampleTrimSpace
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleTrimSpace():Void {
+        stdgo._internal.fmt.Fmt.printf(("%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.trimSpace(((" \t\n a lone gopher \n\t\r\n" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L1004>)
+
+
+## function trimSuffix
+
+
+```haxe
+function trimSuffix(_s:stdgo.Slice<stdgo.GoByte>, _suffix:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
+```
+
+
+### exampleTrimSuffix
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleTrimSuffix():Void {
+        var _b:stdgo.Slice<stdgo.GoUInt8> = (("Hello, goodbye, etc!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
+        _b = stdgo._internal.bytes.Bytes.trimSuffix(_b, (("goodbye, etc!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>));
+        _b = stdgo._internal.bytes.Bytes.trimSuffix(_b, (("gopher" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>));
+        _b = (_b.__append__(...(stdgo._internal.bytes.Bytes.trimSuffix((("world!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (("x!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>)) : Array<stdgo.GoUInt8>)));
+        stdgo._internal.os.Os.stdout.write(_b);
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L807>)
+
+
+# Classes
+
+
+```haxe
+import stdgo._internal.bytes.*
+```
+
+
+## class Buffer
+
+
+```haxe
+var _buf:stdgo.Slice<stdgo.GoUInt8>
+```
+
+
+```haxe
+var _lastRead:stdgo._internal.bytes.T_readOp
+```
+
+
+```haxe
+var _off:stdgo.GoInt
+```
+
+
+### Buffer function new
+
+
+```haxe
+function new(?_buf:stdgo.Slice<stdgo.GoUInt8>, ?_off:stdgo.GoInt, ?_lastRead:Null<stdgo._internal.bytes.T_readOp>):Void
+```
+
+
+[\(view code\)](<./Bytes.hx#L30>)
+
+
+### Buffer function \_empty
+
+
+```haxe
+function _empty():Bool
+```
+
+
+[\(view code\)](<./Bytes.hx#L1641>)
+
+
+### Buffer function \_grow
+
+
+```haxe
+function _grow( _n:stdgo.GoInt):stdgo.GoInt
+```
+
+
+[\(view code\)](<./Bytes.hx#L1565>)
+
+
+### Buffer function \_readSlice
+
+
+```haxe
+function _readSlice( _delim:stdgo.GoByte):{
+	_1:stdgo.Error;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}
+```
+
+
+[\(view code\)](<./Bytes.hx#L1348>)
+
+
+### Buffer function \_tryGrowByReslice
+
+
+```haxe
+function _tryGrowByReslice( _n:stdgo.GoInt):{
+	_1:Bool;
+	_0:stdgo.GoInt;
+}
+```
+
+
+[\(view code\)](<./Bytes.hx#L1594>)
+
+
+### Buffer function available
+
+
+```haxe
+function available():stdgo.GoInt
+```
+
+
+[\(view code\)](<./Bytes.hx#L1626>)
+
+
+### Buffer function availableBuffer
+
+
+```haxe
+function availableBuffer():stdgo.Slice<stdgo.GoByte>
+```
+
+
+[\(view code\)](<./Bytes.hx#L1654>)
+
+
+### Buffer function bytes
+
+
+```haxe
+function bytes():stdgo.Slice<stdgo.GoByte>
+```
+
+
+[\(view code\)](<./Bytes.hx#L1659>)
+
+
+### Buffer function cap
+
+
+```haxe
+function cap():stdgo.GoInt
+```
+
+
+[\(view code\)](<./Bytes.hx#L1631>)
+
+
+### Buffer function grow
+
+
+```haxe
+function grow( _n:stdgo.GoInt):Void
+```
+
+
+[\(view code\)](<./Bytes.hx#L1556>)
+
+
+### Buffer function len
+
+
+```haxe
+function len():stdgo.GoInt
+```
+
+
+[\(view code\)](<./Bytes.hx#L1636>)
+
+
+### Buffer function next
+
+
+```haxe
+function next( _n:stdgo.GoInt):stdgo.Slice<stdgo.GoByte>
+```
+
+
+[\(view code\)](<./Bytes.hx#L1426>)
+
+
+### Buffer function read
+
+
+```haxe
+function read( _p:stdgo.Slice<stdgo.GoByte>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
+```
+
+
+[\(view code\)](<./Bytes.hx#L1441>)
+
+
+### Buffer function readByte
+
+
+```haxe
+function readByte():{
+	_1:stdgo.Error;
+	_0:stdgo.GoByte;
+}
+```
+
+
+[\(view code\)](<./Bytes.hx#L1414>)
+
+
+### Buffer function readBytes
+
+
+```haxe
+function readBytes( _delim:stdgo.GoByte):{
+	_1:stdgo.Error;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}
+```
+
+
+[\(view code\)](<./Bytes.hx#L1363>)
+
+
+### Buffer function readFrom
+
+
+```haxe
+function readFrom( _r:stdgo._internal.io.Reader):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt64;
+}
+```
+
+
+[\(view code\)](<./Bytes.hx#L1512>)
+
+
+### Buffer function readRune
+
+
+```haxe
+function readRune():{
+	_2:stdgo.Error;
+	_1:stdgo.GoInt;
+	_0:stdgo.GoRune;
+}
+```
+
+
+[\(view code\)](<./Bytes.hx#L1395>)
+
+
+### Buffer function readString
+
+
+```haxe
+function readString( _delim:stdgo.GoByte):{
+	_1:stdgo.Error;
+	_0:stdgo.GoString;
+}
+```
+
+
+[\(view code\)](<./Bytes.hx#L1341>)
+
+
+### Buffer function reset
+
+
+```haxe
+function reset():Void
+```
+
+
+[\(view code\)](<./Bytes.hx#L1606>)
+
+
+### Buffer function string
+
+
+```haxe
+function string():stdgo.GoString
+```
+
+
+[\(view code\)](<./Bytes.hx#L1646>)
+
+
+### Buffer function truncate
+
+
+```haxe
+function truncate( _n:stdgo.GoInt):Void
+```
+
+
+[\(view code\)](<./Bytes.hx#L1613>)
+
+
+### Buffer function unreadByte
+
+
+```haxe
+function unreadByte():stdgo.Error
+```
+
+
+[\(view code\)](<./Bytes.hx#L1371>)
+
+
+### Buffer function unreadRune
+
+
+```haxe
+function unreadRune():stdgo.Error
+```
+
+
+[\(view code\)](<./Bytes.hx#L1383>)
+
+
+### Buffer function write
+
+
+```haxe
+function write( _p:stdgo.Slice<stdgo.GoByte>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
+```
+
+
+[\(view code\)](<./Bytes.hx#L1545>)
+
+
+### Buffer function writeByte
+
+
+```haxe
+function writeByte( _c:stdgo.GoByte):stdgo.Error
+```
+
+
+[\(view code\)](<./Bytes.hx#L1476>)
+
+
+### Buffer function writeRune
+
+
+```haxe
+function writeRune( _r:stdgo.GoRune):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
+```
+
+
+[\(view code\)](<./Bytes.hx#L1460>)
+
+
+### Buffer function writeString
+
+
+```haxe
+function writeString( _s:stdgo.GoString):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
+```
+
+
+[\(view code\)](<./Bytes.hx#L1534>)
+
+
+### Buffer function writeTo
+
+
+```haxe
+function writeTo( _w:stdgo._internal.io.Writer):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt64;
+}
+```
+
+
+[\(view code\)](<./Bytes.hx#L1487>)
+
+
+## class Reader
+
+
+```haxe
+var _i:stdgo.GoInt64
+```
+
+
+```haxe
+var _prevRune:stdgo.GoInt
+```
+
+
+```haxe
+var _s:stdgo.Slice<stdgo.GoUInt8>
+```
+
+
+### Reader function new
+
+
+```haxe
+function new(?_s:stdgo.Slice<stdgo.GoUInt8>, ?_i:stdgo.GoInt64, ?_prevRune:stdgo.GoInt):Void
+```
+
+
+[\(view code\)](<./Bytes.hx#L44>)
+
+
+### Reader function len
+
+
+```haxe
+function len():stdgo.GoInt
+```
+
+
+[\(view code\)](<./Bytes.hx#L1841>)
+
+
+### Reader function read
+
+
+```haxe
+function read( _b:stdgo.Slice<stdgo.GoByte>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
+```
+
+
+[\(view code\)](<./Bytes.hx#L1824>)
+
+
+### Reader function readAt
+
+
+```haxe
+function readAt( _b:stdgo.Slice<stdgo.GoByte>, _off:stdgo.GoInt64):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
+```
+
+
+[\(view code\)](<./Bytes.hx#L1808>)
+
+
+### Reader function readByte
+
+
+```haxe
+function readByte():{
+	_1:stdgo.Error;
+	_0:stdgo.GoByte;
+}
+```
+
+
+[\(view code\)](<./Bytes.hx#L1797>)
+
+
+### Reader function readRune
+
+
+```haxe
+function readRune():{
+	_2:stdgo.Error;
+	_1:stdgo.GoInt;
+	_0:stdgo.GoRune;
+}
+```
+
+
+[\(view code\)](<./Bytes.hx#L1763>)
+
+
+### Reader function reset
+
+
+```haxe
+function reset( _b:stdgo.Slice<stdgo.GoByte>):Void
+```
+
+
+[\(view code\)](<./Bytes.hx#L1697>)
+
+
+### Reader function seek
+
+
+```haxe
+function seek( _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt64;
+}
+```
+
+
+[\(view code\)](<./Bytes.hx#L1727>)
+
+
+### Reader function size
+
+
+```haxe
+function size():stdgo.GoInt64
+```
+
+
+[\(view code\)](<./Bytes.hx#L1836>)
+
+
+### Reader function unreadByte
+
+
+```haxe
+function unreadByte():stdgo.Error
+```
+
+
+[\(view code\)](<./Bytes.hx#L1787>)
+
+
+### Reader function unreadRune
+
+
+```haxe
+function unreadRune():stdgo.Error
+```
+
+
+[\(view code\)](<./Bytes.hx#L1750>)
+
+
+### Reader function writeTo
+
+
+```haxe
+function writeTo( _w:stdgo._internal.io.Writer):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt64;
+}
+```
+
+
+[\(view code\)](<./Bytes.hx#L1707>)
+
+
+## class T\_fieldsFunc\_7\_\_\_localname\_\_\_span
+
+
+```haxe
+var _end:stdgo.GoInt
+```
+
+
+```haxe
+var _start:stdgo.GoInt
+```
+
+
+### T\_fieldsFunc\_7\_\_\_localname\_\_\_span function new
+
+
+```haxe
+function new(?_start:stdgo.GoInt, ?_end:stdgo.GoInt):Void
+```
+
+
+[\(view code\)](<./Bytes.hx#L510>)
+
+
+# Typedefs
+
+
+```haxe
+import stdgo._internal.bytes.*
+```
+
+
+## typedef T\_asciiSet
+
+
+```haxe
+typedef T_asciiSet = stdgo.GoArray<stdgo.GoUInt32>;
+```
+
+
+## typedef T\_readOp
+
+
+```haxe
+typedef T_readOp = stdgo.GoInt8;
+```
+
 

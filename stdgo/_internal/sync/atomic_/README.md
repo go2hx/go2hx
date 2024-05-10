@@ -1,341 +1,1166 @@
-# Module stdgo._internal.sync.atomic_ has compilation errors, please do not use:
-```
-/home/runner/haxe/versions/3c97999/std/haxe/ds/BalancedTree.hx:226: character 10 : `package stdgo;` in /home/runner/work/go2hx/go2hx/stdgo/Reflect.hx should be `package;`
-/home/runner/haxe/versions/3c97999/std/haxe/ds/BalancedTree.hx:226: characters 18-25 : Class<Reflect> has no field compare
-stdgo/GoNumber.hx:69: character 6 : `package stdgo;` in /home/runner/work/go2hx/go2hx/stdgo/Math.hx should be `package;`
-/home/runner/haxe/versions/3c97999/std/haxe/Int64Helper.hx:80: characters 30-38 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:964: characters 23-31 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:965: characters 25-31 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:89: characters 15-21 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:90: characters 28-34 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:91: characters 33-39 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:93: characters 21-46 : Float should be Int
-stdgo/GoNumber.hx:93: characters 55-80 : Float should be Int
-stdgo/GoNumber.hx:95: characters 32-38 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:97: characters 20-44 : Float should be Int
-stdgo/GoNumber.hx:97: characters 53-77 : Float should be Int
-stdgo/_internal/math/Math.hx:514: characters 106-123 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/_internal/math/Math.hx:514: characters 166-183 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/_internal/math/Math.hx:509: characters 41-58 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/_internal/math/Math.hx:510: characters 25-42 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/GoFloat64.hx:86: characters 21-38 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/GoFloat64.hx:88: characters 21-38 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/_internal/math/Math.hx:512: characters 48-51 : Class<Math> has no field NaN (Suggestion: naN)
-stdgo/_internal/math/Math.hx:571: characters 33-41 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:571: characters 79-87 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:593: characters 33-41 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:593: characters 79-87 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:982: characters 23-31 : Class<Math> has no field isFinite
-/home/runner/haxe/versions/3c97999/std/haxe/macro/ExprTools.hx:242: characters 14-22 : Class<Reflect> has no field setField
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:43: characters 48-65 : Class<Math> has no field POSITIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:43: characters 73-90 : Class<Math> has no field NEGATIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:43: characters 99-102 : Class<Math> has no field NaN (Suggestion: naN)
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:52: characters 61-78 : Class<Math> has no field POSITIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:52: characters 86-103 : Class<Math> has no field NEGATIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:52: characters 112-115 : Class<Math> has no field NaN (Suggestion: naN)
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:72: characters 39-50 : Float should be Int
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:72: characters 60-74 : Float should be Int
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:81: characters 20-28 : Class<Math> has no field isFinite
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:97: characters 20-26 : Class<Math> has no field fround (Suggestion: round)
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:102: characters 46-58 : Float should be Int
-/home/runner/haxe/versions/3c97999/std/haxe/io/FPHelper.hx:102: characters 46-58 : ... For function argument 'x'
-stdgo/_internal/math/Math.hx:1371: characters 23-31 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:2457: characters 38-82 : Recursive operator method
-stdgo/_internal/math/Math.hx:2460: characters 38-83 : Recursive operator method
-stdgo/_internal/reflect/Reflect.hx:1017: characters 52-57 : Class<Reflect> has no field field
-stdgo/_internal/reflect/Reflect.hx:1018: characters 33-41 : Class<Reflect> has no field setField
-stdgo/_internal/reflect/Reflect.hx:506: characters 20-74 : Recursive operator method
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:25: characters 18-35 : Class<Math> has no field NEGATIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:33: characters 30-47 : Class<Math> has no field NEGATIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:51: characters 18-35 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/_internal/fmt/Fmt.hx:33: characters 15-45 : Module stdgo._internal.sync.Sync does not define type Pool
-stdgo/_internal/io/Io.hx:15: characters 22-52 : Module stdgo._internal.sync.Sync does not define type Pool
-stdgo/_internal/io/Io.hx:15: characters 22-52 : ... For function argument '__self__'
-stdgo/_internal/io/Io.hx:379: characters 24-55 : Module stdgo._internal.sync.Sync does not define type Mutex
-stdgo/_internal/io/Io.hx:379: characters 24-55 : ... For function argument '__self__'
-stdgo/_internal/io/Io.hx:357: characters 24-55 : Module stdgo._internal.sync.Sync does not define type Mutex
-stdgo/_internal/io/Io.hx:1176: characters 48-52 : stdgo.Ref<stdgo._internal.io.T_onceError> has no field _err
-stdgo/_internal/io/Io.hx:1187: characters 30-47 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1187: characters 72-89 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1212: characters 20-24 : stdgo.Ref<stdgo._internal.io.T_onceError> has no field _err
-stdgo/_internal/io/Io.hx:1220: characters 16-20 : stdgo.Ref<stdgo._internal.io.T_onceError> has no field _err
-stdgo/_internal/io/Io.hx:1225: characters 30-47 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1225: characters 72-89 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1278: characters 36-41 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _werr
-stdgo/_internal/io/Io.hx:1280: characters 40-45 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _rerr
-stdgo/_internal/io/Io.hx:1285: characters 16-29 : Unknown identifier : errClosedPipe
-stdgo/_internal/io/Io.hx:1290: characters 36-41 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _rerr
-stdgo/_internal/io/Io.hx:1292: characters 40-45 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _werr
-stdgo/_internal/io/Io.hx:1297: characters 16-29 : Unknown identifier : errClosedPipe
-stdgo/_internal/io/Io.hx:1305: characters 12-17 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _werr
-stdgo/_internal/io/Io.hx:1306: characters 12-17 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _once
-stdgo/_internal/io/Io.hx:1307: characters 20-25 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1307: characters 38-43 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1320: characters 28-33 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1320: characters 48-53 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1323: characters 32-37 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1331: characters 32-37 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _wrMu
-stdgo/_internal/io/Io.hx:1332: characters 61-66 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _wrMu
-stdgo/_internal/io/Io.hx:1410: characters 20-33 : Unknown identifier : errClosedPipe
-stdgo/_internal/io/Io.hx:1412: characters 12-17 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _rerr
-stdgo/_internal/io/Io.hx:1413: characters 12-17 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _once
-stdgo/_internal/io/Io.hx:1414: characters 20-25 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1414: characters 38-43 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1425: characters 24-29 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1425: characters 44-49 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1428: characters 28-33 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1445: characters 28-33 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _wrCh
-stdgo/_internal/io/Io.hx:1445: characters 48-53 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _wrCh
-stdgo/_internal/io/Io.hx:1448: characters 42-47 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _wrCh
-stdgo/_internal/strconv/Strconv.hx:4781: characters 39-68 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:4781: characters 39-41 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:4781: characters 39-41 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:4781: characters 39-68 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/GoFloat32.hx:83: characters 21-38 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/GoFloat32.hx:85: characters 21-38 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/_internal/strconv/Strconv.hx:3611: characters 39-68 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3611: characters 39-41 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3611: characters 39-41 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3611: characters 39-68 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/strconv/Strconv.hx:3629: characters 19-50 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3629: characters 19-21 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3629: characters 19-21 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3629: characters 19-50 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/strconv/Strconv.hx:3639: characters 40-89 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3646: characters 39-69 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3646: characters 39-41 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3646: characters 39-41 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3646: characters 39-69 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/strconv/Strconv.hx:3964: characters 29-66 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3964: characters 29-31 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3964: characters 29-31 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:3964: characters 29-66 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/strconv/Strconv.hx:3867: characters 38-118 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3868: characters 39-74 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3869: characters 38-71 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3900: characters 39-69 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3840: characters 47-76 : Recursive operator method
-stdgo/_internal/fmt/Fmt.hx:1198: characters 49-78 : Recursive operator method
-stdgo/_internal/fmt/Fmt.hx:1198: characters 49-51 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/fmt/Fmt.hx:1198: characters 49-51 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/fmt/Fmt.hx:1198: characters 49-78 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/fmt/Fmt.hx:1752: characters 23-38 : Unknown identifier : _parseArgNumber
-stdgo/_internal/fmt/Fmt.hx:2231: characters 36-53 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2232: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2378: characters 40-65 : Recursive operator method
-stdgo/_internal/fmt/Fmt.hx:2380: characters 40-65 : Recursive operator method
-stdgo/_internal/fmt/Fmt.hx:2549: characters 9-16 : Unknown identifier : _ppFree
-stdgo/_internal/fmt/Fmt.hx:2737: characters 17-25 : Unknown identifier : _isSpace
-stdgo/_internal/fmt/Fmt.hx:3027: characters 23-32 : Unknown identifier : _hexDigit
-stdgo/_internal/fmt/Fmt.hx:3032: characters 23-32 : Unknown identifier : _hexDigit
-stdgo/_internal/fmt/Fmt.hx:3420: characters 14-24 : Unknown identifier : _indexRune
-stdgo/_internal/fmt/Fmt.hx:3172: characters 23-34 : Unknown identifier : _errComplex
-stdgo/_internal/fmt/Fmt.hx:3172: characters 23-34 : ... For function argument '_err'
-stdgo/_internal/fmt/Fmt.hx:3177: characters 23-34 : Unknown identifier : _errComplex
-stdgo/_internal/fmt/Fmt.hx:3177: characters 23-34 : ... For function argument '_err'
-stdgo/_internal/fmt/Fmt.hx:3180: characters 23-34 : Unknown identifier : _errComplex
-stdgo/_internal/fmt/Fmt.hx:3180: characters 23-34 : ... For function argument '_err'
-stdgo/_internal/fmt/Fmt.hx:3125: characters 34-44 : Unknown identifier : _indexRune
-stdgo/_internal/fmt/Fmt.hx:3126: characters 55-60 : Unknown identifier : _hasX
-stdgo/_internal/fmt/Fmt.hx:3117: characters 75-97 : Recursive operator method
-stdgo/_internal/fmt/Fmt.hx:3118: characters 75-97 : Recursive operator method
-stdgo/_internal/fmt/Fmt.hx:3411: characters 17-27 : Unknown identifier : _indexRune
-stdgo/_internal/fmt/Fmt.hx:3365: characters 31-39 : Unknown identifier : _errBool
-stdgo/_internal/fmt/Fmt.hx:3365: characters 31-39 : ... For function argument '_err'
-stdgo/_internal/fmt/Fmt.hx:3370: characters 31-39 : Unknown identifier : _errBool
-stdgo/_internal/fmt/Fmt.hx:3370: characters 31-39 : ... For function argument '_err'
-stdgo/_internal/fmt/Fmt.hx:3486: characters 9-16 : Unknown identifier : _ssFree
-stdgo/_internal/fmt/Fmt.hx:3498: characters 48-65 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:3499: characters 38-55 : Class<stdgo.Go> has no field recover_exception
-/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:70: characters 22-33 : Class<Reflect> has no field isEnumValue
-/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:70: characters 49-60 : Class<Reflect> has no field isEnumValue
-/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:75: characters 12-19 : Class<Reflect> has no field compare
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonParser.hx:90: characters 17-25 : Class<Reflect> has no field setField
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:171: characters 24-29 : Class<Reflect> has no field field
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:172: characters 16-26 : Class<Reflect> has no field isFunction
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:162: characters 27-33 : Class<Reflect> has no field fields
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:92: characters 14-22 : Class<Math> has no field isFinite
-/home/runner/haxe/versions/3c97999/std/haxe/format/JsonPrinter.hx:123: characters 15-23 : Class<Reflect> has no field setField
-stdgo/_internal/fmt/Fmt.hx:3725: characters 23-44 : Module stdgo._internal.io.Io does not define type Io
-stdgo/_internal/fmt/Fmt.hx:3521: characters 22-31 : Unknown identifier : _notSpace
-stdgo/_internal/fmt/Fmt.hx:3537: characters 30-47 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:3537: characters 72-89 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:3546: characters 22-39 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:3551: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:3551: characters 68-85 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:3103: characters 41-50 : Unknown identifier : _notSpace
-stdgo/_internal/fmt/Fmt.hx:3103: characters 41-50 : ... For function argument '_f'
-stdgo/_internal/fmt/Fmt.hx:3468: characters 18-26 : Unknown identifier : _isSpace
-stdgo/_internal/fmt/Fmt.hx:2812: characters 46-59 : Unknown identifier : _errorHandler
-stdgo/_internal/fmt/Fmt.hx:2812: characters 46-59 : ... For function argument 'x'
-stdgo/_internal/fmt/Fmt.hx:2824: characters 26-34 : Unknown identifier : _isSpace
-stdgo/_internal/fmt/Fmt.hx:2842: characters 30-47 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2842: characters 72-89 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2851: characters 22-39 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2856: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2856: characters 68-85 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2644: characters 46-59 : Unknown identifier : _errorHandler
-stdgo/_internal/fmt/Fmt.hx:2644: characters 46-59 : ... For function argument 'x'
-stdgo/_internal/fmt/Fmt.hx:2664: characters 39-48 : Unknown identifier : _parsenum
-stdgo/_internal/fmt/Fmt.hx:2713: characters 30-47 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2713: characters 72-89 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2722: characters 22-39 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2727: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2727: characters 68-85 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2209: characters 30-47 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2209: characters 72-89 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2218: characters 22-39 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2222: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/fmt/Fmt.hx:2222: characters 68-85 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/sort/Sort.hx:625: characters 35-96 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:788: characters 50-77 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:803: characters 76-98 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:803: characters 191-213 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:803: characters 306-328 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:674: characters 50-77 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:234: characters 35-96 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:397: characters 50-77 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:412: characters 76-98 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:412: characters 191-213 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:412: characters 306-328 : Recursive operator method
-stdgo/_internal/sort/Sort.hx:283: characters 50-77 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:4533: characters 97-157 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3492: characters 40-65 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3494: characters 40-66 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3494: characters 144-169 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3496: characters 40-67 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3496: characters 144-170 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3496: characters 288-313 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:4045: characters 46-83 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:4045: characters 46-48 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:4045: characters 46-48 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:4045: characters 46-83 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/strconv/Strconv.hx:4065: characters 24-55 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:4092: characters 42-49 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:4092: characters 42-44 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:4092: characters 42-44 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:4092: characters 42-49 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/strconv/Strconv.hx:3376: characters 40-65 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3378: characters 40-66 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:3378: characters 143-168 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:2715: characters 29-80 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:2715: characters 29-53 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:2715: characters 29-53 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/strconv/Strconv.hx:2715: characters 29-80 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/strconv/Strconv.hx:2969: characters 38-65 : Recursive operator method
-stdgo/_internal/strconv/Strconv.hx:4117: characters 96-163 : Recursive operator method
-stdgo/_internal/io/Io.hx:1451: characters 36-41 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _rdCh
-stdgo/_internal/io/Io.hx:1455: characters 35-40 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1455: characters 55-60 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1458: characters 32-37 : stdgo.Ref<stdgo._internal.io.T_pipe> has no field _done
-stdgo/_internal/io/Io.hx:1388: characters 30-47 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1388: characters 72-89 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1397: characters 22-39 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1402: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1402: characters 68-85 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1234: characters 22-39 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1238: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1238: characters 68-85 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1196: characters 22-39 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1201: characters 26-43 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1201: characters 68-85 : Class<stdgo.Go> has no field recover_exception
-stdgo/_internal/io/Io.hx:1011: characters 39-50 : Unknown identifier : _copyBuffer
-stdgo/_internal/io/Io.hx:886: characters 17-31 : Unknown identifier : _blackHolePool
-stdgo/_internal/internal/abi/Abi.hx:941: characters 18-23 : Class<stdgo.Go> has no field print
-stdgo/_internal/internal/abi/Abi.hx:943: characters 22-27 : Class<stdgo.Go> has no field print
-stdgo/_internal/internal/abi/Abi.hx:945: characters 18-25 : Class<stdgo.Go> has no field println
-stdgo/_internal/internal/abi/Abi.hx:946: characters 18-23 : Class<stdgo.Go> has no field print
-stdgo/_internal/internal/abi/Abi.hx:948: characters 22-27 : Class<stdgo.Go> has no field print
-stdgo/_internal/internal/abi/Abi.hx:950: characters 18-25 : Class<stdgo.Go> has no field println
-stdgo/_internal/internal/abi/Abi.hx:951: characters 18-23 : Class<stdgo.Go> has no field print
-stdgo/_internal/internal/abi/Abi.hx:953: characters 22-27 : Class<stdgo.Go> has no field print
-stdgo/_internal/internal/abi/Abi.hx:955: characters 18-25 : Class<stdgo.Go> has no field println
-stdgo/_internal/internal/abi/Abi.hx:3502: characters 21-43 : Recursive operator method
-stdgo/_internal/internal/abi/Abi.hx:3507: characters 13-35 : Recursive operator method
-stdgo/_internal/internal/abi/Abi.hx:3507: characters 59-81 : Recursive operator method
-stdgo/_internal/reflect/Reflect.hx:1348: characters 30-35 : Class<Reflect> has no field field
-stdgo/AnyInterface.hx:119: characters 23-31 : Class<Reflect> has no field hasField
-stdgo/AnyInterface.hx:122: characters 37-42 : Class<Reflect> has no field field
-stdgo/AnyInterface.hx:123: characters 38-43 : Class<Reflect> has no field field
-stdgo/_internal/math/bits/Bits.hx:4287: characters 28-36 : Recursive operator method
-stdgo/_internal/math/bits/Bits.hx:4287: characters 28-31 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4287: characters 28-31 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4287: characters 28-36 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/math/bits/Bits.hx:4298: characters 35-47 : Recursive operator method
-stdgo/_internal/math/bits/Bits.hx:4298: characters 35-40 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4298: characters 35-40 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4298: characters 35-47 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/math/bits/Bits.hx:4308: characters 35-47 : Recursive operator method
-stdgo/_internal/math/bits/Bits.hx:4308: characters 35-40 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4308: characters 35-40 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4308: characters 35-47 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-stdgo/_internal/math/bits/Bits.hx:4271: characters 32-58 : Recursive operator method
-stdgo/_internal/math/bits/Bits.hx:4271: characters 32-34 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4271: characters 32-34 : haxe._Int64.___Int64 should be Int
-stdgo/_internal/math/bits/Bits.hx:4271: characters 32-58 : The result of this operation (Float) is not compatible with declared return type stdgo.GoUInt64
-/home/runner/haxe/versions/3c97999/std/neko/_std/Std.hx:48: character 11 : `package stdgo;` in /home/runner/work/go2hx/go2hx/stdgo/Math.hx should be `package;`
-stdgo/_internal/math/Math.hx:982: characters 23-31 : Class<Math> has no field isFinite
-/home/runner/haxe/versions/3c97999/std/haxe/Int64Helper.hx:80: characters 30-38 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:964: characters 23-31 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:965: characters 25-31 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:89: characters 15-21 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:90: characters 28-34 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:91: characters 33-39 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:93: characters 21-46 : Float should be Int
-stdgo/GoNumber.hx:93: characters 55-80 : Float should be Int
-stdgo/GoNumber.hx:95: characters 32-38 : Class<Math> has no field ffloor (Suggestion: floor)
-stdgo/GoNumber.hx:97: characters 20-44 : Float should be Int
-stdgo/GoNumber.hx:97: characters 53-77 : Float should be Int
-/home/runner/haxe/versions/3c97999/std/neko/_std/Std.hx:48: characters 4-23 : Float should be Int
-/home/runner/haxe/versions/3c97999/std/neko/_std/Std.hx:49: characters 3-23 : Float should be Int
-/home/runner/haxe/versions/3c97999/std/haxe/ds/BalancedTree.hx:226: character 10 : `package stdgo;` in /home/runner/work/go2hx/go2hx/stdgo/Reflect.hx should be `package;`
-/home/runner/haxe/versions/3c97999/std/haxe/ds/BalancedTree.hx:226: characters 18-25 : Class<Reflect> has no field compare
-stdgo/AnyInterface.hx:119: characters 23-31 : Class<Reflect> has no field hasField
-stdgo/AnyInterface.hx:122: characters 37-42 : Class<Reflect> has no field field
-stdgo/AnyInterface.hx:123: characters 38-43 : Class<Reflect> has no field field
-stdgo/_internal/reflect/Reflect.hx:1348: characters 30-35 : Class<Reflect> has no field field
-/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:70: characters 22-33 : Class<Reflect> has no field isEnumValue
-/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:70: characters 49-60 : Class<Reflect> has no field isEnumValue
-/home/runner/haxe/versions/3c97999/std/haxe/ds/EnumValueMap.hx:75: characters 12-19 : Class<Reflect> has no field compare
-/home/runner/haxe/versions/3c97999/std/neko/vm/Loader.hx:89: characters 21-27 : Class<Reflect> has no field fields
-/home/runner/haxe/versions/3c97999/std/neko/vm/Loader.hx:89: characters 13-34 : You can't iterate on a Dynamic value, please specify Iterator or Iterable
-/home/runner/haxe/versions/3c97999/std/neko/vm/Loader.hx:90: characters 32-37 : Class<Reflect> has no field field
-/home/runner/haxe/versions/3c97999/std/neko/vm/Loader.hx:99: characters 12-23 : Class<Reflect> has no field deleteField
-/home/runner/haxe/versions/3c97999/std/neko/vm/Loader.hx:101: characters 12-20 : Class<Reflect> has no field setField
-/home/runner/haxe/versions/3c97999/std/neko/vm/Module.hx:112: characters 21-27 : Class<Reflect> has no field fields
-/home/runner/haxe/versions/3c97999/std/neko/vm/Module.hx:112: characters 13-32 : You can't iterate on a Dynamic value, please specify Iterator or Iterable
-/home/runner/haxe/versions/3c97999/std/neko/vm/Module.hx:113: characters 21-26 : Class<Reflect> has no field field
-/home/runner/haxe/versions/3c97999/std/neko/vm/Module.hx:129: characters 11-19 : Class<Reflect> has no field setField
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:119: characters 27-32 : Class<Reflect> has no field field
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:121: characters 15-25 : Class<Reflect> has no field isFunction
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:123: characters 19-29 : Class<Reflect> has no field callMethod
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:137: characters 19-25 : Class<Reflect> has no field fields
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:140: characters 22-28 : Class<Reflect> has no field fields
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:140: characters 14-49 : You can't iterate on a Dynamic value, please specify Iterator or Iterable
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:154: characters 19-25 : Class<Reflect> has no field fields
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:227: characters 20-25 : Class<Reflect> has no field field
-/home/runner/haxe/versions/3c97999/std/neko/_std/Type.hx:228: characters 17-27 : Class<Reflect> has no field isFunction
-stdgo/_internal/reflect/Reflect.hx:1017: characters 52-57 : Class<Reflect> has no field field
-stdgo/_internal/reflect/Reflect.hx:1018: characters 33-41 : Class<Reflect> has no field setField
-stdgo/_internal/math/Math.hx:571: characters 33-41 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:571: characters 79-87 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:509: characters 41-58 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/_internal/math/Math.hx:510: characters 25-42 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/_internal/math/Math.hx:512: characters 48-51 : Class<Math> has no field NaN (Suggestion: naN)
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:25: characters 18-35 : Class<Math> has no field NEGATIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:33: characters 30-47 : Class<Math> has no field NEGATIVE_INFINITY
-/home/runner/haxe/versions/3c97999/std/haxe/MainLoop.hx:51: characters 18-35 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/_internal/internal/abi/Abi.hx:3450: lines 3450-3456 : Missing return: { _1 : stdgo.GoInt, _0 : stdgo.GoInt }
-stdgo/_internal/internal/abi/Abi.hx:861: lines 861-869 : Missing return: stdgo.GoInt
-stdgo/GoFloat32.hx:83: characters 21-38 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/GoFloat32.hx:85: characters 21-38 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/GoFloat64.hx:86: characters 21-38 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/GoFloat64.hx:88: characters 21-38 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/_internal/math/Math.hx:514: characters 106-123 : Class<Math> has no field POSITIVE_INFINITY
-stdgo/_internal/math/Math.hx:514: characters 166-183 : Class<Math> has no field NEGATIVE_INFINITY
-stdgo/_internal/math/Math.hx:593: characters 33-41 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:593: characters 79-87 : Class<Math> has no field isFinite
-stdgo/_internal/math/Math.hx:1371: characters 23-31 : Class<Math> has no field isFinite
+# Module: `stdgo._internal.sync.atomic_`
 
+[(view library index)](../../../stdgo.md)
+
+
+# Overview
+
+
+# Index
+
+
+- [Variables](<#variables>)
+
+- [`function _b32(_b:Bool):stdgo.GoUInt32`](<#function-_b32>)
+
+- [`function _runtime_procPin():stdgo.GoInt`](<#function-_runtime_procpin>)
+
+- [`function _runtime_procUnpin():Void`](<#function-_runtime_procunpin>)
+
+- [`function addInt32(_addr:stdgo.Pointer<stdgo.GoInt32>, _delta:stdgo.GoInt32):stdgo.GoInt32`](<#function-addint32>)
+
+- [`function addInt64(_addr:stdgo.Pointer<stdgo.GoInt64>, _delta:stdgo.GoInt64):stdgo.GoInt64`](<#function-addint64>)
+
+- [`function addUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _delta:stdgo.GoUInt32):stdgo.GoUInt32`](<#function-adduint32>)
+
+- [`function addUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _delta:stdgo.GoUInt64):stdgo.GoUInt64`](<#function-adduint64>)
+
+- [`function addUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _delta:stdgo.GoUIntptr):stdgo.GoUIntptr`](<#function-adduintptr>)
+
+- [`function compareAndSwapInt32(_addr:stdgo.Pointer<stdgo.GoInt32>, _old:stdgo.GoInt32, _new:stdgo.GoInt32):Bool`](<#function-compareandswapint32>)
+
+- [`function compareAndSwapInt64(_addr:stdgo.Pointer<stdgo.GoInt64>, _old:stdgo.GoInt64, _new:stdgo.GoInt64):Bool`](<#function-compareandswapint64>)
+
+- [`function compareAndSwapPointer(_addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>, _old:stdgo._internal.unsafe.UnsafePointer, _new:stdgo._internal.unsafe.UnsafePointer):Bool`](<#function-compareandswappointer>)
+
+- [`function compareAndSwapUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _old:stdgo.GoUInt32, _new:stdgo.GoUInt32):Bool`](<#function-compareandswapuint32>)
+
+- [`function compareAndSwapUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _old:stdgo.GoUInt64, _new:stdgo.GoUInt64):Bool`](<#function-compareandswapuint64>)
+
+- [`function compareAndSwapUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _old:stdgo.GoUIntptr, _new:stdgo.GoUIntptr):Bool`](<#function-compareandswapuintptr>)
+
+- [`function loadInt32(_addr:stdgo.Pointer<stdgo.GoInt32>):stdgo.GoInt32`](<#function-loadint32>)
+
+- [`function loadInt64(_addr:stdgo.Pointer<stdgo.GoInt64>):stdgo.GoInt64`](<#function-loadint64>)
+
+- [`function loadPointer(_addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>):stdgo._internal.unsafe.UnsafePointer`](<#function-loadpointer>)
+
+- [`function loadUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>):stdgo.GoUInt32`](<#function-loaduint32>)
+
+- [`function loadUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>):stdgo.GoUInt64`](<#function-loaduint64>)
+
+- [`function loadUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>):stdgo.GoUIntptr`](<#function-loaduintptr>)
+
+- [`function storeInt32(_addr:stdgo.Pointer<stdgo.GoInt32>, _val:stdgo.GoInt32):Void`](<#function-storeint32>)
+
+- [`function storeInt64(_addr:stdgo.Pointer<stdgo.GoInt64>, _val:stdgo.GoInt64):Void`](<#function-storeint64>)
+
+- [`function storePointer(_addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>, _val:stdgo._internal.unsafe.UnsafePointer):Void`](<#function-storepointer>)
+
+- [`function storeUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _val:stdgo.GoUInt32):Void`](<#function-storeuint32>)
+
+- [`function storeUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _val:stdgo.GoUInt64):Void`](<#function-storeuint64>)
+
+- [`function storeUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _val:stdgo.GoUIntptr):Void`](<#function-storeuintptr>)
+
+- [`function swapInt32(_addr:stdgo.Pointer<stdgo.GoInt32>, _new:stdgo.GoInt32):stdgo.GoInt32`](<#function-swapint32>)
+
+- [`function swapInt64(_addr:stdgo.Pointer<stdgo.GoInt64>, _new:stdgo.GoInt64):stdgo.GoInt64`](<#function-swapint64>)
+
+- [`function swapPointer(_addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>, _new:stdgo._internal.unsafe.UnsafePointer):stdgo._internal.unsafe.UnsafePointer`](<#function-swappointer>)
+
+- [`function swapUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _new:stdgo.GoUInt32):stdgo.GoUInt32`](<#function-swapuint32>)
+
+- [`function swapUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _new:stdgo.GoUInt64):stdgo.GoUInt64`](<#function-swapuint64>)
+
+- [`function swapUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _new:stdgo.GoUIntptr):stdgo.GoUIntptr`](<#function-swapuintptr>)
+
+- [class Bool\_](<#class-bool_>)
+
+  - [`function new(?__2:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoUInt32):Void`](<#bool_-function-new>)
+
+  - [`function compareAndSwap( _old:Bool, _new:Bool):Bool`](<#bool_-function-compareandswap>)
+
+  - [`function load():Bool`](<#bool_-function-load>)
+
+  - [`function store( _val:Bool):Void`](<#bool_-function-store>)
+
+  - [`function swap( _new:Bool):Bool`](<#bool_-function-swap>)
+
+- [class Int32](<#class-int32>)
+
+  - [`function new(?__8:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoInt32):Void`](<#int32-function-new>)
+
+  - [`function add( _delta:stdgo.GoInt32):stdgo.GoInt32`](<#int32-function-add>)
+
+  - [`function compareAndSwap( _old:stdgo.GoInt32, _new:stdgo.GoInt32):Bool`](<#int32-function-compareandswap>)
+
+  - [`function load():stdgo.GoInt32`](<#int32-function-load>)
+
+  - [`function store( _val:stdgo.GoInt32):Void`](<#int32-function-store>)
+
+  - [`function swap( _new:stdgo.GoInt32):stdgo.GoInt32`](<#int32-function-swap>)
+
+- [class Int64\_](<#class-int64_>)
+
+  - [`function new(?__11:stdgo._internal.sync.atomic_.T_noCopy, ?__12:stdgo._internal.sync.atomic_.T_align64, ?_v:stdgo.GoInt64):Void`](<#int64_-function-new>)
+
+  - [`function add( _delta:stdgo.GoInt64):stdgo.GoInt64`](<#int64_-function-add>)
+
+  - [`function compareAndSwap( _old:stdgo.GoInt64, _new:stdgo.GoInt64):Bool`](<#int64_-function-compareandswap>)
+
+  - [`function load():stdgo.GoInt64`](<#int64_-function-load>)
+
+  - [`function store( _val:stdgo.GoInt64):Void`](<#int64_-function-store>)
+
+  - [`function swap( _new:stdgo.GoInt64):stdgo.GoInt64`](<#int64_-function-swap>)
+
+- [class Pointer\_](<#class-pointer_>)
+
+  - [`function new(?__5:stdgo.GoArray<stdgo.Ref<stdgo._internal.sync.atomic_.Pointer_.T_>>, ?__6:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo._internal.unsafe.UnsafePointer):Void`](<#pointer_-function-new>)
+
+  - [`function compareAndSwap( __generic__0:compareAndSwap.T_, _old:stdgo.Ref<compareAndSwap.T_>, _new:stdgo.Ref<compareAndSwap.T_>):Bool`](<#pointer_-function-compareandswap>)
+
+  - [`function load( __generic__0:load.T_):stdgo.Ref<load.T_>`](<#pointer_-function-load>)
+
+  - [`function store( __generic__0:store.T_, _val:stdgo.Ref<store.T_>):Void`](<#pointer_-function-store>)
+
+  - [`function swap( __generic__0:swap.T_, _new:stdgo.Ref<swap.T_>):stdgo.Ref<swap.T_>`](<#pointer_-function-swap>)
+
+- [class Uint32](<#class-uint32>)
+
+  - [`function new(?__13:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoUInt32):Void`](<#uint32-function-new>)
+
+  - [`function add( _delta:stdgo.GoUInt32):stdgo.GoUInt32`](<#uint32-function-add>)
+
+  - [`function compareAndSwap( _old:stdgo.GoUInt32, _new:stdgo.GoUInt32):Bool`](<#uint32-function-compareandswap>)
+
+  - [`function load():stdgo.GoUInt32`](<#uint32-function-load>)
+
+  - [`function store( _val:stdgo.GoUInt32):Void`](<#uint32-function-store>)
+
+  - [`function swap( _new:stdgo.GoUInt32):stdgo.GoUInt32`](<#uint32-function-swap>)
+
+- [class Uint64](<#class-uint64>)
+
+  - [`function new(?__16:stdgo._internal.sync.atomic_.T_noCopy, ?__17:stdgo._internal.sync.atomic_.T_align64, ?_v:stdgo.GoUInt64):Void`](<#uint64-function-new>)
+
+  - [`function add( _delta:stdgo.GoUInt64):stdgo.GoUInt64`](<#uint64-function-add>)
+
+  - [`function compareAndSwap( _old:stdgo.GoUInt64, _new:stdgo.GoUInt64):Bool`](<#uint64-function-compareandswap>)
+
+  - [`function load():stdgo.GoUInt64`](<#uint64-function-load>)
+
+  - [`function store( _val:stdgo.GoUInt64):Void`](<#uint64-function-store>)
+
+  - [`function swap( _new:stdgo.GoUInt64):stdgo.GoUInt64`](<#uint64-function-swap>)
+
+- [class Uintptr](<#class-uintptr>)
+
+  - [`function new(?__19:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoUIntptr):Void`](<#uintptr-function-new>)
+
+  - [`function add( _delta:stdgo.GoUIntptr):stdgo.GoUIntptr`](<#uintptr-function-add>)
+
+  - [`function compareAndSwap( _old:stdgo.GoUIntptr, _new:stdgo.GoUIntptr):Bool`](<#uintptr-function-compareandswap>)
+
+  - [`function load():stdgo.GoUIntptr`](<#uintptr-function-load>)
+
+  - [`function store( _val:stdgo.GoUIntptr):Void`](<#uintptr-function-store>)
+
+  - [`function swap( _new:stdgo.GoUIntptr):stdgo.GoUIntptr`](<#uintptr-function-swap>)
+
+- [class Value](<#class-value>)
+
+  - [`function new(?_v:stdgo.AnyInterface):Void`](<#value-function-new>)
+
+  - [`function compareAndSwap( _old:stdgo.AnyInterface, _new:stdgo.AnyInterface):Bool`](<#value-function-compareandswap>)
+
+  - [`function load():stdgo.AnyInterface`](<#value-function-load>)
+
+  - [`function store( _val:stdgo.AnyInterface):Void`](<#value-function-store>)
+
+  - [`function swap( _new:stdgo.AnyInterface):stdgo.AnyInterface`](<#value-function-swap>)
+
+# Variables
+
+
+```haxe
+import stdgo._internal.sync.atomic_.Atomic_
 ```
+
+
+```haxe
+var __24:stdgo.Ref<stdgo._internal.sync.atomic_.Pointer_<stdgo.GoInt>>
+```
+
+
+```haxe
+var _firstStoreInProgress:stdgo.GoByte
+```
+
+
+# Functions
+
+
+```haxe
+import stdgo._internal.sync.atomic_.Atomic_
+```
+
+
+## function \_b32
+
+
+```haxe
+function _b32(_b:Bool):stdgo.GoUInt32
+```
+
+
+[\(view code\)](<./Atomic_.hx#L174>)
+
+
+## function \_runtime\_procPin
+
+
+```haxe
+function _runtime_procPin():stdgo.GoInt
+```
+
+
+[\(view code\)](<./Atomic_.hx#L175>)
+
+
+## function \_runtime\_procUnpin
+
+
+```haxe
+function _runtime_procUnpin():Void
+```
+
+
+[\(view code\)](<./Atomic_.hx#L176>)
+
+
+## function addInt32
+
+
+```haxe
+function addInt32(_addr:stdgo.Pointer<stdgo.GoInt32>, _delta:stdgo.GoInt32):stdgo.GoInt32
+```
+
+
+[\(view code\)](<./Atomic_.hx#L153>)
+
+
+## function addInt64
+
+
+```haxe
+function addInt64(_addr:stdgo.Pointer<stdgo.GoInt64>, _delta:stdgo.GoInt64):stdgo.GoInt64
+```
+
+
+[\(view code\)](<./Atomic_.hx#L155>)
+
+
+## function addUint32
+
+
+```haxe
+function addUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _delta:stdgo.GoUInt32):stdgo.GoUInt32
+```
+
+
+[\(view code\)](<./Atomic_.hx#L154>)
+
+
+## function addUint64
+
+
+```haxe
+function addUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _delta:stdgo.GoUInt64):stdgo.GoUInt64
+```
+
+
+[\(view code\)](<./Atomic_.hx#L156>)
+
+
+## function addUintptr
+
+
+```haxe
+function addUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _delta:stdgo.GoUIntptr):stdgo.GoUIntptr
+```
+
+
+[\(view code\)](<./Atomic_.hx#L157>)
+
+
+## function compareAndSwapInt32
+
+
+```haxe
+function compareAndSwapInt32(_addr:stdgo.Pointer<stdgo.GoInt32>, _old:stdgo.GoInt32, _new:stdgo.GoInt32):Bool
+```
+
+
+[\(view code\)](<./Atomic_.hx#L147>)
+
+
+## function compareAndSwapInt64
+
+
+```haxe
+function compareAndSwapInt64(_addr:stdgo.Pointer<stdgo.GoInt64>, _old:stdgo.GoInt64, _new:stdgo.GoInt64):Bool
+```
+
+
+[\(view code\)](<./Atomic_.hx#L148>)
+
+
+## function compareAndSwapPointer
+
+
+```haxe
+function compareAndSwapPointer(_addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>, _old:stdgo._internal.unsafe.UnsafePointer, _new:stdgo._internal.unsafe.UnsafePointer):Bool
+```
+
+
+[\(view code\)](<./Atomic_.hx#L152>)
+
+
+## function compareAndSwapUint32
+
+
+```haxe
+function compareAndSwapUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _old:stdgo.GoUInt32, _new:stdgo.GoUInt32):Bool
+```
+
+
+[\(view code\)](<./Atomic_.hx#L149>)
+
+
+## function compareAndSwapUint64
+
+
+```haxe
+function compareAndSwapUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _old:stdgo.GoUInt64, _new:stdgo.GoUInt64):Bool
+```
+
+
+[\(view code\)](<./Atomic_.hx#L150>)
+
+
+## function compareAndSwapUintptr
+
+
+```haxe
+function compareAndSwapUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _old:stdgo.GoUIntptr, _new:stdgo.GoUIntptr):Bool
+```
+
+
+[\(view code\)](<./Atomic_.hx#L151>)
+
+
+## function loadInt32
+
+
+```haxe
+function loadInt32(_addr:stdgo.Pointer<stdgo.GoInt32>):stdgo.GoInt32
+```
+
+
+[\(view code\)](<./Atomic_.hx#L158>)
+
+
+## function loadInt64
+
+
+```haxe
+function loadInt64(_addr:stdgo.Pointer<stdgo.GoInt64>):stdgo.GoInt64
+```
+
+
+[\(view code\)](<./Atomic_.hx#L159>)
+
+
+## function loadPointer
+
+
+```haxe
+function loadPointer(_addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>):stdgo._internal.unsafe.UnsafePointer
+```
+
+
+[\(view code\)](<./Atomic_.hx#L163>)
+
+
+## function loadUint32
+
+
+```haxe
+function loadUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>):stdgo.GoUInt32
+```
+
+
+[\(view code\)](<./Atomic_.hx#L160>)
+
+
+## function loadUint64
+
+
+```haxe
+function loadUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>):stdgo.GoUInt64
+```
+
+
+[\(view code\)](<./Atomic_.hx#L161>)
+
+
+## function loadUintptr
+
+
+```haxe
+function loadUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>):stdgo.GoUIntptr
+```
+
+
+[\(view code\)](<./Atomic_.hx#L162>)
+
+
+## function storeInt32
+
+
+```haxe
+function storeInt32(_addr:stdgo.Pointer<stdgo.GoInt32>, _val:stdgo.GoInt32):Void
+```
+
+
+[\(view code\)](<./Atomic_.hx#L164>)
+
+
+## function storeInt64
+
+
+```haxe
+function storeInt64(_addr:stdgo.Pointer<stdgo.GoInt64>, _val:stdgo.GoInt64):Void
+```
+
+
+[\(view code\)](<./Atomic_.hx#L165>)
+
+
+## function storePointer
+
+
+```haxe
+function storePointer(_addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>, _val:stdgo._internal.unsafe.UnsafePointer):Void
+```
+
+
+[\(view code\)](<./Atomic_.hx#L173>)
+
+
+## function storeUint32
+
+
+```haxe
+function storeUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _val:stdgo.GoUInt32):Void
+```
+
+
+[\(view code\)](<./Atomic_.hx#L166>)
+
+
+## function storeUint64
+
+
+```haxe
+function storeUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _val:stdgo.GoUInt64):Void
+```
+
+
+[\(view code\)](<./Atomic_.hx#L169>)
+
+
+## function storeUintptr
+
+
+```haxe
+function storeUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _val:stdgo.GoUIntptr):Void
+```
+
+
+[\(view code\)](<./Atomic_.hx#L172>)
+
+
+## function swapInt32
+
+
+```haxe
+function swapInt32(_addr:stdgo.Pointer<stdgo.GoInt32>, _new:stdgo.GoInt32):stdgo.GoInt32
+```
+
+
+[\(view code\)](<./Atomic_.hx#L141>)
+
+
+## function swapInt64
+
+
+```haxe
+function swapInt64(_addr:stdgo.Pointer<stdgo.GoInt64>, _new:stdgo.GoInt64):stdgo.GoInt64
+```
+
+
+[\(view code\)](<./Atomic_.hx#L142>)
+
+
+## function swapPointer
+
+
+```haxe
+function swapPointer(_addr:stdgo.Pointer<stdgo._internal.unsafe.UnsafePointer>, _new:stdgo._internal.unsafe.UnsafePointer):stdgo._internal.unsafe.UnsafePointer
+```
+
+
+[\(view code\)](<./Atomic_.hx#L146>)
+
+
+## function swapUint32
+
+
+```haxe
+function swapUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _new:stdgo.GoUInt32):stdgo.GoUInt32
+```
+
+
+[\(view code\)](<./Atomic_.hx#L143>)
+
+
+## function swapUint64
+
+
+```haxe
+function swapUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _new:stdgo.GoUInt64):stdgo.GoUInt64
+```
+
+
+[\(view code\)](<./Atomic_.hx#L144>)
+
+
+## function swapUintptr
+
+
+```haxe
+function swapUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _new:stdgo.GoUIntptr):stdgo.GoUIntptr
+```
+
+
+[\(view code\)](<./Atomic_.hx#L145>)
+
+
+# Classes
+
+
+```haxe
+import stdgo._internal.sync.atomic_.*
+```
+
+
+## class Bool\_
+
+
+```haxe
+var __2:stdgo._internal.sync.atomic_.T_noCopy
+```
+
+
+```haxe
+var _v:stdgo.GoUInt32
+```
+
+
+### Bool\_ function new
+
+
+```haxe
+function new(?__2:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoUInt32):Void
+```
+
+
+[\(view code\)](<./Atomic_.hx#L9>)
+
+
+### Bool\_ function compareAndSwap
+
+
+```haxe
+function compareAndSwap( _old:Bool, _new:Bool):Bool
+```
+
+
+[\(view code\)](<./Atomic_.hx#L196>)
+
+
+### Bool\_ function load
+
+
+```haxe
+function load():Bool
+```
+
+
+[\(view code\)](<./Atomic_.hx#L202>)
+
+
+### Bool\_ function store
+
+
+```haxe
+function store( _val:Bool):Void
+```
+
+
+[\(view code\)](<./Atomic_.hx#L200>)
+
+
+### Bool\_ function swap
+
+
+```haxe
+function swap( _new:Bool):Bool
+```
+
+
+[\(view code\)](<./Atomic_.hx#L198>)
+
+
+## class Int32
+
+
+```haxe
+var __8:stdgo._internal.sync.atomic_.T_noCopy
+```
+
+
+```haxe
+var _v:stdgo.GoInt32
+```
+
+
+### Int32 function new
+
+
+```haxe
+function new(?__8:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoInt32):Void
+```
+
+
+[\(view code\)](<./Atomic_.hx#L38>)
+
+
+### Int32 function add
+
+
+```haxe
+function add( _delta:stdgo.GoInt32):stdgo.GoInt32
+```
+
+
+[\(view code\)](<./Atomic_.hx#L252>)
+
+
+### Int32 function compareAndSwap
+
+
+```haxe
+function compareAndSwap( _old:stdgo.GoInt32, _new:stdgo.GoInt32):Bool
+```
+
+
+[\(view code\)](<./Atomic_.hx#L254>)
+
+
+### Int32 function load
+
+
+```haxe
+function load():stdgo.GoInt32
+```
+
+
+[\(view code\)](<./Atomic_.hx#L263>)
+
+
+### Int32 function store
+
+
+```haxe
+function store( _val:stdgo.GoInt32):Void
+```
+
+
+[\(view code\)](<./Atomic_.hx#L258>)
+
+
+### Int32 function swap
+
+
+```haxe
+function swap( _new:stdgo.GoInt32):stdgo.GoInt32
+```
+
+
+[\(view code\)](<./Atomic_.hx#L256>)
+
+
+## class Int64\_
+
+
+```haxe
+var __11:stdgo._internal.sync.atomic_.T_noCopy
+```
+
+
+```haxe
+var __12:stdgo._internal.sync.atomic_.T_align64
+```
+
+
+```haxe
+var _v:stdgo.GoInt64
+```
+
+
+### Int64\_ function new
+
+
+```haxe
+function new(?__11:stdgo._internal.sync.atomic_.T_noCopy, ?__12:stdgo._internal.sync.atomic_.T_align64, ?_v:stdgo.GoInt64):Void
+```
+
+
+[\(view code\)](<./Atomic_.hx#L53>)
+
+
+### Int64\_ function add
+
+
+```haxe
+function add( _delta:stdgo.GoInt64):stdgo.GoInt64
+```
+
+
+[\(view code\)](<./Atomic_.hx#L289>)
+
+
+### Int64\_ function compareAndSwap
+
+
+```haxe
+function compareAndSwap( _old:stdgo.GoInt64, _new:stdgo.GoInt64):Bool
+```
+
+
+[\(view code\)](<./Atomic_.hx#L291>)
+
+
+### Int64\_ function load
+
+
+```haxe
+function load():stdgo.GoInt64
+```
+
+
+[\(view code\)](<./Atomic_.hx#L297>)
+
+
+### Int64\_ function store
+
+
+```haxe
+function store( _val:stdgo.GoInt64):Void
+```
+
+
+[\(view code\)](<./Atomic_.hx#L295>)
+
+
+### Int64\_ function swap
+
+
+```haxe
+function swap( _new:stdgo.GoInt64):stdgo.GoInt64
+```
+
+
+[\(view code\)](<./Atomic_.hx#L293>)
+
+
+## class Pointer\_
+
+
+```haxe
+var __5:stdgo.GoArray<stdgo.Ref<stdgo._internal.sync.atomic_.Pointer_.T_>>
+```
+
+
+```haxe
+var __6:stdgo._internal.sync.atomic_.T_noCopy
+```
+
+
+```haxe
+var _v:stdgo._internal.unsafe.UnsafePointer
+```
+
+
+### Pointer\_ function new
+
+
+```haxe
+function new(?__5:stdgo.GoArray<stdgo.Ref<stdgo._internal.sync.atomic_.Pointer_.T_>>, ?__6:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo._internal.unsafe.UnsafePointer):Void
+```
+
+
+[\(view code\)](<./Atomic_.hx#L24>)
+
+
+### Pointer\_ function compareAndSwap
+
+
+```haxe
+function compareAndSwap( __generic__0:compareAndSwap.T_, _old:stdgo.Ref<compareAndSwap.T_>, _new:stdgo.Ref<compareAndSwap.T_>):Bool
+```
+
+
+### Pointer\_ function load
+
+
+```haxe
+function load( __generic__0:load.T_):stdgo.Ref<load.T_>
+```
+
+
+### Pointer\_ function store
+
+
+```haxe
+function store( __generic__0:store.T_, _val:stdgo.Ref<store.T_>):Void
+```
+
+
+### Pointer\_ function swap
+
+
+```haxe
+function swap( __generic__0:swap.T_, _new:stdgo.Ref<swap.T_>):stdgo.Ref<swap.T_>
+```
+
+
+## class Uint32
+
+
+```haxe
+var __13:stdgo._internal.sync.atomic_.T_noCopy
+```
+
+
+```haxe
+var _v:stdgo.GoUInt32
+```
+
+
+### Uint32 function new
+
+
+```haxe
+function new(?__13:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoUInt32):Void
+```
+
+
+[\(view code\)](<./Atomic_.hx#L67>)
+
+
+### Uint32 function add
+
+
+```haxe
+function add( _delta:stdgo.GoUInt32):stdgo.GoUInt32
+```
+
+
+[\(view code\)](<./Atomic_.hx#L320>)
+
+
+### Uint32 function compareAndSwap
+
+
+```haxe
+function compareAndSwap( _old:stdgo.GoUInt32, _new:stdgo.GoUInt32):Bool
+```
+
+
+[\(view code\)](<./Atomic_.hx#L322>)
+
+
+### Uint32 function load
+
+
+```haxe
+function load():stdgo.GoUInt32
+```
+
+
+[\(view code\)](<./Atomic_.hx#L328>)
+
+
+### Uint32 function store
+
+
+```haxe
+function store( _val:stdgo.GoUInt32):Void
+```
+
+
+[\(view code\)](<./Atomic_.hx#L326>)
+
+
+### Uint32 function swap
+
+
+```haxe
+function swap( _new:stdgo.GoUInt32):stdgo.GoUInt32
+```
+
+
+[\(view code\)](<./Atomic_.hx#L324>)
+
+
+## class Uint64
+
+
+```haxe
+var __16:stdgo._internal.sync.atomic_.T_noCopy
+```
+
+
+```haxe
+var __17:stdgo._internal.sync.atomic_.T_align64
+```
+
+
+```haxe
+var _v:stdgo.GoUInt64
+```
+
+
+### Uint64 function new
+
+
+```haxe
+function new(?__16:stdgo._internal.sync.atomic_.T_noCopy, ?__17:stdgo._internal.sync.atomic_.T_align64, ?_v:stdgo.GoUInt64):Void
+```
+
+
+[\(view code\)](<./Atomic_.hx#L82>)
+
+
+### Uint64 function add
+
+
+```haxe
+function add( _delta:stdgo.GoUInt64):stdgo.GoUInt64
+```
+
+
+[\(view code\)](<./Atomic_.hx#L351>)
+
+
+### Uint64 function compareAndSwap
+
+
+```haxe
+function compareAndSwap( _old:stdgo.GoUInt64, _new:stdgo.GoUInt64):Bool
+```
+
+
+[\(view code\)](<./Atomic_.hx#L353>)
+
+
+### Uint64 function load
+
+
+```haxe
+function load():stdgo.GoUInt64
+```
+
+
+[\(view code\)](<./Atomic_.hx#L359>)
+
+
+### Uint64 function store
+
+
+```haxe
+function store( _val:stdgo.GoUInt64):Void
+```
+
+
+[\(view code\)](<./Atomic_.hx#L357>)
+
+
+### Uint64 function swap
+
+
+```haxe
+function swap( _new:stdgo.GoUInt64):stdgo.GoUInt64
+```
+
+
+[\(view code\)](<./Atomic_.hx#L355>)
+
+
+## class Uintptr
+
+
+```haxe
+var __19:stdgo._internal.sync.atomic_.T_noCopy
+```
+
+
+```haxe
+var _v:stdgo.GoUIntptr
+```
+
+
+### Uintptr function new
+
+
+```haxe
+function new(?__19:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoUIntptr):Void
+```
+
+
+[\(view code\)](<./Atomic_.hx#L96>)
+
+
+### Uintptr function add
+
+
+```haxe
+function add( _delta:stdgo.GoUIntptr):stdgo.GoUIntptr
+```
+
+
+[\(view code\)](<./Atomic_.hx#L382>)
+
+
+### Uintptr function compareAndSwap
+
+
+```haxe
+function compareAndSwap( _old:stdgo.GoUIntptr, _new:stdgo.GoUIntptr):Bool
+```
+
+
+[\(view code\)](<./Atomic_.hx#L384>)
+
+
+### Uintptr function load
+
+
+```haxe
+function load():stdgo.GoUIntptr
+```
+
+
+[\(view code\)](<./Atomic_.hx#L390>)
+
+
+### Uintptr function store
+
+
+```haxe
+function store( _val:stdgo.GoUIntptr):Void
+```
+
+
+[\(view code\)](<./Atomic_.hx#L388>)
+
+
+### Uintptr function swap
+
+
+```haxe
+function swap( _new:stdgo.GoUIntptr):stdgo.GoUIntptr
+```
+
+
+[\(view code\)](<./Atomic_.hx#L386>)
+
+
+## class Value
+
+
+```haxe
+var _v:stdgo.AnyInterface
+```
+
+
+### Value function new
+
+
+```haxe
+function new(?_v:stdgo.AnyInterface):Void
+```
+
+
+[\(view code\)](<./Atomic_.hx#L121>)
+
+
+### Value function compareAndSwap
+
+
+```haxe
+function compareAndSwap( _old:stdgo.AnyInterface, _new:stdgo.AnyInterface):Bool
+```
+
+
+[\(view code\)](<./Atomic_.hx#L430>)
+
+
+### Value function load
+
+
+```haxe
+function load():stdgo.AnyInterface
+```
+
+
+[\(view code\)](<./Atomic_.hx#L436>)
+
+
+### Value function store
+
+
+```haxe
+function store( _val:stdgo.AnyInterface):Void
+```
+
+
+[\(view code\)](<./Atomic_.hx#L434>)
+
+
+### Value function swap
+
+
+```haxe
+function swap( _new:stdgo.AnyInterface):stdgo.AnyInterface
+```
+
+
+[\(view code\)](<./Atomic_.hx#L432>)
+
 

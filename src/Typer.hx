@@ -1665,9 +1665,9 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 			x = macro $x.value;
 		if (isPointer(typeY))
 			y = macro $y.value;
-		if (!isAnyInterface(getElemUnderlying(typeX)))
+		if (!isAnyInterface(getElem(typeX)))
 			x = toAnyInterface(x, typeX, info);
-		if (!isAnyInterface(getElemUnderlying(typeY)))
+		if (!isAnyInterface(getElem(typeY)))
 			y = toAnyInterface(y, typeY, info);
 	}
 	var t = getUnderlying(typeX);
@@ -1677,7 +1677,7 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 		case sliceType(_), refType(_):
 			var run = true;
 			if (isRef(t)) {
-				switch getElemUnderlying(t) {
+				switch getElem(t) {
 					case sliceType(_):
 					// pointer slice is redunant as slice acts already like a pointer
 					default:
@@ -2071,6 +2071,8 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 		return y;
 	switch escapeCheckType(y).expr {
 		case EBlock(_), ENew(_), EObjectDecl(_):
+			return y;
+		case EUnop(OpSpread, _, _):
 			return y;
 		default:
 	}
@@ -3434,7 +3436,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							final fromType = getVar(typeof(exprArgs[i - skip], info, false));
 							var toType = getVar(params[i - skip]);
 							if (variadic && params.length <= i + 1 - skip) {
-								toType = getElemUnderlying(params[params.length - 1]);
+								toType = getElem(params[params.length - 1]);
 							}
 							args[i] = assignTranslate(fromType, toType, args[i], info);
 						}

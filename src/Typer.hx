@@ -3574,10 +3574,18 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							r;
 						})).expr;
 					case "append":
-						genArgs(true);
+						final t = typeof(expr.args[0], info, false);
+						var eType = t;
+						eType = getElem(eType);
+						genArgs(false, eType);
 						var e = args.shift();
 						if (args.length == 0)
 							return returnExpr(e).expr;
+
+						for (i in 0...args.length) {
+							final aType = typeof(expr.args[i + 1], info, false);
+							args[i] = assignTranslate(aType, eType, args[i], info);
+						}
 						return returnExpr(macro($e.__append__($a{args}))).expr;
 					case "copy":
 						genArgs(false);

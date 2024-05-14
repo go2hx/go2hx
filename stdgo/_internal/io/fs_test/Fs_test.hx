@@ -324,7 +324,7 @@ function testReadDir(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             if ((((_err != null || (_dirs.length) != ((2 : stdgo.GoInt)) : Bool) || _dirs[(0 : stdgo.GoInt)].name() != (("hello.txt" : stdgo.GoString)) : Bool) || (_dirs[(1 : stdgo.GoInt)].name() != ("sub" : stdgo.GoString)) : Bool)) {
                 var _names:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
                 for (__8 => _d in _dirs) {
-                    _names = (_names.__append__(_d.name()));
+                    _names = (_names.__append__(_d.name()?.__copy__()));
                 };
                 _t.errorf(("ReadDir(%s) = %v, %v, want %v, nil" : stdgo.GoString), stdgo.Go.toInterface(_desc), stdgo.Go.toInterface(_names), stdgo.Go.toInterface(_err), stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoString>(2, 2, ...[("hello.txt" : stdgo.GoString), ("sub" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)));
             };
@@ -452,7 +452,7 @@ function testSub(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             if (((_err != null || (_dirs.length) != ((1 : stdgo.GoInt)) : Bool) || (_dirs[(0 : stdgo.GoInt)].name() != ("goodbye.txt" : stdgo.GoString)) : Bool)) {
                 var _names:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
                 for (__24 => _d in _dirs) {
-                    _names = (_names.__append__(_d.name()));
+                    _names = (_names.__append__(_d.name()?.__copy__()));
                 };
                 _t.errorf(("ReadDir(%s, \".\") = %v, %v, want %v, nil" : stdgo.GoString), stdgo.Go.toInterface(_desc), stdgo.Go.toInterface(_names), stdgo.Go.toInterface(_err), stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("goodbye.txt" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)));
             };
@@ -610,7 +610,7 @@ function testIssue51617(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                     return stdgo._internal.path.filepath.Filepath.skipDir;
                 };
                 if (_d.isDir()) {
-                    _saw = (_saw.__append__(_path));
+                    _saw = (_saw.__append__(_path?.__copy__()));
                 };
                 return (null : stdgo.Error);
             });

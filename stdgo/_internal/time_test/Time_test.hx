@@ -3160,7 +3160,7 @@ function _testAfterQueuing(_delta:Duration):stdgo.Error {
         for (_ => _ in _slots) {
             var _r:stdgo._internal.time_test.Time_test.T_afterResult = _result.__get__()?.__copy__();
             _order = (_order.__append__(_r._slot));
-            _times = (_times.__append__(_r._t));
+            _times = (_times.__append__(_r._t?.__copy__()));
         };
         for (_i => _ in _order) {
             if (((_i > (0 : stdgo.GoInt) : Bool) && (_order[(_i : stdgo.GoInt)] < _order[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)] : Bool) : Bool)) {
@@ -3855,7 +3855,7 @@ function testTicker(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             var _target:stdgo._internal.time.Time.Duration = (((3i64 : stdgo._internal.time.Time.Duration) * _delta : stdgo._internal.time.Time.Duration) * ((_count / (2 : stdgo.GoInt) : stdgo.GoInt) : Duration) : stdgo._internal.time.Time.Duration);
             var _slop:stdgo._internal.time.Time.Duration = ((_target * (3i64 : stdgo._internal.time.Time.Duration) : stdgo._internal.time.Time.Duration) / (10i64 : stdgo._internal.time.Time.Duration) : stdgo._internal.time.Time.Duration);
             if (((_dt < (_target - _slop : stdgo._internal.time.Time.Duration) : Bool) || (_dt > (_target + _slop : stdgo._internal.time.Time.Duration) : Bool) : Bool)) {
-                _errs = (_errs.__append__(stdgo._internal.fmt.Fmt.sprintf(("%d %s ticks then %d %s ticks took %s, expected [%s,%s]" : stdgo.GoString), stdgo.Go.toInterface((_count / (2 : stdgo.GoInt) : stdgo.GoInt)), stdgo.Go.toInterface(stdgo.Go.asInterface(_delta)), stdgo.Go.toInterface((_count / (2 : stdgo.GoInt) : stdgo.GoInt)), stdgo.Go.toInterface(stdgo.Go.asInterface((_delta * (2i64 : stdgo._internal.time.Time.Duration) : stdgo._internal.time.Time.Duration))), stdgo.Go.toInterface(stdgo.Go.asInterface(_dt)), stdgo.Go.toInterface(stdgo.Go.asInterface((_target - _slop : stdgo._internal.time.Time.Duration))), stdgo.Go.toInterface(stdgo.Go.asInterface((_target + _slop : stdgo._internal.time.Time.Duration))))));
+                _errs = (_errs.__append__(stdgo._internal.fmt.Fmt.sprintf(("%d %s ticks then %d %s ticks took %s, expected [%s,%s]" : stdgo.GoString), stdgo.Go.toInterface((_count / (2 : stdgo.GoInt) : stdgo.GoInt)), stdgo.Go.toInterface(stdgo.Go.asInterface(_delta)), stdgo.Go.toInterface((_count / (2 : stdgo.GoInt) : stdgo.GoInt)), stdgo.Go.toInterface(stdgo.Go.asInterface((_delta * (2i64 : stdgo._internal.time.Time.Duration) : stdgo._internal.time.Time.Duration))), stdgo.Go.toInterface(stdgo.Go.asInterface(_dt)), stdgo.Go.toInterface(stdgo.Go.asInterface((_target - _slop : stdgo._internal.time.Time.Duration))), stdgo.Go.toInterface(stdgo.Go.asInterface((_target + _slop : stdgo._internal.time.Time.Duration))))?.__copy__()));
                 if ((_dt > (_target + _slop : stdgo._internal.time.Time.Duration) : Bool)) {
                     sleep((500000000i64 : stdgo._internal.time.Time.Duration));
                 };

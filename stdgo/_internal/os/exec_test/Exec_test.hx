@@ -597,7 +597,7 @@ function _cmdEcho(_args:haxe.Rest<stdgo.GoString>):Void {
         var _args = new stdgo.Slice<stdgo.GoString>(_args.length, 0, ..._args);
         var _iargs = (new stdgo.Slice<stdgo.AnyInterface>(0, 0, ...[]) : stdgo.Slice<stdgo.AnyInterface>);
         for (__0 => _s in _args) {
-            _iargs = (_iargs.__append__(_s));
+            _iargs = (_iargs.__append__(stdgo.Go.toInterface(_s)));
         };
         stdgo._internal.fmt.Fmt.println(...(_iargs : Array<stdgo.AnyInterface>));
     }
@@ -1610,7 +1610,7 @@ function testEnvNULCharacter(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
             _t.skip(stdgo.Go.toInterface(("plan9 explicitly allows NUL in the environment" : stdgo.GoString)));
         };
         var _cmd = _helperCommand(_t, ("echoenv" : stdgo.GoString), ("FOO" : stdgo.GoString), ("BAR" : stdgo.GoString));
-        _cmd.env = (_cmd.environ().__append__(stdgo.Go.str("FOO=foo", 0, "BAR=bar")));
+        _cmd.env = (_cmd.environ().__append__(stdgo.Go.str("FOO=foo", 0, "BAR=bar")?.__copy__()));
         var __tmp__ = _cmd.combinedOutput(), _out:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err == null) {
             _t.errorf(("output = %q; want error" : stdgo.GoString), stdgo.Go.toInterface((_out : stdgo.GoString)));

@@ -3520,7 +3520,7 @@ class T_parser_asInterface {
         _re.sub = (_re.sub0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Regexp>>);
         for (__1 => _sub in _subs) {
             if (_sub.op == (_op)) {
-                _re.sub = (_re.sub.__append__(...(_sub.sub : Array<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Regexp>>)));
+                _re.sub = (_re.sub.__append__(...(_sub.sub : Array<stdgo._internal.regexp.syntax.Syntax.Regexp>)));
                 _p._reuse(_sub);
             } else {
                 _re.sub = (_re.sub.__append__(_sub));
@@ -4176,7 +4176,7 @@ class Regexp_asInterface {
                             _nre.name = __tmp__.name;
                         };
                         _nre.rune = (null : stdgo.Slice<stdgo.GoInt32>);
-                        _nre.sub = ((_nre.sub0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Regexp>>).__append__(...((_re.sub.__slice__(0, _i) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Regexp>>) : Array<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Regexp>>)));
+                        _nre.sub = ((_nre.sub0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Regexp>>).__append__(...((_re.sub.__slice__(0, _i) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Regexp>>) : Array<stdgo._internal.regexp.syntax.Syntax.Regexp>)));
                     };
                     if (_nre != (_re)) {
                         _nre.sub = (_nre.sub.__append__(_nsub));

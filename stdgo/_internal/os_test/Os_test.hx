@@ -1201,7 +1201,7 @@ function testExecutable(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         if (false) {} else {
             _cmd.args[(0 : stdgo.GoInt)] = ("-" : stdgo.GoString);
         };
-        _cmd.env = (_cmd.environ().__append__(stdgo._internal.fmt.Fmt.sprintf(("%s=1" : stdgo.GoString), stdgo.Go.toInterface(("OSTEST_OUTPUT_EXECPATH" : stdgo.GoString)))));
+        _cmd.env = (_cmd.environ().__append__(stdgo._internal.fmt.Fmt.sprintf(("%s=1" : stdgo.GoString), stdgo.Go.toInterface(("OSTEST_OUTPUT_EXECPATH" : stdgo.GoString)))?.__copy__()));
         var __tmp__ = _cmd.combinedOutput(), _out:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _t.fatalf(("exec(self) failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
@@ -3488,7 +3488,7 @@ function testChdirAndGetwd(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
                     if (_err != null) {
                         _t.fatalf(("EvalSymlinks: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                     };
-                    _dirs = (_dirs.__append__(_dir));
+                    _dirs = (_dirs.__append__(_dir?.__copy__()));
                 };
             };
         };
@@ -7150,7 +7150,7 @@ function testRemoveAllNoFcntl(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
         };
         var _cmd = stdgo._internal.internal.testenv.Testenv.command(stdgo.Go.asInterface(_t), ("/bin/strace" : stdgo.GoString), ("-f" : stdgo.GoString), ("-e" : stdgo.GoString), ("fcntl" : stdgo.GoString), _me?.__copy__(), ("-test.run=TestRemoveAllNoFcntl" : stdgo.GoString));
         _cmd = stdgo._internal.internal.testenv.Testenv.cleanCmdEnv(_cmd);
-        _cmd.env = (_cmd.env.__append__((("GO_TEST_REMOVE_ALL_NO_FCNTL=" : stdgo.GoString) + _subdir?.__copy__() : stdgo.GoString)));
+        _cmd.env = (_cmd.env.__append__((("GO_TEST_REMOVE_ALL_NO_FCNTL=" : stdgo.GoString) + _subdir?.__copy__() : stdgo.GoString)?.__copy__()));
         var __tmp__ = _cmd.combinedOutput(), _out:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (((_out.length) > (0 : stdgo.GoInt) : Bool)) {
             _t.logf(("%s" : stdgo.GoString), stdgo.Go.toInterface(_out));

@@ -5696,7 +5696,7 @@ function _typeFields(_t:stdgo._internal.reflect.Reflect.Type_):T_structFields {
                             _nameEscBuf = _appendHTMLEscape((_nameEscBuf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _field._nameBytes);
                             _field._nameEscHTML = ((("\"" : stdgo.GoString) + (_nameEscBuf : stdgo.GoString)?.__copy__() : stdgo.GoString) + ("\":" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
                             _field._nameNonEsc = ((("\"" : stdgo.GoString) + _field._name?.__copy__() : stdgo.GoString) + ("\":" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
-                            _fields = (_fields.__append__(_field));
+                            _fields = (_fields.__append__(_field?.__copy__()));
                             if (((_count[_f._typ] ?? (0 : stdgo.GoInt)) > (1 : stdgo.GoInt) : Bool)) {
                                 _fields = (_fields.__append__(_fields[((_fields.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]));
                             };
@@ -5739,12 +5739,12 @@ function _typeFields(_t:stdgo._internal.reflect.Reflect.Type_):T_structFields {
                     });
                 };
                 if (_advance == ((1 : stdgo.GoInt))) {
-                    _out = (_out.__append__(_fi));
+                    _out = (_out.__append__(_fi?.__copy__()));
                     continue;
                 };
                 var __tmp__ = _dominantField((_fields.__slice__(_i, (_i + _advance : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.encoding.json.Json.T_field>)), _dominant:stdgo._internal.encoding.json.Json.T_field = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
-                    _out = (_out.__append__(_dominant));
+                    _out = (_out.__append__(_dominant?.__copy__()));
                 };
             });
         };
@@ -8670,7 +8670,7 @@ class T_decodeState_asInterface {
             if (_d._opcode == ((8 : stdgo.GoInt))) {
                 break;
             };
-            _v = (_v.__append__((_d._valueInterface().value : stdgo.Slice<stdgo.AnyInterface>)));
+            _v = (_v.__append__(_d._valueInterface()));
             if (_d._opcode == ((9 : stdgo.GoInt))) {
                 _d._scanWhile((9 : stdgo.GoInt));
             };
@@ -9025,7 +9025,7 @@ class T_decodeState_asInterface {
                     if (_d._errorContext == null || (_d._errorContext : Dynamic).__nil__) {
                         _d._errorContext = (stdgo.Go.setRef(({} : stdgo._internal.encoding.json.Json.T_errorContext)) : stdgo.Ref<stdgo._internal.encoding.json.Json.T_errorContext>);
                     };
-                    _d._errorContext.fieldStack = (_d._errorContext.fieldStack.__append__(_f._name));
+                    _d._errorContext.fieldStack = (_d._errorContext.fieldStack.__append__(_f._name?.__copy__()));
                     _d._errorContext.struct_ = _t;
                 } else if (_d._disallowUnknownFields) {
                     _d._saveError(stdgo._internal.fmt.Fmt.errorf(("json: unknown field %q" : stdgo.GoString), stdgo.Go.toInterface(_key)));

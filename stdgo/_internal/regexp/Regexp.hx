@@ -1788,7 +1788,7 @@ function _testRE2(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _file:stdgo.
                             _t.fatalf(("%s:%d: unquote %s: %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface(_line), stdgo.Go.toInterface(_err));
                         };
                         if (_inStrings) {
-                            _str = (_str.__append__(_q));
+                            _str = (_str.__append__(_q?.__copy__()));
                             continue;
                         };
                         if ((_input.length) != ((0 : stdgo.GoInt))) {
@@ -4089,12 +4089,12 @@ class Regexp_asInterface {
             };
             _end = _match[(0 : stdgo.GoInt)];
             if (_match[(1 : stdgo.GoInt)] != ((0 : stdgo.GoInt))) {
-                _strings = (_strings.__append__((_s.__slice__(_beg, _end) : stdgo.GoString)));
+                _strings = (_strings.__append__((_s.__slice__(_beg, _end) : stdgo.GoString)?.__copy__()));
             };
             _beg = _match[(1 : stdgo.GoInt)];
         };
         if (_end != ((_s.length))) {
-            _strings = (_strings.__append__((_s.__slice__(_beg) : stdgo.GoString)));
+            _strings = (_strings.__append__((_s.__slice__(_beg) : stdgo.GoString)?.__copy__()));
         };
         return _strings;
     }
@@ -4196,7 +4196,7 @@ class Regexp_asInterface {
             if (_result == null) {
                 _result = new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), (10 : stdgo.GoInt)).__setString__();
             };
-            _result = (_result.__append__((_s.__slice__(_match[(0 : stdgo.GoInt)], _match[(1 : stdgo.GoInt)]) : stdgo.GoString)));
+            _result = (_result.__append__((_s.__slice__(_match[(0 : stdgo.GoInt)], _match[(1 : stdgo.GoInt)]) : stdgo.GoString)?.__copy__()));
         });
         return _result;
     }

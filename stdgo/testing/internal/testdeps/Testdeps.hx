@@ -62,7 +62,7 @@ class TestDeps_static_extension {
     static public function coordinateFuzzing(:TestDeps, timeout:stdgo._internal.time.Time.Duration, limit:haxe.Int64, minimizeTimeout:stdgo._internal.time.Time.Duration, minimizeLimit:haxe.Int64, parallel:StdTypes.Int, seed:Array<stdgo.Tuple.Tuple6<String, String, Array<std.UInt>, Array<stdgo.AnyInterface>, StdTypes.Int, Bool>>, types:Array<stdgo._internal.reflect.Reflect.Type_>, corpusDir:String, cacheDir:String):stdgo.Error {
         final seed = ([for (i in seed) {
             final obj = i;
-            { parent : #NULL_EXPR, path : #NULL_EXPR, data : ([for (i in obj.data) i] : stdgo.Slice<stdgo.GoUInt8>), values : ([for (i in obj.values) i] : stdgo.Slice<stdgo.AnyInterface>), generation : #NULL_EXPR, isSeed : #NULL_EXPR };
+            { parent : obj.parent, path : obj.path, data : ([for (i in obj.data) i] : stdgo.Slice<stdgo.GoUInt8>), values : ([for (i in obj.values) i] : stdgo.Slice<stdgo.AnyInterface>), generation : obj.generation, isSeed : obj.isSeed };
         }] : stdgo.Slice<{ var parent : stdgo.GoString; var path : stdgo.GoString; var data : stdgo.Slice<stdgo.GoUInt8>; var values : stdgo.Slice<stdgo.AnyInterface>; var generation : stdgo.GoInt; var isSeed : Bool; }>);
         final types = ([for (i in types) i] : stdgo.Slice<stdgo._internal.reflect.Reflect.Type_>);
         return stdgo._internal.testing.internal.testdeps.Testdeps.TestDeps_static_extension.coordinateFuzzing(, timeout, limit, minimizeTimeout, minimizeLimit, parallel, seed, types, corpusDir, cacheDir);

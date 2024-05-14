@@ -24,8 +24,8 @@ function sort(_mapValue:stdgo._internal.reflect.Reflect.Value):stdgo.Ref<SortedM
         var _value = new stdgo.Slice<stdgo._internal.reflect.Reflect.Value>((0 : stdgo.GoInt).toBasic(), _n, ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > _n ? (0 : stdgo.GoInt).toBasic() : _n : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect.Value)]);
         var _iter = _mapValue.mapRange();
         while (_iter.next()) {
-            _key = (_key.__append__(_iter.key()));
-            _value = (_value.__append__(_iter.value()));
+            _key = (_key.__append__(_iter.key()?.__copy__()));
+            _value = (_value.__append__(_iter.value()?.__copy__()));
         };
         var _sorted = (stdgo.Go.setRef(({ key : _key, value : _value } : stdgo._internal.internal.fmtsort.Fmtsort.SortedMap)) : stdgo.Ref<stdgo._internal.internal.fmtsort.Fmtsort.SortedMap>);
         stdgo._internal.sort.Sort.stable(stdgo.Go.asInterface(_sorted));

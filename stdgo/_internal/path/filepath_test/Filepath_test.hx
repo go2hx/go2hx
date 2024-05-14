@@ -1616,7 +1616,7 @@ function testWalkSymlinkRoot(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
                         return _err;
                     };
                     _t.logf(("%#q: %v" : stdgo.GoString), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(stdgo.Go.asInterface(_info.mode())));
-                    _walked = (_walked.__append__(stdgo._internal.path.filepath.Filepath.clean(_path?.__copy__())));
+                    _walked = (_walked.__append__(stdgo._internal.path.filepath.Filepath.clean(_path?.__copy__())?.__copy__()));
                     return (null : stdgo.Error);
                 });
                 if (_err != null) {
@@ -1946,7 +1946,7 @@ function testAbs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                         continue;
                     };
                     _path = (_vol + _path?.__copy__() : stdgo.GoString)?.__copy__();
-                    _extra = (_extra.__append__(_path));
+                    _extra = (_extra.__append__(_path?.__copy__()));
                 };
                 _absTests = (_absTests.__append__(...(_extra : Array<stdgo.GoString>)));
             };
@@ -2175,7 +2175,7 @@ function _testWalkSymlink(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _mkl
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
-                _visited = (_visited.__append__(_rel));
+                _visited = (_visited.__append__(_rel?.__copy__()));
                 return (null : stdgo.Error);
             });
             if (_err != null) {
@@ -2392,7 +2392,7 @@ function testIssue51617(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                     if (_err != null) {
                         _t.fatal(stdgo.Go.toInterface(_err));
                     };
-                    _saw = (_saw.__append__(_rel));
+                    _saw = (_saw.__append__(_rel?.__copy__()));
                 };
                 return (null : stdgo.Error);
             });
@@ -2479,7 +2479,7 @@ class T_globTest_asInterface {
         @:recv var _test:stdgo.Ref<T_globTest> = _test;
         var _want = new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), 0).__setString__();
         for (__0 => _m in _test._matches) {
-            _want = (_want.__append__((_root + fromSlash(_m?.__copy__())?.__copy__() : stdgo.GoString)));
+            _want = (_want.__append__((_root + fromSlash(_m?.__copy__())?.__copy__() : stdgo.GoString)?.__copy__()));
         };
         stdgo._internal.sort.Sort.strings(_want);
         return _want;

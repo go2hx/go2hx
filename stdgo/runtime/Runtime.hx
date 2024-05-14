@@ -283,7 +283,7 @@ typedef Error = stdgo._internal.runtime.Runtime.Error;
     function set_bySize(v:haxe.ds.Vector<stdgo.Tuple.Tuple3<std.UInt, haxe.UInt64, haxe.UInt64>>):haxe.ds.Vector<stdgo.Tuple.Tuple3<std.UInt, haxe.UInt64, haxe.UInt64>> {
         this.bySize = ([for (i in v) {
             final obj = i;
-            { size : #NULL_EXPR, mallocs : #NULL_EXPR, frees : #NULL_EXPR };
+            { size : obj.size, mallocs : obj.mallocs, frees : obj.frees };
         }] : stdgo.GoArray<{ var size : stdgo.GoUInt32; var mallocs : stdgo.GoUInt64; var frees : stdgo.GoUInt64; }>);
         return v;
     }
@@ -321,7 +321,7 @@ enableGC,
 debugGC,
 ([for (i in bySize) {
         final obj = i;
-        { size : #NULL_EXPR, mallocs : #NULL_EXPR, frees : #NULL_EXPR };
+        { size : obj.size, mallocs : obj.mallocs, frees : obj.frees };
     }] : stdgo.GoArray<{ var size : stdgo.GoUInt32; var mallocs : stdgo.GoUInt64; var frees : stdgo.GoUInt64; }>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();

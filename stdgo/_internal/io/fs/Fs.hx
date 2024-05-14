@@ -480,7 +480,7 @@ function _glob(_fs:FS, _dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:st
                 return { _0 : _m, _1 : _err };
             };
             if (_matched) {
-                _m = (_m.__append__(stdgo._internal.path.Path.join(_dir?.__copy__(), _n?.__copy__())));
+                _m = (_m.__append__(stdgo._internal.path.Path.join(_dir?.__copy__(), _n?.__copy__())?.__copy__()));
             };
         };
         return { _0 : _m, _1 : _e };

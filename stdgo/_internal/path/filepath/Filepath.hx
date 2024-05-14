@@ -397,7 +397,7 @@ function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slic
                     };
                 };
                 if (_matched) {
-                    _m = (_m.__append__(join(_dir?.__copy__(), _n?.__copy__())));
+                    _m = (_m.__append__(join(_dir?.__copy__(), _n?.__copy__())?.__copy__()));
                 };
             };
             {

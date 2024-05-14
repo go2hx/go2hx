@@ -223,7 +223,7 @@ function testEverything(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         var _flagNames:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
         visit(function(_f:stdgo.Ref<Flag>):Void {
-            _flagNames = (_flagNames.__append__(_f.name));
+            _flagNames = (_flagNames.__append__(_f.name?.__copy__()));
         });
         if (!stdgo._internal.sort.Sort.stringsAreSorted(_flagNames)) {
             _t.errorf(("flag names not sorted: %v" : stdgo.GoString), stdgo.Go.toInterface(_flagNames));
@@ -397,7 +397,7 @@ function testUserDefinedFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
         _flags.setOutput(stdgo._internal.io.Io.discard);
         var _ss:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
         _flags.func(("v" : stdgo.GoString), ("usage" : stdgo.GoString), function(_s:stdgo.GoString):stdgo.Error {
-            _ss = (_ss.__append__(_s));
+            _ss = (_ss.__append__(_s?.__copy__()));
             return (null : stdgo.Error);
         });
         {
@@ -782,7 +782,7 @@ function testExitCode(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _tests = (new stdgo.Slice<T__struct_0>(5, 5, ...[({ _flag : ("-h" : stdgo.GoString), _expectExit : (0 : stdgo.GoInt), _flagHandle : ("" : stdgo.GoString) } : T__struct_0), ({ _flag : ("-help" : stdgo.GoString), _expectExit : (0 : stdgo.GoInt), _flagHandle : ("" : stdgo.GoString) } : T__struct_0), ({ _flag : ("-undefined" : stdgo.GoString), _expectExit : (2 : stdgo.GoInt), _flagHandle : ("" : stdgo.GoString) } : T__struct_0), ({ _flag : ("-h" : stdgo.GoString), _flagHandle : ("h" : stdgo.GoString), _expectExit : _magic } : T__struct_0), ({ _flag : ("-help" : stdgo.GoString), _flagHandle : ("help" : stdgo.GoString), _expectExit : _magic } : T__struct_0)].concat([for (i in 5 ... (5 > 5 ? 5 : 5 : stdgo.GoInt).toBasic()) ({ _flag : ("" : stdgo.GoString), _flagHandle : ("" : stdgo.GoString), _expectExit : (0 : stdgo.GoInt) } : T__struct_0)])) : stdgo.Slice<T__struct_0>);
         for (__0 => _test in _tests) {
             var _cmd = stdgo._internal.os.exec.Exec.command(stdgo._internal.os.Os.args[(0 : stdgo.GoInt)]?.__copy__(), ("-test.run=TestExitCode" : stdgo.GoString));
-            _cmd.env = (stdgo._internal.os.Os.environ().__append__((("GO_CHILD_FLAG=" : stdgo.GoString) + _test._flag?.__copy__() : stdgo.GoString), (("GO_CHILD_FLAG_HANDLE=" : stdgo.GoString) + _test._flagHandle?.__copy__() : stdgo.GoString)));
+            _cmd.env = (stdgo._internal.os.Os.environ().__append__((("GO_CHILD_FLAG=" : stdgo.GoString) + _test._flag?.__copy__() : stdgo.GoString)?.__copy__(), (("GO_CHILD_FLAG_HANDLE=" : stdgo.GoString) + _test._flagHandle?.__copy__() : stdgo.GoString)?.__copy__()));
             _cmd.run();
             var _got:stdgo.GoInt = _cmd.processState.exitCode();
             if ((false && (_test._expectExit != (0 : stdgo.GoInt)) : Bool)) {
@@ -890,7 +890,7 @@ function testUserDefinedBoolFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
         _flags.setOutput(stdgo._internal.io.Io.discard);
         var _ss:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
         _flags.boolFunc(("v" : stdgo.GoString), ("usage" : stdgo.GoString), function(_s:stdgo.GoString):stdgo.Error {
-            _ss = (_ss.__append__(_s));
+            _ss = (_ss.__append__(_s?.__copy__()));
             return (null : stdgo.Error);
         });
         {
@@ -1122,7 +1122,7 @@ class T_flagVar_asInterface {
     @:keep
     static public function set( _f:stdgo.Ref<T_flagVar>, _value:stdgo.GoString):stdgo.Error {
         @:recv var _f:stdgo.Ref<T_flagVar> = _f;
-        _f.__setData__(((_f : stdgo._internal.flag_test.Flag_test.T_flagVar).__append__(_value)));
+        _f.__setData__(((_f : stdgo._internal.flag_test.Flag_test.T_flagVar).__append__(_value?.__copy__())));
         return (null : stdgo.Error);
     }
     @:keep

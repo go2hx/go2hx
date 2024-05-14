@@ -141,12 +141,12 @@ typedef T_sortedHint = stdgo._internal.slices.Slices.T_sortedHint;
 typedef T_xorshift = stdgo._internal.slices.Slices.T_xorshift;
 typedef T_myStructs = stdgo._internal.slices.Slices.T_myStructs;
 typedef T_intPairs = stdgo._internal.slices.Slices.T_intPairs;
-typedef T_benchmarkEqualFunc_Large_19___localname___Large = stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_19___localname___Large;
-typedef T_benchmarkIndex_Large_20___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndex_Large_20___localname___Large;
-typedef T_benchmarkIndexFunc_Large_21___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_21___localname___Large;
-typedef T_benchmarkCompact_Large_22___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompact_Large_22___localname___Large;
-typedef T_benchmarkCompactFunc_Large_23___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_23___localname___Large;
-typedef T_testInference_24___localname___S = stdgo._internal.slices.Slices.T_testInference_24___localname___S;
+typedef T_benchmarkEqualFunc_Large_23___localname___Large = stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_23___localname___Large;
+typedef T_benchmarkIndex_Large_24___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndex_Large_24___localname___Large;
+typedef T_benchmarkIndexFunc_Large_25___localname___Large = stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_25___localname___Large;
+typedef T_benchmarkCompact_Large_26___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompact_Large_26___localname___Large;
+typedef T_benchmarkCompactFunc_Large_27___localname___Large = stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_27___localname___Large;
+typedef T_testInference_28___localname___S = stdgo._internal.slices.Slices.T_testInference_28___localname___S;
 class T_xorshift_static_extension {
     static public function next(___:T_xorshift, r:stdgo.Pointer<T_xorshift>):haxe.UInt64 {
         return stdgo._internal.slices.Slices.T_xorshift_static_extension.next(___, r);

@@ -82,7 +82,7 @@ function cleanCmdEnv(_cmd:stdgo.Ref<stdgo._internal.os.exec.Exec.Cmd>):stdgo.Ref
             if (stdgo._internal.strings.Strings.hasPrefix(_env?.__copy__(), ("GOTRACEBACK=" : stdgo.GoString))) {
                 continue;
             };
-            _cmd.env = (_cmd.env.__append__(_env));
+            _cmd.env = (_cmd.env.__append__(_env?.__copy__()));
         };
         return _cmd;
     }

@@ -1665,9 +1665,9 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 			x = macro $x.value;
 		if (isPointer(typeY))
 			y = macro $y.value;
-		if (!isAnyInterface(getElem(typeX)))
+		if (!isAnyInterface(getElemUnderlying(typeX)))
 			x = toAnyInterface(x, typeX, info);
-		if (!isAnyInterface(getElem(typeY)))
+		if (!isAnyInterface(getElemUnderlying(typeY)))
 			y = toAnyInterface(y, typeY, info);
 	}
 	var t = getUnderlying(typeX);
@@ -1677,7 +1677,7 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 		case sliceType(_), refType(_):
 			var run = true;
 			if (isRef(t)) {
-				switch getElem(t) {
+				switch getElemUnderlying(t) {
 					case sliceType(_):
 					// pointer slice is redunant as slice acts already like a pointer
 					default:
@@ -3434,7 +3434,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							final fromType = getVar(typeof(exprArgs[i - skip], info, false));
 							var toType = getVar(params[i - skip]);
 							if (variadic && params.length <= i + 1 - skip) {
-								toType = getElem(params[params.length - 1]);
+								toType = getElemUnderlying(params[params.length - 1]);
 							}
 							args[i] = assignTranslate(fromType, toType, args[i], info);
 						}

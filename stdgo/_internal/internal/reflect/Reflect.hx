@@ -543,12 +543,25 @@ function isInvalid(type:GoType):Bool {
 	}
 }
 
+function getElemUnderlying(type:GoType):GoType {
+	if (type == null)
+		return type;
+	return switch type {
+		case named(_, _, type, _, _):
+			getElemUnderlying(type);
+		case _var(_, _.get() => type):
+			getElemUnderlying(type);
+		case arrayType(_.get() => elem, _), sliceType(_.get() => elem), pointerType(_.get() => elem), refType(_.get() => elem):
+			elem;
+		default:
+			type;
+	}
+}
+
 function getElem(type:GoType):GoType {
 	if (type == null)
 		return type;
 	return switch type {
-		case named(_, _, type,_,_):
-			type;
 		case _var(_, _.get() => type):
 			getElem(type);
 		case arrayType(_.get() => elem, _), sliceType(_.get() => elem), pointerType(_.get() => elem), refType(_.get() => elem):

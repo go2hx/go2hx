@@ -383,6 +383,8 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 private function createBasePkgs(outputPath:String, modules:Array<Typer.Module>, cwd:String) {
 	/*if (FileSystem.exists(outputPath + "/stdgo/_internal/unicode") && FileSystem.exists(outputPath + "/stdgo/Go.hx"))
 		return;*/
+	if (!FileSystem.exists(outputPath + "/stdgo"))
+		FileSystem.createDirectory(outputPath + "/stdgo");
 	for (file in FileSystem.readDirectory(cwd + "/stdgo")) {
 		if (Path.extension(file) == "hx") {
 			final content = File.getContent(cwd + "/stdgo/" + file);

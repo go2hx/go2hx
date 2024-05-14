@@ -340,6 +340,8 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 				client.stream.size = 8;
 				#end
 				Sys.setCwd(instance.localPath);
+				if (instance.noDeps)
+					createBasePkgs(Path.addTrailingSlash(instance.outputPath), modules, cwd);
 				for (module in modules) {
 					if (instance.libwrap && !module.isMain) {
 						final name = module.name;
@@ -354,8 +356,6 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 						Gen.create(Path.addTrailingSlash(instance.outputPath), module, instance.root);
 					}
 				}
-				if (instance.noDeps)
-					createBasePkgs(Path.addTrailingSlash(instance.outputPath), modules, cwd);
 				runBuildTools(modules, instance, programArgs);
 				Sys.setCwd(cwd);
 				onComplete(modules, instance.data);

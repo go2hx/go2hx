@@ -3574,22 +3574,11 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							r;
 						})).expr;
 					case "append":
-						final t = typeof(expr.args[1], info, false);
-						var eType = t;
-						genArgs(false, eType);
+						genArgs(true);
 						var e = args.shift();
 						if (args.length == 0)
 							return returnExpr(e).expr;
-
-						for (i in 0...args.length - (expr.ellipsis != 0 ? 0 : 0)) {
-							final aType = typeof(expr.args[i + 1], info, false);
-							args[i] = assignTranslate(aType, eType, args[i], info);
-						}
-						final ct = toComplexType(t, info);
-						final appendArgs = args.copy();
-						args.unshift(macro 0);
-						args.unshift(macro 0);
-						return returnExpr(macro($e.__append__($a{appendArgs}))).expr;
+						return returnExpr(macro($e.__append__($a{args}))).expr;
 					case "copy":
 						genArgs(false);
 						return returnExpr(macro stdgo.Go.copySlice($a{args})).expr;

@@ -245,9 +245,9 @@ stdgo/_internal/internal/Macro.macro.hx:54: non hxb types:,376
 
   - [`function writeString( _w:stdgo._internal.io.Writer, _s:stdgo.GoString):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#replacer-function-writestring>)
 
-- [class T\_fieldsFunc\_4\_\_\_localname\_\_\_span](<#class-t_fieldsfunc_4localnamespan>)
+- [class T\_fieldsFunc\_1\_\_\_localname\_\_\_span](<#class-t_fieldsfunc_1localnamespan>)
 
-  - [`function new(?_start:stdgo.GoInt, ?_end:stdgo.GoInt):Void`](<#t_fieldsfunc_4localnamespan-function-new>)
+  - [`function new(?_start:stdgo.GoInt, ?_end:stdgo.GoInt):Void`](<#t_fieldsfunc_1localnamespan-function-new>)
 
 - [typedef T\_appendSliceWriter](<#typedef-t_appendslicewriter>)
 
@@ -2612,7 +2612,7 @@ function writeString( _w:stdgo._internal.io.Writer, _s:stdgo.GoString):{
 [\(view code\)](<./Strings.hx#L1631>)
 
 
-## class T\_fieldsFunc\_4\_\_\_localname\_\_\_span
+## class T\_fieldsFunc\_1\_\_\_localname\_\_\_span
 
 
 ```haxe
@@ -2625,7 +2625,7 @@ var _start:stdgo.GoInt
 ```
 
 
-### T\_fieldsFunc\_4\_\_\_localname\_\_\_span function new
+### T\_fieldsFunc\_1\_\_\_localname\_\_\_span function new
 
 
 ```haxe

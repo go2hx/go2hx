@@ -85,7 +85,6 @@
 | [stdgo.bytes](./bytes/README.md) | ✅ | no |
 | [stdgo.compress.bzip2](./compress/bzip2/README.md) | ✅ | no |
 | [stdgo.compress.flate](./compress/flate/README.md) | ❌ | no |
-| [stdgo.compress.zlib](./compress/zlib/README.md) | ✅ | no |
 | [stdgo.context](./context/README.md) | ❌ | no |
 | [stdgo.crypto](./crypto/README.md) | ❌ | no |
 | [stdgo.crypto.internal.randutil](./crypto/internal/randutil/README.md) | ✅ | no |

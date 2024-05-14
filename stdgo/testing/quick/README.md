@@ -97,9 +97,9 @@
 
 - [abstract B](<#abstract-b>)
 
-- [abstract T\_testRecursive\_35\_\_\_localname\_\_\_R](<#abstract-t_testrecursive_35localnamer>)
+- [abstract T\_testRecursive\_34\_\_\_localname\_\_\_R](<#abstract-t_testrecursive_34localnamer>)
 
-- [abstract T\_testNonZeroSliceAndMap\_36\_\_\_localname\_\_\_Q](<#abstract-t_testnonzerosliceandmap_36localnameq>)
+- [abstract T\_testNonZeroSliceAndMap\_35\_\_\_localname\_\_\_Q](<#abstract-t_testnonzerosliceandmap_35localnameq>)
 
 # Classes
 
@@ -530,13 +530,13 @@ typedef TestUintptrAlias = stdgo._internal.testing.quick.TestUintptrAlias;
 [\(view file containing code\)](<./Quick.hx>)
 
 
-## abstract T\_testRecursive\_35\_\_\_localname\_\_\_R
+## abstract T\_testRecursive\_34\_\_\_localname\_\_\_R
 
 
 [\(view file containing code\)](<./Quick.hx>)
 
 
-## abstract T\_testNonZeroSliceAndMap\_36\_\_\_localname\_\_\_Q
+## abstract T\_testNonZeroSliceAndMap\_35\_\_\_localname\_\_\_Q
 
 
 [\(view file containing code\)](<./Quick.hx>)

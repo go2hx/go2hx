@@ -20,8 +20,8 @@ stdgo/_internal/encoding/gob/Gob.hx:5881: characters 125-132 : Unknown identifie
 stdgo/_internal/encoding/gob/Gob.hx:6692: characters 17-43 : Type not found : stdgo._internal.net.Net
 stdgo/_internal/encoding/gob/Gob.hx:6693: characters 193-219 : Type not found : stdgo._internal.net.Net
 stdgo/_internal/encoding/gob/Gob.hx:6693: characters 193-219 : ... For function argument '_e'
-stdgo/_internal/encoding/json/Json.hx:8673: characters 33-95 : stdgo.Slice<stdgo.AnyInterface> should be stdgo.AnyInterface
-stdgo/_internal/encoding/json/Json.hx:8673: characters 33-95 : ... For function argument 'args'
+Module stdgo._internal.encoding.json.Json does not define type Array
+... For function argument 'args'
 
 ```
 

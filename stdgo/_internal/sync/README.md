@@ -1,7 +1,5 @@
 # Module stdgo._internal.sync has compilation errors, please do not use:
 ```
-stdgo/_internal/sync/atomic_test/Atomic_test.hx:571: characters 43-108 : stdgo.Slice<stdgo._internal.unsafe.UnsafePointer> should be stdgo._internal.unsafe.UnsafePointer
-stdgo/_internal/sync/atomic_test/Atomic_test.hx:571: characters 43-108 : ... For function argument 'args'
 stdgo/_internal/sync/atomic_test/Atomic_test.hx:602: characters 62-70 : stdgo.Pointer<stdgo.GoByte> should be stdgo.AnyInterface
 stdgo/_internal/sync/atomic_test/Atomic_test.hx:2416: characters 57-69 : Not enough arguments, expected __generic__0:Dynamic
 stdgo/_internal/sync/atomic_test/Atomic_test.hx:2437: characters 9-284 : Not enough arguments, expected _val:Dynamic
@@ -28,8 +26,9 @@ Type not found : T1
 /home/runner/haxe/versions/3c97999/std/haxe/macro/MacroStringTools.hx:70: characters 88-89 : Class<T_sync_onceValues_T_stdgo_GoInt_stdgo_GoInt_> has no field f
 stdgo/_internal/sync_test/Sync_test.hx:2436: characters 38-42 : Unknown identifier : _new
 stdgo/_internal/sync_test/Sync_test.hx:3313: characters 26-30 : Unknown identifier : _new
-stdgo/_internal/sync_test/Sync_test.hx:3558: characters 39-83 : stdgo.Slice<stdgo.AnyInterface> should be stdgo.AnyInterface
-stdgo/_internal/sync_test/Sync_test.hx:3558: characters 39-83 : ... For function argument 'args'
+stdgo/_internal/sync_test/Sync_test.hx:1498: characters 18-22 : Unknown identifier : _new
+stdgo/_internal/sync_test/Sync_test.hx:1506: characters 22-26 : Unknown identifier : _new
+/home/runner/haxe/versions/3c97999/std/haxe/macro/MacroStringTools.hx:70: characters 88-89 : Class<T_sync_onceValue_T_stdgo_GoInt_> has no field f
 
 ```
 

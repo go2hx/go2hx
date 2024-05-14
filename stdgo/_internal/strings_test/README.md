@@ -435,9 +435,9 @@
 
   - [`function new(?_in:stdgo.GoString, ?_out:stdgo.GoString):Void`](<#stringtest-function-new>)
 
-- [class T\_testReplacer\_5\_\_\_localname\_\_\_testCase](<#class-t_testreplacer_5localnametestcase>)
+- [class T\_testReplacer\_2\_\_\_localname\_\_\_testCase](<#class-t_testreplacer_2localnametestcase>)
 
-  - [`function new(?_r:stdgo.Ref<stdgo._internal.strings.Replacer>, ?_in:stdgo.GoString, ?_out:stdgo.GoString):Void`](<#t_testreplacer_5localnametestcase-function-new>)
+  - [`function new(?_r:stdgo.Ref<stdgo._internal.strings.Replacer>, ?_in:stdgo.GoString, ?_out:stdgo.GoString):Void`](<#t_testreplacer_2localnametestcase-function-new>)
 
 - [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
 
@@ -3168,7 +3168,7 @@ function new(?_in:stdgo.GoString, ?_out:stdgo.GoString):Void
 [\(view code\)](<./Strings_test.hx#L545>)
 
 
-## class T\_testReplacer\_5\_\_\_localname\_\_\_testCase
+## class T\_testReplacer\_2\_\_\_localname\_\_\_testCase
 
 
 ```haxe
@@ -3186,7 +3186,7 @@ var _r:stdgo.Ref<stdgo._internal.strings.Replacer>
 ```
 
 
-### T\_testReplacer\_5\_\_\_localname\_\_\_testCase function new
+### T\_testReplacer\_2\_\_\_localname\_\_\_testCase function new
 
 
 ```haxe

@@ -564,7 +564,7 @@ function reverseConvertCast(e:Expr, ct:ComplexType):Expr {
 						final fieldName = field.name;
 						{
 							field: field.name,
-							expr: reverseConvertCast(macro obj.$fieldName, type),
+							expr: reverseConvertCast(macro obj.$fieldName, type) ?? macro obj.$fieldName,
 						}
 					default:
 						throw "Field kind not supported: " + field.kind;
@@ -599,7 +599,7 @@ function reverseConvertCast(e:Expr, ct:ComplexType):Expr {
 		case TFunction(_, _):
 			return e;
 		default:
-			trace("unknown reverse convert cast: " + new haxe.macro.Printer().printComplexType(ct));
+			// trace("unknown reverse convert cast: " + new haxe.macro.Printer().printComplexType(ct));
 	}
 	return null;
 }
@@ -668,7 +668,7 @@ function convertCast(e:Expr, ct:ComplexType):Expr {
 		case TNamed(_, t):
 			return convertCast(e, t);
 		default:
-			trace("unknown convert cast: " + new haxe.macro.Printer().printComplexType(ct));
+			// trace("unknown convert cast: " + new haxe.macro.Printer().printComplexType(ct));
 	}
 	return null;
 }

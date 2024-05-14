@@ -6,84 +6,38 @@
 # Overview
 
 
-
-Package quick implements utility functions to help with black box testing.  
-
-
-The testing/quick package is frozen and is not accepting new features.  
-
 # Index
 
 
-- [`function check(f:stdgo.AnyInterface, config:stdgo.testing.quick.Config):stdgo.Error`](<#function-check>)
+- [class Quick](<#class-quick>)
 
-- [`function checkEqual(f:stdgo.AnyInterface, g:stdgo.AnyInterface, config:stdgo.testing.quick.Config):stdgo.Error`](<#function-checkequal>)
+  - [`function check(f:stdgo.AnyInterface, config:stdgo.testing.quick.Config):stdgo.Error`](<#quick-function-check>)
 
-- [`function testCheckEqual(t:stdgo._internal.testing.T_):Void`](<#function-testcheckequal>)
+  - [`function checkEqual(f:stdgo.AnyInterface, g:stdgo.AnyInterface, config:stdgo.testing.quick.Config):stdgo.Error`](<#quick-function-checkequal>)
 
-- [`function testCheckProperty(t:stdgo._internal.testing.T_):Void`](<#function-testcheckproperty>)
+  - [`function testCheckEqual(t:stdgo._internal.testing.T_):Void`](<#quick-function-testcheckequal>)
 
-- [`function testEmptyStruct(t:stdgo._internal.testing.T_):Void`](<#function-testemptystruct>)
+  - [`function testCheckProperty(t:stdgo._internal.testing.T_):Void`](<#quick-function-testcheckproperty>)
 
-- [`function testFailure(t:stdgo._internal.testing.T_):Void`](<#function-testfailure>)
+  - [`function testEmptyStruct(t:stdgo._internal.testing.T_):Void`](<#quick-function-testemptystruct>)
 
-- [`function testInt64(t:stdgo._internal.testing.T_):Void`](<#function-testint64>)
+  - [`function testFailure(t:stdgo._internal.testing.T_):Void`](<#quick-function-testfailure>)
 
-- [`function testMutuallyRecursive(t:stdgo._internal.testing.T_):Void`](<#function-testmutuallyrecursive>)
+  - [`function testInt64(t:stdgo._internal.testing.T_):Void`](<#quick-function-testint64>)
 
-- [`function testNonZeroSliceAndMap(t:stdgo._internal.testing.T_):Void`](<#function-testnonzerosliceandmap>)
+  - [`function testMutuallyRecursive(t:stdgo._internal.testing.T_):Void`](<#quick-function-testmutuallyrecursive>)
 
-- [`function testRecursive(t:stdgo._internal.testing.T_):Void`](<#function-testrecursive>)
+  - [`function testNonZeroSliceAndMap(t:stdgo._internal.testing.T_):Void`](<#quick-function-testnonzerosliceandmap>)
 
-- [`function value(t:stdgo._internal.reflect.Type_, rand:stdgo._internal.math.rand.Rand):stdgo.Tuple<stdgo._internal.reflect.Value, Bool>`](<#function-value>)
+  - [`function testRecursive(t:stdgo._internal.testing.T_):Void`](<#quick-function-testrecursive>)
 
-- [typedef A](<#typedef-a>)
-
-- [typedef B](<#typedef-b>)
-
-- [typedef CheckEqualError](<#typedef-checkequalerror>)
-
-- [typedef CheckEqualError\_asInterface](<#typedef-checkequalerror_asinterface>)
-
-- [typedef CheckEqualError\_static\_extension](<#typedef-checkequalerror_static_extension>)
-
-- [typedef CheckError](<#typedef-checkerror>)
-
-- [typedef CheckError\_asInterface](<#typedef-checkerror_asinterface>)
-
-- [typedef CheckError\_static\_extension](<#typedef-checkerror_static_extension>)
-
-- [typedef Config](<#typedef-config>)
-
-- [typedef Config\_asInterface](<#typedef-config_asinterface>)
-
-- [typedef Config\_static\_extension](<#typedef-config_static_extension>)
+  - [`function value(t:stdgo._internal.reflect.Type_, rand:stdgo._internal.math.rand.Rand):stdgo.Tuple<stdgo._internal.reflect.Value, Bool>`](<#quick-function-value>)
 
 - [typedef Generator](<#typedef-generator>)
 
-- [typedef Generator\_static\_extension](<#typedef-generator_static_extension>)
-
 - [typedef SetupError](<#typedef-setuperror>)
 
-- [typedef SetupError\_asInterface](<#typedef-setuperror_asinterface>)
-
-- [typedef SetupError\_static\_extension](<#typedef-setuperror_static_extension>)
-
 - [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
-
-- [typedef T\_\_struct\_0\_asInterface](<#typedef-t__struct_0_asinterface>)
-
-- [typedef T\_\_struct\_0\_static\_extension](<#typedef-t__struct_0_static_extension>)
-
-- [typedef T\_myStruct](<#typedef-t_mystruct>)
-
-- [typedef T\_myStruct\_asInterface](<#typedef-t_mystruct_asinterface>)
-
-- [typedef T\_myStruct\_static\_extension](<#typedef-t_mystruct_static_extension>)
-
-- [typedef T\_testNonZeroSliceAndMap\_35\_\_\_localname\_\_\_Q](<#typedef-t_testnonzerosliceandmap_35localnameq>)
-
-- [typedef T\_testRecursive\_34\_\_\_localname\_\_\_R](<#typedef-t_testrecursive_34localnamer>)
 
 - [typedef TestArrayAlias](<#typedef-testarrayalias>)
 
@@ -115,8 +69,6 @@ The testing/quick package is frozen and is not accepting new features.
 
 - [typedef TestStringAlias](<#typedef-teststringalias>)
 
-- [typedef TestStruct](<#typedef-teststruct>)
-
 - [typedef TestStructAlias](<#typedef-teststructalias>)
 
 - [typedef TestUint16Alias](<#typedef-testuint16alias>)
@@ -131,15 +83,42 @@ The testing/quick package is frozen and is not accepting new features.
 
 - [typedef TestUintptrAlias](<#typedef-testuintptralias>)
 
-# Functions
+- [abstract Config](<#abstract-config>)
+
+- [abstract CheckError](<#abstract-checkerror>)
+
+- [abstract CheckEqualError](<#abstract-checkequalerror>)
+
+- [abstract TestStruct](<#abstract-teststruct>)
+
+- [abstract T\_myStruct](<#abstract-t_mystruct>)
+
+- [abstract A](<#abstract-a>)
+
+- [abstract B](<#abstract-b>)
+
+- [abstract T\_testRecursive\_35\_\_\_localname\_\_\_R](<#abstract-t_testrecursive_35localnamer>)
+
+- [abstract T\_testNonZeroSliceAndMap\_36\_\_\_localname\_\_\_Q](<#abstract-t_testnonzerosliceandmap_36localnameq>)
+
+# Classes
 
 
 ```haxe
-import stdgo.testing.quick.Quick
+import
 ```
 
 
-## function check
+## class Quick
+
+
+
+Package quick implements utility functions to help with black box testing.  
+
+
+The testing/quick package is frozen and is not accepting new features.  
+
+### Quick function check
 
 
 ```haxe
@@ -149,26 +128,26 @@ function check(f:stdgo.AnyInterface, config:stdgo.testing.quick.Config):stdgo.Er
 
 ```
 Check looks for an input to f, any function that returns bool,
-    such that f returns false. It calls f repeatedly, with arbitrary
-    values for each argument. If f returns false on a given input,
-    Check returns that input as a *CheckError.
-    For example:
+        such that f returns false. It calls f repeatedly, with arbitrary
+        values for each argument. If f returns false on a given input,
+        Check returns that input as a *CheckError.
+        For example:
 ```
 ```
-    	func TestOddMultipleOfThree(t *testing.T) {
-    		f := func(x int) bool {
-    			y := OddMultipleOfThree(x)
-    			return y%2 == 1 && y%3 == 0
+        	func TestOddMultipleOfThree(t *testing.T) {
+        		f := func(x int) bool {
+        			y := OddMultipleOfThree(x)
+        			return y%2 == 1 && y%3 == 0
 }
-    		if err := quick.Check(f, nil); err != nil {
-    			t.Error(err)
+        		if err := quick.Check(f, nil); err != nil {
+        			t.Error(err)
 }
 }
 ```
-[\(view code\)](<./Quick.hx#L66>)
+[\(view code\)](<./Quick.hx#L280>)
 
 
-## function checkEqual
+### Quick function checkEqual
 
 
 ```haxe
@@ -178,14 +157,14 @@ function checkEqual(f:stdgo.AnyInterface, g:stdgo.AnyInterface, config:stdgo.tes
 
 ```
 CheckEqual looks for an input on which f and g return different results.
-    It calls f and g repeatedly with arbitrary values for each argument.
-    If f and g return different answers, CheckEqual returns a *CheckEqualError
-    describing the input and the outputs.
+        It calls f and g repeatedly with arbitrary values for each argument.
+        If f and g return different answers, CheckEqual returns a *CheckEqualError
+        describing the input and the outputs.
 ```
-[\(view code\)](<./Quick.hx#L73>)
+[\(view code\)](<./Quick.hx#L289>)
 
 
-## function testCheckEqual
+### Quick function testCheckEqual
 
 
 ```haxe
@@ -193,10 +172,10 @@ function testCheckEqual(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L74>)
+[\(view code\)](<./Quick.hx#L292>)
 
 
-## function testCheckProperty
+### Quick function testCheckProperty
 
 
 ```haxe
@@ -204,10 +183,10 @@ function testCheckProperty(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L75>)
+[\(view code\)](<./Quick.hx#L295>)
 
 
-## function testEmptyStruct
+### Quick function testEmptyStruct
 
 
 ```haxe
@@ -215,10 +194,10 @@ function testEmptyStruct(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L83>)
+[\(view code\)](<./Quick.hx#L308>)
 
 
-## function testFailure
+### Quick function testFailure
 
 
 ```haxe
@@ -226,10 +205,10 @@ function testFailure(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L76>)
+[\(view code\)](<./Quick.hx#L298>)
 
 
-## function testInt64
+### Quick function testInt64
 
 
 ```haxe
@@ -237,10 +216,10 @@ function testInt64(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L92>)
+[\(view code\)](<./Quick.hx#L322>)
 
 
-## function testMutuallyRecursive
+### Quick function testMutuallyRecursive
 
 
 ```haxe
@@ -248,10 +227,10 @@ function testMutuallyRecursive(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L84>)
+[\(view code\)](<./Quick.hx#L311>)
 
 
-## function testNonZeroSliceAndMap
+### Quick function testNonZeroSliceAndMap
 
 
 ```haxe
@@ -261,13 +240,13 @@ function testNonZeroSliceAndMap(t:stdgo._internal.testing.T_):Void
 
 ```
 Some serialization formats (e.g. encoding/pem) cannot distinguish
-    between a nil and an empty map or slice, so avoid generating the
-    zero value for these.
+        between a nil and an empty map or slice, so avoid generating the
+        zero value for these.
 ```
-[\(view code\)](<./Quick.hx#L91>)
+[\(view code\)](<./Quick.hx#L319>)
 
 
-## function testRecursive
+### Quick function testRecursive
 
 
 ```haxe
@@ -277,12 +256,12 @@ function testRecursive(t:stdgo._internal.testing.T_):Void
 
 ```
 Recursive data structures didn't terminate.
-    Issues 8818 and 11148.
+        Issues 8818 and 11148.
 ```
-[\(view code\)](<./Quick.hx#L82>)
+[\(view code\)](<./Quick.hx#L305>)
 
 
-## function value
+### Quick function value
 
 
 ```haxe
@@ -292,105 +271,17 @@ function value(t:stdgo._internal.reflect.Type_, rand:stdgo._internal.math.rand.R
 
 ```
 Value returns an arbitrary value of the given type.
-    If the type implements the Generator interface, that will be used.
-    Note: To create arbitrary values for structs, all the fields must be exported.
+        If the type implements the Generator interface, that will be used.
+        Note: To create arbitrary values for structs, all the fields must be exported.
 ```
-[\(view code\)](<./Quick.hx#L48>)
+[\(view code\)](<./Quick.hx#L257>)
 
 
 # Typedefs
 
 
 ```haxe
-import stdgo.testing.quick.*
-```
-
-
-## typedef A
-
-
-```haxe
-typedef A = Dynamic;
-```
-
-
-## typedef B
-
-
-```haxe
-typedef B = Dynamic;
-```
-
-
-## typedef CheckEqualError
-
-
-```haxe
-typedef CheckEqualError = Dynamic;
-```
-
-
-## typedef CheckEqualError\_asInterface
-
-
-```haxe
-typedef CheckEqualError_asInterface = Dynamic;
-```
-
-
-## typedef CheckEqualError\_static\_extension
-
-
-```haxe
-typedef CheckEqualError_static_extension = Dynamic;
-```
-
-
-## typedef CheckError
-
-
-```haxe
-typedef CheckError = Dynamic;
-```
-
-
-## typedef CheckError\_asInterface
-
-
-```haxe
-typedef CheckError_asInterface = Dynamic;
-```
-
-
-## typedef CheckError\_static\_extension
-
-
-```haxe
-typedef CheckError_static_extension = Dynamic;
-```
-
-
-## typedef Config
-
-
-```haxe
-typedef Config = Dynamic;
-```
-
-
-## typedef Config\_asInterface
-
-
-```haxe
-typedef Config_asInterface = Dynamic;
-```
-
-
-## typedef Config\_static\_extension
-
-
-```haxe
-typedef Config_static_extension = Dynamic;
+import
 ```
 
 
@@ -402,14 +293,6 @@ typedef Generator = stdgo._internal.testing.quick.Generator;
 ```
 
 
-## typedef Generator\_static\_extension
-
-
-```haxe
-typedef Generator_static_extension = Dynamic;
-```
-
-
 ## typedef SetupError
 
 
@@ -418,83 +301,11 @@ typedef SetupError = stdgo._internal.testing.quick.SetupError;
 ```
 
 
-## typedef SetupError\_asInterface
-
-
-```haxe
-typedef SetupError_asInterface = Dynamic;
-```
-
-
-## typedef SetupError\_static\_extension
-
-
-```haxe
-typedef SetupError_static_extension = Dynamic;
-```
-
-
 ## typedef T\_\_struct\_0
 
 
 ```haxe
 typedef T__struct_0 = stdgo._internal.testing.quick.T__struct_0;
-```
-
-
-## typedef T\_\_struct\_0\_asInterface
-
-
-```haxe
-typedef T__struct_0_asInterface = Dynamic;
-```
-
-
-## typedef T\_\_struct\_0\_static\_extension
-
-
-```haxe
-typedef T__struct_0_static_extension = Dynamic;
-```
-
-
-## typedef T\_myStruct
-
-
-```haxe
-typedef T_myStruct = Dynamic;
-```
-
-
-## typedef T\_myStruct\_asInterface
-
-
-```haxe
-typedef T_myStruct_asInterface = Dynamic;
-```
-
-
-## typedef T\_myStruct\_static\_extension
-
-
-```haxe
-typedef T_myStruct_static_extension = Dynamic;
-```
-
-
-## typedef T\_testNonZeroSliceAndMap\_35\_\_\_localname\_\_\_Q
-
-
-```haxe
-typedef T_testNonZeroSliceAndMap_35___localname___Q = Dynamic;
-```
-
-
-## typedef T\_testRecursive\_34\_\_\_localname\_\_\_R
-
-
-```haxe
-typedef T_testRecursive_34___localname___R = Dynamic;
 ```
 
 
@@ -618,14 +429,6 @@ typedef TestStringAlias = stdgo._internal.testing.quick.TestStringAlias;
 ```
 
 
-## typedef TestStruct
-
-
-```haxe
-typedef TestStruct = Dynamic;
-```
-
-
 ## typedef TestStructAlias
 
 
@@ -680,5 +483,62 @@ typedef TestUintAlias = stdgo._internal.testing.quick.TestUintAlias;
 ```haxe
 typedef TestUintptrAlias = stdgo._internal.testing.quick.TestUintptrAlias;
 ```
+
+
+# Abstracts
+
+
+## abstract Config
+
+
+[\(view file containing code\)](<./Quick.hx>)
+
+
+## abstract CheckError
+
+
+[\(view file containing code\)](<./Quick.hx>)
+
+
+## abstract CheckEqualError
+
+
+[\(view file containing code\)](<./Quick.hx>)
+
+
+## abstract TestStruct
+
+
+[\(view file containing code\)](<./Quick.hx>)
+
+
+## abstract T\_myStruct
+
+
+[\(view file containing code\)](<./Quick.hx>)
+
+
+## abstract A
+
+
+[\(view file containing code\)](<./Quick.hx>)
+
+
+## abstract B
+
+
+[\(view file containing code\)](<./Quick.hx>)
+
+
+## abstract T\_testRecursive\_35\_\_\_localname\_\_\_R
+
+
+[\(view file containing code\)](<./Quick.hx>)
+
+
+## abstract T\_testNonZeroSliceAndMap\_36\_\_\_localname\_\_\_Q
+
+
+[\(view file containing code\)](<./Quick.hx>)
 
 

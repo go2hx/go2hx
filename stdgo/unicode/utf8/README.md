@@ -6,47 +6,44 @@
 # Overview
 
 
-```
-Package utf8 implements functions and constants to support text encoded in
-    UTF-8. It includes functions to translate between runes and UTF-8 byte sequences.
-    See https://en.wikipedia.org/wiki/UTF-8
-```
 # Index
 
 
 - [Constants](<#constants>)
 
-- [`function appendRune(p:Array<Int>, r:Int):Array<Int>`](<#function-appendrune>)
+- [class Utf8](<#class-utf8>)
 
-- [`function decodeLastRune(p:Array<Int>):stdgo.Tuple<Int, Int>`](<#function-decodelastrune>)
+  - [`function appendRune(p:Array<Int>, r:Int):Array<Int>`](<#utf8-function-appendrune>)
 
-- [`function decodeLastRuneInString(s:String):stdgo.Tuple<Int, Int>`](<#function-decodelastruneinstring>)
+  - [`function decodeLastRune(p:Array<Int>):stdgo.Tuple<Int, Int>`](<#utf8-function-decodelastrune>)
 
-- [`function decodeRune(p:Array<Int>):stdgo.Tuple<Int, Int>`](<#function-decoderune>)
+  - [`function decodeLastRuneInString(s:String):stdgo.Tuple<Int, Int>`](<#utf8-function-decodelastruneinstring>)
 
-- [`function decodeRuneInString(s:String):stdgo.Tuple<Int, Int>`](<#function-decoderuneinstring>)
+  - [`function decodeRune(p:Array<Int>):stdgo.Tuple<Int, Int>`](<#utf8-function-decoderune>)
 
-- [`function encodeRune(p:Array<Int>, r:Int):Int`](<#function-encoderune>)
+  - [`function decodeRuneInString(s:String):stdgo.Tuple<Int, Int>`](<#utf8-function-decoderuneinstring>)
 
-- [`function fullRune(p:Array<Int>):Bool`](<#function-fullrune>)
+  - [`function encodeRune(p:Array<Int>, r:Int):Int`](<#utf8-function-encoderune>)
 
-- [`function fullRuneInString(s:String):Bool`](<#function-fullruneinstring>)
+  - [`function fullRune(p:Array<Int>):Bool`](<#utf8-function-fullrune>)
 
-- [`function runeCount(p:Array<Int>):Int`](<#function-runecount>)
+  - [`function fullRuneInString(s:String):Bool`](<#utf8-function-fullruneinstring>)
 
-- [`function runeCountInString(s:String):Int`](<#function-runecountinstring>)
+  - [`function runeCount(p:Array<Int>):Int`](<#utf8-function-runecount>)
 
-- [`function runeLen(r:Int):Int`](<#function-runelen>)
+  - [`function runeCountInString(s:String):Int`](<#utf8-function-runecountinstring>)
 
-- [`function runeStart(b:Int):Bool`](<#function-runestart>)
+  - [`function runeLen(r:Int):Int`](<#utf8-function-runelen>)
 
-- [`function valid(p:Array<Int>):Bool`](<#function-valid>)
+  - [`function runeStart(b:Int):Bool`](<#utf8-function-runestart>)
 
-- [`function validRune(r:Int):Bool`](<#function-validrune>)
+  - [`function valid(p:Array<Int>):Bool`](<#utf8-function-valid>)
 
-- [`function validString(s:String):Bool`](<#function-validstring>)
+  - [`function validRune(r:Int):Bool`](<#utf8-function-validrune>)
 
-- [typedef T\_acceptRange](<#typedef-t_acceptrange>)
+  - [`function validString(s:String):Bool`](<#utf8-function-validstring>)
+
+- [abstract T\_acceptRange](<#abstract-t_acceptrange>)
 
 # Constants
 
@@ -76,15 +73,23 @@ final utfmax:haxe.UInt64 = stdgo._internal.unicode.utf8.Utf8.utfmax
 ```
 
 
-# Functions
+# Classes
 
 
 ```haxe
-import stdgo.unicode.utf8.Utf8
+import stdgo.unicode.utf8.*
 ```
 
 
-## function appendRune
+## class Utf8
+
+
+```
+Package utf8 implements functions and constants to support text encoded in
+    UTF-8. It includes functions to translate between runes and UTF-8 byte sequences.
+    See https://en.wikipedia.org/wiki/UTF-8
+```
+### Utf8 function appendRune
 
 
 ```haxe
@@ -94,13 +99,13 @@ function appendRune(p:Array<Int>, r:Int):Array<Int>
 
 ```
 AppendRune appends the UTF-8 encoding of r to the end of p and
-    returns the extended buffer. If the rune is out of range,
-    it appends the encoding of RuneError.
+        returns the extended buffer. If the rune is out of range,
+        it appends the encoding of RuneError.
 ```
-[\(view code\)](<./Utf8.hx#L82>)
+[\(view code\)](<./Utf8.hx#L130>)
 
 
-## function decodeLastRune
+### Utf8 function decodeLastRune
 
 
 ```haxe
@@ -110,19 +115,19 @@ function decodeLastRune(p:Array<Int>):stdgo.Tuple<Int, Int>
 
 ```
 DecodeLastRune unpacks the last UTF-8 encoding in p and returns the rune and
-    its width in bytes. If p is empty it returns (RuneError, 0). Otherwise, if
-    the encoding is invalid, it returns (RuneError, 1). Both are impossible
-    results for correct, non-empty UTF-8.
+        its width in bytes. If p is empty it returns (RuneError, 0). Otherwise, if
+        the encoding is invalid, it returns (RuneError, 1). Both are impossible
+        results for correct, non-empty UTF-8.
 ```
 
 An encoding is invalid if it is incorrect UTF\-8, encodes a rune that is
 out of range, or is not the shortest possible UTF\-8 encoding for the
 value. No other validation is performed.  
 
-[\(view code\)](<./Utf8.hx#L54>)
+[\(view code\)](<./Utf8.hx#L86>)
 
 
-## function decodeLastRuneInString
+### Utf8 function decodeLastRuneInString
 
 
 ```haxe
@@ -132,19 +137,19 @@ function decodeLastRuneInString(s:String):stdgo.Tuple<Int, Int>
 
 ```
 DecodeLastRuneInString is like DecodeLastRune but its input is a string. If
-    s is empty it returns (RuneError, 0). Otherwise, if the encoding is invalid,
-    it returns (RuneError, 1). Both are impossible results for correct,
-    non-empty UTF-8.
+        s is empty it returns (RuneError, 0). Otherwise, if the encoding is invalid,
+        it returns (RuneError, 1). Both are impossible results for correct,
+        non-empty UTF-8.
 ```
 
 An encoding is invalid if it is incorrect UTF\-8, encodes a rune that is
 out of range, or is not the shortest possible UTF\-8 encoding for the
 value. No other validation is performed.  
 
-[\(view code\)](<./Utf8.hx#L65>)
+[\(view code\)](<./Utf8.hx#L103>)
 
 
-## function decodeRune
+### Utf8 function decodeRune
 
 
 ```haxe
@@ -154,19 +159,19 @@ function decodeRune(p:Array<Int>):stdgo.Tuple<Int, Int>
 
 ```
 DecodeRune unpacks the first UTF-8 encoding in p and returns the rune and
-    its width in bytes. If p is empty it returns (RuneError, 0). Otherwise, if
-    the encoding is invalid, it returns (RuneError, 1). Both are impossible
-    results for correct, non-empty UTF-8.
+        its width in bytes. If p is empty it returns (RuneError, 0). Otherwise, if
+        the encoding is invalid, it returns (RuneError, 1). Both are impossible
+        results for correct, non-empty UTF-8.
 ```
 
 An encoding is invalid if it is incorrect UTF\-8, encodes a rune that is
 out of range, or is not the shortest possible UTF\-8 encoding for the
 value. No other validation is performed.  
 
-[\(view code\)](<./Utf8.hx#L32>)
+[\(view code\)](<./Utf8.hx#L53>)
 
 
-## function decodeRuneInString
+### Utf8 function decodeRuneInString
 
 
 ```haxe
@@ -176,19 +181,19 @@ function decodeRuneInString(s:String):stdgo.Tuple<Int, Int>
 
 ```
 DecodeRuneInString is like DecodeRune but its input is a string. If s is
-    empty it returns (RuneError, 0). Otherwise, if the encoding is invalid, it
-    returns (RuneError, 1). Both are impossible results for correct, non-empty
-    UTF-8.
+        empty it returns (RuneError, 0). Otherwise, if the encoding is invalid, it
+        returns (RuneError, 1). Both are impossible results for correct, non-empty
+        UTF-8.
 ```
 
 An encoding is invalid if it is incorrect UTF\-8, encodes a rune that is
 out of range, or is not the shortest possible UTF\-8 encoding for the
 value. No other validation is performed.  
 
-[\(view code\)](<./Utf8.hx#L43>)
+[\(view code\)](<./Utf8.hx#L70>)
 
 
-## function encodeRune
+### Utf8 function encodeRune
 
 
 ```haxe
@@ -198,13 +203,13 @@ function encodeRune(p:Array<Int>, r:Int):Int
 
 ```
 EncodeRune writes into p (which must be large enough) the UTF-8 encoding of the rune.
-    If the rune is out of range, it writes the encoding of RuneError.
-    It returns the number of bytes written.
+        If the rune is out of range, it writes the encoding of RuneError.
+        It returns the number of bytes written.
 ```
-[\(view code\)](<./Utf8.hx#L76>)
+[\(view code\)](<./Utf8.hx#L121>)
 
 
-## function fullRune
+### Utf8 function fullRune
 
 
 ```haxe
@@ -214,12 +219,12 @@ function fullRune(p:Array<Int>):Bool
 
 ```
 FullRune reports whether the bytes in p begin with a full UTF-8 encoding of a rune.
-    An invalid encoding is considered a full Rune since it will convert as a width-1 error rune.
+        An invalid encoding is considered a full Rune since it will convert as a width-1 error rune.
 ```
-[\(view code\)](<./Utf8.hx#L17>)
+[\(view code\)](<./Utf8.hx#L33>)
 
 
-## function fullRuneInString
+### Utf8 function fullRuneInString
 
 
 ```haxe
@@ -230,10 +235,10 @@ function fullRuneInString(s:String):Bool
 
 FullRuneInString is like FullRune but its input is a string.  
 
-[\(view code\)](<./Utf8.hx#L21>)
+[\(view code\)](<./Utf8.hx#L40>)
 
 
-## function runeCount
+### Utf8 function runeCount
 
 
 ```haxe
@@ -243,12 +248,12 @@ function runeCount(p:Array<Int>):Int
 
 ```
 RuneCount returns the number of runes in p. Erroneous and short
-    encodings are treated as single runes of width 1 byte.
+        encodings are treated as single runes of width 1 byte.
 ```
-[\(view code\)](<./Utf8.hx#L87>)
+[\(view code\)](<./Utf8.hx#L138>)
 
 
-## function runeCountInString
+### Utf8 function runeCountInString
 
 
 ```haxe
@@ -259,10 +264,10 @@ function runeCountInString(s:String):Int
 
 RuneCountInString is like RuneCount but its input is a string.  
 
-[\(view code\)](<./Utf8.hx#L91>)
+[\(view code\)](<./Utf8.hx#L145>)
 
 
-## function runeLen
+### Utf8 function runeLen
 
 
 ```haxe
@@ -272,12 +277,12 @@ function runeLen(r:Int):Int
 
 ```
 RuneLen returns the number of bytes required to encode the rune.
-    It returns -1 if the rune is not a valid value to encode in UTF-8.
+        It returns -1 if the rune is not a valid value to encode in UTF-8.
 ```
-[\(view code\)](<./Utf8.hx#L70>)
+[\(view code\)](<./Utf8.hx#L113>)
 
 
-## function runeStart
+### Utf8 function runeStart
 
 
 ```haxe
@@ -287,13 +292,13 @@ function runeStart(b:Int):Bool
 
 ```
 RuneStart reports whether the byte could be the first byte of an encoded,
-    possibly invalid rune. Second and subsequent bytes always have the top two
-    bits set to 10.
+        possibly invalid rune. Second and subsequent bytes always have the top two
+        bits set to 10.
 ```
-[\(view code\)](<./Utf8.hx#L97>)
+[\(view code\)](<./Utf8.hx#L153>)
 
 
-## function valid
+### Utf8 function valid
 
 
 ```haxe
@@ -304,10 +309,10 @@ function valid(p:Array<Int>):Bool
 
 Valid reports whether p consists entirely of valid UTF\-8\-encoded runes.  
 
-[\(view code\)](<./Utf8.hx#L101>)
+[\(view code\)](<./Utf8.hx#L159>)
 
 
-## function validRune
+### Utf8 function validRune
 
 
 ```haxe
@@ -317,12 +322,12 @@ function validRune(r:Int):Bool
 
 ```
 ValidRune reports whether r can be legally encoded as UTF-8.
-    Code points that are out of range or a surrogate half are illegal.
+        Code points that are out of range or a surrogate half are illegal.
 ```
-[\(view code\)](<./Utf8.hx#L110>)
+[\(view code\)](<./Utf8.hx#L173>)
 
 
-## function validString
+### Utf8 function validString
 
 
 ```haxe
@@ -333,22 +338,15 @@ function validString(s:String):Bool
 
 ValidString reports whether s consists entirely of valid UTF\-8\-encoded runes.  
 
-[\(view code\)](<./Utf8.hx#L105>)
+[\(view code\)](<./Utf8.hx#L166>)
 
 
-# Typedefs
+# Abstracts
 
 
-```haxe
-import stdgo.unicode.utf8.*
-```
+## abstract T\_acceptRange
 
 
-## typedef T\_acceptRange
-
-
-```haxe
-typedef T_acceptRange = Dynamic;
-```
+[\(view file containing code\)](<./Utf8.hx>)
 
 

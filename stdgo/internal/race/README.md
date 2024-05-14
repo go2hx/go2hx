@@ -6,37 +6,32 @@
 # Overview
 
 
-
-Package race contains helper functions for manually instrumenting code for the race detector.  
-
-
-The runtime package intentionally exports these functions only in the race build;
-this package exports them unconditionally but without the "race" build tag they are no\-ops.  
-
 # Index
 
 
 - [Constants](<#constants>)
 
-- [`function acquire(addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#function-acquire>)
+- [class Race](<#class-race>)
 
-- [`function disable():Void`](<#function-disable>)
+  - [`function acquire(addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#race-function-acquire>)
 
-- [`function enable():Void`](<#function-enable>)
+  - [`function disable():Void`](<#race-function-disable>)
 
-- [`function errors():Int`](<#function-errors>)
+  - [`function enable():Void`](<#race-function-enable>)
 
-- [`function read(addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#function-read>)
+  - [`function errors():Int`](<#race-function-errors>)
 
-- [`function readRange(addr:stdgo._internal.unsafe.UnsafePointer, len:Int):Void`](<#function-readrange>)
+  - [`function read(addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#race-function-read>)
 
-- [`function release(addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#function-release>)
+  - [`function readRange(addr:stdgo._internal.unsafe.UnsafePointer, len:Int):Void`](<#race-function-readrange>)
 
-- [`function releaseMerge(addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#function-releasemerge>)
+  - [`function release(addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#race-function-release>)
 
-- [`function write(addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#function-write>)
+  - [`function releaseMerge(addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#race-function-releasemerge>)
 
-- [`function writeRange(addr:stdgo._internal.unsafe.UnsafePointer, len:Int):Void`](<#function-writerange>)
+  - [`function write(addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#race-function-write>)
+
+  - [`function writeRange(addr:stdgo._internal.unsafe.UnsafePointer, len:Int):Void`](<#race-function-writerange>)
 
 # Constants
 
@@ -51,15 +46,25 @@ final enabled:Bool = stdgo._internal.internal.race.Race.enabled
 ```
 
 
-# Functions
+# Classes
 
 
 ```haxe
-import stdgo.internal.race.Race
+import stdgo.internal.race.*
 ```
 
 
-## function acquire
+## class Race
+
+
+
+Package race contains helper functions for manually instrumenting code for the race detector.  
+
+
+The runtime package intentionally exports these functions only in the race build;
+this package exports them unconditionally but without the "race" build tag they are no\-ops.  
+
+### Race function acquire
 
 
 ```haxe
@@ -70,7 +75,7 @@ function acquire(addr:stdgo._internal.unsafe.UnsafePointer):Void
 [\(view code\)](<./Race.hx#L12>)
 
 
-## function disable
+### Race function disable
 
 
 ```haxe
@@ -78,10 +83,10 @@ function disable():Void
 ```
 
 
-[\(view code\)](<./Race.hx#L15>)
+[\(view code\)](<./Race.hx#L21>)
 
 
-## function enable
+### Race function enable
 
 
 ```haxe
@@ -89,10 +94,10 @@ function enable():Void
 ```
 
 
-[\(view code\)](<./Race.hx#L16>)
+[\(view code\)](<./Race.hx#L24>)
 
 
-## function errors
+### Race function errors
 
 
 ```haxe
@@ -100,10 +105,10 @@ function errors():Int
 ```
 
 
-[\(view code\)](<./Race.hx#L21>)
+[\(view code\)](<./Race.hx#L39>)
 
 
-## function read
+### Race function read
 
 
 ```haxe
@@ -111,10 +116,10 @@ function read(addr:stdgo._internal.unsafe.UnsafePointer):Void
 ```
 
 
-[\(view code\)](<./Race.hx#L17>)
+[\(view code\)](<./Race.hx#L27>)
 
 
-## function readRange
+### Race function readRange
 
 
 ```haxe
@@ -122,10 +127,10 @@ function readRange(addr:stdgo._internal.unsafe.UnsafePointer, len:Int):Void
 ```
 
 
-[\(view code\)](<./Race.hx#L19>)
+[\(view code\)](<./Race.hx#L33>)
 
 
-## function release
+### Race function release
 
 
 ```haxe
@@ -133,10 +138,10 @@ function release(addr:stdgo._internal.unsafe.UnsafePointer):Void
 ```
 
 
-[\(view code\)](<./Race.hx#L13>)
+[\(view code\)](<./Race.hx#L15>)
 
 
-## function releaseMerge
+### Race function releaseMerge
 
 
 ```haxe
@@ -144,10 +149,10 @@ function releaseMerge(addr:stdgo._internal.unsafe.UnsafePointer):Void
 ```
 
 
-[\(view code\)](<./Race.hx#L14>)
+[\(view code\)](<./Race.hx#L18>)
 
 
-## function write
+### Race function write
 
 
 ```haxe
@@ -155,10 +160,10 @@ function write(addr:stdgo._internal.unsafe.UnsafePointer):Void
 ```
 
 
-[\(view code\)](<./Race.hx#L18>)
+[\(view code\)](<./Race.hx#L30>)
 
 
-## function writeRange
+### Race function writeRange
 
 
 ```haxe
@@ -166,6 +171,6 @@ function writeRange(addr:stdgo._internal.unsafe.UnsafePointer, len:Int):Void
 ```
 
 
-[\(view code\)](<./Race.hx#L20>)
+[\(view code\)](<./Race.hx#L36>)
 
 

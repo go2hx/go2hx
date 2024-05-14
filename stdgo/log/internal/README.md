@@ -6,17 +6,12 @@
 # Overview
 
 
-
-Package internal contains definitions used by both log and log/slog.  
-
 # Index
 
 
 - [`function defaultOutput(_pc:stdgo.GoUIntptr, _data:stdgo.Slice<stdgo.GoByte>):stdgo.Error`](<#function-defaultoutput>)
 
-- [`function get_defaultOutput():(_pc:stdgo.GoUIntptr, _data:stdgo.Slice<stdgo.GoByte>):stdgo.Error`](<#function-get_defaultoutput>)
-
-- [`function set_defaultOutput(v:(_pc:stdgo.GoUIntptr, _data:stdgo.Slice<stdgo.GoByte>):stdgo.Error):(_pc:stdgo.GoUIntptr, _data:stdgo.Slice<stdgo.GoByte>):stdgo.Error`](<#function-set_defaultoutput>)
+- [class Internal](<#class-internal>)
 
 # Functions
 
@@ -37,25 +32,17 @@ function defaultOutput(_pc:stdgo.GoUIntptr, _data:stdgo.Slice<stdgo.GoByte>):std
 [\(view code\)](<./Internal.hx>)
 
 
-## function get\_defaultOutput
+# Classes
 
 
 ```haxe
-function get_defaultOutput():(_pc:stdgo.GoUIntptr, _data:stdgo.Slice<stdgo.GoByte>):stdgo.Error
+import stdgo.log.internal.*
 ```
 
 
-[\(view code\)](<./Internal.hx#L7>)
+## class Internal
 
 
-## function set\_defaultOutput
 
-
-```haxe
-function set_defaultOutput(v:(_pc:stdgo.GoUIntptr, _data:stdgo.Slice<stdgo.GoByte>):stdgo.Error):(_pc:stdgo.GoUIntptr, _data:stdgo.Slice<stdgo.GoByte>):stdgo.Error
-```
-
-
-[\(view code\)](<./Internal.hx#L8>)
-
+Package internal contains definitions used by both log and log/slog.  
 

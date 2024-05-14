@@ -6,12 +6,150 @@
 # Overview
 
 
+# Index
+
+
+- [`function isSpace()`](<#function-isspace>)
+
+- [`function parsenum(:stdgo.GoString, :stdgo.GoInt, :stdgo.GoInt):{
+	_2:stdgo.GoInt;
+	_1:Bool;
+	_0:stdgo.GoInt;
+}`](<#function-parsenum>)
+
+- [class Fmt](<#class-fmt>)
+
+  - [`function append(b:Array<Int>, a:haxe.Rest<stdgo.AnyInterface>):Array<Int>`](<#fmt-function-append>)
+
+  - [`function appendf(b:Array<Int>, format:String, a:haxe.Rest<stdgo.AnyInterface>):Array<Int>`](<#fmt-function-appendf>)
+
+  - [`function appendln(b:Array<Int>, a:haxe.Rest<stdgo.AnyInterface>):Array<Int>`](<#fmt-function-appendln>)
+
+  - [`function errorf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Error`](<#fmt-function-errorf>)
+
+  - [`function formatString(state:stdgo.fmt.State, verb:Int):String`](<#fmt-function-formatstring>)
+
+  - [`function fprint(w:stdgo._internal.io.Writer, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-fprint>)
+
+  - [`function fprintf(w:stdgo._internal.io.Writer, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-fprintf>)
+
+  - [`function fprintln(w:stdgo._internal.io.Writer, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-fprintln>)
+
+  - [`function fscan(r:stdgo._internal.io.Reader, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-fscan>)
+
+  - [`function fscanf(r:stdgo._internal.io.Reader, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-fscanf>)
+
+  - [`function fscanln(r:stdgo._internal.io.Reader, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-fscanln>)
+
+  - [`function print(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-print>)
+
+  - [`function printf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-printf>)
+
+  - [`function println(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-println>)
+
+  - [`function scan(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-scan>)
+
+  - [`function scanf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-scanf>)
+
+  - [`function scanln(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-scanln>)
+
+  - [`function sprint(a:haxe.Rest<stdgo.AnyInterface>):String`](<#fmt-function-sprint>)
+
+  - [`function sprintf(format:String, a:haxe.Rest<stdgo.AnyInterface>):String`](<#fmt-function-sprintf>)
+
+  - [`function sprintln(a:haxe.Rest<stdgo.AnyInterface>):String`](<#fmt-function-sprintln>)
+
+  - [`function sscan(str:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-sscan>)
+
+  - [`function sscanf(str:String, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-sscanf>)
+
+  - [`function sscanln(str:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-sscanln>)
+
+- [typedef Formatter](<#typedef-formatter>)
+
+- [typedef GoStringer](<#typedef-gostringer>)
+
+- [typedef ScanState](<#typedef-scanstate>)
+
+- [typedef Scanner](<#typedef-scanner>)
+
+- [typedef State](<#typedef-state>)
+
+- [typedef Stringer](<#typedef-stringer>)
+
+- [typedef T\_buffer](<#typedef-t_buffer>)
+
+- [typedef T\_stringReader](<#typedef-t_stringreader>)
+
+- [abstract T\_wrapError](<#abstract-t_wraperror>)
+
+- [abstract T\_wrapErrors](<#abstract-t_wraperrors>)
+
+- [abstract T\_fmtFlags](<#abstract-t_fmtflags>)
+
+- [abstract T\_fmt](<#abstract-t_fmt>)
+
+- [abstract T\_pp](<#abstract-t_pp>)
+
+- [abstract T\_scanError](<#abstract-t_scanerror>)
+
+- [abstract T\_ss](<#abstract-t_ss>)
+
+- [abstract T\_ssave](<#abstract-t_ssave>)
+
+- [abstract T\_readRune](<#abstract-t_readrune>)
+
+# Functions
+
+
+```haxe
+import stdgo.fmt.Fmt
+```
+
+
+## function isSpace
+
+
+```haxe
+function isSpace()
+```
+
+
+[\(view code\)](<./Fmt.hx>)
+
+
+## function parsenum
+
+
+```haxe
+function parsenum(:stdgo.GoString, :stdgo.GoInt, :stdgo.GoInt):{
+	_2:stdgo.GoInt;
+	_1:Bool;
+	_0:stdgo.GoInt;
+}
+```
+
+
+[\(view code\)](<./Fmt.hx>)
+
+
+# Classes
+
+
+```haxe
+import stdgo.fmt.*
+```
+
+
+## class Fmt
+
+
 
 Package fmt implements formatted I/O with functions analogous
 to C's printf and scanf.  The format 'verbs' are derived from C's but
 are simpler.  
 
-## Printing
+### Printing
 
 
 
@@ -270,7 +408,7 @@ and the package does not protect against them.
 When printing a struct, fmt cannot and therefore does not invoke
 formatting methods such as Error or String on unexported fields.  
 
-## Explicit argument indexes
+### Explicit argument indexes
 
 
 
@@ -311,7 +449,7 @@ by resetting the index for the first argument to be repeated:
 
 will yield "16 17 0x10 0x11".  
 
-## Format errors
+### Format errors
 
 
 
@@ -355,7 +493,7 @@ occurred. If the panic is caused by a nil receiver to an Error
 or String method, however, the output is the undecorated
 string, "\<nil\>".  
 
-## Scanning
+### Scanning
 
 
 
@@ -472,170 +610,7 @@ calls will not lose data.  To attach ReadRune and UnreadRune
 methods to a reader without that capability, use
 bufio.NewReader.  
 
-# Index
-
-
-- [`function append(b:Array<Int>, a:haxe.Rest<stdgo.AnyInterface>):Array<Int>`](<#function-append>)
-
-- [`function appendf(b:Array<Int>, format:String, a:haxe.Rest<stdgo.AnyInterface>):Array<Int>`](<#function-appendf>)
-
-- [`function appendln(b:Array<Int>, a:haxe.Rest<stdgo.AnyInterface>):Array<Int>`](<#function-appendln>)
-
-- [`function errorf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Error`](<#function-errorf>)
-
-- [`function formatString(state:stdgo.fmt.State, verb:Int):String`](<#function-formatstring>)
-
-- [`function fprint(w:stdgo._internal.io.Writer, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#function-fprint>)
-
-- [`function fprintf(w:stdgo._internal.io.Writer, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#function-fprintf>)
-
-- [`function fprintln(w:stdgo._internal.io.Writer, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#function-fprintln>)
-
-- [`function fscan(r:stdgo._internal.io.Reader, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#function-fscan>)
-
-- [`function fscanf(r:stdgo._internal.io.Reader, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#function-fscanf>)
-
-- [`function fscanln(r:stdgo._internal.io.Reader, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#function-fscanln>)
-
-- [`function get_isSpace():()`](<#function-get_isspace>)
-
-- [`function get_parsenum():(:stdgo.GoString, :stdgo.GoInt, :stdgo.GoInt):{
-	_2:stdgo.GoInt;
-	_1:Bool;
-	_0:stdgo.GoInt;
-}`](<#function-get_parsenum>)
-
-- [`function isSpace()`](<#function-isspace>)
-
-- [`function parsenum(:stdgo.GoString, :stdgo.GoInt, :stdgo.GoInt):{
-	_2:stdgo.GoInt;
-	_1:Bool;
-	_0:stdgo.GoInt;
-}`](<#function-parsenum>)
-
-- [`function print(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#function-print>)
-
-- [`function printf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#function-printf>)
-
-- [`function println(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#function-println>)
-
-- [`function scan(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#function-scan>)
-
-- [`function scanf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#function-scanf>)
-
-- [`function scanln(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#function-scanln>)
-
-- [`function set_isSpace(v:()):()`](<#function-set_isspace>)
-
-- [`function set_parsenum(v:(:stdgo.GoString, :stdgo.GoInt, :stdgo.GoInt):{
-	_2:stdgo.GoInt;
-	_1:Bool;
-	_0:stdgo.GoInt;
-}):(:stdgo.GoString, :stdgo.GoInt, :stdgo.GoInt):{
-	_2:stdgo.GoInt;
-	_1:Bool;
-	_0:stdgo.GoInt;
-}`](<#function-set_parsenum>)
-
-- [`function sprint(a:haxe.Rest<stdgo.AnyInterface>):String`](<#function-sprint>)
-
-- [`function sprintf(format:String, a:haxe.Rest<stdgo.AnyInterface>):String`](<#function-sprintf>)
-
-- [`function sprintln(a:haxe.Rest<stdgo.AnyInterface>):String`](<#function-sprintln>)
-
-- [`function sscan(str:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#function-sscan>)
-
-- [`function sscanf(str:String, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#function-sscanf>)
-
-- [`function sscanln(str:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#function-sscanln>)
-
-- [typedef Formatter](<#typedef-formatter>)
-
-- [typedef Formatter\_static\_extension](<#typedef-formatter_static_extension>)
-
-- [typedef GoStringer](<#typedef-gostringer>)
-
-- [typedef GoStringer\_static\_extension](<#typedef-gostringer_static_extension>)
-
-- [typedef ScanState](<#typedef-scanstate>)
-
-- [typedef ScanState\_static\_extension](<#typedef-scanstate_static_extension>)
-
-- [typedef Scanner](<#typedef-scanner>)
-
-- [typedef Scanner\_static\_extension](<#typedef-scanner_static_extension>)
-
-- [typedef State](<#typedef-state>)
-
-- [typedef State\_static\_extension](<#typedef-state_static_extension>)
-
-- [typedef Stringer](<#typedef-stringer>)
-
-- [typedef Stringer\_static\_extension](<#typedef-stringer_static_extension>)
-
-- [typedef T\_buffer](<#typedef-t_buffer>)
-
-- [typedef T\_buffer\_asInterface](<#typedef-t_buffer_asinterface>)
-
-- [typedef T\_buffer\_static\_extension](<#typedef-t_buffer_static_extension>)
-
-- [typedef T\_fmt](<#typedef-t_fmt>)
-
-- [typedef T\_fmtFlags](<#typedef-t_fmtflags>)
-
-- [typedef T\_fmt\_asInterface](<#typedef-t_fmt_asinterface>)
-
-- [typedef T\_fmt\_static\_extension](<#typedef-t_fmt_static_extension>)
-
-- [typedef T\_pp](<#typedef-t_pp>)
-
-- [typedef T\_pp\_asInterface](<#typedef-t_pp_asinterface>)
-
-- [typedef T\_pp\_static\_extension](<#typedef-t_pp_static_extension>)
-
-- [typedef T\_readRune](<#typedef-t_readrune>)
-
-- [typedef T\_readRune\_asInterface](<#typedef-t_readrune_asinterface>)
-
-- [typedef T\_readRune\_static\_extension](<#typedef-t_readrune_static_extension>)
-
-- [typedef T\_scanError](<#typedef-t_scanerror>)
-
-- [typedef T\_ss](<#typedef-t_ss>)
-
-- [typedef T\_ss\_asInterface](<#typedef-t_ss_asinterface>)
-
-- [typedef T\_ss\_static\_extension](<#typedef-t_ss_static_extension>)
-
-- [typedef T\_ssave](<#typedef-t_ssave>)
-
-- [typedef T\_stringReader](<#typedef-t_stringreader>)
-
-- [typedef T\_stringReader\_asInterface](<#typedef-t_stringreader_asinterface>)
-
-- [typedef T\_stringReader\_static\_extension](<#typedef-t_stringreader_static_extension>)
-
-- [typedef T\_wrapError](<#typedef-t_wraperror>)
-
-- [typedef T\_wrapError\_asInterface](<#typedef-t_wraperror_asinterface>)
-
-- [typedef T\_wrapError\_static\_extension](<#typedef-t_wraperror_static_extension>)
-
-- [typedef T\_wrapErrors](<#typedef-t_wraperrors>)
-
-- [typedef T\_wrapErrors\_asInterface](<#typedef-t_wraperrors_asinterface>)
-
-- [typedef T\_wrapErrors\_static\_extension](<#typedef-t_wraperrors_static_extension>)
-
-# Functions
-
-
-```haxe
-import stdgo.fmt.Fmt
-```
-
-
-## function append
+### Fmt function append
 
 
 ```haxe
@@ -645,12 +620,12 @@ function append(b:Array<Int>, a:haxe.Rest<stdgo.AnyInterface>):Array<Int>
 
 ```
 Append formats using the default formats for its operands, appends the result to
-    the byte slice, and returns the updated slice.
+        the byte slice, and returns the updated slice.
 ```
-[\(view code\)](<./Fmt.hx#L474>)
+[\(view code\)](<./Fmt.hx#L1258>)
 
 
-## function appendf
+### Fmt function appendf
 
 
 ```haxe
@@ -660,12 +635,12 @@ function appendf(b:Array<Int>, format:String, a:haxe.Rest<stdgo.AnyInterface>):A
 
 ```
 Appendf formats according to a format specifier, appends the result to the byte
-    slice, and returns the updated slice.
+        slice, and returns the updated slice.
 ```
-[\(view code\)](<./Fmt.hx#L452>)
+[\(view code\)](<./Fmt.hx#L1221>)
 
 
-## function appendln
+### Fmt function appendln
 
 
 ```haxe
@@ -675,13 +650,13 @@ function appendln(b:Array<Int>, a:haxe.Rest<stdgo.AnyInterface>):Array<Int>
 
 ```
 Appendln formats using the default formats for its operands, appends the result
-    to the byte slice, and returns the updated slice. Spaces are always added
-    between operands and a newline is appended.
+        to the byte slice, and returns the updated slice. Spaces are always added
+        between operands and a newline is appended.
 ```
-[\(view code\)](<./Fmt.hx#L497>)
+[\(view code\)](<./Fmt.hx#L1296>)
 
 
-## function errorf
+### Fmt function errorf
 
 
 ```haxe
@@ -691,7 +666,7 @@ function errorf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Error
 
 ```
 Errorf formats according to a format specifier and returns the string as a
-    value that satisfies error.
+        value that satisfies error.
 ```
 
 If the format specifier includes a %w verb with an error operand,
@@ -702,10 +677,10 @@ order they appear in the arguments.
 It is invalid to supply the %w verb with an operand that does not implement
 the error interface. The %w verb is otherwise a synonym for %v.  
 
-[\(view code\)](<./Fmt.hx#L424>)
+[\(view code\)](<./Fmt.hx#L1177>)
 
 
-## function formatString
+### Fmt function formatString
 
 
 ```haxe
@@ -715,16 +690,16 @@ function formatString(state:stdgo.fmt.State, verb:Int):String
 
 ```
 FormatString returns a string representing the fully qualified formatting
-    directive captured by the State, followed by the argument verb. (State does not
-    itself contain the verb.) The result has a leading percent sign followed by any
-    flags, the width, and the precision. Missing flags, width, and precision are
-    omitted. This function allows a Formatter to reconstruct the original
-    directive triggering the call to Format.
+        directive captured by the State, followed by the argument verb. (State does not
+        itself contain the verb.) The result has a leading percent sign followed by any
+        flags, the width, and the precision. Missing flags, width, and precision are
+        omitted. This function allows a Formatter to reconstruct the original
+        directive triggering the call to Format.
 ```
-[\(view code\)](<./Fmt.hx#L433>)
+[\(view code\)](<./Fmt.hx#L1188>)
 
 
-## function fprint
+### Fmt function fprint
 
 
 ```haxe
@@ -734,13 +709,13 @@ function fprint(w:stdgo._internal.io.Writer, a:haxe.Rest<stdgo.AnyInterface>):st
 
 ```
 Fprint formats using the default formats for its operands and writes to w.
-    Spaces are added between operands when neither is a string.
-    It returns the number of bytes written and any write error encountered.
+        Spaces are added between operands when neither is a string.
+        It returns the number of bytes written and any write error encountered.
 ```
-[\(view code\)](<./Fmt.hx#L458>)
+[\(view code\)](<./Fmt.hx#L1230>)
 
 
-## function fprintf
+### Fmt function fprintf
 
 
 ```haxe
@@ -750,12 +725,12 @@ function fprintf(w:stdgo._internal.io.Writer, format:String, a:haxe.Rest<stdgo.A
 
 ```
 Fprintf formats according to a format specifier and writes to w.
-    It returns the number of bytes written and any write error encountered.
+        It returns the number of bytes written and any write error encountered.
 ```
-[\(view code\)](<./Fmt.hx#L438>)
+[\(view code\)](<./Fmt.hx#L1195>)
 
 
-## function fprintln
+### Fmt function fprintln
 
 
 ```haxe
@@ -765,13 +740,13 @@ function fprintln(w:stdgo._internal.io.Writer, a:haxe.Rest<stdgo.AnyInterface>):
 
 ```
 Fprintln formats using the default formats for its operands and writes to w.
-    Spaces are always added between operands and a newline is appended.
-    It returns the number of bytes written and any write error encountered.
+        Spaces are always added between operands and a newline is appended.
+        It returns the number of bytes written and any write error encountered.
 ```
-[\(view code\)](<./Fmt.hx#L480>)
+[\(view code\)](<./Fmt.hx#L1267>)
 
 
-## function fscan
+### Fmt function fscan
 
 
 ```haxe
@@ -781,14 +756,14 @@ function fscan(r:stdgo._internal.io.Reader, a:haxe.Rest<stdgo.AnyInterface>):std
 
 ```
 Fscan scans text read from r, storing successive space-separated
-    values into successive arguments. Newlines count as space. It
-    returns the number of items successfully scanned. If that is less
-    than the number of arguments, err will report why.
+        values into successive arguments. Newlines count as space. It
+        returns the number of items successfully scanned. If that is less
+        than the number of arguments, err will report why.
 ```
-[\(view code\)](<./Fmt.hx#L545>)
+[\(view code\)](<./Fmt.hx#L1377>)
 
 
-## function fscanf
+### Fmt function fscanf
 
 
 ```haxe
@@ -798,14 +773,14 @@ function fscanf(r:stdgo._internal.io.Reader, format:String, a:haxe.Rest<stdgo.An
 
 ```
 Fscanf scans text read from r, storing successive space-separated
-    values into successive arguments as determined by the format. It
-    returns the number of items successfully parsed.
-    Newlines in the input must match newlines in the format.
+        values into successive arguments as determined by the format. It
+        returns the number of items successfully parsed.
+        Newlines in the input must match newlines in the format.
 ```
-[\(view code\)](<./Fmt.hx#L557>)
+[\(view code\)](<./Fmt.hx#L1399>)
 
 
-## function fscanln
+### Fmt function fscanln
 
 
 ```haxe
@@ -815,64 +790,12 @@ function fscanln(r:stdgo._internal.io.Reader, a:haxe.Rest<stdgo.AnyInterface>):s
 
 ```
 Fscanln is similar to Fscan, but stops scanning at a newline and
-    after the final item there must be a newline or EOF.
+        after the final item there must be a newline or EOF.
 ```
-[\(view code\)](<./Fmt.hx#L550>)
+[\(view code\)](<./Fmt.hx#L1387>)
 
 
-## function get\_isSpace
-
-
-```haxe
-function get_isSpace():()
-```
-
-
-[\(view code\)](<./Fmt.hx#L384>)
-
-
-## function get\_parsenum
-
-
-```haxe
-function get_parsenum():(:stdgo.GoString, :stdgo.GoInt, :stdgo.GoInt):{
-	_2:stdgo.GoInt;
-	_1:Bool;
-	_0:stdgo.GoInt;
-}
-```
-
-
-[\(view code\)](<./Fmt.hx#L387>)
-
-
-## function isSpace
-
-
-```haxe
-function isSpace()
-```
-
-
-[\(view code\)](<./Fmt.hx>)
-
-
-## function parsenum
-
-
-```haxe
-function parsenum(:stdgo.GoString, :stdgo.GoInt, :stdgo.GoInt):{
-	_2:stdgo.GoInt;
-	_1:Bool;
-	_0:stdgo.GoInt;
-}
-```
-
-
-[\(view code\)](<./Fmt.hx>)
-
-
-## function print
+### Fmt function print
 
 
 ```haxe
@@ -882,13 +805,13 @@ function print(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 
 ```
 Print formats using the default formats for its operands and writes to standard output.
-    Spaces are added between operands when neither is a string.
-    It returns the number of bytes written and any write error encountered.
+        Spaces are added between operands when neither is a string.
+        It returns the number of bytes written and any write error encountered.
 ```
-[\(view code\)](<./Fmt.hx#L464>)
+[\(view code\)](<./Fmt.hx#L1241>)
 
 
-## function printf
+### Fmt function printf
 
 
 ```haxe
@@ -898,12 +821,12 @@ function printf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int,
 
 ```
 Printf formats according to a format specifier and writes to standard output.
-    It returns the number of bytes written and any write error encountered.
+        It returns the number of bytes written and any write error encountered.
 ```
-[\(view code\)](<./Fmt.hx#L443>)
+[\(view code\)](<./Fmt.hx#L1205>)
 
 
-## function println
+### Fmt function println
 
 
 ```haxe
@@ -913,13 +836,13 @@ function println(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 
 ```
 Println formats using the default formats for its operands and writes to standard output.
-    Spaces are always added between operands and a newline is appended.
-    It returns the number of bytes written and any write error encountered.
+        Spaces are always added between operands and a newline is appended.
+        It returns the number of bytes written and any write error encountered.
 ```
-[\(view code\)](<./Fmt.hx#L486>)
+[\(view code\)](<./Fmt.hx#L1278>)
 
 
-## function scan
+### Fmt function scan
 
 
 ```haxe
@@ -929,14 +852,14 @@ function scan(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 
 ```
 Scan scans text read from standard input, storing successive
-    space-separated values into successive arguments. Newlines count
-    as space. It returns the number of items successfully scanned.
-    If that is less than the number of arguments, err will report why.
+        space-separated values into successive arguments. Newlines count
+        as space. It returns the number of items successfully scanned.
+        If that is less than the number of arguments, err will report why.
 ```
-[\(view code\)](<./Fmt.hx#L504>)
+[\(view code\)](<./Fmt.hx#L1306>)
 
 
-## function scanf
+### Fmt function scanf
 
 
 ```haxe
@@ -946,17 +869,17 @@ function scanf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, 
 
 ```
 Scanf scans text read from standard input, storing successive
-    space-separated values into successive arguments as determined by
-    the format. It returns the number of items successfully scanned.
-    If that is less than the number of arguments, err will report why.
-    Newlines in the input must match newlines in the format.
-    The one exception: the verb %c always scans the next rune in the
-    input, even if it is a space (or tab etc.) or newline.
+        space-separated values into successive arguments as determined by
+        the format. It returns the number of items successfully scanned.
+        If that is less than the number of arguments, err will report why.
+        Newlines in the input must match newlines in the format.
+        The one exception: the verb %c always scans the next rune in the
+        input, even if it is a space (or tab etc.) or newline.
 ```
-[\(view code\)](<./Fmt.hx#L519>)
+[\(view code\)](<./Fmt.hx#L1331>)
 
 
-## function scanln
+### Fmt function scanln
 
 
 ```haxe
@@ -966,42 +889,12 @@ function scanln(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 
 ```
 Scanln is similar to Scan, but stops scanning at a newline and
-    after the final item there must be a newline or EOF.
+        after the final item there must be a newline or EOF.
 ```
-[\(view code\)](<./Fmt.hx#L509>)
+[\(view code\)](<./Fmt.hx#L1316>)
 
 
-## function set\_isSpace
-
-
-```haxe
-function set_isSpace(v:()):()
-```
-
-
-[\(view code\)](<./Fmt.hx#L385>)
-
-
-## function set\_parsenum
-
-
-```haxe
-function set_parsenum(v:(:stdgo.GoString, :stdgo.GoInt, :stdgo.GoInt):{
-	_2:stdgo.GoInt;
-	_1:Bool;
-	_0:stdgo.GoInt;
-}):(:stdgo.GoString, :stdgo.GoInt, :stdgo.GoInt):{
-	_2:stdgo.GoInt;
-	_1:Bool;
-	_0:stdgo.GoInt;
-}
-```
-
-
-[\(view code\)](<./Fmt.hx#L388>)
-
-
-## function sprint
+### Fmt function sprint
 
 
 ```haxe
@@ -1011,12 +904,12 @@ function sprint(a:haxe.Rest<stdgo.AnyInterface>):String
 
 ```
 Sprint formats using the default formats for its operands and returns the resulting string.
-    Spaces are added between operands when neither is a string.
+        Spaces are added between operands when neither is a string.
 ```
-[\(view code\)](<./Fmt.hx#L469>)
+[\(view code\)](<./Fmt.hx#L1251>)
 
 
-## function sprintf
+### Fmt function sprintf
 
 
 ```haxe
@@ -1027,10 +920,10 @@ function sprintf(format:String, a:haxe.Rest<stdgo.AnyInterface>):String
 
 Sprintf formats according to a format specifier and returns the resulting string.  
 
-[\(view code\)](<./Fmt.hx#L447>)
+[\(view code\)](<./Fmt.hx#L1214>)
 
 
-## function sprintln
+### Fmt function sprintln
 
 
 ```haxe
@@ -1040,12 +933,12 @@ function sprintln(a:haxe.Rest<stdgo.AnyInterface>):String
 
 ```
 Sprintln formats using the default formats for its operands and returns the resulting string.
-    Spaces are always added between operands and a newline is appended.
+        Spaces are always added between operands and a newline is appended.
 ```
-[\(view code\)](<./Fmt.hx#L491>)
+[\(view code\)](<./Fmt.hx#L1288>)
 
 
-## function sscan
+### Fmt function sscan
 
 
 ```haxe
@@ -1055,14 +948,14 @@ function sscan(str:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, std
 
 ```
 Sscan scans the argument string, storing successive space-separated
-    values into successive arguments. Newlines count as space. It
-    returns the number of items successfully scanned. If that is less
-    than the number of arguments, err will report why.
+        values into successive arguments. Newlines count as space. It
+        returns the number of items successfully scanned. If that is less
+        than the number of arguments, err will report why.
 ```
-[\(view code\)](<./Fmt.hx#L526>)
+[\(view code\)](<./Fmt.hx#L1343>)
 
 
-## function sscanf
+### Fmt function sscanf
 
 
 ```haxe
@@ -1072,14 +965,14 @@ function sscanf(str:String, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdg
 
 ```
 Sscanf scans the argument string, storing successive space-separated
-    values into successive arguments as determined by the format. It
-    returns the number of items successfully parsed.
-    Newlines in the input must match newlines in the format.
+        values into successive arguments as determined by the format. It
+        returns the number of items successfully parsed.
+        Newlines in the input must match newlines in the format.
 ```
-[\(view code\)](<./Fmt.hx#L538>)
+[\(view code\)](<./Fmt.hx#L1365>)
 
 
-## function sscanln
+### Fmt function sscanln
 
 
 ```haxe
@@ -1089,9 +982,9 @@ function sscanln(str:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, s
 
 ```
 Sscanln is similar to Sscan, but stops scanning at a newline and
-    after the final item there must be a newline or EOF.
+        after the final item there must be a newline or EOF.
 ```
-[\(view code\)](<./Fmt.hx#L531>)
+[\(view code\)](<./Fmt.hx#L1353>)
 
 
 # Typedefs
@@ -1110,27 +1003,11 @@ typedef Formatter = stdgo._internal.fmt.Formatter;
 ```
 
 
-## typedef Formatter\_static\_extension
-
-
-```haxe
-typedef Formatter_static_extension = Dynamic;
-```
-
-
 ## typedef GoStringer
 
 
 ```haxe
 typedef GoStringer = stdgo._internal.fmt.GoStringer;
-```
-
-
-## typedef GoStringer\_static\_extension
-
-
-```haxe
-typedef GoStringer_static_extension = Dynamic;
 ```
 
 
@@ -1142,27 +1019,11 @@ typedef ScanState = stdgo._internal.fmt.ScanState;
 ```
 
 
-## typedef ScanState\_static\_extension
-
-
-```haxe
-typedef ScanState_static_extension = Dynamic;
-```
-
-
 ## typedef Scanner
 
 
 ```haxe
 typedef Scanner = stdgo._internal.fmt.Scanner;
-```
-
-
-## typedef Scanner\_static\_extension
-
-
-```haxe
-typedef Scanner_static_extension = Dynamic;
 ```
 
 
@@ -1174,27 +1035,11 @@ typedef State = stdgo._internal.fmt.State;
 ```
 
 
-## typedef State\_static\_extension
-
-
-```haxe
-typedef State_static_extension = Dynamic;
-```
-
-
 ## typedef Stringer
 
 
 ```haxe
 typedef Stringer = stdgo._internal.fmt.Stringer;
-```
-
-
-## typedef Stringer\_static\_extension
-
-
-```haxe
-typedef Stringer_static_extension = Dynamic;
 ```
 
 
@@ -1206,142 +1051,6 @@ typedef T_buffer = stdgo._internal.fmt.T_buffer;
 ```
 
 
-## typedef T\_buffer\_asInterface
-
-
-```haxe
-typedef T_buffer_asInterface = Dynamic;
-```
-
-
-## typedef T\_buffer\_static\_extension
-
-
-```haxe
-typedef T_buffer_static_extension = Dynamic;
-```
-
-
-## typedef T\_fmt
-
-
-```haxe
-typedef T_fmt = Dynamic;
-```
-
-
-## typedef T\_fmtFlags
-
-
-```haxe
-typedef T_fmtFlags = Dynamic;
-```
-
-
-## typedef T\_fmt\_asInterface
-
-
-```haxe
-typedef T_fmt_asInterface = Dynamic;
-```
-
-
-## typedef T\_fmt\_static\_extension
-
-
-```haxe
-typedef T_fmt_static_extension = Dynamic;
-```
-
-
-## typedef T\_pp
-
-
-```haxe
-typedef T_pp = Dynamic;
-```
-
-
-## typedef T\_pp\_asInterface
-
-
-```haxe
-typedef T_pp_asInterface = Dynamic;
-```
-
-
-## typedef T\_pp\_static\_extension
-
-
-```haxe
-typedef T_pp_static_extension = Dynamic;
-```
-
-
-## typedef T\_readRune
-
-
-```haxe
-typedef T_readRune = Dynamic;
-```
-
-
-## typedef T\_readRune\_asInterface
-
-
-```haxe
-typedef T_readRune_asInterface = Dynamic;
-```
-
-
-## typedef T\_readRune\_static\_extension
-
-
-```haxe
-typedef T_readRune_static_extension = Dynamic;
-```
-
-
-## typedef T\_scanError
-
-
-```haxe
-typedef T_scanError = Dynamic;
-```
-
-
-## typedef T\_ss
-
-
-```haxe
-typedef T_ss = Dynamic;
-```
-
-
-## typedef T\_ss\_asInterface
-
-
-```haxe
-typedef T_ss_asInterface = Dynamic;
-```
-
-
-## typedef T\_ss\_static\_extension
-
-
-```haxe
-typedef T_ss_static_extension = Dynamic;
-```
-
-
-## typedef T\_ssave
-
-
-```haxe
-typedef T_ssave = Dynamic;
-```
-
-
 ## typedef T\_stringReader
 
 
@@ -1350,67 +1059,60 @@ typedef T_stringReader = stdgo._internal.fmt.T_stringReader;
 ```
 
 
-## typedef T\_stringReader\_asInterface
+# Abstracts
 
 
-```haxe
-typedef T_stringReader_asInterface = Dynamic;
-```
+## abstract T\_wrapError
 
 
-## typedef T\_stringReader\_static\_extension
+[\(view file containing code\)](<./Fmt.hx>)
 
 
-```haxe
-typedef T_stringReader_static_extension = Dynamic;
-```
+## abstract T\_wrapErrors
 
 
-## typedef T\_wrapError
+[\(view file containing code\)](<./Fmt.hx>)
 
 
-```haxe
-typedef T_wrapError = Dynamic;
-```
+## abstract T\_fmtFlags
 
 
-## typedef T\_wrapError\_asInterface
+[\(view file containing code\)](<./Fmt.hx>)
 
 
-```haxe
-typedef T_wrapError_asInterface = Dynamic;
-```
+## abstract T\_fmt
 
 
-## typedef T\_wrapError\_static\_extension
+[\(view file containing code\)](<./Fmt.hx>)
 
 
-```haxe
-typedef T_wrapError_static_extension = Dynamic;
-```
+## abstract T\_pp
 
 
-## typedef T\_wrapErrors
+[\(view file containing code\)](<./Fmt.hx>)
 
 
-```haxe
-typedef T_wrapErrors = Dynamic;
-```
+## abstract T\_scanError
 
 
-## typedef T\_wrapErrors\_asInterface
+[\(view file containing code\)](<./Fmt.hx>)
 
 
-```haxe
-typedef T_wrapErrors_asInterface = Dynamic;
-```
+## abstract T\_ss
 
 
-## typedef T\_wrapErrors\_static\_extension
+[\(view file containing code\)](<./Fmt.hx>)
 
 
-```haxe
-typedef T_wrapErrors_static_extension = Dynamic;
-```
+## abstract T\_ssave
+
+
+[\(view file containing code\)](<./Fmt.hx>)
+
+
+## abstract T\_readRune
+
+
+[\(view file containing code\)](<./Fmt.hx>)
 
 

@@ -6,23 +6,16 @@
 # Overview
 
 
-```
-Package godebugs provides a table of known GODEBUG settings,
-    for use by a variety of other packages, including internal/godebug,
-    runtime, runtime/metrics, and cmd/go/internal/load.
-```
 # Index
 
 
 - [Variables](<#variables>)
 
-- [`function get_all():Array<stdgo._internal.internal.godebugs.Info>`](<#function-get_all>)
+- [class Godebugs](<#class-godebugs>)
 
-- [`function lookup(name:String):stdgo.internal.godebugs.Info`](<#function-lookup>)
+  - [`function lookup(name:String):stdgo.internal.godebugs.Info`](<#godebugs-function-lookup>)
 
-- [`function set_all(v:Array<stdgo._internal.internal.godebugs.Info>):Array<stdgo._internal.internal.godebugs.Info>`](<#function-set_all>)
-
-- [typedef Info](<#typedef-info>)
+- [abstract Info](<#abstract-info>)
 
 # Variables
 
@@ -37,26 +30,23 @@ var all:Array<stdgo._internal.internal.godebugs.Info>
 ```
 
 
-# Functions
+# Classes
 
 
 ```haxe
-import stdgo.internal.godebugs.Godebugs
+import stdgo.internal.godebugs.*
 ```
 
 
-## function get\_all
+## class Godebugs
 
 
-```haxe
-function get_all():Array<stdgo._internal.internal.godebugs.Info>
 ```
-
-
-[\(view code\)](<./Godebugs.hx#L9>)
-
-
-## function lookup
+Package godebugs provides a table of known GODEBUG settings,
+    for use by a variety of other packages, including internal/godebug,
+    runtime, runtime/metrics, and cmd/go/internal/load.
+```
+### Godebugs function lookup
 
 
 ```haxe
@@ -67,33 +57,15 @@ function lookup(name:String):stdgo.internal.godebugs.Info
 
 Lookup returns the Info with the given name.  
 
-[\(view code\)](<./Godebugs.hx#L15>)
+[\(view code\)](<./Godebugs.hx#L52>)
 
 
-## function set\_all
+# Abstracts
 
 
-```haxe
-function set_all(v:Array<stdgo._internal.internal.godebugs.Info>):Array<stdgo._internal.internal.godebugs.Info>
-```
+## abstract Info
 
 
-[\(view code\)](<./Godebugs.hx#L10>)
-
-
-# Typedefs
-
-
-```haxe
-import stdgo.internal.godebugs.*
-```
-
-
-## typedef Info
-
-
-```haxe
-typedef Info = Dynamic;
-```
+[\(view file containing code\)](<./Godebugs.hx>)
 
 

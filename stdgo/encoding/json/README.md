@@ -1,7 +1,6 @@
 # Module stdgo.encoding.json has compilation errors, please do not use:
 ```
-stdgo/_internal/encoding/json/Json.hx:8673: characters 33-95 : stdgo.Slice<stdgo.AnyInterface> should be stdgo.AnyInterface
-stdgo/_internal/encoding/json/Json.hx:8673: characters 33-95 : ... For function argument 'args'
+stdgo/encoding/json/Json.hx:3: characters 57-58 : Unexpected 0
 
 ```
 

@@ -6,6 +6,28 @@
 # Overview
 
 
+# Index
+
+
+- [class Saferio](<#class-saferio>)
+
+  - [`function readData(r:stdgo._internal.io.Reader, n:haxe.UInt64):stdgo.Tuple<Array<Int>, stdgo.Error>`](<#saferio-function-readdata>)
+
+  - [`function readDataAt(r:stdgo._internal.io.ReaderAt, n:haxe.UInt64, off:haxe.Int64):stdgo.Tuple<Array<Int>, stdgo.Error>`](<#saferio-function-readdataat>)
+
+  - [`function sliceCap(v:stdgo.AnyInterface, c:haxe.UInt64):Int`](<#saferio-function-slicecap>)
+
+# Classes
+
+
+```haxe
+import
+```
+
+
+## class Saferio
+
+
 ```
 Package saferio provides I/O functions that avoid allocating large
     amounts of memory unnecessarily. This is intended for packages that
@@ -13,24 +35,7 @@ Package saferio provides I/O functions that avoid allocating large
     data but the input may be corrupt, or may be provided by an
     untrustworthy attacker.
 ```
-# Index
-
-
-- [`function readData(r:stdgo._internal.io.Reader, n:haxe.UInt64):stdgo.Tuple<Array<Int>, stdgo.Error>`](<#function-readdata>)
-
-- [`function readDataAt(r:stdgo._internal.io.ReaderAt, n:haxe.UInt64, off:haxe.Int64):stdgo.Tuple<Array<Int>, stdgo.Error>`](<#function-readdataat>)
-
-- [`function sliceCap(v:stdgo.AnyInterface, c:haxe.UInt64):Int`](<#function-slicecap>)
-
-# Functions
-
-
-```haxe
-import stdgo.internal.saferio.Saferio
-```
-
-
-## function readData
+### Saferio function readData
 
 
 ```haxe
@@ -40,8 +45,8 @@ function readData(r:stdgo._internal.io.Reader, n:haxe.UInt64):stdgo.Tuple<Array<
 
 ```
 ReadData reads n bytes from the input stream, but avoids allocating
-    all n bytes if n is large. This avoids crashing the program by
-    allocating all n bytes in cases where n is incorrect.
+        all n bytes if n is large. This avoids crashing the program by
+        allocating all n bytes in cases where n is incorrect.
 ```
 
 The error is io.EOF only if no bytes were read.
@@ -51,7 +56,7 @@ ReadData returns io.ErrUnexpectedEOF.
 [\(view code\)](<./Saferio.hx#L19>)
 
 
-## function readDataAt
+### Saferio function readDataAt
 
 
 ```haxe
@@ -61,13 +66,13 @@ function readDataAt(r:stdgo._internal.io.ReaderAt, n:haxe.UInt64, off:haxe.Int64
 
 ```
 ReadDataAt reads n bytes from the input stream at off, but avoids
-    allocating all n bytes if n is large. This avoids crashing the program
-    by allocating all n bytes in cases where n is incorrect.
+        allocating all n bytes if n is large. This avoids crashing the program
+        by allocating all n bytes in cases where n is incorrect.
 ```
-[\(view code\)](<./Saferio.hx#L25>)
+[\(view code\)](<./Saferio.hx#L30>)
 
 
-## function sliceCap
+### Saferio function sliceCap
 
 
 ```haxe
@@ -77,9 +82,9 @@ function sliceCap(v:stdgo.AnyInterface, c:haxe.UInt64):Int
 
 ```
 SliceCap returns the capacity to use when allocating a slice.
-    After the slice is allocated with the capacity, it should be
-    built using append. This will avoid allocating too much memory
-    if the capacity is large and incorrect.
+        After the slice is allocated with the capacity, it should be
+        built using append. This will avoid allocating too much memory
+        if the capacity is large and incorrect.
 ```
 
 A negative result means that the value is always too big.  
@@ -90,6 +95,6 @@ This would ideally use generics, but this code is built with
 the bootstrap compiler which need not support generics.
 We use a pointer so that we can handle slices of interface type.  
 
-[\(view code\)](<./Saferio.hx#L39>)
+[\(view code\)](<./Saferio.hx#L49>)
 
 

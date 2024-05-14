@@ -11,17 +11,11 @@
 
 - [Constants](<#constants>)
 
+- [class Errors](<#class-errors>)
+
 - [typedef Code](<#typedef-code>)
 
-- [typedef Code\_asInterface](<#typedef-code_asinterface>)
-
-- [typedef Code\_static\_extension](<#typedef-code_static_extension>)
-
 - [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
-
-- [typedef T\_\_struct\_0\_asInterface](<#typedef-t__struct_0_asinterface>)
-
-- [typedef T\_\_struct\_0\_static\_extension](<#typedef-t__struct_0_static_extension>)
 
 # Constants
 
@@ -766,6 +760,17 @@ final wrongTypeArgCount:stdgo._internal.internal.types.errors.Code = stdgo._inte
 ```
 
 
+# Classes
+
+
+```haxe
+import stdgo.internal.types.errors.*
+```
+
+
+## class Errors
+
+
 # Typedefs
 
 
@@ -782,43 +787,11 @@ typedef Code = stdgo._internal.internal.types.errors.Code;
 ```
 
 
-## typedef Code\_asInterface
-
-
-```haxe
-typedef Code_asInterface = Dynamic;
-```
-
-
-## typedef Code\_static\_extension
-
-
-```haxe
-typedef Code_static_extension = Dynamic;
-```
-
-
 ## typedef T\_\_struct\_0
 
 
 ```haxe
 typedef T__struct_0 = stdgo._internal.internal.types.errors.T__struct_0;
-```
-
-
-## typedef T\_\_struct\_0\_asInterface
-
-
-```haxe
-typedef T__struct_0_asInterface = Dynamic;
-```
-
-
-## typedef T\_\_struct\_0\_static\_extension
-
-
-```haxe
-typedef T__struct_0_static_extension = Dynamic;
 ```
 
 

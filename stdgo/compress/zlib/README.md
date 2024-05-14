@@ -6,29 +6,6 @@
 # Overview
 
 
-
-Package zlib implements reading and writing of zlib format compressed data,
-as specified in RFC 1950.  
-
-
-The implementation provides filters that uncompress during reading
-and compress during writing.  For example, to write compressed data
-to a buffer:  
-
-```
-    	var b bytes.Buffer
-    	w := zlib.NewWriter(&b)
-    	w.Write([]byte("hello, world\n"))
-    	w.Close()
-```
-
-and to read that data back:  
-
-```
-    	r, err := zlib.NewReader(&b)
-    	io.Copy(os.Stdout, r)
-    	r.Close()
-```
 # Index
 
 
@@ -36,57 +13,37 @@ and to read that data back:
 
 - [Variables](<#variables>)
 
-- [`function get_errChecksum():stdgo.Error`](<#function-get_errchecksum>)
+- [class Zlib](<#class-zlib>)
 
-- [`function get_errDictionary():stdgo.Error`](<#function-get_errdictionary>)
+  - [`function newReader(r:stdgo._internal.io.Reader):stdgo.Tuple<stdgo._internal.io.ReadCloser, stdgo.Error>`](<#zlib-function-newreader>)
 
-- [`function get_errHeader():stdgo.Error`](<#function-get_errheader>)
+  - [`function newReaderDict(r:stdgo._internal.io.Reader, dict:Array<Int>):stdgo.Tuple<stdgo._internal.io.ReadCloser, stdgo.Error>`](<#zlib-function-newreaderdict>)
 
-- [`function newReader(r:stdgo._internal.io.Reader):stdgo.Tuple<stdgo._internal.io.ReadCloser, stdgo.Error>`](<#function-newreader>)
+  - [`function newWriter(w:stdgo._internal.io.Writer):stdgo.compress.zlib.Writer`](<#zlib-function-newwriter>)
 
-- [`function newReaderDict(r:stdgo._internal.io.Reader, dict:Array<Int>):stdgo.Tuple<stdgo._internal.io.ReadCloser, stdgo.Error>`](<#function-newreaderdict>)
+  - [`function newWriterLevel(w:stdgo._internal.io.Writer, level:Int):stdgo.Tuple<stdgo.compress.zlib.Writer, stdgo.Error>`](<#zlib-function-newwriterlevel>)
 
-- [`function newWriter(w:stdgo._internal.io.Writer):stdgo.compress.zlib.Writer`](<#function-newwriter>)
+  - [`function newWriterLevelDict(w:stdgo._internal.io.Writer, level:Int, dict:Array<Int>):stdgo.Tuple<stdgo.compress.zlib.Writer, stdgo.Error>`](<#zlib-function-newwriterleveldict>)
 
-- [`function newWriterLevel(w:stdgo._internal.io.Writer, level:Int):stdgo.Tuple<stdgo.compress.zlib.Writer, stdgo.Error>`](<#function-newwriterlevel>)
+  - [`function testDecompressor(t:stdgo._internal.testing.T_):Void`](<#zlib-function-testdecompressor>)
 
-- [`function newWriterLevelDict(w:stdgo._internal.io.Writer, level:Int, dict:Array<Int>):stdgo.Tuple<stdgo.compress.zlib.Writer, stdgo.Error>`](<#function-newwriterleveldict>)
+  - [`function testWriter(t:stdgo._internal.testing.T_):Void`](<#zlib-function-testwriter>)
 
-- [`function set_errChecksum(v:stdgo.Error):stdgo.Error`](<#function-set_errchecksum>)
+  - [`function testWriterBig(t:stdgo._internal.testing.T_):Void`](<#zlib-function-testwriterbig>)
 
-- [`function set_errDictionary(v:stdgo.Error):stdgo.Error`](<#function-set_errdictionary>)
+  - [`function testWriterDict(t:stdgo._internal.testing.T_):Void`](<#zlib-function-testwriterdict>)
 
-- [`function set_errHeader(v:stdgo.Error):stdgo.Error`](<#function-set_errheader>)
+  - [`function testWriterDictIsUsed(t:stdgo._internal.testing.T_):Void`](<#zlib-function-testwriterdictisused>)
 
-- [`function testDecompressor(t:stdgo._internal.testing.T_):Void`](<#function-testdecompressor>)
-
-- [`function testWriter(t:stdgo._internal.testing.T_):Void`](<#function-testwriter>)
-
-- [`function testWriterBig(t:stdgo._internal.testing.T_):Void`](<#function-testwriterbig>)
-
-- [`function testWriterDict(t:stdgo._internal.testing.T_):Void`](<#function-testwriterdict>)
-
-- [`function testWriterDictIsUsed(t:stdgo._internal.testing.T_):Void`](<#function-testwriterdictisused>)
-
-- [`function testWriterReset(t:stdgo._internal.testing.T_):Void`](<#function-testwriterreset>)
+  - [`function testWriterReset(t:stdgo._internal.testing.T_):Void`](<#zlib-function-testwriterreset>)
 
 - [typedef Resetter](<#typedef-resetter>)
 
-- [typedef Resetter\_static\_extension](<#typedef-resetter_static_extension>)
+- [abstract T\_reader](<#abstract-t_reader>)
 
-- [typedef T\_reader](<#typedef-t_reader>)
+- [abstract T\_zlibTest](<#abstract-t_zlibtest>)
 
-- [typedef T\_reader\_asInterface](<#typedef-t_reader_asinterface>)
-
-- [typedef T\_reader\_static\_extension](<#typedef-t_reader_static_extension>)
-
-- [typedef T\_zlibTest](<#typedef-t_zlibtest>)
-
-- [typedef Writer](<#typedef-writer>)
-
-- [typedef Writer\_asInterface](<#typedef-writer_asinterface>)
-
-- [typedef Writer\_static\_extension](<#typedef-writer_static_extension>)
+- [abstract Writer](<#abstract-writer>)
 
 # Constants
 
@@ -144,48 +101,41 @@ var errHeader:stdgo.Error
 ```
 
 
-# Functions
+# Classes
 
 
 ```haxe
-import stdgo.compress.zlib.Zlib
+import stdgo.compress.zlib.*
 ```
 
 
-## function get\_errChecksum
+## class Zlib
 
 
-```haxe
-function get_errChecksum():stdgo.Error
+
+Package zlib implements reading and writing of zlib format compressed data,
+as specified in RFC 1950.  
+
+
+The implementation provides filters that uncompress during reading
+and compress during writing.  For example, to write compressed data
+to a buffer:  
+
+```
+    	var b bytes.Buffer
+    	w := zlib.NewWriter(&b)
+    	w.Write([]byte("hello, world\n"))
+    	w.Close()
 ```
 
+and to read that data back:  
 
-[\(view code\)](<./Zlib.hx#L30>)
-
-
-## function get\_errDictionary
-
-
-```haxe
-function get_errDictionary():stdgo.Error
 ```
-
-
-[\(view code\)](<./Zlib.hx#L33>)
-
-
-## function get\_errHeader
-
-
-```haxe
-function get_errHeader():stdgo.Error
+    	r, err := zlib.NewReader(&b)
+    	io.Copy(os.Stdout, r)
+    	r.Close()
 ```
-
-
-[\(view code\)](<./Zlib.hx#L36>)
-
-
-## function newReader
+### Zlib function newReader
 
 
 ```haxe
@@ -195,18 +145,18 @@ function newReader(r:stdgo._internal.io.Reader):stdgo.Tuple<stdgo._internal.io.R
 
 ```
 NewReader creates a new ReadCloser.
-    Reads from the returned ReadCloser read and decompress data from r.
-    If r does not implement io.ByteReader, the decompressor may read more
-    data than necessary from r.
-    It is the caller's responsibility to call Close on the ReadCloser when done.
+        Reads from the returned ReadCloser read and decompress data from r.
+        If r does not implement io.ByteReader, the decompressor may read more
+        data than necessary from r.
+        It is the caller's responsibility to call Close on the ReadCloser when done.
 ```
 
 The ReadCloser returned by NewReader also implements Resetter.  
 
-[\(view code\)](<./Zlib.hx#L52>)
+[\(view code\)](<./Zlib.hx#L223>)
 
 
-## function newReaderDict
+### Zlib function newReaderDict
 
 
 ```haxe
@@ -216,16 +166,16 @@ function newReaderDict(r:stdgo._internal.io.Reader, dict:Array<Int>):stdgo.Tuple
 
 ```
 NewReaderDict is like NewReader but uses a preset dictionary.
-    NewReaderDict ignores the dictionary if the compressed data does not refer to it.
-    If the compressed data refers to a different dictionary, NewReaderDict returns ErrDictionary.
+        NewReaderDict ignores the dictionary if the compressed data does not refer to it.
+        If the compressed data refers to a different dictionary, NewReaderDict returns ErrDictionary.
 ```
 
 The ReadCloser returned by NewReaderDict also implements Resetter.  
 
-[\(view code\)](<./Zlib.hx#L60>)
+[\(view code\)](<./Zlib.hx#L236>)
 
 
-## function newWriter
+### Zlib function newWriter
 
 
 ```haxe
@@ -235,16 +185,16 @@ function newWriter(w:stdgo._internal.io.Writer):stdgo.compress.zlib.Writer
 
 ```
 NewWriter creates a new Writer.
-    Writes to the returned Writer are compressed and written to w.
+        Writes to the returned Writer are compressed and written to w.
 ```
 
 It is the caller's responsibility to call Close on the Writer when done.
 Writes may be buffered and not flushed until Close.  
 
-[\(view code\)](<./Zlib.hx#L69>)
+[\(view code\)](<./Zlib.hx#L253>)
 
 
-## function newWriterLevel
+### Zlib function newWriterLevel
 
 
 ```haxe
@@ -254,17 +204,17 @@ function newWriterLevel(w:stdgo._internal.io.Writer, level:Int):stdgo.Tuple<stdg
 
 ```
 NewWriterLevel is like NewWriter but specifies the compression level instead
-    of assuming DefaultCompression.
+        of assuming DefaultCompression.
 ```
 
 The compression level can be DefaultCompression, NoCompression, HuffmanOnly
 or any integer value between BestSpeed and BestCompression inclusive.
 The error returned will be nil if the level is valid.  
 
-[\(view code\)](<./Zlib.hx#L78>)
+[\(view code\)](<./Zlib.hx#L264>)
 
 
-## function newWriterLevelDict
+### Zlib function newWriterLevelDict
 
 
 ```haxe
@@ -274,49 +224,16 @@ function newWriterLevelDict(w:stdgo._internal.io.Writer, level:Int, dict:Array<I
 
 ```
 NewWriterLevelDict is like NewWriterLevel but specifies a dictionary to
-    compress with.
+        compress with.
 ```
 
 The dictionary may be nil. If not, its contents should not be modified until
 the Writer is closed.  
 
-[\(view code\)](<./Zlib.hx#L86>)
+[\(view code\)](<./Zlib.hx#L277>)
 
 
-## function set\_errChecksum
-
-
-```haxe
-function set_errChecksum(v:stdgo.Error):stdgo.Error
-```
-
-
-[\(view code\)](<./Zlib.hx#L31>)
-
-
-## function set\_errDictionary
-
-
-```haxe
-function set_errDictionary(v:stdgo.Error):stdgo.Error
-```
-
-
-[\(view code\)](<./Zlib.hx#L34>)
-
-
-## function set\_errHeader
-
-
-```haxe
-function set_errHeader(v:stdgo.Error):stdgo.Error
-```
-
-
-[\(view code\)](<./Zlib.hx#L37>)
-
-
-## function testDecompressor
+### Zlib function testDecompressor
 
 
 ```haxe
@@ -324,10 +241,10 @@ function testDecompressor(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Zlib.hx#L61>)
+[\(view code\)](<./Zlib.hx#L243>)
 
 
-## function testWriter
+### Zlib function testWriter
 
 
 ```haxe
@@ -335,10 +252,10 @@ function testWriter(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Zlib.hx#L87>)
+[\(view code\)](<./Zlib.hx#L284>)
 
 
-## function testWriterBig
+### Zlib function testWriterBig
 
 
 ```haxe
@@ -346,10 +263,10 @@ function testWriterBig(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Zlib.hx#L88>)
+[\(view code\)](<./Zlib.hx#L287>)
 
 
-## function testWriterDict
+### Zlib function testWriterDict
 
 
 ```haxe
@@ -357,10 +274,10 @@ function testWriterDict(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Zlib.hx#L89>)
+[\(view code\)](<./Zlib.hx#L290>)
 
 
-## function testWriterDictIsUsed
+### Zlib function testWriterDictIsUsed
 
 
 ```haxe
@@ -368,10 +285,10 @@ function testWriterDictIsUsed(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Zlib.hx#L91>)
+[\(view code\)](<./Zlib.hx#L296>)
 
 
-## function testWriterReset
+### Zlib function testWriterReset
 
 
 ```haxe
@@ -379,7 +296,7 @@ function testWriterReset(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Zlib.hx#L90>)
+[\(view code\)](<./Zlib.hx#L293>)
 
 
 # Typedefs
@@ -398,67 +315,24 @@ typedef Resetter = stdgo._internal.compress.zlib.Resetter;
 ```
 
 
-## typedef Resetter\_static\_extension
+# Abstracts
 
 
-```haxe
-typedef Resetter_static_extension = Dynamic;
-```
+## abstract T\_reader
 
 
-## typedef T\_reader
+[\(view file containing code\)](<./Zlib.hx>)
 
 
-```haxe
-typedef T_reader = Dynamic;
-```
+## abstract T\_zlibTest
 
 
-## typedef T\_reader\_asInterface
+[\(view file containing code\)](<./Zlib.hx>)
 
 
-```haxe
-typedef T_reader_asInterface = Dynamic;
-```
+## abstract Writer
 
 
-## typedef T\_reader\_static\_extension
-
-
-```haxe
-typedef T_reader_static_extension = Dynamic;
-```
-
-
-## typedef T\_zlibTest
-
-
-```haxe
-typedef T_zlibTest = Dynamic;
-```
-
-
-## typedef Writer
-
-
-```haxe
-typedef Writer = Dynamic;
-```
-
-
-## typedef Writer\_asInterface
-
-
-```haxe
-typedef Writer_asInterface = Dynamic;
-```
-
-
-## typedef Writer\_static\_extension
-
-
-```haxe
-typedef Writer_static_extension = Dynamic;
-```
+[\(view file containing code\)](<./Zlib.hx>)
 
 

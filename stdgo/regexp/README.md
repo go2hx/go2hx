@@ -6,216 +6,168 @@
 # Overview
 
 
-
-Package syntax parses regular expressions into parse trees and compiles
-parse trees into programs. Most clients of regular expressions will use the
-facilities of package regexp \(such as Compile and Match\) instead of this package.  
-
-## Syntax
-
-
-
-The regular expression syntax understood by this package when parsing with the Perl flag is as follows.
-Parts of the syntax can be disabled by passing alternate flags to Parse.  
-
-
-Single characters:  
-
-```
-    	.              any character, possibly including newline (flag s=true)
-    	[xyz]          character class
-    	[^xyz]         negated character class
-    	\d             Perl character class
-    	\D             negated Perl character class
-    	[[:alpha:]]    ASCII character class
-    	[[:^alpha:]]   negated ASCII character class
-    	\pN            Unicode character class (one-letter name)
-    	\p{Greek}      Unicode character class
-    	\PN            negated Unicode character class (one-letter name)
-    	\P{Greek}      negated Unicode character class
-```
-
-Composites:  
-
-```
-    	xy             x followed by y
-    	x|y            x or y (prefer x)
-```
-
-Repetitions:  
-
-```
-    	x*             zero or more x, prefer more
-    	x+             one or more x, prefer more
-    	x?             zero or one x, prefer one
-    	x{n,m}         n or n+1 or ... or m x, prefer more
-    	x{n,}          n or more x, prefer more
-    	x{n}           exactly n x
-    	x*?            zero or more x, prefer fewer
-    	x+?            one or more x, prefer fewer
-    	x??            zero or one x, prefer zero
-    	x{n,m}?        n or n+1 or ... or m x, prefer fewer
-    	x{n,}?         n or more x, prefer fewer
-    	x{n}?          exactly n x
-```
-
-Implementation restriction: The counting forms x\{n,m\}, x\{n,\}, and x\{n\}
-reject forms that create a minimum or maximum repetition count above 1000.
-Unlimited repetitions are not subject to this restriction.  
-
-
-Grouping:  
-
-```
-    	(re)           numbered capturing group (submatch)
-    	(?P<name>re)   named & numbered capturing group (submatch)
-    	(?:re)         non-capturing group
-    	(?flags)       set flags within current group; non-capturing
-    	(?flags:re)    set flags during re; non-capturing
-```
-```
-    	Flag syntax is xyz (set) or -xyz (clear) or xy-z (set xy, clear z). The flags are:
-```
-```
-    	i              case-insensitive (default false)
-    	m              multi-line mode: ^ and $ match begin/end line in addition to begin/end text (default false)
-    	s              let . match \n (default false)
-    	U              ungreedy: swap meaning of x* and x*?, x+ and x+?, etc (default false)
-```
-
-Empty strings:  
-
-```
-    	^              at beginning of text or line (flag m=true)
-    	$              at end of text (like \z not \Z) or line (flag m=true)
-    	\A             at beginning of text
-    	\b             at ASCII word boundary (\w on one side and \W, \A, or \z on the other)
-    	\B             not at ASCII word boundary
-    	\z             at end of text
-```
-
-Escape sequences:  
-
-```
-    	\a             bell (== \007)
-    	\f             form feed (== \014)
-    	\t             horizontal tab (== \011)
-    	\n             newline (== \012)
-    	\r             carriage return (== \015)
-    	\v             vertical tab character (== \013)
-    	\*             literal *, for any punctuation character *
-    	\123           octal character code (up to three digits)
-    	\x7F           hex character code (exactly two digits)
-    	\x{10FFFF}     hex character code
-    	\Q...\E        literal text ... even if ... has punctuation
-```
-
-Character class elements:  
-
-```
-    	x              single character
-    	A-Z            character range (inclusive)
-    	\d             Perl character class
-    	[:foo:]        ASCII character class foo
-    	\p{Foo}        Unicode character class Foo
-    	\pF            Unicode character class F (one-letter name)
-```
-
-Named character classes as character class elements:  
-
-```
-    	[\d]           digits (== \d)
-    	[^\d]          not digits (== \D)
-    	[\D]           not digits (== \D)
-    	[^\D]          not not digits (== \d)
-    	[[:name:]]     named ASCII class inside character class (== [:name:])
-    	[^[:name:]]    named ASCII class inside negated character class (== [:^name:])
-    	[\p{Name}]     named Unicode property inside character class (== \p{Name})
-    	[^\p{Name}]    named Unicode property inside negated character class (== \P{Name})
-```
-
-Perl character classes \(all ASCII\-only\):  
-
-```
-    	\d             digits (== [0-9])
-    	\D             not digits (== [^0-9])
-    	\s             whitespace (== [\t\n\f\r ])
-    	\S             not whitespace (== [^\t\n\f\r ])
-    	\w             word characters (== [0-9A-Za-z_])
-    	\W             not word characters (== [^0-9A-Za-z_])
-```
-
-ASCII character classes:  
-
-```
-    	[[:alnum:]]    alphanumeric (== [0-9A-Za-z])
-    	[[:alpha:]]    alphabetic (== [A-Za-z])
-    	[[:ascii:]]    ASCII (== [\x00-\x7F])
-    	[[:blank:]]    blank (== [\t ])
-    	[[:cntrl:]]    control (== [\x00-\x1F\x7F])
-    	[[:digit:]]    digits (== [0-9])
-    	[[:graph:]]    graphical (== [!-~] == [A-Za-z0-9!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~])
-    	[[:lower:]]    lower case (== [a-z])
-    	[[:print:]]    printable (== [ -~] == [ [:graph:]])
-    	[[:punct:]]    punctuation (== [!-/:-@[-`{-~])
-    	[[:space:]]    whitespace (== [\t\n\v\f\r ])
-    	[[:upper:]]    upper case (== [A-Z])
-    	[[:word:]]     word characters (== [0-9A-Za-z_])
-    	[[:xdigit:]]   hex digit (== [0-9A-Fa-f])
-```
-
-Unicode character classes are those in unicode.Categories and unicode.Scripts.  
-
 # Index
 
 
-- [Constants](<#constants>)
+- [class Regexp](<#class-regexp>)
 
-- [class Syntax](<#class-syntax>)
+  - [`function benchmarkAnchoredLiteralLongNonMatch(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkanchoredliterallongnonmatch>)
 
-  - [`function benchmarkEmptyOpContext(b:stdgo._internal.testing.B):Void`](<#syntax-function-benchmarkemptyopcontext>)
+  - [`function benchmarkAnchoredLiteralShortNonMatch(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkanchoredliteralshortnonmatch>)
 
-  - [`function benchmarkIsWordChar(b:stdgo._internal.testing.B):Void`](<#syntax-function-benchmarkiswordchar>)
+  - [`function benchmarkAnchoredLongMatch(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkanchoredlongmatch>)
 
-  - [`function compile(re:stdgo.regexp.Regexp):stdgo.Tuple<stdgo.regexp.Prog, stdgo.Error>`](<#syntax-function-compile>)
+  - [`function benchmarkAnchoredShortMatch(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkanchoredshortmatch>)
 
-  - [`function emptyOpContext(r1:Int, r2:Int):stdgo.regexp.EmptyOp`](<#syntax-function-emptyopcontext>)
+  - [`function benchmarkCompile(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkcompile>)
 
-  - [`function isWordChar(r:Int):Bool`](<#syntax-function-iswordchar>)
+  - [`function benchmarkFind(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkfind>)
 
-  - [`function parse(s:String, flags:stdgo.regexp.Flags):stdgo.Tuple<stdgo.regexp.Regexp, stdgo.Error>`](<#syntax-function-parse>)
+  - [`function benchmarkFindAllNoMatches(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkfindallnomatches>)
 
-  - [`function testAppendRangeCollapse(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testappendrangecollapse>)
+  - [`function benchmarkFindString(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkfindstring>)
 
-  - [`function testCompile(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testcompile>)
+  - [`function benchmarkFindStringSubmatch(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkfindstringsubmatch>)
 
-  - [`function testFoldConstants(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testfoldconstants>)
+  - [`function benchmarkFindSubmatch(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkfindsubmatch>)
 
-  - [`function testParseFoldCase(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparsefoldcase>)
+  - [`function benchmarkLiteral(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkliteral>)
 
-  - [`function testParseInvalidRegexps(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparseinvalidregexps>)
+  - [`function benchmarkMatch(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkmatch>)
 
-  - [`function testParseLiteral(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparseliteral>)
+  - [`function benchmarkMatchClass(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkmatchclass>)
 
-  - [`function testParseMatchNL(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparsematchnl>)
+  - [`function benchmarkMatchClass_InRange(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkmatchclass_inrange>)
 
-  - [`function testParseNoMatchNL(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparsenomatchnl>)
+  - [`function benchmarkMatchParallelCopied(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkmatchparallelcopied>)
 
-  - [`function testParseSimple(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparsesimple>)
+  - [`function benchmarkMatchParallelShared(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkmatchparallelshared>)
 
-  - [`function testSimplify(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testsimplify>)
+  - [`function benchmarkMatch_onepass_regex(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkmatch_onepass_regex>)
 
-  - [`function testToStringEquivalentParse(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testtostringequivalentparse>)
+  - [`function benchmarkNotLiteral(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarknotliteral>)
 
-- [typedef EmptyOp](<#typedef-emptyop>)
+  - [`function benchmarkNotOnePassShortA(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarknotonepassshorta>)
 
-- [typedef ErrorCode](<#typedef-errorcode>)
+  - [`function benchmarkNotOnePassShortB(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarknotonepassshortb>)
 
-- [typedef Flags](<#typedef-flags>)
+  - [`function benchmarkOnePassLongNotPrefix(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkonepasslongnotprefix>)
 
-- [typedef InstOp](<#typedef-instop>)
+  - [`function benchmarkOnePassLongPrefix(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkonepasslongprefix>)
 
-- [typedef Op](<#typedef-op>)
+  - [`function benchmarkOnePassShortA(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkonepassshorta>)
+
+  - [`function benchmarkOnePassShortB(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkonepassshortb>)
+
+  - [`function benchmarkQuoteMetaAll(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkquotemetaall>)
+
+  - [`function benchmarkQuoteMetaNone(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkquotemetanone>)
+
+  - [`function benchmarkReplaceAll(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkreplaceall>)
+
+  - [`function compile(expr:String):stdgo.Tuple<stdgo.regexp.Regexp_, stdgo.Error>`](<#regexp-function-compile>)
+
+  - [`function compilePOSIX(expr:String):stdgo.Tuple<stdgo.regexp.Regexp_, stdgo.Error>`](<#regexp-function-compileposix>)
+
+  - [`function match(pattern:String, b:Array<Int>):stdgo.Tuple<Bool, stdgo.Error>`](<#regexp-function-match>)
+
+  - [`function matchReader(pattern:String, r:stdgo._internal.io.RuneReader):stdgo.Tuple<Bool, stdgo.Error>`](<#regexp-function-matchreader>)
+
+  - [`function matchString(pattern:String, s:String):stdgo.Tuple<Bool, stdgo.Error>`](<#regexp-function-matchstring>)
+
+  - [`function mustCompile(str:String):stdgo.regexp.Regexp_`](<#regexp-function-mustcompile>)
+
+  - [`function mustCompilePOSIX(str:String):stdgo.regexp.Regexp_`](<#regexp-function-mustcompileposix>)
+
+  - [`function quoteMeta(s:String):String`](<#regexp-function-quotemeta>)
+
+  - [`function testBadCompile(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testbadcompile>)
+
+  - [`function testCompileOnePass(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testcompileonepass>)
+
+  - [`function testCopyMatch(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testcopymatch>)
+
+  - [`function testDeepEqual(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testdeepequal>)
+
+  - [`function testFind(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfind>)
+
+  - [`function testFindAll(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindall>)
+
+  - [`function testFindAllIndex(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindallindex>)
+
+  - [`function testFindAllString(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindallstring>)
+
+  - [`function testFindAllStringIndex(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindallstringindex>)
+
+  - [`function testFindAllStringSubmatch(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindallstringsubmatch>)
+
+  - [`function testFindAllStringSubmatchIndex(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindallstringsubmatchindex>)
+
+  - [`function testFindAllSubmatch(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindallsubmatch>)
+
+  - [`function testFindAllSubmatchIndex(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindallsubmatchindex>)
+
+  - [`function testFindIndex(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindindex>)
+
+  - [`function testFindReaderIndex(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindreaderindex>)
+
+  - [`function testFindReaderSubmatchIndex(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindreadersubmatchindex>)
+
+  - [`function testFindString(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindstring>)
+
+  - [`function testFindStringIndex(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindstringindex>)
+
+  - [`function testFindStringSubmatch(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindstringsubmatch>)
+
+  - [`function testFindStringSubmatchIndex(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindstringsubmatchindex>)
+
+  - [`function testFindSubmatch(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindsubmatch>)
+
+  - [`function testFindSubmatchIndex(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindsubmatchindex>)
+
+  - [`function testFowler(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfowler>)
+
+  - [`function testGoodCompile(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testgoodcompile>)
+
+  - [`function testLiteralPrefix(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testliteralprefix>)
+
+  - [`function testLongest(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testlongest>)
+
+  - [`function testMatch(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testmatch>)
+
+  - [`function testMatchFunction(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testmatchfunction>)
+
+  - [`function testMergeRuneSet(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testmergeruneset>)
+
+  - [`function testMinInputLen(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testmininputlen>)
+
+  - [`function testOnePassCutoff(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testonepasscutoff>)
+
+  - [`function testParseAndCompile(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testparseandcompile>)
+
+  - [`function testProgramTooLongForBacktrack(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testprogramtoolongforbacktrack>)
+
+  - [`function testQuoteMeta(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testquotemeta>)
+
+  - [`function testRE2Exhaustive(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testre2exhaustive>)
+
+  - [`function testRE2Search(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testre2search>)
+
+  - [`function testReplaceAll(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testreplaceall>)
+
+  - [`function testReplaceAllFunc(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testreplaceallfunc>)
+
+  - [`function testReplaceAllLiteral(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testreplaceallliteral>)
+
+  - [`function testRunOnePass(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testrunonepass>)
+
+  - [`function testSplit(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testsplit>)
+
+  - [`function testSubexp(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testsubexp>)
+
+  - [`function testSwitchBacktrack(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testswitchbacktrack>)
+
+  - [`function testUnmarshalText(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testunmarshaltext>)
 
 - [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
 
@@ -223,626 +175,1173 @@ Unicode character classes are those in unicode.Categories and unicode.Scripts.
 
 - [typedef T\_\_struct\_2](<#typedef-t__struct_2>)
 
-- [abstract T\_patchList](<#abstract-t_patchlist>)
+- [typedef T\_\_struct\_3](<#typedef-t__struct_3>)
 
-- [abstract T\_frag](<#abstract-t_frag>)
+- [typedef T\_\_struct\_4](<#typedef-t__struct_4>)
 
-- [abstract T\_compiler](<#abstract-t_compiler>)
+- [typedef T\_\_struct\_5](<#typedef-t__struct_5>)
 
-- [abstract Error](<#abstract-error>)
+- [typedef T\_\_struct\_6](<#typedef-t__struct_6>)
 
-- [abstract T\_parser](<#abstract-t_parser>)
+- [typedef T\_\_struct\_7](<#typedef-t__struct_7>)
 
-- [abstract T\_charGroup](<#abstract-t_chargroup>)
+- [typedef T\_input](<#typedef-t_input>)
 
-- [abstract T\_ranges](<#abstract-t_ranges>)
+- [typedef T\_lazyFlag](<#typedef-t_lazyflag>)
 
-- [abstract T\_parseTest](<#abstract-t_parsetest>)
+- [typedef T\_runeSlice](<#typedef-t_runeslice>)
 
-- [abstract Prog](<#abstract-prog>)
+- [abstract T\_stringError](<#abstract-t_stringerror>)
 
-- [abstract Inst](<#abstract-inst>)
+- [abstract ReplaceTest](<#abstract-replacetest>)
 
-- [abstract Regexp](<#abstract-regexp>)
+- [abstract ReplaceFuncTest](<#abstract-replacefunctest>)
 
-# Constants
+- [abstract MetaTest](<#abstract-metatest>)
 
+- [abstract T\_subexpIndex](<#abstract-t_subexpindex>)
 
-```haxe
-import stdgo.regexp.Syntax
-```
+- [abstract T\_subexpCase](<#abstract-t_subexpcase>)
 
+- [abstract T\_job](<#abstract-t_job>)
 
-```haxe
-final classNL:stdgo._internal.regexp.syntax.Flags = stdgo._internal.regexp.syntax.Syntax.classNL
-```
+- [abstract T\_bitState](<#abstract-t_bitstate>)
 
+- [abstract T\_queue](<#abstract-t_queue>)
 
-```haxe
-final dotNL:stdgo._internal.regexp.syntax.Flags = stdgo._internal.regexp.syntax.Syntax.dotNL
-```
+- [abstract T\_entry](<#abstract-t_entry>)
 
+- [abstract T\_thread](<#abstract-t_thread>)
 
-```haxe
-final emptyBeginLine:stdgo._internal.regexp.syntax.EmptyOp = stdgo._internal.regexp.syntax.Syntax.emptyBeginLine
-```
+- [abstract T\_machine](<#abstract-t_machine>)
 
+- [abstract T\_inputs](<#abstract-t_inputs>)
 
-```haxe
-final emptyBeginText:stdgo._internal.regexp.syntax.EmptyOp = stdgo._internal.regexp.syntax.Syntax.emptyBeginText
-```
+- [abstract T\_onePassMachine](<#abstract-t_onepassmachine>)
 
+- [abstract FindTest](<#abstract-findtest>)
 
-```haxe
-final emptyEndLine:stdgo._internal.regexp.syntax.EmptyOp = stdgo._internal.regexp.syntax.Syntax.emptyEndLine
-```
+- [abstract T\_onePassProg](<#abstract-t_onepassprog>)
 
+- [abstract T\_onePassInst](<#abstract-t_onepassinst>)
 
-```haxe
-final emptyEndText:stdgo._internal.regexp.syntax.EmptyOp = stdgo._internal.regexp.syntax.Syntax.emptyEndText
-```
+- [abstract T\_queueOnePass](<#abstract-t_queueonepass>)
 
+- [abstract Regexp\_](<#abstract-regexp_>)
 
-```haxe
-final emptyNoWordBoundary:stdgo._internal.regexp.syntax.EmptyOp = stdgo._internal.regexp.syntax.Syntax.emptyNoWordBoundary
-```
+- [abstract T\_inputString](<#abstract-t_inputstring>)
 
+- [abstract T\_inputBytes](<#abstract-t_inputbytes>)
 
-```haxe
-final emptyWordBoundary:stdgo._internal.regexp.syntax.EmptyOp = stdgo._internal.regexp.syntax.Syntax.emptyWordBoundary
-```
-
-
-```haxe
-final errInternalError:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInternalError
-```
-
-
-```haxe
-final errInvalidCharClass:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidCharClass
-```
-
-
-```haxe
-final errInvalidCharRange:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidCharRange
-```
-
-
-```haxe
-final errInvalidEscape:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidEscape
-```
-
-
-```haxe
-final errInvalidNamedCapture:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidNamedCapture
-```
-
-
-```haxe
-final errInvalidPerlOp:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidPerlOp
-```
-
-
-```haxe
-final errInvalidRepeatOp:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidRepeatOp
-```
-
-
-```haxe
-final errInvalidRepeatSize:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidRepeatSize
-```
-
-
-```haxe
-final errInvalidUTF8:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidUTF8
-```
-
-
-```haxe
-final errLarge:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errLarge
-```
-
-
-```haxe
-final errMissingBracket:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errMissingBracket
-```
-
-
-```haxe
-final errMissingParen:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errMissingParen
-```
-
-
-```haxe
-final errMissingRepeatArgument:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errMissingRepeatArgument
-```
-
-
-```haxe
-final errNestingDepth:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errNestingDepth
-```
-
-
-```haxe
-final errTrailingBackslash:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errTrailingBackslash
-```
-
-
-```haxe
-final errUnexpectedParen:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errUnexpectedParen
-```
-
-
-```haxe
-final foldCase:stdgo._internal.regexp.syntax.Flags = stdgo._internal.regexp.syntax.Syntax.foldCase
-```
-
-
-```haxe
-final instAlt:stdgo._internal.regexp.syntax.InstOp = stdgo._internal.regexp.syntax.Syntax.instAlt
-```
-
-
-```haxe
-final instAltMatch:stdgo._internal.regexp.syntax.InstOp = stdgo._internal.regexp.syntax.Syntax.instAltMatch
-```
-
-
-```haxe
-final instCapture:stdgo._internal.regexp.syntax.InstOp = stdgo._internal.regexp.syntax.Syntax.instCapture
-```
-
-
-```haxe
-final instEmptyWidth:stdgo._internal.regexp.syntax.InstOp = stdgo._internal.regexp.syntax.Syntax.instEmptyWidth
-```
-
-
-```haxe
-final instFail:stdgo._internal.regexp.syntax.InstOp = stdgo._internal.regexp.syntax.Syntax.instFail
-```
-
-
-```haxe
-final instMatch:stdgo._internal.regexp.syntax.InstOp = stdgo._internal.regexp.syntax.Syntax.instMatch
-```
-
-
-```haxe
-final instNop:stdgo._internal.regexp.syntax.InstOp = stdgo._internal.regexp.syntax.Syntax.instNop
-```
-
-
-```haxe
-final instRune:stdgo._internal.regexp.syntax.InstOp = stdgo._internal.regexp.syntax.Syntax.instRune
-```
-
-
-```haxe
-final instRune1:stdgo._internal.regexp.syntax.InstOp = stdgo._internal.regexp.syntax.Syntax.instRune1
-```
-
-
-```haxe
-final instRuneAny:stdgo._internal.regexp.syntax.InstOp = stdgo._internal.regexp.syntax.Syntax.instRuneAny
-```
-
-
-```haxe
-final instRuneAnyNotNL:stdgo._internal.regexp.syntax.InstOp = stdgo._internal.regexp.syntax.Syntax.instRuneAnyNotNL
-```
-
-
-```haxe
-final literal:stdgo._internal.regexp.syntax.Flags = stdgo._internal.regexp.syntax.Syntax.literal
-```
-
-
-```haxe
-final matchNL:stdgo._internal.regexp.syntax.Flags = stdgo._internal.regexp.syntax.Syntax.matchNL
-```
-
-
-```haxe
-final nonGreedy:stdgo._internal.regexp.syntax.Flags = stdgo._internal.regexp.syntax.Syntax.nonGreedy
-```
-
-
-```haxe
-final oneLine:stdgo._internal.regexp.syntax.Flags = stdgo._internal.regexp.syntax.Syntax.oneLine
-```
-
-
-```haxe
-final opAlternate:stdgo._internal.regexp.syntax.Op = stdgo._internal.regexp.syntax.Syntax.opAlternate
-```
-
-
-```haxe
-final opAnyChar:stdgo._internal.regexp.syntax.Op = stdgo._internal.regexp.syntax.Syntax.opAnyChar
-```
-
-
-```haxe
-final opAnyCharNotNL:stdgo._internal.regexp.syntax.Op = stdgo._internal.regexp.syntax.Syntax.opAnyCharNotNL
-```
-
-
-```haxe
-final opBeginLine:stdgo._internal.regexp.syntax.Op = stdgo._internal.regexp.syntax.Syntax.opBeginLine
-```
-
-
-```haxe
-final opBeginText:stdgo._internal.regexp.syntax.Op = stdgo._internal.regexp.syntax.Syntax.opBeginText
-```
-
-
-```haxe
-final opCapture:stdgo._internal.regexp.syntax.Op = stdgo._internal.regexp.syntax.Syntax.opCapture
-```
-
-
-```haxe
-final opCharClass:stdgo._internal.regexp.syntax.Op = stdgo._internal.regexp.syntax.Syntax.opCharClass
-```
-
-
-```haxe
-final opConcat:stdgo._internal.regexp.syntax.Op = stdgo._internal.regexp.syntax.Syntax.opConcat
-```
-
-
-```haxe
-final opEmptyMatch:stdgo._internal.regexp.syntax.Op = stdgo._internal.regexp.syntax.Syntax.opEmptyMatch
-```
-
-
-```haxe
-final opEndLine:stdgo._internal.regexp.syntax.Op = stdgo._internal.regexp.syntax.Syntax.opEndLine
-```
-
-
-```haxe
-final opEndText:stdgo._internal.regexp.syntax.Op = stdgo._internal.regexp.syntax.Syntax.opEndText
-```
-
-
-```haxe
-final opLiteral:stdgo._internal.regexp.syntax.Op = stdgo._internal.regexp.syntax.Syntax.opLiteral
-```
-
-
-```haxe
-final opNoMatch:stdgo._internal.regexp.syntax.Op = stdgo._internal.regexp.syntax.Syntax.opNoMatch
-```
-
-
-```haxe
-final opNoWordBoundary:stdgo._internal.regexp.syntax.Op = stdgo._internal.regexp.syntax.Syntax.opNoWordBoundary
-```
-
-
-```haxe
-final opPlus:stdgo._internal.regexp.syntax.Op = stdgo._internal.regexp.syntax.Syntax.opPlus
-```
-
-
-```haxe
-final opQuest:stdgo._internal.regexp.syntax.Op = stdgo._internal.regexp.syntax.Syntax.opQuest
-```
-
-
-```haxe
-final opRepeat:stdgo._internal.regexp.syntax.Op = stdgo._internal.regexp.syntax.Syntax.opRepeat
-```
-
-
-```haxe
-final opStar:stdgo._internal.regexp.syntax.Op = stdgo._internal.regexp.syntax.Syntax.opStar
-```
-
-
-```haxe
-final opWordBoundary:stdgo._internal.regexp.syntax.Op = stdgo._internal.regexp.syntax.Syntax.opWordBoundary
-```
-
-
-```haxe
-final perl:stdgo._internal.regexp.syntax.Flags = stdgo._internal.regexp.syntax.Syntax.perl
-```
-
-
-```haxe
-final perlX:stdgo._internal.regexp.syntax.Flags = stdgo._internal.regexp.syntax.Syntax.perlX
-```
-
-
-```haxe
-final posix:stdgo._internal.regexp.syntax.Flags = stdgo._internal.regexp.syntax.Syntax.posix
-```
-
-
-```haxe
-final simple:stdgo._internal.regexp.syntax.Flags = stdgo._internal.regexp.syntax.Syntax.simple
-```
-
-
-```haxe
-final unicodeGroups:stdgo._internal.regexp.syntax.Flags = stdgo._internal.regexp.syntax.Syntax.unicodeGroups
-```
-
-
-```haxe
-final wasDollar:stdgo._internal.regexp.syntax.Flags = stdgo._internal.regexp.syntax.Syntax.wasDollar
-```
-
+- [abstract T\_inputReader](<#abstract-t_inputreader>)
 
 # Classes
 
 
 ```haxe
-import stdgo.regexp.*
+import
 ```
 
 
-## class Syntax
+## class Regexp
 
 
-### Syntax function benchmarkEmptyOpContext
+
+Package regexp implements regular expression search.  
+
+
+The syntax of the regular expressions accepted is the same
+general syntax used by Perl, Python, and other languages.
+More precisely, it is the syntax accepted by RE2 and described at
+https://golang.org/s/re2syntax, except for \\C.
+For an overview of the syntax, run  
+
+```
+    	go doc regexp/syntax
+```
+
+The regexp implementation provided by this package is
+guaranteed to run in time linear in the size of the input.
+\(This is a property not guaranteed by most open source
+implementations of regular expressions.\) For more information
+about this property, see  
+
+```
+    	https://swtch.com/~rsc/regexp/regexp1.html
+```
+
+or any book about automata theory.  
+
+
+All characters are UTF\-8\-encoded code points.
+Following utf8.DecodeRune, each byte of an invalid UTF\-8 sequence
+is treated as if it encoded utf8.RuneError \(U\+FFFD\).  
+
+
+There are 16 methods of Regexp that match a regular expression and identify
+the matched text. Their names are matched by this regular expression:  
+
+```
+    	Find(All)?(String)?(Submatch)?(Index)?
+```
+
+If 'All' is present, the routine matches successive non\-overlapping
+matches of the entire expression. Empty matches abutting a preceding
+match are ignored. The return value is a slice containing the successive
+return values of the corresponding non\-'All' routine. These routines take
+an extra integer argument, n. If n \>= 0, the function returns at most n
+matches/submatches; otherwise, it returns all of them.  
+
+
+If 'String' is present, the argument is a string; otherwise it is a slice
+of bytes; return values are adjusted as appropriate.  
+
+
+If 'Submatch' is present, the return value is a slice identifying the
+successive submatches of the expression. Submatches are matches of
+parenthesized subexpressions \(also known as capturing groups\) within the
+regular expression, numbered from left to right in order of opening
+parenthesis. Submatch 0 is the match of the entire expression, submatch 1 is
+the match of the first parenthesized subexpression, and so on.  
+
+
+If 'Index' is present, matches and submatches are identified by byte index
+pairs within the input string: result\[2\*n:2\*n\+2\] identifies the indexes of
+the nth submatch. The pair for n==0 identifies the match of the entire
+expression. If 'Index' is not present, the match is identified by the text
+of the match/submatch. If an index is negative or text is nil, it means that
+subexpression did not match any string in the input. For 'String' versions
+an empty string means either no match or an empty match.  
+
+
+There is also a subset of the methods that can be applied to text read
+from a RuneReader:  
+
+```
+    	MatchReader, FindReaderIndex, FindReaderSubmatchIndex
+```
+
+This set may grow. Note that regular expression matches may need to
+examine text beyond the text returned by a match, so the methods that
+match text from a RuneReader may read arbitrarily far into the input
+before returning.  
+
+
+\(There are a few other methods that do not match this pattern.\)  
+
+### Regexp function benchmarkAnchoredLiteralLongNonMatch
 
 
 ```haxe
-function benchmarkEmptyOpContext(b:stdgo._internal.testing.B):Void
+function benchmarkAnchoredLiteralLongNonMatch(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L595>)
+[\(view code\)](<./Regexp.hx#L1193>)
 
 
-### Syntax function benchmarkIsWordChar
+### Regexp function benchmarkAnchoredLiteralShortNonMatch
 
 
 ```haxe
-function benchmarkIsWordChar(b:stdgo._internal.testing.B):Void
+function benchmarkAnchoredLiteralShortNonMatch(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L598>)
+[\(view code\)](<./Regexp.hx#L1190>)
 
 
-### Syntax function compile
+### Regexp function benchmarkAnchoredLongMatch
 
 
 ```haxe
-function compile(re:stdgo.regexp.Regexp):stdgo.Tuple<stdgo.regexp.Prog, stdgo.Error>
+function benchmarkAnchoredLongMatch(b:stdgo._internal.testing.B):Void
 ```
 
 
-```
-Compile compiles the regexp into a program to be executed.
-        The regexp should have been simplified already (returned from re.Simplify).
-```
-[\(view code\)](<./Syntax.hx#L529>)
+[\(view code\)](<./Regexp.hx#L1199>)
 
 
-### Syntax function emptyOpContext
+### Regexp function benchmarkAnchoredShortMatch
 
 
 ```haxe
-function emptyOpContext(r1:Int, r2:Int):stdgo.regexp.EmptyOp
+function benchmarkAnchoredShortMatch(b:stdgo._internal.testing.B):Void
 ```
 
 
-```
-EmptyOpContext returns the zero-width assertions
-        satisfied at the position between the runes r1 and r2.
-        Passing r1 == -1 indicates that the position is
-        at the beginning of the text.
-        Passing r2 == -1 indicates that the position is
-        at the end of the text.
-```
-[\(view code\)](<./Syntax.hx#L581>)
+[\(view code\)](<./Regexp.hx#L1196>)
 
 
-### Syntax function isWordChar
+### Regexp function benchmarkCompile
 
 
 ```haxe
-function isWordChar(r:Int):Bool
+function benchmarkCompile(b:stdgo._internal.testing.B):Void
 ```
 
 
-```
-IsWordChar reports whether r is considered a “word character”
-        during the evaluation of the \b and \B zero-width assertions.
-        These assertions are ASCII-only: the word characters are [A-Za-z0-9_].
-```
-[\(view code\)](<./Syntax.hx#L589>)
+[\(view code\)](<./Regexp.hx#L1232>)
 
 
-### Syntax function parse
+### Regexp function benchmarkFind
 
 
 ```haxe
-function parse(s:String, flags:stdgo.regexp.Flags):stdgo.Tuple<stdgo.regexp.Regexp, stdgo.Error>
+function benchmarkFind(b:stdgo._internal.testing.B):Void
 ```
 
 
-```
-Parse parses a regular expression string s, controlled by the specified
-        Flags, and returns a regular expression parse tree. The syntax is
-        described in the top-level comment.
-```
-[\(view code\)](<./Syntax.hx#L540>)
+[\(view code\)](<./Regexp.hx#L1160>)
 
 
-### Syntax function testAppendRangeCollapse
+### Regexp function benchmarkFindAllNoMatches
 
 
 ```haxe
-function testAppendRangeCollapse(t:stdgo._internal.testing.T_):Void
+function benchmarkFindAllNoMatches(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L564>)
+[\(view code\)](<./Regexp.hx#L1163>)
 
 
-### Syntax function testCompile
+### Regexp function benchmarkFindString
 
 
 ```haxe
-function testCompile(t:stdgo._internal.testing.T_):Void
+function benchmarkFindString(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L592>)
+[\(view code\)](<./Regexp.hx#L1166>)
 
 
-### Syntax function testFoldConstants
+### Regexp function benchmarkFindStringSubmatch
 
 
 ```haxe
-function testFoldConstants(t:stdgo._internal.testing.T_):Void
+function benchmarkFindStringSubmatch(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L561>)
+[\(view code\)](<./Regexp.hx#L1172>)
 
 
-### Syntax function testParseFoldCase
+### Regexp function benchmarkFindSubmatch
 
 
 ```haxe
-function testParseFoldCase(t:stdgo._internal.testing.T_):Void
+function benchmarkFindSubmatch(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L549>)
+[\(view code\)](<./Regexp.hx#L1169>)
 
 
-### Syntax function testParseInvalidRegexps
+### Regexp function benchmarkLiteral
 
 
 ```haxe
-function testParseInvalidRegexps(t:stdgo._internal.testing.T_):Void
+function benchmarkLiteral(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L567>)
+[\(view code\)](<./Regexp.hx#L1175>)
 
 
-### Syntax function testParseLiteral
+### Regexp function benchmarkMatch
 
 
 ```haxe
-function testParseLiteral(t:stdgo._internal.testing.T_):Void
+function benchmarkMatch(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L552>)
+[\(view code\)](<./Regexp.hx#L1307>)
 
 
-### Syntax function testParseMatchNL
+### Regexp function benchmarkMatchClass
 
 
 ```haxe
-function testParseMatchNL(t:stdgo._internal.testing.T_):Void
+function benchmarkMatchClass(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L555>)
+[\(view code\)](<./Regexp.hx#L1181>)
 
 
-### Syntax function testParseNoMatchNL
+### Regexp function benchmarkMatchClass\_InRange
 
 
 ```haxe
-function testParseNoMatchNL(t:stdgo._internal.testing.T_):Void
+function benchmarkMatchClass_InRange(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L558>)
+[\(view code\)](<./Regexp.hx#L1184>)
 
 
-### Syntax function testParseSimple
+### Regexp function benchmarkMatchParallelCopied
 
 
 ```haxe
-function testParseSimple(t:stdgo._internal.testing.T_):Void
+function benchmarkMatchParallelCopied(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L546>)
+[\(view code\)](<./Regexp.hx#L1223>)
 
 
-### Syntax function testSimplify
+### Regexp function benchmarkMatchParallelShared
 
 
 ```haxe
-function testSimplify(t:stdgo._internal.testing.T_):Void
+function benchmarkMatchParallelShared(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L601>)
+[\(view code\)](<./Regexp.hx#L1220>)
 
 
-### Syntax function testToStringEquivalentParse
+### Regexp function benchmarkMatch\_onepass\_regex
 
 
 ```haxe
-function testToStringEquivalentParse(t:stdgo._internal.testing.T_):Void
+function benchmarkMatch_onepass_regex(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L570>)
+[\(view code\)](<./Regexp.hx#L1310>)
+
+
+### Regexp function benchmarkNotLiteral
+
+
+```haxe
+function benchmarkNotLiteral(b:stdgo._internal.testing.B):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1178>)
+
+
+### Regexp function benchmarkNotOnePassShortA
+
+
+```haxe
+function benchmarkNotOnePassShortA(b:stdgo._internal.testing.B):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1205>)
+
+
+### Regexp function benchmarkNotOnePassShortB
+
+
+```haxe
+function benchmarkNotOnePassShortB(b:stdgo._internal.testing.B):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1211>)
+
+
+### Regexp function benchmarkOnePassLongNotPrefix
+
+
+```haxe
+function benchmarkOnePassLongNotPrefix(b:stdgo._internal.testing.B):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1217>)
+
+
+### Regexp function benchmarkOnePassLongPrefix
+
+
+```haxe
+function benchmarkOnePassLongPrefix(b:stdgo._internal.testing.B):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1214>)
+
+
+### Regexp function benchmarkOnePassShortA
+
+
+```haxe
+function benchmarkOnePassShortA(b:stdgo._internal.testing.B):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1202>)
+
+
+### Regexp function benchmarkOnePassShortB
+
+
+```haxe
+function benchmarkOnePassShortB(b:stdgo._internal.testing.B):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1208>)
+
+
+### Regexp function benchmarkQuoteMetaAll
+
+
+```haxe
+function benchmarkQuoteMetaAll(b:stdgo._internal.testing.B):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1226>)
+
+
+### Regexp function benchmarkQuoteMetaNone
+
+
+```haxe
+function benchmarkQuoteMetaNone(b:stdgo._internal.testing.B):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1229>)
+
+
+### Regexp function benchmarkReplaceAll
+
+
+```haxe
+function benchmarkReplaceAll(b:stdgo._internal.testing.B):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1187>)
+
+
+### Regexp function compile
+
+
+```haxe
+function compile(expr:String):stdgo.Tuple<stdgo.regexp.Regexp_, stdgo.Error>
+```
+
+
+```
+Compile parses a regular expression and returns, if successful,
+        a Regexp object that can be used to match against text.
+```
+
+When matching against text, the regexp returns a match that
+begins as early as possible in the input \(leftmost\), and among those
+it chooses the one that a backtracking search would have found first.
+This so\-called leftmost\-first matching is the same semantics
+that Perl, Python, and other implementations use, although this
+package implements it without the expense of backtracking.
+For POSIX leftmost\-longest matching, see CompilePOSIX.  
+
+[\(view code\)](<./Regexp.hx#L1398>)
+
+
+### Regexp function compilePOSIX
+
+
+```haxe
+function compilePOSIX(expr:String):stdgo.Tuple<stdgo.regexp.Regexp_, stdgo.Error>
+```
+
+
+```
+CompilePOSIX is like Compile but restricts the regular expression
+        to POSIX ERE (egrep) syntax and changes the match semantics to
+        leftmost-longest.
+```
+
+That is, when matching against text, the regexp returns a match that
+begins as early as possible in the input \(leftmost\), and among those
+it chooses a match that is as long as possible.
+This so\-called leftmost\-longest matching is the same semantics
+that early regular expression implementations used and that POSIX
+specifies.  
+
+
+However, there can be multiple leftmost\-longest matches, with different
+submatch choices, and here this package diverges from POSIX.
+Among the possible leftmost\-longest matches, this package chooses
+the one that a backtracking search would have found first, while POSIX
+specifies that the match be chosen to maximize the length of the first
+subexpression, then the second, and so on from left to right.
+The POSIX rule is computationally prohibitive and not even well\-defined.
+See https://swtch.com/~rsc/regexp/regexp2.html#posix for details.  
+
+[\(view code\)](<./Regexp.hx#L1425>)
+
+
+### Regexp function match
+
+
+```haxe
+function match(pattern:String, b:Array<Int>):stdgo.Tuple<Bool, stdgo.Error>
+```
+
+
+```
+Match reports whether the byte slice b
+        contains any match of the regular expression pattern.
+        More complicated queries need to use Compile and the full Regexp interface.
+```
+[\(view code\)](<./Regexp.hx#L1474>)
+
+
+### Regexp function matchReader
+
+
+```haxe
+function matchReader(pattern:String, r:stdgo._internal.io.RuneReader):stdgo.Tuple<Bool, stdgo.Error>
+```
+
+
+```
+MatchReader reports whether the text returned by the RuneReader
+        contains any match of the regular expression pattern.
+        More complicated queries need to use Compile and the full Regexp interface.
+```
+[\(view code\)](<./Regexp.hx#L1452>)
+
+
+### Regexp function matchString
+
+
+```haxe
+function matchString(pattern:String, s:String):stdgo.Tuple<Bool, stdgo.Error>
+```
+
+
+```
+MatchString reports whether the string s
+        contains any match of the regular expression pattern.
+        More complicated queries need to use Compile and the full Regexp interface.
+```
+[\(view code\)](<./Regexp.hx#L1463>)
+
+
+### Regexp function mustCompile
+
+
+```haxe
+function mustCompile(str:String):stdgo.regexp.Regexp_
+```
+
+
+```
+MustCompile is like Compile but panics if the expression cannot be parsed.
+        It simplifies safe initialization of global variables holding compiled regular
+        expressions.
+```
+[\(view code\)](<./Regexp.hx#L1436>)
+
+
+### Regexp function mustCompilePOSIX
+
+
+```haxe
+function mustCompilePOSIX(str:String):stdgo.regexp.Regexp_
+```
+
+
+```
+MustCompilePOSIX is like CompilePOSIX but panics if the expression cannot be parsed.
+        It simplifies safe initialization of global variables holding compiled regular
+        expressions.
+```
+[\(view code\)](<./Regexp.hx#L1444>)
+
+
+### Regexp function quoteMeta
+
+
+```haxe
+function quoteMeta(s:String):String
+```
+
+
+```
+QuoteMeta returns a string that escapes all regular expression metacharacters
+        inside the argument text; the returned string is a regular expression matching
+        the literal text.
+```
+[\(view code\)](<./Regexp.hx#L1486>)
+
+
+### Regexp function testBadCompile
+
+
+```haxe
+function testBadCompile(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1108>)
+
+
+### Regexp function testCompileOnePass
+
+
+```haxe
+function testCompileOnePass(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1380>)
+
+
+### Regexp function testCopyMatch
+
+
+```haxe
+function testCopyMatch(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1117>)
+
+
+### Regexp function testDeepEqual
+
+
+```haxe
+function testDeepEqual(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1235>)
+
+
+### Regexp function testFind
+
+
+```haxe
+function testFind(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1323>)
+
+
+### Regexp function testFindAll
+
+
+```haxe
+function testFindAll(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1338>)
+
+
+### Regexp function testFindAllIndex
+
+
+```haxe
+function testFindAllIndex(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1344>)
+
+
+### Regexp function testFindAllString
+
+
+```haxe
+function testFindAllString(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1341>)
+
+
+### Regexp function testFindAllStringIndex
+
+
+```haxe
+function testFindAllStringIndex(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1347>)
+
+
+### Regexp function testFindAllStringSubmatch
+
+
+```haxe
+function testFindAllStringSubmatch(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1368>)
+
+
+### Regexp function testFindAllStringSubmatchIndex
+
+
+```haxe
+function testFindAllStringSubmatchIndex(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1374>)
+
+
+### Regexp function testFindAllSubmatch
+
+
+```haxe
+function testFindAllSubmatch(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1365>)
+
+
+### Regexp function testFindAllSubmatchIndex
+
+
+```haxe
+function testFindAllSubmatchIndex(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1371>)
+
+
+### Regexp function testFindIndex
+
+
+```haxe
+function testFindIndex(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1329>)
+
+
+### Regexp function testFindReaderIndex
+
+
+```haxe
+function testFindReaderIndex(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1335>)
+
+
+### Regexp function testFindReaderSubmatchIndex
+
+
+```haxe
+function testFindReaderSubmatchIndex(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1362>)
+
+
+### Regexp function testFindString
+
+
+```haxe
+function testFindString(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1326>)
+
+
+### Regexp function testFindStringIndex
+
+
+```haxe
+function testFindStringIndex(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1332>)
+
+
+### Regexp function testFindStringSubmatch
+
+
+```haxe
+function testFindStringSubmatch(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1353>)
+
+
+### Regexp function testFindStringSubmatchIndex
+
+
+```haxe
+function testFindStringSubmatchIndex(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1359>)
+
+
+### Regexp function testFindSubmatch
+
+
+```haxe
+function testFindSubmatch(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1350>)
+
+
+### Regexp function testFindSubmatchIndex
+
+
+```haxe
+function testFindSubmatchIndex(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1356>)
+
+
+### Regexp function testFowler
+
+
+```haxe
+function testFowler(t:stdgo._internal.testing.T_):Void
+```
+
+
+```
+TestFowler runs this package's regexp API against the
+        POSIX regular expression tests collected by Glenn Fowler
+        at http://www2.research.att.com/~astopen/testregex/testregex.html.
+```
+[\(view code\)](<./Regexp.hx#L1304>)
+
+
+### Regexp function testGoodCompile
+
+
+```haxe
+function testGoodCompile(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1105>)
+
+
+### Regexp function testLiteralPrefix
+
+
+```haxe
+function testLiteralPrefix(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1132>)
+
+
+### Regexp function testLongest
+
+
+```haxe
+function testLongest(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1313>)
+
+
+### Regexp function testMatch
+
+
+```haxe
+function testMatch(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1111>)
+
+
+### Regexp function testMatchFunction
+
+
+```haxe
+function testMatchFunction(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1114>)
+
+
+### Regexp function testMergeRuneSet
+
+
+```haxe
+function testMergeRuneSet(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1377>)
+
+
+### Regexp function testMinInputLen
+
+
+```haxe
+function testMinInputLen(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1238>)
+
+
+### Regexp function testOnePassCutoff
+
+
+```haxe
+function testOnePassCutoff(t:stdgo._internal.testing.T_):Void
+```
+
+
+
+Check that one\-pass cutoff does trigger.  
+
+[\(view code\)](<./Regexp.hx#L1150>)
+
+
+### Regexp function testParseAndCompile
+
+
+```haxe
+function testParseAndCompile(t:stdgo._internal.testing.T_):Void
+```
+
+
+
+The following sequence of Match calls used to panic. See issue \#12980.  
+
+[\(view code\)](<./Regexp.hx#L1144>)
+
+
+### Regexp function testProgramTooLongForBacktrack
+
+
+```haxe
+function testProgramTooLongForBacktrack(t:stdgo._internal.testing.T_):Void
+```
+
+
+```
+TestProgramTooLongForBacktrack tests that a regex which is too long
+        for the backtracker still executes properly.
+```
+[\(view code\)](<./Regexp.hx#L1320>)
+
+
+### Regexp function testQuoteMeta
+
+
+```haxe
+function testQuoteMeta(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1129>)
+
+
+### Regexp function testRE2Exhaustive
+
+
+```haxe
+function testRE2Exhaustive(t:stdgo._internal.testing.T_):Void
+```
+
+
+```
+This test is excluded when running under the race detector because
+        it is a very expensive test and takes too long.
+```
+[\(view code\)](<./Regexp.hx#L1248>)
+
+
+### Regexp function testRE2Search
+
+
+```haxe
+function testRE2Search(t:stdgo._internal.testing.T_):Void
+```
+
+
+```
+TestRE2 tests this package's regexp API against test cases
+        considered during RE2's exhaustive tests, which run all possible
+        regexps over a given set of atoms and operators, up to a given
+        complexity, over all possible strings over a given alphabet,
+        up to a given size. Rather than try to link with RE2, we read a
+        log file containing the test cases and the expected matches.
+        The log file, re2-exhaustive.txt, is generated by running 'make log'
+        in the open source RE2 distribution https://github.com/google/re2/.
+```
+
+The test file format is a sequence of stanzas like:  
+
+```
+        	strings
+        	"abc"
+        	"123x"
+        	regexps
+        	"[a-z]+"
+        	0-3;0-3
+        	-;-
+        	"([0-9])([0-9])([0-9])"
+        	-;-
+        	-;0-3 0-1 1-2 2-3
+```
+
+The stanza begins by defining a set of strings, quoted
+using Go double\-quote syntax, one per line. Then the
+regexps section gives a sequence of regexps to run on
+the strings. In the block that follows a regexp, each line
+gives the semicolon\-separated match results of running
+the regexp on the corresponding string.
+Each match result is either a single \-, meaning no match, or a
+space\-separated sequence of pairs giving the match and
+submatch indices. An unmatched subexpression formats
+its pair as a single \- \(not illustrated above\).  For now
+each regexp run produces two match results, one for a
+“full match” that restricts the regexp to matching the entire
+string or nothing, and one for a “partial match” that gives
+the leftmost first match found in the string.  
+
+
+Lines beginning with \# are comments. Lines beginning with
+a capital letter are test names printed during RE2's test suite
+and are echoed into t but otherwise ignored.  
+
+
+At time of writing, re2\-exhaustive.txt is 59 MB but compresses to 385 kB,
+so we store re2\-exhaustive.txt.bz2 in the repository and decompress it on the fly.  
+
+[\(view code\)](<./Regexp.hx#L1296>)
+
+
+### Regexp function testReplaceAll
+
+
+```haxe
+function testReplaceAll(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1120>)
+
+
+### Regexp function testReplaceAllFunc
+
+
+```haxe
+function testReplaceAllFunc(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1126>)
+
+
+### Regexp function testReplaceAllLiteral
+
+
+```haxe
+function testReplaceAllLiteral(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1123>)
+
+
+### Regexp function testRunOnePass
+
+
+```haxe
+function testRunOnePass(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1383>)
+
+
+### Regexp function testSplit
+
+
+```haxe
+function testSplit(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1138>)
+
+
+### Regexp function testSubexp
+
+
+```haxe
+function testSubexp(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1135>)
+
+
+### Regexp function testSwitchBacktrack
+
+
+```haxe
+function testSwitchBacktrack(t:stdgo._internal.testing.T_):Void
+```
+
+
+```
+Check that the same machine can be used with the standard matcher
+        and then the backtracker when there are no captures.
+```
+[\(view code\)](<./Regexp.hx#L1157>)
+
+
+### Regexp function testUnmarshalText
+
+
+```haxe
+function testUnmarshalText(t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1241>)
 
 
 # Typedefs
 
 
 ```haxe
-import stdgo.regexp.*
-```
-
-
-## typedef EmptyOp
-
-
-```haxe
-typedef EmptyOp = stdgo._internal.regexp.syntax.EmptyOp;
-```
-
-
-## typedef ErrorCode
-
-
-```haxe
-typedef ErrorCode = stdgo._internal.regexp.syntax.ErrorCode;
-```
-
-
-## typedef Flags
-
-
-```haxe
-typedef Flags = stdgo._internal.regexp.syntax.Flags;
-```
-
-
-## typedef InstOp
-
-
-```haxe
-typedef InstOp = stdgo._internal.regexp.syntax.InstOp;
-```
-
-
-## typedef Op
-
-
-```haxe
-typedef Op = stdgo._internal.regexp.syntax.Op;
+import
 ```
 
 
@@ -850,7 +1349,7 @@ typedef Op = stdgo._internal.regexp.syntax.Op;
 
 
 ```haxe
-typedef T__struct_0 = stdgo._internal.regexp.syntax.T__struct_0;
+typedef T__struct_0 = stdgo._internal.regexp.T__struct_0;
 ```
 
 
@@ -858,7 +1357,7 @@ typedef T__struct_0 = stdgo._internal.regexp.syntax.T__struct_0;
 
 
 ```haxe
-typedef T__struct_1 = stdgo._internal.regexp.syntax.T__struct_1;
+typedef T__struct_1 = stdgo._internal.regexp.T__struct_1;
 ```
 
 
@@ -866,76 +1365,206 @@ typedef T__struct_1 = stdgo._internal.regexp.syntax.T__struct_1;
 
 
 ```haxe
-typedef T__struct_2 = stdgo._internal.regexp.syntax.T__struct_2;
+typedef T__struct_2 = stdgo._internal.regexp.T__struct_2;
+```
+
+
+## typedef T\_\_struct\_3
+
+
+```haxe
+typedef T__struct_3 = stdgo._internal.regexp.T__struct_3;
+```
+
+
+## typedef T\_\_struct\_4
+
+
+```haxe
+typedef T__struct_4 = stdgo._internal.regexp.T__struct_4;
+```
+
+
+## typedef T\_\_struct\_5
+
+
+```haxe
+typedef T__struct_5 = stdgo._internal.regexp.T__struct_5;
+```
+
+
+## typedef T\_\_struct\_6
+
+
+```haxe
+typedef T__struct_6 = stdgo._internal.regexp.T__struct_6;
+```
+
+
+## typedef T\_\_struct\_7
+
+
+```haxe
+typedef T__struct_7 = stdgo._internal.regexp.T__struct_7;
+```
+
+
+## typedef T\_input
+
+
+```haxe
+typedef T_input = stdgo._internal.regexp.T_input;
+```
+
+
+## typedef T\_lazyFlag
+
+
+```haxe
+typedef T_lazyFlag = stdgo._internal.regexp.T_lazyFlag;
+```
+
+
+## typedef T\_runeSlice
+
+
+```haxe
+typedef T_runeSlice = stdgo._internal.regexp.T_runeSlice;
 ```
 
 
 # Abstracts
 
 
-## abstract T\_patchList
+## abstract T\_stringError
 
 
-[\(view file containing code\)](<./Syntax.hx>)
+[\(view file containing code\)](<./Regexp.hx>)
 
 
-## abstract T\_frag
+## abstract ReplaceTest
 
 
-[\(view file containing code\)](<./Syntax.hx>)
+[\(view file containing code\)](<./Regexp.hx>)
 
 
-## abstract T\_compiler
+## abstract ReplaceFuncTest
 
 
-[\(view file containing code\)](<./Syntax.hx>)
+[\(view file containing code\)](<./Regexp.hx>)
 
 
-## abstract Error
+## abstract MetaTest
 
 
-[\(view file containing code\)](<./Syntax.hx>)
+[\(view file containing code\)](<./Regexp.hx>)
 
 
-## abstract T\_parser
+## abstract T\_subexpIndex
 
 
-[\(view file containing code\)](<./Syntax.hx>)
+[\(view file containing code\)](<./Regexp.hx>)
 
 
-## abstract T\_charGroup
+## abstract T\_subexpCase
 
 
-[\(view file containing code\)](<./Syntax.hx>)
+[\(view file containing code\)](<./Regexp.hx>)
 
 
-## abstract T\_ranges
+## abstract T\_job
 
 
-[\(view file containing code\)](<./Syntax.hx>)
+[\(view file containing code\)](<./Regexp.hx>)
 
 
-## abstract T\_parseTest
+## abstract T\_bitState
 
 
-[\(view file containing code\)](<./Syntax.hx>)
+[\(view file containing code\)](<./Regexp.hx>)
 
 
-## abstract Prog
+## abstract T\_queue
 
 
-[\(view file containing code\)](<./Syntax.hx>)
+[\(view file containing code\)](<./Regexp.hx>)
 
 
-## abstract Inst
+## abstract T\_entry
 
 
-[\(view file containing code\)](<./Syntax.hx>)
+[\(view file containing code\)](<./Regexp.hx>)
 
 
-## abstract Regexp
+## abstract T\_thread
 
 
-[\(view file containing code\)](<./Syntax.hx>)
+[\(view file containing code\)](<./Regexp.hx>)
+
+
+## abstract T\_machine
+
+
+[\(view file containing code\)](<./Regexp.hx>)
+
+
+## abstract T\_inputs
+
+
+[\(view file containing code\)](<./Regexp.hx>)
+
+
+## abstract T\_onePassMachine
+
+
+[\(view file containing code\)](<./Regexp.hx>)
+
+
+## abstract FindTest
+
+
+[\(view file containing code\)](<./Regexp.hx>)
+
+
+## abstract T\_onePassProg
+
+
+[\(view file containing code\)](<./Regexp.hx>)
+
+
+## abstract T\_onePassInst
+
+
+[\(view file containing code\)](<./Regexp.hx>)
+
+
+## abstract T\_queueOnePass
+
+
+[\(view file containing code\)](<./Regexp.hx>)
+
+
+## abstract Regexp\_
+
+
+[\(view file containing code\)](<./Regexp.hx>)
+
+
+## abstract T\_inputString
+
+
+[\(view file containing code\)](<./Regexp.hx>)
+
+
+## abstract T\_inputBytes
+
+
+[\(view file containing code\)](<./Regexp.hx>)
+
+
+## abstract T\_inputReader
+
+
+[\(view file containing code\)](<./Regexp.hx>)
 
 

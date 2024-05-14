@@ -6,11 +6,6 @@
 # Overview
 
 
-```
-Package bufio implements buffered I/O. It wraps an io.Reader or io.Writer
-    object, creating another object (Reader or Writer) that also implements
-    the interface but provides buffering and some help for textual I/O.
-```
 # Index
 
 
@@ -18,93 +13,39 @@ Package bufio implements buffered I/O. It wraps an io.Reader or io.Writer
 
 - [Variables](<#variables>)
 
-- [`function get_errAdvanceTooFar():stdgo.Error`](<#function-get_erradvancetoofar>)
-
-- [`function get_errBadReadCount():stdgo.Error`](<#function-get_errbadreadcount>)
-
-- [`function get_errBufferFull():stdgo.Error`](<#function-get_errbufferfull>)
-
-- [`function get_errFinalToken():stdgo.Error`](<#function-get_errfinaltoken>)
-
-- [`function get_errInvalidUnreadByte():stdgo.Error`](<#function-get_errinvalidunreadbyte>)
-
-- [`function get_errInvalidUnreadRune():stdgo.Error`](<#function-get_errinvalidunreadrune>)
-
-- [`function get_errNegativeAdvance():stdgo.Error`](<#function-get_errnegativeadvance>)
-
-- [`function get_errNegativeCount():stdgo.Error`](<#function-get_errnegativecount>)
-
-- [`function get_errTooLong():stdgo.Error`](<#function-get_errtoolong>)
-
-- [`function get_isSpace():()`](<#function-get_isspace>)
-
 - [`function isSpace()`](<#function-isspace>)
 
-- [`function newReadWriter(r:stdgo.bufio.Reader, w:stdgo.bufio.Writer):stdgo.bufio.ReadWriter`](<#function-newreadwriter>)
+- [class Bufio](<#class-bufio>)
 
-- [`function newReader(rd:stdgo._internal.io.Reader):stdgo.bufio.Reader`](<#function-newreader>)
+  - [`function newReadWriter(r:stdgo.bufio.Reader, w:stdgo.bufio.Writer):stdgo.bufio.ReadWriter`](<#bufio-function-newreadwriter>)
 
-- [`function newReaderSize(rd:stdgo._internal.io.Reader, size:Int):stdgo.bufio.Reader`](<#function-newreadersize>)
+  - [`function newReader(rd:stdgo._internal.io.Reader):stdgo.bufio.Reader`](<#bufio-function-newreader>)
 
-- [`function newScanner(r:stdgo._internal.io.Reader):stdgo.bufio.Scanner`](<#function-newscanner>)
+  - [`function newReaderSize(rd:stdgo._internal.io.Reader, size:Int):stdgo.bufio.Reader`](<#bufio-function-newreadersize>)
 
-- [`function newWriter(w:stdgo._internal.io.Writer):stdgo.bufio.Writer`](<#function-newwriter>)
+  - [`function newScanner(r:stdgo._internal.io.Reader):stdgo.bufio.Scanner`](<#bufio-function-newscanner>)
 
-- [`function newWriterSize(w:stdgo._internal.io.Writer, size:Int):stdgo.bufio.Writer`](<#function-newwritersize>)
+  - [`function newWriter(w:stdgo._internal.io.Writer):stdgo.bufio.Writer`](<#bufio-function-newwriter>)
 
-- [`function scanBytes(data:Array<Int>, atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>`](<#function-scanbytes>)
+  - [`function newWriterSize(w:stdgo._internal.io.Writer, size:Int):stdgo.bufio.Writer`](<#bufio-function-newwritersize>)
 
-- [`function scanLines(data:Array<Int>, atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>`](<#function-scanlines>)
+  - [`function scanBytes(data:Array<Int>, atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>`](<#bufio-function-scanbytes>)
 
-- [`function scanRunes(data:Array<Int>, atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>`](<#function-scanrunes>)
+  - [`function scanLines(data:Array<Int>, atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>`](<#bufio-function-scanlines>)
 
-- [`function scanWords(data:Array<Int>, atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>`](<#function-scanwords>)
+  - [`function scanRunes(data:Array<Int>, atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>`](<#bufio-function-scanrunes>)
 
-- [`function set_errAdvanceTooFar(v:stdgo.Error):stdgo.Error`](<#function-set_erradvancetoofar>)
-
-- [`function set_errBadReadCount(v:stdgo.Error):stdgo.Error`](<#function-set_errbadreadcount>)
-
-- [`function set_errBufferFull(v:stdgo.Error):stdgo.Error`](<#function-set_errbufferfull>)
-
-- [`function set_errFinalToken(v:stdgo.Error):stdgo.Error`](<#function-set_errfinaltoken>)
-
-- [`function set_errInvalidUnreadByte(v:stdgo.Error):stdgo.Error`](<#function-set_errinvalidunreadbyte>)
-
-- [`function set_errInvalidUnreadRune(v:stdgo.Error):stdgo.Error`](<#function-set_errinvalidunreadrune>)
-
-- [`function set_errNegativeAdvance(v:stdgo.Error):stdgo.Error`](<#function-set_errnegativeadvance>)
-
-- [`function set_errNegativeCount(v:stdgo.Error):stdgo.Error`](<#function-set_errnegativecount>)
-
-- [`function set_errTooLong(v:stdgo.Error):stdgo.Error`](<#function-set_errtoolong>)
-
-- [`function set_isSpace(v:()):()`](<#function-set_isspace>)
-
-- [typedef ReadWriter](<#typedef-readwriter>)
-
-- [typedef ReadWriter\_asInterface](<#typedef-readwriter_asinterface>)
-
-- [typedef ReadWriter\_static\_extension](<#typedef-readwriter_static_extension>)
-
-- [typedef Reader](<#typedef-reader>)
-
-- [typedef Reader\_asInterface](<#typedef-reader_asinterface>)
-
-- [typedef Reader\_static\_extension](<#typedef-reader_static_extension>)
-
-- [typedef Scanner](<#typedef-scanner>)
-
-- [typedef Scanner\_asInterface](<#typedef-scanner_asinterface>)
-
-- [typedef Scanner\_static\_extension](<#typedef-scanner_static_extension>)
+  - [`function scanWords(data:Array<Int>, atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>`](<#bufio-function-scanwords>)
 
 - [typedef SplitFunc](<#typedef-splitfunc>)
 
-- [typedef Writer](<#typedef-writer>)
+- [abstract Reader](<#abstract-reader>)
 
-- [typedef Writer\_asInterface](<#typedef-writer_asinterface>)
+- [abstract Writer](<#abstract-writer>)
 
-- [typedef Writer\_static\_extension](<#typedef-writer_static_extension>)
+- [abstract ReadWriter](<#abstract-readwriter>)
+
+- [abstract Scanner](<#abstract-scanner>)
 
 # Constants
 
@@ -185,116 +126,6 @@ import stdgo.bufio.Bufio
 ```
 
 
-## function get\_errAdvanceTooFar
-
-
-```haxe
-function get_errAdvanceTooFar():stdgo.Error
-```
-
-
-[\(view code\)](<./Bufio.hx#L29>)
-
-
-## function get\_errBadReadCount
-
-
-```haxe
-function get_errBadReadCount():stdgo.Error
-```
-
-
-[\(view code\)](<./Bufio.hx#L32>)
-
-
-## function get\_errBufferFull
-
-
-```haxe
-function get_errBufferFull():stdgo.Error
-```
-
-
-[\(view code\)](<./Bufio.hx#L17>)
-
-
-## function get\_errFinalToken
-
-
-```haxe
-function get_errFinalToken():stdgo.Error
-```
-
-
-[\(view code\)](<./Bufio.hx#L35>)
-
-
-## function get\_errInvalidUnreadByte
-
-
-```haxe
-function get_errInvalidUnreadByte():stdgo.Error
-```
-
-
-[\(view code\)](<./Bufio.hx#L11>)
-
-
-## function get\_errInvalidUnreadRune
-
-
-```haxe
-function get_errInvalidUnreadRune():stdgo.Error
-```
-
-
-[\(view code\)](<./Bufio.hx#L14>)
-
-
-## function get\_errNegativeAdvance
-
-
-```haxe
-function get_errNegativeAdvance():stdgo.Error
-```
-
-
-[\(view code\)](<./Bufio.hx#L26>)
-
-
-## function get\_errNegativeCount
-
-
-```haxe
-function get_errNegativeCount():stdgo.Error
-```
-
-
-[\(view code\)](<./Bufio.hx#L20>)
-
-
-## function get\_errTooLong
-
-
-```haxe
-function get_errTooLong():stdgo.Error
-```
-
-
-[\(view code\)](<./Bufio.hx#L23>)
-
-
-## function get\_isSpace
-
-
-```haxe
-function get_isSpace():()
-```
-
-
-[\(view code\)](<./Bufio.hx#L38>)
-
-
 ## function isSpace
 
 
@@ -306,7 +137,23 @@ function isSpace()
 [\(view code\)](<./Bufio.hx>)
 
 
-## function newReadWriter
+# Classes
+
+
+```haxe
+import stdgo.bufio.*
+```
+
+
+## class Bufio
+
+
+```
+Package bufio implements buffered I/O. It wraps an io.Reader or io.Writer
+    object, creating another object (Reader or Writer) that also implements
+    the interface but provides buffering and some help for textual I/O.
+```
+### Bufio function newReadWriter
 
 
 ```haxe
@@ -317,10 +164,10 @@ function newReadWriter(r:stdgo.bufio.Reader, w:stdgo.bufio.Writer):stdgo.bufio.R
 
 NewReadWriter allocates a new ReadWriter that dispatches to r and w.  
 
-[\(view code\)](<./Bufio.hx#L70>)
+[\(view code\)](<./Bufio.hx#L588>)
 
 
-## function newReader
+### Bufio function newReader
 
 
 ```haxe
@@ -331,10 +178,10 @@ function newReader(rd:stdgo._internal.io.Reader):stdgo.bufio.Reader
 
 NewReader returns a new Reader whose buffer has the default size.  
 
-[\(view code\)](<./Bufio.hx#L54>)
+[\(view code\)](<./Bufio.hx#L566>)
 
 
-## function newReaderSize
+### Bufio function newReaderSize
 
 
 ```haxe
@@ -344,13 +191,13 @@ function newReaderSize(rd:stdgo._internal.io.Reader, size:Int):stdgo.bufio.Reade
 
 ```
 NewReaderSize returns a new Reader whose buffer has at least the specified
-    size. If the argument io.Reader is already a Reader with large enough
-    size, it returns the underlying Reader.
+        size. If the argument io.Reader is already a Reader with large enough
+        size, it returns the underlying Reader.
 ```
-[\(view code\)](<./Bufio.hx#L50>)
+[\(view code\)](<./Bufio.hx#L560>)
 
 
-## function newScanner
+### Bufio function newScanner
 
 
 ```haxe
@@ -360,12 +207,12 @@ function newScanner(r:stdgo._internal.io.Reader):stdgo.bufio.Scanner
 
 ```
 NewScanner returns a new Scanner to read from r.
-    The split function defaults to ScanLines.
+        The split function defaults to ScanLines.
 ```
-[\(view code\)](<./Bufio.hx#L75>)
+[\(view code\)](<./Bufio.hx#L595>)
 
 
-## function newWriter
+### Bufio function newWriter
 
 
 ```haxe
@@ -375,13 +222,13 @@ function newWriter(w:stdgo._internal.io.Writer):stdgo.bufio.Writer
 
 ```
 NewWriter returns a new Writer whose buffer has the default size.
-    If the argument io.Writer is already a Writer with large enough buffer size,
-    it returns the underlying Writer.
+        If the argument io.Writer is already a Writer with large enough buffer size,
+        it returns the underlying Writer.
 ```
-[\(view code\)](<./Bufio.hx#L66>)
+[\(view code\)](<./Bufio.hx#L582>)
 
 
-## function newWriterSize
+### Bufio function newWriterSize
 
 
 ```haxe
@@ -391,13 +238,13 @@ function newWriterSize(w:stdgo._internal.io.Writer, size:Int):stdgo.bufio.Writer
 
 ```
 NewWriterSize returns a new Writer whose buffer has at least the specified
-    size. If the argument io.Writer is already a Writer with large enough
-    size, it returns the underlying Writer.
+        size. If the argument io.Writer is already a Writer with large enough
+        size, it returns the underlying Writer.
 ```
-[\(view code\)](<./Bufio.hx#L60>)
+[\(view code\)](<./Bufio.hx#L574>)
 
 
-## function scanBytes
+### Bufio function scanBytes
 
 
 ```haxe
@@ -408,10 +255,10 @@ function scanBytes(data:Array<Int>, atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, st
 
 ScanBytes is a split function for a Scanner that returns each byte as a token.  
 
-[\(view code\)](<./Bufio.hx#L79>)
+[\(view code\)](<./Bufio.hx#L601>)
 
 
-## function scanLines
+### Bufio function scanLines
 
 
 ```haxe
@@ -421,16 +268,16 @@ function scanLines(data:Array<Int>, atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, st
 
 ```
 ScanLines is a split function for a Scanner that returns each line of
-    text, stripped of any trailing end-of-line marker. The returned line may
-    be empty. The end-of-line marker is one optional carriage return followed
-    by one mandatory newline. In regular expression notation, it is `\r?\n`.
-    The last non-empty line of input will be returned even if it has no
-    newline.
+        text, stripped of any trailing end-of-line marker. The returned line may
+        be empty. The end-of-line marker is one optional carriage return followed
+        by one mandatory newline. In regular expression notation, it is `\r?\n`.
+        The last non-empty line of input will be returned even if it has no
+        newline.
 ```
-[\(view code\)](<./Bufio.hx#L97>)
+[\(view code\)](<./Bufio.hx#L631>)
 
 
-## function scanRunes
+### Bufio function scanRunes
 
 
 ```haxe
@@ -440,16 +287,16 @@ function scanRunes(data:Array<Int>, atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, st
 
 ```
 ScanRunes is a split function for a Scanner that returns each
-    UTF-8-encoded rune as a token. The sequence of runes returned is
-    equivalent to that from a range loop over the input as a string, which
-    means that erroneous UTF-8 encodings translate to U+FFFD = "\xef\xbf\xbd".
-    Because of the Scan interface, this makes it impossible for the client to
-    distinguish correctly encoded replacement runes from encoding errors.
+        UTF-8-encoded rune as a token. The sequence of runes returned is
+        equivalent to that from a range loop over the input as a string, which
+        means that erroneous UTF-8 encodings translate to U+FFFD = "\xef\xbf\xbd".
+        Because of the Scan interface, this makes it impossible for the client to
+        distinguish correctly encoded replacement runes from encoding errors.
 ```
-[\(view code\)](<./Bufio.hx#L88>)
+[\(view code\)](<./Bufio.hx#L616>)
 
 
-## function scanWords
+### Bufio function scanWords
 
 
 ```haxe
@@ -459,121 +306,11 @@ function scanWords(data:Array<Int>, atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, st
 
 ```
 ScanWords is a split function for a Scanner that returns each
-    space-separated word of text, with surrounding spaces deleted. It will
-    never return an empty string. The definition of space is set by
-    unicode.IsSpace.
+        space-separated word of text, with surrounding spaces deleted. It will
+        never return an empty string. The definition of space is set by
+        unicode.IsSpace.
 ```
-[\(view code\)](<./Bufio.hx#L104>)
-
-
-## function set\_errAdvanceTooFar
-
-
-```haxe
-function set_errAdvanceTooFar(v:stdgo.Error):stdgo.Error
-```
-
-
-[\(view code\)](<./Bufio.hx#L30>)
-
-
-## function set\_errBadReadCount
-
-
-```haxe
-function set_errBadReadCount(v:stdgo.Error):stdgo.Error
-```
-
-
-[\(view code\)](<./Bufio.hx#L33>)
-
-
-## function set\_errBufferFull
-
-
-```haxe
-function set_errBufferFull(v:stdgo.Error):stdgo.Error
-```
-
-
-[\(view code\)](<./Bufio.hx#L18>)
-
-
-## function set\_errFinalToken
-
-
-```haxe
-function set_errFinalToken(v:stdgo.Error):stdgo.Error
-```
-
-
-[\(view code\)](<./Bufio.hx#L36>)
-
-
-## function set\_errInvalidUnreadByte
-
-
-```haxe
-function set_errInvalidUnreadByte(v:stdgo.Error):stdgo.Error
-```
-
-
-[\(view code\)](<./Bufio.hx#L12>)
-
-
-## function set\_errInvalidUnreadRune
-
-
-```haxe
-function set_errInvalidUnreadRune(v:stdgo.Error):stdgo.Error
-```
-
-
-[\(view code\)](<./Bufio.hx#L15>)
-
-
-## function set\_errNegativeAdvance
-
-
-```haxe
-function set_errNegativeAdvance(v:stdgo.Error):stdgo.Error
-```
-
-
-[\(view code\)](<./Bufio.hx#L27>)
-
-
-## function set\_errNegativeCount
-
-
-```haxe
-function set_errNegativeCount(v:stdgo.Error):stdgo.Error
-```
-
-
-[\(view code\)](<./Bufio.hx#L21>)
-
-
-## function set\_errTooLong
-
-
-```haxe
-function set_errTooLong(v:stdgo.Error):stdgo.Error
-```
-
-
-[\(view code\)](<./Bufio.hx#L24>)
-
-
-## function set\_isSpace
-
-
-```haxe
-function set_isSpace(v:()):()
-```
-
-
-[\(view code\)](<./Bufio.hx#L39>)
+[\(view code\)](<./Bufio.hx#L644>)
 
 
 # Typedefs
@@ -581,78 +318,6 @@ function set_isSpace(v:()):()
 
 ```haxe
 import stdgo.bufio.*
-```
-
-
-## typedef ReadWriter
-
-
-```haxe
-typedef ReadWriter = Dynamic;
-```
-
-
-## typedef ReadWriter\_asInterface
-
-
-```haxe
-typedef ReadWriter_asInterface = Dynamic;
-```
-
-
-## typedef ReadWriter\_static\_extension
-
-
-```haxe
-typedef ReadWriter_static_extension = Dynamic;
-```
-
-
-## typedef Reader
-
-
-```haxe
-typedef Reader = Dynamic;
-```
-
-
-## typedef Reader\_asInterface
-
-
-```haxe
-typedef Reader_asInterface = Dynamic;
-```
-
-
-## typedef Reader\_static\_extension
-
-
-```haxe
-typedef Reader_static_extension = Dynamic;
-```
-
-
-## typedef Scanner
-
-
-```haxe
-typedef Scanner = Dynamic;
-```
-
-
-## typedef Scanner\_asInterface
-
-
-```haxe
-typedef Scanner_asInterface = Dynamic;
-```
-
-
-## typedef Scanner\_static\_extension
-
-
-```haxe
-typedef Scanner_static_extension = Dynamic;
 ```
 
 
@@ -664,27 +329,30 @@ typedef SplitFunc = stdgo._internal.bufio.SplitFunc;
 ```
 
 
-## typedef Writer
+# Abstracts
 
 
-```haxe
-typedef Writer = Dynamic;
-```
+## abstract Reader
 
 
-## typedef Writer\_asInterface
+[\(view file containing code\)](<./Bufio.hx>)
 
 
-```haxe
-typedef Writer_asInterface = Dynamic;
-```
+## abstract Writer
 
 
-## typedef Writer\_static\_extension
+[\(view file containing code\)](<./Bufio.hx>)
 
 
-```haxe
-typedef Writer_static_extension = Dynamic;
-```
+## abstract ReadWriter
+
+
+[\(view file containing code\)](<./Bufio.hx>)
+
+
+## abstract Scanner
+
+
+[\(view file containing code\)](<./Bufio.hx>)
 
 

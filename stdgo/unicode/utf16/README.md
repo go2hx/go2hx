@@ -6,25 +6,24 @@
 # Overview
 
 
-
-Package utf16 implements encoding and decoding of UTF\-16 sequences.  
-
 # Index
 
 
 - [Constants](<#constants>)
 
-- [`function appendRune(a:Array<UInt>, r:Int):Array<UInt>`](<#function-appendrune>)
+- [class Utf16](<#class-utf16>)
 
-- [`function decode(s:Array<UInt>):Array<Int>`](<#function-decode>)
+  - [`function appendRune(a:Array<UInt>, r:Int):Array<UInt>`](<#utf16-function-appendrune>)
 
-- [`function decodeRune(r1:Int, r2:Int):Int`](<#function-decoderune>)
+  - [`function decode(s:Array<UInt>):Array<Int>`](<#utf16-function-decode>)
 
-- [`function encode(s:Array<Int>):Array<UInt>`](<#function-encode>)
+  - [`function decodeRune(r1:Int, r2:Int):Int`](<#utf16-function-decoderune>)
 
-- [`function encodeRune(r:Int):stdgo.Tuple<Int, Int>`](<#function-encoderune>)
+  - [`function encode(s:Array<Int>):Array<UInt>`](<#utf16-function-encode>)
 
-- [`function isSurrogate(r:Int):Bool`](<#function-issurrogate>)
+  - [`function encodeRune(r:Int):stdgo.Tuple<Int, Int>`](<#utf16-function-encoderune>)
+
+  - [`function isSurrogate(r:Int):Bool`](<#utf16-function-issurrogate>)
 
 # Constants
 
@@ -44,15 +43,21 @@ final replacementChar:Int = stdgo._internal.unicode.utf16.Utf16.replacementChar
 ```
 
 
-# Functions
+# Classes
 
 
 ```haxe
-import stdgo.unicode.utf16.Utf16
+import stdgo.unicode.utf16.*
 ```
 
 
-## function appendRune
+## class Utf16
+
+
+
+Package utf16 implements encoding and decoding of UTF\-16 sequences.  
+
+### Utf16 function appendRune
 
 
 ```haxe
@@ -62,13 +67,13 @@ function appendRune(a:Array<UInt>, r:Int):Array<UInt>
 
 ```
 AppendRune appends the UTF-16 encoding of the Unicode code point r
-    to the end of p and returns the extended buffer. If the rune is not
-    a valid Unicode code point, it appends the encoding of U+FFFD.
+        to the end of p and returns the extended buffer. If the rune is not
+        a valid Unicode code point, it appends the encoding of U+FFFD.
 ```
-[\(view code\)](<./Utf16.hx#L34>)
+[\(view code\)](<./Utf16.hx#L46>)
 
 
-## function decode
+### Utf16 function decode
 
 
 ```haxe
@@ -78,12 +83,12 @@ function decode(s:Array<UInt>):Array<Int>
 
 ```
 Decode returns the Unicode code point sequence represented
-    by the UTF-16 encoding s.
+        by the UTF-16 encoding s.
 ```
-[\(view code\)](<./Utf16.hx#L39>)
+[\(view code\)](<./Utf16.hx#L54>)
 
 
-## function decodeRune
+### Utf16 function decodeRune
 
 
 ```haxe
@@ -93,13 +98,13 @@ function decodeRune(r1:Int, r2:Int):Int
 
 ```
 DecodeRune returns the UTF-16 decoding of a surrogate pair.
-    If the pair is not a valid UTF-16 surrogate pair, DecodeRune returns
-    the Unicode replacement code point U+FFFD.
+        If the pair is not a valid UTF-16 surrogate pair, DecodeRune returns
+        the Unicode replacement code point U+FFFD.
 ```
-[\(view code\)](<./Utf16.hx#L18>)
+[\(view code\)](<./Utf16.hx#L20>)
 
 
-## function encode
+### Utf16 function encode
 
 
 ```haxe
@@ -110,10 +115,10 @@ function encode(s:Array<Int>):Array<UInt>
 
 Encode returns the UTF\-16 encoding of the Unicode code point sequence s.  
 
-[\(view code\)](<./Utf16.hx#L28>)
+[\(view code\)](<./Utf16.hx#L37>)
 
 
-## function encodeRune
+### Utf16 function encodeRune
 
 
 ```haxe
@@ -123,13 +128,13 @@ function encodeRune(r:Int):stdgo.Tuple<Int, Int>
 
 ```
 EncodeRune returns the UTF-16 surrogate pair r1, r2 for the given rune.
-    If the rune is not a valid Unicode code point or does not need encoding,
-    EncodeRune returns U+FFFD, U+FFFD.
+        If the rune is not a valid Unicode code point or does not need encoding,
+        EncodeRune returns U+FFFD, U+FFFD.
 ```
-[\(view code\)](<./Utf16.hx#L24>)
+[\(view code\)](<./Utf16.hx#L28>)
 
 
-## function isSurrogate
+### Utf16 function isSurrogate
 
 
 ```haxe
@@ -139,7 +144,7 @@ function isSurrogate(r:Int):Bool
 
 ```
 IsSurrogate reports whether the specified Unicode code point
-    can appear in a surrogate pair.
+        can appear in a surrogate pair.
 ```
 [\(view code\)](<./Utf16.hx#L12>)
 

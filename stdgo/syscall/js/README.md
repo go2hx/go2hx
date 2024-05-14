@@ -6,64 +6,38 @@
 # Overview
 
 
-```
-Package js gives access to the WebAssembly host environment when using the js/wasm architecture.
-    Its API is based on JavaScript semantics.
-```
-
-This package is EXPERIMENTAL. Its current scope is only to allow tests to run, but not yet to provide a
-comprehensive API for users. It is exempt from the Go compatibility promise.  
-
 # Index
 
 
 - [Constants](<#constants>)
 
-- [`function copyBytesToGo(dst:Array<Int>, src:stdgo.syscall.js.Value):Int`](<#function-copybytestogo>)
+- [class Js](<#class-js>)
 
-- [`function copyBytesToJS(dst:stdgo.syscall.js.Value, src:Array<Int>):Int`](<#function-copybytestojs>)
+  - [`function copyBytesToGo(dst:Array<Int>, src:stdgo.syscall.js.Value):Int`](<#js-function-copybytestogo>)
 
-- [`function funcOf(fn:(_this:stdgo.syscall.js.Value, _args:stdgo.Slice<stdgo.syscall.js.Value>):stdgo.AnyInterface):stdgo.syscall.js.Func`](<#function-funcof>)
+  - [`function copyBytesToJS(dst:stdgo.syscall.js.Value, src:Array<Int>):Int`](<#js-function-copybytestojs>)
 
-- [`function global():stdgo.syscall.js.Value`](<#function-global>)
+  - [`function funcOf(fn:(_this:stdgo.syscall.js.Value, _args:stdgo.Slice<stdgo.syscall.js.Value>):stdgo.AnyInterface):stdgo.syscall.js.Func`](<#js-function-funcof>)
 
-- [`function null_():stdgo.syscall.js.Value`](<#function-null_>)
+  - [`function global():stdgo.syscall.js.Value`](<#js-function-global>)
 
-- [`function undefined():stdgo.syscall.js.Value`](<#function-undefined>)
+  - [`function null_():stdgo.syscall.js.Value`](<#js-function-null_>)
 
-- [`function valueOf(x:stdgo.AnyInterface):stdgo.syscall.js.Value`](<#function-valueof>)
+  - [`function undefined():stdgo.syscall.js.Value`](<#js-function-undefined>)
 
-- [typedef Error](<#typedef-error>)
-
-- [typedef Error\_asInterface](<#typedef-error_asinterface>)
-
-- [typedef Error\_static\_extension](<#typedef-error_static_extension>)
-
-- [typedef Func](<#typedef-func>)
-
-- [typedef Func\_asInterface](<#typedef-func_asinterface>)
-
-- [typedef Func\_static\_extension](<#typedef-func_static_extension>)
+  - [`function valueOf(x:stdgo.AnyInterface):stdgo.syscall.js.Value`](<#js-function-valueof>)
 
 - [typedef T\_ref](<#typedef-t_ref>)
 
 - [typedef Type\_](<#typedef-type_>)
 
-- [typedef Type\_\_asInterface](<#typedef-type__asinterface>)
+- [abstract Func](<#abstract-func>)
 
-- [typedef Type\_\_static\_extension](<#typedef-type__static_extension>)
+- [abstract Value](<#abstract-value>)
 
-- [typedef Value](<#typedef-value>)
+- [abstract Error](<#abstract-error>)
 
-- [typedef ValueError](<#typedef-valueerror>)
-
-- [typedef ValueError\_asInterface](<#typedef-valueerror_asinterface>)
-
-- [typedef ValueError\_static\_extension](<#typedef-valueerror_static_extension>)
-
-- [typedef Value\_asInterface](<#typedef-value_asinterface>)
-
-- [typedef Value\_static\_extension](<#typedef-value_static_extension>)
+- [abstract ValueError](<#abstract-valueerror>)
 
 # Constants
 
@@ -113,15 +87,26 @@ final typeUndefined:stdgo._internal.syscall.js.Type_ = stdgo._internal.syscall.j
 ```
 
 
-# Functions
+# Classes
 
 
 ```haxe
-import stdgo.syscall.js.Js
+import stdgo.syscall.js.*
 ```
 
 
-## function copyBytesToGo
+## class Js
+
+
+```
+Package js gives access to the WebAssembly host environment when using the js/wasm architecture.
+    Its API is based on JavaScript semantics.
+```
+
+This package is EXPERIMENTAL. Its current scope is only to allow tests to run, but not yet to provide a
+comprehensive API for users. It is exempt from the Go compatibility promise.  
+
+### Js function copyBytesToGo
 
 
 ```haxe
@@ -131,13 +116,13 @@ function copyBytesToGo(dst:Array<Int>, src:stdgo.syscall.js.Value):Int
 
 ```
 CopyBytesToGo copies bytes from src to dst.
-    It panics if src is not a Uint8Array or Uint8ClampedArray.
-    It returns the number of bytes copied, which will be the minimum of the lengths of src and dst.
+        It panics if src is not a Uint8Array or Uint8ClampedArray.
+        It returns the number of bytes copied, which will be the minimum of the lengths of src and dst.
 ```
-[\(view code\)](<./Js.hx#L79>)
+[\(view code\)](<./Js.hx#L377>)
 
 
-## function copyBytesToJS
+### Js function copyBytesToJS
 
 
 ```haxe
@@ -147,13 +132,13 @@ function copyBytesToJS(dst:stdgo.syscall.js.Value, src:Array<Int>):Int
 
 ```
 CopyBytesToJS copies bytes from src to dst.
-    It panics if dst is not a Uint8Array or Uint8ClampedArray.
-    It returns the number of bytes copied, which will be the minimum of the lengths of src and dst.
+        It panics if dst is not a Uint8Array or Uint8ClampedArray.
+        It returns the number of bytes copied, which will be the minimum of the lengths of src and dst.
 ```
-[\(view code\)](<./Js.hx#L85>)
+[\(view code\)](<./Js.hx#L386>)
 
 
-## function funcOf
+### Js function funcOf
 
 
 ```haxe
@@ -185,10 +170,10 @@ new goroutine.
 
 Func.Release must be called to free up resources when the function will not be invoked any more.  
 
-[\(view code\)](<./Js.hx#L44>)
+[\(view code\)](<./Js.hx#L331>)
 
 
-## function global
+### Js function global
 
 
 ```haxe
@@ -199,10 +184,10 @@ function global():stdgo.syscall.js.Value
 
 Global returns the JavaScript global object, usually "window" or "global".  
 
-[\(view code\)](<./Js.hx#L56>)
+[\(view code\)](<./Js.hx#L350>)
 
 
-## function null\_
+### Js function null\_
 
 
 ```haxe
@@ -213,10 +198,10 @@ function null_():stdgo.syscall.js.Value
 
 Null returns the JavaScript value "null".  
 
-[\(view code\)](<./Js.hx#L52>)
+[\(view code\)](<./Js.hx#L344>)
 
 
-## function undefined
+### Js function undefined
 
 
 ```haxe
@@ -227,10 +212,10 @@ function undefined():stdgo.syscall.js.Value
 
 Undefined returns the JavaScript value "undefined".  
 
-[\(view code\)](<./Js.hx#L48>)
+[\(view code\)](<./Js.hx#L338>)
 
 
-## function valueOf
+### Js function valueOf
 
 
 ```haxe
@@ -242,21 +227,21 @@ function valueOf(x:stdgo.AnyInterface):stdgo.syscall.js.Value
 ValueOf returns x as a JavaScript value:  
 
 ```
-    	| Go                     | JavaScript             |
-    	| ---------------------- | ---------------------- |
-    	| js.Value               | [its value]            |
-    	| js.Func                | function               |
-    	| nil                    | null                   |
-    	| bool                   | boolean                |
-    	| integers and floats    | number                 |
-    	| string                 | string                 |
-    	| []interface{}          | new array              |
-    	| map[string]interface{} | new object             |
+        	| Go                     | JavaScript             |
+        	| ---------------------- | ---------------------- |
+        	| js.Value               | [its value]            |
+        	| js.Func                | function               |
+        	| nil                    | null                   |
+        	| bool                   | boolean                |
+        	| integers and floats    | number                 |
+        	| string                 | string                 |
+        	| []interface{}          | new array              |
+        	| map[string]interface{} | new object             |
 ```
 
 Panics if x is not one of the expected types.  
 
-[\(view code\)](<./Js.hx#L73>)
+[\(view code\)](<./Js.hx#L369>)
 
 
 # Typedefs
@@ -264,54 +249,6 @@ Panics if x is not one of the expected types.
 
 ```haxe
 import stdgo.syscall.js.*
-```
-
-
-## typedef Error
-
-
-```haxe
-typedef Error = Dynamic;
-```
-
-
-## typedef Error\_asInterface
-
-
-```haxe
-typedef Error_asInterface = Dynamic;
-```
-
-
-## typedef Error\_static\_extension
-
-
-```haxe
-typedef Error_static_extension = Dynamic;
-```
-
-
-## typedef Func
-
-
-```haxe
-typedef Func = Dynamic;
-```
-
-
-## typedef Func\_asInterface
-
-
-```haxe
-typedef Func_asInterface = Dynamic;
-```
-
-
-## typedef Func\_static\_extension
-
-
-```haxe
-typedef Func_static_extension = Dynamic;
 ```
 
 
@@ -331,67 +268,30 @@ typedef Type_ = stdgo._internal.syscall.js.Type_;
 ```
 
 
-## typedef Type\_\_asInterface
+# Abstracts
 
 
-```haxe
-typedef Type__asInterface = Dynamic;
-```
+## abstract Func
 
 
-## typedef Type\_\_static\_extension
+[\(view file containing code\)](<./Js.hx>)
 
 
-```haxe
-typedef Type__static_extension = Dynamic;
-```
+## abstract Value
 
 
-## typedef Value
+[\(view file containing code\)](<./Js.hx>)
 
 
-```haxe
-typedef Value = Dynamic;
-```
+## abstract Error
 
 
-## typedef ValueError
+[\(view file containing code\)](<./Js.hx>)
 
 
-```haxe
-typedef ValueError = Dynamic;
-```
+## abstract ValueError
 
 
-## typedef ValueError\_asInterface
-
-
-```haxe
-typedef ValueError_asInterface = Dynamic;
-```
-
-
-## typedef ValueError\_static\_extension
-
-
-```haxe
-typedef ValueError_static_extension = Dynamic;
-```
-
-
-## typedef Value\_asInterface
-
-
-```haxe
-typedef Value_asInterface = Dynamic;
-```
-
-
-## typedef Value\_static\_extension
-
-
-```haxe
-typedef Value_static_extension = Dynamic;
-```
+[\(view file containing code\)](<./Js.hx>)
 
 

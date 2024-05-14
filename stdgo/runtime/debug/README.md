@@ -6,60 +6,61 @@
 # Overview
 
 
+# Index
+
+
+- [class Debug](<#class-debug>)
+
+  - [`function freeOSMemory():Void`](<#debug-function-freeosmemory>)
+
+  - [`function parseBuildInfo(data:String):stdgo.Tuple<stdgo.runtime.debug.BuildInfo, stdgo.Error>`](<#debug-function-parsebuildinfo>)
+
+  - [`function printStack():Void`](<#debug-function-printstack>)
+
+  - [`function readBuildInfo():stdgo.Tuple<stdgo.runtime.debug.BuildInfo, Bool>`](<#debug-function-readbuildinfo>)
+
+  - [`function readGCStats(stats:stdgo.runtime.debug.GCStats):Void`](<#debug-function-readgcstats>)
+
+  - [`function setGCPercent(percent:Int):Int`](<#debug-function-setgcpercent>)
+
+  - [`function setMaxStack(bytes:Int):Int`](<#debug-function-setmaxstack>)
+
+  - [`function setMaxThreads(threads:Int):Int`](<#debug-function-setmaxthreads>)
+
+  - [`function setMemoryLimit(limit:haxe.Int64):haxe.Int64`](<#debug-function-setmemorylimit>)
+
+  - [`function setPanicOnFault(enabled:Bool):Bool`](<#debug-function-setpaniconfault>)
+
+  - [`function setTraceback(level:String):Void`](<#debug-function-settraceback>)
+
+  - [`function stack():Array<Int>`](<#debug-function-stack>)
+
+  - [`function writeHeapDump(fd:stdgo.GoUIntptr):Void`](<#debug-function-writeheapdump>)
+
+- [abstract GCStats](<#abstract-gcstats>)
+
+- [abstract BuildInfo](<#abstract-buildinfo>)
+
+- [abstract Module](<#abstract-module>)
+
+- [abstract BuildSetting](<#abstract-buildsetting>)
+
+# Classes
+
+
+```haxe
+import
+```
+
+
+## class Debug
+
+
 ```
 Package debug contains facilities for programs to debug themselves while
     they are running.
 ```
-# Index
-
-
-- [`function freeOSMemory():Void`](<#function-freeosmemory>)
-
-- [`function parseBuildInfo(data:String):stdgo.Tuple<stdgo.runtime.debug.BuildInfo, stdgo.Error>`](<#function-parsebuildinfo>)
-
-- [`function printStack():Void`](<#function-printstack>)
-
-- [`function readBuildInfo():stdgo.Tuple<stdgo.runtime.debug.BuildInfo, Bool>`](<#function-readbuildinfo>)
-
-- [`function readGCStats(stats:stdgo.runtime.debug.GCStats):Void`](<#function-readgcstats>)
-
-- [`function setGCPercent(percent:Int):Int`](<#function-setgcpercent>)
-
-- [`function setMaxStack(bytes:Int):Int`](<#function-setmaxstack>)
-
-- [`function setMaxThreads(threads:Int):Int`](<#function-setmaxthreads>)
-
-- [`function setMemoryLimit(limit:haxe.Int64):haxe.Int64`](<#function-setmemorylimit>)
-
-- [`function setPanicOnFault(enabled:Bool):Bool`](<#function-setpaniconfault>)
-
-- [`function setTraceback(level:String):Void`](<#function-settraceback>)
-
-- [`function stack():Array<Int>`](<#function-stack>)
-
-- [`function writeHeapDump(fd:stdgo.GoUIntptr):Void`](<#function-writeheapdump>)
-
-- [typedef BuildInfo](<#typedef-buildinfo>)
-
-- [typedef BuildInfo\_asInterface](<#typedef-buildinfo_asinterface>)
-
-- [typedef BuildInfo\_static\_extension](<#typedef-buildinfo_static_extension>)
-
-- [typedef BuildSetting](<#typedef-buildsetting>)
-
-- [typedef GCStats](<#typedef-gcstats>)
-
-- [typedef Module](<#typedef-module>)
-
-# Functions
-
-
-```haxe
-import stdgo.runtime.debug.Debug
-```
-
-
-## function freeOSMemory
+### Debug function freeOSMemory
 
 
 ```haxe
@@ -69,14 +70,14 @@ function freeOSMemory():Void
 
 ```
 FreeOSMemory forces a garbage collection followed by an
-    attempt to return as much memory to the operating system
-    as possible. (Even if this is not called, the runtime gradually
-    returns memory to the operating system in a background task.)
+        attempt to return as much memory to the operating system
+        as possible. (Even if this is not called, the runtime gradually
+        returns memory to the operating system in a background task.)
 ```
-[\(view code\)](<./Debug.hx#L42>)
+[\(view code\)](<./Debug.hx#L169>)
 
 
-## function parseBuildInfo
+### Debug function parseBuildInfo
 
 
 ```haxe
@@ -84,10 +85,10 @@ function parseBuildInfo(data:String):stdgo.Tuple<stdgo.runtime.debug.BuildInfo, 
 ```
 
 
-[\(view code\)](<./Debug.hx#L180>)
+[\(view code\)](<./Debug.hx#L326>)
 
 
-## function printStack
+### Debug function printStack
 
 
 ```haxe
@@ -98,10 +99,10 @@ function printStack():Void
 
 PrintStack prints to standard error the stack trace returned by runtime.Stack.  
 
-[\(view code\)](<./Debug.hx#L184>)
+[\(view code\)](<./Debug.hx#L335>)
 
 
-## function readBuildInfo
+### Debug function readBuildInfo
 
 
 ```haxe
@@ -111,13 +112,13 @@ function readBuildInfo():stdgo.Tuple<stdgo.runtime.debug.BuildInfo, Bool>
 
 ```
 ReadBuildInfo returns the build information embedded
-    in the running binary. The information is available only
-    in binaries built with module support.
+        in the running binary. The information is available only
+        in binaries built with module support.
 ```
-[\(view code\)](<./Debug.hx#L179>)
+[\(view code\)](<./Debug.hx#L320>)
 
 
-## function readGCStats
+### Debug function readGCStats
 
 
 ```haxe
@@ -127,18 +128,18 @@ function readGCStats(stats:stdgo.runtime.debug.GCStats):Void
 
 ```
 ReadGCStats reads statistics about garbage collection into stats.
-    The number of entries in the pause history is system-dependent;
-    stats.Pause slice will be reused if large enough, reallocated otherwise.
-    ReadGCStats may use the full capacity of the stats.Pause slice.
-    If stats.PauseQuantiles is non-empty, ReadGCStats fills it with quantiles
-    summarizing the distribution of pause time. For example, if
-    len(stats.PauseQuantiles) is 5, it will be filled with the minimum,
-    25%, 50%, 75%, and maximum pause times.
+        The number of entries in the pause history is system-dependent;
+        stats.Pause slice will be reused if large enough, reallocated otherwise.
+        ReadGCStats may use the full capacity of the stats.Pause slice.
+        If stats.PauseQuantiles is non-empty, ReadGCStats fills it with quantiles
+        summarizing the distribution of pause time. For example, if
+        len(stats.PauseQuantiles) is 5, it will be filled with the minimum,
+        25%, 50%, 75%, and maximum pause times.
 ```
-[\(view code\)](<./Debug.hx#L21>)
+[\(view code\)](<./Debug.hx#L144>)
 
 
-## function setGCPercent
+### Debug function setGCPercent
 
 
 ```haxe
@@ -148,21 +149,21 @@ function setGCPercent(percent:Int):Int
 
 ```
 SetGCPercent sets the garbage collection target percentage:
-    a collection is triggered when the ratio of freshly allocated data
-    to live data remaining after the previous collection reaches this percentage.
-    SetGCPercent returns the previous setting.
-    The initial setting is the value of the GOGC environment variable
-    at startup, or 100 if the variable is not set.
-    This setting may be effectively reduced in order to maintain a memory
-    limit.
-    A negative percentage effectively disables garbage collection, unless
-    the memory limit is reached.
-    See SetMemoryLimit for more details.
+        a collection is triggered when the ratio of freshly allocated data
+        to live data remaining after the previous collection reaches this percentage.
+        SetGCPercent returns the previous setting.
+        The initial setting is the value of the GOGC environment variable
+        at startup, or 100 if the variable is not set.
+        This setting may be effectively reduced in order to maintain a memory
+        limit.
+        A negative percentage effectively disables garbage collection, unless
+        the memory limit is reached.
+        See SetMemoryLimit for more details.
 ```
-[\(view code\)](<./Debug.hx#L35>)
+[\(view code\)](<./Debug.hx#L160>)
 
 
-## function setMaxStack
+### Debug function setMaxStack
 
 
 ```haxe
@@ -172,23 +173,23 @@ function setMaxStack(bytes:Int):Int
 
 ```
 SetMaxStack sets the maximum amount of memory that
-    can be used by a single goroutine stack.
-    If any goroutine exceeds this limit while growing its stack,
-    the program crashes.
-    SetMaxStack returns the previous setting.
-    The initial setting is 1 GB on 64-bit systems, 250 MB on 32-bit systems.
-    There may be a system-imposed maximum stack limit regardless
-    of the value provided to SetMaxStack.
+        can be used by a single goroutine stack.
+        If any goroutine exceeds this limit while growing its stack,
+        the program crashes.
+        SetMaxStack returns the previous setting.
+        The initial setting is 1 GB on 64-bit systems, 250 MB on 32-bit systems.
+        There may be a system-imposed maximum stack limit regardless
+        of the value provided to SetMaxStack.
 ```
 
 SetMaxStack is useful mainly for limiting the damage done by
 goroutines that enter an infinite recursion. It only limits future
 stack growth.  
 
-[\(view code\)](<./Debug.hx#L57>)
+[\(view code\)](<./Debug.hx#L186>)
 
 
-## function setMaxThreads
+### Debug function setMaxThreads
 
 
 ```haxe
@@ -198,10 +199,10 @@ function setMaxThreads(threads:Int):Int
 
 ```
 SetMaxThreads sets the maximum number of operating system
-    threads that the Go program can use. If it attempts to use more than
-    this many, the program crashes.
-    SetMaxThreads returns the previous setting.
-    The initial setting is 10,000 threads.
+        threads that the Go program can use. If it attempts to use more than
+        this many, the program crashes.
+        SetMaxThreads returns the previous setting.
+        The initial setting is 10,000 threads.
 ```
 
 The limit controls the number of operating system threads, not the number
@@ -214,10 +215,10 @@ SetMaxThreads is useful mainly for limiting the damage done by
 programs that create an unbounded number of threads. The idea is
 to take down the program before it takes down the operating system.  
 
-[\(view code\)](<./Debug.hx#L74>)
+[\(view code\)](<./Debug.hx#L205>)
 
 
-## function setMemoryLimit
+### Debug function setMemoryLimit
 
 
 ```haxe
@@ -251,13 +252,13 @@ More specifically, the following expression accurately reflects
 the value the runtime attempts to maintain as the limit:  
 
 ```
-    	runtime.MemStats.Sys - runtime.MemStats.HeapReleased
+        	runtime.MemStats.Sys - runtime.MemStats.HeapReleased
 ```
 
 or in terms of the runtime/metrics package:  
 
 ```
-    	/memory/classes/total:bytes - /memory/classes/heap/released:bytes
+        	/memory/classes/total:bytes - /memory/classes/heap/released:bytes
 ```
 
 A zero limit or a limit that's lower than the amount of memory
@@ -291,10 +292,10 @@ SetMemoryLimit returns the previously set memory limit.
 A negative input does not adjust the limit, and allows for
 retrieval of the currently set memory limit.  
 
-[\(view code\)](<./Debug.hx#L173>)
+[\(view code\)](<./Debug.hx#L312>)
 
 
-## function setPanicOnFault
+### Debug function setPanicOnFault
 
 
 ```haxe
@@ -304,16 +305,16 @@ function setPanicOnFault(enabled:Bool):Bool
 
 ```
 SetPanicOnFault controls the runtime's behavior when a program faults
-    at an unexpected (non-nil) address. Such faults are typically caused by
-    bugs such as runtime memory corruption, so the default response is to crash
-    the program. Programs working with memory-mapped files or unsafe
-    manipulation of memory may cause faults at non-nil addresses in less
-    dramatic situations; SetPanicOnFault allows such programs to request
-    that the runtime trigger only a panic, not a crash.
-    The runtime.Error that the runtime panics with may have an additional method:
+        at an unexpected (non-nil) address. Such faults are typically caused by
+        bugs such as runtime memory corruption, so the default response is to crash
+        the program. Programs working with memory-mapped files or unsafe
+        manipulation of memory may cause faults at non-nil addresses in less
+        dramatic situations; SetPanicOnFault allows such programs to request
+        that the runtime trigger only a panic, not a crash.
+        The runtime.Error that the runtime panics with may have an additional method:
 ```
 ```
-    	Addr() uintptr
+        	Addr() uintptr
 ```
 
 If that method exists, it returns the memory address which triggered the fault.
@@ -322,10 +323,10 @@ may depend on the platform.
 SetPanicOnFault applies only to the current goroutine.
 It returns the previous setting.  
 
-[\(view code\)](<./Debug.hx#L93>)
+[\(view code\)](<./Debug.hx#L226>)
 
 
-## function setTraceback
+### Debug function setTraceback
 
 
 ```haxe
@@ -335,19 +336,19 @@ function setTraceback(level:String):Void
 
 ```
 SetTraceback sets the amount of detail printed by the runtime in
-    the traceback it prints before exiting due to an unrecovered panic
-    or an internal runtime error.
-    The level argument takes the same values as the GOTRACEBACK
-    environment variable. For example, SetTraceback("all") ensure
-    that the program prints all goroutines when it crashes.
-    See the package runtime documentation for details.
-    If SetTraceback is called with a level lower than that of the
-    environment variable, the call is ignored.
+        the traceback it prints before exiting due to an unrecovered panic
+        or an internal runtime error.
+        The level argument takes the same values as the GOTRACEBACK
+        environment variable. For example, SetTraceback("all") ensure
+        that the program prints all goroutines when it crashes.
+        See the package runtime documentation for details.
+        If SetTraceback is called with a level lower than that of the
+        environment variable, the call is ignored.
 ```
-[\(view code\)](<./Debug.hx#L117>)
+[\(view code\)](<./Debug.hx#L254>)
 
 
-## function stack
+### Debug function stack
 
 
 ```haxe
@@ -357,12 +358,12 @@ function stack():Array<Int>
 
 ```
 Stack returns a formatted stack trace of the goroutine that calls it.
-    It calls runtime.Stack with a large enough buffer to capture the entire trace.
+        It calls runtime.Stack with a large enough buffer to capture the entire trace.
 ```
-[\(view code\)](<./Debug.hx#L189>)
+[\(view code\)](<./Debug.hx#L342>)
 
 
-## function writeHeapDump
+### Debug function writeHeapDump
 
 
 ```haxe
@@ -372,7 +373,7 @@ function writeHeapDump(fd:stdgo.GoUIntptr):Void
 
 ```
 WriteHeapDump writes a description of the heap and the objects in
-    it to the given file descriptor.
+        it to the given file descriptor.
 ```
 
 WriteHeapDump suspends the execution of all goroutines until the heap
@@ -383,62 +384,33 @@ process; instead, use a temporary file or network socket.
 
 The heap dump format is defined at https://golang.org/s/go15heapdump.  
 
-[\(view code\)](<./Debug.hx#L105>)
+[\(view code\)](<./Debug.hx#L240>)
 
 
-# Typedefs
+# Abstracts
 
 
-```haxe
-import stdgo.runtime.debug.*
-```
+## abstract GCStats
 
 
-## typedef BuildInfo
+[\(view file containing code\)](<./Debug.hx>)
 
 
-```haxe
-typedef BuildInfo = Dynamic;
-```
+## abstract BuildInfo
 
 
-## typedef BuildInfo\_asInterface
+[\(view file containing code\)](<./Debug.hx>)
 
 
-```haxe
-typedef BuildInfo_asInterface = Dynamic;
-```
+## abstract Module
 
 
-## typedef BuildInfo\_static\_extension
+[\(view file containing code\)](<./Debug.hx>)
 
 
-```haxe
-typedef BuildInfo_static_extension = Dynamic;
-```
+## abstract BuildSetting
 
 
-## typedef BuildSetting
-
-
-```haxe
-typedef BuildSetting = Dynamic;
-```
-
-
-## typedef GCStats
-
-
-```haxe
-typedef GCStats = Dynamic;
-```
-
-
-## typedef Module
-
-
-```haxe
-typedef Module = Dynamic;
-```
+[\(view file containing code\)](<./Debug.hx>)
 
 

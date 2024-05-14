@@ -6,298 +6,84 @@
 # Overview
 
 
-
-Package syntax parses regular expressions into parse trees and compiles
-parse trees into programs. Most clients of regular expressions will use the
-facilities of package regexp \(such as Compile and Match\) instead of this package.  
-
-## Syntax
-
-
-
-The regular expression syntax understood by this package when parsing with the Perl flag is as follows.
-Parts of the syntax can be disabled by passing alternate flags to Parse.  
-
-
-Single characters:  
-
-```
-    	.              any character, possibly including newline (flag s=true)
-    	[xyz]          character class
-    	[^xyz]         negated character class
-    	\d             Perl character class
-    	\D             negated Perl character class
-    	[[:alpha:]]    ASCII character class
-    	[[:^alpha:]]   negated ASCII character class
-    	\pN            Unicode character class (one-letter name)
-    	\p{Greek}      Unicode character class
-    	\PN            negated Unicode character class (one-letter name)
-    	\P{Greek}      negated Unicode character class
-```
-
-Composites:  
-
-```
-    	xy             x followed by y
-    	x|y            x or y (prefer x)
-```
-
-Repetitions:  
-
-```
-    	x*             zero or more x, prefer more
-    	x+             one or more x, prefer more
-    	x?             zero or one x, prefer one
-    	x{n,m}         n or n+1 or ... or m x, prefer more
-    	x{n,}          n or more x, prefer more
-    	x{n}           exactly n x
-    	x*?            zero or more x, prefer fewer
-    	x+?            one or more x, prefer fewer
-    	x??            zero or one x, prefer zero
-    	x{n,m}?        n or n+1 or ... or m x, prefer fewer
-    	x{n,}?         n or more x, prefer fewer
-    	x{n}?          exactly n x
-```
-
-Implementation restriction: The counting forms x\{n,m\}, x\{n,\}, and x\{n\}
-reject forms that create a minimum or maximum repetition count above 1000.
-Unlimited repetitions are not subject to this restriction.  
-
-
-Grouping:  
-
-```
-    	(re)           numbered capturing group (submatch)
-    	(?P<name>re)   named & numbered capturing group (submatch)
-    	(?:re)         non-capturing group
-    	(?flags)       set flags within current group; non-capturing
-    	(?flags:re)    set flags during re; non-capturing
-```
-```
-    	Flag syntax is xyz (set) or -xyz (clear) or xy-z (set xy, clear z). The flags are:
-```
-```
-    	i              case-insensitive (default false)
-    	m              multi-line mode: ^ and $ match begin/end line in addition to begin/end text (default false)
-    	s              let . match \n (default false)
-    	U              ungreedy: swap meaning of x* and x*?, x+ and x+?, etc (default false)
-```
-
-Empty strings:  
-
-```
-    	^              at beginning of text or line (flag m=true)
-    	$              at end of text (like \z not \Z) or line (flag m=true)
-    	\A             at beginning of text
-    	\b             at ASCII word boundary (\w on one side and \W, \A, or \z on the other)
-    	\B             not at ASCII word boundary
-    	\z             at end of text
-```
-
-Escape sequences:  
-
-```
-    	\a             bell (== \007)
-    	\f             form feed (== \014)
-    	\t             horizontal tab (== \011)
-    	\n             newline (== \012)
-    	\r             carriage return (== \015)
-    	\v             vertical tab character (== \013)
-    	\*             literal *, for any punctuation character *
-    	\123           octal character code (up to three digits)
-    	\x7F           hex character code (exactly two digits)
-    	\x{10FFFF}     hex character code
-    	\Q...\E        literal text ... even if ... has punctuation
-```
-
-Character class elements:  
-
-```
-    	x              single character
-    	A-Z            character range (inclusive)
-    	\d             Perl character class
-    	[:foo:]        ASCII character class foo
-    	\p{Foo}        Unicode character class Foo
-    	\pF            Unicode character class F (one-letter name)
-```
-
-Named character classes as character class elements:  
-
-```
-    	[\d]           digits (== \d)
-    	[^\d]          not digits (== \D)
-    	[\D]           not digits (== \D)
-    	[^\D]          not not digits (== \d)
-    	[[:name:]]     named ASCII class inside character class (== [:name:])
-    	[^[:name:]]    named ASCII class inside negated character class (== [:^name:])
-    	[\p{Name}]     named Unicode property inside character class (== \p{Name})
-    	[^\p{Name}]    named Unicode property inside negated character class (== \P{Name})
-```
-
-Perl character classes \(all ASCII\-only\):  
-
-```
-    	\d             digits (== [0-9])
-    	\D             not digits (== [^0-9])
-    	\s             whitespace (== [\t\n\f\r ])
-    	\S             not whitespace (== [^\t\n\f\r ])
-    	\w             word characters (== [0-9A-Za-z_])
-    	\W             not word characters (== [^0-9A-Za-z_])
-```
-
-ASCII character classes:  
-
-```
-    	[[:alnum:]]    alphanumeric (== [0-9A-Za-z])
-    	[[:alpha:]]    alphabetic (== [A-Za-z])
-    	[[:ascii:]]    ASCII (== [\x00-\x7F])
-    	[[:blank:]]    blank (== [\t ])
-    	[[:cntrl:]]    control (== [\x00-\x1F\x7F])
-    	[[:digit:]]    digits (== [0-9])
-    	[[:graph:]]    graphical (== [!-~] == [A-Za-z0-9!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~])
-    	[[:lower:]]    lower case (== [a-z])
-    	[[:print:]]    printable (== [ -~] == [ [:graph:]])
-    	[[:punct:]]    punctuation (== [!-/:-@[-`{-~])
-    	[[:space:]]    whitespace (== [\t\n\v\f\r ])
-    	[[:upper:]]    upper case (== [A-Z])
-    	[[:word:]]     word characters (== [0-9A-Za-z_])
-    	[[:xdigit:]]   hex digit (== [0-9A-Fa-f])
-```
-
-Unicode character classes are those in unicode.Categories and unicode.Scripts.  
-
 # Index
 
 
 - [Constants](<#constants>)
 
-- [`function benchmarkEmptyOpContext(b:stdgo._internal.testing.B):Void`](<#function-benchmarkemptyopcontext>)
+- [class Syntax](<#class-syntax>)
 
-- [`function benchmarkIsWordChar(b:stdgo._internal.testing.B):Void`](<#function-benchmarkiswordchar>)
+  - [`function benchmarkEmptyOpContext(b:stdgo._internal.testing.B):Void`](<#syntax-function-benchmarkemptyopcontext>)
 
-- [`function compile(re:stdgo.regexp.syntax.Regexp):stdgo.Tuple<stdgo.regexp.syntax.Prog, stdgo.Error>`](<#function-compile>)
+  - [`function benchmarkIsWordChar(b:stdgo._internal.testing.B):Void`](<#syntax-function-benchmarkiswordchar>)
 
-- [`function emptyOpContext(r1:Int, r2:Int):stdgo.regexp.syntax.EmptyOp`](<#function-emptyopcontext>)
+  - [`function compile(re:stdgo.regexp.syntax.Regexp):stdgo.Tuple<stdgo.regexp.syntax.Prog, stdgo.Error>`](<#syntax-function-compile>)
 
-- [`function isWordChar(r:Int):Bool`](<#function-iswordchar>)
+  - [`function emptyOpContext(r1:Int, r2:Int):stdgo.regexp.syntax.EmptyOp`](<#syntax-function-emptyopcontext>)
 
-- [`function parse(s:String, flags:stdgo.regexp.syntax.Flags):stdgo.Tuple<stdgo.regexp.syntax.Regexp, stdgo.Error>`](<#function-parse>)
+  - [`function isWordChar(r:Int):Bool`](<#syntax-function-iswordchar>)
 
-- [`function testAppendRangeCollapse(t:stdgo._internal.testing.T_):Void`](<#function-testappendrangecollapse>)
+  - [`function parse(s:String, flags:stdgo.regexp.syntax.Flags):stdgo.Tuple<stdgo.regexp.syntax.Regexp, stdgo.Error>`](<#syntax-function-parse>)
 
-- [`function testCompile(t:stdgo._internal.testing.T_):Void`](<#function-testcompile>)
+  - [`function testAppendRangeCollapse(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testappendrangecollapse>)
 
-- [`function testFoldConstants(t:stdgo._internal.testing.T_):Void`](<#function-testfoldconstants>)
+  - [`function testCompile(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testcompile>)
 
-- [`function testParseFoldCase(t:stdgo._internal.testing.T_):Void`](<#function-testparsefoldcase>)
+  - [`function testFoldConstants(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testfoldconstants>)
 
-- [`function testParseInvalidRegexps(t:stdgo._internal.testing.T_):Void`](<#function-testparseinvalidregexps>)
+  - [`function testParseFoldCase(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparsefoldcase>)
 
-- [`function testParseLiteral(t:stdgo._internal.testing.T_):Void`](<#function-testparseliteral>)
+  - [`function testParseInvalidRegexps(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparseinvalidregexps>)
 
-- [`function testParseMatchNL(t:stdgo._internal.testing.T_):Void`](<#function-testparsematchnl>)
+  - [`function testParseLiteral(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparseliteral>)
 
-- [`function testParseNoMatchNL(t:stdgo._internal.testing.T_):Void`](<#function-testparsenomatchnl>)
+  - [`function testParseMatchNL(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparsematchnl>)
 
-- [`function testParseSimple(t:stdgo._internal.testing.T_):Void`](<#function-testparsesimple>)
+  - [`function testParseNoMatchNL(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparsenomatchnl>)
 
-- [`function testSimplify(t:stdgo._internal.testing.T_):Void`](<#function-testsimplify>)
+  - [`function testParseSimple(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparsesimple>)
 
-- [`function testToStringEquivalentParse(t:stdgo._internal.testing.T_):Void`](<#function-testtostringequivalentparse>)
+  - [`function testSimplify(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testsimplify>)
+
+  - [`function testToStringEquivalentParse(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testtostringequivalentparse>)
 
 - [typedef EmptyOp](<#typedef-emptyop>)
 
-- [typedef Error](<#typedef-error>)
-
 - [typedef ErrorCode](<#typedef-errorcode>)
-
-- [typedef ErrorCode\_asInterface](<#typedef-errorcode_asinterface>)
-
-- [typedef ErrorCode\_static\_extension](<#typedef-errorcode_static_extension>)
-
-- [typedef Error\_asInterface](<#typedef-error_asinterface>)
-
-- [typedef Error\_static\_extension](<#typedef-error_static_extension>)
 
 - [typedef Flags](<#typedef-flags>)
 
-- [typedef Inst](<#typedef-inst>)
-
 - [typedef InstOp](<#typedef-instop>)
-
-- [typedef InstOp\_asInterface](<#typedef-instop_asinterface>)
-
-- [typedef InstOp\_static\_extension](<#typedef-instop_static_extension>)
-
-- [typedef Inst\_asInterface](<#typedef-inst_asinterface>)
-
-- [typedef Inst\_static\_extension](<#typedef-inst_static_extension>)
 
 - [typedef Op](<#typedef-op>)
 
-- [typedef Op\_asInterface](<#typedef-op_asinterface>)
-
-- [typedef Op\_static\_extension](<#typedef-op_static_extension>)
-
-- [typedef Prog](<#typedef-prog>)
-
-- [typedef Prog\_asInterface](<#typedef-prog_asinterface>)
-
-- [typedef Prog\_static\_extension](<#typedef-prog_static_extension>)
-
-- [typedef Regexp](<#typedef-regexp>)
-
-- [typedef Regexp\_asInterface](<#typedef-regexp_asinterface>)
-
-- [typedef Regexp\_static\_extension](<#typedef-regexp_static_extension>)
-
 - [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
-
-- [typedef T\_\_struct\_0\_asInterface](<#typedef-t__struct_0_asinterface>)
-
-- [typedef T\_\_struct\_0\_static\_extension](<#typedef-t__struct_0_static_extension>)
 
 - [typedef T\_\_struct\_1](<#typedef-t__struct_1>)
 
-- [typedef T\_\_struct\_1\_asInterface](<#typedef-t__struct_1_asinterface>)
-
-- [typedef T\_\_struct\_1\_static\_extension](<#typedef-t__struct_1_static_extension>)
-
 - [typedef T\_\_struct\_2](<#typedef-t__struct_2>)
 
-- [typedef T\_\_struct\_2\_asInterface](<#typedef-t__struct_2_asinterface>)
+- [abstract T\_patchList](<#abstract-t_patchlist>)
 
-- [typedef T\_\_struct\_2\_static\_extension](<#typedef-t__struct_2_static_extension>)
+- [abstract T\_frag](<#abstract-t_frag>)
 
-- [typedef T\_charGroup](<#typedef-t_chargroup>)
+- [abstract T\_compiler](<#abstract-t_compiler>)
 
-- [typedef T\_compiler](<#typedef-t_compiler>)
+- [abstract Error](<#abstract-error>)
 
-- [typedef T\_compiler\_asInterface](<#typedef-t_compiler_asinterface>)
+- [abstract T\_parser](<#abstract-t_parser>)
 
-- [typedef T\_compiler\_static\_extension](<#typedef-t_compiler_static_extension>)
+- [abstract T\_charGroup](<#abstract-t_chargroup>)
 
-- [typedef T\_frag](<#typedef-t_frag>)
+- [abstract T\_ranges](<#abstract-t_ranges>)
 
-- [typedef T\_parseTest](<#typedef-t_parsetest>)
+- [abstract T\_parseTest](<#abstract-t_parsetest>)
 
-- [typedef T\_parser](<#typedef-t_parser>)
+- [abstract Prog](<#abstract-prog>)
 
-- [typedef T\_parser\_asInterface](<#typedef-t_parser_asinterface>)
+- [abstract Inst](<#abstract-inst>)
 
-- [typedef T\_parser\_static\_extension](<#typedef-t_parser_static_extension>)
-
-- [typedef T\_patchList](<#typedef-t_patchlist>)
-
-- [typedef T\_patchList\_asInterface](<#typedef-t_patchlist_asinterface>)
-
-- [typedef T\_patchList\_static\_extension](<#typedef-t_patchlist_static_extension>)
-
-- [typedef T\_ranges](<#typedef-t_ranges>)
-
-- [typedef T\_ranges\_asInterface](<#typedef-t_ranges_asinterface>)
-
-- [typedef T\_ranges\_static\_extension](<#typedef-t_ranges_static_extension>)
+- [abstract Regexp](<#abstract-regexp>)
 
 # Constants
 
@@ -632,15 +418,178 @@ final wasDollar:stdgo._internal.regexp.syntax.Flags = stdgo._internal.regexp.syn
 ```
 
 
-# Functions
+# Classes
 
 
 ```haxe
-import stdgo.regexp.syntax.Syntax
+import stdgo.regexp.syntax.*
 ```
 
 
-## function benchmarkEmptyOpContext
+## class Syntax
+
+
+
+Package syntax parses regular expressions into parse trees and compiles
+parse trees into programs. Most clients of regular expressions will use the
+facilities of package regexp \(such as Compile and Match\) instead of this package.  
+
+### Syntax
+
+
+
+The regular expression syntax understood by this package when parsing with the Perl flag is as follows.
+Parts of the syntax can be disabled by passing alternate flags to Parse.  
+
+
+Single characters:  
+
+```
+    	.              any character, possibly including newline (flag s=true)
+    	[xyz]          character class
+    	[^xyz]         negated character class
+    	\d             Perl character class
+    	\D             negated Perl character class
+    	[[:alpha:]]    ASCII character class
+    	[[:^alpha:]]   negated ASCII character class
+    	\pN            Unicode character class (one-letter name)
+    	\p{Greek}      Unicode character class
+    	\PN            negated Unicode character class (one-letter name)
+    	\P{Greek}      negated Unicode character class
+```
+
+Composites:  
+
+```
+    	xy             x followed by y
+    	x|y            x or y (prefer x)
+```
+
+Repetitions:  
+
+```
+    	x*             zero or more x, prefer more
+    	x+             one or more x, prefer more
+    	x?             zero or one x, prefer one
+    	x{n,m}         n or n+1 or ... or m x, prefer more
+    	x{n,}          n or more x, prefer more
+    	x{n}           exactly n x
+    	x*?            zero or more x, prefer fewer
+    	x+?            one or more x, prefer fewer
+    	x??            zero or one x, prefer zero
+    	x{n,m}?        n or n+1 or ... or m x, prefer fewer
+    	x{n,}?         n or more x, prefer fewer
+    	x{n}?          exactly n x
+```
+
+Implementation restriction: The counting forms x\{n,m\}, x\{n,\}, and x\{n\}
+reject forms that create a minimum or maximum repetition count above 1000.
+Unlimited repetitions are not subject to this restriction.  
+
+
+Grouping:  
+
+```
+    	(re)           numbered capturing group (submatch)
+    	(?P<name>re)   named & numbered capturing group (submatch)
+    	(?:re)         non-capturing group
+    	(?flags)       set flags within current group; non-capturing
+    	(?flags:re)    set flags during re; non-capturing
+```
+```
+    	Flag syntax is xyz (set) or -xyz (clear) or xy-z (set xy, clear z). The flags are:
+```
+```
+    	i              case-insensitive (default false)
+    	m              multi-line mode: ^ and $ match begin/end line in addition to begin/end text (default false)
+    	s              let . match \n (default false)
+    	U              ungreedy: swap meaning of x* and x*?, x+ and x+?, etc (default false)
+```
+
+Empty strings:  
+
+```
+    	^              at beginning of text or line (flag m=true)
+    	$              at end of text (like \z not \Z) or line (flag m=true)
+    	\A             at beginning of text
+    	\b             at ASCII word boundary (\w on one side and \W, \A, or \z on the other)
+    	\B             not at ASCII word boundary
+    	\z             at end of text
+```
+
+Escape sequences:  
+
+```
+    	\a             bell (== \007)
+    	\f             form feed (== \014)
+    	\t             horizontal tab (== \011)
+    	\n             newline (== \012)
+    	\r             carriage return (== \015)
+    	\v             vertical tab character (== \013)
+    	\*             literal *, for any punctuation character *
+    	\123           octal character code (up to three digits)
+    	\x7F           hex character code (exactly two digits)
+    	\x{10FFFF}     hex character code
+    	\Q...\E        literal text ... even if ... has punctuation
+```
+
+Character class elements:  
+
+```
+    	x              single character
+    	A-Z            character range (inclusive)
+    	\d             Perl character class
+    	[:foo:]        ASCII character class foo
+    	\p{Foo}        Unicode character class Foo
+    	\pF            Unicode character class F (one-letter name)
+```
+
+Named character classes as character class elements:  
+
+```
+    	[\d]           digits (== \d)
+    	[^\d]          not digits (== \D)
+    	[\D]           not digits (== \D)
+    	[^\D]          not not digits (== \d)
+    	[[:name:]]     named ASCII class inside character class (== [:name:])
+    	[^[:name:]]    named ASCII class inside negated character class (== [:^name:])
+    	[\p{Name}]     named Unicode property inside character class (== \p{Name})
+    	[^\p{Name}]    named Unicode property inside negated character class (== \P{Name})
+```
+
+Perl character classes \(all ASCII\-only\):  
+
+```
+    	\d             digits (== [0-9])
+    	\D             not digits (== [^0-9])
+    	\s             whitespace (== [\t\n\f\r ])
+    	\S             not whitespace (== [^\t\n\f\r ])
+    	\w             word characters (== [0-9A-Za-z_])
+    	\W             not word characters (== [^0-9A-Za-z_])
+```
+
+ASCII character classes:  
+
+```
+    	[[:alnum:]]    alphanumeric (== [0-9A-Za-z])
+    	[[:alpha:]]    alphabetic (== [A-Za-z])
+    	[[:ascii:]]    ASCII (== [\x00-\x7F])
+    	[[:blank:]]    blank (== [\t ])
+    	[[:cntrl:]]    control (== [\x00-\x1F\x7F])
+    	[[:digit:]]    digits (== [0-9])
+    	[[:graph:]]    graphical (== [!-~] == [A-Za-z0-9!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~])
+    	[[:lower:]]    lower case (== [a-z])
+    	[[:print:]]    printable (== [ -~] == [ [:graph:]])
+    	[[:punct:]]    punctuation (== [!-/:-@[-`{-~])
+    	[[:space:]]    whitespace (== [\t\n\v\f\r ])
+    	[[:upper:]]    upper case (== [A-Z])
+    	[[:word:]]     word characters (== [0-9A-Za-z_])
+    	[[:xdigit:]]   hex digit (== [0-9A-Fa-f])
+```
+
+Unicode character classes are those in unicode.Categories and unicode.Scripts.  
+
+### Syntax function benchmarkEmptyOpContext
 
 
 ```haxe
@@ -648,10 +597,10 @@ function benchmarkEmptyOpContext(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L265>)
+[\(view code\)](<./Syntax.hx#L882>)
 
 
-## function benchmarkIsWordChar
+### Syntax function benchmarkIsWordChar
 
 
 ```haxe
@@ -659,10 +608,10 @@ function benchmarkIsWordChar(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L266>)
+[\(view code\)](<./Syntax.hx#L885>)
 
 
-## function compile
+### Syntax function compile
 
 
 ```haxe
@@ -672,12 +621,12 @@ function compile(re:stdgo.regexp.syntax.Regexp):stdgo.Tuple<stdgo.regexp.syntax.
 
 ```
 Compile compiles the regexp into a program to be executed.
-    The regexp should have been simplified already (returned from re.Simplify).
+        The regexp should have been simplified already (returned from re.Simplify).
 ```
-[\(view code\)](<./Syntax.hx#L233>)
+[\(view code\)](<./Syntax.hx#L816>)
 
 
-## function emptyOpContext
+### Syntax function emptyOpContext
 
 
 ```haxe
@@ -687,16 +636,16 @@ function emptyOpContext(r1:Int, r2:Int):stdgo.regexp.syntax.EmptyOp
 
 ```
 EmptyOpContext returns the zero-width assertions
-    satisfied at the position between the runes r1 and r2.
-    Passing r1 == -1 indicates that the position is
-    at the beginning of the text.
-    Passing r2 == -1 indicates that the position is
-    at the end of the text.
+        satisfied at the position between the runes r1 and r2.
+        Passing r1 == -1 indicates that the position is
+        at the beginning of the text.
+        Passing r2 == -1 indicates that the position is
+        at the end of the text.
 ```
-[\(view code\)](<./Syntax.hx#L257>)
+[\(view code\)](<./Syntax.hx#L868>)
 
 
-## function isWordChar
+### Syntax function isWordChar
 
 
 ```haxe
@@ -706,13 +655,13 @@ function isWordChar(r:Int):Bool
 
 ```
 IsWordChar reports whether r is considered a “word character”
-    during the evaluation of the \b and \B zero-width assertions.
-    These assertions are ASCII-only: the word characters are [A-Za-z0-9_].
+        during the evaluation of the \b and \B zero-width assertions.
+        These assertions are ASCII-only: the word characters are [A-Za-z0-9_].
 ```
-[\(view code\)](<./Syntax.hx#L263>)
+[\(view code\)](<./Syntax.hx#L876>)
 
 
-## function parse
+### Syntax function parse
 
 
 ```haxe
@@ -722,13 +671,13 @@ function parse(s:String, flags:stdgo.regexp.syntax.Flags):stdgo.Tuple<stdgo.rege
 
 ```
 Parse parses a regular expression string s, controlled by the specified
-    Flags, and returns a regular expression parse tree. The syntax is
-    described in the top-level comment.
+        Flags, and returns a regular expression parse tree. The syntax is
+        described in the top-level comment.
 ```
-[\(view code\)](<./Syntax.hx#L239>)
+[\(view code\)](<./Syntax.hx#L827>)
 
 
-## function testAppendRangeCollapse
+### Syntax function testAppendRangeCollapse
 
 
 ```haxe
@@ -736,10 +685,10 @@ function testAppendRangeCollapse(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L246>)
+[\(view code\)](<./Syntax.hx#L851>)
 
 
-## function testCompile
+### Syntax function testCompile
 
 
 ```haxe
@@ -747,10 +696,10 @@ function testCompile(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L264>)
+[\(view code\)](<./Syntax.hx#L879>)
 
 
-## function testFoldConstants
+### Syntax function testFoldConstants
 
 
 ```haxe
@@ -758,10 +707,10 @@ function testFoldConstants(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L245>)
+[\(view code\)](<./Syntax.hx#L848>)
 
 
-## function testParseFoldCase
+### Syntax function testParseFoldCase
 
 
 ```haxe
@@ -769,10 +718,10 @@ function testParseFoldCase(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L241>)
+[\(view code\)](<./Syntax.hx#L836>)
 
 
-## function testParseInvalidRegexps
+### Syntax function testParseInvalidRegexps
 
 
 ```haxe
@@ -780,10 +729,10 @@ function testParseInvalidRegexps(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L247>)
+[\(view code\)](<./Syntax.hx#L854>)
 
 
-## function testParseLiteral
+### Syntax function testParseLiteral
 
 
 ```haxe
@@ -791,10 +740,10 @@ function testParseLiteral(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L242>)
+[\(view code\)](<./Syntax.hx#L839>)
 
 
-## function testParseMatchNL
+### Syntax function testParseMatchNL
 
 
 ```haxe
@@ -802,10 +751,10 @@ function testParseMatchNL(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L243>)
+[\(view code\)](<./Syntax.hx#L842>)
 
 
-## function testParseNoMatchNL
+### Syntax function testParseNoMatchNL
 
 
 ```haxe
@@ -813,10 +762,10 @@ function testParseNoMatchNL(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L244>)
+[\(view code\)](<./Syntax.hx#L845>)
 
 
-## function testParseSimple
+### Syntax function testParseSimple
 
 
 ```haxe
@@ -824,10 +773,10 @@ function testParseSimple(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L240>)
+[\(view code\)](<./Syntax.hx#L833>)
 
 
-## function testSimplify
+### Syntax function testSimplify
 
 
 ```haxe
@@ -835,10 +784,10 @@ function testSimplify(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L267>)
+[\(view code\)](<./Syntax.hx#L888>)
 
 
-## function testToStringEquivalentParse
+### Syntax function testToStringEquivalentParse
 
 
 ```haxe
@@ -846,7 +795,7 @@ function testToStringEquivalentParse(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L248>)
+[\(view code\)](<./Syntax.hx#L857>)
 
 
 # Typedefs
@@ -865,51 +814,11 @@ typedef EmptyOp = stdgo._internal.regexp.syntax.EmptyOp;
 ```
 
 
-## typedef Error
-
-
-```haxe
-typedef Error = Dynamic;
-```
-
-
 ## typedef ErrorCode
 
 
 ```haxe
 typedef ErrorCode = stdgo._internal.regexp.syntax.ErrorCode;
-```
-
-
-## typedef ErrorCode\_asInterface
-
-
-```haxe
-typedef ErrorCode_asInterface = Dynamic;
-```
-
-
-## typedef ErrorCode\_static\_extension
-
-
-```haxe
-typedef ErrorCode_static_extension = Dynamic;
-```
-
-
-## typedef Error\_asInterface
-
-
-```haxe
-typedef Error_asInterface = Dynamic;
-```
-
-
-## typedef Error\_static\_extension
-
-
-```haxe
-typedef Error_static_extension = Dynamic;
 ```
 
 
@@ -921,51 +830,11 @@ typedef Flags = stdgo._internal.regexp.syntax.Flags;
 ```
 
 
-## typedef Inst
-
-
-```haxe
-typedef Inst = Dynamic;
-```
-
-
 ## typedef InstOp
 
 
 ```haxe
 typedef InstOp = stdgo._internal.regexp.syntax.InstOp;
-```
-
-
-## typedef InstOp\_asInterface
-
-
-```haxe
-typedef InstOp_asInterface = Dynamic;
-```
-
-
-## typedef InstOp\_static\_extension
-
-
-```haxe
-typedef InstOp_static_extension = Dynamic;
-```
-
-
-## typedef Inst\_asInterface
-
-
-```haxe
-typedef Inst_asInterface = Dynamic;
-```
-
-
-## typedef Inst\_static\_extension
-
-
-```haxe
-typedef Inst_static_extension = Dynamic;
 ```
 
 
@@ -977,91 +846,11 @@ typedef Op = stdgo._internal.regexp.syntax.Op;
 ```
 
 
-## typedef Op\_asInterface
-
-
-```haxe
-typedef Op_asInterface = Dynamic;
-```
-
-
-## typedef Op\_static\_extension
-
-
-```haxe
-typedef Op_static_extension = Dynamic;
-```
-
-
-## typedef Prog
-
-
-```haxe
-typedef Prog = Dynamic;
-```
-
-
-## typedef Prog\_asInterface
-
-
-```haxe
-typedef Prog_asInterface = Dynamic;
-```
-
-
-## typedef Prog\_static\_extension
-
-
-```haxe
-typedef Prog_static_extension = Dynamic;
-```
-
-
-## typedef Regexp
-
-
-```haxe
-typedef Regexp = Dynamic;
-```
-
-
-## typedef Regexp\_asInterface
-
-
-```haxe
-typedef Regexp_asInterface = Dynamic;
-```
-
-
-## typedef Regexp\_static\_extension
-
-
-```haxe
-typedef Regexp_static_extension = Dynamic;
-```
-
-
 ## typedef T\_\_struct\_0
 
 
 ```haxe
 typedef T__struct_0 = stdgo._internal.regexp.syntax.T__struct_0;
-```
-
-
-## typedef T\_\_struct\_0\_asInterface
-
-
-```haxe
-typedef T__struct_0_asInterface = Dynamic;
-```
-
-
-## typedef T\_\_struct\_0\_static\_extension
-
-
-```haxe
-typedef T__struct_0_static_extension = Dynamic;
 ```
 
 
@@ -1073,22 +862,6 @@ typedef T__struct_1 = stdgo._internal.regexp.syntax.T__struct_1;
 ```
 
 
-## typedef T\_\_struct\_1\_asInterface
-
-
-```haxe
-typedef T__struct_1_asInterface = Dynamic;
-```
-
-
-## typedef T\_\_struct\_1\_static\_extension
-
-
-```haxe
-typedef T__struct_1_static_extension = Dynamic;
-```
-
-
 ## typedef T\_\_struct\_2
 
 
@@ -1097,139 +870,72 @@ typedef T__struct_2 = stdgo._internal.regexp.syntax.T__struct_2;
 ```
 
 
-## typedef T\_\_struct\_2\_asInterface
+# Abstracts
 
 
-```haxe
-typedef T__struct_2_asInterface = Dynamic;
-```
+## abstract T\_patchList
 
 
-## typedef T\_\_struct\_2\_static\_extension
+[\(view file containing code\)](<./Syntax.hx>)
 
 
-```haxe
-typedef T__struct_2_static_extension = Dynamic;
-```
+## abstract T\_frag
 
 
-## typedef T\_charGroup
+[\(view file containing code\)](<./Syntax.hx>)
 
 
-```haxe
-typedef T_charGroup = Dynamic;
-```
+## abstract T\_compiler
 
 
-## typedef T\_compiler
+[\(view file containing code\)](<./Syntax.hx>)
 
 
-```haxe
-typedef T_compiler = Dynamic;
-```
+## abstract Error
 
 
-## typedef T\_compiler\_asInterface
+[\(view file containing code\)](<./Syntax.hx>)
 
 
-```haxe
-typedef T_compiler_asInterface = Dynamic;
-```
+## abstract T\_parser
 
 
-## typedef T\_compiler\_static\_extension
+[\(view file containing code\)](<./Syntax.hx>)
 
 
-```haxe
-typedef T_compiler_static_extension = Dynamic;
-```
+## abstract T\_charGroup
 
 
-## typedef T\_frag
+[\(view file containing code\)](<./Syntax.hx>)
 
 
-```haxe
-typedef T_frag = Dynamic;
-```
+## abstract T\_ranges
 
 
-## typedef T\_parseTest
+[\(view file containing code\)](<./Syntax.hx>)
 
 
-```haxe
-typedef T_parseTest = Dynamic;
-```
+## abstract T\_parseTest
 
 
-## typedef T\_parser
+[\(view file containing code\)](<./Syntax.hx>)
 
 
-```haxe
-typedef T_parser = Dynamic;
-```
+## abstract Prog
 
 
-## typedef T\_parser\_asInterface
+[\(view file containing code\)](<./Syntax.hx>)
 
 
-```haxe
-typedef T_parser_asInterface = Dynamic;
-```
+## abstract Inst
 
 
-## typedef T\_parser\_static\_extension
+[\(view file containing code\)](<./Syntax.hx>)
 
 
-```haxe
-typedef T_parser_static_extension = Dynamic;
-```
+## abstract Regexp
 
 
-## typedef T\_patchList
-
-
-```haxe
-typedef T_patchList = Dynamic;
-```
-
-
-## typedef T\_patchList\_asInterface
-
-
-```haxe
-typedef T_patchList_asInterface = Dynamic;
-```
-
-
-## typedef T\_patchList\_static\_extension
-
-
-```haxe
-typedef T_patchList_static_extension = Dynamic;
-```
-
-
-## typedef T\_ranges
-
-
-```haxe
-typedef T_ranges = Dynamic;
-```
-
-
-## typedef T\_ranges\_asInterface
-
-
-```haxe
-typedef T_ranges_asInterface = Dynamic;
-```
-
-
-## typedef T\_ranges\_static\_extension
-
-
-```haxe
-typedef T_ranges_static_extension = Dynamic;
-```
+[\(view file containing code\)](<./Syntax.hx>)
 
 

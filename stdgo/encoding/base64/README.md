@@ -6,9 +6,6 @@
 # Overview
 
 
-
-Package base64 implements base64 encoding as specified by RFC 4648.  
-
 # Index
 
 
@@ -16,121 +13,75 @@ Package base64 implements base64 encoding as specified by RFC 4648.
 
 - [Variables](<#variables>)
 
-- [`function benchmarkDecodeString(b:stdgo._internal.testing.B):Void`](<#function-benchmarkdecodestring>)
+- [class Base64](<#class-base64>)
 
-- [`function benchmarkEncodeToString(b:stdgo._internal.testing.B):Void`](<#function-benchmarkencodetostring>)
+  - [`function benchmarkDecodeString(b:stdgo._internal.testing.B):Void`](<#base64-function-benchmarkdecodestring>)
 
-- [`function benchmarkNewEncoding(b:stdgo._internal.testing.B):Void`](<#function-benchmarknewencoding>)
+  - [`function benchmarkEncodeToString(b:stdgo._internal.testing.B):Void`](<#base64-function-benchmarkencodetostring>)
 
-- [`function get_rawStdEncoding():stdgo._internal.encoding.base64.Encoding`](<#function-get_rawstdencoding>)
+  - [`function benchmarkNewEncoding(b:stdgo._internal.testing.B):Void`](<#base64-function-benchmarknewencoding>)
 
-- [`function get_rawURLEncoding():stdgo._internal.encoding.base64.Encoding`](<#function-get_rawurlencoding>)
+  - [`function newDecoder(enc:stdgo.encoding.base64.Encoding, r:stdgo._internal.io.Reader):stdgo._internal.io.Reader`](<#base64-function-newdecoder>)
 
-- [`function get_stdEncoding():stdgo._internal.encoding.base64.Encoding`](<#function-get_stdencoding>)
+  - [`function newEncoder(enc:stdgo.encoding.base64.Encoding, w:stdgo._internal.io.Writer):stdgo._internal.io.WriteCloser`](<#base64-function-newencoder>)
 
-- [`function get_urlencoding():stdgo._internal.encoding.base64.Encoding`](<#function-get_urlencoding>)
+  - [`function newEncoding(encoder:String):stdgo.encoding.base64.Encoding`](<#base64-function-newencoding>)
 
-- [`function newDecoder(enc:stdgo.encoding.base64.Encoding, r:stdgo._internal.io.Reader):stdgo._internal.io.Reader`](<#function-newdecoder>)
+  - [`function testBig(t:stdgo._internal.testing.T_):Void`](<#base64-function-testbig>)
 
-- [`function newEncoder(enc:stdgo.encoding.base64.Encoding, w:stdgo._internal.io.Writer):stdgo._internal.io.WriteCloser`](<#function-newencoder>)
+  - [`function testDecode(t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecode>)
 
-- [`function newEncoding(encoder:String):stdgo.encoding.base64.Encoding`](<#function-newencoding>)
+  - [`function testDecodeBounds(t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecodebounds>)
 
-- [`function set_rawStdEncoding(v:stdgo._internal.encoding.base64.Encoding):stdgo._internal.encoding.base64.Encoding`](<#function-set_rawstdencoding>)
+  - [`function testDecodeCorrupt(t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecodecorrupt>)
 
-- [`function set_rawURLEncoding(v:stdgo._internal.encoding.base64.Encoding):stdgo._internal.encoding.base64.Encoding`](<#function-set_rawurlencoding>)
+  - [`function testDecodedLen(t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecodedlen>)
 
-- [`function set_stdEncoding(v:stdgo._internal.encoding.base64.Encoding):stdgo._internal.encoding.base64.Encoding`](<#function-set_stdencoding>)
+  - [`function testDecoder(t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecoder>)
 
-- [`function set_urlencoding(v:stdgo._internal.encoding.base64.Encoding):stdgo._internal.encoding.base64.Encoding`](<#function-set_urlencoding>)
+  - [`function testDecoderBuffering(t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecoderbuffering>)
 
-- [`function testBig(t:stdgo._internal.testing.T_):Void`](<#function-testbig>)
+  - [`function testDecoderIssue15656(t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecoderissue15656>)
 
-- [`function testDecode(t:stdgo._internal.testing.T_):Void`](<#function-testdecode>)
+  - [`function testDecoderIssue3577(t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecoderissue3577>)
 
-- [`function testDecodeBounds(t:stdgo._internal.testing.T_):Void`](<#function-testdecodebounds>)
+  - [`function testDecoderIssue4779(t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecoderissue4779>)
 
-- [`function testDecodeCorrupt(t:stdgo._internal.testing.T_):Void`](<#function-testdecodecorrupt>)
+  - [`function testDecoderIssue7733(t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecoderissue7733>)
 
-- [`function testDecodedLen(t:stdgo._internal.testing.T_):Void`](<#function-testdecodedlen>)
+  - [`function testDecoderRaw(t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecoderraw>)
 
-- [`function testDecoder(t:stdgo._internal.testing.T_):Void`](<#function-testdecoder>)
+  - [`function testEncode(t:stdgo._internal.testing.T_):Void`](<#base64-function-testencode>)
 
-- [`function testDecoderBuffering(t:stdgo._internal.testing.T_):Void`](<#function-testdecoderbuffering>)
+  - [`function testEncodedLen(t:stdgo._internal.testing.T_):Void`](<#base64-function-testencodedlen>)
 
-- [`function testDecoderIssue15656(t:stdgo._internal.testing.T_):Void`](<#function-testdecoderissue15656>)
+  - [`function testEncoder(t:stdgo._internal.testing.T_):Void`](<#base64-function-testencoder>)
 
-- [`function testDecoderIssue3577(t:stdgo._internal.testing.T_):Void`](<#function-testdecoderissue3577>)
+  - [`function testEncoderBuffering(t:stdgo._internal.testing.T_):Void`](<#base64-function-testencoderbuffering>)
 
-- [`function testDecoderIssue4779(t:stdgo._internal.testing.T_):Void`](<#function-testdecoderissue4779>)
-
-- [`function testDecoderIssue7733(t:stdgo._internal.testing.T_):Void`](<#function-testdecoderissue7733>)
-
-- [`function testDecoderRaw(t:stdgo._internal.testing.T_):Void`](<#function-testdecoderraw>)
-
-- [`function testEncode(t:stdgo._internal.testing.T_):Void`](<#function-testencode>)
-
-- [`function testEncodedLen(t:stdgo._internal.testing.T_):Void`](<#function-testencodedlen>)
-
-- [`function testEncoder(t:stdgo._internal.testing.T_):Void`](<#function-testencoder>)
-
-- [`function testEncoderBuffering(t:stdgo._internal.testing.T_):Void`](<#function-testencoderbuffering>)
-
-- [`function testNewLineCharacters(t:stdgo._internal.testing.T_):Void`](<#function-testnewlinecharacters>)
+  - [`function testNewLineCharacters(t:stdgo._internal.testing.T_):Void`](<#base64-function-testnewlinecharacters>)
 
 - [typedef CorruptInputError](<#typedef-corruptinputerror>)
 
-- [typedef CorruptInputError\_asInterface](<#typedef-corruptinputerror_asinterface>)
-
-- [typedef CorruptInputError\_static\_extension](<#typedef-corruptinputerror_static_extension>)
-
-- [typedef Encoding](<#typedef-encoding>)
-
-- [typedef Encoding\_asInterface](<#typedef-encoding_asinterface>)
-
-- [typedef Encoding\_static\_extension](<#typedef-encoding_static_extension>)
-
 - [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
-
-- [typedef T\_\_struct\_0\_asInterface](<#typedef-t__struct_0_asinterface>)
-
-- [typedef T\_\_struct\_0\_static\_extension](<#typedef-t__struct_0_static_extension>)
 
 - [typedef T\_\_struct\_1](<#typedef-t__struct_1>)
 
-- [typedef T\_\_struct\_1\_asInterface](<#typedef-t__struct_1_asinterface>)
+- [abstract Encoding](<#abstract-encoding>)
 
-- [typedef T\_\_struct\_1\_static\_extension](<#typedef-t__struct_1_static_extension>)
+- [abstract T\_encoder](<#abstract-t_encoder>)
 
-- [typedef T\_decoder](<#typedef-t_decoder>)
+- [abstract T\_decoder](<#abstract-t_decoder>)
 
-- [typedef T\_decoder\_asInterface](<#typedef-t_decoder_asinterface>)
+- [abstract T\_newlineFilteringReader](<#abstract-t_newlinefilteringreader>)
 
-- [typedef T\_decoder\_static\_extension](<#typedef-t_decoder_static_extension>)
+- [abstract T\_testpair](<#abstract-t_testpair>)
 
-- [typedef T\_encoder](<#typedef-t_encoder>)
+- [abstract T\_encodingTest](<#abstract-t_encodingtest>)
 
-- [typedef T\_encoder\_asInterface](<#typedef-t_encoder_asinterface>)
+- [abstract T\_nextRead](<#abstract-t_nextread>)
 
-- [typedef T\_encoder\_static\_extension](<#typedef-t_encoder_static_extension>)
-
-- [typedef T\_encodingTest](<#typedef-t_encodingtest>)
-
-- [typedef T\_faultInjectReader](<#typedef-t_faultinjectreader>)
-
-- [typedef T\_faultInjectReader\_asInterface](<#typedef-t_faultinjectreader_asinterface>)
-
-- [typedef T\_faultInjectReader\_static\_extension](<#typedef-t_faultinjectreader_static_extension>)
-
-- [typedef T\_newlineFilteringReader](<#typedef-t_newlinefilteringreader>)
-
-- [typedef T\_newlineFilteringReader\_asInterface](<#typedef-t_newlinefilteringreader_asinterface>)
-
-- [typedef T\_newlineFilteringReader\_static\_extension](<#typedef-t_newlinefilteringreader_static_extension>)
-
-- [typedef T\_nextRead](<#typedef-t_nextread>)
-
-- [typedef T\_testpair](<#typedef-t_testpair>)
+- [abstract T\_faultInjectReader](<#abstract-t_faultinjectreader>)
 
 # Constants
 
@@ -178,15 +129,21 @@ var urlencoding:stdgo._internal.encoding.base64.Encoding
 ```
 
 
-# Functions
+# Classes
 
 
 ```haxe
-import stdgo.encoding.base64.Base64
+import stdgo.encoding.base64.*
 ```
 
 
-## function benchmarkDecodeString
+## class Base64
+
+
+
+Package base64 implements base64 encoding as specified by RFC 4648.  
+
+### Base64 function benchmarkDecodeString
 
 
 ```haxe
@@ -194,10 +151,10 @@ function benchmarkDecodeString(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L76>)
+[\(view code\)](<./Base64.hx#L413>)
 
 
-## function benchmarkEncodeToString
+### Base64 function benchmarkEncodeToString
 
 
 ```haxe
@@ -205,10 +162,10 @@ function benchmarkEncodeToString(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L75>)
+[\(view code\)](<./Base64.hx#L410>)
 
 
-## function benchmarkNewEncoding
+### Base64 function benchmarkNewEncoding
 
 
 ```haxe
@@ -216,54 +173,10 @@ function benchmarkNewEncoding(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L77>)
+[\(view code\)](<./Base64.hx#L416>)
 
 
-## function get\_rawStdEncoding
-
-
-```haxe
-function get_rawStdEncoding():stdgo._internal.encoding.base64.Encoding
-```
-
-
-[\(view code\)](<./Base64.hx#L15>)
-
-
-## function get\_rawURLEncoding
-
-
-```haxe
-function get_rawURLEncoding():stdgo._internal.encoding.base64.Encoding
-```
-
-
-[\(view code\)](<./Base64.hx#L18>)
-
-
-## function get\_stdEncoding
-
-
-```haxe
-function get_stdEncoding():stdgo._internal.encoding.base64.Encoding
-```
-
-
-[\(view code\)](<./Base64.hx#L9>)
-
-
-## function get\_urlencoding
-
-
-```haxe
-function get_urlencoding():stdgo._internal.encoding.base64.Encoding
-```
-
-
-[\(view code\)](<./Base64.hx#L12>)
-
-
-## function newDecoder
+### Base64 function newDecoder
 
 
 ```haxe
@@ -274,10 +187,10 @@ function newDecoder(enc:stdgo.encoding.base64.Encoding, r:stdgo._internal.io.Rea
 
 NewDecoder constructs a new base64 stream decoder.  
 
-[\(view code\)](<./Base64.hx#L55>)
+[\(view code\)](<./Base64.hx#L356>)
 
 
-## function newEncoder
+### Base64 function newEncoder
 
 
 ```haxe
@@ -287,15 +200,15 @@ function newEncoder(enc:stdgo.encoding.base64.Encoding, w:stdgo._internal.io.Wri
 
 ```
 NewEncoder returns a new base64 stream encoder. Data written to
-    the returned writer will be encoded using enc and then written to w.
-    Base64 encodings operate in 4-byte blocks; when finished
-    writing, the caller must Close the returned encoder to flush any
-    partially written blocks.
+        the returned writer will be encoded using enc and then written to w.
+        Base64 encodings operate in 4-byte blocks; when finished
+        writing, the caller must Close the returned encoder to flush any
+        partially written blocks.
 ```
-[\(view code\)](<./Base64.hx#L51>)
+[\(view code\)](<./Base64.hx#L350>)
 
 
-## function newEncoding
+### Base64 function newEncoding
 
 
 ```haxe
@@ -305,60 +218,16 @@ function newEncoding(encoder:String):stdgo.encoding.base64.Encoding
 
 ```
 NewEncoding returns a new padded Encoding defined by the given alphabet,
-    which must be a 64-byte string that does not contain the padding character
-    or CR / LF ('\r', '\n'). The alphabet is treated as sequence of byte values
-    without any special treatment for multi-byte UTF-8.
-    The resulting Encoding uses the default padding character ('='),
-    which may be changed or disabled via WithPadding.
+        which must be a 64-byte string that does not contain the padding character
+        or CR / LF ('\r', '\n'). The alphabet is treated as sequence of byte values
+        without any special treatment for multi-byte UTF-8.
+        The resulting Encoding uses the default padding character ('='),
+        which may be changed or disabled via WithPadding.
 ```
-[\(view code\)](<./Base64.hx#L43>)
+[\(view code\)](<./Base64.hx#L340>)
 
 
-## function set\_rawStdEncoding
-
-
-```haxe
-function set_rawStdEncoding(v:stdgo._internal.encoding.base64.Encoding):stdgo._internal.encoding.base64.Encoding
-```
-
-
-[\(view code\)](<./Base64.hx#L16>)
-
-
-## function set\_rawURLEncoding
-
-
-```haxe
-function set_rawURLEncoding(v:stdgo._internal.encoding.base64.Encoding):stdgo._internal.encoding.base64.Encoding
-```
-
-
-[\(view code\)](<./Base64.hx#L19>)
-
-
-## function set\_stdEncoding
-
-
-```haxe
-function set_stdEncoding(v:stdgo._internal.encoding.base64.Encoding):stdgo._internal.encoding.base64.Encoding
-```
-
-
-[\(view code\)](<./Base64.hx#L10>)
-
-
-## function set\_urlencoding
-
-
-```haxe
-function set_urlencoding(v:stdgo._internal.encoding.base64.Encoding):stdgo._internal.encoding.base64.Encoding
-```
-
-
-[\(view code\)](<./Base64.hx#L13>)
-
-
-## function testBig
+### Base64 function testBig
 
 
 ```haxe
@@ -366,10 +235,10 @@ function testBig(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L66>)
+[\(view code\)](<./Base64.hx#L389>)
 
 
-## function testDecode
+### Base64 function testDecode
 
 
 ```haxe
@@ -377,10 +246,10 @@ function testDecode(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L59>)
+[\(view code\)](<./Base64.hx#L368>)
 
 
-## function testDecodeBounds
+### Base64 function testDecodeBounds
 
 
 ```haxe
@@ -388,10 +257,10 @@ function testDecodeBounds(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L63>)
+[\(view code\)](<./Base64.hx#L380>)
 
 
-## function testDecodeCorrupt
+### Base64 function testDecodeCorrupt
 
 
 ```haxe
@@ -399,10 +268,10 @@ function testDecodeCorrupt(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L62>)
+[\(view code\)](<./Base64.hx#L377>)
 
 
-## function testDecodedLen
+### Base64 function testDecodedLen
 
 
 ```haxe
@@ -410,10 +279,10 @@ function testDecodedLen(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L65>)
+[\(view code\)](<./Base64.hx#L386>)
 
 
-## function testDecoder
+### Base64 function testDecoder
 
 
 ```haxe
@@ -421,10 +290,10 @@ function testDecoder(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L60>)
+[\(view code\)](<./Base64.hx#L371>)
 
 
-## function testDecoderBuffering
+### Base64 function testDecoderBuffering
 
 
 ```haxe
@@ -432,10 +301,10 @@ function testDecoderBuffering(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L61>)
+[\(view code\)](<./Base64.hx#L374>)
 
 
-## function testDecoderIssue15656
+### Base64 function testDecoderIssue15656
 
 
 ```haxe
@@ -443,10 +312,10 @@ function testDecoderIssue15656(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L74>)
+[\(view code\)](<./Base64.hx#L407>)
 
 
-## function testDecoderIssue3577
+### Base64 function testDecoderIssue3577
 
 
 ```haxe
@@ -457,10 +326,10 @@ function testDecoderIssue3577(t:stdgo._internal.testing.T_):Void
 
 tests that we don't ignore errors from our underlying reader  
 
-[\(view code\)](<./Base64.hx#L71>)
+[\(view code\)](<./Base64.hx#L398>)
 
 
-## function testDecoderIssue4779
+### Base64 function testDecoderIssue4779
 
 
 ```haxe
@@ -468,10 +337,10 @@ function testDecoderIssue4779(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L72>)
+[\(view code\)](<./Base64.hx#L401>)
 
 
-## function testDecoderIssue7733
+### Base64 function testDecoderIssue7733
 
 
 ```haxe
@@ -479,10 +348,10 @@ function testDecoderIssue7733(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L73>)
+[\(view code\)](<./Base64.hx#L404>)
 
 
-## function testDecoderRaw
+### Base64 function testDecoderRaw
 
 
 ```haxe
@@ -490,10 +359,10 @@ function testDecoderRaw(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L78>)
+[\(view code\)](<./Base64.hx#L419>)
 
 
-## function testEncode
+### Base64 function testEncode
 
 
 ```haxe
@@ -501,10 +370,10 @@ function testEncode(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L56>)
+[\(view code\)](<./Base64.hx#L359>)
 
 
-## function testEncodedLen
+### Base64 function testEncodedLen
 
 
 ```haxe
@@ -512,10 +381,10 @@ function testEncodedLen(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L64>)
+[\(view code\)](<./Base64.hx#L383>)
 
 
-## function testEncoder
+### Base64 function testEncoder
 
 
 ```haxe
@@ -523,10 +392,10 @@ function testEncoder(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L57>)
+[\(view code\)](<./Base64.hx#L362>)
 
 
-## function testEncoderBuffering
+### Base64 function testEncoderBuffering
 
 
 ```haxe
@@ -534,10 +403,10 @@ function testEncoderBuffering(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L58>)
+[\(view code\)](<./Base64.hx#L365>)
 
 
-## function testNewLineCharacters
+### Base64 function testNewLineCharacters
 
 
 ```haxe
@@ -545,7 +414,7 @@ function testNewLineCharacters(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L67>)
+[\(view code\)](<./Base64.hx#L392>)
 
 
 # Typedefs
@@ -564,67 +433,11 @@ typedef CorruptInputError = stdgo._internal.encoding.base64.CorruptInputError;
 ```
 
 
-## typedef CorruptInputError\_asInterface
-
-
-```haxe
-typedef CorruptInputError_asInterface = Dynamic;
-```
-
-
-## typedef CorruptInputError\_static\_extension
-
-
-```haxe
-typedef CorruptInputError_static_extension = Dynamic;
-```
-
-
-## typedef Encoding
-
-
-```haxe
-typedef Encoding = Dynamic;
-```
-
-
-## typedef Encoding\_asInterface
-
-
-```haxe
-typedef Encoding_asInterface = Dynamic;
-```
-
-
-## typedef Encoding\_static\_extension
-
-
-```haxe
-typedef Encoding_static_extension = Dynamic;
-```
-
-
 ## typedef T\_\_struct\_0
 
 
 ```haxe
 typedef T__struct_0 = stdgo._internal.encoding.base64.T__struct_0;
-```
-
-
-## typedef T\_\_struct\_0\_asInterface
-
-
-```haxe
-typedef T__struct_0_asInterface = Dynamic;
-```
-
-
-## typedef T\_\_struct\_0\_static\_extension
-
-
-```haxe
-typedef T__struct_0_static_extension = Dynamic;
 ```
 
 
@@ -636,139 +449,54 @@ typedef T__struct_1 = stdgo._internal.encoding.base64.T__struct_1;
 ```
 
 
-## typedef T\_\_struct\_1\_asInterface
+# Abstracts
 
 
-```haxe
-typedef T__struct_1_asInterface = Dynamic;
-```
+## abstract Encoding
 
 
-## typedef T\_\_struct\_1\_static\_extension
+[\(view file containing code\)](<./Base64.hx>)
 
 
-```haxe
-typedef T__struct_1_static_extension = Dynamic;
-```
+## abstract T\_encoder
 
 
-## typedef T\_decoder
+[\(view file containing code\)](<./Base64.hx>)
 
 
-```haxe
-typedef T_decoder = Dynamic;
-```
+## abstract T\_decoder
 
 
-## typedef T\_decoder\_asInterface
+[\(view file containing code\)](<./Base64.hx>)
 
 
-```haxe
-typedef T_decoder_asInterface = Dynamic;
-```
+## abstract T\_newlineFilteringReader
 
 
-## typedef T\_decoder\_static\_extension
+[\(view file containing code\)](<./Base64.hx>)
 
 
-```haxe
-typedef T_decoder_static_extension = Dynamic;
-```
+## abstract T\_testpair
 
 
-## typedef T\_encoder
+[\(view file containing code\)](<./Base64.hx>)
 
 
-```haxe
-typedef T_encoder = Dynamic;
-```
+## abstract T\_encodingTest
 
 
-## typedef T\_encoder\_asInterface
+[\(view file containing code\)](<./Base64.hx>)
 
 
-```haxe
-typedef T_encoder_asInterface = Dynamic;
-```
+## abstract T\_nextRead
 
 
-## typedef T\_encoder\_static\_extension
+[\(view file containing code\)](<./Base64.hx>)
 
 
-```haxe
-typedef T_encoder_static_extension = Dynamic;
-```
+## abstract T\_faultInjectReader
 
 
-## typedef T\_encodingTest
-
-
-```haxe
-typedef T_encodingTest = Dynamic;
-```
-
-
-## typedef T\_faultInjectReader
-
-
-```haxe
-typedef T_faultInjectReader = Dynamic;
-```
-
-
-## typedef T\_faultInjectReader\_asInterface
-
-
-```haxe
-typedef T_faultInjectReader_asInterface = Dynamic;
-```
-
-
-## typedef T\_faultInjectReader\_static\_extension
-
-
-```haxe
-typedef T_faultInjectReader_static_extension = Dynamic;
-```
-
-
-## typedef T\_newlineFilteringReader
-
-
-```haxe
-typedef T_newlineFilteringReader = Dynamic;
-```
-
-
-## typedef T\_newlineFilteringReader\_asInterface
-
-
-```haxe
-typedef T_newlineFilteringReader_asInterface = Dynamic;
-```
-
-
-## typedef T\_newlineFilteringReader\_static\_extension
-
-
-```haxe
-typedef T_newlineFilteringReader_static_extension = Dynamic;
-```
-
-
-## typedef T\_nextRead
-
-
-```haxe
-typedef T_nextRead = Dynamic;
-```
-
-
-## typedef T\_testpair
-
-
-```haxe
-typedef T_testpair = Dynamic;
-```
+[\(view file containing code\)](<./Base64.hx>)
 
 

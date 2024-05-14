@@ -6,111 +6,78 @@
 # Overview
 
 
-
-Package hex implements hexadecimal encoding and decoding.  
-
 # Index
 
 
 - [Variables](<#variables>)
 
-- [`function benchmarkDecode(b:stdgo._internal.testing.B):Void`](<#function-benchmarkdecode>)
+- [class Hex](<#class-hex>)
 
-- [`function benchmarkDump(b:stdgo._internal.testing.B):Void`](<#function-benchmarkdump>)
+  - [`function benchmarkDecode(b:stdgo._internal.testing.B):Void`](<#hex-function-benchmarkdecode>)
 
-- [`function benchmarkEncode(b:stdgo._internal.testing.B):Void`](<#function-benchmarkencode>)
+  - [`function benchmarkDump(b:stdgo._internal.testing.B):Void`](<#hex-function-benchmarkdump>)
 
-- [`function decode(dst:Array<Int>, src:Array<Int>):stdgo.Tuple<Int, stdgo.Error>`](<#function-decode>)
+  - [`function benchmarkEncode(b:stdgo._internal.testing.B):Void`](<#hex-function-benchmarkencode>)
 
-- [`function decodeString(s:String):stdgo.Tuple<Array<Int>, stdgo.Error>`](<#function-decodestring>)
+  - [`function decode(dst:Array<Int>, src:Array<Int>):stdgo.Tuple<Int, stdgo.Error>`](<#hex-function-decode>)
 
-- [`function decodedLen(x:Int):Int`](<#function-decodedlen>)
+  - [`function decodeString(s:String):stdgo.Tuple<Array<Int>, stdgo.Error>`](<#hex-function-decodestring>)
 
-- [`function dump(data:Array<Int>):String`](<#function-dump>)
+  - [`function decodedLen(x:Int):Int`](<#hex-function-decodedlen>)
 
-- [`function dumper(w:stdgo._internal.io.Writer):stdgo._internal.io.WriteCloser`](<#function-dumper>)
+  - [`function dump(data:Array<Int>):String`](<#hex-function-dump>)
 
-- [`function encode(dst:Array<Int>, src:Array<Int>):Int`](<#function-encode>)
+  - [`function dumper(w:stdgo._internal.io.Writer):stdgo._internal.io.WriteCloser`](<#hex-function-dumper>)
 
-- [`function encodeToString(src:Array<Int>):String`](<#function-encodetostring>)
+  - [`function encode(dst:Array<Int>, src:Array<Int>):Int`](<#hex-function-encode>)
 
-- [`function encodedLen(n:Int):Int`](<#function-encodedlen>)
+  - [`function encodeToString(src:Array<Int>):String`](<#hex-function-encodetostring>)
 
-- [`function get_errLength():stdgo.Error`](<#function-get_errlength>)
+  - [`function encodedLen(n:Int):Int`](<#hex-function-encodedlen>)
 
-- [`function newDecoder(r:stdgo._internal.io.Reader):stdgo._internal.io.Reader`](<#function-newdecoder>)
+  - [`function newDecoder(r:stdgo._internal.io.Reader):stdgo._internal.io.Reader`](<#hex-function-newdecoder>)
 
-- [`function newEncoder(w:stdgo._internal.io.Writer):stdgo._internal.io.Writer`](<#function-newencoder>)
+  - [`function newEncoder(w:stdgo._internal.io.Writer):stdgo._internal.io.Writer`](<#hex-function-newencoder>)
 
-- [`function set_errLength(v:stdgo.Error):stdgo.Error`](<#function-set_errlength>)
+  - [`function testDecode(t:stdgo._internal.testing.T_):Void`](<#hex-function-testdecode>)
 
-- [`function testDecode(t:stdgo._internal.testing.T_):Void`](<#function-testdecode>)
+  - [`function testDecodeErr(t:stdgo._internal.testing.T_):Void`](<#hex-function-testdecodeerr>)
 
-- [`function testDecodeErr(t:stdgo._internal.testing.T_):Void`](<#function-testdecodeerr>)
+  - [`function testDecodeString(t:stdgo._internal.testing.T_):Void`](<#hex-function-testdecodestring>)
 
-- [`function testDecodeString(t:stdgo._internal.testing.T_):Void`](<#function-testdecodestring>)
+  - [`function testDecodeStringErr(t:stdgo._internal.testing.T_):Void`](<#hex-function-testdecodestringerr>)
 
-- [`function testDecodeStringErr(t:stdgo._internal.testing.T_):Void`](<#function-testdecodestringerr>)
+  - [`function testDecoderErr(t:stdgo._internal.testing.T_):Void`](<#hex-function-testdecodererr>)
 
-- [`function testDecoderErr(t:stdgo._internal.testing.T_):Void`](<#function-testdecodererr>)
+  - [`function testDump(t:stdgo._internal.testing.T_):Void`](<#hex-function-testdump>)
 
-- [`function testDump(t:stdgo._internal.testing.T_):Void`](<#function-testdump>)
+  - [`function testDumper(t:stdgo._internal.testing.T_):Void`](<#hex-function-testdumper>)
 
-- [`function testDumper(t:stdgo._internal.testing.T_):Void`](<#function-testdumper>)
+  - [`function testDumper_doubleclose(t:stdgo._internal.testing.T_):Void`](<#hex-function-testdumper_doubleclose>)
 
-- [`function testDumper_doubleclose(t:stdgo._internal.testing.T_):Void`](<#function-testdumper_doubleclose>)
+  - [`function testDumper_earlyclose(t:stdgo._internal.testing.T_):Void`](<#hex-function-testdumper_earlyclose>)
 
-- [`function testDumper_earlyclose(t:stdgo._internal.testing.T_):Void`](<#function-testdumper_earlyclose>)
+  - [`function testEncode(t:stdgo._internal.testing.T_):Void`](<#hex-function-testencode>)
 
-- [`function testEncode(t:stdgo._internal.testing.T_):Void`](<#function-testencode>)
+  - [`function testEncodeToString(t:stdgo._internal.testing.T_):Void`](<#hex-function-testencodetostring>)
 
-- [`function testEncodeToString(t:stdgo._internal.testing.T_):Void`](<#function-testencodetostring>)
-
-- [`function testEncoderDecoder(t:stdgo._internal.testing.T_):Void`](<#function-testencoderdecoder>)
+  - [`function testEncoderDecoder(t:stdgo._internal.testing.T_):Void`](<#hex-function-testencoderdecoder>)
 
 - [typedef InvalidByteError](<#typedef-invalidbyteerror>)
 
-- [typedef InvalidByteError\_asInterface](<#typedef-invalidbyteerror_asinterface>)
-
-- [typedef InvalidByteError\_static\_extension](<#typedef-invalidbyteerror_static_extension>)
-
 - [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
-
-- [typedef T\_\_struct\_0\_asInterface](<#typedef-t__struct_0_asinterface>)
-
-- [typedef T\_\_struct\_0\_static\_extension](<#typedef-t__struct_0_static_extension>)
 
 - [typedef T\_\_struct\_1](<#typedef-t__struct_1>)
 
-- [typedef T\_\_struct\_1\_asInterface](<#typedef-t__struct_1_asinterface>)
-
-- [typedef T\_\_struct\_1\_static\_extension](<#typedef-t__struct_1_static_extension>)
-
 - [typedef T\_\_struct\_2](<#typedef-t__struct_2>)
 
-- [typedef T\_\_struct\_2\_asInterface](<#typedef-t__struct_2_asinterface>)
+- [abstract T\_encoder](<#abstract-t_encoder>)
 
-- [typedef T\_\_struct\_2\_static\_extension](<#typedef-t__struct_2_static_extension>)
+- [abstract T\_decoder](<#abstract-t_decoder>)
 
-- [typedef T\_decoder](<#typedef-t_decoder>)
+- [abstract T\_dumper](<#abstract-t_dumper>)
 
-- [typedef T\_decoder\_asInterface](<#typedef-t_decoder_asinterface>)
-
-- [typedef T\_decoder\_static\_extension](<#typedef-t_decoder_static_extension>)
-
-- [typedef T\_dumper](<#typedef-t_dumper>)
-
-- [typedef T\_dumper\_asInterface](<#typedef-t_dumper_asinterface>)
-
-- [typedef T\_dumper\_static\_extension](<#typedef-t_dumper_static_extension>)
-
-- [typedef T\_encDecTest](<#typedef-t_encdectest>)
-
-- [typedef T\_encoder](<#typedef-t_encoder>)
-
-- [typedef T\_encoder\_asInterface](<#typedef-t_encoder_asinterface>)
-
-- [typedef T\_encoder\_static\_extension](<#typedef-t_encoder_static_extension>)
+- [abstract T\_encDecTest](<#abstract-t_encdectest>)
 
 # Variables
 
@@ -125,15 +92,21 @@ var errLength:stdgo.Error
 ```
 
 
-# Functions
+# Classes
 
 
 ```haxe
-import stdgo.encoding.hex.Hex
+import stdgo.encoding.hex.*
 ```
 
 
-## function benchmarkDecode
+## class Hex
+
+
+
+Package hex implements hexadecimal encoding and decoding.  
+
+### Hex function benchmarkDecode
 
 
 ```haxe
@@ -141,10 +114,10 @@ function benchmarkDecode(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L96>)
+[\(view code\)](<./Hex.hx#L313>)
 
 
-## function benchmarkDump
+### Hex function benchmarkDump
 
 
 ```haxe
@@ -152,10 +125,10 @@ function benchmarkDump(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L97>)
+[\(view code\)](<./Hex.hx#L316>)
 
 
-## function benchmarkEncode
+### Hex function benchmarkEncode
 
 
 ```haxe
@@ -163,10 +136,10 @@ function benchmarkEncode(b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L95>)
+[\(view code\)](<./Hex.hx#L310>)
 
 
-## function decode
+### Hex function decode
 
 
 ```haxe
@@ -176,7 +149,7 @@ function decode(dst:Array<Int>, src:Array<Int>):stdgo.Tuple<Int, stdgo.Error>
 
 ```
 Decode decodes src into DecodedLen(len(src)) bytes,
-    returning the actual number of bytes written to dst.
+        returning the actual number of bytes written to dst.
 ```
 
 Decode expects that src contains only hexadecimal
@@ -184,10 +157,10 @@ characters and that src has even length.
 If the input is malformed, Decode returns the number
 of bytes decoded before the error.  
 
-[\(view code\)](<./Hex.hx#L49>)
+[\(view code\)](<./Hex.hx#L216>)
 
 
-## function decodeString
+### Hex function decodeString
 
 
 ```haxe
@@ -204,10 +177,10 @@ characters and that src has even length.
 If the input is malformed, DecodeString returns
 the bytes decoded before the error.  
 
-[\(view code\)](<./Hex.hx#L62>)
+[\(view code\)](<./Hex.hx#L239>)
 
 
-## function decodedLen
+### Hex function decodedLen
 
 
 ```haxe
@@ -217,12 +190,12 @@ function decodedLen(x:Int):Int
 
 ```
 DecodedLen returns the length of a decoding of x source bytes.
-    Specifically, it returns x / 2.
+        Specifically, it returns x / 2.
 ```
-[\(view code\)](<./Hex.hx#L39>)
+[\(view code\)](<./Hex.hx#L204>)
 
 
-## function dump
+### Hex function dump
 
 
 ```haxe
@@ -232,12 +205,12 @@ function dump(data:Array<Int>):String
 
 ```
 Dump returns a string that contains a hex dump of the given data. The format
-    of the hex dump matches the output of `hexdump -C` on the command line.
+        of the hex dump matches the output of `hexdump -C` on the command line.
 ```
-[\(view code\)](<./Hex.hx#L67>)
+[\(view code\)](<./Hex.hx#L249>)
 
 
-## function dumper
+### Hex function dumper
 
 
 ```haxe
@@ -247,13 +220,13 @@ function dumper(w:stdgo._internal.io.Writer):stdgo._internal.io.WriteCloser
 
 ```
 Dumper returns a WriteCloser that writes a hex dump of all written data to
-    w. The format of the dump matches the output of `hexdump -C` on the command
-    line.
+        w. The format of the dump matches the output of `hexdump -C` on the command
+        line.
 ```
-[\(view code\)](<./Hex.hx#L82>)
+[\(view code\)](<./Hex.hx#L271>)
 
 
-## function encode
+### Hex function encode
 
 
 ```haxe
@@ -263,14 +236,14 @@ function encode(dst:Array<Int>, src:Array<Int>):Int
 
 ```
 Encode encodes src into EncodedLen(len(src))
-    bytes of dst. As a convenience, it returns the number
-    of bytes written to dst, but this value is always EncodedLen(len(src)).
-    Encode implements hexadecimal encoding.
+        bytes of dst. As a convenience, it returns the number
+        of bytes written to dst, but this value is always EncodedLen(len(src)).
+        Encode implements hexadecimal encoding.
 ```
-[\(view code\)](<./Hex.hx#L34>)
+[\(view code\)](<./Hex.hx#L195>)
 
 
-## function encodeToString
+### Hex function encodeToString
 
 
 ```haxe
@@ -281,10 +254,10 @@ function encodeToString(src:Array<Int>):String
 
 EncodeToString returns the hexadecimal encoding of src.  
 
-[\(view code\)](<./Hex.hx#L53>)
+[\(view code\)](<./Hex.hx#L227>)
 
 
-## function encodedLen
+### Hex function encodedLen
 
 
 ```haxe
@@ -294,23 +267,12 @@ function encodedLen(n:Int):Int
 
 ```
 EncodedLen returns the length of an encoding of n source bytes.
-    Specifically, it returns n * 2.
+        Specifically, it returns n * 2.
 ```
-[\(view code\)](<./Hex.hx#L27>)
+[\(view code\)](<./Hex.hx#L186>)
 
 
-## function get\_errLength
-
-
-```haxe
-function get_errLength():stdgo.Error
-```
-
-
-[\(view code\)](<./Hex.hx#L7>)
-
-
-## function newDecoder
+### Hex function newDecoder
 
 
 ```haxe
@@ -320,12 +282,12 @@ function newDecoder(r:stdgo._internal.io.Reader):stdgo._internal.io.Reader
 
 ```
 NewDecoder returns an io.Reader that decodes hexadecimal characters from r.
-    NewDecoder expects that r contain only an even number of hexadecimal characters.
+        NewDecoder expects that r contain only an even number of hexadecimal characters.
 ```
-[\(view code\)](<./Hex.hx#L76>)
+[\(view code\)](<./Hex.hx#L263>)
 
 
-## function newEncoder
+### Hex function newEncoder
 
 
 ```haxe
@@ -336,21 +298,10 @@ function newEncoder(w:stdgo._internal.io.Writer):stdgo._internal.io.Writer
 
 NewEncoder returns an io.Writer that writes lowercase hexadecimal characters to w.  
 
-[\(view code\)](<./Hex.hx#L71>)
+[\(view code\)](<./Hex.hx#L256>)
 
 
-## function set\_errLength
-
-
-```haxe
-function set_errLength(v:stdgo.Error):stdgo.Error
-```
-
-
-[\(view code\)](<./Hex.hx#L8>)
-
-
-## function testDecode
+### Hex function testDecode
 
 
 ```haxe
@@ -358,10 +309,10 @@ function testDecode(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L84>)
+[\(view code\)](<./Hex.hx#L277>)
 
 
-## function testDecodeErr
+### Hex function testDecodeErr
 
 
 ```haxe
@@ -369,10 +320,10 @@ function testDecodeErr(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L87>)
+[\(view code\)](<./Hex.hx#L286>)
 
 
-## function testDecodeString
+### Hex function testDecodeString
 
 
 ```haxe
@@ -380,10 +331,10 @@ function testDecodeString(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L86>)
+[\(view code\)](<./Hex.hx#L283>)
 
 
-## function testDecodeStringErr
+### Hex function testDecodeStringErr
 
 
 ```haxe
@@ -391,10 +342,10 @@ function testDecodeStringErr(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L88>)
+[\(view code\)](<./Hex.hx#L289>)
 
 
-## function testDecoderErr
+### Hex function testDecoderErr
 
 
 ```haxe
@@ -402,10 +353,10 @@ function testDecoderErr(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L90>)
+[\(view code\)](<./Hex.hx#L295>)
 
 
-## function testDump
+### Hex function testDump
 
 
 ```haxe
@@ -413,10 +364,10 @@ function testDump(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L94>)
+[\(view code\)](<./Hex.hx#L307>)
 
 
-## function testDumper
+### Hex function testDumper
 
 
 ```haxe
@@ -424,10 +375,10 @@ function testDumper(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L91>)
+[\(view code\)](<./Hex.hx#L298>)
 
 
-## function testDumper\_doubleclose
+### Hex function testDumper\_doubleclose
 
 
 ```haxe
@@ -435,10 +386,10 @@ function testDumper_doubleclose(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L92>)
+[\(view code\)](<./Hex.hx#L301>)
 
 
-## function testDumper\_earlyclose
+### Hex function testDumper\_earlyclose
 
 
 ```haxe
@@ -446,10 +397,10 @@ function testDumper_earlyclose(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L93>)
+[\(view code\)](<./Hex.hx#L304>)
 
 
-## function testEncode
+### Hex function testEncode
 
 
 ```haxe
@@ -457,10 +408,10 @@ function testEncode(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L83>)
+[\(view code\)](<./Hex.hx#L274>)
 
 
-## function testEncodeToString
+### Hex function testEncodeToString
 
 
 ```haxe
@@ -468,10 +419,10 @@ function testEncodeToString(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L85>)
+[\(view code\)](<./Hex.hx#L280>)
 
 
-## function testEncoderDecoder
+### Hex function testEncoderDecoder
 
 
 ```haxe
@@ -479,7 +430,7 @@ function testEncoderDecoder(t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L89>)
+[\(view code\)](<./Hex.hx#L292>)
 
 
 # Typedefs
@@ -498,43 +449,11 @@ typedef InvalidByteError = stdgo._internal.encoding.hex.InvalidByteError;
 ```
 
 
-## typedef InvalidByteError\_asInterface
-
-
-```haxe
-typedef InvalidByteError_asInterface = Dynamic;
-```
-
-
-## typedef InvalidByteError\_static\_extension
-
-
-```haxe
-typedef InvalidByteError_static_extension = Dynamic;
-```
-
-
 ## typedef T\_\_struct\_0
 
 
 ```haxe
 typedef T__struct_0 = stdgo._internal.encoding.hex.T__struct_0;
-```
-
-
-## typedef T\_\_struct\_0\_asInterface
-
-
-```haxe
-typedef T__struct_0_asInterface = Dynamic;
-```
-
-
-## typedef T\_\_struct\_0\_static\_extension
-
-
-```haxe
-typedef T__struct_0_static_extension = Dynamic;
 ```
 
 
@@ -546,22 +465,6 @@ typedef T__struct_1 = stdgo._internal.encoding.hex.T__struct_1;
 ```
 
 
-## typedef T\_\_struct\_1\_asInterface
-
-
-```haxe
-typedef T__struct_1_asInterface = Dynamic;
-```
-
-
-## typedef T\_\_struct\_1\_static\_extension
-
-
-```haxe
-typedef T__struct_1_static_extension = Dynamic;
-```
-
-
 ## typedef T\_\_struct\_2
 
 
@@ -570,99 +473,30 @@ typedef T__struct_2 = stdgo._internal.encoding.hex.T__struct_2;
 ```
 
 
-## typedef T\_\_struct\_2\_asInterface
+# Abstracts
 
 
-```haxe
-typedef T__struct_2_asInterface = Dynamic;
-```
+## abstract T\_encoder
 
 
-## typedef T\_\_struct\_2\_static\_extension
+[\(view file containing code\)](<./Hex.hx>)
 
 
-```haxe
-typedef T__struct_2_static_extension = Dynamic;
-```
+## abstract T\_decoder
 
 
-## typedef T\_decoder
+[\(view file containing code\)](<./Hex.hx>)
 
 
-```haxe
-typedef T_decoder = Dynamic;
-```
+## abstract T\_dumper
 
 
-## typedef T\_decoder\_asInterface
+[\(view file containing code\)](<./Hex.hx>)
 
 
-```haxe
-typedef T_decoder_asInterface = Dynamic;
-```
+## abstract T\_encDecTest
 
 
-## typedef T\_decoder\_static\_extension
-
-
-```haxe
-typedef T_decoder_static_extension = Dynamic;
-```
-
-
-## typedef T\_dumper
-
-
-```haxe
-typedef T_dumper = Dynamic;
-```
-
-
-## typedef T\_dumper\_asInterface
-
-
-```haxe
-typedef T_dumper_asInterface = Dynamic;
-```
-
-
-## typedef T\_dumper\_static\_extension
-
-
-```haxe
-typedef T_dumper_static_extension = Dynamic;
-```
-
-
-## typedef T\_encDecTest
-
-
-```haxe
-typedef T_encDecTest = Dynamic;
-```
-
-
-## typedef T\_encoder
-
-
-```haxe
-typedef T_encoder = Dynamic;
-```
-
-
-## typedef T\_encoder\_asInterface
-
-
-```haxe
-typedef T_encoder_asInterface = Dynamic;
-```
-
-
-## typedef T\_encoder\_static\_extension
-
-
-```haxe
-typedef T_encoder_static_extension = Dynamic;
-```
+[\(view file containing code\)](<./Hex.hx>)
 
 

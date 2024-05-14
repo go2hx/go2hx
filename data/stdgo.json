@@ -5,6 +5,7 @@
     "compress/bzip2",
     "compress/flate",
     "compress/gzip",
+    "compress/zlib",
     "compress/lzw",
     "container/heap",
     "container/list",

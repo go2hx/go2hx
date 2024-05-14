@@ -62,7 +62,6 @@
     "internal/saferio",
     "crypto",
     "go/importer",
-    "compress/zlib",
     "compress/flate",
     "hash/adler32",
     "crypto/internal/randutil",

@@ -3715,7 +3715,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							default:
 								throw info.panic() + "unknown make type: " + type;
 						}
-						return returnExpr(e).expr;
+						final ct = toComplexType(type, info);
+						return returnExpr(macro ($e : $ct)).expr;
 				}
 			}
 	}

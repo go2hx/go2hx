@@ -442,7 +442,7 @@ private function close() {
 		// retry failed tests
 		if (retryFailedCount-- > 0) {
 			tasks = failedRegressionTasks;
-			suite.dataList = [];
+			//suite.dataList = [];
 			log('retrying failed tasks: ' + tasks.length);
 			failedRegressionTasks = [];
 			dryRun = false;

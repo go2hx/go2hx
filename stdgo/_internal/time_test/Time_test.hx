@@ -1610,7 +1610,7 @@ function exampleNewTicker():Void {
         try {
             var _ticker = stdgo._internal.time.Time.newTicker((1000000000i64 : stdgo._internal.time.Time.Duration));
             __deferstack__.unshift(() -> _ticker.stop());
-            var _done = new stdgo.Chan<Bool>(0, () -> false);
+            var _done = (new stdgo.Chan<Bool>(0, () -> false) : stdgo.Chan<Bool>);
             stdgo.Go.routine(() -> {
                 var a = function():Void {
                     stdgo._internal.time.Time.sleep((10000000000i64 : stdgo._internal.time.Time.Duration));
@@ -2829,7 +2829,7 @@ function testSleep(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testAfterFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _i:stdgo.GoInt = (10 : stdgo.GoInt);
-        var _c = new stdgo.Chan<Bool>(0, () -> false);
+        var _c = (new stdgo.Chan<Bool>(0, () -> false) : stdgo.Chan<Bool>);
         var _f:() -> Void = null;
         _f = function():Void {
             _i--;
@@ -2866,7 +2866,7 @@ function testAfterStress(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
     }
 function _benchmark(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _bench:(_n:stdgo.GoInt) -> Void):Void {
         var _wg:stdgo._internal.sync.Sync.WaitGroup = ({} : stdgo._internal.sync.Sync.WaitGroup);
-        var _garbageAll = new stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.time.Time.Timer>>>((stdgo._internal.runtime.Runtime.gomaxprocs((0 : stdgo.GoInt)) : stdgo.GoInt).toBasic(), 0);
+        var _garbageAll = (new stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.time.Time.Timer>>>((stdgo._internal.runtime.Runtime.gomaxprocs((0 : stdgo.GoInt)) : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.time.Time.Timer>>>);
         for (_i => _ in _garbageAll) {
             _wg.add((1 : stdgo.GoInt));
             stdgo.Go.routine(() -> {
@@ -2874,7 +2874,7 @@ function _benchmark(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _bench:(_n:
                     var __deferstack__:Array<Void -> Void> = [];
                     try {
                         __deferstack__.unshift(() -> _wg.done());
-                        var _garbage = new stdgo.Slice<stdgo.Ref<stdgo._internal.time.Time.Timer>>((32768 : stdgo.GoInt).toBasic(), 0);
+                        var _garbage = (new stdgo.Slice<stdgo.Ref<stdgo._internal.time.Time.Timer>>((32768 : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.time.Time.Timer>>);
                         for (_j => _ in _garbage) {
                             _garbage[(_j : stdgo.GoInt)] = afterFunc((3600000000000i64 : stdgo._internal.time.Time.Duration), null);
                         };
@@ -2919,7 +2919,7 @@ function _benchmark(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _bench:(_n:
     }
 function benchmarkAfterFunc(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         _benchmark(_b, function(_n:stdgo.GoInt):Void {
-            var _c = new stdgo.Chan<Bool>(0, () -> false);
+            var _c = (new stdgo.Chan<Bool>(0, () -> false) : stdgo.Chan<Bool>);
             var _f:() -> Void = null;
             _f = function():Void {
                 _n--;
@@ -2968,7 +2968,7 @@ function benchmarkSimultaneousAfterFunc(_b:stdgo.Ref<stdgo._internal.testing.Tes
     }
 function benchmarkStartStop(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         _benchmark(_b, function(_n:stdgo.GoInt):Void {
-            var _timers = new stdgo.Slice<stdgo.Ref<stdgo._internal.time.Time.Timer>>((_n : stdgo.GoInt).toBasic(), 0);
+            var _timers = (new stdgo.Slice<stdgo.Ref<stdgo._internal.time.Time.Timer>>((_n : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.time.Time.Timer>>);
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
                 stdgo.Go.cfor((_i < _n : Bool), _i++, {
@@ -3070,7 +3070,7 @@ function testAfterStop(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             stdgo.Go.cfor((_i < (5 : stdgo.GoInt) : Bool), _i++, {
                 afterFunc((100000000i64 : stdgo._internal.time.Time.Duration), function():Void {});
                 var _t0 = newTimer((50000000i64 : stdgo._internal.time.Time.Duration));
-                var _c1 = new stdgo.Chan<Bool>((1 : stdgo.GoInt).toBasic(), () -> false);
+                var _c1 = (new stdgo.Chan<Bool>((1 : stdgo.GoInt).toBasic(), () -> false) : stdgo.Chan<Bool>);
                 var _t1 = afterFunc((150000000i64 : stdgo._internal.time.Time.Duration), function():Void {
                     _c1.__send__(true);
                 });
@@ -3150,7 +3150,7 @@ function _await(_slot:stdgo.GoInt, _result:stdgo.Chan<T_afterResult>, _ac:stdgo.
         _result.__send__((new stdgo._internal.time_test.Time_test.T_afterResult(_slot, _ac.__get__()?.__copy__()) : stdgo._internal.time_test.Time_test.T_afterResult));
     }
 function _testAfterQueuing(_delta:Duration):stdgo.Error {
-        var _result = new stdgo.Chan<stdgo._internal.time_test.Time_test.T_afterResult>((_slots.length : stdgo.GoInt).toBasic(), () -> ({} : stdgo._internal.time_test.Time_test.T_afterResult));
+        var _result = (new stdgo.Chan<stdgo._internal.time_test.Time_test.T_afterResult>((_slots.length : stdgo.GoInt).toBasic(), () -> ({} : stdgo._internal.time_test.Time_test.T_afterResult)) : stdgo.Chan<stdgo._internal.time_test.Time_test.T_afterResult>);
         var _t0:stdgo._internal.time.Time.Time = now()?.__copy__();
         for (__2 => _slot in _slots) {
             stdgo.Go.routine(() -> _await(_slot, _result, after(((_slot : Duration) * _delta : stdgo._internal.time.Time.Duration))));
@@ -3204,7 +3204,7 @@ function testSleepZeroDeadlock(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
                 var _a0 = stdgo._internal.runtime.Runtime.gomaxprocs((4 : stdgo.GoInt));
                 __deferstack__.unshift(() -> stdgo._internal.runtime.Runtime.gomaxprocs(_a0));
             };
-            var _c = new stdgo.Chan<Bool>(0, () -> false);
+            var _c = (new stdgo.Chan<Bool>(0, () -> false) : stdgo.Chan<Bool>);
             stdgo.Go.routine(() -> {
                 var a = function():Void {
                     {
@@ -3221,7 +3221,7 @@ function testSleepZeroDeadlock(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
                 stdgo.Go.cfor((_i < (100 : stdgo.GoInt) : Bool), _i++, {
                     sleep((0i64 : stdgo._internal.time.Time.Duration));
-                    var _tmp = new stdgo.Chan<Bool>((1 : stdgo.GoInt).toBasic(), () -> false);
+                    var _tmp = (new stdgo.Chan<Bool>((1 : stdgo.GoInt).toBasic(), () -> false) : stdgo.Chan<Bool>);
                     _tmp.__send__(true);
                     _tmp.__get__();
                 });
@@ -3597,8 +3597,8 @@ function testTimerModifiedEarlier(_t:stdgo.Ref<stdgo._internal.testing.Testing.T
     }
 function testAdjustTimers(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _rnd:stdgo.Ref<stdgo._internal.math.rand.Rand.Rand> = stdgo._internal.math.rand.Rand.new_(stdgo._internal.math.rand.Rand.newSource(now().unixNano()));
-        var _timers = new stdgo.Slice<stdgo.Ref<stdgo._internal.time.Time.Timer>>((100 : stdgo.GoInt).toBasic(), 0);
-        var _states = new stdgo.Slice<stdgo.GoInt>((_timers.length : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _timers = (new stdgo.Slice<stdgo.Ref<stdgo._internal.time.Time.Timer>>((100 : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.time.Time.Timer>>);
+        var _states = (new stdgo.Slice<stdgo.GoInt>((_timers.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         var _indices = _rnd.perm((_timers.length));
         while ((_indices.length) != ((0 : stdgo.GoInt))) {
             var _ii:stdgo.GoInt = _rnd.intn((_indices.length));
@@ -3653,7 +3653,7 @@ function benchmarkParallelTimerLatency(_b:stdgo.Ref<stdgo._internal.testing.Test
             _b.skip(stdgo.Go.toInterface(("skipping with GOMAXPROCS < 2 or NumCPU < GOMAXPROCS" : stdgo.GoString)));
         };
         var _timerCount:stdgo.GoInt = (_gmp - (1 : stdgo.GoInt) : stdgo.GoInt);
-        var _stats = new stdgo.Slice<T__struct_8>((_timerCount : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_timerCount : stdgo.GoInt).toBasic() > 0 ? (_timerCount : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({ _sum : (0 : stdgo.GoFloat64), _max : ((0 : stdgo.GoInt64) : stdgo._internal.time.Time.Duration), _count : (0 : stdgo.GoInt64) } : T__struct_8)]);
+        var _stats = (new stdgo.Slice<T__struct_8>((_timerCount : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_timerCount : stdgo.GoInt).toBasic() > 0 ? (_timerCount : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({ _sum : (0 : stdgo.GoFloat64), _max : ((0 : stdgo.GoInt64) : stdgo._internal.time.Time.Duration), _count : (0 : stdgo.GoInt64) } : T__struct_8)]) : stdgo.Slice<T__struct_8>);
         _warmupScheduler(_gmp);
         _doWork((30000000i64 : stdgo._internal.time.Time.Duration));
         _b.resetTimer();
@@ -3718,7 +3718,7 @@ function benchmarkStaggeredTickerLatency(_b:stdgo.Ref<stdgo._internal.testing.Te
                     stdgo.Go.cfor((_tickersPerP < ((((3000000i64 : stdgo._internal.time.Time.Duration) / _dur : stdgo._internal.time.Time.Duration) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt) : Bool), _tickersPerP++, {
                         var _tickerCount:stdgo.GoInt = (_gmp * _tickersPerP : stdgo.GoInt);
                         _b.run(stdgo._internal.fmt.Fmt.sprintf(("tickers-per-P=%d" : stdgo.GoString), stdgo.Go.toInterface(_tickersPerP))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-                            var _stats = new stdgo.Slice<T__struct_8>((_tickerCount : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_tickerCount : stdgo.GoInt).toBasic() > 0 ? (_tickerCount : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({ _sum : (0 : stdgo.GoFloat64), _max : ((0 : stdgo.GoInt64) : stdgo._internal.time.Time.Duration), _count : (0 : stdgo.GoInt64) } : T__struct_8)]);
+                            var _stats = (new stdgo.Slice<T__struct_8>((_tickerCount : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_tickerCount : stdgo.GoInt).toBasic() > 0 ? (_tickerCount : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({ _sum : (0 : stdgo.GoFloat64), _max : ((0 : stdgo.GoInt64) : stdgo._internal.time.Time.Duration), _count : (0 : stdgo.GoInt64) } : T__struct_8)]) : stdgo.Slice<T__struct_8>);
                             _warmupScheduler(_gmp);
                             _b.resetTimer();
                             var _wg:stdgo._internal.sync.Sync.WaitGroup = ({} : stdgo._internal.sync.Sync.WaitGroup);
@@ -3892,7 +3892,7 @@ function testTicker(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         _logErrs();
     }
 function testTickerStopWithDirectInitialization(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _c = new stdgo.Chan<stdgo._internal.time.Time.Time>(0, () -> ({} : stdgo._internal.time.Time.Time));
+        var _c = (new stdgo.Chan<stdgo._internal.time.Time.Time>(0, () -> ({} : stdgo._internal.time.Time.Time)) : stdgo.Chan<stdgo._internal.time.Time.Time>);
         var _tk = (stdgo.Go.setRef(({ c : _c } : stdgo._internal.time.Time.Ticker)) : stdgo.Ref<stdgo._internal.time.Time.Ticker>);
         _tk.stop();
     }
@@ -4582,7 +4582,7 @@ function testParseDurationRoundTrip(_t:stdgo.Ref<stdgo._internal.testing.Testing
     }
 function testLocationRace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         resetLocalOnceForTest();
-        var _c = new stdgo.Chan<stdgo.GoString>((1 : stdgo.GoInt).toBasic(), () -> ("" : stdgo.GoString));
+        var _c = (new stdgo.Chan<stdgo.GoString>((1 : stdgo.GoInt).toBasic(), () -> ("" : stdgo.GoString)) : stdgo.Chan<stdgo.GoString>);
         stdgo.Go.routine(() -> {
             var a = function():Void {
                 _c.__send__((now().string() : stdgo.GoString));

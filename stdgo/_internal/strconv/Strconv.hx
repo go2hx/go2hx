@@ -3102,7 +3102,7 @@ function _eiselLemire32(_man:stdgo.GoUInt64, _exp10:stdgo.GoInt, _neg:Bool):{ va
         return { _0 : stdgo._internal.math.Math.float32frombits((_retBits : stdgo.GoUInt32)), _1 : true };
     }
 function formatFloat(_f:stdgo.GoFloat64, _fmt:stdgo.GoByte, _prec:stdgo.GoInt, _bitSize:stdgo.GoInt):stdgo.GoString {
-        return (_genericFtoa(new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), _max((_prec + (4 : stdgo.GoInt) : stdgo.GoInt), (24 : stdgo.GoInt))).__setNumber32__(), _f, _fmt, _prec, _bitSize) : stdgo.GoString)?.__copy__();
+        return (_genericFtoa((new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), _max((_prec + (4 : stdgo.GoInt) : stdgo.GoInt), (24 : stdgo.GoInt))).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), _f, _fmt, _prec, _bitSize) : stdgo.GoString)?.__copy__();
     }
 function appendFloat(_dst:stdgo.Slice<stdgo.GoByte>, _f:stdgo.GoFloat64, _fmt:stdgo.GoByte, _prec:stdgo.GoInt, _bitSize:stdgo.GoInt):stdgo.Slice<stdgo.GoByte> {
         return _genericFtoa(_dst, _f, _fmt, _prec, _bitSize);
@@ -4114,14 +4114,14 @@ function _contains(_s:stdgo.GoString, _c:stdgo.GoByte):Bool {
         return _index(_s?.__copy__(), _c) != ((-1 : stdgo.GoInt));
     }
 function _quoteWith(_s:stdgo.GoString, _quote:stdgo.GoByte, asciionly:Bool, _graphicOnly:Bool):stdgo.GoString {
-        return (_appendQuotedWith(new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (((3 : stdgo.GoInt) * (_s.length) : stdgo.GoInt) / (2 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__(), _s?.__copy__(), _quote, asciionly, _graphicOnly) : stdgo.GoString)?.__copy__();
+        return (_appendQuotedWith((new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (((3 : stdgo.GoInt) * (_s.length) : stdgo.GoInt) / (2 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), _s?.__copy__(), _quote, asciionly, _graphicOnly) : stdgo.GoString)?.__copy__();
     }
 function _quoteRuneWith(_r:stdgo.GoRune, _quote:stdgo.GoByte, asciionly:Bool, _graphicOnly:Bool):stdgo.GoString {
         return (_appendQuotedRuneWith((null : stdgo.Slice<stdgo.GoUInt8>), _r, _quote, asciionly, _graphicOnly) : stdgo.GoString)?.__copy__();
     }
 function _appendQuotedWith(_buf:stdgo.Slice<stdgo.GoByte>, _s:stdgo.GoString, _quote:stdgo.GoByte, asciionly:Bool, _graphicOnly:Bool):stdgo.Slice<stdgo.GoByte> {
         if (((_buf.capacity - (_buf.length) : stdgo.GoInt) < (_s.length) : Bool)) {
-            var _nBuf = new stdgo.Slice<stdgo.GoUInt8>((_buf.length : stdgo.GoInt).toBasic(), ((((_buf.length) + (1 : stdgo.GoInt) : stdgo.GoInt) + (_s.length) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__();
+            var _nBuf = (new stdgo.Slice<stdgo.GoUInt8>((_buf.length : stdgo.GoInt).toBasic(), ((((_buf.length) + (1 : stdgo.GoInt) : stdgo.GoInt) + (_s.length) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             stdgo.Go.copySlice(_nBuf, _buf);
             _buf = _nBuf;
         };
@@ -4493,7 +4493,7 @@ function _unquote(_in:stdgo.GoString, _unescape:Bool):{ var _0 : stdgo.GoString;
                         } else if (!_contains((_in.__slice__(0, _end) : stdgo.GoString)?.__copy__(), (13 : stdgo.GoUInt8))) {
                             _out = (_in.__slice__((("`" : stdgo.GoString).length), (_end - (("`" : stdgo.GoString).length) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                         } else {
-                            var _buf = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (((_end - (("`" : stdgo.GoString).length) : stdgo.GoInt) - (("\r" : stdgo.GoString).length) : stdgo.GoInt) - (("`" : stdgo.GoString).length) : stdgo.GoInt)).__setNumber32__();
+                            var _buf = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (((_end - (("`" : stdgo.GoString).length) : stdgo.GoInt) - (("\r" : stdgo.GoString).length) : stdgo.GoInt) - (("`" : stdgo.GoString).length) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                             {
                                 var _i:stdgo.GoInt = (("`" : stdgo.GoString).length);
                                 stdgo.Go.cfor((_i < (_end - (("`" : stdgo.GoString).length) : stdgo.GoInt) : Bool), _i++, {
@@ -4530,7 +4530,7 @@ function _unquote(_in:stdgo.GoString, _unescape:Bool):{ var _0 : stdgo.GoString;
                         var _in0:stdgo.GoString = _in?.__copy__();
                         _in = (_in.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                         if (_unescape) {
-                            _buf = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (((3 : stdgo.GoInt) * _end : stdgo.GoInt) / (2 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__();
+                            _buf = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (((3 : stdgo.GoInt) * _end : stdgo.GoInt) / (2 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                         };
                         while ((((_in.length) > (0 : stdgo.GoInt) : Bool) && (_in[(0 : stdgo.GoInt)] != _quote) : Bool)) {
                             var __tmp__ = unquoteChar(_in?.__copy__(), _quote), _r:stdgo.GoInt32 = __tmp__._0, _multibyte:Bool = __tmp__._1, _rem:stdgo.GoString = __tmp__._2, _err:stdgo.Error = __tmp__._3;
@@ -4805,7 +4805,7 @@ class T_decimal_asInterface {
         if ((_a._dp < (0 : stdgo.GoInt) : Bool)) {
             _n = (_n + (-_a._dp) : stdgo.GoInt);
         };
-        var _buf = new stdgo.Slice<stdgo.GoUInt8>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _buf = (new stdgo.Slice<stdgo.GoUInt8>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var _w:stdgo.GoInt = (0 : stdgo.GoInt);
         if (_a._nd == ((0 : stdgo.GoInt))) {
             return ("0" : stdgo.GoString);

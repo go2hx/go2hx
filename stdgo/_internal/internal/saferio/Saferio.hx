@@ -6,7 +6,7 @@ function readData(_r:stdgo._internal.io.Io.Reader, _n:stdgo.GoUInt64):{ var _0 :
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.io.Io.errUnexpectedEOF };
         };
         if ((_n < (10485760i64 : stdgo.GoUInt64) : Bool)) {
-            var _buf = new stdgo.Slice<stdgo.GoUInt8>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _buf = (new stdgo.Slice<stdgo.GoUInt8>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             var __tmp__ = stdgo._internal.io.Io.readFull(_r, _buf), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
@@ -14,7 +14,7 @@ function readData(_r:stdgo._internal.io.Io.Reader, _n:stdgo.GoUInt64):{ var _0 :
             return { _0 : _buf, _1 : (null : stdgo.Error) };
         };
         var _buf:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
-        var _buf1 = new stdgo.Slice<stdgo.GoUInt8>((10485760 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _buf1 = (new stdgo.Slice<stdgo.GoUInt8>((10485760 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         while ((_n > (0i64 : stdgo.GoUInt64) : Bool)) {
             var _next:stdgo.GoUInt64 = _n;
             if ((_next > (10485760i64 : stdgo.GoUInt64) : Bool)) {
@@ -37,7 +37,7 @@ function readDataAt(_r:stdgo._internal.io.Io.ReaderAt, _n:stdgo.GoUInt64, _off:s
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.io.Io.errUnexpectedEOF };
         };
         if ((_n < (10485760i64 : stdgo.GoUInt64) : Bool)) {
-            var _buf = new stdgo.Slice<stdgo.GoUInt8>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _buf = (new stdgo.Slice<stdgo.GoUInt8>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             var __tmp__ = _r.readAt(_buf, _off), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 if (((stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo._internal.io.Io.eof)) || (_n > (0i64 : stdgo.GoUInt64) : Bool) : Bool)) {
@@ -47,7 +47,7 @@ function readDataAt(_r:stdgo._internal.io.Io.ReaderAt, _n:stdgo.GoUInt64, _off:s
             return { _0 : _buf, _1 : (null : stdgo.Error) };
         };
         var _buf:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
-        var _buf1 = new stdgo.Slice<stdgo.GoUInt8>((10485760 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _buf1 = (new stdgo.Slice<stdgo.GoUInt8>((10485760 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         while ((_n > (0i64 : stdgo.GoUInt64) : Bool)) {
             var _next:stdgo.GoUInt64 = _n;
             if ((_next > (10485760i64 : stdgo.GoUInt64) : Bool)) {

@@ -1836,7 +1836,7 @@ function testHammer32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 __deferstack__.unshift(() -> stdgo._internal.runtime.Runtime.gomaxprocs(_a0));
             };
             for (_name => _testf in _hammer32) {
-                var _c = new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt));
+                var _c = (new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>);
                 var _val:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
                 {
                     var _i:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -2154,7 +2154,7 @@ function testHammer64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 __deferstack__.unshift(() -> stdgo._internal.runtime.Runtime.gomaxprocs(_a0));
             };
             for (_name => _testf in _hammer64) {
-                var _c = new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt));
+                var _c = (new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>);
                 var _val:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
                 {
                     var _i:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -2467,7 +2467,7 @@ _hammerStoreLoadUint64Method]) : stdgo.Slice<(stdgo.Ref<stdgo._internal.testing.
             };
             stdgo._internal.runtime.Runtime.gc();
             for (__34 => _tt in _tests) {
-                var _c = new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt));
+                var _c = (new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>);
                 var _val:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
                 {
                     var _p:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -2528,7 +2528,7 @@ function testStoreLoadSeqCst32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
             if (stdgo._internal.testing.Testing.short()) {
                 n = (100 : stdgo.GoInt32);
             };
-            var _c = new stdgo.Chan<Bool>((2 : stdgo.GoInt).toBasic(), () -> false);
+            var _c = (new stdgo.Chan<Bool>((2 : stdgo.GoInt).toBasic(), () -> false) : stdgo.Chan<Bool>);
             var x = (new stdgo.GoArray<stdgo.GoInt32>(2, 2, ...[]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt32>)?.__copy__();
             var _ack = (new stdgo.GoArray<stdgo.GoArray<stdgo.GoInt32>>(2, 2, ...[(new stdgo.GoArray<stdgo.GoInt32>(3, 3, ...[(-1 : stdgo.GoInt32), (-1 : stdgo.GoInt32), (-1 : stdgo.GoInt32)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt32>)?.__copy__(), (new stdgo.GoArray<stdgo.GoInt32>(3, 3, ...[(-1 : stdgo.GoInt32), (-1 : stdgo.GoInt32), (-1 : stdgo.GoInt32)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt32>)?.__copy__()].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoInt32>(3, 3, ...[for (i in 0 ... 3) (0 : stdgo.GoInt32)])])) : stdgo.GoArray<stdgo.GoArray<stdgo.GoInt32>>);
             {
@@ -2606,7 +2606,7 @@ function testStoreLoadSeqCst64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
             if (stdgo._internal.testing.Testing.short()) {
                 n = (100i64 : stdgo.GoInt64);
             };
-            var _c = new stdgo.Chan<Bool>((2 : stdgo.GoInt).toBasic(), () -> false);
+            var _c = (new stdgo.Chan<Bool>((2 : stdgo.GoInt).toBasic(), () -> false) : stdgo.Chan<Bool>);
             var x = (new stdgo.GoArray<stdgo.GoInt64>(2, 2, ...[]).__setNumber64__() : stdgo.GoArray<stdgo.GoInt64>)?.__copy__();
             var _ack = (new stdgo.GoArray<stdgo.GoArray<stdgo.GoInt64>>(2, 2, ...[(new stdgo.GoArray<stdgo.GoInt64>(3, 3, ...[(-1i64 : stdgo.GoInt64), (-1i64 : stdgo.GoInt64), (-1i64 : stdgo.GoInt64)]).__setNumber64__() : stdgo.GoArray<stdgo.GoInt64>)?.__copy__(), (new stdgo.GoArray<stdgo.GoInt64>(3, 3, ...[(-1i64 : stdgo.GoInt64), (-1i64 : stdgo.GoInt64), (-1i64 : stdgo.GoInt64)]).__setNumber64__() : stdgo.GoArray<stdgo.GoInt64>)?.__copy__()].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoInt64>(3, 3, ...[for (i in 0 ... 3) (0 : stdgo.GoInt64)])])) : stdgo.GoArray<stdgo.GoArray<stdgo.GoInt64>>);
             {
@@ -2702,7 +2702,7 @@ function testStoreLoadRelAcq32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
             if (stdgo._internal.testing.Testing.short()) {
                 n = (100 : stdgo.GoInt32);
             };
-            var _c = new stdgo.Chan<Bool>((2 : stdgo.GoInt).toBasic(), () -> false);
+            var _c = (new stdgo.Chan<Bool>((2 : stdgo.GoInt).toBasic(), () -> false) : stdgo.Chan<Bool>);
             {};
             var x:T_testStoreLoadRelAcq32_15___localname___Data = ({} : stdgo._internal.sync.atomic_test.Atomic_test.T_testStoreLoadRelAcq32_15___localname___Data);
             {
@@ -2796,7 +2796,7 @@ function testStoreLoadRelAcq64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
             if (stdgo._internal.testing.Testing.short()) {
                 n = (100i64 : stdgo.GoInt64);
             };
-            var _c = new stdgo.Chan<Bool>((2 : stdgo.GoInt).toBasic(), () -> false);
+            var _c = (new stdgo.Chan<Bool>((2 : stdgo.GoInt).toBasic(), () -> false) : stdgo.Chan<Bool>);
             {};
             var x:T_testStoreLoadRelAcq64_16___localname___Data = ({} : stdgo._internal.sync.atomic_test.Atomic_test.T_testStoreLoadRelAcq64_16___localname___Data);
             {
@@ -2911,7 +2911,7 @@ function testUnaligned64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
         if (false) {
             _t.skip(stdgo.Go.toInterface(("test only runs on 32-bit systems" : stdgo.GoString)));
         };
-        var _x = new stdgo.Slice<stdgo.GoUInt32>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _x = (new stdgo.Slice<stdgo.GoUInt32>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt32>);
         var _p = ((stdgo.Go.toInterface(stdgo.Go.pointer(_x[(1 : stdgo.GoInt)])) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint64_kind) })) : stdgo.Pointer<stdgo.GoUInt64>);
         _shouldPanic(_t, ("LoadUint64" : stdgo.GoString), function():Void {
             loadUint64(_p);
@@ -3193,7 +3193,7 @@ function _loadConfig():stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
         } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
     }
 function _requests():stdgo.Chan<stdgo.GoInt> {
-        return new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt));
+        return (new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>);
     }
 function exampleValue_config():Void {
         var _config:stdgo._internal.sync.atomic_.Atomic_.Value = ({} : stdgo._internal.sync.atomic_.Atomic_.Value);
@@ -3229,12 +3229,12 @@ function exampleValue_config():Void {
 function exampleValue_readMostly():Void {
         {};
         var _m:stdgo._internal.sync.atomic_.Atomic_.Value = ({} : stdgo._internal.sync.atomic_.Atomic_.Value);
-        _m.store(stdgo.Go.toInterface(({
+        _m.store(stdgo.Go.toInterface((({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
             x.__defaultValue__ = () -> ("" : stdgo.GoString);
             @:mergeBlock {};
             x;
-        } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>)));
+        } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>) : stdgo._internal.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_17___localname___Map)));
         var _mu:stdgo._internal.sync.Sync.Mutex = ({} : stdgo._internal.sync.Sync.Mutex);
         var _read:stdgo.GoString -> stdgo.GoString = function(_key:stdgo.GoString):stdgo.GoString {
             var _val:stdgo.GoString = ("" : stdgo.GoString);
@@ -3247,12 +3247,12 @@ function exampleValue_readMostly():Void {
                 _mu.lock();
                 __deferstack__.unshift(() -> _mu.unlock());
                 var _m1:stdgo._internal.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_17___localname___Map = (stdgo.Go.typeAssert((_m.load() : T_exampleValue_readMostly_17___localname___Map)) : T_exampleValue_readMostly_17___localname___Map);
-                var _m2:stdgo._internal.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_17___localname___Map = ({
+                var _m2:stdgo._internal.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_17___localname___Map = (({
                     final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
                     x.__defaultValue__ = () -> ("" : stdgo.GoString);
                     @:mergeBlock {};
                     x;
-                } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+                } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>) : stdgo._internal.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_17___localname___Map);
                 for (_k => _v in _m1) {
                     _m2[_k] = _v?.__copy__();
                 };
@@ -3480,7 +3480,7 @@ function testValueConcurrent(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
         };
         for (__34 => _test in _tests) {
             var _v:Value = ({} : stdgo._internal.sync.atomic_.Atomic_.Value);
-            var _done = new stdgo.Chan<Bool>((_p : stdgo.GoInt).toBasic(), () -> false);
+            var _done = (new stdgo.Chan<Bool>((_p : stdgo.GoInt).toBasic(), () -> false) : stdgo.Chan<Bool>);
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
                 stdgo.Go.cfor((_i < _p : Bool), _i++, {

@@ -1689,9 +1689,9 @@ function _initAtofOnce():Void {
             };
         };
         if (stdgo._internal.testing.Testing.short()) {
-            _atofRandomTests = new stdgo.Slice<stdgo._internal.strconv_test.Strconv_test.T_atofSimpleTest>((100 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((100 : stdgo.GoInt).toBasic() > 0 ? (100 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.strconv_test.Strconv_test.T_atofSimpleTest)]);
+            _atofRandomTests = (new stdgo.Slice<stdgo._internal.strconv_test.Strconv_test.T_atofSimpleTest>((100 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((100 : stdgo.GoInt).toBasic() > 0 ? (100 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.strconv_test.Strconv_test.T_atofSimpleTest)]) : stdgo.Slice<stdgo._internal.strconv_test.Strconv_test.T_atofSimpleTest>);
         } else {
-            _atofRandomTests = new stdgo.Slice<stdgo._internal.strconv_test.Strconv_test.T_atofSimpleTest>((10000 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((10000 : stdgo.GoInt).toBasic() > 0 ? (10000 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.strconv_test.Strconv_test.T_atofSimpleTest)]);
+            _atofRandomTests = (new stdgo.Slice<stdgo._internal.strconv_test.Strconv_test.T_atofSimpleTest>((10000 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((10000 : stdgo.GoInt).toBasic() > 0 ? (10000 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.strconv_test.Strconv_test.T_atofSimpleTest)]) : stdgo.Slice<stdgo._internal.strconv_test.Strconv_test.T_atofSimpleTest>);
         };
         for (_i => _ in _atofRandomTests) {
             var _n:stdgo.GoUInt64 = (((stdgo._internal.math.rand.Rand.uint32() : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) | (stdgo._internal.math.rand.Rand.uint32() : stdgo.GoUInt64) : stdgo.GoUInt64);
@@ -1922,7 +1922,7 @@ function benchmarkAtof64RandomFloats(_b:stdgo.Ref<stdgo._internal.testing.Testin
     }
 function benchmarkAtof64RandomLongFloats(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         _initAtof();
-        var _samples = new stdgo.Slice<stdgo.GoString>((_atofRandomTests.length : stdgo.GoInt).toBasic(), 0).__setString__();
+        var _samples = (new stdgo.Slice<stdgo.GoString>((_atofRandomTests.length : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
         for (_i => _t in _atofRandomTests) {
             _samples[(_i : stdgo.GoInt)] = formatFloat(_t._x, (103 : stdgo.GoUInt8), (20 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__();
         };
@@ -2961,7 +2961,7 @@ function benchmarkFormatFloat(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):V
         };
     }
 function benchmarkAppendFloat(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-        var _dst = new stdgo.Slice<stdgo.GoUInt8>((30 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _dst = (new stdgo.Slice<stdgo.GoUInt8>((30 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         for (__0 => _c in _ftoaBenches) {
             _b.run(_c._name?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
                 {
@@ -3095,7 +3095,7 @@ function benchmarkFormatInt(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Voi
         };
     }
 function benchmarkAppendInt(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-        var _dst = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (30 : stdgo.GoInt)).__setNumber32__();
+        var _dst = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (30 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
@@ -3118,7 +3118,7 @@ function benchmarkFormatUint(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Vo
         };
     }
 function benchmarkAppendUint(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-        var _dst = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (30 : stdgo.GoInt)).__setNumber32__();
+        var _dst = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (30 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
@@ -3144,7 +3144,7 @@ function benchmarkFormatIntSmall(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>
         };
     }
 function benchmarkAppendIntSmall(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-        var _dst = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (30 : stdgo.GoInt)).__setNumber32__();
+        var _dst = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (30 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         {};
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -3157,7 +3157,7 @@ function benchmarkAppendIntSmall(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>
 function benchmarkAppendUintVarlen(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         for (__0 => _test in _varlenUints) {
             _b.run(_test._out?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-                var _dst = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (30 : stdgo.GoInt)).__setNumber32__();
+                var _dst = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (30 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                 {
                     var _j:stdgo.GoInt = (0 : stdgo.GoInt);
                     stdgo.Go.cfor((_j < _b.n : Bool), _j++, {
@@ -3405,7 +3405,7 @@ function testCountMallocs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
         if ((stdgo._internal.runtime.Runtime.gomaxprocs((0 : stdgo.GoInt)) > (1 : stdgo.GoInt) : Bool)) {
             _t.skip(stdgo.Go.toInterface(("skipping; GOMAXPROCS>1" : stdgo.GoString)));
         };
-        _oneMB = new stdgo.Slice<stdgo.GoUInt8>((1000000 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        _oneMB = (new stdgo.Slice<stdgo.GoUInt8>((1000000 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         for (_i => _ in _oneMB) {
             _oneMB[(_i : stdgo.GoInt)] = (_i : stdgo.GoByte);
         };
@@ -3421,7 +3421,7 @@ function testCountMallocs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
     }
 function testAllocationsFromBytes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
-        var _bytes:T__struct_7 = ({ bool_ : (("false" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), number : (("123456789" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), string : (("hello, world!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), buffer : new stdgo.Slice<stdgo.GoUInt8>((1024 : stdgo.GoInt).toBasic(), 0).__setNumber32__() } : T__struct_7);
+        var _bytes:T__struct_7 = ({ bool_ : (("false" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), number : (("123456789" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), string : (("hello, world!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), buffer : (new stdgo.Slice<stdgo.GoUInt8>((1024 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) } : T__struct_7);
         var _checkNoAllocs = function(_f:() -> Void):(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>) -> Void {
             return function(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 _t.helper();

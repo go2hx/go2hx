@@ -316,8 +316,8 @@ var _indexFuncTests : stdgo.Slice<T__struct_16> = (new stdgo.Slice<T__struct_16>
 ({ _in : stdgo.Go.str("ab", 192, "a", 192, "cd")?.__copy__(), _f : _not(_isValidRune?.__copy__())?.__copy__(), _first : (2 : stdgo.GoInt), _last : (4 : stdgo.GoInt) } : T__struct_16),
 ({ _in : stdgo.Go.str("a", 224, 128, "cd")?.__copy__(), _f : _not(_isValidRune?.__copy__())?.__copy__(), _first : (1 : stdgo.GoInt), _last : (2 : stdgo.GoInt) } : T__struct_16),
 ({ _in : stdgo.Go.str(128, 128, 128, 128)?.__copy__(), _f : _not(_isValidRune?.__copy__())?.__copy__(), _first : (0 : stdgo.GoInt), _last : (3 : stdgo.GoInt) } : T__struct_16)].concat([for (i in 17 ... (17 > 17 ? 17 : 17 : stdgo.GoInt).toBasic()) ({ _in : ("" : stdgo.GoString), _f : ({} : stdgo._internal.strings_test.Strings_test.T_predicate), _first : (0 : stdgo.GoInt), _last : (0 : stdgo.GoInt) } : T__struct_16)])) : stdgo.Slice<T__struct_16>);
-var _longString : stdgo.GoString = ((("a" : stdgo.GoString) + (new stdgo.Slice<stdgo.GoUInt8>((65536 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.GoString)?.__copy__() : stdgo.GoString) + ("z" : stdgo.GoString)?.__copy__() : stdgo.GoString);
-var repeatTests : stdgo.Slice<T__struct_17> = (new stdgo.Slice<T__struct_17>(9, 9, ...[({ _in : stdgo.Go.str()?.__copy__(), _out : stdgo.Go.str()?.__copy__(), _count : (0 : stdgo.GoInt) } : T__struct_17), ({ _in : stdgo.Go.str()?.__copy__(), _out : stdgo.Go.str()?.__copy__(), _count : (1 : stdgo.GoInt) } : T__struct_17), ({ _in : stdgo.Go.str()?.__copy__(), _out : stdgo.Go.str()?.__copy__(), _count : (2 : stdgo.GoInt) } : T__struct_17), ({ _in : ("-" : stdgo.GoString), _out : stdgo.Go.str()?.__copy__(), _count : (0 : stdgo.GoInt) } : T__struct_17), ({ _in : ("-" : stdgo.GoString), _out : ("-" : stdgo.GoString), _count : (1 : stdgo.GoInt) } : T__struct_17), ({ _in : ("-" : stdgo.GoString), _out : ("----------" : stdgo.GoString), _count : (10 : stdgo.GoInt) } : T__struct_17), ({ _in : ("abc " : stdgo.GoString), _out : ("abc abc abc " : stdgo.GoString), _count : (3 : stdgo.GoInt) } : T__struct_17), ({ _in : (((0 : stdgo.GoInt32) : stdgo.GoRune) : stdgo.GoString), _out : (new stdgo.Slice<stdgo.GoUInt8>((65536 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.GoString)?.__copy__(), _count : (65536 : stdgo.GoInt) } : T__struct_17), ({ _in : _longString?.__copy__(), _out : (_longString + _longString?.__copy__() : stdgo.GoString)?.__copy__(), _count : (2 : stdgo.GoInt) } : T__struct_17)].concat([for (i in 9 ... (9 > 9 ? 9 : 9 : stdgo.GoInt).toBasic()) ({ _in : ("" : stdgo.GoString), _out : ("" : stdgo.GoString), _count : (0 : stdgo.GoInt) } : T__struct_17)])) : stdgo.Slice<T__struct_17>);
+var _longString : stdgo.GoString = ((("a" : stdgo.GoString) + ((new stdgo.Slice<stdgo.GoUInt8>((65536 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__() : stdgo.GoString) + ("z" : stdgo.GoString)?.__copy__() : stdgo.GoString);
+var repeatTests : stdgo.Slice<T__struct_17> = (new stdgo.Slice<T__struct_17>(9, 9, ...[({ _in : stdgo.Go.str()?.__copy__(), _out : stdgo.Go.str()?.__copy__(), _count : (0 : stdgo.GoInt) } : T__struct_17), ({ _in : stdgo.Go.str()?.__copy__(), _out : stdgo.Go.str()?.__copy__(), _count : (1 : stdgo.GoInt) } : T__struct_17), ({ _in : stdgo.Go.str()?.__copy__(), _out : stdgo.Go.str()?.__copy__(), _count : (2 : stdgo.GoInt) } : T__struct_17), ({ _in : ("-" : stdgo.GoString), _out : stdgo.Go.str()?.__copy__(), _count : (0 : stdgo.GoInt) } : T__struct_17), ({ _in : ("-" : stdgo.GoString), _out : ("-" : stdgo.GoString), _count : (1 : stdgo.GoInt) } : T__struct_17), ({ _in : ("-" : stdgo.GoString), _out : ("----------" : stdgo.GoString), _count : (10 : stdgo.GoInt) } : T__struct_17), ({ _in : ("abc " : stdgo.GoString), _out : ("abc abc abc " : stdgo.GoString), _count : (3 : stdgo.GoInt) } : T__struct_17), ({ _in : (((0 : stdgo.GoInt32) : stdgo.GoRune) : stdgo.GoString), _out : ((new stdgo.Slice<stdgo.GoUInt8>((65536 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__(), _count : (65536 : stdgo.GoInt) } : T__struct_17), ({ _in : _longString?.__copy__(), _out : (_longString + _longString?.__copy__() : stdgo.GoString)?.__copy__(), _count : (2 : stdgo.GoInt) } : T__struct_17)].concat([for (i in 9 ... (9 > 9 ? 9 : 9 : stdgo.GoInt).toBasic()) ({ _in : ("" : stdgo.GoString), _out : ("" : stdgo.GoString), _count : (0 : stdgo.GoInt) } : T__struct_17)])) : stdgo.Slice<T__struct_17>);
 var runesTests : stdgo.Slice<T__struct_19> = (new stdgo.Slice<T__struct_19>(7, 7, ...[({ _in : stdgo.Go.str()?.__copy__(), _out : (new stdgo.Slice<stdgo.GoInt32>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>), _lossy : false } : T__struct_19), ({ _in : (" " : stdgo.GoString), _out : (new stdgo.Slice<stdgo.GoInt32>(1, 1, ...[(32 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>), _lossy : false } : T__struct_19), ({ _in : ("ABC" : stdgo.GoString), _out : (new stdgo.Slice<stdgo.GoInt32>(3, 3, ...[(65 : stdgo.GoInt32), (66 : stdgo.GoInt32), (67 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>), _lossy : false } : T__struct_19), ({ _in : ("abc" : stdgo.GoString), _out : (new stdgo.Slice<stdgo.GoInt32>(3, 3, ...[(97 : stdgo.GoInt32), (98 : stdgo.GoInt32), (99 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>), _lossy : false } : T__struct_19), ({ _in : ("日本語" : stdgo.GoString), _out : (new stdgo.Slice<stdgo.GoInt32>(3, 3, ...[(26085 : stdgo.GoInt32), (26412 : stdgo.GoInt32), (35486 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>), _lossy : false } : T__struct_19), ({ _in : stdgo.Go.str("ab", 128, "c")?.__copy__(), _out : (new stdgo.Slice<stdgo.GoInt32>(4, 4, ...[(97 : stdgo.GoInt32), (98 : stdgo.GoInt32), (65533 : stdgo.GoInt32), (99 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>), _lossy : true } : T__struct_19), ({ _in : stdgo.Go.str("ab", 192, "c")?.__copy__(), _out : (new stdgo.Slice<stdgo.GoInt32>(4, 4, ...[(97 : stdgo.GoInt32), (98 : stdgo.GoInt32), (65533 : stdgo.GoInt32), (99 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>), _lossy : true } : T__struct_19)].concat([for (i in 7 ... (7 > 7 ? 7 : 7 : stdgo.GoInt).toBasic()) ({ _in : ("" : stdgo.GoString), _out : (null : stdgo.Slice<stdgo.GoInt32>), _lossy : false } : T__struct_19)])) : stdgo.Slice<T__struct_19>);
 var unreadRuneErrorTests : stdgo.Slice<T__struct_20> = (new stdgo.Slice<T__struct_20>(5, 5, ...[({ _name : ("Read" : stdgo.GoString), _f : function(_r:stdgo.Ref<Reader>):Void {
         _r.read((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(0 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>));
@@ -443,7 +443,7 @@ var _benchInputHard : stdgo.GoString = _makeBenchInputHard();
 var _benchInputTorture : stdgo.GoString = ((repeat(("ABC" : stdgo.GoString), (1024 : stdgo.GoInt)) + ("123" : stdgo.GoString)?.__copy__() : stdgo.GoString) + repeat(("ABC" : stdgo.GoString), (1024 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
 var _benchNeedleTorture : stdgo.GoString = repeat(("ABC" : stdgo.GoString), (1025 : stdgo.GoInt));
 var _makeFieldsInput : () -> stdgo.GoString = function():stdgo.GoString {
-        var _x = new stdgo.Slice<stdgo.GoUInt8>((1048576 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _x = (new stdgo.Slice<stdgo.GoUInt8>((1048576 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         for (_i => _ in _x) {
             {
                 var __switchIndex__ = -1;
@@ -479,7 +479,7 @@ var _makeFieldsInput : () -> stdgo.GoString = function():stdgo.GoString {
         return (_x : stdgo.GoString)?.__copy__();
     };
 var _makeFieldsInputASCII : () -> stdgo.GoString = function():stdgo.GoString {
-        var _x = new stdgo.Slice<stdgo.GoUInt8>((1048576 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _x = (new stdgo.Slice<stdgo.GoUInt8>((1048576 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         for (_i => _ in _x) {
             if (stdgo._internal.math.rand.Rand.intn((10 : stdgo.GoInt)) == ((0 : stdgo.GoInt))) {
                 _x[(_i : stdgo.GoInt)] = (32 : stdgo.GoUInt8);
@@ -1343,7 +1343,7 @@ function testBuilderCopyPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
             _b.grow((2 : stdgo.GoInt));
         } } : T__struct_1)].concat([for (i in 9 ... (9 > 9 ? 9 : 9 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _fn : null, _wantPanic : false } : T__struct_1)])) : stdgo.Slice<T__struct_1>);
         for (__0 => _tt in _tests) {
-            var _didPanic = new stdgo.Chan<Bool>(0, () -> false);
+            var _didPanic = (new stdgo.Chan<Bool>(0, () -> false) : stdgo.Chan<Bool>);
             stdgo.Go.routine(() -> {
                 var a = function():Void {
                     var __deferstack__:Array<Void -> Void> = [];
@@ -1501,7 +1501,7 @@ function testCompareStrings(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
         var _unsafeString = function(_b:stdgo.Slice<stdgo.GoByte>):stdgo.GoString {
             return (stdgo._internal.unsafe.Unsafe.string(stdgo._internal.unsafe.Unsafe.sliceData(_b), (_b.length)) : stdgo.GoString)?.__copy__();
         };
-        var _lengths = new stdgo.Slice<stdgo.GoInt>((0 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _lengths = (new stdgo.Slice<stdgo.GoInt>((0 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i <= (128 : stdgo.GoInt) : Bool), _i++, {
@@ -1513,8 +1513,8 @@ function testCompareStrings(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
             _lengths = (_lengths.__append__((65535 : stdgo.GoInt), (65536 : stdgo.GoInt), (65537 : stdgo.GoInt), (99999 : stdgo.GoInt)));
         };
         var _n:stdgo.GoInt = _lengths[((_lengths.length) - (1 : stdgo.GoInt) : stdgo.GoInt)];
-        var _a = new stdgo.Slice<stdgo.GoUInt8>((_n + (1 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        var _b = new stdgo.Slice<stdgo.GoUInt8>((_n + (1 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _a = (new stdgo.Slice<stdgo.GoUInt8>((_n + (1 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+        var _b = (new stdgo.Slice<stdgo.GoUInt8>((_n + (1 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var _lastLen:stdgo.GoInt = (0 : stdgo.GoInt);
         for (__0 => _len in _lengths) {
             {
@@ -1835,7 +1835,7 @@ function testReader(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             if (((_tt._wantpos != (0i64 : stdgo.GoInt64)) && (_tt._wantpos != _pos) : Bool)) {
                 _t.errorf(("%d. pos = %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_pos), stdgo.Go.toInterface(_tt._wantpos));
             };
-            var _buf = new stdgo.Slice<stdgo.GoUInt8>((_tt._n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _buf = (new stdgo.Slice<stdgo.GoUInt8>((_tt._n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             var __tmp__ = _r.read(_buf), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(_tt._readerr))) {
                 _t.errorf(("%d. read = %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_tt._readerr));
@@ -1856,7 +1856,7 @@ function testReadAfterBigSeek(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
             };
         };
         {
-            var __tmp__ = _r.read(new stdgo.Slice<stdgo.GoUInt8>((10 : stdgo.GoInt).toBasic(), 0).__setNumber32__()), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = _r.read((new stdgo.Slice<stdgo.GoUInt8>((10 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (((_n != (0 : stdgo.GoInt)) || (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo._internal.io.Io.eof)) : Bool)) {
                 _t.errorf(("Read = %d, %v; want 0, EOF" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
             };
@@ -1866,7 +1866,7 @@ function testReaderAt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _r = stdgo._internal.strings.Strings.newReader(("0123456789" : stdgo.GoString));
         var _tests = (new stdgo.Slice<T__struct_4>(6, 6, ...[({ _off : (0i64 : stdgo.GoInt64), _n : (10 : stdgo.GoInt), _want : ("0123456789" : stdgo.GoString), _wanterr : (null : stdgo.AnyInterface) } : T__struct_4), ({ _off : (1i64 : stdgo.GoInt64), _n : (10 : stdgo.GoInt), _want : ("123456789" : stdgo.GoString), _wanterr : stdgo.Go.toInterface(stdgo._internal.io.Io.eof) } : T__struct_4), ({ _off : (1i64 : stdgo.GoInt64), _n : (9 : stdgo.GoInt), _want : ("123456789" : stdgo.GoString), _wanterr : (null : stdgo.AnyInterface) } : T__struct_4), ({ _off : (11i64 : stdgo.GoInt64), _n : (10 : stdgo.GoInt), _want : stdgo.Go.str()?.__copy__(), _wanterr : stdgo.Go.toInterface(stdgo._internal.io.Io.eof) } : T__struct_4), ({ _off : (0i64 : stdgo.GoInt64), _n : (0 : stdgo.GoInt), _want : stdgo.Go.str()?.__copy__(), _wanterr : (null : stdgo.AnyInterface) } : T__struct_4), ({ _off : (-1i64 : stdgo.GoInt64), _n : (0 : stdgo.GoInt), _want : stdgo.Go.str()?.__copy__(), _wanterr : stdgo.Go.toInterface(("strings.Reader.ReadAt: negative offset" : stdgo.GoString)) } : T__struct_4)].concat([for (i in 6 ... (6 > 6 ? 6 : 6 : stdgo.GoInt).toBasic()) ({ _off : (0 : stdgo.GoInt64), _n : (0 : stdgo.GoInt), _want : ("" : stdgo.GoString), _wanterr : (null : stdgo.AnyInterface) } : T__struct_4)])) : stdgo.Slice<T__struct_4>);
         for (_i => _tt in _tests) {
-            var _b = new stdgo.Slice<stdgo.GoUInt8>((_tt._n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _b = (new stdgo.Slice<stdgo.GoUInt8>((_tt._n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             var __tmp__ = _r.readAt(_b, _tt._off), _rn:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             var _got:stdgo.GoString = ((_b.__slice__(0, _rn) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__();
             if (_got != (_tt._want)) {
@@ -2196,7 +2196,7 @@ function testReplacer(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _foo3 = newReplacer(("foo11" : stdgo.GoString), ("A" : stdgo.GoString), ("foo12" : stdgo.GoString), ("B" : stdgo.GoString), ("foo31" : stdgo.GoString), ("C" : stdgo.GoString), ("foo32" : stdgo.GoString), ("D" : stdgo.GoString));
         var _foo4 = newReplacer(("foo12" : stdgo.GoString), ("B" : stdgo.GoString), ("foo32" : stdgo.GoString), ("D" : stdgo.GoString));
         _testCases = (_testCases.__append__((new stdgo._internal.strings_test.Strings_test.T_testReplacer_2___localname___testCase(_foo1, ("fofoofoo12foo32oo" : stdgo.GoString), ("fofooA2C2oo" : stdgo.GoString)) : stdgo._internal.strings_test.Strings_test.T_testReplacer_2___localname___testCase), (new stdgo._internal.strings_test.Strings_test.T_testReplacer_2___localname___testCase(_foo1, stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo._internal.strings_test.Strings_test.T_testReplacer_2___localname___testCase), (new stdgo._internal.strings_test.Strings_test.T_testReplacer_2___localname___testCase(_foo2, ("fofoofoo12foo32oo" : stdgo.GoString), ("fofooA2Doo" : stdgo.GoString)) : stdgo._internal.strings_test.Strings_test.T_testReplacer_2___localname___testCase), (new stdgo._internal.strings_test.Strings_test.T_testReplacer_2___localname___testCase(_foo2, stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo._internal.strings_test.Strings_test.T_testReplacer_2___localname___testCase), (new stdgo._internal.strings_test.Strings_test.T_testReplacer_2___localname___testCase(_foo3, ("fofoofoo12foo32oo" : stdgo.GoString), ("fofooBDoo" : stdgo.GoString)) : stdgo._internal.strings_test.Strings_test.T_testReplacer_2___localname___testCase), (new stdgo._internal.strings_test.Strings_test.T_testReplacer_2___localname___testCase(_foo3, stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo._internal.strings_test.Strings_test.T_testReplacer_2___localname___testCase), (new stdgo._internal.strings_test.Strings_test.T_testReplacer_2___localname___testCase(_foo4, ("fofoofoo12foo32oo" : stdgo.GoString), ("fofooBDoo" : stdgo.GoString)) : stdgo._internal.strings_test.Strings_test.T_testReplacer_2___localname___testCase), (new stdgo._internal.strings_test.Strings_test.T_testReplacer_2___localname___testCase(_foo4, stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo._internal.strings_test.Strings_test.T_testReplacer_2___localname___testCase)));
-        var _allBytes = new stdgo.Slice<stdgo.GoUInt8>((256 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _allBytes = (new stdgo.Slice<stdgo.GoUInt8>((256 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         for (_i => _ in _allBytes) {
             _allBytes[(_i : stdgo.GoInt)] = (_i : stdgo.GoByte);
         };
@@ -2284,12 +2284,12 @@ function testGenericTrieBuilding(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
         var _testCases = (new stdgo.Slice<StringTest>(4, 4, ...[(new StringTest(("abc;abdef;abdefgh;xx;xy;z" : stdgo.GoString), ("-\n\t\t\ta-\n\t\t\t.b-\n\t\t\t..c+\n\t\t\t..d-\n\t\t\t...ef+\n\t\t\t.....gh+\n\t\t\tx-\n\t\t\t.x+\n\t\t\t.y+\n\t\t\tz+\n\t\t\t" : stdgo.GoString)) : StringTest), (new StringTest(("abracadabra;abracadabrakazam;abraham;abrasion" : stdgo.GoString), ("-\n\t\t\ta-\n\t\t\t.bra-\n\t\t\t....c-\n\t\t\t.....adabra+\n\t\t\t...........kazam+\n\t\t\t....h-\n\t\t\t.....am+\n\t\t\t....s-\n\t\t\t.....ion+\n\t\t\t" : stdgo.GoString)) : StringTest), (new StringTest(("aaa;aa;a;i;longerst;longer;long;xx;x;X;Y" : stdgo.GoString), ("-\n\t\t\tX+\n\t\t\tY+\n\t\t\ta+\n\t\t\t.a+\n\t\t\t..a+\n\t\t\ti+\n\t\t\tl-\n\t\t\t.ong+\n\t\t\t....er+\n\t\t\t......st+\n\t\t\tx+\n\t\t\t.x+\n\t\t\t" : stdgo.GoString)) : StringTest), (new StringTest(("foo;;foo;foo1" : stdgo.GoString), ("+\n\t\t\tf-\n\t\t\t.oo+\n\t\t\t...1+\n\t\t\t" : stdgo.GoString)) : StringTest)].concat([for (i in 4 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) ({} : StringTest)])) : stdgo.Slice<StringTest>);
         for (__0 => _tc in _testCases) {
             var _keys = split(_tc._in?.__copy__(), (";" : stdgo.GoString));
-            var _args = new stdgo.Slice<stdgo.GoString>(((_keys.length) * (2 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setString__();
+            var _args = (new stdgo.Slice<stdgo.GoString>(((_keys.length) * (2 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
             for (_i => _key in _keys) {
                 _args[(_i * (2 : stdgo.GoInt) : stdgo.GoInt)] = _key?.__copy__();
             };
             var _got:stdgo.GoString = newReplacer(...(_args : Array<stdgo.GoString>)).printTrie()?.__copy__();
-            var _wantbuf = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (_tc._out.length)).__setNumber32__();
+            var _wantbuf = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (_tc._out.length)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
                 stdgo.Go.cfor((_i < (_tc._out.length) : Bool), _i++, {
@@ -2633,7 +2633,7 @@ function testIndexRandom(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
                 {
                     var _strLen:stdgo.GoInt = ((5 : stdgo.GoInt) + stdgo._internal.math.rand.Rand.intn((5 : stdgo.GoInt)) : stdgo.GoInt);
                     stdgo.Go.cfor((_strLen < (140 : stdgo.GoInt) : Bool), _strLen = (_strLen + ((10 : stdgo.GoInt)) : stdgo.GoInt), {
-                        var _s1 = new stdgo.Slice<stdgo.GoUInt8>((_strLen : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+                        var _s1 = (new stdgo.Slice<stdgo.GoUInt8>((_strLen : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                         for (_i => _ in _s1) {
                             _s1[(_i : stdgo.GoInt)] = ("abcdefghijklmnopqrstuvwxyz0123456789" : stdgo.GoString)[(stdgo._internal.math.rand.Rand.intn((("abcdefghijklmnopqrstuvwxyz0123456789" : stdgo.GoString).length)) : stdgo.GoInt)];
                         };
@@ -2869,7 +2869,7 @@ function _runStringTests(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _f:st
         };
     }
 function _tenRunes(_ch:stdgo.GoRune):stdgo.GoString {
-        var _r = new stdgo.Slice<stdgo.GoInt32>((10 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _r = (new stdgo.Slice<stdgo.GoInt32>((10 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
         for (_i => _ in _r) {
             _r[(_i : stdgo.GoInt)] = _ch;
         };
@@ -3180,7 +3180,7 @@ function testCaseConsistency(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
         if (stdgo._internal.testing.Testing.short()) {
             _numRunes = (1000 : stdgo.GoInt);
         };
-        var _a = new stdgo.Slice<stdgo.GoInt32>((_numRunes : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _a = (new stdgo.Slice<stdgo.GoInt32>((_numRunes : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
         for (_i => _ in _a) {
             _a[(_i : stdgo.GoInt)] = (_i : stdgo.GoRune);
         };
@@ -3280,7 +3280,7 @@ function testRepeatCatchesOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testing.
             s[3] = ({ _s : ("gopher" : stdgo.GoString), _count : (0 : stdgo.GoInt), _errStr : stdgo.Go.str()?.__copy__() } : T__struct_18);
             s[4] = ({ _s : ("-" : stdgo.GoString), _count : (-1 : stdgo.GoInt), _errStr : ("negative" : stdgo.GoString) } : T__struct_18);
             s[5] = ({ _s : ("--" : stdgo.GoString), _count : (-102 : stdgo.GoInt), _errStr : ("negative" : stdgo.GoString) } : T__struct_18);
-            s[6] = ({ _s : (new stdgo.Slice<stdgo.GoUInt8>((255 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.GoString)?.__copy__(), _count : ((16843010u32 : stdgo.GoUInt) : stdgo.GoInt), _errStr : ("overflow" : stdgo.GoString) } : T__struct_18);
+            s[6] = ({ _s : ((new stdgo.Slice<stdgo.GoUInt8>((255 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__(), _count : ((16843010u32 : stdgo.GoUInt) : stdgo.GoInt), _errStr : ("overflow" : stdgo.GoString) } : T__struct_18);
             s;
         };
         for (_i => _tt in _tests) {

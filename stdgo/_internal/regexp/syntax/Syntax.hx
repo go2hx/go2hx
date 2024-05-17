@@ -4259,7 +4259,7 @@ class Regexp_asInterface {
     @:keep
     static public function capNames( _re:stdgo.Ref<Regexp>):stdgo.Slice<stdgo.GoString> {
         @:recv var _re:stdgo.Ref<Regexp> = _re;
-        var _names = new stdgo.Slice<stdgo.GoString>((_re.maxCap() + (1 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setString__();
+        var _names = (new stdgo.Slice<stdgo.GoString>((_re.maxCap() + (1 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
         _re._capNames(_names);
         return _names;
     }

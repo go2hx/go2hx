@@ -416,7 +416,7 @@ function testDiscard(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function benchmarkItoa(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-        var _dst = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (64 : stdgo.GoInt)).__setNumber32__();
+        var _dst = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (64 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {

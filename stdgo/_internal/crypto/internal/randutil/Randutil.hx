@@ -17,7 +17,7 @@ class T__struct_0_asInterface {
 @:local @:using(stdgo._internal.crypto.internal.randutil.Randutil.T__struct_0_static_extension) typedef T__struct_0 = {};
 function maybeReadByte(_r:stdgo._internal.io.Io.Reader):Void {
         _closedChanOnce.do_(function():Void {
-            _closedChan = new stdgo.Chan<T__struct_0>(0, () -> ({  } : T__struct_0));
+            _closedChan = (new stdgo.Chan<T__struct_0>(0, () -> ({  } : T__struct_0)) : stdgo.Chan<T__struct_0>);
             if (_closedChan != null) _closedChan.__close__();
         });
         {

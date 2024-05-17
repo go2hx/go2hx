@@ -258,7 +258,7 @@ function _sizedValue(_t:stdgo._internal.reflect.Reflect.Type_, _rand:stdgo.Ref<s
                     };
                 } else if (__value__ == ((24u32 : stdgo._internal.reflect.Reflect.Kind))) {
                     var _numChars:stdgo.GoInt = _rand.intn((50 : stdgo.GoInt));
-                    var _codePoints = new stdgo.Slice<stdgo.GoInt32>((_numChars : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+                    var _codePoints = (new stdgo.Slice<stdgo.GoInt32>((_numChars : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
                     {
                         var _i:stdgo.GoInt = (0 : stdgo.GoInt);
                         stdgo.Go.cfor((_i < _numChars : Bool), _i++, {
@@ -305,7 +305,7 @@ function check(_f:stdgo.AnyInterface, _config:stdgo.Ref<Config>):stdgo.Error {
         if (_fType.out((0 : stdgo.GoInt)).kind() != ((1u32 : stdgo._internal.reflect.Reflect.Kind))) {
             return stdgo.Go.asInterface(((("function does not return a bool" : stdgo.GoString) : stdgo._internal.testing.quick.Quick.SetupError) : SetupError));
         };
-        var _arguments = new stdgo.Slice<stdgo._internal.reflect.Reflect.Value>((_fType.numIn() : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_fType.numIn() : stdgo.GoInt).toBasic() > 0 ? (_fType.numIn() : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect.Value)]);
+        var _arguments = (new stdgo.Slice<stdgo._internal.reflect.Reflect.Value>((_fType.numIn() : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_fType.numIn() : stdgo.GoInt).toBasic() > 0 ? (_fType.numIn() : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect.Value)]) : stdgo.Slice<stdgo._internal.reflect.Reflect.Value>);
         var _rand = _config._getRand();
         var _maxCount:stdgo.GoInt = _config._getMaxCount();
         {
@@ -337,7 +337,7 @@ function checkEqual(_f:stdgo.AnyInterface, _g:stdgo.AnyInterface, _config:stdgo.
         if (!((_xType.string() : String) == (_yType.string() : String))) {
             return stdgo.Go.asInterface(((("functions have different types" : stdgo.GoString) : stdgo._internal.testing.quick.Quick.SetupError) : SetupError));
         };
-        var _arguments = new stdgo.Slice<stdgo._internal.reflect.Reflect.Value>((_xType.numIn() : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_xType.numIn() : stdgo.GoInt).toBasic() > 0 ? (_xType.numIn() : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect.Value)]);
+        var _arguments = (new stdgo.Slice<stdgo._internal.reflect.Reflect.Value>((_xType.numIn() : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_xType.numIn() : stdgo.GoInt).toBasic() > 0 ? (_xType.numIn() : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect.Value)]) : stdgo.Slice<stdgo._internal.reflect.Reflect.Value>);
         var _rand = _config._getRand();
         var _maxCount:stdgo.GoInt = _config._getMaxCount();
         {
@@ -390,14 +390,14 @@ function _functionAndType(_f:stdgo.AnyInterface):{ var _0 : stdgo._internal.refl
         return { _0 : _v, _1 : _t, _2 : _ok };
     }
 function _toInterfaces(_values:stdgo.Slice<stdgo._internal.reflect.Reflect.Value>):stdgo.Slice<stdgo.AnyInterface> {
-        var _ret = new stdgo.Slice<stdgo.AnyInterface>((_values.length : stdgo.GoInt).toBasic(), 0);
+        var _ret = (new stdgo.Slice<stdgo.AnyInterface>((_values.length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.AnyInterface>);
         for (_i => _v in _values) {
             _ret[(_i : stdgo.GoInt)] = _v.interface_();
         };
         return _ret;
     }
 function _toString(_interfaces:stdgo.Slice<stdgo.AnyInterface>):stdgo.GoString {
-        var _s = new stdgo.Slice<stdgo.GoString>((_interfaces.length : stdgo.GoInt).toBasic(), 0).__setString__();
+        var _s = (new stdgo.Slice<stdgo.GoString>((_interfaces.length : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
         for (_i => _v in _interfaces) {
             _s[(_i : stdgo.GoInt)] = stdgo._internal.fmt.Fmt.sprintf(("%#v" : stdgo.GoString), _v)?.__copy__();
         };
@@ -663,15 +663,15 @@ function testFailure(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             };
         };
     }
-@:structInit class T_testRecursive_34___localname___R {
-    public var ptr : stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R> = (null : stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R>);
-    public var sliceP : stdgo.Slice<stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R>>);
-    public var slice : stdgo.Slice<stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R> = (null : stdgo.Slice<stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R>);
-    public var map_ : stdgo.GoMap<stdgo.GoInt, stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R> = (null : stdgo.GoMap<stdgo.GoInt, stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R>);
-    public var mapP : stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R>> = (null : stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R>>);
-    public var mapR : stdgo.GoMap<stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R>, stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R>> = (null : stdgo.GoMap<stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R>, stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R>>);
-    public var sliceMap : stdgo.Slice<stdgo.GoMap<stdgo.GoInt, stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R>> = (null : stdgo.Slice<stdgo.GoMap<stdgo.GoInt, stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R>>);
-    public function new(?ptr:stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R>, ?sliceP:stdgo.Slice<stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R>>, ?slice:stdgo.Slice<stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R>, ?map_:stdgo.GoMap<stdgo.GoInt, stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R>, ?mapP:stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R>>, ?mapR:stdgo.GoMap<stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R>, stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R>>, ?sliceMap:stdgo.Slice<stdgo.GoMap<stdgo.GoInt, stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R>>) {
+@:structInit class T_testRecursive_38___localname___R {
+    public var ptr : stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R> = (null : stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R>);
+    public var sliceP : stdgo.Slice<stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R>>);
+    public var slice : stdgo.Slice<stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R> = (null : stdgo.Slice<stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R>);
+    public var map_ : stdgo.GoMap<stdgo.GoInt, stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R> = (null : stdgo.GoMap<stdgo.GoInt, stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R>);
+    public var mapP : stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R>> = (null : stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R>>);
+    public var mapR : stdgo.GoMap<stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R>, stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R>> = (null : stdgo.GoMap<stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R>, stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R>>);
+    public var sliceMap : stdgo.Slice<stdgo.GoMap<stdgo.GoInt, stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R>> = (null : stdgo.Slice<stdgo.GoMap<stdgo.GoInt, stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R>>);
+    public function new(?ptr:stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R>, ?sliceP:stdgo.Slice<stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R>>, ?slice:stdgo.Slice<stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R>, ?map_:stdgo.GoMap<stdgo.GoInt, stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R>, ?mapP:stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R>>, ?mapR:stdgo.GoMap<stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R>, stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R>>, ?sliceMap:stdgo.Slice<stdgo.GoMap<stdgo.GoInt, stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R>>) {
         if (ptr != null) this.ptr = ptr;
         if (sliceP != null) this.sliceP = sliceP;
         if (slice != null) this.slice = slice;
@@ -682,12 +682,12 @@ function testFailure(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_testRecursive_34___localname___R(ptr, sliceP, slice, map_, mapP, mapR, sliceMap);
+        return new T_testRecursive_38___localname___R(ptr, sliceP, slice, map_, mapP, mapR, sliceMap);
     }
 }
 function testRecursive(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
-        var _f:stdgo._internal.testing.quick.Quick.T_testRecursive_34___localname___R -> Bool = function(_r:T_testRecursive_34___localname___R):Bool {
+        var _f:stdgo._internal.testing.quick.Quick.T_testRecursive_38___localname___R -> Bool = function(_r:T_testRecursive_38___localname___R):Bool {
             return true;
         };
         check(stdgo.Go.toInterface(_f), null);
@@ -704,7 +704,7 @@ function testMutuallyRecursive(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
         };
         check(stdgo.Go.toInterface(_f), null);
     }
-@:structInit class T_testNonZeroSliceAndMap_35___localname___Q {
+@:structInit class T_testNonZeroSliceAndMap_39___localname___Q {
     public var m : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt> = (null : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>);
     public var s : stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
     public function new(?m:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>, ?s:stdgo.Slice<stdgo.GoInt>) {
@@ -713,12 +713,12 @@ function testMutuallyRecursive(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_testNonZeroSliceAndMap_35___localname___Q(m, s);
+        return new T_testNonZeroSliceAndMap_39___localname___Q(m, s);
     }
 }
 function testNonZeroSliceAndMap(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
-        var _f:stdgo._internal.testing.quick.Quick.T_testNonZeroSliceAndMap_35___localname___Q -> Bool = function(_q:T_testNonZeroSliceAndMap_35___localname___Q):Bool {
+        var _f:stdgo._internal.testing.quick.Quick.T_testNonZeroSliceAndMap_39___localname___Q -> Bool = function(_q:T_testNonZeroSliceAndMap_39___localname___Q):Bool {
             return ((_q.m != null) && (_q.s != null) : Bool);
         };
         var _err:stdgo.Error = check(stdgo.Go.toInterface(_f), null);

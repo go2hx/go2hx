@@ -210,7 +210,7 @@ function _makeGenericReplacer(_oldnew:stdgo.Slice<stdgo.GoString>):stdgo.Ref<T_g
                 _index++;
             };
         };
-        _r._root._table = new stdgo.Slice<stdgo.Ref<stdgo._internal.strings.Strings.T_trieNode>>((_r._tableSize : stdgo.GoInt).toBasic(), 0);
+        _r._root._table = (new stdgo.Slice<stdgo.Ref<stdgo._internal.strings.Strings.T_trieNode>>((_r._tableSize : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.strings.Strings.T_trieNode>>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_oldnew.length) : Bool), _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt), {
@@ -234,7 +234,7 @@ function _makeSingleStringReplacer(_pattern:stdgo.GoString, _value:stdgo.GoStrin
         return (stdgo.Go.setRef(({ _finder : _makeStringFinder(_pattern?.__copy__()), _value : _value?.__copy__() } : stdgo._internal.strings.Strings.T_singleStringReplacer)) : stdgo.Ref<stdgo._internal.strings.Strings.T_singleStringReplacer>);
     }
 function _makeStringFinder(_pattern:stdgo.GoString):stdgo.Ref<T_stringFinder> {
-        var _f = (stdgo.Go.setRef(({ _pattern : _pattern?.__copy__(), _goodSuffixSkip : new stdgo.Slice<stdgo.GoInt>((_pattern.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() } : stdgo._internal.strings.Strings.T_stringFinder)) : stdgo.Ref<stdgo._internal.strings.Strings.T_stringFinder>);
+        var _f = (stdgo.Go.setRef(({ _pattern : _pattern?.__copy__(), _goodSuffixSkip : (new stdgo.Slice<stdgo.GoInt>((_pattern.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>) } : stdgo._internal.strings.Strings.T_stringFinder)) : stdgo.Ref<stdgo._internal.strings.Strings.T_stringFinder>);
         var _last:stdgo.GoInt = ((_pattern.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
         for (_i => _ in _f._badCharSkip) {
             _f._badCharSkip[(_i : stdgo.GoInt)] = (_pattern.length);
@@ -286,7 +286,7 @@ function _explode(_s:stdgo.GoString, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoString>
         if (((_n < (0 : stdgo.GoInt) : Bool) || (_n > _l : Bool) : Bool)) {
             _n = _l;
         };
-        var _a = new stdgo.Slice<stdgo.GoString>((_n : stdgo.GoInt).toBasic(), 0).__setString__();
+        var _a = (new stdgo.Slice<stdgo.GoString>((_n : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_n - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool), _i++, {
@@ -504,7 +504,7 @@ function _genSplit(_s:stdgo.GoString, _sep:stdgo.GoString, _sepSave:stdgo.GoInt,
         if ((_n > ((_s.length) + (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
             _n = ((_s.length) + (1 : stdgo.GoInt) : stdgo.GoInt);
         };
-        var _a = new stdgo.Slice<stdgo.GoString>((_n : stdgo.GoInt).toBasic(), 0).__setString__();
+        var _a = (new stdgo.Slice<stdgo.GoString>((_n : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
         _n--;
         var _i:stdgo.GoInt = (0 : stdgo.GoInt);
         while ((_i < _n : Bool)) {
@@ -548,7 +548,7 @@ function fields(_s:stdgo.GoString):stdgo.Slice<stdgo.GoString> {
         if ((_setBits >= (128 : stdgo.GoUInt8) : Bool)) {
             return fieldsFunc(_s?.__copy__(), stdgo._internal.unicode.Unicode.isSpace);
         };
-        var _a = new stdgo.Slice<stdgo.GoString>((_n : stdgo.GoInt).toBasic(), 0).__setString__();
+        var _a = (new stdgo.Slice<stdgo.GoString>((_n : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
         var _na:stdgo.GoInt = (0 : stdgo.GoInt);
         var _fieldStart:stdgo.GoInt = (0 : stdgo.GoInt);
         var _i:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -588,7 +588,7 @@ function fields(_s:stdgo.GoString):stdgo.Slice<stdgo.GoString> {
 }
 function fieldsFunc(_s:stdgo.GoString, _f:stdgo.GoRune -> Bool):stdgo.Slice<stdgo.GoString> {
         {};
-        var _spans = new stdgo.Slice<stdgo._internal.strings.Strings.T_fieldsFunc_1___localname___span>((0 : stdgo.GoInt).toBasic(), (32 : stdgo.GoInt), ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > (32 : stdgo.GoInt) ? (0 : stdgo.GoInt).toBasic() : (32 : stdgo.GoInt) : stdgo.GoInt).toBasic()) ({} : stdgo._internal.strings.Strings.T_fieldsFunc_1___localname___span)]);
+        var _spans = (new stdgo.Slice<stdgo._internal.strings.Strings.T_fieldsFunc_1___localname___span>((0 : stdgo.GoInt).toBasic(), (32 : stdgo.GoInt), ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > (32 : stdgo.GoInt) ? (0 : stdgo.GoInt).toBasic() : (32 : stdgo.GoInt) : stdgo.GoInt).toBasic()) ({} : stdgo._internal.strings.Strings.T_fieldsFunc_1___localname___span)]) : stdgo.Slice<stdgo._internal.strings.Strings.T_fieldsFunc_1___localname___span>);
         var _start:stdgo.GoInt = (-1 : stdgo.GoInt);
         for (_end => _rune in _s) {
             if (_f(_rune)) {
@@ -605,7 +605,7 @@ function fieldsFunc(_s:stdgo.GoString, _f:stdgo.GoRune -> Bool):stdgo.Slice<stdg
         if ((_start >= (0 : stdgo.GoInt) : Bool)) {
             _spans = (_spans.__append__((new stdgo._internal.strings.Strings.T_fieldsFunc_1___localname___span(_start, (_s.length)) : stdgo._internal.strings.Strings.T_fieldsFunc_1___localname___span)));
         };
-        var _a = new stdgo.Slice<stdgo.GoString>((_spans.length : stdgo.GoInt).toBasic(), 0).__setString__();
+        var _a = (new stdgo.Slice<stdgo.GoString>((_spans.length : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
         for (_i => _span in _spans) {
             _a[(_i : stdgo.GoInt)] = (_s.__slice__(_span._start, _span._end) : stdgo.GoString)?.__copy__();
         };
@@ -1674,7 +1674,7 @@ class Replacer_asInterface {
             };
             return stdgo.Go.asInterface((stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.strings.Strings.T_byteReplacer>));
         };
-        var _r:stdgo._internal.strings.Strings.T_byteStringReplacer = ({ _toReplace : new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), ((_oldnew.length) / (2 : stdgo.GoInt) : stdgo.GoInt)).__setString__() } : stdgo._internal.strings.Strings.T_byteStringReplacer);
+        var _r:stdgo._internal.strings.Strings.T_byteStringReplacer = ({ _toReplace : (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), ((_oldnew.length) / (2 : stdgo.GoInt) : stdgo.GoInt)).__setString__() : stdgo.Slice<stdgo.GoString>) } : stdgo._internal.strings.Strings.T_byteStringReplacer);
         {
             var _i:stdgo.GoInt = ((_oldnew.length) - (2 : stdgo.GoInt) : stdgo.GoInt);
             stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i = (_i - ((2 : stdgo.GoInt)) : stdgo.GoInt), {
@@ -1747,7 +1747,7 @@ class T_trieNode_asInterface {
                     _prefixNode = (stdgo.Go.setRef(({ _prefix : (_t._prefix.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _next : _t._next } : stdgo._internal.strings.Strings.T_trieNode)) : stdgo.Ref<stdgo._internal.strings.Strings.T_trieNode>);
                 };
                 var _keyNode = (stdgo.Go.setRef(({} : stdgo._internal.strings.Strings.T_trieNode)) : stdgo.Ref<stdgo._internal.strings.Strings.T_trieNode>);
-                _t._table = new stdgo.Slice<stdgo.Ref<stdgo._internal.strings.Strings.T_trieNode>>((_r._tableSize : stdgo.GoInt).toBasic(), 0);
+                _t._table = (new stdgo.Slice<stdgo.Ref<stdgo._internal.strings.Strings.T_trieNode>>((_r._tableSize : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.strings.Strings.T_trieNode>>);
                 _t._table[(_r._mapping[(_t._prefix[(0 : stdgo.GoInt)] : stdgo.GoInt)] : stdgo.GoInt)] = _prefixNode;
                 _t._table[(_r._mapping[(_key[(0 : stdgo.GoInt)] : stdgo.GoInt)] : stdgo.GoInt)] = _keyNode;
                 _t._prefix = stdgo.Go.str()?.__copy__();
@@ -1848,7 +1848,7 @@ class T_genericReplacer_asInterface {
     @:keep
     static public function replace( _r:stdgo.Ref<T_genericReplacer>, _s:stdgo.GoString):stdgo.GoString {
         @:recv var _r:stdgo.Ref<T_genericReplacer> = _r;
-        var _buf:stdgo._internal.strings.Strings.T_appendSliceWriter = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (_s.length)).__setNumber32__();
+        var _buf:stdgo._internal.strings.Strings.T_appendSliceWriter = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (_s.length)).__setNumber32__() : stdgo._internal.strings.Strings.T_appendSliceWriter);
         _r.writeString(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings.T_appendSliceWriter>)), _s?.__copy__());
         return (_buf : stdgo.GoString)?.__copy__();
     }
@@ -2088,7 +2088,7 @@ class T_byteStringReplacer_asInterface {
         if (!_anyChanges) {
             return _s?.__copy__();
         };
-        var _buf = new stdgo.Slice<stdgo.GoUInt8>((_newSize : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _buf = (new stdgo.Slice<stdgo.GoUInt8>((_newSize : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var _j:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);

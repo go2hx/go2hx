@@ -659,34 +659,34 @@ function _pixelBufferLength(_bytesPerPixel:stdgo.GoInt, _r:Rectangle, _imageType
         return _totalLength;
     }
 function newRGBA(_r:Rectangle):stdgo.Ref<RGBA> {
-        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((4 : stdgo.GoInt), _r?.__copy__(), ("RGBA" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : ((4 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.RGBA)) : stdgo.Ref<stdgo._internal.image.Image.RGBA>);
+        return (stdgo.Go.setRef(({ pix : (new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((4 : stdgo.GoInt), _r?.__copy__(), ("RGBA" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), stride : ((4 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.RGBA)) : stdgo.Ref<stdgo._internal.image.Image.RGBA>);
     }
 function newRGBA64(_r:Rectangle):stdgo.Ref<RGBA64> {
-        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((8 : stdgo.GoInt), _r?.__copy__(), ("RGBA64" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : ((8 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.RGBA64)) : stdgo.Ref<stdgo._internal.image.Image.RGBA64>);
+        return (stdgo.Go.setRef(({ pix : (new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((8 : stdgo.GoInt), _r?.__copy__(), ("RGBA64" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), stride : ((8 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.RGBA64)) : stdgo.Ref<stdgo._internal.image.Image.RGBA64>);
     }
 function newNRGBA(_r:Rectangle):stdgo.Ref<NRGBA> {
-        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((4 : stdgo.GoInt), _r?.__copy__(), ("NRGBA" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : ((4 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.NRGBA)) : stdgo.Ref<stdgo._internal.image.Image.NRGBA>);
+        return (stdgo.Go.setRef(({ pix : (new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((4 : stdgo.GoInt), _r?.__copy__(), ("NRGBA" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), stride : ((4 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.NRGBA)) : stdgo.Ref<stdgo._internal.image.Image.NRGBA>);
     }
 function newNRGBA64(_r:Rectangle):stdgo.Ref<NRGBA64> {
-        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((8 : stdgo.GoInt), _r?.__copy__(), ("NRGBA64" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : ((8 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.NRGBA64)) : stdgo.Ref<stdgo._internal.image.Image.NRGBA64>);
+        return (stdgo.Go.setRef(({ pix : (new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((8 : stdgo.GoInt), _r?.__copy__(), ("NRGBA64" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), stride : ((8 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.NRGBA64)) : stdgo.Ref<stdgo._internal.image.Image.NRGBA64>);
     }
 function newAlpha(_r:Rectangle):stdgo.Ref<Alpha> {
-        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((1 : stdgo.GoInt), _r?.__copy__(), ("Alpha" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : ((1 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.Alpha)) : stdgo.Ref<stdgo._internal.image.Image.Alpha>);
+        return (stdgo.Go.setRef(({ pix : (new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((1 : stdgo.GoInt), _r?.__copy__(), ("Alpha" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), stride : ((1 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.Alpha)) : stdgo.Ref<stdgo._internal.image.Image.Alpha>);
     }
 function newAlpha16(_r:Rectangle):stdgo.Ref<Alpha16> {
-        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((2 : stdgo.GoInt), _r?.__copy__(), ("Alpha16" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : ((2 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.Alpha16)) : stdgo.Ref<stdgo._internal.image.Image.Alpha16>);
+        return (stdgo.Go.setRef(({ pix : (new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((2 : stdgo.GoInt), _r?.__copy__(), ("Alpha16" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), stride : ((2 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.Alpha16)) : stdgo.Ref<stdgo._internal.image.Image.Alpha16>);
     }
 function newGray(_r:Rectangle):stdgo.Ref<Gray> {
-        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((1 : stdgo.GoInt), _r?.__copy__(), ("Gray" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : ((1 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.Gray)) : stdgo.Ref<stdgo._internal.image.Image.Gray>);
+        return (stdgo.Go.setRef(({ pix : (new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((1 : stdgo.GoInt), _r?.__copy__(), ("Gray" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), stride : ((1 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.Gray)) : stdgo.Ref<stdgo._internal.image.Image.Gray>);
     }
 function newGray16(_r:Rectangle):stdgo.Ref<Gray16> {
-        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((2 : stdgo.GoInt), _r?.__copy__(), ("Gray16" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : ((2 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.Gray16)) : stdgo.Ref<stdgo._internal.image.Image.Gray16>);
+        return (stdgo.Go.setRef(({ pix : (new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((2 : stdgo.GoInt), _r?.__copy__(), ("Gray16" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), stride : ((2 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.Gray16)) : stdgo.Ref<stdgo._internal.image.Image.Gray16>);
     }
 function newCMYK(_r:Rectangle):stdgo.Ref<CMYK> {
-        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((4 : stdgo.GoInt), _r?.__copy__(), ("CMYK" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : ((4 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.CMYK)) : stdgo.Ref<stdgo._internal.image.Image.CMYK>);
+        return (stdgo.Go.setRef(({ pix : (new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((4 : stdgo.GoInt), _r?.__copy__(), ("CMYK" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), stride : ((4 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__() } : stdgo._internal.image.Image.CMYK)) : stdgo.Ref<stdgo._internal.image.Image.CMYK>);
     }
 function newPaletted(_r:Rectangle, _p:stdgo._internal.image.color.Color.Palette):stdgo.Ref<Paletted> {
-        return (stdgo.Go.setRef(({ pix : new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((1 : stdgo.GoInt), _r?.__copy__(), ("Paletted" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__(), stride : ((1 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__(), palette : _p } : stdgo._internal.image.Image.Paletted)) : stdgo.Ref<stdgo._internal.image.Image.Paletted>);
+        return (stdgo.Go.setRef(({ pix : (new stdgo.Slice<stdgo.GoUInt8>((_pixelBufferLength((1 : stdgo.GoInt), _r?.__copy__(), ("Paletted" : stdgo.GoString)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), stride : ((1 : stdgo.GoInt) * _r.dx() : stdgo.GoInt), rect : _r?.__copy__(), palette : _p } : stdgo._internal.image.Image.Paletted)) : stdgo.Ref<stdgo._internal.image.Image.Paletted>);
     }
 function _cmp(_cm:stdgo._internal.image.color.Color.Model, _c0:stdgo._internal.image.color.Color.Color, _c1:stdgo._internal.image.color.Color.Color):Bool {
         var __tmp__ = _cm.convert(_c0).rgba(), _r0:stdgo.GoUInt32 = __tmp__._0, _g0:stdgo.GoUInt32 = __tmp__._1, _b0:stdgo.GoUInt32 = __tmp__._2, _a0:stdgo.GoUInt32 = __tmp__._3;
@@ -1177,7 +1177,7 @@ function newYCbCr(_r:Rectangle, _subsampleRatio:YCbCrSubsampleRatio):stdgo.Ref<Y
         var _i0:stdgo.GoInt = ((_w * _h : stdgo.GoInt) + (((0 : stdgo.GoInt) * _cw : stdgo.GoInt) * _ch : stdgo.GoInt) : stdgo.GoInt);
         var _i1:stdgo.GoInt = ((_w * _h : stdgo.GoInt) + (((1 : stdgo.GoInt) * _cw : stdgo.GoInt) * _ch : stdgo.GoInt) : stdgo.GoInt);
         var _i2:stdgo.GoInt = ((_w * _h : stdgo.GoInt) + (((2 : stdgo.GoInt) * _cw : stdgo.GoInt) * _ch : stdgo.GoInt) : stdgo.GoInt);
-        var _b = new stdgo.Slice<stdgo.GoUInt8>((_i2 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _b = (new stdgo.Slice<stdgo.GoUInt8>((_i2 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         return (stdgo.Go.setRef(({ y : (_b.__slice__(0, _i0, _i0) : stdgo.Slice<stdgo.GoUInt8>), cb : (_b.__slice__(_i0, _i1, _i1) : stdgo.Slice<stdgo.GoUInt8>), cr : (_b.__slice__(_i1, _i2, _i2) : stdgo.Slice<stdgo.GoUInt8>), subsampleRatio : _subsampleRatio, ystride : _w, cstride : _cw, rect : _r?.__copy__() } : stdgo._internal.image.Image.YCbCr)) : stdgo.Ref<stdgo._internal.image.Image.YCbCr>);
     }
 function newNYCbCrA(_r:Rectangle, _subsampleRatio:YCbCrSubsampleRatio):stdgo.Ref<NYCbCrA> {
@@ -1190,7 +1190,7 @@ function newNYCbCrA(_r:Rectangle, _subsampleRatio:YCbCrSubsampleRatio):stdgo.Ref
         var _i1:stdgo.GoInt = ((((1 : stdgo.GoInt) * _w : stdgo.GoInt) * _h : stdgo.GoInt) + (((1 : stdgo.GoInt) * _cw : stdgo.GoInt) * _ch : stdgo.GoInt) : stdgo.GoInt);
         var _i2:stdgo.GoInt = ((((1 : stdgo.GoInt) * _w : stdgo.GoInt) * _h : stdgo.GoInt) + (((2 : stdgo.GoInt) * _cw : stdgo.GoInt) * _ch : stdgo.GoInt) : stdgo.GoInt);
         var _i3:stdgo.GoInt = ((((2 : stdgo.GoInt) * _w : stdgo.GoInt) * _h : stdgo.GoInt) + (((2 : stdgo.GoInt) * _cw : stdgo.GoInt) * _ch : stdgo.GoInt) : stdgo.GoInt);
-        var _b = new stdgo.Slice<stdgo.GoUInt8>((_i3 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _b = (new stdgo.Slice<stdgo.GoUInt8>((_i3 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         return (stdgo.Go.setRef(({ ycbCr : ({ y : (_b.__slice__(0, _i0, _i0) : stdgo.Slice<stdgo.GoUInt8>), cb : (_b.__slice__(_i0, _i1, _i1) : stdgo.Slice<stdgo.GoUInt8>), cr : (_b.__slice__(_i1, _i2, _i2) : stdgo.Slice<stdgo.GoUInt8>), subsampleRatio : _subsampleRatio, ystride : _w, cstride : _cw, rect : _r?.__copy__() } : stdgo._internal.image.Image.YCbCr), a : (_b.__slice__(_i2) : stdgo.Slice<stdgo.GoUInt8>), astride : _w } : stdgo._internal.image.Image.NYCbCrA)) : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>);
     }
 function testYCbCr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {

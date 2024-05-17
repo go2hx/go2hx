@@ -2721,7 +2721,7 @@ function testLargeTan(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testTrigReduce(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _inputs = new stdgo.Slice<stdgo.GoFloat64>((_vf.length : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _inputs = (new stdgo.Slice<stdgo.GoFloat64>((_vf.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoFloat64>);
         stdgo.Go.copySlice(_inputs, _vf);
         var _large:stdgo.GoFloat64 = (314159.26535897935 : stdgo.GoFloat64);
         for (__0 => _v in _vf) {

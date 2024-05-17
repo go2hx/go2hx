@@ -585,7 +585,7 @@ var _fmtTests : stdgo.Slice<T__struct_2> = (new stdgo.Slice<T__struct_2>(768, 76
 ({ _fmt : ("%#v" : stdgo.GoString), _val : stdgo.Go.toInterface((new stdgo._internal.fmt_test.Fmt_test.A((1 : stdgo.GoInt), (2u32 : stdgo.GoUInt), ("a" : stdgo.GoString), (new stdgo.Slice<stdgo.GoInt>(2, 2, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>)) : stdgo._internal.fmt_test.Fmt_test.A)), _out : ("fmt_test.A{i:1, j:0x2, s:\"a\", x:[]int{1, 2}}" : stdgo.GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : stdgo.GoString), _val : stdgo.Go.toInterface(stdgo.Go.pointer((0 : stdgo.GoUInt8))), _out : ("(*uint8)(0xPTR)" : stdgo.GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : stdgo.GoString), _val : stdgo.Go.toInterface(testFmtInterface), _out : ("(func(*testing.T))(0xPTR)" : stdgo.GoString) } : T__struct_2),
-({ _fmt : ("%#v" : stdgo.GoString), _val : stdgo.Go.toInterface(new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt))), _out : ("(chan int)(0xPTR)" : stdgo.GoString) } : T__struct_2),
+({ _fmt : ("%#v" : stdgo.GoString), _val : stdgo.Go.toInterface((new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>)), _out : ("(chan int)(0xPTR)" : stdgo.GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : stdgo.GoString), _val : stdgo.Go.toInterface((-1i64 : stdgo.GoUInt64)), _out : ("0xffffffffffffffff" : stdgo.GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : stdgo.GoString), _val : stdgo.Go.toInterface((1000000000 : stdgo.GoInt)), _out : ("1000000000" : stdgo.GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : stdgo.GoString), _val : stdgo.Go.toInterface(({
@@ -743,7 +743,7 @@ var _fmtTests : stdgo.Slice<T__struct_2> = (new stdgo.Slice<T__struct_2>(768, 76
 ({ _fmt : ("%p" : stdgo.GoString), _val : stdgo.Go.toInterface((stdgo.Go.setRef(_slice) : stdgo.Ref<stdgo.Slice<stdgo.GoInt>>)), _out : ("0xPTR" : stdgo.GoString) } : T__struct_2),
 ({ _fmt : ("%8.2p" : stdgo.GoString), _val : stdgo.Go.toInterface((null : stdgo.Pointer<stdgo.GoInt>)), _out : ("    0x00" : stdgo.GoString) } : T__struct_2),
 ({ _fmt : ("%-20.16p" : stdgo.GoString), _val : stdgo.Go.toInterface(stdgo.Go.pointer(_intVar)), _out : ("0xPTR  " : stdgo.GoString) } : T__struct_2),
-({ _fmt : ("%p" : stdgo.GoString), _val : stdgo.Go.toInterface(new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt))), _out : ("0xPTR" : stdgo.GoString) } : T__struct_2),
+({ _fmt : ("%p" : stdgo.GoString), _val : stdgo.Go.toInterface((new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>)), _out : ("0xPTR" : stdgo.GoString) } : T__struct_2),
 ({ _fmt : ("%p" : stdgo.GoString), _val : stdgo.Go.toInterface(({
         final x = new stdgo.GoMap.GoIntMap<stdgo.GoInt>();
         x.__defaultValue__ = () -> (0 : stdgo.GoInt);
@@ -868,7 +868,7 @@ var _fmtTests : stdgo.Slice<T__struct_2> = (new stdgo.Slice<T__struct_2>(768, 76
 ({ _fmt : ("%☠" : stdgo.GoString), _val : stdgo.Go.toInterface(((1.2345678f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 1.2345678f64))), _out : ("%!☠(complex128=(1.2345678+1.2345678i))" : stdgo.GoString) } : T__struct_2),
 ({ _fmt : ("%☠" : stdgo.GoString), _val : stdgo.Go.toInterface(((1.2345678f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 1.2345678f64) : stdgo.GoComplex64)), _out : ("%!☠(complex64=(1.2345678+1.2345678i))" : stdgo.GoString) } : T__struct_2),
 ({ _fmt : ("%☠" : stdgo.GoString), _val : stdgo.Go.toInterface(stdgo.Go.pointer(_intVar)), _out : ("%!☠(*int=0xPTR)" : stdgo.GoString) } : T__struct_2),
-({ _fmt : ("%☠" : stdgo.GoString), _val : stdgo.Go.toInterface(new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt))), _out : ("%!☠(chan int=0xPTR)" : stdgo.GoString) } : T__struct_2),
+({ _fmt : ("%☠" : stdgo.GoString), _val : stdgo.Go.toInterface((new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>)), _out : ("%!☠(chan int=0xPTR)" : stdgo.GoString) } : T__struct_2),
 ({ _fmt : ("%☠" : stdgo.GoString), _val : stdgo.Go.toInterface(function():Void {}), _out : ("%!☠(func()=0xPTR)" : stdgo.GoString) } : T__struct_2),
 ({ _fmt : ("%☠" : stdgo.GoString), _val : stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(((0 : stdgo._internal.fmt_test.Fmt_test.T_renamedInt) : T_renamedInt))))), _out : ("%!☠(fmt_test.renamedInt=0)" : stdgo.GoString) } : T__struct_2),
 ({ _fmt : ("%☠" : stdgo.GoString), _val : stdgo.Go.toInterface((new stdgo._internal.fmt_test.Fmt_test.SI(stdgo.Go.toInterface(((0 : stdgo._internal.fmt_test.Fmt_test.T_renamedInt) : T_renamedInt))) : stdgo._internal.fmt_test.Fmt_test.SI)), _out : ("{%!☠(fmt_test.renamedInt=0)}" : stdgo.GoString) } : T__struct_2),
@@ -2518,7 +2518,7 @@ function testFlagParser(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             };
         };
     }
-@:structInit class T_testStructPrinter_37___localname___T {
+@:structInit class T_testStructPrinter_35___localname___T {
     public var _a : stdgo.GoString = "";
     public var _b : stdgo.GoString = "";
     public var _c : stdgo.GoInt = 0;
@@ -2529,12 +2529,12 @@ function testFlagParser(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_testStructPrinter_37___localname___T(_a, _b, _c);
+        return new T_testStructPrinter_35___localname___T(_a, _b, _c);
     }
 }
 function testStructPrinter(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
-        var _s:T_testStructPrinter_37___localname___T = ({} : stdgo._internal.fmt_test.Fmt_test.T_testStructPrinter_37___localname___T);
+        var _s:T_testStructPrinter_35___localname___T = ({} : stdgo._internal.fmt_test.Fmt_test.T_testStructPrinter_35___localname___T);
         _s._a = ("abc" : stdgo.GoString);
         _s._b = ("def" : stdgo.GoString);
         _s._c = (123 : stdgo.GoInt);
@@ -2544,7 +2544,7 @@ function testStructPrinter(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
             if (_out != (_tt._out)) {
                 _t.errorf(("Sprintf(%q, s) = %#q, want %#q" : stdgo.GoString), stdgo.Go.toInterface(_tt._fmt), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_tt._out));
             };
-            _out = sprintf(_tt._fmt?.__copy__(), stdgo.Go.toInterface((stdgo.Go.setRef(_s) : stdgo.Ref<stdgo._internal.fmt_test.Fmt_test.T_testStructPrinter_37___localname___T>)))?.__copy__();
+            _out = sprintf(_tt._fmt?.__copy__(), stdgo.Go.toInterface((stdgo.Go.setRef(_s) : stdgo.Ref<stdgo._internal.fmt_test.Fmt_test.T_testStructPrinter_35___localname___T>)))?.__copy__();
             if (_out != ((("&" : stdgo.GoString) + _tt._out?.__copy__() : stdgo.GoString))) {
                 _t.errorf(("Sprintf(%q, &s) = %#q, want %#q" : stdgo.GoString), stdgo.Go.toInterface(_tt._fmt), stdgo.Go.toInterface(_out), stdgo.Go.toInterface((("&" : stdgo.GoString) + _tt._out?.__copy__() : stdgo.GoString)));
             };
@@ -2708,18 +2708,18 @@ function testIsSpace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function _hideFromVet(_s:stdgo.GoString):stdgo.GoString {
         return _s?.__copy__();
     }
-@:structInit class T_testNilDoesNotBecomeTyped_38___localname___A {
+@:structInit class T_testNilDoesNotBecomeTyped_36___localname___A {
     public function new() {}
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_testNilDoesNotBecomeTyped_38___localname___A();
+        return new T_testNilDoesNotBecomeTyped_36___localname___A();
     }
 }
-@:structInit class T_testNilDoesNotBecomeTyped_39___localname___B {
+@:structInit class T_testNilDoesNotBecomeTyped_37___localname___B {
     public function new() {}
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_testNilDoesNotBecomeTyped_39___localname___B();
+        return new T_testNilDoesNotBecomeTyped_37___localname___B();
     }
 }
 function testNilDoesNotBecomeTyped(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
@@ -2751,7 +2751,7 @@ function testParsenum(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testAppendf(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _b = new stdgo.Slice<stdgo.GoUInt8>((100 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _b = (new stdgo.Slice<stdgo.GoUInt8>((100 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         _b = (_b.__slice__(0, stdgo.Go.copySlice(_b, ("hello " : stdgo.GoString))) : stdgo.Slice<stdgo.GoUInt8>);
         var _got = appendf(_b, ("world, %d" : stdgo.GoString), stdgo.Go.toInterface((23 : stdgo.GoInt)));
         if ((_got : stdgo.GoString) != (("hello world, 23" : stdgo.GoString))) {
@@ -2762,7 +2762,7 @@ function testAppendf(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testAppend(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _b = new stdgo.Slice<stdgo.GoUInt8>((100 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _b = (new stdgo.Slice<stdgo.GoUInt8>((100 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         _b = (_b.__slice__(0, stdgo.Go.copySlice(_b, ("hello " : stdgo.GoString))) : stdgo.Slice<stdgo.GoUInt8>);
         var _got = append(_b, stdgo.Go.toInterface(("world" : stdgo.GoString)), stdgo.Go.toInterface((", " : stdgo.GoString)), stdgo.Go.toInterface((23 : stdgo.GoInt)));
         if ((_got : stdgo.GoString) != (("hello world, 23" : stdgo.GoString))) {
@@ -2773,7 +2773,7 @@ function testAppend(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testAppendln(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _b = new stdgo.Slice<stdgo.GoUInt8>((100 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _b = (new stdgo.Slice<stdgo.GoUInt8>((100 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         _b = (_b.__slice__(0, stdgo.Go.copySlice(_b, ("hello " : stdgo.GoString))) : stdgo.Slice<stdgo.GoUInt8>);
         var _got = appendln(_b, stdgo.Go.toInterface(("world," : stdgo.GoString)), stdgo.Go.toInterface((23 : stdgo.GoInt)));
         if ((_got : stdgo.GoString) != (("hello world, 23\n" : stdgo.GoString))) {
@@ -2922,7 +2922,7 @@ function testInf(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function _testScanfMulti(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _f:stdgo.GoString -> stdgo._internal.io.Io.Reader):Void {
-        var _sliceType:stdgo._internal.reflect.Reflect.Type_ = stdgo._internal.reflect.Reflect.typeOf(stdgo.Go.toInterface(new stdgo.Slice<stdgo.AnyInterface>((1 : stdgo.GoInt).toBasic(), 0)));
+        var _sliceType:stdgo._internal.reflect.Reflect.Type_ = stdgo._internal.reflect.Reflect.typeOf(stdgo.Go.toInterface((new stdgo.Slice<stdgo.AnyInterface>((1 : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.AnyInterface>)));
         for (__3 => _test in _multiTests) {
             var _r:stdgo._internal.io.Io.Reader = _f(_test._text?.__copy__());
             var __tmp__ = fscanf(_r, _test._format?.__copy__(), ...(_test._in : Array<stdgo.AnyInterface>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -4091,7 +4091,7 @@ class TwoLines_asInterface {
     @:keep
     @:pointer
     static public function scan(____:TwoLines,  _t:stdgo.Pointer<TwoLines>, _state:ScanState, _verb:stdgo.GoRune):stdgo.Error {
-        var _chars = new stdgo.Slice<stdgo.GoInt32>((0 : stdgo.GoInt).toBasic(), (100 : stdgo.GoInt)).__setNumber32__();
+        var _chars = (new stdgo.Slice<stdgo.GoInt32>((0 : stdgo.GoInt).toBasic(), (100 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
         {
             var _nlCount:stdgo.GoInt = (0 : stdgo.GoInt);
             while ((_nlCount < (2 : stdgo.GoInt) : Bool)) {

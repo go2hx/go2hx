@@ -341,7 +341,7 @@ function newCond(_l:Locker):stdgo.Ref<Cond> {
         return (stdgo.Go.setRef(({ l : _l } : stdgo._internal.sync.Sync.Cond)) : stdgo.Ref<stdgo._internal.sync.Sync.Cond>);
     }
 function newPoolDequeue(_n:stdgo.GoInt):PoolDequeue {
-        var _d = (stdgo.Go.setRef(({ _vals : new stdgo.Slice<stdgo._internal.sync.Sync.T_eface>((_n : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_n : stdgo.GoInt).toBasic() > 0 ? (_n : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.sync.Sync.T_eface)]) } : stdgo._internal.sync.Sync.T_poolDequeue)) : stdgo.Ref<stdgo._internal.sync.Sync.T_poolDequeue>);
+        var _d = (stdgo.Go.setRef(({ _vals : (new stdgo.Slice<stdgo._internal.sync.Sync.T_eface>((_n : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_n : stdgo.GoInt).toBasic() > 0 ? (_n : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.sync.Sync.T_eface)]) : stdgo.Slice<stdgo._internal.sync.Sync.T_eface>) } : stdgo._internal.sync.Sync.T_poolDequeue)) : stdgo.Ref<stdgo._internal.sync.Sync.T_poolDequeue>);
         _d._headTail = _d._pack((-500u32 : stdgo.GoUInt32), (-500u32 : stdgo.GoUInt32));
         return stdgo.Go.asInterface(_d);
     }
@@ -1510,7 +1510,7 @@ class T_poolChain_asInterface {
         if (_d == null || (_d : Dynamic).__nil__) {
             {};
             _d = (stdgo.Go.setRef(({} : stdgo._internal.sync.Sync.T_poolChainElt)) : stdgo.Ref<stdgo._internal.sync.Sync.T_poolChainElt>);
-            _d._poolDequeue._vals = new stdgo.Slice<stdgo._internal.sync.Sync.T_eface>((8 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((8 : stdgo.GoInt).toBasic() > 0 ? (8 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.sync.Sync.T_eface)]);
+            _d._poolDequeue._vals = (new stdgo.Slice<stdgo._internal.sync.Sync.T_eface>((8 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((8 : stdgo.GoInt).toBasic() > 0 ? (8 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.sync.Sync.T_eface)]) : stdgo.Slice<stdgo._internal.sync.Sync.T_eface>);
             _c._head = _d;
             _storePoolChainElt((stdgo.Go.setRef(_c._tail) : stdgo.Ref<stdgo.Ref<stdgo._internal.sync.Sync.T_poolChainElt>>), _d);
         };
@@ -1522,7 +1522,7 @@ class T_poolChain_asInterface {
             _newSize = (1073741824 : stdgo.GoInt);
         };
         var _d2 = (stdgo.Go.setRef(({ _prev : _d } : stdgo._internal.sync.Sync.T_poolChainElt)) : stdgo.Ref<stdgo._internal.sync.Sync.T_poolChainElt>);
-        _d2._poolDequeue._vals = new stdgo.Slice<stdgo._internal.sync.Sync.T_eface>((_newSize : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_newSize : stdgo.GoInt).toBasic() > 0 ? (_newSize : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.sync.Sync.T_eface)]);
+        _d2._poolDequeue._vals = (new stdgo.Slice<stdgo._internal.sync.Sync.T_eface>((_newSize : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_newSize : stdgo.GoInt).toBasic() > 0 ? (_newSize : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.sync.Sync.T_eface)]) : stdgo.Slice<stdgo._internal.sync.Sync.T_eface>);
         _c._head = _d2;
         _storePoolChainElt((stdgo.Go.setRef(_d._next) : stdgo.Ref<stdgo.Ref<stdgo._internal.sync.Sync.T_poolChainElt>>), _d2);
         _d2._pushHead(_val);

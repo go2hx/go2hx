@@ -154,7 +154,7 @@ class T__struct_0_asInterface {
 };
 function _ct(_typ:stdgo._internal.reflect.Reflect.Type_, _args:haxe.Rest<stdgo.AnyInterface>):stdgo.Slice<stdgo._internal.reflect.Reflect.Value> {
         var _args = new stdgo.Slice<stdgo.AnyInterface>(_args.length, 0, ..._args);
-        var _value = new stdgo.Slice<stdgo._internal.reflect.Reflect.Value>((_args.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_args.length : stdgo.GoInt).toBasic() > 0 ? (_args.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect.Value)]);
+        var _value = (new stdgo.Slice<stdgo._internal.reflect.Reflect.Value>((_args.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_args.length : stdgo.GoInt).toBasic() > 0 ? (_args.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect.Value)]) : stdgo.Slice<stdgo._internal.reflect.Reflect.Value>);
         for (_i => _v in _args) {
             var _x:stdgo._internal.reflect.Reflect.Value = stdgo._internal.reflect.Reflect.valueOf(_v)?.__copy__();
             if (!_x.isValid()) {
@@ -244,7 +244,7 @@ function _sprintKey(_key:stdgo._internal.reflect.Reflect.Value):stdgo.GoString {
         };
     }
 function _makeChans():stdgo.Slice<stdgo.Chan<stdgo.GoInt>> {
-        var _cs = (new stdgo.Slice<stdgo.Chan<stdgo.GoInt>>(3, 3, ...[new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)), new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)), new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt))]) : stdgo.Slice<stdgo.Chan<stdgo.GoInt>>);
+        var _cs = (new stdgo.Slice<stdgo.Chan<stdgo.GoInt>>(3, 3, ...[(new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>), (new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>), (new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>)]) : stdgo.Slice<stdgo.Chan<stdgo.GoInt>>);
         stdgo._internal.sort.Sort.slice(stdgo.Go.toInterface(_cs), function(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
             return ((stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(_cs[(_i : stdgo.GoInt)])).unsafePointer().__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) < (stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(_cs[(_j : stdgo.GoInt)])).unsafePointer().__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : Bool);
         });

@@ -511,8 +511,8 @@ function testEqualFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 @:named typedef T_benchmarkEqualFunc_Large_23___localname___Large = stdgo.GoArray<stdgo.GoUInt8>;
 function benchmarkEqualFunc_Large(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {};
-        var _xs = new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_23___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_23___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]);
-        var _ys = new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_23___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_23___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]);
+        var _xs = (new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_23___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_23___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]) : stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_23___localname___Large>);
+        var _ys = (new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_23___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_23___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]) : stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkEqualFunc_Large_23___localname___Large>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
@@ -651,7 +651,7 @@ macro function _equalToIndex<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _f:hax
 @:named typedef T_benchmarkIndex_Large_24___localname___Large = stdgo.GoArray<stdgo.GoUInt8>;
 function benchmarkIndex_Large(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {};
-        var _ss = new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkIndex_Large_24___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkIndex_Large_24___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]);
+        var _ss = (new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkIndex_Large_24___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkIndex_Large_24___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]) : stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkIndex_Large_24___localname___Large>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
@@ -685,7 +685,7 @@ function testIndexFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 @:named typedef T_benchmarkIndexFunc_Large_25___localname___Large = stdgo.GoArray<stdgo.GoUInt8>;
 function benchmarkIndexFunc_Large(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {};
-        var _ss = new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_25___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_25___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]);
+        var _ss = (new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_25___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_25___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]) : stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkIndexFunc_Large_25___localname___Large>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
@@ -769,8 +769,8 @@ function testInsert(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testInsertOverlap(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
-        var _a = new stdgo.Slice<stdgo.GoInt>((10 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        var _want = new stdgo.Slice<stdgo.GoInt>((20 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _a = (new stdgo.Slice<stdgo.GoInt>((10 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
+        var _want = (new stdgo.Slice<stdgo.GoInt>((20 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         {
             var _n:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_n <= (10 : stdgo.GoInt) : Bool), _n++, {
@@ -922,7 +922,7 @@ function testCompact(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function benchmarkCompact(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         for (__0 => _c in _compactTests) {
             _b.run(_c._name?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-                var _ss = new stdgo.Slice<stdgo.GoInt>((0 : stdgo.GoInt).toBasic(), (64 : stdgo.GoInt)).__setNumber32__();
+                var _ss = (new stdgo.Slice<stdgo.GoInt>((0 : stdgo.GoInt).toBasic(), (64 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
                 {
                     var _k:stdgo.GoInt = (0 : stdgo.GoInt);
                     stdgo.Go.cfor((_k < _b.n : Bool), _k++, {
@@ -937,7 +937,7 @@ function benchmarkCompact(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void 
 @:named typedef T_benchmarkCompact_Large_26___localname___Large = stdgo.GoArray<stdgo.GoUInt8>;
 function benchmarkCompact_Large(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {};
-        var _ss = new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkCompact_Large_26___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkCompact_Large_26___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]);
+        var _ss = (new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkCompact_Large_26___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkCompact_Large_26___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]) : stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkCompact_Large_26___localname___Large>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
@@ -968,7 +968,7 @@ function testCompactFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
 @:named typedef T_benchmarkCompactFunc_Large_27___localname___Large = stdgo.GoArray<stdgo.GoUInt8>;
 function benchmarkCompactFunc_Large(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {};
-        var _ss = new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_27___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_27___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]);
+        var _ss = (new stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_27___localname___Large>((1024 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1024 : stdgo.GoInt).toBasic() > 0 ? (1024 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_27___localname___Large(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)])]) : stdgo.Slice<stdgo._internal.slices.Slices.T_benchmarkCompactFunc_Large_27___localname___Large>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
@@ -1116,7 +1116,7 @@ macro function _naiveReplace<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __gen
 function testReplace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _test in (new stdgo.Slice<T__struct_10>(4, 4, ...[({ _s : (null : stdgo.Slice<stdgo.GoInt>), _v : (null : stdgo.Slice<stdgo.GoInt>), _i : (0 : stdgo.GoInt), _j : (0 : stdgo.GoInt) } : T__struct_10), ({ _s : (new stdgo.Slice<stdgo.GoInt>(4, 4, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), _v : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(5 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), _i : (1 : stdgo.GoInt), _j : (2 : stdgo.GoInt) } : T__struct_10), ({ _s : (new stdgo.Slice<stdgo.GoInt>(4, 4, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), _v : (new stdgo.Slice<stdgo.GoInt>(4, 4, ...[(5 : stdgo.GoInt), (6 : stdgo.GoInt), (7 : stdgo.GoInt), (8 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), _i : (1 : stdgo.GoInt), _j : (2 : stdgo.GoInt) } : T__struct_10), ({ _s : {
             var a = function():stdgo.Slice<stdgo.GoInt> {
-                var _s = new stdgo.Slice<stdgo.GoInt>((3 : stdgo.GoInt).toBasic(), (20 : stdgo.GoInt)).__setNumber32__();
+                var _s = (new stdgo.Slice<stdgo.GoInt>((3 : stdgo.GoInt).toBasic(), (20 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
                 _s[(0 : stdgo.GoInt)] = (0 : stdgo.GoInt);
                 _s[(1 : stdgo.GoInt)] = (1 : stdgo.GoInt);
                 _s[(2 : stdgo.GoInt)] = (2 : stdgo.GoInt);
@@ -1144,8 +1144,8 @@ function testReplacePanics(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
     }
 function testReplaceOverlap(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
-        var _a = new stdgo.Slice<stdgo.GoInt>((10 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        var _want = new stdgo.Slice<stdgo.GoInt>((20 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _a = (new stdgo.Slice<stdgo.GoInt>((10 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
+        var _want = (new stdgo.Slice<stdgo.GoInt>((20 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         {
             var _n:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_n <= (10 : stdgo.GoInt) : Bool), _n++, {
@@ -1188,13 +1188,13 @@ function testReplaceOverlap(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
     }
 function benchmarkReplace(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _cases = (new stdgo.Slice<T__struct_12>(2, 2, ...[({ _name : ("fast" : stdgo.GoString), _s : function():stdgo.Slice<stdgo.GoInt> {
-            return new stdgo.Slice<stdgo.GoInt>((100 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            return (new stdgo.Slice<stdgo.GoInt>((100 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         }, _v : function():stdgo.Slice<stdgo.GoInt> {
-            return new stdgo.Slice<stdgo.GoInt>((20 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            return (new stdgo.Slice<stdgo.GoInt>((20 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         }, _i : (10 : stdgo.GoInt), _j : (40 : stdgo.GoInt) } : T__struct_12), ({ _name : ("slow" : stdgo.GoString), _s : function():stdgo.Slice<stdgo.GoInt> {
-            return new stdgo.Slice<stdgo.GoInt>((100 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            return (new stdgo.Slice<stdgo.GoInt>((100 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         }, _v : function():stdgo.Slice<stdgo.GoInt> {
-            return new stdgo.Slice<stdgo.GoInt>((20 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            return (new stdgo.Slice<stdgo.GoInt>((20 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         }, _i : (0 : stdgo.GoInt), _j : (2 : stdgo.GoInt) } : T__struct_12)].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _s : null, _v : null, _i : (0 : stdgo.GoInt), _j : (0 : stdgo.GoInt) } : T__struct_12)])) : stdgo.Slice<T__struct_12>);
         for (__0 => _c in _cases) {
             _b.run((("naive-" : stdgo.GoString) + _c._name?.__copy__() : stdgo.GoString)?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
@@ -1221,7 +1221,7 @@ function benchmarkReplace(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void 
     }
 function testRotate(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
-        var _s = new stdgo.Slice<stdgo.GoInt>((0 : stdgo.GoInt).toBasic(), (10 : stdgo.GoInt)).__setNumber32__();
+        var _s = (new stdgo.Slice<stdgo.GoInt>((0 : stdgo.GoInt).toBasic(), (10 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         {
             var _n:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_n < (10 : stdgo.GoInt) : Bool), _n++, {
@@ -1250,7 +1250,7 @@ function testRotate(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testInsertGrowthRate(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _b = new stdgo.Slice<stdgo.GoUInt8>((1 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _b = (new stdgo.Slice<stdgo.GoUInt8>((1 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var _maxCap:stdgo.GoInt = _b.capacity;
         var _nGrow:stdgo.GoInt = (0 : stdgo.GoInt);
         {};
@@ -1270,7 +1270,7 @@ function testInsertGrowthRate(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
         };
     }
 function testReplaceGrowthRate(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _b = new stdgo.Slice<stdgo.GoUInt8>((2 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _b = (new stdgo.Slice<stdgo.GoUInt8>((2 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var _maxCap:stdgo.GoInt = _b.capacity;
         var _nGrow:stdgo.GoInt = (0 : stdgo.GoInt);
         {};
@@ -1327,7 +1327,7 @@ function _nextPowerOfTwo(_length:stdgo.GoInt):stdgo.GoUInt {
 macro function _isNaN<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _x:haxe.macro.Expr.ExprOf<T_>):haxe.macro.Expr.ExprOf<Bool>;
 function _makeRandomInts(_n:stdgo.GoInt):stdgo.Slice<stdgo.GoInt> {
         stdgo._internal.math.rand.Rand.seed((42i64 : stdgo.GoInt64));
-        var _ints = new stdgo.Slice<stdgo.GoInt>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _ints = (new stdgo.Slice<stdgo.GoInt>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _n : Bool), _i++, {
@@ -1337,7 +1337,7 @@ function _makeRandomInts(_n:stdgo.GoInt):stdgo.Slice<stdgo.GoInt> {
         return _ints;
     }
 function _makeSortedInts(_n:stdgo.GoInt):stdgo.Slice<stdgo.GoInt> {
-        var _ints = new stdgo.Slice<stdgo.GoInt>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _ints = (new stdgo.Slice<stdgo.GoInt>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _n : Bool), _i++, {
@@ -1347,7 +1347,7 @@ function _makeSortedInts(_n:stdgo.GoInt):stdgo.Slice<stdgo.GoInt> {
         return _ints;
     }
 function _makeReversedInts(_n:stdgo.GoInt):stdgo.Slice<stdgo.GoInt> {
-        var _ints = new stdgo.Slice<stdgo.GoInt>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _ints = (new stdgo.Slice<stdgo.GoInt>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _n : Bool), _i++, {
@@ -1368,7 +1368,7 @@ function benchmarkSortInts(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void
         };
     }
 function _makeSortedStrings(_n:stdgo.GoInt):stdgo.Slice<stdgo.GoString> {
-        var _x = new stdgo.Slice<stdgo.GoString>((_n : stdgo.GoInt).toBasic(), 0).__setString__();
+        var _x = (new stdgo.Slice<stdgo.GoString>((_n : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _n : Bool), _i++, {
@@ -1447,7 +1447,7 @@ function testIntSorts(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function _makeRandomStrings(_n:stdgo.GoInt):stdgo.Slice<stdgo.GoString> {
         stdgo._internal.math.rand.Rand.seed((42i64 : stdgo.GoInt64));
         var _letters:stdgo.Slice<stdgo.GoInt32> = (("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : stdgo.GoString) : stdgo.Slice<stdgo.GoRune>);
-        var _ss = new stdgo.Slice<stdgo.GoString>((_n : stdgo.GoInt).toBasic(), 0).__setString__();
+        var _ss = (new stdgo.Slice<stdgo.GoString>((_n : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _n : Bool), _i++, {
@@ -1519,7 +1519,7 @@ function benchmarkSlicesSortStrings_Sorted(_b:stdgo.Ref<stdgo._internal.testing.
     }
 function _makeRandomStructs(_n:stdgo.GoInt):T_myStructs {
         stdgo._internal.math.rand.Rand.seed((42i64 : stdgo.GoInt64));
-        var _structs = new stdgo.Slice<stdgo.Ref<stdgo._internal.slices.Slices.T_myStruct>>((_n : stdgo.GoInt).toBasic(), 0);
+        var _structs = (new stdgo.Slice<stdgo.Ref<stdgo._internal.slices.Slices.T_myStruct>>((_n : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.slices.Slices.T_myStruct>>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _n : Bool), _i++, {
@@ -1530,7 +1530,7 @@ function _makeRandomStructs(_n:stdgo.GoInt):T_myStructs {
     }
 function testStructSorts(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _ss:stdgo._internal.slices.Slices.T_myStructs = _makeRandomStructs((200 : stdgo.GoInt));
-        var _ss2 = new stdgo.Slice<stdgo.Ref<stdgo._internal.slices.Slices.T_myStruct>>((_ss.length : stdgo.GoInt).toBasic(), 0);
+        var _ss2 = (new stdgo.Slice<stdgo.Ref<stdgo._internal.slices.Slices.T_myStruct>>((_ss.length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.slices.Slices.T_myStruct>>);
         for (_i => _ in _ss) {
             _ss2[(_i : stdgo.GoInt)] = (stdgo.Go.setRef(({ _n : _ss[(_i : stdgo.GoInt)]._n } : stdgo._internal.slices.Slices.T_myStruct)) : stdgo.Ref<stdgo._internal.slices.Slices.T_myStruct>);
         };
@@ -1572,7 +1572,7 @@ function benchmarkSortFuncStructs(_b:stdgo.Ref<stdgo._internal.testing.Testing.B
 function benchmarkBinarySearchFloats(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         for (__0 => _size in (new stdgo.Slice<stdgo.GoInt>(6, 6, ...[(16 : stdgo.GoInt), (32 : stdgo.GoInt), (64 : stdgo.GoInt), (128 : stdgo.GoInt), (512 : stdgo.GoInt), (1024 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>)) {
             _b.run(stdgo._internal.fmt.Fmt.sprintf(("Size%d" : stdgo.GoString), stdgo.Go.toInterface(_size))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-                var _floats = new stdgo.Slice<stdgo.GoFloat64>((_size : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+                var _floats = (new stdgo.Slice<stdgo.GoFloat64>((_size : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoFloat64>);
                 for (_i => _ in _floats) {
                     _floats[(_i : stdgo.GoInt)] = (_i : stdgo.GoFloat64);
                 };
@@ -1591,7 +1591,7 @@ function benchmarkBinarySearchFloats(_b:stdgo.Ref<stdgo._internal.testing.Testin
 function benchmarkBinarySearchFuncStruct(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         for (__0 => _size in (new stdgo.Slice<stdgo.GoInt>(6, 6, ...[(16 : stdgo.GoInt), (32 : stdgo.GoInt), (64 : stdgo.GoInt), (128 : stdgo.GoInt), (512 : stdgo.GoInt), (1024 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>)) {
             _b.run(stdgo._internal.fmt.Fmt.sprintf(("Size%d" : stdgo.GoString), stdgo.Go.toInterface(_size))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-                var _structs = new stdgo.Slice<stdgo.Ref<stdgo._internal.slices.Slices.T_myStruct>>((_size : stdgo.GoInt).toBasic(), 0);
+                var _structs = (new stdgo.Slice<stdgo.Ref<stdgo._internal.slices.Slices.T_myStruct>>((_size : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.slices.Slices.T_myStruct>>);
                 for (_i => _ in _structs) {
                     _structs[(_i : stdgo.GoInt)] = (stdgo.Go.setRef(({ _n : _i } : stdgo._internal.slices.Slices.T_myStruct)) : stdgo.Ref<stdgo._internal.slices.Slices.T_myStruct>);
                 };
@@ -1663,7 +1663,7 @@ function testSortLarge_Random(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
         if (stdgo._internal.testing.Testing.short()) {
             _n = (_n / ((100 : stdgo.GoInt)) : stdgo.GoInt);
         };
-        var _data = new stdgo.Slice<stdgo.GoInt>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _data = (new stdgo.Slice<stdgo.GoInt>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_data.length) : Bool), _i++, {
@@ -1691,7 +1691,7 @@ function testStability(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 _m = __tmp__1;
             };
         };
-        var _data:stdgo._internal.slices.Slices.T_intPairs = new stdgo.Slice<stdgo._internal.slices.Slices.T_intPair>((_n : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_n : stdgo.GoInt).toBasic() > 0 ? (_n : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.slices.Slices.T_intPair)]);
+        var _data:stdgo._internal.slices.Slices.T_intPairs = (new stdgo.Slice<stdgo._internal.slices.Slices.T_intPair>((_n : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_n : stdgo.GoInt).toBasic() > 0 ? (_n : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.slices.Slices.T_intPair)]) : stdgo._internal.slices.Slices.T_intPairs);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_data.length) : Bool), _i++, {

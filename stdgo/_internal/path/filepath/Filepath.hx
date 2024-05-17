@@ -642,7 +642,7 @@ function rel(_basepath:stdgo.GoString, _targpath:stdgo.GoString):{ var _0 : stdg
             if (_tl != (_t0)) {
                 _size = (_size + ((((1 : stdgo.GoInt) + _tl : stdgo.GoInt) - _t0 : stdgo.GoInt)) : stdgo.GoInt);
             };
-            var _buf = new stdgo.Slice<stdgo.GoUInt8>((_size : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _buf = (new stdgo.Slice<stdgo.GoUInt8>((_size : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             var _n:stdgo.GoInt = stdgo.Go.copySlice(_buf, (".." : stdgo.GoString));
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -991,7 +991,7 @@ class T_lazybuf_asInterface {
                 _b._w++;
                 return;
             };
-            _b._buf = new stdgo.Slice<stdgo.GoUInt8>((_b._path.length : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            _b._buf = (new stdgo.Slice<stdgo.GoUInt8>((_b._path.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             stdgo.Go.copySlice(_b._buf, (_b._path.__slice__(0, _b._w) : stdgo.GoString));
         };
         _b._buf[(_b._w : stdgo.GoInt)] = _c;

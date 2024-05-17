@@ -177,12 +177,12 @@ function testGoldenMarshal(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
     }
 function benchmarkAdler32KB(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         _b.setBytes((1024i64 : stdgo.GoInt64));
-        var _data = new stdgo.Slice<stdgo.GoUInt8>((1024 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _data = (new stdgo.Slice<stdgo.GoUInt8>((1024 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         for (_i => _ in _data) {
             _data[(_i : stdgo.GoInt)] = (_i : stdgo.GoByte);
         };
         var _h:stdgo._internal.hash.Hash.Hash32 = new_();
-        var _in = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), _h.size()).__setNumber32__();
+        var _in = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), _h.size()).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         _b.resetTimer();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -260,7 +260,7 @@ class T_digest_asInterface {
     @:keep
     @:pointer
     static public function marshalBinary(____:T_digest,  _d:stdgo.Pointer<T_digest>):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } {
-        var _b = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (8 : stdgo.GoInt)).__setNumber32__();
+        var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (8 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         _b = (_b.__append__(...(stdgo.Go.str("adl", 1) : Array<stdgo.GoUInt8>)));
         _b = _appendUint32(_b, (_d.value : stdgo.GoUInt32));
         return { _0 : _b, _1 : (null : stdgo.Error) };

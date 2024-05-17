@@ -541,7 +541,7 @@ function testWalkDir(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 __deferstack__.unshift(() -> stdgo._internal.os.Os.chdir(_a0?.__copy__()));
             };
             var _fsys:stdgo._internal.io.fs.Fs.FS = _makeTree();
-            var _errors = new stdgo.Slice<stdgo.Error>((0 : stdgo.GoInt).toBasic(), (10 : stdgo.GoInt));
+            var _errors = (new stdgo.Slice<stdgo.Error>((0 : stdgo.GoInt).toBasic(), (10 : stdgo.GoInt)) : stdgo.Slice<stdgo.Error>);
             var _clear:Bool = true;
             var _markFn:(stdgo.GoString, stdgo._internal.io.fs.Fs.DirEntry, stdgo.Error) -> stdgo.Error = function(_path:stdgo.GoString, _entry:DirEntry, _err:stdgo.Error):stdgo.Error {
                 return _mark(_entry, _err, (stdgo.Go.setRef(_errors) : stdgo.Ref<stdgo.Slice<stdgo.Error>>), _clear);

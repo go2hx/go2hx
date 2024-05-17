@@ -188,7 +188,7 @@ function _newTextValue(_val:stdgo._internal.encoding.Encoding.TextMarshaler, _p:
         return (new stdgo._internal.flag.Flag.T_textValue(_p) : stdgo._internal.flag.Flag.T_textValue);
     }
 function _sortFlags(_flags:stdgo.GoMap<stdgo.GoString, stdgo.Ref<Flag>>):stdgo.Slice<stdgo.Ref<Flag>> {
-        var _result = new stdgo.Slice<stdgo.Ref<stdgo._internal.flag.Flag.Flag>>((_flags.length : stdgo.GoInt).toBasic(), 0);
+        var _result = (new stdgo.Slice<stdgo.Ref<stdgo._internal.flag.Flag.Flag>>((_flags.length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.flag.Flag.Flag>>);
         var _i:stdgo.GoInt = (0 : stdgo.GoInt);
         for (__0 => _f in _flags) {
             _result[(_i : stdgo.GoInt)] = _f;

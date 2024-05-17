@@ -3106,7 +3106,7 @@ function _addMulVVW(_z:stdgo.Slice<Word>, _x:stdgo.Slice<Word>, _y:Word):Word {
         return _addMulVVW_g(_z, _x, _y);
     }
 function _testFunVV(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _msg:stdgo.GoString, _f:T_funVV, _a:T_argVV):Void {
-        var _z:stdgo._internal.math.big.Big.T_nat = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_a._z.length : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _z:stdgo._internal.math.big.Big.T_nat = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_a._z.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo._internal.math.big.Big.T_nat);
         var _c:stdgo._internal.math.big.Big.Word = _f(_z, _a._x, _a._y);
         for (_i => _zi in _z) {
             if (_zi != (_a._z[(_i : stdgo.GoInt)])) {
@@ -3138,7 +3138,7 @@ function _rndW():Word {
         return (((_rnd.int63() << (1i64 : stdgo.GoUInt64) : stdgo.GoInt64) | _rnd.int63n((2i64 : stdgo.GoInt64)) : stdgo.GoInt64) : Word);
     }
 function _rndV(_n:stdgo.GoInt):stdgo.Slice<Word> {
-        var _v = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _v = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
         for (_i => _ in _v) {
             _v[(_i : stdgo.GoInt)] = _rndW();
         };
@@ -3151,7 +3151,7 @@ function benchmarkAddVV(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
             };
             var _x = _rndV(_n);
             var _y = _rndV(_n);
-            var _z = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _z = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
             _b.run(stdgo._internal.fmt.Fmt.sprint(stdgo.Go.toInterface(_n))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
                 _b.setBytes(((_n * (32 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64));
                 {
@@ -3170,7 +3170,7 @@ function benchmarkSubVV(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
             };
             var _x = _rndV(_n);
             var _y = _rndV(_n);
-            var _z = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _z = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
             _b.run(stdgo._internal.fmt.Fmt.sprint(stdgo.Go.toInterface(_n))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
                 _b.setBytes(((_n * (32 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64));
                 {
@@ -3183,7 +3183,7 @@ function benchmarkSubVV(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         };
     }
 function _testFunVW(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _msg:stdgo.GoString, _f:T_funVW, _a:T_argVW):Void {
-        var _z:stdgo._internal.math.big.Big.T_nat = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_a._z.length : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _z:stdgo._internal.math.big.Big.T_nat = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_a._z.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo._internal.math.big.Big.T_nat);
         var _c:stdgo._internal.math.big.Big.Word = _f(_z, _a._x, _a._y);
         for (_i => _zi in _z) {
             if (_zi != (_a._z[(_i : stdgo.GoInt)])) {
@@ -3196,7 +3196,7 @@ function _testFunVW(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _msg:stdgo
         };
     }
 function _testFunVWext(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _msg:stdgo.GoString, _f:T_funVW, _f_g:T_funVW, _a:T_argVW):Void {
-        var _z_g:stdgo._internal.math.big.Big.T_nat = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_a._z.length : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _z_g:stdgo._internal.math.big.Big.T_nat = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_a._z.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo._internal.math.big.Big.T_nat);
         var _c_g:stdgo._internal.math.big.Big.Word = _f_g(_z_g, _a._x, _a._y);
         var _c:stdgo._internal.math.big.Big.Word = _f(_a._z, _a._x, _a._y);
         for (_i => _zi in _a._z) {
@@ -3240,7 +3240,7 @@ function testFunVW(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function _makeWordVec(_e:Word, _n:stdgo.GoInt):stdgo.Slice<Word> {
-        var _v = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _v = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
         for (_i => _ in _v) {
             _v[(_i : stdgo.GoInt)] = _e;
         };
@@ -3267,7 +3267,7 @@ function testFunVWExt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__14 => _n in _vwSizes) {
             var _x = _rndV(_n);
             var _y:stdgo._internal.math.big.Big.Word = _rndW();
-            var _z:stdgo._internal.math.big.Big.T_nat = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _z:stdgo._internal.math.big.Big.T_nat = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo._internal.math.big.Big.T_nat);
             var _arg:stdgo._internal.math.big.Big.T_argVW = (new stdgo._internal.math.big.Big.T_argVW(_z, _x, _y, (0u32 : stdgo._internal.math.big.Big.Word)) : stdgo._internal.math.big.Big.T_argVW);
             _testFunVWext(_t, ("addVW, random inputs" : stdgo.GoString), _addVW, _addVW_g, _arg?.__copy__());
             _testFunVWext(_t, ("subVW, random inputs" : stdgo.GoString), _subVW, _subVW_g, _arg?.__copy__());
@@ -3284,7 +3284,7 @@ function testFunVWExt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function _testShiftFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _f:(_z:stdgo.Slice<Word>, _x:stdgo.Slice<Word>, _s:stdgo.GoUInt) -> Word, _a:T_argVU):Void {
-        var _b = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_a._d.length : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _b = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_a._d.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
         stdgo.Go.copySlice(_b, _a._d);
         var _z = (_b.__slice__(_a._zp, (_a._zp + _a._l : stdgo.GoUInt)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
         var _x = (_b.__slice__(_a._xp, (_a._xp + _a._l : stdgo.GoUInt)) : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
@@ -3346,7 +3346,7 @@ function benchmarkAddVW(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
             };
             var _x = _rndV(_n);
             var _y:stdgo._internal.math.big.Big.Word = _rndW();
-            var _z = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _z = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
             _b.run(stdgo._internal.fmt.Fmt.sprint(stdgo.Go.toInterface(_n))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
                 _b.setBytes(((_n * (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64));
                 {
@@ -3365,7 +3365,7 @@ function benchmarkAddVWext(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void
             };
             var _y:stdgo._internal.math.big.Big.Word = (-1u32 : stdgo._internal.math.big.Big.Word);
             var _x = _makeWordVec(_y, _n);
-            var _z = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _z = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
             _b.run(stdgo._internal.fmt.Fmt.sprint(stdgo.Go.toInterface(_n))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
                 _b.setBytes(((_n * (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64));
                 {
@@ -3384,7 +3384,7 @@ function benchmarkSubVW(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
             };
             var _x = _rndV(_n);
             var _y:stdgo._internal.math.big.Big.Word = _rndW();
-            var _z = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _z = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
             _b.run(stdgo._internal.fmt.Fmt.sprint(stdgo.Go.toInterface(_n))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
                 _b.setBytes(((_n * (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64));
                 {
@@ -3403,7 +3403,7 @@ function benchmarkSubVWext(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void
             };
             var _x = _makeWordVec((0u32 : stdgo._internal.math.big.Big.Word), _n);
             var _y:stdgo._internal.math.big.Big.Word = ((1u32 : stdgo._internal.math.big.Big.Word) : Word);
-            var _z = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _z = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
             _b.run(stdgo._internal.fmt.Fmt.sprint(stdgo.Go.toInterface(_n))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
                 _b.setBytes(((_n * (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64));
                 {
@@ -3416,7 +3416,7 @@ function benchmarkSubVWext(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void
         };
     }
 function _testFunVWW(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _msg:stdgo.GoString, _f:T_funVWW, _a:T_argVWW):Void {
-        var _z:stdgo._internal.math.big.Big.T_nat = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_a._z.length : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _z:stdgo._internal.math.big.Big.T_nat = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_a._z.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo._internal.math.big.Big.T_nat);
         var _c:stdgo._internal.math.big.Big.Word = _f(_z, _a._x, _a._y, _a._r);
         for (_i => _zi in _z) {
             if (_zi != (_a._z[(_i : stdgo.GoInt)])) {
@@ -3429,7 +3429,7 @@ function _testFunVWW(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _msg:stdg
         };
     }
 function _testFunWVW(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _msg:stdgo.GoString, _f:T_funWVW, _a:T_argWVW):Void {
-        var _z:stdgo._internal.math.big.Big.T_nat = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_a._z.length : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _z:stdgo._internal.math.big.Big.T_nat = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_a._z.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo._internal.math.big.Big.T_nat);
         var _r:stdgo._internal.math.big.Big.Word = _f(_z, _a._xn, _a._x, _a._y);
         for (_i => _zi in _z) {
             if (_zi != (_a._z[(_i : stdgo.GoInt)])) {
@@ -3497,7 +3497,7 @@ function benchmarkMulAddVWW(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Voi
             if ((_isRaceBuilder && (_n > (1000 : stdgo.GoInt) : Bool) : Bool)) {
                 continue;
             };
-            var _z = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n + (1 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _z = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n + (1 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
             var _x = _rndV(_n);
             var _y:stdgo._internal.math.big.Big.Word = _rndW();
             var _r:stdgo._internal.math.big.Big.Word = _rndW();
@@ -3519,7 +3519,7 @@ function benchmarkAddMulVVW(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Voi
             };
             var _x = _rndV(_n);
             var _y:stdgo._internal.math.big.Big.Word = _rndW();
-            var _z = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _z = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
             _b.run(stdgo._internal.fmt.Fmt.sprint(stdgo.Go.toInterface(_n))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
                 _b.setBytes(((_n * (32 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64));
                 {
@@ -3538,7 +3538,7 @@ function benchmarkDivWVW(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
             };
             var _x = _rndV(_n);
             var _y:stdgo._internal.math.big.Big.Word = _rndW();
-            var _z = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _z = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
             _b.run(stdgo._internal.fmt.Fmt.sprint(stdgo.Go.toInterface(_n))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
                 _b.setBytes(((_n * (32 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64));
                 {
@@ -3557,7 +3557,7 @@ function benchmarkNonZeroShifts(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>)
             };
             var _x = _rndV(_n);
             var _s:stdgo.GoUInt = ((stdgo._internal.math.rand.Rand.int63n((30i64 : stdgo.GoInt64)) : stdgo.GoUInt) + (1u32 : stdgo.GoUInt) : stdgo.GoUInt);
-            var _z = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _z = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
             _b.run(stdgo._internal.fmt.Fmt.sprint(stdgo.Go.toInterface(_n))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
                 _b.setBytes(((_n * (32 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64));
                 _b.run(("shrVU" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
@@ -6595,7 +6595,7 @@ function _newMatrix(_n:stdgo.GoInt, _m:stdgo.GoInt):stdgo.Ref<T_matrix> {
         var _a = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.T_matrix)) : stdgo.Ref<stdgo._internal.math.big.Big.T_matrix>);
         _a._n = _n;
         _a._m = _m;
-        _a._a = new stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.Rat>>((_n * _m : stdgo.GoInt).toBasic(), 0);
+        _a._a = (new stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.Rat>>((_n * _m : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.Rat>>);
         return _a;
     }
 function _newUnit(_n:stdgo.GoInt):stdgo.Ref<T_matrix> {
@@ -6929,7 +6929,7 @@ function testProdZZ(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function _mulBytes(_x:stdgo.Slice<stdgo.GoByte>, _y:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> {
-        var _z = new stdgo.Slice<stdgo.GoUInt8>(((_x.length) + (_y.length) : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _z = (new stdgo.Slice<stdgo.GoUInt8>(((_x.length) + (_y.length) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var _k0:stdgo.GoInt = ((_z.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
         {
             var _j:stdgo.GoInt = ((_y.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
@@ -7578,7 +7578,7 @@ function testLshRsh(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testCmpAbs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _values = new stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.Int_>>((_cmpAbsTests.length : stdgo.GoInt).toBasic(), 0);
+        var _values = (new stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.Int_>>((_cmpAbsTests.length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.Int_>>);
         var _prev:stdgo.Ref<Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big.Int_>);
         for (_i => _s in _cmpAbsTests) {
             var __tmp__ = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>).setString(_s?.__copy__(), (0 : stdgo.GoInt)), _x:stdgo.Ref<stdgo._internal.math.big.Big.Int_> = __tmp__._0, _ok:Bool = __tmp__._1;
@@ -8041,7 +8041,7 @@ function testModSqrt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 if (!_mod.probablyPrime((10 : stdgo.GoInt))) {
                     continue;
                 };
-                var _isSquare = new stdgo.Slice<Bool>((_n : stdgo.GoInt).toBasic(), 0);
+                var _isSquare = (new stdgo.Slice<Bool>((_n : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<Bool>);
                 {
                     var _x:stdgo.GoInt = (1 : stdgo.GoInt);
                     stdgo.Go.cfor((_x < _n : Bool), _x++, {
@@ -8325,15 +8325,15 @@ function testFillBytes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                     throw stdgo.Go.toInterface(("invalid test entry" : stdgo.GoString));
                 };
                 var _byteLen:stdgo.GoInt = (((_x.bitLen() + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt);
-                var _buf = new stdgo.Slice<stdgo.GoUInt8>((_byteLen : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+                var _buf = (new stdgo.Slice<stdgo.GoUInt8>((_byteLen : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                 _checkResult(_t, _x.fillBytes(_buf), _x);
-                _buf = new stdgo.Slice<stdgo.GoUInt8>((100 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+                _buf = (new stdgo.Slice<stdgo.GoUInt8>((100 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                 for (_i => _ in _buf) {
                     _buf[(_i : stdgo.GoInt)] = (255 : stdgo.GoUInt8);
                 };
                 _checkResult(_t, _x.fillBytes(_buf), _x);
                 if ((_byteLen > (0 : stdgo.GoInt) : Bool)) {
-                    _buf = new stdgo.Slice<stdgo.GoUInt8>((_byteLen - (1 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+                    _buf = (new stdgo.Slice<stdgo.GoUInt8>((_byteLen - (1 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                     if (!_panics(function():Void {
                         _x.fillBytes(_buf);
                     })) {
@@ -8636,7 +8636,7 @@ function testGobEncodingNilIntInSlice(_t:stdgo.Ref<stdgo._internal.testing.Testi
         var _buf = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>);
         var _enc = stdgo._internal.encoding.gob.Gob.newEncoder(stdgo.Go.asInterface(_buf));
         var _dec = stdgo._internal.encoding.gob.Gob.newDecoder(stdgo.Go.asInterface(_buf));
-        var _in:stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.Int_>> = new stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.Int_>>((1 : stdgo.GoInt).toBasic(), 0);
+        var _in:stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.Int_>> = (new stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.Int_>>((1 : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.Int_>>);
         var _err:stdgo.Error = _enc.encode(stdgo.Go.toInterface((stdgo.Go.setRef(_in) : stdgo.Ref<stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.Int_>>>)));
         if (_err != null) {
             _t.errorf(("gob encode failed: %q" : stdgo.GoString), stdgo.Go.toInterface(_err));
@@ -9344,8 +9344,8 @@ function testSticky(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function _testSqr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _x:T_nat):Void {
-        var _got:stdgo._internal.math.big.Big.T_nat = new stdgo.Slice<stdgo._internal.math.big.Big.Word>(((2 : stdgo.GoInt) * (_x.length) : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        var _want:stdgo._internal.math.big.Big.T_nat = new stdgo.Slice<stdgo._internal.math.big.Big.Word>(((2 : stdgo.GoInt) * (_x.length) : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _got:stdgo._internal.math.big.Big.T_nat = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(((2 : stdgo.GoInt) * (_x.length) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo._internal.math.big.Big.T_nat);
+        var _want:stdgo._internal.math.big.Big.T_nat = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(((2 : stdgo.GoInt) * (_x.length) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo._internal.math.big.Big.T_nat);
         _got = _got._sqr(_x);
         _want = _want._mul(_x, _x);
         if (_got._cmp(_want) != ((0 : stdgo.GoInt))) {
@@ -9421,8 +9421,8 @@ function testNatSubMod2N(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
 function benchmarkNatSetBytes(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {};
         var _lengths = (new stdgo.Slice<stdgo.GoInt>(6, 6, ...[(8 : stdgo.GoInt), (24 : stdgo.GoInt), (128 : stdgo.GoInt), (7 : stdgo.GoInt), (23 : stdgo.GoInt), (127 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
-        var _n:stdgo._internal.math.big.Big.T_nat = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
-        var _buf = new stdgo.Slice<stdgo.GoUInt8>((128 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _n:stdgo._internal.math.big.Big.T_nat = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo._internal.math.big.Big.T_nat);
+        var _buf = (new stdgo.Slice<stdgo.GoUInt8>((128 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         for (__14 => _l in _lengths) {
             _b.run(stdgo._internal.fmt.Fmt.sprint(stdgo.Go.toInterface(_l))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
                 {
@@ -9546,7 +9546,7 @@ function _divisors(_m:stdgo.GoInt, _b:Word, _ndigits:stdgo.GoInt, _bb:Word):stdg
             _cacheBase10.lock();
             _table = (_cacheBase10._table.__slice__((0 : stdgo.GoInt), _k) : stdgo.Slice<stdgo._internal.math.big.Big.T_divisor>);
         } else {
-            _table = new stdgo.Slice<stdgo._internal.math.big.Big.T_divisor>((_k : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_k : stdgo.GoInt).toBasic() > 0 ? (_k : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.math.big.Big.T_divisor)]);
+            _table = (new stdgo.Slice<stdgo._internal.math.big.Big.T_divisor>((_k : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_k : stdgo.GoInt).toBasic() > 0 ? (_k : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.math.big.Big.T_divisor)]) : stdgo.Slice<stdgo._internal.math.big.Big.T_divisor>);
         };
         if (_table[(_k - (1 : stdgo.GoInt) : stdgo.GoInt)]._ndigits == ((0 : stdgo.GoInt))) {
             var _larger:T_nat = new stdgo._internal.math.big.Big.T_nat(0, 0);
@@ -9591,7 +9591,7 @@ function _itoa(_x:T_nat, _base:stdgo.GoInt):stdgo.Slice<stdgo.GoByte> {
             return (("0" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
         };
         var _i:stdgo.GoInt = ((_x._bitLen() / _log2((_base : Word)) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt);
-        var _s = new stdgo.Slice<stdgo.GoUInt8>((_i : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _s = (new stdgo.Slice<stdgo.GoUInt8>((_i : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var _q:stdgo._internal.math.big.Big.T_nat = (new stdgo._internal.math.big.Big.T_nat(0, 0) : T_nat)._set(_x);
         while (((_q.length) > (0 : stdgo.GoInt) : Bool)) {
             _i--;
@@ -9706,7 +9706,7 @@ function testScanPi(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testScanPiParallel(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
-        var _c = new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt));
+        var _c = (new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (2 : stdgo.GoInt) : Bool), _i++, {
@@ -10785,7 +10785,7 @@ function testIssue34919(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         } } : T__struct_63), ({ _name : ("Num" : stdgo.GoString), _f : function(_x:stdgo.Ref<Rat>):Void {
             _x.num();
         } } : T__struct_63)].concat([for (i in 6 ... (6 > 6 ? 6 : 6 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _f : null } : T__struct_63)])) : stdgo.Slice<T__struct_63>)) {
-            var _r = (stdgo.Go.setRef((new stdgo._internal.math.big.Big.Rat(({ _abs : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(991u32 : stdgo._internal.math.big.Big.Word)]).__setNumber32__() : stdgo._internal.math.big.Big.T_nat) } : stdgo._internal.math.big.Big.Int_), ({ _abs : new stdgo.Slice<stdgo._internal.math.big.Big.Word>((0 : stdgo.GoInt).toBasic(), (1 : stdgo.GoInt)).__setNumber32__() } : stdgo._internal.math.big.Big.Int_)) : stdgo._internal.math.big.Big.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big.Rat>);
+            var _r = (stdgo.Go.setRef((new stdgo._internal.math.big.Big.Rat(({ _abs : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(1, 1, ...[(991u32 : stdgo._internal.math.big.Big.Word)]).__setNumber32__() : stdgo._internal.math.big.Big.T_nat) } : stdgo._internal.math.big.Big.Int_), ({ _abs : (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((0 : stdgo.GoInt).toBasic(), (1 : stdgo.GoInt)).__setNumber32__() : stdgo._internal.math.big.Big.T_nat) } : stdgo._internal.math.big.Big.Int_)) : stdgo._internal.math.big.Big.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big.Rat>);
             _acc._f(_r);
             {
                 var _d:stdgo._internal.math.big.Big.Word = (_r._b._abs.__slice__(0, (1 : stdgo.GoInt)) : stdgo._internal.math.big.Big.T_nat)[(0 : stdgo.GoInt)];
@@ -10798,7 +10798,7 @@ function testIssue34919(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testDenomRace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x = newRat((1i64 : stdgo.GoInt64), (2i64 : stdgo.GoInt64));
         {};
-        var _c = new stdgo.Chan<Bool>((3 : stdgo.GoInt).toBasic(), () -> false);
+        var _c = (new stdgo.Chan<Bool>((3 : stdgo.GoInt).toBasic(), () -> false) : stdgo.Chan<Bool>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (3 : stdgo.GoInt) : Bool), _i++, {
@@ -11123,7 +11123,7 @@ function testGobEncodingNilRatInSlice(_t:stdgo.Ref<stdgo._internal.testing.Testi
         var _buf = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>);
         var _enc = stdgo._internal.encoding.gob.Gob.newEncoder(stdgo.Go.asInterface(_buf));
         var _dec = stdgo._internal.encoding.gob.Gob.newDecoder(stdgo.Go.asInterface(_buf));
-        var _in:stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.Rat>> = new stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.Rat>>((1 : stdgo.GoInt).toBasic(), 0);
+        var _in:stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.Rat>> = (new stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.Rat>>((1 : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.Rat>>);
         var _err:stdgo.Error = _enc.encode(stdgo.Go.toInterface((stdgo.Go.setRef(_in) : stdgo.Ref<stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.Rat>>>)));
         if (_err != null) {
             _t.errorf(("gob encode failed: %q" : stdgo.GoString), stdgo.Go.toInterface(_err));
@@ -11364,17 +11364,17 @@ class T_decimal_asInterface {
         };
         var _buf:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
         if ((_x._exp <= (0 : stdgo.GoInt) : Bool)) {
-            _buf = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (((2 : stdgo.GoInt) + (-_x._exp) : stdgo.GoInt) + (_x._mant.length) : stdgo.GoInt)).__setNumber32__();
+            _buf = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (((2 : stdgo.GoInt) + (-_x._exp) : stdgo.GoInt) + (_x._mant.length) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             _buf = (_buf.__append__(...(("0." : stdgo.GoString) : Array<stdgo.GoUInt8>)));
             _buf = _appendZeros(_buf, -_x._exp);
             _buf = (_buf.__append__(...(_x._mant : Array<stdgo.GoUInt8>)));
         } else if ((_x._exp < (_x._mant.length) : Bool)) {
-            _buf = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), ((1 : stdgo.GoInt) + (_x._mant.length) : stdgo.GoInt)).__setNumber32__();
+            _buf = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), ((1 : stdgo.GoInt) + (_x._mant.length) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             _buf = (_buf.__append__(...((_x._mant.__slice__(0, _x._exp) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
             _buf = (_buf.__append__((46 : stdgo.GoUInt8)));
             _buf = (_buf.__append__(...((_x._mant.__slice__(_x._exp) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
         } else {
-            _buf = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), _x._exp).__setNumber32__();
+            _buf = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), _x._exp).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             _buf = (_buf.__append__(...(_x._mant : Array<stdgo.GoUInt8>)));
             _buf = _appendZeros(_buf, (_x._exp - (_x._mant.length) : stdgo.GoInt));
         };
@@ -11913,7 +11913,7 @@ class Float__asInterface {
         if ((_prec > (0 : stdgo.GoInt) : Bool)) {
             _cap = (_cap + (_prec) : stdgo.GoInt);
         };
-        return (_x.append(new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), _cap).__setNumber32__(), _format, _prec) : stdgo.GoString)?.__copy__();
+        return (_x.append((new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), _cap).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), _format, _prec) : stdgo.GoString)?.__copy__();
     }
     @:keep
     static public function unmarshalText( _z:stdgo.Ref<Float_>, _text:stdgo.Slice<stdgo.GoByte>):stdgo.Error {
@@ -11998,7 +11998,7 @@ class Float__asInterface {
             };
             _sz = (_sz + (((4 : stdgo.GoInt) + (_n * (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
         };
-        var _buf = new stdgo.Slice<stdgo.GoUInt8>((_sz : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _buf = (new stdgo.Slice<stdgo.GoUInt8>((_sz : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         _buf[(0 : stdgo.GoInt)] = (1 : stdgo.GoUInt8);
         var _b:stdgo.GoUInt8 = (((((_x._mode & (7 : stdgo._internal.math.big.Big.RoundingMode) : stdgo._internal.math.big.Big.RoundingMode) : stdgo.GoByte) << (5i64 : stdgo.GoUInt64) : stdgo.GoUInt8) | (((((_x._acc + (1 : stdgo._internal.math.big.Big.Accuracy) : stdgo._internal.math.big.Big.Accuracy)) & (3 : stdgo._internal.math.big.Big.Accuracy) : stdgo._internal.math.big.Big.Accuracy) : stdgo.GoByte) << (3i64 : stdgo.GoUInt64) : stdgo.GoUInt8) : stdgo.GoUInt8) | (((_x._form & (3 : stdgo._internal.math.big.Big.T_form) : stdgo._internal.math.big.Big.T_form) : stdgo.GoByte) << (1i64 : stdgo.GoUInt64) : stdgo.GoUInt8) : stdgo.GoUInt8);
         if (_x._neg) {
@@ -12466,7 +12466,7 @@ class Float__asInterface {
         {
             var _d:stdgo.GoInt = ((_n - (_x._mant.length) : stdgo.GoInt) + (_y._mant.length) : stdgo.GoInt);
             if ((_d > (0 : stdgo.GoInt) : Bool)) {
-                _xadj = new stdgo.Slice<stdgo._internal.math.big.Big.Word>(((_x._mant.length) + _d : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+                _xadj = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>(((_x._mant.length) + _d : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo._internal.math.big.Big.T_nat);
                 stdgo.Go.copySlice((_xadj.__slice__(_d) : stdgo._internal.math.big.Big.T_nat), _x._mant);
             };
         };
@@ -13617,7 +13617,7 @@ class Int__asInterface {
         if (_x == null || (_x : Dynamic).__nil__) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
         };
-        var _buf = new stdgo.Slice<stdgo.GoUInt8>(((1 : stdgo.GoInt) + ((_x._abs.length) * (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _buf = (new stdgo.Slice<stdgo.GoUInt8>(((1 : stdgo.GoInt) + ((_x._abs.length) * (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var _i:stdgo.GoInt = (_x._abs._bytes(_buf) - (1 : stdgo.GoInt) : stdgo.GoInt);
         var _b:stdgo.GoUInt8 = (2 : stdgo.GoUInt8);
         if (_x._neg) {
@@ -14345,7 +14345,7 @@ _even);
     @:keep
     static public function bytes( _x:stdgo.Ref<Int_>):stdgo.Slice<stdgo.GoByte> {
         @:recv var _x:stdgo.Ref<Int_> = _x;
-        var _buf = new stdgo.Slice<stdgo.GoUInt8>(((_x._abs.length) * (4 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _buf = (new stdgo.Slice<stdgo.GoUInt8>(((_x._abs.length) * (4 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         return (_buf.__slice__(_x._abs._bytes(_buf)) : stdgo.Slice<stdgo.GoUInt8>);
     }
     @:keep
@@ -14869,7 +14869,7 @@ class Rat_asInterface {
         if (_x == null || (_x : Dynamic).__nil__) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
         };
-        var _buf = new stdgo.Slice<stdgo.GoUInt8>(((5 : stdgo.GoInt) + ((((_x._a._abs.length) + (_x._b._abs.length) : stdgo.GoInt)) * (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _buf = (new stdgo.Slice<stdgo.GoUInt8>(((5 : stdgo.GoInt) + ((((_x._a._abs.length) + (_x._b._abs.length) : stdgo.GoInt)) * (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var _i:stdgo.GoInt = _x._b._abs._bytes(_buf);
         var _j:stdgo.GoInt = _x._a._abs._bytes((_buf.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>));
         var _n:stdgo.GoInt = (_i - _j : stdgo.GoInt);
@@ -16014,7 +16014,7 @@ class T_nat_asInterface {
         @:recv var _z:T_nat = _z;
         var _recDepth:stdgo.GoInt = ((2 : stdgo.GoInt) * stdgo._internal.math.bits.Bits.len((_v.length : stdgo.GoUInt)) : stdgo.GoInt);
         var _tmp = _getNat(((3 : stdgo.GoInt) * (_v.length) : stdgo.GoInt));
-        var _temps = new stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.T_nat>>((_recDepth : stdgo.GoInt).toBasic(), 0);
+        var _temps = (new stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.T_nat>>((_recDepth : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.T_nat>>);
         _z._clear();
         _z._divRecursiveStep(_u, _v, (0 : stdgo.GoInt), _tmp, _temps);
         for (__14 => _n in _temps) {
@@ -16269,7 +16269,7 @@ class T_nat_asInterface {
         if (_neg) {
             _i++;
         };
-        var _s = new stdgo.Slice<stdgo.GoUInt8>((_i : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _s = (new stdgo.Slice<stdgo.GoUInt8>((_i : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         {
             var _b:stdgo._internal.math.big.Big.Word = (_base : Word);
             if (_b == ((_b & -_b : stdgo._internal.math.big.Big.Word))) {
@@ -16600,7 +16600,7 @@ class T_nat_asInterface {
             };
         };
         if (((_x.length) < _numWords : Bool)) {
-            var _rr:stdgo._internal.math.big.Big.T_nat = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_numWords : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _rr:stdgo._internal.math.big.Big.T_nat = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_numWords : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo._internal.math.big.Big.T_nat);
             stdgo.Go.copySlice(_rr, _x);
             _x = _rr;
         };
@@ -16625,7 +16625,7 @@ class T_nat_asInterface {
             stdgo.Go.copySlice(_zz, rr);
             rr = _zz;
         };
-        var _one:stdgo._internal.math.big.Big.T_nat = new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_numWords : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _one:stdgo._internal.math.big.Big.T_nat = (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_numWords : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo._internal.math.big.Big.T_nat);
         _one[(0 : stdgo.GoInt)] = (1u32 : stdgo._internal.math.big.Big.Word);
         {};
         var _powers:stdgo.GoArray<T_nat> = new stdgo.GoArray<stdgo._internal.math.big.Big.T_nat>(16, 16, ...[for (i in 0 ... 16) new stdgo._internal.math.big.Big.T_nat(0, 0)]);
@@ -17475,10 +17475,10 @@ class T_nat_asInterface {
             return (_z.__slice__(0, _n) : stdgo._internal.math.big.Big.T_nat);
         };
         if (_n == ((1 : stdgo.GoInt))) {
-            return new stdgo.Slice<stdgo._internal.math.big.Big.Word>((1 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            return (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((1 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo._internal.math.big.Big.T_nat);
         };
         {};
-        return new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), (_n + (4 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__();
+        return (new stdgo.Slice<stdgo._internal.math.big.Big.Word>((_n : stdgo.GoInt).toBasic(), (_n + (4 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__() : stdgo._internal.math.big.Big.T_nat);
     }
     @:keep
     static public function _norm( _z:T_nat):T_nat {

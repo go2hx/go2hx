@@ -892,7 +892,7 @@ function newName(_n:stdgo.GoString, _tag:stdgo.GoString, _exported:Bool, _embedd
         if (_embedded) {
             _bits = (_bits | ((8 : stdgo.GoUInt8)) : stdgo.GoUInt8);
         };
-        var _b = new stdgo.Slice<stdgo.GoUInt8>((_l : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _b = (new stdgo.Slice<stdgo.GoUInt8>((_l : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         _b[(0 : stdgo.GoInt)] = _bits;
         stdgo.Go.copySlice((_b.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_nameLen.__slice__(0, _nameLenLen) : stdgo.Slice<stdgo.GoUInt8>));
         stdgo.Go.copySlice((_b.__slice__(((1 : stdgo.GoInt) + _nameLenLen : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _n);

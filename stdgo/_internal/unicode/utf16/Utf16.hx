@@ -32,7 +32,7 @@ function encode(_s:stdgo.Slice<stdgo.GoRune>):stdgo.Slice<stdgo.GoUInt16> {
             _n++;
         };
     };
-    var _a = new stdgo.Slice<stdgo.GoUInt16>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+    var _a = (new stdgo.Slice<stdgo.GoUInt16>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt16>);
     _n = (0 : stdgo.GoInt);
     for (__1 => _v in _s) {
         if ((((0 : stdgo.GoInt32) <= _v : Bool) && (_v < (55296 : stdgo.GoInt32) : Bool) : Bool) || (((57344 : stdgo.GoInt32) <= _v : Bool) && (_v < (65536 : stdgo.GoInt32) : Bool) : Bool)) {
@@ -60,7 +60,7 @@ function appendRune(_a:stdgo.Slice<stdgo.GoUInt16>, _r:stdgo.GoRune):stdgo.Slice
     return (_a.__append__((65533 : stdgo.GoUInt16)));
 }
 function decode(_s:stdgo.Slice<stdgo.GoUInt16>):stdgo.Slice<stdgo.GoRune> {
-    var _buf = new stdgo.Slice<stdgo.GoInt32>((0 : stdgo.GoInt).toBasic(), (64 : stdgo.GoInt)).__setNumber32__();
+    var _buf = (new stdgo.Slice<stdgo.GoInt32>((0 : stdgo.GoInt).toBasic(), (64 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
     return _decode(_s, _buf);
 }
 function _decode(_s:stdgo.Slice<stdgo.GoUInt16>, _buf:stdgo.Slice<stdgo.GoRune>):stdgo.Slice<stdgo.GoRune> {

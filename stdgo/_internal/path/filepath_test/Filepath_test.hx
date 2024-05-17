@@ -1288,7 +1288,7 @@ function _testWalk(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _walk:(stdg
                 __deferstack__.unshift(() -> stdgo._internal.os.Os.chdir(_a0?.__copy__()));
             };
             _makeTree(_t);
-            var _errors = new stdgo.Slice<stdgo.Error>((0 : stdgo.GoInt).toBasic(), (10 : stdgo.GoInt));
+            var _errors = (new stdgo.Slice<stdgo.Error>((0 : stdgo.GoInt).toBasic(), (10 : stdgo.GoInt)) : stdgo.Slice<stdgo.Error>);
             var _clear:Bool = true;
             var _markFn:(stdgo.GoString, stdgo._internal.io.fs.Fs.DirEntry, stdgo.Error) -> stdgo.Error = function(_path:stdgo.GoString, _d:stdgo._internal.io.fs.Fs.DirEntry, _err:stdgo.Error):stdgo.Error {
                 return _mark(_d, _err, (stdgo.Go.setRef(_errors) : stdgo.Ref<stdgo.Slice<stdgo.Error>>), _clear);
@@ -2477,7 +2477,7 @@ class T_globTest_asInterface {
     @:keep
     static public function _buildWant( _test:stdgo.Ref<T_globTest>, _root:stdgo.GoString):stdgo.Slice<stdgo.GoString> {
         @:recv var _test:stdgo.Ref<T_globTest> = _test;
-        var _want = new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), 0).__setString__();
+        var _want = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
         for (__0 => _m in _test._matches) {
             _want = (_want.__append__((_root + fromSlash(_m?.__copy__())?.__copy__() : stdgo.GoString)?.__copy__()));
         };

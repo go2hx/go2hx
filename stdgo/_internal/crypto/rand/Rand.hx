@@ -45,7 +45,7 @@ function testRead(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         if (stdgo._internal.testing.Testing.short()) {
             _n = (100000 : stdgo.GoInt);
         };
-        var _b = new stdgo.Slice<stdgo.GoUInt8>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _b = (new stdgo.Slice<stdgo.GoUInt8>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var __tmp__ = stdgo._internal.io.Io.readFull(reader, _b), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (((_n != (_b.length)) || (_err != null) : Bool)) {
             _t.fatalf(("ReadFull(buf) = %d, %s" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
@@ -59,7 +59,7 @@ function testRead(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testReadEmpty(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var __tmp__ = reader.read(new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), 0).__setNumber32__()), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = reader.read((new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (((_n != (0 : stdgo.GoInt)) || (_err != null) : Bool)) {
             _t.fatalf(("Read(make([]byte, 0)) = %d, %v" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
         };
@@ -81,7 +81,7 @@ function prime(_rand:stdgo._internal.io.Io.Reader, _bits:stdgo.GoInt):{ var _0 :
         if (_b == ((0u32 : stdgo.GoUInt))) {
             _b = (8u32 : stdgo.GoUInt);
         };
-        var _bytes = new stdgo.Slice<stdgo.GoUInt8>((((_bits + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _bytes = (new stdgo.Slice<stdgo.GoUInt8>((((_bits + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var _p = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>);
         while (true) {
             {
@@ -122,7 +122,7 @@ function int_(_rand:stdgo._internal.io.Io.Reader, _max:stdgo.Ref<stdgo._internal
         if (_b == ((0u32 : stdgo.GoUInt))) {
             _b = (8u32 : stdgo.GoUInt);
         };
-        var _bytes = new stdgo.Slice<stdgo.GoUInt8>((_k : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _bytes = (new stdgo.Slice<stdgo.GoUInt8>((_k : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         while (true) {
             {
                 var __tmp__ = stdgo._internal.io.Io.readFull(_rand, _bytes);

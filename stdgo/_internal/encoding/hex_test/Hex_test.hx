@@ -2,13 +2,13 @@ package stdgo._internal.encoding.hex_test;
 import stdgo._internal.encoding.hex.Hex;
 function exampleEncode():Void {
         var _src = (("Hello Gopher!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
-        var _dst = new stdgo.Slice<stdgo.GoUInt8>((stdgo._internal.encoding.hex.Hex.encodedLen((_src.length)) : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _dst = (new stdgo.Slice<stdgo.GoUInt8>((stdgo._internal.encoding.hex.Hex.encodedLen((_src.length)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.encoding.hex.Hex.encode(_dst, _src);
         stdgo._internal.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(_dst));
     }
 function exampleDecode():Void {
         var _src = (("48656c6c6f20476f7068657221" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
-        var _dst = new stdgo.Slice<stdgo.GoUInt8>((stdgo._internal.encoding.hex.Hex.decodedLen((_src.length)) : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _dst = (new stdgo.Slice<stdgo.GoUInt8>((stdgo._internal.encoding.hex.Hex.decodedLen((_src.length)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var __tmp__ = stdgo._internal.encoding.hex.Hex.decode(_dst, _src), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(_err));

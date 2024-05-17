@@ -309,7 +309,7 @@ typedef T__interface_0 = stdgo.StructType & {
 @:named typedef WalkDirFunc = (stdgo.GoString, stdgo._internal.io.fs.Fs.DirEntry, stdgo.Error) -> stdgo.Error;
 function formatFileInfo(_info:FileInfo):stdgo.GoString {
         var _name:stdgo.GoString = _info.name()?.__copy__();
-        var _b = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), ((40 : stdgo.GoInt) + (_name.length) : stdgo.GoInt)).__setNumber32__();
+        var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), ((40 : stdgo.GoInt) + (_name.length) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         _b = (_b.__append__(...((_info.mode().string() : stdgo.GoString) : Array<stdgo.GoUInt8>)));
         _b = (_b.__append__((32 : stdgo.GoUInt8)));
         var _size:stdgo.GoInt64 = _info.size();
@@ -341,7 +341,7 @@ function formatFileInfo(_info:FileInfo):stdgo.GoString {
     }
 function formatDirEntry(_dir:DirEntry):stdgo.GoString {
         var _name:stdgo.GoString = _dir.name()?.__copy__();
-        var _b = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), ((5 : stdgo.GoInt) + (_name.length) : stdgo.GoInt)).__setNumber32__();
+        var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), ((5 : stdgo.GoInt) + (_name.length) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var _mode:stdgo.GoString = (_dir.type().string() : stdgo.GoString)?.__copy__();
         _mode = (_mode.__slice__(0, ((_mode.length) - (9 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
         _b = (_b.__append__(...(_mode : Array<stdgo.GoUInt8>)));
@@ -599,7 +599,7 @@ function readFile(_fsys:FS, _name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.G
                     };
                 };
             };
-            var _data = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (_size + (1 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__();
+            var _data = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (_size + (1 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             while (true) {
                 if (((_data.length) >= _data.capacity : Bool)) {
                     var _d = ((_data.__slice__(0, _data.capacity) : stdgo.Slice<stdgo.GoUInt8>).__append__((0 : stdgo.GoUInt8)));

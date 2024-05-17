@@ -52,7 +52,7 @@ var _jsAmp : stdgo.Slice<stdgo.GoUInt8> = (("\\u0026" : stdgo.GoString) : stdgo.
 var _jsEq : stdgo.Slice<stdgo.GoUInt8> = (("\\u003D" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
 var _debug : stdgo.Pointer<Bool> = stdgo._internal.flag.Flag.bool_(("debug" : stdgo.GoString), false, ("show the errors produced by the tests" : stdgo.GoString));
 var _siVal : stdgo._internal.text.template.Template.I = stdgo.Go.asInterface((new stdgo.Slice<stdgo.GoString>(2, 2, ...[("a" : stdgo.GoString), ("b" : stdgo.GoString)]).__setString__() : stdgo._internal.text.template.Template.S));
-var _tVal : stdgo.Ref<stdgo._internal.text.template.Template.T_> = (stdgo.Go.setRef(({ _True : true, i : (17 : stdgo.GoInt), u16 : (16 : stdgo.GoUInt16), x : ("x" : stdgo.GoString), s : ("xyz" : stdgo.GoString), u : (stdgo.Go.setRef((new stdgo._internal.text.template.Template.U(("v" : stdgo.GoString)) : stdgo._internal.text.template.Template.U)) : stdgo.Ref<stdgo._internal.text.template.Template.U>), v0 : (new stdgo._internal.text.template.Template.V((6666 : stdgo.GoInt)) : stdgo._internal.text.template.Template.V), v1 : (stdgo.Go.setRef((new stdgo._internal.text.template.Template.V((7777 : stdgo.GoInt)) : stdgo._internal.text.template.Template.V)) : stdgo.Ref<stdgo._internal.text.template.Template.V>), w0 : (new stdgo._internal.text.template.Template.W((888 : stdgo.GoInt)) : stdgo._internal.text.template.Template.W), w1 : (stdgo.Go.setRef((new stdgo._internal.text.template.Template.W((999 : stdgo.GoInt)) : stdgo._internal.text.template.Template.W)) : stdgo.Ref<stdgo._internal.text.template.Template.W>), si : (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), sicap : new stdgo.Slice<stdgo.GoInt>((5 : stdgo.GoInt).toBasic(), (10 : stdgo.GoInt)).__setNumber32__(), ai : (new stdgo.GoArray<stdgo.GoInt>(3, 3, ...[(3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)?.__copy__(), sb : (new stdgo.Slice<Bool>(2, 2, ...[true, false]) : stdgo.Slice<Bool>), msi : ({
+var _tVal : stdgo.Ref<stdgo._internal.text.template.Template.T_> = (stdgo.Go.setRef(({ _True : true, i : (17 : stdgo.GoInt), u16 : (16 : stdgo.GoUInt16), x : ("x" : stdgo.GoString), s : ("xyz" : stdgo.GoString), u : (stdgo.Go.setRef((new stdgo._internal.text.template.Template.U(("v" : stdgo.GoString)) : stdgo._internal.text.template.Template.U)) : stdgo.Ref<stdgo._internal.text.template.Template.U>), v0 : (new stdgo._internal.text.template.Template.V((6666 : stdgo.GoInt)) : stdgo._internal.text.template.Template.V), v1 : (stdgo.Go.setRef((new stdgo._internal.text.template.Template.V((7777 : stdgo.GoInt)) : stdgo._internal.text.template.Template.V)) : stdgo.Ref<stdgo._internal.text.template.Template.V>), w0 : (new stdgo._internal.text.template.Template.W((888 : stdgo.GoInt)) : stdgo._internal.text.template.Template.W), w1 : (stdgo.Go.setRef((new stdgo._internal.text.template.Template.W((999 : stdgo.GoInt)) : stdgo._internal.text.template.Template.W)) : stdgo.Ref<stdgo._internal.text.template.Template.W>), si : (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), sicap : (new stdgo.Slice<stdgo.GoInt>((5 : stdgo.GoInt).toBasic(), (10 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), ai : (new stdgo.GoArray<stdgo.GoInt>(3, 3, ...[(3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)?.__copy__(), sb : (new stdgo.Slice<Bool>(2, 2, ...[true, false]) : stdgo.Slice<Bool>), msi : ({
         final x = new stdgo.GoMap.GoStringMap<stdgo.GoInt>();
         x.__defaultValue__ = () -> (0 : stdgo.GoInt);
         @:mergeBlock {
@@ -1479,7 +1479,7 @@ function _newString(_s:stdgo.GoString):stdgo.Pointer<stdgo.GoString> {
 function _newIntSlice(_n:haxe.Rest<stdgo.GoInt>):stdgo.Ref<stdgo.Slice<stdgo.GoInt>> {
         var _n = new stdgo.Slice<stdgo.GoInt>(_n.length, 0, ..._n);
         var _p = (stdgo.Go.setRef((null : stdgo.Slice<stdgo.GoInt>)) : stdgo.Ref<stdgo.Slice<stdgo.GoInt>>);
-        _p.__setData__(new stdgo.Slice<stdgo.GoInt>((_n.length : stdgo.GoInt).toBasic(), 0).__setNumber32__());
+        _p.__setData__((new stdgo.Slice<stdgo.GoInt>((_n.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>));
         stdgo.Go.copySlice((_p : stdgo.Slice<stdgo.GoInt>), _n);
         return _p;
     }
@@ -1503,7 +1503,7 @@ function _count(_n:stdgo.GoInt):stdgo.Chan<stdgo.GoString> {
         if (_n == ((0 : stdgo.GoInt))) {
             return (null : stdgo.Chan<stdgo.GoString>);
         };
-        var _c = new stdgo.Chan<stdgo.GoString>(0, () -> ("" : stdgo.GoString));
+        var _c = (new stdgo.Chan<stdgo.GoString>(0, () -> ("" : stdgo.GoString)) : stdgo.Chan<stdgo.GoString>);
         stdgo.Go.routine(() -> {
             var a = function():Void {
                 {
@@ -2254,7 +2254,7 @@ function testIssue43065(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             var __tmp__ = new_(stdgo.Go.str()?.__copy__()).parse(("{{range .}}{{end}}" : stdgo.GoString));
             must((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template.Template>), (__tmp__._1 : stdgo.Error));
         });
-        var _ch = new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt));
+        var _ch = (new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>);
         var _err:stdgo.Error = _tmp.execute(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>)), stdgo.Go.toInterface(_ch));
         if (_err == null) {
             _t.error(stdgo.Go.toInterface(("expected err got nil" : stdgo.GoString)));
@@ -2681,7 +2681,7 @@ function _call(_fn:stdgo._internal.reflect.Reflect.Value, _args:haxe.Rest<stdgo.
                 return { _0 : (new stdgo._internal.reflect.Reflect.Value() : stdgo._internal.reflect.Reflect.Value), _1 : stdgo._internal.fmt.Fmt.errorf(("wrong number of args: got %d want %d" : stdgo.GoString), stdgo.Go.toInterface((_args.length)), stdgo.Go.toInterface(_numIn)) };
             };
         };
-        var _argv = new stdgo.Slice<stdgo._internal.reflect.Reflect.Value>((_args.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_args.length : stdgo.GoInt).toBasic() > 0 ? (_args.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect.Value)]);
+        var _argv = (new stdgo.Slice<stdgo._internal.reflect.Reflect.Value>((_args.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_args.length : stdgo.GoInt).toBasic() > 0 ? (_args.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect.Value)]) : stdgo.Slice<stdgo._internal.reflect.Reflect.Value>);
         for (_i => _arg in _args) {
             _arg = _indirectInterface(_arg?.__copy__())?.__copy__();
             var _argType:stdgo._internal.reflect.Reflect.Type_ = _dddType;
@@ -3946,7 +3946,7 @@ class T_state_asInterface {
             };
             return _v?.__copy__();
         };
-        var _argv = new stdgo.Slice<stdgo._internal.reflect.Reflect.Value>((_numIn : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_numIn : stdgo.GoInt).toBasic() > 0 ? (_numIn : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect.Value)]);
+        var _argv = (new stdgo.Slice<stdgo._internal.reflect.Reflect.Value>((_numIn : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_numIn : stdgo.GoInt).toBasic() > 0 ? (_numIn : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect.Value)]) : stdgo.Slice<stdgo._internal.reflect.Reflect.Value>);
         var _i:stdgo.GoInt = (0 : stdgo.GoInt);
         stdgo.Go.cfor(((_i < _numFixed : Bool) && (_i < (_args.length) : Bool) : Bool), _i++, {
             _argv[(_i : stdgo.GoInt)] = _s._evalArg(_dot?.__copy__(), _typ.in_(_i), _args[(_i : stdgo.GoInt)])?.__copy__();
@@ -4657,7 +4657,7 @@ class T__asInterface {
     @:keep
     static public function madd( _t:stdgo.Ref<T_>, _a:stdgo.GoInt, _b:stdgo.Slice<stdgo.GoInt>):stdgo.Slice<stdgo.GoInt> {
         @:recv var _t:stdgo.Ref<T_> = _t;
-        var _v = new stdgo.Slice<stdgo.GoInt>((_b.length : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _v = (new stdgo.Slice<stdgo.GoInt>((_b.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         for (_i => _x in _b) {
             _v[(_i : stdgo.GoInt)] = (_x + _a : stdgo.GoInt);
         };
@@ -5142,7 +5142,7 @@ class Template_asInterface {
             };
             _t._common._muTmpl.rlock();
             __deferstack__.unshift(() -> _t._common._muTmpl.runlock());
-            var _m = new stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template.Template>>((0 : stdgo.GoInt).toBasic(), (_t._common._tmpl.length));
+            var _m = (new stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template.Template>>((0 : stdgo.GoInt).toBasic(), (_t._common._tmpl.length)) : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template.Template>>);
             for (__56 => _v in _t._common._tmpl) {
                 _m = (_m.__append__(_v));
             };
@@ -5294,12 +5294,12 @@ class Template_asInterface {
                 @:mergeBlock {};
                 x;
             } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template.Template>>);
-            _c._parseFuncs = ({
+            _c._parseFuncs = (({
                 final x = new stdgo.GoMap.GoStringMap<stdgo.AnyInterface>();
                 x.__defaultValue__ = () -> (null : stdgo.AnyInterface);
                 @:mergeBlock {};
                 x;
-            } : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
+            } : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>) : stdgo._internal.text.template.Template.FuncMap);
             _c._execFuncs = ({
                 final x = new stdgo.GoMap.GoStringMap<stdgo._internal.reflect.Reflect.Value>();
                 x.__defaultValue__ = () -> ({} : stdgo._internal.reflect.Reflect.Value);

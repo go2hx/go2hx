@@ -13,7 +13,7 @@ var _errWhence : stdgo.Error = stdgo._internal.errors.Errors.new_(("Seek: invali
 var _errOffset : stdgo.Error = stdgo._internal.errors.Errors.new_(("Seek: invalid offset" : stdgo.GoString));
 var discard : stdgo._internal.io.Io.Writer = stdgo.Go.asInterface((new stdgo._internal.io.Io.T_discard() : stdgo._internal.io.Io.T_discard));
 var _blackHolePool : stdgo._internal.sync.Sync.Pool = ({ new_ : function():stdgo.AnyInterface {
-        var _b = new stdgo.Slice<stdgo.GoUInt8>((8192 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _b = (new stdgo.Slice<stdgo.GoUInt8>((8192 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo.Go.toInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>));
     } } : stdgo._internal.sync.Sync.Pool);
 var errClosedPipe : stdgo.Error = stdgo._internal.errors.Errors.new_(("io: read/write on closed pipe" : stdgo.GoString));
@@ -533,7 +533,7 @@ function _copyBuffer(_dst:Writer, _src:Reader, _buf:stdgo.Slice<stdgo.GoByte>):{
                     };
                 };
             };
-            _buf = new stdgo.Slice<stdgo.GoUInt8>((_size : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            _buf = (new stdgo.Slice<stdgo.GoUInt8>((_size : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         };
         while (true) {
             var __tmp__ = _src.read(_buf), _nr:stdgo.GoInt = __tmp__._0, _er:stdgo.Error = __tmp__._1;
@@ -597,7 +597,7 @@ function nopCloser(_r:Reader):ReadCloser {
         return stdgo.Go.asInterface((new stdgo._internal.io.Io.T_nopCloser(_r) : stdgo._internal.io.Io.T_nopCloser));
     }
 function readAll(_r:Reader):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } {
-        var _b = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (512 : stdgo.GoInt)).__setNumber32__();
+        var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (512 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         while (true) {
             var __tmp__ = _r.read((_b.__slice__((_b.length), _b.capacity) : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             _b = (_b.__slice__(0, ((_b.length) + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
@@ -614,13 +614,13 @@ function readAll(_r:Reader):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo
     }
 function multiReader(_readers:haxe.Rest<Reader>):Reader {
         var _readers = new stdgo.Slice<Reader>(_readers.length, 0, ..._readers);
-        var _r = new stdgo.Slice<stdgo._internal.io.Io.Reader>((_readers.length : stdgo.GoInt).toBasic(), 0);
+        var _r = (new stdgo.Slice<stdgo._internal.io.Io.Reader>((_readers.length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo._internal.io.Io.Reader>);
         stdgo.Go.copySlice(_r, _readers);
         return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.io.Io.T_multiReader(_r) : stdgo._internal.io.Io.T_multiReader)) : stdgo.Ref<stdgo._internal.io.Io.T_multiReader>));
     }
 function multiWriter(_writers:haxe.Rest<Writer>):Writer {
         var _writers = new stdgo.Slice<Writer>(_writers.length, 0, ..._writers);
-        var _allWriters = new stdgo.Slice<stdgo._internal.io.Io.Writer>((0 : stdgo.GoInt).toBasic(), (_writers.length));
+        var _allWriters = (new stdgo.Slice<stdgo._internal.io.Io.Writer>((0 : stdgo.GoInt).toBasic(), (_writers.length)) : stdgo.Slice<stdgo._internal.io.Io.Writer>);
         for (__6 => _w in _writers) {
             {
                 var __tmp__ = try {
@@ -638,7 +638,7 @@ function multiWriter(_writers:haxe.Rest<Writer>):Writer {
         return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.io.Io.T_multiWriter(_allWriters) : stdgo._internal.io.Io.T_multiWriter)) : stdgo.Ref<stdgo._internal.io.Io.T_multiWriter>));
     }
 function pipe():{ var _0 : stdgo.Ref<PipeReader>; var _1 : stdgo.Ref<PipeWriter>; } {
-        var _p = (stdgo.Go.setRef(({ _wrCh : new stdgo.Chan<stdgo.Slice<stdgo.GoUInt8>>(0, () -> (null : stdgo.Slice<stdgo.GoUInt8>)), _rdCh : new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)), _done : new stdgo.Chan<T_discard>(0, () -> ({} : T_discard)) } : stdgo._internal.io.Io.T_pipe)) : stdgo.Ref<stdgo._internal.io.Io.T_pipe>);
+        var _p = (stdgo.Go.setRef(({ _wrCh : (new stdgo.Chan<stdgo.Slice<stdgo.GoUInt8>>(0, () -> (null : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Chan<stdgo.Slice<stdgo.GoUInt8>>), _rdCh : (new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>), _done : (new stdgo.Chan<T_discard>(0, () -> ({} : T_discard)) : stdgo.Chan<T_discard>) } : stdgo._internal.io.Io.T_pipe)) : stdgo.Ref<stdgo._internal.io.Io.T_pipe>);
         return { _0 : (stdgo.Go.setRef((new stdgo._internal.io.Io.PipeReader(_p) : stdgo._internal.io.Io.PipeReader)) : stdgo.Ref<stdgo._internal.io.Io.PipeReader>), _1 : (stdgo.Go.setRef((new stdgo._internal.io.Io.PipeWriter(_p) : stdgo._internal.io.Io.PipeWriter)) : stdgo.Ref<stdgo._internal.io.Io.PipeWriter>) };
     }
 class LimitedReader_asInterface {
@@ -1028,7 +1028,7 @@ class T_multiReader_asInterface {
     static public function writeTo( _mr:stdgo.Ref<T_multiReader>, _w:Writer):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
         @:recv var _mr:stdgo.Ref<T_multiReader> = _mr;
         var _sum:stdgo.GoInt64 = (0 : stdgo.GoInt64), _err:stdgo.Error = (null : stdgo.Error);
-        return _mr._writeToWithBuffer(_w, new stdgo.Slice<stdgo.GoUInt8>((32768 : stdgo.GoInt).toBasic(), 0).__setNumber32__());
+        return _mr._writeToWithBuffer(_w, (new stdgo.Slice<stdgo.GoUInt8>((32768 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>));
     }
     @:keep
     static public function read( _mr:stdgo.Ref<T_multiReader>, _p:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {

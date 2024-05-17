@@ -782,7 +782,7 @@ function testEchoFileRace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
                 _t.fatalf(("Start: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
         };
-        var _wrote = new stdgo.Chan<Bool>(0, () -> false);
+        var _wrote = (new stdgo.Chan<Bool>(0, () -> false) : stdgo.Chan<Bool>);
         stdgo.Go.routine(() -> {
             var a = function():Void {
                 var __deferstack__:Array<Void -> Void> = [];
@@ -1396,8 +1396,8 @@ function testExtraFilesRace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
                 var _lb:stdgo._internal.net.Net.Listener = _listen();
                 var _cb = _helperCommand(_t, ("describefiles" : stdgo.GoString));
                 _cb.extraFiles = (new stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os.File>>(1, 1, ...[_listenerFile(_lb)]) : stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os.File>>);
-                var _ares = new stdgo.Chan<stdgo.GoString>(0, () -> ("" : stdgo.GoString));
-                var _bres = new stdgo.Chan<stdgo.GoString>(0, () -> ("" : stdgo.GoString));
+                var _ares = (new stdgo.Chan<stdgo.GoString>(0, () -> ("" : stdgo.GoString)) : stdgo.Chan<stdgo.GoString>);
+                var _bres = (new stdgo.Chan<stdgo.GoString>(0, () -> ("" : stdgo.GoString)) : stdgo.Chan<stdgo.GoString>);
                 stdgo.Go.routine(() -> _runCommand(_ca, _ares));
                 stdgo.Go.routine(() -> _runCommand(_cb, _bres));
                 {
@@ -1500,7 +1500,7 @@ function testContext(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
         };
-        var _buf = new stdgo.Slice<stdgo.GoUInt8>((5 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _buf = (new stdgo.Slice<stdgo.GoUInt8>((5 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var __tmp__ = stdgo._internal.io.Io.readFull(_stdout, _buf), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (((_n != ((_buf.length)) || _err != null : Bool) || ((_buf : stdgo.GoString) != ("O:hi\n" : stdgo.GoString)) : Bool)) {
             _t.fatalf(("ReadFull = %d, %v, %q" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err), stdgo.Go.toInterface((_buf.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>)));
@@ -1686,7 +1686,7 @@ function testDoubleStartLeavesPipesOpen(_t:stdgo.Ref<stdgo._internal.testing.Tes
                 _t.fatalf(("second call to Start returned a nil; want an \'already started\' error" : stdgo.GoString));
             };
         };
-        var _outc = new stdgo.Chan<stdgo.Slice<stdgo.GoUInt8>>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Slice<stdgo.GoUInt8>));
+        var _outc = (new stdgo.Chan<stdgo.Slice<stdgo.GoUInt8>>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Chan<stdgo.Slice<stdgo.GoUInt8>>);
         stdgo.Go.routine(() -> {
             var a = function():Void {
                 var __tmp__ = stdgo._internal.io.Io.readAll(_out), _b:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -1748,7 +1748,7 @@ function _cmdHang(_args:haxe.Rest<stdgo.GoString>):Void {
             stdgo.Go.routine(() -> _cmd.wait_());
         };
         if (_exitOnInterrupt.value) {
-            var _c = new stdgo.Chan<stdgo._internal.os.Os.Signal>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo._internal.os.Os.Signal));
+            var _c = (new stdgo.Chan<stdgo._internal.os.Os.Signal>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo._internal.os.Os.Signal)) : stdgo.Chan<stdgo._internal.os.Os.Signal>);
             stdgo._internal.os.signal.Signal.notify(_c, stdgo._internal.os.Os.interrupt);
             stdgo.Go.routine(() -> {
                 var a = function():Void {
@@ -2069,8 +2069,8 @@ function testCancelErrors(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
-                var _interruptCalled = new stdgo.Chan<T_delayedInfiniteReader>(0, () -> ({} : T_delayedInfiniteReader));
-                var _done = new stdgo.Chan<T_delayedInfiniteReader>(0, () -> ({} : T_delayedInfiniteReader));
+                var _interruptCalled = (new stdgo.Chan<T_delayedInfiniteReader>(0, () -> ({} : T_delayedInfiniteReader)) : stdgo.Chan<T_delayedInfiniteReader>);
+                var _done = (new stdgo.Chan<T_delayedInfiniteReader>(0, () -> ({} : T_delayedInfiniteReader)) : stdgo.Chan<T_delayedInfiniteReader>);
                 _cmd.cancel = function():stdgo.Error {
                     if (_interruptCalled != null) _interruptCalled.__close__();
                     _done.__get__();
@@ -2251,7 +2251,7 @@ function testCancelErrors(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
                 var _errArbitrary:stdgo.Error = stdgo._internal.errors.Errors.new_(("arbitrary error" : stdgo.GoString));
-                var _interrupted = new stdgo.Chan<T_delayedInfiniteReader>(0, () -> ({} : T_delayedInfiniteReader));
+                var _interrupted = (new stdgo.Chan<T_delayedInfiniteReader>(0, () -> ({} : T_delayedInfiniteReader)) : stdgo.Chan<T_delayedInfiniteReader>);
                 _cmd.cancel = function():stdgo.Error {
                     if (_interrupted != null) _interrupted.__close__();
                     return _errArbitrary;

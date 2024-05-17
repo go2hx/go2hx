@@ -1170,7 +1170,7 @@ class T_fmt_asInterface {
         if ((_f._fmtFlags._widPresent || _f._fmtFlags._precPresent : Bool)) {
             var _width:stdgo.GoInt = (((3 : stdgo.GoInt) + _f._wid : stdgo.GoInt) + _f._prec : stdgo.GoInt);
             if ((_width > (_buf.length) : Bool)) {
-                _buf = new stdgo.Slice<stdgo.GoUInt8>((_width : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+                _buf = (new stdgo.Slice<stdgo.GoUInt8>((_width : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             };
         };
         var _prec:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -1278,7 +1278,7 @@ class T_fmt_asInterface {
             _prec = _f._prec;
             var _width:stdgo.GoInt = (((((2 : stdgo.GoInt) + _prec : stdgo.GoInt) + (2 : stdgo.GoInt) : stdgo.GoInt) + (4 : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt);
             if ((_width > (_buf.length) : Bool)) {
-                _buf = new stdgo.Slice<stdgo.GoUInt8>((_width : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+                _buf = (new stdgo.Slice<stdgo.GoUInt8>((_width : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             };
         };
         var _i:stdgo.GoInt = (_buf.length);
@@ -1366,7 +1366,7 @@ class T_fmt_asInterface {
         var _oldLen:stdgo.GoInt = (_buf.length);
         var _newLen:stdgo.GoInt = (_oldLen + _n : stdgo.GoInt);
         if ((_newLen > _buf.capacity : Bool)) {
-            _buf = new stdgo.Slice<stdgo.GoUInt8>(((_buf.capacity * (2 : stdgo.GoInt) : stdgo.GoInt) + _n : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            _buf = (new stdgo.Slice<stdgo.GoUInt8>(((_buf.capacity * (2 : stdgo.GoInt) : stdgo.GoInt) + _n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo._internal.fmt.Fmt.T_buffer);
             stdgo.Go.copySlice(_buf, (_f._buf : stdgo._internal.fmt.Fmt.T_buffer));
         };
         var _padByte:stdgo.GoUInt8 = ((32 : stdgo.GoUInt8) : stdgo.GoByte);
@@ -1910,7 +1910,7 @@ class T_pp_asInterface {
                                         } else if (_f.canAddr()) {
                                             _bytes = _f.slice((0 : stdgo.GoInt), _f.len()).bytes();
                                         } else {
-                                            _bytes = new stdgo.Slice<stdgo.GoUInt8>((_f.len() : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+                                            _bytes = (new stdgo.Slice<stdgo.GoUInt8>((_f.len() : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                                             for (_i => _ in _bytes) {
                                                 _bytes[(_i : stdgo.GoInt)] = (_f.index(_i).uint() : stdgo.GoByte);
                                             };

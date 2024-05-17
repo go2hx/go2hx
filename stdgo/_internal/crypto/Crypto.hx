@@ -43,7 +43,7 @@ var _digestSizes : stdgo.Slice<stdgo.GoUInt8> = {
         s[19] = (64 : stdgo.GoUInt8);
         s;
     };
-var _hashes : stdgo.Slice<() -> stdgo._internal.hash.Hash.Hash> = new stdgo.Slice<() -> stdgo._internal.hash.Hash.Hash>(((20u32 : stdgo._internal.crypto.Crypto.Hash) : stdgo.GoInt).toBasic(), 0);
+var _hashes : stdgo.Slice<() -> stdgo._internal.hash.Hash.Hash> = (new stdgo.Slice<() -> stdgo._internal.hash.Hash.Hash>(((20u32 : stdgo._internal.crypto.Crypto.Hash) : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<() -> stdgo._internal.hash.Hash.Hash>);
 @:keep class Signer_static_extension {
     static public function sign(t:Signer, _rand:stdgo._internal.io.Io.Reader, _digest:stdgo.Slice<stdgo.GoByte>, _opts:SignerOpts):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } return t.sign(_rand, _digest, _opts);
     static public function public_(t:Signer):PublicKey return t.public_();

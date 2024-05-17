@@ -99,7 +99,7 @@ function _fromHex(_s:stdgo.GoString):stdgo.Slice<stdgo.GoByte> {
 function testMarshalHash(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _tt in _marshalTests) {
             _t.run(_tt._name?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-                var _buf = new stdgo.Slice<stdgo.GoUInt8>((256 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+                var _buf = (new stdgo.Slice<stdgo.GoUInt8>((256 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                 for (_i => _ in _buf) {
                     _buf[(_i : stdgo.GoInt)] = (_i : stdgo.GoByte);
                 };

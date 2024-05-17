@@ -202,7 +202,7 @@ function benchmarkDecodeValidJapaneseChars(_b:stdgo.Ref<stdgo._internal.testing.
         };
     }
 function benchmarkDecodeRune(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-        var _rs = new stdgo.Slice<stdgo.GoInt32>((10 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _rs = (new stdgo.Slice<stdgo.GoInt32>((10 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
         for (_i => _u in (new stdgo.Slice<stdgo.GoInt32>(5, 5, ...[(120016 : stdgo.GoInt32), (120017 : stdgo.GoInt32), (120018 : stdgo.GoInt32), (120019 : stdgo.GoInt32), (120020 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>)) {
             {
                 var __tmp__ = encodeRune(_u);
@@ -243,7 +243,7 @@ function benchmarkEncodeValidJapaneseChars(_b:stdgo.Ref<stdgo._internal.testing.
     }
 function benchmarkAppendRuneValidASCII(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _data = (new stdgo.Slice<stdgo.GoInt32>(5, 5, ...[(104 : stdgo.GoInt32), (101 : stdgo.GoInt32), (108 : stdgo.GoInt32), (108 : stdgo.GoInt32), (111 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
-        var _a = new stdgo.Slice<stdgo.GoUInt16>((0 : stdgo.GoInt).toBasic(), ((_data.length) * (2 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__();
+        var _a = (new stdgo.Slice<stdgo.GoUInt16>((0 : stdgo.GoInt).toBasic(), ((_data.length) * (2 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt16>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
@@ -256,7 +256,7 @@ function benchmarkAppendRuneValidASCII(_b:stdgo.Ref<stdgo._internal.testing.Test
     }
 function benchmarkAppendRuneValidJapaneseChars(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _data = (new stdgo.Slice<stdgo.GoInt32>(3, 3, ...[(26085 : stdgo.GoInt32), (26412 : stdgo.GoInt32), (35486 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
-        var _a = new stdgo.Slice<stdgo.GoUInt16>((0 : stdgo.GoInt).toBasic(), ((_data.length) * (2 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__();
+        var _a = (new stdgo.Slice<stdgo.GoUInt16>((0 : stdgo.GoInt).toBasic(), ((_data.length) * (2 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt16>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {

@@ -332,7 +332,7 @@ function join(_elem:haxe.Rest<stdgo.GoString>):stdgo.GoString {
         if (_size == ((0 : stdgo.GoInt))) {
             return stdgo.Go.str()?.__copy__();
         };
-        var _buf = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), ((_size + (_elem.length) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__();
+        var _buf = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), ((_size + (_elem.length) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         for (__1 => _e in _elem) {
             if ((((_buf.length) > (0 : stdgo.GoInt) : Bool) || (_e != stdgo.Go.str()) : Bool)) {
                 if (((_buf.length) > (0 : stdgo.GoInt) : Bool)) {
@@ -411,7 +411,7 @@ class T_lazybuf_asInterface {
                 _b._w++;
                 return;
             };
-            _b._buf = new stdgo.Slice<stdgo.GoUInt8>((_b._s.length : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            _b._buf = (new stdgo.Slice<stdgo.GoUInt8>((_b._s.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             stdgo.Go.copySlice(_b._buf, (_b._s.__slice__(0, _b._w) : stdgo.GoString));
         };
         _b._buf[(_b._w : stdgo.GoInt)] = _c;

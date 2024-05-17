@@ -18,7 +18,7 @@ function exampleEncoding_EncodeToString():Void {
     }
 function exampleEncoding_Encode():Void {
         var _data = (("Hello, world!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
-        var _dst = new stdgo.Slice<stdgo.GoUInt8>((stdgo._internal.encoding.base64.Base64.stdEncoding.encodedLen((_data.length)) : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _dst = (new stdgo.Slice<stdgo.GoUInt8>((stdgo._internal.encoding.base64.Base64.stdEncoding.encodedLen((_data.length)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.encoding.base64.Base64.stdEncoding.encode(_dst, _data);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface((_dst : stdgo.GoString)));
     }
@@ -33,7 +33,7 @@ function exampleEncoding_DecodeString():Void {
     }
 function exampleEncoding_Decode():Void {
         var _str:stdgo.GoString = ("SGVsbG8sIHdvcmxkIQ==" : stdgo.GoString);
-        var _dst = new stdgo.Slice<stdgo.GoUInt8>((stdgo._internal.encoding.base64.Base64.stdEncoding.decodedLen((_str.length)) : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _dst = (new stdgo.Slice<stdgo.GoUInt8>((stdgo._internal.encoding.base64.Base64.stdEncoding.decodedLen((_str.length)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var __tmp__ = stdgo._internal.encoding.base64.Base64.stdEncoding.decode(_dst, (_str : stdgo.Slice<stdgo.GoByte>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(("decode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));

@@ -222,7 +222,7 @@ function exampleDecodeRuneInString():Void {
     }
 function exampleEncodeRune():Void {
         var _r:stdgo.GoInt32 = (19990 : stdgo.GoInt32);
-        var _buf = new stdgo.Slice<stdgo.GoUInt8>((3 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _buf = (new stdgo.Slice<stdgo.GoUInt8>((3 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var _n:stdgo.GoInt = stdgo._internal.unicode.utf8.Utf8.encodeRune(_buf, _r);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_buf));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_n));
@@ -230,7 +230,7 @@ function exampleEncodeRune():Void {
 function exampleEncodeRune_outOfRange():Void {
         var _runes = (new stdgo.Slice<stdgo.GoInt32>(3, 3, ...[(-1 : stdgo.GoInt32), (1114112 : stdgo.GoInt32), (65533 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
         for (_i => _c in _runes) {
-            var _buf = new stdgo.Slice<stdgo.GoUInt8>((3 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _buf = (new stdgo.Slice<stdgo.GoUInt8>((3 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             var _size:stdgo.GoInt = stdgo._internal.unicode.utf8.Utf8.encodeRune(_buf, _c);
             stdgo._internal.fmt.Fmt.printf(("%d: %d %[2]s %d\n" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_buf), stdgo.Go.toInterface(_size));
         };
@@ -537,7 +537,7 @@ function testDecodeInvalidSequence(_t:stdgo.Ref<stdgo._internal.testing.Testing.
 }
 function _testSequence(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _s:stdgo.GoString):Void {
         {};
-        var _index = new stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.T__testSequence_0___localname___info>((_s.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_s.length : stdgo.GoInt).toBasic() > 0 ? (_s.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.unicode.utf8_test.Utf8_test.T__testSequence_0___localname___info)]);
+        var _index = (new stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.T__testSequence_0___localname___info>((_s.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_s.length : stdgo.GoInt).toBasic() > 0 ? (_s.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.unicode.utf8_test.Utf8_test.T__testSequence_0___localname___info)]) : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.T__testSequence_0___localname___info>);
         var _b = (_s : stdgo.Slice<stdgo.GoByte>);
         var _si:stdgo.GoInt = (0 : stdgo.GoInt);
         var _j:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -595,9 +595,9 @@ function _testSequence(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _s:stdg
         };
     }
 function testNegativeRune(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _errorbuf = new stdgo.Slice<stdgo.GoUInt8>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _errorbuf = (new stdgo.Slice<stdgo.GoUInt8>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         _errorbuf = (_errorbuf.__slice__((0 : stdgo.GoInt), encodeRune(_errorbuf, (65533 : stdgo.GoInt32))) : stdgo.Slice<stdgo.GoUInt8>);
-        var _buf = new stdgo.Slice<stdgo.GoUInt8>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _buf = (new stdgo.Slice<stdgo.GoUInt8>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         _buf = (_buf.__slice__((0 : stdgo.GoInt), encodeRune(_buf, (-1 : stdgo.GoInt32))) : stdgo.Slice<stdgo.GoUInt8>);
         if (!stdgo._internal.bytes.Bytes.equal(_buf, _errorbuf)) {
             _t.errorf(("incorrect encoding [% x] for -1; expected [% x]" : stdgo.GoString), stdgo.Go.toInterface(_buf), stdgo.Go.toInterface(_errorbuf));
@@ -769,7 +769,7 @@ function benchmarkValidStringLongJapanese(_b:stdgo.Ref<stdgo._internal.testing.T
         };
     }
 function benchmarkEncodeASCIIRune(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-        var _buf = new stdgo.Slice<stdgo.GoUInt8>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _buf = (new stdgo.Slice<stdgo.GoUInt8>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
@@ -778,7 +778,7 @@ function benchmarkEncodeASCIIRune(_b:stdgo.Ref<stdgo._internal.testing.Testing.B
         };
     }
 function benchmarkEncodeJapaneseRune(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-        var _buf = new stdgo.Slice<stdgo.GoUInt8>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _buf = (new stdgo.Slice<stdgo.GoUInt8>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
@@ -787,7 +787,7 @@ function benchmarkEncodeJapaneseRune(_b:stdgo.Ref<stdgo._internal.testing.Testin
         };
     }
 function benchmarkAppendASCIIRune(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-        var _buf = new stdgo.Slice<stdgo.GoUInt8>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _buf = (new stdgo.Slice<stdgo.GoUInt8>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
@@ -796,7 +796,7 @@ function benchmarkAppendASCIIRune(_b:stdgo.Ref<stdgo._internal.testing.Testing.B
         };
     }
 function benchmarkAppendJapaneseRune(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-        var _buf = new stdgo.Slice<stdgo.GoUInt8>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _buf = (new stdgo.Slice<stdgo.GoUInt8>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {

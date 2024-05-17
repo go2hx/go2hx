@@ -20,8 +20,8 @@ function sort(_mapValue:stdgo._internal.reflect.Reflect.Value):stdgo.Ref<SortedM
             return null;
         };
         var _n:stdgo.GoInt = _mapValue.len();
-        var _key = new stdgo.Slice<stdgo._internal.reflect.Reflect.Value>((0 : stdgo.GoInt).toBasic(), _n, ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > _n ? (0 : stdgo.GoInt).toBasic() : _n : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect.Value)]);
-        var _value = new stdgo.Slice<stdgo._internal.reflect.Reflect.Value>((0 : stdgo.GoInt).toBasic(), _n, ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > _n ? (0 : stdgo.GoInt).toBasic() : _n : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect.Value)]);
+        var _key = (new stdgo.Slice<stdgo._internal.reflect.Reflect.Value>((0 : stdgo.GoInt).toBasic(), _n, ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > _n ? (0 : stdgo.GoInt).toBasic() : _n : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect.Value)]) : stdgo.Slice<stdgo._internal.reflect.Reflect.Value>);
+        var _value = (new stdgo.Slice<stdgo._internal.reflect.Reflect.Value>((0 : stdgo.GoInt).toBasic(), _n, ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > _n ? (0 : stdgo.GoInt).toBasic() : _n : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect.Value)]) : stdgo.Slice<stdgo._internal.reflect.Reflect.Value>);
         var _iter = _mapValue.mapRange();
         while (_iter.next()) {
             _key = (_key.__append__(_iter.key()?.__copy__()));

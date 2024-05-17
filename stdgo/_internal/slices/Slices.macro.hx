@@ -282,7 +282,7 @@ macro function insert<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1
                         return (_s.__append__(...(_v : stdgo._internal.slices.Slices.Array<$S>)));
                     };
                     if (((_n + _m : stdgo.GoInt) > _s.capacity : Bool)) {
-                        var _s2:$S = ((_s.__slice__(0, _i) : $S).__append__(...(new stdgo.Slice<$E>(((_n + _m : stdgo.GoInt) - _i : stdgo.GoInt).toBasic(), 0) : stdgo._internal.slices.Slices.Array<$S>)));
+                        var _s2:$S = ((_s.__slice__(0, _i) : $S).__append__(...((new stdgo.Slice<$E>(((_n + _m : stdgo.GoInt) - _i : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<$E>) : stdgo._internal.slices.Slices.Array<$S>)));
                         stdgo.Go.copySlice((_s2.__slice__(_i) : $S), _v);
                         stdgo.Go.copySlice((_s2.__slice__((_i + _m : stdgo.GoInt)) : $S), (_s.__slice__(_i) : $S));
                         return _s2;
@@ -397,7 +397,7 @@ macro function replace<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__
                     };
                     var _tot:stdgo.GoInt = ((((_s.__slice__(0, _i) : $S).length) + (_v.length) : stdgo.GoInt) + ((_s.__slice__(_j) : $S).length) : stdgo.GoInt);
                     if ((_tot > _s.capacity : Bool)) {
-                        var _s2:$S = ((_s.__slice__(0, _i) : $S).__append__(...(new stdgo.Slice<$E>((_tot - _i : stdgo.GoInt).toBasic(), 0) : stdgo._internal.slices.Slices.Array<$S>)));
+                        var _s2:$S = ((_s.__slice__(0, _i) : $S).__append__(...((new stdgo.Slice<$E>((_tot - _i : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<$E>) : stdgo._internal.slices.Slices.Array<$S>)));
                         stdgo.Go.copySlice((_s2.__slice__(_i) : $S), _v);
                         stdgo.Go.copySlice((_s2.__slice__((_i + (_v.length) : stdgo.GoInt)) : $S), (_s.__slice__(_j) : $S));
                         return _s2;
@@ -570,7 +570,7 @@ macro function grow<S, E>(__generic__0:haxe.macro.Expr.ExprOf<S>, __generic__1:h
                     {
                         _n = (_n - ((_s.capacity - (_s.length) : stdgo.GoInt)) : stdgo.GoInt);
                         if ((_n > (0 : stdgo.GoInt) : Bool)) {
-                            _s = (((_s.__slice__(0, _s.capacity) : $S).__append__(...(new stdgo.Slice<$E>((_n : stdgo.GoInt).toBasic(), 0) : stdgo._internal.slices.Slices.Array<$S>))).__slice__(0, (_s.length)) : $S);
+                            _s = (((_s.__slice__(0, _s.capacity) : $S).__append__(...((new stdgo.Slice<$E>((_n : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<$E>) : stdgo._internal.slices.Slices.Array<$S>))).__slice__(0, (_s.length)) : $S);
                         };
                     };
                     return _s;

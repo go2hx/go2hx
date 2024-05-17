@@ -114,11 +114,11 @@ var _nilFileMethodTests : stdgo.Slice<T__struct_5> = (new stdgo.Slice<T__struct_
         return _f.chown((0 : stdgo.GoInt), (0 : stdgo.GoInt));
     } } : T__struct_5),
 ({ _name : ("Read" : stdgo.GoString), _f : function(_f:stdgo.Ref<File>):stdgo.Error {
-        var __tmp__ = _f.read(new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), 0).__setNumber32__()), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _f.read((new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>)), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return _err;
     } } : T__struct_5),
 ({ _name : ("ReadAt" : stdgo.GoString), _f : function(_f:stdgo.Ref<File>):stdgo.Error {
-        var __tmp__ = _f.readAt(new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), 0).__setNumber32__(), (0i64 : stdgo.GoInt64)), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _f.readAt((new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), (0i64 : stdgo.GoInt64)), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return _err;
     } } : T__struct_5),
 ({ _name : ("Readdir" : stdgo.GoString), _f : function(_f:stdgo.Ref<File>):stdgo.Error {
@@ -144,11 +144,11 @@ var _nilFileMethodTests : stdgo.Slice<T__struct_5> = (new stdgo.Slice<T__struct_
         return _f.truncate((0i64 : stdgo.GoInt64));
     } } : T__struct_5),
 ({ _name : ("Write" : stdgo.GoString), _f : function(_f:stdgo.Ref<File>):stdgo.Error {
-        var __tmp__ = _f.write(new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), 0).__setNumber32__()), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _f.write((new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>)), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return _err;
     } } : T__struct_5),
 ({ _name : ("WriteAt" : stdgo.GoString), _f : function(_f:stdgo.Ref<File>):stdgo.Error {
-        var __tmp__ = _f.writeAt(new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), 0).__setNumber32__(), (0i64 : stdgo.GoInt64)), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _f.writeAt((new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), (0i64 : stdgo.GoInt64)), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return _err;
     } } : T__struct_5),
 ({ _name : ("WriteString" : stdgo.GoString), _f : function(_f:stdgo.Ref<File>):stdgo.Error {
@@ -1564,12 +1564,12 @@ function testRead0(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 _t.fatal(stdgo.Go.toInterface(("open failed:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };
             __deferstack__.unshift(() -> _f.close());
-            var _b = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             var __tmp__ = _f.read(_b), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (((_n != (0 : stdgo.GoInt)) || (_err != null) : Bool)) {
                 _t.errorf(("Read(0) = %d, %v, want 0, nil" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
             };
-            _b = new stdgo.Slice<stdgo.GoUInt8>((100 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            _b = (new stdgo.Slice<stdgo.GoUInt8>((100 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             {
                 var __tmp__ = _f.read(_b);
                 _n = __tmp__._0;
@@ -1607,7 +1607,7 @@ function testReadClosed(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             _t.fatal(stdgo.Go.toInterface(("open failed:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
         _file.close();
-        var _b = new stdgo.Slice<stdgo.GoUInt8>((100 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _b = (new stdgo.Slice<stdgo.GoUInt8>((100 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         {
             var __tmp__ = _file.read(_b);
             _err = __tmp__._1;
@@ -1937,7 +1937,7 @@ function benchmarkLstatDir(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void
         _benchmarkLstat(_b, stdgo._internal.path.filepath.Filepath.join(stdgo._internal.runtime.Runtime.goroot()?.__copy__(), ("src/os" : stdgo.GoString))?.__copy__());
     }
 function _smallReaddirnames(_file:stdgo.Ref<File>, _length:stdgo.GoInt, _t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):stdgo.Slice<stdgo.GoString> {
-        var _names = new stdgo.Slice<stdgo.GoString>((_length : stdgo.GoInt).toBasic(), 0).__setString__();
+        var _names = (new stdgo.Slice<stdgo.GoString>((_length : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
         var _count:stdgo.GoInt = (0 : stdgo.GoInt);
         while (true) {
             var __tmp__ = _file.readdirnames((1 : stdgo.GoInt)), _d:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -2190,7 +2190,7 @@ function testReaddirStatFailures(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
                 return _fis;
             };
             var _names = function(_fis:stdgo.Slice<FileInfo>):stdgo.Slice<stdgo.GoString> {
-                var _s = new stdgo.Slice<stdgo.GoString>((_fis.length : stdgo.GoInt).toBasic(), 0).__setString__();
+                var _s = (new stdgo.Slice<stdgo.GoString>((_fis.length : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
                 for (_i => _fi in _fis) {
                     _s[(_i : stdgo.GoInt)] = _fi.name()?.__copy__();
                 };
@@ -3540,8 +3540,8 @@ function testProgWideChdir(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
         try {
             {};
             var _wg:stdgo._internal.sync.Sync.WaitGroup = ({} : stdgo._internal.sync.Sync.WaitGroup);
-            var _hold = new stdgo.Chan<T__struct_4>(0, () -> ({  } : T__struct_4));
-            var _done = new stdgo.Chan<T__struct_4>(0, () -> ({  } : T__struct_4));
+            var _hold = (new stdgo.Chan<T__struct_4>(0, () -> ({  } : T__struct_4)) : stdgo.Chan<T__struct_4>);
+            var _done = (new stdgo.Chan<T__struct_4>(0, () -> ({  } : T__struct_4)) : stdgo.Chan<T__struct_4>);
             var _d:stdgo.GoString = _t.tempDir()?.__copy__();
             var __tmp__ = getwd(), _oldwd:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -4014,7 +4014,7 @@ function testReadAt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             __deferstack__.unshift(() -> _f.close());
             {};
             stdgo._internal.io.Io.writeString(stdgo.Go.asInterface(_f), ("hello, world\n" : stdgo.GoString));
-            var _b = new stdgo.Slice<stdgo.GoUInt8>((5 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _b = (new stdgo.Slice<stdgo.GoUInt8>((5 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             var __tmp__ = _f.readAt(_b, (7i64 : stdgo.GoInt64)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (((_err != null) || (_n != (_b.length)) : Bool)) {
                 _t.fatalf(("ReadAt 7: %d, %v" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
@@ -4056,7 +4056,7 @@ function testReadAtOffset(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
             {};
             stdgo._internal.io.Io.writeString(stdgo.Go.asInterface(_f), ("hello, world\n" : stdgo.GoString));
             _f.seek((0i64 : stdgo.GoInt64), (0 : stdgo.GoInt));
-            var _b = new stdgo.Slice<stdgo.GoUInt8>((5 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _b = (new stdgo.Slice<stdgo.GoUInt8>((5 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             var __tmp__ = _f.readAt(_b, (7i64 : stdgo.GoInt64)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (((_err != null) || (_n != (_b.length)) : Bool)) {
                 _t.fatalf(("ReadAt 7: %d, %v" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
@@ -4109,7 +4109,7 @@ function testReadAtNegativeOffset(_t:stdgo.Ref<stdgo._internal.testing.Testing.T
             {};
             stdgo._internal.io.Io.writeString(stdgo.Go.asInterface(_f), ("hello, world\n" : stdgo.GoString));
             _f.seek((0i64 : stdgo.GoInt64), (0 : stdgo.GoInt));
-            var _b = new stdgo.Slice<stdgo.GoUInt8>((5 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _b = (new stdgo.Slice<stdgo.GoUInt8>((5 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             var __tmp__ = _f.readAt(_b, (-10i64 : stdgo.GoInt64)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             {};
             if ((!stdgo._internal.strings.Strings.contains(stdgo._internal.fmt.Fmt.sprint(stdgo.Go.toInterface(_err))?.__copy__(), ("negative offset" : stdgo.GoString)) || (_n != (0 : stdgo.GoInt)) : Bool)) {
@@ -4470,7 +4470,7 @@ function testLargeWriteToConsole(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
         if (!_testLargeWrite.value) {
             _t.skip(stdgo.Go.toInterface(("skipping console-flooding test; enable with -large_write" : stdgo.GoString)));
         };
-        var _b = new stdgo.Slice<stdgo.GoUInt8>((32000 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _b = (new stdgo.Slice<stdgo.GoUInt8>((32000 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         for (_i => _ in _b) {
             _b[(_i : stdgo.GoInt)] = (46 : stdgo.GoUInt8);
         };
@@ -4630,7 +4630,7 @@ function testReadAtEOF(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 __deferstack__.unshift(() -> remove(_a0?.__copy__()));
             };
             __deferstack__.unshift(() -> _f.close());
-            var __tmp__ = _f.readAt(new stdgo.Slice<stdgo.GoUInt8>((10 : stdgo.GoInt).toBasic(), 0).__setNumber32__(), (0i64 : stdgo.GoInt64)), __8:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = _f.readAt((new stdgo.Slice<stdgo.GoUInt8>((10 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), (0i64 : stdgo.GoInt64)), __8:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             {
                 final __value__ = _err;
                 if (stdgo.Go.toInterface(__value__) == (stdgo.Go.toInterface(stdgo._internal.io.Io.eof))) {} else if (__value__ == null) {
@@ -4923,7 +4923,7 @@ function testRemoveAllRace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
             _mkdirTree(_t, _root?.__copy__(), (1 : stdgo.GoInt), (6 : stdgo.GoInt));
-            var _hold = new stdgo.Chan<T__struct_4>(0, () -> ({  } : T__struct_4));
+            var _hold = (new stdgo.Chan<T__struct_4>(0, () -> ({  } : T__struct_4)) : stdgo.Chan<T__struct_4>);
             var _wg:stdgo._internal.sync.Sync.WaitGroup = ({} : stdgo._internal.sync.Sync.WaitGroup);
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -5008,8 +5008,8 @@ function testPipeThreads(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
             if (false) {
                 _threads = (50 : stdgo.GoInt);
             };
-            var _r = new stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os.File>>((_threads : stdgo.GoInt).toBasic(), 0);
-            var _w = new stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os.File>>((_threads : stdgo.GoInt).toBasic(), 0);
+            var _r = (new stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os.File>>((_threads : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os.File>>);
+            var _w = (new stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os.File>>((_threads : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os.File>>);
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
                 stdgo.Go.cfor((_i < _threads : Bool), _i++, {
@@ -5032,8 +5032,8 @@ function testPipeThreads(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
                 var _a0 = stdgo._internal.runtime.debug.Debug.setMaxThreads((_threads / (2 : stdgo.GoInt) : stdgo.GoInt));
                 __deferstack__.unshift(() -> stdgo._internal.runtime.debug.Debug.setMaxThreads(_a0));
             };
-            var _creading = new stdgo.Chan<Bool>((_threads : stdgo.GoInt).toBasic(), () -> false);
-            var _cdone = new stdgo.Chan<Bool>((_threads : stdgo.GoInt).toBasic(), () -> false);
+            var _creading = (new stdgo.Chan<Bool>((_threads : stdgo.GoInt).toBasic(), () -> false) : stdgo.Chan<Bool>);
+            var _cdone = (new stdgo.Chan<Bool>((_threads : stdgo.GoInt).toBasic(), () -> false) : stdgo.Chan<Bool>);
             {
                 var _i:stdgo.GoInt = (0 : stdgo.GoInt);
                 stdgo.Go.cfor((_i < _threads : Bool), _i++, {
@@ -5658,7 +5658,7 @@ function testPipeCloseRace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
             _t.fatal(stdgo.Go.toInterface(_err));
         };
         var _wg:stdgo._internal.sync.Sync.WaitGroup = ({} : stdgo._internal.sync.Sync.WaitGroup);
-        var _c = new stdgo.Chan<stdgo.Error>((4 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Error));
+        var _c = (new stdgo.Chan<stdgo.Error>((4 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Error)) : stdgo.Chan<stdgo.Error>);
         var _f:() -> Void = function():Void {
             var __deferstack__:Array<Void -> Void> = [];
             try {
@@ -6067,7 +6067,7 @@ function _newFileTest(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _blockin
             if (true) {
                 _t.skipf(("syscall.Pipe is not available on %s." : stdgo.GoString), stdgo.Go.toInterface(("js" : stdgo.GoString)));
             };
-            var _p = new stdgo.Slice<stdgo.GoInt>((2 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _p = (new stdgo.Slice<stdgo.GoInt>((2 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
             {
                 var _err:stdgo.Error = stdgo._internal.syscall.Syscall.pipe(_p);
                 if (_err != null) {
@@ -6098,7 +6098,7 @@ function _newFileTest(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _blockin
             if (!_blocking) {
                 _timeToWrite = (1000000000i64 : stdgo._internal.time.Time.Duration);
             };
-            var _b = new stdgo.Slice<stdgo.GoUInt8>((1 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _b = (new stdgo.Slice<stdgo.GoUInt8>((1 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             var _timer = stdgo._internal.time.Time.afterFunc(_timeToWrite, function():Void {
                 stdgo._internal.syscall.Syscall.write(_p[(1 : stdgo.GoInt)], (("a" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>));
             });

@@ -2376,7 +2376,7 @@ var _largeUnmarshalTests : stdgo.Slice<stdgo._internal.crypto.sha1.Sha1.T_unmars
 135,
 "VCw")?.__copy__(), _sum : ("8f2d1c0e4271768f35feb918bfe21ea1387a2072" : stdgo.GoString) } : stdgo._internal.crypto.sha1.Sha1.T_unmarshalTest)].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.sha1.Sha1.T_unmarshalTest)])) : stdgo.Slice<stdgo._internal.crypto.sha1.Sha1.T_unmarshalTest>);
 var _bench : stdgo._internal.hash.Hash.Hash = new_();
-var _buf : stdgo.Slice<stdgo.GoUInt8> = new stdgo.Slice<stdgo.GoUInt8>((8192 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+var _buf : stdgo.Slice<stdgo.GoUInt8> = (new stdgo.Slice<stdgo.GoUInt8>((8192 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
 @:structInit @:private @:using(stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension) class T_digest {
     public var _h : stdgo.GoArray<stdgo.GoUInt32> = new stdgo.GoArray<stdgo.GoUInt32>(5, 5, ...[for (i in 0 ... 5) (0 : stdgo.GoUInt32)]);
     public var _x : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(64, 64, ...[for (i in 0 ... 64) (0 : stdgo.GoUInt8)]);
@@ -2556,7 +2556,7 @@ function testBlockGeneric(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
             var _i:stdgo.GoInt = (1 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (30 : stdgo.GoInt) : Bool), _i++, {
                 var __0 = (stdgo.Go.typeAssert((stdgo.Go.toInterface(new_()) : stdgo.Ref<T_digest>)) : stdgo.Ref<T_digest>), __1 = (stdgo.Go.typeAssert((stdgo.Go.toInterface(new_()) : stdgo.Ref<T_digest>)) : stdgo.Ref<T_digest>), _asm = __1, _gen = __0;
-                var _buf = new stdgo.Slice<stdgo.GoUInt8>(((64 : stdgo.GoInt) * _i : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+                var _buf = (new stdgo.Slice<stdgo.GoUInt8>(((64 : stdgo.GoInt) * _i : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                 stdgo._internal.crypto.rand.Rand.read(_buf);
                 _blockGeneric(_gen, _buf);
                 _block(_asm, _buf);
@@ -2640,7 +2640,7 @@ function testAllocations(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
             _t.skip(stdgo.Go.toInterface(("BoringCrypto doesn\'t allocate the same way as stdlib" : stdgo.GoString)));
         };
         var _in = (("hello, world!" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
-        var _out = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (20 : stdgo.GoInt)).__setNumber32__();
+        var _out = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (20 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var _h:stdgo._internal.hash.Hash.Hash = new_();
         var _n:stdgo.GoInt = (stdgo._internal.testing.Testing.allocsPerRun((10 : stdgo.GoInt), function():Void {
             _h.reset();
@@ -2652,7 +2652,7 @@ function testAllocations(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
         };
     }
 function _benchmarkSize(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _size:stdgo.GoInt):Void {
-        var _sum = new stdgo.Slice<stdgo.GoUInt8>((_bench.size() : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _sum = (new stdgo.Slice<stdgo.GoUInt8>((_bench.size() : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         _b.run(("New" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
             _b.reportAllocs();
             _b.setBytes((_size : stdgo.GoInt64));
@@ -3048,7 +3048,7 @@ class T_digest_asInterface {
     @:keep
     static public function marshalBinary( _d:stdgo.Ref<T_digest>):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<T_digest> = _d;
-        var _b = new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (96 : stdgo.GoInt)).__setNumber32__();
+        var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (96 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         _b = (_b.__append__(...(stdgo.Go.str("sha", 1) : Array<stdgo.GoUInt8>)));
         _b = stdgo._internal.encoding.binary.Binary.bigEndian.appendUint32(_b, _d._h[(0 : stdgo.GoInt)]);
         _b = stdgo._internal.encoding.binary.Binary.bigEndian.appendUint32(_b, _d._h[(1 : stdgo.GoInt)]);

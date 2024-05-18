@@ -1160,8 +1160,6 @@ private function isInvalidTitle(name:String):Bool {
 	return false;
 }
 
-var typeSpecCount = 0;
-
 private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 	if (stmt.decl.decls == null)
 		return (macro {}).expr; // blank
@@ -1179,7 +1177,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 				case "TypeSpec":
 					var spec:Ast.TypeSpec = spec;
 					final name = spec.name.name;
-					spec.name.name = "T_" + info.funcName + "_" + (typeSpecCount++) + "___localname___" + name;
+					spec.name.name = "T_" + info.funcName + "___localname___" + name;
 					info.renameClasses[name] = className(spec.name.name, info);
 					info.data.defs.push(typeSpec(spec, info));
 				case "ValueSpec": // typeValue

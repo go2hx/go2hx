@@ -212,402 +212,402 @@ import stdgo._internal.regexp.syntax.Syntax
 
 
 ```haxe
-final __Op_name_0:stdgo.GoString = (("NoMatchEmptyMatchLiteralCharClassAnyCharNotNLAnyCharBeginLineEndLineBeginTextEndTextWordBoundaryNoWordBoundaryCaptureStarPlusQuestRepeatConcatAlternate" : stdgo.GoString))
+final __Op_name_0:stdgo.GoString = (function() ->  @:implicitReturn return (("NoMatchEmptyMatchLiteralCharClassAnyCharNotNLAnyCharBeginLineEndLineBeginTextEndTextWordBoundaryNoWordBoundaryCaptureStarPlusQuestRepeatConcatAlternate" : stdgo.GoString)))()
 ```
 
 
 ```haxe
-final __Op_name_1:stdgo.GoString = (("opPseudo" : stdgo.GoString))
+final __Op_name_1:stdgo.GoString = (function() ->  @:implicitReturn return (("opPseudo" : stdgo.GoString)))()
 ```
 
 
 ```haxe
-final _instSize:stdgo.GoUInt64 = ((40i64 : stdgo.GoUInt64))
+final _instSize:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((40i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _maxFold:stdgo.GoUInt64 = ((125251i64 : stdgo.GoUInt64))
+final _maxFold:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((125251i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _maxHeight:stdgo.GoUInt64 = ((1000i64 : stdgo.GoUInt64))
+final _maxHeight:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((1000i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _maxRunes:stdgo.GoUInt64 = ((33554432i64 : stdgo.GoUInt64))
+final _maxRunes:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((33554432i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _maxSize:stdgo.GoUInt64 = ((3355443i64 : stdgo.GoUInt64))
+final _maxSize:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((3355443i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _meta:stdgo.GoString = (("\\.+*?()|[]{}^$" : stdgo.GoString))
+final _meta:stdgo.GoString = (function() ->  @:implicitReturn return (("\\.+*?()|[]{}^$" : stdgo.GoString)))()
 ```
 
 
 ```haxe
-final _minFold:stdgo.GoUInt64 = ((65i64 : stdgo.GoUInt64))
+final _minFold:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((65i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _noMatch:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
+final _noMatch:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _opLeftParen:stdgo._internal.regexp.syntax.Op = ((129 : stdgo._internal.regexp.syntax.Syntax.Op))
+final _opLeftParen:stdgo._internal.regexp.syntax.Op = (function() ->  @:implicitReturn return ((129 : stdgo._internal.regexp.syntax.Syntax.Op)))()
 ```
 
 
 ```haxe
-final _opPseudo:stdgo._internal.regexp.syntax.Op = ((128 : stdgo._internal.regexp.syntax.Syntax.Op))
+final _opPseudo:stdgo._internal.regexp.syntax.Op = (function() ->  @:implicitReturn return ((128 : stdgo._internal.regexp.syntax.Syntax.Op)))()
 ```
 
 
 ```haxe
-final _opVerticalBar:stdgo._internal.regexp.syntax.Op = ((129 : stdgo._internal.regexp.syntax.Syntax.Op))
+final _opVerticalBar:stdgo._internal.regexp.syntax.Op = (function() ->  @:implicitReturn return ((129 : stdgo._internal.regexp.syntax.Syntax.Op)))()
 ```
 
 
 ```haxe
-final _runeSize:stdgo.GoUInt64 = ((4i64 : stdgo.GoUInt64))
+final _runeSize:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((4i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _testFlags:stdgo._internal.regexp.syntax.Flags = ((204 : stdgo._internal.regexp.syntax.Syntax.Flags))
+final _testFlags:stdgo._internal.regexp.syntax.Flags = (function() ->  @:implicitReturn return ((204 : stdgo._internal.regexp.syntax.Syntax.Flags)))()
 ```
 
 
 ```haxe
-final classNL:stdgo._internal.regexp.syntax.Flags = ((512 : stdgo._internal.regexp.syntax.Syntax.Flags))
+final classNL:stdgo._internal.regexp.syntax.Flags = (function() ->  @:implicitReturn return ((512 : stdgo._internal.regexp.syntax.Syntax.Flags)))()
 ```
 
 
 ```haxe
-final dotNL:stdgo._internal.regexp.syntax.Flags = ((512 : stdgo._internal.regexp.syntax.Syntax.Flags))
+final dotNL:stdgo._internal.regexp.syntax.Flags = (function() ->  @:implicitReturn return ((512 : stdgo._internal.regexp.syntax.Syntax.Flags)))()
 ```
 
 
 ```haxe
-final emptyBeginLine:stdgo._internal.regexp.syntax.EmptyOp = ((32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp))
+final emptyBeginLine:stdgo._internal.regexp.syntax.EmptyOp = (function() ->  @:implicitReturn return ((32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp)))()
 ```
 
 
 ```haxe
-final emptyBeginText:stdgo._internal.regexp.syntax.EmptyOp = ((32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp))
+final emptyBeginText:stdgo._internal.regexp.syntax.EmptyOp = (function() ->  @:implicitReturn return ((32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp)))()
 ```
 
 
 ```haxe
-final emptyEndLine:stdgo._internal.regexp.syntax.EmptyOp = ((32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp))
+final emptyEndLine:stdgo._internal.regexp.syntax.EmptyOp = (function() ->  @:implicitReturn return ((32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp)))()
 ```
 
 
 ```haxe
-final emptyEndText:stdgo._internal.regexp.syntax.EmptyOp = ((32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp))
+final emptyEndText:stdgo._internal.regexp.syntax.EmptyOp = (function() ->  @:implicitReturn return ((32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp)))()
 ```
 
 
 ```haxe
-final emptyNoWordBoundary:stdgo._internal.regexp.syntax.EmptyOp = ((32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp))
+final emptyNoWordBoundary:stdgo._internal.regexp.syntax.EmptyOp = (function() ->  @:implicitReturn return ((32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp)))()
 ```
 
 
 ```haxe
-final emptyWordBoundary:stdgo._internal.regexp.syntax.EmptyOp = ((32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp))
+final emptyWordBoundary:stdgo._internal.regexp.syntax.EmptyOp = (function() ->  @:implicitReturn return ((32 : stdgo._internal.regexp.syntax.Syntax.EmptyOp)))()
 ```
 
 
 ```haxe
-final errInternalError:stdgo._internal.regexp.syntax.ErrorCode = (((("regexp/syntax: internal error" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode))
+final errInternalError:stdgo._internal.regexp.syntax.ErrorCode = (function() ->  @:implicitReturn return (((("regexp/syntax: internal error" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode)))()
 ```
 
 
 ```haxe
-final errInvalidCharClass:stdgo._internal.regexp.syntax.ErrorCode = (((("invalid character class" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode))
+final errInvalidCharClass:stdgo._internal.regexp.syntax.ErrorCode = (function() ->  @:implicitReturn return (((("invalid character class" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode)))()
 ```
 
 
 ```haxe
-final errInvalidCharRange:stdgo._internal.regexp.syntax.ErrorCode = (((("invalid character class range" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode))
+final errInvalidCharRange:stdgo._internal.regexp.syntax.ErrorCode = (function() ->  @:implicitReturn return (((("invalid character class range" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode)))()
 ```
 
 
 ```haxe
-final errInvalidEscape:stdgo._internal.regexp.syntax.ErrorCode = (((("invalid escape sequence" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode))
+final errInvalidEscape:stdgo._internal.regexp.syntax.ErrorCode = (function() ->  @:implicitReturn return (((("invalid escape sequence" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode)))()
 ```
 
 
 ```haxe
-final errInvalidNamedCapture:stdgo._internal.regexp.syntax.ErrorCode = (((("invalid named capture" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode))
+final errInvalidNamedCapture:stdgo._internal.regexp.syntax.ErrorCode = (function() ->  @:implicitReturn return (((("invalid named capture" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode)))()
 ```
 
 
 ```haxe
-final errInvalidPerlOp:stdgo._internal.regexp.syntax.ErrorCode = (((("invalid or unsupported Perl syntax" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode))
+final errInvalidPerlOp:stdgo._internal.regexp.syntax.ErrorCode = (function() ->  @:implicitReturn return (((("invalid or unsupported Perl syntax" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode)))()
 ```
 
 
 ```haxe
-final errInvalidRepeatOp:stdgo._internal.regexp.syntax.ErrorCode = (((("invalid nested repetition operator" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode))
+final errInvalidRepeatOp:stdgo._internal.regexp.syntax.ErrorCode = (function() ->  @:implicitReturn return (((("invalid nested repetition operator" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode)))()
 ```
 
 
 ```haxe
-final errInvalidRepeatSize:stdgo._internal.regexp.syntax.ErrorCode = (((("invalid repeat count" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode))
+final errInvalidRepeatSize:stdgo._internal.regexp.syntax.ErrorCode = (function() ->  @:implicitReturn return (((("invalid repeat count" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode)))()
 ```
 
 
 ```haxe
-final errInvalidUTF8:stdgo._internal.regexp.syntax.ErrorCode = (((("invalid UTF-8" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode))
+final errInvalidUTF8:stdgo._internal.regexp.syntax.ErrorCode = (function() ->  @:implicitReturn return (((("invalid UTF-8" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode)))()
 ```
 
 
 ```haxe
-final errLarge:stdgo._internal.regexp.syntax.ErrorCode = (((("expression too large" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode))
+final errLarge:stdgo._internal.regexp.syntax.ErrorCode = (function() ->  @:implicitReturn return (((("expression too large" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode)))()
 ```
 
 
 ```haxe
-final errMissingBracket:stdgo._internal.regexp.syntax.ErrorCode = (((("missing closing ]" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode))
+final errMissingBracket:stdgo._internal.regexp.syntax.ErrorCode = (function() ->  @:implicitReturn return (((("missing closing ]" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode)))()
 ```
 
 
 ```haxe
-final errMissingParen:stdgo._internal.regexp.syntax.ErrorCode = (((("missing closing )" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode))
+final errMissingParen:stdgo._internal.regexp.syntax.ErrorCode = (function() ->  @:implicitReturn return (((("missing closing )" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode)))()
 ```
 
 
 ```haxe
-final errMissingRepeatArgument:stdgo._internal.regexp.syntax.ErrorCode = (((("missing argument to repetition operator" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode))
+final errMissingRepeatArgument:stdgo._internal.regexp.syntax.ErrorCode = (function() ->  @:implicitReturn return (((("missing argument to repetition operator" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode)))()
 ```
 
 
 ```haxe
-final errNestingDepth:stdgo._internal.regexp.syntax.ErrorCode = (((("expression nests too deeply" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode))
+final errNestingDepth:stdgo._internal.regexp.syntax.ErrorCode = (function() ->  @:implicitReturn return (((("expression nests too deeply" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode)))()
 ```
 
 
 ```haxe
-final errTrailingBackslash:stdgo._internal.regexp.syntax.ErrorCode = (((("trailing backslash at end of expression" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode))
+final errTrailingBackslash:stdgo._internal.regexp.syntax.ErrorCode = (function() ->  @:implicitReturn return (((("trailing backslash at end of expression" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode)))()
 ```
 
 
 ```haxe
-final errUnexpectedParen:stdgo._internal.regexp.syntax.ErrorCode = (((("unexpected )" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode))
+final errUnexpectedParen:stdgo._internal.regexp.syntax.ErrorCode = (function() ->  @:implicitReturn return (((("unexpected )" : stdgo.GoString)) : stdgo._internal.regexp.syntax.Syntax.ErrorCode)))()
 ```
 
 
 ```haxe
-final foldCase:stdgo._internal.regexp.syntax.Flags = ((512 : stdgo._internal.regexp.syntax.Syntax.Flags))
+final foldCase:stdgo._internal.regexp.syntax.Flags = (function() ->  @:implicitReturn return ((512 : stdgo._internal.regexp.syntax.Syntax.Flags)))()
 ```
 
 
 ```haxe
-final instAlt:stdgo._internal.regexp.syntax.InstOp = ((10 : stdgo._internal.regexp.syntax.Syntax.InstOp))
+final instAlt:stdgo._internal.regexp.syntax.InstOp = (function() ->  @:implicitReturn return ((10 : stdgo._internal.regexp.syntax.Syntax.InstOp)))()
 ```
 
 
 ```haxe
-final instAltMatch:stdgo._internal.regexp.syntax.InstOp = ((10 : stdgo._internal.regexp.syntax.Syntax.InstOp))
+final instAltMatch:stdgo._internal.regexp.syntax.InstOp = (function() ->  @:implicitReturn return ((10 : stdgo._internal.regexp.syntax.Syntax.InstOp)))()
 ```
 
 
 ```haxe
-final instCapture:stdgo._internal.regexp.syntax.InstOp = ((10 : stdgo._internal.regexp.syntax.Syntax.InstOp))
+final instCapture:stdgo._internal.regexp.syntax.InstOp = (function() ->  @:implicitReturn return ((10 : stdgo._internal.regexp.syntax.Syntax.InstOp)))()
 ```
 
 
 ```haxe
-final instEmptyWidth:stdgo._internal.regexp.syntax.InstOp = ((10 : stdgo._internal.regexp.syntax.Syntax.InstOp))
+final instEmptyWidth:stdgo._internal.regexp.syntax.InstOp = (function() ->  @:implicitReturn return ((10 : stdgo._internal.regexp.syntax.Syntax.InstOp)))()
 ```
 
 
 ```haxe
-final instFail:stdgo._internal.regexp.syntax.InstOp = ((10 : stdgo._internal.regexp.syntax.Syntax.InstOp))
+final instFail:stdgo._internal.regexp.syntax.InstOp = (function() ->  @:implicitReturn return ((10 : stdgo._internal.regexp.syntax.Syntax.InstOp)))()
 ```
 
 
 ```haxe
-final instMatch:stdgo._internal.regexp.syntax.InstOp = ((10 : stdgo._internal.regexp.syntax.Syntax.InstOp))
+final instMatch:stdgo._internal.regexp.syntax.InstOp = (function() ->  @:implicitReturn return ((10 : stdgo._internal.regexp.syntax.Syntax.InstOp)))()
 ```
 
 
 ```haxe
-final instNop:stdgo._internal.regexp.syntax.InstOp = ((10 : stdgo._internal.regexp.syntax.Syntax.InstOp))
+final instNop:stdgo._internal.regexp.syntax.InstOp = (function() ->  @:implicitReturn return ((10 : stdgo._internal.regexp.syntax.Syntax.InstOp)))()
 ```
 
 
 ```haxe
-final instRune:stdgo._internal.regexp.syntax.InstOp = ((10 : stdgo._internal.regexp.syntax.Syntax.InstOp))
+final instRune:stdgo._internal.regexp.syntax.InstOp = (function() ->  @:implicitReturn return ((10 : stdgo._internal.regexp.syntax.Syntax.InstOp)))()
 ```
 
 
 ```haxe
-final instRune1:stdgo._internal.regexp.syntax.InstOp = ((10 : stdgo._internal.regexp.syntax.Syntax.InstOp))
+final instRune1:stdgo._internal.regexp.syntax.InstOp = (function() ->  @:implicitReturn return ((10 : stdgo._internal.regexp.syntax.Syntax.InstOp)))()
 ```
 
 
 ```haxe
-final instRuneAny:stdgo._internal.regexp.syntax.InstOp = ((10 : stdgo._internal.regexp.syntax.Syntax.InstOp))
+final instRuneAny:stdgo._internal.regexp.syntax.InstOp = (function() ->  @:implicitReturn return ((10 : stdgo._internal.regexp.syntax.Syntax.InstOp)))()
 ```
 
 
 ```haxe
-final instRuneAnyNotNL:stdgo._internal.regexp.syntax.InstOp = ((10 : stdgo._internal.regexp.syntax.Syntax.InstOp))
+final instRuneAnyNotNL:stdgo._internal.regexp.syntax.InstOp = (function() ->  @:implicitReturn return ((10 : stdgo._internal.regexp.syntax.Syntax.InstOp)))()
 ```
 
 
 ```haxe
-final literal:stdgo._internal.regexp.syntax.Flags = ((512 : stdgo._internal.regexp.syntax.Syntax.Flags))
+final literal:stdgo._internal.regexp.syntax.Flags = (function() ->  @:implicitReturn return ((512 : stdgo._internal.regexp.syntax.Syntax.Flags)))()
 ```
 
 
 ```haxe
-final matchNL:stdgo._internal.regexp.syntax.Flags = ((12 : stdgo._internal.regexp.syntax.Syntax.Flags))
+final matchNL:stdgo._internal.regexp.syntax.Flags = (function() ->  @:implicitReturn return ((12 : stdgo._internal.regexp.syntax.Syntax.Flags)))()
 ```
 
 
 ```haxe
-final nonGreedy:stdgo._internal.regexp.syntax.Flags = ((512 : stdgo._internal.regexp.syntax.Syntax.Flags))
+final nonGreedy:stdgo._internal.regexp.syntax.Flags = (function() ->  @:implicitReturn return ((512 : stdgo._internal.regexp.syntax.Syntax.Flags)))()
 ```
 
 
 ```haxe
-final oneLine:stdgo._internal.regexp.syntax.Flags = ((512 : stdgo._internal.regexp.syntax.Syntax.Flags))
+final oneLine:stdgo._internal.regexp.syntax.Flags = (function() ->  @:implicitReturn return ((512 : stdgo._internal.regexp.syntax.Syntax.Flags)))()
 ```
 
 
 ```haxe
-final opAlternate:stdgo._internal.regexp.syntax.Op = ((19 : stdgo._internal.regexp.syntax.Syntax.Op))
+final opAlternate:stdgo._internal.regexp.syntax.Op = (function() ->  @:implicitReturn return ((19 : stdgo._internal.regexp.syntax.Syntax.Op)))()
 ```
 
 
 ```haxe
-final opAnyChar:stdgo._internal.regexp.syntax.Op = ((19 : stdgo._internal.regexp.syntax.Syntax.Op))
+final opAnyChar:stdgo._internal.regexp.syntax.Op = (function() ->  @:implicitReturn return ((19 : stdgo._internal.regexp.syntax.Syntax.Op)))()
 ```
 
 
 ```haxe
-final opAnyCharNotNL:stdgo._internal.regexp.syntax.Op = ((19 : stdgo._internal.regexp.syntax.Syntax.Op))
+final opAnyCharNotNL:stdgo._internal.regexp.syntax.Op = (function() ->  @:implicitReturn return ((19 : stdgo._internal.regexp.syntax.Syntax.Op)))()
 ```
 
 
 ```haxe
-final opBeginLine:stdgo._internal.regexp.syntax.Op = ((19 : stdgo._internal.regexp.syntax.Syntax.Op))
+final opBeginLine:stdgo._internal.regexp.syntax.Op = (function() ->  @:implicitReturn return ((19 : stdgo._internal.regexp.syntax.Syntax.Op)))()
 ```
 
 
 ```haxe
-final opBeginText:stdgo._internal.regexp.syntax.Op = ((19 : stdgo._internal.regexp.syntax.Syntax.Op))
+final opBeginText:stdgo._internal.regexp.syntax.Op = (function() ->  @:implicitReturn return ((19 : stdgo._internal.regexp.syntax.Syntax.Op)))()
 ```
 
 
 ```haxe
-final opCapture:stdgo._internal.regexp.syntax.Op = ((19 : stdgo._internal.regexp.syntax.Syntax.Op))
+final opCapture:stdgo._internal.regexp.syntax.Op = (function() ->  @:implicitReturn return ((19 : stdgo._internal.regexp.syntax.Syntax.Op)))()
 ```
 
 
 ```haxe
-final opCharClass:stdgo._internal.regexp.syntax.Op = ((19 : stdgo._internal.regexp.syntax.Syntax.Op))
+final opCharClass:stdgo._internal.regexp.syntax.Op = (function() ->  @:implicitReturn return ((19 : stdgo._internal.regexp.syntax.Syntax.Op)))()
 ```
 
 
 ```haxe
-final opConcat:stdgo._internal.regexp.syntax.Op = ((19 : stdgo._internal.regexp.syntax.Syntax.Op))
+final opConcat:stdgo._internal.regexp.syntax.Op = (function() ->  @:implicitReturn return ((19 : stdgo._internal.regexp.syntax.Syntax.Op)))()
 ```
 
 
 ```haxe
-final opEmptyMatch:stdgo._internal.regexp.syntax.Op = ((19 : stdgo._internal.regexp.syntax.Syntax.Op))
+final opEmptyMatch:stdgo._internal.regexp.syntax.Op = (function() ->  @:implicitReturn return ((19 : stdgo._internal.regexp.syntax.Syntax.Op)))()
 ```
 
 
 ```haxe
-final opEndLine:stdgo._internal.regexp.syntax.Op = ((19 : stdgo._internal.regexp.syntax.Syntax.Op))
+final opEndLine:stdgo._internal.regexp.syntax.Op = (function() ->  @:implicitReturn return ((19 : stdgo._internal.regexp.syntax.Syntax.Op)))()
 ```
 
 
 ```haxe
-final opEndText:stdgo._internal.regexp.syntax.Op = ((19 : stdgo._internal.regexp.syntax.Syntax.Op))
+final opEndText:stdgo._internal.regexp.syntax.Op = (function() ->  @:implicitReturn return ((19 : stdgo._internal.regexp.syntax.Syntax.Op)))()
 ```
 
 
 ```haxe
-final opLiteral:stdgo._internal.regexp.syntax.Op = ((19 : stdgo._internal.regexp.syntax.Syntax.Op))
+final opLiteral:stdgo._internal.regexp.syntax.Op = (function() ->  @:implicitReturn return ((19 : stdgo._internal.regexp.syntax.Syntax.Op)))()
 ```
 
 
 ```haxe
-final opNoMatch:stdgo._internal.regexp.syntax.Op = ((19 : stdgo._internal.regexp.syntax.Syntax.Op))
+final opNoMatch:stdgo._internal.regexp.syntax.Op = (function() ->  @:implicitReturn return ((19 : stdgo._internal.regexp.syntax.Syntax.Op)))()
 ```
 
 
 ```haxe
-final opNoWordBoundary:stdgo._internal.regexp.syntax.Op = ((19 : stdgo._internal.regexp.syntax.Syntax.Op))
+final opNoWordBoundary:stdgo._internal.regexp.syntax.Op = (function() ->  @:implicitReturn return ((19 : stdgo._internal.regexp.syntax.Syntax.Op)))()
 ```
 
 
 ```haxe
-final opPlus:stdgo._internal.regexp.syntax.Op = ((19 : stdgo._internal.regexp.syntax.Syntax.Op))
+final opPlus:stdgo._internal.regexp.syntax.Op = (function() ->  @:implicitReturn return ((19 : stdgo._internal.regexp.syntax.Syntax.Op)))()
 ```
 
 
 ```haxe
-final opQuest:stdgo._internal.regexp.syntax.Op = ((19 : stdgo._internal.regexp.syntax.Syntax.Op))
+final opQuest:stdgo._internal.regexp.syntax.Op = (function() ->  @:implicitReturn return ((19 : stdgo._internal.regexp.syntax.Syntax.Op)))()
 ```
 
 
 ```haxe
-final opRepeat:stdgo._internal.regexp.syntax.Op = ((19 : stdgo._internal.regexp.syntax.Syntax.Op))
+final opRepeat:stdgo._internal.regexp.syntax.Op = (function() ->  @:implicitReturn return ((19 : stdgo._internal.regexp.syntax.Syntax.Op)))()
 ```
 
 
 ```haxe
-final opStar:stdgo._internal.regexp.syntax.Op = ((19 : stdgo._internal.regexp.syntax.Syntax.Op))
+final opStar:stdgo._internal.regexp.syntax.Op = (function() ->  @:implicitReturn return ((19 : stdgo._internal.regexp.syntax.Syntax.Op)))()
 ```
 
 
 ```haxe
-final opWordBoundary:stdgo._internal.regexp.syntax.Op = ((19 : stdgo._internal.regexp.syntax.Syntax.Op))
+final opWordBoundary:stdgo._internal.regexp.syntax.Op = (function() ->  @:implicitReturn return ((19 : stdgo._internal.regexp.syntax.Syntax.Op)))()
 ```
 
 
 ```haxe
-final perl:stdgo._internal.regexp.syntax.Flags = ((212 : stdgo._internal.regexp.syntax.Syntax.Flags))
+final perl:stdgo._internal.regexp.syntax.Flags = (function() ->  @:implicitReturn return ((212 : stdgo._internal.regexp.syntax.Syntax.Flags)))()
 ```
 
 
 ```haxe
-final perlX:stdgo._internal.regexp.syntax.Flags = ((512 : stdgo._internal.regexp.syntax.Syntax.Flags))
+final perlX:stdgo._internal.regexp.syntax.Flags = (function() ->  @:implicitReturn return ((512 : stdgo._internal.regexp.syntax.Syntax.Flags)))()
 ```
 
 
 ```haxe
-final posix:stdgo._internal.regexp.syntax.Flags = ((0 : stdgo._internal.regexp.syntax.Syntax.Flags))
+final posix:stdgo._internal.regexp.syntax.Flags = (function() ->  @:implicitReturn return ((0 : stdgo._internal.regexp.syntax.Syntax.Flags)))()
 ```
 
 
 ```haxe
-final simple:stdgo._internal.regexp.syntax.Flags = ((512 : stdgo._internal.regexp.syntax.Syntax.Flags))
+final simple:stdgo._internal.regexp.syntax.Flags = (function() ->  @:implicitReturn return ((512 : stdgo._internal.regexp.syntax.Syntax.Flags)))()
 ```
 
 
 ```haxe
-final unicodeGroups:stdgo._internal.regexp.syntax.Flags = ((512 : stdgo._internal.regexp.syntax.Syntax.Flags))
+final unicodeGroups:stdgo._internal.regexp.syntax.Flags = (function() ->  @:implicitReturn return ((512 : stdgo._internal.regexp.syntax.Syntax.Flags)))()
 ```
 
 
 ```haxe
-final wasDollar:stdgo._internal.regexp.syntax.Flags = ((512 : stdgo._internal.regexp.syntax.Syntax.Flags))
+final wasDollar:stdgo._internal.regexp.syntax.Flags = (function() ->  @:implicitReturn return ((512 : stdgo._internal.regexp.syntax.Syntax.Flags)))()
 ```
 
 

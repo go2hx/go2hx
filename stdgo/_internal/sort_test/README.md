@@ -242,67 +242,67 @@ import stdgo._internal.sort_test.Sort
 
 
 ```haxe
-final __Copy:stdgo.GoUInt64 = ((6i64 : stdgo.GoUInt64))
+final __Copy:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((6i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final __Dither:stdgo.GoUInt64 = ((6i64 : stdgo.GoUInt64))
+final __Dither:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((6i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final __NDist:stdgo.GoUInt64 = ((5i64 : stdgo.GoUInt64))
+final __NDist:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((5i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final __NMode:stdgo.GoUInt64 = ((6i64 : stdgo.GoUInt64))
+final __NMode:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((6i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final __Plateau:stdgo.GoUInt64 = ((5i64 : stdgo.GoUInt64))
+final __Plateau:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((5i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final __Rand:stdgo.GoUInt64 = ((5i64 : stdgo.GoUInt64))
+final __Rand:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((5i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final __Reverse:stdgo.GoUInt64 = ((6i64 : stdgo.GoUInt64))
+final __Reverse:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((6i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final __ReverseFirstHalf:stdgo.GoUInt64 = ((6i64 : stdgo.GoUInt64))
+final __ReverseFirstHalf:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((6i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final __ReverseSecondHalf:stdgo.GoUInt64 = ((6i64 : stdgo.GoUInt64))
+final __ReverseSecondHalf:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((6i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final __Sawtooth:stdgo.GoUInt64 = ((5i64 : stdgo.GoUInt64))
+final __Sawtooth:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((5i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final __Shuffle:stdgo.GoUInt64 = ((5i64 : stdgo.GoUInt64))
+final __Shuffle:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((5i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final __Sorted:stdgo.GoUInt64 = ((6i64 : stdgo.GoUInt64))
+final __Sorted:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((6i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final __Stagger:stdgo.GoUInt64 = ((5i64 : stdgo.GoUInt64))
+final __Stagger:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((5i64 : stdgo.GoUInt64)))()
 ```
 
 

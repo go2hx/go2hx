@@ -145,7 +145,7 @@
 
 - [abstract T\_stringFinder](<#abstract-t_stringfinder>)
 
-- [abstract T\_fieldsFunc\_1\_\_\_localname\_\_\_span](<#abstract-t_fieldsfunc_1localnamespan>)
+- [abstract T\_fieldsFunc\_\_\_localname\_\_\_span\_9921](<#abstract-t_fieldsfunclocalnamespan_9921>)
 
 # Classes
 
@@ -1158,7 +1158,7 @@ typedef T_replacer = stdgo._internal.strings.T_replacer;
 [\(view file containing code\)](<./Strings.hx>)
 
 
-## abstract T\_fieldsFunc\_1\_\_\_localname\_\_\_span
+## abstract T\_fieldsFunc\_\_\_localname\_\_\_span\_9921
 
 
 [\(view file containing code\)](<./Strings.hx>)

@@ -521,25 +521,25 @@
 
   - [`function new(?_in:stdgo.GoString, ?_out:stdgo.Slice<stdgo.GoUInt8>):Void`](<#stringtest-function-new>)
 
-- [class T\_testReaderCopyNothing\_10\_\_\_localname\_\_\_justWriter](<#class-t_testreadercopynothing_10localnamejustwriter>)
+- [class T\_testReaderCopyNothing\_\_\_localname\_\_\_justReader\_5869](<#class-t_testreadercopynothinglocalnamejustreader_5869>)
 
-  - [`function new(?writer:Null<stdgo._internal.io.Writer>):Void`](<#t_testreadercopynothing_10localnamejustwriter-function-new>)
+  - [`function new(?reader:Null<stdgo._internal.io.Reader>):Void`](<#t_testreadercopynothinglocalnamejustreader_5869-function-new>)
 
-  - [`function write(__0:stdgo.Slice<stdgo.GoUInt8>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#t_testreadercopynothing_10localnamejustwriter-function-write>)
+  - [`function read(__0:stdgo.Slice<stdgo.GoUInt8>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#t_testreadercopynothinglocalnamejustreader_5869-function-read>)
 
-  - [`function write( __0:stdgo.Slice<stdgo.GoUInt8>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#t_testreadercopynothing_10localnamejustwriter-function-write>)
+  - [`function read( __0:stdgo.Slice<stdgo.GoUInt8>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#t_testreadercopynothinglocalnamejustreader_5869-function-read>)
 
-- [class T\_testReaderCopyNothing\_8\_\_\_localname\_\_\_nErr](<#class-t_testreadercopynothing_8localnamenerr>)
+- [class T\_testReaderCopyNothing\_\_\_localname\_\_\_justWriter\_5910](<#class-t_testreadercopynothinglocalnamejustwriter_5910>)
 
-  - [`function new(?_n:stdgo.GoInt64, ?_err:Null<stdgo.Error>):Void`](<#t_testreadercopynothing_8localnamenerr-function-new>)
+  - [`function new(?writer:Null<stdgo._internal.io.Writer>):Void`](<#t_testreadercopynothinglocalnamejustwriter_5910-function-new>)
 
-- [class T\_testReaderCopyNothing\_9\_\_\_localname\_\_\_justReader](<#class-t_testreadercopynothing_9localnamejustreader>)
+  - [`function write(__0:stdgo.Slice<stdgo.GoUInt8>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#t_testreadercopynothinglocalnamejustwriter_5910-function-write>)
 
-  - [`function new(?reader:Null<stdgo._internal.io.Reader>):Void`](<#t_testreadercopynothing_9localnamejustreader-function-new>)
+  - [`function write( __0:stdgo.Slice<stdgo.GoUInt8>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#t_testreadercopynothinglocalnamejustwriter_5910-function-write>)
 
-  - [`function read(__0:stdgo.Slice<stdgo.GoUInt8>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#t_testreadercopynothing_9localnamejustreader-function-read>)
+- [class T\_testReaderCopyNothing\_\_\_localname\_\_\_nErr\_5822](<#class-t_testreadercopynothinglocalnamenerr_5822>)
 
-  - [`function read( __0:stdgo.Slice<stdgo.GoUInt8>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#t_testreadercopynothing_9localnamejustreader-function-read>)
+  - [`function new(?_n:stdgo.GoInt64, ?_err:Null<stdgo.Error>):Void`](<#t_testreadercopynothinglocalnamenerr_5822-function-new>)
 
 - [class TitleTest](<#class-titletest>)
 
@@ -602,12 +602,12 @@ import stdgo._internal.bytes_test.Bytes
 
 
 ```haxe
-final _space:stdgo.GoString = (("\t\x0B\r\x0C\n�  　" : stdgo.GoString))
+final _space:stdgo.GoString = (function() ->  @:implicitReturn return (("\t\x0B\r\x0C\n�  　" : stdgo.GoString)))()
 ```
 
 
 ```haxe
-final n:stdgo.GoUInt64 = ((10000i64 : stdgo.GoUInt64))
+final n:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((10000i64 : stdgo.GoUInt64)))()
 ```
 
 
@@ -3755,78 +3755,7 @@ function new(?_in:stdgo.GoString, ?_out:stdgo.Slice<stdgo.GoUInt8>):Void
 [\(view code\)](<./Bytes_test.hx#L490>)
 
 
-## class T\_testReaderCopyNothing\_10\_\_\_localname\_\_\_justWriter
-
-
-```haxe
-var writer:stdgo._internal.io.Writer
-```
-
-
-### T\_testReaderCopyNothing\_10\_\_\_localname\_\_\_justWriter function new
-
-
-```haxe
-function new(?writer:Null<stdgo._internal.io.Writer>):Void
-```
-
-
-[\(view code\)](<./Bytes_test.hx#L4549>)
-
-
-### T\_testReaderCopyNothing\_10\_\_\_localname\_\_\_justWriter function write
-
-
-```haxe
-function write(__0:stdgo.Slice<stdgo.GoUInt8>):{
-	_1:stdgo.Error;
-	_0:stdgo.GoInt;
-}
-```
-
-
-[\(view code\)](<./Bytes_test.hx#L4554>)
-
-
-### T\_testReaderCopyNothing\_10\_\_\_localname\_\_\_justWriter function write
-
-
-```haxe
-function write( __0:stdgo.Slice<stdgo.GoUInt8>):{
-	_1:stdgo.Error;
-	_0:stdgo.GoInt;
-}
-```
-
-
-[\(view code\)](<./Bytes_test.hx#L4754>)
-
-
-## class T\_testReaderCopyNothing\_8\_\_\_localname\_\_\_nErr
-
-
-```haxe
-var _err:stdgo.Error
-```
-
-
-```haxe
-var _n:stdgo.GoInt64
-```
-
-
-### T\_testReaderCopyNothing\_8\_\_\_localname\_\_\_nErr function new
-
-
-```haxe
-function new(?_n:stdgo.GoInt64, ?_err:Null<stdgo.Error>):Void
-```
-
-
-[\(view code\)](<./Bytes_test.hx#L4524>)
-
-
-## class T\_testReaderCopyNothing\_9\_\_\_localname\_\_\_justReader
+## class T\_testReaderCopyNothing\_\_\_localname\_\_\_justReader\_5869
 
 
 ```haxe
@@ -3834,7 +3763,7 @@ var reader:stdgo._internal.io.Reader
 ```
 
 
-### T\_testReaderCopyNothing\_9\_\_\_localname\_\_\_justReader function new
+### T\_testReaderCopyNothing\_\_\_localname\_\_\_justReader\_5869 function new
 
 
 ```haxe
@@ -3845,7 +3774,7 @@ function new(?reader:Null<stdgo._internal.io.Reader>):Void
 [\(view code\)](<./Bytes_test.hx#L4536>)
 
 
-### T\_testReaderCopyNothing\_9\_\_\_localname\_\_\_justReader function read
+### T\_testReaderCopyNothing\_\_\_localname\_\_\_justReader\_5869 function read
 
 
 ```haxe
@@ -3859,7 +3788,7 @@ function read(__0:stdgo.Slice<stdgo.GoUInt8>):{
 [\(view code\)](<./Bytes_test.hx#L4541>)
 
 
-### T\_testReaderCopyNothing\_9\_\_\_localname\_\_\_justReader function read
+### T\_testReaderCopyNothing\_\_\_localname\_\_\_justReader\_5869 function read
 
 
 ```haxe
@@ -3871,6 +3800,77 @@ function read( __0:stdgo.Slice<stdgo.GoUInt8>):{
 
 
 [\(view code\)](<./Bytes_test.hx#L4739>)
+
+
+## class T\_testReaderCopyNothing\_\_\_localname\_\_\_justWriter\_5910
+
+
+```haxe
+var writer:stdgo._internal.io.Writer
+```
+
+
+### T\_testReaderCopyNothing\_\_\_localname\_\_\_justWriter\_5910 function new
+
+
+```haxe
+function new(?writer:Null<stdgo._internal.io.Writer>):Void
+```
+
+
+[\(view code\)](<./Bytes_test.hx#L4549>)
+
+
+### T\_testReaderCopyNothing\_\_\_localname\_\_\_justWriter\_5910 function write
+
+
+```haxe
+function write(__0:stdgo.Slice<stdgo.GoUInt8>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
+```
+
+
+[\(view code\)](<./Bytes_test.hx#L4554>)
+
+
+### T\_testReaderCopyNothing\_\_\_localname\_\_\_justWriter\_5910 function write
+
+
+```haxe
+function write( __0:stdgo.Slice<stdgo.GoUInt8>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
+```
+
+
+[\(view code\)](<./Bytes_test.hx#L4754>)
+
+
+## class T\_testReaderCopyNothing\_\_\_localname\_\_\_nErr\_5822
+
+
+```haxe
+var _err:stdgo.Error
+```
+
+
+```haxe
+var _n:stdgo.GoInt64
+```
+
+
+### T\_testReaderCopyNothing\_\_\_localname\_\_\_nErr\_5822 function new
+
+
+```haxe
+function new(?_n:stdgo.GoInt64, ?_err:Null<stdgo.Error>):Void
+```
+
+
+[\(view code\)](<./Bytes_test.hx#L4524>)
 
 
 ## class TitleTest

@@ -258,27 +258,27 @@ import stdgo._internal.math.bits_test.Bits
 
 
 ```haxe
-final __M:stdgo.GoUInt64 = ((4294967295i64 : stdgo.GoUInt64))
+final __M:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((4294967295i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final __M32:stdgo.GoUInt64 = ((4294967295i64 : stdgo.GoUInt64))
+final __M32:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((4294967295i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final __M64:stdgo.GoUInt64 = ((-1i64 : stdgo.GoUInt64))
+final __M64:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((-1i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _divZeroError:stdgo.GoString = (("runtime error: integer divide by zero" : stdgo.GoString))
+final _divZeroError:stdgo.GoString = (function() ->  @:implicitReturn return (("runtime error: integer divide by zero" : stdgo.GoString)))()
 ```
 
 
 ```haxe
-final _overflowError:stdgo.GoString = (("runtime error: integer overflow" : stdgo.GoString))
+final _overflowError:stdgo.GoString = (function() ->  @:implicitReturn return (("runtime error: integer overflow" : stdgo.GoString)))()
 ```
 
 

@@ -349,72 +349,72 @@ import stdgo._internal.syscall.js.Js
 
 
 ```haxe
-final _nanHead:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _nanHead:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _typeFlagFunction:Null<Any> = @:invalid_type null
+final _typeFlagFunction:Null<Any> = (function() ->  @:implicitReturn return @:invalid_type null)()
 ```
 
 
 ```haxe
-final _typeFlagNone:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _typeFlagNone:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _typeFlagObject:Null<Any> = @:invalid_type null
+final _typeFlagObject:Null<Any> = (function() ->  @:implicitReturn return @:invalid_type null)()
 ```
 
 
 ```haxe
-final _typeFlagString:Null<Any> = @:invalid_type null
+final _typeFlagString:Null<Any> = (function() ->  @:implicitReturn return @:invalid_type null)()
 ```
 
 
 ```haxe
-final _typeFlagSymbol:Null<Any> = @:invalid_type null
+final _typeFlagSymbol:Null<Any> = (function() ->  @:implicitReturn return @:invalid_type null)()
 ```
 
 
 ```haxe
-final typeBoolean:stdgo._internal.syscall.js.Type_ = ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.js.Js.Type_))
+final typeBoolean:stdgo._internal.syscall.js.Type_ = (function() ->  @:implicitReturn return ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.js.Js.Type_)))()
 ```
 
 
 ```haxe
-final typeFunction:stdgo._internal.syscall.js.Type_ = ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.js.Js.Type_))
+final typeFunction:stdgo._internal.syscall.js.Type_ = (function() ->  @:implicitReturn return ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.js.Js.Type_)))()
 ```
 
 
 ```haxe
-final typeNull:stdgo._internal.syscall.js.Type_ = ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.js.Js.Type_))
+final typeNull:stdgo._internal.syscall.js.Type_ = (function() ->  @:implicitReturn return ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.js.Js.Type_)))()
 ```
 
 
 ```haxe
-final typeNumber:stdgo._internal.syscall.js.Type_ = ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.js.Js.Type_))
+final typeNumber:stdgo._internal.syscall.js.Type_ = (function() ->  @:implicitReturn return ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.js.Js.Type_)))()
 ```
 
 
 ```haxe
-final typeObject:stdgo._internal.syscall.js.Type_ = ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.js.Js.Type_))
+final typeObject:stdgo._internal.syscall.js.Type_ = (function() ->  @:implicitReturn return ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.js.Js.Type_)))()
 ```
 
 
 ```haxe
-final typeString:stdgo._internal.syscall.js.Type_ = ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.js.Js.Type_))
+final typeString:stdgo._internal.syscall.js.Type_ = (function() ->  @:implicitReturn return ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.js.Js.Type_)))()
 ```
 
 
 ```haxe
-final typeSymbol:stdgo._internal.syscall.js.Type_ = ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.js.Js.Type_))
+final typeSymbol:stdgo._internal.syscall.js.Type_ = (function() ->  @:implicitReturn return ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.js.Js.Type_)))()
 ```
 
 
 ```haxe
-final typeUndefined:stdgo._internal.syscall.js.Type_ = ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.js.Js.Type_))
+final typeUndefined:stdgo._internal.syscall.js.Type_ = (function() ->  @:implicitReturn return ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.js.Js.Type_)))()
 ```
 
 

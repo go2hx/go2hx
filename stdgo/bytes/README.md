@@ -135,7 +135,7 @@
 
 - [abstract Reader](<#abstract-reader>)
 
-- [abstract T\_fieldsFunc\_7\_\_\_localname\_\_\_span](<#abstract-t_fieldsfunc_7localnamespan>)
+- [abstract T\_fieldsFunc\_\_\_localname\_\_\_span\_11914](<#abstract-t_fieldsfunclocalnamespan_11914>)
 
 # Constants
 
@@ -1138,7 +1138,7 @@ typedef T_readOp = stdgo._internal.bytes.T_readOp;
 [\(view file containing code\)](<./Bytes.hx>)
 
 
-## abstract T\_fieldsFunc\_7\_\_\_localname\_\_\_span
+## abstract T\_fieldsFunc\_\_\_localname\_\_\_span\_11914
 
 
 [\(view file containing code\)](<./Bytes.hx>)

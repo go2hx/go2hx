@@ -48,7 +48,7 @@ import stdgo._internal.internal.cpu.Cpu
 
 
 ```haxe
-final cacheLinePadSize:stdgo.GoUInt64 = ((64i64 : stdgo.GoUInt64))
+final cacheLinePadSize:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((64i64 : stdgo.GoUInt64)))()
 ```
 
 

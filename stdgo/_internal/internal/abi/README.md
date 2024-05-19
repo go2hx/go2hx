@@ -857,391 +857,391 @@
 
   - [`function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>`](<#structtype-function-uncommon>)
 
-- [class T\_uncommon\_43\_\_\_localname\_\_\_u](<#class-t_uncommon_43localnameu>)
+- [class T\_uncommon\_\_\_localname\_\_\_u\_8324](<#class-t_uncommonlocalnameu_8324>)
 
-  - [`function align():stdgo.GoInt`](<#t_uncommon_43localnameu-function-align>)
+  - [`function align():stdgo.GoInt`](<#t_uncommonlocalnameu_8324-function-align>)
 
-  - [`function arrayType():stdgo.Ref<stdgo._internal.internal.abi.ArrayType>`](<#t_uncommon_43localnameu-function-arraytype>)
+  - [`function arrayType():stdgo.Ref<stdgo._internal.internal.abi.ArrayType>`](<#t_uncommonlocalnameu_8324-function-arraytype>)
 
-  - [`function chanDir():stdgo._internal.internal.abi.ChanDir`](<#t_uncommon_43localnameu-function-chandir>)
+  - [`function chanDir():stdgo._internal.internal.abi.ChanDir`](<#t_uncommonlocalnameu_8324-function-chandir>)
 
-  - [`function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommon_43localnameu-function-common>)
+  - [`function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommonlocalnameu_8324-function-common>)
 
-  - [`function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>`](<#t_uncommon_43localnameu-function-exportedmethods>)
+  - [`function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>`](<#t_uncommonlocalnameu_8324-function-exportedmethods>)
 
-  - [`function fieldAlign():stdgo.GoInt`](<#t_uncommon_43localnameu-function-fieldalign>)
+  - [`function fieldAlign():stdgo.GoInt`](<#t_uncommonlocalnameu_8324-function-fieldalign>)
 
-  - [`function funcType():stdgo.Ref<stdgo._internal.internal.abi.FuncType>`](<#t_uncommon_43localnameu-function-functype>)
+  - [`function funcType():stdgo.Ref<stdgo._internal.internal.abi.FuncType>`](<#t_uncommonlocalnameu_8324-function-functype>)
 
-  - [`function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo.GoUInt8>`](<#t_uncommon_43localnameu-function-gcslice>)
+  - [`function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo.GoUInt8>`](<#t_uncommonlocalnameu_8324-function-gcslice>)
 
-  - [`function hasName():Bool`](<#t_uncommon_43localnameu-function-hasname>)
+  - [`function hasName():Bool`](<#t_uncommonlocalnameu_8324-function-hasname>)
 
-  - [`function ifaceIndir():Bool`](<#t_uncommon_43localnameu-function-ifaceindir>)
+  - [`function ifaceIndir():Bool`](<#t_uncommonlocalnameu_8324-function-ifaceindir>)
 
-  - [`function interfaceType():stdgo.Ref<stdgo._internal.internal.abi.InterfaceType>`](<#t_uncommon_43localnameu-function-interfacetype>)
+  - [`function interfaceType():stdgo.Ref<stdgo._internal.internal.abi.InterfaceType>`](<#t_uncommonlocalnameu_8324-function-interfacetype>)
 
-  - [`function isDirectIface():Bool`](<#t_uncommon_43localnameu-function-isdirectiface>)
+  - [`function isDirectIface():Bool`](<#t_uncommonlocalnameu_8324-function-isdirectiface>)
 
-  - [`function key():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommon_43localnameu-function-key>)
+  - [`function key():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommonlocalnameu_8324-function-key>)
 
-  - [`function kind():stdgo._internal.internal.abi.Kind`](<#t_uncommon_43localnameu-function-kind>)
+  - [`function kind():stdgo._internal.internal.abi.Kind`](<#t_uncommonlocalnameu_8324-function-kind>)
 
-  - [`function len():stdgo.GoInt`](<#t_uncommon_43localnameu-function-len>)
+  - [`function len():stdgo.GoInt`](<#t_uncommonlocalnameu_8324-function-len>)
 
-  - [`function mapType():stdgo.Ref<stdgo._internal.internal.abi.MapType>`](<#t_uncommon_43localnameu-function-maptype>)
+  - [`function mapType():stdgo.Ref<stdgo._internal.internal.abi.MapType>`](<#t_uncommonlocalnameu_8324-function-maptype>)
 
-  - [`function new(?ptrType:stdgo._internal.internal.abi.PtrType, ?_u:stdgo._internal.internal.abi.UncommonType):Void`](<#t_uncommon_43localnameu-function-new>)
+  - [`function new(?ptrType:stdgo._internal.internal.abi.PtrType, ?_u:stdgo._internal.internal.abi.UncommonType):Void`](<#t_uncommonlocalnameu_8324-function-new>)
 
-  - [`function numMethod():stdgo.GoInt`](<#t_uncommon_43localnameu-function-nummethod>)
+  - [`function numMethod():stdgo.GoInt`](<#t_uncommonlocalnameu_8324-function-nummethod>)
 
-  - [`function pointers():Bool`](<#t_uncommon_43localnameu-function-pointers>)
+  - [`function pointers():Bool`](<#t_uncommonlocalnameu_8324-function-pointers>)
 
-  - [`function size():stdgo.GoUIntptr`](<#t_uncommon_43localnameu-function-size>)
+  - [`function size():stdgo.GoUIntptr`](<#t_uncommonlocalnameu_8324-function-size>)
 
-  - [`function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>`](<#t_uncommon_43localnameu-function-structtype>)
+  - [`function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>`](<#t_uncommonlocalnameu_8324-function-structtype>)
 
-  - [`function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>`](<#t_uncommon_43localnameu-function-uncommon>)
+  - [`function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>`](<#t_uncommonlocalnameu_8324-function-uncommon>)
 
-- [class T\_uncommon\_44\_\_\_localname\_\_\_u](<#class-t_uncommon_44localnameu>)
+- [class T\_uncommon\_\_\_localname\_\_\_u\_8423](<#class-t_uncommonlocalnameu_8423>)
 
-  - [`function align():stdgo.GoInt`](<#t_uncommon_44localnameu-function-align>)
+  - [`function align():stdgo.GoInt`](<#t_uncommonlocalnameu_8423-function-align>)
 
-  - [`function arrayType():stdgo.Ref<stdgo._internal.internal.abi.ArrayType>`](<#t_uncommon_44localnameu-function-arraytype>)
+  - [`function arrayType():stdgo.Ref<stdgo._internal.internal.abi.ArrayType>`](<#t_uncommonlocalnameu_8423-function-arraytype>)
 
-  - [`function chanDir():stdgo._internal.internal.abi.ChanDir`](<#t_uncommon_44localnameu-function-chandir>)
+  - [`function chanDir():stdgo._internal.internal.abi.ChanDir`](<#t_uncommonlocalnameu_8423-function-chandir>)
 
-  - [`function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommon_44localnameu-function-common>)
+  - [`function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommonlocalnameu_8423-function-common>)
 
-  - [`function elem():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommon_44localnameu-function-elem>)
+  - [`function elem():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommonlocalnameu_8423-function-elem>)
 
-  - [`function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>`](<#t_uncommon_44localnameu-function-exportedmethods>)
+  - [`function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>`](<#t_uncommonlocalnameu_8423-function-exportedmethods>)
 
-  - [`function fieldAlign():stdgo.GoInt`](<#t_uncommon_44localnameu-function-fieldalign>)
+  - [`function fieldAlign():stdgo.GoInt`](<#t_uncommonlocalnameu_8423-function-fieldalign>)
 
-  - [`function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo.GoUInt8>`](<#t_uncommon_44localnameu-function-gcslice>)
+  - [`function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo.GoUInt8>`](<#t_uncommonlocalnameu_8423-function-gcslice>)
 
-  - [`function hasName():Bool`](<#t_uncommon_44localnameu-function-hasname>)
+  - [`function hasName():Bool`](<#t_uncommonlocalnameu_8423-function-hasname>)
 
-  - [`function ifaceIndir():Bool`](<#t_uncommon_44localnameu-function-ifaceindir>)
+  - [`function ifaceIndir():Bool`](<#t_uncommonlocalnameu_8423-function-ifaceindir>)
 
-  - [`function inSlice():stdgo.Slice<stdgo.Ref<stdgo._internal.internal.abi.Type_>>`](<#t_uncommon_44localnameu-function-inslice>)
+  - [`function inSlice():stdgo.Slice<stdgo.Ref<stdgo._internal.internal.abi.Type_>>`](<#t_uncommonlocalnameu_8423-function-inslice>)
 
-  - [`function in_(_i:stdgo.GoInt):stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommon_44localnameu-function-in_>)
+  - [`function in_(_i:stdgo.GoInt):stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommonlocalnameu8423-function-in>)
 
-  - [`function interfaceType():stdgo.Ref<stdgo._internal.internal.abi.InterfaceType>`](<#t_uncommon_44localnameu-function-interfacetype>)
+  - [`function interfaceType():stdgo.Ref<stdgo._internal.internal.abi.InterfaceType>`](<#t_uncommonlocalnameu_8423-function-interfacetype>)
 
-  - [`function isDirectIface():Bool`](<#t_uncommon_44localnameu-function-isdirectiface>)
+  - [`function isDirectIface():Bool`](<#t_uncommonlocalnameu_8423-function-isdirectiface>)
 
-  - [`function isVariadic():Bool`](<#t_uncommon_44localnameu-function-isvariadic>)
+  - [`function isVariadic():Bool`](<#t_uncommonlocalnameu_8423-function-isvariadic>)
 
-  - [`function key():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommon_44localnameu-function-key>)
+  - [`function key():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommonlocalnameu_8423-function-key>)
 
-  - [`function kind():stdgo._internal.internal.abi.Kind`](<#t_uncommon_44localnameu-function-kind>)
+  - [`function kind():stdgo._internal.internal.abi.Kind`](<#t_uncommonlocalnameu_8423-function-kind>)
 
-  - [`function len():stdgo.GoInt`](<#t_uncommon_44localnameu-function-len>)
+  - [`function len():stdgo.GoInt`](<#t_uncommonlocalnameu_8423-function-len>)
 
-  - [`function mapType():stdgo.Ref<stdgo._internal.internal.abi.MapType>`](<#t_uncommon_44localnameu-function-maptype>)
+  - [`function mapType():stdgo.Ref<stdgo._internal.internal.abi.MapType>`](<#t_uncommonlocalnameu_8423-function-maptype>)
 
-  - [`function new(?funcType:stdgo._internal.internal.abi.FuncType, ?_u:stdgo._internal.internal.abi.UncommonType):Void`](<#t_uncommon_44localnameu-function-new>)
+  - [`function new(?funcType:stdgo._internal.internal.abi.FuncType, ?_u:stdgo._internal.internal.abi.UncommonType):Void`](<#t_uncommonlocalnameu_8423-function-new>)
 
-  - [`function numIn():stdgo.GoInt`](<#t_uncommon_44localnameu-function-numin>)
+  - [`function numIn():stdgo.GoInt`](<#t_uncommonlocalnameu_8423-function-numin>)
 
-  - [`function numMethod():stdgo.GoInt`](<#t_uncommon_44localnameu-function-nummethod>)
+  - [`function numMethod():stdgo.GoInt`](<#t_uncommonlocalnameu_8423-function-nummethod>)
 
-  - [`function numOut():stdgo.GoInt`](<#t_uncommon_44localnameu-function-numout>)
+  - [`function numOut():stdgo.GoInt`](<#t_uncommonlocalnameu_8423-function-numout>)
 
-  - [`function out(_i:stdgo.GoInt):stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommon_44localnameu-function-out>)
+  - [`function out(_i:stdgo.GoInt):stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommonlocalnameu_8423-function-out>)
 
-  - [`function outSlice():stdgo.Slice<stdgo.Ref<stdgo._internal.internal.abi.Type_>>`](<#t_uncommon_44localnameu-function-outslice>)
+  - [`function outSlice():stdgo.Slice<stdgo.Ref<stdgo._internal.internal.abi.Type_>>`](<#t_uncommonlocalnameu_8423-function-outslice>)
 
-  - [`function pointers():Bool`](<#t_uncommon_44localnameu-function-pointers>)
+  - [`function pointers():Bool`](<#t_uncommonlocalnameu_8423-function-pointers>)
 
-  - [`function size():stdgo.GoUIntptr`](<#t_uncommon_44localnameu-function-size>)
+  - [`function size():stdgo.GoUIntptr`](<#t_uncommonlocalnameu_8423-function-size>)
 
-  - [`function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>`](<#t_uncommon_44localnameu-function-structtype>)
+  - [`function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>`](<#t_uncommonlocalnameu_8423-function-structtype>)
 
-  - [`function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>`](<#t_uncommon_44localnameu-function-uncommon>)
+  - [`function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>`](<#t_uncommonlocalnameu_8423-function-uncommon>)
 
-- [class T\_uncommon\_45\_\_\_localname\_\_\_u](<#class-t_uncommon_45localnameu>)
+- [class T\_uncommon\_\_\_localname\_\_\_u\_8524](<#class-t_uncommonlocalnameu_8524>)
 
-  - [`function align():stdgo.GoInt`](<#t_uncommon_45localnameu-function-align>)
+  - [`function align():stdgo.GoInt`](<#t_uncommonlocalnameu_8524-function-align>)
 
-  - [`function arrayType():stdgo.Ref<stdgo._internal.internal.abi.ArrayType>`](<#t_uncommon_45localnameu-function-arraytype>)
+  - [`function arrayType():stdgo.Ref<stdgo._internal.internal.abi.ArrayType>`](<#t_uncommonlocalnameu_8524-function-arraytype>)
 
-  - [`function chanDir():stdgo._internal.internal.abi.ChanDir`](<#t_uncommon_45localnameu-function-chandir>)
+  - [`function chanDir():stdgo._internal.internal.abi.ChanDir`](<#t_uncommonlocalnameu_8524-function-chandir>)
 
-  - [`function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommon_45localnameu-function-common>)
+  - [`function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommonlocalnameu_8524-function-common>)
 
-  - [`function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>`](<#t_uncommon_45localnameu-function-exportedmethods>)
+  - [`function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>`](<#t_uncommonlocalnameu_8524-function-exportedmethods>)
 
-  - [`function fieldAlign():stdgo.GoInt`](<#t_uncommon_45localnameu-function-fieldalign>)
+  - [`function fieldAlign():stdgo.GoInt`](<#t_uncommonlocalnameu_8524-function-fieldalign>)
 
-  - [`function funcType():stdgo.Ref<stdgo._internal.internal.abi.FuncType>`](<#t_uncommon_45localnameu-function-functype>)
+  - [`function funcType():stdgo.Ref<stdgo._internal.internal.abi.FuncType>`](<#t_uncommonlocalnameu_8524-function-functype>)
 
-  - [`function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo.GoUInt8>`](<#t_uncommon_45localnameu-function-gcslice>)
+  - [`function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo.GoUInt8>`](<#t_uncommonlocalnameu_8524-function-gcslice>)
 
-  - [`function hasName():Bool`](<#t_uncommon_45localnameu-function-hasname>)
+  - [`function hasName():Bool`](<#t_uncommonlocalnameu_8524-function-hasname>)
 
-  - [`function ifaceIndir():Bool`](<#t_uncommon_45localnameu-function-ifaceindir>)
+  - [`function ifaceIndir():Bool`](<#t_uncommonlocalnameu_8524-function-ifaceindir>)
 
-  - [`function interfaceType():stdgo.Ref<stdgo._internal.internal.abi.InterfaceType>`](<#t_uncommon_45localnameu-function-interfacetype>)
+  - [`function interfaceType():stdgo.Ref<stdgo._internal.internal.abi.InterfaceType>`](<#t_uncommonlocalnameu_8524-function-interfacetype>)
 
-  - [`function isDirectIface():Bool`](<#t_uncommon_45localnameu-function-isdirectiface>)
+  - [`function isDirectIface():Bool`](<#t_uncommonlocalnameu_8524-function-isdirectiface>)
 
-  - [`function key():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommon_45localnameu-function-key>)
+  - [`function key():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommonlocalnameu_8524-function-key>)
 
-  - [`function kind():stdgo._internal.internal.abi.Kind`](<#t_uncommon_45localnameu-function-kind>)
+  - [`function kind():stdgo._internal.internal.abi.Kind`](<#t_uncommonlocalnameu_8524-function-kind>)
 
-  - [`function len():stdgo.GoInt`](<#t_uncommon_45localnameu-function-len>)
+  - [`function len():stdgo.GoInt`](<#t_uncommonlocalnameu_8524-function-len>)
 
-  - [`function mapType():stdgo.Ref<stdgo._internal.internal.abi.MapType>`](<#t_uncommon_45localnameu-function-maptype>)
+  - [`function mapType():stdgo.Ref<stdgo._internal.internal.abi.MapType>`](<#t_uncommonlocalnameu_8524-function-maptype>)
 
-  - [`function new(?sliceType:stdgo._internal.internal.abi.SliceType, ?_u:stdgo._internal.internal.abi.UncommonType):Void`](<#t_uncommon_45localnameu-function-new>)
+  - [`function new(?sliceType:stdgo._internal.internal.abi.SliceType, ?_u:stdgo._internal.internal.abi.UncommonType):Void`](<#t_uncommonlocalnameu_8524-function-new>)
 
-  - [`function numMethod():stdgo.GoInt`](<#t_uncommon_45localnameu-function-nummethod>)
+  - [`function numMethod():stdgo.GoInt`](<#t_uncommonlocalnameu_8524-function-nummethod>)
 
-  - [`function pointers():Bool`](<#t_uncommon_45localnameu-function-pointers>)
+  - [`function pointers():Bool`](<#t_uncommonlocalnameu_8524-function-pointers>)
 
-  - [`function size():stdgo.GoUIntptr`](<#t_uncommon_45localnameu-function-size>)
+  - [`function size():stdgo.GoUIntptr`](<#t_uncommonlocalnameu_8524-function-size>)
 
-  - [`function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>`](<#t_uncommon_45localnameu-function-structtype>)
+  - [`function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>`](<#t_uncommonlocalnameu_8524-function-structtype>)
 
-  - [`function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>`](<#t_uncommon_45localnameu-function-uncommon>)
+  - [`function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>`](<#t_uncommonlocalnameu_8524-function-uncommon>)
 
-- [class T\_uncommon\_46\_\_\_localname\_\_\_u](<#class-t_uncommon_46localnameu>)
+- [class T\_uncommon\_\_\_localname\_\_\_u\_8626](<#class-t_uncommonlocalnameu_8626>)
 
-  - [`function align():stdgo.GoInt`](<#t_uncommon_46localnameu-function-align>)
+  - [`function align():stdgo.GoInt`](<#t_uncommonlocalnameu_8626-function-align>)
 
-  - [`function chanDir():stdgo._internal.internal.abi.ChanDir`](<#t_uncommon_46localnameu-function-chandir>)
+  - [`function chanDir():stdgo._internal.internal.abi.ChanDir`](<#t_uncommonlocalnameu_8626-function-chandir>)
 
-  - [`function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommon_46localnameu-function-common>)
+  - [`function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommonlocalnameu_8626-function-common>)
 
-  - [`function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>`](<#t_uncommon_46localnameu-function-exportedmethods>)
+  - [`function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>`](<#t_uncommonlocalnameu_8626-function-exportedmethods>)
 
-  - [`function fieldAlign():stdgo.GoInt`](<#t_uncommon_46localnameu-function-fieldalign>)
+  - [`function fieldAlign():stdgo.GoInt`](<#t_uncommonlocalnameu_8626-function-fieldalign>)
 
-  - [`function funcType():stdgo.Ref<stdgo._internal.internal.abi.FuncType>`](<#t_uncommon_46localnameu-function-functype>)
+  - [`function funcType():stdgo.Ref<stdgo._internal.internal.abi.FuncType>`](<#t_uncommonlocalnameu_8626-function-functype>)
 
-  - [`function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo.GoUInt8>`](<#t_uncommon_46localnameu-function-gcslice>)
+  - [`function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo.GoUInt8>`](<#t_uncommonlocalnameu_8626-function-gcslice>)
 
-  - [`function hasName():Bool`](<#t_uncommon_46localnameu-function-hasname>)
+  - [`function hasName():Bool`](<#t_uncommonlocalnameu_8626-function-hasname>)
 
-  - [`function ifaceIndir():Bool`](<#t_uncommon_46localnameu-function-ifaceindir>)
+  - [`function ifaceIndir():Bool`](<#t_uncommonlocalnameu_8626-function-ifaceindir>)
 
-  - [`function interfaceType():stdgo.Ref<stdgo._internal.internal.abi.InterfaceType>`](<#t_uncommon_46localnameu-function-interfacetype>)
+  - [`function interfaceType():stdgo.Ref<stdgo._internal.internal.abi.InterfaceType>`](<#t_uncommonlocalnameu_8626-function-interfacetype>)
 
-  - [`function isDirectIface():Bool`](<#t_uncommon_46localnameu-function-isdirectiface>)
+  - [`function isDirectIface():Bool`](<#t_uncommonlocalnameu_8626-function-isdirectiface>)
 
-  - [`function key():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommon_46localnameu-function-key>)
+  - [`function key():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommonlocalnameu_8626-function-key>)
 
-  - [`function kind():stdgo._internal.internal.abi.Kind`](<#t_uncommon_46localnameu-function-kind>)
+  - [`function kind():stdgo._internal.internal.abi.Kind`](<#t_uncommonlocalnameu_8626-function-kind>)
 
-  - [`function mapType():stdgo.Ref<stdgo._internal.internal.abi.MapType>`](<#t_uncommon_46localnameu-function-maptype>)
+  - [`function mapType():stdgo.Ref<stdgo._internal.internal.abi.MapType>`](<#t_uncommonlocalnameu_8626-function-maptype>)
 
-  - [`function new(?arrayType:stdgo._internal.internal.abi.ArrayType, ?_u:stdgo._internal.internal.abi.UncommonType):Void`](<#t_uncommon_46localnameu-function-new>)
+  - [`function new(?arrayType:stdgo._internal.internal.abi.ArrayType, ?_u:stdgo._internal.internal.abi.UncommonType):Void`](<#t_uncommonlocalnameu_8626-function-new>)
 
-  - [`function numMethod():stdgo.GoInt`](<#t_uncommon_46localnameu-function-nummethod>)
+  - [`function numMethod():stdgo.GoInt`](<#t_uncommonlocalnameu_8626-function-nummethod>)
 
-  - [`function pointers():Bool`](<#t_uncommon_46localnameu-function-pointers>)
+  - [`function pointers():Bool`](<#t_uncommonlocalnameu_8626-function-pointers>)
 
-  - [`function size():stdgo.GoUIntptr`](<#t_uncommon_46localnameu-function-size>)
+  - [`function size():stdgo.GoUIntptr`](<#t_uncommonlocalnameu_8626-function-size>)
 
-  - [`function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>`](<#t_uncommon_46localnameu-function-structtype>)
+  - [`function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>`](<#t_uncommonlocalnameu_8626-function-structtype>)
 
-  - [`function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>`](<#t_uncommon_46localnameu-function-uncommon>)
+  - [`function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>`](<#t_uncommonlocalnameu_8626-function-uncommon>)
 
-- [class T\_uncommon\_47\_\_\_localname\_\_\_u](<#class-t_uncommon_47localnameu>)
+- [class T\_uncommon\_\_\_localname\_\_\_u\_8727](<#class-t_uncommonlocalnameu_8727>)
 
-  - [`function align():stdgo.GoInt`](<#t_uncommon_47localnameu-function-align>)
+  - [`function align():stdgo.GoInt`](<#t_uncommonlocalnameu_8727-function-align>)
 
-  - [`function arrayType():stdgo.Ref<stdgo._internal.internal.abi.ArrayType>`](<#t_uncommon_47localnameu-function-arraytype>)
+  - [`function arrayType():stdgo.Ref<stdgo._internal.internal.abi.ArrayType>`](<#t_uncommonlocalnameu_8727-function-arraytype>)
 
-  - [`function chanDir():stdgo._internal.internal.abi.ChanDir`](<#t_uncommon_47localnameu-function-chandir>)
+  - [`function chanDir():stdgo._internal.internal.abi.ChanDir`](<#t_uncommonlocalnameu_8727-function-chandir>)
 
-  - [`function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommon_47localnameu-function-common>)
+  - [`function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommonlocalnameu_8727-function-common>)
 
-  - [`function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>`](<#t_uncommon_47localnameu-function-exportedmethods>)
+  - [`function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>`](<#t_uncommonlocalnameu_8727-function-exportedmethods>)
 
-  - [`function fieldAlign():stdgo.GoInt`](<#t_uncommon_47localnameu-function-fieldalign>)
+  - [`function fieldAlign():stdgo.GoInt`](<#t_uncommonlocalnameu_8727-function-fieldalign>)
 
-  - [`function funcType():stdgo.Ref<stdgo._internal.internal.abi.FuncType>`](<#t_uncommon_47localnameu-function-functype>)
+  - [`function funcType():stdgo.Ref<stdgo._internal.internal.abi.FuncType>`](<#t_uncommonlocalnameu_8727-function-functype>)
 
-  - [`function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo.GoUInt8>`](<#t_uncommon_47localnameu-function-gcslice>)
+  - [`function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo.GoUInt8>`](<#t_uncommonlocalnameu_8727-function-gcslice>)
 
-  - [`function hasName():Bool`](<#t_uncommon_47localnameu-function-hasname>)
+  - [`function hasName():Bool`](<#t_uncommonlocalnameu_8727-function-hasname>)
 
-  - [`function ifaceIndir():Bool`](<#t_uncommon_47localnameu-function-ifaceindir>)
+  - [`function ifaceIndir():Bool`](<#t_uncommonlocalnameu_8727-function-ifaceindir>)
 
-  - [`function interfaceType():stdgo.Ref<stdgo._internal.internal.abi.InterfaceType>`](<#t_uncommon_47localnameu-function-interfacetype>)
+  - [`function interfaceType():stdgo.Ref<stdgo._internal.internal.abi.InterfaceType>`](<#t_uncommonlocalnameu_8727-function-interfacetype>)
 
-  - [`function isDirectIface():Bool`](<#t_uncommon_47localnameu-function-isdirectiface>)
+  - [`function isDirectIface():Bool`](<#t_uncommonlocalnameu_8727-function-isdirectiface>)
 
-  - [`function key():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommon_47localnameu-function-key>)
+  - [`function key():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommonlocalnameu_8727-function-key>)
 
-  - [`function kind():stdgo._internal.internal.abi.Kind`](<#t_uncommon_47localnameu-function-kind>)
+  - [`function kind():stdgo._internal.internal.abi.Kind`](<#t_uncommonlocalnameu_8727-function-kind>)
 
-  - [`function len():stdgo.GoInt`](<#t_uncommon_47localnameu-function-len>)
+  - [`function len():stdgo.GoInt`](<#t_uncommonlocalnameu_8727-function-len>)
 
-  - [`function mapType():stdgo.Ref<stdgo._internal.internal.abi.MapType>`](<#t_uncommon_47localnameu-function-maptype>)
+  - [`function mapType():stdgo.Ref<stdgo._internal.internal.abi.MapType>`](<#t_uncommonlocalnameu_8727-function-maptype>)
 
-  - [`function new(?chanType:stdgo._internal.internal.abi.ChanType, ?_u:stdgo._internal.internal.abi.UncommonType):Void`](<#t_uncommon_47localnameu-function-new>)
+  - [`function new(?chanType:stdgo._internal.internal.abi.ChanType, ?_u:stdgo._internal.internal.abi.UncommonType):Void`](<#t_uncommonlocalnameu_8727-function-new>)
 
-  - [`function numMethod():stdgo.GoInt`](<#t_uncommon_47localnameu-function-nummethod>)
+  - [`function numMethod():stdgo.GoInt`](<#t_uncommonlocalnameu_8727-function-nummethod>)
 
-  - [`function pointers():Bool`](<#t_uncommon_47localnameu-function-pointers>)
+  - [`function pointers():Bool`](<#t_uncommonlocalnameu_8727-function-pointers>)
 
-  - [`function size():stdgo.GoUIntptr`](<#t_uncommon_47localnameu-function-size>)
+  - [`function size():stdgo.GoUIntptr`](<#t_uncommonlocalnameu_8727-function-size>)
 
-  - [`function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>`](<#t_uncommon_47localnameu-function-structtype>)
+  - [`function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>`](<#t_uncommonlocalnameu_8727-function-structtype>)
 
-  - [`function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>`](<#t_uncommon_47localnameu-function-uncommon>)
+  - [`function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>`](<#t_uncommonlocalnameu_8727-function-uncommon>)
 
-- [class T\_uncommon\_48\_\_\_localname\_\_\_u](<#class-t_uncommon_48localnameu>)
+- [class T\_uncommon\_\_\_localname\_\_\_u\_8826](<#class-t_uncommonlocalnameu_8826>)
 
-  - [`function align():stdgo.GoInt`](<#t_uncommon_48localnameu-function-align>)
+  - [`function align():stdgo.GoInt`](<#t_uncommonlocalnameu_8826-function-align>)
 
-  - [`function arrayType():stdgo.Ref<stdgo._internal.internal.abi.ArrayType>`](<#t_uncommon_48localnameu-function-arraytype>)
+  - [`function arrayType():stdgo.Ref<stdgo._internal.internal.abi.ArrayType>`](<#t_uncommonlocalnameu_8826-function-arraytype>)
 
-  - [`function chanDir():stdgo._internal.internal.abi.ChanDir`](<#t_uncommon_48localnameu-function-chandir>)
+  - [`function chanDir():stdgo._internal.internal.abi.ChanDir`](<#t_uncommonlocalnameu_8826-function-chandir>)
 
-  - [`function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommon_48localnameu-function-common>)
+  - [`function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommonlocalnameu_8826-function-common>)
 
-  - [`function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>`](<#t_uncommon_48localnameu-function-exportedmethods>)
+  - [`function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>`](<#t_uncommonlocalnameu_8826-function-exportedmethods>)
 
-  - [`function fieldAlign():stdgo.GoInt`](<#t_uncommon_48localnameu-function-fieldalign>)
+  - [`function fieldAlign():stdgo.GoInt`](<#t_uncommonlocalnameu_8826-function-fieldalign>)
 
-  - [`function funcType():stdgo.Ref<stdgo._internal.internal.abi.FuncType>`](<#t_uncommon_48localnameu-function-functype>)
+  - [`function funcType():stdgo.Ref<stdgo._internal.internal.abi.FuncType>`](<#t_uncommonlocalnameu_8826-function-functype>)
 
-  - [`function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo.GoUInt8>`](<#t_uncommon_48localnameu-function-gcslice>)
+  - [`function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo.GoUInt8>`](<#t_uncommonlocalnameu_8826-function-gcslice>)
 
-  - [`function hasName():Bool`](<#t_uncommon_48localnameu-function-hasname>)
+  - [`function hasName():Bool`](<#t_uncommonlocalnameu_8826-function-hasname>)
 
-  - [`function hashMightPanic():Bool`](<#t_uncommon_48localnameu-function-hashmightpanic>)
+  - [`function hashMightPanic():Bool`](<#t_uncommonlocalnameu_8826-function-hashmightpanic>)
 
-  - [`function ifaceIndir():Bool`](<#t_uncommon_48localnameu-function-ifaceindir>)
+  - [`function ifaceIndir():Bool`](<#t_uncommonlocalnameu_8826-function-ifaceindir>)
 
-  - [`function indirectElem():Bool`](<#t_uncommon_48localnameu-function-indirectelem>)
+  - [`function indirectElem():Bool`](<#t_uncommonlocalnameu_8826-function-indirectelem>)
 
-  - [`function indirectKey():Bool`](<#t_uncommon_48localnameu-function-indirectkey>)
+  - [`function indirectKey():Bool`](<#t_uncommonlocalnameu_8826-function-indirectkey>)
 
-  - [`function interfaceType():stdgo.Ref<stdgo._internal.internal.abi.InterfaceType>`](<#t_uncommon_48localnameu-function-interfacetype>)
+  - [`function interfaceType():stdgo.Ref<stdgo._internal.internal.abi.InterfaceType>`](<#t_uncommonlocalnameu_8826-function-interfacetype>)
 
-  - [`function isDirectIface():Bool`](<#t_uncommon_48localnameu-function-isdirectiface>)
+  - [`function isDirectIface():Bool`](<#t_uncommonlocalnameu_8826-function-isdirectiface>)
 
-  - [`function kind():stdgo._internal.internal.abi.Kind`](<#t_uncommon_48localnameu-function-kind>)
+  - [`function kind():stdgo._internal.internal.abi.Kind`](<#t_uncommonlocalnameu_8826-function-kind>)
 
-  - [`function len():stdgo.GoInt`](<#t_uncommon_48localnameu-function-len>)
+  - [`function len():stdgo.GoInt`](<#t_uncommonlocalnameu_8826-function-len>)
 
-  - [`function needKeyUpdate():Bool`](<#t_uncommon_48localnameu-function-needkeyupdate>)
+  - [`function needKeyUpdate():Bool`](<#t_uncommonlocalnameu_8826-function-needkeyupdate>)
 
-  - [`function new(?mapType:stdgo._internal.internal.abi.MapType, ?_u:stdgo._internal.internal.abi.UncommonType):Void`](<#t_uncommon_48localnameu-function-new>)
+  - [`function new(?mapType:stdgo._internal.internal.abi.MapType, ?_u:stdgo._internal.internal.abi.UncommonType):Void`](<#t_uncommonlocalnameu_8826-function-new>)
 
-  - [`function numMethod():stdgo.GoInt`](<#t_uncommon_48localnameu-function-nummethod>)
+  - [`function numMethod():stdgo.GoInt`](<#t_uncommonlocalnameu_8826-function-nummethod>)
 
-  - [`function pointers():Bool`](<#t_uncommon_48localnameu-function-pointers>)
+  - [`function pointers():Bool`](<#t_uncommonlocalnameu_8826-function-pointers>)
 
-  - [`function reflexiveKey():Bool`](<#t_uncommon_48localnameu-function-reflexivekey>)
+  - [`function reflexiveKey():Bool`](<#t_uncommonlocalnameu_8826-function-reflexivekey>)
 
-  - [`function size():stdgo.GoUIntptr`](<#t_uncommon_48localnameu-function-size>)
+  - [`function size():stdgo.GoUIntptr`](<#t_uncommonlocalnameu_8826-function-size>)
 
-  - [`function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>`](<#t_uncommon_48localnameu-function-structtype>)
+  - [`function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>`](<#t_uncommonlocalnameu_8826-function-structtype>)
 
-  - [`function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>`](<#t_uncommon_48localnameu-function-uncommon>)
+  - [`function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>`](<#t_uncommonlocalnameu_8826-function-uncommon>)
 
-- [class T\_uncommon\_49\_\_\_localname\_\_\_u](<#class-t_uncommon_49localnameu>)
+- [class T\_uncommon\_\_\_localname\_\_\_u\_8930](<#class-t_uncommonlocalnameu_8930>)
 
-  - [`function align():stdgo.GoInt`](<#t_uncommon_49localnameu-function-align>)
+  - [`function align():stdgo.GoInt`](<#t_uncommonlocalnameu_8930-function-align>)
 
-  - [`function arrayType():stdgo.Ref<stdgo._internal.internal.abi.ArrayType>`](<#t_uncommon_49localnameu-function-arraytype>)
+  - [`function arrayType():stdgo.Ref<stdgo._internal.internal.abi.ArrayType>`](<#t_uncommonlocalnameu_8930-function-arraytype>)
 
-  - [`function chanDir():stdgo._internal.internal.abi.ChanDir`](<#t_uncommon_49localnameu-function-chandir>)
+  - [`function chanDir():stdgo._internal.internal.abi.ChanDir`](<#t_uncommonlocalnameu_8930-function-chandir>)
 
-  - [`function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommon_49localnameu-function-common>)
+  - [`function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommonlocalnameu_8930-function-common>)
 
-  - [`function elem():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommon_49localnameu-function-elem>)
+  - [`function elem():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommonlocalnameu_8930-function-elem>)
 
-  - [`function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>`](<#t_uncommon_49localnameu-function-exportedmethods>)
+  - [`function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>`](<#t_uncommonlocalnameu_8930-function-exportedmethods>)
 
-  - [`function fieldAlign():stdgo.GoInt`](<#t_uncommon_49localnameu-function-fieldalign>)
+  - [`function fieldAlign():stdgo.GoInt`](<#t_uncommonlocalnameu_8930-function-fieldalign>)
 
-  - [`function funcType():stdgo.Ref<stdgo._internal.internal.abi.FuncType>`](<#t_uncommon_49localnameu-function-functype>)
+  - [`function funcType():stdgo.Ref<stdgo._internal.internal.abi.FuncType>`](<#t_uncommonlocalnameu_8930-function-functype>)
 
-  - [`function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo.GoUInt8>`](<#t_uncommon_49localnameu-function-gcslice>)
+  - [`function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo.GoUInt8>`](<#t_uncommonlocalnameu_8930-function-gcslice>)
 
-  - [`function hasName():Bool`](<#t_uncommon_49localnameu-function-hasname>)
+  - [`function hasName():Bool`](<#t_uncommonlocalnameu_8930-function-hasname>)
 
-  - [`function ifaceIndir():Bool`](<#t_uncommon_49localnameu-function-ifaceindir>)
+  - [`function ifaceIndir():Bool`](<#t_uncommonlocalnameu_8930-function-ifaceindir>)
 
-  - [`function isDirectIface():Bool`](<#t_uncommon_49localnameu-function-isdirectiface>)
+  - [`function isDirectIface():Bool`](<#t_uncommonlocalnameu_8930-function-isdirectiface>)
 
-  - [`function key():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommon_49localnameu-function-key>)
+  - [`function key():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommonlocalnameu_8930-function-key>)
 
-  - [`function kind():stdgo._internal.internal.abi.Kind`](<#t_uncommon_49localnameu-function-kind>)
+  - [`function kind():stdgo._internal.internal.abi.Kind`](<#t_uncommonlocalnameu_8930-function-kind>)
 
-  - [`function len():stdgo.GoInt`](<#t_uncommon_49localnameu-function-len>)
+  - [`function len():stdgo.GoInt`](<#t_uncommonlocalnameu_8930-function-len>)
 
-  - [`function mapType():stdgo.Ref<stdgo._internal.internal.abi.MapType>`](<#t_uncommon_49localnameu-function-maptype>)
+  - [`function mapType():stdgo.Ref<stdgo._internal.internal.abi.MapType>`](<#t_uncommonlocalnameu_8930-function-maptype>)
 
-  - [`function new(?interfaceType:stdgo._internal.internal.abi.InterfaceType, ?_u:stdgo._internal.internal.abi.UncommonType):Void`](<#t_uncommon_49localnameu-function-new>)
+  - [`function new(?interfaceType:stdgo._internal.internal.abi.InterfaceType, ?_u:stdgo._internal.internal.abi.UncommonType):Void`](<#t_uncommonlocalnameu_8930-function-new>)
 
-  - [`function numMethod():stdgo.GoInt`](<#t_uncommon_49localnameu-function-nummethod>)
+  - [`function numMethod():stdgo.GoInt`](<#t_uncommonlocalnameu_8930-function-nummethod>)
 
-  - [`function pointers():Bool`](<#t_uncommon_49localnameu-function-pointers>)
+  - [`function pointers():Bool`](<#t_uncommonlocalnameu_8930-function-pointers>)
 
-  - [`function size():stdgo.GoUIntptr`](<#t_uncommon_49localnameu-function-size>)
+  - [`function size():stdgo.GoUIntptr`](<#t_uncommonlocalnameu_8930-function-size>)
 
-  - [`function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>`](<#t_uncommon_49localnameu-function-structtype>)
+  - [`function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>`](<#t_uncommonlocalnameu_8930-function-structtype>)
 
-  - [`function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>`](<#t_uncommon_49localnameu-function-uncommon>)
+  - [`function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>`](<#t_uncommonlocalnameu_8930-function-uncommon>)
 
-- [class T\_uncommon\_50\_\_\_localname\_\_\_u](<#class-t_uncommon_50localnameu>)
+- [class T\_uncommon\_\_\_localname\_\_\_u\_9033](<#class-t_uncommonlocalnameu_9033>)
 
-  - [`function align():stdgo.GoInt`](<#t_uncommon_50localnameu-function-align>)
+  - [`function align():stdgo.GoInt`](<#t_uncommonlocalnameu_9033-function-align>)
 
-  - [`function arrayType():stdgo.Ref<stdgo._internal.internal.abi.ArrayType>`](<#t_uncommon_50localnameu-function-arraytype>)
+  - [`function arrayType():stdgo.Ref<stdgo._internal.internal.abi.ArrayType>`](<#t_uncommonlocalnameu_9033-function-arraytype>)
 
-  - [`function chanDir():stdgo._internal.internal.abi.ChanDir`](<#t_uncommon_50localnameu-function-chandir>)
+  - [`function chanDir():stdgo._internal.internal.abi.ChanDir`](<#t_uncommonlocalnameu_9033-function-chandir>)
 
-  - [`function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommon_50localnameu-function-common>)
+  - [`function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommonlocalnameu_9033-function-common>)
 
-  - [`function elem():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommon_50localnameu-function-elem>)
+  - [`function elem():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommonlocalnameu_9033-function-elem>)
 
-  - [`function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>`](<#t_uncommon_50localnameu-function-exportedmethods>)
+  - [`function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>`](<#t_uncommonlocalnameu_9033-function-exportedmethods>)
 
-  - [`function fieldAlign():stdgo.GoInt`](<#t_uncommon_50localnameu-function-fieldalign>)
+  - [`function fieldAlign():stdgo.GoInt`](<#t_uncommonlocalnameu_9033-function-fieldalign>)
 
-  - [`function funcType():stdgo.Ref<stdgo._internal.internal.abi.FuncType>`](<#t_uncommon_50localnameu-function-functype>)
+  - [`function funcType():stdgo.Ref<stdgo._internal.internal.abi.FuncType>`](<#t_uncommonlocalnameu_9033-function-functype>)
 
-  - [`function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo.GoUInt8>`](<#t_uncommon_50localnameu-function-gcslice>)
+  - [`function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo.GoUInt8>`](<#t_uncommonlocalnameu_9033-function-gcslice>)
 
-  - [`function hasName():Bool`](<#t_uncommon_50localnameu-function-hasname>)
+  - [`function hasName():Bool`](<#t_uncommonlocalnameu_9033-function-hasname>)
 
-  - [`function ifaceIndir():Bool`](<#t_uncommon_50localnameu-function-ifaceindir>)
+  - [`function ifaceIndir():Bool`](<#t_uncommonlocalnameu_9033-function-ifaceindir>)
 
-  - [`function interfaceType():stdgo.Ref<stdgo._internal.internal.abi.InterfaceType>`](<#t_uncommon_50localnameu-function-interfacetype>)
+  - [`function interfaceType():stdgo.Ref<stdgo._internal.internal.abi.InterfaceType>`](<#t_uncommonlocalnameu_9033-function-interfacetype>)
 
-  - [`function isDirectIface():Bool`](<#t_uncommon_50localnameu-function-isdirectiface>)
+  - [`function isDirectIface():Bool`](<#t_uncommonlocalnameu_9033-function-isdirectiface>)
 
-  - [`function key():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommon_50localnameu-function-key>)
+  - [`function key():stdgo.Ref<stdgo._internal.internal.abi.Type_>`](<#t_uncommonlocalnameu_9033-function-key>)
 
-  - [`function kind():stdgo._internal.internal.abi.Kind`](<#t_uncommon_50localnameu-function-kind>)
+  - [`function kind():stdgo._internal.internal.abi.Kind`](<#t_uncommonlocalnameu_9033-function-kind>)
 
-  - [`function len():stdgo.GoInt`](<#t_uncommon_50localnameu-function-len>)
+  - [`function len():stdgo.GoInt`](<#t_uncommonlocalnameu_9033-function-len>)
 
-  - [`function mapType():stdgo.Ref<stdgo._internal.internal.abi.MapType>`](<#t_uncommon_50localnameu-function-maptype>)
+  - [`function mapType():stdgo.Ref<stdgo._internal.internal.abi.MapType>`](<#t_uncommonlocalnameu_9033-function-maptype>)
 
-  - [`function new(?type:stdgo._internal.internal.abi.Type_, ?_u:stdgo._internal.internal.abi.UncommonType):Void`](<#t_uncommon_50localnameu-function-new>)
+  - [`function new(?type:stdgo._internal.internal.abi.Type_, ?_u:stdgo._internal.internal.abi.UncommonType):Void`](<#t_uncommonlocalnameu_9033-function-new>)
 
-  - [`function numMethod():stdgo.GoInt`](<#t_uncommon_50localnameu-function-nummethod>)
+  - [`function numMethod():stdgo.GoInt`](<#t_uncommonlocalnameu_9033-function-nummethod>)
 
-  - [`function pointers():Bool`](<#t_uncommon_50localnameu-function-pointers>)
+  - [`function pointers():Bool`](<#t_uncommonlocalnameu_9033-function-pointers>)
 
-  - [`function size():stdgo.GoUIntptr`](<#t_uncommon_50localnameu-function-size>)
+  - [`function size():stdgo.GoUIntptr`](<#t_uncommonlocalnameu_9033-function-size>)
 
-  - [`function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>`](<#t_uncommon_50localnameu-function-structtype>)
+  - [`function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>`](<#t_uncommonlocalnameu_9033-function-structtype>)
 
-  - [`function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>`](<#t_uncommon_50localnameu-function-uncommon>)
+  - [`function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>`](<#t_uncommonlocalnameu_9033-function-uncommon>)
 
 - [class Type\_](<#class-type_>)
 
@@ -1328,457 +1328,457 @@ import stdgo._internal.internal.abi.Abi
 
 
 ```haxe
-final argsSizeUnknown:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
+final argsSizeUnknown:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final array:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final array:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final bool_:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final bool_:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final bothDir:stdgo._internal.internal.abi.ChanDir = ((3 : stdgo._internal.internal.abi.Abi.ChanDir))
+final bothDir:stdgo._internal.internal.abi.ChanDir = (function() ->  @:implicitReturn return ((3 : stdgo._internal.internal.abi.Abi.ChanDir)))()
 ```
 
 
 ```haxe
-final chan:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final chan:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final complex128:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final complex128:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final complex64:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final complex64:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final effectiveFloatRegSize:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
+final effectiveFloatRegSize:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final float32:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final float32:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final float64:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final float64:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final floatArgRegs:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
+final floatArgRegs:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final func:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final func:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final funcFlagAsm:stdgo._internal.internal.abi.FuncFlag = ((4 : stdgo._internal.internal.abi.Abi.FuncFlag))
+final funcFlagAsm:stdgo._internal.internal.abi.FuncFlag = (function() ->  @:implicitReturn return ((4 : stdgo._internal.internal.abi.Abi.FuncFlag)))()
 ```
 
 
 ```haxe
-final funcFlagSPWrite:stdgo._internal.internal.abi.FuncFlag = ((4 : stdgo._internal.internal.abi.Abi.FuncFlag))
+final funcFlagSPWrite:stdgo._internal.internal.abi.FuncFlag = (function() ->  @:implicitReturn return ((4 : stdgo._internal.internal.abi.Abi.FuncFlag)))()
 ```
 
 
 ```haxe
-final funcFlagTopFrame:stdgo._internal.internal.abi.FuncFlag = ((4 : stdgo._internal.internal.abi.Abi.FuncFlag))
+final funcFlagTopFrame:stdgo._internal.internal.abi.FuncFlag = (function() ->  @:implicitReturn return ((4 : stdgo._internal.internal.abi.Abi.FuncFlag)))()
 ```
 
 
 ```haxe
-final funcIDNormal:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
+final funcIDNormal:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
 ```
 
 
 ```haxe
-final funcIDWrapper:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
+final funcIDWrapper:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
 ```
 
 
 ```haxe
-final funcID_abort:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
+final funcID_abort:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
 ```
 
 
 ```haxe
-final funcID_asmcgocall:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
+final funcID_asmcgocall:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
 ```
 
 
 ```haxe
-final funcID_asyncPreempt:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
+final funcID_asyncPreempt:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
 ```
 
 
 ```haxe
-final funcID_cgocallback:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
+final funcID_cgocallback:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
 ```
 
 
 ```haxe
-final funcID_debugCallV2:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
+final funcID_debugCallV2:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
 ```
 
 
 ```haxe
-final funcID_gcBgMarkWorker:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
+final funcID_gcBgMarkWorker:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
 ```
 
 
 ```haxe
-final funcID_goexit:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
+final funcID_goexit:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
 ```
 
 
 ```haxe
-final funcID_gogo:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
+final funcID_gogo:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
 ```
 
 
 ```haxe
-final funcID_gopanic:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
+final funcID_gopanic:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
 ```
 
 
 ```haxe
-final funcID_handleAsyncEvent:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
+final funcID_handleAsyncEvent:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
 ```
 
 
 ```haxe
-final funcID_mcall:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
+final funcID_mcall:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
 ```
 
 
 ```haxe
-final funcID_morestack:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
+final funcID_morestack:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
 ```
 
 
 ```haxe
-final funcID_mstart:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
+final funcID_mstart:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
 ```
 
 
 ```haxe
-final funcID_panicwrap:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
+final funcID_panicwrap:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
 ```
 
 
 ```haxe
-final funcID_rt0_go:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
+final funcID_rt0_go:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
 ```
 
 
 ```haxe
-final funcID_runfinq:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
+final funcID_runfinq:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
 ```
 
 
 ```haxe
-final funcID_runtime_main:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
+final funcID_runtime_main:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
 ```
 
 
 ```haxe
-final funcID_sigpanic:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
+final funcID_sigpanic:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
 ```
 
 
 ```haxe
-final funcID_systemstack:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
+final funcID_systemstack:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
 ```
 
 
 ```haxe
-final funcID_systemstack_switch:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
+final funcID_systemstack_switch:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
 ```
 
 
 ```haxe
-final funcdata_ArgInfo:stdgo.GoUInt64 = ((5i64 : stdgo.GoUInt64))
+final funcdata_ArgInfo:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((5i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final funcdata_ArgLiveInfo:stdgo.GoUInt64 = ((6i64 : stdgo.GoUInt64))
+final funcdata_ArgLiveInfo:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((6i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final funcdata_ArgsPointerMaps:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
+final funcdata_ArgsPointerMaps:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final funcdata_InlTree:stdgo.GoUInt64 = ((3i64 : stdgo.GoUInt64))
+final funcdata_InlTree:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((3i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final funcdata_LocalsPointerMaps:stdgo.GoUInt64 = ((1i64 : stdgo.GoUInt64))
+final funcdata_LocalsPointerMaps:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((1i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final funcdata_OpenCodedDeferInfo:stdgo.GoUInt64 = ((4i64 : stdgo.GoUInt64))
+final funcdata_OpenCodedDeferInfo:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((4i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final funcdata_StackObjects:stdgo.GoUInt64 = ((2i64 : stdgo.GoUInt64))
+final funcdata_StackObjects:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((2i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final funcdata_WrapInfo:stdgo.GoUInt64 = ((7i64 : stdgo.GoUInt64))
+final funcdata_WrapInfo:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((7i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final int16:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final int16:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final int32:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final int32:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final int64:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final int64:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final int8:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final int8:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final intArgRegs:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
+final intArgRegs:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final int_:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final int_:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final interface_:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final interface_:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final invalid:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final invalid:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final invalidDir:stdgo._internal.internal.abi.ChanDir = ((0 : stdgo._internal.internal.abi.Abi.ChanDir))
+final invalidDir:stdgo._internal.internal.abi.ChanDir = (function() ->  @:implicitReturn return ((0 : stdgo._internal.internal.abi.Abi.ChanDir)))()
 ```
 
 
 ```haxe
-final kindDirectIface:stdgo.GoUInt64 = ((32i64 : stdgo.GoUInt64))
+final kindDirectIface:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((32i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final kindGCProg:stdgo.GoUInt64 = ((64i64 : stdgo.GoUInt64))
+final kindGCProg:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((64i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final kindMask:stdgo.GoUInt64 = ((31i64 : stdgo.GoUInt64))
+final kindMask:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((31i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final mapBucketCount:stdgo.GoUInt64 = ((8i64 : stdgo.GoUInt64))
+final mapBucketCount:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((8i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final mapBucketCountBits:stdgo.GoUInt64 = ((3i64 : stdgo.GoUInt64))
+final mapBucketCountBits:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((3i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final mapMaxElemBytes:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
+final mapMaxElemBytes:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((128i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final mapMaxKeyBytes:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
+final mapMaxKeyBytes:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((128i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final map_:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final map_:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final pcdata_ArgLiveIndex:stdgo.GoUInt64 = ((3i64 : stdgo.GoUInt64))
+final pcdata_ArgLiveIndex:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((3i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final pcdata_InlTreeIndex:stdgo.GoUInt64 = ((2i64 : stdgo.GoUInt64))
+final pcdata_InlTreeIndex:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((2i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final pcdata_StackMapIndex:stdgo.GoUInt64 = ((1i64 : stdgo.GoUInt64))
+final pcdata_StackMapIndex:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((1i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final pcdata_UnsafePoint:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
+final pcdata_UnsafePoint:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final pointer:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final pointer:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final recvDir:stdgo._internal.internal.abi.ChanDir = ((2 : stdgo._internal.internal.abi.Abi.ChanDir))
+final recvDir:stdgo._internal.internal.abi.ChanDir = (function() ->  @:implicitReturn return ((2 : stdgo._internal.internal.abi.Abi.ChanDir)))()
 ```
 
 
 ```haxe
-final sendDir:stdgo._internal.internal.abi.ChanDir = ((2 : stdgo._internal.internal.abi.Abi.ChanDir))
+final sendDir:stdgo._internal.internal.abi.ChanDir = (function() ->  @:implicitReturn return ((2 : stdgo._internal.internal.abi.Abi.ChanDir)))()
 ```
 
 
 ```haxe
-final slice:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final slice:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final stackBig:stdgo.GoUInt64 = ((4096i64 : stdgo.GoUInt64))
+final stackBig:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((4096i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final stackNosplitBase:stdgo.GoUInt64 = ((800i64 : stdgo.GoUInt64))
+final stackNosplitBase:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((800i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final stackSmall:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
+final stackSmall:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((128i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final string:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final string:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final struct_:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final struct_:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final tflagExtraStar:stdgo._internal.internal.abi.TFlag = ((2 : stdgo._internal.internal.abi.Abi.TFlag))
+final tflagExtraStar:stdgo._internal.internal.abi.TFlag = (function() ->  @:implicitReturn return ((2 : stdgo._internal.internal.abi.Abi.TFlag)))()
 ```
 
 
 ```haxe
-final tflagNamed:stdgo._internal.internal.abi.TFlag = ((4 : stdgo._internal.internal.abi.Abi.TFlag))
+final tflagNamed:stdgo._internal.internal.abi.TFlag = (function() ->  @:implicitReturn return ((4 : stdgo._internal.internal.abi.Abi.TFlag)))()
 ```
 
 
 ```haxe
-final tflagRegularMemory:stdgo._internal.internal.abi.TFlag = ((8 : stdgo._internal.internal.abi.Abi.TFlag))
+final tflagRegularMemory:stdgo._internal.internal.abi.TFlag = (function() ->  @:implicitReturn return ((8 : stdgo._internal.internal.abi.Abi.TFlag)))()
 ```
 
 
 ```haxe
-final tflagUncommon:stdgo._internal.internal.abi.TFlag = ((1 : stdgo._internal.internal.abi.Abi.TFlag))
+final tflagUncommon:stdgo._internal.internal.abi.TFlag = (function() ->  @:implicitReturn return ((1 : stdgo._internal.internal.abi.Abi.TFlag)))()
 ```
 
 
 ```haxe
-final uint:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final uint:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final uint16:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final uint16:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final uint32:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final uint32:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final uint64:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final uint64:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final uint8:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final uint8:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final uintptr:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final uintptr:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
 ```haxe
-final unsafePointRestart1:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
+final unsafePointRestart1:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final unsafePointRestart2:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
+final unsafePointRestart2:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final unsafePointRestartAtEntry:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
+final unsafePointRestartAtEntry:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final unsafePointSafe:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
+final unsafePointSafe:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final unsafePointUnsafe:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
+final unsafePointUnsafe:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final unsafePointer:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
+final unsafePointer:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
 ```
 
 
@@ -6571,7 +6571,7 @@ function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>
 [\(view code\)](<./Abi.hx#L3344>)
 
 
-## class T\_uncommon\_43\_\_\_localname\_\_\_u
+## class T\_uncommon\_\_\_localname\_\_\_u\_8324
 
 
 ```haxe
@@ -6584,7 +6584,7 @@ var ptrType:stdgo._internal.internal.abi.PtrType
 ```
 
 
-### T\_uncommon\_43\_\_\_localname\_\_\_u function align
+### T\_uncommon\_\_\_localname\_\_\_u\_8324 function align
 
 
 ```haxe
@@ -6595,7 +6595,7 @@ function align():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L1908>)
 
 
-### T\_uncommon\_43\_\_\_localname\_\_\_u function arrayType
+### T\_uncommon\_\_\_localname\_\_\_u\_8324 function arrayType
 
 
 ```haxe
@@ -6606,7 +6606,7 @@ function arrayType():stdgo.Ref<stdgo._internal.internal.abi.ArrayType>
 [\(view code\)](<./Abi.hx#L1910>)
 
 
-### T\_uncommon\_43\_\_\_localname\_\_\_u function chanDir
+### T\_uncommon\_\_\_localname\_\_\_u\_8324 function chanDir
 
 
 ```haxe
@@ -6617,7 +6617,7 @@ function chanDir():stdgo._internal.internal.abi.ChanDir
 [\(view code\)](<./Abi.hx#L1912>)
 
 
-### T\_uncommon\_43\_\_\_localname\_\_\_u function common
+### T\_uncommon\_\_\_localname\_\_\_u\_8324 function common
 
 
 ```haxe
@@ -6628,7 +6628,7 @@ function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>
 [\(view code\)](<./Abi.hx#L1914>)
 
 
-### T\_uncommon\_43\_\_\_localname\_\_\_u function exportedMethods
+### T\_uncommon\_\_\_localname\_\_\_u\_8324 function exportedMethods
 
 
 ```haxe
@@ -6639,7 +6639,7 @@ function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>
 [\(view code\)](<./Abi.hx#L1916>)
 
 
-### T\_uncommon\_43\_\_\_localname\_\_\_u function fieldAlign
+### T\_uncommon\_\_\_localname\_\_\_u\_8324 function fieldAlign
 
 
 ```haxe
@@ -6650,7 +6650,7 @@ function fieldAlign():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L1918>)
 
 
-### T\_uncommon\_43\_\_\_localname\_\_\_u function funcType
+### T\_uncommon\_\_\_localname\_\_\_u\_8324 function funcType
 
 
 ```haxe
@@ -6661,7 +6661,7 @@ function funcType():stdgo.Ref<stdgo._internal.internal.abi.FuncType>
 [\(view code\)](<./Abi.hx#L1920>)
 
 
-### T\_uncommon\_43\_\_\_localname\_\_\_u function gcSlice
+### T\_uncommon\_\_\_localname\_\_\_u\_8324 function gcSlice
 
 
 ```haxe
@@ -6672,7 +6672,7 @@ function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo
 [\(view code\)](<./Abi.hx#L1922>)
 
 
-### T\_uncommon\_43\_\_\_localname\_\_\_u function hasName
+### T\_uncommon\_\_\_localname\_\_\_u\_8324 function hasName
 
 
 ```haxe
@@ -6683,7 +6683,7 @@ function hasName():Bool
 [\(view code\)](<./Abi.hx#L1924>)
 
 
-### T\_uncommon\_43\_\_\_localname\_\_\_u function ifaceIndir
+### T\_uncommon\_\_\_localname\_\_\_u\_8324 function ifaceIndir
 
 
 ```haxe
@@ -6694,7 +6694,7 @@ function ifaceIndir():Bool
 [\(view code\)](<./Abi.hx#L1926>)
 
 
-### T\_uncommon\_43\_\_\_localname\_\_\_u function interfaceType
+### T\_uncommon\_\_\_localname\_\_\_u\_8324 function interfaceType
 
 
 ```haxe
@@ -6705,7 +6705,7 @@ function interfaceType():stdgo.Ref<stdgo._internal.internal.abi.InterfaceType>
 [\(view code\)](<./Abi.hx#L1928>)
 
 
-### T\_uncommon\_43\_\_\_localname\_\_\_u function isDirectIface
+### T\_uncommon\_\_\_localname\_\_\_u\_8324 function isDirectIface
 
 
 ```haxe
@@ -6716,7 +6716,7 @@ function isDirectIface():Bool
 [\(view code\)](<./Abi.hx#L1930>)
 
 
-### T\_uncommon\_43\_\_\_localname\_\_\_u function key
+### T\_uncommon\_\_\_localname\_\_\_u\_8324 function key
 
 
 ```haxe
@@ -6727,7 +6727,7 @@ function key():stdgo.Ref<stdgo._internal.internal.abi.Type_>
 [\(view code\)](<./Abi.hx#L1932>)
 
 
-### T\_uncommon\_43\_\_\_localname\_\_\_u function kind
+### T\_uncommon\_\_\_localname\_\_\_u\_8324 function kind
 
 
 ```haxe
@@ -6738,7 +6738,7 @@ function kind():stdgo._internal.internal.abi.Kind
 [\(view code\)](<./Abi.hx#L1934>)
 
 
-### T\_uncommon\_43\_\_\_localname\_\_\_u function len
+### T\_uncommon\_\_\_localname\_\_\_u\_8324 function len
 
 
 ```haxe
@@ -6749,7 +6749,7 @@ function len():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L1936>)
 
 
-### T\_uncommon\_43\_\_\_localname\_\_\_u function mapType
+### T\_uncommon\_\_\_localname\_\_\_u\_8324 function mapType
 
 
 ```haxe
@@ -6760,7 +6760,7 @@ function mapType():stdgo.Ref<stdgo._internal.internal.abi.MapType>
 [\(view code\)](<./Abi.hx#L1938>)
 
 
-### T\_uncommon\_43\_\_\_localname\_\_\_u function new
+### T\_uncommon\_\_\_localname\_\_\_u\_8324 function new
 
 
 ```haxe
@@ -6771,7 +6771,7 @@ function new(?ptrType:stdgo._internal.internal.abi.PtrType, ?_u:stdgo._internal.
 [\(view code\)](<./Abi.hx#L1902>)
 
 
-### T\_uncommon\_43\_\_\_localname\_\_\_u function numMethod
+### T\_uncommon\_\_\_localname\_\_\_u\_8324 function numMethod
 
 
 ```haxe
@@ -6782,7 +6782,7 @@ function numMethod():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L1940>)
 
 
-### T\_uncommon\_43\_\_\_localname\_\_\_u function pointers
+### T\_uncommon\_\_\_localname\_\_\_u\_8324 function pointers
 
 
 ```haxe
@@ -6793,7 +6793,7 @@ function pointers():Bool
 [\(view code\)](<./Abi.hx#L1942>)
 
 
-### T\_uncommon\_43\_\_\_localname\_\_\_u function size
+### T\_uncommon\_\_\_localname\_\_\_u\_8324 function size
 
 
 ```haxe
@@ -6804,7 +6804,7 @@ function size():stdgo.GoUIntptr
 [\(view code\)](<./Abi.hx#L1944>)
 
 
-### T\_uncommon\_43\_\_\_localname\_\_\_u function structType
+### T\_uncommon\_\_\_localname\_\_\_u\_8324 function structType
 
 
 ```haxe
@@ -6815,7 +6815,7 @@ function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>
 [\(view code\)](<./Abi.hx#L1946>)
 
 
-### T\_uncommon\_43\_\_\_localname\_\_\_u function uncommon
+### T\_uncommon\_\_\_localname\_\_\_u\_8324 function uncommon
 
 
 ```haxe
@@ -6826,7 +6826,7 @@ function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>
 [\(view code\)](<./Abi.hx#L1948>)
 
 
-## class T\_uncommon\_44\_\_\_localname\_\_\_u
+## class T\_uncommon\_\_\_localname\_\_\_u\_8423
 
 
 ```haxe
@@ -6839,7 +6839,7 @@ var funcType:stdgo._internal.internal.abi.FuncType
 ```
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function align
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function align
 
 
 ```haxe
@@ -6850,7 +6850,7 @@ function align():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L1963>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function arrayType
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function arrayType
 
 
 ```haxe
@@ -6861,7 +6861,7 @@ function arrayType():stdgo.Ref<stdgo._internal.internal.abi.ArrayType>
 [\(view code\)](<./Abi.hx#L1965>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function chanDir
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function chanDir
 
 
 ```haxe
@@ -6872,7 +6872,7 @@ function chanDir():stdgo._internal.internal.abi.ChanDir
 [\(view code\)](<./Abi.hx#L1967>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function common
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function common
 
 
 ```haxe
@@ -6883,7 +6883,7 @@ function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>
 [\(view code\)](<./Abi.hx#L1969>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function elem
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function elem
 
 
 ```haxe
@@ -6894,7 +6894,7 @@ function elem():stdgo.Ref<stdgo._internal.internal.abi.Type_>
 [\(view code\)](<./Abi.hx#L1971>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function exportedMethods
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function exportedMethods
 
 
 ```haxe
@@ -6905,7 +6905,7 @@ function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>
 [\(view code\)](<./Abi.hx#L1973>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function fieldAlign
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function fieldAlign
 
 
 ```haxe
@@ -6916,7 +6916,7 @@ function fieldAlign():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L1975>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function gcSlice
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function gcSlice
 
 
 ```haxe
@@ -6927,7 +6927,7 @@ function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo
 [\(view code\)](<./Abi.hx#L1977>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function hasName
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function hasName
 
 
 ```haxe
@@ -6938,7 +6938,7 @@ function hasName():Bool
 [\(view code\)](<./Abi.hx#L1979>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function ifaceIndir
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function ifaceIndir
 
 
 ```haxe
@@ -6949,7 +6949,7 @@ function ifaceIndir():Bool
 [\(view code\)](<./Abi.hx#L1981>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function inSlice
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function inSlice
 
 
 ```haxe
@@ -6960,7 +6960,7 @@ function inSlice():stdgo.Slice<stdgo.Ref<stdgo._internal.internal.abi.Type_>>
 [\(view code\)](<./Abi.hx#L1985>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function in\_
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function in\_
 
 
 ```haxe
@@ -6971,7 +6971,7 @@ function in_(_i:stdgo.GoInt):stdgo.Ref<stdgo._internal.internal.abi.Type_>
 [\(view code\)](<./Abi.hx#L1983>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function interfaceType
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function interfaceType
 
 
 ```haxe
@@ -6982,7 +6982,7 @@ function interfaceType():stdgo.Ref<stdgo._internal.internal.abi.InterfaceType>
 [\(view code\)](<./Abi.hx#L1987>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function isDirectIface
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function isDirectIface
 
 
 ```haxe
@@ -6993,7 +6993,7 @@ function isDirectIface():Bool
 [\(view code\)](<./Abi.hx#L1989>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function isVariadic
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function isVariadic
 
 
 ```haxe
@@ -7004,7 +7004,7 @@ function isVariadic():Bool
 [\(view code\)](<./Abi.hx#L1991>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function key
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function key
 
 
 ```haxe
@@ -7015,7 +7015,7 @@ function key():stdgo.Ref<stdgo._internal.internal.abi.Type_>
 [\(view code\)](<./Abi.hx#L1993>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function kind
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function kind
 
 
 ```haxe
@@ -7026,7 +7026,7 @@ function kind():stdgo._internal.internal.abi.Kind
 [\(view code\)](<./Abi.hx#L1995>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function len
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function len
 
 
 ```haxe
@@ -7037,7 +7037,7 @@ function len():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L1997>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function mapType
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function mapType
 
 
 ```haxe
@@ -7048,7 +7048,7 @@ function mapType():stdgo.Ref<stdgo._internal.internal.abi.MapType>
 [\(view code\)](<./Abi.hx#L1999>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function new
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function new
 
 
 ```haxe
@@ -7059,7 +7059,7 @@ function new(?funcType:stdgo._internal.internal.abi.FuncType, ?_u:stdgo._interna
 [\(view code\)](<./Abi.hx#L1957>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function numIn
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function numIn
 
 
 ```haxe
@@ -7070,7 +7070,7 @@ function numIn():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2001>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function numMethod
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function numMethod
 
 
 ```haxe
@@ -7081,7 +7081,7 @@ function numMethod():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2003>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function numOut
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function numOut
 
 
 ```haxe
@@ -7092,7 +7092,7 @@ function numOut():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2005>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function out
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function out
 
 
 ```haxe
@@ -7103,7 +7103,7 @@ function out(_i:stdgo.GoInt):stdgo.Ref<stdgo._internal.internal.abi.Type_>
 [\(view code\)](<./Abi.hx#L2007>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function outSlice
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function outSlice
 
 
 ```haxe
@@ -7114,7 +7114,7 @@ function outSlice():stdgo.Slice<stdgo.Ref<stdgo._internal.internal.abi.Type_>>
 [\(view code\)](<./Abi.hx#L2009>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function pointers
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function pointers
 
 
 ```haxe
@@ -7125,7 +7125,7 @@ function pointers():Bool
 [\(view code\)](<./Abi.hx#L2011>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function size
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function size
 
 
 ```haxe
@@ -7136,7 +7136,7 @@ function size():stdgo.GoUIntptr
 [\(view code\)](<./Abi.hx#L2013>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function structType
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function structType
 
 
 ```haxe
@@ -7147,7 +7147,7 @@ function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>
 [\(view code\)](<./Abi.hx#L2015>)
 
 
-### T\_uncommon\_44\_\_\_localname\_\_\_u function uncommon
+### T\_uncommon\_\_\_localname\_\_\_u\_8423 function uncommon
 
 
 ```haxe
@@ -7158,7 +7158,7 @@ function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>
 [\(view code\)](<./Abi.hx#L2017>)
 
 
-## class T\_uncommon\_45\_\_\_localname\_\_\_u
+## class T\_uncommon\_\_\_localname\_\_\_u\_8524
 
 
 ```haxe
@@ -7171,7 +7171,7 @@ var sliceType:stdgo._internal.internal.abi.SliceType
 ```
 
 
-### T\_uncommon\_45\_\_\_localname\_\_\_u function align
+### T\_uncommon\_\_\_localname\_\_\_u\_8524 function align
 
 
 ```haxe
@@ -7182,7 +7182,7 @@ function align():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2032>)
 
 
-### T\_uncommon\_45\_\_\_localname\_\_\_u function arrayType
+### T\_uncommon\_\_\_localname\_\_\_u\_8524 function arrayType
 
 
 ```haxe
@@ -7193,7 +7193,7 @@ function arrayType():stdgo.Ref<stdgo._internal.internal.abi.ArrayType>
 [\(view code\)](<./Abi.hx#L2034>)
 
 
-### T\_uncommon\_45\_\_\_localname\_\_\_u function chanDir
+### T\_uncommon\_\_\_localname\_\_\_u\_8524 function chanDir
 
 
 ```haxe
@@ -7204,7 +7204,7 @@ function chanDir():stdgo._internal.internal.abi.ChanDir
 [\(view code\)](<./Abi.hx#L2036>)
 
 
-### T\_uncommon\_45\_\_\_localname\_\_\_u function common
+### T\_uncommon\_\_\_localname\_\_\_u\_8524 function common
 
 
 ```haxe
@@ -7215,7 +7215,7 @@ function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>
 [\(view code\)](<./Abi.hx#L2038>)
 
 
-### T\_uncommon\_45\_\_\_localname\_\_\_u function exportedMethods
+### T\_uncommon\_\_\_localname\_\_\_u\_8524 function exportedMethods
 
 
 ```haxe
@@ -7226,7 +7226,7 @@ function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>
 [\(view code\)](<./Abi.hx#L2040>)
 
 
-### T\_uncommon\_45\_\_\_localname\_\_\_u function fieldAlign
+### T\_uncommon\_\_\_localname\_\_\_u\_8524 function fieldAlign
 
 
 ```haxe
@@ -7237,7 +7237,7 @@ function fieldAlign():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2042>)
 
 
-### T\_uncommon\_45\_\_\_localname\_\_\_u function funcType
+### T\_uncommon\_\_\_localname\_\_\_u\_8524 function funcType
 
 
 ```haxe
@@ -7248,7 +7248,7 @@ function funcType():stdgo.Ref<stdgo._internal.internal.abi.FuncType>
 [\(view code\)](<./Abi.hx#L2044>)
 
 
-### T\_uncommon\_45\_\_\_localname\_\_\_u function gcSlice
+### T\_uncommon\_\_\_localname\_\_\_u\_8524 function gcSlice
 
 
 ```haxe
@@ -7259,7 +7259,7 @@ function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo
 [\(view code\)](<./Abi.hx#L2046>)
 
 
-### T\_uncommon\_45\_\_\_localname\_\_\_u function hasName
+### T\_uncommon\_\_\_localname\_\_\_u\_8524 function hasName
 
 
 ```haxe
@@ -7270,7 +7270,7 @@ function hasName():Bool
 [\(view code\)](<./Abi.hx#L2048>)
 
 
-### T\_uncommon\_45\_\_\_localname\_\_\_u function ifaceIndir
+### T\_uncommon\_\_\_localname\_\_\_u\_8524 function ifaceIndir
 
 
 ```haxe
@@ -7281,7 +7281,7 @@ function ifaceIndir():Bool
 [\(view code\)](<./Abi.hx#L2050>)
 
 
-### T\_uncommon\_45\_\_\_localname\_\_\_u function interfaceType
+### T\_uncommon\_\_\_localname\_\_\_u\_8524 function interfaceType
 
 
 ```haxe
@@ -7292,7 +7292,7 @@ function interfaceType():stdgo.Ref<stdgo._internal.internal.abi.InterfaceType>
 [\(view code\)](<./Abi.hx#L2052>)
 
 
-### T\_uncommon\_45\_\_\_localname\_\_\_u function isDirectIface
+### T\_uncommon\_\_\_localname\_\_\_u\_8524 function isDirectIface
 
 
 ```haxe
@@ -7303,7 +7303,7 @@ function isDirectIface():Bool
 [\(view code\)](<./Abi.hx#L2054>)
 
 
-### T\_uncommon\_45\_\_\_localname\_\_\_u function key
+### T\_uncommon\_\_\_localname\_\_\_u\_8524 function key
 
 
 ```haxe
@@ -7314,7 +7314,7 @@ function key():stdgo.Ref<stdgo._internal.internal.abi.Type_>
 [\(view code\)](<./Abi.hx#L2056>)
 
 
-### T\_uncommon\_45\_\_\_localname\_\_\_u function kind
+### T\_uncommon\_\_\_localname\_\_\_u\_8524 function kind
 
 
 ```haxe
@@ -7325,7 +7325,7 @@ function kind():stdgo._internal.internal.abi.Kind
 [\(view code\)](<./Abi.hx#L2058>)
 
 
-### T\_uncommon\_45\_\_\_localname\_\_\_u function len
+### T\_uncommon\_\_\_localname\_\_\_u\_8524 function len
 
 
 ```haxe
@@ -7336,7 +7336,7 @@ function len():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2060>)
 
 
-### T\_uncommon\_45\_\_\_localname\_\_\_u function mapType
+### T\_uncommon\_\_\_localname\_\_\_u\_8524 function mapType
 
 
 ```haxe
@@ -7347,7 +7347,7 @@ function mapType():stdgo.Ref<stdgo._internal.internal.abi.MapType>
 [\(view code\)](<./Abi.hx#L2062>)
 
 
-### T\_uncommon\_45\_\_\_localname\_\_\_u function new
+### T\_uncommon\_\_\_localname\_\_\_u\_8524 function new
 
 
 ```haxe
@@ -7358,7 +7358,7 @@ function new(?sliceType:stdgo._internal.internal.abi.SliceType, ?_u:stdgo._inter
 [\(view code\)](<./Abi.hx#L2026>)
 
 
-### T\_uncommon\_45\_\_\_localname\_\_\_u function numMethod
+### T\_uncommon\_\_\_localname\_\_\_u\_8524 function numMethod
 
 
 ```haxe
@@ -7369,7 +7369,7 @@ function numMethod():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2064>)
 
 
-### T\_uncommon\_45\_\_\_localname\_\_\_u function pointers
+### T\_uncommon\_\_\_localname\_\_\_u\_8524 function pointers
 
 
 ```haxe
@@ -7380,7 +7380,7 @@ function pointers():Bool
 [\(view code\)](<./Abi.hx#L2066>)
 
 
-### T\_uncommon\_45\_\_\_localname\_\_\_u function size
+### T\_uncommon\_\_\_localname\_\_\_u\_8524 function size
 
 
 ```haxe
@@ -7391,7 +7391,7 @@ function size():stdgo.GoUIntptr
 [\(view code\)](<./Abi.hx#L2068>)
 
 
-### T\_uncommon\_45\_\_\_localname\_\_\_u function structType
+### T\_uncommon\_\_\_localname\_\_\_u\_8524 function structType
 
 
 ```haxe
@@ -7402,7 +7402,7 @@ function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>
 [\(view code\)](<./Abi.hx#L2070>)
 
 
-### T\_uncommon\_45\_\_\_localname\_\_\_u function uncommon
+### T\_uncommon\_\_\_localname\_\_\_u\_8524 function uncommon
 
 
 ```haxe
@@ -7413,7 +7413,7 @@ function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>
 [\(view code\)](<./Abi.hx#L2072>)
 
 
-## class T\_uncommon\_46\_\_\_localname\_\_\_u
+## class T\_uncommon\_\_\_localname\_\_\_u\_8626
 
 
 ```haxe
@@ -7426,7 +7426,7 @@ var arrayType:stdgo._internal.internal.abi.ArrayType
 ```
 
 
-### T\_uncommon\_46\_\_\_localname\_\_\_u function align
+### T\_uncommon\_\_\_localname\_\_\_u\_8626 function align
 
 
 ```haxe
@@ -7437,7 +7437,7 @@ function align():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2087>)
 
 
-### T\_uncommon\_46\_\_\_localname\_\_\_u function chanDir
+### T\_uncommon\_\_\_localname\_\_\_u\_8626 function chanDir
 
 
 ```haxe
@@ -7448,7 +7448,7 @@ function chanDir():stdgo._internal.internal.abi.ChanDir
 [\(view code\)](<./Abi.hx#L2089>)
 
 
-### T\_uncommon\_46\_\_\_localname\_\_\_u function common
+### T\_uncommon\_\_\_localname\_\_\_u\_8626 function common
 
 
 ```haxe
@@ -7459,7 +7459,7 @@ function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>
 [\(view code\)](<./Abi.hx#L2091>)
 
 
-### T\_uncommon\_46\_\_\_localname\_\_\_u function exportedMethods
+### T\_uncommon\_\_\_localname\_\_\_u\_8626 function exportedMethods
 
 
 ```haxe
@@ -7470,7 +7470,7 @@ function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>
 [\(view code\)](<./Abi.hx#L2093>)
 
 
-### T\_uncommon\_46\_\_\_localname\_\_\_u function fieldAlign
+### T\_uncommon\_\_\_localname\_\_\_u\_8626 function fieldAlign
 
 
 ```haxe
@@ -7481,7 +7481,7 @@ function fieldAlign():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2095>)
 
 
-### T\_uncommon\_46\_\_\_localname\_\_\_u function funcType
+### T\_uncommon\_\_\_localname\_\_\_u\_8626 function funcType
 
 
 ```haxe
@@ -7492,7 +7492,7 @@ function funcType():stdgo.Ref<stdgo._internal.internal.abi.FuncType>
 [\(view code\)](<./Abi.hx#L2097>)
 
 
-### T\_uncommon\_46\_\_\_localname\_\_\_u function gcSlice
+### T\_uncommon\_\_\_localname\_\_\_u\_8626 function gcSlice
 
 
 ```haxe
@@ -7503,7 +7503,7 @@ function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo
 [\(view code\)](<./Abi.hx#L2099>)
 
 
-### T\_uncommon\_46\_\_\_localname\_\_\_u function hasName
+### T\_uncommon\_\_\_localname\_\_\_u\_8626 function hasName
 
 
 ```haxe
@@ -7514,7 +7514,7 @@ function hasName():Bool
 [\(view code\)](<./Abi.hx#L2101>)
 
 
-### T\_uncommon\_46\_\_\_localname\_\_\_u function ifaceIndir
+### T\_uncommon\_\_\_localname\_\_\_u\_8626 function ifaceIndir
 
 
 ```haxe
@@ -7525,7 +7525,7 @@ function ifaceIndir():Bool
 [\(view code\)](<./Abi.hx#L2103>)
 
 
-### T\_uncommon\_46\_\_\_localname\_\_\_u function interfaceType
+### T\_uncommon\_\_\_localname\_\_\_u\_8626 function interfaceType
 
 
 ```haxe
@@ -7536,7 +7536,7 @@ function interfaceType():stdgo.Ref<stdgo._internal.internal.abi.InterfaceType>
 [\(view code\)](<./Abi.hx#L2105>)
 
 
-### T\_uncommon\_46\_\_\_localname\_\_\_u function isDirectIface
+### T\_uncommon\_\_\_localname\_\_\_u\_8626 function isDirectIface
 
 
 ```haxe
@@ -7547,7 +7547,7 @@ function isDirectIface():Bool
 [\(view code\)](<./Abi.hx#L2107>)
 
 
-### T\_uncommon\_46\_\_\_localname\_\_\_u function key
+### T\_uncommon\_\_\_localname\_\_\_u\_8626 function key
 
 
 ```haxe
@@ -7558,7 +7558,7 @@ function key():stdgo.Ref<stdgo._internal.internal.abi.Type_>
 [\(view code\)](<./Abi.hx#L2109>)
 
 
-### T\_uncommon\_46\_\_\_localname\_\_\_u function kind
+### T\_uncommon\_\_\_localname\_\_\_u\_8626 function kind
 
 
 ```haxe
@@ -7569,7 +7569,7 @@ function kind():stdgo._internal.internal.abi.Kind
 [\(view code\)](<./Abi.hx#L2111>)
 
 
-### T\_uncommon\_46\_\_\_localname\_\_\_u function mapType
+### T\_uncommon\_\_\_localname\_\_\_u\_8626 function mapType
 
 
 ```haxe
@@ -7580,7 +7580,7 @@ function mapType():stdgo.Ref<stdgo._internal.internal.abi.MapType>
 [\(view code\)](<./Abi.hx#L2113>)
 
 
-### T\_uncommon\_46\_\_\_localname\_\_\_u function new
+### T\_uncommon\_\_\_localname\_\_\_u\_8626 function new
 
 
 ```haxe
@@ -7591,7 +7591,7 @@ function new(?arrayType:stdgo._internal.internal.abi.ArrayType, ?_u:stdgo._inter
 [\(view code\)](<./Abi.hx#L2081>)
 
 
-### T\_uncommon\_46\_\_\_localname\_\_\_u function numMethod
+### T\_uncommon\_\_\_localname\_\_\_u\_8626 function numMethod
 
 
 ```haxe
@@ -7602,7 +7602,7 @@ function numMethod():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2115>)
 
 
-### T\_uncommon\_46\_\_\_localname\_\_\_u function pointers
+### T\_uncommon\_\_\_localname\_\_\_u\_8626 function pointers
 
 
 ```haxe
@@ -7613,7 +7613,7 @@ function pointers():Bool
 [\(view code\)](<./Abi.hx#L2117>)
 
 
-### T\_uncommon\_46\_\_\_localname\_\_\_u function size
+### T\_uncommon\_\_\_localname\_\_\_u\_8626 function size
 
 
 ```haxe
@@ -7624,7 +7624,7 @@ function size():stdgo.GoUIntptr
 [\(view code\)](<./Abi.hx#L2119>)
 
 
-### T\_uncommon\_46\_\_\_localname\_\_\_u function structType
+### T\_uncommon\_\_\_localname\_\_\_u\_8626 function structType
 
 
 ```haxe
@@ -7635,7 +7635,7 @@ function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>
 [\(view code\)](<./Abi.hx#L2121>)
 
 
-### T\_uncommon\_46\_\_\_localname\_\_\_u function uncommon
+### T\_uncommon\_\_\_localname\_\_\_u\_8626 function uncommon
 
 
 ```haxe
@@ -7646,7 +7646,7 @@ function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>
 [\(view code\)](<./Abi.hx#L2123>)
 
 
-## class T\_uncommon\_47\_\_\_localname\_\_\_u
+## class T\_uncommon\_\_\_localname\_\_\_u\_8727
 
 
 ```haxe
@@ -7659,7 +7659,7 @@ var chanType:stdgo._internal.internal.abi.ChanType
 ```
 
 
-### T\_uncommon\_47\_\_\_localname\_\_\_u function align
+### T\_uncommon\_\_\_localname\_\_\_u\_8727 function align
 
 
 ```haxe
@@ -7670,7 +7670,7 @@ function align():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2138>)
 
 
-### T\_uncommon\_47\_\_\_localname\_\_\_u function arrayType
+### T\_uncommon\_\_\_localname\_\_\_u\_8727 function arrayType
 
 
 ```haxe
@@ -7681,7 +7681,7 @@ function arrayType():stdgo.Ref<stdgo._internal.internal.abi.ArrayType>
 [\(view code\)](<./Abi.hx#L2140>)
 
 
-### T\_uncommon\_47\_\_\_localname\_\_\_u function chanDir
+### T\_uncommon\_\_\_localname\_\_\_u\_8727 function chanDir
 
 
 ```haxe
@@ -7692,7 +7692,7 @@ function chanDir():stdgo._internal.internal.abi.ChanDir
 [\(view code\)](<./Abi.hx#L2142>)
 
 
-### T\_uncommon\_47\_\_\_localname\_\_\_u function common
+### T\_uncommon\_\_\_localname\_\_\_u\_8727 function common
 
 
 ```haxe
@@ -7703,7 +7703,7 @@ function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>
 [\(view code\)](<./Abi.hx#L2144>)
 
 
-### T\_uncommon\_47\_\_\_localname\_\_\_u function exportedMethods
+### T\_uncommon\_\_\_localname\_\_\_u\_8727 function exportedMethods
 
 
 ```haxe
@@ -7714,7 +7714,7 @@ function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>
 [\(view code\)](<./Abi.hx#L2146>)
 
 
-### T\_uncommon\_47\_\_\_localname\_\_\_u function fieldAlign
+### T\_uncommon\_\_\_localname\_\_\_u\_8727 function fieldAlign
 
 
 ```haxe
@@ -7725,7 +7725,7 @@ function fieldAlign():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2148>)
 
 
-### T\_uncommon\_47\_\_\_localname\_\_\_u function funcType
+### T\_uncommon\_\_\_localname\_\_\_u\_8727 function funcType
 
 
 ```haxe
@@ -7736,7 +7736,7 @@ function funcType():stdgo.Ref<stdgo._internal.internal.abi.FuncType>
 [\(view code\)](<./Abi.hx#L2150>)
 
 
-### T\_uncommon\_47\_\_\_localname\_\_\_u function gcSlice
+### T\_uncommon\_\_\_localname\_\_\_u\_8727 function gcSlice
 
 
 ```haxe
@@ -7747,7 +7747,7 @@ function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo
 [\(view code\)](<./Abi.hx#L2152>)
 
 
-### T\_uncommon\_47\_\_\_localname\_\_\_u function hasName
+### T\_uncommon\_\_\_localname\_\_\_u\_8727 function hasName
 
 
 ```haxe
@@ -7758,7 +7758,7 @@ function hasName():Bool
 [\(view code\)](<./Abi.hx#L2154>)
 
 
-### T\_uncommon\_47\_\_\_localname\_\_\_u function ifaceIndir
+### T\_uncommon\_\_\_localname\_\_\_u\_8727 function ifaceIndir
 
 
 ```haxe
@@ -7769,7 +7769,7 @@ function ifaceIndir():Bool
 [\(view code\)](<./Abi.hx#L2156>)
 
 
-### T\_uncommon\_47\_\_\_localname\_\_\_u function interfaceType
+### T\_uncommon\_\_\_localname\_\_\_u\_8727 function interfaceType
 
 
 ```haxe
@@ -7780,7 +7780,7 @@ function interfaceType():stdgo.Ref<stdgo._internal.internal.abi.InterfaceType>
 [\(view code\)](<./Abi.hx#L2158>)
 
 
-### T\_uncommon\_47\_\_\_localname\_\_\_u function isDirectIface
+### T\_uncommon\_\_\_localname\_\_\_u\_8727 function isDirectIface
 
 
 ```haxe
@@ -7791,7 +7791,7 @@ function isDirectIface():Bool
 [\(view code\)](<./Abi.hx#L2160>)
 
 
-### T\_uncommon\_47\_\_\_localname\_\_\_u function key
+### T\_uncommon\_\_\_localname\_\_\_u\_8727 function key
 
 
 ```haxe
@@ -7802,7 +7802,7 @@ function key():stdgo.Ref<stdgo._internal.internal.abi.Type_>
 [\(view code\)](<./Abi.hx#L2162>)
 
 
-### T\_uncommon\_47\_\_\_localname\_\_\_u function kind
+### T\_uncommon\_\_\_localname\_\_\_u\_8727 function kind
 
 
 ```haxe
@@ -7813,7 +7813,7 @@ function kind():stdgo._internal.internal.abi.Kind
 [\(view code\)](<./Abi.hx#L2164>)
 
 
-### T\_uncommon\_47\_\_\_localname\_\_\_u function len
+### T\_uncommon\_\_\_localname\_\_\_u\_8727 function len
 
 
 ```haxe
@@ -7824,7 +7824,7 @@ function len():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2166>)
 
 
-### T\_uncommon\_47\_\_\_localname\_\_\_u function mapType
+### T\_uncommon\_\_\_localname\_\_\_u\_8727 function mapType
 
 
 ```haxe
@@ -7835,7 +7835,7 @@ function mapType():stdgo.Ref<stdgo._internal.internal.abi.MapType>
 [\(view code\)](<./Abi.hx#L2168>)
 
 
-### T\_uncommon\_47\_\_\_localname\_\_\_u function new
+### T\_uncommon\_\_\_localname\_\_\_u\_8727 function new
 
 
 ```haxe
@@ -7846,7 +7846,7 @@ function new(?chanType:stdgo._internal.internal.abi.ChanType, ?_u:stdgo._interna
 [\(view code\)](<./Abi.hx#L2132>)
 
 
-### T\_uncommon\_47\_\_\_localname\_\_\_u function numMethod
+### T\_uncommon\_\_\_localname\_\_\_u\_8727 function numMethod
 
 
 ```haxe
@@ -7857,7 +7857,7 @@ function numMethod():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2170>)
 
 
-### T\_uncommon\_47\_\_\_localname\_\_\_u function pointers
+### T\_uncommon\_\_\_localname\_\_\_u\_8727 function pointers
 
 
 ```haxe
@@ -7868,7 +7868,7 @@ function pointers():Bool
 [\(view code\)](<./Abi.hx#L2172>)
 
 
-### T\_uncommon\_47\_\_\_localname\_\_\_u function size
+### T\_uncommon\_\_\_localname\_\_\_u\_8727 function size
 
 
 ```haxe
@@ -7879,7 +7879,7 @@ function size():stdgo.GoUIntptr
 [\(view code\)](<./Abi.hx#L2174>)
 
 
-### T\_uncommon\_47\_\_\_localname\_\_\_u function structType
+### T\_uncommon\_\_\_localname\_\_\_u\_8727 function structType
 
 
 ```haxe
@@ -7890,7 +7890,7 @@ function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>
 [\(view code\)](<./Abi.hx#L2176>)
 
 
-### T\_uncommon\_47\_\_\_localname\_\_\_u function uncommon
+### T\_uncommon\_\_\_localname\_\_\_u\_8727 function uncommon
 
 
 ```haxe
@@ -7901,7 +7901,7 @@ function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>
 [\(view code\)](<./Abi.hx#L2178>)
 
 
-## class T\_uncommon\_48\_\_\_localname\_\_\_u
+## class T\_uncommon\_\_\_localname\_\_\_u\_8826
 
 
 ```haxe
@@ -7914,7 +7914,7 @@ var mapType:stdgo._internal.internal.abi.MapType
 ```
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function align
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function align
 
 
 ```haxe
@@ -7925,7 +7925,7 @@ function align():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2193>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function arrayType
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function arrayType
 
 
 ```haxe
@@ -7936,7 +7936,7 @@ function arrayType():stdgo.Ref<stdgo._internal.internal.abi.ArrayType>
 [\(view code\)](<./Abi.hx#L2195>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function chanDir
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function chanDir
 
 
 ```haxe
@@ -7947,7 +7947,7 @@ function chanDir():stdgo._internal.internal.abi.ChanDir
 [\(view code\)](<./Abi.hx#L2197>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function common
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function common
 
 
 ```haxe
@@ -7958,7 +7958,7 @@ function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>
 [\(view code\)](<./Abi.hx#L2199>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function exportedMethods
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function exportedMethods
 
 
 ```haxe
@@ -7969,7 +7969,7 @@ function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>
 [\(view code\)](<./Abi.hx#L2201>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function fieldAlign
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function fieldAlign
 
 
 ```haxe
@@ -7980,7 +7980,7 @@ function fieldAlign():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2203>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function funcType
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function funcType
 
 
 ```haxe
@@ -7991,7 +7991,7 @@ function funcType():stdgo.Ref<stdgo._internal.internal.abi.FuncType>
 [\(view code\)](<./Abi.hx#L2205>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function gcSlice
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function gcSlice
 
 
 ```haxe
@@ -8002,7 +8002,7 @@ function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo
 [\(view code\)](<./Abi.hx#L2207>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function hasName
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function hasName
 
 
 ```haxe
@@ -8013,7 +8013,7 @@ function hasName():Bool
 [\(view code\)](<./Abi.hx#L2209>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function hashMightPanic
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function hashMightPanic
 
 
 ```haxe
@@ -8024,7 +8024,7 @@ function hashMightPanic():Bool
 [\(view code\)](<./Abi.hx#L2211>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function ifaceIndir
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function ifaceIndir
 
 
 ```haxe
@@ -8035,7 +8035,7 @@ function ifaceIndir():Bool
 [\(view code\)](<./Abi.hx#L2213>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function indirectElem
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function indirectElem
 
 
 ```haxe
@@ -8046,7 +8046,7 @@ function indirectElem():Bool
 [\(view code\)](<./Abi.hx#L2215>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function indirectKey
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function indirectKey
 
 
 ```haxe
@@ -8057,7 +8057,7 @@ function indirectKey():Bool
 [\(view code\)](<./Abi.hx#L2217>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function interfaceType
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function interfaceType
 
 
 ```haxe
@@ -8068,7 +8068,7 @@ function interfaceType():stdgo.Ref<stdgo._internal.internal.abi.InterfaceType>
 [\(view code\)](<./Abi.hx#L2219>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function isDirectIface
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function isDirectIface
 
 
 ```haxe
@@ -8079,7 +8079,7 @@ function isDirectIface():Bool
 [\(view code\)](<./Abi.hx#L2221>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function kind
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function kind
 
 
 ```haxe
@@ -8090,7 +8090,7 @@ function kind():stdgo._internal.internal.abi.Kind
 [\(view code\)](<./Abi.hx#L2223>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function len
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function len
 
 
 ```haxe
@@ -8101,7 +8101,7 @@ function len():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2225>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function needKeyUpdate
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function needKeyUpdate
 
 
 ```haxe
@@ -8112,7 +8112,7 @@ function needKeyUpdate():Bool
 [\(view code\)](<./Abi.hx#L2227>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function new
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function new
 
 
 ```haxe
@@ -8123,7 +8123,7 @@ function new(?mapType:stdgo._internal.internal.abi.MapType, ?_u:stdgo._internal.
 [\(view code\)](<./Abi.hx#L2187>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function numMethod
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function numMethod
 
 
 ```haxe
@@ -8134,7 +8134,7 @@ function numMethod():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2229>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function pointers
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function pointers
 
 
 ```haxe
@@ -8145,7 +8145,7 @@ function pointers():Bool
 [\(view code\)](<./Abi.hx#L2231>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function reflexiveKey
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function reflexiveKey
 
 
 ```haxe
@@ -8156,7 +8156,7 @@ function reflexiveKey():Bool
 [\(view code\)](<./Abi.hx#L2233>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function size
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function size
 
 
 ```haxe
@@ -8167,7 +8167,7 @@ function size():stdgo.GoUIntptr
 [\(view code\)](<./Abi.hx#L2235>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function structType
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function structType
 
 
 ```haxe
@@ -8178,7 +8178,7 @@ function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>
 [\(view code\)](<./Abi.hx#L2237>)
 
 
-### T\_uncommon\_48\_\_\_localname\_\_\_u function uncommon
+### T\_uncommon\_\_\_localname\_\_\_u\_8826 function uncommon
 
 
 ```haxe
@@ -8189,7 +8189,7 @@ function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>
 [\(view code\)](<./Abi.hx#L2239>)
 
 
-## class T\_uncommon\_49\_\_\_localname\_\_\_u
+## class T\_uncommon\_\_\_localname\_\_\_u\_8930
 
 
 ```haxe
@@ -8202,7 +8202,7 @@ var interfaceType:stdgo._internal.internal.abi.InterfaceType
 ```
 
 
-### T\_uncommon\_49\_\_\_localname\_\_\_u function align
+### T\_uncommon\_\_\_localname\_\_\_u\_8930 function align
 
 
 ```haxe
@@ -8213,7 +8213,7 @@ function align():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2254>)
 
 
-### T\_uncommon\_49\_\_\_localname\_\_\_u function arrayType
+### T\_uncommon\_\_\_localname\_\_\_u\_8930 function arrayType
 
 
 ```haxe
@@ -8224,7 +8224,7 @@ function arrayType():stdgo.Ref<stdgo._internal.internal.abi.ArrayType>
 [\(view code\)](<./Abi.hx#L2256>)
 
 
-### T\_uncommon\_49\_\_\_localname\_\_\_u function chanDir
+### T\_uncommon\_\_\_localname\_\_\_u\_8930 function chanDir
 
 
 ```haxe
@@ -8235,7 +8235,7 @@ function chanDir():stdgo._internal.internal.abi.ChanDir
 [\(view code\)](<./Abi.hx#L2258>)
 
 
-### T\_uncommon\_49\_\_\_localname\_\_\_u function common
+### T\_uncommon\_\_\_localname\_\_\_u\_8930 function common
 
 
 ```haxe
@@ -8246,7 +8246,7 @@ function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>
 [\(view code\)](<./Abi.hx#L2260>)
 
 
-### T\_uncommon\_49\_\_\_localname\_\_\_u function elem
+### T\_uncommon\_\_\_localname\_\_\_u\_8930 function elem
 
 
 ```haxe
@@ -8257,7 +8257,7 @@ function elem():stdgo.Ref<stdgo._internal.internal.abi.Type_>
 [\(view code\)](<./Abi.hx#L2262>)
 
 
-### T\_uncommon\_49\_\_\_localname\_\_\_u function exportedMethods
+### T\_uncommon\_\_\_localname\_\_\_u\_8930 function exportedMethods
 
 
 ```haxe
@@ -8268,7 +8268,7 @@ function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>
 [\(view code\)](<./Abi.hx#L2264>)
 
 
-### T\_uncommon\_49\_\_\_localname\_\_\_u function fieldAlign
+### T\_uncommon\_\_\_localname\_\_\_u\_8930 function fieldAlign
 
 
 ```haxe
@@ -8279,7 +8279,7 @@ function fieldAlign():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2266>)
 
 
-### T\_uncommon\_49\_\_\_localname\_\_\_u function funcType
+### T\_uncommon\_\_\_localname\_\_\_u\_8930 function funcType
 
 
 ```haxe
@@ -8290,7 +8290,7 @@ function funcType():stdgo.Ref<stdgo._internal.internal.abi.FuncType>
 [\(view code\)](<./Abi.hx#L2268>)
 
 
-### T\_uncommon\_49\_\_\_localname\_\_\_u function gcSlice
+### T\_uncommon\_\_\_localname\_\_\_u\_8930 function gcSlice
 
 
 ```haxe
@@ -8301,7 +8301,7 @@ function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo
 [\(view code\)](<./Abi.hx#L2270>)
 
 
-### T\_uncommon\_49\_\_\_localname\_\_\_u function hasName
+### T\_uncommon\_\_\_localname\_\_\_u\_8930 function hasName
 
 
 ```haxe
@@ -8312,7 +8312,7 @@ function hasName():Bool
 [\(view code\)](<./Abi.hx#L2272>)
 
 
-### T\_uncommon\_49\_\_\_localname\_\_\_u function ifaceIndir
+### T\_uncommon\_\_\_localname\_\_\_u\_8930 function ifaceIndir
 
 
 ```haxe
@@ -8323,7 +8323,7 @@ function ifaceIndir():Bool
 [\(view code\)](<./Abi.hx#L2274>)
 
 
-### T\_uncommon\_49\_\_\_localname\_\_\_u function isDirectIface
+### T\_uncommon\_\_\_localname\_\_\_u\_8930 function isDirectIface
 
 
 ```haxe
@@ -8334,7 +8334,7 @@ function isDirectIface():Bool
 [\(view code\)](<./Abi.hx#L2276>)
 
 
-### T\_uncommon\_49\_\_\_localname\_\_\_u function key
+### T\_uncommon\_\_\_localname\_\_\_u\_8930 function key
 
 
 ```haxe
@@ -8345,7 +8345,7 @@ function key():stdgo.Ref<stdgo._internal.internal.abi.Type_>
 [\(view code\)](<./Abi.hx#L2278>)
 
 
-### T\_uncommon\_49\_\_\_localname\_\_\_u function kind
+### T\_uncommon\_\_\_localname\_\_\_u\_8930 function kind
 
 
 ```haxe
@@ -8356,7 +8356,7 @@ function kind():stdgo._internal.internal.abi.Kind
 [\(view code\)](<./Abi.hx#L2280>)
 
 
-### T\_uncommon\_49\_\_\_localname\_\_\_u function len
+### T\_uncommon\_\_\_localname\_\_\_u\_8930 function len
 
 
 ```haxe
@@ -8367,7 +8367,7 @@ function len():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2282>)
 
 
-### T\_uncommon\_49\_\_\_localname\_\_\_u function mapType
+### T\_uncommon\_\_\_localname\_\_\_u\_8930 function mapType
 
 
 ```haxe
@@ -8378,7 +8378,7 @@ function mapType():stdgo.Ref<stdgo._internal.internal.abi.MapType>
 [\(view code\)](<./Abi.hx#L2284>)
 
 
-### T\_uncommon\_49\_\_\_localname\_\_\_u function new
+### T\_uncommon\_\_\_localname\_\_\_u\_8930 function new
 
 
 ```haxe
@@ -8389,7 +8389,7 @@ function new(?interfaceType:stdgo._internal.internal.abi.InterfaceType, ?_u:stdg
 [\(view code\)](<./Abi.hx#L2248>)
 
 
-### T\_uncommon\_49\_\_\_localname\_\_\_u function numMethod
+### T\_uncommon\_\_\_localname\_\_\_u\_8930 function numMethod
 
 
 ```haxe
@@ -8400,7 +8400,7 @@ function numMethod():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2286>)
 
 
-### T\_uncommon\_49\_\_\_localname\_\_\_u function pointers
+### T\_uncommon\_\_\_localname\_\_\_u\_8930 function pointers
 
 
 ```haxe
@@ -8411,7 +8411,7 @@ function pointers():Bool
 [\(view code\)](<./Abi.hx#L2288>)
 
 
-### T\_uncommon\_49\_\_\_localname\_\_\_u function size
+### T\_uncommon\_\_\_localname\_\_\_u\_8930 function size
 
 
 ```haxe
@@ -8422,7 +8422,7 @@ function size():stdgo.GoUIntptr
 [\(view code\)](<./Abi.hx#L2290>)
 
 
-### T\_uncommon\_49\_\_\_localname\_\_\_u function structType
+### T\_uncommon\_\_\_localname\_\_\_u\_8930 function structType
 
 
 ```haxe
@@ -8433,7 +8433,7 @@ function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>
 [\(view code\)](<./Abi.hx#L2292>)
 
 
-### T\_uncommon\_49\_\_\_localname\_\_\_u function uncommon
+### T\_uncommon\_\_\_localname\_\_\_u\_8930 function uncommon
 
 
 ```haxe
@@ -8444,7 +8444,7 @@ function uncommon():stdgo.Ref<stdgo._internal.internal.abi.UncommonType>
 [\(view code\)](<./Abi.hx#L2294>)
 
 
-## class T\_uncommon\_50\_\_\_localname\_\_\_u
+## class T\_uncommon\_\_\_localname\_\_\_u\_9033
 
 
 ```haxe
@@ -8457,7 +8457,7 @@ var type:stdgo._internal.internal.abi.Type_
 ```
 
 
-### T\_uncommon\_50\_\_\_localname\_\_\_u function align
+### T\_uncommon\_\_\_localname\_\_\_u\_9033 function align
 
 
 ```haxe
@@ -8468,7 +8468,7 @@ function align():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2309>)
 
 
-### T\_uncommon\_50\_\_\_localname\_\_\_u function arrayType
+### T\_uncommon\_\_\_localname\_\_\_u\_9033 function arrayType
 
 
 ```haxe
@@ -8479,7 +8479,7 @@ function arrayType():stdgo.Ref<stdgo._internal.internal.abi.ArrayType>
 [\(view code\)](<./Abi.hx#L2311>)
 
 
-### T\_uncommon\_50\_\_\_localname\_\_\_u function chanDir
+### T\_uncommon\_\_\_localname\_\_\_u\_9033 function chanDir
 
 
 ```haxe
@@ -8490,7 +8490,7 @@ function chanDir():stdgo._internal.internal.abi.ChanDir
 [\(view code\)](<./Abi.hx#L2313>)
 
 
-### T\_uncommon\_50\_\_\_localname\_\_\_u function common
+### T\_uncommon\_\_\_localname\_\_\_u\_9033 function common
 
 
 ```haxe
@@ -8501,7 +8501,7 @@ function common():stdgo.Ref<stdgo._internal.internal.abi.Type_>
 [\(view code\)](<./Abi.hx#L2315>)
 
 
-### T\_uncommon\_50\_\_\_localname\_\_\_u function elem
+### T\_uncommon\_\_\_localname\_\_\_u\_9033 function elem
 
 
 ```haxe
@@ -8512,7 +8512,7 @@ function elem():stdgo.Ref<stdgo._internal.internal.abi.Type_>
 [\(view code\)](<./Abi.hx#L2317>)
 
 
-### T\_uncommon\_50\_\_\_localname\_\_\_u function exportedMethods
+### T\_uncommon\_\_\_localname\_\_\_u\_9033 function exportedMethods
 
 
 ```haxe
@@ -8523,7 +8523,7 @@ function exportedMethods():stdgo.Slice<stdgo._internal.internal.abi.Method>
 [\(view code\)](<./Abi.hx#L2319>)
 
 
-### T\_uncommon\_50\_\_\_localname\_\_\_u function fieldAlign
+### T\_uncommon\_\_\_localname\_\_\_u\_9033 function fieldAlign
 
 
 ```haxe
@@ -8534,7 +8534,7 @@ function fieldAlign():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2321>)
 
 
-### T\_uncommon\_50\_\_\_localname\_\_\_u function funcType
+### T\_uncommon\_\_\_localname\_\_\_u\_9033 function funcType
 
 
 ```haxe
@@ -8545,7 +8545,7 @@ function funcType():stdgo.Ref<stdgo._internal.internal.abi.FuncType>
 [\(view code\)](<./Abi.hx#L2323>)
 
 
-### T\_uncommon\_50\_\_\_localname\_\_\_u function gcSlice
+### T\_uncommon\_\_\_localname\_\_\_u\_9033 function gcSlice
 
 
 ```haxe
@@ -8556,7 +8556,7 @@ function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo
 [\(view code\)](<./Abi.hx#L2325>)
 
 
-### T\_uncommon\_50\_\_\_localname\_\_\_u function hasName
+### T\_uncommon\_\_\_localname\_\_\_u\_9033 function hasName
 
 
 ```haxe
@@ -8567,7 +8567,7 @@ function hasName():Bool
 [\(view code\)](<./Abi.hx#L2327>)
 
 
-### T\_uncommon\_50\_\_\_localname\_\_\_u function ifaceIndir
+### T\_uncommon\_\_\_localname\_\_\_u\_9033 function ifaceIndir
 
 
 ```haxe
@@ -8578,7 +8578,7 @@ function ifaceIndir():Bool
 [\(view code\)](<./Abi.hx#L2329>)
 
 
-### T\_uncommon\_50\_\_\_localname\_\_\_u function interfaceType
+### T\_uncommon\_\_\_localname\_\_\_u\_9033 function interfaceType
 
 
 ```haxe
@@ -8589,7 +8589,7 @@ function interfaceType():stdgo.Ref<stdgo._internal.internal.abi.InterfaceType>
 [\(view code\)](<./Abi.hx#L2331>)
 
 
-### T\_uncommon\_50\_\_\_localname\_\_\_u function isDirectIface
+### T\_uncommon\_\_\_localname\_\_\_u\_9033 function isDirectIface
 
 
 ```haxe
@@ -8600,7 +8600,7 @@ function isDirectIface():Bool
 [\(view code\)](<./Abi.hx#L2333>)
 
 
-### T\_uncommon\_50\_\_\_localname\_\_\_u function key
+### T\_uncommon\_\_\_localname\_\_\_u\_9033 function key
 
 
 ```haxe
@@ -8611,7 +8611,7 @@ function key():stdgo.Ref<stdgo._internal.internal.abi.Type_>
 [\(view code\)](<./Abi.hx#L2335>)
 
 
-### T\_uncommon\_50\_\_\_localname\_\_\_u function kind
+### T\_uncommon\_\_\_localname\_\_\_u\_9033 function kind
 
 
 ```haxe
@@ -8622,7 +8622,7 @@ function kind():stdgo._internal.internal.abi.Kind
 [\(view code\)](<./Abi.hx#L2337>)
 
 
-### T\_uncommon\_50\_\_\_localname\_\_\_u function len
+### T\_uncommon\_\_\_localname\_\_\_u\_9033 function len
 
 
 ```haxe
@@ -8633,7 +8633,7 @@ function len():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2339>)
 
 
-### T\_uncommon\_50\_\_\_localname\_\_\_u function mapType
+### T\_uncommon\_\_\_localname\_\_\_u\_9033 function mapType
 
 
 ```haxe
@@ -8644,7 +8644,7 @@ function mapType():stdgo.Ref<stdgo._internal.internal.abi.MapType>
 [\(view code\)](<./Abi.hx#L2341>)
 
 
-### T\_uncommon\_50\_\_\_localname\_\_\_u function new
+### T\_uncommon\_\_\_localname\_\_\_u\_9033 function new
 
 
 ```haxe
@@ -8655,7 +8655,7 @@ function new(?type:stdgo._internal.internal.abi.Type_, ?_u:stdgo._internal.inter
 [\(view code\)](<./Abi.hx#L2303>)
 
 
-### T\_uncommon\_50\_\_\_localname\_\_\_u function numMethod
+### T\_uncommon\_\_\_localname\_\_\_u\_9033 function numMethod
 
 
 ```haxe
@@ -8666,7 +8666,7 @@ function numMethod():stdgo.GoInt
 [\(view code\)](<./Abi.hx#L2343>)
 
 
-### T\_uncommon\_50\_\_\_localname\_\_\_u function pointers
+### T\_uncommon\_\_\_localname\_\_\_u\_9033 function pointers
 
 
 ```haxe
@@ -8677,7 +8677,7 @@ function pointers():Bool
 [\(view code\)](<./Abi.hx#L2345>)
 
 
-### T\_uncommon\_50\_\_\_localname\_\_\_u function size
+### T\_uncommon\_\_\_localname\_\_\_u\_9033 function size
 
 
 ```haxe
@@ -8688,7 +8688,7 @@ function size():stdgo.GoUIntptr
 [\(view code\)](<./Abi.hx#L2347>)
 
 
-### T\_uncommon\_50\_\_\_localname\_\_\_u function structType
+### T\_uncommon\_\_\_localname\_\_\_u\_9033 function structType
 
 
 ```haxe
@@ -8699,7 +8699,7 @@ function structType():stdgo.Ref<stdgo._internal.internal.abi.StructType>
 [\(view code\)](<./Abi.hx#L2349>)
 
 
-### T\_uncommon\_50\_\_\_localname\_\_\_u function uncommon
+### T\_uncommon\_\_\_localname\_\_\_u\_9033 function uncommon
 
 
 ```haxe

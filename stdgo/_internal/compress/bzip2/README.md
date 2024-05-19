@@ -78,22 +78,22 @@ import stdgo._internal.compress.bzip2.Bzip2
 
 
 ```haxe
-final _bzip2BlockMagic:stdgo.GoUInt64 = ((54156738319193i64 : stdgo.GoUInt64))
+final _bzip2BlockMagic:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((54156738319193i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _bzip2FileMagic:stdgo.GoUInt64 = ((16986i64 : stdgo.GoUInt64))
+final _bzip2FileMagic:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((16986i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _bzip2FinalMagic:stdgo.GoUInt64 = ((25779555029136i64 : stdgo.GoUInt64))
+final _bzip2FinalMagic:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((25779555029136i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _invalidNodeValue:stdgo.GoUInt64 = ((65535i64 : stdgo.GoUInt64))
+final _invalidNodeValue:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((65535i64 : stdgo.GoUInt64)))()
 ```
 
 

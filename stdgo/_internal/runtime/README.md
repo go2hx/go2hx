@@ -188,17 +188,17 @@ import stdgo._internal.runtime.Runtime
 
 
 ```haxe
-final compiler:stdgo.GoString = "go2hx"
+final compiler:stdgo.GoString = (function() ->  @:implicitReturn return "go2hx")()
 ```
 
 
 ```haxe
-final goarch:stdgo.GoString = (("" : stdgo.GoString))
+final goarch:stdgo.GoString = (function() ->  @:implicitReturn return (("" : stdgo.GoString)))()
 ```
 
 
 ```haxe
-final goos:stdgo.GoString = (("" : stdgo.GoString))
+final goos:stdgo.GoString = (function() ->  @:implicitReturn return (("" : stdgo.GoString)))()
 ```
 
 

@@ -402,82 +402,82 @@ import stdgo._internal.strconv.Strconv
 
 
 ```haxe
-final _detailedPowersOfTenMaxExp10:stdgo.GoUInt64 = ((347i64 : stdgo.GoUInt64))
+final _detailedPowersOfTenMaxExp10:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((347i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _detailedPowersOfTenMinExp10:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
+final _detailedPowersOfTenMinExp10:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _digits:stdgo.GoString = (("0123456789abcdefghijklmnopqrstuvwxyz" : stdgo.GoString))
+final _digits:stdgo.GoString = (function() ->  @:implicitReturn return (("0123456789abcdefghijklmnopqrstuvwxyz" : stdgo.GoString)))()
 ```
 
 
 ```haxe
-final _fastSmalls:Bool = true
+final _fastSmalls:Bool = (function() ->  @:implicitReturn return true)()
 ```
 
 
 ```haxe
-final _fnParseComplex:stdgo.GoString = (("ParseComplex" : stdgo.GoString))
+final _fnParseComplex:stdgo.GoString = (function() ->  @:implicitReturn return (("ParseComplex" : stdgo.GoString)))()
 ```
 
 
 ```haxe
-final _fnParseFloat:stdgo.GoString = (("ParseFloat" : stdgo.GoString))
+final _fnParseFloat:stdgo.GoString = (function() ->  @:implicitReturn return (("ParseFloat" : stdgo.GoString)))()
 ```
 
 
 ```haxe
-final _host32bit:Bool = true
+final _host32bit:Bool = (function() ->  @:implicitReturn return true)()
 ```
 
 
 ```haxe
-final _intSize:stdgo.GoUInt64 = ((32i64 : stdgo.GoUInt64))
+final _intSize:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((32i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _lowerhex:stdgo.GoString = (("0123456789abcdef" : stdgo.GoString))
+final _lowerhex:stdgo.GoString = (function() ->  @:implicitReturn return (("0123456789abcdef" : stdgo.GoString)))()
 ```
 
 
 ```haxe
-final _maxShift:stdgo.GoUInt64 = ((28i64 : stdgo.GoUInt64))
+final _maxShift:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((28i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _maxUint64:stdgo.GoUInt64 = ((-1i64 : stdgo.GoUInt64))
+final _maxUint64:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((-1i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _nSmalls:stdgo.GoUInt64 = ((100i64 : stdgo.GoUInt64))
+final _nSmalls:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((100i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _smallsString:stdgo.GoString = (("00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899" : stdgo.GoString))
+final _smallsString:stdgo.GoString = (function() ->  @:implicitReturn return (("00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899" : stdgo.GoString)))()
 ```
 
 
 ```haxe
-final _uintSize:stdgo.GoUInt64 = ((32i64 : stdgo.GoUInt64))
+final _uintSize:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((32i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _upperhex:stdgo.GoString = (("0123456789ABCDEF" : stdgo.GoString))
+final _upperhex:stdgo.GoString = (function() ->  @:implicitReturn return (("0123456789ABCDEF" : stdgo.GoString)))()
 ```
 
 
 ```haxe
-final intSize:stdgo.GoUInt64 = ((32i64 : stdgo.GoUInt64))
+final intSize:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((32i64 : stdgo.GoUInt64)))()
 ```
 
 

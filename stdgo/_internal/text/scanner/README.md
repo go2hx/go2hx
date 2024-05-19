@@ -172,102 +172,102 @@ import stdgo._internal.text.scanner.Scanner
 
 
 ```haxe
-final _bufLen:stdgo.GoUInt64 = ((1024i64 : stdgo.GoUInt64))
+final _bufLen:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((1024i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _skipComment:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
+final _skipComment:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final char:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
+final char:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final comment:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
+final comment:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final eof:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
+final eof:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final float_:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
+final float_:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final goTokens:stdgo.GoUInt64 = ((1012i64 : stdgo.GoUInt64))
+final goTokens:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((1012i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final goWhitespace:stdgo.GoUInt64 = ((4294977024i64 : stdgo.GoUInt64))
+final goWhitespace:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((4294977024i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final ident:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
+final ident:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final int_:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
+final int_:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final rawString:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
+final rawString:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final scanChars:stdgo.GoUInt64 = ((32i64 : stdgo.GoUInt64))
+final scanChars:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((32i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final scanComments:stdgo.GoUInt64 = ((256i64 : stdgo.GoUInt64))
+final scanComments:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((256i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final scanFloats:stdgo.GoUInt64 = ((16i64 : stdgo.GoUInt64))
+final scanFloats:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((16i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final scanIdents:stdgo.GoUInt64 = ((4i64 : stdgo.GoUInt64))
+final scanIdents:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((4i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final scanInts:stdgo.GoUInt64 = ((8i64 : stdgo.GoUInt64))
+final scanInts:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((8i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final scanRawStrings:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
+final scanRawStrings:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((128i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final scanStrings:stdgo.GoUInt64 = ((64i64 : stdgo.GoUInt64))
+final scanStrings:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((64i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final skipComments:stdgo.GoUInt64 = ((512i64 : stdgo.GoUInt64))
+final skipComments:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((512i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final string:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
+final string:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
 ```
 
 

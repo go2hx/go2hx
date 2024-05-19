@@ -435,9 +435,9 @@
 
   - [`function new(?_in:stdgo.GoString, ?_out:stdgo.GoString):Void`](<#stringtest-function-new>)
 
-- [class T\_testReplacer\_2\_\_\_localname\_\_\_testCase](<#class-t_testreplacer_2localnametestcase>)
+- [class T\_testReplacer\_\_\_localname\_\_\_testCase\_871](<#class-t_testreplacerlocalnametestcase_871>)
 
-  - [`function new(?_r:stdgo.Ref<stdgo._internal.strings.Replacer>, ?_in:stdgo.GoString, ?_out:stdgo.GoString):Void`](<#t_testreplacer_2localnametestcase-function-new>)
+  - [`function new(?_r:stdgo.Ref<stdgo._internal.strings.Replacer>, ?_in:stdgo.GoString, ?_out:stdgo.GoString):Void`](<#t_testreplacerlocalnametestcase_871-function-new>)
 
 - [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
 
@@ -506,12 +506,12 @@ import stdgo._internal.strings_test.Strings
 
 
 ```haxe
-final _benchmarkString:stdgo.GoString = (("some_text=some☺value" : stdgo.GoString))
+final _benchmarkString:stdgo.GoString = (function() ->  @:implicitReturn return (("some_text=some☺value" : stdgo.GoString)))()
 ```
 
 
 ```haxe
-final _space:stdgo.GoString = (("\t\x0B\r\x0C\n�  　" : stdgo.GoString))
+final _space:stdgo.GoString = (function() ->  @:implicitReturn return (("\t\x0B\r\x0C\n�  　" : stdgo.GoString)))()
 ```
 
 
@@ -3168,7 +3168,7 @@ function new(?_in:stdgo.GoString, ?_out:stdgo.GoString):Void
 [\(view code\)](<./Strings_test.hx#L545>)
 
 
-## class T\_testReplacer\_2\_\_\_localname\_\_\_testCase
+## class T\_testReplacer\_\_\_localname\_\_\_testCase\_871
 
 
 ```haxe
@@ -3186,7 +3186,7 @@ var _r:stdgo.Ref<stdgo._internal.strings.Replacer>
 ```
 
 
-### T\_testReplacer\_2\_\_\_localname\_\_\_testCase function new
+### T\_testReplacer\_\_\_localname\_\_\_testCase\_871 function new
 
 
 ```haxe

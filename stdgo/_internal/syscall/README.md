@@ -428,1527 +428,1527 @@ import stdgo._internal.syscall.Syscall
 
 
 ```haxe
-final __10:stdgo._internal.syscall.Signal = ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.Syscall.Signal))
+final __12:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final __8:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final __13:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final __9:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final __14:stdgo._internal.syscall.Signal = (function() ->  @:implicitReturn return ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.Syscall.Signal)))()
 ```
 
 
 ```haxe
-final _asanenabled:Bool = false
+final _asanenabled:Bool = (function() ->  @:implicitReturn return false)()
 ```
 
 
 ```haxe
-final _direntSize:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _direntSize:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _faketime:Bool = false
+final _faketime:Bool = (function() ->  @:implicitReturn return false)()
 ```
 
 
 ```haxe
-final _isBigEndian:Bool = false
+final _isBigEndian:Bool = (function() ->  @:implicitReturn return false)()
 ```
 
 
 ```haxe
-final _msanenabled:Bool = false
+final _msanenabled:Bool = (function() ->  @:implicitReturn return false)()
 ```
 
 
 ```haxe
-final _sys_access:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_access:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_brk:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_brk:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_chdir:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_chdir:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_chmod:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_chmod:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_clock:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_clock:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_clock_getres:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_clock_getres:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_clock_gettime:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_clock_gettime:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_close:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_close:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_cond_broadcast:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_cond_broadcast:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_cond_create:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_cond_create:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_cond_signal:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_cond_signal:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_cond_timed_wait_abs:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_cond_timed_wait_abs:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_cond_wait:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_cond_wait:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_dup:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_dup:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_dup2:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_dup2:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_dyncode_create:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_dyncode_create:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_dyncode_delete:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_dyncode_delete:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_dyncode_modify:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_dyncode_modify:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_exception_clear_flag:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_exception_clear_flag:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_exception_handler:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_exception_handler:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_exception_stack:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_exception_stack:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_exit:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_exit:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_fstat:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_fstat:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_futex_wait_abs:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_futex_wait_abs:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_futex_wake:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_futex_wake:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_get_random_bytes:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_get_random_bytes:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_getcwd:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_getcwd:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_getdents:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_getdents:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_getpid:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_getpid:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_gettimeofday:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_gettimeofday:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_imc_accept:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_imc_accept:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_imc_connect:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_imc_connect:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_imc_makeboundsock:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_imc_makeboundsock:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_imc_mem_obj_create:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_imc_mem_obj_create:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_imc_recvmsg:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_imc_recvmsg:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_imc_sendmsg:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_imc_sendmsg:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_imc_socketpair:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_imc_socketpair:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_isatty:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_isatty:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_link:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_link:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_list_mappings:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_list_mappings:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_lseek:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_lseek:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_lstat:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_lstat:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_mkdir:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_mkdir:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_mmap:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_mmap:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_mprotect:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_mprotect:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_munmap:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_munmap:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_mutex_create:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_mutex_create:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_mutex_lock:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_mutex_lock:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_mutex_trylock:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_mutex_trylock:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_mutex_unlock:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_mutex_unlock:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_nameservice:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_nameservice:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_nanosleep:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_nanosleep:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_null:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_null:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_open:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_open:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_pread:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_pread:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_pwrite:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_pwrite:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_read:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_read:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_readlink:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_readlink:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_rename:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_rename:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_rmdir:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_rmdir:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_sched_yield:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_sched_yield:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_second_tls_get:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_second_tls_get:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_second_tls_set:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_second_tls_set:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_sem_create:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_sem_create:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_sem_get_value:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_sem_get_value:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_sem_post:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_sem_post:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_sem_wait:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_sem_wait:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_stat:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_stat:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_symlink:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_symlink:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_sysconf:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_sysconf:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_test_crash:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_test_crash:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_test_infoleak:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_test_infoleak:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_test_syscall_1:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_test_syscall_1:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_test_syscall_2:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_test_syscall_2:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_thread_create:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_thread_create:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_thread_exit:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_thread_exit:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_thread_nice:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_thread_nice:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_tls_get:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_tls_get:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_tls_init:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_tls_init:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_truncate:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_truncate:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_unlink:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_unlink:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_utimes:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_utimes:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _sys_write:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final _sys_write:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final af_INET:Null<Any> = @:invalid_type null
+final af_INET:Null<Any> = (function() ->  @:implicitReturn return @:invalid_type null)()
 ```
 
 
 ```haxe
-final af_INET6:Null<Any> = @:invalid_type null
+final af_INET6:Null<Any> = (function() ->  @:implicitReturn return @:invalid_type null)()
 ```
 
 
 ```haxe
-final af_UNIX:Null<Any> = @:invalid_type null
+final af_UNIX:Null<Any> = (function() ->  @:implicitReturn return @:invalid_type null)()
 ```
 
 
 ```haxe
-final af_UNSPEC:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final af_UNSPEC:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final e2big:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final e2big:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eacces:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eacces:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eaddrinuse:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eaddrinuse:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eaddrnotavail:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eaddrnotavail:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eadv:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eadv:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eafnosupport:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eafnosupport:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eagain:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eagain:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final ealready:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final ealready:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final ebade:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final ebade:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final ebadf:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final ebadf:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final ebadfd:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final ebadfd:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final ebadmsg:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final ebadmsg:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final ebadr:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final ebadr:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final ebadrqc:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final ebadrqc:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final ebadslt:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final ebadslt:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final ebfont:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final ebfont:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final ebusy:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final ebusy:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final ecanceled:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final ecanceled:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final ecaseclash:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final ecaseclash:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final echild:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final echild:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final echrng:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final echrng:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final ecomm:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final ecomm:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final econnaborted:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final econnaborted:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final econnrefused:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final econnrefused:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final econnreset:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final econnreset:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final edeadlk:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final edeadlk:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final edeadlock:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final edeadlock:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final edestaddrreq:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final edestaddrreq:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final edom:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final edom:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final edotdot:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final edotdot:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final edquot:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final edquot:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eexist:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eexist:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final efault:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final efault:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final efbig:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final efbig:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eftype:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eftype:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final ehostdown:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final ehostdown:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final ehostunreach:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final ehostunreach:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eidrm:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eidrm:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eilseq:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eilseq:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final einprogress:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final einprogress:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eintr:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eintr:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final einval:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final einval:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eio:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eio:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eisconn:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eisconn:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eisdir:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eisdir:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final el2hlt:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final el2hlt:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final el2nsync:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final el2nsync:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final el3hlt:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final el3hlt:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final el3rst:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final el3rst:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final elbin:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final elbin:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final elibacc:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final elibacc:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final elibbad:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final elibbad:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final elibexec:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final elibexec:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final elibmax:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final elibmax:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final elibscn:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final elibscn:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final elnrng:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final elnrng:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eloop:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eloop:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final emfile:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final emfile:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final emlink:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final emlink:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final emsgsize:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final emsgsize:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final emultihop:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final emultihop:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enametoolong:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enametoolong:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enetdown:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enetdown:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enetreset:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enetreset:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enetunreach:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enetunreach:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enfile:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enfile:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enmfile:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enmfile:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enoano:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enoano:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enobufs:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enobufs:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enocsi:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enocsi:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enodata:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enodata:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enodev:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enodev:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enoent:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enoent:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enoexec:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enoexec:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enolck:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enolck:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enolink:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enolink:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enomedium:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enomedium:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enomem:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enomem:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enomsg:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enomsg:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enonet:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enonet:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enopkg:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enopkg:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enoprotoopt:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enoprotoopt:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enoshare:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enoshare:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enospc:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enospc:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enosr:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enosr:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enostr:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enostr:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enosys:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enosys:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enotconn:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enotconn:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enotdir:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enotdir:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enotempty:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enotempty:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enotsock:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enotsock:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enotsup:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enotsup:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enotty:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enotty:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enotuniq:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enotuniq:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final enxio:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final enxio:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eopnotsupp:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eopnotsupp:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eoverflow:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eoverflow:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eperm:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eperm:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final epfnosupport:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final epfnosupport:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final epipe:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final epipe:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eproclim:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eproclim:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eproto:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eproto:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eprotonosupport:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eprotonosupport:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eprototype:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eprototype:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final erange:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final erange:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eremchg:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eremchg:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eremote:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eremote:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final erofs:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final erofs:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eshutdown:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eshutdown:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final esocktnosupport:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final esocktnosupport:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final espipe:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final espipe:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final esrch:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final esrch:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final esrmnt:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final esrmnt:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final estale:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final estale:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final etime:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final etime:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final etimedout:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final etimedout:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final etoomanyrefs:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final etoomanyrefs:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eunatch:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eunatch:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final eusers:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final eusers:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final ewouldblock:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final ewouldblock:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final exdev:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final exdev:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final exfull:stdgo._internal.syscall.Errno = ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno))
+final exfull:stdgo._internal.syscall.Errno = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUIntptr)) : stdgo._internal.syscall.Syscall.Errno)))()
 ```
 
 
 ```haxe
-final f_CNVT:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final f_CNVT:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final f_DUPFD:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final f_DUPFD:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final f_DUPFD_CLOEXEC:Null<Any> = @:invalid_type null
+final f_DUPFD_CLOEXEC:Null<Any> = (function() ->  @:implicitReturn return @:invalid_type null)()
 ```
 
 
 ```haxe
-final f_GETFD:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final f_GETFD:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final f_GETFL:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final f_GETFL:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final f_GETLK:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final f_GETLK:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final f_GETOWN:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final f_GETOWN:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final f_RDLCK:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final f_RDLCK:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final f_RGETLK:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final f_RGETLK:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final f_RSETLK:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final f_RSETLK:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final f_RSETLKW:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final f_RSETLKW:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final f_SETFD:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final f_SETFD:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final f_SETFL:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final f_SETFL:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final f_SETLK:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final f_SETLK:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final f_SETLKW:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final f_SETLKW:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final f_SETOWN:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final f_SETOWN:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final f_UNLCK:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final f_UNLCK:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final f_UNLKSYS:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final f_UNLKSYS:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final f_WRLCK:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final f_WRLCK:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final implementsGetwd:Bool = false
+final implementsGetwd:Bool = (function() ->  @:implicitReturn return false)()
 ```
 
 
 ```haxe
-final ipproto_IP:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final ipproto_IP:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final ipproto_IPV4:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final ipproto_IPV4:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final ipproto_IPV6:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final ipproto_IPV6:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final ipproto_TCP:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final ipproto_TCP:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final ipproto_UDP:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final ipproto_UDP:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final ipv6_V6ONLY:Null<Any> = @:invalid_type null
+final ipv6_V6ONLY:Null<Any> = (function() ->  @:implicitReturn return @:invalid_type null)()
 ```
 
 
 ```haxe
-final o_APPEND:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final o_APPEND:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final o_CLOEXEC:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final o_CLOEXEC:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final o_CREAT:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final o_CREAT:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final o_CREATE:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final o_CREATE:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final o_EXCL:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final o_EXCL:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final o_RDONLY:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final o_RDONLY:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final o_RDWR:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final o_RDWR:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final o_SYNC:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final o_SYNC:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final o_TRUNC:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final o_TRUNC:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final o_WRONLY:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final o_WRONLY:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final pathMax:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final pathMax:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IEXEC:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IEXEC:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IFBLK:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IFBLK:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IFBOUNDSOCK:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IFBOUNDSOCK:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IFCHR:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IFCHR:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IFCOND:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IFCOND:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IFDIR:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IFDIR:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IFDSOCK:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IFDSOCK:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IFIFO:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IFIFO:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IFLNK:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IFLNK:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IFMT:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IFMT:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IFMUTEX:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IFMUTEX:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IFREG:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IFREG:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IFSEMA:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IFSEMA:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IFSHM:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IFSHM:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IFSHM_SYSV:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IFSHM_SYSV:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IFSOCK:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IFSOCK:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IFSOCKADDR:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IFSOCKADDR:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IREAD:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IREAD:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IRGRP:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IRGRP:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IROTH:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IROTH:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IRUSR:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IRUSR:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IRWXG:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IRWXG:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IRWXO:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IRWXO:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IRWXU:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IRWXU:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_ISGID:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_ISGID:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_ISUID:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_ISUID:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_ISVTX:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_ISVTX:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IWGRP:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IWGRP:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IWOTH:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IWOTH:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IWRITE:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IWRITE:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IWUSR:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IWUSR:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IXGRP:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IXGRP:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IXOTH:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IXOTH:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_IXUSR:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_IXUSR:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final s_UNSUP:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final s_UNSUP:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final sigchld:stdgo._internal.syscall.Signal = ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.Syscall.Signal))
+final sigchld:stdgo._internal.syscall.Signal = (function() ->  @:implicitReturn return ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.Syscall.Signal)))()
 ```
 
 
 ```haxe
-final sigint:stdgo._internal.syscall.Signal = ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.Syscall.Signal))
+final sigint:stdgo._internal.syscall.Signal = (function() ->  @:implicitReturn return ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.Syscall.Signal)))()
 ```
 
 
 ```haxe
-final sigkill:stdgo._internal.syscall.Signal = ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.Syscall.Signal))
+final sigkill:stdgo._internal.syscall.Signal = (function() ->  @:implicitReturn return ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.Syscall.Signal)))()
 ```
 
 
 ```haxe
-final sigquit:stdgo._internal.syscall.Signal = ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.Syscall.Signal))
+final sigquit:stdgo._internal.syscall.Signal = (function() ->  @:implicitReturn return ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.Syscall.Signal)))()
 ```
 
 
 ```haxe
-final sigterm:stdgo._internal.syscall.Signal = ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.Syscall.Signal))
+final sigterm:stdgo._internal.syscall.Signal = (function() ->  @:implicitReturn return ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.Syscall.Signal)))()
 ```
 
 
 ```haxe
-final sigtrap:stdgo._internal.syscall.Signal = ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.Syscall.Signal))
+final sigtrap:stdgo._internal.syscall.Signal = (function() ->  @:implicitReturn return ((((0 : stdgo.GoInt)) : stdgo._internal.syscall.Syscall.Signal)))()
 ```
 
 
 ```haxe
-final so_ERROR:Null<Any> = @:invalid_type null
+final so_ERROR:Null<Any> = (function() ->  @:implicitReturn return @:invalid_type null)()
 ```
 
 
 ```haxe
-final sock_DGRAM:Null<Any> = @:invalid_type null
+final sock_DGRAM:Null<Any> = (function() ->  @:implicitReturn return @:invalid_type null)()
 ```
 
 
 ```haxe
-final sock_RAW:Null<Any> = @:invalid_type null
+final sock_RAW:Null<Any> = (function() ->  @:implicitReturn return @:invalid_type null)()
 ```
 
 
 ```haxe
-final sock_SEQPACKET:Null<Any> = @:invalid_type null
+final sock_SEQPACKET:Null<Any> = (function() ->  @:implicitReturn return @:invalid_type null)()
 ```
 
 
 ```haxe
-final sock_STREAM:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final sock_STREAM:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final somaxconn:Null<Any> = @:invalid_type null
+final somaxconn:Null<Any> = (function() ->  @:implicitReturn return @:invalid_type null)()
 ```
 
 
 ```haxe
-final stderr:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final stderr:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final stdin:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final stdin:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final stdout:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final stdout:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final sys_FCNTL:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
+final sys_FCNTL:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
 ```
 
 

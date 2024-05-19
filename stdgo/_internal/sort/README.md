@@ -194,17 +194,17 @@ import stdgo._internal.sort.Sort
 
 
 ```haxe
-final _decreasingHint:stdgo._internal.sort.T_sortedHint = ((2 : stdgo._internal.sort.Sort.T_sortedHint))
+final _decreasingHint:stdgo._internal.sort.T_sortedHint = (function() ->  @:implicitReturn return ((2 : stdgo._internal.sort.Sort.T_sortedHint)))()
 ```
 
 
 ```haxe
-final _increasingHint:stdgo._internal.sort.T_sortedHint = ((2 : stdgo._internal.sort.Sort.T_sortedHint))
+final _increasingHint:stdgo._internal.sort.T_sortedHint = (function() ->  @:implicitReturn return ((2 : stdgo._internal.sort.Sort.T_sortedHint)))()
 ```
 
 
 ```haxe
-final _unknownHint:stdgo._internal.sort.T_sortedHint = ((2 : stdgo._internal.sort.Sort.T_sortedHint))
+final _unknownHint:stdgo._internal.sort.T_sortedHint = (function() ->  @:implicitReturn return ((2 : stdgo._internal.sort.Sort.T_sortedHint)))()
 ```
 
 

@@ -1556,7 +1556,7 @@ function indexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int
 ```
 
 
-[\(view code\)](<./GoString.hx#L314>)
+[\(view code\)](<./GoString.hx#L316>)
 
 
 ### GoStringTools function lastIndexOf
@@ -1567,7 +1567,7 @@ function lastIndexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int
 ```
 
 
-[\(view code\)](<./GoString.hx#L311>)
+[\(view code\)](<./GoString.hx#L313>)
 
 
 ### GoStringTools function substr
@@ -1578,7 +1578,7 @@ function substr(str:stdgo.GoString, pos:Int, ?len:Int):stdgo.GoString
 ```
 
 
-[\(view code\)](<./GoString.hx#L317>)
+[\(view code\)](<./GoString.hx#L319>)
 
 
 ## class GoUInt64Map

@@ -129,9 +129,9 @@
 
   - [`function new(?_r:stdgo.GoInt32, ?_size:stdgo.GoInt):Void`](<#runelentest-function-new>)
 
-- [class T\_\_testSequence\_0\_\_\_localname\_\_\_info](<#class-ttestsequence_0_localname___info>)
+- [class T\_\_testSequence\_\_\_localname\_\_\_info\_8684](<#class-ttestsequence_localname___info_8684>)
 
-  - [`function new(?_index:stdgo.GoInt, ?_r:stdgo.GoInt32):Void`](<#ttestsequence_0_localname___info-function-new>)
+  - [`function new(?_index:stdgo.GoInt, ?_r:stdgo.GoInt32):Void`](<#ttestsequence_localname___info_8684-function-new>)
 
 - [class Utf8Map](<#class-utf8map>)
 
@@ -914,7 +914,7 @@ function new(?_r:stdgo.GoInt32, ?_size:stdgo.GoInt):Void
 [\(view code\)](<./Utf8_test.hx#L142>)
 
 
-## class T\_\_testSequence\_0\_\_\_localname\_\_\_info
+## class T\_\_testSequence\_\_\_localname\_\_\_info\_8684
 
 
 ```haxe
@@ -927,7 +927,7 @@ var _r:stdgo.GoInt32
 ```
 
 
-### T\_\_testSequence\_0\_\_\_localname\_\_\_info function new
+### T\_\_testSequence\_\_\_localname\_\_\_info\_8684 function new
 
 
 ```haxe

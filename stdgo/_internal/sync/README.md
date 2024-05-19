@@ -29,6 +29,14 @@ stdgo/_internal/sync_test/Sync_test.hx:3313: characters 26-30 : Unknown identifi
 stdgo/_internal/sync_test/Sync_test.hx:1498: characters 18-22 : Unknown identifier : _new
 stdgo/_internal/sync_test/Sync_test.hx:1506: characters 22-26 : Unknown identifier : _new
 /home/runner/haxe/versions/3c97999/std/haxe/macro/MacroStringTools.hx:70: characters 88-89 : Class<T_sync_onceValue_T_stdgo_GoInt_> has no field f
+stdgo/_internal/sync_test/Sync_test.hx:2254: lines 2254-2261 : ... Called from macro here
+/home/runner/haxe/versions/3c97999/std/haxe/macro/MacroStringTools.hx:70: characters 88-89 : Class<T_sync_onceValue_T_stdgo_GoInt_> has no field f
+/home/runner/haxe/versions/3c97999/std/haxe/macro/MacroStringTools.hx:70: characters 88-89 : ... For function argument 'f'
+stdgo/_internal/sync_test/Sync_test.hx:2770: characters 24-28 : Unknown identifier : _new
+stdgo/_internal/sync_test/Sync_test.hx:2770: characters 24-28 : ... For function argument 'body'
+stdgo/_internal/sync_test/Sync_test.hx:24: characters 58-62 : Unknown identifier : _new
+stdgo/_internal/sync_test/Sync_test.hx:650: characters 19-104 : ... Called from macro here
+stdgo/_internal/internal/Macro.macro.hx:54: non hxb types:,427
 
 ```
 

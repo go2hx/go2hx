@@ -316,17 +316,17 @@
 
   - [`function new(?_format:stdgo.GoString, ?_text:stdgo.GoString, ?_in:stdgo.AnyInterface, ?_out:stdgo.AnyInterface):Void`](<#scanftest-function-new>)
 
-- [class T\_testNilDoesNotBecomeTyped\_36\_\_\_localname\_\_\_A](<#class-t_testnildoesnotbecometyped_36localnamea>)
+- [class T\_testNilDoesNotBecomeTyped\_\_\_localname\_\_\_A\_55372](<#class-t_testnildoesnotbecometypedlocalnamea_55372>)
 
-  - [`function new():Void`](<#t_testnildoesnotbecometyped_36localnamea-function-new>)
+  - [`function new():Void`](<#t_testnildoesnotbecometypedlocalnamea_55372-function-new>)
 
-- [class T\_testNilDoesNotBecomeTyped\_37\_\_\_localname\_\_\_B](<#class-t_testnildoesnotbecometyped_37localnameb>)
+- [class T\_testNilDoesNotBecomeTyped\_\_\_localname\_\_\_B\_55389](<#class-t_testnildoesnotbecometypedlocalnameb_55389>)
 
-  - [`function new():Void`](<#t_testnildoesnotbecometyped_37localnameb-function-new>)
+  - [`function new():Void`](<#t_testnildoesnotbecometypedlocalnameb_55389-function-new>)
 
-- [class T\_testStructPrinter\_35\_\_\_localname\_\_\_T](<#class-t_teststructprinter_35localnamet>)
+- [class T\_testStructPrinter\_\_\_localname\_\_\_T\_47832](<#class-t_teststructprinterlocalnamet_47832>)
 
-  - [`function new(?_a:stdgo.GoString, ?_b:stdgo.GoString, ?_c:Null<stdgo.GoInt>):Void`](<#t_teststructprinter_35localnamet-function-new>)
+  - [`function new(?_a:stdgo.GoString, ?_b:stdgo.GoString, ?_c:Null<stdgo.GoInt>):Void`](<#t_teststructprinterlocalnamet_47832-function-new>)
 
 - [typedef F](<#typedef-f>)
 
@@ -467,22 +467,22 @@ import stdgo._internal.fmt_test.Fmt
 
 
 ```haxe
-final _appendResult:stdgo.GoString = (("hello world, 23" : stdgo.GoString))
+final _appendResult:stdgo.GoString = (function() ->  @:implicitReturn return (("hello world, 23" : stdgo.GoString)))()
 ```
 
 
 ```haxe
-final _hello:stdgo.GoString = (("hello " : stdgo.GoString))
+final _hello:stdgo.GoString = (function() ->  @:implicitReturn return (("hello " : stdgo.GoString)))()
 ```
 
 
 ```haxe
-final _intCount:stdgo.GoUInt64 = ((800i64 : stdgo.GoUInt64))
+final _intCount:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((800i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final no:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
+final no:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
 ```
 
 
@@ -2672,10 +2672,10 @@ function new(?_format:stdgo.GoString, ?_text:stdgo.GoString, ?_in:stdgo.AnyInter
 [\(view code\)](<./Fmt_test.hx#L1546>)
 
 
-## class T\_testNilDoesNotBecomeTyped\_36\_\_\_localname\_\_\_A
+## class T\_testNilDoesNotBecomeTyped\_\_\_localname\_\_\_A\_55372
 
 
-### T\_testNilDoesNotBecomeTyped\_36\_\_\_localname\_\_\_A function new
+### T\_testNilDoesNotBecomeTyped\_\_\_localname\_\_\_A\_55372 function new
 
 
 ```haxe
@@ -2686,10 +2686,10 @@ function new():Void
 [\(view code\)](<./Fmt_test.hx#L2712>)
 
 
-## class T\_testNilDoesNotBecomeTyped\_37\_\_\_localname\_\_\_B
+## class T\_testNilDoesNotBecomeTyped\_\_\_localname\_\_\_B\_55389
 
 
-### T\_testNilDoesNotBecomeTyped\_37\_\_\_localname\_\_\_B function new
+### T\_testNilDoesNotBecomeTyped\_\_\_localname\_\_\_B\_55389 function new
 
 
 ```haxe
@@ -2700,7 +2700,7 @@ function new():Void
 [\(view code\)](<./Fmt_test.hx#L2719>)
 
 
-## class T\_testStructPrinter\_35\_\_\_localname\_\_\_T
+## class T\_testStructPrinter\_\_\_localname\_\_\_T\_47832
 
 
 ```haxe
@@ -2718,7 +2718,7 @@ var _c:stdgo.GoInt
 ```
 
 
-### T\_testStructPrinter\_35\_\_\_localname\_\_\_T function new
+### T\_testStructPrinter\_\_\_localname\_\_\_T\_47832 function new
 
 
 ```haxe

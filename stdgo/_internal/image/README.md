@@ -13,8 +13,11 @@ stdgo/_internal/image/Image.hx:908: characters 327-341 : Any has no field __unde
 stdgo/_internal/image/Image.hx:913: characters 144-158 : Any has no field __underlying__
 stdgo/_internal/image/Image.hx:913: characters 293-307 : Any has no field __underlying__
 stdgo/_internal/image/Image.hx:930: characters 31-33 : Any has no field at
-stdgo/_internal/image_test/Image.hx:3: characters 1532-1569 : Module stdgo._internal.image_test.Image_test does not define type Image_test
-stdgo/_internal/image_test/Image.hx:3: characters 1532-1569 : ... For optional function argument 'f'
+stdgo/_internal/image_test/Image.hx:3: characters 1539-1576 : Module stdgo._internal.image_test.Image_test does not define type Image_test
+stdgo/_internal/image_test/Image.hx:3: characters 1539-1576 : ... For optional function argument 'f'
+stdgo/_internal/image_test/Image.hx:24: characters 246-283 : Module stdgo._internal.image_test.Image_test does not define type Image_test
+stdgo/_internal/image_test/Image.hx:24: characters 246-283 : ... For optional function argument 'f'
+stdgo/_internal/internal/Macro.macro.hx:54: non hxb types:,438
 
 ```
 

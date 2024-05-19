@@ -245,9 +245,9 @@ stdgo/_internal/internal/Macro.macro.hx:54: non hxb types:,376
 
   - [`function writeString( _w:stdgo._internal.io.Writer, _s:stdgo.GoString):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#replacer-function-writestring>)
 
-- [class T\_fieldsFunc\_1\_\_\_localname\_\_\_span](<#class-t_fieldsfunc_1localnamespan>)
+- [class T\_fieldsFunc\_\_\_localname\_\_\_span\_9921](<#class-t_fieldsfunclocalnamespan_9921>)
 
-  - [`function new(?_start:stdgo.GoInt, ?_end:stdgo.GoInt):Void`](<#t_fieldsfunc_1localnamespan-function-new>)
+  - [`function new(?_start:stdgo.GoInt, ?_end:stdgo.GoInt):Void`](<#t_fieldsfunclocalnamespan_9921-function-new>)
 
 - [typedef T\_appendSliceWriter](<#typedef-t_appendslicewriter>)
 
@@ -367,12 +367,12 @@ import stdgo._internal.strings.Strings
 
 
 ```haxe
-final _countCutOff:stdgo.GoUInt64 = ((8i64 : stdgo.GoUInt64))
+final _countCutOff:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((8i64 : stdgo.GoUInt64)))()
 ```
 
 
 ```haxe
-final _maxInt:stdgo.GoInt = ((((2147483647u32 : stdgo.GoUInt)) : stdgo.GoInt))
+final _maxInt:stdgo.GoInt = (function() ->  @:implicitReturn return ((((2147483647u32 : stdgo.GoUInt)) : stdgo.GoInt)))()
 ```
 
 
@@ -2612,7 +2612,7 @@ function writeString( _w:stdgo._internal.io.Writer, _s:stdgo.GoString):{
 [\(view code\)](<./Strings.hx#L1631>)
 
 
-## class T\_fieldsFunc\_1\_\_\_localname\_\_\_span
+## class T\_fieldsFunc\_\_\_localname\_\_\_span\_9921
 
 
 ```haxe
@@ -2625,7 +2625,7 @@ var _start:stdgo.GoInt
 ```
 
 
-### T\_fieldsFunc\_1\_\_\_localname\_\_\_span function new
+### T\_fieldsFunc\_\_\_localname\_\_\_span\_9921 function new
 
 
 ```haxe

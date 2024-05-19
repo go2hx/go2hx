@@ -1177,7 +1177,8 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 				case "TypeSpec":
 					var spec:Ast.TypeSpec = spec;
 					final name = spec.name.name;
-					spec.name.name = "T_" + info.funcName + "___localname___" + name;
+					final pos = spec.pos;
+					spec.name.name = "T_" + info.funcName + "___localname___" + name + "_" + pos;
 					info.renameClasses[name] = className(spec.name.name, info);
 					info.data.defs.push(typeSpec(spec, info));
 				case "ValueSpec": // typeValue
@@ -7763,6 +7764,9 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 						value;
 					}
 				}
+			final nameType = typeof(value.names[i], info, false);
+			//expr = defaultValue(nameType, info);
+			expr = macro (() -> $expr)();
 			values.push({
 				name: name,
 				pos: null,

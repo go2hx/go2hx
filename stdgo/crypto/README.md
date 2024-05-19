@@ -1,5 +1,7 @@
 # Module stdgo.crypto has compilation errors, please do not use:
 ```
+stdgo/_internal/crypto/rand/Rand.hx:54: characters 23-59 : Type not found : stdgo._internal.compress.flate.Flate
+stdgo/_internal/crypto/rand/Rand.hx:54: characters 196-239 : Type not found : stdgo._internal.compress.flate.Flate
 stdgo/_internal/encoding/gob/Gob.hx:2453: characters 67-85 : stdgo.GoInt should be Null<stdgo.Pointer<stdgo.GoInt>>
 stdgo/_internal/encoding/gob/Gob.hx:2524: characters 18-26 : stdgo._internal.encoding.gob.T1 has no field emptyMap
 stdgo/_internal/encoding/gob/Gob.hx:2787: characters 9-56 : Invalid assign

@@ -487,7 +487,7 @@ function encodeRune(_p:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune):stdgo.GoInt
 ```haxe
 function exampleEncodeRune():Void {
         var _r:stdgo.GoInt32 = (19990 : stdgo.GoInt32);
-        var _buf = new stdgo.Slice<stdgo.GoUInt8>((3 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+        var _buf = (new stdgo.Slice<stdgo.GoUInt8>((3 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var _n:stdgo.GoInt = stdgo._internal.unicode.utf8.Utf8.encodeRune(_buf, _r);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_buf));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_n));
@@ -510,7 +510,7 @@ function exampleEncodeRune():Void {
 function exampleEncodeRune_outOfRange():Void {
         var _runes = (new stdgo.Slice<stdgo.GoInt32>(3, 3, ...[(-1 : stdgo.GoInt32), (1114112 : stdgo.GoInt32), (65533 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
         for (_i => _c in _runes) {
-            var _buf = new stdgo.Slice<stdgo.GoUInt8>((3 : stdgo.GoInt).toBasic(), 0).__setNumber32__();
+            var _buf = (new stdgo.Slice<stdgo.GoUInt8>((3 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             var _size:stdgo.GoInt = stdgo._internal.unicode.utf8.Utf8.encodeRune(_buf, _c);
             stdgo._internal.fmt.Fmt.printf(("%d: %d %[2]s %d\n" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_buf), stdgo.Go.toInterface(_size));
         };

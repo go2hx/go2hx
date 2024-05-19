@@ -6,8 +6,6 @@
 | [stdgo._internal.bufio](./_internal/bufio/README.md) | ❌ | yes |
 | [stdgo._internal.bytes](./_internal/bytes/README.md) | ✅ | yes |
 | [stdgo._internal.compress.bzip2](./_internal/compress/bzip2/README.md) | ✅ | yes |
-| [stdgo._internal.compress.flate](./_internal/compress/flate/README.md) | ✅ | yes |
-| [stdgo._internal.compress.zlib](./_internal/compress/zlib/README.md) | ✅ | yes |
 | [stdgo._internal.context](./_internal/context/README.md) | ✅ | no |
 | [stdgo._internal.crypto](./_internal/crypto/README.md) | ❌ | no |
 | [stdgo._internal.crypto.internal.randutil](./_internal/crypto/internal/randutil/README.md) | ✅ | no |
@@ -84,7 +82,6 @@
 | [stdgo.bufio](./bufio/README.md) | ✅ | no |
 | [stdgo.bytes](./bytes/README.md) | ✅ | no |
 | [stdgo.compress.bzip2](./compress/bzip2/README.md) | ✅ | no |
-| [stdgo.compress.flate](./compress/flate/README.md) | ❌ | no |
 | [stdgo.context](./context/README.md) | ❌ | no |
 | [stdgo.crypto](./crypto/README.md) | ❌ | no |
 | [stdgo.crypto.internal.randutil](./crypto/internal/randutil/README.md) | ✅ | no |

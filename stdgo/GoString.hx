@@ -41,6 +41,8 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 	}
 
 	public function __copy__():GoString {
+		if (this == null || this.bytes == null)
+			return "";
 		final b = Bytes.alloc(this.bytes.length);
 		b.blit(0, this.bytes, 0, this.bytes.length);
 		return new GoStringData(b, this.low, this.high);

@@ -1,14 +1,14 @@
 package stdgo._internal.math.bits_test;
 import stdgo._internal.math.bits.Bits;
 import stdgo._internal.math.bits.Bits;
-var output : stdgo.GoInt = (0 : stdgo.GoInt);
-final __M : stdgo.GoUInt64 = (4294967295i64 : stdgo.GoUInt64);
-final __M32 : stdgo.GoUInt64 = (4294967295i64 : stdgo.GoUInt64);
-final __M64 : stdgo.GoUInt64 = (-1i64 : stdgo.GoUInt64);
-final _divZeroError : stdgo.GoString = ("runtime error: integer divide by zero" : stdgo.GoString);
-final _overflowError : stdgo.GoString = ("runtime error: integer overflow" : stdgo.GoString);
-var _tab : stdgo.GoArray<T_entry> = new stdgo.GoArray<T_entry>(256, 256, ...[for (i in 0 ... 256) ({ _nlz : (0 : stdgo.GoInt), _ntz : (0 : stdgo.GoInt), _pop : (0 : stdgo.GoInt) } : T_entry)]);
-var input : stdgo.GoUInt64 = (285870213051353865i64 : stdgo.GoUInt64);
+var output : stdgo.GoInt = (() -> (0 : stdgo.GoInt))();
+final __M : stdgo.GoUInt64 = (() -> (4294967295i64 : stdgo.GoUInt64))();
+final __M32 : stdgo.GoUInt64 = (() -> (4294967295i64 : stdgo.GoUInt64))();
+final __M64 : stdgo.GoUInt64 = (() -> (-1i64 : stdgo.GoUInt64))();
+final _divZeroError : stdgo.GoString = (() -> ("runtime error: integer divide by zero" : stdgo.GoString))();
+final _overflowError : stdgo.GoString = (() -> ("runtime error: integer overflow" : stdgo.GoString))();
+var _tab : stdgo.GoArray<T_entry> = (() -> new stdgo.GoArray<T_entry>(256, 256, ...[for (i in 0 ... 256) ({ _nlz : (0 : stdgo.GoInt), _ntz : (0 : stdgo.GoInt), _pop : (0 : stdgo.GoInt) } : T_entry)]))();
+var input : stdgo.GoUInt64 = (() -> (285870213051353865i64 : stdgo.GoUInt64))();
 @:follow typedef T_entry = {
     var _nlz : stdgo.GoInt;
     var _ntz : stdgo.GoInt;

@@ -1,11 +1,11 @@
 package stdgo._internal.hash.adler32;
 private var __go2hxdoc__package : Bool;
-final _mod : stdgo.GoUInt64 = (65521i64 : stdgo.GoUInt64);
-final _nmax : stdgo.GoUInt64 = (5552i64 : stdgo.GoUInt64);
-final size : stdgo.GoUInt64 = (4i64 : stdgo.GoUInt64);
-final _magic : stdgo.GoString = stdgo.Go.str("adl", 1);
-final _marshaledSize : stdgo.GoInt = (8 : stdgo.GoInt);
-var _golden : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(43, 43, ...[
+final _mod : stdgo.GoUInt64 = (() -> (65521i64 : stdgo.GoUInt64))();
+final _nmax : stdgo.GoUInt64 = (() -> (5552i64 : stdgo.GoUInt64))();
+final size : stdgo.GoUInt64 = (() -> (4i64 : stdgo.GoUInt64))();
+final _magic : stdgo.GoString = (() -> stdgo.Go.str("adl", 1))();
+final _marshaledSize : stdgo.GoInt = (() -> (8 : stdgo.GoInt))();
+var _golden : stdgo.Slice<T__struct_0> = (() -> (new stdgo.Slice<T__struct_0>(43, 43, ...[
 ({ _out : (1u32 : stdgo.GoUInt32), _in : stdgo.Go.str()?.__copy__(), _halfState : stdgo.Go.str("adl", 1, 0, 0, 0, 1)?.__copy__() } : T__struct_0),
 ({ _out : (6422626u32 : stdgo.GoUInt32), _in : ("a" : stdgo.GoString), _halfState : stdgo.Go.str("adl", 1, 0, 0, 0, 1)?.__copy__() } : T__struct_0),
 ({ _out : (19267780u32 : stdgo.GoUInt32), _in : ("ab" : stdgo.GoString), _halfState : stdgo.Go.str("adl", 1, 0, "b", 0, "b")?.__copy__() } : T__struct_0),
@@ -48,7 +48,7 @@ var _golden : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(43, 43, .
 ({ _out : (1763221182u32 : stdgo.GoUInt32), _in : (stdgo._internal.strings.Strings.repeat(stdgo.Go.str(255)?.__copy__(), (5555 : stdgo.GoInt)) + ("5" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), _halfState : stdgo.Go.str("adl", 1, 211, 205, "Ͻ")?.__copy__() } : T__struct_0),
 ({ _out : (-2035351551u32 : stdgo.GoUInt32), _in : stdgo._internal.strings.Strings.repeat(stdgo.Go.str(0)?.__copy__(), (100000 : stdgo.GoInt))?.__copy__(), _halfState : stdgo.Go.str("adl", 1, 195, "P", 0, 1)?.__copy__() } : T__struct_0),
 ({ _out : (2036730701u32 : stdgo.GoUInt32), _in : stdgo._internal.strings.Strings.repeat(("a" : stdgo.GoString), (100000 : stdgo.GoInt))?.__copy__(), _halfState : stdgo.Go.str("adl", 1, 129, "k", 5, 167)?.__copy__() } : T__struct_0),
-({ _out : (285575406u32 : stdgo.GoUInt32), _in : stdgo._internal.strings.Strings.repeat(("ABCDEFGHIJKLMNOPQRSTUVWXYZ" : stdgo.GoString), (10000 : stdgo.GoInt))?.__copy__(), _halfState : stdgo.Go.str("adl", 1, "e", 210, 196, "p")?.__copy__() } : T__struct_0)].concat([for (i in 43 ... (43 > 43 ? 43 : 43 : stdgo.GoInt).toBasic()) ({ _out : (0 : stdgo.GoUInt32), _in : ("" : stdgo.GoString), _halfState : ("" : stdgo.GoString) } : T__struct_0)])) : stdgo.Slice<T__struct_0>);
+({ _out : (285575406u32 : stdgo.GoUInt32), _in : stdgo._internal.strings.Strings.repeat(("ABCDEFGHIJKLMNOPQRSTUVWXYZ" : stdgo.GoString), (10000 : stdgo.GoInt))?.__copy__(), _halfState : stdgo.Go.str("adl", 1, "e", 210, 196, "p")?.__copy__() } : T__struct_0)].concat([for (i in 43 ... (43 > 43 ? 43 : 43 : stdgo.GoInt).toBasic()) ({ _out : (0 : stdgo.GoUInt32), _in : ("" : stdgo.GoString), _halfState : ("" : stdgo.GoString) } : T__struct_0)])) : stdgo.Slice<T__struct_0>))();
 class T__struct_0_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

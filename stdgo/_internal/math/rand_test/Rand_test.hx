@@ -5,7 +5,7 @@ import stdgo._internal.math.rand.Rand;
 import stdgo._internal.math.rand.Rand;
 import stdgo._internal.math.rand.Rand;
 import stdgo._internal.math.rand.Rand;
-final _numTestSamples : stdgo.GoUInt64 = (10000i64 : stdgo.GoUInt64);
+final _numTestSamples : stdgo.GoUInt64 = (() -> (10000i64 : stdgo.GoUInt64))();
 var __tmp__0 = getNormalDistributionParameters();
 var _rn = __tmp__0._0;
 var _kn = __tmp__0._1;
@@ -16,9 +16,9 @@ var _re = __tmp__2._0;
 var _ke = __tmp__2._1;
 var _we = __tmp__2._2;
 var _fe = __tmp__2._3;
-var _testSeeds : stdgo.Slice<stdgo.GoInt64> = (new stdgo.Slice<stdgo.GoInt64>(4, 4, ...[(1i64 : stdgo.GoInt64), (1754801282i64 : stdgo.GoInt64), (1698661970i64 : stdgo.GoInt64), (1550503961i64 : stdgo.GoInt64)]).__setNumber64__() : stdgo.Slice<stdgo.GoInt64>);
-var _printgolden : stdgo.Pointer<Bool> = stdgo._internal.flag.Flag.bool_(("printgolden" : stdgo.GoString), false, ("print golden results for regression test" : stdgo.GoString));
-var _regressGolden : stdgo.Slice<stdgo.AnyInterface> = (new stdgo.Slice<stdgo.AnyInterface>(280, 280, ...[
+var _testSeeds : stdgo.Slice<stdgo.GoInt64> = (() -> (new stdgo.Slice<stdgo.GoInt64>(4, 4, ...[(1i64 : stdgo.GoInt64), (1754801282i64 : stdgo.GoInt64), (1698661970i64 : stdgo.GoInt64), (1550503961i64 : stdgo.GoInt64)]).__setNumber64__() : stdgo.Slice<stdgo.GoInt64>))();
+var _printgolden : stdgo.Pointer<Bool> = (() -> stdgo._internal.flag.Flag.bool_(("printgolden" : stdgo.GoString), false, ("print golden results for regression test" : stdgo.GoString)))();
+var _regressGolden : stdgo.Slice<stdgo.AnyInterface> = (() -> (new stdgo.Slice<stdgo.AnyInterface>(280, 280, ...[
 stdgo.Go.toInterface((4.668112973579268 : stdgo.GoFloat64)),
 stdgo.Go.toInterface((0.1601593871172866 : stdgo.GoFloat64)),
 stdgo.Go.toInterface((3.0465834105636 : stdgo.GoFloat64)),
@@ -330,7 +330,7 @@ stdgo.Go.toInterface((-6883808320049659559i64 : stdgo.GoUInt64)),
 stdgo.Go.toInterface((-2078447788915794233i64 : stdgo.GoUInt64)),
 stdgo.Go.toInterface((161231572858529631i64 : stdgo.GoUInt64)),
 stdgo.Go.toInterface((-1963896117343857469i64 : stdgo.GoUInt64)),
-stdgo.Go.toInterface((-1850266556657611060i64 : stdgo.GoUInt64))]) : stdgo.Slice<stdgo.AnyInterface>);
+stdgo.Go.toInterface((-1850266556657611060i64 : stdgo.GoUInt64))]) : stdgo.Slice<stdgo.AnyInterface>))();
 @:structInit @:private @:using(stdgo._internal.math.rand_test.Rand_test.T_statsResults_static_extension) class T_statsResults {
     public var _mean : stdgo.GoFloat64 = 0;
     public var _stddev : stdgo.GoFloat64 = 0;

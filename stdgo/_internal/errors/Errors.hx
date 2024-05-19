@@ -1,7 +1,7 @@
 package stdgo._internal.errors;
 private var __go2hxdoc__package : Bool;
-var errUnsupported : stdgo.Error = new_(("unsupported operation" : stdgo.GoString));
-var _errorType : stdgo._internal.internal.reflectlite.Reflectlite.Type_ = stdgo._internal.internal.reflectlite.Reflectlite.typeOf(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Error>))).elem();
+var errUnsupported : stdgo.Error = (() -> new_(("unsupported operation" : stdgo.GoString)))();
+var _errorType : stdgo._internal.internal.reflectlite.Reflectlite.Type_ = (() -> stdgo._internal.internal.reflectlite.Reflectlite.typeOf(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Error>))).elem())();
 @:keep class T__interface_0_static_extension {
     static public function unwrap(t:T__interface_0):stdgo.Error return t.unwrap();
 }

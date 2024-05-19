@@ -1,13 +1,13 @@
 package stdgo._internal.compress.bzip2;
 private var __go2hxdoc__package : Bool;
-final _bzip2FileMagic : stdgo.GoUInt64 = (16986i64 : stdgo.GoUInt64);
-final _bzip2BlockMagic : stdgo.GoUInt64 = (54156738319193i64 : stdgo.GoUInt64);
-final _bzip2FinalMagic : stdgo.GoUInt64 = (25779555029136i64 : stdgo.GoUInt64);
-var _crctab : stdgo.GoArray<stdgo.GoUInt32> = new stdgo.GoArray<stdgo.GoUInt32>(256, 256, ...[for (i in 0 ... 256) (0 : stdgo.GoUInt32)]);
-final _invalidNodeValue : stdgo.GoUInt64 = (65535i64 : stdgo.GoUInt64);
-var _digits : stdgo.Slice<stdgo.GoUInt8> = _mustLoadFile(("testdata/e.txt.bz2" : stdgo.GoString));
-var _newton : stdgo.Slice<stdgo.GoUInt8> = _mustLoadFile(("testdata/Isaac.Newton-Opticks.txt.bz2" : stdgo.GoString));
-var _random : stdgo.Slice<stdgo.GoUInt8> = _mustLoadFile(("testdata/random.data.bz2" : stdgo.GoString));
+final _bzip2FileMagic : stdgo.GoUInt64 = (() -> (16986i64 : stdgo.GoUInt64))();
+final _bzip2BlockMagic : stdgo.GoUInt64 = (() -> (54156738319193i64 : stdgo.GoUInt64))();
+final _bzip2FinalMagic : stdgo.GoUInt64 = (() -> (25779555029136i64 : stdgo.GoUInt64))();
+var _crctab : stdgo.GoArray<stdgo.GoUInt32> = (() -> new stdgo.GoArray<stdgo.GoUInt32>(256, 256, ...[for (i in 0 ... 256) (0 : stdgo.GoUInt32)]))();
+final _invalidNodeValue : stdgo.GoUInt64 = (() -> (65535i64 : stdgo.GoUInt64))();
+var _digits : stdgo.Slice<stdgo.GoUInt8> = (() -> _mustLoadFile(("testdata/e.txt.bz2" : stdgo.GoString)))();
+var _newton : stdgo.Slice<stdgo.GoUInt8> = (() -> _mustLoadFile(("testdata/Isaac.Newton-Opticks.txt.bz2" : stdgo.GoString)))();
+var _random : stdgo.Slice<stdgo.GoUInt8> = (() -> _mustLoadFile(("testdata/random.data.bz2" : stdgo.GoString)))();
 @:structInit @:private @:using(stdgo._internal.compress.bzip2.Bzip2.T_bitReader_static_extension) class T_bitReader {
     public var _r : stdgo._internal.io.Io.ByteReader = (null : stdgo._internal.io.Io.ByteReader);
     public var _n : stdgo.GoUInt64 = 0;

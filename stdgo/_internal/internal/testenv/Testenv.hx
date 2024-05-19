@@ -1,21 +1,21 @@
 package stdgo._internal.internal.testenv;
 private var __go2hxdoc__package : Bool;
-var _tryExecOnce : stdgo._internal.sync.Sync.Once = ({} : stdgo._internal.sync.Sync.Once);
-var _tryExecErr : stdgo.Error = (null : stdgo.Error);
-var _execPaths : stdgo._internal.sync.Sync.Map_ = ({} : stdgo._internal.sync.Sync.Map_);
-var _goBuildOnce : stdgo._internal.sync.Sync.Once = ({} : stdgo._internal.sync.Sync.Once);
-var _goBuildErr : stdgo.Error = (null : stdgo.Error);
-var _gorootOnce : stdgo._internal.sync.Sync.Once = ({} : stdgo._internal.sync.Sync.Once);
-var _gorootPath : stdgo.GoString = ("" : stdgo.GoString);
-var _gorootErr : stdgo.Error = (null : stdgo.Error);
-var _goToolOnce : stdgo._internal.sync.Sync.Once = ({} : stdgo._internal.sync.Sync.Once);
-var _goToolPath : stdgo.GoString = ("" : stdgo.GoString);
-var _goToolErr : stdgo.Error = (null : stdgo.Error);
-var _hasCgoOnce : stdgo._internal.sync.Sync.Once = ({} : stdgo._internal.sync.Sync.Once);
-var _hasCgo : Bool = false;
-var _origEnv : stdgo.Slice<stdgo.GoString> = stdgo._internal.os.Os.environ();
-var _flaky : stdgo.Pointer<Bool> = stdgo._internal.flag.Flag.bool_(("flaky" : stdgo.GoString), false, ("run known-flaky tests too" : stdgo.GoString));
-var sigquit : stdgo._internal.os.Os.Signal = stdgo._internal.os.Os.kill;
+var _tryExecOnce : stdgo._internal.sync.Sync.Once = (() -> ({} : stdgo._internal.sync.Sync.Once))();
+var _tryExecErr : stdgo.Error = (() -> (null : stdgo.Error))();
+var _execPaths : stdgo._internal.sync.Sync.Map_ = (() -> ({} : stdgo._internal.sync.Sync.Map_))();
+var _goBuildOnce : stdgo._internal.sync.Sync.Once = (() -> ({} : stdgo._internal.sync.Sync.Once))();
+var _goBuildErr : stdgo.Error = (() -> (null : stdgo.Error))();
+var _gorootOnce : stdgo._internal.sync.Sync.Once = (() -> ({} : stdgo._internal.sync.Sync.Once))();
+var _gorootPath : stdgo.GoString = (() -> ("" : stdgo.GoString))();
+var _gorootErr : stdgo.Error = (() -> (null : stdgo.Error))();
+var _goToolOnce : stdgo._internal.sync.Sync.Once = (() -> ({} : stdgo._internal.sync.Sync.Once))();
+var _goToolPath : stdgo.GoString = (() -> ("" : stdgo.GoString))();
+var _goToolErr : stdgo.Error = (() -> (null : stdgo.Error))();
+var _hasCgoOnce : stdgo._internal.sync.Sync.Once = (() -> ({} : stdgo._internal.sync.Sync.Once))();
+var _hasCgo : Bool = (() -> false)();
+var _origEnv : stdgo.Slice<stdgo.GoString> = (() -> stdgo._internal.os.Os.environ())();
+var _flaky : stdgo.Pointer<Bool> = (() -> stdgo._internal.flag.Flag.bool_(("flaky" : stdgo.GoString), false, ("run known-flaky tests too" : stdgo.GoString)))();
+var sigquit : stdgo._internal.os.Os.Signal = (() -> stdgo._internal.os.Os.kill)();
 @:keep class T__interface_0_static_extension {
     static public function deadline(t:T__interface_0):{ var _0 : stdgo._internal.time.Time.Time; var _1 : Bool; } return t.deadline();
 }

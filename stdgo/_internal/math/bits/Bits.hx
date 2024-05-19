@@ -1,18 +1,18 @@
 package stdgo._internal.math.bits;
 import stdgo._internal.unsafe.Unsafe;
 private var __go2hxdoc__package : Bool;
-final _uintSize : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
-final uintSize : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
-final _deBruijn32 : stdgo.GoUInt64 = (125613361i64 : stdgo.GoUInt64);
-final _deBruijn64 : stdgo.GoUInt64 = (285870213051353865i64 : stdgo.GoUInt64);
-final _m0 : stdgo.GoUInt64 = (6148914691236517205i64 : stdgo.GoUInt64);
-final _m1 : stdgo.GoUInt64 = (3689348814741910323i64 : stdgo.GoUInt64);
-final _m2 : stdgo.GoUInt64 = (1085102592571150095i64 : stdgo.GoUInt64);
-final _m3 : stdgo.GoUInt64 = (71777214294589695i64 : stdgo.GoUInt64);
-final _m4 : stdgo.GoUInt64 = (281470681808895i64 : stdgo.GoUInt64);
-var _overflowError : stdgo.Error = @:privateAccess stdgo.Error._overflowError;
-var _divideError : stdgo.Error = @:privateAccess stdgo.Error._divideError;
-final _ntz8tab : stdgo.GoString = stdgo.Go.str("\x08",
+final _uintSize : stdgo.GoUInt64 = (() -> (32i64 : stdgo.GoUInt64))();
+final uintSize : stdgo.GoUInt64 = (() -> (32i64 : stdgo.GoUInt64))();
+final _deBruijn32 : stdgo.GoUInt64 = (() -> (125613361i64 : stdgo.GoUInt64))();
+final _deBruijn64 : stdgo.GoUInt64 = (() -> (285870213051353865i64 : stdgo.GoUInt64))();
+final _m0 : stdgo.GoUInt64 = (() -> (6148914691236517205i64 : stdgo.GoUInt64))();
+final _m1 : stdgo.GoUInt64 = (() -> (3689348814741910323i64 : stdgo.GoUInt64))();
+final _m2 : stdgo.GoUInt64 = (() -> (1085102592571150095i64 : stdgo.GoUInt64))();
+final _m3 : stdgo.GoUInt64 = (() -> (71777214294589695i64 : stdgo.GoUInt64))();
+final _m4 : stdgo.GoUInt64 = (() -> (281470681808895i64 : stdgo.GoUInt64))();
+var _overflowError : stdgo.Error = (() -> @:privateAccess stdgo.Error._overflowError)();
+var _divideError : stdgo.Error = (() -> @:privateAccess stdgo.Error._divideError)();
+final _ntz8tab : stdgo.GoString = (() -> stdgo.Go.str("\x08",
 0,
 1,
 0,
@@ -267,8 +267,8 @@ final _ntz8tab : stdgo.GoString = stdgo.Go.str("\x08",
 2,
 0,
 1,
-0);
-final _pop8tab : stdgo.GoString = stdgo.Go.str(0,
+0))();
+final _pop8tab : stdgo.GoString = (() -> stdgo.Go.str(0,
 1,
 1,
 2,
@@ -521,8 +521,8 @@ final _pop8tab : stdgo.GoString = stdgo.Go.str(0,
 6,
 "\x07",
 6,
-"\x07\x07\x08");
-final _rev8tab : stdgo.GoString = stdgo.Go.str(0,
+"\x07\x07\x08"))();
+final _rev8tab : stdgo.GoString = (() -> stdgo.Go.str(0,
 128,
 "@",
 192,
@@ -777,8 +777,8 @@ final _rev8tab : stdgo.GoString = stdgo.Go.str(0,
 "?",
 191,
 127,
-255);
-final _len8tab : stdgo.GoString = stdgo.Go.str(0,
+255))();
+final _len8tab : stdgo.GoString = (() -> stdgo.Go.str(0,
 1,
 2,
 2,
@@ -842,9 +842,9 @@ final _len8tab : stdgo.GoString = stdgo.Go.str(0,
 6,
 6,
 6,
-"\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08");
-final deBruijn64 : stdgo.GoUInt64 = (285870213051353865i64 : stdgo.GoUInt64);
-var _deBruijn32tab : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(32, 32, ...[
+"\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08"))();
+final deBruijn64 : stdgo.GoUInt64 = (() -> (285870213051353865i64 : stdgo.GoUInt64))();
+var _deBruijn32tab : stdgo.GoArray<stdgo.GoUInt8> = (() -> (new stdgo.GoArray<stdgo.GoUInt8>(32, 32, ...[
 (0 : stdgo.GoUInt8),
 (1 : stdgo.GoUInt8),
 (28 : stdgo.GoUInt8),
@@ -876,8 +876,8 @@ var _deBruijn32tab : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoU
 (11 : stdgo.GoUInt8),
 (5 : stdgo.GoUInt8),
 (10 : stdgo.GoUInt8),
-(9 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt8>);
-var _deBruijn64tab : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(64, 64, ...[
+(9 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt8>))();
+var _deBruijn64tab : stdgo.GoArray<stdgo.GoUInt8> = (() -> (new stdgo.GoArray<stdgo.GoUInt8>(64, 64, ...[
 (0 : stdgo.GoUInt8),
 (1 : stdgo.GoUInt8),
 (56 : stdgo.GoUInt8),
@@ -941,7 +941,7 @@ var _deBruijn64tab : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoU
 (13 : stdgo.GoUInt8),
 (8 : stdgo.GoUInt8),
 (7 : stdgo.GoUInt8),
-(6 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt8>);
+(6 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt8>))();
 function leadingZeros(_x:stdgo.GoUInt):stdgo.GoInt {
         return ((32 : stdgo.GoInt) - len(_x) : stdgo.GoInt);
     }

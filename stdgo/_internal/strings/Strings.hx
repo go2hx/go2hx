@@ -1,8 +1,8 @@
 package stdgo._internal.strings;
 private var __go2hxdoc__package : Bool;
-final _countCutOff : stdgo.GoUInt64 = (8i64 : stdgo.GoUInt64);
-final _maxInt : stdgo.GoInt = ((2147483647u32 : stdgo.GoUInt) : stdgo.GoInt);
-var _asciiSpace : stdgo.GoArray<stdgo.GoUInt8> = {
+final _countCutOff : stdgo.GoUInt64 = (() -> (8i64 : stdgo.GoUInt64))();
+final _maxInt : stdgo.GoInt = (() -> ((2147483647u32 : stdgo.GoUInt) : stdgo.GoInt))();
+var _asciiSpace : stdgo.GoArray<stdgo.GoUInt8> = (() -> {
         var s:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(256, 256, ...[for (i in 0 ... 256) 0]);
         s[9] = (1 : stdgo.GoUInt8);
         s[10] = (1 : stdgo.GoUInt8);
@@ -11,7 +11,7 @@ var _asciiSpace : stdgo.GoArray<stdgo.GoUInt8> = {
         s[13] = (1 : stdgo.GoUInt8);
         s[32] = (1 : stdgo.GoUInt8);
         s;
-    };
+    })();
 @:keep class T_replacer_static_extension {
     static public function writeString(t:T_replacer, _w:stdgo._internal.io.Io.Writer, _s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return t.writeString(_w, _s);
     static public function replace(t:T_replacer, _s:stdgo.GoString):stdgo.GoString return t.replace(_s);
@@ -574,7 +574,7 @@ function fields(_s:stdgo.GoString):stdgo.Slice<stdgo.GoString> {
         };
         return _a;
     }
-@:structInit class T_fieldsFunc_1___localname___span {
+@:structInit class T_fieldsFunc___localname___span_9921 {
     public var _start : stdgo.GoInt = 0;
     public var _end : stdgo.GoInt = 0;
     public function new(?_start:stdgo.GoInt, ?_end:stdgo.GoInt) {
@@ -583,17 +583,17 @@ function fields(_s:stdgo.GoString):stdgo.Slice<stdgo.GoString> {
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_fieldsFunc_1___localname___span(_start, _end);
+        return new T_fieldsFunc___localname___span_9921(_start, _end);
     }
 }
 function fieldsFunc(_s:stdgo.GoString, _f:stdgo.GoRune -> Bool):stdgo.Slice<stdgo.GoString> {
         {};
-        var _spans = (new stdgo.Slice<stdgo._internal.strings.Strings.T_fieldsFunc_1___localname___span>((0 : stdgo.GoInt).toBasic(), (32 : stdgo.GoInt), ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > (32 : stdgo.GoInt) ? (0 : stdgo.GoInt).toBasic() : (32 : stdgo.GoInt) : stdgo.GoInt).toBasic()) ({} : stdgo._internal.strings.Strings.T_fieldsFunc_1___localname___span)]) : stdgo.Slice<stdgo._internal.strings.Strings.T_fieldsFunc_1___localname___span>);
+        var _spans = (new stdgo.Slice<stdgo._internal.strings.Strings.T_fieldsFunc___localname___span_9921>((0 : stdgo.GoInt).toBasic(), (32 : stdgo.GoInt), ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > (32 : stdgo.GoInt) ? (0 : stdgo.GoInt).toBasic() : (32 : stdgo.GoInt) : stdgo.GoInt).toBasic()) ({} : stdgo._internal.strings.Strings.T_fieldsFunc___localname___span_9921)]) : stdgo.Slice<stdgo._internal.strings.Strings.T_fieldsFunc___localname___span_9921>);
         var _start:stdgo.GoInt = (-1 : stdgo.GoInt);
         for (_end => _rune in _s) {
             if (_f(_rune)) {
                 if ((_start >= (0 : stdgo.GoInt) : Bool)) {
-                    _spans = (_spans.__append__((new stdgo._internal.strings.Strings.T_fieldsFunc_1___localname___span(_start, _end) : stdgo._internal.strings.Strings.T_fieldsFunc_1___localname___span)));
+                    _spans = (_spans.__append__((new stdgo._internal.strings.Strings.T_fieldsFunc___localname___span_9921(_start, _end) : stdgo._internal.strings.Strings.T_fieldsFunc___localname___span_9921)));
                     _start = (-1 ^ _start);
                 };
             } else {
@@ -603,7 +603,7 @@ function fieldsFunc(_s:stdgo.GoString, _f:stdgo.GoRune -> Bool):stdgo.Slice<stdg
             };
         };
         if ((_start >= (0 : stdgo.GoInt) : Bool)) {
-            _spans = (_spans.__append__((new stdgo._internal.strings.Strings.T_fieldsFunc_1___localname___span(_start, (_s.length)) : stdgo._internal.strings.Strings.T_fieldsFunc_1___localname___span)));
+            _spans = (_spans.__append__((new stdgo._internal.strings.Strings.T_fieldsFunc___localname___span_9921(_start, (_s.length)) : stdgo._internal.strings.Strings.T_fieldsFunc___localname___span_9921)));
         };
         var _a = (new stdgo.Slice<stdgo.GoString>((_spans.length : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
         for (_i => _span in _spans) {

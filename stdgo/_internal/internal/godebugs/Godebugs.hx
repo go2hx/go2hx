@@ -1,6 +1,6 @@
 package stdgo._internal.internal.godebugs;
 private var __go2hxdoc__package : Bool;
-var all : stdgo.Slice<stdgo._internal.internal.godebugs.Godebugs.Info> = (null : stdgo.Slice<stdgo._internal.internal.godebugs.Godebugs.Info>);
+var all : stdgo.Slice<stdgo._internal.internal.godebugs.Godebugs.Info> = (() -> (null : stdgo.Slice<stdgo._internal.internal.godebugs.Godebugs.Info>))();
 @:structInit class Info {
     public var name : stdgo.GoString = "";
     public var package_ : stdgo.GoString = "";

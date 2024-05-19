@@ -4,7 +4,7 @@ import stdgo._internal.unicode.Unicode;
 import stdgo._internal.unicode.Unicode;
 import stdgo._internal.unicode.Unicode;
 import stdgo._internal.unicode.Unicode;
-var _testDigit : stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>(56, 56, ...[
+var _testDigit : stdgo.Slice<stdgo.GoInt32> = (() -> (new stdgo.Slice<stdgo.GoInt32>(56, 56, ...[
 (48 : stdgo.GoInt32),
 (57 : stdgo.GoInt32),
 (1633 : stdgo.GoInt32),
@@ -60,8 +60,8 @@ var _testDigit : stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>(56
 (65296 : stdgo.GoInt32),
 (65305 : stdgo.GoInt32),
 (66721 : stdgo.GoInt32),
-(120782 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
-var _testLetter : stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>(32, 32, ...[
+(120782 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>))();
+var _testLetter : stdgo.Slice<stdgo.GoInt32> = (() -> (new stdgo.Slice<stdgo.GoInt32>(32, 32, ...[
 (65 : stdgo.GoInt32),
 (97 : stdgo.GoInt32),
 (170 : stdgo.GoInt32),
@@ -93,8 +93,8 @@ var _testLetter : stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>(3
 (66560 : stdgo.GoInt32),
 (131072 : stdgo.GoInt32),
 (194560 : stdgo.GoInt32),
-(195101 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
-var _upperTest : stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>(22, 22, ...[
+(195101 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>))();
+var _upperTest : stdgo.Slice<stdgo.GoInt32> = (() -> (new stdgo.Slice<stdgo.GoInt32>(22, 22, ...[
 (65 : stdgo.GoInt32),
 (192 : stdgo.GoInt32),
 (216 : stdgo.GoInt32),
@@ -116,8 +116,8 @@ var _upperTest : stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>(22
 (65338 : stdgo.GoInt32),
 (66560 : stdgo.GoInt32),
 (119808 : stdgo.GoInt32),
-(120778 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
-var _notupperTest : stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>(11, 11, ...[
+(120778 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>))();
+var _notupperTest : stdgo.Slice<stdgo.GoInt32> = (() -> (new stdgo.Slice<stdgo.GoInt32>(11, 11, ...[
 (64 : stdgo.GoInt32),
 (91 : stdgo.GoInt32),
 (97 : stdgo.GoInt32),
@@ -128,8 +128,8 @@ var _notupperTest : stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>
 (8528 : stdgo.GoInt32),
 (43901 : stdgo.GoInt32),
 (65535 : stdgo.GoInt32),
-(65536 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
-var _letterTest : stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>(32, 32, ...[
+(65536 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>))();
+var _letterTest : stdgo.Slice<stdgo.GoInt32> = (() -> (new stdgo.Slice<stdgo.GoInt32>(32, 32, ...[
 (65 : stdgo.GoInt32),
 (97 : stdgo.GoInt32),
 (170 : stdgo.GoInt32),
@@ -161,10 +161,10 @@ var _letterTest : stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>(3
 (66560 : stdgo.GoInt32),
 (131072 : stdgo.GoInt32),
 (194560 : stdgo.GoInt32),
-(195101 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
-var _notletterTest : stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>(9, 9, ...[(32 : stdgo.GoInt32), (53 : stdgo.GoInt32), (885 : stdgo.GoInt32), (1561 : stdgo.GoInt32), (1792 : stdgo.GoInt32), (6277 : stdgo.GoInt32), (65534 : stdgo.GoInt32), (131071 : stdgo.GoInt32), (1114111 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
-var _spaceTest : stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>(10, 10, ...[(9 : stdgo.GoInt32), (10 : stdgo.GoInt32), (11 : stdgo.GoInt32), (12 : stdgo.GoInt32), (13 : stdgo.GoInt32), (32 : stdgo.GoInt32), (133 : stdgo.GoInt32), (160 : stdgo.GoInt32), (8192 : stdgo.GoInt32), (12288 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
-var _caseTest : stdgo.Slice<stdgo._internal.unicode_test.Unicode_test.T_caseT> = (new stdgo.Slice<stdgo._internal.unicode_test.Unicode_test.T_caseT>(77, 77, ...[
+(195101 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>))();
+var _notletterTest : stdgo.Slice<stdgo.GoInt32> = (() -> (new stdgo.Slice<stdgo.GoInt32>(9, 9, ...[(32 : stdgo.GoInt32), (53 : stdgo.GoInt32), (885 : stdgo.GoInt32), (1561 : stdgo.GoInt32), (1792 : stdgo.GoInt32), (6277 : stdgo.GoInt32), (65534 : stdgo.GoInt32), (131071 : stdgo.GoInt32), (1114111 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>))();
+var _spaceTest : stdgo.Slice<stdgo.GoInt32> = (() -> (new stdgo.Slice<stdgo.GoInt32>(10, 10, ...[(9 : stdgo.GoInt32), (10 : stdgo.GoInt32), (11 : stdgo.GoInt32), (12 : stdgo.GoInt32), (13 : stdgo.GoInt32), (32 : stdgo.GoInt32), (133 : stdgo.GoInt32), (160 : stdgo.GoInt32), (8192 : stdgo.GoInt32), (12288 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>))();
+var _caseTest : stdgo.Slice<stdgo._internal.unicode_test.Unicode_test.T_caseT> = (() -> (new stdgo.Slice<stdgo._internal.unicode_test.Unicode_test.T_caseT>(77, 77, ...[
 (new stdgo._internal.unicode_test.Unicode_test.T_caseT((-1 : stdgo.GoInt), (10 : stdgo.GoInt32), (65533 : stdgo.GoInt32)) : stdgo._internal.unicode_test.Unicode_test.T_caseT),
 (new stdgo._internal.unicode_test.Unicode_test.T_caseT((0 : stdgo.GoInt), (-1 : stdgo.GoInt32), (-1 : stdgo.GoInt32)) : stdgo._internal.unicode_test.Unicode_test.T_caseT),
 (new stdgo._internal.unicode_test.Unicode_test.T_caseT((0 : stdgo.GoInt), (1073741824 : stdgo.GoInt32), (1073741824 : stdgo.GoInt32)) : stdgo._internal.unicode_test.Unicode_test.T_caseT),
@@ -241,10 +241,10 @@ var _caseTest : stdgo.Slice<stdgo._internal.unicode_test.Unicode_test.T_caseT> =
 (new stdgo._internal.unicode_test.Unicode_test.T_caseT((1 : stdgo.GoInt), (66640 : stdgo.GoInt32), (66640 : stdgo.GoInt32)) : stdgo._internal.unicode_test.Unicode_test.T_caseT),
 (new stdgo._internal.unicode_test.Unicode_test.T_caseT((2 : stdgo.GoInt), (66640 : stdgo.GoInt32), (66640 : stdgo.GoInt32)) : stdgo._internal.unicode_test.Unicode_test.T_caseT),
 (new stdgo._internal.unicode_test.Unicode_test.T_caseT((1 : stdgo.GoInt), (8545 : stdgo.GoInt32), (8561 : stdgo.GoInt32)) : stdgo._internal.unicode_test.Unicode_test.T_caseT),
-(new stdgo._internal.unicode_test.Unicode_test.T_caseT((0 : stdgo.GoInt), (837 : stdgo.GoInt32), (921 : stdgo.GoInt32)) : stdgo._internal.unicode_test.Unicode_test.T_caseT)].concat([for (i in 77 ... (77 > 77 ? 77 : 77 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.unicode_test.Unicode_test.T_caseT)])) : stdgo.Slice<stdgo._internal.unicode_test.Unicode_test.T_caseT>);
-var _simpleFoldTests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(9, 9, ...[("Aa" : stdgo.GoString), ("δΔ" : stdgo.GoString), ("KkK" : stdgo.GoString), ("Ssſ" : stdgo.GoString), ("ρϱΡ" : stdgo.GoString), ("ͅΙιι" : stdgo.GoString), ("İ" : stdgo.GoString), ("ı" : stdgo.GoString), ("Ꮀꮀ" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
-var _calibrate : stdgo.Pointer<Bool> = stdgo._internal.flag.Flag.bool_(("calibrate" : stdgo.GoString), false, ("compute crossover for linear vs. binary search" : stdgo.GoString));
-var _inCategoryTest : stdgo.Slice<stdgo._internal.unicode_test.Unicode_test.T_> = (new stdgo.Slice<stdgo._internal.unicode_test.Unicode_test.T_>(36, 36, ...[
+(new stdgo._internal.unicode_test.Unicode_test.T_caseT((0 : stdgo.GoInt), (837 : stdgo.GoInt32), (921 : stdgo.GoInt32)) : stdgo._internal.unicode_test.Unicode_test.T_caseT)].concat([for (i in 77 ... (77 > 77 ? 77 : 77 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.unicode_test.Unicode_test.T_caseT)])) : stdgo.Slice<stdgo._internal.unicode_test.Unicode_test.T_caseT>))();
+var _simpleFoldTests : stdgo.Slice<stdgo.GoString> = (() -> (new stdgo.Slice<stdgo.GoString>(9, 9, ...[("Aa" : stdgo.GoString), ("δΔ" : stdgo.GoString), ("KkK" : stdgo.GoString), ("Ssſ" : stdgo.GoString), ("ρϱΡ" : stdgo.GoString), ("ͅΙιι" : stdgo.GoString), ("İ" : stdgo.GoString), ("ı" : stdgo.GoString), ("Ꮀꮀ" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>))();
+var _calibrate : stdgo.Pointer<Bool> = (() -> stdgo._internal.flag.Flag.bool_(("calibrate" : stdgo.GoString), false, ("compute crossover for linear vs. binary search" : stdgo.GoString)))();
+var _inCategoryTest : stdgo.Slice<stdgo._internal.unicode_test.Unicode_test.T_> = (() -> (new stdgo.Slice<stdgo._internal.unicode_test.Unicode_test.T_>(36, 36, ...[
 (new stdgo._internal.unicode_test.Unicode_test.T_((129 : stdgo.GoInt32), ("Cc" : stdgo.GoString)) : stdgo._internal.unicode_test.Unicode_test.T_),
 (new stdgo._internal.unicode_test.Unicode_test.T_((8203 : stdgo.GoInt32), ("Cf" : stdgo.GoString)) : stdgo._internal.unicode_test.Unicode_test.T_),
 (new stdgo._internal.unicode_test.Unicode_test.T_((983040 : stdgo.GoInt32), ("Co" : stdgo.GoString)) : stdgo._internal.unicode_test.Unicode_test.T_),
@@ -280,8 +280,8 @@ var _inCategoryTest : stdgo.Slice<stdgo._internal.unicode_test.Unicode_test.T_> 
 (new stdgo._internal.unicode_test.Unicode_test.T_((49 : stdgo.GoInt32), ("N" : stdgo.GoString)) : stdgo._internal.unicode_test.Unicode_test.T_),
 (new stdgo._internal.unicode_test.Unicode_test.T_((187 : stdgo.GoInt32), ("P" : stdgo.GoString)) : stdgo._internal.unicode_test.Unicode_test.T_),
 (new stdgo._internal.unicode_test.Unicode_test.T_((162 : stdgo.GoInt32), ("S" : stdgo.GoString)) : stdgo._internal.unicode_test.Unicode_test.T_),
-(new stdgo._internal.unicode_test.Unicode_test.T_((160 : stdgo.GoInt32), ("Z" : stdgo.GoString)) : stdgo._internal.unicode_test.Unicode_test.T_)].concat([for (i in 36 ... (36 > 36 ? 36 : 36 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.unicode_test.Unicode_test.T_)])) : stdgo.Slice<stdgo._internal.unicode_test.Unicode_test.T_>);
-var _inPropTest : stdgo.Slice<stdgo._internal.unicode_test.Unicode_test.T_> = (new stdgo.Slice<stdgo._internal.unicode_test.Unicode_test.T_>(35, 35, ...[
+(new stdgo._internal.unicode_test.Unicode_test.T_((160 : stdgo.GoInt32), ("Z" : stdgo.GoString)) : stdgo._internal.unicode_test.Unicode_test.T_)].concat([for (i in 36 ... (36 > 36 ? 36 : 36 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.unicode_test.Unicode_test.T_)])) : stdgo.Slice<stdgo._internal.unicode_test.Unicode_test.T_>))();
+var _inPropTest : stdgo.Slice<stdgo._internal.unicode_test.Unicode_test.T_> = (() -> (new stdgo.Slice<stdgo._internal.unicode_test.Unicode_test.T_>(35, 35, ...[
 (new stdgo._internal.unicode_test.Unicode_test.T_((70 : stdgo.GoInt32), ("ASCII_Hex_Digit" : stdgo.GoString)) : stdgo._internal.unicode_test.Unicode_test.T_),
 (new stdgo._internal.unicode_test.Unicode_test.T_((8207 : stdgo.GoInt32), ("Bidi_Control" : stdgo.GoString)) : stdgo._internal.unicode_test.Unicode_test.T_),
 (new stdgo._internal.unicode_test.Unicode_test.T_((8722 : stdgo.GoInt32), ("Dash" : stdgo.GoString)) : stdgo._internal.unicode_test.Unicode_test.T_),
@@ -316,7 +316,7 @@ var _inPropTest : stdgo.Slice<stdgo._internal.unicode_test.Unicode_test.T_> = (n
 (new stdgo._internal.unicode_test.Unicode_test.T_((58 : stdgo.GoInt32), ("Terminal_Punctuation" : stdgo.GoString)) : stdgo._internal.unicode_test.Unicode_test.T_),
 (new stdgo._internal.unicode_test.Unicode_test.T_((40899 : stdgo.GoInt32), ("Unified_Ideograph" : stdgo.GoString)) : stdgo._internal.unicode_test.Unicode_test.T_),
 (new stdgo._internal.unicode_test.Unicode_test.T_((65039 : stdgo.GoInt32), ("Variation_Selector" : stdgo.GoString)) : stdgo._internal.unicode_test.Unicode_test.T_),
-(new stdgo._internal.unicode_test.Unicode_test.T_((32 : stdgo.GoInt32), ("White_Space" : stdgo.GoString)) : stdgo._internal.unicode_test.Unicode_test.T_)].concat([for (i in 35 ... (35 > 35 ? 35 : 35 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.unicode_test.Unicode_test.T_)])) : stdgo.Slice<stdgo._internal.unicode_test.Unicode_test.T_>);
+(new stdgo._internal.unicode_test.Unicode_test.T_((32 : stdgo.GoInt32), ("White_Space" : stdgo.GoString)) : stdgo._internal.unicode_test.Unicode_test.T_)].concat([for (i in 35 ... (35 > 35 ? 35 : 35 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.unicode_test.Unicode_test.T_)])) : stdgo.Slice<stdgo._internal.unicode_test.Unicode_test.T_>))();
 @:structInit @:private class T_caseT {
     public var _cas : stdgo.GoInt = 0;
     public var _in : stdgo.GoInt32 = 0;

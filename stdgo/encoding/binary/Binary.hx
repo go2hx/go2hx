@@ -415,27 +415,27 @@ class T__struct_6_static_extension {
 typedef T__struct_6 = stdgo._internal.encoding.binary.Binary.T__struct_6;
 typedef T_decoder = stdgo._internal.encoding.binary.Binary.T_decoder;
 typedef T_encoder = stdgo._internal.encoding.binary.Binary.T_encoder;
-@:structInit abstract T_testSizeStructCache_11___localname___foo(stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo) from stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo to stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo {
+@:structInit abstract T_testSizeStructCache___localname___foo_7241(stdgo._internal.encoding.binary.Binary.T_testSizeStructCache___localname___foo_7241) from stdgo._internal.encoding.binary.Binary.T_testSizeStructCache___localname___foo_7241 to stdgo._internal.encoding.binary.Binary.T_testSizeStructCache___localname___foo_7241 {
     public var a(get, set) : std.UInt;
     function get_a():std.UInt return this.a;
     function set_a(v:std.UInt):std.UInt {
         this.a = v;
         return v;
     }
-    public function new(?a:std.UInt) this = new stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo(a);
+    public function new(?a:std.UInt) this = new stdgo._internal.encoding.binary.Binary.T_testSizeStructCache___localname___foo_7241(a);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testSizeStructCache_12___localname___bar(stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_12___localname___bar) from stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_12___localname___bar to stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_12___localname___bar {
+@:structInit abstract T_testSizeStructCache___localname___bar_7275(stdgo._internal.encoding.binary.Binary.T_testSizeStructCache___localname___bar_7275) from stdgo._internal.encoding.binary.Binary.T_testSizeStructCache___localname___bar_7275 to stdgo._internal.encoding.binary.Binary.T_testSizeStructCache___localname___bar_7275 {
     public var a(get, set) : stdgo._internal.encoding.binary.Binary.Struct;
     function get_a():stdgo._internal.encoding.binary.Binary.Struct return this.a;
     function set_a(v:stdgo._internal.encoding.binary.Binary.Struct):stdgo._internal.encoding.binary.Binary.Struct {
         this.a = v;
         return v;
     }
-    public var b(get, set) : stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo;
-    function get_b():stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo return this.b;
-    function set_b(v:stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo):stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo {
+    public var b(get, set) : stdgo._internal.encoding.binary.Binary.T_testSizeStructCache___localname___foo_7241;
+    function get_b():stdgo._internal.encoding.binary.Binary.T_testSizeStructCache___localname___foo_7241 return this.b;
+    function set_b(v:stdgo._internal.encoding.binary.Binary.T_testSizeStructCache___localname___foo_7241):stdgo._internal.encoding.binary.Binary.T_testSizeStructCache___localname___foo_7241 {
         this.b = v;
         return v;
     }
@@ -445,15 +445,15 @@ typedef T_encoder = stdgo._internal.encoding.binary.Binary.T_encoder;
         this.c = v;
         return v;
     }
-    public function new(?a:stdgo._internal.encoding.binary.Binary.Struct, ?b:stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_11___localname___foo, ?c:stdgo._internal.encoding.binary.Binary.Struct) this = new stdgo._internal.encoding.binary.Binary.T_testSizeStructCache_12___localname___bar(a, b, c);
+    public function new(?a:stdgo._internal.encoding.binary.Binary.Struct, ?b:stdgo._internal.encoding.binary.Binary.T_testSizeStructCache___localname___foo_7241, ?c:stdgo._internal.encoding.binary.Binary.Struct) this = new stdgo._internal.encoding.binary.Binary.T_testSizeStructCache___localname___bar_7275(a, b, c);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-class T_testByteOrder_13___localname___byteOrder_static_extension {
+class T_testByteOrder___localname___byteOrder_10108_static_extension {
 
 }
-typedef T_testByteOrder_13___localname___byteOrder = stdgo._internal.encoding.binary.Binary.T_testByteOrder_13___localname___byteOrder;
-@:structInit abstract T_testNoFixedSize_14___localname___Person(stdgo._internal.encoding.binary.Binary.T_testNoFixedSize_14___localname___Person) from stdgo._internal.encoding.binary.Binary.T_testNoFixedSize_14___localname___Person to stdgo._internal.encoding.binary.Binary.T_testNoFixedSize_14___localname___Person {
+typedef T_testByteOrder___localname___byteOrder_10108 = stdgo._internal.encoding.binary.Binary.T_testByteOrder___localname___byteOrder_10108;
+@:structInit abstract T_testNoFixedSize___localname___Person_12888(stdgo._internal.encoding.binary.Binary.T_testNoFixedSize___localname___Person_12888) from stdgo._internal.encoding.binary.Binary.T_testNoFixedSize___localname___Person_12888 to stdgo._internal.encoding.binary.Binary.T_testNoFixedSize___localname___Person_12888 {
     public var age(get, set) : StdTypes.Int;
     function get_age():StdTypes.Int return this.age;
     function set_age(v:StdTypes.Int):StdTypes.Int {
@@ -472,7 +472,7 @@ typedef T_testByteOrder_13___localname___byteOrder = stdgo._internal.encoding.bi
         this.height = v;
         return v;
     }
-    public function new(?age:StdTypes.Int, ?weight:StdTypes.Float, ?height:StdTypes.Float) this = new stdgo._internal.encoding.binary.Binary.T_testNoFixedSize_14___localname___Person(age, weight, height);
+    public function new(?age:StdTypes.Int, ?weight:StdTypes.Float, ?height:StdTypes.Float) this = new stdgo._internal.encoding.binary.Binary.T_testNoFixedSize___localname___Person_12888(age, weight, height);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

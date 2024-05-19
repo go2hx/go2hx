@@ -1,26 +1,26 @@
 package stdgo._internal.text.scanner;
 private var __go2hxdoc__package : Bool;
-final scanIdents : stdgo.GoUInt64 = (4i64 : stdgo.GoUInt64);
-final scanInts : stdgo.GoUInt64 = (8i64 : stdgo.GoUInt64);
-final scanFloats : stdgo.GoUInt64 = (16i64 : stdgo.GoUInt64);
-final scanChars : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
-final scanStrings : stdgo.GoUInt64 = (64i64 : stdgo.GoUInt64);
-final scanRawStrings : stdgo.GoUInt64 = (128i64 : stdgo.GoUInt64);
-final scanComments : stdgo.GoUInt64 = (256i64 : stdgo.GoUInt64);
-final skipComments : stdgo.GoUInt64 = (512i64 : stdgo.GoUInt64);
-final goTokens : stdgo.GoUInt64 = (1012i64 : stdgo.GoUInt64);
-final eof : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
-final ident = (0i64 : stdgo.GoUInt64);
-final int_ = (0i64 : stdgo.GoUInt64);
-final float_ = (0i64 : stdgo.GoUInt64);
-final char = (0i64 : stdgo.GoUInt64);
-final string = (0i64 : stdgo.GoUInt64);
-final rawString = (0i64 : stdgo.GoUInt64);
-final comment = (0i64 : stdgo.GoUInt64);
-final _skipComment = (0i64 : stdgo.GoUInt64);
-final goWhitespace : stdgo.GoUInt64 = (4294977024i64 : stdgo.GoUInt64);
-final _bufLen : stdgo.GoUInt64 = (1024i64 : stdgo.GoUInt64);
-var _tokenString : stdgo.GoMap<stdgo.GoInt32, stdgo.GoString> = ({
+final scanIdents : stdgo.GoUInt64 = (() -> (4i64 : stdgo.GoUInt64))();
+final scanInts : stdgo.GoUInt64 = (() -> (8i64 : stdgo.GoUInt64))();
+final scanFloats : stdgo.GoUInt64 = (() -> (16i64 : stdgo.GoUInt64))();
+final scanChars : stdgo.GoUInt64 = (() -> (32i64 : stdgo.GoUInt64))();
+final scanStrings : stdgo.GoUInt64 = (() -> (64i64 : stdgo.GoUInt64))();
+final scanRawStrings : stdgo.GoUInt64 = (() -> (128i64 : stdgo.GoUInt64))();
+final scanComments : stdgo.GoUInt64 = (() -> (256i64 : stdgo.GoUInt64))();
+final skipComments : stdgo.GoUInt64 = (() -> (512i64 : stdgo.GoUInt64))();
+final goTokens : stdgo.GoUInt64 = (() -> (1012i64 : stdgo.GoUInt64))();
+final eof : stdgo.GoUInt64 = (() -> (0i64 : stdgo.GoUInt64))();
+final ident = (() -> (0i64 : stdgo.GoUInt64))();
+final int_ = (() -> (0i64 : stdgo.GoUInt64))();
+final float_ = (() -> (0i64 : stdgo.GoUInt64))();
+final char = (() -> (0i64 : stdgo.GoUInt64))();
+final string = (() -> (0i64 : stdgo.GoUInt64))();
+final rawString = (() -> (0i64 : stdgo.GoUInt64))();
+final comment = (() -> (0i64 : stdgo.GoUInt64))();
+final _skipComment = (() -> (0i64 : stdgo.GoUInt64))();
+final goWhitespace : stdgo.GoUInt64 = (() -> (4294977024i64 : stdgo.GoUInt64))();
+final _bufLen : stdgo.GoUInt64 = (() -> (1024i64 : stdgo.GoUInt64))();
+var _tokenString : stdgo.GoMap<stdgo.GoInt32, stdgo.GoString> = (() -> ({
         final x = new stdgo.GoMap.GoIntMap<stdgo.GoString>();
         x.__defaultValue__ = () -> ("" : stdgo.GoString);
         @:mergeBlock {
@@ -34,10 +34,10 @@ var _tokenString : stdgo.GoMap<stdgo.GoInt32, stdgo.GoString> = ({
             x.set((-8 : stdgo.GoInt32), ("Comment" : stdgo.GoString));
         };
         x;
-    } : stdgo.GoMap<stdgo.GoInt32, stdgo.GoString>);
-var _segmentList : stdgo.Slice<stdgo.Slice<stdgo.GoString>> = (new stdgo.Slice<stdgo.Slice<stdgo.GoString>>(8, 8, ...[(new stdgo.Slice<stdgo.GoString>(0, 0, ...[]).__setString__() : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(1, 1, ...[stdgo.Go.str()?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(2, 2, ...[("日" : stdgo.GoString), ("本語" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("日" : stdgo.GoString), ("本" : stdgo.GoString), ("語" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(4, 4, ...[("日" : stdgo.GoString), (" " : stdgo.GoString), ("本" : stdgo.GoString), ("語" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(3, 3, ...[stdgo.Go.str(230)?.__copy__(), stdgo.Go.str(151, 165, 230)?.__copy__(), stdgo.Go.str(156, 172, "語")?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(4, 4, ...[("Hello" : stdgo.GoString), (", " : stdgo.GoString), ("World" : stdgo.GoString), ("!" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(5, 5, ...[("Hello" : stdgo.GoString), (", " : stdgo.GoString), stdgo.Go.str()?.__copy__(), ("World" : stdgo.GoString), ("!" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)]) : stdgo.Slice<stdgo.Slice<stdgo.GoString>>);
-var _f100 : stdgo.GoString = ("ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff" : stdgo.GoString);
-var _tokenList : stdgo.Slice<stdgo._internal.text.scanner.Scanner.T_token> = (new stdgo.Slice<stdgo._internal.text.scanner.Scanner.T_token>(141, 141, ...[
+    } : stdgo.GoMap<stdgo.GoInt32, stdgo.GoString>))();
+var _segmentList : stdgo.Slice<stdgo.Slice<stdgo.GoString>> = (() -> (new stdgo.Slice<stdgo.Slice<stdgo.GoString>>(8, 8, ...[(new stdgo.Slice<stdgo.GoString>(0, 0, ...[]).__setString__() : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(1, 1, ...[stdgo.Go.str()?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(2, 2, ...[("日" : stdgo.GoString), ("本語" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("日" : stdgo.GoString), ("本" : stdgo.GoString), ("語" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(4, 4, ...[("日" : stdgo.GoString), (" " : stdgo.GoString), ("本" : stdgo.GoString), ("語" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(3, 3, ...[stdgo.Go.str(230)?.__copy__(), stdgo.Go.str(151, 165, 230)?.__copy__(), stdgo.Go.str(156, 172, "語")?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(4, 4, ...[("Hello" : stdgo.GoString), (", " : stdgo.GoString), ("World" : stdgo.GoString), ("!" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(5, 5, ...[("Hello" : stdgo.GoString), (", " : stdgo.GoString), stdgo.Go.str()?.__copy__(), ("World" : stdgo.GoString), ("!" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)]) : stdgo.Slice<stdgo.Slice<stdgo.GoString>>))();
+var _f100 : stdgo.GoString = (() -> ("ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff" : stdgo.GoString))();
+var _tokenList : stdgo.Slice<stdgo._internal.text.scanner.Scanner.T_token> = (() -> (new stdgo.Slice<stdgo._internal.text.scanner.Scanner.T_token>(141, 141, ...[
 (new stdgo._internal.text.scanner.Scanner.T_token((-8 : stdgo.GoInt32), ("// line comments" : stdgo.GoString)) : stdgo._internal.text.scanner.Scanner.T_token),
 (new stdgo._internal.text.scanner.Scanner.T_token((-8 : stdgo.GoInt32), ("//" : stdgo.GoString)) : stdgo._internal.text.scanner.Scanner.T_token),
 (new stdgo._internal.text.scanner.Scanner.T_token((-8 : stdgo.GoInt32), ("////" : stdgo.GoString)) : stdgo._internal.text.scanner.Scanner.T_token),
@@ -178,7 +178,7 @@ var _tokenList : stdgo.Slice<stdgo._internal.text.scanner.Scanner.T_token> = (ne
 (new stdgo._internal.text.scanner.Scanner.T_token((47 : stdgo.GoInt32), ("/" : stdgo.GoString)) : stdgo._internal.text.scanner.Scanner.T_token),
 (new stdgo._internal.text.scanner.Scanner.T_token((46 : stdgo.GoInt32), ("." : stdgo.GoString)) : stdgo._internal.text.scanner.Scanner.T_token),
 (new stdgo._internal.text.scanner.Scanner.T_token((126 : stdgo.GoInt32), ("~" : stdgo.GoString)) : stdgo._internal.text.scanner.Scanner.T_token),
-(new stdgo._internal.text.scanner.Scanner.T_token((40 : stdgo.GoInt32), ("(" : stdgo.GoString)) : stdgo._internal.text.scanner.Scanner.T_token)].concat([for (i in 141 ... (141 > 141 ? 141 : 141 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.scanner.Scanner.T_token)])) : stdgo.Slice<stdgo._internal.text.scanner.Scanner.T_token>);
+(new stdgo._internal.text.scanner.Scanner.T_token((40 : stdgo.GoInt32), ("(" : stdgo.GoString)) : stdgo._internal.text.scanner.Scanner.T_token)].concat([for (i in 141 ... (141 > 141 ? 141 : 141 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.scanner.Scanner.T_token)])) : stdgo.Slice<stdgo._internal.text.scanner.Scanner.T_token>))();
 @:structInit @:using(stdgo._internal.text.scanner.Scanner.Position_static_extension) class Position {
     public var filename : stdgo.GoString = "";
     public var offset : stdgo.GoInt = 0;

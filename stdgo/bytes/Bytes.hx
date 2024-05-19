@@ -60,7 +60,7 @@ private function set_indexBytePortable(v:(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUI
 }
 typedef T_readOp = stdgo._internal.bytes.Bytes.T_readOp;
 typedef T_asciiSet = stdgo._internal.bytes.Bytes.T_asciiSet;
-@:structInit abstract T_fieldsFunc_7___localname___span(stdgo._internal.bytes.Bytes.T_fieldsFunc_7___localname___span) from stdgo._internal.bytes.Bytes.T_fieldsFunc_7___localname___span to stdgo._internal.bytes.Bytes.T_fieldsFunc_7___localname___span {
+@:structInit abstract T_fieldsFunc___localname___span_11914(stdgo._internal.bytes.Bytes.T_fieldsFunc___localname___span_11914) from stdgo._internal.bytes.Bytes.T_fieldsFunc___localname___span_11914 to stdgo._internal.bytes.Bytes.T_fieldsFunc___localname___span_11914 {
     public var _start(get, set) : StdTypes.Int;
     function get__start():StdTypes.Int return this._start;
     function set__start(v:StdTypes.Int):StdTypes.Int {
@@ -73,7 +73,7 @@ typedef T_asciiSet = stdgo._internal.bytes.Bytes.T_asciiSet;
         this._end = v;
         return v;
     }
-    public function new(?_start:StdTypes.Int, ?_end:StdTypes.Int) this = new stdgo._internal.bytes.Bytes.T_fieldsFunc_7___localname___span(_start, _end);
+    public function new(?_start:StdTypes.Int, ?_end:StdTypes.Int) this = new stdgo._internal.bytes.Bytes.T_fieldsFunc___localname___span_11914(_start, _end);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

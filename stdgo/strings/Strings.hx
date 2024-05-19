@@ -203,7 +203,7 @@ typedef T_replacer = stdgo._internal.strings.Strings.T_replacer;
 typedef T_appendSliceWriter = stdgo._internal.strings.Strings.T_appendSliceWriter;
 typedef T_byteReplacer = stdgo._internal.strings.Strings.T_byteReplacer;
 typedef T_asciiSet = stdgo._internal.strings.Strings.T_asciiSet;
-@:structInit abstract T_fieldsFunc_1___localname___span(stdgo._internal.strings.Strings.T_fieldsFunc_1___localname___span) from stdgo._internal.strings.Strings.T_fieldsFunc_1___localname___span to stdgo._internal.strings.Strings.T_fieldsFunc_1___localname___span {
+@:structInit abstract T_fieldsFunc___localname___span_9921(stdgo._internal.strings.Strings.T_fieldsFunc___localname___span_9921) from stdgo._internal.strings.Strings.T_fieldsFunc___localname___span_9921 to stdgo._internal.strings.Strings.T_fieldsFunc___localname___span_9921 {
     public var _start(get, set) : StdTypes.Int;
     function get__start():StdTypes.Int return this._start;
     function set__start(v:StdTypes.Int):StdTypes.Int {
@@ -216,7 +216,7 @@ typedef T_asciiSet = stdgo._internal.strings.Strings.T_asciiSet;
         this._end = v;
         return v;
     }
-    public function new(?_start:StdTypes.Int, ?_end:StdTypes.Int) this = new stdgo._internal.strings.Strings.T_fieldsFunc_1___localname___span(_start, _end);
+    public function new(?_start:StdTypes.Int, ?_end:StdTypes.Int) this = new stdgo._internal.strings.Strings.T_fieldsFunc___localname___span_9921(_start, _end);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

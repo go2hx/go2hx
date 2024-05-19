@@ -1,7 +1,7 @@
 package stdgo._internal.testing.iotest;
 private var __go2hxdoc__package : Bool;
-var errTimeout : stdgo.Error = (null : stdgo.Error);
-var _truncateWriterTests : stdgo.Slice<T__struct_0> = (null : stdgo.Slice<T__struct_0>);
+var errTimeout : stdgo.Error = (() -> (null : stdgo.Error))();
+var _truncateWriterTests : stdgo.Slice<T__struct_0> = (() -> (null : stdgo.Slice<T__struct_0>))();
 @:structInit @:private @:using(stdgo._internal.testing.iotest.Iotest.T_writeLogger_static_extension) class T_writeLogger {
     public var _prefix : stdgo.GoString = "";
     public var _w : stdgo._internal.io.Io.Writer = (null : stdgo._internal.io.Io.Writer);

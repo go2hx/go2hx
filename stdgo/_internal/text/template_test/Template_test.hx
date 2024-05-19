@@ -12,7 +12,7 @@ import stdgo._internal.text.template.Template;
         return new T_templateFile(_name, _contents);
     }
 }
-@:structInit class T_exampleTemplate_53___localname___Recipient {
+@:structInit class T_exampleTemplate___localname___Recipient_588 {
     public var name : stdgo.GoString = "";
     public var gift : stdgo.GoString = "";
     public var attended : Bool = false;
@@ -23,13 +23,13 @@ import stdgo._internal.text.template.Template;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_exampleTemplate_53___localname___Recipient(name, gift, attended);
+        return new T_exampleTemplate___localname___Recipient_588(name, gift, attended);
     }
 }
 function exampleTemplate():Void {
         {};
         {};
-        var _recipients:stdgo.Slice<stdgo._internal.text.template_test.Template_test.T_exampleTemplate_53___localname___Recipient> = (new stdgo.Slice<stdgo._internal.text.template_test.Template_test.T_exampleTemplate_53___localname___Recipient>(3, 3, ...[(new stdgo._internal.text.template_test.Template_test.T_exampleTemplate_53___localname___Recipient(("Aunt Mildred" : stdgo.GoString), ("bone china tea set" : stdgo.GoString), true) : stdgo._internal.text.template_test.Template_test.T_exampleTemplate_53___localname___Recipient), (new stdgo._internal.text.template_test.Template_test.T_exampleTemplate_53___localname___Recipient(("Uncle John" : stdgo.GoString), ("moleskin pants" : stdgo.GoString), false) : stdgo._internal.text.template_test.Template_test.T_exampleTemplate_53___localname___Recipient), (new stdgo._internal.text.template_test.Template_test.T_exampleTemplate_53___localname___Recipient(("Cousin Rodney" : stdgo.GoString), stdgo.Go.str()?.__copy__(), false) : stdgo._internal.text.template_test.Template_test.T_exampleTemplate_53___localname___Recipient)].concat([for (i in 3 ... (3 > 3 ? 3 : 3 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.template_test.Template_test.T_exampleTemplate_53___localname___Recipient)])) : stdgo.Slice<stdgo._internal.text.template_test.Template_test.T_exampleTemplate_53___localname___Recipient>);
+        var _recipients:stdgo.Slice<stdgo._internal.text.template_test.Template_test.T_exampleTemplate___localname___Recipient_588> = (new stdgo.Slice<stdgo._internal.text.template_test.Template_test.T_exampleTemplate___localname___Recipient_588>(3, 3, ...[(new stdgo._internal.text.template_test.Template_test.T_exampleTemplate___localname___Recipient_588(("Aunt Mildred" : stdgo.GoString), ("bone china tea set" : stdgo.GoString), true) : stdgo._internal.text.template_test.Template_test.T_exampleTemplate___localname___Recipient_588), (new stdgo._internal.text.template_test.Template_test.T_exampleTemplate___localname___Recipient_588(("Uncle John" : stdgo.GoString), ("moleskin pants" : stdgo.GoString), false) : stdgo._internal.text.template_test.Template_test.T_exampleTemplate___localname___Recipient_588), (new stdgo._internal.text.template_test.Template_test.T_exampleTemplate___localname___Recipient_588(("Cousin Rodney" : stdgo.GoString), stdgo.Go.str()?.__copy__(), false) : stdgo._internal.text.template_test.Template_test.T_exampleTemplate___localname___Recipient_588)].concat([for (i in 3 ... (3 > 3 ? 3 : 3 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.template_test.Template_test.T_exampleTemplate___localname___Recipient_588)])) : stdgo.Slice<stdgo._internal.text.template_test.Template_test.T_exampleTemplate___localname___Recipient_588>);
         var _t = ({
             var __tmp__ = stdgo._internal.text.template.Template.new_(("letter" : stdgo.GoString)).parse(("\nDear {{.Name}},\n{{if .Attended}}\nIt was a pleasure to see you at the wedding.\n{{- else}}\nIt is a shame you couldn\'t make it to the wedding.\n{{- end}}\n{{with .Gift -}}\nThank you for the lovely {{.}}.\n{{end}}\nBest wishes,\nJosie\n" : stdgo.GoString));
             stdgo._internal.text.template.Template.must((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template.Template>), (__tmp__._1 : stdgo.Error));

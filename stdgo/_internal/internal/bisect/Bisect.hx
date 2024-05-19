@@ -1,7 +1,7 @@
 package stdgo._internal.internal.bisect;
 private var __go2hxdoc__package : Bool;
-final _offset64 : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-final _prime64 : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+final _offset64 : stdgo.GoUInt64 = (() -> (0 : stdgo.GoUInt64))();
+final _prime64 : stdgo.GoUInt64 = (() -> (0 : stdgo.GoUInt64))();
 @:keep class Writer_static_extension {
     static public function write(t:Writer, _0:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return t.write(_0);
 }

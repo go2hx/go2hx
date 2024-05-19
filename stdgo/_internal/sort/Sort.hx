@@ -1,8 +1,8 @@
 package stdgo._internal.sort;
 private var __go2hxdoc__package : Bool;
-final _unknownHint : stdgo._internal.sort.Sort.T_sortedHint = (2 : stdgo._internal.sort.Sort.T_sortedHint);
-final _increasingHint = (2 : stdgo._internal.sort.Sort.T_sortedHint);
-final _decreasingHint = (2 : stdgo._internal.sort.Sort.T_sortedHint);
+final _unknownHint : stdgo._internal.sort.Sort.T_sortedHint = (() -> (2 : stdgo._internal.sort.Sort.T_sortedHint))();
+final _increasingHint = (() -> (2 : stdgo._internal.sort.Sort.T_sortedHint))();
+final _decreasingHint = (() -> (2 : stdgo._internal.sort.Sort.T_sortedHint))();
 @:keep class Interface_static_extension {
     static public function swap(t:Interface, _i:stdgo.GoInt, _j:stdgo.GoInt):Void t.swap(_i, _j);
     static public function less(t:Interface, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool return t.less(_i, _j);

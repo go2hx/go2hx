@@ -762,25 +762,25 @@ typedef ErrorWriter = stdgo._internal.text.template.Template.ErrorWriter;
 typedef FuncMap = stdgo._internal.text.template.Template.FuncMap;
 typedef T_kind = stdgo._internal.text.template.Template.T_kind;
 typedef T_missingKeyAction = stdgo._internal.text.template.Template.T_missingKeyAction;
-@:structInit abstract T_testIssue48215_51___localname___A(stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A) from stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A to stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A {
+@:structInit abstract T_testIssue48215___localname___A_58273(stdgo._internal.text.template.Template.T_testIssue48215___localname___A_58273) from stdgo._internal.text.template.Template.T_testIssue48215___localname___A_58273 to stdgo._internal.text.template.Template.T_testIssue48215___localname___A_58273 {
     public var s(get, set) : String;
     function get_s():String return this.s;
     function set_s(v:String):String {
         this.s = v;
         return v;
     }
-    public function new(?s:String) this = new stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A(s);
+    public function new(?s:String) this = new stdgo._internal.text.template.Template.T_testIssue48215___localname___A_58273(s);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.T_testIssue48215_52___localname___B_static_extension) abstract T_testIssue48215_52___localname___B(stdgo._internal.text.template.Template.T_testIssue48215_52___localname___B) from stdgo._internal.text.template.Template.T_testIssue48215_52___localname___B to stdgo._internal.text.template.Template.T_testIssue48215_52___localname___B {
-    public var a(get, set) : stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A;
-    function get_a():stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A return this.a;
-    function set_a(v:stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A):stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A {
+@:structInit @:using(stdgo.text.template.Template.T_testIssue48215___localname___B_58304_static_extension) abstract T_testIssue48215___localname___B_58304(stdgo._internal.text.template.Template.T_testIssue48215___localname___B_58304) from stdgo._internal.text.template.Template.T_testIssue48215___localname___B_58304 to stdgo._internal.text.template.Template.T_testIssue48215___localname___B_58304 {
+    public var a(get, set) : stdgo._internal.text.template.Template.T_testIssue48215___localname___A_58273;
+    function get_a():stdgo._internal.text.template.Template.T_testIssue48215___localname___A_58273 return this.a;
+    function set_a(v:stdgo._internal.text.template.Template.T_testIssue48215___localname___A_58273):stdgo._internal.text.template.Template.T_testIssue48215___localname___A_58273 {
         this.a = v;
         return v;
     }
-    public function new(?a:stdgo._internal.text.template.Template.T_testIssue48215_51___localname___A) this = new stdgo._internal.text.template.Template.T_testIssue48215_52___localname___B(a);
+    public function new(?a:stdgo._internal.text.template.Template.T_testIssue48215___localname___A_58273) this = new stdgo._internal.text.template.Template.T_testIssue48215___localname___B_58304(a);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1261,7 +1261,7 @@ class ErrorWriter_static_extension {
         };
     }
 }
-class T_testIssue48215_52___localname___B_static_extension {
+class T_testIssue48215___localname___B_58304_static_extension {
 
 }
 /**

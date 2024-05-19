@@ -1,11 +1,11 @@
 package stdgo._internal.os.exec;
 private var __go2hxdoc__package : Bool;
-var errWaitDelay : stdgo.Error = (null : stdgo.Error);
-var _execwait : stdgo.Ref<stdgo._internal.internal.godebug.Godebug.Setting> = (null : stdgo.Ref<stdgo._internal.internal.godebug.Godebug.Setting>);
-var _execerrdot : stdgo.Ref<stdgo._internal.internal.godebug.Godebug.Setting> = (null : stdgo.Ref<stdgo._internal.internal.godebug.Godebug.Setting>);
-var errDot : stdgo.Error = (null : stdgo.Error);
-var errNotFound : stdgo.Error = (null : stdgo.Error);
-var _nonExistentPaths : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
+var errWaitDelay : stdgo.Error = (() -> (null : stdgo.Error))();
+var _execwait : stdgo.Ref<stdgo._internal.internal.godebug.Godebug.Setting> = (() -> (null : stdgo.Ref<stdgo._internal.internal.godebug.Godebug.Setting>))();
+var _execerrdot : stdgo.Ref<stdgo._internal.internal.godebug.Godebug.Setting> = (() -> (null : stdgo.Ref<stdgo._internal.internal.godebug.Godebug.Setting>))();
+var errDot : stdgo.Error = (() -> (null : stdgo.Error))();
+var errNotFound : stdgo.Error = (() -> (null : stdgo.Error))();
+var _nonExistentPaths : stdgo.Slice<stdgo.GoString> = (() -> (null : stdgo.Slice<stdgo.GoString>))();
 @:structInit @:using(stdgo._internal.os.exec.Exec.Error_static_extension) class Error {
     public var name : stdgo.GoString = "";
     public var err : stdgo.Error = (null : stdgo.Error);

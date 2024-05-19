@@ -1,15 +1,15 @@
 package stdgo._internal.math.rand;
 import stdgo._internal.unsafe.Unsafe;
 private var __go2hxdoc__package : Bool;
-final _re : stdgo.GoFloat64 = (7.69711747013105 : stdgo.GoFloat64);
-final _rn : stdgo.GoFloat64 = (3.442619855899 : stdgo.GoFloat64);
-var _globalRandGenerator : stdgo._internal.sync.atomic_.Atomic_.Pointer_<Rand> = ({} : stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo._internal.math.rand.Rand.Rand>);
-final _rngLen : stdgo.GoUInt64 = (607i64 : stdgo.GoUInt64);
-final _rngTap : stdgo.GoUInt64 = (273i64 : stdgo.GoUInt64);
-final _rngMax : stdgo.GoUInt64 = (-9223372036854775808i64 : stdgo.GoUInt64);
-final _rngMask : stdgo.GoUInt64 = (9223372036854775807i64 : stdgo.GoUInt64);
-final _int32max : stdgo.GoUInt64 = (2147483647i64 : stdgo.GoUInt64);
-var _ke : stdgo.GoArray<stdgo.GoUInt32> = (new stdgo.GoArray<stdgo.GoUInt32>(256, 256, ...[
+final _re : stdgo.GoFloat64 = (() -> (7.69711747013105 : stdgo.GoFloat64))();
+final _rn : stdgo.GoFloat64 = (() -> (3.442619855899 : stdgo.GoFloat64))();
+var _globalRandGenerator : stdgo._internal.sync.atomic_.Atomic_.Pointer_<Rand> = (() -> ({} : stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo._internal.math.rand.Rand.Rand>))();
+final _rngLen : stdgo.GoUInt64 = (() -> (607i64 : stdgo.GoUInt64))();
+final _rngTap : stdgo.GoUInt64 = (() -> (273i64 : stdgo.GoUInt64))();
+final _rngMax : stdgo.GoUInt64 = (() -> (-9223372036854775808i64 : stdgo.GoUInt64))();
+final _rngMask : stdgo.GoUInt64 = (() -> (9223372036854775807i64 : stdgo.GoUInt64))();
+final _int32max : stdgo.GoUInt64 = (() -> (2147483647i64 : stdgo.GoUInt64))();
+var _ke : stdgo.GoArray<stdgo.GoUInt32> = (() -> (new stdgo.GoArray<stdgo.GoUInt32>(256, 256, ...[
 (-493838023u32 : stdgo.GoUInt32),
 (0u32 : stdgo.GoUInt32),
 (-1679106372u32 : stdgo.GoUInt32),
@@ -265,8 +265,8 @@ var _ke : stdgo.GoArray<stdgo.GoUInt32> = (new stdgo.GoArray<stdgo.GoUInt32>(256
 (-183160592u32 : stdgo.GoUInt32),
 (-221573572u32 : stdgo.GoUInt32),
 (-286281379u32 : stdgo.GoUInt32),
-(-421892401u32 : stdgo.GoUInt32)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt32>);
-var _we : stdgo.GoArray<stdgo.GoFloat32> = (new stdgo.GoArray<stdgo.GoFloat32>(256, 256, ...[
+(-421892401u32 : stdgo.GoUInt32)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt32>))();
+var _we : stdgo.GoArray<stdgo.GoFloat32> = (() -> (new stdgo.GoArray<stdgo.GoFloat32>(256, 256, ...[
 (2.0249555365836613e-09 : stdgo.GoFloat64),
 (1.4866739783681027e-11 : stdgo.GoFloat64),
 (2.4409616689036184e-11 : stdgo.GoFloat64),
@@ -522,8 +522,8 @@ var _we : stdgo.GoArray<stdgo.GoFloat32> = (new stdgo.GoArray<stdgo.GoFloat32>(2
 (1.4305497897382224e-09 : stdgo.GoFloat64),
 (1.5083649884672923e-09 : stdgo.GoFloat64),
 (1.6160853766322703e-09 : stdgo.GoFloat64),
-(1.7921247819074893e-09 : stdgo.GoFloat64)]).__setNumber32__() : stdgo.GoArray<stdgo.GoFloat32>);
-var _fe : stdgo.GoArray<stdgo.GoFloat32> = (new stdgo.GoArray<stdgo.GoFloat32>(256, 256, ...[
+(1.7921247819074893e-09 : stdgo.GoFloat64)]).__setNumber32__() : stdgo.GoArray<stdgo.GoFloat32>))();
+var _fe : stdgo.GoArray<stdgo.GoFloat32> = (() -> (new stdgo.GoArray<stdgo.GoFloat32>(256, 256, ...[
 (1 : stdgo.GoFloat64),
 (0.9381436705589294 : stdgo.GoFloat64),
 (0.900469958782196 : stdgo.GoFloat64),
@@ -779,8 +779,8 @@ var _fe : stdgo.GoArray<stdgo.GoFloat32> = (new stdgo.GoArray<stdgo.GoFloat32>(2
 (0.0021459676790982485 : stdgo.GoFloat64),
 (0.001536299823783338 : stdgo.GoFloat64),
 (0.0009672692976891994 : stdgo.GoFloat64),
-(0.0004541343660093844 : stdgo.GoFloat64)]).__setNumber32__() : stdgo.GoArray<stdgo.GoFloat32>);
-var _kn : stdgo.GoArray<stdgo.GoUInt32> = (new stdgo.GoArray<stdgo.GoUInt32>(128, 128, ...[
+(0.0004541343660093844 : stdgo.GoFloat64)]).__setNumber32__() : stdgo.GoArray<stdgo.GoFloat32>))();
+var _kn : stdgo.GoArray<stdgo.GoUInt32> = (() -> (new stdgo.GoArray<stdgo.GoUInt32>(128, 128, ...[
 (1991057938u32 : stdgo.GoUInt32),
 (0u32 : stdgo.GoUInt32),
 (1611602771u32 : stdgo.GoUInt32),
@@ -908,8 +908,8 @@ var _kn : stdgo.GoArray<stdgo.GoUInt32> = (new stdgo.GoArray<stdgo.GoUInt32>(128
 (2086670106u32 : stdgo.GoUInt32),
 (2074676188u32 : stdgo.GoUInt32),
 (2054300022u32 : stdgo.GoUInt32),
-(2010539237u32 : stdgo.GoUInt32)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt32>);
-var _wn : stdgo.GoArray<stdgo.GoFloat32> = (new stdgo.GoArray<stdgo.GoFloat32>(128, 128, ...[
+(2010539237u32 : stdgo.GoUInt32)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt32>))();
+var _wn : stdgo.GoArray<stdgo.GoFloat32> = (() -> (new stdgo.GoArray<stdgo.GoFloat32>(128, 128, ...[
 (1.7290404663583558e-09 : stdgo.GoFloat64),
 (1.2680928529462676e-10 : stdgo.GoFloat64),
 (1.689751810696194e-10 : stdgo.GoFloat64),
@@ -1037,8 +1037,8 @@ var _wn : stdgo.GoArray<stdgo.GoFloat32> = (new stdgo.GoArray<stdgo.GoFloat32>(1
 (1.3870635751089821e-09 : stdgo.GoFloat64),
 (1.43574030442295e-09 : stdgo.GoFloat64),
 (1.5008658760251592e-09 : stdgo.GoFloat64),
-(1.6030947680434338e-09 : stdgo.GoFloat64)]).__setNumber32__() : stdgo.GoArray<stdgo.GoFloat32>);
-var _fn : stdgo.GoArray<stdgo.GoFloat32> = (new stdgo.GoArray<stdgo.GoFloat32>(128, 128, ...[
+(1.6030947680434338e-09 : stdgo.GoFloat64)]).__setNumber32__() : stdgo.GoArray<stdgo.GoFloat32>))();
+var _fn : stdgo.GoArray<stdgo.GoFloat32> = (() -> (new stdgo.GoArray<stdgo.GoFloat32>(128, 128, ...[
 (1 : stdgo.GoFloat64),
 (0.963599681854248 : stdgo.GoFloat64),
 (0.9362826943397522 : stdgo.GoFloat64),
@@ -1166,9 +1166,9 @@ var _fn : stdgo.GoArray<stdgo.GoFloat32> = (new stdgo.GoArray<stdgo.GoFloat32>(1
 (0.011839478276669979 : stdgo.GoFloat64),
 (0.0086244847625494 : stdgo.GoFloat64),
 (0.005548994988203049 : stdgo.GoFloat64),
-(0.0026696291752159595 : stdgo.GoFloat64)]).__setNumber32__() : stdgo.GoArray<stdgo.GoFloat32>);
-var _randautoseed : stdgo.Ref<stdgo._internal.internal.godebug.Godebug.Setting> = stdgo._internal.internal.godebug.Godebug.new_(("randautoseed" : stdgo.GoString));
-var _rngCooked : stdgo.GoArray<stdgo.GoInt64> = (new stdgo.GoArray<stdgo.GoInt64>(607, 607, ...[
+(0.0026696291752159595 : stdgo.GoFloat64)]).__setNumber32__() : stdgo.GoArray<stdgo.GoFloat32>))();
+var _randautoseed : stdgo.Ref<stdgo._internal.internal.godebug.Godebug.Setting> = (() -> stdgo._internal.internal.godebug.Godebug.new_(("randautoseed" : stdgo.GoString)))();
+var _rngCooked : stdgo.GoArray<stdgo.GoInt64> = (() -> (new stdgo.GoArray<stdgo.GoInt64>(607, 607, ...[
 (-4181792142133755926i64 : stdgo.GoInt64),
 (-4576982950128230565i64 : stdgo.GoInt64),
 (1395769623340756751i64 : stdgo.GoInt64),
@@ -1775,7 +1775,7 @@ var _rngCooked : stdgo.GoArray<stdgo.GoInt64> = (new stdgo.GoArray<stdgo.GoInt64
 (-2171292963361310674i64 : stdgo.GoInt64),
 (8382142935188824023i64 : stdgo.GoInt64),
 (9103922860780351547i64 : stdgo.GoInt64),
-(4152330101494654406i64 : stdgo.GoInt64)]).__setNumber64__() : stdgo.GoArray<stdgo.GoInt64>)?.__copy__();
+(4152330101494654406i64 : stdgo.GoInt64)]).__setNumber64__() : stdgo.GoArray<stdgo.GoInt64>)?.__copy__())();
 @:keep class Source_static_extension {
     static public function seed(t:Source, _seed:stdgo.GoInt64):Void t.seed(_seed);
     static public function int63(t:Source):stdgo.GoInt64 return t.int63();
@@ -1912,7 +1912,7 @@ function new_(_src:Source):stdgo.Ref<Rand> {
             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_src) : Source64)) : Source64), _1 : true };
         } catch(_) {
             { _0 : (null : stdgo._internal.math.rand.Rand.Source64), _1 : false };
-        }, _s64 = __tmp__._0, __6 = __tmp__._1;
+        }, _s64 = __tmp__._0, __8 = __tmp__._1;
         return (stdgo.Go.setRef(({ _src : _src, _s64 : _s64 } : stdgo._internal.math.rand.Rand.Rand)) : stdgo.Ref<stdgo._internal.math.rand.Rand.Rand>);
     }
 function _read(_p:stdgo.Slice<stdgo.GoByte>, _src:Source, _readVal:stdgo.Pointer<stdgo.GoInt64>, _readPos:stdgo.Pointer<stdgo.GoInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
@@ -1923,7 +1923,7 @@ function _read(_p:stdgo.Slice<stdgo.GoByte>, _src:Source, _readVal:stdgo.Pointer
             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_src) : stdgo.Ref<T_rngSource>)) : stdgo.Ref<T_rngSource>), _1 : true };
         } catch(_) {
             { _0 : (null : stdgo.Ref<stdgo._internal.math.rand.Rand.T_rngSource>), _1 : false };
-        }, _rng = __tmp__._0, __6 = __tmp__._1;
+        }, _rng = __tmp__._0, __8 = __tmp__._1;
         {
             _n = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_n < (_p.length) : Bool), _n++, {
@@ -1973,7 +1973,7 @@ function seed(_seed:stdgo.GoInt64):Void {
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_orig._src) : stdgo.Ref<T_lockedSource>)) : stdgo.Ref<T_lockedSource>), _1 : true };
                 } catch(_) {
                     { _0 : (null : stdgo.Ref<stdgo._internal.math.rand.Rand.T_lockedSource>), _1 : false };
-                }, __12 = __tmp__._0, _ok = __tmp__._1;
+                }, __14 = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
                     _orig.seed(_seed);
                     return;

@@ -702,7 +702,7 @@ class Type__static_extension {
         return stdgo._internal.internal.abi.Abi.Type__static_extension.kind(t);
     }
 }
-@:structInit abstract T_uncommon_43___localname___u(stdgo._internal.internal.abi.Abi.T_uncommon_43___localname___u) from stdgo._internal.internal.abi.Abi.T_uncommon_43___localname___u to stdgo._internal.internal.abi.Abi.T_uncommon_43___localname___u {
+@:structInit abstract T_uncommon___localname___u_8324(stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8324) from stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8324 to stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8324 {
     public var ptrType(get, set) : stdgo._internal.internal.abi.Abi.PtrType;
     function get_ptrType():stdgo._internal.internal.abi.Abi.PtrType return this.ptrType;
     function set_ptrType(v:stdgo._internal.internal.abi.Abi.PtrType):stdgo._internal.internal.abi.Abi.PtrType {
@@ -715,11 +715,11 @@ class Type__static_extension {
         this._u = v;
         return v;
     }
-    public function new(?ptrType:stdgo._internal.internal.abi.Abi.PtrType, ?_u:stdgo._internal.internal.abi.Abi.UncommonType) this = new stdgo._internal.internal.abi.Abi.T_uncommon_43___localname___u(ptrType, _u);
+    public function new(?ptrType:stdgo._internal.internal.abi.Abi.PtrType, ?_u:stdgo._internal.internal.abi.Abi.UncommonType) this = new stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8324(ptrType, _u);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_uncommon_44___localname___u(stdgo._internal.internal.abi.Abi.T_uncommon_44___localname___u) from stdgo._internal.internal.abi.Abi.T_uncommon_44___localname___u to stdgo._internal.internal.abi.Abi.T_uncommon_44___localname___u {
+@:structInit abstract T_uncommon___localname___u_8423(stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8423) from stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8423 to stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8423 {
     public var funcType(get, set) : stdgo._internal.internal.abi.Abi.FuncType;
     function get_funcType():stdgo._internal.internal.abi.Abi.FuncType return this.funcType;
     function set_funcType(v:stdgo._internal.internal.abi.Abi.FuncType):stdgo._internal.internal.abi.Abi.FuncType {
@@ -732,11 +732,11 @@ class Type__static_extension {
         this._u = v;
         return v;
     }
-    public function new(?funcType:stdgo._internal.internal.abi.Abi.FuncType, ?_u:stdgo._internal.internal.abi.Abi.UncommonType) this = new stdgo._internal.internal.abi.Abi.T_uncommon_44___localname___u(funcType, _u);
+    public function new(?funcType:stdgo._internal.internal.abi.Abi.FuncType, ?_u:stdgo._internal.internal.abi.Abi.UncommonType) this = new stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8423(funcType, _u);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_uncommon_45___localname___u(stdgo._internal.internal.abi.Abi.T_uncommon_45___localname___u) from stdgo._internal.internal.abi.Abi.T_uncommon_45___localname___u to stdgo._internal.internal.abi.Abi.T_uncommon_45___localname___u {
+@:structInit abstract T_uncommon___localname___u_8524(stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8524) from stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8524 to stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8524 {
     public var sliceType(get, set) : stdgo._internal.internal.abi.Abi.SliceType;
     function get_sliceType():stdgo._internal.internal.abi.Abi.SliceType return this.sliceType;
     function set_sliceType(v:stdgo._internal.internal.abi.Abi.SliceType):stdgo._internal.internal.abi.Abi.SliceType {
@@ -749,11 +749,11 @@ class Type__static_extension {
         this._u = v;
         return v;
     }
-    public function new(?sliceType:stdgo._internal.internal.abi.Abi.SliceType, ?_u:stdgo._internal.internal.abi.Abi.UncommonType) this = new stdgo._internal.internal.abi.Abi.T_uncommon_45___localname___u(sliceType, _u);
+    public function new(?sliceType:stdgo._internal.internal.abi.Abi.SliceType, ?_u:stdgo._internal.internal.abi.Abi.UncommonType) this = new stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8524(sliceType, _u);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_uncommon_46___localname___u(stdgo._internal.internal.abi.Abi.T_uncommon_46___localname___u) from stdgo._internal.internal.abi.Abi.T_uncommon_46___localname___u to stdgo._internal.internal.abi.Abi.T_uncommon_46___localname___u {
+@:structInit abstract T_uncommon___localname___u_8626(stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8626) from stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8626 to stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8626 {
     public var arrayType(get, set) : stdgo._internal.internal.abi.Abi.ArrayType;
     function get_arrayType():stdgo._internal.internal.abi.Abi.ArrayType return this.arrayType;
     function set_arrayType(v:stdgo._internal.internal.abi.Abi.ArrayType):stdgo._internal.internal.abi.Abi.ArrayType {
@@ -766,11 +766,11 @@ class Type__static_extension {
         this._u = v;
         return v;
     }
-    public function new(?arrayType:stdgo._internal.internal.abi.Abi.ArrayType, ?_u:stdgo._internal.internal.abi.Abi.UncommonType) this = new stdgo._internal.internal.abi.Abi.T_uncommon_46___localname___u(arrayType, _u);
+    public function new(?arrayType:stdgo._internal.internal.abi.Abi.ArrayType, ?_u:stdgo._internal.internal.abi.Abi.UncommonType) this = new stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8626(arrayType, _u);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_uncommon_47___localname___u(stdgo._internal.internal.abi.Abi.T_uncommon_47___localname___u) from stdgo._internal.internal.abi.Abi.T_uncommon_47___localname___u to stdgo._internal.internal.abi.Abi.T_uncommon_47___localname___u {
+@:structInit abstract T_uncommon___localname___u_8727(stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8727) from stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8727 to stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8727 {
     public var chanType(get, set) : stdgo._internal.internal.abi.Abi.ChanType;
     function get_chanType():stdgo._internal.internal.abi.Abi.ChanType return this.chanType;
     function set_chanType(v:stdgo._internal.internal.abi.Abi.ChanType):stdgo._internal.internal.abi.Abi.ChanType {
@@ -783,11 +783,11 @@ class Type__static_extension {
         this._u = v;
         return v;
     }
-    public function new(?chanType:stdgo._internal.internal.abi.Abi.ChanType, ?_u:stdgo._internal.internal.abi.Abi.UncommonType) this = new stdgo._internal.internal.abi.Abi.T_uncommon_47___localname___u(chanType, _u);
+    public function new(?chanType:stdgo._internal.internal.abi.Abi.ChanType, ?_u:stdgo._internal.internal.abi.Abi.UncommonType) this = new stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8727(chanType, _u);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_uncommon_48___localname___u(stdgo._internal.internal.abi.Abi.T_uncommon_48___localname___u) from stdgo._internal.internal.abi.Abi.T_uncommon_48___localname___u to stdgo._internal.internal.abi.Abi.T_uncommon_48___localname___u {
+@:structInit abstract T_uncommon___localname___u_8826(stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8826) from stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8826 to stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8826 {
     public var mapType(get, set) : stdgo._internal.internal.abi.Abi.MapType;
     function get_mapType():stdgo._internal.internal.abi.Abi.MapType return this.mapType;
     function set_mapType(v:stdgo._internal.internal.abi.Abi.MapType):stdgo._internal.internal.abi.Abi.MapType {
@@ -800,11 +800,11 @@ class Type__static_extension {
         this._u = v;
         return v;
     }
-    public function new(?mapType:stdgo._internal.internal.abi.Abi.MapType, ?_u:stdgo._internal.internal.abi.Abi.UncommonType) this = new stdgo._internal.internal.abi.Abi.T_uncommon_48___localname___u(mapType, _u);
+    public function new(?mapType:stdgo._internal.internal.abi.Abi.MapType, ?_u:stdgo._internal.internal.abi.Abi.UncommonType) this = new stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8826(mapType, _u);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_uncommon_49___localname___u(stdgo._internal.internal.abi.Abi.T_uncommon_49___localname___u) from stdgo._internal.internal.abi.Abi.T_uncommon_49___localname___u to stdgo._internal.internal.abi.Abi.T_uncommon_49___localname___u {
+@:structInit abstract T_uncommon___localname___u_8930(stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8930) from stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8930 to stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8930 {
     public var interfaceType(get, set) : stdgo._internal.internal.abi.Abi.InterfaceType;
     function get_interfaceType():stdgo._internal.internal.abi.Abi.InterfaceType return this.interfaceType;
     function set_interfaceType(v:stdgo._internal.internal.abi.Abi.InterfaceType):stdgo._internal.internal.abi.Abi.InterfaceType {
@@ -817,11 +817,11 @@ class Type__static_extension {
         this._u = v;
         return v;
     }
-    public function new(?interfaceType:stdgo._internal.internal.abi.Abi.InterfaceType, ?_u:stdgo._internal.internal.abi.Abi.UncommonType) this = new stdgo._internal.internal.abi.Abi.T_uncommon_49___localname___u(interfaceType, _u);
+    public function new(?interfaceType:stdgo._internal.internal.abi.Abi.InterfaceType, ?_u:stdgo._internal.internal.abi.Abi.UncommonType) this = new stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8930(interfaceType, _u);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_uncommon_50___localname___u(stdgo._internal.internal.abi.Abi.T_uncommon_50___localname___u) from stdgo._internal.internal.abi.Abi.T_uncommon_50___localname___u to stdgo._internal.internal.abi.Abi.T_uncommon_50___localname___u {
+@:structInit abstract T_uncommon___localname___u_9033(stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_9033) from stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_9033 to stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_9033 {
     public var type(get, set) : stdgo._internal.internal.abi.Abi.Type_;
     function get_type():stdgo._internal.internal.abi.Abi.Type_ return this.type;
     function set_type(v:stdgo._internal.internal.abi.Abi.Type_):stdgo._internal.internal.abi.Abi.Type_ {
@@ -834,7 +834,7 @@ class Type__static_extension {
         this._u = v;
         return v;
     }
-    public function new(?type:stdgo._internal.internal.abi.Abi.Type_, ?_u:stdgo._internal.internal.abi.Abi.UncommonType) this = new stdgo._internal.internal.abi.Abi.T_uncommon_50___localname___u(type, _u);
+    public function new(?type:stdgo._internal.internal.abi.Abi.Type_, ?_u:stdgo._internal.internal.abi.Abi.UncommonType) this = new stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_9033(type, _u);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

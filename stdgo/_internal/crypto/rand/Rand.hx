@@ -1,10 +1,10 @@
 package stdgo._internal.crypto.rand;
 private var __go2hxdoc__package : Bool;
-var reader : stdgo._internal.io.Io.Reader = (null : stdgo._internal.io.Io.Reader);
-final _maxGetRandomRead : stdgo.GoUInt64 = (65536i64 : stdgo.GoUInt64);
-var _batchedGetRandom : stdgo.Slice<stdgo.GoByte> -> stdgo.Error = null;
-var _jsCrypto : stdgo._internal.syscall.js.Js.Value = stdgo._internal.syscall.js.Js.global().get(("crypto" : stdgo.GoString));
-var _uint8Array : stdgo._internal.syscall.js.Js.Value = stdgo._internal.syscall.js.Js.global().get(("Uint8Array" : stdgo.GoString));
+var reader : stdgo._internal.io.Io.Reader = (() -> (null : stdgo._internal.io.Io.Reader))();
+final _maxGetRandomRead : stdgo.GoUInt64 = (() -> (65536i64 : stdgo.GoUInt64))();
+var _batchedGetRandom : stdgo.Slice<stdgo.GoByte> -> stdgo.Error = (() -> null)();
+var _jsCrypto : stdgo._internal.syscall.js.Js.Value = (() -> stdgo._internal.syscall.js.Js.global().get(("crypto" : stdgo.GoString)))();
+var _uint8Array : stdgo._internal.syscall.js.Js.Value = (() -> stdgo._internal.syscall.js.Js.global().get(("Uint8Array" : stdgo.GoString)))();
 @:structInit @:private @:using(stdgo._internal.crypto.rand.Rand.T_reader_static_extension) class T_reader {
     public function new() {}
     public function __underlying__() return stdgo.Go.toInterface(this);
@@ -51,7 +51,7 @@ function testRead(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             _t.fatalf(("ReadFull(buf) = %d, %s" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
         };
         var _z:stdgo._internal.bytes.Bytes.Buffer = ({} : stdgo._internal.bytes.Bytes.Buffer);
-        var __tmp__ = stdgo._internal.compress.flate.Flate.newWriter(stdgo.Go.asInterface((stdgo.Go.setRef(_z) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>)), (5 : stdgo.GoInt)), _f:stdgo.Ref<stdgo._internal.compress.flate.Flate.Writer> = __tmp__._0, __18:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo._internal.compress.flate.Flate.newWriter(stdgo.Go.asInterface((stdgo.Go.setRef(_z) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>)), (5 : stdgo.GoInt)), _f:stdgo.Ref<stdgo._internal.compress.flate.Flate.Writer> = __tmp__._0, __20:stdgo.Error = __tmp__._1;
         _f.write(_b);
         _f.close();
         if ((_z.len() < (((_b.length) * (99 : stdgo.GoInt) : stdgo.GoInt) / (100 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
@@ -85,7 +85,7 @@ function prime(_rand:stdgo._internal.io.Io.Reader, _bits:stdgo.GoInt):{ var _0 :
         var _p = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>);
         while (true) {
             {
-                var __tmp__ = stdgo._internal.io.Io.readFull(_rand, _bytes), __10:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo._internal.io.Io.readFull(_rand, _bytes), __12:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return { _0 : null, _1 : _err };
                 };

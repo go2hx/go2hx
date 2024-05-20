@@ -61,15 +61,15 @@ var kill : stdgo._internal.os.Os.Signal = (() -> (null : stdgo._internal.os.Os.S
 var _errWriteAtInAppendMode : stdgo.Error = (() -> (null : stdgo.Error))();
 var _checkWrapErr : Bool = (() -> false)();
 var stdin : stdgo.Ref<stdgo._internal.os.Os.File> = (() -> {
-        final input:haxe.io.Input = #if target.sys Sys.stdin() #else null #end;
+        final input:haxe.io.Input = #if (target.sys || hxnodejs) Sys.stdin() #else null #end;
         new File(input, null);
     })();
 var stdout : stdgo.Ref<stdgo._internal.os.Os.File> = (() -> {
-        final output:haxe.io.Output = #if target.sys Sys.stdout() #else null #end;
+        final output:haxe.io.Output = #if (target.sys || hxnodejs) Sys.stdout() #else null #end;
         new File(null, output);
     })();
 var stderr : stdgo.Ref<stdgo._internal.os.Os.File> = (() -> {
-        final output:haxe.io.Output = #if target.sys Sys.stderr() #else null #end;
+        final output:haxe.io.Output = #if (target.sys || hxnodejs) Sys.stderr() #else null #end;
         new File(null, output);
     })();
 var _errPatternHasSeparator : stdgo.Error = (() -> (null : stdgo.Error))();

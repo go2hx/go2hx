@@ -2362,7 +2362,12 @@ function _isOddInt(_x:stdgo.GoFloat64):Bool {
         var __tmp__ = modf(_x), _xi:stdgo.GoFloat64 = __tmp__._0, _xf:stdgo.GoFloat64 = __tmp__._1;
         return ((_xf == (0 : stdgo.GoFloat64)) && (((_xi : stdgo.GoInt64) & (1i64 : stdgo.GoInt64) : stdgo.GoInt64) == (1i64 : stdgo.GoInt64)) : Bool);
     }
-function pow(_x:stdgo.GoFloat64, _y:stdgo.GoFloat64):stdgo.GoFloat64 return std.Math.pow(_x.toBasic(), _y.toBasic());
+function pow(_x:stdgo.GoFloat64, _y:stdgo.GoFloat64):stdgo.GoFloat64 {
+        #if js {
+            if (_x == 1 && (std.Math.isNaN(_y.toBasic()) || !Math.isFinite(_y.toBasic()))) return 1;
+        } #else null #end;
+        return std.Math.pow(_x.toBasic(), _y.toBasic());
+    }
 function _pow(_x:stdgo.GoFloat64, _y:stdgo.GoFloat64):stdgo.GoFloat64 {
         if (((_y == (0 : stdgo.GoFloat64)) || (_x == (1 : stdgo.GoFloat64)) : Bool)) {
             return (1 : stdgo.GoFloat64);
